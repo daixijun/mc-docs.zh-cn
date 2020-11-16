@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d232719364ef9e7078bac61c98a3332bebdc7602
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 5dd5107753fbbbf6f71aa832bbaa9a5e3f71ac11
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041494"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501971"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>使用 Azure CLI 向托管标识分配对资源的访问权限
 
@@ -29,11 +29,13 @@ ms.locfileid: "92041494"
 
 为 Azure 资源配置托管标识后，便可以授予该托管标识对其他资源的访问权限，这一点与安全主体一样。 此示例展示了如何使用 Azure CLI 授予 Azure 虚拟机或虚拟机规模集的托管标识对 Azure 存储帐户的访问权限。
 
+如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
-- 若要运行 CLI 脚本示例，可以[安装 Azure CLI 的最新版本](/cli/install-azure-cli)。 
+- 如果你不熟悉 Azure 资源托管标识，请参阅[什么是 Azure 资源托管标识？](overview.md)。 若要了解系统分配的托管标识和用户分配的托管标识类型，请参阅[托管标识类型](overview.md#managed-identity-types)。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>使用 Azure RBAC 授予托管标识对另一资源的访问权限
 

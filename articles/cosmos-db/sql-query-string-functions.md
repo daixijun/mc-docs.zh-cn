@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 查询语言中的字符串函数
 description: 了解 Azure Cosmos DB 中的字符串 SQL 系统函数。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/13/2019
-ms.date: 08/17/2020
+origin.date: 10/13/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: df6d615a2ed4bd68ab87168bc8e1635ec3a83750
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 2f63765b38105e3b26419b4e07d364e5316abb81
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222731"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551977"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>字符串函数 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 使用字符串函数可以对 Azure Cosmos DB 中的字符串执行操作。
 
@@ -33,6 +34,7 @@ ms.locfileid: "88222731"
 * [LENGTH](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
+* [REGEXMATCH](sql-query-regexmatch.md)
 * [REPLACE](sql-query-replace.md)
 * [REPLICATE](sql-query-replicate.md)
 * [REVERSE](sql-query-reverse.md)

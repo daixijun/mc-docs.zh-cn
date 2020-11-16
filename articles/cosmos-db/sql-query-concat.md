@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 CONCAT
 description: 了解 Azure Cosmos DB 中的 CONCAT SQL 系统函数如何返回一个字符串来表示连接两个或更多字符串值的结果
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: fcd3f8210e4c34a9cfafefe56f54b21f8bbc8820
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: b1a81062707e2b56afa019e37469d7291fad5705
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134464"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551781"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
 
 ## <a name="syntax"></a>语法

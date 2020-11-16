@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 09/06/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94803c6f1e86c32979592848296343fee4ca98a9
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: abd260b67e104948e2b1aa4cd6f040b4d8410b97
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246728"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552311"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>通过 Gremlin SDK 使用 Azure Cosmos DB 资源令牌
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 本文介绍如何通过 Gremlin SDK 使用 [Azure Cosmos DB 资源令牌](secure-access-to-data.md)访问图形数据库。
 
@@ -40,7 +41,7 @@ Apache TinkerPop Gremlin SDK 没有用于创建资源令牌的 API。 术语“�
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
 DocumentClient client = new DocumentClient(
   new Uri("https://contoso.documents.azure.cn:443/"), 
-  "<master key>", 
+  "<primary key>", 
   new ConnectionPolicy 
   {
     EnableEndpointDiscovery = false, 
@@ -66,7 +67,7 @@ DocumentClient client = new DocumentClient(
 // You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
-// Configure the Gremlin server to use a resource token rather than a master key.
+// Configure the Gremlin server to use a resource token rather than a primary key.
 GremlinServer server = new GremlinServer(
   "contoso.gremlin.cosmos.azure.cn",
   port: 443,

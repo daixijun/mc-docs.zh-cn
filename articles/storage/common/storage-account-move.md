@@ -7,15 +7,15 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 origin.date: 05/11/2020
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: dineshm
-ms.openlocfilehash: 5bcb1a6693609868959aede1a2894db2ef1ab7b7
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 859d81846f3c5b705a496a7202518c40b6da52fd
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414645"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552350"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>将 Azure 存储帐户移到另一个区域
 
@@ -68,7 +68,7 @@ ms.locfileid: "86414645"
 
 若要使用 PowerShell 导出模板：
 
-1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，然后按屏幕说明操作：
+1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 订阅，然后按屏幕说明操作：
 
    ```azurepowershell
    Connect-AzAccount -Environment AzureChinaCloud
@@ -104,7 +104,7 @@ ms.locfileid: "86414645"
 
 1. 在 Azure 门户中，选择“创建资源”。
 
-2. 在“搜索市场”中键入“模板部署”，然后按 **ENTER**。 
+2. 在“搜索市场”中键入“模板部署”，然后按 **ENTER** 。 
 
 3. 选择“模板部署”。
 
@@ -138,7 +138,7 @@ ms.locfileid: "86414645"
          "location": "chinanorth2"
          }]          
     ```
-    区域的代码是不带空格的区域名称，**中国北部 2** = **chinanorth2**。
+    区域的代码是不带空格的区域名称， **中国北部 2** = **chinanorth2** 。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -168,7 +168,7 @@ ms.locfileid: "86414645"
          }]          
     ```
 
-    可以运行 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) 命令获取区域代码。
+    可以运行 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令获取区域代码。
 
     ```azurepowershell
     Get-AzLocation | format-table 
@@ -187,17 +187,17 @@ ms.locfileid: "86414645"
 
 2. 输入或选择属性值：
 
-- **订阅**：选择 Azure 订阅。
+- **订阅** ：选择 Azure 订阅。
 
-- **资源组**：选择“新建”  并为资源组指定名称。
+- **资源组** ：选择“新建”  并为资源组指定名称。
 
-- **位置**：选择 Azure 位置。
+- **位置** ：选择 Azure 位置。
 
 3. 单击“我同意上述条款和条件”复选框，然后单击“选择购买”按钮。 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. 使用 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) 获取要在其中部署目标公共 IP 的订阅 ID：
+1. 使用 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) 获取要在其中部署目标公共 IP 的订阅 ID：
 
    ```azurepowershell
    Get-AzSubscription
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 在本教程中，你已将一个 Azure 存储帐户从一个区域移到了另一个区域，并清理了源资源。  若要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅：
 
 
-- [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
-- [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
+- [将资源移到新资源组或订阅中](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [将 Azure VM 移到另一区域](../../site-recovery/azure-to-azure-tutorial-migrate.md)

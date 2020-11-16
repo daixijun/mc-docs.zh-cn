@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2dc1d675b6791f1e932ff97cd7a58c512a62748
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 783c59172e2de0726f198517109f924a27c16a74
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937024"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501900"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD External Identities 的计费模型
 
-Azure Active Directory (Azure AD) External Identities 定价基于月度活跃用户数 (MAU)，这是对一个日历月内具有身份验证活动的独立用户的计数。 此计费模型同时适用于 Azure AD 来宾用户协作 (B2B) 和 [Azure AD B2C 租户](/active-directory-b2c/billing)。 MAU 计费提供免费层和灵活且可预测的定价，有助于降低成本。 在本文中，你将了解 MAU 计费，以及如何将 Azure AD 租户关联到订阅。
+Azure Active Directory (Azure AD) External Identities 定价基于月度活跃用户数 (MAU)，这是对一个日历月内具有身份验证活动的独立用户的计数。 此计费模型同时适用于 Azure AD 来宾用户协作 (B2B) 和 [Azure AD B2C 租户](../../active-directory-b2c/billing.md)。 MAU 计费提供免费层和灵活且可预测的定价，有助于降低成本。 在本文中，你将了解 MAU 计费，以及如何将 Azure AD 租户关联到订阅。
 
 > [!IMPORTANT]
 > 本文不包含定价详细信息。 有关用量计费和定价的最新信息，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)。
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) External Identities 定价基于月度活跃�
 
 必须将 Azure AD 租户关联到 Azure 订阅才能正确计费并访问功能。 如果目录还没有可以链接到的订阅，则可以在此过程中添加一个订阅。
 
-1. 使用至少在订阅中分配了[参与者](/role-based-access-control/built-in-roles)角色的 Azure 帐户或订阅中的资源组登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 使用至少在订阅中分配了[参与者](../../role-based-access-control/built-in-roles.md)角色的 Azure 帐户或订阅中的资源组登录到 [Azure 门户](https://portal.azure.cn/)。
 
 2. 选择要链接的目录：在 Azure 门户工具栏中选择“目录 + 订阅”图标，然后选择目录。
 
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) External Identities 定价基于月度活跃�
 
     ![选择租户并关联订阅](./media/external-identities-pricing/linked-subscriptions.png)
 
-7. 在“关联订阅”窗格中，选择一个**订阅**和一个**资源组**。 然后，选择“应用”。
+7. 在“关联订阅”窗格中，选择一个 **订阅** 和一个 **资源组** 。 然后，选择“应用”。
 
    > [!NOTE]
    > 如果未列出任何订阅，可以[将订阅关联到租户](../fundamentals/active-directory-how-subscriptions-associated-directory.md)。 或者，可以通过选择“如果你还没有订阅，可以在此处创建一个订阅”链接来添加新订阅。

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c97516a6b1024706c2e653189ba6868d41a3736
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 551a4fb4ba1a4fafff65949c9949bac2e36c33f3
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041588"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501816"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虚拟机规模集上配置 Azure 资源托管标识
 
@@ -32,20 +32,24 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - 在 Azure 虚拟机规模集上启用和禁用系统分配托管标识
 - 在 Azure 虚拟机规模集上添加和删除用户分配托管标识
 
+如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+- 如果你不熟悉 Azure 资源托管标识，请参阅[什么是 Azure 资源托管标识？](overview.md)。 若要了解系统分配的托管标识和用户分配的托管标识类型，请参阅[托管标识类型](overview.md#managed-identity-types)。
+
 - 若要执行本文中的管理操作，帐户需要以下基于 Azure 角色的访问控制分配：
 
-    > [!NOTE]
-    > 无需其他 Azure AD 目录角色分配。
+  - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
 
-    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
-    - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
-    - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
-- 若要运行示例脚本，可安装最新版的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure，在本地运行这些脚本。 使用与要在其中创建资源的 Azure 订阅关联的帐户。
+  - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
+
+  - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
+
+  > [!NOTE]
+  > 无需其他 Azure AD 目录角色分配。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 

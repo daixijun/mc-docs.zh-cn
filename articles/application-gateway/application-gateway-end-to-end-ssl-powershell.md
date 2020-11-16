@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0d9afe681458976fed099deb9b284cf766acac27
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 14c90428050a8c637d43987ed3a1b6169ee82793
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516742"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552372"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 TLS
 
@@ -20,7 +20,7 @@ ms.locfileid: "85516742"
 
 Azure 应用程序网关支持对流量进行端到端加密。 该应用程序网关将 TLS/SSL 连接的一端连接到应用程序网关。 网关随后将路由规则应用于流量、重新加密数据包，并根据定义的路由规则将数据包转发到适当的后端服务器。 来自 Web 服务器的任何响应都会经历相同的过程返回最终用户。
 
-应用程序网关支持定义自定义 TLS 选项。 除了支持定义要使用的密码套件和优先级顺序外，它还支持禁用以下协议版本：**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**。 若要详细了解可配置的 TLS 选项，请参阅 [TLS 策略概述](application-gateway-SSL-policy-overview.md)。
+应用程序网关支持定义自定义 TLS 选项。 除了支持定义要使用的密码套件和优先级顺序外，它还支持禁用以下协议版本： **TLSv1.0** 、 **TLSv1.1** 和 **TLSv1.2** 。 若要详细了解可配置的 TLS 选项，请参阅 [TLS 策略概述](application-gateway-SSL-policy-overview.md)。
 
 > [!NOTE]
 > SSL 2.0 和 SSL 3.0 默认处于禁用状态且无法启用。 这些版本被视为不安全的版本，不能用于应用程序网关。
@@ -359,7 +359,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 [Web 应用程序防火墙概述](/web-application-firewall/ag/ag-overview)，详细了解如何通过应用程序网关的 Web 应用程序防火墙强化 Web 应用程序的安全性。
+请参阅 [Web 应用程序防火墙概述](ag-overview.md)，详细了解如何通过应用程序网关的 Web 应用程序防火墙强化 Web 应用程序的安全性。
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

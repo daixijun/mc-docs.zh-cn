@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b88d99188bb38fa7a5216cd07782f31d56e91
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: d82c36c4feff1fa833d29ee4071e38f4d8f1f02b
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245573"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501695"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除用户
 
@@ -40,17 +40,17 @@ ms.locfileid: "91245573"
 
 1. 在“用户”页上输入此用户的信息： 
 
-   - **Name**。 必需。 新用户的名字和姓氏。 例如，*Mary Parker*。
+   - **Name** 。 必需。 新用户的名字和姓氏。 例如， *Mary Parker* 。
 
-   - **用户名**。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
+   - **用户名** 。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
 
      用户名的域部分必须使用初始默认域名 \<yourdomainname>.partner.onmschina.cn，或者使用自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[使用 Azure Active Directory 门户添加自定义域名](add-custom-domain.md)。
 
-   - **组**。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+   - **组** 。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
-   - **目录角色**：如果需要用户的 Azure AD 管理权限，则可以将其添加到 Azure AD 角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
+   - **目录角色** ：如果需要用户的 Azure AD 管理权限，则可以将其添加到 Azure AD 角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
 
-   - **工作信息**：可在此处添加有关用户的详细信息，或者以后再添加。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
+   - **工作信息** ：可在此处添加有关用户的详细信息，或者以后再添加。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
 
 1. 复制“密码”框中提供的自动生成的密码。  需将此密码提供给用户，供其在首次登录时使用。
 
@@ -80,7 +80,7 @@ ms.locfileid: "91245573"
 
 1. 在任意页面中搜索并选择“Azure Active Directory”。 
 
-1. 搜索并选择要从 Azure AD 租户中删除的用户。 例如，_Mary Parker_。
+1. 搜索并选择要从 Azure AD 租户中删除的用户。 例如， _Mary Parker_ 。
 
 1. 选择“删除用户”  。
 
@@ -103,5 +103,5 @@ ms.locfileid: "91245573"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-也可执行其他用户管理任务，例如[从其他目录添加来宾用户](../external-identities/what-is-b2b.md)或[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
+也可执行其他用户管理任务，例如[从其他目录添加来宾用户](../external-identities/what-is-b2b.md)或[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../enterprise-users/index.yml)。
 

@@ -3,17 +3,18 @@ title: 使用 Java 针对 Azure 文件进行开发 | Microsoft Docs
 description: 了解如何开发使用 Azure 文件来存储文件数据的 Java 应用程序和服务。
 author: WenJason
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/19/2017
-ms.date: 11/25/2019
+ms.date: 11/16/2020
+ms.custom: devx-track-java
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: a1586b02b54d7182ce1c544fea16334227a23cbf
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3928555dc4540adec991d499bcb8c1de2bdce295
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74328741"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552006"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -89,7 +90,7 @@ CloudFileClient fileClient = storageAccount.createCloudFileClient();
 CloudFileShare share = fileClient.getShareReference("sampleshare");
 ```
 
-实际创建共享时，请使用 CloudFileShare 对象的 **createIfNotExists**方法。
+实际创建共享时，请使用 CloudFileShare 对象的 **createIfNotExists** 方法。
 
 ```java
 if (share.createIfNotExists()) {
@@ -97,7 +98,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-而在目前，**share** 保留对名为 **sampleshare** 的共享的引用。
+而在目前， **share** 保留对名为 **sampleshare** 的共享的引用。
 
 ## <a name="delete-an-azure-file-share"></a>删除 Azure 文件共享
 删除共享时，可针对 CloudFileShare 对象调用 **deleteIfExists** 方法。 以下是具有此类功能的示例代码。
@@ -231,6 +232,6 @@ if ( file.deleteIfExists() ) {
 * [用于 Android 的 Azure 存储 SDK](https://github.com/azure/azure-storage-android)
 * [Azure 存储客户端 SDK 参考](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure 存储空间服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [使用 AzCopy 命令行实用工具传输数据](../common/storage-use-azcopy.md)
 * [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

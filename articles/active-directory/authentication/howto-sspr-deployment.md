@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: barbaraselden
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c80bb577dd3a0813441453deafa25cdade57cfaa
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 61514f2ac2290b06096a270c124775b3d85ef1ca
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593721"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501751"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>规划 Azure Active Directory 自助式密码重置部署
 
@@ -48,13 +48,13 @@ SSPR 提供以下重要功能：
 
 启用 SSPR 的重要优势包括：
 
-* **控制成本**。 SSPR 可让用户自行重置密码，从而可降低 IT 支持成本。 它还减少了因密码丢失和帐户锁定而造成的时间损失成本。 
+* **控制成本** 。 SSPR 可让用户自行重置密码，从而可降低 IT 支持成本。 它还减少了因密码丢失和帐户锁定而造成的时间损失成本。 
 
-* **直观的用户体验**。 它提供直观的一次性用户注册过程，使用户能够在任何设备上或位置按需重置密码及解锁帐户。 SSPR 可让用户更快地恢复工作并提高工作效率。
+* **直观的用户体验** 。 它提供直观的一次性用户注册过程，使用户能够在任何设备上或位置按需重置密码及解锁帐户。 SSPR 可让用户更快地恢复工作并提高工作效率。
 
-* **灵活性和安全性**。 SSPR 使企业能够获得云平台所提供的安全性和灵活性。 管理员可以更改设置以适应新的安全要求，并在不干扰用户登录的情况下将这些更改应用到用户。
+* **灵活性和安全性** 。 SSPR 使企业能够获得云平台所提供的安全性和灵活性。 管理员可以更改设置以适应新的安全要求，并在不干扰用户登录的情况下将这些更改应用到用户。
 
-* **可靠的审核和使用情况跟踪**。 组织可以确保在用户重置其自己的密码时业务系统保持安全。 可靠的审核日志包括密码重置过程的每个步骤的信息。 可以通过 API 访问这些日志，用户可将数据导入到所选的安全事故和事件监视 (SIEM) 系统。
+* **可靠的审核和使用情况跟踪** 。 组织可以确保在用户重置其自己的密码时业务系统保持安全。 可靠的审核日志包括密码重置过程的每个步骤的信息。 可以通过 API 访问这些日志，用户可将数据导入到所选的安全事故和事件监视 (SIEM) 系统。
 
 ### <a name="licensing"></a>授权
 
@@ -196,7 +196,7 @@ Microsoft 建议组织为 SSPR 和多重身份验证启用组合注册体验。 
 
 ### <a name="password-writeback"></a>密码写回
 
-**密码写回**与 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 一同启用，可以实时将云中的密码重置写回到现有的本地目录。 有关详细信息，请参阅[什么是密码写回？](./concept-sspr-writeback.md)
+**密码写回** 与 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 一同启用，可以实时将云中的密码重置写回到现有的本地目录。 有关详细信息，请参阅[什么是密码写回？](./concept-sspr-writeback.md)
 
 我们建议使用以下设置：
 
@@ -309,7 +309,7 @@ Azure AD 可以通过审核和报告提供有关 SSPR 性能的附加信息。
 可以使用 Azure 门户上预生成的报告来衡量 SSPR 性能。 如果有相应的授权，还可以创建自定义查询。 有关详细信息，请参阅 [Azure AD 密码管理的报告选项](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  必须是[全局管理员](../users-groups-roles/directory-assign-admin-roles.md)，并且必须选择为组织收集这些数据。 若要做出此选择，必须在 Azure 门户上至少访问“报告”选项卡或审核日志一次。 在此之前，不会为组织收集数据。
+>  必须是[全局管理员](../roles/permissions-reference.md)，并且必须选择为组织收集这些数据。 若要做出此选择，必须在 Azure 门户上至少访问“报告”选项卡或审核日志一次。 在此之前，不会为组织收集数据。
 
 注册和密码重置的审核日志可供使用 30 天。 如果企业中的安全审核需要更长的保留期，则需导出日志，并在 Azure Sentinel、Splunk 或 ArcSight 等 SIEM 工具中使用它。
 

@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 COT
 description: 了解 Azure Cosmos DB 中的 Cotangent(COT) SQL 系统函数如何在指定的数值表达式中返回指定角度（以弧度为单位）的三角余切
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: febfd8b53af081ab2d4f1c7e6fa631f0e62cab14
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 9401b295ff5d8578fae03c3af6844695016b3e09
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134862"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551772"
 ---
 # <a name="cot-azure-cosmos-db"></a>COT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式中指定角度的三角余切。  
 
 ## <a name="syntax"></a>语法

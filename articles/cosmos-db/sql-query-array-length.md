@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ARRAY_LENGTH
 description: 了解 Azure Cosmos DB 中的 Array length SQL 系统函数如何返回指定数组表达式的元素数
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 2cf31e85caeee4a6a681c63247d59ce4ad9145a9
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: cc74a18946987b045798b494d8c8b7598161df0f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134567"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551792"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数组表达式的元素数。  
 
 ## <a name="syntax"></a>语法

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 origin.date: 12/04/2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 91a8b2b33ce09668298fa6c6cf834fa56d9d7e05
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: b789a96a13ad93de2676948b32fe2d4fbd5b373d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394808"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551912"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>将 Azure Kubernetes 服务与 Apache Kafka on HDInsight 配合使用
 
@@ -81,7 +81,7 @@ HDInsight 和 AKS 使用 Azure 虚拟网络作为计算资源的容器。 若要
     |properties | 值 |
     |---|---|
     |地址空间|使用的地址空间不得与 AKS 群集网络使用的地址空间重叠。|
-    |位置|使用 AKS 群集所用的相同虚拟网络__位置__。|
+    |位置|使用 AKS 群集所用的相同虚拟网络 __位置__ 。|
 
 1. 等到创建完虚拟网络，然后转到下一步。
 
@@ -164,7 +164,7 @@ HDInsight 和 AKS 使用 Azure 虚拟网络作为计算资源的容器。 若要
     * `var topic = 'mytopic'`：将 `mytopic` 替换为此应用程序使用的 Kafka 主题的名称。
     * `var brokerHost = '176.16.0.13:9092`：将 `176.16.0.13` 替换为群集的某个中转站主机的内部 IP 地址。
 
-        若要查找群集中代理主机（工作节点）的内部 IP 地址，请参阅 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) 文档。 选择域名以 `wn` 开头的某个条目的 IP 地址。
+        若要查找群集中代理主机（工作节点）的内部 IP 地址，请参阅 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) 文档。 选择域名以 `wn` 开头的某个条目的 IP 地址。
 
 4. 在 `src` 目录中，通过命令行安装依赖项并使用 Docker 生成用于部署的映像：
 

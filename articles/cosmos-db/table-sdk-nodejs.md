@@ -6,18 +6,20 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 11/20/2018
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: efbc69dc9463e780ed728391ad4c715535104e35
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9f0fbde8d9315728f1a2088af3144c106693fd33
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118352"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551954"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>用于 Node.js 的 Azure Cosmos DB 表 API：发行说明和资源
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)

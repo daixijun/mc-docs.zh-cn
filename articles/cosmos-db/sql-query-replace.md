@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 REPLACE
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 REPLACE。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: be1c66408dfc5bd97716d5f89acef63df9af7c60
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 6c05416b48c84a11de8e4e25979860e34931b823
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134762"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551947"
 ---
 # <a name="replace-azure-cosmos-db"></a>REPLACE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  将出现的所有指定字符串值替换为另一个字符串值。  
 
 ## <a name="syntax"></a>语法

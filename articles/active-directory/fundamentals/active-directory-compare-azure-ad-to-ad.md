@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: 587524b09d331399a3c9456632f9ccfe671eed6f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e48d39e7ea29d80b513b9e5f5f6edbff73824e48
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244629"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501953"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>将 Active Directory 与 Azure Active Directory 进行比较
 
@@ -31,7 +31,7 @@ Azure Active Directory 是适用于云的标识和访问管理解决方案的下
 |**用户**|||
 |预配：外部标识| 组织在专用的外部 AD 林中作为一般用户手动创建外部用户，导致产生管理外部标识（来宾用户）生命周期的管理开销| Azure AD 提供了特殊的标识类来支持外部标识。 [Azure AD B2B](/active-directory/external-identities/) 会管理指向外部用户标识的链接，以确保它们是有效的。 |
 | 权利管理和组| 管理员使用户成为组的成员。 然后，应用和资源所有者向组授予对应用或资源的访问权限。| Azure AD 中也提供了[组](./active-directory-groups-create-azure-portal.md)，管理员也可以使用组来授予对资源的权限。 在 Azure AD 中，管理员可以手动将成员身份分配到组，也可以使用查询动态地将用户包括到组中。 </br> 管理员可以使用 Azure AD 中的[权利管理](../governance/entitlement-management-overview.md)，以使用户能够使用工作流以及基于时间的条件（如有必要）访问应用和资源的集合。 |
-| 管理员管理|组织将在 AD 中使用域、组织单位和组的组合来委派管理权限，以管理其控制的目录和资源。| Azure AD 为[内置角色](./active-directory-users-assign-role-azure-portal.md)提供了 Azure AD 基于角色的访问控制 (Azure AD RBAC) 系统，带有对[创建自定义角色](../users-groups-roles/roles-custom-overview.md)的有限支持，以用于委派对它控制的标识系统、应用和资源的特权访问。</br>可以通过 [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 增强对角色的管理，以提供对特权角色的实时、有时间限制或基于工作流的访问。 |
+| 管理员管理|组织将在 AD 中使用域、组织单位和组的组合来委派管理权限，以管理其控制的目录和资源。| Azure AD 为[内置角色](./active-directory-users-assign-role-azure-portal.md)提供了 Azure AD 基于角色的访问控制 (Azure AD RBAC) 系统，带有对[创建自定义角色](../roles/custom-overview.md)的有限支持，以用于委派对它控制的标识系统、应用和资源的特权访问。</br>可以通过 [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 增强对角色的管理，以提供对特权角色的实时、有时间限制或基于工作流的访问。 |
 | 凭据管理| Active Directory 中的凭据基于密码、证书身份验证和智能卡身份验证。 密码是使用基于密码长度、有效期和复杂性的密码策略管理的。|Azure AD 对云和本地都使用智能密码保护。 保护包括智能锁定，以及阻止通用和自定义密码短语和替换。 </br>Azure AD [通过多重身份验证](../authentication/concept-mfa-howitworks.md)技术显著提高了安全性。 </br>Azure AD 通过向用户提供[自助式密码重置](../authentication/concept-sspr-howitworks.md)系统来降低支持成本。 |
 | 应用|||
 | 基础结构应用|Active Directory 构成了许多基础结构本地组件的基础，例如 DNS、DHCP、IPSec、WiFi、NPS 和 VPN 访问|在新的云环境中，Azure AD 是用于访问应用的新控制平面，而不是依赖于网络控制。 当用户进行身份验证时，[条件访问 (CA)](../conditional-access/overview.md) 将控制在所需条件下哪些用户可以访问哪些应用。|

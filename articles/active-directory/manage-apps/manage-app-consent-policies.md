@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 708ff054cfe54df20b8241fc19667f9850a6fb68
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.custom: contperfq2
+ms.openlocfilehash: 95e720db314a40fcce73ec2e146c5a1903a4f331
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754787"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501646"
 ---
 # <a name="manage-app-consent-policies"></a>管理应用同意策略
 
@@ -56,14 +57,14 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 1. 查看策略的“包括”条件集：
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. 查看“排除”条件集：
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 

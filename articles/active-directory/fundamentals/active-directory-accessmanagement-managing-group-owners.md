@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38281b414bddda28f004c4f29242e5be28b0d6fd
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 3ffe12d819c3b2ced539e97a4ed108c3a41c76cb
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749803"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501663"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中添加或删除组所有者
 Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有者可以是用户或服务主体，并且能够管理组（包括成员身份）。 只有现有的组所有者或组管理管理员才能分配组所有者。 组所有者无需成为组成员。
@@ -63,9 +63,9 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
 
-- [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)
+- [用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)
 
 - [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)
 
-- [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-v2-cmdlets.md)
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 6d523ecdcf1c4345d3d8d58242e50f1b2e120711
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: a271a1d0001765d8c3a9f947eb56a84a4f7b8807
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245521"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501849"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 访问评审是什么？
 
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) 访问评审可以使组织有效地管理组�
 
 具有全局管理员或用户管理员角色的用户不需要 Azure AD Premium P2 许可证，这些用户可设置访问评审、配置设置或根据评审作出决策。
 
-对于你分配给自己组织的用户之一的每个付费 Azure AD Premium P2 许可证，你可以使用 Azure AD 企业到企业 (B2B) 在“外部用户限额”下最多邀请五名来宾用户。 这些来宾用户也可以使用 Azure AD Premium P2 功能。 有关详细信息，请参阅 [Azure AD B2B 协作许可指南](../external-identities/licensing-guidance.md)。
+Azure AD 来宾用户访问基于月度活跃用户 (MAU) 计费模型，此模型将替换 1:5 比率计费模型。 有关详细信息，请参阅 [Azure AD 外部标识定价](../external-identities/external-identities-pricing.md)。
 
 有关许可证的详细信息，请参阅[使用 Azure Active Directory 门户分配或删除许可证](../fundamentals/license-users-groups.md)。
 

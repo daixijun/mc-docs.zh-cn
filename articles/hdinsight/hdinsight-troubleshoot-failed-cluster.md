@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 08/15/2019
 ms.date: 10/21/2019
-ms.openlocfilehash: a44fe2e7f669cbc957f4937158f165c12558494f
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 4789fb059d6b3779f5011a432a94c455eb3cd53c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723206"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552227"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或作业失败问题
 
@@ -117,7 +117,7 @@ HDInsight 群集由虚拟机实例上运行的不同类型的节点组成。 可
 
 ### <a name="check-your-webhcat-service"></a>检查 WebHCat 服务
 
-Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton*）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 Apache Hadoop YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
+Apache Hive、Apache Pig 或 Apache Sqoop 作业失败的常见场合之一是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)（或 *Templeton* ）服务发生故障。 WebHCat 是 Hive、Pig、Scoop 和 MapReduce 等远程作业执行使用的 REST 接口。 WebHCat 将作业提交请求转换为 Apache Hadoop YARN 应用程序，并返回派生自 YARN 应用程序状态的状态。  以下部分介绍常见的 WebHCat HTTP 状态代码。
 
 #### <a name="badgateway-502-status-code"></a>BadGateway（502 状态代码）
 
@@ -264,7 +264,7 @@ HDInsight 群集中预配置了相关服务（例如 Hadoop、Hive、HBase 等�
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
-* [分析 HDInsight 日志](hdinsight-debug-jobs.md)
+* [分析 HDInsight 日志](./hdinsight-troubleshoot-guide.md)
 * [在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight 上的 Apache Spark 群集的已知问题](hdinsight-apache-spark-known-issues.md)
+* [HDInsight 上的 Apache Spark 群集的已知问题](./spark/apache-spark-known-issues.md)

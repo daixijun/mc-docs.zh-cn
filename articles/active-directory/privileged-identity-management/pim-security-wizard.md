@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1f81fd62c4bae179b1079adfa72462e617302f
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: abee32ac9fd2e958f21543871a9cbe5d6a66513d
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750008"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501977"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 角色的发现和见解（以前称为安全向导）（预览版）
 
@@ -29,7 +29,7 @@ ms.locfileid: "92750008"
 
 在你的组织开始使用 Privileged Identity Management 之前，所有角色分配都是永久性的。 即使用户不需要其权限，用户也始终处于已分配的角色中。 发现和见解（预览版）取代了以前的安全向导，它会显示特权角色的列表以及当前有多少个用户处于这些角色中。 你可以列出角色的分配，以便详细了解分配的用户（如果你不熟悉其中一个或多个用户）。
 
-:heavy_check_mark:Microsoft 建议你保留两个永久分配给全局管理员角色的紧急访问帐户。 请确保这些帐户不需要使用与普通管理帐户相同的多重身份验证机制进行登录，如[在 Azure AD 中管理紧急访问帐户](../users-groups-roles/directory-emergency-access.md)中所述。
+:heavy_check_mark:Microsoft 建议你保留两个永久分配给全局管理员角色的紧急访问帐户。 请确保这些帐户不需要使用与普通管理帐户相同的多重身份验证机制进行登录，如[在 Azure AD 中管理紧急访问帐户](../roles/security-emergency-access.md)中所述。
 
 此外，如果用户具有 Microsoft 帐户（即，用于登录 Skype 或 Outlook.com 等 Microsoft 服务的帐户），则永久保留角色分配。 如果要求具有 Microsoft 帐户的用户执行多重身份验证以激活角色分配，则该用户会被锁定。
 

@@ -7,20 +7,21 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/03/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 747b728cf2953616f1a38e34b2a018da3988f979
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: d08fc31c4df6bf449aff0105f12c4cb96426bd6b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117922"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551732"
 ---
 <!--Verify sucessfully-->
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>通过 .NET SDK 开始使用 Azure Cosmos DB 表 API 和 Azure 表存储
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -94,9 +95,11 @@ ms.locfileid: "92117922"
       namespace CosmosTableSamples
     {
         using Microsoft.Extensions.Configuration;
+
         public class AppSettings
         {
             public string StorageConnectionString { get; set; }
+
             public static AppSettings LoadAppSettings()
             {
                 IConfigurationRoot configRoot = new ConfigurationBuilder()
@@ -224,7 +227,7 @@ namespace CosmosTableSamples.Model
 
 ## <a name="insert-or-merge-an-entity"></a>插入或合并实体
 
-以下代码示例创建实体对象并将其添加到表中。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 类中的 InsertOrMerge 方法用于插入或合并实体。 调用 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) 方法来执行此操作。 
+以下代码示例创建实体对象并将其添加到表中。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 类中的 InsertOrMerge 方法用于插入或合并实体。 调用 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) 方法来执行此操作。 
 
 右键单击项目“CosmosTableSamples”。 选择“添加”、“新项”，并添加名为“SamplesUtils.cs”的类  。 此类存储对实体执行 CRUD 操作所需的全部代码。 
 
@@ -301,24 +304,23 @@ public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(Clou
 在检索实体之后，可使用更新实体的相同演示模式轻松删除该实体。 以下代码检索并删除一个客户实体。 要删除实体，请将以下代码追加到“SamplesUtils.cs”文件： 
 
 ```csharp
-public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
+public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity deleteEntity)
 {
     try
     {
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>(partitionKey, rowKey);
-        TableResult result = await table.ExecuteAsync(retrieveOperation);
-        CustomerEntity customer = result.Result as CustomerEntity;
-        if (customer != null)
+        if (deleteEntity == null)
         {
-            Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
+            throw new ArgumentNullException("deleteEntity");
         }
+
+        TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+        TableResult result = await table.ExecuteAsync(deleteOperation);
 
         if (result.RequestCharge.HasValue)
         {
-            Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
+            Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
         }
 
-        return customer;
     }
     catch (StorageException e)
     {
@@ -436,7 +438,7 @@ namespace CosmosTableSamples
 
 立即生成解决方案并按 F5 运行该项目。 运行项目时，将在命令提示符中看到以下输出：
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="来自命令提示符的输出":::
 
 如果收到说明在运行项目时无法找到 Settings.json 文件的错误，可以通过将以下 XML 条目添加到项目设置来解决该问题。 右键单击 CosmosTableSamples，选择“编辑 CosmosTableSamples.csproj”并添加以下 itemGroup： 
 
@@ -449,7 +451,7 @@ namespace CosmosTableSamples
 ```
 现在可以登录到 Azure 门户，并验证表中是否存在数据。 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="门户中的结果":::
 
 ## <a name="next-steps"></a>后续步骤
 

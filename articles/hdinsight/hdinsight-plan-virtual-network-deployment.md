@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/25/2020
 ms.date: 03/23/2020
-ms.openlocfilehash: 3f54b696e1268ff35e24455fde3e6fce0bc2563c
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: e132af3dc410e9116b15a16f902132ddbb92d42f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516780"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552262"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>规划 Azure HDInsight 的虚拟网络
 
@@ -26,7 +26,7 @@ ms.locfileid: "85516780"
 * 直接访问无法通过 Internet 公开访问的 Apache Hadoop 服务。 例如，Apache Kafka API 或 Apache HBase Java API。
 
 > [!IMPORTANT]
-> 在 VNET 中创建 HDInsight 群集时会创建多个网络资源，例如 NIC 和负载均衡器。 请**勿**删除这些网络资源，因为群集需要它们才能在 VNET 中正常运行。
+> 在 VNET 中创建 HDInsight 群集时会创建多个网络资源，例如 NIC 和负载均衡器。 请 **勿** 删除这些网络资源，因为群集需要它们才能在 VNET 中正常运行。
 >
 > 2019 年 2 月 28 日以后，在 VNET 中创建的新 HDInsight 群集的网络资源（例如 NIC、LB 等）会在同一 HDInsight 群集资源组中进行预配。 以前，这些资源在 VNET 资源组中预配。 当前运行的群集以及那些在没有 VNET 的情况下创建的群集没有任何更改。
 
@@ -148,7 +148,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
          * 将所有其他请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他的名称解析请求，甚至包括 Internet 资源（例如 Microsoft.com）的请求。
 
-     * __本地 DNS__：将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
+     * __本地 DNS__ ：将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
 
        此配置将完全限定的域名（其中包含虚拟网络的 DNS 后缀）的请求路由到自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
 
@@ -210,6 +210,6 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 * 有关演示如何创建 Azure 虚拟网络的代码示例和操作示例，请参阅[为 Azure HDInsight 群集创建虚拟网络](hdinsight-create-virtual-network.md)。
 * 如需通过端到端示例来了解如何将 HDInsight 配置为连接到本地网络，请参阅[将 HDInsight 连接到本地网络](./connect-on-premises-network.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/network-security-groups-overview.md)。
 * 有关用户定义的路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
 * 有关如何控制流量的详细信息，请参阅[控制网络流量](./control-network-traffic.md)。

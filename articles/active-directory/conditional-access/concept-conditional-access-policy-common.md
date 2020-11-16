@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ab74fa9fabf9ad6509853b128c0dbed90ee0fdb
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 1ea3d14fd4d31b7b5df6ed5ea45581bc3033b2b6
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046376"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501733"
 ---
 # <a name="common-conditional-access-policies"></a>常用条件访问策略
 
@@ -28,7 +28,7 @@ ms.locfileid: "89046376"
 
 有关紧急访问帐户及其重要原因的详细信息，请参阅以下文章： 
 
-* [在 Azure AD 中管理紧急访问帐户](../users-groups-roles/directory-emergency-access.md)
+* [在 Azure AD 中管理紧急访问帐户](../roles/security-emergency-access.md)
 
 ## <a name="typical-policies-deployed-by-organizations"></a>组织部署的典型策略
 

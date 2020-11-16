@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fc299b2752cbf5c91e91d8ad65fec3dc6113b83
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 431c02f73f750c2ac6c45551c9beff7563269603
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749817"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501808"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>计划条件访问部署
 
@@ -205,7 +205,7 @@ CA 策略是 if-then 语句：如果满足分配条件，则应用这些访问�
 
 ### <a name="set-up-emergency-access-accounts"></a>设置紧急访问帐户
 
-如果你错误配置了策略，则该策略会将组织锁在 Azure 门户之外。 通过在组织中创建两个或更多[紧急访问帐户](../users-groups-roles/directory-emergency-access.md)，可缓解意外锁定管理员造成的影响。
+如果你错误配置了策略，则该策略会将组织锁在 Azure 门户之外。 通过在组织中创建两个或更多[紧急访问帐户](../roles/security-emergency-access.md)，可缓解意外锁定管理员造成的影响。
 
 * 创建专用于策略管理并从所有策略中排除的用户帐户。
 

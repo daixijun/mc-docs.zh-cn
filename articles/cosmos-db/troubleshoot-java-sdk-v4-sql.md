@@ -1,10 +1,10 @@
 ---
 title: 诊断 Azure Cosmos DB Java SDK v4 并对其进行故障排除
 description: 使用客户端日志记录等功能和其他第三方工具来确定、诊断和排查 Java SDK v4 中的 Azure Cosmos DB 问题。
-author: rockboyfor
 ms.service: cosmos-db
 origin.date: 06/11/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
@@ -12,15 +12,16 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 65fdfa9110ece9ec3d496cc7d1ea52403b6cf49f
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d23ba96576b02bc3e12c7c896dfcb8aec07e28be
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552092"
 ---
 <!--Verified successfully, ONLY CHARACTORS CONTENT-->
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>排查将 Azure Cosmos DB Java SDK v4 与 SQL API 帐户配合使用时出现的问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -51,7 +52,7 @@ Azure Cosmos DB Java SDK v4 提供客户端逻辑表示用于访问 Azure Cosmos
 为获得最佳性能：
 * 确保应用与 Azure Cosmos DB 帐户在同一区域运行。 
 * 检查运行应用的主机 CPU 使用情况。 如果 CPU 使用率为 50% 或更高，请在具有更高配置的主机上运行应用。 或者，可将负载分发到更多计算机。
-    * 如果在 Azure Kubernetes 服务上运行应用程序，则可以[使用 Azure Monitor 监视 CPU 使用率](/azure-monitor/insights/container-insights-analyze)。
+    * 如果在 Azure Kubernetes 服务上运行应用程序，则可以[使用 Azure Monitor 监视 CPU 使用率](../azure-monitor/insights/container-insights-analyze.md)。
 
 #### <a name="connection-throttling"></a>连接限制
 连接限制可能会因[主机上的连接限制]或 [Azure SNAT (PAT) 端口耗尽]而出现。
@@ -71,13 +72,13 @@ ulimit -a
 <a name="snat"></a>
 ##### <a name="azure-snat-pat-port-exhaustion"></a>Azure SNAT (PAT) 端口耗尽
 
-如果应用部署在没有公共 IP 地址的 Azure 虚拟机上，则默认情况下，[Azure SNAT 端口](/load-balancer/load-balancer-outbound-connections#preallocatedports)用于建立与 VM 外部任何终结点的连接。 从 VM 到 Azure Cosmos DB 终结点，允许的连接数受 [Azure SNAT 配置](/load-balancer/load-balancer-outbound-connections#preallocatedports)的限制。
+如果应用部署在没有公共 IP 地址的 Azure 虚拟机上，则默认情况下，[Azure SNAT 端口](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)用于建立与 VM 外部任何终结点的连接。 从 VM 到 Azure Cosmos DB 终结点，允许的连接数受 [Azure SNAT 配置](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)的限制。
 
  仅当 VM 具有专用 IP 地址且来自 VM 的进程尝试连接到公共 IP 地址时，才会使用 Azure SNAT 端口。 有两种解决方法可以避免 Azure SNAT 限制：
 
-* 向 Azure 虚拟机虚拟网络的子网添加 Azure Cosmos DB 服务终结点。 有关详细信息，请参阅 [Azure 虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)。 
+* 向 Azure 虚拟机虚拟网络的子网添加 Azure Cosmos DB 服务终结点。 有关详细信息，请参阅 [Azure 虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。 
 
-    启用服务终结点后，不再从公共 IP 向 Azure Cosmos DB 发送请求， 而是发送虚拟网络和子网标识。 如果仅允许公共 IP，则此更改可能会导致防火墙丢失。 如果使用防火墙，则在启用服务终结点后，请使用[虚拟网络 ACL](/virtual-network/virtual-networks-acl) 将子网添加到防火墙。
+    启用服务终结点后，不再从公共 IP 向 Azure Cosmos DB 发送请求， 而是发送虚拟网络和子网标识。 如果仅允许公共 IP，则此更改可能会导致防火墙丢失。 如果使用防火墙，则在启用服务终结点后，请使用[虚拟网络 ACL](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-acl) 将子网添加到防火墙。
 * 将公共 IP 分配给 Azure VM。
 
 <a name="cant-connect"></a>
@@ -236,9 +237,9 @@ Azure Cosmos DB Java SDK v4 使用 SLF4j 作为日志外观，支持记录到常
 # Set root logger level to DEBUG and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.microsoft.azure.cosmosdb=DEBUG
+log4j.category.com.azure.cosmos=DEBUG
 #log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+#log4j.category.io.projectreactor=INFO
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

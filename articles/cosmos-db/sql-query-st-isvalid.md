@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ST_ISVALID
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_ISVALID。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: f9caf9f90802134f0a29841314cb8bbb428236cd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 95af5e1fad2a1f651595ee858e7a3baa85af3bfc
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914662"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551993"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个布尔值，指示指定的 GeoJSON 点、多边形或 LineString 表达式是否有效。  
 
 ## <a name="syntax"></a>语法
@@ -57,5 +59,4 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!--Update_Description: new articles on sql query st isvalid  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

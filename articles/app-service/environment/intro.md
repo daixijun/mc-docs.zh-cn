@@ -8,15 +8,15 @@ origin.date: 04/19/2018
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e42b78081ed6de823498d0e486a17558c835dbde
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: a9b4fdaca2cf1b14aa664b7a8d4e565773c0f962
+ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170749"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550772"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
- 
+ 
 ## <a name="overview"></a>概述 ##
 
 Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔离和专用的环境，以便高度安全地运行应用服务应用。 此功能可以托管：
@@ -99,5 +99,5 @@ ASE 既可以是面向 Internet 的（使用公共 IP 地址），也可以是�
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
+[AppGW]: ../../application-gateway/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

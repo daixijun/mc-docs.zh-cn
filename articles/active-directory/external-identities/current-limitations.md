@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dee16a31172ddbc9967bbc5050b32dd40cb59c8b
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 979e9a9fa9b1f0ba6843c4ba20742a5aadb255a6
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648046"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501901"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure Active Directory B2B 协作的限制
 Azure Active Directory (Azure AD) B2B 协作当前具有本文中描述的限制。
@@ -28,10 +28,10 @@ Azure Active Directory (Azure AD) B2B 协作当前具有本文中描述的限制
 通过 B2B 协作流，我们将用户添加到目录，并在邀请兑换、应用分配等期间动态更新用户。 更新和写入通常发生在一个目录实例中，并且必须复制到所有实例中。 更新所有实例后完成复制。 有时，如果在一个实例中编写或更新对象，但是检索该对象的调用针对的是另一个实例，就会出现复制延迟。 如果发生这种情况，刷新或重试可有所帮助。 如果正在使用 API 编写应用，则请重试后退操作，这是解决该问题的一个很好的防御措施。
 
 ## <a name="azure-ad-directories"></a>Azure AD 目录
-Azure AD B2B 受制于 Azure AD 服务目录限制。 有关用户可以创建的目录数以及用户或来宾用户可以属于的目录数的详细信息，请参阅 [Azure AD 服务限制](/active-directory/users-groups-roles/directory-service-limits-restrictions)。
+Azure AD B2B 受制于 Azure AD 服务目录限制。 有关用户可以创建的目录数以及用户或来宾用户可以属于的目录数的详细信息，请参阅 [Azure AD 服务限制](../users-groups-roles/directory-service-limits-restrictions.md)。
 
 ## <a name="national-clouds"></a>国家云
-[国家云](/active-directory/develop/authentication-national-cloud)是物理上独立的 Azure 实例。 不支持跨国家云边界的 B2B 协作。 例如，如果 Azure 租户位于公共全球云中，则你无法邀请其帐户位于国家云中的用户。 若要与该用户协作，请让他们使用其他电子邮件地址，或者在你的目录中为他们创建成员用户帐户。
+[国家云](../develop/authentication-national-cloud.md)是物理上独立的 Azure 实例。 不支持跨国家云边界的 B2B 协作。 例如，如果 Azure 租户位于公共全球云中，则你无法邀请其帐户位于国家云中的用户。 若要与该用户协作，请让他们使用其他电子邮件地址，或者在你的目录中为他们创建成员用户帐户。
 
 > [!IMPORTANT]
 > Azure 中国 b2b 不支持非 AAD 帐户（如 Microsoft 帐户）、Google 联合身份验证、直接联合身份验证和电子邮件一次性密码。
@@ -43,5 +43,4 @@ Azure AD B2B 受制于 Azure AD 服务目录限制。 有关用户可以创建�
 
 - [什么是 Azure AD B2B 协作？](what-is-b2b.md)
 - [委托 B2B 协作邀请](delegate-invitations.md)
-
 

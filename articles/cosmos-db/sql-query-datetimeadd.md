@@ -1,24 +1,25 @@
 ---
 title: Azure Cosmos DB 查询语言中的 DateTimeAdd
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeAdd。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 983b4c71ca885ba7bf396774dec863e22304059e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: fe9289ebb0f146fbaafddd49802dd072985106cf
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223510"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551768"
 ---
 <!--Verified successfully-->
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 返回通过将指定的数值（作为带符号的整数）添加到指定的 DateTime 字符串而产生的 DateTime 字符串值  
 
@@ -125,5 +126,4 @@ SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query datetimeadd -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

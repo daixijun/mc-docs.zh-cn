@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 12/06/2019
 ms.date: 01/13/2020
 ms.author: v-yiso
-ms.openlocfilehash: ac9b6eadd361ab89fc63ec4552389e4c75f29cfa
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 8fb1887d22c1769c81ac9b0f88855024cf51102e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394805"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551799"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 Apache HBase 群集复制
 
@@ -110,9 +110,9 @@ ms.locfileid: "91394805"
 若要安装 Bind，需找到两个 DNS 虚拟机的公共 IP 地址。
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
-2. 打开 DNS 虚拟机，方法是选择“资源组”> [资源组名称] > [vnet1DNS]  。  资源组名称是在上一过程中创建的。 默认的 DNS 虚拟机名称为 *vnet1DNS* 和 *vnet2NDS*。
+2. 打开 DNS 虚拟机，方法是选择“资源组”> [资源组名称] > [vnet1DNS]  。  资源组名称是在上一过程中创建的。 默认的 DNS 虚拟机名称为 *vnet1DNS* 和 *vnet2NDS* 。
 3. 选择“属性”，打开虚拟网络的属性页。 
-4. 记下“公共 IP 地址”，并验证“专用 IP 地址”   。  vnet1DNS 的专用 IP 地址应该是 **10.1.0.4**，vnet2DNS 的专用 IP 地址应该是 **10.2.0.4**。  
+4. 记下“公共 IP 地址”，并验证“专用 IP 地址”   。  vnet1DNS 的专用 IP 地址应该是 **10.1.0.4** ，vnet2DNS 的专用 IP 地址应该是 **10.2.0.4** 。  
 5. 将两个虚拟网络的 DNS 服务器更改为使用默认（Azure 提供的）DNS 服务器以允许对下载包进行入站和出站访问，从而可以按以下步骤安装 Bind。
 
 若要安装 Bind，请执行以下过程：
@@ -128,7 +128,7 @@ ms.locfileid: "91394805"
     > [!NOTE]
     > 可通过多种方法获取 `ssh` 实用工具。 在 Linux、Unix 和 macOS 上，操作系统会附带此实用工具。 如果使用的是 Windows，请考虑以下选项之一：
     >
-    > * [Windows 10 版 Bash on Ubuntu](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Windows 10 版 Bash on Ubuntu](https://docs.microsoft.com/windows/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
@@ -265,13 +265,13 @@ sudo service bind9 status
 
 使用以下配置在这两个虚拟网络的每一个中创建 [Apache HBase](https://hbase.apache.org/) 群集：
 
-- **资源组名称**：使用的资源组名称与创建虚拟网络时所用的相同。
-- **群集类型**：HBase
-- **版本**：HBase 1.1.2 (HDI 3.6)
-- **位置**：使用与虚拟网络相同的位置。  默认情况下，vnet1 为“美国西部”，  vnet2 为“美国东部”。 
-- **存储**：为群集创建新的存储帐户。
-- **虚拟网络**（在门户的“高级设置”中）：选择在上一过程中创建的 vnet1。
-- **子网**：模板中所用的默认名称为 **subnet1**。
+- **资源组名称** ：使用的资源组名称与创建虚拟网络时所用的相同。
+- **群集类型** ：HBase
+- **版本** ：HBase 1.1.2 (HDI 3.6)
+- **位置** ：使用与虚拟网络相同的位置。  默认情况下，vnet1 为“美国西部”，  vnet2 为“美国东部”。 
+- **存储** ：为群集创建新的存储帐户。
+- **虚拟网络** （在门户的“高级设置”中）：选择在上一过程中创建的 vnet1。
+- **子网** ：模板中所用的默认名称为 **subnet1** 。
 
 若要确保正确配置环境，必须能够在两个群集之间 ping 头节点的 FQDN。
 
@@ -297,10 +297,10 @@ sudo service bind9 status
 4. 在页面顶部，选择“提交新项”。 
 5. 选择或输入以下信息：
 
-   1. **名称**：输入“启用复制”  。
-   2. **Bash 脚本 URL**：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 。
-   3. **头**：确保已选定。 清除其他节点类型。
-   4. **参数**：以下示例参数将对所有现有表启用复制，并将源群集中的所有数据复制到目标群集：
+   1. **名称** ：输入“启用复制”  。
+   2. **Bash 脚本 URL** ：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 。
+   3. **头** ：确保已选定。 清除其他节点类型。
+   4. **参数** ：以下示例参数将对所有现有表启用复制，并将源群集中的所有数据复制到目标群集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -324,8 +324,8 @@ sudo service bind9 status
 
 |名称|说明|
 |----|-----------|
-|-su、--src-ambari-user | 指定源 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin**。 |
-|-du、--dst-ambari-user | 指定目标 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin**。 |
+|-su、--src-ambari-user | 指定源 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin** 。 |
+|-du、--dst-ambari-user | 指定目标 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin** 。 |
 |-t、--table-list | 指定要复制的表。 例如：--table-list="table1;table2;table3"。 如果未指定表，则复制所有现有 HBase 表。|
 |-m、--machine | 指定要在其中运行脚本操作的头节点。 此值应当根据活动的头节点进行选择。 在 HDInsight 门户或 Azure PowerShell 中以脚本操作的形式运行 $0 脚本时，可使用此选项。|
 |-cp、-copydata | 在启用复制的情况下，允许迁移表中的现有数据。 |
@@ -340,19 +340,19 @@ sudo service bind9 status
 
 以下列表显示了一些普通用例及其参数设置：
 
-- **针对两个群集之间的所有表启用复制**。 此方案不需要复制或迁移表中的现有数据，也不使用 Phoenix 表。 使用以下参数：
+- **针对两个群集之间的所有表启用复制** 。 此方案不需要复制或迁移表中的现有数据，也不使用 Phoenix 表。 使用以下参数：
 
         -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
-- **针对特定的表启用复制**。 若要针对 table1、table2 和 table3 启用复制，请使用以下参数：
+- **针对特定的表启用复制** 。 若要针对 table1、table2 和 table3 启用复制，请使用以下参数：
 
         -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
-- **针对特定的表启用复制并复制现有数据**。 若要针对 table1、table2 和 table3 启用复制，请使用以下参数：
+- **针对特定的表启用复制并复制现有数据** 。 若要针对 table1、table2 和 table3 启用复制，请使用以下参数：
 
         -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
-- **针对所有表启用复制，并将 Phoenix 元数据从源复制到目标**。 Phoenix 元数据复制并不完善， 请谨慎使用。 使用以下参数：
+- **针对所有表启用复制，并将 Phoenix 元数据从源复制到目标** 。 Phoenix 元数据复制并不完善， 请谨慎使用。 使用以下参数：
 
         -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
@@ -372,7 +372,7 @@ sudo service bind9 status
 
 ### <a name="scenarios"></a>方案
 
-- **复制特定表（test1、test2 和 test3）中到目前（当前时间戳）为止编辑的所有行**：
+- **复制特定表（test1、test2 和 test3）中到目前（当前时间戳）为止编辑的所有行** ：
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   或者：
@@ -380,7 +380,7 @@ sudo service bind9 status
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
 
-- **复制指定时间范围内的特定表**：
+- **复制指定时间范围内的特定表** ：
 
         -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
 
@@ -394,7 +394,7 @@ sudo service bind9 status
 
 ### <a name="scenarios"></a>方案
 
-- **对所有表禁用复制**：
+- **对所有表禁用复制** ：
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   或

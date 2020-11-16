@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 02/28/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 861804dad900be5192832de32edc0491c330ecdc
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 59193c3e7ab56301a6b851da592d9349f0a2a936
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516585"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552196"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集
 
@@ -29,7 +29,7 @@ ms.locfileid: "85516585"
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>提交 Apache Livy Spark 批处理作业
 
-在提交批处理作业之前，必须将应用程序 jar 上传到与群集关联的群集存储。 可以使用命令行实用工具 [AzCopy](../../storage/common/storage-use-azcopy.md) 来执行此操作。 可以使用其他各种客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)。
+在提交批处理作业之前，必须将应用程序 jar 上传到与群集关联的群集存储。 可以使用命令行实用工具 [AzCopy](../../storage/common/storage-use-azcopy-v10.md) 来执行此操作。 可以使用其他各种客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)。
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.cn/livy/batches' -H "X-Requested-By: admin"
@@ -126,7 +126,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
     ```
 
-    请注意输出中的最后一行显示为 **total:0**，这意味着未运行任何批。
+    请注意输出中的最后一行显示为 **total:0** ，这意味着未运行任何批。
 
 2. 现在，让我们提交批处理作业。 以下代码片段使用输入文件 (input.txt) 传递 jar 名称和类名称作为参数。 如果要从 Windows 计算机运行这些步骤，我们建议使用输入文件。
 
@@ -155,7 +155,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
     ```
 
-    请注意输出的最后一行显示为 **state:starting**。 此外显示了 **id:0**。 此处的 **0** 为批 ID。
+    请注意输出的最后一行显示为 **state:starting** 。 此外显示了 **id:0** 。 此处的 **0** 为批 ID。
 
 3. 现在，可以使用批 ID 来检索此特定批的状态。
 
@@ -177,7 +177,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.chinacloudapp.cn:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
     ```
 
-    现在，输出显示 **state:success**，这意味着作业已成功完成。
+    现在，输出显示 **state:success** ，这意味着作业已成功完成。
 
 4. 现在，可以根据需要删除该批。
 
@@ -203,7 +203,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>更新到从 HDInsight 3.5 版本开始的 Livy 配置
 
-HDInsight 3.5 群集及更高版本群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 
+HDInsight 3.5 群集及更高版本群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasbs://` 路径访问群集中的 jar 或示例数据文件。
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>在 Azure 虚拟网络中提交群集的 Livy 作业
 

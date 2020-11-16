@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 48ceede168ef295fb29a50c4e001679889b7911a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c20a5caadf93e11e2cc45ea80eb713831a763acb
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118549"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551755"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 是一种架构不可知的数据库，你可用它来迭代应用程序，而无需处理架构或索引管理。 默认情况下，Azure Cosmos DB 自动对[容器](databases-containers-items.md#azure-cosmos-containers)中所有项的每个属性编制索引，不用定义任何架构或配置辅助索引。
+Azure Cosmos DB 是一种架构不可知的数据库，你可用它来迭代应用程序，而无需处理架构或索引管理。 默认情况下，Azure Cosmos DB 自动对[容器](account-databases-containers-items.md#azure-cosmos-containers)中所有项的每个属性编制索引，不用定义任何架构或配置辅助索引。
 
 本文的目的是说明 Azure Cosmos DB 如何为数据编制索引以及如何使用索引来提高查询性能。 建议先阅读本部分，然后再探索如何自定义[索引策略](index-policy.md)。
 
@@ -147,7 +148,7 @@ Azure Cosmos DB 目前支持三种类型的索引。
     SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
     ```
 
-空间索引可在格式正确的 [GeoJSON](geospatial.md) 对象上使用。 目前支持点、线串、多边形和多面。
+空间索引可在格式正确的 [GeoJSON](./sql-query-geospatial-intro.md) 对象上使用。 目前支持点、线串、多边形和多面。
 
 ### <a name="composite-indexes"></a>组合索引
 
@@ -183,7 +184,7 @@ Azure Cosmos DB 目前支持三种类型的索引。
 
 例如，请看以下查询：`SELECT location FROM location IN company.locations WHERE location.country = 'France'`。 查询谓词（对项进行筛选，其中任何位置都采用“法国”作为其国家/地区）与下面用红色突出显示的路径相匹配：
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="上一项以树的形式表示" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="匹配树中的特定路径" border="false":::
 
 > [!NOTE]
 > 按单个属性排序的 `ORDER BY` 子句总是需要一个范围索引，如果它引用的路径没有范围索引，则会失败。 同样地，按多个属性排序的 `ORDER BY` 查询总是需要一个组合索引。

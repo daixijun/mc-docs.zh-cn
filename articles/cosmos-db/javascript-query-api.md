@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/07/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 365b677f38480bc437deed245f7a631536ba634e
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: aebd59699f6790d9c07c5d6fb624ec1f4e906e72
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118543"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551746"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查询 API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-除了使用 Azure Cosmos DB 中的 SQL API 发出查询外，[Cosmos DB 服务器端 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 还提供了一个 JavaScript 接口，用于在 Cosmos DB 存储过程和触发器中执行优化查询。 你不需要了解 SQL 语言便可使用此 JavaScript 接口。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法以及 Lodash 之类的热门 JavaScript 库，通过将谓词函数传递到函数调用序列中以编程方式生成查询。 查询将由 JavaScript 运行时进行分析并使用 Azure Cosmos DB 索引高效执行。
+除了使用 Azure Cosmos DB 中的 SQL API 发出查询外，[Cosmos DB 服务器端 SDK](https://github.com/Azure/azure-cosmosdb-js-server/) 还提供了一个 JavaScript 接口，用于在 Cosmos DB 存储过程和触发器中执行优化查询。 你不需要了解 SQL 语言便可使用此 JavaScript 接口。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法以及 Lodash 之类的热门 JavaScript 库，通过将谓词函数传递到函数调用序列中以编程方式生成查询。 查询将由 JavaScript 运行时进行分析并使用 Azure Cosmos DB 索引高效执行。
 
 ## <a name="supported-javascript-functions"></a>支持的 JavaScript 函数
 
@@ -44,7 +45,7 @@ ms.locfileid: "92118543"
 - 控制流（例如，if、for、while）
 - 函数调用
 
-有关详细信息，请参阅 [Cosmos DB 服务器端 JavaScript 文档](https://azure.github.io/azure-cosmosdb-js-server/)。
+有关详细信息，请参阅 [Cosmos DB 服务器端 JavaScript 文档](https://github.com/Azure/azure-cosmosdb-js-server/)。
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL 到 JavaScript 备忘单
 
@@ -72,4 +73,4 @@ ms.locfileid: "92118543"
 - [Azure Cosmos DB JavaScript 服务器端 API 参考](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

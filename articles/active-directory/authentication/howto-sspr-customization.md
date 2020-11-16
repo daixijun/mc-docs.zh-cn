@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a769a10737bc09d16c3b4ddd59fe5e8274154a7
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: f1d869fbff0b1d3bdc36ac9b986f12dd0f7b58b2
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127176"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501716"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>自定义 Azure Active Directory 自助式密码重置的用户体验
 
@@ -50,7 +50,7 @@ ms.locfileid: "82127176"
 
 在所有情况下，最多会向 100 个收件人发送通知。
 
-若要了解有关不同管理员角色以及如何分配它们的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
+若要了解有关不同管理员角色以及如何分配它们的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)。
 
 ### <a name="disable-contact-your-administrator-emails"></a>禁用“联系管理员”电子邮件
 

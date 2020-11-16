@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/20/2019
-  ms.date: 07/20/2020
-  ms.openlocfilehash: 594d7847f4258ef3b9e43453ee164bc40b87d20c
-  ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+  ms.date: 11/16/2020
+  ms.openlocfilehash: bd95c0ec1ae6e7f6f22e788f3232711896e16013
+  ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/23/2020
-  ms.locfileid: "91026629"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94552091"
 landingContent:
 - title: 关于 Blob 存储
   linkLists:
@@ -62,6 +62,10 @@ landingContent:
     links:
     - text: Azure Data Lake Storage Gen2
       url: data-lake-storage-introduction.md
+  - linkListType: quickstart
+    links:
+    - text: 使用 Databricks 分析数据
+      url: data-lake-storage-quickstart-create-databricks-account.md
   - linkListType: concept
     links:
     - text: 处理大数据
@@ -74,6 +78,8 @@ landingContent:
     links:
     - text: 在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据
       url: data-lake-storage-tutorial-extract-transform-load-hive.md
+    - text: 使用事件网格将数据插入 Databricks 表中
+      url: data-lake-storage-events.md?toc=%2fstorage%2fblobs%2ftoc.json
   - linkListType: how-to-guide
     links:
     - text: 与 Azure HDInsight 群集配合使用
@@ -94,6 +100,8 @@ landingContent:
       url: storage-quickstart-blobs-nodejs.md
     - text: 在浏览器中通过 JavaScript 管理 Azure Blob 存储
       url: quickstart-blobs-javascript-browser.md
+    - text: 将事件路由到 Web 终结点
+      url: ../../event-grid/blob-event-quickstart-portal.md
     - text: 托管静态网站
       url: storage-blob-static-website-how-to.md
   - linkListType: concept
@@ -117,8 +125,8 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 使用 Azure AD 帐户访问 Blob 数据
-      url: ../common/storage-access-blobs-queues-portal.md?toc=%2fstorage%2fblobs%2ftoc.json
-    - text: 使用 RBAC 管理访问权限
+      url: authorize-blob-access-portal.md
+    - text: 通过 Azure RBAC 管理服务权限
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fstorage%2fblobs%2ftoc.json
     - text: 使用托管标识授予对 Blob 存储的访问权限
       url: ../common/storage-auth-aad-msi.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -128,6 +136,8 @@ landingContent:
     links:
     - text: 比较数据传输解决方案
       url: ../common/storage-choose-data-transfer-solution.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - text: 使用 Azure Data Box 进行脱机传输
+      url: ../../databox/data-box-disk-overview.md?toc=%2fstorage%2fblobs%2ftoc.json
   - linkListType: how-to-guide
     links:
     - text: 使用 AzCopy 进行传输

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 origin.date: 10/08/2019
 ms.date: 12/09/2019
-ms.openlocfilehash: 715e96d2e0f1689f1c57e1dbce70c3337045aa03
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: a0622612321ea524308c992db4e8c1d92be9c824
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394576"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551879"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache Kafka Streams API
 
@@ -41,7 +41,7 @@ Kafka 流处理通常使用 Apache Spark 或 Apache Storm 完成。 Kafka 版本
 
 * 完成 [Apache Kafka 使用者和生成者 API](apache-kafka-producer-consumer-api.md) 文档中的步骤。 本文档中的步骤使用本教程中创建的示例应用程序和主题。
 
-* [Java Developer Kit (JDK) 版本 8](https://aka.ms/azure-jdks) 或等效工具，例如 OpenJDK。
+* [Java Developer Kit (JDK) 版本 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support) 或等效工具，例如 OpenJDK。
 
 * 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 

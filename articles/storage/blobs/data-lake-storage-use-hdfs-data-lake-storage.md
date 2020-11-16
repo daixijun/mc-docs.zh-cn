@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 12/06/2018
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 3c6978068a8c90a9c2c09726df18e4adc14fa686
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 160c431b5a4624c6179fe0e4f5e14c0520adf0ff
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753599"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552103"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>将 HDFS CLI 与 Data Lake Storage Gen2 配合使用
 
@@ -115,5 +115,7 @@ hdfs dfs -mkdir /samplefolder
 若要查看命令的完整列表，请访问 [Apache Hadoop 2.4.1 文件系统 Shell 指南](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)网站。
 
 ## <a name="next-steps"></a>后续步骤
+
+* [在 Azure Databricks 中使用支持 Azure Data Lake Storage Gen2 的帐户](./data-lake-storage-quickstart-create-databricks-account.md)
 
 * [了解文件和目录上的访问控制列表](/storage/blobs/data-lake-storage-access-control)

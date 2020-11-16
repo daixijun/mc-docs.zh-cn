@@ -5,17 +5,17 @@ ms.service: container-service
 ms.topic: conceptual
 origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/17/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 22bcf442e87aacfbf63f0976075376c1ef811d21
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 8f4296635fc312ae3d1a2c090a8b20eaf5c6dd7e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470576"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552168"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>适用于 Azure Kubernetes 服务的 Azure 安全基线
@@ -116,7 +116,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 - [了解使用 WAF 保护 AKS 群集的最佳做法](operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
 
-- [如何部署 Azure 应用程序网关 (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
+- [如何部署 Azure 应用程序网关 (Azure WAF)](../application-gateway/application-gateway-web-application-firewall-portal.md)
 
 **Azure 安全中心监视** ：不适用
 
@@ -132,7 +132,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 - [在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量](use-network-policies.md)
 
-- [如何部署 Azure 应用程序网关 (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
+- [如何部署 Azure 应用程序网关 (Azure WAF)](../application-gateway/application-gateway-web-application-firewall-portal.md)
 
 **Azure 安全中心监视** ：不适用
 

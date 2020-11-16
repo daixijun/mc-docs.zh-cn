@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 86cb31d9bca71b4badaf6a52a05c0fb9cad4b0b8
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 71140950f1a79747190e808dd7fac193d3416ceb
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937248"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501777"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -58,7 +58,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEps
 
 JWT（JSON Web 令牌）拆分成三个部分：
 
-* **标头** - 提供有关如何[验证令牌](#validating-tokens)的信息，包括有关令牌的类型及其签名方式的信息。
+* **标头** - 提供有关如何 [验证令牌](#validating-tokens)的信息，包括有关令牌的类型及其签名方式的信息。
 * **有效负载** - 包含有关正在尝试调用你的服务的用户或应用的所有重要数据。
 * **签名** - 用于验证令牌的原始材料。
 
@@ -100,7 +100,7 @@ JWT（JSON Web 令牌）拆分成三个部分：
 | `name` | String | 提供一个用户可读值，用于标识令牌使用者。 该值不一定唯一，而且可变，只能用于显示目的。 需要 `profile` 范围才能接收此声明。 |
 | `scp` | 字符串，范围的空格分隔列表 | 应用程序公开的、客户端应用程序已请求（和接收）其许可的范围集。 应用应该验证这些范围是否为应用公开的有效范围，并根据这些范围的值做出授权决策。 仅为[用户令牌](#user-and-application-tokens)包含此值。 |
 | `roles` | 字符串数组、权限列表 | 应用程序公开的、请求方应用程序或用户有权调用的权限集。 对于[应用程序令牌](#user-and-application-tokens)，在执行客户端凭据流（[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)、[v2.0](v2-oauth2-client-creds-grant-flow.md)）期间使用此声明代替用户范围。  对于[用户令牌](#user-and-application-tokens)，使用用户在目标应用程序上分配的角色进行填充。 |
-| `wids` | [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) GUID 的数组 | 表示在[管理员角色页](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids)中的角色部分分配给此用户的租户级角色。  此声明是通过[应用程序清单](reference-app-manifest.md)的 `groupMembershipClaims` 属性按应用程序定义的。  必须将其设置为“All”或“DirectoryRole”。  由于令牌长度方面的原因，它在通过隐式流获取的令牌中可能不存在。 |
+| `wids` | [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) GUID 的数组 | 表示在[管理员角色页](../roles/permissions-reference.md#role-template-ids)中的角色部分分配给此用户的租户级角色。  此声明是通过[应用程序清单](reference-app-manifest.md)的 `groupMembershipClaims` 属性按应用程序定义的。  必须将其设置为“All”或“DirectoryRole”。  由于令牌长度方面的原因，它在通过隐式流获取的令牌中可能不存在。 |
 | `groups` | GUID 的 JSON 数组 | 指定表示使用者的组成员身份的对象 ID。 这些值具有唯一性（请参阅对象 ID），可安全地用于管理访问，例如强制要求授权访问资源。 组声明中包含的组通过[应用程序清单](reference-app-manifest.md)的 `groupMembershipClaims` 属性基于每个应用程序进行配置。 值为 null 将排除所有组；值为“SecurityGroup”将只包括“Active Directory 安全组”成员身份；值为“All”将包括安全组和 Microsoft 365 通讯组列表。 <br><br>有关将 `groups` 声明与隐式授权一起使用的详细信息，请参阅下文中的 `hasgroups` 声明。 <br>对于其他流，如果用户所在的组数超出了某个限制（对于 SAML，为 150，对于 JWT，为 200），则会将超额声明添加到指向包含该用户的组列表的 Microsoft Graph 终结点的声明源。 |
 | `hasgroups` | 布尔 | 如果存在，始终为 `true`，表示用户至少在一个组中。 如果完整组声明将导致 URI 片段超出 URL 长度限制（当前为 6 个或更多组），则在隐式授权流中用来替代 JWT 的 `groups` 声明。 指示客户端应当使用 Microsoft Graph API 来确定用户的组 (`https://microsoftgraph.chinacloudapi.cn/v1.0/users/{userID}/getMemberObjects`)。 |
 | `groups:src1` | JSON 对象 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。 对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br>JWT 值示例： <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://microsoftgraph.chinacloudapi.cn/v1.0/users/{userID}/getMemberObjects" }` |

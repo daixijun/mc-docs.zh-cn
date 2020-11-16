@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/16/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e8e5df05380ce2c5cb3952cd45f74b0b6cf896da
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 46ea108fec7f60c3bc49f6c1b6d888afebf903ed
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551809"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 中的 SQL API 支持注册和调用以 JavaScript 编写的存储过程、触发器与用户定义函数 (UDF)。 可以使用 SQL API [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](sql-api-sdk-node.md)、[Node.js](sql-api-sdk-node.md) 或 [Python](sql-api-sdk-python.md) SDK 注册和调用存储过程。 在定义一个或多个存储过程、触发器和用户定义的函数之后，可以使用数据资源管理器在 [Azure 门户](https://portal.azure.cn/)中加载和查看它们。
 

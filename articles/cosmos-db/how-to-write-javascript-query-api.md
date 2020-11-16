@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/07/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 1245c13ac0bf6bb4714024faf23d4212897ffa8c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7cb65faff6ab5e9d7ae66a80fde820607fef1a39
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118020"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552318"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>如何使用 JavaScript 查询 API 在 Azure Cosmos DB 中编写存储过程和触发器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 允许使用流畅的 JavaScript 接口执行优化的查询，不需要了解可以用来编写存储过程或触发器的 SQL 语言。 若要详细了解 Azure Cosmos DB 对 JavaScript 查询 API 的支持，请参阅[在 Azure Cosmos DB 中使用 JavaScript 语言集成的查询 API](javascript-query-api.md) 一文。
 

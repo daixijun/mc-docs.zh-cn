@@ -8,12 +8,12 @@ origin.date: 06/13/2017
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7869e82a15b5e18ef631babf6a0a591f88ca2e1f
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 0fe6ce856c4b153678da396c6f58b21144983fd1
+ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170752"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550776"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 ASE
 
@@ -67,8 +67,8 @@ TLS/SSL 证书必须与 ASE 关联，作为用于建立应用的 TLS/SSL 连接�
 
 可通过三种方式获取有效的 TLS/SSL 证书：使用内部证书颁发机构、向外部颁发者购买证书或使用自签名证书。 无论 TLS/SSL 证书的来源如何，都需要正确配置以下证书属性：
 
-* **使用者**：此属性必须设置为 *“your-root-domain-here.com”。
-* **使用者可选名称**：此属性必须同时包含 *“your-root-domain-here.com” 和 *“scm.your-root-domain-here.com” 。 以 TLS 方式连接到与每个应用关联的 SCM/Kudu 站点时，使用 your-app-name.scm.your-root-domain-here.com 形式的地址。
+* **使用者** ：此属性必须设置为 *“your-root-domain-here.com”。
+* **使用者可选名称** ：此属性必须同时包含 *“your-root-domain-here.com” 和 *“scm.your-root-domain-here.com” 。 以 TLS 方式连接到与每个应用关联的 SCM/Kudu 站点时，使用 your-app-name.scm.your-root-domain-here.com 形式的地址。
 
 备妥有效的 TLS/SSL 证书以后，还需要两个额外的准备步骤。 将 TLS/SSL 证书转换/另存为 .pfx 文件。 请记住，.pfx 文件必须包括所有的中间和根证书。 使用密码进行保护。
 
@@ -176,5 +176,5 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 [Pricing]: https://www.azure.cn/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
+[AppGW]: ../../application-gateway/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

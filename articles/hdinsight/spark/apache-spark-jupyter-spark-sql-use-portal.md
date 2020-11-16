@@ -14,12 +14,12 @@ origin.date: 02/25/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: d14eefbbf6e897b54de298aac9fb1f860726c585
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: ac381a9a3c51481392679c0ae34b3cd72c9b3877
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866205"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552206"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -38,9 +38,9 @@ ms.locfileid: "88866205"
 
 ## <a name="create-an-apache-spark-cluster-in-hdinsight"></a>在 HDInsight 中创建 Apache Spark 群集
 
-你将使用 Azure 门户创建一个 HDInsight 群集，它使用 Azure 存储 Blob 作为群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+你将使用 Azure 门户创建一个 HDInsight 群集，它使用 Azure 存储 Blob 作为群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 登录 [Azure 门户](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
 1. 在顶部菜单中，选择“+ 创建资源”。
 
@@ -58,7 +58,7 @@ ms.locfileid: "88866205"
     |区域   | 从下拉列表中，选择在其中创建群集的区域。 |
     |群集类型| 选择“选择群集类型”，打开一个列表。 从列表中选择“Spark”。|
     |群集版本|选择群集类型后，此字段中将自动填充默认版本。|
-    |群集登录用户名| 输入群集登录用户名。  默认名称为 **admin**。在此快速入门中稍后使用该帐户登录到 Jupyter notebook。 |
+    |群集登录用户名| 输入群集登录用户名。  默认名称为 **admin** 。在此快速入门中稍后使用该帐户登录到 Jupyter notebook。 |
     |群集登录密码| 输入群集登录密码。 |
     |安全外壳 (SSH) 用户名| 输入 SSH 用户名。 用于此快速入门的 SSH 用户名为“sshuser”。 默认情况下，此帐户的密码与群集登录用户名帐户的密码相同。 |
 

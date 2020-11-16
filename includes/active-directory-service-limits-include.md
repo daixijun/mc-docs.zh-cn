@@ -5,15 +5,15 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 09/23/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 20b9a1ed90c52ce4067b8107b4f8f7cd9dfe3869
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3a1afc5aa787b71f8a5c61a788b7508b67771db1
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246548"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504091"
 ---
 下面是 Azure Active Directory (Azure AD) 服务的使用限制和其他服务限制。
 
@@ -21,7 +21,7 @@ ms.locfileid: "91246548"
 | --- | --- |
 | 租户 | 单个用户最多可以是 500 个 Azure AD 租户的成员或来宾。<br/>单个用户最多可以创建 200 个目录。 |
 | 域 | 可以添加不超过 900 个的托管域名。 如果将所有域设置为与本地 Active Directory 联合，则可在每个租户中添加不超过 450 个域名。 |
-|资源 |<ul><li>默认情况下，Azure Active Directory 免费版用户最多可以在单个租户中创建 50,000 个 Azure AD 资源。 如果你有至少一个经过验证的域，则组织的默认默认 Azure AD 服务配额会扩展到 300000 个 Azure AD 资源。 此服务限制与 Azure AD 定价页上 500000 个资源的定价层限制无关。 若要超过默认配额，必须联系 Microsoft 支持部门。</li><li>非管理员用户最多可以创建 250 个 Azure AD 资源。 活动资源和可还原的已删除资源都会计入此配额。 只能还原在不到 30 天前删除的 Azure AD 资源。 不再可还原的已删除 Azure AD 资源在 30 天内按四分之一的值计入此配额。 如果开发人员在其日常工作期间可能会反复超过此配额，你可以[创建并分配一个自定义角色](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md)，并为此角色授予创建无限个应用注册的权限。</li></ul> |
+|资源 |<ul><li>默认情况下，Azure Active Directory 免费版用户最多可以在单个租户中创建 50,000 个 Azure AD 资源。 如果你有至少一个经过验证的域，则组织的默认默认 Azure AD 服务配额会扩展到 300000 个 Azure AD 资源。 此服务限制与 Azure AD 定价页上 500000 个资源的定价层限制无关。 若要超过默认配额，必须联系 Microsoft 支持部门。</li><li>非管理员用户最多可以创建 250 个 Azure AD 资源。 活动资源和可还原的已删除资源都会计入此配额。 只能还原在不到 30 天前删除的 Azure AD 资源。 不再可还原的已删除 Azure AD 资源在 30 天内按四分之一的值计入此配额。 如果开发人员在其日常工作期间可能会反复超过此配额，你可以[创建并分配一个自定义角色](../articles/active-directory/roles/quickstart-app-registration-limits.md)，并为此角色授予创建无限个应用注册的权限。</li></ul> |
 | 架构扩展 |<ul><li>String 类型扩展最多只能有 256 个字符。 </li><li>Binary 类型扩展限制在 256 字节以内。</li><li>只能将 100 个扩展值（包括所有类型和所有应用程序）写入任何单一 Azure AD 资源中。</li><li>仅“用户”、“组”、“TenantDetail”、“设备”、“应用程序”和“ServicePrincipal”实体可以用字符串类型或二进制文件类型单一值属性进行扩展。</li><li>架构扩展仅在 Graph API 1.21 预览版中可用。 必须授予应用程序编写访问注册扩展的权限。</li></ul> |
 | 应用程序 |最多有 100 位用户可以是单一应用程序的所有者。 |
 |应用程序清单 |最多可在应用程序清单中添加 1200 个条目。 |
@@ -29,5 +29,5 @@ ms.locfileid: "91246548"
 | 访问面板 |无论分配的许可证如何，每个用户可以在访问面板中看到的应用程序数量都没有限制。  |
 | 报告 | 在报告中最多可查看或下载 1,000 行。 系统会截断其他任何数据。 |
 | 管理单元 | Azure AD 资源可以是不超出 30 个管理单位的成员。 |
-| Azure AD 角色和权限 | <ul><li>最多可在 Azure AD 组织中创建 30 个 [Azure AD 自定义角色](/active-directory//users-groups-roles/roles-custom-overview)。</li><li>无法将组添加为[组所有者](/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)。</li><li>用户读取其他用户租户信息的能力只能通过以下方式限制：使用 Azure AD组织范围内的开关禁用所有非管理员用户对所有租户信息的访问（不推荐使用）。 有关详细信息，请参阅[限制成员用户的默认权限](/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)。</li><li>在管理员角色成员身份添加和撤销生效之前，最多可能需要 15 分钟或注销/登录。</li></ul> |
+| Azure AD 角色和权限 | <ul><li>最多可在 Azure AD 组织中创建 30 个 [Azure AD 自定义角色](/active-directory/roles/custom-overview)。</li><li>无法将组添加为[组所有者](/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)。</li><li>用户读取其他用户租户信息的能力只能通过以下方式限制：使用 Azure AD组织范围内的开关禁用所有非管理员用户对所有租户信息的访问（不推荐使用）。 有关详细信息，请参阅[限制成员用户的默认权限](/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)。</li><li>在管理员角色成员身份添加和撤销生效之前，最多可能需要 15 分钟或注销/登录。</li></ul> |
 

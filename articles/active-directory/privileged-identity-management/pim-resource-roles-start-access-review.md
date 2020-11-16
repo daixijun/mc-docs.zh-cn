@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
-ms.date: 02/12/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca65b0b792a60781488efa80b4b15b5d1376576f
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 51d75713822dbec4240c396d7f5f0b69f173d212
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211606"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501884"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中创建对 Azure 资源角色的访问评审
 
@@ -30,7 +30,7 @@ ms.locfileid: "92211606"
 
 ## <a name="prerequisites"></a>必备条件
 
-[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>打开访问评审
 

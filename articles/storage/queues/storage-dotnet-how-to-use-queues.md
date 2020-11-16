@@ -3,19 +3,19 @@ title: 通过 .NET 开始使用 Azure 队列存储 - Azure 存储
 description: Azure 队列用于在应用程序组件之间进行可靠的异步消息传送。 应用程序组件可以利用云消息传送进行独立缩放。
 author: WenJason
 ms.author: v-jay
-origin.date: 05/08/2020
-ms.date: 09/28/2020
+origin.date: 10/08/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: be7a1a3828c75e69401990eda8ce6effc13ea37b
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: e2d443eb4508d389154eb399b2ce8de283ff819a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026506"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551921"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 
@@ -34,9 +34,6 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 设�
 ### <a name="prerequisites"></a>先决条件
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [适用于 .NET 的 Azure 存储通用客户端库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [适用于 .NET 的 Azure 存储队列客户端库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - 一个 [Azure 存储帐户](../common/storage-account-create.md?toc=%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -96,11 +93,6 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 设�
 1. 在线搜索“Microsoft.Azure.ConfigurationManager”，并选择“安装”以安装 Azure Configuration Manager。
 
 ---
-
-> [!NOTE]
-> [用于 .NET 的 Azure SDK](https://azure.microsoft.com/downloads/)中也包含存储客户端库包。 但是我们建议同时从 NuGet 安装存储客户端库，以确保始终使用最新版本。
->
-> 适用于 .NET 的存储客户端库中的 ODataLib 依赖项通过 NuGet（而非 WCF 数据服务）上提供的 ODataLib 包来解析。 ODataLib 库可直接下载或者通过 NuGet 由代码项目引用。 存储空间客户端库使用的具体 ODataLib 包是 [OData](https://nuget.org/packages/Microsoft.Data.OData/)、[Edm](https://nuget.org/packages/Microsoft.Data.Edm/) 和 [Spatial](https://nuget.org/packages/System.Spatial/)。 尽管这些库由 Azure 表存储类使用，但是用存储空间客户端库进行编程时，它们是必需的依赖项。
 
 ### <a name="determine-your-target-environment"></a>确定目标环境
 
@@ -189,16 +181,22 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 使用 [QueueClient](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient) 类可以检索存储在队列存储中的队列。 下面是创建服务客户端的一种方法：
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["storageConnectionString"];
+//-------------------------------------------------
+// Create the queue service client
+//-------------------------------------------------
+public void CreateQueueClient(string queueName)
+{
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
+    // Instantiate a QueueClient which will be used to create and manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+}
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-使用 [CloudQueueClient](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueueclient) 类可以检索存储在队列存储中的队列。 下面是创建服务客户端的一种方法：
+使用 [CloudQueueClient](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) 类可以检索存储在队列存储中的队列。 下面是创建服务客户端的一种方法：
 
 ```csharp
 // Retrieve storage account from connection string
@@ -220,14 +218,40 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["storageConnectionString"];
+//-------------------------------------------------
+// Create a message queue
+//-------------------------------------------------
+public bool CreateQueue(string queueName)
+{
+    try
+    {
+        // Get the connection string from app settings
+        string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
+        // Instantiate a QueueClient which will be used to create and manipulate the queue
+        QueueClient queueClient = new QueueClient(connectionString, queueName);
 
-// Create the queue
-queueClient.CreateIfNotExists();
+        // Create the queue
+        queueClient.CreateIfNotExists();
+
+        if (queueClient.Exists())
+        {
+            Console.WriteLine($"Queue created: '{queueClient.Name}'");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine($"Make sure the Azurite storage emulator running and try again.");
+            return false;
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Exception: {ex.Message}\n\n");
+        Console.WriteLine($"Make sure the Azurite storage emulator running and try again.");
+        return false;
+    }
+}
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
@@ -256,16 +280,27 @@ queue.CreateIfNotExists();
 若要在现有队列中插入消息，请调用 [SendMessage](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.sendmessage) 方法。 消息可以是 `string`（UTF-8 格式）或 `byte` 数组。 下面的代码将创建一个队列（如果该队列不存在）并插入一条消息：
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-------------------------------------------------
+// Insert a message into a queue
+//-------------------------------------------------
+public void InsertMessage(string queueName, string message)
 {
-    // Send a message to the queue
-    queueClient.SendMessage(message);
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+
+    // Instantiate a QueueClient which will be used to create and manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+    // Create the queue if it doesn't already exist
+    queueClient.CreateIfNotExists();
+
+    if (queueClient.Exists())
+    {
+        // Send a message to the queue
+        queueClient.SendMessage(message);
+    }
+
+    Console.WriteLine($"Inserted: {message}");
 }
 ```
 
@@ -301,25 +336,31 @@ queue.AddMessage(message);
 可以通过调用 [PeekMessages](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.peekmessages) 方法来速览队列中的消息，而不必从队列中将其删除。 如果没有为 maxMessages 参数传递值，则默认设置是查看一条消息。
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+//-------------------------------------------------
+// Peek at a message in the queue
+//-------------------------------------------------
+public void PeekMessage(string queueName)
+{
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
 
-if (queueClient.Exists())
-{ 
-    // Peek at the next message
-    PeekedMessage[] peekedMessage = queueClient.PeekMessages();
+    if (queueClient.Exists())
+    { 
+        // Peek at the next message
+        PeekedMessage[] peekedMessage = queueClient.PeekMessages();
 
-    // Display the message
-    Console.WriteLine($"Peeked message: '{peekedMessage[0].MessageText}'");
+        // Display the message
+        Console.WriteLine($"Peeked message: '{peekedMessage[0].MessageText}'");
+    }
 }
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-通过调用 [PeekMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.peekmessage) 方法，可以速览队列前面的消息，而不必从队列中将其删除。
+通过调用 [PeekMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) 方法，可以速览队列前面的消息，而不必从队列中将其删除。
 
 ```csharp
 // Retrieve storage account from connection string
@@ -348,23 +389,29 @@ Console.WriteLine(peekedMessage.AsString);
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-------------------------------------------------
+// Update an existing message in the queue
+//-------------------------------------------------
+public void UpdateMessage(string queueName)
 {
-    // Get the message from the queue
-    QueueMessage[] message = queueClient.ReceiveMessages();
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-    // Update the message contents
-    queueClient.UpdateMessage(message[0].MessageId, 
-            message[0].PopReceipt, 
-            "Updated contents",
-            TimeSpan.FromSeconds(60.0)  // Make it invisible for another 60 seconds
-        );
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+    if (queueClient.Exists())
+    {
+        // Get the message from the queue
+        QueueMessage[] message = queueClient.ReceiveMessages();
+
+        // Update the message contents
+        queueClient.UpdateMessage(message[0].MessageId, 
+                message[0].PopReceipt, 
+                "Updated contents",
+                TimeSpan.FromSeconds(60.0)  // Make it invisible for another 60 seconds
+            );
+    }
 }
 ```
 
@@ -398,28 +445,34 @@ queue.UpdateMessage(message,
 可通过两个步骤取消消息在队列中的排队。 调用 [ReceiveMessages](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.receivemessages) 时，可获得队列中的下一条消息。 从 `ReceiveMessages` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 [DeleteMessage](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.deletemessage)。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 `DeleteMessage`。
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-------------------------------------------------
+// Process and remove a message from the queue
+//-------------------------------------------------
+public void DequeueMessage(string queueName)
 {
-    // Get the next message
-    QueueMessage[] retrievedMessage = queueClient.ReceiveMessages();
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-    // Process (i.e. print) the message in less than 30 seconds
-    Console.WriteLine($"De-queued message: '{retrievedMessage[0].MessageText}'");
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
 
-    // Delete the message
-    queueClient.DeleteMessage(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+    if (queueClient.Exists())
+    {
+        // Get the next message
+        QueueMessage[] retrievedMessage = queueClient.ReceiveMessages();
+
+        // Process (i.e. print) the message in less than 30 seconds
+        Console.WriteLine($"Dequeued message: '{retrievedMessage[0].MessageText}'");
+
+        // Delete the message
+        queueClient.DeleteMessage(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+    }
 }
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-代码通过两个步骤来取消对队列中某条消息的排队。 调用 [GetMessage](/dotnet/api/microsoft.winsowsazure.storage.queue.cloudqueue.getmessage)时，你会获取队列中的下一条消息。 从 **GetMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 [DeleteMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage)。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 `DeleteMessage`。
+代码通过两个步骤来取消对队列中某条消息的排队。 调用 [GetMessage](/dotnet/api/microsoft.winsowsazure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true)时，你会获取队列中的下一条消息。 从 `GetMessage` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 要从队列中删除消息，还必须调用 [DeleteMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true)。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 `DeleteMessage`。
 
 ```csharp
 // Retrieve storage account from connection string
@@ -443,44 +496,50 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>将 Async-Await 模式与公用队列存储 API 配合使用
 
-此示例演示如何将 Async-Await 模式和公用队列存储 API 配合使用。 示例调用每个给定方法的异步版本，如每个方法的 *Async* 后缀所示。 使用异步方法时，async-await 模式暂停本地执行，直到调用完成。 此行为允许当前的线程执行其他工作，这有助于避免性能瓶颈并提高应用程序的整体响应能力。 有关在 .NET 中使用 Async-Await 模式的详细信息，请参阅 [Async 和 Await（C# 和 Visual Basic）](https://msdn.microsoft.com/library/hh191443.aspx)
+此示例演示如何将 Async-Await 模式和公用队列存储 API 配合使用。 示例调用每个给定方法的异步版本，如每个方法的 *Async* 后缀所示。 使用异步方法时，async-await 模式暂停本地执行，直到调用完成。 此行为允许当前的线程执行其他工作，这有助于避免性能瓶颈并提高应用程序的整体响应能力。 有关在 .NET 中使用 Async-Await 模式的详细信息，请参阅 [Async 和 Await（C# 和 Visual Basic）](https://docs.microsoft.com/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-// Create the queue if it doesn't already exist
-await queueClient.CreateIfNotExistsAsync();
-
-if (await queueClient.ExistsAsync())
+//-------------------------------------------------
+// Perform queue operations asynchronously
+//-------------------------------------------------
+public async Task QueueAsync(string queueName)
 {
-    Console.WriteLine($"Queue '{queueClient.Name}' created");
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+    // Create the queue if it doesn't already exist
+    await queueClient.CreateIfNotExistsAsync();
+
+    if (await queueClient.ExistsAsync())
+    {
+        Console.WriteLine($"Queue '{queueClient.Name}' created");
+    }
+    else
+    {
+        Console.WriteLine($"Queue '{queueClient.Name}' exists");
+    }
+
+    // Async enqueue the message
+    await queueClient.SendMessageAsync("Hello, World");
+    Console.WriteLine($"Message added");
+
+    // Async receive the message
+    QueueMessage[] retrievedMessage = await queueClient.ReceiveMessagesAsync();
+    Console.WriteLine($"Retrieved message with content '{retrievedMessage[0].MessageText}'");
+
+    // Async delete the message
+    await queueClient.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+    Console.WriteLine($"Deleted message: '{retrievedMessage[0].MessageText}'");
+
+    // Async delete the queue
+    await queueClient.DeleteAsync();
+    Console.WriteLine($"Deleted queue: '{queueClient.Name}'");
 }
-else
-{
-    Console.WriteLine($"Queue '{queueClient.Name}' exists");
-}
-
-// Async enqueue the message
-await queueClient.SendMessageAsync("Hello, World");
-Console.WriteLine($"Message added");
-
-// Async receive the message
-QueueMessage[] retrievedMessage = await queueClient.ReceiveMessagesAsync();
-Console.WriteLine($"Retrieved message with content '{retrievedMessage[0].MessageText}'");
-
-// Async delete the message
-await queueClient.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
-Console.WriteLine($"Deleted message: '{retrievedMessage[0].MessageText}'");
-
-// Async delete the queue
-await queueClient.DeleteAsync();
-Console.WriteLine($"Deleted queue: '{queueClient.Name}'");
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
@@ -523,31 +582,37 @@ Console.WriteLine("Deleted message");
 下面的代码示例使用 [ReceiveMessages](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.receivemessages) 方法，目的是在一次调用中获取 20 条消息。 然后，使用 `foreach` 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。 请注意，5 分钟超时时间对于所有消息都是同时开始的，因此在调用 `ReceiveMessages` 5 分钟后，尚未删除的任何消息都会再次变得可见。
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-----------------------------------------------------
+// Process and remove multiple messages from the queue
+//-----------------------------------------------------
+public void DequeueMessages(string queueName)
 {
-    // Receive and process 20 messages
-    QueueMessage[] receivedMessages = queueClient.ReceiveMessages(20, TimeSpan.FromMinutes(5));
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-    foreach (QueueMessage message in receivedMessages)
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+    if (queueClient.Exists())
     {
-        // Process (i.e. print) the messages in less than 5 minutes
-        Console.WriteLine($"De-queued message: '{message.MessageText}'");
+        // Receive and process 20 messages
+        QueueMessage[] receivedMessages = queueClient.ReceiveMessages(20, TimeSpan.FromMinutes(5));
 
-        // Delete the message
-        queueClient.DeleteMessage(message.MessageId, message.PopReceipt);
+        foreach (QueueMessage message in receivedMessages)
+        {
+            // Process (i.e. print) the messages in less than 5 minutes
+            Console.WriteLine($"De-queued message: '{message.MessageText}'");
+
+            // Delete the message
+            queueClient.DeleteMessage(message.MessageId, message.PopReceipt);
+        }
     }
 }
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-以下代码示例使用 [GetMessages](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessages) 方法在一次调用中获取 20 条消息。 然后，使用 `foreach` 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。 请注意，5 分钟超时时间对于所有消息都是同时开始的，因此在调用 `GetMessages` 5 分钟后，尚未删除的任何消息都会再次变得可见。
+以下代码示例使用 [GetMessages](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) 方法在一次调用中获取 20 条消息。 然后，使用 `foreach` 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。 请注意，5 分钟超时时间对于所有消息都是同时开始的，因此在调用 `GetMessages` 5 分钟后，尚未删除的任何消息都会再次变得可见。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -576,27 +641,33 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 可以获取队列中消息的估计数。 [GetProperties](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.getproperties) 方法要求队列服务检索队列属性，包括消息计数。 [ApproximateMessagesCount](https://docs.microsoft.com/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) 属性包含队列中的大致消息数。 此数字不低于队列中的实际消息数，但可能会更高。
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-----------------------------------------------------
+// Get the approximate number of messages in the queue
+//-----------------------------------------------------
+public void GetQueueLength(string queueName)
 {
-    QueueProperties properties = queueClient.GetProperties();
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
 
-    // Retrieve the cached approximate message count.
-    int cachedMessagesCount = properties.ApproximateMessagesCount;
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
 
-    // Display number of messages.
-    Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
+    if (queueClient.Exists())
+    {
+        QueueProperties properties = queueClient.GetProperties();
+
+        // Retrieve the cached approximate message count.
+        int cachedMessagesCount = properties.ApproximateMessagesCount;
+
+        // Display number of messages.
+        Console.WriteLine($"Number of messages in queue: {cachedMessagesCount}");
+    }
 }
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-可以获取队列中消息的估计数。 使用 [FetchAttributes](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.fetchattributes) 方法可请求队列服务检索队列属性，包括消息计数。 [ApproximateMessageCount](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.approximatemessagecount) 属性返回 `FetchAttributes` 方法检索到的最后一个值，不会调用队列服务。
+可以获取队列中消息的估计数。 使用 [FetchAttributes](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) 方法可请求队列服务检索队列属性，包括消息计数。 [ApproximateMessageCount](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) 属性返回 `FetchAttributes` 方法检索到的最后一个值，不会调用队列服务。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -628,22 +699,30 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 若要删除队列及其包含的所有消息，请对队列对象调用 [Delete](https://docs.microsoft.com/dotnet/api/azure.storage.queues.queueclient.delete) 方法。
 
 ```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
+//-------------------------------------------------
+// Delete the queue
+//-------------------------------------------------
+public void DeleteQueue(string queueName)
 {
-    // Delete the queue
-    queueClient.Delete();
+    // Get the connection string from app settings
+    string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+
+    // Instantiate a QueueClient which will be used to manipulate the queue
+    QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+    if (queueClient.Exists())
+    {
+        // Delete the queue
+        queueClient.Delete();
+    }
+
+    Console.WriteLine($"Queue deleted: '{queueClient.Name}'");
 }
 ```
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-若要删除队列及其包含的所有消息，请对队列对象调用 [Delete](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.delete) 方法。
+若要删除队列及其包含的所有消息，请对队列对象调用 [Delete](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) 方法。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -667,18 +746,10 @@ queue.Delete();
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
 - 查看队列服务参考文档，了解有关可用 API 的完整详细信息：
-  - [.NET 存储客户端库参考](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API 参考](https://msdn.microsoft.com/library/azure/dd179355)
-- 了解如何通过使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 简化为使用 Azure 存储而写的代码。
+  - [.NET 存储客户端库参考](/dotnet/api/overview/storage)
+  - [REST API 参考](https://docs.microsoft.com/rest/api/storageservices/)
 - 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
-  - [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md) 来存储结构化数据。
-  - [通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md) 来存储非结构化数据。
+  - [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/tutorial-develop-table-dotnet.md) 来存储结构化数据。
+  - [通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-quickstart-blobs-dotnet.md) 来存储非结构化数据。
   - [使用.NET (C#) 连接到 SQL 数据库](../../azure-sql/database/connect-query-dotnet-core.md)，存储关系数据。
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- 了解如何通过使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 简化为使用 Azure 存储而写的代码。

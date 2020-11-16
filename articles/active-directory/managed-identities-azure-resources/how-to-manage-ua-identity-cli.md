@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a23acf8f8db2d790487bed205fe6da6228bd0ce6
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 1bce3c71a1f7693ae4e6eb546fa8976bf2f8ec71
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041601"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501969"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>使用 Azure CLI 创建、列出或删除用户分配的托管标识
 
@@ -30,13 +30,15 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 在本文中，将了解如何使用 Azure CLI 创建、列出和删除用户分配的托管标识。
 
+如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
-- 若要运行示例脚本，可安装最新版本的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure。 使用与要在其中创建资源的 Azure 订阅关联的帐户。   
+- 如果你不熟悉 Azure 资源托管标识，请参阅[什么是 Azure 资源托管标识？](overview.md)。 若要了解系统分配的托管标识和用户分配的托管标识类型，请参阅[托管标识类型](overview.md#managed-identity-types)。
 
-> [!NOTE]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+> [!NOTE]   
 > 若要在通过 CLI 使用应用服务主体时修改用户权限，必须在 CLI 对图形 API 执行 GET 请求时在 Azure AD Graph API 中提供服务主体附加权限。 否则，你可能最终会收到“权限不足，无法完成操作”消息。 为此，你需要进入 Azure Active Directory 中的“应用注册”，选择你的应用，单击“API 权限”，向下滚动并选择“Azure Active Directory Graph”。 从那里选择“应用程序权限”，然后添加适当的权限。 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>创建用户分配的托管标识 

@@ -9,21 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: d8da7f76799feae8e3cfd5d1d07d7170abe4d361
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 1279d56fd56e303d39765b4154414103360a34b2
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121596"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501860"
 ---
 # <a name="single-page-application-app-registration"></a>单页应用程序：应用注册
 
 要在 Microsoft 标识平台中注册单页应用程序 (SPA)，请完成以下步骤。 注册步骤在支持隐式授权流的 MSAL 1.0 和支持使用 PKCE 的授权代码流的 MSAL 2.0 之间有所不同。
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>创建应用注册
 

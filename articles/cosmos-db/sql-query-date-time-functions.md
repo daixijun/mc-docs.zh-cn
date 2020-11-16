@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 739a44bd5f524a905fc33ce4ab78608ee80c1fa4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 0c7b0c73a610ff2c1bccbf9a628887b26834af97
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246704"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551769"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>日期和时间函数 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 通过日期和时间函数，可以在 Azure Cosmos DB 中执行 DateTime 和时间戳操作。
 

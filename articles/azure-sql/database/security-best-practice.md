@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 09/21/2020
 ms.date: 10/29/2020
 ms.reviewer: ''
-ms.openlocfilehash: a1757ea6c96b7b04c06461f23ee78c274a82232f
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: e51188371fd50a589f78ed626e2f0f5cf7081ee3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470453"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552271"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>用于解决 Azure SQL 数据库和 Azure SQL 托管实例常见安全要求的 playbook
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -578,7 +578,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
 
 - 确保 Web 应用按照[使用 Azure 应用服务保护平台即服务 (PaaS) Web 和移动应用程序的最佳做法](../../security/fundamentals/paas-applications-using-app-services.md)一文进行了配置。
 
-- 安装 [Web 应用程序防火墙 (WAF)](../../web-application-firewall/ag/ag-overview.md)，以防止 Web 应用遭到常见的恶意利用和出现漏洞。
+- 安装 [Web 应用程序防火墙 (WAF)](../../application-gateway/ag-overview.md)，以防止 Web 应用遭到常见的恶意利用和出现漏洞。
 
 ### <a name="configure-azure-virtual-machine-hosting-for-secure-connections-to-sql-databasesql-managed-instance"></a>配置 Azure 虚拟机以安全连接到 SQL 数据库/SQL 托管实例
 

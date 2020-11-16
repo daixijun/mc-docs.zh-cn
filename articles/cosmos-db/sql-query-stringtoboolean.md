@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 StringToBoolean
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 StringToBoolean。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 20cf9fdd479542131b384e25ad2f96b7d7c00485
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 1f063208e767bc1b4bb78df28ea6022bf760d43a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134830"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551970"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回已转换为布尔值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
 ## <a name="syntax"></a>语法
@@ -37,7 +39,7 @@ StringToBoolean(<str_expr>)
 
   以下示例演示 `StringToBoolean` 在不同类型中的行为方式。 
 
- 下面是输入有效的示例。
+  下面是输入有效的示例。
 
 只能在 "true"/"false" 之前或之后使用空格。
 

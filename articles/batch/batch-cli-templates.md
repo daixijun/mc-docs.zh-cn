@@ -4,17 +4,17 @@ description: 只需使用 CLI 命令便可创建池、上传输入数据、创�
 ms.topic: how-to
 origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: fb4cf80bae2aa184e52cbc1dcae03893367f2820
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f718acb44743e09d8c57af63ac4f55ffbcf10caf
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106104"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552265"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 模板和文件传输
 

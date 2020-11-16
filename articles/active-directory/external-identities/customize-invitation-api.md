@@ -1,26 +1,26 @@
 ---
 title: B2B 协作 API 和自定义 - Azure Active Directory
-description: Azure Active Directory B2B 协作可让业务合作伙伴有选择性地访问本方的企业应用程序，为跨公司合作关系提供支持
+description: Azure Active Directory B2B 协作可让业务合作伙伴有选择性地访问本方的企业应用程序，为跨公司合作关系提供支持。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
-ms.date: 08/17/2020
+ms.topic: how-to
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bdf317938f36cd09cecb8dcb318f6b6b04bd12a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: e98399c37f45a9dbb3171a55b488f091d79a82a3
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648045"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501898"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 协作 API 和自定义
 
-已经有许多客户和我们说他们想要以最适合其组织的方式自定义邀请过程。 使用我们的 API，便可以实现该想法。 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+已经有许多客户和我们说他们想要以最适合其组织的方式自定义邀请过程。 使用我们的 API，便可以实现该想法。 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://docs.microsoft.com/graph/api/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>邀请 API 的功能
 
@@ -36,7 +36,7 @@ ms.locfileid: "88648045"
 2. 自定义希望用户在接受其邀请后登陆的位置。
 
     ```
-    "inviteRedirectUrl": "https://account.activedirectory.windowsazure.cn/r#/applications"
+    "inviteRedirectUrl": "https://account.activedirectory.windowsazure.cn/r#/applications/"
     ```
 
 3. 选择通过我们将包含可自定义消息的标准邀请邮件
@@ -117,7 +117,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>另请参阅
 
-在 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 中查看邀请 API 参考。
+在 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://docs.microsoft.com/graph/api/resources/invitation) 中查看邀请 API 参考。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,20 +1,20 @@
 ---
 title: 在 Azure 中监视云存储应用程序并排查其问题 | Microsoft Docs
 description: 利用诊断工具、指标和警报来排查云应用程序问题和监视云应用程序。
-services: storage
 author: WenJason
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 origin.date: 07/20/2018
-ms.date: 09/10/2018
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.custom: mvc
-ms.openlocfilehash: 7d0f848f2e3980cfd4ae6148b2b4ec352d917637
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.reviewer: fryu
+ms.openlocfilehash: cfde51d77f72b7e8e37302dae884e7ba1905a260
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63844384"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552019"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>监视云存储应用程序并排查其问题
 
@@ -44,7 +44,7 @@ ms.locfileid: "63844384"
 
 完成后，单击“保存” 
 
-![“诊断”窗格](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![突出显示包含用于启用日志记录和指标的配置设置的部分的屏幕截图。](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>启用警报
 

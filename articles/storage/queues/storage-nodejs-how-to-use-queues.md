@@ -4,18 +4,18 @@ description: 学习使用 Azure 队列服务创建和删除队列。 学习使�
 author: WenJason
 ms.author: v-jay
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 4c102dd9099e740d11f07f27e12f5467349716be
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.custom: seo-javascript-september2019, devx-track-js
+ms.openlocfilehash: 58e959aec81c49cc9baf44cd26d4571c5ee30dda
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026638"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551916"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 队列存储
 
@@ -43,7 +43,7 @@ ms.locfileid: "91026638"
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-1. 在命令窗口中键入 **npm install \@azure/storage-queue**。
+1. 在命令窗口中键入 **npm install \@azure/storage-queue** 。
 
 1. 验证是否已创建 **node\_modules** 文件夹。 在该文件夹中，你会发现 **\@azure/storage-queue** 包，其中包含访问存储所需的客户端库。
 
@@ -374,7 +374,7 @@ for await (const item of queueServiceClient.listQueues()) {
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-若要检索队列的列表，请使用 **listQueuesSegmented**。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix**。
+若要检索队列的列表，请使用 **listQueuesSegmented** 。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix** 。
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -414,7 +414,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages**。
+若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages** 。
 
 ---
 
@@ -430,5 +430,5 @@ queueSvc.deleteQueue(queueName, function(error, response){
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
 [Build and deploy a Node.js application to an Azure Cloud Service]: ../../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create a Node.js web app in Azure App Service]: ../../app-service/app-service-web-get-started-nodejs.md
+[Create a Node.js web app in Azure App Service]: ../../app-service/quickstart-nodejs.md
 [Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial

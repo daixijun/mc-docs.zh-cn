@@ -4,17 +4,17 @@ description: 了解如何使用 Azure 队列 JavaScript v12 库创建队列并�
 author: WenJason
 ms.author: v-jay
 origin.date: 12/13/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c3ff240b69a3164857be265a5904b0309e0a1ed8
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-js
+ms.openlocfilehash: 68fb308560bb47da1df756c4416d2e917d7aad38
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753426"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552358"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>快速入门：适用于 JavaScript 的 Azure 队列存储客户端库 v12
 
@@ -35,12 +35,12 @@ ms.locfileid: "88753426"
 * [API 参考文档](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
 * [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [包(节点包管理器)](https://www.npmjs.com/package/@azure/storage-queue)
-* [示例](/storage/common/storage-samples-javascript?toc=%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-javascript.md?toc=%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建一个 1 元人民币的试用订阅](https://azure.microsoft.com/free/)
-* Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于操作系统的当前 [Node.js](https://nodejs.org/en/download/)。
 
 ## <a name="setting-up"></a>设置

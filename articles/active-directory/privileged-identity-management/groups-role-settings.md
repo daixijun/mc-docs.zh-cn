@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/14/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ef3391e22b49d33c27bea465320ac5adf91ce
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 1fa1a92712cfd1e2dd875621355e4fe8e7b724a1
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648028"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501949"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置特权访问组设置（预览）
 
@@ -30,7 +30,7 @@ ms.locfileid: "88648028"
 
 遵循以下步骤打开 Azure 特权访问组角色的设置。
 
-1. 使用具有[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色的用户登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 使用具有[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)角色的用户登录到 [Azure 门户](https://portal.azure.cn/)。
 
 1. 打开“Azure AD Privileged Identity Management”。
 
@@ -60,9 +60,9 @@ ms.locfileid: "88648028"
 
     ![角色设置页中的角色“通知”选项卡](./media/groups-role-settings/role-settings-notification-tab.png)
 
-1. 随时选择“更新”按钮，对角色设置进行更新。****
+1. 随时选择“更新”按钮，对角色设置进行更新。
 
-在角色设置页上的“通知”**** 选项卡上，Privileged Identity Management 允许对接收通知的人员及其收到的通知进行精细控制。
+在角色设置页上的“通知”选项卡上，Privileged Identity Management 允许对接收通知的人员及其收到的通知进行精细控制。
 
 - **关闭电子邮件**<br>可以通过清除“默认收件人”复选框并删除任何其他收件人来关闭特定电子邮件。  
 - **将电子邮件限制为指定的电子邮件地址**<br>可以通过清除“默认收件人”复选框来关闭发送给默认收件人的电子邮件。 然后，可以添加其他电子邮件地址作为其他收件人。 如果要添加多个电子邮件地址，请使用分号 (;) 分隔它们。
@@ -80,7 +80,7 @@ ms.locfileid: "88648028"
 | **允许永久的合格分配** | 资源管理员可以分配永久的合格分配。 |
 | **使合格分配在以下时间后过期** | 资源管理员可以要求所有合格分配都具有指定的开始和结束日期。 |
 
-并且，可以选择其中一个活动**** 分配持续时间选项：
+并且，可以选择其中一个活动分配持续时间选项：
 
 | | |
 | --- | --- |
@@ -98,39 +98,39 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 在某些情况下，你可能希望为用户或组分配短期（例如，一天）角色。 在这种情况下，分配的成员不需要请求激活。 在这种情况下，Privileged Identity Management 无法在用户使用其角色分配时强制实施多重身份验证，因为从分配角色时起，用户就已经在角色中处于活动状态。
 
-为确保完成分配的资源管理员是其本人，可以通过选中“在活动分配时要求进行多重身份验证”**** 框来对活动分配强制执行多重身份验证。
+为确保完成分配的资源管理员是其本人，可以通过选中“在活动分配时要求进行多重身份验证”框来对活动分配强制执行多重身份验证。
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>要求在激活时进行多重身份验证
 
 可以要求符合角色条件的用户证明他们正在使用 Azure 多重身份验证，然后他们才能激活。 多重身份验证能够以合理的确定性确保用户是其本人。 强制执行此选项可以在用户帐户可能已遭入侵的情况下保护关键资源。
 
-若要在激活前要求进行多重身份验证，请选中“在激活时要求进行多重身份验证”**** 框。
+若要在激活前要求进行多重身份验证，请选中“在激活时要求进行多重身份验证”框。
 
 有关详细信息，请参阅[多重身份验证和 Privileged Identity Management](pim-how-to-require-mfa.md)。
 
 ## <a name="activation-maximum-duration"></a>最长激活持续时间
 
-使用“最长激活持续时间”**** 滑块是角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可以是 1 到 24 个小时。
+使用“最长激活持续时间”滑块是角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可以是 1 到 24 个小时。
 
 ## <a name="require-justification"></a>需要理由
 
-你可以要求用户在激活时输入业务理由。 若需要理由，请选中“在活动分配时需要理由”**** 框或“在激活时需要理由”**** 框。
+你可以要求用户在激活时输入业务理由。 若需要理由，请选中“在活动分配时需要理由”框或“在激活时需要理由”框。
 
 ## <a name="require-approval-to-activate"></a>需要批准才能激活
 
 如果要求批准以激活角色，请按照以下步骤操作。
 
-1. 选中“需要批准以激活”**** 复选框。
+1. 选中“需要批准以激活”复选框。
 
-1. 选择“选择审批者”打开“选择成员或组”页********。
+1. 选择“选择审批者”打开“选择成员或组”页。
 
     ![用于选择审批者的“选择用户或组”窗格](./media/groups-role-settings/group-settings-select-approvers.png)
 
-1. 至少选择一个用户或组，然后单击“选择”****。 可以添加任何用户和组的组合。 必须至少选择 1 个审批者。 没有默认的审批者。
+1. 至少选择一个用户或组，然后单击“选择”。 可以添加任何用户和组的组合。 必须至少选择 1 个审批者。 没有默认的审批者。
 
     所选项将出现在所选审批者列表中。
 
-1. 在指定所有角色设置后，选择“更新”**** 以保存更改。
+1. 在指定所有角色设置后，选择“更新”以保存更改。
 
 ## <a name="next-steps"></a>后续步骤
 

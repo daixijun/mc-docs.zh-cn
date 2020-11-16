@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 4ce04cfc77fa1c7adee5cb31fe48601f1d481c26
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: fb5df2894ba7b962a9c5771bfe5b2cd21641f971
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753589"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552114"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>调整性能：Hive、HDInsight 和 Azure Data Lake Storage Gen2
 
@@ -22,10 +22,10 @@ ms.locfileid: "88753589"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-* **Data Lake Storage Gen2 帐户**。 有关如何创建帐户的说明，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)
+* **一个 Azure 订阅** 。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **Data Lake Storage Gen2 帐户** 。 有关如何创建帐户的说明，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)
 * 具有 Data Lake Storage Gen2 帐户访问权限的 Azure HDInsight 群集  。 请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **在 HDInsight 上运行 Hive**。  若要了解有关在 HDInsight 上运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](/hdinsight/hdinsight-use-hive)
+* **在 HDInsight 上运行 Hive** 。  若要了解有关在 HDInsight 上运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](/hdinsight/hdinsight-use-hive)
 * Data Lake Storage Gen2 的性能优化指南  。  有关一般的性能概念，请参阅 [Data Lake Storage Gen2 性能优化指南](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>parameters
@@ -75,3 +75,4 @@ ms.locfileid: "88753589"
 
 下面是将帮助优化 Hive 查询的几个博客：
 * [在 Hdinsight 中优化 Hadoop 的 Hive 查询](/hdinsight/hdinsight-hadoop-optimize-hive-query)
+* [优化 Azure HDInsight 中的 Apache Hive 查询](/hdinsight/hdinsight-hadoop-optimize-hive-query)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3f1e41a0ce986349c17c99b336b02f5e0088c673
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 957f2cfbe2949c55b40819dbddf9ca81e22931c7
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937488"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501835"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>适用于 iOS 设备的共享设备模式
 
@@ -43,7 +43,7 @@ ms.locfileid: "91937488"
 
 1. 设备管理员使用 Microsoft Intune 等移动设备管理 (MDM) 提供程序来管理其组织中的设备，以准备好要共享的设备  。 MDM 将 Microsoft Authenticator 应用推送到设备，并通过设备的配置文件更新来为每台设备启用“共享模式”。 正是此“共享模式”设置更改了设备上受支持应用的行为。 MDM 提供程序中的此项配置为设备设置共享设备模式，并启用共享设备模式所需的[适用于 Apple 设备的 Microsoft 企业 SSO 插件](apple-sso-plugin.md)。
 
-1. [仅在公共预览期需要] 然后，具有[云设备管理员](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator)角色的用户必须启动 Microsoft Authenticator 应用，并将其设备加入组织  。
+1. [仅在公共预览期需要] 然后，具有[云设备管理员](../roles/permissions-reference.md#cloud-device-administrator)角色的用户必须启动 Microsoft Authenticator 应用，并将其设备加入组织  。
 
     若要在 Azure 门户中配置组织角色的成员身份：“Azure Active Directory” > “角色和管理员” > “云设备管理员”   
 
@@ -58,11 +58,11 @@ ms.locfileid: "91937488"
 
 1. 在 Intune 配置门户中，使用以下配置告知设备要启用[适用于 Apple 设备的 Microsoft 企业 SSO 插件](apple-sso-plugin.md)：
 
-    - **类型**：重定向
-    - **扩展 ID**：com.microsoft.azureauthenticator.ssoextension
-    - **团队 ID**：（iOS 不需要此字段）
-    - **URL**： `https://login.partner.microsoftonline.cn`
-    - **要配置的其他数据**：
+    - **类型** ：重定向
+    - **扩展 ID** ：com.microsoft.azureauthenticator.ssoextension
+    - **团队 ID** ：（iOS 不需要此字段）
+    - **URL** ： `https://login.partner.microsoftonline.cn`
+    - **要配置的其他数据** ：
       - 密钥：sharedDeviceMode
       - 键入：布尔
       - 值：true

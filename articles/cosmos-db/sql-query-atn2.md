@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ATN2
 description: 了解 Azure Cosmos DB 中的 ATN2 SQL 系统函数如何返回 y/x 的反正切的主体值（以弧度表示）。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 75040c7d99ac1bcadba61164e20511bb5fbf9f03
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 7f54246e3bd387c8f4708951c441c074869cd6cb
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134747"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551783"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回 y/x 的反正切的主体值，以弧度表示。  
 
 ## <a name="syntax"></a>语法

@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的参数化查询
 description: 了解 SQL 参数化查询如何提供对用户输入的可靠处理和转义，并通过 SQL 注入防止意外泄露数据。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6da16cf4128979e0ccc111973c61be0506313b79
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ea57b711099326491c0b64c9e1109f4acae0be1e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222539"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551948"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB 中的参数化查询
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 支持使用带有常用 @ 表示法的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。
 

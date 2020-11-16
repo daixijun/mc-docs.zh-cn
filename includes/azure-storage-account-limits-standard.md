@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: include
-origin.date: 07/08/2020
-ms.date: 08/24/2020
+origin.date: 09/30/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: f77060f69115fa98ad8fa9b7ce7f57bccb356fe2
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: fcadf59fa0c59d8f9358e99bc9753dc41953a0ac
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753308"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551761"
 ---
 下表描述了 Azure 常规用途 v1、v2、Blob 存储和块 blob 存储帐户的默认限制。 “流入量”限制是指针对发送到存储帐户的所有数据的限制。 “流出量”限制是指针对从存储帐户接收的所有数据的限制。
 
@@ -37,6 +37,5 @@ ms.locfileid: "88753308"
 > [!NOTE]
 > 大多数情况下，Azure 建议使用常规用途 v2 存储帐户。 可以轻松将常规用途 v1 或 Azure Blob 存储帐户升级到常规用途 v2 帐户，无需停机且无需复制数据。 有关详细信息，请参阅[升级到常规用途 v2 存储帐户](../articles/storage/common/storage-account-upgrade.md)。
 
-如果应用程序的需求超过单个存储帐户的伸缩性目标，则可以构建使用多个存储帐户的应用程序。 然后，可以将数据对象分布到这些存储帐户中。 有关批量定价的信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)。
-
 所有存储帐户都在平面网络拓扑上运行，而无论它们是何时创建的。 有关 Azure 存储的扁平网络体系结构和可伸缩性的详细信息，请参阅 [Azure 存储：具有高度一致性的高可用云存储服务](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets)。 
+

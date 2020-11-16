@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 487013a5bde6de5528b5c16a25dd0a8d35ee1b93
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d923c369f0cf681f65c2c5ebb5021914b9d95e8e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328589"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551900"
 ---
 <!--All Links Verified Successfully-->
 
@@ -69,7 +69,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [在包含应用程序网关的内部 VNET 中集成 API 管理](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
-<!--Not Available on * [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)-->
+<!--Not Available on * [How to deploy Azure WAF](../application-gateway/create-waf-policy-ag.md)-->
 
 **Azure 安全中心监视** ：目前不可用
 

@@ -36,7 +36,9 @@
           href: quickstart-v2-aspnet-webapp.md
         - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
-        - name: NodeJS
+        - name: Node.js - MSAL | 预览
+          href: quickstart-v2-nodejs-webapp-msal.md
+        - name: Node.js - Passport.js
           href: quickstart-v2-nodejs-webapp.md
           displayName: OIDC
         - name: Java
@@ -73,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript - 隐式流
           href: tutorial-v2-javascript-spa.md
     - name: Web 应用
@@ -287,10 +291,6 @@
           items:
             - name: 帐户和租户配置文件
               href: accounts-overview.md
-            - name: 授权代理
-              href: authorization-agents.md
-            - name: 中转身份验证
-              href: brokered-auth.md
             - name: 与 Azure AD B2C 集成
               href: msal-android-b2c.md
             - name: 迁移到 MSAL.Android
@@ -511,6 +511,7 @@
           href: howto-add-branding-in-azure-ad-apps.md
         - name: 配置发布服务器域
           href: howto-configure-publisher-domain.md
+          displayName: 'verified domain, verified publisher domain'
         - name: 配置服务条款和隐私声明
           href: howto-add-terms-of-service-privacy-statement.md
     - name: 使用 Microsoft 身份验证库

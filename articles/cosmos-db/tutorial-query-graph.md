@@ -6,21 +6,22 @@ ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 origin.date: 12/03/2018
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebdcd2b4d6d98f8a9eb4fca1e12ce983b4b73778
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 13575c19d451fb2f0c40eae650e8dd580622b680
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246811"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551715"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>教程：使用 Gremlin 查询 Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB [Gremlin API](graph-introduction.md) 支持 [Gremlin](https://github.com/tinkerpop/gremlin/wiki) 查询。 本文包含示例文档和查询，提供入门指导。 [Gremlin 支持](gremlin-support.md)一文提供了详细的 Gremlin 引用。
 

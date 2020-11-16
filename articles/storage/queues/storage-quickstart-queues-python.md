@@ -4,17 +4,17 @@ description: 了解如何使用 Azure 队列 Python v12 库创建队列并向队
 author: WenJason
 ms.author: v-jay
 origin.date: 12/10/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 5d5d2542ba8fb30875647b398b406ca99bb360f8
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: a51e9668189c9184121d46bfac3137f7e845c2aa
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753585"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551904"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>快速入门：适用于 Python 的 Azure 队列存储客户端库 v12
 
@@ -35,12 +35,12 @@ ms.locfileid: "88753585"
 * [API 参考文档](https://docs.microsoft.com/python/api/azure-storage-queue/index)
 * [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [包（Python 包索引）](https://pypi.org/project/azure-storage-queue/)
-* [示例](/storage/common/storage-samples-python?toc=%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-python.md?toc=%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
-* Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于你的操作系统的 [Python](https://www.python.org/downloads/) - 2.7、3.5 或更高版本
 
 ## <a name="setting-up"></a>设置

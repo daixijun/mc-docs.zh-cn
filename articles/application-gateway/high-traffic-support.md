@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: v-junlch
-ms.openlocfilehash: 66605d41cda71cf0b78eb7354b5fa94d994e71c4
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 08910b3a4f428cdd6891f341c2180aeb03d90e4c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516768"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552365"
 ---
 # <a name="application-gateway-high-traffic-support"></a>应用程序网关高流量支持
 
@@ -51,9 +51,9 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 > 你可以根据自己对潜在流量高峰的敏感程度，设置在 CU 用量百分比降低或提高时发出警报。
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>为 WAF 设置地理筛选和机器人防护来阻止攻击
-如果需要在应用程序的前面使用额外的安全层，请为 WAF 功能使用应用程序网关 WAF_v2 SKU。 可将 v2 SKU 配置为仅允许从给定的国家/地区访问你的应用程序。 设置一个 WAF 自定义规则，使其基于地理位置明确允许或阻止流量。 有关详细信息，请参阅[如何通过 PowerShell 在应用程序网关 WAF_v2 SKU 中配置自定义规则](/web-application-firewall/ag/configure-waf-custom-rules)。
+如果需要在应用程序的前面使用额外的安全层，请为 WAF 功能使用应用程序网关 WAF_v2 SKU。 可将 v2 SKU 配置为仅允许从给定的国家/地区访问你的应用程序。 设置一个 WAF 自定义规则，使其基于地理位置明确允许或阻止流量。 有关详细信息，请参阅[如何通过 PowerShell 在应用程序网关 WAF_v2 SKU 中配置自定义规则](configure-waf-custom-rules.md)。
 
-启用机器人防护以阻止已知恶意的机器人。 这应该可以减少进入应用程序的流量。 有关详细信息，请参阅[机器人防护和设置说明](/web-application-firewall/ag/configure-waf-custom-rules)。
+启用机器人防护以阻止已知恶意的机器人。 这应该可以减少进入应用程序的流量。 有关详细信息，请参阅[机器人防护和设置说明](configure-waf-custom-rules.md)。
 
 ## <a name="turn-on-diagnostics-on-application-gateway-and-waf"></a>在应用程序网关和 WAF 上启用诊断
 

@@ -8,12 +8,12 @@ origin.date: 05/10/2020
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 95d377c1ffd238305b131590178bbdbf17c673bf
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: c10a83ed6fd0ac9268497d7d01f306acd0d6a2ac
+ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170406"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550775"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境
 
@@ -21,8 +21,8 @@ ms.locfileid: "92170406"
 
 - 前端：这是 HTTP 或 HTTPS 在应用服务环境中终止的地方
 - 辅助角色：托管应用的资源
-- **数据库**：保存用于定义环境的信息
-- **存储**：用于托管客户发布的应用
+- **数据库** ：保存用于定义环境的信息
+- **存储** ：用于托管客户发布的应用
 
 可以使用外部或内部虚拟 IP (VIP) 来部署 ASE 以进行应用访问。 使用外部 VIP 的部署通常称为“外部 ASE”。 使用内部 VIP 的部署称为“ILB ASE”，因为它使用内部负载均衡器 (ILB)。 若要详细了解 ILB ASE，请参阅[创建和使用 ILB ASE][MakeILBASE]。
 
@@ -63,7 +63,7 @@ ms.locfileid: "92170406"
 
     f. 选择运行时堆栈。
 
-    g. 选择 **Linux** 或 **Windows**。 
+    g. 选择 **Linux** 或 **Windows** 。 
 
     h.如果该值不存在，请单击“添加行”。 在“区域”下拉列表中选择自己的 ASE。 
 
@@ -105,14 +105,14 @@ ms.locfileid: "92170406"
 
 ## <a name="app-access"></a>应用访问
 
-在外部 ASE 中，用于创建应用的域后缀是 *.&lt;asename&gt;.p.chinacloudsites.cn*。 如果 ASE 名为 external-ase 并且其中托管了名为 contoso 的应用，可以通过以下 URL 访问该应用： 
+在外部 ASE 中，用于创建应用的域后缀是 *.&lt;asename&gt;.p.chinacloudsites.cn* 。 如果 ASE 名为 external-ase 并且其中托管了名为 contoso 的应用，可以通过以下 URL 访问该应用： 
 
 - contoso.external-ase.p.chinacloudsites.cn
 - contoso.scm.external-ase.p.chinacloudsites.cn
 
 有关如何创建外部 ASE 的信息，请参阅[创建应用服务环境][MakeExternalASE]。
 
-在 ILB ASE 中，用于创建应用的域后缀是 *.&lt;asename&gt;.appserviceenvironment.cn*。 如果 ASE 名为 ilb-ase 并且其中托管了名为 contoso 的应用，可以通过以下 URL 访问该应用： 
+在 ILB ASE 中，用于创建应用的域后缀是 *.&lt;asename&gt;.appserviceenvironment.cn* 。 如果 ASE 名为 ilb-ase 并且其中托管了名为 contoso 的应用，可以通过以下 URL 访问该应用： 
 
 - contoso.ilb-ase.appserviceenvironment.cn
 - contoso.scm.ilb-ase.appserviceenvironment.cn
@@ -210,9 +210,9 @@ ASE 为其中的所有应用提供 1 TB 存储空间。 “独立”定价 SKU �
 
 如果你有多个 ASE，你可能希望先升级某些 ASE，再升级其他 ASE。 在 ASE“HostingEnvironment 资源管理器”对象中，可以设置 upgradePreference 的值。  可以使用模板、ARMClient 或 https://resources.azure.com 配置 upgradePreference 设置。 三个可能的值为：
 
-- **无**：Azure 将在非特定的批次中升级 ASE。 此值为默认值。
-- **Early**：ASE 将在应用服务升级过程的上半阶段升级。
-- **Late**：ASE 将在应用服务升级过程的下半阶段升级。
+- **无** ：Azure 将在非特定的批次中升级 ASE。 此值为默认值。
+- **Early** ：ASE 将在应用服务升级过程的上半阶段升级。
+- **Late** ：ASE 将在应用服务升级过程的下半阶段升级。
 
 <!-- https://resources.azure.com not available
 If you're using https://resources.azure.com, follow these steps to set the **upgradePreferences** value:
@@ -305,5 +305,5 @@ For more specific examples, use: az find "az appservice ase"
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
+[AppGW]: ../../application-gateway/ag-overview.md
 [logalerts]: ../../azure-monitor/platform/alerts-log.md

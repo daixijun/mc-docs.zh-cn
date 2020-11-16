@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 06/17/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 7395febd54838955371c14d032f7e6937da31eb1
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 7755d7e29970a31403f6ed7ec5d3e84675cf95ff
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463066"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551887"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装第三方 Apache Hadoop 应用程序
 
@@ -108,7 +108,7 @@ HTTP 终结点凭据是针对 HDInsight 群集配置的 HTTP 用户凭据；SSH 
 
 ## <a name="next-steps"></a>后续步骤
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
+* [MSDN：安装 HDInsight 应用程序](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-application)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [使用资源管理器模板在 HDInsight 中创建基于 Linux 的 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)：了解如何调用资源管理器模板创建 HDInsight 群集。
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)：了解如何使用空边缘节点访问 HDInsight 群集、测试 HDInsight 应用程序以及托管 HDInsight 应用程序。

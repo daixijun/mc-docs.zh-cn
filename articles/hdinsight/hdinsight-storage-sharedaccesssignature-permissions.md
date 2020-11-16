@@ -16,19 +16,19 @@ ms.workload: big-data
 origin.date: 04/28/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 778b110f7c0cebce76289cd33ca4faaa93b5d01a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f9dcf4deae3a15b0b3862796b44fbeb566fd0950
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472607"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552225"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure Blob 存储共享访问签名来限制访问 HDInsight 中的数据
 
 HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据拥有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。 共享访问签名 (SAS) 是可用于限制数据访问权限的一项 Azure Blob 存储帐户功能。 例如，它可以提供对数据的只读访问。
 
 > [!IMPORTANT]  
-> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文档。
+> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) 文档。
 
 > [!WARNING]  
 > HDInsight 必须对群集的默认存储拥有完全访问权限。
@@ -84,7 +84,7 @@ HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据拥有完全�
 
 建议始终使用存储访问策略。 使用存储策略时，可以根据需要撤销签名或延长过期日期。 本文档中的步骤使用存储访问策略生成 SAS。
 
-有关共享访问签名的详细信息，请参阅[了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
+有关共享访问签名的详细信息，请参阅[了解 SAS 模型](../storage/common/storage-sas-overview.md)。
 
 ## <a name="create-a-stored-policy-and-sas"></a>创建存储策略和 SAS
 
@@ -448,4 +448,4 @@ Remove-AzResourceGroup `
 现在你已了解如何将访问受限的存储添加到 HDInsight 群集，接下来请了解在群集上处理数据的其他方法：
 
 * [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
-
+* [授权用户访问 Apache Ambari 视图](hdinsight-authorize-users-to-ambari.md)

@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b4b7bef6f6a338383e146acbb56af13e71173e1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 4d07ce0978aeab851b8f96855eea69fbab1c2727
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245575"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501708"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
 
-每个新的 Azure AD 租户都附带了一个初始域名 \<domainname>.partner.onmschina.cn。 无法更改或删除初始域名，但可以添加组织的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain\@contoso.com*。
+每个新的 Azure AD 租户都附带了一个初始域名 \<domainname>.partner.onmschina.cn。 无法更改或删除初始域名，但可以添加组织的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain\@contoso.com* 。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -54,12 +54,12 @@ ms.locfileid: "91245575"
 
     ![“自定义域名”页，其中显示了“添加自定义域”](./media/add-custom-domain/add-custom-domain.png)
 
-1. 在“自定义域名”中，输入组织的新名称（在本示例中为 *contoso.com*）。 选择“添加域”。
+1. 在“自定义域名”中，输入组织的新名称（在本示例中为 *contoso.com* ）。 选择“添加域”。
 
     ![“自定义域名”页，其中显示了“添加自定义域”页](./media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >若要正常完成此过程，必须包含 *.com*、 *.net* 或其他任何顶级扩展名。
+    >若要正常完成此过程，必须包含 *.com* 、 *.net* 或其他任何顶级扩展名。
 
     将添加未验证的域。 此时将出现“contoso.com”页，其中显示了 DNS 信息。 请保存此信息。 稍后需要使用此信息来创建 TXT 记录以配置 DNS。
 
@@ -98,13 +98,13 @@ ms.locfileid: "91245575"
 
 如果 Azure AD 无法验证自定义域名，请尝试以下建议的方法：
 
-- **至少等待一小时，然后重试**。 必须先传播 DNS 记录，Azure AD 才能验证域。 此过程可能需要一小时以上。
+- **至少等待一小时，然后重试** 。 必须先传播 DNS 记录，Azure AD 才能验证域。 此过程可能需要一小时以上。
 
 - **确保 DNS 记录正确。** 返回到域名注册机构站点。 确保该条目已存在，并且它与 Azure AD 提供的 DNS 条目信息相匹配。
 
   如果无法在注册机构站点上更新记录，请与有权添加条目并验证其正确性的某人共享该条目。
 
-- **确保域名尚未在另一目录中使用。** 只能在一个目录中验证域名。 如果域名当前已在另一个目录中验证，则不再可以在新目录中验证该域名。 若要解决此重复问题，必须从旧目录中删除该域名。 有关删除域名的详细信息，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)。
+- **确保域名尚未在另一目录中使用。** 只能在一个目录中验证域名。 如果域名当前已在另一个目录中验证，则不再可以在新目录中验证该域名。 若要解决此重复问题，必须从旧目录中删除该域名。 有关删除域名的详细信息，请参阅[管理自定义域名](../enterprise-users/domains-manage.md)。
 
 - **确保你没有任何未托管的 Power BI 租户。** 如果你的用户通过自助注册激活了 Power BI 并为你的组织创建了一个非托管租户，那么你必须使用 PowerShell 以内部或外部管理员的身份接管管理。
 
@@ -114,7 +114,7 @@ ms.locfileid: "91245575"
 
 - 将用户添加到域。 有关详细信息，请参阅[如何添加或删除用户](add-users-azure-active-directory.md)。
 
-- 在 Azure AD 中管理域名信息。 有关详细信息，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)。
+- 在 Azure AD 中管理域名信息。 有关详细信息，请参阅[管理自定义域名](../enterprise-users/domains-manage.md)。
 
 - 若要结合 Azure Active Directory 使用 Windows Server 的本地版本，请参阅[将本地目录与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 

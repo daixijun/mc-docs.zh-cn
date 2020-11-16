@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
+ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 2d2a9a13e1972147c5f13d7aa62f558d3db08a05
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: d2b1392d8c52a19d9956d5bcb2dc3eb268c7eb54
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749948"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501682"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>快速入门：使用控制台应用的标识获取令牌并调用 Microsoft Graph API
 
@@ -149,7 +150,7 @@ https://login.partner.microsoftonline.cn/Enter_the_Tenant_Id_Here/adminconsent?c
 
 如果你正在使用 Visual Studio 或 Visual Studio for Mac，请按 F5 运行该应用程序；否则，请通过命令提示符、控制台或终端运行该应用程序：
 
-```console
+```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
@@ -173,8 +174,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  可在 Visual Studio 的包管理器控制台中运行以下命令，以便安装 MSAL.NET：
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 

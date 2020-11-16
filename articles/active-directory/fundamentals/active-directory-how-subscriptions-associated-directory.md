@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4bf3537e3355d525b576f1b77968b9661bf6b7a
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 68bd7427d62c19bb42766340b21006a8ae926170
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750015"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501617"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>将 Azure 订阅关联或添加到 Azure Active Directory 租户
 
@@ -34,8 +34,6 @@ Azure 订阅与 Azure Active Directory (Azure AD) 之间存在信任关系。 �
 
 > [!Important]
 > 将订阅与其他目录关联时，如果用户的角色是使用 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)分配的，则用户将失去其访问权限。 经典订阅管理员（包括服务管理员和共同管理员）也会失去访问权限。
->
-> 当订阅与不同的目录关联时，还会从该订阅中删除策略分配。
 >
 > 如果将 Azure Kubernetes 服务 (AKS) 群集移到其他订阅，或者将拥有该群集的订阅移到新租户，该群集将会由于失去角色分配和服务主体权限而丢失功能。 有关 AKS 的详细信息，请参阅 [Azure Kubernetes 服务 (AKS)](../../aks/index.yml)。
 

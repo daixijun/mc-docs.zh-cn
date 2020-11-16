@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a770548f0a1a47a9b1819d7c6fcb20fde7456783
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 14083dd00f060d6aeee80ee455161220815b1bc3
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648052"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501912"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>教程：使用 PowerShell 批量邀请 Azure AD B2B 协作用户
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 此脚本会向 Invitations.csv 文件中的电子邮件地址发送邀请。 对于每位用户，应会看到与下面类似的输出：
 
-![显示“等待用户接受”的 PowerShell 输出](./media/tutorial-bulk-invite/B2BBulkImport.png)
+![显示 PowerShell 输出的屏幕截图，其中包括挂起的用户接受。](./media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>验证目录中是否存在用户
 

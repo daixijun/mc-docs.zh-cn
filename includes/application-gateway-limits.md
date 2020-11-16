@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: dac896058a689e7c5536d8b3d5c97692ebc885c9
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 13bb066b5feef019239000ce816cea44b1ed0d03
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499112"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504119"
 ---
 | 资源 | 限制 | 注意 |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ ms.locfileid: "92499112"
 | 最大文件上传大小 WAF |V1 中型 WAF 网关，100 MB<br>V1 大型 WAF 网关，500 MB<br>V2 WAF，750 MB| |
 | WAF 正文大小限制（不带文件）|128 KB||
 | 最大 WAF 自定义规则数|100||
-| 最大 WAF 排除项数|100||
+| 每个应用程序网关的最大 WAF 排除项数|40||
 
 <sup>1</sup> 对于启用了 WAF 的 SKU，必须将资源数限制为 40。
 

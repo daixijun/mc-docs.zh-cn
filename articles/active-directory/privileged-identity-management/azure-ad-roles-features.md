@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b20d28df374e6cb2c93e2bea830f0cde8ccceeb
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 2caeb7a89d2bf36cbb1e06e78b6c68a38035dbc1
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046448"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501913"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management 中 Azure AD 角色的管理功能
 
@@ -49,8 +49,8 @@ Privileged Identity Management 中 Azure AD 角色的管理体验已更新，以
 
 在理解了有时限的分配后，你可能会问的第一个问题是，角色过期后会出现什么情况？ 在此新版本中，我们针对此情况提供了两个选项：
 
-- **扩展**：当角色分配接近其过期时间时，用户可以使用 Privileged Identity Management 请求对该角色分配进行延期
-- **续订**：当角色分配已到期时，用户可以使用 Privileged Identity Management 请求续订该角色分配
+- **扩展** ：当角色分配接近其过期时间时，用户可以使用 Privileged Identity Management 请求对该角色分配进行延期
+- **续订** ：当角色分配已到期时，用户可以使用 Privileged Identity Management 请求续订该角色分配
 
 这两个用户发起的操作都需要全局管理员或特权角色管理员的批准。 管理员将不再需要管理这些过期的分配。 他们只需要等待延期或续订请求，并在请求有效的情况下批准它们即可。
 
@@ -69,5 +69,5 @@ Privileged Identity Management 中 Azure AD 角色的管理体验已更新，以
 - [分配 Azure AD 自定义角色](azure-ad-custom-roles-assign.md)
 - [删除或更新 Azure AD 自定义角色分配](azure-ad-custom-roles-update-remove.md)
 - [配置 Azure AD 自定义角色分配](azure-ad-custom-roles-configure.md)
-- [Azure AD 中的角色定义](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD 中的角色定义](../roles/permissions-reference.md)
 

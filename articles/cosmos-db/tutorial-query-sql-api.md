@@ -6,21 +6,22 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: dae91db45901fb3931ee9404fb3658bf7139ccec
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: ac793ca32b2e1380a791ae12cb084c482bfd28ed
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246317"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551716"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文档。 本文提供一个示例文档和两个示例 SQL 查询和结果。
+Azure Cosmos DB [SQL API](./introduction.md) 支持使用 SQL 查询文档。 本文提供一个示例文档和两个示例 SQL 查询和结果。
 
 本文涵盖以下任务： 
 

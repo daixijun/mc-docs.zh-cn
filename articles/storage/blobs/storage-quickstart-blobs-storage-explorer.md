@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 origin.date: 12/04/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: a13bba1e62e72d76c5abdc38cabd4202945c68b5
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: ad579588bf2b43924a86c6d1313d655d7532e33d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753546"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552025"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>快速入门：使用 Azure 存储资源管理器创建 blob
 
@@ -39,7 +39,7 @@ ms.locfileid: "88753546"
 
 选择“添加 Azure 帐户”  ，然后单击“登录...”  。按照屏幕提示操作，登录到 Azure 帐户。
 
-![Microsoft Azure 存储资源管理器 -“连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![显示“Microsoft Azure 存储资源管理器 - 连接”窗口的屏幕截图。](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 完成连接以后，Azure 存储资源管理器会进行加载并显示“资源管理器”选项卡。 以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-azurite.md?toc=%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
 
@@ -69,19 +69,19 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 
 
 ## <a name="view-blobs-in-a-container"></a>查看容器中的 Blob
 
-在 **Azure 存储资源管理器**应用程序的存储帐户下选择一个容器。 主窗格会显示一个列表，包含所选容器中的 Blob。
+在 **Azure 存储资源管理器** 应用程序的存储帐户下选择一个容器。 主窗格会显示一个列表，包含所选容器中的 Blob。
 
-![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![显示在 Microsoft Azure 存储资源管理器中选择容器的位置的屏幕截图。](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>下载 Blob
 
-若要使用 **Azure 存储资源管理器**下载 Blob，请在选中某个 Blob 的情况下，从功能区选择“下载”。 此时会打开一个文件对话框，用于输入文件名。 选择“保存”，开始将 Blob 下载到本地位置。
+若要使用 **Azure 存储资源管理器** 下载 Blob，请在选中某个 Blob 的情况下，从功能区选择“下载”。 此时会打开一个文件对话框，用于输入文件名。 选择“保存”，开始将 Blob 下载到本地位置。
 
 ## <a name="manage-snapshots"></a>管理快照
 
 Azure 存储资源管理器提供拍摄和管理 Blob [快照](storage-blob-snapshots.md)的功能。 若要拍摄 Blob 的快照，请右键单击 Blob，然后选择“创建快照”。 若要查看 Blob 的快照，请右键单击 Blob，然后选择“管理快照”。 此时会在当前选项卡中显示 Blob 的快照列表。
 
-![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+![显示 Microsoft Azure 存储资源管理器中的 Blob 列表的屏幕截图。](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## <a name="manage-access-policies"></a>管理访问策略
 
@@ -97,7 +97,7 @@ Azure 存储资源管理器提供拍摄和管理 Blob [快照](storage-blob-snap
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 **Azure 存储资源管理器**在本地磁盘和 Azure Blob 存储之间转移文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
+本快速入门介绍了如何使用 **Azure 存储资源管理器** 在本地磁盘和 Azure Blob 存储之间转移文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)

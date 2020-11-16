@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58ff96feb8931a4e4ed04c51113efb3945c36c25
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 03bd5f9a3359ebc2083901905837be1c1b463c8d
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937577"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501899"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>启用 B2B 外部协作并管理谁可以邀请来宾
 
@@ -24,7 +24,7 @@ ms.locfileid: "91937577"
 
 默认情况下，目录中的所有用户和来宾都可以邀请来宾，即使未为他们分配管理员角色。 使用外部协作设置可为组织中不同类型的用户启用或禁用来宾邀请功能。 还可以将邀请委托给个人用户，只需向他们分配有权邀请来宾的角色即可。
 
-Azure AD 允许你限制外部来宾用户可以在你的 Azure AD 目录中所看到的内容。 默认情况下，来宾用户设置为受限权限级别，该权限级别阻止来宾用户枚举用户、组或其他目录资源，但允许他们查看非隐藏组的成员身份。 新的预览设置可让你进一步限制来宾访问权限，使来宾只能查看其自己的个人资料信息。 有关详细信息，请参阅[限制来宾访问权限（预览版）](../users-groups-roles/users-restrict-guest-permissions.md)。
+Azure AD 允许你限制外部来宾用户可以在你的 Azure AD 目录中所看到的内容。 默认情况下，来宾用户设置为受限权限级别，该权限级别阻止来宾用户枚举用户、组或其他目录资源，但允许他们查看非隐藏组的成员身份。 新的预览设置可让你进一步限制来宾访问权限，使来宾只能查看其自己的个人资料信息。 有关详细信息，请参阅[限制来宾访问权限（预览版）](../enterprise-users/users-restrict-guest-permissions.md)。
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>配置 B2B 外部协作设置
 
@@ -46,11 +46,11 @@ Azure AD 允许你限制外部来宾用户可以在你的 Azure AD 目录中所�
 
    ![外部协作设置](./media/delegate-invitations/control-who-to-invite.png)
 
-  - **来宾用户权限处于限制状态**：此策略确定目录中来宾的权限。 选择“是”会阻止来宾执行某些目录任务，例如枚举用户、组或其他目录资源。 选择“否”会向来宾授予与目录中普通用户相同的目录数据访问权限。
-   - **管理员和具有“来宾邀请者”角色的用户可以邀请**：若要允许充当“来宾邀请者”角色的管理员和用户邀请来宾，请将此策略设置为“是”。
-   - **成员可以邀请**：若要允许目录的非管理员成员邀请来宾，请将此策略设置为“是”。
-   - **来宾可以邀请**：若要允许来宾邀请其他来宾，请将此策略设置为“是”。
-   - **协作限制**：若要详细了解如何允许或阻止向特定的域发送邀请，请参阅[允许或阻止向特定组织中的 B2B 用户发送邀请](allow-deny-list.md)。
+  - **来宾用户权限处于限制状态** ：此策略确定目录中来宾的权限。 选择“是”会阻止来宾执行某些目录任务，例如枚举用户、组或其他目录资源。 选择“否”会向来宾授予与目录中普通用户相同的目录数据访问权限。
+   - **管理员和具有“来宾邀请者”角色的用户可以邀请** ：若要允许充当“来宾邀请者”角色的管理员和用户邀请来宾，请将此策略设置为“是”。
+   - **成员可以邀请** ：若要允许目录的非管理员成员邀请来宾，请将此策略设置为“是”。
+   - **来宾可以邀请** ：若要允许来宾邀请其他来宾，请将此策略设置为“是”。
+   - **协作限制** ：若要详细了解如何允许或阻止向特定的域发送邀请，请参阅 [允许或阻止向特定组织中的 B2B 用户发送邀请](allow-deny-list.md)。
    
    > [!NOTE]
    > 如果“成员可以邀请”设为“否”，而“来宾邀请者角色中的管理员和用户可以邀请”设为“是”，则“来宾邀请者”角色中的用户仍将能够邀请来宾。

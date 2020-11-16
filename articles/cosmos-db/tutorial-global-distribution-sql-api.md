@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 30e765c7894c9d92a34af8b65b910f2eee66a4c8
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 1d4ebf53c5e8960e087761f39ad97cc383a6f0b1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118353"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551718"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>教程：使用 SQL API 设置 Azure Cosmos DB 多区域分发
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 多区域分发，然后使用 SQL API 进行连接。
 
@@ -26,7 +27,7 @@ ms.locfileid: "92118353"
 
 > [!div class="checklist"]
 > * 使用 Azure 门户配置多区域分发
-> * 使用 [SQL API](sql-api-introduction.md) 配置多区域分发
+> * 使用 [SQL API](./introduction.md) 配置多区域分发
 
 <a name="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]

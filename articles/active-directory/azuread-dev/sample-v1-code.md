@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: sample
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51048091eebf964fc9fb5baed01cccb8c1a184c2
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: b2f0260e4017526e4185317f5f67b4654a18f2a6
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046349"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501757"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 代码示例（v1.0 终结点）
 
@@ -53,19 +53,19 @@ ms.locfileid: "89046349"
 
  平台 | 仅让用户登录 | 调用 Microsoft Graph | 调用另一个 ASP.NET 或 ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------- | -------------------------
-![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
+![此图显示了 ASP.NET Core 徽标](./media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+![此图显示了 ASP.NET Framework 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
 ![此图显示了 Python 徽标](./media/sample-v2-code/logo-python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![此图显示了 Java 徽标](./media/sample-v2-code/logo-java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![此图显示了 PHP 徽标](./media/sample-v2-code/logo-php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>演示基于角色的访问控制（授权）的 Web 应用程序
 
-以下示例演示如何实现基于角色的访问控制 (RBAC)。 RBAC 用于将 Web 应用中某些功能的权限限制为某些用户。 系统将根据用户是属于 **Azure AD 组**还是拥有一个给定的应用程序**角色**，对其进行授权。
+以下示例演示如何实现基于角色的访问控制 (RBAC)。 RBAC 用于将 Web 应用中某些功能的权限限制为某些用户。 系统将根据用户是属于 **Azure AD 组** 还是拥有一个给定的应用程序 **角色** ，对其进行授权。
 
 平台 | 示例 |
  -------- | ------------------- |
-![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**进行授权的 .NET 4.5 MVC Web 应用
+![此图显示了 ASP.NET Framework 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色** 进行授权的 .NET 4.5 MVC Web 应用
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>调用 Microsoft Graph 或 Web API 的桌面和移动公共客户端应用程序
 
@@ -92,9 +92,9 @@ ms.locfileid: "89046349"
 
 客户端应用程序 | 平台 | 流/授权 | 调用 ASP.NET 或 ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- 
-守护程序应用（控制台）          | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo-netframework.png) | 使用应用密码或证书的客户端凭据 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
-守护程序应用（控制台）         | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo-netcore.png) | 使用证书的客户端凭据| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-ASP.NET Web 应用  | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo-netframework.png) | 客户端凭据 | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+守护程序应用（控制台）          | ![此图显示了 .NET Framework 徽标](./media/sample-v2-code/logo-netframework.png) | 使用应用密码或证书的客户端凭据 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
+守护程序应用（控制台）         | ![此图显示了 .NET Core 徽标](./media/sample-v2-code/logo-netcore.png) | 使用证书的客户端凭据| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
+ASP.NET Web 应用  | ![此图显示了 .NET Framework 徽标](./media/sample-v2-code/logo-netframework.png) | 客户端凭据 | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>Web API
 
@@ -102,7 +102,7 @@ ASP.NET Web 应用  | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo
 
 以下示例展示了如何使用 Azure AD 保护 node.js Web API。
 
-在本文的前几部分中，还可以找到其他示例，这些示例演示了一个**调用** ASP.NET 或 ASP.NET Core **Web API** 的客户端应用程序。 本部分不再提及这些示例，但你可以在上表或下表的最后一列中找到它们
+在本文的前几部分中，还可以找到其他示例，这些示例演示了一个 **调用** ASP.NET 或 ASP.NET Core **Web API** 的客户端应用程序。 本部分不再提及这些示例，但你可以在上表或下表的最后一列中找到它们
 
 | 平台 | 示例 |
 |--------|-------------------|
@@ -114,7 +114,7 @@ ASP.NET Web 应用  | ![此图显示了 .NET 徽标](./media/sample-v2-code/logo
 
 | 平台 |  调用 Microsoft Graph | 调用另一个 ASP.NET 或 ASP.NET Core 2.0 Web API |
 | -------- |  --------------------- | ------------------------- |
-| ![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
+| ![此图显示了 ASP.NET Framework 徽标](./media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 示例
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: f4849f7a53a6f7055793a52956ea36b835814e9c
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f58179cbd8a30497bf685f52f8bcbc0a7098a2df
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937087"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501875"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>调用 Web API 的 Web API：代码配置
 
@@ -248,7 +248,7 @@ Python Web API 需要使用一些中间件来验证从客户端接收的持有�
 
 ---
 
-也可以参阅 [Node.js 和 Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61) 中的 OBO 流实现示例。
+也可以参阅 [Node.js 和 Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/Function/MyHttpTrigger/index.js#L61) 中的 OBO 流实现示例。
 
 ## <a name="protocol"></a>协议
 

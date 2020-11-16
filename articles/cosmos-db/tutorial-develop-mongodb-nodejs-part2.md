@@ -1,26 +1,27 @@
 ---
 title: 使用 Azure Cosmos DB 的 API for MongoDB 创建 Node.js Express 应用（第 2 部分）
 description: 本教程系列的第 2 部分，介绍如何通过 Angular 和 Node 在 Azure Cosmos DB 上创建 MongoDB 应用，所使用的 API 与用于 MongoDB 的 API 完全相同。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64e094af7df8e889a5f65fb7c72b2e1da1eae346
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: fd1d5b459c8b262d313aa97eed47b50cba9024f4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223064"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552258"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 创建 Node.js Express 应用
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本教程包含多个部分，演示了如何通过 Express 和 Angular 创建以 Node.js 编写的新应用，然后将其连接到[使用 Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 帐户](mongodb-introduction.md)。
 
@@ -104,26 +105,26 @@ ms.locfileid: "88223064"
     * 通过 app.listen 启动服务器
     * 使用 arrow 函数来记录端口处于活动状态这一情况
 
-    ```node
-    const express = require('express');
-    const bodyParser = require('body-parser');
-    const path = require('path');
-    const routes = require('./routes');
+        ```node
+        const express = require('express');
+        const bodyParser = require('body-parser');
+        const path = require('path');
+        const routes = require('./routes');
 
-    const root = './';
-    const port = process.env.PORT || '3000';
-    const app = express();
+        const root = './';
+        const port = process.env.PORT || '3000';
+        const app = express();
 
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
-    app.use('/api', routes);
-    app.get('*', (req, res) => {
-     res.sendFile('dist/angular-cosmosdb/index.html', {root});
-    });
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
+        app.use('/api', routes);
+        app.get('*', (req, res) => {
+         res.sendFile('dist/angular-cosmosdb/index.html', {root});
+        });
 
-    app.listen(port, () => console.log(`API running on localhost:${port}`));
-    ```
+        app.listen(port, () => console.log(`API running on localhost:${port}`));
+        ```
 
 5. 在 Visual Studio Code 的“资源管理器”窗格中，右键单击 server 文件夹，然后单击“新建文件”。 将新文件命名为 routes.js。 
 

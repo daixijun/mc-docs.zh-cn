@@ -2,23 +2,23 @@
 title: 添加或删除组成员 - Azure Active Directory | Microsoft Docs
 description: 介绍如何使用 Azure Active Directory 在组中添加或删除组成员。
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: ajburnle
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: conceptual
-origin.date: 08/23/2018
-ms.date: 01/02/2019
+ms.subservice: fundamentals
+ms.topic: how-to
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: dd50e712fb231181559e8fc594fb5cc473408c61
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49b0f740258cc4a43cfd0bf60cd704c420cfed3a
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824102"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501764"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除组成员
 使用 Azure Active Directory，可继续添加和删除组成员。
@@ -61,4 +61,5 @@ ms.locfileid: "63824102"
 
 - [使用组管理对资源的访问权限](active-directory-manage-groups.md)
 
-<!-- Update_Description: wording update -->
+- [将 Azure 订阅关联或添加到 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+

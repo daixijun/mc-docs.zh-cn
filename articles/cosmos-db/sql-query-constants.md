@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 中的 SQL 常量
 description: 了解如何使用 Azure Cosmos DB 中的 SQL 查询常量来表示特定数据值
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/31/2019
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: d79bf09362c349435705b4366a957fbb1c944333
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c46a94c9a24baa37f37b1738941cb48902aad825
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028680"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551780"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 查询常量  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 常量，也称为文字值或标量值，是表示一个特定数据值的符号。 常量的格式取决于它所表示的值的数据类型。  
 

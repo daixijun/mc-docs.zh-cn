@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 08/01/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: 01e66ea48c4ccbd9da4e48a6674e4a2073785a7c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bc1eb51994ae3b99e4e69af8bf5aa2038c9b68ea
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73426065"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551797"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>方案：Azure HDInsight Apache HBase 群集中区域服务器上的 CPU 使用率居高不下
 
@@ -38,7 +38,7 @@ Apache HBase 区域服务器进程开始占用接近 200% 的 CPU 使用率，�
 
 1. 导航到“HBase”->“配置”->“高级”->“高级 `hbase-env configs`”，并将变量 `JAVA_HOME` 更改为 `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64`。  保存配置更改。
 
-1. [可选但建议] [刷新群集上的所有表](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
+1. [可选但建议] [刷新群集上的所有表](https://docs.microsoft.com/archive/blogs/azuredatalake/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables)。
 
 1. 同样在 Ambari UI 中，重启所有需要重启的 HBase 服务。
 

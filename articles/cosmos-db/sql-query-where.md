@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的 WHERE 子句
 description: 了解 Azure Cosmos DB 的 SQL WHERE 子句
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/06/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 52f1eda603274b0b3a1d4bf778156202da1cd066
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f3cfd2043b1ff555338eecb14b783c0e63a06071
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223447"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552391"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 WHERE 子句
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 可选的 WHERE 子句 (`WHERE <filter_condition>`) 指定条件，查询只会将满足这些条件的源 JSON 项包含在结果中。 JSON 项必须将指定的条件评估为 `true` 才被视作结果。 索引层使用 WHERE 子句来确定可以作为结果的一部分的源项的最小子集。
 

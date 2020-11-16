@@ -4,28 +4,30 @@ description: 了解如何诊断和修复“Azure Cosmos DB 服务不可用”异
 ms.service: cosmos-db
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 393884144e44bf4c03682adb1a7089f9c3a708da
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6d911afa63fa5d95a2d8b7f5d48051c5e8140b56
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246318"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552275"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>诊断和排查“Azure Cosmos DB 服务不可用”异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 此 SDK 无法连接到 Azure Cosmos DB。
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤
 下面的列表包含“服务不可用”异常的已知原因和解决方案。
 
 ### <a name="the-required-ports-are-being-blocked"></a>所需端口被阻止
-验证所有[必需的端口](performance-tips-dotnet-sdk-v3-sql.md#networking)是否已启用。
+验证所有[必需的端口](sql-sdk-connection-modes.md#service-port-ranges)是否已启用。
 
 ### <a name="client-side-transient-connectivity-issues"></a>客户端暂时性连接问题
 当存在导致超时的暂时性连接问题时，可能会出现“服务不可用”异常。 通常，与此情况相关的堆栈跟踪将包含 `TransportException` 错误。 例如：

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-origin.date: 06/03/2019
-ms.date: 08/24/2020
+origin.date: 09/25/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 6a2e962d97f8d31a57c42d1311c0b1834fabb434
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: ffe681e989c9235579396fe3cad01bbd775cfbe9
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753422"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551682"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>选择 Azure 数据传输解决方案
 
@@ -65,7 +65,7 @@ ms.locfileid: "88753422"
 ## <a name="next-steps"></a>后续步骤
 
 - [获取 Azure 存储资源管理器简介](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)。
-- [阅读 AzCopy 概述](/storage/common/storage-use-azcopy-v10)。
+- [阅读 AzCopy 概述](./storage-use-azcopy-v10.md)。
 - [快速入门：使用 PowerShell 上传、下载和列出 blob](../blobs/storage-quickstart-blobs-powershell.md)
 - [快速入门：使用 Azure CLI 创建、下载和列出 blob](../blobs/storage-quickstart-blobs-cli.md)
 - 学习内容：

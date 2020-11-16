@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 IS_ARRAY
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 IS_ARRAY。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 602b6e370c740368647932c6f5224c7a1cb062b9
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: eac052521045995a496d6e15fd703bdcd2edfb9e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134726"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551820"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个布尔值，指示指定表达式类型是否为数组。  
 
 ## <a name="syntax"></a>语法

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 02/26/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 156c7f53d84a6b4b634847bd9885c831c1100b81
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1d9b715f424e21b077f2e9ce2fa2106f0aa45fbc
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79295986"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551894"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>使用 Azure CLI 管理 Azure HDInsight 群集
 
@@ -43,7 +43,7 @@ az login
 
 ## <a name="list-clusters"></a>列出群集
 
-使用 [az hdinsight list](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-list) 列出群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 替换为资源组的名称，然后输入命令：
+使用 [az hdinsight list](/cli/hdinsight#az-hdinsight-list) 列出群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 替换为资源组的名称，然后输入命令：
 
 ```azurecli
 # List all clusters in the current subscription
@@ -61,7 +61,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>显示群集
 
-使用 [az hdinsight show](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-show) 显示指定群集的信息。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
+使用 [az hdinsight show](/cli/hdinsight#az-hdinsight-show) 显示指定群集的信息。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
 
 ```azurecli
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -69,7 +69,7 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>删除群集
 
-使用 [az hdinsight delete](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-delete) 删除指定的群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
+使用 [az hdinsight delete](/cli/hdinsight#az-hdinsight-delete) 删除指定的群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
 
 ```azurecli
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -83,7 +83,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>缩放群集
 
-使用 [az hdinsight resize](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 将指定的 HDInsight 群集调整为指定大小。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息。 将 `WORKERNODE_COUNT` 替换为群集所需的工作器节点数。 有关缩放群集的详细信息，请参阅[缩放 HDInsight 群集](./hdinsight-scaling-best-practices.md)。 输入以下命令：
+使用 [az hdinsight resize](/cli/hdinsight#az-hdinsight-resize) 将指定的 HDInsight 群集调整为指定大小。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息。 将 `WORKERNODE_COUNT` 替换为群集所需的工作器节点数。 有关缩放群集的详细信息，请参阅[缩放 HDInsight 群集](./hdinsight-scaling-best-practices.md)。 输入以下命令：
 
 ```azurecli
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT
@@ -93,22 +93,6 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 在本文中，已了解如何执行不同的 HDInsight 群集管理任务。 若要了解详细信息，请参阅以下文章：
 
 * [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
-* [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-* [Azure HDInsight 入门][hdinsight-get-started]
-* [如何使用 Azure CLI](/cli/get-started-with-azure-cli?view=azure-cli-latest)
-
-[azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: https://www.azure.cn/pricing/purchase-options/
-[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
-[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-
-[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
-[image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
-[image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "列出并显示集群"
-<!--Update_Description: update link ref-->
+* [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
+* [Azure HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Azure CLI 入门](/cli/get-started-with-azure-cli)

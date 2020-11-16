@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/28/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e040cf127482ceaaa0efb2872bdab14a0e2f032
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 5c1f1b4ef0edecdfc1b5a9cb918074bcd7d22a9c
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186897"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501964"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中创建对 Azure AD 角色的访问评审
 
@@ -29,7 +29,7 @@ ms.locfileid: "84186897"
 
 ## <a name="prerequisites"></a>先决条件
 
-[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>打开访问评审
 

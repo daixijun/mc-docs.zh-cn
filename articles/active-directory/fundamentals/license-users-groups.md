@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c77391fd57de94e01113f3b8d86975c74137615
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 4fdce1bac021d032fbb4ff0cfde9232c5eb6c4f6
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750013"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501649"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 门户中分配或删除许可证
 
@@ -144,9 +144,9 @@ ms.locfileid: "92750013"
 
 分配了许可证之后，可以执行以下过程：
 
-- [识别和解决许可证分配问题](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [识别和解决许可证分配问题](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [将许可的用户添加到组以进行许可](../users-groups-roles/licensing-groups-migrate-users.md)
+- [将许可的用户添加到组以进行许可](../enterprise-users/licensing-groups-migrate-users.md)
 
 - [添加或更改个人资料信息](active-directory-users-profile-azure-portal.md)
 

@@ -7,15 +7,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/18/2019
-ms.date: 02/10/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: da16b7866f55b2461b92885ac6e474b59891a149
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e6e42bc821e7e1ec89294690ae5a40735e51e844
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068367"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551760"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>标准存储帐户的可伸缩性和性能目标
 

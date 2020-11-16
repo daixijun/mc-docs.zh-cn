@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/08/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dabe1d7780734ee0285144fb33b64c612667701
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: ea6937690cca78fa443b9e5072bad22d927d5a49
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593748"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501675"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>部署 Azure AD Privileged Identity Management (PIM)
 
@@ -28,7 +28,7 @@ ms.locfileid: "89593748"
 > [!TIP]
 > 本文中有许多带有以下标记的项：
 >
-> :heavy_check_mark:**Microsoft 建议**
+> :heavy_check_mark: **Microsoft 建议**
 >
 > 这些是常规建议，仅应在其适用于特定企业需求时才实现。
 
@@ -58,7 +58,7 @@ ms.locfileid: "89593748"
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>可以使用 PIM 管理的角色
 
-“Azure AD 角色”都在 Azure Active Directory 中（例如全局管理员、Exchange 管理员和安全管理员）。 可通过 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)，了解更多有关角色及其功能的信息。 如需帮助来确定向管理员分配哪个角色，请参阅[按任务划分的最小特权角色](../users-groups-roles/roles-delegate-by-task.md)。
+“Azure AD 角色”都在 Azure Active Directory 中（例如全局管理员、Exchange 管理员和安全管理员）。 可通过 [Azure Active Directory 中的管理员角色权限](../roles/permissions-reference.md)，了解更多有关角色及其功能的信息。 如需帮助来确定向管理员分配哪个角色，请参阅[按任务划分的最小特权角色](../roles/delegate-by-task.md)。
 
 “Azure 角色”是指链接到 Azure 资源、资源组、订阅或管理组的角色。 可以使用 PIM 提供对内置 Azure 角色（如所有者、用户访问管理员和参与者）以及[自定义角色](../../role-based-access-control/custom-roles.md)的实时访问。 有关 Azure 角色的详细信息，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md)。
 
@@ -111,7 +111,7 @@ ms.locfileid: "89593748"
 
 按照以下步骤为 Azure AD 角色实现最低权限原则。
 
-1. 通过阅读和理解[可用的 Azure AD 管理员角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)来了解角色粒度。 你和你的团队还应参阅 [Azure AD 中按标识任务划分的管理员角色](../users-groups-roles/roles-delegate-by-task.md)，其中解释了特定任务的最低权限角色。
+1. 通过阅读和理解[可用的 Azure AD 管理员角色](../roles/permissions-reference.md#available-roles)来了解角色粒度。 你和你的团队还应参阅 [Azure AD 中按标识任务划分的管理员角色](../roles/delegate-by-task.md)，其中解释了特定任务的最低权限角色。
 
 1. 列出组织中有特权角色的人员。 可以使用 Privileged Identity Management [发现和见解（预览版）](pim-security-wizard.md)来降低曝光度。
 
@@ -168,7 +168,7 @@ ms.locfileid: "89593748"
 如果有任何角色的成员中包含来宾用户，则这些角色很容易受到攻击。
 
 > [!TIP]
-> :heavy_check_mark:**Microsoft 建议**使用 Privileged Identity Management 管理含有来宾用户的所有角色，以降低与来宾用户帐户相关的攻击风险。
+> :heavy_check_mark: **Microsoft 建议** 使用 Privileged Identity Management 管理含有来宾用户的所有角色，以降低与来宾用户帐户相关的攻击风险。
 
 诸如目录读取者、消息中心读取者和安全读取者等读取者角色有时被认为不如其他角色重要，因为这些角色没有写入权限。 但我们的某些客户也会保护这些角色，因为获得这些帐户访问权限的攻击者可能读取敏感数据，例如个人数据。 在决定是否需要使用 Privileged Identity Management 管理组织中的读取者角色时，应考虑到这一点。
 
@@ -182,7 +182,7 @@ ms.locfileid: "89593748"
 如果你是全局管理员，且无法确定哪些订阅和资源最重要，则应与组织中的订阅所有者联系，收集每个订阅管理的资源的列表。 然后与订阅所有者合作，基于其所面临风险的严重性级别（低，中，高）对资源进行分组。 根据此严重性级别确定优先使用 Privileged Identity Management 管理的资源。
 
 > [!TIP]
-> :heavy_check_mark:**Microsoft 建议**与关键服务的订阅/资源所有者合作，为敏感订阅/资源中的所有角色设置 Privileged Identity Management 工作流。
+> :heavy_check_mark: **Microsoft 建议** 与关键服务的订阅/资源所有者合作，为敏感订阅/资源中的所有角色设置 Privileged Identity Management 工作流。
 
 Azure 资源的 Privileged Identity Management 支持时限服务帐户。 应以对待常规用户帐户的方式来对待服务帐户。
 
@@ -214,7 +214,7 @@ Azure 资源的 Privileged Identity Management 支持时限服务帐户。 应�
 要使用 Privileged Identity Management 管理的角色的列表一经确定，须决定应将合格角色与永久活动角色分别分配给哪些用户。 永久活动角色是通过 Azure Active Directory 和 Azure 资源分配的常规角色，而合格角色只能在 Privileged Identity Management 中分配。
 
 > [!TIP]
-> :heavy_check_mark:Microsoft 建议不向 Azure AD 角色和 Azure 角色分配永久活动角色，但推荐的[两个紧急访问帐户](../users-groups-roles/directory-emergency-access.md)除外，这两个帐户应具有永久的全局管理员角色。
+> :heavy_check_mark:Microsoft 建议不向 Azure AD 角色和 Azure 角色分配永久活动角色，但推荐的[两个紧急访问帐户](../roles/security-emergency-access.md)除外，这两个帐户应具有永久的全局管理员角色。
 
 虽然我们建议不设立长期管理员，但组织有时很难立即实现这一目标。 下面是做出此决定时要考虑的事项：
 
@@ -251,7 +251,7 @@ Azure 资源的 Privileged Identity Management 支持时限服务帐户。 应�
 | 角色 | 要为其定义设置的角色的名称。 |
 | 要求 MFA | 符合条件的用户是否需要在激活角色之前执行 MFA。<br/><br/> :heavy_check_mark:Microsoft 建议为所有管理员角色强制执行 MFA，尤其是在角色含有来宾用户的情况下。 |
 | 通知 | 如果设置为 true，当符合条件的用户激活角色时，组织中的全局管理员、特权角色管理员和安全管理员会收到电子邮件通知。<br/><br/>**注意：** 某些组织没有向管理员帐户绑定电子邮件地址来获取这些电子邮件通知，应该设置一个备用电子邮件地址，以便管理员收到这些电子邮件。 |
-| 事件工单 | 激活角色时符合条件的用户需要记录事件工单号。 此设置可帮助组织使用内部事件编号识别每次激活，以减少无效激活的次数。<br/><br/> :heavy_check_mark:**Microsoft 建议**利用事件工单号将 Privileged Identity Management 绑定到内部系统。 此方法对于需要激活上下文的审批者非常有用。 |
+| 事件工单 | 激活角色时符合条件的用户需要记录事件工单号。 此设置可帮助组织使用内部事件编号识别每次激活，以减少无效激活的次数。<br/><br/> :heavy_check_mark: **Microsoft 建议** 利用事件工单号将 Privileged Identity Management 绑定到内部系统。 此方法对于需要激活上下文的审批者非常有用。 |
 | 需要审批 | 符合条件的用户是否需要获取批准才能激活角色。<br/><br/> :heavy_check_mark:Microsoft 建议为具有最多权限的角色设置审批操作。 基于全体 Privileged Identity Management 客户的使用模式，全局管理员、用户管理员、Exchange 管理员、安全管理员和密码管理员是最常应用审批操作的角色。 |
 | 审批者 | 如果符合条件的角色需要执行审批操作来进行激活，应列出批准请求的人员。 默认情况下，Privileged Identity Management 将审批者设置为身份是特权角色管理员的所有用户，无论他们是永久性角色还是合格角色。<br/><br/>**注意：** 如果用户同时有资格拥有 Azure AD 角色和该角色的审批者身份，则无法为自己执行审批操作。<br/><br/> :heavy_check_mark:Microsoft 建议所选择的审批者应为最了解角色及其惯常用户的人员，而非全局管理员。 |
 | 激活持续时间 | 在角色到期之前，用户拥有该角色的有效期。 |
@@ -328,7 +328,7 @@ Azure 资源的 Privileged Identity Management 支持时限服务帐户。 应�
 - 用于咨询 PIM 问题的联系信息或支持链接
 
 > [!TIP]
-> :heavy_check_mark:**Microsoft 建议**你与支持团队确定时间，让其完整了解 Privileged Identity Management 工作流（如果组织有内部 IT 支持团队）。 为他们提供合适的文档和联系信息。
+> :heavy_check_mark: **Microsoft 建议** 你与支持团队确定时间，让其完整了解 Privileged Identity Management 工作流（如果组织有内部 IT 支持团队）。 为他们提供合适的文档和联系信息。
 
 ### <a name="move-to-production"></a>移到生产环境
 

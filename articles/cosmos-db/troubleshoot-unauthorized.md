@@ -4,21 +4,22 @@ description: 了解如何诊断和修复未经授权异常。
 ms.service: cosmos-db
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 97f6720729ed25ccffa908f18f866984a21aea3d
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 10796525600acb16d4c3723869b27b256b6db74f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246319"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552272"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>诊断和排查 Azure Cosmos DB 未经授权异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401：HTTP 请求中的 MAC 签名与计算出的签名不同。
 如果收到 401 错误消息“HTTP 请求中的 MAC 签名与计算出的签名不同”，这可能是由以下情况所致。

@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 中的 SELECT 子句
 description: 了解 Azure Cosmos DB 的 SQL SELECT 子句。 将 SQL 用作 Azure Cosmos DB JSON 查询语言。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/08/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: b3d2d617dac803f5fcdff54950f692e3a81c8f82
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 70980f2f904a978ba0e7e98283166a250a152b00
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321689"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551923"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 SELECT 子句
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 每个查询按 ANSI SQL 标准由 `SELECT` 子句和可选的 [FROM](sql-query-from.md) 和 [WHERE](sql-query-where.md) 子句组成。 通常，将枚举 `FROM` 子句中的源，`WHERE` 子句对该源应用一个筛选器，以检索 JSON 项的子集。 然后，`SELECT` 子句在 select 列表中投影请求的 JSON 值。
 

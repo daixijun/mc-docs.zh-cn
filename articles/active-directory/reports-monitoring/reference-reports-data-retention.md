@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/24/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41bc0da76e8d84f077262a5ff63118cf20c92f0d
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 77e7ff484d959c7ce5ef7e7395933734954dd644
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127020"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501957"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -34,7 +34,7 @@ ms.locfileid: "82127020"
 | Azure AD 版本 | 开始收集 |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | 注册订阅时 |
-| Azure AD Free| 首次打开 [Azure Active Directory 边栏选项卡](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[报告 API](/active-directory/reports-monitoring/overview-reports) 时  |
+| Azure AD Free| 首次打开 [Azure Active Directory 边栏选项卡](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[报告 API](./overview-reports.md) 时  |
 
 ---
 
@@ -67,7 +67,7 @@ ms.locfileid: "82127020"
 | 登录               | 7 天        | 30 天             | 30 天             |
 | Azure MFA 使用情况        | 30 天       | 30 天             | 30 天             |
 
-通过使用 Azure Monitor 将审核和登录活动数据路由到 Azure 存储帐户，可以使这些活动数据的保留时间长于上述默认保留期限。 
+通过使用 Azure Monitor 将审核和登录活动数据路由到 Azure 存储帐户，可以使这些活动数据的保留时间长于上述默认保留期限。 有关详细信息，请参阅[将 Azure AD 日志存档到 Azure 存储帐户](quickstart-azure-monitor-route-logs-to-storage-account.md)。
 
 **安全信号**
 

@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: d397b920714394289ace286e6aa6a81508ae09ac
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f62fcec1e384e38491804a138d112271e2c2ffa0
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937378"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501771"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 许可框架
 
@@ -50,7 +49,7 @@ ms.locfileid: "91937378"
 
 1. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 有关此流的详细信息，请参阅 [OAuth 2.0 授权代码流](v2-oauth2-auth-code-flow.md)。
 
-1. 作为管理员，还可以代表租户中的所有用户同意应用程序的委派权限。 管理许可可防止针对租户中的每个用户显示许可对话框，可通过具有管理员角色的用户在 [Azure 门户](https://portal.azure.cn)中执行。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+1. 作为管理员，还可以代表租户中的所有用户同意应用程序的委派权限。 管理许可可防止针对租户中的每个用户显示许可对话框，可通过具有管理员角色的用户在 [Azure 门户](https://portal.azure.cn)中执行。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../roles/permissions-reference.md)。
 
     **同意应用的委托权限**
 
@@ -64,6 +63,5 @@ ms.locfileid: "91937378"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
-* 有关详细信息，请参阅[在授权代码授权流期间如何在 OAuth 2.0 协议层支持同意](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
+请参阅[如何将应用转换为多租户应用](howto-convert-app-to-be-multi-tenant.md)
 

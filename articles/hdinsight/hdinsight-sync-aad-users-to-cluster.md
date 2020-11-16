@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 999ce729a856dd03ee76da26ceded518b780a00e
-ms.sourcegitcommit: e1a0ea64b617b7f96655c29cd8edd69890cbd553
+ms.openlocfilehash: f124eb038b62855105e5bd0dd34424f4fa498ee6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89592505"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552228"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>将 Azure Active Directory 用户同步到 HDInsight 群集
 
-[使用企业安全性套餐 (ESP) 的 HDInsight 群集](hdinsight-domain-joined-introduction.md)可对 Azure Active Directory (Azure AD) 用户使用强身份验证，还可使用 Azure 基于角色的访问控制 (Azure RBAC) 策略。 将用户和组添加到 Azure AD 时，可以同步需要访问群集的用户。
+[使用企业安全性套餐 (ESP) 的 HDInsight 群集](./domain-joined/hdinsight-security-overview.md)可对 Azure Active Directory (Azure AD) 用户使用强身份验证，还可使用 Azure 基于角色的访问控制 (Azure RBAC) 策略。 将用户和组添加到 Azure AD 时，可以同步需要访问群集的用户。
 
 ## <a name="prerequisites"></a>先决条件
 
-如果你尚未执行此操作，请[使用企业安全性套餐创建 HDInsight 群集](hdinsight-domain-joined-configure.md)。
+如果你尚未执行此操作，请[使用企业安全性套餐创建 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)。
 
 ## <a name="add-new-azure-ad-users"></a>添加新的 Azure AD 用户
 
@@ -33,7 +33,7 @@ ms.locfileid: "89592505"
 
     ![Azure 门户 - 用户和组 - 所有用户](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. 完成新用户表单。 选择所创建的组，以便分配基于群集的权限。 在此示例中，请创建名为“HiveUsers”的组，以便向其分配新用户。 [示例说明](hdinsight-domain-joined-configure.md)介绍如何创建 ESP 群集，其中包括如何添加 `HiveUsers` 和 `AAD DC Administrators` 这两个组。
+3. 完成新用户表单。 选择所创建的组，以便分配基于群集的权限。 在此示例中，请创建名为“HiveUsers”的组，以便向其分配新用户。 [示例说明](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)介绍如何创建 ESP 群集，其中包括如何添加 `HiveUsers` 和 `AAD DC Administrators` 这两个组。
 
     ![Azure 门户 - 用户窗格 - 选择组](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
@@ -148,6 +148,6 @@ ms.locfileid: "89592505"
 
 ## <a name="see-also"></a>另请参阅
 
-* [使用 ESP 在 HDInsight 中配置 Apache Hive 策略](hdinsight-domain-joined-run-hive.md)
-* [管理 ESP HDInsight 群集](hdinsight-domain-joined-manage.md)
+* [使用 ESP 在 HDInsight 中配置 Apache Hive 策略](./domain-joined/apache-domain-joined-run-hive.md)
+* [管理 ESP HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)
 * [授权用户访问 Apache Ambari](hdinsight-authorize-users-to-ambari.md)

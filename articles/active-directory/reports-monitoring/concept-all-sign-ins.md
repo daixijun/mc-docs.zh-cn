@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/29/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5390885cc3182a977a5bbded310e7826d4d73e93
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 1440cdc79fc7c7b85968d69d4af3db784c1e0da5
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937851"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501873"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory 登录活动报告 - 预览版
 
@@ -83,7 +83,7 @@ Azure Active Directory 中的经典登录报告概述了交互式用户登录的
 
 - **服务主体登录** - 通过应用和服务主体进行的登录，不涉及任何用户。 在此类登录中，应用或服务代表自己提供对资源进行身份验证或访问所需的凭据。
 
-- **Azure 资源托管标识登录** - 其机密由 Azure 管理的 Azure 资源的登录。 有关详细信息，请参阅[什么是 Azure 资源的托管标识？](/active-directory/managed-identities-azure-resources/overview) 
+- **Azure 资源托管标识登录** - 其机密由 Azure 管理的 Azure 资源的登录。 有关详细信息，请参阅[什么是 Azure 资源的托管标识？](../managed-identities-azure-resources/overview.md) 
 
 
 ![登录报告类型](./media/concept-all-sign-ins/sign-ins-report-types.png)
@@ -324,7 +324,7 @@ Azure 资源托管标识登录是资源执行的登录，这些资源的机密�
 
 通过设置筛选器，可以缩小返回的登录数据的范围。 Azure AD 提供了一系列可以设置的其他筛选器。 设置筛选器时，应始终特别注意已配置的日期范围筛选器。 正确的日期范围筛选器可确保 Azure AD 仅返回你真正关心的数据。     
 
-**日期**范围筛选器用于为返回的数据定义时间范围。
+**日期** 范围筛选器用于为返回的数据定义时间范围。
 可能的值包括：
 
 - 一个月

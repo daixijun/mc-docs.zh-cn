@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf624b72a89ea06200d3a9c6fd256697bc13eeb
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 2de393a969f8cde58f213b1cb78ced28749d0f6b
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041593"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501836"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上配置 Azure 资源托管标识
 
@@ -33,11 +33,13 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - 在 Azure VM 上启用和禁用系统分配托管标识
 - 在 Azure VM 上添加和删除用户分配托管标识
 
+如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
-- 若要运行示例脚本，可安装最新版的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure，在本地运行这些脚本。 使用与要在其中创建资源的 Azure 订阅关联的帐户。
+- 如果你不熟悉 Azure 资源托管标识，请参阅[什么是 Azure 资源托管标识？](overview.md)。 若要了解系统分配的托管标识和用户分配的托管标识类型，请参阅[托管标识类型](overview.md#managed-identity-types)。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 

@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: a9bca988d7ee646f33c01a5b493a4ef543c4d263
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: eee406262e8b920d38ca51671d81b561bfa0dea6
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937211"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501774"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -45,7 +45,7 @@ ms.locfileid: "91937211"
 1. 在左侧窗格中，选择“用户设置”。
 1. 检查“应用注册”  设置。 只有管理员可设置此值。 如果设置为“是”，则 Active AD 租户中的任何用户都可以注册应用。
 
-如果应用注册设置设定为“否”，则只有具有管理员角色的用户才能注册这些类型的应用程序。 请参阅[可用角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)和[角色权限](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)来了解 Azure AD 中的可用管理员角色以及授予每个角色的具体权限。 如果为帐户分配“用户”角色，但应用注册设置仅限于管理员用户，请要求管理员为你分配可以创建和管理应用注册的所有方面的管理员角色之一，或者让用户能够注册应用。
+如果应用注册设置设定为“否”，则只有具有管理员角色的用户才能注册这些类型的应用程序。 请参阅[可用角色](../roles/permissions-reference.md#available-roles)和[角色权限](../roles/permissions-reference.md#role-permissions)来了解 Azure AD 中的可用管理员角色以及授予每个角色的具体权限。 如果为帐户分配“用户”角色，但应用注册设置仅限于管理员用户，请要求管理员为你分配可以创建和管理应用注册的所有方面的管理员角色之一，或者让用户能够注册应用。
 
 ### <a name="check-azure-subscription-permissions"></a>检查 Azure 订阅权限
 

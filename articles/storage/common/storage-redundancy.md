@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 08/24/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 907370a327b8b2adb1474f807e832ef830270200
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: c2b7621cb55bd2d2644c243a55f4fda342570104
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026621"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551700"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -44,13 +44,13 @@ Azure 存储帐户中的数据始终在主要区域中复制三次：
 对于以下场景，LRS 是不错的选项：
 
 - 如果应用程序存储着在发生数据丢失时可轻松重构的数据，则可以选择 LRS。
-- 如果出于数据监管要求，应用程序限制为只能在一个区域中复制数据，则可以选择 LRS。 在某些情况下，要在其中异地复制数据的配对区域可位于另一个国家/地区。
+- 如果出于数据监管要求，应用程序限制为只能在一个区域中复制数据，则可以选择 LRS。 在某些情况下，要在其中异地复制数据的配对区域可位于另一个国家/地区。 有关配对区域的详细信息，请参阅 [Azure 区域](/best-practices-availability-paired-regions)。
 
 ## <a name="redundancy-in-a-secondary-region"></a>次要区域中的冗余
 
 对于需要高可用性的应用程序，可以选择将存储帐户中的数据另外复制到距离主要区域数百英里以外的次要区域。 如果存储帐户已复制到次要区域，则即使遇到区域性服务完全中断或导致主要区域不可恢复的灾难，数据也能持久保存。
 
-创建存储帐户时，可以为帐户选择主要区域。 配对的次要区域是根据主要区域确定的且无法更改。
+创建存储帐户时，可以为帐户选择主要区域。 配对的次要区域是根据主要区域确定的且无法更改。 有关 Azure 支持的区域的详细信息，请参阅 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
 
 Azure 存储提供一个将数据复制到次要区域的选项：
 
@@ -77,7 +77,7 @@ Azure 存储提供一个将数据复制到次要区域的选项：
 
 启用 RA-GRS 后，次要区域可用于读取访问，因此你可以预先测试应用程序，以确保在发生服务中断时可以从次要区域正确读取数据。 有关如何设计应用程序以实现高可用性的详细信息，请参阅[使用异地冗余设计高度可用的应用程序](geo-redundant-design.md)。
 
-启用对次要区域的读取访问后，应用程序可以从次要终结点以及主要终结点读取数据。 次要终结点在帐户名的后面追加了后缀 *-secondary*。 例如，如果 Blob 存储的主要终结点是 `myaccount.blob.core.chinacloudapi.cn`，则次要终结点是 `myaccount-secondary.blob.core.chinacloudapi.cn`。 存储帐户的帐户访问密钥对于主要终结点和次要终结点是相同的。
+启用对次要区域的读取访问后，应用程序可以从次要终结点以及主要终结点读取数据。 次要终结点在帐户名的后面追加了后缀 *-secondary* 。 例如，如果 Blob 存储的主要终结点是 `myaccount.blob.core.chinacloudapi.cn`，则次要终结点是 `myaccount-secondary.blob.core.chinacloudapi.cn`。 存储帐户的帐户访问密钥对于主要终结点和次要终结点是相同的。
 
 ### <a name="check-the-last-sync-time-property"></a>检查“上次同步时间”属性
 
@@ -95,11 +95,11 @@ Azure 存储提供一个将数据复制到次要区域的选项：
 
 下表描述了每个冗余选项的关键参数：
 
-| 参数                                                                                                 | LRS                             | GRS/RA-GRS                                  |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :----------------------------------- |
-| 给定一年内的对象持久性百分比<sup>1</sup>                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） |
-| 读取请求的可用性 SLA<sup>1</sup>  | 至少为 99.9%（冷访问层为 99%） | GRS 至少为 99.9%（冷访问层为 99%）<br /><br />RA-GRS 至少为 99.99%（冷访问层为 99.9%） |
-| 写入请求的可用性 SLA<sup>1</sup>  | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
+| 参数 | LRS | GRS/RA-GRS |
+|:-|:-|:-|
+| 给定一年内的对象持久性百分比<sup>1</sup> | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） |
+| 读取请求的可用性 SLA<sup>1</sup> | 至少为 99.9%（冷访问层为 99%） | GRS 至少为 99.9%（冷访问层为 99%）<br /><br />RA-GRS 至少为 99.99%（冷访问层为 99.9%） |
+| 写入请求的可用性 SLA<sup>1</sup> | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
 
 <sup>1</sup> 有关 Azure 存储确保持续性和可用性的信息，请参阅 [Azure 存储 SLA](https://www.azure.cn/support/sla/storage/index.html)。
 

@@ -4,17 +4,17 @@ description: 了解如何在用于 C++ 的 Azure 存储客户端库中使用列�
 author: WenJason
 ms.author: v-jay
 origin.date: 01/23/2017
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 1e5190e58d542c158b2a2d40ee411399c021657d
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 2b9de4124df664601b06d0094f0d5b78c94783ad
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199515"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551683"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 
@@ -60,7 +60,7 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 
 分段列表操作的响应包括：
 
-* *_segment*，其中包含针对列表 API 进行单个调用时返回的结果集。
+* *_segment* ，其中包含针对列表 API 进行单个调用时返回的结果集。
 * continuation_token，将传递给下一个调用，以获取下一页结果。 当不再有要返回的结果时，继续标记为 null。
 
 例如，进行典型调用以列出容器中的所有 blob 时，该调用的代码片段可能如下所示。 我们的 [示例](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)中提供了该代码：
@@ -199,7 +199,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 * [如何通过 C++ 使用 Blob 存储](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 C++ 使用表存储](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [如何通过 C++ 使用队列存储](../storage-c-plus-plus-how-to-use-queues.md)
+* [如何通过 C++ 使用队列存储](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [适用于 C++ 的 Azure 存储客户端库 API 文档。](https://azure.github.io/azure-storage-cpp/)
-* [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Azure 存储文档](/storage/)

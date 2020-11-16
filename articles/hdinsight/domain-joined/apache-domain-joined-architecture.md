@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 9e72cd89b1b1a27d27f470af10117d7b9e75f435
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 71af780ab7e1e03410238591190b05344433a304
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211553"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552160"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企业安全性套餐
 
@@ -57,7 +57,7 @@ HDInsight 当前仅支持将 Azure AD DS 用作群集用于与 Kerberos 进行�
 
 如果域具有本地 Active Directory 示例或更复杂的 Active Directory 设置，则可以使用 Azure AD Connect 将这些标识同步到 Azure AD。 然后可在该 Active Directory 租户上启用 Azure AD DS。
 
-由于 Kerberos 依赖于密码哈希，因此必须[在 Azure AD DS 上启用密码哈希同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。
+由于 Kerberos 依赖于密码哈希，因此必须[在 Azure AD DS 上启用密码哈希同步](../../active-directory-domain-services/tutorial-create-instance.md)。
 
 如果使用 Active Directory 联合身份验证服务 (AD FS) 进行联合身份验证，则必须启用密码哈希同步。（有关建议的设置，请参阅[此视频](https://youtu.be/qQruArbu2Ew)。）密码哈希同步在 AD FS 基础结构失败时可以帮助进行灾难恢复，并且它还有助于提供泄漏凭据保护。 有关详细信息，请参阅[使用 Azure AD Connect 同步启用密码哈希同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。
 

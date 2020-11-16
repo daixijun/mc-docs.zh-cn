@@ -49,10 +49,14 @@
               href: auth-oauth2.md
             - name: Open ID Connect 身份验证
               href: auth-oidc.md
+            - name: SSH 身份验证
+              href: auth-ssh.md
             - name: 目录同步
               href: sync-directory.md
             - name: LDAP 同步
               href: sync-ldap.md
+        - name: Azure 中使用的证书颁发机构
+          href: certificate-authorities.md
     - name: 部署指南
       items:
         - name: 部署 30 天、90 天及之后的时间

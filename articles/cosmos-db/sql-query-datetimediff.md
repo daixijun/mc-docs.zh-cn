@@ -1,24 +1,25 @@
 ---
 title: Azure Cosmos DB 查询语言中的 DateTimeDiff
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeDiff。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 83031a8769af9fe8ab5662e7ffb9e7bc249c4f07
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 6985f88c44acc09e1417499bc4ce527cf068f531
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223509"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551767"
 ---
 <!--Verified successfully-->
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 返回指定的 StartDate 和 EndDate 之间所跨的指定 DateTimePart 边界的计数（以带符号整数值的形式） 。
 
@@ -128,5 +129,4 @@ SELECT DateTimeDiff("hh", "2020-01-01T01:00:00.1234527Z", "2020-01-01T01:59:59.1
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query datetimediff -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

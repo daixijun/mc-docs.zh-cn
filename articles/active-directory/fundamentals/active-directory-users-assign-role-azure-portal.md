@@ -8,30 +8,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3bdada339dba2b9450002d4539fd7441e658af
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 16dfa8868ff2b68e95cfcbffaa835022d460129e
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245534"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501625"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>为具有 Azure Active Directory 的用户分配管理员和非管理员角色
 
 在 Azure Active Directory (Azure AD) 中，如果用户之一需要管理 Azure AD 资源的权限，你必须将其分配给提供所需权限的角色。 若要了解哪些角色管理 Azure 资源以及哪些角色管理 Azure AD 资源，请参阅[经典订阅管理员角色、Azure 角色和 Azure AD 角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
-有关可用的 Azure AD 角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。 若要添加用户，请参阅[向 Azure Active Directory 添加新用户](add-users-azure-active-directory.md)。
+有关可用的 Azure AD 角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md)。 若要添加用户，请参阅[向 Azure Active Directory 添加新用户](add-users-azure-active-directory.md)。
 
 ## <a name="assign-roles"></a>分配角色
 
 向用户分配 Azure AD 角色的一种常用方式是使用用户的“分配的角色”页面。 还可以使用 Privileged Identity Management (PIM) 将用户资格配置为即时提升为某个角色。 若要详细了解如何使用 PIM，请参阅 [Privileged Identity Management](../privileged-identity-management/index.yml)。
 
 > [!Note]
-> 如果你有 Azure AD Premium P2 许可计划并已使用 PIM，则所有角色管理任务都在 [Privileged Identity Management 体验](../users-groups-roles/directory-manage-roles-portal.md)中执行。 此功能当前限制为一次只分配一个角色。 当前不能同时选择多个角色并将它们分配给用户。
+> 如果你有 Azure AD Premium P2 许可计划并已使用 PIM，则所有角色管理任务都在 [Privileged Identity Management 体验](../roles/manage-roles-portal.md)中执行。 此功能当前限制为一次只分配一个角色。 当前不能同时选择多个角色并将它们分配给用户。
 >
 > ![在 PIM 中为已使用 PIM 且具有 Premium P2 许可证的用户管理的 Azure AD 角色](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -45,11 +45,11 @@ ms.locfileid: "91245534"
 
 3. 选择“用户”。
 
-4. 搜索并选择获得角色分配的用户。 例如，_Alain Charon_。
+4. 搜索并选择获得角色分配的用户。 例如， _Alain Charon_ 。
 
       ![“所有用户”页 - 选择用户](./media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-5. 在“Alain Charon - 个人资料”**** 页上，选择“分配的角色”。****
+5. 在“Alain Charon - 个人资料”页上，选择“分配的角色”。
 
     此时会显示“Alain Charon - 管理角色”页。
 
@@ -65,9 +65,9 @@ ms.locfileid: "91245534"
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>从用户删除角色分配
 
-1. 选择“Azure Active Directory”，选择“用户”，然后搜索并选择删除分配了角色的用户********。 例如，_Alain Charon_。
+1. 选择“Azure Active Directory”，选择“用户”，然后搜索并选择删除分配了角色的用户。 例如， _Alain Charon_ 。
 
-2. 选择“分配的角色”，选择“应用程序管理员”，然后选择“删除分配”。************
+2. 选择“分配的角色”，选择“应用程序管理员”，然后选择“删除分配”。
 
     ![“分配的角色”页，其中显示了所选角色和删除选项](./media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
@@ -81,5 +81,5 @@ ms.locfileid: "91245534"
 
 - [添加另一个目录中的来宾用户](../external-identities/what-is-b2b.md)
 
-可以查看的其他用户管理任务在 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)中提供。
+可以查看的其他用户管理任务在 [Azure Active Directory 用户管理文档](../enterprise-users/index.yml)中提供。
 

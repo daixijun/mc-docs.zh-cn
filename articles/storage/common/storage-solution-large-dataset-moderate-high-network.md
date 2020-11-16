@@ -7,14 +7,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 0ec83301fe75faaac4f0463ae2f6aca539ad8a55
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 84835d9e0acb1ce53205bec3ef285bbe17ecc597
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026484"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552263"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>具有中高速网络带宽的大型数据集的数据传输
  
@@ -50,8 +50,8 @@ ms.locfileid: "91026484"
 
 如果可用的网络带宽为高速带宽，则使用下面的一种工具。
 
-- AzCopy**** - 使用此命令行工具在保证最佳性能的同时轻松向/从 Azure Blob、文件和表存储复制数据。 AzCopy 支持并发度和并行度，并且可以在复制操作中断后进行恢复。
-- Azure 存储 REST API/SDK**** - 生成应用程序时，可以对照着 Azure 存储 REST API 开发应用程序，并使用以多种语言提供的 Azure SDK。
+- AzCopy - 使用此命令行工具在保证最佳性能的同时轻松向/从 Azure Blob、文件和表存储复制数据。 AzCopy 支持并发度和并行度，并且可以在复制操作中断后进行恢复。
+- Azure 存储 REST API/SDK - 生成应用程序时，可以对照着 Azure 存储 REST API 开发应用程序，并使用以多种语言提供的 Azure SDK。
 - **Azure 数据工厂** - 如果需要业务流程和企业级监视功能，应使用数据工厂横向扩展传输操作。 使用数据工厂在多个 Azure 服务、本地或两者的组合之间定期传输文件。 使用数据工厂，可以创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据并自动执行数据移动和数据传输。
 
 ## <a name="comparison-of-key-capabilities"></a>关键功能比较
@@ -95,12 +95,12 @@ ms.locfileid: "91026484"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解如何使用导入/导出转移数据](/storage/common/storage-import-export-data-to-blobs)。
+- [了解如何使用导入/导出转移数据](./storage-import-export-data-to-blobs.md)。
 - 了解如何
 
-    - [使用 Data Box Disk 传输数据](/databox/data-box-disk-quickstart-portal)。
-- [使用 AzCopy 传输数据](/storage/common/storage-use-azcopy-v10)。
-- [了解如何使用 Azure 数据工厂传输数据](/data-factory/quickstart-create-data-factory-portal)。
+    - [使用 Data Box Disk 传输数据](../../databox/data-box-disk-quickstart-portal.md)。
+- [使用 AzCopy 传输数据](./storage-use-azcopy-v10.md)。
+- [了解如何使用 Azure 数据工厂传输数据](../../data-factory/quickstart-create-data-factory-portal.md)。
 - 使用 REST API 传输数据
 
     - [在 .NET 中](https://docs.microsoft.com/dotnet/api/overview/azure/storage)

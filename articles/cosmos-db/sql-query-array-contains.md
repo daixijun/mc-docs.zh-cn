@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ARRAY_CONTAINS
 description: 了解 Azure Cosmos DB 中的 Array Contains SQL 系统函数如何返回一个布尔值指示数组是否包含指定值
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: d78e93344911c66441994a699c5e173b7a20d232
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 373e7d2fe7f96cb16f8dd9fba948e80a2af78116
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134572"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551794"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 返回一个布尔，它指示数组是否包含指定的值。 可以通过在命令中使用布尔表达式来检查对象的部分匹配或完全匹配。 
 
 ## <a name="syntax"></a>语法
@@ -45,8 +47,8 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 ```sql
 SELECT   
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
-           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
+   ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
+   ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
 ```  
 
  下面是结果集。  

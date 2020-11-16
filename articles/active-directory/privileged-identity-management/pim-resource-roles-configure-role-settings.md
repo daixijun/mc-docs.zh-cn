@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/15/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58523333354b2c729b022699dd9c56a0021f1e98
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7b5e7528f790a7524b3900215a1441ee76f0d23f
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76116804"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501955"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure 资源角色设置
 
@@ -30,7 +30,7 @@ ms.locfileid: "76116804"
 
 请遵循以下步骤打开 Azure 资源角色的设置。
 
-1. 使用具有[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色的用户登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 使用具有[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)角色的用户登录到 [Azure 门户](https://portal.azure.cn/)。
 
 1. 打开“Azure AD Privileged Identity Management”。 
 
@@ -140,4 +140,3 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 - [在 Privileged Identity Management 中分配 Azure 资源角色](pim-resource-roles-assign-roles.md)
 - [在 Privileged Identity Management 中为 Azure 资源角色配置安全警报](pim-resource-roles-configure-alerts.md)
 
-<!-- Update_Description: wording update -->

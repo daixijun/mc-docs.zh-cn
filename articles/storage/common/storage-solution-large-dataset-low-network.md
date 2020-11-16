@@ -7,14 +7,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: a3b4a8cfb61fd2adfb2d0d748202ff901304b601
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 88088f005d08df06a41802286b8ccdabc9728a63
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026473"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551889"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>具有低或无网络宽带的大型数据集的数据传输
  
@@ -67,5 +67,5 @@ ms.locfileid: "91026473"
 
 - 了解如何
 
-    - [使用 Data Box Disk 传输数据](/databox/data-box-disk-quickstart-portal)。
-    - [通过导入/导出转移数据](/storage/common/storage-import-export-data-to-blobs).
+    - [使用 Data Box Disk 传输数据](../../databox/data-box-disk-quickstart-portal.md)。
+    - [通过导入/导出转移数据](./storage-import-export-data-to-blobs.md).

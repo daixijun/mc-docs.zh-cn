@@ -7,17 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 04/16/2020
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 250dcbf4962ab1e89dfcaabb2a8e375b2039353c
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 4dabd8acaa4fda53ed035de96fe208939651bd26
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199747"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552031"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
@@ -42,7 +42,7 @@ Azure 存储中的异地冗余会将事务从主要区域异步复制到数百�
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-* 安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)（包含 **Azure 开发**工作负荷）。
+* 安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)（包含 **Azure 开发** 工作负荷）。
 
   ![Azure 开发（位于“Web 和云”下）](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -118,7 +118,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 在应用程序中，必须为存储帐户提供连接字符串。 可以将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  复制主密钥或辅助密钥中的**连接字符串**。 根据操作系统运行以下命令之一（将 \<yourconnectionstring\> 替换为实际的连接字符串）。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  复制主密钥或辅助密钥中的 **连接字符串** 。 根据操作系统运行以下命令之一（将 \<yourconnectionstring\> 替换为实际的连接字符串）。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的 **命令提示符** 或 shell，该环境变量才可用。
 
 ### <a name="linux"></a>Linux
 
@@ -136,7 +136,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 在应用程序中，必须提供存储帐户凭据。 可以将此信息存储在运行应用程序的本地计算机的环境变量中。 根据操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  将“存储帐户名称”和“密钥”值粘贴到以下命令中 （替换 \<youraccountname\> 和 \<youraccountkey\> 占位符）。 此命令将环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  将“存储帐户名称”和“密钥”值粘贴到以下命令中 （替换 \<youraccountname\> 和 \<youraccountkey\> 占位符）。 此命令将环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的 **命令提示符** 或 shell，该环境变量才可用。
 
 ### <a name="linux"></a>Linux
 
@@ -177,7 +177,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
-在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法下载存储帐户中的图像。 下载前，将会先定义 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
+在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 方法下载存储帐户中的图像。 下载前，将会先定义 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -195,7 +195,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 若要运行示例，请打开命令提示符，导航到示例文件夹，然后输入 `node index.js`。
 
-此示例在 Blob 存储帐户中创建一个容器，将 **HelloWorld.png** 上传到容器中，然后反复检查容器和图像是否已复制到次要区域。 复制完以后，会提示你输入 **D** 或 **Q**（然后按 ENTER），以便下载相关内容或退出。 输出应类似于以下示例：
+此示例在 Blob 存储帐户中创建一个容器，将 **HelloWorld.png** 上传到容器中，然后反复检查容器和图像是否已复制到次要区域。 复制完以后，会提示你输入 **D** 或 **Q** （然后按 ENTER），以便下载相关内容或退出。 输出应类似于以下示例：
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -226,7 +226,7 @@ Deleted container newcontainer1550799840726
 
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
-当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 会变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
+当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode) 会变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -254,7 +254,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>RequestCompleted 事件处理程序
 
-当图像下载成功时，会调用 `OperationContextRequestCompleted` 事件处理程序。 如果应用程序使用的是辅助终结点，则应用程序会继续使用该终结点，最多 20 次。 20 次以后，应用程序会将 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 重新设置为 `PrimaryThenSecondary` 并重试主终结点。 如果请求成功，应用程序会继续从主终结点读取。
+当图像下载成功时，会调用 `OperationContextRequestCompleted` 事件处理程序。 如果应用程序使用的是辅助终结点，则应用程序会继续使用该终结点，最多 20 次。 20 次以后，应用程序会将 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode) 重新设置为 `PrimaryThenSecondary` 并重试主终结点。 如果请求成功，应用程序会继续从主终结点读取。
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

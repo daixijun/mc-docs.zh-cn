@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 origin.date: 12/26/2018
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f38b91a656304ca7da04cd90d45d0824e29463b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 0b2ad1819c57c645aaa9319280eaeacc18f150c7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246322"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551721"
 ---
 # <a name="set-up-multiple-region-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分布式数据库
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文将展示如何使用 Azure 门户设置一个多区域分布式数据库，并使用 Azure Cosmos DB 的用于 MongoDB 的 API 连接到该数据库。
 
@@ -68,7 +69,7 @@ ms.locfileid: "91246322"
 
 ## <a name="connecting-to-a-preferred-region"></a>连接到首选区域 
 
-使用 Azure Cosmos DB 的 API for MongoDB，可以为多区域分布式数据库指定集合的读取首选项。 为实现低延迟读取和多区域高可用性，建议将集合的读取首选项设置为“就近”。** 当读取首选项配置为“就近”时，将从最近的区域进行读取。 
+使用 Azure Cosmos DB 的 API for MongoDB，可以为多区域分布式数据库指定集合的读取首选项。 为实现低延迟读取和多区域高可用性，建议将集合的读取首选项设置为“就近”。 当读取首选项配置为“就近”时，将从最近的区域进行读取。 
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -105,4 +106,4 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 > [!div class="nextstepaction"]
 > [使用 Azure Cosmos DB 模拟器在本地进行开发](local-emulator.md)
 
-<!--Update_Description: update meta properties,wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

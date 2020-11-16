@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 03/13/2020
 ms.date: 11/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: e0bfe998e872cdbf6022e7e91c9d74b2bdf59d34
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 81d86e70054273b901a2bd0d9936a11603f57980
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551884"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>快速入门：使用 ARM 模板在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -39,7 +39,7 @@ ms.locfileid: "92472604"
 
 ## <a name="review-the-template"></a>查看模板
 
-本快速入门中使用的模板来自 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka)。
+本快速入门中使用的模板来自 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/)。
 
 ```Json
 {
@@ -225,7 +225,7 @@ ms.locfileid: "92472604"
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-创建群集后，你会收到“部署成功”通知，通知中附有“转到资源”链接 。 “资源组”页会列出新的 HDInsight 群集以及与该群集关联的默认存储。 每个群集都有一个 [Azure 存储](../hdinsight-hadoop-use-blob-storage.md)帐户依赖项。 该帐户称为默认存储帐户。 HDInsight 群集及其默认存储帐户必须共存于同一个 Azure 区域中。 删除群集不会删除存储帐户。
+创建群集后，你会收到“部署成功”通知，通知中附有“转到资源”链接 。 “资源组”页会列出新的 HDInsight 群集以及与该群集关联的默认存储。 每个群集都有一个 [Azure Blob 存储](../hdinsight-hadoop-use-blob-storage.md)帐户和一个 [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) 依赖项。 该帐户称为默认存储帐户。 HDInsight 群集及其默认存储帐户必须共存于同一个 Azure 区域中。 删除群集不会删除存储帐户。
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>获取 Apache Zookeeper 主机和代理主机信息
 

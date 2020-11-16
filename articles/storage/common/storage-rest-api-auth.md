@@ -7,16 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 10/01/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 56993741986402b6c27c55d63e1f8f7d3e1aac4c
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: abe29e5c21743d534b9f51b7f5a3b3e0b7f72ead
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753557"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551938"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>通过共享密钥授权调用 REST API 操作
 
@@ -26,7 +27,7 @@ ms.locfileid: "88753557"
 
 示例应用程序列出了存储帐户的 blob 容器。 若要尝试本文中的代码，需准备以下各项：
 
-- 安装 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)（包含 **Azure 开发**工作负荷）。
+- 安装 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)（包含 **Azure 开发** 工作负荷）。
 
 - Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
@@ -48,7 +49,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="about-rest"></a>关于 REST
 
-REST 表示 *representational state transfer*（表述性状态转移）。 有关具体定义，请参阅 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)。
+REST 表示 *representational state transfer* （表述性状态转移）。 有关具体定义，请参阅 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)。
 
 REST 是一种体系结构，用于通过 Internet 协议（例如 HTTP/HTTPS）与服务交互。 REST 独立于在服务器或客户端上运行的软件。 可以从任何支持 HTTP/HTTPS 的平台调用 REST API。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。
 
@@ -64,9 +65,9 @@ REST 是一种体系结构，用于通过 Internet 协议（例如 HTTP/HTTPS）
 
 查看 [ListContainers](https://docs.microsoft.com/rest/api/storageservices/List-Containers2) 操作的参考。 该信息可以让你了解请求中某些字段的出处并进行响应。
 
-**请求方法**：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
+**请求方法** ：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
 
-**请求 URI**：`https://myaccount.blob.core.chinacloudapi.cn/?comp=list`。  请求 URI 是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
+**请求 URI** ：`https://myaccount.blob.core.chinacloudapi.cn/?comp=list`。    请求 URI 是从 blob 存储帐户终结点 `https://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
 [URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时还可以使用其他查询参数。 其中有些参数为调用超时  （以秒计）和前缀  ，后者用于筛选。
 
@@ -286,19 +287,19 @@ Authorization="SharedKey <storage account name>:<signature>"
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 其中大部分字段都很少用到。 对于 Blob 存储，你可以指定谓词、md5、内容长度、规范化标头和规范化资源。 可以将其他内容留空（但将其置于 `\n` 中，使其知道它们为空）。

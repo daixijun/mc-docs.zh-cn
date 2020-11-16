@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 的 SQL 关键字
 description: 了解 Azure Cosmos DB 的 SQL 关键字。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f8f15916e8c0b44928202c11bbfe281d86844a38
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d7147e7478654873cf780be505d4c17e8444c3bf
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222987"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551950"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB 中的关键字
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文详细介绍可在 Azure Cosmos DB SQL 查询中使用的关键字。
 
@@ -25,16 +26,16 @@ ms.locfileid: "88222987"
 可以使用 `BETWEEN` 关键字来表达针对字符串或数值范围的查询。 例如，以下查询返回其中第一个孩子的年级为 1-5（含）的所有项。
 
 ```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade BETWEEN 1 AND 5
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade BETWEEN 1 AND 5
 ```
 
 还可以在 `SELECT` 子句中使用 `BETWEEN` 关键字，如以下示例所示。
 
 ```sql
-    SELECT (c.grade BETWEEN 0 AND 10)
-    FROM Families.children[0] c
+SELECT (c.grade BETWEEN 0 AND 10)
+FROM Families.children[0] c
 ```
 
 与 ANSI SQL 不同，在 SQL API 中，可以针对混合类型的属性表达范围查询。 例如，在某些项中，`grade` 可能是类似于 `5` 的数字；而在其他一些项中，它可能是类似于 `grade4` 的字符串。 在这些情况下（与在 JavaScript 中一样），两个不同类型之间的比较会生成 `Undefined`，因此会跳过该项。
@@ -114,17 +115,17 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 使用 IN 关键字可以检查指定的值是否与列表中的任一值匹配。 例如，以下查询返回 `id` 为 `WakefieldFamily` 或 `AndersenFamily` 的所有家庭项。
 
 ```sql
-    SELECT *
-    FROM Families
-    WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+SELECT *
+FROM Families
+WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
 以下示例返回状态为任何指定值的所有项：
 
 ```sql
-    SELECT *
-    FROM Families
-    WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+SELECT *
+FROM Families
+WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
 SQL API 支持[循环访问 JSON 数组](sql-query-object-array.md#Iteration)，它可以通过 FROM 源中的 IN 关键字添加一个新的构造。
@@ -138,30 +139,30 @@ TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法�
 可以结合一个常量值使用 TOP（如以下示例中所示），或者在参数化查询中结合一个变量值使用 TOP。
 
 ```sql
-    SELECT TOP 1 *
-    FROM Families f
+SELECT TOP 1 *
+FROM Families f
 ```
 
 结果有：
 
 ```json
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "Seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+[{
+    "id": "AndersenFamily",
+    "lastName": "Andersen",
+    "parents": [
+       { "firstName": "Thomas" },
+       { "firstName": "Mary Kay"}
+    ],
+    "children": [
+       {
+           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+           "pets": [{ "givenName": "Fluffy" }]
+       }
+    ],
+    "address": { "state": "WA", "county": "King", "city": "Seattle" },
+    "creationDate": 1431620472,
+    "isRegistered": true
+}]
 ```
 
 ## <a name="next-steps"></a>后续步骤

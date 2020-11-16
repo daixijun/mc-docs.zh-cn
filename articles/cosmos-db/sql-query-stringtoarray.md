@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: d37155e2b8e65fab01abf28afaea2cf65da11a5b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: de9ac09ec4d0fc787da264c7b2c9f812700fbc88
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246348"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551971"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回已转换为数组的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
 ## <a name="syntax"></a>语法
@@ -42,7 +44,7 @@ StringToArray(<str_expr>)
 
   以下示例演示 `StringToArray` 在不同类型中的行为方式。 
 
- 下面是输入有效的示例。
+  下面是输入有效的示例。
 
 ```sql
 SELECT 

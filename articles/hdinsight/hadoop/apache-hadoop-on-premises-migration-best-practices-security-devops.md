@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 12/19/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 1b4ddbc0c7d71d53619bfceb634da36d70163349
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 2d84e151108feb8fdf4f562a6df758352fd7632e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551684"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 安全性和 DevOps 最佳做法
 
@@ -86,7 +86,7 @@ ESP 适用于以下群集类型：Apache Hadoop、Apache Spark、Apache HBase、
 有关详细信息，请参阅下列文章：
 
 - [Azure 虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
-- [Azure 网络安全组概述](../../virtual-network/security-overview.md)
+- [Azure 网络安全组概述](../../virtual-network/network-security-groups-overview.md)
 - [Azure 虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)
 - [Azure 存储安全指南](../../storage/blobs/security-recommendations.md)
 - [Azure 存储服务静态加密](../../storage/common/storage-service-encryption.md)

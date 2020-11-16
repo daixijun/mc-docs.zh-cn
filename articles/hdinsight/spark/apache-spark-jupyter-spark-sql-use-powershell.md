@@ -12,12 +12,12 @@ origin.date: 06/12/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2c7e903da6397b395ba30f2875269a2298291223
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 889a4e9400f4ae4b19d4216b09bc8056a1872058
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552211"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -39,8 +39,8 @@ ms.locfileid: "84186449"
 
 创建 HDInsight 群集包括创建以下 Azure 对象和资源：
 
-- Azure 资源组。 Azure 资源组是 Azure 资源的容器。 
-- Azure 存储帐户或 Azure Data Lake Storage。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，创建存储帐户。
+- Azure 资源组。 Azure 资源组是 Azure 资源的容器。
+- Azure 存储帐户或 Azure Data Lake Storage。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，我们创建的群集使用 Azure 存储 Blob 作为群集存储。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 - 在 HDInsight 上的一个群集类型不同的群集。  在本快速入门中，你将创建 Spark 2.3 群集。
 
 使用 PowerShell 脚本创建资源。 
@@ -155,7 +155,7 @@ ms.locfileid: "84186449"
 
    ![创建 Jupyter Notebook 以运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "创建 Jupyter Notebook 以运行交互式 Spark SQL 查询")
 
-   新 Notebook 随即会创建，并以 Untitled(Untitled.pynb) 名称打开。
+   新笔记本随即已创建，并以 Untitled(Untitled.pynb) 名称打开。
 
 ## <a name="run-apache-spark-sql-statements"></a>运行 Apache Spark SQL 语句
 

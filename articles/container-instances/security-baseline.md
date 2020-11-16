@@ -5,17 +5,17 @@ ms.service: security
 ms.topic: conceptual
 origin.date: 05/27/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28bc61a99c5ba1cc2e04ea3897a074aa3ce8ea40
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c803ffec4c6578fa785755615f2edfe3ca53b61b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104742"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552319"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>容器实例的 Azure 安全基线
 
@@ -61,7 +61,7 @@ ms.locfileid: "93104742"
 
 **指导** ：在 Azure 容器实例中托管的关键 Web 应用程序前部署 Azure Web 应用程序防火墙 (WAF)，以对传入的流量进行额外的检查。 启用 WAF 的诊断设置，并将日志引入存储帐户、事件中心或 Log Analytics 工作区。
 
-<!--Not Available on [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)-->
+<!--Not Available on [How to deploy Azure WAF](../application-gateway/create-waf-policy-ag.md)-->
 
 **Azure 安全中心监视** ：是
 
@@ -237,7 +237,7 @@ ms.locfileid: "93104742"
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指南** ：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
+**指导** ：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
 
 * [如何为 Log Analytics 工作区设置日志保留参数](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 

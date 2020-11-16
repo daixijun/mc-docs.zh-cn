@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 64c7333d92331b3a6f5b8521668926cae0647083
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 10e8184c286fcc8f6ace65e0fad45356da35cb65
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246815"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551932"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个数值，四舍五入到最接近的整数值。  
 
 ## <a name="syntax"></a>语法
@@ -54,7 +56,7 @@ ROUND(<numeric_expr>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
 
-  下面是结果集。  
+下面是结果集。  
 
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 origin.date: 03/10/2020
 ms.date: 04/06/2020
-ms.openlocfilehash: 61f08bf7131c5189ad78fefbdc31b9d900f38ad9
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 5f042a6ce7120bdc4d62821b42f5a3c2b23af96d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394692"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552233"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight 的 NSG 服务标记
 
-网络安全组 (NSG) 的 Azure HDInsight 服务标记是运行状况和管理服务的 IP 地址组。 这些组有助于尽量降低创建安全规则时的复杂性。 [服务标记](../virtual-network/security-overview.md#service-tags)允许来自特定 IP 的入站流量，而无需输入 NSG 中的每个[管理 IP 地址](hdinsight-management-ip-addresses.md)。
+网络安全组 (NSG) 的 Azure HDInsight 服务标记是运行状况和管理服务的 IP 地址组。 这些组有助于尽量降低创建安全规则时的复杂性。 [服务标记](../virtual-network/network-security-groups-overview.md#service-tags)允许来自特定 IP 的入站流量，而无需输入 NSG 中的每个[管理 IP 地址](hdinsight-management-ip-addresses.md)。
 
 HDInsight 服务会管理这些服务标记。 你无法创建自己的服务标记，也无法修改现有标记。 Microsoft 会管理与服务标记匹配的地址前缀，并会在地址发生更改时自动更新服务标记。
 
@@ -27,9 +27,9 @@ HDInsight 服务会管理这些服务标记。 你无法创建自己的服务标
 
 在网络安全组中使用服务标记有两个选项：
 
-- 使用单个全局 HDInsight 服务标记****：此选项会向 HDInsight 服务用来监视所有区域中的群集的所有 IP 地址开放虚拟网络。 此选项是最简单的方法，但如果你有严格的安全要求，它可能不适合。
+- 使用单个全局 HDInsight 服务标记：此选项会向 HDInsight 服务用来监视所有区域中的群集的所有 IP 地址开放虚拟网络。 此选项是最简单的方法，但如果你有严格的安全要求，它可能不适合。
 
-- 使用多个区域性服务标记****：此选项仅向 HDInsight 在该特定区域中使用的 IP 地址开放虚拟网络。 但是，如果你使用多个区域，则需要向虚拟网络中添加多个服务标记。
+- 使用多个区域性服务标记：此选项仅向 HDInsight 在该特定区域中使用的 IP 地址开放虚拟网络。 但是，如果你使用多个区域，则需要向虚拟网络中添加多个服务标记。
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>使用单个全局 HDInsight 服务标记
 
@@ -37,11 +37,11 @@ HDInsight 服务会管理这些服务标记。 你无法创建自己的服务标
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择你的网络安全组。
 
-1. 在“设置”下，依次选择“入站安全规则”、“+ 添加”。**** **** ****
+1. 在“设置”下，依次选择“入站安全规则”、“+ 添加”。  
 
-1. 在“源”下拉列表中，选择“服务标记”。**** ****
+1. 在“源”下拉列表中，选择“服务标记”。 
 
-1. 在“源服务标记”下拉列表中，选择“HDInsight”。**** ****
+1. 在“源服务标记”下拉列表中，选择“HDInsight”。 
 
     ![从 Azure 门户添加服务标记](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -73,5 +73,5 @@ HDInsight 服务会管理这些服务标记。 你无法创建自己的服务标
 中国北部和中国东部区域中的群集需要允许两个服务标记：`HDInsight.ChinaNorth` 和 `HDInsight.ChinaEast`。
 ## <a name="next-steps"></a>后续步骤
 
-- [网络安全组：服务标记](../virtual-network/security-overview.md#security-rules)
+- [网络安全组：服务标记](../virtual-network/network-security-groups-overview.md#security-rules)
 - [为 Azure HDInsight 群集创建虚拟网络](hdinsight-create-virtual-network.md)

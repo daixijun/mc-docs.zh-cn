@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 09/21/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28314a92fe7589fcfb3e262471831133c7f32f2b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: eb1605e1669378d7b8f333c26a6962ee9268cbca
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245733"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501748"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>排查在 Azure Active Directory 中进行自助式密码重置时遇到的问题
 
@@ -32,7 +32,7 @@ ms.locfileid: "91245733"
 
 如果未向执行该操作的管理员分配 Azure AD 许可证，则不会看到“密码重置”菜单选项。
 
-若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>未看到某个特定的配置选项。
 
@@ -52,7 +52,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 
 如果未向执行该操作的管理员分配 Azure AD 许可证，可能会发生这种情况。
 
-若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="user-registrations-show-multiple-times"></a>用户注册显示了多次。
 
@@ -74,7 +74,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 
 当前只能使用 Azure 门户为 SSPR 启用一个 Azure AD 组。 支持使用嵌套组作为较广泛 SSPR 部署的一部分。 确保为所选组中的用户分配适当的许可证。 查看之前的故障排除步骤，根据需要启用 SSPR。
 
-另请查看故障排除步骤，确保向执行配置选项的管理员分配了许可证。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+另请查看故障排除步骤，确保向执行配置选项的管理员分配了许可证。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 ### <a name="theres-an-error-processing-the-request"></a>处理请求时出错。
 
@@ -87,7 +87,7 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 | 错误 | 解决方案 |
 | --- | --- |
 | 未针对密码重置启用目录。 | 在 Azure 门户中，将“自助式密码重置已启用”配置更改为“选定”或“全部”，然后选择“保存” 。 |
-| 用户未分配有 Azure AD 许可证。 | 如果未向所需的用户分配 Azure AD 许可证，则可能会发生这种情况。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
+| 用户未分配有 Azure AD 许可证。 | 如果未向所需的用户分配 Azure AD 许可证，则可能会发生这种情况。 若要向相关管理员帐户分配许可证，请按照以下步骤来[分配、验证许可证和解决相关问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。 |
 | 已针对密码重置启用了目录，但用户的身份验证信息缺失或格式错误。 | 确保用户在目录下的文件中具有格式正确的联系人数据。 有关详细信息，请参阅 [Azure AD 自助密码重置使用的数据](howto-sspr-authenticationdata.md)。 |
 | 已针对密码重置启用目录，但用户在文件中只有一个联系人数据片段，而策略要求执行两种验证方法。 | 请确保用户至少有 2 个正确配置的联系方式。 例如，同时提供了移动电话号码和办公电话号码。 |
 | 已针对密码重置启用目录并正确配置用户，但无法联系到用户。 | 这可能是因临时服务错误或联系人数据错误而导致的，我们无法正确检测到这些错误。 <br> <br> 如果用户等待 10 秒，会出现一个“重试”和“请联系管理员”链接。 如果用户选择“重试”，则会重新尝试电话联系。 如果用户选择“请联系管理员”，则向管理员发送一封表单电子邮件，请求其为该用户帐户执行密码重置。 |
@@ -127,21 +127,21 @@ UI 的许多元素都是隐藏的，直到需要它们时才会显示。 在查�
 
 为了能够提供适当的帮助，我们希望你在建立支持案例时提供尽量多的详细信息。 这些详细信息包括：
 
-* **错误的一般描述**：错误是什么？ 看到该错误时出现了哪种行为？ 我们如何再现该错误？ 请尽量提供详尽的信息。
-* **页面**：在哪个页面上看到了该错误？ 请附送页面的 URL（如果可以）和屏幕截图。
-* **支持代码**：用户看到该错误时生成了哪个支持代码？
+* **错误的一般描述** ：错误是什么？ 看到该错误时出现了哪种行为？ 我们如何再现该错误？ 请尽量提供详尽的信息。
+* **页面** ：在哪个页面上看到了该错误？ 请附送页面的 URL（如果可以）和屏幕截图。
+* **支持代码** ：用户看到该错误时生成了哪个支持代码？
    * 若要找到此代码，请再现错误，然后选择屏幕底部的“支持代码”链接，将生成的 GUID 发送给支持工程师。
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="支持代码位于 Web 浏览器窗口的右下角。":::
 
   * 如果所在页面的底部没有支持代码，请按 F12，搜索 SID 和 CID，然后将这两个结果发送给支持工程师。
-* **日期、时间和时区**：包含发生错误时的确切日期和时间及“时区”。
-* **用户 ID**：哪个用户看到了该错误？ 例如，user\@contoso.com。
+* **日期、时间和时区** ：包含发生错误时的确切日期和时间及“时区”。
+* **用户 ID** ：哪个用户看到了该错误？ 例如，user\@contoso.com。
    * 是否是联合用户？
    * 是否是密码哈希同步的用户？
    * 是否是仅限云的用户？
-* **许可**：用户是否分配有 Azure AD 许可证？
-* **应用程序事件日志**：如果你使用的是密码写回，并且错误发生在本地基础结构中，请包含 Azure AD Connect 服务器中的应用程序事件日志的压缩副本。
+* **许可** ：用户是否分配有 Azure AD 许可证？
+* **应用程序事件日志** ：如果你使用的是密码写回，并且错误发生在本地基础结构中，请包含 Azure AD Connect 服务器中的应用程序事件日志的压缩副本。
 
 ## <a name="next-steps"></a>后续步骤
 

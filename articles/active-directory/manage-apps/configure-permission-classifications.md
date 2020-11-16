@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 9804039d9677167657d77f76f76ec36754b7a672
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.custom: contperfq2
+ms.openlocfilehash: 7c1c5ef8cf50ff3dbd31828bb5fb89351c2fad8b
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754767"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501974"
 ---
 # <a name="configure-permission-classifications"></a>配置权限分类
 
@@ -33,7 +34,7 @@ ms.locfileid: "92754767"
 
 按照以下步骤使用 Azure 门户对权限进行分类：
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)、[应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)或[云应用程序管理员](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.cn)
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.cn)
 1. 选择“Azure Active Directory” > “企业应用程序” > “同意和权限” > “权限分类”   。
 1. 选择“添加权限”，再将一个权限分类为“影响较小”。
 1. 选择 API，然后选择委托的权限。

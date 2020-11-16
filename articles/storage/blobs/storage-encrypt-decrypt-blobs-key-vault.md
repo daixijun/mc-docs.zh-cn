@@ -7,16 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 12/04/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 7e4afb5ff5b57e3680cb56cb09ae37a7d0afa53c
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 89a4c063f1f69b01b5cb683cb4ca9e1595cff039
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753510"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552021"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>教程 - 使用 Azure 密钥保管库加密和解密 blob
 
@@ -240,6 +241,6 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 
 有关 Blob REST API 的详细信息，请参阅 [Blob 服务 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)。
 
-有关 Azure 存储的最新信息，请转到 [Azure 存储团队博客](https://blogs.msdn.com/b/windowsazurestorage/)。
+有关 Azure 存储的最新信息，请转到 [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)。
 
 <!--Update_Description: update link-->

@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 的 SQL 查询运算符
 description: 了解 Azure Cosmos DB 支持的 SQL 运算符，例如相等、比较和逻辑运算符。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: d952fff19d040a5b535423edd10ab6d6a1ab8355
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 64f350247be6779da5bee47173f8e51cdf452633
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222544"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551689"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Azure Cosmos DB 中的运算符
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文详细介绍 Azure Cosmos DB 支持的各种运算符。
 

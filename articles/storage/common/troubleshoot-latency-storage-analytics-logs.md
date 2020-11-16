@@ -6,17 +6,17 @@ ms.topic: troubleshooting
 ms.author: v-jay
 manager: dcscontentpm
 origin.date: 10/21/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 719c23810f037f099894281dd8e9387f85e75663
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: f0b4ebe9da214181bdc9068dda0ed958ba7581d3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753383"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552246"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>使用存储分析日志排查延迟问题
 
@@ -28,7 +28,7 @@ ms.locfileid: "88753383"
 
 ## <a name="recommended-steps"></a>建议的步骤
 
-1. 下载[存储分析日志](/storage/common/storage-analytics-logging#download-storage-logging-log-data)。
+1. 下载[存储分析日志](./storage-analytics-logging.md#download-storage-logging-log-data)。
 
 2. 使用以下 PowerShell 脚本将原始格式的日志转换为表格格式：
 
@@ -115,7 +115,7 @@ ms.locfileid: "88753383"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = Success** 的 **GetBlob 操作**中，如果在 **Client-Latency** 中花费了 **Max Time**，则这表明 Azure 存储在将数据写入到客户端时花费了大量时间。 此延迟表明客户端存在问题。
+在 **RequestStatus = Success** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则这表明 Azure 存储在将数据写入到客户端时花费了大量时间。 此延迟表明客户端存在问题。
 
 **建议：**
 
@@ -130,7 +130,7 @@ ms.locfileid: "88753383"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = (SAS)NetworkError** 的 **GetBlob 操作**中，如果在 **Client-Latency** 中花费了 **Max Time**，则最常见的问题是客户端在存储服务超时之前断开连接。
+在 **RequestStatus = (SAS)NetworkError** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则最常见的问题是客户端在存储服务超时之前断开连接。
 
 **建议：**
 
@@ -145,7 +145,7 @@ ms.locfileid: "88753383"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = Success** 的 **Put 操作**中，如果在 **Client-Latency** 中花费了 **Max Time**，则这表明客户端在将数据发送到 Azure 存储时花费了更多时间。 此延迟表明客户端存在问题。
+在 **RequestStatus = Success** 的 **Put 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则这表明客户端在将数据发送到 Azure 存储时花费了更多时间。 此延迟表明客户端存在问题。
 
 **建议：**
 
@@ -160,10 +160,9 @@ ms.locfileid: "88753383"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = (SAS)NetworkError** 的 **PutBlob 操作**中，如果在 **Client-Latency** 中花费了 **Max Time**，则最常见的问题是客户端在存储服务超时之前断开连接。
+在 **RequestStatus = (SAS)NetworkError** 的 **PutBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则最常见的问题是客户端在存储服务超时之前断开连接。
 
 **建议：**
 
 * 应调查客户端中的代码，以了解客户端断开与存储服务的连接的原因和时间。
 * 使用 Wireshark、Microsoft Message Analyzer 或 Tcping 调查客户端的网络连接问题。
-

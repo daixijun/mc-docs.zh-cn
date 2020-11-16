@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/03/2020
 ms.date: 03/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5dc7654f584ecb87afb49e3ac3d480963329f5f3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d676d8095c9d2b520ce24356ac201abd9413f881
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563482"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552327"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 创建 HDInsight 群集
 
@@ -44,13 +44,13 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 设置环境变量。 本文中的变量用法基于 Bash。 在其他环境中需要进行细微的更改。 有关用于群集创建的可能参数的完整列表，请参见 [az-hdinsight-create](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create)。
+2. 设置环境变量。 本文中的变量用法基于 Bash。 在其他环境中需要进行细微的更改。 有关用于群集创建的可能参数的完整列表，请参见 [az-hdinsight-create](/cli/hdinsight#az-hdinsight-create)。
 
     |参数 | 说明 |
     |---|---|
     |`--workernode-count`| 群集中的工作器节点数。 本文使用变量 `clusterSizeInNodes` 作为传递给 `--workernode-count` 的值。 |
     |`--version`| HDInsight 群集版本。 本文使用变量 `clusterVersion` 作为传递给 `--version` 的值。 另请参阅：[支持的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|
-    |`--type`| HDInsight 群集的类型，如：hadoop、interactivehive、hbase、Kafka、storm、spark、rserver、mlservices。  本文使用变量 `clusterType` 作为传递给 `--type` 的值。 另请参阅：[群集类型和配置](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。|
+    |`--type`| HDInsight 群集的类型，如：hadoop、interactivehive、hbase、Kafka、storm、spark、rserver、mlservices。  本文使用变量 `clusterType` 作为传递给 `--type` 的值。 另请参阅：[群集类型和配置](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type)。|
     |`--component-version`|各种 Hadoop 组件的版本，采用“component=version”格式的空格分隔版本。 本文使用变量 `componentVersion` 作为传递给 `--component-version` 的值。 另请参阅：[Hadoop 组件](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。|
 
     将 `RESOURCEGROUPNAME`、`LOCATION`、`CLUSTERNAME`、`STORAGEACCOUNTNAME` 和 `PASSWORD` 替换为所需的值。 根据需要更改其他变量的值。 然后输入 CLI 命令。
@@ -70,7 +70,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
     export componentVersion=Hadoop=2.7
     ```
 
-3. 输入以下命令来[创建资源组](/cli/group?view=azure-cli-latest#az-group-create)：
+3. 输入以下命令来[创建资源组](/cli/group#az-group-create)：
 
     ```azurecli
     az group create \
@@ -80,7 +80,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
 
     有关有效位置的列表，请使用 `az account list-locations` 命令，并使用 `name` 值中的位置之一。
 
-4. 输入以下命令来[创建 Azure 存储帐户](/cli/storage/account?view=azure-cli-latest#az-storage-account-create)：
+4. 输入以下命令来[创建 Azure 存储帐户](/cli/storage/account#az-storage-account-create)：
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -93,7 +93,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
         --sku Standard_LRS
     ```
 
-5. 通过输入以下命令[从 Azure 存储帐户中提取主密钥](/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)，然后将其存储在一个变量中：
+5. 通过输入以下命令[从 Azure 存储帐户中提取主密钥](/cli/storage/account/keys#az-storage-account-keys-list)，然后将其存储在一个变量中：
 
     ```azurecli
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -102,7 +102,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
         --query [0].value -o tsv)
     ```
 
-6. 输入以下命令来[创建 Azure 存储容器](/cli/storage/container?view=azure-cli-latest#az-storage-container-create)：
+6. 输入以下命令来[创建 Azure 存储容器](/cli/storage/container#az-storage-container-create)：
 
     ```azurecli
     az storage container create \
@@ -111,7 +111,7 @@ Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/ins
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. 输入以下命令来[创建 HDInsight 群集](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create)：
+7. 输入以下命令来[创建 HDInsight 群集](/cli/hdinsight#az-hdinsight-create)：
 
     ```azurecli
     az hdinsight create \

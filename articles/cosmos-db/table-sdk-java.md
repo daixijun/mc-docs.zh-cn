@@ -6,21 +6,23 @@ ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 origin.date: 11/20/2018
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: cbb2a2af7623d248103f327e81ed816ec762e406
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3554a8a4c93af924b9e647e2f8f6349a8d720e2b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117929"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552380"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>用于 Java 的 Azure Cosmos DB 表 API：发行说明和资源
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)

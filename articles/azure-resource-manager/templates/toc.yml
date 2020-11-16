@@ -20,7 +20,7 @@
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure-resource-manager/templates/toc.json
             - name: 机器学习
               href: ../../machine-learning/how-to-create-workspace-template.md?toc=/azure-resource-manager/templates/toc.json
-        - name: Analytics
+        - name: 分析
           items:
             - name: Analysis Services
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure-resource-manager/templates/toc.json
@@ -121,7 +121,7 @@
             - name: 防火墙 - 多个地址
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Web 应用程序防火墙
-              href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
+              href: ../../application-gateway/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 安全性
           items:
             - name: Key Vault
@@ -367,11 +367,11 @@
           href: template-functions-deployment.md
         - name: 逻辑函数
           href: template-functions-logical.md
-        - name: 数字函数
+        - name: 数值函数
           href: template-functions-numeric.md
         - name: 对象函数
           href: template-functions-object.md
-        - name: 资源函数
+        - name: Resource functions
           href: template-functions-resource.md
         - name: 字符串函数
           href: template-functions-string.md

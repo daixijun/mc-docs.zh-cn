@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b2200a2d95f7c1077d8c1d534f303babf676db
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: a1d9200018e8f15e6b701b4da42df4d4e19ae00d
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750186"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501925"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure AD 自定义角色
 
@@ -103,5 +103,5 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 - [激活 Azure AD 自定义角色](azure-ad-custom-roles-activate.md)
 - [分配 Azure AD 自定义角色](azure-ad-custom-roles-assign.md)
 - [删除或更新 Azure AD 自定义角色分配](azure-ad-custom-roles-update-remove.md)
-- [Azure AD 中的角色定义](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD 中的角色定义](../roles/permissions-reference.md)
 

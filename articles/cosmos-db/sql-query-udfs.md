@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/09/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: f2a96758bb30228709303f075567b94169714a9b
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f95a9f0160ed4c92d417f2ebb4e9f7cfe313bcd0
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118354"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552392"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB 中的用户定义函数 (UDF)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 SQL API 支持用户定义函数 (UDF)。 使用标量 UDF，可以传入零个或多个参数，并返回单个参数结果。 API 会检查每个参数 JSON 值是否合法。  
 
@@ -125,16 +126,16 @@ UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
 结果有：
 
 ```json
-    [
-      {
-        "city": "Seattle",
-        "seaLevel": 520
-      },
-      {
-        "city": "NY",
-        "seaLevel": 410
-      }
-    ]
+[
+  {
+    "city": "Seattle",
+    "seaLevel": 520
+  },
+  {
+    "city": "NY",
+    "seaLevel": 410
+  }
+]
 ```
 
 如果 UDF 参数引用的属性在 JSON 值中未提供，则会将该参数视为未定义，因此会跳过 UDF 调用。 同样，如果未定义 UDF 的结果，则不会将此 UDF 包含在结果中。

@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的 OFFSET LIMIT 子句
 description: 了解在 Azure Cosmos DB 中进行查询时如何使用 OFFSET LIMIT 子句跳过某些特定值和采用某些特定值
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9be92b1e6906fb5b07cf2608103e8cdef52ac79c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d8b0c0da7393f3bd585e339a1d60853b148585ed
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222545"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551696"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 OFFSET LIMIT 子句
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 OFFSET LIMIT 子句是一个可选子句，可以跳过它，然后从查询中获取一些值。 必须在 OFFSET LIMIT 子句中指定 OFFSET 计数和 LIMIT 计数。
 
@@ -40,11 +41,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>备注
 
-必须在 `OFFSET LIMIT` 子句中同时指定 `OFFSET` 计数和 `LIMIT` 计数。 如果使用可选的 `ORDER BY` 子句，将会通过跳过排序值来生成结果集。 否则，查询将返回固定顺序的值。
+  必须在 `OFFSET LIMIT` 子句中同时指定 `OFFSET` 计数和 `LIMIT` 计数。 如果使用可选的 `ORDER BY` 子句，将会通过跳过排序值来生成结果集。 否则，查询将返回固定顺序的值。
 
-使用 `OFFSET LIMIT` 进行查询时的 RU 费用会随着要跳过的字词数量的增加而增加。 对于有[多个结果页](sql-query-pagination.md)的查询，我们通常建议使用[继续标记](sql-query-pagination.md#continuation-tokens)。 继续标记是一个“书签”，用于在以后恢复查询。 如果使用 `OFFSET LIMIT`，则没有“书签”。 如果希望返回查询的下一页，则必须从头开始。
+  使用 `OFFSET LIMIT` 进行查询时的 RU 费用会随着要跳过的字词数量的增加而增加。 对于有[多个结果页](sql-query-pagination.md)的查询，我们通常建议使用[继续标记](sql-query-pagination.md#continuation-tokens)。 继续标记是一个“书签”，用于在以后恢复查询。 如果使用 `OFFSET LIMIT`，则没有“书签”。 如果希望返回查询的下一页，则必须从头开始。
 
-如果希望完全跳过项并保存客户端资源，则应使用 `OFFSET LIMIT`。 例如，如果要跳到第 1000 个查询结果，无需查看第 1 到第 999 个结果，则应使用 `OFFSET LIMIT`。 在后端，`OFFSET LIMIT` 仍会加载每个项，包括那些跳过的项。 性能优势是，通过避免处理不需要的项，可以节省客户端资源。
+  如果希望完全跳过项并保存客户端资源，则应使用 `OFFSET LIMIT`。 例如，如果要跳到第 1000 个查询结果，无需查看第 1 到第 999 个结果，则应使用 `OFFSET LIMIT`。 在后端，`OFFSET LIMIT` 仍会加载每个项，包括那些跳过的项。 性能优势是，通过避免处理不需要的项，可以节省客户端资源。
 
 ## <a name="examples"></a>示例
 

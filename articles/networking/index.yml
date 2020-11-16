@@ -13,12 +13,12 @@ metadata:
   manager: mtillman
   origin.date: 09/28/2020
   ms.date: 10/16/2020
-  ms.openlocfilehash: 97581f383716ce68076224855ed0d7ad1d70dfdf
-  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+  ms.openlocfilehash: 8c4b4470945ba1e3bcc95c9325d4c43637fc2940
+  ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92128381"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94550773"
 highlightedContent:
   items:
   - title: 什么是 Azure 网络？
@@ -178,10 +178,10 @@ conceptualContent:
       text: 查看详细信息
   - title: Web 应用程序防火墙
     links:
-    - url: ../web-application-firewall/ag/ag-overview.md
+    - url: ../application-gateway/ag-overview.md
       itemType: concept
       text: 应用程序网关上的 WAF
-    - url: ../web-application-firewall/ag/web-application-firewall-troubleshoot.md
+    - url: ../application-gateway/web-application-firewall-troubleshoot.md
       itemType: how-to-guide
       text: 排查应用程序网关的 WAF 问题
   - title: 内容分发网络

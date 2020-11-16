@@ -3,18 +3,18 @@ title: 快速入门：Azure Blob 存储库 v12 - JavaScript
 description: 本快速入门介绍如何使用适用于 JavaScript 的 Azure Blob 存储客户端库版本 12 在 Blob（对象）存储中创建容器和 blob。 接下来，将介绍如何将 blob 下载到本地计算机，以及如何在容器中列出所有 blob。
 author: WenJason
 ms.author: v-jay
-origin.date: 07/24/2020
-ms.date: 09/28/2020
+origin.date: 09/17/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a29cfe6197ee9b7d2c84ba89dc6e560c79cc651
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.custom: devx-track-js
+ms.openlocfilehash: 9f533524888709eaa1b8f64735bcc3a7a4da6e7d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026628"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552015"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>快速入门：在 Node.js 中使用 JavaScript v12 SDK 管理 blob
 
@@ -313,7 +313,8 @@ Done
 有关教程、示例、快速入门和其他文档，请访问：
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript 文档](https://docs.microsoft.com/azure/developer/javascript/)
+> [Azure for JavaScript 开发人员中心](https://docs.microsoft.com/azure/developer/javascript/)
 
-* 若要了解详细信息，请参阅[适用于 JavaScript 的 Azure Blob 存储客户端库](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)。
+* 若要了解如何部署使用 Azure Blob 存储的 Web 应用，请参阅[教程：使用 Azure 存储将映像数据上传到云中](/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
 * 若要查看 Blob 存储示例应用，请继续学习 [Azure Blob 存储客户端库 v12 JavaScript 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)。
+* 若要了解详细信息，请参阅[适用于 JavaScript 的 Azure Blob 存储客户端库](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)。

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c97db4ac957598efb85b74f4bc119232a7cd61
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 02908cdf4bd8792cbd77166d654dab5130dc9e46
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648025"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501794"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>特权访问 Azure AD 组的管理功能（预览版）
 
-在 Privileged Identity Management (PIM) 中，现在可以针对特权访问组的成员资格或所有权分配资格。 从此预览版开始，可以将 Azure Active Directory (Azure AD) 内置角色分配给云组，并使用 PIM 管理组成员和所有者资格和激活。 有关 Azure AD 中可分配角色的组的详细信息，请参阅[在 Azure Active Directory 中使用云组管理角色分配（预览版）](../users-groups-roles/roles-groups-concept.md)。
+在 Privileged Identity Management (PIM) 中，现在可以针对特权访问组的成员资格或所有权分配资格。 从此预览版开始，可以将 Azure Active Directory (Azure AD) 内置角色分配给云组，并使用 PIM 管理组成员和所有者资格和激活。 有关 Azure AD 中可分配角色的组的详细信息，请参阅[在 Azure Active Directory 中使用云组管理角色分配（预览版）](../roles/groups-concept.md)。
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>每个可分配角色的组需要不同的策略
 

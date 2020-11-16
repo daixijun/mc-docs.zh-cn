@@ -2,24 +2,23 @@
 title: 编辑组信息 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 编辑组信息的说明。
 services: active-directory
-author: eross-msft
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-origin.date: 08/27/2018
-ms.date: 04/08/2019
+ms.topic: how-to
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca72635885e9480e44a472cd6ee5dc32a57ca834
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a729128d45197ee41f282e59dd6fa6869534365b
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824096"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501762"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 编辑组信息
 
@@ -50,11 +49,11 @@ ms.locfileid: "63824096"
     
     - **组说明。** 编辑现有的组说明。
 
-    - **组类型。** 创建组后无法更改组类型。 若要更改**组类型**，必须删除组并新建一个。
+    - **组类型。** 创建组后无法更改组类型。 若要更改 **组类型** ，必须删除组并新建一个。
     
     - **成员身份类型。** 更改成员身份类型。 有关各种可用成员身份类型的详细信息，请参阅[如何：使用 Azure Active Directory 门户创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
     
-    - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关使用 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
+    - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关使用 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../enterprise-users/groups-settings-v2-cmdlets.md)。
 
 ## <a name="next-steps"></a>后续步骤
 这些文章提供了有关 Azure Active Directory 的更多信息。
@@ -69,4 +68,5 @@ ms.locfileid: "63824096"
 
 - [使用组管理对资源的访问权限](active-directory-manage-groups.md)
 
-<!-- Update_Description: wording update -->
+- [将 Azure 订阅关联或添加到 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+

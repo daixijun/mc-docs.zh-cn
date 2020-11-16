@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ST_ISVALIDDETAILED
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_ISVALIDDETAILED。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 349bcff200b21980d31535ec7d8b237079923fe1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 58bc696358f7a06f32df43286141d0953a65c255
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914659"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551988"
 ---
 # <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  如果指定的 GeoJSON 点、多边形或 LineString 表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外加上作为字符串值的原因。  
 
 ## <a name="syntax"></a>语法
@@ -61,5 +63,4 @@ SELECT ST_ISVALIDDETAILED({
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!--Update_Description: new articles on sql query st isvaliddetailed  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

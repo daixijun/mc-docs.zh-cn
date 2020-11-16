@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: v-johya
 origin.date: 03/15/2020
-ms.openlocfilehash: d0b1d55ccfd703e366029d062ed478f3a527f398
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 93267162fc0f9a0b38b612b2229e22480b430c39
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402594"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552002"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Azure 安全中心的威胁防护
 
@@ -25,11 +25,11 @@ ms.locfileid: "91402594"
 Azure 安全中心威胁防护为环境提供全面的防御：
 <!--Customized in MC-->
 
-* **针对 Azure 计算资源的威胁防护**：Windows 计算机、Linux 计算机
+* **针对 Azure 计算资源的威胁防护** ：Windows 计算机、Linux 计算机
 
-* **针对 Azure 数据资源的威胁防护**：SQL 数据库
+* **针对 Azure 数据资源的威胁防护** ：SQL 数据库
 
-* **针对 Azure 服务层的威胁防护**：Azure 网络层
+* **针对 Azure 服务层的威胁防护** ：Azure 网络层
 
 无论警报是由安全中心生成，还是由安全中心从其他安全产品接收，你都可以导出该警报。 若要将警报导出到任何第三方 SIEM 或任何其他外部工具，请按照[将警报导出到 SIEM](continuous-export.md) 中的说明操作。 
 
@@ -77,7 +77,7 @@ Azure 安全中心与 Azure 服务集成，可以监视和保护基于 Windows �
 
 ## <a name="threat-protection-for-linux-machines"></a>针对 Linux 计算机的威胁防护 <a name="linux-machines"></a>
 
-安全中心使用 **auditd**（最常见的 Linux 审核框架之一）从 Linux 计算机收集审核记录。 auditd 驻留在主线内核中。 
+安全中心使用 **auditd** （最常见的 Linux 审核框架之一）从 Linux 计算机收集审核记录。 auditd 驻留在主线内核中。 
 
 * **Linux auditd 警报和 Log Analytics 代理集成** <a name="linux-auditd"></a> - auditd 系统包含一个负责监视系统调用的内核级子系统。 该子系统会按照指定的规则集筛选这些调用，并将针对这些调用生成的消息写入到套接字。 安全中心在 Log Analytics 代理中集成了 auditd 包的功能。 通过这种集成，无需满足任何先决条件，就能在所有受支持的 Linux 发行版中收集 auditd 事件。
 
@@ -138,7 +138,7 @@ Azure 应用程序网关提供的 Web 应用程序防火墙 (WAF) 可以对 Web 
 
 Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 应用程序网关 WAF 基于开放 Web 应用程序安全项目中的核心规则集 3.0 或 2.2.9。 WAF 会自动更新，以便在出现新漏洞后提供保护。 
 
-如果你有 Azure WAF 许可证，则无需进行额外的配置，就会将 WAF 警报流式传输到安全中心。 有关 WAF 生成的警报的详细信息，请参阅 [Web 应用程序防火墙 CRS 规则组和规则](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31)。
+如果你有 Azure WAF 许可证，则无需进行额外的配置，就会将 WAF 警报流式传输到安全中心。 有关 WAF 生成的警报的详细信息，请参阅 [Web 应用程序防火墙 CRS 规则组和规则](../application-gateway/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31)。
 
 
 <!--Not available in MC: ### Threat protection for Azure DDoS Protection-->

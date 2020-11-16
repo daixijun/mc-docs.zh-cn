@@ -8,15 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 2bd3f21b699a82ecee68db452e66d2f9938fb54a
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.custom: contperfq2
+ms.openlocfilehash: 15c80e4c0d6d926db91f8dad209f58a769ac1d7f
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754768"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501871"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>配置最终用户如何对应用程序表示同意
 
@@ -47,7 +48,7 @@ ms.locfileid: "92754768"
 
 若要通过 Azure 门户配置用户同意设置：
 
-1. 以[全局管理员](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.cn)。
+1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)的身份登录 [Azure 门户](https://portal.azure.cn)。
 1. 选择“Azure Active Directory” > “企业应用程序” > “同意和权限” > “用户同意设置”   。
 1. 在“针对应用程序的用户同意”下，选择想要为所有用户配置的同意设置。
 1. 选择“保存”以保存设置。

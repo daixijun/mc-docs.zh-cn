@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40718956cbe269f576b2db73ff90bddb671869c5
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 39557377bdc7a8321cd5e550f62c838e55d11b33
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593803"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501952"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>使用 Azure AD 访问评审管理已从条件访问策略中排除的用户
 
@@ -38,7 +38,7 @@ ms.locfileid: "89593803"
 
 ![条件访问中的命名位置](./media/conditional-access-exclusion/named-locations.png)
 
-遗憾的是，某些用户可能仍有正当理由从这些已阻止的国家/地区登录。 例如，用户因公事出差，并需要访问公司资源。 在这种情况下，阻止这些国家/地区的条件访问策略可对已从策略中排除的用户使用云安全组。 在旅行期间需要进行访问的用户可以使用 [Azure AD 自助服务组管理](../users-groups-roles/groups-self-service-management.md)将自己添加到该组。
+遗憾的是，某些用户可能仍有正当理由从这些已阻止的国家/地区登录。 例如，用户因公事出差，并需要访问公司资源。 在这种情况下，阻止这些国家/地区的条件访问策略可对已从策略中排除的用户使用云安全组。 在旅行期间需要进行访问的用户可以使用 [Azure AD 自助服务组管理](../enterprise-users/groups-self-service-management.md)将自己添加到该组。
 
 另举一例，某个条件访问策略可能会[阻止大多数用户的旧式身份验证](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/)。 但是，如果某些用户需要使用旧式身份验证方法通过 Office 2010 或基于 IMAP/SMTP/POP 的客户端来访问你的资源，则你可以从阻止旧式身份验证方法的策略中排除这些用户。
 

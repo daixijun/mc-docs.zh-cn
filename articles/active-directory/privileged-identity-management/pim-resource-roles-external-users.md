@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e0ef37dd2a4f4545be09bd451f708bd8fa9b5fe
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 6f816118edcb4833ba5149ca76d95757bfa3c5a8
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596201"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501959"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中邀请来宾用户并分配 Azure 资源角色
 
@@ -67,13 +67,13 @@ Azure Active Directory (Azure AD) 来宾用户是 Azure AD 中企业对企业 (B
 
 使用 Privileged Identity Management，你可以邀请来宾并使他们有资格担任 Azure 资源角色。
 
-1. 使用[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)或[用户管理员](../users-groups-roles/directory-assign-admin-roles.md#user-administrator)角色成员用户的身份登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 使用[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)或[用户管理员](../roles/permissions-reference.md#user-administrator)角色成员用户的身份登录到 [Azure 门户](https://portal.azure.cn/)。
 
 1. 打开“Azure AD Privileged Identity Management”。
 
 1. 选择“Azure 资源” 。
 
-1. 使用资源筛选器**** 对托管资源的列表进行筛选。
+1. 使用资源筛选器对托管资源的列表进行筛选。
 
 1. 选择要管理的资源，例如资源、资源组、订阅或管理组。
 
@@ -89,7 +89,7 @@ Azure Active Directory (Azure AD) 来宾用户是 Azure AD 中企业对企业 (B
 
 1. 在角色页面上，选择“添加成员”以打开“新建分配”窗格。
 
-1. 单击“选择成员或组”。****
+1. 单击“选择成员或组”。
 
     ![“新建分配 - 选择成员或组”窗格，其中列出了用户和组以及一个“邀请”选项](./media/pim-resource-roles-external-users/select-member-group.png)
 
@@ -123,7 +123,7 @@ Azure Active Directory (Azure AD) 来宾用户是 Azure AD 中企业对企业 (B
 
 1. 选择电子邮件中的“开始”链接。
 
-1. 查看权限后，单击“接受”。****
+1. 查看权限后，单击“接受”。
 
     ![浏览器中的“查看权限”页面，其中包含组织想要你查看的权限列表](./media/pim-resource-roles-external-users/invite-accept.png)
 
@@ -141,7 +141,7 @@ Azure Active Directory (Azure AD) 来宾用户是 Azure AD 中企业对企业 (B
 
     需要指定一些信息来激活角色，具体取决于角色设置。
 
-1. 指定角色设置后，单击“激活”，以激活角色。****
+1. 指定角色设置后，单击“激活”，以激活角色。
 
     ![“激活”页面，其中列出了作用域和用来指定开始时间、持续时间和原因的选项](./media/pim-resource-roles-external-users/activate-role.png)
 

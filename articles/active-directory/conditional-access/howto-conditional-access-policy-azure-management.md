@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3741a0f924d223da785064748182400b0431f83e
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 2f9ef30861e807356cb0e82ac7d9c3eb15ab1f65
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046361"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501729"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>条件访问：要求将 MFA 用于 Azure 管理
 
@@ -33,15 +33,15 @@ ms.locfileid: "89046361"
 条件访问策略是功能强大的工具，建议从策略中排除以下帐户：
 
 * 紧急访问帐户或不受限帐户，用于防止租户范围的帐户锁定 。 在极少数情况下，所有管理员都被锁定在租户外，紧急访问管理帐户可用于登录租户，以采取措施来恢复访问。
-   * 有关详细信息，请参阅文章[在 Azure AD 中管理紧急访问帐户](../users-groups-roles/directory-emergency-access.md)。
-* **服务帐户**和**服务主体**，例如 Azure AD Connect 同步帐户。 服务帐户是不与任何特定用户关联的非交互式帐户。 它们通常由允许对应用程序进行编程访问的后端服务使用，但也用于出于管理目的登录到系统。 应该排除这样的服务帐户，因为无法以编程方式完成 MFA。 服务主体进行的调用不被条件访问阻止。
+   * 有关详细信息，请参阅文章[在 Azure AD 中管理紧急访问帐户](../roles/security-emergency-access.md)。
+* **服务帐户** 和 **服务主体** ，例如 Azure AD Connect 同步帐户。 服务帐户是不与任何特定用户关联的非交互式帐户。 它们通常由允许对应用程序进行编程访问的后端服务使用，但也用于出于管理目的登录到系统。 应该排除这样的服务帐户，因为无法以编程方式完成 MFA。 服务主体进行的调用不被条件访问阻止。
    * 如果组织在脚本或代码中使用这些帐户，请考虑将它们替换为[托管标识](../managed-identities-azure-resources/overview.md)。 作为临时解决方法，可以从基线策略中排除这些特定帐户。
 
 ## <a name="create-a-conditional-access-policy"></a>创建条件访问策略
 
 以下步骤可帮助创建条件访问策略，以要求有权访问 [Azure 管理](concept-conditional-access-cloud-apps.md#microsoft-azure-management)应用的用户执行多重身份验证。
 
-1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 **Azure 门户**。
+1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 **Azure 门户** 。
 1. 浏览到“Azure Active Directory” > “安全性” > “条件访问”  。
 1. 选择“新策略”。
 1. 为策略指定名称。 建议组织为其策略的名称创建有意义的标准。

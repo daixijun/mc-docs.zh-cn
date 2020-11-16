@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 7cfecdd4daf24694b9c581cd1cadce9f01c905e2
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 7b19781ea42f14ecb6ed19c55091467081f7cbe1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026483"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552080"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>使用 AzCopy 和文件存储传输数据 
 
@@ -341,7 +341,7 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 | **语法** | `azcopy sync 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' --recursive` |
 | **示例** | `azcopy sync 'https://mysourceaccount.file.core.chinacloudapi.cn/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-若要详细了解共享快照，请参阅 [Azure 文件存储的共享快照概述](/storage/files/storage-snapshots-files)。
+若要详细了解共享快照，请参阅 [Azure 文件存储的共享快照概述](../files/storage-snapshots-files.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

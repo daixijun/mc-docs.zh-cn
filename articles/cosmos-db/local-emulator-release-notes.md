@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: c366d74f5c0ebea749860c6b4b088316e862d745
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0c8cccfa89f90406e7e27f68d64b00e5c7a9348e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118542"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551731"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos 模拟器 - 发行说明和下载信息
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文显示了 Azure Cosmos 模拟器发行说明，其中包含每个发行版中所做的功能更新列表。 它还列出了要下载和使用的模拟器的最新版本。
 
@@ -29,12 +30,16 @@ ms.locfileid: "92118542"
 
 ## <a name="release-notes"></a>发行说明
 
+### <a name="2116-6-october-2020"></a>2.11.6（2020 年 10 月 6 日）
+
+- 此版本解决了在可能同时创建多个容器时遇到的与并发相关的问题。 出现此类情况时，仿真器的数据仍为已损坏的状态，而且对该仿真器的终结点的后续 API 请求可能会失败，并出现“服务不可用”错误，这需要重启并重置仿真器的本地数据。
+
 ### <a name="2115-23-august-2020"></a>2.11.5（2020 年 8 月 23 日）
 
 此版本添加了两个新的 Cosmos 模拟器启动选项： 
 
 * “/EnablePreview”- 它启用模拟器的预览功能。 预览功能仍处于开发阶段，可通过 CI 和示例编写进行访问。
-* “/EnableAadAuthentication”- 它允许模拟器接受自定义 Azure Active Directory 令牌作为 Azure Cosmos 主密钥的替代项。 此功能仍处于开发阶段；当前不支持特定的角色分配和其他与权限相关的设置。
+* “/EnableAadAuthentication”- 它允许模拟器接受自定义 Azure Active Directory 令牌作为 Azure Cosmos 主键的替代项。 此功能仍处于开发阶段；当前不支持特定的角色分配和其他与权限相关的设置。
 
 ### <a name="2112-07-july-2020"></a>2.11.2（2020 年 7 月 7 日）
 

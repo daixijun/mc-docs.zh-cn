@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 04/17/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 8a0e32c2a896c185bdde5f6f302d2ba8726f8a24
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 69a139ae0e9e64a215835eb0f12a21095f4ece48
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472609"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552244"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>使用防火墙配置 Azure HDInsight 群集的出站网络流量
 
@@ -160,7 +160,7 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 ## <a name="logging-and-scale"></a>日志记录和缩放
 
-Azure 防火墙可将日志发送到一些不同的存储系统。 有关为防火墙配置日志记录的说明，请遵循以下文章中的步骤：[教程：监视 Azure 防火墙日志和指标](../firewall/tutorial-diagnostics.md)。
+Azure 防火墙可将日志发送到一些不同的存储系统。 有关为防火墙配置日志记录的说明，请遵循以下文章中的步骤：[教程：监视 Azure 防火墙日志和指标](../firewall/firewall-diagnostics.md)。
 
 完成日志记录设置后，如果使用 Log Analytics，则可以使用以下查询查看已阻止的流量：
 

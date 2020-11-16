@@ -17,12 +17,12 @@ ms.topic: conceptual
 origin.date: 04/01/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: d8e160c0313390df3060b4c6e416bfedfd892564
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 786bbe5e1808524fd1daef026f80a0eda1d519c6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723754"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552320"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -95,9 +95,9 @@ New-AzHDInsightCluster `
 **若要验证更改，请执行以下操作：**
 
 1. 导航至 `https://CLUSTERNAME.azurehdinsight.cn/`，其中 `CLUSTERNAME` 是群集的名称。
-1. 从左侧菜单中，导航到“Hive”**** > “配置”**** > “高级”****。
-1. 展开“高级 hive-site”****。
-1. 找到 **hive.metastore.client.socket.timeout** 并确认该值为 **90s**。
+1. 从左侧菜单中，导航到“Hive” > “配置” > “高级”。
+1. 展开“高级 hive-site”。
+1. 找到 **hive.metastore.client.socket.timeout** 并确认该值为 **90s** 。
 
 下面是有关自定义其他配置文件的更多示例：
 
@@ -117,7 +117,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>使用 .NET SDK
 
-请参阅[用于 .NET 的 Azure HDInsight SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)。
+请参阅[用于 .NET 的 Azure HDInsight SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)。
 
 ## <a name="use-resource-manager-template"></a>使用 Resource Manager 模板
 可以在 Resource Manager 模板中使用 bootstrap：
@@ -151,7 +151,7 @@ spark2-defaults 中用于切换配置的示例资源管理器模板代码片段�
 * [在 HDInsight 中创建 Apache Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)提供了有关如何使用其他自定义选项创建 HDInsight 群集的说明。
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)
 * [在 HDInsight 群集上安装并使用 Apache Spark](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [在 HDInsight 群集上安装并使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
+* [在 HDInsight 群集上安装并使用 Apache Giraph](./hdinsight-hadoop-hue-linux.md)。
 
 ## <a name="appendix-powershell-sample"></a>附录：PowerShell 示例
 

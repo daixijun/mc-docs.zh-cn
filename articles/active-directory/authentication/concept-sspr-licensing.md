@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc5125244deb4634067e83d346f84663acf81a0
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: c43722fe59affec5f3e9265853128aae9f072cbd
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165017"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501715"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Azure Active Directory 自助式密码重置的许可要求
 
@@ -49,7 +49,7 @@ SSPR 按用户许可。 为了保持合规性，组织需要为其用户分配�
 
 ## <a name="enable-group-or-user-based-licensing"></a>启用基于组或基于用户的许可
 
-Azure AD 支持基于组的许可。 管理员可以将许可证批量分配给一组用户，而不是一次一个用户地分配。 有关详细信息，请参阅[分配、验证许可证和解决许可证问题](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
+Azure AD 支持基于组的许可。 管理员可以将许可证批量分配给一组用户，而不是一次一个用户地分配。 有关详细信息，请参阅[分配、验证许可证和解决许可证问题](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)。
 
 某些 Microsoft 服务并非在所有位置都可以使用。 将许可证分配给用户之前，管理员必须为该用户指定“使用位置”属性。 可在 Azure 门户中的“用户” > “配置文件” > “设置”部分下完成分配许可证  。 *使用组许可证分配时，任何没有指定使用位置的用户将继承该目录的位置。*
 

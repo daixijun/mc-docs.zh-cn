@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac06aadecd14525f7c570138862082507948d90
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: c20dde620eec2004ca7afe1c1c0990bae49b1a6a
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648083"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501662"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什么是 Azure Active Directory B2B 中的来宾用户访问权限？
 
@@ -63,11 +63,11 @@ Azure Active Directory (Azure AD) 企业到企业 (B2B) 协作是外部标识的
 
 使用按组织需求自定义的方法引入外部合作伙伴。
 
-- 使用 [B2B 协作邀请 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 自定义载入体验。
+- 使用 [B2B 协作邀请 API](https://docs.microsoft.com/graph/api/resources/invitation) 自定义载入体验。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure AD B2B 协作的许可指南](licensing-guidance.md)
+- [外部标识定价](external-identities-pricing.md)
 - [在门户中添加 B2B 协作来宾用户](add-users-administrator.md)
 - [了解邀请兑换过程](redemption-experience.md)
 

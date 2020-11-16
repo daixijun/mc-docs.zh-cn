@@ -3,17 +3,17 @@ title: 使用 .NET 的 Azure 存储示例 | Microsoft Docs
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序 使用 .NET 存储客户端库发现 Blob、队列、表和文件的入门示例。
 author: WenJason
 ms.author: v-jay
-origin.date: 02/13/2020
-ms.date: 06/01/2020
+origin.date: 10/01/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 441c2b973c501695cedf648ff363cd220bed9ca1
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 2497e2249ff0acd72b7f25198395e5832a1d2ad2
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199575"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551933"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>使用 v12 .NET 客户端库的 Azure 存储示例
 
@@ -337,4 +337,5 @@ ms.locfileid: "84199575"
 * Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
 * Python:[使用 Python 的 Azure 存储示例](storage-samples-python.md)
 * JavaScript/Node.js：[使用 JavaScript 的 Azure 存储示例](storage-samples-javascript.md)
+* C++：[使用 C++ 的 Azure 存储示例](storage-samples-c-plus-plus.md)
 * 所有其他语言：[Azure 存储示例](storage-samples.md)

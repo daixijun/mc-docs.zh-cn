@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5aa8fd25fc822ae7db4b46815d4a8228e191ce3e
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 3b25be2d056f8bf66ea70f3c91aa6d5f2485f08c
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647680"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501644"
 ---
 # <a name="migrating-applications-to-msalnet"></a>将应用程序迁移到 MSAL.NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "88647680"
 - 应用程序可以启用增量许可，可以更轻松地为条件访问提供支持
 - 你将从创新中受益。
 
-**MSAL.NET 现在是建议用于 Microsoft 标识平台的身份验证库**。 不会使用 ADAL.NET 实现任何新功能。 工作的重点是改进 MSAL。
+**MSAL.NET 现在是建议用于 Microsoft 标识平台的身份验证库** 。 不会使用 ADAL.NET 实现任何新功能。 工作的重点是改进 MSAL。
 
 本文介绍适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 之间的差异，并帮助你迁移到 MSAL。
 
@@ -176,8 +176,8 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 若要使用 Microsoft Graph API (https://microsoftgraph.chinacloudapi.cn/) 通过 MSAL.NET Azure Active Directory 进行读取和写入，需要按以下代码片段所示创建范围列表：
 
 ```csharp
-ResourceId = "https://microsoftgraph.chinacloudapi.cn/";
-var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
+string ResourceId = "https://microsoftgraph.chinacloudapi.cn/"; 
+string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write" }
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>警告：应在对应于 v1.0 Web API 的范围中使用一个或两个斜杠

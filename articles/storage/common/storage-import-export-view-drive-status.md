@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/17/2018
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: db510c6898319f45ccf8811e8a7abf2e54740b82
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: b6b94d05c22eab19a43dbfd113979c8dd183019f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026636"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552249"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>查看 Azure 导入/导出作业的状态
 
@@ -79,5 +79,5 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
+* [使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy-v10.md)
 * [Azure 导入/导出 REST API 示例](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

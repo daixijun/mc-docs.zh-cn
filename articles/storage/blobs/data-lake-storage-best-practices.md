@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: sachins
-ms.openlocfilehash: ac99a2908ac42eb80b5447c34832122cad3d0df5
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: d7ac1411b12a017f7632d303a26e7dda2b532573
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552147"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -32,15 +32,17 @@ Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组�
 
 ### <a name="security-for-groups"></a>组的安全性
 
-当你或你的用户需要访问启用了分层命名空间的存储帐户中的数据时，最好是使用 Azure Active Directory 安全组。 一开始时，建议对容器的根目录使用 **ReadOnlyUsers**、**WriteAccessUsers** 和 **FullAccessUsers** 组，甚至可以对关键的子目录使用单独的安全组。 如果还有其他预期会在以后添加但目前尚未确定的用户组，可以考虑创建能够访问特定文件夹的虚拟安全组。 使用安全组可确保在为数千个文件分配新权限时不需要很长的处理时间。
+当你或你的用户需要访问启用了分层命名空间的存储帐户中的数据时，最好是使用 Azure Active Directory 安全组。 一开始时，建议对容器的根目录使用 **ReadOnlyUsers** 、 **WriteAccessUsers** 和 **FullAccessUsers** 组，甚至可以对关键的子目录使用单独的安全组。 如果还有其他预期会在以后添加但目前尚未确定的用户组，可以考虑创建能够访问特定文件夹的虚拟安全组。 使用安全组可确保在为数千个文件分配新权限时不需要很长的处理时间。
 
 ### <a name="security-for-service-principals"></a>服务主体的安全性
 
-Azure Active Directory 服务主体通常可供服务用来访问 Data Lake Storage Gen2 中的数据。 对许多客户来说，单个 Azure Active Directory 服务主体可能已经足够，该主体可以拥有 Data Lake Storage Gen2 容器根目录的完全权限。 其他客户可能需要多个包含不同服务主体的群集，让一个群集拥有数据的完全访问权限，另一个群集拥有只读访问权限。 
+Azure Active Directory 服务主体通常可供 Azure Databricks 之类的服务用来访问 Data Lake Storage Gen2 中的数据。 对许多客户来说，单个 Azure Active Directory 服务主体可能已经足够，该主体可以拥有 Data Lake Storage Gen2 容器根目录的完全权限。 其他客户可能需要多个包含不同服务主体的群集，让一个群集拥有数据的完全访问权限，另一个群集拥有只读访问权限。 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>启用 Data Lake Storage Gen2 防火墙，允许 Azure 服务访问
 
 Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以在 Azure 门户的存储帐户上启用防火墙，方法是单击“防火墙和虚拟网络”>“允许来自所有网络的访问”。
+
+若要从 Azure Databricks 访问你的存储帐户，请将 Azure Databricks 部署到你的虚拟网络，然后将该虚拟网络添加到防火墙。 请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
 
 ## <a name="resiliency-considerations"></a>复原注意事项
 
