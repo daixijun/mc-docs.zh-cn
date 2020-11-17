@@ -26976,16 +26976,6 @@
             "redirect_document": false
         },
         {
-            "source_path": "articles/automation/manage-update-multi.md",
-            "redirect_url": "/automation/update-management/update-mgmt-manage-updates-for-vm",
-            "redirect_document": false
-        },
-        {
-            "source_path": "articles/automation/automation-view-update-assessments.md",
-            "redirect_url": "/automation/update-management/update-mgmt-view-update-assessments",
-            "redirect_document": false
-        },
-        {
             "source_path": "articles/automation/pre-post-scripts.md",
             "redirect_url": "/automation/update-management/update-mgmt-pre-post-scripts",
             "redirect_document": false
@@ -28468,7 +28458,93 @@
         {
             "source_path": "articles/storage/common/storage-access-blobs-queues-portal.md",
             "redirect_url": "/storage/blobs/authorize-blob-access-portal",
-        }
+        },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-overview.md",
+      "redirect_url": "/automation/update-management/overview",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-enable-template.md",
+      "redirect_url": "/automation/update-management/enable-from-template",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-enable-portal.md",
+      "redirect_url": "/automation/update-management/enable-from-portal",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-enable-vm.md",
+      "redirect_url": "/automation/update-management/enable-from-vm",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-enable-automation-account.md",
+      "redirect_url": "/automation/update-management/enable-from-automation-account",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-enable-runbook.md",
+      "redirect_url": "/automation/update-management/enable-from-runbook",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
+      "redirect_url": "/automation/update-management/manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/manage-update-multi.md",
+      "redirect_url": "/automation/update-management/manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-view-update-assessments.md",
+      "redirect_url": "/automation/update-management/update-mgmt-view-update-assessments",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-pre-post-scripts.md",
+      "redirect_url": "/automation/update-management/pre-post-scripts",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-mecmintegration.md",
+      "redirect_url": "/automation/update-management/mecmintegration",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-configure-wuagent.md",
+      "redirect_url": "/automation/update-management/configure-wuagent",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-groups.md",
+      "redirect_url": "/automation/update-management/configure-groups",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-query-logs.md",
+      "redirect_url": "/automation/update-management/query-logs",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-scope-configuration.md",
+      "redirect_url": "/automation/update-management/scope-configuration",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-remove-feature.md",
+      "redirect_url": "/automation/update-management/remove-feature",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
+      "redirect_url": "/automation/update-management/remove-vms",
+      "redirect_document": false
+    }
+
 
     ]
 }
