@@ -5,13 +5,14 @@ ms.subservice: ''
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: ffead506713ed471e9d62674a7c1c74431a76388
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6e695d6b192c9f3678e75a8af69effcb2af33809
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148700"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638043"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -116,7 +117,7 @@ Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 201
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-`Get-AzAlertHistory` cmdlet 支持各种参数。 有关详细信息，请参阅 [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx)。
+`Get-AzAlertHistory` cmdlet 支持各种参数。 有关详细信息，请参阅 [Get-AlertHistory](https://docs.microsoft.com/previous-versions/azure/mt282453(v=azure.100))。
 
 ## <a name="retrieve-information-on-alert-rules"></a>检索关于警报规则的信息
 下面的所有命令可用于名为“montest”的资源组。
@@ -139,7 +140,7 @@ Get-AzAlertRule -ResourceGroup montest
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` 支持其他参数。 有关详细信息，请参阅 [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx)。
+`Get-AzAlertRule` 支持其他参数。 有关详细信息，请参阅 [Get-AlertRule](https://docs.microsoft.com/previous-versions/azure/mt282459(v=azure.100))。
 
 ## <a name="create-metric-alerts"></a>创建指标警报
 可使用 `Add-AlertRule` cmdlet 来创建、更新或禁用警报规则。
@@ -148,7 +149,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 下表描述了用于使用指标创建警报的参数和值。
 
-| 参数 | value |
+| 参数 (parameter) | value |
 | --- | --- |
 | 名称 |simpletestdiskwrite |
 | 此警报规则的位置 |chinaeast2 |
@@ -186,7 +187,7 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "chinaeast2" -ResourceGroup myr
 Get-AzAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
-如果给定属性已存在警报规则，则添加警报 cmdlet 还会更新该规则。 若要禁用警报规则，请包括 **-DisableRule**参数。
+如果给定属性已存在警报规则，则添加警报 cmdlet 还会更新该规则。 若要禁用警报规则，请包括 **-DisableRule** 参数。
 
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>获取警报的可用指标的列表
 可以使用 `Get-AzMetricDefinition` cmdlet 来查看针对特定资源的所有指标的列表。
@@ -201,7 +202,7 @@ Get-AzMetricDefinition -ResourceId <resource_id>
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-`Get-AzMetricDefinition` 的可用选项的完整列表位于 [Get MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)中。
+`Get-AzMetricDefinition` 的可用选项的完整列表位于 [Get MetricDefinitions](https://docs.microsoft.com/previous-versions/azure/mt282458(v=azure.100))中。
 
 ## <a name="create-and-manage-activity-log-alerts"></a>创建和管理活动日志警报
 可以使用 `Set-AzActivityLogAlert` cmdlet 来设置活动日志警报。 活动日志警报会要求你首先将条件定义为条件字典，然后创建使用这些条件的警报。
@@ -272,7 +273,7 @@ $notification1= New-AzAutoscaleNotification -CustomEmails ashwink@microsoft.com 
 Add-AzAutoscaleSetting -Location "chinaeast2" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-有关管理自动缩放设置的详细信息，请参阅 [Get AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx)。
+有关管理自动缩放设置的详细信息，请参阅 [Get AutoscaleSetting](https://docs.microsoft.com/previous-versions/azure/mt282461(v=azure.100))。
 
 ## <a name="autoscale-history"></a>自动缩放历史记录
 以下示例演示了如何查看近期的自动缩放和警报事件。 使用活动日志搜索来查看自动缩放历史记录。
@@ -287,7 +288,7 @@ Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartT
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-有关详细信息，请参阅 [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx)。
+有关详细信息，请参阅 [Get-AutoscaleHistory](https://docs.microsoft.com/previous-versions/azure/mt282464(v=azure.100))。
 
 ### <a name="view-details-for-an-autoscale-setting"></a>查看自动缩放设置的详细信息
 可以使用 `Get-Autoscalesetting` cmdlet 来检索有关自动缩放设置的详细信息。
@@ -312,7 +313,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>管理活动日志的日志配置文件
-可以创建*日志配置文件*并从活动日志中将数据导出到存储帐户，并且可以为其配置数据保留期。 也可以选择将数据流式传输到事件中心。 目前仅预览版中具有此功能，并且每个订阅只能创建一个日志配置文件。 可以通过当前订阅使用以下 cmdlet 来创建和管理日志配置文件。 也可以选择一个特定订阅。 虽然 PowerShell 默认使用当前订阅，但可以使用 `Set-AzContext`随时更改。 可以配置活动日志将数据路由到该订阅中的任何存储帐户或事件中心。 以 JSON 格式将数据写为 blob 文件。
+可以创建 *日志配置文件* 并从活动日志中将数据导出到存储帐户，并且可以为其配置数据保留期。 也可以选择将数据流式传输到事件中心。 目前仅预览版中具有此功能，并且每个订阅只能创建一个日志配置文件。 可以通过当前订阅使用以下 cmdlet 来创建和管理日志配置文件。 也可以选择一个特定订阅。 虽然 PowerShell 默认使用当前订阅，但可以使用 `Set-AzContext`随时更改。 可以配置活动日志将数据路由到该订阅中的任何存储帐户或事件中心。 以 JSON 格式将数据写为 blob 文件。
 
 ### <a name="get-a-log-profile"></a>获取日志配置文件
 若要提取现有日志配置文件，请使用 `Get-AzLogProfile` cmdlet。

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/28/2020
-ms.openlocfilehash: 6e57e717e2b5cce19fc2959d2616b815acad85f5
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.date: 11/02/2020
+ms.openlocfilehash: d4239d5cb547a75d0c6bf9721ed4a1c1e1157076
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457413"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638219"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor 监视哪些内容？
 本文介绍了由 Azure Monitor 监视的不同应用程序和服务。 
@@ -30,6 +30,7 @@ ms.locfileid: "89457413"
 | [用于 Cosmos DB 的 Azure Monitor](insights/cosmosdb-insights-overview.md) | 提供了关于所有 Azure Cosmos DB 资源的整体性能、故障、容量和运行状况的统一交互式体验视图。 |
 | [用于网络的 Azure Monitor（预览版）](insights/network-insights-overview.md) | 提供所有网络资源的运行状况和指标的综合视图。 高级搜索功能通过便捷搜索网站名称，帮助你识别资源依赖关系，从而能够支持多种方案，比如识别用于托管网站的资源等。 |
 [用于资源组的 Azure Monitor（预览版）](insights/resource-group-insights.md) |  分类和诊断各资源出现的任何问题，同时提供有关资源组的运行状况和性能的整体上下文。 |
+| [用于存储的 Azure Monitor](insights/storage-insights-overview.md) | 通过提供 Azure 存储服务性能、容量和可用性的统一视图，提供对 Azure 存储帐户的全面监视。 |
 | [Key Vault 的 Azure Monitor（预览版）](./insights/key-vault-insights-overview.md) | 提供 Key Vault 请求、性能、失败和延迟的统一视图，在其中可以全面监视密钥保管库。 |
 | [适用于 Azure Cache for Redis 的 Azure Monitor（预览版）](insights/redis-cache-insights-overview.md) |  提供有关整体性能、故障、容量和运行状况的统一交互式视图。 |
 
@@ -49,10 +50,11 @@ ms.locfileid: "89457413"
 
 | 服务 | 指标 | 日志 | 见解 | 说明 |
 |:---|:---|:---|:---|:---|
+|Active Directory | 否 | 是 | [是](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | 否 | 否 | 否 |  |
-|Active Directory 域服务 | 否 | 是 | 否 |  |
-|活动日志 | 否 | 是 | No | |
-|高级威胁防护 | 否 | 否 | No |  |
+|Active Directory 域服务 | No | 是 | 否 |  |
+|活动日志 | No | 是 | 否 | |
+|高级威胁防护 | 否 | 否 | 否 |  |
 |顾问 | 否 | 否 | 否 |  |
 |AI Builder | 否 | 否 | 否 |  |
 |Analysis Services | 是 | 是 | 否 |  |
@@ -110,7 +112,7 @@ ms.locfileid: "89457413"
 |IoT 中心 | 是 | 是 | 否 |  |
 |Key Vault | 是 | 是 | [是](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes 服务 (AKS) | 否 | 否 | [是](insights/container-insights-overview.md)  |  |
-|负载均衡器 | 是 | 是 | 否 |  |
+|负载均衡器 | 是 | 否 | 否 |  |
 |逻辑应用 | 是 | 是 | 否 |  |
 |机器学习服务 | 否 | 否 | 否 |  |
 |托管应用程序  | 否 | 否 | 否 |  |
@@ -141,10 +143,11 @@ ms.locfileid: "89457413"
 |注册门户 | 否 | 否 | 否 |  |
 |Site Recovery | 否 | 是 | 否 |  |
 |Spring Cloud 服务 | 否 | 否 | 否 |  |
-|SQL 数据仓库 | 是 | 是 | 否 |  |
+|Azure Synapse Analytics | 是 | 是 | 否 |  |
 |SQL 数据库 | 是 | 是 | 否 |  |
 |SQL Server Stretch Database | 是 | 是 | 否 |  |
 |堆栈 | 否 | 否 | 否 |  |
+|存储 | 是 | 否 | [是](insights/storage-insights-overview.md) |  |
 |存储缓存 | 否 | 否 | 否 |  |
 |存储同步服务 | 否 | 否 | 否 |  |
 |流分析 | 是 | 是 | 否 |  |
@@ -157,7 +160,6 @@ ms.locfileid: "89457413"
 |VPN 网关 | 是 | 是 | 否 |  |
 |Windows 虚拟桌面 | 否 | 否 | 否 |  |
 
-
 ## <a name="product-integrations"></a>产品集成
 下表中的服务和解决方案将其数据存储在 Log Analytics 工作区中，以便可以将这些数据与使用 Azure Monitor 收集的其他日志数据一起进行分析。
 
@@ -167,7 +169,6 @@ ms.locfileid: "89457413"
 | [Azure 安全中心](../security-center/index.yml) | 收集和分析安全事件并执行威胁分析。 请参阅 [Azure 安全中心中的数据收集](../security-center/security-center-enable-data-collection.md) |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | 创建诊断设置以将日志发送到 Azure Monitor。 请参阅[将日志数据发送到 Intune 中的存储、事件中心或日志分析（预览版）](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)。  |
 | 网络  | [网络性能监视器](insights/network-performance-monitor.md) - 监视与服务和应用程序终结点的网络连接和其性能。<br>[流量分析](../network-watcher/traffic-analytics.md) - 可以分析网络观察程序网络安全组 (NSG) 流日志，帮助洞察 Azure 云中的流量流。 |
-| [Surface Hub](insights/surface-hubs.md) | 跟踪 Surface Hub 设备的运行状况和使用情况。 |
 | [Microsoft 团队聊天室](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Microsoft 团队聊天室设备的集成、端到端管理。 |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | 构建、测试和分发应用程序，然后监视它们的状态和使用情况。 请参阅[开始使用 App Center 和 Application Insights 分析移动应用](learn/mobile-center-quickstart.md)。 |
 | Windows | [Windows 更新符合性](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - 评估 Windows 桌面升级。<br>[桌面分析](https://docs.microsoft.com/configmgr/desktop-analytics/overview) - 与配置管理器集成，提供见解和情报，帮助你制定关于 Windows 客户端更新就绪性的更明智决策。 |

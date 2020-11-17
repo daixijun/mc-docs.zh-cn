@@ -4,16 +4,16 @@ description: Azure 安全控制标识和访问控制
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
 ms.custom: security-benchmark
 origin.date: 04/14/2020
-ms.openlocfilehash: c3a8d46d751f1f3d6e1f2f55909290cd562efadc
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 984ebf0c7bbc7032924b08d8b2224e68164c0a90
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128003"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637969"
 ---
 # <a name="security-control-identity-and-access-control"></a>安全控制：标识和访问控制
 
@@ -27,9 +27,9 @@ ms.locfileid: "92128003"
 
 Azure AD 具有必须显式分配且可查询的内置角色。 使用 Azure AD PowerShell 模块执行即席查询，以发现属于管理组的成员的帐户。
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 ## <a name="32-change-default-passwords-where-applicable"></a>3.2：在适用的情况下更改默认密码
 

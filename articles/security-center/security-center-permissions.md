@@ -11,16 +11,16 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 09/14/2020
+ms.topic: overview
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 10/28/2018
-ms.openlocfilehash: 808c7de481bc0148e0efe05aa35492209cfbb8ee
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 5173d538121809e65494113f2895926d96d01099
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822361"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638080"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 安全中心的权限
 
@@ -45,7 +45,7 @@ Azure 安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../rol
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |编辑安全策略|-|✔|-|-|✔|
 |添加/分配计划（包括合规性标准）|-|-|-|-|✔|
-|更改订阅定价层|-|✔|-|-|✔|
+|启用/禁用 Azure Defender|-|✔|-|-|✔|
 |启用/禁用自动预配|-|✔|-|✔|✔|
 |应用资源的安全建议</br> （并使用[快速修复！](security-center-remediate-recommendations.md#quick-fix-remediation)）|-|-|✔|✔|✔|
 |消除警报|-|✔|-|✔|✔|
@@ -63,5 +63,5 @@ Azure 安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../rol
 - [管理安全中心的安全建议](security-center-recommendations.md)
 - [监视 Azure 资源的安全运行状况](security-center-monitoring.md)
 - [管理和响应安全中心的安全警报](security-center-managing-and-responding-alerts.md)
-- [监视合作伙伴安全解决方案](security-center-partner-solutions.md)
+- [监视合作伙伴安全解决方案](./security-center-partner-integration.md)
 

@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 328c604181a4a081704790fb668d216632451f6b
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 20b16e9de801229b171b0e0639445b3e4c34cc97
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057689"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638138"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>教程：使用 Azure 安全中心监视 Linux 虚拟机
 
@@ -35,20 +35,20 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 安全中心可帮助识别潜在的虚拟机 (VM) 配置问题和目标安全威胁。 这可能包括缺少网络安全组的 VM、未加密的磁盘以及暴力远程桌面协议 (RDP) 攻击。 安全中心仪表板上易于阅读的图中显示了此信息。
 
-若要访问安全中心仪表板，请在 Azure 门户中的菜单上选择**安全中心**。 在仪表板上，可以查看 Azure 环境的安全状况、查找当前建议的计数以及查看威胁警报的当前状态。 可以展开每个高级别图表来查看更多详细信息。
+若要访问安全中心仪表板，请在 Azure 门户中的菜单上选择 **安全中心**。 在仪表板上，可以查看 Azure 环境的安全状况、查找当前建议的计数以及查看威胁警报的当前状态。 可以展开每个高级别图表来查看更多详细信息。
 
 ![安全中心仪表板](./media/tutorial-azure-security/asc-dash.png)
 
 安全中心不仅提供数据发现功能，而且还针对它检测到到问题提供建议。 例如，如果所部署的 VM 没有附加的网络安全组，则安全中心会显示一个建议，其中提供了可以采取的修正步骤。 无需退出安全中心的上下文即可自动完成修正。  
 
-![建议](./media/tutorial-azure-security/recommendations.png)
+![显示“建议”页的屏幕截图，其中包括说明、资源、状态和建议的严重性。](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>设置数据收集
 
 若要深入了解 VM 安全配置，首先需要设置安全中心数据收集。 这涉及启用数据收集，从而会自动在订阅中的所有 VM 上安装 Microsoft Monitoring Agent。
 
 1. 在安全中心仪表板上单击“安全策略”，并选择你的订阅。  
-2. 对于**数据收集**，请在“自动预配”  中选择“启用”  。
+2. 对于 **数据收集**，请在“自动预配”  中选择“启用”  。
 3. 对于“默认工作区配置”  ，请将其保留为“使用安全中心创建的工作区(默认)”  。
 4. 在“安全事件”  下，保留默认选项“通用”  。
 4. 单击页顶部的“保存”。  
@@ -104,7 +104,7 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 除了资源配置建议外，安全中心还显示威胁检测警报。 安全警报功能聚合从每个 VM、Azure 网络日志和连接的合作伙伴解决方案中收集的数据，以便检测针对 Azure 资源的安全威胁。 有关安全中心威胁检测功能的深入信息，请参阅[安全中心如何检测威胁？](../../security-center/security-center-alerts-overview.md#detect-threats)。
 
-安全警报功能要求将安全中心定价层从“免费”提升到“标准”。   迁移到这个更高的定价层后，可以使用**试用版**。 
+安全警报功能要求将安全中心定价层从“免费”提升到“标准”。   迁移到这个更高的定价层后，可以使用 **试用版**。 
 
 更改定价层：  
 

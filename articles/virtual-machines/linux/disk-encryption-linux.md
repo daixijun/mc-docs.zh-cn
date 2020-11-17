@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 09/03/2020
-ms.custom: seodec18
-ms.openlocfilehash: b85d6f3eca6c96310559b5ff2ea88f780dad0e18
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.date: 11/11/2020
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ff521db121591486fda34c9cac53592001154cc
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057701"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638146"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM 上的 Azure 磁盘加密方案
 
@@ -222,7 +222,7 @@ key-encryption-key 参数值的语法是 KEK 的完整 URI，其格式为： htt
  >如果在更新加密设置时设置此参数，可能会导致在实际加密之前重新启动。 在这种情况下，还需要从 fstab 文件中删除不想要格式化的磁盘。 同样，在启动加密操作之前，应将想要加密并格式化的分区添加到 fstab 文件。 
 
 ### <a name="encryptformatall-criteria"></a>EncryptFormatAll 条件
-该参数会遍历并加密满足以下**所有**条件的所有分区：
+该参数会遍历并加密满足以下 **所有** 条件的所有分区：
 - 不是根/OS/启动分区
 - 尚未加密
 - 不是 BEK 卷
@@ -412,7 +412,7 @@ Azure 磁盘加密不支持以下 Linux 方案、功能和技术：
 - 创建已加密 VM 的映像或快照，并使用它来部署其他 VM。
 - 内核故障转储 (kdump)。
 - Oracle ACFS（ASM 群集文件系统）。
-- Gen2 VM（请参阅：[Azure 对第 2 代 VM 的支持](generation-2.md#generation-1-vs-generation-2-capabilities)）。
+- Gen2 VM（请参阅：[Azure 对第 2 代 VM 的支持](../generation-2.md#generation-1-vs-generation-2-capabilities)）。
 <!--Not Available on Lsv2-series VM in china -->
 - 具有“嵌套装入点”的 VM，即一个路径中有多个装入点（例如“/1stmountpoint/data/2stmountpoint”）。
 - 包含数据驱动器的 VM 装载在 OS 文件夹之上。

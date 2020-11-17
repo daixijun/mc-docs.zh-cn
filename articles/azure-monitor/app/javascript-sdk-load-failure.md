@@ -4,13 +4,14 @@ description: 如何排查 JavaScript Web 应用程序的 SDK 加载失败问题
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/15/2020
-ms.openlocfilehash: ff09f9bf1518289b39a856b353a27606bae76b39
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 11/10/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: c0d62076bd92f2460e690ef4595b0d98de42758a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440621"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638171"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>排查 JavaScript Web 应用的 SDK 加载失败问题
 
@@ -69,18 +70,18 @@ Editor Note: This link name above "SDK Load Failure" has a direct references by 
 
 若要确认是否存在 Application Insights CDN 中断，可以尝试直接从与最终用户的位置不同的位置（可能是你自己的开发计算机，假定你的组织尚未阻止该域）通过浏览器来访问 CDN 终结点（例如 https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) ）。
 
-如果确认发生了中断，可以[创建新的支持票证](https://www.azure.cn/support/create-ticket/)，或尝试更改用于下载 SDK 的 URL。
+如果确认发生了中断，可以创建新的支持票证，或尝试更改用于下载 SDK 的 URL。
 
 ### <a name="change-the-cdn-endpoint"></a>更改 CDN 终结点
   
 由于应用程序在每个生成的页面中都会返回该代码片段及其配置，因此你可以更改代码片段 `src` 的配置，为 SDK 使用另一 URL。 使用此方法可以绕过 CDN 被阻止的问题，因为新 URL 应该不会被阻止。
 
 当前的 Application Insights JavaScript SDK CDN 终结点
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> https://js.monitor.azure.com/ 终结点是一个别名，它使我们能够在大约 5 分钟内切换 CDN 提供商，无需更改任何配置。这是为了在 CDN 提供商出现区域性或全局性问题的情况下，使我们能够更快地修复检测到的 CDN 相关问题，而无需每个用户调整其设置。
+> `https://js.monitor.azure.com/` 终结点是一个别名，它使我们能够在大约 5 分钟内切换 CDN 提供商，无需更改任何配置。这是为了在 CDN 提供商出现区域性或全局性问题的情况下，使我们能够更快地修复检测到的 CDN 相关问题，而无需每个用户调整其设置。
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>SDK 在加载脚本后未能初始化
 

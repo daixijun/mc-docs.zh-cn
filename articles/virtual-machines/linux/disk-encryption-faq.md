@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cdd68b3faea4f73a4d59ab543e1e5d20968662b
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 4521bae05170f70cc5721fd2031a1fbb67278bac
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057671"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638065"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>适用于 Linux 虚拟机的 Azure 磁盘加密常见问题解答
 
@@ -55,9 +55,18 @@ Azure 磁盘加密正式版支持 Azure 资源管理器模板、Azure PowerShell
 ## <a name="what-is-storage-server-side-encryption"></a>什么是存储服务器端加密？
 
 存储服务器端加密会在 Azure 存储中加密 Azure 托管磁盘。 默认情况下，托管磁盘使用平台托管密钥通过服务器端加密进行加密（从 2017 年 6 月 10 日开始）。 指定一个由客户托管的密钥，即可实现对使用自己的密钥加密托管磁盘的管理。 有关详细信息，请参阅：[Azure 托管磁盘的服务器端加密](disk-encryption.md)。
-<!-- Not Avaialble on ## Customer-managed keys in file disk-encryption.md -->
+ 
+## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Azure 磁盘加密与使用客户托管的密钥的存储服务器端加密有何不同，分别应于何时使用这两种解决方案？
 
-## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>如何轮换机密或加密密钥？
+Azure 磁盘加密使用客户托管的密钥提供对 OS 磁盘、数据磁盘和临时磁盘的端对端加密。
+- 如果你的要求包括对上述各项加密和端到端加密，请使用 Azure 磁盘加密。 
+- 如果你的要求是使用客户托管的密钥仅对静态数据加密，请采用[使用客户托管密钥的服务器端加密](disk-encryption.md)。 不能既使用 Azure 磁盘加密又使用采用了客户托管密钥的存储服务器端加密来加密磁盘。 
+- 如果你的 Linux 发行版未列在[支持 Azure 磁盘加密的操作系统](disk-encryption-overview.md#supported-operating-systems)下，或者使用的是在 [Windows 不支持的方案](disk-encryption-linux.md#unsupported-scenarios)中调出的方案，请考虑使用[客户托管密钥的服务器端加密](disk-encryption.md)。
+- 如果组织的策略允许你使用 Azure 托管密钥加密静态内容，则无需执行任何操作，因为系统默认加密这些内容。 对于托管磁盘而言，默认在服务器端加密中使用平台托管密钥来加密存储内的内容。 该密钥是由 Azure 存储服务托管的。 
+
+
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>我如何轮换机密或加密密钥？
 
 若要轮换机密，只需调用你一开始在启用磁盘加密时使用的命令并指定另一 Key Vault 即可。 若要轮换密钥加密密钥，只需调用你一开始在启用磁盘加密时使用的命令并指定新的密钥加密方法即可。 
 

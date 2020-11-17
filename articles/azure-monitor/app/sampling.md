@@ -4,15 +4,15 @@ description: 如何使受控制的遥测数据的卷。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/17/2020
-ms.date: 10/29/2020
+ms.date: 11/10/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 079e861aa4dc26d0b392eccb8112860416a8f65b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a041d174fd7383760fb40ba2bf86c357b583a917
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106108"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638126"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -212,7 +212,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 }
 ```
 
-<!--Not available in MC: ../../azure-functions/configure-monitoring.md#configure-sampling-->
+### <a name="configuring-adaptive-sampling-for-azure-functions"></a>为 Azure Functions 配置自适应采样
+
+按照[此页](../../azure-functions/configure-monitoring.md#configure-sampling)中的说明，为 Azure Functions 中运行的应用配置自适应采样。
+
 ## <a name="fixed-rate-sampling"></a>固定速率采样
 
 固定速率采样会减少从 Web 服务器和 Web 浏览器发送的流量。 与自适应采样不同，它会按用户确定的固定速率来降低遥测。 固定速率采样适用于 ASP.NET、ASP.NET Core、Java 和 Python 应用程序。
@@ -223,7 +226,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>为 ASP.NET 应用程序配置固定速率采样
 
-1. **禁用自适应采样** ：在 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) 中，删除或注释掉 `AdaptiveSamplingTelemetryProcessor` 节点。
+1. **禁用自适应采样**：在 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) 中，删除或注释掉 `AdaptiveSamplingTelemetryProcessor` 节点。
 
     ```xml
     <TelemetryProcessors>
@@ -270,7 +273,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>为 ASP.NET Core 应用程序配置固定速率采样
 
-1. **禁用自适应采样** ：可以在 `ConfigureServices` 方法中使用 `ApplicationInsightsServiceOptions` 进行更改：
+1. **禁用自适应采样**：可以在 `ConfigureServices` 方法中使用 `ApplicationInsightsServiceOptions` 进行更改：
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -334,7 +337,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 1. 使用最新的 [Application Insights Java SDK](./java-get-started.md) 下载并配置 Web 应用程序。
 
-2. 通过将以下代码片段添加到 `ApplicationInsights.xml` 文件，来 **启用固定速率采样模块** ：
+2. 通过将以下代码片段添加到 `ApplicationInsights.xml` 文件，来 **启用固定速率采样模块**：
 
     ```XML
     <TelemetryProcessors>

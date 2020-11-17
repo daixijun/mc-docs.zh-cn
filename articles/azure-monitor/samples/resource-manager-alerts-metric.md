@@ -1,18 +1,18 @@
 ---
 title: 用于指标警报的资源管理器模板示例
 description: 本文提供用于在 Azure Monitor 中创建指标警报的示例资源管理器模板。
-author: bwren
+author: Johnnytechn
 ms.author: v-johya
 services: azure-monitor
 ms.topic: sample
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
-ms.openlocfilehash: aed1cefa022af37d67b4719c9fb9c3b1a8ea7ca6
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 01f8c37c4860e04bd37aafcf97e59e941a6c316f
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148654"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638010"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>用于 Azure Monitor 指标警报规则的资源管理器模板示例
 
@@ -1165,9 +1165,6 @@ ms.locfileid: "89148654"
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "ChinaNorth",
-        "ChinaNorth2",
-        "ChinaEast",
                 "ChinaEast2"
             ],
             "metadata": {
@@ -2001,52 +1998,7 @@ ms.locfileid: "89148654"
         "targetResourceRegion":{
             "type": "string",
             "allowedValues": [
-                "ChinaNorth",
-                "ChinaNorth2",
-                "CentralUS",
-                "NorthCentralUS",
-                "SouthCentralUS",
-                "WestCentralUS",
-                "ChinaNorth",
-                "ChinaNorth2",
-                "CanadaEast",
-                "CanadaCentral",
-                "BrazilSouth",
-                "NorthEurope",
-                "chinanorth",
-                "FranceCentral",
-                "FranceSouth",
-                "UKWest",
-                "UKSouth",
-                "GermanyCentral",
-                "GermanyNortheast",
-                "GermanyNorth",
-                "GermanyWestCentral",
-                "SwitzerlandNorth",
-                "SwitzerlandWest",
-                "NorwayEast",
-                "NorwayWest",
-                "SoutheastAsia",
-                "EastAsia",
-                "AustraliaEast",
-                "AustraliaSoutheast",
-                "AustraliaCentral",
-                "AustraliaCentral2",
-                "ChinaEast",
-                "ChinaNorth",
-                "ChinaEast2",
-                "ChinaNorth2",
-                "CentralIndia",
-                "WestIndia",
-                "SouthIndia",
-                "ChinaNorth",
-                "ChinaNorth",
-                "KoreaCentral",
-                "KoreaSouth",
-                "SouthAfricaWest",
-                "SouthAfricaNorth",
-                "UAECentral",
-                "UAENorth"
+                "ChinaEast2"
             ],
             "metadata": {
                 "description": "Azure region in which target resources to be monitored are in (without spaces). For example: ChinaNorth"
@@ -2853,7 +2805,7 @@ ms.locfileid: "89148654"
 > [!NOTE]
 > `&amp`; 是 & 的 HTML 实体引用。 URL 参数仍由单个 & 分隔，但如果在 HTML 中提到了 URL，则需要对其进行编码。 因此，如果 pingURL 参数值中包含“&”，则必须使用“`&amp`;”对其进行转义。
 
-### <a name="parameter-file"></a>参数文件
+### <a name="template-file"></a>模板文件
 
 ```json
 {
@@ -2955,8 +2907,6 @@ ms.locfileid: "89148654"
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>参数文件
 
 ```json
@@ -2975,12 +2925,23 @@ ms.locfileid: "89148654"
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+内容匹配 `pingText` 参数的其他配置在模板文件的 `Configuration/Webtest` 部分进行控制。 特别是以下部分：
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
 
 ## <a name="next-steps"></a>后续步骤
 

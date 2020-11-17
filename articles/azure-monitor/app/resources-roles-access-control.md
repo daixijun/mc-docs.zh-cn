@@ -3,15 +3,15 @@ title: Azure Application Insights 中的资源、角色和访问控制 | Azure D
 description: 组织的见解的所有者、参与者和读者。
 ms.topic: conceptual
 origin.date: 02/14/2019
-ms.date: 10/29/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-azurepowershell
 ms.author: v-johya
-ms.openlocfilehash: b27804d31a6178033abea9225b8bea38163d1de1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0b2894d94eacbe075d1f370ce5abc70e066de10e
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103623"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638168"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的资源、角色和访问控制
 
@@ -100,8 +100,8 @@ ms.locfileid: "93103623"
 
 #### <a name="select-the-user"></a>选择用户
 
-如果所需的用户不在目录中，可以邀请有 Azure 帐户的任何人。
-（如果他们使用诸如 Outlook.com、OneDrive、Windows Phone 或 XBox Live 之类的服务，他们就会有 Azure 帐户。）
+如果希望的用户不在目录中，可以邀请具有 Microsoft 帐户的任何人。
+（如果他们使用诸如 Outlook.com、OneDrive、Windows Phone 或 XBox Live 等服务，他们就会有 Microsoft 帐户。）
 
 ## <a name="related-content"></a>相关内容
 

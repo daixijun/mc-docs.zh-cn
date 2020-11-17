@@ -4,18 +4,18 @@ description: 使用 Application Insights 监视 Node.js 服务的性能并诊断
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 07/17/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: b0b4491b2070fc70725d8d2e57680a2ba0022a76
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 37ff6a9c05db895e0ec1d051d2f114ecd42bd067
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244919"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638183"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以在部署后对后端服务和组件进行监视，以便发现并快速诊断性能问题和其他问题。 可以将 Application Insights 用于 Node.js 服务，不管这些服务是托管在数据中心、Azure VM 和 Web 应用中，还是在其他公有云中。
+[Application Insights](./app-insights-overview.md) 可以在部署后对后端服务和组件进行监视，以便发现并快速诊断性能问题和其他问题。 可以将 Application Insights 用于 Node.js 服务，不管这些服务是托管在数据中心、Azure VM 和 Web 应用中，还是在其他公有云中。
 
 若要接收、存储和探索监视数据，请将 SDK 包括到代码中，然后在 Azure 中设置相应的 Application Insights 资源。 SDK 会将数据发送到该资源进行进一步的分析和探索。
 
@@ -32,8 +32,7 @@ Node.js SDK 可以自动监视传入和传出的 HTTP 请求、异常和某些�
 开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]。 如果组织已经拥有 Azure 订阅，管理员可以按照[这些说明][add-aad-user]将你添加到该订阅。
 
 [azure-free-offer]: https://www.azure.cn/pricing/1rmb-trial/
-[add-aad-user]: https://docs.azure.cn/active-directory/fundamentals/add-users-azure-active-directory
-<!--Correct in MC: https://docs.azure.cn/active-directory/fundamentals/add-users-azure-active-directory-->
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 
 <a name="resource"></a>
@@ -87,8 +86,8 @@ SDK 会自动收集有关 Node.js 运行时和一些常见第三方模块的遥�
 
 * 继续使用应用程序。 通过更多操作生成更多遥测。
 * 在门户资源视图中单击“刷新”。 图表会定期自行刷新，但手动刷新会强制图表立刻刷新。
-* 验证[所需传出端口](../../azure-monitor/app/ip-addresses.md)是否已打开。
-* 使用[搜索](../../azure-monitor/app/diagnostic-search.md)查找特定事件。
+* 验证[所需传出端口](./ip-addresses.md)是否已打开。
+* 使用[搜索](./diagnostic-search.md)查找特定事件。
 * 查看[常见问题][FAQ]。
 
 ## <a name="basic-usage"></a>基本用法
@@ -223,7 +222,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>TelemetryClient API
 
-有关 TelemetryClient API 的完整说明，请参阅[用于处理自定义事件和指标的 Application Insights API](../../azure-monitor/app/api-custom-events-metrics.md)。
+有关 TelemetryClient API 的完整说明，请参阅[用于处理自定义事件和指标的 Application Insights API](./api-custom-events-metrics.md)。
 
 可以使用 Application Insights Node.js SDK 跟踪任何请求、事件、指标或异常。 以下代码示例演示了部分可用 API：
 
@@ -421,12 +420,12 @@ client.config.PROPERTYNAME = VALUE;
 
 ## <a name="next-steps"></a>后续步骤
 
-* [在门户中监视遥测](../../azure-monitor/app/overview-dashboard.md)
-* [通过遥测编写分析查询](../../azure-monitor/log-query/get-started-portal.md)
+* [在门户中监视遥测](./overview-dashboard.md)
+* [通过遥测编写分析查询](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.cn/
-[FAQ]: ../../azure-monitor/faq.md
-<!--Correct in MC: ../../azure-monitor/faq.md-->
+[FAQ]: ../faq.md
+
 

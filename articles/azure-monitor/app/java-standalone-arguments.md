@@ -4,13 +4,14 @@ description: 使用 Java 独立代理监视在任何环境中运行的 Java 应�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
-ms.openlocfilehash: 92fa7a4901c451576721ea947ce7f02d8e647bda
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 11/10/2020
+ms.custom: devx-track-java
+ms.openlocfilehash: 10c2d886065df45b6e3e5b8cce085e68e8f17e4e
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200072"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638049"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>为 Azure Monitor Application Insights 配置 JVM 参数 Java 独立代理
 
@@ -18,7 +19,7 @@ ms.locfileid: "84200072"
 
 ## <a name="azure-environments"></a>Azure 环境
 
-配置[应用服务](/app-service/configure-language-java#set-java-runtime-options)。
+配置[应用服务](../../app-service/configure-language-java.md#set-java-runtime-options)。
 
 ## <a name="spring-boot"></a>Spring Boot
 

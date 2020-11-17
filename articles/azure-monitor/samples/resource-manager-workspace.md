@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 3b93f2f663b568ec2081cc0270466c01e8e23e30
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: b7991fc7846e74b5f86349fe14c5dc9085d42ff4
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148647"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637999"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>用于 Azure Monitor 中的 Log Analytics 工作区的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建和配置 Log Analytics 工作区的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -35,7 +35,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -87,7 +87,7 @@ ms.locfileid: "89148647"
       {
           "type": "Microsoft.OperationalInsights/workspaces",
           "name": "[parameters('workspaceName')]",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "location": "[parameters('location')]",
           "properties": {
               "sku": {
@@ -109,7 +109,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -139,7 +139,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -152,13 +152,13 @@ ms.locfileid: "89148647"
   "resources": [
   {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsSystem",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -178,7 +178,7 @@ ms.locfileid: "89148647"
         },
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsApplication",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -210,7 +210,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -234,7 +234,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -252,14 +252,14 @@ ms.locfileid: "89148647"
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogKern",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -297,7 +297,7 @@ ms.locfileid: "89148647"
             },
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogDaemon",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -325,7 +325,7 @@ ms.locfileid: "89148647"
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "SyslogCollection",
                 "dependsOn": [
@@ -348,7 +348,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -372,7 +372,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -390,13 +390,13 @@ ms.locfileid: "89148647"
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryAvailableBytes",
             "dependsOn": [
@@ -411,7 +411,7 @@ ms.locfileid: "89148647"
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryPercentageBytes",
             "dependsOn": [
@@ -426,7 +426,7 @@ ms.locfileid: "89148647"
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfProcessorPercentage",
             "dependsOn": [
@@ -451,7 +451,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -476,7 +476,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -494,13 +494,13 @@ ms.locfileid: "89148647"
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceLogicalDisk",
                 "dependsOn": [
@@ -534,7 +534,7 @@ ms.locfileid: "89148647"
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceProcessor",
                 "dependsOn": [
@@ -565,7 +565,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -591,7 +591,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -609,13 +609,13 @@ ms.locfileid: "89148647"
   },
   "resources": [
   {
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "dataSources",
             "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
             "dependsOn": [
@@ -662,7 +662,7 @@ ms.locfileid: "89148647"
             }
         },
         {
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
           "dependsOn": [
@@ -715,7 +715,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -736,7 +736,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -755,12 +755,12 @@ ms.locfileid: "89148647"
     "resources": [
     {
         "type": "Microsoft.OperationalInsights/workspaces",
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "IISLog",
                 "dependsOn": [
@@ -782,7 +782,7 @@ ms.locfileid: "89148647"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {

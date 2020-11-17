@@ -4,24 +4,24 @@ description: 通过 Application Insights 的 CollectD 插件监视 Java 网站�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: fc5ebe00842b5278569254d1d95faa3552df9928
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 336a7c5cf1772783f11ec5a37e0e1b4d2c0837a0
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199702"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638045"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 性能指标
 
 
-若要浏览 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中 Linux 系统性能指标，请安装 [collectd](https://collectd.org/) 及其 Application Insights 插件。 此开放源解决方案收集了各种系统和网络统计信息。
+若要浏览 [Application Insights](./app-insights-overview.md) 中 Linux 系统性能指标，请安装 [collectd](https://collectd.org/) 及其 Application Insights 插件。 此开放源解决方案收集了各种系统和网络统计信息。
 
 如果已[使用 Application Insights 检测了 Java Web 服务][java]，则通常会使用 collectd。 它可提供更多数据，有助于增强应用性能或诊断问题。 
 
 ## <a name="get-your-instrumentation-key"></a>获取检测密钥
-在 [Azure 门户](https://portal.azure.cn)中，打开要显示数据的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 资源。 （或[创建新资源](../../azure-monitor/app/create-new-resource.md )。）
+在 [Azure 门户](https://portal.azure.cn)中，打开要显示数据的 [Application Insights](./app-insights-overview.md) 资源。 （或[创建新资源](./create-new-resource.md)。）
 
 复制可标识资源的检测密钥。
 
@@ -31,7 +31,7 @@ ms.locfileid: "84199702"
 在 Linux 服务器计算机上：
 
 1. 安装 [collectd](https://collectd.org/) 版本 5.4.0 或更高版本。
-2. 下载 [Application Insights collectd 编写器插件](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal)。 注意版本号。
+2. 下载 [Application Insights collectd 编写器插件](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)。 注意版本号。
 3. 将插件 JAR 复制到 `/usr/share/collectd/java`。
 4. 编辑 `/etc/collectd/collectd.conf`：
    * 确保已启用 [Java 插件](https://collectd.org/wiki/index.php/Plugin:Java)。
@@ -108,7 +108,7 @@ ms.locfileid: "84199702"
 *在门户中看不到数据*
 
 * 打开[搜索][diagnostic]，查看原始事件是否已到达。 有时需较长时间才能在指标资源管理器中看到数据。
-* 可能需要[为传出数据设置防火墙例外](../../azure-monitor/app/ip-addresses.md)
+* 可能需要[为传出数据设置防火墙例外](./ip-addresses.md)
 * 在 Application Insights 插件中启用跟踪。 在 `<Plugin ApplicationInsightsWriter>` 中添加此行：
   * `SDKLogger true`
 * 打开终端并在详细模式下启动 collectd，查看其报告的任何问题：
@@ -124,13 +124,13 @@ Application Insights 写入插件与某些读取插件不兼容。 Application I
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-
+[metrics]: ../platform/metrics-charts.md
 
 

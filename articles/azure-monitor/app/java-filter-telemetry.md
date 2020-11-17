@@ -2,17 +2,17 @@
 title: 在 Java Web 应用中筛选 Azure Application Insights 遥测
 description: 筛选出无需监视的事件，减少遥测流量。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
 origin.date: 3/14/2019
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 7c57ec568e455e2ea0dd2e93cbe7fbfcca04efd7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/10/2020
+ms.custom: devx-track-java
+ms.openlocfilehash: 1794977cbc4801226d25365e49eeec06d582c5f5
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850416"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638200"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 应用中筛选遥测
 
@@ -27,7 +27,7 @@ ms.locfileid: "78850416"
 
 > [!NOTE]
 > 筛选器会使应用的指标产生偏差。 例如，为了诊断缓慢响应，你可能会决定设置一个排除快速响应时间的筛选器。 但必须注意，Application Insights 报告的平均响应时间会慢于实际速度，且请求数会小于实际数目。
-> 如果这是一个问题，请改用[采样](../../azure-monitor/app/sampling.md)。
+> 如果这是一个问题，请改用[采样](./sampling.md)。
 
 ## <a name="setting-filters"></a>设置筛选器
 
@@ -81,10 +81,7 @@ ms.locfileid: "78850416"
 
 ```
 
-
-
-
-[检查整套内置处理器](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor)。
+[检查整套内置处理器](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)。
 
 ## <a name="built-in-filters"></a>内置筛选器
 
@@ -156,7 +153,7 @@ ms.locfileid: "78850416"
 
 ### <a name="telemetry-event-filter"></a>遥测事件筛选器
 
-筛选自定义事件（使用 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 记录）。
+筛选自定义事件（使用 [TrackEvent()](./api-custom-events-metrics.md#trackevent) 记录）。
 
 
 ```XML
@@ -172,7 +169,7 @@ ms.locfileid: "78850416"
 
 ### <a name="trace-telemetry-filter"></a>跟踪遥测筛选器
 
-筛选日志跟踪（使用 [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 或[记录框架收集器](java-trace-logs.md)记录）。
+筛选日志跟踪（使用 [TrackTrace()](./api-custom-events-metrics.md#tracktrace) 或[记录框架收集器](java-trace-logs.md)记录）。
 
 ```XML
 
@@ -272,8 +269,6 @@ public TelemetryProcessor successFilter() {
 
 ## <a name="next-steps"></a>后续步骤
 
-* [采样](../../azure-monitor/app/sampling.md) - 请考虑将采样作为替代方法，该方法不会使指标出现偏差。
-
-
+* [采样](./sampling.md) - 请考虑将采样作为替代方法，该方法不会使指标出现偏差。
 
 

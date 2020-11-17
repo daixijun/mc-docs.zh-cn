@@ -2,17 +2,16 @@
 title: Web 应用性能监视 - Azure Application Insights
 description: Application Insights 如何适应 devOps 周期
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
 origin.date: 12/21/2018
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: d80c1bf9d355883707d211a46dc1bf64cc608330
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/10/2020
+ms.author: v-johya
+ms.openlocfilehash: 9846ef2c3c4845644a6b707cd7fa4b6b38469cd3
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850429"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638207"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 对 Web 应用和服务进行深度诊断
 ## <a name="why-do-i-need-application-insights"></a>为什么需要 Application Insights？
@@ -89,7 +88,7 @@ Web 系统中的故障通常由配置问题或系统中许多组件之间的交�
 ![Application Insights 遥测的 Power BI 视图](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>智能检测
-[主动诊断](../../azure-monitor/app/proactive-diagnostics.md)是一项最新功能。 无需提供任何特殊配置，Application Insights 就能自动检测并提醒应用中出现异常的故障率提高情况。 它的智能程度高到可以忽略偶发故障的背景，以及根据请求数的增加按比率增加的故障。 例如，如果依赖的某个服务发生故障，或者刚刚部署的新版本没有运行得很好，则查看电子邮件之后立即就能了解相关信息。 （它还提供 Webhook 来触发其他应用。）
+[主动诊断](./proactive-diagnostics.md)是一项最新功能。 无需提供任何特殊配置，Application Insights 就能自动检测并提醒应用中出现异常的故障率提高情况。 它的智能程度高到可以忽略偶发故障的背景，以及根据请求数的增加按比率增加的故障。 例如，如果依赖的某个服务发生故障，或者刚刚部署的新版本没有运行得很好，则查看电子邮件之后立即就能了解相关信息。 （它还提供 Webhook 来触发其他应用。）
 
 此功能的另一个方面是针对遥测数据执行每日深入分析，以便找到很难发现的异常性能模式。 例如，它会查找与特定地理区域或特定浏览器版本相关的性能变慢问题。
 
@@ -114,7 +113,7 @@ Web 系统中的故障通常由配置问题或系统中许多组件之间的交�
 ![应用程序地图](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
-借助 [Analytics](../../azure-monitor/log-query/log-query-overview.md) 可以使用类似于 SQL 的强大语言编写任意查询。  将各种不同的观点链接到一起后，跨整个应用程序堆栈的诊断就会变得很容易。可以提出正确的问题，将服务性能与业务指标和客户体验相关联。 
+借助 [Analytics](../log-query/log-query-overview.md) 可以使用类似于 SQL 的强大语言编写任意查询。  将各种不同的观点链接到一起后，跨整个应用程序堆栈的诊断就会变得很容易。可以提出正确的问题，将服务性能与业务指标和客户体验相关联。 
 
 可以查询门户中存储的所有遥测实例和指标原始数据。 语言包括筛选、联接、聚合与其他操作。 可以计算字段并执行统计分析。 目前提供表格式和图形可视化效果。
 
@@ -128,7 +127,7 @@ Web 系统中的故障通常由配置问题或系统中许多组件之间的交�
 * 跟踪特定用户的会话与响应时间，使支持与运营团队能够即时提供客户支持。
 * 确定常用的应用功能，以便能够解答功能优先问题。
 
-客户 DNN 说：“Application Insights 为我们提供了方程式中遗漏的部分，使我们能够根据需要合并、排序、查询及筛选数据。 我们的团队可以使用自己的创意和体验，通过功能强大的查询语言来查找数据，得到相关见解，解决我们甚至都不知道发生了的问题。 很多有意思的回答都是针对开头为‘我想知道，如果...’这样的问题。” 
+客户 DNN 说：“Application Insights 为我们提供了方程式中遗漏的部分，使我们能够根据需要合并、排序、查询及筛选数据。 我们的团队可以使用自己的创意和体验，通过功能强大的查询语言来查找数据，得到相关见解，解决我们甚至都不知道发生了的问题。 很多有意思的回答都是针对开头为‘我想知道，如果...’这样的问题。”
 
 ## <a name="development-tools-integration"></a>开发工具集成
 ### <a name="configuring-application-insights"></a>配置 Application Insights
@@ -149,19 +148,16 @@ Visual Studio 和 Eclipse 提供相应的工具来为开发中的项目配置正
 引发警报后，Application Insights 可以在工作跟踪系统中自动创建工作项。
 
 ## <a name="but-what-about"></a>但是...？
-* [隐私和存储](../../azure-monitor/app/data-retention-privacy.md) - 遥测数据保留在 Azure 安全服务器上。
+* [隐私和存储](./data-retention-privacy.md) - 遥测数据保留在 Azure 安全服务器上。
 * 性能 - 影响很小。 遥测数据将经过批处理。
-* [价格](../../azure-monitor/app/pricing.md) - 可以从免费版着手，如果用量不大，可以一直使用免费版。
+* [价格](./pricing.md) - 可以从免费版着手，如果用量不大，可以一直使用免费版。
 
 
 ## <a name="next-steps"></a>后续步骤
 Application Insights 入门非常简单。 主要选项包括：
 
-* [IIS 服务器](../../azure-monitor/app/monitor-performance-live-website-now.md)，以及 [Azure 应用服务](../../azure-monitor/app/app-insights-overview.md)。
-* 在开发期间检测项目。 可以针对 [ASP.NET](../../azure-monitor/app/asp-net.md) 或 [Java](../../azure-monitor/app/java-get-started.md) 应用以及 [Node.js](../../azure-monitor/app/nodejs.md) 和很多[其他类型](../../azure-monitor/app/platforms.md)的应用执行此操作。 
-* 通过添加简短的代码片段来检测[任何网页](../../azure-monitor/app/javascript.md)。
-
-
-
+* [IIS 服务器](./monitor-performance-live-website-now.md)，以及 [Azure 应用服务](./app-insights-overview.md)。
+* 在开发期间检测项目。 可以针对 [ASP.NET](./asp-net.md) 或 [Java](./java-get-started.md) 应用以及 [Node.js](./nodejs.md) 和很多[其他类型](./platforms.md)的应用执行此操作。 
+* 通过添加简短的代码片段来检测[任何网页](./javascript.md)。
 
 

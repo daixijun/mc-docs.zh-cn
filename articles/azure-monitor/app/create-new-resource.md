@@ -4,14 +4,14 @@ description: 为新的实时应用程序手动设置 Application Insights 监视
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/02/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 51618bc381cab094232bd6f784b2a104e786071c
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: b83486baaebc035767f074316ae298d3553c2ceb
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199316"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638209"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -32,10 +32,9 @@ Azure Application Insights 在 Azure 资源中显示有关应用程序的数据�
    | **名称**      | `Unique value` | 名称，用于标识要监视的应用。 |
    | **资源组**     | `myResourceGroup`      | 用于托管 App Insights 数据的新资源组或现有资源组的名称。 |
    | **区域** | `China North` | 选择离你近的位置或离托管应用的位置近的位置。 |
-   | **资源模式** | `Classic` 或 `Workspace-based` | 基于工作区的资源当前为公共预览版，用于将 Application Insights 遥测发送到常用 Log Analytics 工作区。
 
 > [!NOTE]
-> 虽然可以在不同资源组中使用相同的资源名称，但使用全局唯一名称会有好处。 如果打算[执行跨资源查询](/azure-monitor/log-query/cross-workspace-query#identifying-an-application)，这将很有用，因为它可以简化所需的语法。
+> 虽然可以在不同资源组中使用相同的资源名称，但使用全局唯一名称会有好处。 如果打算[执行跨资源查询](../log-query/cross-workspace-query.md#identifying-an-application)，这将很有用，因为它可以简化所需的语法。
 
 在必填字段中输入适当的值，然后选择“查看 + 创建”。
 
@@ -71,7 +70,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 #### <a name="example"></a>示例
 
 ```powershell
-New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location chinanorth
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location chinaeast2
 ```
 #### <a name="results"></a>结果
 
@@ -80,7 +79,7 @@ Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/m
 ResourceGroupName  : testgroup
 Name               : test1027
 Kind               : web
-Location           : chinanorth
+Location           : chinaeast2
 Type               : microsoft.insights/components
 AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
 ApplicationType    : web
@@ -128,7 +127,7 @@ az monitor app-insights component create --app demoApp --location chinanorth2 --
 #### <a name="results"></a>结果
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location chinanorth --kind web -g demoApp  --application-type web
+az monitor app-insights component create --app demoApp --location chinaeast2 --kind web -g demoApp  --application-type web
 {
   "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
   "applicationId": "demoApp",
@@ -141,7 +140,7 @@ az monitor app-insights component create --app demoApp --location chinanorth --k
   "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
   "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
   "kind": "web",
-  "location": "chinanorth",
+  "location": "chinaeast2",
   "name": "demoApp",
   "provisioningState": "Succeeded",
   "requestSource": "rest",
@@ -153,17 +152,18 @@ az monitor app-insights component create --app demoApp --location chinanorth --k
 }
 ```
 
-有关此命令的完整 Azure CLI 文档，以及若要了解如何检索检测密钥，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)。
+有关此命令的完整 Azure CLI 文档，以及若要了解如何检索检测密钥，请参阅 [Azure CLI 文档](/cli/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)。
 
 ## <a name="next-steps"></a>后续步骤
-* [诊断搜索](../../azure-monitor/app/diagnostic-search.md)
-* [探索指标](../../azure-monitor/platform/metrics-charts.md)
-* [编写分析查询](../../azure-monitor/log-query/log-query-overview.md)
+* [诊断搜索](./diagnostic-search.md)
+* [探索指标](../platform/metrics-charts.md)
+* [编写分析查询](../log-query/log-query-overview.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+
 

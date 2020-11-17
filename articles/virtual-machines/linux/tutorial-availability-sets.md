@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 01/17/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7299254fb94d7f383268afbd935696faa6e12c0d
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 5d74bdab033ffe0dcc76c1faf426d4c623932b94
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057472"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638143"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和部署高度可用的虚拟机
 
@@ -61,7 +61,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-使用可用性集可跨容错域和更新域隔离资源。 **容错域**代表服务器、网络和存储资源的隔离集合。 在前面的示例中，在部署 VM 时，可用性集至少分布在两个容错域中。 可用性集还分布在两个**更新域**中。 两个更新域确保当 Azure 执行软件更新时，VM 资源是隔离的，防止在 VM 上运行的所有软件同时更新。
+使用可用性集可跨容错域和更新域隔离资源。 **容错域** 代表服务器、网络和存储资源的隔离集合。 在前面的示例中，在部署 VM 时，可用性集至少分布在两个容错域中。 可用性集还分布在两个 **更新域** 中。 两个更新域确保当 Azure 执行软件更新时，VM 资源是隔离的，防止在 VM 上运行的所有软件同时更新。
 
 
 ## <a name="create-vms-inside-an-availability-set"></a>在可用性集内创建 VM
@@ -118,7 +118,7 @@ az vm availability-set list-sizes \
 
 <!--Not Available on [Availability Zones documentation](../../availability-zones/az-overview.md)-->
 
-* 有关可用性集和可用性区域的更多文档也可以在[此处](./manage-availability.md)获得。
+* 有关可用性集和可用性区域的更多文档也可以在[此处](../manage-availability.md)获得。
 
 <!--Not Available on [Create a Linux virtual machine in an availability zone with the Azure CLI](./create-cli-availability-zone.md)-->
 <!--Update_Description: update meta properties, wording updaate -->

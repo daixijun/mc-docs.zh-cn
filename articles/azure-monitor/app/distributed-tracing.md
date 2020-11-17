@@ -4,15 +4,15 @@ description: 介绍 Azure 如何在 OpenCensus 项目中通过合作伙伴关系
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
+ms.date: 11/10/2020
 origin.date: 09/17/2018
-ms.date: 05/28/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d7eb50b036f378b56b0341ea902892b4410e2970
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: a8e728e66c336ea5569e33c59aa4f34ac29a8a19
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199680"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638203"
 ---
 # <a name="what-is-distributed-tracing"></a>什么是分布式跟踪？
 
@@ -22,11 +22,9 @@ ms.locfileid: "84199680"
 
 这时候就需要使用分布式跟踪。  
 
-分布式跟踪就是适合现代云和微服务体系结构的调用堆栈，但是添加了简单的性能探查器。 在 Azure Monitor 中，我们提供的两种体验适合使用分布式跟踪数据。 第一种是[事务诊断](/azure-monitor/app/transaction-diagnostics)视图，这相当于一个增加了时间维度的调用堆栈。 事务诊断视图适用于查看单个事务/请求，并且可以按照单个请求来查找可靠性问题和性能瓶颈的根本原因。
-<!--Correct on links-->
+分布式跟踪就是适合现代云和微服务体系结构的调用堆栈，但是添加了简单的性能探查器。 在 Azure Monitor 中，我们提供的两种体验适合使用分布式跟踪数据。 第一种是[事务诊断](./transaction-diagnostics.md)视图，这相当于一个增加了时间维度的调用堆栈。 事务诊断视图适用于查看单个事务/请求，并且可以按照单个请求来查找可靠性问题和性能瓶颈的根本原因。
 
-Azure Monitor 还提供[应用程序映射](/azure-monitor/app/app-map)视图，该视图聚合了许多事务，可以通过拓扑视图的方式来显示系统交互情况，以及平均性能和错误率。 
-<!--Correct on links-->
+Azure Monitor 还提供[应用程序映射](./app-map.md)视图，该视图聚合了许多事务，可以通过拓扑视图的方式来显示系统交互情况，以及平均性能和错误率。 
 
 ## <a name="how-to-enable-distributed-tracing"></a>如何启用分布式跟踪
 
@@ -36,18 +34,16 @@ Azure Monitor 还提供[应用程序映射](/azure-monitor/app/app-map)视图，
 
 适用于 .NET、.NET Core、Java、Node.js 和 JavaScript 的 Application Insights 代理和/或 SDK 都以原生方式支持分布式跟踪。 每个 Application Insights SDK 的安装和配置说明见下：
 
-* [.NET](/azure-monitor/learn/quick-monitor-portal)
-* [.NET Core](/azure-monitor/learn/dotnetcore-quick-start)
-* [Java](/azure-monitor/app/java-in-process-agent)
-* [Node.js](/azure-monitor/learn/nodejs-quick-start)
-* [JavaScript](/azure-monitor/app/javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
-<!--Correct on links-->
 
-安装并配置适当的 Application Insights SDK 以后，系统就会通过 SDK 依赖项自动收集器自动收集常用框架、库和技术的跟踪信息。 [依赖项自动收集文档](/azure-monitor/app/auto-collect-dependencies)中提供支持的技术的完整列表。
+安装并配置适当的 Application Insights SDK 以后，系统就会通过 SDK 依赖项自动收集器自动收集常用框架、库和技术的跟踪信息。 [依赖项自动收集文档](./auto-collect-dependencies.md)中提供支持的技术的完整列表。
 
- 另外，任何技术都可以通过在 [TelemetryClient](/azure-monitor/app/api-custom-events-metrics) 上调用 [TrackDependency](/azure-monitor/app/api-custom-events-metrics) 手动进行跟踪。
-<!--Correct on links-->
+ 另外，任何技术都可以通过在 [TelemetryClient](./api-custom-events-metrics.md) 上调用 [TrackDependency](./api-custom-events-metrics.md) 手动进行跟踪。
 
 ## <a name="enable-via-opencensus"></a>通过 OpenCensus 启用
 
@@ -60,6 +56,7 @@ OpenCensus 网站保留了 [Python](https://opencensus.io/api/python/trace/usage
 ## <a name="next-steps"></a>后续步骤
 
 * [OpenCensus Python 使用指南](https://opencensus.io/api/python/trace/usage.html)
-* [应用程序映射](../../azure-monitor/app/app-map.md)
-* [端到端性能监视](../../azure-monitor/learn/tutorial-performance.md)
+* [应用程序映射](./app-map.md)
+* [端到端性能监视](../learn/tutorial-performance.md)
+
 

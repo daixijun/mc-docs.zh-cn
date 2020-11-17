@@ -2,23 +2,23 @@
 title: 使用 Application Insights 监视 Azure Functions 上运行的应用程序 - Azure Monitor | Microsoft Docs
 description: Azure Monitor 与 Azure Functions 上运行的应用程序无缝集成，可用来监视应用的性能并立即查明应用中的问题。
 ms.topic: conceptual
-author: MS-jgol
+author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/15/2020
-ms.openlocfilehash: e8c5c4d9fb3d3e936bdb641b5362935fb5946306
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 11/10/2020
+ms.openlocfilehash: 765b139e60b21ab35b8408d735fac3346d1dd9d9
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440560"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638184"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>使用 Azure Monitor Application Insights 监视 Azure Functions
 
-[Azure Functions](/azure-functions/functions-overview) 内置集成了 Azure Application Insights 来监视函数。 
+[Azure Functions](../../azure-functions/functions-overview.md) 内置集成了 Azure Application Insights 来监视函数。 
 
 Application Insights 收集日志、性能和错误数据，并自动检测性能异常。 Application Insights 包含功能强大的分析工具，可帮助你诊断问题并了解函数的使用方式。 当你能够洞察应用程序数据后，你可以持续改善性能和可用性。 你甚至可以在本地函数应用项目开发过程中使用 Application Insights。 
 
-Azure Functions 中内置了必需的 Application Insights 检测。 你只需提供有效的检测密钥便可将函数应用连接到 Application Insights 资源。 在 Azure 中创建函数应用资源时，应将检测密钥添加到应用程序设置中。 如果函数应用还没有此密钥，你可以手动设置此密钥。
+Azure Functions 中内置了必需的 Application Insights 检测。 你只需提供有效的检测密钥便可将函数应用连接到 Application Insights 资源。 在 Azure 中创建函数应用资源时，应将检测密钥添加到应用程序设置中。 如果函数应用还没有此密钥，你可以手动设置此密钥。 有关详细信息，请参阅[监视 Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd)。
 
 ## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>针对 Windows 上的 Java 应用程序的分布式跟踪（公共预览版）
 
@@ -40,8 +40,9 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## <a name="next-steps"></a>后续步骤
 
-* 查看[分布式跟踪](/azure-monitor/app/distributed-tracing)的概述
-* 了解[应用程序映射](/azure-monitor/app/app-map?tabs=net)对业务起到的作用
-* 了解 [Java 应用的请求和依赖项](/azure-monitor/app/java-in-process-agent)
-* 详细了解 [Azure Monitor](/azure-monitor/overview) 和 [Application Insights](/azure-monitor/app/app-insights-overview)
+* 在[监视 Azure Functions](../../azure-functions/functions-monitoring.md) 中了解有关监视功能的更多说明和信息。
+* 查看[分布式跟踪](./distributed-tracing.md)的概述
+* 了解[应用程序映射](./app-map.md?tabs=net)对业务起到的作用
+* 了解 [Java 应用的请求和依赖项](./java-in-process-agent.md)
+* 详细了解 [Azure Monitor](../overview.md) 和 [Application Insights](./app-insights-overview.md)
 

@@ -8,13 +8,13 @@ metadata:
   ms.service: application-insights
   ms.topic: hub-page
   manager: carmonm
-  ms.date: 07/17/2020
-  ms.openlocfilehash: f8a8daf503412b772ad90571c1b1b388374b5ad7
-  ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+  ms.date: 11/02/2020
+  ms.openlocfilehash: dec8234f7af929c06b8b943d533baf7a00cfa3a9
+  ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/30/2020
-  ms.locfileid: "89148568"
+  ms.lasthandoff: 11/15/2020
+  ms.locfileid: "94638196"
 highlightedContent:
   items:
   - title: 什么是 Application Insights？
@@ -68,6 +68,9 @@ conceptualContent:
     - url: ./app/cloudservices.md
       itemType: how-to-guide
       text: 云服务
+    - url: ../azure-functions/functions-monitoring.md
+      itemType: how-to-guide
+      text: Azure Functions
     - url: ./app/kubernetes.md
       itemType: how-to-guide
       text: Kubernetes 应用程序
@@ -146,9 +149,6 @@ conceptualContent:
     - url: ./app/availability-alerts.md
       itemType: how-to-guide
       text: 可用性警报
-    - url: ./app/performance-testing.md
-      itemType: how-to-guide
-      text: 性能测试
   - title: 指标、日志和跟踪
     links:
     - url: ./app/live-stream.md
@@ -385,16 +385,13 @@ conceptualContent:
       text: 故障排除常见问题解答
   - title: 参考
     links:
-    - url: ./app/nuget.md
-      itemType: reference
-      text: NuGet 包
     - url: ./app/platforms.md
       itemType: reference
       text: 平台
     - url: ./app/azure-functions-supported-features.md
       itemType: reference
       text: Azure Functions 集成
-    - url: https://docs.azure.cn/zh-cn/dotnet/api/overview/insights?view=azure-dotnet
+    - url: https://docs.azure.cn/dotnet/api/overview/insights?view=azure-dotnet
       itemType: reference
       text: .NET SDK
     - url: https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable
@@ -414,10 +411,10 @@ additionalContent:
   - items:
     - title: Application Insights API 摘要
       summary: 所有 Application Insights API 调用的代码示例
-      url: /azure-monitor/app/api-custom-events-metrics
+      url: ./app/api-custom-events-metrics.md
     - title: Application Insights PowerShell
       summary: 了解如何安装和使用 Application Insights PowerShell cmdlet。
       url: https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
     - title: 适用于 Application Insights 的 Azure CLI
       summary: Application Insights CLI 扩展命令 (az extension add -n application-insights)。
-      url: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+      url: /cli/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest

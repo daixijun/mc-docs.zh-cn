@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 10/02/2018
-ms.openlocfilehash: da117c1ee47875f19bad4c701cce168f3491f3f3
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 31af6ac094151c37a4fa8af9766238a47c040e54
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822312"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638075"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>使用 PowerShell 自动载入 Azure 安全中心
 
@@ -30,9 +30,9 @@ ms.locfileid: "90822312"
 
 本文提供了一个示例 PowerShell 脚本，可在你的环境中进行修改和使用，以跨订阅推出安全中心。 
 
-在此示例中，通过实施安全中心的标准层，提供高级威胁防护和检测功能，我们将对 ID 为 d07c0080-170c-4c24-861d-9c817742786c 的订阅启用安全中心，并应用提供高级别保护的建议设置：
+在此示例中，通过启用 Azure Defender，提供高级威胁防护和检测功能，我们将对 ID 为 d07c0080-170c-4c24-861d-9c817742786c 的订阅启用安全中心，并应用提供高级别保护的建议设置：
 
-1. 设置[安全中心标准版保护级别](https://www.azure.cn/pricing/details/security-center/)。 
+1. 启用 [Azure Defender](azure-defender.md)。 
  
 2. 设置 Log Analytics 工作区，Log Analytics 代理将向其发送它在与订阅关联的 VM 上收集的数据 - 在此示例中是用户定义的现有工作区 (myWorkspace)。
 
@@ -62,7 +62,7 @@ ms.locfileid: "90822312"
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. 可选：设置订阅的覆盖范围级别（定价层）（如果未定义，则定价层设置为“免费”）：
+1. 可选：设置订阅的覆盖级别（启用/关闭 Azure Defender）。 如果未定义，Defender 将处于关闭状态：
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

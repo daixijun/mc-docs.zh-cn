@@ -4,14 +4,15 @@ description: 使用 Application Insights 监视 Java 网站的扩展性能和使
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/10/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 0ff1e3fd4c46cd852a30fe147a98da94c3b6e869
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.custom: devx-track-java
+ms.openlocfilehash: 3fe628c563955545e499247ca74c6c585b33cba7
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199703"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638201"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>监视 Java Web 应用中的依赖项、捕获的异常和方法执行时间
 
@@ -19,7 +20,7 @@ ms.locfileid: "84199703"
 如果已[使用 Application Insights 检测了 Java Web 应用][java]，则无需更改任何代码，就能使用 Java 代理来获取更深入的见解：
 
 * **依赖项：** 有关应用程序对其他组件的调用数据，包括：
-  * 捕获通过 Apache HttpClient、OkHttp 和 `java.net.HttpURLConnection` 进行的**传出 HTTP 调用**。
+  * 捕获通过 Apache HttpClient、OkHttp 和 `java.net.HttpURLConnection` 进行的 **传出 HTTP 调用**。
   * 捕获通过 Jedis 客户端进行的 **Redis 调用**。
   * **JDBC 查询** - 对于 MySQL 和 PostgreSQL，如果调用花费的时间长于 10 秒，代理将报告查询计划。
 
@@ -123,19 +124,21 @@ ms.locfileid: "84199703"
 
 若要搜索依赖项、异常和方法报告的单个实例，请打开[搜索][diagnostic]。
 
-[诊断依赖项问题 - 了解详细信息](../../azure-monitor/app/asp-net-dependencies.md#diagnosis)。
+[诊断依赖项问题 - 了解详细信息](./asp-net-dependencies.md#diagnosis)。
 
 ## <a name="questions-problems"></a>存在疑问？ 遇到问题？
-* 没有数据？ [设置防火墙异常](../../azure-monitor/app/ip-addresses.md)
+* 没有数据？ [设置防火墙异常](./ip-addresses.md)
 * [Java 故障排除](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
+
 

@@ -12,15 +12,15 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 5b7118289968f8bc13bdf30b25b59751e26f57db
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 50126aa1ce1440cfd18f5a45feefde08e08d566f
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057465"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638131"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>教程：在 Azure 中使用 Azure CLI 均衡 Linux 虚拟机负载以创建高可用性应用程序
 
@@ -54,7 +54,7 @@ Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通�
 ## <a name="create-azure-load-balancer"></a>创建 Azure 负载均衡器
 本部分详细介绍如何创建和配置负载均衡器的每个组件。 创建负载均衡器之前，需使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在 chinaeast  位置创建名为 myResourceGroupLoadBalancer  的资源组：
 
-```azurecli 
+```azurecli
 az group create --name myResourceGroupLoadBalancer --location chinaeast
 ```
 
@@ -322,7 +322,7 @@ az network nic ip-config address-pool add \
 > * 创建负载均衡器流量规则
 > * 使用 cloud-init 创建基本的 Node.js 应用
 > * 创建虚拟机并将其附加到负载均衡器
-> * 查看负载均衡器的实际运行情况
+> * 查看运行中的负载均衡器
 > * 在负载均衡器中添加和删除 VM
 
 请转到下一教程，详细了解 Azure 虚拟网络组件。

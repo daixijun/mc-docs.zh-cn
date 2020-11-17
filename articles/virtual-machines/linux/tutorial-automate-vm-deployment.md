@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 43c572d57a206f9e160abcafdfb43e12b609d841
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 82bdff7a9e4b361235469d9c4800f6324524f6b5
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057690"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638145"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 

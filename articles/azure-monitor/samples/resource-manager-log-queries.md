@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/15/2020
-ms.openlocfilehash: a9f4fb8246ed95a98eb261dd417739e05db22dfa
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 11/02/2020
+ms.openlocfilehash: 90e596cc409708d24fe18c2cb4470c9a3d67f917
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440574"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638001"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>用于 Azure Monitor 日志查询的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建和配置日志查询的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -30,7 +30,7 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -43,7 +43,7 @@ ms.locfileid: "86440574"
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
@@ -73,14 +73,14 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
       "value": "MyWorkspace"
     },
     "location": {
-      "value": "chinanorth"
+      "value": "chinaeast2"
     }
   }
 }
@@ -93,7 +93,7 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -112,7 +112,7 @@ ms.locfileid: "86440574"
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "Cross workspace query",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -142,14 +142,14 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
       "value": "MyWorkspace"
     },
     "location": {
-      "value": "chinanorth"
+      "value": "chinaeast2"
     }
   }
 }
@@ -165,7 +165,7 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -178,13 +178,13 @@ ms.locfileid: "86440574"
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Parameterized function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -200,7 +200,7 @@ ms.locfileid: "86440574"
         },
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Query using function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -223,14 +223,14 @@ ms.locfileid: "86440574"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
       "value": "MyWorkspace"
     },
     "location": {
-      "value": "chinanorth"
+      "value": "chinaeast2"
     }
   }
 }

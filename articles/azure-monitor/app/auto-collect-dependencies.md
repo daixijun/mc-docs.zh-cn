@@ -4,19 +4,18 @@ description: Application Insights 自动收集和可视化依赖项
 ms.topic: reference
 author: Johnnytechn
 origin.date: 04/29/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 685be6df00946c750e6c89206788b1c5296b2d00
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 3aa27ed2bc26a1e92d68b8b0ac06e14d45a6557c
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199727"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638055"
 ---
 # <a name="dependency-auto-collection"></a>依赖项自动收集
 
-下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这些依赖项在 Application Insights 的[应用程序映射](/azure-monitor/app/app-map)和[事务诊断](/azure-monitor/app/transaction-diagnostics)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
-<!-- Correct about links -->
+下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这些依赖项在 Application Insights 的[应用程序映射](./app-map.md)和[事务诊断](./transaction-diagnostics.md)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](./api-custom-events-metrics.md#trackdependency)手动跟踪它。
 
 ## <a name="net"></a>.NET
 
@@ -64,8 +63,7 @@ ms.locfileid: "84199727"
 
 > [!NOTE]
 > *响应式编程支持除外。
-> <br>†需安装 [JVM 代理](/azure-monitor/app/java-agent#install-the-application-insights-agent-for-java)。
-<!-- Correct on links -->
+> <br>†需安装 [JVM 代理](./java-agent.md#install-the-application-insights-agent-for-java)。
 
 ## <a name="nodejs"></a>Node.js
 
@@ -91,10 +89,11 @@ ms.locfileid: "84199727"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 为 [.NET](../../azure-monitor/app/asp-net-dependencies.md) 设置自定义依赖项跟踪。
-- 为 [Java](../../azure-monitor/app/java-agent.md) 设置自定义依赖项跟踪。
-- 为 [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md) 设置自定义依赖项跟踪。
-- [编写自定义依赖项遥测](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- 有关 Application Insights 的类型和数据模型，请参阅[数据模型](../../azure-monitor/app/data-model.md)。
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
+- 为 [.NET](./asp-net-dependencies.md) 设置自定义依赖项跟踪。
+- 为 [Java](./java-agent.md) 设置自定义依赖项跟踪。
+- 为 [OpenCensus Python](./opencensus-python-dependency.md) 设置自定义依赖项跟踪。
+- [编写自定义依赖项遥测](./api-custom-events-metrics.md#trackdependency)
+- 有关 Application Insights 的类型和数据模型，请参阅[数据模型](./data-model.md)。
+- 查看 Application Insights 支持的[平台](./platforms.md)。
+
 
