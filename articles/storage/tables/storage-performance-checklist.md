@@ -3,18 +3,19 @@ title: 表存储的性能与可伸缩性查检表 - Azure 存储
 description: 开发高性能应用程序时有关表存储的经证实的做法查检表。
 services: storage
 author: WenJason
+ms.author: v-jay
 ms.service: storage
 ms.topic: overview
 origin.date: 10/10/2019
-ms.date: 02/10/2020
-ms.author: v-jay
+ms.date: 11/16/2020
 ms.subservice: tables
-ms.openlocfilehash: fd4f786de5fd40b2b9525af336a727b5cabf219e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb9e90982f684f30a3595cfcb38136d91079407c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028970"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552590"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>表存储的性能与可伸缩性查检表
 
@@ -26,7 +27,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 本文以查检表的形式组织了在开发表存储应用程序时在性能方面可以遵循的经过证实的做法。
 
-| 完成 | Category | 设计注意事项 |
+| 完成 | 类别 | 设计注意事项 |
 | --- | --- | --- |
 | &nbsp; |可伸缩性目标 |[是否可将应用程序设计为避免使用的存储帐户数超过最大数目？](#maximum-number-of-storage-accounts) |
 | &nbsp; |可伸缩性目标 |[是否要避免接近容量和事务限制？](#capacity-and-transaction-targets) |
@@ -80,11 +81,11 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 ### <a name="targets-for-data-operations"></a>数据操作的目标
 
-Azure 存储会在存储帐户的流量增加时进行负载均衡，但如果流量突然突发，你可能无法立即获得此吞吐量。 应在突发期间看到限制和/或超时，因为 Azure 存储会自动对表进行负载均衡。 缓慢地增加流量通常会提供更好的结果，因为系统有时间进行适当的负载均衡。
+Azure 存储会在存储帐户流量增加时进行负载均衡，但如果流量突然增加，则可能无法立即获得此吞吐量。 在激增期间会出现限制和/或超时现象，因为 Azure 存储会自动对表进行负载均衡。 让流量缓慢增加通常会有更好的效果，因为系统有时间进行适当的负载均衡。
 
 #### <a name="entities-per-second-storage-account"></a>实体数/秒（存储帐户）
 
-对于单个帐户来说，访问表时的可伸缩性限制高达每秒 20,000 个实体（每个实体 1 KB）。 一般情况下，每个被插入、更新、删除或扫描的实体都会计入此目标的计数。 因此，包含 100 个实体的批量插入计为 100 个实体。 一个查询扫描了 1000 个实体但只返回 5 个，则会将其计为 1000 个实体。
+对于单个帐户来说，访问表时的可伸缩性限制高达每秒 20,000 个实体（每个实体 1 KB）。 一般情况下，每个插入、更新、删除或扫描的实体都会计入此目标的计数。 因此，包含 100 个实体的批量插入计为 100 个实体。 一个查询扫描了 1000 个实体但只返回 5 个，则会将其计为 1000 个实体。
 
 #### <a name="entities-per-second-partition"></a>实体数/秒（分区）
 
@@ -143,7 +144,7 @@ SAS 和 CORS 都有助于避免 Web 应用程序上出现不必要的负载。
 
 ### <a name="increase-default-connection-limit"></a>提高默认连接限制
 
-在 .NET 中，以下代码可将默认的连接限制（通常在客户端环境中为 2，在服务器环境中为 10）提高到 100。 通常情况下，应将值大致设置为应用程序使用的线程数。  
+在 .NET 中，以下代码可将默认的连接限制（通常情况下，在客户端环境中为 2，在服务器环境中为 10）提高到 100。 通常情况下，应将值大致设置为应用程序使用的线程数。  
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -153,7 +154,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅该语言的文档以确定如何设置连接限制。  
 
-有关详细信息，请参阅博客文章 [Web 服务：Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)（Web 服务：并发连接）。  
+有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增大最小线程数
 
@@ -197,7 +198,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 从存储服务 2013-08-15 版开始，表服务就支持使用 JSON 而非基于 XML 的 AtomPub 格式来传输表数据。 使用 JSON 最多可以减少 75% 的有效负载大小，并可以显著提高应用程序的性能。
 
-有关详细信息，请参阅文章 [Azure 表：JSON 简介](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[表服务操作的有效负载格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
+有关详细信息，请参阅文章 [Azure 表：JSON 简介](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json)和[表服务操作的有效负载格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 ### <a name="disable-nagle"></a>禁用 Nagle
 
@@ -261,7 +262,7 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 
 #### <a name="denormalization"></a>非规范化
 
-与使用关系数据库不同，根据经过验证的做法，若要提高表数据的查询效率，需对数据进行非规范化。 也就是说，需要将相同的数据复制到多个实体中（一个实体对应一个用于查找数据的键）以尽量降低查询在查找客户端所需数据时必须扫描的实体数，这样就不必扫描大量实体来查找应用程序需要的数据。 例如，在电子商务网站中，可能希望通过两种方式查找订单：按客户 ID（提供此客户的订单）和按日期（提供某个日期的订单）。 在表存储中，最好是将实体（或者对实体的引用）存储两次 – 一次使用表名称、PK 和 RK 进行存储，以便能够按客户 ID 快速查找，另一次则通过日期来加快查找速度。  
+与使用关系数据库不同，根据经过验证的做法，若要提高表数据的查询效率，需对数据进行非规范化。 也就是说，需要将相同的数据复制到多个实体中（一个实体对应一个用于查找数据的键）以尽量降低查询在查找客户端所需数据时必须扫描的实体数，这样就不必扫描大量实体来查找应用程序需要的数据。 例如，在电子商务网站中，可能希望通过两种方式查找订单：按客户 ID（供此客户的订单）和按日期（提供某个日期的订单）。 在表存储中，最好是将实体（或者对实体的引用）存储两次 – 一次使用表名称、PK 和 RK 进行存储，以按客户 ID 快速查找，另一次则通过日期来加快查找速度。  
 
 ### <a name="insert-update-and-delete"></a>插入、更新和删除
 
@@ -273,16 +274,16 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 
 #### <a name="upsert"></a>Upsert
 
-尽可能使用表的“Upsert”  操作。 有两种类型的“Upsert”  ，两种都可能比传统的“插入”  和“更新”  操作更高效：  
+尽可能使用表的“Upsert”操作。 有两种类型的“Upsert”，两种都可能比传统的“插入”和“更新”操作更高效：  
 
-- **InsertOrMerge**：若要上传实体的一部分属性，但不确定实体是否已存在，请使用此操作。 如果实体存在，则该调用会更新包含在“Upsert”  操作中的属性，保留所有现有的属性不变，而如果实体不存在，则会插入新的实体。 这类似于在查询中使用投影，因为只需上传在更改的属性。
+- **InsertOrMerge**：若要上传实体的一部分属性，但不确定实体是否已存在，请使用此操作。 如果实体存在，则该调用会更新包含在“Upsert”操作中的属性，保留所有现有的属性不变，而如果实体不存在，则会插入新的实体。 这类似于在查询中使用投影，因为只需上传在更改的属性。
 - **InsertOrReplace**：若要上传全新实体，但不确定实体是否已存在，请使用此操作。 仅当知道这个刚上传的实体完全正确时才使用此操作，因为该实体会完全覆盖旧实体。 例如，需要更新用于存储用户当前位置的实体，而不管应用程序以前是否存储过该用户的位置数据；新位置实体是完整的，不需要任何旧实体提供的任何信息。
 
 #### <a name="storing-data-series-in-a-single-entity"></a>将数据系列存储在单个实体中
 
 有时候，应用程序会存储一系列需要频繁进行一次性检索的数据：例如，应用程序可能会跟踪一段时间内的 CPU 使用情况，以便绘制过去 24 小时内数据的滚动图表。 一种方法是每小时构建一个表实体，每个实体代表一个具体的小时，并存储该小时的 CPU 使用情况。 为了针对该数据绘图，应用程序需要检索保留过去 24 小时内数据的实体。  
 
-此外，也可以让应用程序将每小时的 CPU 使用情况存储为单个实体的独立属性：更新每个小时的时候，应用程序可以使用单个 **InsertOrMerge Upsert** 调用来更新最近的一个小时的值。 针对数据进行绘图时，应用程序只需检索 1 个实体而非 24 个，这样的查询非常高效。 有关查询效率的详细信息，请参阅标题为[查询范围](#query-scope)的部分。
+此外，也可以让应用程序将每小时的 CPU 使用情况存储为单个实体的独立属性：更新每个小时的时候，应用程序可以使用单个“InsertOrMerge Upsert”调用来更新最近的一个小时的值。 针对数据进行绘图时，应用程序只需检索 1 个实体而非 24 个，这样的查询非常高效。 有关查询效率的详细信息，请参阅标题为[查询范围](#query-scope)的部分。
 
 #### <a name="storing-structured-data-in-blobs"></a>在 Blob 中存储结构化数据
 

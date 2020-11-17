@@ -115,7 +115,7 @@ ms.locfileid: "94552246"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = Success** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则这表明 Azure 存储在将数据写入到客户端时花费了大量时间。 此延迟表明客户端存在问题。
+在 **RequestStatus = Success** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time**，则这表明 Azure 存储在将数据写入到客户端时花费了大量时间。 此延迟表明客户端存在问题。
 
 **建议：**
 
@@ -130,7 +130,7 @@ ms.locfileid: "94552246"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = (SAS)NetworkError** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则最常见的问题是客户端在存储服务超时之前断开连接。
+在 **RequestStatus = (SAS)NetworkError** 的 **GetBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time**，则最常见的问题是客户端在存储服务超时之前断开连接。
 
 **建议：**
 
@@ -145,7 +145,7 @@ ms.locfileid: "94552246"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = Success** 的 **Put 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则这表明客户端在将数据发送到 Azure 存储时花费了更多时间。 此延迟表明客户端存在问题。
+在 **RequestStatus = Success** 的 **Put 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time**，则这表明客户端在将数据发送到 Azure 存储时花费了更多时间。 此延迟表明客户端存在问题。
 
 **建议：**
 
@@ -160,7 +160,7 @@ ms.locfileid: "94552246"
 * 服务器延迟
 * 客户端延迟
 
-在 **RequestStatus = (SAS)NetworkError** 的 **PutBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time** ，则最常见的问题是客户端在存储服务超时之前断开连接。
+在 **RequestStatus = (SAS)NetworkError** 的 **PutBlob 操作** 中，如果在 **Client-Latency** 中花费了 **Max Time**，则最常见的问题是客户端在存储服务超时之前断开连接。
 
 **建议：**
 

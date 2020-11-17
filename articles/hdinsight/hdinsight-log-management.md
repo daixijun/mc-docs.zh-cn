@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 02/05/2020
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: ec3891f21097d5226b90b4cb5ec4a85c38e9d6f1
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: e9ad66f448f72cf81d3597167246e4d8b814d847
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463105"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552893"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 
@@ -188,6 +188,6 @@ YARN ResourceManager UI 在群集头节点上运行，可通过 Ambari Web UI �
 
 ## <a name="next-steps"></a>后续步骤
 
-* [适用于 HDInsight 的监视和日志记录做法](https://msdn.microsoft.com/library/dn749790.aspx)
+* [适用于 HDInsight 的监视和日志记录做法](https://docs.microsoft.com/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [在基于 Linux 的 HDInsight 中访问 Apache Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [如何控制各种 Apache Hadoop 组件的日志文件大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

@@ -1,5 +1,5 @@
 - name: Azure 队列存储文档
-  href: /storage/queues/
+  href: ./index.yml
 - name: 概述
   expanded: true
   items:
@@ -48,8 +48,8 @@
         - name: Azure 存储静态加密
           href: ../common/storage-service-encryption.md?toc=%2fstorage%2fqueues%2ftoc.json
           items:
-            - name: 客户管理的密钥和 Azure Key Vault
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fstorage%2fqueues%2ftoc.json
+            - name: 使用客户管理的密钥进行加密
+              href: ../common/customer-managed-keys-overview.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 授权数据操作
           href: ../common/storage-auth.md?toc=%2fstorage%2fqueues%2ftoc.json
           items:
@@ -57,6 +57,8 @@
               href: ../common/storage-auth-aad.md?toc=%2fstorage%2fqueues%2ftoc.json
             - name: 通过共享密钥进行授权
               items:
+                - name: 查看和管理帐户密钥
+                  href: ../common/storage-account-keys-manage.md?toc=%2fstorage%2fqueues%2ftoc.json
                 - name: 配置连接字符串
                   href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2fqueues%2ftoc.json
                 - name: 使用 Azure 存储 REST API
@@ -66,10 +68,14 @@
         - name: 授权管理操作
           href: ../common/authorization-resource-provider.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 内置安全控件
-          href: ../common/storage-security-controls.md?toc=%2fstorage%2fqueues%2ftoc.json
+          href: ../common/security-baseline.md?toc=%252fstorage%252fqueues%252ftoc.json
+        - name: 使用 Azure 专用终结点
+          href: ../common/storage-private-endpoints.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ../common/security-controls-policy.md?toc=%2fstorage%2ftables%2ftoc.json
+        - name: 安全基线
+          href: ../common/security-baseline.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 数据冗余
       href: ../common/storage-redundancy.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 灾难恢复和故障转移
@@ -90,24 +96,18 @@
       href: ../common/storage-concurrency.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 监视和故障排除
       items:
-        - name: 故障排除教程
-          href: ../common/storage-e2e-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
-        - name: 监视、诊断和故障排除
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
-        - name: 在 Azure 门户中进行监视
-          href: ../common/storage-monitor-storage-account.md??toc=%2fstorage%2fqueues%2ftoc.json
-        - name: 指标和日志记录
+        - name: 从经典指标转换
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 监视（经典）
           items:
-            - name: Azure Monitor 中的指标
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fstorage%2fqueues%2ftoc.json
-            - name: 迁移到新指标
-              href: ../common/storage-metrics-migration.md?toc=%2fstorage%2fqueues%2ftoc.json
             - name: 存储分析
               href: ../common/storage-analytics.md?toc=%2fstorage%2fqueues%2ftoc.json
-            - name: 存储分析指标（经典）
+            - name: 指标
               href: ../common/storage-analytics-metrics.md?toc=%2fstorage%2fqueues%2ftoc.json
-            - name: 存储分析日志
+            - name: 日志
               href: ../common/storage-analytics-logging.md?toc=%2fstorage%2fqueues%2ftoc.json
+            - name: 监视、诊断和故障排除
+              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
 - name: 如何
   items:
     - name: 创建和管理存储帐户
@@ -124,12 +124,12 @@
             - name: 用户的授权选项
               items:
                 - name: 门户
-                  href: ../common/storage-access-blobs-queues-portal.md?toc=%2fstorage%2fqueues%2ftoc.json
+                  href: authorize-queue-access-portal.md
                 - name: PowerShell
-                  href: ../common/authorize-active-directory-powershell.md?toc=%2fstorage%2fqueues%2ftoc.json
+                  href: authorize-active-directory-powershell.md
                 - name: Azure CLI
                   href: ../common/authorize-data-operations-cli.md?toc=%2fstorage%2fqueues%2ftoc.json
-            - name: 使用 RBAC 管理访问权限
+            - name: 通过 Azure RBAC 管理服务权限
               items:
                 - name: 门户
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fstorage%2fqueues%2ftoc.json
@@ -181,6 +181,8 @@
       items:
         - name: 检查“上次同步时间”属性
           href: ../common/last-sync-time-get.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 启动帐户故障转移
+          href: ../common/storage-initiate-account-failover.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 使用存储模拟器
       items:
         - name: 使用 Azurite 开放源代码模拟器
@@ -234,8 +236,8 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 存储资源管理器可访问性
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fqueues%2ftoc.json
-    - name: Azure 存储的定价
-      href: 'https://azure.cn/pricing/details/storage/'
+    - name: 队列存储的定价
+      href: 'https://azure.cn/pricing/details/storage/queues/'
     - name: Azure 定价计算器
       href: 'https://azure.cn/pricing/calculator/'
     - name: NuGet 包 (.NET)

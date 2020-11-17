@@ -7,20 +7,22 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: a6ba61ae79a699eec8cc4b1de7cade9978504e23
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 4d53259dfb06fb5146c13edbf04be3c4ca9950f5
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117931"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552846"
 ---
 <!--Verified successfully-->
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>适用于 Core (SQL) API 的 Azure Cosmos DB Apache Spark 连接器：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -36,7 +38,7 @@ ms.locfileid: "92117931"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -66,7 +68,7 @@ ms.locfileid: "92117931"
 | **SDK 下载** | [下载最新的 .jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG)，[Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**API 文档** | [Spark 连接器参考]() |
 |**参与编写 SDK** | [GitHub 上适用于 Apache Spark 的 Azure Cosmos DB 连接器](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**入门** | [使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析](/cosmos-db/spark-connector#bk_working_with_connector) <br /> [将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用](/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/cosmos-db/toc.json&bc=/cosmos-db/breadcrumb/toc.json) | 
+|**入门** | [使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析](./spark-connector.md#bk_working_with_connector) <br /> [将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/cosmos-db/toc.json&bc=/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>版本历史记录
 

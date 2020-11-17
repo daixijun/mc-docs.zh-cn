@@ -7,19 +7,20 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 040dd441f20b8875b51396313ffd78c3b05029fb
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 57eaa332d23245b26c21d6089ad3b29802582e9c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246362"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552756"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java 批量执行程序库：下载信息
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -36,7 +37,7 @@ ms.locfileid: "91246362"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -47,7 +48,7 @@ ms.locfileid: "91246362"
 |**GitHub 中的批量执行程序库**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API 文档**| [Java API 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**入门**|[批量执行程序库 Java SDK 入门](bulk-executor-java.md)|
-|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/)|
+|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>发行说明
 

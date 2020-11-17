@@ -3,21 +3,21 @@ title: Azure 服务总线 SQLFilter 语法参考 | Azure
 description: 本文提供了有关 SQLFilter 语法的详细信息。 SqlFilter 支持 SQL-92 标准的子集。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 6c26e9a3185194dc216118a659efb5e9471ad600
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: f3b01be74ba2d98854f759716463496691f9241c
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162425"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590868"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
-SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
 
  本主题列出有关 SqlFilter 语法的详细信息。  
 
@@ -54,7 +54,7 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ## <a name="arguments"></a>参数  
 
-- `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+- `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
 
 ## <a name="remarks"></a>备注
 
@@ -203,13 +203,13 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ## <a name="considerations"></a>注意事项
 
-请注意以下 [SqlFilter](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet) 语义：  
+请注意以下 [SqlFilter](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
 
 - 属性名称区分大小写。  
 
 - 运算符尽可能遵循 C# 隐式转换语义。  
 
-- 系统属性是值在 [BrokeredMessage](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) 实例中公开的公共属性。  
+- 系统属性是值在 [BrokeredMessage](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
 
     请注意以下 `IS [NOT] NULL` 语义：  
 
@@ -217,19 +217,19 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
 
-- 尝试对不存在的系统属性求值会引发 [FilterException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.filterexception?view=azure-dotnet) 异常。  
+- 尝试对不存在的系统属性求值会引发 [FilterException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
 
-- 不存在的属性在内部作为 **未知**进行求值。  
+- 不存在的属性在内部作为 **未知** 进行求值。  
 
   算术运算符中的未知求值：  
 
-- 对于二元运算符，如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
+- 对于二元运算符，如果操作数的左侧和/或右侧的求值结果为 **未知**，则结果为 **未知**。  
 
-- 对于一元运算符，如果操作数的求值结果为**未知**，则结果为**未知**。  
+- 对于一元运算符，如果操作数的求值结果为 **未知**，则结果为 **未知**。  
 
   二进制比较运算符中的未知求值：  
 
-- 如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
+- 如果操作数的左侧和/或右侧的求值结果为 **未知**，则结果为 **未知**。  
 
   `[NOT] LIKE`中的未知求值：  
 
@@ -275,8 +275,8 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ## <a name="next-steps"></a>后续步骤
 
-- [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet)
-- [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.sqlfilter?view=azure-dotnet)
-- [SQLRuleAction 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlruleaction?view=azure-dotnet)
+- [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.sqlfilter)
+- [SQLRuleAction 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -98,7 +98,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-而在目前， **share** 保留对名为 **sampleshare** 的共享的引用。
+而在目前，**share** 保留对名为 **sampleshare** 的共享的引用。
 
 ## <a name="delete-an-azure-file-share"></a>删除 Azure 文件共享
 删除共享时，可针对 CloudFileShare 对象调用 **deleteIfExists** 方法。 以下是具有此类功能的示例代码。

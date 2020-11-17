@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 3ac2c82cdb7f4ab68001f2c6afb011f14952e000
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8b744d8bd9cbc0297d9b2e447da74e3d39c05c59
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103551"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590907"
 ---
 # <a name="datatable-operator"></a>datatable 运算符
 
@@ -29,7 +29,7 @@ ms.locfileid: "93103551"
 
 `datatable` `(` *ColumnName* `:` *ColumnType* [`,` ...] `)` `[` *ScalarValue* [`,` *ScalarValue* ...] `]`
 
-## <a name="arguments"></a>参数
+## <a name="arguments"></a>自变量
 
 ::: zone pivot="azuredataexplorer"
 

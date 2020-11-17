@@ -22,10 +22,10 @@ ms.locfileid: "94552114"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅** 。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-* **Data Lake Storage Gen2 帐户** 。 有关如何创建帐户的说明，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)
+* **一个 Azure 订阅**。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **Data Lake Storage Gen2 帐户**。 有关如何创建帐户的说明，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)
 * 具有 Data Lake Storage Gen2 帐户访问权限的 Azure HDInsight 群集  。 请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **在 HDInsight 上运行 Hive** 。  若要了解有关在 HDInsight 上运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](/hdinsight/hdinsight-use-hive)
+* **在 HDInsight 上运行 Hive**。  若要了解有关在 HDInsight 上运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](/hdinsight/hdinsight-use-hive)
 * Data Lake Storage Gen2 的性能优化指南  。  有关一般的性能概念，请参阅 [Data Lake Storage Gen2 性能优化指南](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>parameters

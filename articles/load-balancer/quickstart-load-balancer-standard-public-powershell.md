@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/25/2020
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 6f61505e5f9bb798d0e5f6fc278e19cb28202b82
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 0a7600f6d5d05c7cdd1cfdd4d84d2d7aed71f733
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628194"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590713"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -166,17 +166,21 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 * 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
 * 使用运行状况探测“myHealthProbe”。
 * 协议为“TCP”。
+* 空闲超时 15 分钟。
+* 启用 TCP 重置。
 
 ```azurepowershell
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
+
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 
 ### <a name="create-load-balancer-resource"></a>创建负载均衡器资源
@@ -784,7 +788,7 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 * 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
 * 使用运行状况探测“myHealthProbe”。
 * 协议为“TCP”。
-* 使用前端 IP 地址启用出站源网络地址转换 (SNAT)。
+* 空闲超时 15 分钟。
 
 
 ```azurepowershell
@@ -792,11 +796,12 @@ New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath 
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -IdleTimeoutInMinutes $idl
 ```
 
 ### <a name="create-load-balancer-resource"></a>创建负载均衡器资源
@@ -1150,7 +1155,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ## <a name="install-iis"></a>安装 IIS
 
-使用 [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) 安装自定义脚本扩展。 
+使用 [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) 安装自定义脚本扩展。 
 
 该扩展运行 PowerShell Add-WindowsFeature Web-Server 以安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
@@ -1201,7 +1206,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
-使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) 获取负载均衡器的公共 IP 地址：
+使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址：
 
 ```azurepowershell
   ## Variables for command. ##

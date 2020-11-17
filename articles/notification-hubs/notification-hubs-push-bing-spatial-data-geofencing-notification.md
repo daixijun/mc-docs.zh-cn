@@ -15,16 +15,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 origin.date: 01/04/2019
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3017ffa848921497ac3c5ae2dff41f1f565ab33a
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 96d3d94fd163fc45b3eef0da0e32ec20bbb185fe
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316469"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590830"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>教程：使用通知中心和必应空间数据发送基于位置的推送通知
 
@@ -115,7 +115,7 @@ ms.locfileid: "89316469"
     ```
     指定以下参数，使终结点正常工作：
 
-   * **数据源 ID** 和**数据源名称** – 在必应地图 API 中，数据源包含各种分门别类的元数据，例如营业地点和营业时间。  
+   * **数据源 ID** 和 **数据源名称** – 在必应地图 API 中，数据源包含各种分门别类的元数据，例如营业地点和营业时间。  
    * **实体名称** – 要用作通知参照点的实体。
    * **必应地图 API 密钥** – 前面在创建必应开发人员中心帐户时获取的密钥。
 
@@ -361,7 +361,7 @@ ms.locfileid: "89316469"
 
     ![显示“设置”页的屏幕截图，其中突出显示了“Notification Services”和“Windows (WNS)”选项，且包 SID 和安全密钥值已填充。](./media/notification-hubs-geofence/notification-hubs-wns.png)
 6. 选择“保存”。
-7. 在“解决方案资源管理器”中打开“引用”，并选择“管理 NuGet 包”。 添加对 **Azure 服务总线托管库**的引用 - 只需搜索 `WindowsAzure.Messaging.Managed` 并将它添加到项目即可。
+7. 在“解决方案资源管理器”中打开“引用”，并选择“管理 NuGet 包”。 添加对 **Azure 服务总线托管库** 的引用 - 只需搜索 `WindowsAzure.Messaging.Managed` 并将它添加到项目即可。
 
     ![“管理 Nuget 包”对话框的屏幕截图，其中突出显示了WindowsAzure.Messaging.Managed 包。](./media/notification-hubs-geofence/vs-nuget.png)
 8. 为了进行测试，可以再次创建 `MainPage_Loaded` 事件处理程序，并在其中添加以下代码片段：
@@ -388,7 +388,7 @@ ms.locfileid: "89316469"
 
 10. 由于我们未传递实际坐标（目前这可能不在边界内），并且使用的是预定义测试值，因此更新时会看到显示的通知：
 
-    ![显示测试消息的 Windows 桌面的屏幕截图。](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![Windows 桌面的屏幕截图，显示“测试”消息。](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="next-steps"></a>后续步骤
 

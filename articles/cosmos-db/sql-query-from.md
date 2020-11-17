@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 中的 FROM 子句
 description: 了解 Azure Cosmos DB 的 FROM 子句的 SQL 语法和示例。 本文还演示了如何使用 FROM 子句设置结果的范围并获取子项。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/08/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d3c521ffb3d290e35c1953893b011959bdae961
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 66bfd836b673253e37996e283884613af3a8d4d6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323272"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552446"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 FROM 子句
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 FROM (`FROM <from_specification>`) 子句是可选的，除非稍后在查询中对源进行筛选或投影。 `SELECT * FROM Families` 之类的查询枚举整个 `Families` 容器。 还可以对容器使用特殊标识符 ROOT，而无需使用容器名称。
 
@@ -102,7 +103,7 @@ FROM <from_specification>
 
 - 如果容器表达式的基础源是 ROOT 或 `container_name`，则表达式的范围是容器。 此类表达式表示从容器中直接检索的一组文档，且不依赖于其他容器表达式的处理。  
 
-- 如果容器表达式的基础源是之前在查询中引入的 `input_alias`，则表达式的范围是文档。 此类表达式表示通过计算每个文档范围内的容器表达式获得的一组文档，该文档属于与别名容器相关联的集。  结果集为多个集的合并，通过计算基础集中每个文档的容器表达式获得。 
+- 如果容器表达式的基础源是之前在查询中引入的 `input_alias`，则表达式的范围是文档。 此类表达式表示通过计算每个文档范围内的容器表达式获得的一组文档，该文档属于与别名容器相关联的集。 结果集为多个集的合并，通过计算基础集中每个文档的容器表达式获得。
 
 ## <a name="examples"></a>示例
 

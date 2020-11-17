@@ -4,20 +4,20 @@ description: 通过 OpenCensus Python 监视 Python 应用的依赖项调用。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 356dacef077e966977dd9fb0328fce198970632b
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.date: 11/10/2020
+ms.custom: devx-track-python
+ms.openlocfilehash: 35dc93ba7adb69d6893b6aa035344d766883e137
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244570"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637776"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>使用 OpenCensus Python 跟踪依赖项
 
 依赖项是由应用程序调用的外部组件。 可以使用 OpenCensus Python 及其各种集成收集依赖项数据。 然后，将数据作为 `dependencies` 遥测发送到 Azure Monitor 下的 Application Insights。
 
-首先，使用最新版 [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md) 检测 Python 应用程序。
+首先，使用最新版 [OpenCensus Python SDK](./opencensus-python.md) 检测 Python 应用程序。
 
 ## <a name="in-process-dependencies"></a>进程内依赖项
 
@@ -86,7 +86,7 @@ conn.close()
 通过 OpenCensus `django` 集成跟踪传出 Django 请求。
 
 > [!NOTE]
-> 跟踪的唯一传出 Django 请求是对数据库的调用。 有关对 Django 应用程序发出的请求，请参阅[传入请求](/azure-monitor/app/opencensus-python-request#tracking-django-applications)。
+> 跟踪的唯一传出 Django 请求是对数据库的调用。 有关对 Django 应用程序发出的请求，请参阅[传入请求](./opencensus-python-request.md#tracking-django-applications)。
 
 从 [PyPI](https://pypi.org/project/opencensus-ext-django/) 下载并安装 `opencensus-ext-django`，然后将以下行添加到 Django `settings.py` 文件中的 `MIDDLEWARE` 节。
 
@@ -170,9 +170,10 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>后续步骤
 
-* [应用程序映射](../../azure-monitor/app/app-map.md)
-* [可用性](../../azure-monitor/app/monitor-web-app-availability.md)
-* [搜索](../../azure-monitor/app/diagnostic-search.md)
-* [日志（分析）查询](../../azure-monitor/log-query/log-query-overview.md)
-* [事务诊断](../../azure-monitor/app/transaction-diagnostics.md)
+* [应用程序映射](./app-map.md)
+* [可用性](./monitor-web-app-availability.md)
+* [搜索](./diagnostic-search.md)
+* [日志（分析）查询](../log-query/log-query-overview.md)
+* [事务诊断](./transaction-diagnostics.md)
+
 

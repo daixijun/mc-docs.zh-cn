@@ -4,17 +4,17 @@ description: 了解如何使用 Azure 队列 Java v12 库创建队列并向队�
 author: WenJason
 ms.custom: devx-track-java
 ms.author: v-jay
-origin.date: 12/4/2019
-ms.date: 08/24/2020
+origin.date: 09/10/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 8122b3914f6463caa186a794b37a31538e890fd3
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 59dbf209ca557b6a5139c610dd16e8d90fa68926
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753317"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552706"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>快速入门：适用于 Java 的 Azure 队列存储客户端库 v12
 
@@ -31,17 +31,17 @@ ms.locfileid: "88753317"
 
 其他资源：
 
-* [API 参考文档](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [API 参考文档](https://docs.microsoft.com/java/api/overview/azure/storage-queue-readme)
 * [库源代码](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [示例](/storage/common/storage-samples-java?toc=%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-java.md?toc=%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) 8 或更高版本
+* [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/) 8 或更高版本
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
-* Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>设置
 
@@ -162,10 +162,10 @@ Azure 队列存储是一个可存储大量消息的服务。 队列消息大小�
 
 使用以下 Java 类与这些资源进行交互：
 
-* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html)：`QueueClientBuilder` 类配置并实例化一个 `QueueClient` 对象。
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html)：通过 `QueueServiceClient` 可管理存储帐户中的所有队列。
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html)：通过 `QueueClient` 类可管理和操纵单个队列及其消息。
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html)：`QueueMessageItem` 类表示在队列中调用 [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) 时返回的各个对象。
+* [QueueClientBuilder](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclientbuilder)：`QueueClientBuilder` 类配置并实例化一个 `QueueClient` 对象。
+* [QueueServiceClient](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueserviceclient)：通过 `QueueServiceClient` 可管理存储帐户中的所有队列。
+* [QueueClient](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient)：通过 `QueueClient` 类可管理和操纵单个队列及其消息。
+* [QueueMessageItem](https://docs.microsoft.com/java/api/com.azure.storage.queue.models.queuemessageitem)：`QueueMessageItem` 类表示在队列中调用 [receiveMessages](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.receivemessages) 时返回的各个对象。
 
 ## <a name="code-examples"></a>代码示例
 
@@ -205,7 +205,7 @@ String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 > 队列名称只能包含小写字母、数字和连字符，并且必须以字母或数字开头。 每个连字符的前后必须为非连字符字符。 名称的长度还必须介于 3 到 63 个字符之间。 有关命名队列的详细信息，请参阅[命名队列和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata)。
 
 
-创建 [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) 类的实例。 然后，调用 [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) 方法，以便在存储帐户中创建队列。
+创建 [QueueClient](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient) 类的实例。 然后，调用 [create](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.create) 方法，以便在存储帐户中创建队列。
 
 将此代码添加到 `main` 方法的末尾：
 
@@ -228,7 +228,7 @@ queueClient.create();
 
 ### <a name="add-messages-to-a-queue"></a>向队列添加消息
 
-下面的代码片段调用 [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) 方法将消息添加到队列中。 它还保存从 `sendMessage` 调用返回的 [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html)。 结果用于稍后在程序中更新消息。
+下面的代码片段调用 [sendMessage](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.sendmessage) 方法将消息添加到队列中。 它还保存从 `sendMessage` 调用返回的 [SendMessageResult](https://docs.microsoft.com/java/api/com.azure.storage.queue.models.sendmessageresult)。 结果用于稍后在程序中更新消息。
 
 将此代码添加到 `main` 方法的末尾：
 
@@ -245,7 +245,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>查看队列中的消息
 
-调用 [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) 方法来查看队列中的消息。 `peelkMessages` 方法从队列的前部检索一条或多条消息，但不会更改消息的可见性。
+调用 [peekMessages](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.peekmessages) 方法来查看队列中的消息。 `peelkMessages` 方法从队列的前部检索一条或多条消息，但不会更改消息的可见性。
 
 将此代码添加到 `main` 方法的末尾：
 
@@ -259,7 +259,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### <a name="update-a-message-in-a-queue"></a>更新队列中的消息
 
-调用 [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) 方法来更新消息的内容。 `updateMessage` 方法可以更改消息的可见性超时和内容。 消息内容必须是不超过 64 KB 的 UTF-8 编码字符串。 除消息的新内容外，还要使用 `SendMessageResult` 在代码中传入之前保存的消息 ID 和 pop 收据。 消息 ID 和 pop 收据标识要更新的消息。
+调用 [updateMessage](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.updatemessage) 方法来更新消息的内容。 `updateMessage` 方法可以更改消息的可见性超时和内容。 消息内容必须是不超过 64 KB 的 UTF-8 编码字符串。 除消息的新内容外，还要使用 `SendMessageResult` 在代码中传入之前保存的消息 ID 和 pop 收据。 消息 ID 和 pop 收据标识要更新的消息。
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -274,7 +274,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 ### <a name="receive-and-delete-messages-from-a-queue"></a>接收和删除队列中的消息
 
-调用 [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) 方法来下载以前添加的消息。 接收并处理消息后，此示例代码还会从队列中删除消息。 在本例中，“处理”即在控制台上显示消息。
+调用 [receiveMessages](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.receivemessages) 方法来下载以前添加的消息。 接收并处理消息后，此示例代码还会从队列中删除消息。 在本例中，“处理”即在控制台上显示消息。
 
 在接收和删除消息之前，应用会调用 `System.console().readLine();` 以暂停并等待用户输入。 在删除资源之前，请先在 [Azure 门户](https://portal.azure.cn)中验证资源已正确创建。 未显式删除的任何消息都将在队列中再次变为可见，以方便再一次进行处理。
 
@@ -299,7 +299,7 @@ queueClient.receiveMessages(10).forEach(
 
 ### <a name="delete-a-queue"></a>删除队列
 
-以下代码使用 [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--) 方法删除队列，从而清除该应用所创建的资源。
+以下代码使用 [delete](https://docs.microsoft.com/java/api/com.azure.storage.queue.queueclient.delete) 方法删除队列，从而清除该应用所创建的资源。
 
 将此代码添加到 `main` 方法的末尾：
 

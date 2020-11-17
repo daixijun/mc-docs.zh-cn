@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/22/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: bf1327f48d53ad3bf7548047cdbe7ac3e301043e
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 148542fc7dd01682d4d590b2c13202376343f63c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211388"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552754"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Spark 进行故障排除
 
@@ -37,13 +37,13 @@ ms.locfileid: "92211388"
 
     ![选择“配置”选项卡](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. 在配置列表中，选择并展开 **Custom-spark2-Defaults** 。
+1. 在配置列表中，选择并展开 **Custom-spark2-Defaults**。
 
-1. 找到需要调整的值设置，例如 **spark.executor.memory** 。 在本例中，值 **9728m** 太大。
+1. 找到需要调整的值设置，例如 **spark.executor.memory**。 在本例中，值 **9728m** 太大。
 
     ![选择 custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
-1. 将值设置为建议的设置。 建议为此设置使用值 **2048m** 。
+1. 将值设置为建议的设置。 建议为此设置使用值 **2048m**。
 
 1. 保存值，并保存配置。 选择“保存”。 
 
@@ -115,7 +115,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 * [Spark 内存管理概述](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)。
 
-* [在 HDInsight 群集上调试 Spark 应用程序](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)。
+* [在 HDInsight 群集上调试 Spark 应用程序](https://docs.microsoft.com/archive/blogs/azuredatalake/spark-debugging-101)。
 
 
 

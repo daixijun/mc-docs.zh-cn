@@ -3,17 +3,17 @@ title: Azure 服务总线中的 AMQP 1.0 请求/响应操作
 description: 本文定义了 Azure 服务总线中基于 AMQP 请求/响应的操作列表。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: da94f84845d587e532290edaae0c196807bd0a84
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 0053a4d94fd21f9a46b5b2e0ac31b367e6d39b52
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947108"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590887"
 ---
 # <a name="amqp-10-in-azure-service-bus-request-response-based-operations"></a>Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
@@ -25,7 +25,7 @@ ms.locfileid: "88947108"
 
 ### <a name="entity-description"></a>实体描述  
 
-实体说明是指服务总线的 [QueueDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription?view=azure-dotnet)、[TopicDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.topicdescription?view=azure-dotnet)或 [SubscriptionDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription?view=azure-dotnet)对象。  
+实体说明是指服务总线的 [QueueDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription)、[TopicDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.topicdescription)或 [SubscriptionDescription 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription)对象。  
 
 ### <a name="brokered-message"></a>中转消息  
 
@@ -169,7 +169,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -185,7 +185,7 @@ properties: {
 |statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 - 有更多消息<br /><br /> 204：无内容 - 没有更多消息|  
 |statusDescription|string|否|状态的说明。|  
 
-响应消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+响应消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -210,7 +210,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -254,7 +254,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -284,7 +284,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -318,7 +318,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -360,7 +360,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -389,7 +389,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -404,7 +404,7 @@ properties: {
 |statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 - 成功，其他表示失败|  
 |statusDescription|string|否|状态的说明。|  
 
-响应消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+响应消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -423,7 +423,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -440,7 +440,7 @@ properties: {
 |statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 - 有更多消息<br /><br /> 204：无内容 - 没有更多消息|  
 |statusDescription|string|否|状态的说明。|  
 
-响应消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+响应消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -460,7 +460,7 @@ properties: {
 |operation|字符串|是|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -493,7 +493,7 @@ sql-filter 映射必须包含以下条目：
 |session-id|string|否||  
 |reply-to-session-id|string|否||  
 |content-type|string|否||  
-|properties|map|否|映射到服务总线 [BrokeredMessage.Properties](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet)。|  
+|properties|map|否|映射到服务总线 [BrokeredMessage.Properties](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)。|  
 
 **sql-rule-action** 映射必须包含以下条目：  
 
@@ -521,7 +521,7 @@ sql-filter 映射必须包含以下条目：
 |operation|字符串|是|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -547,7 +547,7 @@ sql-filter 映射必须包含以下条目：
 |operation|字符串|是|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -630,7 +630,7 @@ sql-filter 映射必须包含以下条目：
 |operation|字符串|是|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -646,7 +646,7 @@ sql-filter 映射必须包含以下条目：
 |statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：正常 - 成功，其他表示失败|  
 |statusDescription|string|否|状态的说明。|  
 
-响应消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+响应消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -672,7 +672,7 @@ sql-filter 映射必须包含以下条目：
 |operation|字符串|是|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
 
-请求消息正文必须包含 **amqp-value** 部分，其中所含**映射**必须包括以下条目：  
+请求消息正文必须包含 **amqp-value** 部分，其中所含 **映射** 必须包括以下条目：  
 
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
@@ -701,6 +701,6 @@ sql-filter 映射必须包含以下条目：
 
 [服务总线 AMQP 概述]: service-bus-amqp-overview.md
 [AMQP 1.0 协议指南]: service-bus-amqp-protocol-guide.md
-[适用于 Windows Server 的服务总线中的 AMQP]: /previous-versions/service-bus-archive/dn282144(v=azure.100)
+[适用于 Windows Server 的服务总线中的 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

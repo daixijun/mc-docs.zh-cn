@@ -244,13 +244,13 @@
         - name: 选择适用于 IaaS VM 的磁盘类型
           href: ../disks-types.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 加密
-          href: disk-encryption.md
+          href: ../disk-encryption.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 虚拟机和磁盘性能
           href: disk-performance-windows.md
         - name: 为实现高性能而设计
           href: ../premium-storage-performance.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 磁盘突发
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 磁盘的可伸缩性目标
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
@@ -274,8 +274,8 @@
           href: ../security-controls-policy.md
         - name: Azure 安全基准的安全基线
           href: security-baseline.md
-        - name: 内置安全控件
-          href: virtual-machines-windows-security-controls.md
+        - name: Bastion
+          href: ../../bastion/bastion-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 状态和生命周期
       href: ../states-lifecycle.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 启动诊断
@@ -334,7 +334,7 @@
           href: migration-classic-resource-manager-errors.md
         - name: 用于迁移的社区工具
           href: migration-classic-resource-manager-community-tools.md
-        - name: 常见问题
+        - name: 常见问题解答
           href: ../migration-classic-resource-manager-faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 使用映像
       displayName: 'SIG, AMI, image'
@@ -567,7 +567,7 @@
           items:
             - name: 代理概述
               href: ../../azure-monitor/platform/agents-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 常见问题
+            - name: 常见问题解答
               href: ../../azure-monitor/faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Azure 诊断扩展
               items:
@@ -616,7 +616,7 @@
                       href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                     - name: 自定义字段
                       href: ../../azure-monitor/platform/custom-fields.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 故障排除
+            - name: 疑难解答
               items:
                 - name: Log Analytics VM 扩展
                   href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -753,7 +753,7 @@
           href: ../extensions/extensions-rmpolicy-howto-ps.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 导出扩展
           href: ../extensions/export-templates.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: 故障排除
+        - name: 疑难解答
           href: ../extensions/troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure 磁盘加密
           href: ../extensions/azure-disk-enc-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -806,7 +806,7 @@
               href: aws-to-azure.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
-- name: 故障排除
+- name: 疑难解答
   href: ../troubleshooting/index.yml
 - name: 参考
   items:
@@ -841,5 +841,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题
+    - name: 常见问题解答
       href: faq.md

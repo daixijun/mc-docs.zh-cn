@@ -77,7 +77,7 @@ Azure 存储提供一个将数据复制到次要区域的选项：
 
 启用 RA-GRS 后，次要区域可用于读取访问，因此你可以预先测试应用程序，以确保在发生服务中断时可以从次要区域正确读取数据。 有关如何设计应用程序以实现高可用性的详细信息，请参阅[使用异地冗余设计高度可用的应用程序](geo-redundant-design.md)。
 
-启用对次要区域的读取访问后，应用程序可以从次要终结点以及主要终结点读取数据。 次要终结点在帐户名的后面追加了后缀 *-secondary* 。 例如，如果 Blob 存储的主要终结点是 `myaccount.blob.core.chinacloudapi.cn`，则次要终结点是 `myaccount-secondary.blob.core.chinacloudapi.cn`。 存储帐户的帐户访问密钥对于主要终结点和次要终结点是相同的。
+启用对次要区域的读取访问后，应用程序可以从次要终结点以及主要终结点读取数据。 次要终结点在帐户名的后面追加了后缀 *-secondary*。 例如，如果 Blob 存储的主要终结点是 `myaccount.blob.core.chinacloudapi.cn`，则次要终结点是 `myaccount-secondary.blob.core.chinacloudapi.cn`。 存储帐户的帐户访问密钥对于主要终结点和次要终结点是相同的。
 
 ### <a name="check-the-last-sync-time-property"></a>检查“上次同步时间”属性
 

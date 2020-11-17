@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bdfee94c2ad01b4f8a8319e179c312c64e962459
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 92079cc04c7f54745bb0e31708b80315c7159549
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246377"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552796"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的存储成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 提供无限的存储和吞吐量。 与必须在 Azure Cosmos 容器或数据库上预配/配置的吞吐量不同，存储将根据使用情况进行计费。 仅需为使用的逻辑存储计费，并且不必提前预留任何存储空间。 存储会根据在 Azure Cosmos 容器中添加或删除的数据自动纵向扩展和缩减。
 
@@ -35,7 +36,7 @@ Azure Cosmos DB 希望项目大小不超过 2 MB，以获得最佳性能和成�
 
 ## <a name="optimize-cost-with-indexing"></a>通过索引优化成本
 
-默认情况下，数据会自动编入索引，这会增加所消耗的总存储量。 但是，可应用自定义索引策略来减少此开销。 尚未通过策略调整的自动索引约为项目大小的 10-20％。 通过删除或自定义索引策略，无需为写入支付额外成本，也不需要额外的吞吐量容量。 请参阅 [Azure Cosmos DB 中的索引编制](indexing-policies.md)以配置自定义索引策略。 如果你曾使用过关系数据库，你可能会认为“对所有内容编制索引”意味着存储成本会翻倍或更高。 但是，在 Azure Cosmos DB 中，在中值情况下，存储成本实际要低得多。 在 Azure Cosmos DB 中，即使使用自动索引，索引的存储开销通常也很低 (10-20%)，因为它专为低存储容量而设计。 通过管理索引策略，你可以以更细粒度的方式控制索引占用空间和查询性能之间的权衡。
+默认情况下，数据会自动编入索引，这会增加所消耗的总存储量。 但是，可应用自定义索引策略来减少此开销。 尚未通过策略调整的自动索引约为项目大小的 10-20％。 通过删除或自定义索引策略，无需为写入支付额外成本，也不需要额外的吞吐量容量。 请参阅 [Azure Cosmos DB 中的索引编制](index-policy.md)以配置自定义索引策略。 如果你曾使用过关系数据库，你可能会认为“对所有内容编制索引”意味着存储成本会翻倍或更高。 但是，在 Azure Cosmos DB 中，在中值情况下，存储成本实际要低得多。 在 Azure Cosmos DB 中，即使使用自动索引，索引的存储开销通常也很低 (10-20%)，因为它专为低存储容量而设计。 通过管理索引策略，你可以以更细粒度的方式控制索引占用空间和查询性能之间的权衡。
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>使用生存时间和更改源优化成本
 
@@ -47,7 +48,7 @@ Azure Cosmos DB 希望项目大小不超过 2 MB，以获得最佳性能和成�
 
 ## <a name="check-storage-consumed"></a>检查使用的存储
 
-要检查 Azure Cosmos 容器的存储消耗情况，可以在容器上运行 HEAD 或 GET请求，并检查 `x-ms-request-quota` 和 `x-ms-request-usage` 标头。 或者，如果使用 .NET SDK，可使用 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) 和 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 属性来使用存储空间。
+要检查 Azure Cosmos 容器的存储消耗情况，可以在容器上运行 HEAD 或 GET请求，并检查 `x-ms-request-quota` 和 `x-ms-request-usage` 标头。 或者，如果使用 .NET SDK，可使用 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) 和 [DocumentSizeUsage](https://docs.microsoft.com/previous-versions/azure/dn850324(v=azure.100)) 属性来使用存储空间。
 
 ## <a name="using-sdk"></a>使用 SDK
 
@@ -66,7 +67,7 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 * 详细了解[了解 Azure Cosmos DB 帐单](understand-your-bill.md)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
-* 详细了解如何[优化查询成本](optimize-cost-queries.md)
+* 详细了解如何[优化查询成本](./optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

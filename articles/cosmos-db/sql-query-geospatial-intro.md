@@ -5,20 +5,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 02/20/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 19dc379bd57017b50cb8d9c746970bd8312998e9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: devx-track-js
+ms.openlocfilehash: f58807a9a56bb465c925fc1c56604a9cb3e791ef
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118355"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552630"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍 Azure Cosmos DB 中的地理空间功能。 目前，只有 Azure Cosmos DB SQL API 帐户支持存储和访问地理空间数据。 阅读有关地理空间索引的文档后，你将能够回答以下问题：
 
@@ -214,7 +216,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-如果没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](https://msdn.microsoft.com/library/ff701713.aspx)详细了解必应地图地理编码。
+如果没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](https://docs.microsoft.com/bingmaps/rest-services/)详细了解必应地图地理编码。
 
 ## <a name="next-steps"></a>后续步骤
 

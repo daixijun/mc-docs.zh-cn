@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: cdaf44b2b540cb03305fd7b97ff1125d0f5d03e8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0077f66004993966767f65503d611a226927d41e
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104020"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590595"
 ---
 # <a name="query-parameters-declaration-statement"></a>查询参数声明语句
 
@@ -37,7 +37,7 @@ ms.locfileid: "93104020"
 
 ## <a name="syntax"></a>语法
 
-`declare` `query_parameters` `(` *Name1* `:` *Type1* [`=` *DefaultValue1* ] [`,`...] `);`
+`declare` `query_parameters` `(` *Name1* `:` *Type1* [`=` *DefaultValue1*] [`,`...] `);`
 
 * Name1：查询中使用的查询参数的名称。
 * Type1：对应的类型，例如 `string` 或 `datetime`。
@@ -84,7 +84,7 @@ T | where Likelihood > percentage
 
 ### <a name="kustoexplorer"></a>Kusto.Explorer
 
-若要设置向服务发出请求时发送的查询参数，请使用 **查询参数** “扳手”图标 (`ALT` + `P`)。
+若要设置向服务发出请求时发送的查询参数，请使用 **查询参数**“扳手”图标 (`ALT` + `P`)。
 
 ::: zone-end
 

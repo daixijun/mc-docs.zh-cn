@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 12/16/2019
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 37f0b9fb6872c78cda31cfb1faeed482b80a3116
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 4d9554476078fa0481418b2f95e9a7a6b60d2bf5
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516626"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552715"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -33,13 +33,13 @@ ms.locfileid: "85516626"
 
 ## <a name="prerequisites"></a>先决条件
 
-* HDInsight 上的 Apache Storm 群集。 请参阅[使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为**群集类型**。
+* HDInsight 上的 Apache Storm 群集。 请参阅 [使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为 **群集类型**。
 
 * 本地 Storm 开发环境（可选）。 仅当想要在本地运行拓扑时，才需要本地 Storm 环境。 有关详细信息，请参阅[设置开发环境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)。
 
 * [Python 2.7 或更高版本](https://www.python.org/downloads/)。
 
-* [Java 开发人员工具包 (JDK) 版本 8](https://aka.ms/azure-jdks)。
+* [Java 开发人员工具包 (JDK) 版本 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 
 * 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 

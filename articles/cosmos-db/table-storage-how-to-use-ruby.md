@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 498796accc8f4843f80084c4599bd69e78a3a831
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7c3a92773fa4b71e09dc8ae9d41b6dad512fccae
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222622"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552679"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>如何通过 Ruby 使用 Azure 表存储或 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -199,7 +200,7 @@ azure_table_service.delete_table("testtable")
     
     <!--Correct on Microsoft -->
     
-* [Ruby 开发人员中心](/develop/ruby/)
+* [Ruby 开发人员中心](https://docs.azure.cn/develop/ruby/)
 * [适用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)
 
 <!--Update_Description: update meta properties, wording update, update link -->

@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/04/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: dfc43490ce15de5101c309da80e227781187b492
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 596387f80ffdc1abacf9ff5ef0a7a070a56ffdcc
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564627"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595125"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库存储边缘中的数据
 
@@ -43,7 +43,7 @@ ms.locfileid: "91564627"
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 AMD64 Linux 设备](quickstart-linux.md)。
   * ARM 设备（如 Raspberry Pi）无法运行 SQL Server。 如果要在 ARM 设备上使用 SQL，可以注册试用 [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) 预览版。
-* 一个容器注册表，例如 [Azure 容器注册表](/container-registry/)。
+* 一个容器注册表，例如 [Azure 容器注册表](../container-registry/index.yml)。
 * 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 
@@ -332,9 +332,9 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>后续步骤
+本教程介绍了如何创建 Azure Functions 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备以后，即可详细了解如何[使用用于 Visual Studio Code 的 Azure IoT Edge 开发 Azure Functions](./how-to-vs-code-develop-module.md)。
 
-本教程介绍了如何创建 Azure Functions 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备以后，即可详细了解如何[使用用于 Visual Studio Code 的 Azure IoT Edge 开发 Azure Functions](how-to-develop-csharp-function.md)。
+## <a name="next-steps"></a>后续步骤
 
 若要在边缘上尝试另一存储方法，请了解如何在 IoT Edge 上使用 Azure Blob 存储。
 

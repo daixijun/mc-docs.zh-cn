@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 12/24/2019
 ms.date: 01/13/2020
 ms.author: v-yiso
-ms.openlocfilehash: 9196c13ddfa43a579c3fa5586ed27a2004c8b0d8
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: cc4f6d8a03f202dc3ce74fd276b5e760404d62a8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394797"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552710"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -31,7 +31,7 @@ ms.locfileid: "91394797"
 
 * HDInsight 上的 Apache HBase 群集。 请参阅 [Apache HBase 入门](./apache-hbase-tutorial-get-started-linux.md)。
 
-* [Java 开发人员工具包 (JDK) 版本 8](https://aka.ms/azure-jdks)。
+* [Java 开发人员工具包 (JDK) 版本 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 
 * 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 

@@ -7,25 +7,26 @@ ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/12/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 58c0fd87692cb9d836a68d66dcfb4edbb39361af
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 7e323fba9bbacb50b36606f137ddfb6298d45ef3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246375"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552727"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教程：使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -51,10 +52,9 @@ ms.locfileid: "91246375"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/)。
+* [Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)。
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
-
-<!--Not Available on * [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/quickstart-java.md)-->
+* [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/quickstart-java.md)
 
 如果是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文的“快速入门”部分提供的安装过程进行演练。
 
@@ -924,6 +924,7 @@ public class ApiServlet extends HttpServlet {
     </body>
     </html>
     ```
+
 1. 最后，编写一些客户端 JavaScript 将 Web 用户界面和 servlet 绑定在一起：
 
     ```java
@@ -1116,12 +1117,10 @@ public class ApiServlet extends HttpServlet {
 
     * 在“Web 项目”框中，输入 azure-documentdb-java-sample。
     * 在“目标”框中，选择一个目标以保存 WAR 文件。
-    * 单击“完成”  。
+    * 单击“完成”。
 
-1. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/app-service-web-get-started-java.md)。 将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
-    
-    <!--URL direct to app-service-web-get-started-java.md-->
-    
+1. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/quickstart-java.md)。 将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
+
 1. 若要查看已完成的产品，请导航到 `http://YOUR\_SITE\_NAME.chinacloudsites.cn/azure-java-sample/` 并开始添加任务！
 
 <a name="GetProject"></a>

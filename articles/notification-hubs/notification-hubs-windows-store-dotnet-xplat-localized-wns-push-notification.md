@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 origin.date: 03/22/2019
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 3d054b06b49444903c7d2ff61eff344d4eaf2abd
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: cbfb6f193decf65f0f72b5c29839d3deeadac3dc
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317509"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590797"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows 应用发送本地化推送通知
 
@@ -36,7 +36,7 @@ ms.locfileid: "89317509"
 本教程介绍如何将本地化通知推送到已注册到通知中心服务的移动设备。 在本教程中，请更新在[教程：向特定设备（通用 Windows 平台）发送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)中创建的应用程序，使之支持以下方案：
 
 - Windows 应用商店应用允许客户端设备指定一种语言并订阅不同的突发新闻类别。
-- 后端应用使用 Azure 通知中心的**标记**和**模板**功能来广播通知。
+- 后端应用使用 Azure 通知中心的 **标记** 和 **模板** 功能来广播通知。
 
 完成本教程后，即可通过移动应用程序注册感兴趣的类别，并指定接收通知的语言。 后端应用程序可发送按语言和设备本地化的通知。
 
@@ -51,7 +51,7 @@ ms.locfileid: "89317509"
 
 在开始本教程之前完成[教程：向特定设备（通用 Windows 平台）发送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)创建的 Visual Studio 解决方案。
 
-在[教程：向特定设备（通用 Windows 平台）发送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)中，已开发一个使用**标记**订阅不同新闻**类别**通知的应用。 在本教程中，请使用通知中心的**模板**功能轻松传递**本地化**突发新闻通知。
+在 [教程：向特定设备（通用 Windows 平台）发送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)中，已开发一个使用 **标记** 订阅不同新闻 **类别** 通知的应用。 在本教程中，请使用通知中心的 **模板** 功能轻松传递 **本地化** 突发新闻通知。
 
 在高级别，模板是指定特定设备接收通知的格式的一种方法。 模板通过引用作为应用程序后端所发消息的一部分的属性，指定确切的负载格式。 在本教程中，后端应用程序会发送一条与区域设置无关的消息，其中包含所有支持的语言：
 
@@ -200,10 +200,10 @@ ms.locfileid: "89317509"
 1. 运行通用 Windows 平台应用程序。 等待“注册成功”消息出现。 
 
     ![移动应用程序和注册](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. 选择**类别**和**区域设置**，然后单击“订阅”。  应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。
+2. 选择 **类别** 和 **区域设置**，然后单击“订阅”。  应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。
 
     ![移动应用程序](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. 此时会看到有关**订阅**的**确认**消息。
+3. 此时会看到有关 **订阅** 的 **确认** 消息。
 
     ![订阅消息](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
 
@@ -258,10 +258,10 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-不管平台如何，此简单调用都会将本地化的新闻片段传送到**所有**设备，因为通知中心会生成正确的本机有效负载并将其传送到已订阅特定标记的所有设备。
+不管平台如何，此简单调用都会将本地化的新闻片段传送到 **所有** 设备，因为通知中心会生成正确的本机有效负载并将其传送到已订阅特定标记的所有设备。
 
 ## <a name="run-console-app-to-send-localized-notification"></a>运行控制台应用，以便发送本地化通知
-运行**控制台应用**，以发送每个类别和每种支持语言的通知。 验证是否仅接收已订阅类别的通知，以及消息是否对应于所选区域设置。
+运行 **控制台应用**，以发送每个类别和每种支持语言的通知。 验证是否仅接收已订阅类别的通知，以及消息是否对应于所选区域设置。
 
 ![通知消息](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 

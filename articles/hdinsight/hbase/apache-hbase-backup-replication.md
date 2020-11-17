@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/19/2019
 ms.author: v-yiso
 ms.date: 01/13/2020
-ms.openlocfilehash: 3c3192ff4d32f698d81cf66300bbadb966bad748
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: a9b9c4ba121afd79c09ecb5ad95976bc4f2081a4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394543"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552430"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>在 HDInsight 上为 Apache HBase 和 Apache Phoenix 设置备份与复制
 
@@ -180,7 +180,7 @@ CopyTable 将会扫描要复制到目标表的整个源表内容。 因此，在
 
 ## <a name="snapshots"></a>快照
 
-使用[快照](https://hbase.apache.org/book.html#ops.snapshots)可为 HBase 数据存储中的数据创建时间点备份。 快照的开销极小，并且在数秒内即可完成，因为快照操作实际上是一种元数据操作，只捕获该时刻存储中所有文件的名称。 创建快照时，不会复制实际数据。 快照依赖于 HDFS 中存储的数据不可变性质，其中的更新、删除和插入都以新数据表示。 可以在同一群集上还原（克隆）快照，或者将快照导出到另一个群集。**
+使用[快照](https://hbase.apache.org/book.html#ops.snapshots)可为 HBase 数据存储中的数据创建时间点备份。 快照的开销极小，并且在数秒内即可完成，因为快照操作实际上是一种元数据操作，只捕获该时刻存储中所有文件的名称。 创建快照时，不会复制实际数据。 快照依赖于 HDFS 中存储的数据不可变性质，其中的更新、删除和插入都以新数据表示。 可以在同一群集上还原（克隆）快照，或者将快照导出到另一个群集。
 
 若要创建快照，请通过 SSH 连接到 HDInsight HBase 群集的头节点，然后启动 `hbase` shell：
 
@@ -252,4 +252,4 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.mya
 ## <a name="next-steps"></a>后续步骤
 
 * [配置 Apache HBase 复制](apache-hbase-replication.md)
-* [使用 HBase 导入和导出实用工具](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [使用 HBase 导入和导出实用工具](https://docs.microsoft.com/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 origin.date: 07/21/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 9e72a4db8ad22b9c8157f10ec447f13db3b603ce
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/16/2020
+ms.openlocfilehash: 4c99cea9abf3e1cfe7373ecb6dcc751cb4513b86
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473069"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590722"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移到 Azure DB for PostgreSQL 单一服务器
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移/升级到 Azure DB for PostgreSQL 单一服务器
 
 可以使用 Azure 数据库迁移服务，将数据库从 [Azure Database for PostgreSQL 单一服务器](/postgresql/overview#azure-database-for-postgresql---single-server)实例迁移到相同或不同版本的 Azure Database for PostgreSQL 单一服务器实例，而只需最短的停机时间。 本教程介绍如何在 Azure 数据库迁移服务中使用联机迁移活动，将“DVD Rental”示例数据库从 Azure Database for PostgreSQL v10 迁移到 Azure Database for PostgreSQL 单一服务器。
 
@@ -48,7 +48,7 @@ ms.locfileid: "92473069"
 要完成本教程，需要：
 
 * 请检查 [Azure 数据库迁移服务支持的迁移方案的状态](/dms/resource-scenario-status)，以了解支持的迁移和版本组合。 
-* 现有的 [Azure Database for PostgreSQL](/postgresql/) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 Azure 数据库迁移服务不支持从 Azure DB for PostgreSQL 9.5 或 9.6 进行迁移。
+* 现有的 [Azure Database for PostgreSQL](/postgresql/) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 
 
     另请注意，目标 Azure Database for PostgreSQL 版本必须等于或晚于本地 PostgreSQL 版本。 例如，PostgreSQL 10 可以迁移到 Azure Database for PostgreSQL 10 或 11，但不能迁移到 Azure Database for PostgreSQL 9.6。
 
@@ -159,7 +159,7 @@ ms.locfileid: "92473069"
 
    ![显示门户订阅](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
 
-2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”  。
+2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”。
 
     ![显示资源提供程序](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
 
@@ -169,11 +169,11 @@ ms.locfileid: "92473069"
 
 ## <a name="create-a-dms-instance"></a>创建 DMS 实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
+1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务**。
 
     ![Azure 市场](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-marketplace.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，选择“创建”   。
+2. 在“Azure 数据库迁移服务”屏幕上，选择“创建” 。
 
     ![创建 Azure 数据库迁移服务实例](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create1.png)
   
@@ -253,11 +253,22 @@ ms.locfileid: "92473069"
 
 * 选择“运行迁移”。
 
-    迁移活动窗口随即出现，活动的“状态”应更新并显示为“正在进行备份” 。
+迁移活动窗口随即出现，活动的“状态”应更新并显示为“正在进行备份” 。 从 Azure DB for PostgreSQL 9.5 或 9.6 进行升级时，可能会遇到以下错误：
+
+一个方案报告了未知错误。28000：主机“40.121.141.121”、用户“sr”没有复制连接的 pg_hba.conf 条目
+
+这是因为 PostgreSQL 没有适当的权限来创建所需的逻辑复制项目。 要启用所需权限，可以执行以下操作：
+
+1. 为尝试迁移/升级的源 Azure DB for PostgreSQL 服务器打开“连接安全”设置。
+2. 添加一个名称以“_replrule”结尾的新防火墙规则，并将该 IP 地址从错误消息添加到“起始 IP”和“结束 IP”字段。 对于上述错误示例：
+> 防火墙规则名称 = sr_replrule；起始 IP = 40.121.141.121；结束 IP = 40.121.141.121
+
+3. 单击“保存”完成更改。 
+4. 重试 DMS 活动。 
 
 ## <a name="monitor-the-migration"></a>监视迁移
 
-1. 在迁移活动屏幕上选择“刷新”  ，以便更新显示，直到迁移的“状态”  显示为“完成”  。
+1. 在迁移活动屏幕上选择“刷新”，以便更新显示，直到迁移的“状态”显示为“完成”。
 
      ![监视迁移过程](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
 

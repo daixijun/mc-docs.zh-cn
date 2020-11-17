@@ -53,7 +53,7 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 
     资源管理器模板位于 [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue)。  若要了解如何编写此资源管理器模板，请参阅 [MSDN：安装 HDInsight 应用程序](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-application)。
 
-1. 从下拉列表中选择包含你的群集的现有 **资源组** 。 必须使用与群集相同的资源组。
+1. 从下拉列表中选择包含你的群集的现有 **资源组**。 必须使用与群集相同的资源组。
 
 1. 输入要安装应用程序的群集的名称。 此群集必须是现有的群集。
 
@@ -80,7 +80,7 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 ## <a name="validate-the-installation"></a>验证安装
 可以在 Azure 门户中检查应用程序状态，以验证应用程序安装。 此外，还可以验证所有 HTTP 终结点和网页（如果有）是否按预期出现：
 
-对于 **Hue** ，可以使用以下步骤：
+对于 **Hue**，可以使用以下步骤：
 
 ### <a name="azure-portal"></a>Azure 门户
 

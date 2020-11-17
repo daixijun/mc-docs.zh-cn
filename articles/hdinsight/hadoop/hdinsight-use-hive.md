@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 02/28/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 5d61f02503a28752e850b5e9b064569bda4377f6
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 6c6b41351ad2ce1bd6c71946b9358e0fd25e3702
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723719"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552410"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 
@@ -44,7 +44,7 @@ HDInsight 提供了已针对特定工作负荷进行了优化的多种群集类�
 
 使用下表来了解将 Hive 与 HDInsight 配合使用的各种方法：
 
-| **使用此方法**，如果想要... | ...**交互式**查询 | ...**批处理** | ...从此 **客户端操作系统** |
+| **使用此方法**，如果想要... | ...**交互式** 查询 | ...**批处理** | ...从此 **客户端操作系统** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux、Unix、Mac OS X 或 Windows |
 | [用于 Visual Studio 的 HDInsight 工具](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -75,7 +75,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化程序/反序列化程序 (SerDe)** 。 有关详细信息，请参阅[如何将自定义 JSON SerDe 与 HDInsight 配合使用](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)文档。
+Hive 还支持对复杂或不规则的结构化数据使用自定义 **序列化程序/反序列化程序 (SerDe)** 。 有关详细信息，请参阅[如何将自定义 JSON SerDe 与 HDInsight 配合使用](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)文档。
 
 有关 Hive 支持的文件格式的详细信息，请参阅[语言手册 (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -99,11 +99,11 @@ Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化�
     * 需要一个自定义位置，例如非默认存储帐户。
     * 由 Hive 以外的程序管理数据格式、位置等。
 
-有关详细信息，请参阅 [Hive 内部和外部表简介](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/)博客文章。
+有关详细信息，请参阅 [Hive 内部和外部表简介](https://docs.microsoft.com/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro)博客文章。
 
 ## <a name="user-defined-functions-udf"></a>用户定义函数 (UDF)
 
-还可以通过**用户定义函数 (UDF)** 扩展 Hive。 UDF 允许实现 HiveQL 中不容易建模的功能或逻辑。 有关将 UDF 与 Hive 配合使用的示例，请参阅以下文档：
+还可以通过 **用户定义函数 (UDF)** 扩展 Hive。 UDF 允许实现 HiveQL 中不容易建模的功能或逻辑。 有关将 UDF 与 Hive 配合使用的示例，请参阅以下文档：
 
 * [将 Java 用户定义函数与 Apache Hive 配合使用](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -111,7 +111,7 @@ Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化�
 
 * [将 C# 用户定义函数与 Apache Hive 配合使用](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [如何将自定义的 Apache Hive 用户定义函数添加到 HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [如何将自定义的 Apache Hive 用户定义函数添加到 HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [用于将日期/时间格式转换为 Hive 时间戳的 Apache Hive 用户定义函数示例](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -154,9 +154,9 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 > [!NOTE]  
 > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传过程或 MapReduce 操作。
 >
-> 删除外部表**不会**删除数据，只会删除表定义。
+> 删除外部表 **不会** 删除数据，只会删除表定义。
 
-若要创建**内部**表而非外部表，请使用以下 HiveQL：
+若要创建 **内部** 表而非外部表，请使用以下 HiveQL：
 
 ```hiveql
 CREATE TABLE IF NOT EXISTS errorLogs (

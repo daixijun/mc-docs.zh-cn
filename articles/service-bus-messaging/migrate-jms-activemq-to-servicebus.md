@@ -3,7 +3,6 @@ title: 将 Java 消息服务 (JMS) 应用程序从 Apache ActiveMQ 迁移到 Azu
 description: 本文介绍了如何迁移与 Apache ActiveMQ 进行交互的现有 JMS 应用程序，以使其与 Azure 服务总线进行交互。
 services: service-bus-messaging
 documentationcenter: ''
-author: rockboyfor
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
@@ -12,17 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: c8dcad8cc15a4ab0e3b7f17d6ff0f465bd3d1027
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: c3c9084dac42834b82f9c2eae84fae8f51f1f998
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947617"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590811"
 ---
 <!--Verify Successfully: Text Only-->
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>将现有 Java 消息服务 (JMS) 2.0 应用程序从 Apache ActiveMQ 迁移到 Azure 服务总线
@@ -281,5 +281,4 @@ connection.start();
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 
-<!-- Update_Description: new article about migrate jms activemq to servicebus -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

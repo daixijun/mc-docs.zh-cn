@@ -6,24 +6,26 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 12/26/2018
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b70fb67ae5194007ad84236544dc6d8ec415766
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 953352f8a08261ca349506c30c975b56e0d786b8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118405"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552809"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>使用 Node.js 和 Azure Cosmos DB 的用于 MongoDB 的 API 生成应用 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Java](sql-api-java-get-started.md)
+> * [.NET Core](./sql-api-get-started.md)
+> * [Java](./create-sql-api-java.md)
 > * [用于 MongoDB 的 Node.js](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >

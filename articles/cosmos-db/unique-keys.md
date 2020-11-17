@@ -1,23 +1,24 @@
 ---
 title: 在 Azure Cosmos DB 中使用唯一键
 description: 了解如何为 Azure Cosmos 数据库定义和使用唯一键。 本文还介绍唯一键如何添加一层数据完整性。
-author: rockboyfor
-ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2020
-ms.date: ''
+author: rockboyfor
+ms.date: 11/16/2020
+ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 83cacfc6787e2cdae014c115ace483f34b435ded
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 8b1030ad40a77d59b498675d526afb396d34917e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222529"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552889"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键约束
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-唯一键在 Azure Cosmos 容器中添加一个数据完整性层。 在创建 Azure Cosmos 容器时将创建唯一键策略。 使用唯一键可确保逻辑分区内一个或多个值的唯一性。 此外，可以保证每个[分区键](partition-data.md)的唯一性。
+唯一键在 Azure Cosmos 容器中添加一个数据完整性层。 在创建 Azure Cosmos 容器时将创建唯一键策略。 使用唯一键可确保逻辑分区内一个或多个值的唯一性。 此外，可以保证每个[分区键](partitioning-overview.md)的唯一性。
 
 使用唯一键策略创建容器后，该策略会根据唯一键约束的指定，阻止在逻辑分区中执行会导致重复的创建新项或更新现有项的操作。 分区键与唯一键的组合可保证某个项在容器范围内的唯一性。
 
@@ -44,7 +45,7 @@ ms.locfileid: "88222529"
 
 * 不能将现有容器更新为使用不同的唯一键。 换而言之，使用唯一键策略创建容器后，无法更改策略。
 
-* 若要为现有容器设置唯一键，请使用唯一键约束创建新容器。 使用适当的数据迁移工具将数据从现有容器移到新容器。 对于 SQL 容器，请使用[数据迁移工具](import-data.md)来移动数据。 对于 MongoDB 容器，请使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md) 来移动数据。
+* 若要为现有容器设置唯一键，请使用唯一键约束创建新容器。 使用适当的数据迁移工具将数据从现有容器移到新容器。 对于 SQL 容器，请使用[数据迁移工具](import-data.md)来移动数据。 对于 MongoDB 容器，请使用 [mongoimport.exe 或 mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json) 来移动数据。
 
 * 一个唯一键策略最多可以包含 16 个路径值。 例如，值可以是 `/firstName`、`/lastName` 和 `/address/zipCode`。 每个唯一键策略可以具有最多 10 个唯一键约束或组合。 每个唯一索引约束的组合路径不得超过 60 字节。 在前面的示例中，名字、姓氏和电子邮件地址共同构成了一个约束。 此约束使用 16 个可能路径中的 3 个。
 
@@ -56,7 +57,7 @@ ms.locfileid: "88222529"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[逻辑分区](partition-data.md)
+* 详细了解[逻辑分区](partitioning-overview.md)
 * 了解创建容器时[如何定义唯一键](how-to-define-unique-keys.md)
 
-<!-- Update_Description: update meta propreties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

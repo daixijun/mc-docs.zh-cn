@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 SQRT
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 SQRT。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 574a87e0f98051b42dd6df8f381171b69f7d70d8
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: f83734020be8a105ac4bdcb4136c40adb8d6528a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134853"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552444"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值的平方根。  
 
 ## <a name="syntax"></a>语法

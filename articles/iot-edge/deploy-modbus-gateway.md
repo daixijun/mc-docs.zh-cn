@@ -7,14 +7,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 11/19/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
-ms.openlocfilehash: df01ae3427e6779b774e3c6865c5c2cecbe4b141
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b42f712bac17afc6b4e20ccfb703cebc0620fc6c
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494369"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595206"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>通过 IoT Edge 设备网关连接 Modbus TCP 设备
 
@@ -36,7 +36,7 @@ ms.locfileid: "77494369"
 
 若要测试 Modbus 网关功能，可以使用 Microsoft 提供的示例模块。 可以通过 Azure 市场 [Modbus](https://market.azure.cn/marketplace/apps) 或映像 URI `mcr.microsoft.com/azureiotedge/modbus:1.0` 访问模块。
 
-如果需要创建自己的模块并根据环境对其自定义，可以使用 GitHub 上的开源 [Azure IoT Edge Modbus 模块](https://github.com/Azure/iot-edge-modbus)项目。 按照该项目中的指南创建自己的容器映像。 若要创建容器映像，请参阅[在 Visual Studio 中开发 C# 模块](how-to-visual-studio-develop-csharp-module.md)或[在 Visual Studio Code 中开发模块](how-to-vs-code-develop-module.md)。 这些文章说明了如何创建新模块并将容器映像发布到注册表。
+如果需要创建自己的模块并根据环境对其自定义，可以使用 GitHub 上的开源 [Azure IoT Edge Modbus 模块](https://github.com/Azure/iot-edge-modbus)项目。 按照该项目中的指南创建自己的容器映像。 若要创建容器映像，请参阅[在 Visual Studio 中开发 C# 模块](./how-to-visual-studio-develop-module.md)或[在 Visual Studio Code 中开发模块](how-to-vs-code-develop-module.md)。 这些文章说明了如何创建新模块并将容器映像发布到注册表。
 
 ## <a name="try-the-solution"></a>试用此解决方案
 

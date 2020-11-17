@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ABS
 description: 了解 Azure Cosmos DB 中的 Absolute(ABS) SQL 系统函数如何返回指定数值表达式的正值
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/04/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: d7ac9fc7699e68cbdee49e5b6f8ba025264230d1
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 345daa8fc9067a0c776d7920d78f8ebeae473968
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134671"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552838"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式的绝对（正）值。  
 
 ## <a name="syntax"></a>语法

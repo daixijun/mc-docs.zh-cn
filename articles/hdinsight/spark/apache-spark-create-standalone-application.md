@@ -14,12 +14,12 @@ ms.topic: tutorial
 origin.date: 02/28/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: c67be246ca8634766796c45b66938eb65742d548
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: e2762ce4b2d09ee3fa84a05de7111cdecd4fa5fc
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463212"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552600"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Apache Spark 的 Scala Maven 应用程序
 
@@ -31,7 +31,7 @@ ms.locfileid: "89463212"
 * 生成可以提交到 HDInsight Spark 群集的 jar 文件。
 * 使用 Livy 在 Spark 群集上运行应用程序。
 
-在本教程中，你将了解如何执行以下操作：
+本教程介绍如何执行下列操作：
 > [!div class="checklist"]
 > * 安装适用于 IntelliJ IDEA 的 Scala 插件
 > * 使用 IntelliJ 开发 Scala Maven 应用程序
@@ -86,7 +86,7 @@ ms.locfileid: "89463212"
   	|项目名称| 输入名称。|  
   	|项目位置&nbsp;| 输入项目保存位置。|
   	|项目 SDK| 首次使用 IDEA 时，此字段将为空。  选择“新建...”并导航到 JDK。|
-  	|Spark 版本|创建向导集成了适当版本的 Spark SDK 和 Scala SDK。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，请选择“Spark 2.x”。 本示例使用“Spark 2.3.0 (Scala 2.11.8)”。|
+  	|Spark 版本|创建向导集成了适当版本的 Spark SDK 和 Scala SDK。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”  。 否则，请选择“Spark 2.x”  。 本示例使用“Spark 2.3.0 (Scala 2.11.8)”。|
 
     ![选择 Spark SDK](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "89463212"
 
 6. 选择“**下一步**”。
 
-7. 展开“项目坐标”。 提供 **GroupId** 和 **ArtifactId** 的相关值。 **名称**和**位置**将自动填充。 本教程涉及以下值：
+7. 展开“项目坐标”。 提供 **GroupId** 和 **ArtifactId** 的相关值。 **名称** 和 **位置** 将自动填充。 本教程涉及以下值：
 
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
@@ -217,8 +217,9 @@ ms.locfileid: "89463212"
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>在 Apache Spark 群集上运行应用程序
 若要在群集上运行应用程序，可以使用以下方法：
 
-* **将应用程序 jar 复制到群集关联的 Azure 存储 blob**。 可以使用命令行实用工具 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 来执行此操作。 也可以使用许多其他客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)。
-* **使用 Apache Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括公开 REST 终结点的 Livy，可远程提交 Spark 作业。 有关详细信息，请参阅[将 Apache Livy 与 HDInsight 上的 Apache Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
+* **将应用程序 jar 复制到与群集关联的 Azure 存储 blob**。 可以使用命令行实用工具 AzCopy 来执行此操作。 也可以使用许多其他客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Apache Hadoop 作业的数据](../hdinsight-upload-data.md)。
+
+* **使用 Apache Livy 将应用程序作业远程提交** 到 Spark 群集。 HDInsight 上的 Spark 群集包括公开 REST 终结点的 Livy，可远程提交 Spark 作业。 有关详细信息，请参阅[将 Apache Livy 与 HDInsight 上的 Apache Spark 群集配合使用以远程提交 Spark 作业](apache-spark-livy-rest-interface.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -226,13 +227,13 @@ ms.locfileid: "89463212"
 
 1. 登录 [Azure 门户](https://portal.azure.cn/)。
 
-1. 在顶部的“搜索”框中，键入 **HDInsight**。 
+1. 在顶部的“搜索”框中，键入 **HDInsight**。
 
 1. 选择“服务”下的“HDInsight 群集” 。
 
 1. 在显示的 HDInsight 群集列表中，选择为本教程创建的群集旁边的“...”。
 
-1. 选择“删除” 。 请选择“是”。
+1. 选择“删除”。 请选择“是”。
 
 ![删除 HDInsight 群集](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "删除 HDInsight 群集")
 

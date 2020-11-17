@@ -4,22 +4,24 @@ description: 了解如何诊断和修复请求标头太大异常。
 ms.service: cosmos-db
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3fa2a3b2b5081c89cc5079651f4cc96887de1a2e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f4840a0dc8ed82acdb9ba277f183a5dd0a2c1f7a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552654"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>诊断 Azure Cosmos DB“请求标头太大”消息并对其进行故障排除
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 引发了“请求标头太大”消息，并显示 HTTP 错误代码 400。 如果请求标头的大小变得太大以致超过了允许的最大值，则会发生此错误。 建议使用 SDK 的最新版本。 至少使用版本 3.x 或 2.x，因为这些版本会在异常消息中添加标头大小跟踪。
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤

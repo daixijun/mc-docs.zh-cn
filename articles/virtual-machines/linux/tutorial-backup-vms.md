@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: ebfe7f9489244ccea444080dc1fc60323f3d422f
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: fe80ad78c22f527ecf24932547ebd71d09f20a00
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057688"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637947"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Linux 虚拟机的文件
 
@@ -70,7 +70,7 @@ ms.locfileid: "90057688"
  
 1. 在本地计算机上打开浏览器，并键入 VM 的公共 IP 地址查看默认的 nginx 网页。
 
-    ![默认的 nginx 网页](./media/tutorial-backup-vms/nginx-working.png)
+    ![显示默认 nginx 网页的屏幕截图。](./media/tutorial-backup-vms/nginx-working.png)
 
 1. 通过 SSH 连接到 VM。
 
@@ -86,15 +86,15 @@ ms.locfileid: "90057688"
 
 4. 在本地计算机上按 CTRL + F5 刷新浏览器，检查默认的 nginx 页面是否已消失。
 
-    ![默认的 nginx 网页](./media/tutorial-backup-vms/nginx-broken.png)
-
+    ![显示默认 nginx 网页已消失的屏幕截图。](./media/tutorial-backup-vms/nginx-broken.png)
+    
 1. 在本地计算机上登录到 [Azure 门户](https://portal.azure.cn/)。
 6. 在左侧菜单中选择“虚拟机”。 
 7. 从列表中选择 VM。
 8. 在 VM 边栏选项卡上的“操作”部分中，单击“备份”。  此时会打开“备份”边栏选项卡。 
 9. 在边栏选项卡顶部的菜单中，选择“文件恢复”。 此时会打开“文件恢复”边栏选项卡。
 10. 在“步骤 1: 选择恢复点”中，从下拉列表中选择一个恢复点。
-11. 在**步骤 2：下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮**  。 将下载的文件保存到本地计算机。
+11. 在 **步骤 2：下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮**  。 将下载的文件保存到本地计算机。
 7. 单击“下载脚本”在本地下载脚本文件。
 8. 打开 Bash 提示符并键入以下命令。请将 *Linux_myVM_05 05 2017.sh* 替换为下载的脚本的正确路径和文件名，将 *azureuser* 替换为 VM 的用户名，将 *13.69.75.209* 替换为 VM 的公共 IP 地址。
 
@@ -155,7 +155,7 @@ ms.locfileid: "90057688"
 
     ![默认的 nginx 网页](./media/tutorial-backup-vms/nginx-working.png)
 
-18. 在本地计算机上，返回 Azure 门户的浏览器选项卡，在**步骤 3：恢复后卸载磁盘**中，单击“卸载磁盘”按钮  。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 在这 12 个小时后，若要创建新的装入点，需要下载新脚本。
+18. 在本地计算机上，返回 Azure 门户的浏览器选项卡，在 **步骤 3：恢复后卸载磁盘** 中，单击“卸载磁盘”按钮  。 如果忘记执行此步骤，与装入点的连接会在 12 小时后自动关闭。 在这 12 个小时后，若要创建新的装入点，需要下载新脚本。
 
 
 ## <a name="next-steps"></a>后续步骤

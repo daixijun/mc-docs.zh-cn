@@ -4,16 +4,16 @@ description: 了解 IoT Edge 设备和模块如何能够长时间在无 Internet
 author: kgremban
 ms.author: v-tawe
 origin.date: 11/22/2019
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66050e0127f0d1561cd5a3f387b738aa23355578
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 70abad5721e8c4a1d6cb107343d2c6dc51df06d0
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564597"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595205"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>了解有关 IoT Edge 设备、模块和子设备的扩展脱机功能
 
@@ -85,18 +85,18 @@ device_list=$(az iot hub query \
 
 # Add all IoT devices to IoT Edge (as child)
 az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name
 ```
 
 可以修改“[查询](../iot-hub/iot-hub-devguide-query-language.md)”以选择其他部分设备。 如果指定大的设备集，此命令可能需要数秒钟才能完成。
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>选项 3：使用 IoT 中心服务 SDK
 
-最后，可以使用 C#、Java 或 Node.js IoT 中心服务 SDK 以编程方式管理父子关系。 下面是使用 C# SDK [分配子设备的示例](https://aka.ms/set-child-iot-device-c-sharp)。
+最后，可以使用 C#、Java 或 Node.js IoT 中心服务 SDK 以编程方式管理父子关系。 下面是使用 C# SDK [分配子设备的示例](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs)。
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>将父设备设为网关
 

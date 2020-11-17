@@ -50,11 +50,13 @@
         - name: Azure 存储静态加密
           href: ../common/storage-service-encryption.md?toc=%2fstorage%2ftables%2ftoc.json
           items:
-            - name: 客户管理的密钥和 Azure Key Vault
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fstorage%2ftables%2ftoc.json
+            - name: 使用客户管理的密钥进行加密
+              href: ../common/customer-managed-keys-overview.md?toc=%2fstorage%2ftables%2ftoc.json
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ../common/security-controls-policy.md?toc=%2fstorage%2ftables%2ftoc.json
+        - name: 安全基线
+          href: ../common/security-baseline.md?toc=%2fstorage%2ftables%2ftoc.json
     - name: 数据冗余
       href: ../common/storage-redundancy.md?toc=%2fstorage%2ftables%2ftoc.json
     - name: 灾难恢复和故障转移
@@ -128,6 +130,8 @@
       items:
         - name: 检查“上次同步时间”属性
           href: ../common/last-sync-time-get.md?toc=%2fstorage%2ftables%2ftoc.json
+        - name: 启动帐户故障转移
+          href: ../common/storage-initiate-account-failover.md?toc=%2fstorage%2ftables%2ftoc.json
     - name: 传输数据
       items:
         - name: Windows 上的 AzCopy (v8)

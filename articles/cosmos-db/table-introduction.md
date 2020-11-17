@@ -6,24 +6,25 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 origin.date: 07/26/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a4906de69a0d245208f14300465044b82a0a8cd4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 51281c465f484704439f5281c04ac36c5d815e43
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246343"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552465"
 ---
 <!--Verify sucessfully-->
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 简介：表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [Azure Cosmos DB](introduction.md) 提供的表 API 适用于为 Azure 表存储编写且需要以下高级功能的应用程序：
 
 * [统包式多区域分布](distribute-data-globally.md)。
-* 中国的[专用吞吐量](partition-data.md)。
+* 中国的[专用吞吐量](partitioning-overview.md)。
 * 99% 的情况下低至个位数的毫秒级延迟。
 * 保证高可用性。
 * 自动编制辅助索引。
@@ -40,7 +41,7 @@ ms.locfileid: "91246343"
 | --- | --- | --- |
 | 延迟 | 快速，但对延迟没有上限。 | 读取操作和写入操作的低至个位数的毫秒级延迟（通过以下统计数据提供支持：在中国的任何位置，对于任何规模，99% 的情况下读取和写入操作的延迟 < 10 毫秒）。 |
 | 吞吐量 | 可变吞吐量模型。 表的可伸缩性限制为 20,000 个操作/秒。 | 使用 SLA 支持的[每个表专用保留吞吐量](request-units.md)实现高度可缩放。 帐户没有吞吐量上限，每个表支持 >1000 万个操作/秒。 |
-| 多区域分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 | 从一个区域到任意数量区域的[统包式多区域分布](distribute-data-globally.md)。 支持在中国各地随时[自动和手动故障转移](high-availability.md)。 多主数据库功能，允许任何区域接受写入操作。 |
+| 多区域分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 | 从一个区域到任意数量区域的[统包式多区域分布](distribute-data-globally.md)。 支持在中国各地随时[自动和手动故障转移](high-availability.md)。 多个写入区域，允许任何区域接受写入操作。 |
 | 索引 | 仅对 PartitionKey 和 RowKey 建立主索引。 没有辅助索引。 | 默认情况下，自动对所有属性完成编制索引，不进行索引管理。 |
 | 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 |
 | 一致性 | 在主要区域内实现强一致性。 在辅助区域内实现最终一致性。 | [五个定义完善的一致性级别](consistency-levels.md)可基于应用程序需要权衡可用性、延迟、吞吐量和一致性。 |

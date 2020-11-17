@@ -4,20 +4,20 @@ description: 在本教程中，请将 Azure 流分析作为模块部署到 IoT E
 author: kgremban
 ms.author: v-tawe
 origin.date: 07/29/2020
-ms.date: 08/27/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a6ea7965c0fab62d586d6ec8cc5e73a298a903be
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 71a3dd0617f037e42297fb605629d9c16f7e6dcd
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957822"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595137"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教程：将 Azure 流分析作为 IoT Edge 模块进行部署
 
-许多 IoT 解决方案使用分析服务来了解从 IoT 设备到达云的数据。 使用 Azure IoT Edge 时，可以获取 [Azure 流分析](/stream-analytics/)逻辑，将其转到设备中。 在边缘处理遥测流可以减少上传数据量，缩短对可操作见解进行响应的时间。
+许多 IoT 解决方案使用分析服务来了解从 IoT 设备到达云的数据。 使用 Azure IoT Edge 时，可以获取 [Azure 流分析](../stream-analytics/index.yml)逻辑，将其转到设备中。 在边缘处理遥测流可以减少上传数据量，缩短对可操作见解进行响应的时间。
 
 集成 Azure IoT Edge 和 Azure 流分析，以简化工作负载开发。 可以在 Azure 门户中创建 Azure 流分析作业，然后将其部署为 IoT Edge 模块，无附加代码。  
 
@@ -145,7 +145,7 @@ Azure IoT Edge 设备：
 
    ![Azure 流分析 - 添加存储帐户](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. 从下拉菜单中选择在本教程开头创建的**存储帐户**。
+1. 从下拉菜单中选择在本教程开头创建的 **存储帐户**。
 
 1. 对于“容器”字段，请选择“新建”，然后为存储容器提供一个名称。 
 
@@ -155,7 +155,7 @@ Azure IoT Edge 设备：
 
 现已准备好在 IoT Edge 设备上部署 Azure 流分析作业。
 
-在本部分，请使用 Azure 门户中的**设置模块**向导来创建部署清单。 部署清单是一个 JSON 文件，该文件描述将要部署到设备的所有模块、用于存储模块映像的容器注册表、模块的管理方式，以及模块的相互通信方式。 IoT Edge 设备从 IoT 中心检索其部署清单，任何使用其中的信息来部署和配置所有已分配的模块。
+在本部分，请使用 Azure 门户中的 **设置模块** 向导来创建部署清单。 部署清单是一个 JSON 文件，该文件描述将要部署到设备的所有模块、用于存储模块映像的容器注册表、模块的管理方式，以及模块的相互通信方式。 IoT Edge 设备从 IoT 中心检索其部署清单，任何使用其中的信息来部署和配置所有已分配的模块。
 
 就本教程来说，请部署两个模块。 第一个模块是 **SimulatedTemperatureSensor**：一个模拟温度和湿度传感器的模块。 第二个是流分析作业。 传感器模块提供的数据流是作业查询将要分析的。
 
@@ -182,7 +182,7 @@ Azure IoT Edge 设备：
 
 1. 将流分析模块添加到模块列表后，选择其名称以查看其构建方式，并在“更新 IoT Edge 模块”页上更新其设置。
 
-   “模块设置”选项卡有**映像 URI** 指向标准的 Azure 流分析映像。 此映像用于每个部署到 IoT Edge 设备的流分析模块。
+   “模块设置”选项卡有 **映像 URI** 指向标准的 Azure 流分析映像。 此映像用于每个部署到 IoT Edge 设备的流分析模块。
 
    “模块孪生设置”选项卡显示用于定义 Azure 流分析 (ASA) 属性（称为 **ASAJobInfo**）的 JSON。 该属性的值指向存储容器中的作业定义。 此属性说明如何根据特定的作业详细信息配置流分析映像。
 
@@ -201,7 +201,7 @@ Azure IoT Edge 设备：
     | `alertsToReset` | `FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint("/modules/SimulatedTemperatureSensor/inputs/control")` |
     | `telemetryToAsa` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint("/modules/{moduleName}/inputs/temperature")`|
 
-    在此处声明的路由定义流经 IoT Edge 设备的数据流。 来自 SimulatedTemperatureSensor 的遥测数据先发送到 IoT 中心，然后发送到在流分析作业中配置的“温度”输入。 **警报**输出消息先发送到 IoT 中心，然后发送到 SimulatedTemperatureSensor 模块以触发重置命令。
+    在此处声明的路由定义流经 IoT Edge 设备的数据流。 来自 SimulatedTemperatureSensor 的遥测数据先发送到 IoT 中心，然后发送到在流分析作业中配置的“温度”输入。 **警报** 输出消息先发送到 IoT 中心，然后发送到 SimulatedTemperatureSensor 模块以触发重置命令。
 
 1. 在完成时选择“下一步:查看 + 创建”。
 

@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 2251a2c1da1bc7f2ed1bf40d14de751aea408f3a
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 8ccd74e7f29fcef014ed2fe143e96543910dd67e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246952"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552645"
 ---
 <!--Verified Successfully-->
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 将指定的日期/时间转换为时间戳。
 
@@ -91,5 +92,4 @@ SELECT DateTimeToTimestamp("2020-07-09") AS Timestamp
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query datetimetotimestamp -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

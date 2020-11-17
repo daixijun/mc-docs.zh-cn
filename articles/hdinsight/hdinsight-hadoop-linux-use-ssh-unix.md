@@ -36,7 +36,7 @@ ms.locfileid: "94552251"
 
 将 `<clustername>` 替换为群集的名称。 将 `<edgenodename>` 替换为边缘节点的名称。 
 
-如果群集包含边缘节点，建议 __始终连接到边缘节点__ （使用 SSH）。 头节点托管服务对于 Hadoop 运行状况而言至关重要。 边缘节点只会运行其上放置的软件。 有关使用边缘节点的详细信息，请参阅 [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)（在 HDInsight 中使用边缘节点）。
+如果群集包含边缘节点，建议 __始终连接到边缘节点__（使用 SSH）。 头节点托管服务对于 Hadoop 运行状况而言至关重要。 边缘节点只会运行其上放置的软件。 有关使用边缘节点的详细信息，请参阅 [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)（在 HDInsight 中使用边缘节点）。
 
 > [!TIP]
 > 首先连接到 HDInsight 时，SSH 客户端可能会显示一个警告，指出无法验证主机。 当系统提示时，请选择“是”，将主机添加到 SSH 客户端的受信任服务器列表。
@@ -64,11 +64,11 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 如果使用密钥保护 SSH 帐户，客户端必须在连接时提供匹配的私钥：
 
-* 可将大多数客户端配置为使用 __默认密钥__ 。 例如，在 Linux 和 Unix 环境中，`ssh` 客户端会在 `~/.ssh/id_rsa` 位置查找私钥。
+* 可将大多数客户端配置为使用 __默认密钥__。 例如，在 Linux 和 Unix 环境中，`ssh` 客户端会在 `~/.ssh/id_rsa` 位置查找私钥。
 
-* 可以指定 __私钥的路径__ 。 在 `ssh` 客户端中，可使用 `-i` 参数指定私钥的路径。 例如，`ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.cn`。
+* 可以指定 __私钥的路径__。 在 `ssh` 客户端中，可使用 `-i` 参数指定私钥的路径。 例如，`ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.cn`。
 
-* 如果对不同的服务器使用 __多个私钥__ ，可以考虑使用 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 之类的实用工具。 在建立 SSH 会话时，可以通过 `ssh-agent` 实用工具自动选择要使用的密钥。
+* 如果对不同的服务器使用 __多个私钥__，可以考虑使用 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 之类的实用工具。 在建立 SSH 会话时，可以通过 `ssh-agent` 实用工具自动选择要使用的密钥。
 
 > [!IMPORTANT]
 >
@@ -121,7 +121,7 @@ ssh-keygen -t rsa -b 2048
 
 ### <a name="change-the-ssh-password"></a>更改 SSH 密码
 
-有关更改 SSH 用户帐户密码的信息，请参阅 [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords)（管理 HDInsight）文档的 __Change passwords__ （更改密码）部分。
+有关更改 SSH 用户帐户密码的信息，请参阅 [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords)（管理 HDInsight）文档的 __Change passwords__（更改密码）部分。
 
 ## <a name="authentication-domain-joined-hdinsight"></a>已加入域的 HDInsight 身份验证
 

@@ -4,17 +4,17 @@ description: Azure 快速入门 - 使用模板设置 Azure IoT 中心设备预�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: abc80043d981ddaff9a4d7bc59da31f50f46bb4c
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 0d103b25a17abf684201c7a6353df899af59ab50
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564242"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590572"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 

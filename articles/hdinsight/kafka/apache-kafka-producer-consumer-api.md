@@ -14,12 +14,12 @@ ms.topic: tutorial
 origin.date: 05/19/2020
 ms.author: v-yiso
 ms.date: 07/06/2020
-ms.openlocfilehash: d84a3d498162f9753b2f78a572db39c1c4d1a846
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: aff4b3ef2f14f19578c4bbd481da8edc97ca1d9d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917161"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552634"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
@@ -48,7 +48,7 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 
 ## <a name="understand-the-code"></a>了解代码
 
-示例应用程序位于 `Producer-Consumer` 子目录的 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 中。 如果你使用启用了**企业安全性套餐 (ESP)** 的 Kafka 群集，则应当使用 `DomainJoined-Producer-Consumer` 子目录中的应用程序版本。
+示例应用程序位于 `Producer-Consumer` 子目录的 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 中。 如果你使用启用了 **企业安全性套餐 (ESP)** 的 Kafka 群集，则应当使用 `DomainJoined-Producer-Consumer` 子目录中的应用程序版本。
 
 该应用程序主要包含四个文件：
 * `pom.xml`：此文件定义项目依赖项、Java 版本和打包方法。
@@ -125,7 +125,7 @@ consumer = new KafkaConsumer<>(properties);
 
 ### <a name="use-pre-built-jar-files"></a>使用预建 JAR 文件
 
-从 [Kafka 入门 Azure 示例](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars)下载 jar。 如果你的群集启用了**企业安全性套餐 (ESP)** ，请使用 kafka-producer-consumer-esp.jar。 使用以下命令可将 jar 复制到群集。
+从 [Kafka 入门 Azure 示例](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars)下载 jar。 如果你的群集启用了 **企业安全性套餐 (ESP)** ，请使用 kafka-producer-consumer-esp.jar。 使用以下命令可将 jar 复制到群集。
 
 ```cmd
 scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.cn:kafka-producer-consumer.jar
@@ -133,11 +133,11 @@ scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.cn:kafka
 
 ### <a name="build-the-jar-files-from-code"></a>从代码生成 JAR 文件
 
-如果要跳过此步骤，可以从 `Prebuilt-Jars` 子目录下载预构建的 jar。 下载 kafka-producer-consumer.jar。 如果你的群集启用了**企业安全性套餐 (ESP)** ，请使用 kafka-producer-consumer-esp.jar。 执行步骤 3 来将该 jar 复制到你的 HDInsight 群集。
+如果要跳过此步骤，可以从 `Prebuilt-Jars` 子目录下载预构建的 jar。 下载 kafka-producer-consumer.jar。 如果你的群集启用了 **企业安全性套餐 (ESP)** ，请使用 kafka-producer-consumer-esp.jar。 执行步骤 3 来将该 jar 复制到你的 HDInsight 群集。
 
 1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载并提取示例。
 
-2. 将当前目录设置为 `hdinsight-kafka-java-get-started\Producer-Consumer` 目录的位置。 如果你使用启用了**企业安全性套餐 (ESP)** 的 Kafka 群集，则应当将位置设置为 `DomainJoined-Producer-Consumer` 子目录。 运行以下命令以生成应用程序：
+2. 将当前目录设置为 `hdinsight-kafka-java-get-started\Producer-Consumer` 目录的位置。 如果你使用启用了 **企业安全性套餐 (ESP)** 的 Kafka 群集，则应当将位置设置为 `DomainJoined-Producer-Consumer` 子目录。 运行以下命令以生成应用程序：
 
     ```cmd
     mvn clean package
@@ -224,9 +224,9 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 
 ## <a name="common-issues-faced"></a>面临的常见问题
 
-1. 主题创建失败 如果群集启用了企业安全性套餐，请使用[面向生成者和使用者的预建 JAR 文件](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)。 可以从 [`DomainJoined-Producer-Consumer` 子目录](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)中的代码生成 ESP jar。 请注意，生成者和使用者属性会为启用了 ESP 的群集保存附加属性 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`。
+1. 主题创建失败 如果群集启用了企业安全性套餐，请使用[面向生成者和使用者的预建 JAR 文件](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)。 可以从 [`DomainJoined-Producer-Consumer` 子目录](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)中的代码生成 ESP jar。 生成者和使用者属性会为启用了 ESP 的群集保存附加属性 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`。
 
-2. 启用了 ESP 的群集面临的问题 如果生产和使用操作失败，并且你使用的是启用了 ESP 的群集，请检查所有 Ranger 策略中是否存在用户 `kafka`。 如果该用户不存在，请将它添加到所有 Ranger 策略。
+2. **启用 ESP 的群集失败**：如果生产和使用操作失败，并且你使用的是启用 ESP 的群集，请检查所有 Ranger 策略中是否存在用户 `kafka`。 如果该用户不存在，请将它添加到所有 Ranger 策略。
 
 ## <a name="clean-up-resources"></a>清理资源
 

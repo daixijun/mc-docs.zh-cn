@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 安全中心提供安全联系人详细信息
-description: 本文档演示如何在 Azure 安全中心中提供安全联系人详细信息。
+title: 针对 Azure 安全中心警报配置电子邮件通知
+description: 了解如何针对安全警报微调 Azure 安全中心发送的电子邮件类型。
 services: security-center
 documentationcenter: na
 author: Johnnytechn
@@ -8,24 +8,27 @@ manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 05/09/2020
-ms.openlocfilehash: 8092e4488b1aa08fc50d0ef4db72eea636afa7a2
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: c4aca69b010900cb00d13d5cb1cb4f770406fb5c
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402482"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637815"
 ---
-# <a name="set-up-email-notifications-for-security-alerts"></a>设置安全警报的电子邮件通知 
+# <a name="configure-email-notifications-for-security-alerts"></a>针对安全警报配置电子邮件通知 
 
-为确保组织中的相应人员收到有关环境中的安全警报的通知，请在“电子邮件通知”设置页面中输入其电子邮件地址。
+安全警报需要传达至组织中适当的人员。 默认情况下，只要触发针对其订阅的高严重性警报，安全中心就会向订阅所有者发送电子邮件。 本页说明了如何自定义这些通知。
 
-设置通知时，可以配置将电子邮件发送给具有特定 Azure 订阅角色的特定个人或任何人。 
+若要定义你自己的通知电子邮件首选项，Azure 安全中心的“电子邮件通知”设置页允许你选择：
+
+- 应通知的人员 - 可将电子邮件发送给选定的个人或任何具有指定 Azure 订阅角色的人。 
+- 他们应得到通知的内容 - 修改安全中心应发出通知的严重性级别。
 
 为了避免警报疲劳，安全中心限制了外发邮件的数量。 对于每个订阅，安全中心都会发送以下数量的电子邮件：
 
@@ -33,38 +36,38 @@ ms.locfileid: "91402482"
 - 每天最多两封电子邮件（适用于“中等严重性”警报） 
 - 每天最多一封电子邮件（适用于“低严重性”警报） 
 
-
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="配置将接收有关安全警报的电子邮件的联系人的详细信息。" :::
-
+ 
 ## <a name="availability"></a>可用性
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|正式版|
-|定价：|免费层|
+|发布状态：|正式发布 (GA)|
+|定价：|免费|
 |所需角色和权限：|**安全管理员**<br>**订阅所有者** |
 |云：|![是](./media/icons/yes-icon.png) 中国云|
 |||
 
 
-## <a name="set-up-email-notifications-for-alerts"></a>为警报设置电子邮件通知 <a name="email"></a>
+## <a name="customize-the-security-alerts-email-notifications"></a>自定义安全警报电子邮件通知<a name="email"></a>
 
 可以将电子邮件通知发送给具有特定 Azure 角色的个人或所有用户。
 
-1. 在安全中心的“定价和设置”区域中，找到相关的订阅，然后选择“电子邮件通知” 。
+1. 从安全中心的“定价和设置”区域中选择相关订阅，然后选择“电子邮件通知” 。
 
-1. 定义通知的收件人：
+1. 使用以下一个或两个选项定义通知的收件人：
 
     - 从下拉列表中，选择某个可用角色。
-    - 和/或输入特定电子邮件地址（用逗号分隔）。 可输入的电子邮件地址数量无限制。
+    - 输入用逗号分隔的特定电子邮件地址。 输入的电子邮件地址数量无限制。
 
 1. 若要将安全联系人信息应用到订阅，请选择“保存”。
 
 
-## <a name="see-also"></a>另请参阅
-若要详细了解安全警报，请参阅以下文章：
+## <a name="next-steps"></a>后续步骤
 
-* [安全警报 - 参考指南](alerts-reference.md) - 了解可能会在 Azure 安全中心的威胁防护模块中看到的安全警报
-* [在 Azure 安全中心中管理和响应安全警报](security-center-managing-and-responding-alerts.md) - 了解如何管理和响应安全警报
-* [工作流自动化](workflow-automation.md) - 通过自定义通知逻辑自动响应警报
+若要了解有关安全警报的详细信息，请参阅以下页面：
+
+- [安全警报 - 参考指南](alerts-reference.md) -- 了解 Azure 安全中心的威胁防护模块中可能会显示的安全警报
+- [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) -- 了解如何管理和响应安全警报
+- [自动执行对安全中心触发器的响应](workflow-automation.md) - 使用自动化功能通过自定义通知逻辑响应安全中心触发器
 

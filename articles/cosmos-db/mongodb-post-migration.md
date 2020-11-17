@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e134040f832ebc8f43cdb7b4bcf8a0dfae78bdb1
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: cf646cd539ea3da67e9085900e4df15dabde336d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118557"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552815"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB MongoDB API 时的迁移后优化步骤
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 将 MongoDB 数据库中存储的数据迁移到 Azure Cosmos DB 的 API for MongoDB 后，你可以连接到 Azure Cosmos DB 并管理数据。 本指南提供迁移后应考虑的步骤。 有关迁移步骤，请参阅[将 MongoDB 迁移到 Azure Cosmos DB MongoDB API](../dms/tutorial-mongodb-cosmos-db.md) 教程。
 
@@ -62,12 +63,12 @@ Azure Cosmos DB 在中国的所有 [Azure 中国区域](https://status.azure.com
 <a name="consistency"></a>
 ## <a name="set-consistency-level"></a><a name="set-consistency-level"></a>设置一致性级别
 
-Azure Cosmos DB 提供 5 个妥善定义的[一致性级别](consistency-levels.md)。 若要了解 MongoDB 与 Azure Cosmos DB 一致性级别之间的映射，请参阅[一致性级别和 Azure Cosmos DB API](consistency-levels-across-apis.md)。 默认一致性级别是会话一致性级别。 更改一致性级别是可选操作，可为应用优化一致性级别。 若要使用 Azure 门户更改一致性级别：
+Azure Cosmos DB 提供 5 个妥善定义的[一致性级别](consistency-levels.md)。 若要了解 MongoDB 与 Azure Cosmos DB 一致性级别之间的映射，请参阅[一致性级别和 Azure Cosmos DB API](./consistency-levels.md)。 默认一致性级别是会话一致性级别。 更改一致性级别是可选操作，可为应用优化一致性级别。 若要使用 Azure 门户更改一致性级别：
 
 1. 转到“设置”下的“默认一致性”边栏选项卡。 
 2. 选择所需的[一致性级别](consistency-levels.md)
 
-大多数用户会将其一致性级别保留为默认的会话一致性设置。 但是，[不同一致性级别的可用性和性能各有利弊](consistency-levels-tradeoffs.md)。
+大多数用户会将其一致性级别保留为默认的会话一致性设置。 但是，[不同一致性级别的可用性和性能各有利弊](./consistency-levels.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

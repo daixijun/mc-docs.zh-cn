@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 的 SQL JOIN 查询
 description: 了解如何联接 Azure Cosmos DB 中的多个表以查询数据
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/17/2019
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1a815161ec451dc1622061687a0db7c2f144ed0d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ecefa842b5a6ef31dd1363ea7130f5ad91aca5e4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028967"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552517"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联接
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在关系数据库中，跨表联接是设计规范化架构的逻辑定理。 相比之下，SQL API 使用无架构项的反规范化数据模型，这在逻辑上等效于自联接。 
 

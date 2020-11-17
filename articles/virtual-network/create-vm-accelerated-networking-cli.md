@@ -3,32 +3,32 @@ title: 使用 Azure CLI 创建具有加速网络的 Azure VM
 description: 了解如何创建启用加速网络的 Linux 虚拟机。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/10/2019
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 11/16/2020
+ms.testscope: yes
+ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 523f47da10555ce1c925c9e611fdc1a3f03ab520
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 3880a4541ad32dc88cd2b4bf61eb277e8dacd232
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487075"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590837"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>使用 Azure CLI 创建具有加速网络的 Linux 虚拟机
 
 本教程介绍如何创建具有加速网络的 Linux 虚拟机 (VM)。 若要创建具有加速网络的 Windows VM，请参阅[创建具有加速网络的 Windows VM](create-vm-accelerated-networking-powershell.md)。 使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，大幅提升其网络性能。 这种高性能路径会绕过数据路径中的主机，降低延迟、抖动，以及受支持 VM 类型上的最苛刻网络工作负荷的 CPU 利用率。 下图显示了具有和没有加速网络的两个 VM 之间的通信：
 
-![比较](./media/create-vm-accelerated-networking/accelerated-networking.png)
+:::image type="content" source="./media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="比较":::
 
 在不使用加速网络的情况下，传入和传出 VM 的所有网络流量必须遍历主机和虚拟交换机。 虚拟交换机针对网络流量实施所有策略，例如网络安全组、访问控制列表、隔离和其他网络虚拟化服务。 若要详细了解虚拟交换机，请阅读 [Hyper-V 网络虚拟化和虚拟交换机](https://technet.microsoft.com/library/jj945275.aspx)一文。
 
@@ -53,6 +53,7 @@ ms.locfileid: "84487075"
 
 <!-- Not Available on * **RHEL 7.4**-->
 <!-- Not Available on * **Oracle Linux 7.4**-->
+<!-- Not Available on * **Oracle Linux 7.5**-->
 
 ## <a name="limitations-and-constraints"></a>限制和约束
 
@@ -61,7 +62,6 @@ ms.locfileid: "84487075"
 
 在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括：D/Dsv3、E/Esv3、Fsv2、Ms/Mms 和 Ms/Mmsv2。
 
-<!--Waiting for Lsv2 confirmation about disk bursting-->
 <!--Not Available on D/Dsv4, Ea/Easv4, Lsv2 -->
 
 有关 VM 实例的详细信息，请参阅[Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -86,7 +86,7 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>创建具有 Azure 加速网络的 Linux VM
 
 ## <a name="portal-creation"></a>在门户中创建
-尽管本文提供了使用 Azure CLI 创建具有加速网络的虚拟机的步骤，但也可以[使用 Azure 门户创建具有加速网络的虚拟机](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json)。 在门户中创建虚拟机时，在****“创建虚拟机”边栏选项卡中，选择“网络”**** 选项卡。在此选项卡中，有“加速网络”**** 的选项。  如果已选择[支持的操作系统](#supported-operating-systems)和 [VM 大小](#supported-vm-instances)，此选项将自动填充为“打开”。  如果没有选择，它将填充加速网络的“关闭”选项，并为用户提供未启用它的原因。   
+尽管本文提供了使用 Azure CLI 创建具有加速网络的虚拟机的步骤，但也可以[使用 Azure 门户创建具有加速网络的虚拟机](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json)。 在门户中创建虚拟机时，在“创建虚拟机”边栏选项卡中，选择“网络”选项卡。在此选项卡中，有“加速网络”的选项。  如果已选择[支持的操作系统](#supported-operating-systems)和 [VM 大小](#supported-vm-instances)，此选项将自动填充为“打开”。  如果没有选择，它将填充加速网络的“关闭”选项，并为用户提供未启用它的原因。   
 
 * *注意：* 只有受支持的操作系统才能通过门户启用。  如果你使用的是自定义映像，并且该映像支持加速网络，请使用 CLI 或 PowerShell 创建 VM。 
 
@@ -95,9 +95,9 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ## <a name="cli-creation"></a>CLI 创建
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 参数名称示例包括 myResourceGroup、myNic 和 myVm。** ** **
+安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 并使用 [az login](https://docs.azure.cn/cli/reference-index#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 参数名称示例包括 myResourceGroup、myNic 和 myVm。  
 
-使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”** 位置创建名为“myResourceGroup”** 的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
@@ -105,7 +105,7 @@ az group create --name myResourceGroup --location chinaeast
 
 <!-- Not Available on  [Linux accelerated networking](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)-->
 
-使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 myVnet 且具有一个子网的虚拟网络：**
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 myVnet 且具有一个子网的虚拟网络：
 
 ```azurecli
 az network vnet create \
@@ -117,7 +117,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
-使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”** 的网络安全组：
+使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-网络安全组包含多个默认规则，其中一个规则禁用了来自 Internet 的所有入站访问。 打开端口，以允许使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 对虚拟机进行 SSH 访问：
+网络安全组包含多个默认规则，其中一个规则禁用了来自 Internet 的所有入站访问。 打开端口，以允许使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-create) 对虚拟机进行 SSH 访问：
 
 ```azurecli
 az network nsg rule create \
@@ -144,7 +144,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>创建具有加速网络的网络接口
 
-使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址。 如果不打算从 Internet 访问虚拟机，则不需要公共 IP 地址，但必须完成本文中的步骤。
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 创建公共 IP 地址。 如果不打算从 Internet 访问虚拟机，则不需要公共 IP 地址，但必须完成本文中的步骤。
 
 ```azurecli
 az network public-ip create \
@@ -152,7 +152,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-使用 [az network nic create](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建启用加速网络的网络接口。 以下示例在 myVnet 虚拟网络的 mySubnet 子网中创建名为 myNic 的网络接口，并将 myNetworkSecurityGroup 网络安全组关联到该网络接口：** ** ** **
+使用 [az network nic create](https://docs.azure.cn/cli/network/nic#az-network-nic-create) 创建启用加速网络的网络接口。 以下示例在 myVnet 虚拟网络的 mySubnet 子网中创建名为 myNic 的网络接口，并将 myNetworkSecurityGroup 网络安全组关联到该网络接口：   
 
 ```azurecli
 az network nic create \
@@ -168,7 +168,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>创建 VM 并附加 NIC
 创建 VM 时，指定使用 `--nics` 创建的 NIC。 选择 [Linux 加速网络](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)中列出的大小和分发版本。 
 
-使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建名为 myVM 的 VM，其具有 UbuntuLTS 映像，并且大小支持加速网络 (*Standard_DS4_v2*) ：**
+使用 [az vm create](https://docs.azure.cn/cli/vm#az-vm-create) 创建 VM。 以下示例创建名为 myVM 的 VM，其具有 UbuntuLTS 映像，并且大小支持加速网络 (*Standard_DS4_v2*) ：
 
 ```azurecli
 az vm create \
@@ -183,7 +183,7 @@ az vm create \
 
 若要获取所有 VM 大小和特性列表，请参阅 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
 
-创建 VM 后，将返回以下类似输出。 记下 publicIpAddress。**** 在后续步骤中，将使用此地址访问 VM。
+创建 VM 后，将返回以下类似输出。 记下 publicIpAddress。 在后续步骤中，将使用此地址访问 VM。
 
 ```output
 {
@@ -200,7 +200,7 @@ az vm create \
 
 ### <a name="confirm-that-accelerated-networking-is-enabled"></a>确认已启用加速网络
 
-使用以下命令来与 VM 建立 SSH 会话。 将 `<your-public-ip-address>` 替换为分配给所创建虚拟机的公共 IP 地址，并替换 azureuser（如果在创建 VM 时使用了 `--admin-username` 以外的值）。**
+使用以下命令来与 VM 建立 SSH 会话。 将 `<your-public-ip-address>` 替换为分配给所创建虚拟机的公共 IP 地址，并替换 azureuser（如果在创建 VM 时使用了 `--admin-username` 以外的值）。
 
 ```bash
 ssh azureuser@<your-public-ip-address>
@@ -238,8 +238,8 @@ vf_tx_dropped: 0
 现在已为 VM 启用加速网络。
 
 ## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>处理虚拟函数的动态绑定和吊销 
-应用程序必须通过 VM 中公开的合成 NIC 运行。 如果应用程序直接通过 VF NIC 运行，它不会收到发往 VM 的**所有**包，因为一些包通过合成接口显示。
-如果通过合成 NIC 运行应用程序，它保证应用程序收到发往它的**所有**数据包。 它还可以确保应用程序保持运行，即使在为主机提供服务时 VF 已吊销也是如此。 对于利用**加速网络**的所有应用程序，绑定到合成 NIC 的应用程序是**强制性**要求。
+应用程序必须通过 VM 中公开的合成 NIC 运行。 如果应用程序直接通过 VF NIC 运行，它不会收到发往 VM 的 **所有** 包，因为一些包通过合成接口显示。
+如果通过合成 NIC 运行应用程序，它保证应用程序收到发往它的 **所有** 数据包。 它还可以确保应用程序保持运行，即使在为主机提供服务时 VF 已吊销也是如此。 对于利用 **加速网络** 的所有应用程序，绑定到合成 NIC 的应用程序是 **强制性** 要求。
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>在现有 VM 上启用加速网络
 如果创建的 VM 没有加速网络，则可在现有 VM 上启用此功能。  VM 必须支持加速网络，前提是满足以下先决条件（上文亦有列出）：

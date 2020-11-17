@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 227b8095e144c0d31d3746318b7b753580a4126e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: b24cf9aecc034a43fe349314d16f9144bca8cd79
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246964"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552406"
 ---
 <!--Verified Successfully-->
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 将指定的时钟周期值转换为日期/时间。
 
@@ -78,5 +79,4 @@ SELECT TicksToDateTime(15943368134575530) AS DateTime
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query tickstodatetime -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 IS_BOOL
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 IS_BOOL。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 5d63631797148e5097bc3b17e9048be32e9c8f3d
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 44f498a15e72d162864da198b11b8731be7866f0
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134728"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552687"
 ---
 # <a name="is_bool-azure-cosmos-db"></a>IS_BOOL (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个布尔值，指示指定表达式的类型是否为布尔表达式。  
 
 ## <a name="syntax"></a>语法

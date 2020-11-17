@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 14574fedd4195b23d3f893d4c460ec909a8c98a2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 85288fe72a8883e51f4865c82637be12bd1aa2ee
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106123"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590734"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 
@@ -61,7 +61,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
 
 现在，可将 VHD 上传到 Azure 并创建新的 VM。 
 
-- 如果导出之前在源上运行了 Sysprep 来将它 **通用化** ，请参阅 [上传已通用化的 VHD 并在 Azure 中使用它来创建新的 VM](upload-generalized-managed.md)
-- 如果导出之前未运行 Sysprep，VHD 将被视为 **已专用化** 。请参阅 [将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
+- 如果导出之前在源上运行了 Sysprep 来将它 **通用化**，请参阅 [上传已通用化的 VHD 并在 Azure 中使用它来创建新的 VM](upload-generalized-managed.md)
+- 如果导出之前未运行 Sysprep，VHD 将被视为 **已专用化**。请参阅 [将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 UPPER
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 UPPER。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/04/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: ff0e76e4920824208e7fd0ff277b630dd7c14550
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: efef2770bba8d5e66efc366a8dbf2eeab60a9d15
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134798"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552865"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回在将小写字符数据转换为大写后的字符串表达式。  
 
 UPPER 系统函数不使用索引。 如果计划频繁进行不区分大小写的比较，则 UPPER 系统函数可能会消耗大量 RU。 如果是这种情况，可以在插入时将大小写规范化，而不是每次都使用 UPPER 系统函数将数据规范化以进行比较。 于是，诸如 SELECT * FROM c WHERE UPPER(c.name) = 'BOB' 的查询只需变成 SELECT * FROM c WHERE c.name = 'BOB'。

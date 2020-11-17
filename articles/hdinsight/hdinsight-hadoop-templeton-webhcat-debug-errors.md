@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/01/2020
-ms.date: 02/24/2020
+origin.date: 04/14/2020
+ms.date: 11/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: aeec523d14e3bfc32e2c47e0e1a66bcea43d953a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 467a1ea4d218dbf9e19fb42d63e2207e37c2dcf3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428705"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552895"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 
@@ -34,7 +34,7 @@ ms.locfileid: "77428705"
 
 ## <a name="modifying-configuration"></a>修改配置
 
-本文档中列出的几大错误之所以发生，是因为超出了配置的最大值。 当解决步骤提到你可以更改某个值时，请使用 Apache Ambari（Web 或 REST API）来修改该值。 有关详细信息，请参阅[使用 Apache Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
+本文档中列出的几大错误之所以发生，是因为超出了配置的最大值。 当解决步骤提到可以更改某个值时，请使用 Apache Ambari（Web 或 REST API）修改该值。 有关详细信息，请参阅[使用 Apache Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>默认配置
 
@@ -43,7 +43,7 @@ ms.locfileid: "77428705"
 | 设置 | 作用 | 默认值 |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |可以同时处于活动状态（挂起或运行）的最大作业数 |10,000 |
-| [templeton.exec.max-procs][max-procs] |可以同时处理的最大请求数 |20 个 |
+| [templeton.exec.max-procs][max-procs] |可以同时处理的最大请求数 |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |作业历史记录保留的天数 |7 天 |
 
 ## <a name="too-many-requests"></a>请求过多
@@ -62,14 +62,14 @@ ms.locfileid: "77428705"
 | --- | --- |
 | 此状态代码通常发生在群集的主要和辅助 HeadNode 之间进行故障转移时 |等待两分钟，并重试该操作 |
 
-## <a name="bad-request-content-could-not-find-job"></a>错误的请求内容：找不到作业
+## <a name="bad-request-content-could-not-find-job"></a>请求内容错误：找不到作业
 
 **HTTP 状态代码**：400
 
 | 原因 | 解决方法 |
 | --- | --- |
 | 作业详细信息已被作业历史记录清除器清除 |作业历史记录的默认保留期为 7 天。 通过修改 `mapreduce.jobhistory.max-age-ms` 可更改默认保留期。 有关详细信息，请参阅[修改配置](#modifying-configuration) |
-| 作业因故障转移而终止 |重试提交作业，重试时间最多两分钟 |
+| 作业由于故障转移而终止 |重试提交作业，重试时间最多两分钟 |
 | 使用了无效的作业 ID |检查作业 ID 是否正确 |
 
 ## <a name="bad-gateway"></a>网关错误
@@ -80,9 +80,14 @@ ms.locfileid: "77428705"
 | --- | --- |
 | WebHCat 进程内发生内部垃圾回收 |等待垃圾回收完成或重新启动 WebHCat 服务 |
 | 等待 ResourceManager 服务的响应超时。 当活动应用程序的数量达到配置的最大值（默认为 10,000）时，可能会发生此错误 |等待当前正在运行的作业完成，或者通过修改 `yarn.scheduler.capacity.maximum-applications` 来提高并发作业限制。 有关详细信息，请参阅[修改配置](#modifying-configuration)部分。 |
-| 在 `Fields` 设置为 `*` 时，尝试通过 [GET /jobs ](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 调用来检索所有作业 |不检索全部  作业详细信息。 而是改用 `jobid` 来仅检索作业 ID 大于特定作业 ID 的作业的详细信息。或者，不使用 `Fields` |
+| 在 `Fields` 设置为 `*` 时，尝试通过 [GET /jobs ](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 调用来检索所有作业 |不检索全部作业详细信息。 而是改用 `jobid` 来仅检索作业 ID 大于特定作业 ID 的作业的详细信息。或者，不使用 `Fields` |
 | 在 HeadNode 故障转移期间 WebHCat 服务关闭 |等待两分钟，并重试该操作 |
 | 通过 WebHCat 提交的作业有超过 500 个处于挂起状态 |等到当前挂起的作业完成再提交更多作业 |
+
+## <a name="next-steps"></a>后续步骤
+
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
+* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

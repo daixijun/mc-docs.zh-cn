@@ -5,23 +5,23 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 073d840a757263d2441dabfc1c8272f0600dd00d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c49e756100cc365f0bd264a145c0824bab4975e1
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128361"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590864"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>快速入门：如何将服务总线主题和订阅与 Node.js 和 azure/service-bus 包配合使用
 本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Node.js 程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](https://docs.microsoft.com/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果你没有可用的主题和订阅，请遵循[使用 Azure 门户创建服务总线主题和订阅](service-bus-quickstart-topics-subscriptions-portal.md)一文中的步骤创建主题和订阅。 记下服务总线实例的连接字符串，以及创建的主题和订阅的名称。 我们将在示例中使用这些值。
 
 > [!NOTE]

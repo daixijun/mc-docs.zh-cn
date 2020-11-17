@@ -1,8 +1,8 @@
 ---
 title: Azure 虚拟机的 Azure Policy 法规遵从性控制措施
 description: 列出可用于 Azure 虚拟机的 Azure Policy 法规遵从性控制措施。 这些内置的策略定义提供了管理 Azure 资源符合性的常用方法。
-origin.date: 10/07/2020
-ms.date: 11/02/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.topic: sample
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 520e3874fbf02c2b1021b8b2f0e67ab67d68ea29
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e5756b900046ee33b6fb77a6e034573ee9943141
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106249"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590763"
 ---
 <!--Verified Successfully-->
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Azure 虚拟机的 Azure Policy 法规遵从性控制措施 

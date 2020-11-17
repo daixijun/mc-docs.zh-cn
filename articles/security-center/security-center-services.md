@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 03/01/2020
-ms.openlocfilehash: 2769ae8d5a1b0a0e3604c677ef43def8bce05598
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 1f89d71caf3016e2a9f51b2c31fa55c9b1d6e562
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402671"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637810"
 ---
 # <a name="feature-coverage-for-machines"></a>适用于计算机的功能覆盖范围
 
@@ -29,50 +29,52 @@ ms.locfileid: "91402671"
 
 ### <a name="windows-machines"></a>[**Windows 计算机**](#tab/features-windows)
 
-|**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**非 Azure 虚拟机**|**价格**
+|**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[虚拟机行为分析（和安全警报）](threat-protection.md)|✔|✔|✔|标准|
-|[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|标准|
-|[基于网络的安全警报](threat-protection.md#network-layer)|✔|✔|-|标准|
-|[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|标准|
-|[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|标准|
-|[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|标准|
-|[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|标准|
-|[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|标准|
-|针对 Docker 托管的 IaaS 容器的建议和威胁防护|-|-|-|标准|
-|缺少 OS 修补程序评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
-|安全配置错误评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
-|[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
-|磁盘加密评估|✔|✔|-|免费|
-|第三方漏洞评估|✔|-|-|免费|
-|[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|免费|
+|[Microsoft Defender for Endpoint 集成]()|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
+|[虚拟机行为分析（和安全警报）](alerts-reference.md)|✔|✔|✔|是|
+|[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|是|
+|[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
+|[本机漏洞评估]()|✔|-|-|是|
+|[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
+|[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
+|[自适应网络强化]()|✔|-|-|是|
+|[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|是|
+|针对 Docker 托管的 IaaS 容器的建议和威胁防护|-|-|-|是|
+|缺少 OS 修补程序评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
+|安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
+|[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
+|磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
+|第三方漏洞评估|✔|-|-|否|
+|[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 
 ### <a name="linux-machines"></a>[**Linux 计算机**](#tab/features-linux)
 
-|**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**非 Azure 虚拟机**|**价格**
+|**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[虚拟机行为分析（和安全警报）](security-center-alerts-iaas.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|标准|
-|[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|标准|
-|[基于网络的安全警报](threat-protection.md#network-layer)|✔|✔|-|标准|
-|[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|标准|
-|[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|标准|
-|[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|标准|
-|[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|标准|
-|[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|标准|
-|针对 Docker 托管的 IaaS 容器的建议和威胁防护|✔|✔|✔|标准|
-|缺少 OS 修补程序评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
-|安全配置错误评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
-|[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|免费|
-|磁盘加密评估|✔|✔|-|免费|
-|第三方漏洞评估|✔|-|-|免费|
-|[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|免费|
+|[Microsoft Defender for Endpoint 集成]()|-|-|-|是|
+|[虚拟机行为分析（和安全警报）](./azure-defender.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
+|[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|是|
+|[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
+|[本机漏洞评估]()|✔|-|-|是|
+|[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
+|[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
+|[自适应网络强化]()|✔|-|-|是|
+|[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|是|
+|针对 Docker 托管的 IaaS 容器的建议和威胁防护|✔|✔|✔|是|
+|缺少 OS 修补程序评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
+|安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
+|[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|否|
+|磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
+|第三方漏洞评估|✔|-|-|否|
+|[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 --- 
 
 
 > [!TIP]
->若要试用仅在标准定价层上可用的功能，免费层用户可以注册 30 天试用版。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
+>要试验仅适用于 Azure Defender 的功能，可以注册 30 天试用版。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 
 
 ## <a name="supported-endpoint-protection-solutions"></a>支持的终结点保护解决方案 <a name="endpoint-supported"></a>
@@ -91,10 +93,10 @@ ms.locfileid: "91402671"
 | Trend Micro - Deep Security | Windows Server 系列  | 否 | 是 |
 | Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
 | McAfee v10+ | Windows Server 系列  | 否 | 是 |
-| McAfee v10+ | Linux 服务器系列  | 否 | 是 **\*** |
-| Sophos V9+| Linux 服务器系列  | 否 | 是  **\***  |
+| McAfee v10+ | Linux 服务器系列  | 否 | 是 * *\** _ |
+| Sophos V9+| Linux 服务器系列  | 否 | 是 _*\**_  |
 
- **\*** 覆盖状态和支持数据目前仅在与受保护订阅关联的 Log Analytics 工作区中提供。 这些数据不会在 Azure 安全中心门户中反映。
+ _ *\** * 覆盖率状态和支持数据目前仅在与受保护订阅关联的 Log Analytics 工作区中可用。 这些数据不会在 Azure 安全中心门户中反映。
 
 > [!NOTE]
 > 在 Windows Server 2008 R2 虚拟机上检测 System Center Endpoint Protection (SCEP) 需要在 PowerShell（v3.0 或更高版本）之后安装 SCEP。
@@ -102,7 +104,7 @@ ms.locfileid: "91402671"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[安全中心如何收集数据以及 Log Analytics 代理](security-center-enable-data-collection.md)。
+- 了解[安全中心如何使用 Log Analytics 代理收集数据](security-center-enable-data-collection.md)。
 - 了解[安全中心如何管理和保护数据](security-center-data-security.md)。
 - 查看[支持安全中心的平台](security-center-os-coverage.md)。
 

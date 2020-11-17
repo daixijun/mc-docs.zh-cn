@@ -67,8 +67,8 @@ TLS/SSL 证书必须与 ASE 关联，作为用于建立应用的 TLS/SSL 连接�
 
 可通过三种方式获取有效的 TLS/SSL 证书：使用内部证书颁发机构、向外部颁发者购买证书或使用自签名证书。 无论 TLS/SSL 证书的来源如何，都需要正确配置以下证书属性：
 
-* **使用者** ：此属性必须设置为 *“your-root-domain-here.com”。
-* **使用者可选名称** ：此属性必须同时包含 *“your-root-domain-here.com” 和 *“scm.your-root-domain-here.com” 。 以 TLS 方式连接到与每个应用关联的 SCM/Kudu 站点时，使用 your-app-name.scm.your-root-domain-here.com 形式的地址。
+* **使用者**：此属性必须设置为 *“your-root-domain-here.com”。
+* **使用者可选名称**：此属性必须同时包含 *“your-root-domain-here.com” 和 *“scm.your-root-domain-here.com” 。 以 TLS 方式连接到与每个应用关联的 SCM/Kudu 站点时，使用 your-app-name.scm.your-root-domain-here.com 形式的地址。
 
 备妥有效的 TLS/SSL 证书以后，还需要两个额外的准备步骤。 将 TLS/SSL 证书转换/另存为 .pfx 文件。 请记住，.pfx 文件必须包括所有的中间和根证书。 使用密码进行保护。
 

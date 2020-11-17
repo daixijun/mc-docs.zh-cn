@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 30257c80549e2c9c78ad6130d536d720c2e8d86f
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 414faf4718dfe4cb68c676f45184848bf346236e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246933"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552752"
 ---
 <!--Verified Successfully-->
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 将指定的 DateTime 转换为时钟周期。 一个计时周期表示一百纳秒，即一千万分之一秒。 
 
@@ -79,5 +80,4 @@ SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query datetimetoticks -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

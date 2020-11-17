@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/04/2018
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3aece702f18abbc8584642caab0b2105f8920a39
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 97fbe6c21726b293694a73f223eacdb05ba2a7ef
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246517"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552790"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT] 
 > 本文所述的 S1、S2 和 S3 性能级别即将停用，在新的 Azure Cosmos DB 帐户中将不再提供。
@@ -80,15 +81,12 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 <!--Not Available ## How will my billing change after I migrated to the single partition collections?-->
 
-假设你在中国东部区域使用 10 个 S1 集合，其中每个集合的存储为 1 GB，现在要将这 10 个 S1 集合迁移到吞吐量为 400 RU/秒（最低级别）的 10 个单分区集合。 如果将 10 个单分区集合保留一整月，帐单将如下所示：
-
-:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="10 个 S1 集合价格与 10 个单分区集合价格的比较" border="false":::
 
 <a name="more-storage-needed"></a>
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>如果需要 20 GB 以上的存储，应该怎么做？
 
-无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储空间都是 20 GB。可以使用 Azure Cosmos DB 数据迁移工具将数据迁移到存储空间几乎无限的分区集合。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](sql-api-partition-data.md)。 
+无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储空间都是 20 GB。可以使用 Azure Cosmos DB 数据迁移工具将数据迁移到存储空间几乎无限的分区集合。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。 
 
 <a name="change-before"></a>
 
@@ -109,17 +107,17 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
 
 ```csharp
-    //Fetch the resource to be updated
-    Offer offer = client.CreateOfferQuery()
-                      .Where(r => r.ResourceLink == collection.SelfLink)    
-                      .AsEnumerable()
-                      .SingleOrDefault();
+//Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                  .Where(r => r.ResourceLink == collection.SelfLink)    
+                  .AsEnumerable()
+                  .SingleOrDefault();
 
-    // Set the throughput to 5000 request units per second
-    offer = new OfferV2(offer, 5000);
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
 
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
+//Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
 ```
 
 请访问 [MSDN](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient) 以查看其他示例并了解更多有关服务方法的信息：
@@ -127,7 +125,7 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 * [**ReadOfferAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
 * [**ReadOffersFeedAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
 * [**ReplaceOfferAsync**](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**CreateOfferQuery**](https://docs.microsoft.com/previous-versions/azure/dn975114(v=azure.100))
 
 <a name="ea-customer"></a>
 
@@ -138,7 +136,7 @@ EA 客户在当前合同到期之前，价格将受到保护。
 ## <a name="next-steps"></a>后续步骤
 若要了解更多有关 Azure Cosmos DB 的定价和管理数据的信息，请浏览以下资源：
 
-1. [对 Cosmos DB 中的数据进行分区](sql-api-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
+1. [对 Cosmos DB 中的数据进行分区](partitioning-overview.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
 2. [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3. [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 

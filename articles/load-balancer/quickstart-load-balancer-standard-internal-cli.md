@@ -6,23 +6,22 @@ services: load-balancer
 documentationcenter: na
 author: WenJason
 manager: digimobile
-tags: azure-resource-manager
 Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/20/2020
-ms.date: 11/02/2020
+origin.date: 10/23/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b1c188897204d8b418abafc986e29834545c03be
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 9072e0b01394f05dcaef284abfa5e4ef73b9151b
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628198"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590510"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -327,7 +326,8 @@ runcmd:
 * 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
 * 使用运行状况探测“myHealthProbe”。
 * 协议为“TCP”。
-* 使用前端 IP 地址启用出站源网络地址转换 (SNAT)。
+* 空闲超时 15 分钟。
+* 启用 TCP 重置。
 
 ```azurecli
   az network lb rule create \
@@ -340,7 +340,9 @@ runcmd:
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true 
+    --disable-outbound-snat true \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
 >[!NOTE]
 >后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](/virtual-network/nat-overview)**
@@ -679,6 +681,7 @@ runcmd:
 * 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
 * 使用运行状况探测“myHealthProbe”。
 * 协议为“TCP”。
+* 空闲超时 15 分钟。
 
 ```azurecli
   az network lb rule create \
@@ -690,7 +693,8 @@ runcmd:
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
+    --probe-name myHealthProbe \
+    --idle-timeout 15 
 ```
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>将虚拟机添加到负载均衡器后端池
 

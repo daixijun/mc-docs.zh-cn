@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: how-to
 origin.date: 03/15/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: d4c327dd3cde8671fcb5d2371c4d1c7181aa17dc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: a46066a6e5483d4f3a6499236c96047973ff1514
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106122"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590853"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>使用 Azure AD 对 Windows VM 进行 Azure 磁盘加密（以前版本）
 
@@ -50,7 +50,7 @@ ms.locfileid: "93106122"
         ```
 
     -  在门户中选择 VM，然后单击“设置”标题下面的“磁盘”验证加密状态。   在“加密”下面的图表中，可以看到是否已启用加密。  
-        :::image type="content" source="../media/disk-encryption/disk-encryption-fig2.png" alt-text="Azure 门户 - 磁盘加密已启用&quot;:::
+        :::image type="content" source="../media/disk-encryption/disk-encryption-fig2.png" alt-text="Azure 门户 - 磁盘加密已启用":::
 
 下表列出了市场方案中使用 Azure AD 客户端 ID 的新 VM 的资源管理器模板参数：
 
@@ -64,7 +64,7 @@ ms.locfileid: "93106122"
 | subnetName | VM NIC 所属的 VNet 中子网的名称。 |
 | AADClientID | 有权将机密写入 Key Vault 的 Azure AD 应用程序的客户端 ID。 |
 | AADClientSecret | 有权将机密写入 Key Vault 的 Azure AD 应用程序的客户端机密。 |
-| keyVaultURL | BitLocker 密钥应上传到的 Key Vault 的 URL。 可使用 `(Get-AzKeyVault -VaultName &quot;MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName&quot;).VaultURI` cmdlet 或 Azure CLI `az keyvault show --name &quot;MySecureVault" --query properties.vaultUri` 获取该 URL。 |
+| keyVaultURL | BitLocker 密钥应上传到的 Key Vault 的 URL。 可使用 `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` cmdlet 或 Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` 获取该 URL。 |
 | keyEncryptionKeyURL | 用于加密生成的 BitLocker 密钥的密钥加密密钥的 URL（可选）。 <br /> <br />KeyEncryptionKeyURL 是可选参数。 可使用自己的 KEK 在 Key Vault 中进一步保护数据加密密钥（密码）。 |
 | keyVaultResourceGroup | Key Vault 的资源组。 |
 | vmName | 要对其执行加密操作的 VM 的名称。 |

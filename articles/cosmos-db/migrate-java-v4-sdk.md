@@ -1,25 +1,26 @@
 ---
 title: 迁移应用程序以使用 Azure Cosmos DB Java SDK v4 (com.azure.cosmos)
 description: 了解如何将现有 Java 应用程序从使用较旧的 Azure Cosmos DB Java SDK 升级到用于 Core (SQL) API 的较新的 Java SDK 4.0（com.azure.cosmos 包）。
-author: rockboyfor
 ms.custom: devx-track-java
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/11/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: f3869aab5043a1b8d9ead9d7a36d138a1ac29068
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 18c27d4861d36d253ba7514568d74a596898bb91
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223337"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552825"
 ---
 <!--Verified successfully-->
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>迁移应用程序以使用 Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > 有关此 SDK 的详细信息，请查看 Azure Cosmos DB Java SDK v4 [发行说明](sql-api-sdk-java-v4.md)、[Maven 存储库](https://mvnrepository.com/artifact/com.azure/azure-cosmos)、Azure Cosmos DB Java SDK v4 [性能提示](performance-tips-java-sdk-v4-sql.md)和 Azure Cosmos DB Java SDK v4 [故障排除指南](troubleshoot-java-sdk-v4-sql.md)。

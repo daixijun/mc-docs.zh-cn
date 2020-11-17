@@ -6,21 +6,22 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/23/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff1a111f60b967a2bd383e14c4538990abc175af
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 8260117503e9eeeffe18aeb2081854c206c7a959
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246369"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552873"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](how-to-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
+Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](./sql-query-getting-started.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
 
 * 有关 Azure Cosmos DB 的 SQL 查询执行如何工作的概要详细信息
 * 有关查询请求和响应标头以及客户端 SDK 选项的详细信息
@@ -29,7 +30,7 @@ Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](how-to-sql-query.
 
 ## <a name="about-sql-query-execution"></a>关于 SQL 查询执行
 
-在 Azure Cosmos DB 中，数据存储在容器中，容器可以增长到任何[存储大小或请求吞吐量](partition-data.md)。 Azure Cosmos DB 在幕后无缝地在物理分区之间缩放数据来以预配的吞吐量处理数据增长。 可以使用 REST API 或受支持的 [SQL SDK](sql-api-sdk-dotnet.md) 之一向任何容器发出 SQL 查询。
+在 Azure Cosmos DB 中，数据存储在容器中，容器可以增长到任何[存储大小或请求吞吐量](partitioning-overview.md)。 Azure Cosmos DB 在幕后无缝地在物理分区之间缩放数据来以预配的吞吐量处理数据增长。 可以使用 REST API 或受支持的 [SQL SDK](sql-api-sdk-dotnet.md) 之一向任何容器发出 SQL 查询。
 
 分区的简要概述：定义一个分区键（例如“city”），它决定了如何在物理分区之间拆分数据。 属于单个分区键（例如 "city" == "Seattle"）的数据存储在一个物理分区中，但单个物理分区通常具有多个分区键。 当某个分区达到其存储大小时，服务会无缝地将分区拆分为两个新分区，并且会将分区键平均分割到这些分区中。 因为分区是暂时的，因此，API 使用“分区键范围”的抽象，它表示分区键哈希的范围。 
 
@@ -166,7 +167,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 需要查阅所有分区的查询需要较高的延迟，并且会使用较高的 RU。 因为每个分区都具有针对所有属性的自动索引编制功能，因此，在这种情况下，可以基于索引高效地执行查询。 可以通过使用并行度选项使跨分区的查询更快地执行。
 
-若要了解有关分区和分区键的详细信息，请参阅[在 Azure Cosmos DB 中进行分区](partition-data.md)。
+若要了解有关分区和分区键的详细信息，请参阅[在 Azure Cosmos DB 中进行分区](partitioning-overview.md)。
 
 ### <a name="sdk-and-query-options"></a>SDK 和查询选项
 请参阅[性能提示](performance-tips.md)和[性能测试](performance-testing.md)来了解如何从 Azure Cosmos DB 获得最佳客户端性能。 这包括使用最新的 SDK、配置特定于平台的配置（例如默认连接数、垃圾收集频率）以及使用诸如直连/TCP 之类的轻型连接。 

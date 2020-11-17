@@ -6,16 +6,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c16d2808fdc2a39445fac0d3eb8112f2941605d0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 06b956db84b979de2ebd2d7e6777845ff4901174
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103812"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590890"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->

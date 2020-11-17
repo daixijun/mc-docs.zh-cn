@@ -4,16 +4,17 @@ description: 了解可将 Apache Spark 连接到 Azure Cosmos DB 的 Azure Cosmo
 ms.service: cosmos-db
 ms.topic: how-to
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 91f02cb4a872fdb09aa5bbb515f44d3ea0ee6442
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0b40e123ce53731f9150f78f95d04428c193e4ec
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118268"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552761"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 可以使用 Cosmos DB Spark 连接器针对 Azure Cosmos DB 中存储的数据运行 [Spark](https://spark.apache.org/) 作业。 Cosmos 可用于批处理和流式处理，并可充当服务层来降低访问延迟。
 
@@ -36,9 +37,9 @@ ms.locfileid: "92118268"
 
 ## <a name="quickstart"></a>快速入门
 
-* 遵循 [Java SDK 入门](sql-api-async-java-get-started.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
+* 遵循 [Java SDK 入门](./create-sql-api-java.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
     
-    <!--Not Available on * Follow the steps at [Azure Databricks getting started](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)-->
+<!--Not Available on * Follow the steps at [Azure Databricks getting started](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)-->
 
 * 现在可以创建新的 Notebook，并导入 Cosmos DB 连接器库。 有关如何设置工作区的详细信息，请跳转到[使用 Cosmos DB 连接器](#bk_working_with_connector)。
 * 以下部分提供了有关如何使用连接器读取和写入数据的代码片段。
@@ -277,7 +278,7 @@ mvn clean package
     
     <!--Not Available on * **Twitter Source with Apache Spark and Azure Cosmos DB Change Feed**: -->
 
-* **使用 Apache Spark 查询 Cosmos DB 图形** ： [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
+* **使用 Apache Spark 查询 Cosmos DB 图形**：[ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
     
     <!--Not Available on * **Connecting Azure Databricks to Azure Cosmos DB** using `azure-cosmosdb-spark`-->
     

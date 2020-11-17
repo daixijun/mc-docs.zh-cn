@@ -6,21 +6,22 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/17/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91d0e290f18cbc80446436e513aa5f3588013af4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 1b069caf1d8fb442f348f8e98d65216478c85f56
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246504"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552778"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>使用 .NET SDK 获取 SQL 查询执行指标并分析查询性能
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-本文介绍如何分析 Azure Cosmos DB 中的 SQL 查询性能。 可以使用从 .NET SDK 检索到且在本文中详述的 `QueryMetrics` 来执行这种分析。 [QueryMetrics](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.querymetrics) 是一个强类型化对象，包含有关后端查询执行的信息。 [优化查询性能](/cosmos-db/documentdb-sql-query-metrics)一文中更详细地阐述了这些指标。
+本文介绍如何分析 Azure Cosmos DB 中的 SQL 查询性能。 可以使用从 .NET SDK 检索到且在本文中详述的 `QueryMetrics` 来执行这种分析。 [QueryMetrics](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.querymetrics) 是一个强类型化对象，包含有关后端查询执行的信息。 [优化查询性能](./sql-api-query-metrics.md)一文中更详细地阐述了这些指标。
 
 ## <a name="set-the-feedoptions-parameter"></a>设置 FeedOptions 参数
 
@@ -66,7 +67,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>聚合 QueryMetrics
 
-上一部分提到，已多次调用 [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) 方法。 每次调用都会返回一个包含 `QueryMetrics` 字典的 `FeedResponse` 对象；每次延续查询都会返回一个此类对象。 以下示例演示如何使用 LINQ 聚合这些 `QueryMetrics`：
+上一部分提到，已多次调用 [ExecuteNextAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.linq.idocumentquery-1.executenextasync) 方法。 每次调用都会返回一个包含 `QueryMetrics` 字典的 `FeedResponse` 对象；每次延续查询都会返回一个此类对象。 以下示例演示如何使用 LINQ 聚合这些 `QueryMetrics`：
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -133,7 +134,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>耗费大量资源的查询
 
-可以捕获每个查询消耗的请求单位数，以调查高开销的查询，或者消耗了大量吞吐量的查询。 可以使用 `FeedResponse` 中的 [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) 属性获取请求费用。 若要详细了解如何使用 Azure 门户和不同的 SDK 获取请求费用，请参阅[查找请求单位费用](find-request-unit-charge.md)一文。
+可以捕获每个查询消耗的请求单位数，以调查高开销的查询，或者消耗了大量吞吐量的查询。 可以使用 `FeedResponse` 中的 [RequestCharge](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedresponse-1.requestcharge) 属性获取请求费用。 若要详细了解如何使用 Azure 门户和不同的 SDK 获取请求费用，请参阅[查找请求单位费用](find-request-unit-charge.md)一文。
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -235,12 +236,12 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 现在，可以从索引为此查询提供服务。
 
-若要详细了解如何优化查询性能，请参阅[优化查询性能](/cosmos-db/documentdb-sql-query-metrics)一文。
+若要详细了解如何优化查询性能，请参阅[优化查询性能](./sql-api-query-metrics.md)一文。
 
 <a name="References"></a>
 ## <a name="references"></a>参考
 
-- [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
+- [Azure Cosmos DB SQL 规范](./sql-query-getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](https://docs.microsoft.com/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
@@ -251,4 +252,4 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 - [索引概述](index-overview.md)
 - [Azure Cosmos DB.NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

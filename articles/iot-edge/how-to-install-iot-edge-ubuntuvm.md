@@ -8,15 +8,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 06/29/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2862a1086ea4719ec837f82f88bf2843fc7d6e8b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 4ba61d24db70132307687236f446124bb1f551ca
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564491"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595175"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虚拟机上运行 Azure IoT Edge
 
@@ -51,13 +51,13 @@ ms.locfileid: "91564491"
 
     **管理员用户名**：一个用户名，将为其提供对部署的 root 特权。
 
-    **设备连接字符串**：在所需 [IoT 中心](../iot-hub/about-iot-hub.md)内创建的设备的[设备连接字符串](how-to-register-device.md)。
+    **设备连接字符串**：在所需 [IoT 中心](../iot-hub/about-iot-hub.md)内创建的设备的 [设备连接字符串](./how-to-manual-provision-symmetric-key.md)。
 
-    **VM 大小**：要部署的虚拟机的[大小](../cloud-services/cloud-services-sizes-specs.md)
+    **VM 大小**：要部署的虚拟机的 [大小](../cloud-services/cloud-services-sizes-specs.md)
 
     **Ubuntu OS 版本**：要在基础虚拟机上安装的 Ubuntu OS 版本。
 
-    **位置**：要将虚拟机部署到的[地理区域](https://azure.microsoft.com/global-infrastructure/locations/)，此值默认为所选资源组的位置。
+    **位置**：要将虚拟机部署到的 [地理区域](https://azure.microsoft.com/global-infrastructure/locations/)，此值默认为所选资源组的位置。
 
     **身份验证类型**：根据偏好选择“sshPublicKey”或“password”。  
 

@@ -10,19 +10,19 @@ ms.devlang: azurecli
 ms.workload: mobile
 ms.topic: quickstart
 origin.date: 05/27/2020
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: affb31f56472932685023db5270ee5a4f44cb2c9
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 64383b9108be3fe2d9c06d47e3be1b69d104d455
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316373"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590932"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 通知中心
+# <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 通知中心
 
 Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于从任何后端（云或本地）向任何平台（iOS、Android、Windows、Kindle、百度等）发送通知。 有关此服务的详细信息，请参阅[什么是 Azure 通知中心？](notification-hubs-push-notification-overview.md)。
 
@@ -32,7 +32,8 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
-通知中心需要 Azure CLI 2.0.67 或更高版本。 运行 `az --version` 查看安装的版本和依赖库。 若要安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+> [!IMPORTANT]
+> 通知中心需要 Azure CLI 2.0.67 或更高版本。 运行 [az version](/cli/reference-index?#az_version) 以查找安装的版本和依赖库。 若要升级到最新版本，请运行 [az upgrade](/cli/reference-index?#az_upgrade)。
 
 ## <a name="prepare-your-environment"></a>准备环境
 

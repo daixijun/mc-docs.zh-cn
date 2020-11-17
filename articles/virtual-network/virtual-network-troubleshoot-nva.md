@@ -4,7 +4,6 @@ description: 对 Azure 中的网络虚拟设备 (NVA) 问题进行故障排除�
 services: virtual-network
 documentationcenter: na
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
@@ -13,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/26/2018
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 57e8b333724360d988498bc5d29b412be8cf37a8
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 326e5b407ea0644318ee4a8f598dd6ff3a87c9cc
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564512"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590841"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 
@@ -136,11 +135,11 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 
     **对于 Windows**
 
-    `netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection`
+    netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
 
     **对于 Linux**
 
-    `sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap`
+    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. 使用从源 VM 到目标 VM 的 PsPing 或 Nmap（例如：`PsPing 10.0.0.4:80` 或 `Nmap -p 80 10.0.0.4`）。
 3. 使用[网络监视器](https://cnet-downloads.com/network-monitor)或 tcpdump 从目标 VM 打开网络跟踪。 为运行 PsPing 或 Nmap 的源 VM 的 IP 应用显示筛选器，例如 `IPv4.address==10.0.0.4 (Windows netmon)` 或 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux)。

@@ -2,19 +2,20 @@
 title: 教程 - Azure 服务总线到事件网格的集成示例
 description: 教程 - 本文提供的示例涉及服务总线消息传送和事件网格集成。
 documentationcenter: .net
-author: rockboyfor
 ms.topic: tutorial
 origin.date: 06/23/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: ade51ff82f5651d10dce2b92e0a241991c65972c
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8c5ab915d8bbcade1daa00ff1dc40a4eb1612bdc
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946619"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590862"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>教程：使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应
 本教程介绍如何使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应。 
@@ -39,7 +40,7 @@ ms.locfileid: "88946619"
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 请遵照以下教程中的说明：[快速入门：使用 Azure 门户创建服务总线主题和主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
 
-- 创建一个**高级**服务总线命名空间。 
+- 创建一个 **高级** 服务总线命名空间。 
 - 获取连接字符串。 
 - 创建服务总线主题。
 - 创建主题的两个订阅。 
@@ -64,10 +65,10 @@ ms.locfileid: "88946619"
 
 1. 在 Azure 门户中创建逻辑应用。
     1. 依次选择“+ 创建资源”、“集成”、“逻辑应用”。 
-    2. 在“逻辑应用 - 创建”页上，输入逻辑应用的**名称**。
+    2. 在“逻辑应用 - 创建”页上，输入逻辑应用的 **名称**。
     3. 选择 **Azure 订阅**。 
     4. 为“资源组”选择“使用现有项”，然后选择以前创建的、用于其他资源（例如 Azure 函数、服务总线命名空间）的资源组。 
-    5. 选择逻辑应用的**位置**。 
+    5. 选择逻辑应用的 **位置**。 
     6. 选择“创建”以创建逻辑应用。 
 2. 在“逻辑应用设计器”页上，选择“模板”下的“空白逻辑应用”。 
 3. 在设计器中执行以下步骤：
@@ -90,7 +91,7 @@ ms.locfileid: "88946619"
     4. 选择“从主题订阅中获取消息(扫视锁定)”。 
 
         :::image type="content" source="./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png" alt-text="逻辑应用设计器 - 获取消息操作":::
-    5. 输入**连接的名称**。 例如：**从主题订阅中获取消息**，并选择服务总线命名空间。 
+    5. 输入 **连接的名称**。 例如：**从主题订阅中获取消息**，并选择服务总线命名空间。 
 
         :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png" alt-text="逻辑应用设计器 - 选择服务总线命名空间"::: 
     6. 选择“RootManageSharedAccessKey”，然后选择“创建” 。
@@ -98,12 +99,12 @@ ms.locfileid: "88946619"
         :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png" alt-text="逻辑应用设计器 - 选择共享访问密钥"::: 
     8. 选择你的主题和订阅 。 
 
-        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png" alt-text="逻辑应用设计器 - 选择你的服务总线主题和订阅":::
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png" alt-text="显示选择主题和订阅的位置的屏幕截图。":::
 7. 选择“+ 新建步骤”，然后执行以下步骤： 
     1. 选择“服务总线”。
     2. 在操作列表中选择“完成主题订阅中的消息”。 
-    3. 选择你的服务总线**主题**。
-    4. 选择主题的第二个**订阅**。
+    3. 选择你的服务总线 **主题**。
+    4. 选择主题的第二个 **订阅**。
     5. 对于“消息的锁定标记”，请从“动态内容”中选择“锁定标记”。 
 
         :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png" alt-text="逻辑应用设计器 - 选择你的服务总线主题和订阅":::
@@ -276,7 +277,7 @@ ms.locfileid: "88946619"
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png" alt-text="服务总线 - 事件页":::
 2. 在工具栏上选择“+ 事件订阅”。 
 3. 在“创建事件订阅”页中执行以下步骤：
-    1. 输入订阅的**名称**。 
+    1. 输入订阅的 **名称**。 
     2. 输入系统主题的名称 。 系统主题是为 Azure 资源（如 Azure 存储帐户和 Azure 服务总线）创建的主题。 若要详细了解系统主题，请参阅[系统主题概述](../event-grid/system-topics.md)。
     2. 为“终结点类型”选择“Web Hook”。 
 
@@ -316,7 +317,7 @@ ms.locfileid: "88946619"
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
-3. 下载函数的**发布配置文件**：
+3. 下载函数的 **发布配置文件**：
     1. 选择你的函数应用。 
     2. 选择“概述”选项卡（如果尚未选择）。 
     3. 在工具栏上选择“获取发布配置文件”。 
@@ -359,7 +360,7 @@ ms.locfileid: "88946619"
 * 详细了解 [Azure 事件网格](../event-grid/index.yml)。
 * 详细了解 [Azure Functions](../azure-functions/index.yml)。
 * 详细了解 [Azure 应用服务的逻辑应用功能](../logic-apps/index.yml)。
-* 详细了解 [Azure 服务总线](/service-bus/)。
+* 详细了解 [Azure 服务总线](https://docs.azure.cn/service-bus/)。
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

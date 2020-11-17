@@ -6,16 +6,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 23c6b8d2ce8deca4c3c1066eee098dbf8b61f173
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 32888fe7c196e967da725dd41270623c3f1b6c92
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104460"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590891"
 ---
 <!--Verified Successfully-->
 <!--Not Available on Availability Zones-->
@@ -38,7 +38,7 @@ ms.locfileid: "93104460"
 
 要减轻一个或多个此类事件引发的停机所造成的影响，我们建议遵循以下最佳做法以提高虚拟机的可用性：
 
-<!--Not Available on * Use Availabiilty Zones to protect from datacenter failures-->
+<!--Not Available on * Use Availability Zones to protect from datacenter failures-->
 
 * 在可用性集中配置多个虚拟机以确保冗余
 * 为可用性集中的 VM 使用托管磁盘
@@ -69,8 +69,7 @@ ms.locfileid: "93104460"
 
 :::image type="content" source="./media/virtual-machines-common-manage-availability/ud-fd-configuration.png" alt-text="更新域和容错域配置的概念图":::
 
-<a name="use-managed-disks-for-vms-in-an-availability-set"></a>
-## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>为可用性集中的 VM 使用托管磁盘
+## <a name="use-managed-disks-for-vms-in-an-availability-set"></a><a name="use-managed-disks-for-vms-in-an-availability-set"></a>为可用性集中的 VM 使用托管磁盘
 如果当前使用的 VM 没有托管磁盘，我们强烈建议将非托管磁盘转换为适用于 [Linux](./linux/convert-unmanaged-to-managed-disks.md) 和 [Windows](./windows/convert-unmanaged-to-managed-disks.md) 的托管磁盘。
 
 通过确保可用性集中的 VM 的磁盘彼此之间完全隔离以避免单点故障，[托管磁盘](./managed-disks-overview.md)为可用性集提供了更佳的可靠性。 为此，会自动将磁盘放置在不同的存储容错域（存储群集）中，并使它们与 VM 容错域一致。 如果某个存储容错域因硬件或软件故障而失败，则只有其磁盘在该存储容错域上的 VM 实例会失败。
@@ -124,5 +123,4 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](../load-balancer/load-balancer-overview.md)。
 
-<!-- Update_Description: new article about manage availability -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

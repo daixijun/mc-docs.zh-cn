@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 origin.date: 03/20/2020
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: d03c7c304b24364d30a70e6e917db02ee4b37d40
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f0d36a54d6906468140fd51ee63e70e256ce2120
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118560"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552820"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>将 Node.js Mongoose 应用程序连接到 Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本教程演示在 Cosmos DB 中存储数据时如何使用 [Mongoose 框架](https://mongoosejs.com/)。 本演练使用 Azure Cosmos DB 的用于 MongoDB 的 API。 不熟悉该接口的读者应知道，Mongoose 是 Node.js 中适用于 MongoDB 的对象建模框架，提供简单直接的、基于架构的解决方案来为应用程序数据建模。
 
@@ -43,7 +44,7 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
 ### <a name="create-a-database"></a>创建数据库 
 在此应用程序中，我们将介绍在 Azure Cosmos DB 中创建集合的两种方法： 
-- **将每个对象模型存储在一个单独的集合中**：建议[创建具有专用吞吐量的数据库](set-throughput.md#set-throughput-on-a-database)。 使用此容量模型会更为经济高效。
+- **将每个对象模型存储在一个单独的集合中**：建议 [创建具有专用吞吐量的数据库](set-throughput.md#set-throughput-on-a-database)。 使用此容量模型会更为经济高效。
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js 教程 - Azure 门户的屏幕截图，其中显示了如何在数据资源管理器中为 Azure Cosmos DB 帐户创建数据库，用于 Mongoose Node 模块":::
 
@@ -202,7 +203,7 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
 1. 现在，请转到 Azure 门户，可以看到 Cosmos DB 中创建了两个集合。
 
-    :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js 教程 - Azure 门户的屏幕截图，其中显示了如何在数据资源管理器中为 Azure Cosmos DB 帐户创建数据库，用于 Mongoose Node 模块":::
+    :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库":::
 
 1. 最后，我们从 Cosmos DB 读取数据。 由于我们使用的是默认 Mongoose 操作模型，读取操作与 Mongoose 的其他读取操作相同。
 
@@ -307,7 +308,7 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
 1. 现在，如果返回到 Azure 门户，可以看到只有一个名为 ```alldata``` 的集合，其中包含“Family”和“VacationDestinations”数据。
 
-    :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js 教程 - Azure 门户的屏幕截图，其中显示了如何在数据资源管理器中为 Azure Cosmos DB 帐户创建数据库，用于 Mongoose Node 模块":::
+    :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库":::
 
 1. 另请注意，每个对象有另一个名为 ```__type``` 的属性，可帮助区分两个不同的对象模型。
 

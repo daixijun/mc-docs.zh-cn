@@ -7,15 +7,15 @@ author: eustacea
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/30/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 5ab49d377de8b374234613df6f54cb7e02a04403
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9d5e017354a5625755e28dcf4ea673e9a35c1daa
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80522076"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595207"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全管理器
 
@@ -76,7 +76,7 @@ IoT Edge 安全守护程序可充分利用任何可用硬件信任根技术来�
 
 #### <a name="cloud-interface"></a>云接口
 
-云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心[设备预配服务](/iot-dps/)，以便进行设备标识生命周期管理。  
+云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心[设备预配服务](../iot-dps/index.yml)，以便进行设备标识生命周期管理。  
 
 #### <a name="management-api"></a>管理 API
 
@@ -114,7 +114,7 @@ HSM PAL 将所有硬件信任根抽象化，从而使 IoT Edge 开发者或用�
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>安全硅硬件信任根
 
-安全硅必须在 IoT Edge 设备硬件内定位标记信任。  安全硅种类繁多，包括受信任的平台模块 (TPM)、嵌入式安全元素 (eSE)、ARM TrustZone 和自定义安全硅技术。  考虑到与 IoT 设备物理访问相关联的威胁，建议在设备中使用安全硅信任根。
+安全硅必须在 IoT Edge 设备硬件内定位标记信任。  安全硅种类繁多，包括受信任的平台模块 (TPM)、嵌入式安全元素 (eSE)、ARM TrustZone、Intel SGX 和自定义安全硅技术。  考虑到与 IoT 设备物理访问相关联的威胁，建议在设备中使用安全硅信任根。
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge 安全管理器集成和维护
 

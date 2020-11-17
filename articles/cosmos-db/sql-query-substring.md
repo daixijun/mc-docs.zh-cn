@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 SUBSTRING
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 SUBSTRING。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 751d84292e6e7a24f7cdd5fc41261a5b1bc39736
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: feac4d5334075785df5d686253ea5674ae57397a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134789"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552409"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回字符串表达式的部分内容，该内容起于指定字符从零开始的位置，继续到指定长度或字符串结尾。  
 
 ## <a name="syntax"></a>语法
@@ -51,7 +53,7 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 
 ```json
 [{"substring": "b"}]  
-```  
+```
 
 ## <a name="remarks"></a>备注
 

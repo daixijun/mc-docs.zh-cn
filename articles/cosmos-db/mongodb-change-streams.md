@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 06/04/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5c30a75c0af05b926523143d53918755c4e7cb7f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: ad33bc2b08eaafe17b184146f0ad18b4ee67bdca
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118562"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552821"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB's API for MongoDB 中的更改流
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 可以使用更改流 API 获取 Azure Cosmos DB's API for MongoDB 中的[更改源](change-feed.md)支持。 应用程序可以使用更改流 API 获取对集合或者对单个分片中的项所做的更改。 以后，可以根据结果采取进一步的措施。 对集合中的项所做的更改将按照其修改时间的顺序进行捕获，并按分片键保证排序顺序。
 

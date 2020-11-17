@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/01/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 832eafd2c01488c07e1f230722123e7914e0e267
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0bb4dc4271fd00bae138cfc72262126b451b4bb0
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103725"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590906"
 ---
 # <a name="r-plugin-preview"></a>R 插件（预览版）
 
@@ -27,14 +27,14 @@ R 插件使用 R 脚本运行用户定义的函数 (UDF)。 此脚本获取表�
 
 ## <a name="syntax"></a>语法
 
-*T* `|` `evaluate` [`hint.distribution` `=` (`single` | `per_node`)] `r(`*output_schema*`,` *script* [`,` *script_parameters* ]`)`
+*T* `|` `evaluate` [`hint.distribution` `=` (`single` | `per_node`)] `r(`*output_schema*`,` *script* [`,` *script_parameters*]`)`
 
 ## <a name="arguments"></a>参数
 
 * output_schema：`type` 文本，定义由 R 代码返回的表格数据的输出架构。
-    * 格式为：`typeof(`*ColumnName*`:` *ColumnType* [, ...]`)`，例如：`typeof(col1:string, col2:long)`。
+    * 格式为：`typeof(`*ColumnName*`:` *ColumnType*[, ...]`)`，例如：`typeof(col1:string, col2:long)`。
     * 若要扩展输入架构，请使用以下语法：`typeof(*, col1:string, col2:long)`。
-* *script* ：`string` 文本，是要执行的有效 R 脚本。
+* *script*：`string` 文本，是要执行的有效 R 脚本。
 * script_parameters：可选的 `dynamic` 文本，它是一个包含名称/值对的属性包，作为保留的 `kargs` 字典传递给 R 脚本。 有关详细信息，请参阅[保留的 R 变量](#reserved-r-variables)。
 * hint.distribution：一个可选的提示，用于在多个群集节点上分布插件的执行。
    默认：`single`。
@@ -57,7 +57,7 @@ R 插件使用 R 脚本运行用户定义的函数 (UDF)。 此脚本获取表�
 ## <a name="notes-and-limitations"></a>说明和限制
 
 * R 沙盒映像基于 R 3.4.4 for Windows，并且包括来自 [Anaconda's R Essentials 捆绑包](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/)的程序包。
-* R 沙盒限制对网络的访问。 R 代码无法动态安装映像中未包含的其他程序包。 如果你需要特定的程序包，请在 Azure 门户中 **新建支持请求** 。
+* R 沙盒限制对网络的访问。 R 代码无法动态安装映像中未包含的其他程序包。 如果你需要特定的程序包，请在 Azure 门户中 **新建支持请求**。
 
 ## <a name="examples"></a>示例
 

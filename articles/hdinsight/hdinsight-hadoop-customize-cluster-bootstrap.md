@@ -97,7 +97,7 @@ New-AzHDInsightCluster `
 1. 导航至 `https://CLUSTERNAME.azurehdinsight.cn/`，其中 `CLUSTERNAME` 是群集的名称。
 1. 从左侧菜单中，导航到“Hive” > “配置” > “高级”。
 1. 展开“高级 hive-site”。
-1. 找到 **hive.metastore.client.socket.timeout** 并确认该值为 **90s** 。
+1. 找到 **hive.metastore.client.socket.timeout** 并确认该值为 **90s**。
 
 下面是有关自定义其他配置文件的更多示例：
 

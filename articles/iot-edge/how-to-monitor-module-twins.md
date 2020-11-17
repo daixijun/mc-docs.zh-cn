@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 05/29/2020
-ms.date: 07/01/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d3291eecab4b3c03fcdc4cb08096d9d049062940
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: 050e2133ed66cbb268f67b1c3eae538ad99b57a3
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802808"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595178"
 ---
 # <a name="monitor-module-twins"></a>监视模块孪生
 
@@ -169,7 +169,7 @@ Azure IoT 中心中的模块孪生可以监视 IoT Edge 部署的连接性和运
 
 有关自定义模块连接性的信息在 IoT Edge 代理模块孪生中进行维护。 自定义模块的模块孪生主要用于维护解决方案的数据。 你在 deployment.json 文件中定义的所需属性将反映在模块孪生中，模块可根据需要更新报告的属性值。
 
-可以将首选的编程语言与 [Azure IoT 中心设备 SDK](https://docs.azure.cn/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) 结合使用，以基于模块的应用程序代码来更新模块孪生中报告的属性值。 以下过程使用适用于 .NET 的 Azure SDK 完成此操作，方法是使用来自 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 模块的代码：
+可以将首选的编程语言与 [Azure IoT 中心设备 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 结合使用，以基于模块的应用程序代码来更新模块孪生中报告的属性值。 以下过程使用适用于 .NET 的 Azure SDK 完成此操作，方法是使用来自 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 模块的代码：
 
 1. 使用 [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 方法创建 [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 的实例。
 

@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 7b072a058d9a9a896d3fb2e166d67c5068869514
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c80dda2392deeed19262210518ac24131050cb8b
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105018"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590592"
 ---
 # <a name="restrict-statement"></a>Restrict 语句
 
@@ -31,7 +31,7 @@ Restrict 语句主要适用于中间层应用程序，这些应用程序接受�
 
 ## <a name="syntax"></a>语法
 
-`restrict` `access` `to` `(` [ *EntitySpecifier* [`,` ...]] `)`
+`restrict` `access` `to` `(` [*EntitySpecifier* [`,` ...]] `)`
 
 其中 EntitySpecifier 是以下值之一：
 * 由 let 语句定义为表格视图的标识符。
@@ -40,7 +40,7 @@ Restrict 语句主要适用于中间层应用程序，这些应用程序接受�
 
 所有并非由 restrict 语句指定的表、表格视图或模式将对查询的其余部分变为“不可见”。 
 
-## <a name="arguments"></a>参数
+## <a name="arguments"></a>自变量
 
 Restrict 语句可以获取一个或多个参数，这些参数定义实体名称解析期间的许可限制。 实体可以是：
 * 出现在 `restrict` 语句前面的 [let 语句](./letstatement.md)。 

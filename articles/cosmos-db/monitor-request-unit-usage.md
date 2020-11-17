@@ -2,19 +2,19 @@
 title: 监视 Azure Cosmos DB 中的操作的吞吐量用量
 description: 了解如何监视 Azure Cosmos DB 中的操作的吞吐量或请求单位用量。 Azure Cosmos DB 帐户的所有者可以了解哪些操作占用了较多的请求单位。
 ms.service: cosmos-db
-ms.topic: conceptual
-author: rockboyfor
+ms.topic: how-to
 origin.date: 04/09/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4b74fc24cb10a290a03ca47c0bb7746d57008a74
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 4d7919c077fbde1bbf5cff33b4a11c109a26e1cd
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223457"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552801"
 ---
 <!--Verified successfully BEFORE Filters for request unit usage-->
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>如何监视 Azure Cosmos DB 中的操作的吞吐量或请求单位用量

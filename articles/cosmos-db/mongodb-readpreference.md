@@ -7,19 +7,20 @@ ms.devlang: nodejs
 ms.topic: how-to
 origin.date: 02/26/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 96732e69492f3afad00b4ead148a14b14f8fcb68
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9e13491271aee7e373f51c442afba360f59e704c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118540"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552810"
 ---
 # <a name="how-to-multiple-regionally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的 API for MongoDB 在多个区域中分配读取操作
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本文介绍如何通过 Azure Cosmos DB 的 API for MongoDB 使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置在多个区域中分配读取操作。
 
@@ -88,7 +89,7 @@ MongoDB 协议提供以下读取首选项模式供客户端使用：
 
 根据常见的方案，我们建议使用以下设置：
 
-1. 如果需要**低延迟读取**，可以使用 **NEAREST** 读取首选项模式。 此设置会将读取操作定向到最靠近的可用区域。 请注意，如果最靠近的区域是 WRITE 区域，则这些操作会定向到该区域。
+1. 如果需要 **低延迟读取**，可以使用 **NEAREST** 读取首选项模式。 此设置会将读取操作定向到最靠近的可用区域。 请注意，如果最靠近的区域是 WRITE 区域，则这些操作会定向到该区域。
 2. 如果要求“读取操作高度可用且分散到不同的地区”  （延迟不是约束条件），则使用“PRIMARY PREFERRED”  或“SECONDARY PREFERRED”  读取首选项模式。 此设置会将读取操作分别定向到可用的 WRITE 或 READ 区域。 如果该区域不可用，则根据读取首选项行为将请求定向到下一个可用区域。
 
 示例应用程序中的以下代码片段演示如何在 NodeJS 中配置 NEAREST 读取首选项：
@@ -147,7 +148,7 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-因此，MongoClient 可以结合区域名称使用 `region` 标记将读取操作定向到特定的区域。 对于 Cosmos 帐户，可以在 Azure 门户中左侧的“设置”->“全局副本数据”下面找到区域名称。  此设置可用于实现**读取隔离** - 可让客户端应用程序将读取操作定向到特定的区域。 此设置非常适合用于在后台运行的，并且不属于生产关键型服务的非生产/分析型方案。
+因此，MongoClient 可以结合区域名称使用 `region` 标记将读取操作定向到特定的区域。 对于 Cosmos 帐户，可以在 Azure 门户中左侧的“设置”->“全局副本数据”下面找到区域名称。  此设置可用于实现 **读取隔离** - 可让客户端应用程序将读取操作定向到特定的区域。 此设置非常适合用于在后台运行的，并且不属于生产关键型服务的非生产/分析型方案。
 
 <!--Correct on Settings->Replica data globally-->
 
@@ -175,7 +176,7 @@ MongoClient.connect(url, function(err, client) {
 
 ## <a name="next-steps"></a>后续步骤
 
-* [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+* [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 * [使用 Azure Cosmos DB 的 API for MongoDB 设置多区域分布式数据库](tutorial-global-distribution-mongodb.md)
 * [使用 Azure Cosmos DB 模拟器在本地进行开发](local-emulator.md)
 

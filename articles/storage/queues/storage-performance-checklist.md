@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: overview
 origin.date: 10/10/2019
-ms.date: 02/10/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: queues
-ms.openlocfilehash: 453eaad1cf9639ee255edee338f55cefff83d48c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3a5c47a407a9a814d6082ca68b331baa4d982446
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028975"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552848"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>队列存储的性能与可伸缩性查检表
 
@@ -26,7 +27,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 本文以查检表的形式组织了在开发队列存储应用程序时在性能方面可以遵循的经过证实的做法。
 
-| 完成 | Category | 设计注意事项 |
+| 完成 | 类别 | 设计注意事项 |
 | --- | --- | --- |
 | &nbsp; |可伸缩性目标 |[是否可将应用程序设计为避免使用的存储帐户数超过最大数目？](#maximum-number-of-storage-accounts) |
 | &nbsp; |可伸缩性目标 |[是否要避免接近容量和事务限制？](#capacity-and-transaction-targets) |
@@ -46,13 +47,13 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 | &nbsp; |批量检索 |[是否使用单个 GET 操作检索多个消息？](#batch-retrieval) |
 | &nbsp; |轮询频率 |[是否会进行足够频繁的轮询，以减少感知到的应用程序的延迟？](#queue-polling-interval) |
 | &nbsp; |更新消息 |[是否使用“更新消息”操作来存储消息处理进度，以便在发生错误时不必重新处理整个消息？](#use-update-message) |
-| &nbsp; |体系结构 |[是否会将长时间运行的工作负载置于关键路径之外，以便使用队列来提高整个应用程序的可伸缩性，再进行独立的伸缩？](#application-architecture) |
+| &nbsp; |体系结构 |[是否会将长时间运行的工作负载置于关键路径之外，以便使用队列来提高整个应用程序的伸缩性，然后再进行独立的伸缩？](#application-architecture) |
 
 ## <a name="scalability-targets"></a>可伸缩性目标
 
 如果应用程序接近或超过任何可伸缩性目标，则可能会出现事务处理延迟或限制越来越严重的现象。 当 Azure 存储对应用程序进行限制时，该服务将开始返回 503（服务器繁忙）或 500（操作超时）错误代码。 保持在可伸缩性目标限制范围内，以避免这些错误，是增强应用程序性能的重要组成部分。
 
-有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](/storage/queues/scalability-targets#scale-targets-for-queue-storage)。
+有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](./scalability-targets.md#scale-targets-for-queue-storage)。
 
 ### <a name="maximum-number-of-storage-accounts"></a>最大存储帐户数
 
@@ -118,7 +119,7 @@ SAS 和 CORS 都有助于避免 Web 应用程序上出现不必要的负载。
 
 ### <a name="increase-default-connection-limit"></a>提高默认连接限制
 
-在 .NET 中，以下代码可将默认的连接限制（通常在客户端环境中为 2，在服务器环境中为 10）提高到 100。 通常情况下，应将值大致设置为应用程序使用的线程数。  
+在 .NET 中，以下代码可将默认的连接限制（通常情况下，在客户端环境中为 2，在服务器环境中为 10）提高到 100。 通常情况下，应将值大致设置为应用程序使用的线程数。  
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -128,7 +129,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅该语言的文档以确定如何设置连接限制。  
 
-有关详细信息，请参阅博客文章 [Web 服务：Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)（Web 服务：并发连接）。  
+有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://docs.microsoft.com/archive/blogs/darrenj/web-services-concurrent-connections)。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增大最小线程数
 
@@ -146,7 +147,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>客户端库和工具
 
-为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](/storage/#reference)。
+为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](./reference.md)。
 
 ## <a name="handle-service-errors"></a>处理服务错误
 
@@ -178,13 +179,13 @@ Nagle 的算法已跨 TCP/IP 网络进行了广泛的实施，是一种改进网
 
 ## <a name="queue-polling-interval"></a>队列轮询间隔
 
-大多数应用程序会轮询获取队列中的消息，队列可能是适合于该应用程序的事务的最大源之一。 理智选择轮询间隔：轮询过于频繁可能导致应用程序接近队列的可伸缩性目标。 但是，200,000 次事务仅收费 0.01 美元（在撰写本文时），一个处理器每秒轮询一次且持续一个月的成本不到 15 美分，因此成本通常不是影响选择轮询间隔的因素。  
+大多数应用程序会轮询获取队列中的消息，队列可能是适合于该应用程序的事务的最大源之一。 理智选择轮询间隔：轮询过于频繁可能导致应用程序接近队列的可伸缩性目标。 不过，200,000 次事务仅收费 0.01 美元（在撰写本文时），一个处理器每秒轮询一次且持续一个月的成本不到 15 美分，因此成本通常不是影响选择轮询间隔的一项因素。  
 
 如需最新成本信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)。  
 
 ## <a name="use-update-message"></a>使用“更新消息”
 
-可以使用“更新消息”操作来增大不可见性超时或更新消息的状态信息。  与作业每完成一步就将其从一个队列传到下一个队列的工作流相比，使用“更新消息”可能更高效。  应用程序可将作业状态保存到消息，然后可以继续工作，而不必在作业的每一步完成时，为了执行作业的下一步而将消息重新排队。 请注意，每个“更新消息”操作将计入到可伸缩性目标。 
+可以使用“更新消息”操作来增大不可见性超时或更新消息的状态信息。 与作业每完成一步就将其从一个队列传到下一个队列的工作流相比，使用“更新消息”可能更高效。 应用程序可将作业状态保存到消息，然后可以继续工作，而不必在作业的每一步完成时，为了执行作业的下一步而将消息重新排队。 请注意，每个“更新消息”操作将计入到可伸缩性目标。
 
 ## <a name="application-architecture"></a>应用程序体系结构
 

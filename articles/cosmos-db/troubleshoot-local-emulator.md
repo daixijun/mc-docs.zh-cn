@@ -5,21 +5,23 @@ ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 09/17/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 62ae655a2984da912357f09943b338a9c1e18652
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: contperfq1
+ms.openlocfilehash: b3708167fd67fbd6c1db77989261d6130400b909
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118838"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552090"
 ---
 <!--Verified successfully for troubleshoot-->
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>排查使用 Azure Cosmos 模拟器时出现的问题
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-为方便开发，Azure Cosmos 模拟器提供了一个会模拟 Azure Cosmos DB 服务的本地环境。 本文中的提示有助于解决在安装或使用 Azure Cosmos 模拟器时遇到的问题。 
+为方便开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 本文中的提示有助于解决在安装或使用 Azure Cosmos 模拟器时遇到的问题。 
 
 如果安装了新版本的模拟器并遇到错误，请务必重置数据。 可在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，然后单击“重置数据...”来重置数据。 如果仍无法消除错误，可卸载该模拟器和所有旧版模拟器（如有），删除“C:\Program files\Azure Cosmos DB Emulatorr”目录，并卸载模拟器。 有关说明，请参阅[卸载本地模拟器](local-emulator.md#uninstall)。 如果重置数据没有用，也可导航到 `%LOCALAPPDATA%\CosmosDBEmulator` 位置并删除该文件夹。
 
@@ -37,7 +39,7 @@ ms.locfileid: "92118838"
 
 * 如果遇到连接问题，请[收集跟踪文件](#trace-files)，对其进行压缩，然后在 [Azure 门户](https://portal.azure.cn)中开具支持票证。
 
-* 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 检查是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为这些客户端的网络筛选器驱动程序可能会导致问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
+* 如果收到“服务不可用”消息，模拟器可能无法初始化网络堆栈。 请查看是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为其网络筛选器驱动程序可能会导致该问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
 
 * 如果遇到“禁止”-“消息”：“正在使用传输协议或密码中禁止的加密方法发出请求。请检查帐户 SSL/TLS 允许的最低协议设置…”连接问题，这可能是 OS 中发生全局更改（例如，预览体验计划预览版 20170）或启用 TLS 1.3 作为默认值的浏览器设置导致的。 使用 SDK 对 Cosmos 模拟器执行请求时，可能会发生类似错误，例如“Microsoft.Azure.Documents.DocumentClientException:正在使用传输协议或密码中禁止的加密方法发出请求。请检查帐户 SSL/TLS 允许的最低协议设置”。 此时这是预期情况，因为 Cosmos 模拟器仅接受并使用 TLS 1.2 协议。 建议的解决方法是将设置和默认值更改为 TLS 1.2；例如，在 IIS 管理器中，导航到“站点”->“默认网站”，找到端口 8081 的“网站绑定”并进行编辑，以禁用 TLS 1.3。 可以通过“设置”选项对 Web 浏览器执行类似操作。
 
@@ -88,10 +90,9 @@ ms.locfileid: "92118838"
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何调试本地模拟器的问题。 你现在可以继续学习下一篇文章：
+本文介绍了如何调试本地模拟器的问题。 你现在可以继续学习下面的文章：
 
 * [导出供 Java、Python 和 Node.js 应用使用的 Azure Cosmos 模拟器证书](local-emulator-export-ssl-certificates.md)
 * [使用命令行参数和 PowerShell 命令控制模拟器](emulator-command-line-parameters.md)
 
-<!-- Update_Description: new article about troubleshoot local emulator -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

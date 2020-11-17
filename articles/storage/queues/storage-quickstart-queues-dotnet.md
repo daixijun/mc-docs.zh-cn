@@ -4,16 +4,17 @@ description: 了解如何使用 Azure 队列 .NET v12 库创建队列并向队�
 author: WenJason
 ms.author: v-jay
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 02aa43a6eb105841222fcdea93b48428e00e2ce3
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9b470e070aa56fb2ba9a3c20633b2cc6fbc54b3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753316"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552707"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>快速入门：适用于 .NET 的 Azure 队列存储客户端库 v12
 
@@ -34,12 +35,12 @@ ms.locfileid: "88753316"
 * [API 参考文档](https://docs.microsoft.com/dotnet/api/azure.storage.queues)
 * [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [示例](/storage/common/storage-samples-dotnet?toc=%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [示例](../common/storage-samples-dotnet.md?toc=%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
-* Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
+* Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于操作系统的最新 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。 确保获取 SDK，而不是运行时。
 
 ## <a name="setting-up"></a>设置

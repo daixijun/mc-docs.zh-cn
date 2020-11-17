@@ -5,15 +5,15 @@ services: automation
 ms.service: virtual-machines
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: e2eebf79cedc602d6cef5618ab68c6d8f6a184ae
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 449d9c67fa6c8bc1f00a095c35edeb108486fbef
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057662"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637830"
 ---
 <!--Verify sccessfully-->
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>使用“运行命令”在 Linux VM 中运行 shell 脚本
@@ -40,7 +40,7 @@ ms.locfileid: "90057662"
 * 需要从 VM 建立出站连接才能返回脚本的结果。
 
 > [!NOTE]
-> 若要正常工作，“运行命令”需要连接（通过端口 443）到 Azure 公共 IP 地址。 如果扩展无法访问这些终结点，则脚本可能会成功运行，但不会返回结果。 如果要阻止虚拟机上的流量，可以使用[服务标记](../../virtual-network/security-overview.md#service-tags)以通过 `AzureChinaCloud` 标记允许流量发往 Azure 公共 IP 地址。
+> 若要正常工作，“运行命令”需要连接（通过端口 443）到 Azure 公共 IP 地址。 如果扩展无法访问这些终结点，则脚本可能会成功运行，但不会返回结果。 如果要阻止虚拟机上的流量，可以使用[服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)以通过 `AzureChinaCloud` 标记允许流量发往 Azure 公共 IP 地址。
 
 ## <a name="available-commands"></a>可用的命令
 
@@ -64,17 +64,29 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 ```
 
 > [!NOTE]
-> 若要以另一用户的身份运行命令，请输入 `sudo -u` 以指定用户帐户。
+> 若要以另一个用户的身份运行命令，请输入 `sudo -u` 以指定用户帐户。
 
-<!--Not Available on ## Azure portal-->
-<!--MOONCAKE: CORRECT on ##-->
+## <a name="azure-portal"></a>Azure 门户
+
+转到 [Azure 门户](https://portal.azure.cn) 中的某个 VM，然后在“操作”下选择“运行命令”。  你将看到可以在 VM 上运行的可用命令的列表。
+
+![命令列表](./media/run-command/run-command-list.png)
+
+选择要运行的命令。 某些命令可能有可选或必需的输入参数。 对于这些命令，参数将呈现为文本字段，你可以在其中提供输入值。 对于每个命令，可以通过展开“查看脚本”来查看所运行的脚本。 RunShellScript 不同于其他命令，因为它允许你提供自己的自定义脚本。
+
+> [!NOTE]
+> 内置命令不可编辑。
+
+选择命令之后，选择“运行”以运行脚本。 脚本完成之后，它会在输出窗口中返回输出和任何错误。 下面的屏幕截图显示了运行 **ifconfig** 命令时的示例输出。
+
+![运行命令脚本输出](./media/run-command/run-command-script-output.png)
 
 ### <a name="powershell"></a>PowerShell
 
 以下示例使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet 在 Azure VM 上运行 PowerShell 脚本。 该 cmdlet 需要 `-ScriptPath` 参数中引用的脚本位于运行该 cmdlet 的位置本地。
 
 ```powershell
-Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>限制对“运行命令”的访问

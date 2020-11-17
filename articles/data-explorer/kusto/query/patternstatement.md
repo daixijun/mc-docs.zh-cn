@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: d8d89516a01adf8b321577c63893fe4d75ddd059
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d6cfdb57936f40718cf5879f9970f18c76fd8ef1
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106306"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590904"
 ---
 # <a name="pattern-statement"></a>pattern 语句
 
@@ -156,7 +156,7 @@ declare pattern App;
 union (App('a1').Text), (App('a2').Text)
 ```
 
-**语义错误** ：
+**语义错误**：
 
 > SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a1').['Text']","App('a2').['Text']"]。
 
@@ -172,7 +172,7 @@ declare pattern App = (applicationId:string)[scope:string]
 union (App('a2').Metrics), (App('a3').Metrics) 
 ```
 
-**返回了语义错误** ：
+**返回了语义错误**：
 
 > SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a2').['Metrics']","App('a3').['Metrics']"]。
 

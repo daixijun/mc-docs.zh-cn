@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ab4b536c920df8556d4593ee06b34ceca4a0c1b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 56f099066ab76f895dbd49b6075e776c6aae8b58
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564202"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595141"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C IoT Edge 模块
 
@@ -51,7 +51,7 @@ ms.locfileid: "91564202"
 
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
-* 一个容器注册表，例如 [Azure 容器注册表](/container-registry/)。
+* 一个容器注册表，例如 [Azure 容器注册表](../container-registry/index.yml)。
 * 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 
@@ -365,7 +365,7 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 准备好生成自己的模块时，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio Code 开发模块](how-to-vs-code-develop-module.md)。 有关 IoT Edge 模块的示例，包括模拟温度模块，请参阅 [IoT Edge 模块示例](https://github.com/Azure/iotedge/tree/master/edge-modules)和 [IoT C SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)。
+在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。
 
 可以继续学习后续教程，了解如何借助 Azure IoT Edge 部署 Azure 云服务，在边缘位置处理和分析数据。
 

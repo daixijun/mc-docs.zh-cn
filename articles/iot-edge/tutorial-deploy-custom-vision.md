@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6903d2f7db3cfa1c36f0554d6d10086e612aaa39
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: dec090171a18f753ad99e929cdbe62f95b733c76
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564199"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595136"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -47,7 +47,7 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
 
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
-* 一个容器注册表，例如 [Azure 容器注册表](/container-registry/)。
+* 一个容器注册表，例如 [Azure 容器注册表](../container-registry/index.yml)。
 * 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 

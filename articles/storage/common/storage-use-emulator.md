@@ -4,16 +4,16 @@ description: Azure 存储模拟器为开发和测试 Azure 存储应用程序提
 author: WenJason
 ms.author: v-jay
 origin.date: 07/16/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: acf1b6e2c4151625900d5c9f34dff548aacecb8c
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 0b6f903d09206056337911efbc609202340e3e1c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026615"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552888"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -45,7 +45,7 @@ Azure 存储模拟器工具可以针对本地开发目的模拟 Azure Blob、队
 
 若要启动 Azure 存储模拟器：
 
-1. 选择“开始”**** 按钮或按“Windows”**** 键。
+1. 选择“开始”按钮或按“Windows”键。
 2. 开始键入 `Azure Storage Emulator`。
 3. 从所示应用程序的列表中选择该模拟器。
 
@@ -86,7 +86,7 @@ Azure 存储模拟器工具可以针对本地开发目的模拟 Azure Blob、队
 有关这些命令的详细信息，请参阅[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 可使用 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”**** 对话框的“服务器名称:”**** 字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
+> 可使用 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>针对存储模拟器对请求进行身份验证
 
@@ -96,7 +96,7 @@ Azure 存储模拟器工具可以针对本地开发目的模拟 Azure Blob、队
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-有关连接字符串的详细信息，请参阅[配置 Azure 存储连接字符串](../storage-configure-connection-string.md)。
+有关连接字符串的详细信息，请参阅[配置 Azure 存储连接字符串](./storage-configure-connection-string.md)。
 
 ### <a name="authorize-with-a-shared-access-signature"></a>使用共享访问签名进行授权
 
@@ -162,7 +162,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> 若要使用存储模拟器以编程方式访问次要副本，请使用适用于 .NET 的存储客户端库 3.2 版或更高版本。 请参阅[适用于 .NET 的 Microsoft Azure 存储客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)，获取详细信息。
+> 若要使用存储模拟器以编程方式访问次要副本，请使用适用于 .NET 的存储客户端库 3.2 版或更高版本。 请参阅[适用于 .NET 的 Microsoft Azure 存储客户端库](https://docs.microsoft.com/previous-versions/azure/dn261237(v=azure.100))，获取详细信息。
 >
 >
 
@@ -330,5 +330,5 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 ## <a name="next-steps"></a>后续步骤
 
 * 评估跨平台的、由社区维护的开源存储模拟器 [Azurite](https://github.com/azure/azurite)。 
-* [使用 .NET 的 Azure 存储示例](../storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
+* [使用 .NET 的 Azure 存储示例](./storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。

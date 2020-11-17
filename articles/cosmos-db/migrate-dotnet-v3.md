@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 277d7fe8b67f228ba9c9de4a4c2b9b11e5a381c7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1077c83db66254f022d9157185945d3661560332
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106570"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552827"
 ---
 <!--Verified successfully for only charactors only-->
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>迁移应用程序以使用 Azure Cosmos DB .NET SDK v3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > 若要了解 Azure Cosmos DB .NET SDK v3，请参阅[发行说明](sql-api-sdk-dotnet-standard.md)、[.NET GitHub 存储库](https://github.com/Azure/azure-cosmos-dotnet-v3)、.NET SDK v3 [性能提示](performance-tips-dotnet-sdk-v3-sql.md)和[故障排除指南](troubleshoot-dot-net-sdk.md)。

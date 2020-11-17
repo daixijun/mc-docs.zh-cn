@@ -5,29 +5,28 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/30/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 89c2942476a6c04abb98c7211f050c5a0f7064fd
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 09327e1f3b29ec0d77fb619666e94379b8257931
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564563"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595116"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Linux 设备
 
 本快速入门通过将容器化代码部署到虚拟 Linux IoT Edge 设备来测试 Azure IoT Edge。 IoT Edge 允许你远程管理设备上的代码，这样你就可以将更多工作负荷发送到 Edge。 对于本快速入门，我们建议使用 Azure 虚拟机作为 IoT Edge 设备，这样可以快速创建安装了 IoT Edge 服务的测试计算机，然后在完成后将其删除。
 
 此快速入门介绍如何：
-> [!div class="checklist"]
->
-> * 创建 IoT 中心。
-> * 将 IoT Edge 设备注册到 IoT 中心。
-> * 在虚拟设备上安装并启动 IoT Edge 运行时。
-> * 以远程方式将模块部署到 IoT Edge 设备。
+
+* 创建 IoT 中心。
+* 将 IoT Edge 设备注册到 IoT 中心。
+* 在虚拟设备上安装并启动 IoT Edge 运行时。
+* 以远程方式将模块部署到 IoT Edge 设备。
 
 ![关系图 - 设备和云架构的快速入门](./media/quickstart-linux/install-edge-full.png)
 
@@ -104,13 +103,13 @@ ms.locfileid: "91564563"
 
 ![关系图 - 在设备上启动运行时](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，*IoT Edge 安全守护程序*就会启动。 *IoT Edge 代理*协助部署和监视 IoT Edge 设备（包括 IoT Edge 中心）的模块。 IoT Edge 中心管理 IoT Edge 设备模块之间以及设备和 Azure IoT 中心之间的通信。
+IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，*IoT Edge 安全守护程序* 就会启动。 *IoT Edge 代理* 协助部署和监视 IoT Edge 设备（包括 IoT Edge 中心）的模块。 IoT Edge 中心管理 IoT Edge 设备模块之间以及设备和 Azure IoT 中心之间的通信。
 
 在运行时配置期间，你提供设备连接字符串。 这是从 Azure CLI 检索的字符串。 此字符串将物理设备与 Azure 中的 IoT Edge 设备标识关联在一起。
 
 ### <a name="deploy-the-iot-edge-device"></a>部署 IoT Edge 设备
 
-本部分使用 Azure 资源管理器模板来创建新的虚拟机，并在其上安装 IoT Edge 运行时。 如果要改为使用自己的 Linux 设备，则可以按照[在 Linux 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)中的安装步骤进行操作，然后返回本快速入门。
+本部分使用 Azure 资源管理器模板来创建新的虚拟机，并在其上安装 IoT Edge 运行时。 如果要改为使用自己的 Linux 设备，则可以按照[安装 Azure IoT Edge 运行时](how-to-install-iot-edge.md)中的安装步骤进行操作，然后返回本快速入门。
 
 使用以下 CLI 命令基于预生成的 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 模板创建 IoT Edge 设备。
 

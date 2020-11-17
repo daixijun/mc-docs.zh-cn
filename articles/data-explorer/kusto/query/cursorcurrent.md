@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: bc8b83d5e882034238dd48de5edc32cfe47f35d9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: cff65bc16cc90b4a3ed33723fcd6979d3f3e5e1b
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104442"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590909"
 ---
 # <a name="cursor_current-current_cursor"></a>cursor_current()、current_cursor()
 

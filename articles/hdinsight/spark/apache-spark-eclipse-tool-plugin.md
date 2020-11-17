@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 12/13/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 4d18d14ccbf7d72225cd0f48ffc5dd625cd0c2ea
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: be2268dde03001bffa6fc63a346e46690b193256
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186459"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552621"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -32,7 +32,7 @@ ms.locfileid: "84186459"
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
-* [Java 开发人员工具包 (JDK) 版本 8](https://aka.ms/azure-jdks)。
+* [Java 开发人员工具包 (JDK) 版本 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 
 * [Eclipse IDE](https://www.eclipse.org/downloads/)。 本文使用适用于 Java 开发人员的 Eclipse IDE。
 
@@ -108,7 +108,7 @@ ms.locfileid: "84186459"
 
    ![Azure 资源管理器 hdi 链接群集](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
 
-1. 还可以从 **Azure 资源管理器**取消链接群集。
+1. 还可以从 **Azure 资源管理器** 取消链接群集。
 
    ![Azure 资源管理器取消链接群集](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
@@ -291,7 +291,7 @@ ms.locfileid: "84186459"
 
    ![Azure 资源管理器中的 HDInsight Spark 群集（提交）](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png)
 
-3. 对于**群集名称**，选择具有“仅读取者”角色权限的群集。 此时会显示警告消息。可以单击“链接此群集”以链接群集。
+3. 对于 **群集名称**，选择具有“仅读取者”角色权限的群集。 此时会显示警告消息。可以单击“链接此群集”以链接群集。
 
    ![Azure 资源管理器中的 HDInsight Spark 群集（对此进行链接）](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png)
 

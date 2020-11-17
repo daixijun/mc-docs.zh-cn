@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1952ce2a8d0f6717bc4445b32e99c8c1a107ea6b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6a5160697bc770af2c0a8ddf8f0d942f517a6bde
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246623"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552698"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数组和对象
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB SQL API 的一个重要功能是创建数组和对象。
 
@@ -165,4 +166,4 @@ FROM child IN Families.children
 - [Azure Cosmos DB.NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [联接](sql-query-join.md)
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

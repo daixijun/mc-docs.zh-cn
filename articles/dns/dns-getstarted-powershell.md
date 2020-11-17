@@ -6,16 +6,16 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: quickstart
-origin.date: 3/11/2019
-ms.date: 10/19/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f665c4e607c045863129240618183f13c9cd52b5
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: ca42333ffaec4126ed4a50d7ebb4d1fd8a9b25f5
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943478"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590787"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Azure DNS 区域和记录
 
@@ -26,7 +26,11 @@ ms.locfileid: "91943478"
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
 
 Azure DNS 还支持创建专用域。 有关如何创建第一个专用 DNS 区域和记录的分步说明，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](private-dns-getstarted-powershell.md)。
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+## <a name="prerequisites"></a>先决条件
+
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 在本地安装了 Azure PowerShell
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
@@ -92,7 +96,7 @@ Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 
 主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样   。 此结果表明名称解析正常工作。
 
-## <a name="delete-all-resources"></a>删除所有资源
+## <a name="clean-up-resources"></a>清理资源
 
 当不再需要时，可以通过删除资源组来删除本快速入门中创建的所有资源：
 

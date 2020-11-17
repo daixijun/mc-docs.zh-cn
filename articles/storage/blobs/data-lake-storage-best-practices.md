@@ -32,7 +32,7 @@ Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组�
 
 ### <a name="security-for-groups"></a>组的安全性
 
-当你或你的用户需要访问启用了分层命名空间的存储帐户中的数据时，最好是使用 Azure Active Directory 安全组。 一开始时，建议对容器的根目录使用 **ReadOnlyUsers** 、 **WriteAccessUsers** 和 **FullAccessUsers** 组，甚至可以对关键的子目录使用单独的安全组。 如果还有其他预期会在以后添加但目前尚未确定的用户组，可以考虑创建能够访问特定文件夹的虚拟安全组。 使用安全组可确保在为数千个文件分配新权限时不需要很长的处理时间。
+当你或你的用户需要访问启用了分层命名空间的存储帐户中的数据时，最好是使用 Azure Active Directory 安全组。 一开始时，建议对容器的根目录使用 **ReadOnlyUsers**、**WriteAccessUsers** 和 **FullAccessUsers** 组，甚至可以对关键的子目录使用单独的安全组。 如果还有其他预期会在以后添加但目前尚未确定的用户组，可以考虑创建能够访问特定文件夹的虚拟安全组。 使用安全组可确保在为数千个文件分配新权限时不需要很长的处理时间。
 
 ### <a name="security-for-service-principals"></a>服务主体的安全性
 

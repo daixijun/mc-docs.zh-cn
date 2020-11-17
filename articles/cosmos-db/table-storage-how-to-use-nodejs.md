@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 47764bb975e9bb827196a5b811fddc7345d4b1fd
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: aac55bc257fee87234dce93043db92ffb4dc0ec8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118525"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552682"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -40,9 +41,9 @@ ms.locfileid: "92118525"
 
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>配置应用程序以访问 Azure 存储或 Azure Cosmos DB 表API
 
-<!--CORRECT ON Microsoft Azure Storage SDK for Node.js-->
+<!--CORRECT ON Azure Storage SDK for Node.js-->
 
-若要使用 Azure 存储或 Azure Cosmos DB，需要适用于 Node.js 的 Microsoft Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
+若要使用 Azure 存储或 Azure Cosmos DB，需要适用于 Node.js 的 Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用 Node 包管理器 (NPM) 安装包
 
@@ -142,7 +143,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 * **PartitionKey** - 确定实体存储在其中的分区。
 * **RowKey** - 唯一标识分区内的实体。
 
-**PartitionKey** 和 **RowKey** 都必须是字符串值。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
+**PartitionKey** 和 **RowKey** 都必须是字符串值。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)（了解表服务数据模型）。
 
 下面是如何定义实体的示例。 dueDate 定义为一种 `Edm.DateTime` 类型。 可以选择指定类型。如果未指定类型，系统会进行推断。
 
@@ -195,7 +196,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
-## <a name="update-an-entity"></a><a name="update-an-entity'></a>更新实体
+## <a name="update-an-entity"></a><a name="update-an-entity"></a>更新实体
 
 可使用多种方法来更新现有实体：
 
@@ -490,9 +491,9 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * [Microsoft Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 
-    <!-- Notice: CORRECT ON Microsoft -->
+    <!-- Notice: CORRECT ON Microsoft Azure Storage Explorer -->
 
-* GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
+* GitHub 上的 [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) 存储库。
     
 * [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/azure/developer/javascript/)
 * [在 Azure 中创建 Node.js Web 应用](../app-service/quickstart-nodejs.md)

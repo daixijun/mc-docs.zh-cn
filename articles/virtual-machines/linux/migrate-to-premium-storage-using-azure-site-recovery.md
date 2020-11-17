@@ -5,19 +5,19 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 origin.date: 08/15/2017
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.subservice: disks
-ms.openlocfilehash: 73d6b6cfa1464fb96f06bb61260a1d0a10dee1ef
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: d5cd30ea7e21458f47c184f720e98907d5d25648
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057599"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637966"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
-[Azure 高级 SSD](disks-types.md) 为运行 I/O 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 本指南帮助用户使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 将其 VM 磁盘从标准存储帐户迁移到高级存储帐户。
+[Azure 高级 SSD](../disks-types.md) 为运行 I/O 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 本指南帮助用户使用 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 将其 VM 磁盘从标准存储帐户迁移到高级存储帐户。
 
 Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器和 VM 到云 (Azure) 或辅助数据中心的复制，来为业务连续性和灾难恢复策略提供辅助。 当主要位置发生故障时，可以故障转移到辅助位置，使应用程序和工作负荷保持可用。 当主要位置恢复正常时，可以故障转移回到主要位置。 
 
@@ -33,7 +33,7 @@ Site Recovery 支持多种类型的、停机时间极短或不造成停机的故
 
 这些是与此迁移方案相关的 Site Recovery 组件。
 
-* **配置服务器**是用于协调通信以及管理数据复制和恢复过程的 Azure VM。 在此 VM 上运行单个安装程序文件来安装配置服务器，以及一个称作进程服务器、用作复制网关的附加组件。 请阅读[配置服务器必备组件](../../site-recovery/vmware-azure-tutorial.md)。 配置服务器只需设置一次，在迁移到同一区域的所有过程中都可以使用它。
+* **配置服务器** 是用于协调通信以及管理数据复制和恢复过程的 Azure VM。 在此 VM 上运行单个安装程序文件来安装配置服务器，以及一个称作进程服务器、用作复制网关的附加组件。 请阅读[配置服务器必备组件](../../site-recovery/vmware-azure-tutorial.md)。 配置服务器只需设置一次，在迁移到同一区域的所有过程中都可以使用它。
 
 * 进程服务器是一种复制网关，其职能包括： 
 
@@ -166,7 +166,7 @@ Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和�
 
    ![选定了“源”的“启用复制”窗格][13]
 
-设计 Azure 存储环境时，我们建议针对可用性集中的每个 VM 使用不同的存储帐户。 我们建议按照存储层中的最佳做法[为每个可用性集使用多个存储帐户](../linux/manage-availability.md)。 将 VM 磁盘分配到多个存储帐户有助于改善存储可用性，以及在整个 Azure 存储基础结构中分配 I/O。
+设计 Azure 存储环境时，我们建议针对可用性集中的每个 VM 使用不同的存储帐户。 我们建议按照存储层中的最佳做法[为每个可用性集使用多个存储帐户](../manage-availability.md)。 将 VM 磁盘分配到多个存储帐户有助于改善存储可用性，以及在整个 Azure 存储基础结构中分配 I/O。
 
 如果 VM 位于可用性集中，我们强烈建议分多次迁移多个 VM，而不要将所有 VM 的磁盘都复制到一个存储帐户。 这是为了避免同一个可用性集中的 VM 共享单个存储帐户。 使用“启用复制”窗格为每个 VM 设置目标存储帐户，一次设置一个。
  
@@ -201,7 +201,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 
 3. **清理 Azure Site Recovery 基础结构**。 如果不再需要 Site Recovery，可清理其基础结构。 删除复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库。
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 * [监视虚拟机和物理服务器的保护及其故障排除](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 

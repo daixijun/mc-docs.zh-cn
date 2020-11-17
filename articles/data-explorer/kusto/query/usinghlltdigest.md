@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0ab588482a656e5d21d3eb59c9c253e1e0a45599
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 31ff3d3f940519173a91c93e6b54eb67df16d515
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106115"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590640"
 ---
 # <a name="using-hll-and-tdigest"></a>使用 hll() 和 tdigest()
 

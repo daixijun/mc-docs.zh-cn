@@ -4,18 +4,18 @@ description: 了解如何通过 Python 使用 Azure 队列服务创建和删除�
 author: WenJason
 ms.author: v-jay
 origin.date: 08/25/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: eaa7989ca7cf6b680cbda97da1f131a432267483
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 9a18594445b8bba69cbd248233291c44a21ab694
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026639"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552711"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>如何通过 Python 使用 Azure 队列存储
 
@@ -366,7 +366,7 @@ queue_service.delete_queue(queue_name)
 
 * [Azure 队列 Python API 参考](https://docs.microsoft.com/python/api/azure-storage-queue)
 * [Python 开发人员中心](/develop/python/)
-* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355)
+* [Azure 存储服务 REST API](https://docs.microsoft.com/rest/api/storageservices/)
 
 [用于 Python 的 Azure 队列存储客户端库]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Azure SDK for Python]: https://github.com/azure/azure-sdk-for-python

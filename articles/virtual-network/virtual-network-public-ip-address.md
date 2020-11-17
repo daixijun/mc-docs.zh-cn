@@ -5,7 +5,6 @@ description: 管理公共 IP 地址。  还将了解公共 IP 地址如何成为
 services: virtual-network
 documentationcenter: na
 manager: KumudD
-editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -16,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: a4598f7dbdb99cf88d55897bedff8c39ba2c4d8f
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: de59fe337b605cef4dfe70129eba43a7398fedfe
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628251"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590545"
 ---
 # <a name="manage-public-ip-addresses"></a>管理公共 IP 地址
 
@@ -70,22 +69,24 @@ ms.locfileid: "92628251"
 |名称|是|名称在所选资源组中必须唯一。|
 |IP 地址分配|是|**动态：** 只有在将公共 IP 地址与 Azure 资源相关联并首次启动该资源时，才分配动态地址。 如果将动态地址分配给某个资源，例如虚拟机，并且虚拟机停止（解除分配）后又重启，则动态地址可能会更改。 如果虚拟机重启或停止（但未解除分配），该地址将保持不变。 当公共 IP 地址资源从它关联到的资源取消关联时，会释放动态地址。 **静态：** 静态地址是在创建公共 IP 地址时分配的。 删除公共 IP 地址资源之前，不会释放静态地址。 如果地址没有关联到资源，则在创建地址后可以更改分配方法。 如果地址已关联到资源，则无法更改分配方法。 如果选择 IPv6 作为“IP 版本”，则对于 Basic SKU，分配方法必须为“动态”。  对于 IPv4 和 IPv6，标准 SKU 地址均为“静态”。 |
 |空闲超时(分钟)|否|在不依赖客户端发送保持连接消息的情况下，TCP 或 HTTP 连接持续打开的分钟数。 如果选择 IPv6 作为“IP 版本”，则不能更改此值。 |
-|DNS 名称标签|否|必须在创建名称的 Azure 位置中（在所有订阅和所有客户中）保持唯一。 Azure 会在其 DNS 中自动注册该名称和 IP 地址，使你能够连接到使用该名称的资源。 Azure 会将类似于 *location.cloudapp.chinacloudapi.cn* （其中 location 是所选的位置）的默认子网追加到提供的名称后面，以创建完全限定的 DNS 名称。 如果选择同时创建这两个地址版本，则会将相同的 DNS 名称分配给 IPv4 和 IPv6 地址。 Azure 的默认 DNS 服务包含 IPv4 A 和 IPv6 AAAA 名称记录，并在查找 DNS 名称时响应这两个记录。 客户端选择要与哪个地址（IPv4 或 IPv6）通信。 除了使用带有默认后缀的 DNS 名称标签，还可以改用 Azure DNS 服务来配置带有自定义后缀（可解析为公共 IP 地址）的 DNS 名称。 有关详细信息，请参阅[将 Azure DNS 与 Azure 公共 IP 地址配合使用](../dns/dns-custom-domain.md?toc=%2fvirtual-network%2ftoc.json#public-ip-address)。|
+|DNS 名称标签|否|必须在创建名称的 Azure 位置中（在所有订阅和所有客户中）保持唯一。 Azure 会在其 DNS 中自动注册该名称和 IP 地址，使你能够连接到使用该名称的资源。 Azure 会将类似于 *location.cloudapp.chinacloudapi.cn*（其中 location 是所选的位置）的默认子网追加到提供的名称后面，以创建完全限定的 DNS 名称。 如果选择同时创建这两个地址版本，则会将相同的 DNS 名称分配给 IPv4 和 IPv6 地址。 Azure 的默认 DNS 服务包含 IPv4 A 和 IPv6 AAAA 名称记录，并在查找 DNS 名称时响应这两个记录。 客户端选择要与哪个地址（IPv4 或 IPv6）通信。 除了使用带有默认后缀的 DNS 名称标签，还可以改用 Azure DNS 服务来配置带有自定义后缀（可解析为公共 IP 地址）的 DNS 名称。 有关详细信息，请参阅[将 Azure DNS 与 Azure 公共 IP 地址配合使用](../dns/dns-custom-domain.md?toc=%2fvirtual-network%2ftoc.json#public-ip-address)。|
 |名称（仅选择“两者”的 IP 版本时才可见）|是，如果选择“两者”的 IP 版本|该名称必须不同于在此列表中的第一个“名称”中输入的名称。 如果选择同时创建 IPv4 和 IPv6 地址，门户将创建两个单独的公共 IP 地址资源，每个资源中分配有一个 IP 地址版本。|
 |IP 地址分配（仅选择“两者”的 IP 版本时才可见）|是，如果选择“两者”的 IP 版本|与上面的 IP 地址分配有相同的限制|
 |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。|
 |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
 |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://status.azure.com/status/)（也称为“区域”）。|
-    
+
 <!-- Not Available on |SKU on **Availability zone** -->
 <!-- Not Available on Available zone -->
 
 ## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>查看、修改公共 IP 地址的设置或删除公共 IP 地址
 
    - 查看/列出：用于检查公共 IP 的设置，包括 SKU、地址、任何适用的关联（例如虚拟机 NIC、负载均衡器前端）。
-   - **修改** ：用于使用[创建公共 IP 地址](#create-a-public-ip-address)的第 4 步中的信息来修改设置，如空闲超时、DNS 名称标签或分配方法。
+   - **修改**：用于使用 [创建公共 IP 地址](#create-a-public-ip-address)的第 4 步中的信息来修改设置，如空闲超时、DNS 名称标签或分配方法。
    >[!WARNING]
    >若要将公共 IP 地址的分配方法从静态更改为动态，必须先将该地址与任何适用的 IP 配置取消关联（请参阅“删除”部分）。  另外请注意，在将分配方法从静态更改为动态时，已分配给公共 IP 地址的 IP 地址会丢失。 尽管 Azure 公共 DNS 服务器会保留静态或动态地址与任何 DNS 名称标签（若已定义）之间的映射，但如果虚拟机在处于停止（解除分配）状态之后启动，动态 IP 地址可能更改。 为防止地址变化，请分配静态 IP 地址。
+
+   <!--Not Available on  [Upgrade Azure public IP addresses](https://docs.azure.cn/virtual-network/virtual-network-public-ip-address-upgrade)-->
 
 |操作|Azure 门户|Azure PowerShell|Azure CLI|
 |---|---|---|---|
@@ -93,16 +94,13 @@ ms.locfileid: "92628251"
 |列出 | 在“公共 IP 地址”类别下 |使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 来检索一个或多个公共 IP 地址对象并查看其设置|使用 [az network public-ip list](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_list) 来列出公共 IP 地址|
 |修改 | 对于取消关联的 IP，请选择“配置”来修改空闲超时、DNS 名称标签，或将基本 IP 的分配方式从静态更改为动态  |使用 [Set-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/set-azpublicipaddress) 来更新设置 |使用 [az network public-ip update](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_update) 进行更新 |
 
-   - **删除** ：若要删除公共 IP，需要该公共 IP 对象不与任何 IP 配置或虚拟机 NIC 关联。 有关详细信息，请参阅下表。
+   - **删除**：若要删除公共 IP，需要该公共 IP 对象不与任何 IP 配置或虚拟机 NIC 关联。 有关详细信息，请参阅下表。
 
 |资源|Azure 门户|Azure PowerShell|Azure CLI|
 |---|---|---|---|
 |[虚拟机](https://docs.azure.cn/virtual-network/remove-public-ip-address-vm)|选择“取消关联”，以将该 IP 地址与 NIC 配置取消关联，然后选择“删除” 。|使用 [Set-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/set-azpublicipaddress) 来将该 IP 地址与 NIC 配置取消关联；使用 [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress) 来删除|使用 [az network public-ip update --remove](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_update) 来将该 IP 地址与 NIC 配置取消关联；使用 [az network public-ip delete](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_delete) 来删除 |
 |负载均衡器前端 | 导航到未使用的公共 IP 地址并选择“关联”，然后选择具有相关的前端 IP 配置的负载均衡器来替换该地址（然后可使用与用于 VM 的同一方法来删除旧 IP）  | 使用 [Set-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancerfrontendipconfig) 将新的前端 IP 配置关联到公共负载均衡器；使用 [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress) 来删除；也可以使用 [Remove-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) 来删除前端 IP 配置（如果有多个） |使用 [az network lb frontend-ip update](https://docs.azure.cn/cli/network/lb/frontend-ip#az_network_lb_frontend_ip_update) 将新的前端 IP 配置关联到公共负载均衡器；使用 [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress) 来删除，也可以使用 [az network lb frontend-ip delete](https://docs.azure.cn/cli/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) 来删除前端 IP 配置（如果有多个）|
 |防火墙|空值| 使用 [Deallocate()](/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) 来解除分配防火墙并删除所有 IP 配置 | 使用 [az network firewall ip-config delete](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) 来删除 IP（但必须先使用 PowerShell 来解除分配）|
-
->[!NOTE]
->某些资源的公共 IP 在创建之后不能更改或删除。  其中包括：Azure NAT 网关、Azure VPN 网关和 Azure 应用程序网关。
 
 ## <a name="virtual-machine-scale-sets"></a>虚拟机规模集
 
@@ -129,7 +127,7 @@ ms.locfileid: "92628251"
 
 | 操作                                                             | 名称                                                           |
 | ---------                                                          | -------------                                                  |
-| Microsoft.Network/publicIPAddresses/read                           | 读取公共 IP 地址                                          |
+| Microsoft.Network/publicIPAddresses/read                           | 读取公共 IP 地址                                       |
 | Microsoft.Network/publicIPAddresses/write                          | 创建或更新公共 IP 地址                           |
 | Microsoft.Network/publicIPAddresses/delete                         | 删除公共 IP 地址                                     |
 | Microsoft.Network/publicIPAddresses/join/action                    | 将公共 IP 地址关联到资源                    |

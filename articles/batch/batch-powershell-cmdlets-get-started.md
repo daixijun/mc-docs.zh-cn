@@ -5,17 +5,17 @@ ms.topic: how-to
 ms.service: batch
 origin.date: 01/15/2019
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 2ecfdbaf9c04d97599ba505dcb913c8141880fe8
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 305161036fb2f1e739e4de48a51378edbb9147b1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146271"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552693"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
@@ -35,7 +35,7 @@ ms.locfileid: "91146271"
     Connect-AzAccount -Environment AzureChinaCloud
     ```
 
-* **注册到批处理提供程序命名空间**。 执行此操作时，只需**每个订阅一次**。
+* **注册到批处理提供程序命名空间**。 执行此操作时，只需 **每个订阅一次**。
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -122,7 +122,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 创建或更新 Batch 池时，你需要为计算节点上的操作系统选择云服务配置或虚拟机配置（请参阅[节点和池](nodes-and-pools.md#configurations)）。 如果指定云服务配置，系统会使用一个 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)为计算节点创建映像。 如果指定虚拟机配置，则可指定一个受支持的 Linux 或 Windows VM 映像（在 [Azure 虚拟机市场][vm_marketplace]中列出），或者提供已准备的自定义映像。
 
-运行 **New-AzBatchPool**时，传递 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 对象中的操作系统设置。 例如，以下代码片段可以在虚拟机配置中创建包含 Standard_A1 大小计算节点的 Batch 池，这些节点包含 Ubuntu Server 18.04-LTS 映像。 在这里，**VirtualMachineConfiguration** 参数指定 *$configuration* 变量作为 PSVirtualMachineConfiguration 对象。 **BatchContext** 参数将先前定义的变量 *$context* 指定为 BatchAccountContext 对象。
+运行 **New-AzBatchPool** 时，传递 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 对象中的操作系统设置。 例如，以下代码片段可以在虚拟机配置中创建包含 Standard_A1 大小计算节点的 Batch 池，这些节点包含 Ubuntu Server 18.04-LTS 映像。 在这里，**VirtualMachineConfiguration** 参数指定 *$configuration* 变量作为 PSVirtualMachineConfiguration 对象。 **BatchContext** 参数将先前定义的变量 *$context* 指定为 BatchAccountContext 对象。
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -140,7 +140,7 @@ New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachine
 
 ### <a name="query-for-data"></a>查询数据
 
-例如，使用 **Get-AzBatchPools** 可查找池。 假设已将 BatchAccountContext 对象存储在 *$context*中，则默认情况下，此 cmdlet 将查询帐户下的所有池：
+例如，使用 **Get-AzBatchPools** 可查找池。 假设已将 BatchAccountContext 对象存储在 *$context* 中，则默认情况下，此 cmdlet 将查询帐户下的所有池：
 
 ```powershell
 Get-AzBatchPool -BatchContext $context
@@ -210,13 +210,13 @@ New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
-设置应用程序的**默认版本**：
+设置应用程序的 **默认版本**：
 
 ```powershell
 Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
-**列出**应用程序的包
+**列出** 应用程序的包
 
 ```powershell
 $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -224,13 +224,13 @@ $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroup
 $application.ApplicationPackages
 ```
 
-**删除**应用程序包
+**删除** 应用程序包
 
 ```powershell
 Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
-**删除**应用程序
+**删除** 应用程序
 
 ```powershell
 Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -297,7 +297,7 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 ```
 
 > [!TIP]
-> 可将多个应用程序包部署到池中的计算节点。 如果想要*添加*应用程序包而不是替换当前部署的包，请省略上面的 `$pool.ApplicationPackageReferences.Clear()` 代码行。
+> 可将多个应用程序包部署到池中的计算节点。 如果想要 *添加* 应用程序包而不是替换当前部署的包，请省略上面的 `$pool.ApplicationPackageReferences.Clear()` 代码行。
 
 ## <a name="next-steps"></a>后续步骤
 

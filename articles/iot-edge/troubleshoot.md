@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 04/27/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 71be766aa9af426b03912fff957ec112fb84d6d4
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: eadf95c5b55045f76997edb9458d6cbe2c2f75ec
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564552"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595212"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>排除 IoT Edge 设备故障
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 04/29/2020
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f7e720c7f066d87c91e7dafc90ad4f908f0c7fc2
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-js
+ms.openlocfilehash: 86dfc1238df0f7c018c5d8c30350c166ddd084ed
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317451"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590661"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 

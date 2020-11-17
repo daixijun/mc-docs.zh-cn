@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 origin.date: 11/25/2019
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.openlocfilehash: d18fe4f589fa918dbb73b61ef380c692aa695471
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: d644224e57ff3dc71ef7dfdd0ce5536fbbac517b
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057696"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637907"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 
@@ -29,8 +29,8 @@ ms.locfileid: "90057696"
 **CentOS 安装说明**
 
 * 另请参阅[常规 Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 的提示。
-* Azure 不支持 VHDX 格式，仅支持**固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。 如果使用 VirtualBox，则意味着选择的是“固定大小”，而不是在创建磁盘时动态分配默认大小。 
-* 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这会避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台相同的 VM 进行故障排除的情况下。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
+* Azure 不支持 VHDX 格式，仅支持 **固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。 如果使用 VirtualBox，则意味着选择的是“固定大小”，而不是在创建磁盘时动态分配默认大小。 
+* 在安装 Linux 系统时，*建议* 使用标准分区而不是 LVM（通常是许多安装的默认值）。 这会避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台相同的 VM 进行故障排除的情况下。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
 * 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置将通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
 
     <!-- Not Available on Line 39:  Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883)-->
@@ -159,14 +159,14 @@ ms.locfileid: "90057696"
 11. （可选）安装适用于 Linux Integration Services (LIS) 的驱动程序。
 
     > [!IMPORTANT]
-    > 此步骤对于 CentOS 6.3 和更早版本是**必需**的，对于之后的版本是可选的。
+    > 此步骤对于 CentOS 6.3 和更早版本是 **必需** 的，对于之后的版本是可选的。
 
     ```bash
     sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
     sudo yum install microsoft-hyper-v
     ```
 
-    此外，可以按照 [LIS 下载页](https://www.microsoft.com/download/details.aspx?id=51612)上的手动安装说明操作将 RPM 安装到 VM 中。
+    此外，可以按照 [LIS 下载页](https://www.microsoft.com/download/details.aspx?id=55106)上的手动安装说明操作将 RPM 安装到 VM 中。
 
 12. 安装 Azure Linux 代理和依赖项。 启动并启用 waagent 服务：
 
@@ -187,7 +187,7 @@ ms.locfileid: "90057696"
 
     这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
 
-    除此之外，建议*删除*以下参数：
+    除此之外，建议 *删除* 以下参数：
 
     ```console
     rhgb quiet crashkernel=auto
@@ -204,7 +204,7 @@ ms.locfileid: "90057696"
 
 15. 不要在 OS 磁盘上创建交换空间。
 
-    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是*临时*磁盘，并可能在取消预配 VM 时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是 *临时* 磁盘，并可能在取消预配 VM 时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```console
     ResourceDisk.Format=y
@@ -333,7 +333,7 @@ ms.locfileid: "90057696"
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 CentOS 7 命名约定。 除此之外，建议*删除*以下参数：
+   这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 CentOS 7 命名约定。 除此之外，建议 *删除* 以下参数：
 
     ```console
     rhgb quiet crashkernel=auto
@@ -370,7 +370,7 @@ ms.locfileid: "90057696"
 
 12. 不要在 OS 磁盘上创建交换空间。
 
-    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是*临时*磁盘，并可能在取消预配 VM 时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是 *临时* 磁盘，并可能在取消预配 VM 时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```console
     ResourceDisk.Format=y

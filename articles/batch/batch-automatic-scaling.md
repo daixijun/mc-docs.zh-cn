@@ -5,17 +5,17 @@ ms.service: batch
 ms.topic: how-to
 origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 98f75a16509587afd7f51c0a8556998fd7a0dd74
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 74741c82bed2a474ecc64f45cebd0e416fca6f8d
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106105"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589422"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动公式
 
@@ -99,7 +99,7 @@ $NodeDeallocationOption = taskcompletion;
 | 变量 | 说明 |
 | --- | --- |
 | $TargetDedicatedNodes |池的专用计算节点的目标数。 此项被指定为目标，因为池可能不会始终获得所需节点数。 例如，如果在池达到初始目标数之前专用节点的目标数被自动缩放评估修改，则池可能不会达到目标数。 <br /><br /> 如果目标数超过了 Batch 帐户节点或核心配额，则使用 Batch 服务模式创建的帐户中的池无法达到其目标。 如果目标数超过了订阅的共享核心配额，则使用用户订阅模式创建的帐户中的池无法达到其目标。|
-| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue** ：默认值。 立即终止任务并将其放回作业队列，以便重新计划这些任务。 此操作可确保尽快达到目标节点数。 但是，其效率可能较低，因为任何正在运行的任务都会被中断，必须彻底重启。 <li>**terminate** ：立即终止任务并将其从作业队列中删除。<li>**taskcompletion** ：等待当前运行的任务完成，然后从池中删除节点。 使用此选项可以避免任务被中断和重新排队，因此不会浪费任务已完成的任何工作。<li>**retaineddata** ：等待节点上本地任务保留的所有数据清理完毕，然后从池中删除节点。</ul> |
+| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue**：默认值。 立即终止任务并将其放回作业队列，以便重新计划这些任务。 此操作可确保尽快达到目标节点数。 但是，其效率可能较低，因为任何正在运行的任务都会被中断，必须彻底重启。 <li>**terminate**：立即终止任务并将其从作业队列中删除。<li>**taskcompletion**：等待当前运行的任务完成，然后从池中删除节点。 使用此选项可以避免任务被中断和重新排队，因此不会浪费任务已完成的任何工作。<li>**retaineddata**：等待节点上本地任务保留的所有数据清理完毕，然后从池中删除节点。</ul> |
 
 <!--Not Available on $TargetLowPriorityNodes-->
 
@@ -192,11 +192,11 @@ $NodeDeallocationOption = taskcompletion;
 | timeinterval *operator* timeinterval |<, <=, ==, >=, >, != |Double |
 | double *operator* double |&&, &#124;&#124; |Double |
 
-使用三元运算符 (`double ? statement1 : statement2`) 测试双精度值时，非零值为 **true** ，零值为 **false** 。
+使用三元运算符 (`double ? statement1 : statement2`) 测试双精度值时，非零值为 **true**，零值为 **false**。
 
 ## <a name="functions"></a>函数
 
-在定义自动缩放公式时，可以使用这些预定义的 **函数** 。
+在定义自动缩放公式时，可以使用这些预定义的 **函数**。
 
 | 函数 | 返回类型 | 说明 |
 | --- | --- | --- |
@@ -224,7 +224,7 @@ $NodeDeallocationOption = taskcompletion;
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 值在计算之前会转换为单个 *doubleVec* 。 例如，如果 `v = [1,2,3]`，则调用 `avg(v)` 相当于调用 `avg(1,2,3)`。 调用 `avg(v, 7)` 相当于调用 `avg(1,2,3,7)`。
+*doubleVecList* 值在计算之前会转换为单个 *doubleVec*。 例如，如果 `v = [1,2,3]`，则调用 `avg(v)` 相当于调用 `avg(1,2,3)`。 调用 `avg(v, 7)` 相当于调用 `avg(1,2,3,7)`。
 
 ## <a name="metrics"></a>指标
 
@@ -718,7 +718,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>示例 3：考虑并行任务
 
-此 C# 示例根据任务数调整池大小。 此公式还考虑了为池设置的 [TaskSlotsPerNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernodernode) 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此方法特别有效。
+此 C# 示例根据任务数调整池大小。 此公式还考虑了为池设置的 [TaskSlotsPerNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此方法特别有效。
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past

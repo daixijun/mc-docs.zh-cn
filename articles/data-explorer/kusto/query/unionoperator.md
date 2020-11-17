@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 87abb6ca9cbfade05e56019c2edc0f6d82da4471
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 425263820ec643d2a28d9b55176058507ea7e3b7
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105774"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590645"
 ---
 # <a name="union-operator"></a>union 运算符
 
@@ -28,11 +28,11 @@ Table1 | union Table2, Table3
 
 ## <a name="syntax"></a>语法
 
-*T* `| union` [ *UnionParameters* ] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName* ] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table* ]...  
+*T* `| union` [*UnionParameters*] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName*] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table*]...  
 
 不带管道输入的替代形式：
 
-`union` [ *UnionParameters* ] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName* ] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table* ]...  
+`union` [*UnionParameters*] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName*] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table*]...  
 
 ## <a name="arguments"></a>参数
 
@@ -45,17 +45,17 @@ Table1 | union Table2, Table3
 * `kind`: 
     * `inner` - 此结果包含所有输入表所共有列的子集。
     * `outer` -（默认值）。 结果包含所有输入中出现的所有列。 未由输入行定义的单元格设置为 `null`。
-* `withsource`=*ColumnName* ：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
+* `withsource`=*ColumnName*：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
 如果查询（在通配符匹配后）有效地引用多个数据库（默认数据库总计在内）中的表，则此列的值将具有使用数据库进行限定的表名。
 同样，如果引用了多个群集，则值中将存在群集和数据库限定条件。 
 * `isfuzzy=` `true` | `false`：如果 `isfuzzy` 设置为 `true` - 则允许对 union 支线进行模糊解析。 `Fuzzy` 适用于 `union` 源集。 这意味着，在分析查询和准备执行的过程中，union 源的集合被缩减为当时存在并且可供访问的一组表引用。 如果至少找到了一个这样的表，则任何解析失败都将在查询状态结果中产生警告（每个缺少的引用都会产生一个），但不会阻止查询执行；如果没有任何解析成功，则查询会返回错误。
 默认为 `isfuzzy=` `false`。
-* *UnionParameters* ：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数： 
+* *UnionParameters*：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数： 
 
   |名称           |值                                        |说明                                  |
   |---------------|----------------------------------------------|---------------------------------------------|
-  |`hint.concurrency`|*数字*|提示系统应并行执行 `union` 运算符的多少个并发子查询。 *默认* ：群集的单个节点上的 CPU 核心数（2 到 16 个）。|
-  |`hint.spread`|*数字*|提示系统并发的 `union` 子查询执行应使用多少个节点。 *默认* ：1.|
+  |`hint.concurrency`|*数字*|提示系统应并行执行 `union` 运算符的多少个并发子查询。 *默认*：群集的单个节点上的 CPU 核心数（2 到 16 个）。|
+  |`hint.spread`|*数字*|提示系统并发的 `union` 子查询执行应使用多少个节点。 *默认*：1.|
 
 ::: zone-end
 
@@ -68,7 +68,7 @@ Table1 | union Table2, Table3
 * `kind`: 
     * `inner` - 此结果包含所有输入表所共有列的子集。
     * `outer` -（默认值）。 结果包含所有输入中出现的所有列。 未由输入行定义的单元格设置为 `null`。
-* `withsource`=*ColumnName* ：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
+* `withsource`=*ColumnName*：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
 如果查询（在通配符匹配后）有效地引用多个数据库（默认数据库总计在内）中的表，则此列的值将具有使用数据库进行限定的表名。
 同样，如果引用了多个群集，则值中将存在群集和数据库限定条件。 
 * `isfuzzy=` `true` | `false`：如果 `isfuzzy` 设置为 `true` - 则允许对 union 支线进行模糊解析。 `Fuzzy` 适用于 `union` 源集。 这意味着，在分析查询和准备执行的过程中，union 源的集合被缩减为当时存在并且可供访问的一组表引用。 如果至少找到了一个这样的表，则任何解析失败都将在查询状态结果中产生警告（每个缺少的引用都会产生一个），但不会阻止查询执行；如果没有任何解析成功，则查询会返回错误。

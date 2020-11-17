@@ -1,19 +1,20 @@
 ---
 title: 验证 Linux 的加密状态 -Azure 磁盘加密
 description: 本文提供了从平台和 OS 级别验证加密状态的说明。
-author: rockboyfor
-ms.service: security
-ms.topic: article
+author: Johnnytechn
+ms.service: virtual-machines-linux
+ms.subservice: security
+ms.topic: how-to
+ms.author: v-johya
+ms.date: 11/11/2020
 origin.date: 03/11/2020
-ms.date: 07/06/2020
-ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: 3158b303e6ac4589cd4627a38ac22431c53e2552
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: f70a8c4592093bb9d69ddece5182be255b260743
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946334"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637912"
 ---
 <!--Verified successfully-->
 <!--Extension AzureDiskEncryptionForLinux exist-->

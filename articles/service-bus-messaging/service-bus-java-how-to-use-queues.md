@@ -5,17 +5,17 @@ ms.devlang: Java
 ms.topic: quickstart
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 808035528dc59fb9c17be0023dc985182ec5ce7c
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 9040f44532a2fccde7985565c38dcf5d75309ddd
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946611"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590876"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>快速入门：通过 Java 使用 Azure 服务总线队列发送和接收消息
 
@@ -26,12 +26,12 @@ ms.locfileid: "88946611"
 > 可以在 GitHub 上的 [azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中找到 Java 示例。
 
 ## <a name="prerequisites"></a>先决条件
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 2. 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。
-    1. 阅读服务总线**队列**的快速**概述**。 
-    2. 创建一个服务总线**命名空间**。 
-    3. 获取**连接字符串**。
-    4. 创建一个服务总线**队列**。
+    1. 阅读服务总线 **队列** 的快速 **概述**。 
+    2. 创建一个服务总线 **命名空间**。 
+    3. 获取 **连接字符串**。
+    4. 创建一个服务总线 **队列**。
 3. 安装 [Azure SDK for Java][Azure SDK for Java]。 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
@@ -70,7 +70,7 @@ public void run() throws Exception {
     // Create a QueueClient instance and then asynchronously send messages.
     // Close the sender once the send operation is complete.
     QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+    this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 
     sendClient.close();
 }
@@ -111,7 +111,7 @@ public void run() throws Exception {
 
 ```
 
-发送到服务总线队列以及从服务总线队列收到的消息是 [Message](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，并将使用适当的序列化程序来序列化对象。 或者，可以提供 **java.IO.InputStream** 对象。
+发送到服务总线队列以及从服务总线队列收到的消息是 [Message](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.message) 类的实例。 Message 对象包含一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及大量任意应用程序数据。 应用程序可通过将任何可序列化对象传入到 Message 的构造函数中来设置消息的正文，并将使用适当的序列化程序来序列化对象。 或者，可以提供 **java.IO.InputStream** 对象。
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小是在创建时定义的，上限为 5 GB。
 
@@ -180,7 +180,7 @@ public void run() throws Exception {
 
 还存在与队列中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使它可再次被接收。
 
-请注意，如果应用程序在处理消息之后，但在发出 **complete()** 请求之前发生崩溃，则在应用程序重新启动时会将该消息重新传送给它。 此情况通常称作*至少处理一次*，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 通常可使用消息的 **getMessageId** 方法实现此操作，这在多个传送尝试中保持不变。
+请注意，如果应用程序在处理消息之后，但在发出 **complete()** 请求之前发生崩溃，则在应用程序重新启动时会将该消息重新传送给它。 此情况通常称作 *至少处理一次*，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 通常可使用消息的 **getMessageId** 方法实现此操作，这在多个传送尝试中保持不变。
 
 > [!NOTE]
 > 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
@@ -195,4 +195,4 @@ public void run() throws Exception {
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
-<!-- Update_Description: update meta properties, wording update, update link?view=azure-dotnet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

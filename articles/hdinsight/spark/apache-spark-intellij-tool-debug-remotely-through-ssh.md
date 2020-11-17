@@ -18,16 +18,16 @@ ms.topic: article
 origin.date: 12/23/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: a3b4c1dd259704f7a7dc5c2686a10f8b2f8f2833
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 92efec6b992b319269d80e5d7c6ba7ff51dd0194
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552594"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用用于 IntelliJ 的 Azure 工具包通过 SSH 调试 HDInsight 群集上的 Apache Spark 应用程序
 
-本文逐步介绍如何使用 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) 中的 HDInsight 工具远程调试 HDInsight 群集上的应用程序。 要调试项目，还可以观看 [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)（使用用于 IntelliJ 的 Azure 工具包调试 HDInsight Spark 应用程序）视频。
+本文逐步介绍如何使用 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) 中的 HDInsight 工具远程调试 HDInsight 群集上的应用程序。 要调试项目，还可以观看 [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)（使用用于 IntelliJ 的 Azure 工具包调试 HDInsight Spark 应用程序）视频。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -163,16 +163,17 @@ ms.locfileid: "84186455"
 * [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Apache Spark 与机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Apache Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](./apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
-* [使用 Scala 创建独立的应用程序](../hdinsight-apache-spark-create-standalone-application.md)
+
+* [使用 Scala 创建独立的应用程序](./apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序](apache-spark-intellij-tool-plugin.md)
 * [使用 Azure Toolkit for IntelliJ 通过 VPN 远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](./apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)

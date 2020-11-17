@@ -3,18 +3,18 @@ author: kgremban
 ms.service: iot-edge
 ms.topic: include
 origin.date: 12/30/2019
-ms.date: 03/09/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
-ms.openlocfilehash: 18c0a8f591d0f440dc392c4e66a64960579700d1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b4ec37dc22fc7231b32f5ed4614dbd3274677237
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78155479"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595142"
 ---
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-本教程将使用 Azure IoT Tools 扩展来生成模块并从文件创建**容器映像**。 然后将该映像推送到用于存储和管理映像的**注册表**。 最后，从注册表部署在 IoT Edge 设备上运行的映像。
+本教程将使用 Azure IoT Tools 扩展来生成模块并从文件创建 **容器映像**。 然后将该映像推送到用于存储和管理映像的 **注册表**。 最后，从注册表部署在 IoT Edge 设备上运行的映像。
 
 可以使用任意兼容 Docker 的注册表来保存容器映像。 两个常见 Docker 注册表服务分别是 [Azure 容器注册表](https://docs.azure.cn/container-registry/)和 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教程使用 Azure 容器注册表。
 
@@ -26,17 +26,18 @@ ms.locfileid: "78155479"
 
    | 字段 | 值 |
    | ----- | ----- |
-   | 注册表名称 | 提供唯一名称。 |
    | 订阅 | 从下拉列表中选择“订阅”。 |
    | 资源组 | 建议对在 IoT Edge 快速入门和教程中创建的所有测试资源使用同一资源组。 例如，**IoTEdgeResources**。 |
+   | 注册表名称 | 提供唯一名称。 |
    | 位置 | 选择靠近你的位置。 |
-   | 管理员用户 | 设置为“启用”。  |
-   | SKU | 选择“基本”。  |
+   | SKU | 选择“基本”。 |
 
-3. 选择“创建”  。
+3. 选择“创建”。
 
-4. 创建容器注册表后，浏览到它，然后从左窗格中，选择“设置”下菜单中的“访问密钥”   。
+4. 创建容器注册表后，浏览到它，然后从左窗格中，选择“设置”下菜单中的“访问密钥” 。 
 
-5. 复制“登录服务器”、“用户名”和“密码”的值，并将其保存在方便的位置    。 本教程将使用这些值来访问容器注册表。
+5. 单击以允许管理员用户查看容器注册表的“用户名”和“密码”。
+
+6. 复制“登录服务器”、“用户名”和“密码”的值，并将其保存在方便的位置  。 本教程将使用这些值来访问容器注册表。
 
    ![复制容器注册表的登录服务器、用户名和密码](./media/iot-edge-create-container-registry/registry-access-key.png)

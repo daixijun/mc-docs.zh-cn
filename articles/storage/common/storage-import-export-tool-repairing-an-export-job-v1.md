@@ -25,7 +25,7 @@ ms.locfileid: "94552250"
   
 若要使用此功能，必须与 Azure 存储建立连接。  
   
-用于修复导入作业的命令是 **RepairExport** 。
+用于修复导入作业的命令是 **RepairExport**。
 
 ## <a name="repairexport-parameters"></a>RepairExport 参数
 

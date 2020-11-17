@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 11/02/2020
-ms.testscope: yes|no
-ms.testdate: 11/02/2020null
+ms.date: 11/16/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9adba7aa8c78c8342395dc38a72e865e2eee03d7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: cffbebccfdd338dc5e6100df9fa718ca250f4ccd
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106467"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552772"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>防止删除或更改 Azure Cosmos DB 资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 作为管理员，可能需要锁定 Azure Cosmos 帐户、数据库和容器，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 CanNotDelete 或 ReadOnly。
 
@@ -119,5 +120,4 @@ az lock create --name $lockName \
 
 - [Azure 资源管理器锁定概述](../azure-resource-manager/management/lock-resources.md)
 
-<!-- Update_Description: new article about resource locks -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

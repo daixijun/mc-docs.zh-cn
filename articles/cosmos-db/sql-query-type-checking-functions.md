@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 查询语言中的类型检查函数
 description: 了解 Azure Cosmos DB 中的类型检查 SQL 系统函数。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: fd6d6f56d9257076c16a8d78f329591a377dff32
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ce4d9cbe9451192591f27c669d47fe51667330a1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223449"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552393"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>类型检查函数 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 使用类型检查函数可以检查 SQL 查询中表达式的类型。 当项中的属性可变或未知时，可以使用类型检查函数即时确定这些属性的类型。 
 

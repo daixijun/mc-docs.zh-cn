@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 0b179f661806d421086b0c657d22276d1b90ee19
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d3f95c3c7877f3f6e83ca2e8061637df85721960
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552400"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 将指定的时间戳值转换为日期/时间。
 
@@ -78,5 +79,4 @@ SELECT TimestampToDateTime(1594227912345) AS DateTime
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query timestamptodatetime -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

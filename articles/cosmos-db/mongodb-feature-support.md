@@ -5,32 +5,33 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 10/16/2019
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 5580566b2382766d15b4d797d9fdc2800aa414f9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 625a8fba4e2e1b6a8e5f0ace67b9eac04ce069bb
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118559"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552816"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB（3.2 版本）：支持的功能和语法
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 <!--CORRECT ON  21Vianet-->
 
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可通过任何开源 MongoDB 客户端[驱动程序](https://docs.mongodb.org/ecosystem/drivers)与 Azure Cosmos DB 的 MongoDB API 进行通信。 可以按照 MongoDB [有线协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)规定，通过 Azure Cosmos DB 的 MongoDB API 来使用现有客户端驱动程序。
 
-通过使用 Azure Cosmos DB 的用于 MongoDB 的 API，可以像以往一样从 MongoDB 中受益，并且可使用 Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
+通过使用 Azure Cosmos DB 的用于 MongoDB 的 API，可以像以往一样从 MongoDB 中受益，并且可使用 Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partitioning-overview.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
 
 > [!NOTE]
 > 本文适用于 Azure Cosmos DB 的 API for MongoDB 3.2。 对于 MongoDB 3.6 版本，请参阅 [MongoDB 3.6 支持的功能和语法](mongodb-feature-support-36.md)。
 
 ## <a name="protocol-support"></a>协议支持
 
-Azure Cosmos DB 的 API for MongoDB 的所有新帐户都与 MongoDB 服务器版本 **3.6** 兼容。 本文介绍 MongoDB 版本 3.2。 支持的运算符以及限制或例外已列在下面。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的 MongoDB API。
+Azure Cosmos DB 的 API for MongoDB 的所有新帐户都与 MongoDB 服务器版本 **3.6** 兼容。 本文介绍 MongoDB 版本 3.2。 支持的运算符以及限制或例外已列在下面。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的 MongoDB API。 
 
 <!--Not Available on [MongoDB version upgrade guide](mongodb-version-upgrade.md)-->
 

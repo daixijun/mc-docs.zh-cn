@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/23/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 260fbc394a771bf36d034eebd13da35a68008d3c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bb28b2a5dd199b21d52bc3ac77db981cf1ce5d3e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118013"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552724"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 .NET 示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
@@ -41,14 +42,14 @@ ms.locfileid: "92118013"
 ## <a name="prerequisites"></a>先决条件
 
 已安装包含 Azure 开发工作流的 Visual Studio 2019
-- 你可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+- 你可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 
 [Microsoft.Azure.DocumentDB NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
 Azure 订阅，或免费的 Cosmos DB 试用帐户
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-- 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn//)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
@@ -56,7 +57,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 > 
 
 ## <a name="database-examples"></a>数据库示例
-*DatabaseManagement* 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](databases-containers-items.md)。 
+*DatabaseManagement* 项目示例的 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -66,7 +67,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [删除数据库](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>集合示例
-*CollectionManagement* 项目示例的 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](databases-containers-items.md)。 
+*CollectionManagement* 项目示例的 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -77,7 +78,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [删除集合](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>文档示例
-*DocumentManagement* 项目示例的 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](databases-containers-items.md)。 
+*DocumentManagement* 项目示例的 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](account-databases-containers-items.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -93,7 +94,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [仅当文档已更改时读取文档](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.accesscondition)<br />[Documents.Client.AccessConditionType](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>索引示例
-*IndexManagement* 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)。 
+*IndexManagement* 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-kinds)和[索引路径](index-policy.md#include-exclude-paths)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -105,7 +106,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [执行索引转换](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L318-L370) |[ReplaceDocumentCollectionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>地理空间示例
-示例 *Geospatial* 项目的 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) 方法演示如何执行以下任务。  若要在运行以下示例之前了解 GeoJSON 和地理空间数据，请参阅[使用地理空间和 GeoJSON 位置数据](geospatial.md)。 
+示例 *Geospatial* 项目的 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) 方法演示如何执行以下任务。  若要在运行以下示例之前了解 GeoJSON 和地理空间数据，请参阅[使用地理空间和 GeoJSON 位置数据](./sql-query-geospatial-intro.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -117,7 +118,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [验证点和多边形数据](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br />[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br />[GeometryOperationExtensions.IsValid](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br />[GeometryOperationExtensions.IsValidDetailed](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>查询示例
-示例 *Queries* 项目的 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) 方法显示了如何使用 SQL 查询语法、查询的 LINQ 提供程序和 Lambda 执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](how-to-sql-query.md)。 
+示例 *Queries* 项目的 [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) 方法显示了如何使用 SQL 查询语法、查询的 LINQ 提供程序和 Lambda 执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](./sql-query-getting-started.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |

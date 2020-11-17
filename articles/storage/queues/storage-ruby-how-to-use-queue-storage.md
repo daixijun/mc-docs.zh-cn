@@ -4,17 +4,17 @@ description: 了解如何使用 Azure 队列服务创建和删除队列，以及
 author: WenJason
 ms.author: v-jay
 origin.date: 12/08/2016
-ms.date: 01/06/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: c1cd9353982a03980a0ddf0c30e036844fa844ee
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: ce0dbc6bd4d836b89f5bc8d20d5b75fd10f39fa9
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75624140"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552714"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,14 +23,14 @@ ms.locfileid: "75624140"
 
 ## <a name="overview"></a>概述
 本指南演示如何使用 Azure 队列存储服务执行常见方案。 相关示例是使用 Ruby Azure API 编写的。
-介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。
+介绍的方案包括 **插入**、**扫视**、**获取** 和 **删除** 队列消息以及 **创建和删除队列**。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-创建 Ruby 应用程序。
+创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](../../app-service/quickstart-ruby.md)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需要下载和使用 Ruby azure 包，其中包括一组便于与存储 REST 服务进行通信的库。
@@ -58,7 +58,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到要使用的存储帐户。
-3. 在右侧的“设置”边栏选项卡中，单击“访问密钥”  。
+3. 在右侧的“设置”边栏选项卡中，单击“访问密钥”。
 4. 在出现的“访问密钥”边栏选项卡中，将看到访问密钥 1 和访问密钥 2。 可以使用其中任意一个。 
 5. 单击复制图标以将键复制到剪贴板。 
 
@@ -80,7 +80,7 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>如何：在队列中插入消息
-要在队列中插入消息，可使用 **create_message()** 方法创建一条新消息并将其添加到队列中。
+若要在队列中插入消息，可使用 **create_message()** 方法创建一条新消息并将其添加到队列中。
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
@@ -118,8 +118,8 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于对消息取消排队的其他选项
-可以通过两种方式自定义队列中的消息检索。
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>如何：用于取消对消息进行排队的其他选项
+可通过两种方式自定义队列中消息的检索。
 
 1. 可以获取一批消息。
 2. 可以设置更长或更短的不可见超时时间，从而允许代码使用更多或更少的时间来完全处理每个消息。
@@ -150,9 +150,9 @@ azure_queue_service.delete_queue("test-queue")
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，已了解有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
+在了解了有关队列存储的基础知识后，可使用以下链接来了解更复杂的存储任务。
 
-* 访问 [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)（Azure 存储团队博客）
+* 访问 [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * 访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
 
 若要了解 Azure 队列服务（本文所述）和 Azure 服务总线队列（[如何使用服务总线队列](/service-bus-messaging/service-bus-ruby-how-to-use-queues)文章中所述）之间的比较，请参阅 [Azure 队列和服务总线队列 - 比较与对照](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

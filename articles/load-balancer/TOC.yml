@@ -19,6 +19,7 @@
     - name: 创建内部负载均衡器 - Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: 创建内部负载均衡器 - ARM 模板
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: 教程
@@ -45,6 +46,8 @@
       items:
         - name: 运行状况探测
           href: load-balancer-custom-probe-overview.md
+        - name: 针对负载均衡器的 Azure Monitor 见解
+          href: load-balancer-insights.md
         - name: 标准负载均衡器指标和诊断
           href: load-balancer-standard-diagnostics.md
         - name: 基本负载均衡器的 Azure Monitor 日志
@@ -57,7 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: 出站代理
       href: load-balancer-outbound-connections.md
-    - name: TCP 重置和 TCP 空闲超时
     - name: 出站规则
       href: outbound-rules.md
     - name: 在空闲超时的情况下重置 TCP
@@ -98,10 +100,10 @@
           href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
         - name: Azure PowerShell
           href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
-        - name: Azure Resource Manager 模板
+        - name: Azure 资源管理器模板
           href: /virtual-network/ipv6-configure-standard-load-balancer-template-json
           displayName: ARM
-    - name: 配置负载均衡器的 TCP 空闲超时
+    - name: 配置 TCP 重置和空闲超时
       href: load-balancer-tcp-idle-timeout.md
     - name: 配置负载均衡器的分布模式
       href: load-balancer-distribution-mode.md

@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 02/14/2020
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 45470ca621019ee0c0e63bbabf58f0126d1af455
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: c7388622fa7b316f402036f408a864ec6d11d751
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414684"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552145"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 
@@ -120,6 +120,7 @@ Azure ExpressRoute 允许在 Azure 数据中心与本地中的基础结构之间
 |工具 | 指南 |
 |---|--|
 |Azure HDInsight | [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](https://docs.azure.cn/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
+|Azure Databricks | Azure Data Lake Storage Gen2<br><br>[快速入门：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的数据](/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>可视化数据
 

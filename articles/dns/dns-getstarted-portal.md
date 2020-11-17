@@ -6,15 +6,15 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: quickstart
-origin.date: 3/11/2019
-ms.date: 10/19/2019
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 87adf6702d18f7ff9831bad23bea6fa50baab573
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 06a587ba96b3f36833ca7137cad705778b117b3c
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943482"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590838"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure DNS 区域和记录
 
@@ -32,6 +32,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 对于所有门户步骤，请登录到 [Azure 门户](https://portal.azure.cn)。
+
+## <a name="prerequisites"></a>先决条件
+
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
+
+使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
@@ -66,7 +74,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
    - **Name**：键入 www  。 记录名称是你要解析为指定 IP 地址的主机名。
    - **类型**：选择 A  。“A”记录是最常见的，但是也有其他适用于邮件服务器（“MX”）、IP v6 地址（“AAAA”）等的记录类型。 
-   - **TTL**：键入 1  。 DNS 请求的*存活时间*指定 DNS 服务器和客户端可以将响应缓存多长时间。
+   - **TTL**：键入 1  。 DNS 请求的 *存活时间* 指定 DNS 服务器和客户端可以将响应缓存多长时间。
    - **TTL 单位**：选择“小时”  。 这是用于 **TTL** 值的时间单位。 
    - **IP 地址**：对于本快速入门示例，键入 10.10.10.10  。 此值是记录名称解析为的 IP 地址。 在现实场景中，则应输入 Web 服务器的公共 IP 地址。
 

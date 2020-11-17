@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/15/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f4588941250663f29a6a0ade967409d1cd42eeb
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9b3971fbd2e79cda25ad8be5f85ff4977e1b6e75
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246729"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552651"
 ---
 # <a name="use-the-change-feed-estimator"></a>使用更改源估算器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何监视[更改源处理器](./change-feed-processor.md)实例在读取更改源时的进度。
 
@@ -60,7 +61,7 @@ ChangeFeedProcessor changeFeedEstimator = monitoredContainer
 
 其中的处理器和估算器共享同一 `leaseContainer` 和同一名称。
 
-另外有两个参数，一个是委托，其接收的数字表示**有多少更改待处理器读取**，另一个是需要进行该度量的时间间隔。
+另外有两个参数，一个是委托，其接收的数字表示 **有多少更改待处理器读取**，另一个是需要进行该度量的时间间隔。
 
 例如，下面是用于接收估算的委托：
 
@@ -93,6 +94,6 @@ static async Task HandleEstimationAsync(long estimation, CancellationToken cance
 现在，可以通过以下文章继续详细了解更改源处理器：
 
 * [更改源处理器概述](change-feed-processor.md)
-* [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
+* [更改源处理器开始时间](./change-feed-processor.md#starting-time)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

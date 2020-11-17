@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 IS_PRIMITIVE
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 IS_PRIMITIVE。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: f6ff38a4742f32fa4c1c72375fc9d5d7a7d3ef8e
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 3424be27228de3806a640c0280931522496f5fdd
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134561"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552611"
 ---
 # <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个布尔值，指示指定表达式的类型是否为一个（字符串、布尔、数值或 null）。  
 
 ## <a name="syntax"></a>语法

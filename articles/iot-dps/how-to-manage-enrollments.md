@@ -4,17 +4,17 @@ description: 如何在 Azure 门户中管理设备预配服务 (DPS) 的设备�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/05/2018
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c4609bba50961e45eec0479aa12a178cfe2f3bfb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: af68a5609619fdaaf1393884215c34bbb2633ee2
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494129"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590735"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>如何通过 Azure 门户管理设备注册
 
@@ -34,7 +34,7 @@ ms.locfileid: "77494129"
   1. 在预配服务中：  
      a. 单击“管理注册”，然后选择“注册组”选项卡   。  
      b. 单击顶部的“添加”按钮  。  
-     c. 当“添加注册组”面板出现时，输入注册列表项的信息。  **组名**是必需的。 另外，对于“证书类型”，请选择“CA 证书”或“中间证书”，并为设备组上传根**主证书**。  
+     c. 当“添加注册组”面板出现时，输入注册列表项的信息。  **组名** 是必需的。 另外，对于“证书类型”，请选择“CA 证书”或“中间证书”，并为设备组上传根 **主证书**。  
      d. 单击“保存”  。 注册组创建成功后，应可在“注册组”选项卡下看到组名称  。  
 
      [![门户中的注册组](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
@@ -49,7 +49,7 @@ ms.locfileid: "77494129"
     1. 在预配服务中：  
        a. 单击“管理注册”，然后选择“个人注册”选项卡。    
        b. 单击顶部的“添加”按钮  。   
-       c. 当“添加注册”面板出现时，输入注册列表项的信息。 首先为设备选择证明**机制**（X.509 或 TPM）。 X.509 证明要求为设备上传叶**主证书**。 TPM 要求为设备输入**证明密钥**和**注册 ID**。  
+       c. 当“添加注册”面板出现时，输入注册列表项的信息。 首先为设备选择证明 **机制**（X.509 或 TPM）。 X.509 证明要求为设备上传叶 **主证书**。 TPM 要求为设备输入 **证明密钥** 和 **注册 ID**。  
        d. 单击“保存”  。 注册组创建成功后，应可在“单独注册”选项卡下看到设备  。  
 
        [![门户中的个人注册](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)

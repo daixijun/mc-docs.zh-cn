@@ -4,15 +4,15 @@ description: 使用 Azure CLI 从头开始创建存储、Linux VM、虚拟网络
 author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 12/14/2017
-ms.openlocfilehash: 6cae66e85c1bcf061426a2ab26f0b66b629b3d87
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 96300554e0feec37fc82ebd3b104b35f76b9ef5b
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057611"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637914"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建完整的 Linux 虚拟机
 若要在 Azure 中快速创建虚拟机 (VM)，可使用单个使用默认值的 Azure CLI 命令创建任何所需的支持资源。 虚拟网络、公共 IP 地址和网络安全组规则等资源均会自动创建。 为了在生产使用中更好地控制环境，可提前创建这些资源，然后将 VM 添加到其中。 本文将逐步介绍如何创建 VM 和每个支持资源。
@@ -443,7 +443,7 @@ az network nic create \
 
 更新域表示虚拟机组以及可同时重新启动的基础物理硬件。 在计划内维护期间，更新域的重新启动顺序可能不会按序进行，但一次只重新启动一个更新域。
 
-将多个 VM 放入一个可用性集时，Azure 会自动将它们分散到容错域和更新域。 有关详细信息，请参阅 [管理 VM 的可用性](manage-availability.md)。
+将多个 VM 放入一个可用性集时，Azure 会自动将它们分散到容错域和更新域。 有关详细信息，请参阅 [管理 VM 的可用性](../manage-availability.md)。
 
 使用 [az vm availability-set create](https://docs.azure.cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 为 VM 创建可用性集。 以下示例创建名为“myAvailabilitySet”  的可用性集：
 

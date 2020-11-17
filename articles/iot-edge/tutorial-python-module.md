@@ -1,5 +1,5 @@
 ---
-title: 创建自定义 Python 模块 - Azure IoT Edge | Microsoft Docs
+title: 教程 - 创建自定义 Python 模块 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 Python 代码创建 IoT Edge 模块并将其部署到边缘设备。
 services: iot-edge
 author: kgremban
@@ -7,16 +7,16 @@ manager: philmea
 ms.reviewer: kgremban
 ms.author: v-tawe
 origin.date: 08/04/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: aa92d2bebfac863dea4adfdc494ead87bf6eccbf
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 9323938665c1329c8a098bc5087c5fd982dee695
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564612"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595123"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教程：为 Linux 设备开发并部署 Python IoT Edge 模块
 
@@ -52,7 +52,7 @@ ms.locfileid: "91564612"
 
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
-* 一个容器注册表，例如 [Azure 容器注册表](https://docs.azure.cn/container-registry/)。
+* 一个容器注册表，例如 [Azure 容器注册表](../container-registry/index.yml)。
 * 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 
@@ -171,7 +171,7 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
                     print ( "Unexpected error in twin_patch_listener: %s" % ex )
     ```
 
-5. 更新**侦听器**以同时侦听孪生更新。
+5. 更新 **侦听器** 以同时侦听孪生更新。
 
     ```python
         # Schedule task for C2D Listener
@@ -270,7 +270,7 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备后，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio Code 开发模块](how-to-vs-code-develop-module.md)。 有关 IoT Edge 模块的示例，包括模拟温度模块，请参阅 [IoT Edge 模块示例](https://github.com/Azure/iotedge/tree/master/edge-modules)和 [IoT Python SDK 示例](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)。
+在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。
 
 可以继续学习后续教程，了解如何借助 Azure IoT Edge 部署 Azure 云服务，在边缘位置处理和分析数据。
 

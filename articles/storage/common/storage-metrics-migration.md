@@ -4,18 +4,18 @@ description: 了解如何从存储分析指标（经典指标）转换到 Azure 
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
-origin.date: 07/28/2018
-ms.date: 08/24/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: ffc25bb79ebc0bc178f936cf39c267a01bd6cd93
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 9c7ac1b3025d030e696850caa9574e5619f7e114
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753536"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552850"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>转换到 Azure Monitor 中的指标
 
@@ -36,7 +36,7 @@ Azure 存储现在将指标集成到 Azure Monitor 平台。 本文可帮助你�
    > [!NOTE]
    > 默认情况下，Azure Monitor 中的指标处于启用状态，因此无需执行任何操作来开始捕获指标。 但是，你必须创建图表或仪表板才能查看这些指标。 
  
-5. 如果已创建基于经典存储指标的警报规则，则会根据 Azure Monitor 中的指标[创建警报规则](/azure-monitor/platform/alerts-overview)。 
+5. 如果已创建基于经典存储指标的警报规则，则会根据 Azure Monitor 中的指标[创建警报规则](../../azure-monitor/platform/alerts-overview.md)。 
 
 6. 在 Azure Monitor 中查看所有指标后，可以关闭经典日志记录。 
 
@@ -52,7 +52,7 @@ Azure 存储现在将指标集成到 Azure Monitor 平台。 本文可帮助你�
 
 如果帐户中的活动未触发指标，则经典指标将显示该指标的值为零 (0)。 Azure Monitor 中的指标将完全省略数据，让报告更简洁。 例如，对于经典指标，如果未报告服务器超时错误，则度量值表中的 `ServerTimeoutError` 值将设置为 0。 当你查询维度 `ResponseType` 等于 `ServerTimeoutError` 的指标 `Transactions` 的值时，Azure Monitor 不会返回任何数据。 
 
-若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](/azure-monitor/platform/data-platform-metrics)。
+若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../../azure-monitor/platform/data-platform-metrics.md)。
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -116,5 +116,4 @@ Azure 存储现在将指标集成到 Azure Monitor 平台。 本文可帮助你�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Azure Monitor 中的存储指标](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor](../../azure-monitor/overview.md)

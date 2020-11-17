@@ -7,19 +7,21 @@ ms.devlang: nodejs
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b369f6deb96d456f50556d45bcb430e9273f4df
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3323c757d114051cc9ba91bc4b5c97b05dedb4e3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118010"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552840"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -35,14 +37,14 @@ ms.locfileid: "92118010"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |资源  |链接  |
 |---------|---------|
 |下载 SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|API 文档  |  [JavaScript SDK 参考文档](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|API 文档  |  [JavaScript SDK 参考文档](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
 |SDK 安装说明  |  [安装说明](https://github.com/Azure/azure-sdk-for-js)
 |参与 SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | 示例 | [Node.js 代码示例](sql-api-nodejs-samples.md)
@@ -391,7 +393,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 <a name="1.6.0"></a>
 ### <a name="160"></a>1.6.0
-* 实现了[分区集合](partition-data.md)和[用户定义的性能级别](performance-levels.md)。
+* 实现了[分区集合](partitioning-overview.md)和[用户定义的性能级别](performance-levels.md)。
 
 <a name="1.5.6"></a>
 ### <a name="156"></a>1.5.6

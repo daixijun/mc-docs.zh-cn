@@ -5,15 +5,15 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: conceptual
 origin.date: 09/28/2020
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5ba30b1f318bae8a10e2db614ee510b45c597903
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: e05ae94922edaa3aa02c7352d76de116938f8ff1
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750129"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590562"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure 负载均衡器的 Azure 安全基线
 
@@ -25,7 +25,7 @@ Azure 负载均衡器的 Azure 安全基线包含有助于改进部署安全状�
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
-**指导** ：使用内部 Azure 负载均衡器，仅允许从特定虚拟网络或对等互连虚拟网络内部到后端资源的流量，不会将内容暴露到 Internet。 实现采用源网络地址转换 (SNAT) 的外部负载均衡器，以伪装后端资源的 IP 地址，防止直接暴露到 Internet。
+**指导**：使用内部 Azure 负载均衡器，仅允许从特定虚拟网络或对等互连虚拟网络内部到后端资源的流量，不会将内容暴露到 Internet。 实现采用源网络地址转换 (SNAT) 的外部负载均衡器，以伪装后端资源的 IP 地址，防止直接暴露到 Internet。
 
 Azure 提供了两种类型的负载均衡器产品/服务：“标准”类型和“基本”类型。 请为所有生产工作负荷使用标准负载均衡器。 实现网络安全组，只允许访问应用程序的受信任端口和 IP 地址范围。 如果没有为后端虚拟机的后端子网或 NIC 分配网络安全组，则不允许流量从负载均衡器发送到这些资源。 使用标准负载均衡器，提供出站规则以使用网络安全组定义出站 NAT。 查看这些出站规则以优化出站连接的行为。 
 
@@ -35,13 +35,13 @@ Azure 提供了两种类型的负载均衡器产品/服务：“标准”类型�
 
 - [升级 Azure 公共负载均衡器](/load-balancer/upgrade-basic-standard)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2：监视和记录虚拟网络、子网和 NIC 的配置与流量
 
-**指导** ：负载均衡器是一项直通服务，因为它依赖于应用于后端资源的网络安全组规则和所配置的出站规则来控制 Internet 访问。
+**指导**：负载均衡器是一项直通服务，因为它依赖于应用于后端资源的网络安全组规则和所配置的出站规则来控制 Internet 访问。
 
 通过负载均衡器的“出站规则”边栏选项卡和“负载均衡规则”边栏选项卡（你可能已在其中启用了隐式出站规则），查看为标准负载均衡器配置的出站规则。
 
@@ -61,33 +61,33 @@ Azure 提供了两种类型的负载均衡器产品/服务：“标准”类型�
 
 - [如何检查出站连接统计信息](/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-outbound-connection-statistics)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="13-protect-critical-web-applications"></a>1.3：保护关键 Web 应用程序
 
-**指导** ：通过出站规则和网络安全组以及负载均衡器显式定义 Internet 连接和有效的源 IP，以使用 Azure 的威胁情报来保护你的 Web 应用程序。
+**指导**：通过出站规则和网络安全组以及负载均衡器显式定义 Internet 连接和有效的源 IP，以使用 Azure 的威胁情报来保护你的 Web 应用程序。
 
 - [集成 Azure 防火墙](/firewall/integrate-lb)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="15-record-network-packets"></a>1.5：记录网络数据包
 
-**指导** ：启用网络观察程序数据包捕获来调查异常活动。
+**指导**：启用网络观察程序数据包捕获来调查异常活动。
 
 - [如何创建网络观察程序实例](/network-watcher/network-watcher-create)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6：部署基于网络的入侵检测/入侵防护系统 (IDS/IPS)
 
-**指导** ：实现 Azure 市场中的一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能，以支持负载均衡器的环境。 
+**指导**：实现 Azure 市场中的一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能，以支持负载均衡器的环境。 
 
 如果不需要进行有效负载检查，请使用 Azure 防火墙威胁情报。 使用基于 Azure 防火墙威胁情报的筛选功能，针对进出已知恶意 IP 地址和域的流量发出警报并/或阻止该流量。 IP 地址和域源自 Azure 威胁智能源。
 
@@ -99,23 +99,23 @@ Azure 提供了两种类型的负载均衡器产品/服务：“标准”类型�
 
 - [如何配置 Azure 防火墙警报](/firewall/threat-intel)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7：管理发往 Web 应用程序的流量
 
-**指导** ：通过出站规则和网络安全组以及负载均衡器显式定义 Internet 连接和有效的源 IP，以使用 Microsoft 的威胁情报功能来保护你的 Web 应用程序。
+**指导**：通过出站规则和网络安全组以及负载均衡器显式定义 Internet 连接和有效的源 IP，以使用 Microsoft 的威胁情报功能来保护你的 Web 应用程序。
 
 - [集成 Azure 防火墙](/firewall/integrate-lb)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8：最大程度地降低网络安全规则的复杂性和管理开销
 
-**指导** ：创建安全规则时，使用服务标记代替特定的 IP 地址。 在规则的源或目标字段中指定服务标记名称，以允许或拒绝相应服务的流量。 
+**指导**：创建安全规则时，使用服务标记代替特定的 IP 地址。 在规则的源或目标字段中指定服务标记名称，以允许或拒绝相应服务的流量。 
 
 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。 
 
@@ -125,13 +125,13 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [可用服务标记](/virtual-network/service-tags-overview#available-service-tags)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10：阐述流量配置规则
 
-**指导** ：为网络安全组以及与网络安全和通信流相关的其他资源使用资源标记。 
+**指导**：为网络安全组以及与网络安全和通信流相关的其他资源使用资源标记。 
 
 对于单独的网络安全组规则，请使用“说明”字段来记录允许流入/流出网络的流量的规则。
 
@@ -145,13 +145,13 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何使用网络安全组规则筛选网络流量](/virtual-network/tutorial-filter-network-traffic)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11：使用自动化工具来监视网络资源配置和检测更改
 
-**指导** ：使用 Azure 活动日志监视网络资源配置，并检测 Azure 资源的更改。 
+**指导**：使用 Azure 活动日志监视网络资源配置，并检测 Azure 资源的更改。 
 
 在 Azure Monitor 中创建警报，以便在关键资源发生更改时通知你。
 
@@ -159,9 +159,9 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何在 Azure Monitor 中创建警报](/azure-monitor/platform/alerts-activity-log)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
@@ -169,7 +169,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 ### <a name="22-configure-central-security-log-management"></a>2.2：配置中心安全日志管理
 
-**指导** ：通过查看订阅中的活动日志，查看对负载均衡器的出站规则和网络安全组的更改。 
+**指导**：通过查看订阅中的活动日志，查看对负载均衡器的出站规则和网络安全组的更改。 
 
 查看内部主机日志，以确保后端资源是安全的。
 
@@ -185,13 +185,13 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [平台活动日志](/azure-monitor/platform/activity-log)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3：为 Azure 资源启用审核日志记录
 
-**指导** ：查看在基本负载均衡器的活动日志中捕获的控制和管理平面日志记录和审核信息。 这些捕获设置是默认启用的。 
+**指导**：查看在基本负载均衡器的活动日志中捕获的控制和管理平面日志记录和审核信息。 这些捕获设置是默认启用的。 
 
 使用活动日志监视资源上的操作，以查看所有活动及其状态。 
 
@@ -225,13 +225,13 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何开始将 Azure Monitor 与第三方 SIEM 集成](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指导** ：活动日志是默认启用的，在 Azure 的事件日志存储中保留 90 天。 在 Azure Monitor 中，根据组织的合规性规则设置 Log Analytics 工作区保留期。 将 Azure 存储帐户用于长期存储和存档存储。
+**指导**：活动日志是默认启用的，在 Azure 的事件日志存储中保留 90 天。 在 Azure Monitor 中，根据组织的合规性规则设置 Log Analytics 工作区保留期。 将 Azure 存储帐户用于长期存储和存档存储。
 
 - [“查看活动日志以监视对资源的操作”一文](/azure-resource-manager/resource-group-audit)
 
@@ -239,13 +239,13 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何为 Azure 存储帐户日志配置保留策略](/storage/common/storage-monitor-storage-account#configure-logging)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 
-**指导** ：使用 Azure 门户中的“负载均衡器”页面和 Azure Monitor 下的“资源运行状况”页面监视、管理标准负载均衡器资源并对其进行故障排除。 适用于安全性的指标包括有关源网络地址转换 (SNAT) 连接、端口的信息。 同时还提供了有关 SYN（同步）数据包和数据包计数器的其他指标。 
+**指导**：使用 Azure 门户中的“负载均衡器”页面和 Azure Monitor 下的“资源运行状况”页面监视、管理标准负载均衡器资源并对其进行故障排除。 适用于安全性的指标包括有关源网络地址转换 (SNAT) 连接、端口的信息。 同时还提供了有关 SYN（同步）数据包和数据包计数器的其他指标。 
 
 使用 Azure Monitor 通过标准、外部和内部负载均衡器的多维指标来查看终结点运行状况探测状态。 通过 API 以编程方式收集这些指标，并通过“所有指标”选项将它们写入到存储帐户。
 
@@ -273,13 +273,13 @@ Azure Monitor 日志不适用于内部基本负载均衡器。
 
 - [在 Azure 门户中查看负载均衡器指标](/load-balancer/load-balancer-standard-diagnostics#view-your-load-balancer-metrics-in-the-azure-portal)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7：针对异常活动启用警报
 
-**指导** ：使用安全中心和 Log Analytics 工作区监视安全日志和事件中与负载均衡器相关的异常活动并对其发出警报。
+**指导**：使用安全中心和 Log Analytics 工作区监视安全日志和事件中与负载均衡器相关的异常活动并对其发出警报。
 
 启用第三方 SIEM 工具并将数据上传到其中。
 
@@ -287,33 +287,33 @@ Azure Monitor 日志不适用于内部基本负载均衡器。
 
 - [如何针对 Log Analytics 日志数据发出警报](/azure-monitor/learn/tutorial-response)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8：集中管理反恶意软件日志记录
 
-**指导** ：不适用于 Azure 负载均衡器。 此建议适用于计算资源。
+**指导**：不适用于 Azure 负载均衡器。 此建议适用于计算资源。
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="29-enable-dns-query-logging"></a>2.9：启用 DNS 查询日志记录
 
-**指导** ：不适用，因为 Azure 负载均衡器是一种核心网络服务，不会进行 DNS 查询。
+**指导**：不适用，因为 Azure 负载均衡器是一种核心网络服务，不会进行 DNS 查询。
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指导** ：不适用于 Azure 负载均衡器，因为此建议适用于计算资源。
+**指导**：不适用于 Azure 负载均衡器，因为此建议适用于计算资源。
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
@@ -321,7 +321,7 @@ Azure Monitor 日志不适用于内部基本负载均衡器。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指导** ：借助 Azure 基于角色的访问控制 (Azure RBAC)，可以通过角色分配管理对 Azure 资源（例如负载均衡器）的访问。 可将这些角色分配给用户、组、服务主体和托管标识。 
+**指导**：借助 Azure 基于角色的访问控制 (Azure RBAC)，可以通过角色分配管理对 Azure 资源（例如负载均衡器）的访问。 可将这些角色分配给用户、组、服务主体和托管标识。 
 
 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点这些角色。
 
@@ -329,9 +329,9 @@ Azure Monitor 日志不适用于内部基本负载均衡器。
 
 - [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="data-protection"></a>数据保护
 
@@ -339,17 +339,17 @@ Azure Monitor 日志不适用于内部基本负载均衡器。
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6：使用 Azure RBAC 管理对资源的访问
 
-**指导** ：使用 Azure RBAC 控制对负载均衡器资源的访问。
+**指导**：使用 Azure RBAC 控制对负载均衡器资源的访问。
 
-- [如何在 Azure 中配置 RBAC](/role-based-access-control/role-assignments-portal)
+- [如何配置 Azure RBAC](/role-based-access-control/role-assignments-portal)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7：使用基于主机的数据丢失防护来强制实施访问控制
 
-**指导** ：负载均衡器是一种直通服务，不会存储客户数据。 它是由 Azure 管理的底层平台的一部分。 
+**指导**：负载均衡器是一种直通服务，不会存储客户数据。 它是由 Azure 管理的底层平台的一部分。 
 
 Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据丢失和泄露。 
 
@@ -357,19 +357,19 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 - [了解 Azure 中的客户数据保护](/security/fundamentals/protection-customer-data)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：共享
+**责任**：共享
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9：记录对关键 Azure 资源的更改并对此类更改发出警报
 
-**指导** ：将 Azure Monitor 与 Azure 活动日志结合使用，以创建在关键 Azure 资源（例如，用于重要生产工作负荷的负载均衡器）发生更改时发出的警报。
+**指导**：将 Azure Monitor 与 Azure 活动日志结合使用，以创建在关键 Azure 资源（例如，用于重要生产工作负荷的负载均衡器）发生更改时发出的警报。
 
 - [如何针对 Azure 活动日志事件创建警报](/azure-monitor/platform/alerts-activity-log)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="inventory-and-asset-management"></a>库存和资产管理
 
@@ -377,7 +377,7 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1：使用自动化资产发现解决方案
 
-**指导** ：使用 Azure Resource Graph 来查询和发现订阅中的所有资源（例如计算、存储、网络、端口、协议等）。 建议使用 Azure 资源管理器来创建和使用当前资源。 
+**指导**：使用 Azure Resource Graph 来查询和发现订阅中的所有资源（例如计算、存储、网络、端口、协议等）。 建议使用 Azure 资源管理器来创建和使用当前资源。 
 
 确保租户中具有适当的（读取）权限，并枚举所有 Azure 订阅以及订阅中的资源。
 
@@ -387,23 +387,23 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 - [了解 Azure RBAC](/role-based-access-control/overview)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="62-maintain-asset-metadata"></a>6.2：维护资产元数据
 
-**指导** ：将标记应用于 Azure资源，以便有条理地将元数据组织成某个分类。
+**指导**：将标记应用于 Azure资源，以便有条理地将元数据组织成某个分类。
 
 - [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3：删除未经授权的 Azure 资源
 
-**指导** ：在适用的情况下，请使用标记、管理组和单独的订阅来组织和跟踪资产。 
+**指导**：在适用的情况下，请使用标记、管理组和单独的订阅来组织和跟踪资产。 
 
 定期核对清单，确保及时地从订阅中删除未经授权的资源。
 
@@ -411,21 +411,21 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 - [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4：定义并维护已批准 Azure 资源的清单
 
-**指导** ：根据你的组织需求创建已批准的 Azure 资源的列表，你可以将该列表用作允许列表机制。 这样便可以在任何新提供的 Azure 服务经过组织的典型安全评估流程的正式审核和批准后将其载入。
+**指导**：根据你的组织需求创建已批准的 Azure 资源的列表，你可以将该列表用作允许列表机制。 这样便可以在任何新提供的 Azure 服务经过组织的典型安全评估流程的正式审核和批准后将其载入。
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5：监视未批准的 Azure 资源
 
-**指导** ：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
+**指导**：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
 
 使用 Azure Resource Graph 在所拥有的订阅中查询和发现资源。 
 
@@ -435,31 +435,31 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 - [如何使用 Azure Resource Graph 浏览器创建查询](/governance/resource-graph/first-query-portal)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11：限制用户与 Azure 资源管理器进行交互的能力
 
-**指南** ：通过为“Microsoft Azure 管理”应用配置“阻止访问”，使用 Azure AD 条件访问来限制用户与 Azure 资源管理器交互的能力。
+**指南**：通过为“Microsoft Azure 管理”应用配置“阻止访问”，使用 Azure AD 条件访问来限制用户与 Azure 资源管理器交互的能力。
 
 - [如何配置条件访问来阻止对 Azure 资源管理器的访问](/role-based-access-control/conditional-access-azure-management)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13：以物理或逻辑方式隔离高风险应用程序
 
-**指导** ：对于业务运营所需的但可能会给组织带来更高风险的软件，应将其隔离在其自己的虚拟机和/或虚拟网络中，并通过 Azure 防火墙或网络安全组进行充分的保护。
+**指导**：对于业务运营所需的但可能会给组织带来更高风险的软件，应将其隔离在其自己的虚拟机和/或虚拟网络中，并通过 Azure 防火墙或网络安全组进行充分的保护。
 
 - [如何创建虚拟网络](/virtual-network/quick-create-portal)
 
 - [如何创建具有安全配置的网络安全组](/virtual-network/tutorial-filter-network-traffic)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="secure-configuration"></a>安全配置
 
@@ -467,7 +467,7 @@ Azure 将所有客户内容视为敏感数据，竭尽全力防范客户数据�
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
-**指导** ：使用 Azure Policy 别名创建自定义策略，审核或强制实施 Azure 资源的配置。 使用内置的 Azure Policy 定义。
+**指导**：使用 Azure Policy 别名创建自定义策略，审核或强制实施 Azure 资源的配置。 使用内置的 Azure Policy 定义。
 
 Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，应该对其进行检查，以确保配置满足组织的安全要求。
 
@@ -483,13 +483,13 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 - [安全建议 - 参考指南](/security-center/recommendations-reference)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3：维护安全的 Azure 资源配置
 
-**指南** ：使用 Azure Policy“[拒绝]”和“[不存在则部署]”对不同的 Azure 资源强制实施安全设置。  此外，你还可以使用 Azure 资源管理器模板来维护组织所需的 Azure 资源的安全配置。 
+**指南**：使用 Azure Policy“[拒绝]”和“[不存在则部署]”对不同的 Azure 资源强制实施安全设置。  此外，你还可以使用 Azure 资源管理器模板来维护组织所需的 Azure 资源的安全配置。 
 
 - [了解 Azure Policy 效果](/governance/policy/concepts/effects)
 
@@ -497,13 +497,13 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 - [Azure 资源管理器模板概述](/azure-resource-manager/templates/overview)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5：安全存储 Azure 资源的配置
 
-**指导** ：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 
+**指导**：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 
 
 向特定用户、内置安全组或者在 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）或 Active Directory（如果与 TFS 集成）中定义的组授予权限，或拒绝向其授予权限。
 
@@ -511,31 +511,31 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 - [关于 Azure DevOps 中的权限和组](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7：部署 Azure 资源的配置管理工具
 
-**指导** ：使用 Azure Policy 为 Azure 资源定义和实施标准安全配置。  使用 Azure Policy 别名创建自定义策略，审核或强制实施 Azure 资源的网络配置。 实现与特定的 Azure 负载均衡器资源相关的内置策略定义。  此外，请使用 Azure 自动化将配置更改 部署到 Azure 负载均衡器资源。
+**指导**：使用 Azure Policy 为 Azure 资源定义和实施标准安全配置。  使用 Azure Policy 别名创建自定义策略，审核或强制实施 Azure 资源的网络配置。 实现与特定的 Azure 负载均衡器资源相关的内置策略定义。  此外，请使用 Azure 自动化将配置更改 部署到 Azure 负载均衡器资源。
 
 - [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
 
 - [如何使用别名](/governance/policy/concepts/definition-structure#aliases)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9：为 Azure 资源实施自动配置监视
 
-**指导** ：使用安全中心对 Azure 资源和 Azure Policy 执行基线扫描，以发出警报并审核资源配置。
+**指导**：使用安全中心对 Azure 资源和 Azure Policy 执行基线扫描，以发出警报并审核资源配置。
 
 - [如何在 Azure 安全中心修正建议](/security-center/security-center-remediate-recommendations)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="incident-response"></a>事件响应
 
@@ -543,7 +543,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南** ：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 
+**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 
 
 严重性取决于安全中心对调查结果或用于发出警报的分析的确信程度，以及对导致警报的活动背后存在恶意意图的确信程度。
 
@@ -555,31 +555,31 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 - [使用标记整理 Azure 资源](/azure-resource-manager/resource-group-using-tags)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5：将安全警报整合到事件响应系统中
 
-**指导** ：使用连续导出功能导出安全中心警报和建议，以便确定给 Azure 资源带来的风险。 
+**指导**：使用连续导出功能导出安全中心警报和建议，以便确定给 Azure 资源带来的风险。 
 
 使用安全中心的连续导出功能手动导出或者持续导出警报和建议。 
 
 - [如何配置连续导出](/security-center/continuous-export)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6：自动响应安全警报
 
-**指导** ：使用安全中心的工作流自动化功能，针对安全警报和建议自动触发响应，以保护 Azure 资源。
+**指导**：使用安全中心的工作流自动化功能，针对安全警报和建议自动触发响应，以保护 Azure 资源。
 
 - [如何在安全中心配置工作流自动化](/security-center/workflow-automation)
 
-**Azure 安全中心监视** ：是
+**Azure 安全中心监视**：是
 
-**责任** ：客户
+**责任**：客户
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
@@ -587,15 +587,15 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
-**指导** ：请遵循 Microsoft 云渗透测试互动规则，确保你的渗透测试不违反 Azure 政策。 使用 Microsoft 红队演练策略和执行，以及针对 Microsoft 托管云基础结构、服务和应用程序执行现场渗透测试。 
+**指导**：请遵循 Microsoft 云渗透测试互动规则，确保你的渗透测试不违反 Azure 政策。 使用 Microsoft 红队演练策略和执行，以及针对 Microsoft 托管云基础结构、服务和应用程序执行现场渗透测试。 
 
 - [参与的渗透测试规则](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft 云红色组合](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure 安全中心监视** ：不适用
+**Azure 安全中心监视**：不适用
 
-**责任** ：共享
+**责任**：共享
 
 ## <a name="next-steps"></a>后续步骤
 

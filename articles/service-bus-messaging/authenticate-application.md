@@ -4,16 +4,16 @@ description: 本文介绍如何对使用 Azure Active Directory 访问 Azure 服
 ms.topic: conceptual
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b8dfd42aec7d653fd43a665a5a19a915df47ba51
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 62c3a9a5c11fcea53e8bd38ff2f12c0980555bb1
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946912"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590646"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>使用 Azure Active Directory 对应用程序进行身份验证和授权，使之能够访问 Azure 服务总线实体
 Azure 服务总线支持使用 Azure Active Directory (Azure AD) 授权对服务总线实体（队列、主题、订阅或筛选器）的请求。 可以通过 Azure AD 使用 Azure 基于角色的访问控制 (Azure RBAC) 授予对安全主体的访问权限，该安全主体可能是用户、组或应用程序服务主体。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 通过 [Azure RBAC](../role-based-access-contr
 
 以下列表描述了可将服务总线资源访问权限限定到哪些级别，从最小的范围开始：
 
-- **队列**、**主题**或**订阅**：角色分配适用于特定的服务总线实体。 目前，Azure 门户不支持在订阅级别为服务总线 Azure 角色分配用户/组/托管标识。 
+- **队列**、**主题** 或 **订阅**：角色分配适用于特定的服务总线实体。 目前，Azure 门户不支持在订阅级别为服务总线 Azure 角色分配用户/组/托管标识。 
 - **服务总线命名空间**：角色分配横跨命名空间中服务总线的整个拓扑，并延伸至与之关联的使用者组。
 - **资源组**：角色分配适用于资源组下的所有服务总线资源。
 - **订阅**：角色分配适用于订阅的所有资源组中的所有服务总线资源。
@@ -72,8 +72,8 @@ Azure Active Directory (Azure AD) 通过 [Azure RBAC](../role-based-access-contr
 
     :::image type="content" source="./media/authenticate-application/role-assignments-add-button.png" alt-text="工具栏上的“添加”按钮":::
 1. 在“添加角色分配”  页上，执行以下步骤：
-    1. 选择要分配的**服务总线角色**。 
-    1. 通过搜索找到要为其分配该角色的**安全主体**（用户、组、服务主体）。
+    1. 选择要分配的 **服务总线角色**。 
+    1. 通过搜索找到要为其分配该角色的 **安全主体**（用户、组、服务主体）。
     1. 选择“保存”以保存角色分配。 
 
         :::image type="content" source="./media/authenticate-application/assign-role-to-user.png" alt-text="向用户分配角色":::

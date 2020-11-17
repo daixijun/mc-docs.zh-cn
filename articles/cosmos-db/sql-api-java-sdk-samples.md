@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: 66e17a8c9a3af163057e89fc440e60e269b37d06
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 5fa5036c6773be9bf3e4239222cef1a16a7cd317
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117943"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552760"
 ---
 <!--Verified successfully-->
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API：Java SDK v4 示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
@@ -80,7 +81,7 @@ $ cd azure-cosmos-java-sql-api-samples
 必须设置这些环境变量
 
 ```
-ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account master key
+ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account primary key
 ```
 
 才能使示例可以对你的帐户进行读/写访问。
@@ -106,7 +107,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 > 
 
 ## <a name="database-examples"></a>数据库示例
-[数据库 CRUD 示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。 
+[数据库 CRUD 示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -116,7 +117,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 | [删除数据库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/databasecrud/sync/DatabaseCRUDQuickstart.java#L115-L123) | CosmosDatabase.delete |
 
 ## <a name="collection-examples"></a>集合示例
-[集合 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。
+[集合 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -128,7 +129,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 
 ## <a name="autoscale-collection-examples"></a>自动缩放集合示例
 
-若要在运行这些示例之前了解有关自动缩放的详细信息，请查看以下说明，了解如何在[帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql-autoscale/)以及[数据库和容器](https://docs.azure.cn/cosmos-db/provision-throughput-autoscale)中启用自动缩放。
+若要在运行这些示例之前了解有关自动缩放的详细信息，请查看以下说明，了解如何在[帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql-autoscale/)以及[数据库和容器](./provision-throughput-autoscale.md)中启用自动缩放。
 
 [自动缩放数据库 CRUD 示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java)文件演示如何执行以下任务。
 
@@ -153,7 +154,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 | [创建集合](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/analyticalcontainercrud/sync/AnalyticalContainerCRUDQuickstart.java#L93-L108) | CosmosDatabase.createContainerIfNotExists |
 
 ## <a name="document-examples"></a>文档示例
-[文档 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。
+[文档 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -167,7 +168,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 | [仅当文档已更改时读取文档](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br />AccessCondition.setCondition |
 
 ## <a name="indexing-examples"></a>索引示例
-[集合 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)概念文章。 
+[集合 CRUD 示例](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java)文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-kinds)和[索引路径](index-policy.md#include-exclude-paths)概念文章。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -184,7 +185,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="query-examples"></a>查询示例
-[查询示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java)文件演示如何使用 SQL 查询语法执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](how-to-sql-query.md)。 
+[查询示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java)文件演示如何使用 SQL 查询语法执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](./sql-query-getting-started.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |

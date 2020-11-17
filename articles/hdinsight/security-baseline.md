@@ -9,12 +9,12 @@ origin.date: 04/09/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
 ms.custom: security-benchmark
-ms.openlocfilehash: de169b02e90a62bd3164778377485603036112e3
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 2d930276e15b404c939e1eae117756c52bd255e9
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552900"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 的 Azure 安全基线
 
@@ -617,11 +617,6 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
 
 
-如何保护 Azure Data Lake Storage：
-
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
-
 如何保护 Azure 存储帐户：
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
@@ -655,10 +650,6 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **指导**：加密传输中的所有敏感信息。 确保连接到 Azure HDInsight 群集或群集数据存储（Azure 存储帐户或 Azure Data Lake Storage Gen1/Gen2）的任何客户端能够协商 TLS 1.2 或更高版本。 默认情况下，Microsoft Azure 资源将协商 TLS 1.2。 
 
-
-了解 Azure Data Lake Storage 的传输中加密：
-
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
 
 
 了解 Azure 存储帐户的传输中加密：
@@ -729,11 +720,6 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-
-
-如何使用客户管理的加密密钥创建 Azure Data Lake Storage：
-
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 

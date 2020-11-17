@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 资源管理器模板（ARM 模板）创建内部负载均衡器
-description: 了解如何使用 Azure 资源管理器模板（ARM 模板）创建内部 Azure 负载均衡器。
+title: 快速入门：使用模板创建内部负载均衡器
+description: 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）创建内部 Azure 负载均衡器。
 services: load-balancer
 author: WenJason
 ms.service: load-balancer
@@ -8,19 +8,23 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 09/14/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 3717b44513d3fbf48edd6a778881ad52f1b6abbc
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.date: 11/16/2020
+ms.openlocfilehash: 51d0e0d3850d3f5078e336ed57f87b0a26f8e700
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943556"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590503"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建内部负载均衡器，以对 VM 进行负载均衡
 
 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）来创建内部 Azure 负载均衡器。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
+
+[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -78,35 +82,35 @@ ms.locfileid: "91943556"
     "loadBalancerName": "ilb",
     "networkInterfaceName": "nic",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-    "numberOfInstances": 2,
+    "numberOfInstances": 2
   },
   "resources": [
     {
-      "apiVersion": "2019-06-01",
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
-      "kind": "StorageV2",
       "sku": {
         "name": "[variables('storageAccountType')]"
-      }
+      },
+      "kind": "StorageV2"
     },
     {
-      "apiVersion": "2019-12-01",
       "type": "Microsoft.Compute/availabilitySets",
-      "location": "[parameters('location')]",
+      "apiVersion": "2020-06-01",
       "name": "[variables('availabilitySetName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Aligned"
+      },
       "properties": {
         "PlatformUpdateDomainCount": 2,
         "PlatformFaultDomainCount": 2
-      },
-      "sku": {
-        "name": "Aligned"
       }
     },
     {
-      "apiVersion": "2020-05-01",
       "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
       "name": "[variables('virtualNetworkName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -126,8 +130,8 @@ ms.locfileid: "91943556"
       }
     },
     {
-      "apiVersion": "2020-05-01",
       "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2020-06-01",
       "name": "[concat(variables('networkInterfaceName'), copyindex())]",
       "location": "[parameters('location')]",
       "copy": {
@@ -158,16 +162,16 @@ ms.locfileid: "91943556"
       }
     },
     {
-      "apiVersion": "2020-05-01",
       "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2020-06-01",
       "name": "[variables('loadBalancerName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[variables('virtualNetworkName')]"
-      ],
       "sku": {
         "name": "Standard"
       },
+      "dependsOn": [
+        "[variables('virtualNetworkName')]"
+      ],
       "properties": {
         "frontendIPConfigurations": [
           {
@@ -220,14 +224,14 @@ ms.locfileid: "91943556"
       }
     },
     {
-      "apiVersion": "2019-12-01",
       "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
       "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
+      "location": "[parameters('location')]",
       "copy": {
         "name": "virtualMachineLoop",
         "count": "[variables('numberOfInstances')]"
       },
-      "location": "[parameters('location')]",
       "dependsOn": [
         "[variables('storageAccountName')]",
         "nicLoop",
@@ -306,11 +310,11 @@ az deployment group create \
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 
-2. 从左侧窗格中选择“资源组”。
+1. 从左侧窗格中选择“资源组”。
 
-3. 选择你在上一部分中创建的资源组。 默认资源组名称是“myResourceGroupLB”
+1. 选择你在上一部分中创建的资源组。 默认资源组名称是“myResourceGroupLB”
 
-4. 验证是否在资源组中创建了以下资源：
+1. 验证是否在资源组中创建了以下资源：
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="用于验证资源创建的用户 Azure 门户。" border="true":::
 

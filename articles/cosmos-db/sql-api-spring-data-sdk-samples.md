@@ -6,20 +6,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: 7a394b9d05f37518b5c9df02ccfecb29ce16cd13
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: d99bc442d218f84e5df2bb754f8ba5788357345b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118796"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552839"
 ---
 <!--Need Verified with PM-->
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>Azure Cosmos DB SQL API：Spring Data Azure Cosmos DB v3 示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
@@ -109,7 +110,7 @@ mvn spring-boot:run
 ```
 
 ## <a name="document-crud-examples"></a>文档 CRUD 示例
-[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念性文章：[使用数据库、容器和项](databases-containers-items.md)。
+[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅概念性文章：[使用数据库、容器和项](account-databases-containers-items.md)。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -123,7 +124,7 @@ mvn spring-boot:run
 | [查询文档](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) | CosmosRepository.derivedQueryMethod |
 
 ## <a name="custom-query-examples"></a>自定义查询示例
-[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何使用 SQL 查询语法执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](how-to-sql-query.md)。 
+[samples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) 文件演示如何使用 SQL 查询语法执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的 SQL 查询引用，请参阅 [Azure Cosmos DB 的 SQL 查询示例](./sql-query-getting-started.md)。 
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -139,5 +140,4 @@ mvn spring-boot:run
 | [使用文档内联接进行查询](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L68-L85) | @Query 注释 |
 | [使用字符串、数学和数组运算符进行查询](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/UserRepository.java#L87-L97) | @Query 注释 |
 
-<!-- Update_Description: new article about sql api spring data sdk samples -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

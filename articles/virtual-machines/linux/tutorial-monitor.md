@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 09/30/2019
-ms.custom: mvc
-ms.openlocfilehash: eed255a85d053122478e0317c505cb51d37cc457
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: a5a00eec8148234854ec92fac8870998abb3ad09
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057656"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637762"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>教程：监视 Azure 中的 Linux 虚拟机
 
@@ -46,7 +46,7 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 
 ## <a name="create-vm"></a>创建 VM
 
-若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”** 位置创建名为“myResourceGroupMonitor”** 的资源组。
+若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
 
 ```azurecli
 az group create --name myResourceGroupMonitor --location chinaeast
@@ -127,7 +127,6 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 <!--MOONCAKE: No Insights(preview) in Monitoring section-->
 <!--Not Available on ## View VM performance metrics-->
 <!--MOONCAKE: No Insights(preview) in Monitoring section-->
-
 ## <a name="create-alerts"></a>创建警报
 
 可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
@@ -138,7 +137,7 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 
 2. 在“警报”边栏选项卡上单击“新建警报规则”。 
 
-3. 为警报提供**名称**，例如 *myAlertRule*
+3. 为警报提供 **名称**，例如 *myAlertRule*
 
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
 
@@ -157,11 +156,8 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 > * 查看主机指标
 > * 创建警报
 
-<!--Not Available on > * Enable Azure Monitor for VMs-->
-<!--Not Available on > * View VM performance metrics-->
+请转到下一教程来了解 Azure 安全中心。
 
-<!--Not Available on Advance to the next tutorial to learn about Azure Security Center-->
-<!--Not Available on [Manage VM security](../../security/fundamentals/overview.md)-->
-
-<!-- Update_Description: new article about tutorial monitor -->
+> [!div class="nextstepaction"]
+> [管理 VM 安全性](tutorial-azure-security.md)
 <!--NEW.date: 11/11/2019-->

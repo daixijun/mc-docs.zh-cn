@@ -4,17 +4,18 @@ description: 了解如何在 Azure Cosmos 容器中使用合成分区键在分�
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/03/2019
-ms.date: 02/10/2020
+ms.date: 11/16/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 6fd0cb3613c85f872cfa56f2277b32a42f3903b1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 21aa803235077a2dfae5bcddefdda9ecb28f1e9b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068176"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552474"
 ---
 # <a name="create-a-synthetic-partition-key"></a>创建合成分区键
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 采用具有大量（例如，几百甚至几千个）非重复性值的分区键是最佳做法。 目标是在与这些分区键值关联的项之间均匀分配数据和工作负荷。 如果数据中不存在此类属性，可以构造一个合成分区键。  本文档介绍为 Cosmos 容器生成合成分区键的几种基本方法。
 
@@ -59,9 +60,9 @@ ms.locfileid: "77068176"
 
 可通过以下文章详细了解分区的概念：
 
-* 详细了解[逻辑分区](partition-data.md)。
+* 详细了解[逻辑分区](partitioning-overview.md)。
 * 详细了解如何[对 Azure Cosmos 容器和数据库预配吞吐量](set-throughput.md)。
 * 了解[如何对 Azure Cosmos 容器预配吞吐量](how-to-provision-container-throughput.md)。
 * 了解[如何对 Azure Cosmos 数据库预配吞吐量](how-to-provision-database-throughput.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 08/18/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 43e0f5417657ecda81d8678c8e1590418dd8d862
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 31aafffe5fbc233a43473da58c9c0ff837ce79d2
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515998"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590903"
 ---
 # <a name="null-values"></a>Null 值
 

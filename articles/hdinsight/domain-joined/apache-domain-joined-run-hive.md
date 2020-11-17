@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 28612f99a36e7604b3a3a995c440ef3aee682ea1
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 956782b3c8906340bf439f60b5d87a9f14224c4f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936926"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552713"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企业安全性套餐的 HDInsight 中配置 Apache Hive 策略
 
@@ -21,7 +21,7 @@ ms.locfileid: "91936926"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有企业安全性套餐的 HDInsight 群集。 请参阅[配置具有 ESP 的 HDInsight 群集](apache-domain-joined-configure.md)。
+* 具有企业安全性套餐的 HDInsight 群集。 请参阅[配置具有 ESP 的 HDInsight 群集](./apache-domain-joined-configure-using-azure-adds.md)。
 * 一个装有 Microsoft 365 企业应用版、Office 2016、Office 专业增强版 2013、Excel 2013 Standalone 或 Office 专业增强版 2010 的工作站。
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>连接到 Apache Ranger 管理 UI
@@ -158,7 +158,7 @@ ms.locfileid: "91936926"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关使用企业安全性套餐配置 HDInsight 群集的信息，请参阅[使用 ESP 配置 HDInsight 群集](apache-domain-joined-configure.md)。
+* 有关使用企业安全性套餐配置 HDInsight 群集的信息，请参阅[使用 ESP 配置 HDInsight 群集](./apache-domain-joined-configure-using-azure-adds.md)。
 * 有关管理具有 ESP 的 HDInsight 群集的信息，请参阅[管理具有 ESP 的 HDInsight 群集](apache-domain-joined-manage.md)。
 * 有关在具有 ESP 的 HDInsight 群集上使用 SSH 运行 Hive 查询，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight)。
 * 若要使用 Hive JDBC 连接 Hive，请参阅 [Connect to Apache Hive on Azure HDInsight using the Hive JDBC driver](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)（使用 Hive JDBC 驱动程序连接到 Azure HDInsight 上的 Apache Hive）

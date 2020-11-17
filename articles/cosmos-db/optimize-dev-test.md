@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 04b41e0e5ab389176291c83dd8593a0b6d14fc02
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 7bcce0727c4d2c12f2fc9b1553e829a36a3aae58
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246376"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552795"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化开发和测试成本
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文介绍免费使用 Azure Cosmos DB 进行开发和测试的各种选项，以及在开发或测试帐户中进行成本优化的各种技巧。
 
@@ -31,7 +32,7 @@ ms.locfileid: "91246376"
 > [!NOTE]
 > 免费层仅可在“预配吞吐量”模式下使用。
 
-免费层在帐户的生命周期内无限期地持续有效，并且附带常规 Azure Cosmos DB 帐户的所有[优点和功能](introduction.md#key-benefits)，包括无限制的存储和吞吐量（RU/秒）、SLA、高可用性以及在所有 Azure 中国区域进行统包式多区域分布等。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](manage-sql-with-resource-manager.md#free-tier)。 如需更多详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+免费层在帐户的生命周期内无限期地持续有效，并且附带常规 Azure Cosmos DB 帐户的所有[优点和功能](introduction.md#key-benefits)，包括无限制的存储和吞吐量（RU/秒）、SLA、高可用性以及在所有 Azure 中国区域进行统包式多区域分布等。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](./manage-with-templates.md#free-tier)。 如需更多详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 <!--Not Available on ## Try Azure Cosmos DB for free-->
 <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
@@ -61,7 +62,7 @@ Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
-* 详细了解如何[优化查询成本](optimize-cost-queries.md)
+* 详细了解如何[优化查询成本](./optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

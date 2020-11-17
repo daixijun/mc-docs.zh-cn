@@ -1,23 +1,24 @@
 ---
 title: 执行 Azure Cosmos DB 缩放和性能测试
 description: 了解如何执行 Azure Cosmos DB 缩放和性能测试。 然后可为高性能应用方案评估 Azure Cosmos DB 的功能。
-author: rockboyfor
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 05/23/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 21bb05081d2db0bb4b055b4bb9ef0bbec6a6fca0
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7eb04ed75f11865f16e0d9ef1f5020599fb5d13b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222974"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552789"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>执行 Azure Cosmos DB 缩放和性能测试
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 性能和规模测试是应用程序开发过程中的关键步骤。 对许多应用程序而言，数据库层对整体性能和可伸缩性有重大影响。 因此，它是性能测试的关键组成部分。 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 专为弹性缩放和可预测性能而构建。 这些功能使它非常适合需要高性能数据库层的应用程序。 
 
@@ -100,6 +101,6 @@ Press any key to exit...
 
 * [Azure Cosmos DB 性能测试示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [用于提高 Azure Cosmos DB 性能的客户端配置选项](performance-tips.md)
-* [Azure Cosmos DB 中的服务器端分区](partition-data.md)
+* [Azure Cosmos DB 中的服务器端分区](partitioning-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

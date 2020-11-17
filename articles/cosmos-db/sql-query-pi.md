@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 PI
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 PI。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: c9896b7ac061fcd83792857542afcbe1c4981617
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4e6d24ef8c1db08a8813f428846c49676fc8b0c3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914694"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552869"
 ---
 # <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回 PI 的常量值。  
 
 ## <a name="syntax"></a>语法
@@ -48,5 +50,4 @@ SELECT PI() AS pi
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!--Update_Description: new articles on sql query pi  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

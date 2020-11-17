@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cf896110a520feb8043c1d17f2ffb7d3a7e6a119
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: edd71734d9787cc93e6e50a2cf6ec10d24c5d47f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246979"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552648"
 ---
 <!--Waiting for PM comments on release-->
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 无服务器（预览版）
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB 无服务器目前处于预览状态。 此预览版不附带服务级别协议，我们不建议将其用于生产工作负荷。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
@@ -100,5 +101,4 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 - [在预配吞吐量和无服务器之间进行选择](throughput-serverless.md)
 - [Azure Cosmos DB 中的定价模型](how-pricing-works.md)
 
-<!-- Update_Description: new article about serverless -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

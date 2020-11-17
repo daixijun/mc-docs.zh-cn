@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 TAN
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 TAN。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/04/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 6e92ce4bc887ac7d275ed26fa3b3bf51cca01cc8
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 16724db58e483b33a85674d80c7db994a3f52276
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134788"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552866"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回在指定表达式中以弧度表示的指定角度的正切。  
 
 ## <a name="syntax"></a>语法

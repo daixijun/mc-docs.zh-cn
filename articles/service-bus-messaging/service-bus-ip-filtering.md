@@ -4,23 +4,23 @@ description: 如何使用防火墙规则允许从特定 IP 地址连接到 Azure
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: a1600b341b1fb8e3b0f97a9e5efa8dab6a3757fb
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 793fc70f0bf62087177bbfc810bd31d25f0d4ed3
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127833"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590875"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>允许从特定 IP 地址或范围访问 Azure 服务总线命名空间
 默认情况下，只要请求附带有效的身份验证和授权，就可以从 Internet 访问服务总线命名空间。 使用 IP 防火墙，可以将其进一步限制为采用 CIDR（无类域间路由）表示法的一组 IPv4 地址或一个 IPv4 地址。
 
 <!--Not Available on [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-->
 
-在仅应从某些知名站点访问 Azure 服务总线的情况下，此功能很有用。 可以通过防火墙规则来配置规则，以便接受来自特定 IPv4 地址的流量。 例如，如果将服务总线与 [Azure Express Route][express-route] 配合使用，则可创建 **防火墙规则** ，以便仅允许来自本地基础结构 IP 地址或企业 NAT 网关地址的流量。 
+在仅应从某些知名站点访问 Azure 服务总线的情况下，此功能很有用。 可以通过防火墙规则来配置规则，以便接受来自特定 IPv4 地址的流量。 例如，如果将服务总线与 [Azure Express Route][express-route] 配合使用，则可创建 **防火墙规则**，以便仅允许来自本地基础结构 IP 地址或企业 NAT 网关地址的流量。 
 
 > [!IMPORTANT]
 > 防火墙和虚拟网络仅在服务总线的 **高级** 层中受支持。 如果无法升级到 **高级** 层，我们建议保护共享访问签名 (SAS) 令牌的安全，只与已获授权的用户共享。 有关 SAS 身份验证的信息，请参阅[身份验证和授权](service-bus-authentication-and-authorization.md#shared-access-signature)。
@@ -58,7 +58,7 @@ IP 防火墙规则在服务总线命名空间级别应用。 因此，这些规�
 
     如果你选择“所有网络”选项，你的服务总线命名空间将接受来自 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。 
 
-    :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="网络页面 - 默认":::
+    :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Azure 门户中“网络”页面的屏幕截图。在“防火墙和虚拟网络”选项卡上选择了允许从所有网络访问的选项。":::
 1. 若要仅允许从指定的 IP 地址进行访问，请选择“选定网络”选项（如果尚未选择）。 在“防火墙”部分中执行以下步骤：
     1. 选择“添加客户端 IP 地址”选项，使当前客户端 IP 可以访问命名空间。 
     2. 对于“地址范围”，请输入某个特定的 IPv4 地址或以 CIDR 表示法表示的 IPv4 地址范围。 
@@ -69,7 +69,7 @@ IP 防火墙规则在服务总线命名空间级别应用。 因此，这些规�
         > [!WARNING]
         > 如果选择“选定的网络”选项但未指定 IP 地址或地址范围，则服务将允许来自所有网络的流量。 
 
-        :::image type="content" source="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" alt-text="网络页面 - 默认":::
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png" alt-text="Azure 门户中“网络”页面的屏幕截图。已选择允许从选定的网络进行访问选项，并突出显示“防火墙”部分。":::
 3. 在工具栏上选择“保存”，保存这些设置。 请等待几分钟，直到门户通知中显示确认消息。
 
     > [!NOTE]
@@ -134,7 +134,7 @@ IP 防火墙规则在服务总线命名空间级别应用。 因此，这些规�
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],

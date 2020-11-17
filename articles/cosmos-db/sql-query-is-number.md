@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 IS_NUMBER
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 IS_NUMBER。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 399230b6d771b781e1d7803fc1386da55cf3db37
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: abcd6448b70f76fbe34ee60355d13ba922a57cd3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134565"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552613"
 ---
 # <a name="is_number-azure-cosmos-db"></a>IS_NUMBER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个布尔值，指示指定表达式的类型是否为数字。  
 
 ## <a name="syntax"></a>语法

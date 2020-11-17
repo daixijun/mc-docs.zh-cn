@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 7940cae19384001e12d3ded312c8aa832df5f440
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f8edad10a6b230e124cc5973ba9d45b5c0a21679
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246702"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552703"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式的自然对数。  
 
 ## <a name="syntax"></a>语法

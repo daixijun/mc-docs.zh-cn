@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 中的自定�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/14/2019
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.custom: devx-track-csharp
-ms.openlocfilehash: bd00671fb635eed21fa59e18c15e326bbe522a46
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 70063aef422f4b33ae97f2c5feba9c3bb1c882c0
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564631"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590899"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -49,6 +49,7 @@ ms.locfileid: "91564631"
 
 * 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>创建预配服务和两个部门 IoT 中心
 
@@ -342,7 +343,7 @@ ms.locfileid: "91564631"
 
 在本部分，你将创建两个唯一的设备密钥。 一个密钥将用于模拟的烤箱设备。 另一个密钥将用于模拟的热泵设备。
 
-若要生成设备密钥，请使用前面记下的“主密钥”来计算每个设备的设备注册 ID 的 HMAC-SHA256，并将结果转换为 Base64 格式。**** 有关使用注册组创建派生设备密钥的详细信息，请参阅[对称密钥证明](concepts-symmetric-key-attestation.md)的组注册部分。
+若要生成设备密钥，请使用前面记下的“主密钥”来计算每个设备的设备注册 ID 的 HMAC-SHA256，并将结果转换为 Base64 格式。 有关使用注册组创建派生设备密钥的详细信息，请参阅[对称密钥证明](concepts-symmetric-key-attestation.md)的组注册部分。
 
 对于本文中的示例，使用以下两个设备注册 ID 并计算这两个设备的设备密钥。 这两个注册 ID 都具有有效的后缀，以与自定义分配策略的示例代码结合使用：
 
@@ -410,7 +411,7 @@ ms.locfileid: "91564631"
 
 1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
-    在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
+    在进行 `CMake` 安装 **之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
 2. 查找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
 

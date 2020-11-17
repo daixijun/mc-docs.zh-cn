@@ -6,21 +6,22 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 origin.date: 06/05/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71180c6280e056fb558f35ed8feaf67635a285fa
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 37ab3dac8bbc77bae3507f59fc4c077c57fa39f6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246316"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552579"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>教程：使用表 API 查询 Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB [表 API](table-introduction.md) 支持针对键/值（表）数据进行 OData 和 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 查询。  
 

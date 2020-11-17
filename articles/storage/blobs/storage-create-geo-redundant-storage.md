@@ -118,7 +118,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 在应用程序中，必须为存储帐户提供连接字符串。 可以将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  复制主密钥或辅助密钥中的 **连接字符串** 。 根据操作系统运行以下命令之一（将 \<yourconnectionstring\> 替换为实际的连接字符串）。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的 **命令提示符** 或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。  复制主密钥或辅助密钥中的 **连接字符串**。 根据操作系统运行以下命令之一（将 \<yourconnectionstring\> 替换为实际的连接字符串）。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的 **命令提示符** 或 shell，该环境变量才可用。
 
 ### <a name="linux"></a>Linux
 
@@ -195,7 +195,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 若要运行示例，请打开命令提示符，导航到示例文件夹，然后输入 `node index.js`。
 
-此示例在 Blob 存储帐户中创建一个容器，将 **HelloWorld.png** 上传到容器中，然后反复检查容器和图像是否已复制到次要区域。 复制完以后，会提示你输入 **D** 或 **Q** （然后按 ENTER），以便下载相关内容或退出。 输出应类似于以下示例：
+此示例在 Blob 存储帐户中创建一个容器，将 **HelloWorld.png** 上传到容器中，然后反复检查容器和图像是否已复制到次要区域。 复制完以后，会提示你输入 **D** 或 **Q**（然后按 ENTER），以便下载相关内容或退出。 输出应类似于以下示例：
 
 ```
 Created container successfully: newcontainer1550799840726

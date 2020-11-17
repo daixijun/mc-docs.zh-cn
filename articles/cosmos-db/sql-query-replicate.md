@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 071add7d670e923d4a35613e9a53fec1c8f1baeb
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 8b562fb43b2525be033e1401badf72d188c67537
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246718"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552834"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  将一个字符串值重复指定的次数。
 
 ## <a name="syntax"></a>语法

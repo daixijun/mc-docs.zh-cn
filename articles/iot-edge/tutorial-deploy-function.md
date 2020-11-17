@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/29/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 638f780a81525993295936bff1d4c1b48d14a210
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: ca2a53d9ada296e63f5d0edfaba0406a9c073e2b
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564628"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595135"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -43,7 +43,7 @@ ms.locfileid: "91564628"
 
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
-* 一个容器注册表，例如 [Azure 容器注册表](/container-registry/)。
+* 一个容器注册表，例如 [Azure 容器注册表](../container-registry/index.yml)。
 * 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 

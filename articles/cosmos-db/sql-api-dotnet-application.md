@@ -7,25 +7,26 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 05/08/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: caa3ea0d3fc1011c2828e1ae87b427903ac6e4eb
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: c1ca62388e1f6a6502e7a1968b967434313150ea
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246767"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552729"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 本教程介绍如何使用 Azure Cosmos DB 通过 Azure 上托管的 ASP.NET MVC 应用程序存储和访问数据。 在本教程中，请使用 .NET SDK V3。 下图显示将要使用本文中的示例生成的网页：
@@ -431,8 +432,8 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在“添加 MVC 视图”中进行以下更改：
 
-    * 在“视图名称”框中，键入“索引”。******
-    * 在“模板”框中，选择“列表”。********
+    * 在“视图名称”框中，键入“索引”。
+    * 在“模板”框中，选择“列表”。
     * 在“模型类”框中，选择“项(todo.Models)”。 
     * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
     * 选择 **添加** 。
@@ -846,13 +847,13 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 本教程介绍了如何生成 ASP.NET Core MVC Web 应用程序。 该应用程序可以访问存储在 Azure Cosmos DB 中的数据。 接下来，可以继续学习以下资源：
 
 * [Azure Cosmos DB 中的分区](./partitioning-overview.md)
-* [SQL 查询入门](./how-to-sql-query.md)
+* [SQL 查询入门](./sql-query-getting-started.md)
 * [如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
+[Basic CRUD Operations in ASP.NET MVC]: https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app
 
 <!-- Update_Description: update meta properties, wording update, update link -->

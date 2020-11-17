@@ -5,17 +5,17 @@ ms.devlang: Java
 ms.topic: quickstart
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b3e56d6e4589c2b994002222297f580be29b9d43
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: fde338422201b4345d9f51fae93141e4b657c7c9
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947068"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590874"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>快速入门：通过 Java 使用服务总线主题和订阅
 
@@ -25,12 +25,12 @@ ms.locfileid: "88947068"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 2. 按照[快速入门：使用 Azure 门户创建服务总线主题和主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
-    1. 创建一个服务总线**命名空间**。
-    2. 获取**连接字符串**。
-    3. 在此命名空间中创建一个**主题**。
-    4. 在此命名空间中创建对此主题的**三个订阅**。
+    1. 创建一个服务总线 **命名空间**。
+    2. 获取 **连接字符串**。
+    3. 在此命名空间中创建一个 **主题**。
+    4. 在此命名空间中创建对此主题的 **三个订阅**。
 3. [Azure SDK for Java][Azure SDK for Java]。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
@@ -462,10 +462,8 @@ Message sending: Id = 9
 [SqlFilter.SqlExpression]: https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
-<!--Available on Azure China now-->
-
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
 
-<!-- Update_Description: update meta properties, wording update, update link?view=azure-dotnet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

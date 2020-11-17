@@ -7,24 +7,25 @@ ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 04/20/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 345d697593a37150af236c3b63b38afcaa75d144
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3b38fabed0d67b92046341b25263676ac0c6fa7f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117944"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552759"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [异步 Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [异步 Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
@@ -108,7 +109,7 @@ ms.locfileid: "92117944"
 
     可在 [Azure 门户](https://portal.azure.cn)的“键”窗格中找到终结点和键详细信息。
 
-   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="从 Azure 门户获取密钥的屏幕截图":::
+    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="从 Azure 门户获取密钥的屏幕截图":::
 
 JavaScript SDK 使用通用术语“容器”和“项”。  容器可以是集合、图或表。 项可以是文档、边缘/顶点或行，是容器中的内容。 在前面的代码片段中，`module.exports = config;` 代码用于导出 config 对象，以便你在 app.js 文件中引用它。
 
@@ -441,7 +442,7 @@ node app.js
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [监视 Azure Cosmos DB 帐户](monitor-accounts.md)
+> [监视 Azure Cosmos DB 帐户](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
 

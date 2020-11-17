@@ -7,20 +7,21 @@ ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: b9c44952ffd4ad56b290dfabb9c67db1ef0c3342
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9db4abe41bd7dd623f1a4db281a3edc451029caf
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117927"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552571"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Angular 生成 UI
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本教程包含多个部分，演示了如何通过 Express 和 Angular 创建以 Node.js 编写的新应用，然后将其连接到[使用 Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 帐户](mongodb-introduction.md)。
 
@@ -63,7 +64,7 @@ ms.locfileid: "92117927"
 
 4. 在同一文件夹中打开 app.module.ts 文件。请注意，该文件在第 5 行向声明添加了 `HeroesComponent`，并在第 10 行对其进行了导入操作。
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="安装 hero 组件":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="打开 app-module.ts 文件":::
 
 5. 返回到 heroes.component.html 文件，将此代码复制到其中。 `<div>` 是整个页面的容器。 容器内有一个需创建的 hero 的列表。创建这些组件后，在 UI 中单击其中一个组件即可将其选定进行编辑或删除操作。 然后就会在 HTML 中显示某种样式，可以据此判断选择了哪个组件。 此外还有编辑区域，用于添加新的 hero 或编辑现有的 hero。 
 
@@ -397,7 +398,9 @@ ms.locfileid: "92117927"
 
 5. 左键单击 `Hero` 一词，Visual Studio 会在代码块左侧显示一个灯泡图标。 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="安装 hero 组件"::: 导入 Hero”。 （此消息因设置而异）
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Visual Studio Code 中的灯泡":::
+
+6. 单击灯泡，然后单击“从 ‘/app/hero’ 导入 Hero”。 或“从 "./hero" 导入 Hero”。 （此消息因设置而异）
 
     此时会在第 2 行出现新的代码行。 如果第 2 行引用 /app/hero，请对其进行修改，使之引用本地文件夹中的 hero 文件 (./hero)。 第 2 行应如下所示：
 
@@ -491,7 +494,7 @@ ms.locfileid: "92117927"
 
 3. 现在请打开 Internet 浏览器，导航到 localhost:3000，然后就会看到该应用在本地运行。
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="安装 hero 组件":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="在本地运行的 Hero 应用程序":::
 
 ## <a name="next-steps"></a>后续步骤
 

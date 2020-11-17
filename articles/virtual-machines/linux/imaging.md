@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 09/10/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.reviewer: cynthn
-ms.openlocfilehash: 3eec86aa1336e96539e6e346b4a8666ed10f4d51
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 809f001f834ba40cb70e7330e05153a9e2c43cab
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057669"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637840"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>在 Azure 中引入和创建 Linux 映像
 
@@ -94,7 +94,7 @@ Azure 提供了两种主要映像类型：通用映像和专用映像。 通用�
 
 ## <a name="hyper-v-generation"></a>Hyper-V 代系
 
-Azure 支持 Hyper-V 第 1 代 (Gen1) 和第 2 代 (Gen2)。Gen2 是最新一代的 Hyper-V，与 Gen1 相比提供了更多功能， 例如更大的内存、Intel Software Guard Extensions (Intel SGX) 和虚拟化持久性内存 (vPMEM)。 在本地运行的第 2 代 VM 具有 Azure 中尚不支持的一些特性。 有关详细信息，请参阅“特性和功能”部分。 有关详细信息，请参阅此[文章](../windows/generation-2.md)。 如果需要其他功能，请创建 Gen2 映像。
+Azure 支持 Hyper-V 第 1 代 (Gen1) 和第 2 代 (Gen2)。Gen2 是最新一代的 Hyper-V，与 Gen1 相比提供了更多功能， 例如更大的内存、Intel Software Guard Extensions (Intel SGX) 和虚拟化持久性内存 (vPMEM)。 在本地运行的第 2 代 VM 具有 Azure 中尚不支持的一些特性。 有关详细信息，请参阅“特性和功能”部分。 有关详细信息，请参阅此[文章](../generation-2.md)。 如果需要其他功能，请创建 Gen2 映像。
 
 如果仍需要创建自己的映像，请确保映像符合[映像先决条件](./create-upload-generic.md)，并将其上传到 Azure。 以下是分发特定要求：
 

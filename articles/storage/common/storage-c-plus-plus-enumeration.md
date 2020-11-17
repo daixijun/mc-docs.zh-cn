@@ -60,7 +60,7 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 
 分段列表操作的响应包括：
 
-* *_segment* ，其中包含针对列表 API 进行单个调用时返回的结果集。
+* *_segment*，其中包含针对列表 API 进行单个调用时返回的结果集。
 * continuation_token，将传递给下一个调用，以获取下一页结果。 当不再有要返回的结果时，继续标记为 null。
 
 例如，进行典型调用以列出容器中的所有 blob 时，该调用的代码片段可能如下所示。 我们的 [示例](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)中提供了该代码：

@@ -9,13 +9,13 @@ ms.author: v-jay
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 origin.date: 08/18/2016
-ms.date: 05/11/2020
-ms.openlocfilehash: 258704d99546ebd11720517376658d55c9a09417
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.date: 11/16/2020
+ms.openlocfilehash: 3b969b5bb2b095b6f426dfefb2f1bc996fde63e9
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507724"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590675"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 计划程序的概念、术语和实体
 
@@ -215,7 +215,7 @@ Azure 计划程序支持多个作业类型：
 },
 ```
 
-有关共享访问签名 (SAS) 令牌的详细信息，请参阅[使用共享访问签名授权](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
+有关共享访问签名 (SAS) 令牌的详细信息，请参阅[使用共享访问签名授权](../storage/common/storage-sas-overview.md)。
 
 <a name="error-action"></a>
 

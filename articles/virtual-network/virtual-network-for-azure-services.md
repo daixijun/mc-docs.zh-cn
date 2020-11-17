@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 729f5224f43605646a3fbeff6e23b2367f912560
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 9bdcd36b8d1145278c209145ed961cbc638d5f11
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628229"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590936"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>将专用 Azure 服务部署到虚拟网络
 
@@ -62,5 +62,6 @@ ms.locfileid: "92628229"
 <!-- Mooncake Correct on [Azure Container Instance (ACI)](../container-instances/container-instances-vnet.md)-->
 <!-- Not Available on [Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)-->
 <!-- Not Available on | Hosted | [Azure Dedicated HSM](../dedicated-hsm/index.yml)-->
+<!-- Not Available on [Deploy in Azure virtual network (VNet injection)](../spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

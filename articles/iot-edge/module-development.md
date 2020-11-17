@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/22/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cedb6686e68f8a7dbafa9320c3456c9cae56f389
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: a43033082cd99ccf46d4e74bbde568d7885f51b6
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211584"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595211"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>开发你自己的 IoT Edge 模块
 

@@ -5,15 +5,15 @@ services: dns
 author: WenJason
 ms.service: dns
 ms.topic: tutorial
-origin.date: 3/11/2019
-ms.date: 10/19/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 19bf8244cc631e244eaffb7bbefec839d7b022b4
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: de99a33f620f7a52f98ee2557a6ff79b3673a5aa
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943479"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590836"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -39,10 +39,9 @@ ms.locfileid: "91943479"
 > * 向 Web 应用添加自定义主机名
 > * 测试自定义主机名
 
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-
-## <a name="prerequisites"></a>必备条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

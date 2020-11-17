@@ -21,6 +21,10 @@
           href: quick-create-simulated-device-symm-key.md
         - name: Java
           href: quick-create-simulated-device-symmetric-key-java.md
+        - name: C#
+          href: quick-create-device-symmetric-key-csharp.md
+        - name: Node.js
+          href: quick-create-device-symmetric-key-node.md
         - name: Python
           href: quick-create-device-symmetric-key-python.md
     - name: 预配 x.509 证书设备
@@ -38,15 +42,17 @@
 - name: 教程
   items:
     - name: 1 - 预配具有注册组的设备集
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: 使用对称密钥预配设备
+          href: how-to-legacy-device-symm-key.md
+        - name: 使用自定义分配策略
+          href: tutorial-custom-allocation-policies.md
     - name: 2 - 将设备预配到多个中心
       items:
         - name: 将多个中心链接到 DPS
           href: tutorial-provision-multiple-hubs.md
         - name: 多租户的预配
           href: how-to-provision-multitenant.md
-        - name: 使用自定义分配策略
-          href: how-to-use-custom-allocation-policies.md
 - name: 示例
   items:
     - name: 模拟 TPM 设备证明示例
@@ -105,6 +111,8 @@
   items:
     - name: 将 MXChip IoT DevKit 连接到 IoT 中心
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: 使用自定义分配策略预配设备
+      href: how-to-use-custom-allocation-policies.md
     - name: 管理设备预配服务
       items:
         - name: 管理注册 - 门户

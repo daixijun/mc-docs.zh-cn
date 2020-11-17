@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: b1575a6dd1784efacd40b754924aecbfcd410c67
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: ff9ce2e19c83f02c8fa709e1c29eebd478db743a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871375"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552497"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理
 
@@ -335,7 +335,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>步骤 11
 
-配置实例数目和应用程序网关的大小。 本示例将使用 [WAF SKU](../web-application-firewall/ag/ag-overview.md) 来提高 API 管理资源的安全性。
+配置实例数目和应用程序网关的大小。 本示例将使用 [WAF SKU](../application-gateway/ag-overview.md) 来提高 API 管理资源的安全性。
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -374,7 +374,7 @@ VNET 中配置的 Azure API 管理为配置的所有 API 提供单个网关接�
 ## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 * 详细了解 Azure 应用程序网关
   * [应用程序网关概述](../application-gateway/overview.md)
-  * [应用程序网关 Web 应用程序防火墙](../web-application-firewall/ag/ag-overview.md)
+  * [应用程序网关 Web 应用程序防火墙](../application-gateway/ag-overview.md)
   * [使用基于路径的路由的应用程序网关](../application-gateway/tutorial-url-route-powershell.md)
 * 详细了解 API 管理和 VNET
   * [使用只能在 VNET 内使用的 API 管理](api-management-using-with-internal-vnet.md)

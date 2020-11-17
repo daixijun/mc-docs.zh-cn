@@ -3,17 +3,18 @@ title: 使用 JavaScript 的 Azure 存储示例 | Microsoft 文档
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序 使用 JavaScript/Node.js 存储客户端库发现 Blob、队列、表和文件的入门示例。
 author: WenJason
 ms.author: v-jay
-origin.date: 02/19/2020
-ms.date: 03/09/2020
+origin.date: 10/01/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 8063445d5bf578bdad7b62ce31e1940140cb8e37
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-js
+ms.openlocfilehash: 5e5eaa07db83bfc4d177a06218dd760bcf6b8e18
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78412246"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552901"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>使用 v12 JavaScript 客户端库的 Azure 存储示例
 
@@ -428,4 +429,5 @@ ms.locfileid: "78412246"
 * .NET:[使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
 * Java:[使用 Java 的 Azure 存储示例](storage-samples-java.md)
 * Python:[使用 Python 的 Azure 存储示例](storage-samples-python.md)
+* C++：[使用 C++ 的 Azure 存储示例](storage-samples-c-plus-plus.md)
 * 所有其他语言：[Azure 存储示例](storage-samples.md)

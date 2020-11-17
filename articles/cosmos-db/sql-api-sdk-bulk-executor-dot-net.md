@@ -7,18 +7,19 @@ ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: de443b76a331a1e1a036b9300bef7ffe2df02490
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 73c477cfe20881c9c7fd9a6dc32bebf34b4df16c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246363"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552872"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 批量执行程序库：下载信息 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -35,7 +36,7 @@ ms.locfileid: "91246363"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -44,7 +45,7 @@ ms.locfileid: "91246363"
 | **说明**| .NET 批量执行程序库允许客户端应用程序对 Azure Cosmos DB 帐户执行批量操作。 此库提供了 BulkImport、BulkUpdate 和 BulkDelete 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos 容器中的现有数据。 BulkDelete 模块可以批量以优化方式删除文档，以便最大程度地使用为集合配置的吞吐量。|
 |**SDK 下载**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub 中的批量执行程序库**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API 文档**|[ 参考文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor)|
+|**API 文档**|[ 参考文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?preserve-view=true&view=azure-dotnet)|
 |**入门**|[批量执行程序库 .NET SDK 入门](bulk-executor-dot-net.md)|
 | **当前受支持的框架**| Azure .NET Framework 4.5.2、4.6.1 和 .NET Standard 2.0 |
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c4cbe6109aceffb04cf096d11431af158ce042e5
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: ed93f7f0827969f2a802da3d7d69fa15e60f0478
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057703"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637953"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>适用于 Linux VM 的 Azure 磁盘加密 
 
@@ -26,7 +26,7 @@ Azure 磁盘加密有助于保护数据，使组织能够信守在安全性与�
 > [!WARNING]
 > - 如果之前是使用 Azure 磁盘加密与 Azure AD 来加密 VM，则必须继续使用此选项来加密 VM。 有关详细信息，请参阅 [使用 Azure AD 进行 Azure 磁盘加密（以前版本）](disk-encryption-overview-aad.md)。 
 > - 某些建议可能会导致数据、网络或计算资源使用量增加，从而产生额外的许可或订阅成本。 必须具有有效的活动 Azure 订阅，才能在 Azure 的受支持区域中创建资源。
-> - 目前，第 2 代 VM 不支持 Azure 磁盘加密。 有关详细信息，请参阅 [Azure 中对第 2 代 VM 的支持](../windows/generation-2.md)。
+> - 目前，第 2 代 VM 不支持 Azure 磁盘加密。 有关详细信息，请参阅 [Azure 中对第 2 代 VM 的支持](../generation-2.md)。
 
 只需花几分钟时间学习[使用 Azure CLI 创建 Linux VM 并对其进行加密快速入门](disk-encryption-cli-quickstart.md)或者[使用 Azure PowerShell 创建 Linux VM 并对其进行加密快速入门](disk-encryption-powershell-quickstart.md)，即可了解适用于 Linux 的 Azure 磁盘加密的基础知识。
 
@@ -96,8 +96,8 @@ Azure 磁盘加密要求系统上存在 dm-crypt 和 vfat 模块。 在默认映
 下面是用于装载数据磁盘和创建必要的 /etc/fstab 条目的命令示例：
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

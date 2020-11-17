@@ -46,13 +46,13 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 ### <a name="create-a-new-firewall-for-your-cluster"></a>为群集创建新的防火墙
 
-遵循以下文章中“部署防火墙”部分所述的步骤创建名为 **Test-FW01** 的防火墙： [教程：使用 Azure 门户部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
+遵循以下文章中“部署防火墙”部分所述的步骤创建名为 **Test-FW01** 的防火墙：[教程：使用 Azure 门户部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
 
 ### <a name="configure-the-firewall-with-application-rules"></a>使用应用程序规则配置防火墙
 
 创建一个应用程序规则集合，以允许群集发送和接收重要通信。
 
-1. 在 Azure 门户中选择新防火墙 **Test-FW01** 。
+1. 在 Azure 门户中选择新防火墙 **Test-FW01**。
 
 1. 导航到“设置” > “规则” > “应用程序规则集合” > “+ 添加应用程序规则集合”。   
 
@@ -122,7 +122,7 @@ HDInsight 出站流量依赖项几乎完全都是使用 FQDN 进行定义的。 
 
 例如，若要为“美国东部”区域创建的群集配置路由表，请使用以下步骤:
 
-1. 选择 Azure 防火墙 **Test-FW01** 。 复制“概述”页上列出的“专用 IP 地址”。  本示例使用 **示例地址 10.0.2.4** 。
+1. 选择 Azure 防火墙 **Test-FW01**。 复制“概述”页上列出的“专用 IP 地址”。  本示例使用 **示例地址 10.0.2.4**。
 
 1. 然后导航到“所有服务” > “网络” > “路由表”和“创建路由表”。   
 

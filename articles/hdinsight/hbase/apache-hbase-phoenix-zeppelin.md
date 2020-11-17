@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/14/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: c2ed506fd67bb7a7433daf7429044f4fef044ce3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ec2caa557e3bcd85619a326843eb2607a76117e0
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73426137"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552694"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>使用 Apache Zepperin 在 Azure HDInsight 中的 Apache HBase 上运行 Apache Phoenix 查询
 
@@ -99,5 +99,5 @@ HDInsight 上的 Apache HBase 群集。 请参阅 [Apache HBase 入门](./apache
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Apache Phoenix 现在支持 Azure HDInsight 中的 Zeppelin](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix 现在支持 Azure HDInsight 中的 Zeppelin](https://docs.microsoft.com/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html)

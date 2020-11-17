@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 962f7bd69a7ce9c00544222d8530c184aa6696c5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 55a89b2400c260b575c11e69e6985c465af7a9ea
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104215"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590527"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>跨数据库和跨群集查询
 

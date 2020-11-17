@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
-ms.topic: article
+ms.topic: tutorial
 origin.date: 01/08/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 1e806c9fef93548974dc9b85b00751455b69ed33
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.date: 11/16/2020
+ms.openlocfilehash: 024d2f1488641c50096a935673c05dd8d5730170
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246706"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590636"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 托管实例
 
@@ -90,7 +90,7 @@ ms.locfileid: "91246706"
 
     ![显示资源提供程序](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
 
-3. 搜索“迁移”，然后选择“注册”。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
@@ -189,7 +189,7 @@ ms.locfileid: "91246706"
 1. 在“选择登录名”屏幕上，选择要迁移的登录名。
 
     >[!NOTE]
-    >默认情况下，Azure 数据库迁移服务仅支持迁移 SQL 登录名。 若要启用对迁移 Windows 登录名的支持，请参阅本教程的**先决条件**部分。
+    >默认情况下，Azure 数据库迁移服务仅支持迁移 SQL 登录名。 若要启用对迁移 Windows 登录名的支持，请参阅本教程的 **先决条件** 部分。
 
     ![选择登录名](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
@@ -234,7 +234,7 @@ ms.locfileid: "91246706"
 
 1. 在“迁移活动”屏幕中，选择“刷新”以更新显示。
 
-   ![正在进行的迁移活动](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
+   ![显示迁移活动屏幕和“刷新”按钮的屏幕截图。](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     可以进一步展开数据库和登录类别，以监视相应服务器对象的迁移状态。
 

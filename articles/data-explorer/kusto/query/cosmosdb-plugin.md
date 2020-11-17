@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/11/2020
 ms.date: 10/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6a2ec00eef976914957e5727e7a996ade5ba52ac
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0e5d42cc6c7b3d6b058d3bd1711cfabc19bbc3b8
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106634"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590540"
 ---
 # <a name="cosmosdb_sql_request-plugin"></a>cosmosdb_sql_request 插件
 
@@ -26,7 +26,7 @@ ms.locfileid: "93106634"
 
 ## <a name="syntax"></a>语法
 
-`evaluate` `cosmosdb_sql_request` `(` *ConnectionString* `,` *SqlQuery* [`,` *SqlParameters* [`,` *Options* ]] `)`
+`evaluate` `cosmosdb_sql_request` `(` *ConnectionString* `,` *SqlQuery* [`,` *SqlParameters* [`,` *Options*]] `)`
 
 ## <a name="arguments"></a>参数
 

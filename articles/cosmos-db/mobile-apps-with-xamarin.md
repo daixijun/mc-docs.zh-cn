@@ -6,25 +6,26 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d86068757747f57e87c7fd318fee678277b60733
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f544ae51a7ba5366ff302d022866715a6ebe5eb7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246413"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552826"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>教程：使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -37,12 +38,12 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="适用于移动应用的 Azure Cosmos DB 功能":::
 
-* 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](how-to-sql-query.md)，无需担心架构或索引问题。
+* 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](./sql-query-getting-started.md)，无需担心架构或索引问题。
 * 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
-* 无限规模。 Azure Cosmos 容器[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
+* 无限规模。 Azure Cosmos 容器[随着应用的增长而增长](partitioning-overview.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
 * 多区域分布式。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems)，或者多个用户共享的数据。
-* 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](geospatial.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
+* 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](./sql-query-geospatial-intro.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
 * 二进制附件。 应用数据通常包含二进制 Blob。 Azure Cosmos DB 原生支持附件，因此可以更轻松地将它用作应用数据的一站式存储库。
 
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Azure Cosmos DB 和 Xamarin 教程
@@ -75,7 +76,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
     }
 ```
 ### <a name="add-users"></a>添加用户
-与许多入门示例一样，下载的 Azure Cosmos DB 示例使用已在应用代码中硬编码的主密钥向服务进行身份验证。 除非在本地模拟器上运行应用，否则这种默认行为不是最佳做法。 如果未经授权的用户获取了主密钥，整个 Azure Cosmos DB 帐户中的所有数据可能会遭受损坏。 应用最好是只能访问已登录用户的记录。 Azure Cosmos DB 允许开发人员向应用程序授予对某个集合、按分区键分组的一组文档或某个特定文档的读取或读/写权限。 
+与许多入门示例一样，下载的 Azure Cosmos DB 示例使用已在应用代码中硬编码的主密钥向服务进行身份验证。 除非在本地模拟器上运行应用，否则这种默认行为不是最佳做法。 如果未经授权的用户获取了主密钥，整个 Azure Cosmos DB 帐户中的所有数据可能都会受到安全威胁。 应用最好是只能访问已登录用户的记录。 Azure Cosmos DB 允许开发人员向应用程序授予对某个集合、按分区键分组的一组文档或某个特定文档的读取或读/写权限。 
 
 遵循以下步骤将待办事项列表应用修改为多用户待办事项列表应用： 
 
@@ -94,7 +95,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 如果希望两个用户能够访问同一个“待办事项列表”，可将其他权限添加到资源令牌代理中的访问令牌。
 
 ### <a name="scale-on-demand"></a>按需缩放
-Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，不用担心是否要预配 VM 或增加核心， 只需告诉 Azure Cosmos DB 应用所需的每秒操作次数（吞吐量）是多少。 可以通过“缩放”选项卡，使用一个名为每秒请求单位数 (RU) 的吞吐量度量值来指定吞吐量。 例如，针对 1-KB 文档执行一次读取操作需要 1 个 RU。 还可以针对**吞吐量**指标添加警报，用于监视流量的增长以及在警报触发时以编程方式更改吞吐量。
+Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，不用担心是否要预配 VM 或增加核心， 只需告诉 Azure Cosmos DB 应用所需的每秒操作次数（吞吐量）是多少。 可以通过“缩放”选项卡，使用一个名为每秒请求单位数 (RU) 的吞吐量度量值来指定吞吐量。 例如，针对 1-KB 文档执行一次读取操作需要一个 RU。 还可以针对 **吞吐量** 指标添加警报，用于监视流量的增长以及在警报触发时以编程方式更改吞吐量。
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure Cosmos DB 按需缩放吞吐量":::
 
@@ -113,7 +114,7 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 * 查看 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 的源代码。
 * 下载 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)。
 * 查找 [.NET 应用程序](sql-api-dotnet-samples.md)的更多代码示例。
-* 了解 [Azure Cosmos DB 的丰富查询功能](how-to-sql-query.md)。
-* 了解 [Azure Cosmos DB 中的地理空间支持](geospatial.md)。
+* 了解 [Azure Cosmos DB 的丰富查询功能](./sql-query-getting-started.md)。
+* 了解 [Azure Cosmos DB 中的地理空间支持](./sql-query-geospatial-intro.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

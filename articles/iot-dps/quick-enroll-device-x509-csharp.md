@@ -3,19 +3,19 @@ title: 快速入门 - 使用 C# 将 X.509 设备注册到 Azure 设备预配服�
 description: 本快速入门使用组注册。 本快速入门使用 C# 将 X.509 设备注册到 Azure IoT 中心设备预配服务 (DPS)。
 author: wesmc7777
 ms.author: v-tawe
-origin.date: 11/08/2019
-ms.date: 09/30/2020
+origin.date: 09/28/2020
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: aef60e5d6b8e347670c50faf66c405c1117e1a0d
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: e23f0e946a3a6c681e442d37ffae1649d5c016dc
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564254"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590584"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>快速入门：使用 C# 将 X.509 设备注册到设备预配服务
 
@@ -66,7 +66,7 @@ ms.locfileid: "91564254"
 
 3. 根据[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的步骤进行操作。
 
-除了使用 C SDK 中的工具之外，*用于 .NET 的 Microsoft Azure IoT SDK* 中的[组证书验证示例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)演示了如何使用现有的 X.509 中间或根 CA 证书采用 C# 执行所有权证明操作。
+除了使用 C SDK 中的工具之外，*用于 .NET 的 Microsoft Azure IoT SDK* 中的 [组证书验证示例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)演示了如何使用现有的 X.509 中间或根 CA 证书采用 C# 执行所有权证明操作。
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>获取适用于预配服务的连接字符串
 
@@ -160,12 +160,15 @@ ms.locfileid: "91564254"
    }
    ```
 
-1. 最后，将 `Main` 方法的主体替换为以下行：
+1. 最后，将 `Main` 方法替换为以下行：
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. 生成解决方案。

@@ -1,22 +1,23 @@
 ---
 title: 使用 Azure Cosmos DB 查询地理空间数据
 description: 使用 Azure Cosmos DB 查询空间数据
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 02/20/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3af5275cd588ccc7ee276487ddb2ef01b721492e
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 7ef0e4a48040b885d5dd0b9856c34cbed6010d76
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323369"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552690"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 查询地理空间数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍了如何使用 SQL 和 LINQ 查询 Azure Cosmos DB 中的地理空间数据。 目前，只有 Azure Cosmos DB SQL API 帐户支持存储和访问地理空间数据。 Azure Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 有关 SQL 语言中的整套内置函数的详细信息，请参阅 [Azure Cosmos DB 中的查询系统函数](sql-query-system-functions.md)。
 

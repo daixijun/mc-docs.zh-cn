@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.custom: mvc
-ms.openlocfilehash: 4bfeb4598f41a7879d8c775e9ecebd0bc286516d
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ff2bf9a5c7acbd9b3cf0742a311dfeb239005840
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057655"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637763"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 TLS/SSL 证书保护 Linux 虚拟机上的 Web 服务器
 若要保护 Web 服务器，可以使用传输层安全 (TLS)（以前称为安全套接字层 (SSL)）证书来加密 Web 流量。 这些 TLS/SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Linux 虚拟机 (VM)。 本教程介绍如何执行下列操作：

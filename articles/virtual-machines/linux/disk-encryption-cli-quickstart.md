@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 origin.date: 05/17/2019
 ms.topic: quickstart
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c5621d104597193ff3a7a2170d732b32587e87f5
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 9aad2025a6096fe9071b2cd3d0795d1eb88021fe
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057673"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637845"
 ---
 <!--Verfied successfully-->
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建和加密 Linux VM
@@ -85,7 +85,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 稍后，进程将返回“加密请求已被接受。 请使用 'show' 命令监视进度”。 "show" 命令是 [az vm show](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-show)。
 
 ```azurecli
-az vm show --name "myVM" -g "MyResourceGroup"
+az vm encryption show --name "myVM" -g "MyResourceGroup"
 ```
 
 启用加密后，你将在返回的输出中看到以下内容：

@@ -6,21 +6,22 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: c8634d4010320be0f0b64809f0f8433ff2e1ac64
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: cbbd7274734a8b7adc3761d28614b0ece6edb7f7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118517"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552677"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>通过 Python 开始使用 Azure 表存储和 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -37,7 +38,7 @@ Azure 表存储和 Azure Cosmos DB 是用于在云中存储结构化 NoSQL 数�
 * 插入和查询实体
 * 修改实体
 
-浏览此示例中的方案时，可能需要参考[用于 Python API 的 Azure Cosmos DB SDK 参考](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)。
+浏览此示例中的方案时，可能需要参考[用于 Python API 的 Azure Cosmos DB SDK 参考](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -245,8 +246,8 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>后续步骤
 
-* [常见问题解答 - 使用表 API 进行开发](https://docs.azure.cn/cosmos-db/faq)
-* [用于 Python API 的 Azure Cosmos DB SDK 参考](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
+* [常见问题解答 - 使用表 API 进行开发](./faq.md)
+* [用于 Python API 的 Azure Cosmos DB SDK 参考](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)
 * [Python 开发人员中心](https://docs.azure.cn/develop/python/)
     
     <!--CORRECT ON https://docs.azure.cn/develop/python/-->
@@ -254,17 +255,17 @@ table_service.delete_table('tasktable')
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)：一款跨平台的免费应用程序，用于直观处理 Windows、MacOS 和 Linux 上的 Azure 存储数据。
 * [在 Visual Studio (Windows) 中使用 Python](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
-[py_commit_batch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_create_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_delete_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_get_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_insert_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_insert_or_replace_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_Entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity?view=azure-python
-[py_merge_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_update_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_delete_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_TableService]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
-[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
+[py_commit_batch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_create_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_delete_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_get_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_insert_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_insert_or_replace_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_Entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.models.entity?preserve-view=true&view=azure-python
+[py_merge_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_update_entity]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_delete_table]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_TableService]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?preserve-view=true&view=azure-python
+[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python&preserve-view=true
 
 <!-- Update_Description: update meta properties, wording update, update link -->

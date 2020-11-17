@@ -7,19 +7,20 @@ ms.devlang: python
 ms.topic: sample
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 2e8379a29c3948d6e6b13c8922a2e389605e073f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 8d7bd8cd29f83924d4680c5813c3a48bdc670875
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117938"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552758"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
@@ -40,8 +41,8 @@ ms.locfileid: "92117938"
 - 一个 Cosmos DB 帐户。 选项包括：
     * 具有 Azure 有效订阅：
         * [创建 Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial)或使用现有订阅 
-        * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)
-        * [Azure Cosmos DB 免费层](/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn)
+        * [Azure Cosmos DB 免费层](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：
         
         <!--Not Available on * [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
@@ -55,7 +56,7 @@ ms.locfileid: "92117938"
 
 ## <a name="database-examples"></a>数据库示例
 
-[database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。
+[database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -67,7 +68,7 @@ ms.locfileid: "92117938"
 
 ## <a name="container-examples"></a>容器示例
 
-[container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。
+[container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 集合，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -80,7 +81,7 @@ ms.locfileid: "92117938"
 
 ## <a name="item-examples"></a>项示例
 
-[item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](databases-containers-items.md)概念性文章。
+[item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 文档，请参阅[使用数据库、容器和项](account-databases-containers-items.md)概念性文章。
 
 | 任务 | API 参考 |
 | --- | --- |
@@ -95,7 +96,7 @@ ms.locfileid: "92117938"
 
 ## <a name="indexing-examples"></a>索引示例
 
-[index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-types.md)和[索引路径](index-paths.md)概念文章。
+[index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python 示例演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-kinds)和[索引路径](index-policy.md#include-exclude-paths)概念文章。
 
 | 任务 | API 参考 |
 | --- | --- |

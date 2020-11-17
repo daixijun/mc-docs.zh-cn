@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: a580b1cfe766a43e2652b5ef478e9d895049d58f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: e05329d513ab9ade1f51594f893c4b165324e4a9
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128167"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637957"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全框架：敏感数据 | 缓解措施 
 | 产品/服务 | 文章 |
@@ -88,7 +88,7 @@ ms.locfileid: "92128167"
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>

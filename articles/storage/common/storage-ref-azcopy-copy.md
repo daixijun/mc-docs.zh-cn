@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: reference
 origin.date: 07/24/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1f5fc9076249eac42de8e78fb3d0578c9ab5e345
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 9c019992f60d0ca877b8fd23902aa91e52ccb903
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026616"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552906"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -291,7 +291,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.chinaclou
 
 **--s2s-handle-invalid-metadata** 字符串   指定如何处理无效的元数据键。 可用选项：ExcludeIfInvalid、FailIfInvalid、RenameIfInvalid。 （默认值为 `ExcludeIfInvalid`）。 （默认值为“ExcludeIfInvalid”）
 
-**--s2s-preserve-access-tier** - 在服务之间复制过程中保留访问层 请参阅 [Azure Blob 存储：热、冷和存档访问层](/storage/blobs/storage-blob-storage-tiers)，确保目标存储帐户支持设置访问层。 如果不支持设置访问层，请使用 s2sPreserveAccessTier=false 来绕过访问层的复制。 （默认值为 true）。  （默认值为 true）
+**--s2s-preserve-access-tier** - 在服务之间复制过程中保留访问层 请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md)，确保目标存储帐户支持设置访问层。 如果不支持设置访问层，请使用 s2sPreserveAccessTier=false 来绕过访问层的复制。 （默认值为 `true`）。  （默认值为“true”）
 
 **--s2s-preserve-properties** - 在服务之间复制过程中保留完整属性。 对于 AWS S3 和 Azure 文件存储的非单一文件源，列出操作不会返回对象和文件的完整属性。 若要保留完整属性，AzCopy 需要对每个对象或文件发送一个附加的请求。 （默认值为 true）
 

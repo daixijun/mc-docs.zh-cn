@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 02/13/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: abb42a8304f92a3f526237e0cfb4ccc1bfb064eb
-ms.sourcegitcommit: 4aeecfcc59cb42ba0b712a729d278d03bffc719a
+ms.openlocfilehash: b1b61b819e1707389225b3bf94dfde4311b2bcb1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81791008"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552853"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -142,36 +142,13 @@ $resourceGroupName = $cluster.ResourceGroup
 请参阅[在 HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>将数据上传到 Azure Blob 存储
-请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
+
+请参阅[将数据上传到 HDInsight](hdinsight-upload-data.md)。
 
 ## <a name="see-also"></a>另请参阅
 * [Az.HDInsight cmdlet](https://docs.microsoft.com/powershell/module/az.hdinsight/?view=azps-3.1.0#hdinsight)
 * [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
-* [使用命令行接口管理 HDInsight][hdinsight-admin-cli]
-* [创建 HDInsight 群集][hdinsight-provision]
-* [以编程方式提交 Apache Hadoop 作业][hdinsight-submit-jobs]
+* [使用命令行接口管理 HDInsight](hdinsight-administer-use-command-line.md)
+* [创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
+* [以编程方式提交 Apache Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-
-[azure-purchase-options]: https://www.azure.cn/pricing/overview/
-[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
-[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-
-[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-[powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
-

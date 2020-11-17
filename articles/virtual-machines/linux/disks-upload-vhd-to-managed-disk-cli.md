@@ -4,16 +4,16 @@ description: 了解如何使用 Azure CLI 通过直接上传将 VHD 上传到 Az
 services: virtual-machines,storage
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: ce20f5412bfd6f44cefaf5a9277de5c6e312bd6f
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 52512d2cc2f3888d78c3c481da6218caf6366c87
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057525"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637903"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>将 VHD 上传到 Azure，或将托管磁盘复制到其他区域 - Azure CLI
 
@@ -79,7 +79,7 @@ az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level
 
 使用 AzCopy v10 并指定生成的 SAS URI，将本地 VHD 文件上传到托管磁盘。
 
-此上传过程的吞吐量与相应[标准 HDD](disks-types.md#standard-hdd) 的吞吐量相同。 例如，如果大小相当于 S4，则最高吞吐量为 60 MiB/秒。 但是，如果大小相当于 S70，则最高吞吐量为 500 MiB/秒。
+此上传过程的吞吐量与相应[标准 HDD](../disks-types.md#standard-hdd) 的吞吐量相同。 例如，如果大小相当于 S4，则最高吞吐量为 60 MiB/秒。 但是，如果大小相当于 S70，则最高吞吐量为 500 MiB/秒。
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
@@ -108,17 +108,17 @@ az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 > 如果要创建 OS 磁盘，请将--hyper-v-generation <yourGeneration> 添加到 `az disk create`。
 
 ```azurecli
-sourceDiskName = <sourceDiskNameHere>
-sourceRG = <sourceResourceGroupHere>
-targetDiskName = <targetDiskNameHere>
-targetRG = <targetResourceGroupHere>
-targetLocale = <yourTargetLocationHere>
+sourceDiskName=<sourceDiskNameHere>
+sourceRG=<sourceResourceGroupHere>
+targetDiskName=<targetDiskNameHere>
+targetRG=<targetResourceGroupHere>
+targetLocation=<yourTargetLocationHere>
 
-sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
+sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
@@ -131,6 +131,6 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>后续步骤
 
-成功将 VHD 上传到托管磁盘后，可[将该磁盘作为数据磁盘附加到现有的 VM](add-disk.md)，或者[将该磁盘作为 OS 磁盘附加到 VM](upload-vhd.md#create-the-vm)，以创建新的 VM。 
+成功将 VHD 上传到托管磁盘后，可[将该磁盘作为数据磁盘附加到现有的 VM](add-disk.md)，或者[将该磁盘作为 OS 磁盘附加到 VM](upload-vhd.md#create-the-vm)，以创建新的 VM。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,14 +3,14 @@ title: Azure 顾问简介
 description: 使用 Azure 顾问优化 Azure 部署。
 ms.topic: article
 origin.date: 02/01/2019
-ms.date: 09/22/2020
+ms.date: 11/13/2020
 ms.author: v-johya
-ms.openlocfilehash: 17d0d89c814ca59b03ce555d6b6f2669531298a7
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 268e959ed9d1a8f36831647b0394087e7e97ea1c
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402646"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637941"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 顾问简介
 
@@ -74,4 +74,5 @@ Azure 顾问还包括来自 [Azure 安全中心](../security-center/security-cen
 * [顾问安全性建议](advisor-security-recommendations.md)
 * [顾问性能建议](advisor-performance-recommendations.md)
 * [顾问成本建议](advisor-cost-recommendations.md)
+* [顾问卓越运营建议](advisor-operational-excellence-recommendations.md)
 

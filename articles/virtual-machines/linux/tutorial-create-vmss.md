@@ -6,15 +6,15 @@ ms.author: v-johya
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: linux
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: f96c0adf1ad20517f5143b9e31dfe9f51b2ae934
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: mimckitt, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 19f9761d6be3f3445ba98efe98d0afb5ec8b03ec
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057687"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637758"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>教程：使用 Azure CLI 在 Linux 上创建虚拟机规模集和部署高度可用的应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "90057687"
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="scale-set-overview"></a>规模集概述
-利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 规模集中的 VM 将分布在逻辑容错域和更新域的一个或多个*放置组*中。 这些放置组由配置类似的 VM 组成，与[可用性集](tutorial-availability-sets.md)相似。
+利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 规模集中的 VM 将分布在逻辑容错域和更新域的一个或多个 *放置组* 中。 这些放置组由配置类似的 VM 组成，与[可用性集](tutorial-availability-sets.md)相似。
 
 可以根据需要在规模集中创建 VM。 可以定义自动缩放规则来控制如何以及何时在规模集中添加或删除 VM。 这些规则基于 CPU 负载、内存用量或网络流量等指标触发。
 
@@ -93,7 +93,7 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>创建规模集
-使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，才能创建规模集。 以下示例在“chinaeast”** 位置创建名为“myResourceGroupScaleSet”** 的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，才能创建规模集。 以下示例在“chinaeast”位置创建名为“myResourceGroupScaleSet”的资源组：
 
 ```azurecli
 az group create --name myResourceGroupScaleSet --location chinaeast

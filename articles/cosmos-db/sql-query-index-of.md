@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 INDEX_OF
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 INDEX_OF。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 1881098bad8fb64d0fa0647d01a6373db2a56353
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 844bd740f37dfa632a0f1848ff1f5daea5181811
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914719"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552614"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。  
 
 ## <a name="syntax"></a>语法
@@ -58,5 +60,4 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!--Update_Description: new articles on sql query index of  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

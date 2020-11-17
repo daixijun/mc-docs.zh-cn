@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 StringToObject
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 StringToObject。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 5ff3aef9f1944721d89dccfba36320ecca14574f
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: e74f7adc1fb641a580de6765a1bb9d632be52134
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134475"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552414"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回已转换为对象的表达式。 如果表达式无法转换，则返回未定义的表达式。  
 
 ## <a name="syntax"></a>语法
@@ -87,7 +89,7 @@ SELECT
 
 下面是输入无效的示例。
 
- 传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
+传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
 
 ```sql
 SELECT 

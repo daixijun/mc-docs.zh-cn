@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 查询语言中的空间函数
 description: 了解 Azure Cosmos DB 中的空间 SQL 系统函数。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: e5b5a3f05950d334d03edb3311f0f9f827d0be02
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 071012e0d2b222bdd9f27cb8a2fceecd7665a36a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222538"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552443"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>空间函数 (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 
 

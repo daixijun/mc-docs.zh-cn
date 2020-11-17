@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/30/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2a05bfdf27f6d0f56451a569908ff71e7203f7c2
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e085909023ff96755194f5a8d53270ca5f9c4188
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564561"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595210"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Windows 设备
 
@@ -23,12 +23,10 @@ ms.locfileid: "91564561"
 
 此快速入门介绍如何：
 
-> [!div class="checklist"]
->
-> * 创建 IoT 中心。
-> * 将 IoT Edge 设备注册到 IoT 中心。
-> * 在虚拟设备上安装并启动 IoT Edge 运行时。
-> * 以远程方式将模块部署到 IoT Edge 设备并将遥测数据发送到 IoT 中心。
+* 创建 IoT 中心。
+* 将 IoT Edge 设备注册到 IoT 中心。
+* 在虚拟设备上安装并启动 IoT Edge 运行时。
+* 以远程方式将模块部署到 IoT Edge 设备并将遥测数据发送到 IoT 中心。
 
 ![关系图 - 设备和云架构的快速入门](./media/quickstart/install-edge-full.png)
 
@@ -130,7 +128,7 @@ IoT Edge 设备：
 在 IoT Edge 设备上安装 Azure IoT Edge 运行时，并使用设备连接字符串对其进行配置。
 ![关系图 - 在设备上启动运行时](./media/quickstart/start-runtime.png)
 
-IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，*IoT Edge 安全守护程序*就会启动。 *IoT Edge 代理*管理 IoT Edge 设备上模块（包括 IoT Edge 中心）的部署和监视。 *IoT Edge 中心*处理 IoT Edge 设备模块之间以及设备和 IoT 中心之间的通信。
+IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，*IoT Edge 安全守护程序* 就会启动。 *IoT Edge 代理* 管理 IoT Edge 设备上模块（包括 IoT Edge 中心）的部署和监视。 *IoT Edge 中心* 处理 IoT Edge 设备模块之间以及设备和 IoT 中心之间的通信。
 
 安装脚本还包含一个名为 Moby 的容器引擎，用于管理 IoT Edge 设备上的容器映像。
 
@@ -144,9 +142,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 使用 PowerShell 下载并安装 IoT Edge 运行时。 使用从 IoT 中心检索的设备连接字符串来配置设备。
 
-1. 如果还没有，请按照[注册新的 Azure IoT Edge 设备](how-to-register-device.md)中的步骤注册设备并检索设备连接字符串。
-
-2. 在虚拟机中，以管理员身份运行 PowerShell。
+1. 在虚拟机中，以管理员身份运行 PowerShell。
 
    >[!NOTE]
    >使用 PowerShell 的 AMD64 会话安装 IoT Edge，不要使用 PowerShell (x86)。 如果不确定您使用的是什么会话类型，请运行以下命令：
@@ -155,25 +151,25 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. Deploy-IoTEdge 命令执行以下检查：Windows 计算机使用受支持版本、启用容器功能、下载 Moby 运行时并下载 IoT Edge 运行时。
+2. Deploy-IoTEdge 命令执行以下检查：Windows 计算机使用受支持版本、启用容器功能、下载 Moby 运行时并下载 IoT Edge 运行时。
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. 计算机可能会自动重新启动。 如果 Deploy-IoTEdge 命令提示你重启，请重启。
+3. 计算机可能会自动重新启动。 如果 Deploy-IoTEdge 命令提示你重启，请重启。
 
-5. 再次以管理员身份运行 PowerShell。
+4. 再次以管理员身份运行 PowerShell。
 
-6. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时。 该命令默认为使用 Windows 容器手动预配。
+5. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时。 该命令默认为使用 Windows 容器手动预配。
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. 当系统提示输入 **DeviceConnectionString** 时，请提供在上一部分复制的字符串。 请勿对连接字符串使用引号。
+6. 当系统提示输入 **DeviceConnectionString** 时，请提供在上一部分复制的字符串。 请勿对连接字符串使用引号。
 
 ### <a name="view-the-iot-edge-runtime-status"></a>查看 IoT Edge 运行时状态
 

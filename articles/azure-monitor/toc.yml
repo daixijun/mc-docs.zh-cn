@@ -4,7 +4,7 @@
   items:
     - name: 说明是 Azure Monitor？
       href: overview.md
-    - name: 常见问题
+    - name: 常见问题解答
       href: faq.md
 - name: 快速入门
   items:
@@ -80,7 +80,7 @@
         - name: 日志数据引入时间
           displayname: latency
           href: platform/data-ingestion-time.md
-    - name: 见解
+    - name: 洞察力
       href: insights/insights-overview.md
     - name: 监视解决方案
       href: insights/solutions-inventory.md
@@ -246,7 +246,7 @@
                       href: app/status-monitor-v2-get-started.md
                     - name: 详细说明
                       href: app/status-monitor-v2-detailed-instructions.md
-                    - name: 故障排除
+                    - name: 疑难解答
                       href: app/status-monitor-v2-troubleshoot.md
                     - name: API 参考
                       href: app/status-monitor-v2-api-reference.md
@@ -282,7 +282,7 @@
               href: app/availability-alerts.md
             - name: 性能测试
               href: app/performance-testing.md
-            - name: 故障排除
+            - name: 疑难解答
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
         - name: 分布式跟踪
@@ -510,7 +510,7 @@
           items:
             - name: 代理概述
               href: platform/agents-overview.md
-            - name: 常见问题
+            - name: 常见问题解答
               href: faq.md#agents
             - name: Azure 诊断扩展
               items:
@@ -537,7 +537,7 @@
                       href: platform/diagnostics-extension-versions.md
                     - name: JSON Lines 资源日志格式
                       href: platform/diagnostic-logs-append-blobs.md
-                    - name: 故障排除
+                    - name: 疑难解答
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   displayname: diagnostics extension
@@ -588,7 +588,7 @@
           items:
             - name: 概述
               href: insights/container-insights-overview.md
-            - name: 常见问题
+            - name: 常见问题解答
               href: faq.md#azure-monitor-for-containers
             - name: 启用监视
               items:
@@ -627,7 +627,7 @@
               items:
                 - name: 禁止监视 AKS
                   href: insights/container-insights-optout.md
-            - name: 故障排除
+            - name: 疑难解答
               href: insights/container-insights-troubleshoot.md
         - name: Docker 和 Windows 容器监视
           href: insights/containers.md
@@ -653,7 +653,7 @@
                   href: insights/network-performance-monitor-expressroute.md
                 - name: 定价
                   href: insights/network-performance-monitor-pricing-faq.md
-                - name: 常见问题
+                - name: 常见问题解答
                   href: insights/network-performance-monitor-faq.md
         - name: 监视解决方案
           items:
@@ -663,8 +663,6 @@
               href: insights/solution-targeting.md
             - name: 密钥保管库分析
               href: insights/azure-key-vault.md
-            - name: Surface Hub
-              href: insights/surface-hubs.md
     - name: 收集自定义数据
       items:
         - name: Log Analytics 数据收集器 API
@@ -783,7 +781,7 @@
               items:
                 - name: 访问控制
                   href: platform/workbooks-access-control.md
-                - name: parameters
+                - name: 参数
                   items:
                     - name: 参数摘要
                       href: platform/workbooks-parameters.md
@@ -931,7 +929,7 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: 使用 Webhook 和电子邮件通知
               href: platform/autoscale-webhook-email.md
-            - name: 故障排除
+            - name: 疑难解答
               href: platform/autoscale-troubleshoot.md
             - name: 资源日志架构
               href: platform/autoscale-resource-log-schema.md

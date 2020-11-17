@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 中的 GROUP BY 子句
 description: 了解 Azure Cosmos DB 的 GROUP BY 子句。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 237466509f3391d760224d5f7bb614b06e9bcf12
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 7f1c08e616eeccfb602278b0f9c78d5adcbb7169
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320760"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552688"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 GROUP BY 子句
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 GROUP BY 子句按照一个或多个指定属性的值来拆分查询的结果。
 
@@ -40,11 +41,11 @@ GROUP BY 子句按照一个或多个指定属性的值来拆分查询的结果�
 
 ## <a name="remarks"></a>备注
 
-  当查询使用 GROUP BY 子句时，SELECT 子句只能包含包括在 GROUP BY 子句中的属性和系统函数的一部分。 一个例外是[聚合系统函数](sql-query-aggregates.md)，此类函数可以出现在 SELECT 子句中，但不需包含在 GROUP BY 子句中。 也可始终在 SELECT 子句中包含文本值。
+当查询使用 GROUP BY 子句时，SELECT 子句只能包含包括在 GROUP BY 子句中的属性和系统函数的一部分。 一个例外是[聚合系统函数](sql-query-aggregates.md)，此类函数可以出现在 SELECT 子句中，但不需包含在 GROUP BY 子句中。 也可始终在 SELECT 子句中包含文本值。
 
-  GROUP BY 子句必须位于 SELECT、FROM 和 WHERE 子句后面，OFFSET LIMIT 子句前面。 目前不能将 GROUP BY 和 ORDER BY 子句配合使用，但这已在计划内。
+GROUP BY 子句必须位于 SELECT、FROM 和 WHERE 子句后面，OFFSET LIMIT 子句前面。 目前不能将 GROUP BY 和 ORDER BY 子句配合使用，但这已在计划内。
 
-  GROUP BY 子句不允许下述任何项：
+GROUP BY 子句不允许下述任何项：
 
 - 别名属性或别名系统函数（在 SELECT 子句中，别名仍然是允许的）
 - 子查询

@@ -2,22 +2,23 @@
 title: Linux 救援 VM 中的 Chroot 环境
 description: 本文介绍如何排查 Linux 中救援虚拟机 (VM) 上的 chroot 环境问题。
 mservices: virtual-machines-linux
-author: rockboyfor
 manager: digimobile
-tags: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 origin.date: 05/05/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
+ms.testscope: no
+ms.testdate: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0cebe88e4c2b7f3593c1c0736da5e00e544d21f5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c387d8e6e2f9172f32daa97b978fe4235e69e3a3
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104160"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590827"
 ---
 <!--Verified the Character Content-->
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Linux 救援 VM 中的 Chroot 环境
@@ -149,7 +150,7 @@ ms.locfileid: "93104160"
         #umount /rescue/dev/
         #umount /rescue/run
         #cd /
-        #umount /rescue/boot/efi
+        #umount /rescue/boot/
         #umount /rescue
         ```
 
@@ -352,5 +353,4 @@ ms.locfileid: "93104160"
 
 - [排查 SSH 连接问题](troubleshoot-ssh-connection.md)
 
-<!-- Update_Description: new article about chroot environment linux -->
-<!--NEW.date: 06/01/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

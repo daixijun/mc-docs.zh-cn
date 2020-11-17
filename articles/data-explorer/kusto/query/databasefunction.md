@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 99965c46318dc9f53de3bf36e52bd246f6c4a0bb
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3bd0c5caf84b4b2f58f4feb7afb6263f108b6362
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104440"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590908"
 ---
 # <a name="database-scope-function"></a>database()（范围函数）
 
@@ -39,7 +39,7 @@ cluster('help').database('Sample').StormEvents
 
 ## <a name="arguments"></a>参数
 
-* *stringConstant* ：被引用数据库的名称。 标识的数据库可以是 `DatabaseName` 或 `PrettyName`。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
+* *stringConstant*：被引用数据库的名称。 标识的数据库可以是 `DatabaseName` 或 `PrettyName`。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
 
 ## <a name="examples"></a>示例
 

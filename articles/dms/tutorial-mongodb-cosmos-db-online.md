@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 origin.date: 09/25/2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 7cc2a7d21d51760cf953bd0f9988832e99d36325
-ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
+ms.date: 11/16/2020
+ms.openlocfilehash: d40cebeb4969253844f4c3c244f7903c63fa13b9
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91990788"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590720"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -72,7 +72,7 @@ ms.locfileid: "91990788"
 
    ![显示门户订阅](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 
-2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”  。
+2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”。
 
     ![显示资源提供程序](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
@@ -82,15 +82,15 @@ ms.locfileid: "91990788"
 
 ## <a name="create-an-instance"></a>创建实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务**。
 
     ![Azure 市场](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，选择“创建”   。
+2. 在“Azure 数据库迁移服务”屏幕上，选择“创建” 。
 
     ![创建 Azure 数据库迁移服务实例](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
-3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称  。
+3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称。
 
 4. 选择要在其中创建 Azure 数据库迁移服务实例的位置。
 
@@ -107,7 +107,7 @@ ms.locfileid: "91990788"
 
     ![配置 Azure 数据库迁移服务实例设置](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
-7. 选择“创建”  来创建服务。
+7. 选择“创建”来创建服务。
 
 ## <a name="create-a-migration-project"></a>创建迁移项目
 
@@ -140,7 +140,7 @@ ms.locfileid: "91990788"
 
     可通过三种模式连接到源：
    * **标准模式**：接受完全限定的域名或 IP 地址、端口号和连接凭据。
-   * **连接字符串模式**：接受[连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
+   * **连接字符串模式**：接受 [连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
    * **Azure 存储中的数据**：接受 Blob 容器 SAS URL。 如果 Blob 容器包含 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)生成的 BSON 转储，请选择“Blob 包含 BSON 转储”；如果容器包含 JSON 文件，请取消选择该选项。 
 
      如果选择此选项，则请确保存储帐户连接字符串按以下格式显示：
@@ -156,7 +156,7 @@ ms.locfileid: "91990788"
      * 对于 JSON 转储，blob 容器中的文件必须放置到以包含数据库命名的文件夹中。 在每个数据库文件夹中，数据文件必须放置到名为“数据”且采用 collection.json 格式命名的子文件夹中  。 元数据文件（如有）必须放置到名为“元数据”且同样采用 collection.json 格式命名的子文件夹中  。 元数据文件必须采用由 MongoDB bsondump 工具所生成的相同格式。
 
     > [!IMPORTANT]
-    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用**连接字符串模式**连接到服务器，并确保连接字符串包含 “”
+    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用 **连接字符串模式** 连接到服务器，并确保连接字符串包含 “”
     >
     >```
     >&sslVerifyCertificate=false
@@ -234,7 +234,7 @@ ms.locfileid: "91990788"
 1. 对源 MongoDB 数据库进行更改。
 2. 连接到 COSMOS DB，以验证是否从源 MongoDB 服务器复制数据。
 
-    ![活动状态重放](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
+    ![显示在何处验证数据已复制的屏幕截图。](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## <a name="complete-the-migration"></a>完成迁移
 
@@ -242,7 +242,7 @@ ms.locfileid: "91990788"
 
     此操作会完成重放所有挂起的更改，并完成迁移。
 
-    ![活动状态重放](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+    ![显示“完成”菜单选项的屏幕截图。](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
 ## <a name="post-migration-optimization"></a>迁移后优化
 

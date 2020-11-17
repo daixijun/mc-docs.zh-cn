@@ -1,8 +1,8 @@
 ---
 title: Azure 服务总线消息传递的内置策略定义
 description: 列出 Azure 服务总线消息传递的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 10/07/2020
-ms.date: 10/19/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.topic: reference
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3cf4e3b167f57f6167e7b296bb9cc21395da4d92
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 7f47eaa64c422af2d1317678966ec2a3a68df91f
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128743"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590803"
 ---
 <!--Verified Successfully-->
 <!--Includes file: includes/policy/reference/byrp/microsoft.servicebus.md-->
@@ -35,5 +35,4 @@ ms.locfileid: "92128743"
 - 查看 [Azure Policy 定义结构](../governance/policy/concepts/definition-structure.md)。
 - 查看[了解策略效果](../governance/policy/concepts/effects.md)。
 
-<!-- Update_Description: new article about policy reference -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: reference
 origin.date: 07/24/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 46140675f092e222f779c6a43697adc53d288977
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 76b5b72731be3b7b254dc20fc640430f58f5c710
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026576"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552712"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -160,7 +160,7 @@ azcopy sync "https://[account].file.core.chinacloudapi.cn/[share]/[path/to/dir]?
 
 **--recursive** - 默认值为 `True`，即，在目录之间同步时，将以递归方式查看子目录。 （默认值为 `True`）。 
 
-**--s2s-preserve-access-tier** - 在服务之间复制过程中保留访问层。 请参阅 [Azure Blob 存储：热、冷和存档访问层](/storage/blobs/storage-blob-storage-tiers)，确保目标存储帐户支持设置访问层。 如果不支持设置访问层，请使用 s2sPreserveAccessTier=false 来绕过访问层的复制。 （默认值为 `true`）。 
+**--s2s-preserve-access-tier** - 在服务之间复制过程中保留访问层。 请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md)，确保目标存储帐户支持设置访问层。 如果不支持设置访问层，请使用 s2sPreserveAccessTier=false 来绕过访问层的复制。 （默认值为 `true`）。 
 
 ## <a name="options-inherited-from-parent-commands"></a>从父命令继承的选项
 

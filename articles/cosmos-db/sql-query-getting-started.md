@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的 SQL 查询入门
 description: 了解如何使用 SQL 查询从 Azure Cosmos DB 查询数据。 可以将示例数据上传到 Azure Cosmos DB 中的容器并对其进行查询。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/24/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4674f01d23cf51fdd34f38d19dbf1b5f1e8d3ecd
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9149fd51b39a4973d5e9f1f9f7c4327b571eb051
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223076"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552618"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 查询入门
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB SQL API 帐户中，有两种读取数据的方法：
 
@@ -28,10 +29,10 @@ Azure Cosmos DB 上的大部分读取密集型工作负荷使用点读取和 SQL
 
 以下是一些如何使用各个 SDK 进行点读取的示例：
 
-- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
-- [Java SDK](https://docs.azure.cn/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
-- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
+- [Java SDK](https://docs.azure.cn/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 本文档的其余部分说明如何开始在 Azure Cosmos DB 中编写 SQL 查询。 可以通过 SDK 或 Azure 门户运行 SQL 查询。
 

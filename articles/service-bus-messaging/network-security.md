@@ -3,17 +3,17 @@ title: Azure 服务总线的网络安全性
 description: 本文介绍网络安全功能，如服务标记、IP 防火墙规则、服务终结点和专用终结点。
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 7a6b1c13a3651cb208d6b90d5f7e9588b755fba9
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 3334a2b994bb6021da3ea88c430508400a8c288e
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162404"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590801"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Azure 服务总线的网络安全性 
 本文介绍如何在 Azure 服务总线中使用以下安全功能： 
@@ -21,12 +21,12 @@ ms.locfileid: "87162404"
 - 服务标记
 - IP 防火墙规则
 - 网络服务终结点
-- 专用终结点（预览版）
+- 专用终结点
 
 ## <a name="service-tags"></a>服务标记
 服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记，最大限度地降低频繁更新网络安全规则的复杂性。 有关服务标记的详细信息，请参阅[服务标记概述](../virtual-network/service-tags-overview.md)。
 
-可以在[网络安全组](../virtual-network/security-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应源或目标字段中指定服务标记名（例如，ServiceBus），可以允许或拒绝相应服务的流量    。
+可以在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应源或目标字段中指定服务标记名（例如，ServiceBus），可以允许或拒绝相应服务的流量    。
 
 | 服务标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可在 Azure 防火墙中使用？ |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -40,7 +40,7 @@ ms.locfileid: "87162404"
 
 <!--Not Available on Wikipedia -->
 
-在只应从某些已知站点访问 Azure 服务总线的情况下，此功能很有用。 可使用防火墙规则配置相关规则，以接受源自特定 IPv4 地址的流量。 例如，如果将服务总线与 [Azure Express Route][express-route] 配合使用，则可创建防火墙规则  ，只允许来自本地基础结构 IP 地址或公司 NAT 网关地址的流量。 
+在仅应从某些知名站点访问 Azure 服务总线的情况下，此功能很有用。 可使用防火墙规则配置相关规则，以接受源自特定 IPv4 地址的流量。 例如，如果将服务总线与 [Azure Express Route][express-route] 配合使用，则可创建防火墙规则  ，只允许来自本地基础结构 IP 地址或公司 NAT 网关地址的流量。 
 
 IP 防火墙规则应用于服务总线命名空间级别。 因此，这些规则适用于通过任何受支持协议从客户端发出的所有连接。 如果某 IP 地址与服务总线命名空间上的允许 IP 规则不匹配，则将拒绝来自该地址的任何连接尝试并将其标记为“未经授权”。 响应不会提及 IP 规则。 IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决定了将执行接受操作还是执行拒绝操作。
 
@@ -86,8 +86,6 @@ IP 防火墙规则应用于服务总线命名空间级别。 因此，这些规�
 
 > [!NOTE]
 > 通过 Azure 服务总线高级层支持此功能。 有关高级层的详细信息，请参阅[服务总线高级和标准消息传送层](service-bus-premium-messaging.md)。
->
-> 此功能目前为预览版。 
 
 <!--Not Available on For more information, see [How to configure private endpoints for a Service Bus namespace](private-link-service.md)-->
 

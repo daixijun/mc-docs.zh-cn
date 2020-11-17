@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 1584702311952a0b48b276e44b3ad7fe26f3199d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9de5e3a959730bcb9dbe0e15836516b28cfe4ed7
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105143"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590698"
 ---
 # <a name="find-operator"></a>find 运算符
 
@@ -56,7 +56,7 @@ find in (Table1, Table2, Table3) where Fruit=="apple"
 
 * `withsource=`ColumnName：可选。 默认情况下，输出将包括一个名为 source_ 的列，其值指示哪个源表提供了每一行。 如果指定，将使用 ColumnName，而不是 source_ 。
 通配符匹配后，如果查询引用了多个数据库（包括默认数据库）中的表，则此列的值将具有使用数据库进行限定的表名。 同样，如果引用了多个群集，则值中将存在“群集”和“数据库”限定条件 。
-* *谓词* ：针对输入表 Table [`,` Table, ...] 的列的 `boolean` [表达式](./scalar-data-types/bool.md) 。对每个输入表中的每一行执行计算。 有关详细信息，请参阅[谓词语法详细信息](./findoperator.md#predicate-syntax)。
+* *谓词*：针对输入表 Table [`,` Table, ...] 的列的 `boolean` [表达式](./scalar-data-types/bool.md) 。对每个输入表中的每一行执行计算。 有关详细信息，请参阅[谓词语法详细信息](./findoperator.md#predicate-syntax)。
 * `Table`：可选。 默认情况下，find 将在当前数据库的所有表中查找：
     *  表的名称，如 `Events`
     *  查询表达式，如 `(Events | where id==42)`
@@ -68,7 +68,7 @@ find in (Table1, Table2, Table3) where Fruit=="apple"
 ::: zone pivot="azuremonitor"
 
 * `withsource=`ColumnName：可选。 默认情况下，输出将包括一个名为 source_ 的列，其值指示哪个源表提供了每一行。 如果指定，将使用 ColumnName，而不是 source_ 。
-* *谓词* ：针对输入表 Table [`,` Table, ...] 的列的 `boolean` [表达式](./scalar-data-types/bool.md) 。对每个输入表中的每一行执行计算。 有关详细信息，请参阅[谓词语法详细信息](./findoperator.md#predicate-syntax)。
+* *谓词*：针对输入表 Table [`,` Table, ...] 的列的 `boolean` [表达式](./scalar-data-types/bool.md) 。对每个输入表中的每一行执行计算。 有关详细信息，请参阅[谓词语法详细信息](./findoperator.md#predicate-syntax)。
 * `Table`：可选。 默认情况下 find 将在所有表中搜索：
     *  表的名称，如 `Events` 
     *  查询表达式，如 `(Events | where id==42)`

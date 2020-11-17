@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: f54971654b8877e5f66d78805752a35f9a814f5b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: cff5f6f6baf8cb1ebb343226d872d0dc8666a486
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104001"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590895"
 ---
 # <a name="table-scope-function"></a>table()（范围函数）
 
@@ -28,15 +28,15 @@ table('StormEvent')
 
 ## <a name="syntax"></a>语法
 
-`table` `(` *TableName* [`,` *DataScope* ] `)`
+`table` `(` *TableName* [`,` *DataScope*] `)`
 
-## <a name="arguments"></a>参数
+## <a name="arguments"></a>自变量
 
 ::: zone pivot="azuredataexplorer"
 
 * TableName：`string` 类型的表达式，提供要引用的表的名称。 在调用该函数时，此表达式的值必须是常数（即，它不会随数据上下文变化）。
 
-* *DataScope* ：`string` 类型的可选参数，可用于根据数据按照表的有效 [缓存策略](../management/cachepolicy.md)归类的方式来限制表对此数据的引用。 如果使用该参数，则实际参数必须是具有以下可能值之一的常数 `string` 表达式：
+* *DataScope*：`string` 类型的可选参数，可用于根据数据按照表的有效 [缓存策略](../management/cachepolicy.md)归类的方式来限制表对此数据的引用。 如果使用该参数，则实际参数必须是具有以下可能值之一的常数 `string` 表达式：
 
     - `"hotcache"`：只有划分为热缓存类型的数据才会被引用。
     - `"all"`：该表中的所有数据都会被引用。
@@ -48,7 +48,7 @@ table('StormEvent')
 
 * TableName：`string` 类型的表达式，提供要引用的表的名称。 在调用该函数时，此表达式的值必须是常数（即，它不会随数据上下文变化）。
 
-* *DataScope* ：`string` 类型的可选参数，可用于根据数据按照表的有效缓存策略归类的方式限制表对此数据的引用。 如果使用该参数，则实际参数必须是具有以下可能值之一的常数 `string` 表达式：
+* *DataScope*：`string` 类型的可选参数，可用于根据数据按照表的有效缓存策略归类的方式限制表对此数据的引用。 如果使用该参数，则实际参数必须是具有以下可能值之一的常数 `string` 表达式：
 
     - `"hotcache"`：只有划分为热缓存类型的数据才会被引用。
     - `"all"`：该表中的所有数据都会被引用。

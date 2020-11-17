@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 07/23/2019
 ms.date: 09/16/2019
-ms.openlocfilehash: d4a58d2aa05e79f97c82f1584cffd8b98b33ae22
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 967002584650d245bd945dec65bcb3335caeb0a2
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394544"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552424"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>为 Azure HDInsight 群集创建虚拟网络
 
@@ -332,7 +332,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
     };
     ```
 
-    将 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn` 值替换为另一虚拟网络的 DNS 后缀。____ 此项将对远程网络 DNS 后缀的请求路由到该网络中的自定义 DNS。
+    将 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn` 值替换为另一虚拟网络的 DNS 后缀。 此项将对远程网络 DNS 后缀的请求路由到该网络中的自定义 DNS。
 
 3. 在两个虚拟网络的自定义 DNS 服务器上，使用以下文本作为 `/etc/bind/named.conf.options` 文件的内容：
 
@@ -378,6 +378,6 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 * 要了解如何配置 Apache HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 Apache HBase 群集复制](hbase/apache-hbase-replication.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/network-security-groups-overview.md)。
 
 * 有关用户定义的路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。

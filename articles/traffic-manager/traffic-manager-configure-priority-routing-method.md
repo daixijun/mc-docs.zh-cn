@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/16/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 65559222fa1ae799e0d07764a1feaa11befa7ad6
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 6a5e028462474613ae5fb885f3acda540601e81c
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472559"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590924"
 ---
 <!--Verfied Successfully-->
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>教程：在流量管理器中配置优先级流量路由方法
@@ -101,7 +101,7 @@ ms.locfileid: "92472559"
 
 1. 流量管理器配置文件正常工作后，请在权威 DNS 服务器上编辑 DNS 记录，将公司域名指向流量管理器域名。
 
-## <a name="clean-up-resource"></a>清理资源
+## <a name="clean-up-resources"></a>清理资源
 
 如果不再需要流量管理器配置文件，请找到该配置文件，然后选择“删除配置文件”。
 

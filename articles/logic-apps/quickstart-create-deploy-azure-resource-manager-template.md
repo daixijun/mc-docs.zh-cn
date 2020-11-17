@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 origin.date: 06/30/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: f8e737db6cfa2a287793a139d99db1095fdb3dd4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8012d604108b0712fe7785fe2fb7209431059477
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327621"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589413"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建和部署逻辑应用工作流
 
@@ -84,7 +84,7 @@ ms.locfileid: "94327621"
 
 1. 在门户中的“使用模板创建逻辑应用”页面上，输入或选择这些值：
 
-    | 属性 | 值 | 说明 |
+    | 属性 | 值 | 描述 |
     |----------|-------|-------------|
     | **订阅** | <*Azure-subscription-name*> | 要使用的 Azure 订阅的名称 |
     | **资源组** | <*Azure-resource-group-name*> | 新的或现有的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -149,7 +149,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
     PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
     ```
 
-    | 值 | 说明 |
+    | 值 | 描述 |
     |-------|-------------|
     | `subscriptionId`| 要使用的 Azure 订阅的 GUID |
     | `resourceGroupName` | 要创建的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -172,7 +172,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
     PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
     ```
 
-    | 值 | 说明 |
+    | 值 | 描述 |
     |-------|-------------|
     | `subscriptionId`| 要使用的 Azure 订阅的 GUID |
     | `resourceGroupName` | 要使用的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |

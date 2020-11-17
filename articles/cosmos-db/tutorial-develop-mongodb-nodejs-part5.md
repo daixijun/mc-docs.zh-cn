@@ -7,20 +7,21 @@ ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 25cf52ce71db9a485a4313281437b57ed57334f3
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: daa6ade7028d4671b3a2388a0013e483c119179b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117921"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552882"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 本教程包含多个部分，演示了如何通过 Express 和 Angular 创建 Node.js 应用，然后将其连接到[使用 Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 帐户](mongodb-introduction.md)。 本文是教程的第 5 部分，内容基于[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)。
 
@@ -113,7 +114,7 @@ Mongoose 是适用于 MongoDB 和 Node.js 的对象数据建模 (ODM) 库。 可
     const port = 10255;
     ```
 
-1. 在 **environment.js** 文件中，将 `accountName` 的值更改为在本教程[步骤 4](tutorial-develop-mongodb-nodejs-part4.md) 中创建的 Azure Cosmos DB 帐户的名称。 
+1. 在 **environment.js** 文件中，将 `accountName` 的值更改为在本教程 [步骤 4](tutorial-develop-mongodb-nodejs-part4.md) 中创建的 Azure Cosmos DB 帐户的名称。 
 
 1. 在 Terminal 窗口中使用以下 CLI 命令，检索 Azure Cosmos DB 帐户的主密钥： 
 

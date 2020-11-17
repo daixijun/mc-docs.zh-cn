@@ -6,20 +6,22 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: c06a02e1ba46dbe10ab9d0b840b834ea9cf3f78e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a48b7d914259dd659396ef668fadce57c63ffef6
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327300"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589415"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 防火墙的 Azure Monitor 日志
 
-以下 Azure Monitor 日志示例可用于分析 Azure 防火墙日志。 示例文件是在 Azure Monitor 的视图设计器中构建的，[Azure Monitor 中的视图设计器](https://docs.azure.cn/azure-monitor/view-designer)一文提供了有关视图设计概念的更多信息。
+以下 Azure Monitor 日志示例可用于分析 Azure 防火墙日志。 示例文件是在 Azure Monitor 的视图设计器中构建的，[Azure Monitor 中的视图设计器](https://docs.azure.cn/azure-monitor/platform/view-designer)一文提供了有关视图设计概念的更多信息。
+
+<!--CORRECT ON https://docs.azure.cn/azure-monitor/platform/view-designer-->
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

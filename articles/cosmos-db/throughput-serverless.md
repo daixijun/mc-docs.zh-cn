@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 41045712297e439b856287f7965ef15afb3113e6
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: df21bcd33d63d0b34ea245110a92c78adf0017b4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246930"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552669"
 ---
 <!--Verified Successfully-->
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>如何在预配吞吐量与无服务器之间进行选择
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 提供了两种不同的容量模式：[预配吞吐量](set-throughput.md)和[无服务器](serverless.md)。 在这两种模式下，你可以执行完全相同的数据库操作，但这些操作的收费方式截然不同。
 
@@ -40,15 +41,16 @@ Azure Cosmos DB 提供了两种不同的容量模式：[预配吞吐量](set-thr
 | 计费模式 | 对于预配的 RU/s，无论消耗了多少 RU，都按每小时计费。 | 根据数据库操作所消耗的 RU 数量，按小时收费。 |
 
 > [!IMPORTANT]
-> 当无服务器正式发布时，一些无服务器限制可能会被解除或删除，**你的反馈**将有助于我们做出决定！ 请与我们联系，并告诉我们有关无服务器体验的详细信息：[azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com)。
+> 当无服务器正式发布时，一些无服务器限制可能会被解除或删除，**你的反馈** 将有助于我们做出决定！ 请与我们联系，并告诉我们有关无服务器体验的详细信息：[azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com)。
 
 ## <a name="burstability-and-expected-consumption"></a>突发性和预期消耗
 
 在某些情况下，可能无法确定应当为给定的工作负荷选择预配吞吐量还是选择无服务器。 为了做出此决策，你可以估计：
 
-- 你的工作负荷的**突发性**需求，即一秒内可能需要消耗的最大 RU 数量
+- 你的工作负荷的 **突发性** 需求，即一秒内可能需要消耗的最大 RU 数量
 
-<!--Not Available on - Your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown [here](plan-manage-costs.md#estimating-serverless-costs))-->
+<!--Not Available on - Your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown here)-->
+<!--Not Available on [here](plan-manage-costs.md#estimating-serverless-costs)-->
 
 如果工作负荷的突发性需求超出每秒 5,000 RU，则应选择预配吞吐量，因为无服务器容器不能超过此限制。 如果不是，则可以根据预期的消耗来比较这两种模式的成本。
 
@@ -56,17 +58,8 @@ Azure Cosmos DB 提供了两种不同的容量模式：[预配吞吐量](set-thr
 
 - 只有预配吞吐量模式可以提供 10,000 RU/秒的吞吐量
 
-**示例 2**：工作负荷预计的最大突发需求为 500 RU/秒，并且一个月内总共使用 20,000,000 个 RU。
+<!--Not Available on Serverless price-->
 
-- 在预配吞吐量模式下，你可以预配 500 RU/秒的容器，每月成本为：$0.008 * 5 * 730 = **$29.20**
-- 在无服务器模式下，你需要为消耗的 RU 付费：$0.25 * 20 = **$5.00**
-
-**示例 3**：工作负荷预计的最大突发需求为 500 RU/秒，并且一个月内总共使用 250,000,000 个 RU。
-
-- 在预配吞吐量模式下，你可以预配 500 RU/秒的容器，每月成本为：$0.008 * 5 * 730 = **$29.20**
-- 在无服务器模式下，你需要为消耗的 RU 付费：$0.25 * 250 = **$62.50**
-
-（这些示例未考虑存储成本，这在两个模式之间是相同的）
 
 > [!NOTE]
 > 上面示例中所示的成本仅用于演示目的。 有关最新定价信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
@@ -77,5 +70,4 @@ Azure Cosmos DB 提供了两种不同的容量模式：[预配吞吐量](set-thr
 - 详细了解 [Azure Cosmos DB 无服务器](serverless.md)
 - 熟悉[请求单位](request-units.md)的概念
 
-<!-- Update_Description: new article about throughput serverless -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: conceptual
 origin.date: 10/05/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 6834c289245536b1cfb5f6e9857382382e9c6c8d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3a4deb9059eca153383bdd639df5c1b1301eddc5
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104329"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590900"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>适用于 Windows VM 的 Azure 磁盘加密 
 

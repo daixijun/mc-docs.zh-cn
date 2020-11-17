@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6fcd3ffadc645366f5693d4e421a7f756aa5155e
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: fe80de2e5485827a30bb63c2c94187f9dbcbfc55
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316466"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590790"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 发送本地化推送通知
 

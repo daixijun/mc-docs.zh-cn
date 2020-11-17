@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ms.testscope: yes|no
-ms.testdate: 11/09/2020null
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1c5898f5ed93c54c943edffc88246c08c3849a74
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8315aaadd6510290dc56f74ae43b8a3c24a40cac
+ms.sourcegitcommit: ae6fee4690c71f18e223ea023156dba71236978a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329393"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94588276"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Cassandra API 资源
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

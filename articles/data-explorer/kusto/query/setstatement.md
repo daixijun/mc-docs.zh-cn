@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
 ms.date: 09/30/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: dce9ac6e148384aa8303355c7e2e865467d378e2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6ad0b7f5f95b98756bf43e980e2f50747a39b801
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106257"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590585"
 ---
 # <a name="set-statement"></a>Set 语句
 
@@ -31,7 +31,7 @@ ms.locfileid: "93106257"
 
 ## <a name="syntax"></a>语法
 
-`set` *OptionName* [`=` *OptionValue* ]
+`set` *OptionName* [`=` *OptionValue*]
 
 ## <a name="example"></a>示例
 

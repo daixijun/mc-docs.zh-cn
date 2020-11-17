@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/19/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4e347024180a21b18afbda2c6e3ca149a2700a8c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9fd8963593f289c251564dab6ef893670afdde5e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117926"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552864"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的 JSON
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB 的 SQL (Core) API 中，项存储为 JSON。 类型系统和表达式仅限于处理 JSON 类型。 有关详细信息，请参阅 [JSON 规范](https://www.json.org/)。
 

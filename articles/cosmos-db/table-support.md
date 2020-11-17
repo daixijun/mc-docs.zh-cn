@@ -5,21 +5,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
 origin.date: 05/21/2020
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: de76e148e342907670ff64ff204b21679622e088
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ed68af004e5d5211f65e5066da90da96afd98d06
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222620"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552680"
 ---
 <!--Verify sucessfully-->
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure 表存储 API 和 Azure Cosmos DB 进行开发
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB 表 API 和 Azure 表存储通过其 SDK 共享相同的表数据模型，并公开相同的创建、删除、更新和查询操作。
 

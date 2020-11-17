@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 12/16/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: d542644890b0ab90d80cf5cc7e7e2b18cb3d5ccb
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 2b4402b1616e94aee778670621df9aab310d9324
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118367"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552775"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>了解 NoSQL 数据库与关系数据库之间的差别
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文列举 NoSQL 数据库相比关系数据库的一些重要优势。 此外，将讨论使用 NoSQL 时存在的一些难点。 若要深入了解现存的不同数据存储，请查看有关[选择适当的数据存储](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview)的文章。
 
@@ -33,7 +34,7 @@ ms.locfileid: "92118367"
 <!--Not Available on [distributed databases](https://en.wikipedia.org/wiki/Distributed_database)-->
 <!--Not Available on [hierarchical databases](https://en.wikipedia.org/wiki/Hierarchical_database_model)-->
 
-[Azure Cosmos DB](https://docs.azure.cn/cosmos-db/introduction) 已部署到所有 Azure 中国区域，因此简化了这些难题。 可以动态划分分区范围，使数据库随着应用程序的扩展而无缝增长，同时保持高可用性。 精细粒度的多租户功能以及严格受控的云原生资源监管功能有助于提供[令人惊叹的延迟保证](/cosmos-db/consistency-levels-tradeoffs#consistency-levels-and-latency)和可预测的性能。 分区是完全托管式的，因此管理员无需编写代码或管理分区。
+[Azure Cosmos DB](./introduction.md) 已部署到所有 Azure 中国区域，因此简化了这些难题。 可以动态划分分区范围，使数据库随着应用程序的扩展而无缝增长，同时保持高可用性。 精细粒度的多租户功能以及严格受控的云原生资源监管功能有助于提供[令人惊叹的延迟保证](./consistency-levels.md#consistency-levels-and-latency)和可预测的性能。 分区是完全托管式的，因此管理员无需编写代码或管理分区。
 
 如果事务量达到极限（例如，每秒数千个事务），则应考虑采用分布式 NoSQL 数据库。 若要实现最大效率、简化维护和降低总拥有成本，请考虑采用 Azure Cosmos DB。
 
@@ -52,7 +53,7 @@ ms.locfileid: "92118367"
 <!--Not Available on [object oriented design](https://en.wikipedia.org/wiki/Object-oriented_design)-->
 <!--Not Available on [impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)-->
 
-:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="后端":::
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## <a name="complex-networks-and-relationships"></a>复杂的网络和关系
 
@@ -60,11 +61,11 @@ ms.locfileid: "92118367"
 
 各种形式的“网络”数据库在关系数据库问世时即已出现，但与分层数据库一样，这些系统的普及也面临着重重困难。 对其的采用裹足不前的原因是一时缺少用例，且存储效率低下。 当今，可将图形数据库引擎视为网络数据库范型的再生。 这些系统的主要优势在于，关系作为“一等公民”存储在数据库中。 因此，关系的遍历可在恒定的时间内完成，而不会在每次计算新的联接或叉积时增大时间和复杂性。
 
-如果在数据库中维护复杂的关系网络，可以考虑使用图形数据库（例如 [Azure Cosmos DB Gremlin API](https://docs.azure.cn/cosmos-db/graph-introduction)）来管理此类数据。
+如果在数据库中维护复杂的关系网络，可以考虑使用图形数据库（例如 [Azure Cosmos DB Gremlin API](./graph-introduction.md)）来管理此类数据。
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="后端":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="显示多个相互连接的员工和部门的数据库关系图。":::
 
-Azure Cosmos DB 是一个多模型数据库服务，它为所有主要 NoSQL 模型类型（列系列、文档、图形和键-值）提供 API 投影。 [Gremlin（图形）](https://docs.azure.cn/cosmos-db/gremlin-support)和 SQL（核心）文档 API 层完全可互操作。 其优点是可以在编程级别切换不同的模型。 可以通过复杂的网络遍历以及建模为同一存储中的文档记录的事务来查询图形存储。
+Azure Cosmos DB 是一个多模型数据库服务，它为所有主要 NoSQL 模型类型（列系列、文档、图形和键-值）提供 API 投影。 [Gremlin（图形）](./gremlin-support.md)和 SQL（核心）文档 API 层完全可互操作。 其优点是可以在编程级别切换不同的模型。 可以通过复杂的网络遍历以及建模为同一存储中的文档记录的事务来查询图形存储。
 
 ## <a name="fluid-schema"></a>流体架构
 
@@ -79,8 +80,8 @@ Azure Cosmos DB 是一个多模型数据库服务，它为所有主要 NoSQL 模
 <!--Not Available on [microservices](https://en.wikipedia.org/wiki/Microservices)-->
 
 * 丰富的纯 JSON 数据类型
-* 内置于数据库中的 JavaScript 引擎和[查询 API](https://docs.azure.cn/cosmos-db/javascript-query-api)。
-* 可供客户端订阅的先进[更改源](https://docs.azure.cn/cosmos-db/change-feed)，对容器进行修改后可以发出通知。
+* 内置于数据库中的 JavaScript 引擎和[查询 API](./javascript-query-api.md)。
+* 可供客户端订阅的先进[更改源](./change-feed.md)，对容器进行修改后可以发出通知。
 
 ## <a name="some-challenges-with-nosql-databases"></a>NoSQL 数据库存在的一些难题
 
@@ -91,17 +92,17 @@ Azure Cosmos DB 是一个多模型数据库服务，它为所有主要 NoSQL 模
 
 对于第一个难题，NoSQL 数据库的经验法则通常是反规范化，而根据前文所述，这可以在分布式系统中生成更有效的读取。 但是，在使用这种方法时，会遇到一些设计难题。 让我们以一个类别和多个标记相关的产品为例：
 
-:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="后端":::
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="联接":::
 
 NoSQL 文档数据库的最佳做法是直接在“产品文档”中反规范化类别名称和标记名称。 但是，为了使类别、标记和产品保持同步，促成此方法的设计选项增大了维护复杂性，因为数据将在产品中的多个记录之间复制，而不是在“一对多”的关系中进行简单更新，然后使用联接来检索数据。 
 
-优势是反规范化记录中读取效率更高，并且随着概念上联接的实体数量的增加，效率进一步提高。 但是，正因为反规范化记录中读取效率随着联接实体数量的增加而提高，使实体保持同步的维护复杂性也随之增大。缓解这种利弊的方法之一是创建[混合数据模型](/cosmos-db/modeling-data#hybrid-data-models)。
+优势是反规范化记录中读取效率更高，并且随着概念上联接的实体数量的增加，效率进一步提高。 但是，正因为反规范化记录中读取效率随着联接实体数量的增加而提高，使实体保持同步的维护复杂性也随之增大。缓解这种利弊的方法之一是创建[混合数据模型](./modeling-data.md#hybrid-data-models)。
 
-尽管 NoSQL 数据库提供更高的灵活性来处理这些利弊，但灵活性的增高也可能会产生更多的设计决策。 请参阅我们的文章[如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区](https://docs.azure.cn/cosmos-db/how-to-model-partition-example)，其中介绍了[使反规范化的用户数据保持同步](/cosmos-db/how-to-model-partition-example#denormalizing-usernames)的方法，其中的用户不仅位于不同的分区中，而且还位于不同的容器中。
+尽管 NoSQL 数据库提供更高的灵活性来处理这些利弊，但灵活性的增高也可能会产生更多的设计决策。 请参阅我们的文章[如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区](./how-to-model-partition-example.md)，其中介绍了[使反规范化的用户数据保持同步](./how-to-model-partition-example.md#denormalizing-usernames)的方法，其中的用户不仅位于不同的分区中，而且还位于不同的容器中。
 
 极少需要对整个数据集实现强一致性。 但是，如果存在这种需要，在分布式数据库中可能很难做到这一点。 为确保强一致性，需要在所有副本和区域之间同步数据，然后再允许客户端读取数据。 这可能会增大读取延迟。
 
-同样，对于此处相关的各种利弊，Azure Cosmos DB 提供的灵活性高于关系数据库，但对于小规模的实施方案，使用此方法可能需要在设计时考虑到更多因素。 有关本主题的更多详细信息，请参阅有关[一致性、可用性和性能利弊](https://docs.azure.cn/cosmos-db/consistency-levels-tradeoffs)的文章。
+同样，对于此处相关的各种利弊，Azure Cosmos DB 提供的灵活性高于关系数据库，但对于小规模的实施方案，使用此方法可能需要在设计时考虑到更多因素。 有关本主题的更多详细信息，请参阅有关[一致性、可用性和性能利弊](./consistency-levels.md)的文章。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -110,9 +111,9 @@ NoSQL 文档数据库的最佳做法是直接在“产品文档”中反规范�
 * [如何管理 Azure Cosmos 帐户](how-to-manage-database-account.md)
 * [多区域分布](distribute-data-globally.md)
 * [一致性级别](consistency-levels.md)
-* [使用 Azure Cosmos 容器和项](databases-containers-items.md)
-* [Azure Cosmos 帐户的 VNET 服务终结点](vnet-service-endpoint.md)
-* [Azure Cosmos 帐户的 IP 防火墙](firewall-support.md)
+* [使用 Azure Cosmos 容器和项](account-databases-containers-items.md)
+* [Azure Cosmos 帐户的 VNET 服务终结点](how-to-configure-vnet-service-endpoint.md)
+* [Azure Cosmos 帐户的 IP 防火墙](how-to-configure-firewall.md)
 * [如何在 Azure Cosmos 帐户中添加和删除 Azure 区域](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 

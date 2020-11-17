@@ -9,14 +9,14 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
 ms.date: 10/29/2020
-zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
+zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: f0b935fb3022b6ef784d1793c9e3d8e746df85af
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b64f074147e1f2b8ac0ea4bdb778db81fa1d2532
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104611"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590849"
 ---
 # <a name="join-operator"></a>join 运算符
 
@@ -28,7 +28,7 @@ Table1 | join (Table2) on CommonColumn, $left.Col1 == $right.Col2
 
 ## <a name="syntax"></a>语法
 
-*LeftTable* `|` `join` [ *JoinParameters* ] `(` *RightTable* `)` `on` *Attributes*
+*LeftTable* `|` `join` [*JoinParameters*] `(` *RightTable* `)` `on` *Attributes*
 
 ## <a name="arguments"></a>参数
 
@@ -42,13 +42,13 @@ Table1 | join (Table2) on CommonColumn, $left.Col1 == $right.Col2
 
   |规则类型        |语法          |Predicate    |
   |-----------------|--------------|-------------------------|
-  |基于名称的等式 |*ColumnName*    |`where` *LeftTable*. *ColumnName* `==` *RightTable*. *ColumnName*|
+  |基于名称的等式 |*ColumnName*    |`where` *LeftTable*.*ColumnName* `==` *RightTable*.*ColumnName*|
   |基于值的等式|`$left.`*LeftColumn* `==` `$right.`*RightColumn*|`where` `$left.`*LeftColumn* `==` `$right.`*RightColumn*       |
 
     > [!NOTE]
     > 如果使用“基于值的等式”，则列名称必须通过由 `$left` 和 `$right` 表示法表示的相应的所有者表进行限定。
 
-* *JoinParameters* ：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数：
+* *JoinParameters*：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数：
 
     ::: zone pivot="azuredataexplorer"
 
@@ -305,7 +305,7 @@ on key
 
 * Kusto 经过优化，它会尽可能将 `join` 之后的筛选器推向相应的联接端，不管是左侧还是右侧。
 
-* 有时，使用的风格是 **innerunique** ，并且筛选器将传播到联接的左侧。 风格会自动传播，应用于该筛选器的键会始终出现在输出中。
+* 有时，使用的风格是 **innerunique**，并且筛选器将传播到联接的左侧。 风格会自动传播，应用于该筛选器的键会始终出现在输出中。
     
 * 使用上面的示例，添加筛选器 `where value == "val1.2" `。 它将始终提供第二个结果，永远不会为数据集提供第一个结果：
 

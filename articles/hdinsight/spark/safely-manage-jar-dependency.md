@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: 6c1d4e436d4fda78072df771a9287dc023014ec9
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 1acaa8010a4e94d3357a7566807d4eaab3ce6cce
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937718"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552720"
 ---
 # <a name="safely-manage-jar-dependencies"></a>安全地管理 JAR 依赖项
 
@@ -79,6 +79,6 @@ assemblyShadeRules in assembly := Seq(
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 HDInsight IntelliJ 工具](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [使用 HDInsight IntelliJ 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [在 IntelliJ 中为 Spark 创建 Scala Maven 应用程序](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [在 IntelliJ 中为 Spark 创建 Scala Maven 应用程序](./apache-spark-create-standalone-application.md)

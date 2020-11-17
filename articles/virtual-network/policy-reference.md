@@ -1,8 +1,8 @@
 ---
 title: Azure 虚拟网络的内置策略定义
 description: 列出 Azure 虚拟网络的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 10/07/2020
-ms.date: 11/02/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 10/05/2020
 ms.topic: reference
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 502d1a32c416293738111e4336d3ea153f2fd118
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 5a03db90a815f7a36e666697f7780ca5a9bd67d6
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628238"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590529"
 ---
 <!--Verified Successfully-->
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure 虚拟网络的 Azure Policy 内置定义

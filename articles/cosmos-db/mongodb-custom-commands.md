@@ -5,21 +5,22 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/28/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 62979c0d66cf49e2a3fce4bb12da26ed7f520e6a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: fb3c5ba509ddd2fa2d15d0020d8ff2cfde656841
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118561"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552818"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 扩展命令管理 Azure Cosmos DB's API for MongoDB 中存储的数据 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-以下文档包含特定于 Azure Cosmos DB API for MongoDB 的自定义操作命令。 这些命令可用来创建和获取特定于 [Azure Cosmos DB 容量模型](databases-containers-items.md)的数据库资源。
+以下文档包含特定于 Azure Cosmos DB API for MongoDB 的自定义操作命令。 这些命令可用来创建和获取特定于 [Azure Cosmos DB 容量模型](account-databases-containers-items.md)的数据库资源。
 
 使用 Azure Cosmos DB's API for MongoDB，可以享用 Cosmos DB 的多种优势，例如多区域分发、自动分片、高可用性、延迟保证、自动化、静态加密、备份，等等，同时可以保护 MongoDB 应用方面的投资。 可通过任何开源 [MongoDB 客户端驱动程序](https://docs.mongodb.org/ecosystem/drivers)与 Azure Cosmos DB API for MongoDB 通信。 Azure Cosmos DB's API for MongoDB 允许按照 MongoDB [线路协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)使用现有的客户端驱动程序。
 

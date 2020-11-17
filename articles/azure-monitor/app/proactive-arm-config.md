@@ -4,15 +4,15 @@ description: 使用 Azure 资源管理器模板自动完成 Azure Application In
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/29/2020
+ms.date: 11/10/2020
 origin.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cbbc431bece00febf996210bed28a7642bc90aef
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d493a4d45a1748a14d839eaf7e66ac6c9c2c26c2
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106354"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637915"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Application Insights 智能检测规则
 
@@ -22,8 +22,8 @@ ms.locfileid: "93106354"
 ## <a name="smart-detection-rule-configuration"></a>智能检测规则配置
 
 可以配置智能检测规则的以下设置：
-- 是否已启用该规则（默认值为 **true** 。）
-- 发现检测时是否应向与订阅的 [监视读者](../../role-based-access-control/built-in-roles.md#monitoring-reader)和 [监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)角色关联的用户发送电子邮件（默认值为 **true** ）。
+- 是否已启用该规则（默认值为 **true**。）
+- 发现检测时是否应向与订阅的 [监视读者](../../role-based-access-control/built-in-roles.md#monitoring-reader)和 [监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)角色关联的用户发送电子邮件（默认值为 **true**）。
 - 找到检测项时，应收到通知的其他任何电子邮件收件人。
     -  电子邮件配置不适用于标记为“预览”的智能检测规则  。
 
@@ -33,7 +33,7 @@ ms.locfileid: "93106354"
 ## <a name="examples"></a>示例
 
 以下几个示例演示如何使用 Azure 资源管理器模板配置智能检测规则的设置。
-在所有示例中，Application Insights 资源名为 _myApplication_ ，“‘依赖项持续时间长’智能检测规则”的内部名称为 _longdependencyduration_ 。
+在所有示例中，Application Insights 资源名为 _myApplication_，“‘依赖项持续时间长’智能检测规则”的内部名称为 _longdependencyduration_。
 请务必替换 Application Insights 资源名称，并指定相关的智能检测规则内部名称。 在下表中查看每个智能检测规则的对应内部 Azure 资源管理器名称列表。
 
 ### <a name="disable-a-smart-detection-rule"></a>禁用智能检测规则
@@ -45,7 +45,7 @@ ms.locfileid: "93106354"
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -76,7 +76,7 @@ ms.locfileid: "93106354"
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -107,7 +107,7 @@ ms.locfileid: "93106354"
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -121,7 +121,7 @@ ms.locfileid: "93106354"
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

@@ -367,8 +367,8 @@ Remove-AzResourceGroup `
 
 1. 展开“自定义 core-site”部分，并滚动到底部，然后选择“添加属性...”。将以下值用于“键”和“值”： 
 
-   * **键** ：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn`
-   * **值** ：前面执行的某个方法返回的 SAS。
+   * **键**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn`
+   * **值**：前面执行的某个方法返回的 SAS。
 
      将 `CONTAINERNAME` 替换为用于 C# 或 SAS 应用程序的容器名称。 将 `STORAGEACCOUNTNAME` 替换为所用的存储帐户名称。
 

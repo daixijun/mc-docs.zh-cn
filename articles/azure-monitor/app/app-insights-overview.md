@@ -2,17 +2,17 @@
 title: 什么是 Azure Application Insights？ | Azure Docs
 description: 应用程序性能管理和实时 Web 应用程序的使用情况跟踪。  检测、会审和诊断问题，了解用户使用应用的方式。
 ms.topic: overview
-ms.date: 10/29/2020
+ms.date: 11/10/2020
 author: Johnnytechn
 ms.custom: mvc
 origin.date: 06/03/2019
 ms.author: v-johya
-ms.openlocfilehash: 686e10b3b843ecd927b50ecb10221db7d42930c8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: af1a8e49be4788e1025f05860d5f480ebff2f8fd
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105676"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637942"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是 [Azure Monitor](../overview.md) 的一项功能，是面向开发人员和 DevOps 专业人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时应用程序。 它将自动检测性能异常，并且包含了强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js、Java 和 Python）上的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -39,12 +39,12 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 * **依赖项速率、响应时间和失败率** - 了解外部服务是否正拖慢速度。
 * 异常 - 分析聚合的统计信息，或选择特定实例并钻取堆栈跟踪和相关请求。 报告服务器和浏览器异常。
 * **页面查看次数和负载性能** - 由用户的浏览器报告。
-* **AJAX 调用** （从网页） - 速率、响应时间和失败率。
-* **用户和会话计数** 。
-* Windows 或 Linux 服务器计算机中的 **性能计数器** ，例如 CPU、内存和网络使用情况。 
-* Docker 或 Azure 中的 **主机诊断** 。 
-* 应用中的 **诊断跟踪日志** - 可以将跟踪事件与请求相关联。
-* 在客户端或服务器代码中自行编写的 **自定义事件和指标** ，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
+* **AJAX 调用**（从网页） - 速率、响应时间和失败率。
+* **用户和会话计数**。
+* Windows 或 Linux 服务器计算机中的 **性能计数器**，例如 CPU、内存和网络使用情况。 
+* Docker 或 Azure 中的 **主机诊断**。 
+* 应用中的 **诊断跟踪日志**- 可以将跟踪事件与请求相关联。
+* 在客户端或服务器代码中自行编写的 **自定义事件和指标**，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
 
 ## <a name="where-do-i-see-my-telemetry"></a>在哪里可以查看我的遥测数据？
 
@@ -66,7 +66,6 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 | [**Power BI**](./export-power-bi.md)<br/>将使用指标与其他商业智能集成。| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>编写代码以对指标和原始数据运行查询。| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**连续导出**](./export-telemetry.md)<br/>原始数据到达后，立即将其批量导出到存储。 |![导出](./media/app-insights-overview/export-tn.png) |
-<!-- Correct in MC: azure-monitor/log-query/log-query-overview.md -->
 
 ## <a name="how-do-i-use-application-insights"></a>如何使用 Application Insights？
 

@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 origin.date: 07/07/2020
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 23b4518013025963b99074fbcc11e61bf1743211
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 5e597b90e8bc39b40bc9295cb9380eaa1b9cbcec
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316444"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590834"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用发送推送通知
 
@@ -143,9 +143,9 @@ ms.locfileid: "89316444"
             }
 
             NSSet tags = null; // create tags if you want
-            Hub.RegisterNativeAsync(deviceToken, tags, (errorCallback) => {
+            Hub.RegisterNative(deviceToken, tags, (errorCallback) => {
                 if (errorCallback != null)
-                    System.Diagnostics.Debug.WriteLine("RegisterNativeAsync error: " + errorCallback.ToString());
+                    System.Diagnostics.Debug.WriteLine("RegisterNative error: " + errorCallback.ToString());
             });
         });
     }

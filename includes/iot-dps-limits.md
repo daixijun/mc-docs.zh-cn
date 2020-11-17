@@ -1,16 +1,16 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: iot-dps
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 03/23/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
-ms.openlocfilehash: c417f31cf315966d14b64542e2ac1754e389d744
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 51f6775a39993215cf3a39d674adbb67c57e8cd2
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79133788"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625362"
 ---
 下表列出了适用于 Azure IoT 中心设备预配服务资源的限制。
 

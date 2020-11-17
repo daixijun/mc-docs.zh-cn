@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 POWER
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 POWER。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 17cc9d8c123d9de82f542373eacc438bc29c401c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 21e1fc4b6de5e7e05fe9cd0432061db37b8d1dd1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914688"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552493"
 ---
 # <a name="power-azure-cosmos-db"></a>POWER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定表达式的指定幂的值。  
 
 ## <a name="syntax"></a>语法
@@ -56,5 +58,4 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!--Update_Description: new articles on sql query power  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -6,27 +6,28 @@ ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 2eec85531020a9adf55003f89d4e46a17897d46b
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 58e89daeb08dff48776c777dfe169353f2b5586d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118529"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552683"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
 
-本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 涉及的方案包括**创建**、**列出**和**删除**表，以及**插入**、**查询**、**修改**和**删除**表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 涉及的方案包括 **创建**、**列出** 和 **删除** 表，以及 **插入**、**查询**、**修改** 和 **删除** 表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
@@ -49,6 +50,8 @@ ms.locfileid: "92118529"
 在本指南中，将使用存储功能，这些功能可在本地 Java 应用程序中运行，或通过 Azure 的 Web 角色或辅助角色中运行的代码运行。
 
 若要使用本文中的示例，请安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户或 Azure Cosmos DB 帐户。 完成此操作后，请验证开发系统是否满足 GitHub 上[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的最低要求和依赖项。 如果系统满足这些要求，可以按照说明从该存储库将用于 Java 的 Azure 存储库下载并安装到你的系统中。 完成这些任务后，便可以创建一个 Java 应用程序，以使用本文中的示例。
+
+<!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
 
 ## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
 
@@ -629,6 +632,7 @@ catch (Exception e)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
     
     <!--CORRECT ON MICROSOFT -->
+    <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
     
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure 存储客户端 SDK 参考][Azure Storage Client SDK Reference]
@@ -637,11 +641,14 @@ catch (Exception e)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
-[Azure SDK for Java]: https://docs.azure.cn/develop/java
+[Azure SDK for Java]: https://docs.azure.cn/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+
+<!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
+
 [Azure 存储客户端 SDK 参考]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: https://docs.microsoft.com/rest/api/storageservices/
 [Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
 
 <!-- Update_Description: update meta properties, wording update, update link -->

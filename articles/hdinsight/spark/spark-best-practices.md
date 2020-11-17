@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 04/28/2020
 ms.date: 06/08/2020
-ms.openlocfilehash: 661db43f0cf88aa38fd348a19de4d739d67fb41d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 61a29eaae709ab65a36ebe92df58ed7d38ed6e6b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472640"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552718"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark 准则
 
@@ -57,7 +57,7 @@ ms.locfileid: "92472640"
 | HDInsight 上的 Apache Hive | [将 Apache Spark 和 Apache Hive 与 Hive Warehouse Connector 集成](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase on HDInsight | [使用 Apache Spark 读取和写入 Apache HBase 数据](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka on HDInsight | [教程：将 Apache Spark 结构化流式处理与 Apache Kafka on HDInsight 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB：在 Azure 平台上实现 lambda 体系结构](../../cosmos-db/lambda-architecture.md) |
+| Azure Cosmos DB | [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>可以使用哪些存储选项？
 

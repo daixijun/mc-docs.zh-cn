@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 01/14/2020
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 4197b0c861975cb188df044850637b610bbd514c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b452a82e34e0f6326175a3c6f93d10620b9014a8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563491"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552719"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
 
@@ -107,7 +107,7 @@ topologyBuilder.SetJavaBolt(
 
 ### <a name="prerequisites"></a>必备条件
 
-* HDInsight 上的 Apache Storm 群集。 请参阅[使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为**群集类型**。
+* HDInsight 上的 Apache Storm 群集。 请参阅 [使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为 **群集类型**。
 
 * [Azure 事件中心](../../event-hubs/event-hubs-create.md)。
 
@@ -115,7 +115,7 @@ topologyBuilder.SetJavaBolt(
 
 * [用于 Visual Studio 的 HDInsight 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
-* Java JDK 1.8 或更高版本，适用于开发环境。 [Oracle](https://aka.ms/azure-jdks) 提供了 JDK 下载内容。
+* Java JDK 1.8 或更高版本，适用于开发环境。 [Oracle](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support) 提供了 JDK 下载内容。
 
   * **JAVA_HOME** 环境变量必须指向包含 Java 的目录。
   * 路径中必须包含 **%JAVA_HOME%/bin** 目录。

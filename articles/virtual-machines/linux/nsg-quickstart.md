@@ -8,15 +8,15 @@ ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1235fe3d3f25f3b0fe8afea4e82867860138ee82
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2549fc147c740c87e3743f1688014298eb03f97a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057554"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637950"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>使用 Azure CLI 打开 VM 的端口和终结点
 
@@ -91,6 +91,6 @@ az network vnet subnet update \
 在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/management/overview.md)
-* [什么是网络安全组 (NSG)？](../../virtual-network/security-overview.md)
+* [什么是网络安全组 (NSG)？](../../virtual-network/network-security-groups-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

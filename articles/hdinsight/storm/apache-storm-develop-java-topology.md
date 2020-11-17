@@ -11,12 +11,12 @@ origin.date: 04/27/2020
 ms.date: 06/08/2020
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: aa5f46bcad5cc44e36b90e407eb099789b9748ba
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 7883bac538e1ab25a15627fb30eb5977ce2a21c7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552717"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -29,7 +29,7 @@ ms.locfileid: "91394577"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java 开发人员工具包 (JDK) 版本 8](https://aka.ms/azure-jdks)
+* [Java 开发人员工具包 (JDK) 版本 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 

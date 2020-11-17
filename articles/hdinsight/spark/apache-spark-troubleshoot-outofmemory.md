@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 08/15/2019
 ms.date: 10/28/2019
-ms.openlocfilehash: 0066eedef327cfac7f31e9b718aaa60e0bdc1b33
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 5ddda99aa475df9a72646966fd6bba29cf29fcd0
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516574"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552887"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Spark 的 OutOfMemoryError 异常
 
@@ -249,6 +249,6 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 * [Spark 内存管理概述](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)。
 
-* [在 HDInsight 群集上调试 Spark 应用程序](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)。
+* [在 HDInsight 群集上调试 Spark 应用程序](https://docs.microsoft.com/archive/blogs/azuredatalake/spark-debugging-101)。
 
 * 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。

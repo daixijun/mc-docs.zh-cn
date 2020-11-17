@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 55379297963c1b55a100c322f33295a7db6e2ab5
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d2e23bf43e6fa912c6bfd7c339629f36c52ab07a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246345"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552468"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中的表 API 的常见问题解答
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 可以在 [Azure 门户](https://portal.azure.cn)中使用 Azure Cosmos DB 表 API。首先必须注册一个 Azure 订阅。 注册成功后，可将 Azure Cosmos DB 表 API 帐户添加到 Azure 订阅，然后向帐户添加表。 可以在 [Azure Cosmos DB 表 API 简介](table-introduction.md)中找到支持的语言和相关的快速入门。
 
@@ -101,7 +102,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmosDB;AccountKey=<
 
 ### <a name="which-tools-work-with-the-table-api"></a>哪些工具适用于表 API？
 
-可以使用 [Azure 存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer)。
+可以使用 [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)。
 
 灵活地采用之前指定格式的连接字符串的工具可以支持新的表 API。 [Azure 存储客户端工具](../storage/common/storage-explorers.md)页上提供了表工具的列表。
 
@@ -119,7 +120,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmosDB;AccountKey=<
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>如何将现有 Azure 表存储应用程序迁移到此服务？
 
-支持使用 [AzCopy](/storage/common/storage-use-azcopy) 和 [Azure Cosmos DB 数据迁移工具](import-data.md)。
+支持使用 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 和 [Azure Cosmos DB 数据迁移工具](import-data.md)。
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>如何为此服务扩展存储大小，比如，最初我有 *n* GB 的数据，但一段时间后我的数据会增长到 1 TB？
 
@@ -235,7 +236,7 @@ Azure Cosmos DB 会在本地区域持续提交数据，然后在几毫秒内将�
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>平台形式的 Azure Cosmos DB 似乎拥有许多功能，例如排序、聚合、分层和其他功能。 是否会将这些功能添加到表 API 中？
 
-表 API 提供与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 有关详细信息，请参阅 [SQL 查询](how-to-sql-query.md)。
+表 API 提供与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 有关详细信息，请参阅 [SQL 查询](./sql-query-getting-started.md)。
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>何时应更改表 API 的 TableThroughput？
 
@@ -278,7 +279,7 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保障�
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>在向 Azure 表存储引入数据时，我从未收到过“配额已满”通知（指示分区已满）。 但使用表 API 时会收到此消息。 是此产品有限制，迫使我更改现有的应用程序吗？
 
-Azure Cosmos DB 是基于 SLA 的系统，可提供无限缩放，并在延迟、吞吐量、可用性和一致性方面提供保障。 为了确保获得有保障的高级性能，需确保数据大小和索引可管理且可缩放。 我们对每个分区键的实体数或项数实施 20 GB 限制，以确保提供强大的查找和查询性能。 若要确保即使针对 Azure 存储，应用程序也能很好地进行缩放，建议*不要*创建热分区，即，将所有信息存储在一个分区内并查询它。
+Azure Cosmos DB 是基于 SLA 的系统，可提供无限缩放，并在延迟、吞吐量、可用性和一致性方面提供保障。 为了确保获得有保障的高级性能，需确保数据大小和索引可管理且可缩放。 我们对每个分区键的实体数或项数实施 20 GB 限制，以确保提供强大的查找和查询性能。 若要确保即使针对 Azure 存储，应用程序也能很好地进行缩放，建议 *不要* 创建热分区，即，将所有信息存储在一个分区内并查询它。
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>表 API 是否仍然需要 PartitionKey 和 RowKey？
 

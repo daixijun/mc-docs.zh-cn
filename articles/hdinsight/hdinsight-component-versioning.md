@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 08/13/2020
 ms.date: 09/14/2020
 ms.author: v-yiso
-ms.openlocfilehash: fe8db26d854d6a7425be39760ff791515d7927cf
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 1da1a5eb2ab01ae20becd57c7bad0381371f2704
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394796"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552427"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>适用于 Azure HDInsight 的 Apache 组件和版本
 
@@ -69,9 +69,9 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 
 ### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>HDInsight 版本的支持到期和停用
 
-**支持到期**意味着 Microsoft 不再为特定的 HDInsight 版本提供支持， 并且不再可以通过 Azure 门户使用该版本创建群集。 仍可以使用 Azure CLI 或各种 SDK 创建这些版本。
+**支持到期** 意味着 Microsoft 不再为特定的 HDInsight 版本提供支持， 并且不再可以通过 Azure 门户使用该版本创建群集。 仍可以使用 Azure CLI 或各种 SDK 创建这些版本。
 
-**停用**意味着 HDInsight 版本的现有群集将继续按现样运行。 不能通过任何方式（包括 CLI 和 SDK）创建此版本的新群集。 其他控制平面功能（如手动缩放和自动缩放）在版本停用后也可能不起作用。 对已停用的版本不提供支持。
+**停用** 意味着 HDInsight 版本的现有群集将继续按现样运行。 不能通过任何方式（包括 CLI 和 SDK）创建此版本的新群集。 其他控制平面功能（如手动缩放和自动缩放）在版本停用后也可能不起作用。 对已停用的版本不提供支持。
 
 下表列出了 HDInsight 版本。 它还提供了支持到期日期和停用日期（如果已知这些日期）。
 
@@ -135,6 +135,6 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 
 ## <a name="next-steps"></a>后续步骤
 - [为 HDInsight 上的 Apache Hadoop、Spark 和其他组件设置群集](hdinsight-hadoop-provision-linux-clusters.md)
-- [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)
-- [与 Azure HDInsight 版本相关的 Hortonworks 发行说明](./hortonworks-release-notes.md)
 - [企业安全性套餐](./enterprise-security-package.md)
+- [与 Azure HDInsight 版本相关的 Hortonworks 发行说明](./hortonworks-release-notes.md)
+- [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)

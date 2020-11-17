@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 RADIANS
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RADIANS。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 49b08f1076fbfe0b7d809887292769e5f6ffd80e
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 67a49dec13b20b10cccb09ed20e299a134d5aab3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134763"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552870"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回输入的数值表达式（度）的弧度。  
 
 ## <a name="syntax"></a>语法

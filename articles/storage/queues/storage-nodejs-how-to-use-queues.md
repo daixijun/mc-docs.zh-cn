@@ -43,7 +43,7 @@ ms.locfileid: "94551916"
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-1. 在命令窗口中键入 **npm install \@azure/storage-queue** 。
+1. 在命令窗口中键入 **npm install \@azure/storage-queue**。
 
 1. 验证是否已创建 **node\_modules** 文件夹。 在该文件夹中，你会发现 **\@azure/storage-queue** 包，其中包含访问存储所需的客户端库。
 
@@ -374,7 +374,7 @@ for await (const item of queueServiceClient.listQueues()) {
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-若要检索队列的列表，请使用 **listQueuesSegmented** 。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix** 。
+若要检索队列的列表，请使用 **listQueuesSegmented**。 若要检索按特定前缀筛选的列表，请使用 **listQueuesSegmentedWithPrefix**。
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -414,7 +414,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages** 。
+若要清除队列中的所有消息而不删除该队列，请调用 **clearMessages**。
 
 ---
 

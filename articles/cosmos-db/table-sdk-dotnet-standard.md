@@ -7,20 +7,21 @@ ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/18/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a40ac6b62a6e369a78e8b3ff4d5e2d2882434145
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 083e094016daf664c006a4f360f7e5c715420b7d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246344"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552467"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET Standard API：下载和发行说明
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)

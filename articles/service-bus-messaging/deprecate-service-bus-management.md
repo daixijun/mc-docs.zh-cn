@@ -4,16 +4,16 @@ description: 本文提供了从弃用的 Azure 服务管理器 REST API 和 Powe
 ms.topic: article
 origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c8ab4fae2467f6b9178850d4302a5641ab50421a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 835dbacfc3813de4e8ddd7d282abffabfbcb676f
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128027"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590684"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>弃用了 Azure 服务管理器对 Azure 服务总线、中继和事件中心的支持
 

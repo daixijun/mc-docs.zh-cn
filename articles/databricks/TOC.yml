@@ -1,0 +1,1530 @@
+- name: Azure Databricks 文档
+  href: /databricks/
+- name: 概述
+  items:
+    - name: 什么是 Azure Databricks？
+      href: scenarios/what-is-azure-databricks.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 创建工作区
+      items:
+        - name: 门户
+          href: scenarios/quickstart-create-databricks-workspace-portal.md
+        - name: Azure PowerShell
+          href: scenarios/quickstart-create-databricks-workspace-powershell.md
+        - name: ARM 模板
+          displayName: Resource Manager
+          href: scenarios/quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: 虚拟网络
+          href: scenarios/quickstart-create-databricks-workspace-vnet-injection.md
+- name: 教程
+  items:
+    - name: 查询在 Docker 容器中运行的 SQL Server
+      href: scenarios/vnet-injection-sql-server.md
+    - name: 使用 Azure Key Vault 访问存储
+      href: scenarios/store-secrets-azure-key-vault.md
+    - name: 使用 Cosmos DB 服务终结点
+      href: scenarios/service-endpoint-cosmosdb.md
+    - name: 执行 ETL 操作
+      href: scenarios/databricks-extract-load-sql-data-warehouse.md
+    - name: 使用事件中心对数据进行流式传输
+      href: scenarios/databricks-stream-from-eventhubs.md
+    - name: 使用认知服务进行情绪分析
+      href: scenarios/databricks-sentiment-analysis-cognitive-services.md
+- name: 概念
+  items:
+    - name: Azure Databricks 概念
+      href: getting-started/concepts.md
+- name: 操作指南
+  items:
+    - name: 语言指南
+      items:
+        - name: Python
+          items:
+            - name: Python 概述
+              href: languages/python.md
+            - name: Koalas
+              href: languages/koalas.md
+        - name: R
+          items:
+            - name: R 概述
+              href: spark/latest/sparkr/index.md
+            - name: SparkR 概述
+              href: spark/latest/sparkr/overview.md
+            - name: SparkR ML 教程
+              items:
+                - name: SparkR ML 教程概述
+                  href: spark/latest/sparkr/tutorials/index.md
+                - name: 使用 glm
+                  href: spark/latest/sparkr/tutorials/using-glm.md
+            - name: SparkR 函数参考
+              href: spark/latest/sparkr/sparkr.md
+            - name: SparkR 1.6
+              items:
+                - name: SparkR 1.6 概述
+                  href: spark/1.6/sparkr/overview.md
+                - name: SparkR 1.6 函数参考
+                  href: spark/1.6/sparkr/functions/index.md
+            - name: sparklyr
+              href: spark/latest/sparkr/sparklyr.md
+            - name: Azure Databricks 上的 RStudio
+              href: spark/latest/sparkr/rstudio.md
+            - name: Azure Databricks 上的 Shiny
+              href: spark/latest/sparkr/shiny.md
+        - name: Scala
+          href: languages/scala.md
+        - name: SQL
+          items:
+            - name: SQL 概述
+              href: spark/latest/spark-sql/index.md
+            - name: SQL 语言手册
+              items:
+                - name: 更改数据库
+                  href: spark/latest/spark-sql/language-manual/alter-database.md
+                - name: 更改表或视图
+                  href: spark/latest/spark-sql/language-manual/alter-table-or-view.md
+                - name: 更改表分区
+                  href: spark/latest/spark-sql/language-manual/alter-table-partition.md
+                - name: 分析表
+                  href: spark/latest/spark-sql/language-manual/analyze-table.md
+                - name: 缓存
+                  href: spark/latest/spark-sql/language-manual/cache-dbio.md
+                - name: 缓存表
+                  href: spark/latest/spark-sql/language-manual/cache-table.md
+                - name: 清除缓存
+                  href: spark/latest/spark-sql/language-manual/clear-cache.md
+                - name: 克隆（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/clone.md
+                - name: 转换为 Delta（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/convert-to-delta.md
+                - name: 复制到（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/copy-into.md
+                - name: 创建 Bloom 筛选器索引
+                  href: spark/latest/spark-sql/language-manual/create-bloomfilter-index.md
+                - name: 创建数据库
+                  href: spark/latest/spark-sql/language-manual/create-database.md
+                - name: 创建函数
+                  href: spark/latest/spark-sql/language-manual/create-function.md
+                - name: 创建表
+                  href: spark/latest/spark-sql/language-manual/create-table.md
+                - name: 创建视图
+                  href: spark/latest/spark-sql/language-manual/create-view.md
+                - name: 从（Azure Databricks 上的 Delta Lake）中删除
+                  href: spark/latest/spark-sql/language-manual/delete-from.md
+                - name: 拒绝
+                  href: spark/latest/spark-sql/language-manual/deny.md
+                - name: 描述数据库
+                  href: spark/latest/spark-sql/language-manual/describe-database.md
+                - name: 描述函数
+                  href: spark/latest/spark-sql/language-manual/describe-function.md
+                - name: 描述历史记录（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/describe-history.md
+                - name: 描述表
+                  href: spark/latest/spark-sql/language-manual/describe-table.md
+                - name: 删除 Bloom 筛选器索引
+                  href: spark/latest/spark-sql/language-manual/drop-bloomfilter-index.md
+                - name: 删除数据库
+                  href: spark/latest/spark-sql/language-manual/drop-database.md
+                - name: 删除函数
+                  href: spark/latest/spark-sql/language-manual/drop-function.md
+                - name: 删除表
+                  href: spark/latest/spark-sql/language-manual/drop-table.md
+                - name: 删除视图
+                  href: spark/latest/spark-sql/language-manual/drop-view.md
+                - name: 说明
+                  href: spark/latest/spark-sql/language-manual/explain.md
+                - name: 对表进行 Fsck 修复（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/fsck.md
+                - name: 函数
+                  href: spark/latest/spark-sql/language-manual/functions.md
+                - name: 授予
+                  href: spark/latest/spark-sql/language-manual/grant.md
+                - name: 插入
+                  href: spark/latest/spark-sql/language-manual/insert.md
+                - name: 加载数据
+                  href: spark/latest/spark-sql/language-manual/load-data.md
+                - name: 合并到（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/merge-into.md
+                - name: Msck
+                  href: spark/latest/spark-sql/language-manual/msck.md
+                - name: 优化（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/optimize.md
+                - name: 刷新表
+                  href: spark/latest/spark-sql/language-manual/refresh-table.md
+                - name: 重置
+                  href: spark/latest/spark-sql/language-manual/reset.md
+                - name: 撤销
+                  href: spark/latest/spark-sql/language-manual/revoke.md
+                - name: Select
+                  href: spark/latest/spark-sql/language-manual/select.md
+                - name: 设置
+                  href: spark/latest/spark-sql/language-manual/set.md
+                - name: 显示列
+                  href: spark/latest/spark-sql/language-manual/show-columns.md
+                - name: 显示用于创建表的命令
+                  href: spark/latest/spark-sql/language-manual/show-create-table.md
+                - name: 显示数据库
+                  href: spark/latest/spark-sql/language-manual/show-databases.md
+                - name: 显示函数
+                  href: spark/latest/spark-sql/language-manual/show-functions.md
+                - name: 显示授权
+                  href: spark/latest/spark-sql/language-manual/show-grant.md
+                - name: 显示分区
+                  href: spark/latest/spark-sql/language-manual/show-partitions.md
+                - name: 显示表属性
+                  href: spark/latest/spark-sql/language-manual/show-table-properties.md
+                - name: 显示表
+                  href: spark/latest/spark-sql/language-manual/show-tables.md
+                - name: 截断表
+                  href: spark/latest/spark-sql/language-manual/truncate-table.md
+                - name: 取消缓存表
+                  href: spark/latest/spark-sql/language-manual/uncache-table.md
+                - name: 更新（Azure Databricks 上的 Delta Lake）
+                  href: spark/latest/spark-sql/language-manual/update.md
+                - name: 使用数据库
+                  href: spark/latest/spark-sql/language-manual/use-database.md
+                - name: 清空
+                  href: spark/latest/spark-sql/language-manual/vacuum.md
+            - name: Spark SQL 示例
+              items:
+                - name: 基于成本的优化器
+                  href: spark/latest/spark-sql/cbo.md
+                - name: “数据跳过”索引
+                  href: spark/latest/spark-sql/dataskipping-index.md
+                - name: 通过 DBIO 向云存储进行事务性写入
+                  href: spark/latest/spark-sql/dbio-commit.md
+                - name: 处理错误记录和文件
+                  href: spark/latest/spark-sql/handling-bad-records.md
+                - name: 在交互式工作流中处理大型查询
+                  href: spark/latest/spark-sql/query-watchdog.md
+                - name: 自适应查询执行
+                  href: spark/latest/spark-sql/aqe.md
+                - name: 优化 Spark 与 Pandas 数据帧之间的转换
+                  href: spark/latest/spark-sql/spark-pandas.md
+                - name: 用户定义的聚合函数 - Scala
+                  href: spark/latest/spark-sql/udf-scala.md
+                - name: 用户定义的函数 - Python
+                  href: spark/latest/spark-sql/udf-python.md
+                - name: pandas 用户定义函数
+                  href: spark/latest/spark-sql/udf-python-pandas.md
+                - name: pandas 函数 API
+                  href: spark/latest/spark-sql/pandas-function-apis.md
+                - name: Apache Hive 兼容性
+                  href: spark/latest/spark-sql/compatibility/hive.md
+    - name: Databricks 运行时
+      items:
+        - name: 运行时概述
+          href: runtime/index.md
+        - name: Databricks Runtime
+          href: runtime/dbr.md
+        - name: 用于机器学习的 Databricks Runtime
+          href: runtime/mlruntime.md
+        - name: 用于基因组学的 Databricks Runtime
+          href: runtime/genomicsruntime.md
+        - name: Databricks Light
+          href: runtime/light.md
+    - name: 工作区
+      items:
+        - name: 探索 Databricks 工作区
+          href: workspace/index.md
+        - name: 工作区资产
+          href: workspace/workspace-assets.md
+        - name: 使用工作区对象
+          href: workspace/workspace-objects.md
+        - name: 获取工作区、群集、笔记本和作业标识符
+          href: workspace/workspace-details.md
+        - name: 迁移到每工作区 URL
+          href: workspace/migrate-workspace-urls.md
+    - name: 群集
+      items:
+        - name: 群集概述
+          href: clusters/index.md
+        - name: 创建群集
+          href: clusters/create.md
+        - name: 管理群集
+          href: clusters/clusters-manage.md
+        - name: 配置群集
+          href: clusters/configure.md
+        - name: 任务抢占
+          href: clusters/preemption.md
+        - name: 自定义容器
+          href: clusters/custom-containers.md
+        - name: 初始化群集节点
+          href: clusters/init-scripts.md
+        - name: 启用了 GPU 的群集
+          href: clusters/gpu.md
+        - name: 单节点群集
+          href: clusters/single-node.md
+        - name: Web 终端
+          href: clusters/web-terminal.md
+        - name: 池
+          items:
+            - name: 池概述
+              href: clusters/instance-pools/index.md
+            - name: 显示池
+              href: clusters/instance-pools/display.md
+            - name: 创建池
+              href: clusters/instance-pools/create.md
+            - name: 配置池
+              href: clusters/instance-pools/configure.md
+            - name: 编辑池
+              href: clusters/instance-pools/edit.md
+            - name: 删除池
+              href: clusters/instance-pools/delete.md
+            - name: 使用池
+              href: clusters/instance-pools/cluster-instance-pool.md
+    - name: 笔记本
+      items:
+        - name: 笔记本概述
+          href: notebooks/index.md
+        - name: 管理笔记本
+          href: notebooks/notebooks-manage.md
+        - name: 使用笔记本
+          href: notebooks/notebooks-use.md
+        - name: 版本控制
+          items:
+            - name: 使用 Azure DevOps 进行版本控制
+              href: notebooks/azure-devops-services-version-control.md
+            - name: 使用 Bitbucket 云进行版本控制
+              href: notebooks/bitbucket-cloud-version-control.md
+            - name: 使用 GitHub 进行版本控制
+              href: notebooks/github-version-control.md
+        - name: 可视化效果
+          items:
+            - name: 可视化数据
+              href: notebooks/visualizations/index.md
+            - name: 迁移弃用的折线图
+              href: notebooks/visualizations/migrate-charts.md
+            - name: 深入探讨使用 Python 进行可视化
+              href: notebooks/visualizations/charts-and-graphs-python.md
+            - name: 深入探讨使用 Scala 进行可视化
+              href: notebooks/visualizations/charts-and-graphs-scala.md
+            - name: 笔记本中的 HTML、D3 和 SVG
+              href: notebooks/visualizations/html-d3-and-svg.md
+            - name: Python 笔记本中的 Bokeh
+              href: notebooks/visualizations/bokeh.md
+            - name: Matplotlib
+              href: notebooks/visualizations/matplotlib.md
+            - name: Plotly
+              href: notebooks/visualizations/plotly.md
+            - name: htmlwidgets
+              href: notebooks/visualizations/htmlwidgets.md
+            - name: ggplot2
+              href: notebooks/visualizations/ggplot2.md
+        - name: 仪表板
+          href: notebooks/dashboards.md
+        - name: 小组件
+          href: notebooks/widgets.md
+        - name: 笔记本工作流
+          href: notebooks/notebook-workflows.md
+        - name: 包单元
+          href: notebooks/package-cells.md
+    - name: 作业
+      href: jobs.md
+    - name: 库
+      items:
+        - name: 库概述
+          href: libraries/index.md
+        - name: 工作区库
+          href: libraries/workspace-libraries.md
+        - name: 群集库
+          href: libraries/cluster-libraries.md
+        - name: 作用域为笔记本的库
+          href: libraries/notebooks-python-libraries.md
+    - name: 数据
+      items:
+        - name: 数据概述
+          href: getting-started/data.md
+        - name: 数据库和表
+          href: data/tables.md
+        - name: 元存储
+          items:
+            - name: 外部 Hive 元存储
+              href: data/metastores/external-hive-metastore.md
+        - name: 数据源
+          items:
+            - name: 使用 JDBC 的 SQL 数据库
+              href: data/data-sources/sql-databases.md
+            - name: 使用 Apache Spark 连接器的 SQL 数据库
+              href: data/data-sources/sql-databases-azure.md
+            - name: Azure Blob 存储
+              href: data/data-sources/azure/azure-storage.md
+            - name: Azure Data Lake Storage Gen2
+              href: data/data-sources/azure/azure-datalake-gen2.md
+            - name: Azure Data Lake Storage
+              href: data/data-sources/azure/azure-datalake.md
+            - name: Cosmos DB
+              href: data/data-sources/azure/cosmosdb-connector.md
+            - name: Azure Synapse Analytics
+              href: data/data-sources/azure/synapse-analytics.md
+            - name: 二进制文件
+              href: data/data-sources/binary-file.md
+            - name: Cassandra
+              href: data/data-sources/cassandra.md
+            - name: Couchbase
+              href: data/data-sources/couchbase.md
+            - name: ElasticSearch
+              href: data/data-sources/elasticsearch.md
+            - name: 映像
+              href: data/data-sources/image.md
+            - name: Hive 表
+              href: data/data-sources/hive-tables.md
+            - name: MLflow 试验
+              href: data/data-sources/mlflow-experiment.md
+            - name: MongoDb
+              href: data/data-sources/mongodb.md
+            - name: Neo4j
+              href: data/data-sources/neo4j.md
+            - name: Avro 文件
+              href: data/data-sources/read-avro.md
+            - name: CSV 文件
+              href: data/data-sources/read-csv.md
+            - name: JSON 文件
+              href: data/data-sources/read-json.md
+            - name: LZO 压缩文件
+              href: data/data-sources/read-lzo.md
+            - name: Parquet 文件
+              href: data/data-sources/read-parquet.md
+            - name: Redis
+              href: data/data-sources/redis.md
+            - name: Riak Time Series
+              href: data/data-sources/riak-ts.md
+            - name: Snowflake
+              href: data/data-sources/snowflake.md
+            - name: ZIP 文件
+              href: data/data-sources/zip-files.md
+        - name: Databricks 文件系统 (DBFS)
+          href: data/databricks-file-system.md
+        - name: Azure Databricks 数据集
+          href: getting-started/databricks-datasets.md
+        - name: FileStore
+          href: data/filestore.md
+    - name: 集成
+      items:
+        - name: 集成概述
+          href: integrations/index.md
+        - name: 商业智能工具
+          items:
+            - name: BI 概述
+              href: integrations/bi/index.md
+            - name: 连接 BI 工具
+              href: integrations/bi/jdbc-odbc-bi.md
+            - name: Tableau
+              href: integrations/bi/tableau.md
+            - name: Power BI
+              href: integrations/bi/power-bi.md
+            - name: Alteryx
+              href: integrations/bi/alteryx.md
+            - name: Looker
+              href: integrations/bi/looker.md
+            - name: SQL Workbench/J
+              href: integrations/bi/workbenchj.md
+        - name: 合作伙伴数据集成
+          items:
+            - name: 合作伙伴集成概述
+              href: integrations/ingestion/index.md
+            - name: Qlik 集成
+              href: integrations/ingestion/qlik.md
+            - name: Fivetran 集成
+              href: integrations/ingestion/fivetran.md
+            - name: InfoWorks 集成
+              href: integrations/ingestion/infoworks.md
+            - name: StreamSets 集成
+              href: integrations/ingestion/streamsets.md
+            - name: Syncsort 集成
+              href: integrations/ingestion/syncsort.md
+    - name: Delta Lake
+      items:
+        - name: Delta Lake 简介
+          href: delta/delta-intro.md
+        - name: Delta Lake 入门
+          href: delta/quick-start.md
+        - name: 介绍性笔记本
+          href: delta/intro-notebooks.md
+        - name: 将数据引入到 Delta Lake
+          href: delta/delta-ingest.md
+        - name: 表批量读取和写入
+          href: delta/delta-batch.md
+        - name: 表流读取和写入
+          href: delta/delta-streaming.md
+        - name: 表删除、更新和合并
+          href: delta/delta-update.md
+        - name: 表实用工具命令
+          href: delta/delta-utility.md
+        - name: API 参考
+          href: delta/delta-apidoc.md
+        - name: 并发控制
+          href: delta/concurrency-control.md
+        - name: 最佳做法
+          href: delta/best-practices.md
+        - name: 常见问题
+          href: delta/delta-faq.md
+        - name: 资源
+          href: delta/delta-resources.md
+    - name: Delta Engine
+      items:
+        - name: Delta Engine 概述
+          href: delta/optimizations/index.md
+        - name: 通过文件管理优化性能
+          href: delta/optimizations/file-mgmt.md
+        - name: 自动优化
+          href: delta/optimizations/auto-optimize.md
+        - name: 通过缓存优化性能
+          href: delta/optimizations/delta-cache.md
+        - name: 动态文件修剪
+          href: delta/optimizations/dynamic-file-pruning.md
+        - name: 隔离级别
+          href: delta/optimizations/isolation-level.md
+        - name: Bloom 筛选器索引
+          href: delta/optimizations/bloom-filters.md
+        - name: 优化联接性能
+          items:
+            - name: “优化联接性能”概述
+              href: delta/join-performance/index.md
+            - name: 范围联接优化
+              href: delta/join-performance/range-join.md
+            - name: 倾斜联接优化
+              href: delta/join-performance/skew-join.md
+        - name: 优化的数据转换
+          items:
+            - name: “优化的数据转换”概述
+              href: delta/data-transformation/index.md
+            - name: 高阶函数
+              href: delta/data-transformation/higher-order-lambda-functions.md
+            - name: 转换复杂数据类型
+              href: delta/data-transformation/complex-types.md
+        - name: 表版本控制
+          href: delta/versioning.md
+        - name: 优化示例
+          href: delta/optimizations/optimization-examples.md
+    - name: 数据帧和数据集
+      items:
+        - name: “数据帧和数据集”概述
+          href: spark/latest/dataframes-datasets/index.md
+        - name: Python 数据帧简介
+          href: spark/latest/dataframes-datasets/introduction-to-dataframes-python.md
+        - name: Scala 数据帧简介
+          href: spark/latest/dataframes-datasets/introduction-to-dataframes-scala.md
+        - name: 数据集简介
+          href: spark/latest/dataframes-datasets/introduction-to-datasets.md
+        - name: 复杂数据和嵌套数据
+          href: spark/latest/dataframes-datasets/complex-nested-data.md
+        - name: 聚合器
+          href: spark/latest/dataframes-datasets/aggregators.md
+        - name: 日期和时间戳
+          href: spark/latest/dataframes-datasets/dates-timestamps.md
+    - name: 结构化流式处理
+      items:
+        - name: 结构化流式处理概述
+          href: spark/latest/structured-streaming/index.md
+        - name: 介绍性笔记本
+          href: spark/latest/structured-streaming/demo-notebooks.md
+        - name: 流式处理数据源和接收器
+          items:
+            - name: 源和接收器概述
+              href: spark/latest/structured-streaming/data-sources.md
+            - name: Apache Kafka
+              href: spark/latest/structured-streaming/kafka.md
+            - name: Azure 事件中心
+              href: spark/latest/structured-streaming/streaming-event-hubs.md
+            - name: Delta Lake 表
+              href: spark/latest/structured-streaming/delta.md
+            - name: 通过数据帧读取和写入流式处理 Avro 数据
+              href: spark/latest/structured-streaming/avro-dataframe.md
+            - name: 写入到任意数据接收器
+              href: spark/latest/structured-streaming/foreach.md
+            - name: 将优化的 Azure Blob 存储与 Azure 队列存储配合使用
+              href: spark/latest/structured-streaming/aqs.md
+            - name: 使用自动加载程序加载文件
+              href: spark/latest/structured-streaming/auto-loader.md
+        - name: 生产中的结构化流式处理
+          href: spark/latest/structured-streaming/production.md
+        - name: 流式处理示例
+          href: spark/latest/structured-streaming/examples.md
+        - name: Spark Streaming（旧版）
+          items:
+            - name: Spark Streaming（旧版）概述
+              href: spark/latest/rdd-streaming/index.md
+            - name: 调试 Spark Streaming 应用程序
+              href: spark/latest/rdd-streaming/debugging-streaming-applications.md
+            - name: 流式处理应用程序开发的最佳做法
+              href: spark/latest/rdd-streaming/developing-streaming-applications.md
+    - name: 机器学习和深度学习
+      items:
+        - name: 机器学习概述
+          href: applications/machine-learning/index.md
+        - name: 机器学习教程
+          href: applications/machine-learning/tutorial/index.md
+        - name: 加载数据
+          items:
+            - name: 加载数据概述
+              href: applications/machine-learning/load-data/index.md
+            - name: 准备数据以进行分布式训练
+              href: applications/machine-learning/load-data/ddl-data.md
+            - name: 使用 Petastorm 加载数据
+              href: applications/machine-learning/load-data/petastorm.md
+            - name: 将数据帧保存到 TensorFlow 文件并使用 TensorFlow 进行加载
+              href: applications/machine-learning/load-data/tfrecords-save-load.md
+        - name: 预处理数据
+          items:
+            - name: 使用 scikit-learn 进行特征工程处理
+              href: applications/machine-learning/preprocess-data/scikit-learn.md
+            - name: 使用 Spark MLlib 进行特征工程处理
+              href: applications/machine-learning/preprocess-data/mllib.md
+            - name: 用于迁移学习的特征化
+              href: applications/machine-learning/preprocess-data/transfer-learning-tensorflow.md
+        - name: 训练模型
+          items:
+            - name: 机器学习模型
+              items:
+                - name: scikit-learn
+                  href: applications/machine-learning/train-model/scikit-learn.md
+                - name: Spark MLlib
+                  href: applications/machine-learning/train-model/mllib/index.md
+                - name: XGBoost
+                  items:
+                    - name: 安装 XGBoost
+                      href: applications/machine-learning/train-model/install-xgboost.md
+                    - name: 使用 XGBoost
+                      href: applications/machine-learning/train-model/xgboost.md
+            - name: 深度学习模型
+              items:
+                - name: TensorFlow
+                  href: applications/machine-learning/train-model/tensorflow.md
+                - name: PyTorch
+                  href: applications/machine-learning/train-model/pytorch.md
+                - name: 分布式训练
+                  href: applications/machine-learning/train-model/distributed-training/index.md
+                - name: 深度学习管道
+                  href: applications/machine-learning/train-model/deep-learning-pipelines.md
+        - name: 超参数优化和 AutoML
+          items:
+            - name: 超参数优化和 AutoML 概述
+              href: applications/machine-learning/automl-hyperparam-tuning/index.md
+            - name: 自动化 MLflow 跟踪
+              href: applications/machine-learning/automl-hyperparam-tuning/mllib-mlflow-integration.md
+            - name: 使用 Hyperopt 进行超参数优化
+              items:
+                - name: 分布式 Hyperopt 和自动化 MLflow 跟踪
+                  href: applications/machine-learning/automl-hyperparam-tuning/hyperopt-spark-mlflow-integration.md
+                - name: 使用分布式 Hyperopt 进行模型搜索
+                  href: applications/machine-learning/automl-hyperparam-tuning/hyperopt-model-selection.md
+                - name: 分布式 Hyperopt 最佳做法和故障排除
+                  href: applications/machine-learning/automl-hyperparam-tuning/hyperopt-best-practices.md
+                - name: 将 Hyperopt 与 HorovodRunner 和 Spark MLlib 配合使用
+                  href: applications/machine-learning/automl-hyperparam-tuning/hyperopt-distributed-ml.md
+        - name: 模型推理
+          items:
+            - name: 深度学习模型推理工作流
+              href: applications/machine-learning/model-inference/dl-model-inference.md
+            - name: 深度学习模型推理示例
+              href: applications/machine-learning/model-inference/dl-model-inference-examples.md
+            - name: 深度学习模型推理性能优化
+              href: applications/machine-learning/model-inference/model-inference-performance.md
+            - name: 分布式模型推理的参考解决方案
+              href: applications/machine-learning/reference-solutions/images-etl-inference.md
+        - name: 部署模型
+          href: applications/machine-learning/model-deploy/index.md
+        - name: 导出和导入模型
+          href: applications/machine-learning/model-export/index.md
+        - name: 参考解决方案
+          href: applications/machine-learning/reference-solutions/index.md
+    - name: MLflow
+      items:
+        - name: MLflow 概述
+          href: applications/mlflow/index.md
+        - name: MLflow 入门
+          href: applications/mlflow/quick-start.md
+        - name: MLflow Java 和 Scala 入门
+          href: applications/mlflow/quick-start-java-scala.md
+        - name: MLflow Python 入门
+          href: applications/mlflow/quick-start-python.md
+        - name: MLflow R 入门
+          href: applications/mlflow/quick-start-r.md
+        - name: 端到端示例笔记本
+          href: applications/mlflow/end-to-end-example.md
+        - name: 跟踪机器学习训练运行
+          href: applications/mlflow/tracking.md
+        - name: 训练 scikit-learn 模型
+          href: applications/mlflow/tracking-ex-scikit.md
+        - name: 训练 PyTorch 模型
+          href: applications/mlflow/tracking-ex-pytorch.md
+        - name: 训练 PySpark 模型并以 MLeap 格式保存
+          href: applications/mlflow/tracking-ex-pyspark.md
+        - name: 使用 Delta Lake 跟踪 ML 模型训练数据
+          href: applications/mlflow/tracking-ex-delta.md
+        - name: 从外部访问跟踪
+          href: applications/mlflow/access-hosted-tracking-server.md
+        - name: 使用 MLflow 搜索 API 构建仪表板
+          href: applications/mlflow/build-dashboards.md
+        - name: 保存、加载和部署模型
+          href: applications/mlflow/models.md
+        - name: MLflow 模型示例
+          href: applications/mlflow/model-example.md
+        - name: Azure 上的 scikit-learn 模型部署
+          href: applications/mlflow/scikit-learn-model-deployment-on-azure-ml.md
+        - name: 通过 MLflow 项目再现运行
+          href: applications/mlflow/projects.md
+        - name: 在 MLflow 模型注册表中管理 MLflow 模型的生命周期
+          href: applications/mlflow/model-registry.md
+        - name: 集中式模型注册表
+          href: /applications/mlflow/multiple-workspaces.md
+        - name: MLflow 模型注册表示例
+          href: applications/mlflow/model-registry-example.md
+        - name: MLflow 模型服务
+          href: applications/mlflow/model-serving.md
+    - name: 图分析
+      items:
+        - name: 图分析概述
+          href: spark/latest/graph-analysis/index.md
+        - name: GraphFrames
+          items:
+            - name: 使用 GraphFrames 执行图分析的教程
+              href: spark/latest/graph-analysis/graphframes/graph-analysis-tutorial.md
+            - name: GraphFrames - Python
+              href: spark/latest/graph-analysis/graphframes/user-guide-python.md
+            - name: GraphFrames - Scala
+              href: spark/latest/graph-analysis/graphframes/user-guide-scala.md
+        - name: 使用 GraphX（旧版）执行图分析
+          href: spark/latest/graph-analysis/graph-analysis-graphx-tutorial.md
+    - name: 基因组学
+      items:
+        - name: 基因组学概述
+          href: applications/genomics/index.md
+        - name: 二级分析
+          items:
+            - name: 二级分析概述
+              href: applications/genomics/secondary/index.md
+            - name: DNASeq 管道
+              href: applications/genomics/secondary/dnaseq-pipeline.md
+            - name: RNASeq 管道
+              href: applications/genomics/secondary/rnaseq-pipeline.md
+            - name: “肿瘤/正常”管道
+              href: applications/genomics/secondary/tumor-normal-pipeline.md
+            - name: 使用管道转换器进行变体批注
+              href: applications/genomics/secondary/variant-annotation-pipe.md
+            - name: 变体批注方法
+              href: applications/genomics/secondary/annotate-variants.md
+            - name: SnpEff 管道
+              href: applications/genomics/secondary/snpeff-pipeline.md
+            - name: Vep 管道
+              href: applications/genomics/secondary/vep-pipeline.md
+        - name: 三级分析
+          items:
+            - name: 三级分析概述
+              href: applications/genomics/tertiary/index.md
+            - name: 联合基因分型管道
+              href: applications/genomics/tertiary/joint-genotyping-pipeline.md
+            - name: SAIGE
+              href: applications/genomics/tertiary/saige.md
+            - name: Hail 0.2
+              href: applications/genomics/tertiary/hail.md
+    - name: 迁移
+      items:
+        - name: 迁移生产工作负荷
+          href: migration/production.md
+        - name: 迁移单个节点
+          href: migration/single-node.md
+        - name: 将工作负荷迁移到 Delta Lake
+          href: delta/porting.md
+    - name: 安全性和隐私性
+      items:
+        - name: 安全概述
+          href: security/index.md
+        - name: 安全基线
+          href: scenarios/security-baseline.md
+        - name: 访问控制
+          items:
+            - name: 访问控制概述
+              href: security/access-control/index.md
+            - name: 工作区访问控制
+              href: security/access-control/workspace-acl.md
+            - name: 群集访问控制
+              href: security/access-control/cluster-acl.md
+            - name: 池访问控制
+              href: security/access-control/pool-acl.md
+            - name: 作业访问控制
+              href: security/access-control/jobs-acl.md
+            - name: 表访问控制
+              items:
+                - name: 表访问控制概述
+                  href: security/access-control/table-acls/index.md
+                - name: 为群集启用表访问控制
+                  href: security/access-control/table-acls/table-acl.md
+                - name: 设置对数据对象的特权
+                  href: security/access-control/table-acls/object-privileges.md
+            - name: 机密访问控制
+              href: security/secrets/secret-acl.md
+        - name: 使用 Azure Active Directory 凭据向 Azure Data Lake Storage 进行身份验证
+          href: security/credential-passthrough/adls-passthrough.md
+        - name: 机密
+          items:
+            - name: 使用机密确保数据安全
+              href: security/secrets/index.md
+            - name: 机密范围
+              href: security/secrets/secret-scopes.md
+            - name: 机密
+              href: security/secrets/secrets.md
+            - name: 机密编修
+              href: security/secrets/redaction.md
+            - name: 机密工作流示例
+              href: security/secrets/example-secret-workflow.md
+        - name: GDPR 最佳做法
+          href: security/privacy/gdpr-delta.md
+        - name: 关于数据管理的最佳做法
+          href: security/data-governance.md
+        - name: IP 访问列表
+          href: security/network/ip-access-list.md
+        - name: 域名防火墙规则
+          href: security/network/firewall-rules.md
+        - name: 加密群集工作器节点之间的流量
+          href: security/encryption/encrypt-otw.md
+        - name: 为笔记本启用客户管理的密钥
+          href: security/keys/customer-managed-key-notebook.md
+        - name: 为 DBFS 启用客户管理的密钥
+          items:
+            - name: 用于 DBFS 的客户管理的密钥概述
+              href: security/keys/customer-managed-keys-dbfs/index.md
+            - name: 允许使用 Azure 门户
+              href: security/keys/customer-managed-keys-dbfs/cmk-dbfs-azure-portal.md
+            - name: 启用 Azure CLI
+              href: security/keys/customer-managed-keys-dbfs/cmk-dbfs-azure-cli.md
+            - name: 使用 PowerShell 进行启用
+              href: security/keys/customer-managed-keys-dbfs/cmk-dbfs-powershell.md
+    - name: 管理
+      items:
+        - name: 管理概述
+          href: administration-guide/index.md
+        - name: 管理控制台
+          href: administration-guide/admin-console.md
+        - name: 管理 Azure Databricks 帐户
+          items:
+            - name: 帐户管理概述
+              href: administration-guide/account-settings/index.md
+            - name: 管理订阅
+              href: administration-guide/account-settings/account.md
+            - name: Azure Databricks 中的诊断日志记录
+              href: administration-guide/account-settings/azure-diagnostic-logs.md
+            - name: 使用标记监视使用情况
+              href: administration-guide/account-settings/usage-detail-tags-azure.md
+        - name: 管理用户和组
+          items:
+            - name: 用户和组概述
+              href: administration-guide/users-groups/index.md
+            - name: 管理用户
+              href: administration-guide/users-groups/users.md
+            - name: 管理组
+              href: administration-guide/users-groups/groups.md
+            - name: 设置单一登录
+              href: administration-guide/users-groups/single-sign-on/index.md
+            - name: 使用 SCIM 预配用户和组
+              href: administration-guide/users-groups/scim/index.md
+            - name: 为 Azure AD 配置 SCIM 预配
+              href: administration-guide/users-groups/scim/aad.md
+        - name: 管理访问控制
+          items:
+            - name: 访问控制概述
+              href: administration-guide/access-control/index.md
+            - name: 启用工作区访问控制
+              href: administration-guide/access-control/workspace-acl.md
+            - name: 启用群集访问控制
+              href: administration-guide/access-control/cluster-acl.md
+            - name: 启用池访问控制
+              href: administration-guide/access-control/pool-acl.md
+            - name: 启用作业访问控制
+              href: administration-guide/access-control/jobs-acl.md
+            - name: 启用表访问控制
+              href: administration-guide/access-control/table-acl.md
+            - name: 启用基于令牌的身份验证
+              href: administration-guide/access-control/tokens.md
+            - name: 条件性访问
+              href: administration-guide/access-control/conditional-access.md
+        - name: 管理工作区对象和行为
+          items:
+            - name: 管理工作区概述
+              href: administration-guide/workspace/index.md
+            - name: 管理工作区存储
+              href: administration-guide/workspace/storage.md
+            - name: 管理工作区安全性标头
+              href: administration-guide/workspace/security.md
+            - name: 管理对笔记本功能的访问
+              href: administration-guide/workspace/notebooks.md
+            - name: 管理对文件上传接口的访问
+              href: administration-guide/workspace/dbfs-ui-upload.md
+        - name: 管理群集
+          items:
+            - name: 管理群集配置选项
+              href: administration-guide/clusters/index.md
+            - name: 管理群集策略
+              href: administration-guide/clusters/policies.md
+            - name: 启用容器服务
+              href: administration-guide/clusters/container-services.md
+            - name: 启用用于基因组学的 Databricks Runtime
+              href: administration-guide/clusters/genomics-runtime.md
+            - name: 启用 Web 终端
+              href: administration-guide/clusters/web-terminal.md
+        - name: 管理虚拟网络
+          items:
+            - name: 虚拟网络概述
+              href: administration-guide/cloud-configurations/azure/index.md
+            - name: 将虚拟网络对等互连
+              href: administration-guide/cloud-configurations/azure/vnet-peering.md
+            - name: 将预览版工作区升级到正式发行版
+              href: administration-guide/cloud-configurations/azure/vnet-inject-upgrade.md
+            - name: 在 VNet 中部署 Azure Databricks
+              href: administration-guide/cloud-configurations/azure/vnet-inject.md
+            - name: 将工作区连接到本地网络
+              href: administration-guide/cloud-configurations/azure/on-prem-network.md
+            - name: 用户定义的路由设置
+              href: administration-guide/cloud-configurations/azure/udr.md
+            - name: MySQL IP 地址
+              href: scenarios/mysql-ip-address.md
+    - name: 疑难解答
+      items:
+        - name: 常见问题
+          href: scenarios/frequently-asked-questions-databricks.md
+        - name: 管理
+          items:
+            - name: 谁在 Azure 中删除了工作区
+              href: kb/administration/who-deleted-workspace.md
+            - name: 谁在 Azure 中删除了群集
+              href: kb/administration/who-deleted-cluster.md
+        - name: 商业智能
+          items:
+            - name: JDBC 和 ODBC 连接
+              href: kb/bi/jdbc-odbc-troubleshooting.md
+        - name: Azure 基础结构
+          items:
+            - name: 无法装载 ADLS Gen1 帐户
+              href: kb/cloud/adls-gen1-mount-problem.md
+            - name: ADLException - 获取文件信息时出错
+              href: kb/cloud/azure-vnet-gen1-issue.md
+            - name: 使用 Azure 防火墙为 VNet 工作区分配单个公共 IP
+              href: kb/cloud/azure-vnet-single-ip.md
+            - name: 分析用户界面性能问题
+              href: kb/cloud/har-log-analysis.md
+            - name: 作业未在工作区中进行
+              href: kb/cloud/azure-vnet-jobs-not-progressing.md
+        - name: 群集
+          items:
+            - name: 计算群集中的核心数
+              href: kb/clusters/calculate-number-of-cores.md
+            - name: 群集无法启动
+              href: kb/clusters/cluster-failed-launch.md
+            - name: 群集管理器核心实例请求限制
+              href: kb/clusters/cluster-manager-limit.md
+            - name: 管理员用户无法重新启动群集
+              href: kb/clusters/cluster-restart-fails-admin-user.md
+            - name: 配置设置覆盖默认设置
+              href: kb/clusters/conf-overwrites-default-settings.md
+            - name: 覆盖 log4j 配置
+              href: kb/clusters/overwrite-log4j-logs.md
+            - name: 设置执行程序日志级别
+              href: kb/clusters/set-executor-log-level.md
+            - name: 群集意外终止
+              href: kb/clusters/termination-reasons.md
+            - name: Apache Spark 执行程序内存分配
+              href: kb/clusters/spark-executor-memory.md
+            - name: Apache Spark UI 显示的节点内存少于总计
+              href: kb/clusters/spark-shows-less-memory.md
+            - name: CPU 内核限制阻止创建群集
+              href: kb/clusters/azure-core-limit.md
+            - name: IP 地址限制阻止创建群集
+              href: kb/clusters/azure-ip-limit.md
+            - name: 群集启动缓慢，缺少节点
+              href: kb/clusters/azure-nodes-not-acquired.md
+            - name: 由于 Ganglia 指标填充根分区，导致群集速度缓慢
+              href: kb/clusters/slowdown-from-root-disk-fill.md
+            - name: 将群集配置为使用自定义 NTP 服务器
+              href: kb/clusters/use-internal-ntp.md
+        - name: 数据管理
+          items:
+            - name: 追加到数据帧
+              href: kb/data/append-a-row-to-rdd-or-dataframe.md
+            - name: Spark 2.0.0 群集追加数据缓慢
+              href: kb/data/append-slow-with-spark-2.0.0.md
+            - name: 通过 Bucket 存储功能提高性能
+              href: kb/data/bucketing.md
+            - name: 简化链式转换
+              href: kb/data/chained-transformations.md
+            - name: 采用不同的格式转储表
+              href: kb/data/dump-table.md
+            - name: Hive UDF
+              href: kb/data/hive-udf.md
+            - name: 防止在联接数据帧时出现重复列
+              href: kb/data/join-two-dataframes-duplicated-columns.md
+            - name: 更快地列出和删除文件
+              href: kb/data/list-delete-files-faster.md
+            - name: 处理具有不同架构的已损坏 Parquet 文件
+              href: kb/data/match-parquet-schema.md
+            - name: 分区列中的 null 和空字符串保存为 null
+              href: kb/data/null-empty-strings.md
+            - name: randomSplit 方法的行为
+              href: kb/data/random-split-behavior.md
+            - name: 从 Case 类生成架构
+              href: kb/data/schema-from-case-class.md
+            - name: 在数据集和数据帧联接命令中指定倾斜提示
+              href: kb/data/skew-hints-in-join.md
+            - name: 更新嵌套列
+              href: kb/data/update-nested-column.md
+            - name: 某些文件中的架构不兼容
+              href: kb/data/wrong-schema-in-files.md
+        - name: 数据源
+          items:
+            - name: 如果使用了错误的客户端 ID 或错误的路径，则 ABFS 客户端会挂起
+              href: kb/data-sources/abfs-client-hang.md
+            - name: 使用 Sparklyr 从 ADLS Gen1 读取数据时出错
+              href: kb/data-sources/access-adls1-from-sparklyr.md
+            - name: Blob 存储装载和访问失败
+              href: kb/data-sources/access-blob-fails-wasb.md
+            - name: 使用 JDBC/ODBC 访问 ADLS Gen2
+              href: kb/data-sources/access-blobstore-odbc.md
+            - name: 无法在启用防火墙的情况下访问 ADLS Gen1
+              href: kb/data-sources/adls-gen1-firewall-access.md
+            - name: CosmosDB 连接器库冲突
+              href: kb/data-sources/cosmosdb-connector-lib-conf.md
+            - name: 无法在 JSON 文件中检测到编码
+              href: kb/data-sources/json-unicode.md
+            - name: 无法读取 WASB 中的文件
+              href: kb/data-sources/wasb-check-blob-types.md
+            - name: 优化从 JDBC 数据源进行读取的性能
+              href: kb/data-sources/jdbc-optimize-read.md
+            - name: 已阻止 ADLS 和 WASB 写入
+              href: kb/data-sources/azure-storage-throttling.md
+        - name: DBFS
+          items:
+            - name: 无法读取存储在 DBFS 根目录中的对象
+              href: kb/dbfs/dbfs-root-permissions.md
+        - name: Delta Lake
+          items:
+            - name: 填充或更新 Delta Lake 表中的列
+              href: kb/delta/backfill-delta-table-cols.md
+            - name: 自动缩放的群集上的 Delta Cache 行为
+              href: kb/delta/delta-cache-autoscaling.md
+            - name: 利用分区修剪提高 MERGE INTO 性能
+              href: kb/delta/delta-merge-into.md
+            - name: 写入作业失败
+              href: kb/delta/delta-write-fails.md
+            - name: 删除托管的 Delta Lake 表
+              href: kb/delta/drop-delta-table.md
+            - name: UPDATE 查询失败，出现 IllegalStateException
+              href: kb/delta/update-query-fails.md
+        - name: 开发人员工具
+          items:
+            - name: 常见 Azure 数据工厂错误
+              href: kb/dev-tools/common-errors-adf.md
+            - name: 使用 Airflow 时出现“访问令牌无效”错误
+              href: kb/dev-tools/invalid-access-token-airflow.md
+        - name: 作业执行
+          items:
+            - name: 按阶段增加任务数
+              href: kb/execution/increase-tasks-per-stage.md
+            - name: 最大执行上下文和笔记本附加限制
+              href: kb/execution/maximum-execution-context.md
+            - name: 序列化任务太大
+              href: kb/execution/spark-serialized-task-is-too-large.md
+        - name: 作业
+          items:
+            - name: 活动作业与不活动作业
+              href: kb/jobs/active-vs-dead-jobs.md
+            - name: 有关在 ADLS 中创建文件的限制
+              href: kb/jobs/azure-throttling.md
+            - name: 驱动程序暂时不可用
+              href: kb/jobs/driver-unavailable.md
+            - name: 使用 REST API 删除所有作业
+              href: kb/jobs/howto-jobsdeleterestapi.md
+            - name: 未安装库
+              href: kb/jobs/job-fails-no-library.md
+            - name: 作业速率限制
+              href: kb/jobs/job-rate-limit.md
+            - name: 中断后在覆盖模式下创建表失败
+              href: kb/jobs/spark-overwrite-cancel.md
+            - name: Spark 作业由于自定义 UDF 而挂起
+              href: kb/jobs/spark-udf-performance.md
+            - name: Spark 作业失败，出现错误消息 `Failed to parse byte string`
+              href: kb/jobs/spark-submit-fail-parse-byte-string.md
+            - name: 作业失败，出现 maxresultsize 异常
+              href: kb/jobs/job-fails-maxresultsize-exception.md
+            - name: SQLAlchemy 包错误导致作业失败
+              href: kb/jobs//job-fails-sqlalchemy.md
+            - name: 确保幂等性
+              href: kb/jobs/jobs-idempotency.md
+            - name: 在启用了凭据直通验证的情况下，长时间运行的作业失败
+              href: kb/jobs/azure-long-job-failed-auth.md
+            - name: SQLAlchemy 包错误
+              href: kb/jobs/job-fails-sqlalchemy.md
+            - name: 使用作业运行仪表板监视正在运行的作业
+              href: kb/jobs/job-run-dash.md
+        - name: 库
+          items:
+            - name: 无法从 UI 卸载库
+              href: kb/libraries/cant-uninstall-libraries.md
+            - name: 在群集上安装 pyodbc 时出错
+              href: kb/libraries/install-pyodbc-on-cluster.md
+            - name: 在 Databricks Runtime 6.5 ML GPU 群集上安装 TensorFlow 2.1
+              href: kb/libraries/install-tf21-dbr65ml.md
+            - name: 库失败并出现依赖项异常
+              href: kb/libraries/library-fail-dependency-exception.md
+            - name: 库不可用导致作业失败
+              href: kb/libraries/library-install-latency.md
+            - name: 替换默认库 jar
+              href: kb/libraries/replace-default-jar-new-jar.md
+            - name: 更新 Maven 库
+              href: kb/libraries/maven-library-version-mgmt.md
+            - name: Python 命令失败，提示断言错误“颜色格式错误”
+              href: kb/libraries/nbconvert-wrong-color-assert.md
+        - name: 机器学习
+          items:
+            - name: 提取基于树的 SparkML 管道模型的特征信息
+              href: kb/machine-learning/extract-feature-info.md
+            - name: SparkML 模型拟合错误
+              href: kb/machine-learning/fit-spark-model-error.md
+            - name: 组 K-折交叉验证
+              href: kb/machine-learning/kfold-cross-validation.md
+            - name: MLflow 项目无法访问 Apache Hive 表
+              href: kb/machine-learning/mlflow-fail-access-hive.md
+            - name: 加快交叉验证的速度
+              href: kb/machine-learning/speed-up-cross-validation.md
+            - name: 在不使用 MLflow 客户端的情况下访问 MLflow 项目时出错
+              href: kb/machine-learning/mlflow-artifacts-no-client-error.md
+            - name: 使用自定义项目存储位置时出现试验警告
+              href: kb/machine-learning/mlflow-artifacts-custom-storage.md
+            - name: 使用旧的项目存储位置时出现试验警告
+              href: kb/machine-learning/mlflow-artifacts-legacy-storage.md
+            - name: 访问 MLflow 试验项目时出现 OSError 错误
+              href: kb/machine-learning/mlflow-artifacts-outdated-client.md
+            - name: 访问 MLflow 试验项目时出现 PERMISSION_DENIED 错误
+              href: kb/machine-learning/mlflow-artifacts-permission-denied.md
+        - name: 元存储
+          items:
+            - name: 创建要导入到外部元存储中的表 DDL
+              href: kb/metastore/create-table-ddl-for-metastore.md
+            - name: 删除包含已损坏元数据的表
+              href: kb/metastore/drop-table-corruptedmetadata.md
+            - name: 在 Azure 元存储上删除表时出现 AnalysisException
+              href: kb/metastore/drop-table-exception-azure-metastore.md
+            - name: 常见 Hive 元存储问题
+              href: kb/metastore/hive-metastore-troubleshooting.md
+            - name: 列出表名
+              href: kb/metastore/list-tables.md
+            - name: 设置嵌入式 Hive 元存储
+              href: kb/metastore/set-up-embedded-metastore.md
+            - name: 在 SQL Server 上设置 Hive 元存储
+              href: kb/metastore/set-up-sql-backed-hive-metastore.md
+        - name: 指标
+          items:
+            - name: 利用 Spark 侦听器浏览 Apache Spark 指标
+              href: kb/metrics/explore-spark-metrics.md
+            - name: 使用 Apache Spark 指标
+              href: kb/metrics/spark-metrics.md
+        - name: 笔记本
+          items:
+            - name: 检查是否可以修改 Spark 属性
+              href: kb/notebooks/check-spark-property-modifiable.md
+            - name: 常见笔记本错误
+              href: kb/notebooks/common-errors-in-notebooks.md
+            - name: 获取完整的笔记本路径
+              href: kb/notebooks/get-notebook-path.md
+            - name: 笔记本自动保存因文件大小限制而失败
+              href: kb/notebooks/notebook-autosave.md
+            - name: 在取消流式处理单元后无法运行笔记本
+              href: kb/notebooks/streaming-notebook-stuck.md
+            - name: 排查取消命令问题
+              href: kb/notebooks/troubleshoot-cancel-command.md
+            - name: 检索笔记本的当前用户名
+              href: kb/notebooks/get-notebook-username.md
+            - name: 访问已删除的用户拥有的笔记本
+              href: kb/notebooks/get-notebooks-deleted-user.md
+        - name: 安全和权限
+          items:
+            - name: 表创建失败，出现安全异常
+              href: kb/security/table-create-security-exception.md
+        - name: Python
+          items:
+            - name: 使用 Conda 创建群集
+              href: kb/python/anaconda-environment.md
+            - name: 安装和编译 Cython
+              href: kb/python/cython.md
+            - name: 读取 DBFS 装载的大型文件
+              href: kb/python/dbfs-file-size-limit.md
+            - name: 安装 Bokeh 后命令失败
+              href: kb/python/python-cmd-fails-tornado-version.md
+            - name: 命令由于库冲突而取消
+              href: kb/python/python-command-cancelled.md
+            - name: 命令失败，出现 AttributeError
+              href: kb/python/python-exec-display-cancelled.md
+            - name: Python REPL 无法在 Docker 中启动
+              href: kb/python/python-repl-fails-dcs.md
+            - name: 运行 C++ 代码
+              href: kb/python/running-c-plus-plus-code.md
+            - name: 运行 SQL 查询
+              href: kb/python/sql-in-python.md
+            - name: 通过 Python 使用 HDFS API 读取文件
+              href: kb/python/hdfs-to-read-files.md
+            - name: Python 2 停用状态
+              href: kb/python/python-2-eol.md
+            - name: 导入自定义 CA 证书
+              href: kb/python/import-custom-ca-cert.md
+        - name: 将 R 与 Spark 配合使用
+          items:
+            - name: 更改 R 的版本
+              href: kb/r/change-r-version.md
+            - name: 安装 rJava 和 RJDBC 库
+              href: kb/r/install-rjava-rjdbc-libraries.md
+            - name: 解决包或命名空间加载错误
+              href: kb/r/namespace-onload.md
+            - name: 保留并共享 RStudio 中的代码
+              href: kb/r/persist-share-code-rstudio.md
+            - name: 修复 R 包版本
+              href: kb/r/pin-r-packages.md
+            - name: 无法呈现包含 sparklyr 代码的 R Markdown 文件
+              href: kb/r/rmarkdown-sparklyr-code.md
+            - name: 使用 gapply 将 R 代码并行化
+              href: kb/r/sparkr-gapply.md
+            - name: 使用 spark.lapply 将 R 代码并行化
+              href: kb/r/sparkr-lapply.md
+        - name: Spark
+          items:
+            - name: 在 Scala 中运行 C++ 代码
+              href: kb/scala/running-c-plus-plus-code-scala.md
+            - name: 并发 Spark JAR 作业失败
+              href: kb/scala/spark-jar-job-error.md
+        - name: SQL
+          items:
+            - name: 广播连接超出阈值，因内存错误而返回
+              href: kb/sql/bchashjoin-exceeds-bcjointhreshold-oom.md
+            - name: 找不到表或视图
+              href: kb/sql/global-temp-view-not-found.md
+        - name: 流式处理
+          items:
+            - name: 使用 display() 时，检查点文件不会被删除
+              href: kb/streaming/checkpoint-no-cleanup-display.md
+            - name: 使用 foreachBatch() 时，检查点文件不会被删除
+              href: kb/streaming/checkpoint-no-cleanup-foreachbatch.md
+            - name: 在检查点或输出目录更改后恢复
+              href: kb/streaming/file-sink-streaming.md
+            - name: 从上次写入的偏移位置重启结构化流式处理查询
+              href: kb/streaming/ss-read-from-last-offset.md
+        - name: 可视化效果
+          items:
+            - name: 保存 Plotly 文件并通过 DBFS 进行显示
+              href: kb/visualizations/save-plotly-to-dbfs.md
+    - name: 开发人员工具
+      items:
+        - name: Databricks Connect
+          href: dev-tools/databricks-connect.md
+        - name: CI/CD
+          items:
+            - name: 使用 Azure DevOps 进行 CI/CD
+              href: dev-tools/ci-cd/ci-cd-azure-devops.md
+            - name: 使用 Jenkins 进行 CI/CD
+              href: dev-tools/ci-cd/ci-cd-jenkins.md
+        - name: 管理数据管道中的依赖项
+          href: dev-tools/data-pipelines.md
+- name: 参考
+  items:
+    - name: Databricks REST API
+      items:
+        - name: REST API 2.0
+          items:
+            - name: API 示例
+              href: dev-tools/api/latest/examples.md
+            - name: 身份验证
+              items:
+                - name: Azure Databricks 个人访问令牌
+                  href: dev-tools/api/latest/authentication.md
+                - name: Azure Active Directory 令牌
+                  items:
+                    - name: Azure AD 令牌身份验证概述
+                      href: dev-tools/api/latest/aad/index.md
+                    - name: 使用 Azure AD 身份验证库获取 Azure AD 令牌
+                      href: dev-tools/api/latest/aad/app-aad-token.md
+                    - name: 使用服务主体获取 Azure AD 令牌
+                      href: dev-tools/api/latest/aad/service-prin-aad-token.md
+                    - name: 排查 Azure AD 访问令牌问题
+                      href: dev-tools/api/latest/aad/troubleshoot-aad-token.md
+            - name: 群集 API
+              href: dev-tools/api/latest/clusters.md
+            - name: 群集策略 API
+              href: dev-tools/api/latest/policies.md
+            - name: DBFS API
+              href: dev-tools/api/latest/dbfs.md
+            - name: 组 API
+              href: dev-tools/api/latest/groups.md
+            - name: 实例池 API
+              href: dev-tools/api/latest/instance-pools.md
+            - name: 作业 API
+              href: dev-tools/api/latest/jobs.md
+            - name: 库 API
+              href: dev-tools/api/latest/libraries.md
+            - name: MLflow API
+              href: dev-tools/api/latest/mlflow.md
+            - name: 权限 API
+              href: dev-tools/api/latest/permissions.md
+            - name: SCIM API
+              items:
+                - name: SCIM API 概述
+                  href: dev-tools/api/latest/scim/index.md
+                - name: SCIM API（我）
+                  href: dev-tools/api/latest/scim/scim-me.md
+                - name: SCIM API（用户）
+                  href: dev-tools/api/latest/scim/scim-users.md
+                - name: SCIM API（组）
+                  href: dev-tools/api/latest/scim/scim-groups.md
+            - name: 机密 API
+              href: dev-tools/api/latest/secrets.md
+            - name: 令牌 API
+              href: dev-tools/api/latest/tokens.md
+            - name: 令牌管理 API
+              href: dev-tools/api/latest/token-management.md
+            - name: 工作区 API
+              href: dev-tools/api/latest/workspace.md
+        - name: REST API 1.2
+          href: dev-tools/api/1.2/index.md
+    - name: Databricks 实用程序
+      href: dev-tools/databricks-utils.md
+    - name: Databricks CLI
+      items:
+        - name: Databricks CLI 概述
+          href: dev-tools/cli/index.md
+        - name: 群集
+          href: dev-tools/cli/clusters-cli.md
+        - name: DBFS
+          href: dev-tools/cli/dbfs-cli.md
+        - name: 组
+          href: dev-tools/cli/groups-cli.md
+        - name: 实例池
+          href: dev-tools/cli/instance-pools-cli.md
+        - name: 作业
+          href: dev-tools/cli/jobs-cli.md
+        - name: 库
+          href: 'https://docs.microsoft.com/azure/databricks/dev-tools/cli/libraries-cli'
+        - name: 机密
+          href: dev-tools/cli/secrets-cli.md
+        - name: 堆栈
+          href: dev-tools/cli/stack-cli.md
+        - name: 工作区
+          href: dev-tools/cli/workspace-cli.md
+    - name: Azure Databricks REST API
+      href: /rest/api/databricks
+    - name: 资源管理器模板
+      href: /azure/templates/microsoft.databricks/workspaces
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/ext/databricks/databricks?view=azure-cli-latest'
+- name: 资源
+  items:
+    - name: Apache Spark
+      items:
+        - name: Apache Spark 概述
+          href: getting-started/spark/index.md
+        - name: Apache Spark 入门
+          href: getting-started/spark/quick-start.md
+        - name: 数据帧
+          href: getting-started/spark/dataframes.md
+        - name: 数据集
+          href: getting-started/spark/datasets.md
+        - name: 机器学习
+          href: getting-started/spark/machine-learning.md
+        - name: 结构化流式处理
+          href: getting-started/spark/streaming.md
+        - name: 后续步骤
+          href: getting-started/spark/next.md
+    - name: 培训和常见问题解答
+      href: getting-started/training-faq.md
+    - name: 支持的浏览器
+      href: getting-started/supported-browsers.md
+    - name: 发行说明
+      items:
+        - name: 平台
+          items:
+            - name: 平台发行说明
+              href: release-notes/product/index.md
+            - name: 2020 年 10 月
+              href: release-notes/product/2020/october.md
+            - name: 2020 年 9 月
+              href: release-notes/product/2020/september.md
+            - name: 2020 年 8 月
+              href: release-notes/product/2020/august.md
+            - name: 2020 年 7 月
+              href: release-notes/product/2020/july.md
+            - name: 2020 年 6 月
+              href: release-notes/product/2020/june.md
+            - name: 2020 年 5 月
+              href: release-notes/product/2020/may.md
+            - name: 2020 年 4 月
+              href: release-notes/product/2020/april.md
+            - name: 2020 年 3 月
+              href: release-notes/product/2020/march.md
+            - name: 2020 年 2 月
+              href: release-notes/product/2020/february.md
+            - name: 2020 年 1 月
+              href: release-notes/product/2020/january.md
+            - name: 2019 年 12 月
+              href: release-notes/product/2019/december.md
+            - name: 2019 年 11 月
+              href: release-notes/product/2019/november.md
+            - name: 2019 年 10 月
+              href: release-notes/product/2019/october.md
+            - name: 2019 年 9 月
+              href: release-notes/product/2019/september.md
+            - name: 2019 年 8 月
+              href: release-notes/product/2019/august.md
+            - name: 2019 年 7 月
+              href: release-notes/product/2019/july.md
+            - name: 2019 年 6 月
+              href: release-notes/product/2019/june.md
+            - name: 2019 年 5 月
+              href: release-notes/product/2019/may.md
+            - name: 2019 年 4 月
+              href: release-notes/product/2019/april.md
+            - name: 2019 年 3 月
+              href: release-notes/product/2019/march.md
+            - name: 2019 年 2 月
+              href: release-notes/product/2019/february.md
+            - name: 2019 年 1 月
+              href: release-notes/product/2019/january.md
+            - name: 2018 年 12 月
+              href: release-notes/product/2018/december.md
+            - name: 2018 年 11 月
+              href: release-notes/product/2018/november.md
+            - name: 2018 年 10 月
+              href: release-notes/product/2018/october.md
+            - name: 2018 年 9 月
+              href: release-notes/product/2018/september.md
+            - name: 2018 年 8 月
+              href: release-notes/product/2018/august.md
+            - name: 2018 年 7 月
+              href: release-notes/product/2018/july.md
+            - name: 2018 年 6 月
+              href: release-notes/product/2018/june.md
+            - name: 2018 年 5 月
+              href: release-notes/product/2018/may.md
+            - name: 2018 年 4 月
+              href: release-notes/product/2018/april.md
+            - name: 2018 年 3月
+              href: release-notes/product/2018/march.md
+            - name: 2018 年 2 月
+              href: release-notes/product/2018/february.md
+            - name: 2018 年 1 月
+              href: release-notes/product/2018/january.md
+        - name: Databricks Runtime
+          items:
+            - name: 运行时版本
+              items:
+                - name: 运行时发行说明
+                  href: release-notes/runtime/releases.md
+                - name: Databricks Runtime 7.3
+                  href: release-notes/runtime/7.3.md
+                - name: Databricks Runtime 7.3 ML
+                  href: release-notes/runtime/7.3ml.md
+                - name: Databricks Runtime 7.3 基因组学
+                  href: release-notes/runtime/7.3genomics.md
+                - name: Databricks Runtime 7.2
+                  href: release-notes/runtime/7.2.md
+                - name: Databricks Runtime 7.2 ML
+                  href: release-notes/runtime/7.2ml.md
+                - name: Databricks Runtime 7.2 基因组学
+                  href: release-notes/runtime/7.2genomics.md
+                - name: Databricks Runtime 7.1
+                  href: release-notes/runtime/7.1.md
+                - name: Databricks Runtime 7.1 ML
+                  href: release-notes/runtime/7.1ml.md
+                - name: Databricks Runtime 7.1 基因组学
+                  href: release-notes/runtime/7.1genomics.md
+                - name: Databricks Runtime 7.0
+                  href: release-notes/runtime/7.0.md
+                - name: Databricks Runtime 7.0 ML
+                  href: release-notes/runtime/7.0ml.md
+                - name: Databricks Runtime 7.0 基因组学
+                  href: release-notes/runtime/7.0genomics.md
+                - name: Databricks Runtime 6.6
+                  href: release-notes/runtime/6.6.md
+                - name: Databricks Runtime 6.6 ML
+                  href: release-notes/runtime/6.6ml.md
+                - name: Databricks Runtime 6.6 基因组学
+                  href: release-notes/runtime/6.6genomics.md
+                - name: Databricks Runtime 6.5
+                  href: release-notes/runtime/6.5.md
+                - name: Databricks Runtime 6.5 ML
+                  href: release-notes/runtime/6.5ml.md
+                - name: Databricks Runtime 6.5 基因组学
+                  href: release-notes/runtime/6.5genomics.md
+                - name: Databricks Runtime 6.4
+                  href: release-notes/runtime/6.4.md
+                - name: Databricks Runtime 6.4 ML
+                  href: release-notes/runtime/6.4ml.md
+                - name: Databricks Runtime 6.4 基因组学
+                  href: release-notes/runtime/6.4genomics.md
+                - name: Databricks Runtime 6.3
+                  href: release-notes/runtime/6.3.md
+                - name: Databricks Runtime 6.3 ML
+                  href: release-notes/runtime/6.3ml.md
+                - name: Databricks Runtime 6.3 基因组学
+                  href: release-notes/runtime/6.3genomics.md
+                - name: Databricks Runtime 6.2
+                  href: release-notes/runtime/6.2.md
+                - name: Databricks Runtime 6.2 ML
+                  href: release-notes/runtime/6.2ml.md
+                - name: Databricks Runtime 6.2 基因组学
+                  href: release-notes/runtime/6.2genomics.md
+                - name: Databricks Runtime 6.1
+                  href: release-notes/runtime/6.1.md
+                - name: Databricks Runtime 6.1 ML
+                  href: release-notes/runtime/6.1ml.md
+                - name: Databricks Runtime 6.0
+                  href: release-notes/runtime/6.0.md
+                - name: Databricks Runtime 6.0 ML
+                  href: release-notes/runtime/6.0ml.md
+                - name: Databricks Runtime 5.5
+                  href: release-notes/runtime/5.5.md
+                - name: Databricks Runtime 5.5 ML
+                  href: release-notes/runtime/5.5ml.md
+                - name: Databricks Light 2.4
+                  href: release-notes/runtime/2.4light.md
+                - name: Databricks Runtime 5.4
+                  href: release-notes/runtime/5.4.md
+                - name: Databricks Runtime 5.4 ML
+                  href: release-notes/runtime/5.4ml.md
+                - name: Databricks Runtime 5.3
+                  href: release-notes/runtime/5.3.md
+                - name: Databricks Runtime 5.3 ML
+                  href: release-notes/runtime/5.3ml.md
+                - name: Databricks Runtime 5.2
+                  href: release-notes/runtime/5.2.md
+                - name: Databricks Runtime 5.1
+                  href: release-notes/runtime/5.1.md
+                - name: Databricks Runtime 5.0
+                  href: release-notes/runtime/5.0.md
+                - name: Databricks Runtime 4.3
+                  href: release-notes/runtime/4.3.md
+                - name: Databricks Runtime 4.2
+                  href: release-notes/runtime/4.2.md
+                - name: Databricks Runtime 4.1
+                  href: release-notes/runtime/4.1.md
+                - name: Databricks Runtime 4.0
+                  href: release-notes/runtime/4.0.md
+                - name: Databricks Runtime 3.5 LTS
+                  href: release-notes/runtime/3.5.md
+                - name: Databricks Runtime 3.4
+                  href: release-notes/runtime/3.4.md
+            - name: 维护更新
+              href: release-notes/runtime/maintenance-updates.md
+            - name: 运行时支持生命周期
+              href: release-notes/runtime/databricks-runtime-ver.md
+        - name: 版本类型
+          href: release-notes/release-types.md
+    - name: Azure Databricks 状态页
+      href: status.md
+    - name: R 开发人员指南
+      href: /machine-learning/r-developers-guide
+    - name: Azure 路线图
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/databricks/'
+    - name: 提问 - Microsoft Q&A 问题页面
+      href: 'https://docs.microsoft.com/answers/topics/azure-databricks.html'
+    - name: 上市区域
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 支持选项
+      href: 'https://azure.microsoft.com/support/options/'

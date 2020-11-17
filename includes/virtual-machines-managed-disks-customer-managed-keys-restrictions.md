@@ -5,16 +5,16 @@ services: virtual-machines
 author: Johnnytechn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/11/2020
-ms.author: v-johya
+ms.date: 11/16/2020
+ms.author: v-yeche
 ms.custom: include file
 origin.date: 07/10/2020
-ms.openlocfilehash: 6aaa49ab2266101859f377fcb1f404658e396c23
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a1d8119d430b0536054a2021bccfc4e7e258eda8
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524036"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590847"
 ---
 <!--Verify Successfully-->
 - 仅支持大小为 2048 位、3,072 位和 4,096 位的[软件密钥](../articles/key-vault/keys/about-keys.md)，不支持其他密钥或其他大小。

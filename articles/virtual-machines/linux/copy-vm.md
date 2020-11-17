@@ -4,15 +4,15 @@ description: 了解如何使用 Azure CLI 和托管磁盘创建 Azure Linux VM �
 author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.custom: legacy
-ms.openlocfilehash: c4e3a201236a4978fc59beb1ff3137d667c1b73a
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: f60baf9e02bd8bea3ea65d6e38af9a4f4d7b4692
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057638"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637954"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>使用 Azure CLI 和托管磁盘创建 Azure Linux VM 的副本
 
@@ -33,7 +33,7 @@ ms.locfileid: "90057638"
 ## <a name="stop-the-source-vm"></a>停止源 VM
 
 使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配源 VM。
-以下示例解除分配资源组*myResourceGroup* 中名为 *myVM* 的 VM：
+以下示例解除分配资源组 *myResourceGroup* 中名为 *myVM* 的 VM：
 
 ```azurecli
 az vm deallocate \

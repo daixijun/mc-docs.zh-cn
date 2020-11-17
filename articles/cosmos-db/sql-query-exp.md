@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 EXP
 description: 了解 Azure Cosmos DB 中的 Exponent (EXP) SQL 系统函数，该函数返回指定数值表达式的指数值
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: fae94ccf0be0d9b346346317da6c864027062795
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 015813678d43296ec7f4b32fdf7564c01b22d345
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028662"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552691"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数值表达式的指数值。  
 
 ## <a name="syntax"></a>语法
@@ -35,7 +37,7 @@ EXP (<numeric_expr>)
 
 ## <a name="remarks"></a>备注
 
-  常量 e (2.718281…) 是自然对数的底数**e**。  
+  常量 e (2.718281…) 是自然对数的底数 **e**。  
 
   数字的指数是常量 e 使用该数字进行幂运算  。 例如 EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。 
 

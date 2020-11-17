@@ -1,23 +1,24 @@
 ---
 title: 使用 Azure Cosmos DB 和 Azure Functions 进行无服务器数据库计算
 description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用，以创建事件驱动型无服务器计算应用。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 07/17/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 93d3705ebbec8d97c36ef29deb03a3988e3e127d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d95b782461edf05afbfe366b0a047edc6e2eed11
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222963"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552833"
 ---
 <!--Verify sucessfully-->
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的无服务器数据库计算
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 无服务器计算涉及关注可重复和无状态的各部分逻辑的功能。 这些部分无需基础结构管理，并且仅消耗几秒或几毫秒运行占用的资源。 无服务器计算移动的核心是函数，这些函数在 Azure 生态系统中通过 [Azure Functions](https://www.azure.cn/home/features/azure-functions/) 使用。 若要了解 Azure 中的其他无服务器执行环境，请参阅 [Azure 中的无服务器产品/服务](https://azure.microsoft.com/solutions/serverless/)页面。 
 
@@ -28,8 +29,8 @@ ms.locfileid: "88222963"
 Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和无服务器应用：
 
 * 为 Cosmos DB 创建事件驱动的 **Azure Functions 触发器**。 此触发器依靠[更改源](change-feed.md)流监视 Azure Cosmos 容器的更改情况。 当对容器进行任何更改时，更改源流将发送到可调用 Azure Function 的触发器。
-* 或者，使用**输入绑定**将 Azure 函数绑定到 Azure Cosmos 容器。 执行某个函数时，输入绑定将从容器中读取函数。
-* 使用**输出绑定**将函数绑定到 Azure Cosmos 容器。 当函数执行完成时，输出绑定会将数据写入容器。
+* 或者，使用 **输入绑定** 将 Azure 函数绑定到 Azure Cosmos 容器。 执行某个函数时，输入绑定将从容器中读取函数。
+* 使用 **输出绑定** 将函数绑定到 Azure Cosmos 容器。 当函数执行完成时，输出绑定会将数据写入容器。
 
 > [!NOTE]
 > 目前，适用于 Cosmos DB 的 Azure Functions 触发器、输入绑定和输出绑定仅支持与 SQL API 一起使用。 对于所有其他的 Azure Cosmos DB API，应使用适用于 API 的静态客户端通过函数来访问数据库。
@@ -54,13 +55,13 @@ Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和�
 
 **实施：** 使用适用于 Cosmos DB 的 Azure Functions 触发器和输出绑定
 
-1. **适用于 Cosmos DB 的 Azure Functions 触发器**用于触发与汽车警报相关的事件，例如引擎检查灯在连接的汽车上发光。
+1. **适用于 Cosmos DB 的 Azure Functions 触发器** 用于触发与汽车警报相关的事件，例如引擎检查灯在连接的汽车上发光。
 2. 当引擎检查灯发光时，传感器数据将发送到 Azure Cosmos DB。
 3. Azure Cosmos DB 创建或更新新的传感器数据文档，然后这些更改将流式传输到适用于 Cosmos DB 的 Azure Functions 触发器。
 4. 每当传感器数据集合发生数据更改时都会调用触发器，因为所有更改均通过更改源流式传输。
 5. 在函数中使用阈值条件以将传感器数据发送到保修部门。
 6. 如果温度也超过特定值，也会向所有者发送警报。
-7. 函数中的**输出绑定**更新其他 Azure Cosmos 容器中的汽车记录，以存储关于检查引擎事件的信息。
+7. 函数中的 **输出绑定** 更新其他 Azure Cosmos 容器中的汽车记录，以存储关于检查引擎事件的信息。
 
 下图显示在 Azure 门户中为此触发器编写的代码。
 
@@ -72,7 +73,7 @@ Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和�
 
 **实施：** 使用 Azure Cosmos DB 输入绑定的计时器触发器
 
-1. 通过[计时器触发器](../azure-functions/functions-bindings-timer.md)，可以使用**输入绑定**每隔一定时间检索存储在 Azure Cosmos 容器中的银行帐户余额信息。
+1. 通过 [计时器触发器](../azure-functions/functions-bindings-timer.md)，可以使用 **输入绑定** 每隔一定时间检索存储在 Azure Cosmos 容器中的银行帐户余额信息。
 2. 如果余额低于用户设置的低余额阈值，则采取 Azure Function 中的某个措施。
 3. 输出绑定可以是 [SendGrid 集成](../azure-functions/functions-bindings-sendgrid.md)，它可将电子邮件从服务帐户发送到为每个低余额帐户标识的电子邮件地址。
 
@@ -84,7 +85,7 @@ Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和�
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>游戏用例 - 适用于 Cosmos DB 的 Azure Functions 触发器和输出绑定 
 
-在游戏中，创建新用户时，可以使用 [Azure Cosmos DB Gremlin API](graph-introduction.md) 搜索可能知道新用户的其他用户。 然后，将结果写入 [Azure Cosmos DB 或 SQL 数据库]()以便于检索。
+在游戏中，创建新用户时，可以使用 [Azure Cosmos DB Gremlin API](graph-introduction.md) 搜索可能知道新用户的其他用户。 然后，将结果写入 Azure Cosmos DB 或 SQL 数据库以便于检索。
 
 **实施：** 使用适用于 Cosmos DB 的 Azure Functions 触发器和输出绑定
 
@@ -125,7 +126,7 @@ Azure Functions 提供创建可扩展工作单元的功能，或者提供按需�
 
 出于以下原因，建议对无服务器计算体系结构使用 Azure Cosmos DB 数据库：
 
-* **即时访问所有数据**：可以粒度访问每个存储的值，因为 Azure Cosmos DB 在默认情况下会[自动建立所有数据的索引](index-policy.md)，并使这些索引立即可用。 这意味着可以不断查询和更新新项目，并将它们添加到数据库，还可以通过 Azure Functions 即时访问这些项目。
+* **即时访问所有数据**：可以粒度访问每个存储的值，因为 Azure Cosmos DB 在默认情况下会 [自动建立所有数据的索引](index-policy.md)，并使这些索引立即可用。 这意味着可以不断查询和更新新项目，并将它们添加到数据库，还可以通过 Azure Functions 即时访问这些项目。
 
 * **无架构**。 Azure Cosmos DB 没有架构，因此只有它可以处理来自 Azure Function 的任何数据输出。 这种“处理任何数据”的方法可以直接创建全部输出到 Azure Cosmos DB 的各种 Functions。
 

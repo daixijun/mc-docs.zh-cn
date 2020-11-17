@@ -6,17 +6,17 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 origin.date: 06/23/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: ed7c421f71a91ae77ae537e16b9f0b2f30d0c59d
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 439b160b500e985616b2876323d11fc598afa971
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946991"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590856"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>快速入门：如何通过 Ruby 使用服务总线主题和订阅
 
@@ -31,11 +31,11 @@ ms.locfileid: "88946991"
 - 删除主题和订阅
 
 ## <a name="prerequisites"></a>先决条件
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-2. 按照[快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线**命名空间**并获取**连接字符串**。 
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+2. 按照 [快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线 **命名空间** 并获取 **连接字符串**。 
 
     > [!NOTE]
-    > 在本快速入门中，你将使用 **Ruby** 创建一个**主题**和对此主题的**订阅**。 
+    > 在本快速入门中，你将使用 **Ruby** 创建一个 **主题** 和对此主题的 **订阅**。 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -66,7 +66,7 @@ topic = azure_service_bus_service.create_topic(topic)
 
 默认情况下，订阅是永久性的。 除非删除它或与之相关的主题，否则订阅将继续存在。 如果应用程序包含创建订阅的逻辑，则它应首先使用 getSubscription 方法检查该订阅是否已经存在。
 
-可以通过设置 [AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet)来自动删除订阅。
+可以通过设置 [AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)来自动删除订阅。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
 如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll 筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建了名为“all-messages”的订阅并使用了默认的 **MatchAll** 筛选器。
@@ -154,7 +154,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果应用程序在处理消息之后，但在调用 `delete_subscription_message()` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此情况通常称作“至少处理一次”，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 此逻辑通常可通过使用消息的 `message_id` 属性实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-除非设置 [AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle?view=azure-dotnet)，否则主题和订阅是永久性的。 可以通过 [Azure 门户][Azure portal]或以编程方式删除这些主题和订阅。 下面的示例演示如何删除名为 `test-topic` 的主题。
+除非设置 [AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)，否则主题和订阅是永久性的。 可以通过 [Azure 门户][Azure portal]或以编程方式删除这些主题和订阅。 下面的示例演示如何删除名为 `test-topic` 的主题。
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")
@@ -173,7 +173,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 * 请参阅[队列、主题和订阅](service-bus-queues-topics-subscriptions.md)。
-* [SqlFilter](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet)的 API 参考。
+* [SqlFilter](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的 API 参考。
 * 访问 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 存储库。
 
 [Azure portal]: https://portal.azure.cn

@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: c51885aa78766f8a1a9c0a1912b87dad54320ffe
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: afc78086f86f91651dde0d6382fdc957e0679d0d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246816"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552689"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  返回自 1970 年 1 月 1 日星期四 00:00:00 开始消逝的毫秒数。
 
@@ -39,13 +40,13 @@ GetCurrentTimestamp() 是非确定性的函数。 返回的结果采用 UTC（�
 
 ## <a name="examples"></a>示例
 
-  以下示例演示如何使用 GetCurrentTimestamp() 内置函数获取当前时间戳。
+以下示例演示如何使用 GetCurrentTimestamp() 内置函数获取当前时间戳。
 
 ```sql
 SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 ```  
 
- 下面是示例结果集。
+下面是示例结果集。
 
 ```json
 [{

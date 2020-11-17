@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 TRUNC
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 TRUNC。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 3d67b9921f13a5afdf0aaa0207fe49b40d36c647
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 9445eee16fd4544b13b2a97e742007064ef8fed9
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134805"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552395"
 ---
 # <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回一个数值，截断到最接近的整数值。  
 
 ## <a name="syntax"></a>语法
@@ -35,13 +37,13 @@ TRUNC(<numeric_expr>)
 
 ## <a name="examples"></a>示例
 
-  以下示例将以下正数和负数截断到最接近的整数值。  
+以下示例将以下正数和负数截断到最接近的整数值。  
 
 ```sql
 SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, TRUNC(-2.6) AS t5  
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```json
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  

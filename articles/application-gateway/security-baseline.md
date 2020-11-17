@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: v-junlch
 ms.custom: security-benchmark
-ms.openlocfilehash: 6185bfeba744d0506264df16a4d3b2d4dfebb767
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 439f7ab8a832955d658d926b3904ded8b87b7637
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413441"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552762"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>适用于 Azure 应用程序网关的 Azure 安全基线
 
@@ -65,7 +65,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 * [了解 Azure 应用程序网关功能](/application-gateway/features)
 
-* [了解 Azure WAF](/web-application-firewall/ag/ag-overview)
+* [了解 Azure WAF](ag-overview.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -110,7 +110,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 * [了解 Azure 应用程序网关功能](/application-gateway/features)
 
-* [了解 Azure WAF](/web-application-firewall/ag/ag-overview)
+* [了解 Azure WAF](ag-overview.md)
 
 * [了解 Barracuda WAF 云服务](/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
 
@@ -250,7 +250,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指南**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
+**指导**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
 
 * [如何为 Log Analytics 工作区设置日志保留参数](/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
@@ -687,7 +687,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
 
-使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中存在的所有 Azure 资源已获得批准。
+使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中的所有 Azure 资源均已获得批准。
 
 * [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
 
@@ -934,7 +934,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure Web 应用程序防火墙 (WAF) 时，可以配置 WAF 策略。 WAF 策略包含两种类型的安全规则：由客户创作的自定义规则，以及托管规则集（即由 Azure 托管的预配置规则组的集合）。 Azure 托管的规则集可轻松针对一组常见的安全威胁来部署保护。 由于此类规则集由 Azure 托管，因此这些规则会根据需要进行更新以预防新的攻击签名。
 
-* [了解 Azure 托管的 WAF 规则集](/web-application-firewall/ag/ag-overview#waf-policy)
+* [了解 Azure 托管的 WAF 规则集](ag-overview.md#waf-policy)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1014,7 +1014,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ### <a name="103-test-security-response-procedures"></a>10.3：测试安全响应过程
 
-**指导**：定期练习以测试系统的事件响应能力。 识别弱点和差距，并根据需要修改计划。
+**指导**：定期执行演练来测试系统的事件响应功能。 识别弱点和差距，并根据需要修改计划。
 
 * [请参阅 NIST 的刊物：Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)（IT 规划和功能的测试、培训与演练计划指南）
 

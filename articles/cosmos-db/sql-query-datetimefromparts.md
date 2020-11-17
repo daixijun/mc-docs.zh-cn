@@ -1,24 +1,25 @@
 ---
 title: Azure Cosmos DB 查询语言中的 DateTimeFromParts
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeFromParts。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 4d78a5adeca93c520739db9eb6efec74062cb6af
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9037169bd3119e82db74a09b871336e6eefdc31b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223508"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552755"
 ---
 <!--Verified successfully-->
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 返回根据输入值构造的字符串 DateTime 值。
 
@@ -120,5 +121,4 @@ SELECT DateTimeFromParts(2020, 9, 4, 10, 52, 12, 3456789) AS DateTime
 - [系统函数 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 简介](introduction.md)
 
-<!-- Update_Description: new article about sql query datetimefromparts -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

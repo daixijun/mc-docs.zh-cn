@@ -107,8 +107,6 @@
                   href: service-bus-managed-service-identity.md
                 - name: 通过应用程序进行身份验证
                   href: authenticate-application.md
-        - name: 内置安全控件
-          href: service-bus-messaging-security-controls.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -246,7 +244,7 @@
     - name: Java
       href: 'https://docs.azure.cn/java/api/overview/servicebus'
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/servicebus'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/service-bus'
     - name: PHP

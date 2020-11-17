@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c3a74edb23d2f2ba2b2c0812d01db15d289eeb28
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2099f8516cf2331a6d1ab93121ef1f0e988ef592
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057653"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637766"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理 Linux VM
 
@@ -38,11 +38,11 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用“[az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create)”命令创建资源组。 
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”  区域中创建了名为“myResourceGroupVM”  的资源组。 
 
-```azurecli 
+```azurecli
 az group create --name myResourceGroupVM --location chinaeast
 ```
 
@@ -311,7 +311,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>删除资源组
 
-删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，无需等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
 
 ```azurecli
 az group delete --name myResourceGroupVM --no-wait --yes

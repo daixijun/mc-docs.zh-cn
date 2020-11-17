@@ -4,16 +4,16 @@ description: 有关 Azure 容器注册表服务的常见问题的解答
 ms.topic: article
 origin.date: 09/18/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1f48e130af67248ca5c74df9518a20b380cec6f7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1b828c9ced5ec982ebfb81894115d4c754741ca7
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104419"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589414"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
@@ -27,7 +27,9 @@ ms.locfileid: "93104419"
 ## <a name="resource-management"></a>资源管理
 
 - [是否可以使用资源管理器模板创建 Azure 容器注册表？](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
-- [ACR 中是否提供对映像的安全漏洞扫描？](#is-there-security-vulnerability-scanning-for-images-in-acr)
+
+    <!--Not Available on - [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)-->
+
 - [如何使用 Azure 容器注册表配置 Kubernetes？](#how-do-i-configure-kubernetes-with-azure-container-registry)
 - [如何获取容器注册表的管理员凭据？](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [如何获取资源管理器模板中的管理员凭据？](#how-do-i-get-admin-credentials-in-a-resource-manager-template)

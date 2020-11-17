@@ -1,23 +1,24 @@
 ---
 title: 使用 Blitzz 将数据从 Oracle 迁移到 Azure Cosmos DB Cassandra API
 description: 了解如何使用 Blitzz 将数据从 Oracle 数据库迁移到 Azure Cosmos DB Cassandra API。
-author: rockboyfor
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/21/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 483108ab117c5a374d4ba3ecf27a3fe827387073
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 19918e37449eedaf83fff3f86f28b78ad99b8f1a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223450"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552798"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>使用 Blitzz 将数据从 Oracle 迁移到 Azure Cosmos DB Cassandra API 帐户
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB 中的 Cassandra API 已成为在 Oracle 上运行的企业工作负荷的极佳选择，原因各种各样，例如：
 

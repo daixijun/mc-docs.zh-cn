@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: how-to
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: 48c605ae6e976f65f11c726780a1c76b00d2618d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: cb665fc3e9b80e7c44151bfaa4c7b70a575b894a
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103541"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590851"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM 上的 Azure 磁盘加密方案
 
@@ -144,7 +144,7 @@ Azure 磁盘加密[与 Azure Key Vault 集成](disk-encryption-key-vault.md)，�
     | KeyVaultName | BitLocker 密钥应上传到的 Key Vault 的名称。 可使用 cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MyKeyVaultResourceGroup"` 获取该名称|
     | keyVaultResourceGroup | 包含密钥保管库的资源组的名称|
     |  keyEncryptionKeyURL | 密钥加密密钥的 URL，格式为 https://&lt;Key Vault 名称&gt;.vault.azure.cn/key/&lt;密钥名称&gt;。 如果不想要使用 KEK，请将此字段留空。 |
-    | volumeType | 要对其执行加密操作的卷的类型。 有效值为 _OS_ 、 _Data_ 和 _All_ 。 
+    | volumeType | 要对其执行加密操作的卷的类型。 有效值为 _OS_、_Data_ 和 _All_。 
     | forceUpdateTag | 每次操作需要强制运行时，传入一个像 GUID 这样的唯一值。 |
     | resizeOSDisk | 在拆分系统卷之前，是否应调整 OS 分区大小以占用整个 OS VHD。 |
     | location | 所有资源的位置。 |

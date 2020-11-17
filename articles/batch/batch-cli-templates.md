@@ -138,7 +138,7 @@ Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模�
 }
 ```
 
-如果模板文件名为 _pool-ffmpeg.json_ ，请如下所示调用该模板：
+如果模板文件名为 _pool-ffmpeg.json_，请如下所示调用该模板：
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -247,7 +247,7 @@ az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.js
 }
 ```
 
-如果模板文件名为 _job-ffmpeg.json_ ，请如下所示调用该模板：
+如果模板文件名为 _job-ffmpeg.json_，请如下所示调用该模板：
 
 ```azurecli
 az batch job create --template job-ffmpeg.json

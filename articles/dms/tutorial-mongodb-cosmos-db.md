@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 origin.date: 01/08/2020
-ms.date: 02/17/2020
-ms.openlocfilehash: 6c90291dbc9d3d44bbba21235f512186d6d394a1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/16/2020
+ms.openlocfilehash: 599f18e4e4ec4188714abbf7af4c7d04b4b845ce
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77192438"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590711"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教程：使用 DMS 将 MongoDB 脱机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -71,7 +71,7 @@ ms.locfileid: "77192438"
 
 ## <a name="create-an-instance"></a>创建实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务**。
 
     ![Azure 市场](media/tutorial-mongodb-to-cosmosdb/portal-marketplace.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "77192438"
 
     可通过三种模式连接到源：
    * **标准模式**：接受完全限定的域名或 IP 地址、端口号和连接凭据。
-   * **连接字符串模式**：接受[连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
+   * **连接字符串模式**：接受 [连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
    * **Azure 存储中的数据**：接受 Blob 容器 SAS URL。 如果 Blob 容器包含 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)生成的 BSON 转储，请选择“Blob 包含 BSON 转储”；如果容器包含 JSON 文件，请取消选择该选项。 
 
      如果选择此选项，则请确保存储帐户连接字符串按以下格式显示：
@@ -142,7 +142,7 @@ ms.locfileid: "77192438"
      * 对于 JSON 转储，blob 容器中的文件必须放置到以包含数据库命名的文件夹中。 在每个数据库文件夹中，数据文件必须放置到名为“数据”且采用 collection.json 格式命名的子文件夹中  。 元数据文件（如有）必须放置到名为“元数据”且同样采用 collection.json 格式命名的子文件夹中  。 元数据文件必须采用由 MongoDB bsondump 工具所生成的相同格式。
 
     > [!IMPORTANT]
-    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用**连接字符串模式**连接到服务器，并确保连接字符串包含 ""
+    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用 **连接字符串模式** 连接到服务器，并确保连接字符串包含 ""
     >
     >```
     >&sslVerifyCertificate=false
@@ -215,7 +215,7 @@ ms.locfileid: "77192438"
 
 * 在迁移完成后，可以检查你的 Azure Cosmos DB 帐户，验证所有集合是否已成功迁移。
 
-    ![活动状态为“已完成”](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![显示在何处检查 Azure Cosmos DB 帐户，以验证所有集合是否已成功迁移的屏幕截图。](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
 ## <a name="post-migration-optimization"></a>迁移后优化
 

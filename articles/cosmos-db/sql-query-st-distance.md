@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ST_DISTANCE
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_DISTANCE。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/12/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 5dae4d35f484132bf33ae19c57c0611320822719
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: b1f72ce055dfca229af7b4f1e57d02bf4df9cb26
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134723"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552441"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回两个 GeoJSON Point、Polygon、MultiPolygon 或 LineString 表达式之间的距离。 若要了解详细信息，请参阅[地理空间和 GeoJSON 位置数据](sql-query-geospatial-intro.md)一文。
 
 ## <a name="syntax"></a>语法

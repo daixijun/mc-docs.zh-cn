@@ -7,23 +7,24 @@ ms.devlang: php
 ms.topic: sample
 origin.date: 07/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 59d6342213960f50e316ab92be2152ff41f2980a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 26cefd927ab6c9f682a031dd73d84eedfd2712ee
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118519"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552681"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>如何通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 示例是采用 PHP 编写的，并使用了 [Azure 存储表 PHP 客户端库][download]。 涉及的方案包括**创建和删除表**以及**在表中插入、删除和查询实体**。 有关 Azure 表服务的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 示例是采用 PHP 编写的，并使用了 [Azure 存储表 PHP 客户端库][download]。 涉及的方案包括 **创建和删除表** 以及 **在表中插入、删除和查询实体**。 有关 Azure 表服务的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
 
@@ -437,7 +438,7 @@ catch(ServiceException $e){
 
 ## <a name="batch-table-operations"></a>对表操作进行批处理
 
-利用 **TableRestProxy->batch** 方法，可以通过一个请求执行多个操作。 此处的模式涉及将操作添加到 **BatchRequest**对象，并将 **BatchRequest** 对象传递到 **TableRestProxy->batch** 方法。 要将操作添加到 **BatchRequest** 对象，可以多次调用以下任一方法：
+利用 **TableRestProxy->batch** 方法，可以通过一个请求执行多个操作。 此处的模式涉及将操作添加到 **BatchRequest** 对象，并将 **BatchRequest** 对象传递到 **TableRestProxy->batch** 方法。 要将操作添加到 **BatchRequest** 对象，可以多次调用以下任一方法：
 
 * **addInsertEntity**（添加 insertEntity 操作）
 * **addUpdateEntity**（添加 updateEntity 操作）

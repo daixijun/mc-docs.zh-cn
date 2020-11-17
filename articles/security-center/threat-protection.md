@@ -25,11 +25,11 @@ ms.locfileid: "94552002"
 Azure 安全中心威胁防护为环境提供全面的防御：
 <!--Customized in MC-->
 
-* **针对 Azure 计算资源的威胁防护** ：Windows 计算机、Linux 计算机
+* **针对 Azure 计算资源的威胁防护**：Windows 计算机、Linux 计算机
 
-* **针对 Azure 数据资源的威胁防护** ：SQL 数据库
+* **针对 Azure 数据资源的威胁防护**：SQL 数据库
 
-* **针对 Azure 服务层的威胁防护** ：Azure 网络层
+* **针对 Azure 服务层的威胁防护**：Azure 网络层
 
 无论警报是由安全中心生成，还是由安全中心从其他安全产品接收，你都可以导出该警报。 若要将警报导出到任何第三方 SIEM 或任何其他外部工具，请按照[将警报导出到 SIEM](continuous-export.md) 中的说明操作。 
 
@@ -77,7 +77,7 @@ Azure 安全中心与 Azure 服务集成，可以监视和保护基于 Windows �
 
 ## <a name="threat-protection-for-linux-machines"></a>针对 Linux 计算机的威胁防护 <a name="linux-machines"></a>
 
-安全中心使用 **auditd** （最常见的 Linux 审核框架之一）从 Linux 计算机收集审核记录。 auditd 驻留在主线内核中。 
+安全中心使用 **auditd**（最常见的 Linux 审核框架之一）从 Linux 计算机收集审核记录。 auditd 驻留在主线内核中。 
 
 * **Linux auditd 警报和 Log Analytics 代理集成** <a name="linux-auditd"></a> - auditd 系统包含一个负责监视系统调用的内核级子系统。 该子系统会按照指定的规则集筛选这些调用，并将针对这些调用生成的消息写入到套接字。 安全中心在 Log Analytics 代理中集成了 auditd 包的功能。 通过这种集成，无需满足任何先决条件，就能在所有受支持的 Linux 发行版中收集 auditd 事件。
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 04/14/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: b461580b5ccdacb7146f5281fa625867bb130045
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 3e5040c861f9dd86e96b3cd09bb55c2072231a65
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723115"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552696"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache HBase
 
@@ -39,36 +39,36 @@ ms.locfileid: "84723115"
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* Bash。 本文中的示例使用 Windows 10 上的 Bash shell 来执行 curl 命令。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。  这些 curl 示例在经过轻微的修改后，可在 Windows 命令提示符下运行。  也可使用 Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)。
+* Bash。 本文中的示例使用 Windows 10 上的 Bash shell 执行 curl 命令。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统 (Windows 10) 安装指南](https://docs.microsoft.com/windows/wsl/install-win10)。  其他 [Unix shell](https://www.gnu.org/software/bash/) 也将适用。  Curl 示例经过一些细微的修改，可在 Windows 命令提示符下运行。  也可使用 Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)。
 
 
 ## <a name="create-apache-hbase-cluster"></a>创建 Apache HBase 群集
 
 以下过程使用 Azure 资源管理器模板创建 HBase 群集。 该模板还创建相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 选择下面的图像可在 Azure 门户中打开模板。 模板位于 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/)中。
+1. 选择下面的图像即可在 Azure 门户中打开该模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
 2. 在“自定义部署”对话框中输入以下值：
 
-    |属性 |说明 |
+    |属性 |描述 |
     |---|---|
     |订阅|选择用于创建群集的 Azure 订阅。|
     |资源组|创建 Azure 资源管理组，或使用现有的组。|
     |位置|指定资源组的位置。 |
     |ClusterName|输入 HBase 群集的名称。|
     |群集登录名和密码|默认登录名为“admin”。|
-    |SSH 用户名和密码|默认用户名为“sshuser”。|
+    |SSH 用户名和密码|默认用户名为“sshuser”  。|
 
      其他参数是可选的。  
 
     每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
 
-3. 选择“我同意上述条款和条件”，并选择“购买”。  创建群集大约需要 20 分钟时间。
+3. 选择“我同意上述条款和条件”，然后选择“购买” 。 创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
-> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
+> 在删除 HBase 群集后，可以通过使用相同的默认 Blob 容器创建另一个 HBase 群集。 新群集将选取已在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
 > 
 > 
 
@@ -182,7 +182,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 可以使用 [Apache Hive](https://hive.apache.org/) 查询 HBase 表中的数据。 本部分将创建要映射到 HBase 表的 Hive 表，并使用该表来查询 HBase 表中的数据。
 
-1. 通过打开的 ssh 连接，使用以下命令启动 Beeline：
+1. 从打开的 SSH 连接，使用以下命令启动 Beeline：
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -207,13 +207,55 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 1. 若要退出 Beeline，请使用 `!exit`。
 
-1. 若要退出 ssh 连接，请使用 `exit`。
+1. 若要退出 SSH 连接，请使用 `exit`。
+
+### <a name="separate-hive-and-hbase-clusters"></a>单独的 Hive 和 Hbase 群集
+
+无需从 HBase 群集执行访问 HBase 数据的 Hive 查询。 如果已完成以下步骤，Hive 随附的任何群集（包括 Spark、Hadoop、HBase 或 Interactive Query）都可以用于查询 HBase 数据：
+
+1. 两个群集必须附加到同一虚拟网络和子网
+2. 将 `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` 从 HBase 群集头节点复制到 Hive 群集头节点
+
+### <a name="secure-clusters"></a>安全群集
+
+还可以使用启用了 ESP 的 HBase 从 Hive 查询 HBase 数据： 
+
+1. 遵循多群集模式时，两个群集都必须启用 ESP。 
+2. 要允许 Hive 查询 HBase 数据，请确保 `hive` 用户有权通过 Hbase Apache Ranger 插件访问 HBase 数据
+3. 使用启用了 ESP 的单独群集时，必须将 HBase 群集头节点中 `/etc/hosts` 的内容追加到 Hive 群集头节点的 `/etc/hosts`。 
+> [!NOTE]
+> 缩放任一群集后，必须再次追加 `/etc/hosts`
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 
 REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 始终应该使用安全 HTTP (HTTPS) 来发出请求，确保安全地将凭据发送到服务器。
 
-1. 为便于使用，请设置环境变量。 通过将 `MYPASSWORD` 替换为群集登录密码来编辑以下命令。 将 `MYCLUSTERNAME` 替换为 HBase 群集的名称。 然后输入命令。
+1. 要在 HDInsight 群集中启用 HBase REST API，请将以下自定义启动脚本添加到“脚本操作”部分。 可在创建群集时或创建群集后添加启动脚本。 对于“节点类型”，选择“区域服务器”以确保脚本仅在 HBase 区域服务器中执行 。
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
+
+1. 为便于使用，请设置环境变量。 将 `MYPASSWORD` 替换为群集登录密码，以编辑下面的命令。 将 `MYCLUSTERNAME` 替换为 HBase 群集的名称。 然后，输入相应的命令。
 
     ```bash
     export password='MYPASSWORD'
@@ -250,7 +292,7 @@ REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_
     -v
     ```
 
-    对 -d 开关中指定的值进行 Base64 编码。 在此示例中：
+    对 -d 开关中指定的值进行 Base64 编码。 在示例中：
 
    * MTAwMA==:1000
    * UGVyc29uYWw6TmFtZQ==:Personal:Name
@@ -307,11 +349,11 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 为了避免不一致，建议在删除群集之前先禁用 HBase 表。 可以使用 HBase 命令 `disable 'Contacts'`。 如果不打算继续使用此应用程序，请使用以下步骤删除创建的 HBase 群集：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
 1. 在顶部的“搜索”框中，键入 **HDInsight**。
 1. 选择“服务”下的“HDInsight 群集” 。
-1. 在显示的 HDInsight 群集列表中，单击为本教程创建的群集旁边的“...”。
-1. 单击“删除” 。 单击 **“是”** 。
+1. 在显示的 HDInsight 群集列表中，单击为本教程创建的群集旁边的“...”。 
+1. 单击 **“删除”** 。 单击 **“是”** 。
 
 ## <a name="next-steps"></a>后续步骤
 

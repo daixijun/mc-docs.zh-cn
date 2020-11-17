@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 02/07/2020
 ms.author: v-yiso
 ms.date: 03/02/2020
-ms.openlocfilehash: 41723c19bea1e15aa8c868e58cb0872756ff1a0e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c6681c33eea95e43e3a5d9436d6e4b7cf80b1e00
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563486"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552721"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 体系结构
 
@@ -60,7 +60,7 @@ NodeManagers 先运行应用程序包含的任务，然后将其进度和状态�
 
 ### <a name="azure-storage"></a>Azure 存储
 
-* [Azure 存储 Blob 的软删除](../storage/blobs/storage-blob-soft-delete.md)
+* [Azure 存储 Blob 的软删除](../storage/blobs/soft-delete-blob-overview.md)
 * [取消删除 Blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
 

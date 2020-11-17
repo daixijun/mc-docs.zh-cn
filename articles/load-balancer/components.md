@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/04/2020
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 1f2be543e53874b3048f880272ada07d23b402b6
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 870923c8172a0ff031ad99d8a75a802b56fe0783
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628244"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590894"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -93,7 +93,7 @@ IP 地址的性质决定了所创建的负载均衡器的类型。 选择“专�
 2. 源端口
 3. 目标 IP 地址
 4. 目标端口
-5. 协议
+5. protocol
 
 HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部网络虚拟设备 (NVA) 的高可用性和缩放。 当大量端口必须进行负载均衡时，此功能可以帮助完成。
 
@@ -129,6 +129,7 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 
 ## <a name="limitations"></a>限制
 
+- 了解负载均衡器[限制](/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) 
 - 负载均衡器针对特定的 TCP 或 UDP 协议提供了负载均衡和端口转发。 负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。
 - 从后端 VM 到内部负载均衡器前端的出站流将会失败。
 - 负载均衡器规则不能跨越两个虚拟网络。  前端及其后端实例必须位于同一个虚拟网络中。  

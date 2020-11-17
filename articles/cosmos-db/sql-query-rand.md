@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/16/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: e2226a6562c9d2c2fe9de146047c51ccfbe83c96
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e7c82491874e34b5e4d0c0b2b70f725f399ad42f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246720"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552868"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回 [0,1) 中随机生成的数值。
 
 ## <a name="syntax"></a>语法

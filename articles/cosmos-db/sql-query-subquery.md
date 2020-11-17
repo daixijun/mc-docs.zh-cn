@@ -1,20 +1,21 @@
 ---
 title: Azure Cosmos DB 的 SQL 子查询
 description: 了解 Azure Cosmos DB 中的 SQL 子查询及其常见用例以及不同类型的子查询
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/02/2019
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 466f1bcf8d9ae904645431fafa2155bec9b0703e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4888859883ec27ef174ad3362d7aa8f08deda6d5
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068261"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552415"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 子查询示例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 子查询是嵌套在另一个查询中的查询。 子查询也称为内部查询或内部选择。 包含子查询的语句通常称为外部查询。
 

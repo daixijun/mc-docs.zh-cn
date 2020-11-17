@@ -4,16 +4,16 @@ description: 本文粗略概述了 Azure 服务总线（一种完全托管的企
 ms.topic: overview
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c388acd26f3adbb8a69d6df2c406f49fdfa1dd5f
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: e93e1871187d0bd952f58562802c32479ac96206
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946607"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590869"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
@@ -90,7 +90,7 @@ Azure 服务总线是一种完全托管的企业集成消息中转站。 服务�
 
 ### <a name="autodelete-on-idle"></a>出现空闲队列时自动删除
 
-可以使用“出现空闲队列时自动删除”功能指定一个空闲时间间隔，该时间间隔过后系统会自动删除队列。 最短持续时间为 5 分钟。 有关详细信息，请参阅 [QueueDescription.AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle?view=azure-dotnet)。
+可以使用“出现空闲队列时自动删除”功能指定一个空闲时间间隔，该时间间隔过后系统会自动删除队列。 最短持续时间为 5 分钟。 有关详细信息，请参阅 [QueueDescription.AutoDeleteOnIdle 属性](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle)。
 
 ### <a name="duplicate-detection"></a>重复检测
 

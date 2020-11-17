@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: bcf906cf4fbb8dd1296f1ca90edc139abb57d3cd
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e2f6973ff0fa85fefae32eb989cf0bfe5e20a7a3
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118399"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552780"
 ---
 <!--Verified successfully-->
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>使用 Azure Policy 实现 Azure Cosmos DB 资源的治理和控制
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md) 有助于强制实施组织治理标准、评估资源符合性并实现自动修复。 常见的用例包括安全性、成本管理和配置一致性。
 
@@ -28,22 +29,22 @@ Azure Policy 提供内置策略定义。 可以为内置策略定义未解决的
 
 ## <a name="assign-a-built-in-policy-definition"></a>分配内置策略定义
 
-策略定义描述了资源符合性条件以及在满足某个条件时所产生的效果。 策略分配是根据策略定义创建的   。 可以对 Azure Cosmos DB 资源使用内置或自定义策略定义。 策略分配的范围为 Azure 管理组、Azure 订阅或资源组，策略分配将应用于所选范围内的资源。 或者，可以从所选范围中排除特定资源。
+策略定义描述了资源符合性条件以及在满足某个条件时所产生的效果。 策略分配是根据策略定义创建的 。 可以对 Azure Cosmos DB 资源使用内置或自定义策略定义。 策略分配的范围为 Azure 管理组、Azure 订阅或资源组，策略分配将应用于所选范围内的资源。 或者，可以从所选范围中排除特定资源。
 
 可以使用 [Azure 门户](../governance/policy/assign-policy-portal.md)、[Azure PowerShell](../governance/policy/assign-policy-powershell.md)、[Azure CLI](../governance/policy/assign-policy-azurecli.md) 或 [ARM 模板](../governance/policy/assign-policy-template.md)创建策略分配。
 
 若要根据 Azure Cosmos DB 的内置策略定义创建策略分配，请使用[使用 Azure 门户创建策略分配](../governance/policy/assign-policy-portal.md)一文中的步骤。
 
-在选择策略定义的步骤中，在“搜索”字段中输入 `Cosmos DB` 来筛选可用的内置策略定义。 选择一个可用的内置策略定义，然后选择“选择”继续创建策略分配  。
+在选择策略定义的步骤中，在“搜索”字段中输入 `Cosmos DB` 来筛选可用的内置策略定义。 选择一个可用的内置策略定义，然后选择“选择”继续创建策略分配。
 
 > [!TIP]
-> 你还可以将“可用定义”格窗中显示的内置策略定义名称与 Azure PowerShell、Azure CLI 或 ARM 模板结合使用来创建策略分配  。
+> 你还可以将“可用定义”格窗中显示的内置策略定义名称与 Azure PowerShell、Azure CLI 或 ARM 模板结合使用来创建策略分配。
 
 :::image type="content" source="./media/policy/available-definitions.png" alt-text="搜索 Azure Cosmos DB 内置策略定义":::
 
 ## <a name="create-a-custom-policy-definition"></a>创建自定义策略定义
 
-对于内置策略未解决的特定方案，可以创建[自定义策略定义](../governance/policy/tutorials/create-custom-policy-definition.md)。 之后，根据自定义策略定义创建策略分配   。
+对于内置策略未解决的特定方案，可以创建[自定义策略定义](../governance/policy/tutorials/create-custom-policy-definition.md)。 之后，根据自定义策略定义创建策略分配 。
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>策略规则中的属性类型和属性别名
 
@@ -115,7 +116,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 ## <a name="policy-compliance"></a>策略符合性
 
-创建策略分配后，Azure Policy 将评估分配范围内的资源。 每个资源会接受策略符合性评估  。 策略中指定的效果会应用到不符合的资源  。
+创建策略分配后，Azure Policy 将评估分配范围内的资源。 每个资源会接受策略符合性评估。 策略中指定的效果会应用到不符合的资源。
 
 你可以在 [Azure 门户](../governance/policy/how-to/get-compliance-data.md#portal)或通过 [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) 或 [Azure Monitor 日志](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs)查看符合性结果和修正详细信息。
 
@@ -133,7 +134,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 - 两个帐户均不遵从帐户需配置多个写入位置的策略
 - 两个帐户均不遵从将资源部署到允许的 Azure 区域的策略。
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="搜索 Azure Cosmos DB 内置策略定义":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="列出的 Azure 策略分配的合规性结果":::
 
 若要修正不合规的资源，请参阅[如何使用 Azure Policy 修正资源](../governance/policy/how-to/remediate-resources.md)。
 
@@ -141,6 +142,6 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 - [查看 Azure Cosmos DB 的示例自定义策略定义](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)，包括针对上述的多个写入位置和 VNet 筛选策略的内容。
 - [在 Azure 门户中创建策略分配](../governance/policy/assign-policy-portal.md)
-- [查看 Azure Cosmos DB 的 Azure Policy 内置策略定义](./policy-samples.md)
+- [查看 Azure Cosmos DB 的 Azure Policy 内置策略定义](./policy-reference.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

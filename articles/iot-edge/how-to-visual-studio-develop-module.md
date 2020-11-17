@@ -6,15 +6,15 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 03/27/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fd93bb7814e87b343867388845062cb02bd3324b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 15882276806a91681cda6239ca31eaa11e129161
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564212"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595146"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 开发和调试适用于 Azure IoT Edge 的模块
 
@@ -63,7 +63,7 @@ Visual Studio 2019 准备就绪后，还需要以下工具和组件：
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-- [Azure 容器注册表](/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。
+- [Azure 容器注册表](../container-registry/index.yml)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。
 
   > [!TIP]
   > 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。

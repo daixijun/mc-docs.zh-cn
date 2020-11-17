@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.reviewer: olayemio
-ms.openlocfilehash: 52bd1ce6664d90fb0cd4cf38845519897b5c8709
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 943c785012e9f5af7bc1272433c21f641f375c90
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106663"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590889"
 ---
 <!--Verified Successfully-->
 # <a name="create-a-managed-disk-from-an-image-version"></a>从映像版本创建托管磁盘
@@ -26,7 +26,7 @@ ms.locfileid: "93106663"
 
 ## <a name="cli"></a>CLI
 
-将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](https://docs.azure.cn/cli/disk.md#az_disk_create) 创建托管磁盘。 
+将 `source` 变量设置为映像版本的 ID，然后使用 [az disk create](https://docs.azure.cn/cli/disk#az_disk_create) 创建托管磁盘。 
 
 可以使用 [az sig image-version list](https://docs.microsoft.com/cli/azure/sig/image-version#az_sig_image_version_list) 查看映像版本列表。 在此示例中，我们将在 myGallery 映像库中查找 myImageDefinition 映像定义中包含的所有映像版本。
 
@@ -99,5 +99,4 @@ New-AzDisk -Disk $diskConfig `
 
 还可以使用 [Azure CLI](image-version-managed-image-cli.md) 或 [PowerShell](image-version-managed-image-powershell.md) 从托管磁盘创建映像版本。
 
-<!-- Update_Description: new article about managed disk from image version -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

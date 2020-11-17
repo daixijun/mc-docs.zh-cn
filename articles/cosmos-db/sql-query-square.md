@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 查询语言中的 SQUARE
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 SQUARE。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/04/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 7407d42a84becbc4f5685ebcbab70c34a5f07575
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 2f2d915b378e3c85bd3014a3751b2d454ace8893
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134533"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552442"
 ---
 # <a name="square-azure-cosmos-db"></a>SQUARE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  返回指定数字值的平方。  
 
 ## <a name="syntax"></a>语法

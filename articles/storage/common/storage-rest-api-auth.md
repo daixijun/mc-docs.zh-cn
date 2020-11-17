@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="about-rest"></a>关于 REST
 
-REST 表示 *representational state transfer* （表述性状态转移）。 有关具体定义，请参阅 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)。
+REST 表示 *representational state transfer*（表述性状态转移）。 有关具体定义，请参阅 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)。
 
 REST 是一种体系结构，用于通过 Internet 协议（例如 HTTP/HTTPS）与服务交互。 REST 独立于在服务器或客户端上运行的软件。 可以从任何支持 HTTP/HTTPS 的平台调用 REST API。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。
 
@@ -65,9 +65,9 @@ REST 是一种体系结构，用于通过 Internet 协议（例如 HTTP/HTTPS）
 
 查看 [ListContainers](https://docs.microsoft.com/rest/api/storageservices/List-Containers2) 操作的参考。 该信息可以让你了解请求中某些字段的出处并进行响应。
 
-**请求方法** ：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
+**请求方法**：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
 
-**请求 URI** ：`https://myaccount.blob.core.chinacloudapi.cn/?comp=list`。    请求 URI 是从 blob 存储帐户终结点 `https://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
+**请求 URI**：`https://myaccount.blob.core.chinacloudapi.cn/?comp=list`。    请求 URI 是从 blob 存储帐户终结点 `https://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
 [URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时还可以使用其他查询参数。 其中有些参数为调用超时  （以秒计）和前缀  ，后者用于筛选。
 

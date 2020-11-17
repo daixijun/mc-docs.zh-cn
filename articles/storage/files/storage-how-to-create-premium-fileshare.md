@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 08/26/2019
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e7fdda94c3d771f3ea6d5290a6643988443a0ee1
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: f97a48749a4a84724db939ea4c73e6dde44c1c46
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026634"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552525"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>如何创建 Azure 高级文件共享
 
@@ -139,7 +139,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 ---
 
-### <a name="create-a-premium-file-share"></a>创建高级文件共享
+## <a name="create-a-premium-file-share"></a>创建高级文件共享
 
 现在，你已创建了一个 FileStorage 帐户，接下来可以在该存储帐户内创建高级文件共享。
 
@@ -164,6 +164,7 @@ STORAGEKEY=$(az storage account keys list \
 ```powershell
 New-AzStorageShare `
    -Name myshare `
+   -EnabledProtocol SMB `
    -Context $storageAcct.Context
 ```
 
@@ -178,6 +179,7 @@ New-AzStorageShare `
 az storage share create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
+    --enabled-protocol SMB \
     --name "myshare" 
 ```
 ---
@@ -209,9 +211,3 @@ az group delete --name myResourceGroup
 ```
 ---
 
-## <a name="next-steps"></a>后续步骤
-
-在本文中，你已创建一个高级文件共享。 若要了解此帐户提供的性能，请转到规划指南的“性能层”部分。
-
-> [!div class="nextstepaction"]
-> [文件共享层](storage-files-planning.md#storage-tiers)

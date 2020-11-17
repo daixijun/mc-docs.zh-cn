@@ -22,7 +22,7 @@ ms.locfileid: "94552195"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概述
-本指南演示如何使用 Azure 队列存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 介绍的方案包括 **插入** 、 **扫视** 、 **获取** 和 **删除** 队列消息以及 **创建和删除队列** 。
+本指南演示如何使用 Azure 队列存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 介绍的方案包括 **插入**、**扫视**、**获取** 和 **删除** 队列消息以及 **创建和删除队列**。
 
 > [!NOTE]
 > 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](https://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 获得）。
@@ -106,7 +106,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>如何：在队列中插入消息
-要将消息插入到现有队列中，请先创建新的 **cloud_queue_message** 。 接下来，调用 **add_message** 方法。 可以从字符串或 **字节** 数组创建 **cloud_queue_message** 。 以下代码将创建队列（如果该队列不存在）并插入消息“Hello, World”：
+要将消息插入到现有队列中，请先创建新的 **cloud_queue_message**。 接下来，调用 **add_message** 方法。 可以从字符串或 **字节** 数组创建 **cloud_queue_message**。 以下代码将创建队列（如果该队列不存在）并插入消息“Hello, World”：
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -173,7 +173,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>如何：取消下一条消息的排队
-代码通过两个步骤来取消对队列中某条消息的排队。 调用 **get_message** 时，会获得队列中的下一条消息。 从 **get_message** 返回的消息对从此队列读取消息的其他任何代码不可见。 若要完成从队列中删除消息，还必须调用 **delete_message** 。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 **delete_message** 。
+代码通过两个步骤来取消对队列中某条消息的排队。 调用 **get_message** 时，会获得队列中的下一条消息。 从 **get_message** 返回的消息对从此队列读取消息的其他任何代码不可见。 若要完成从队列中删除消息，还必须调用 **delete_message**。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 **delete_message**。
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -245,7 +245,7 @@ std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::e
 ```
 
 ## <a name="how-to-delete-a-queue"></a>如何：删除队列
-若要删除队列及其包含的所有消息，请对队列对象调用 **delete_queue_if_exists** 。
+若要删除队列及其包含的所有消息，请对队列对象调用 **delete_queue_if_exists**。
 
 ```cpp
 // Retrieve storage account from connection-string.
