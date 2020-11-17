@@ -70,7 +70,7 @@ ms.locfileid: "94501876"
 5. 使用你选择的编辑器，在本地计算机上创建一个标题为 *hello world.txt* 的文件。  打开该文件并添加文本“Hello world! :）”（不包括引号），然后保存该文件。 
 
 6. 通过单击容器名称并单击“上传”，将该文件上传到新创建的容器。
-7. 在“上传 blob”窗格中，在“文件”下，单击文件夹图标并浏览到本地计算机上的文件 **hello_world.txt** ，选择该文件，然后单击“上传”。
+7. 在“上传 blob”窗格中，在“文件”下，单击文件夹图标并浏览到本地计算机上的文件 **hello_world.txt**，选择该文件，然后单击“上传”。
 
     ![上传文本文件](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 

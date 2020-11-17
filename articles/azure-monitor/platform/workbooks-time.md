@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor 工作簿时间参数
-description: 使用预先构建的自定义参数化工作簿简化复杂的报表
+description: 了解如何设置时间参数来使用户能够设置分析的时间上下文。 几乎所有报表都会使用时间参数。
 services: azure-monitor
 author: Johnnytechn
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 7ec7b23b9884a0408ba0fc318519c2908291f782
-ms.sourcegitcommit: a04b0b1009b0c62f2deb7c7acee75a1304d98f87
+ms.openlocfilehash: 4254bb5912c83a829a993b75080c6a84451c6350
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797062"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328849"
 ---
 # <a name="workbook-time-parameters"></a>工作簿时间参数
 
@@ -47,7 +47,7 @@ ms.locfileid: "83797062"
     ![显示通过绑定引用时间范围参数的图像](./media/workbooks-time/time-binding.png)
 
 ### <a name="in-kql"></a>在 KQL 中
-1. 向工作簿添加查询控件，然后选择 Application Insights 资源。
+1. 在工作簿中添加查询控件，然后选择 Application Insights 资源。
 2. 在 KQL 中，输入使用以下参数的时间范围筛选器：`| where timestamp {TimeRange}`
 3. 这会将查询计算时间扩大到 `| where timestamp > ago(1d)`，这就是参数的时间范围值。
 4. 运行查询以查看结果
@@ -80,6 +80,6 @@ requests
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 

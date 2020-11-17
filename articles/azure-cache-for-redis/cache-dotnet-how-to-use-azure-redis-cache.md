@@ -1,5 +1,5 @@
 ---
-title: 快速入门：通过 .NET 应用使用 Azure Cache for Redis
+title: 快速入门：在 .NET Framework 中使用 Azure Cache for Redis
 description: 本快速入门介绍如何从 .NET 应用访问 Azure Redis 缓存
 author: yegu-ms
 ms.author: v-junlch
@@ -7,15 +7,15 @@ ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
-ms.date: 08/24/2020
-ms.openlocfilehash: 46d1df1df9fd0159773b972af1d91b5958ac8855
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 11/03/2020
+ms.openlocfilehash: 63627bfb4c2a14bd78391763dddba8533440340f
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946966"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326600"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>快速入门：将 Azure Redis 缓存与 .NET Framework 应用程序配合使用
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>快速入门：在 .NET Framework 中使用 Azure Cache for Redis
 
 在本快速入门中，会将 Azure Redis 缓存合并到 .NET Framework 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。 你专门在 .NET 控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C# 代码配合使用。
 
@@ -49,7 +49,7 @@ ms.locfileid: "88946966"
 
 在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
 
-选择“控制台应用(.NET Framework)”  ，然后选择“下一步”  以配置应用。 输入**项目名称**，然后单击“创建”  以创建新的控制台应用程序。
+选择“控制台应用(.NET Framework)”  ，然后选择“下一步”  以配置应用。 输入 **项目名称**，然后单击“创建”  以创建新的控制台应用程序。
 
 <a name="configure-the-cache-clients"></a>
 

@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Monitor 创建、查看和管理指标警报
 description: 了解如何使用 Azure 门户或 CLI 来创建、查看和管理指标警报规则。
-author: harelbr
+author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
 origin.date: 02/16/2020
-ms.openlocfilehash: 6beda47913934ae816eb0f4fc267bfda8927f299
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 9236ab2c9e76310a6f261ef9e5f3e327150cae55
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457312"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328450"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -44,11 +44,11 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 8. 如果指标包含维度，则会显示一个维度表。 为每个维度选择一个或多个值。
     - 显示的维度值基于在过去 3 天内的指标数据。
     - 如果你要查看的维度值没有显示，请单击“+”来添加自定义值。
-    - 还可以针对任一维度**选择 \*** 。 **选择 \*** 会将选择范围动态调整为某个维度的所有当前和未来值。
+    - 还可以针对任一维度选择 \*。 选择 \* 会将选择范围动态调整为某个维度的所有当前和未来值。
 
     指标警报规则将会针对所选值的所有组合对条件进行评估。 [详细了解如何针对多维指标发出警报](alerts-metric-overview.md)。
 
-9. 选择“阈值”  类型、“运算符”  和“聚合类型”  。 这将确定指标警报规则将评估的逻辑。
+9. 选择“阈值”类型、“运算符”和“聚合类型” 。 这将确定指标警报规则将评估的逻辑。
     - 如果使用“静态”  阈值，请继续定义“阈值”  。 指标图表可以帮助你确定可能合理的阈值。
     - 如果使用“动态”  阈值，请继续定义“阈值敏感度”  。 指标图表将显示基于最新数据计算得出的阈值。 [详细了解动态阈值条件类型和敏感度选项](alerts-dynamic-thresholds.md)。
 
@@ -58,7 +58,7 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 12. （可选）若要监视复杂的预警规则，请添加另一个条件。 目前，用户可以将包含动态阈值条件的预警规则用作单一条件。
 
-13. 填写“警报规则详细信息”，例如“警报规则名称”、“说明”和“严重性”   。
+13. 填写“警报详细信息”，例如“警报规则名称”、“说明”和“严重性”。   
 
 14. 通过选择现有操作组或创建新的操作组，将一个操作组添加到警报中。
 
@@ -155,9 +155,9 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Azure 资源管理器模板创建指标警报](./alerts-metric-create-templates.md)。
-- [了解指标警报的工作原理](alerts-metric-overview.md)。
-- [了解指标警报与动态阈值条件的工作原理](alerts-dynamic-thresholds.md)。
+- [使用 Azure 资源管理器模板创建指标警报](./alerts-metric-create-templates.md)
+- [了解指标警报的工作原理](alerts-metric-overview.md)
+- [了解指标警报与动态阈值条件的工作原理](alerts-dynamic-thresholds.md)
 - [了解指标警报的 Webhook 架构](./alerts-metric-near-real-time.md#payload-schema)
-
+- [指标警报问题故障排除](alerts-troubleshoot-metric.md)
 

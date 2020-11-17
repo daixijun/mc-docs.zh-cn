@@ -1,19 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 将 VMM 云中的 Hyper-V VM 复制到辅助站点的测试结果 | Azure
+title: 使用 Azure Site Recovery 测试在 VMM 中将 Hyper-V VM 复制到辅助站点
 description: 本文介绍了使用 Azure Site Recovery 在 VMM 云中将 Hyper-V VM 复制到辅助站点时的性能测试。
-author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 12/27/2018
-ms.date: 08/26/2019
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: fcb02ecd0c3d14b06fa7a3a2863a970f07317e97
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 474e837c176fc8bf2a8d354a0bb30c66ee4fe10c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70134476"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328154"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>从 Hyper-V 复制到辅助站点的测试结果
 
@@ -46,36 +48,36 @@ ms.locfileid: "70134476"
 * Hyper-V 副本利用自我维护的内存缓存最大程度地降低用于跟踪的 IOPS 开销。 它将向 VHDX 进行的写入存储在内存中，并在将日志发送到恢复站点之前将它们刷新到日志文件中。 如果写入数达到了预先确定的限制，也会发生磁盘刷新。
 * 下图显示了复制的稳定状态 IOPS 开销。 我们可以看到由复制导致的 IOPS 开销大约为 5%，非常低。
 
-    ![主服务器结果](./media/hyper-v-vmm-performance-results/IC744913.png)
+    :::image type="content" source="./media/hyper-v-vmm-performance-results/IC744913.png" alt-text="图中显示了复制的稳定状态 IOPS 开销。":::
 
 Hyper-V 副本使用主服务器上的内存来优化磁盘性能。 如下图中所示，主群集中所有服务器上的内存开销都很低。 所显示的内存开销是复制使用的内存占 Hyper-V 服务器上安装的总内存的百分比。
 
-![主服务器结果](./media/hyper-v-vmm-performance-results/IC744914.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744914.png" alt-text="主服务器结果":::
 
 Hyper-V 副本具有最小的 CPU 开销。 如图中所示，复制的开销范围是 2-3%。
 
-![主服务器结果](./media/hyper-v-vmm-performance-results/IC744915.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744915.png" alt-text="图中显示了复制的开销范围是 2-3%。":::
 
 ## <a name="secondary-server-performance"></a>辅助服务器性能
 
 Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最优化。 图中汇总了恢复服务器上的内存使用率。 所显示的内存开销是复制使用的内存占 Hyper-V 服务器上安装的总内存的百分比。
 
-![辅助服务器结果](./media/hyper-v-vmm-performance-results/IC744916.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744916.png" alt-text="图中汇总了恢复服务器上的内存使用情况。":::
 
 恢复站点上的 I/O 操作数量是主站点上的写入操作数量的一个函数。 让我们在与主站点上的总 I/O 操作量和写入操作量进行比较的情况下看一下恢复站点上的总 I/O 操作量。 图中显示，恢复站点上的总 IOPS 大约是
 
 * 主站点上的写入 IOPS 的 1.5 倍。
 * 主站点上的总 IOPS 的 37%。
 
-![辅助服务器结果](./media/hyper-v-vmm-performance-results/IC744917.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744917.png" alt-text="图中显示了主站点与辅助站点上的 IOPS 对比。":::
 
-![辅助服务器结果](./media/hyper-v-vmm-performance-results/IC744918.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744918.png" alt-text="辅助服务器结果":::
 
 ## <a name="effect-on-network-utilization"></a>对网络利用率的影响
 
 在现有的每秒 5 GB 带宽中，在主节点与恢复节点（启用了压缩功能）之间平均每秒使用了 275 MB 网络带宽。
 
-![网络利用率结果](./media/hyper-v-vmm-performance-results/IC744919.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744919.png" alt-text="网络利用率结果":::
 
 ## <a name="effect-on-vm-performance"></a>对 VM 性能的影响
 
@@ -83,11 +85,11 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 
 此图显示了在启用复制之前和之后运行各种工作负荷的虚拟机执行的 IOPS。 可以看到两者之间没有差别。
 
-![副本影响结果](./media/hyper-v-vmm-performance-results/IC744920.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744920.png" alt-text="副本影响结果":::
 
 下图显示了在启用复制之前和之后运行各种工作负荷的虚拟机的吞吐量。 可以看到复制没有明显影响。
 
-![副本影响结果](./media/hyper-v-vmm-performance-results/IC744921.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744921.png" alt-text="副本影响结果":::
 
 ## <a name="conclusion"></a>结束语
 
@@ -103,7 +105,7 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 * 每台群集服务器具有四个网卡 (NIC)，每个为 1 Gbps。
 * 两个网卡连接到一个 iSCSI 专用网络，另外两个网卡连接到一个外部企业网络。 其中一个外部网络保留给群集通信使用。
 
-![主要硬件要求](./media/hyper-v-vmm-performance-results/IC744922.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744922.png" alt-text="主要硬件要求":::
 
 | 服务器 | RAM | “模型” | 处理器 | 处理器数目 | NIC | 软件 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -115,7 +117,7 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 * 辅助站点具有一个六节点的故障转移群集。
 * 群集节点的存储是由一个 iSCSI SAN 提供的。 型号 - Hitachi HUS130。
 
-![主要硬件规格](./media/hyper-v-vmm-performance-results/IC744923.png)
+:::image type="content" source="./media/hyper-v-vmm-performance-results/IC744923.png" alt-text="主要硬件规格":::
 
 | 服务器 | RAM | “模型” | 处理器 | 处理器数目 | NIC | 软件 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -183,4 +185,4 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 
 [设置复制](hyper-v-vmm-disaster-recovery.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

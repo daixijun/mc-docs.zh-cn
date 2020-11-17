@@ -1,27 +1,29 @@
 ---
 title: 验证 Azure Stack HCI 群集
-description: 本操作指南文章重点介绍群集验证为何重要，以及何时在现有 Azure Stack HCI 群集上运行它。 本文包括用于排查更新的服务器群集故障的验证方案。
+description: 了解群集验证的重要性，以及何时在现有 Azure Stack HCI 群集上运行它。 了解用于排查更新的服务器群集故障的方案。
 author: WenJason
 ms.author: v-jay
 ms.topic: article
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 05d16e20329d912b2211470b6cfc54209fd8d99b
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+origin.date: 10/16/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 2fba5fd2449e6ad70516320d9bd6bb8a22fd26f5
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871660"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330655"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>验证 Azure Stack HCI 群集
 
 >适用于：Azure Stack HCI 版本 v20H2；Windows Server 2019
 
 本操作指南文章重点介绍群集验证为何重要，以及何时在现有 Azure Stack HCI 群集上运行它。 建议对以下主要方案执行群集验证：
-- 部署服务器群集后，运行 Validate-DCB 工具以测试网络，并在 Windows Admin Center 运行群集验证。
+- 部署服务器群集后，运行 Validate-DCB 工具以测试网络。
 - 更新服务器群集后，根据方案，运行两个验证选项以排查群集问题。
 - 在设置使用存储副本进行复制后，通过检查某些特定事件并运行几个命令来验证复制是否正常进行。
-若要了解如何部署 Azure Stack HCI 群集，请参阅[部署存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)。
+- 创建服务器群集后，请先运行 Validate-DCB 工具，然后再将其投入生产。
+
+    若要了解有关如何部署 Azure Stack HCI 群集的详细信息，请参阅[部署概述](deployment-overview.md)。
 
 ## <a name="what-is-cluster-validation"></a>什么是群集验证？
 群集验证的目的是在群集投入生产之前找出硬件或配置的问题。 群集验证有助于确保你即将部署的 Azure Stack HCI 解决方案真正可靠。 你还可以在已配置的故障转移群集上使用群集验证作为诊断工具。
@@ -49,7 +51,7 @@ ms.locfileid: "88871660"
 ## <a name="validate-networking"></a>验证网络
 Microsoft Validate-DCB 工具用于验证群集上的数据中心桥接 (DCB) 配置。 为此，该工具将预期的配置作为输入，然后测试群集中的每个服务器。 本部分介绍如何安装和运行 Validate-DCB 工具、查看结果并解决该工具识别的网络错误。
 
-在网络上，基于聚合以太网 (RoCE) 的远程直接内存访问 (RDMA) 需要 DCB 技术来实现无损的网络结构。 尽管 iWARP 不需要 DCB，但仍推荐使用。 但是，配置 DCB 可能很复杂，需要在以下位置进行精确配置：
+在网络上，基于聚合以太网 (RoCE) 的远程直接内存访问 (RDMA) 需要 DCB 技术来实现无损的网络结构。 在使用 iWARP 的情况下，DCB 是可选的。 但是，配置 DCB 可能很复杂，需要在以下位置进行精确配置：
 - 群集中的每个服务器
 - RDMA 流量通过的结构上的每个网络端口
 

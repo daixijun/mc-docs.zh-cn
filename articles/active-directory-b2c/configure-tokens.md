@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 06/28/2020
+ms.topic: how-to
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 517bdc89f2b4d09f16a551df25bfa3dee8e1d326
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 2219603f9b59c1cff47cc5584fe7e200c472a415
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516517"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326455"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中配置令牌
 
@@ -41,16 +41,30 @@ ms.locfileid: "85516517"
 
 8. 单击“ **保存**”。
 
+> [!NOTE]
+> 使用授权代码流和 PKCE 的单页应用程序始终具有生存期为 24 小时的刷新令牌。 [详细了解浏览器中的刷新令牌的安全影响](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)。
+
 ## <a name="configure-jwt-token-compatibility"></a>配置 JWT 令牌兼容性
 
 1. 选择“用户流(策略)”。
-2. 打开先前创建的用户流。
+2. 打开之前创建的用户流。
 3. 选择“属性”。
 4. 在“令牌兼容性设置”下，调整以下属性以满足应用程序的需要：
 
     ![Azure 门户中的令牌兼容性属性设置](./media/configure-tokens/token-compatibility.png)
 
 5. 单击“ **保存**”。
+
+## <a name="provide-optional-claims-to-your-app"></a>向应用提供可选声明
+
+应用程序声明是返回给应用程序的值。 更新用户流以包含所需的声明。
+
+1. 选择“用户流(策略)”。
+1. 打开之前创建的用户流。
+1. 选择“应用程序声明”  。
+1. 选择要发送回应用程序的声明和属性。
+1. 单击“ **保存**”。
+
 
 ## <a name="next-steps"></a>后续步骤
 

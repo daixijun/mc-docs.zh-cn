@@ -4,13 +4,13 @@ description: 本文介绍如何排查适用于 Apache Kafka 的 Azure 事件中�
 ms.topic: article
 ms.author: v-tawe
 origin.date: 06/23/2020
-ms.date: 08/21/2020
-ms.openlocfilehash: 6a8d74ce9eafea67771af23d6d661d552a1688fe
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.date: 11/04/2020
+ms.openlocfilehash: 9ed63a3c2f6819ec26b2dd373158e3794b3eee9f
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715361"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375670"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>针对事件中心的 Apache Kafka 故障排除指南
 本文提供的故障排除技巧适用于你在使用适用于 Apache Kafka 的事件中心时可能会遇到的问题。 
@@ -23,7 +23,7 @@ ms.locfileid: "88715361"
 - 如果生成请求的延迟超过请求超时，事件中心会返回“策略冲突”错误代码。
 - 如果提取请求的延迟超过请求超时，事件中心会将请求记录为“受限制”并以空记录集进行响应，不返回错误代码。
 
-[专用群集](event-hubs-dedicated-overview.md)没有限制机制。 你可以自由地使用所有群集资源。
+专用群集没有限制机制。 你可以自由地使用所有群集资源。
 
 ## <a name="no-records-received"></a>未收到记录
 你可能会看到，使用者未收到任何记录，并且会不断地重新进行平衡。 在这种情况下，使用者不会获得任何记录，只会不断地重新进行平衡。 它发生时没有异常或错误，但 Kafka 日志会显示使用者在尝试重新加入组和分配分区时处于停滞状态。 此问题有多种可能的原因：
@@ -51,13 +51,13 @@ org.apache.kafka.common.errors.UnknownServerException: The server experienced an
 - **防火墙阻止流量** - 确保防火墙未阻止端口 **9093**。
 - **TopicAuthorizationException** - 此异常的最常见原因包括：
     - 配置文件中的连接字符串中有拼写错误，或者
-    - 尝试在“基本”层命名空间中使用用于 Kafka 的事件中心。 [只有“标准”和“专用”层命名空间支持](https://www.azure.cn/pricing/details/event-hubs/)用于 Kafka 的事件中心。
+    - 尝试在“基本”层命名空间中使用用于 Kafka 的事件中心。 [只有标准层和专用层命名空间支持](https://www.azure.cn/pricing/details/event-hubs/)用于 Kafka 功能的事件中心。
 - **Kafka 版本不匹配** - 用于 Kafka 生态系统的事件中心支持 Kafka 1.0 及更高版本。 某些使用 Kafka 0.10 及更高版本的应用程序有时可能会有效，因为 Kafka 协议具有后向兼容性，但我们强烈建议你不要使用旧的 API 版本。 Kafka 0.9 及更低版本不支持必需的 SASL 协议，因此无法连接到事件中心。
 - **与 Kafka 配合使用时，AMQP 标头上出现奇怪的编码** - 通过 AMQP 将事件发送到事件中心时，系统会采用 AMQP 编码来序列化任何 AMQP 有效负载标头。 Kafka 使用者不会反序列化 AMQP 中的标头。 若要读取标头值，请手动解码 AMQP 标头。 或者，如果你知道要通过 Kafka 协议来使用 AMQP 标头，则可避免使用这些标头。 有关详细信息，请参阅[此 GitHub 问题](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56)。
 - **SASL 身份验证** - 将框架与事件中心所需的 SASL 身份验证协议配合使用可能不是看起来那么容易。 看看你是否可以在 SASL 身份验证的基础上使用框架的资源来排查配置问题。 
 
 ## <a name="limits"></a>限制
-我们可以将 Apache Kafka 与事件中心 Kafka 进行比较。 大多数情况下，事件中心 Kafka 的默认值、属性、错误代码和常规行为与 Apache Kafka 的相同。 下面列出了这二者明显不同的情况（或事件中心施加了某个限制而 Kafka 没有施加该限制的情况）：
+我们可以将 Apache Kafka 与事件中心 Kafka 进行比较。 大多数情况下，Azure 事件中心的 Kafka 接口的默认值、属性、错误代码和常规行为与 Apache Kafka 的相同。 下面列出了这二者明显不同的情况（或事件中心施加了某个限制而 Kafka 没有施加该限制的情况）：
 
 - `group.id` 属性的最大长度为 256 个字符
 - `offset.metadata.max.bytes` 的最大大小为 1024 个字节

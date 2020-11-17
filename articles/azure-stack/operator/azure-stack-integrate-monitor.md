@@ -4,16 +4,16 @@ description: 了解如何将 Azure Stack Hub 与数据中心内的外部监视�
 author: WenJason
 ms.topic: article
 origin.date: 04/10/2020
-ms.date: 05/18/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 5798c0a67d1e750db14b8d82e14a0882bc52fdd7
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 2eb5f2cee98350662e6f17f3624ccd0509aa73bd
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422610"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330627"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -70,6 +70,9 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 在版本 1.2 中，Azure Stack Hub – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
 
+> [!IMPORTANT]
+> AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
+
 该插件适用于 Nagios 4x 和 XI。 若要下载该插件，请参阅[监视 Azure Stack Hub 警报](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)。 下载站点还包含安装和配置详细信息。
 
 ### <a name="requirements-for-nagios"></a>Nagios 的要求
@@ -115,11 +118,11 @@ samples/etc/azurestack_services.cfg
 
 有关如何创建 SPN 的详细信息，请参阅[使用应用标识来访问资源](azure-stack-create-service-principals.md)。
 
-| 参数 | 说明 | Authentication |
+| 参数 | 说明 | 身份验证 |
 | --- | --- | --- |
-| **External_domain_fqdn ** | 外部域 FQDN |    |
-| **region: ** | 区域名称 |    |
-| **tenant_id: ** | 租户 ID\* |    |
+| **External_domain_fqdn** | 外部域 FQDN |    |
+| **region:** | 区域名称 |    |
+| **tenant_id:** | 租户 ID\* |    |
 | client_id: | 客户端 ID | 包含机密的 SPN |
 | client_secret: | 客户端密码 | 包含机密的 SPN |
 | client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
@@ -187,7 +190,7 @@ samples/etc/azurestack_services.cfg
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>故障排除
+### <a name="troubleshooting"></a>疑难解答
 
 通过在终端中手动调用插件，对插件进行故障排除。 使用以下方法：
 

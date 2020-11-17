@@ -45,7 +45,7 @@ ms.locfileid: "94501625"
 
 3. 选择“用户”。
 
-4. 搜索并选择获得角色分配的用户。 例如， _Alain Charon_ 。
+4. 搜索并选择获得角色分配的用户。 例如，_Alain Charon_。
 
       ![“所有用户”页 - 选择用户](./media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "94501625"
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>从用户删除角色分配
 
-1. 选择“Azure Active Directory”，选择“用户”，然后搜索并选择删除分配了角色的用户。 例如， _Alain Charon_ 。
+1. 选择“Azure Active Directory”，选择“用户”，然后搜索并选择删除分配了角色的用户。 例如，_Alain Charon_。
 
 2. 选择“分配的角色”，选择“应用程序管理员”，然后选择“删除分配”。
 

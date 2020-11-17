@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 02/20/2018
-ms.openlocfilehash: 0146e61d28f7040edd4ab2f15350384d9d0f0b62
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 14d942813b42d9b6c0dc9a9f31979aaf9c166dc5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148590"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328796"
 ---
 # <a name="service-connectivity-monitor"></a>服务连接监视器
 
@@ -20,8 +20,8 @@ ms.locfileid: "89148590"
 
 可以使用服务连接监视器实现以下功能： 
 
-- 监视从多个分支机构或位置到应用程序和网络服务的网络连接。 应用程序和网络服务包括 Office 365、Dynamics CRM、内部业务线应用程序和 SQL 数据库。
-- 使用内置测试来监视与 Office 365 和 Dynamics 365 终结点建立的网络连接。 
+- 监视从多个分支机构或位置到应用程序和网络服务的网络连接。 应用程序和网络服务包括 Microsoft 365、Dynamics CRM、内部业务线应用程序和 SQL 数据库。
+- 使用内置测试来监视与 Microsoft 365 和 Dynamics 365 终结点建立的网络连接。 
 - 确定在连接到终结点时经历的响应时间、网络延迟和数据包丢失情况。
 - 确定应用程序性能差是由于网络问题，还是由于应用程序提供商一端出现某种问题。
 - 通过查看拓扑图中每个跃点造成的延迟，来查明网络中可能导致应用程序性能差的热点。
@@ -100,7 +100,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 确定问题是由于网络导致的后，可以在拓扑图上选择“拓扑”视图链接来查明有问题的跃点。  下图中显示了一个示例。 节点与应用程序终结点之间的总延迟为 105 毫秒，其中，96 毫秒的延迟是带有红色标记的跃点造成的。 查明有问题的跃点后，可以采取纠正措施。 
 
-![服务连接监视器测试](./media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![“服务连接监视器”终结点拓扑](./media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>诊断 
 
@@ -121,8 +121,8 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 * 如果服务响应时间为 NA 但网络断开和延迟值有效，则表示目标服务可能不是 Web 应用程序。 编辑测试配置，选择“网络”而不是“Web”作为测试类型。   
 
 * 如果应用程序运行速度缓慢，请确定应用程序性能差是由于网络问题，还是由于应用程序提供商一端出现某种问题。
-<!--Not available in MC: ## GCC Office URLs for US Government customers-->
 
+<!--Not available in MC: ## GCC Office URLs for US Government customers-->
 ## <a name="next-steps"></a>后续步骤
 [搜索日志](../log-query/log-query-overview.md)以查看详细的网络性能数据记录。
 

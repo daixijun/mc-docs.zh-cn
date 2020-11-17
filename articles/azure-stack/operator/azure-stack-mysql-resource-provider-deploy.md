@@ -3,22 +3,21 @@ title: 在 Azure Stack Hub 上部署 MySQL 资源提供程序
 description: 了解如何将 MySQL 资源提供程序适配器和 MySQL 数据库作为服务部署到 Azure Stack Hub 上。
 author: WenJason
 ms.topic: article
-ms.service: azure-stack
-origin.date: 1/22/2020
-ms.date: 10/12/2020
+origin.date: 9/22/2020
+ms.date: 11/09/2020
 ms.author: v-jay
-ms.reviewer: xiaofmao
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 13f3ed5751ffcad63a646fb8a0d86151194c36bc
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.reviewer: caoyang
+ms.lastreviewed: 9/22/2020
+ms.openlocfilehash: c7e313851e290d4940ef952ac1332a7be6945d79
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437625"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330526"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 MySQL 资源提供程序
 
-可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
+可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序作为服务器在 Windows Server 2016 Server Core 虚拟机（适用于适配器版本 <= 1.1.47.0>）或特殊的 Add-on RP Windows Server（适用于适配器版本 >= 1.1.93.0）上运行。
 
 > [!IMPORTANT]
 > 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
@@ -29,15 +28,18 @@ ms.locfileid: "91437625"
 
 * 向 Azure [注册 Azure Stack Hub](./azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
 
-* 下载 **Windows Server 2016 Datacenter - 服务器核心**映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack Hub 市场。
+* 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
+  * 对于 MySQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
+  * 对于 MySQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack 加载项 RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
 
 * 根据下面的版本映射表，下载受支持版本的 MySQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
-  |支持的 Azure Stack Hub 版本|MySQL RP 版本|
-  |-----|-----|
-  |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
+  |-----|-----|-----|
+  |2005|[MySQL RP 版本 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
+  |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
+  |     |     |     |
 
 >[!NOTE]
 >若要在无法访问 Internet 的系统上部署 MySQL 提供程序，请将 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 文件复制到本地路径。 使用 **DependencyFilesLocalPath** 参数提供路径名称。
@@ -62,15 +64,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. 根据要部署的资源提供程序的版本，运行其中一个脚本。
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. 然后，将下载的包复制到 USB 设备。
+3. 然后，将下载的包复制到 USB 设备。
 
-3. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
+4. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
 
-4. 将此位置注册为本地存储库。
+5. 将此位置注册为本地存储库。
 
 ```powershell
 # requires -Version 5
@@ -107,7 +120,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 * 将证书和其他项目上传到 Azure Stack Hub 上的存储帐户。
 * 发布库包，以便可以使用库部署 MySQL 数据库。
 * 发布用于部署宿主服务器的库包。
-* 使用下载的 Windows Server 2016 核心映像部署 VM，然后安装 MySQL 资源提供程序。
+* 使用 Windows Server 2016 核心映像或下载的 Microsoft AzureStack 加载项 RP Windows Server 映像部署 VM，然后安装 MySQL 资源提供程序。
 * 注册映射到资源提供程序 VM 的本地 DNS 记录。
 * 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
 
@@ -135,7 +148,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序
 
-如果要部署 MySQL 资源提供程序版本 1.1.33.0 或更早版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要部署 MySQL 资源提供程序版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
+如果要部署 MySQL 资源提供程序版本 1.1.33.0 或更早版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要部署 MySQL 资源提供程序版本 1.1.47.0 或更高版本，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -165,21 +178,21 @@ $tempDir = 'C:\TEMP\MYSQLRP'
 
 # The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.partner.onmschina.cn"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
 # Set the credentials for the new resource provider VM local admin account
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
 # And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath

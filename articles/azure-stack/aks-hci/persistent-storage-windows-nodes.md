@@ -3,21 +3,20 @@ title: 在 Windows 容器中使用持久存储
 description: 在 Windows 容器中使用持久存储并为组托管服务帐户准备好 Windows 节点
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
 origin.date: 09/21/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: c675ae81a36b93b59f3f51e9bc7272bac85b7f1b
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 8712f70eb5b4fad42f33dfbafc8afd575adef2d8
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451220"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330596"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>在 Windows 容器中使用持久存储并为组托管服务帐户准备好 Windows 节点
 
-永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 持久卷可由一个或多个 Pod 使用，旨在用于长期存储。 它还独立于 Pod 或节点生命周期。  在此部分中，你将了解如何创建持久卷，以及如何在 Windows 应用程序中使用此卷。
+永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 持久卷可由一个或多个 Pod 使用，旨在用于长期存储。 它还独立于 Pod 或节点生命周期。    在此部分中，你将了解如何创建持久卷，以及如何在 Windows 应用程序中使用此卷。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -29,7 +28,7 @@ ms.locfileid: "91451220"
 
 ## <a name="create-a-persistent-volume-claim"></a>创建永久性卷声明
 
-持久卷声明用于基于存储类自动预配存储。 若要创建卷声明，请首先创建名为 `pvc-akshci-csi.yaml` 的文件，并在以下 YAML 定义中进行复制。 该声明请求大小为 10 GB、具有 ReadWriteOnce **  访问权限的磁盘。 default **  存储类指定为存储类 (vhdx)。  
+持久卷声明用于基于存储类自动预配存储。  若要创建卷声明，请首先创建名为 `pvc-akshci-csi.yaml` 的文件，并在以下 YAML 定义中进行复制。 该声明请求大小为 10 GB、具有 ReadWriteOnce **  访问权限的磁盘。 default **  存储类指定为存储类 (vhdx)。  
 
 ```yaml
 apiVersion: v1
@@ -43,11 +42,11 @@ spec:
   requests:
    storage: 10Gi
 ```
-通过在 Azure Stack HCI 群集中一台服务器上的管理 PowerShell 会话中运行以下命令来创建卷（使用 [Enter-PSSession](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enter-pssession) 等方法或远程桌面连接到服务器）： 
+通过在 Azure Stack HCI 群集中一台服务器上的管理 PowerShell 会话中运行以下命令来创建卷（使用 [Enter-PSSession](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enter-pssession) 等方法或远程桌面连接到服务器）： 
 
 
 ```PowerShell
-kubectl create -f pvc-akshci-csi.yaml 
+kubectl create -f pvc-akshci-csi.yaml 
 ```
 以下输出会显示已成功创建持久卷声明：
 
@@ -58,7 +57,7 @@ persistentvolumeclaim/pvc-akshci-csi created
 
 ## <a name="use-persistent-volume"></a>使用持久卷
 
-若要使用持久卷，请创建名为 winwebserver.yaml 的文件，并在以下 YAML 定义中进行复制。 随后创建可访问持久卷声明和 vhdx 的 Pod。 
+若要使用持久卷，请创建名为 winwebserver.yaml 的文件，并在以下 YAML 定义中进行复制。  随后创建可访问持久卷声明和 vhdx 的 Pod。 
 
 在下面的 yaml 定义中，mountPath 是用于在容器中装载卷的路径。 成功创建 Pod 之后，你会看到在 C:\\ 中创建了子目录 mnt，并在 mnt 内创建了子目录 akshciscsi   。
 
@@ -100,24 +99,24 @@ spec:
 若要使用以上 yaml 定义创建 Pod，请运行：
 
 ```PowerShell
-Kubectl create -f winwebserver.yaml 
+Kubectl create -f winwebserver.yaml 
 ```
 
 若要确保 Pod 正在运行，请运行以下命令。 等待几分钟，直到 Pod 处于正在运行状态，因为拉取映像会花费时间。
 
 ```PowerShell
-kubectl get pods -o wide 
+kubectl get pods -o wide 
 ```
-Pod 运行后，便可通过运行以下命令来查看 Pod 状态： 
+Pod 运行后，便可通过运行以下命令来查看 Pod 状态： 
 
 ```PowerShell
-kubectl.exe describe pod %podName% 
+kubectl.exe describe pod %podName% 
 ```
 
 若要验证是否已在 Pod 中装载了卷，请运行以下命令：
 
 ```PowerShell
-kubectl exec -it %podname% cmd.exe 
+kubectl exec -it %podname% cmd.exe 
 ```
 
 ## <a name="delete-a-persistent-volume-claim"></a>删除持久卷声明
@@ -156,7 +155,7 @@ add-computer --domainame "YourDomainName" -restart
 
 将所有 Windows 工作器节点加入域后，请按照[配置 gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) 中详细介绍的步骤在 Kubernetes 群集上应用 Kubernetes gMSA 自定义资源定义和 Webhook。
 
-有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [Windows 容器和 gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
+有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [Windows 容器和 gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
 
 ## <a name="next-steps"></a>后续步骤
 - [在 Kubernetes 群集上部署 Windows 应用程序](./deploy-windows-application.md)。

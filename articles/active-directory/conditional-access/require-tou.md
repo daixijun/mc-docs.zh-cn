@@ -35,8 +35,8 @@ ms.locfileid: "94501805"
 
 若要完成本快速入门中的方案，你需要：
 
-- **对 Azure AD Premium 版本的访问权限** ：Azure AD 条件访问是一项 Azure AD Premium 功能。
-- **名为 Isabella Simonsen 的测试帐户** ：如果不知道如何创建测试帐户，请参阅 [添加基于云的用户](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
+- **对 Azure AD Premium 版本的访问权限**：Azure AD 条件访问是一项 Azure AD Premium 功能。
+- **名为 Isabella Simonsen 的测试帐户**：如果不知道如何创建测试帐户，请参阅 [添加基于云的用户](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
 ## <a name="test-your-sign-in"></a>测试登录
 
@@ -54,7 +54,7 @@ ms.locfileid: "94501805"
 **创建使用条款：**
 
 1. 在 Microsoft Word 中创建一个新文档。
-1. 键入“我的使用条款”，然后在计算机上将此文档保存为 **mytou.pdf** 。
+1. 键入“我的使用条款”，然后在计算机上将此文档保存为 **mytou.pdf**。
 1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在 Azure 门户的左侧导航栏中，单击“Azure Active Directory”。
 

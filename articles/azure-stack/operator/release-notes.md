@@ -2,19 +2,18 @@
 title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
-origin.date: 09/23/2020
-ms.date: 10/12/2020
+origin.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: d3541eb82842fa23a078523414c7cce95f261817
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 7b7ad82cbb7be71ff8ed3f34e09080e6173ed7a0
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437623"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330494"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -47,9 +46,6 @@ ms.locfileid: "91437623"
 ## <a name="2005-build-reference"></a>2005 内部版本参考
 
 Azure Stack Hub 2005 更新内部版本号为 1.2005.6.53。
-
-> [!IMPORTANT]  
-> 随着 [2002 版](release-notes.md?view=azs-2002) Azure Stack Hub 的推出，为了支持世界各地应对新冠病毒肺炎的客户以及可能对其 Azure Stack Hub 系统做出重要决策的客户，Microsoft 暂时扩展支持策略以包含三个以前的更新版本 (N-3)。 在 2005 版本中，我们将此扩展继续延长 45 天（至 2020 年 9 月 25 日）。 因此，将支持新发布的 2005 更新以及以前的三个更新版本（2002、1910 和 1908 或 N-3）之一。 45 天后（2020 年 9 月 25 日后），我们将恢复标准支持策略，这意味着支持的版本将为 2005、2002 和 1910 或 N-2。
 
 ### <a name="update-type"></a>更新类型
 
@@ -134,7 +130,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2002 中应用 Azure Stack Hub 版本 2005：
 
-- [Azure Stack Hub 修补程序 1.2002.53.144](https://support.microsoft.com/help/4574736)
+- [Azure Stack Hub 修补程序 1.2002.56.152](https://support.microsoft.com/help/4582983)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>成功应用 2005 更新之后
 
@@ -142,7 +138,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack Hub 修补程序 1.2005.13.68](https://support.microsoft.com/help/4583399)
+- [Azure Stack Hub 修补程序 1.2005.19.80](https://support.microsoft.com/help/4591132)
 
 ## <a name="2002-build-reference"></a>2002 内部版本参考
 
@@ -262,14 +258,14 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 必须在包含以下修补程序的版本 1910 中应用 Azure Stack Hub 版本 2002：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack Hub 修补程序 1.1910.81.224](https://support.microsoft.com/help/4583406)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>成功应用 2002 更新之后
 
 安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.2002.53.144](https://support.microsoft.com/help/4574736)
+- [Azure Stack Hub 修补程序 1.2002.56.152](https://support.microsoft.com/help/4582983)
 
 ## <a name="1910-build-reference"></a>1910 内部版本参考
 
@@ -313,7 +309,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
 - 已在特权终结点 (PEP) 中添加 **Get-AzSDnsForwarder** cmdlet，用于在 Azure Stack Hub 中检索 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅 [Azure Stack Hub 数据中心 DNS 集成](azure-stack-integrate-dns.md)。
 
-- 添加了对使用 [AKS 引擎](../user/azure-stack-kubernetes-aks-engine-overview.md)管理 **Kubernetes 集群**的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 借助 AKS 引擎，用户能够：
+- 添加了对使用 [AKS 引擎](../user/azure-stack-kubernetes-aks-engine-overview.md)管理 **Kubernetes 集群** 的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 借助 AKS 引擎，用户能够：
   - 管理其 Kubernetes 群集的生命周期。 创建、更新和扩展群集。
   - 使用 AKS 和 Azure Stack Hub 团队生成的托管映像维护其群集。
   - 利用集成了 Azure 资源管理器的 Kubernetes 云提供程序，该提供程序使用本机 Azure 资源构建群集。
@@ -372,7 +368,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
 - 将市场项从 Azure 下载到 Azure Stack Hub 时，可以使用新的用户界面来指定项的版本（如果存在多个版本时）。 新 UI 可用于联网场景和离线场景。 有关详细信息，请参阅[将市场项从 Azure 下载到 Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。 有关详细信息，请参阅 [Azure Stack 的网络集成规划](azure-stack-network.md)。
+- 从版本 1910 开始，Azure Stack Hub 系统 **需要** 额外的 /20 专用内部 IP 空间。 有关详细信息，请参阅 [Azure Stack 的网络集成规划](azure-stack-network.md)。
   
 - 如果在上传过程中外部存储位置耗尽了容量，基础结构备份服务将会删除部分上传的备份数据。  
 
@@ -419,109 +415,12 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 必须在包含以下修补程序的版本 1908 中应用 Azure Stack 版本 1910：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.1908.51.133](https://support.microsoft.com/help/4574734)
+- [Azure Stack Hub 修补程序 1.1908.57.146](https://support.microsoft.com/help/4583007)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>成功应用 1910 更新之后
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack Hub 修补程序 1.1910.81.224](https://support.microsoft.com/help/4583406)
 
-## <a name="1908-build-reference"></a>1908 内部版本参考
-
-Azure Stack Hub 1908 更新内部版本号为 **1.1908.4.33**。
-
-### <a name="update-type"></a>更新类型
-
-对于 1908，运行 Azure Stack Hub 的底层操作系统已更新为 Windows Server 2019。 此更新可以实现核心基础增强，并将更多功能引入 Azure Stack Hub。
-
-Azure Stack Hub 1908 更新内部版本类型为“完整”。 因此，1908 更新的运行时间比快速更新（例如 1906 和 1907）更久。 完整更新的确切运行时间通常取决于 Azure Stack Hub 实例包含的节点数目、租户工作负荷在系统上使用的容量、系统的网络连接（如果已连接到 Internet），以及系统的硬件配置。 在我们的内部测试中，1908 更新的预期运行时间如下：4 个节点 - 42 小时，8 个节点 - 50 小时，12 个节点 - 60 小时，16 个节点 - 70 小时。 更新运行时间超过这些预期值并不常见，因此，除了更新失败之外，无需要求 Azure Stack Hub 操作员执行操作。
-
-有关更新内部版本类型的详细信息，请参阅[在 Azure Stack Hub 中管理更新](azure-stack-updates.md)。
-
-- 确切的更新运行时间通常取决于租户工作负荷在系统上使用的容量、系统网络连接（如果已连接到 Internet），以及系统的硬件配置。
-- 运行时间超过预期值并不常见，除非更新失败，否则无需 Azure Stack Hub 操作员采取措施。
-- 此运行时近似值特定于 1908 更新，不应与其他 Azure Stack Hub 更新进行比较。
-
-<!-- ## What's in this update -->
-
-<!-- The current theme (if any) of this release. -->
-
-### <a name="whats-new"></a>新增功能
-
-<!-- What's new, also net new experiences and features. -->
-
-- 对于 1908，请注意，运行 Azure Stack Hub 的底层操作系统已更新为 Windows Server 2019。 此更新可以实现核心基础增强，并将更多功能引入 Azure Stack Hub。
-- Azure Stack Hub 基础结构的所有组件现在都以 FIPS 140-2 模式运行。
-- Azure Stack Hub 操作员现在可以删除门户用户数据。 有关详细信息，请参阅[从 Azure Stack Hub 中清除门户用户数据](azure-stack-portal-clear.md)。
-
-### <a name="improvements"></a>改进
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-- Azure Stack Hub 的静态数据加密已得到改进，可将机密持久保存到物理节点的硬件受信任平台模块 (TPM)。
-
-### <a name="changes"></a>更改
-
-- 硬件提供商将在 Azure Stack Hub 版本 1908 的同一发布时间发布 OEM 扩展包 2.1 或更高版本。 必须安装 OEM 扩展包 2.1 或更高版本才能使用 Azure Stack Hub 版本 1908。 有关如何下载 OEM 扩展包 2.1 或更高版本的详细信息，请与系统的硬件提供商联系，并参阅 [OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
-
-### <a name="fixes"></a>修复项
-
-- 修复了与将来的 Azure Stack Hub OEM 更新兼容的问题，以及使用客户用户映像进行 VM 部署的问题。 此问题是在 1907 中发现的，已在修补程序 [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44) 中予以修复  
-- 修复了 OEM 固件更新的问题，并更正了 Fabric Ring Health 的 Test-AzureStack 中的诊断错误。 此问题是在 1907 中发现的，已在修补程序 [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35) 中予以修复
-- 修复了 OEM 固件更新过程的问题。 此问题是在 1907 中发现的，已在修补程序 [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37) 中予以修复
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-## <a name="security-updates"></a>安全更新
-
-有关此 Azure Stack Hub 更新中的安全更新的信息，请参阅 [Azure Stack Hub 安全更新](release-notes-security-updates.md)。
-
-可从 [Qualys 网站](https://www.qualys.com/azure-stack/)下载此版本的 Qualys 漏洞报告。
-
-## <a name="download-the-update"></a>下载更新
-
-可从 [Azure Stack Hub 下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack Hub 1908 更新包。
-
-## <a name="hotfixes"></a>修补程序
-
-Azure Stack Hub 定期发布修补程序。 将 Azure Stack Hub 更新到 1908 之前，请务必先安装 1907 的最新 Azure Stack Hub 修补程序。
-
-Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿尝试在 ASDK 上安装修补程序。
-
-### <a name="prerequisites-before-applying-the-1908-update"></a>先决条件：应用 1908 更新之前
-
-必须在包含以下修补程序的版本 1907 中应用 Azure Stack Hub 版本 1908：
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.1907.29.80](https://support.microsoft.com/help/4555650)
-
-Azure Stack Hub 1908 更新需要系统硬件提供商提供的 **Azure Stack Hub OEM 2.1 或更高版本**。 OEM 更新包括 Azure Stack Hub 系统硬件的驱动程序和固件更新。 有关应用 OEM 更新的详细信息，请参阅[应用 Azure Stack Hub 原始设备制造商更新](azure-stack-update-oem.md)
-
-### <a name="after-successfully-applying-the-1908-update"></a>成功应用 1908 更新之后
-
-安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.1908.51.133](https://support.microsoft.com/help/4574734)
-
-<!------------------------------------------------------------>
-<!------------------- UNSUPPORTED VERSIONS ------------------->
-<!------------------------------------------------------------>
-## <a name="1907-archived-release-notes"></a>1907 已存档的发行说明
-## <a name="1906-archived-release-notes"></a>1906 已存档的发行说明
-## <a name="1905-archived-release-notes"></a>1905 已存档的发行说明
-## <a name="1904-archived-release-notes"></a>1904 已存档的发行说明
-## <a name="1903-archived-release-notes"></a>1903 已存档的发行说明
-## <a name="1902-archived-release-notes"></a>1902 已存档的发行说明
-## <a name="1901-archived-release-notes"></a>1901 已存档的发行说明
-## <a name="1811-archived-release-notes"></a>1811 已存档的发行说明
-## <a name="1809-archived-release-notes"></a>1809 已存档的发行说明
-## <a name="1808-archived-release-notes"></a>1808 已存档的发行说明
-## <a name="1807-archived-release-notes"></a>1807 已存档的发行说明
-## <a name="1805-archived-release-notes"></a>1805 已存档的发行说明
-## <a name="1804-archived-release-notes"></a>1804 已存档的发行说明
-## <a name="1803-archived-release-notes"></a>1803 已存档的发行说明
-## <a name="1802-archived-release-notes"></a>1802 已存档的发行说明
-
-可以访问 [TechNet 库中旧版本 Azure Stack Hub 的发行说明](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档文档仅供参考，并不意味着支持这些版本。 有关 Azure Stack Hub 支持的信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-servicing-policy.md)。 如需进一步的帮助，请联系 Microsoft 客户支持服务。

@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 origin.date: 09/21/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 7e7a55b49c81187da088905ca2b2eb28ee5594e6
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 544e0467367970502a4fd97a8ce7bccc0f0b4791
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470477"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328019"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 单一服务器
 
@@ -58,6 +58,8 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 
 单一服务器服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 在运行查询时创建的数据（包括备份）和临时文件都会进行加密。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥可由系统进行管理（默认）。 该服务使用默认实施的传输层安全性 (SSL/TLS) 对动态数据进行加密。 该服务支持 TLS 版本 1.2、1.1 和 1.0，并可强制执行[最低 TLS 版本](concepts-ssl-connection-security.md)。
 
+该服务允许使用专用链接对服务器进行专用访问。
+
 除了本机身份验证外，单一服务器服务还支持 Azure Active Directory 身份验证。 Azure AD 身份验证是一种使用 Azure AD 中定义和管理的标识连接到 PostgreSQL 服务器的机制。 通过 Azure AD 身份验证，可以在一个中心位置集中管理数据库用户标识和其他 Azure 服务，从而简化和集中访问控制。
 
 [审核日志记录](concepts-audit.md)（预览版）可用于跟踪所有数据库级别活动。
@@ -74,8 +76,8 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 
 该服务运行 PostgreSQL 的社区版本。 这样可以实现完全的应用程序兼容性，并且只需最小的重构成本就能将在 PostgreSQL 引擎上开发的现有应用程序迁移到单一服务器服务。 可以使用以下任一选项来执行向单一服务器的迁移：
 
-- 转储和还原 - 对于脱机迁移（在此情况下，用户可承受一定的故障时间），使用社区工具（如 Pg_dump 和 Pg_restore）的转储和还原可以提供最快的迁移方式。 有关详细信息，请参阅[使用转储和还原进行迁移](/postgresql/howto-migrate-using-dump-and-restore)。
-- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 Azure 数据库迁移服务。 请参阅[通过门户的 DMS](/dms/tutorial-postgresql-azure-postgresql-online-portal) 和[通过 CLI 的 DMS](/dms/tutorial-postgresql-azure-postgresql-online)。
+- 转储和还原 - 对于脱机迁移（在此情况下，用户可承受一定的故障时间），使用社区工具（如 Pg_dump 和 Pg_restore）的转储和还原可以提供最快的迁移方式。 有关详细信息，请参阅[使用转储和还原进行迁移](./howto-migrate-using-dump-and-restore.md)。
+- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 Azure 数据库迁移服务。 请参阅[通过门户的 DMS](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) 和[通过 CLI 的 DMS](../dms/tutorial-postgresql-azure-postgresql-online.md)。
 
 ## <a name="contacts"></a>联系人
 
@@ -86,4 +88,3 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 
 现在，你已阅读 Azure Database for PostgreSQL 单一服务器部署模式简介，接下来可以：
 - 创建你的第一个服务器。
-  

@@ -22,7 +22,7 @@ ms.locfileid: "94501708"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
 
-每个新的 Azure AD 租户都附带了一个初始域名 \<domainname>.partner.onmschina.cn。 无法更改或删除初始域名，但可以添加组织的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain\@contoso.com* 。
+每个新的 Azure AD 租户都附带了一个初始域名 \<domainname>.partner.onmschina.cn。 无法更改或删除初始域名，但可以添加组织的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 *alain\@contoso.com*。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -54,12 +54,12 @@ ms.locfileid: "94501708"
 
     ![“自定义域名”页，其中显示了“添加自定义域”](./media/add-custom-domain/add-custom-domain.png)
 
-1. 在“自定义域名”中，输入组织的新名称（在本示例中为 *contoso.com* ）。 选择“添加域”。
+1. 在“自定义域名”中，输入组织的新名称（在本示例中为 *contoso.com*）。 选择“添加域”。
 
     ![“自定义域名”页，其中显示了“添加自定义域”页](./media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >若要正常完成此过程，必须包含 *.com* 、 *.net* 或其他任何顶级扩展名。
+    >若要正常完成此过程，必须包含 *.com*、 *.net* 或其他任何顶级扩展名。
 
     将添加未验证的域。 此时将出现“contoso.com”页，其中显示了 DNS 信息。 请保存此信息。 稍后需要使用此信息来创建 TXT 记录以配置 DNS。
 
@@ -98,7 +98,7 @@ ms.locfileid: "94501708"
 
 如果 Azure AD 无法验证自定义域名，请尝试以下建议的方法：
 
-- **至少等待一小时，然后重试** 。 必须先传播 DNS 记录，Azure AD 才能验证域。 此过程可能需要一小时以上。
+- **至少等待一小时，然后重试**。 必须先传播 DNS 记录，Azure AD 才能验证域。 此过程可能需要一小时以上。
 
 - **确保 DNS 记录正确。** 返回到域名注册机构站点。 确保该条目已存在，并且它与 Azure AD 提供的 DNS 条目信息相匹配。
 

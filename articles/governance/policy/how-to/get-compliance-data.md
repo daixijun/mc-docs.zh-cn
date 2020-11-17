@@ -2,15 +2,15 @@
 title: 获取策略符合性数据
 description: Azure Policy 的评估和效果确定了符合性。 了解如何获取 Azure 资源的符合性详细信息。
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 1203fb1a6e3cb582afcfc74aaed17e0550e9c72e
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: ed85e2184cfb899f958ec4ea160cca980af1a30d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523989"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328824"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>获取 Azure 资源的符合性数据
 
@@ -24,7 +24,7 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 在探讨符合性报告方法之前，让我们了解符合性信息的更新时间和频率，以及触发评估周期的事件。
 
 > [!WARNING]
-> 如果符合性状态被报告为“未注册”，请验证是否已注册 Microsoft.PolicyInsights 资源提供程序，并验证用户是否具有适当的基于角色的访问控制 (RBAC) 权限，如 [Azure Policy 中的 RBAC](../overview.md#rbac-permissions-in-azure-policy) 所述。
+> 如果符合性状态被报告为“未注册”，请验证是否已注册 Microsoft.PolicyInsights 资源提供程序，并按照 [Azure Policy 中的 Azure RBAC 权限](../overview.md#azure-rbac-permissions-in-azure-policy)中的说明来验证用户是否具有适当的 Azure 基于角色的访问控制 (RBAC) 权限 。
 
 ## <a name="evaluation-triggers"></a>评估触发器
 
@@ -32,11 +32,13 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 
 已分配的策略和计划的评估会在各种事件后发生：
 
-- 最近已将策略或计划分配到某个范围。 需要大约花费 30 分钟将分配应用到定义的范围。 应用分配后，将会针对新分配的策略或计划，对该范围内的资源执行评估周期，同时，会根据策略或计划使用的效果，将资源标记为合规或不合规。 针对大范围的资源评估的大型策略或计划可能需要花费一段时间。 因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
+- 最近已将策略或计划分配到某个范围。 需要大约花费 30 分钟将分配应用到定义的范围。 在应用了分配之后，会针对新分配的策略或计划开始该范围内资源的评估周期，并且，根据策略或计划使用的效果，会将资源标记为符合、不符合或豁免。 针对大范围的资源评估的大型策略或计划可能需要花费一段时间。 因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
 
 - 更新了已分配到某个范围的策略或计划。 此场景的评估周期和计时与新的范围分配相同。
 
 - 资源将通过 Azure 资源管理器、REST API 或受支持的 SDK 部署到包含分配的范围或在其中进行更新。 在此场景中，个体资源的效果事件（追加、审核、拒绝、部署）和符合性状态将在大约 15 分钟后出现在门户与 SDK 中。 此事件不会导致对其他资源进行评估。
+
+- 创建、更新或删除了[策略豁免](../concepts/exemption-structure.md)。 在此方案中，会为定义的豁免范围评估相应的分配。
 
 - 标准符合性评估周期。 分配每隔 24 小时自动重新评估一次。 涉及大量资源的大型策略或计划可能需要花费一段时间，因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
 
@@ -46,7 +48,37 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 
 ### <a name="on-demand-evaluation-scan"></a>按需评估扫描
 
-可以通过 Azure CLI,、Azure PowerShell 或调用 REST API 来启动订阅或资源组的评估扫描。 此扫描是一个异步过程。
+可以使用 Azure CLI、Azure PowerShell、对 REST API 的调用或通过使用 [Azure Policy 符合性扫描 GitHub 操作](https://github.com/marketplace/actions/azure-policy-compliance-scan)来启动对订阅或资源组的评估扫描。
+此扫描是一个异步过程。
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>按需评估扫描 - GitHub 操作
+
+使用 [Azure Policy 符合性扫描操作](https://github.com/marketplace/actions/azure-policy-compliance-scan)可从 [GitHub 工作流](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)中触发对一个或多个资源、资源组或订阅的按需评估扫描，并基于资源的符合性状态来限制该工作流。 还可以将该工作流配置为按计划的时间运行，从而在方便时获取最新的符合性状态。 或者，此 GitHub 操作还可以生成有关已扫描资源的符合性状态报告，以便进一步分析或存档。
+
+以下示例对订阅运行符合性扫描。 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+有关详细信息和工作流示例，请参阅[“适用于 Azure Policy 符合性扫描的 GitHub 操作”存储库](https://github.com/Azure/policy-compliance-scan)。
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>按需评估扫描 - Azure CLI
 
@@ -58,7 +90,7 @@ Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../.
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-可以选择使用 no-wait 参数在继续之前不等待异步过程完成。
+利用 no-wait 参数，可以选择在继续之前不等待异步过程完成。
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>按需评估扫描 - Azure PowerShell
 
@@ -127,20 +159,24 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>按需评估扫描 - Visual Studio Code
+
+适用于 Visual Studio code 的 Azure Policy 扩展可以针对特定资源运行评估扫描。 与 Azure PowerShell 和 REST 方法不同，此扫描是同步过程。
+有关详细信息和步骤，请参阅[使用 VS Code 扩展进行按需评估](./extension-for-vscode.md#on-demand-evaluation-scan)。
+
 ## <a name="how-compliance-works"></a>符合性的工作原理
 
-在分配中，如果某资源不符合策略或计划规则，则该资源不合规。
-下表显示了对于生成的符合性状态，不同的策略效果是如何与条件评估配合使用的：
+在某个分配中，如果某资源未遵循策略或计划规则，且未经豁免，则该资源为“不符合”。 下表显示了对于生成的符合性状态，不同的策略效果是如何与条件评估配合使用的：
 
 | 资源状态 | 效果 | 策略评估 | 符合性状态 |
 | --- | --- | --- | --- |
-| Exists | Deny、Audit、Append\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不符合 |
-| Exists | Deny、Audit、Append\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 符合 |
-| 新建 | Audit、AuditIfNotExist\* | True | 不符合 |
-| 新建 | Audit、AuditIfNotExist\* | False | 符合 |
+| 新功能或更新功能 | Audit、Modify、AuditIfNotExist | True | 不合规 |
+| 新功能或更新功能 | Audit、Modify、AuditIfNotExist | False | 符合 |
+| Exists | Deny、Audit、Append、Modify、DeployIfNotExist、AuditIfNotExist | True | 不合规 |
+| Exists | Deny、Audit、Append、Modify、DeployIfNotExist、AuditIfNotExist | False | 符合 |
 
-\*Append、DeployIfNotExist 和 AuditIfNotExist 效果要求 IF 语句为 TRUE。
-这些效果还要求存在条件为 FALSE 才能将资源判定为不合规。 如果为 TRUE，则 IF 条件会触发相关资源存在条件的计算。
+> [!NOTE]
+> DeployIfNotExist 和 AuditIfNotExist 效果要求 IF 语句为 TRUE，而存在条件为 FALSE，即为不符合。 如果为 TRUE，则 IF 条件会触发相关资源存在条件的计算。
 
 例如，假设有一个资源组 ContsoRG，其中包含一些向公共网络公开的存储帐户（以红色突出显示）。
 
@@ -148,22 +184,23 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
    图中显示了 Contoso R G 资源组中五个存储帐户的映像。  存储帐户 1 和 3 为蓝色，而存储帐户 2、4 和 5 为红色。
 :::image-end:::
 
-在此示例中，需要慎重考虑安全风险。 创建策略分配后，将会针对 ContosoRG 资源组中的所有存储帐户评估该分配。 它对这三个不合规的存储帐户进行审核，并因此将其状态更改为“不合规”。
+在此示例中，需要慎重考虑安全风险。 在创建策略分配后，会针对 ContosoRG 资源组中所有已包含的未豁免存储帐户评估该分配。 它对这三个不合规的存储帐户进行审核，并因此将其状态更改为“不合规”。
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Contoso R G 资源组中存储帐户的合规性图。" border="false":::
    图中显示了 Contoso R G 资源组中五个存储帐户的映像。 存储帐户 1 和 3 下面现在有绿色的勾号，而存储帐户 2、4 和 5 下面现在有红色警告标志。
 :::image-end:::
 
-除“符合”和“不符合”外，政策和资源还有 3 种状态 ：
+除了“符合”和“不符合”之外，策略和资源还有四种其他状态 ：
 
-- **冲突**：两项或多项策略的规则存在冲突。 例如，两项策略向不同的值附加了相同的标记。
+- 豁免：资源在分配的范围中，但具有[已定义的豁免](../concepts/exemption-structure.md)。
+- **冲突**：两项或多项策略定义的规则有冲突。 例如，两项定义追加带有不同值的同一个标记。
 - **未启动**：尚未针对策略或资源启动评估周期。
 - **未注册**：尚未注册 Azure Policy 资源提供程序，或者登录的帐户无权读取符合性数据。
 
-Azure Policy 使用定义中的“类型”和“名称”字段来确定资源是否匹配 。 如果资源匹配，则被视为适用，状态为“符合”或“不符合” 。 如果“类型”或“名称”是定义中的唯一属性，则将所有资源视为适用并对其进行评估 。
+Azure Policy 使用定义中的“类型”、“名称”或“种类”字段来确定资源是否是匹配项  。 如果资源匹配，则会被视为适用，并且其状态为“符合”、“不符合”或“豁免”  。 如果“类型”、“名称”或“种类”是定义中的唯一属性，则所有已包含的未豁免资源都会被视为适用并会接受评估  。
 
-符合百分比是合规资源与总资源之比。
-根据定义，总资源是指合规资源、不合规资源和冲突资源的总和  。 整体符合性是不同合规资源的总和除以所有唯一资源。 在下图中，有 20 种不同的资源适用，只有一种资源“不合规”。 因此，资源的整体符合性为 95%（19/20）。
+符合性百分比由“符合”资源与“豁免”资源之和与总资源之比来确定 。 根据定义，总资源是指“符合”、“不符合”、“豁免”以及“冲突”资源的总和   。 总体符合性数值是“符合”的或“豁免”的非重复资源之和与所有非重复资源之和的比值 。 在下图中，有 20 种不同的资源适用，只有一种资源“不合规”。
+因此，资源的整体符合性为 95%（19/20）。
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="“合规性”页面中策略合规性详细信息的屏幕截图。" border="false":::
 
@@ -185,14 +222,14 @@ Azure 门户展示了一个图形体验用于可视化和了解环境中的符�
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="“合规性详细信息”页面的屏幕截图，包括计数和资源合规性详细信息。" border="false":::
 
 “资源符合性”选项卡上的资源列表显示当前分配的现有资源的评估状态。 此选项卡默认为“不符合”，但是可以进行筛选。
-创建资源的请求所触发的事件（追加、审核、拒绝、部署）显示在“事件”选项卡下。
+由创建资源的请求触发的事件（追加、审核、拒绝、部署、修改）会显示在“事件”选项卡下。
 
 <!-- > [!NOTE] -->
 <!-- > For an AKS Engine policy, the resource shown is the resource group. -->
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="“合规性详细信息”页面上“事件”选项卡的屏幕截图。" border="false":::
 
-对于[资源提供程序模式](../concepts/definition-structure.md#resource-provider-modes)资源，通过在“资源符合性”选项卡上选择资源或右键单击行并选择“查看符合性详细信息”可以打开组件符合性详细信息。 该页面还提供了选项卡，以查看分配给此资源、事件、组件事件和更改历史记录的策略。
+<a name="component-compliance"></a> 对于[资源提供程序模式](../concepts/definition-structure.md#resource-provider-modes)资源，在“资源符合性”选项卡上，选择资源，或右键单击行并选择“查看符合性详细信息”，即可打开组件符合性详细信息 。 该页面还提供了选项卡，以查看分配给此资源、事件、组件事件和更改历史记录的策略。
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="资源提供程序模式分配“组件合规性”选项卡及合规性详细信息的屏幕截图。" border="false":::
 
@@ -256,7 +293,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/provider
 
 ### <a name="query-for-resources"></a>查询资源
 
-在上面的示例中，**value.policyAssignments.policyDefinitions.results.queryResultsUri** 提供了一个示例 URI，用于特定策略定义的所有不符合资源。 查看 $filter 值，ComplianceState 等于 (eq)“NonCompliant”，PolicyAssignmentId 是针对策略定义，然后针对 PolicyDefinitionId 本身指定的。 在筛选器中包含 PolicyAssignmentId 的原因是，PolicyDefinitionId 可能在具有不同范围的多个策略或计划分配中存在。 通过指定 PolicyAssignmentId 和 PolicyDefinitionId，可以明确指定想要查找的结果。 以前，我们使用了 **latest** 作为 PolicyStates，因此将**起始**和**截止**时间范围自动设置成了过去 24 小时。
+在上面的示例中，**value.policyAssignments.policyDefinitions.results.queryResultsUri** 提供了一个示例 URI，用于特定策略定义的所有不符合资源。 查看 $filter 值，ComplianceState 等于 (eq)“NonCompliant”，PolicyAssignmentId 是针对策略定义，然后针对 PolicyDefinitionId 本身指定的。 在筛选器中包含 PolicyAssignmentId 的原因是，PolicyDefinitionId 可能在具有不同范围的多个策略或计划分配中存在。 通过指定 PolicyAssignmentId 和 PolicyDefinitionId，可以明确指定想要查找的结果。 以前，我们使用了 **latest** 作为 PolicyStates，因此将 **起始** 和 **截止** 时间范围自动设置成了过去 24 小时。
 
 ```http
 https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
@@ -610,12 +647,17 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-示例：获取在特定日期后发生的、与不符合虚拟网络资源相关的事件。
+示例：获取在某个特定日期之后发生的与不符合的虚拟网络资源相关的事件，转换为 CSV 对象，并导出到文件。
 
 ```powershell
-PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+$policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
+$policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
+```
 
-Timestamp                  : 5/19/2018 5:18:53 AM
+`$policyEvents` 对象的输出类似于：
+
+```output
+Timestamp                  : 9/19/2020 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Network/virtualNetworks/RG-Tags-vnet
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -647,7 +689,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 日志
 
-如果已将包含 [Activity Log Analytics 解决方案](../../../azure-monitor/platform/activity-log.md)中 `AzureActivity` 的 [Log Analytics 工作区](../../../azure-monitor/log-query/log-query-overview.md)绑定到订阅，则还可以使用简单的 Kusto 查询和 `AzureActivity` 表，查看评估周期中的不符合结果。 借助 Azure Monitor 日志中的详细信息，可对警报进行配置，以监视不符合情况。
+如果带有来自 [Activity Log Analytics 解决方案](../../../azure-monitor/platform/activity-log.md)的 `AzureActivity` 的 [Log Analytics 工作区](../../../azure-monitor/log-query/log-query-overview.md)已绑定到订阅，也可以使用简单的 Kusto 查询和 `AzureActivity` 表来查看对新资源和已更新资源的评估中的不符合性结果。 借助 Azure Monitor 日志中的详细信息，可对警报进行配置，以监视不符合情况。
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Monitor 日志的屏幕截图，其中显示了 AzureActivity 表中的 Azure Policy 操作。" border="false":::
 

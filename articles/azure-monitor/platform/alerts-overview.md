@@ -3,23 +3,22 @@ title: Azure 中的警报和通知监视概述
 description: Azure 中的警报概述。 警报、经典警报和警报界面。
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 01/28/2018
-ms.openlocfilehash: ff95c43528738af6aa1ddc0cbdbe4cf129b3bfdf
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: c1592554a547cefc5fb9a7f85d7ba6743231b77f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457304"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328455"
 ---
 # <a name="overview-of-alerts-in-azure"></a>Azure 中的警报概述 
 
 本文介绍什么是警报及其优点，以及如何开始使用警报。  
 
 ## <a name="what-are-alerts-in-azure"></a>Azure 中的警报是什么？
-在监视数据中发现重要情况时，警报会以主动的方式通知你。 有了警报，你就可以在系统的用户注意到问题之前确定和解决这些问题。 
 
-本文讨论 Azure Monitor 中的统一警报体验，其包括以前由 Log Analytics 和 Application Insights 管理的警报。 [以前的警报体验](alerts-classic.overview.md)和警报类型称为“经典警报”。 选择警报页顶部的“查看经典警报”即可查看这个较旧的体验和较旧的警报类型。 
+在使用 Azure Monitor 中的监视数据发现基础结构或应用程序方面的问题时，警报会主动通知你。 有了警报，你就可以在系统的用户注意到问题之前确定和解决这些问题。 
 
 ## <a name="overview"></a>概述
 
@@ -31,21 +30,28 @@ ms.locfileid: "89457304"
 
 下面是警报规则的关键属性：
 
-**目标资源**：定义适用于警报的范围和信号。 目标可以是任何 Azure 资源。 示例目标：虚拟机、存储帐户、虚拟机规模集、Log Analytics 工作区或 Application Insights 资源。 对于某些资源（例如虚拟机）来说，可以将多个资源指定为警报规则的目标。
+**目标资源** - 定义适用于警报的范围和信号。 目标可以是任何 Azure 资源。 示例目标：
 
-**信号**：由目标资源发出。 信号可以是以下类型：指标、活动日志、Application Insights 和日志。
+- 虚拟机。
+- 存储帐户。
+- Log Analytics 工作区。
+- Application Insights。 
 
-**条件**：应用于目标资源的信号和逻辑的组合。 示例: 
+对于某些资源（例如虚拟机）来说，可以将多个资源指定为警报规则的目标。
+
+信号 - 由目标资源发出。 信号可以是以下类型：指标、活动日志、Application Insights 和日志。
+
+条件 - 应用于目标资源的信号和逻辑的组合。 示例: 
 
 - CPU 百分比 > 70%
 - 服务器响应时间 > 4 毫秒 
 - 日志查询的结果计数 > 100
 
-**警报名称**：用户配置的警报规则的具体名称。
+警报名称 - 用户配置的预警规则的具体名称。
 
-**警报说明**：用户配置的警报规则的说明。
+警报说明 - 用户配置的预警规则的说明。
 
-**严重性**：警报规则中指定的条件符合后确定的警报严重性。 严重性的范围为 0 到 4。
+严重性 - 预警规则中指定的条件符合后确定的警报严重性。 严重性的范围为 0 到 4。
 
 - 严重性为 0 = 严重
 - 严重性为 1 = 错误
@@ -53,11 +59,11 @@ ms.locfileid: "89457304"
 - 严重性为 3 = 信息
 - 严重性为 4 = 详细 
 
-**操作**：触发警报时执行的特定操作。 有关详细信息，请参阅[操作组](./action-groups.md)。
+**操作** - 触发警报时执行的特定操作。 有关详细信息，请参阅[操作组](./action-groups.md)。
 
 ## <a name="what-you-can-alert-on"></a>可以报警的内容
 
-可以按照[监视数据源](./data-sources.md)中的说明，针对指标和日志发出警报。 这些检查包括但不限于：
+可以按照[监视数据源](./data-sources.md)中的说明，针对指标和日志发出警报。 信号包括但不限于：
 
 - 指标值
 - 日志搜索查询
@@ -65,35 +71,26 @@ ms.locfileid: "89457304"
 - 基础 Azure 平台的运行状况
 - 网站可用性测试
 
-以前，Azure Monitor 指标、Application Insights、Log Analytics 和服务运行状况都有单独的警报功能。 随着时间推移，Azure 改进并组合了用户界面和不同的警报方法。 此整合仍在进行中。 因此，仍有一些警报功能未出现在新的警报系统中。  
-
-| **监视器源** | **信号类型**  | **说明** |
-|-------------|----------------|-------------|
-| 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](../../service-health/alerts-activity-log-service-notifications-portal.md)。  |
-| Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../app/monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
-
 ## <a name="manage-alerts"></a>管理警报
+
 可以设置警报状态来指定它在解决过程中所处的阶段。 符合警报规则中指定的条件以后，就会创建或触发警报，其状态为“新”。 可以在确认警报和关闭警报时更改状态。 所有状态更改都存储在警报历史记录中。
 
 支持以下警报状态。
 
 | 状态 | 说明 |
 |:---|:---|
-| 新建 | 只是检测到了问题，但尚未审查问题。 |
+| 新建 | 检测到了问题，但尚未审查问题。 |
 | 已确认 | 管理员已审查警报，并已开始进行处理。 |
 | 已关闭 | 问题已解决。 关闭某个警报后，可通过将其更改为另一种状态来重新打开它。 |
 
-*警报状态*不同于且独立于*监视条件*。 警报状态是由用户设置的。 监视条件是由系统设置的。 当警报触发后，警报的监视条件设置为“已触发”。 当导致警报触发的基础条件解除后，监视条件会设置为“已解决”。 在用户更改警报状态之前，警报状态不会改变。 了解[如何更改警报和智能组的状态](https://aka.ms/managing-alert-smart-group-states)。
+*警报状态* 不同于且独立于 *监视条件*。 警报状态是由用户设置的。 监视条件是由系统设置的。 当触发警报时，警报的监视条件设置为“已触发”，当导致警报触发的基础条件解除后，监视条件会设置为“已解决” 。 
 
-## <a name="smart-groups"></a>智能组 
-
-智能组是根据机器学习算法对警报进行的聚合。这些算法有助于降低警报噪音，对故障排除也有帮助。 [详细了解智能组](https://aka.ms/smart-groups)和[如何管理智能组](https://aka.ms/managing-smart-groups)。
-
+在用户更改警报状态之前，警报状态不会改变。 了解[如何更改警报和智能组的状态](./alerts-managing-alert-states.md?toc=%252fazure-monitor%252ftoc.json)。
 
 ## <a name="alerts-experience"></a>警报体验 
 默认的“警报”页提供特定时间范围内创建的警报的摘要。 该页显示每种严重性的警报总数，列中会标识处于每种状态的、具有每种严重性的警报总数。 选择任一严重性可打开按该严重性筛选的“[所有警报](#all-alerts-page)”页。
 
-或者，可以[使用 REST API 以编程方式枚举在订阅上生成的警报实例](#manage-your-alert-instances-programmatically)。
+你可以转而[使用 REST API 以编程方式枚举在订阅上生成的警报实例](#manage-your-alert-instances-programmatically)。
 
 > [!NOTE]
    >  只能访问过去 30 天内生成的警报。
@@ -126,14 +123,14 @@ ms.locfileid: "89457304"
 
 
 ## <a name="create-an-alert-rule"></a>创建警报规则
-可以通过一致的方式创作警报规则，而不考虑监视服务或信号类型。
+可以通过一致的方式创作预警规则，而不管监视服务或信号类型是什么。
  
 下面介绍如何创建新警报规则：
 1. 选取警报的目标。
 1. 从目标的可用信号中选择信号。
 1. 指定要应用到信号中数据的逻辑。
- 
-这个创作过程经过了简化，用户在选择 Azure 资源之前，不再需要知道受支持的监视源或信号。 可用信号列表会根据你选择的目标资源自动筛选。 另外，还将根据该目标引导你自动定义警报规则的逻辑。  
+
+这个创作过程经过了简化，用户在选择 Azure 资源之前，不再需要知道受支持的监视源或信号。 可用信号列表会根据你选择的目标资源自动筛选。 另外，还将根据该目标引导你自动定义预警规则的逻辑。  
 
 可以在[使用 Azure Monitor 创建、查看和管理警报](./alerts-metric.md)中详细了解如何创建警报规则。
 
@@ -180,11 +177,11 @@ ms.locfileid: "89457304"
 
 ## <a name="manage-your-alert-instances-programmatically"></a>以编程方式管理警报实例
 
-你可能希望以编程方式查询针对订阅生成的警报。 这可以是在 Azure 门户之外创建自定义视图，也可以是分析警报以确定模式和趋势。
+你可能希望以编程方式查询针对订阅生成的警报。 查询可以是在 Azure 门户之外创建自定义视图，也可以是分析警报以确定模式和趋势。
 
-可以使用[警报管理 REST API](https://aka.ms/alert-management-api) 或 [Azure Resource Graph](../../governance/resource-graph/overview.md) 和[用于资源的 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 查询针对订阅生成的警报。
+可以使用[警报管理 REST API](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) 或 [Azure Resource Graph](../../governance/resource-graph/overview.md) 和[用于资源的 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 查询针对订阅生成的警报。
 
-用于资源的 Resource Graph REST API 可用于大规模查询警报实例。 如果必须管理跨多个订阅生成的警报，建议使用此 API。 
+用于资源的 Resource Graph REST API 可用于大规模查询警报实例。 如果必须管理跨多个订阅生成的警报，建议使用 Resource Graph。 
 
 以下对 Resource Graph REST API 的示例请求返回一个订阅中的警报计数：
 
@@ -201,13 +198,17 @@ ms.locfileid: "89457304"
 
 可以查询警报的[基本](alerts-common-schema-definitions.md#essentials)字段。
 
-可以使用[警报管理 REST API](https://aka.ms/alert-management-api) 获取有关特定警报的详细信息，包括其[警报上下文](alerts-common-schema-definitions.md#alert-context)字段。
+可以使用[警报管理 REST API](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) 获取有关特定警报的详细信息，包括其[警报上下文](alerts-common-schema-definitions.md#alert-context)字段。
+
+## <a name="smart-groups"></a>智能组
+
+智能组是根据机器学习算法对警报进行的聚合。这些算法有助于降低警报噪音，对故障排除也有帮助。 [详细了解智能组](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)和[如何管理智能组](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解智能组](https://aka.ms/smart-groups)
+- [详细了解智能组](./alerts-smartgroups-overview.md?toc=%252fazure-monitor%252ftoc.json)
 - [了解操作组](./action-groups.md)
-- [在 Azure 中管理警报实例](https://aka.ms/managing-alert-instances)
-- [Managing Smart Groups](https://aka.ms/managing-smart-groups)（管理智能组）
+- [在 Azure 中管理警报实例](./alerts-managing-alert-instances.md?toc=%252fazure-monitor%252ftoc.json)
+- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%252fazure-monitor%252ftoc.json)（管理智能组）
 - [详细了解 Azure 警报定价](https://www.azure.cn/pricing/details/monitor/)
 

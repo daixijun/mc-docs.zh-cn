@@ -3,17 +3,17 @@ title: 使用 Azure Stack Hub 创建 Linux VM
 description: 使用 Azure Stack Hub 创建 Linux 服务器 VM。
 author: WenJason
 ms.topic: quickstart
-origin.date: 04/20/2020
-ms.date: 05/18/2020
+origin.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5967224b8e07b91e9cd8d592016b3a56161ecf05
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 72a9ddec1b1c451fd70431ca0c19145f6e941ad6
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422539"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330683"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Linux 服务器 VM
 
@@ -24,7 +24,7 @@ ms.locfileid: "83422539"
 * 清理资源。
 
 > [!NOTE]  
-> 本文中的插像已更新，以匹配 Azure Stack Hub 版本 1808 中引入的更改。 除了非托管磁盘外，版本 1808 还添加了对使用*托管磁盘*的支持。 如果使用较早的版本，某些任务图像（例如磁盘选择）与 UI 中显示的内容不同。  
+> 本文中的插像已更新，以匹配 Azure Stack Hub 版本 1808 中引入的更改。 除了非托管磁盘外，版本 1808 还添加了对使用 *托管磁盘* 的支持。 如果使用较早的版本，某些任务图像（例如磁盘选择）与 UI 中显示的内容不同。  
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,7 +50,7 @@ ms.locfileid: "83422539"
 
 1. 在“PuTTY 密钥生成器”窗口中，将“要生成的密钥类型”设置为 **RSA**，并将“所生成密钥中的位数”设置为 **2048**。   
 
-   ![PuTTY 密钥生成器配置](media/azure-stack-quick-linux-portal/Putty01a.png)
+   ![PuTTY 密钥生成器配置](media/azure-stack-quick-linux-portal/Putty01aa.png)
 
 1. 然后选择“生成”  。
 
@@ -58,13 +58,13 @@ ms.locfileid: "83422539"
 
 1. 完成密钥生成过程后，选择“保存公钥”和“保存私钥”来将密钥保存到文件中。  
 
-   ![PuTTY 密钥生成器结果](media/azure-stack-quick-linux-portal/Putty02a.png)
+   ![PuTTY 密钥生成器结果](media/azure-stack-quick-linux-portal/Putty02aa.png)
 
 ## <a name="sign-in-to-the-azure-stack-hub-portal"></a>登录到 Azure Stack Hub 门户
 
 Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品：
 
-* 对于 ASDK，请转到 https://portal.local.azurestack.external 。
+* 对于 ASDK，请转到 `https://portal.local.azurestack.external` 。
 
 * 对于 Azure Stack Hub 集成系统，请转到 Azure Stack Hub 操作员提供的 URL。
 
@@ -72,30 +72,30 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 选择“创建资源”   > “计算”  。 搜索 `Ubuntu Server 16.04 LTS`。 选择名称。
 
-   ![创建 Linux 服务器](media/azure-stack-quick-linux-portal/image1.png)
+   ![创建 Linux 服务器](media/azure-stack-quick-linux-portal/image1a.png)
 
 1. 选择“创建”  。
 
-   ![创建 Linux 服务器 - 创建](media/azure-stack-quick-linux-portal/image2.png)
+   ![创建 Linux 服务器 - 创建](media/azure-stack-quick-linux-portal/image2a.png)
 
 1. 输入 VM 信息。 为“身份验证类型”选择“SSH 公钥”，粘贴保存的 SSH 公钥，然后选择“确定”。  
 
-    > [!Note]  
+    > [!NOTE]  
     > 请确保删除密钥中的所有前导和尾随空格。
 
-   ![身份验证](media/azure-stack-quick-linux-portal/image3.png)
+   ![身份验证](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. 为“VM 大小”选择“D1_v2”。 
 
-   ![创建 Linux 服务器 - 大小](media/azure-stack-quick-linux-portal/image4.png)
+   ![创建 Linux 服务器 - 大小](media/azure-stack-quick-linux-portal/image4a.png)
 
 1. 在“设置”边栏选项卡上输入对默认值所做的更改，使用托管磁盘。  如果需要允许 SSH 访问，请选择“SSH (22)”打开端口 22。  配置准备就绪后，选择“确定”  。
 
-   ![创建 Linux 服务器 - 设置](media/azure-stack-quick-linux-portal/image5.png)
+   ![创建 Linux 服务器 - 设置](media/azure-stack-quick-linux-portal/image5a.png)
 
 1. 在“摘要”中选择“确定”以启动 VM 部署。  选择“虚拟机”查看新 VM，搜索 VM 名称，然后在搜索结果中选择该 VM。 
 
-![创建 Linux 服务器 - 摘要](media/azure-stack-quick-linux-portal/image5.png)
+![创建 Linux 服务器 - 摘要](media/azure-stack-quick-linux-portal/image5a.png)
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
@@ -103,7 +103,7 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 在“PuTTY 配置”页的“类别”窗格中，向下滚动并展开“SSH”，然后选择“身份验证”。     
 
-   ![连接 VM](media/azure-stack-quick-linux-portal/putty03a.png)
+   ![连接 VM](media/azure-stack-quick-linux-portal/putty03aa.png)
 
 1. 选择“浏览”，然后选择保存的私钥文件。 
 
@@ -113,7 +113,7 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 选择“打开”以打开 VM 的会话。 
 
-   ![Linux 会话](media/azure-stack-quick-linux-portal/Putty05a.png)
+   ![Linux 会话](media/azure-stack-quick-linux-portal/Putty05aa.png)
 
 ## <a name="install-the-nginx-web-server"></a>安装 NGINX Web 服务器
 
@@ -135,9 +135,9 @@ sudo apt-get -y install nginx
 
 网络安全组 (NSG) 保护入站和出站流量的安全。 在 Azure Stack Hub 门户中创建 VM 时，会在用于 SSH 连接的端口 22 上创建入站规则。 由于此 VM 托管着 Web 服务器，因此需要创建一个 NSG 规则来允许端口 80 上的 Web 流量。
 
-1. 在 VM 的“概述”页上，选择**资源组**的名称。 
+1. 在 VM 的“概述”页上，选择 **资源组** 的名称。 
 
-1. 选择 VM 的**网络安全组**。 可以使用“类型”列来识别 NSG。 
+1. 选择 VM 的 **网络安全组**。 可以使用“类型”列来识别 NSG。 
 
 1. 在左窗格中的“设置”下，选择“入站安全规则”。  
 
@@ -153,9 +153,9 @@ sudo apt-get -y install nginx
 
 在 VM 上安装 NGINX 并打开端口 80 后，可通过 VM 的公共 IP 地址访问 Web 服务器。 （该公共 IP 地址显示在 VM 的“概述”页上。） 
 
-打开 Web 浏览器并转到 http://\<公共 IP 地址>。 
+打开 Web 浏览器，并转到 *http://\<public IP address>* 。
 
-![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05a.png)
+![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05aa.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

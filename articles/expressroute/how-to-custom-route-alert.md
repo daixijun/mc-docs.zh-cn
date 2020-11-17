@@ -7,20 +7,20 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fbc8e09c8c7d83f9738a547a93df02499d75cf5
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: f071a9150399acb14732de3a87d5ce5d23fa9922
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162848"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328246"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>配置自定义警报来监视播发路由
 
 可以根据本文的要求，使用 Azure 自动化和逻辑应用来持续监视从 ExpressRoute 网关播发到本地网络的路由数量。 可以通过监视来避免达到 [200 个路由的限制](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering)。
 
-**Azure 自动化**允许你自动执行存储在 runbook中的自定义 PowerShell 脚本。 使用本文中的配置时，可以通过 runbook 中包含的 PowerShell 脚本来查询一个或多个 ExpressRoute 网关。 它收集的数据集包含资源组、ExpressRoute 网关名称以及在本地播发的网络前缀数量。
+**Azure 自动化** 允许你自动执行存储在 runbook中的自定义 PowerShell 脚本。 使用本文中的配置时，可以通过 runbook 中包含的 PowerShell 脚本来查询一个或多个 ExpressRoute 网关。 它收集的数据集包含资源组、ExpressRoute 网关名称以及在本地播发的网络前缀数量。
 
-**Azure 逻辑应用**会计划一个可调用 Azure 自动化 runbook 的自定义工作流。 runbook 的执行使用作业来完成。 在数据收集操作运行后，Azure 逻辑应用工作流会对数据进行分类，并会根据高于或低于某个预定义阈值的网络前缀数的匹配条件向目标电子邮件地址发送消息。
+**Azure 逻辑应用** 会计划一个可调用 Azure 自动化 runbook 的自定义工作流。 runbook 的执行使用作业来完成。 在数据收集操作运行后，Azure 逻辑应用工作流会对数据进行分类，并会根据高于或低于某个预定义阈值的网络前缀数的匹配条件向目标电子邮件地址发送消息。
 
 ### <a name="workflow"></a><a name="workflow"></a>工作流
 
@@ -52,13 +52,13 @@ ms.locfileid: "87162848"
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>创建和配置帐户
 
-在 Azure 门户中创建自动化帐户时，会自动创建[运行方式](../automation/manage-runas-account.md#types-of-run-as-accounts)帐户。 此帐户执行以下操作：
+在 Azure 门户中创建自动化帐户时，会自动创建[运行方式](../automation/automation-security-overview.md#run-as-accounts)帐户。 此帐户执行以下操作：
 
 * 使用自签名证书创建 Azure Active Directory (Azure AD) 应用程序。 运行方式帐户本身具有默认情况下需要每年续订的证书。
 
 * 在 Azure AD 中为应用程序创建服务主体帐户。
 
-* 在使用的 Azure 订阅上为帐户本身分配参与者角色 (RBAC)。 此角色使用 runbook 管理 Azure 资源管理器资源。
+* 在使用的 Azure 订阅上为帐户本身分配参与者角色 (Azure RBAC)。 此角色使用 runbook 管理 Azure 资源管理器资源。
 
 若要创建自动化帐户，你需要具有特权和权限。 有关信息，请参阅[创建自动化帐户所需的权限](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account)。
 
@@ -70,7 +70,7 @@ ms.locfileid: "87162848"
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2.为运行方式帐户分配角色
 
-默认情况下，将为**运行方式**帐户所使用的服务主体分配**参与者**角色。 你可以保留分配给服务主体的默认角色，也可以通过分配[内置角色](../role-based-access-control/built-in-roles.md)（例如，读取者）或[自定义角色](../active-directory/users-groups-roles/roles-create-custom.md)来限制权限。
+默认情况下，将为 **运行方式** 帐户所使用的服务主体分配 **参与者** 角色。 你可以保留分配给服务主体的默认角色，也可以通过分配[内置角色](../role-based-access-control/built-in-roles.md)（例如，读取者）或[自定义角色](../active-directory/roles/custom-create.md)来限制权限。
 
  请使用以下步骤来确定分配给运行方式帐户所使用的服务主体的角色：
 
@@ -314,11 +314,11 @@ Azure 逻辑应用是集合和操作的所有流程的业务流程协调程序�
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="登录":::
 
-4. 键入一个**连接名称**，然后添加你的**客户端 ID**（应用程序 ID）、**客户端机密**和**租户 ID**。 然后选择“创建”。
+4. 键入一个 **连接名称**，然后添加你的 **客户端 ID**（应用程序 ID）、**客户端机密** 和 **租户 ID**。 然后选择“创建”。
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="通过服务主体进行连接":::
 
-5. 在“创建作业”页上，服务主体应在承载自动化帐户的**资源组**上具有“读取者”角色，并在**自动化帐户**上具有“自动化作业操作员”角色。 此外，请验证是否已将“Runbook 名称”添加为新参数。
+5. 在“创建作业”页上，服务主体应在承载自动化帐户的 **资源组** 上具有“读取者”角色，并在 **自动化帐户** 上具有“自动化作业操作员”角色。 此外，请验证是否已将“Runbook 名称”添加为新参数。
 
    :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="角色" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
@@ -369,7 +369,7 @@ Azure 逻辑应用是集合和操作的所有流程的业务流程协调程序�
 
    :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="初始化变量":::
 
-3. 指定变量的名称。 对于“类型”，请选择“字符串” 。 稍后将在工作流中分配变量的**值**。
+3. 指定变量的名称。 对于“类型”，请选择“字符串” 。 稍后将在工作流中分配变量的 **值**。
 
    :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="字符串" lightbox="./media/custom-route-alert-portal/string-expand.png":::
 

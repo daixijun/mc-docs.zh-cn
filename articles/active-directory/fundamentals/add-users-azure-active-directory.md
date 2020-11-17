@@ -40,17 +40,17 @@ ms.locfileid: "94501695"
 
 1. 在“用户”页上输入此用户的信息： 
 
-   - **Name** 。 必需。 新用户的名字和姓氏。 例如， *Mary Parker* 。
+   - **Name**。 必需。 新用户的名字和姓氏。 例如，*Mary Parker*。
 
-   - **用户名** 。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
+   - **用户名**。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
 
      用户名的域部分必须使用初始默认域名 \<yourdomainname>.partner.onmschina.cn，或者使用自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[使用 Azure Active Directory 门户添加自定义域名](add-custom-domain.md)。
 
-   - **组** 。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+   - **组**。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
-   - **目录角色** ：如果需要用户的 Azure AD 管理权限，则可以将其添加到 Azure AD 角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
+   - **目录角色**：如果需要用户的 Azure AD 管理权限，则可以将其添加到 Azure AD 角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
 
-   - **工作信息** ：可在此处添加有关用户的详细信息，或者以后再添加。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
+   - **工作信息**：可在此处添加有关用户的详细信息，或者以后再添加。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
 
 1. 复制“密码”框中提供的自动生成的密码。  需将此密码提供给用户，供其在首次登录时使用。
 
@@ -80,7 +80,7 @@ ms.locfileid: "94501695"
 
 1. 在任意页面中搜索并选择“Azure Active Directory”。 
 
-1. 搜索并选择要从 Azure AD 租户中删除的用户。 例如， _Mary Parker_ 。
+1. 搜索并选择要从 Azure AD 租户中删除的用户。 例如，_Mary Parker_。
 
 1. 选择“删除用户”  。
 

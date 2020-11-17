@@ -1,20 +1,20 @@
 ---
 title: 管理 Azure Stack Hub 的存储基础结构
 titleSuffix: Azure Stack
-description: 了解如何管理 Azure Stack Hub 的存储基础结构。
+description: 了解如何管理 Azure Stack Hub 的存储基础结构。 了解如何监视驱动器和卷。 查看有关将驱动器添加到池的故障排除提示。
 author: WenJason
 ms.topic: article
-origin.date: 5/4/2020
-ms.date: 06/22/2020
+origin.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 4485ad1743ccd52484c11a957796890b3c7951d0
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 6b40201bfc740408c6bcb5e76b71a52a6e0504a4
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096868"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330616"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储基础结构
 本文介绍 Azure Stack Hub 存储基础结构资源的运行状况和工作状态。 这些资源包括存储驱动器和卷。 本主题中的信息可帮助你排查各种问题，例如，无法将驱动器添加到池的问题。
@@ -94,7 +94,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 | OK | 卷处于正常状态。 |
 | 运行中 | 驱动器正在执行某些内部保养操作。 操作完成后，驱动器应会恢复“正常”运行状况。 |
 
-### <a name="drive-health-state-healthy"></a>驱动器运行状况：正常
+### <a name="drive-health-state-warning"></a>驱动器运行状况：警告
 
 处于“警告”状态的驱动器可以成功读取和写入数据，但存在问题。
 
@@ -129,7 +129,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 某些驱动器尚未做好加入 Azure Stack Hub 存储池的准备。 通过查看驱动器的 `CannotPoolReason` 属性，可以确定驱动器为何不符合入池条件的原因。 下表更具体地描述了每种原因。
 
-| Reason | 说明 |
+| 原因 | 说明 |
 |---|---|
 | 硬件不合规 | 使用运行状况服务指定的已批准存储模型列表中不包括该驱动程序。<br> <br>**操作：** 使用新磁盘替换该驱动器。 |
 | 固件不合规 | 使用运行状况服务指定的已批准固件修订版列表中不包括该物理驱动器上的固件。<br> <br>**操作：** 使用新磁盘替换该驱动器。 |

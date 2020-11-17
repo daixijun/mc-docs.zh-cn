@@ -1,19 +1,19 @@
 ---
 title: 连接和查询 - 单一服务器 PostgreSQL
-description: 指向 Azure MySQL 数据库快速入门的链接，演示如何连接到服务器并运行查询。
+description: 指向快速入门的链接，演示如何连接到 Azure Database for PostgreSQL 单一服务器并运行查询。
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 origin.date: 09/21/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 9a3362548e9219dbb6402c4b489947c2a868ea65
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/09/2020
+ms.openlocfilehash: 0c12d0efc6607b937683e259645027fa83fb0e0e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041928"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328648"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Azure Database for PostgreSQL（单一服务器）连接和查询概述
 
@@ -34,23 +34,22 @@ ms.locfileid: "92041928"
 |[Python](connect-python.md)|本快速入门演示如何使用 Python 连接到数据库，并使用数据库对象来查询数据。 |
 |[Ruby](connect-ruby.md)|本快速入门演示如何使用 Ruby 创建连接到数据库的程序，并使用数据库对象来查询数据。|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>数据库连接的 TLS 注意事项
 
 Microsoft 提供或支持的所有驱动程序使用传输层安全性 (TLS) 连接到 Azure Database for PostgreSQL 中的数据库。 不需要特殊配置，但对于新创建的服务器，请强制实施 TLS 1.2。 如果你使用的是 TLS 1.0 和 1.1，则建议你更新服务器的 TLS 版本。 请参阅[如何配置 TLS](howto-tls-configurations.md)
 
-
 ## <a name="postgresql-extensions"></a>PostgreSQL 扩展
+
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展会如同内置功能一样运行。
 
-- [Postgres 11 扩展](/postgresql/concepts-extensions#postgres-11-extensions)
-- [Postgres 10 扩展](/postgresql/concepts-extensions#postgres-10-extensions)
-- [Postgres 9.6 扩展](/postgresql/concepts-extensions#postgres-96-extensions)
-- [Postgres 9.5 扩展](/postgresql/concepts-extensions#postgres-95-extensions)
+- [Postgres 11 扩展](./concepts-extensions.md#postgres-11-extensions)
+- [Postgres 10 扩展](./concepts-extensions.md#postgres-10-extensions)
+- [Postgres 9.6 扩展](./concepts-extensions.md#postgres-96-extensions)
+- [Postgres 9.5 扩展](./concepts-extensions.md#postgres-95-extensions)
 
 有关更多详细信息，请参阅[如何在单一服务器上使用 PostgreSQL 扩展](concepts-extensions.md)。
 
-## <a name="next-steps"></a>后续步骤 
+## <a name="next-steps"></a>后续步骤
 
 - [使用转储和还原迁移数据](howto-migrate-using-dump-and-restore.md)
 - [使用导入和导出迁移数据](howto-migrate-using-export-and-import.md)

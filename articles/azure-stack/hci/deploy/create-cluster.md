@@ -3,17 +3,16 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 09/21/2020
-ms.date: 10/12/2020
+origin.date: 10/17/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c04f003975078ffcef51ed9fbffe953076c4923a
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: aa7959a20490dd969cbf44ca4b323023cc1a40b7
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437754"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330658"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -34,7 +33,7 @@ ms.locfileid: "91437754"
 
 在运行“创建群集”向导之前，请确保你已经完成以下任务：
 
-- 已阅读[部署 Azure Stack HCI 之前的准备工作](before-you-start.md)中的硬件要求和其他要求。
+- 已阅读[系统要求](../concepts/system-requirements.md)中的硬件要求和其他要求。
 - 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 在每台服务器上拥有一个是本地管理员组成员的帐户。
 - 在用于管理的 PC 或服务器上安装 Windows Admin Center。 请参阅[安装 Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/deploy/install)。
@@ -68,7 +67,7 @@ ms.locfileid: "91437754"
 
 1. 完成后，单击“创建”。 现在，你将看到“创建群集”向导，如下所示。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="“创建群集”向导 - 开始" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>步骤 1：入门
 
@@ -191,12 +190,12 @@ ms.locfileid: "91437754"
 
 ## <a name="step-5-sdn-optional"></a>步骤 5：SDN（可选）
 
-向导的步骤 5 将指导你完成在群集上为软件定义的网络 (SDN) 设置网络控制器的过程。 网络控制器在经过设置之后便可用于配置 SDN 的其他组件，如软件负载均衡器和 RAS 网关。
+此可选步骤将指导你设置[软件定义的网络 (SDN)](../concepts/software-defined-networking.md) 的网络控制器组件。 网络控制器在经过设置之后便可用于配置 SDN 的其他组件，如软件负载均衡器和 RAS 网关。
 
 > [!NOTE]
-> 向导的这一步是可选的。
+> SDN 不受支持或不可用于拉伸群集。
 
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导 - SDN 网络控制器" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. 在完成时选择“下一步:SDN”。
 1. 在“主机”下，输入网络控制器的名称。
@@ -215,7 +214,7 @@ ms.locfileid: "91437754"
 1. 输入“MAC 地址池起始地址”的值和“MAC 地址池结束地址”的值。
 1. 完成后，单击 **“下一步”** 。
 1. 一直等到向导完成其作业。 在所有进度任务完成之前，请留在此页上。 然后单击“完成”。
- 
+
 如果网络控制器部署失败，请先执行以下操作，然后再重试：
 
 - 停止并删除向导创建的所有网络控制器 VM。  

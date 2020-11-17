@@ -8,14 +8,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: bf3d2d5ab82c7f119a61c78addf9504b47f8c3a7
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 3593fed4394a342ad00493f5ad42c8c582716325
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457439"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328363"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 工作簿数据源
 
@@ -61,7 +61,7 @@ Azure 资源发出可以通过工作簿访问的[指标](data-platform-metrics.m
 
 ## <a name="azure-data-explorer"></a>Azure 数据资源管理器
 
-工作簿现在支持使用强大的 [Kusto](https://docs.microsoft.com/azure/kusto/query/index) 查询语言从 [Azure 数据资源管理器](https://docs.azure.cn/data-explorer/)群集进行查询。   
+工作簿现在支持使用强大的 [Kusto](/data-explorer/kusto/query/) 查询语言从 [Azure 数据资源管理器](https://docs.azure.cn/data-explorer/)群集进行查询。   
 
 ![Kusto 查询窗口的屏幕截图](./media/workbooks-overview/data-explorer.png)
 
@@ -79,7 +79,7 @@ Azure Monitor 提供主动监视 Windows 或 Linux 来宾操作系统可用性�
 
 若要让查询控件使用此数据源，请使用“查询类型”下拉列表选择“Azure 运行状况”，然后选择目标资源。 使用运行状况筛选器下拉列表，根据分析需求选择有意义的资源问题子集。
 
-![警报查询的屏幕截图](./media/workbooks-overview/resource-health.png)
+![显示运行状况筛选器列表的警报查询的屏幕截图。](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -111,8 +111,7 @@ Azure Monitor 提供主动监视 Windows 或 Linux 来宾操作系统可用性�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 * [Log Analytics 查询优化提示](../log-query/query-optimization.md)
-* 
 

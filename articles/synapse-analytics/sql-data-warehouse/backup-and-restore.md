@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/04/2020
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b19cec8cfd7667812e3373e39db2b84f871916bf
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: caa05d1d70ab56619920fd25bb8c5db52ab97d74
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426327"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375724"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Azure Synapse SQL 池中的备份和还原
 
@@ -46,7 +46,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>用户定义的还原点
 
-使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可以使用七天，然后系统会替你将它自动删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前[删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
+使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可以使用七天，然后系统会替你将它自动删除。 无法更改用户定义的还原点的保留期。 无论在任何时间点，均会保证 **42 个用户定义的还原点**，因此，它们必须在创建另一个还原点之前 [删除](https://go.microsoft.com/fwlink/?linkid=875299)。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) 或 Azure 门户触发快照来创建用户定义的还原点。
 
 ### <a name="restore-point-retention"></a>还原点保留期
 
@@ -67,7 +67,7 @@ order by run_id desc
 
 ## <a name="geo-backups-and-disaster-recovery"></a>异地备份和灾难恢复
 
-每日在配对的数据中心创建一次异地备份。 异地还原的 RPO 为 24 小时。 可以将异地备份还原到支持 SQL 池的任何其他区域的服务器。 使用异地备份可在无法访问主要区域中的还原点时还原数据仓库。
+每日在[配对的数据中心](../../best-practices-availability-paired-regions.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)创建一次异地备份。 异地还原的 RPO 为 24 小时。 可以将异地备份还原到支持 SQL 池的任何其他区域的服务器。 使用异地备份可在无法访问主要区域中的还原点时还原数据仓库。
 
 > [!NOTE]
 > 如果希望异地备份的 RPO 更短，请在[此处](https://feedback.azure.com/forums/307516-sql-data-warehouse)为此功能投票。 此外，可以创建用户定义的还原点，然后从新建的还原点还原到其他区域中的新数据仓库。 还原后，数据仓库将会联机，可以无限期将其暂停，以节省计算成本。 暂停的数据库按 Azure 高级存储费率收取存储费用。 如需数据仓库的活动副本，可以执行恢复，只需花费几分钟时间。

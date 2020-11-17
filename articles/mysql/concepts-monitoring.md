@@ -5,14 +5,15 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 08/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 640af1bfd666bc45142abf1a5ad578aa168a43b7
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.custom: references_regions
+origin.date: 10/21/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 3d214f9b12483b1d022aef4cbdd5b9671a142d90
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470436"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328808"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -61,25 +62,10 @@ ms.locfileid: "92470436"
 
 “计划内维护通知”允许你接收有关 Azure Database for MySQL 即将进行的计划内维护的警报。 这些通知与[服务运行状况](../service-health/overview.md)计划内维护集成，允许你在同一位置查看你的订阅的所有计划内维护。 它还有助于将通知扩展到不同资源组的适当受众，因为你可能有不同的联系人负责不同的资源。 你将在事件发生前的 72 小时收到有关即将进行的维护的通知。
 
-在计划内维护期间，服务器可能会重启，可能会发生[暂时性错误](concepts-connectivity.md#transient-errors)。 系统在 60 秒以内可自动解决其中的大部分事件。
-
-### <a name="to-receive-planned-maintenance-notification"></a>接收计划内维护通知
-
-1. 在[门户](https://portal.azure.cn)中，选择“服务运行状况”。
-2. 在“警报”部分中，选择“运行状况警报”。
-3. 选择“+ 添加服务运行状况警报”，并填写字段。
-4. 填写所需的字段。 
-5. 选择“事件类型”，然后选择“计划内维护”或“全选”
-6. 在“操作组”中，定义接收警报的方式（获取电子邮件、触发逻辑应用等）。  
-7. 确保“创建后启用规则”设置为“是”。
-8. 选择“创建警报规则”以完成警报
-
-有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications-portal.md)。
-
-> [!Note]
-> 我们将尽一切努力为所有事件提供 **计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
+在[计划内维护通知](./concepts-planned-maintenance-notification.md)文档中了解如何设置通知。
 
 ## <a name="next-steps"></a>后续步骤
 - 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-on-metric.md)。
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 - 阅读我们的博客，了解[监控服务器的最佳做法](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)。
+- 详细了解 Azure Database for MySQL（单一服务器）中的[计划内维护通知](./concepts-planned-maintenance-notification.md)

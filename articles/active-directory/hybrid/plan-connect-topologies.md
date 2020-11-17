@@ -85,7 +85,7 @@ Azure AD Connect 同步中的默认配置假设：
 
 不支持多个 Azure AD Connect 同步服务器连接到单个 Azure AD 租户。 使用 [暂存服务器](#staging-server)时例外。
 
-此拓扑与下面的拓扑不同，不支持连接到单个 Azure AD 租户的 **多个同步服务器** 。
+此拓扑与下面的拓扑不同，不支持连接到单个 Azure AD 租户的 **多个同步服务器**。
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>多个林、单个同步服务器、用户仅在一个目录中表示
 ![表示用户在所有目录中只出现一次的选项](./media/plan-connect-topologies/multiforestusersonce.png)

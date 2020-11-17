@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/20/2020
-ms.openlocfilehash: e6d766f945f8a8589610b4babc8b5d6c8ef59983
-ms.sourcegitcommit: a04b0b1009b0c62f2deb7c7acee75a1304d98f87
+ms.date: 11/02/2020
+ms.openlocfilehash: e868579812941327ac2b96c7e5d50b0251862f83
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83796936"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328924"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>将 Log Analytics 工作区移到其他订阅或资源组
 
@@ -91,7 +91,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 4. 选择目标“订阅”和“资源组”。  如果将工作区移到同一订阅中的另一个资源组，则看不到“订阅”选项。
 5. 单击“确定”以移动工作区和所选资源。
 
-    ![门户](./media/move-workspace/portal.png)
+    ![屏幕截图显示 Log Analytics 工作区中的“概述”窗格，其中包含用于更改资源组和订阅名称的选项。](./media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 若要使用 PowerShell 移动工作区，请按以下示例中所示使用 [Move-AzResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource)：

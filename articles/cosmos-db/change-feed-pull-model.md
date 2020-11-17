@@ -4,27 +4,28 @@ description: 了解如何使用 Azure Cosmos DB 更改源拉取模型来读取�
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 09/09/2020
+origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3073a499fc1847d65dcc85c3cdc87ae8d2afbbcd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9508ad586493c01474cfb6d3732102de6b326315
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246573"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328337"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源拉取模型
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 使用更改源拉取模型，你可以按自己的节奏使用 Azure Cosmos DB 更改源。 正如你使用[更改源处理器](change-feed-processor.md)所做的那样，你可以使用更改源拉取模型来并行处理多个更改源使用者之间的更改。
 
 > [!NOTE]
-> 更改源拉取模型当前[仅在 Azure Cosmos DB .NET SDK 中提供了预览版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview)。 该预览版尚不可用于其他 SDK 版本。
+> 更改源拉取模型当前[仅在 Azure Cosmos DB .NET SDK 中提供了预览版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview)。 该预览版尚不可用于其他 SDK 版本。
 
 ## <a name="comparing-with-change-feed-processor"></a>与更改源处理器进行比较
 
@@ -48,9 +49,13 @@ ms.locfileid: "91246573"
 | 在处理更改源时跟踪当前位置 | 租赁（存储在 Azure Cosmos DB 容器中） | 继续标记（存储在内存中或手动进行保存） |
 | 能够重播过去的更改 | 是（在使用推送模型的情况下） | 是（在使用拉取模型的情况下）|
 | 轮询将来的更改 | 基于用户指定的 `WithPollInterval` 自动检查更改 | 手动 |
+| 未出现新变化的行为 | 自动等待 `WithPollInterval` 并重新检查 | 必须捕获异常并手动重新检查 |
 | 处理整个容器中的更改 | 是的，自动并行处理从同一容器使用更改的多个线程/机器| 是，使用 FeedToken 手动并行化 |
 | 仅处理单个分区键的更改 | 不支持 | 是|
 | 支持级别 | 正式发布 | 预览 |
+
+> [!NOTE]
+> 与使用更改源处理器进行读取不同，如果未出现新变化，需要显式处理。 
 
 ## <a name="consuming-an-entire-containers-changes"></a>使用整个容器的更改
 
@@ -79,14 +84,22 @@ FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterat
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
+
+由于更改源实际上是包含所有后续写入和更新的项的无穷列表，因此 `HasMoreResults` 的值始终为 true。 尝试读取更改源并且未出现新变化时，你将收到一个异常。 在上述示例中，通过先等待 5 秒再重新检查更改来处理异常。
 
 ## <a name="consuming-a-partition-keys-changes"></a>使用分区键的更改
 
@@ -97,11 +110,17 @@ FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<Use
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -116,7 +135,7 @@ while (iteratorForThePartitionKey.HasMoreResults)
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-获取容器的 FeedRange 列表时，每个[物理分区](partition-data.md#physical-partitions)你都会获得一个 `FeedRange`。
+获取容器的 FeedRange 列表时，每个[物理分区](partitioning-overview.md#physical-partitions)你都会获得一个 `FeedRange`。
 
 然后可以使用 `FeedRange` 创建一个 `FeedIterator`，以便跨多个计算机或线程并行处理更改源。 与上面展示了如何获取整个容器或单个分区键的 `FeedIterator` 的示例不同，你可以使用 FeedRanges 获取多个 FeedIterator，以便并行处理更改源。
 
@@ -133,11 +152,17 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -148,11 +173,17 @@ while (iteratorA.HasMoreResults)
 FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorB.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -168,13 +199,19 @@ string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-   FeedResponse<User> users = await iterator.ReadNextAsync();
-   continuation = users.ContinuationToken;
+   try { 
+        FeedResponse<User> users = await iterator.ReadNextAsync();
+        continuation = users.ContinuationToken;
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
-    }
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
+   }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
+    }   
 }
 
 // Some time later

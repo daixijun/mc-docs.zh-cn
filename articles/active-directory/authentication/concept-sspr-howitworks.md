@@ -226,9 +226,9 @@ SSPR 在 Active Directory 中执行管理员发起的密码重置的等效操作
 
 所有企业到企业 (B2B) 配置完全支持密码重置和更改。 以下三种情况支持 B2B 用户密码重置：
 
-* **已有 Azure AD 租户的合作伙伴组织中的用户** ：如果与你合作的组织已有 Azure AD 租户，我们将遵守该租户中已启用的任何密码重置策略。 要使密码重置正常工作，合作伙伴组织只需确保启用 Azure AD SSPR。 对于 Microsoft 365 客户，不会额外收费。
-* 通过自助注册 **注册的用户** ：如果与你合作的组织使用 [自助注册](../enterprise-users/directory-self-service-signup.md)功能来访问租户，我们会允许他们使用已注册的电子邮件来重置密码。
-* **B2B 用户** ：使用新的 [Azure AD B2B 功能](../external-identities/what-is-b2b.md)创建的任何新的 B2B 用户也可以使用他们在邀请过程中注册的电子邮件来重置其密码。
+* **已有 Azure AD 租户的合作伙伴组织中的用户**：如果与你合作的组织已有 Azure AD 租户，我们将遵守该租户中已启用的任何密码重置策略。 要使密码重置正常工作，合作伙伴组织只需确保启用 Azure AD SSPR。 对于 Microsoft 365 客户，不会额外收费。
+* 通过自助注册 **注册的用户**：如果与你合作的组织使用 [自助注册](../enterprise-users/directory-self-service-signup.md)功能来访问租户，我们会允许他们使用已注册的电子邮件来重置密码。
+* **B2B 用户**：使用新的 [Azure AD B2B 功能](../external-identities/what-is-b2b.md)创建的任何新的 B2B 用户也可以使用他们在邀请过程中注册的电子邮件来重置其密码。
 
 若要测试此方案，请通过这些合作伙伴用户之一转到 https://passwordreset.activedirectory.windowsazure.cn。 如果他们定义了备用电子邮件或身份验证电子邮件，则密码重置就能按预期方式工作。
 

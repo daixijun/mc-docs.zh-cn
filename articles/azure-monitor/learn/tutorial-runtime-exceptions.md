@@ -5,15 +5,15 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 4a89a57d588ebb222adab50081e0125c75c2f057
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 253ef65ba3f9405fcbdf90f9425bc120110a9e07
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148674"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327429"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 查找并诊断运行时异常
 
@@ -36,7 +36,7 @@ Azure Application Insights 从应用程序收集遥测数据，帮助确定和�
     - ASP.NET 和 Web 开发
     - Azure 开发
 - 下载并安装 [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)。
-- 启用 Visual Studio 快照调试器
+- 启用 [Visual Studio 快照调试器](../app/snapshot-debugger.md)
 - 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../app/asp-net.md)。 
 - 本教程跟踪应用程序中异常的标识，以便在开发或测试环境中修改代码来生成异常。 
 
@@ -82,7 +82,7 @@ Snapshot Debugger 收集应用程序中最频繁出现的异常的快照，帮�
 
 3. 具有有效值的第一个调用是 **ValidZipCode**，可发现邮政编码通过无法转换为整数的字母提供。  这是代码中的错误，需要更正。
 
-    ![调试快照](./media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![显示代码中需要更正的错误的屏幕截图。    ](./media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. 然后，可以选择将此快照下载到 Visual Studio 中，我们可在其中找到需要更正的实际代码。 为此，请单击“下载快照”  。
 5. 快照会加载到 Visual Studio 中。
@@ -98,7 +98,7 @@ Application Insights 收集的所有数据都存储在 Azure Log Analytics 中�
 
     ![代码](./media/tutorial-runtime-exceptions/codelens.png)
 
-1. 单击“分析影响”  ，打开 Application Insights Analytics。  它使用多个提供失败请求详细信息（比如受影响的用户、浏览器和区域）的查询填充。<br><br>![分析](./media/tutorial-runtime-exceptions/analytics.png)<br>
+1. 单击“分析影响”  ，打开 Application Insights Analytics。  它使用多个提供失败请求详细信息（比如受影响的用户、浏览器和区域）的查询填充。<br><br>![屏幕截图显示了包含多个查询的 Application Insights 窗口。](./media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>添加工作项
 如果将 Application Insights 连接到跟踪系统（比如 Azure DevOps 或 GitHub），可直接通过 Application Insights 创建工作项。

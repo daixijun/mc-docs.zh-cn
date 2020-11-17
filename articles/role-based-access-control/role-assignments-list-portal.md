@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/20/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: b0fd899fe0cf56a52caf45856e7aa08f86d8ee8c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ae1380fe35f57b68e883a50c6ce840bef1522d06
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472213"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326500"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>使用 Azure 门户列出 Azure 角色分配
 
@@ -67,7 +67,7 @@ ms.locfileid: "92472213"
 
    ![“访问控制”-“角色分配”选项卡](./media/role-assignments-list-portal/access-control-role-assignments.png)
 
-   在“角色分配”选项卡上，可以看到谁有权访问此范围。 请注意，有些角色的权限范围已划归到 **此资源** ，还有一些角色是从另一范围 **(继承的)** 。 访问权限可以专门分配给此资源，也可以从父作用域的分配继承。
+   在“角色分配”选项卡上，可以看到谁有权访问此范围。 请注意，有些角色的权限范围已划归到 **此资源**，还有一些角色是从另一范围 **(继承的)** 。 访问权限可以专门分配给此资源，也可以从父作用域的分配继承。
 
 ## <a name="list-role-assignments-for-a-user-at-a-scope"></a>列出某个范围内某个角色的角色分配
 
@@ -123,7 +123,7 @@ ms.locfileid: "92472213"
 
     随即将显示各种范围中分配给所选角色分配的托管标识的角色列表，如管理组、订阅、资源组或资源。 此列表包括你有权读取的所有角色分配。
 
-    ![系统分配的托管标识的角色分配](./media/shared/role-assignments-user-assigned.png)
+    ![屏幕截图显示了用户分配的托管标识的角色分配。](./media/shared/role-assignments-user-assigned.png)
 
 1. 若要更改订阅，请单击“订阅”列表。
 
@@ -175,7 +175,7 @@ ms.locfileid: "92472213"
 
     ![按 CSV 格式下载角色分配](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![按 CSV 格式下载角色分配](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![所下载的 JSON 格式的角色分配信息的屏幕截图。](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>后续步骤
 

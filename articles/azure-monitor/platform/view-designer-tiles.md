@@ -1,19 +1,18 @@
 ---
 title: Azure Monitor 中视图设计器磁贴的参考指南 | Azure Docs
 description: 可以通过 Azure Monitor 中的视图设计器创建自定义视图，此类视图在 Azure 门户中显示，包含 Log Analytics 工作区中的多种基于数据的可视化效果。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
-author: lingliw
-manager: digimobile
 ms.subservice: logs
 ms.topic: conceptual
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 11/02/2020
 origin.date: 01/17/2018
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 6a6be4270dc97e438c06d143601c33c068751a1b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e03617843792056fdfbbbca2318f9b9cc16b7e7c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79452544"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328365"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure Monitor 中视图设计器磁贴的参考指南
 在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文针对自定义视图中可用的磁贴，提供设置方面的参考指南。
@@ -41,9 +40,9 @@ ms.locfileid: "79452544"
 > 视图中的磁贴基于 Log Analytics 工作区中的[日志查询](../log-query/log-query-overview.md)。 它们目前不支持使用[跨资源查询](../log-query/cross-workspace-query.md)从 Application Insights 检索数据。
 
 ## <a name="number-tile"></a>数字磁贴
-**数字**磁贴显示一个日志查询中的记录数，具有一个标签。
+**数字** 磁贴显示一个日志查询中的记录数，具有一个标签。
 
-![数字磁贴](media/view-designer-tiles/tile-number.png)
+![数字磁贴](./media/view-designer-tiles/tile-number.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -61,7 +60,7 @@ ms.locfileid: "79452544"
 ## <a name="two-numbers-tile"></a>两个数字磁贴
 此磁贴显示两个不同日志查询中的记录数，每个查询具有一个标签。
 
-![两个数字磁贴](media/view-designer-tiles/tile-two-numbers.png)
+![两个数字磁贴](./media/view-designer-tiles/tile-two-numbers.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -80,9 +79,9 @@ ms.locfileid: "79452544"
 
 
 ## <a name="donut-tile"></a>圆环图磁贴
-**圆环图**磁贴显示从一个日志查询中的值列汇总的单个数字。 此圆环图以图形方式显示了前三个记录的结果。
+**圆环图** 磁贴显示从一个日志查询中的值列汇总的单个数字。 此圆环图以图形方式显示了前三个记录的结果。
 
-![圆环图磁贴](media/view-designer-tiles/tile-donut.png)
+![圆环图磁贴](./media/view-designer-tiles/tile-donut.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -106,7 +105,7 @@ ms.locfileid: "79452544"
 ## <a name="line-chart-tile"></a>折线图磁贴
 此磁贴是一个折线图，显示一段时间内一个日志查询中的多个系列。 
 
-![折线图和标注磁贴](media/view-designer-tiles/tile-line-chart.png)
+![Azure Monitor 视图设计器中的折线图磁贴的屏幕截图。](./media/view-designer-tiles/tile-line-chart.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -127,7 +126,7 @@ ms.locfileid: "79452544"
 ## <a name="line-chart-and-callout-tile"></a>折线图和标注磁贴
 此磁贴包含一个折线图，其中显示了一段时间内来自一个日志查询中的具有多个系列；另外还包含一个标注，其中显示了汇总值。 
 
-![折线图和标注磁贴](media/view-designer-tiles/tile-line-chart-callout.png)
+![Azure Monitor 视图设计器中折线图和标注磁贴的屏幕截图。标注通过显示汇总值来扩展折线图。](./media/view-designer-tiles/tile-line-chart-callout.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -150,9 +149,9 @@ ms.locfileid: "79452544"
 
 
 ## <a name="two-timelines-tile"></a>两个时间线磁贴
-**两个时间线**磁贴以柱形图显示一段时间内的两个日志查询的结果。 为每个序列显示一个标注。 
+**两个时间线** 磁贴以柱形图显示一段时间内的两个日志查询的结果。 为每个序列显示一个标注。 
 
-![两个时间线磁贴](media/view-designer-tiles/tile-two-timelines.png)
+![两个时间线磁贴](./media/view-designer-tiles/tile-two-timelines.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -177,7 +176,4 @@ ms.locfileid: "79452544"
 ## <a name="next-steps"></a>后续步骤
 * 了解有关[日志查询](../log-query/log-query-overview.md)以支持磁贴中的查询。
 * 将[可视化部件](view-designer-parts.md)添加到自定义视图。
-
-
-
 

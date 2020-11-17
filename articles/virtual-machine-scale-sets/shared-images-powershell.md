@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: v-junlch
 ms.reviewer: akjosh
-ms.openlocfilehash: 5c319a64ae4898a645aa7fa5a1e3684354e6764d
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: dbc2b7f8ce4150fb51f1d5de4741e9dfe2fd8ac9
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937278"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326597"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>通过 Azure PowerShell 创建和使用虚拟机规模集的共享映像
 
@@ -21,7 +21,7 @@ ms.locfileid: "91937278"
 
 使用共享映像库，你可以在 AAD 租户内在同一区域或跨区域与组织中的其他用户共享自定义 VM 映像。 选择要共享哪些映像，要在哪些区域中共享，以及希望与谁共享它们。 你可以创建多个库，以便可以按逻辑方式对共享映像进行分组。 
 
-库是顶级资源，它提供完全基于角色的访问控制 (RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。 
+库是顶级资源，它提供完整的 Azure 基于角色的访问控制 (Azure RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。 
 
 共享映像库功能具有多种资源类型。 
 

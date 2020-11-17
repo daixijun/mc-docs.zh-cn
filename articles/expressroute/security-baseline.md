@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8673e1ada42408f09f2a3d241ed9e56636b28c9b
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: ab28e6e8a2d7b5642533d14d8440f639c4f2f4b2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162856"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328766"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>ExpressRoute 的 Azure 安全基线
 
@@ -46,7 +46,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 ### <a name="13-protect-critical-web-applications"></a>1.3：保护关键 Web 应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -84,7 +84,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7：管理发往 Web 应用程序的流量
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -126,7 +126,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指导**：使用 Azure 活动日志监视网络资源配置，并检测与 ExpressRoute 连接相关的网络资源的更改。 在 Azure Monitor 中创建当关键资源发生更改时触发的警报。
 
-* [如何在 Azure Sentinel 中启用审核](https://docs.microsoft.com/azure/sentinel/resources)
+
 
 * [如何查看和检索 Azure 活动日志事件](/azure-monitor/platform/activity-log-view)
 
@@ -170,9 +170,9 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -184,7 +184,7 @@ Azure 安全中心监视：不适用
 
 **Azure 安全中心监视**：不适用
 
-责任：客户
+**责任**：客户
 
 ### <a name="26-monitor-and-review-logs"></a>2.6：监视和审查日志
 
@@ -226,9 +226,9 @@ Azure 安全中心监视：不适用
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -240,13 +240,13 @@ Azure 安全中心监视：不适用
 
 **指导**：维护对你的 Azure ExpressRoute 资源的控制平面（例如 Azure 门户）拥有管理访问权限的用户帐户清单。
 
-可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置基于角色的访问控制 (RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。
+可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置 Azure 基于角色的访问控制 (Azure RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。
 
 此外，使用 ExpressRoute 合作伙伴资源管理器 API 的合作伙伴可以对 expressRouteCrossConnection 资源应用基于角色的访问控制。 这些控制可以定义有关哪些用户帐户可以修改 expressRouteCrossConnection 资源以及添加/更新/删除对等互连配置的权限。
 
-* [了解 Azure 中的 RBAC](/role-based-access-control/overview)
+* [了解 Azure RBAC](../role-based-access-control/overview.md)
 
-* [利用 ExpressRoute 合作伙伴资源管理器 API 中的 RBAC](/expressroute/cross-connections-api-developmentment)
+* [利用 ExpressRoute 合作伙伴资源管理器 API 中的 RBAC](/expressroute/cross-connections-api-development)
 
 **Azure 安全中心监视**：是
 
@@ -365,11 +365,10 @@ Azure 安全中心监视：不适用
 
 * [如何将 Azure 活动日志集成到 Azure Monitor](/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-* [如何加入 Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure 安全中心监视**：不适用
 
-责任：客户
+**责任**：客户
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12：针对帐户登录行为偏差发出警报
 
@@ -379,7 +378,6 @@ Azure 安全中心监视：不适用
 
 * [如何配置和启用标识保护风险策略](/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-* [如何加入 Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -401,7 +399,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
-**指南**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
+**指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
 * [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
 
@@ -453,9 +451,9 @@ Azure 安全中心监视：不适用
 
 **责任**：不适用
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置基于角色的访问控制 (RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
+**指导**：可以在 Azure 门户中为你的订阅使用“标识和访问控制(IAM)”窗格来配置 Azure 基于角色的访问控制 (Azure RBAC)。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
 
 Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户是虚拟网关的所有者，这些网关与 ExpressRoute 线路位于不同的订阅中。 线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消访问权限的订阅中删除所有链路连接。 线路用户可以兑换授权（每个虚拟网络需要一个授权）。
 
@@ -519,9 +517,9 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -529,7 +527,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -573,7 +571,7 @@ Azure 安全中心监视：不适用
 
 **指导**：将标记应用到 Azure资源，以便有条理地将元数据组织成某种分类。
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -591,7 +589,7 @@ Azure 安全中心监视：不适用
 
 * [如何创建管理组](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -621,7 +619,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -629,7 +627,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7：删除未批准的 Azure 资源和软件应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -637,7 +635,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -673,11 +671,11 @@ Azure 安全中心监视：不适用
 
 **Azure 安全中心监视**：不适用
 
-责任：客户
+**责任**：客户
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12：限制用户在计算资源中执行脚本的功能
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -685,7 +683,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13：以物理或逻辑方式隔离高风险应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -711,7 +709,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -731,7 +729,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -751,7 +749,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -771,7 +769,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -789,7 +787,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 **责任**：不适用
 
@@ -893,7 +891,7 @@ Azure 安全中心监视：不适用
 
 **指导**：在 Key Vault 中启用“软删除”，以防止意外删除或恶意删除密钥。
 
-* [如何在 Key Vault 中启用“软删除”](/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [如何在 Key Vault 中启用“软删除”](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：不适用
 
@@ -921,9 +919,9 @@ Azure 安全中心监视：不适用
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心对用于发出警报的调查结果或分析的置信度，以及导致警报的活动背后存在恶意意图的可信度。
+**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，应清楚地标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
+此外，请明确标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
 
 **Azure 安全中心监视**：是
 
@@ -931,7 +929,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="103-test-security-response-procedures"></a>10.3：测试安全响应过程
 
-**指导**：定期练习以测试系统的事件响应能力。 识别弱点和差距，并根据需要修改计划。
+**指导**：定期执行演练来测试系统的事件响应功能。 识别弱点和差距，并根据需要修改计划。
 
 * [请参阅 NIST 的刊物：Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)（IT 规划和功能的测试、培训与演练计划指南）
 
@@ -955,11 +953,10 @@ Azure 安全中心监视：不适用
 
 * [如何配置连续导出](/security-center/continuous-export)
 
-* [如何将警报流式传输到 Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Azure 安全中心监视**：不适用
 
-责任：客户
+**责任**：客户
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6：自动响应安全警报
 

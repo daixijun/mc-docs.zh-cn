@@ -157,7 +157,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择“Azure AD 角色”。
 
-1. 选择“ **成员** ”。
+1. 选择“**成员**”。
 
     ![成员列表](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
@@ -181,7 +181,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择“Azure AD 角色”。
 
-1. 选择“ **成员** ”。
+1. 选择“**成员**”。
 
     ![成员列表](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 

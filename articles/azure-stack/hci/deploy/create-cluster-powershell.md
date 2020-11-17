@@ -3,17 +3,16 @@ title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建超融合群集
 author: v-jay
 ms.topic: how-to
-ms.service: azure-stack
 origin.date: 08/11/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 0bd5e007a15deb7ddd804714509329ed25171cf9
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 583c10f57dfd34ed809078a1ea3bcc24a34dde54
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437752"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330660"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -38,7 +37,7 @@ ms.locfileid: "91437752"
 
 在开始之前，请确保：
 
-- 已阅读[部署 Azure Stack HCI 之前](before-you-start.md)中的硬件和其他要求。
+- 已阅读 [Azure Stack HCI 系统需求](../concepts/system-requirements.md)。
 - 在群集中的每个服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 拥有一个帐户，该帐户是每个服务器上的本地管理员组的成员。
 - 具有在 Active Directory 中创建对象的权限。

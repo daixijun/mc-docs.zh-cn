@@ -6,24 +6,24 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 61360f8de6af9bda8fc4efcef3015db6c7b09580
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 260a80019cbf6944b2ab7c048ee97d94111ee397
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198495"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375605"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>在 Synapse SQL 池中使用标签来检测查询
 
 本文介绍了使用标签在 SQL 池中检测查询以开发解决方案的技巧。
 
-有关在开发解决方案时于 Azure SQL 数据仓库中使用标签检测查询的技巧。
+有关在开发解决方案时于 Azure Synapse Analytics 中使用标签检测查询的技巧。
 
 ## <a name="what-are-labels"></a>什么是标签？
 

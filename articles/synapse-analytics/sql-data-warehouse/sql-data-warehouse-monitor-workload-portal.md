@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 06/15/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5f50e5bfd7de69677135451eb01d6667b22f1f4f
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: e91eb78e948182dbef8cfc03a0070483de5e65d6
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723691"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375700"
 ---
 # <a name="monitor-workload---azure-portal"></a>监视工作负荷 - Azure 门户
 
@@ -33,9 +33,9 @@ ms.locfileid: "84723691"
 
 ![Log Analytics 工作区](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![添加 Analytics 工作区](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![屏幕截图显示 Log Analytics 工作区，可在其中选择“添加”。](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![添加 Analytics 工作区](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![屏幕截图显示 Log Analytics 工作区，可在其中输入值。](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 有关工作区的更多详细信息，请访问以下[文档](../../azure-monitor/learn/quick-create-workspace.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)。
 

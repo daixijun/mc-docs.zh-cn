@@ -3,18 +3,17 @@ title: 在 Azure Stack Hub 中提供虚拟机规模集
 description: 了解云操作员如何向 Azure Stack Hub 市场中添加虚拟机规模集。
 author: WenJason
 ms.topic: article
-ms.service: azure-stack
-origin.date: 08/28/2020
-ms.date: 10/12/2020
+origin.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: c6f4ab97f51acba90618e5372942cdb599bc82f7
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 52e0378bddacb01d782a4dcd05a99805df96a293
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437734"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330617"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>在 Azure Stack Hub 中提供虚拟机规模集
 
@@ -32,16 +31,17 @@ ms.locfileid: "91437734"
 ## <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户
 
 1. 登录到 Azure Stack Hub 门户。 然后，依次转到“所有服务”和“虚拟机规模集”，并在“计算”下选择“虚拟机规模集”。   
-   ![选择虚拟机规模集](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![选择虚拟机规模集](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. 选择“创建虚拟机规模集”。
+2. 选择“添加”   。
+
    ![创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。   对于“使用托管磁盘”，请选择“是”。  然后单击“创建”。
-    ![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create.png)
+3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。   对于“使用托管磁盘”，请选择“是”。  然后选择“创建”  。
+    [![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. 若要查看新的虚拟机规模集，请转到“所有资源”，搜索该虚拟机规模集名称，然后在搜索结果中单击其名称。
-   ![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search.png)
+   [![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虚拟机规模集中的映像
 
@@ -76,7 +76,7 @@ ms.locfileid: "91437734"
 
 2. 使用滑动条为此虚拟机规模集设置新的缩放级别，然后单击“保存”。
 
-     ![缩放虚拟机规模集](media/azure-stack-compute-add-scalesets/scale.png)
+     [![缩放虚拟机规模集](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 

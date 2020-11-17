@@ -1,23 +1,24 @@
 ---
 title: 使用 Blitzz 将数据从 Cassandra 迁移到 Azure Cosmos DB Cassandra API
 description: 了解如何使用 Blitzz 将数据从 Apache Cassandra 数据库迁移到 Azure Cosmos DB Cassandra API。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/21/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: b8ff29a32e87e04c1bcdb6a6ad762aae814581f3
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: aea2a7806cc1d7d96f38b8bb7b9d07944a13f02a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222786"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328423"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>使用 Blitzz 将数据从 Cassandra 迁移到 Azure Cosmos DB Cassandra API 帐户
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB 中的 Cassandra API 已成为在 Apache Cassandra 上运行的企业工作负荷的极佳选择，原因各种各样，例如： 
 

@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 04/29/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3ecd6706fa050647d2d2d945c990357a0b8c097a
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: c7e58dc8e297586b7b63d2944015c25ae5408efe
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655588"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328654"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
@@ -41,10 +41,10 @@ ms.locfileid: "89655588"
     - **源订阅**：源 VM 所属的订阅。 这可以是存在恢复服务保管库的同一 Azure Active Directory 租户中的任何订阅。
     - **资源组**：源虚拟机所属的资源组。 所选资源组下的所有 VM 都会在下一步中列出，以供保护。
 
-        :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png" alt-text="启用复制":::
+        :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png" alt-text="屏幕截图突出显示了配置复制所需的字段。":::
 
 3. 在“虚拟机”>“选择虚拟机”  中，单击并选择要复制的每个 VM。 只能选择可以启用复制的计算机。  。
-    ![启用复制](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![屏幕截图突出显示了选择虚拟机的位置。](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. 在“设置”中，可以选择性地配置目标站点设置： 
 
@@ -105,8 +105,7 @@ ms.locfileid: "89655588"
     - 在“目标虚拟网络”中，从目标位置中所有虚拟网络列表中选择网络。
     - 在“可用性集”中，可将可用性集设置添加到 VM（如果它们是源区域中可用性集的一部分）。
     - 在“目标存储帐户”中，选择要使用的帐户。
-
-        :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/customize.PNG" alt-text="启用复制":::
+    :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/customize.PNG" alt-text="屏幕截图显示了如何自定义目标订阅设置。":::
 3. 单击“自定义:”以修改默认设置。
 4. 在“多 VM 一致性”中，选择要一起复制的 VM。
     - 故障转移时，复制组中的所有计算机将具有共享的崩溃一致性恢复点和应用程序一致性恢复点。
@@ -116,7 +115,7 @@ ms.locfileid: "89655588"
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。
     - 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。
     - 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
-        :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG" alt-text="启用复制":::
+    :::image type="content" source="./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG" alt-text="屏幕截图显示了多 VM 一致性设置。":::
 
 5. 单击“创建目标资源” > “启用复制”。 
 6. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况

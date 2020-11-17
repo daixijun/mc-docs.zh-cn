@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 11/24/2018
-ms.openlocfilehash: bc9b28ffca6c86fa9ca6e0514993d8462980ca70
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 271d888185496684dc8e7c30a843135de5814e3b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148624"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327714"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。
@@ -22,7 +22,7 @@ ms.locfileid: "89148624"
 ## <a name="workbooks"></a>工作簿
 [工作簿](./platform/workbooks-overview.md)是交互式文档，可以让用户深入了解团队内部的数据、调查和协作。 例如，工作簿在故障排查指南和事件分析方面非常有用。
 
-![工作簿](./media/visualizations/workbook.png)
+![该图显示了工作簿中若干页面的屏幕截图，包括“页面视图分析”、“使用情况”和“在页面上所花费的时间”。](./media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>优点
 - 支持指标和日志。
@@ -40,7 +40,7 @@ ms.locfileid: "89148624"
 ## <a name="azure-dashboards"></a>Azure 仪表板
 [Azure 仪表板](../azure-portal/azure-portal-dashboards.md)是 Azure 的主要仪表板技术。 这种在 Azure 基础结构和服务上提供的单一管理平台，在实现快速识别重要问题方面尤其有用。
 
-![仪表板](./media/visualizations/dashboard.png)
+![屏幕截图显示了包含可自定义信息的 Azure 仪表板的示例。](./media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>优点
 - 深度集成到 Azure 中。 可视化效果可以固定到多个 Azure 页面的仪表板，包括指标资源管理器、Log Analytics 和 Application Insights。
@@ -80,8 +80,8 @@ ms.locfileid: "89148624"
 - 无 Azure 集成。 无法通过 Azure 资源管理器管理仪表板和模型。
 - 需要将查询结果导入到 Power BI 模型中进行配置。 结果大小和刷新存在限制。
 - 每天的数据刷新次数限制为 8 次。
-<!--Not available in MC: ## Grafana-->
 
+<!--Not available in MC: ## Grafana-->
 ### <a name="advantages"></a>优点
 - 丰富的可视化效果。
 - 丰富的数据源生态系统。
@@ -112,7 +112,7 @@ ms.locfileid: "89148624"
 借助 [Azure Monitor 中的视图](platform/view-designer.md)，可以使用日志数据创建自定义可视化效果。 它们由[监视解决方案](insights/solutions.md)用于呈现所收集的数据。
 
 
-![查看](./media/visualizations/view.png)
+![屏幕截图显示了容器监视解决方案磁贴，以及在选择磁贴时打开的详细 Azure Monitor 视图。](./media/visualizations/view.png)
 
 ### <a name="advantages"></a>优点
 - 为日志数据提供了丰富的可视化效果。

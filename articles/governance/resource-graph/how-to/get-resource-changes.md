@@ -3,15 +3,15 @@ title: 获取资源更改
 description: 了解如何查找资源的更改时间，获取已更改属性的列表以及评估差异。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2d8076f0da497bccb82b7fe56a18c9b230f5b8d9
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: db16abb6404d85c685684d56e7725ba1a87df548
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523178"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328793"
 ---
 # <a name="get-resource-changes"></a>获取资源更改
 
@@ -40,7 +40,7 @@ Monitor.
 > [!NOTE]
 > Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
-> [Change tracking](../../../automation/change-tracking.md) or Azure Policy's
+> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]

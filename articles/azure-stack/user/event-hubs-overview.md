@@ -1,22 +1,22 @@
 ---
-title: Azure Stack Hub 上的事件中心概述
-description: 了解 Azure Stack Hub 上的事件中心资源提供程序。
+title: Azure Stack Hub 上的事件中心的概述
+description: 了解 Azure Stack Hub 上的事件中心。 了解如何构建混合解决方案。 在 Azure Stack Hub 上比较 Azure 事件中心和事件中心的功能。
 author: WenJason
 ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 11/27/2019
-ms.date: 08/31/2020
+ms.date: 11/09/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 1ee8cb369b7bcbbdc29914d6908a1ba30a56c789
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: b9ded83eb4f197ea0a179618701200ab6a649c6c
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867975"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330513"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack Hub 上的事件中心概述
+# <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上的事件中心的概述
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 

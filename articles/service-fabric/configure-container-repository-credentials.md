@@ -4,17 +4,17 @@ description: 配置存储库凭据以从容器注册表下载映像
 ms.topic: conceptual
 origin.date: 12/09/2019
 author: rockboyfor
-ms.date: 09/14/2020
-ms.testscope: yes|no
-ms.testdate: 09/14/2020null
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: b190b16f49ef1b8303b90a4875af46f6964d0b2b
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4e10672aafb588f94536788ce4762f5ee747fa3f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655764"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327352"
 ---
 <!--Verified successfully on charactors only-->
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>配置应用程序的存储库凭据以下载容器映像
@@ -103,6 +103,9 @@ Service Fabric 支持使用令牌作为凭据下载容器的映像。  此功能
 
     :::image type="content" source="./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png" alt-text="Azure 门户：创建虚拟机规模集标识选项":::
 
+> [!NOTE]
+> 对于用户分配的托管标识，请跳过此步骤。 如果规模集只与一个用户分配的托管标识相关联，则以下剩余步骤的作用相同。
+
 2. 向虚拟机规模集授予从注册表中拉取/读取映像的权限。 从 Azure 门户中 Azure 容器注册表的“访问控制(IAM)”边栏选项卡中，为虚拟机添加角色分配：
 
     :::image type="content" source="./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png" alt-text="将 VM 主体添加到 ACR":::
@@ -128,5 +131,4 @@ Service Fabric 支持使用令牌作为凭据下载容器的映像。  此功能
 
 * 了解有关[容器注册表身份验证](../container-registry/container-registry-authentication.md)的更多内容。
 
-<!-- Update_Description: new article about configure container repository credentials -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

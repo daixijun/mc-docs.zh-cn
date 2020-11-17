@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: logs
-ms.openlocfilehash: 46581def03b98209b40f1a930e3f7b8cc17f3535
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: bb22137743c105201b999ab92f0a3b87f0f47ae6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457431"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327581"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>创建诊断设置以将平台日志和指标发送到不同的目标
 Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日志和资源日志）提供 Azure 资源及其所依赖的 Azure 平台的详细诊断和审核信息。 默认情况下会收集[平台指标](data-platform-metrics.md)，它们通常存储在 Azure Monitor 指标数据库中。 本文详细介绍如何创建和配置诊断设置，以将平台指标和平台日志发送到不同的目标。
@@ -43,8 +43,8 @@ Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日�
 | 目标 | 说明 |
 |:---|:---|
 | [Log Analytics 工作区](design-logs-deployment.md) | 将日志和指标发送到 Log Analytics 工作区可以使用强大的日志查询结合 Azure Monitor 收集的其他监视数据对其进行分析，并利用其他 Azure Monitor 功能，例如警报和可视化。 |
-| [事件中心](/event-hubs/) | 向事件中心发送日志和指标可将数据流式传输到外部系统，例如第三方 SIEM 和其他日志分析解决方案。  |
-| [Azure 存储帐户](/storage/blobs/) | 将日志和指标存档到 Azure 存储帐户有助于审核、静态分析或备份。 与 Azure Monitor 日志和 Log Analytics 工作区相比，Azure 存储成本较低，并且日志可以无限期保留。  |
+| [事件中心](../../event-hubs/index.yml) | 向事件中心发送日志和指标可将数据流式传输到外部系统，例如第三方 SIEM 和其他日志分析解决方案。  |
+| [Azure 存储帐户](../../storage/blobs/index.yml) | 将日志和指标存档到 Azure 存储帐户有助于审核、静态分析或备份。 与 Azure Monitor 日志和 Log Analytics 工作区相比，Azure 存储成本较低，并且日志可以无限期保留。  |
 
 
 ### <a name="destination-requirements"></a>目标要求
@@ -60,6 +60,8 @@ Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日�
 > [!NOTE]
 > Azure Data Lake Storage Gen2 帐户目前不支持作为诊断设置的目标，即使它们可能在 Azure 门户中被列为有效选项。
 
+> [!NOTE]
+> 启用虚拟网络后，Azure Monitor（诊断设置）无法访问事件中心资源。 你必须启用事件中心的“允许受信任的 Microsoft 服务绕过此防火墙”设置，以便授予 Azure Monitor（诊断设置）服务访问事件中心资源的权限。 
 
 
 ## <a name="create-in-azure-portal"></a>在 Azure 门户中创建
@@ -70,15 +72,15 @@ Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日�
 
    - 对于单项资源，在资源菜单中的“监视器”下，单击“诊断设置”。 
 
-        ![诊断设置](./media/diagnostic-settings/menu-resource.png)
+        ![Azure 门户中资源菜单的“监视”部分的屏幕截图，其中突出显示了“诊断设置”。](./media/diagnostic-settings/menu-resource.png)
 
    - 对于一项或多项资源，在 Azure Monitor 菜单中，单击“设置”下的“诊断设置”，然后单击相应资源。 
 
-      ![诊断设置](./media/diagnostic-settings/menu-monitor.png)
+        ![Azure Monitor 菜单中“设置”部分的屏幕截图，其中突出显示了“诊断设置”。](./media/diagnostic-settings/menu-monitor.png)
 
    - 对于活动日志，在“Azure Monitor”菜单中，单击“活动日志”，然后单击“诊断设置”。   请确保禁用活动日志的任何旧配置。 有关详细信息，请参阅[禁用现有设置](./activity-log.md#legacy-collection-methods)。
 
-        ![诊断设置](./media/diagnostic-settings/menu-activity-log.png)
+        ![Azure Monitor 菜单的屏幕截图，其中已选择“活动日志”，并且在“Monitor - 活动日志”菜单栏中突出显示了“诊断设置”。](./media/diagnostic-settings/menu-activity-log.png)
 
 2. 如果选定的资源上不存在任何设置，系统会提示创建设置。 单击“添加诊断设置”。
 
@@ -134,7 +136,7 @@ Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日�
 在 [Azure PowerShell](../samples/powershell-samples.md) 中使用 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet 创建诊断设置。 有关参数说明，请参阅此 cmdlet 的文档。
 
 > [!IMPORTANT]
-> 不能将此方法用于 Azure 活动日志。 请改为利用[使用资源管理器模板在 Azure Monitor 中创建诊断设置](diagnostic-settings-template.md)，创建资源管理器模板并使用 PowerShell 进行部署。
+> 不能将此方法用于 Azure 活动日志。 请改为利用[使用资源管理器模板在 Azure Monitor 中创建诊断设置](../samples/resource-manager-diagnostic-settings.md)，创建资源管理器模板并使用 PowerShell 进行部署。
 
 以下示例 PowerShell cmdlet 使用所有三个目标创建诊断设置。
 
@@ -147,7 +149,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 在 [Azure CLI](/cli/monitor?view=azure-cli-latest) 中使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 命令创建诊断设置。 有关参数说明，请参阅此命令的文档。
 
 > [!IMPORTANT]
-> 不能将此方法用于 Azure 活动日志。 请改为按[使用资源管理器模板在 Azure Monitor 中创建诊断设置](diagnostic-settings-template.md)中的说明操作，创建资源管理器模板并使用 CLI 进行部署。
+> 不能将此方法用于 Azure 活动日志。 请改为按[使用资源管理器模板在 Azure Monitor 中创建诊断设置](../samples/resource-manager-diagnostic-settings.md)中的说明操作，创建资源管理器模板并使用 CLI 进行部署。
 
 以下示例 CLI 命令使用所有三个目标创建诊断设置。
 

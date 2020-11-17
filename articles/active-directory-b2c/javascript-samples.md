@@ -5,18 +5,19 @@ description: 了解如何在 Azure Active Directory B2C 中使用 JavaScript。
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
+ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 3fc531d95cc2613920aa296da04e22923e34ce4f
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 49412de9c038c1cf0dfbeafef1d4d33a0323d230
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297704"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326446"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>用于 Azure Active Directory B2C 中的 JavaScript 示例
 
@@ -41,14 +42,14 @@ ms.locfileid: "87297704"
 
 * 为应用程序的用户界面元素选择[页面布局](contentdefinitions.md#select-a-page-layout)。
 
-    如果打算使用 JavaScript，则需要为自定义策略中的所有内容定义[定义页面布局版本](contentdefinitions.md#migrating-to-page-layout)和页面`contract`版本  。
+    如果打算使用 JavaScript，则需要为自定义策略中的所有内容定义[定义页面布局版本](contentdefinitions.md#migrating-to-page-layout)和页面`contract`版本  。 了解如何使用页面版本[迁移到页面布局](contentdefinitions.md#migrating-to-page-layout)。 
 
 ## <a name="add-the-scriptexecution-element"></a>添加 ScriptExecution 元素
 
 通过向 [RelyingParty](relyingparty.md)元素添加 ScriptExecution 元素来启用脚本执行。
 
-1. 打开自定义策略文件。 例如，SignUpOrSignin.xml  。
-2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素    ：
+1. 打开自定义策略文件。 例如，SignUpOrSignin.xml。
+2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素：
 
     ```xml
     <RelyingParty>
@@ -67,7 +68,7 @@ ms.locfileid: "87297704"
 
 ### <a name="show-or-hide-a-password"></a>显示或隐藏密码
 
-帮助客户成功注册的一种常见的方式是：允许他们查看他们作为密码输入的内容。 该选项使用户能够根据需要轻松查看和更正密码，从而帮助用户登录。 任何密码类型的字段都有一个带有“显示密码”标签的复选框  。  这使用户能够看到纯文本形式的密码。 使自断言页面的注册或登录模板中包括以下代码片段：
+帮助客户成功注册的一种常见的方式是：允许他们查看他们作为密码输入的内容。 该选项使用户能够根据需要轻松查看和更正密码，从而帮助用户登录。 任何密码类型的字段都有一个带有“显示密码”标签的复选框。  这使用户能够看到纯文本形式的密码。 使自断言页面的注册或登录模板中包括以下代码片段：
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -113,7 +114,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>添加使用条款
 
-使需要包含“使用条款”复选框的页面中含有以下代码  。 本地帐户注册和社交帐户注册页面中通常需要该复选框。
+使需要包含“使用条款”复选框的页面中含有以下代码。 本地帐户注册和社交帐户注册页面中通常需要该复选框。
 
 ```Javascript
 function addTermsOfUseLink() {

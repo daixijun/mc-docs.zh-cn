@@ -6,19 +6,19 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 4/30/2020
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnick
 manager: digimobile
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 686fa0b7d0d1e56c1a4dd4901cc47e67aaa03209
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 86e610ffb35ca38cc2bd07c3321d6b0990910ed9
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014274"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375742"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 发行说明
 
@@ -36,10 +36,17 @@ ms.locfileid: "90014274"
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>2020 年 10 月
+
+| 服务改进 | 详细信息 |
+| --- | --- |
+|T-SQL 内联表值函数（预览版）|在此版本中，现在可以使用 Transact-SQL 创建内联表值函数，并像查询表一样查询其结果。 此功能目前以预览版提供，正式发布时将受到工具支持。 有关详细信息，请参阅 [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest)。|
+|MERGE 命令（预览版）|根据与源表联接的结果，现在可以对目标表运行插入、更新或删除操作。 例如，根据在另一个表中找到的差异在一个表中插入、更新或删除行，可以对两个表进行同步。  有关详细信息，请参阅 [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current)。|
 
 ## <a name="aug-2020"></a>2020 年 8 月
 
@@ -52,7 +59,7 @@ ms.locfileid: "90014274"
 
 | 服务改进 | 详细信息 |
 | --- | --- |
-|列级加密（公共预览版）|通过使用 Transact-SQL 对数据列应用对称加密来保护 Synapse SQL 数据仓库中的敏感信息。 列级加密具有内置函数，可用于使用对称密钥（通过证书、密码、对称密钥或非对称密钥受到进一步保护）来加密数据。 有关详细信息，请访问[加密数据列](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)。|
+|列级加密（公共预览版）|使用 Transact-SQL 对数据列应用对称加密，从而保护 Azure Synapse Analytics 中的敏感信息。 列级加密具有内置函数，可用于使用对称密钥（通过证书、密码、对称密钥或非对称密钥受到进一步保护）来加密数据。 有关详细信息，请访问[加密数据列](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)。|
 |兼容性级别支持 (GA)|在此版本中，用户现在可以设置数据库的兼容性级别，以获取 Synapse SQL 引擎的特定版本的 Transact-SQL 语言和查询处理行为。 有关详细信息，请参阅 [sys.database_scoped_configurations](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和[更改数据库范围的配置](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。|
 |**行级别安全性**|此版本包含对于在强制执行了 RLS 的行上进行的更新和删除操作的改进。 使用此版本时，如果内部函数（如“is_rolemember”）不引用 DML 目标表中的任何列，使用该内部函数的更新和删除操作将会成功。 在此次改进之前，这些操作会因基础 DML 操作中的限制而失败。|
 |DBCC SHRINKDATABASE (GA)|现在可以收缩指定数据库中的数据文件和日志文件的大小。 有关详细信息，请参阅[文档](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)。|
@@ -109,7 +116,8 @@ ms.locfileid: "90014274"
 
 | 服务改进 | 详细信息 |
 | --- | --- |
-|**数据发现和分类（正式版）**|[数据发现和分类](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)功能现已推出正式版。 此功能提供高级功能用于**发现、分类、标记和保护**数据库中的敏感数据。|
+|**Azure 专用链接（预览）**|通过 Azure 专用链接，可以在虚拟网络 (VNet) 中创建专用终结点，并将它映射到 SQL 池。 然后，可通过 VNet 中的专用 IP 地址访问这些资源，从而能够通过 Azure ExpressRoute 专用对等互连和/或 VPN 网关从本地连接。 总的来说，这简化了网络配置，因为不需要向公共 IP 地址开放它。 这还可以规避数据外泄风险。 有关详细信息，请参阅 [SQL Analytics 文档](../../azure-sql/database/private-endpoint-overview.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。|
+|**数据发现和分类（正式版）**|[数据发现和分类](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)功能现已推出正式版。 此功能提供高级功能用于 **发现、分类、标记和保护** 数据库中的敏感数据。|
 |**Azure 顾问一键式集成**|现在，Azure Synapse 中的 SQL Analytics 直接在概览边栏选项卡中与 Azure 顾问建议集成，并提供一键式体验。 现在可以在概述边栏选项卡中发现建议，而无需转到 Azure 顾问边栏选项卡。 在[此处](sql-data-warehouse-concept-recommendations.md)详细了解建议。|
 |**读取提交的快照隔离（预览）**|可以使用 ALTER DATABASE 为用户数据库启用或禁用快照隔离。  为了避免对当前工作负荷造成影响，不妨在数据库维护时段期间设置此选项，或等到数据库没有其他任何活动连接时设置此选项。 有关详细信息，请参阅 [ALTER DATABASE SET 选项](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。|
 |**EXECUTE AS (Transact-SQL)**| 现已提供 [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 支持，使客户能够将会话的执行上下文设置为指定的用户。|

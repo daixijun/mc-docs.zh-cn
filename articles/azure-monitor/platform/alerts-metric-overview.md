@@ -4,15 +4,15 @@ description: 获取指标警报功能的概述，以及它们在 Azure Monitor �
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 12/5/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 215ce932ba044ff2c953a97cf8d8a4ba277b604a
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 17d7af4d73bdb6f6dd7a54937df326c193b7b85d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457314"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328453"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解指标警报在 Azure Monitor 中的工作原理
 
@@ -146,7 +146,10 @@ Azure Monitor 中的指标警报还支持使用一个规则来监视多个维度
 | NetApp 文件容量池 | **是** |
 | NetApp 文件卷 | **是** |
 | Key Vault | **是** |
+| 用于 Redis 的 Azure 缓存 | **是** |
 | Data Box Edge 设备 | **是** |
+
+<sup>1</sup> 不支持虚拟机网络指标（总网络流入量、总网络流出量、入站流数、出站流数、入站流最大创建速率、出站流最大创建速率）。
 
 可以通过以下三种方式之一指定单个指标警报规则的监视范围。 例如，对于虚拟机，可以将范围指定为：  
 
@@ -179,5 +182,6 @@ Azure Monitor 中的指标警报还支持使用一个规则来监视多个维度
 - [了解如何使用 Azure 资源管理器模板部署指标警报](./alerts-metric-create-templates.md)
 - [详细了解操作组](action-groups.md)
 - [详细了解动态阈值条件类型](alerts-dynamic-thresholds.md)
+- [详细了解指标警报中的故障排查问题](alerts-troubleshoot-metric.md)
 
 

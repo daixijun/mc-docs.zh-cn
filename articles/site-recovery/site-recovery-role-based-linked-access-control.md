@@ -3,18 +3,18 @@ title: 在 Azure Site Recovery 中管理 Azure 基于角色的访问控制
 description: 本文介绍如何应用基于角色的访问控制 (RBAC) 以管理 Azure Site Recovery 访问。
 ms.service: site-recovery
 origin.date: 04/08/2019
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 15cbfabc778084cb5911f0a4a517e86cfe411f69
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 53fa02e21f053e4fbacfdea692c64900882fafc8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655458"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328836"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>使用基于角色的访问控制 (RBAC) 管理 Site Recovery 访问
 
@@ -80,6 +80,6 @@ Azure Site Recovery 提供了 3 个用于控制 Site Recovery 管理操作的内
     * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
     * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
     * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [基于角色的访问控制故障排除](../role-based-access-control/troubleshooting.md)：获取解决常见问题的建议。
+* [Azure RBAC 故障排除](../role-based-access-control/troubleshooting.md)：获取有关修复常见问题的建议。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -120,7 +120,7 @@ ms.locfileid: "94501649"
 
 ### <a name="to-remove-a-license-from-a-user"></a>从用户删除许可证的步骤
 
-1. 在服务计划的“许可的用户”  页上，选择应不再具有许可证的用户。 例如， _Alain Charon_ 。
+1. 在服务计划的“许可的用户”  页上，选择应不再具有许可证的用户。 例如，_Alain Charon_。
 
 1. 选择“删除许可证”  。
 

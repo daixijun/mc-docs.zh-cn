@@ -6,31 +6,29 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 05/13/2020
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 054b176e9bfb9b609ac68fcc0a956586c989a5ed
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 693586370a2b02889448bf04806dc191f0fcd784
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426360"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375722"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>针对 Synapse SQL 池的数据加载策略
 
-传统的 SMP SQL 池通过提取、转换和加载 (ETL) 过程来加载数据。 Azure Synapse Analytics 中的 Synapse SQL 池具有大规模并行处理 (MPP) 体系结构，可以利用计算和存储资源的可伸缩性和灵活性。
+传统的 SMP SQL 池通过提取、转换和加载 (ETL) 过程来加载数据。 Azure Synapse Analytics 中的 Synapse SQL 池使用分布式查询处理体系结构，利用了计算和存储资源的可伸缩性和灵活性。
 
-可以通过提取、加载和转换 (ELT) 过程来利用 MPP，无需在加载数据之前投入资源来转换数据。
+可以通过提取、加载和转换 (ELT) 过程来利用内置分布式查询处理功能，无需在加载数据之前投入资源来转换数据。
 
-虽然 SQL 池支持包括常用 SQL Server 选项（例如 [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和 [SqlBulkCopy API](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)）在内的许多加载方法，但最快且最具可伸缩性的数据加载方法是使用 PolyBase 外部表和 [COPY 语句](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（预览版）。
+虽然 SQL 池支持包括常用 SQL Server 选项（例如 [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和 [SqlBulkCopy API](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)）在内的许多加载方法，但最快且最具可伸缩性的数据加载方法是使用 PolyBase 外部表和 [COPY 语句](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。
 
 使用 PolyBase 和 COPY 语句可以通过 T-SQL 语言访问存储在 Azure Blob 存储中的外部数据。 为了在加载时获得最大的灵活性，建议使用 COPY 语句。
 
-> [!NOTE]  
-> COPY 语句目前为公共预览版功能。
 
 ## <a name="what-is-elt"></a>什么是 ELT？
 
@@ -99,10 +97,10 @@ ms.locfileid: "87426360"
 |                            BINARY                            |                STRING                 |     nvarchar     |
 |                            BINARY                            |                 ENUM                  |     nvarchar     |
 |                            BINARY                            |                 UUID                  | uniqueidentifier |
-|                            BINARY                            |                DECIMAL                |     decimal      |
+|                            BINARY                            |                DECIMAL                |     Decimal      |
 |                            BINARY                            |                 JSON                  |  nvarchar(MAX)   |
 |                            BINARY                            |                 BSON                  |  varbinary(max)  |
-|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     decimal      |
+|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     Decimal      |
 |                          BYTE_ARRAY                          |               INTERVAL                |  varchar(max),   |
 |                            INT32                             |             INT(8, true)              |     smallint     |
 |                            INT32                             |            INT(16,   true)            |     smallint     |
@@ -111,17 +109,19 @@ ms.locfileid: "87426360"
 |                            INT32                             |            INT(16, false)             |       int        |
 |                            INT32                             |           INT(32,   false)            |      bigint      |
 |                            INT32                             |                 DATE                  |       date       |
-|                            INT32                             |                DECIMAL                |     decimal      |
+|                            INT32                             |                DECIMAL                |     Decimal      |
 |                            INT32                             |            TIME (MILLIS)             |       time       |
 |                            INT64                             |            INT(64,   true)            |      bigint      |
 |                            INT64                             |           INT(64, false  )            |  decimal(20,0)   |
-|                            INT64                             |                DECIMAL                |     decimal      |
-|                            INT64                             |         TIME (MICROS/NANOS)         |       time       |
-|                            INT64                             | TIMESTAMP   (MILLIS / MICROS / NANOS) |    datetime2     |
+|                            INT64                             |                DECIMAL                |     Decimal      |
+|                            INT64                             |         TIME (MILLIS)                 |       time       |
+|                            INT64                             | TIMESTAMP (MILLIS)                  |    datetime2     |
 | [复杂类型](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |                 列表                  |   varchar(max)   |
 | [复杂类型](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps) |                  MAP                  |   varchar(max)   |
 
-
+>[!IMPORTANT] 
+> - SQL 专用池目前不支持 MICROS 和 NANOS 精度的 Parquet 数据类型。 
+> - 如果 Parquet 与 SQL 之间的类型不匹配，或者如果你有不受支持的 Parquet 数据类型，则可能会遇到以下错误：“HdfsBridge::recordReaderFillBuffer - 填充记录读取器缓冲区时遇到意外错误:ClassCastException: …”
 
 有关创建外部对象的示例，请参阅[创建外部表](load-data-from-azure-blob-storage-using-polybase.md#create-tables-for-the-sample-data)。
 

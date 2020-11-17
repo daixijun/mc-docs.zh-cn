@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 08/07/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: aec99ffa9299bd3ea505dc6113609fd9c4d88000
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: d892974982dbaebdeb4fafcff30ddb44b2460130
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470483"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328906"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>有关使用 Azure Database for PostgreSQL - 单一服务器确保业务连续性的概述
 
@@ -30,9 +30,9 @@ Azure Database for PostgreSQL 提供了业务连续性功能，这些功能包�
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 从备份执行时间点还原 | 保留期内的任何还原点 | 保留期内的任何还原点 | 保留期内的任何还原点 |
 | 从异地复制的备份执行异地还原 | 不支持 | RTO - 可变 <br/>RPO < 1 小时 | RTO - 可变 <br/>RPO < 1 小时 |
-| 只读副本 | RTO - 几分钟 <br/>RPO < 5 分钟* | RTO - 几分钟 <br/>RPO < 5 分钟*| RTO - 几分钟 <br/>RPO < 5 分钟*|
+| 只读副本 | RTO - 几分钟* <br/>RPO < 5 分钟* | RTO - 几分钟* <br/>RPO < 5 分钟*| RTO - 几分钟* <br/>RPO < 5 分钟*|
 
-\* 在某些情况下，RPO 可能会更高，具体取决于各种因素（包括主数据库工作负荷和区域之间的延迟）。 
+\* 在某些情况下，RTO 和 RPO 可能会更高，具体取决于各种因素（包括主数据库工作负载和区域之间的延迟）。 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>在发生用户或应用程序错误之后恢复服务器
 

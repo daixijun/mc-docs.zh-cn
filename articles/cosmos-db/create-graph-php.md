@@ -1,25 +1,26 @@
 ---
 title: 快速入门 - 将 Gremlin API 与 PHP 配合使用 - Azure Cosmos DB
 description: 本快速入门介绍如何在 Azure 门户和 PHP 中使用 Azure Cosmos DB Gremlin API 创建控制台应用程序
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 origin.date: 01/05/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7a2a6c14eaea74e3aee4984a79a75e05c13e8037
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 4029bb57129daa7acbfc08e06406454f5e1f59f3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223247"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328831"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>快速入门：在 Azure Cosmos DB 中使用 PHP 和 Azure 门户创建图形数据库
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 控制台](create-graph-gremlin-console.md)
@@ -201,7 +202,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 1. 单击“数据资源管理器”，展开“sample-graph”，再依次单击“图形”和“应用筛选器”。 
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="在 Azure 门户的数据资源管理器中创建新文档":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="屏幕截图显示了从 API 中选择了提供“应用筛选器”选项的“图形”。":::
 
 2. 在“结果”列表中，请注意添加到图形的新用户。 选择“ben”。请注意，他们已连接到 robin。 可以通过拖放操作来移动顶点，也可以通过滚动鼠标滚轮进行缩放，并能用双箭头放大图形。 
 
@@ -209,7 +210,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 3. 接下来，添加几个新用户。 单击“新建顶点”按钮，向图形添加数据。
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="在 Azure 门户的数据资源管理器中创建新文档":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="屏幕截图显示了可以在其中输入值的“新建顶点”窗格。":::
 
 4. 输入标签“人员”。
 

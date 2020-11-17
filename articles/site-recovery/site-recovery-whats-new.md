@@ -2,18 +2,18 @@
 title: Azure Site Recovery 中的新增功能
 description: 提供 Azure Site Recovery 服务中的新功能和最新更新的摘要。
 ms.topic: conceptual
-origin.date: 09/15/2020
+origin.date: 10/22/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c17cfd1e2a37893f5e8f87c62134728d7a49ad4d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 60fc3038925ba83d7feac7bc0e216b651b7b0dfd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128015"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328652"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -29,13 +29,22 @@ ms.locfileid: "92128015"
 
 **更新** |  **统一安装程序** | **配置服务器 ova** | **移动服务代理** | **Site Recovery 提供程序** | **恢复服务代理**
 --- | --- | --- | --- | --- | ---
+[汇总 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [汇总 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [汇总 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [汇总 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [汇总 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV 计算机 - 2.0.9183.0 <br /> VMware 计算机 - 2.0.9177.0
-[汇总 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 
 [详细了解](service-updates-how-to.md)更新安装和支持。
+
+### <a name="update-rollup-51"></a>更新汇总 51
+
+[更新汇总 51](https://support.microsoft.com/help/4590304/update-rollup-51-for-azure-site-recovery) 提供以下更新：
+
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）。
+**问题修复/改进** | 汇总中详细介绍了许多修复程序和改进，包括对出行服务的新 Linux 支持。
 
 ## <a name="update-september-2020"></a>更新（2020 年 9 月）
 
@@ -498,7 +507,7 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 **已启用防火墙的存储 (PowerShell)** | 添加了对[已启用防火墙的存储帐户](../storage/common/storage-network-security.md)的支持。<br/><br/> 可将已启用防火墙的存储帐户中使用非托管磁盘的 Azure VM 复制到另一个 Azure 区域，以实现灾难恢复。<br/><br/> 可将已启用防火墙的存储帐户用作非托管磁盘的目标存储帐户。<br/><br/> 仅支持在 PowerShell 中使用。
 
 <!--Not Available on **Region support** | Site Recovery support added for Austrial Central 1 and Austrial Central 2.-->
-<!--Not Available on  [了解详细信息](azure-to-azure-how-to-enable-replication-ade-vms.md)-->
+<!--Not Available on  [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md)-->
 
 ### <a name="update-rollup-29"></a>更新汇总 29
 

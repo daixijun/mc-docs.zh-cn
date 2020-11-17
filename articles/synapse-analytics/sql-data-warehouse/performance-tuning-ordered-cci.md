@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 09/05/2019
-ms.date: 05/11/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 550d249d09520d982ae166320ce0fb4c67a4a0dd
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: a66a0631fac82305c6d6b7d805c3f9bfcd75b79a
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198481"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375611"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>使用有序聚集列存储索引优化性能  
 
@@ -96,7 +96,7 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 以下示例将数据载入采用不同架构的表的性能做了比较。
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![柱状图，将数据载入采用不同架构的表的性能做了比较。](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 以下示例对使用 CCI 和有序 CCI 的查询性能做了比较。

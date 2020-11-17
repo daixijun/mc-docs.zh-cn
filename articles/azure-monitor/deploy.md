@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 32e489e52dd4de651a929976a09dd0a14b5d58e9
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 15b64143132298aad17c97aa6aa4fc9c0e59c5aa
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148973"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328832"
 ---
 # <a name="deploy-azure-monitor"></a>部署 Azure Monitor
 启用 Azure Monitor 来监视所有 Azure 资源时，既要配置 Azure Monitor 组件，也要配置 Azure 资源，这样才能生成供 Azure Monitor 收集的监视数据。 本文描述如何通过所需的不同步骤来完全实现使用常用配置的 Azure Monitor，以便监视 Azure 订阅中的所有资源。 本文为每个步骤提供了基本说明，其中包含介绍详细配置要求的其他文档的链接。
@@ -59,7 +59,8 @@ Azure Monitor 收集的数据会发送到 [Azure Monitor 指标](platform/data-p
 
 没有将活动日志发送到工作区的费用，但有针对 Azure Active Directory 日志的数据引入和保留费用。 
 
-<!--Not available in MC: ../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md-->
+若要为租户和订阅创建诊断设置来将日志项发送到 Log Analytics 工作区，请参阅[集成 Azure AD 日志与 Azure Monitor 日志](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)和[创建诊断设置以将平台日志和指标发送到不同目标](platform/diagnostic-settings.md)。 
+
 ### <a name="create-diagnostic-setting-to-collect-resource-logs-and-platform-metrics"></a>创建诊断设置以收集资源日志和平台指标
 Azure 中的资源会自动生成[资源日志](platform/platform-logs-overview.md)，这些日志提供资源中执行的操作的详细信息。 但与平台指标不同的是，你需要配置要收集的资源日志。 请创建诊断设置以将其发送到 Log Analytics 工作区，以便将其与 Azure Monitor 日志所使用的其他数据组合在一起。 同一诊断设置还可用于将大多数资源的平台指标发送到同一工作区，这样你就可以使用日志查询和其他收集的数据来分析指标数据。
 
@@ -83,13 +84,13 @@ Azure 中的资源会自动生成[资源日志](platform/platform-logs-overview.
 Azure Monitor 使用 [Application Insights](app/app-insights-overview.md) 来监视自定义应用程序，你必须为要监视的每个应用程序配置 Application Insights。 配置过程因所监视的应用程序的类型和要执行的监视类型而异。 Application Insights 收集的数据存储在 Azure Monitor 指标、Azure Monitor 日志和 Azure blob 存储中，具体取决于功能。 性能数据同时存储在 Azure Monitor 指标和 Azure Monitor 日志中，无需其他配置。
 
 ### <a name="create-an-application-resource"></a>创建应用程序资源
-必须在 Application Insights 中为要监视的每个应用程序创建一个资源。 Application Insights 收集的日志数据存储在 Azure Monitor 日志中，但独立于 Log Analytics 工作区，详见 [Azure Monitor 日志中的数据是如何构建的？](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured)。 但是，将应用程序数据直接存储在包含其他数据的 Log Analytics 工作区中的功能目前为预览版。 这简化了配置，让应用程序可以利用 Log Analytics 工作区的所有功能。
+必须在 Application Insights 中为要监视的每个应用程序创建一个资源。 Application Insights 收集的日志数据存储在基于工作区的应用程序的 Azure Monitor 日志中。 经典应用程序日志数据的存储与 Log Analytics 工作区是分开的，如[数据结构](platform/data-platform-logs.md#structure-of-data)中所述。
 
 <!--Can not select whether to use classic or workspace-based (preview)-->
 ### <a name="configure-codeless-or-code-based-monitoring"></a>配置无代码监视或基于代码的监视
 若要为应用程序启用监视功能，你必须决定是使用无代码监视还是基于代码的监视。 配置过程取决于此决定以及要监视的应用程序的类型。
 
-**无代码监视**最容易实现，可在代码开发后进行配置。 它不要求对代码进行更新。 请参阅以下资源，详细了解如何根据应用程序来启用监视。
+**无代码监视** 最容易实现，可在代码开发后进行配置。 它不要求对代码进行更新。 请参阅以下资源，详细了解如何根据应用程序来启用监视。
 
 - [托管在 Azure Web 应用上的应用程序](app/azure-web-apps.md)
 - [Java 应用程序](app/java-in-process-agent.md)
@@ -97,7 +98,7 @@ Azure Monitor 使用 [Application Insights](app/app-insights-overview.md) 来监
 - [在 VM 的 IIS 中托管的 ASP.NET 应用程序](app/monitor-performance-live-website-now.md)
 
 
-**基于代码的监视**可以更好地进行自定义，并且可以收集其他遥测数据，但需要在 Application Insights SDK NuGet 包上向代码添加依赖项。 请参阅以下资源，详细了解如何根据应用程序来启用监视。
+**基于代码的监视** 可以更好地进行自定义，并且可以收集其他遥测数据，但需要在 Application Insights SDK NuGet 包上向代码添加依赖项。 请参阅以下资源，详细了解如何根据应用程序来启用监视。
 
 - [ASP.NET 应用程序](app/asp-net.md)
 - [ASP.NET Core 应用程序](app/asp-net-core.md)

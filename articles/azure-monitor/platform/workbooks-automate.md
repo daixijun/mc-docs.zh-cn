@@ -3,18 +3,17 @@ title: Azure Monitor 工作簿和 Azure 资源管理器模板
 description: 使用通过 Azure 资源管理器模板部署的预生成和自定义参数化 Azure Monitor 工作簿简化复杂的报表
 services: azure-monitor
 author: Johnnytechn
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: b9334664aeba0e0965e99631821f02c1004c61a0
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 3e65d88f58460ba6c71038601ed04a555e74102d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457437"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327710"
 ---
 # <a name="programmatically-manage-workbooks"></a>以编程方式管理工作簿
 
@@ -212,5 +211,7 @@ ms.locfileid: "89457437"
 ### <a name="limitations"></a>限制
 出于技术原因，此机制无法用于在 Application Insights 的“工作簿”库中创建工作簿实例。 我们正在努力解决此限制。 在此同时，我们建议使用故障排除指南库（workbookType：`tsg`）来部署与 Application Insights 相关的工作簿。
 
-<!-- Not Available in MC: storage-insights -->
+## <a name="next-steps"></a>后续步骤
+
+了解如何使用工作簿来提供新的[用于存储的 Azure Monitor 体验](../insights/storage-insights-overview.md)。
 

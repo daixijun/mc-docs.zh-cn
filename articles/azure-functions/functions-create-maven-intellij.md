@@ -3,15 +3,15 @@ title: 使用 Java 和 IntelliJ 创建 Azure 函数
 description: 了解如何使用 Java 和 IntelliJ 在 Azure 上创建和发布简单的 HTTP 触发式无服务器应用。
 author: jeffhollan
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 9080b0f7bfb9e7fb8cb0898b1bee9428b88e1b05
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 9a679dc28f25bc2e81d8d2b2d3e5a6f55ac3fd35
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471264"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326544"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 创建第一个 Azure 函数
 
@@ -114,7 +114,7 @@ ms.locfileid: "92471264"
 
 1. 选择要部署的函数应用（自动选择你刚刚创建的新函数应用）。 单击“运行”以部署函数。
 
-    ![将函数部署到 Azure - 运行](./media/functions-create-first-java-intellij/deploy-functions-run.png)
+    ![屏幕截图显示“部署 Azure Functions”对话框。](./media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![将函数部署到 Azure - 日志](./media/functions-create-first-java-intellij/deploy-functions-log.png)
 
@@ -130,7 +130,7 @@ ms.locfileid: "92471264"
 
 1. 右键单击 HttpTrigger-Java 函数，然后选择“触发器函数”，你可看到浏览器打开了触发器 URL。
 
-    ![将函数部署到 Azure - 运行](./media/functions-create-first-java-intellij/explorer-trigger-functions.png)
+    ![屏幕截图显示带有 U R L 的浏览器。](./media/functions-create-first-java-intellij/explorer-trigger-functions.png)
 
 ## <a name="add-more-functions-to-the-project"></a>向项目添加更多函数
 
@@ -140,7 +140,7 @@ ms.locfileid: "92471264"
 
 1. 在“创建函数类”向导中填写类名 HttpTest并选择 HttpTrigger，单击“确定”即可创建。采用这种方式，你可根据需要创建新的函数。
 
-    ![向项目中添加函数 - 选择触发器](./media/functions-create-first-java-intellij/add-functions-trigger.png)
+    ![屏幕截图显示“创建函数类”对话框。](./media/functions-create-first-java-intellij/add-functions-trigger.png)
     
     ![向项目添加函数 - 输出](./media/functions-create-first-java-intellij/add-functions-output.png)
 
@@ -148,7 +148,7 @@ ms.locfileid: "92471264"
 
 1. 在 Azure 资源管理器中删除 Azure 函数
       
-      ![向项目中添加函数 - 选择触发器](./media/functions-create-first-java-intellij/delete-function.png)
+      ![屏幕截图显示从上下文菜单中选择的“删除”。](./media/functions-create-first-java-intellij/delete-function.png)
       
 
 ## <a name="next-steps"></a>后续步骤

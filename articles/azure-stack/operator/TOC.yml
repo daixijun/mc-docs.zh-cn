@@ -351,6 +351,30 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: 删除
               href: event-hubs-rp-remove.md
+        - name: Azure Stack Hub 上的 IoT 中心
+          items:
+            - name: 概述
+              href: iot-hub-rp-overview.md
+            - name: 先决条件
+              href: iot-hub-rp-prerequisites.md
+            - name: 安装
+              href: iot-hub-rp-install.md
+            - name: 生命周期管理
+              items:
+                - name: 应用更新
+                  href: resource-provider-apply-updates.md
+                - name: 备份和还原
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: 收集日志
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 运行状况和警报
+                  href: azure-stack-monitor-health.md
+                - name: 管理
+                  href: iot-hub-rp-manage.md
+                - name: 轮换机密
+                  href: iot-hub-rp-rotate-secrets.md
+            - name: 删除
+              href: iot-hub-rp-remove.md
         - name: Azure Stack Hub 上的 MySQL
           items:
             - name: 概述
@@ -369,6 +393,8 @@
               href: azure-stack-mysql-resource-provider-remove.md
             - name: MySQL 资源提供程序发行说明
               items:
+                - name: MySQL 资源提供程序 1.1.93.0 发行说明
+                  href: azure-stack-mysql-resource-provider-11930.md
                 - name: MySQL 资源提供程序 1.1.47.0 发行说明
                   href: azure-stack-mysql-resource-provider-11470.md
                 - name: MySQL 资源提供程序 1.1.33.0 发行说明
@@ -395,6 +421,8 @@
               href: azure-stack-sql-resource-provider-remove.md
             - name: SQL 资源提供程序发行说明
               items:
+                - name: SQL 资源提供程序 1.1.93.0 发行说明
+                  href: azure-stack-sql-resource-provider-11930.md
                 - name: SQL 资源提供程序 1.1.47.0 发行说明
                   href: azure-stack-sql-resource-provider-11470.md
                 - name: SQL 资源提供程序 1.1.33.0 发行说明
@@ -461,14 +489,6 @@
               items:
                 - name: 概述
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: 主动发送日志
-                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                - name: 立即发送日志
-                  items:
-                    - name: 使用管理员门户
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
-                    - name: 使用 PowerShell
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
         - name: Azure Stack Hub 验证

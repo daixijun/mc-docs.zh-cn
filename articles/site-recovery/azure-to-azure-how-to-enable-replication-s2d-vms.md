@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 01/29/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6822b5360c58677773be5a21a71e68dcf54055ea
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 3621e412b787ebf29d8b310f8f0b75fd94ab0bd6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211851"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328653"
 ---
 <!--Verfiy successfully-->
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>将运行存储空间直通的 Azure VM 复制到另一区域
@@ -56,12 +56,12 @@ ms.locfileid: "92211851"
 1. 选择复制策略，同时禁用应用程序一致性*（仅支持故障一致性）
 1. 启用复制
 
-    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png" alt-text="storagespacesdirect":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png" alt-text="屏幕截图显示配置复制设置的位置。":::
 
 2. 转到已复制的项，可以看到两个虚拟机的状态。
 3. 两个虚拟机均受到保护，并显示为属于多 VM 一致性组。
 
-    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG" alt-text="storagespacesdirect":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG" alt-text="屏幕截图显示虚拟机受到保护并属于一个多 VM 一致性组。":::
 
 ## <a name="creating-a-recovery-plan"></a>创建恢复计划
 恢复计划支持在故障转移期间将多层应用程序中的各个层排序。 排序有助于保持应用程序一致性。 为多层 Web 应用程序创建恢复计划时，请完成[使用 Site Recovery 创建恢复计划](site-recovery-create-recovery-plans.md)中所述的步骤。
@@ -77,7 +77,7 @@ ms.locfileid: "92211851"
 ### <a name="failover-of-the-virtual-machines"></a>虚拟机故障转移 
 VM 的两个节点都需要使用 [Site Recovery 恢复计划](./site-recovery-create-recovery-plans.md)进行故障转移 
 
-:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG" alt-text="storagespacesdirect":::
+:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG" alt-text="storagespacesdirect 保护":::
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 1. 在 Azure 门户中，选择恢复服务保管库。

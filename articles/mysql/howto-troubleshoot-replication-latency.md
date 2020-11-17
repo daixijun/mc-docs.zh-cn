@@ -6,16 +6,19 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: troubleshooting
-origin.date: 10/08/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 352de1ecec56c656fae3abfc3e4627772d435b48
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+origin.date: 10/25/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 770a18aa163087b5e73076642ab43c74f5da25fe
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470594"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328489"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>排查 Azure Database for MySQL 中的复制延迟问题
+
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 使用[只读副本](concepts-read-replicas.md)功能可将数据从 Azure Database for MySQL 服务器复制到只读副本服务器。 可以通过将读取和报告查询从应用程序路由到副本服务器来横向扩展工作负荷。 此设置可减小源服务器上的压力。 它还改进了应用程序在缩放时的整体性能和延迟。 
 
@@ -208,6 +211,9 @@ ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NO
 binlog_group_commit_sync_delay 参数控制在同步二进制日志文件之前，二进制日志提交操作需要等待多少微秒。 使用此参数的优点是，源服务器会批量发送二进制日志更新，而不是立即应用每个已提交的事务。 此延迟减少了副本上的 IO，有助于提高性能。 
 
 可以将 binlog_group_commit_sync_delay 参数设置为 1000 左右。 然后，监视复制延迟。 请谨慎设置此参数，仅将其用于高并发工作负荷。 
+
+> [!IMPORTANT] 
+> 在副本服务器中，建议将参数 binlog_group_commit_sync_delay 设置为 0。 这是因为副本服务器与源服务器不同，它没有高并发性，并且增加副本服务器上 binlog_group_commit_sync_delay 的值可能会无意中导致复制延迟增加。
 
 对于包含许多单一实例事务的低并发工作负荷，binlog_group_commit_sync_delay 设置可能会增加延迟。 延迟可能会增加，因为 IO 线程会等待批量二进制日志更新，即使只提交了几个事务。 
 

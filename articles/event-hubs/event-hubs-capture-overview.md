@@ -3,14 +3,14 @@ title: 捕获流式处理事件 - Azure 事件中心 | Microsoft Docs
 description: 本文概述了捕获功能，该功能可以捕获通过 Azure 事件中心流式处理的事件。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 09/14/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: fdcb6df6c320eae44306ea372634a3026c665aea
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: cd5019cc3ccb4d8cdca45bb95da6f0a6336a1a32
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063352"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375606"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>通过 Azure Blob 存储或 Azure Data Lake Storage 中的 Azure 事件中心来捕获事件
 使用 Azure 事件中心，可以按指定的时间间隔或大小差异在所选的 [Azure Blob 存储](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Store Gen 2](https://azure.microsoft.com/services/data-lake-store/) 帐户中自动捕获事件中心的流式处理数据。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-scalability.md#throughput-units)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
@@ -20,6 +20,8 @@ ms.locfileid: "90063352"
 
 事件中心捕获可让用户在同一个流上处理实时和基于批处理的管道。 这意味着可以构建随着时间的推移随用户的需要增长的解决方案。 无论用户现在正在构建基于批处理的系统并着眼于将来进行实时处理，还是要将高效的冷路径添加到现有的实时解决方案，事件中心捕获都可以使流式处理数据处理更加简单。
 
+> [!IMPORTANT]
+> 目标存储帐户必须与事件中心位于同一订阅中。 
 
 ## <a name="how-event-hubs-capture-works"></a>Azure 事件中心捕获的工作原理
 
@@ -58,6 +60,8 @@ https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myev
 - [通过 Azure 门户启用事件中心捕获](event-hubs-capture-enable-through-portal.md)
 - [使用 Azure 资源管理器模板创建包含事件中心的事件中心命名空间并启用捕获](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> 如果对现有的事件中心启用“捕获”功能，该功能将在启用后捕获到达事件中心的事件。 它不会在启用功能之前捕获事件中心中存在的事件。 
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>浏览已捕获的文件和使用 Avro
 

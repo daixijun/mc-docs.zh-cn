@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: b006dc308fa3517ff8b7f377cb5d59eaca4287f6
-ms.sourcegitcommit: a04b0b1009b0c62f2deb7c7acee75a1304d98f87
+ms.date: 11/02/2020
+ms.openlocfilehash: 76e4c6168444d382159a75fc3f6ed88e9423526c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83796982"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327876"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>视图设计器到工作簿的转换摘要和访问
 [视图设计器](view-designer.md)是 Azure Monitor 的一项功能，它让你能够创建自定义视图，帮助你通过图表、列表和时间线将 Log Analytics 工作区中的数据可视化。 这些元素已逐步淘汰，取而代之的是除这些功能外还可提供其他功能的工作簿。 本文详细介绍如何创建访问工作簿所需的概述摘要和权限。
@@ -21,7 +21,7 @@ ms.locfileid: "83796982"
 
 可以利用 Azure 仪表板随附的高级自定义功能，来执行自动刷新、移动、大小调整，以及对固定的项和可视化效果进行附加的筛选。 
 
-![仪表板](./media/view-designer-conversion-access/dashboard.png)
+![屏幕截图显示名为“工作区摘要”的自定义 Azure 仪表板。](./media/view-designer-conversion-access/dashboard.png)
 
 创建新的 Azure 仪表板或选择现有的仪表板，以开始固定工作簿项。
 

@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 10/15/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e991d293bd55748140574f80f76cc5d1cc70c5ad
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+origin.date: 10/26/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 9b094e2e769b6e4badfbe3e40c055daadc955290
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470434"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328351"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -35,9 +35,6 @@ ms.locfileid: "92470434"
 
 只读副本功能使用 MySQL 本机异步复制。 该功能不适用于同步复制方案。 源与副本之间将会存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
-> [!IMPORTANT]
-> Azure Database for MySQL 使用基于 ROW 的二进制日志记录。 如果表缺少主键，则会扫描表中的所有行来进行 DML 操作。 这会导致复制延迟时间增加。 若要确保副本服务器能够与源服务器中的更改保持同步，我们通常建议在创建副本服务器之前在源服务器中的表上添加主键，或者在已有副本服务器时重新创建副本服务器。
-
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与源服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
 
@@ -55,7 +52,7 @@ ms.locfileid: "92470434"
 
 如果源服务器没有现有的副本服务器，该源服务器会先重启，以便为复制做好自身准备。
 
-启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器中会填充源服务器上的数据。 创建时间取决于源服务器上的数据量，以及自上次每周完整备份以来所经历的时间。 具体所需时间从几分钟到几小时不等。 始终会在与源服务器相同的资源组和订阅中创建副本服务器。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](/azure-resource-manager/management/move-resource-group-and-subscription)。
+启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器中会填充源服务器上的数据。 创建时间取决于源服务器上的数据量，以及自上次每周完整备份以来所经历的时间。 具体所需时间从几分钟到几小时不等。 始终会在与源服务器相同的资源组和订阅中创建副本服务器。 如果要将副本服务器创建到不同的资源组或不同的订阅，可以在创建后[移动副本服务器](../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
 每个副本都启用了存储[自动增长](concepts-pricing-tiers.md#storage-auto-grow)。 自动增长功能允许副本与复制到它的数据保持同步，并防止由于存储空间不足错误而导致的复制中断。
 
@@ -65,9 +62,9 @@ ms.locfileid: "92470434"
 
 创建时，副本会继承源服务器的防火墙规则。 之后，这些规则将独立于源服务器。
 
-副本从源服务器继承其管理员帐户。 源服务器上的所有用户帐户都会复制到只读副本。 只能通过使用源服务器上可用的用户帐户来连接到只读副本。
+副本会从源服务器继承管理员帐户。 源服务器上的所有用户帐户都会复制到只读副本。 只能通过使用源服务器上可用的用户帐户来连接到只读副本。
 
-可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for MySQL 服务器上连接一样。 对于名称为 **myreplica** 、管理员用户名为 **myadmin** 的服务器，可以使用 mysql CLI 连接到副本：
+可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for MySQL 服务器上连接一样。 对于名称为 **myreplica**、管理员用户名为 **myadmin** 的服务器，可以使用 mysql CLI 连接到副本：
 
 ```bash
 mysql -h myreplica.mysql.database.chinacloudapi.cn -u myadmin@myreplica -p
@@ -112,6 +109,26 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
     
 如果应用程序成功处理了读取和写入操作，则表明故障转移已完成。 应用程序经历的停机时间取决于何时检测到问题并完成上面的步骤 1 和 2。
 
+## <a name="global-transaction-identifier-gtid"></a>全局事务标识符 (GTID)
+
+全局事务标识符 (GTID) 是使用源服务器上的每个提交的事务创建的唯一标识符，在 Azure Database for MySQL 中默认处于关闭状态。 GTID 在版本 5.7 和 8.0 中受支持，且仅在所支持的存储不超过 16 TB 的服务器上受支持。 若要详细了解 GTID 及其在复制中的使用方式，请参阅 MySQL 的[使用 GTID 进行复制](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html)文档。
+
+MySQL 支持两种类型的事务：GTID 事务（使用 GTID 标识）和匿名事务（未分配 GTID）
+
+以下服务器参数可用于配置 GTID： 
+
+|**服务器参数**|**说明**|**默认值**|**值**|
+|--|--|--|--|
+|`gtid_mode`|指示是否使用 GTID 标识事务。 若要在两个模式之间进行更改，只能按升序顺序一次完成一个步骤（例如 `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`：新事务和复制事务都必须是匿名事务 <br> `OFF_PERMISSIVE`：新事务是匿名事务。 复制的事务可以是匿名事务，也可以是 GTID 事务。 <br> `ON_PERMISSIVE`：新事务是 GTID 事务。 复制的事务可以是匿名事务，也可以是 GTID 事务。 <br> `ON`：新事务和复制事务都必须是 GTID 事务。|
+|`enforce_gtid_consistency`|通过仅允许执行能够以事务性安全方式记录的语句来强制实施 GTID 一致性。 在启用 GTID 复制之前，必须将此值设置为 `ON`。 |`OFF`|`OFF`：允许所有事务违反 GTID 一致性。  <br> `ON`：不允许任何事务违反 GTID 一致性。 <br> `WARN`：允许所有事务违反 GTID 一致性，但系统会生成警告。 | 
+
+> [!NOTE]
+> 启用 GTID 后，就无法将其关闭。 如果需要关闭 GTID，请与支持人员联系。 
+
+若要启用 GTID 并配置一致性行为，请使用 [Azure 门户](howto-server-parameters.md)、[Azure CLI](howto-configure-server-parameters-using-cli.md) 或 [PowerShell](howto-configure-server-parameters-using-powershell.md)更新 `gtid_mode` 和 `enforce_gtid_consistency` 服务器参数。
+
+如果在源服务器上启用了 GTID（`gtid_mode` = 开），则新创建的副本也将启用 GTID 并使用 GTID 复制。 为了保持复制一致性，无法在源或副本服务器上更新 `gtid_mode`。
+
 ## <a name="considerations-and-limitations"></a>注意事项和限制
 
 ### <a name="pricing-tiers"></a>定价层
@@ -155,12 +172,22 @@ Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)�
 为了防止数据不同步并避免潜在的数据丢失或损坏，使用读取副本时，会锁定某些服务器参数以防止其更新。
 
 源服务器和副本服务器上都会锁定以下服务器参数：
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 副本服务器上的 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) 参数处于锁定状态。 
 
 若要在源服务器上更新上述某个参数，请删除副本服务器，更新主服务器上的参数值，然后重新创建副本。
+
+### <a name="gtid"></a>GTID
+
+GTID 在以下版本上受支持：
+- MySQL 版本 5.7 和 8.0 
+- 支持不超过 16 TB 的存储的服务器。 若要获取支持 16 TB 存储的区域的完整列表，请参阅[定价层](concepts-pricing-tiers.md#storage)一文。 
+
+GTID 默认处于关闭状态。 启用 GTID 后，就无法将其关闭。 如果需要关闭 GTID，请与支持人员联系。 
+
+如果在源服务器上启用了 GTID，则新创建的副本也将启用 GTID 并使用 GTID 复制。 为了保持复制一致性，无法在源或副本服务器上更新 `gtid_mode`。
 
 ### <a name="other"></a>其他
 

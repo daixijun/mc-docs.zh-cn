@@ -2,13 +2,13 @@
 title: Azure Functions 的应用设置参考
 description: 有关 Azure Functions 应用设置或环境变量的参考文档。
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 9f60936ee2b46fc8322a7f93cc0246c5bd3eab8f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/04/2020
+ms.openlocfilehash: 57f1d49e8bf83146c951cef20052edcd8c937a48
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472059"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326577"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -217,6 +217,14 @@ _此设置当前处于预览状态。_
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
+
+仅用于高级计划。 将存储帐户限制在虚拟网络中时，值 `1` 允许函数应用进行缩放。 将存储帐户限制于一个虚拟网络时，应启用此设置。 若要了解详细信息，请参阅[将存储帐户限制在虚拟网络中](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview)。 
+
+|键|示例值|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
+
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
 仅用于消耗计划和高级计划。 函数应用代码和配置的文件路径。 与 WEBSITE_CONTENTAZUREFILECONNECTIONSTRING 结合使用。 默认值是以函数应用名称开头的唯一字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
@@ -238,7 +246,7 @@ _此设置当前处于预览状态。_
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_仅限 Windows_ 。  
+_仅限 Windows_。  
 设置在 Windows 上运行函数应用时要使用的 Node.js 版本。 应使用波形符 (~) 让运行时使用目标主版本的最新可用版本。 例如，当设置为 `~10` 时，将使用最新版本 Node.js 10。 当目标主版本带有波形符时，无需手动更新次版本。 
 
 |键|示例值|

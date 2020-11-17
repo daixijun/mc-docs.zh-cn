@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor 工作簿 - 创建参数
-description: 使用预先构建的自定义参数化工作簿简化复杂的报表
+description: 了解工作簿作者如何通过参数从使用者收集输入，并在工作簿的其他部分引用该输入。
 services: azure-monitor
 author: Johnnytechn
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: fb2cc133bbde6b1bf47144d8b2eb192898cf8c61
-ms.sourcegitcommit: a04b0b1009b0c62f2deb7c7acee75a1304d98f87
+ms.openlocfilehash: 10e808bde6c8e0584952ae26ef0d8accbeeb3d5c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83796910"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328852"
 ---
 # <a name="workbook-parameters"></a>工作簿参数
 
@@ -38,8 +38,8 @@ ms.locfileid: "83796910"
 2. 从工作簿内的链接中选择“添加参数”。
 3. 单击蓝色的“添加参数”按钮。
 4. 在弹出的“新建参数”窗格中，输入：
-    1. 参数名称：`TimeRange`（请注意，参数__名称__**不能**包含空格或特殊字符）
-    2. 显示名称：`Time Range`（但是，__显示名称__可以包括空格、特殊字符、表情符号等）
+    1. 参数名称：`TimeRange`（请注意，参数 __名称__**不能** 包含空格或特殊字符）
+    2. 显示名称：`Time Range`（但是，__显示名称__ 可以包括空格、特殊字符、表情符号等）
     2. 参数类型：`Time range picker`
     3. 必需：`checked`
     4. 可用时间范围：过去 1 小时、过去 12 小时、过去 24 小时、过去 48 小时、过去 3 天、过去 7 天，以及允许自定义时间范围选择
@@ -83,6 +83,6 @@ ms.locfileid: "83796910"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 

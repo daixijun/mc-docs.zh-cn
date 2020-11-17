@@ -3,17 +3,17 @@ title: Azure Stack Hub 上 Azure Kubernetes 服务 (AKS) 引擎的发行说明
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: WenJason
 ms.topic: article
-origin.date: 09/16/2020
-ms.date: 10/12/2020
+origin.date: 09/28/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 0dccfe80252e26d53edd8c449063e49826f6071b
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 7b13489a89b9a4e7b1e4c0697314048bdf857933
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437594"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330441"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 适用于 AKS 引擎的版本 v0.55.4。
@@ -68,7 +68,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 -   Azure Stack Hub 操作员需要将新的 AKS 基础 Ubuntu 映像下载到缩放单元市场：
 
-    -   姓名：AKS 基础 Ubuntu 16.04-LTS 映像发行版，2020 年 8 月 (2020.09.14)
+    -   姓名：AKS 基础 Ubuntu 16.04-LTS 映像发行版，2020 年 9 月 (2020.09.14)
 
     -   版本：2020.09.14
 
@@ -103,6 +103,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 ## <a name="whats-new"></a>新增功能
 
+- 将 Azure Stack 的 Linux VHD 更新为 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - 添加了对 Azure Stack 上 K8s v1.17.11 的支持 [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - 添加了对 Azure Stack 上 K8s v1.16.14 的支持 [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - Linux VHD 更新至 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)

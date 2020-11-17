@@ -9,16 +9,16 @@ ms.topic: conceptual
 origin.date: 03/11/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 05c2cc76ac2cda05735093babca8ed67a0f24a98
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: be9a850d99d0ab54ce57fe392d53c28b69d9dab9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73425891"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327791"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>将 IoT 中心从操作监视迁移到诊断设置
 
-使用[操作监视](iot-hub-operations-monitoring.md)跟踪 IoT 中心内的操作状态的客户可以将该工作流迁移到 [Azure 诊断设置](../azure-monitor/platform/resource-logs-overview.md)（Azure Monitor 的一项功能）。 诊断设置针对许多 Azure 服务提供了资源级诊断信息。
+使用[操作监视](iot-hub-operations-monitoring.md)跟踪 IoT 中心内的操作状态的客户可以将该工作流迁移到 [Azure 诊断设置](../azure-monitor/platform/platform-logs-overview.md)（Azure Monitor 的一项功能）。 诊断设置针对许多 Azure 服务提供了资源级诊断信息。
 
 **IoT 中心的操作监视功能已弃用**，已从门户中删除。 本文提供了将工作负荷从操作监视移动到诊断设置的步骤。 若要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)。
 
@@ -53,7 +53,7 @@ ms.locfileid: "73425891"
 * 作业操作
 * 直接方法
 
-有关特定的架构结构，请参阅[了解诊断设置的架构](iot-hub-monitor-resource-health.md#understand-the-logs)。
+有关特定架构结构，请参阅[资源日志](monitor-iot-hub-reference.md#resource-logs)。
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>以低延迟监视设备连接和断开连接事件
 
@@ -61,4 +61,4 @@ ms.locfileid: "73425891"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [监视 Azure IoT 中心的运行状况并快速诊断问题](iot-hub-monitor-resource-health.md)
+[监视 IoT 中心](monitor-iot-hub.md)

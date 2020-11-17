@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 32bd4a791b15abf0e95ceb74455fa5244847c7c4
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: a50bccbb5c47518bb35636b759e6de15c948861f
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160376"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326499"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>使用 Azure CLI 列出 Azure 角色分配
 
@@ -162,15 +162,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>列出托管标识的角色分配
 
-1. 获取系统分配的或用户分配的托管标识的对象 ID。
+1. 获取系统分配的或用户分配的托管标识的主体 ID。
 
-    若要获取用户分配的托管标识的对象 ID，可以使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list) 或 [az identity list](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-list)。
+    若要获取用户分配的托管标识的主体 ID，可以使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list) 或 [az identity list](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-list)。
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    若要获取系统分配的托管标识的对象 ID，可以使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list)。
+    若要获取系统分配的托管标识的主体 ID，可以使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list)。
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv

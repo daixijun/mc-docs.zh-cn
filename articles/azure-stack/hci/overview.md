@@ -1,23 +1,23 @@
 ---
 title: Azure Stack HCI 解决方案概述
-description: Azure Stack HCI 是一种超融合群集解决方案，它在混合的本地环境中运行虚拟化的 Windows 和 Linux 工作负载。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。
+description: Azure Stack HCI 是一种超融合基础设施 (HCI) 群集解决方案，它在混合的本地环境中托管虚拟化的 Windows 和 Linux 工作负载以及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。
 ms.topic: overview
 author: WenJason
 ms.author: v-jay
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-origin.date: 09/24/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 8e2c673d3ed247937e723694dae2699aa6daee9d
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+origin.date: 10/28/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 1e42b1489ec442471531d5d939bead640b98096d
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437611"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330433"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
-Azure Stack HCI 是一种超融合群集解决方案，它在混合的本地环境中运行虚拟化的 Windows 和 Linux 工作负载。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
+Azure Stack HCI 是一种超融合基础设施 (HCI) 群集解决方案，它在混合的本地环境中托管虚拟化的 Windows 和 Linux 工作负载以及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
 
 Azure Stack HCI 版本 20H2 是全新的操作系统，现在有公共预览版并[可供下载](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。 Azure Stack HCI 现在还具备托管 Azure Kubernetes 服务的功能；有关详细信息，请参阅 [Azure Stack HCI 上的 Azure Kubernetes 服务](../aks-hci/overview.md)。
 
@@ -95,11 +95,13 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 - 群集中每个服务器的 Internet 连接，该服务器可以至少每 30 天通过 HTTPS 出站流量连接到以下终结点：*-azurestackhci-usage.azurewebsites.net
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
 
-有关详细信息，请参阅[准备工作](deploy/before-you-start.md)。 关于 Azure Stack HCI 上的 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../aks-hci/overview.md#what-you-need-to-get-started)。
+有关详细信息，请参阅[系统需求](concepts/system-requirements.md)。 关于 Azure Stack HCI 上的 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../aks-hci/overview.md#what-you-need-to-get-started)。
 
 ## <a name="hardware-partners"></a>硬件合作伙伴
 
 你可以从首选 Azure 合作伙伴处购买经过验证的 Azure Stack HCI 解决方案，从而不需要经过长时间的设计和构建就能启动和运行。 Azure 合作伙伴还可提供单一联络点来帮助你完成服务的实施与支持。 你可以购买经过验证的节点或集成系统，其中包括预安装的 Azure Stack HCI 操作系统以及用于驱动程序和固件更新的合作伙伴扩展。
+
+请访问[Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)页或浏览 [Azure Stack HCI 目录](https://azure.microsoft.com/products/azure-stack/hci/catalog/)，查看 Microsoft 合作伙伴（如 ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro）当前提供的 70 多种 Azure Stack HCI 解决方案。
 
 ## <a name="software-partners"></a>软件合作伙伴
 
@@ -198,7 +200,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用
 - [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 在本地运行虚拟化应用、更换和整合过时的服务器基础结构，以及连接到 Azure 以使用云服务。
 - [Azure Stack Hub](../operator/azure-stack-overview.md) - 在连接中断时运行本地云应用，或者使用一致的 Azure 服务满足法规要求。
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack HCI OS 在经过验证的硬件上运行，由 Windows Admin Center 管理，并连接到 Azure" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack 系列解决方案关系图" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>比较 Windows Server 和 Azure Stack HCI
 
@@ -255,7 +257,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用
 Windows Admin Center 版本 2009 为 Azure Stack HCI 添加了许多功能，其中包括：
 
 - Azure Kubernetes 服务托管功能：现在可以安装 [Azure Stack HCI 上的 Azure Kubernetes 服务](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)预览版。
-- 群集创建向导中包含软件定义的网络：群集创建向导现在提供了用于在群集创建过程中部署软件定义的网络 (SDN) 网络控制器功能的选项。
+- 群集创建向导中包含软件定义的网络：群集创建向导现在提供了用于在[群集创建](deploy/create-cluster.md#step-5-sdn-optional)过程中部署[软件定义的网络 (SDN)](concepts/software-defined-networking.md) 网络控制器功能的选项。
 
 若要详细了解 Windows Admin Center 中的新功能，请参阅 [Windows Admin Center 博客](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)。
 
@@ -284,5 +286,5 @@ Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [下载 Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
+- [下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [在 Windows 管理中心使用 Azure Stack HCI](get-started.md)

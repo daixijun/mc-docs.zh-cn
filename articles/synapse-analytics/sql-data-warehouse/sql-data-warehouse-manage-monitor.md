@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 03/24/2020
-ms.date: 05/11/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 52ec20b294f1e5ed88419a1491168ba9c54f5347
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 82a96eee0a0c5aa4992d4e4111f0b2388c69748e
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198670"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375695"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>使用 DMV 监视 Azure Synapse Analytics SQL 池工作负载
 
@@ -101,10 +101,10 @@ ORDER BY step_index;
 
 当 DSQL 计划的执行时间超出预期时，原因可能是计划很复杂，包含许多 DSQL 步骤，也可能是一个步骤占用很长的时间。  如果计划有很多步骤，包含多个移动操作，可考虑优化表分布，减少数据移动。 [表分布](sql-data-warehouse-tables-distribute.md)一文说明了为何必须移动数据才能解决查询。 该文还介绍了一些用于最大程度减少数据移动的分布策略。
 
-若要进一步调查单个步骤的详细信息，可检查长时间运行的查询步骤的 *operation_type* 列并记下**步骤索引**：
+若要进一步调查单个步骤的详细信息，可检查长时间运行的查询步骤的 *operation_type* 列并记下 **步骤索引**：
 
-* 针对 SQL 操作  继续执行步骤 3a：OnOperation、RemoteOperation、ReturnOperation。
-* 针对数据移动操作  继续执行步骤 3b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
+* 针对 SQL 操作继续执行步骤 3：OnOperation、RemoteOperation、ReturnOperation。
+* 针对数据移动操作继续执行步骤 4：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>步骤 3：调查分布式数据库上的 SQL
 
@@ -140,7 +140,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * 检查 *total_elapsed_time* 列，以查看是否有特定分布在数据移动上比其他分布花费了更多时间。
-* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，此发现可能指示基础数据倾斜。
+* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，此发现可能指示基础数据倾斜。 数据偏斜的一个原因是在具有多个 NULL 值的列上分布（其行将全部位于同一分布中）。 通过避免在这些类型的列上分发或筛选查询以尽可能消除 NULL 来防止查询速度过慢。 
 
 如果查询正在运行，则可以使用 [DBCC PDW_SHOWEXECUTIONPLAN](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 从 SQL Server 计划缓存中检索 SQL Server 估计计划，以了解特定分布中当前正在运行的 SQL 步骤。
 

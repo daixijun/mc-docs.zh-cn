@@ -45,7 +45,7 @@ Azure AD 通过向单个用户或整个 Azure AD 组提供访问权限，帮助�
 
 - **基于规则的分配。** 资源所有者创建一个组，并使用一条规则来定义要将哪些用户分配到特定的资源。 该规则基于分配给单个用户的属性。 资源所有者管理该规则，确定需要提供哪些属性和值才能访问该资源。 
 
-- **External authority assignment** （外部机构分配）。 访问来自外部源，例如本地目录。 在这种情况下，资源所有者将分配一个组以提供资源访问权限，外部源将管理组成员。
+- **External authority assignment**（外部机构分配）。 访问来自外部源，例如本地目录。 在这种情况下，资源所有者将分配一个组以提供资源访问权限，外部源将管理组成员。
 
    ![访问管理示意图概览](./media/active-directory-manage-groups/access-management-overview.png)
 

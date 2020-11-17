@@ -5,16 +5,16 @@ description: 了解应用于 Azure Stack Hub 的安全态势和控制。
 author: WenJason
 ms.topic: article
 origin.date: 06/10/2019
-ms.date: 07/20/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 4a798e69dee90cecc44d0619d43113a1ced0f14d
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: 5df6502372c00812a714353baf0faf9edfcb6b16
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307405"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330452"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub 基础结构安全控制
 
@@ -27,10 +27,10 @@ ms.locfileid: "86307405"
 Azure Stack Hub 的安全态势功能旨在防范新式威胁，为符合主要合规标准的要求而构建。 因此，Azure Stack Hub 基础结构的安全态势构建在两个支柱之上：
 
 - **假想入侵**  
-    我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。
+    我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
 
 - **默认强化**  
-    由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack Hub 会在默认情况下启用、配置和验证所有安全功能。
+    由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack Hub 会在默认情况下启用、配置和验证所有安全功能。 
 
 由于 Azure Stack Hub 是以集成系统的形式交付的，因此 Azure Stack Hub 基础结构的安全态势由 Azure 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack Hub 基础结构安全态势的基础知识。
 
@@ -52,11 +52,11 @@ Azure Stack Hub 基础结构使用许多机密（例如密码和证书）来运�
 
 Azure Stack Hub 基础结构对其所有内部证书使用 4096 位 RSA 密钥。 相同密钥长度的证书还可用于外部终结点。 有关机密和证书轮换的详细信息，请参阅[在 Azure Stack Hub 中轮换机密](azure-stack-rotate-secrets.md)。
 
-## <a name="windows-defender-application-control"></a>Windows Defender 应用程序控制
+## <a name="windows-defender-application-control"></a>Microsoft Defender 应用程序控制
 
-Azure Stack Hub 使用最新的 Windows Server 安全功能。 其中的一项功能是 Windows Defender 应用程序控制（WDAC，前称为“代码完整性”）。此功能提供可执行文件允许列表，确保只有已授权的代码可在 Azure Stack Hub 基础结构中运行。
+Azure Stack Hub 利用最新的 Windows Server 安全功能。 其中的一项功能是 Windows Defender 应用程序控制（WDAC，前称为“代码完整性”），它提供可执行文件筛选功能，确保只有已授权的代码可在 Azure Stack Hub 基础结构中运行。
 
-经授权的代码是由 Azure 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Azure 定义的策略中指定的允许软件列表中。 换而言之，只能执行已批准在 Azure Stack Hub 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
+经授权的代码是由 Azure 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Azure 定义的策略中指定的允许软件列表中。 换而言之，只能执行已批准在 Azure Stack Hub 基础结构中运行的软件。 任何执行未经授权代码的尝试都会被阻止，并且会生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
 
 WDAC 策略也会阻止第三方代理或软件在 Azure Stack Hub 基础结构中运行。
 有关 WDAC 的详细信息，请参阅 [Windows Defender 应用程序控制和基于虚拟化的代码完整性保护](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)。
@@ -81,7 +81,7 @@ Azure Stack Hub 中的管理通过三个入口点进行控制，每个入口点�
 
 - [管理员门户](azure-stack-manage-portals.md)针对日常管理操作提供点击式体验。
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
-- 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack Hub 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
+- 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack Hub 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组允许的 cmdlet，并且经常接受审核。
 
 ## <a name="network-controls"></a>网络控制措施
 

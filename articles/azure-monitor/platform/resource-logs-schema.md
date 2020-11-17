@@ -4,13 +4,13 @@ description: 了解 Azure 资源日志支持的服务和事件架构。
 ms.subservice: logs
 author: Johnnytechn
 ms.topic: reference
-ms.date: 08/20/2020
-ms.openlocfilehash: 20351697b15eee0cb75b0ed3c5d54cab19f25131
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.date: 11/02/2020
+ms.openlocfilehash: 7d078714d4652e168b3cdc359f8c1c00c19137e7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457262"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327881"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 资源日志的通用架构和特定于服务的架构
 
@@ -50,23 +50,22 @@ ms.locfileid: "89457262"
 
 | 服务 | 架构和文档 |
 | --- | --- |
-| Azure Active Directory | [审核日志架构](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登录架构](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | [Analysis Services](/analysis-services/analysis-services-logging) |
+| Azure Active Directory | [概述](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)、[审核日志架构](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登录架构](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Analysis Services | [Azure Analysis Services - 设置诊断日志记录](../../analysis-services/analysis-services-logging.md) |
 | API 管理 | [API 管理资源日志](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | 应用程序网关 |[应用程序网关的日志记录](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自动化 |[适用于 Azure 自动化的 Log Analytics](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 日志记录](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL 诊断日志](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 日志](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure 数据资源管理器 | [Azure 数据资源管理器日志](/data-explorer/using-diagnostic-logs) |
 | 认知服务 | [Azure 认知服务的日志记录](../../cognitive-services/diagnostic-logging.md) |
 | 容器注册表 | [Azure 容器注册表的日志记录](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | CosmosDB | [Azure Cosmos DB 日志记录](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [使用 Azure Monitor 监视数据工厂](../../data-factory/monitor-using-azure-monitor.md) |
+| Azure 数据资源管理器 | [Azure 数据资源管理器日志](/data-explorer/using-diagnostic-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL 诊断日志](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 日志](../../postgresql/concepts-server-logs.md#resource-logs) |
 | 事件中心 |[Azure 事件中心日志](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | 架构不可用。 |
 | Azure 防火墙 | 架构不可用。 |
-| IoT 中心 | [IoT 中心操作](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | 密钥保管库 |[Azure 密钥保管库日志记录](../../key-vault/general/logging.md) |
 | Kubernetes 服务 |[Azure Kubernetes 日志记录](../../aks/view-master-logs.md#log-event-schema) |
 | 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
@@ -75,9 +74,10 @@ ms.locfileid: "89457262"
 | 恢复服务 | [Azure 备份的数据模型](../../backup/backup-azure-reports-data-model.md)|
 | 搜索 |[允许并使用搜索流量分析](../../search/search-traffic-analytics.md) |
 | 服务总线 |[Azure 服务总线日志](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL 数据库 | [Azure SQL 数据库日志记录](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL 数据库 | [Azure SQL 数据库日志记录](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | 虚拟网络 | 架构不可用。 |
 | 虚拟网络网关 | 架构不可用。 |
+
 <!--Customized in MC-->
 
 
@@ -85,8 +85,7 @@ ms.locfileid: "89457262"
 
 * [查看可以收集的资源日志类别](resource-logs-categories.md)
 * [详细了解资源日志](./platform-logs-overview.md)
-* [将资源日志流式传输到**事件中心**](./resource-logs.md#send-to-azure-event-hubs)
+* [将资源日志流式传输到 **事件中心**](./resource-logs.md#send-to-azure-event-hubs)
 * [使用 Azure Monitor REST API 更改资源日志诊断设置](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [使用 Log Analytics 分析 Azure 存储中的日志](./resource-logs.md#send-to-log-analytics-workspace)
-
 

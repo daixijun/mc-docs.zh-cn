@@ -1,21 +1,22 @@
 ---
 title: Azure Cosmos DB 合规性
 description: 本文介绍了 Azure Cosmos DB 合规性产品的认证覆盖范围。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/18/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a63cb44e8d6dc3aef8d8f4b2255a20e212fa5f43
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: f7dd77b3fc4044ea404326a334de6df2ff06c99a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098700"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328323"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户提供 Azure 中国云环境：
 
@@ -30,7 +31,7 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB 认证  
 
-若要了解有关每个合规性产品及其益处的详细信息，请参阅 [Azure 合规性概述](https://www.trustcenter.cn/cloudservices/azure.html)页面。
+若要了解有关每个合规性产品及其益处的详细信息，请参阅 [Azure 合规性产品](https://www.trustcenter.cn/cloudservices/azure.html)。
 
 <!--Not Available on The following table lists the certifications supported by Azure Cosmos DB in Azure China Cloud:-->
 
@@ -39,10 +40,16 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 若要了解有关 Azure 合规性认证的详细信息，请参阅以下文章：
 
-* 若要了解 Azure Cosmos DB 的最新合规性认证，请参阅[Azure 合规性概述](https://www.trustcenter.cn/cloudservices/azure.html)。  
+* 若要了解 Azure Cosmos DB 的最新合规性认证，请参阅[Azure 合规性产品](https://www.trustcenter.cn/cloudservices/azure.html)。  
 
-* 有关 Azure Cosmos DB 安全性的概述以及最新改进，请参阅 [Azure Cosmos 数据库安全性](database-security.md)一文。
+* 有关 Azure Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos 数据库安全性](database-security.md)。
+
+* 有关改进 Azure Cosmos DB 部署的安全状况的建议，请参阅 [Azure Cosmos DB 安全基线](security-baseline.md)。 
 
 * 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/cloudservices/azure.html)。
+
+<!--Not Available on [Azure services by FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)-->
+
+<!--Not Available on [DoD Compliance Offerings](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-around China)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

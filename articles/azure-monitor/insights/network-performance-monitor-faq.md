@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 10/12/2018
-ms.openlocfilehash: bc137dc04fc488b8689305d2c32ad623e1234740
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: fd205cf6d392a1336624bd43a736e0881d93017c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148586"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327607"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 
@@ -20,8 +20,9 @@ ms.locfileid: "89148586"
 
 本文收集了有关 Azure 中网络性能监视器 (NPM) 的常见问题 (FAQ)
 
-网络性能监视器可检测诸如流量黑洞、路由错误之类的网络问题，以及传统网络监视方法无法检测到的问题。 只要突破网络链接的阈值，解决方案就会生成警报并进行通知。 它还可以确保及时检测到网络性能问题，然后确定问题根源所在的特定网络段或设备。 
+网络性能监视器是一项基于云的[混合网络监视](./network-performance-monitor-performance-monitor.md)解决方案，可帮助你监视网络基础结构中不同点之间的网络性能。 它还可以监视到[服务和应用程序终结点](./network-performance-monitor-service-connectivity.md)的网络连接，以及[监视 Azure ExpressRoute 的性能](./network-performance-monitor-expressroute.md)。 
 
+网络性能监视器可检测诸如流量黑洞、路由错误之类的网络问题，以及传统网络监视方法无法检测到的问题。 只要突破网络链接的阈值，解决方案就会生成警报并进行通知。 它还可以确保及时检测到网络性能问题，然后确定问题根源所在的特定网络段或设备。 
 
 ## <a name="set-up-and-configure-agents"></a>安装和配置代理
 
@@ -52,7 +53,7 @@ ms.locfileid: "89148586"
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>如何将节点配置为支持使用 TCP 协议进行监视？
 要使节点支持使用 TCP 协议进行监视： 
 * 请确保节点平台是 Windows Server（2008 SP1 或更高版本）。
-* 在该节点上运行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 脚本。 参阅[说明](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)了解更多详细信息。
+* 在该节点上运行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 脚本。 参阅[说明](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)了解更多详细信息。
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>如何更改 NPM 用来监视的 TCP 端口？
@@ -93,7 +94,7 @@ NPM 使用基于跟踪路由的专属算法来发现源与目标之间的所有�
 NPM 根据每个网络路径、网段和构成网络跃点所属的不正常路径数，使用概率机制向它们分配故障概率。 随着网段和跃点属于越来越多的不正常路径，与之关联的故障概率将会增大。 如果有许多包含 NPM 代理的节点相互连接，因此增加了用于计算故障概率的数据点，则此算法的效果最佳。
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>如何在 NPM 中创建警报？
-由于存在问题，当前无法从 NPM UI 创建警报。 请手动创建警报。
+由于已知问题，当前无法从 NPM UI 创建警报。 请[手动创建警报](../platform/alerts-log.md)。
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>哪个是针对警报的默认 Log Analytics 查询？
 性能监视器查询
@@ -147,7 +148,7 @@ NetworkMonitoring
 NPM 只能识别源与目标 IP 之间的底层网络跃点（交换机、路由器、服务器等）的 IP 和主机名。 此外，它还能识别这些已识别的跃点之间的延迟。 它不会单独监视这些底层跃点。
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>是否可以使用 NPM 来监视 Azure 与 AWS 之间的网络连接？
-是。 有关详细信息，请参阅[使用 NPM 监视 Azure、AWS 和本地网络](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)一文。
+是。 有关详细信息，请参阅[使用 NPM 监视 Azure、AWS 和本地网络](https://docs.microsoft.com/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)一文。
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>ExpressRoute 带宽用量是指传入还是传出带宽？
 带宽用量是传入和传出带宽的总计。 它以“位/秒”为单位表示。
@@ -184,6 +185,7 @@ NPM 可以通过某个[受支持区域](./network-performance-monitor.md#support
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>NPM 的服务连接监视器支持哪些区域？
 NPM 可以通过某个[受支持区域](./network-performance-monitor.md#supported-regions)中托管的工作区，监视全球任意位置的服务的连接
+<!--Not available in MC: ../../expressroute/how-to-npm.md-->
 
 ## <a name="troubleshoot"></a>故障排除
 
@@ -226,7 +228,7 @@ HopLatencyValue 是从源到终结点的。
 * 若要确认主机防火墙是否未阻止所需端口上的通信，请通过以下视图查看源和目标节点的运行状况：“网络性能监视器”->“配置”->“节点”。 
   如果这些节点不正常，请查看说明并采取纠正措施。 如果节点正常，请转到下面的 使用。
 * 若要确认中间网络防火墙或 Azure NSG 是否未阻止所需端口上的通信，请遵照下面的说明使用第三方 PsPing 实用工具：
-  * 可从[此处](https://technet.microsoft.com/sysinternals/psping.aspx)获取 psping 实用工具。 
+  * 可从[此处](https://docs.microsoft.com/sysinternals/downloads/psping)获取 psping 实用工具。 
   * 在源节点中运行以下命令。
     * psping -n 15 \<destination node IPAddress\>:portNumber 默认情况下，NPM 使用 8084 端口。 如果使用 EnableRules.ps1 脚本显式更改了此端口，请输入所用的自定义端口号。 这是从 Azure 机器向本地执行的 ping
 * 检查 ping 是否成功。 如果未成功，则表示中间网络防火墙或 Azure NSG 阻止了此端口上的流量。
@@ -284,7 +286,7 @@ ExpressRoute Monitor 会将代理/服务报告的网络性能值（丢失、延�
 NPM 进程配置为当它的主机 CPU 资源利用率超过 5% 时停止。 这是为了确保可以持续使用这些节点来处理其常规工作负荷，而不会影响性能。
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>NPM 是否会编辑用于监视的防火墙规则？
-NPM 只在运行 EnableRules.ps1 PowerShell 脚本的节点上创建本地 Windows 防火墙规则，以允许代理在指定的端口上建立彼此之间的 TCP 连接。 该解决方案不会修改任何网络防火墙或网络安全组 (NSG) 规则。
+NPM 只会在运行 EnableRules.ps1 Powershell 脚本的节点上创建本地 Windows 防火墙规则，来允许代理在指定的端口上相互建立 TCP 连接。 该解决方案不会修改任何网络防火墙或网络安全组 (NSG) 规则。
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>如何检查用于监视的节点的运行状况？
 可通过以下视图查看用于监视的节点的运行状况：“网络性能监视器”->“配置”->“节点”。 如果某个节点不正常，可以查看错误详细信息并采取建议的措施。

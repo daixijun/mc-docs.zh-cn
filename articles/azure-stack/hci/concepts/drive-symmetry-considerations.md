@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-origin.date: 09/01/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 008a87aff9e8da457b52750d235e79a2d183ac4e
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+origin.date: 10/29/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: db3c8d0ee8cce8adc50b1673c798e5d1e1b02201
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451179"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330545"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Azure Stack HCI 的驱动器对称注意事项
 
@@ -26,6 +26,8 @@ ms.locfileid: "91451179"
 本主题介绍了约束，并提供了支持的和不支持的配置的示例。
 
 ## <a name="constraints"></a>约束
+
+本部分介绍了有关驱动器类型、型号、大小和驱动器数量的约束。
 
 ### <a name="type"></a>类型
 
@@ -185,5 +187,5 @@ Azure Stack HCI 可以很好地应对驱动器之间和服务器之间的缓存�
 
 如需相关信息，另请参阅：
 
-- [部署 Azure Stack HCI 之前的准备工作](../deploy/before-you-start.md)
+- [系统要求](system-requirements.md)
 - [选择驱动器](choose-drives.md)

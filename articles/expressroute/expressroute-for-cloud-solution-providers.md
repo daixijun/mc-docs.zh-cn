@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: def03fc025a6c693c374a9e6ef90b0b3f4d517c4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1c27f92e4cf8612fdf3f6d88d322b85814259978
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "68733542"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328179"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 
@@ -28,8 +28,8 @@ Microsoft 为传统经销商和分销商 (CSP) 提供超大规模的服务，允
 
 ExpressRoute 由一对可以实现高可用性的线路组成，这对线路连接到单个客户订阅，不能由多个客户共享。 每个线路都会在不同的路由器中终止，目的是维持高可用性。
 
->[!NOTE]
-> ExpressRoute 存在带宽和连接限制，也就是说，进行大型/复杂的实施时，需要为单个客户提供多个 ExpressRoute 线路。
+> [!NOTE]
+> 每个 ExpressRoute 线路所允许的带宽和连接数都有限。 如果单个客户的需求超出这些限制，则他们将需要多个 ExpressRoute 线路才能实现混合网络。
 > 
 > 
 
@@ -39,7 +39,7 @@ Microsoft Azure 提供越来越多的服务，可以将这些服务提供给客�
 Microsoft 为 CSP 提供管理 Azure 客户订阅所需的 API，允许通过编程方式与自己的服务管理系统集成。 可在 [此处](https://msdn.microsoft.com/zh-cn/library/partnercenter/dn974944.aspx)找到受支持的管理功能。
 
 ## <a name="azure-resource-management"></a>Azure 资源管理
-订阅管理方式将取决于你与客户签署的协定。 可以由 CSP 直接管理资源的创建和维护，也可以始终由客户对 Microsoft Azure 订阅进行控制，并根据需要来创建 Azure 资源。 如果客户在其 Microsoft Azure 订阅中管理资源的创建，他们会使用以下两种模型之一：“Connect-Through”模型或“Direct-To”模型。   将在下面各节中详细介绍这些模型。  
+订阅管理方式将取决于你与客户签署的协定。 可以由 CSP 直接管理资源的创建和维护，也可以始终由客户对 Microsoft Azure 订阅进行控制，并根据需要来创建 Azure 资源。 如果客户在其 Microsoft Azure 订阅中管理资源的创建，他们会使用以下两种模型之一：“Connect-Through”模型或“Direct-To”模型。 将在下面各节中详细介绍这些模型。  
 
 ### <a name="connect-through-model"></a>Connect-Through 模型
 
@@ -90,17 +90,17 @@ ExpressRoute 支持将多个 vNet 连接到单个 ExpressRoute 线路，以便�
 在 Connect-Through 配置中，需要负责所有网络基础结构，确保将客户数据中心资源连接到 Azure 中托管的订阅。 每个想要使用 Azure 功能的客户都需要建立自己的 ExpressRoute 连接，由你进行管理。 将使用客户所用的相同方法来采购 ExpressRoute 线路。 将按照 [ExpressRoute 线路预配工作流和线路状态](./expressroute-workflows.md)一文中概述的相同步骤进行操作。 然后，将配置边界网关协议 (BGP) 路由，以便控制本地网络与 Azure vNet 之间的流量。
 
 ### <a name="connect-to-model"></a>Connect-To 模型
-在 Connect-To 配置中，客户已经建立了到 Azure 的连接，或者会启动一个到 Internet 服务提供商的连接，将 ExpressRoute 从你客户自己的数据中心直接链接到 Azure 而不是数据中心。 客户将遵循上述 Connect-Through 模型中描述的步骤来开始预配过程。 建立线路以后，客户需先配置本地路由器，才能访问你的网络和 Azure vNet。
+在 Connect-To 配置中，你的客户已经建立了到 Azure 的连接，或者会启动一个到 Internet 服务提供商的连接，将 ExpressRoute 从你客户自己的数据中心直接链接到 Azure 而不是你的数据中心。 客户将遵循上述 Connect-Through 模型中描述的步骤来开始预配过程。 建立线路以后，用户的客户需先配置本地路由器，才能访问用户的网络和 Azure vNet。
 
 可以协助设置连接并配置路由，以便你数据中心的资源能够与你数据中心的客户端资源通信，或者与 Azure 中托管的资源通信。
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 路由域
-ExpressRoute 提供三种路由域：公共对等互连、专用对等互连和 Microsoft 对等互连。 在主动-主动配置中，每个路由域都配置了相同的路由器，以确保高可用性。 有关 ExpressRoute 路由域的详细信息，请查看[此处](expressroute-circuit-peerings.md)。
+ExpressRoute 为新线路提供了两个路由域：专用对等互连和 Microsoft 对等互连。 在主动-主动配置中，每个路由域都配置了相同的路由器，以确保高可用性。 有关 ExpressRoute 路由域的详细信息，请查看[此处](expressroute-circuit-peerings.md)。
 
 可以自定义路由筛选器，根据需要来允许相关路由。 如需详细信息，或者需要了解如何进行此类更改，请参阅详细介绍路由筛选器的以下文章：[使用 PowerShell 创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-classic.md)。
 
 >[!NOTE]
-> 对于 Microsoft 对等互连和公共对等互连，必须通过客户或 CSP 拥有的公共 IP 地址进行连接，并且必须遵循所有定义的规则。 有关详细信息，请参阅 [ExpressRoute 先决条件](./expressroute-prerequisites.md) 页。  
+> 对于 Microsoft 对等互连和公共对等互连，必须通过客户或 CSP 拥有的公共 IP 地址进行连接，并且必须遵循所有定义的规则。 有关更多详细信息，请参阅 [ExpressRoute 先决条件](./expressroute-prerequisites.md)页。  
 > 
 > 
 

@@ -1,52 +1,50 @@
 ---
-title: 调用、触发或嵌套逻辑应用
+title: 使用请求触发器来调用、触发或嵌套逻辑应用
 description: 设置用于在 Azure 逻辑应用中调用、触发或嵌套逻辑应用工作流的 HTTPS 终结点
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-origin.date: 05/28/2020
-ms.date: 07/20/2020
+origin.date: 08/27/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 11/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 10aad29cec1fe1684708a2eb9bdca1fa2cb6ab11
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 8363b380528ce5eac03cb2b7cfa0db9637f52fb4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414608"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328119"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTPS 终结点调用、触发或嵌套逻辑应用
 
-若要使逻辑应用可通过 URL 调用，以便逻辑应用能够从其他服务接收传入请求，你可以在该逻辑应用中以原生方式公开一个同步的 HTTPS 终结点作为触发器。 设置此功能时，还可以将逻辑应用嵌套在其他逻辑应用的内部，以便创建可调用终结点的模式。
-
-若要设置可调用的终结点，可以使用以下任何触发器类型，使逻辑应用能够接收传入的请求：
+若要使逻辑应用可通过 URL 调用，以便逻辑应用能够从其他服务接收传入请求，你可以在逻辑应用上使用基于请求的触发器以原生方式公开同步 HTTPS 终结点。 使用此功能可以从其他逻辑应用调用逻辑应用，并创建一种可调用终结点的模式。 若要设置可调用终结点来处理传入调用，可以使用以下任意一种触发器类型：
 
 * [请求](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 * 采用 [ApiConnectionWebhook 类型](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger)并可接收传入 HTTPS 请求的托管连接器触发器
 
-> [!NOTE]
-> 这些示例使用“请求”触发器，但你可以使用上面列出的任何基于 HTTPS 请求的触发器。 所有原则同样适用于其他这些触发器类型。
+本文介绍如何使用请求触发器在逻辑应用上创建可调用终结点，以及从另一个逻辑应用调用该终结点。 所有原理均完全适用于可用于接收传入请求的其他触发器类型。
 
-如果你不熟悉逻辑应用，请参阅[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+有关发往逻辑应用的入站调用（例如传输层安全性（TLS，以前称为安全套接字层 (SSL)）或 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的加密、安全性和授权的信息，请参阅[保护访问和数据 - 对基于请求的触发器的入站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)。
+
+<!--Not Available on [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)-->
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-* 你要在其中使用触发器来创建可调用终结点的逻辑应用。 可以从一个空白的逻辑应用着手，也可以从要在其中替换当前触发器的现有逻辑应用着手。 本示例以空白的逻辑应用着手。
+* 你要在其中使用触发器来创建可调用终结点的逻辑应用。 可以从一个空白的逻辑应用着手，也可以从可在其中替换当前触发器的现有逻辑应用着手。 本示例以空白的逻辑应用着手。 如果你不熟悉逻辑应用，请参阅[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-callable-endpoint"></a>创建可调用的终结点
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 在逻辑应用设计器中创建并打开一个空白逻辑应用。
 
-    此示例使用“请求”触发器，但你可以使用任何可接收传入 HTTPS 请求的触发器。 所有原则同样适用于这些触发器。 有关“请求”触发器的详细信息，请参阅[使用 Azure 逻辑应用接收和响应入站 HTTPS 调用](../connectors/connectors-native-reqres.md)。
-
 1. 在搜索框下，选择“内置”。 在搜索框中，输入 `request` 作为筛选器。 在触发器列表中，选择“当收到 HTTP 请求时”。
 
-    ![找到并选择“请求”触发器](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/find-and-select-request-trigger.png" alt-text="找到并选择“请求”触发器":::
 
 1. （可选）在“请求正文 JSON 架构”框中，可以输入一个 JSON 架构，用于描述预期该触发器要接收的有效负载或数据。
 
@@ -79,7 +77,7 @@ ms.locfileid: "86414608"
     }
     ```
 
-    ![提供“请求”操作的 JSON 架构](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/manual-request-trigger-schema.png" alt-text="提供“请求”操作的 JSON 架构":::
 
     或者，可以通过提供示例有效负载来生成 JSON 架构：
 
@@ -106,7 +104,7 @@ ms.locfileid: "86414608"
 
     “HTTP POST URL”框现在会显示生成的回叫 URL，其他服务可以使用该 URL 来调用和触发逻辑应用。 此 URL 包含查询参数，这些参数指定了用于身份验证的共享访问签名 (SAS) 密钥。
 
-    ![为终结点生成的回调 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/generated-endpoint-url.png" alt-text="为终结点生成的回调 URL":::
 
 1. 若要复制回叫 URL，可以使用以下选项：
 
@@ -122,11 +120,11 @@ ms.locfileid: "86414608"
 
         1. 在“摘要”部分，选择“查看触发器历史记录”。 
 
-            ![从 Azure 门户中获取终结点 URL](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+            :::image type="content" source="./media/logic-apps-http-endpoint/find-manual-trigger-url.png" alt-text="从 Azure 门户中获取终结点 URL":::
 
         1. 在“回调 URL [POST]”下，复制 URL：
 
-            ![从 Azure 门户中复制终结点 URL](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
+            :::image type="content" source="./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png" alt-text="从 Azure 门户中复制终结点 URL":::
 
 <a name="select-method"></a>
 
@@ -142,7 +140,7 @@ ms.locfileid: "86414608"
 
     例如，选择“GET”方法，以便稍后可以测试终结点的 URL。
 
-    ![选择触发器预期的请求方法](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/select-method-request-trigger.png" alt-text="选择触发器预期的请求方法":::
 
 <a name="endpoint-url-parameters"></a>
 
@@ -188,7 +186,7 @@ ms.locfileid: "86414608"
 
         如果你保存逻辑应用，请通过导航方式离开设计器，然后返回到设计器，该标记将显示你指定的参数名称，例如：
 
-        ![参数名称的解析后表达式](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+        :::image type="content" source="./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png" alt-text="参数名称的解析后表达式":::
 
         在代码视图中，“正文”属性显示在“响应”操作的定义中，如下所示：
 
@@ -206,7 +204,7 @@ ms.locfileid: "86414608"
 
     浏览器将返回包含以下文本的响应：`Postal Code: 123456`
 
-    ![向回叫 URL 发送请求时的响应](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/callback-url-returned-response.png" alt-text="向回叫 URL 发送请求时的响应":::
 
 1. 若要将参数名称和值置于 URL 中的不同位置，请确保使用与号 (`&`) 作为前缀，例如：
 
@@ -231,7 +229,7 @@ ms.locfileid: "86414608"
 
 1. 在“相对路径”属性中，指定希望 URL 接受的 JSON 架构中参数的相对路径，例如 `/address/{postalCode}`。
 
-    ![指定参数的相对路径](./media/logic-apps-http-endpoint/relative-path-url-value.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/relative-path-url-value.png" alt-text="指定参数的相对路径":::
 
 1. 在“请求”触发器下，添加要在其中使用参数值的操作。 对于此示例，请添加“响应”操作。
 
@@ -247,11 +245,11 @@ ms.locfileid: "86414608"
 
     1. 在动态内容列表中，从“收到 HTTP 请求时”部分选择“postalCode”标记。
 
-        ![将指定的参数添加到响应正文](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+        :::image type="content" source="./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png" alt-text="将指定的参数添加到响应正文":::
 
         “正文”属性现在包含选定的参数：
 
-        ![包含参数的示例响应正文](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+        :::image type="content" source="./media/logic-apps-http-endpoint/relative-url-with-parameter.png" alt-text="包含参数的示例响应正文":::
 
 1. 保存逻辑应用。
 
@@ -263,7 +261,7 @@ ms.locfileid: "86414608"
 
     浏览器将返回包含以下文本的响应：`Postal Code: 123456`
 
-    ![向回叫 URL 发送请求时的响应](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/callback-url-returned-response.png" alt-text="向回叫 URL 发送请求时的响应":::
 
     > [!NOTE]
     > 若要在 URI 中包含哈希符号或井号 ( **#** )，请改用以下编码版本：`%25%23`
@@ -316,13 +314,13 @@ ms.locfileid: "86414608"
 
 1. 在“选择操作”下，选择“内置”。  在搜索框中，输入 `logic apps` 作为筛选器。 在操作列表中，选择“选择逻辑应用工作流”。
 
-    ![在当前逻辑应用内部嵌套逻辑应用](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png" alt-text="在当前逻辑应用内部嵌套逻辑应用":::
 
     设计器将显示可供选择的逻辑应用。
 
 1. 选择要从当前逻辑应用调用的逻辑应用。
 
-    ![选择要从当前逻辑应用调用的逻辑应用](./media/logic-apps-http-endpoint/select-logic-app-to-nest.png)
+    :::image type="content" source="./media/logic-apps-http-endpoint/select-logic-app-to-nest.png" alt-text="选择要从当前逻辑应用调用的逻辑应用":::
 
 ## <a name="reference-content-from-an-incoming-request"></a>引用传入请求中的内容
 
@@ -347,7 +345,7 @@ ms.locfileid: "86414608"
 
 ## <a name="respond-to-requests"></a>对请求的响应
 
-有时，你希望通过向调用方返回内容，对触发逻辑应用的某些请求做出响应。 若要构造响应的状态代码、标头和正文，请使用“响应”操作。 此操作可以出现在逻辑应用中的任何位置，而不仅仅是工作流的末尾。 如果逻辑应用不包含“响应”操作，则终结点会*立即*以“202 已接受”状态进行响应。
+有时，你希望通过向调用方返回内容，对触发逻辑应用的某些请求做出响应。 若要构造响应的状态代码、标头和正文，请使用“响应”操作。 此操作可以出现在逻辑应用中的任何位置，而不仅仅是工作流的末尾。 如果逻辑应用不包含“响应”操作，则终结点会 *立即* 以“202 已接受”状态进行响应。
 
 要使原始调用方能够成功获取响应，除非调用用作嵌套逻辑应用的已触发逻辑应用，否则响应所需的所有步骤必须在[请求超时限制](./logic-apps-limits-and-config.md)内完成。 如果在此限制时间内未返回响应，传入请求将会超时，并收到“408 客户端超时”响应。
 
@@ -357,7 +355,7 @@ ms.locfileid: "86414608"
 
 在响应正文中，可以包含多个标头和任意类型的内容。 例如，此响应的标头指定响应的内容类型为 `application/json`，并指定正文包含 `town` 和 `postalCode` 属性的值，这些值基于本主题前面所述的“请求”触发器的 JSON 架构。
 
-![提供 HTTPS“响应”操作的响应内容](./media/logic-apps-http-endpoint/content-for-response-action.png)
+:::image type="content" source="./media/logic-apps-http-endpoint/content-for-response-action.png" alt-text="提供 HTTPS“响应”操作的响应内容":::
 
 响应具有以下属性：
 
@@ -392,7 +390,7 @@ ms.locfileid: "86414608"
 
 #### <a name="q-what-about-url-security"></a>问：URL 的安全性如何？
 
-**答**：Azure 使用[共享访问签名 (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature) 安全生成逻辑应用回调 URL。 此签名以查询参数的形式传递，在运行逻辑应用之前必须先验证此签名。 Azure 使用每个逻辑应用的机密密钥、触发器名称和执行的操作的唯一组合生成签名。 因此，除非用户对机密逻辑应用密钥拥有访问权限，否则他们无法生成有效的签名。
+**答**：Azure 使用 [共享访问签名 (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature) 安全生成逻辑应用回调 URL。 此签名以查询参数的形式传递，在运行逻辑应用之前必须先验证此签名。 Azure 使用每个逻辑应用的机密密钥、触发器名称和执行的操作的唯一组合生成签名。 因此，除非用户对机密逻辑应用密钥拥有访问权限，否则他们无法生成有效的签名。
 
 > [!IMPORTANT]
 > 对于生产系统和安全性较高的系统，强烈建议不要直接从浏览器中调用逻辑应用，原因如下：
@@ -412,5 +410,6 @@ ms.locfileid: "86414608"
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Azure 逻辑应用接收和响应传入的 HTTPS 调用](../connectors/connectors-native-reqres.md)
+* [在 Azure 逻辑应用中保护访问和数据 - 访问 - 访问对基于请求的触发器进行的传入调用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

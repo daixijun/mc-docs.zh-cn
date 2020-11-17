@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/18/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 292bcb68f491b61926f9bbc10a90680093f8184c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7c03254ba1c1d1af4a8d19a130b371a352d1003d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118579"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328670"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何使用 Azure 门户、Azure PowerShell、Azure CLI 和 Azure 资源管理器模板管理 Azure Cosmos 帐户中的各种任务。
 
@@ -41,7 +42,7 @@ ms.locfileid: "92118579"
 <a name="create-database-account-via-arm-template"></a>
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 
-请参阅[使用 Azure 资源管理器模板创建 Azure Cosmos DB 帐户](manage-sql-with-resource-manager.md)
+请参阅[使用 Azure 资源管理器模板创建 Azure Cosmos DB 帐户](./manage-with-templates.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>在数据库帐户中添加/删除区域
 
@@ -50,15 +51,15 @@ ms.locfileid: "92118579"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单****。
+1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单。
 
     <!--MOONCAKE: submene correct on **Replicate data globally**-->
     
-1. 要添加区域，请在地图上选择包含与所需区域对应的 +**** 标签的六边形。 另外，若要添加某个区域，请选择“+ 添加区域”选项，然后从下拉菜单中选择一个区域。****
+1. 要添加区域，请在地图上选择包含与所需区域对应的 + 标签的六边形。 另外，若要添加某个区域，请选择“+ 添加区域”选项，然后从下拉菜单中选择一个区域。
 
 1. 若要删除区域，请选择带对号的蓝色六边形以从地图中清除一个或多个区域。 或者选择右侧位于区域旁边的“废纸篓”(🗑) 图标。
 
-1. 若要保存更改，请选择“确定”。****
+1. 若要保存更改，请选择“确定”。
 
     :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="添加或删除区域菜单":::
 
@@ -82,9 +83,9 @@ ms.locfileid: "92118579"
 <a name="configure-multiple-write-regions-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-打开“全局复制数据”选项卡，选择“启用”以启用多区域写入**** ****。 启用多区域写入后，你的帐户当前拥有的所有读取区域将变为读取和写入区域。
+打开“全局复制数据”选项卡，选择“启用”以启用多区域写入 。 启用多区域写入后，你的帐户当前拥有的所有读取区域将变为读取和写入区域。
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="添加或删除区域菜单":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos 帐户配置多区域写入屏幕截图":::
 
 <a name="configure-multiple-write-regions-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
@@ -94,12 +95,12 @@ ms.locfileid: "92118579"
 <a name="configure-multiple-write-regions-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-请参阅[使用 PowerShell 启用多写入区域](manage-with-powershell.md#multi-master)
+请参阅[使用 PowerShell 启用多写入区域](manage-with-powershell.md#multi-region-writes)
 
 <a name="configure-multiple-write-regions-arm"></a>
 ### <a name="resource-manager-template"></a>Resource Manager 模板
 
-可通过部署用于创建帐户的资源管理器模板和设置 `enableMultipleWriteLocations: true` 来将一个帐户从单主数据库迁移到多主数据库。 以下 Azure 资源管理器模板是一个极简模板，它将为 SQL API 部署 Azure Cosmos 帐户，并启用两个区域和多个写入位置。
+可部署资源管理器模板（用于创建帐户）和 `enableMultipleWriteLocations: true` 设置，将该帐户从单个写入区域迁移到多个写入区域。 以下 Azure 资源管理器模板是一个极简模板，它将为 SQL API 部署 Azure Cosmos 帐户，并启用两个区域和多个写入位置。
 
 ```json
 {
@@ -165,19 +166,19 @@ ms.locfileid: "92118579"
 <a name="enable-automatic-failover-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 在 Azure Cosmos 帐户中，打开“全局复制数据”窗格****。
+1. 在 Azure Cosmos 帐户中，打开“全局复制数据”窗格。
     
     <!--MOONCAKE: CORRECT ON Replicate data globally-->
     
-2. 在窗格顶部选择“自动故障转移”。****
+2. 在窗格顶部选择“自动故障转移”。
 
-    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="“多区域复制数据”菜单":::
 
-3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。**** **** **** 
+3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。   
 
-4. 选择“保存” ****。
+4. 选择“保存” 。
 
-    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="自动故障转移门户菜单":::
 
 <a name="enable-automatic-failover-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
@@ -187,7 +188,7 @@ ms.locfileid: "92118579"
 <a name="enable-automatic-failover-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-请参阅[使用 Powershell 启用自动故障转移](manage-with-powershell.md#enable-automatic-failover)
+请参阅[使用 PowerShell 启用自动故障转移](manage-with-powershell.md#enable-automatic-failover)
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>为 Azure Cosmos 帐户设置故障转移优先级
 
@@ -199,19 +200,19 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 <a name="set-failover-priorities-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 在 Azure Cosmos 帐户中，打开“多区域复制数据”窗格****。
+1. 在 Azure Cosmos 帐户中，打开“多区域复制数据”窗格。
 
-2. 在窗格顶部选择“自动故障转移”。****
+2. 在窗格顶部选择“自动故障转移”。
 
-    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="“多区域复制数据”菜单":::
 
-3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。**** **** ****
+3. 在“自动故障转移”窗格中，确保将“启用自动故障转移”设置为“开”。  
 
 4. 若要修改故障转移优先级，请将鼠标指针悬停在读取区域上，并通过在行左侧出现的三个点拖动读取区域。
 
-5. 选择“保存” ****。
+5. 选择“保存” 。
 
-    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="自动故障转移门户菜单":::
 
 <a name="set-failover-priorities-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI
@@ -232,24 +233,24 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 执行手动故障转移的过程涉及将帐户的写入区域（故障转移优先级 = 0）更改为已为该帐户配置的其他区域。
 
 > [!NOTE]
-> 多主数据库帐户不能进行手动故障转移。 对于使用 Azure Cosmos SDK 的应用程序，SDK 会检测某个区域何时变为不可用，然后自动重定向到下一个最近的区域（如果在 SDK 中使用多宿主 API）。
+> 具有多个写入区域的帐户无法进行手动故障转移。 对于使用 Azure Cosmos SDK 的应用程序，SDK 会检测某个区域何时变为不可用，然后自动重定向到下一个最近的区域（如果在 SDK 中使用多宿主 API）。
 
 <a name="enable-manual-failover-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单****。
+1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单。
     
     <!--MOONCAKE: submene correct on **Replicate data globally**-->
     
-2. 在菜单顶部，选择“手动故障转移”。****
+2. 在菜单顶部，选择“手动故障转移”。
 
-    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="“多区域复制数据”菜单":::
 
-3. 在“手动故障转移”**** 菜单上，选择你的新写入区域。 选中相应的复选框，以指示你了解此选项会更改你的写入区域。
+3. 在“手动故障转移”菜单上，选择你的新写入区域。 选中相应的复选框，以指示你了解此选项会更改你的写入区域。
 
-4. 若要触发故障转移，请选择“确定”。****
+4. 若要触发故障转移，请选择“确定”。
 
-    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="添加或删除区域菜单":::
+    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="手动故障转移门户菜单":::
 
 <a name="enable-manual-failover-via-cli"></a>
 ### <a name="azure-cli"></a>Azure CLI

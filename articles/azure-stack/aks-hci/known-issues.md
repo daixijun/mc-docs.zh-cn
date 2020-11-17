@@ -2,18 +2,17 @@
 title: Azure Stack HCI 上的 Azure Kubernetes 服务的已知问题
 description: Azure Stack HCI 上的 Azure Kubernetes 服务的已知问题
 author: WenJason
-ms.service: azure-stack
 ms.topic: troubleshooting
 origin.date: 09/22/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 5d04e0be49f7d17f2ed549bd261d94afd2eccffb
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: c9deb9e23c591d524f5d861d1a72f9d014f7fd01
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451234"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330632"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上的 Azure Kubernetes 服务公共预览版的已知问题
 本文介绍 Azure Stack HCI 上的 Azure Kubernetes 服务公共预览版的已知问题。
@@ -43,8 +42,8 @@ ms.locfileid: "91451234"
 这是因为用于压缩文件 `Compress-Archive` 的 PowerShell 命令的输出文件大小限制为 2 GB。 将来的版本将会解决此问题。
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Azure Kubernetes Service PowerShell 部署在创建新目标群集之前未检查可用内存
-创建 Kubernetes 节点之前，Aks-Hci PowerShell 命令不会验证主机服务器上的可用内存。 这可能会导致内存耗尽，虚拟机无法启动。 当前未正常处理此失败，部署将挂起，不会显示清楚的错误消息。
-如果部署似乎已挂起，请打开 `Eventviewer`，并检查是否有 Hyper-V 相关错误消息指出没有足够的内存来启动 VM。
+创建 Kubernetes 节点之前，Aks-Hci PowerShell 命令不会验证主机服务器上的可用内存。 这可能会导致内存耗尽，虚拟机无法启动。 当前未正常处理此失败，部署将停止响应，且不会显示清楚的错误消息。
+如果部署已停止响应，请打开 `Eventviewer`，并检查是否有 Hyper-V 相关错误消息指出没有足够的内存来启动 VM。
 将来的版本将会解决此问题
 
 ## <a name="azure-kubernetes-service-deployment-fails-on-an-azure-stack-hci-configured-with-static-ips-vlans-sdn-or-proxies"></a>在配置了静态 IP、VLAN、SDN 或代理的 Azure Stack HCI 上，Azure Kubernetes 服务部署失败。
@@ -69,3 +68,13 @@ Azure Stack HCI 上的 Azure Kubernetes 服务中的负载均衡解决方案使�
 ## <a name="cannot-deploy-azure-kubernetes-service-to-an-environment-that-has-separate-storage-and-compute-clusters"></a>无法将 Azure Kubernetes 服务部署到具有单独存储和计算群集的环境
 Windows Admin Center 不会将 Azure Kubernetes 服务部署到具有单独存储和计算群集的环境，因为它期望计算和存储资源由同一群集提供。 在大多数情况下，它不会查找计算群集公开的 CSV，会拒绝继续部署。
 将来的版本将会解决此问题。
+
+## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center 仅支持桌面模式下的 Azure Stack HCI 的 Azure Kubernetes 服务
+在预览版中，所有 Azure Stack HCI 的 Azure Kubernetes 服务功能仅在 Windows Admin Center 桌面模式下受支持。 Windows 10 电脑必须安装 Windows Admin Center 网关。 有关 Windows Admin Center 安装选项的详细信息，请访问 [Windows Admin Center 文档](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options)。 未来的版本将支持其他场景。
+
+## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>如果需要重新启动，则 Azure Kubernetes 服务主机安装程序将在 Windows Admin Center 中失败
+如果需要重新启动正在使用的一个或多个服务器以安装 PowerShell 或 Hyper-V 等角色，则 Azure Kubernetes 服务主机安装程序向导将失败。 当前的解决方法是退出向导，并在服务器重新联机后在同一系统上重试。 将来的版本将会解决此问题。
+
+## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Azure Kubernetes 服务主机安装程序中的 Azure 注册步骤要求重试
+使用 Windows Admin Center 设置 Azure Kubernetes 服务主机时，在 Azure 注册页上输入所需信息后，可能会要求你再试一次。 你可能需要在 Windows Admin Center 网关上再次登录 Azure，以继续执行此步骤。 将来的版本将会解决此问题。
+

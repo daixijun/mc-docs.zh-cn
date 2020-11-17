@@ -6,13 +6,13 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: a24258a7d27916d3937029da3af23c2d9532f5e6
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.date: 11/02/2020
+ms.openlocfilehash: 58de29168dac58c467ed8680728ac25eafab2552
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457221"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327841"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 门户中创建 Log Analytics 工作区
 使用“Log Analytics 工作区”菜单通过 Azure 门户创建 Log Analytics 工作区。 Log Analytics 工作区是适用于 Azure Monitor 日志数据的唯一环境。 每个工作区都有其自己的数据存储库和配置，并且数据源和解决方案均配置为将其数据存储在特定工作区中。 如果打算从以下源收集数据，则需要 Log Analytics 工作区：
@@ -40,9 +40,9 @@ ms.locfileid: "89457221"
 2. 单击“添加”，然后为以下各项选择选项：
 
    * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。 此名称在所有 Azure Monitor 订阅中必须是全局唯一的。
-   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
-   * 对于**资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
-   * 选择可用**位置**。  有关详细信息，请参阅[可在哪些区域中使用 Log Analytics](https://azure.microsoft.com/regions/services/)，并在“搜索产品”字段中搜索 Azure Monitor。  
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的 **订阅**。
+   * 对于 **资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
+   * 选择可用 **位置**。  有关详细信息，请参阅[可在哪些区域中使用 Log Analytics](https://azure.microsoft.com/regions/services/)，并在“搜索产品”字段中搜索 Azure Monitor。  
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有企业协议 (EA) 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的详细信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
 
         ![创建 Log Analytics 资源边栏选项卡](./media/quick-create-workspace/create-loganalytics-workspace-02.png)  
@@ -56,14 +56,12 @@ ms.locfileid: "89457221"
 1. 如果你提供的工作区名称、资源组、订阅和区域与已删除的工作区中的相同，则将恢复你的工作区，包括其数据、配置和连接的代理。
 2. 如果你使用相同的工作区名称，但提供不同的资源组、订阅或区域，则将收到错误“此工作区名称已被使用。请尝试输入其他名称。” 若要替换软删除，同时永久删除你的工作区并创建新的同名工作区，请按照以下步骤，先恢复工作区再执行永久删除：
    - [恢复](../platform/delete-workspace.md#recover-workspace)工作区
-   - [永久删除](../platform/delete-workspace.md)工作区
+   - [永久删除](../platform/delete-workspace.md#permanent-workspace-delete)工作区
    - 使用相同的工作区名称创建新的工作区
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已有可用的工作区，可以配置监视遥测收集、运行日志搜索分析该数据，以及添加管理解决方案以提供其他数据和分析见解。 
 
-* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[收集要在 Log Analytics 中使用的 Azure 服务日志和指标](../platform/resource-logs.md#send-to-log-analytics-workspace)。  
-* 连接 [Configuration Manager](../platform/collect-sccm.md) 以导入作为层次结构中集合成员的计算机。  
-* 查看可用的[监视解决方案](../insights/solutions.md)以及如何从工作区添加或删除解决方案。
-
+* 请参阅 [Azure Monitor 中 Log Analytics 工作区的监视器运行状况](../platform/monitor-workspace.md)创建用于监视工作区运行状况的预警规则。 
+* 请参阅[收集要在 Log Analytics 中使用的 Azure 服务日志和指标](../platform/resource-logs.md#send-to-log-analytics-workspace)启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据。
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/23/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: fcdc2160dac76aaa2b4c682d86df96c62d4a5db0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 147cdbd3420c250621772498f3bace50f58e15e7
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471149"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326440"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定义采用 Azure Active Directory B2C 中自定义策略的自断言技术配置文件
 
@@ -175,6 +175,14 @@ ms.locfileid: "92471149"
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>输出声明注册或登录页
+
+在合并的注册和登录页面，使用内容定义 [DataUri](contentdefinitions.md#datauri) 元素指定 `unifiedssp` 或 `unifiedssd` 页类型时，请注意以下内容：
+
+- 仅呈现用户名和密码声明。
+- 前两个输出声明必须为用户名和密码（按此顺序）。 
+- 不呈现任何其他声明；对于这些声明，你将需要设置 `defaultValue` 或调用声明格式验证技术配置文件。 
+
 ## <a name="persist-claims"></a>保存声明
 
 不使用 PersistedClaims 元素。 自断言技术配置文件不会将数据持久保存到 Azure AD B2C。 而是改为调用负责保留数据的验证技术配置文件。 例如，注册策略使用 `LocalAccountSignUpWithLogonEmail` 自断言技术配置文件来收集新用户配置文件。 `LocalAccountSignUpWithLogonEmail` 技术配置文件调用验证技术配置文件来在 Azure AD B2C 中创建帐户。
@@ -189,7 +197,7 @@ ms.locfileid: "92471149"
 
 ## <a name="metadata"></a>元数据
 
-| Attribute | 必选 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | setting.operatingMode <sup>1</sup>| 否 | 对于登录页面，此属性可控制用户名字段的行为，如输入验证和错误消息。 预期的值为 `Username` 或 `Email`。  |
 | AllowGenerationOfClaimsWithNullValues| 否| 允许生成值为 NULL 的声明。 例如，在用户未选中复选框的情况下。|

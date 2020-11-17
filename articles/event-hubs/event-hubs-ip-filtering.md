@@ -3,14 +3,14 @@ title: Azure 事件中心防火墙规则 | Microsoft Docs
 description: 使用防火墙规则允许从特定 IP 地址到 Azure 事件中心的链接。
 ms.topic: article
 origin.date: 07/16/2020
-ms.date: 09/14/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 95747e0b6234898c448130fdfb59d432bcf4cfa5
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 454fe42691becbabbcae6402b94e666676ebc5a7
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063296"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375758"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>允许从特定 IP 地址或范围访问 Azure 事件中心命名空间
 默认情况下，只要请求附带有效的身份验证和授权，就可以从 Internet 访问事件中心命名空间。 使用 IP 防火墙，可以将其进一步限制为采用 CIDR（无类域间路由）表示法的一组 IPv4 地址或一个 IPv4 地址。
@@ -45,7 +45,7 @@ IP 防火墙规则应用于事件中心命名空间级别。 因此，这些规�
 
     如果选择“所有网络”选项，则事件中心接受来自任何 IP 地址的连接（使用访问密钥）。 此设置等效于一个接受 0.0.0.0/0 IP 地址范围的规则。 
 
-    ![防火墙 - 选中了“所有网络”选项](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![显示“防火墙和虚拟网络”页的屏幕截图，其中选择了“所有网络”选项。](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. 若要将访问范围限制为特定 IP 地址，请确认“所选网络”选项处于选中状态。 在“防火墙”部分中执行以下步骤：
     1. 选择“添加客户端 IP 地址”选项，使当前客户端 IP 可以访问命名空间。 
     2. 对于“地址范围”，请输入某个特定的 IPv4 地址或以 CIDR 表示法表示的 IPv4 地址范围。 
@@ -121,7 +121,7 @@ IP 防火墙规则应用于事件中心命名空间级别。 因此，这些规�
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "type": "Microsoft.EventHub/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
         ],
@@ -161,5 +161,3 @@ IP 防火墙规则应用于事件中心命名空间级别。 因此，这些规�
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 
 <!-- [lnk-vnet]: event-hubs-service-endpoints.md -->
-
-<!-- Update_Description: update meta properties -->

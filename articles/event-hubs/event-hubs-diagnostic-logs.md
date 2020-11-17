@@ -3,14 +3,14 @@ title: 设置诊断日志 - Azure 事件中心 | Microsoft Docs
 description: 了解如何为 Azure 中的事件中心设置活动日志和诊断日志。
 ms.topic: article
 ms.author: v-tawe
-origin.date: 06/23/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: c3c7550a82a66ffffe1ae030c1342c189a707366
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+origin.date: 10/27/2020
+ms.date: 11/05/2020
+ms.openlocfilehash: 2e41c1040043652d9b56787b7b7d018a683f60de
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063267"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375665"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>设置 Azure 事件中心的诊断日志
 
@@ -66,7 +66,7 @@ ms.locfileid: "90063267"
 `TaskName` | 描述失败的任务
 `ActivityId` | 用于跟踪的内部 ID
 `trackingId` | 用于跟踪的内部 ID
-`resourceId` | Azure 资源管理器资源 ID
+`resourceId` | Azure Resource Manager 资源 ID
 `eventHub` | 事件中心的完整名称（包括命名空间名称）
 `partitionId` | 要写入到的事件中心分区
 `archiveStep` | 可能值：ArchiveFlushWriter、DestinationInit
@@ -99,11 +99,11 @@ ms.locfileid: "90063267"
 
 运行日志 JSON 字符串包括下表列出的元素：
 
-名称 | 描述
+名称 | 说明
 ------- | -------
 `ActivityId` | 内部 ID，用于跟踪目的 |
 `EventName` | 操作名称 |
-`resourceId` | Azure 资源管理器资源 ID |
+`resourceId` | Azure Resource Manager 资源 ID |
 `SubscriptionId` | 订阅 ID |
 `EventTimeString` | 操作时间 |
 `EventProperties` | 操作属性 |
@@ -131,7 +131,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>自动缩放日志架构
 自动缩放日志 JSON 包括下表列出的元素：
 
-| 名称 | 描述 |
+| 名称 | 说明 |
 | ---- | ----------- | 
 | `TrackingId` | 内部 ID，用于跟踪目的 |
 | `ResourceId` | Azure 资源管理器资源 ID。 |
@@ -150,10 +150,10 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 协调器日志架构
 Kafka 协调器日志 JSON 包括下表列出的元素：
 
-| 名称 | 描述 |
+| 名称 | 说明 |
 | ---- | ----------- | 
 | `RequestId` | 请求 ID，用于跟踪目的 |
-| `ResourceId` | Azure 资源管理器资源 ID |
+| `ResourceId` | Azure Resource Manager 资源 ID |
 | `Operation` | 组协调期间执行的操作的名称 |
 | `ClientId` | 客户端 ID |
 | `NamespaceName` | 命名空间名称 | 
@@ -190,7 +190,6 @@ Kafka 用户错误日志 JSON 包括下表列出的元素：
 | `Message` | 信息性消息，提供有关错误的详细信息 |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>事件中心虚拟网络连接事件架构
-
 事件中心虚拟网络 (VNet) 连接事件 JSON 包含下表列出的元素：
 
 | 名称 | 说明 |
@@ -202,6 +201,8 @@ Kafka 用户错误日志 JSON 包括下表列出的元素：
 | `Reason` | 提供执行操作的原因 |
 | `Count` | 给定操作的发生次数 |
 | `ResourceId` | Azure 资源管理器资源 ID。 |
+
+只有当命名空间允许从选定的网络或从特定的 IP 地址（IP 筛选器规则）进行访问时，才会生成虚拟网络日志 。 如果不希望使用这些功能限制对命名空间的访问，但仍希望获取虚拟网络日志来跟踪连接到事件中心命名空间的客户端的 IP 地址，可使用以下解决方法。 启用 IP 筛选并添加整个可寻址 IPv4 范围 (1.0.0.0/1 - 255.0.0.0/1)。 事件中心不支持 IPv6 范围。 
 
 ### <a name="example"></a>示例
 
@@ -221,7 +222,7 @@ Kafka 用户错误日志 JSON 包括下表列出的元素：
 ## <a name="customer-managed-key-user-logs"></a>客户管理的密钥用户日志
 客户管理的密钥用户日志 JSON 包括下表列出的元素：
 
-| 名称 | 描述 |
+| 名称 | 说明 |
 | ---- | ----------- | 
 | `Category` | 消息类别的类型。 以下值之一：“错误”和“信息”  |
 | `ResourceId` | 内部资源 ID，包括 Azure 订阅 ID 和命名空间名称 |

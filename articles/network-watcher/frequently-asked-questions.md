@@ -3,27 +3,26 @@ title: 有关 Azure 网络观察程序的常见问题解答 (FAQ) | Azure
 description: 本文解答有关 Azure 网络观察程序服务的常见问题。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/10/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: bb74e276782634367177a599c3cf9cc159b9bf1d
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 64086d318955c638dc03f8026a36c003674a219c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87547971"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327708"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>有关 Azure 网络观察程序的常见问题解答 (FAQ)
-[Azure 网络观察程序](/network-watcher/network-watcher-monitoring-overview)服务提供一套工具用于监视、诊断 Azure 虚拟网络中的资源、查看其指标，以及为其启用或禁用日志。 本文解答有关该服务的常见问题。
+[Azure 网络观察程序](https://docs.azure.cn/network-watcher/network-watcher-monitoring-overview)服务提供一套工具用于监视、诊断 Azure 虚拟网络中的资源、查看其指标，以及为其启用或禁用日志。 本文解答有关该服务的常见问题。
 
 ## <a name="general"></a>常规
 
@@ -33,20 +32,20 @@ ms.locfileid: "87547971"
 ### <a name="what-tools-does-network-watcher-provide"></a>网络观察程序提供哪些工具？
 网络观察程序提供三个主要功能集
 * 监视
-    * [拓扑视图](/network-watcher/view-network-topology)显示虚拟网络中的资源及其相互关系。
-    * [连接监视器](/network-watcher/connection-monitor)可用于监视 VM 与另一网络资源之间的连接和延迟。
-    * [网络性能监视器](/azure-monitor/insights/network-performance-monitor)可用于监视混合网络体系结构、Expressroute 线路和服务/应用程序终结点之间的连接和延迟。  
+    * [拓扑视图](https://docs.azure.cn/network-watcher/view-network-topology)显示虚拟网络中的资源及其相互关系。
+    * [连接监视器](https://docs.azure.cn/network-watcher/connection-monitor)可用于监视 VM 与另一网络资源之间的连接和延迟。
+    * [网络性能监视器](https://docs.azure.cn/azure-monitor/insights/network-performance-monitor)可用于监视混合网络体系结构、Expressroute 线路和服务/应用程序终结点之间的连接和延迟。  
 * 诊断
-    * [IP 流验证](/network-watcher/network-watcher-ip-flow-verify-overview)可用于在 VM 级别检测流量筛选问题。
-    * [下一跃点](/network-watcher/network-watcher-next-hop-overview)可帮助验证流量路由和检测路由问题。
-    * [连接故障排除](/network-watcher/network-watcher-connectivity-portal)可以在 VM 与另一网络资源之间实现一次性连接和延迟检查。
-    * [数据包捕获](/network-watcher/network-watcher-packet-capture-overview)可用于捕获虚拟网络中 VM 上的所有流量。
-    * [VPN 故障排除](/network-watcher/network-watcher-troubleshoot-overview)针对 VPN 网关和连接运行多项诊断检查，以帮助调试问题。
+    * [IP 流验证](https://docs.azure.cn/network-watcher/network-watcher-ip-flow-verify-overview)可用于在 VM 级别检测流量筛选问题。
+    * [下一跃点](https://docs.azure.cn/network-watcher/network-watcher-next-hop-overview)可帮助验证流量路由和检测路由问题。
+    * [连接故障排除](https://docs.azure.cn/network-watcher/network-watcher-connectivity-portal)可以在 VM 与另一网络资源之间实现一次性连接和延迟检查。
+    * [数据包捕获](https://docs.azure.cn/network-watcher/network-watcher-packet-capture-overview)可用于捕获虚拟网络中 VM 上的所有流量。
+    * [VPN 故障排除](https://docs.azure.cn/network-watcher/network-watcher-troubleshoot-overview)针对 VPN 网关和连接运行多项诊断检查，以帮助调试问题。
 * 日志记录
-    * [NSG 流日志](/network-watcher/network-watcher-nsg-flow-logging-overview)可用于在[网络安全组 (NSG)](/virtual-network/security-overview) 中记录所有流量
-    * [流量分析](/network-watcher/traffic-analytics)处理 NSG 流日志数据，使你能够可视化、查询、分析和了解网络流量。
+    * [NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-overview)可用于在[网络安全组 (NSG)](https://docs.azure.cn/virtual-network/security-overview) 中记录所有流量
+    * [流量分析](https://docs.azure.cn/network-watcher/traffic-analytics)处理 NSG 流日志数据，使你能够可视化、查询、分析和了解网络流量。
 
-有关更多详细信息，请参阅[网络观察程序概述页](/network-watcher/network-watcher-monitoring-overview)。
+有关更多详细信息，请参阅[网络观察程序概述页](https://docs.azure.cn/network-watcher/network-watcher-monitoring-overview)。
 
 ### <a name="how-does-network-watcher-pricing-work"></a>网络观察程序如何定价？
 有关网络观察程序组件及其定价，请访问[定价页](https://www.azure.cn/pricing/details/network-watcher/)。
@@ -55,7 +54,7 @@ ms.locfileid: "87547971"
 可以在 [Azure 服务可用性](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,)页上查看最新的区域可用性
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>使用网络观察程序需要哪些权限？
-请查看[使用网络观察程序所需的 RBAC 权限](/network-watcher/required-rbac-permissions)的列表。 若要部署资源，需要对 NetworkWatcherRG 的参与者权限（见下）。
+请查看[使用网络观察程序所需的 Azure RBAC 权限](https://docs.azure.cn/network-watcher/required-rbac-permissions)的列表。 若要部署资源，需要对 NetworkWatcherRG 的参与者权限（见下）。
 
 ### <a name="how-do-i-enable-network-watcher"></a>如何启用网络观察程序？
 网络观察程序服务是为每个订阅[自动启用](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/)的。
@@ -81,10 +80,18 @@ ms.locfileid: "87547971"
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>如何管理网络观察程序资源？ 
 网络观察程序资源代表网络观察程序的后端服务，由 Azure 完全托管。 客户无需管理它。 不支持移动资源等操作。 但[可以删除资源](/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal)。 
 
+## <a name="service-availability-and-redundancy"></a>服务可用性和冗余性 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>网络观察程序服务是否具有区域复原能力？ 
+是的。 默认情况下，网络观察程序服务具有区域复原能力。 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>如何配置网络观察程序服务，使其具有区域复原能力？ 
+客户无需配置即可启用区域复原能力。 默认情况下，网络观察程序资源的区域复原能力可用，并由服务本身管理。 
+
 ## <a name="nsg-flow-logs"></a>NSG 流日志
 
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 流日志有什么作用？
-可以通过[网络安全组 (NSG)](/virtual-network/security-overview) 来合并和管理 Azure 网络资源。 使用 NSG 流日志可以通过 NSG 记录有关所有流量的 5 元组流信息。 原始流日志将写入 Azure 存储帐户，在存储帐户中，可以根据需要进一步处理、分析、查询或导出这些日志。
+可以通过[网络安全组 (NSG)](https://docs.azure.cn/virtual-network/security-overview) 来合并和管理 Azure 网络资源。 使用 NSG 流日志可以通过 NSG 记录有关所有流量的 5 元组流信息。 原始流日志将写入 Azure 存储帐户，在存储帐户中，可以根据需要进一步处理、分析、查询或导出这些日志。
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>当存储帐户位于防火墙后面时，如何使用 NSG 流日志？
 

@@ -9,12 +9,12 @@ ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 3ea69a71bc4fd0e64d9465b69a3a1d201b9074b9
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: e1491cd336e68ceff3aada42f7bc1d8bdca61fe8
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437688"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330523"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -22,7 +22,7 @@ ms.locfileid: "91437688"
 
 只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过市场管理获取。
 
-| 映像 | 项名称 | 说明 | 发布者 | OS 类型 |
+| 图像 | 项名称 | 说明 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 扩展(SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展 (SqlIaasExtension)](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。** | Microsoft | Windows |
 |![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)| **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
@@ -37,7 +37,7 @@ ms.locfileid: "91437688"
 
 Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据说明单独下载任何依赖项。 SQL Server 和 Machine Learning Server 之类的应用需要适当的许可，除非已标记为“免费”或“试用”。
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 试用版](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsharepoint.microsoftsharepointserver?tab=Overview) | Windows Server 2012 Datacenter 和 Visual Studio 2019 社区版上的 Microsoft SharePoint Server 2013 试用版。 | Microsoft |
 | ![SharePoint Server 2016 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 试用版](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsharepoint.microsoftsharepointserver?tab=Overview) | Windows Server 2016 Datacenter 上的 Microsoft SharePoint Server 2016 试用版。 | Microsoft |
@@ -47,7 +47,7 @@ Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据�
 
 ## <a name="linux-distributions"></a>Linux 发行版
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
@@ -62,7 +62,7 @@ Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据�
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方 BYOL 版、免费版和试用版映像以及解决方案模板
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://market.azure.cn/zh-cn/marketplace/apps/a10networks-cn.a10-thunder-adc-411-p2?tab=PlansAndPrice) | 适用于 Azure 的 A10 Networks vThunder ADC（应用程序交付控制器）专为实现高性能、灵活性和易于部署的应用交付和服务器负载均衡而构建，并经过优化以在 Azure 云中本机运行。 | A10 Networks |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.barracuda_email_security_gateway_2?tab=Overview) | 一种电子邮件安全网关，用于防范入站电子邮件产生的威胁。 | Barracuda Networks, Inc. |
@@ -73,7 +73,7 @@ Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据�
 | ![FortiGate 下一代防火墙](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 下一代防火墙](https://market.azure.cn/zh-cn/marketplace/apps/fortinet-cn.fortinet_fortigate-vm_v6_0?tab=Overview) | 一种防火墙技术，通过一个包含强大安全功能的综合性套件提供完整的内容和网络保护。 可以协调使用应用控制、防病毒、IPS、Web 筛选、VPN 以及多种高级功能（例如漏洞管理），以便确定并缓解最新且复杂的安全威胁。 | Fortinet |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/kubernetes.png" border="false"::: | [Kubernetes](azure-stack-aks-engine.md) | 此解决方案会使用 AKS-Engine 生成的模板部署一个 Kubernetes 群集，该群集以独立群集的形式运行。<br>此解决方案模板还需要 Ubuntu Server 16.04 LTS 以及适用于 Linux 2.0 的自定义脚本。| Microsoft |
 | ![Service Fabric 群集](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 群集](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 此解决方案将 Service Fabric 部署为在虚拟机规模集上运行的独立群集。 <br>**此解决方案模板还需要下载 Windows Server 2016 Datacenter**| Microsoft |
-| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://market.azure.cn/zh-cn/marketplace/apps/WestconSolutionsChina.vmseries800?tab=Overview) | VM 系列下一代防火墙可以让客户安全地将其应用和数据迁移到 Azure Stack Hub，使用应用允许列表和威胁防范策略保护客户免受已知和未知的威胁。 **此映像需要模板来部署；请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以获取重要信息。**| Palo Alto Networks, Inc. |
+| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://market.azure.cn/zh-cn/marketplace/apps/WestconSolutionsChina.vmseries800?tab=Overview) | VM 系列下一代防火墙可以让客户安全地将其应用和数据迁移到 Azure Stack Hub，使用应用筛选和威胁防范策略保护客户免受已知和未知的威胁。 **此映像需要模板来部署；请参阅此 [文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以获取重要信息。**| Palo Alto Networks, Inc. |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://market.azure.cn/zh-cn/marketplace/apps/questchina.rapidrecoverycore?tab=Overview) | Rapid Recovery 高级数据保护在单个易用的软件解决方案中集中了备份、复制和恢复功能。 | Quest Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.sios_datakeeper_cluster_edition?tab=Overview) | SIOS DataKeeper 在 Azure Stack Hub 中提供高可用性 (HA) 和灾难恢复 (DR)。 只需将 SIOS DataKeeper 软件作为组件添加到 Azure Stack Hub 部署中的 Windows Server 故障转移群集 (WSFC) 环境即可，无需共享存储。 | SIOS Technology Corp. |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://market.azure.cn/zh-cn/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | 同类最佳开源基础结构管理。 | SUSE |

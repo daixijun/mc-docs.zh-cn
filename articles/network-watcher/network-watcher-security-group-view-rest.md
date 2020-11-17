@@ -1,26 +1,26 @@
 ---
 title: 分析网络安全性 - 安全组视图 - Azure REST API
 titleSuffix: Azure Network Watcher
-description: 本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。
+description: 本文介绍如何使用 Azure REST API 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
-ms.testscope: yes
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: d2df50f7131381961cfe68fa65a3d40432664722
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 71c6cfc99b4fe7e369aba5eea8d0eb6fa7072702
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548075"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328759"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 
@@ -30,7 +30,7 @@ ms.locfileid: "87548075"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> 安全组视图 API 不再维护，很快就会被弃用。 请使用提供相同功能的[有效安全规则功能](/network-watcher/network-watcher-security-group-view-overview)。 
+> 安全组视图 API 不再维护，很快就会被弃用。 请使用提供相同功能的[有效安全规则功能](https://docs.azure.cn/network-watcher/network-watcher-security-group-view-overview)。 
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 REST API 检索应用于虚拟机的有效安全规则
 

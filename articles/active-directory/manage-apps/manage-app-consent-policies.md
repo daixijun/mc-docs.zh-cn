@@ -133,8 +133,8 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 | 条件 | 说明|
 |:---------------|:----------|
 | PermissionClassification | 要授予的权限的[权限分类](configure-permission-classifications.md)，或“all”（匹配任何权限分类，包括未分类的权限）。 默认值为“all”。 |
-| PermissionType | 要授予的权限的权限类型。 使用“application”表示应用程序权限（例如应用角色），或使用“delegated”表示委托的权限。 <br><br>**注意** ：值“delegatedUserConsentable”表示尚未经 API 发布者配置为需要管理员同意的委托的权限 - 此值可以在内置的权限授予策略中使用，但不能在自定义权限授予策略中使用。 必需。 |
-| ResourceApplication | 要为其授予权限的资源应用程序（例如 API）的 **AppId** ，或“any”（匹配任何资源应用程序或 API）。 默认值为“any”。 |
+| PermissionType | 要授予的权限的权限类型。 使用“application”表示应用程序权限（例如应用角色），或使用“delegated”表示委托的权限。 <br><br>**注意**：值“delegatedUserConsentable”表示尚未经 API 发布者配置为需要管理员同意的委托的权限 - 此值可以在内置的权限授予策略中使用，但不能在自定义权限授予策略中使用。 必需。 |
+| ResourceApplication | 要为其授予权限的资源应用程序（例如 API）的 **AppId**，或“any”（匹配任何资源应用程序或 API）。 默认值为“any”。 |
 | 权限 | 要与之匹配的特定权限的权限 ID 的列表；或其中包含单个值“all”的列表，这匹配任何权限。 默认值为单个值“all”。 <ul><li>可以在 API 的 ServicePrincipal 对象的 **OAuth2Permissions** 属性中找到委托的权限 ID。</li><li>可以在 API 的 ServicePrincipal 对象的 **AppRoles** 属性中找到应用程序权限 ID。</li></ol> |
 | ClientApplicationIds | 要与之匹配的客户端应用程序的 **AppId** 值的列表；或其中包含单个值“all”的列表，这匹配任何客户端应用程序。 默认值为单个值“all”。 |
 | ClientApplicationTenantIds | 在其中注册了客户端应用程序的 Azure Active Directory 租户 ID 的列表；或其中包含单个值“all”的列表，这将匹配在任何租户中注册的客户端应用。 默认值为单个值“all”。 |

@@ -5,17 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-origin.date: 06/25/2020
-ms.date: 07/20/2020
+origin.date: 10/09/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: f43abafb6edaf0e7cb5d8a8fb3bdd3aa27422519
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: f2a4117f9e9c5ed595db29c09bbf6725caf1370f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414609"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328104"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -35,16 +36,19 @@ ms.locfileid: "86414609"
 | 每个工作流的触发数 | 10 个 | 在代码视图中工作时，而不是在设计器中工作时 |
 | Switch 作用域事例限制 | 25 | |
 | 每个工作流的变量数 | 250 | |
-| 每个表达式的字符数 | 8,192 | |
-| `trackedProperties` 的最大大小 | 16,000 个字符 |
 | `action` 或 `trigger` 的名称 | 80 个字符 | |
+| 每个表达式的字符数 | 8,192 | |
 | `description` 的长度 | 256 个字符 | |
-| `parameters` 最大值 | 50 | |
-| `outputs` 最大值 | 10 个 | |
+| 最大 `parameters` 数 | 50 | |
+| 最大 `outputs` 数 | 10 | |
+| `trackedProperties` 的最大大小 | 16,000 个字符 |
+| 内联代码操作 - 最大代码字符数 | 1,024 个字符 <p>对于 100,000 字符限制，请使用 Visual Studio Code 创建逻辑应用。 |
+
+<!--Not Available on and the [preview **Azure Logic Apps** extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)-->
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>运行持续时间和保留期限制
+## <a name="run-duration-and-retention-history-limits"></a>运行持续时间和保留期历史记录限制
 
 下面是针对单个逻辑应用运行的限制：
 
@@ -52,8 +56,8 @@ ms.locfileid: "86414609"
 
 | 名称 | 多租户限制 |  注释 |
 |------|--------------------|-------|
-| 运行持续时间 | 90 天 |  运行持续时间是使用运行开始时间以及在开始时由工作流设置“[**运行历史记录保留期(天)** ](#change-duration)”指定的限制计算的。 <p><p>若要更改默认限制（90 天），请参阅[更改运行持续时间](#change-duration)。 |
-| 存储中的运行保留期 | 90 天 | 运行保留期是使用运行开始时间以及在当前时间由工作流设置“[**运行历史记录保留期(天)** ](#change-retention)”指定的限制计算的。 无论运行是完成还是超时，保留期计算始终使用运行开始时间。 当运行的持续时间超过当前保留期限制时，将从运行历史记录中删除该运行。 <p><p>如果更改此设置，将始终使用当前限制来计算保留期，而不考虑以前的限制。 例如，如果将保留期限制从 90 天减至 30 天，则会从运行历史记录中删除保留了 60 天的运行。 如果将保留期从 30 天增至 60 天，则已经保留了 20 天之久的运行将在运行历史记录中继续保留 40 天。 <p><p>若要更改默认限制（90 天），请参阅[更改存储中的运行保留期](#change-retention)。 |
+| 运行持续时间 | 90 天 | 运行持续时间是使用运行开始时间以及在开始时工作流设置“[运行历史记录保留期(天)](#change-duration)”中指定的限制计算的。 <p><p>若要更改默认限制，请参阅[更改存储中的运行持续时间和历史记录保留期](#change-duration)。 |
+| 存储中的运行历史记录保留期 | 90 天 | 当运行的持续时间超过当前运行历史记录保留期限制时，将从存储的运行历史记录中删除该运行。 无论运行是完成还是超时，都会始终使用运行开始时间和工作流设置“[运行历史记录保留期(天)](#change-retention)”中指定的当前限制来计算运行历史记录保留期。 无论先前的限制如何，将始终使用当前限制来计算保留期。 <p><p>若要更改默认限制以及了解详细信息，请参阅存储[在存储中更改持续时间和运行历史记录保留期](#change-retention)。 若要提高最大限制，[请联系逻辑应用团队](mailto://logicappsemail@microsoft.com)，就你的要求获取帮助。 |
 | 最小重复间隔 | 1 秒 | |
 | 最大重复间隔 | 500 天 | |
 ||||
@@ -61,17 +65,22 @@ ms.locfileid: "86414609"
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>更改存储中的运行持续时间和运行保留期
+### <a name="change-run-duration-and-history-retention-in-storage"></a>更改存储中的运行持续时间和历史记录保留期
 
-若要更改存储中的运行持续时间和运行保留期的默认限制，请执行以下步骤。 若要提高最大限制，[请联系逻辑应用团队](mailto://logicappsemail@microsoft.com)，就你的要求获取帮助。
+同一设置控制工作流可以运行的最大天数，并控制在存储中保留运行历史记录的最大天数。 若要更改这些属性的默认值或当前限制，请执行以下步骤。
 
-> [!NOTE]
-> 对于多租户 Azure 中的逻辑应用，90 天默认限制与最大限制相同。 只能减小此值。
-> 对于集成服务环境中的逻辑应用，可以降低或提高 90 天默认限制。
+* 对于多租户 Azure 中的逻辑应用，90 天默认限制与最大限制相同。 只能减小此值。
 
-1. 转到 [Azure 门户](https://portal.azure.cn)。 在门户搜索框中，找到并选择“逻辑应用”。
+* 对于集成服务环境中的逻辑应用，可以降低或提高 90 天默认限制。
 
-1. 在逻辑应用设计器中选择并打开你的逻辑应用。
+例如，假设你将保留期限制从 90 天减少到 30 天。 将从运行历史记录中删除 60 天的运行。 如果将保持期从 30 天增至 60 天，则已经保留了 20 天的运行将在运行历史记录中继续保留 40 天。
+
+> [!IMPORTANT]
+> 当运行的持续时间超过当前运行历史记录保留期限制时，将从存储的运行历史记录中删除该运行。 若要避免丢失运行历史记录，请确保保留期限制始终大于运行的最长持续时间。
+
+1. 在 [Azure 门户](https://portal.azure.cn)搜索框中，找到并选择“逻辑应用”。
+
+1. 找到并选择选择逻辑应用。 在逻辑应用设计器中打开逻辑应用。
 
 1. 在逻辑应用的菜单中选择“工作流设置”。
 
@@ -81,13 +90,34 @@ ms.locfileid: "86414609"
 
 1. 完成后，在“工作流设置”工具栏上选择“保存”。 
 
+如果为逻辑应用生成了 Azure 资源管理器模板，则此设置将显示为工作流资源定义中的属性，如 [Microsoft.Logic 工作流模板参考](https://docs.microsoft.com/azure/templates/microsoft.logic/workflows)中所述：
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
+
 <a name="looping-debatching-limits"></a>
 
 ## <a name="concurrency-looping-and-debatching-limits"></a>并发、循环和拆分限制
 
 下面是针对单个逻辑应用运行的限制：
 
-| 名称 | 限制 | 注释 |
+| 名称 | 限制 | 说明 |
 | ---- | ----- | ----- |
 | 触发器并发 | - 若并发控制已关闭，则无限制 <p><p>- 在启用并发控制时，默认限制为 25（启用并发后无法撤消）。 可以将默认值更改为介于 1 与 50（含）之间的值。 | 此限制描述可以在同一时间或并行运行的逻辑应用实例的最大数。 <p><p>**注意**：启用并发后，[解除数组批处理](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)的 SplitOn 限制会降低到 100 个项。 <p><p>若要将默认限制更改为介于 1 到 50 之间（含）的值，请参阅[更改触发器并发限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[按顺序触发实例](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 |
 | 最大等待运行数 | - 未启用并发时，最小等待运行数是 1，最大数目是 50。 <p><p>- 启用并发时，最小等待运行数是 10 加上并发运行（触发器并发）数。 可以将最大数更改为多达 100 个（含）。 | 此限制描述当逻辑应用已在运行最大数量并发实例时，可等待运行的最大逻辑应用实例数。 <p><p>若要更改此默认限制，请参阅[更改等待的运行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 |
@@ -105,7 +135,7 @@ ms.locfileid: "86414609"
 
 ### <a name="multi-tenant-logic-apps-service"></a>多租户逻辑应用服务
 
-| 名称 | 限制 | 注释 |
+| 名称 | 限制 | 说明 |
 | ---- | ----- | ----- |
 | 操作：每 5 分钟执行的次数 | 默认限制为 100,000，最大限制为 300,000。 | 若要更改此默认限制，请参阅处于预览阶段的[在“高吞吐量”模式下运行逻辑应用](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)。 或者，你可根据需要在多个逻辑应用之间分配工作负荷。 |
 | 操作：并发出站调用 | ~2,500 | 你可减少并发请求数，或根据需要减少持续时间。 |
@@ -137,7 +167,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 | 名称 | 多租户限制 | 注释 |
 |------|--------------------|-------|
-| 出站请求 | 120 秒 <br />（2 分钟） | 出站请求的示例包括 HTTP 触发器进行的调用。 <p><p>**提示**：对于运行时间较长的操作，请使用[异步轮询模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 循环](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
+| 出站请求 | 120 秒 <br />（2 分钟） | 出站请求的示例包括 HTTP 触发器进行的调用。 <p><p>**提示**：对于运行时间较长的操作，请使用 [异步轮询模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 循环](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 在调用其他具有[可调用终结点](logic-apps-http-endpoint.md)的逻辑应用时，若要绕过超时限制，可改用内置的 Azure 逻辑应用操作（可在“内置”下的连接器连接器中找到）。 |
 | 入站请求 | 120 秒 <br />（2 分钟） | 入站请求的示例包括请求触发器和 webhook 触发器收到的请求。 <p><p>**注意**：要使原始调用方能够获得响应，则除非以嵌套工作流的形式调用其他逻辑应用，否则必须在限制内完成响应的所有步骤。 有关详细信息，请参阅[调用、触发器或嵌套逻辑应用](../logic-apps/logic-apps-http-endpoint.md)。 |
 |||||
 
@@ -155,7 +185,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 #### <a name="character-limits"></a>字符限制
 
-| 名称 | 注释 |
+| 名称 | 说明 |
 |------|-------|
 | 表达式计算限制 | 131,072 个字符 | `@concat()`、`@base64()`、`@string()` 表达式的长度不能超过此限制。 |
 | 请求 URL 字符限制 | 16,384 个字符 |
@@ -165,7 +195,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 #### <a name="retry-policy"></a>重试策略
 
-| 名称 | 限制 | 注释 |
+| 名称 | 限制 | 说明 |
 | ---- | ----- | ----- |
 | 重试次数 | 90 | 默认值为 4。 若要更改默认值，请使用[重试策略参数](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重试最大延迟 | 1 天 | 若要更改默认值，请使用[重试策略参数](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
@@ -176,12 +206,12 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 ### <a name="authentication-limits"></a>身份验证限制
 
-如果逻辑应用从使用请求触发器开始，并启用 [Azure Active Directory 开放式身份验证](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) 来授权对请求触发器的入站调用，则应遵循以下限制：
+如果逻辑应用从使用请求触发器开始，并启用 [Azure Active Directory 开放式身份验证](../active-directory/develop/index.yml) (Azure AD OAuth) 来授权对请求触发器的入站调用，则应遵循以下限制：
 
-| 名称 | 限制 | 注释 |
+| 名称 | 限制 | 说明 |
 | ---- | ----- | ----- |
 | Azure AD 授权策略 | 5 | |
-| 每个授权策略的声明 | 10 个 | |
+| 每个授权策略的声明 | 10 | |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -226,13 +256,13 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 > [!NOTE]
 > 免费层仅用于探索场景，不用于生产场景。 此层限制吞吐量和使用情况，并且不具有服务级别协议 (SLA)。
 
-| 项目 | 免费 | 基本 | 标准 |
+| 项目 | 免费 | 基本 | Standard |
 |----------|------|-------|----------|
-| EDI 贸易协议 | 10 个 | 1 | 1,000 |
+| EDI 贸易协议 | 10 | 1 | 1,000 |
 | EDI 参与方 | 25 | 2 | 1,000 |
 | 地图 | 25 | 500 | 1,000 |
 | 架构 | 25 | 500 | 1,000 |
-| 程序集 | 10 个 | 25 | 1,000 |
+| 程序集 | 10 | 25 | 1,000 |
 | 证书 | 25 | 2 | 1,000 |
 | 批处理配置 | 5 | 1 | 50 |
 ||||
@@ -241,7 +271,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 ### <a name="artifact-capacity-limits"></a>项目容量限制
 
-| 项目 | 限制 | 注释 |
+| 项目 | 限制 | 说明 |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | 若要上传大于 2 MB 的文件，请使用 [Azure 存储帐户和 blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
 | 映射（XSLT 文件） | 8 MB | 若要上传大于 2 MB 的文件，请使用 [Azure 逻辑应用 REST API - 映射](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)。 <p><p>**注意**：映射可以成功处理的数据或记录量取决于 Azure 逻辑应用中的消息大小和操作超时限制。 例如，如果使用 HTTP 操作，则根据 [HTTP 消息大小和超时限制](#request-limits)，在操作能够在 HTTP 超时限制内完成的情况下，映射最多可以处理达到 HTTP 消息大小限制的数据量。 |
@@ -254,7 +284,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 <!--Not Available on FREE INTEGRATION ACCOUNT-->
 
-| 运行时终结点 | 基本 | 标准 | 注释 |
+| 运行时终结点 | 基本 | Standard | 说明 |
 |------------------|-------|----------|-------|
 | 每 5 分钟读取调用 | 30,000 | 60,000 |此限制适用于从逻辑应用的运行历史记录获取原始输入和输出的调用。 你可根据需要在多个帐户之间分配工作负荷。 |
 | 每 5 分钟调用调用 | 30,000 | 45,000 | 你可根据需要在多个帐户之间分配工作负荷。 |
@@ -272,7 +302,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 | 名称 | 多租户限制 | 注释 |
 |------|--------------------|-------|
-| AS2 | v2 - 100 MB<br />v1 - 50 MB | 适用于解码和编码 |
+| AS2 | v2 - 100 MB<br />v1 - 25 MB | 适用于解码和编码 |
 | X12 | 50 MB | 适用于解码和编码 |
 | EDIFACT | 50 MB | 适用于解码和编码 |
 ||||
@@ -289,7 +319,7 @@ Azure 逻辑应用支持通过网关执行写入操作（包括插入和更新�
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>防火墙配置：IP 地址和服务标记
 
-Azure 逻辑应用用于传入和传出调用的 IP 地址由逻辑应用所在的区域决定。 同一区域中的所有逻辑应用都使用相同的 IP 地址范围。 某些 [Power Automate](https://docs.microsoft.com/power-automate/getting-started/) 调用（例如 HTTP 和 HTTP + OpenAPI 请求）直接通过 Azure 逻辑应用服务执行并来自此处列出的 IP 地址。 要详细了解 Power Automate 使用的 IP 地址，请参阅 [Power Automate 中的限制和配置](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)。
+Azure 逻辑应用用于传入和传出调用的 IP 地址由逻辑应用所在的区域决定。 同一区域中的所有逻辑应用都使用相同的 IP 地址范围。 某些 [Power Automate](https://docs.microsoft.com/power-automate/getting-started) 调用（例如 HTTP 和 HTTP + OpenAPI 请求）直接通过 Azure 逻辑应用服务执行并来自此处列出的 IP 地址。 要详细了解 Power Automate 使用的 IP 地址，请参阅 [Power Automate 中的限制和配置](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)。
 
 > [!TIP]
 > 为帮助你更简单地创建安全规则，可选择性地使用[服务标记](../virtual-network/service-tags-overview.md)，而不是为每个区域指定逻辑应用 IP 地址，如此部分中稍后所述。 这些标记适用于可使用逻辑应用服务的区域：

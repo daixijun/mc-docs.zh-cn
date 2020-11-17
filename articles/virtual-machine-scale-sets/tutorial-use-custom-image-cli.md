@@ -5,16 +5,16 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: tutorial
-ms.date: 08/06/2020
+ms.date: 11/02/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 4d25dc00bc5e951ab424ec955489bcbf101ba41d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: e20ddbff08756d09538867d07b0631b2c869dddd
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914194"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326528"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教程：通过 Azure CLI 创建和使用虚拟机规模集的自定义映像
 创建规模集时，需指定部署 VM 实例时要使用的映像。 若要在部署 VM 实例之后减少任务数目，可以使用自定义 VM 映像。 在此自定义 VM 映像中可以完成全部所需的应用程序安装或配置步骤。 在规模集中创建的任何 VM 实例使用自定义 VM 映像，并随时可为应用程序流量提供服务。 本教程介绍如何执行下列操作：
@@ -42,7 +42,7 @@ ms.locfileid: "87914194"
 首先使用 [az group create](/cli/group) 创建资源组，然后使用 [az vm create](/cli/vm) 创建 VM。 然后，此 VM 将用作映像的源。 以下示例在名为 *myResourceGroup* 的资源组中创建名为 *myVM* 的 VM：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinanorth2
 
 az vm create \
   --resource-group myResourceGroup \
@@ -75,10 +75,10 @@ sudo apt-get install -y nginx
 
 允许用于库名称的字符为大写或小写字母、数字、点和句点。 库名称不能包含短划线。   库名称在你的订阅中必须唯一。 
 
-使用 [az sig create](https://docs.microsoft.com/en-us/cli/azure/sig?view=azure-cli-latest#az-sig-create) 创建一个映像库。 以下示例在“中国北部”创建一个名为“myGalleryRG”的资源组命名库，以及一个名为“myGallery”的库  。
+使用 [az sig create](https://docs.microsoft.com/en-us/cli/azure/sig?view=azure-cli-latest#az-sig-create) 创建一个映像库。 以下示例在“中国北部 2”创建一个名为“myGalleryRG”的资源组命名库，以及一个名为“myGallery”的库  。
 
 ```azurecli
-az group create --name myGalleryRG --location chinanorth
+az group create --name myGalleryRG --location chinanorth2
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
@@ -118,7 +118,7 @@ az sig image-definition create \
 
 允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
 
-在此示例中，映像版本为 1.0.0，我们将在“中国北部”区域中创建 1 个副本，并在“中国北部 2”区域中创建 1 个副本  。 复制区域必须包含源 VM 所在的区域。
+在此示例中，映像版本为 1.0.0，我们将在“中国北部 2”区域中创建 1 个副本，并在“中国北部”区域中创建 1 个副本  。 复制区域必须包含源 VM 所在的区域。
 
 请将此示例中的 `--managed-image` 值替换为上一步的 VM ID。
 
@@ -151,7 +151,7 @@ az sig image-version create \
 从前面创建的最新 myImageDefinition 映像版本创建名为“myScaleSet”的规模集 。
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinanorth2
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
@@ -195,7 +195,7 @@ az network public-ip show \
 
 ## <a name="share-the-gallery"></a>共享库
 
-可以使用基于角色的访问控制 (RBAC) 在订阅之间共享映像。 可以在库、映像定义或映像版本中共享映像。 任何对映像版本具有读取权限的用户，即使跨订阅，也能够使用映像版本部署 VM。
+可以使用 Azure 基于角色的访问控制 (Azure RBAC) 在订阅之间共享映像。 可以在库、映像定义或映像版本中共享映像。 任何对映像版本具有读取权限的用户，即使跨订阅，也能够使用映像版本部署 VM。
 
 建议在库级别与其他用户进行共享。 若要获取库的对象 ID，请使用 [az sig show](https://docs.microsoft.com/en-us/cli/azure/sig?view=azure-cli-latest#az-sig-show)。
 
@@ -215,7 +215,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-有关如何使用 RBAC 共享资源的详细信息，请参阅[使用 RBAC 和 Azure CLI 管理访问权限](../role-based-access-control/role-assignments-cli.md)。
+有关如何使用 Azure RBAC 共享资源的详细信息，请参阅[使用 Azure CLI 添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-cli.md)。
 
 
 ## <a name="clean-up-resources"></a>清理资源

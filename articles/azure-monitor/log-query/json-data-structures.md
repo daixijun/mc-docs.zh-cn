@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/28/2020
-ms.openlocfilehash: 3f301e7ba8dba45e2f207878646ddd03d643b88d
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.date: 11/02/2020
+ms.openlocfilehash: 8bc9d4ee890b18f37b822ee93f5d115e5feb9019
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440445"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327362"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用 JSON 和数据结构
 
@@ -86,7 +86,7 @@ print hosts_object
 | mvexpand hosts_object.hosts[0]
 ```
 
-![mvexpand](./media/json-data-structures/mvexpand.png)
+![屏幕截图显示了带有位置值、状态值和速率值的 host_0。](./media/json-data-structures/mvexpand.png)
 
 ### <a name="buildschema"></a>buildschema
 使用 `buildschema` 获取允许对象的所有值的架构：

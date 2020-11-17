@@ -2,15 +2,15 @@
 title: 如何从 Windows 组策略基线创建来宾配置策略定义
 description: 了解如何将 Windows Server 2019 安全基线中的组策略转换为策略定义。
 origin.date: 08/17/2020
-ms.date: 09/15/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: how-to
-ms.openlocfilehash: a5b30c7896653ab142810fc66dced488424356bc
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 8ec53f467b84f3dd401e0efbd1f02b6bfe089a59
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678486"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328822"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>如何从 Windows 组策略基线创建来宾配置策略定义
 

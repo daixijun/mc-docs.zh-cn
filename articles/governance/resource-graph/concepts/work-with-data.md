@@ -2,16 +2,16 @@
 title: 处理大型数据集
 description: 了解如何在使用 Azure Resource Graph 的同时，在大型数据集中获取、格式化、分页和跳过记录。
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 09/30/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0734262d748fe31f54e7646210adb0339eb255fd
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: 289ef06e3cfccab5cfd65261d4b5b72aef1d8b79
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523181"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328804"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>处理大型 Azure 资源数据集
 
@@ -50,7 +50,7 @@ First 当前允许的最大值为 5000，这是通过一次对 1000 条记录进
 下一个大型数据集处理选项是 Skip 控制措施。 通过这项控制措施，查询可以在返回结果之前跳过或略过定义的记录数。 Skip 适用于以一种有意义的方式对结果进行排序的查询，查询意图是在结果集中间某位置处获取记录。 如果所需的结果位于返回数据集的末尾，更高效的做法是使用不同的排序配置，并从数据集顶部检索结果。
 
 > [!NOTE]
-> 使用 Skip 时，建议用 `asc` 或 `desc` 按至少一个列对结果进行排序。 如果不排序，则返回的结果是随机的且不可重复。
+> 使用 Skip 时，建议用 `asc` 或 `desc` 按至少一个列对结果进行排序。 如果不排序，则返回的结果是随机的且不可重复。 如果在查询中使用 `limit` 或 `take`，则忽略“跳过”。
 
 下面的示例展示了如何跳过查询生成的前 10 条记录，改从第 11 条记录开始返回结果集：
 
@@ -172,6 +172,6 @@ response = client.resources(request)
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在[初学者查询](../samples/starter.md)中了解所使用的语言。
-- 在[高级查询](../samples/advanced.md)中了解高级用法。
+- 请参阅[初学者查询](../samples/starter.md)中使用的语言。
+- 请参阅[高级查询](../samples/advanced.md)中的高级用法。
 - 详细了解如何[浏览资源](explore-resources.md)。

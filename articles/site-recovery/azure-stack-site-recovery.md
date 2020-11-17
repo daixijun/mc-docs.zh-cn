@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Site Recovery 服务为 Azure Stack VM 设
 ms.topic: conceptual
 origin.date: 08/05/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 283106a4b7cea453d993a58212f0f6819646ec5d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 3a988969a458d50a96a5e6cc18a2a374d0de9ae8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128312"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328637"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 
@@ -29,12 +29,12 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 在本文中，学习如何：
 
 > [!div class="checklist"]
-> * **步骤 1：做好复制 Azure Stack VM 的准备** 。 检查 VM 是否符合 Site Recovery 要求，并准备安装 Site Recovery 移动服务。 此服务安装在要复制的每个 VM 上。
-> * **步骤 2：设置恢复服务保管库** 。 为 Site Recovery 设置保管库，并指定要复制的内容。 在保管库中配置和管理 Site Recovery 的组件和操作。
-> * **步骤 3：设置源复制环境** 。 设置 Site Recovery 配置服务器。 配置服务器是单个 Azure Stack VM，可运行 Site Recovery 需要的所有组件。 设置配置服务器后，在保管库中进行注册。
-> * **步骤 4：设置目标复制环境** 。 选择 Azure 帐户以及要使用的 Azure 存储帐户和网络。 复制期间，VM 数据会复制到 Azure 存储。 进行故障转移后，Azure VM 会加入指定的网络。
-> * **步骤 5：启用复制** 。 配置复制设置，启用 VM 复制。 启用复制后，VM 上会安装移动服务。 Site Recovery 执行 VM 的初始复制，然后开始持续复制。
-> * **步骤 6：运行灾难恢复演练** ：复制启用并运行后，可运行演练来验证故障转移是否按预期方式工作。 要启动演练，请在 Site Recovery 中运行测试故障转移。 测试故障转移不会对生产环境造成任何影响。
+> * **步骤 1：做好复制 Azure Stack VM 的准备**。 检查 VM 是否符合 Site Recovery 要求，并准备安装 Site Recovery 移动服务。 此服务安装在要复制的每个 VM 上。
+> * **步骤 2：设置恢复服务保管库**。 为 Site Recovery 设置保管库，并指定要复制的内容。 在保管库中配置和管理 Site Recovery 的组件和操作。
+> * **步骤 3：设置源复制环境**。 设置 Site Recovery 配置服务器。 配置服务器是单个 Azure Stack VM，可运行 Site Recovery 需要的所有组件。 设置配置服务器后，在保管库中进行注册。
+> * **步骤 4：设置目标复制环境**。 选择 Azure 帐户以及要使用的 Azure 存储帐户和网络。 复制期间，VM 数据会复制到 Azure 存储。 进行故障转移后，Azure VM 会加入指定的网络。
+> * **步骤 5：启用复制**。 配置复制设置，启用 VM 复制。 启用复制后，VM 上会安装移动服务。 Site Recovery 执行 VM 的初始复制，然后开始持续复制。
+> * **步骤 6：运行灾难恢复演练**：复制启用并运行后，可运行演练来验证故障转移是否按预期方式工作。 要启动演练，请在 Site Recovery 中运行测试故障转移。 测试故障转移不会对生产环境造成任何影响。
 
 完成这些步骤后，即可按需随时运行到 Azure 的完全故障转移。
 
@@ -98,7 +98,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
     - 如果使用的不是域帐户，则需在 VM 上禁用远程用户访问控制：
         - 在注册表中的 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下，创建 DWORD 值 LocalAccountTokenFilterPolicy  。
         - 将值设置为 1。
-        - 若要在命令提示符下执行此操作，请键入以下命令： **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1** 。
+        - 若要在命令提示符下执行此操作，请键入以下命令：**REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**。
 - 在要复制的 VM 上的 Windows 防火墙中，允许“文件和打印机共享”以及 WMI。
     - 若要执行此操作，请运行 wf.msc 打开 Windows 防火墙控制台  。 依次右键单击“入站规则” > “新建规则”   。 选择“预定义”，然后从列表中选择“文件和打印机共享”   。 完成向导，选择以允许连接，然后单击“完成”  。
     - 对于域计算机，可使用 GPO 来执行此操作。
@@ -114,10 +114,10 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 - 确保安全外壳 (SSH) 已启用且正在端口 22 上运行。
 - 在 sshd_config 文件中启用 SFTP 子系统与密码身份验证：
     1. 为此，请以根用户身份登录。
-    2. 在 /etc/ssh/sshd_config 文件中，找到以“PasswordAuthentication”开头的行  。 取消注释该行，并将值更改为 **yes** 。
+    2. 在 /etc/ssh/sshd_config 文件中，找到以“PasswordAuthentication”开头的行  。 取消注释该行，并将值更改为 **yes**。
     3. 找到以“Subsystem”开头的行，并取消注释该行  。
 
-        :::image type="content" source="./media/azure-stack-site-recovery/linux-mobility.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+        :::image type="content" source="./media/azure-stack-site-recovery/linux-mobility.png" alt-text="Linux 移动服务":::
 
     4. 重启 sshd 服务。
 
@@ -129,7 +129,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 2. 在“资源”菜单上，单击“网络接口”   。
 3. 记下专用 IP 地址。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/private-ip.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+    :::image type="content" source="./media/azure-stack-site-recovery/private-ip.png" alt-text="专用 IP 地址":::
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>步骤 2：创建保管库并选择复制目标
 
@@ -144,7 +144,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 4. 在“位置”中，输入 Azure 区域  。 我们将使用“中国北部”  。
 5. 若要从仪表板快速访问保管库，请选择“固定到仪表板”   >   “创建”。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/new-vault-settings.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+    :::image type="content" source="./media/azure-stack-site-recovery/new-vault-settings.png" alt-text="创建新的保管库":::
 
     新保管库显示在“仪表板”   > “所有资源”  中，以及“恢复服务保管库”  主页上。
 
@@ -156,7 +156,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”   。
 5. 在“计算机是否已虚拟化”中，选择“尚未虚拟化/其他”   。 然后选择“确定”。 
 
-    :::image type="content" source="./media/azure-stack-site-recovery/protection-goal.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+    :::image type="content" source="./media/azure-stack-site-recovery/protection-goal.png" alt-text="保护目标":::
 
 ## <a name="step-3-set-up-the-source-environment"></a>步骤 3：设置源环境
 
@@ -165,13 +165,13 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 1. 单击“准备基础结构” > “源”。  
 2. 在“准备源”中，单击“+配置服务器”   。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/plus-config-srv.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+    :::image type="content" source="./media/azure-stack-site-recovery/plus-config-srv.png" alt-text="设置源":::
 
 3. 在“添加服务器”中，检查“配置服务器”是否已显示在“服务器类型”中    。
 5. 下载站点恢复统一安装程序安装文件。
 6. 下载保管库注册密钥。 运行统一安装程序时需要使用该注册密钥。 生成的密钥有效期为 5 天。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/set-source2.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
+    :::image type="content" source="./media/azure-stack-site-recovery/set-source2.png" alt-text="“添加服务器”对话框的屏幕截图，其中“服务器类型”设置为“配置服务器”，并突出显示了“下载保管库注册密钥”按钮。":::
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>运行 Azure Site Recovery 统一安装程序
 
@@ -186,7 +186,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 > [!NOTE]
 > 还可通过命令行安装配置服务器。 [了解详细信息](physical-manage-configuration-server.md#install-from-the-command-line)。
 >
-> 帐户名可能需要 15 分钟或更长时间才能出现在门户中。 若要立即更新，请选择“配置服务器” > ***服务器名称*** > “刷新服务器”。  
+> 帐户名可能需要 15 分钟或更长时间才能出现在门户中。 若要立即更新，请选择“配置服务器” > “服务器名称”>“刷新服务器” 。
 
 ## <a name="step-4-set-up-the-target-environment"></a>步骤 4：设置目标环境
 
@@ -267,9 +267,9 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 1. 运行必备项检查，确保故障转移所需的所有条件都已就绪。
 2. 故障转移使用指定的恢复点处理数据：
-    - **最新处理** ：计算机故障转移到由 Site Recovery 处理的最新恢复点。 将显示时间戳。 使用此选项时，无需费时处理数据，因此 RTO（恢复时间目标）会较低。
-    - **最新应用一致** ：计算机故障转移到最新的应用一致恢复点。
-    - **自定义** ：选择用于故障转移的恢复点。
+    - **最新处理**：计算机故障转移到由 Site Recovery 处理的最新恢复点。 将显示时间戳。 使用此选项时，无需费时处理数据，因此 RTO（恢复时间目标）会较低。
+    - **最新应用一致**：计算机故障转移到最新的应用一致恢复点。
+    - **自定义**：选择用于故障转移的恢复点。
 
 3. 会使用已处理的数据创建 Azure VM。
 4. 测试故障转移可自动清理在演练期间创建的 Azure VM。
@@ -312,27 +312,9 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 ### <a name="fail-back-to-azure-stack"></a>故障回复到 Azure Stack
 
-主站点重新启动并运行后，可从 Azure 故障回复到 Azure Stack。 若要进行此操作，需下载 Azure VM VHD，并将其上传到 Azure Stack。
+主站点重新启动并运行后，可从 Azure 故障回复到 Azure Stack。 为此，请按照[此处](../azure-stack/operator/site-recovery-failback.md)列出的步骤操作。
 
-1. 关闭 Azure VM，以便可下载 VHD。
-2. 若要开始下载 VHD，请安装 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
-3. 导航到 Azure 门户中的 VM（使用 VM 名称）。
-4. 在“磁盘”中，单击磁盘名称，然后收集设置  。
-
-    - 例如，我们的测试中使用的 VHD URI：可将 `https://502055chinaeast.blob.core.chinacloudapi.cn/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` 分解，获得用于下载 VHD 的以下输入参数。
-        - 存储帐户：502055chinaeast
-        - 容器：wahv9b8d2ceb284fb59287
-        - VHD 名称：copied-3676553984.vhd
-
-5. 现在请使用 Azure 存储资源管理器下载 VHD。
-6. 按照[这些步骤](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm)将 VHD 上传到 Azure Stack。
-    
-    <!--CORRECT ON [these steps](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm)-->
-    
-7. 在现有 VM 或新 VM 中，附加上传的 VHD。
-8. 检查 OS 磁盘是否正确，并启动 VM。
-
-此时，故障回复完成。
+<!--MOONCAKE CORRECT ON follow the steps listed out [here](../azure-stack/operator/site-recovery-failback.md)-->
 
 ## <a name="conclusion"></a>结论
 

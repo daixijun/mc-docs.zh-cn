@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 07/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 353bf2a6ecb1fed6b56c51b5551deef39261dbc6
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 942eca4265307a368ec1e690d38b0eb1d55c75f3
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845854"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375687"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – 工作负荷管理门户监视
 
@@ -60,7 +60,8 @@ WITH ( WORKLOAD_GROUP = 'wgPriority'
 指标 1：有效的最小资源百分比（平均值聚合，`blue line`）<br>
 指标 2：按系统百分比列出的工作负荷组分配（平均值聚合，`purple line`）<br>
 筛选：[工作负荷组] = `wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) 该图表显示，工作负荷隔离配置为 25% 时，平均使用率仅为 10%。  在这种情况下，可将 `MIN_PERCENTAGE_RESOURCE` 参数值降至 10 到 15 之间，并允许系统上的其他工作负荷使用资源。
+![屏幕截图显示了具有这两个指标和筛选器的图表。](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+该图表显示，使用 25% 工作负载隔离时，平均只使用了 10%。  在这种情况下，可将 `MIN_PERCENTAGE_RESOURCE` 参数值降至 10 到 15 之间，并允许系统上的其他工作负荷使用资源。
 
 ### <a name="workload-group-bottleneck"></a>工作负荷组瓶颈
 
@@ -82,7 +83,8 @@ WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
 指标 2：按最大资源百分比列出的工作负荷组分配（平均值聚合，`purple line`）<br>
 指标 3：工作负荷组排队查询（总和聚合，`turquoise line`）<br>
 筛选：[工作负荷组] = `wgDataAnalyst`<br>
-![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) 该图表显示，资源上限为 9% 时，工作负荷组的利用率为 90% 以上（从“按最大资源百分比列出的工作负荷组分配”指标可以看出）。  如“工作负荷组排队查询”指标所示，查询正在稳定排队。  在这种情况下，将 `CAP_PERCENTAGE_RESOURCE` 值增加至 9% 以上将允许更多查询并行执行。  增加 `CAP_PERCENTAGE_RESOURCE` 的前提条件是有足够的可用资源，并且其他工作负荷组未隔离资源。  通过检查“有效的资源百分比上限”指标来确认上限是否增加。  如果需要更高的吞吐量，另请考虑将 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 值增加至 3 以上。  增加 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 可以提高查询的运行速度。
+![屏幕截图显示了具有这三个指标和筛选器的图表。](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+该图表显示，使用 9% 的资源上限时，工作负载组的利用率为 90% 以上（从“按最大资源百分比列出的工作负荷组分配”指标可以看出）。  如“工作负荷组排队查询”指标所示，查询正在稳定排队。  在这种情况下，将 `CAP_PERCENTAGE_RESOURCE` 值增加至 9% 以上将允许更多查询并行执行。  增加 `CAP_PERCENTAGE_RESOURCE` 的前提条件是有足够的可用资源，并且其他工作负荷组未隔离资源。  通过检查“有效的资源百分比上限”指标来确认上限是否增加。  如果需要更高的吞吐量，另请考虑将 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 值增加至 3 以上。  增加 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 可以提高查询的运行速度。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -52,7 +52,7 @@ Microsoft 标识平台实现 [OAuth 2.0](active-directory-v2-protocols.md) 授�
 
 ## <a name="permission-types"></a>权限类型
 
-Microsoft 标识平台支持两种类型的权限： **委托的权限** 和 **应用程序权限** 。
+Microsoft 标识平台支持两种类型的权限：**委托的权限** 和 **应用程序权限**。
 
 * **委托的权限** 由包含登录用户的应用使用。 对于这些应用，用户或管理员需许可应用请求的权限，并向应用授予委托的权限，以便在对目标资源发出调用时，该应用可充当登录的用户。 某些委托的权限可由非管理用户许可，但某些更高特权的权限需要[管理员许可](#admin-restricted-permissions)。 若要了解哪些管理员角色可以同意委托的权限，请参阅 [Azure AD 中的管理员角色权限](../roles/permissions-reference.md)。
 
@@ -132,7 +132,7 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 
 ## <a name="admin-restricted-permissions"></a>管理员限制的权限
 
-可将 Microsoft 生态系统中的某些高特权权限设置为 *受管理员限制* 。 此类权限的示例包括：
+可将 Microsoft 生态系统中的某些高特权权限设置为 *受管理员限制*。 此类权限的示例包括：
 
 * 使用 `User.Read.All` 读取所有用户的完整个人资料
 * 使用 `Directory.ReadWrite.All`
@@ -168,7 +168,7 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 
 1. 在 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验中转到你的应用程序，或[创建一个应用](quickstart-register-app.md)（如果尚未创建）。
 2. 找到“API 权限”部分，然后在“API 权限”中单击“添加权限”。
-3. 从可用 API 列表中选择 **Microsoft Graph** ，然后添加应用所需的权限。
+3. 从可用 API 列表中选择 **Microsoft Graph**，然后添加应用所需的权限。
 3. **保存** 应用注册。
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>建议：让用户登录到应用
@@ -179,7 +179,7 @@ https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2Fmail.send
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>向目录管理员请求权限
 
-准备好向组织管理员请求权限时，可将用户重定向到 Microsoft 标识平台 *管理员许可终结点* 。
+准备好向组织管理员请求权限时，可将用户重定向到 Microsoft 标识平台 *管理员许可终结点*。
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -196,7 +196,7 @@ https://microsoftgraph.chinacloudapi.cn/mail.send
 | 参数        | 条件        | 说明                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 必须 | 要向其请求权限的目录租户。 可以用 GUID 或友好名称格式提供，或以常规方式使用组织引用，如示例所示。 |
-| `client_id` | 必须 | [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验分配给应用的 **应用程序（客户端）ID** 。 |
+| `client_id` | 必须 | [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验分配给应用的 **应用程序（客户端）ID**。 |
 | `redirect_uri` | 必须 |要向其发送响应，供应用处理的重定向 URI。 必须与在应用注册门户中注册的重定向 URI 之一完全匹配。 |
 | `state` | 建议 | 同样随令牌响应返回的请求中所包含的值。 可以是所需的任何内容的字符串。 使用该状态可在身份验证请求出现之前，在应用中编码用户的状态信息，例如用户过去所在的页面或视图。 |
 |`scope`        | 必须        | 定义应用程序请求的权限集。 这可以是静态范围（使用 [`/.default`](#the-default-scope)）或动态范围。  这可以包括 OIDC 范围（`openid`、`profile`、`email`）。 如果需要应用程序权限，必须使用 `/.default` 来请求静态配置的权限列表。  |

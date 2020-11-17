@@ -1,21 +1,21 @@
 ---
-title: 快速入门：将 Azure Redis 缓存与 Java 配合使用
+title: 快速入门：在 Java 中使用 Azure Cache for Redis
 description: 本快速入门将创建一个使用 Azure Redis 缓存的新 Java 应用
 author: yegu-ms
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 11/03/2020
 ms.author: v-junlch
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 958120ce2d547f80607f659d2c45ac2a863c5ddc
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 230ea534f176d7fe5580007667ea9a72c748d4f1
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946984"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326583"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>快速入门：将 Azure Redis 缓存与 Java 配合使用
+# <a name="quickstart-use-azure-cache-for-redis-in-java"></a>快速入门：在 Java 中使用 Azure Cache for Redis
 
 在本快速入门中，会使用 [Jedis](https://github.com/xetorthio/jedis) Redis 客户端将 Azure Redis 缓存合并到 Java 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。
 
@@ -46,8 +46,8 @@ export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 
 将占位符替换为以下值：
 
-- `<YOUR_HOST_NAME>`：在 Azure 门户中从 Azure Cache for Redis 资源的“属性”部分中获取的 DNS 主机名。
-- `<YOUR_PRIMARY_ACCESS_KEY>`：在 Azure 门户中从 Azure Cache for Redis 资源的“访问密钥”部分中获取的主访问密钥。
+- `<YOUR_HOST_NAME>`：在 Azure 门户中从 Azure Cache for Redis 资源的“属性”部分获取的 DNS 主机名。
+- `<YOUR_PRIMARY_ACCESS_KEY>`：在 Azure 门户中从 Azure Cache for Redis 资源的“访问密钥”部分获取的主访问密钥。
 
 ## <a name="create-a-new-java-app"></a>新建 Java 应用
 

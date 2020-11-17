@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: 8f1b9dae699a9610730a46359cf0bf36e98301db
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 002607ca85d4bdf2d808ad15af0d35a12d831fc2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472251"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327560"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
@@ -42,7 +42,7 @@ ms.locfileid: "92472251"
 
     按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
 
-1. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用[以下命令列出可供使用的 Azure 帐户][lnk-az-account-command]：
+1. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [lnk-az-account-command] 命令 [列出可供使用的 Azure 帐户]：
 
     ```azurecli
     az account list
@@ -86,15 +86,15 @@ az storage account show-connection-string --name {your storage account name} --r
 
 配置需要以下值：
 
-**存储容器** ：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+**存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
-接收已上传文件的通知：启用或禁用文件上传通知。 
+接收已上传文件的通知：启用或禁用文件上传通知。
 
-**SAS TTL** ：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
+**SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
 
-**文件通知设置默认 TTL** ：文件上传通知到期前的生存时间。 默认设置为一天。
+**文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
 
-**文件通知最大传送数** ：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
+**文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
 
 使用以下 Azure CLI 命令在 IoT 中心内配置文件上传设置：
 
@@ -133,41 +133,10 @@ az iot hub show --name {your iot hub name}
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
-* [从根本上保护 IoT 解决方案][lnk-securing]
-
-[13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
-[14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
-[15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
-
-[lnk-upload]: ./iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: ./iot-hub-metrics.md
-[lnk-monitor]: ./iot-hub-operations-monitoring.md
-
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-[lnk-securing]: ./iot-hub-security-ground-up.md
-
-
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-CLI-install]: https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest
-[lnk-login-command]: https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest
-[lnk-az-account-command]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest
-[lnk-az-register-command]: https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest
-[lnk-az-addcomponent-command]: https://docs.azure.cn/zh-cn/cli/component?view=azure-cli-latest
-[lnk-az-resource-command]: https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest
-[lnk-az-iot-command]: https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest
-[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
-[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.azure.cn/zh-cn/cli/iot/hub?view=azure-cli-latest#az_iot_hub_create
-
-<!--Update_Description: update meta data only-->
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
+* [从根本上保护 IoT 解决方案](./iot-hub-security-ground-up.md)

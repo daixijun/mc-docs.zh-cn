@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure 资源管理器模板部署 Azure Cache for Redis
-description: 了解如何使用 Azure 资源管理器模板部署 Azure Cache for Redis 资源。 为常见方案提供模板。
+description: 了解如何使用 Azure 资源管理器模板（ARM 模板）部署 Azure Cache for Redis 资源。 为常见方案提供模板。
 author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
-ms.date: 09/14/2020
-ms.openlocfilehash: a43208844f38c8ccf9228d400d881823b54d980a
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.date: 11/03/2020
+ms.openlocfilehash: 2a9392887480aeb66808e69e69dd3631598c0762
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828786"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326518"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>使用资源管理器模板创建 Azure Cache for Redis
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Redis 缓存
 
-了解如何创建 Azure 资源管理器模板，以便部署 Azure Cache for Redis。 该缓存可以用于现有存储帐户以保存诊断数据。 还将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。 目前，对订阅的同一区域中的所有缓存共享诊断设置。 更新区域中的一个缓存会影响该区域中的所有其他缓存。
+了解如何创建 Azure 资源管理器模板（ARM 模板），以便部署 Azure Cache for Redis。 该缓存可以用于现有存储帐户以保存诊断数据。 还将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。 目前，对订阅的同一区域中的所有缓存共享诊断设置。 更新区域中的一个缓存会影响该区域中的所有其他缓存。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,8 +26,8 @@ ms.locfileid: "90828786"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* **存储帐户**：若要创建帐户，请参阅[创建 Azure 存储帐户](/storage/common/storage-account-create?tabs=azure-portal)。 存储帐户用于诊断数据。
+* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* **存储帐户**：若要创建帐户，请参阅 [创建 Azure 存储帐户](../storage/common/storage-account-create.md?tabs=azure-portal)。 存储帐户用于诊断数据。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -107,14 +107,14 @@ ms.locfileid: "90828786"
     "existingDiagnosticsStorageAccountId": {
       "type": "string",
       "metadata": {
-        "description": "Sepcify an existing storage account for diagnostics."
+        "description": "Specify an existing storage account for diagnostics."
       }
     }
   },
   "resources": [
     {
       "type": "Microsoft.Cache/Redis",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('redisCacheName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -166,7 +166,7 @@ ms.locfileid: "90828786"
 * [通过数据暂留创建高级 Azure Redis 缓存](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)（创建部署到虚拟网络中的高级 Redis 缓存）
 
-若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/)并搜索 `Azure Cache for Redis`。
+若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/)并搜索 Azure Cache for Redis。
 
 ## <a name="deploy-the-template"></a>部署模板
 
@@ -179,7 +179,7 @@ ms.locfileid: "90828786"
     * 资源组：选择“新建”以创建新的资源组，或选择现有资源组。
     * **位置**：选择资源组的位置。 存储帐户和 Redis 缓存必须位于同一区域。 默认情况下，Redis 缓存使用的位置与资源组位置相同。 因此指定存储帐户所在的同一位置。
     * **Redis 缓存名称**：输入 Redis 缓存的名称。
-    * **现有的诊断存储帐户**：输入存储帐户的资源 ID。 语法是 /subscriptions/&lt;订阅 ID>//resourceGroups/&lt;资源组名称>/providers/Microsoft.Storage/storageAccounts/&lt;存储帐户名称>。
+    * **现有的诊断存储帐户**：输入存储帐户的资源 ID。 语法为 `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`。
 
     其余设置均采用默认值。
 1. 选择“我同意上述条款和条件”，然后选择“购买” 。

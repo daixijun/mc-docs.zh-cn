@@ -3,16 +3,15 @@ title: Azure Stack HCI 安全注意事项
 description: 本主题提供有关 Azure Stack HCI 操作系统安全注意事项的指导。
 author: WenJason
 ms.author: v-jay
-ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 09/10/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: e5ef804f79d8e471e49e5fcef83753c8e34b38ea
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.date: 11/09/2020
+ms.openlocfilehash: 5f2d49b5f017fbfb98f32749126967bbbc58d4a3
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437758"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330663"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI 安全注意事项
 
@@ -33,17 +32,19 @@ ms.locfileid: "91437758"
 
 ### <a name="harden-the-environment"></a>强化环境
 本部分讨论如何保护在操作系统上运行的服务和虚拟机 (VM)：
-- **Azure Stack HCI 认证的硬件**提供一致的安全启动、UEFI 和现成的 TPM 设置。 将基于虚拟化的安全性和经过认证的硬件结合起来，可帮助保护对安全性敏感的工作负载。 还可以将此受信任的基础结构连接到 Azure 安全中心，激活行为分析和报告，以应对快速变化的工作负载和威胁。
+- **Azure Stack HCI 认证的硬件** 提供一致的安全启动、UEFI 和现成的 TPM 设置。 将基于虚拟化的安全性和经过认证的硬件结合起来，可帮助保护对安全性敏感的工作负载。 还可以将此受信任的基础结构连接到 Azure 安全中心，激活行为分析和报告，以应对快速变化的工作负载和威胁。
 
     - 安全启动是电脑行业开发的安全标准，旨在确保设备仅使用原始设备制造商 (OEM) 信任的软件进行启动。 有关详细信息，请参阅[安全启动](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)。
     - “统一可扩展固件接口 (UEFI)”可控制服务器的启动过程，然后将控制权传递给 Windows 或其他操作系统。 有关详细信息，请参阅 [UEFI 固件要求](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-uefi)。
     - 受信任的平台模块 (TPM) 技术提供基于硬件的安全性相关功能。 TPM 芯片是一种安全的加密处理器，用于生成、存储加密密钥和限制密钥的使用。 有关详细信息，请参阅[受信任的平台模块技术概述](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview)。
 
+    若要详细了解 Azure Stack HCI 认证的硬件提供商，请参阅 [Azure Stack HCI 解决方案](https://azure.microsoft.com/products/azure-stack/hci/)网站。
+
 - **Device Guard** 和 **Credential Guard**。 Device Guard 可以防止不具有已知签名的恶意软件、未签名的代码以及可以访问内核的恶意软件捕获敏感信息或损坏系统。 Windows Defender 凭据保护使用基于虚拟化的安全性来隔离密钥，以便只有特权系统软件可以访问它们。
 
-    有关详细信息，请参阅[管理 Windows Defender Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard-manage) 并下载 [Device Guard 和 Credential Guard 硬件就绪工具](https://www.microsoft.com/en-us/download/details.aspx?id=53337)。
+    有关详细信息，请参阅[管理 Windows Defender Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard-manage) 并下载 [Device Guard 和 Credential Guard 硬件就绪工具](https://www.microsoft.com/download/details.aspx?id=53337)。
 
-- **Windows** 和**固件**更新在群集、服务器（包括来宾 VM）和电脑上非常重要，可帮助确保操作系统和系统硬件免受攻击者的影响。 可以使用 Windows Admin Center 的“更新”工具将更新应用到各个系统。 如果你的硬件提供商提供用于获取驱动程序、固件和解决方案更新的 Windows Admin Center 支持，你可以在 Windows 更新的同时获取这些更新，否则需要直接从供应商处获取这些更新。
+- **Windows** 和 **固件** 更新在群集、服务器（包括来宾 VM）和电脑上非常重要，可帮助确保操作系统和系统硬件免受攻击者的影响。 可以使用 Windows Admin Center 的“更新”工具将更新应用到各个系统。 如果你的硬件提供商提供用于获取驱动程序、固件和解决方案更新的 Windows Admin Center 支持，你可以在 Windows 更新的同时获取这些更新，否则需要直接从供应商处获取这些更新。
 
     有关详细信息，请参阅[更新群集](../manage/update-cluster.md)。
 
@@ -60,18 +61,18 @@ ms.locfileid: "91437758"
 
     若要启用 SMB 加密，请参阅 [SMB 安全性增强 ](https://docs.microsoft.com/windows-server/storage/file-server/smb-security)。
 
-- Windows Admin Center 中的 **Windows Defender 防病毒**功能可保护客户端和服务器上的操作系统免受病毒、恶意软件、间谍软件和其他威胁的侵害。 有关详细信息，请参阅 [Windows Server 2016 和 2019 上的 Microsoft Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-on-windows-server-2016)。
+- Windows Admin Center 中的 **Windows Defender 防病毒** 功能可保护客户端和服务器上的操作系统免受病毒、恶意软件、间谍软件和其他威胁的侵害。 有关详细信息，请参阅 [Windows Server 2016 和 2019 上的 Microsoft Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-on-windows-server-2016)。
 
 ### <a name="protect-identities"></a>保护标识
 本部分讨论如何使用 Windows Admin Center 来保护特权标识：
 
-- **访问控制**可以提高环境管理的安全性。 如果使用的是 Windows Admin Center 服务器（相对于 Windows 10 电脑上运行的服务器），则可以控制对 Windows Admin Center 本身的两个级别的访问：网关用户和网关管理员。 网关管理员标识提供程序选项包括：
+- **访问控制** 可以提高环境管理的安全性。 如果使用的是 Windows Admin Center 服务器（相对于 Windows 10 电脑上运行的服务器），则可以控制对 Windows Admin Center 本身的两个级别的访问：网关用户和网关管理员。 网关管理员标识提供程序选项包括：
     - 用于强制执行智能卡身份验证的 Active Directory 或本地计算机组。
     - 用于强制执行条件访问和多重身份验证的 Azure Active Directory。
  
     有关详细信息，请参阅[用户的 Windows 管理中心访问选项](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/user-access-options)和[配置用户访问控制和权限](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/user-access-control)。
 
-- 流往 Windows Admin Center 的**浏览器流量**使用 HTTPS。 从 Windows Admin Center 流往托管服务器的流量通过“Windows 远程管理 (WinRM)”使用标准 PowerShell 和 Windows Management Instrumentation (WMI)。 Windows Admin Center 支持本地管理员密码解决方案 (LAPS)、基于资源的约束委派、使用 Active Directory (AD) 或 Microsoft Azure Active Directory (Azure AD) 的网关访问控制，以及用于管理目标服务器的基于角色的访问控制 (RBAC)。
+- 流往 Windows Admin Center 的 **浏览器流量** 使用 HTTPS。 从 Windows Admin Center 流往托管服务器的流量通过“Windows 远程管理 (WinRM)”使用标准 PowerShell 和 Windows Management Instrumentation (WMI)。 Windows Admin Center 支持本地管理员密码解决方案 (LAPS)、基于资源的约束委派、使用 Active Directory (AD) 或 Microsoft Azure Active Directory (Azure AD) 的网关访问控制，以及用于管理目标服务器的基于角色的访问控制 (RBAC)。
 
     Windows Admin Center 支持 Microsoft Edge （Windows 10，版本 1709 或更高版本）、Google Chrome 和 Windows 10 上的 Microsoft Edge。 可以在 Windows 10 电脑或 Windows 服务器上安装 Windows Admin Center。
 
@@ -86,16 +87,16 @@ ms.locfileid: "91437758"
 
     有关详细地信息，请参阅 [Windows Admin Center 是否使用 CredSSP？](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/faq#does-windows-admin-center-use-credssp)
 
-- Windows Admin Center 中的**基于角色的访问控制 (RBAC)** 允许用户以有限的权限访问需要管理的服务器，而不是使其完全成为本地管理员。 若要在 Windows Admin Center 中使用 RBAC，请为每个托管服务器配置一个 PowerShell Just Enough Administration 终结点。
+- Windows Admin Center 中的 **基于角色的访问控制 (RBAC)** 允许用户以有限的权限访问需要管理的服务器，而不是使其完全成为本地管理员。 若要在 Windows Admin Center 中使用 RBAC，请为每个托管服务器配置一个 PowerShell Just Enough Administration 终结点。
 
-    有关详细信息，请参阅[基于角色的访问控制](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)和 [Just Enough Administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview?view=powershell-7)。
+    有关详细信息，请参阅[基于角色的访问控制](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)和 [Just Enough Administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)。
 
-- Windows Admin Center 中可用于管理和保护标识的**安全工具**包括 Active Directory、证书、防火墙、本地用户和组等。
+- Windows Admin Center 中可用于管理和保护标识的 **安全工具** 包括 Active Directory、证书、防火墙、本地用户和组等。
 
     有关详细信息，请参阅[使用 Windows Admin Center 管理服务器](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/manage-servers)。
 
 ## <a name="part-2-use-azure-security-center"></a>第 2 部分：使用 Azure 安全中心
-*Azure 安全中心*是一个统一的基础结构安全管理系统，可增强数据中心的安全态势，并跨云和本地中的混合工作负载提供高级威胁防护。 安全中心为你提供了一些工具，可用于评估你的网络的安全状态、保护工作负载、发出安全警报，并遵循特定建议来缓解攻击影响并解决未来的威胁。 通过利用 Azure 服务实现自动配置和提供保护，安全中心可以在云中高速执行所有这些服务，且没有部署开销。
+*Azure 安全中心* 是一个统一的基础结构安全管理系统，可增强数据中心的安全态势，并跨云和本地中的混合工作负载提供高级威胁防护。 安全中心为你提供了一些工具，可用于评估你的网络的安全状态、保护工作负载、发出安全警报，并遵循特定建议来缓解攻击影响并解决未来的威胁。 通过利用 Azure 服务实现自动配置和提供保护，安全中心可以在云中高速执行所有这些服务，且没有部署开销。
 
 安全中心通过在这些资源上安装 Log Analytics 代理来保护 Windows 服务器和 Linux 服务器的 VM。 Azure 将代理收集的事件与用于确保工作负载安全而执行的建议（强化任务）进行关联。 基于安全最佳做法的强化任务包括管理和强制实施安全策略。 然后，你可以通过安全中心的监视功能来跟踪结果，并随时间推移管理合规性和实施治理，同时减少所有资源的受攻击面。
 
@@ -118,17 +119,17 @@ ms.locfileid: "91437758"
     有关详细信息，请参阅 [Microsoft 安全基线](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)。
 
 ### <a name="protect-data"></a>保护数据
-- **强化 Hyper-V 环境**要求对 VM 上运行的 Windows Server 进行强化，这和强化物理服务器上运行的操作系统的方式一样。 由于虚拟环境通常具有共享同一物理主机的多个 VM，因此必须同时保护物理主机和在其上运行的 VM。 导致主机受影响的攻击者可以影响多个 VM，对工作负载和服务的影响更大。 本节讨论可用于在 Hyper-V 环境中强化 Windows Server 的以下方法：
+- **强化 Hyper-V 环境** 要求对 VM 上运行的 Windows Server 进行强化，这和强化物理服务器上运行的操作系统的方式一样。 由于虚拟环境通常具有共享同一物理主机的多个 VM，因此必须同时保护物理主机和在其上运行的 VM。 导致主机受影响的攻击者可以影响多个 VM，对工作负载和服务的影响更大。 本节讨论可用于在 Hyper-V 环境中强化 Windows Server 的以下方法：
 
-    - **受保护的结构和受防护的 VM** 通过阻止攻击者修改 VM 文件来增强 Hyper-V 环境中运行的 VM 的安全性。 *受保护的结构*由一个主机保护服务 (HGS)（通常是三个节点的群集）、一个或多个受保护的主机以及一组受防护的 VM 组成。 “证明服务”评估主机请求的有效性，而“密钥保护服务”确定是否释放可供受保护主机用于启动受防护的 VM 的密钥。
+    - **受保护的结构和受防护的 VM** 通过阻止攻击者修改 VM 文件来增强 Hyper-V 环境中运行的 VM 的安全性。 *受保护的结构* 由一个主机保护服务 (HGS)（通常是三个节点的群集）、一个或多个受保护的主机以及一组受防护的 VM 组成。 “证明服务”评估主机请求的有效性，而“密钥保护服务”确定是否释放可供受保护主机用于启动受防护的 VM 的密钥。
 
         有关详细信息，请参阅[受保护的结构和受防护的 VM 概述](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)。
      
-     - Windows Server 中的**虚拟受信任的平台模块 (vTPM)** 支持 VM 的 TPM，它使你可以使用高级安全技术，例如 VM 中的 BitLocker。 你可以使用 Hyper-V 管理器或 `Enable-VMTPM` Windows PowerShell cmdlet 在任何第 2 代 Hyper-V VM 上启用 TPM 支持。
+     - Windows Server 中的 **虚拟受信任的平台模块 (vTPM)** 支持 VM 的 TPM，它使你可以使用高级安全技术，例如 VM 中的 BitLocker。 你可以使用 Hyper-V 管理器或 `Enable-VMTPM` Windows PowerShell cmdlet 在任何第 2 代 Hyper-V VM 上启用 TPM 支持。
      
-        有关详细信息，请参阅 [Enable-VMTPM](https://docs.microsoft.com/powershell/module/hyper-v/enable-vmtpm?view=win10-ps)。
+        有关详细信息，请参阅 [Enable-VMTPM](https://docs.microsoft.com/powershell/module/hyper-v/enable-vmtpm)。
      
-     - Azure Stack HCI 和 Windows Server 中的**软件定义网络 (SDN)** 集中配置和管理物理和虚拟网络设备，例如数据中心中的路由器、交换机和网关。 虚拟网络元素（例如 Hyper-V 虚拟交换机、Hyper-V 网络虚拟化和 RAS 网关）的作用是充当 SDN 基础结构的构成部分。
+     - Azure Stack HCI 和 Windows Server 中的 **软件定义网络 (SDN)** 集中配置和管理物理和虚拟网络设备，例如数据中心中的路由器、交换机和网关。 虚拟网络元素（例如 Hyper-V 虚拟交换机、Hyper-V 网络虚拟化和 RAS 网关）的作用是充当 SDN 基础结构的构成部分。
 
         有关详细信息，请参阅[软件定义的网络 (SDN)](https://docs.microsoft.com/windows-server/networking/sdn/)。
 

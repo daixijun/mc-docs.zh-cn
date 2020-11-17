@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB Gremlin API 的图形数据建模
 description: 了解如何使用 Azure Cosmos DB Gremlin API 为图形数据库建模。 本文介绍何时使用图形数据库和最佳做法为实体和关系建模。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 12/02/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f08e975901243910e1d171e573714698d9114fef
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 5f3d2b0bb3be12d6bed276feedc7107d606ce035
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222863"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327635"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 以下文档旨在提供图形数据建模建议。 此步骤对于确保数据变化时图形数据库系统的可伸缩性和性能至关重要。 高效的数据模型对于大型图形尤其重要。
 
@@ -40,7 +41,7 @@ ms.locfileid: "88222863"
 
 如果满足上述条件，则图形数据库方法可能会为查询复杂性、数据模型可伸缩性和查询性能提供优势    。
 
-下一步是确定图形是否将用于分析或事务目的。 如果图形将用于繁重的计算和数据处理工作负载，则值得探索 [Cosmos DB Spark 连接器](/cosmos-db/spark-connector)以及 [GraphX 库](https://spark.apache.org/graphx/)的使用。 
+下一步是确定图形是否将用于分析或事务目的。 如果图形将用于繁重的计算和数据处理工作负载，则值得探索 [Cosmos DB Spark 连接器](./spark-connector.md)以及 [GraphX 库](https://spark.apache.org/graphx/)的使用。 
 
 ## <a name="how-to-use-graph-objects"></a>如何使用图形对象
 
@@ -80,7 +81,7 @@ ms.locfileid: "88222863"
 
 * **属性嵌入式顶点**：这种方法利用键值对列表来表示顶点内实体的所有属性。 这种方法降低了模型复杂性，使查询更简单、遍历成本更低。
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="具有属性顶点的实体模型。" border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="关系图显示上图中的 Luis 顶点，其中包含 ID、标签和属性。" border="false":::
 
 > [!NOTE]
 > 上面的示例显示了一个简化的图形模型，仅对划分实体属性的两种方法进行了比较。

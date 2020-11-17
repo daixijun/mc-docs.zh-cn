@@ -3,23 +3,23 @@ title: Azure 流量分析常见问题解答 | Azure
 description: 获取有关流量分析的常见问题的解答。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/08/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 000498aeb507cdebeb06c285cfb0a75b45ea845c
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: e8fb6b32c222068d5ff3fe58b214c64bd8e479b6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548058"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328162"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常见问题解答
 
@@ -60,7 +60,7 @@ ms.locfileid: "87548058"
 
 3. 若要列出分配给特定用户的所有角色，请使用 **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**。 
 
-如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 管理基于角色的访问控制](/role-based-access-control/role-assignments-powershell)。
+如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 添加或删除 Azure 角色分配](https://docs.azure.cn/role-based-access-control/role-assignments-powershell)。
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>流量分析在哪些 Azure 区域中可用？
 
@@ -217,7 +217,7 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscript
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>流量分析如何确定 IP 是恶意 IP？ 
 
-流量分析依靠 Azure 内部威胁情报系统来确定某个 IP 是否为恶意 IP。 这些系统利用各种遥测源，例如 Azure 产品和服务、Azure 的反数字犯罪部门 (DCU)、Azure 安全响应中心 (MSRC) 和外部馈送，并在此基础上构建大量情报。 其中一些数据是 Azure 内部数据。 如果已知 IP 被标记为恶意 IP，请提出支持票证以了解详细信息。
+流量分析依靠 Azure 内部威胁情报系统来确定某个 IP 是否为恶意 IP。 这些系统利用各种遥测源，例如 Azure 产品和服务、Azure 的反数字犯罪部门 (DCU)、Microsoft 安全响应中心 (MSRC) 和外部馈送，并在此基础上构建大量情报。 其中一些数据是 Azure 内部数据。 如果已知 IP 被标记为恶意 IP，请提出支持票证以了解详细信息。
 
 ## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>如何针对流量分析数据设置警报？
 
@@ -225,7 +225,7 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscript
 - 可以在流量分析中使 Log Analytics 的短链接。 
 - 使用[此处记录的架构](traffic-analytics-schema.md)编写查询 
 - 单击“新建警报规则”以创建警报
-- 请参阅[日志警报文档](/azure-monitor/platform/alerts-log)以创建警报
+- 请参阅[日志警报文档](https://docs.azure.cn/azure-monitor/platform/alerts-log)以创建警报
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>如何检查哪些 VM 接收的本地流量最多？
 

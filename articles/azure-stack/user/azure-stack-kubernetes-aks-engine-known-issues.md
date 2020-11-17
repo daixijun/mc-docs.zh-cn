@@ -4,20 +4,27 @@ description: 了解在 Azure Stack Hub 上使用 AKS 引擎的已知问题。
 author: WenJason
 ms.topic: article
 origin.date: 09/11/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 09/11/2020
-ms.openlocfilehash: 51177c1b8893dd5d641ab55b58c0b08436772054
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 806705e73dbf953d56ee5b38ddef4a578ae6a532
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437522"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330609"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 
 本主题介绍 Azure Stack Hub 上的 AKS 引擎的已知问题。
+
+## <a name="unable-to-resize-cluster-vms-with-the-compute-service"></a>无法使用计算服务调整群集 VM 的大小
+
+- 适用于：Azure Stack Hub，AKS 引擎（全部）
+- **说明**：通过计算服务调整群集 VM 大小不能与 AKS 引擎一起使用。 AKS 引擎维护 API 模型 json 文件中群集的状态。 若要确保所需的 VM 大小反映在使用 AKS 引擎完成的任何创建、更新或缩放操作中，必须在执行任何这些操作之前更新 API 模型。 例如，如果使用计算服务将已部署群集上的 VM 大小更改为不同的大小，则执行 `aks-engine update` 时状态将丢失。
+- **补救措施**：若要执行此操作，请找到群集的 API 模型，更改大小，然后运行 `aks-engine update`。
+- **发生率**：尝试使用计算服务调整大小时。
 
 ## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>在 AKS 引擎 0.55.0 中进行磁盘分离操作时失败
 
@@ -25,6 +32,8 @@ ms.locfileid: "91437522"
 - 说明：在尝试删除包含持久性卷的部署时，删除操作会触发一系列附加/分离错误。 这是由于 AKS 引擎 v0.55.0 云提供程序中的 bug 所致。 云提供程序使用了版本高于 Azure 资源管理器目前在 Azure Stack Hub（更新 2005）中支持的 API 版本的 API 来调用 Azure 资源管理器。
 - **补救措施**：可以在 [AKS 引擎 GitHub 存储库（问题 3817）](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443)中找到详细信息和缓解步骤。 在 AKS 引擎的新版本和相应映像可用时立即升级。
 - **发生率**：删除包含持久性卷的部署时。
+
+
 
 ## <a name="upgrade-issues-in-aks-engine-0510"></a>AKS 引擎 0.51.0 中的升级问题
 

@@ -5,18 +5,18 @@ author: Johnnytechn
 ms.topic: conceptual
 ms.subservice: alerts
 origin.date: 03/14/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 897e6497bec8f849219bde1ec6256d5216b18889
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 7176e7d2f94653f8a571c994d853ea3b4876af22
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457376"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328795"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 
-本文介绍了 Azure Monitor 的[常见警报架构定义](https://aka.ms/commonAlertSchemaDocs)，包括 Webhook、Azure 逻辑应用、Azure Functions 和 Azure 自动化 Runbook 的警报架构定义。 
+本文介绍了 Azure Monitor 的[常见警报架构定义](./alerts-common-schema.md)，包括 Webhook、Azure 逻辑应用、Azure Functions 和 Azure 自动化 Runbook 的警报架构定义。 
 
 任何警报实例都描述了受影响的资源和警报原因。 在下面各部分介绍的常见架构中对这些实例进行了描述：
 * 基本要素：所有警报类型中都有的一组标准化字段，描述了警报所针对的资源，以及其他常见警报元数据（例如，严重性或说明）。 
@@ -151,7 +151,7 @@ ms.locfileid: "89457376"
 ### <a name="log-alerts"></a>日志警报
 
 > [!NOTE]
-> 对于定义了自定义电子邮件主题和/或 JSON 有效负载的日志警报，启用常见架构会将电子邮件主题和/或有效负载架构恢复为如下所述的架构。 对于启用了常见架构的警报，大小上限为 256KB/警报。 如果搜索结果导致警报大小超出此阈值，就不会被嵌入日志警报有效负载。 可以通过检查标志 `IncludeSearchResults` 来确定这一点。 如果不包含搜索结果，应结合使用搜索查询与 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get)。 
+> 对于定义了自定义电子邮件主题和/或 JSON 有效负载的日志警报，启用常见架构会将电子邮件主题和/或有效负载架构恢复为如下所述的架构。 对于启用了常见架构的警报，大小上限为 256KB/警报。 如果搜索结果导致警报大小超出此阈值，就不会被嵌入日志警报有效负载。 可以通过检查标志 `IncludeSearchResults` 来确定这一点。 在不包括搜索结果时，应使用 `LinkToFilteredSearchResultsAPI` 或 `LinkToSearchResultsAPI` 通过 [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get) 访问查询结果。
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -301,6 +301,48 @@ ms.locfileid: "89457376"
 }
 ```
 
+#### <a name="monitoringservice--log-alerts-v2"></a>`monitoringService` = `Log Alerts V2`
+
+**示例值**
+```json
+{
+  "alertContext": {
+    "properties": null,
+    "conditionType": "LogQueryCriteria",
+    "condition": {
+      "windowSize": "PT10M",
+      "allOf": [
+        {
+          "searchQuery": "Heartbeat",
+          "metricMeasure": null,
+          "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+          "operator": "LowerThan",
+          "threshold": "1",
+          "timeAggregation": "Count",
+          "dimensions": [
+            {
+              "name": "Computer",
+              "value": "TestComputer"
+            }
+          ],
+          "metricValue": 0.0,
+          "failingPeriods": {
+            "numberOfEvaluationPeriods": 1,
+            "minFailingPeriodsToAlert": 1
+          },
+          "linkToSearchResultsUI": "https://portal.azure.cn#@12345a-1234b-123c-123d-12345678e/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%212345a-1234b-123c-123d-12345678e%2FresourceGroups%2FContoso%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2FContoso%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToFilteredSearchResultsUI": "https://portal.azure.cn#@12345a-1234b-123c-123d-12345678e/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%212345a-1234b-123c-123d-12345678e%2FresourceGroups%2FContoso%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2FContoso%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/Contoso/providers/Microsoft.Compute/virtualMachines/Contoso/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+          "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/Contoso/providers/Microsoft.Compute/virtualMachines/Contoso/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+        }
+      ],
+      "windowStartTime": "2020-07-07T13:54:34Z",
+      "windowEndTime": "2020-07-09T13:54:34Z"
+    }
+  }
+}
+```
+
 ### <a name="activity-log-alerts"></a>活动日志警报
 
 #### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
@@ -314,7 +356,7 @@ ms.locfileid: "89457376"
         "scope": "/subscriptions/<subscription ID>/resourceGroups/PipeLineAlertRG/providers/Microsoft.Compute/virtualMachines/WCUS-R2-ActLog"
       },
       "channels": "Operation",
-      "claims": "{\"aud\":\"https://management.core.chinacloudapi.cn/\",\"iss\":\"https://sts.chinacloudapi.cn/72f988bf-86f1-41af-91ab-2d7cd011db47/\",\"iat\":\"1553260826\",\"nbf\":\"1553260826\",\"exp\":\"1553264726\",\"aio\":\"42JgYNjdt+rr+3j/dx68v018XhuFAwA=\",\"appid\":\"e9a02282-074f-45cf-93b0-50568e0e7e50\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.chinacloudapi.cn/72f988bf-86f1-41af-91ab-2d7cd011db47/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"72f988bf-86f1-41af-91ab-2d7cd011db47\",\"uti\":\"v5wYC9t9ekuA2rkZSVZbAA\",\"ver\":\"1.0\"}",
+      "claims": "{\"aud\":\"https://management.core.chinacloudapi.cn/\",\"iss\":\"https://sts.chinacloudapi.cn/12345a-1234b-123c-123d-12345678e/\",\"iat\":\"1553260826\",\"nbf\":\"1553260826\",\"exp\":\"1553264726\",\"aio\":\"42JgYNjdt+rr+3j/dx68v018XhuFAwA=\",\"appid\":\"e9a02282-074f-45cf-93b0-50568e0e7e50\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.chinacloudapi.cn/12345a-1234b-123c-123d-12345678e/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"9778283b-b94c-4ac6-8a41-d5b493d03aa3\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"12345a-1234b-123c-123d-12345678e\",\"uti\":\"v5wYC9t9ekuA2rkZSVZbAA\",\"ver\":\"1.0\"}",
       "caller": "9778283b-b94c-4ac6-8a41-d5b493d03aa3",
       "correlationId": "8ee9c32a-92a1-4a8f-989c-b0ba09292a91",
       "eventSource": "Administrative",
@@ -445,17 +487,17 @@ ms.locfileid: "89457376"
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
-      "title": "Azure SQL DW Scheduled Maintenance Pending",
-      "service": "SQL Data Warehouse",
+      "title": "Azure Synapse Analytics Scheduled Maintenance Pending",
+      "service": "Azure Synapse Analytics",
       "region": "China North",
       "communication": "<MESSAGE>",
       "incidentType": "Maintenance",
       "trackingId": "<GUID>",
       "impactStartTime": "2019-06-26T04:00:00Z",
       "impactMitigationTime": "2019-06-26T12:00:00Z",
-      "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"China North\"}],\"ServiceName\":\"SQL Data Warehouse\"}]",
-      "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>SQL Data Warehouse</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>China North<br></td>\r\n</tr>\r\n",
-      "defaultLanguageTitle": "Azure SQL DW Scheduled Maintenance Pending",
+      "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"China North\"}],\"ServiceName\":\"Azure Synapse Analytics\"}]",
+      "impactedServicesTableRows": "<tr>\r\n<td align='center' style='padding: 5px 10px; border-right:1px solid black; border-bottom:1px solid black'>Azure Synapse Analytics</td>\r\n<td align='center' style='padding: 5px 10px; border-bottom:1px solid black'>China North<br></td>\r\n</tr>\r\n",
+      "defaultLanguageTitle": "Azure Synapse Analytics Scheduled Maintenance Pending",
       "defaultLanguageContent": "<MESSAGE>",
       "stage": "Planned",
       "communicationId": "<GUID>",
@@ -501,5 +543,5 @@ ms.locfileid: "89457376"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[常见警报架构](https://aka.ms/commonAlertSchemaDocs)。
+- 详细了解[常见警报架构](./alerts-common-schema.md)。
 

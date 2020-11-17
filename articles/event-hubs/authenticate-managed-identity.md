@@ -3,15 +3,15 @@ title: 使用 Azure Active Directory 对托管标识进行身份验证
 description: 本文提供有关对使用 Azure Active Directory 访问 Azure 事件中心资源的托管标识进行身份验证的信息
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 09/14/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b19f8ece6a50f25f924dba0703e861032f4df6a
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 5e936a2cb0c92760bd5cd217842842ff62d10802
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063273"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375669"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>使用 Azure Active Directory 对托管标识的事件中心资源访问进行身份验证
 Azure 事件中心支持使用 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)进行 Azure Active Directory (Azure AD) 身份验证。 Azure 资源的托管标识可以从 Azure 虚拟机 (VM)、函数应用、虚拟机规模集和其他服务中运行的应用程序使用 Azure AD 凭据授权对事件中心资源的访问权限。 将 Azure 资源的托管标识与 Azure AD 身份验证结合使用，可避免将凭据随在云中运行的应用程序一起存储。
@@ -28,12 +28,12 @@ Azure 事件中心支持使用 [Azure 资源的托管标识](../active-directory
 - [Azure 资源管理器客户端库](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>向 Azure AD 中的托管标识授予权限
-若要通过应用程序中的托管标识授权对事件中心服务的请求，请先为该托管标识配置基于角色的访问控制 (RBAC) 设置。 Azure 事件中心定义 Azure 角色，这些角色涵盖了从事件中心进行发送和读取操作所需的权限。 将 Azure 角色分配到某个托管标识后，将在适当的范围授予该托管标识访问事件中心数据的权限。
+若要通过应用程序中的托管标识授权对事件中心服务的请求，请先为该托管标识配置 Azure 基于角色的访问控制 (Azure RBAC) 设置。 Azure 事件中心定义 Azure 角色，这些角色涵盖了从事件中心进行发送和读取操作所需的权限。 将 Azure 角色分配到某个托管标识后，将在适当的范围授予该托管标识访问事件中心数据的权限。
 
 有关如何分配 Azure 角色的详细信息，请参阅[使用 Azure Active Directory 进行身份验证，以便访问事件中心资源](authorize-access-azure-active-directory.md)。
 
 ## <a name="use-event-hubs-with-managed-identities"></a>将事件中心与托管标识结合使用
-若要将事件中心与托管标识配合使用，需为标识分配角色和相应的范围。 此部分的过程使用一个简单的应用程序，该应用程序在托管标识下运行并访问事件中心资源。
+若要将事件中心与托管标识配合使用，需要向标识分配角色和相应的范围。 此部分的过程使用一个简单的应用程序，该应用程序在托管标识下运行并访问事件中心资源。
 
 在这里，我们将使用一个在 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)中托管的示例 Web 应用程序。 有关如何创建 Web 应用程序的分步说明，请参阅[在 Azure 中创建 ASP.NET Core Web 应用](../app-service/quickstart-dotnetcore.md)
 
@@ -72,7 +72,7 @@ Azure 事件中心支持使用 [Azure 资源的托管标识](../active-directory
 1. 创建事件中心命名空间和事件中心。 
 2. 将 Web 应用部署到 Azure。 请参阅下面的选项卡式部分，获取 GitHub 上的 Web 应用程序的链接。 
 3. 确保将 SendReceive.aspx 设置为 Web 应用的默认文档。 
-3. 为 Web 应用启用**标识**。 
+3. 为 Web 应用启用 **标识**。 
 4. 将此标识分配给命名空间级别或事件中心级别的“事件中心数据所有者”角色。 
 5. 运行 Web 应用程序，输入命名空间名称和事件中心名称，输入一条消息，然后选择“发送”。 若要接收事件，请选择“接收”。 
 

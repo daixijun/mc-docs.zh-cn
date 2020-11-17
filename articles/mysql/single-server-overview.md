@@ -7,13 +7,13 @@ ms.author: v-jay
 ms.custom: mvc
 ms.topic: overview
 origin.date: 8/20/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1188d719a8f81713e75c70e99aa5b62572fad574
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 019869395f9ae6bf24405fb133c3885b16d92d16
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470252"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328536"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 单一服务器
 
@@ -52,13 +52,15 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>几秒钟内调整性能和规模
 
-单一服务器服务在三个 SKU 层中提供：“基本”、“常规用途”和“内存优化”。 基本层最适合用于低成本开发和低并发工作负载。 常规用途和内存优化更适用于需要高并发性、缩放性和可预测性能的生产工作负载。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 存储缩放是联机的，支持存储自动增长。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需为所使用的资源付费。 有关详细信息，请参阅[定价层](concepts-service-tiers.md)。
+单一服务器服务在三个 SKU 层中提供：“基本”、“常规用途”和“内存优化”。 基本层最适合用于低成本开发和低并发工作负载。 常规用途和内存优化更适用于需要高并发性、缩放性和可预测性能的生产工作负载。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 存储缩放是联机的，支持存储自动增长。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需为所使用的资源付费。 有关详细信息，请参阅[定价层](./concepts-pricing-tiers.md)。
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>企业级安全性、合规性和治理
 
 单一服务器服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 在运行查询时创建的数据（包括备份）和临时文件都会进行加密。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥可由系统进行管理（默认）。 该服务使用默认实施的传输层安全性 (SSL/TLS) 对动态数据进行加密。 该服务支持 TLS 版本 1.2、1.1 和 1.0，并可强制执行[最低 TLS 版本](concepts-ssl-connection-security.md)。 
 
-除了本机身份验证外，单一服务器服务还支持 [Azure Active Directory](/active-directory/fundamentals/active-directory-whatis) 身份验证。 Azure AD 身份验证是一种使用 Azure AD 中定义和管理的标识连接到 MySQL 服务器的机制。 通过 Azure AD 身份验证，可以在一个中心位置集中管理数据库用户标识和其他 Azure 服务，从而简化和集中访问控制。
+该服务允许使用[专用链接](concepts-data-access-security-private-link.md)对服务器进行专用访问。
+
+除了本机身份验证外，单一服务器服务还支持 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 身份验证。 Azure AD 身份验证是一种使用 Azure AD 中定义和管理的标识连接到 MySQL 服务器的机制。 通过 Azure AD 身份验证，可以在一个中心位置集中管理数据库用户标识和其他 Azure 服务，从而简化和集中访问控制。
 
 [审核日志记录](concepts-audit-logs.md)可用于跟踪所有数据库级别活动。 
 
@@ -75,7 +77,7 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 该服务运行 MySQL 的社区版本。 这样可以实现完全的应用程序兼容性，并且只需最小的重构成本就能将在 MySQL 引擎上开发的现有应用程序迁移到单一服务器服务。 可以使用以下任一选项来执行向单一服务器的迁移：
 
 - 转储和还原 - 对于脱机迁移（在此情况下，用户可承受一定的故障时间），使用社区工具（如 mysqldump/mydumper）的转储和还原可以提供最快的迁移方式。 有关详细信息，请参阅[使用转储和还原进行迁移](concepts-migrate-dump-restore.md)。 
-- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 [Azure 数据库迁移服务](/dms/)。 
+- Azure 数据库迁移服务 - 为了在最短的故障时间内实现向单一服务器的无缝简化迁移，可以利用 [Azure 数据库迁移服务](../dms/tutorial-mysql-azure-mysql-online.md)。 
 - **数据传入复制** - 为在最短的停机时间内进行迁移，还可以利用数据传入复制，它依靠基于 binlog 的复制。 对于希望对迁移进行更多控制的实操专业人员来说，数据传入复制是实现停机时间最短的迁移的首选。 有关详细信息，请参阅[数据传入复制](concepts-data-in-replication.md)。
 
 ## <a name="contacts"></a>联系人
@@ -98,4 +100,3 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

@@ -7,12 +7,12 @@ origin.date: 05/16/2018
 ms.date: 05/11/2020
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 149836d25c879103e93a2a783c8a33c4d19ac2c8
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 4bce02d881cca92dfd6c120714db515efccd4af7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394777"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328107"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT 中心设备的客户数据请求功能
 
@@ -30,7 +30,7 @@ Azure IoT 中心是一项基于 REST API 的云服务，其目标是企业客户
 
 如果使用 Azure IoT 中心服务的 Azure 事件网格集成功能，则必须由这些事件的每个订阅服务器的租户管理员执行数据请求操作。 有关详细信息，请参阅[使用事件网格响应 IoT 中心事件](iot-hub-event-grid.md)。
 
-如果使用 Azure IoT 中心服务的 Azure Monitor 集成功能来创建诊断日志，则必须由租户管理员针对存储的日志执行数据请求操作。 有关详细信息，请参阅[监视 Azure IoT 中心的运行状况](iot-hub-monitor-resource-health.md)。
+如果使用 Azure IoT 中心服务的 Azure Monitor 集成功能来创建资源日志，则必须由租户管理员针对存储的日志执行数据请求操作。 有关详细信息，请参阅[监视 IoT 中心](monitor-iot-hub.md)。
 
 ## <a name="deleting-customer-data"></a>删除客户数据
 

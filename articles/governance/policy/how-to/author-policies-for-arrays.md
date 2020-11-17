@@ -2,15 +2,15 @@
 title: 为资源上的数组属性创作策略
 description: 了解如何使用数组参数和数组语言表达式，如何计算 [*] 别名，以及如何使用 Azure Policy 定义规则追加元素。
 ms.author: v-tawe
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 09/30/2020
+ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: edd3ece371f0420d5fc876555de8dc5c208e3cf8
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 921a4cf17eaaef639c91916d434b0a783271d82b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524059"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327824"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>为 Azure 资源上的数组属性创作策略
 
@@ -138,7 +138,7 @@ Azure 资源管理器属性通常定义为字符串和布尔值。 存在一对�
 
 - “由于验证错误，无法对策略‘{GUID}’进行参数化。 请检查策略参数定义是否正确。 内部异常语言表达式‘[parameters('allowedLocations')]’的计算结果为‘数组’类型，预期类型为‘字符串’。”
 
-条件 `equals` 的预期类型为_字符串_。 由于 allowedLocations 被定义为数组类型，因此策略引擎会计算语言表达式并引发错误 。 在 `in` 和 `notIn` 条件下，策略引擎在语言表达式中应为“数组”类型。 若要解决此错误消息，请将 `equals` 更改为 `in` 或 `notIn`。
+条件 `equals` 的预期类型为 _字符串_。 由于 allowedLocations 被定义为数组类型，因此策略引擎会计算语言表达式并引发错误 。 在 `in` 和 `notIn` 条件下，策略引擎在语言表达式中应为“数组”类型。 若要解决此错误消息，请将 `equals` 更改为 `in` 或 `notIn`。
 
 ### <a name="evaluating-the--alias"></a>计算 [*] 别名
 
@@ -196,12 +196,24 @@ Azure 资源管理器属性通常定义为字符串和布尔值。 存在一对�
 |`{<field>,"Equals":"127.0.0.1"}` |无 |全部匹配 |一个数组元素的计算结果为 true (127.0.0.1 == 127.0.0.1)，另一个的计算结果为 false (127.0.0.1 == 192.168.1.1)，因此 Equals 条件为 false，不会触发该效果。 |
 |`{<field>,"Equals":"10.0.4.1"}` |无 |全部匹配 |两个数组元素的计算结果均为 false（10.0.4.1 == 127.0.0.1 和 10.0.4.1 == 192.168.1.1），因此 Equals 条件为 false，不会触发该效果。 |
 
-## <a name="the-append-effect-and-arrays"></a>追加效果和数组
+## <a name="modifying-arrays"></a>修改数组
 
-[追加效果](../concepts/effects.md#append)的行为有所不同，具体取决于 details.field 是否为 \[\*\] 别名 。
+创建或更新期间，[追加](../concepts/effects.md#append)和[修改](../concepts/effects.md#modify)操作会更改资源的属性。 使用数组属性时，这些效果的行为取决于操作是否尝试修改 \[\*\] 别名：
 
-- 如果不是 \[\*\] 别名，则追加会将整个数组替换为值属性 
-- 如果是 \[\*\] 别名，则追加会将值属性添加到现有数组或创建新数组 
+> [!NOTE]
+> 目前，预览版中可使用 `modify` 效果和别名。
+
+|Alias |效果 | 业务成效 |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | 如果丢失，Azure Policy 将追加效果详细信息中指定的整个数组。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | 使用 `add` 操作 `modify` | 如果丢失，Azure Policy 将追加效果详细信息中指定的整个数组。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | 使用 `addOrReplace` 操作 `modify` | 如果缺失，Azure Policy 将追加效果详细信息中指定的整个数组，或替换现有数组。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy 将追加效果详细信息中指定的数组成员。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | 使用 `add` 操作 `modify` | Azure Policy 将追加效果详细信息中指定的数组成员。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | 使用 `addOrReplace` 操作 `modify` | Azure Policy 删除所有现有的数组成员，并追加效果详细信息中指定的数组成员。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy 为每个数组成员的 `action` 属性追加一个值。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | 使用 `add` 操作 `modify` | Azure Policy 为每个数组成员的 `action` 属性追加一个值。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | 使用 `addOrReplace` 操作 `modify` | Azure Policy 追加或替换每个数组成员的现有 `action` 属性。 |
 
 有关详细信息，请参阅[追加示例](../concepts/effects.md#append-examples)。
 

@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 06/15/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d0e818eb2b3e55769f3074804a77eec6d216c9ff
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 471ab0442d4ce03d938e0cd162d05f9c44e99e17
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723087"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375756"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>适用于数据仓库的持续集成和部署
 
@@ -45,13 +45,13 @@ ms.locfileid: "84723087"
 
 现已创建一个简单的环境，在其中，只要签入到源代码管理存储库主分支，就会自动触发数据库项目的成功 Visual Studio 生成。 通过在本地数据库项目中做出更改并将该项更改签入到主分支，来验证自动化是否能够自始至终正常运行。
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>使用 Azure SQL 数据仓库（或数据库）部署任务实现持续部署
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>使用 Azure Synapse Analytics（或数据库）部署任务实现持续部署
 
-1. 使用 [Azure SQL 数据库部署任务](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-sqldb)添加一个新任务，并填写必填字段以连接到目标数据仓库。 当此任务运行时，上一生成过程生成的 DACPAC 将部署到目标数据仓库。 也可使用 [Azure SQL 数据仓库部署任务](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)。
+1. 使用 [Azure SQL 数据库部署任务](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-sqldb)添加一个新任务，并填写必填字段以连接到目标数据仓库。 当此任务运行时，上一生成过程生成的 DACPAC 将部署到目标数据仓库。 还可以使用 [Azure Synapse Analytics 部署任务](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)。
 
       ![部署任务](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "部署任务")
 
-2. 如果使用自托管代理，请确保将环境变量设置为对 SQL 数据仓库使用正确的 SqlPackage.exe。 路径应如下所示：
+2. 如果使用自托管代理，请确保将环境变量设置为对 Azure Synapse Analytics 使用正确的 SqlPackage.exe。 路径应如下所示：
 
       ![环境变量](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "环境变量")
 
@@ -61,6 +61,6 @@ ms.locfileid: "84723087"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 探索 [Synapse SQL 池 MPP 体系结构](massively-parallel-processing-mpp-architecture.md)
+- 探索 [Synapse SQL 池体系结构](massively-parallel-processing-mpp-architecture.md)
 - 快速[创建 SQL 池](create-data-warehouse-portal.md)
 - [加载示例数据](load-data-from-azure-blob-storage-using-polybase.md)

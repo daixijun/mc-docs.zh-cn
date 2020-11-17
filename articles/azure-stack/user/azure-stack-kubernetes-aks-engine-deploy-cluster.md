@@ -3,17 +3,17 @@ title: 使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 中将 Kubernetes 群集部署到 Azure Stack Hub 上。
 author: WenJason
 ms.topic: article
-origin.date: 07/07/2020
-ms.date: 08/31/2020
+origin.date: 09/02/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 38befb7dec83f7e6f7e48e456eda52424de78cec
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: c00facd3e8bb498432ff4155519162d237e00660
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867778"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330611"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -33,7 +33,7 @@ ms.locfileid: "88867778"
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > 如果已断开连接，可以下载该文件，并将其手动复制到计划在其上编辑文件的已断开连接的计算机。 可以使用 [PuTTY 或 WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) 等工具将文件复制到 Linux 计算机。
 
 2.  若要在编辑器中打开 API 模型，可以使用 nano：
@@ -42,7 +42,7 @@ ms.locfileid: "88867778"
     nano ./kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > 如果尚未安装 nano，可在 Ubuntu 上安装 nano：`sudo apt-get install nano`。
 
 3.  在 kubernetes-azurestack.json 文件中找到 orchestratorRelease 和 orchestratorVersion。 选择一个受支持的 Kubernetes 版本。 例如，对 `orchestratorRelease` 使用 1.14 或 1.15，对 `orchestratorVersion` 使用 1.14.7 或 1.15.10。 将 `orchestratorRelease` 指定为 x.xx，将 orchestratorVersion 指定为 x.xx.x。 有关当前版本的列表，请参阅[受支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)
@@ -58,8 +58,8 @@ ms.locfileid: "88867778"
         },
     ```
 
-    > [!Note]  
-    > 如果为标识系统使用 Azure AD，则无需添加 identitySystem 字段****。
+    > [!NOTE]  
+    > 如果为标识系统使用 Azure AD，则无需添加 identitySystem 字段。
 
 6. 找到 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
 
@@ -92,7 +92,7 @@ ms.locfileid: "88867778"
 
     如果要部署到自定义虚拟网络，可在[将 Kubernetes 群集部署到自定义虚拟网络](kubernetes-aks-engine-custom-vnet.md)中找到有关查找必需的密钥和值并将其添加到 API 模型中适当数组中的说明。
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure Stack Hub 的 AKS 引擎不允许你提供自己的证书来创建群集。
 
 ### <a name="more-information-about-the-api-model"></a>有关 API 模型的详细信息
@@ -149,7 +149,7 @@ ms.locfileid: "88867778"
 
     生成的 `apimodel.json` 包含“输入 API 模型”中使用的服务主体、密码和 SSH 公钥。 它还包含 AKS 引擎执行所有其他操作所需的所有其他元数据。 如果丢失，AKS 引擎将无法配置群集。
 
-    机密未加密****。 将该文件保存在已加密的安全位置。 
+    机密未加密。 将该文件保存在已加密的安全位置。 
 
 ## <a name="verify-your-cluster"></a>验证群集
 
@@ -227,6 +227,22 @@ ms.locfileid: "88867778"
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>轮换服务主体机密
+
+使用 AKS 引擎部署 Kubernetes 群集后，服务主体 (SPN) 会用于管理与 Azure Stack Hub 实例上的 Azure 资源管理器的交互。 在某些时候，此服务主体的机密可能会过期。 如果机密过期，可以通过以下方式刷新凭据：
+
+- 使用新的服务主体机密更新每个节点。
+- 或更新 API 模型凭据并运行升级。
+
+### <a name="update-each-node-manually"></a>手动更新每个节点
+
+1. 从云运营商处获取服务主体的新机密。 有关 Azure Stack Hub 的说明，请参阅[使用应用标识访问 Azure Stack Hub 资源](/azure-stack/operator/azure-stack-create-service-principals)。
+2. 使用云运营商提供的新凭据更新每个节点上的 `/etc/kubernetes/azure.json`。 进行更新后，重启 kubelet 和 kube-controller-manager 。
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>使用 aks-engine update 更新群集
+
+此外，也可以替换 `apimodel.json` 中的凭据，并使用更新的 json 对相同或较新的 Kubernetes 版本运行升级。 有关升级模型的说明，请参阅[升级 Azure Stack Hub 上的 Kubernetes 群集](azure-stack-kubernetes-aks-engine-upgrade.md)
 
 ## <a name="next-steps"></a>后续步骤
 

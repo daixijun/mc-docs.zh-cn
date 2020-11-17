@@ -2,15 +2,15 @@
 title: 修正不符合资源
 description: 本指南将指导你完成对 Azure Policy 中不符合策略的资源的修正。
 ms.author: v-tawe
-origin.date: 08/27/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc8399738ddf50b850fff3a804dad28b8168e48
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 00d0ed44eea3ed520e8a843728e0b6c8d398f360
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523981"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328754"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>修正 Azure Policy 中的不符合资源
 
@@ -19,12 +19,16 @@ ms.locfileid: "90523981"
 ## <a name="how-remediation-security-works"></a>修正安全的工作原理
 
 当 Azure Policy 在 deployIfNotExists 策略定义中运行模板时，它使用[托管标识](../../../active-directory/managed-identities-azure-resources/overview.md)来执行此操作。
-Azure Policy 会为每个分配创建一个托管标识，但必须具有要向托管标识授予哪些角色的相关详细信息。 如果托管标识缺少角色，则在分配策略或计划期间会显示此错误。 使用门户时，一旦启动分配，Azure Policy 将自动授予托管标识所列的角色。 托管标识的位置不会影响它对 Azure Policy 的操作。
+Azure Policy 会为每个分配创建一个托管标识，但必须具有要向托管标识授予哪些角色的相关详细信息。 如果托管标识缺少角色，则在分配策略或计划期间会显示错误。 使用门户时，一旦启动分配，Azure Policy 将自动授予托管标识所列的角色。 使用 SDK 时，必须手动向托管标识授予角色。 托管标识的位置不会影响它对 Azure Policy 的操作。
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="缺少对托管标识的已定义权限的 deployIfNotExists 策略的屏幕截图。" border="false":::
 
 > [!IMPORTANT]
-> 如果通过 deployIfNotExists 或 modify 修改的资源在策略分配范围之外，或者模板访问策略分配范围之外的资源上的属性，则必须为分配的托管标识[手动授予访问权限](#manually-configure-the-managed-identity)，否则修正部署将失败。
+> 在以下情况下，必须向分配的托管标识[手动授予访问权限](#manually-configure-the-managed-identity)，否则修正部署将失败：
+>
+> - 如果分配是通过 SDK 创建的
+> - 如果 deployIfNotExists 或 modify 修改的资源在策略分配的范围之外 
+> - 如果模板访问策略分配范围之外的资源的属性
 
 ## <a name="configure-policy-definition"></a>配置策略定义
 
@@ -59,7 +63,8 @@ az role definition list --name 'Contributor'
 若要在策略分配期间创建托管标识，必须定义 Location 并使用 AssignIdentity。 下面的示例获取内置策略“部署 SQL DB 透明数据加密”的定义，设置目标资源组，然后创建分配。
 
 ```powershell
-# Login first with Connect-AzAccount -Environmentname AzureChinaCloud command
+# Login first with Connect-AzAccount
+Connect-AzAccount -Environmentname AzureChinaCloud
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
 $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'

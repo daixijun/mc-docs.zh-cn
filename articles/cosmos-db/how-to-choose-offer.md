@@ -1,23 +1,24 @@
 ---
-title: 如何在 Azure Cosmos DB 中选择合适的吞吐量产品/服务
-description: 了解如何为工作负载选择标准（手动）预配的吞吐量和自动缩放配置的吞吐量。
+title: 了解如何在 Azure Cosmos DB 上的手动和自动缩放之间进行选择
+description: 了解如何针对你的工作负载在标准（手动）预配吞吐量与自动缩放预配吞吐量之间进行选择。
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f7852b7ee860001e6f650c77bc83be27feecbb59
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: a821c1c8a7b6fe20d60e0e1bf0b7ade9debebd84
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246807"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328749"
 ---
 <!--Verified successfully-->
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>如何在标准（手动）和自动缩放预配的吞吐量之间进行选择 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动）和自动缩放。 这两种吞吐量类型都适用于要求高性能和缩放的任务关键型工作负载，并且在吞吐量、可用性、延迟和一致性方面由相同的 Azure Cosmos DB SLA 支持。
 
@@ -52,25 +53,17 @@ Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动�
 
 使用 Azure Cosmos DB [容量计算器](estimate-ru-with-capacity-planner.md)估计吞吐量需求。 
 
-### <a name="existing-applications"></a>现有应用程序
-
-如果现有应用程序使用标准（手动）预配的吞吐量，则可以使用 [Azure Monitor 指标](../azure-monitor/insights/cosmosdb-insights-overview.md)来确定流量模式是否适合自动缩放。 
-
-
+<!--Not Avaialble on ### Existing applications-->
 <!--Not Available on  [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric)-->
+<!--Not Avaialble on #### Examples-->
 <!--Not Available on [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric)-->
-
-接下来，确定规范化利用率随时间变化的方式。 如果发现规范化利用率是可变的或不可预测的，请考虑在数据库或容器上启用自动缩放。 相反，如果它是稳定和可预测的，则考虑保持标准（手动）预配的吞吐量。 
-
-> [!TIP]
-> 使用标准（手动）吞吐量，可以使用规范化利用率指标来估计切换到自动缩放时可能使用的实际 RU/s。 将某个时间点的规范化利用率乘以当前提供的标准（手动）RU/s。 例如，如果预配了 5000 RU/s，且规范化利用率为 90%，则 RU/s 使用量为 0.9 * 5000 = 4500 RU/s。 如果看到流量模式是可变的，但预配过高或过低，则可能需要启用自动缩放，然后相应地更改自动缩放最大 RU/s 设置。
-
+<!--Not Avaialble on #### How to calculate average utilization-->
 ## <a name="measure-and-monitor-your-usage"></a>测量和监视使用情况
 随着时间的推移，在选择吞吐量类型之后，应该监视应用程序并根据需要进行调整。 
 
 使用自动缩放时，请使用 Azure Monitor 查看预配的自动缩放最大 RU/s（自动缩放最大吞吐量）和系统当前缩放到的 RU/s（预配的吞吐量） 。 下面是使用自动缩放的可变或不可预测工作负载的示例。 注意，当没有任何流量时，系统将 RU/s 缩放到最大 RU/s 的 10% 的最小值，在本例中分别为 5000 RU/s 和 50,000 RU/s。 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="使用自动缩放的工作负载示例":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="使用自动缩放的工作负载示例，其中自动缩放最大 RU/s 为 50,000 RU/s，吞吐量范围为 5000 - 50,000 RU/s":::
 
 > [!NOTE]
 > 当使用标准（手动）预配的吞吐量时，预配的吞吐量指标指的是作为用户设置的内容。 使用自动缩放吞吐量时，此指标是指系统当前缩放到的 RU/s。

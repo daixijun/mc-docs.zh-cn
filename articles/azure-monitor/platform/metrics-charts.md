@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
 origin.date: 01/29/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: metrics
-ms.openlocfilehash: 1f02069772f30532d03ee950bee1180800b487f0
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 272c25688fe789063d4b2e90a135dc4e37dfb61e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457401"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328837"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 指标资源管理器的高级功能
 
@@ -47,7 +47,7 @@ ms.locfileid: "89457401"
 
 ### <a name="order-or-delete-multiple-charts"></a>将多个图表排序或将其删除
 
-若要将多个图表排序或将其删除，请单击省略号 ( **...** )，以便打开图表菜单并选择适当的菜单项：**向上移动**、**向下移动**或**删除**。
+若要将多个图表排序或将其删除，请单击省略号 ( **...** )，以便打开图表菜单并选择适当的菜单项：**向上移动**、**向下移动** 或 **删除**。
 
 ## <a name="changing-aggregation"></a>更改聚合
 
@@ -78,15 +78,15 @@ ms.locfileid: "89457401"
 
 2. 选择想要筛选的维度（属性）
 
-   ![图表上的](./media/metrics-charts/00006.png)
+   ![该屏幕截图显示了可筛选的维度（属性）。](./media/metrics-charts/00006.png)
 
 3. 选择想要在绘制图表时包含的维度值（此示例将显示筛选出了成功的存储事务）：
 
-   ![图表上的](./media/metrics-charts/00007.png)
+   ![该屏幕截图显示筛选成功的存储事务。](./media/metrics-charts/00007.png)
 
 4. 选择筛选值后，在“筛选选择器”之外单击将其关闭。 现在图表将显示失败的存储事务数：
 
-   ![图表上的](./media/metrics-charts/00008.png)
+   ![该屏幕截图显示了已失败的存储交易数](./media/metrics-charts/00008.png)
 
 5. 可以重复步骤 1-4 将多个筛选器应用到同一个图表。
 
@@ -105,11 +105,11 @@ ms.locfileid: "89457401"
 
 2. 选择想要用于分割图表的维度：
 
-   ![图表上的](./media/metrics-charts/00010.png)
+   ![该屏幕截图显示了细分图表所基于的选定维度。](./media/metrics-charts/00010.png)
 
    现在图表将显示多个折线图，每个维度部分均有一个：
 
-   ![图表上的](./media/metrics-charts/00012.png)
+   ![该屏幕截图显示了多个折线图，每个维度部分均有一个。](./media/metrics-charts/00012.png)
 
 3. 在“分组选择器”之外单击以将其关闭。
 
@@ -124,9 +124,9 @@ ms.locfileid: "89457401"
 
 另一个示例是可用内存的波动，其中的值在技术上永远不会达到 0。 将范围固定到一个较高的值可以使可用内存的降低更容易被发现。 
 
-若要控制 y 轴范围，请使用 “…” 图表菜单，并选择“图表设置”以访问高级图表设置。 修改“Y 轴范围”部分中的值，或者使用“自动”按钮恢复为默认值。
+若要控制 y 轴范围，请使用 “…” 图表菜单，并选择“编辑图表”以访问高级图表设置。 修改“Y 轴范围”部分中的值，或者使用“自动”按钮恢复为默认值。
 
-![图表上的](./media/metrics-charts/00014-manually-set-granularity.png)
+![该屏幕截图突出显示了“编辑图表”选项。](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > 如果图表用于跟踪一段时间内的各种计数或合计（并因此使用计数、求和、最小值或最大值聚合），要锁定这类图表的 y 轴边界，通常需要指定一个固定的时间粒度，而不是依赖于自动默认值。 这是必要的，因为当用户通过调整浏览器窗口大小或者通过更改屏幕分辨率来自动修改时间粒度时，图表上的值也会发生更改。 时间粒度发生的更改会影响图表的外观，导致当前选择的 y 轴范围失效。
@@ -139,7 +139,7 @@ ms.locfileid: "89457401"
 
 配置图表颜色后，将图表固定到仪表板时，它们将保持此配置。 以下部分说明如何固定图表。
 
-![图表上的](./media/metrics-charts/018.png)
+![该屏幕截图显示了如何固定图表。](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>将图表固定到仪表板
 

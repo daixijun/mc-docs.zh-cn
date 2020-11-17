@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 03/12/2018
-ms.openlocfilehash: ccbbee7b0939c8c1418689adbebaef09d539fa33
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: a3f307e39c017746df036bca68947d51a7ccc0c8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457256"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327616"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure Monitor 中视图设计器可视化部件的参考指南
 在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文针对自定义视图中可用的可视化部件，提供设置方面的参考指南。
@@ -45,7 +45,7 @@ ms.locfileid: "89457256"
 ## <a name="list-of-queries-part"></a>查询列表部分
 查询列表部件显示日志查询的列表。 可以选择每个查询以显示其结果。 默认情况下，视图将包括单个查询，可以选择“+ 查询”添加其他查询  。
 
-![查询列表视图](./media/view-designer-parts/view-list-queries.png)
+![Azure Monitor 视图设计器中查询可视化部件列表的屏幕截图。](./media/view-designer-parts/view-list-queries.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -61,7 +61,7 @@ ms.locfileid: "89457256"
 ## <a name="number-and-list-part"></a>数字和列表部件
 标头具有单个数字，用于表示来自日志查询中的记录数。 列表显示查询的前十个结果，其中的图形指示数值列的相关值或其随时间的变化。
 
-![查询列表视图](./media/view-designer-parts/view-number-list.png)
+![Azure Monitor 视图设计器中可视化部件编号和列表的屏幕截图。](./media/view-designer-parts/view-number-list.png)
 
 | 设置 | 说明 |
 |:--- |:--- |
@@ -138,7 +138,7 @@ ms.locfileid: "89457256"
 | 点击导航 | 单击标题时执行的操作。  有关详细信息，请参阅[通用设置](#click-through-navigation)。 |
 | **圆环图** |**> 中心** |
 | 文本 |在该圆环图中的值下显示的文本。 |
-| Operation |要在值属性上执行以汇总到单个值的操作。<ul><li>总和：添加所有记录的值。</li><li>百分比：**用于中心操作的结果值**中的值所返回的记录数占查询中的记录总数的比率。</li></ul> |
+| Operation |要在值属性上执行以汇总到单个值的操作。<ul><li>总和：添加所有记录的值。</li><li>百分比：**用于中心操作的结果值** 中的值所返回的记录数占查询中的记录总数的比率。</li></ul> |
 | 用于中心操作的结果值 |（可选）选择加号 (+) 可添加一个或多个值。 查询的结果将限于具有指定属性值的记录。 如果没有添加任何值，则查询中包含所有记录。 |
 | **其他选项** |**> 颜色** |
 | 颜色 1<br>颜色 2<br>颜色 3 |为圆环图中显示的每个值选择颜色。 |
@@ -350,7 +350,7 @@ ms.locfileid: "89457256"
 
 如果为部件启用阈值，则必须指定一个或多个阈值。 如果某项的值大于阈值并小于下一个阈值，则使用该值的颜色。 如果某项大于当时的最高阈值，则使用另一种颜色。 
 
-每个阈值集都具有一个带**默认**值的阈值。 如果没有超过其他值，这就是颜色集。 可通过选择“添加”(+) 或“删除”(x) 按钮添加或删除阈值   。
+每个阈值集都具有一个带 **默认** 值的阈值。 如果没有超过其他值，这就是颜色集。 可通过选择“添加”(+) 或“删除”(x) 按钮添加或删除阈值   。
 
 下表描述了阈值的设置：
 

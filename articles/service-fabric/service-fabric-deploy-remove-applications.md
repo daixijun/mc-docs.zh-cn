@@ -3,14 +3,17 @@ title: 使用 PowerShell 进行 Azure Service Fabric 部署
 description: 了解如何在 Azure Service Fabric 中删除和部署应用程序以及如何在 Powershell 中执行这些操作。
 ms.topic: conceptual
 origin.date: 01/19/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 27914348f4d8b70358b2792bef3acf8105d72f4a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 51abdfb5b1b8f8b77a2f3418ce2f661b934fb477
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77539973"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328687"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 
@@ -100,7 +103,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 如果应用程序包很大，并且/或者包含许多文件，可以[进行压缩](service-fabric-package-apps.md#compress-a-package)。 压缩可以减小文件大小，减少文件数量。
-附带作用是加快注册和注销应用程序类型。 上传时间目前可能会降低，尤其是当包含压缩包的时间时。 
+这样可以更快地注册和注销应用程序类型。 上传时间目前可能会降低，尤其是当包含压缩包的时间时。 
 
 若要压缩包，请使用同一 [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 命令。 可以使用 `SkipCopy` 标记独立于上传进行压缩，也可以与上传操作配合使用进行压缩。 对压缩包应用压缩不会执行任何操作。
 若要解压缩压缩包，请将同一 [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 命令与 `UncompressPackage` 切换配合使用。

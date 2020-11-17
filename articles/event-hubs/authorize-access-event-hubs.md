@@ -3,14 +3,14 @@ title: 授予对 Azure 事件中心的访问权限
 description: 本文介绍授权访问 Azure 事件中心资源的不同选项。
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 08/21/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: b3491a061b5ff7783e77271feeea8223ca7f0e6d
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 995b577d8ff4b5082862dd42c31c3066301d7a7b
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715324"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375709"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>授予对 Azure 事件中心的访问权限
 每次你发布或使用事件中心的事件/数据时，客户端会尝试访问事件中心资源。 每个对安全资源的请求都必须经过授权，以便服务确保客户端具有发布/使用数据所需的权限。 
@@ -24,7 +24,7 @@ Azure 事件中心提供以下用于授权访问安全资源的选项：
 > 本文同时适用于事件中心和 [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 方案。 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-事件中心资源的 Azure Active Directory (Azure AD) 集成提供了基于角色的访问控制 (RBAC)，用于对客户端对资源的访问进行精细控制。 可以使用基于角色的访问控制 (RBAC) 授予对安全主体的权限，该服务主体可能是用户、组或应用程序服务主体。 安全主体经 Azure AD 进行身份验证后会返回 OAuth 2.0 令牌。 令牌可用于授权访问事件中心资源的请求。
+事件中心资源的 Azure Active Directory (Azure AD) 集成提供了 Azure 基于角色的访问控制 (Azure RBAC)，用于就客户端对资源的访问进行精细控制。 可使用 Azure RBAC 授予对安全主体的权限，该主体可以是用户、组或应用程序服务主体。 安全主体经 Azure AD 进行身份验证后会返回 OAuth 2.0 令牌。 令牌可用于授权访问事件中心资源的请求。
 
 有关使用 Azure AD 进行身份验证的详细信息，请参阅以下文章：
 
@@ -41,7 +41,7 @@ Azure 事件中心提供以下用于授权访问安全资源的选项：
 若要详细了解如何使用 SAS 进行授权，请参阅[使用共享访问签名授权访问事件中心资源](authorize-access-shared-access-signature.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 请参阅在 GitHub 存储库中发布的 [RBAC 示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)。 
+- 请参阅在 GitHub 存储库中发布的 [Azure RBAC 示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)。 
 - 请参阅以下文章：
     - [使用 Azure Active Directory 对应用程序的 Azure 事件中心请求进行身份验证](authenticate-application.md)
     - [使用 Azure Active Directory 对托管标识的事件中心资源访问进行身份验证](authenticate-managed-identity.md)

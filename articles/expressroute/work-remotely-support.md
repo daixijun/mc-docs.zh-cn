@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/22/2020
 ms.date: 06/08/2020
 ms.author: v-yiso
-ms.openlocfilehash: 6bdd76be42b5f3d3437afbf578190a48c5bc8441
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: a0217a9326936acc86114be6e71c85324dbe70da
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186973"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328765"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>使用 Azure ExpressRoute 创建混合连接以支持远程用户
 
@@ -32,7 +32,7 @@ ms.locfileid: "84186973"
 * [如何增加现有 ExpressRoute 线路的带宽](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [ExpressRoute 监视、指标和警报](expressroute-monitoring-metrics-alerts.md#expressroute-gateway-connections-in-bitsseconds)
 * [基于 ExpressRoute 的路由优化](expressroute-optimize-routing.md)
-* [适用于 O365 的 Azure ExpressRoute](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [适用于 Microsoft 365 的 Azure ExpressRoute](https://docs.microsoft.com/microsoft-365/enterprise/azure-expressroute)
 * [非对称路由注意事项](expressroute-asymmetric-routing.md)
 * [如何在 Azure 门户中打开支持请求](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 

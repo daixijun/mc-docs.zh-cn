@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 02/20/2018
-ms.openlocfilehash: 19ce2c583632c8bc87d6b99280bafed913569636
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: a2bc414d53260696544a7c563e6e240e7dc515b4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148610"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328387"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -29,11 +29,10 @@ ms.locfileid: "89148610"
 
 * [服务连接性监视器](network-performance-monitor-service-connectivity.md)：可监视从用户到所关注的服务的连接，确定路径中存在的具体基础结构，并识别网络瓶颈的发生位置。 可以赶在用户之前了解中断情况，沿网络路径查看问题的具体位置。 
 
-    此功能可以用来执行基于 HTTP、HTTPS、TCP 和 ICMP 的测试，以近实时的方式或根据历史事实的方式监视服务的可用性和响应时间。 还可以监视网络在多大程度上造成了包丢失和延迟。 使用网络拓扑图可以隔离导致网络速度下降的问题点。 凭借每个跃点上的延迟数据，可以确定从节点到服务这一段网络路径中出现的问题点。 可以通过内置的测试在不使用任何预配置的情况下监视 Office 365 和 Dynamics CRM 的网络连接。 可以使用此功能监视到任何支持 TCP 的终结点（例如网站、SaaS 应用程序、PaaS 应用程序和 SQL 数据库）的网络连接。
+    此功能可以用来执行基于 HTTP、HTTPS、TCP 和 ICMP 的测试，以近实时的方式或根据历史事实的方式监视服务的可用性和响应时间。 还可以监视网络在多大程度上造成了包丢失和延迟。 使用网络拓扑图可以隔离导致网络速度下降的问题点。 凭借每个跃点上的延迟数据，可以确定从节点到服务这一段网络路径中出现的问题点。 可以通过内置的测试在不使用任何预配置的情况下监视 Microsoft 365 和 Dynamics CRM 的网络连接。 可以使用此功能监视到任何支持 TCP 的终结点（例如网站、SaaS 应用程序、PaaS 应用程序和 SQL 数据库）的网络连接。
 
 * [ExpressRoute 监视器](network-performance-monitor-expressroute.md)：通过 Azure ExpressRoute 监视分支办事处与 Azure 之间的端到端连接和性能。  
 
- 
 ## <a name="supported-regions"></a>支持的区域
 NPM 可从以下任一区域托管的工作区监视世界上任何地方网络和应用程序之间的连接：
 * 中国东部 2
@@ -54,7 +53,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
     要监视某个网络链接，请在该链接的两个终结点上安装代理。 如果不确定网络的拓扑，请在具有关键工作负荷且这些负荷之间的网络性能需要进行监视的服务器上安装代理。 例如，如果需要监视 Web 服务器和运行 SQL 的服务器之间的网络连接，请将代理安装在这两个服务器上。 代理会监视主机之间的网络连接（链接），而不是主机本身。 
 
-* **服务连接监视器**：要监视节点到服务终结点的网络连接，需在每个此类节点上安装 Log Analytics 代理。 例如，假设要监视从标记为 O1、O2 和 O3 的办公网站到 Office 365 的网络连接。 分别在 O1、O2 和 O3 中的至少一个节点上安装 Log Analytics 代理。 
+* **服务连接监视器**：要监视节点到服务终结点的网络连接，需在每个此类节点上安装 Log Analytics 代理。 例如，假设要监视从标记为 O1、O2 和 O3 的办公室站点到 Microsoft 365 的网络连接。 分别在 O1、O2 和 O3 中的至少一个节点上安装 Log Analytics 代理。 
 
 * **ExpressRoute 监视器**：在 Azure 虚拟网络中安装至少一个 Log Analytics 代理。 并在通过 ExpressRoute 专用对等互连连接的本地子网中安装至少一个代理。  
 
@@ -100,7 +99,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
    ![“性能监视器”视图](./media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **服务连接监视器**：此功能提供内置的预配置测试，用于监视从代理到 Office 365 和 Dynamics 365 的网络连接。 通过选中 Office 365 和 Dynamics 365 服务旁边的复选框，选择需要监视的服务。 要选择要从其进行监视的代理，请选择“添加代理”  。 如果不希望使用此功能，或希望在以后进行设置，请不要做出任何选择，而是选择“保存并继续”  。
+   **服务连接监视器**：此功能提供内置的预配置测试，用于监视从代理到 Microsoft 365 和 Dynamics 365 的网络连接。 通过选中 Microsoft 365 和 Dynamics 365 服务旁边的复选框，选择需要监视的服务。 要选择要从其进行监视的代理，请选择“添加代理”  。 如果不希望使用此功能，或希望在以后进行设置，请不要做出任何选择，而是选择“保存并继续”  。
 
    ![“服务连接监视器”视图](./media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

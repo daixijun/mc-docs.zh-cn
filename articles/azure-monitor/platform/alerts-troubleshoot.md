@@ -4,14 +4,14 @@ description: Azure Monitor 警报的常见问题和可能的解决方法。
 author: Johnnytechn
 ms.author: v-johya
 ms.topic: reference
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1ae9fe2cd3ffaacdca27f477bad96d41992c4ce
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: e06fb6764e8ea0db2ccb76fd094b0cf431eb776a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457375"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328447"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>排查 Azure Monitor 警报的问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "89457375"
 
 如果你可以在 Azure 门户中看到触发的警报，但未收到你已为其配置的相关电子邮件，请遵循以下步骤：
 
-1. **是否某个[操作规则](alerts-action-rules.md)阻止了该电子邮件**？
+1. **是否某个 [操作规则](alerts-action-rules.md)阻止了该电子邮件**？
 
     在门户中单击触发的警报进行检查，查看“历史记录”选项卡中是否有已阻止的[操作组](action-groups.md)：
 
@@ -61,7 +61,7 @@ ms.locfileid: "89457375"
     另请检查：
 
    - 电子邮件客户端（如 Outlook、Gmail）的垃圾邮件设置
-      - 电子邮件服务器（如 Exchange、Office 365、G-suite）的发件人限制/垃圾邮件设置/隔离设置
+      - 电子邮件服务器（如 Exchange、Microsoft 365、G-suite）的发件人限制/垃圾邮件设置/隔离设置
       - 若使用了电子邮件安全设备（如 Barracuda、Cisco），请检查其设置。
 
 1. **是否意外取消了对操作组的订阅？**
@@ -90,7 +90,7 @@ ms.locfileid: "89457375"
 
 如果你可以在门户中看到触发的警报，但未收到你已为其配置的相关短信、语音呼叫或推送通知，请遵循以下步骤： 
 
-1. **是否某个[操作规则](alerts-action-rules.md)阻止了该操作？**
+1. **是否某个 [操作规则](alerts-action-rules.md)阻止了该操作？**
 
     在门户中单击触发的警报进行检查，查看“历史记录”选项卡中是否有已阻止的[操作组](action-groups.md)： 
 

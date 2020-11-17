@@ -3,17 +3,17 @@ title: 将 Azure 认知服务部署到 Azure Stack Hub
 description: 了解如何将 Azure 认知服务部署到 Azure Stack Hub。
 author: WenJason
 ms.topic: article
-origin.date: 05/21/2020
-ms.date: 06/22/2020
+origin.date: 10/09/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: guanghu
-ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 816e9b7e3347a211f588f9d1dc92b90a39ebc225
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.lastreviewed: 10/09/2020
+ms.openlocfilehash: 9dbe17056d16d2005afbd8f23accf0aa0c227f79
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096808"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330599"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack Hub
 
@@ -23,8 +23,16 @@ ms.locfileid: "85096808"
 
 容器支持目前适用于部分 Azure 认知服务：
 
-- 语言理解
-- 文本分析 (Sentiment 3.0)
+- **语音**
+    - 文本转语音（标准）
+    - 文本转语音（自定义）
+    - 文本转语音（标准）
+- **语言**
+    - 语言理解
+    - 文本分析（情绪分析）
+- **决策**
+    - 异常检测器
+
 
 > [!IMPORTANT]
 > 适用于 Azure Stack Hub 的部分 Azure 认知服务目前为公共预览版。
@@ -32,13 +40,17 @@ ms.locfileid: "85096808"
 
 目前为部分 Azure 认知服务提供公共预览版的容器支持：
 
-- 读取（光学字符识别 \[OCR]）
-- 关键短语提取
-- 语言检测
-- 异常检测器
-- 表单识别器
-- 语音转文本（自定义、标准）
-- 文本转语音（自定义、标准）
+- **计算机视觉**
+    - Read 3.0、Read 3.1
+    - 空间分析（新）
+- **语言**
+    - 关键短语提取
+    - 语言检测
+    - 运行状况文本分析
+- **语音**
+    - 语音语言检测
+    - 神经 TTS
+    - 文本转语音（自定义）
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用包含认知服务的容器
 
@@ -54,7 +66,7 @@ ms.locfileid: "85096808"
 - **高吞吐量与低延迟**  
    使应用用户能够根据流量高峰进行缩放，以实现高吞吐量与低延迟。 使认知服务能够在 Azure Kubernetes 服务中以接近其应用逻辑和数据的方式运行。
 
-使用 Azure Stack Hub 在 Kubernetes 群集中连同应用容器一起部署认知服务容器，以实现高可用性和弹性缩放。 可以通过将认知服务与基于应用服务、Functions、Blob 存储、SQL 或 mySQL 数据库构建的组件相结合，来开发应用。
+使用 Azure Stack Hub 在 Kubernetes 群集中连同应用容器一起部署认知服务容器，以实现高可用性和弹性缩放。 可以通过将认知服务与基于应用服务、Functions、Blob 存储、SQL 或 MySQL 数据库构建的组件相结合，来开发应用。
 
 有关认知服务容器的更多详细信息，请参阅 [Azure 认知服务中的容器支持](/cognitive-services/cognitive-services-container-support)。
 
@@ -72,11 +84,11 @@ ms.locfileid: "85096808"
 
 ## <a name="create-azure-resources"></a>创建 Azure 资源
 
-在 Azure 上创建认知服务资源以预览“人脸”、LUIS、识别文本容器。 需要使用资源中的订阅密钥和终结点 URL 来实例化认知服务容器。
+在 Azure 上创建认知服务资源以预览“人脸”、语言理解 (LUIS) 或识别文本容器。 需要使用资源中的订阅密钥和终结点 URL 来实例化认知服务容器。
 
 1. 在 Azure 门户中创建 Azure 资源。 若要预览“人脸”容器，必须先在 Azure 门户中创建相应的“人脸”资源。 有关详细信息，请参阅[快速入门：在 Azure 门户中创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。
 
-   > [!Note]
+   > [!NOTE]
    >  “人脸”或“计算机视觉”资源必须使用 F0 定价层。
 
 2. 获取 Azure 资源的终结点 URL 和订阅密钥。 创建 Azure 资源后，必须使用该资源中的订阅密钥和终结点 URL 来实例化相应的“人脸”、“LUIS”或“识别文本”容器，以进行预览。
@@ -188,11 +200,11 @@ spec:
 
 ### <a name="ssl-interception-setup"></a>SSL 拦截设置
 
-1. 将“https 拦截”证书添加到 `/usr/local/share/ca-certificates`，并使用 `update-ca-certificates` 更新存储****。 
+1. 将“https 拦截”证书添加到 `/usr/local/share/ca-certificates`，并使用 `update-ca-certificates` 更新存储。 
 
 ## <a name="test-the-cognitive-service"></a>测试认知服务
 
-通过该容器的 /swagger 相对 URI 访问 [OpenAPI 规范](https://swagger.io/docs/specification/about/)****。 此规范（以前称为“Swagger 规范”）描述了实例化容器支持的操作。 例如，以下 URI 提供对上一示例中实例化的情绪分析容器 OpenAPI 规范的访问：
+通过该容器的 /swagger 相对 URI 访问 [OpenAPI 规范](https://swagger.io/docs/specification/about/)。 此规范（以前称为“Swagger 规范”）描述了实例化容器支持的操作。 例如，以下 URI 提供对上一示例中实例化的情绪分析容器 OpenAPI 规范的访问：
 
 ```HTTP  
 http:<External IP>:5000/swagger

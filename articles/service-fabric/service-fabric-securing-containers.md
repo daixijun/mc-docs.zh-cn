@@ -3,18 +3,25 @@ title: 将证书导入到容器中
 description: 了解如何将证书文件导入到 Service Fabric 容器服务。
 ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c6938e7c79832df2d1b8c26148bc008060edffcd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ff31801069f11438dd3fc66a477b5d49e891389f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540094"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328864"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>将证书文件导入到 Service Fabric 上运行的容器
 
-可以通过指定证书保护容器服务。 Service Fabric 提供一种机制，供容器内服务访问在 Windows 或 Linux 群集（5.7 或更高版本）的节点中安装的证书。 必须在群集的所有节点上将证书安装到 LocalMachine 下的证书存储中。 与证书对应的私钥必须可用、可访问，在 Windows 上还必须可导出。 `ContainerHostPolicies` 标记下的应用程序清单中提供了证书信息，如以下代码片段所示：
+> [!NOTE]
+> 对于 Azure 中运行的 Service Fabric 群集，建议使用 [Service Fabric 应用程序托管标识](./concepts-managed-identity.md)预配容器中的应用程序证书。 托管标识可在服务级别隔离机密和证书，并允许应用程序证书预配成为应用程序工作流（而不是基础结构工作流）的一部分。 未来版本中将弃用 CertificateRef 机制。
+
+可以通过指定证书保护容器服务。 Service Fabric 提供一种机制，供容器内服务访问在 Windows 或 Linux 群集（5.7 版或更高版本）的节点中安装的证书。 必须在群集的所有节点上将证书安装到 LocalMachine 下的证书存储中。 与证书对应的私钥必须可用、可访问，在 Windows 上还必须可导出。 `ContainerHostPolicies` 标记下的应用程序清单中提供了证书信息，如以下代码片段所示：
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,6 +38,8 @@ ms.locfileid: "77540094"
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+请注意，`PEM` 和 `PrivateKey` 文件均包含证书和未加密的私钥。
 
 或者，如果已有所需形式的证书且想在容器内访问它，可在应用包内创建数据包，并在应用程序清单中指定以下内容：
 

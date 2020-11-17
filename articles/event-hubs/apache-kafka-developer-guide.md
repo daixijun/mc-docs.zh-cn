@@ -3,20 +3,20 @@ title: 针对事件中心的 Apache Kafka 开发人员指南
 description: 本文提供相关文章的链接，这些文章介绍了如何将 Kafka 应用程序与 Azure 事件中心集成。
 ms.author: v-tawe
 origin.date: 06/23/2020
-ms.date: 08/21/2020
+ms.date: 11/04/2020
 ms.topic: article
-ms.openlocfilehash: 25d00977876a14b2f6db871e33ca4f543eeb225b
-ms.sourcegitcommit: 5055d580fb7ef1722e32e09a334d1d3e28295dd6
+ms.openlocfilehash: fee76b7bbe5ceda13d79b22d24c41f9f4547697e
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503334"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375678"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>针对 Azure 事件中心的 Apache Kafka 开发人员指南
 本文提供相关文章的链接，这些文章介绍了如何将 Apache Kafka 应用程序与 Azure 事件中心集成。 
 
 ## <a name="overview"></a>概述
-事件中心提供 Kafka 终结点，现有的基于 Kafka 的应用程序可将该终结点用作运行你自己的 Kafka 群集的替代方案。 事件中心支持 Apache Kafka 协议 1.0 及更高版本，并且可与现有 Kafka 应用程序（包括 MirrorMaker）配合使用。 有关详细信息，请参阅[适用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)
+事件中心提供 Kafka 终结点，现有的基于 Kafka 的应用程序可将该终结点用作运行你自己的 Kafka 群集的替代方案。 事件中心可与许多现有 Kafka 应用程序配合使用。 有关详细信息，请参阅[适用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="quickstarts"></a>快速入门
 你可以在 GitHub 和此内容集中找到各种快速入门文章，快速熟悉用于 Kafka 的事件中心。

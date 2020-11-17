@@ -58,11 +58,11 @@ ms.locfileid: "94501835"
 
 1. 在 Intune 配置门户中，使用以下配置告知设备要启用[适用于 Apple 设备的 Microsoft 企业 SSO 插件](apple-sso-plugin.md)：
 
-    - **类型** ：重定向
-    - **扩展 ID** ：com.microsoft.azureauthenticator.ssoextension
-    - **团队 ID** ：（iOS 不需要此字段）
-    - **URL** ： `https://login.partner.microsoftonline.cn`
-    - **要配置的其他数据** ：
+    - **类型**：重定向
+    - **扩展 ID**：com.microsoft.azureauthenticator.ssoextension
+    - **团队 ID**：（iOS 不需要此字段）
+    - **URL**： `https://login.partner.microsoftonline.cn`
+    - **要配置的其他数据**：
       - 密钥：sharedDeviceMode
       - 键入：布尔
       - 值：true

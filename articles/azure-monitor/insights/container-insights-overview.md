@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/07/2020
-ms.date: 08/20/2020
-ms.openlocfilehash: 1c4604ee7819243cc4cc88321f6ff9a96386ab7e
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ad64e2d91b1bdf6051183701caff7ee7d8e8b593
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148645"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327865"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>用于容器的 Azure Monitor 概述
 
@@ -20,11 +20,11 @@ ms.locfileid: "89148645"
 - [Azure Kubernetes 服务 (AKS)](../../aks/intro-kubernetes.md) 上托管的托管 Kubernetes 群集
 - 使用 [AKS 引擎](https://github.com/Azure/aks-engine)在 Azure 上托管的自托管 Kubernetes 群集
 - [Azure 容器实例](../../container-instances/container-instances-overview.md)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) 上或本地托管的自托管 Kubernetes 群集
+- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) 上或本地托管的自托管 Kubernetes 群集
 <!--not available in MC: Azure Red Hat OpenShift-->
 <!--not available in MC: Azure Arc enabled Kubernetes-->
 
-适用于容器的 Azure Monitor 支持运行 Linux 和 Windows Server 2019 操作系统的群集。
+适用于容器的 Azure Monitor 支持运行 Linux 和 Windows Server 2019 操作系统的群集。 它支持的容器运行时为 Docker、Moby 和任何 CRI 兼容的运行时（如 CRI-O 和 ContainerD）。
 
 监视容器至关重要，特别是在大规模运行包含多个应用程序的生产群集时。
 
@@ -43,7 +43,7 @@ ms.locfileid: "89148645"
 * 了解群集在平均负载和最重负载下的行为。 此信息有助于了解容量需求及确定群集可承受的最大负载。
 * 配置警报，以便在节点或容器上的 CPU 和内存使用率超过阈值时，或者在基础结构中的群集或节点运行状况汇总中发生运行状况状态更改时，主动通知你或进行记录。
 * 与 [Prometheus](https://prometheus.io/docs/introduction/overview/) 集成，以使用[查询](container-insights-log-search.md)查看从节点和 Kubernetes 收集的应用程序和工作负荷指标，以创建自定义警报、仪表板和详细的执行详细分析。
-* 监视[部署到 AKS 引擎](https://github.com/Azure/aks-engine)本地和 [Azure Stack 上的 AKS 引擎](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)的容器工作负载。
+* 监视[部署到 AKS 引擎](https://github.com/Azure/aks-engine)本地和 [Azure Stack 上的 AKS 引擎](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)的容器工作负载。
 <!--not available in MC: Azure Red Hat OpenShift-->
 <!--not available in MC: Azure Arc enabled Kubernetes-->
 监视 Windows Server 群集与监视 Linux 群集相比，其主要差异如下：

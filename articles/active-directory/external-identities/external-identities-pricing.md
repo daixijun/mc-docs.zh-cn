@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) External Identities 定价基于月度活跃�
 
     ![选择租户并关联订阅](./media/external-identities-pricing/linked-subscriptions.png)
 
-7. 在“关联订阅”窗格中，选择一个 **订阅** 和一个 **资源组** 。 然后，选择“应用”。
+7. 在“关联订阅”窗格中，选择一个 **订阅** 和一个 **资源组**。 然后，选择“应用”。
 
    > [!NOTE]
    > 如果未列出任何订阅，可以[将订阅关联到租户](../fundamentals/active-directory-how-subscriptions-associated-directory.md)。 或者，可以通过选择“如果你还没有订阅，可以在此处创建一个订阅”链接来添加新订阅。

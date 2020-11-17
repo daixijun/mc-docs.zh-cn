@@ -61,7 +61,7 @@ ms.locfileid: "94501757"
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>演示基于角色的访问控制（授权）的 Web 应用程序
 
-以下示例演示如何实现基于角色的访问控制 (RBAC)。 RBAC 用于将 Web 应用中某些功能的权限限制为某些用户。 系统将根据用户是属于 **Azure AD 组** 还是拥有一个给定的应用程序 **角色** ，对其进行授权。
+以下示例演示如何实现基于角色的访问控制 (RBAC)。 RBAC 用于将 Web 应用中某些功能的权限限制为某些用户。 系统将根据用户是属于 **Azure AD 组** 还是拥有一个给定的应用程序 **角色**，对其进行授权。
 
 平台 | 示例 |
  -------- | ------------------- |

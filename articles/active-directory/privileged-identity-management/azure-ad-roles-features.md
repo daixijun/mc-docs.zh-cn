@@ -49,8 +49,8 @@ Privileged Identity Management 中 Azure AD 角色的管理体验已更新，以
 
 在理解了有时限的分配后，你可能会问的第一个问题是，角色过期后会出现什么情况？ 在此新版本中，我们针对此情况提供了两个选项：
 
-- **扩展** ：当角色分配接近其过期时间时，用户可以使用 Privileged Identity Management 请求对该角色分配进行延期
-- **续订** ：当角色分配已到期时，用户可以使用 Privileged Identity Management 请求续订该角色分配
+- **扩展**：当角色分配接近其过期时间时，用户可以使用 Privileged Identity Management 请求对该角色分配进行延期
+- **续订**：当角色分配已到期时，用户可以使用 Privileged Identity Management 请求续订该角色分配
 
 这两个用户发起的操作都需要全局管理员或特权角色管理员的批准。 管理员将不再需要管理这些过期的分配。 他们只需要等待延期或续订请求，并在请求有效的情况下批准它们即可。
 

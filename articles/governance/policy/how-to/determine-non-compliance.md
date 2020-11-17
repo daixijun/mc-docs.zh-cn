@@ -2,15 +2,15 @@
 title: 确定导致非符合性的原因
 description: 如果资源不符合，可能有很多原因。 找出导致非符合性的原因。
 ms.author: v-tawe
-origin.date: 07/06/2020
-ms.date: 09/15/2020
+origin.date: 09/30/2020
+ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: cc3de4611400e4fb57f50e384c9efeb43832bbfc
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: c76bcf548c2703cb4d7a2dcc000b7081f60b63a8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523728"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327896"
 ---
 # <a name="determine-causes-of-non-compliance"></a>确定导致非符合性的原因
 
@@ -108,11 +108,17 @@ ms.locfileid: "90523728"
 |当前值不得与目标值匹配（不区分大小写）。 |notMatchInsensitively 或不为 matchInsensitively |
 |没有与策略定义中的效果详细信息匹配的相关资源。 |类型在“then.details.type”中定义，且与策略规则“if”部分定义的资源相关的资源不存在。 |
 
+## <a name="component-details-for-resource-provider-modes"></a>资源提供程序模式的组件详细信息
+
+对于使用[资源提供程序模式](../concepts/definition-structure.md#resource-manager-modes)的分配，请选择不合规的资源，以打开更详细的视图。 在“组件合规性”选项卡下，显示了特定于已分配策略上的资源提供程序模式的其他信息，其中显示了不合规的组件和组件 ID 。
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="资源提供程序模式分配“组件合规性”选项卡及合规性详细信息的屏幕截图。" border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>来宾配置的符合性详细信息
 
-对于"来宾配置”类别中的“auditIfNotExists”策略，VM 内可能有多个计算设置，需要查看各个设置的详细信息。 例如，如果你正在审核一个密码策略列表，其中只有一个密码策略的状态为“不符合”，这时你需要了解具体哪些密码策略不符合以及不符合的原因。
+对于“来宾配置”类别中的 auditIfNotExists 策略，虚拟机内可能有多个计算设置，你需要查看各个设置的详细信息 。 例如，如果你正在审核一个密码策略列表，其中只有一个密码策略的状态为“不符合”，这时你需要了解具体哪些密码策略不符合以及不符合的原因。
 
-你也可能无权直接登录到 VM，但需要报告 VM 不符合的原因。
+你也可能无权直接登录到虚拟机，但需要报告虚拟机不符合的原因。
 
 ### <a name="azure-portal"></a>Azure 门户
 

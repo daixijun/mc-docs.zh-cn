@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 4e415a69667bb7a9a4b3ac56f50178af183d90f4
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 9f0b9272a0f1837dac606bfd358f07db4e475250
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148658"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327508"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>优化 Azure Monitor 中的日志查询
 Azure Monitor 日志使用 [Azure 数据资源管理器 (ADX)](/data-explorer/) 来存储日志数据，并运行查询来分析这些数据。 它为你创建、管理和维护 ADX 群集，并针对你的日志分析工作负荷优化它们。 运行查询时，将对其进行优化，并将其路由到存储着工作区数据的相应 ADX 群集。 Azure Monitor 日志和 Azure 数据资源管理器都使用许多自动查询优化机制。 虽然自动优化已提供了显著的性能提升，但在某些情况下，你还可以显著提高查询性能。 本文介绍了性能注意事项和解决相关问题的几种方法。
@@ -53,6 +53,8 @@ Azure Monitor 日志使用 [Azure 数据资源管理器 (ADX)](/data-explorer/) 
 ## <a name="total-cpu"></a>总 CPU 时间
 在所有查询处理节点中处理此查询而投入的实际计算 CPU。 由于大多数查询是在大量节点上执行的，因此此时间通常会比查询实际执行的持续时间长得多。 
 
+使用超过 100 秒 CPU 的查询被视为消耗过多资源的查询。 使用超过 1,000 秒 CPU 的查询被视为滥用查询，可能会受到限制。
+
 查询处理时间花费在：
 - 数据检索 - 检索旧数据比检索近期数据所用时间更长。
 - 数据处理 - 数据的逻辑和计算。 
@@ -73,8 +75,8 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
-| summarize count() by FileHash, FilePath
 | where FileHash != "" and FilePath !startswith "%SYSTEM32"  // Problem: irrelevant results are filtered after all processing and parsing is done
+| summarize count() by FileHash, FilePath
 ```
 ```Kusto
 //more efficient
@@ -84,6 +86,7 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
+| where FileHash != "" and FilePath !startswith "%SYSTEM32"  // exact removal of results. Early filter is not accurate enough
 | summarize count() by FileHash, FilePath
 | where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
@@ -95,18 +98,34 @@ SecurityEvent
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+在某些情况下，计算列由查询处理引擎隐式创建，因为筛选不只是在字段上完成的：
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>在汇总和联接中使用高效的聚合命令和维度
 
@@ -157,7 +176,7 @@ Heartbeat
 > 此指标仅显示来自紧邻群集的 CPU。 在多区域查询中，它仅显示其中一个区域。 在多工作区查询中，它可能不包括所有工作区。
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>当字符串分析有效时，请避免使用完全 XML 和 JSON 分析
-完全分析某个 XML 或 JSON 对象可能会消耗大量 CPU 和内存资源。 在许多情况下，当只需要一两个参数并且 XML 或 JSON 对象很简单时，可以使用 [parse 运算符](https://docs.microsoft.com/azure/kusto/query/parseoperator)或其他[文本分析技术](https://docs.microsoft.com/azure/azure-monitor/log-query/parse-text)将它们分析为字符串，这样更简单。 随着 XML 或 JSON 对象中的记录数增加，性能提升会更明显。 当记录的数量达到数千万时，这一点至关重要。
+完全分析某个 XML 或 JSON 对象可能会消耗大量 CPU 和内存资源。 在许多情况下，当只需要一两个参数并且 XML 或 JSON 对象很简单时，可以使用 [parse 运算符](https://docs.microsoft.com/azure/kusto/query/parseoperator)或其他[文本分析技术](./parse-text.md)将它们分析为字符串，这样更简单。 随着 XML 或 JSON 对象中的记录数增加，性能提升会更明显。 当记录的数量达到数千万时，这一点至关重要。
 
 例如，下面的查询将返回与上面的查询完全相同的结果，但不执行完全 XML 分析。 请注意，它对 XML 文件结构做了一些假设，例如，FilePath 元素位于 FileHash 之后，并且它们都没有属性。 
 
@@ -175,6 +194,8 @@ SecurityEvent
 ## <a name="data-used-for-processed-query"></a>用于已处理查询的数据
 
 在处理查询的过程中，一个重要因素是经扫描后用于查询处理的数据量。 与其他数据平台相比，Azure 数据资源管理器使用严格的优化，大大减少了数据量。 尽管如此，查询中也存在一些重要因素，这些因素可能会影响所使用的数据量。
+
+处理超过 2,000KB 数据的查询被视为消耗过多资源的查询。 处理超过 20,000KB 数据的查询被视为滥用查询，可能会受到限制。
 
 在 Azure Monitor 日志中，**TimeGenerated** 列用作为数据编制索引的方式。 将 **TimeGenerated** 值限制在尽可能窄的范围内会显著限制必须处理的数据量，从而显著提高查询性能。
 
@@ -274,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-当上述情况不允许避免使用子查询时，另一种方法是使用 [materialize() 函数](/data-explorer/kusto/query/materializefunction?pivots=azuremonitor)来提示查询引擎：有一个在这些子查询中的每一个都用到的源数据。 当源数据来自在查询中多次用到的某个函数时，适合使用这种方法。
+当上述情况不允许避免使用子查询时，另一种方法是使用 [materialize() 函数](/data-explorer/kusto/query/materializefunction?pivots=azuremonitor)来提示查询引擎：有一个在这些子查询中的每一个都用到的源数据。 当源数据来自在查询中多次用到的某个函数时，适合使用这种方法。 当子查询的输出比输入小得多时，具体化是有效的。 查询引擎将在所有匹配项中缓存和重用输出。
 
 
 
@@ -298,6 +319,8 @@ SecurityEvent
 ## <a name="time-span-of-the-processed-query"></a>已处理查询的时间跨度
 
 Azure Monitor 日志中的所有日志都根据 **TimeGenerated** 列进行分区。 访问的分区数与时间跨度直接相关。 减小时间范围是确保快速执行查询的最有效方法。
+
+时间跨度超过 15 天的查询被视为消耗过多资源的查询。 时间跨度超过 90 天的查询被视为滥用查询，可能会受到限制。
 
 可以使用 Log Analytics 屏幕中的时间范围选择器设置时间范围，如 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](scope.md#time-range)中所述。 这是推荐使用的方法，因为选定的时间范围将使用查询元数据传递到后端。 
 
@@ -388,6 +411,9 @@ Heartbeat
 ## <a name="age-of-processed-data"></a>已处理数据的年限
 Azure 数据资源管理器使用多个存储层：内存中、本地 SSD 磁盘，以及速度慢得多的 Azure Blob。 数据越新，越有可能存储在性能更高且延迟更小的层中，从而减少查询持续时间和 CPU 占用。 除了数据本身以外，系统还有元数据的缓存。 数据越旧，其元数据在缓存中的可能性就越小。
 
+处理超过 14 天的数据的查询将被视为消耗过多资源的查询。
+
+
 虽然有些查询需要使用旧数据，但也有误用旧数据的情况。 执行查询时，如果没有在其元数据中提供时间范围并且不是所有表引用都包含针对 **TimeGenerated** 列的筛选器，则会发生这种情况。 在这些情况下，系统将扫描该表中存储的所有数据。 当数据保留时间较长时，它可能会涵盖较长的时间范围，因此会涵盖在时间上与数据保留期一样长的数据。
 
 下面是这种情况的示例：
@@ -407,6 +433,8 @@ Azure 数据资源管理器使用多个存储层：内存中、本地 SSD 磁盘
 跨区域执行查询要求系统在后端序列化和传输通常比查询最终结果大得多的大块中间数据。 它还限制了系统执行优化和试探法以及使用缓存的能力。
 如果没有真正的理由要扫描所有这些区域，则应调整范围，使其涵盖较少的区域。 如果资源范围已最小化，但仍使用了许多区域，则可能是因配置错误而导致的。 例如，审核日志和诊断设置发送到不同区域中的不同工作区，或者存在多个诊断设置配置。 
 
+跨超过 3 个区域的查询被视为消耗过多资源的查询。 跨超过 6 个区域的查询被视为滥用查询，可能会受到限制。
+
 > [!IMPORTANT]
 > 当查询跨多个区域运行时，CPU 和数据度量将不准确，并且将仅显示其中一个区域上的度量。
 
@@ -419,6 +447,8 @@ Azure 数据资源管理器使用多个存储层：内存中、本地 SSD 磁盘
 - 范围为资源的查询提取数据并且数据存储在多个工作区中。
  
 跨区域和跨群集执行查询要求系统在后端序列化和传输通常比查询最终结果大得多的大块中间数据。 它还限制了系统执行优化和试探法以及使用缓存的能力。
+
+跨超过 5 个工作区的查询被视为消耗过多资源的查询。 查询不能跨超过 100 个工作区。
 
 > [!IMPORTANT]
 > 在某些多工作区方案中，CPU 和数据度量会不准确，并且只会显示几个工作区的度量。

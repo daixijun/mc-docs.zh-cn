@@ -7,19 +7,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 812c546fca7816ab9326369e90fffe69499e9b86
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: af0e99525ac7a6ee9561b11c28b511ffba8a6eff
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118286"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328894"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -39,7 +40,7 @@ ms.locfileid: "92118286"
 
 - [Node.js](https://nodejs.org/)，应具备 Node.js 的实践知识。
 - [Git](https://git-scm.com/downloads)。
-- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Not Avaialble on If you don't want to use Azure Cloud Shell-->
 
@@ -82,11 +83,11 @@ npm start
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。
 
 <!--Not Available on  If you need to install or upgrade, see [Install Azure CLI]-->
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，然后按屏幕说明操作。 
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/cli/reference-index#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。 
 
 <!--CORRECT ON When you are using an installed Azure CLI-->
 
@@ -228,7 +229,7 @@ Cosmos 数据库中存储的数据可用于在 Azure 门户中查看和查询。
 
 在顶部搜索框中，输入 **Azure Cosmos DB**。 打开 Cosmos 帐户边栏选项卡后，请选择 Cosmos 帐户。 在左侧导航栏中，选择“数据资源管理器”。 在“集合”窗格中展开你的集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
 
-:::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="MEAN.js 成功连接至 MongoDB":::
+:::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="Azure 门户中的数据资源管理器":::
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>将 Node.js 应用程序部署到 Azure
 
@@ -264,6 +265,6 @@ git commit -m "configured MongoDB connection string"
 本快速入门介绍了如何使用 Azure 本地 Shell 创建 Azure Cosmos DB MongoDB API 帐户，以及如何创建和运行 MEAN.js 应用以将用户添加到该帐户。 现在可以将其他数据导入 Azure Cosmos DB 帐户了。
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

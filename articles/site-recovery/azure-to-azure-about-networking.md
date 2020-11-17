@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 71854658172a249303d213ba24337ef8934dca56
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 76314754892374e32cc2ee410d1afcec5209f525
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128300"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328826"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>关于如何在 Azure VM 灾难恢复中联网
 
@@ -30,7 +30,7 @@ ms.locfileid: "92128300"
 
 下图描绘了 Azure VM 上运行的应用程序的典型 Azure 环境：
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment.png" alt-text="客户环境":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment.png" alt-text="该图描绘了 Azure VM 上运行的应用程序的典型 Azure 环境。":::
 
 如果使用 Azure ExpressRoute 或从本地网络到 Azure 的 VPN 连接，则环境如下：
 
@@ -41,12 +41,13 @@ ms.locfileid: "92128300"
 > [!IMPORTANT]
 > Site Recovery 不支持使用经过身份验证的代理控制网络连接，并且无法启用复制。
 
+>[!NOTE]
+>- 不应执行基于 IP 地址的筛选来控制出站连接。
+>- 不应在 Azure 路由表中添加 Azure Site Recovery IP 地址来控制出站连接。
+
 ## <a name="outbound-connectivity-for-urls"></a>URL 的出站连接
 
 如果使用基于 URL 的防火墙代理来控制出站连接，请允许以下 Site Recovery URL：
-
->[!NOTE]
-> 不应执行基于 IP 地址的允许列表来控制出站连接。
 
 **URL** | **详细信息**
 --- | ---
@@ -59,14 +60,14 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 ## <a name="outbound-connectivity-using-service-tags"></a><a name="outbound-connectivity-using-service-tags"></a>使用服务标记的出站连接
 
-如果使用 NSG 来控制出站连接，需要允许这些服务标记。
+使用 NSG 来控制出站连接时，需要允许这些服务标记。
 
 - 对于源区域中的存储帐户：
-    - 为源区域创建基于[存储服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则。
+    - 为源区域创建基于[存储服务标记](../virtual-network/network-security-groups-overview.md#service-tags)的 NSG 规则。
     - 允许这些地址，才能从 VM 将数据写入到缓存存储帐户。
-- 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
+- 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/network-security-groups-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
 - 为目标区域创建基于 EventsHub 服务标记的 NSG 规则，这样就可以访问 Site Recovery 监视功能。
-- 创建基于 AzureSiteRecovery 服务标记的 NSG 规则，以允许访问任何区域中的 Site Recovery 服务。  
+- 创建基于 AzureSiteRecovery 服务标记的 NSG 规则，以允许访问任何区域中的 Site Recovery 服务。
 - 创建基于 AzureKeyVault 服务标记的 NSG 规则。 仅在通过门户为支持 ADE 的虚拟机启用复制时才需要这样做。
 - 创建基于 GuestAndHybridManagement 服务标记的 NSG 规则。 仅在通过门户为复制项启用移动代理自动升级时才需要这样做。
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
@@ -108,11 +109,11 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
     <!--MOONCAKE: CORRECT ON Storage WITHOUT .ChinaEast-->
     
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="客户环境":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="屏幕截图，其中显示了“为存储点美国东部的网络安全组添加出站安全规则”。":::
 
 2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="客户环境":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="屏幕截图，其中显示了“为 Azure A D 的网络安全组添加出站安全规则”。":::
 
     <!--MOONCAKE: CORRECT ON EventHub WITHOUT .chinanorth-->
     
@@ -184,7 +185,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 - 选择 Azure 虚拟网络并单击“服务终结点”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="客户环境":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="storage-endpoint":::
 
 - 单击“添加”，“添加服务终结点”选项卡随即打开
 - 选择“服务”下的“Microsoft.Storage”和“子网”字段下的所需子网，并单击“添加”。

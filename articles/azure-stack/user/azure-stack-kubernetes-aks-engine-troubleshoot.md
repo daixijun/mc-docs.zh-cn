@@ -3,17 +3,17 @@ title: 排查 Azure Stack Hub 上的 AKS 引擎问题
 description: 本文包含针对 Azure Stack Hub 上 AKS 引擎的故障排除步骤。
 author: WenJason
 ms.topic: article
-origin.date: 09/08/2020
-ms.date: 10/12/2020
+origin.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: fe561c1788c05a268f582551db5556396c0d0ef4
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: c0f8046f8430da6c9a70df7ba43aa9b0efa7bb69
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330603"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>排查 Azure Stack Hub 上的 AKS 引擎问题
 
@@ -67,7 +67,7 @@ ms.locfileid: "91437759"
 3. Azure Stack Hub 计划中是否有足够大的配额？
 4.  Azure Stack Hub 实例是否正在应用修补程序或进行升级？
 
-有关详细信息，请参阅 Azure/aks-engine GitHub 存储库中的[故障排除](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md)一文****。
+有关详细信息，请参阅 Azure/aks-engine GitHub 存储库中的[故障排除](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md)一文。
 
 ## <a name="collect-aks-engine-logs"></a>收集 AKS 引擎日志
 
@@ -85,18 +85,31 @@ ms.locfileid: "91437759"
 
 ## <a name="collect-kubernetes-logs"></a>收集 Kubernetes 日志
 
-除了 AKS 引擎日志之外，Kubernetes 组件还会生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) 收集这些日志。
+除了 AKS 引擎日志之外，Kubernetes 组件还会生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.5) 收集这些日志。
 
 此脚本可实现自动收集以下日志： 
 
- - Microsoft Azure Linux 代理 (waagent) 日志
- - 自定义脚本扩展日志
- - 运行 kube-system 容器元数据
- - 运行 kube-system 容器日志
- - Kubelet 服务状态和日记
- - Etcd 服务状态和日记
- - 库项的 DVM 日志
- - kube-system 快照
+- `/var/log/azure/` 目录中的日志文件
+- `/var/log/kubeaudit` 目录中的日志文件（kube 审核日志）
+- 日志文件 `/var/log/waagent.log` (waagent)
+- 日志文件 `/var/log/azure/deploy-script-dvm.log`（如果使用 Azure Stack Hub 的 Kubernetes 群集市场项进行部署）
+- `/etc/kubernetes/manifests` 目录中的静态清单
+- ` /etc/kubernetes/addons` 目录中的静态加载项
+- kube 系统容器元数据和日志
+- Kubelet 状态和日志
+- etcd 状态和日志
+- Docker 状态和日志
+- kube 系统快照
+- Azure CNI 配置文件
+
+为 Windows 节点检索了一些其他日志：
+
+- 日志文件 `c:\Azure\CustomDataSetupScript.log`
+- kube 代理状态和日志
+- containerd 状态和日志
+- azure-vnet log and azure-vnet-telemetry log
+- Docker 的 ETW 事件
+- Hyper-V 的 ETW 事件
 
 如果没有此脚本，需要连接到群集中的每个节点，手动查找并下载日志。 此外，该脚本还可以（可选）将收集的日志上传到存储帐户，通过该帐户与其他人共享日志。
 
@@ -113,13 +126,13 @@ ms.locfileid: "91437759"
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
-    tar xvf diagnosis-v0.1.1.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.5/diagnosis-v0.1.5.tar.gz
+    tar xvf diagnosis-v0.1.5.tar.gz -C ./
     ```
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | 说明 | 必须 | 示例 |
+    | 参数 | 说明 | 必需 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     | -u、--user | 群集 VM 的管理员用户名 | 是 | azureuser<br>（默认值） |
@@ -153,7 +166,7 @@ ms.locfileid: "91437759"
 
 在解决支持问题的过程中，Azure 支持工程师可能会请求 Azure Stack Hub 操作员收集 Azure Stack Hub 系统日志。 可能需要向操作员提供运行 `getkuberneteslogs.sh` 来上传 Kubernetes 日志时所用的存储帐户的信息。
 
-操作员可能运行 Get-AzureStackLog PowerShell cmdlet****。 此命令使用参数 (`-InputSaSUri`) 来指定存储 Kubernetes 日志的存储帐户。
+操作员可能运行 Get-AzureStackLog PowerShell cmdlet。 此命令使用参数 (`-InputSaSUri`) 来指定存储 Kubernetes 日志的存储帐户。
 
 操作员可能将生成的日志与 Azure 支持所需的任何其他系统日志合并，并将其提供给 Azure。
 
@@ -166,7 +179,7 @@ ms.locfileid: "91437759"
 3. 在问题中包含以下信息：
 
     - 用于部署群集的群集配置文件 `apimodel json`。 在将其发布到 GitHub 之前，请删除所有机密和密钥。  
-     - 以下 kubectl 命令 `get nodes` 的输出****。  
+     - 以下 kubectl 命令 `get nodes` 的输出。  
      - `/var/log/azure/cluster-provision.log` 和 `/var/log/cloud-init-output.log` 的内容
 
 ## <a name="next-steps"></a>后续步骤

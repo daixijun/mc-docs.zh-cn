@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/29/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8e048fbf6779dc2e48d4fca914d3060bc73fee69
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 0a50e53481f3683e84265b24b086b6de0075d35c
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937143"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326464"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的声明解析程序
 
@@ -127,6 +127,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | {SAML:ForceAuthn} | SAML 请求的 `AuthnRequest` 元素中的 `ForceAuthN` 特性值。 | True |
 | {SAML:ProviderName} | SAML 请求的 `AuthnRequest` 元素中的 `ProviderName` 特性值。| Contoso.com |
 | {SAML:RelayState} | `RelayState` 查询字符串参数。| 
+| {SAML:Subject} | 来自 SAML AuthN 请求的 NameId 元素的 `Subject`。| 
 
 ## <a name="using-claim-resolvers"></a>使用声明解析程序
 

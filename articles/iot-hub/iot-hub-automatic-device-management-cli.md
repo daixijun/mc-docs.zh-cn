@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/13/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: df487ed13636fd998ea37d8a85f88c78ab33a84c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: e3fa35b4ff1c64f4ee3e6d670fd3597e5eff4a2a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471275"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327888"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>使用 Azure CLI 进行 IoT 设备和模块的自动管理
 
@@ -157,7 +157,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name** - 配置所在的 IoT 中心的名称。 此中心必须在当前订阅中。 使用 `az account set -s [subscription name]` 命令切换到所需订阅
 
-在命令窗口中检查配置。   **metrics** 属性列出由每个中心评估的每个指标的计数：
+在命令窗口中检查配置。  **metrics** 属性列出由每个中心评估的每个指标的计数：
 
 * **targetedCount** - 一个系统指标，根据目标条件指定 IoT 中心的设备孪生或模块孪生数。
 
@@ -230,8 +230,7 @@ az iot hub configuration delete --config-id [configuration id] \
 本文介绍了如何大规模配置和监视 IoT 设备。 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [批量管理 IoT 中心设备标识](iot-hub-bulk-identity-mgmt.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 

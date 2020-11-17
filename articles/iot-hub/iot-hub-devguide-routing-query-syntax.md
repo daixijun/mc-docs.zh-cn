@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/13/2018
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 463eb6fba91ff0f0653bc2767fc7fc3594e0f26a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 795b8ddaaeb699a57d86f45a24a341ba42c406b6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472556"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328750"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT 中心消息路由查询语法
 
@@ -22,7 +22,7 @@ ms.locfileid: "92472556"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-消息路由允许你查询消息属性和消息正文以及设备孪生标记和设备孪生属性。 如果消息正文不是 JSON，则消息路由仍可路由消息，但查询不能应用于消息正文。  查询被描述为布尔表达式，其中布尔值 true 使查询成功，会路由所有传入数据，而布尔值 false 使查询失败，并且不会路由数据。 如果表达式计算结果为 null 或未定义，则将其视为 false，并且发生故障时将在诊断日志中生成错误。 查询语法必须正确，才能保存和计算路由。  
+消息路由允许你查询消息属性和消息正文以及设备孪生标记和设备孪生属性。 如果消息正文不是 JSON，则消息路由仍可路由消息，但查询不能应用于消息正文。  查询被描述为布尔表达式，其中布尔值 true 使查询成功，会路由所有传入数据，而布尔值 false 使查询失败，并且不会路由数据。 如果表达式计算结果为 null 或未定义，则将其视为 false，并且发生故障时将在 IoT 中心[路由资源日志](monitor-iot-hub-reference.md#routes)日志中生成错误。 查询语法必须正确，才能保存和计算路由。  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>基于消息属性的消息路由查询 
 

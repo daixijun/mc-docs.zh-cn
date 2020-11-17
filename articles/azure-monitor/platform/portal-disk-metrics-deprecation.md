@@ -6,13 +6,13 @@ ms.subservice: metrics
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/20/2020
-ms.openlocfilehash: 964a7c7656cbb6043e4330b185a420875fa7810f
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.date: 11/02/2020
+ms.openlocfilehash: 09c6cb103c4b6aca8b95966561dbe27ba6d75e21
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851943"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328925"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Azure 门户中已弃用的磁盘指标
 
@@ -44,38 +44,38 @@ ms.locfileid: "85851943"
 1. 在 Azure 门户中搜索“警报”。 然后，在“服务”部分选择“警报”。 
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
+   > ![警报服务](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
 2. 在“警报”页中，选择“管理警报规则”按钮。  
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
+   > ![管理预警规则](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
 3. 在“资源组”下拉列表中选中“虚拟机”复选框，在“信号类型”下拉列表中选中“指标”复选框。    
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/filter-alerts.png)
+   > ![筛选警报](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
 4. 在指标列表中，识别与磁盘相关的条件。 单击规则的名称。 
 
    该名称将作为超链接显示在表的“名称”列中。
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+   > ![查找磁盘条件](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
 
 5. 在“规则管理”页的“条件”部分，单击警报的条件。  
 
    条件将以超链接的形式显示。  
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/adjust-condition.png)
+   > ![调整条件](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
    此时会显示“配置信号逻辑”页，条件的设置将显示在该页的“警报逻辑”部分。 
 
 6. 请记下这些设置，因为它们在删除已弃用的指标后会消失。
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/condition-rules.png)
+   > ![条件规则](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
    > [!TIP] 
    > 请考虑抓取这些设置的屏幕截图，或将其捕获到文本文件中。 
@@ -83,7 +83,7 @@ ms.locfileid: "85851943"
 7. 单击“返回信号选择页”链接。
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
+   > ![返回信号选择](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
 8. 在“配置信号逻辑”页上，选择适当的替代指标（新指标）。 使用本文前面提供的[表格](#update-metrics)来识别新指标的名称。
 
@@ -91,17 +91,17 @@ ms.locfileid: "85851943"
    > 开始在搜索栏中键入内容，以缩小指标名称列表的搜索范围。 
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
+   > ![选择新指标](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
 9. 选择“完成”按钮。 
 
    > [!div class="mx-imgBorder"]
-   > ![图像说明](./media/portal-disk-metrics-deprecation/set-new-metric.png)
+   > ![设置新指标](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
 10. 选择“保存”按钮提交更改。 
 
     > [!div class="mx-imgBorder"]
-    > ![图像说明](./media/portal-disk-metrics-deprecation/save-new-metric.png)
+    > ![保存新指标](./media/portal-disk-metrics-deprecation/save-new-metric.png)
 
 
 

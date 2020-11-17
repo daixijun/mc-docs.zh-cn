@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 10/10/2019
-ms.date: 07/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: befc8a5eca6eb9353cfc535c8709cce5bad44698
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 4f23c4616cf886198fae78ec55e40ea46238c42b
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845910"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375609"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用结果集缓存优化性能
 
@@ -37,15 +37,19 @@ ms.locfileid: "85845910"
 
 对数据库启用结果集缓存后，在缓存填满之前将缓存所有查询的结果，但以下查询除外：
 
-- 使用 DateTime.Now() 等非确定性函数的查询。
+- 带有内置函数或运行时表达式的查询，这些表达式为非确定表达式，即使基表的数据或查询中没有更改也是如此。 例如，DateTime.Now()、GetDate()。
 - 使用用户定义的函数的查询
 - 使用启用了行级安全性或列级安全性的表的查询
 - 其返回数据中的行大小超过 64KB 的查询
 - 返回大数据（大于 10 GB）的查询 
+>[!NOTE]
+> - 某些非确定性函数和运行时表达式对相同数据的重复查询来说可以是确定性。 例如，ROW_NUMBER()。  
+> - 如果查询结果集中的行顺序/序列对应用程序逻辑很重要，请在查询中使用 ORDER BY。
+> - 如果 ORDER BY 列中的数据不是唯一的，无论是否启用或禁用结果集缓存，都不能保证 ORDER BY 列中值相同的行的行顺序。
 
 > [!IMPORTANT]
 > 创建结果集缓存以及从缓存中检索数据的操作在 Synapse SQL 池实例的控制节点上进行。
-> 当结果集缓存处于打开状态时，运行返回大型结果集（例如，超过 1 GB）的查询可能会导致控制节点上带宽限制较高，并降低实例上的整体查询响应速度。  这些查询通常在数据探索或 ETL 操作期间使用。 为了避免控制节点压力过大并出现性能问题，用户在运行此类查询之前应该对数据库禁用结果集缓存。  
+> 当结果集缓存处于打开状态时，运行返回大型结果集（例如，超过 1 GB）的查询可能会导致控制节点上带宽限制较高，并降低实例上的整体查询响应速度。  这些查询通常在数据浏览或 ETL 操作过程中使用。 若要避免对控制节点造成压力并导致性能问题，用户应在运行此类查询之前关闭数据库的结果集缓存。  
 
 此查询的运行持续时间以针对某个查询执行结果集缓存操作所需的时间为宜：
 
@@ -57,11 +61,11 @@ WHERE request_id  = <'request_id'>;
 
 下面是在禁用结果集缓存的情况上执行的某个查询的示例输出。
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![屏幕截图显示了查询结果，其中包括位置类型和命令。](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 下面是在启用结果集缓存的情况上执行的某个查询的示例输出。
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![屏幕截图显示了查询结果，其中标注了命令从 [D W ResultCache D b] dot d b o 选择的 *。](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>何时使用缓存结果
 
@@ -80,11 +84,11 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 ## <a name="manage-cached-results"></a>管理缓存结果
 
-每个数据库的结果集缓存最大大小为 1 TB。  当底层查询数据发生更改时，缓存结果会自动失效。  
+每个数据库的结果集缓存最大大小为 1 TB。  当基础查询数据更改时，缓存的结果将自动失效。  
 
 缓存逐出由 Synapse SQL 按照以下计划自动管理：
 
-- 如果结果集在 48 小时间隔时间内未使用，或者已失效。
+- 尚未使用结果集或已失效（每 48 小时执行一次）。
 - 当结果集缓存接近最大大小时。
 
 用户可以使用以下选项之一手动清空整个结果集缓存：

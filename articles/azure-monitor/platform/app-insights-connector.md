@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 02/13/2019
-ms.openlocfilehash: 8c3b31dda185705d0349f94c92a0f48adeae57cc
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 041e8626eee1205991dc7c0a3b3b46457b831f0b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457373"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328446"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -57,9 +57,9 @@ ms.locfileid: "89457373"
 
 ## <a name="configuration"></a>Configuration
 
-1. 从 [Azure 市场](https://market.azure.cn//marketplace/apps/Microsoft.AppInsights?tab=Overview)或者使用[从解决方案库中添加 Log Analytics 解决方案](../insights/solutions.md)中所述的过程，启用 Azure Web 应用分析解决方案。
-2. 浏览到 [Azure 门户](https://portal.azure.cn)。 选择“所有服务”**** 以打开 Application Insights。 然后，搜索 Application Insights。 
-3. 在“订阅”下，选择包含 Application Insights 资源的订阅，然后在“名称”下选择一个或多个应用程序。********
+1. 从 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.AppInsights?tab=Overview)或者使用[从解决方案库中添加 Log Analytics 解决方案](../insights/solutions.md)中所述的过程，启用 Azure Web 应用分析解决方案。
+2. 浏览到 [Azure 门户](https://portal.azure.cn)。 选择“所有服务”以打开 Application Insights。 然后，搜索 Application Insights。 
+3. 在“订阅”下，选择包含 Application Insights 资源的订阅，然后在“名称”下选择一个或多个应用程序。
 4. 单击“ **保存**”。
 
 大约 30 分钟后，数据将会可用，Application Insights 磁贴中会更新数据，如下图所示：
@@ -69,7 +69,7 @@ ms.locfileid: "89457373"
 要记住的其他要点：
 
 - 只能将 Application Insights 应用链接到一个 Log Analytics 工作区。
-- 只能将[基本或企业 Application Insights 资源](https://www.azure.cn/pricing/details/monitor)链接到 Log Analytics。 但是，可以使用 Log Analytics 的免费层。
+- 只能将[基本或企业 Application Insights 资源](https://www.azure.cn/pricing/details/application-insights)链接到 Log Analytics。 但是，可以使用 Log Analytics 的免费层。
 
 ## <a name="management-packs"></a>管理包
 
@@ -81,13 +81,13 @@ ms.locfileid: "89457373"
 
 ### <a name="view-application-insights-connector-information"></a>查看 Application Insights 连接器信息
 
-单击“Application Insights”磁贴打开“Application Insights”仪表板查看以下边栏选项卡。********
+单击“Application Insights”磁贴打开“Application Insights”仪表板查看以下边栏选项卡。
 
-![Application insights 仪表板](./media/app-insights-connector/app-insights-dash01.png)
+![Application Insights 仪表板的屏幕截图，其中显示“应用程序”、“数据量”和“可用性”的边栏选项卡。](./media/app-insights-connector/app-insights-dash01.png)
 
-![Application insights 仪表板](./media/app-insights-connector/app-insights-dash02.png)
+![Application Insights 仪表板的屏幕截图，其中显示“服务器请求”、“失败”和“异常”的边栏选项卡。](./media/app-insights-connector/app-insights-dash02.png)
 
-该仪表板包含下表中所示的边栏选项卡。 每个边栏选项卡按照指定范围和时间范围列出了匹配该边栏选项卡条件的最多 10 个项。 单击边栏选项卡底部的“查看全部”或单击边栏选项卡标题时，可运行返回所有记录的日志搜索。****
+该仪表板包含下表中所示的边栏选项卡。 每个边栏选项卡按照指定范围和时间范围列出了匹配该边栏选项卡条件的最多 10 个项。 单击边栏选项卡底部的“查看全部”或单击边栏选项卡标题时，可运行返回所有记录的日志搜索。
 
 
 | **列** | **说明** |
@@ -103,25 +103,25 @@ ms.locfileid: "89457373"
 
 单击仪表板中的任一项可以查看搜索中显示的 Application Insights 透视图。 透视图根据所选的遥测类型提供扩展的可视化效果。 因此，可视化内容会根据不同的遥测类型变化。
 
-单击“应用程序”边栏选项卡中的任意位置可以查看“应用程序”透视图。****
+单击“应用程序”边栏选项卡中的任意位置可以查看“应用程序”透视图。
 
 ![Application Insights 中的“应用程序”透视图](./media/app-insights-connector/applications-blade-drill-search.png)
 
 该透视图显示所选应用程序的概述。
 
-“可用性”边栏选项卡显示一个不同的透视图，可在其中查看 Web 测试结果和相关的失败请求数。****
+“可用性”边栏选项卡显示一个不同的透视图，可在其中查看 Web 测试结果和相关的失败请求数。
 
 ![Application Insights 中的“可用性”透视图](./media/app-insights-connector/availability-blade-drill-search.png)
 
-单击“服务器请求数”或“失败数”边栏选项卡中的任意位置时，透视图组件会发生变化，显示请求相关的可视化效果。********
+单击“服务器请求数”或“失败数”边栏选项卡中的任意位置时，透视图组件会发生变化，显示请求相关的可视化效果。
 
 ![Application Insights 中的“失败数”边栏选项卡](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-单击“异常数”边栏选项卡中的任意位置可以查看根据异常数定制的可视化效果。****
+单击“异常数”边栏选项卡中的任意位置可以查看根据异常数定制的可视化效果。
 
 ![Application Insights 中的“异常”边栏选项卡](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-不管是否在“Application Insights 连接器”仪表板中单击了某项，在“搜索”页面本身中，返回 Application Insights 数据的任何查询都会显示 Application Insights 透视图。******** 例如，查看 Application Insights 数据时，**&#42;** 查询也会显示如下图所示的透视图选项卡：
+不管是否在“Application Insights 连接器”仪表板中单击了某项，在“搜索”页面本身中，返回 Application Insights 数据的任何查询都会显示 Application Insights 透视图。 例如，查看 Application Insights 数据时，**&#42;** 查询也会显示如下图所示的透视图选项卡：
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -133,18 +133,18 @@ ms.locfileid: "89457373"
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>在 Azure 门户中透视应用
 
-“Application Insights 连接器”边栏选项卡用来在你使用 Azure 门户时切换到选定的 Application Insights 应用。** 可以使用该解决方案作为高级监视平台来帮助排查应用问题。 在任何连接的应用程序中发现潜在问题时，可以在 Log Analytics 搜索中深入到该问题，或者直接透视 Application Insights 应用。
+“Application Insights 连接器”边栏选项卡用来在你使用 Azure 门户时切换到选定的 Application Insights 应用。 可以使用该解决方案作为高级监视平台来帮助排查应用问题。 在任何连接的应用程序中发现潜在问题时，可以在 Log Analytics 搜索中深入到该问题，或者直接透视 Application Insights 应用。
 
-若要透视，请单击每行末尾显示的省略号 (**...**)，然后选择“在 Application Insights 中打开”。****
+若要透视，请单击每行末尾显示的省略号 (**...**)，然后选择“在 Application Insights 中打开”。
 
 >[!NOTE]
->Azure 门户中未提供“在 Application Insights 中打开”。****
+>Azure 门户中未提供“在 Application Insights 中打开”。
 
 ![在 Application Insights 中打开](./media/app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>采样更正数据
 
-Application Insights 提供*[采样更正](../app/sampling.md)* 来帮助减少遥测流量。 在 Application Insights 应用中启用采样时，可以减少 Application Insights 和 Log Analytics 中存储的条目数量。 尽管“Application Insights 连接器”页面和透视图中会保持数据一致性，但对于自定义查询，应手动更正采样的数据。****
+Application Insights 提供 *[采样更正](../app/sampling.md)* 来帮助减少遥测流量。 在 Application Insights 应用中启用采样时，可以减少 Application Insights 和 Log Analytics 中存储的条目数量。 尽管“Application Insights 连接器”页面和透视图中会保持数据一致性，但对于自定义查询，应手动更正采样的数据。
 
 下面日志搜索查询中的采样更正示例：
 
@@ -152,7 +152,7 @@ Application Insights 提供*[采样更正](../app/sampling.md)* 来帮助减少�
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-“采样计数”字段出现在所有条目中，显示条目代表的数据点数目。**** 如果为 Application Insights 应用启用了采样，则“采样计数”大于 1。**** 若要统计应用程序生成的实际条目数，请对“采样计数”字段求和。****
+“采样计数”字段出现在所有条目中，显示条目代表的数据点数目。 如果为 Application Insights 应用启用了采样，则“采样计数”大于 1。 若要统计应用程序生成的实际条目数，请对“采样计数”字段求和。
 
 采样只会影响应用程序生成的条目总数。 不需要更正 **RequestDuration** 或 **AvailabilityDuration** 等指标字段的采样，因为这些字段显示被代表条目的平均值。
 
@@ -170,7 +170,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ## <a name="output-data"></a>输出数据
 
-将为每种输入数据创建 *ApplicationInsights* 类型的记录。** ApplicationInsights 记录具有以下部分中所述的属性：
+将为每种输入数据创建 *ApplicationInsights* 类型的记录。 ApplicationInsights 记录具有以下部分中所述的属性：
 
 ### <a name="generic-fields"></a>泛型字段
 
@@ -304,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.chinacloudapi.cn$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-此脚本需要持有者身份验证令牌才能对 Azure Active Directory 进行身份验证。 检索此令牌的一种方法是使用 [REST API 文档站点](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)中的文章。 单击“试用”，然后登录 Azure 订阅****。 可从“请求预览”复制持有者令牌，如下图所示****。
+此脚本需要持有者身份验证令牌才能对 Azure Active Directory 进行身份验证。 检索此令牌的一种方法是使用 [REST API 文档站点](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)中的文章。 单击“试用”，然后登录 Azure 订阅。 可从“请求预览”复制持有者令牌，如下图所示。
 
 
 ![持有者令牌](./media/app-insights-connector/bearer-token.png)

@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/30/2020
-ms.date: 03/09/2020
+ms.date: 11/16/2020
 ms.author: v-yiso
-ms.openlocfilehash: 6355606c62509239b5e10805c0761a01dadecf35
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 356e67301b63da678080b97dfa2989becf2f9c10
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394750"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328474"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>监视、诊断和排查 Azure IoT 中心的连接断开问题
 
@@ -24,25 +24,25 @@ ms.locfileid: "91394750"
 
 使用 Azure Monitor 可在设备连接断开时获取警报并写入日志。
 
-### <a name="turn-on-diagnostic-logs"></a>启用诊断日志 
+### <a name="turn-on-logs"></a>启用日志
 
-若要记录设备连接事件和错误，请为 IoT 中心启用诊断。 建议尽早启用这些日志，因为如果未启用诊断日志，则当设备断开连接时，将没有任何信息可用来排查问题。
+若要记录设备连接事件和错误，请为 [IoT 中心连接资源日志](monitor-iot-hub-reference.md#connections)创建诊断设置。 建议尽快创建此设置，因为默认情况下不会收集这些日志；如果没有这些日志，在设备断开连接时，你将没有任何信息可供排查。
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 
-2. 浏览到 IoT 中心。
+1. 浏览到 IoT 中心。
 
-3. 选择“诊断设置”。
+1. 选择“诊断设置”。
 
-4. 选择“启用诊断”。
+1. 选择“添加诊断设置”。
 
-5. 启用要收集的“连接”日志。
+1. 选择“连接”日志。
 
-6. 为便于分析，请启用“发送到 Log Analytics”****。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
+6. 为便于分析，请选择“发送到 Log Analytics”。 请参阅[解决连接错误](#resolve-connectivity-errors)下的示例。
 
    ![建议的设置](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-有关详细信息，请参阅[监视 Azure IoT 中心的运行状况并快速诊断问题](iot-hub-monitor-resource-health.md)。
+有关详细信息，请参阅[监视 IoT 中心](monitor-iot-hub.md)。
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>大规模设置设备断开连接警报
 
@@ -68,7 +68,7 @@ ms.locfileid: "91394750"
 
 ## <a name="resolve-connectivity-errors"></a>解决连接错误
 
-为联网设备启用诊断日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假设已经在 Azure Monitor 日志中设置了诊断日志。
+为联网设备启用日志和警报后，如果出错，则会收到警报。 本部分介绍如何在收到警报时解决常见问题。 以下步骤假定你已创建可将 IoT 中心连接日志发送到 Log Analytics 工作区的诊断设置。
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 
@@ -100,7 +100,7 @@ ms.locfileid: "91394750"
 如果前面的步骤没有帮助，可尝试以下操作：
 
 * 如果你有权以物理方式或远程访问（例如通过 SSH）有问题的设备，请遵循[设备端故障排除指南](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices)继续进行故障排除。
-* 在 Azure 门户 > IoT 中心 > IoT 设备中验证你的设备是否**已启用**。
+* 在 Azure 门户 > IoT 中心 > IoT 设备中验证你的设备是否 **已启用**。
 * 如果设备使用 MQTT 协议，请确认端口 8883 已打开。 有关详细信息，请参阅[连接到 IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
 * 获取有关[适用于 Azure IoT 中心的 Microsoft 常见问题解答页面](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)、[堆栈溢出](https://stackoverflow.com/questions/tagged/azure-iot-hub)或 [Azure 支持](https://azure.microsoft.com/support/options/)的帮助。

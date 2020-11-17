@@ -4,7 +4,6 @@ titleSuffix: Azure Network Watcher
 description: 在 Azure 中使用网络观察程序和 Grafana 管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,16 +12,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: b546032e9a9c6fb74711a4c3816fe33fd0af67d3
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 652f619036b3a5ecd12fee6652da524efdc3b25b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548050"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327492"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用网络观察程序和 Grafana 管理和分析网络安全组流日志
 
@@ -202,7 +202,7 @@ sudo service grafana-server start
 
 以下屏幕截图描绘了一个图形和图表，其中显示了出现最多的流及其频率。 流还可以按 NSG 规则以及按决策显示。 Grafana 是可以高度自定义的，因此，建议创建仪表板来适应你的特定监视需求。 下面的示例显示了一个典型的仪表板：
 
-:::image type="content" source="./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png" alt-text="仪表板图形":::
+:::image type="content" source="./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png" alt-text="显示示例图配置的屏幕截图，其中按 NSG 规则对流进行了细分。":::
 
 ## <a name="conclusion"></a>结论
 

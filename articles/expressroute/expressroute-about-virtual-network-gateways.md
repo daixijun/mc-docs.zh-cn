@@ -1,19 +1,19 @@
 ---
-title: 关于 Azure ExpressRoute 虚拟网络网关 | Azure
+title: 关于 ExpressRoute 虚拟网络网关 - Azure | Microsoft Docs
 description: 了解 ExpressRoute 的虚拟网络网关。 本文包含有关网关 SKU 和类型的信息。
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 10/14/2019
 ms.author: v-yiso
 ms.date: 12/23/2019
-ms.openlocfilehash: 046089558b71b024bf664b5cd7710609d946cc84
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: ace4ccc2f63e7997f573c7d37ff49651b0914ef7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227921"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327702"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>关于 ExpressRoute 虚拟网络网关
 
@@ -85,13 +85,13 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 | **经典** | **资源管理器** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [REST API](https://docs.microsoft.com/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](https://docs.microsoft.com/rest/api/virtual-network/) |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关可用连接配置的详细信息，请参阅 [ExpressRoute 概述](./expressroute-introduction.md)。
+有关可用连接配置的详细信息，请参阅 [ExpressRoute 概述](expressroute-introduction.md)。
 
 有关创建 ExpressRoute 网关的详细信息，请参阅[创建 ExpressRoute 的虚拟网络网关](expressroute-howto-add-gateway-resource-manager.md)。
 
-有关如何启用 FastPath 的详细信息，请参阅[将虚拟网络链接到 ExpressRoute](expressroute-howto-linkvnet-arm.md)。 
+

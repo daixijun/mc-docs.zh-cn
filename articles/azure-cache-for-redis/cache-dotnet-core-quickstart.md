@@ -1,5 +1,5 @@
 ---
-title: 快速入门：将 Azure Cache for Redis 与 .NET Core 应用配合使用
+title: 快速入门：在 .NET Core 中使用 Azure Cache for Redis
 description: 在本快速入门中，了解如何在 .NET Core 应用中访问 Azure Redis 缓存
 author: yegu-ms
 ms.author: v-junlch
@@ -7,15 +7,15 @@ ms.service: cache
 ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
-ms.date: 09/14/2020
-ms.openlocfilehash: 2860b4f5d3f87720ac90b8643757a60deabec19b
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.date: 11/03/2020
+ms.openlocfilehash: fc5710ee02ac8af7883eb8bb093a8a519f83bc61
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721163"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326601"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>快速入门：在 .NET Core 中使用 Azure Cache for Redis
 
 在本快速入门中，会将 Azure Redis 缓存合并到 .NET Core 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。 你专门在 .NET Core 控制台应用中将 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 客户端与 C# 代码配合使用。
 
@@ -29,7 +29,7 @@ ms.locfileid: "90721163"
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-记下**主机名**和**主**访问密钥。 稍后将使用这些值来构造 *CacheConnection* 机密。
+记下 **主机名** 和 **主** 访问密钥。 稍后将使用这些值来构造 *CacheConnection* 机密。
 
 
 

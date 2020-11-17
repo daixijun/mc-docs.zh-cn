@@ -220,7 +220,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
 1. 注销 Azure 门户，然后重新登录。
 
-    激活 Azure AD 角色时，将会看见激活的各阶段。 在所有阶段都完成后， **注销** 链接将会显示。 可以使用此链接进行注销。这将解决大多数情况下激活延迟的问题。
+    激活 Azure AD 角色时，将会看见激活的各阶段。 在所有阶段都完成后，**注销** 链接将会显示。 可以使用此链接进行注销。这将解决大多数情况下激活延迟的问题。
 
 1. 在 Privileged Identity Management 中，验证是否已将你列为角色的成员。
 

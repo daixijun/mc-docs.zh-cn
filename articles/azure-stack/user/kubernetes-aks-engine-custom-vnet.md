@@ -4,16 +4,16 @@ description: 了解如何将 Kubernetes 群集部署到 Azure Stack Hub 上的�
 author: WenJason
 ms.topic: article
 origin.date: 9/2/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 9ef290ac1f0404d8ad0bbb0a9fbc4295a2be21e1
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 1fa343154c8a41046b9e63bb7ab29f64f7f35739
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437648"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330487"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络 
 
@@ -47,6 +47,13 @@ Azure Stack Hub 实例中必须有一个自定义虚拟网络。 有关详细信
     ![虚拟网络 CIDR 块](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. 在“子网”边栏选项卡中，记下地址范围和虚拟网络 CIDR 块，例如：`10.1.0.0 - 10.1.0.255 (256 addresses)` 和 `10.1.0.0/24`。
+
+## <a name="considerations-for-selecting-an-address-space"></a>选择地址空间的注意事项
+
+创建自定义虚拟网络时，可以为每个子网指定网络的 IP 地址空间和 IP 地址范围。 选择要在 Kubernetes 群集中使用的地址空间和范围时，请考虑以下因素：
+-  地址空间重叠可能会导致 IP 地址冲突或通信错误。 若要降低 IP 地址重叠的风险，请为新的虚拟网络选择唯一的地址空间。
+-  `10.` 和 `172.` 范围内的地址空间通常用于专用网络，并且它们可能由现有数据中心基础结构使用。 如果 Kubernetes 应用程序使用数据中心中的资源，可通过为自定义虚拟网络选择不同于数据中心地址空间的地址空间来降低冲突风险。
+-  建议为 Kubernetes 群集使用专用子网。
 
 ## <a name="get-the-ip-address-block"></a>获取 IP 地址块
 

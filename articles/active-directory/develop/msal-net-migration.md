@@ -29,7 +29,7 @@ ms.locfileid: "94501644"
 - 应用程序可以启用增量许可，可以更轻松地为条件访问提供支持
 - 你将从创新中受益。
 
-**MSAL.NET 现在是建议用于 Microsoft 标识平台的身份验证库** 。 不会使用 ADAL.NET 实现任何新功能。 工作的重点是改进 MSAL。
+**MSAL.NET 现在是建议用于 Microsoft 标识平台的身份验证库**。 不会使用 ADAL.NET 实现任何新功能。 工作的重点是改进 MSAL。
 
 本文介绍适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 与适用于 .NET 的 Azure AD 身份验证库 (ADAL.NET) 之间的差异，并帮助你迁移到 MSAL。
 

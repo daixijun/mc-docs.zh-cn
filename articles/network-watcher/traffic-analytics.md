@@ -3,24 +3,25 @@ title: Azure 流量分析 | Azure
 description: 了解如何使用流量分析来分析 Azure 网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/15/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.reviewer: vinigam
-ms.openlocfilehash: 0e0de71237d5da7bb11eb281d535f6be3f156739
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.custom: references_regions
+ms.openlocfilehash: 5718666c73e9b81d77ff6e971656040f6c8af55d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548055"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328181"
 ---
 <!--Verify Successfully-->
 <!--TRAFFIC ANALYTICS ONLY AVAILABLE ON "CHINA EAST 2" SITE -->
@@ -75,7 +76,7 @@ Log Analytics 工作区必须存在于以下区域中：
 
 ### <a name="user-access-requirements"></a>用户访问要求
 
-帐户必须是以下 Azure [内置角色](../role-based-access-control/built-in-roles.md?toc=%2fnetwork-watcher%2ftoc.json)之一的成员：
+帐户必须是以下 [Azure 内置角色](../role-based-access-control/built-in-roles.md?toc=%2fnetwork-watcher%2ftoc.json)成员之一：
 
 |部署模型   | 角色                   |
 |---------          |---------               |
@@ -298,7 +299,7 @@ New-AzStorageAccount `
 - 了解哪个子网正在与哪个应用程序网关或负载均衡器对话。 如果观察到意外的对话，可以更正配置。
 - 如果未授权网络正在与应用程序网关或负载均衡器对话，可以配置 NSG 规则来阻止未授权网络，从而更正此行为。 
 
-    :::image type="content" source="./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png" alt-text="展示应用程序网关子网的流相关流量分布的子网拓扑":::
+    :::image type="content" source="./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png" alt-text="屏幕截图显示了应用程序网关子网的流相关流量分布的子网拓扑。":::
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>查看从 Internet 接收流量的端口和虚拟机
 

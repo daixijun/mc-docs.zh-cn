@@ -213,6 +213,10 @@
               items:
                 - name: 概述
                   href: event-hubs-overview.md
+            - name: IoT 中心
+              items:
+                - name: 概述
+                  href: iot-hub-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -250,6 +254,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: 升级群集
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: 启用服务帐户令牌卷投影
+                      href: kubernetes-aks-engine-service-account.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: 对容器使用 Azure Monitor

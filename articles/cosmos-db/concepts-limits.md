@@ -5,24 +5,25 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 56f9c294ce286337fa300a68f7cd1551d6df22fb
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 459470f4f440730487d51b8d41ce7d7aa8fa7dc9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118069"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327792"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 服务配额
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文概述了 Azure Cosmos DB 中提供给不同资源的默认配额。
 
 ## <a name="storage-and-database-operations"></a>存储和数据库操作
 
-在订阅下创建 Azure Cosmos 帐户后，可以通过[创建数据库、容器和项](databases-containers-items.md)来管理帐户中的数据。
+在订阅下创建 Azure Cosmos 帐户后，可以通过[创建数据库、容器和项](account-databases-containers-items.md)来管理帐户中的数据。
 
 ### <a name="provisioned-throughput"></a>预配的吞吐量
 
@@ -30,15 +31,15 @@ ms.locfileid: "92118069"
 
 | 资源 | 默认限制 |
 | --- | --- |
-| 每个容器的最大 RU 数（[专用吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[开具 Azure 支持票证](https://support.azure.cn/support/support-azure/)来提高此限制 |
-| 每个数据库的最大 RU 数（[共享吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[开具 Azure 支持票证](https://support.azure.cn/support/support-azure/)来提高此限制 |
+| 每个容器的最大 RU 数（[专用吞吐量预配模式](account-databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[开具 Azure 支持票证](https://support.azure.cn/support/support-azure/)来提高此限制 |
+| 每个数据库的最大 RU 数（[共享吞吐量预配模式](account-databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[开具 Azure 支持票证](https://support.azure.cn/support/support-azure/)来提高此限制 |
 | 每个（逻辑）分区的最大 RU 数 | 10,000 |
 | 每个（逻辑）分区的所有项的最大存储 | 20 GB |
 | 不同（逻辑）分区键的最大数目 | 无限制 |
 | 每个容器的最大存储 | 无限制 |
 | 每个数据库的最大存储 | 无限制 |
 | 每个帐户的最大附件大小（附件功能即将弃用） | 2 GB |
-| 每 1 GB 需要的最小 RU 数 | 10 RU/秒 |
+| 每 1 GB 需要的最小 RU 数 | 10 RU/秒<br />**注意：** 如果你的容器或数据库中有超过 1TB 的数据，你的帐户可能有资格加入我们的[“高存储/低吞吐量”计划](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > 若要了解有关管理其分区键需要更高存储或吞吐量限制的工作负荷的最佳做法，请参阅[创建合成分区键](synthetic-partition-keys.md)。
@@ -58,8 +59,8 @@ Cosmos 容器（或共享吞吐量数据库）的最小吞吐量必须为 400 RU
 
 | 资源 | 默认限制 |
 | --- | --- |
-| 每个容器的最小 RU 数（[专用吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
-| 每个数据库的最小 RU 数（[共享吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 400 |
+| 每个容器的最小 RU 数（[专用吞吐量预配模式](account-databases-containers-items.md#azure-cosmos-containers)） | 400 |
+| 每个数据库的最小 RU 数（[共享吞吐量预配模式](account-databases-containers-items.md#azure-cosmos-containers)） | 400 |
 | 共享吞吐量数据库中每个容器的最小 RU 数 | 100 |
 
 Cosmos DB 支持通过 SDK 或门户对每个容器或数据库的吞吐量 (RU) 进行弹性缩放。 可以同步方式或立即缩放每个容器，缩放范围为最小值和最大值之间的 10 到 100 倍。 如果请求的吞吐量值超出范围，将以异步方式执行缩放。 完成异步缩放所需的时间为数分钟到数小时不等，具体取决于请求的吞吐量和容器中的数据存储大小。  
@@ -140,6 +141,7 @@ Cosmos DB 会定期自动备份数据。 有关备份保留时间间隔和窗口
 | 属性值的最大长度 | 无实际限制 |
 | 字符串属性值的最大长度 | 无实际限制 |
 | 数字属性值的最大长度 | IEEE754 双精度 64 位 |
+| 嵌入对象/数组的最大嵌套级别 | 128 |
 | 最大 TTL 值 |2147483647|
 
 除了对分区键和 ID 值的长度限制以及 2 MB 的总大小限制外，对项负载没有任何限制，如属性数量和嵌套深度。 可能需要为具有大型或复杂项结构的容器配置索引策略，以减少 RU 消耗。 [为 Cosmos DB 中的项建模](how-to-model-partition-example.md)中提供了一个真实示例，以及用于管理大项的模式。
@@ -193,7 +195,7 @@ Azure Cosmos DB 为每个帐户维护系统元数据。 此元数据可用于免
 
 ## <a name="sql-query-limits"></a>SQL 查询限制
 
-Cosmos DB 支持使用 [SQL](how-to-sql-query.md) 查询项。 下表描述了查询语句的限制，例如子句数目或查询长度方面的限制。
+Cosmos DB 支持使用 [SQL](./sql-query-getting-started.md) 查询项。 下表描述了查询语句的限制，例如子句数目或查询长度方面的限制。
 
 | 资源 | 默认限制 |
 | --- | --- |
@@ -219,7 +221,7 @@ Cosmos DB 支持针为 MongoDB 编写的应用程序使用 MongoDB 线路协议�
 | MongoDB 操作的最长执行时间| 30 秒 |
 | 导致服务器端连接关闭的空闲连接超时值* | 30 分钟 |
 
-\* 我们建议客户端应用程序将驱动程序设置中的空闲连接超时值设为 2-3 分钟，因为 [Azure LoadBalancer 的默认超时值为 4 分钟](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)。  此超时值可确保客户端计算机与 Azure Cosmos DB 之间的中间负载均衡器不会关闭空闲连接。
+\* 我们建议客户端应用程序将驱动程序设置中的空闲连接超时值设为 2-3 分钟，因为 [Azure LoadBalancer 的默认超时值为 4 分钟](../load-balancer/load-balancer-tcp-idle-timeout.md)。  此超时值可确保客户端计算机与 Azure Cosmos DB 之间的中间负载均衡器不会关闭空闲连接。
 
 <!--Not Available on ## Try Cosmos DB Free limits-->
 

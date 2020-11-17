@@ -1,6 +1,6 @@
 ---
 title: Azure ExpressRoute 模板：创建 ExpressRoute 线路
-description: 创建、预配、删除和取消预配 ExpressRoute 线路。
+description: 了解如何使用 Azure PowerShell 部署 Azure 资源管理器模板，以创建 Azure ExpressRoute 线路。
 services: expressroute
 author: charwen
 ms.service: expressroute
@@ -9,12 +9,12 @@ origin.date: 11/13/2019
 ms.date: 06/08/2020
 ms.author: v-yiso
 ms.reviewer: ganesr
-ms.openlocfilehash: 0711ef9c6e4260c44f155164b933d03b0a27e977
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: a3b674132f133e7b485b644ac4c6d434ec221251
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186595"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328274"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 ExpressRoute 线路
 
@@ -36,7 +36,91 @@ ms.locfileid: "84186595"
 
 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/)有许多资源管理器模板。 请使用某个[现有模板](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/)来创建 ExpressRoute 线路。
 
-<!--[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]-->
+```JSON
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "circuitName": {
+      "type": "string",
+      "metadata": {
+        "description": "This is the name of the ExpressRoute circuit"
+      }
+    },
+    "serviceProviderName": {
+      "type": "string",
+      "metadata": {
+        "description": "This is the name of the ExpressRoute Service Provider. It must exactly match one of the Service Providers from List ExpressRoute Service Providers API call."
+      }
+    },
+    "peeringLocation": {
+      "type": "string",
+      "metadata": {
+        "description": "This is the name of the peering location and not the ARM resource location. It must exactly match one of the available peering locations from List ExpressRoute Service Providers API call."
+      }
+    },
+    "bandwidthInMbps": {
+      "type": "int",
+      "metadata": {
+        "description": "This is the bandwidth in Mbps of the circuit being created. It must exactly match one of the available bandwidth offers List ExpressRoute Service Providers API call."
+      }
+    },
+    "sku_tier": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "Chosen SKU Tier of ExpressRoute circuit. Choose from Premium or Standard SKU tiers."
+      }
+    },
+    "sku_family": {
+      "type": "string",
+      "defaultValue": "MeteredData",
+      "allowedValues": [
+        "MeteredData",
+        "UnlimitedData"
+      ],
+      "metadata": {
+        "description": "Chosen SKU family of ExpressRoute circuit. Choose from MeteredData or UnlimitedData SKU families."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.Network/expressRouteCircuits",
+      "name": "[parameters('circuitName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "key1": "value1",
+        "key2": "value2"
+      },
+      "sku": {
+        "name": "[concat(parameters('sku_tier'),'_', parameters('sku_family'))]",
+        "tier": "[parameters('sku_tier')]",
+        "family": "[parameters('sku_family')]"
+      },
+      "properties": {
+        "serviceProviderProperties": {
+          "serviceProviderName": "[parameters('serviceProviderName')]",
+          "peeringLocation": "[parameters('peeringLocation')]",
+          "bandwidthInMbps": "[parameters('bandwidthInMbps')]"
+        }
+      }
+    }
+  ]
+}
+```
 
 若要查看更多相关的模板，请在[此处](https://azure.microsoft.com/resources/templates/?term=expressroute)进行选择。
 
@@ -62,8 +146,8 @@ ms.locfileid: "84186595"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU 层**确定 ExpressRoute 线路是[本地](expressroute-faqs.md#expressroute-local)线路、标准线路还是[高级](expressroute-faqs.md#expressroute-premium)线路。 可以指定“本地”  、“标准”  或“高级”  。
-   * **SKU 系列**确定计费类型。 可以指定“Metereddata”  以获取数据流量套餐，指定“Unlimiteddata”  以获取无限制流量套餐。 可以将计费类型从“Metereddata”更改为“Unlimiteddata”，但不能将类型从“Unlimiteddata”更改为“Metereddata”。     “本地”  线路仅为 Unlimiteddata  。
+   * **SKU 层** 确定 ExpressRoute 线路是 [本地](expressroute-faqs.md#expressroute-local)线路、标准线路还是 [高级](expressroute-faqs.md#expressroute-premium)线路。 可以指定“本地”  、“标准”  或“高级”  。
+   * **SKU 系列** 确定计费类型。 可以指定“Metereddata”  以获取数据流量套餐，指定“Unlimiteddata”  以获取无限制流量套餐。 可以将计费类型从“Metereddata”更改为“Unlimiteddata”，但不能将类型从“Unlimiteddata”更改为“Metereddata”。     “本地”  线路仅为 Unlimiteddata  。
    * “对等互连位置”  是与 Microsoft 建立对等互连的实际位置。
 
      > [!IMPORTANT]

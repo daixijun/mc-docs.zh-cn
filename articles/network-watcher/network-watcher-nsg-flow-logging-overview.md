@@ -4,23 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 本文说明如何使用 Azure 网络观察程序的 NSG 流日志功能
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ea1020ab3606c9df9d47349a0f46e10ddafa0477
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: ba890d4b6e02fc8eb65f92d783108180dba9179a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548044"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327495"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 
@@ -51,10 +51,11 @@ ms.locfileid: "87548044"
 **关键属性**
 
 <!--Not Available on wikipedia-->
+
 - 流日志在第 4 层运行，记录传入和传出 NSG 的所有 IP 流
 - 日志是通过 Azure 平台收集的，不会对客户资源或网络性能造成任何形式的影响。
 - 日志以 JSON 格式编写，基于每个 NSG 规则显示出站和入站流。
-- 每条日志记录包含流所应用到网络接口 (NIC)、5 元组信息、流量决策和（仅限版本 2）吞吐量信息。 有关完整详细信息，请参阅下面的_日志格式_。
+- 每条日志记录包含流所应用到网络接口 (NIC)、5 元组信息、流量决策和（仅限版本 2）吞吐量信息。 有关完整详细信息，请参阅下面的 _日志格式_。
 - 流日志具有保留功能，可以自动删除在创建后已保留一年的日志。 
 
 > [!NOTE]
@@ -67,8 +68,8 @@ ms.locfileid: "87548044"
 - 网络中的所有流量流都是使用适用 NSG 中的规则评估的。
 - 这些评估的结果就是 NSG 流日志。 流日志通过 Azure 平台收集，无需对客户资源进行任何更改。
 - 注意：规则分为两种类型（终止和非终止），每种类型都有不同的日志记录行为。
-- - NSG 拒绝规则是终止类型。 拒绝流量的 NSG 会将其记录在流日志中，在这种情况下，处理将在任何 NSG 拒绝流量后停止。 
-- - NSG 允许规则是非终止类型，这意味着即使一个 NSG 允许，处理也会继续下一 NSG。 允许流量的最后一个 NSG 会将流量记录到流日志。
+    - NSG 拒绝规则是终止类型。 拒绝流量的 NSG 会将其记录在流日志中，在这种情况下，处理将在任何 NSG 拒绝流量后停止。 
+    - NSG 允许规则是非终止类型，这意味着即使一个 NSG 允许，处理也会继续下一 NSG。 允许流量的最后一个 NSG 会将流量记录到流日志。
 - NSG 流日志将写入到存储帐户，从存储帐户中可以访问这些日志。
 - 可以使用 TA、Splunk、Grafana、Stealthwatch 等工具导出、处理、分析和可视化流日志。
 
@@ -296,7 +297,7 @@ ms.locfileid: "87548044"
 ```
 **日志元组说明**
 
-:::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/tuple.png" alt-text="流日志概述":::
+:::image type="content" source="./media/network-watcher-nsg-flow-logging-overview/tuple.png" alt-text="流日志元组":::
 
 **采样带宽计算**
 
@@ -310,11 +311,11 @@ ms.locfileid: "87548044"
 
 使用下面的相关链接获取有关启用流日志的指导。
 
-- [Azure 门户](/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [PowerShell](/network-watcher/network-watcher-nsg-flow-logging-powershell)
-- [CLI](/network-watcher/network-watcher-nsg-flow-logging-cli)
-- [REST](/network-watcher/network-watcher-nsg-flow-logging-rest)
-- [Azure Resource Manager](/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
+- [Azure 门户](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [PowerShell](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-powershell)
+- [CLI](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-cli)
+- [REST](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-rest)
+- [Azure Resource Manager](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
 
 ## <a name="updating-parameters"></a>更新参数
 
@@ -331,7 +332,7 @@ ms.locfileid: "87548044"
 *读取和导出流日志*
 
 - [从门户下载并查看流日志](/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
-- [使用 PowerShell 函数读取流日志](/network-watcher/network-watcher-read-nsg-flow-logs)
+- [使用 PowerShell 函数读取流日志](https://docs.azure.cn/network-watcher/network-watcher-read-nsg-flow-logs)
 - [将 NSG 流日志导出到 Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 
 流日志针对的是 NSG，但其显示方式不同于其他日志。 流日志仅存储在一个存储帐户中，其采用的日志记录路径如以下示例所示：
@@ -342,11 +343,11 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 *可视化流日志*
 
-- [Azure 流量分析](/network-watcher/traffic-analytics)是一个 Azure 原生服务，用于处理流日志、提取见解以及可视化流日志。 
-- [[教程] 使用 Power BI 可视化 NSG 流日志](/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
-- [[教程] 使用 Elastic Stack 可视化 NSG 流日志](/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
-- [[教程] 使用 Grafana 管理和分析 NSG 流日志](/network-watcher/network-watcher-nsg-grafana)
-- [[教程] 使用 Graylog 管理和分析 NSG 流日志](/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
+- [Azure 流量分析](https://docs.azure.cn/network-watcher/traffic-analytics)是一个 Azure 原生服务，用于处理流日志、提取见解以及可视化流日志。 
+- [[教程] 使用 Power BI 可视化 NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
+- [[教程] 使用 Elastic Stack 可视化 NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
+- [[教程] 使用 Grafana 管理和分析 NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-nsg-grafana)
+- [[教程] 使用 Graylog 管理和分析 NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 流日志记录注意事项
 
@@ -361,13 +362,17 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 <!--Not Available on [Stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true)-->
 
-**入站流被从 Internet IP 记录到了没有公共 IP 的虚拟机**：对于没有通过与 NIC 关联的公共 IP 地址分配公共 IP 地址作为实例级公共 IP 的虚拟机，或者是属于基本负载均衡器后端池的一部分的虚拟机，请使用[默认SNAT](../load-balancer/load-balancer-outbound-connections.md)，并使用由 Azure 分配的 IP 地址以便于进行出站连接。 因此，如果流的目的地是分配给 SNAT 的端口范围内的端口，你可能会看到来自 Internet IP 地址的流的流日志条目。 虽然 Azure 不允许将这些流传输到 VM，但是按照设计，该尝试会被记录并显示在网络观察程序的 NSG 流日志中。 我们建议使用 NSG 来显式阻止不需要的入站 Internet 流量。
+**入站流被从 Internet IP 记录到了没有公共 IP 的虚拟机**：对于没有通过与 NIC 关联的公共 IP 地址分配公共 IP 地址作为实例级公共 IP 的虚拟机，或者是属于基本负载均衡器后端池的一部分的虚拟机，请使用 [默认SNAT](../load-balancer/load-balancer-outbound-connections.md)，并使用由 Azure 分配的 IP 地址以便于进行出站连接。 因此，如果流的目的地是分配给 SNAT 的端口范围内的端口，你可能会看到来自 Internet IP 地址的流的流日志条目。 虽然 Azure 不允许将这些流传输到 VM，但是按照设计，该尝试会被记录并显示在网络观察程序的 NSG 流日志中。 我们建议使用 NSG 来显式阻止不需要的入站 Internet 流量。
+
+不兼容的服务：由于当前的平台限制，NSG 流日志不支持一小部分 Azure 服务。 当前不兼容的服务的列表为
+- [Azure Kubernetes 服务 (AKS)](https://www.azure.cn/home/features/kubernetes-service/)
+- [逻辑应用](https://www.azure.cn/home/features/logic-apps/) 
 
 ## <a name="best-practices"></a>最佳实践
 
 **在关键的 VNET/子网上启用**：作为审核和安全方面的最佳做法，应在订阅中的所有关键 VNET/子网上启用流日志。 
 
-**在附加到资源的所有 NSG 上启用 NSG 流日志记录**：Azure 中的流日志记录是在 NSG 资源上配置的。 一个流只与一个 NSG 规则相关联。 如果利用了多个 NSG，我们建议在应用了 NSG 的所有资源子网或网络接口中启用 NSG 流日志，以确保记录所有流量。 有关详细信息，请参阅网络安全组中的[流量评估方式](../virtual-network/security-overview.md#how-traffic-is-evaluated)。
+**在附加到资源的所有 NSG 上启用 NSG 流日志记录**：Azure 中的流日志记录是在 NSG 资源上配置的。 一个流只与一个 NSG 规则相关联。 如果利用了多个 NSG，我们建议在应用了 NSG 的所有资源子网或网络接口中启用 NSG 流日志，以确保记录所有流量。 有关详细信息，请参阅网络安全组中的[流量评估方式](../virtual-network/network-security-group-how-it-works.md)。
 
 **存储预配**：应该根据预期的流日志量预配存储。
 
@@ -397,7 +402,7 @@ NSG 流日志当前不支持通过 ARM 模板进行自动化操作。 有关详�
 
 **NSG 流日志有什么作用？**
 
-可以通过[网络安全组 (NSG)](/virtual-network/security-overview) 来合并和管理 Azure 网络资源。 使用 NSG 流日志可以通过 NSG 记录有关所有流量的 5 元组流信息。 原始流日志将写入 Azure 存储帐户，在存储帐户中，可以根据需要进一步处理、分析、查询或导出这些日志。
+可以通过[网络安全组 (NSG)](https://docs.azure.cn/virtual-network/security-overview) 来合并和管理 Azure 网络资源。 使用 NSG 流日志可以通过 NSG 记录有关所有流量的 5 元组流信息。 原始流日志将写入 Azure 存储帐户，在存储帐户中，可以根据需要进一步处理、分析、查询或导出这些日志。
 
 **使用流日志是否影响网络延迟或性能？**
 

@@ -5,20 +5,20 @@ description: 了解 Azure Stack Hub 如何使用静态加密来保护数据。
 author: WenJason
 ms.topic: how-to
 origin.date: 03/04/2020
-ms.date: 08/31/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: d0bebe22a50e8db78e624cd9dd9f6810a20a3a93
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 5a0a4436ec3904bab21e542bfbe9ad8e8e493722
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867834"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330495"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub 中的静态数据加密
 
-Azure Stack Hub 使用静态加密来保护存储子系统级别的用户数据和基础结构数据。 Azure Stack Hub 的存储子系统按照 128 位 AES 加密法使用 BitLocker 进行加密。 BitLocker 密钥保存在内部机密存储中。
+Azure Stack Hub 使用静态加密来保护存储子系统级别的用户数据和基础结构数据。 默认情况下，Azure Stack Hub 的存储子系统按照 128 位 AES 加密法使用 BitLocker 进行加密。 BitLocker 密钥保存在内部机密存储中。 在部署时，还可以将 BitLocker 配置为使用 256 位 AES 加密。
 
 静态数据加密是许多主流合规标准（例如 PCI-DSS、FedRAMP、HIPAA）的共同要求。 Azure Stack Hub 使你无需进行额外的工作或配置即可满足这些要求。 有关 Azure Stack Hub 如何帮助你符合合规性标准的详细信息，请参阅 [Microsoft 服务信任门户](https://aka.ms/AzureStackCompliance)。
 

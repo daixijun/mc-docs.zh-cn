@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/21/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 19c141e5eb99f105901f5437f9f006f7685ad7e1
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.openlocfilehash: 7e4891a0aaf68b0710e4afa203f37fb6309ae83d
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828774"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326443"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>在 Azure AD B2C 自定义策略中定义一次性密码技术配置文件
 
@@ -73,13 +73,15 @@ OutputClaims 元素包含由一次性密码协议提供程序生成的声明列�
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | 否 | 代码过期之前的时间（秒）。 最小值：`60`；大值：`1200`；默认值：`600` |
+| CodeExpirationInSeconds | 否 | 代码过期之前的时间（秒）。 最小值：`60`；大值：`1200`；默认值：`600` 每次提供代码（使用 `ReuseSameCode` 的相同代码或新代码）时，代码过期时间都会延长。  |
 | CodeLength | 否 | 代码的长度。 默认值为 `6`。 |
 | CharacterSet | 否 | 代码的字符集，其格式设置为可在正则表达式中使用。 例如，`a-z0-9A-Z`。 默认值为 `0-9`。 字符集必须在指定的集中至少包含 10 个不同的字符。 |
 | NumRetryAttempts | 否 | 代码被视为无效之前的验证尝试次数。 默认值为 `5`。 |
 | NumCodeGenerationAttempts | 否 | 每个标识符的最大代码生成尝试次数。 如果未指定，则默认值为 10。 |
 | 操作 | 是 | 要执行的操作。 可能的值：`GenerateCode`。 |
-| ReuseSameCode | 否 | 给定代码未过期且仍然有效时，是否应提供重复的代码而不生成新代码。 默认值为 `false`。 |
+| ReuseSameCode | 否 | 当给定代码尚未过期且仍然有效时，是否应给出相同的代码而不是生成新代码。 默认值为 `false`。  |
+
+
 
 ### <a name="example"></a>示例
 

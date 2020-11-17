@@ -5,17 +5,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/10/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: cad48ea6af7b2aaace81d5102baa68a68a83ac38
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0f50a72d457ccf57bb924fbb49585abcaae13f54
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118369"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328127"
 ---
 <!--Verified successfully-->
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 使用自动缩放预配吞吐量，Azure Cosmos DB 将根据使用情况自动管理和缩放数据库或容器的 RU/s。 本文解答了有关自动缩放的常见问题。
 
@@ -39,9 +40,9 @@ ms.locfileid: "92118369"
 每小时将向你收取系统在该小时内扩展到的最高吞吐量 `T` 的费用。 如果你的资源在这个小时内没有请求，或者缩放的范围未超出 `0.1 * Tmax`，则将向你收取最低 `0.1 * Tmax` 的费用。 请参考 Azure Cosmos DB [定价页面](https://www.azure.cn/pricing/details/cosmos-db/)了解详细信息。 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>自动缩放如何显示在我的帐单上？
-在单主数据库帐户中，每 100 RU/s 的自动缩放速率是标准（手动）预配吞吐量速率的 1.5 倍。 在账单上，你可看到现有的标准预配吞吐量计量。 此计量的数量乘以 1.5。 例如，如果系统在一小时内缩放到的最高 RU/s 为 6,000 RU/s，则该小时的计费是 60 * 1.5 = 90 个计量单位。
+在单写入区域帐户中，每 100 RU/s 的自动缩放速率是标准（手动）预配吞吐量速率的 1.5 倍。 在账单上，你可看到现有的标准预配吞吐量计量。 此计量的数量乘以 1.5。 例如，如果系统在一小时内缩放到的最高 RU/s 为 6,000 RU/s，则该小时的计费是 60 * 1.5 = 90 个计量单位。
 
-在多主数据库帐户中，每 100 RU/s 的自动缩放速率与标准（手动）预配的多主数据库吞吐量速率相同。 在帐单上，你可看到现有的多主数据库计量。 由于速率相同，因此如果你使用自动缩放，你可看到与标准吞吐量相同的数量。
+在具有多个写入区域的帐户中，每 100 RU/s 的自动缩放速率与标准（手动）预配的多写入区域吞吐量速率相同。 在帐单上，你可看到现有的多写入区域计量。 由于速率相同，因此如果你使用自动缩放，你可看到与标准吞吐量相同的数量。
 
 <!--Not Available on ### Does autoscale work with reserved capacity?-->
 
@@ -51,7 +52,7 @@ ms.locfileid: "92118369"
 ### <a name="is-autoscale-supported-for-all-apis"></a>是否所有 API 都支持自动缩放？
 是的，所有 API 都支持自动缩放：Core (SQL)、Gremlin、Table、Cassandra 以及 MongoDB API。
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>多主数据库帐户是否支持自动缩放？
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>多区域写入帐户是否支持自动缩放？
 是的。 添加到 Azure Cosmos DB 帐户的每个区域都支持最大 RU/s。 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>如何对新数据库或容器启用自动缩放？
@@ -126,7 +127,7 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 - 1 小时：T=2：容器开始接收请求，在 1 秒内使用 1,000 RU。 此外，还有需使用 200 RU 的 TTL 要实现。 计费 RU/s 仍然为 1,000 RU/s。 无论何时发生 TTL，它们都不会影响自动缩放逻辑。
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>最大 RU/秒和物理分区之间的映射是什么？
-首次选择最大 RU/s 时，Azure Cosmos DB 将进行以下预配：最大 RU/秒/10000 RU/秒 = 物理分区的数量。 每个[物理分区](partition-data.md#physical-partitions)最多可支持 10,000 RU/s 和 50 GB 的存储。 随着存储大小的增长，Azure Cosmos DB 将自动拆分分区，以添加更多物理分区来应对存储的增长；如果存储[超过相关限制](#what-is-the-storage-limit-associated-with-each-max-rus-option)，Azure Cosmos DB 将增加最大 RU/s。 
+首次选择最大 RU/s 时，Azure Cosmos DB 将进行以下预配：最大 RU/秒/10000 RU/秒 = 物理分区的数量。 每个[物理分区](partitioning-overview.md#physical-partitions)最多可支持 10,000 RU/s 和 50 GB 的存储。 随着存储大小的增长，Azure Cosmos DB 将自动拆分分区，以添加更多物理分区来应对存储的增长；如果存储[超过相关限制](#what-is-the-storage-limit-associated-with-each-max-rus-option)，Azure Cosmos DB 将增加最大 RU/s。 
 
 数据库或容器的最大 RU/s 在所有物理分区之间平均分配。 因此，任何单个物理分区可扩展到的总吞吐量为：数据库或容器的最大 RU/s / 物理分区数。 
 
@@ -148,6 +149,6 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 
 * 了解如何[对 Azure Cosmos DB 数据库或容器启用自动缩放](how-to-provision-autoscale-throughput.md)。
 * 了解[使用自动缩放预配吞吐量的优势](provision-throughput-autoscale.md#benefits-of-autoscale)。
-* 详细了解[逻辑和物理分区](partition-data.md)。
+* 详细了解[逻辑和物理分区](partitioning-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

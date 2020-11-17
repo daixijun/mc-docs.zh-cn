@@ -3,16 +3,15 @@ title: Azure Stack HCI 上的 Azure Kubernetes 服务要求
 description: 开始使用 Azure Stack HCI 上的 Azure Kubernetes 服务之前
 ms.topic: conceptual
 author: WenJason
-ms.service: azure-stack
 ms.author: v-jay
 origin.date: 09/22/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: c09825b86c529b3f1dfa449e3f74f10c4764c8b5
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.date: 11/09/2020
+ms.openlocfilehash: a82d821f6adc49ae23050998d3cc78c0984fabdb
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451216"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330670"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -22,7 +21,7 @@ ms.locfileid: "91451216"
 
 ## <a name="determine-hardware-requirements"></a>确定硬件要求
 
-建议你从我们的合作伙伴那里购买经验证的 Azure Stack HCI 硬件/软件解决方案。 这些解决方案是依据我们的参考体系结构设计和汇编的，并且经过了验证，能够确保兼容性和可靠性，因此你可以快速起步和运行。 检查所用的系统、组件、设备和驱动程序是否是通过 Windows Server 目录认证的 Windows Server 2019。 
+建议你从我们的合作伙伴那里购买经验证的 Azure Stack HCI 硬件/软件解决方案。 这些解决方案是依据我们的参考体系结构设计和汇编的，并且经过了验证，能够确保兼容性和可靠性，因此你可以快速起步和运行。 检查所用的系统、组件、设备和驱动程序是否是通过 Windows Server 目录认证的 Windows Server 2019。 请访问 [Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)网站获取经验证的解决方案。
 
 ### <a name="general-requirements"></a>一般要求
 
@@ -42,7 +41,7 @@ ms.locfileid: "91451216"
 
  - 虽然在技术上可以在单节点 Azure Stack HCI 服务器上运行 Azure Kubernetes 服务，但不建议这样做。
 
- - Azure Stack HCI 上的 Azure Kubernetes 服务的其他计算要求与 Azure Stack HCI 的要求一致。 有关 Azure Stack HCI 的服务器要求的详细信息，请访问 [Azure Stack HCI 要求](../hci/deploy/before-you-start.md)。  
+ - Azure Stack HCI 上的 Azure Kubernetes 服务的其他计算要求与 Azure Stack HCI 的要求一致。 有关 Azure Stack HCI 服务器要求的详细信息，请访问 [Azure Stack HCI 系统需求](../hci/concepts/system-requirements.md#server-requirements)。
 
  - 此预览版本需要使用 EN-US 区域和语言选择在群集中的每台服务器上安装 Azure Stack HCI 操作系统；目前在安装之后更改它们还不充分。
 
@@ -85,7 +84,7 @@ Windows Admin Center 计算机和 Azure Stack HCI 群集中的所有节点都需
 
 | URL        | 端口 | 服务 | 注释 |
 | ---------- | ---- | --- | ---- |
-https://get.helm.sh/  | 443 | 下载代理、WAC | 用于下载 Helm 二进制文件 
+https://helm.sh/blog/get-helm-sh/  | 443 | 下载代理、WAC | 用于下载 Helm 二进制文件 
 https://storage.googleapis.com/  | 443 | Cloud Init | 下载 Kubernetes 二进制文件 
 https://azurecliprod.blob.core.windows.net/ | 443 | Cloud Init | 下载二进制文件和容器 
 https://aka.ms/installazurecliwindows | 443 | WAC | 下载 Azure CLI 

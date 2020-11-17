@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: article
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/28/2020
-ms.openlocfilehash: 56c260850c2b6fcfef9315d4e42b8ef106867f33
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ca500c5171d646d092124acc2d4fe3e576e5f413
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148965"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327807"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 中的已保存查询
 
@@ -23,9 +23,9 @@ Log Analytics 提供了示例查询集，你可以运行这些查询本身，或
 
 新体验在上下文中筛选查询和提供查询建议。 换句话说，系统只会自动显示与所选作用域相关的查询。
 
-- 对于**单个资源**，将根据资源类型筛选查询。
-- 对于**资源组**，将根据特定资源组中的资源对查询进行筛选。
-- 对于**工作区**，将根据工作区中安装的解决方案对查询进行筛选。
+- 对于 **单个资源**，将根据资源类型筛选查询。
+- 对于 **资源组**，将根据特定资源组中的资源对查询进行筛选。
+- 对于 **工作区**，将根据工作区中安装的解决方案对查询进行筛选。
 
 对于所有 Log Analytics 作用域，此行为都是一致的。 如果看不到所需资源类型的示例查询，则可能是由于在上下文中进行了筛选。 下文中的一个部分介绍了如何删除上下文中作用域界定，以便你可以查看所有可能的查询。
 
@@ -54,7 +54,7 @@ Log Analytics 提供了示例查询集，你可以运行这些查询本身，或
 
 可以从 Log Analytics 左侧边栏中的查询窗格访问与对话框体验完全相同的功能。 可以将鼠标指针悬停在查询名称上来获取查询说明和其他功能。
 
-![边栏](./media/saved-queries/sidebar-3.png)
+![显示“查询”窗格的屏幕截图。](./media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>查找和筛选查询
 

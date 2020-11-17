@@ -1,23 +1,24 @@
 ---
 title: 为 Azure Cosmos 容器定义唯一键
-description: 了解如何使用 Azure 门户、PowerShell、.Net、Java 和各种其他 SDK 为 Azure Cosmos 容器定义唯一键。
+description: 了解如何使用 Azure 门户、PowerShell、.NET、Java 和各种其他 SDK 为 Azure Cosmos 容器定义唯一键。
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9be0b0cd891ad0391e1c66fe83a076a073c205ec
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: d25884573bceda8917cb488975b695e1328a6dc5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118577"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327832"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>为 Azure Cosmos 容器定义唯一键
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍在创建 Azure Cosmos 容器时定义[唯一键](unique-keys.md)的不同方法。 目前，可以通过使用 Azure 门户或通过其中一个 SDK 来执行此操作。
 
@@ -154,7 +155,7 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解有关[分区](partition-data.md)的详细信息
+- 了解有关[分区](partitioning-overview.md)的详细信息
 - 探索[索引编制的工作原理](index-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

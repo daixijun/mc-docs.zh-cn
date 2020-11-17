@@ -1,25 +1,26 @@
 ---
 title: 使用 Azure Monitor 为 Azure Cosmos DB 创建警报
 description: 了解如何使用 Azure Monitor 为 Azure Cosmos DB 设置警报。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 07/16/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: e558d3af3f9fef95593d86394ad58f74595b0e51
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 4d908b0083ce2c6a53cf25bafa593aa4a07d32fc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223546"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327668"
 ---
 <!--Verify Successfully-->
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>使用 Azure Monitor 为 Azure Cosmos DB 创建警报
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 警报用于设置重复测试，以监视 Azure Cosmos DB 资源的可用性和响应能力。 当指标之一达到阈值时或活动日志中记录了特定事件时，警报可以通过电子邮件向你发送通知，或执行某个 Azure 函数。
 
@@ -45,7 +46,7 @@ ms.locfileid: "88223546"
 
     * 打开“选择资源”窗格，配置以下内容：
 
-    * 选择**订阅**名称。
+    * 选择 **订阅** 名称。
 
     * 选择“Azure Cosmos DB 帐户”作为“资源类型”。 
 
@@ -61,11 +62,11 @@ ms.locfileid: "88223546"
 
     * 对于“Azure Monitor 服务”，请选择“全部” 
 
-    * 选择一个**信号名称**。 若要获取 HTTP 状态代码的警报，请选择“请求单位总数”信号。
+    * 选择一个 **信号名称**。 若要获取 HTTP 状态代码的警报，请选择“请求单位总数”信号。
 
     * 在下一个选项卡中，可以定义警报触发逻辑，并使用图表查看 Azure Cosmos 帐户的趋势。 “请求单位总数”指标支持维度。 可以按这些维度对指标进行筛选。 如果你未选择任何维度，系统会忽略此值。
 
-    * 选择“StatusCode”作为**维度名称**。 选择“添加自定义值”，将状态代码设置为 429。
+    * 选择“StatusCode”作为 **维度名称**。 选择“添加自定义值”，将状态代码设置为 429。
 
     * 在“警报逻辑”中，将“阈值”设置为“静态”。   静态阈值使用用户定义的阈值来评估规则，而动态阈值则使用内置的机器学习算法来持续学习指标行为模式并自动计算阈值。
 
@@ -91,7 +92,7 @@ ms.locfileid: "88223546"
         
         <!--MOONCAKE CUSTOMIZEION CORRECT ON **Email/SMS message** as the **Notification Type**-->
         
-    * 为操作提供一个名称，并选择“电子邮件/短信”作为**通知类型**。 以下屏幕截图显示了操作类型的详细信息：
+    * 为操作提供一个名称，并选择“电子邮件/短信”作为 **通知类型**。 以下屏幕截图显示了操作类型的详细信息：
 
         :::image type="content" source="./media/create-alerts/configure-alert-action-type_chenye_notification.png" alt-text="配置用于接收警报的操作类型（例如电子邮件通知）":::
         
@@ -109,8 +110,9 @@ ms.locfileid: "88223546"
 
 * 当更新了 Azure Cosmos 帐户的密钥时。
 * 当某个容器、数据库或区域所使用的数据或索引超过特定数目的字节时。
+* 当规范化 RU/秒消耗量大于特定百分比时。 规范化 RU 消耗指标提供副本集内的最大吞吐量使用率。
     
-    <!--Not Available on * When the normalized RU/s consumption is greater than certain percentage. The normalized RU consumption metric gives the maximum throughput utilization within a replica set. To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md)-->
+    <!--Not Available on  To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md)-->
     
 * 当添加、删除了某个区域或该区域进入脱机状态时。
 * 当创建、删除或更新了数据库或容器时。
@@ -118,9 +120,8 @@ ms.locfileid: "88223546"
 
 ## <a name="next-steps"></a>后续步骤
 
-<!--Not Available on * How to [monitor normalized RU/s metric](monitor-normalized-request-units.md)-->
+<!--Not Avaiable on [monitor normalized RU/s metric](monitor-normalized-request-units.md)-->
 
 * 如何[监视 Azure Cosmos DB 中的操作的吞吐量或请求单位用量](monitor-request-unit-usage.md)。
 
-<!-- Update_Description: new article about create alerts -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

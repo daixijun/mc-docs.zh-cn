@@ -2,19 +2,19 @@
 title: 评估新 Azure Policy 定义的影响
 description: 了解将新策略定义引入 Azure 环境时要遵循的过程。
 ms.author: v-tawe
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fb4526a421f40a54521ab56d84107b96af3b9a5
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 3f6e24c9453231e2f3b176a0e6bf25f343ca5839
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524064"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327748"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>评估新 Azure Policy 定义的影响
 
-Azure Policy 是一种功能强大的工具，用于管理 Azure 资源以符合业务标准并满足合规性需求。 当用户、过程或管道创建或更新资源时，Azure Policy 会评审请求。 当策略定义效果是 [Append](./effects.md#deny) 或 [DeployIfNotExists](./effects.md#deployifnotexists) 时，Policy 会更改请求或添加到其中。 当策略定义效果是 [Audit](./effects.md#audit) 或 [AuditIfNotExists](./effects.md#auditifnotexists) 时，Policy 会导致创建活动日志条目。 当策略定义效果是 [Deny](./effects.md#deny) 时，Policy 会停止创建或更改请求。
+Azure Policy 是一种功能强大的工具，用于管理 Azure 资源以符合业务标准并满足合规性需求。 当用户、过程或管道创建或更新资源时，Azure Policy 会评审请求。 当策略定义效果为 [Modify](./effects.md#modify)、[Append](./effects.md#deny) 或 [DeployIfNotExists](./effects.md#deployifnotexists) 时，Policy 会更改请求或对其进行补充。 当策略定义效果为 [Audit](./effects.md#audit) 或 [AuditIfNotExists](./effects.md#auditifnotexists) 时，Policy 会导致创建活动日志项，用于全新和更新的资源。 当策略定义效果是 [Deny](./effects.md#deny) 时，Policy 会停止创建或更改请求。
 
 如果你知道已正确定义了策略，则这些结果将完全符合预期。 不过，需要先验证新策略按预期方式工作，然后才允许它更改或阻止工作，这十分重要。 验证必须确保仅将预期资源确定为不合规，并且不会在结果中错误地包含任何合规资源（称为假正）。
 

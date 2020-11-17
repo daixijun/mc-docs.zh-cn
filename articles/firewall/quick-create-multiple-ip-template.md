@@ -7,22 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 47f5342798064ad163f3b53690e11df7714e87ec
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: c62d667387c69587e2941d49262f65adc651fb38
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246796"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327280"
 ---
 <!--Verified successfully on 05/25/2020-->
 <!--Successfully on Mooncake portal-->
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>快速入门：创建具有多个公共 IP 地址的 Azure 防火墙 - ARM 模板
 
-在本快速入门中，使用 Azure 资源管理器模板（ARM 模板）部署具有多个公共 IP 地址的 Azure 防火墙。 部署的防火墙具有 NAT 规则收集规则，这些规则允许通过 RDP 连接与两个 Windows Server 2019 虚拟机进行连接。
+在本快速入门中，使用 Azure 资源管理器模板（ARM 模板）从公共 IP 前缀部署具有多个公共 IP 地址的 Azure 防火墙。 部署的防火墙具有 NAT 规则收集规则，这些规则允许通过 RDP 连接与两个 Windows Server 2019 虚拟机进行连接。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -44,407 +44,425 @@ ms.locfileid: "91246796"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "String",
-            "metadata": {
-                "description": "Admin username for the backend servers"
-            }
-        },
-        "adminPassword": {
-            "type": "SecureString",
-            "metadata": {
-                "description": "Password for the admin account on the backend servers"
-            }
-        },
-        "location": {
-            "defaultValue": "[resourceGroup().location]",
-            "type": "String",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
-        "vmSize": {
-            "defaultValue": "Standard_B2ms",
-            "type": "String",
-            "metadata": {
-                "description": "Size of the virtual machine."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "String",
+      "metadata": {
+        "description": "Admin username for the backend servers"
+      }
     },
-    "variables": {
-        "virtualMachines_myVM_name": "myVM",
-        "virtualNetworks_myVNet_name": "myVNet",
-        "net_interface": "net-int",
-        "ipconfig_name": "ipconfig",
-        "publicIPAddress": "public_ip",
-        "nsg_name": "vm-nsg",
-        "firewall_name": "FW-01",
-        "vnet_prefix": "10.0.0.0/16",
-        "fw_subnet_prefix": "10.0.0.0/24",
-        "backend_subnet_prefix": "10.0.1.0/24",
-        "azureFirewallSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets',variables('virtualNetworks_myVNet_name'), 'AzureFirewallSubnet')]",
-        "azureFirewallSubnetJSON": "[json(format('{{\"id\": \"{0}\"}}', variables('azureFirewallSubnetId')))]",
-        "copy": [
-            {
-                "name": "azureFirewallIpConfigurations",
-                "count": 2,
-                "input": {
-                    "name": "[concat('IpConf', copyIndex('azureFirewallIpConfigurations',1))]",
-                    "properties": {
-                        "subnet": "[if(equals(copyIndex('azureFirewallIpConfigurations',1), 1), variables('azureFirewallSubnetJSON'), json('null'))]",
-                        "publicIPAddress": {
-                            "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), copyIndex('azureFirewallIpConfigurations',1)))]"
-                        }
-                    }
-                }
-            }
-        ]
+    "adminPassword": {
+      "type": "SecureString",
+      "metadata": {
+        "description": "Password for the admin account on the backend servers"
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2019-11-01",
-            "name": "[concat(variables('nsg_name'), copyIndex(1))]",
-            "location": "[parameters('location')]",
-            "copy": {
-                "name": "nsg-loop",
-                "count": 2
-            },
-            "properties": {
-                "securityRules": [
-                    {
-                        "name": "RDP",
-                        "properties": {
-                            "protocol": "TCP",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "3389",
-                            "sourceAddressPrefix": "*",
-                            "destinationAddressPrefix": "*",
-                            "access": "Allow",
-                            "priority": 300,
-                            "direction": "Inbound"
-                        }
-                    }
-                ]
+    "location": {
+      "defaultValue": "[resourceGroup().location]",
+      "type": "String",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "vmSize": {
+      "defaultValue": "Standard_B2ms",
+      "type": "String",
+      "metadata": {
+        "description": "Size of the virtual machine."
+      }
+    }
+  },
+  "variables": {
+    "virtualMachines_myVM_name": "myVM",
+    "virtualNetworks_myVNet_name": "myVNet",
+    "net_interface": "net-int",
+    "ipconfig_name": "ipconfig",
+    "ipprefix_name": "public_ip_prefix",
+    "ipprefix_size": 31,
+    "publicIPAddress": "public_ip",
+    "nsg_name": "vm-nsg",
+    "firewall_name": "FW-01",
+    "vnet_prefix": "10.0.0.0/16",
+    "fw_subnet_prefix": "10.0.0.0/24",
+    "backend_subnet_prefix": "10.0.1.0/24",
+    "azureFirewallSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets',variables('virtualNetworks_myVNet_name'), 'AzureFirewallSubnet')]",
+    "azureFirewallSubnetJSON": "[json(format('{{\"id\": \"{0}\"}}', variables('azureFirewallSubnetId')))]",
+    "copy": [
+      {
+        "name": "azureFirewallIpConfigurations",
+        "count": 2,
+        "input": {
+          "name": "[concat('IpConf', copyIndex('azureFirewallIpConfigurations',1))]",
+          "properties": {
+            "subnet": "[if(equals(copyIndex('azureFirewallIpConfigurations',1), 1), variables('azureFirewallSubnetJSON'), json('null'))]",
+            "publicIPAddress": {
+              "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), copyIndex('azureFirewallIpConfigurations',1)))]"
             }
-
-        },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2019-11-01",
-            "name": "[concat(variables('publicIPAddress'), copyIndex(1))]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard"
-            },
-            "copy": {
-                "name": "publicip-loop",
-                "count": 2
-            },
-            "properties": {
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Static",
-                "idleTimeoutInMinutes": 4
-            }
-
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2019-11-01",
-            "name": "[variables('virtualNetworks_myVNet_name')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/routeTables', 'rt-01')]"
-            ],
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('vnet_prefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "myBackendSubnet",
-                        "properties": {
-                            "addressPrefix": "[variables('backend_subnet_prefix')]",
-                            "routeTable": {
-                                "id": "[resourceId('Microsoft.Network/routeTables', 'rt-01')]"
-                            },
-                            "privateEndpointNetworkPolicies": "Enabled",
-                            "privateLinkServiceNetworkPolicies": "Enabled"
-                        }
-                    }
-                ],
-                "enableDdosProtection": false,
-                "enableVmProtection": false
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2019-11-01",
-            "name": "[concat(variables('virtualNetworks_myVNet_name'), '/AzureFirewallSubnet')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_myVNet_name'))]"
-            ],
-            "properties": {
-                "addressPrefix": "[variables('fw_subnet_prefix')]",
-                "privateEndpointNetworkPolicies": "Enabled",
-                "privateLinkServiceNetworkPolicies": "Enabled"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2019-07-01",
-            "name": "[concat(variables('virtualMachines_myVM_name'), copyIndex(1))]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('net_interface'), copyIndex(1)))]"
-            ],
-            "copy": {
-                "name": "vm-loop",
-                "count": 2
-            },
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "MicrosoftWindowsServer",
-                        "offer": "WindowsServer",
-                        "sku": "2019-Datacenter",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "osType": "Windows",
-                        "createOption": "FromImage",
-                        "caching": "ReadWrite",
-                        "managedDisk": {
-                            "storageAccountType": "StandardSSD_LRS"
-                        },
-                        "diskSizeGB": 127
-                    }
-                },
-                "osProfile": {
-                    "computerName": "[concat(variables('virtualMachines_myVM_name'), copyIndex(1))]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
-                    "windowsConfiguration": {
-                        "provisionVMAgent": true,
-                        "enableAutomaticUpdates": true
-                    },
-                    "allowExtensionOperations": true
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('net_interface'), copyIndex(1)))]"
-                        }
-                    ]
-                }
-            }
-
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2019-11-01",
-            "name": "[concat(variables('net_interface'), copyIndex(1))]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_myVNet_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('nsg_name'), copyIndex(1)))]"
-            ],
-            "copy": {
-                "name": "int-loop",
-                "count": 2
-            },
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "[concat(variables('ipconfig_name'), copyIndex(1))]",
-                        "properties": {
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_myVNet_name'), 'myBackendSubnet')]"
-                            },
-                            "primary": true
-                        }
-                    }
-                ],
-                "enableAcceleratedNetworking": false,
-                "enableIPForwarding": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('nsg_name'), copyIndex(1)))]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/azureFirewalls",
-            "apiVersion": "2019-11-01",
-            "name": "[variables('firewall_name')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), 1))]",
-                "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), 2))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_myVNet_name'), 'AzureFirewallSubnet')]"
-
-            ],
-            "properties": {
-                "sku": {
-                    "name": "AZFW_VNet",
-                    "tier": "Standard"
-                },
-                "threatIntelMode": "Alert",
-                "ipConfigurations": "[variables('azureFirewallIpConfigurations')]",
-                "applicationRuleCollections": [
-                    {
-                        "name": "web",
-                        "properties": {
-                            "priority": 100,
-                            "action": {
-                                "type": "Allow"
-                            },
-                            "rules": [
-                                {
-                                    "name": "wan-address",
-                                    "protocols": [
-                                        {
-                                            "protocolType": "Http",
-                                            "port": 80
-                                        },
-                                        {
-                                            "protocolType": "Https",
-                                            "port": 443
-                                        }
-                                    ],
-                                    "targetFqdns": [
-                                        "getmywanip.com"
-                                    ],
-                                    "sourceAddresses": [
-                                        "*"
-                                    ]
-                                },
-                                {
-                                    "name": "google",
-                                    "protocols": [
-                                        {
-                                            "protocolType": "Http",
-                                            "port": 80
-                                        },
-                                        {
-                                            "protocolType": "Https",
-                                            "port": 443
-                                        }
-                                    ],
-                                    "targetFqdns": [
-                                        "www.google.com"
-                                    ],
-                                    "sourceAddresses": [
-                                        "10.0.1.0/24"
-                                    ]
-                                },
-                                {
-                                    "name": "wupdate",
-                                    "protocols": [
-                                        {
-                                            "protocolType": "Http",
-                                            "port": 80
-                                        },
-                                        {
-                                            "protocolType": "Https",
-                                            "port": 443
-                                        }
-                                    ],
-                                    "fqdnTags": [
-                                        "WindowsUpdate"
-                                    ],
-                                    "sourceAddresses": [
-                                        "*"
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "natRuleCollections": [
-                    {
-                        "name": "Coll-01",
-                        "properties": {
-                            "priority": 100,
-                            "action": {
-                                "type": "Dnat"
-                            },
-                            "rules": [
-                                {
-                                    "name": "rdp-01",
-                                    "protocols": [
-                                        "TCP"
-                                    ],
-                                    "translatedAddress": "10.0.1.4",
-                                    "translatedPort": "3389",
-                                    "sourceAddresses": [
-                                        "*"
-                                    ],
-                                    "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddress'), 1))).ipAddress]" ],
-                                    "destinationPorts": [
-                                        "3389"
-                                    ]
-                                },
-                                {
-                                    "name": "rdp-02",
-                                    "protocols": [
-                                        "TCP"
-                                    ],
-                                    "translatedAddress": "10.0.1.5",
-                                    "translatedPort": "3389",
-                                    "sourceAddresses": [
-                                        "*"
-                                    ],
-                                    "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddress'), 2))).ipAddress]" ],
-                                    "destinationPorts": [
-                                        "3389"
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/routeTables",
-            "apiVersion": "2019-11-01",
-            "name": "rt-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "disableBgpRoutePropagation": false,
-                "routes": [
-                    {
-                        "name": "fw",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "10.0.0.4"
-                        }
-                    }
-                ]
-            }
+          }
         }
-
+      }
     ]
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(variables('nsg_name'), copyIndex(1))]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "nsg-loop",
+        "count": 2
+      },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "RDP",
+            "properties": {
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 300,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2020-06-01",
+      "type": "Microsoft.Network/publicIPPrefixes",
+      "name": "[variables('ipprefix_name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "prefixLength": "[variables('ipprefix_size')]",
+        "publicIPAddressVersion": "IPv4"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(variables('publicIPAddress'), copyIndex(1))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "copy": {
+        "name": "publicip-loop",
+        "count": 2
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPPrefixes', variables('ipprefix_name'))]"
+      ],
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "publicIPPrefix": {
+          "id": "[resourceId('Microsoft.Network/publicIPPrefixes',variables('ipprefix_name'))]"
+        },
+        "idleTimeoutInMinutes": 4
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[variables('virtualNetworks_myVNet_name')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/routeTables', 'rt-01')]"
+      ],
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('vnet_prefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "myBackendSubnet",
+            "properties": {
+              "addressPrefix": "[variables('backend_subnet_prefix')]",
+              "routeTable": {
+                "id": "[resourceId('Microsoft.Network/routeTables', 'rt-01')]"
+              },
+              "privateEndpointNetworkPolicies": "Enabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+          }
+        ],
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(variables('virtualNetworks_myVNet_name'), '/AzureFirewallSubnet')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_myVNet_name'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('fw_subnet_prefix')]",
+        "privateEndpointNetworkPolicies": "Enabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(variables('virtualMachines_myVM_name'), copyIndex(1))]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "vm-loop",
+        "count": 2
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('net_interface'), copyIndex(1)))]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Windows",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "StandardSSD_LRS"
+            },
+            "diskSizeGB": 127
+          }
+        },
+        "osProfile": {
+          "computerName": "[concat(variables('virtualMachines_myVM_name'), copyIndex(1))]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]",
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
+          },
+          "allowExtensionOperations": true
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('net_interface'), copyIndex(1)))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(variables('net_interface'), copyIndex(1))]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "int-loop",
+        "count": 2
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworks_myVNet_name'))]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('nsg_name'), copyIndex(1)))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "[concat(variables('ipconfig_name'), copyIndex(1))]",
+            "properties": {
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_myVNet_name'), 'myBackendSubnet')]"
+              },
+              "primary": true
+            }
+          }
+        ],
+        "enableAcceleratedNetworking": false,
+        "enableIPForwarding": false,
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('nsg_name'), copyIndex(1)))]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/azureFirewalls",
+      "apiVersion": "2020-06-01",
+      "name": "[variables('firewall_name')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), 1))]",
+        "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('publicIPAddress'), 2))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworks_myVNet_name'), 'AzureFirewallSubnet')]"
+      ],
+      "properties": {
+        "sku": {
+          "name": "AZFW_VNet",
+          "tier": "Standard"
+        },
+        "threatIntelMode": "Alert",
+        "ipConfigurations": "[variables('azureFirewallIpConfigurations')]",
+        "applicationRuleCollections": [
+          {
+            "name": "web",
+            "properties": {
+              "priority": 100,
+              "action": {
+                "type": "Allow"
+              },
+              "rules": [
+                {
+                  "name": "wan-address",
+                  "protocols": [
+                    {
+                      "protocolType": "Http",
+                      "port": 80
+                    },
+                    {
+                      "protocolType": "Https",
+                      "port": 443
+                    }
+                  ],
+                  "targetFqdns": [
+                    "getmywanip.com"
+                  ],
+                  "sourceAddresses": [
+                    "*"
+                  ]
+                },
+                {
+                  "name": "google",
+                  "protocols": [
+                    {
+                      "protocolType": "Http",
+                      "port": 80
+                    },
+                    {
+                      "protocolType": "Https",
+                      "port": 443
+                    }
+                  ],
+                  "targetFqdns": [
+                    "www.google.com"
+                  ],
+                  "sourceAddresses": [
+                    "10.0.1.0/24"
+                  ]
+                },
+                {
+                  "name": "wupdate",
+                  "protocols": [
+                    {
+                      "protocolType": "Http",
+                      "port": 80
+                    },
+                    {
+                      "protocolType": "Https",
+                      "port": 443
+                    }
+                  ],
+                  "fqdnTags": [
+                    "WindowsUpdate"
+                  ],
+                  "sourceAddresses": [
+                    "*"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "natRuleCollections": [
+          {
+            "name": "Coll-01",
+            "properties": {
+              "priority": 100,
+              "action": {
+                "type": "Dnat"
+              },
+              "rules": [
+                {
+                  "name": "rdp-01",
+                  "protocols": [
+                    "TCP"
+                  ],
+                  "translatedAddress": "10.0.1.4",
+                  "translatedPort": "3389",
+                  "sourceAddresses": [
+                    "*"
+                  ],
+                  "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddress'), 1))).ipAddress]" ],
+                  "destinationPorts": [
+                    "3389"
+                  ]
+                },
+                {
+                  "name": "rdp-02",
+                  "protocols": [
+                    "TCP"
+                  ],
+                  "translatedAddress": "10.0.1.5",
+                  "translatedPort": "3389",
+                  "sourceAddresses": [
+                    "*"
+                  ],
+                  "destinationAddresses": [ "[reference(resourceId('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddress'), 2))).ipAddress]" ],
+                  "destinationPorts": [
+                    "3389"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/routeTables",
+      "apiVersion": "2020-06-01",
+      "name": "rt-01",
+      "location": "[parameters('location')]",
+      "properties": {
+        "disableBgpRoutePropagation": false,
+        "routes": [
+          {
+            "name": "fw",
+            "properties": {
+              "addressPrefix": "0.0.0.0/0",
+              "nextHopType": "VirtualAppliance",
+              "nextHopIpAddress": "10.0.0.4"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
 模板中定义了多个 Azure 资源：
 
-- **Microsoft.Network/publicIPAddresses**
 - **Microsoft.Network/networkSecurityGroups**
+- **Microsoft.Network/publicIPPrefix**
+- **Microsoft.Network/publicIPAddresses**
 - **Microsoft.Network/virtualNetworks**
 - Microsoft.Compute/virtualMachines 
-- **Microsoft.Network/networkInterfaces**
 - **Microsoft.Storage/storageAccounts**
+- **Microsoft.Network/networkInterfaces**
 - **Microsoft.Network/azureFirewalls**
 - **Microsoft.Network/routeTables**
 

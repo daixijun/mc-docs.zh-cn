@@ -1,20 +1,20 @@
 ---
 title: 安装并配置 Microsoft Azure 诊断扩展 (WAD)
-description: 了解如何在 Azure 存储帐户中收集 Azure 诊断数据，以便你可以使用几种可用工具之一对其进行查看。
+description: 了解如何安装和配置 Windows 诊断扩展。 另外，了解如何存储数据的说明以及 Azure 存储帐户。
 services: azure-monitor
 author: Johnnytechn
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 origin.date: 02/17/2020
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 481f0520c710e0e0f6ae29dc40a9299744a182fd
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 878ace6692bfbe09ff02ba6584cf61bee0ded053
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457409"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328511"
 ---
 # <a name="install-and-configure-azure-diagnostics-extension-wad"></a>安装并配置 Azure 诊断扩展 (WAD)
 [Azure 诊断扩展](diagnostics-extension-overview.md)是 Azure Monitor 中的一个代理，可从 Azure 虚拟机的来宾操作系统和工作负载以及其他计算资源中收集监视数据。 本文详细介绍如何安装并配置 Windows 诊断扩展，以及如何将数据存储在 Azure 存储帐户中。
@@ -52,7 +52,7 @@ ms.locfileid: "89457409"
 
 6. 在“日志”选项卡中，选择要从虚拟机中收集的日志。 可以将日志发送到存储或事件中心，但不能将其发送到 Azure Monitor。 使用 [Log Analytics 代理](log-analytics-agent.md)将来宾日志收集到 Azure Monitor。
 
-   ![日志](./media/diagnostics-extension-windows-install/logs.png)
+   ![屏幕截图显示为虚拟机选择了不同日志的“日志”选项卡。](./media/diagnostics-extension-windows-install/logs.png)
 
 7. 在“故障转储”选项卡中，指定在发生故障后用于收集内存转储的任何进程。 数据将写入到存储帐户以进行诊断设置，你可以选择指定 blob 容器。
 
@@ -60,7 +60,7 @@ ms.locfileid: "89457409"
 
 8. 在“接收器”选项卡中，指定是否将数据发送到 Azure 存储以外的位置。 如果选择“Azure Monitor”，则来宾性能数据将发送到 Azure Monitor 指标。 不能使用 Azure 门户配置事件中心接收器。
 
-   ![接收器](./media/diagnostics-extension-windows-install/sinks.png)
+   ![屏幕截图显示“接收器”选项卡，其中启用了“将诊断数据发送到 Azure Monitor”选项。](./media/diagnostics-extension-windows-install/sinks.png)
    
    如果尚未启用为虚拟机配置的系统分配的标识，则在使用 Azure Monitor 接收器保存配置时可能会看到以下警告。 单击横幅以启用系统分配的标识。
    
@@ -68,7 +68,7 @@ ms.locfileid: "89457409"
 
 9. 在“代理”中，可以更改存储帐户、设置磁盘配额，并指定是否收集诊断基础结构日志。  
 
-   ![代理](./media/diagnostics-extension-windows-install/agent.png)
+   ![屏幕截图显示“代理”选项卡，其中包含用于设置存储帐户的选项。](./media/diagnostics-extension-windows-install/agent.png)
 
 10. 单击 **保存** 以保存配置。 
 

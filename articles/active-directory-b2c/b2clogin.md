@@ -8,19 +8,44 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 41c50777bc72d3a3625063b458d17b130dddfc07
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 6bad0d606d0e4390b0986de8e5b3570dac7e9cc3
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937100"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326463"
 ---
 # <a name="set-redirect-urls-to-b2clogincn-for-azure-active-directory-b2c"></a>将 Azure Active Directory B2C 的重定向 URL 设置为 b2clogin.cn
 
 在 Azure Active Directory B2C (Azure AD B2C) 应用程序中设置用于注册和登录的标识提供者时，需要指定一个重定向 URL。 请不要再在应用程序和 API 中引用 login.partner.microsoftonline.cn 来对用户进行 Azure AD B2C 身份验证。 对于所有新应用程序，应使用 *b2clogin.cn*，并将现有应用程序从 *login.partner.microsoftonline.cn* 迁移到 *b2clogin.cn*。
+
+## <a name="deprecation-of-loginpartnermicrosoftonlinecn"></a>弃用 login.partner.microsoftonline.cn
+
+**2020 年 10 月更新：** 我们将为无法在最初宣布的弃用日期 2020 年 12 月 4 日实现弃用的租户延长宽限期。 目前已更改为在 2021 年 1 月 14 日或以后停用 login.partner.microsoftonline.cn。
+
+**背景**：我们最初于 2019 年 12 月 4 日[宣布](https://azure.microsoft.com/updates/b2c-deprecate-msol/)计划于 2020 年 12 月 4 日在 Azure AD B2C 中停用对 login.partner.microsoftonline.cn 的支持。 这为现有租户提供了一 (1) 年时间迁移到 b2clogin.cn。 2019 年 12 月 4 日后创建的新租户将不接受来自 login.partner.microsoftonline.cn 的请求。 b2clogin.cn 终结点上的所有功能保持不变。
+
+弃用 login.partner.microsoftonline.cn 不会对 Azure Active Directory 租户造成影响。 该变更仅影响 Azure Active Directory B2C 租户。
+
+## <a name="what-endpoints-does-this-apply-to"></a>所涉及的终结点
+转换为 b2clogin.cn 仅与以下终结点相关：使用 Azure AD B2C 策略（用户流或自定义策略）对用户进行身份验证的身份验证终结点。 这些终结点的 `<policy-name>` 参数指定 Azure AD B2C 应使用的策略。 [详细了解 Azure AD B2C 策略](technical-overview.md#identity-experiences-user-flows-or-custom-policies)。 
+
+这些终结点可能如下所示：
+- <code>https://login.microsoft.com/\<tenant-name\>.partner.onmschina.cn/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+
+- <code>https://login.microsoft.com/\<tenant-name\>.partner.onmschina.cn/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
+
+另外，可将 `<policy-name>` 作为查询参数传递：
+- <code>https://login.microsoft.com/\<tenant-name\>.partner.onmschina.cn/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
+- <code>https://login.microsoft.com/\<tenant-name\>.partner.onmschina.cn/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
+
+> [!IMPORTANT]
+> 必须更新使用“策略”参数的终结点，以及[标识提供者重定向 URL](#change-identity-provider-redirect-urls)。
+
+部分 Azure AD B2C 客户使用 Azure AD 企业租户的共享功能，例如 OAuth 2.0 客户端凭据授予流。 这些功能可使用 Azure AD 的 login.partner.microsoftonline.cn 终结点（不包含策略参数）来访问。 __这些终结点不受影响__。
 
 ## <a name="benefits-of-b2clogincn"></a>b2clogin.cn 的优点
 
@@ -37,6 +62,13 @@ ms.locfileid: "91937100"
 * 将标识提供者应用程序中的重定向 URL 更改为引用 *b2clogin.cn*。
 * 将 Azure AD B2C 应用程序更新为在其用户流和令牌终结点引用中使用 *b2clogin.cn*。 这可能包括更新对诸如 Microsoft 身份验证库 (MSAL) 之类的身份验证库的使用。
 * 更新在 `user interface customization` 的 CORS 设置中定义的任何“允许的来源”。
+
+旧版终结点可能如下所示：
+- <b><code>https://login.microsoft.com/</b>\<tenant-name\>.partner.onmschina.cn/\<policy-name\>/oauth2/v2.0/authorize</code>
+
+更新后的相应终结点如下所示：
+- <code><b>https://\<tenant-name\>.b2clogin.cn/</b>\<tenant-name\>.partner.onmschina.cn/\<policy-name\>/oauth2/v2.0/authorize</code>
+
 
 ## <a name="change-identity-provider-redirect-urls"></a>更改标识提供者重定向 URL
 

@@ -149,8 +149,8 @@ var pca = PublicClientApplicationBuilder
 在 Android 和 iOS 上，中介可以实现：
 
 - **单一登录 (SSO)** ：对于已注册到 Azure Active Directory (Azure AD) 的设备，可以使用 SSO。 使用 SSO 时，用户无需登录到每个应用程序。
-- **设备标识** ：此设置启用与 Azure AD 设备相关的条件访问策略。 身份验证过程使用将设备加入工作区时创建的设备证书。
-- **应用程序标识验证** ：应用程序在调用中介时会传递其重定向 URL。 然后中介验证该 URL。
+- **设备标识**：此设置启用与 Azure AD 设备相关的条件访问策略。 身份验证过程使用将设备加入工作区时创建的设备证书。
+- **应用程序标识验证**：应用程序在调用中介时会传递其重定向 URL。 然后中介验证该 URL。
 
 ### <a name="enable-the-broker-on-xamarin"></a>在 Xamarin 上启用中介
 

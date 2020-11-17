@@ -4,15 +4,15 @@ description: 了解如何设置群集见证
 author: WenJason
 ms.topic: how-to
 origin.date: 08/11/2020
-ms.date: 08/27/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: de474acc952f291f652318dfb6a0274989b444d1
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: b4fe0b4f7e2cf502980f87f53424e951ecd59d81
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871634"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330653"
 ---
 # <a name="set-up-a-cluster-witness"></a>设置群集见证
 
@@ -22,7 +22,7 @@ ms.locfileid: "88871634"
 
 可以使用 SMB 文件共享作为见证或使用 Azure 云见证。 建议使用 Azure 云见证，前提是群集中的所有服务器节点都具有可靠的 Internet 连接。 有关详细信息，请参阅[部署故障转移群集的云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。
 
-文件共享见证对文件服务器有要求。 有关详细信息，请参阅[部署 Azure Stack HCI 之前](before-you-start.md)。
+文件共享见证对文件服务器有要求。 有关详细信息，请参阅[系统需求](../concepts/system-requirements.md)。
 
 ## <a name="set-up-a-witness-using-windows-admin-center"></a>使用 Windows Admin Center 设置见证
 
@@ -35,7 +35,7 @@ ms.locfileid: "88871634"
       - **文件共享见证** - 输入文件共享路径“(//server/share)”
 
 > [!NOTE]
-> 第三个选项**磁盘见证**不适用于延伸群集。
+> 第三个选项 **磁盘见证** 不适用于延伸群集。
 
 ## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>创建要用作云见证的 Azure 存储帐户
 
