@@ -6,18 +6,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 07/02/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f875885112342917892c3b52f894d14c47beb0e2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e51532b483adee62ffd30d40076f11fcc4335289
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118551"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327633"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>使用数据可视化解决方案可视化在 Azure Cosmos DB Gremlin API 中存储的图数据
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 使用各种数据可视化解决方案可视化在 Azure Cosmos DB Gremlin API 中存储的数据。 [Apache Tinkerpop 社区](https://tinkerpop.apache.org/#poweredby)建议使用以下解决方案进行图数据可视化。
 
@@ -29,11 +30,11 @@ ms.locfileid: "92118551"
 
 可以通过 Linkurious Enterprise 的交互式界面轻松调查复杂的数据。 可以搜索特定实体，可以通过展开连接来发现隐藏的关系，还可以应用所选布局来理清复杂的网络。 Linkurious Enterprise 现在兼容 Azure Cosmos DB Gremlin API。 它适用于端到端图可视化方案，支持用户界面中的读写功能。 可以请求[使用 Azure Cosmos DB 的 Linkurious 演示版](https://linkurio.us/contact/)
 
-:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Linkurious 徽标" border="false":::
+:::image type="content" source="./media/graph-visualization/linkurious-demo.gif" alt-text="Linkurious 演示" border="false":::
 
 ## <a name="cambridge-intelligence"></a>Cambridge Intelligence
 
-:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Linkurious 徽标" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Cambridge Intelligence 徽标" border="false":::
 
 [Cambridge Intelligence](https://cambridge-intelligence.com/products/) 的图可视化工具包现在支持 Azure Cosmos DB。 Azure Cosmos DB 支持下面的两个可视化工具包：
 
@@ -41,11 +42,11 @@ ms.locfileid: "92118551"
 
 - [面向 React 开发人员的 Re-Graph](https://cambridge-intelligence.com/regraph/)
 
-:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="Linkurious 徽标" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-2.gif" alt-text="动画以不同详细级别显示了 KeyLines 可视化效果示例。" border="false":::
 
 可以通过这些工具包针对用例设计高性能图可视化和分析应用程序。 这些工具包利用强大的 Web 图形库 (WebGL) 渲染功能和精心设计的代码，为用户提供快速且富有洞察力的可视化体验。 这些工具兼容任何浏览器、设备、服务器或数据库，并提供分步教程、具有完整文档记录的 API 以及交互式演示。
 
-:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="Linkurious 徽标" border="false":::
+:::image type="content" source="./media/graph-visualization/ci-demo-1.gif" alt-text="动画以不同详细级别显示了 Re-Graph 可视化效果示例。" border="false":::
 
 ## <a name="next-steps"></a>后续步骤
 

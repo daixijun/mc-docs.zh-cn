@@ -4,17 +4,17 @@ description: 在规划 Service Fabric 群集时要考虑节点类型、持久性
 ms.topic: conceptual
 origin.date: 05/21/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: 15865f9a498443c75377f3f1f32f08499c086d0e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a2b96446df9d255cb92c28b1e0e1f5e336869cf9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655661"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327406"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 
@@ -38,25 +38,25 @@ ms.locfileid: "89655661"
 
 非主节点类型可用于定义应用程序角色（例如前端和后端服务）并在群集中物理隔离服务 。 Service Fabric 群集可以有零个或更多非主节点类型。
 
-使用 Azure 资源管理器部署模板中节点类型定义下的 `isPrimary` 属性配置主节点类型。 有关节点类型属性的完整列表，请参阅 [NodeTypeDescription 对象](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)。 若要了解示例用法，请打开 [Service Fabric 群集示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/)中的任意 AzureDeploy.json 文件，并通过“在页面上查找”来搜索 `nodetTypes` 对象 。
+使用 Azure 资源管理器部署模板中节点类型定义下的 `isPrimary` 属性配置主节点类型。 有关节点类型属性的完整列表，请参阅 [NodeTypeDescription 对象](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)。 若要了解示例用法，请打开 [Service Fabric 群集示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/)中的任意 AzureDeploy.json 文件，并通过“在页面上查找”来搜索 `nodeTypes` 对象 。
 
 ### <a name="node-type-planning-considerations"></a>主节点计划注意事项
 
 初始节点类型的数量取决于集群的目的以及集群上运行的应用程序和服务。 考虑以下问题：
 
-* ***应用程序是否有多个服务，其中是否有任何服务需面向公众或面向 Internet？***
+* ***应用程序是否有多个服务，其中是否有任何服务需面向公众或面向 Internet？** _
 
     典型的应用程序包括从客户端接收输入的前端网关服务，以及与前端服务进行通信的一个或多个后端服务，前端和后端服务之间单独联网。 这些情况通常需要三种节点类型：一个主节点类型和两个非主节点类型（分别用于前端和后端服务）。
 
-* ***构成应用程序的各项服务是否有不同的基础结构要求，例如更多的 RAM 或更高的 CPU 周期？***
+_ ***构成应用程序的各项服务是否有不同的基础结构要求，例如更多的 RAM 或更高的 CPU 周期？** _
 
-    前端服务通常可以在容量较小（如 D2 等 VM 大小）且向 Internet 开放了端口的 VM 上运行。  计算密集型后端服务可能需要在不面向 Internet 的大型 VM（D4、D6、D15 等 VM 大小）上运行。 为这些服务定义不同的节点类型，可以更有效、更安全地使用基础 Service Fabric VM，并使它们能够独立缩放。 有关估算所需资源量的详细信息，请参阅 [Service Fabric 应用程序的容量计划](service-fabric-capacity-planning.md)
+    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
-* ***是否有应用程序服务需要扩展到 100 个节点以上？***
+_ ***是否有应用程序服务需要横向扩展到 100 个节点以上？** _
 
-    对于 Service Fabric 应用程序，单个节点类型无法可靠地扩展到每个虚拟机规模集 100 个节点以上。 运行超过 100 个节点需要额外的虚拟机规模集（因而还需要其他节点类型）。
+    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
 
-<!--Not Available on * ***Will your cluster span across Availability Zones?***-->
+<!--Not Available on _ ***Will your cluster span across Availability Zones?**_-->
 
 <!--Not Available on  [Availability Zones](../availability-zones/az-overview.md)-->
 

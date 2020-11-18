@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 07/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2ac32c1948a2285ecdf3f403ce47517a4cde544d
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 0c8f950139d99a55ff93b57f8777788308190aca
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845890"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375636"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Azure Synapse Analytics 的内存和并发限制
 
@@ -126,7 +126,7 @@ ms.locfileid: "85845890"
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-如果没有足够的并发槽位来启动查询执行，查询将根据重要性进行排队和执行。  如果重要性相同，查询将以先进先出的方式执行。  如果查询已完成并且查询数和槽位数低于限制，则 Azure SQL 数据仓库会释放排队的查询。
+如果没有足够的并发槽位来启动查询执行，查询将根据重要性进行排队和执行。  如果重要性相同，查询将以先进先出的方式执行。  如果查询已完成并且查询数和槽数低于限制，则 Azure Synapse Analytics 会释放排队的查询。
 
 ## <a name="next-steps"></a>后续步骤
 

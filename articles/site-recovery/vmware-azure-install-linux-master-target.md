@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 39ce8afb41720e22873a3a500a85f82c94ec0b9f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: da6b73b8d6eb085e96cb11b203a6f06da932df07
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128410"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327402"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安装用于故障回复的 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -47,10 +47,10 @@ ms.locfileid: "92128410"
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>创建主目标服务器时的大小调整准则
 
 根据下列大小调整准则创建主目标：
-- **RAM** ：6 GB 或更多
-- **OS 磁盘大小** ：100 GB 或更多（用于安装 OS）
-- **保留驱动器的附加磁盘大小** ：1 TB
-- **CPU 核心数** ：4 个核心或更多
+- **RAM**：6 GB 或更多
+- **OS 磁盘大小**：100 GB 或更多（用于安装 OS）
+- **保留驱动器的附加磁盘大小**：1 TB
+- **CPU 核心数**：4 个核心或更多
 - 内核：4.16。*
 
 ## <a name="deploy-the-master-target-server"></a>部署主目标服务器
@@ -67,19 +67,19 @@ ms.locfileid: "92128410"
     :::image type="content" source="./media/vmware-azure-install-linux-master-target/image1.png" alt-text="选择一种语言":::
 1. 选择“安装 Ubuntu 服务器”，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image2.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image2.png" alt-text="选择“安装 Ubuntu 服务器”":::
 
 1. 选择“英语”作为首选语言，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image3.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image3.png" alt-text="选择“英语”作为首选语言":::
 
 1. 在“时区”选项列表中选择相应选项，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image4.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image4.png" alt-text="选择正确的时区":::
 
 1. 选择“否”（默认选项），然后按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image5.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image5.png" alt-text="配置键盘":::
 1. 选择“英语(美国)”作为键盘原产地语言，再按 Enter。 
 
 1. 选择“英语(美国)”作为键盘布局，再按 Enter。 
@@ -88,13 +88,13 @@ ms.locfileid: "92128410"
 
 1. 要创建用户帐户，请输入用户名，然后选择“继续”。
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image9.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image9.png" alt-text="创建用户帐户":::
 
 1. 为新用户帐户输入密码，然后选择“继续”。
 
 1. 确认新用户的密码，再选择“继续”。
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image11.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image11.png" alt-text="确认密码":::
 
 1. 在加密主目录的下一项选择中，选择“否”（默认选项），再按 Enter。 
 
@@ -102,48 +102,48 @@ ms.locfileid: "92128410"
 
 1. 在分区方法选项中选择“引导式 - 使用整个磁盘”，然后按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image14.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image14.png" alt-text="选择分区方法选项":::
 
 1. 在“选择要分区的磁盘”选项中选择相应的磁盘，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image15.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image15.png" alt-text="选择磁盘":::
 
 1. 选择“是”将更改写入磁盘，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image16-ubuntu.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image16-ubuntu.png" alt-text="选择默认选项":::
 
 1. 在配置代理选项中选择默认选项，再选择“继续”按钮并按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image17-ubuntu.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image17-ubuntu.png" alt-text="此屏幕截图显示了在何处选择“继续”，然后选择“Enter”。":::
 
 1. 在管理系统升级相应选项中选择“不自动更新”选项，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image18-ubuntu.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image18-ubuntu.png" alt-text="选择如何管理升级":::
 
     > [!WARNING]
     > 由于 Azure Site Recovery 主目标服务器需要非常特定的 Ubuntu 版本，因此需确保已为虚拟机禁用内核升级。 如果启用，任意常规升级都会导致主目标服务器无法正常工作。 请务必选择“不自动更新”选项。
 
 1. 选择默认选项。 若要对 SSH 连接使用 openSSH，请依次选择“OpenSSH 服务器”选项和“继续”。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image19-ubuntu.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image19-ubuntu.png" alt-text="选择软件":::
 
 1. 在选择是否安装 GRUB 启动加载程序时，选择“是”，再按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image20.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image20.png" alt-text="GRUB 启动安装程序":::
 
 1. 为启动加载程序安装选择相应的设备（推荐 /dev/sda），然后按 Enter。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image21.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image21.png" alt-text="选择适当的设备":::
 
 1. 选择“继续”，然后按 Enter 来完成安装。 
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image22.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image22.png" alt-text="完成安装":::
 
 1. 在完成安装后，使用新用户凭据登录 VM。 （有关详细信息，请参阅步骤 10。）
 
 1. 按下列屏幕截图中所述步骤来设置 ROOT 用户密码。 然后以根用户身份登录。
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image23.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image23.png" alt-text="设置根用户密码":::
 
 ### <a name="configure-the-machine-as-a-master-target-server"></a>将计算机配置为主目标服务器
 
@@ -157,7 +157,7 @@ ms.locfileid: "92128410"
 
 4. 在左窗格中，选择“高级” > “常规”，然后选择屏幕右下角的“配置参数”按钮。  
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image24-ubuntu.png" alt-text="选择一种语言"::: 
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image24-ubuntu.png" alt-text="打开“配置参数”"::: 
 
     当计算机正在运行时，“配置参数”选项不可用。 若要使此选项卡处于活动状态，请关闭虚拟机。
 
@@ -171,7 +171,7 @@ ms.locfileid: "92128410"
 
     - 在名称列中，添加“disk.EnableUUID”，然后将值设置为 TRUE。 
 
-        :::image type="content" source="./media/vmware-azure-install-linux-master-target/image25.png" alt-text="选择一种语言":::
+        :::image type="content" source="./media/vmware-azure-install-linux-master-target/image25.png" alt-text="检查 disk.EnableUUID 是否存在":::
 
 #### <a name="disable-kernel-upgrades"></a>禁用内核升级
 
@@ -213,7 +213,7 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
     `tar -xvf latestlinuxmobsvc.tar.gz`
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image16.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image16.png" alt-text="要运行的命令的屏幕截图":::
 
 2. 运行以下命令来指定权限。
 
@@ -234,11 +234,11 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 2. 通过 multipath -ll 命令了解保留磁盘的多路径 I：multipath -ll
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image27.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image27.png" alt-text="多路径 ID":::
 
 3. 格式化驱动器，然后在新驱动器上创建文件系统：mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>。
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image23-centos.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image23-centos.png" alt-text="文件系统":::
 
 4. 创建文件系统后，请装载保留磁盘。
 
@@ -303,7 +303,7 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 2. 选择默认安装位置，并按 Enter 继续。
 
-    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image17.png" alt-text="选择一种语言":::
+    :::image type="content" source="./media/vmware-azure-install-linux-master-target/image17.png" alt-text="选择主目标的默认安装位置":::
 
 安装完成后，使用命令行注册配置服务器。
 

@@ -7,17 +7,17 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: ecbc8468635a4f676bdf5b3882bf45f23db50e9c
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 00021cc2cd9f2d112804e19afd2058817e91594d
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426346"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375685"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>保护 Azure Synapse 中的数据库
 
@@ -34,7 +34,7 @@ ms.locfileid: "87426346"
 
 连接安全性是指如何使用防火墙规则和连接加密来限制和保护数据库连接。
 
-[逻辑 SQL Server](../../azure-sql/database/logical-servers.md) 及其数据库使用防火墙规则来拒绝源自未明确加入允许列表的 IP 地址的连接企图。 若要从应用程序或客户端计算机的公共 IP 地址进行连接，必须先使用 Azure 门户、REST API 或 PowerShell 创建服务器级防火墙规则。
+[逻辑 SQL Server](../../azure-sql/database/logical-servers.md) 及其数据库使用防火墙规则来拒绝源自未显式批准的 IP 地址的连接企图。 若要从应用程序或客户端计算机的公共 IP 地址进行连接，必须先使用 Azure 门户、REST API 或 PowerShell 创建服务器级防火墙规则。
 
 最佳做法是尽量通过服务器级防火墙来限制允许的 IP 地址范围。  要从本地计算机访问 SQL 池，请确保网络和本地计算机上的防火墙允许在 TCP 端口 1433 上的传出通信。  
 
@@ -93,7 +93,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-通过 Azure 门户或 Azure 资源管理器 API 管理数据库和服务器的操作可根据门户用户帐户的角色分配进行控制。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
+通过 Azure 门户或 Azure 资源管理器 API 管理数据库和服务器的操作可根据门户用户帐户的角色分配进行控制。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
 
 ## <a name="encryption"></a>Encryption
 

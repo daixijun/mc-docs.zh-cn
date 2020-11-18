@@ -1,19 +1,20 @@
 ---
 title: 使用 Azure PowerShell 配置文件上传 | Azure
 description: 如何使用 Azure PowerShell cmdlet 配置 IoT 中心，以便从连接的设备上传文件。 包括有关配置目标 Azure 存储帐户的信息。
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: 2e7767ea445443372d32adaff17dedad6da9111d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/16/2020
+ms.openlocfilehash: 519f6ed07df3cf8670f4a3f7d7766850387dcadc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472675"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327563"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
@@ -36,7 +37,7 @@ ms.locfileid: "92472675"
 
 登录到 Azure 帐户，并选择订阅。
 
-1. 在 PowerShell 提示符下，运行 **Connect-AzAccount** ：
+1. 在 PowerShell 提示符下，运行 **Connect-AzAccount**：
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
@@ -98,15 +99,15 @@ Get-AzStorageAccountKey `
 
 配置需要以下值：
 
-* **存储容器** ：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+* **存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
 * 接收已上传文件的通知：启用或禁用文件上传通知。 
 
-* **SAS TTL** ：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
+* **SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
 
-* **文件通知设置默认 TTL** ：文件上传通知到期前的生存时间。 默认设置为一天。
+* **文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
 
-* **文件通知最大传送数** ：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
+* **文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
 
 使用以下 PowerShell cmdlet 在 IoT 中心内配置上传文件设置：
 
@@ -129,27 +130,10 @@ Set-AzIotHub `
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
-* [从根本上保护 IoT 解决方案][lnk-securing]
-
-[lnk-upload]: ./iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: ./iot-hub-metrics.md
-[lnk-monitor]: ./iot-hub-operations-monitoring.md
-
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-[lnk-securing]: ./iot-hub-security-ground-up.md
-[lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
-[lnk-portal-hub]: ./iot-hub-create-through-portal.md
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
+* [从根本上保护 IoT 解决方案](./iot-hub-security-ground-up.md)

@@ -2,15 +2,15 @@
 title: 了解效果的工作原理
 description: Azure Policy 定义具有各种效果，用来确定如何对符合性进行管理和报告。
 ms.author: v-tawe
-origin.date: 08/27/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 823fc9079e50a75511d4cb7102db307d164fae78
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 768c3eb253596adf346bcab01f1685e8ddbd64e9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524006"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327749"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -32,7 +32,7 @@ Azure Policy 中的每个策略定义都有单一效果。 该效果确定了在
 - [修改](#modify)
 
 <!--
-The following effects are being _deprecated_:
+The following effects are _deprecated_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -48,7 +48,7 @@ The following effects are being _deprecated_:
 
 Azure Policy 首先评估创建或更新资源的请求。 Azure Policy 会创建将应用于资源的所有分配列表，然后根据每个定义评估资源。 对于[资源管理器模式](./definition-structure.md#resource-manager-modes)，Azure Policy 在将请求转交给相应的资源提供程序之前处理多个效果。 此顺序可以防止资源提供程序在资源不符合 Azure Policy 的设计治理控制时进行不必要的处理。 使用[资源提供程序模式](./definition-structure.md#resource-provider-modes)，资源提供程序管理评估和结果，并将结果报告回 Azure Policy。
 
-- 首先检查**已禁用**效果以确定是否应评估策略规则。
+- 首先检查 **已禁用** 效果以确定是否应评估策略规则。
 - 然后评估“附加”和“修改”。  由于这两个效果可能会改变请求，因此所做的更改可能会阻止“审核”或“拒绝”效果的触发。 这些效果仅在资源管理器模式下可用。
 - 然后评估“拒绝”。 通过在“审核”之前评估“拒绝”，可以防止两次记录不需要的资源。
 - 最后评估审核。
@@ -110,7 +110,7 @@ Azure Policy 首先评估创建或更新资源的请求。 Azure Policy 会创�
 
 ### <a name="audit-evaluation"></a>“审核”评估
 
-“审核”是 Azure Policy 在创建或更新资源期间检查的最后一个效果。 对于资源管理器模式，Azure Policy 会将资源发送到资源提供程序。 “审核”对于资源请求和评估周期的工作方式相同。 Azure Policy 将 `Microsoft.Authorization/policies/audit/action` 操作添加到活动日志，并将资源标记为不符合。
+“审核”是 Azure Policy 在创建或更新资源期间检查的最后一个效果。 对于资源管理器模式，Azure Policy 会将资源发送到资源提供程序。 “审核”对于资源请求和评估周期的工作方式相同。 对于新资源和已更新的资源，Azure Policy 会将 `Microsoft.Authorization/policies/audit/action` 操作添加到活动日志，并将该资源标记为不合规。
 
 ### <a name="audit-properties"></a>“审核”属性
 
@@ -157,7 +157,7 @@ AuditIfNotExists 对与匹配 if 条件的资源相关的资源启用审核，�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 评估
 
-AuditIfNotExists 在资源提供程序处理资源创建或更新请求并返回成功状态代码后运行。 如果没有相关资源或如果由 **ExistenceCondition** 定义的资源未评估为 true，则会发生审核。 与“审核”效果一样，Azure Policy 会将 `Microsoft.Authorization/policies/audit/action` 操作添加到活动日志。 触发后，满足 if 条件的资源是标记为不符合的资源。
+AuditIfNotExists 在资源提供程序处理资源创建或更新请求并返回成功状态代码后运行。 如果没有相关资源或如果由 **ExistenceCondition** 定义的资源未评估为 true，则会发生审核。 对于新资源和已更新的资源，Azure Policy 会将 `Microsoft.Authorization/policies/audit/action` 操作添加到活动日志，并将该资源标记为不合规。 触发后，满足 if 条件的资源是标记为不符合的资源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 属性
 
@@ -272,7 +272,7 @@ AuditIfNotExists 效果的“details”属性具有定义要匹配的相关资�
 与 AuditIfNotExists 类似，DeployIfNotExists 策略定义在条件满足时将执行模板部署。
 
 > [!NOTE]
-> **deployIfNotExists** 支持[嵌套模板](../../../azure-resource-manager/templates/linked-templates.md#nested-template)，但目前不支持[链接模版](../../../azure-resource-manager/templates/linked-templates.md#linked-template)。
+> **deployIfNotExists** 支持 [嵌套模板](../../../azure-resource-manager/templates/linked-templates.md#nested-template)，但目前不支持 [链接模版](../../../azure-resource-manager/templates/linked-templates.md#linked-template)。
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 评估
 
@@ -313,7 +313,7 @@ DeployIfNotExists 效果的“details”属性具有定义要匹配的相关资�
   - 此属性必须包含与可通过订阅访问的基于角色的访问控制角色 ID 匹配的字符串数组。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
 - **DeploymentScope**（可选）
   - 允许的值为 Subscription 和 ResourceGroup。
-  - 设置要触发的部署类型。 _Subscription_ 指示[在订阅级别部署](../../../azure-resource-manager/templates/deploy-to-subscription.md)，_ResourceGroup_ 指示部署到资源组。
+  - 设置要触发的部署类型。 _Subscription_ 指示 [在订阅级别部署](../../../azure-resource-manager/templates/deploy-to-subscription.md)，_ResourceGroup_ 指示部署到资源组。
   - 使用订阅级别部署时，必须在 _Deployment_ 中指定 _location_ 属性。
   - 默认值是 ResourceGroup。
 - Deployment（必选）
@@ -389,12 +389,10 @@ pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
 to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** effect and the
-> related **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_
-> and _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceOPAConstraint evaluation
 
@@ -461,12 +459,10 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceRegoPolicy evaluation
 
@@ -564,19 +560,19 @@ Modify 支持以下操作：
   - 要在匹配资源上完成的所有标记操作的数组。
   - 属性：
     - operation（必选）
-      - 定义要在匹配资源上执行的操作。 选项为：_addOrReplace_ _添加_ _删除_。 _添加_行为与 [附加](#append)效果类似。
+      - 定义要在匹配资源上执行的操作。 选项为：_addOrReplace_ _添加_ _删除_。 _添加_ 行为与 [附加](#append)效果类似。
     - field（必选）
       - 要添加、替换或删除的标记。 对于其他[字段](./definition-structure.md#fields)，标记名称必须遵循相同的命名约定。
     - **值** (可选)
       - 要设置标记的值。
-      - 如果**操作**是 _addOrReplace_ 或_添加_，则需要此属性。
+      - 如果 **操作** 是 _addOrReplace_ 或 _添加_，则需要此属性。
     - condition（可选）
       - 一个字符串，其中包含使用 [Policy 函数](./definition-structure.md#policy-functions)的 Azure Policy 语言表达式，该表达式计算结果为 true 或 false 。
       - 不支持以下 Policy 函数：`field()`、`resourceGroup()`、`subscription()`。
 
 ### <a name="modify-operations"></a>修改操作
 
-**操作**属性数组能够以不同的方式从单个策略定义中更改多个标记。 每个操作都由**操作** **字段**和**值**属性组成。 操作确定修正任务对标记执行的操作，字段确定更改的标记，值定义该标记的新设置。 下面的示例进行了以下标记更改：
+**操作** 属性数组能够以不同的方式从单个策略定义中更改多个标记。 每个操作都由 **操作** **字段** 和 **值** 属性组成。 操作确定修正任务对标记执行的操作，字段确定更改的标记，值定义该标记的新设置。 下面的示例进行了以下标记更改：
 
 - 将 `environment` 标记设置为“Test”，即使它已存在且具有不同的值。
 - 删除标记 `TempResource`。
@@ -604,7 +600,7 @@ Modify 支持以下操作：
 }
 ```
 
-此**操作**属性具有以下选项：
+此 **操作** 属性具有以下选项：
 
 |Operation |说明 |
 |-|-|
@@ -708,7 +704,7 @@ Modify 支持以下操作：
 - 订阅 A 中任何不在“chinanorth2”中的新资源将会被策略 1 拒绝
 - 订阅 A 的资源组 B 中的任何新资源将被拒绝
 
-单独评估每个分配。 因此，不存在因范围差异致使资源溜过间隙的可能性。 我们认为分层策略的最终结果是**累积最多限制**。 例如，如果策略 1 和策略 2 都具有“拒绝”效果，则重叠和冲突策略定义会阻止资源。 如果仍然需要在目标范围内创建资源，请查看每项分配的排除项，以验证策略分配是否正在影响相应的范围。
+单独评估每个分配。 因此，不存在因范围差异致使资源溜过间隙的可能性。 我们认为分层策略的最终结果是 **累积最多限制**。 例如，如果策略 1 和策略 2 都具有“拒绝”效果，则重叠和冲突策略定义会阻止资源。 如果仍然需要在目标范围内创建资源，请查看每项分配的排除项，以验证策略分配是否正在影响相应的范围。
 
 ## <a name="next-steps"></a>后续步骤
 

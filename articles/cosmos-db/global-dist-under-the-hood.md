@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 多区域分布 - 揭秘
 description: 本文提供有关 Azure Cosmos DB 多区域分布的技术详细信息
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/02/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 99d34f7c8b3aa0d01b584c8bf83572b3fcb54473
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7f13354c7061b9bafc539d8a83f25e099884d4e9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222870"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328923"
 ---
 # <a name="multiple-region-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB 多区域分配数据 - 揭秘
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 是 Azure 的一个基础服务，因此它将部署在中国境内的所有 Azure 中国区域中。 在数据中心内，我们会在大量的计算机阵列上部署和管理 Azure Cosmos DB，其中的每个服务都有专用的本地存储。 在数据中心内，Azure Cosmos DB 部署在许多群集之间，每个群集可能运行多代硬件。 群集中的计算机通常分散在 10 到 20 个容错域之间，以便在一个区域中实现高可用性。 下图显示了 Cosmos DB 多区域分布系统拓扑：
 
@@ -67,7 +68,7 @@ Cosmos DB 的多区域分布依赖于两个关键抽象 – 副本集和分区�
 
 我们在更新传播、冲突解决和因果关系跟踪的设计灵感来源于以往 [Epidemic 算法](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)和 [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) 系统工作的启发。 尽管这些思路的核心得以留存，并为传达 Cosmos DB 的系统设计提供方便的参考框架，但我们在将其应用于 Cosmos DB 系统时，还是对其做了重大改造。 之所以需要这样做，是因为以前的系统既没有设计资源调控，也不具备运行 Cosmos DB 所需的规模，无法提供 Cosmos DB 向其客户承诺的功能（例如有限过期一致性）和严格且全面的 SLA。  
 
-前面提到，分区集分布在多个区域之间，并遵循 Cosmos DB（多主数据库）复制协议在包含给定分区集的物理分区之间复制数据。 （分区集的）每个物理分区通常接受写入到该区域本地的客户端，并为读取操作提供服务。 区域中物理分区接受的写入操作在由客户端确认之前，将以持久方式进行提交并在物理分区中保持高可用性。 这些写入是试探性的，将使用反熵通道传播到分区集中的其他物理分区。 客户端可以通过传递请求标头来请求试探性写入或提交的写入。 反熵传播（包括传播频率）是动态的，基于分区集的拓扑、物理分区的区域邻近性，以及配置的一致性级别。 在分区集中，Cosmos DB 遵循采用动态选定仲裁器分区的主要提交方案。 仲裁器的选择是动态的，在基于叠加层拓扑重新配置分区集时，它是不可或缺的一部分。 可保证提交的写入（包括多行/批处理更新）的顺序。 
+前面提到，分区集分布在多个区域中，并遵循 Cosmos DB（多区域写入）复制协议在包含给定分区集的物理分区之间复制数据。 （分区集的）每个物理分区通常接受写入到该区域本地的客户端，并为读取操作提供服务。 区域中物理分区接受的写入操作在由客户端确认之前，将以持久方式进行提交并在物理分区中保持高可用性。 这些写入是试探性的，将使用反熵通道传播到分区集中的其他物理分区。 客户端可以通过传递请求标头来请求试探性写入或提交的写入。 反熵传播（包括传播频率）是动态的，基于分区集的拓扑、物理分区的区域邻近性，以及配置的一致性级别。 在分区集中，Cosmos DB 遵循采用动态选定仲裁器分区的主要提交方案。 仲裁器的选择是动态的，在基于叠加层拓扑重新配置分区集时，它是不可或缺的一部分。 可保证提交的写入（包括多行/批处理更新）的顺序。 
 
 我们采用编码向量时钟（包含分别对应于每个副本集和分区集共识级别的区域 ID 和逻辑时钟）进行因果关系跟踪，并采用版本向量来检测和解决更新冲突。 拓扑和对等选择算法旨在确保版本向量的存储和网络开销固定保持在最低水平。 该算法可保证严格的融合属性。  
 

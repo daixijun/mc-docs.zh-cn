@@ -1,15 +1,16 @@
 ---
 title: Azure Functions 网络选项
 description: 在 Azure Functions 中可用的所有网络选项的概述。
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 09/28/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 66603762e4e1fe98ec1c83222e5c39760c14ff7a
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.date: 11/04/2020
+ms.author: v-junlch
+ms.openlocfilehash: 36b8a7dba20a1369e2077554b7e794800dc6e3af
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937254"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326423"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -60,11 +61,30 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 
 若要了解详细信息，请参阅[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>将存储帐户限制到虚拟网络中
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>将存储帐户限制到虚拟网络（预览版）中
 
-创建函数应用时，必须创建或链接到支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。 当前无法对此帐户使用任何虚拟网络限制。 如果在用于函数应用的存储帐户上配置虚拟网络服务终结点，则该配置会中断应用。
+创建函数应用时，必须创建或链接到支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。  可以将此存储帐户替换为服务终结点或专用终结点所保护的存储帐户。  在中国北部 2，此预览功能目前仅适用于 Windows 高级计划。  若要使用限制到专用网络的存储帐户来设置函数，请执行以下操作：
 
-有关详细信息，请参阅[存储帐户要求](./functions-create-function-app-portal.md#storage-account-requirements)。
+> [!NOTE]
+> 在中国北部 2，限制存储帐户功能目前仅适用于使用 Windows 的高级函数
+
+1. 使用未启用服务终结点的存储帐户创建一个函数。
+1. 将该函数配置为连接到你的虚拟网络。
+1. 创建或配置另一存储帐户。  此存储帐户将是我们使用服务终结点保护的存储帐户，可连接我们的函数。
+1. 在受保护的存储帐户中[创建文件共享](../storage/files/storage-how-to-create-file-share.md#create-file-share)。
+1. 为此存储帐户启用服务终结点或专用终结点。  
+    * 如果使用服务终结点，请确保启用专用于函数应用的子网。
+    * 如果使用专用终结点，请确保创建 DNS 记录并将应用配置为[使用专用终结点](#azure-dns-private-zones)。  此存储帐户将需要一个专用终结点来存储 `file` 和 `blob` 子资源。  如果使用某些功能（如 Durable Functions），则还需要可通过专用终结点连接访问的 `queue` 和 `table`。
+1. （可选）将函数应用存储帐户中的文件和 blob 内容复制到受保护的存储帐户和文件共享。
+1. 复制此存储帐户的连接字符串。
+1. 将函数应用的“配置”下的“应用程序设置”更新为以下内容：
+    - 将 `AzureWebJobsStorage` 更新为受保护存储帐户的连接字符串。
+    - 将 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 更新为受保护存储帐户的连接字符串。
+    - 将 `WEBSITE_CONTENTSHARE` 更新为在受保护存储帐户中创建的文件共享的名称。
+    - 使用名称 `WEBSITE_CONTENTOVERVNET` 和值 `1` 创建新设置。
+1. 保存应用程序设置。  
+
+函数应用会重启，并会立即连接到受保护的存储帐户。
 
 ## <a name="use-key-vault-references"></a>使用 Key Vault 引用
 
@@ -127,7 +147,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ## <a name="automation"></a>自动化
 以下 API 可让你以编程方式管理区域虚拟网络集成：
 
-+ **Azure CLI**：使用 `az functionapp vnet-integration` 命令可添加、列出或删除区域虚拟网络集成。  
++ **Azure CLI**：使用 [`az functionapp vnet-integration`](/cli/functionapp/vnet-integration) 命令可添加、列出或删除区域虚拟网络集成。  
 + **ARM 模板**：可以通过使用 Azure 资源管理器模板来启用区域虚拟网络集成。 有关完整示例，请参阅[此 Functions 快速入门模板](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)。
 
 ## <a name="troubleshooting"></a>故障排除
@@ -140,7 +160,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 * [阅读 Azure Functions 网络常见问题解答](./functions-networking-faq.md)
 * [详细了解虚拟网络与应用服务/Functions 的集成](../app-service/web-sites-integrate-with-vnet.md)
-* [了解有关 Azure 中的虚拟网络的详细信息](../virtual-network/virtual-networks-overview.md)
+* [详细了解 Azure 中的虚拟网络](../virtual-network/virtual-networks-overview.md)
 * [在应用服务环境中允许更多的网络功能和控制](../app-service/environment/intro.md)
 * [使用混合连接连接到单独的本地资源而无需更改防火墙](../app-service/app-service-hybrid-connections.md)
 

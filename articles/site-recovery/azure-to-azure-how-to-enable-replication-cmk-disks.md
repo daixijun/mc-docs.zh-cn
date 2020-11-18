@@ -1,19 +1,19 @@
 ---
-title: 在 Azure Site Recovery 中为加密 Azure VM 启用复制
+title: 在 Azure Site Recovery 中启用加密的 Azure VM 的复制
 description: 本文介绍了对于其中磁盘启用了客户托管密钥 (CMK) 的 VM，如何使用 Site Recovery 配置从一个 Azure 区域到另一个区域的复制。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 01/10/2020
-ms.date: 03/09/2020
+ms.date: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4b775de5a946e6e3b5b7e929c8d8df84c06398b1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2edf8ade8791d833fc276ae1e0b14e2c283e84eb
+ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850476"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94373967"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>复制其中磁盘启用了客户托管密钥 (CMK) 的计算机
 
@@ -43,7 +43,7 @@ ms.locfileid: "78850476"
     - **目标位置**：要在其中复制源虚拟机数据的位置。 Site Recovery 根据所选计算机的位置提供合适的目标区域列表。 我们建议使用与恢复服务保管库位置相同的位置。
     - **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅与源订阅相同。
     - **目标资源组**：复制的虚拟机所属的资源组。 默认情况下，Site Recovery 会在目标区域中创建一个新的资源组， 其名称带有 `asr` 后缀。 如果已存在 Azure Site Recovery 创建的资源组，将会重复使用它。 此外，可按以下部分所述，选择对资源组进行自定义。 目标资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
-    - **目标虚拟网络**：默认情况下，Site Recovery 会在目标区域中创建一个新的虚拟网络， 其名称带有 `asr` 后缀。 此虚拟网络会映射到源网络并用于任何将来的保护。 [详细了解](site-recovery-network-mapping-azure-to-azure.md)网络映射。
+    - **目标虚拟网络**：默认情况下，Site Recovery 会在目标区域中创建一个新的虚拟网络， 其名称带有 `asr` 后缀。 此虚拟网络会映射到源网络并用于任何将来的保护。 [详细了解](./azure-to-azure-network-mapping.md)网络映射。
     - **目标存储帐户（如果源 VM 不使用托管磁盘）** ：默认情况下，Site Recovery 会创建模拟源 VM 存储配置的新目标存储帐户。 如果已存在一个存储帐户，将重复使用它。
     - **副本托管磁盘（如果源 VM 使用托管磁盘）** ：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
     - **缓存存储帐户**：Site Recovery 需要源区域中称为“缓存存储”的额外存储帐户  。 源 VM 上的所有更改将受到跟踪并发送到缓存存储帐户。 它们随后会复制到目标位置。
@@ -51,7 +51,7 @@ ms.locfileid: "78850476"
     - **磁盘加密集 (DES)** ：Site Recovery 需要将磁盘加密集用于副本和目标托管磁盘。 在启用复制之前，必须在目标订阅和目标区域中预先创建 DES。 默认情况下不会选择 DES。 你必须单击“自定义”为每个源磁盘选择一个 DES。
     - **复制策略**：定义恢复点保留期历史记录和应用一致性快照频率的设置。 默认情况下，Site Recovery 会使用恢复点保留期为 24 小时、应用一致性快照频率为 60 分钟的默认设置创建新的复制策略   。
 
-    ![为其磁盘启用了 CMK 的计算机启用复制](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-enable-dr.png)
+        ![为其磁盘启用了 CMK 的计算机启用复制](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-enable-dr.png)
 
 ## <a name="customize-target-resources"></a>自定义目标资源
 
@@ -70,10 +70,10 @@ ms.locfileid: "78850476"
 4. 选择“创建目标资源” > “启用复制”。  
 5. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况  。
 
-![为其磁盘启用了 CMK 的计算机启用复制](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
+    ![为其磁盘启用了 CMK 的计算机启用复制](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
->[!NOTE]
->在初始复制期间，VM 状态刷新可能需要一段时间，但不显示确切的进度。 单击“刷新”  可查看最新状态。
+    >[!NOTE]
+    >在初始复制期间，VM 状态刷新可能需要一段时间，但不显示确切的进度。 单击“刷新”  可查看最新状态。
 
 ## <a name="faqs"></a>常见问题
 
@@ -85,5 +85,8 @@ ms.locfileid: "78850476"
 
     不支持将新的已启用 CMK 的磁盘添加到现有复制项。 请为虚拟机禁用复制并重新启用复制。
 
-<!-- Update_Description: new article about azure to azure how to enable replication cmk disks -->
-<!--NEW.date: 03/09/2020-->
+* 我同时启用了平台管理的密钥和客户管理的密钥，如何保护磁盘？
+
+    Site Recovery 支持通过平台管理的密钥和客户管理的密钥来启用双重加密。 按照本文中的说明来保护计算机。 需要事先在目标区域中创建一个启用了双重加密的 DES。 为此类 VM 启用复制时，可以向 Site Recovery 提供此 DES。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

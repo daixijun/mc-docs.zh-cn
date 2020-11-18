@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor 工作簿资源参数
-description: 使用预先构建的自定义参数化工作簿简化复杂的报表
+description: 了解如何使用资源参数选取工作簿中的资源。 使用资源参数设置从中获取数据的范围。
 services: azure-monitor
 author: Johnnytechn
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: a960ba43adc4aa796a9b85773c5c87782d84a504
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: c37a59dc464932f82ecb10258cdf76cc37e5f133
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457387"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328850"
 ---
 # <a name="workbook-resource-parameters"></a>工作簿资源参数
 
@@ -113,6 +113,6 @@ ms.locfileid: "89457387"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 

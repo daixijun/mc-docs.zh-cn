@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/20/2019
-ms.date: 06/08/2020
+ms.date: 11/16/2020
 ms.author: yiso
-ms.openlocfilehash: 3e88e9a70750b4ee98b165d358d353e455d7036f
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 1507d19669139ce5812e950466bca7602dd85c6e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394751"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328498"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
-本教程介绍使用 *X.509 证书身份验证*保护 Azure IoT 中心所要执行的步骤。 在演示过程中，我们将使用开源工具 OpenSSL 在 Windows 计算机本地创建证书。 我们建议仅将本教程用于测试目的。 对于生产环境，应该从*根证书颁发机构 (CA)* 购买证书。
+本教程介绍使用 *X.509 证书身份验证* 保护 Azure IoT 中心所要执行的步骤。 在演示过程中，我们将使用开源工具 OpenSSL 在 Windows 计算机本地创建证书。 我们建议仅将本教程用于测试目的。 对于生产环境，应该从 *根证书颁发机构 (CA)* 购买证书。 另外，在生产环境中，请确保已准备好能够在设备证书或 CA 证书到期时处理证书滚动更新的策略。
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
@@ -35,7 +35,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 可以选择以下任一方法获取证书：
 
-* 从*根证书颁发机构 (CA)* 购买 X.509 证书。 建议在生产环境中使用此方法。
+* 从 *根证书颁发机构 (CA)* 购买 X.509 证书。 建议在生产环境中使用此方法。
 
 * 使用 [OpenSSL](https://www.openssl.org/) 等第三方工具创建自己的 X.509 证书。 此方法适用于测试和开发目的。 有关使用 PowerShell 或 Bash 生成测试 CA 证书的信息，请参阅[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)。 本教程的其余部分使用按照[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的说明生成的测试 CA 证书。
 
@@ -46,7 +46,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>将 X.509 CA 证书注册到 IoT 中心
 
-这些步骤说明如何通过门户将新的证书颁发机构添加到 IoT 中心。
+这些步骤说明如何通过门户将新的证书颁发机构添加到 IoT 中心。 使用 X.509 证书 CA 身份验证时，请确保将在现有证书过期之前注册新证书作为证书滚动更新策略的一部分。
 
 > [!NOTE]
 > 可注册到 IoT 中心的 X.509 CA 证书的最大数目为 25。 有关详细信息，请参阅 [Azure IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。
@@ -191,3 +191,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
    ![运行设备应用](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
+## <a name="next-steps"></a>后续步骤
+若要进一步探索 IoT 中心的功能，请参阅：
+
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)

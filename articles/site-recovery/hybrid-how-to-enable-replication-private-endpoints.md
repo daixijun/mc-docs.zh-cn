@@ -5,25 +5,23 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: e51875cbe316f7f6c0181a816b0bc98dd0242b05
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 217e9ac5604cb0e36e2e062f109008466b8c764e
+ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105792"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94373971"
 ---
 <!--Verified successfully on Mooncake-->
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>使用专用终结点复制本地计算机
 
 <!--Not Available on [Azure Private Link](../private-link/private-endpoint-overview.md)-->
 
-Azure Site Recovery 支持使用 Azure 专用链接专用终结点将本地计算机复制到 Azure 中的虚拟网络。 以下区域支持专用终结点访问恢复保管库：
-
-- Azure 中国世纪互联：中国东部 2
+Azure Site Recovery 支持使用 Azure 专用链接专用终结点将本地计算机复制到 Azure 中的虚拟网络。 所有 Azure 中国区域都支持专用终结点访问恢复保管库。
 
 本文介绍如何完成以下步骤：
 
@@ -43,11 +41,11 @@ Azure Site Recovery 支持使用 Azure 专用链接专用终结点将本地计�
 - Site Recovery 9.35 及更高版本支持专用链接。
 - 只能为新的恢复服务保管库创建专用终结点，没有任何项已注册到该保管库。 因此，必须在将任何项添加到保管库之前创建专用终结点。
   
-  <!--Not Available on [Azure Private Link pricing](https://www.azure.cn/pricing/details/private-link/)-->
+    <!--Not Available on [Azure Private Link pricing](https://www.azure.cn/pricing/details/private-link/)-->
   
 - 为保管库创建专用终结点时，保管库将被锁定。 只能从具有专用终结点的网络进行访问。
 - Azure Active Directory 当前不支持专用终结点。 因此，需要允许从安全的 Azure 虚拟网络出站访问使 Azure Active Directory 在某个区域中正常工作所需的 IP 和完全限定的域名。
-  如果适用，还可以使用网络安全组标记“Azure Active Directory”和 Azure 防火墙标记来允许访问 Azure Active Directory。
+    如果适用，还可以使用网络安全组标记“Azure Active Directory”和 Azure 防火墙标记来允许访问 Azure Active Directory。
 - 在创建专用终结点的旁路网络中，需要五个 IP 地址。 为保管库创建专用终结点时，Site Recovery 会创建五个用于访问其微服务的专用链接。
 - 旁路网络中还需要一个额外的 IP 地址，以便与缓存存储帐户建立专用终结点连接。 可以在本地和存储帐户终结点之间使用任何连接方法。 例如，可以使用 Internet 或 Azure [ExpressRoute](../expressroute/index.yml)。 建立专用链接是可选的。 只能在常规用途 v2 帐户上为存储创建专用终结点。 有关常规用途 v2 帐户上数据传输的定价信息，请参阅 [Azure 页 Blob 定价](https://www.azure.cn/pricing/details/storage/page-blobs/)。
 
@@ -88,17 +86,17 @@ Azure Site Recovery 支持使用 Azure 专用链接专用终结点将本地计�
 
     :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="显示如何在专用链接中心创建专用终结点的屏幕截图。":::
 
-1. 在“创建专用终结点”页面上，指定创建专用终结点连接的详细信息。
+1. 在“创建专用终结点”页上，指定用于创建专用终结点连接的详细信息。
 
-    1. **基本信息** 。 提供专用终结点的基本详细信息。 使用用于旁路网络的区域：
+    1. **基本信息**。 提供专用终结点的基本详细信息。 使用用于旁路网络的区域：
 
         :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="显示用于创建专用终结点的“基本信息”选项卡的屏幕截图。":::
 
-    1. **资源** 。 在此选项卡上，需要指定要为其创建连接的平台即服务资源。 在所选订阅的“资源类型”下，选择“Microsoft.RecoveryServices/vaults” 。 在“资源”下，选择恢复服务保管库的名称。 选择“Azure Site Recovery”作为“目标子资源” 。
+    1. **资源**。 在此选项卡上，需要指定要为其创建连接的平台即服务资源。 在所选订阅的“资源类型”下，选择“Microsoft.RecoveryServices/vaults” 。 在“资源”下，选择恢复服务保管库的名称。 选择“Azure Site Recovery”作为“目标子资源” 。
 
         :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="显示用于链接到专用终结点的“资源”选项卡的屏幕截图。":::
 
-    1. **配置** 。 在此选项卡上，指定要在其中创建专用终结点的旁路网络和子网。 
+    1. **配置**。 在此选项卡上，指定要在其中创建专用终结点的旁路网络和子网。 
 
         通过选择“是”启用与专用 DNS 区域的集成。
         选择现有 DNS 区域或创建一个新区域。 选择“是”会自动将区域链接到旁路网络。 此操作还会添加对新 IP 进行 DNS 解析所需的 DNS 记录，以及为专用终结点创建的完全限定的域名。
@@ -116,9 +114,9 @@ Azure Site Recovery 支持使用 Azure 专用链接专用终结点将本地计�
 
         :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="显示用于配置专用终结点的“配置”选项卡的屏幕截图。":::
 
-    1. **标记** 。 （可选）可以为专用终结点添加标记。
+    1. **标记**。 （可选）可以为专用终结点添加标记。
 
-    1. **查看 \+ 创建** 。 完成验证后，选择“创建”以创建专用终结点。
+    1. **查看 \+ 创建**。 完成验证后，选择“创建”以创建专用终结点。
 
 创建专用终结点时，有五个完全限定的域名 (FQDN) 会添加到专用终结点。 这些链接使本地网络中的计算机能够通过旁路网络访问保管库上下文中所有必需的 Site Recovery 微服务。 可以使用同一专用终结点来保护旁路网络和所有对等网络中的任何 Azure 计算机。
 

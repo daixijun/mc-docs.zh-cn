@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/27/2019
-ms.date: 08/05/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 18a20ed085cbde9f3ed79cc9ce59f1217831e1f3
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
+ms.openlocfilehash: 4d8b6d7c2d7505da01c65e8e084aa419f484f28f
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426352"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375630"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>排查 Synapse SQL 池中的连接问题
 
@@ -35,13 +35,14 @@ ms.locfileid: "87426352"
 
 如果“资源运行状况”显示 SQL 池实例已暂停或正在缩放，请按照指南恢复实例。
 
-![服务已暂停](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) 还可在此处查看有关资源运行状况的其他信息。
+![屏幕截图显示了已暂停或正在缩放的 SQL 数据仓库实例。](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+可以在此处找到有关资源运行状况的其他信息。
 
 ## <a name="check-for-paused-or-scaling-operation"></a>检查已暂停的操作或正在缩放的操作
 
 在门户中查看 SQL 池实例是否已暂停或正在缩放。
 
-![服务已暂停](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![屏幕截图显示了如何检查数据仓库是否已暂停。](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 如果发现服务已暂停或正在缩放，请检查其是否未处于维护计划期间。 在 SQL 池门户的“概述”部分，可看到所选维护计划。
 

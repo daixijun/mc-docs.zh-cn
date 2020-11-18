@@ -2,19 +2,18 @@
 title: ASDK 要求和注意事项
 description: 了解 Azure Stack 开发工具包 (ASDK) 的硬件、软件和环境要求。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
 origin.date: 09/23/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: f6055398fce3f7bcb0ef1c594325a4a82bbd7ff4
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 9cb58caf9183c17792d35fa8ad9abe440b0f2c05
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437520"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330435"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -101,13 +100,13 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
    | --- | --- |
    | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
 
-部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
+部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是 *默认提供程序订阅* 的所有者）。
 
 ## <a name="network"></a>网络
 ### <a name="switch"></a>Switch
 交换机上的一个可用于 ASDK 计算机的端口。  
 
-ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。 若要使用 Trunk 端口，或者需要配置 VLAN ID，则需以部署参数的形式提供 VLAN ID。
+ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。
 
 ### <a name="subnet"></a>子网
 请勿将 ASDK 计算机连接到以下子网：
@@ -128,11 +127,10 @@ ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机�
 确保可以在 NIC 连接到的网络上使用 DHCP 服务器。 如果 DHCP 不可用，则除了主机使用的静态 IPv4 网络，还必须准备另一个此类网络。 必须提供该 IP 地址和网关作为部署参数。
 
 ### <a name="internet-access"></a>Internet 访问
-Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 AzS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
+Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [下载 ASDK 部署包](asdk-download.md)。
 - 若要详细了解存储空间直通，请参阅[存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)。
-

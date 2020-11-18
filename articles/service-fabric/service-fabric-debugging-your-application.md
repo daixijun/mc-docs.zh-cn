@@ -1,17 +1,20 @@
 ---
 title: 在 Visual Studio 中调试应用程序
 description: 通过在本地开发群集上采用 Visual Studio 进行开发和调试，来提高服务的可靠性和性能。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 04/13/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: ec0a43f52ac0731434770dbbdd327caf6fedb684
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0f03156d2914b231fe861a04a47472e321eb4956
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093472"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328478"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>使用 Visual Studio 调试 Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -25,7 +28,7 @@ ms.locfileid: "82093472"
 1. 按照[设置 Service Fabric 开发环境](service-fabric-get-started.md)中的步骤启动本地开发群集。
 2. 按 **F5** 或单击“**调试**” > **开始调试**。
 
-    ![开始调试应用程序][startdebugging]
+    ![显示“调试”菜单的屏幕截图。][startdebugging]
 3. 通过单击“调试”  菜单中的命令来设置代码中的断点并单步执行应用程序。
 
     > [!NOTE]
@@ -154,4 +157,4 @@ ms.locfileid: "82093472"
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

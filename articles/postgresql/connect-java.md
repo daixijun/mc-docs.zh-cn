@@ -4,29 +4,29 @@ description: 了解如何将 Java和 JDBC 与 Azure Database for PostgreSQL 配�
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 origin.date: 08/17/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: d121fbb1708aec72dce446aa4ea7123cef266b47
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 11/09/2020
+ms.openlocfilehash: 838eadc3afc1cc8c621d231b482c87e343e609c9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512907"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327318"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
 
-本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for PostgreSQL](/postgresql/) 中存储和检索信息。
+本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for PostgreSQL](./index.yml) 中存储和检索信息。
 
 JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 一个 Azure 帐户。 如果没有，请[获取试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - [Azure CLI](/cli/install-azure-cli)。
-- 一个受支持的 [Java 开发工具包](https://aka.ms/azure-jdks)，版本 8。
+- 一个受支持的 [Java 开发工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。
 
 ## <a name="prepare-the-working-environment"></a>准备工作环境
@@ -64,7 +64,7 @@ az group create \
 首先，我们将创建一个托管 PostgreSQL 服务器。
 
 > [!NOTE]
-> 可以在[使用 Azure 门户创建 Azure Database for PostgreSQL 服务器](/postgresql/quickstart-create-server-database-portal)中阅读有关创建 PostgreSQL 服务器的更多详细信息。
+> 可以在[使用 Azure 门户创建 Azure Database for PostgreSQL 服务器](./quickstart-create-server-database-portal.md)中阅读有关创建 PostgreSQL 服务器的更多详细信息。
 
 运行以下命令：
 

@@ -1,71 +1,117 @@
 ---
-title: 更新 Azure Cosmos DB 的表 API 表的 RU/秒
-description: 更新 Azure Cosmos DB 的表 API 表的 RU/秒
-author: rockboyfor
-ms.author: v-yeche
+title: 用于 Azure Cosmos DB 表 API 资源的吞吐量 (RU/s) 操作的 Azure CLI 脚本
+description: 用于 Azure Cosmos DB 表 API 资源的吞吐量 (RU/s) 操作的 Azure CLI 脚本
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-origin.date: 09/25/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: e68fc4f887b67b40f69e26e987707cd0d3e734a3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+origin.date: 10/07/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.author: v-yeche
+ms.openlocfilehash: fbe0439512c5aebf99c5555cb9cdba0b40d8d77d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72914778"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328299"
 ---
-# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>更新 Azure Cosmos DB 的表 API 表的 RU/秒 Azure CLI
+# <a name="throughput-rus-operations-with-azure-cli-for-a-table-for-azure-cosmos-db-table-api"></a>用于 Azure Cosmos DB 表 API 的表的使用 Azure CLI 的吞吐量 (RU/s) 操作
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题需要运行 Azure CLI 2.0.73 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.12.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="sample-script"></a>示例脚本
 
-此脚本创建一个表 API 表，然后更新该表的吞吐量。
+此脚本创建一个表 API 表，然后更新该表的吞吐量。 脚本随后从标准吞吐量迁移到自动缩放吞吐量，然后在迁移后读取自动缩放吞吐量的值。
 
 ```azurecli
-!/bin/bash
-
-# Update throughput for Table API table
+#!/bin/bash
+# Reference: az cosmosdb | https://docs.azure.cn/cli/cosmosdb
+# --------------------------------------------------
+#
+# Throughput operations for a Table API table
+#
+#
 
 # Sign in the Azure China Cloud
 az cloud set -n AzureChinaCloud
 az login
 
 # Generate a unique 10 character alphanumeric string to ensure unique resource names
-uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+$uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
 
 # Variables for Cassandra API resources
 resourceGroupName="Group-$uniqueId"
 location='chinanorth2'
 accountName="cosmos-$uniqueId" #needs to be lower case
 tableName='table1'
+originalThroughput=400
+updateThroughput=500
 
-# Create a resource group
+# Create a resource group, Cosmos account and table
 az group create -n $resourceGroupName -l $location
+az cosmosdb create -n $accountName -g $resourceGroupName --capabilities EnableTable
+az cosmosdb table create -a $accountName -g $resourceGroupName -n $tableName --throughput $originalThroughput
 
-# Create a Cosmos account for Table API
-az cosmosdb create \
-    -n $accountName \
-    -g $resourceGroupName \
-    --capabilities EnableTable \
+# Throughput operations for Table API table
+# Read the current throughput
+# Read the minimum throughput
+# Make sure the updated throughput is not less than the minimum
+# Update the throughput
+# Migrate between standard (manual) and autoscale throughput
+# Read the autoscale max throughput
 
-# Create a Table API Table
-az cosmosdb table create \
+read -p 'Press any key to get current provisioned table throughput'
+
+az cosmosdb table throughput show \
     -a $accountName \
     -g $resourceGroupName \
     -n $tableName \
-    --throughput 400
+    --query resource.throughput \
+    -o tsv
 
-read -p 'Press any key to increase Table throughput to 500'
+read -p 'Press any key to get minimum allowable table throughput'
+
+minimumThroughput=$(az cosmosdb table throughput show \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $tableName \
+    --query resource.minimumThroughput \
+    -o tsv)
+
+echo $minimumThroughput
+
+# Make sure the updated throughput is not less than the minimum allowed throughput
+if [ $updateThroughput -lt $minimumThroughput ]; then
+    updateThroughput=$minimumThroughput
+fi
+
+read -p 'Press any key to update table throughput'
 
 az cosmosdb table throughput update \
     -a $accountName \
     -g $resourceGroupName \
     -n $tableName \
-    --throughput 500
+    --throughput $updateThroughput
+
+read -p 'Press any key to migrate the table from standard (manual) throughput to autoscale throughput'
+
+az cosmosdb table throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $tableName \
+    -t 'autoscale'
+
+read -p 'Press any key to read current autoscale provisioned max throughput on the table'
+
+az cosmosdb table throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $tableName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
 
 ```
 
@@ -81,17 +127,18 @@ az group delete --name $resourceGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | 创建 Azure Cosmos DB 帐户。 |
-| [az cosmosdb table create](https://docs.azure.cn/cli/cosmosdb/table?view=azure-cli-latest#az-cosmosdb-table-create) | 创建 Azure Cosmos 表 API 表。 |
-| [az cosmosdb table throughput update](https://docs.azure.cn/cli/cosmosdb/table/throughput?view=azure-cli-latest#az-cosmosdb-table-throughput-update) | 更新 Azure Cosmos 表 API 表的 RU/秒。 |
-| [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb#az_cosmosdb_create) | 创建 Azure Cosmos DB 帐户。 |
+| [az cosmosdb table create](https://docs.azure.cn/cli/cosmosdb/table#az_cosmosdb_table_create) | 创建 Azure Cosmos 表 API 表。 |
+| [az cosmosdb table throughput update](https://docs.azure.cn/cli/cosmosdb/table/throughput#az_cosmosdb_table_throughput_update) | 更新 Azure Cosmos 表 API 表的吞吐量。 |
+| [az cosmosdb table throughput migrate](https://docs.azure.cn/cli/cosmosdb/table/throughput#az_cosmosdb_table_throughput_migrate) | 迁移 Azure Cosmos 表 API 表的吞吐量。 |
+| [az group delete](https://docs.azure.cn/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Cosmos DB CLI 的详细信息，请参阅 [Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)。
+有关 Azure Cosmos DB CLI 的详细信息，请参阅 [Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb)。
 
 可以在 [Azure Cosmos DB CLI GitHub 存储库](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)中找到所有 Azure Cosmos DB CLI 脚本示例。
 

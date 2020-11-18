@@ -6,34 +6,34 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 07/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 99cf1e4945a3aca5cb2cc0f2e35795fe6fd76e93
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 04bc8dd872a30a6c4ca1ce39bd01c1e62d3121a4
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845888"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375657"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>在 Synapse SQL 池中设计分布式表的指南
 
 在 Synapse SQL 池中设计哈希分布式表和轮循机制分布式表的一些建议。
 
-本文要求读者熟悉 Synapse SQL 池中的数据分布和数据移动概念。  有关详细信息，请参阅 [Azure Synapse Analytics 大规模并行处理 (MPP) 体系结构](massively-parallel-processing-mpp-architecture.md)。
+本文假定你熟悉 Synapse SQL 中的数据分发和数据移动概念。  有关详细信息，请参阅 [Azure Synapse Analytics 体系结构](massively-parallel-processing-mpp-architecture.md)。
 
 ## <a name="what-is-a-distributed-table"></a>什么是分布式表？
 
 分布式表显示为单个表，但表中的行实际存储在 60 个分布区中。 这些行使用哈希或轮循机制算法进行分布。  
 
-**哈希分布式表**可提高大型事实数据表的查询性能，本文会重点进行介绍。 **轮循机制表**可用于提高加载速度。 这些设计选择对提高查询和加载性能具有重大影响。
+**哈希分布式表** 可提高大型事实数据表的查询性能，本文会重点进行介绍。 **轮循机制表** 可用于提高加载速度。 这些设计选择对提高查询和加载性能具有重大影响。
 
 另一个表存储选项是跨所有计算节点复制一个小型表。 有关详细信息，请参阅[复制表的设计准则](design-guidance-for-replicated-tables.md)。 若要在这三个选项之间快速选择其一，请参阅[表概述](sql-data-warehouse-tables-overview.md)中的分布式表。
 
-在设计表的过程中，尽可能多地了解数据以及数据查询方式。  例如，考虑以下问题：
+在设计表的过程中，尽可能多地了解数据以及数据查询方式。    例如，考虑以下问题：
 
 - 表有多大？
 - 表的刷新频率是多少？
@@ -119,8 +119,8 @@ WITH
 若要最大程度减少数据移动，请选择符合以下条件的分布列：
 
 - 用于 `JOIN`、`GROUP BY`、`DISTINCT`、`OVER` 和 `HAVING` 子句。 当两个大型事实数据表频繁联接时，如果将这两个表分布在某个联接列上，查询性能将得到提升。  如果某个表不进行联接操作，则考虑将该表分布在经常出现在 `GROUP BY` 子句中的列上。
-- *不*用于 `WHERE` 子句。 这可以缩小查询范围，从而不必在所有分布区上运行查询。
-- *不*是日期列。 WHERE 子句通常按日期进行筛选。  在这种情况下，可能会在少数几个分布区上运行所有处理。
+- *不* 用于 `WHERE` 子句。 这可以缩小查询范围，从而不必在所有分布区上运行查询。
+- *不* 是日期列。 WHERE 子句通常按日期进行筛选。  在这种情况下，可能会在少数几个分布区上运行所有处理。
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>没有合适分布列时怎么办
 
@@ -167,7 +167,7 @@ order by two_part_name, row_count
 
 若要避免在联接过程中移动数据，应遵循以下做法：
 
-- 参与联接的列的相关表必须哈希分布在**一个**联接列中。
+- 参与联接的列的相关表必须哈希分布在 **一个** 联接列中。
 - 两个表之间联接列的数据类型必须匹配。
 - 必须使用 equals 运算符联接列。
 - 联接类型不能是 `CROSS JOIN`。

@@ -1,20 +1,20 @@
 ---
 title: 排查常见错误
 description: 了解如何排查为 Kubernetes 创建策略定义、各种 SDK 和加载项时遇到的问题。
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 10/30/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: troubleshooting
-ms.openlocfilehash: de400ce0fc579d472b9021d7784d9cd6820a7586
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 8eed8085954ef3587cc4feeb1d8b4b0a537e261e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523837"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327691"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>排查使用 Azure Policy 时出现的错误
 
-在创建策略定义、使用 SDK 时可能会遇到错误。 本文描述可能会发生的各种错误及其解决方法。
+本文介绍可能会发生的各种常见错误及其解决方法。
 
 ## <a name="finding-error-details"></a>查找错误详细信息
 
@@ -56,7 +56,7 @@ Azure Policy 使用[别名](../concepts/definition-structure.md#aliases)映射�
 
 首先，请等待一段时间来完成评估以及等待 Azure 门户或 SDK 中显示符合性结果。 若要使用 Azure PowerShell 或 REST API 开始新的评估扫描，请参阅[按需评估扫描](../how-to/get-compliance-data.md#on-demand-evaluation-scan)。
 
-### <a name="scenario-evaluation-not-as-expected"></a>方案：评估与预期不符
+### <a name="scenario-compliance-not-as-expected"></a>方案：符合性与预期不符
 
 #### <a name="issue"></a>问题
 
@@ -68,10 +68,21 @@ Azure Policy 使用[别名](../concepts/definition-structure.md#aliases)映射�
 
 #### <a name="resolution"></a>解决方法
 
-- 对于应符合但实际不符合的资源，请先[确定不符合性的原因](../how-to/determine-non-compliance.md)。 通过将定义与计算的属性值进行比较，可了解资源不符合的原因。
-- 对于本应不符合但实际符合的资源，请逐个阅读策略定义条件并根据资源属性进行评估。 验证逻辑运算符是否将正确的条件组合在一起，并验证条件不会反转。
+请按照以下步骤排查策略定义问题：
 
-如果策略分配的符合性显示 `0/0` 资源，表示没有确定在分配范围内适用的资源。 检查策略定义和分配范围。
+1. 首先，请等待一段时间来完成评估以及等待 Azure 门户或 SDK 中显示符合性结果。 若要使用 Azure PowerShell 或 REST API 开始新的评估扫描，请参阅[按需评估扫描](../how-to/get-compliance-data.md#on-demand-evaluation-scan)。
+1. 检查分配参数和分配范围是否已正确设置。
+1. 检查[策略定义模式](../concepts/definition-structure.md#mode)：
+   - 将所有资源类型的模式设置为“所有”。
+   - 如果策略定义检查标记或位置，则设置“已编制索引”模式。
+1. 检查资源的范围是否未被[排除](../concepts/assignment-structure.md#excluded-scopes)或[豁免](../concepts/exemption-structure.md)。
+1. 如果策略分配的符合性显示 `0/0` 资源，表示没有确定在分配范围内适用的资源。 检查策略定义和分配范围。
+1. 对于应合规但实际不合规的资源，请参阅[确定不合规的原因](../how-to/determine-non-compliance.md)。 通过将定义与计算的属性值进行比较，可了解资源不符合的原因。
+   - 如果“目标值”错误，请修改策略定义。
+   - 如果“当前值”错误，请通过 `resources.azure.com` 验证资源有效负载。
+1. 请查看[故障排除：强制实施与预期不符](#scenario-enforcement-not-as-expected)，了解其他常见问题和解决方案。
+
+如果复制的和自定义的内置策略定义或自定义定义仍存在问题，请在“创作策略”下创建支持票证，以正确提交问题。
 
 ### <a name="scenario-enforcement-not-as-expected"></a>方案：未按预期执行
 
@@ -85,7 +96,18 @@ Azure Policy 使用[别名](../concepts/definition-structure.md#aliases)映射�
 
 #### <a name="resolution"></a>解决方法
 
-将 enforcementMode 更新为“启用”。 执行此更改后，Azure Policy 能够处理此策略分配中的资源，并将条目发送到活动日志。 如果已启用 enforcementMode，请参阅[评估与预期不符](#scenario-evaluation-not-as-expected)，了解操作过程。
+请按照以下步骤排查策略分配的实施问题：
+
+1. 首先，请等待一段时间来完成评估以及等待 Azure 门户或 SDK 中显示符合性结果。 若要使用 Azure PowerShell 或 REST API 开始新的评估扫描，请参阅[按需评估扫描](../how-to/get-compliance-data.md#on-demand-evaluation-scan)。
+1. 检查分配参数和分配范围是否已正确设置，以及“enforcementMode”是否为“Enabled”。 
+1. 检查[策略定义模式](../concepts/definition-structure.md#mode)：
+   - 将所有资源类型的模式设置为“所有”。
+   - 如果策略定义检查标记或位置，则设置“已编制索引”模式。
+1. 检查资源的范围是否未被[排除](../concepts/assignment-structure.md#excluded-scopes)或[豁免](../concepts/exemption-structure.md)。
+1. 验证资源有效负载是否与策略逻辑匹配。 可通过[捕获 HAR 跟踪](../../../azure-portal/capture-browser-trace.md)或查看 ARM 模板属性来进行验证。
+1. 请查看[故障排除：符合性与预期不符](#scenario-compliance-not-as-expected)以了解其他常见问题和解决方案。
+
+如果复制的和自定义的内置策略定义或自定义定义仍存在问题，请在“创作策略”下创建支持票证，以正确提交问题。
 
 ### <a name="scenario-denied-by-azure-policy"></a>方案：被 Azure Policy 拒绝
 
@@ -117,7 +139,7 @@ Azure Policy 支持大量 Azure 资源管理器模板（ARM 模板）函数以�
 
 若要传递函数使其成为策略定义的一部分，请使用 `[` 转义整个字符串，以便使属性看起来像是 `[[resourceGroup().tags.myTag]`。 转义字符会导致资源管理器在处理模板时将值视为字符串。 然后，Azure Policy 将函数放置在策略定义中，使其能够按预期的动态方式执行。 有关详细信息，请参阅 [Azure 资源管理器模板中的语法和表达式](../../../azure-resource-manager/templates/template-expressions.md)。
 
-## <a name="add-on-installation-errors"></a>加载项安装错误
+## <a name="add-on-for-kubernetes-installation-errors"></a>Kubernetes 加载项安装错误
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>方案：使用了 Helm Chart 的安装过程在密码处失败
 

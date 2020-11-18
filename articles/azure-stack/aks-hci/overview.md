@@ -3,16 +3,15 @@ title: 什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
 description: Azure Stack HCI 上的 Azure Kubernetes 服务是大规模自动运行容器化应用程序的 Azure Kubernetes 服务 (AKS) 的本地实现。
 ms.topic: overview
 author: WenJason
-ms.service: azure-stack
 ms.author: v-jay
 origin.date: 09/22/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 129e2e18048b6f0ef10f41a41b10e25a90e1a6c5
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.date: 11/09/2020
+ms.openlocfilehash: 9e51f7912ed3c94ea714d3d0e547ccb88cb753fb
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451221"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330602"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
 
@@ -52,9 +51,11 @@ Azure Kubernetes 服务简化了在 Azure Stack HCI 上设置 Kubernetes 的过�
 - 用于设置 Kubernetes 和创建 Kubernetes 群集的 PowerShell cmdlet，以防为主机设置和 Kubernetes 群集创建编写脚本
 
 ## <a name="view-and-manage-kubernetes-using-on-premises-tools"></a>使用本地工具查看和管理 Kubernetes
-设置 Azure Stack HCI 群集上的 Azure Kubernetes 服务并创建了 Kubernetes 群集后，我们提供了一种方法来管理和监视 Kubernetes 基础结构：
+
+设置 Azure Stack HCI 群集上的 Azure Kubernetes 服务并创建 Kubernetes 群集后，可以使用我们提供的几种方法来管理和监视 Kubernetes 基础结构：
 
 在本地使用常用工具（例如 Kubectl 和 Kubernetes 仪表板）- 使用开放源代码界面将应用程序部署到 Kubernetes 群集、管理群集资源、排除故障以及查看所运行的应用程序。
+
 ## <a name="run-linux-and-windows-containers"></a>运行 Linux 和 Windows 容器
 
 Azure Kubernetes 服务完全支持基于 Linux 和基于 Windows 的容器。 在 Azure Stack HCI 上创建 Kubernetes 群集时，可以选择是否要创建节点池（相同 VM 的组）来运行 Linux 容器和/或 Windows 容器。 
@@ -91,7 +92,7 @@ Azure Kubernetes 服务在以下平台上提供：
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Azure 中托管的 Azure Kubernetes 服务的体系结构，其中显示平台服务和大部分控制平面如何由 Azure 进行管理，而运行容器化应用程序的 Kubernetes 群集由客户进行管理。" lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Azure 中托管的 Azure Kubernetes 服务的体系结构，其中显示平台服务和大部分控制平面如何由 Azure 进行管理，而运行容器化应用程序的 Kubernetes 群集由客户进行管理。" lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Azure Stack HCI 上的 Azure Kubernetes 服务的体系结构，其中显示所有内容如何在 Azure Stack HCI 群集之上运行，包括 Azure Kubernetes Service 平台、控制平面和运行容器化应用程序的 Kubernetes 群集。" lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>入门所需操作
 
@@ -115,7 +116,7 @@ Windows Admin Center 管理系统具有以下要求：
 - 至少有 30 GB 可用内存用于运行 Azure Kubernetes 服务 VM
 - 对于此预览版本，群集中的所有服务器都必须使用 EN-US 区域和语言选择
 
-有关常规 Azure Stack HCI 要求，请参阅[部署 Azure Stack HCI之前](../hci/deploy/before-you-start.md)。
+如需常规的 Azure Stack HCI 系统要求，请参阅 [Azure Stack HCI 系统要求](../hci/concepts/system-requirements.md)。
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI 的网络配置
 

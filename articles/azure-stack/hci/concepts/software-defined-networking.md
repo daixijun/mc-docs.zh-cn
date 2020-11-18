@@ -1,21 +1,21 @@
 ---
 title: Azure Stack HCI 中的软件定义的网络 (SDN)
-description: 适用于 Azure Stack HCI 中功能的 SDN 主题的概述。
+description: 软件定义的网络 (SDN) 提供了一种方法，用于在数据中心中集中配置和管理网络和网络服务，如交换、路由和负载均衡。
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-origin.date: 09/24/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 89b4257e9ed724c750b522a9e4f5b681ffad0a35
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+origin.date: 10/16/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 8710675456e0d2d830c28cc8b2ca662b170b1910
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330662"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的 SDN
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的软件定义的网络 (SDN)
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
@@ -24,6 +24,9 @@ ms.locfileid: "91451253"
 虚拟网络元素（例如 [Hyper-V 虚拟交换机](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch)、[Hyper-V 网络虚拟化](https://docs.microsoft.com/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization)、[软件负载均衡](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)和 [RAS 网关](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn)）的作用是充当 SDN 基础结构的构成部分。 还可以使用现有 SDN 兼容设备，在虚拟网络中运行的工作负载与物理网络之间实现更深入的集成。
 
 Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组件：网络控制器、软件负载均衡器和网关。
+
+   > [!NOTE]
+   > 拉伸（多站点）群集不支持 SDN。
 
 ## <a name="network-controller"></a>网络控制器
 
@@ -36,7 +39,7 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 - 将虚拟设备连接到虚拟网络。
 - 为连接到虚拟网络或基于 VLAN 的传统网络的 VM 配置服务质量 (QoS) 策略。
 
-建议在创建 Azure Stack HCI 群集之后，[使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md)。
+建议[在创建群集期间部署网络控制器](../deploy/create-cluster.md#step-5-sdn-optional)。 或者，可以在创建 Azure Stack HCI 群集后，[使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md)。
 
 ## <a name="software-load-balancing"></a>软件负载均衡 (SLB)
 

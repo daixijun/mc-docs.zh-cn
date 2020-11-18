@@ -1,25 +1,26 @@
 ---
 title: 将 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB
 description: 本快速入门演示如何将现有 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 04/24/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: e2b3984166809746318b800a631bac1fdbed5e70
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7acc4709878c6c8ade08d6553214784995597d2b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223243"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328693"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：将 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -34,7 +35,7 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
 
 <!--CORRECT ON Azure CLI-->
 
-示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](/cosmos-db/mongodb-introduction#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
+示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](./mongodb-introduction.md#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
 
 ## <a name="prerequisites"></a>先决条件
 - 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
@@ -43,15 +44,15 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
     
 - 在计算机上安装 [Go](https://golang.org/)，并了解 Go 的实践知识。
 - [Git](https://git-scm.com/downloads)。
-- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli)。
 
-    <!--Not Available on If you don't want to use Azure Cloud Shell,-->
+<!--Not Available on If you don't want to use Azure Cloud Shell,-->
     
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-运行下列命令以克隆示例存储库。
+运行以下命令克隆示例存储库。
 
 1. 打开命令提示符，新建一个名为 `git-samples` 的文件夹，然后关闭命令提示符。
 
@@ -249,9 +250,9 @@ go build -o todo
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI]。 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI]。 
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。 
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/cli/reference-index#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。 
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -262,11 +263,11 @@ az login
 
 如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。 
 
-如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建[资源组](../azure-resource-manager/management/overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 创建[资源组](../azure-resource-manager/management/overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
 
 以下示例在中国北部区域中创建一个资源组。 选择资源组的唯一名称。
 
@@ -279,7 +280,7 @@ az group create --name myResourceGroup --location "China North"
 
 ### <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-使用 [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令创建 Cosmos 帐户。
+使用 [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb#az_cosmosdb_create) 命令创建 Cosmos 帐户。
 
 在以下命令中，请将 `<cosmosdb-name>` 占位符替换成自己的唯一 Cosmos 帐户名。 此唯一名称将用作 Cosmos DB 终结点 (`https://<cosmosdb-name>.documents.azure.cn/`) 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos 帐户中具有唯一性。 
 
@@ -292,14 +293,13 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息： 
 
 > [!NOTE]
-> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](https://docs.azure.cn/cli/format-output-azure-cli?view=azure-cli-latest)。
+> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](https://docs.azure.cn/cli/format-output-azure-cli)。
 
 ```json
 {
   "databaseAccountOfferType": "Standard",
   "documentEndpoint": "https://<cosmosdb-name>.documents.azure.cn:443/",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<cosmosdb-name>",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/<cosmosdb-name>",
   "kind": "MongoDB",
   "location": "China North",
   "name": "<cosmosdb-name>",
@@ -328,7 +328,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ### <a name="retrieve-the-database-key"></a>检索数据库键
 
-若要连接到 Cosmos 数据库，需要使用数据库密钥。 使用 [az cosmosdb keys list](https://docs.microsoft.com/cli/azure/cosmosdb/keys?view=azure-cli-latest#az-cosmosdb-keys-list) 命令检索主键。
+若要连接到 Cosmos 数据库，需要使用数据库密钥。 使用 [az cosmosdb keys list](https://docs.microsoft.com/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) 命令检索主键。
 
 ```azurecli
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -471,6 +471,6 @@ Azure Cosmos DB 中存储的数据可用于在 Azure 门户中查看和查询。
 <!--CORRECT ON USING Azure CLI-->
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

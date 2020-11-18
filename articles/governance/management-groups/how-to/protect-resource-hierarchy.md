@@ -2,15 +2,15 @@
 title: 如何保护资源层次结构 - Azure 治理
 description: 了解如何通过层次结构设置（包括设置默认管理组）来保护资源层次结构。
 origin.date: 09/02/2020
-ms.date: 09/15/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: conceptual
-ms.openlocfilehash: de47fd11368bfaa47cf6f803196884bfd16a2440
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: 3ad70f782482be6c7c0aad0c08b6d7b7e92f04de
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456015"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328847"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>如何保护资源层次结构
 
@@ -18,9 +18,9 @@ ms.locfileid: "90456015"
 
 管理组现在具有可使租户管理员控制这些行为的层次结构设置。 本文介绍每个可用的层次结构设置以及如何设置它们。
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>层次结构设置的 RBAC 权限
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>层次结构设置的 Azure RBAC 权限
 
-配置任何层次结构设置需要对根管理组执行以下两个 RBAC 操作：
+配置任何层次结构设置都需要对根管理组执行以下两个资源提供程序操作：
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -29,7 +29,7 @@ ms.locfileid: "90456015"
 
 ## <a name="setting---default-management-group"></a>设置 - 默认管理组
 
-默认情况下，在租户中添加的新订阅将添加为根管理组的成员。 如果将策略分配、基于角色的访问控制 (RBAC) 和其他治理构造分配给根管理组，则它们会立即影响这些新订阅。 出于此原因，许多组织不会在根管理组中应用这些构造，即使这是它们分配到的目标位置。 在其他情况下，新订阅需要一组更严格的控件，但不应将其分配给所有订阅。 此设置支持两个用例。
+默认情况下，在租户中添加的新订阅将添加为根管理组的成员。 如果将策略分配、Azure 基于角色的访问控制 (Azure RBAC) 和其他治理构造分配给根管理组，则它们会立即影响这些新订阅。 出于此原因，许多组织不会在根管理组中应用这些构造，即使这是它们分配到的目标位置。 在其他情况下，新订阅需要一组更严格的控件，但不应将其分配给所有订阅。 此设置支持两个用例。
 
 通过允许定义新订阅的默认管理组，可以在根管理组中应用组织范围的治理构造，并且可以定义具有更适合新订阅的策略分配或 Azure 角色分配的单独管理组。
 
@@ -117,5 +117,5 @@ ms.locfileid: "90456015"
 
 若要了解有关管理组的详细信息，请参阅：
 
-- [创建管理组来组织 Azure 资源](../create.md)
+- [创建管理组来组织 Azure 资源](../create-management-group-portal.md)
 - [如何更改、删除或管理管理组](../manage.md)

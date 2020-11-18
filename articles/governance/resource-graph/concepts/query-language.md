@@ -2,15 +2,15 @@
 title: 理解查询语言
 description: 介绍 Resource Graph 表以及可用于 Azure Resource Graph 的 Kusto 数据类型、运算符和函数。
 ms.author: v-tawe
-origin.date: 08/24/2020
-ms.date: 09/15/2020
+origin.date: 10/28/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: eee000ade478614cf758ee143d1d110cb3ae274d
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: 2e405acba038ad95da51dfc0f61a4a02d65b61fc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523160"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327491"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查询语言
 
@@ -35,9 +35,10 @@ Resource Graph 为其存储的有关 Azure 资源管理器资源类型及其属�
 |AdvisorResources |包括与 `Microsoft.Advisor` 相关的资源。 |
 |AlertsManagementResources |包括与 `Microsoft.AlertsManagement` 相关的资源。 |
 |GuestConfigurationResources |包括与 `Microsoft.GuestConfiguration` 相关的资源。 |
-|HealthResources |包括与 `Microsoft.ResourceHealth` 相关的资源。 |
 |MaintenanceResources |包括与 `Microsoft.Maintenance` 相关的资源。 |
+|PolicyResources |包括与 `Microsoft.PolicyInsights` 相关的资源。 （**预览版**）|
 |SecurityResources |包括与 `Microsoft.Security` 相关的资源。 |
+|ServiceHealthResources |包括与 `Microsoft.ResourceHealth` 相关的资源。 |
 
 有关包含资源类型的完整列表，请参阅[参考：支持的表和资源类型](../reference/supported-tables-resources.md)。
 

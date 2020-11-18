@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.openlocfilehash: a1947d37c51237a496f0aa63f1f24c233a09a018
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.date: 11/02/2020
+ms.openlocfilehash: 45f7fddf571db1415b016bdd59f88c315d2175a4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508452"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328874"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>在 Azure Monitor（预览版）的 Log Analytics 工作区中创建自定义字段
 
@@ -22,9 +22,9 @@ ms.locfileid: "87508452"
 > [!IMPORTANT]
 > 自定义字段增加了 Log Analytics 工作区中收集的数据量，这可能会增加成本。 有关详细信息，请参阅[通过 Azure Monitor 日志管理使用情况和成本](manage-cost-storage.md#pricing-model)。
 
-Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可搜索字段来扩展 Log Analytics 工作区中的现有记录。  自定义字段会自动填充，填充的数据从同一记录的其他属性中提取。
+Azure Monitor 的 **自定义字段** 功能使你可以通过添加自己的可搜索字段来扩展 Log Analytics 工作区中的现有记录。  自定义字段会自动填充，填充的数据从同一记录的其他属性中提取。
 
-![概述](./media/custom-fields/overview.png)
+![此图显示了与 Log Analytics 工作区中修改后的记录关联的原始记录，其中的属性值对已添加到修改后的记录中的原始属性。](./media/custom-fields/overview.png)
 
 例如，以下示例记录的事件描述中隐藏着有用记录。 将此数据提取到单独的属性中，就可以在排序和筛选等操作中对其进行使用。
 
@@ -82,7 +82,7 @@ Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可�
 
 我们输入以下查询从服务控制管理器中返回事件 ID 为 7036 的所有事件（即指示服务启动或停止的事件）。
 
-![查询](./media/custom-fields/query.png)
+![屏幕截图显示了对事件源和 ID 的查询。](./media/custom-fields/query.png)
 
 然后，我们选择并展开事件 ID 为 7036 的任一记录。
 
@@ -102,7 +102,7 @@ Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可�
 
 我们会看到：对于某些记录，已正确标识服务名称；但对于其他记录，则并未正确标识服务名称。   “搜索结果”显示：未选择“WMI 性能适配器”的部分名称。  “摘要”显示一条记录识别了“模块安装程序” 而不是“Windows 模块安装程序”。  
 
-![搜索结果](./media/custom-fields/search-results-01.png)
+![此屏幕截图显示了“搜索结果”窗格中突出显示的服务名称的一部分，以及“摘要”中突出显示的不正确的服务名称。](./media/custom-fields/search-results-01.png)
 
 我们从“WMI 性能适配器”记录开始。  单击该记录的编辑图标，并单击“修改此突出显示”。  
 
@@ -114,7 +114,7 @@ Azure Monitor 的**自定义字段**功能使你可以通过添加自己的可�
 
 我们可以看到：“WMI 性能适配器”的条目已得到修正，Log Analytics 也使用该信息来修正“Windows 模块安装程序”的记录。
 
-![搜索结果](./media/custom-fields/search-results-02.png)
+![此屏幕截图显示了“搜索结果”窗格中突出显示的完整服务名称，以及“摘要”中突出显示的正确服务名称。](./media/custom-fields/search-results-02.png)
 
 我们现在可以运行一个查询来验证 **Service_CF** 已创建，但尚未添加到任何记录中。 这是因为自定义字段不能使用现有的记录，因此我们需等待系统收集新记录。
 

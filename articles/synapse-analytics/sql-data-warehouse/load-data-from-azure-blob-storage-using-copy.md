@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 05/31/2020
-ms.date: 08/10/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8be8ac93a6deacf847d9709c159812e89632cfc8
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: ad159f0e3b23553ab94db5fa2bfdcf46d86f834f
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919225"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375726"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>教程：加载纽约出租车数据集
 
@@ -53,7 +53,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 
 2. 在“新建”页中选择“数据库”，然后在“新建”页上的“特色”下选择“Azure Synapse Analytics”    。
 
-    ![创建数据仓库](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![此屏幕截图显示了从 Azure 门户的数据库中选择的 SQL 数据仓库。](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. 使用以下信息填写窗体：
 
@@ -64,7 +64,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
    | **资源组** | myResourceGroup       | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
    | **选择源**  | 空白数据库        | 指定创建空白数据库。 请注意，数据仓库是一种数据库。 |
 
-    ![创建数据仓库](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![屏幕截图显示了可以在其中输入这些值的“SQL 数据仓库”窗格。](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. 选择“服务器”，为新数据库创建并配置新服务器。 使用以下信息填写“新建服务器”窗体：
 
@@ -92,14 +92,14 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 
 11. 在工具栏上，选择“通知”监视部署过程。
   
-     ![通知](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![屏幕截图显示了 Azure 门户，其中正在进行部署的“通知”窗格已打开。](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
 服务器级别的防火墙会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 要启用连接，可以添加防火墙规则，为特定 IP 地址启用连接。  按照以下步骤为客户端的 IP 地址创建[服务器级防火墙规则](../../azure-sql/database/firewall-configure.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
 
 > [!NOTE]
-> SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到服务器，除非 IT 部门打开了端口 1433。
+> Azure Synapse Analytics 通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到服务器，除非 IT 部门打开了端口 1433。
 
 1. 部署完成后，在左侧菜单中选择“SQL 数据库”，然后在“SQL 数据库”页上选择“mySampleDatabase”。 此时会打开数据库的概述页，显示完全限定的服务器名称（例如 **mynewserver-20181129.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
 

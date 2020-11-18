@@ -3,19 +3,18 @@ title: 轮换机密
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中轮换机密。
 author: WenJason
-ms.service: azure-stack
 ms.topic: how-to
 origin.date: 06/29/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.reviewer: ppacent
 ms.author: v-jay
 ms.lastreviewed: 08/15/2020
-ms.openlocfilehash: 5ad3f55a0b8d57297ec6f8a8ea399a4a00fe090b
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 835740d256ca779ff4e8d60126866b6d301741df
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437575"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330493"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -105,7 +104,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 若要轮换外部机密，请完成以下附加先决条件：
 
-1. 在轮换机密之前，请运行 **[Test-AzureStack](azure-stack-diagnostic-test.md)** 并确认所有测试输出都正常。
+1. 在轮换机密之前使用 `-group SecretRotationReadiness` 参数运行 **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell cmdlet，以确认所有测试输出正常。
 2. 准备新的替换性的外部证书集：
     - 新集必须与 [Azure Stack Hub PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规范匹配。 
     - 可以使用[生成证书签名请求](azure-stack-get-pki-certs.md)中概述的步骤，生成需提交到证书颁发机构 (CA) 的证书签名请求 (CSR)，然后使用[准备 PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤来准备这些证书，以便在 Azure Stack Hub 环境中使用。 
@@ -115,7 +114,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 3. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 将备份副本保存在安全的备份位置。
 4. 创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
 5. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到你的文件共享，你将在其中创建目录来放置外部证书。
-6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到在轮换期间可以访问的网络文件共享，并运行该脚本。 该脚本将创建一个文件夹结构，该结构符合 .\Certificates\AAD 或 .\Certificates\ADFS 的要求，具体取决于你的标识提供者。 你的文件夹结构必须以 **\\Certificates** 文件夹开始，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有其他子目录都包含在前面的结构中。 例如：
+6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到在轮换期间可以访问的网络文件共享，并运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有其他子目录都包含在前面的结构中。 例如：
     - 文件共享 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD 提供程序的证书根文件夹 = **\\Certificates\AAD**
     - 完整路径 = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -197,9 +196,9 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
     此脚本执行以下步骤：
 
-    - 使用 **CloudAdmin** 帐户创建具有[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 会话，并将会话存储为变量。 此变量在下一步用作参数。 
+    - 使用 **CloudAdmin** 帐户创建具有 [特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 会话，并将会话存储为变量。 此变量在下一步用作参数。 
 
-    - 运行 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)，将 PEP 会话变量作为 `-Session` 参数传递。
+    - 运行 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command)，将 PEP 会话变量作为 `-Session` 参数传递。
 
     - 使用以下参数在 PEP 会话中运行 `Start-SecretRotation`：
         - `-PfxFilesPath`：之前创建的 Certificates 目录的网络路径。  
@@ -223,7 +222,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 请参考[轮换外部机密](#rotate-external-secrets)的步骤 2 中的 PowerShell 脚本。 此脚本提供了一个示例。你可以通过进行一些更改来运行以下步骤，以便改编该示例，使其适合内部机密轮换：
 
-1. 在“运行机密轮换”部分，将 `-Internal` 参数添加到 [Start-SecretRotation cmdlet](/azure-stack/reference/pep-2002/start-secretrotation)，例如：
+1. 在“运行机密轮换”部分，将 `-Internal` 参数添加到 [Start-SecretRotation cmdlet](../reference/pep-2002/start-secretrotation.md)，例如：
 
     ```powershell
     # Run Secret Rotation
@@ -261,7 +260,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 2. 在 Azure Stack Hub 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack Hub 中的特权终结点](azure-stack-privileged-endpoint.md)。 
 
-3. 在 PowerShell 提示符更改为 `[IP address or ERCS VM name]: PS>` 或 `[azs-ercs01]: PS>` 后，根据环境通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 如果你将可选的 `-BypassBMCUpdate` 参数用于 `Set-BMCCredential`，则 BMC 中的凭据不会更新。 只有 Azure Stack Hub 内部数据存储会更新。请将特权终结点会话变量作为参数进行传递。 
+3. 打开特权终结点会话后，运行下面的 PowerShell 脚本之一，这些脚本使用 Invoke-Command 来运行 Set-BmcCredential。 如果你将可选的 -BypassBMCUpdate 参数用于 Set-BMCCredential，则 BMC 中的凭据不会更新。 只有 Azure Stack Hub 内部数据存储会更新。请将特权终结点会话变量作为参数进行传递。
 
     下面是一个示例 PowerShell 脚本，它会提示你输入用户名和密码： 
 
@@ -303,7 +302,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>参考：Start-SecretRotation cmdlet
 
-[Start-SecretRotation cmdlet](/azure-stack/reference/pep-2002/start-secretrotation) 轮换 Azure Stack Hub 系统的基础结构机密。 仅可通过使用 `Invoke-Command` 脚本块在 `-Session` 参数中传递 PEP 会话，对 Azure Stack Hub 特权终结点执行此 cmdlet。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。
+[Start-SecretRotation cmdlet](../reference/pep-2002/start-secretrotation.md) 轮换 Azure Stack Hub 系统的基础结构机密。 仅可通过使用 `Invoke-Command` 脚本块在 `-Session` 参数中传递 PEP 会话，对 Azure Stack Hub 特权终结点执行此 cmdlet。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。
 
 | 参数 | 类型 | 必须 | 位置 | 默认 | 说明 |
 |--|--|--|--|--|--|
@@ -372,10 +371,10 @@ Remove-PSSession -Session $PEPSession
 
 此命令轮换用于 Azure Stack Hub 外部网络基础结构终结点的 TLS 证书。
 
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>轮换内部和外部基础结构机密（仅限 **1811 以前**的版本）
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>轮换内部和外部基础结构机密（仅限 **1811 以前** 的版本）
 
 > [!IMPORTANT]
-> 此命令仅适用于 Azure Stack Hub **1811 以前**的版本，因为轮换将会针对内部和外部证书分开进行。
+> 此命令仅适用于 Azure Stack Hub **1811 以前** 的版本，因为轮换将会针对内部和外部证书分开进行。
 >
 > **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！** 
 

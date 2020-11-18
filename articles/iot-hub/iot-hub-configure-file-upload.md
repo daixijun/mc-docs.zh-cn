@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure 门户配置文件上传 | Azure
 description: 如何使用 Azure 门户配置 IoT 中心，以便从连接的设备上传文件。 包括有关配置目标 Azure 存储帐户的信息。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 6f8f91c9691fc9e1b363e7b04475a583edc11e4f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/16/2020
+ms.openlocfilehash: 1aeed039ee7c140a3faa9c0c84502741af68b318
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63822177"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327565"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>使用 Azure 门户配置 IoT 中心文件上传
 
@@ -47,28 +47,10 @@ ms.locfileid: "63822177"
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
-* [从根本上保护 IoT 解决方案][lnk-securing]
-
-  [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
-  [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
-  [15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
-
-[lnk-upload]: ./iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: ./iot-hub-metrics.md
-[lnk-monitor]: ./iot-hub-operations-monitoring.md
-
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-[lnk-securing]: ./iot-hub-security-ground-up.md
-
-
-<!--Update_Description: update meta data and wording-->
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
+* [从根本上保护 IoT 解决方案](./iot-hub-security-ground-up.md)

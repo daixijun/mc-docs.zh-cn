@@ -6,14 +6,14 @@ ms.author: v-johya
 services: monitoring
 ms.topic: conceptual
 origin.date: 3/5/2020
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
-ms.openlocfilehash: 44fc9f25752958399f023e1e9212050e902f8ca6
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: cd0ba99061aa52d98c92fca2d26ecc7378c4e520
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457315"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328456"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
@@ -38,14 +38,16 @@ Azure Monitor 现在支持[新型指标警报类型](./alerts-overview.md)，它
 |Microsoft.Automation/automationAccounts | 是| 否 | [自动化帐户](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft.AVS/privateClouds | 否 | 否 | |
 |Microsoft.Batch/batchAccounts | 是 | 否 | [Batch 帐户](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | 是 | 否 | [用于 Redis 的 Azure 缓存](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | 是 | 是 | [用于 Redis 的 Azure 缓存](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | 否 | 否 | [经典云服务](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.ClassicCompute/virtualMachines | 否 | 否 | [经典虚拟机](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | 是 | 否 | [存储帐户（经典）](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | 是 | 否 | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | 是 | 否 | |
 |Microsoft.ClassicStorage/storageAccounts/queueServices | 是 | 否 | |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | 是 | 否 | |
 |Microsoft.CognitiveServices/accounts | 是 | 否 | [认知服务](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | 是 | 是 | [虚拟机](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | 是 | 是<sup>1</sup> | [虚拟机](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | 是 | 否 |[虚拟机规模集](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | 是| 否 | [容器组](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | 否 | 否 | [容器注册表](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -113,10 +115,12 @@ Azure Monitor 现在支持[新型指标警报类型](./alerts-overview.md)，它
 |Microsoft.Web/sites | 是 | 否 | [应用程序服务](./metrics-supported.md#microsoftwebsites-excluding-functions)和 [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | 是 | 否 | [应用服务槽](./metrics-supported.md#microsoftwebsitesslots)|
 
+<sup>1</sup> 不支持虚拟机网络指标（总网络流入量、总网络流出量、入站流数、出站流数、入站流最大创建速率、出站流最大创建速率）和自定义指标。
+
 ## <a name="payload-schema"></a>负载架构
 
 > [!NOTE]
-> 还可以使用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载，用于 Webhook 集成。 [了解常见的警报架构定义。](https://aka.ms/commonAlertSchemaDefinitions)
+> 还可以使用[常见警报架构](./alerts-common-schema.md)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载，用于 Webhook 集成。 [了解常见的警报架构定义。](./alerts-common-schema-definitions.md)
 
 
 使用适当配置的[操作组](./action-groups.md)时，POST 操作对于所有准新型指标警报包含以下 JSON 有效负载和架构：
@@ -177,5 +181,4 @@ Azure Monitor 现在支持[新型指标警报类型](./alerts-overview.md)，它
 * 详细了解新式[警报体验](./alerts-overview.md)。
 * 了解 [Azure 中的日志警报](./alerts-unified-log.md)。
 * 了解 [Azure 中的警报](./alerts-overview.md)。
-
 

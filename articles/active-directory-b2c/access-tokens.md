@@ -7,15 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/04/2020
+ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9c2c0a98e33630d19173f4b6a26a2a473deea618
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: d2aef2d4087f6e803cded550508e84ff706d5cb2
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297674"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326409"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
@@ -49,10 +50,15 @@ scope=https://contoso.partner.onmschina.cn/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.partner.onmschina.cn%2Fapi%2Fread%20openid%20offline_access
 ```
 
-如果请求的作用域数超过为客户端应用程序授予的数目，则只有在授予至少一个权限的情况下，调用才会成功。 生成的访问令牌的 **scp** 声明中只会填充已成功授予的权限。 OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表示访问用户配置文件的权限：
+如果请求的作用域数超过为客户端应用程序授予的数目，则只有在授予至少一个权限的情况下，调用才会成功。 生成的访问令牌的 **scp** 声明中只会填充已成功授予的权限。 
+
+### <a name="openid-connect-scopes"></a>OpenID Connect 范围
+
+OpenID Connect 标准指定了多个特殊的作用域值。 以下作用域表示访问用户配置文件的权限：
 
 - **openid** - 请求 ID 令牌。
-- **offline_access** - 使用[授权代码流](authorization-code-flow.md)请求刷新令牌。
+- **offline_access** - 使用 [授权代码流](authorization-code-flow.md)请求刷新令牌。
+- **00000000-0000-0000-0000-000000000000** - 使用客户端 ID 作为范围即表示应用需要可以针对你自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。
 
 如果 `/authorize` 请求中的 **response_type** 参数包含 `token`，那么 **scope** 参数必须包含至少一个将被授予的资源作用域（除 `openid` 和 `offline_access` 以外）。 否则，`/authorize` 请求会失败。
 
@@ -68,7 +74,7 @@ scope=https%3A%2F%2Fcontoso.partner.onmschina.cn%2Fapi%2Fread%20openid%20offline
 - `<redirect-uri>` - 注册客户端应用程序时输入的重定向 URI。
 
 ```http
-GET https://<tenant-name>.b2clogin.cn/tfp/<tenant-name>.partner.onmschina.cn/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.cn/<tenant-name>.partner.onmschina.cn/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

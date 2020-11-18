@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.openlocfilehash: c01ff70936091bb1c99b615a9aed7b84fca621f5
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.date: 11/02/2020
+ms.openlocfilehash: 3b82af3868ffa2f7272e4a431dc92a0e99c193b7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508449"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328893"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>删除和恢复 Azure Log Analytics 工作区
 
@@ -22,19 +22,21 @@ ms.locfileid: "87508449"
 
 删除 Log Analytics 工作区时，将执行软删除操作，在 14 天内允许恢复工作区（包括其数据和连接的代理），无论是意外删除还是有意删除。 软删除期过后，工作区资源及其数据将不可恢复 - 其数据会排队等待永久删除，并在 30 天内完全清除。 工作区名称为“已发布”，你可以使用它来创建新的工作区。
 
+> [!NOTE]
+> 若要重写软删除行为并永久删除你的工作区，请执行[永久删除工作区](#permanent-workspace-delete)中的步骤。
+
 删除工作区时需谨慎，因为其中可能会含有对服务操作产生不利影响的重要数据和配置。 请了解那些将数据存储在 Log Analytics 中的代理、解决方案以及其他 Azure 服务，例如：
 
 * 管理解决方案
 * Azure 自动化
 * 在 Windows 和 Linux 虚拟机上运行的代理
 * 在环境中于 Windows 和 Linux 计算机上运行的代理
-* System Center Operations Manager
 
 软删除操作会删除工作区资源，并且任何关联用户的权限都将中断。 如果这些用户与其他工作区关联，他们可以继续通过其他工作区使用 Log Analytics。
 
 ## <a name="soft-delete-behavior"></a>软删除行为
 
-工作区删除操作会删除工作区资源管理器资源，但其配置和数据将保留 14 天，同时会显示工作区已删除。 在软删除期间，被配置为向工作区报告的任何代理和 System Center Operations Manager 管理组继续处于孤立状态。 该服务还提供用于恢复已删除工作区（包括其数据和已连接的资源）的机制，从实质上撤消删除。
+工作区删除操作会删除工作区资源管理器资源，但其配置和数据将保留 14 天，同时会显示工作区已删除。 在软删除期间，配置为向工作区报告的任何代理都将保持孤立状态。 该服务还提供用于恢复已删除工作区（包括其数据和已连接的资源）的机制，从实质上撤消删除。
 
 > [!NOTE] 
 > 已安装的解决方案和链接服务（例如 Azure 自动化帐户）在删除时将从工作区中永久删除，并且无法恢复。 应在恢复操作后进行重新配置，使工作区恢复到其以前配置的状态。
@@ -55,7 +57,19 @@ ms.locfileid: "87508449"
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-<!--Not available in MC: ## Permanent workspace delete-->
+## <a name="permanent-workspace-delete"></a>永久删除工作区
+软删除方法可能不适用于开发和测试等情况，在这些情况下需要使用相同的设置和工作区名称重复部署。 在这些情况下，可以永久删除工作区并“替换”软删除期。 永久删除工作区操作将释放工作区名称，你可以使用相同的名称创建新的工作区。
+
+
+> [!IMPORTANT]
+> 请谨慎使用永久删除工作区操作，因为这是不可逆的，并且无法恢复工作区及其数据。
+
+添加“-ForceDelete”标记可永久删除工作区。 “-ForceDelete”选项当前在 Az.OperationalInsights 2.3.0 或更高版本中可用。 
+
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
+```
+
 ## <a name="recover-workspace"></a>恢复工作区
 当意外或有意删除 Log Analytics 工作区时，该服务会将工作区置于软删除状态，从而使其无法被任何操作访问。 已删除工作区的名称将在软删除期间保留，并且不能用于创建新工作区。 软删除期之后，工作区将不可恢复，会计划将其永久删除，并且发布的名称可用于创建新工作区。
 
@@ -72,11 +86,11 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 2. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”。 你将看到所选范围内的工作区列表。
 3. 单击左上侧菜单中的“恢复”，打开包含处于软删除状态且可恢复的工作区页面。
 
-   ![恢复工作区](./media/delete-workspace/recover-menu.png)
+   ![Azure 门户中“日志分析”工作区屏幕的屏幕截图，其中的菜单栏上突出显示了“恢复”。](./media/delete-workspace/recover-menu.png)
 
 4. 选择工作区，然后单击“恢复”以恢复该工作区。
 
-   ![恢复工作区](./media/delete-workspace/recover-workspace.png)
+   ![Azure 门户中“恢复已删除的 Log Analytics 工作区”对话框的屏幕截图，其中突出显示了一个工作区并选择了“恢复”按钮。](./media/delete-workspace/recover-workspace.png)
 
 
 ### <a name="powershell"></a>PowerShell
@@ -97,6 +111,11 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 * 如果不确定删除的工作区是否处于软删除状态且可以恢复，请在“Log Analytics 工作区”页中单击[恢复](#recover-workspace)，以查看每个订阅的软删除工作区列表。 永久删除的工作区不会包括在该列表中。
 * 如果在创建工作区时收到一条错误消息“此工作区名称已在使用中”或“发生冲突”，则可能是由于以下原因 ：
   * 工作区名称不可用，并且已被组织中的某个用户或其他客户使用。
-  * 该工作区是在最近 14 天内删除的，其名称仍处于软删除期间保留状态。 
-<!--Not available in MC: Permanent workspace delete-->
+  * 该工作区是在最近 14 天内删除的，其名称仍处于软删除期间保留状态。 若要替换软删除，同时永久删除你的工作区并创建新的同名工作区，请按照以下步骤，先恢复工作区再执行永久删除：<br>
+    1. [恢复](#recover-workspace)工作区。
+    2. [永久删除](#permanent-workspace-delete)工作区。
+    3. 使用相同的工作区名称创建新的工作区。
+* 如果你看到 204 响应代码（显示“未找到资源”），则原因可能是你连续尝试使用“删除工作区”操作。 204 为空响应（通常意味着该资源不存在），因此删除已完成，无需执行任何操作。
+  在后端成功完成删除调用后，可以使用前面建议的方法之一还原工作区并完成永久删除操作。
+
 

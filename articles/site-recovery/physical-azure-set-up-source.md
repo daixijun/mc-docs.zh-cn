@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/03/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 29adc1a8f80dd99b77ac379384e0d2ec17de6490
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: f65e15dbee494a0e476cecb027ccf8f81f7c00e5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655316"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328867"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>设置配置服务器，以便将物理服务器灾难恢复到 Azure
 
@@ -41,7 +41,7 @@ ms.locfileid: "89655316"
 1. 在 Azure 门户中，转到“恢复服务保管库”  边栏选项卡，然后选择保管库。
 2. 在保管库的“资源”  菜单中，单击“开始使用”   > “Site Recovery”   > “步骤 1: 准备基础结构”   > “保护目标”  。
 
-    :::image type="content" source="./media/physical-azure-set-up-source/choose-goals.png" alt-text="选择目标":::
+    :::image type="content" source="./media/physical-azure-set-up-source/choose-goals.png" alt-text="屏幕截图，显示在何处选择保护目标。":::
 3. 在“保护目标”  中，依次选择“到 Azure”  和“未虚拟化/其他”  ，并单击“确定”  。
 
     :::image type="content" source="./media/physical-azure-set-up-source/physical-protection-goal.png" alt-text="选择目标":::
@@ -50,13 +50,13 @@ ms.locfileid: "89655316"
 
 1. 如果没有配置服务器，请在“准备源”中单击“+配置服务器”添加一个。  
 
-    :::image type="content" source="./media/physical-azure-set-up-source/plus-config-srv.png" alt-text="设置源":::
+    :::image type="content" source="./media/physical-azure-set-up-source/plus-config-srv.png" alt-text="屏幕截图，显示如何选择配置服务器。":::
 2. 在“添加服务器”边栏选项卡中，检查“配置服务器”是否已出现在“服务器类型”中。   
 4. 下载站点恢复统一安装程序安装文件。
 5. 下载保管库注册密钥。 运行统一安装程序时，需要注册密钥。 生成的密钥有效期为 5 天。
 
     :::image type="content" source="./media/physical-azure-set-up-source/set-source2.png" alt-text="设置源":::
-6. 在用作配置服务器的计算机上，运行 **Azure Site Recovery 统一安装程序**安装配置服务器、进程服务器和主目标服务器。
+6. 在用作配置服务器的计算机上，运行 **Azure Site Recovery 统一安装程序** 安装配置服务器、进程服务器和主目标服务器。
 
 #### <a name="run-azure-site-recovery-unified-setup"></a>运行 Azure Site Recovery 统一安装程序
 

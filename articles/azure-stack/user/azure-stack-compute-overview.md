@@ -3,21 +3,21 @@ title: Azure Stack Hub VM 简介
 description: 了解 Azure Stack Hub VM。
 author: WenJason
 ms.topic: conceptual
-origin.date: 06/15/2020
-ms.date: 07/20/2020
+origin.date: 10/01/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 42b4765f2b8e795ded8c89ead24b31667df4e366
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: 04900ba8414f55ad884bf472573d13c7a55470e5
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307365"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330541"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM 简介
 
-Azure Stack Hub 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度控制计算环境，可以选择 VM。 本文提供创建第一个 VM 之前所需的详细信息。
+Azure Stack Hub 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度控制计算环境，可以选择 VM。 本文详细介绍了如何创建第一个 VM。
 
 Azure Stack Hub VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补/更新和安装在 VM 上运行的软件）来维护 VM。
 
@@ -42,7 +42,7 @@ Azure Stack Hub VM 可提供虚拟化的灵活性，而无需管理群集或单�
 - VM 在启动后的配置。
 - VM 所需的相关资源。
 
-### <a name="naming"></a>命名
+### <a name="names"></a>名称
 
 VM 会被指定名称，也具有在操作系统中所配置的计算机名称。 VM 的名称最多可包含 15 个字符。
 
@@ -58,7 +58,7 @@ VM 会被指定名称，也具有在操作系统中所配置的计算机名称�
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
-Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为**最新**）标识。
+Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为 **最新**）标识。
 
 下表显示了如何查找映像的信息：
 
@@ -108,10 +108,10 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 功能。 可以使
 
 可以使用基于浏览器的门户、支持脚本的命令行工具或直接通过 API 管理 VM。 一些典型的管理任务包括：
 
-- 获取有关 VM 的信息
-- 连接到 VM
-- 管理可用性
-- 进行备份
+- 获取有关 VM 的信息。
+- 连接到 VM。
+- 管理可用性。
+- 进行备份。
 
 ### <a name="get-information-about-your-vm"></a>获取有关 VM 的信息
 
@@ -121,7 +121,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 功能。 可以使
 |---------|---------|
 |Azure Stack Hub 门户|在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
 |Azure PowerShell|在 Azure 和 Azure Stack Hub 中，管理 VM 的方法很相似。 若要详细了解如何使用 PowerShell，请参阅 Azure 主题：[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)。|
-|客户端 SDK|在 Azure 和 Azure Stack Hub 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅[在 Azure 中使用 C# 创建和管理 Windows VM](/virtual-machines/windows/csharp)|
+|客户端 SDK|在 Azure 和 Azure Stack Hub 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅[在 Azure 中使用 C# 创建和管理 Windows VM](/virtual-machines/windows/csharp)。|
 
 ### <a name="connect-to-your-vm"></a>连接到 VM
 

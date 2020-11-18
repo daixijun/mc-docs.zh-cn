@@ -2,17 +2,16 @@
 title: 使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务的快速入门
 description: 了解如何使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 author: WenJason
-ms.service: azure-stack
 ms.topic: quickstart
 origin.date: 09/22/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
-ms.openlocfilehash: c6cf48e2a13bb35a083ce1a2556d392674e5d5d1
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 370505e22597e0ff7d5fc252600341ac06b2a724
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451188"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330672"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 
@@ -22,11 +21,16 @@ ms.locfileid: "91451188"
 
 设置涉及以下任务：
 
+* 下载 Azure Stack HCI 上的 Azure Kubernetes 服务
 * 设置 Windows Admin Center（如果尚未这样做）
 * 为 Windows Admin Center 安装 Azure Stack HCI 的 Azure Kubernetes 服务扩展
 * 在要将 Kubernetes 群集部署到的系统上设置 Azure Kubernetes 服务主机
 
 在开始之前，请确保已满足[系统要求](.\system-requirements.md)页上的所有先决条件。
+
+## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>下载 Azure Stack HCI 上的 Azure Kubernetes 服务
+
+如果尚未下载预览版软件，请参阅[评估 Azure Stack HCI 上的 AKS](https://aka.ms/AKS-HCI-Evaluate)。 系统会要求你下载 Azure Stack HCI 上的 AKS 以及 Windows Admin Center。
 
 ## <a name="setting-up-windows-admin-center"></a>设置 Windows Admin Center
 
@@ -53,9 +57,14 @@ ms.locfileid: "91451188"
 
 此工具会安装和下载所需包，以及创建提供核心 Kubernetes 服务并协调应用程序工作负载的管理群集。 
 
-让我们开始吧： 
+使用此工具之前，请打开 PowerShell 并在每个节点上运行以下命令，以确保 Azure 登录未被任何计算机设置阻止：
+```PowerShell
+az login
+```
+
+现在我们已验证了系统设置，接下来让我们开始使用吧： 
 1. 选择“设置”以启动设置向导。
-2. 查看在运行 Windows Admin Center 的计算机、所连接到的 Azure Stack HCI 群集以及网络的先决条件。 此外，请确保已在 Windows Admin Center 上登录 Azure 帐户。 完成后，选择“下一步”。
+2. 查看在运行 Windows Admin Center 的计算机、所连接到的 Azure Stack HCI 群集以及网络的先决条件。 此外，请确保已登录到 Windows Admin Center 上的 Azure 帐户，并且你计划使用的 Azure 订阅未过期。 完成后，选择“下一步”。
 3. 在向导的“系统检查”页上，执行所有所需操作，例如将 Windows Admin Center 网关连接到 Azure。 此步骤会检查 Windows Admin Center 以及将托管 Azure Kubernetes 服务的系统是否具有可继续进行操作的适当配置。 操作执行完成后，选择“下一步”。
 4. 在“主机配置”步骤中，配置将托管 Azure Kubernetes 服务的计算机。 建议在此部分中选择自动下载更新。 完成后，选择“下一步”。 向导的此步骤要求配置以下详细信息：
     * 主机详细信息，如管理群集的名称和用于存储 VM 映像的文件夹

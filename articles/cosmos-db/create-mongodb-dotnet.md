@@ -5,21 +5,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 05/21/2019
+origin.date: 10/15/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 868468e90ea853cf08a4b5d6b1b4443724afc682
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: bda995123dc3a6694571f8c494c54c1ae0b1fe77
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246786"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327643"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +31,7 @@ ms.locfileid: "91246786"
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
+Azure Cosmos DB 是世纪互联的快速 NoSQL 数据库，具有适合任何规模的开放式 API。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 本快速入门演示如何使用 [Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md) 创建 Cosmos 帐户。 然后生成并部署通过 [MongoDB .NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)生成的任务列表 Web 应用。
 
@@ -56,7 +57,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
@@ -112,24 +113,24 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     collection.Find(new BsonDocument()).ToList();
     ```
 
-创建任务并将其插入到集合
+    创建任务并将其插入到集合
 
-```csharp
-public void CreateTask(MyTask task)
-{
-    var collection = GetTasksCollectionForEdit();
-    try
+    ```csharp
+    public void CreateTask(MyTask task)
     {
-        collection.InsertOne(task);
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
     }
-    catch (MongoCommandException ex)
-    {
-        string msg = ex.Message;
-    }
-}
-```
+    ```
 
-同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
+    同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
 
 ## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
@@ -172,6 +173,6 @@ public void CreateTask(MyTask task)
 在本快速入门中，你已了解如何创建 Cosmos 帐户、创建集合和运行控制台应用。 现在可以向你的 Cosmos 数据库导入更多数据。 
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,18 +3,17 @@ title: MySQL 资源提供程序维护操作 - Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
 author: WenJason
 ms.topic: article
-ms.service: azure-stack
-origin.date: 1/22/2020
-ms.date: 10/12/2020
+origin.date: 9/22/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: b5320c20c69814a952611676967895570416d7dc
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 34302626d2f98910a74ff43de318353be9fc6024
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330491"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -26,7 +25,7 @@ MySQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维�
 
 使用以下方法之一更新提供程序 VM：
 
-- 使用当前进行了修补的 Windows Server 2016 Core 映像安装最新的资源提供程序包。
+- 使用当前进行了修补的 VM 映像安装最新的资源提供程序包。
 - 在安装或更新资源提供程序期间安装 Windows 更新包。
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>更新 VM Windows Defender 定义
@@ -236,17 +235,17 @@ $session | Remove-PSSession
 
 1. 登录到 Azure Stack Hub 管理员门户。
 
-2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM****。
+2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM。
 
-3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志************。
+3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志。
    
    ![转到诊断设置](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 MySQL 资源提供程序操作事件日志。
+4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ 以收集 MySQL 资源提供程序操作事件日志。
 
    ![添加事件日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”********。
+5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”。
 
    ![添加 IIS 日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

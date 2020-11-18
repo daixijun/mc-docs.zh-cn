@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/13/2019
 ms.author: v-yiso
 ms.date: 02/25/2020
-ms.openlocfilehash: 69240bfc8ada934bfbc3c9a517519887bef2a897
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 561d308b999a56c3e78a93967b6bd8a45a996e7f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162375"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327421"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -33,13 +33,18 @@ ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连�
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 的费用是多少？
 有关定价信息，请查看[定价详细信息](https://www.azure.cn/pricing/details/expressroute/)。
 
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>如果购买具有给定带宽的 ExpressRoute 线路，系统是否会为入口和出口流量分别分配此带宽？
+
+是的，ExpressRoute 线路带宽为双工。 例如，如果你购买了 200 mbps ExpressRoute 线路，那么你将获得 200 Mbps 的入口流量和 200 Mbps 的出口流量。
+
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，我必须从网络服务提供商购买具有相同速度的 VPN 连接吗？
 
 不是。 可以从服务提供商购买任何速度的 VPN 连接。 但是，与 Azure 的连接速度限制为购买的 ExpressRoute 线路带宽。
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，是否可以根据需要提升到更高的速度？
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>如果购买具有给定带宽的 ExpressRoute 线路，是否能够使用比所购买的带宽更多的带宽？
 
-是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询你的服务提供商，确定他们是否支持此功能。 这不会持续一段时间，因此不能保证。  如果流量流过 ExpressRoute 网关，则 sku 的带宽是固定的，不可提升。
+是的，使用 ExpressRoute 线路的辅助连接上提供的带宽时，你最多可以使用所购带宽限制的两倍。 线路的内置冗余是使用到两个Microsoft 企业边缘路由器 (MSEE) 的主连接和辅助连接配置的，每个连接都使用所购买的带宽。 如有必要，通过辅助连接提供的带宽可用于额外的流量。 但是，由于辅助连接是为了实现冗余，因此它得不到保障，不应在一段持续的时间内将它用于额外的流量。 若要详细了解如何使用这两个连接来传输流量，请参阅[此文](/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)。
+如果计划仅使用主连接来传输流量，则连接的带宽是固定的，试图超额订阅它会导致数据包丢失情况增加。 如果流量流过 ExpressRoute 网关，则 SKU 的带宽是固定的，不可进行突发式提升。
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>能否同时与虚拟网络和其他 Azure 服务使用同一专用网络连接？
 
@@ -75,7 +80,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="microsoft-peering"></a>Microsoft 对等互连
 
-如果对 Azure Microsoft 对等互连启用了 ExpressRoute 线路，则可以通过该线路访问 Azure 中使用的[公共 IP 地址范围](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。 Azure Microsoft 对等互连将提供对当前在 Azure 上托管的服务的访问权限（具有地理限制，具体取决于线路的 SKU）。 若要验证特定服务的可用性，可以查看该服务的文档，以了解是否为该服务发布了保留范围。 然后，查找目标服务的 IP 范围，并与 [Azure IP 范围和服务标记 – 公有云 XML 文件](https://www.microsoft.com/download/details.aspx?id=56519)中列出的范围进行比较。 或者，可以为相关服务开具支持票证以进行说明。
+如果对 Azure Microsoft 对等互连启用了 ExpressRoute 线路，则可以通过该线路访问 Azure 中使用的[公共 IP 地址范围](../virtual-network/public-ip-addresses.md#public-ip-addresses)。 Azure Microsoft 对等互连将提供对当前在 Azure 上托管的服务的访问权限（具有地理限制，具体取决于线路的 SKU）。 若要验证特定服务的可用性，可以查看该服务的文档，以了解是否为该服务发布了保留范围。 然后，查找目标服务的 IP 范围，并与 [Azure IP 范围和服务标记 – 公有云 XML 文件](https://www.microsoft.com/download/details.aspx?id=56519)中列出的范围进行比较。 或者，可以为相关服务开具支持票证以进行说明。
 
 <!--Pay attention to the supported/unsupported services here-->
 
@@ -207,19 +212,19 @@ Microsoft 会验证指定的“播发的公用前缀”和“对等 ASN”（或
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多个包含虚拟网络的 Azure 订阅。 能否将不同订阅中的虚拟网络连接到单个 ExpressRoute 线路？
 
-是的。 可以在同一订阅中最多链接 10 个虚拟网络作为线路，或在不同的订阅中使用单一 ExpressRoute 线路。 可以通过启用 ExpressRoute 高级功能来提高此限制。
+是的。 可以在同一订阅中最多链接 10 个虚拟网络作为线路，或在不同的订阅中使用单一 ExpressRoute 线路。 可以通过启用 ExpressRoute 高级功能来提高此限制。 请注意，专用线路的连接和带宽费用将应用于 ExpressRoute 线路所有者；所有虚拟网络共享相同的带宽。
 
 有关详细信息，请参阅[在多个订阅之间共享 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)。
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>我有多个关联到不同 Azure Active Directory 租户或企业协议合约的 Azure 订阅。 是否可以将位于单独租户和合约中的虚拟网络连接到不在同一租户或合约中的单个 ExpressRoute 线路？
 
-是的。 ExpressRoute 授权可以跨订阅、租户和合约边界，不需要进行额外配置。 
+是的。 ExpressRoute 授权可以跨订阅、租户和合约边界，不需要进行额外配置。 请注意，专用线路的连接和带宽费用将应用于 ExpressRoute 线路所有者；所有虚拟网络共享相同的带宽。
 
 有关详细信息，请参阅[在多个订阅之间共享 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)。
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>连接到同一线路的虚拟网络相互隔离吗？
 
-否。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
+不是。 从路由角度看，连接到同一 ExpressRoute 线路的所有虚拟网络都属于同一路由域，不是相互隔离的。 如果需要路由隔离，则需要创建单独的 ExpressRoute 线路。
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>能否将一个虚拟网络连接到多条 ExpressRoute 线路？
 
@@ -312,44 +317,6 @@ ExpressRoute 高级版是以下功能的集合：
 
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>除了支付 ExpressRoute 高级版费用以外，是否还要支付标准版 ExpressRoute 的费用？
 是的。 ExpressRoute 高级版的费用是在 ExpressRoute 线路费用以及连接提供商所收费用的基础之上收取的。
-
-## <a name="expressroute-for-office-365"></a>适用于 Office 365 的 ExpressRoute
-
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
-
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>如何创建 ExpressRoute 线路，以便连接到 Office 365 服务？
-
-1. 请查看 [ExpressRoute 先决条件页](./expressroute-prerequisites.md)，以确保满足要求。
-2. 为确保满足连接需求，请查看 [ExpressRoute 合作伙伴和位置](expressroute-locations.md)一文中的服务提供商和位置列表。
-3. 请查看[针对 Office 365 的网络规划和性能优化](https://aka.ms/tune/)，规划容量要求。
-4. 遵循工作流中列出的步骤来设置连接：[ExpressRoute 线路预配工作流和线路状态](expressroute-workflows.md)。
-
-> [!IMPORTANT]
-> 确保在配置与 Office 365 服务的连接时已启用 ExpressRoute 高级版外接程序。
-> 
-> 
-
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>我的现有 ExpressRoute 线路是否支持连接到 Office 365 服务？
-
-是的。 可以将现有 ExpressRoute 线路配置为支持连接到 Office 365 服务。 确保容量足以连接到 Office 365 服务，并确保已启用高级版外接程序。 [针对 Office 365 的网络规划和性能优化](https://aka.ms/tune/)可帮助规划连接需求。 另外，请参阅[创建和修改 ExpressRoute 线路](expressroute-howto-circuit-classic.md)。
-
-### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>通过 ExpressRoute 连接可以访问哪些 Office 365 服务？
-
-如需可以通过 ExpressRoute 使用的服务的最新列表，请参阅 [Office 365 URL 和 IP 地址范围](https://aka.ms/o365endpoints)页。
-
-### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>用于 Office 365 服务的 ExpressRoute 的费用是多少？
-Office 365 服务要求启用高级版外接程序。 有关费用，请参阅[定价详细信息页](https://www.azure.cn/pricing/details/expressroute/)。
-
-### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>哪些区域支持适用于 Office 365 的 ExpressRoute？
-
-有关信息，请参阅 [ExpressRoute 合作伙伴和位置](expressroute-locations.md)。
-
-### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>是否即使为组织配置了 ExpressRoute，也可以通过 Internet 访问 Office 365？
-
-是的。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果你所在位置的网络配置为通过 ExpressRoute 连接到 Office 365 服务，请咨询组织的网络团队。
-
-
-
 
 ## <a name="route-filters-for-microsoft-peering"></a>用于 Microsoft 对等互连的路由筛选器
 

@@ -4,21 +4,22 @@ description: 了解如何在 Azure 门户中创建和管理操作组。
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 2/18/2020
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: alerts
-ms.openlocfilehash: a86449476399de15e005593c0be7b575135e1201
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 55f6b1c7bbad0c61cce0a8b4db1afd67f974daa9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457239"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328719"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
 
 本文演示如何在 Azure 门户中创建和管理操作组。
 
+<!--Correct in MC: Action type-->
 每个操作包含以下属性：
 
 * **操作类型**：执行的通知或操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。
@@ -68,7 +69,7 @@ ms.locfileid: "89457239"
 
     c. **详细信息**：根据所选的通知类型，输入电子邮件地址、电话号码等。
     
-    d. **常见警报架构**：可以选择启用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
+    d. **常见警报架构**：可以选择启用 [常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
 
     ![“通知”选项卡](./media/action-groups/action-group-2-notifications.png)
     
@@ -84,7 +85,7 @@ ms.locfileid: "89457239"
 
     c. **详细信息**：根据操作类型，输入 Webhook URI、Azure 应用或自动化 Runbook。
     
-    d. **常见警报架构**：可以选择启用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
+    d. **常见警报架构**：可以选择启用 [常见警报架构](./alerts-common-schema.md)，这可获得在 Azure Monitor 中的所有警报服务中具有单个可扩展和统一的警报有效负载的优势。
     
     ![“操作”选项卡](./media/action-groups/action-group-3-actions.png)
 
@@ -131,6 +132,8 @@ ms.locfileid: "89457239"
 
 ### <a name="email-azure-resource-manager-role"></a>通过电子邮件发送 Azure 资源管理器角色
 向订阅角色的成员发送电子邮件。 电子邮件将仅发送给该角色的“Azure AD 用户”成员。 不会将电子邮件发送到 Azure AD 组或服务主体。
+
+通知电子邮件将只发送到主电子邮件地址。
 
 操作组中的电子邮件操作数可能有限。 请参阅[速率限制信息](./alerts-rate-limiting.md)一文。
 
@@ -282,7 +285,32 @@ Webhook 使用以下规则进行处理
 
 操作组中的 Webhook 操作数可能有限。
 
+### <a name="service-tag"></a>服务标记
+服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Microsoft 会管理服务标记包含的地址前缀，并在地址更改时自动更新服务标记，从而最大限度地降低频繁更新操作组的网络安全规则的复杂性。
 
+1. 在 Azure 门户中的“Azure 服务”下搜索“网络安全组”。
+2. 单击“添加”，创建一个网络安全组。
+
+   1. 添加资源组名称，然后输入“实例详细信息”。
+   1. 依次单击“查看 + 创建”、“创建”。
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="有关如何创建网络安全组的示例。"border="true":::
+
+3. 转到“资源组”，然后单击你创建的网络安全组。
+
+    1. 选择“入站安全规则”。
+    1. 单击“添加”。
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="有关如何添加服务标记的示例。"border="true":::
+
+4. 此时将在右侧窗格中打开一个新窗口。
+    1.  选择“源”：**服务标记**
+    1.  源服务标记：**ActionGroup**
+    1.  单击 **添加**。
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="有关如何添加服务标记的示例。"border="true":::
+
+对 ActionGroup 使用服务标记有助于最大程度地降低频繁更新 IP 地址的复杂性。
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解[短信警报行为](./alerts-sms-behavior.md)。  
@@ -290,5 +318,4 @@ Webhook 使用以下规则进行处理
 * 详细了解有关警报的[速率限制](./alerts-rate-limiting.md)。
 * 获取[活动日志警报概述](./alerts-overview.md)，了解如何接收警报。  
 * 了解如何[配置每次发布服务运行状况通知时的警报](../../service-health/alerts-activity-log-service-notifications-portal.md)。
-
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 9/29/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: b3b22045d92b3e5e210d0a36d206b72fd8e04d89
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 3ad09ccf0459d17338bd0db9be0d9467ab5e2dda
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470309"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327814"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 
@@ -52,6 +52,8 @@ ms.locfileid: "92470309"
 2. 请确保源服务器允许端口 3306 上的入站和出站流量，并且源服务器具有公共 IP 地址，DNS 可公开访问，或者 DNS 具有完全限定的域名 (FQDN)。 
    
    尝试从另一台计算机上托管的工具（如 MySQL 命令行）进行连接，以测试与源服务器的连接。
+
+   如果你的组织有严格的安全策略，并且不允许源服务器上的所有 IP 地址实现从 Azure 到源服务器的通信，那么你可能可以使用以下命令来确定 MySQL 服务器的 IP 地址。
 
    1. 使用 MySQL 命令行之类的工具登录 Azure Database for MySQL。
    2. 执行下面的查询。
@@ -136,11 +138,11 @@ ms.locfileid: "92470309"
 
    在“登录名称”字段中键入用户名。 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="用户和特权":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="同步用户":::
  
    单击“管理角色”面板，然后从“全局特权”列表中选择“复制从属实例”。   然后单击“应用”，创建复制角色。
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="用户和特权":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="复制从属实例":::
 
 1. 将源服务器设置为只读模式
 
@@ -160,7 +162,7 @@ ms.locfileid: "92470309"
    ```
    结果应如下所示。 确保记下此二进制文件名，因为在后面的步骤中会用到它。
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="用户和特权":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="主机状态结果":::
  
 ## <a name="dump-and-restore-source-server"></a>转储并还原源服务器
 
@@ -185,7 +187,7 @@ ms.locfileid: "92470309"
 
 1. 设置源服务器
 
-   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-data-in-stored-procedures.md)中找到所有过程。 这些存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。 
+   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](./reference-stored-procedures.md)中找到所有过程。 这些存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。 
 
    若要链接两个服务器并启动复制，请在 Azure DB for MySQL 服务中登录到目标副本服务器，并将外部实例设置为源服务器。 为此，可在 Azure DB for MySQL 服务器上使用 `mysql.az_replication_change_master` 存储过程。
 
@@ -282,4 +284,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解 Azure Database for MySQL 的[向内复制数据](concepts-data-in-replication.md)。 
+- 详细了解 Azure Database for MySQL 的[向内复制数据](concepts-data-in-replication.md)。

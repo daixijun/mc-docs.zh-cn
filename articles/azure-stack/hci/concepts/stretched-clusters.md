@@ -4,15 +4,15 @@ description: 了解延伸群集
 author: WenJason
 ms.topic: how-to
 origin.date: 07/21/2020
-ms.date: 08/31/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c05445a5aa68cef6cc688e055136a76f83ede7
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 5818e7e37f9fbb169042a562790909f19679c8be
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871664"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330661"
 ---
 # <a name="stretched-clusters-overview"></a>延伸群集概述
 
@@ -45,7 +45,7 @@ ms.locfileid: "88871664"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解有关延伸群集的硬件和其他要求。 请参阅[准备工作](../deploy/before-you-start.md)。
+- 了解有关延伸群集的硬件和其他要求。 请参阅[系统要求](system-requirements.md)。
 - 了解如何使用 Windows Admin Center 部署延伸群集。 请参阅[使用 Windows Admin Center 创建群集](../deploy/create-cluster.md)。
 - 了解如何使用 PowerShell 部署延伸群集。 请参阅[使用 PowerShell 创建群集](../deploy/create-cluster-powershell.md)。
 - 了解如何为延伸群集创建卷和设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。

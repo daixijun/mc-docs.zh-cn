@@ -5,22 +5,23 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4f5bdd195f0577bf81dbf82ed12e6ad691c32545
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 677aed9e82a744f148654e30f925d08db15c18ba
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246563"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327681"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>用于将本地或云数据迁移到 Azure Cosmos DB 的选项
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 可将各种数据源中的数据加载到 Azure Cosmos DB。 由于 Azure Cosmos DB 支持多个 API，因此目标可以是任何现有的 API。 下面是用于将数据迁移到 Azure Cosmos DB 的一些方案：
 
-* 将数据从一个 Azure Cosmos 容器移动到同一数据库中的另一个容器或其他数据库。
+* 将数据从一个 Azure Cosmos 容器移到同一数据库中的另一个容器，或移到其他数据库。
 * 将专用容器之间的数据移动到共享数据库容器。
 * 将数据从位于 region1 的 Azure Cosmos 帐户移到相同或不同区域中的另一个 Azure Cosmos 帐户。
 * 将数据从 Azure blob 存储、JSON 文件、Oracle 数据库、Couchbase、DynamoDB 等源移动到 Azure Cosmos DB。
@@ -53,6 +54,7 @@ ms.locfileid: "91246563"
 |联机|[使用 ChangeFeed 的自定义迁移服务](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; 提供进度跟踪。 <br/>&bull; 仅当源是 Azure Cosmos DB 容器时才适用。 <br/>&bull; 也适用于较大的数据集。<br/>&bull; 要求用户设置一个应用服务来托管更改源处理器。 <br/>&bull; 不捕获源容器中的删除操作。|
 
 <!--Not Avaialble on |Online|[Striim](/cosmos-db/cosmosdb-sql-api-migrate-data-striim)-->
+
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API
 
 |迁移类型|解决方案|受支持的源|支持的目标|注意事项|
@@ -60,10 +62,10 @@ ms.locfileid: "91246563"
 |联机|[Azure 数据库迁移服务](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|用于 MongoDB 的 Azure Cosmos DB API |&bull; 利用 Azure Cosmos DB 批量执行工具库。 <br/>&bull; 适合用于大型数据集，负责复制实时更改。 <br/>&bull; 仅适用于其他 MongoDB 源。|
 |Offline|[Azure 数据库迁移服务](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| 用于 MongoDB 的 Azure Cosmos DB API| &bull; 利用 Azure Cosmos DB 批量执行工具库。 <br/>&bull; 适合用于大型数据集，负责复制实时更改。 <br/>&bull; 仅适用于其他 MongoDB 源。|
 |Offline|[Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV 文件<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;用于 MongoDB 的 Azure Cosmos DB API <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;表存储<br/>&bull;Azure Blob 存储 <br/><br/> 有关其他受支持的源，请参阅 [Azure 数据工厂](../data-factory/connector-overview.md)一文。 | &bull;Azure Cosmos DB SQL API<br/>&bull;用于 MongoDB 的 Azure Cosmos DB API <br/>&bull; JSON 文件 <br/><br/> 有关其他受支持的目标，请参阅 [Azure 数据工厂](../data-factory/connector-overview.md)一文。| &bull; 易于设置并支持多个源。 <br/>&bull; 利用 Azure Cosmos DB 批量执行工具库。 <br/>&bull; 适合用于大型数据集。 <br/>&bull; 缺少检查点，这意味着，在迁移过程中出现任何问题都需要重启整个迁移过程。<br/>&bull; 缺少死信队列，这意味着，几个文件有错误就可能会停止整个迁移过程。 <br/>&bull; 需要编写自定义代码来增大某些数据源的读取吞吐量。|
-
-<!--Not Available on [Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API for MongoDB| &bull; Easy to set up and integration. <br/>&bull; Needs custom handling for throttles.|-->
+|Offline|[现有的 Mongo 工具（mongodump、mongorestore、Studio3T）](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | 用于 MongoDB 的 Azure Cosmos DB API| &bull; 易于设置和集成。 <br/>&bull; 需要对限制进行自定义处理。|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
+
 |迁移类型|解决方案|受支持的源|支持的目标|注意事项|
 |---------|---------|---------|---------|---------|
 |Offline|[cqlsh COPY 命令](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|CSV 文件 | Azure Cosmos DB Cassandra API| &bull; 易于设置。 <br/>&bull; 不适合用于大型数据集。 <br/>&bull; 仅当源是 Cassandra 表时才适用。|

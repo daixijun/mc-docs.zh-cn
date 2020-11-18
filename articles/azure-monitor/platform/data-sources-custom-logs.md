@@ -1,22 +1,25 @@
 ---
-title: 在 Azure Monitor 中收集自定义日志 | Azure Docs
+title: 在 Azure Monitor 中使用 Log Analytics 代理收集自定义日志
 description: Azure Monitor 可以从 Windows 和 Linux 计算机上的文本文件中收集事件。  本文介绍如何定义新的自定义日志，以及这些日志在 Azure Monitor 中创建的记录的详细信息。
 ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 09/26/2019
-ms.openlocfilehash: e41b4161668c3c84a3376290f637e3613ec74bbb
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 79c6aee13dfeb34da700770d2cf87ffbd7b8633c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457451"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328685"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Azure Monitor 中的自定义日志
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 代理收集自定义日志
 
-Azure Monitor 中的自定义日志数据源可以从 Windows 和 Linux 计算机上的文本文件中收集事件。 许多应用程序将信息记录到文本文件，而不是标准日志记录服务（例如 Windows 事件日志或 Syslog）。 在收集后，可以将数据分析到查询中的各个字段，或者在收集期间将数据提取到各个字段。
+使用 Azure Monitor 中 Log Analytics 代理的自定义日志数据源可以从 Windows 和 Linux 计算机上的文本文件中收集事件。 许多应用程序将信息记录到文本文件，而不是标准日志记录服务（例如 Windows 事件日志或 Syslog）。 在收集后，可以将数据分析到查询中的各个字段，或者在收集期间将数据提取到各个字段。
+
+> [!IMPORTANT]
+> 本文介绍如何使用 [Log Analytics 代理](log-analytics-agent.md)（Azure Monitor 使用的代理之一）收集自定义日志。 其他代理收集的数据不同，且配置也不同。 有关可用代理及其可收集的数据的列表，请参阅 [Azure Monitor 代理概述](agents-overview.md)。
 
 ![自定义日志收集](./media/data-sources-custom-logs/overview.png)
 
@@ -96,13 +99,13 @@ Azure Monitor 中的自定义日志数据源可以从 Windows 和 Linux 计算�
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>步骤 5。 验证是否正在收集自定义日志
 新自定义日志的初始数据可能需要一个小时才能在 Azure Monitor 中出现。  它将从指定路径的日志中，收集在自定义日志的定义时间之后生成的条目。  它不会在自定义日志创建过程中保留上传的条目，但是它将收集它找到的日志文件中的现有条目。
 
-Azure Monitor 开始从自定义日志收集后，它的记录将可用于日志查询。  将为自定义日志指定的名称用作查询中的**类型**。
+Azure Monitor 开始从自定义日志收集后，它的记录将可用于日志查询。  将为自定义日志指定的名称用作查询中的 **类型**。
 
 > [!NOTE]
 > 如果查询中缺少 RawData 属性，则可能需要关闭并重新打开浏览器。
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>步骤 6. 分析自定义日志条目
-全部日志条目将存储在名为 **RawData** 的单个属性中。  你很可能希望将每个条目中信息的不同部分分离到每条记录的各个属性中。 请参考[在 Azure Monitor 中分析数据](../log-query/parse-text.md)来了解用于将 **RawData** 分析到多个属性中的选项。
+全部日志条目将存储在名为 **RawData** 的单个属性中。  你很可能希望将每个条目中信息的不同部分分离到每条记录的各个属性中。 请参考 [在 Azure Monitor 中分析数据](../log-query/parse-text.md)来了解用于将 **RawData** 分析到多个属性中的选项。
 
 ## <a name="removing-a-custom-log"></a>删除自定义日志
 在 Azure 门户中使用以下过程删除以前定义的自定义日志。
@@ -159,7 +162,7 @@ Azure Monitor 大概每隔 5 分钟就会从每个自定义日志中收集新条
 
 
 ## <a name="alternatives-to-custom-logs"></a>自定义日志的替代方法
-虽然如果数据符合列出的条件，则自定义日志很有用，但如下所示的情况需要其他策略：
+虽然在数据符合上面所列条件的情况下自定义日志很有用，但如下所示的情况需要其他策略：
 
 - 数据不符合所需的结构，如具有不同格式的时间戳。
 - 日志文件不符合要求，如文件编码或不受支持的文件夹结构。

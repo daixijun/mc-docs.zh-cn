@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/01/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3393180678a846cb095e854b06496061a8e2be55
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 224a9386003d5267d74d7278157e27313e092f3f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655518"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328827"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -118,7 +118,7 @@ POA 要求在群集上启用修复管理器服务。
 
 启用修复管理器服务：
 
-1. 检查以确保[常规群集配置](./service-fabric-cluster-manifest.md#general-cluster-configurations)中的 `apiVersion` 设置为 *04-2017* 或更高的值，如下所示 - ```json
+1. 检查并确保 [常规群集配置](./service-fabric-cluster-manifest.md#general-cluster-configurations)中的 `apiVersion` 设置为 *04-2017* 或更高的值，如下所示：
 
     ```json
     {
@@ -272,17 +272,17 @@ HResult | 0 - 成功<br /> 其他 - 失败| 指示 Windows 更新失败并出现
 > [!NOTE]
 > 若要获取下面列出的多项自我诊断改进功能，请安装 POA 1.4.0 或更高版本。
 
-节点代理 NTService 创建[修复任务](https://docs.azure.cn/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet)用于在节点上安装更新。 然后，协调器服务根据任务审批策略准备每个任务。 准备好的任务最终由修复管理器审批，如果群集处于不正常状态，修复管理器不会批准任何任务。 
+节点代理 NTService 创建[修复任务](https://docs.azure.cn/dotnet/api/system.fabric.repair.repairtask)用于在节点上安装更新。 然后，协调器服务根据任务审批策略准备每个任务。 准备好的任务最终由修复管理器审批，如果群集处于不正常状态，修复管理器不会批准任何任务。 
 
 让我们逐步了解如何在节点上继续更新：
 
 1. 在每个节点上运行的 NodeAgentNTService 按计划的时间查找可用的 Windows 更新。 如果有可用的更新，它会将更新下载到节点上。
 
-1. 下载更新后，节点代理 NTService 将为节点创建名为“POS___\<unique_id>”的相应修复任务。 可以使用 [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet 或节点详细信息部分所述的 SFX 查看这些修复任务。 创建修复任务后，它会立即转到 [*Claimed* 状态](https://docs.azure.cn/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)。
+1. 下载更新后，节点代理 NTService 将为节点创建名为“POS___\<unique_id>”的相应修复任务。 可以使用 [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) cmdlet 或节点详细信息部分所述的 SFX 查看这些修复任务。 创建修复任务后，它会立即转到 [*Claimed* 状态](https://docs.azure.cn/dotnet/api/system.fabric.repair.repairtaskstate)。
 
 1. 协调器服务定期查找处于 *Claimed* 状态的修复任务，然后根据 TaskApprovalPolicy 将这些任务更新到 *Preparing* 状态。 如果 TaskApprovalPolicy 配置为 NodeWise，仅当没有任何其他修复任务当前处于 *Preparing*、*Approved*、*Executing* 或 *Restoring* 状态时，才会准备对应于节点的修复任务。 
 
-    同理，如果 TaskApprovalPolicy 配置为 UpgradeWise，只有属于同一个更新域的节点才具有处于上述状态的任务。 在修复任务转到 *Preparing* 状态后，相应的 Service Fabric 节点将会[禁用](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps)，其意图设置为 *Restart*。
+    同理，如果 TaskApprovalPolicy 配置为 UpgradeWise，只有属于同一个更新域的节点才具有处于上述状态的任务。 在修复任务转到 *Preparing* 状态后，相应的 Service Fabric 节点将会 [禁用](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps)，其意图设置为 *Restart*。
 
     POA 1.4.0 和更高版本使用 CoordinatorService 上的 ClusterPatchingStatus 属性发布事件，以显示正在修补的节点。 更新将在 _poanode_0 上安装，如下图所示：
 
@@ -297,9 +297,9 @@ HResult | 0 - 成功<br /> 其他 - 失败| 指示 Windows 更新失败并出现
 
     在 POA 1.4.0 和更高版本中，可以使用“WUOperationStatus-\<NodeName>”属性查看 NodeAgentService 上的运行状况事件，以便查找更新的状态。 下图中的突出显示部分显示了节点 *poanode_0* 和 *poanode_2* 上的 Windows 更新状态：
 
-    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusa.png" alt-text="Windows 更新操作状态的插图":::](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusa.png" alt-text="屏幕截图显示了包含 Windows 更新操作状态的控制台窗口，其中突出显示了 poanode_0。":::](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusb.png" alt-text="Windows 更新操作状态的插图":::](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusb.png" alt-text="屏幕截图显示了包含 Windows 更新操作状态的控制台窗口，其中突出显示了 poanode_1。":::](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
     也可以使用 PowerShell 获取详细信息。 为此，请连接到群集并使用 [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) 提取修复任务的状态。 
 
@@ -329,7 +329,7 @@ HResult | 0 - 成功<br /> 其他 - 失败| 指示 Windows 更新失败并出现
 
 1. 在 POA 1.4.0 和更高版本中，当节点更新尝试完成后，将在 NodeAgentService 上发布一个包含属性“WUOperationStatus-[NodeName]”的事件，以通知下一次要在何时开始尝试下载并安装 Windows 更新。 下图显示了此信息：
 
-    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusc.png" alt-text="Windows 更新操作状态的插图":::](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+    [:::image type="content" source="media/service-fabric-patch-orchestration-application/wuoperationstatusc.png" alt-text="屏幕截图显示了带有 NodeAgentService 的 Windows 更新操作状态的控制台窗口。":::](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>诊断日志
 
@@ -380,7 +380,7 @@ HResult | 0 - 成功<br /> 其他 - 失败| 指示 Windows 更新失败并出现
 
 **问：对于我的群集，应将 TaskApprovalPolicy 设置为“NodeWise”还是“UpgradeDomainWise”？**
 
-答：“UpgradeDomainWise”设置通过同时修补属于某个更新域的所有节点，来加快总体群集修复速度。 在此过程中，属于整个更新域的节点将不可用（处于 [*Disabled* 状态](https://docs.azure.cn/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)）。
+答：“UpgradeDomainWise”设置通过同时修补属于某个更新域的所有节点，来加快总体群集修复速度。 在此过程中，属于整个更新域的节点将不可用（处于 [*Disabled* 状态](https://docs.azure.cn/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)）。
 
 相比之下，“NodeWise”设置每次只修补一个节点，这意味着，总体群集修补可能需要更长时间。 但是，在修补过程中最多只有一个节点不可用（处于 *Disabled* 状态）。
 
@@ -406,9 +406,9 @@ HResult | 0 - 成功<br /> 其他 - 失败| 指示 Windows 更新失败并出现
     - 使用“NodeWise”时：大约 20 小时。
     - 使用“UpgradeDomainWise”时：大约 5 小时。
 
-- 群集负载。 每个修补操作都需要将客户工作负荷重新分配到群集中的其他可用节点。 正在进行修补的节点在此期间将处于 [*Disabling* 状态](https://docs.azure.cn/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling)。 如果群集正在运行接近峰值负载，则禁用过程将需要更长时间。 因此，在这种重压条件下，整个修补过程可能会看起来很慢。
+- 群集负载。 每个修补操作都需要将客户工作负荷重新分配到群集中的其他可用节点。 正在进行修补的节点在此期间将处于 [*Disabling* 状态](https://docs.azure.cn/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling)。 如果群集正在运行接近峰值负载，则禁用过程将需要更长时间。 因此，在这种重压条件下，整个修补过程可能会看起来很慢。
 
-- 修补期间的群集运行状况错误。 [群集运行状况](./service-fabric-health-introduction.md)出现任何[降级](https://docs.azure.cn/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error)都会中断修补过程。 此问题会增加修补整个群集所需的总时间。
+- 修补期间的群集运行状况错误。 [群集运行状况](./service-fabric-health-introduction.md)出现任何[降级](https://docs.azure.cn/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error)都会中断修补过程。 此问题会增加修补整个群集所需的总时间。
 
 **问：为什么某些更新会出现在通过 REST API 获得的 Windows 更新结果中，而不是在计算机的 Windows 更新历史记录下？**
 

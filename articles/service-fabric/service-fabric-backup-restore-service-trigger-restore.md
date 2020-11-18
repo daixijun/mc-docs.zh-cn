@@ -4,16 +4,16 @@ description: 使用 Service Fabric 中的定期备份和还原功能从应用程
 ms.topic: conceptual
 origin.date: 10/30/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7e182c964673f59e4d658e7d75aabec8406bbed0
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b948e5365e8c99b39eb1aed325f60a78f91f78dd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655214"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328714"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中还原备份
 
@@ -49,7 +49,7 @@ Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.chinaeast.cloudapp.ch
 
 可针对以下任何方案触发还原：
 
-- 灾难恢复时进行数据还原。__
+- 灾难恢复时进行数据还原。
 - 在数据损坏/数据丢失时进行数据还原。 
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>发生灾难恢复时进行数据还原
@@ -156,7 +156,7 @@ FailureError            :
 
 如果备用群集上的分区 ID 为 `1c42c47f-439e-4e09-98b9-88b8f60800c6`，则你可以通过比较范围分区 (UniformInt64Partition) 的高键值和低键值，将此 ID 映射到原始群集分区 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`。 
 
-对于已命名分区__，将比较名称值以识别备用群集中的目标分区。
+对于已命名分区，将比较名称值以识别备用群集中的目标分区。
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用Microsoft.ServiceFabric.Powershell.Http 模块的 PowerShell
 
@@ -192,6 +192,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 可以使用 TrackRestoreProgress 跟踪还原进度。
 
+> [!NOTE]
+> 使用 Powershell 还原分区时，如果 backuplocation 包含“$”，请使用“~”对其进行转义
+>
+
 ### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
 可以从 Service Fabric Explorer 触发还原。 请确保已在 Service Fabric Explorer 设置中启用了“高级模式”。
 1. 选择所需分区，并单击“操作”。 
@@ -205,7 +209,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="data-restore-for-_data-corruption__data-loss_"></a>在数据损坏/数据丢失时进行数据还原  
 
-对于数据丢失或数据损坏的情况，可靠有状态服务和 Reliable Actors 的已备份分区可以还原到任何所选备份。____
+对于数据丢失或数据损坏的情况，可靠有状态服务和 Reliable Actors 的已备份分区可以还原到任何所选备份。
 
 以下示例是[为可靠有状态服务和 Reliable Actors 启用定期备份](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)中示例的延续。 在此示例中，为分区启用了备份策略，服务按所需的频率在 Azure 存储中创建备份。
 
@@ -251,6 +255,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 可以使用 TrackRestoreProgress 跟踪还原进度。
+
+> [!NOTE]
+> 使用 Powershell 还原分区时，如果 backuplocation 包含“$”，请使用“~”对其进行转义
+>
 
 ## <a name="track-restore-progress"></a>跟踪还原进度
 
@@ -318,7 +326,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>自动还原
 
-可将 Service Fabric 群集中的可靠有状态服务和 Reliable Actors 分区配置为自动还原。__ 在备份策略中，将 `AutoRestore` 设置为 _true_。 启用自动还原可以在报告数据丢失情况时，从最新的分区备份还原数据。  有关详细信息，请参阅：
+可将 Service Fabric 群集中的可靠有状态服务和 Reliable Actors 分区配置为自动还原。 在备份策略中，将 `AutoRestore` 设置为 _true_。 启用自动还原可以在报告数据丢失情况时，从最新的分区备份还原数据。  有关详细信息，请参阅：
 
 - [备份策略中的自动还原支持](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

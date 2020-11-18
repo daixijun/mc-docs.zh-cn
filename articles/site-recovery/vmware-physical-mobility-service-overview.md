@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: how-to
 origin.date: 04/10/2020
 author: rockboyfor
-ms.date: 10/20/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: b6d4e223b1a913216d814a6501a3cea983ccaf9c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 86dcdb0429e62bad48eef5835a891df8c380683d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128283"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327422"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>关于适用于 VMware VM 和物理服务器的移动服务
 
@@ -90,15 +90,15 @@ ms.locfileid: "92128283"
 
 1. 在“安装进度”中监视安装。 安装完成后，选择“转到配置”，将该服务注册到配置服务器。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="此屏幕截图显示了安装进度以及安装完成后激活的“继续配置”按钮。":::
 
 1. 在“配置服务器详细信息”中，指定已配置的 IP 地址和通行短语。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="“移动服务注册”页。":::
 
 1. 选择“注册”完成注册。
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="“移动服务安装选项”页。":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="移动服务注册最后一页。":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>使用命令提示符安装移动服务
 
@@ -139,7 +139,7 @@ ms.locfileid: "92128283"
 安装程序日志 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 `/InstallLocation`| 可选参数。 指定移动服务的安装位置（任意文件夹）。
-`/Platform` | 必需。 指定要在其中安装移动服务的平台： <br/> VMware VM/物理服务器的 VMware。 <br/> Azure VM 的 Azure。<br/><br/> 如果要将 Azure VM 视为物理计算机，请指定 **VMware** 。
+`/Platform` | 必需。 指定要在其中安装移动服务的平台： <br/> VMware VM/物理服务器的 VMware。 <br/> Azure VM 的 Azure。<br/><br/> 如果要将 Azure VM 视为物理计算机，请指定 **VMware**。
 `/Silent`| 可选。 指定是否以静默模式运行安装程序。
 
 #### <a name="registration-settings"></a>注册设置
@@ -192,8 +192,8 @@ ms.locfileid: "92128283"
 
 ## <a name="azure-virtual-machine-agent"></a>Azure 虚拟机代理
 
-- **Windows VM** ：从移动服务版本 9.7.0.0 开始，移动服务安装程序会安装 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可以确保当计算机故障转移到 Azure 时，Azure VM 满足使用任何 VM 扩展相关的代理安装先决条件。
-- **Linux VM** ：故障转移后，必须在 Azure VM 上手动安装 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)。
+- **Windows VM**：从移动服务版本 9.7.0.0 开始，移动服务安装程序会安装 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可以确保当计算机故障转移到 Azure 时，Azure VM 满足使用任何 VM 扩展相关的代理安装先决条件。
+- **Linux VM**：故障转移后，必须在 Azure VM 上手动安装 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)。
 
 <a name="installer-files"></a>
 ## <a name="locate-installer-files"></a>找到安装程序文件

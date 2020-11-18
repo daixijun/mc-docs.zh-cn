@@ -4,13 +4,13 @@ description: 本文介绍了如何配置适用于容器的 Azure Monitor 以监�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 97c1f3743faf4259a1765e42eea6067399e00757
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ccaf2150795eeb55f58961a2bb47d1b265482bf1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148627"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328522"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>为混合 Kubernetes 群集配置适用于容器的 Azure Monitor
 
@@ -18,14 +18,12 @@ ms.locfileid: "89148627"
 
 ## <a name="supported-configurations"></a>支持的配置
 
-适用于容器的 Azure Monitor 正式支持以下配置。
+适用于容器的 Azure Monitor 正式支持以下配置。 如果你使用不同版本的 Kubernetes 和操作系统，请将邮件发送至 askcoin@microsoft.com。
 
 - 环境：
 
     - 本地 Kubernetes
-    
-    - Azure 和 Azure Stack 的 AKS 引擎。 有关详细信息，请参阅 [Azure Stack 上的 AKS 引擎](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - Azure 和 Azure Stack 的 AKS 引擎。 有关详细信息，请参阅 [Azure Stack 上的 AKS 引擎](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 版本 4 及更高版本，位于本地或其他云环境中。
 
 - Kubernetes 和支持策略的版本与 [AKS 支持](../../aks/supported-kubernetes-versions.md)的版本相同。
@@ -42,13 +40,13 @@ ms.locfileid: "89148627"
 
 - [Log Analytics 工作区](../platform/design-logs-deployment.md)。
 
-    用于容器的 Azure Monitor 支持在 Azure [产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) 中列出的区域中的 Log Analytics 工作区。 若要创建你自己的工作区，可通过 [Azure 资源管理器](../platform/template-workspace-configuration.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) 或 [Azure 门户](../learn/quick-create-workspace.md)进行创建。
+    用于容器的 Azure Monitor 支持在 Azure [产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) 中列出的区域中的 Log Analytics 工作区。 若要创建你自己的工作区，可通过 [Azure 资源管理器](../samples/resource-manager-workspace.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) 或 [Azure 门户](../learn/quick-create-workspace.md)进行创建。
 
     >[!NOTE]
     >不支持对同一 Log Analytics 工作区中具有相同群集名称的多个群集启用监视。 群集名称必须独一无二。
     >
 
-- 需要成为 **Log Analytics 参与者角色**的成员才能启用容器监视。 要详细了解如何控制对 Log Analytics 工作区的访问，请参阅[管理对工作区和日志数据的访问](../platform/manage-access.md)。
+- 需要成为 **Log Analytics 参与者角色** 的成员才能启用容器监视。 要详细了解如何控制对 Log Analytics 工作区的访问，请参阅[管理对工作区和日志数据的访问](../platform/manage-access.md)。
 
 - 若要查看监视数据，需要在 Log Analytics 工作区（该工作区为容器配置了 Azure Monitor）中拥有 [Log Analytics 读者](../platform/manage-access.md#manage-access-using-azure-permissions)角色。
 
@@ -58,8 +56,8 @@ ms.locfileid: "89148627"
 
     |代理资源|端口 |
     |------|---------|
-    |*.ods.opinsights.azure.com |端口 443 |
-    |*.oms.opinsights.azure.com |端口 443 |
+    |*.ods.opinsights.azure.cn |端口 443 |
+    |*.oms.opinsights.azure.cn |端口 443 |
     |*.dc.services.visualstudio.com |端口 443 |
 
 - 容器化代理要求在群集的所有节点上打开 Kubelet 的 `cAdvisor secure port: 10250` 或 `unsecure port :10255` 以收集性能指标。 建议你在 Kubelet 的 cAdvisor 上配置 `secure port: 10250`（如果尚未配置）。
@@ -73,9 +71,11 @@ ms.locfileid: "89148627"
 
 为混合 Kubernetes 群集启用适用于容器的 Azure Monitor 的操作包括按顺序执行以下步骤。
 
-1. 为 Log Analytics 工作区配置容器见解解决方案。
+1. 为 Log Analytics 工作区配置容器见解解决方案。   
 
 2. 通过 Log Analytics 工作区启用适用于容器的 Azure Monitor 的 HELM 图表。
+
+有关 Azure Monitor 中监视解决方案的其他信息，请参阅[此文](../../azure-monitor/insights/solutions.md)。
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>如何添加 Azure Monitor 容器解决方案
 
@@ -204,7 +204,7 @@ ms.locfileid: "89148627"
     }
     ```
 
-7. 使用在第 3 步复制的值编辑 **workspaceResourceId** 的值。对于 **workspaceRegion**，请在运行 Azure CLI 命令 [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list) 后复制 **Region** 值。
+7. 使用在第 3 步复制的值编辑 **workspaceResourceId** 的值。对于 **workspaceRegion**，请在运行 Azure CLI 命令 [az monitor log-analytics workspace show](/cli/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true) 后复制 **Region** 值。
 
 8. 在一个本地文件夹中将该文件另存为 containerSolutionParams.json。
 
@@ -277,14 +277,14 @@ ms.locfileid: "89148627"
 3. 通过运行以下命令，将 Azure 图表存储库添加到你的本地列表：
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. 运行以下命令来安装图表：
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     运行以下命令：
@@ -293,6 +293,7 @@ ms.locfileid: "89148627"
     $ helm install --name myrelease-1 \
      --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
 ### <a name="enable-the-helm-chart-using-the-api-model"></a>通过 API 模型启用 Helm 图表
 
 你可以在 AKS 引擎群集规范 json 文件中指定一个加载项，也称为 API 模型。 在此加载项中，提供存储所收集监视数据的 Log Analytics 工作区的 base64 编码版 `WorkspaceGUID` 和 `WorkspaceKey`。 可以使用上一部分中的步骤 1 和 2 来查找 `WorkspaceGUID` 和 `WorkspaceKey`。
@@ -347,7 +348,7 @@ ms.locfileid: "89148627"
 
 ## <a name="troubleshooting"></a>故障排除
 
-如果尝试为混合 Kubernetes 群集启用监视功能时遇到错误，请复制 PowerShell 脚本 [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1)，并将其保存到计算机上的某个文件夹中。 提供此脚本是为了帮助你检测和解决遇到的问题。 它可检测和尝试更正的问题如下所述：
+如果尝试为混合 Kubernetes 群集启用监视功能时遇到错误，请复制 PowerShell 脚本 [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s)，并将其保存到计算机上的某个文件夹中。 提供此脚本是为了帮助你检测和解决遇到的问题。 它可检测和尝试更正的问题如下所述：
 
 - 指定的 Log Analytics 工作区有效
 - 为 Log Analytics 工作区配置了适用于容器的 Azure Monitor 解决方案。 如果没有，请配置工作区。

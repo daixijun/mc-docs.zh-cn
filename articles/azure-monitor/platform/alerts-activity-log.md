@@ -4,14 +4,14 @@ description: 使用 Azure 门户、Azure 资源管理器模板和 Azure PowerShe
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/25/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: e06ab312530c897c222c7e01e52cf1c8bd45651f
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: f22cef8ff921a7a7ae7ed3cbf920e13db43d24cd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457323"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328772"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -64,7 +64,7 @@ ms.locfileid: "89457323"
 
    - 在“条件”下方，选择“选择条件” 。 此时会显示目标的所有可用信号，包括来自各种类别的“活动日志”的信号。 类别名称会追加到“监视服务”名称后面。
 
-   - 从**活动日志**类型的各种可能操作的显示列表中选择信号。
+   - 从 **活动日志** 类型的各种可能操作的显示列表中选择信号。
 
      可为此目标信号选择日志历史记录时间线和相应的警报逻辑：
 
@@ -114,7 +114,7 @@ ms.locfileid: "89457323"
 
 1. 在 Azure 门户中，选择“监视” > “警报”。  在窗口的左上角选择“管理警报规则”。
 
-    ![管理警报规则](./media/alerts-activity-log/manage-alert-rules.png)
+    ![屏幕截图显示了活动日志，其中突出显示了搜索框。](./media/alerts-activity-log/manage-alert-rules.png)
 
     此时将显示可用规则的列表。
 

@@ -1,19 +1,21 @@
 ---
-title: 使用 Azure Site Recovery 将 VMware VM 灾难恢复到 Azure (CSP) 的多租户支持概述 | Azure
+title: 使用 Azure Site Recovery 进行 VMware VM 多租户灾难恢复
 description: 概述了在多租户环境 (CSP) 程序对从 VMWare 灾难恢复到 Azure 的 Azure Site Recovery 支持。
-author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 04/22/2019
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5bdb45b41f769a91f72b7e4feb133890c593a79b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0056a31fedb09669ae698660c2df6e22c1a2c9fa
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63857805"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328873"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>使用 CSP 从 VMware 灾难恢复到 Azure 的多租户支持概述
 
@@ -39,7 +41,7 @@ ms.locfileid: "63857805"
 
 下图显示了此体系结构。
 
-![使用一个 vCenter 的共享 HSP](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png" alt-text="使用一个 vCenter 的共享 HSP":::  
 
 **使用一个 vCenter 服务器的共享托管**
 
@@ -67,7 +69,7 @@ ms.locfileid: "63857805"
 
 - 角色分配需应用到每个 vCenter 对象的 vCenter 访问帐户，不能传播到子对象。 此配置可确保租户隔离，因为传播访问权限可能会导致意外访问其他对象。
 
-    ![“传播到子对象”选项](./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png)
+    :::image type="content" source="./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png" alt-text="“传播到子对象”选项":::
 
 - 替代方法是将用户帐户和角色分配给数据中心对象，再将其传播到子对象。 然后，针对每个不允许特定租户访问的对象（例如属于其他租户的 VM），为帐户分配“无访问权限”角色。  此配置很繁琐。 它会意外公开访问控制，因为系统会自动为每个新建的子对象授予从父对象继承的访问权限。 因此，建议使用第一种方法。
 
@@ -86,7 +88,7 @@ ms.locfileid: "63857805"
     * **VM - 预配**>允许虚拟机下载、允许虚拟机文件上传
     * **VM - 快照管理**>删除快照
 
-        ![“编辑角色”对话框](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+        :::image type="content" source="./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png" alt-text="“编辑角色”对话框":::
 
 3. 将访问级别分配给各种对象的 vCenter 帐户（在租户配置服务器中使用），如下所示：
 
@@ -115,7 +117,7 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 3. 使用保管库注册密钥为租户注册 CS。
 4. 为两个访问帐户输入凭据，一个是用于访问 vCenter 服务器的帐户，另一个是用于访问 VM 的帐户。
 
-    ![管理配置服务器帐户](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+    :::image type="content" source="./media/vmware-azure-multi-tenant-overview/config-server-account-display.png" alt-text="管理配置服务器帐户":::
 
 ### <a name="register-servers-in-the-vault"></a>在保管库中注册服务器
 
@@ -127,14 +129,14 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 
 如下图所示，专用托管解决方案中的体系结构差异在于，每个租户的基础结构是专为该租户设置的。
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png" alt-text="此图表明，专用托管解决方案中的体系结构差异在于每个租户的基础结构是专为该租户设置的。":::  
 **多个 vCenter 的专用托管方案**
 
 ## <a name="managed-service-solution"></a>托管服务解决方案
 
 如下图所示，托管服务解决方案中的体系结构差异在于，每个租户的基础结构在物理上也是与其他租户的基础结构分隔开的。 当租户拥有基础结构但需解决方案提供商管理灾难恢复时，通常使用此方案。
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png" alt-text="architecture-shared-hsp":::  
 **多个 vCenter 的托管服务方案**
 
 ## <a name="next-steps"></a>后续步骤
@@ -143,4 +145,4 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 
 <!-- Not Available on [multi-tenancy with CSP for VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md)-->
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

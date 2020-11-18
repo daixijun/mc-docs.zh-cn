@@ -4,15 +4,15 @@ description: 查看 Azure 活动日志，并将其发送到 Azure Monitor 日志
 author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: logs
-ms.openlocfilehash: 0b42d60e163391c4e93c4b87f9e00b42e8078a36
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 4c33e1267e6596aa539879732736343324bea02f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457461"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328778"
 ---
 # <a name="azure-activity-log"></a>Azure 活动日志
 活动日志是 Azure 中的一种[平台日志](platform-logs-overview.md)，可用于深入了解订阅级别事件。 这包括何时修改了资源或何时启动了虚拟机等信息。 可以在 Azure 门户中查看活动日志，或在 PowerShell 和 CLI 中检索条目。 若要获得其他功能，应当创建诊断设置，以便将活动日志发送到 [Azure Monitor 日志](data-platform-logs.md)，发送到 Azure 事件中心以转发到 Azure 外部，或发送到 Azure 存储进行存档。 本文详细介绍了如何查看活动日志，以及如何将其发送到不同的目标。
@@ -217,7 +217,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -250,7 +250,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 1. 在工作区的菜单的“工作区数据源”部分，选择“Azure 活动日志”。 
 1. 单击要连接的订阅。
 
-    ![工作区](./media/activity-log-collect/workspaces.png)
+    ![屏幕截图显示了 Log Analytics 工作区，其中的一个 Azure 活动日志处于选中状态。](./media/activity-log-collect/workspaces.png)
 
 1. 单击“连接”，将订阅中的活动日志连接到所选工作区。 如果订阅已连接到其他工作区，请先单击“断开连接”将其断开连接。
 
@@ -387,5 +387,6 @@ Azure Log Analytics 监视解决方案不久就会被弃用，并将替换为一
 ## <a name="next-steps"></a>后续步骤
 
 * [阅读平台日志概述](platform-logs-overview.md)
+* [查看活动日志事件架构](activity-log-schema.md)
 * [创建诊断设置将活动日志发送到其他目标](diagnostic-settings.md)
 

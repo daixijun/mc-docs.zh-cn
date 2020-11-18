@@ -1,19 +1,18 @@
 ---
 title: Azure Monitor 中的日志数据引入时间 | Azure Docs
 description: 介绍了影响在 Azure Monitor 中收集数据时的延迟的各种因素。
-author: lingliw
-manager: digimobile
 ms.subservice: logs
 ms.topic: conceptual
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 11/02/2020
 origin.date: 07/18/2019
-ms.date: 08/18/2019
-ms.author: v-lingwu
-ms.openlocfilehash: b2480d60f524e373ddb3116c9606b1d9b6a59034
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1fdc72158dced79f709dd1c3b8137203a0b81d53
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79452327"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327547"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor 中的日志数据引入时间
 Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 关于日志数据在收集后需要多长时间才可供使用，大家通常存有疑问。 本文将对影响此延迟的不同因素进行说明。
@@ -27,7 +26,7 @@ Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发
 
 - 代理时间：发现事件、收集事件，然后将其作为日志记录发送到 Azure Monitor 引入点的时间。 大多数情况下，此过程由代理处理。
 - 管道时间：引入管道处理日志记录的时间。 包括解析事件属性，并且可能会添加计算信息。
-- 索引时间：将日志记录引入到 Azure Monitor 大数据存储所花费的时间。
+- 索引时间 - 将日志记录引入到 Azure Monitor 大数据存储所花费的时间。
 
 下面将详细介绍该过程中引入的不同延迟。
 
@@ -53,13 +52,13 @@ Azure 数据增加了额外的时间，以便在 Log Analytics 引入点处可�
 ### <a name="management-solutions-collection"></a>管理解决方案收集
 某些解决方案不从代理收集其数据，并且可能使用会引入额外延迟的收集方法。 一些解决方案以固定时间间隔收集数据，而不尝试近实时收集。 具体示例包括：
 
-- Office 365 解决方案使用 Office 365 管理活动 API 轮询活动日志，该方法目前不提供任何近实时延迟保证。
+- Microsoft 365 解决方案使用管理活动 API 轮询活动日志，该方法目前不提供任何近实时延迟保证。
 - 该解决方案以每天一次的频率收集 Windows Analytics 解决方案（例如更新符合性）数据。
 
 请参阅各解决方案的文档，确定其收集频率。
 
 ### <a name="pipeline-process-time"></a>管道处理时间
-将日志记录引入到 Azure Monitor 管道（如 [_TimeReceived](log-standard-properties.md#_timereceived) 属性中所标识）后，会将其写入临时存储，以确保租户隔离并确保数据不会丢失。 此过程通常会花费 5-15 秒的时间。 一些管理解决方案实施了更复杂的算法来聚合数据，并在数据流入时获得见解。 例如，网络性能监视器以 3 分钟的时间间隔聚合传入数据，有效地增加了 3 分钟的延迟。 处理自定义日志是另一个增加延迟的过程。 在某些情况下，此过程可能会为代理从文件收集的日志增加几分钟延迟。
+将日志记录引入到 Azure Monitor 管道（如 [_TimeReceived](./log-standard-columns.md#_timereceived) 属性中所标识）后，会将其写入临时存储，以确保租户隔离并确保数据不会丢失。 此过程通常会花费 5-15 秒的时间。 一些管理解决方案实施了更复杂的算法来聚合数据，并在数据流入时获得见解。 例如，网络性能监视器以 3 分钟的时间间隔聚合传入数据，有效地增加了 3 分钟的延迟。 处理自定义日志是另一个增加延迟的过程。 在某些情况下，此过程可能会为代理从文件收集的日志增加几分钟延迟。
 
 ### <a name="new-custom-data-types-provisioning"></a>新的自定义数据类型预配
 从[自定义日志](data-sources-custom-logs.md)或[数据收集器 API ](data-collector-api.md)创建新的自定义数据类型时，系统会创建专用存储容器。 这是一次性开销，仅在此数据类型第一次出现时支付。
@@ -79,8 +78,8 @@ Azure Monitor 的首要任务是确保不会丢失任何客户数据，因此系
 
 | 步骤 | 属性或函数 | 注释 |
 |:---|:---|:---|
-| 在数据源处创建的记录 | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>如果数据源未设置此值，则它将设置为与 _TimeReceived 相同的时间。 |
-| Azure Monitor 引入终结点收到的记录 | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| 在数据源处创建的记录 | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>如果数据源未设置此值，则它将设置为与 _TimeReceived 相同的时间。 |
+| Azure Monitor 引入终结点收到的记录 | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | 存储在工作区中并可用于查询的记录 | [ingestion_time()](https://docs.microsoft.com/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>引入延迟延迟
@@ -144,9 +143,5 @@ Heartbeat
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 阅读 Azure Monitor 的[服务级别协议 (SLA)](https://www.azure.cn/zh-cn/support/legal/sla/)。
-
-
-
-
+* 阅读 Azure Monitor 的[服务级别协议 (SLA)](https://www.azure.cn/support/legal/sla/)。
 

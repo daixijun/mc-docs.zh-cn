@@ -3,17 +3,23 @@ title: Azure Service Fabric 中心机密存储
 description: 本文介绍如何使用 Azure Service Fabric 中的中心机密存储。
 ms.topic: conceptual
 origin.date: 07/25/2019
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 06/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: e86bd0a473823c51982cd0ac7b99c63e3b9beae9
-ms.sourcegitcommit: 0e178672632f710019eae60cea6a45ac54bb53a1
+ms.openlocfilehash: 9cfe76858895f89d7b85a990649278ff38766ab2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84356286"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328574"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Azure Service Fabric 中的中心机密存储 
 本文介绍如何使用 Azure Service Fabric 中的中心机密存储 (CSS) 在 Service Fabric 应用程序中创建机密。 CSS 是一个本地机密存储缓存，用于保存敏感数据，例如，已在内存中加密的密码、令牌和密钥。
+
+> [!NOTE] 
+> 在 SF 版本 7.1.CU3 之前首次激活 CSS 时， 如果出现以下情况，激活可能会失败并使 CSS 处于永久不正常状态：CSS 在经过 Windows 身份验证的群集上被激活；CSS 在任何群集上被激活，但是 `EncryptionCertificateThumbprint` 声明不正确，或者相应的证书没有在节点上安装或执行 ACL 操作。 对于 Windows 身份验证群集，请升级到 7.1. CU3，然后再继续。 对于其他群集，请仔细检查这些不变量，或者升级到 7.1. CU3。
 
 ## <a name="enable-central-secrets-store"></a>启用中心机密存储
 将以下脚本添加到群集配置中的 `fabricSettings` 下即可启用 CSS。 对于 CSS，我们建议使用除群集证书以外的证书。 确保在所有节点上安装加密证书，并且 `NetworkService` 对证书的私钥拥有读取权限。
@@ -45,6 +51,9 @@ ms.locfileid: "84356286"
     ...
 ]
 ```
+
+<!--MOONCAKE CORRECT: DELETE TWO END BRACKETS-->
+
 ## <a name="declare-a-secret-resource"></a>声明机密资源
 可以使用 REST API 创建机密资源。
 

@@ -4,16 +4,16 @@ description: 了解 Azure Service Fabric 的核心概念和主要应用领域。
 ms.topic: conceptual
 origin.date: 12/08/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d08115880aef647905d4ceaeee227dcaa616a753
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 27a6e134e918e4f8c6cd34f5a0f159e455bd88b1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655735"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328529"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 
@@ -56,7 +56,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 
 每个分区的副本分布在群集的节点上，以便命名服务状态进行[缩放](service-fabric-concepts-scalability.md)。 随着数据需求的增长，分区也会增长，Service Fabric 会在节点间重新平衡分区，以高效利用硬件资源。 如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡分区副本。 应用程序总体性能提高，访问内存的争用减少。 如果没有高效使用群集中的节点，可以减少群集中节点的数量。 Service Fabric 会再次在减少的节点间重新平衡分区副本以更加充分使用每个节点上的硬件。
 
-在分区中，无状态命名服务具有实例，而有状态命名服务具有副本。 通常，无状态命名服务只有一个分区，因为它们没有内部状态。 分区实例提供[可用性](service-fabric-availability-services.md)。 如果一个实例失败，其他实例可继续正常运行，然后 Service Fabric 会创建新的实例。 有状态命名服务在副本中保持其状态，每个分区都有自己的副本集。 在一个副本（以下称为“主副本”）上执行读取和写入操作。 因写入操作发生的状态更改会复制到其他多个副本（以下称为活动辅助副本）。 如果某个副本失败，Service Fabric 将从现有副本创建新副本。
+在分区中，无状态命名服务具有实例，而有状态命名服务具有副本。 通常，无状态命名服务只有一个分区，因为它们没有内部状态，尽管[有例外](/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services)。 分区实例提供[可用性](service-fabric-availability-services.md)。 如果一个实例失败，其他实例可继续正常运行，然后 Service Fabric 会创建新的实例。 有状态命名服务在副本中保持其状态，每个分区都有自己的副本集。 在一个副本（以下称为“主副本”）上执行读取和写入操作。 因写入操作发生的状态更改会复制到其他多个副本（以下称为活动辅助副本）。 如果某个副本失败，Service Fabric 将从现有副本创建新副本。
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>无状态和有状态 Service Fabric 微服务
 使用 Service Fabric，可以生成包含微服务或容器的应用程序。 无状态微服务（例如协议网关和 Web 代理）不在请求以及服务对请求的响应之外维持可变状态。 Azure 云服务辅助角色是无状态服务的一个示例。 有状态微服务（例如，用户帐户、数据库、设备、购物车、队列）维护除请求及其响应之外的可变、授权状态。 当今的 Internet 规模应用程序包含无状态和有状态微服务的组合。 
@@ -94,7 +94,7 @@ Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication
 
 可以使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI 命令](service-fabric-sfctl.md)、[C# API](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.applicationmanagementclient?view=azure-dotnet)、[Java API](https://docs.azure.cn/java/api/overview/servicefabric) 和 [REST API](https://docs.microsoft.com/rest/api/servicefabric/) 管理整个应用生命周期。 还可以使用 [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 等工具来设置持续集成/持续部署管道。
 
-<!--Not Available on  or [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)-->
+<!--Not Available on  or [Jenkins](https://docs.azure.cn/developer/deploy-to-service-fabric-cluster)-->
 
 ## <a name="test-applications-and-services"></a>测试应用程序和服务
 若要创建真正的云规模服务，请务必确保应用程序和服务能够经受住现实中发生的故障。 故障分析服务是在 Service Fabric 基础上专为测试服务构建的。 借助[故障分析服务](service-fabric-testability-overview.md)，可以引入有意义的故障，并对应用程序运行完整的测试方案。 这些故障和方案执行并验证服务在整个生命周期内要经历的大量状态和转换，所有一切都以受控、安全且一致的方式进行。
@@ -167,7 +167,7 @@ Service Fabric 组件报告包含群集中所有实体的运行状况。 [系统
 
 Service Fabric 提供了多种方式查看在运行状况存储中聚合的[运行状况报告](service-fabric-view-entities-aggregated-health.md)：
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他可视化工具。
-* 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.healthclient?view=azure-dotnet) 和 [Java FabricClient API](https://docs.azure.cn/java/api/system.fabric) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
+* 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.healthclient) 和 [Java FabricClient API](https://docs.azure.cn/java/api/system.fabric) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
 * 常规查询，返回将运行状况作为属性之一的实体的列表（通过 PowerShell、CLI、API 或 REST）。
 
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断

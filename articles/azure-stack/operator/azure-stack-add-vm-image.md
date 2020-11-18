@@ -3,18 +3,17 @@ title: 将自定义 VM 映像添加到 Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中添加或删除自定义 VM 映像。
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 09/08/2020
-ms.date: 10/12/2020
+origin.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c339bb19903d80ef29ad4beb6d3bc5511d416575
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: bc737fb3b601e086c2b556b445005a067755f028
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437744"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330476"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>在 Azure Stack Hub 中添加和删除自定义 VM 映像
 
@@ -22,7 +21,7 @@ ms.locfileid: "91437744"
 
 ## <a name="add-an-image"></a>添加映像
 
-可以在用户指南的“计算”部分中找到有关添加通用映像和专用映像的说明。 在为用户提供通用映像之前，需要先创建该映像。 有关说明，请参阅[将 VM 移动到 Azure Stack Hub 概述](/azure-stack/user/vm-move-overview)。 创建可用于租户的映像时，请使用 Azure Stack Hub 管理门户或管理员终结点，而不是用户门户或租户目录终结点。
+可以在用户指南的“计算”部分中找到有关添加通用映像和专用映像的说明。 在为用户提供通用映像之前，需要先创建该映像。 有关说明，请参阅[将 VM 移动到 Azure Stack Hub 概述](../user/vm-move-overview.md)。 创建可用于租户的映像时，请使用 Azure Stack Hub 管理门户或管理员终结点，而不是用户门户或租户目录终结点。
 
 有两个选项可用于向用户提供映像：
 
@@ -32,26 +31,31 @@ ms.locfileid: "91437744"
 - **通过 Azure Stack Hub 市场提供映像**  
     通过 Azure Stack Hub 管理门户添加映像后，便可以创建市场产品/服务了。 有关说明，请参阅[创建并发布自定义 Azure Stack Hub 市场项](azure-stack-create-and-publish-marketplace-item.md)。
 
-
 ## <a name="add-a-platform-image"></a>添加平台映像
 
-若要将平台映像添加到 Azure Stack Hub，请使用 Azure Stack Hub 管理员门户或终结点，也可以使用 PowerShell。 需要已创建通用 VHD。 有关说明，请参阅[将 VM 移动到 Azure Stack Hub 概述](/azure-stack/user/vm-move-overview)。
+若要将平台映像添加到 Azure Stack Hub，请使用 Azure Stack Hub 管理员门户或终结点，也可以使用 PowerShell。 必须首先创建通用化 VHD。 有关详细信息，请参阅[将 VM 移到 Azure Stack Hub 概述](../user/vm-move-overview.md)。
 
 ### <a name="portal"></a>[Portal](#tab/image-add-portal)
 
 以 Azure Stack Hub 操作员的身份使用门户添加 VM 映像。
 
-1. 以操作员身份登录到 Azure Stack Hub。 在菜单中选择“所有服务” > “计算” > “映像” > “添加”。   
+1. 以操作员身份登录到 Azure Stack Hub。 从左侧导航栏中选择“仪表板”。
 
-   ![添加 VM 映像](./media/azure-stack-add-vm-image/tca4.png)
+2. 在“资源提供程序”列表中，选择“计算”。
 
-2. 在“创建映像”下，输入“发布者”、“套餐”、“SKU”、“版本”和 OS 磁盘 blob URI。 然后选择“创建”，开始创建 VM 映像。
+   [![选择“计算”](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
 
-   ![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5.png)
+3. 选择“VM 映像”，然后选择“添加”。
+
+   [![添加 VM 映像](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
+
+4. 在“创建映像”下，输入“发布者”、“套餐”、“SKU”、“版本”和 OS 磁盘 blob URI。 然后选择“创建”，开始创建 VM 映像。
+
+   [![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    成功创建映像后，VM 映像状态会更改为“已成功”。
 
-3. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。**** **** **** **** 在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
+5. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。    在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 
@@ -75,10 +79,10 @@ ms.locfileid: "91437744"
    **Add-AzsPlatformimage** cmdlet 指定 Azure 资源管理器模板用来引用 VM 映像的值。 这些值包括：
    - **publisher**  
      例如： `Canonical`  
-     VM 映像的**发布者**名称段，供用户在部署映像时使用。 不要在此字段中包含空格或其他特殊字符。  
+     VM 映像的 **发布者** 名称段，供用户在部署映像时使用。 不要在此字段中包含空格或其他特殊字符。  
    - **offer**  
      例如： `UbuntuServer`  
-     VM 映像的**套餐**名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
+     VM 映像的 **套餐** 名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
    - **sku**  
      例如： `14.04.3-LTS`  
      VM 映像的 SKU 名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
@@ -94,7 +98,7 @@ ms.locfileid: "91437744"
 
      有关详细信息，请参阅 [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 的 PowerShell 参考。
 
-4. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。**** **** **** **** 在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
+4. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。    在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
 
 ---
 
@@ -135,10 +139,10 @@ ms.locfileid: "91437744"
    **Remove-AzsPlatformImage** cmdlet 指定 Azure 资源管理器模板用来引用 VM 映像的值。 这些值包括：
    - **publisher**  
      例如： `Canonical`  
-     VM 映像的**发布者**名称段，供用户在部署映像时使用。 不要在此字段中包含空格或其他特殊字符。  
+     VM 映像的 **发布者** 名称段，供用户在部署映像时使用。 不要在此字段中包含空格或其他特殊字符。  
    - **offer**  
      例如： `UbuntuServer`  
-     VM 映像的**套餐**名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
+     VM 映像的 **套餐** 名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
    - **sku**  
      例如： `14.04.3-LTS`  
      VM 映像的 SKU 名称段，供用户在部署 VM 映像时使用。 不要在此字段中包含空格或其他特殊字符。  
@@ -147,7 +151,9 @@ ms.locfileid: "91437744"
      VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用 **\#.\#.\#** 格式。 不要在此字段中包含空格或其他特殊字符。  
 
      有关 **Remove-AzsPlatformImage** cmdlet 的详细信息，请参阅 Azure PowerShell [Azure Stack Hub 操作员模块文档](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。
+
 ---
+
 ## <a name="next-steps"></a>后续步骤
 
 - [创建并发布自定义 Azure Stack Hub 市场项](azure-stack-create-and-publish-marketplace-item.md)

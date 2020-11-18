@@ -4,15 +4,15 @@ description: 了解 Azure Monitor 中的操作规则是什么，以及如何配�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/25/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
 ms.author: v-johya
-ms.openlocfilehash: 34610770f76677a6a62f8836473fa8938788bd3d
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: f562b58a153edaafb5db65a874ae29faf4caf931
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457311"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328776"
 ---
 # <a name="action-rules-preview"></a>操作规则（预览版）
 
@@ -39,17 +39,17 @@ ms.locfileid: "89457311"
 
 ### <a name="portal"></a>[Portal](#tab/portal)
 
-在 Azure Monitor 中的“警报”登陆页上选择“管理操作”可以访问该功能。******** 然后选择“操作规则(预览版)”。**** 在警报登陆页的仪表板中选择“操作规则(预览版)”可以访问规则。****
+在 Azure Monitor 中的“警报”登陆页上选择“管理操作”可以访问该功能。 然后选择“操作规则(预览版)”。 在警报登陆页的仪表板中选择“操作规则(预览版)”可以访问规则。
 
 ![Azure Monitor 登陆页中的操作规则](./media/alerts-action-rules/action-rules-landing-page.png)
 
-选择“+ 新建操作规则”。****
+选择“+ 新建操作规则”。
 
-![添加新的操作规则](./media/alerts-action-rules/action-rules-new-rule.png)
+![屏幕截图显示了“管理操作”页，其中突出显示了“新建操作规则”按钮。](./media/alerts-action-rules/action-rules-new-rule.png)
 
 或者，也可以在配置警报规则时创建操作规则。
 
-![添加新的操作规则](./media/alerts-action-rules/action-rules-alert-rule.png)
+![屏幕截图显示了“创建规则”页，其中突出显示了“创建操作规则”按钮。](./media/alerts-action-rules/action-rules-alert-rule.png)
 
 此时应会看到用于创建操作规则的流程页。 配置以下元素：
 
@@ -85,7 +85,7 @@ ms.locfileid: "89457311"
 
 #### <a name="suppression"></a>禁止
 
-如果选择“消除”，请配置消除操作和通知的持续时间。**** 选择以下选项之一：
+如果选择“消除”，请配置消除操作和通知的持续时间。 选择以下选项之一：
 * **从现在起(始终)** ：无限期消除所有通知。
 * **在计划时间**：在有限的持续时间内消除通知。
 * **重复**：按每日、每周或每月重复计划消除通知。
@@ -94,7 +94,7 @@ ms.locfileid: "89457311"
 
 #### <a name="action-group"></a>操作组
 
-如果在切换选项中选择“操作组”，请添加现有的操作组或新建一个操作组。****
+如果在切换选项中选择“操作组”，请添加现有的操作组或新建一个操作组。
 
 > [!NOTE]
 > 只能将一个操作组关联到一个操作规则。
@@ -189,7 +189,7 @@ Contoso 希望在每个周末消除其订阅 **ContosoSub** 中所有 VM 上的�
 * 筛选器
     * 严重性 = **Sev4**
     * 资源类型 = **虚拟机**
-* 消除重复周期设置为“每周”，并选中“星期六”和“星期日”********
+* 消除重复周期设置为“每周”，并选中“星期六”和“星期日”
 
 ### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>应用场景 2：根据警报上下文（有效负载）消除警报
 
@@ -200,7 +200,7 @@ Contoso 希望无限期消除针对 **ContosoSub** 中 **Computer-01** 生成的
 * 筛选器
     * 监视服务 = **Log Analytics**
     * 警报上下文（有效负载）包含 **Computer-01**
-* 消除时间设置为“从现在起(始终)”****
+* 消除时间设置为“从现在起(始终)”
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>应用场景 3：在资源组中定义的操作组
 
@@ -248,9 +248,9 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>最佳实践
 
-结合[“结果数”](alerts-unified-log.md)选项创建的日志警报会使用整个搜索结果生成单个警报实例（可能跨多台计算机）。 在此方案中，如果操作规则使用“警报上下文(有效负载)”筛选器，则只要有匹配项，该规则就会作用于警报实例。**** 在上述方案 2 中，如果生成的日志警报的搜索结果包含 **Computer-01** 和 **Computer-02**，则会消除整个通知。 完全不会为 **Computer-02** 生成通知。
+结合[“结果数”](alerts-unified-log.md)选项创建的日志警报会使用整个搜索结果生成单个警报实例（可能跨多台计算机）。 在此方案中，如果操作规则使用“警报上下文(有效负载)”筛选器，则只要有匹配项，该规则就会作用于警报实例。 在上述方案 2 中，如果生成的日志警报的搜索结果包含 **Computer-01** 和 **Computer-02**，则会消除整个通知。 完全不会为 **Computer-02** 生成通知。
 
-![操作规则和日志警报（结果数）](./media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![此图显示了操作规则和日志警报，其中突出显示了单个警报实例。](./media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 若要充分利用日志警报和操作规则，请使用[“指标度量”](alerts-unified-log.md)选项创建日志警报。 此选项会根据定义的组字段生成单独的警报实例。 然后，在方案 2 中，将为 **Computer-01** 和 **Computer-02** 生成单独的警报实例。 由于该方案中所述的操作规则，只会消除 **Computer-01** 的通知。 **Computer-02** 的通知会继续照常激发。
 
@@ -267,11 +267,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 * 超集：例如，你定义的操作规则在某个资源组中，而重叠的操作规则在包含该资源组的订阅中。
 * 交集：例如，你定义的操作规则在 **VM1** 和 **VM2** 中，而重叠的操作规则在 **VM2** 和 **VM3** 中。
 
-![重叠的操作规则](./media/alerts-action-rules/action-rules-overlapping.png)
+![屏幕截图显示了“新建操作规则”页，其中重叠的操作规则显示在同一范围窗口中定义的“操作规则”中。](./media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>在配置警报规则时，能够知道是否已存在可能作用于我所定义的警报规则的任何操作规则吗？
 
-为警报规则定义目标资源后，可以选择“操作”部分下的“查看配置的操作”，来查看在同一范围发生作用的操作列表（如果有）。******** 此列表是根据以下范围方案填充的：
+为警报规则定义目标资源后，可以选择“操作”部分下的“查看配置的操作”，来查看在同一范围发生作用的操作列表（如果有）。 此列表是根据以下范围方案填充的：
 
 * 完全匹配：例如，你定义的警报规则和操作规则在同一订阅中。
 * 子集：例如，你定义的警报规则在某个订阅中，而操作规则在该订阅的某个资源组中。
@@ -282,7 +282,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>是否可以看到操作规则消除的警报？
 
-在[警报列表页](./alerts-managing-alert-instances.md)中，可以选择一个名为“消除状态”的附加列。**** 如果消除了某个警报实例的通知，该实例会在列表中显示该状态。
+在[警报列表页](./alerts-managing-alert-instances.md)中，可以选择一个名为“消除状态”的附加列。 如果消除了某个警报实例的通知，该实例会在列表中显示该状态。
 
 ![消除的警报实例](./media/alerts-action-rules/action-rules-suppressed-alerts.png)
 

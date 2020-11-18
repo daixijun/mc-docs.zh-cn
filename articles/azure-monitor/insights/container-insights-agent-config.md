@@ -4,14 +4,14 @@ description: 本主题介绍如何配置用于容器的 Azure Monitor 代理，�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/15/2019
-ms.date: 07/17/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 91b15dbff7d23b672f47967634877f8680b32419
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 0d179d2cc32d4e54a62679a3d63b8a4b43a7b281
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244541"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327962"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>配置用于容器的 Azure Monitor 的代理数据收集
 <!--Customized in MC: not available about Azure Red Hat OpenShift-->
@@ -29,7 +29,7 @@ ms.locfileid: "87244541"
 
 ### <a name="data-collection-settings"></a>数据收集设置
 
-下面是可以配置的用于控制数据收集的设置。
+下表描述了可以配置的用于控制数据收集的设置：
 
 | 密钥 | 数据类型 | 值 | 说明 |
 |--|--|--|--|
@@ -43,13 +43,21 @@ ms.locfileid: "87244541"
 | `[log_collection_settings.enrich_container_logs] enabled =` | 布尔 | true 或 false | 此设置控制容器日志扩充，以填充写入群集中所有容器日志的<br> ContainerLog 表的每条日志记录的 Name 和 Image 属性值。<br> 此设置在 ConfigMap 中未指定时，默认为 `enabled = false`。 |
 | `[log_collection_settings.collect_all_kube_events]` | 布尔 | true 或 false | 此设置支持收集所有类型的 Kube 事件。<br> 默认情况下，不收集 Normal 类型的 Kube 事件。 将此设置设为 `true` 时，不再筛选 Normal 事件，并将收集所有事件。<br> 默认情况下，这设置为 `false`。 |
 
+### <a name="metric-collection-settings"></a>指标收集设置
+
+下表描述了可以配置的用于控制指标收集的设置：
+
+| 密钥 | 数据类型 | 值 | 描述 |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true 或 false | 此设置允许在 kube 系统命名空间中收集永久性卷 (PV) 使用指标。 默认情况下，不会在 kube 系统命名空间中收集具有永久性卷声明的永久性卷的使用指标。 当此设置设为 `true` 时，将收集所有命名空间的 PV 使用指标。 默认情况下，这设置为 `false`。 |
+
 ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 不能使用推翻收集规则的其他 ConfigMap。
 
 ## <a name="configure-and-deploy-configmaps"></a>使用 ConfigMap 进行配置和部署
 
 执行以下步骤，以配置 ConfigMap 配置文件并将其部署到群集。
 
-1. [下载](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml)模板 ConfigMap yaml 文件，并将其保存为 container-azm-ms-agentconfig.yaml。 
+1. 下载[模板 ConfigMap YAML 文件](https://aka.ms/container-azm-ms-agentconfig)，并将其另存为 container-azm-ms-agentconfig.yaml。 
 
 2. 使用自定义内容编辑 ConfigMap yaml 文件，以便收集 stdout、stderr 和/或环境变量。
 
@@ -63,9 +71,9 @@ ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 �
     
     示例：`kubectl apply -f container-azm-ms-agentconfig.yaml`。 
     
-    配置更改可能需要几分钟时间才能完成并生效，群集中的所有 omsagent pod 将会重启。 所有 omsagent pod 的重启是轮流式的重启，而不是一次性全部重启。 重启完成后，系统会显示包含结果的消息，如下所示：`configmap "container-azm-ms-agentconfig" created`。
+配置更改可能需要几分钟时间才能完成并生效，群集中的所有 omsagent pod 将会重启。 所有 omsagent pod 的重启是轮流式的重启，而不是一次性全部重启。 重启完成后，系统会显示包含结果的消息，如下所示：`configmap "container-azm-ms-agentconfig" created`。
 
-## <a name="verify-configuration"></a>验证配置 
+## <a name="verify-configuration"></a>验证配置
 
 若要验证是否已成功应用配置，请使用以下命令查看代理 pod 的日志：`kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 存在配置错误，输出中会显示如下所示的错误：
 
@@ -115,7 +123,7 @@ omsagent pod 上以 pod 注释 (schema-versions) 的形式提供了支持的配�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 用于容器的 Azure Monitor 不包含预定义的警报集。 请查看[使用用于容器的 Azure Monitor 创建性能警报](container-insights-alerts.md)，了解如何针对高 CPU 和内存利用率创建建议的警报以支持 DevOps 或操作流程和过程。
+- 用于容器的 Azure Monitor 不包含预定义的警报集。 请查看[使用用于容器的 Azure Monitor 创建性能警报](./container-insights-log-alerts.md)，了解如何针对高 CPU 和内存利用率创建建议的警报以支持 DevOps 或操作流程和过程。
 
 - 启用监视以收集 AKS 群集或混合群集及其上运行的工作负荷的运行状况和资源利用率，了解[如何使用](container-insights-analyze.md)用于容器的 Azure Monitor。
 

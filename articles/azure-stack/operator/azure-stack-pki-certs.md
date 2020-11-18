@@ -3,18 +3,17 @@ title: Azure Stack Hub 公钥基础结构证书要求
 description: 了解 Azure Stack Hub 集成系统的 Azure Stack Hub PKI 证书要求。
 author: WenJason
 ms.topic: conceptual
-ms.service: azure-stack
 origin.date: 08/19/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3eee60a3dc49e336b8e163daaf2602094d1fc275
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 3031e7fa23399c27e3487dd2d1629ddad6281c15
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330613"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公钥基础结构 (PKI) 证书要求
 
@@ -25,7 +24,7 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 - 部署增值资源提供程序时所需的可选证书。
 
 > [!NOTE]
-> 默认情况下，Azure Stack Hub 还使用内部 Active Directory 集成证书颁发机构 (CA) 颁发的证书在节点之间进行身份验证。 为了验证证书，所有 Azure Stack Hub 基础结构计算机都信任内部 CA 的根证书，方法是将该证书添加到其本地证书存储中。 在 Azure Stack Hub 中没有证书固定或将证书加入允许列表的功能。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书到期日期（没有锁定证书的标准 TLS 服务器身份验证）。
+> 默认情况下，Azure Stack Hub 还使用内部 Active Directory 集成证书颁发机构 (CA) 颁发的证书在节点之间进行身份验证。 为了验证证书，所有 Azure Stack Hub 基础结构计算机都信任内部 CA 的根证书，方法是将该证书添加到其本地证书存储中。 在 Azure Stack Hub 中没有证书固定或证书筛选的功能。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书到期日期（没有锁定证书的标准 TLS 服务器身份验证）。
 
 ## <a name="certificate-requirements"></a>证书要求
 以下列表描述了常规的证书颁发要求、安全要求和格式要求：
@@ -103,12 +102,13 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 
 |范围（按区域）|证书|所需的证书使用者和使用者可选名称 (SAN)|子域命名空间|
 |-----|-----|-----|-----|
-|SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
 |应用服务|Web 流量默认 SSL 证书|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>（多域通配符 SSL 证书<sup>1</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|事件中心|事件中心|&#42;.eventhub.&lt;region>.&lt;fqdn> (SAN)| eventhub.&lt;region>.&lt;fqdn> |
+|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub.&lt;region>.&lt;fqdn> |
+|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 需要一个包含多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN。
 

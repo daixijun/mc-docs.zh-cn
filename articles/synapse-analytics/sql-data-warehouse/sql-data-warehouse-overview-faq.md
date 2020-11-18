@@ -8,15 +8,15 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 11/04/2019
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 57c4fab25abc233ac7b798f9f30f2b3c0d92edff
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 4f1cc3d076efa764ef25aab822a759654bb7df53
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426505"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375690"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics（前称为 SQL 数据仓库）常见问题解答
 
@@ -28,7 +28,7 @@ A. Azure Synapse 是一种分析服务，它将数据仓库和大数据分析结
 
 问： Azure SQL 数据仓库有什么变化？
 
-A. Azure Synapse 是 Azure SQL 数据仓库 (SQL DW) 的演进。 我们将同一个行业领先的数据仓库提升到了一个全新的性能和功能级别。 你可以继续使用 Azure Synapse 在生产环境中运行现有的数据仓库工作负荷。 有关详细信息，请参阅[什么是 Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)。
+A. Azure Synapse 是 Azure SQL 数据仓库的演进版。 我们将同一个行业领先的数据仓库提升到了一个全新的性能和功能级别。 你可以继续使用 Azure Synapse 在生产环境中运行现有的数据仓库工作负荷。 有关详细信息，请参阅[什么是 Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)。
 
 问： 什么是 Synapse SQL 池？
 

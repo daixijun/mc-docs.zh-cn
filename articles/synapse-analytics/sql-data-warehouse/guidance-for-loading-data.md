@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-origin.date: 06/07/2020
-ms.date: 07/06/2020
+ms.subservice: sql-dw
+origin.date: 02/04/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 07650ab7e7b05ba162368c124664013f3d475c4c
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: e8b6d47e47e94ccc34b7a52274f7fb7c8062c0a1
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845823"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375720"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>使用 Synapse SQL 池加载数据的最佳做法
 
@@ -41,7 +41,7 @@ ms.locfileid: "85845823"
 
 ### <a name="example-of-creating-a-loading-user"></a>创建加载用户的示例
 
-此示例将创建一个分类到特定工作负荷组的加载用户。 第一步是**连接到主服务器**并创建登录名。
+此示例将创建一个分类到特定工作负荷组的加载用户。 第一步是 **连接到主服务器** 并创建登录名。
 
 ```sql
    -- Connect to master
@@ -176,6 +176,6 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解在设计提取、加载和转换 (ELT) 过程时如何使用 COPY 语句或 PolyBase，请参阅[为 SQL 数据仓库设计 ELT](design-elt-data-loading.md)。
+- 若要详细了解在设计提取、加载和转换 (ELT) 过程时如何使用 COPY 语句或 PolyBase，请参阅[为 Azure Synapse Analytics 设计 ELT](design-elt-data-loading.md)。
 - 如需加载教程，请参阅[使用 COPY 语句将数据从 Azure Blob 存储加载到 Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md)。
 - 若要监视数据加载，请参阅[使用 DMV 监视工作负荷](sql-data-warehouse-manage-monitor.md)。

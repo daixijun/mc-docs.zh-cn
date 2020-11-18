@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/19/2018
-ms.date: 05/11/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f5fd14f6458bde5f8185cf176b1cf7b94030a023
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 4ef8a1ccb75ef085d0e6edfaea6713578626f775
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198504"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375598"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>在 Synapse SQL 中优化事务
 
@@ -420,4 +420,4 @@ Synapse SQL 允许按需[暂停、恢复和缩放](sql-data-warehouse-manage-com
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅 [Synapse SQL 中的事务](sql-data-warehouse-develop-transactions.md)，详细了解隔离级别和事务限制。  有关其他最佳实践的概述，请参阅 [SQL 数据仓库最佳实践](sql-data-warehouse-best-practices.md)。
+请参阅 [Synapse SQL 中的事务](sql-data-warehouse-develop-transactions.md)，详细了解隔离级别和事务限制。  有关其他最佳做法的概述，请参阅 [Azure Synapse Analytics 最佳做法](sql-data-warehouse-best-practices.md)。

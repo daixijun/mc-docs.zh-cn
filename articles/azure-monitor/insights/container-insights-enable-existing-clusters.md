@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 09/12/2019
-ms.date: 08/20/2020
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 5df629b68665ef597a88c2db341180bf82fab13f
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: ec4a2d03e451e01d5de9d3aecececd3f234d8007
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148629"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328786"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -58,7 +58,7 @@ provisioningState       : Succeeded
     ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
-    Microsoft Azure                       AzureChinaCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    Azure                       AzureChinaCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
     复制 **SubscriptionId** 的值。
@@ -135,12 +135,10 @@ provisioningState       : Succeeded
 2. 在资源列表中，开始键入“Containers”  。  列表会根据输入的内容进行筛选。
 
 3. 选择“Kubernetes 服务”  。
+    
+4. 在 Kubernetes 服务列表中，选择一个服务。
 
-    ![Kubernetes 服务链接](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. 在容器列表中，选择一个容器。
-
-5. 在容器概述页面中，选择“监视容器”  。
+5. 在“Kubernetes 服务概述”页上，选择“监视 - 见解”。
 
 6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。
@@ -163,7 +161,7 @@ provisioningState       : Succeeded
 >模板需要部署在群集所在的资源组中。
 >
 
-必须创建 Log Analytics 工作区，然后才能使用 Azure PowerShell 或 CLI 来启用监视。 若要创建工作区，可通过 [Azure 资源管理器](../platform/template-workspace-configuration.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) 或在 [Azure 门户](../learn/quick-create-workspace.md)中进行设置。
+必须创建 Log Analytics 工作区，然后才能使用 Azure PowerShell 或 CLI 来启用监视。 若要创建工作区，可通过 [Azure 资源管理器](../samples/resource-manager-workspace.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) 或在 [Azure 门户](../learn/quick-create-workspace.md)中进行设置。
 
 如果不熟悉使用模板部署资源的概念，请参阅：
 
@@ -347,7 +345,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>代理版本低于 06072018
 
-若要验证 06072018 之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：
+若要验证 06072018  之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -387,5 +385,4 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 * 如果在尝试载入解决方案时遇到问题，请查看[故障排除指南](container-insights-troubleshoot.md)
 
 * 启用监视以收集 AKS 群集及其上运行的工作负荷的运行状况和资源利用率，了解[如何使用](container-insights-analyze.md)用于容器的 Azure Monitor。
-
 

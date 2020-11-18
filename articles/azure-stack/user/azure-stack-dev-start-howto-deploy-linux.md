@@ -1,19 +1,19 @@
 ---
 title: 将 Linux VM 部署到 Azure Stack Hub
-description: 将应用部署到 Azure Stack Hub。
+description: 使用 Ubuntu 映像部署 Linux 虚拟机，以便在 Azure Stack Hub 中托管 Web 应用。
 author: WenJason
 ms.topic: overview
-origin.date: 1/22/2020
-ms.date: 05/18/2020
+origin.date: 5/27/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 69bee8ee207abca68beee8a5d47545d0aafb8a80
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: d92d50f869d97d992f0b3381068f29a23eaeff65
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330673"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署用于托管 Web 应用的 Linux VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "83422093"
 1. 为服务器创建安全外壳 (SSH) 公钥。 有关详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 1. 在 Azure Stack Hub 门户中，选择“创建资源” > “计算” > “Ubuntu Server 16.04 LTS”。   
 
-    ![将 Web 应用部署到 Azure Stack Hub VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![将 Web 应用部署到 Azure Stack Hub VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. 在“创建虚拟机”窗格中，对于“1.   配置基本设置”：
 
@@ -55,7 +55,7 @@ ms.locfileid: "83422093"
 
     b. 选择“高级 SSD”（适用于高级磁盘 [SSD]）或“标准 HDD”（适用于标准磁盘 [HDD]）作为“VM 磁盘类型”。   
 
-    c. 输入你的**用户名**。
+    c. 输入你的 **用户名**。
 
     d. 选择“SSH 公钥”作为“身份验证类型”。  
 
@@ -142,7 +142,7 @@ ms.locfileid: "83422093"
 
 1. 对于“优先级”，请保留默认选项。 
 
-1. 输入**名称**和**说明**，以帮助记住打开端口的原因。
+1. 输入 **名称** 和 **说明**，以帮助记住打开端口的原因。
 
 1. 选择“添加”   。
 

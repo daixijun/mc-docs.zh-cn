@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/06/2018
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 916eeeac0aed631908373f833c855a057f460122
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 982b1738ca608cc9f1bd9829de93cbe9defac4da
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472678"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327434"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
@@ -35,13 +35,13 @@ ms.locfileid: "92472678"
 
 下面是一些可以为 IoT 中心设置的属性：
 
-**定价和缩放** ：可使用此属性迁移到其他层或设置 IoT 中心单元数。 
+**定价和缩放**：可使用此属性迁移到其他层或设置 IoT 中心单元数。 
 
-**操作监视** ：打开或关闭不同的监视类别，如与设备到云消息或云到设备消息相关的事件的日志记录。
+**操作监视**：打开或关闭不同的监视类别，如与设备到云消息或云到设备消息相关的事件的日志记录。
 
-**IP 筛选器** ：可指定 IoT 中心会接受或拒绝的 IP 地址范围。
+**IP 筛选器**：可指定 IoT 中心会接受或拒绝的 IP 地址范围。
 
-**属性** ：提供可在其他位置复制和使用的属性的列表，如资源 ID、资源组、位置等。
+**属性**：提供可在其他位置复制和使用的属性的列表，如资源 ID、资源组、位置等。
 
 ### <a name="shared-access-policies"></a>共享访问策略
 
@@ -124,5 +124,4 @@ ms.locfileid: "92472678"
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [IoT 中心消息路由](tutorial-routing.md)
-* [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [监视 IoT 中心](monitor-iot-hub.md)

@@ -1,23 +1,23 @@
 ---
 title: 常见问题解答 - 用于 Apache Kafka 的 Azure 事件中心
-description: 本文介绍使用不同协议（AMQP、Apache Kafka 和 HTTPS）的使用者和生成者在使用 Azure 事件中心时如何交换事件。
+description: 本文回答了关于 Azure 事件中心对 Apache Kafka 客户端的支持的常见问题，这些问题在其他地方没有涉及。
 ms.topic: article
 ms.author: v-tawe
 origin.date: 06/23/2020
-ms.date: 08/21/2020
-ms.openlocfilehash: 2d1955b9214763e7665439b1d0ad54946aed060b
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.date: 11/04/2020
+ms.openlocfilehash: 3125ebdf926967b260f7a73c2185ccf8bc3822b2
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715182"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375674"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>常见问题解答 - 用于 Apache Kafka 的事件中心 
 本文解答了有关迁移到用于 Apache Kafka 的事件中心的一些常见问题。
 
-## <a name="do-you-run-apache-kafka"></a>是否运行 Apache Kafka？
+## <a name="does-azure-event-hubs-run-on-apache-kafka"></a>Azure 事件中心是否在 Apache Kafka 上运行？
 
-否。  我们针对事件中心基础结构执行 Kafka API 操作。  由于 Apache Kafka 与事件中心 AMQP 功能（即生成、接收、管理等）之间存在紧密相关性，因此我们可以将事件中心的已知可靠性引入 Kafka PaaS 空间。
+否。 Azure 事件中心是云原生的多层中转站，支持由 Microsoft 开发和维护的多种协议，并且不使用任何 Apache Kafka 代码。 其中一个受支持的协议是适用于 Kafka 客户端的使用者和生产者 API 的 Kafka RPC 协议。 事件中心可与许多现有 Kafka 应用程序配合使用。 有关详细信息，请参阅[适用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)。 由于 Apache Kafka 和 Azure 事件中心的概念非常类似（但不完全相同），因此我们可以使用现有 Apache Kafka 投资为客户提供 Azure 事件中心的无与伦比的可靠性。 
 
 ## <a name="event-hubs-consumer-group-vs-kafka-consumer-group"></a>事件中心使用者组与Kafka 使用者组
 事件中心使用者组与事件中心的 Kafka 使用者组之间有何区别？ 事件中心的 Kafka 使用者组与标准事件中心使用者组完全不同。

@@ -4,17 +4,17 @@ description: 了解如何使用 Service Fabric Reliable Actors 在 C# 中创建�
 ms.topic: conceptual
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26c9cc9679c1ca3315987b80929b8610ab47312e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 761e79debae7d2e5b07234e9aebc6e5e33a62158
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655643"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328823"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
     NuGet 包及其所有依赖项都安装在 ActorClient 项目中。
 
-5. 客户端项目还需要对接口项目的引用。  在 ActorClient 项目中，右键单击“依赖项”  ，然后单击“添加引用...”  。选择“项目”>“解决方案”  （如果尚未选择），然后勾选“HelloWorld.Interfaces”  旁边的复选框。  单击 **“确定”** 。
+5. 客户端项目还需要对接口项目的引用。  在 ActorClient 项目中，右键单击“依赖项”，然后单击“添加项目引用...”。选择“项目”>“解决方案”（如果尚未选择），然后勾选“HelloWorld.Interfaces”旁边的复选框。  单击 **“确定”** 。
 
     ![“添加引用”对话框][7]
 

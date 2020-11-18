@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 3bc2ebbaa63f547cd10415bae8f44f6e99e8cec9
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ce4fff72d4734474bd79eedfb2dc7747c8528196
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148977"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328838"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>使用 Azure Policy 大规模部署 Azure Monitor
 虽然某些 Azure Monitor 功能仅配置一次或有限的几次，但另一些功能必须针对要监视的每个资源重复配置。 本文介绍了如何使用 Azure Policy 大规模实施 Azure Monitor 以确保为所有 Azure 资源一致且准确地配置监视功能。
@@ -33,7 +33,7 @@ Azure Policy 由下表中的对象构成。 有关每个对象的更详细的说
 | 分配 | 策略定义或计划在分配到作用域之前不会生效。 例如，将策略分配给某个资源组以将其应用于在该资源中创建的所有资源，或将其应用于某个订阅以将其应用于该订阅中的所有资源。  有关更多详细信息，请参阅 [Azure Policy 分配结构](../governance/policy/concepts/assignment-structure.md)。 |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Azure Monitor 的内置策略定义
-Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以将这些策略定义分配给现有订阅，也可以将它们作为基础来创建你自己的自定义定义。 有关“监视”类别中的内置策略的完整列表，请参阅 [Azure Monitor的 Azure Policy 内置策略定义](samples/policy-samples.md)。
+Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以将这些策略定义分配给现有订阅，也可以将它们作为基础来创建你自己的自定义定义。 有关“监视”类别中的内置策略的完整列表，请参阅 [Azure Monitor的 Azure Policy 内置策略定义](./samples/policy-reference.md)。
 
 若要查看与监视相关的内置策略定义，请执行以下操作：
 
@@ -41,7 +41,7 @@ Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以
 2. 选择“定义”。
 3. 对于“类型”，请选择“内置”；对于“类别”，请选择“监视”。
 
-  ![内置策略定义](./media/deploy-scale/builtin-policies.png)
+  ![Azure 门户中“Azure Policy 定义”页的屏幕截图，其中显示了用于监视类别和内置类型的策略定义的列表。](./media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>诊断设置
@@ -54,7 +54,7 @@ Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以
 
 例如，下图显示了 Data Lake Analytics 的内置诊断设置策略定义。
 
-  ![内置策略定义](./media/deploy-scale/builtin-diagnostic-settings.png)
+  ![“Azure Policy 定义”页中的部分屏幕截图，显示了 Data Lake Analytics 的两个内置诊断设置策略定义。](./media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>自定义策略定义
 对于没有内置策略的资源类型，你需要创建自定义策略定义。 可以在 Azure 门户中通过以下方式手动执行此操作：复制某个现有的内置策略，然后针对你的资源类型修改该策略。 不过，使用 PowerShell 库中的脚本以编程方式创建策略更高效。
@@ -109,7 +109,7 @@ Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以
 ### <a name="assignment"></a>分配 
 根据要监视的资源的范围，将计划分配给 Azure 管理组、订阅或资源组。 [管理组](../governance/management-groups/overview.md)特别适用于限定策略作用域，尤其是当你的组织有多个订阅时。
 
-![计划分配](./media/deploy-scale/initiative-assignment.png)
+![屏幕截图，显示了 Azure 门户中 Log Analytics 工作区诊断设置的“分配计划”部分中的“基本信息”选项卡设置。](./media/deploy-scale/initiative-assignment.png)
 
 通过使用计划参数，你可以同时为计划中的所有策略定义指定工作区或任何其他详细信息。 
 
@@ -121,7 +121,6 @@ Azure Policy 包括多个与 Azure Monitor 相关的预生成定义。 你可以
 ![计划修正](./media/deploy-scale/initiative-remediation.png)
 
 <!--Not available in MC: ## Azure Monitor for VMs-->
-
 ## <a name="next-steps"></a>后续步骤
 
 - 阅读有关 [Azure Policy](../governance/policy/overview.md) 的更多内容。

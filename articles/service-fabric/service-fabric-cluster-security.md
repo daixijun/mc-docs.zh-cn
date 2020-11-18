@@ -4,17 +4,17 @@ description: 了解有关 Azure Service Fabric 群集的安全性方案，以及
 ms.topic: conceptual
 origin.date: 08/14/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: 567cffb6e208502fa6673cf4c31dfb5033c267de
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 8c74ff5c9651c898b349947360a488c78e5149fd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655203"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328540"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
 
@@ -100,7 +100,7 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 证书和 Service Fabric
 
-X.509 数字证书通常用于验证客户端与服务器。 它们还用于对消息进行加密和数字签名。 Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能。 有关 X.509 数字证书的详细信息，请参阅[使用证书](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates?view=azure-dotnet)。 可以使用 [Key Vault](../key-vault/general/overview.md) 管理 Azure 中 Service Fabric 群集的证书。
+X.509 数字证书通常用于验证客户端与服务器。 它们还用于对消息进行加密和数字签名。 Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能。 有关 X.509 数字证书的详细信息，请参阅[使用证书](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates)。 可以使用 [Key Vault](../key-vault/general/overview.md) 管理 Azure 中 Service Fabric 群集的证书。
 
 要考虑的几个要点：
 
@@ -141,7 +141,7 @@ X.509 数字证书通常用于验证客户端与服务器。 它们还用于对�
 
 ### <a name="client-authentication-certificates-optional"></a>客户端身份验证证书（可选）
 
-可以指定任意数量的其他证书用于管理员客户端操作或用户客户端操作。 客户端可以在需要相互身份验证时使用此类证书。 客户端证书通常不由第三方 CA 颁发。 当前用户位置的“个人”存储通常包含由根证书颁发机构放置的客户端证书。 此证书的“预期目的”值应为“客户端身份验证” 。  
+可以指定任意数量的其他证书用于管理员客户端操作或用户客户端操作。 客户端可以在需要相互身份验证时使用这些证书。 客户端证书通常不由第三方 CA 颁发。 当前用户位置的“个人”存储通常包含由根证书颁发机构放置的客户端证书。 此证书的“预期目的”值应为“客户端身份验证” 。  
 
 默认情况下，群集证书具有管理客户端的特权。 这些其他客户端证书不应安装到集群中，而应被指定为允许在群集配置中使用。  但是，客户端证书需要安装在客户端计算机上，以便连接到群集并执行操作。
 

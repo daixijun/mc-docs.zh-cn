@@ -3,14 +3,14 @@ title: 事件中心 - 使用 Azure 门户捕获流式处理事件
 description: 本文介绍如何使用 Azure 门户捕获通过 Azure 事件中心流式处理的事件。
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 08/21/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 01b714801f827d3a1b3040f6d5f6e12bc90cf024
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: a1abb2b160e241b9ee91233fb331d34a3ed985f3
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715314"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375664"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>启用捕获通过 Azure 事件中心流式处理的事件
 
@@ -19,6 +19,9 @@ Azure [事件中心捕获][capture-overview]用于自动将事件中心中的流
 可以使用 [Azure 门户](https://portal.azure.cn)在创建事件中心时配置捕获。 可以将数据捕获到 Azure [Blob 存储](https://azure.microsoft.com/services/storage/blobs/)容器或 [Azure Data Lake Store Gen 2](https://azure.microsoft.com/services/data-lake-store/) 帐户。
 
 有关详细信息，请参阅[事件中心捕获概述][capture-overview]。
+
+> [!IMPORTANT]
+> 目标存储帐户必须与事件中心位于同一订阅中。
 
 ## <a name="capture-data-to-azure-storage"></a>将数据捕获到 Azure 存储
 

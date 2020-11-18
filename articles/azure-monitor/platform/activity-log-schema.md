@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 ms.topic: reference
 origin.date: 12/04/2019
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: logs
-ms.openlocfilehash: c94ced719cc71518e2b7c5d771112dafd7c19e12
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 21cfa2bb14e68b0b59fb397d5287efc016b22334
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457460"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328777"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
 [Azure 活动日志](platform-logs-overview.md)可以方便用户深入了解 Azure 中发生的任何订阅级别事件。 本文介绍活动日志类别以及每个类别的架构。 
@@ -24,6 +24,17 @@ ms.locfileid: "89457460"
 - 对于使用[诊断设置](diagnostic-settings.md)将活动日志发送到 Azure 存储或 Azure 事件中心时的架构，请参阅最后一节[来自存储帐户和事件中心的架构](#schema-from-storage-account-and-event-hubs)。
 - 对于使用[诊断设置](diagnostic-settings.md)将活动日志发送到 Log Analytics 工作区时的架构，请参阅[Azure Monitor 数据参考](https://docs.microsoft.com//azure/azure-monitor/reference/)。
 
+## <a name="severity-level"></a>严重级别
+活动日志中的每个条目都有严重性级别。 严重性级别可以具有以下值之一：  
+
+| severity | 说明 |
+|:---|:---|
+| 严重 | 需要系统管理员立即关注的事件。 可能指示应用程序或系统失败或已停止响应。
+| 错误 | 指示存在问题的事件，但这些事件无需立即关注。
+| 警告 | 提供潜在问题而不是实际错误的预警的事件。 指示资源未处于理想状态，以后可能降级为显示错误或严重事件。  
+| 信息 | 向管理员传递非关键信息的事件。 类似于这样一个备注：“仅供参考”。 
+
+每个资源提供程序的开发人员都会选择其资源条目的严重性级别。 因此，根据应用程序的生成方式，实际的严重性可能会有所不同。 例如，对于单独获取的特定资源来说，“关键”项可能不如对 Azure 应用程序极为重要的资源类型中的“错误”那么重要。 确定要针对其发出警报的事件时，请务必考虑这一事实。  
 
 ## <a name="categories"></a>Categories
 活动日志中的每个事件都有特定的类别，该类别在下表中进行了描述。 请参阅以下各部分，了解从门户、PowerShell、CLI 和 REST API 访问活动日志时，每个类别及其架构的详细信息。 [将活动日志流式传输到存储或事件中心](./resource-logs.md#send-to-azure-event-hubs)时，架构是不同的。 本文最后一个部分提供了这些属性到[资源日志架构](./resource-logs-schema.md)的映射。

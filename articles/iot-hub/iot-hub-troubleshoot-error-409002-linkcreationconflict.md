@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 origin.date: 01/30/2020
-ms.date: 02/17/2020
+ms.date: 11/16/2020
 ms.author: v-yiso
-ms.openlocfilehash: 47a97d3ad843bc4f0b7275334192370e3bd3089a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 00b1fb465d3c9533c257473bdd7539aea0fd725b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068563"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328492"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
@@ -22,7 +22,7 @@ ms.locfileid: "77068563"
 
 ## <a name="symptoms"></a>症状
 
-你会看到错误 **409002 LinkCreationConflict** 记录在诊断日志中，以及设备断开连接或云到设备的消息失败。 
+你会在日志中看到错误 409002 LinkCreationConflict 以及设备断开连接或云到设备的消息失败。
 
 <!-- When using AMQP? -->
 

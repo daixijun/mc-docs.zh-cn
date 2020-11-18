@@ -1,5 +1,5 @@
 ---
-title: 快速入门：创建 Python 应用 - Azure Cache for Redis
+title: 快速入门：在 Python 中使用 Azure Cache for Redis
 description: 本快速入门介绍如何创建使用 Azure Redis 缓存的 Python 应用。
 author: yegu-ms
 ms.author: v-junlch
@@ -9,15 +9,16 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.date: 04/26/2020
-ms.openlocfilehash: 8b7e371d38649fb01a038ad339325f8d0484c36a
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+- devx-track-python
+ms.date: 11/03/2020
+ms.openlocfilehash: 25e2d903fdac22ad614d3c47c102c9abc25d217c
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267588"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326522"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>快速入门：创建使用 Azure Redis 缓存的 Python 应用
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>快速入门：在 Python 中使用 Azure Cache for Redis
 
 在本文中，会将 Azure Redis 缓存合并到 Python 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。
 
@@ -33,15 +34,15 @@ ms.locfileid: "82267588"
 
 ## <a name="install-redis-py"></a>安装 redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) 是 Azure Redis 缓存的 Python 接口。 使用 Python 包工具 pip 从命令提示符安装 redis-py 包   。 
+[Redis-py](https://github.com/andymccurdy/redis-py) 是 Azure Redis 缓存的 Python 接口。 使用 Python 包工具 pip 从命令提示符安装 redis-py 包 。 
 
-下面的示例使用 Python 3 的 pip3 在 Windows 10 上从管理员命令提示符安装 redis-py   。
+下面的示例使用 Python 3 的 pip3 在 Windows 10 上从管理员命令提示符安装 redis-py 。
 
 ![将 redis-py Python 接口安装到 Azure Redis 缓存](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 ## <a name="read-and-write-to-the-cache"></a>从缓存中读取数据以及向其中写入数据
 
-从命令行运行 Python，并使用下面的代码测试缓存。 将 `<Your Host Name>` 和 `<Your Access Key>` 替换为 Azure Redis 缓存实例中的值。 主机名的格式为 \<DNS 名称>.redis.cache.chinacloudapi.cn  。
+从命令行运行 Python，并使用下面的代码测试缓存。 将 `<Your Host Name>` 和 `<Your Access Key>` 替换为 Azure Redis 缓存实例中的值。 主机名的格式为“\<DNS name>.redis.cache.chinacloudapi.cn”。
 
 ```python
 >>> import redis
@@ -54,11 +55,11 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> 对于 Azure Cache for Redis 3.0 或更高版本，请强制执行 TLS/SSL 证书检查。 连接到 Azure Redis 缓存时，必须显式设置 ssl_ca_certs。 对于 RedHat Linux，ssl_ca_certs 位于 /etc/pki/tls/certs/ca-bundle.crt 证书中  。
+> 对于 Azure Cache for Redis 3.0 或更高版本，请强制执行 TLS/SSL 证书检查。 连接到 Azure Redis 缓存时，必须显式设置 ssl_ca_certs。 对于 RedHat Linux，ssl_ca_certs 位于 /etc/pki/tls/certs/ca-bundle.crt 证书中。
 
 ## <a name="create-a-python-sample-app"></a>创建 Python 示例应用
 
-创建新的文本文件，添加以下脚本，并将文件另存为 PythonApplication1.py  。 将 `<Your Host Name>` 和 `<Your Access Key>` 替换为 Azure Redis 缓存实例中的值。 主机名的格式为 \<DNS 名称>.redis.cache.chinacloudapi.cn  。
+创建新的文本文件，添加以下脚本，并将文件另存为 PythonApplication1.py。 将 `<Your Host Name>` 和 `<Your Access Key>` 替换为 Azure Redis 缓存实例中的值。 主机名的格式为“\<DNS name>.redis.cache.chinacloudapi.cn”。
 
 ```python
 import redis
@@ -84,7 +85,7 @@ for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
-使用 Python 运行 PythonApplication1.py  。 应显示如以下示例所示的结果：
+使用 Python 运行 PythonApplication1.py。 应显示如以下示例所示的结果：
 
 ![运行 Python 脚本以测试缓存访问](./media/cache-python-get-started/cache-python-completed.png)
 
@@ -93,14 +94,14 @@ for c in result:
 如果已完成在此快速入门中创建的 Azure 资源组和资源，则可以删除它们以避免产生费用。
 
 > [!IMPORTANT]
-> 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 如果在要保留的现有资源组中创建了 Azure Redis 缓存实例，可从缓存“概述”页选择“删除”以便仅删除缓存   。 
+> 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 如果在要保留的现有资源组中创建了 Azure Redis 缓存实例，可从缓存“概述”页选择“删除”以便仅删除缓存 。 
 
 删除资源组及其 Azure Redis 缓存实例：
 
-1. 从 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”  。
-1. 在“按名称筛选”文本框中，输入包含缓存实例的资源组的名称，然后从搜索结果中选择它  。 
-1. 在资源组页上，选择“删除资源组”  。
-1. 键入资源组名称，然后选择“删除”  。
+1. 从 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
+1. 在“按名称筛选”文本框中，输入包含缓存实例的资源组的名称，然后从搜索结果中选择它。 
+1. 在资源组页上，选择“删除资源组”。
+1. 键入资源组名称，然后选择“删除”。
    
    ![删除 Azure Redis 缓存的资源组](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 

@@ -1,17 +1,19 @@
 ---
 title: 均衡 Azure Service Fabric 群集
 description: 介绍如何使用 Azure Service Fabric 群集 Resource Manager 平衡群集。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 08/18/2017
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4612bad0e8dfc9db36c5e12e4a770df5a84d14ef
-ms.sourcegitcommit: 0e178672632f710019eae60cea6a45ac54bb53a1
+ms.openlocfilehash: 42783dadb795e7457d006e1a077bb50e4b84de59
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84356178"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328550"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -80,7 +82,7 @@ ClusterManifest.xml：
 群集 Resource Manager 还需要一些其他信息来确定群集是否不均衡。 为此，我们还提供了另外两个配置：*BalancingThresholds* 和 *ActivityThresholds*。
 
 ## <a name="balancing-thresholds"></a>均衡阈值
-均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个_比率_。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 
+均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个比率。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 
 
 均衡阈值根据每个指标定义为群集定义的一部分。 有关指标的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-metrics.md)。
 
@@ -193,7 +195,7 @@ ClusterManifest.xml
 
 <center>
 
-![一起平衡服务][Image4]
+![此图显示了如何平衡多项服务。][Image4]
 
 </center>
 
@@ -203,7 +205,7 @@ ClusterManifest.xml
 
 <center>
 
-![一起平衡服务][Image5]
+![此图显示了群集资源管理器确定哪些服务是相关的。][Image5]
 
 </center>
 
@@ -213,10 +215,10 @@ ClusterManifest.xml
 * 群集 Resource Manager 提供多个限制机制，可以配置这些限制机制，以减慢群集中的流动。 这些限制通常不是必要的，但如果需要，可以在[此处](service-fabric-cluster-resource-manager-advanced-throttling.md)了解其相关信息
 * 群集资源管理器可以识别并处理子群集（使用放置约束和均衡时有时会出现这种情况）。 若要了解子群集如何影响均衡以及如何处理它，请参阅[此文](cluster-resource-manager-subclustering.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
+[Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
+[Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
+[Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
+[Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
 <!-- Update_Description: update meta properties, wording update, update link -->

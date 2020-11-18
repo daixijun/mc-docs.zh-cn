@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1348392b5583ada4cb797fcb907560ab40223ff9
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 11147a894848788a5394002c645ee7dc492841e6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127609"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328483"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
-本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 服务为 Azure 虚拟机 (VM) 部署灾难恢复时所用的体系结构、组件和过程。 使用灾难恢复设置，Azure VM 可以持续复制到不同的目标区域。 如果发生服务中断，可将 VM 故障转移到次要区域，然后在次要区域中对其进行访问。 一切恢复正常后，可以执行故障回复，继续在主要位置操作。
+本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 服务为 Azure 虚拟机 (VM) 部署灾难恢复时所用的体系结构、组件和过程。 设置好灾难恢复以后，Azure VM 就可以持续复制到不同的目标区域。 如果发生服务中断，可将 VM 故障转移到次要区域，然后在次要区域中对其进行访问。 一切恢复正常后，可以执行故障回复，继续在主要位置操作。
 
 ## <a name="architectural-components"></a>体系结构组件
 
@@ -116,7 +116,7 @@ Site Recovery 按如下所述创建快照：
 4. Site Recovery 处理缓存中的数据，并将其发送到目标存储帐户或副本托管磁盘。
 5. 处理数据后，每隔五分钟生成崩溃一致性恢复点。 根据复制策略中指定的设置生成应用一致性恢复点。
 
-:::image type="content" source="./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png" alt-text="此图显示了源和目标副本。":::
+:::image type="content" source="./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png" alt-text="此图显示了复制过程第 2 步。":::
 
 **复制过程**
 
@@ -177,11 +177,11 @@ Site Recovery 按如下所述创建快照：
 
 #### <a name="control-access-with-nsg-rules"></a>使用 NSG 规则控制访问
 
-如果使用 [NSG 规则](../virtual-network/security-overview.md)通过筛选传入和传出 Azure 网络/子网的网络流量来控制 VM 连接，请注意以下要求：
+如果使用 [NSG 规则](../virtual-network/network-security-groups-overview.md)通过筛选传入和传出 Azure 网络/子网的网络流量来控制 VM 连接，请注意以下要求：
 
 - 源 Azure 区域的 NSG 规则应允许复制流量进行出站访问。
 - 我们建议先在测试环境中创建规则，然后在生产环境中实施这些规则。
-- 使用[服务标记](../virtual-network/security-overview.md#service-tags)，而不要允许单个 IP 地址。
+- 使用[服务标记](../virtual-network/network-security-groups-overview.md#service-tags)，而不要允许单个 IP 地址。
     - 服务标记表示集合在一起的一组 IP 地址前缀，可以最大程度地降低安全规则创建过程的复杂性。
     - Azure 会不断地自动更新服务标记。 
 
@@ -197,7 +197,7 @@ Site Recovery 按如下所述创建快照：
 
 如果启动故障转移，系统会在目标资源组、目标虚拟网络、目标子网和目标可用性集中创建 VM。 可在故障转移过程中使用任意恢复点。
 
-:::image type="content" source="./media/concepts-azure-to-azure-architecture/failover-v2.png" alt-text="此图显示了源和目标副本。":::
+:::image type="content" source="./media/concepts-azure-to-azure-architecture/failover-v2.png" alt-text="此图显示了源环境和目标环境故障转移过程。":::
 
 ## <a name="next-steps"></a>后续步骤
 

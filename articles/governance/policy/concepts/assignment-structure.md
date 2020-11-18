@@ -2,15 +2,15 @@
 title: 策略分配结构的详细信息
 description: 介绍策略分配定义，Azure Policy 使用该定义将策略定义和参数关联到资源，以进行评估。
 ms.author: v-tawe
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 09/22/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810dc8e2e40df70a82f6feafe19974c868039d8
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: e55bac387b023596364448c8cca8db5edd5d8257
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523873"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328677"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 分配结构
 
@@ -68,11 +68,14 @@ Azure Policy 使用策略分配来定义为哪些资源分配了哪些策略或�
 |Enabled |默认 |string |是 |是 |在创建或更新资源期间强制实施策略效果。 |
 |已禁用 |DoNotEnforce |string |是 |否 | 在创建或更新资源期间不强制实施策略效果。 |
 
-如果未在策略或计划定义中指定 **enforcementMode**，则使用值 _Default_。 即使 **enforcementMode** 设置为 _DoNotEnforce_，也可以针对 [deployIfNotExists](./effects.md#deployifnotexists) 策略启动[修正任务](../how-to/remediate-resources.md)。
+如果未在策略或计划定义中指定 **enforcementMode**，则使用值 _Default_。 即使 **enforcementMode** 设置为 _DoNotEnforce_，也可以针对 [deployIfNotExists](./effects.md#deployifnotexists) 策略启动 [修正任务](../how-to/remediate-resources.md)。
 
 ## <a name="excluded-scopes"></a>排除的范围
 
 分配的范围包括所有子资源容器和子资源。 如果子资源容器或子资源不应应用定义，则可以通过设置 notScopes 将每个项从计算中排除。 此属性是一个数组，用于从计算中排除一个或多个资源容器或资源。 notScopes 可以在创建初始赋值后添加或更新。
+
+> [!NOTE]
+> 排除的资源与免除的资源不同。 有关详细信息，请参阅[了解 Azure Policy 中的范围](./scope.md)。
 
 ## <a name="policy-definition-id"></a>策略定义 ID
 
@@ -100,6 +103,6 @@ Azure Policy 使用策略分配来定义为哪些资源分配了哪些策略或�
 
 - 了解[策略定义结构](./definition-structure.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取合规性数据](../how-to/get-compliance-data.md)。
-- 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
+- 了解如何[获取符合性数据](../how-to/get-compliance-data.md)。
+- 了解如何[修正不符合的资源](../how-to/remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

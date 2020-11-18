@@ -1,21 +1,21 @@
 ---
-title: 快速入门：将 Azure Redis 缓存与 Node.js 配合使用
+title: 快速入门：在 Node.js 中使用 Azure Cache for Redis
 description: 本快速入门介绍如何将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。
 author: yegu-ms
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 04/26/2020
+ms.date: 11/03/2020
 ms.author: v-junlch
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 6afa9ea4c31f73a83e8fd2f21e7bf5c6bb1df477
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.openlocfilehash: bd2bdc45ffe2e891968a432024e2af401a636f04
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267591"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326552"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>快速入门：将 Azure Redis 缓存与 Node.js 配合使用
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>快速入门：在 Node.js 中使用 Azure Cache for Redis
 
 在本快速入门中，会将 Azure Redis 缓存合并到 Node.js 应用中，以便能够访问 Azure 中的任何应用程序都可以访问的安全专用缓存。
 
@@ -32,7 +32,7 @@ ms.locfileid: "82267591"
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
 
-为**主机名**和**主**访问密钥添加环境变量。 你将通过代码使用这些变量，而不是直接在代码中包含敏感信息。
+为 **主机名** 和 **主** 访问密钥添加环境变量。 你将通过代码使用这些变量，而不是直接在代码中包含敏感信息。
 
 ```
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.chinacloudapi.cn

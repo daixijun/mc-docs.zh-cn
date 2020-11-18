@@ -4,17 +4,17 @@ description: 通过 Visual Studio 使用 Azure Service Fabric 群集来托管现
 ms.topic: conceptual
 origin.date: 12/06/2017
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 7a6d314792f121e44f610a894f050c4159b7caa7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: ef5dd0bbb78dc4046aad42f17625154de29a435a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127796"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328829"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -26,6 +26,8 @@ ms.locfileid: "92127796"
 
 此外还需一个用于部署的现有 Node.js 应用程序。 本快速入门使用简单的 Node.js 网站，可从[此处][download-sample]下载。 在下一步骤中，请在创建项目后将此文件提取到 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 文件夹。
 
+[!INCLUDE [azure-raw-githubusercontent-download-in-china-notice](../../includes/azure-raw-githubusercontent-download-in-china-notice.md)]
+
 如果没有 Azure 订阅，请创建一个[试用帐户][create-account]。
 
 ## <a name="create-the-service"></a>创建服务
@@ -36,7 +38,7 @@ ms.locfileid: "92127796"
 
 在“新建项目”对话框中，选择“云”>“Service Fabric 应用程序”。  
 
-将应用程序命名为“MyGuestApp”，然后按“确定”。  
+将应用程序命名为“MyGuestApp”，并按“创建”。 
 
 >[!IMPORTANT]
 >Node.js 可能会轻松突破针对 Windows 路径的 260 字符限制。 请对项目本身使用短路径，例如  c:\code\svc1。 （可选）可以按照 **[这些说明](https://stackoverflow.com/a/41687101/1664231)** 在 Windows 10 中启用长文件路径。

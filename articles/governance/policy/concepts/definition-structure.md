@@ -2,15 +2,15 @@
 title: 策略定义结构的详细信息
 description: 介绍如何使用策略定义为组织中的 Azure 资源建立约定。
 ms.author: v-tawe
-origin.date: 08/27/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62eb440f72ccd7ebb7b39b6b009c958e93fd3c8c
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 21b6c4e389d0a9a679565042ef8d9289b98cc81f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678393"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328514"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -104,20 +104,29 @@ Azure Policy 内置和模式位于 [Azure Policy 示例](../samples/index.md)。
 
 在创建强制执行标记或位置的策略时，应该使用 `indexed`。 虽然并不是必需的，但是它会阻止不支持标记和位置的资源，使其不会在符合性结果中显示为不兼容。 有一个例外情况，就是资源组和订阅。 策略定义若在资源组或订阅上强制执行位置或标记，则应将“模式”设为 `all`，并明确以 `Microsoft.Resources/subscriptions/resourceGroups` 或 `Microsoft.Resources/subscriptions` 类型为目标。 有关示例，请参阅[模式：标记 - 示例 #1](../samples/pattern-tags.md)。 有关支持标记的资源列表，请参阅[有关 Azure 资源的标记支持](../../../azure-resource-manager/management/tag-support.md)。
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>资源提供程序模式（预览版）
+<!-- ### Resource Provider modes -->
 
-在预览版期间，目前支持以下资源提供程序模式：
+<!-- The following Resource Provider mode is fully supported:
 
-<!-- - `Microsoft.ContainerService.Data` for managing admission controller rules on
+- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
+  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_. -->
+
+<!-- The following Resource Provider modes are currently supported as a **preview**:
+
+- `Microsoft.ContainerService.Data` for managing admission controller rules on
   [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
   Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is being _deprecated_. -->
+  mode is _deprecated_. -->
 
-- `Microsoft.Kubernetes.Data`，用于在 Azure 上或外部管理 Kubernetes 群集。 使用该资源提供程序模式的定义使用效果“审核”、“拒绝”和“已禁用”  。
-- `Microsoft.KeyVault.Data`，用于管理 [Azure Key Vault](../../../key-vault/general/overview.md) 中的保管库和证书。
+<!-- - `Microsoft.KeyVault.Data` for managing vaults and certificates in
+  [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
+  definitions, see
+  [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> 资源提供程序模式仅支持内置策略定义，且在预览版期间暂不支持计划。
+> Resource Provider modes only support built-in policy definitions and don't support
+> [exemptions](./exemption-structure.md). -->
 
 ## <a name="metadata"></a>Metadata
 
@@ -188,7 +197,7 @@ Azure Policy 内置和模式位于 [Azure Policy 示例](../samples/index.md)。
 }
 ```
 
-此示例引用 **allowedLocations** 参数，该参数已在[参数属性](#parameter-properties)中演示过。
+此示例引用 **allowedLocations** 参数，该参数已在 [参数属性](#parameter-properties)中演示过。
 
 ### <a name="strongtype"></a>strongType
 
@@ -212,8 +221,10 @@ strongType 的非资源类型允许值包括：
 
 如果定义位置是：
 
-- **订阅** - 只能将该订阅中的资源分配给策略。
-- **管理组** - 只能将子管理组和子订阅中的资源分配给策略。 如果计划将策略定义应用于多个订阅，则位置必须是包含订阅的管理组。
+- **订阅** - 策略定义只能分配到该订阅内的资源。
+- **管理组** - 策略定义只能分配到子管理组和子订阅内的资源。 如果你计划将此策略定义应用于多个订阅，该位置必须是包含每个订阅的管理组。
+
+有关详细信息，请参阅[了解 Azure Policy 中的范围](./scope.md#definition-location)。
 
 ## <a name="policy-rule"></a>策略规则
 
@@ -227,7 +238,7 @@ strongType 的非资源类型允许值包括：
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -260,7 +271,7 @@ strongType 的非资源类型允许值包括：
 },
 ```
 
-### <a name="conditions"></a>条件
+### <a name="conditions"></a>Conditions
 
 条件用于评估 **field** 或 **value** 访问器是否符合特定标准。 支持的条件有：
 
@@ -307,6 +318,9 @@ strongType 的非资源类型允许值包括：
 - `type`
 - `location`
   - 对于不限位置的资源，请使用 **global**。
+- `id`
+  - 返回所评估的资源的资源 ID。
+  - 示例：`/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - 返回在资源上启用的[托管标识](../../../active-directory/managed-identities-azure-resources/overview.md)类型。
 - `tags`
@@ -353,10 +367,10 @@ strongType 的非资源类型允许值包括：
 
 ### <a name="value"></a>值
 
-也可使用 **value** 来形成条件。 **value** 会针对[参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。 **value** 可与任何支持的[条件](#conditions)配对。
+也可使用 **value** 来形成条件。 **value** 会针对 [参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。 **value** 可与任何支持的 [条件](#conditions)配对。
 
 > [!WARNING]
-> 如果模板函数的结果是一个错误，则策略评估会失败。 评估失败是一种隐式**拒绝**。 有关详细信息，请参阅[避免模板失败](#avoiding-template-failures)。 使用 DoNotEnforce 的 [enforcementMode](./assignment-structure.md#enforcement-mode)，以防止在测试和验证新策略定义期间，由于新的或更新的资源评估失败而受到影响。
+> 如果模板函数的结果是一个错误，则策略评估会失败。 评估失败是一种隐式 **拒绝**。 有关详细信息，请参阅[避免模板失败](#avoiding-template-failures)。 使用 DoNotEnforce 的 [enforcementMode](./assignment-structure.md#enforcement-mode)，以防止在测试和验证新策略定义期间，由于新的或更新的资源评估失败而受到影响。
 
 #### <a name="value-examples"></a>Value 示例
 
@@ -400,7 +414,7 @@ strongType 的非资源类型允许值包括：
 
 #### <a name="avoiding-template-failures"></a>避免模板失败
 
-在 value 中使用模板函数允许使用许多复杂嵌套函数。 如果模板函数的结果是一个错误，则策略评估会失败。 评估失败是一种隐式**拒绝**。 在某些情况下失败的 value 示例：
+在 value 中使用模板函数允许使用许多复杂嵌套函数。 如果模板函数的结果是一个错误，则策略评估会失败。 评估失败是一种隐式 **拒绝**。 在某些情况下失败的 value 示例：
 
 ```json
 {
@@ -436,7 +450,7 @@ strongType 的非资源类型允许值包括：
 
 使用修订后的策略规则，`if()` 会先检查名称的长度，然后尝试在少于三个字符的值上获取 `substring()`。 如果名称太短，则会改为返回“不是以 abc 开头”的值，并将其与 abc 进行比较。 短名称不是以 abc 开头的资源仍会导致策略规则失败，但在评估过程中不会再造成错误。
 
-### <a name="count"></a>Count
+### <a name="count"></a>计数
 
 计算资源有效负载中陈列有多少成员符合条件表达式的条件，可以使用 Count 表达式来构成。 常见的方案是检查“其中至少一个”、“只有一个”、“全部”或“没有”数组成员符合条件。 Count 会计算条件表达式每个 [\[\*\] 别名](#understanding-the--alias)数组成员，并加总 true 结果，然后将结果与表达式运算符进行比较。 “Count”表达式最多可添加到单个 policyRule 定义 3 次 。
 
@@ -585,21 +599,45 @@ Azure Policy 支持以下类型的效果：
 以下函数可在策略规则中使用，但与在 Azure 资源管理器模板（ARM 模板）中使用不同：
 
 - `utcNow()` - 与 ARM 模板不同，该属性可以在 defaultValue 之外使用。
-  - 以通用 ISO 8601 日期/时间格式“yyyy-MM-ddTHH:mm:ss.fffffffZ”返回一个设置为当前日期和时间的字符串
+  - 以通用 ISO 8601 日期/时间格式“`yyyy-MM-ddTHH:mm:ss.fffffffZ`”返回设置为当前日期和时间的字符串。
 
 以下函数仅适用于策略规则：
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - dateTime：[必需] 字符串 - 通用 ISO 8601 日期/时间格式“yyyy-MM-ddTHH:mm:ss.fffffffZ”的字符串
+  - **dateTime**：[必需] 字符串 - 采用通用 ISO 8601 日期/时间格式“yyyy-MM-ddTHH:mm:ss.FFFFFFFZ”的字符串
   - numberOfDaysToAdd：[必需] 整数 - 要增加的天数
 - `field(fieldName)`
   - fieldName：[必需] 字符串 - 要检索的[字段](#fields)名称
-  - 从 If 条件计算的资源中返回该字段的值
+  - 从 If 条件正在评估的资源返回该字段的值。
   - `field` 主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](effects.md#deployifnotexists-example)中看到这种用法的示例。
 - `requestContext().apiVersion`
   - 返回已触发策略评估的请求的 API 版本（示例：`2019-09-01`）。
     该值是 PUT/PATCH 请求中用于对资源创建/更新进行评估的 API 版本。 在对现有资源进行符合性评估时，将会一律使用最新的 API 版本。
+- `policy()`
+  - 返回有关正在评估的策略的下列信息。 可以从返回的对象访问属性，例如：`[policy().assignmentId]`。
   
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+
+
+- `ipRangeContains(range, targetRange)`
+    - **range**：[必需] 字符串 - 指定 IP 地址范围的字符串。
+    - **targetRange**：[必需] 字符串 - 指定 IP 地址范围的字符串。
+
+    返回的信息表明给定 IP 地址范围是否包含目标 IP 地址范围。 空范围或 IP 系列之间的混合是不允许的，这会导致评估失败。
+
+    支持的格式：
+    - 单个 IP 地址（示例：`10.0.0.0`、`2001:0DB8::3:FFFE`）
+    - CIDR 范围（示例：`10.0.0.0/24`、`2001:0DB8::/110`）
+    - 由起始 IP 地址和结束 IP 地址定义的范围（示例：`192.168.0.1-192.168.0.9`、`2001:0DB8::-2001:0DB8::3:FFFF`）
+
+
 #### <a name="policy-function-example"></a>策略函数示例
 
 此策略规则示例使用 `resourceGroup` 资源函数获取 **name** 属性，并将该属性与 `concat` 数组和对象函数结合使用以构建 `like` 条件，该条件强制资源名称以资源组名称开头。
@@ -652,7 +690,8 @@ Azure Policy 支持以下类型的效果：
 - Azure PowerShell
 
   ```powershell
-  # Login first with Connect-AzAccount -EnvironmentName AzureChinaCloud command
+  # Login first with Connect-AzAccount
+  Connect-AzAccount -EnvironmentName AzureChinaCloud
 
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable

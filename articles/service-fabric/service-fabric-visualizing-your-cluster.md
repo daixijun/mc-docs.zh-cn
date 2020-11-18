@@ -4,16 +4,16 @@ description: Service Fabric Explorer 是一个用于检验和管理 Azure Servic
 ms.topic: conceptual
 origin.date: 01/24/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 15293ef05bc49b7b82948bb1c0897e7b7f072afa
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 788e275b6b1cdc667ebfae60a2ade6c53ff84ef0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127730"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328816"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
@@ -97,7 +97,7 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 >
 >
 
-还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“ **创建应用实例** ”链接。
+还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“**创建应用实例**”链接。
 
 ![在 Service Fabric Explorer 中创建应用程序实例][sfx-create-app-instance]
 
@@ -120,7 +120,7 @@ EventStore 是该平台提供的一项功能，它通过 REST API 提供可在 S
 ## <a name="image-store-viewer"></a>映像存储查看器
 映像存储查看器是使用本机映像存储时提供的一项功能，使用它可以查看映像存储的当前内容、获取文件和文件夹信息，以及删除文件/文件夹。
 
-![Service Fabric Explorer 群集图][sfx-imagestore]
+![显示映像存储查看器的屏幕截图。][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>备份和还原
 Service Fabric Explorer 提供了与[备份和还原](./service-fabric-reliable-services-backup-restore.md)进行交互的功能。 若要查看 SFX 中的备份和还原功能，必须启用高级模式。

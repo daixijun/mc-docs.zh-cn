@@ -2,19 +2,18 @@
 title: 在 Azure Stack Hub 中从灾难性数据丢失中恢复
 description: 了解如何在发生灾难性数据丢失后恢复和还原 Azure Stack Hub 中的基础结构数据。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 10/12/2020
+origin.date: 10/23/2019
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: be6c83a5c36f330433d5454cee9e069a283f04e7
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: bbf09b81674896ad8705b16f05e00ddbd5250931
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437737"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330461"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -62,6 +61,10 @@ Azure Stack Hub 支持称为云恢复模式的部署类型。 只有当灾难或
  - RBAC 策略分配和角色分配。
 
 在部署期间不会恢复任何用户基础结构即服务 (IaaS) 或平台即服务 (PaaS) 资源。 这些丢失包括 IaaS VM、存储帐户、blob、表、网络配置等。 云恢复的目的是为了确保操作员和用户在部署完成后可以重新登录回门户。 重新登录回来的用户不会看到其任何资源。 用户将还原其订阅以及由管理员定义的原始计划、套餐和策略。重新登录回系统的用户在灾难发生前原始解决方案施加的相同约束下操作。 在云恢复完成后，操作员可以手动还原增值 RP 和第三方 RP 以及关联的数据。
+
+## <a name="validate-backups"></a>验证备份 
+
+可以使用 ASDK 来测试备份，以确认数据有效且可用。 有关详细信息，请参阅[使用 ASDK 验证 Azure Stack 备份](../asdk/asdk-validate-backup.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

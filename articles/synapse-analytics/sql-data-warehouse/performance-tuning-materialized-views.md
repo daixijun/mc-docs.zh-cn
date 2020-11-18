@@ -1,22 +1,22 @@
 ---
 title: 使用具体化视图优化性能
-description: 在使用具体化视图来提高查询性能时应了解的建议和注意事项。
+description: 了解使用具体化视图提高查询性能时应了解的建议和注意事项。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 09/05/2019
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d23d61af4c3a8920a9b9f01b13451cc7a1c8b09b
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: e2cc6dddfced0cfa25fef12e9daf9774cf431607
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426254"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375615"
 ---
 # <a name="performance-tune-with-materialized-views"></a>使用具体化视图优化性能
 
@@ -53,7 +53,7 @@ SQL 池支持标准视图和具体化视图。  两者都是用 SELECT 表达式
 
 在 SQL 池中实现的具体化视图还具有以下额外优势：
 
-与其他数据仓库提供程序相比，在 Azure SQL 数据仓库中实现的具体化视图还具有以下附加优势：
+与其他数据仓库提供程序相比，在 Azure Synapse Analytics 中实现的具体化视图还具有以下附加优势：
 
 - 根据基表中的数据更改，自动、同步刷新数据。 不需要任何用户操作。
 - 广泛的聚合函数支持。 请参阅 [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。
@@ -80,7 +80,7 @@ SQL 池支持标准视图和具体化视图。  两者都是用 SELECT 表达式
 
 **需要不同的数据分布策略来提高查询性能**
 
-SQL 池是一个分布式大规模并行处理 (MPP) 系统。   SQL 池表中的数据使用三种[分布策略](sql-data-warehouse-tables-distribute.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（hash、round_robin 或 replicated）中的一种在 60 个节点上分布。  
+Synapse SQL 是一种分布式查询处理系统。  SQL 表中的数据使用三种[分布策略](sql-data-warehouse-tables-distribute.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（哈希、round_robin 或复制）之一分布在 60 个节点中。  
 
 数据分布在表创建时进行指定，并且在删除表之前保持不变。 具体化视图是磁盘上的虚拟表，支持 hash 和 round_robin 数据分布。  用户可以选择符合后列特征的数据分布：与基表不同但对于经常使用视图的查询而言是最优的。  
 
@@ -160,7 +160,7 @@ SQL 池中同时引入了这两项功能，用于优化查询性能。  结果�
 
 ## <a name="example"></a>示例
 
-此示例使用类似于 TPCDS 的查询，该查询查找通过产品目录购物花费比在商店中的花费更多的客户，并识别优选客户及其所在国家/地区。   查询包括从涉及 SUM() 和 GROUP BY 的三个子 SELECT 语句的并集中选择前 100 条记录。
+本例使用类似 TPCDS 的查询，查找通过目录支出比在商店花费更多资金的客户，确定首选客户及其原产国家/地区。   查询包括从涉及 SUM() 和 GROUP BY 的三个子 SELECT 语句的并集中选择前 100 条记录。
 
 ```sql
 WITH year_total AS (

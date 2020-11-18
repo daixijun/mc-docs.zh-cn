@@ -2,27 +2,28 @@
 title: 使用 Windows PowerShell 部署网络控制器
 description: 了解如何使用 Windows PowerShell 部署网络控制器
 author: WenJason
-ms.service: azure-stack
 ms.topic: how-to
-origin.date: 09/22/2020
-ms.date: 10/12/2020
+origin.date: 10/16/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c3e65aac878132749e42f4c3ae092e93b4ed92ee
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 372a6e32a3c9b26786e3b84650d5e1856e53e388
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451191"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330656"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>使用 Windows PowerShell 部署网络控制器
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题提供有关使用 Windows PowerShell 在 Azure Stack HCI 群集上运行的一个或多个虚拟机 (VM) 上部署网络控制器的说明。 网络控制器是软件定义的网络 (SDN) 的组件。
+本主题说明了如何使用 Windows PowerShell 在一个或多个在 Azure Stack HCI 群集上运行的虚拟机 (VM) 上部署网络控制器功能。 网络控制器是软件定义的网络 (SDN) 的组件。
 
->[!NOTE]
->还可以使用 Windows Admin Center 中的“创建群集”向导部署网络控制器。 有关详细信息，请参阅[使用 Windows Admin Center 创建 Azure Stack HCI 群集](create-cluster.md)。
+还可以使用 Windows Admin Center 中的“创建群集”向导部署网络控制器。 有关详细信息，请参阅[使用 Windows Admin Center 创建 Azure Stack HCI 群集](create-cluster.md)。
+
+> [!NOTE]
+> SDN 不受支持或不可用于拉伸群集。
 
 ## <a name="using-windows-powershell"></a>使用 Windows PowerShell
 
@@ -42,7 +43,7 @@ ms.locfileid: "91451191"
 执行此过程需要管理员组中的成员身份或等效身份。  
 
 >[!NOTE]
->如果要使用服务器管理器而不是 Windows PowerShell 来安装网络控制器，请参阅[使用服务器管理器安装网络控制器服务器角色](https://technet.microsoft.com/library/mt403348.aspx)
+>如果要使用服务器管理器而不是 Windows PowerShell 来安装网络控制器，请参阅[使用服务器管理器安装网络控制器服务器角色](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager)
 
 若要安装网络控制器，请键入以下命令：
 
@@ -201,7 +202,7 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
 |启用网络控制器群集节点|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |从群集中删除网络控制器节点|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-若要了解详细信息，请参阅 [NetworkController](https://docs.microsoft.com/powershell/module/networkcontroller/?view=win10-ps) 上适用于网络控制器的 Windows PowerShell 参考文档。
+若要了解详细信息，请参阅 [NetworkController](https://docs.microsoft.com/powershell/module/networkcontroller) 上适用于网络控制器的 Windows PowerShell 参考文档。
 
 ## <a name="sample-network-controller-configuration-script"></a>示例网络控制器配置脚本
 

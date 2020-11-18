@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f690a239394579d9d2154fab41c372784f99a182
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c7b5c95a2daa96e03c866feb0d7d91743f22bac3
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413221"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326454"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -66,7 +66,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 | 功能 | 开发 | 预览 | GA | 注释 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 授权代码](authorization-code-flow.md) |  |  | X |  |
-| 具有 PKCE 的 OAuth2 授权代码 |  |  | X | 仅限移动应用程序  |
+| 具有 PKCE 的 OAuth2 授权代码 |  |  | X | [公共客户端和单页应用程序](authorization-code-flow.md)  |
 | [OAuth2 隐式流](implicit-flow-single-page-application.md) |  |  | X |  |
 | OAuth2 资源所有者密码凭据 |  | X |  |  |
 | [OIDC 连接](openid-connect.md) |  |  | X |  |

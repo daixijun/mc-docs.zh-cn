@@ -4,19 +4,22 @@ description: 了解如何向运行 Windows Server 的本地或任意云中物理
 ms.topic: conceptual
 origin.date: 11/02/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 09b93a8a18b1c4412b7d5b9c4311230980514f27
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: fb13a0c9699a9f145e4ae22b35c1235506fafcb5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655687"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328369"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>向在 Windows Server 上运行的独立 Service Fabric 群集添加或删除节点
-[在 Windows Server 计算机上创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)之后，（业务）需求可能发生变化，因此需要向群集添加或删除节点。 本文提供了实现此目标的详细步骤。 请注意，在本地开发群集中不支持添加/删除节点的功能。
+[在 Windows Server 计算机上创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)之后，（业务）需求可能发生变化，因此你需要在群集中添加或删除节点，如本文所述。
+
+> [!NOTE]
+> 本地开发群集不支持节点添加和删除功能。
 
 ## <a name="add-nodes-to-your-cluster"></a>向群集添加节点
 
@@ -99,7 +102,7 @@ ms.locfileid: "89655687"
 可以采用以下方式通过配置升级将节点从群集中删除：
 
 1. 运行 [Get ServiceFabricClusterConfiguration](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) 获取最新配置文件，并将节点从“节点”部分删除  。
-    将 "NodesToBeRemoved" 参数添加到 "FabricSettings" 中的“设置”部分。 “值”应当是一个逗号分隔列表，其中包含需要删除的节点的节点名称。
+将 "NodesToBeRemoved" 参数添加到 "FabricSettings" 中的“设置”部分。 “value”应是一个逗号分隔列表，其中包含需要删除的节点的节点名称。
 
     ```
     "fabricSettings": [
@@ -136,7 +139,7 @@ ms.locfileid: "89655687"
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>从群集中删除节点类型
-删除节点类型前，请仔细检查是否存在任何引用该节点类型的节点。 请在删除相应节点类型之前删除这些节点。 删除所有相应节点后，可从群集配置中删除节点类型并使用 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 开始配置升级。
+删除节点类型之前，请检查是否存在任何引用该节点类型的节点。 请在删除相应节点类型之前删除这些节点。 删除所有相应节点后，可从群集配置中删除节点类型并使用 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 开始配置升级。
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>替换群集的主节点
 应逐个节点地替换主节点，而不是批量删除再添加。

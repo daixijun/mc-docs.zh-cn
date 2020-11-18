@@ -7,22 +7,23 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/08/2020
-ms.date: 08/24/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4dda8cefd28bd1ea234197fba0b6af80793010ae
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 24e149a3f648e36ab6488835ed60b08f1bddc2da
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753644"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327709"
 ---
 # <a name="configure-transport-layer-security-tls-for-a-client-application"></a>为客户端应用程序配置传输层安全性 (TLS)
 
 为了安全起见，Azure 存储帐户可能要求客户端使用最低版本的传输层安全性 (TLS) 来发送请求。 如果客户端使用的 TLS 版本低于所需的最低版本，则对 Azure 存储的调用将失败。 例如，如果存储帐户需要 TLS 1.2，则使用 TLS 1.1 的客户端发送的请求将失败。
 
-本文介绍如何将客户端应用程序配置为使用特定版本的 TLS。 
+本文介绍如何将客户端应用程序配置为使用特定版本的 TLS。 若要了解如何为 Azure 存储帐户配置所需的最低 TLS 版本，请参阅[为存储帐户配置必需的传输层安全性 (TLS) 最低版本](transport-layer-security-configure-minimum-version.md)。
 
 ## <a name="configure-the-client-tls-version"></a>配置客户端 TLS 版本
 
@@ -95,4 +96,5 @@ static void EnableTls12()
 
 ## <a name="next-steps"></a>后续步骤
 
+- [为存储帐户配置必需的传输层安全性 (TLS) 最低版本](transport-layer-security-configure-minimum-version.md)
 - [适用于 Blob 存储的安全建议](../blobs/security-recommendations.md)

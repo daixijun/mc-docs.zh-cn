@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 940b4081e4bfcd82adc9e1932ef1be46d75b10d9
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5cebb4e71dc37f42f0576ef64f3adf06e2f164eb
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471435"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326603"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -134,11 +134,11 @@ module.exports = async function (context, req) {
    ```
 
 ### <a name="outputs"></a>Outputs
-函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下， *function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
+函数可通过多种方式写入输出（`direction === "out"` 的绑定）。 在所有情况下，*function.json* 中定义的绑定属性 `name` 对应于函数中所写入到的对象成员的名称。 
 
 可通过以下方式之一将数据分配到输出绑定（不要结合使用这些方法）：
 
-- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中， *function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
+- **_[有多个输出时建议使用]_ 返回对象。** 如果使用异步函数/返回 Promise 的函数，可以返回分配有输出数据的对象。 在以下示例中，*function.json* 中的输出绑定名为“httpResponse”和“queueOutput”。
 
   ```javascript
   module.exports = async function(context) {
@@ -325,10 +325,10 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 | 方法                 | 说明                                |
 | ---------------------- | ------------------------------------------ |
-| **error( _message_ )**   | 将错误级别的事件写入到日志。   |
-| **warn( _message_ )**    | 将警告级别的事件写入到日志。 |
-| **info( _message_ )**    | 向信息级日志记录或更低级别进行写入。    |
-| **verbose( _message_ )** | 向详细级日志记录进行写入。           |
+| **error(_message_)**   | 将错误级别的事件写入到日志。   |
+| **warn(_message_)**    | 将警告级别的事件写入到日志。 |
+| **info(_message_)**    | 向信息级日志记录或更低级别进行写入。    |
+| **verbose(_message_)** | 向详细级日志记录进行写入。           |
 
 以下示例在警告跟踪级别（而不是信息级别）写入同一个日志：
 
@@ -358,7 +358,7 @@ context.log.warn("Something has happened. " + context.invocationId);
 }  
 ```
 
-**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_ 。 有关详细信息，请参阅 [host.json v1.x 参考](functions-host-json-v1.md)。
+**consoleLevel** 的值对应于 `context.log` 方法的名称。 要为控制台禁用所有跟踪日志记录，请将 **consoleLevel** 设置为 _off_。 有关详细信息，请参阅 [host.json v1.x 参考](functions-host-json-v1.md)。
 
 ---
 

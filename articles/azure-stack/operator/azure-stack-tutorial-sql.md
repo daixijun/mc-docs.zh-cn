@@ -5,28 +5,28 @@ description: 了解如何使用 Azure Stack Hub 创建 SQL Server 资源提供�
 author: WenJason
 ms.topic: article
 origin.date: 10/07/2019
-ms.date: 06/22/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: d5f43c375503e2d3190bf0f22111cca4a497c59c
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 7035e79f0d05afdb47b7227f874b2215b1e44432
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096838"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330579"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack Hub 创建高可用 SQL 数据库
 
 作为 Azure Stack Hub 操作员，你可以配置服务器 VM 来承载 SQL Server 数据库。 通过 Azure Stack Hub 创建和管理 SQL 宿主服务器后，订阅了 SQL 服务的用户可以轻松地创建 SQL 数据库。
 
-本文介绍了如何使用 Azure Stack Hub 快速入门模板创建 [SQL Server AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)，将其添加为 Azure Stack Hub SQL 宿主服务器，然后创建高可用 SQL 数据库。
+本文介绍了如何使用 Azure Stack Hub 快速入门模板创建 [SQL Server AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)，将其添加为 Azure Stack Hub SQL 宿主服务器，然后创建高可用 SQL 数据库。
 
 学习内容：
 
 > [!div class="checklist"]
 > * 基于模板创建 SQL Server AlwaysOn 可用性组。
-> * 创建 Azure Stack Hub SQL 宿主服务器。
+> * 将 SQL Server AlwaysOn 可用性组配置为 Azure Stack Hub SQL 宿主服务器。
 > * 创建高可用 SQL 数据库。
 
 将使用可用的 Azure Stack 市场项创建并配置包含两个 VM SQL Server 的 AlwaysOn 可用性组。
@@ -61,15 +61,15 @@ ms.locfileid: "85096838"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。**** **** **** ****
+2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。   
 
    ![Azure Stack Hub 管理员门户中的自定义模板部署](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. 在“自定义部署”边栏选项卡上，选择“编辑模板” > “快速入门模板”，然后在可用自定义模板的下拉列表中选择“sql-2016-alwayson”模板。**** **** **** **** 选择“确定”****，然后选择“保存”****。
+3. 在“自定义部署”边栏选项卡上，选择“编辑模板” > “快速入门模板”，然后在可用自定义模板的下拉列表中选择“sql-2016-alwayson”模板。    选择“确定”，然后选择“保存”。
 
    [![在 Azure Stack Hub 管理员门户中编辑模板](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "选择快速入门模板")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
-4. 在“自定义部署”边栏选项卡上，选择“编辑参数”并查看默认值。**** **** 根据需要修改这些值以提供全部所需的参数信息，然后选择“确定”。****
+4. 在“自定义部署”边栏选项卡上，选择“编辑参数”并查看默认值。  根据需要修改这些值以提供全部所需的参数信息，然后选择“确定”。
 
     至少：
     - 为 ADMINPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD 和 SQLAUTHPASSWORD 参数提供复杂的密码。
@@ -77,13 +77,13 @@ ms.locfileid: "85096838"
     
    [![在 Azure Stack Hub 管理员门户中编辑参数](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png "编辑自定义部署参数")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png#lightbox)
 
-5. 在“自定义部署”边栏选项卡上，选择要使用的订阅，然后为自定义部署创建新的资源组或选择现有的资源组。****
+5. 在“自定义部署”边栏选项卡上，选择要使用的订阅，然后为自定义部署创建新的资源组或选择现有的资源组。
 
-    接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。**** **** 系统将验证自定义部署设置，然后开始部署。
+    接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。  系统将验证自定义部署设置，然后开始部署。
 
     [![在 Azure Stack Hub 管理员门户中选择订阅](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png "创建自定义部署")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png#lightbox)
 
-6. 在用户门户中，选择“资源组”，然后选择针对自定义部署创建的资源组的名称（在本示例中为 **resource-group**）。**** 查看部署状态，确保所有部署已成功完成。
+6. 在用户门户中，选择“资源组”，然后选择针对自定义部署创建的资源组的名称（在本示例中为 **resource-group**）。 查看部署状态，确保所有部署已成功完成。
     
     接下来，查看资源组项，并选择 **SQLPIPsql\<resource group name\>** 公共 IP 地址项。 记录负载均衡器的公共 IP 地址和完整 FQDN。 你需要将此信息提供给 Azure Stack Hub 操作员，以便他们可以利用此 SQL AlwaysOn 可用性组创建一个 SQL 宿主服务器。
 
@@ -125,7 +125,7 @@ ms.locfileid: "85096838"
 
 ### <a name="configure-contained-database-authentication"></a>配置包含的数据库身份验证
 
-将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option)。
 
 使用以下命令为可用性组中的每个 SQL Server 实例设置包含的数据库身份验证服务器选项：
 
@@ -138,9 +138,9 @@ ms.locfileid: "85096838"
 
 ![设置包含的数据库身份验证](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>创建 Azure Stack Hub SQL 宿主服务器
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>配置 Azure Stack Hub SQL 宿主服务器
 
-创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack Hub 操作员必须创建 Azure Stack Hub SQL 宿主服务器。 SQL 宿主服务器提供更多的容量供用户创建数据库。
+创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack Hub 操作员必须将其配置为 Azure Stack Hub SQL 宿主服务器。 
 
 在创建 SQL AlwaysOn 可用性组的资源组 (**SQLPIPsql\<resource group name\>** ) 时，请确保使用先前记录的 SQL 负载均衡器的公共 IP 或完整 FQDN。 此外，你还需要知道用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
 
@@ -152,7 +152,7 @@ ms.locfileid: "85096838"
 此外，请确保你已创建计划和套餐，使得用户可以创建 SQL AlwaysOn 数据库。 操作员需要将 **Microsoft.SqlAdapter** 服务添加到计划并专门为高可用数据库创建新配额。 有关创建计划的详细信息，请参阅[服务、计划、套餐和订阅概述](service-plan-offer-subscription-overview.md)。
 
 > [!TIP]
-> 在[部署 SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)之前，无法将 **Microsoft.sqladapter** 服务添加到计划中。
+> 在 [部署 SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)之前，无法将 **Microsoft.sqladapter** 服务添加到计划中。
 
 ## <a name="create-a-highly-available-sql-database"></a>创建高可用 SQL 数据库
 
@@ -164,17 +164,17 @@ ms.locfileid: "85096838"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择“\+ 创建资源” > “数据 \+ 存储”，然后选择“SQL 数据库”****。**** **** ****
+2. 选择“\+ 创建资源” > “数据 \+ 存储”，然后选择“SQL 数据库”。  
 
     提供所需的数据库属性信息。 此信息包括名称、排序规则、最大大小，以及要用于部署的订阅、资源组和位置。
 
    ![在 Azure Stack Hub 用户门户中创建 SQL 数据库](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. 选择“SKU”****，然后选择要使用的相应 SQL 宿主服务器 SKU。 在此示例中，Azure Stack Hub 操作员创建了“企业高可用性”**** SKU，以支持 SQL AlwaysOn 可用性组的高可用性。
+3. 选择“SKU”，然后选择要使用的相应 SQL 宿主服务器 SKU。 在此示例中，Azure Stack Hub 操作员创建了“企业高可用性”SKU，以支持 SQL AlwaysOn 可用性组的高可用性。
 
    ![在 Azure Stack Hub 用户门户中选择 SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. 选择“登录名” > “创建新的登录名”，然后提供要用于新数据库的 SQL 身份验证凭据。**** **** 完成后，选择“确定”****，然后选择“创建”**** 以开始数据库部署过程。
+4. 选择“登录名” > “创建新的登录名”，然后提供要用于新数据库的 SQL 身份验证凭据。  完成后，选择“确定”，然后选择“创建”以开始数据库部署过程。
 
    ![在 Azure Stack Hub 用户门户中创建登录名](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 

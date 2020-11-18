@@ -1,32 +1,33 @@
 ---
 title: 在 Spark 中使用 Azure Cosmos DB Cassandra API
 description: 本文是 Spark 中 Cosmos DB Cassandra API 集成的主页。
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/01/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: af5c42d409046926e96785094774d9ff8b221664
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: cf73a6eb07bde3dcbc7fb2125f087004cbb4c14c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246577"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328702"
 ---
 <!--Verify sucessfully-->
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文是有关 Spark 中 Azure Cosmos DB Cassandra API 集成的系列文章中的一篇。 这些文章介绍了连接、数据定义语言 (DDL) 操作、基本数据操作语言 (DML) 操作，以及 Spark 中的高级 Azure Cosmos DB Cassandra API 集成。 
 
 ## <a name="prerequisites"></a>先决条件
 * [预配一个 Azure Cosmos DB Cassandra API 帐户。](create-cassandra-dotnet.md#create-a-database-account)
 
-* 预配所选的 Spark 环境 [[Azure HDInsight-Spark](/hdinsight/spark/apache-spark-jupyter-spark-sql) | 其他]。
+* 预配所选的 Spark 环境 [[[Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | 其他]。
 
     <!--Not Available on [Azure Databricks](/azure-databricks/quickstart-create-databricks-workspace-portal)-->
 
@@ -75,7 +76,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmos.azure.cn 10350 -u YOUR-COSM
 <!--Not Available on [Work with Azure Cosmos DB Cassandra API from Azure databricks](cassandra-spark-databricks.md)-->
 
 ### <a name="1-azure-hdinsight-spark"></a>1.Azure HDInsight-Spark
-以下文章介绍了 HDinsight-Spark 服务、预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<BR>
+以下文章介绍了 HDinsight-Spark 服务、预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<br />
 [在 HDInsight-Spark 中使用 Azure Cosmos DB Cassandra API](cassandra-spark-hdinsight.md)
 
 ### <a name="2-spark-environment-in-general"></a>2.常规 Spark 环境

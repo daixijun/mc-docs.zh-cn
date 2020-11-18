@@ -3,16 +3,15 @@ title: 使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 description: 了解如何使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 author: WenJason
 ms.topic: quickstart
-ms.service: azure-stack
 origin.date: 09/22/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
-ms.openlocfilehash: 8f866d9ce721c645bff68cbd2d6e288b14d7f739
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 031eedb5af2c56cbbf45e82e14a12b2beddb2bb1
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451227"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330633"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>快速入门：使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 
@@ -132,11 +131,24 @@ Update-AksHciCluster -clusterName
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>步骤 4：使用 kubectl 访问群集
 
-若要使用 kubectl 访问 Azure Kubernetes 服务主机或 Kubernetes 群集，请运行以下命令。 这将使用指定群集的 kubeconfig 文件作为 kubectl 的默认 kubeconfig 文件。
+若要使用 kubectl 访问 Kubernetes 群集，请运行以下命令。 这将使用指定群集的 kubeconfig 文件作为 kubectl 的默认 kubeconfig 文件。
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>必需参数
+
+`clusterName`
+
+群集的名称。
+
+### <a name="optional-parameters"></a>可选参数
+
+`outputLocation`
+
+要下载 kubeconfig 的目标位置。 默认值为 `%USERPROFILE%\.kube`。
 
 ## <a name="delete-a-kubernetes-cluster"></a>删除 Kubernetes 群集
 

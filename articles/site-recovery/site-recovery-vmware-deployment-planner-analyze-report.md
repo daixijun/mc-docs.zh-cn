@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/04/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 422399fc8b4d7c60643e38675c4561ab56bd1e1e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: da618c0a155a71519d9a6cc63461461deb9c3df1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655435"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328584"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析部署规划器报表以从 VMware 灾难恢复到 Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "89655435"
 
 :::image type="content" source="media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png" alt-text="VMware 环境的本地摘要":::
 
-**开始日期**和**结束日期**：生成报告时要考虑的分析数据的开始和结束日期。 默认情况下，开始日期是开始分析的日期，结束日期是停止分析的日期。 如果结合这些参数生成报告，可以使用“StartDate”和“EndDate”值。
+**开始日期** 和 **结束日期**：生成报告时要考虑的分析数据的开始和结束日期。 默认情况下，开始日期是开始分析的日期，结束日期是停止分析的日期。 如果结合这些参数生成报告，可以使用“StartDate”和“EndDate”值。
 
 **分析总天数**：要生成报告的开始和结束日期之间的分析总天数。
 
@@ -105,7 +105,9 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 :::image type="content" source="media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png" alt-text="Deployment Planner 中的所需 Azure 核心数":::
 
 ### <a name="required-on-premises-infrastructure"></a>所需的本地基础结构
-下图是要配置的配置服务器和附加进程服务器的总数，该数目足以保护所有兼容 VM。 根据所支持的[配置服务器大小建议](https://aka.ms/asr-v2a-on-prem-components)，该工具可能会建议使用更多的服务器。 该建议取决于每日变动量和受保护 VM（假定每个 VM 平均有三个磁盘）的最大数目哪个更大，即在配置服务器或附加进程服务器上哪个最先达到。 在“本地摘要”部分可以找到每天总变动量和受保护磁盘总数的详细信息。
+下图是要配置的配置服务器和附加进程服务器的总数，该数目足以保护所有兼容 VM。 根据所支持的[配置服务器大小建议](./site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)，该工具可能会建议使用更多的服务器。 该建议取决于每日变动量和受保护 VM（假定每个 VM 平均有三个磁盘）的最大数目哪个更大，即在配置服务器或附加进程服务器上哪个最先达到。 在“本地摘要”部分可以找到每天总变动量和受保护磁盘总数的详细信息。
+
+<!--MOONCAKE CORRECT ON ./site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-->
 
 :::image type="content" source="media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png" alt-text="Deployment Planner 中的所需本地基础结构":::
 
@@ -171,7 +173,7 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **日志存储帐户类型**：所有复制日志存储在标准存储帐户中。
 
-**建议的存储帐户前缀**：建议的三字符前缀，可用于缓存存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](https://aka.ms/storage-performance-checklist)。
+**建议的存储帐户前缀**：建议的三字符前缀，可用于缓存存储帐户的命名。 可以使用自己的前缀，而该工具的建议则遵循[存储帐户的分区命名约定](../storage/blobs/storage-performance-checklist.md#subheading47)。
 
 **建议的日志帐户名称**：在使用建议的前缀后出现的存储帐户名称。 将尖括号（< 和 >）中的名称替换为自定义输入。
 
@@ -184,7 +186,7 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **VM 名称**：VM 名称或 IP 地址，生成报告时在 VMListFile 中使用。 此列还列出附加到 VM 的磁盘 (VMDK)。 为了区分使用重复名称或 IP 地址的 vCenter VM，这些名称包含 ESXi 主机名。 列出的 ESXi 主机是在其中放置了 VM 的主机，该 VM 是在分析期间通过工具发现后放置的。
 
-**VM 兼容性**：值为“是”和“是”。  **\*** “是\*”针对 VM 适用于[高级 SSD](../virtual-machines/disks-types.md) 的情况  。 在这里，所分析的高变动量或 IOPS 磁盘适合 P20 或 P30 类别，但考虑到磁盘大小，因此将其归入较低的 P10 或 P20 类别。 存储帐户决定了根据大小对磁盘分类时，可将磁盘归入哪种高级存储磁盘类型。 例如：
+**VM 兼容性**：值为“是”和“是” **\* *_。“是”***\*针对 VM 适用于[高级 SSD](../virtual-machines/disks-types.md) 的情况。 在这里，所分析的高变动量或 IOPS 磁盘适合 P20 或 P30 类别，但考虑到磁盘大小，因此将其归入较低的 P10 或 P20 类别。 存储帐户决定了根据大小对磁盘分类时，可将磁盘归入哪种高级存储磁盘类型。 例如：
 * <128 GB 为 P10。
 * 128 GB 到 256 GB 为 P15
 * 256 GB 到 512 GB 为 P20。
@@ -210,7 +212,7 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **核心数**：VM 上的 CPU 核心数。
 
-**内存(MB)** ：VM 上的 RAM。
+**内存(MB)**：VM 上的 RAM。
 
 **NIC 数**：VM 上的 NIC 数。
 
@@ -224,7 +226,7 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **VM 名称**：VM 名称或 IP 地址，生成报告时在 VMListFile 中使用。 此列还列出附加到 VM 的 VMDK。 为了区分使用重复名称或 IP 地址的 vCenter VM，这些名称包含 ESXi 主机名。 列出的 ESXi 主机是在其中放置了 VM 的主机，该 VM 是在分析期间通过工具发现后放置的。
 
-**VM 兼容性**：指示给定的 VM 为何无法与 Site Recovery 兼容使用。 会针对 VM 的每个不兼容磁盘说明原因，而根据已发布的[存储限制](https://aka.ms/azure-storage-scalbility-performance)，这些原因不外乎：
+**VM 兼容性**：指示给定的 VM 为何无法与 Site Recovery 兼容使用。 会针对 VM 的每个不兼容磁盘说明原因，而根据已发布的[存储限制](../storage/common/scalability-targets-standard-account.md)，这些原因不外乎：
 
 * 数据磁盘大小错误或 OS 磁盘大小错误。 [查看](vmware-physical-azure-support-matrix.md#azure-vm-requirements)支持限制。 
 * VM 总大小（复制 + TFO）超出系统支持的存储帐户大小限制 (35 TB)。 当 VM 中的单个磁盘的性能特征超出系统支持的适用于标准存储的 Azure 或 Site Recovery 最大限制时，通常会表现出这种不兼容性。 如果出现这种情况，则必须将 VM 置于高级存储区域。 但是，高级存储帐户支持的最大大小为 35 TB，并且无法跨多个存储帐户保护单个需要保护的 VM。 另请注意，在受保护 VM 上执行测试性故障转移时，该故障转移运行时所使用的存储帐户与进行复制时所使用的存储帐户相同。 在这种情况下，可以在设置时将磁盘大小加倍，既可进行复制，又可成功地进行测试性故障转移。
@@ -253,7 +255,7 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 **核心数**：VM 上的 CPU 核心数。
 
-**内存(MB)** ：VM 上的 RAM 量。
+**内存(MB)**：VM 上的 RAM 量。
 
 **NIC 数**：VM 上的 NIC 数。
 

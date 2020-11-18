@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 08/29/2018
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0bdef40d93772220b8c073b75a3880d8f1fa1890
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 7d6dc4d0fcb87c87249cc5618416aac056a15b34
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375633"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>使用 Azure Synapse Analytics 还原已删除的 SQL 池
 
@@ -77,11 +77,11 @@ $RestoredDatabase.status
 
     ![已删除的数据库](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-01.png)
 
-4. 选择要还原的已删除 SQL 数据仓库。
+4. 选择要还原的已删除 Azure Synapse Analytics。
 
     ![选择“已删除的数据库”](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-11.png)
 
-5. 指定新的**数据库名称**，并单击“确定”
+5. 指定新的 **数据库名称**，并单击“确定”
 
     ![指定数据库名称](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 

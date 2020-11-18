@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 2/27/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 91108e24065894c2d9144cccb7ca95814638663e
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 10/30/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 0d8e23e769c2c95918a1385259df03878629c5ab
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041803"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328812"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 
@@ -32,11 +32,15 @@ ms.locfileid: "92041803"
 > [!TIP]
 > 如果希望迁移数据库大小超过 1 TB 的大型数据库，则可能需要考虑使用支持并行导出和导入的社区工具（如 mydumper/myloader）。 了解[如何迁移大型 MySQL 数据库](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)。
 
-## <a name="common-use-cases-for-dump-and-restore"></a>转储和还原的常见用例
-在几个常见方案中，可使用 mysqldump、mysqlpump 等 MySQL 实用工具将数据库转储和加载到 Azure MySQL 数据库 。 在其他方案中，可改用[导入和导出](concepts-migrate-import-export.md)方法。
 
-- 迁移整个数据库时请使用数据库转储。 此建议适用于移动大量 MySQL 数据，或者要最小化实时站点或应用程序的服务中断的情况。
--  如果数据库中的所有表都使用 InnoDB 存储引擎，请使用数据库转储。 Azure Database for MySQL 仅支持 InnoDB 存储引擎，因此不支持备选存储引擎。 如果表配置了其他存储引擎，请确保先将它们转换为 InnoDB 引擎格式，再迁移到 Azure Database for MySQL。
+## <a name="common-use-cases-for-dump-and-restore"></a>转储和还原的常见用例
+
+最常见的用例包括：
+
+- **从其他托管服务提供商转移** - 由于安全原因，大多数托管服务提供商可能不提供对物理存储文件的访问，因此逻辑备份和还原是迁移的唯一选项。
+- **从本地环境或虚拟机迁移** - Azure Database for MySQL 不支持还原物理备份，这使得逻辑备份和还原成为唯一方法。
+- **将备份存储从本地冗余存储迁移到异地冗余存储** - Azure Database for MySQL 允许为备份配置本地冗余存储或异地冗余存储，但只有在服务器创建期间才能这样做。 预配服务器以后，不能更改备份存储冗余选项。 若要将备份存储从本地冗余存储移到异地冗余存储，只能选择“转储和还原”选项。 
+-  **从备选存储引擎迁移到 InnoDB** - Azure Database for MySQL 仅支持 InnoDB 存储引擎，因此不支持备选存储引擎。 如果表配置了其他存储引擎，请确保先将它们转换为 InnoDB 引擎格式，再迁移到 Azure Database for MySQL。
 
     例如，如果有使用 MyISAM 表的 WordPress 或 WebApp，在将这些表还原到 Azure Database for MySQL 之前，首先通过将这些表迁移到 InnoDB 格式的方式转换格式。 使用子句 `ENGINE=InnoDB` 设置创建新表时所用的引擎，然后在还原之前将数据传输到兼容表中。
 
@@ -69,7 +73,7 @@ ms.locfileid: "92041803"
 
 将连接信息添加到 MySQL Workbench。
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="在 Azure 门户中找到连接信息":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="MySQL Workbench 连接字符串":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>准备目标 Azure Database for MySQL 服务器以实现快速数据加载
 若要准备目标 Azure Database for MySQL 服务器以实现快速数据加载，需要更改以下服务器参数和配置。

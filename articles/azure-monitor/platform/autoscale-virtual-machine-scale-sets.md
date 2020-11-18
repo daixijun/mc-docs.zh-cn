@@ -6,15 +6,15 @@ ms.author: v-johya
 ms.topic: conceptual
 origin.date: 02/22/2016
 ms.subservice: autoscale
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 81f1a786339f8c7a944acb9937b728553de7c371
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: bbd17ad1ded8d795e5eeb93c7c0f4c9acd228c9d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457341"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327606"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
@@ -61,9 +61,9 @@ ms.locfileid: "89457341"
 
     ![Autoscalewad，默认自动缩放设置](./media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. 单击“编辑”。 将自动缩放设置中的“配置文件”元素**替换**为以下配置：
+6. 单击“编辑”。 将自动缩放设置中的“配置文件”元素 **替换** 为以下配置：
 
-    ![配置文件](./media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![屏幕截图显示了配置文件元素。](./media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

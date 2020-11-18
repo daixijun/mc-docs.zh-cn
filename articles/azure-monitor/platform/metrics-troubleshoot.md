@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 origin.date: 04/23/2019
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: metrics
-ms.openlocfilehash: 2764c1f61de11523753ff45996bb41d46dfc76cd
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: b7d04db06a1c9d8cf9610bcf08fe376f4acbb356
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457269"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328927"
 ---
 # <a name="troubleshooting-metrics-charts"></a>排查指标图表问题
 
@@ -67,7 +67,7 @@ ms.locfileid: "89457269"
 
 ### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>你正在查看来宾 OS 指标，但未启用 Azure 诊断扩展
 
-收集**来宾 OS** 指标需要配置 Azure 诊断扩展，或使用资源的“诊断设置”面板来启用该扩展。 
+收集 **来宾 OS** 指标需要配置 Azure 诊断扩展，或使用资源的“诊断设置”面板来启用该扩展。 
 
 **解决方案：** 如果 Azure 诊断扩展已启用，但你仍然无法看到指标，请遵循 [Azure 诊断扩展故障排除指南](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)中所述的步骤。 另请参阅[无法选取来宾 OS 命名空间和指标](#cannot-pick-guest-os-namespace-and-metrics)的故障排除步骤
 
@@ -80,16 +80,16 @@ ms.locfileid: "89457269"
 ## <a name="chart-shows-dashed-line"></a>图表显示虚线
 
 Azure 指标图表使用虚线样式来指示两个已知时间粒度数据点之间存在缺失值（也称为“null 值”）。 例如，如果你在时间选择器中选择了“1 分钟”时间粒度，但指标是在 07:26、07:27、07:29 和 07:30 报告的（请注意第二和第三个数据点之间的分钟间隔），则 07:27 和 07:29 数据点之间会以虚线连接，所有其他数据点之间以实线连接。 当指标使用 **count** 和 **sum** 聚合时，虚线将下降到零。 对于 **avg**、**min** 或 **max** 聚合，虚线将连接两个最接近的已知数据点。 此外，当图表最右侧或最左侧缺少数据时，虚线将朝缺失数据点的方向延长。
-  ![指标插图](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![此屏幕截图显示了当图表最右侧或最左侧缺少数据时，虚线将如何朝缺失数据点的方向延长。](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**解决方案：** 此行为是设计使然。 这样可以识别缺失的数据点。 折线图能够出色地可视化高密度指标的趋势，但对于包含稀疏值的指标，可能很难解释，尤其是必须将值与时间粒度关联时。 虚线可以方便阅读这些图表，但如果图表仍不清晰，请考虑使用不同的图表类型查看指标。 例如，对同一个指标使用散点图可以清晰地显示每个时间粒度，因为它只会在某个值存在时才可视化某个点，并在该值缺失时统一跳过数据点：![指标插图](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**解决方案：** 此行为是设计使然。 这样可以识别缺失的数据点。 折线图能够出色地可视化高密度指标的趋势，但对于包含稀疏值的指标，可能很难解释，尤其是必须将值与时间粒度关联时。 虚线可以方便阅读这些图表，但如果图表仍不清晰，请考虑使用不同的图表类型查看指标。 例如，同一指标的散点图只在有值时显示一个点，在缺失值时完全跳过数据点，从而清楚地显示每个时间粒度：![突出显示“散点图”菜单选项的屏幕截图。](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > 如果你仍然偏向于使用折线图来查看指标，将鼠标移到图表上可在鼠标指针位置突出显示数据点，这可能有助于评估时间粒度。
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>图表显示值出现意外的下降
 
-在许多情况下，指标值的明显下降是图表上显示的数据造成的一种错觉。 如果图表显示最近几分钟的数据，则总和或计数下降可能会给你造成误解，因为 Azure 此时尚未收到或处理最后的指标数据点。 指标处理延迟在几分钟范围内变化，具体取决于所用的服务。 对于显示最近 1 分钟或 5 分钟粒度时间范围的图表，过去几分钟的值的下降会更明显：![指标插图](./media/metrics-troubleshoot/drop-in-values.png)
+在许多情况下，指标值的明显下降是图表上显示的数据造成的一种错觉。 如果图表显示最近几分钟的数据，则总和或计数下降可能会给你造成误解，因为 Azure 此时尚未收到或处理最后的指标数据点。 指标处理延迟在几分钟范围内变化，具体取决于所用的服务。 对于显示最近时间范围（1 或 5 分钟粒度）的图表，过去几分钟内的值减小变得更加明显：![此屏幕截图显示了在过去几分钟内值减小。](./media/metrics-troubleshoot/drop-in-values.png)
 
 **解决方案：** 此行为是设计使然。 我们相信，即使数据是部分性的或者不完整的，在收到数据后立即显示数据比较有利。   这样，就可以更快地做出重要结论，并立即开始调查。 例如，对于显示失败次数的指标，查看部分值 X 可以判断，在给定的分钟内至少发生了 X 次失败。 然后可以立即开始调查问题，而不是等到图表中显示此分钟内发生的确切失败次数，确切的数字可能不如立即调查那么重要。 收到整个数据集后，图表将会更新，但此时，它可能还会显示更近时间内发生的新的不完整数据点。
 

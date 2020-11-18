@@ -6,20 +6,20 @@ ms.author: v-jay
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-origin.date: 09/04/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 15ea23d6a4b5aef0877c50f130727909f76b6ddc
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+origin.date: 10/16/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 29081da0689519a0d6ccb6041add3ed283d3e21b
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451246"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330462"
 ---
 # <a name="use-the-csv-in-memory-read-cache-with-azure-stack-hci"></a>将 CSV 内存中读取缓存与 Azure Stack HCI 配合使用
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题介绍如何使用系统内存提高 Azure Stack HCI 的性能。
+本主题介绍如何通过缓存频繁读取的内容来使用系统内存提高 Azure Stack HCI 的性能。 写入内容不能缓存在内存中。
 
 Azure Stack HCI 与群集共享卷 (CSV) 内存中读取缓存兼容。 对于使用未缓冲 I/O 访问 VHD 或 VHDX 文件的应用程序（如 Hyper-V），使用系统内存缓存读取可以性能。 （未缓冲 I/O 是未由 Windows 缓存管理器缓存的任何操作。）
 
@@ -45,6 +45,8 @@ CSV 内存中读取缓存在具有相同功能的 Azure Stack HCI、Windows Serv
 | Azure Stack HCI     | 1 GiB                  |
 | Windows Server 2019 | 1 GiB                  |
 | Windows Server 2016 | 0（禁用）           |
+
+若要使用 Windows Admin Center 来配置缓存，请在左侧“工具”菜单的最底部选择“设置”。 然后转到“存储”>“内存中缓存”。 可以使用复选框来启用或禁用缓存，还可以指定每个服务器要分配给缓存的最大内存。 进行更改后，请务必单击页面底部的“保存”。
 
 若要使用 PowerShell 查看分配的内存量，请运行：
 
