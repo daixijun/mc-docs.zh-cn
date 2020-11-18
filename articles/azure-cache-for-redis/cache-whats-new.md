@@ -20,7 +20,7 @@ ms.locfileid: "92472809"
 Microsoft 在将 Azure 服务更新为使用来自一组不同的证书颁发机构 (CA) 的 TLS 服务器证书。 这一更改从 2020 年 8 月 13 日至 2020 年 10 月 26 日（预计）分阶段推出。 Azure 正在进行此更改，因为[当前 CA 证书不符合某个 CA/浏览器论坛基线要求](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)。 此问题已于 2020 年 7 月 1 日报告，适用于全球多个热门公钥基础结构 (PKI) 提供商。 目前，Azure 服务使用的大多数 TLS 证书来自 Baltimore CyberTrust 根 PKI。 Azure Cache for Redis 服务将继续链接到 Baltimore CyberTrust 根。 不过从 2020 年 10 月 12 日开始，其 TLS 服务器证书将由新的中间证书颁发机构 (ICA) 颁发。
 
 > [!NOTE]
-> 此更改仅限于公共 [Azure 区域](https://azure.microsoft.com/global-infrastructure/geographies/)中的服务。 它不包括主权国家（例如中国）。
+> 此更改仅限于公共 [Azure 区域](https://azure.microsoft.com/global-infrastructure/geographies/)中的服务。 它不包括主权国家/地区（例如中国）。
 >
 >
 
