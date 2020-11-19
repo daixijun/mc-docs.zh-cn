@@ -28908,7 +28908,28 @@
             "source_path": "articles/time-series-insights/time-series-insights-update-use-cases.md",
             "redirect_url": "/time-series-insights/overview-use-cases",
             "redirect_document_id": false
-        }
+        },
+    {
+      "source_path": "articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
+      "redirect_url": "/vpn-gateway/tutorial-create-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
+      "redirect_url": "/vpn-gateway/reset-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-security-controls.md",
+      "redirect_url": "/vpn-gateway/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
+      "redirect_url": "/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+      "redirect_document_id": false
+    }
+
 
 
     ]
