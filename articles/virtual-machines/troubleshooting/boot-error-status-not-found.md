@@ -110,7 +110,7 @@ ms.locfileid: "93106024"
 1. 右键单击该文件，选择“属性”，然后选择“详细信息”选项卡以查看文件信息。
     1. 请注意文件版本，如下图所示：
 
-        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/5.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/5.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -160,7 +160,7 @@ ms.locfileid: "93106024"
 
     此图显示了第 1 代 VM 中的 Windows 启动加载程序，并突出显示了标识符属性。 突出显示的标识符属性显示了唯一的字母数字字符串。
 
-    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/7.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/7.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -192,7 +192,7 @@ ms.locfileid: "93106024"
 
         在下图中，磁盘 2 是附加到修复 VM 的磁盘号。 该图还显示了磁盘 2 上的 EFI 系统分区，该分区的大小为 100MB，并且未分配盘符。
 
-        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/8.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/8.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -228,7 +228,7 @@ ms.locfileid: "93106024"
 
             下图显示了列出和选择磁盘的结果。 列出了 Disk 0 (127 GB / Online)、Disk 1 (32 GB / Online) 和 Disk 2 (127 GB / Online)，并使用 `sel disk 2` 命令选择了 Disk 2。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/9.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/9.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -262,7 +262,7 @@ ms.locfileid: "93106024"
 
             下图显示了列出和选择分区的结果。 列出了 Partition 1 (Reserved / 16MB)、Partition 2 (System / 100MB) 和 Partition 3 (Primary / 126 GB)，并使用 `sel part 2` 命令选择了 Partition 2。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/10.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/10.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -291,7 +291,7 @@ ms.locfileid: "93106024"
 
             在下图中，可以在文件资源管理器中看到 `assign` 命令和新驱动器 SYSTEM (F:)。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/11.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/11.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -322,7 +322,7 @@ ms.locfileid: "93106024"
 
             在下图中，Windows 启动加载程序位于第 2 代 VM 中，并突出显示了标识符属性。 突出显示的标识符属性的值为 {default}。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/12.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/12.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
@@ -351,7 +351,7 @@ ms.locfileid: "93106024"
 
 1. 请注意，活动分区上缺少 OSDEVICE 变量：
 
-    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/13.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。&quot;:::
+    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/13.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
 
 1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
 
