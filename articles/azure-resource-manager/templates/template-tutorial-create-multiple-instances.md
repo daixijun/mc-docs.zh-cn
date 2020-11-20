@@ -20,7 +20,7 @@ ms.locfileid: "92470072"
 
 了解如何在 Azure 资源管理器 (ARM) 模板中进行迭代操作，以创建 Azure 资源的多个实例。 在本教程中，你将修改一个模板，以便创建三个存储帐户实例。
 
-:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png" alt-text="“Azure 资源管理器创建多个实例”示意图":::
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png" alt-text="Azure 资源管理器创建多个实例示意图":::
 
 本教程涵盖以下任务：
 
@@ -60,7 +60,7 @@ ms.locfileid: "92470072"
 
 从 Visual Studio Code 中，进行以下四个更改：
 
-:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="“Azure 资源管理器创建多个实例”示意图"
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Azure 资源管理器创建多个实例示意图"
       },
       "kind": "StorageV2",
       "copy": {
