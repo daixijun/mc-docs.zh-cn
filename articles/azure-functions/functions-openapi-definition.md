@@ -49,7 +49,7 @@ ms.locfileid: "92211500"
 
 1. 从[授权级别](functions-bindings-http-webhook-trigger.md#http-auth)下拉列表中选择“函数”，然后选择“创建函数”。
 
-    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;":::
 
 1. 选择“代码 + 测试”，然后从下拉列表中选择“run.csx”。 将 run.csx C# 脚本文件的内容替换为以下代码，然后选择“保存”：
 
@@ -115,7 +115,7 @@ ms.locfileid: "92211500"
     }
     ```
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;":::
 
 1. 选择“代码 + 测试”，然后从下拉列表中选择“run.csx”。 将 run.csx C# 脚本文件的内容替换为以下代码，然后选择“保存”：
 
@@ -136,7 +136,7 @@ ms.locfileid: "92211500"
 
 1. 选择该函数应用，从左侧菜单中选择“API 管理”，然后在“API 管理”下选择“新建”。
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;":::
 
 1. 选择“代码 + 测试”，然后从下拉列表中选择“run.csx”。 将 run.csx C# 脚本文件的内容替换为以下代码，然后选择“保存”：
 
@@ -168,7 +168,7 @@ ms.locfileid: "92211500"
 
 1. 在“从函数应用创建”页中接受默认值，然后选择“创建”。
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;":::
 
 1. 选择“代码 + 测试”，然后从下拉列表中选择“run.csx”。 将 run.csx C# 脚本文件的内容替换为以下代码，然后选择“保存”：
 
@@ -194,7 +194,7 @@ ms.locfileid: "92211500"
 
 1. 选择“发送”，然后查看“HTTP 响应”。
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="创建用于 OpenAPI 的 HTTP 函数&quot;":::
 
 1. 选择“代码 + 测试”，然后从下拉列表中选择“run.csx”。 将 run.csx C# 脚本文件的内容替换为以下代码，然后选择“保存”：
 
