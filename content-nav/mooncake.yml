@@ -320,7 +320,7 @@ items:
 callToAction:
   primary:
     href: https://wd.azure.cn/pricing/1rmb-trial/
-    title: 1 元人民币的试用订阅
+    title: 试用订阅
   secondary:
     href: https://portal.azure.cn/
     title: 门户
