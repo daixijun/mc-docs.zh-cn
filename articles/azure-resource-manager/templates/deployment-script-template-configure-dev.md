@@ -203,7 +203,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 1. 打开容器组。 默认资源组名称是追加了 **cg** 的项目名称。 你应该会看到容器实例处于“正在运行”状态。
 1. 从左侧菜单中选择“容器”。 你应该会看到一个容器实例。  容器实例名称是追加了 **container** 的项目名称。
 
-    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="部署脚本连接容器实例&quot;:::
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="部署脚本连接容器实例":::
 
 1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
 1. 在控制台窗格中运行以下命令：
@@ -216,7 +216,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 
     输出为 **Hello John Dole** 。
 
-    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="部署脚本连接容器实例&quot;:::
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="部署脚本连接容器实例":::
 
 1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
 1. 在控制台窗格中运行以下命令：
@@ -269,7 +269,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 
 1. 以下屏幕截图显示了如何运行 PowerShell 脚本，假设你在共享驱动器中具有 helloworld.ps1 文件。
 
-    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="部署脚本连接容器实例&quot;:::
+    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="部署脚本连接容器实例":::
 
 1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
 1. 在控制台窗格中运行以下命令：
