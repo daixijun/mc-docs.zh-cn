@@ -135,7 +135,7 @@ ms.locfileid: "93104710"
 1. 在 Windows Search 中，输入 regedit 并打开“注册表编辑器”应用程序。
 1. 在“注册表编辑器”中，突出显示 HKEY_LOCAL_MACHINE 项，然后从菜单中选择“文件\加载配置单元…” 。
 
-    :::image type="content" source="./media/troubleshoot-windows-stop-error/4.png" alt-text="注册表编辑器中的“加载配置单元”菜单。":::
+    :::image type="content" source="./media/troubleshoot-windows-stop-error/4.png" alt-text="注册表编辑器中的加载配置单元菜单。":::
 
 1. 在“加载配置单元”对话框中，选择 \windows\system32\config\SYSTEM 并单击“打开”。
     1. 系统将提示你输入名称，你应输入 BROKENSYSTEM。 在你执行故障排除时，此名称有助于区分受影响的配置单元。
@@ -166,7 +166,7 @@ ms.locfileid: "93104710"
 
     - 在该命令中，将 `<BOOT PARTITON>` 替换为附加磁盘中包含引导文件夹的分区驱动器号。
 
-        :::image type="content" source="./media/troubleshoot-windows-stop-error/5.png" alt-text="注册表编辑器中的“加载配置单元”菜单。" /v NMICrashDump /t REG_DWORD /d 1 /f 
+        :::image type="content" source="./media/troubleshoot-windows-stop-error/5.png" alt-text="注册表编辑器中的加载配置单元菜单。" ::: /v NMICrashDump /t REG_DWORD /d 1 /f 
     ```
 
     **卸载损坏的 OS 磁盘：**
