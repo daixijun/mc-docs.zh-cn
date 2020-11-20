@@ -60,7 +60,7 @@ ms.locfileid: "92470072"
 
 从 Visual Studio Code 中，进行以下四个更改：
 
-:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Azure 资源管理器创建多个实例示意图"
+:::image type="content" source="./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png" alt-text="Azure 资源管理器创建多个实例示意图":::
       },
       "kind": "StorageV2",
       "copy": {
