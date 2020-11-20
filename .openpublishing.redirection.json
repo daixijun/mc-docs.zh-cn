@@ -28979,9 +28979,136 @@
         "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
         "redirect_url": "/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
         "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/backup/backup-security-controls.md",
+            "redirect_url": "/backup/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/azure-management.md",
+            "redirect_url": "/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/policy-samples.md",
+            "redirect_url": "/azure-monitor/samples/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/app/alerts.md",
+            "redirect_url": "/azure-monitor/platform/alerts-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/app/usage-workbooks.md",
+            "redirect_url": "/azure-monitor/platform/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/key-vaults-insights-overview.md",
+            "redirect_url": "/azure-monitor/insights/key-vault-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-best-practices.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-creating.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-resources-automation.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-resources-searches-alerts.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-resources-views.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/solutions-solution-file.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/learn/quick-create-workspace-posh.md",
+            "redirect_url": "/azure-monitor/platform/powershell-workspace-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/learn/tutorial-archive-data.md",
+            "redirect_url": "/azure-monitor/platform/platform-logs-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/activity-log-collect.md",
+            "redirect_url": "/azure-monitor/platform/activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/activity-log-export.md",
+            "redirect_url": "/azure-monitor/platform/activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/activity-log-view.md",
+            "redirect_url": "/azure-monitor/platform/activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+            "redirect_url": "/azure-monitor/platform/alerts-troubleshoot-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/cli-samples.md",
+            "redirect_url": "/azure-monitor/samples/cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/diagnostic-logs-schema.md",
+            "redirect_url": "/azure-monitor/platform/resource-logs-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/powershell-quickstart-samples.md",
+            "redirect_url": "/azure-monitor/samples/powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/powershell-samples.md",
+            "redirect_url": "/azure-monitor/samples/powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/resource-logs-collect-storage.md",
+            "redirect_url": "/azure-monitor/platform/resource-logs#send-to-azure-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/resource-logs-collect-workspace.md",
+            "redirect_url": "/azure-monitor/platform/resource-logs#send-to-log-analytics-workspace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/resource-logs-stream-event-hubs.md",
+            "redirect_url": "/azure-monitor/platform/resource-logs#send-to-azure-event-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/application-insights/",
+            "redirect_url": "/azure-monitor/overview",
+            "redirect_document_id": false
         }
-
-
-
     ]
 }
