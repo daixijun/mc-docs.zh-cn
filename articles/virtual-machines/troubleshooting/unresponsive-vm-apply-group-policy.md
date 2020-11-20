@@ -69,7 +69,7 @@ ms.locfileid: "93106215"
 1. 在修复 VM 上，打开“注册表编辑器”。
 1. 找到“HKEY_LOCAL_MACHINE”项，然后从菜单中选择“文件” > “加载配置单元”  。
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="显示正在应用和加载组策略本地用户的屏幕截图 (Windows Server 2012 R2)。" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="显示正在应用和加载组策略本地用户的屏幕截图 (Windows Server 2012 R2)。" ::: /v CleanupProfiles /f
     ```
 1. 使用以下命令卸载 BROKENSOFTWARE 配置单元：
 
