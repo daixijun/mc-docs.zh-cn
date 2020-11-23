@@ -9,14 +9,14 @@ ms.service: api-management
 ms.topic: article
 origin.date: 10/31/2019
 author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 11/20/2020
 ms.author: v-johya
-ms.openlocfilehash: 6761ebd3df02b1d0fc253862c920988645758c4e
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: a71312e8e18669e388da165b967a299cfea4e1dd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440638"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977274"
 ---
 # <a name="self-hosted-gateway-overview"></a>自托管网关概述
 
@@ -54,7 +54,7 @@ ms.locfileid: "84440638"
 - 与 [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) 集成
 - TLS 会话恢复
 - 客户端证书重新协商。 这意味着要使[客户端证书身份验证](api-management-howto-mutual-certificates-for-clients.md)起作用，API 使用者必须出示其证书作为初始 TLS 握手的一部分。 为确保这一点，请在配置自托管网关自定义主机名时启用协商客户端证书设置。
-- 内置缓存。 请参阅此[文档](api-management-howto-cache-external.md)，了解如何在自托管网关上使用外部缓存。
+- 内置缓存。
 
 ## <a name="connectivity-to-azure"></a>连接到 Azure
 

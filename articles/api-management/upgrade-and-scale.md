@@ -3,21 +3,21 @@ title: 升级和缩放 Azure API 管理实例
 description: 本主题介绍如何升级和缩放 Azure API 管理实例。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 08/18/2018
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: e3a61b127cf9e33ba169e8e2479f9f797ed0658c
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: f1891f26ea201fd72fea7062a812dc3b040d4895
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440639"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978318"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 

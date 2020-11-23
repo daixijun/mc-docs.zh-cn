@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: how-to
 origin.date: 07/08/2020
-ms.date: 10/19/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d19ed39d531868d07920dc15500af58e50d9118
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 93565f7220e969e7d4498b0b2124fd02f35a0917
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121602"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908955"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MariaDB
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Database for MariaDB 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -22,9 +22,6 @@ Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Databa
 
 
 从 [https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 下载通过 SSL 与 Azure Database for MariaDB 服务器通信所需的证书，再将证书文件保存到本地驱动器（例如，本教程使用 c:\ssl）。
-
-> [!IMPORTANT] 
-> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="bind-ssl"></a>绑定 SSL
 

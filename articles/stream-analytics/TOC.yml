@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: 什么是流分析？
+    - name: 欢迎使用流分析
       href: stream-analytics-introduction.md
 - name: 快速入门
   expanded: true
@@ -139,6 +139,8 @@
           href: stream-analytics-real-time-fraud-detection.md
         - name: 在 IoT Edge 上运行作业
           href: stream-analytics-edge.md
+        - name: 在 Azure Stack 上运行作业
+          href: on-azure-stack.md
         - name: 收费站传感器数据分析
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
         - name: 高频交易
@@ -179,6 +181,8 @@
           href: stream-analytics-troubleshoot-output.md
         - name: 查询逻辑
           href: stream-analytics-troubleshoot-query.md
+        - name: 活动和资源日志
+          href: stream-analytics-job-diagnostic-logs.md
         - name: 数据错误
           href: data-errors.md
         - name: 错误代码
@@ -195,8 +199,12 @@
               href: internal-error-codes.md
     - name: 与机器学习集成
       items:
+        - name: 使用 ML 模型进行情绪分析
+          href: stream-analytics-machine-learning-integration-tutorial.md
         - name: 异常检测
           href: stream-analytics-machine-learning-anomaly-detection.md
+        - name: 使用 REST API
+          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: 利用 ML 函数进行缩放
       href: stream-analytics-scale-with-machine-learning-functions.md
 - name: 流分析查询语言

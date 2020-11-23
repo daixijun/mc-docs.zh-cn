@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: fdb9be17e2c0fbd9e13aa43a107f1a5b5264559c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bc43d9a81820225a03a4d172e754373291b965b2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117862"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977513"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>使用 Azure 中的 Ubuntu Data Science Virtual Machine 完成数据科学任务
 
@@ -27,8 +27,8 @@ ms.locfileid: "92117862"
 必须具备以下先决条件，才能使用 Linux DSVM：
 
 * **Azure 订阅**。 若要获取 Azure 订阅，请参阅[立即创建免费的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)。 有关预配虚拟机的信息，请参阅[预配 Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md)。
-* 计算机上安装了 [X2Go](https://wiki.x2go.org/doku.php) 且 XFCE 会话处于打开状态。 有关详细信息，请参阅[安装和配置 X2Go 客户端](linux-dsvm-intro.md#x2go)。
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)。 有关预配虚拟机的信息，请参阅[预配 Ubuntu Data Science Virtual Machine](./release-notes.md)。
+* 计算机上安装了 [X2Go](https://wiki.x2go.org/doku.php) 且 XFCE 会话处于打开状态。 有关详细信息，请参阅[安装和配置 X2Go 客户端](dsvm-ubuntu-intro.md#x2go)。
 * 为获得更流畅的滚动体验，请在 DSVM 的 Firefox Web 浏览器中切换 `about:config` 中的 `gfx.xrender.enabled` 标记。 [了解详细信息](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 此外，考虑将 `mousewheel.enable_pixel_scrolling` 设置为 `False`。 [了解详细信息](https://support.mozilla.org/questions/981140)。
 
 ## <a name="download-the-spambase-dataset"></a>下载 spambase 数据集
@@ -212,7 +212,7 @@ accuracy
 
 - [生成端到端解决方案以检测图像中的产品的操作指南](https://github.com/Azure/cortana-intelligence-product-detection-from-images)：图像检测是一种能够对图像中的对象进行定位和分类的技术。 此技术有可能在多个实际生活业务域中带来巨大回报。 例如，零售商可以使用此技术确定客户已从货架上选取哪个产品。 从而，此信息可帮助商店管理产品库存。 
 
-- [音频深度学习](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/)：此教程展示如何使用[城市声音数据集](https://urbansounddataset.weebly.com/)训练用于音频事件检测的深度学习模型。 此教程提供有关如何处理音频数据的概述。
+- [音频深度学习](https://docs.microsoft.com/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure)：此教程展示如何使用[城市声音数据集](https://urbansounddataset.weebly.com/)训练用于音频事件检测的深度学习模型。 此教程提供有关如何处理音频数据的概述。
 
 - [文本文档分类](https://github.com/anargyri/lstm_han)：本演练演示如何生成和训练两种不同的神经网络体系结构：分层注意网络和长短期记忆 (LSTM)。 这些神经网络使用用于深度学习的 Keras API 对文本文档进行分类。 Keras 是以下三大最热门深度学习框架的前端：Microsoft Cognitive Toolkit、TensorFlow 和 Theano。
 
@@ -478,7 +478,7 @@ CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all re
 1. 将 URL 设置为 **jdbc:postgresql://localhost/spam**。
 1. 输入用户名和密码。
 1. 选择“确定”。
-1. 若要打开“连接”窗口，请双击**垃圾邮件数据库**别名。
+1. 若要打开“连接”窗口，请双击 **垃圾邮件数据库** 别名。
 1. 选择“连接”。
 
 运行一些查询：

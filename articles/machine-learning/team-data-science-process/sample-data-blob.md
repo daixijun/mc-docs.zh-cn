@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f736bf02f52fffaac3498af41eba2bee4b0e953b
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 947365be20016bd2993225afc932574746bb9d1e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228506"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976996"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>对 Azure blob 存储中的数据采样
 
@@ -102,7 +102,7 @@ ms.locfileid: "88228506"
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. 使用 Azure 机器学习[导入数据](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)从 Azure blob 中读取数据，如下图中所示：
+3. 使用 Azure 机器学习[导入数据](/machine-learning/studio-module-reference/import-data)从 Azure blob 中读取数据，如下图中所示：
 
 ![blob 读取器](./media/sample-data-blob/reader_blob.png)
 

@@ -15,12 +15,12 @@ ms.date: 11/09/2020
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 30a3f5601e3b3e11f1e662a5af7d0541d51931e3
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 55513ebef749feefe85ca2cb33db0c2f8cf4ba7c
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327897"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915095"
 ---
 <!--Verified successfully whole articles-->
 # <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>使用 Azure 门户在连接监视器预览版中创建监视器
@@ -118,7 +118,7 @@ ms.locfileid: "94327897"
 
     * 若要选择本地代理，请选择“非 Azure 终结点”选项卡。默认情况下，代理按区域分组到工作区中。 所有这些工作区都配置了网络性能监视器。 
 
-        如果需要将网络性能监视器添加到工作区，请通过 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/solutions)。 
+        如果需要将网络性能监视器添加到工作区，请通过 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/insights/solutions)。 
 
         在“创建连接监视器”下的“基本信息”选项卡上，已选择默认区域。  如果更改了区域，则可以在新区域的工作区中选择代理。 可选择一个或多个代理或子网。 在“子网”视图中，可以选择要监视的特定 IP。 如果你添加多个子网，则会创建一个自定义的本地网络“OnPremises_Network_1”。 还可以通过更改“分组依据”选择器来按代理分组。
 
@@ -140,7 +140,7 @@ ms.locfileid: "94327897"
 
     * 若要选择非 Azure 代理作为目标，请选择“非 Azure 终结点”选项卡。默认情况下，代理按区域分组到工作区中。 所有这些工作区都配置了网络性能监视器。 
 
-        如果需要将网络性能监视器添加到工作区，请通过 Azure 市场获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/solutions)。 
+        如果需要将网络性能监视器添加到工作区，请通过 Azure 市场获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/insights/solutions)。 
 
         在“创建连接监视器”下的“基本信息”选项卡上，已选择默认区域。 ****  ****   如果更改了区域，则可以在新区域的工作区中选择代理。 可选择一个或多个代理或子网。 在“子网”视图中，可以选择要监视的特定 IP。 如果你添加多个子网，则会创建一个自定义的本地网络“OnPremises_Network_1”。  
 

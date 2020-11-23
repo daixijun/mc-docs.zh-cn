@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: v-jay
 author: WenJason
 origin.date: 04/14/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 42698eae640f009ff9f26741ea831cd8310aecf2
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 11/23/2020
+ms.openlocfilehash: 18fb1a5ffc3b6538358f33cb7b69721e2cbf71fe
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914316"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680516"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>使用 Azure SQL 托管实例代理运行 SSIS 包
 
@@ -30,7 +30,7 @@ ms.locfileid: "87914316"
 - 若要运行 SSISDB 或文件系统中的包，请安装 SSMS 版本 18.5 或更高版本。
 - 若要运行包存储中的包，请安装 SSMS 版本 18.6 或更高版本。
 
-还需要在 Azure 数据工厂中[预配 Azure-SSIS 集成运行时](tutorial-create-azure-ssis-runtime-portal.md)。 它使用 SQL 托管实例作为终结点服务器。
+还需要在 Azure 数据工厂中[预配 Azure-SSIS 集成运行时](./tutorial-deploy-ssis-packages-azure.md)。 它使用 SQL 托管实例作为终结点服务器。
 
 ## <a name="run-an-ssis-package-in-ssisdb"></a>在 SSISDB 中运行 SSIS 包
 
@@ -160,4 +160,4 @@ ms.locfileid: "87914316"
 1. 基于 executionId 停止相应的操作。
 
 ## <a name="next-steps"></a>后续步骤
-还可以使用 Azure 数据工厂来计划 SSIS 包。 有关分步说明，请参阅 [Azure 数据工厂事件触发器](how-to-create-event-trigger.md)。 
+还可以使用 Azure 数据工厂来计划 SSIS 包。 有关分步说明，请参阅 [Azure 数据工厂事件触发器](how-to-create-event-trigger.md)。

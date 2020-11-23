@@ -4,19 +4,20 @@ description: 本文介绍使用 Azure 门户对 Azure 备份工作负荷执行�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/04/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 952afc732869f0a00f18b08f5fe262833f724271
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 3f536a5dbb92add46a83589dd8f3fc80e8f300b1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402435"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977957"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>监视 Azure 备份工作负荷
 
 Azure 备份根据备份要求和基础结构拓扑（本地或 Azure）提供多个备份解决方案。 任何备份用户或管理员都应看到所有解决方案中发生的情况，并会在出现重大情况时收到通知。 本文详细介绍了 Azure 备份服务提供的监视和通知功能。
+<!--Not available in MC: ../../includes/backup-center.md-->
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>恢复服务保管库中的 Azure 备份作业
 

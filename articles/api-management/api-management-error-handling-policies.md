@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 37bb083fbb377841487379df165687128a5300be
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 927773425b5faaf4c290a96e5d789a763c56f51d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977397"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理策略中的错误处理
 
@@ -191,5 +191,5 @@ Azure API 管理中的策略分为 `inbound`、`backend`、`outbound` 和 `on-er
 -   [API 管理中的策略](api-management-howto-policies.md)
 -   [转换 API](transform-api.md)
 -   [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
--   [策略示例](policy-samples.md)
-<!--Correct in MC: api-management-policies.md-->
+-   [策略示例](./policy-reference.md)
+

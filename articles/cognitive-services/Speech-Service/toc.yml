@@ -26,19 +26,11 @@
       href: get-started-speech-to-text.md
     - name: 操作指南
       items:
-        - name: 识别存储在 Blob 存储中的语音
-          href: quickstarts/from-blob.md
-        - name: 选择语音识别模式
-          href: how-to-choose-recognition-mode.md
         - name: 更改语音识别源语言
           href: how-to-specify-source-language.md
-        - name: 使用自定义语音识别提高准确性
-          href: how-to-custom-speech.md
         - name: 使用压缩的音频输入格式
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: 使用短语列表提高准确性
-          href: how-to-phrase-lists.md
         - name: 选择特定的麦克风输入设备
           href: how-to-select-audio-input-devices.md
         - name: 使用自动源语言检测
@@ -47,20 +39,18 @@
           href: batch-transcription.md
     - name: 自定义
       items:
+        - name: 什么是自定义语音识别？
+          href: custom-speech-overview.md
         - name: 在 Speech Studio 中使用音频文件测试模型
           href: quickstarts/speech-studio-test-model.md
         - name: 准备自定义语音的数据
           href: how-to-custom-speech-test-and-train.md
         - name: 检查自定义语音数据
           href: how-to-custom-speech-inspect-data.md
-        - name: 评估自定义语音准确度
+        - name: 评估并提升自定义语音识别准确度
           href: how-to-custom-speech-evaluate-data.md
-        - name: 提升自定义语音准确度
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: 训练自定义语音的模型
+        - name: 训练和部署自定义语音识别模型
           href: how-to-custom-speech-train-model.md
-        - name: 部署自定义模型
-          href: how-to-custom-speech-deploy-model.md
         - name: 自定义语音识别的 CI/CD
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: 创建用户标记的听录内容
@@ -76,7 +66,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -155,7 +145,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -205,7 +195,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -229,6 +219,8 @@
   items:
     - name: 意向识别文档
       href: index-intent-recognition.yml
+    - name: 意图识别概述
+      href: intent-recognition.md
     - name: 意向识别快速入门
       href: quickstarts/intent-recognition.md
     - name: 操作指南
@@ -248,7 +240,7 @@
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
@@ -288,7 +280,7 @@
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'
@@ -359,9 +351,8 @@
           href: devices-sdk-release-notes.md
 - name: 资源
   items:
-    - name: 支持
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/cognitive-services/speech-service/context/context
     - name: Swagger 文档
       href: swagger-documentation.md
     - name: 主权云

@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 1058f609331cd796b9a09c25050fd64914ee40dc
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 1476822c63388b507e6f90444a16557770bedfc4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117966"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977508"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>数据科学虚拟机数据引入工具
 
@@ -53,7 +53,7 @@ ms.locfileid: "92117966"
 | 支持的 DSVM 版本      | Windows      |
 | 典型用途      | 将文件复制到 Azure Blob 存储以及在帐户之间复制 Blob。      |
 |  如何使用/运行它？    |   打开命令提示符，键入 `azcopy` 可获取帮助。    |
-| 指向示例的链接      | [AzCopy on Windows](/storage/common/storage-use-azcopy)      |
+| 指向示例的链接      | [AzCopy on Windows](../../storage/common/storage-use-azcopy-v10.md)      |
 | DSVM 上的相关工具      | AdlCopy     |
 
 

@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: ea876f6c6d11f4bf5eb72c3c84edc355159e15bb
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 11/16/2020
+ms.openlocfilehash: 2590a2e7da778394d16a014373404d28f60525b0
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226020"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978107"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>了解 Azure 流分析中的时间处理
 
@@ -222,5 +222,6 @@ Azure 流分析使用水印进度作为生成输出事件的唯一触发器。 �
 
 ## <a name="next-steps"></a>后续步骤
 
+- [Azure 流分析事件顺序注意事项]()
 - [流分析作业指标](stream-analytics-monitoring.md)
 

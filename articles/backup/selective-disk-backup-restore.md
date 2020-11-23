@@ -3,15 +3,15 @@ title: 适用于 Azure 虚拟机的选择性磁盘备份和还原
 description: 本文介绍如何使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/28/2020
-ms.custom: references_regions
+ms.date: 11/17/2020
+ms.custom: references_regions , devx-track-azurecli
 ms.author: v-johya
-ms.openlocfilehash: a539da61da73baf0842225a1ecb121e0eedb7ffa
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: c04e54d823d7352312edad3fda51a61c858ee500
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871329"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977601"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>适用于 Azure 虚拟机的选择性磁盘备份和还原
 
@@ -194,7 +194,11 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 ### <a name="enable-backup-with-powershell"></a>使用 PowerShell 启用备份
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>在配置备份期间使用 PowerShell 仅备份 OS 磁盘
@@ -214,7 +218,11 @@ $item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -Workloa
 ### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>使用 PowerShell 修改对已备份 VM 的保护
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>在修改保护期间使用 PowerShell 仅备份 OS 磁盘
@@ -226,7 +234,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### <a name="reset-disk-exclusion-setting-with-powershell"></a>使用 PowerShell 重置磁盘排除设置
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### <a name="restore-selective-disks-with-powershell"></a>使用 PowerShell 还原选择性磁盘
@@ -242,6 +250,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>使用 Azure 门户
+<!--Not available in MC: backup-center.md-->
 
 使用 Azure 门户，可以从 VM 备份详细信息窗格和备份作业详细信息窗格中查看包含和排除的磁盘。  在还原过程中选择要从中还原的恢复点时，可以查看该恢复点中的备份磁盘。
 

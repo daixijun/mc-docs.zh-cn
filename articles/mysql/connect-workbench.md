@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 5/26/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 189b5bffc4117efb19c3d9ded7fa3c9643deb419
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/23/2020
+ms.openlocfilehash: 418bc8958264fc1cce5bd9f9df1c04e7c1eeffbe
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041745"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977336"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 MySQL Workbench 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -53,7 +53,7 @@ ms.locfileid: "92041745"
 
 2.    在“设置新连接”对话框的“参数”选项卡上，输入以下信息：
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL 服务器名称":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="设置新连接":::
 
 | **设置** | **建议的值** | **字段说明** |
 |---|---|---|
@@ -107,13 +107,23 @@ ms.locfileid: "92041745"
 
     此屏幕快照显示 SQL Workbench 中的一个 SQL 代码示例以及运行该示例代码后的输出。
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL 服务器名称":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="运行示例 SQL 代码的 MySQL Workbench SQL 选项卡":::
 
 2. 若要运行示例 SQL 代码，请单击“SQL 文件”选项卡工具栏中的闪电图标。
 3. 请注意页面中间“结果网格”部分中的三个选项卡式结果。 
 4. 请注意页面底部的“输出”列表。 显示有每个命令的状态。 
 
 现已使用 MySQL Workbench 连接到 Azure Database for MySQL，并已使用 SQL 语言查询数据。
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]

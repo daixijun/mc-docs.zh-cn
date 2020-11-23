@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 04/12/2020
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 author: WenJason
 ms.author: v-jay
 manager: digimobile
 ms.reviewer: douglasl
-ms.openlocfilehash: ded2663f25d3080dc1a10e451ec03f518283dbfa
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: aa08262a561e16ef7a3f6e4c0263d15c65a82762
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524051"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680517"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>使用支持 Azure 的 dtexec 实用工具运行 SQL Server Integration Services 包
 
@@ -29,7 +29,7 @@ SQL Server 随附了传统的 dtexec 实用工具。 有关详细信息，请参
 
 SQL Server Management Studio (SSMS) 工具随附了新式 AzureDTExec 实用工具。 它也可以由第三方业务流程协调程序或计划程序调用，以在 Azure 中运行 SSIS 包。 此实用程序有助于将 SSIS 包直接转移或迁移到云中。 迁移后，如果你想要在日常运营中保持使用第三方业务流程协调程序或计划程序，这些程序现在可以调用 AzureDTExec 而不是 dtexec。
 
-AzureDTExec 将包作为数据工厂管道中的“执行 SSIS 包”活动运行。 有关详细信息，请参阅[将 SSIS 包作为 Azure 数据工厂活动运行](/data-factory/how-to-invoke-ssis-package-ssis-activity)。 
+AzureDTExec 将包作为数据工厂管道中的“执行 SSIS 包”活动运行。 有关详细信息，请参阅[将 SSIS 包作为 Azure 数据工厂活动运行](./how-to-invoke-ssis-package-ssis-activity.md)。 
 
 可以通过 SSMS 将 AzureDTExec 配置为使用在数据工厂中生成管道的 Azure Active Directory (Azure AD) 应用程序。 还可将其配置为访问存储包的文件系统、文件共享或 Azure 文件存储。 根据提供给 AzureDTExec 的调用选项值，AzureDTExec 将生成并运行一个独特的数据工厂管道，其中包含“执行 SSIS 包”活动。 结合提供的相同选项值调用 AzureDTExec 会重新运行现有管道。
 
@@ -47,7 +47,7 @@ AzureDTExec 将包作为数据工厂管道中的“执行 SSIS 包”活动运�
 
 在“AzureDTExecConfig”窗口中，按如下所示输入配置设置： 
 
-- **ApplicationId**：输入使用适当权限创建的 Azure AD 应用的唯一标识符，以在数据工厂中生成管道。 有关详细信息，请参阅[通过 Azure 门户创建 Azure AD 应用和服务主体](/active-directory/develop/howto-create-service-principal-portal)。
+- **ApplicationId**：输入使用适当权限创建的 Azure AD 应用的唯一标识符，以在数据工厂中生成管道。 有关详细信息，请参阅[通过 Azure 门户创建 Azure AD 应用和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)。
 - **AuthenticationKey**：输入 Azure AD 应用的身份验证密钥。
 - **TenantId**：输入在其下创建了 Azure AD 应用的 Azure AD 租户的唯一标识符。
 - **DataFactory**：输入数据工厂的名称，其中包含“执行 SSIS 包”活动的独特管道是基于调用 AzureDTExec 时提供的选项值生成的。
@@ -64,7 +64,7 @@ AzureDTExec 将包作为数据工厂管道中的“执行 SSIS 包”活动运�
 - **PackageAccessPassword**：输入密码凭据，以访问调用 AzureDTExec 时指定的 UNC 路径中的包。
 - **PackageAccessUserName**：输入用户名凭据，以访问调用 AzureDTExec 时指定的 UNC 路径中的包。
 
-若要将包和日志文件存储在本地的文件系统或文件共享中，请将 Azure-SSIS IR 加入到与本地网络连接的虚拟网络，使 IR 能够提取包并写入日志文件。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
+若要将包和日志文件存储在本地的文件系统或文件共享中，请将 Azure-SSIS IR 加入到与本地网络连接的虚拟网络，使 IR 能够提取包并写入日志文件。 有关详细信息，请参阅[将 Azure-SSIS IR 加入虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
 
 若要避免以纯文本显示写入 *AzureDTExec.settings* 的敏感值，请将其编码为 Base64 编码的字符串。 调用 AzureDTExec 时，所有 Base64 编码的字符串将解码回到原始值。 可以通过限制能够访问 *AzureDTExec* 文件的帐户来进一步保护该文件。
 
@@ -96,7 +96,7 @@ AzureDTExec 将包作为数据工厂管道中的“执行 SSIS 包”活动运�
 
 ## <a name="next-steps"></a>后续步骤
 
-在调用 AzureDTExec 时生成并运行包含“执行 SSIS 包”活动的唯一管道后，可以在数据工厂门户中监视这些管道。 如果要使用数据工厂来协调/计划这些管道，还可以向这些管道分配数据工厂触发器。 有关详细信息，请参阅[将 SSIS 包作为数据工厂活动运行](/data-factory/how-to-invoke-ssis-package-ssis-activity)。
+在调用 AzureDTExec 时生成并运行包含“执行 SSIS 包”活动的唯一管道后，可以在数据工厂门户中监视这些管道。 如果要使用数据工厂来协调/计划这些管道，还可以向这些管道分配数据工厂触发器。 有关详细信息，请参阅[将 SSIS 包作为数据工厂活动运行](./how-to-invoke-ssis-package-ssis-activity.md)。
 
 > [!WARNING]
 > 生成的管道预期仅由 AzureDTExec 使用。 其属性或参数将来可能会更改，因此请不要对其进行修改，或将其重复用于任何其他目的。 进行修改可能会破坏 AzureDTExec。 如果发生这种情况，请删除管道。 下一次调用 AzureDTExec 时，它会生成新的管道。

@@ -8,12 +8,12 @@ origin.date: 12/10/2018
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 985e5b2823674f8b333edd427ed27731ad748a19
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: aa24518653c7e5ec97777c9040355c8125148b6e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170746"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977091"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>教程：使用 Linux 上的 Azure 应用服务和 Azure Cosmos DB 生成 Java Spring Boot Web 应用
 
@@ -302,8 +302,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不需要将这些资源用于其他教程（请参阅[后续步骤](#next)），则可通过在 Azure CLI 中运行以下命令将其删除： 
-  
+如果不需要将这些资源用于其他教程（请参阅[后续步骤](#next)），则可通过在 Azure CLI 中运行以下命令将其删除： 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```
@@ -312,9 +312,9 @@ az group delete --name <your-azure-group-name>
 
 ## <a name="next-steps"></a>后续步骤
 
-[面向 Java 开发人员的 Azure](/java/)
+[面向 Java 开发人员的 Azure](https://docs.microsoft.com/java/)
 [Spring Boot](https://spring.io/projects/spring-boot)
-[Spring Data for Cosmos DB](/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)，[Azure Cosmos DB](../cosmos-db/introduction.md) 和 [Linux 版应用服务](overview.md)。
+[Spring Data for Cosmos DB](https://docs.microsoft.com/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)，[Azure Cosmos DB](../cosmos-db/introduction.md) 和 [Linux 版应用服务](overview.md)。
 
 在开发人员指南中详细了解在 Linux 上的应用服务中运行 Java 应用。
 

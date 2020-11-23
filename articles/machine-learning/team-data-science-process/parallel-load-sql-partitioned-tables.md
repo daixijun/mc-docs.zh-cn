@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c0df2b0a9ee2924d936e5629dcfd479563a50728
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 7aef3c1175930180e35979e40433716818809d13
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227889"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978301"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>生成并优化表以便快速将数据并行导入到 Azure VM 上的 SQL Server
 
-本文介绍如何构建分区表来快速将数据并行批量导入到 SQL Server 数据库。 若要将大型数据加载/传输到 SQL 数据库，可以通过使用*分区表和视图*加快将数据导入 SQL 数据库和后续查询的速度。 
+本文介绍如何构建分区表来快速将数据并行批量导入到 SQL Server 数据库。 若要将大型数据加载/传输到 SQL 数据库，可以通过使用 *分区表和视图* 加快将数据导入 SQL 数据库和后续查询的速度。 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>创建一个新数据库和一组文件组
-* [创建一个新数据库](https://technet.microsoft.com/library/ms176061.aspx)（如果不存在）。
+* [创建一个新数据库](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql)（如果不存在）。
 * 将数据库文件组添加到将保存已分区物理文件的数据库。 
-* 该操作可以通过 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx)（如果是新数据库）或通过 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)（如果数据库已存在）完成。
+* 该操作可以通过 [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql)（如果是新数据库）或通过 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)（如果数据库已存在）完成。
 * 向每个数据库文件组中添加一个或多个文件（根据需要）。
   
   > [!NOTE]
@@ -33,7 +33,7 @@ ms.locfileid: "88227889"
   > 
   > 
 
-下面的示例使用除主组和日志组以外的三个主文件组创建新数据库，每个文件组中包含一个物理文件。 在默认 SQL Server 数据文件夹中创建数据库文件，如 SQL Server 实例中所配置。 有关默认文件位置的详细信息，请参阅 [SQL Server 默认和已命名实例的文件位置](https://msdn.microsoft.com/library/ms143547.aspx)。
+下面的示例使用除主组和日志组以外的三个主文件组创建新数据库，每个文件组中包含一个物理文件。 在默认 SQL Server 数据文件夹中创建数据库文件，如 SQL Server 实例中所配置。 有关默认文件位置的详细信息，请参阅 [SQL Server 默认和已命名实例的文件位置](https://docs.microsoft.com/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server)。
 
 ```sql
    DECLARE @data_path nvarchar(256);
@@ -60,7 +60,7 @@ ms.locfileid: "88227889"
 若要根据映射到在上一步中创建的数据库文件组的数据架构创建分区表，必须先创建分区函数和方案。 将数据批量导入到分区表时，会根据分区方案在文件组之中分布记录，如下所述。
 
 ### <a name="1-create-a-partition-function"></a>1.创建分区函数
-[创建分区函数](https://msdn.microsoft.com/library/ms187802.aspx)此函数用于定义要包括在每个分区表中的值/边界范围，例如，按 2013 年的月份（某些 \_datetime\_ 字段）限制分区：
+[创建分区函数](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql)此函数用于定义要包括在每个分区表中的值/边界范围，例如，按 2013 年的月份（某些 \_datetime\_ 字段）限制分区：
   
 ```sql
    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -71,7 +71,7 @@ ms.locfileid: "88227889"
 ```
 
 ### <a name="2-create-a-partition-scheme"></a>2.创建分区方案
-[创建分区方案](https://msdn.microsoft.com/library/ms179854.aspx)。 此方案将分区函数中的每个分区范围映射到物理文件组，例如：
+[创建分区方案](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql)。 此方案将分区函数中的每个分区范围映射到物理文件组，例如：
   
 ```sql
       CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -94,19 +94,19 @@ ms.locfileid: "88227889"
 ```
 
 ### <a name="3-create-a-partition-table"></a>3.创建分区表
-[创建分区表](https://msdn.microsoft.com/library/ms174979.aspx)（根据数据架构），并指定用于对表进行分区的分区方案和约束字段，例如：
+[创建分区表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql)（根据数据架构），并指定用于对表进行分区的分区方案和约束字段，例如：
   
 ```sql
    CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 ```
 
-有关详细信息，请参阅[创建分区表和索引](https://msdn.microsoft.com/library/ms188730.aspx)。
+有关详细信息，请参阅[创建分区表和索引](https://docs.microsoft.com/sql/relational-databases/partitions/create-partitioned-tables-and-indexes)。
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>批量导入每个分区表的数据
 
 * 可以使用 BCP、BULK INSERT 或其他方法（如 [SQL Server 迁移向导](https://sqlazuremw.codeplex.com/)）。 提供的示例使用 BCP 方法。
-* [更改数据库](https://msdn.microsoft.com/library/bb522682.aspx)，以将事务日志记录方案更改为 BULK_LOGGED 以最大限度降低日志记录开销，例如：
+* [更改数据库](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)，以将事务日志记录方案更改为 BULK_LOGGED 以最大限度降低日志记录开销，例如：
   
    ```sql
       ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
@@ -180,7 +180,7 @@ ms.locfileid: "88227889"
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>创建索引以优化联接和查询性能
 * 如果从多个表中提取数据进行建模，请在联接键上创建索引来提高联接性能。
-* [创建索引](https://technet.microsoft.com/library/ms188783.aspx)（群集或非群集）为每个分区锁定相同文件组，例如：
+* [创建索引](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)（群集或非群集）为每个分区锁定相同文件组，例如：
   
 ```sql
    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )

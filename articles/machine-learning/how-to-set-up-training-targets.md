@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 180ed980c405a7f81342582b50eb81e7acae6e33
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 04dbb92b04687d55dc780cd6a1112179bad5728d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103932"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978308"
 ---
 # <a name="configure-and-submit-training-runs"></a>配置和提交训练运行
 
@@ -29,20 +29,20 @@ ms.locfileid: "93103932"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 
-* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
+* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * [Azure 机器学习工作区](how-to-manage-workspace.md) `ws`
 * 计算目标 `my_compute_target`。  [创建计算目标](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>什么是脚本运行配置？
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 用于配置在试验中提交训练运行所需的信息。
+[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 用于配置在试验中提交训练运行所需的信息。
 
 使用 ScriptRunConfig 对象提交训练实验。  此对象包含：
 
-* **source_directory** ：包含训练脚本的源目录
-* **script** ：要运行的训练脚本
-* **compute_target** ：要在其上运行的计算目标
-* **environment** ：运行脚本时要使用的环境
-* 一些其他的可配置选项（有关详细信息，请参阅[参考文档](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)）
+* **source_directory**：包含训练脚本的源目录
+* **script**：要运行的训练脚本
+* **compute_target**：要在其上运行的计算目标
+* **environment**：运行脚本时要使用的环境
+* 一些其他的可配置选项（有关详细信息，请参阅[参考文档](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)）
 
 ## <a name="train-your-model"></a><a id="submit"></a>训练模型
 
@@ -130,12 +130,12 @@ script_run_config.run_config.target = my_compute_target
 如果要替代允许用于运行的默认最长时间，可以通过 `max_run_duration_seconds`  参数来实现。 如果运行时间超过此值，系统会尝试自动取消运行。
 
 ### <a name="specify-a-distributed-job-configuration"></a>指定分布式作业配置
-如果要运行分布式训练作业，请为 `distributed_job_config` 参数提供分布式作业特定配置。 支持的配置类型包括 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true)、[TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) 和 [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)。 
+如果要运行分布式训练作业，请为 `distributed_job_config` 参数提供分布式作业特定配置。 支持的配置类型包括 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py)、[TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) 和 [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py)。 
 
 有关运行 Horovod、TensorFlow 和 PyTorch 分布式作业的详细信息和示例，请参阅：
 
-* [训练 TensorFlow 模型](/machine-learning/how-to-train-tensorflow#distributed-training)
-* [训练 PyTorch 模型](/machine-learning/how-to-train-pytorch#distributed-training)
+* [训练 TensorFlow 模型](./how-to-train-tensorflow.md#distributed-training)
+* [训练 PyTorch 模型](./how-to-train-pytorch.md#distributed-training)
 
 ## <a name="submit-the-experiment"></a>提交试验
 
@@ -179,5 +179,4 @@ run.wait_for_completion(show_output=True)
 * 了解如何使用特定的 ML 框架（如 [Scikit-learn](how-to-train-scikit-learn.md)、[TensorFlow](how-to-train-tensorflow.md) 和 [PyTorch](how-to-train-pytorch.md)）来训练模型。
 * 若要构建更好的模型，请了解如何[高效地优化超参数](how-to-tune-hyperparameters.md)。
 * 训练模型后，了解[如何以及在何处部署模型](how-to-deploy-and-where.md)。
-* 查看 [ScriptRunConfig 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) SDK 参考。
-* [通过 Azure 虚拟网络使用 Azure 机器学习](how-to-enable-virtual-network.md)
+* 查看 [ScriptRunConfig 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) SDK 参考。

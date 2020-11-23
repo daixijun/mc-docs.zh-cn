@@ -12,19 +12,19 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: f51f8870c3d41ad2c525658dcb8c6296f5efd2bc
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c9f725d77535cd5254c93b4ece2819e5d084ef0d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118604"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978208"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>使用 Azure 机器学习工作室（经典）Web 服务参数
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-发布包含可配置参数的模块的实验，创建 Azure 机器学习 Web 服务。 在某些情况下，当 Web 服务在运行时，可能会要更改模块行为。 *Web 服务参数*允许执行此任务。 
+发布包含可配置参数的模块的实验，创建 Azure 机器学习 Web 服务。 在某些情况下，当 Web 服务在运行时，可能会要更改模块行为。 *Web 服务参数* 允许执行此任务。 
 
 常见示例为设置[导入数据][reader]模块，以便 Web 服务受访问时，已发布的 Web 服务的用户能够指定不同的数据源。 或配置[导出数据][writer]模块以指定其他目标。 其他一些示例包括为[特征哈希][feature-hashing]模块更改位数或为[基于筛选器的功能选择][filter-based-feature-selection]模块更改所需功能数。 
 
@@ -42,7 +42,7 @@ ms.locfileid: "92118604"
 Web 服务的 API 文档包括向 Web 服务用户提供的有关访问 Web 服务时如何以编程方式指定 Web 服务参数的信息。
 
 > [!NOTE]
-> 经典 Web 服务的 API 文档通过机器学习工作室（经典）的 Web 服务“仪表板”**** 中的“API 帮助页”**** 链接提供。 新 Web 服务的 API 文档通过 Web 服务“使用”**** 和“Swagger API”**** 页上的 [Azure 机器学习 Web 服务](https://services.azureml.net/Quickstart)门户提供。
+> 经典 Web 服务的 API 文档通过机器学习工作室（经典）的 Web 服务“仪表板”中的“API 帮助页”链接提供。 新 Web 服务的 API 文档通过 Web 服务“使用”和“Swagger API”页上的 [Azure 机器学习 Web 服务](https://services.azureml.net/Quickstart)门户提供。
 > 
 > 
 
@@ -52,8 +52,8 @@ Web 服务的 API 文档包括向 Web 服务用户提供的有关访问 Web 服�
 1. 在机器学习工作室（经典）中，单击[导出数据][writer]模块，将其选中。 属性显示在实验画布右侧的“属性”窗格中。
 2. 指定存储类型：
    
-   * 在“请指定数据目标”**** 下，选择“Azure Blob 存储”。
-   * 在“请指定身份验证类型”**** 下，选择“帐户”。
+   * 在“请指定数据目标”下，选择“Azure Blob 存储”。
+   * 在“请指定身份验证类型”下，选择“帐户”。
    * 输入 Azure Blob 存储的帐户信息。 
 
 3.  单击 **指向以容器参数开头的 blob 的路径 右侧的图标**。 如下所示：
@@ -62,13 +62,13 @@ Web 服务的 API 文档包括向 Web 服务用户提供的有关访问 Web 服�
    
    选择“设为 Web 服务参数”。
    
-   “属性”窗格底部的“Web 服务参数”**** 下添加了名为“指向以容器参数开头的 blob 的路径”的条目。 这即是 Web 服务参数，此时已与此[导出数据][writer]模块参数关联。
-4. 要重命名 Web 服务参数，请单击名称、输入“Blob 路径”，并按“Enter”**** 键。 
-5. 要提供 Web 服务参数的默认值，请单击名称右侧的图标、选择“提供默认值”、输入值（例如“container1/output1.csv”），并按“Enter”**** 键。
+   “属性”窗格底部的“Web 服务参数”下添加了名为“指向以容器参数开头的 blob 的路径”的条目。 这即是 Web 服务参数，此时已与此[导出数据][writer]模块参数关联。
+4. 要重命名 Web 服务参数，请单击名称、输入“Blob 路径”，并按“Enter”键。 
+5. 要提供 Web 服务参数的默认值，请单击名称右侧的图标、选择“提供默认值”、输入值（例如“container1/output1.csv”），并按“Enter”键。
    
    ![Web 服务参数](./media/web-service-parameters/parameter.png)
 6. 单击 **“运行”** 。 
-7. 单击“部署 Web 服务”**** 时，并选择“部署 Web 服务[经典]”**** 或“部署 Web 服务[新]”****，部署 Web 服务。
+7. 单击“部署 Web 服务”时，并选择“部署 Web 服务[经典]”或“部署 Web 服务[新]”，部署 Web 服务。
 
 > [!NOTE] 
 > 若要部署新的 Web 服务，必须对要部署 Web 服务的订阅拥有充分的权限。 有关详细信息，请参阅[使用 Azure 机器学习 Web 服务门户管理 Web 服务](manage-new-webservice.md)。 
@@ -76,13 +76,12 @@ Web 服务的 API 文档包括向 Web 服务用户提供的有关访问 Web 服�
 访问 Web 服务时，Web 服务的用户现在可为[导出数据][writer]模块指定新目标。
 
 ## <a name="more-information"></a>详细信息
-有关更详细的示例，请参阅 [机器学习博客](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 中的 [Web 服务参数](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 条目。
+有关更详细的示例，请参阅 [机器学习博客](/archive/blogs/machinelearning/azureml-web-service-parameters) 中的 [Web 服务参数](https://docs.microsoft.com/archive/blogs/machinelearning/azureml-web-service-parameters) 条目。
 
 有关访问机器学习 Web 服务的详细信息，请参阅[如何使用 Azure 机器学习 Web 服务](consume-web-services.md)。
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
+[feature-hashing]: /machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[reader]: /machine-learning/studio-module-reference/import-data
+[writer]: /machine-learning/studio-module-reference/export-data

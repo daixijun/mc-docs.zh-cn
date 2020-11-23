@@ -4,15 +4,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 04/04/2020
-ms.date: 08/03/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 4be6962a022d5b6117253da5e0bf5d467c4394fd
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 25f06b5a102c4ffad90b9b0dce004a20d354114e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317554"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978760"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,7 +46,7 @@ print("Say something...")
 将此代码插入 `quickstart.py`。 请确保更新以下值：
 
 * 将 `"YourLanguageUnderstandingSubscriptionKey"` 替换为 LUIS 预测密钥。
-* 将 `"YourLanguageUnderstandingServiceRegion"` 替换为 LUIS 位置。 使用[区域](https://docs.azure.cn/cognitive-services/speech-service/regions)中的“区域标识符”
+* 将 `"YourLanguageUnderstandingServiceRegion"` 替换为 LUIS 位置。 使用[区域](../../../../regions.md)中的“区域标识符”
 
 >[!TIP]
 > 如果需要帮助查找这些值，请参阅[创建 LUIS 应用以进行意向识别](#create-a-luis-app-for-intent-recognition)。

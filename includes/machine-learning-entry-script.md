@@ -6,14 +6,14 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: b165f6cbec1f03b92075a11fc86833eab5b88de5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: b12ac01f03fd480a654438f0c8cd2365b4a42dc4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118158"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978180"
 ---
-入口脚本接收提交到已部署 Web 服务的数据，并将此数据传递给模型。 然后，该脚本接收模型返回的响应，并将该响应返回给客户端。 该脚本特定于你的模型  。 它必须能够识别模型需要和返回的数据。
+入口脚本接收提交到已部署 Web 服务的数据，并将此数据传递给模型。 然后，该脚本接收模型返回的响应，并将该响应返回给客户端。 该脚本特定于你的模型。 它必须能够识别模型需要和返回的数据。
 
 需要在入口脚本中完成以下两项操作：
 
@@ -49,7 +49,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### <a name="writing-run"></a>编写 run()
+### <a name="writing-run"></a>编写 run()
 
 `run()` 在模型每次收到评分请求时执行，并预期请求的正文是一个结构如下的 JSON 文档：
 

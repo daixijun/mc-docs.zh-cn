@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3ab48c03338881e4438fd1c7a5de878f71caae06
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 45232915eeabc9acaf712bba78d04b19f0d197e3
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105882"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977506"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>自动化机器学习中的特征化
 
@@ -45,7 +45,7 @@ ms.locfileid: "93105882"
 
 对于使用 Python SDK 配置的试验，你可以启用或禁用特征化设置，并进一步指定要用于试验的特征化步骤。 如果使用的是 Azure 机器学习工作室，请参阅[启用特征化的步骤](how-to-use-automated-ml-for-ml-models.md#customize-featurization)。
 
-下表列出了 [AutoMLConfig 类](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)中 `featurization` 的已接受设置：
+下表列出了 [AutoMLConfig 类](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)中 `featurization` 的已接受设置：
 
 |特征化配置 | 说明|
 ------------- | ------------- |
@@ -80,8 +80,8 @@ ms.locfileid: "93105882"
 
 数据护栏适用于：
 
-- **对于 SDK 试验** ：当在 `AutoMLConfig` 对象中指定了参数 `"featurization": 'auto'` 或 `validation=auto` 时。
-- **对于工作室试验** ：当启用了自动特征化时。
+- **对于 SDK 试验**：当在 `AutoMLConfig` 对象中指定了参数 `"featurization": 'auto'` 或 `validation=auto` 时。
+- **对于工作室试验**：当启用了自动特征化时。
 
 可通过以下方式查看试验的数据护栏：
 
@@ -105,12 +105,12 @@ ms.locfileid: "93105882"
 
 护栏|状态|触发器的条件&nbsp;&nbsp;
 ---|---|---
-插补缺少的特征值 |Passed <br><br><br> 完成| 在训练数据中未检测到缺失特征值。 详细了解[缺失值插补。](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> 在训练数据中检测到缺失特征值并进行了插补。
+插补缺少的特征值 |Passed <br><br><br> 完成| 在训练数据中未检测到缺失特征值。 详细了解[缺失值插补。](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> 在训练数据中检测到缺失特征值并进行了插补。
 高基数特征处理 |Passed <br><br><br> 完成| 已分析输入，但未检测到任何高基数特征。 <br><br> 在输入中检测到了高基数特征，并进行了处理。
-验证拆分处理 |完成| 已将验证配置设置为 `'auto'`，并且训练数据包含的行少于 20,000 行。 <br> 已使用交叉验证来验证经过训练的模型的每个迭代。 详细了解[验证数据](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data)。 <br><br> 已将验证配置设置为 `'auto'`，并且训练数据包含的行多于 20,000 行。 <br> 输入数据已被拆分成训练数据集和验证数据集，以用于验证模型。
-类均衡检测 |Passed <br><br><br><br>收到警报 <br><br><br>完成 | 输入已经过分析，训练数据中的所有类都是均衡的。 如果某个数据集中每个类都有良好的表示形式（按样本的数量和比率进行度量），则将该数据集视为均衡的数据集。 <br><br> 在输入中检测到了不均衡类。 若要修复模型偏差，请解决均衡问题。 详细了解[不均衡数据](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)。<br><br> 在输入中检测到不均衡类，并且扫描逻辑已确定要应用均衡。
-内存问题检测 |Passed <br><br><br><br> 完成 |<br> 已分析了选定的值（范围、滞后、滚动窗口），但未检测到潜在的内存不足问题。 详细了解时序[预测配置](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)。 <br><br><br>已分析了选定的值（范围、滞后、滚动窗口），可能会导致你的试验遇到内存不足问题。 滞后或滚动窗口配置已关闭。
-频率检测 |Passed <br><br><br><br> 完成 |<br> 已分析了时序，所有数据点都与检测到的频率保持一致。 <br> <br> 已分析时序，检测到了与已检测到的频率不一致的数据点。 这些数据点已从数据集中删除。 详细了解[时序预测的数据准备](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)。
+验证拆分处理 |完成| 已将验证配置设置为 `'auto'`，并且训练数据包含的行少于 20,000 行。 <br> 已使用交叉验证来验证经过训练的模型的每个迭代。 详细了解[验证数据](./how-to-configure-auto-train.md#training-validation-and-test-data)。 <br><br> 已将验证配置设置为 `'auto'`，并且训练数据包含的行多于 20,000 行。 <br> 输入数据已被拆分成训练数据集和验证数据集，以用于验证模型。
+类均衡检测 |Passed <br><br><br><br>收到警报 <br><br><br>完成 | 输入已经过分析，训练数据中的所有类都是均衡的。 如果某个数据集中每个类都有良好的表示形式（按样本的数量和比率进行度量），则将该数据集视为均衡的数据集。 <br><br> 在输入中检测到了不均衡类。 若要修复模型偏差，请解决均衡问题。 详细了解[不均衡数据](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)。<br><br> 在输入中检测到不均衡类，并且扫描逻辑已确定要应用均衡。
+内存问题检测 |Passed <br><br><br><br> 完成 |<br> 已分析了选定的值（范围、滞后、滚动窗口），但未检测到潜在的内存不足问题。 详细了解时序[预测配置](./how-to-auto-train-forecast.md#configuration-settings)。 <br><br><br>已分析了选定的值（范围、滞后、滚动窗口），可能会导致你的试验遇到内存不足问题。 滞后或滚动窗口配置已关闭。
+频率检测 |Passed <br><br><br><br> 完成 |<br> 已分析了时序，所有数据点都与检测到的频率保持一致。 <br> <br> 已分析时序，检测到了与已检测到的频率不一致的数据点。 这些数据点已从数据集中删除。 详细了解[时序预测的数据准备](./how-to-auto-train-forecast.md#preparing-data)。
 
 ## <a name="customize-featurization"></a>自定义特征化
 
@@ -318,7 +318,7 @@ AutoML 会为 BERT 执行以下步骤。
 
 1. 所有文本列的预处理和标记化。 例如，可以在最终模型的特征化摘要中找到“StringCast”转换器。 [此笔记本](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)中提供了一个有关如何生成模型的特征化摘要的示例。
 
-2. **将所有文本列连接到单个文本列中** ，因此在最终模型中会调用 `StringConcatTransformer`。 
+2. **将所有文本列连接到单个文本列中**，因此在最终模型中会调用 `StringConcatTransformer`。 
 
     我们实现的 BERT 将训练示例的总文本长度限制为 128 个标记。 这意味着，当已连接时，所有文本列在理想情况下的长度最多应为 128 个标记。 如果存在多个列，则应修剪每个列，使此条件得到满足。 否则，对于长度大于 128 个标记的已连接列，BERT 的 tokenizer 层会将此输入截断为 128 个标记。
 

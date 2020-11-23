@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31a6a7a8260019fb9915f4d562fccc3d02712086
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 5746635aee4dd851620365c25057412295747cd5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228503"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978241"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>在 Azure 上处理 SQL Server 虚拟机中的数据
 本文档介绍如何浏览数据，并针对存储在 Azure 的 SQL Server VM 中的数据生成功能。 可通过使用 SQL 或 Python 等编程语言的数据整理来完成此目标。
@@ -98,7 +98,7 @@ SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <
 * 第五位小数值达 1.1 m：可将树与树区分开。 可通过差异更正获得该级别的、商用 GPS 计价单位的准确性。
 * 第六个小数位值达 0.11 m：可用于详细布局结构、设计景观和修建道路等。 对于追踪冰川和河流的运动，它是不二之选。 可通过差异更正 GPS 等获得以上数值。
 
-位置信息还具有以下特征：分离地区、位置和城市信息。 也可以调用[按点查找位置](https://msdn.microsoft.com/library/ff701710.aspx)上提供的 REST 终结点（如必应地图 API）来获取区域/地区信息。
+位置信息还具有以下特征：分离地区、位置和城市信息。 也可以调用[按点查找位置](https://docs.microsoft.com/bingmaps/rest-services/locations/find-a-location-by-point)上提供的 REST 终结点（如必应地图 API）来获取区域/地区信息。
 
 ```sql
 select 
@@ -116,7 +116,7 @@ from <tablename>
 如前面所述：可以进一步使用上述基于位置的功能来生成其他计数功能。 
 
 > [!TIP]
-> 可以使用设定语言，以编程方式插入记录。 可能需要以块形式插入数据以提高写入效率（有关如何使用 pyodbc 执行此操作的示例，请参阅[使用 python 访问 SQLServer 的 HelloWorld 示例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)）。 另一种方法是使用 [BCP 实用工具](https://msdn.microsoft.com/library/ms162802.aspx)将数据插入数据库中。
+> 可以使用设定语言，以编程方式插入记录。 可能需要以块形式插入数据以提高写入效率（有关如何使用 pyodbc 执行此操作的示例，请参阅[使用 python 访问 SQLServer 的 HelloWorld 示例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)）。 另一种方法是使用 [BCP 实用工具](https://docs.microsoft.com/sql/tools/bcp-utility)将数据插入数据库中。
 > 
 > 
 
@@ -152,5 +152,4 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
+[import-data]: /machine-learning/studio-module-reference/import-data

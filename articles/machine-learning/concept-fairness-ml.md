@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 5ccb0587d3b71876d92ddaa2d41dba2494ad0ab7
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 96cbb74220761f0bb9dd6ceafafeb9040c261ecc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021357"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978035"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>提高机器学习模型中的公平性（预览版）
 
 了解机器学习中的公平性以及 [Fairlearn](https://fairlearn.github.io/) 开源 Python 包如何帮助你减少机器学习模型中的公平性问题。 如果不努力了解公平性问题以及如何在构建机器学习模型时评估公平性，那么你构建的模型可能会产生不公平的结果。
 
-Fairlearn 开源包[用户指南](https://fairlearn.github.io/user_guide/index.html)的以下摘要介绍了如何使用它来评估正在构建的 AI 系统的公平性。  Fairlearn 开源包还可以提供一些选项，以帮助缓解或减少你观察到的任何公平性问题。  请参阅[操作方法](how-to-machine-learning-fairness-aml.md)和[示例笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)，以便在有关 Azure 机器学习的训练期间启用 AI 系统的公平性评估。
+Fairlearn 开源包[用户指南](https://fairlearn.github.io/master/user_guide/index.html)的以下摘要介绍了如何使用它来评估正在构建的 AI 系统的公平性。  Fairlearn 开源包还可以提供一些选项，以帮助缓解或减少你观察到的任何公平性问题。  请参阅[操作方法](how-to-machine-learning-fairness-aml.md)和[示例笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness)，以便在有关 Azure 机器学习的训练期间启用 AI 系统的公平性评估。
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>什么是机器学习模型中的公平性？
@@ -52,14 +52,14 @@ Fairlearn 开源包有两个组件：
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>评估机器学习模型中的公平性
 
-在 Fairlearn 开源包中，公平性通过一种称为“群体公平性”的方法进行概念化，该方法会询问以下问题：哪些群体有遭受损害的风险？ 相关群体（也称为亚群体）是通过**敏感特征**或敏感特性定义的。 敏感特征作为名为 `sensitive_features` 的矢量或矩阵传递给 Fairlearn 开源包中的估算器。 此术语的意思是，系统设计者在评估群体公平性时应该对这些特征敏感。 
+在 Fairlearn 开源包中，公平性通过一种称为“群体公平性”的方法进行概念化，该方法会询问以下问题：哪些群体有遭受损害的风险？ 相关群体（也称为亚群体）是通过 **敏感特征** 或敏感特性定义的。 敏感特征作为名为 `sensitive_features` 的矢量或矩阵传递给 Fairlearn 开源包中的估算器。 此术语的意思是，系统设计者在评估群体公平性时应该对这些特征敏感。 
 
 需要注意的是，这些特征是否包含由于私有数据而产生的隐私影响。 但是“敏感”并不意味着这些特征不应被用来进行预测。
 
 >[!NOTE]
 > 公平性评估并非纯粹的技术练习。  Fairlearn 开源包可帮助你评估模型的公平性，但不会为你执行评估。  Fairlearn 开源包会帮助识别量化指标以评估公平性，但开发人员还必须执行定性分析来评估其自己的模型的公平性。  上面所述的敏感特征是此类定性分析的一个示例。     
 
-在评估阶段，将通过差异指标对公平性进行量化。 **差异指标**能够以比率或差值的形式评估并比较模型在不同群体中的行为。 Fairlearn 开源包支持两类差异指标：
+在评估阶段，将通过差异指标对公平性进行量化。 **差异指标** 能够以比率或差值的形式评估并比较模型在不同群体中的行为。 Fairlearn 开源包支持两类差异指标：
 
 
 - 模型性能差异：这些指标集计算所选性能指标的值在不同子群体之间的差异。 示例包括：
@@ -77,7 +77,7 @@ Fairlearn 开源包有两个组件：
 
 ### <a name="parity-constraints"></a>奇偶校验约束
 
-Fairlearn 开源包包括了各种不公平性缓解算法。 这些算法支持对预测器行为的一组约束（称为**奇偶校验约束**或条件）。 奇偶校验约束要求预测器行为的某些方面在敏感特征所定义的群体（例如不同的种族）之间具有可比性。 Fairlearn 开源包中的缓解算法使用此类奇偶校验约束来缓解所观察到的公平性问题。
+Fairlearn 开源包包括了各种不公平性缓解算法。 这些算法支持对预测器行为的一组约束（称为 **奇偶校验约束** 或条件）。 奇偶校验约束要求预测器行为的某些方面在敏感特征所定义的群体（例如不同的种族）之间具有可比性。 Fairlearn 开源包中的缓解算法使用此类奇偶校验约束来缓解所观察到的公平性问题。
 
 >[!NOTE]
 > 缓解模型中的不公平性意味着降低不公平性，但这种技术上的缓解无法完全消除此不公平性。  Fairlearn 开源包中的不公平性缓解算法可提供建议的缓解策略，以帮助减少机器学习模型中的不公平性，但它们并不是用来完全消除不公平性的解决方案。  每个特定开发人员的机器学习模型可能还有其他应考虑的奇偶校验约束或条件。 使用 Azure 机器学习的开发人员必须自行确定，缓解措施是否充分消除其机器学习模型的预期使用和部署中的任何不公平性。  

@@ -3,14 +3,14 @@ title: 使用 Azure Policy 在创建 VM 时自动启用备份
 description: 本文介绍如何使用 Azure Policy 为在给定范围内创建的所有 VM 自动启用备份
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 0bab76d8a7f355ffc08f52a749599dec5fcae3d6
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: e4ce2bb06c5df7798a288836c62c7f70af6efa9f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402453"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977192"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>使用 Azure Policy 在创建 VM 时自动启用备份
 
@@ -30,6 +30,7 @@ ms.locfileid: "91402453"
 
 * 内置策略当前在国家/地区云中不可用。
 
+<!--Not available in MC: backup-center.md-->
 ## <a name="using-the-built-in-policy"></a>使用内置策略
 
 若要将策略分配到所需的范围，请执行以下步骤：

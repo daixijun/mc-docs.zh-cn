@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 06/29/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5b3ad023da2bf4948983436db05d47aa3d1e2b09
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 8d091e15f424c02b726eb39f85823fb1fba930ad
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246712"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978225"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>适用于虚拟 WAN 合作伙伴的自动化指南
 

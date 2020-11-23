@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16f11b0e2e5a1c2e388b522bb9aeb8dec551dc05
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 64a86588d55b5e5aee30a3e00040706f417ec638
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118110"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978170"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何规定高级分析数据处理的方案和计划
 
@@ -149,7 +149,7 @@ ms.locfileid: "92118110"
 * [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
+* [Python Tools for Visual Studio](https://docs.microsoft.com/visualstudio/python/)
 * [Anaconda](https://www.anaconda.com/)
 * [Jupyter 笔记本](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

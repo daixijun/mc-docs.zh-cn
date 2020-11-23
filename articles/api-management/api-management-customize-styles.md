@@ -1,26 +1,26 @@
 ---
-title: 在 Azure API 管理旧版开发人员门户中自定义页面样式 | Microsoft Docs
+title: 在 API 管理旧版开发人员门户中自定义页面样式
+titleSuffix: Azure API Management
 description: 遵循本快速入门中的步骤，在 Azure API 管理开发人员门户中自定义元素的样式。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 origin.date: 11/04/2019
-ms.date: 11/18/2019
-ms.author: v-yiso
-ms.openlocfilehash: 73255c8c7612b7c817a7b1f84cd6de4451751fac
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: c8c9c8852a26eefd0158b0c18c42da1a87357d0b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73831463"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977278"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -32,7 +32,7 @@ ms.locfileid: "73831463"
 
 本文介绍如何自定义旧版开发人员门户页面上元素的样式并查看更改  。
 
-![自定义样式](./media/modify-developer-portal-style/developer_portal.png)
+![显示在旧版开发人员门户中更改设置的位置的屏幕截图。](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -50,12 +50,10 @@ ms.locfileid: "73831463"
 2. 单击“概述”窗口顶部的“开发人员门户(旧版)”按钮   。
 3. 在屏幕的左上方，可以看到由两支画笔构成的图标。 将鼠标悬停在此图标上，打开门户自定义菜单。
 
-    ![自定义样式](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
-    
+    ![突出显示了由两支画笔构成的图标的屏幕截图。](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. 从菜单中选择“样式”，打开样式自定义窗格。 
 
     可以使用“样式”自定义的所有元素都显示在该页面上 
-    
 5. 在“更改变量值以自定义开发人员门户外观:”字段中输入“headings-color”。 
 
     **\@headings-color** 元素将显示在页面上。 此变量控制文本的颜色。
@@ -65,7 +63,6 @@ ms.locfileid: "73831463"
 6. 单击 **\@headings-color** 变量对应的字段。 
     
     此时会打开颜色选取器下拉列表。
-    
 7. 从颜色选取器下拉列表中选择一种新颜色。
 
     > [!TIP]
@@ -82,3 +79,4 @@ ms.locfileid: "73831463"
 ## <a name="next-steps"></a>后续步骤
 
 你还可能希望了解[如何使用模板自定义 Azure API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

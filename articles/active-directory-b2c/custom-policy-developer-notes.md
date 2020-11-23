@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 11/16/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c7b5c95a2daa96e03c866feb0d7d91743f22bac3
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 5f2d64a38a1de56361b713391549e0f94b472de7
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326454"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849252"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -108,16 +108,6 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 | [显示控件](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>页面布局版本
-
-| 功能 | 开发 | 预览 | GA | 注释 |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript 支持](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>App-IEF 集成
 
 | 功能 | 开发 | 预览 | GA | 注释 |
@@ -130,7 +120,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="session-management"></a>会话管理
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [默认 SSO 会话提供程序](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [外部登录会话提供程序](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -148,7 +138,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="developer-interface"></a>开发人员接口
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure 门户-IEF UX |  |  | X |  |
 | 策略上传 |  |  | X |  |

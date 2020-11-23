@@ -5,19 +5,19 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b3e903f185f9ba97b873161a38d19ef7d190f13f
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: c74305953905f44b5c60f8b1c98bf651a7afee54
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721099"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849465"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 
-应用程序网关用于管理和保护传入你维护的服务器的 Web 流量。 可以使用 Azure PowerShell 创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)以管理 Web 流量。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
+应用程序网关用于管理和保护传入你维护的服务器的 Web 流量。 可以使用 Azure PowerShell 创建使用[虚拟机规模集](../virtual-machine-scale-sets/overview.md)作为后端服务器的[应用程序网关](overview.md)以管理 Web 流量。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
 
 在本文中，学习如何：
 

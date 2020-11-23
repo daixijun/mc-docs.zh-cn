@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 83d085ef9dda3e9f996cff0e4316b7d7a0e12e83
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: f836af46c4c89226087844794b22e9c6c7a7db1a
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647575"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849363"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>教程：通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时，可以使用 Azure 门户配置[基于 URL 路径的路由规则](application-gateway-url-route-overview.md)。 本教程中使用虚拟机创建后端池。 然后创建路由规则，以确保 Web 流量到达池中的相应服务器。
+创建[应用程序网关](./overview.md)时，可以使用 Azure 门户配置[基于 URL 路径的路由规则](./url-route-overview.md)。 本教程中使用虚拟机创建后端池。 然后创建路由规则，以确保 Web 流量到达池中的相应服务器。
 
 在本文中，学习如何：
 
@@ -120,7 +120,7 @@ ms.locfileid: "88647575"
 1. 在“前端”选项卡上，验证“IP 地址类型”是否设置为“公共”    。
 
    > [!NOTE]
-   > 对于应用程序网关 v2 SKU，只能选择**公共**前端 IP 配置。 目前尚未为此 v2 SKU 启用专用前端 IP 配置。
+   > 对于应用程序网关 v2 SKU，只能选择 **公共** 前端 IP 配置。 目前尚未为此 v2 SKU 启用专用前端 IP 配置。
 
 2. 为“公共 IP 地址”选择“新建”，输入“myAGPublicIPAddress”作为公共 IP 地址名称，然后选择“确定”     。 
 3. 在完成时选择“下一步:**后端**。
@@ -213,5 +213,5 @@ ms.locfileid: "88647575"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [在 Azure 应用程序网关上启用端到端 TLS](application-gateway-backend-ssl.md)
+> [在 Azure 应用程序网关上启用端到端 TLS](./ssl-overview.md)
 

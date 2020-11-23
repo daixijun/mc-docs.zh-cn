@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/25/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: 7cf533766a313a226c8c81d6a2803c0c69462d0c
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/23/2020
+ms.openlocfilehash: 660bfaa82fbf0c0200cd464cf48ec76c1872dc98
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680359"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,8 +54,8 @@ ms.locfileid: "92121730"
 |----------------|------------|  
 |"\@pipeline().parameters.myString"| 返回字符串形式的 `foo`。|  
 |"\@{pipeline().parameters.myString}"| 返回字符串形式的 `foo`。|  
-|"\@pipeline().parameters.myNumber"| 返回*数字*形式的 `42`。|  
-|"\@{pipeline().parameters.myNumber}"| 返回*字符串*形式的 `42`。|  
+|"\@pipeline().parameters.myNumber"| 返回 *数字* 形式的 `42`。|  
+|"\@{pipeline().parameters.myNumber}"| 返回 *字符串* 形式的 `42`。|  
 |"Answer is: @{pipeline().parameters.myNumber}"| 返回字符串 `Answer is: 42`。|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 返回字符串 `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| 返回字符串 `Answer is: @{pipeline().parameters.myNumber}`。|  
@@ -92,7 +92,7 @@ ms.locfileid: "92121730"
 ```
 
 ### <a name="a-pipeline-with-a-parameter"></a>使用参数的管道
-在以下示例中，管道采用 **inputPath** 和 **outputPath** 参数。 参数化 blob 数据集的**路径**使用这些参数的值进行设置。 此处使用的语法是：`pipeline().parameters.parametername`。 
+在以下示例中，管道采用 **inputPath** 和 **outputPath** 参数。 参数化 blob 数据集的 **路径** 使用这些参数的值进行设置。 此处使用的语法是：`pipeline().parameters.parametername`。 
 
 ```json
 {
@@ -240,7 +240,7 @@ ms.locfileid: "92121730"
 | [xpath](control-flow-expression-language-functions.md#xpath) | 检查 XML 中是否存在与 XPath（XML 路径语言）表达式匹配的节点或值，并返回匹配的节点或值。 |
 
 ## <a name="math-functions"></a>数学函数  
- 这些函数可用于以下任一数字类型：**整数**和**浮点数**。  
+ 这些函数可用于以下任一数字类型：**整数** 和 **浮点数**。  
 
 | 数学函数 | 任务 |
 | ------------- | ---- |
@@ -1781,7 +1781,7 @@ guid('<format>')
 
 | 参数 | 必须 | 类型 | 说明 |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | 否 | String | 表示返回的 GUID 的单一[格式说明符](https://msdn.microsoft.com/library/97af8hh4)。 默认情况下，格式为“D”，但可以使用“N”、“D”、“B”、“P”或“X”。 |
+| <*format*> | 否 | String | 表示返回的 GUID 的单一[格式说明符](https://docs.microsoft.com/dotnet/api/system.guid.tostring)。 默认情况下，格式为“D”，但可以使用“N”、“D”、“B”、“P”或“X”。 |
 |||||
 
 | 返回值 | 类型 | 说明 |

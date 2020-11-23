@@ -4,14 +4,14 @@ description: 本文介绍如何使用 Azure 备份从恢复服务保管库备份
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/11/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 36600d25046ba142afa22bc5cb08e0f08eb9d3b8
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: db64f43d6d49c942a402e48afcaa6a9d6b1bc53b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871457"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977395"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>从恢复服务保管库备份多个 SQL Server VM
 
@@ -28,7 +28,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 > * 为数据库设置自动保护。
 
 >[!NOTE]
->**针对 Azure VM 中 SQL 服务器的软删除以及针对 Azure VM 工作负荷中 SAP HANA 的软删除**现已推出预览版。<br>
+>**针对 Azure VM 中 SQL 服务器的软删除以及针对 Azure VM 工作负荷中 SAP HANA 的软删除** 现已推出预览版。<br>
+>若要注册预览版，请向 AskAzureBackupTeam@microsoft.com 发送邮件
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -51,7 +52,7 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 | **选项**                        | **优点**                                               | **缺点**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 专用终结点                 | 允许通过虚拟网络中的专用 IP 进行备份  <br><br>   提供网络和保管库端的精细控制 | 产生标准专用终结点成本|
+| 专用终结点                 | 允许通过虚拟网络中的专用 IP 进行备份  <br><br>   提供网络和保管库端的精细控制 | 产生标准专用终结点[开销](https://www.azure.cn/pricing/details/private-link/) |
 | NSG 服务标记                  | 由于范围更改会自动合并，因此管理变得更容易   <br><br>   无额外成本 | 只可用于 NSG  <br><br>    提供对整个服务的访问 |
 | Azure 防火墙 FQDN 标记          | 自动管理必需的 FQDN，因此更易于管理 | 只可用于 Azure 防火墙                         |
 | 允许访问服务 FQDN/IP | 无额外成本   <br><br>  适用于所有网络安全设备和防火墙 | 可能需要访问一组广泛的 IP 或 FQDN   |
@@ -65,13 +66,13 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 #### <a name="nsg-tags"></a>NSG 标记
 
-如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/security-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。  以下步骤介绍了为 Azure 备份标记创建规则的过程：
+如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/network-security-groups-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。  以下步骤介绍了为 Azure 备份标记创建规则的过程：
 
-1. 在“所有服务”中，转到“网络安全组”并选择网络安全组。 
+1. 在“所有服务”中转到“网络安全组”，然后选择“网络安全组”。
 
-1. 在“设置”下选择“出站安全规则”。 
+1. 在“设置”下选择“出站安全规则”。
 
-1. 选择“添加”  。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
+1. 选择 **添加** 。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
 
 1. 选择“添加”，保存新创建的出站安全规则。
 
@@ -256,7 +257,7 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 1. 完成备份策略的编辑后，选择“确定”。 
 
 > [!NOTE]
-> 每个日志备份都链接到上一个完整备份，以形成恢复链。 此完整备份将一直保留到最后一个日志备份的保留期结束为止。 这可能意味着完整备份会保留一段额外的时间，以确保所有日志都可以恢复。 假设你有每周完整备份、每日差异备份和 2 小时日志备份。 所有这些备份都将保留 30 天。 但是，只有在下一个完整备份可用后（即 30 + 7 天后），才能真正清除/删除这个每周完整备份。 例如，每周完整备份在 11 月 16 日执行。 根据保留策略，它应保留到 12 月 16 日。 该完整备份的最后一次日志备份发生在下一次计划的完整备份之前，即 11 月 22 日。 必须等到 12 月 22 日此日志备份可用后，才能删除 11 月 16 日的完整备份。 因此，11 月 16 日的完整备份会保留到 12 月 22 日。
+> 每个日志备份都链接到上一个完整备份，以形成恢复链。 此完整备份将一直保留到最后一个日志备份的保留期结束为止。 这可能意味着完整备份会保留一段额外的时间，以确保所有日志都可以恢复。 假设你有每周完整备份、每日差异备份和 2 小时日志备份。 所有这些备份都将保留 30 天。 但是，只有在下一个完整备份可用后（即 30 + 7 天后），才能真正清除/删除这个每周完整备份。 例如，每周完整备份在 11 月 16 日执行。 根据保留策略，它应保留到 12 月 16 日。 该完整备份的最后一次日志备份发生在下一次计划的完整备份之前，即 11 月 22 日。 必须等到 12 月 22 日此日志备份可用后，才能删除 11 月 16 日的完整备份。 因此，11 月 16 日的完整备份将保留到 12 月 22 日。
 
 ## <a name="enable-auto-protection"></a>启用自动保护  
 

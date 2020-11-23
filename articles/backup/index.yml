@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: Johnnytechn
   ms.author: v-johya
-  ms.date: 09/28/2020
-  ms.openlocfilehash: 2c38673b080f0a57a899e46c125c42b5efc21a7d
-  ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+  ms.date: 11/17/2020
+  ms.openlocfilehash: 238eb6c80596ad86daf0f33f77ba9a3870c1a633
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91871298"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94977728"
 landingContent:
 - title: 了解 Azure 备份
   linkLists:
@@ -56,6 +56,12 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 适用于 Azure VM 的选择性磁盘备份和还原
+      url: selective-disk-backup-restore.md
+    - text: Azure VM 上 SQL Server 数据库的跨区域还原
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: 支持备份最多包含 32 个磁盘的 VM
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Azure 备份的软删除
       url: backup-azure-security-feature-cloud.md
     - text: 将 Azure VM 上的 SQL Server 还原为文件

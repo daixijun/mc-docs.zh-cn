@@ -3,18 +3,18 @@ title: Azure 资源管理器的内置策略定义
 description: 列出 Azure 资源管理器的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
 origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.testscope: yes|no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 17c374defa9e7175a4c563909ae84654a83515e5
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: d83c3a15b7e4d9d3362fc7ca192b550c4d3ce087
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469964"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915114"
 ---
 <!--Verified successfully-->
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Azure 资源管理器的 Azure Policy 内置定义
@@ -23,7 +23,7 @@ ms.locfileid: "92469964"
 
 每个内置策略定义链接（指向 Azure 门户中的策略定义）的名称。 使用“版本”列中的链接查看 [Azure Policy GitHub 存储库](https://github.com/Azure/azure-policy)上的源。
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 资源管理器
 
 [!INCLUDE [azure-policy-reference-rp-arm](../../../includes/policy/reference/byrp/microsoft.resources.md)]
 

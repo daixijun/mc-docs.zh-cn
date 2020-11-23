@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5997248b7332523ccad92036864173a0275e01f0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7573bea735d3c8b887cf67c923a17286deacdc2d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103760"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977633"
 ---
 <!--Verified Successfully-->
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>将跨租户 VNet 连接到某个虚拟 WAN 中心
@@ -58,7 +58,7 @@ ms.locfileid: "93103760"
 1. 接下来，将远程租户订阅和父租户订阅添加到 PowerShell 的当前会话。 运行以下命令。 如果你已登录到父租户，则只需针对远程租户运行此命令。
 
     ```powershell
-    Add-AzAccount -Environment AzureChinaCloud "xxxxx-b34a-4df9-9451-4402dcaecc5b"
+    Add-AzAccount -Environment AzureChinaCloud -SubscriptionId "xxxxx-b34a-4df9-9451-4402dcaecc5b"
     ```
 
 1. 验证角色分配是否成功，方法是使用父凭据登录 Azure PowerShell 并运行以下命令：
@@ -116,5 +116,4 @@ ms.locfileid: "93103760"
 
 * 虚拟 WAN [常见问题解答](virtual-wan-faq.md)
 
-<!-- Update_Description: new article about cross tenant vnet -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

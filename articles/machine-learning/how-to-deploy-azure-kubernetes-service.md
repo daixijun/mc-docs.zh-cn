@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: faee12f33dae6be1894829882ff09f7745e21ed9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 54614f66a9161f03f58f9879b88aba1694a88daa
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118151"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978177"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>将模型部署到 Azure Kubernetes 服务群集
 
@@ -31,7 +31,7 @@ ms.locfileid: "92118151"
 - __TLS 终止__
 - 硬件加速选项，例如 GPU 和现场可编程门阵列 (FPGA)
 
-部署到 Azure Kubernetes 服务时，将部署到连接到工作区的 AKS 群集____。 有关将 AKS 群集连接到工作区的信息，请参阅[创建并附加 Azure Kubernetes 服务群集](how-to-create-attach-kubernetes.md)。
+部署到 Azure Kubernetes 服务时，将部署到连接到工作区的 AKS 群集。 有关将 AKS 群集连接到工作区的信息，请参阅[创建并附加 Azure Kubernetes 服务群集](how-to-create-attach-kubernetes.md)。
 
 > [!IMPORTANT]
 > 建议在部署到 Web 服务之前先进行本地调试。有关详细信息，请参阅[本地调试](/machine-learning/how-to-troubleshoot-deployment#debug-locally)
@@ -44,9 +44,9 @@ ms.locfileid: "92118151"
 
 - 工作区中注册的机器学习模型。 如果尚未注册模型，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
-- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
-- 本文中的 Python 代码片段假设设置了以下变量____：
+- 本文中的 Python 代码片段假设设置了以下变量：
 
     * `ws` - 设置为工作区。
     * `model` - 设置为注册的模型。
@@ -54,7 +54,7 @@ ms.locfileid: "92118151"
 
     有关如何设置这些变量的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
-- 本文中的 CLI 片段假设已创建 `inferenceconfig.json` 文档____。 有关如何创建此文档的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
+- 本文中的 CLI 片段假设已创建 `inferenceconfig.json` 文档。 有关如何创建此文档的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 - 连接到你的工作区的 Azure Kubernetes 服务群集。 有关详细信息，请参阅[创建并附加 Azure Kubernetes 服务群集](how-to-create-attach-kubernetes.md)。
 
@@ -71,8 +71,8 @@ ms.locfileid: "92118151"
 1. 构建 dockerfile 或将其下载到计算节点（与 Kubernetes 相关）
     1. 系统计算以下各项的哈希： 
         - 基础映像 
-        - 自定义 Docker 步骤（请参阅[使用自定义 Docker 基础映像部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)）
-        - Conda 定义 YAML（请参阅[在 Azure 机器学习中创建和使用软件环境](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)）
+        - 自定义 Docker 步骤（请参阅[使用自定义 Docker 基础映像部署模型](/machine-learning/how-to-deploy-custom-docker-image)）
+        - Conda 定义 YAML（请参阅[在 Azure 机器学习中创建和使用软件环境](/machine-learning/how-to-use-environments)）
     1. 在工作区 Azure 容器注册表 (ACR) 中查找时，系统使用此哈希作为键
     1. 如果找不到，它会在全局 ACR 中寻找匹配项
     1. 如果找不到匹配项，系统会生成一个新映像（该映像会被缓存并推送到工作区 ACR 中）
@@ -95,7 +95,7 @@ Azureml-fe 会纵向（垂直）扩展以使用更多的核心，并会横向（
 
 ## <a name="deploy-to-aks"></a>部署到 AKS
 
-要将模型部署到 Azure Kubernetes 服务，请创建一个描述所需计算资源的部署配置____。 例如，核心和内存的数量。 此外，还需要一个推理配置，描述托管模型和 Web 服务所需的环境____。 有关如何创建推理配置的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
+要将模型部署到 Azure Kubernetes 服务，请创建一个描述所需计算资源的部署配置。 例如，核心和内存的数量。 此外，还需要一个推理配置，描述托管模型和 Web 服务所需的环境。 有关如何创建推理配置的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 > [!NOTE]
 > 待部署模型的数量限制为每个部署（每个容器）1,000 个模型。
@@ -121,10 +121,10 @@ print(service.get_logs())
 
 有关此示例中使用的类、方法和参数的详细信息，请参阅以下参考文档：
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -136,7 +136,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-有关详细信息，请参阅 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) 参考文档。
+有关详细信息，请参阅 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) 参考文档。
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +154,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 > [!IMPORTANT]
 > * **不要为模型部署启用 Kubernetes 水平 Pod 自动缩放程序 (HPA)** 。 这样做会导致两个自动缩放组件相互竞争。 Azureml-fe 设计用于自动缩放由 Azure ML 部署的模型，其中，HPA 必须根据 CPU 使用率或自定义指标配置等一般指标推测或估算模型利用率。
 > 
-> * **Azureml-fe 不会缩放 AKS 群集中的节点数**，因为这可能会导致成本意外增加。 相反，它会在物理群集边界内**缩放模型的副本数**。 如果你需要缩放群集中的节点数，则可以手动缩放群集，或[配置 AKS 群集自动缩放程序](/aks/cluster-autoscaler)。
+> * **Azureml-fe 不会缩放 AKS 群集中的节点数**，因为这可能会导致成本意外增加。 相反，它会在物理群集边界内 **缩放模型的副本数**。 如果你需要缩放群集中的节点数，则可以手动缩放群集，或[配置 AKS 群集自动缩放程序](/aks/cluster-autoscaler)。
 
 可以通过为 AKS Web 服务设置 `autoscale_target_utilization`、`autoscale_min_replicas` 和 `autoscale_max_replicas` 来控制自动缩放。 以下示例演示了如何启用自动缩放：
 
@@ -188,23 +188,23 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-有关设置 `autoscale_target_utilization`、`autoscale_max_replicas` 和 `autoscale_min_replicas` 的详细信息，请参阅 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) 模块参考。
+有关设置 `autoscale_target_utilization`、`autoscale_max_replicas` 和 `autoscale_min_replicas` 的详细信息，请参阅 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) 模块参考。
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>使用受控推出（预览版）将模型部署到 AKS
 
 使用终结点以受控的方式分析和提升模型版本。 最多可以在一个终结点后方部署六个版本。 终结点提供以下功能：
 
-* 配置__发送到每个终结点的评分流量百分比__。 例如，将 20% 的流量路由到终结点“test”，将 80% 路由到“production”。
+* 配置 __发送到每个终结点的评分流量百分比__。 例如，将 20% 的流量路由到终结点“test”，将 80% 路由到“production”。
 
     > [!NOTE]
-    > 如果不按 100% 的流量计算，则所有剩余百分比的流量将路由到默认终结点版本____。 例如，如果将终结点版本“test”配置为获取 10% 的流量，将“prod”配置为 30%，则剩余的 60% 将发送到默认终结点版本。
+    > 如果不按 100% 的流量计算，则所有剩余百分比的流量将路由到默认终结点版本。 例如，如果将终结点版本“test”配置为获取 10% 的流量，将“prod”配置为 30%，则剩余的 60% 将发送到默认终结点版本。
     >
     > 创建的第一个终结点版本将自动配置为默认版本。 可通过在创建或更新终结点版本时设置 `is_default=True` 来更改此设置。
      
-* 将终结点版本标记为“对照”或“实验”____ ____。 例如，当前的生产终结点版本可能为“对照”版本，而可能的新模型将部署为“实验”版本。 评估“实验”版本的性能后，如果该版本优于当前的“对照”版本，则其可能会提升为新的生产/对照版本。
+* 将终结点版本标记为“对照”或“实验” 。 例如，当前的生产终结点版本可能为“对照”版本，而可能的新模型将部署为“实验”版本。 评估“实验”版本的性能后，如果该版本优于当前的“对照”版本，则其可能会提升为新的生产/对照版本。
 
     > [!NOTE]
-    > 只能有一个“对照”版本____。 可以有多个“实验”版本。
+    > 只能有一个“对照”版本。 可以有多个“实验”版本。
 
 可以启用 App Insights 来查看终结点和已部署版本的操作指标。
 
@@ -283,9 +283,9 @@ endpoint.delete_version(version_name="versionb")
 
 ## <a name="web-service-authentication"></a>Web 服务身份验证
 
-部署到 Azure Kubernetes 服务时，默认会启用基于密钥的身份验证____。 此外，还可以启用基于令牌的身份验证____。 基于令牌的身份验证要求客户端使用 Azure Active Directory 帐户来请求身份验证令牌，该令牌用于向已部署的服务发出请求。
+部署到 Azure Kubernetes 服务时，默认会启用基于密钥的身份验证。 此外，还可以启用基于令牌的身份验证。 基于令牌的身份验证要求客户端使用 Azure Active Directory 帐户来请求身份验证令牌，该令牌用于向已部署的服务发出请求。
 
-要禁用身份验证，请在创建部署配置时设置 `auth_enabled=False` 参数____。 下面的示例使用 SDK 来禁用身份验证：
+要禁用身份验证，请在创建部署配置时设置 `auth_enabled=False` 参数。 下面的示例使用 SDK 来禁用身份验证：
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
@@ -303,7 +303,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 如需重新生成密钥，请使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> 如需重新生成密钥，请使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>使用令牌进行身份验证
 
@@ -325,12 +325,12 @@ print(token)
 >
 > Microsoft 强烈建议在 Azure Kubernetes 服务群集所在的相同区域中创建 Azure 机器学习工作区。 要使用令牌进行身份验证，Web 服务将调用创建 Azure 机器学习工作区的区域。 如果工作区区域不可用，即使群集和工作区不在同一区域，也将无法获取 Web 服务的令牌。 这实际上会导致在工作区的区域再次可用之前，基于令牌的身份验证不可用。 此外，群集区域和工作区区域的距离越远，获取令牌所需的时间就越长。
 >
-> 若要检索令牌，必须使用 Azure 机器学习 SDK 或 [az ml service get-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) 命令。
+> 若要检索令牌，必须使用 Azure 机器学习 SDK 或 [az ml service get-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) 命令。
 
 
 ### <a name="vulnerability-scanning"></a>漏洞扫描
 
-Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 你应该允许 Azure 安全中心扫描你的资源并遵循其建议。 有关详细信息，请参阅 [Azure Kubernetes 服务与安全中心的集成](/security-center/azure-kubernetes-service-integration)。
+Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 你应该允许 Azure 安全中心扫描你的资源并遵循其建议。 有关详细信息，请参阅 [Azure Kubernetes 服务与安全中心的集成](../security-center/defender-for-kubernetes-introduction.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

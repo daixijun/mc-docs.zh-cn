@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-origin.date: 10/14/2019
-ms.date: 01/13/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 160c830fb3fcca8fd7726d5441b1065b56e4b317
-ms.sourcegitcommit: 304d3ef3c9e65c3e85977b3afb9985fbc0f908d6
+ms.openlocfilehash: c6720b40c8a4f7d81a856c45d0c307f2a80169dd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095932"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977645"
 ---
 本指南介绍如何安装适用于 Windows 桌面上的 C++ 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 

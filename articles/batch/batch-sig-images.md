@@ -4,17 +4,17 @@ description: 自定义映像池是配置计算节点以运行 Batch 工作负载
 ms.topic: conceptual
 origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
-ms.custom: devx-track-python
-ms.openlocfilehash: d037275a24c08c25127181d9f3d2a4eba69711b9
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 60c93bc817b23b52b7a16bb4d102cd8c9c1bfebc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936925"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977729"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>使用共享映像库创建自定义映像池
 

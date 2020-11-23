@@ -2,15 +2,15 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/30/2020
-ms.date: 06/19/2019
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: a3ab7ebd30c2721b0de134154dd46897c14545d1
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: 3e9f92ea844f42351f05536e873b3080baee4384
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85613445"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977656"
 ---
 ## <a name="install-speech-sdk"></a>安装语音 SDK
 

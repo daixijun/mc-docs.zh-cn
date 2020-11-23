@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/13/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: c81621c731f818717a540e5379c5d12edad46ce7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: b25646506396727fb107e8ec2e1c9cf36bfa859b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979322"
 ---
 语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
 
@@ -234,7 +234,7 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
 }
 ```
 
-有关语音转文本的详细信息，请参阅[语音识别基础知识](../../../speech-to-text-basics.md)。
+有关语音转文本的详细信息，请参阅[语音识别基础知识](../../../get-started-speech-to-text.md)。
 
 ## <a name="synthesize-translations"></a>合成翻译
 
@@ -337,7 +337,7 @@ static void translateSpeech() throws ExecutionException, InterruptedException {
 }
 ```
 
-有关语音合成的详细信息，请参阅[语音合成基础知识](../../../text-to-speech-basics.md)。
+有关语音合成的详细信息，请参阅[语音合成基础知识](../../../get-started-text-to-speech.md)。
 
 [config]: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.translation.SpeechTranslationConfig?view=azure-java-stable
 [audioconfig]: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.AudioConfig?view=azure-java-stable

@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: f6cedb69020aa81fad4fcceebe8c6339886fce3d
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 91e607920f6d7d138717d9bf3914f0ebc3c29c1a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118881"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978279"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>重新训练和部署机器学习模型
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 重新训练是确保机器学习模型保持准确的一种方法，该方法基于最相关的可用数据。 本文展示了如何在工作室（经典版）中重新训练机器学习模型并将其部署为新的 Web 服务。 如果要重新训练经典 Web 服务，请参阅[此操作说明文章](retrain-classic-web-service.md)。
@@ -28,21 +28,21 @@ ms.locfileid: "92118881"
 
 你将执行以下步骤来重新训练和部署机器学习新 Web 服务：
 
-1. 部署**重新训练 Web 服务**
-1. 使用**重新训练 Web 服务**来训练新模型
-1. 将现有的**预测实验**更新为使用新模型
+1. 部署 **重新训练 Web 服务**
+1. 使用 **重新训练 Web 服务** 来训练新模型
+1. 将现有的 **预测实验** 更新为使用新模型
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-retraining-web-service"></a>部署重新训练 Web 服务
 
-使用重新训练 Web 服务，可以使用一组新的参数（例如新数据）来重新训练模型，并保存它供以后使用。 将 **Web 服务输出**连接到**训练模型**时，训练实验将输出一个新模型供你使用。
+使用重新训练 Web 服务，可以使用一组新的参数（例如新数据）来重新训练模型，并保存它供以后使用。 将 **Web 服务输出** 连接到 **训练模型** 时，训练实验将输出一个新模型供你使用。
 
 使用以下步骤来部署重新训练 Web 服务：
 
-1. 将一个 **Web 服务输入**模块连接到你的数据输入。 通常情况下，想要确保输入数据的处理方式与原始训练数据的处理方式相同。
-1. 将一个 **Web 服务输出**模块连接到**训练模型**的输出。
-1. 如果你有一个**评估模型**模块，则可以连接一个 **Web 服务输出**模块来输出评估结果。
+1. 将一个 **Web 服务输入** 模块连接到你的数据输入。 通常情况下，想要确保输入数据的处理方式与原始训练数据的处理方式相同。
+1. 将一个 **Web 服务输出** 模块连接到 **训练模型** 的输出。
+1. 如果你有一个 **评估模型** 模块，则可以连接一个 **Web 服务输出** 模块来输出评估结果。
 1. 运行实验。
 
     运行实验之后，生成的工作流应当类似于下图：
@@ -51,8 +51,8 @@ ms.locfileid: "92118881"
 
     现在，将训练实验部署为重新训练 Web 服务，用于输出经过训练的模型和模型评估结果。
 
-1. 在实验画布的底部，单击“设置 Web 服务”****。
-1. 选择“部署 Web 服务[新建]”****。 Azure 机器学习 Web 服务门户可打开“部署 Web 服务”**** 页。
+1. 在实验画布的底部，单击“设置 Web 服务”。
+1. 选择“部署 Web 服务[新建]”。 Azure 机器学习 Web 服务门户可打开“部署 Web 服务”页。
 1. 为 Web 服务键入名称，选择一个付款计划。
 1. 选择“部署”。
 
@@ -71,7 +71,7 @@ ms.locfileid: "92118881"
 
 按照注释中指定的方式添加 NuGet 包 Microsoft.AspNet.WebApi.Client。 要添加对 Microsoft.WindowsAzure.Storage.dll 的引用，可能需要安装 [Azure 存储服务的客户端库](https://www.nuget.org/packages/WindowsAzure.Storage)。
 
-以下屏幕截图显示 Azure 机器学习 Web 服务门户中的“使用”**** 页。
+以下屏幕截图显示 Azure 机器学习 Web 服务门户中的“使用”页。
 
 ![使用页](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -90,14 +90,14 @@ const string apiKey = "abc123"; // Replace this with the API key for the web ser
 BES 示例代码将文件从本地驱动器（例如，“C:\temp\CensusInput.csv”）上传到 Azure 存储、对其进行处理，并将结果写回 Azure 存储。
 
 1. 登录到 Azure 门户
-1. 在左侧导航栏中，单击“更多服务”****，搜索“存储帐户”****，然后选择它。
+1. 在左侧导航栏中，单击“更多服务”，搜索“存储帐户”，然后选择它。
 1. 从存储帐户列表中，选择一个来存储重新训练模型。
-1. 在左侧导航栏中，单击“访问密钥”****。
-1. 复制并保存“主访问密钥”****。
-1. 在左侧导航列中，单击“Blob”。****
+1. 在左侧导航栏中，单击“访问密钥”。
+1. 复制并保存“主访问密钥”。
+1. 在左侧导航列中，单击“Blob”。
 1. 选择现有容器或创建新的容器并保存名称。
 
-找到“StorageAccountName”**、“StorageAccountKey”** 和“StorageContainerName”** 声明，然后更新从门户保存的值。
+找到“StorageAccountName”、“StorageAccountKey”和“StorageContainerName”声明，然后更新从门户保存的值。
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -141,7 +141,7 @@ Outputs = new Dictionary<string, AzureBlobDataReference>() {
 
 ### <a name="sign-in-to-azure-resource-manager"></a>登录到 Azure 资源管理器
 
-首先，从 PowerShell 环境中使用 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 登录到 Azure 帐户。
+首先，从 PowerShell 环境中使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 登录到 Azure 帐户。
 
 ### <a name="get-the-web-service-definition-object"></a>获取 Web 服务定义对象
 

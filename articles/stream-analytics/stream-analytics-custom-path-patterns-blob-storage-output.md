@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 10/09/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 699b0f43e35b8013145b901e7a2a3a6e1149f252
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.openlocfilehash: 0af4771176cb3157827e5e43b0aacfea5964bce4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936834"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977046"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 流分析自定义 blob 输出分区
 
@@ -26,7 +26,7 @@ Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径�
 
 ### <a name="partition-key-options"></a>分区键选项
 
-用于分区输入数据的分区键或列名称可能包含带有连字符、下划线和空格的字母数字字符。 除非与别名一起使用，否则无法将嵌套字段用作分区键。 分区键必须为 NVARCHAR(MAX)、BIGINT、FLOAT 或 BIT（1.2 兼容级别或更高级别）。 有关详细信息，请参阅 [Azure 流分析数据类型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)。
+用于分区输入数据的分区键或列名称可能包含带有连字符、下划线和空格的字母数字字符。 除非与别名一起使用，否则无法将嵌套字段用作分区键。 分区键必须为 NVARCHAR (MAX)。
 
 ### <a name="example"></a>示例
 

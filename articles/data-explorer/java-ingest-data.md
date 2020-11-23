@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/22/2020
 ms.date: 10/30/2020
-ms.openlocfilehash: 2fb11c4cd4ebc57677f17b79d7a8727215f8750f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f2ae706a538d4d47fcde6031f24514698538f375
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106533"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977015"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-java-sdk"></a>使用 Azure 数据资源管理器 Java SDK 引入数据 
 
@@ -152,10 +152,10 @@ static void createTable(String database) {
 
 运行示例代码时，将执行以下操作：
 
-   1. **删除表** ：删除 `StormEvents` 表（如果存在）。
-   1. **创建表** ：创建 `StormEvents` 表。
-   1. **创建映射** ：创建 `StormEvents_CSV_Mapping` 映射。
-   1. **引入文件** ：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
+   1. **删除表**：删除 `StormEvents` 表（如果存在）。
+   1. **创建表**：创建 `StormEvents` 表。
+   1. **创建映射**：创建 `StormEvents_CSV_Mapping` 映射。
+   1. **引入文件**：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
 
 以下为示例代码来自 `App.java`：
 
@@ -213,7 +213,7 @@ public static void main(final String[] args) throws Exception {
 
 等待 5 到 10 分钟，以便已排队的引入调度引入进程并将数据加载到 Azure 数据资源管理器中。 
 
-1. 登录到 [https://dataexplorer.azure.com](https://dataexplorer.azure.cn) 并连接到群集。 
+1. 登录到 [https://dataexplorer.azure.cn](https://dataexplorer.azure.cn) 并连接到群集。 
 1. 运行以下命令，以获取 `StormEvents` 表中的记录的计数：
     
     ```kusto

@@ -66,12 +66,15 @@
       href: dns-settings.md
     - name: 监视诊断日志
       href: firewall-diagnostics.md
+      displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Azure Monitor 日志
       href: log-analytics-samples.md
+    - name: Azure 防火墙工作簿
+      href: firewall-workbook.md
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/ext/azure-firewall/network/firewall'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/new-azfirewall'
     - name: .NET

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: be2f4ed5b90655354b4c1fa9d916ac679d94e374
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d553f3b2d7a7acef3b8c7d64fbabccc052ecf07a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103543"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977463"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>使用可解释性包通过 Python 解释 ML 模型和预测（预览版）
 
@@ -354,7 +354,7 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
    [![可视化仪表板本地特征在试验的 AzureML 工作室中的重要性](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * “模型”窗格
-  1. 如果已遵循[使用 Azure 机器学习部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)中的步骤注册了原始模型，则可以在左侧窗格中选择“模型”来查看它。
+  1. 如果已遵循[使用 Azure 机器学习部署模型](./how-to-deploy-and-where.md)中的步骤注册了原始模型，则可以在左侧窗格中选择“模型”来查看它。
   1. 选择一个模型，然后选择“解释”选项卡来查看解释可视化仪表板。
 
 ## <a name="interpretability-at-inference-time"></a>推理时的可解释性
@@ -419,7 +419,7 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
 
 1. 遵循以下步骤将映像部署到计算目标：
 
-   1. 如果需要，请遵循[使用 Azure 机器学习部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)中的步骤注册原始预测模型。
+   1. 如果需要，请遵循[使用 Azure 机器学习部署模型](./how-to-deploy-and-where.md)中的步骤注册原始预测模型。
 
    1. 创建评分文件。
 

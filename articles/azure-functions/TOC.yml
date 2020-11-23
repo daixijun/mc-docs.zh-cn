@@ -11,15 +11,40 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: 创建函数
+    - name: 创建第一个函数
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+            - name: C#
+              href: create-first-function-vs-code-csharp.md
+            - name: Java
+              href: create-first-function-vs-code-java.md
+            - name: JavaScript
+              href: create-first-function-vs-code-node.md
+            - name: PowerShell
+              href: create-first-function-vs-code-powershell.md
+            - name: TypeScript
+              href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: 命令行
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+            - name: C#
+              href: create-first-function-cli-csharp.md
+            - name: Java
+              href: create-first-function-cli-java.md
+            - name: JavaScript
+              href: create-first-function-cli-node.md
+            - name: PowerShell
+              href: create-first-function-cli-powershell.md
+            - name: TypeScript
+              href: create-first-function-cli-typescript.md
+        - name: ARM 模板
+          displayName: Resource Manager
+          href: functions-create-first-function-resource-manager.md
     - name: 连接到存储
       items:
         - name: Visual Studio Code
@@ -32,6 +57,8 @@
   items:
     - name: 无服务器 API 的 OpenAPI 定义
       href: functions-openapi-definition.md
+    - name: 建立专用站点访问
+      href: functions-create-private-site-access.md
     - name: 使用事件网格调整图像大小
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md
     - name: 将机器学习与 TensorFlow 配合使用
@@ -50,7 +77,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=csharp'
         - name: Java
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=java'
-        - name: Javascript
+        - name: JavaScript
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=javascript'
         - name: PowerShell
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=azurepowershell'
@@ -114,10 +141,12 @@
           href: functions-reference-csharp.md
         - name: F#
           href: functions-reference-fsharp.md
-        - name: Javascript
+        - name: JavaScript
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
     - name: 框架
@@ -172,11 +201,13 @@
                 - name: Azure 门户
                   href: functions-create-first-azure-function.md
                 - name: 命令行
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
+                - name: 使用 Gradle 的 Java
+                  href: functions-create-first-java-gradle.md
                 - name: 使用 Eclipse 的 Java
                   href: functions-create-maven-eclipse.md
                 - name: 使用 IntelliJ IDEA 的 Java
@@ -207,6 +238,8 @@
           items:
             - name: 测试函数
               href: functions-test-a-function.md
+            - name: 调试本地 PowerShell 函数
+              href: functions-debug-powershell-local.md
             - name: 在本地调试事件网格触发器
               href: functions-debug-event-grid-trigger-local.md
         - name: 依赖项注入
@@ -214,7 +247,7 @@
         - name: 管理连接
           href: manage-connections.md
           displayName: best practice
-        - name: 错误处理。
+        - name: 错误处理和重试
           href: functions-bindings-error-pages.md
         - name: 手动运行非 HTTP 触发的函数
           href: functions-manually-run-non-http.md
@@ -327,7 +360,7 @@
             - name: 输入
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: Output
+            - name: 输出
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
@@ -439,7 +472,7 @@
             - name: 输入
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
-            - name: Output
+            - name: 输出
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: 表存储

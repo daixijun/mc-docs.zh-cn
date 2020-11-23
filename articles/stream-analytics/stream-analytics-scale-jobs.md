@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 10/09/2020
-ms.openlocfilehash: f776f7c279f8b6eca06decb90b02eab1ab3df7da
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 11/16/2020
+ms.openlocfilehash: a685d3aa5d4724847824f77e8ec18ca8e6923d14
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936830"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977019"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -85,7 +85,7 @@ ms.locfileid: "91936830"
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -98,11 +98,10 @@ ms.locfileid: "91936830"
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: https://docs.microsoft.com/previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: https://docs.microsoft.com/rest/api/streamanalytics/
 

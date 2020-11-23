@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: bd87d76a78a36536ed8706cb856a456404ff5e74
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0b3dd0e747d5d32b37297b6729f41f7b5c2fafed
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118465"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977159"
 ---
 # <a name="convert-to-dataset"></a>转换为数据集
 
@@ -35,20 +35,20 @@ ms.locfileid: "92118465"
 
 2. 将它连接到可以输出数据集的任何模块。   
 
-    只要数据是[表格](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)，就可以将其转换为数据集。 这包括通过[导入数据](import-data.md)加载的数据、通过[手动输入数据](enter-data-manually.md)创建的数据，或通过[应用转换](apply-transformation.md)转换的数据集。
+    只要数据是[表格](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)，就可以将其转换为数据集。 这包括通过[导入数据](import-data.md)加载的数据、通过[手动输入数据](enter-data-manually.md)创建的数据，或通过[应用转换](apply-transformation.md)转换的数据集。
 
 3.  在“操作”下拉列表中，指示是否要在保存数据集之前对数据执行任何清理操作：  
   
-    - **无** ：按原样使用数据。  
+    - **无**：按原样使用数据。  
   
-    - **SetMissingValue** ：将特定值设置为数据集中的缺失值。 默认占位符是问号字符 (?)，但你可以使用“自定义缺失值”选项来输入其他值。 例如，如果你为“自定义缺失值”输入了 **Taxi** ，则数据集中的所有 **Taxi** 实例都将更改为缺失值。
+    - **SetMissingValue**：将特定值设置为数据集中的缺失值。 默认占位符是问号字符 (?)，但你可以使用“自定义缺失值”选项来输入其他值。 例如，如果你为“自定义缺失值”输入了 **Taxi** ，则数据集中的所有 **Taxi** 实例都将更改为缺失值。
   
-    - **ReplaceValues** ：使用此选项可以指定要替换为任何其他确切值的单个确切值。 可以通过设置“替换”方法来替换缺失值或自定义值：
+    - **ReplaceValues**：使用此选项可以指定要替换为任何其他确切值的单个确切值。 可以通过设置“替换”方法来替换缺失值或自定义值：
 
-      - **缺失** ：选择此选项可以替换输入数据集中的缺失值。 对于“新值”，请输入要用来替换缺失值的值。
-      - **自定义** ：选择此选项可以替换输入数据集中的自定义值。 对于“自定义值”，请输入要查找的值。 例如，如果数据包含用作缺失值占位符的字符串 `obs`，则输入 `obs`。 对于“新值”，请输入用来替换原始字符串的新值。
+      - **缺失**：选择此选项可以替换输入数据集中的缺失值。 对于“新值”，请输入要用来替换缺失值的值。
+      - **自定义**：选择此选项可以替换输入数据集中的自定义值。 对于“自定义值”，请输入要查找的值。 例如，如果数据包含用作缺失值占位符的字符串 `obs`，则输入 `obs`。 对于“新值”，请输入用来替换原始字符串的新值。
   
-    请注意， **ReplaceValues** 操作仅应用于完全匹配项。 例如，这些字符串不会受影响：`obs.`、`obsolete`。  
+    请注意，**ReplaceValues** 操作仅应用于完全匹配项。 例如，这些字符串不会受影响：`obs.`、`obsolete`。  
  
   
 5.  提交管道。  

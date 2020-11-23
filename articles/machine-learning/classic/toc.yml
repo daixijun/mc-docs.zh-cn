@@ -1,5 +1,5 @@
 - name: 机器学习工作室（经典）文档
-  href: index.yml
+  href: /classic/
 - name: 概述
   expanded: true
   items:
@@ -131,7 +131,7 @@
 - name: 参考
   items:
     - name: 算法和模块参考
-      href: 'https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help'
+      href: /machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
     - name: Azure PowerShell 模块
       href: powershell-module.md
     - name: Web 服务错误代码

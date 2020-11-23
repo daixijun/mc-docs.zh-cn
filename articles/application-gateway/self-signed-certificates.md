@@ -5,15 +5,15 @@ description: 了解如何使用自定义根 CA 生成 Azure 应用程序网关�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/24/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f662b19d35c9c490597f530c02fa5d9752720087
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: efa28097ea30a7127c8ddf4d602a5b8fc9029ae5
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516438"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849467"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自定义根 CA 生成 Azure 应用程序网关自签名证书
 
@@ -273,5 +273,4 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ## <a name="next-steps"></a>后续步骤
 
 若要了解有关应用程序网关上的 SSL\TLS 的详细信息，请参阅[应用程序网关的 TLS 终止和端到端 TLS 概述](ssl-overview.md)。
-
 

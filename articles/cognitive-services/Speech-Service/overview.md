@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 origin.date: 08/20/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3142a57d35ad1ce50ec3df09187c383f436e212f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4dfdbb49154be44fc3a58983e6444549130988e1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127685"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977076"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
@@ -64,12 +64,26 @@ ms.locfileid: "92127685"
    - 选择将使用资源的[区域](regions.md)。
    - 选择免费 (F0) 或付费 (S0) 定价层。 若要查看每个层的定价和用量配额的完整信息，请选择“查看全部定价详细信息”  。
    - 为此“语音”订阅创建新的资源组或将订阅分配到现有资源组。 资源组有助于使多种 Azure 订阅保持有序状态。
-   - 选择“创建”  。 系统随后会将你转到部署概述，并显示部署进度消息。
+   - 选择“创建”  。 系统随后会将你转到部署概述，并显示部署进度消息。  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-部署新的语音资源需要花费片刻时间。 部署完成后，选择“转到资源”，然后在左侧导航窗格中选择“密钥”以显示语音服务订阅密钥。   每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥快速复制/粘贴到代码编辑器或其他位置，请选择每个密钥旁边的复制按钮，切换窗口，然后将剪贴板中的内容粘贴到所需位置。
+部署新的语音资源需要花费片刻时间。 
+
+### <a name="find-keys-and-region"></a>查找密钥和区域
+
+若要查找已完成部署的密钥和区域，请按照下列步骤操作：
+
+1. 使用你的 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.cn/)。
+
+2. 选择“所有资源”，然后选择你的认知服务资源的名称。
+
+3. 在左侧窗格中的“资源管理”下，选择“密钥和终结点” 。
+
+每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥复制/粘贴到代码编辑器或其他区域，请选择每个密钥旁边的复制按钮，切换窗口以将剪贴板内容粘贴到所需区域。
+
+此外，请复制 `LOCATION` 值，这是你用于 SDK 调用的区域 ID（例如 `westus`、`westeurope`）。
 
 > [!IMPORTANT]
 > 这些订阅密钥用于访问认知服务 API。 不要共享你的密钥。 安全存储密钥 - 例如，使用 Azure Key Vault。 此外，我们建议定期重新生成这些密钥。 发出 API 调用只需一个密钥。 重新生成第一个密钥时，可以使用第二个密钥来持续访问服务。

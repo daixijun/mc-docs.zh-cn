@@ -10,13 +10,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/28/2019
-  ms.date: 09/30/2019
-  ms.openlocfilehash: e7ac3e9b114e1645a44eea473e43bfcbb7e076e4
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.date: 11/23/2020
+  ms.openlocfilehash: 36b979462a0375cac3dde89756b999a83dcf0902
+  ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "71333633"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94908946"
 landingContent:
 - title: 关于 VPN 网关
   linkLists:
@@ -34,20 +34,16 @@ landingContent:
       url: vpn-gateway-vpn-faq.md
 - title: 入门
   linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 创建 VPN 网关
-      url: create-routebased-vpn-gateway-portal.md
-    - text: 创建站点到站点连接
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: 创建点到站点连接
-      url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   - linkListType: tutorial
     links:
     - text: 创建和管理 VPN 网关
       url: vpn-gateway-tutorial-create-gateway-powershell.md
-    - text: 创建并管理站点到站点连接
-      url: vpn-gateway-tutorial-vpnconnection-powershell.md
+  - linkListType: how-to-guide
+    links:
+    - text: 创建站点到站点连接
+      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+    - text: 创建点到站点连接
+      url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: VPN 设备
   linkLists:
   - linkListType: concept

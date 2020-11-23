@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 3/18/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 6b639436c3bbdd9e1d2474c9abf52167ac0de89a
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/23/2020
+ms.openlocfilehash: b53450536bbd4f4561e1438f945b93254b4c5503
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469989"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908989"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>在 Azure 中选择适当的 MariaDB 服务器选项
 
@@ -38,10 +38,10 @@ ms.locfileid: "92469989"
 | 操作系统修补        | 自动  | 由客户管理 |
 | MariaDB 修补     | 自动  | 由客户管理 |
 | 高可用性 | 高可用性 (HA) 模型以节点级中断发生时的内置故障转移机制为依据。 在这种情况下，服务将自动创建一个新实例，并将存储附加到此实例。 | 客户建构、实施、测试和维护高可用性。 功能可能包括不中断的故障转移群集、不中断的组复制、日志传送或事务复制。|
-| 混合场景 | 使用[数据传入复制](/MariaDB/concepts-data-in-replication)可将外部 MariaDB 服务器中的数据同步到 Azure Database for MariaDB 服务中。 外部服务器可以处于本地、虚拟机中或是其他云提供商托管的数据库服务。<br/><br/> 使用[只读副本](/mariadb/concepts-read-replicas)功能可将 Azure Database for MariaDB 源服务器中的数据复制到最多五个只读副本服务器。 副本位于同一个 Azure 区域中，或者跨不同的区域。 使用 binlog 复制技术异步更新只读副本。<br/><br/>跨区域读取复制目前为公共预览版。| 由客户管理
-| 备份和还原 | 自动创建[服务器备份](/MariaDB/concepts-backup#backups)并将其存储在用户配置的本地冗余或异地冗余存储中。 服务将创建完整备份、差异备份和事务日志备份 | 由客户管理 |
-| 监视数据库操作 | 可让客户针对数据库操作[设置警报](/MariaDB/concepts-monitoring)，并在即将达到阈值时采取措施。 | 由客户管理 |
-| 灾难恢复 | 将自动创建的备份存储在用户配置的[本地冗余存储或异地冗余存储](/MariaDB/howto-restore-server-portal)中。 备份还可以将服务器还原到某个时间点。 保留期为 7 到 35 天。 还原是使用 Azure 门户完成的。 | 完全由客户管理。 责任包括但不限于计划、测试、存档、存储和保留。 另一个选项是使用 Azure 恢复服务保管库备份 Azure VM 和 VM 上的数据库。 此选项目前为预览版。 |
+| 混合场景 | 使用[数据传入复制](concepts-data-in-replication.md)可将外部 MariaDB 服务器中的数据同步到 Azure Database for MariaDB 服务中。 外部服务器可以处于本地、虚拟机中或是其他云提供商托管的数据库服务。<br/><br/> 使用[只读副本](concepts-read-replicas.md)功能可将 Azure Database for MariaDB 源服务器中的数据复制到最多五个只读副本服务器。 副本位于同一个 Azure 区域中，或者跨不同的区域。 使用 binlog 复制技术异步更新只读副本。<br/><br/>跨区域读取复制目前为公共预览版。| 由客户管理
+| 备份和还原 | 自动创建[服务器备份](concepts-backup.md#backups)并将其存储在用户配置的本地冗余或异地冗余存储中。 服务将创建完整备份、差异备份和事务日志备份 | 由客户管理 |
+| 监视数据库操作 | 可让客户针对数据库操作[设置警报](concepts-monitoring.md)，并在即将达到阈值时采取措施。 | 由客户管理 |
+| 灾难恢复 | 将自动创建的备份存储在用户配置的[本地冗余存储或异地冗余存储](howto-restore-server-portal.md)中。 备份还可以将服务器还原到某个时间点。 保留期为 7 到 35 天。 还原是使用 Azure 门户完成的。 | 完全由客户管理。 责任包括但不限于计划、测试、存档、存储和保留。 另一个选项是使用 Azure 恢复服务保管库备份 Azure VM 和 VM 上的数据库。 此选项目前为预览版。 |
 | 性能建议 | 根据系统生成的使用日志文件为客户提供[性能建议](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110)。 这些建议有助于优化工作负荷。<br/><br/>性能建议目前以公共预览版提供。 | 由客户管理 |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>选择 PaaS 或 IaaS 的业务动机
@@ -54,9 +54,9 @@ ms.locfileid: "92469989"
 
 #### <a name="billing"></a>计费
 
-Azure Database for MariaDB 目前在多个层级中以服务的形式提供，它资源价格各不相同。 所有资源都按固定费率按小时计费。 有关目前支持的服务层级、计算大小和存储量的最新信息，请参阅[基于 vCore 的购买模型](/MariaDB/concepts-pricing-tiers)。 可以动态调整服务层级和计算大小，以满足应用程序的不同吞吐量需求。 你需要按一般的[数据传输费率](https://azure.cn/pricing/details/data-transfer/)支付 Internet 流量传出费用。
+Azure Database for MariaDB 目前在多个层级中以服务的形式提供，它资源价格各不相同。 所有资源都按固定费率按小时计费。 有关目前支持的服务层级、计算大小和存储量的最新信息，请参阅[基于 vCore 的购买模型](concepts-pricing-tiers.md)。 可以动态调整服务层级和计算大小，以满足应用程序的不同吞吐量需求。 你需要按一般的[数据传输费率](https://azure.cn/pricing/details/data-transfer/)支付 Internet 流量传出费用。
 
-Azure 使用 Azure Database for MariaDB 自动配置、修补和升级数据库软件。 这些自动化操作可以降低管理成本。 此外，Azure Database for MariaDB 提供[内置备份](/MariaDB/concepts-backup)功能。 这些功能可帮助你大幅节省成本，尤其是存在大量的数据库时。 相比之下，对于 Azure VM 上的 MariaDB，可以选择并运行任何 MariaDB 版本。 无论使用何种 MariaDB 版本，都需要为预配的 VM 以及使用的特定 MariaDB 许可证类型付费。
+Azure 使用 Azure Database for MariaDB 自动配置、修补和升级数据库软件。 这些自动化操作可以降低管理成本。 此外，Azure Database for MariaDB 提供[内置备份](concepts-backup.md)功能。 这些功能可帮助你大幅节省成本，尤其是存在大量的数据库时。 相比之下，对于 Azure VM 上的 MariaDB，可以选择并运行任何 MariaDB 版本。 无论使用何种 MariaDB 版本，都需要为预配的 VM 以及使用的特定 MariaDB 许可证类型付费。
 
 Azure Database for MariaDB 针对任何类型的节点级中断提供内置高可用性，同时仍可为服务维护 99.99% 的 SLA 保证。 但是，对于 VM 中的数据库高可用性，客户应使用可对 MariaDB 数据库使用的高可用性选项，例如 [MariaDB 复制](https://mariadb.com/kb/en/library/setting-up-replication/)。 使用支持的高可用性选项不会提供额外的 SLA。 但是，它可以让你凭借额外的成本和管理开销实现 99.99% 以上的数据库可用性。
 
@@ -88,7 +88,7 @@ Azure Database for MariaDB 针对任何类型的节点级中断提供内置高�
 
   此外，在另一个数据中心配置高可用性只需极少量的配置或管理，或者根本无需配置或管理。
 
-* 使用 Azure VM 上的 MariaDB 可以完全控制操作系统和 MariaDB 服务器实例配置。 在 VM 上，可以决定何时更新或升级操作系统与数据库软件。 还可以决定何时安装任何其他软件，例如防病毒应用程序。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 可以控制 VM 的大小、磁盘数目及其存储配置。 有关详细信息，请参阅 [Azure 的虚拟机和云服务大小](/virtual-machines/windows/sizes)。
+* 使用 Azure VM 上的 MariaDB 可以完全控制操作系统和 MariaDB 服务器实例配置。 在 VM 上，可以决定何时更新或升级操作系统与数据库软件。 还可以决定何时安装任何其他软件，例如防病毒应用程序。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 可以控制 VM 的大小、磁盘数目及其存储配置。 有关详细信息，请参阅 [Azure 的虚拟机和云服务大小](../virtual-machines/sizes.md)。
 
 ### <a name="time-to-move-to-azure"></a>迁移到 Azure 的时机
 
@@ -101,4 +101,4 @@ Azure Database for MariaDB 针对任何类型的节点级中断提供内置高�
 ## <a name="next-steps"></a>后续步骤
 
 * 参阅 [Azure Database for MariaDB 定价](https://azure.cn/pricing/details/MariaDB/)。
-* 从[创建第一个服务器](/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal)开始。
+* 从[创建第一个服务器](quickstart-create-mariadb-server-database-using-azure-portal.md)开始。

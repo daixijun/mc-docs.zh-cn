@@ -3,16 +3,17 @@ title: 将 Blob 存储事件发送到 Web 终结点 - 模板
 description: 使用 Azure 事件网格和 Azure 资源管理器模板创建 Blob 存储帐户并订阅其事件。 将事件发送到 Webhook。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/10/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
-ms.openlocfilehash: b043a0d0c6b6c0e06aa9670bc2f57480c97a32fc
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.custom: subject-armqs
+ms.openlocfilehash: 718187f11b2f910d5cdabcd1170243c2cb2b870a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127962"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978161"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>使用 ARM 模板将 Blob 存储事件路由到 Web 终结点
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>快速入门：使用 ARM 模板将 Blob 存储事件路由到 Web 终结点
 
 Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资源管理器模板（ARM 模板）创建 Blob 存储帐户、订阅该 Blob 存储的事件，并触发事件来查看结果。 通常，你会将事件发送到处理事件数据并执行操作的终结点。 但是，为了简化本文，你将事件发送到收集并显示消息的 Web 应用。
 
@@ -80,7 +81,7 @@ Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资
       "type": "String",
       "defaultValue": "mystoragesystemtopic",
       "metadata": {
-        "description": "Provide a name for the system topic."
+        "description": "Provide a name for the system topic."
       }
     }
   },
@@ -107,7 +108,7 @@ Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资
         "[parameters('storageName')]"
       ],
       "properties": {
-        "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
+        "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
         "topicType": "Microsoft.Storage.StorageAccounts"
       }
     },
@@ -139,7 +140,7 @@ Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资
 
 该模板中定义了两个 Azure 资源：
 
-* [**Microsoft.Storage/storageAccounts**](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)：创建 Azure 存储帐户。
+* [**Microsoft.Storage/storageAccounts**](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)：创建 Azure 存储帐户。
 * [**Microsoft.EventGrid/systemTopics**](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/systemtopics)：使用指定的存储帐户名称创建系统主题。
 * [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions)：为系统主题创建 Azure 事件网格订阅。
 

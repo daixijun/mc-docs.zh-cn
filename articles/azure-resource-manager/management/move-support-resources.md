@@ -2,18 +2,18 @@
 title: 资源类型支持的移动操作
 description: 列出可移到新资源组或订阅的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 09/23/2020
+origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 87b041da9b2d8d6d68f9de429b88b13f9450ff7d
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 8ee42f61c8c0667b5062250cea99622c9072f479
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469962"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915101"
 ---
 <!--Verify Successfully-->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -453,7 +453,6 @@ ms.locfileid: "92469962"
 > | 资源类型 | 资源组 | 订阅 |
 > | ------------- | ----------- | ---------- |
 > | datafactories | 是 | 是 |
-> | datafactoryschema | 否 | 否 |
 > | factories | 是 | 是 |
 
 <!-- Not Available on ## Microsoft.DataLake-->
@@ -817,7 +816,7 @@ ms.locfileid: "92469962"
 > | privatednszones/virtualnetworklinks | 是 | 是 |
 > | privatednszonesinternal | 否 | 否 |
 > | privateendpointredirectmaps | 否 | 否 |
-> | privateendpoints | 是 | 是 |
+> | privateendpoints | 否 | 否 |
 > | privatelinkservices | 否 | 否 |
 > | publicipaddresses | 是 - 基本 SKU<br />是 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
 > | publicipprefixes | 是 | 是 |

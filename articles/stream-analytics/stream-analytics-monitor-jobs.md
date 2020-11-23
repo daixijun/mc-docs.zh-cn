@@ -5,15 +5,16 @@ author: Johnnytechn
 ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/20/2017
-ms.date: 07/06/2020
-ms.openlocfilehash: 9f8691714fb67da8f4c4b0d690657bcb0077cda5
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 11/16/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4327db6aee1ffacb3ca433449bd36545a446ad5e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226169"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978291"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -136,7 +137,7 @@ ms.locfileid: "86226169"
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>为现有流分析作业启用监视功能
 
-以下代码为**现有**流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“ID”属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，该方法将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
+以下代码为 **现有** 流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“ID”属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，该方法将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
 
 > [!WARNING]
 > 如果此前为其他流分析作业启用了监视功能，那么不管是通过 Azure 门户进行还是通过以下代码以编程方式完成，**我们都建议提供在之前启用监视功能时所使用的同一个存储帐户名称。**
@@ -178,5 +179,5 @@ ms.locfileid: "86226169"
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

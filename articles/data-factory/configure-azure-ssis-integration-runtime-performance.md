@@ -3,7 +3,7 @@ title: 配置 Azure-SSIS 集成运行时的性能
 description: 了解如何配置高性能 Azure-SSIS Integration Runtime 的属性
 services: data-factory
 origin.date: 01/10/2018
-ms.date: 10/19/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
@@ -11,12 +11,12 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-ms.openlocfilehash: 1c32f92354075e4f30a55d0b2cfc3cd8ad13f16e
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 546a16a94151f90ae50b0ff5803aa58894d281ca
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121691"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680379"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>配置高性能 Azure-SSIS Integration Runtime
 
@@ -123,7 +123,7 @@ AzureSSISNodeNumber 调整 Integration Runtime 的可伸缩性。 Integration Ru
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-已经在使用强大的辅助角色节点运行包时，增加 AzureSSISMaxParallelExecutionsPerNode 可能增加 Integration Runtime 的整体吞吐量。 如果要增加最大值，需要使用 Azure PowerShell 更新 AzureSSISMaxParallelExecutionsPerNode。 可以基于包的成本和辅助角色节点的以下配置估计合适的值。 有关详细信息，请参阅[常规用途虚拟机大小](../virtual-machines/windows/sizes-general.md)。
+已经在使用强大的辅助角色节点运行包时，增加 AzureSSISMaxParallelExecutionsPerNode 可能增加 Integration Runtime 的整体吞吐量。 如果要增加最大值，需要使用 Azure PowerShell 更新 AzureSSISMaxParallelExecutionsPerNode。 可以基于包的成本和辅助角色节点的以下配置估计合适的值。 有关详细信息，请参阅[常规用途虚拟机大小](../virtual-machines/sizes-general.md)。
 
 | 大小             | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络性能 (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -162,7 +162,7 @@ AzureSSISNodeNumber 调整 Integration Runtime 的可伸缩性。 Integration Ru
 
 -   如果日志记录级别设置为“详细”，则选择更强大的数据库，如 S3。 根据我们的非正式内部测试，S3 定价层可以支持具有 2 个节点、128 个并行计数和详细日志记录级别的 SSIS 包执行。
 
-还可以基于 Azure 门户上提供的[数据库事务单元](../sql-database/sql-database-what-is-a-dtu.md) (DTU) 使用情况信息调整数据库定价层。
+还可以基于 Azure 门户上提供的[数据库事务单元](../azure-sql/database/service-tiers-dtu.md) (DTU) 使用情况信息调整数据库定价层。
 
 ## <a name="design-for-high-performance"></a>高性能设计
 设计要在 Azure 上运行的 SSIS 包不同于设计本地执行的包。 不是将多个独立任务组合在同一包中，而是将它们分离到多个包中，从而提升在 Azure-SSIS IR 中执行的效率。 为每个包创建包执行，使它们不用等待彼此完成。 此方法受益于 Azure-SSIS Integration Runtime 的可伸缩性并提升整体吞吐量。

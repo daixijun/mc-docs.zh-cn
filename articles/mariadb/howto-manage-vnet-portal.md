@@ -4,15 +4,15 @@ description: 使用 Azure 门户创建和管理 Azure Database for MariaDB VNet 
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
-origin.date: 12/02/2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 4776f86f8bf98f66393cc67dc8a451cf63d2f580
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+origin.date: 3/18/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: cfa97bd9efb5d028f61b6a312db4d404253a1ecd
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77192464"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908953"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MariaDB VNet 服务终结点和 VNet 规则
 
@@ -44,7 +44,7 @@ ms.locfileid: "77192464"
     
    若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/”权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
     
-   详细了解[内置角色](/active-directory/role-based-access-built-in-roles)以及将特定的权限分配到[自定义角色](/active-directory/role-based-access-control-custom-roles)。
+   详细了解[内置角色](../role-based-access-control/built-in-roles.md)以及将特定的权限分配到[自定义角色](../role-based-access-control/custom-roles.md)。
     
    VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果 VNet 和 Azure 服务资源位于不同的订阅中，资源应在相同的 Active Directory (AD) 租户下。 确保两个订阅都注册了 **Microsoft.Sql** 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
 

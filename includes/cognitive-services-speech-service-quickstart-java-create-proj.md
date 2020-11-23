@@ -2,15 +2,15 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 02/20/2019
-ms.date: 08/03/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: c7d85f5d2b31e2ce178f25ffda24894630c80a79
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 1c7cfe64cacd33b13d58aa6764e1855084d1a087
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317575"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977664"
 ---
 1. 启动 Eclipse。
 
@@ -18,7 +18,7 @@ ms.locfileid: "89317575"
 
    ![Eclipse Launcher 的屏幕截图](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. 片刻之后，Eclipse IDE 的主窗口将会显示。 关闭**欢迎**屏幕（如果存在）。
+1. 片刻之后，Eclipse IDE 的主窗口将会显示。 关闭 **欢迎** 屏幕（如果存在）。
 
 1. 从 Eclipse 菜单栏上，通过选择“文件” > “新建” > “项目”创建一个新项目。
 
@@ -32,7 +32,7 @@ ms.locfileid: "89317575"
 
 1. 如果出现了“打开关联的透视图?”窗口，请选择“打开透视图”。
 
-1. 在**包资源管理器**中，右键单击 **quickstart** 项目。 从上下文菜单中选择“配置” > “转换为 Maven 项目”。
+1. 在 **包资源管理器** 中，右键单击 **quickstart** 项目。 从上下文菜单中选择“配置” > “转换为 Maven 项目”。
 
    ![包资源管理器的屏幕截图](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 

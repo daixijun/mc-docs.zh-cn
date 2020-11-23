@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: 警报和操作组
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: 使用 IntelliJ 部署应用
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: 断路器仪表板
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: 自定义 DNS 名称
       href: spring-cloud-tutorial-custom-domain.md
-    - name: 使用 Terraform 预配 Azure Spring Cloud 实例
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: 使用托管标识将 Key Vault 连接到 Azure Spring Cloud 应用
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: 使用托管标识从 Azure Spring Cloud 应用调用 Azure Functions
@@ -75,6 +71,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: 从源代码启动 Java 应用
           href: spring-cloud-howto-launch-from-source.md
+        - name: 使用 IntelliJ 部署应用
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: 配置
       items:
         - name: 启动、停止和删除应用
@@ -103,8 +101,6 @@
           href: spring-cloud-tutorial-bind-redis.md
         - name: 将应用绑定到 Azure MySQL
           href: spring-cloud-tutorial-bind-mysql.md
-        - name: 与 Azure 负载均衡解决方案集成
-          href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: 自动化
       items:
         - name: 使用 Azure DevOps 进行 CI/CD

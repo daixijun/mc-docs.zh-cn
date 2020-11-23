@@ -4,15 +4,15 @@ description: 了解如何续订与应用程序网关侦听器关联的证书。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 04/26/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: a1a4ed73d3ec63ff54ffbee5ee59e9aece79afd7
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: 9fcdb92f453d1c99613d1bb9986ee06e895bcf3a
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267659"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849450"
 ---
 # <a name="renew-application-gateway-certificates"></a>续订应用程序网关证书
 
@@ -52,15 +52,15 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 ## <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az network application-gateway ssl-cert update `
-  -n "<CertName>" `
-  --gateway-name "<AppGatewayName>" `
-  -g "ResourceGroupName>" `
-  --cert-file <PathToCerFile> `
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
   --cert-password "<password>"
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何使用 Azure 应用程序网关配置 TLS 卸载，请参阅[配置 TLS 卸载](application-gateway-ssl-portal.md)
+若要了解如何使用 Azure 应用程序网关配置 TLS 卸载，请参阅[配置 TLS 卸载](./create-ssl-portal.md)
 

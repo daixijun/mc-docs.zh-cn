@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 90da6b76c8fd33a0bf5d9437b0203645bd19c50a
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c679dee285d177a7324c3851bd312ed3aa48f490
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849431"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>创建证书以允许 Azure 应用程序网关中的后端
 
@@ -105,6 +105,5 @@ ms.locfileid: "91937402"
 
 ## <a name="next-steps"></a>后续步骤
 
-现已创建采用 Base-64 编码的 X.509(.CER) 格式身份验证证书/受信任的根证书。 可将此证书添加到应用程序网关，以允许对后端服务器进行端到端 TLS 加密。 请参阅[使用 PowerShell 通过应用程序网关配置端到端 TLS](/application-gateway/application-gateway-end-to-end-ssl-powershell)。
-
+现已创建采用 Base-64 编码的 X.509(.CER) 格式身份验证证书/受信任的根证书。 可将此证书添加到应用程序网关，以允许对后端服务器进行端到端 TLS 加密。 请参阅[使用 PowerShell 通过应用程序网关配置端到端 TLS](./application-gateway-end-to-end-ssl-powershell.md)。
 

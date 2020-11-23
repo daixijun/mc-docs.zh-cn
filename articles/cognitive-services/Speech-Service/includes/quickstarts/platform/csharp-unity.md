@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-origin.date: 10/10/2019
-ms.date: 09/02/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a1ed66a8dea8ae7937632633c3646e7de50a3e06
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 19a8d49a821823e1970d14f007c034e1f8edcb50
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317585"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977651"
 ---
 本指南介绍如何安装用于 [Unity](https://unity3d.com/) 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。
 

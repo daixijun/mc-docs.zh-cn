@@ -4,14 +4,14 @@ description: 了解如何使用 Azure 备份服务管理和监视 Azure VM 备�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/18/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 691e476a99ae165ec9e290a02df3a5eee82dcb90
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 73d5a206a6c316b702a5bdb8263f52fc009c4278
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402670"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978227"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 备份服务管理 Azure VM 备份
 
@@ -27,6 +27,8 @@ ms.locfileid: "91402670"
 可以使用仪表板以及通过向下钻取到各个 VM 来管理备份。 若要开始计算机备份，请在仪表板上打开保管库。
 
 ![具有滑块的完整仪表板视图](./media/backup-azure-manage-vms/bottom-slider.png)
+
+<!--Not available in MC: ../../includes/backup-center.md-->
 
 ## <a name="view-vms-on-the-dashboard"></a>在仪表板中查看 VM
 

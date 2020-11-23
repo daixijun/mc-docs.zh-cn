@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: how-to
 origin.date: 9/29/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 0cc7988a3aa6365178cebdd80a71f0a11ca13650
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/23/2020
+ms.openlocfilehash: fe7983bd71c656f353046b894daca44585530550
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470487"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908956"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中配置数据传入复制
 
@@ -207,7 +207,7 @@ ms.locfileid: "92470487"
 
 1. 设置源服务器。
 
-   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-data-in-stored-procedures.md)中找到所有过程。 存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。
+   所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-stored-procedures.md)中找到所有过程。 存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。
 
    若要链接两个服务器并启动复制，请在 Azure DB for MariaDB 服务中登录到目标副本服务器。 接下来，在 Azure DB for MariaDB 服务器上使用 `mysql.az_replication_change_master` 或 `mysql.az_replication_change_master_with_gtid` 存储过程，将外部实例设置为源服务器。
 

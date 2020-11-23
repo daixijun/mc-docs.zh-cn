@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 391599f34c762562d4e11c2eff8dd723738ecd9f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bd5dd95c08d103cb54d3ecc424942d05090dea94
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118948"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977252"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>从 Excel 使用 Azure 机器学习工作室（经典）Web 服务
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
  使用 Azure 机器学习工作室（经典）可以轻松地直接从 Excel 调用 Web 服务，而无需编写任何代码。
 
@@ -34,23 +34,23 @@ ms.locfileid: "92118948"
 
 **经典 Web 服务**
 
-1. 在 Web 服务的“DASHBOARD”**** 选项卡上有一行“REQUEST/RESPONSE”**** 服务。 如果此服务具有单个输出，应在该行看到“下载 Excel 工作簿”**** 链接。
+1. 在 Web 服务的“DASHBOARD”选项卡上有一行“REQUEST/RESPONSE”服务。 如果此服务具有单个输出，应在该行看到“下载 Excel 工作簿”链接。
 
     ![使用工作室（经典）Web 服务门户下载 Excel 工作簿](./media/consuming-from-excel/excellink.png)
-2. 单击“下载 Excel 工作簿”****。
+2. 单击“下载 Excel 工作簿”。
 
 **新的 Web 服务**
 
-1. 在 Azure 机器学习 Web 服务门户中，选择“使用”****。
-2. 在使用页上的“Web 服务使用选项”**** 部分中，单击 Excel 图标。
+1. 在 Azure 机器学习 Web 服务门户中，选择“使用”。
+2. 在使用页上的“Web 服务使用选项”部分中，单击 Excel 图标。
 
 **使用工作簿**
 
 1. 打开工作簿。
-2. 系统会显示安全警告；单击“启用编辑”**** 按钮。
+2. 系统会显示安全警告；单击“启用编辑”按钮。
 
     ![启用编辑以删除受保护的视图安全警告](./media/consuming-from-excel/enableeditting.png)
-3. 系统会显示安全警告。 单击“启用内容”**** 按钮，在电子表格上运行宏。
+3. 系统会显示安全警告。 单击“启用内容”按钮，在电子表格上运行宏。
 
     ![启用内容以关闭禁用宏的安全警告](./media/consuming-from-excel/enablecontent.png)
 4. 启用宏后，将生成一个表。 要求将蓝色的列作为 RRS Web 服务的输入或 **PARAMETERS**。 注意，RRS 服务的输出，**PREDICTED VALUES** 为绿色。 给定行的所有列都填满时，工作簿会自动调用评分 API，并显示评分结果。

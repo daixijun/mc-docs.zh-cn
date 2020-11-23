@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: bb7632daf6369cc39c6b818712cbe3543198b7fb
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bd42ef83877b7713562cc0bae9d52286cc8ca765
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118318"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977779"
 ---
 # <a name="score-image-model"></a>为图像模型评分
 
@@ -38,7 +38,7 @@ ms.locfileid: "92118318"
 
 ### <a name="publish-scores-as-a-web-service"></a>将评分发布为 Web 服务
 
-评分的一个常见用途是在预测 Web 服务中返回输出。 有关详细信息，请参阅[此教程](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy)，了解如何在 Azure 机器学习设计器中基于管道部署实时终结点。
+评分的一个常见用途是在预测 Web 服务中返回输出。 有关详细信息，请参阅[此教程](../tutorial-designer-automobile-price-deploy.md)，了解如何在 Azure 机器学习设计器中基于管道部署实时终结点。
 
 ## <a name="next-steps"></a>后续步骤
 

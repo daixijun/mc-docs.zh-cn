@@ -7,5 +7,5 @@
       topicHref: /cognitive-services/index
       items:
         - name: 语音服务
-          tocHref: /cognitive-services/translator/
+          tocHref: /cognitive-services/
           topicHref: /cognitive-services/speech-service/index

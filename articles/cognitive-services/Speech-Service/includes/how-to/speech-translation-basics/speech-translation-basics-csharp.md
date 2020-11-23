@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/13/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6971985fd1f77109d5ad5565cda411ea9d48c243
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 44e2cfed7491c669f5e2f8cf84131b94b193665f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127858"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979355"
 ---
 语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
 
@@ -332,7 +332,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-有关语音合成的详细信息，请参阅[语音合成基础知识](../../../text-to-speech-basics.md)。
+有关语音合成的详细信息，请参阅[语音合成基础知识](../../../get-started-text-to-speech.md)。
 
 [config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
 [audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet

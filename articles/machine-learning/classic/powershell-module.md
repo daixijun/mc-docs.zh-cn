@@ -8,16 +8,16 @@ ms.topic: conceptual
 author: likebupt
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: f95e6507d8b7519bcd41f6e8c384840927f42100
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0eaa64131f2014384ae03aca4e8483ca61ae4a33
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103698"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978206"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure 机器学习工作室（经典）PowerShell 模块
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 使用 PowerShell 模块，可采用编程方式管理工作室（经典）资源和资产，例如工作区、数据集和 Web 服务。
@@ -44,7 +44,7 @@ PowerShell 经典版可与 Az 或 AzureRM 一起安装，以处理新的和经�
 
 借助工作室（经典）[PowerShell 经典模块](https://aka.ms/amlps)，可管理使用经典部署模型部署的资源。 这些资源包括工作室（经典）用户资产、经典 Web 服务和经典 Web 服务终结点。
 
-然而，Microsoft 建议为所有未来资源使用资源管理器部署模型，以简化资源的部署和管理。 若要了解有关部署模型的详细信息，请参阅 [Azure 资源管理器与经典部署](/azure-resource-manager/resource-manager-deployment-model)一文。
+然而，Microsoft 建议为所有未来资源使用资源管理器部署模型，以简化资源的部署和管理。 若要了解有关部署模型的详细信息，请参阅 [Azure 资源管理器与经典部署](../../azure-resource-manager/management/deployment-models.md)一文。
 
 若要开始使用 PowerShell（经典），请从 GitHub 下载[发行包](https://github.com/hning86/azuremlps/releases)并按照[安装说明](https://github.com/hning86/azuremlps/blob/master/README.md)执行操作。 这些说明解释了如何取消阻止已下载/解压缩的 DLL，然后将它导入到 PowerShell 环境。
 

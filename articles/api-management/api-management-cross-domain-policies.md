@@ -11,18 +11,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 11/28/2017
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.date: 09/29/2020
-ms.openlocfilehash: dd28843046b486d84f35ab470fc720951cd95012
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+origin.date: 11/28/2017
+ms.openlocfilehash: ce252ac5f2bba39b4204cb945f147e379a178891
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871235"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978130"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies（API 管理跨域策略）
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-policies.md)。
 
 ## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> 跨域策略
 
@@ -46,9 +46,7 @@ ms.locfileid: "91871235"
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 
@@ -193,5 +191,5 @@ CORS 允许浏览器与服务器交互，并确定是否允许特定的跨源请
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
 + [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
-+ [策略示例](policy-samples.md)
++ [策略示例](./policy-reference.md)
 

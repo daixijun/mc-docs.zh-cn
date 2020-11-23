@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: d444bf4001ef77e18afad37f0786f9374cf91fdd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: cc8dc0bb8052e8b671946fca94cb18a0cb3f2da7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599042"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977931"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>在数据科学虚拟机上设置通用标识
 
@@ -25,7 +25,7 @@ Active Directory 是常用的标识提供者，可以在 Azure 上同时充当�
 
 如果已有 Active Directory，可以将它用作通用标识提供者。 如果没有 Active Directory，则可以通过 [Azure Active Directory 域服务](/active-directory-domain-services/) (Azure AD DS) 在 Azure 上运行托管的 Active Directory 实例。
 
-[Azure AD](/active-directory/) 的文档提供了详细的[托管说明](/active-directory/choose-hybrid-identity-solution)，包括如何将 Azure AD 连接到本地目录的相关指南（如果有）。
+[Azure AD](/active-directory/) 的文档提供了详细的[托管说明](/active-directory/hybrid/whatis-hybrid-identity.md)，包括如何将 Azure AD 连接到本地目录的相关指南（如果有）。
 
 本文介绍如何使用 Azure AD DS 在 Azure 上设置完全托管的 Active Directory 域服务。 然后可以将 DSVM 加入托管的 Active Directory 域。 此方法使用户能够通过通用用户帐户和凭据访问 DSVM 池（和其他 Azure 资源）。
 
@@ -45,7 +45,7 @@ Azure AD DS 在 Azure 上提供完全托管的服务，简化了标识管理。 
       
       ![“用户”窗格](./media/add-user.png)
     
-   1. 输入用户的详细信息，如**名称**和**用户名**。 用户名的域名部分必须是初始默认域名“[domain name].onmicrosoft.com”，或已验证的非联合[自定义域名](../../active-directory/add-custom-domain.md)（例如“contoso.com”）。
+   1. 输入用户的详细信息，如 **名称** 和 **用户名**。 用户名的域名部分必须是初始默认域名“[domain name].onmicrosoft.com”，或已验证的非联合[自定义域名](../../active-directory/fundamentals/add-custom-domain.md)（例如“contoso.com”）。
     
    1. 复制或以其他方式记下生成的用户密码，以便在此过程完成后可以提供给用户。
     
@@ -55,11 +55,11 @@ Azure AD DS 在 Azure 上提供完全托管的服务，简化了标识管理。 
     
    1. 以安全方式将生成的密码分发给新用户，以便用户可以登录。
 
-1. 创建 Azure AD DS 实例。 按照[使用 Azure 门户启用 Azure Active Directory 域服务](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)中的说明（“创建实例并配置基本设置 ”一节）操作。 必须更新 Active Directory 中的现有用户密码，以便同步 Azure AD DS 中的密码。 还应按该节中的“完成 Azure 门户‘基本信息’窗口中的字段以创建 Azure AD DS 实例”这部分内容所述，将 DNS 添加到 Azure AD DS，这也很重要。
+1. 创建 Azure AD DS 实例。 按照[使用 Azure 门户启用 Azure Active Directory 域服务](../../active-directory-domain-services/tutorial-create-instance.md)中的说明（“创建实例并配置基本设置 ”一节）操作。 必须更新 Active Directory 中的现有用户密码，以便同步 Azure AD DS 中的密码。 还应按该节中的“完成 Azure 门户‘基本信息’窗口中的字段以创建 Azure AD DS 实例”这部分内容所述，将 DNS 添加到 Azure AD DS，这也很重要。
 
 1. 在上一步骤“创建和配置虚拟网络”部分中所创建的虚拟网络中创建单独的 DSVM 子网。
 1. 在 DSVM 子网中创建一个或多个 DSVM 实例。
-1. 请按照[说明](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm )将 DSVM 添加到 Active Directory。 
+1. 请按照[说明](../../active-directory-domain-services/join-ubuntu-linux-vm.md)将 DSVM 添加到 Active Directory。 
 1. 装载用于托管主目录或笔记本目录的 Azure 文件共享，以便可以在任何计算机上装载工作区。 （如果需要严格的文件级别权限，则需在一个或多个 VM 上运行网络文件系统 [NFS]。）
 
    1. [创建 Azure 文件共享](../../storage/files/storage-how-to-create-file-share.md)。

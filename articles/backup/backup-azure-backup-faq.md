@@ -4,14 +4,14 @@ description: '针对以下常见问题的解答：包括恢复服务保管库在
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 07/07/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 342a1288ed80b92eb844a678b7d5af875288a5de
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 58fdc406033da4b3a73268a86e1d2e66a262c6de
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871231"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977188"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 
@@ -175,7 +175,7 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 - 完整点的存储 *效率不高* ，但能使还原变得更方便和快速。
 - 增量复制为高效存储，但要求还原数据链，这会影响恢复时间
 
-Azure 备份存储体系结构在这两方面都能提供最佳性能，它以最佳方式存储数据，以便快速还原，且产生的存储成本低。 这种方法可确保提高（入口和出口）带宽使用效率。 数据存储量和恢复数据所需的时间都会尽量减少。 了解有关[增量备份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)的更多信息。
+Azure 备份存储体系结构在这两方面都能提供最佳性能，它以最佳方式存储数据，以便快速还原，且产生的存储成本低。 这种方法可确保提高（入口和出口）带宽使用效率。 数据存储量和恢复数据所需的时间都会尽量减少。 了解有关[增量备份](backup-architecture.md#backup-types)的更多信息。
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>可创建的恢复点数量是否有限制？
 

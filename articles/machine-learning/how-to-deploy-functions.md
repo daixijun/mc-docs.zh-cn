@@ -11,12 +11,12 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 019c8ccd8c997885614605ed40caa6a9019ac98c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 8fb2cd82ff11c5502b68663f2ead459612cf24e9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118146"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977920"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>将机器学习模型部署到 Azure Functions（预览版）
 
@@ -26,12 +26,12 @@ ms.locfileid: "92118146"
 > [!IMPORTANT]
 > 虽然 Azure 机器学习和 Azure Functions 都已正式发布，但将模型从机器学习服务部署到 Functions 的功能目前处于预览阶段。
 
-使用 Azure 机器学习，可通过经过训练的机器学习模型创建 Docker 映像。 Azure 机器学习现在提供了将这些机器学习模型生成到函数应用中的预览功能，而这些函数应用可[部署到 Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container) 中。
+使用 Azure 机器学习，可通过经过训练的机器学习模型创建 Docker 映像。 Azure 机器学习现在提供了将这些机器学习模型生成到函数应用中的预览功能，而这些函数应用可[部署到 Azure Functions](../azure-functions/functions-deployment-technologies.md#docker-container) 中。
 
 ## <a name="prerequisites"></a>必备条件
 
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 * 工作区中注册的已训练的机器学习模型。 如果没有模型，请使用[图像分类教程：训练模型](tutorial-train-models-with-aml.md)来训练和注册模型。
 
     > [!IMPORTANT]
@@ -54,16 +54,16 @@ ms.locfileid: "92118146"
     >
     > 如果请求数据的格式对模型不可用，则该脚本可以将其转换为可接受的格式。 在将响应返回给客户端之前，它还可以对响应进行转换。
     >
-    > 默认情况下，在为函数打包时，输入被视为文本。 如果想使用输入的原始字节（例如用于 Blob 触发器），则应使用 [AMLRequest 接受原始数据](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data)。
+    > 默认情况下，在为函数打包时，输入被视为文本。 如果想使用输入的原始字节（例如用于 Blob 触发器），则应使用 [AMLRequest 接受原始数据](./how-to-deploy-advanced-entry-script.md#binary-data)。
 
-有关入口脚本的详细信息，请参阅[定义评分代码](/machine-learning/how-to-deploy-and-where#script)
+有关入口脚本的详细信息，请参阅[定义评分代码](./how-to-deploy-and-where.md#define-an-entry-script)
 
-* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包 
+* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包
 
-这些实体被封装到推理配置中  。 推理配置引用入口脚本和其他依赖项。
+这些实体被封装到推理配置中。 推理配置引用入口脚本和其他依赖项。
 
 > [!IMPORTANT]
-> 创建用于 Azure Functions 的推理配置时，需要使用 [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
+> 创建用于 Azure Functions 的推理配置时，需要使用 [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -84,7 +84,7 @@ ms.locfileid: "92118146"
 有关推理配置的详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
 > [!IMPORTANT]
-> 部署到 Azure Functions 时，无需创建部署配置  。
+> 部署到 Azure Functions 时，无需创建部署配置。
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>安装 SDK 预览版包以获取函数支持
 
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>创建映像
 
-若想创建要部署到 Azure Functions 的 Docker 映像，请为想应用的触发器使用 [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 或特定包函数。 下面的代码段演示如何通过模型和推理配置生成带有 blob 触发器的新包：
+若想创建要部署到 Azure Functions 的 Docker 映像，请为想应用的触发器使用 [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 或特定包函数。 下面的代码段演示如何通过模型和推理配置生成带有 blob 触发器的新包：
 
 > [!NOTE]
 > 该代码片段假定 `model` 包含已注册的模型，并且 `inference_config` 包含推理环境的配置。 有关详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
@@ -113,7 +113,7 @@ print(blob.location)
 当 `show_output=True` 时，将显示 Docker 生成过程的输出。 此过程完成后，即在 Azure 容器注册表中为工作区创建了映像。 映像生成后，会显示其在 Azure 容器注册表中的位置。 返回的位置采用 `<acrinstance>.azurecr.io/package@sha256:<imagename>` 格式。
 
 > [!NOTE]
-> 函数打包当前支持 HTTP 触发器、Blob 触发器和服务总线触发器。 有关触发器的详细信息，请参阅 [Azure Functions 绑定](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns)。
+> 函数打包当前支持 HTTP 触发器、Blob 触发器和服务总线触发器。 有关触发器的详细信息，请参阅 [Azure Functions 绑定](/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns)。
 
 > [!IMPORTANT]
 > 保存位置信息，因为会在部署映像时使用。
@@ -144,12 +144,12 @@ print(blob.location)
     }
     ```
 
-    保存“用户名”和某个“密码”的值   。
+    保存“用户名”和某个“密码”的值 。
 
 1. 如果你还没有资源组或应用服务计划来部署服务，以下命令将演示如何创建这两项：
 
     ```azurecli
-    az group create --name myresourcegroup --location "West Europe"
+    az group create --name myresourcegroup --location "China East"
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
@@ -161,7 +161,7 @@ print(blob.location)
 1. 创建要用于 Web 作业存储的存储帐户并获取其连接字符串。 将 `<webjobStorage>` 替换为要使用的名称。
 
     ```azurecli
-    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location chinaeast --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
@@ -179,7 +179,7 @@ print(blob.location)
 1. 创建要用于 blob 触发器存储的存储帐户并获取其连接字符串。 将 `<triggerStorage>` 替换为要使用的名称。
 
     ```azurecli
-    az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <triggerStorage> --location chinaeast --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
@@ -298,7 +298,7 @@ print(blob.location)
 ## <a name="next-steps"></a>后续步骤
 
 * 通过 [Functions](/azure-functions/functions-create-function-linux-custom-image) 文档，了解如何配置 Functions 应用。
-* 请参阅 [Azure Blob 存储绑定](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)，详细了解 Blob 存储触发器。
+* 请参阅 [Azure Blob 存储绑定](/azure-functions/functions-bindings-storage-blob)，详细了解 Blob 存储触发器。
 * [将模型部署到 Azure 应用服务](how-to-deploy-app-service.md)。
 * [使用部署为 Web 服务的机器学习模型](how-to-consume-web-service.md)
-* [API 参考](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [API 参考](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

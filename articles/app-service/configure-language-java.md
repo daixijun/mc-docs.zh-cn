@@ -11,12 +11,12 @@ ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 09544478cc238d4e9300b5c8f27cb0c4e51a5308
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: afda0f4b68808f1b117663754b61ce0817ca5699
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170833"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977199"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Java 应用
 
@@ -26,7 +26,7 @@ Azure 应用服务可让 Java 开发人员在完全托管服务中快速生成�
 
 ## <a name="deploying-your-app"></a>部署应用
 
-可以使用[适用于 Maven 的 Azure Web 应用插件](/java/api/overview/maven/azure-webapp-maven-plugin/readme)来部署 .war 或 .jar 文件。 [Azure Toolkit for IntelliJ](/java/intellij/azure-toolkit-for-intellij) 或 [Azure Toolkit for Eclipse](/java/eclipse/azure-toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
+可以使用[适用于 Maven 的 Azure Web 应用插件](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)来部署 .war 或 .jar 文件。 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/intellij/azure-toolkit-for-intellij) 或 [Azure Toolkit for Eclipse](https://docs.microsoft.com/java/eclipse/azure-toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
 
 否则，则部署方法将取决于存档类型：
 
@@ -209,7 +209,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 在 Azure 门户中使用“身份验证和授权”选项设置应用身份验证。 在此处，可以使用 Azure Active Directory 或社交登录名（例如 GitHub）启用身份验证。 仅当配置单个身份验证提供程序时，Azure 门户配置才起作用。 有关详细信息，请参阅[将应用服务应用配置为使用 Azure Active Directory 登录](configure-authentication-provider-aad.md)，以及其他标识提供者的相关文章。 如果需要启用多个登录提供程序，请遵照[自定义应用服务身份验证](app-service-authentication-how-to.md)一文中的说明。
 #### <a name="java-se"></a>Java SE
 
-Spring Boot 开发人员可以使用 [Azure Active Directory Spring Boot Starter](/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) 通过熟悉的 Spring Security 注释和 API 来保护应用程序。 务必增加 application.properties 文件中的最大标头大小。 我们建议值为 `16384`。
+Spring Boot 开发人员可以使用 [Azure Active Directory Spring Boot Starter](https://docs.microsoft.com/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) 通过熟悉的 Spring Security 注释和 API 来保护应用程序。 务必增加 application.properties 文件中的最大标头大小。 我们建议值为 `16384`。
 
 #### <a name="tomcat"></a>Tomcat
 
@@ -338,7 +338,7 @@ keyStore.load(
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 上创建一个 AppDynamics 帐户
 2. 从 AppDynamics 网站下载 Java 代理，文件名将类似于 AppServerAgent-x.x.x.xxxxx.zip
-3. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm* 。
+3. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm*。
 4. 将 Java 代理文件上传到 /home/site/wwwroot/apm 下的一个目录中。 代理的文件应位于 /home/site/wwwroot/apm/appdynamics 中。
 5. 在 Azure 门户中，浏览到你在应用服务中的应用程序并创建一个新的应用程序设置。
 
@@ -426,7 +426,7 @@ keyStore.load(
     </Context>
     ```
 
-3. 更新应用程序的 *web.xml* ，以便在应用程序中使用该数据源。
+3. 更新应用程序的 *web.xml*，以便在应用程序中使用该数据源。
 
     ```xml
     <resource-env-ref>
@@ -520,11 +520,11 @@ keyStore.load(
 启动脚本将进行 [xsl 转换](https://www.w3schools.com/xml/xsl_intro.asp)，转换为 server.xml 文件，并将所得的 xml 文件输出到 `/usr/local/tomcat/conf/server.xml`。 启动脚本应通过 apk 安装 libxslt。 你的 xsl 文件和启动脚本均可通过 FTP 上传。 下面是一个示例启动脚本。
 
 ```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
 apk add --update libxslt
 
-# Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 下面提供了一个示例 xsl 文件。 该文件向 Tomcat server.xml 添加了一个新的连接器节点。
@@ -697,6 +697,6 @@ Tomcat 8.0 [已经在 2018 年 9 月 30 日生命周期终止 (EOL)。](https://
 
 ## <a name="next-steps"></a>后续步骤
 
-请访问[面向 Java 开发人员的 Azure](/java/) 中心查找 Azure 快速入门、教程和 Java 参考文档。
+请访问[面向 Java 开发人员的 Azure](https://docs.microsoft.com/java/) 中心查找 Azure 快速入门、教程和 Java 参考文档。
 
 [应用服务 Linux 常见问题解答](faq-app-service-linux.md)中解答了并不特定于 Java 开发的、适用于 Linux 的应用服务的一般用法问题。

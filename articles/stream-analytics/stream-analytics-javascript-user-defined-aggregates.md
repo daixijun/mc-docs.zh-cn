@@ -7,13 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/28/2017
-ms.date: 07/06/2020
-ms.openlocfilehash: 2a0e1d1094d4fe2c56ef95c8541e86cac6d154f2
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 11/16/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: f552edbdca55b893fb568cfedc3709bf3983d6e7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225980"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977413"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure 流分析 JavaScript 用户定义的聚合
  
@@ -114,7 +115,7 @@ deaccumulateState() 方法基于前一状态和跃点状态重新计算状态。
 computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（TUMBLINGWINDOW、HOPPINGWINDOW、SLIDINGWINDOW 或 SESSIONWINDOW）结束时调用此方法。
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA 支持的输入和输出数据类型
-有关 JavaScript UDA 数据类型，请参阅[集成 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 的**流分析和 JavaScript 类型转换**部分。
+有关 JavaScript UDA 数据类型，请参阅 [集成 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 的 **流分析和 JavaScript 类型转换** 部分。
 
 ## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>通过 Azure 门户添加 JavaScript UDA
 
@@ -234,5 +235,5 @@ GROUP BY TumblingWindow(minute, 5)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

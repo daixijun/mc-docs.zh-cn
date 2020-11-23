@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 origin.date: 08/04/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 16dbcc4c0a8a75d6e4c48f0e497259a08ed2ff7a
-ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
+ms.date: 11/23/2020
+ms.openlocfilehash: 8e0c02856f07c1918fef64e08f9a85eb58a4ef59
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91990789"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977279"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 托管实例
 
@@ -73,7 +73,7 @@ ms.locfileid: "91990789"
 
 * 请确保虚拟网络网络安全组规则未阻止到 Azure 数据库迁移服务的以下出站通信端口：443、53、9354、445、12000。 有关虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
 * 配置[针对源数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-* 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
+* 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。 如果默认实例正在侦听其他端口，请将该端口添加到防火墙。
 * 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
 * 如果在源数据库的前面使用了防火墙设备，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库，并通过 SMB 端口 445 访问文件。
 * 按照[在 Azure 门户中创建 SQL 托管实例](/sql-database/sql-database-managed-instance-get-started)一文中的详述创建 SQL 托管实例。
@@ -86,14 +86,14 @@ ms.locfileid: "91990789"
   > [!NOTE]
   > Azure 数据库迁移服务需要对指定的应用程序 ID 的订阅具有参与者权限。 或者，你可以创建自定义角色，以授予 Azure 数据库迁移服务所需的特定权限。 有关使用自定义角色的分步指导，请参阅[用于 SQL Server 到 SQL 托管实例联机迁移的自定义角色](/dms/resource-custom-roles-sql-db-managed-instance)一文。
 
-* 创建或记下可让 DMS 服务将数据库备份文件上传到的并可用来迁移数据库的**标准性能层** Azure 存储帐户。  请务必在创建 Azure 数据库迁移服务实例的同一区域创建 Azure 存储帐户。
+* 创建或记下可让 DMS 服务将数据库备份文件上传到的并可用来迁移数据库的 **标准性能层** Azure 存储帐户。  请务必在创建 Azure 数据库迁移服务实例的同一区域创建 Azure 存储帐户。
 
   > [!NOTE]
   > 使用联机迁移选项将[透明数据加密](/azure-sql/database/transparent-data-encryption-tde-overview)保护的数据库迁移到托管实例时，必须先迁移本地或 Azure VM SQL Server 实例中的相应证书，再还原数据库。 有关详细步骤，请参阅[将 TDE 证书迁移到托管实例](/azure-sql/database/transparent-data-encryption-tde-overview)。
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>注册 Microsoft.DataMigration 资源提供程序
 
-1. 登录到 Azure 门户，选择“所有服务”，然后选择“订阅”。
+1. 登录到 Azure 门户，选择“所有服务”  ，然后选择“订阅”  。
 
     ![显示门户订阅](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "91990789"
 
     ![显示资源提供程序](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
-3. 搜索“迁移”，然后选择“注册”。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)
 
@@ -111,11 +111,11 @@ ms.locfileid: "91990789"
 
      ![Azure 市场](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，选择“创建” 。
+2. 在“Azure 数据库迁移服务”屏幕上，选择“创建”   。
 
     ![创建 Azure 数据库迁移服务实例](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
-3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称。
+3. 在“创建迁移服务”屏幕上，为服务、订阅以及新的或现有资源组指定名称  。
 
 4. 选择要在其中创建 DMS 实例的位置。
 
@@ -136,13 +136,13 @@ ms.locfileid: "91990789"
 
     ![创建 DMS 服务](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
-7. 选择“创建”来创建服务。
+7. 选择“创建”  来创建服务。
 
 ## <a name="create-a-migration-project"></a>创建迁移项目
 
 创建服务实例后，在 Azure 门户中找到并打开它，然后创建一个新的迁移项目。
 
-1. 在 Azure 门户中，选择“所有服务”，搜索 Azure 数据库迁移服务，然后选择“Azure 数据库迁移服务”。
+1. 在 Azure 门户中，选择“所有服务”  ，搜索 Azure 数据库迁移服务，然后选择“Azure 数据库迁移服务”  。
 
     ![查找 Azure 数据库迁移服务的所有实例](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
@@ -228,7 +228,7 @@ ms.locfileid: "91990789"
 
 ## <a name="review-the-migration-summary"></a>查看迁移摘要
 
-1. 在“迁移摘要”屏幕的“活动名称”文本框中指定迁移活动的名称。 
+1. 在“迁移摘要”屏幕的“活动名称”文本框中指定迁移活动的名称。  
 
 2. 查看并验证与迁移项目关联的详细信息。
 
@@ -236,7 +236,7 @@ ms.locfileid: "91990789"
 
 ## <a name="run-and-monitor-the-migration"></a>运行并监视迁移
 
-1. 选择“运行迁移”。
+1. 选择“运行迁移”  。
 
 2. 在“迁移活动”屏幕上，选择“刷新”以更新显示。
 

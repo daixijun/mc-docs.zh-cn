@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: overview
-ms.date: 11/03/2020
-ms.openlocfilehash: 792203f29c6a7d131ae0a25a6f4f988043268fae
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 11/16/2020
+ms.openlocfilehash: fcff6946346321085c9ed549fd26b5ce56f2ddfc
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326571"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849386"
 ---
 # <a name="azure-cache-for-redis"></a>用于 Redis 的 Azure 缓存
 Azure Cache for Redis 基于 [Redis](https://redis.io/) 软件提供内存中数据存储。 Redis 极大地提高了在后端数据存储上使用的应用程序的性能和可伸缩性。 它将经常访问的数据保留在可快速读写的服务器内存中，从而能够处理大量应用程序请求。 Redis 为新式应用程序带来了关键的低延迟、高吞吐量数据存储解决方案。
@@ -35,9 +35,6 @@ Azure Cache for Redis 通过支持常见的应用程序体系结构模式来提�
 
 Azure Cache for Redis 支持 OSS Redis 版本 4.x 和 6.0（预览版）。 我们已决定跳过 Redis 5.0，为你提供最新版本。 以前，Azure Cache for Redis 仅维护一个 Redis 版本。 以后，它将提供一个较新的主要版本升级，以及至少一个较旧的稳定版本。 你可以选择最适合你的应用程序的[版本](cache-how-to-version.md)。
 
-> [!NOTE]
-> Redis 6.0 目前为预览版 - 如有兴趣，可[联系我们](mailto:azurecache@microsoft.com)。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
->
 
 ## <a name="service-tiers"></a>服务层
 Azure Redis 缓存在下述层中提供：

@@ -10,14 +10,14 @@ metadata:
   ms.service: speech-service
   ms.topic: landing-page
   origin.date: 04/13/2020
-  ms.date: 09/02/2020
+  ms.date: 11/20/2020
   ms.author: v-tawe
-  ms.openlocfilehash: d54b86abced588000d9564262048941577d7042d
-  ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+  ms.openlocfilehash: 77afd7d699f7ef792e632d4c9541c1f428936a89
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89317485"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94978214"
 landingContent:
 - title: 关于语音翻译
   linkLists:
@@ -47,3 +47,9 @@ landingContent:
       url: language-support.md#speech-translation
     - text: 语音翻译定价
       url: https://www.azure.cn/pricing/details/cognitive-services/
+- title: 帮助和反馈
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 支持和帮助选项
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

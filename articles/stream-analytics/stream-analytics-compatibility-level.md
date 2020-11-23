@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/10/2020
-ms.date: 08/20/2020
-ms.openlocfilehash: 8ff758b81d9e10858b30bff40bea8b2ecd73950a
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: 0262ac852aeb8fb93e3166b27d8b08cf27bb8d3a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715742"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977430"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -34,12 +34,12 @@ Azure 流分析目前支持三种兼容性级别：
 
 ## <a name="set-the-compatibility-level"></a>设置兼容性级别
 
-可以使用 Azure 门户或[创建作业 REST API 调用](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。
+可以使用 Azure 门户或[创建作业 REST API 调用](https://docs.microsoft.com/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel)来设置流分析作业的兼容性级别。
 
 若要在 Azure 门户中更新作业的兼容性级别：
 
 1. 使用 [Azure 门户](https://portal.azure.cn)定位到你的流分析作业。
-2. **停止**该作业，然后更新兼容性级别。 如果作业处于运行状态，则无法更新兼容性级别。
+2. **停止** 该作业，然后更新兼容性级别。 如果作业处于运行状态，则无法更新兼容性级别。
 3. 在“配置”标题下，选择“兼容性级别”。  
 4. 选择所需的兼容性级别值。
 5. 选择页面底部的“保存”  。
@@ -54,7 +54,7 @@ Azure 流分析目前支持三种兼容性级别：
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP 消息传递协议
 
-**1.2 级别**：Azure 流分析使用[高级消息队列协议 (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) 消息传递协议将内容写入服务总线队列和主题。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。
+**1.2 级别**：Azure 流分析使用 [高级消息队列协议 (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) 消息传递协议将内容写入服务总线队列和主题。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。
 
 ### <a name="geospatial-functions"></a>地理空间函数
 
@@ -78,13 +78,13 @@ Azure 流分析支持地理空间参考数据索引编制。 可为包含地理�
 
 **以前的级别：** 更新插入行为是“插入或合并”。 
 
-**1.2 级别：** 与 CosmosDB 输出的本机批量 API 集成可以最大程度地提高吞吐量，并有效地处理限制请求。 有关详细信息，请参阅[从 Azure 流分析输出到 Azure Cosmos DB](/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12) 页。
+**1.2 级别：** 与 CosmosDB 输出的本机批量 API 集成可以最大程度地提高吞吐量，并有效地处理限制请求。 有关详细信息，请参阅[从 Azure 流分析输出到 Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12) 页。
 
 更新插入行为是“插入或替换”。 
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>写入到 SQL 输出时的 DateTimeOffset
 
-**以前的级别：** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 类型已调整为 UTC。
+**以前的级别：** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql) 类型已调整为 UTC。
 
 **1.2 级别：** 不再调整 DateTimeOffset。
 
@@ -152,5 +152,5 @@ Azure 流分析支持地理空间参考数据索引编制。 可为包含地理�
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析输入的故障排除](stream-analytics-troubleshoot-input.md)
-* [流分析资源运行状况](stream-analytics-resource-health.md)
+* [流分析资源运行状况](./stream-analytics-troubleshoot-query.md)
 

@@ -84,7 +84,7 @@
       href: insights/insights-overview.md
     - name: 监视解决方案
       href: insights/solutions-inventory.md
-    - name: 数据安全性
+    - name: 数据安全
       items:
         - name: 日志数据
           href: platform/data-security.md
@@ -406,7 +406,7 @@
               displayname: 'correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation'
             - name: 自定义电子邮件报告
               href: app/automate-custom-reports.md
-            - name: 异常
+            - name: 例外
               href: app/asp-net-exceptions.md
             - name: 日志跟踪
               href: app/asp-net-trace-logs.md
@@ -535,8 +535,6 @@
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: 版本历史记录
                       href: platform/diagnostics-extension-versions.md
-                    - name: JSON Lines 资源日志格式
-                      href: platform/diagnostic-logs-append-blobs.md
                     - name: 疑难解答
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -619,6 +617,8 @@
               href: insights/container-insights-alerts.md
             - name: 代理管理
               href: insights/container-insights-manage-agent.md
+            - name: 配置 Prometheus 指标抓取
+              href: insights/container-insights-prometheus-integration.md
             - name: 配置代理收集设置
               href: insights/container-insights-agent-config.md
             - name: 运行状况监视配置
@@ -917,7 +917,7 @@
               href: platform/autoscale-get-started.md
             - name: 配置设置
               href: platform/autoscale-understanding-settings.md
-            - name: 最佳实践
+            - name: 最佳做法
               href: platform/autoscale-best-practices.md
             - name: 常见指标
               href: platform/autoscale-common-metrics.md
@@ -965,7 +965,7 @@
               href: insights/solutions-resources-searches-alerts.md
             - name: 视图
               href: insights/solutions-resources-views.md
-            - name: 最佳实践
+            - name: 最佳做法
               href: insights/solutions-best-practices.md
 - name: 参考
   items:

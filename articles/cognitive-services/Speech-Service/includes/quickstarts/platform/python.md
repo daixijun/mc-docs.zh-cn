@@ -2,15 +2,15 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 04/04/2020
-ms.date: 07/29/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5b4dff6a21577cbd8c4b4998c9d9f6d0245cb1be
-ms.sourcegitcommit: 5d167ad5411b018522a0fac9f5435a48f4ceb3a6
+ms.openlocfilehash: ab272ddf56a04027261c79a1fa9b5da6afacc208
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "89317571"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977659"
 ---
 本指南介绍如何安装用于 Python 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。 如果只是需要包名称以便自行开始，请运行 `pip install azure-cognitiveservices-speech`。
 
@@ -21,7 +21,7 @@ ms.locfileid: "89317571"
 - Python 语音 SDK 包适用于以下操作系统：
   - Windows：x64 和 x86
   - Mac：macOS X 10.12 或更高版本
-  - Linux：基于 x64 的 Ubuntu 16.04/18.04、Debian 9、RHEL 7/8、CentOS 7/8
+  - Linux：请参阅[受支持的 Linux 分发和目标体系结构](~/articles/cognitive-services/speech-service/speech-sdk.md)的列表。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -36,12 +36,7 @@ ms.locfileid: "89317571"
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - 在 Debian 9 上，请运行以下命令来安装所需的包：
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    如果 libssl1.0.0 不可用，则改为安装 libssl1.0.x（其中 x 大于 0）或 libssl1.1。
 
   - 在 RHEL/CentOS 上，请运行以下命令来安装所需的包：
 
@@ -82,12 +77,12 @@ import azure.cognitiveservices.speech as speechsdk
 1. 下载并安装适用于你的平台的最新受支持 [Python](https://www.python.org/downloads/) 版本（3.5 到 3.8）。
    - 在安装过程中，Windows 用户必须选择“将 Python 添加到 PATH”。
 1. 下载并安装 [Visual Studio Code](https://code.visualstudio.com/Download)。
-1. 打开 Visual Studio Code 并安装 Python 扩展。 在菜单中选择“文件”**** > ****“首选项” > ****“扩展”。 搜索 **Python** 并单击“安装”。****
+1. 打开 Visual Studio Code 并安装 Python 扩展。 在菜单中选择“文件” > “首选项” > “扩展”。 搜索 **Python** 并单击“安装”。
 
    ![安装 Python 扩展](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. 同样在 Visual Studio Code 中，通过集成式命令行安装语音 SDK Python 包：
-   1. 打开终端（在下拉菜单中选择“终端” > “新终端”）**** ****
+   1. 打开终端（在下拉菜单中选择“终端” > “新终端”） 
    1. 在打开的终端中输入命令 `python -m pip install azure-cognitiveservices-speech`
 
 如果你不熟悉 Visual Studio Code，请参阅更详细的 [Visual Studio Code 文档](https://code.visualstudio.com/docs)。 有关 Visual Studio Code 和 Python 的详细信息，请参阅 [Visual Studio Code Python 教程](https://code.visualstudio.com/docs/python/python-tutorial)。
@@ -98,7 +93,7 @@ import azure.cognitiveservices.speech as speechsdk
 如果有新版本可用，可以使用 `pip install --upgrade azure-cognitiveservices-speech` 命令进行更新。
 通过查看 `azure.cognitiveservices.speech.__version__` 变量来检查当前安装的版本。
 
-如果遇到问题或者缺少某项功能，请查看[支持和帮助选项](~/articles/cognitive-services/speech-service/support.md)。
+如果遇到问题或者缺少某项功能，请查看[支持和帮助选项](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)。
 
 ## <a name="next-steps"></a>后续步骤
 

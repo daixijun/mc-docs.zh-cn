@@ -6,10 +6,6 @@
       href: overview.md
     - name: 我应选择哪个 MariaDB 选项？
       href: select-right-deployment-type.md
-    - name: 服务更新
-      items:
-        - name: SSL 根证书即将过期
-          href: concepts-certificate-rotation.md
 - name: 快速入门
   expanded: true
   items:
@@ -75,6 +71,8 @@
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: 安全基线
+          href: security-baseline.md
     - name: 业务连续性
       items:
         - name: 业务连续性简介
@@ -110,10 +108,6 @@
           href: concepts-data-in-replication.md
         - name: 只读副本
           href: concepts-read-replicas.md
-    - name: 在区域之间移动
-      items:
-        - name: Azure 门户
-          href: howto-move-regions-portal.md
 - name: 操作指南
   items:
     - name: 管理服务器
@@ -228,6 +222,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: 在区域之间移动
+      items:
+        - name: Azure 门户
+          href: howto-move-regions-portal.md
 - name: 参考
   items:
     - name: Azure CLI

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-origin.date: 10/11/2019
-ms.date: 08/03/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: 3ed645a749a198f515e8715b394d9aa7ff40f9eb
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 35d5c89041c802d60bdf8fc6c0ddd61c09ed647f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317576"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977655"
 ---
 本指南介绍如何安装用于 Java on Android 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。 该安装基于语音 SDK Maven 包和 Android Studio 3.3。
 

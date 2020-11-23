@@ -6,12 +6,12 @@ ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bac765aa33e245477d605a04f3738fa90b8484d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 865f6bff3b8e36def262ec7ead6e6ce8a00f97c0
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329366"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978281"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>快速入门：使用 .NET Core 创建策略分配以识别不合规资源
 
@@ -185,7 +185,7 @@ ms.locfileid: "94329366"
    
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
-                   "https://management.core.windows.net",
+                   "https://management.core.chinacloudapi.cn",
                    new ClientCredential(strClientId, strClientSecret));
    
                using (var client = new PolicyInsightsClient(new TokenCredentials(authResult.AccessToken)))

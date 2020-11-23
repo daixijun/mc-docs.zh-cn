@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/16/2019
-  ms.date: 07/27/2020
-  ms.openlocfilehash: 945d173c471095a8f065c6e117d833384929d82b
-  ms.sourcegitcommit: c3f15613c875bb52d5a105445efd0f36b9f24c9c
+  ms.date: 11/23/2020
+  ms.openlocfilehash: 7399000d31ccfb58b54a50031e69188c7320aba0
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86473452"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94977065"
 landingContent:
 - title: 关于 Data Box Disk
   linkLists:
@@ -26,6 +26,10 @@ landingContent:
     links:
     - text: 什么是 Data Box Disk？
       url: data-box-disk-overview.md
+  - linkListType: architecture
+    links:
+    - text: 选择 Azure 数据传输选项
+      url: ../storage/common/storage-choose-data-transfer-solution.md
 - title: 入门
   linkLists:
   - linkListType: quickstart

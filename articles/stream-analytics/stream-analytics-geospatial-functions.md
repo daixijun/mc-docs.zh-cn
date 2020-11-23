@@ -1,20 +1,19 @@
 ---
 title: Azure 流分析地理空间函数的简介
 description: 本文介绍了 Azure 流分析作业中使用的地理空间函数。
-author: rockboyfor
-ms.author: v-lingwu
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 08/06/2019
-ms.openlocfilehash: 1199adb85e0041e4440a03508500717636aebff2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/16/2020
+ms.openlocfilehash: db8c05a97d49e4913e08739e7367af2b70daa867
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75856960"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977418"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>流分析地理空间函数的简介
 
@@ -43,19 +42,19 @@ FROM input
 ```  
 
 ### <a name="input-example"></a>输入示例  
-
+  
 |latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
-
+  
 ### <a name="output-example"></a>输出示例  
 
  {"type" : "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-若要了解详细信息，请访问 [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) 引用。
+若要了解详细信息，请访问 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 引用。
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -70,19 +69,19 @@ FROM input
 ```  
 
 ### <a name="input-example"></a>输入示例  
-
+  
 |latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
-
+  
 ### <a name="output-example"></a>输出示例
-
+  
  {"type" : "Point", "coordinates" : [-10.2, 3.0]}  
-
+  
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-若要了解详细信息，请访问 [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) 引用。
+若要了解详细信息，请访问 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 引用。
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -97,19 +96,20 @@ FROM input
 ```  
 
 ### <a name="input-example"></a>输入示例  
-
+  
 |latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
-
+  
 ### <a name="output-example"></a>输出示例  
 
  {"type" : "Polygon", "coordinates" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
-
+ 
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-若要了解详细信息，请访问 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 引用。
+若要了解详细信息，请访问 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 引用。
+
 
 ## <a name="st_distance"></a>ST_DISTANCE
 `ST_DISTANCE` 函数返回两个点之间的距离（以米为单位）。 
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-若要了解详细信息，请访问 [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) 引用。
+若要了解详细信息，请访问 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 引用。
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 函数比较两个多边形。 如果多边形重叠，函数将返回 1。 如果多边形不重叠，函数将返回 0。 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-若要了解详细信息，请访问 [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) 引用。
+若要了解详细信息，请访问 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 引用。
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 函数比较两个 LineString。 如果 LineString 相交，函数将返回 1。 如果 LineString 不相交，函数将返回 0。
@@ -157,19 +157,19 @@ FROM input
 ```  
 
 ### <a name="input-example"></a>输入示例  
-
+  
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
 |{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
 |{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
-
+  
 ### <a name="output-example"></a>输出示例  
 
  1  
-
+  
  0  
 
-若要了解详细信息，请访问 [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) 引用。
+若要了解详细信息，请访问 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 引用。
 
 ## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 函数确定一个点或多边形位于另一个多边形内。 如果多边形包含点或多边形，函数将返回 1。 如果点或多边形位于所声明的多边形之外，函数将返回 0。
@@ -183,27 +183,27 @@ FROM input
 ```  
 
 ### <a name="input-example"></a>输入示例  
-
+  
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
 |{"type":"Point", "coordinates": [76.6, 10.1]}|{"type":"Polygon", "coordinates": [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
 |{"type":"Point", "coordinates": [15.0, 15.0]}|{"type":"Polygon", "coordinates": [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
-
+  
 ### <a name="output-example"></a>输出示例  
 
  0  
-
+  
  1  
 
-若要了解详细信息，请访问 [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) 引用。
+若要了解详细信息，请访问 [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) 引用。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 
 <!-- Update_Description: new articles on stream analytics geospatial functions -->
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4bd6b26b62e235950242ed894d6bb496c7003a66
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ab57a54ab2693f912009b1c7ed44e921db69f337
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937071"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849403"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>使用应用程序网关配置应用服务
 
@@ -30,7 +30,7 @@ ms.locfileid: "91937071"
 
 - 应用程序网关：创建不带后端池目标的应用程序网关。 有关详细信息，请参阅[快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户](quick-create-portal.md)
 
-- 应用服务：如果没有应用服务，请参阅[应用服务文档](/app-service/)。
+- 应用服务：如果没有应用服务，请参阅[应用服务文档](../app-service/index.yml)。
 
 ## <a name="add-app-service-as-backend-pool"></a>将应用服务添加为后端池
 
@@ -56,13 +56,13 @@ ms.locfileid: "91937071"
 3. 在“主机名替代”下，选择“从后端目标选取主机名”。
 4. 选择“保存”。 
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="应用服务后端":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="从后端 http 设置中选取主机名":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>重定向到应用服务的相对路径时的其他配置
 
 当应用服务向客户端发送重定向响应以重定向到其相对路径（例如，从 `contoso.chinacloudsites.cn/path1` 重定向到 `contoso.chinacloudsites.cn/path2`）时，它会在其响应的位置标头中使用从应用程序网关收到的请求中的相同主机名。 因此，客户端将直接向 `contoso.chinacloudsites.cn/path2` 发出请求，而不是通过应用程序网关 (`contoso.com/path2`) 发出请求。 不应该绕过应用程序网关。
 
-如果在你的用例中，应用服务有时需要将重定向响应发送到客户端，请执行[重写位置标头的附加步骤](/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)。
+如果在你的用例中，应用服务有时需要将重定向响应发送到客户端，请执行[重写位置标头的附加步骤](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration)。
 
 ## <a name="restrict-access"></a>限制访问
 
@@ -72,5 +72,5 @@ ms.locfileid: "91937071"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解应用服务和应用程序网关的其他多租户支持，请参阅[应用程序网关的多租户服务支持](/application-gateway/application-gateway-web-app-overview)。
+若要详细了解应用服务和应用程序网关的其他多租户支持，请参阅[应用程序网关的多租户服务支持](./application-gateway-web-app-overview.md)。
 

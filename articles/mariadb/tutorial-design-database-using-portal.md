@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: tutorial
 origin.date: 3/18/2020
-ms.date: 04/27/2020
+ms.date: 11/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 1ece39d6ba916b3a239b07b52182def3c952dbd0
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 75383da668e2c0ae01c58a48bf26c4a2fc525562
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126920"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908990"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MariaDB 数据库
 
@@ -38,7 +38,7 @@ Azure Database for MariaDB 是一种托管服务，可用于在云中运行、�
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>创建 Azure Database for MariaDB 服务器
 
-创建 Azure Database for MariaDB 服务器时，请使用定义好的一组[计算和存储资源](concepts-pricing-tiers.md)。 将在 [Azure 资源组](/azure-resource-manager/resource-group-overview)中创建服务器。
+创建 Azure Database for MariaDB 服务器时，请使用定义好的一组[计算和存储资源](concepts-pricing-tiers.md)。 将在 [Azure 资源组](../azure-resource-manager/management/overview.md)中创建服务器。
 
 1. 选择门户左上角的“创建资源”按钮 (+)  。
 
@@ -53,7 +53,7 @@ Azure Database for MariaDB 是一种托管服务，可用于在云中运行、�
     设置 | 建议的值 | 字段说明
     ---|---|---
     服务器名称 |  唯一的服务器名称 | 选择用于标识 Azure Database for MariaDB 服务器的唯一名称。 例如，**mydemoserver**。 域名 *.mariadb.database.chinacloudapi.cn* 将追加到你输入的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 它必须包含 3 到 63 个字符。
-    订阅 | *订阅* | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
+    订阅 | *用户的订阅* | 选择要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
     资源组 |  myresourcegroup | 输入新的资源组名称，或选择现有的资源组。
     选择源 | **空白** | 选择“空白”  即可创建新服务器。 （如果要从现有 Azure Database for MariaDB 服务器的异地备份创建服务器，请选择“备份”  ）。
     服务器管理员登录名 | **myadmin** | 连接到服务器时需要使用的登录帐户。 管理员登录名不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。      
@@ -90,7 +90,7 @@ Azure Database for MariaDB 受防火墙保护。 默认情况下，将拒绝与�
 
 1. 在 [Azure 门户](https://portal.azure.cn/)的左侧菜单中，选择“所有资源”。  输入服务器名称，搜索 Azure Database for MariaDB 服务器。 选择服务器名称以查看服务器详细信息。
 
-2. 在“概览”页中记下“服务器名称”和“服务器管理员登录名”的值。    也可选择每个字段旁边的**复制**按钮，将值复制到剪贴板。
+2. 在“概览”页中记下“服务器名称”和“服务器管理员登录名”的值。    也可选择每个字段旁边的 **复制** 按钮，将值复制到剪贴板。
 
    ![服务器属性](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
@@ -195,4 +195,4 @@ SELECT * FROM inventory;
 > * 还原数据
 
 > [!div class="nextstepaction"]
-> [如何将应用程序连接到 Azure Database for MariaDB](./howto-connection-string.md)
+> [如何将应用程序连接到 Azure Database for MariaDB](howto-connection-string.md)

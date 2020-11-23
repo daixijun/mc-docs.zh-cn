@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 11/04/2020
+ms.date: 11/16/2020
 ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59a540651162024d216dc618b8af1f231de81437
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: ea39a6a17d7caff226a7d3564201122a7d97e981
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326435"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849285"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 保护 Node.js Web API 并授予从单页应用程序访问该 API 的权限
 
@@ -56,11 +56,11 @@ ms.locfileid: "94326435"
 
 若要从另一应用程序调用受保护的 Web API，需授予应用程序访问该 Web API 的权限。
 
-在先决条件教程中，你已创建名为 *webapp1* 的 Web 应用程序。 在本教程中，你要将该应用程序配置为调用在上一部分创建的 Web API： *webapi1* 。
+在先决条件教程中，你已创建名为 spaapp1 的单页应用程序。 在本教程中，你要将该应用程序配置为调用在上一部分创建的 Web API：spaapp1。
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-现在，已经为单页 Web 应用程序授予了在指定作用域内对受保护 Web API 的权限。 用户通过 Azure AD B2C 进行身份验证，以使用单页应用程序。 该单页应用使用授权流通过 Azure AD B2C 返回的访问令牌访问受保护的 Web API。
+现在，已经为单页 Web 应用程序授予了在指定作用域内对受保护 Web API 的权限。 用户通过 Azure AD B2C 进行身份验证，以使用单页应用程序。 该单页应用从 Azure AD B2C 获取访问令牌，以访问受保护的 Web API。
 
 ## <a name="configure-the-sample"></a>配置示例
 
@@ -161,7 +161,7 @@ app.use((req, res, next) => {
 1. 打开另一个控制台窗口，并切换到包含 JavaScript SPA 示例的目录。 例如：
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. 运行以下命令：

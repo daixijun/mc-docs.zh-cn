@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 3f32554355a02d1bc79270a9ee681140f1ff4c3e
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 53b5fbcb6a27f8b8d97da695b4bfc486a7d9e032
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395282"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978030"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>在 Azure 上使用 Team Data Science Process 和 Azure DevOps Services 进行数据科学代码测试
 本文提供的初步指导适用于在数据科学工作流中测试代码。 数据科学家可以通过此类测试以系统且有效的方式查看其代码的质量和预期结果。 我们使用的 Team Data Science Process (TDSP) [项目使用 UCI 成人收入数据集](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)，该数据集是我们以前发布的，目的是演示代码测试方法。 
@@ -155,7 +155,7 @@ ms.locfileid: "91395282"
 * 请按你自己的数据科学项目的 UCI 收入预测方案中的上述大纲和示例进行操作。
 
 ## <a name="references"></a>参考资料
-* [Team Data Science Process](https://aka.ms/tdsp)
+* [Team Data Science Process](/machine-learning/team-data-science-process/)
 * [Visual Studio 测试工具](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps 测试资源](https://www.visualstudio.com/team-services/)
 * [数据科学虚拟机](/virtual-machines/data-science-virtual-machines/)

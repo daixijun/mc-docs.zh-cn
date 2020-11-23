@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab28e6e8a2d7b5642533d14d8440f639c4f2f4b2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2e7104e6f31f8a62e44c34bf4e40a553c3331bca
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328766"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978285"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>ExpressRoute 的 Azure 安全基线
 
@@ -116,7 +116,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 可以使用 Azure PowerShell 或 Azure CLI 根据资源的标记查找资源或对其执行操作。
 
-* [使用标记整理 Azure 资源](/azure-resource-manager/resource-group-using-tags)
+* [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -128,7 +128,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 
 
-* [如何查看和检索 Azure 活动日志事件](/azure-monitor/platform/activity-log-view)
+* [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 * [如何在 Azure Monitor 中创建警报](/azure-monitor/platform/alerts-activity-log)
 
@@ -152,7 +152,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指南**：启用 Azure 活动日志诊断设置，并将日志发送到 Log Aalytics 工作区、Azure 事件中心或 Azure 存储帐户进行存档。 活动日志提供有关在控制平面级别对 Azure ExpressRoute 资源执行的操作的见解。 通过使用 Azure 活动日志数据，可以确定在控制平面级别针对 ExpressRoute 资源执行的任何写入操作（PUT、POST、DELETE）的“操作内容、操作人员和操作时间”。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
 **Azure 安全中心监视**：是
 
@@ -162,7 +162,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指南**：启用 Azure 活动日志诊断设置，并将日志发送到 Log Aalytics 工作区、Azure 事件中心或 Azure 存储帐户进行存档。 活动日志提供有关在控制平面级别对 Azure ExpressRoute 资源执行的操作的见解。 通过使用 Azure 活动日志数据，可以确定在控制平面级别针对 ExpressRoute 资源执行的任何写入操作（PUT、POST、DELETE）的“操作内容、操作人员和操作时间”。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
 **Azure 安全中心监视**：是
 
@@ -170,7 +170,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -190,9 +190,9 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指导**：启用 Azure 活动日志诊断设置，并将日志发送到 Log Analytics 工作区。 在 Log Analytics 中执行查询以搜索字词、识别趋势、分析模式，并根据可能已为 Azure ExpressRoute 收集的活动日志数据提供许多其他见解。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-* [如何收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志](/azure-monitor/platform/activity-log-collect)
+* [如何收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志](../azure-monitor/platform/activity-log.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -226,7 +226,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -317,8 +317,6 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 * [如何部署 Privileged Identity Management (PIM)](/active-directory/privileged-identity-management/pim-deployment-plan)
 
-* [了解 Azure AD 风险检测](/active-directory/reports-monitoring/concept-risk-events)
-
 **Azure 安全中心监视**：是
 
 **责任**：客户
@@ -374,8 +372,6 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指导**：对于控制平面（例如 Azure 门户）中帐户登录行为的偏差，可使用 Azure AD 标识保护和风险检测功能进行配置，实现在检测到与用户标识相关的可疑操作时自动进行响应。 还可将数据引入 Azure Sentinel 以做进一步调查。
 
-* [如何查看 Azure AD 风险登录](/active-directory/reports-monitoring/concept-risky-sign-ins)
-
 * [如何配置和启用标识保护风险策略](/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
 
@@ -401,7 +397,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 **指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -413,7 +409,7 @@ ExpressRoute 的 Azure 安全基线包含将帮助你改善部署安全状况的
 
 * [如何创建其他 Azure 订阅](/billing/billing-create-subscription)
 
-* [如何创建管理组](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -517,7 +513,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -587,7 +583,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 * [如何创建其他 Azure 订阅](/billing/billing-create-subscription)
 
-* [如何创建管理组](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 * [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
@@ -619,7 +615,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -627,7 +623,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7：删除未批准的 Azure 资源和软件应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -635,7 +631,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -675,7 +671,7 @@ Azure ExpressRoute 还具有线路所有者和线路用户角色。 线路用户
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12：限制用户在计算资源中执行脚本的功能
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 

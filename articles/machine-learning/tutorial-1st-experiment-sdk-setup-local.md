@@ -11,21 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7e024013b8e3e844dcfae7a4efc8ab2e894fc884
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9b62392ee9655b9bb7a9810c4650ad1b4b87ed72
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118811"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977053"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>教程：在你的开发环境中开始使用 Azure 机器学习（第 1 部分，共 4 部分）
 
-在这个由四部分组成的教程系列中，你将了解 Azure 机器学习的基础知识，并在 Azure 云平台上完成基于作业的 Python 机器学习任务。 这些任务包括：
-
-1. 设置用于机器学习的工作区和本地开发人员环境。
-2. 通过使用适用于 Python 的 Azure 机器学习 SDK 在云中运行代码。
-3. 管理用于模型训练的 Python 环境。
-4. 将数据上传到 Azure，并在训练中使用该数据。
+在这个由四部分组成的教程系列中，你将了解 Azure 机器学习的基础知识，并在 Azure 云平台上完成基于作业的 Python 机器学习任务。 
 
 在本教程系列的第 1 部分中，你将执行以下操作：
 
@@ -36,20 +31,21 @@ ms.locfileid: "92118811"
 > * 配置本地开发环境。
 > * 设置计算群集。
 
->[!NOTE]
-> 本教程系列重点介绍适用于 Python 基于作业的机器学习任务的 Azure 机器学习概念，这些任务是计算密集型的，并且/或者需要可再现性。 如果你的机器学习任务不符合上述特点，请[对 Azure 机器学习计算实例使用 Jupyter 或 RStudio 功能](tutorial-1st-experiment-sdk-setup.md)，以便开始使用 Azure 机器学习。
+> [!NOTE]
+> 本教程系列重点介绍适用于 Python 基于作业的机器学习任务的 Azure 机器学习概念，这些任务是计算密集型的，并且/或者需要可再现性。 如果对探索性工作流更感兴趣，可以改用 [Azure 机器学习计算实例上的 Jupyter 或 RStudio](tutorial-1st-experiment-sdk-setup.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 - Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 尝试 [Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
 - 熟悉 Python 和[机器学习概念](concept-azure-machine-learning-architecture.md)。 例如，环境、训练，以及评分。
-- 本地开发环境：安装了 Python 和常用 IDE（例如，Visual Studio Code、PyCharm 或 Jupyter）的笔记本电脑。
+- 本地开发环境，如 Visual Studio Code、Jupyter 或 PyCharm。
+- Python（版本 3.5 至 3.7）。
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>安装 Azure 机器学习 SDK
 
 本教程从头到尾都将使用适用于 Python 的 Azure 机器学习 SDK。
 
-你可以使用自己最熟悉的工具（例如，Conda 和 pip）来设置要在本教程中使用的环境。 通过 pip 将适用于 Python 的 Azure 机器学习 SDK 安装到该环境中：
+你可以使用自己最熟悉的工具（例如 Conda 和 pip）设置 Python 环境，以便在本教程中使用。 通过 pip 将适用于 Python 的 Azure 机器学习 SDK 安装到 Python 环境中：
 
 ```bash
 pip install azureml-sdk
@@ -79,7 +75,7 @@ tutorial
 代码可以在交互式会话中运行，或者也可以作为 Python 文件运行。
 
 >[!NOTE]
-> 如果使用本地开发环境（例如笔记本电脑），在首次运行以下代码时，系统会提示你通过使用设备代码进行工作区身份验证。 按照屏幕上的说明进行操作。
+> 如果使用本地开发环境（例如你的计算机），在首次运行以下代码时，系统会提示你通过使用设备代码进行工作区身份验证。 按照屏幕上的说明进行操作。
 
 ```python
 # tutorial/01-create-workspace.py
@@ -89,7 +85,7 @@ ws = Workspace.create(name='<my_workspace_name>', # provide a name for your work
                       subscription_id='<azure-subscription-id>', # provide your subscription ID
                       resource_group='<myresourcegroup>', # provide a resource group name
                       create_resource_group=True,
-                      location='<NAME_OF_REGION>') # For example: 'westeurope' or 'eastus2' or 'westus2' or 'southeastasia'.
+                      location='<NAME_OF_REGION>') 
 
 # write out the workspace details to a configuration file: .azureml/config.json
 ws.write_config(path='.azureml')
@@ -102,7 +98,11 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-运行上述代码片段后，文件夹结构将会类似于：
+> [!TIP]
+> 如果运行此代码返回错误“你没有访问订阅的权限”，请参阅[创建工作区](how-to-manage-workspace.md?tab=python#create-multi-tenant)，以获取有关身份验证选项的信息。
+
+
+成功运行 01-create-workspace.py 后，文件夹结构将如下所示：
 
 ```markdown
 tutorial
@@ -139,8 +139,9 @@ try:
     print('Found existing cluster, use it.')
 except ComputeTargetException:
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            max_nodes=4, 
-                                                            idle_seconds_before_scaledown=2400)
+                                                           idle_seconds_before_scaledown=2400,
+                                                           min_nodes=0,
+                                                           max_nodes=4)
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
 
 cpu_cluster.wait_for_completion(show_output=True)
@@ -174,7 +175,13 @@ tutorial
 - 设置了本地开发环境。
 - 创建了 Azure 机器学习计算群集。
 
-下一教程介绍如何将脚本提交到 Azure 机器学习计算群集。
+在本教程的其他部分，你将学习：
+
+* 第 2 部分。 通过使用适用于 Python 的 Azure 机器学习 SDK 在云中运行代码。
+* 第 3 部分。 管理用于模型训练的 Python 环境。
+* 第 4 部分。 将数据上传到 Azure，并在训练中使用该数据。
+
+继续学习下一教程，了解如何将脚本提交到 Azure 机器学习计算群集。
 
 > [!div class="nextstepaction"]
 > [教程：在 Azure 上运行“Hello world!”Python 脚本](tutorial-1st-experiment-hello-world.md)

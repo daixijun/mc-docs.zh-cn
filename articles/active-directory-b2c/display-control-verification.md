@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 356777f5defbf169c911882ddae6c8dde3748443
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: a741d51a326a6a4bfa3d9721a431963a81bc87ef
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297682"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849257"
 ---
 # <a name="verification-display-control"></a>验证显示控件
 
@@ -26,15 +26,13 @@ ms.locfileid: "87297682"
 
 验证显示控件包含两个步骤（操作）：
 
-1. 从用户那里请求要将验证码发送到的目标，例如电子邮件地址或电话号码。 当用户选择“发送代码”  按钮时，将执行验证显示控件的 **SendCode 操作**。 **SendCode 操作**生成一个代码，构造要发送的内容并将其发送给用户。 地址值可以预填充，并充当第二重身份验证。
+1. 从用户那里请求要将验证码发送到的目标，例如电子邮件地址或电话号码。 当用户选择“发送代码”  按钮时，将执行验证显示控件的 **SendCode 操作**。 **SendCode 操作** 生成一个代码，构造要发送的内容并将其发送给用户。 地址值可以预填充，并充当第二重身份验证。
 
     ![发送代码操作的示例页](./media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. 发送代码后，用户将读取消息，将验证码输入到显示控件提供的控件中，并选择“验证代码”  。 通过选择“验证代码”  ，将执行 **VerifyCode 操作**来验证与该地址关联的代码。 如果用户选择了“发送新代码”  ，则会再次执行第一个操作。
+1. 发送代码后，用户将读取消息，将验证码输入到显示控件提供的控件中，并选择“验证代码”  。 通过选择“验证代码”  ，将执行 **VerifyCode 操作** 来验证与该地址关联的代码。 如果用户选择了“发送新代码”  ，则会再次执行第一个操作。
 
     ![验证代码操作的示例页](./media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>VerificationControl 必需的元素
 

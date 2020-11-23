@@ -1,7 +1,7 @@
 ---
 title: 教程：从 Jupyter Notebook (Python) 着手
 titleSuffix: Azure Machine Learning
-description: 针对 Jupyter Notebook 教程进行设置。  创建 Azure 机器学习工作区，将 Jupyter Notebook 克隆到工作区中，并创建在其中运行笔记本的计算实例。
+description: 针对 Jupyter Notebook 教程进行设置。 创建工作区，将笔记本克隆到工作区中，并创建在其中运行笔记本的计算实例。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: v-yiso
 origin.date: 02/10/2020
 ms.date: 10/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e4534ffb2988098901b10ca644510d0bc3139f7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 81129faa90fa1333e403ee49ef3549191c3913fa
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105795"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977059"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>教程：在 Jupyter Notebook 中开始使用 Azure 机器学习
 
@@ -36,7 +36,9 @@ ms.locfileid: "93105795"
 
 Azure 机器学习工作区是云中的基础资源，用于试验、训练和部署机器学习模型。 它将 Azure 订阅和资源组关联到服务中一个易于使用的对象。 
 
-通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。 
+如果你已有 Azure 机器学习工作区，请跳转到[克隆笔记本文件夹](#clone)。  
+
+可以通过许多[方法来创建工作区](how-to-manage-workspace.md)。  本教程将通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -78,7 +80,7 @@ Azure 机器学习在你的工作区中提供了一个云笔记本服务器，�
     
 1. 在 **tutorials/image-classification-mnist-data** 文件夹中选择 **tutorial-1st-experiment-sdk-train.ipynb** 文件。
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="显示“克隆”教程文件夹的屏幕截图。":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="显示“打开”教程文件夹的屏幕截图。":::
 
 1. 在顶部栏上，选择用来运行笔记本的计算实例。 这些虚拟机 (VM) 中已预先配置了[运行 Azure 机器学习所需的一切设置](concept-compute-instance.md#contents)。
 

@@ -4,15 +4,15 @@ description: 本文提供了有关如何配置 Azure 应用程序网关以支持
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/24/2020
+ms.topic: conceptual
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 08910b3a4f428cdd6891f341c2180aeb03d90e4c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 86bf7c187eacdaf75eae426363c96084fa1fba14
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552365"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849290"
 ---
 # <a name="application-gateway-high-traffic-support"></a>应用程序网关高流量支持
 
@@ -24,7 +24,7 @@ ms.locfileid: "94552365"
 以下建议可帮助你设置部署有 WAF 的应用程序网关来应对额外流量。
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>请使用 v2 SKU 而不是 v1，因为前者具有自动缩放功能，且性能更有优势
-v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的增加而纵向扩展。 与 v1 相比，它还提供其他重要性能优势，例如，TLS 卸载性能要高出 5 倍、部署和更新时间更快、支持区域冗余等。 有关详细信息，请参阅我们的 [v2 文档](/application-gateway/application-gateway-autoscaling-zone-redundant)。 
+v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的增加而纵向扩展。 与 v1 相比，它还提供其他重要性能优势，例如，TLS 卸载性能要高出 5 倍、部署和更新时间更快、支持区域冗余等。 有关详细信息，请参阅我们的 [v2 文档](./application-gateway-autoscaling-zone-redundant.md)。 
 
 ## <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>将最大实例计数设置为最大可能值 (125)
  
@@ -35,7 +35,7 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 假设你有应用程序网关 v2 SKU，自动缩放需要花费 6 到 7 分钟才能完成横向扩展。如果使用较大的最小实例计数，应用程序网关可以在负载增大时更好地处理流量，因为出现流量高峰时不需要执行自动缩放操作。  
 
 ## <a name="alert-if-a-certain-metric-surpasses-75-of-average-cu-utilization"></a>当特定指标超过平均 CU 用量的 75% 时发出警报 
-有关指标的详细说明和其他演练，请参阅[应用程序网关指标文档](/application-gateway/application-gateway-metrics#metrics-visualization)。 
+有关指标的详细说明和其他演练，请参阅[应用程序网关指标文档](./application-gateway-metrics.md#metrics-visualization)。 
 
 ### <a name="example-setting-up-an-alert-on-75-of-average-cu-usage"></a>示例：设置在达到平均 CU 用量的 75% 时发出警报
 
@@ -57,8 +57,8 @@ v2 SKU 提供自动缩放功能，确保应用程序网关能够随着流量的�
 
 ## <a name="turn-on-diagnostics-on-application-gateway-and-waf"></a>在应用程序网关和 WAF 上启用诊断
 
-通过诊断日志，你可以查看防火墙日志、性能日志和访问日志。 可在 Azure 中使用这些日志来对应用程序网关进行管理和故障排除。 有关详细信息，请参阅我们的[诊断文档](/application-gateway/application-gateway-diagnostics#diagnostic-logging)。 
+通过诊断日志，你可以查看防火墙日志、性能日志和访问日志。 可在 Azure 中使用这些日志来对应用程序网关进行管理和故障排除。 有关详细信息，请参阅我们的[诊断文档](./application-gateway-diagnostics.md#diagnostic-logging)。 
 
 ## <a name="set-up-an-tls-policy-for-extra-security"></a>设置 TLS 策略以进一步提高安全性
-请确保使用最新的 TLS 策略版本 ([AppGwSslPolicy20170401S](/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s))。 此版本强制实施 TLS 1.2 和更强的密码。 有关详细信息，请参阅[通过 PowerShell 配置 TLS 策略版本和加密套件](/application-gateway/application-gateway-configure-ssl-policy-powershell)。
+请确保使用最新的 TLS 策略版本 ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s))。 此版本强制实施 TLS 1.2 和更强的密码。 有关详细信息，请参阅[通过 PowerShell 配置 TLS 策略版本和加密套件](./application-gateway-configure-ssl-policy-powershell.md)。
 

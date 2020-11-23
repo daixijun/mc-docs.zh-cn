@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 origin.date: 04/29/2020
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: db10555d3c8f30b62440b6c034ba9bec3ddaa1d3
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: cf77591f6f16bf4f97dbcd34b1d5cc636b2d8285
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977378"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MySQL
 
@@ -209,6 +209,24 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”  页更改密码。
 
 还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将从原始服务器还原防火墙规则。
+
+## <a name="clean-up-resources"></a>清理资源
+
+如果其他快速入门或教程不需要使用本教程中创建的资源，可以运行以下示例将其删除。
+
+> [!CAUTION]
+> 以下示例删除指定的资源组及其包含的所有资源。
+> 如果指定的资源组中存在本教程范围外的资源，这些资源也会被删除。
+
+```azurepowershell
+Remove-AzResourceGroup -Name myresourcegroup
+```
+
+若要仅删除本教程中创建的服务器而不删除资源组，请使用 `Remove-AzMySqlServer` cmdlet。
+
+```azurepowershell
+Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
+```
 
 ## <a name="next-steps"></a>后续步骤
 

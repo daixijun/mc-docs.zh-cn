@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f6d3cce48c32583ee5e091cd40c89ccc47e8e5e4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 742d99eec2555fdc6c7f79afd596916eaace8c7c
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413412"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849471"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>应用程序网关的 TLS 终止和端到端 TLS 概述
 
@@ -51,10 +51,10 @@ ms.locfileid: "89413412"
 - 通配符证书：此证书支持任意数量的基于 *.site.com 的子域（其中的 * 需替换为你的子域）。 但是，它不支持 site.com，因此，如果用户在不键入前导“www”的情况下访问你的网站，则通配符证书不会反映这一点。
 - 自签名证书：客户端浏览器不信任这些证书，并且会警告用户，指出虚拟服务的证书不是信任链的一部分。 自签名证书适合用于测试，或者管理员会在其中控制客户端并且可以安全绕过浏览器安全警报的环境。 切勿将自签名证书用于生产工作负荷。
 
-有关详细信息，请参阅[配置应用程序网关的 TLS 终止](/application-gateway/create-ssl-portal)。
+有关详细信息，请参阅[配置应用程序网关的 TLS 终止](./create-ssl-portal.md)。
 
 ### <a name="size-of-the-certificate"></a>证书大小
-查看[应用程序网关限制](/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits)部分，了解支持的最大 TLS/SSL 证书大小。
+查看[应用程序网关限制](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)部分，了解支持的最大 TLS/SSL 证书大小。
 
 ## <a name="end-to-end-tls-encryption"></a>端到端 TLS 加密
 
@@ -62,7 +62,7 @@ ms.locfileid: "89413412"
 
 当你使用应用程序网关的第 7 层负载均衡功能时，端到端 TLS 允许你加密敏感数据并将其安全地传输到后端。 这些功能包括：基于 Cookie 的会话相关性、基于 URL 的路由、基于站点的路由支持、能够重写或注入 X-Forwarded-* 标头，等等。
 
-如果配置为端到端 TLS 通信模式，应用程序网关会在网关上终止 TLS 会话，并解密用户流量。 然后，它会应用配置的规则，以选择要将流量路由到的适当后端池实例。 应用程序网关接下来会初始化到后端服务器的新 TLS 连接，并先使用后端服务器的公钥证书重新加密数据，然后再将请求传输到后端。 来自 Web 服务器的任何响应都会经历相同的过程返回最终用户。 若要启用端到端 TLS，请将[后端 HTTP 设置](/application-gateway/configuration-overview#http-settings)中的协议设置设为 HTTPS，然后再将其应用到后端池。
+如果配置为端到端 TLS 通信模式，应用程序网关会在网关上终止 TLS 会话，并解密用户流量。 然后，它会应用配置的规则，以选择要将流量路由到的适当后端池实例。 应用程序网关接下来会初始化到后端服务器的新 TLS 连接，并先使用后端服务器的公钥证书重新加密数据，然后再将请求传输到后端。 来自 Web 服务器的任何响应都会经历相同的过程返回最终用户。 若要启用端到端 TLS，请将[后端 HTTP 设置](./configuration-overview.md#http-settings)中的协议设置设为 HTTPS，然后再将其应用到后端池。
 
 对于应用程序网关和 WAF v1 SKU，将同时向前端和后端流量应用 TLS 策略。 在前端，应用程序网关充当服务器并强制实施该策略。 在后端，应用程序网关充当客户端，并在 TLS 握手期间将协议/密码信息作为首选项发送。
 

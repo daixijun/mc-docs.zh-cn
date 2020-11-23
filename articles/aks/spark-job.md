@@ -4,17 +4,17 @@ description: 使用 Azure Kubernetes 服务 (AKS) 创建并运行 Apache Spark �
 ms.topic: conceptual
 origin.date: 10/18/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 645408224a6d0b37b08b83fe1b27bc1baa20b3f9
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 24e84ec1220ba929b03d2cc26c1b29b6474446ea
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470200"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977218"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 中运行 Apache Spark 作业
 

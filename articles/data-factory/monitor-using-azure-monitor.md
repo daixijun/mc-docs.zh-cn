@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/13/2020
-ms.date: 11/02/2020
-ms.openlocfilehash: 6d9748b5dd6b79a560b6ed595308548a614aec73
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 11/23/2020
+ms.openlocfilehash: 6a99959c3ad46aedd272880365d096585c40800e
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104599"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680406"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>使用 Azure Monitor 监视数据工厂和发警报
 
@@ -27,15 +27,15 @@ ms.locfileid: "93104599"
 
 Azure Monitor 针对大多数 Azure 服务提供基本级别的基础结构指标和日志。 Azure 诊断日志由资源发出，提供与该资源的操作相关的各种频繁生成的数据。 Azure 数据工厂 (ADF) 可以在 Azure Monitor 中写入诊断日志。 
 
-有关更多详细信息，请参阅 [Azure Monitor 概述](/azure-monitor/overview)。
+有关详细信息，请参阅 [Azure Monitor 概述](../azure-monitor/overview.md)。
 
 ## <a name="keeping-azure-data-factory-metrics-and-pipeline-run-data"></a>保留 Azure 数据工厂指标和管道运行数据
 
 数据工厂仅将管道运行数据存储 45 天。 若要将这些数据保留更长时间，请使用 Azure Monitor。 使用 Monitor，可以将诊断日志路由到多个不同目标进行分析。
 
-* **存储帐户** ：将诊断日志保存到存储帐户进行审核或手动检查。 可以使用诊断设置指定保留时间（天）。
-* **事件中心** ：将日志流式传输到 Azure 事件中心。 日志可用作合作伙伴服务/自定义分析解决方案（例如 Power BI）的输入。
-* **Log Analytics** ：使用 Log Analytics 分析日志。 在以下情况下，将数据工厂与 Azure Monitor 集成非常有用：
+* **存储帐户**：将诊断日志保存到存储帐户进行审核或手动检查。 可以使用诊断设置指定保留时间（天）。
+* **事件中心**：将日志流式传输到 Azure 事件中心。 日志可用作合作伙伴服务/自定义分析解决方案（例如 Power BI）的输入。
+* **Log Analytics**：使用 Log Analytics 分析日志。 在以下情况下，将数据工厂与 Azure Monitor 集成非常有用：
   * 需要针对由数据工厂发布到 Monitor 的丰富指标集编写复杂查询。 可以通过 Monitor 创建针对这些查询的自定义警报。
   * 你希望跨数据工厂进行监视。 可将来自多个数据工厂的数据路由到单个 Monitor 工作区。
 
@@ -87,7 +87,7 @@ Azure Monitor 针对大多数 Azure 服务提供基本级别的基础结构指�
 | SSISPackageExecutionFailed           | 失败的 SSIS 包执行指标    | 计数    | 总计                | 在一分钟时段内失败的 SSIS 包执行总数。 |
 | SSISPackageExecutionSucceeded        | 已成功的 SSIS 包执行指标 | 计数    | 总计                | 在一分钟时段内成功的 SSIS 包执行总数。 |
 
-若要访问指标，请参阅 [Azure Monitor 数据平台](/azure-monitor/platform/data-platform)中的说明。
+若要访问指标，请参阅 [Azure Monitor 数据平台](../azure-monitor/platform/data-platform.md)中的说明。
 
 > [!NOTE]
 > 仅发出已完成和已触发的活动以及管道运行事件。 不会发出正在进行的运行和调试运行。 另一方面，将发出所有 SSIS 包执行事件，包括已完成和正在进行的事件，而无论使用何种调用方法。 例如，可以在 SSMS、SQL Server 代理或其他指定工具上通过 T-SQL 调用包执行，也可以作为 ADF 管道中“执行 SSIS 包”的已触发运行或调试运行进行调用。
@@ -158,7 +158,7 @@ https://management.chinacloudapi.cn/{resource-id}/providers/microsoft.insights/d
 * 将 `{api-version}` 替换为 `2016-09-01`。
 * 将 `{resource-id}` 替换为要编辑其诊断设置的资源的 ID。 有关详细信息，请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 * 将 `Content-Type` 标头设置为 `application/json`。
-* 将授权标头设置为从 Azure Active Directory (Azure AD) 获取的 JSON Web 令牌。 有关详细信息，请参阅[对请求进行身份验证](../active-directory/develop/authentication-scenarios.md)。
+* 将授权标头设置为从 Azure Active Directory (Azure AD) 获取的 JSON Web 令牌。 有关详细信息，请参阅[对请求进行身份验证](../active-directory/develop/authentication-vs-authorization.md)。
 
 ##### <a name="body"></a>正文
 
@@ -278,7 +278,7 @@ https://management.chinacloudapi.cn/{resource-id}/providers/microsoft.insights/d
 * 将 `{api-version}` 替换为 `2016-09-01`。
 * 将 `{resource-id}` 替换为要编辑其诊断设置的资源的 ID。 有关详细信息，请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 * 将 `Content-Type` 标头设置为 `application/json`。
-* 将授权标头设置为从 Azure AD 获取的 JSON Web 令牌。 有关详细信息，请参阅[对请求进行身份验证](../active-directory/develop/authentication-scenarios.md)。
+* 将授权标头设置为从 Azure AD 获取的 JSON Web 令牌。 有关详细信息，请参阅[对请求进行身份验证](../active-directory/develop/authentication-vs-authorization.md)。
 
 ##### <a name="response"></a>响应
 
@@ -584,42 +584,42 @@ Log Analytics 从 Monitor 继承架构，但存在以下例外情况：
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>使用 Azure Monitor 监视 SSIS 操作
 
-要直接迁移 SSIS 工作负载，可以[在 ADF 中预配 SSIS IR](/data-factory/tutorial-deploy-ssis-packages-azure)，以支持：
+要直接迁移 SSIS 工作负载，可以[在 ADF 中预配 SSIS IR](./tutorial-deploy-ssis-packages-azure.md)，以支持：
 
 - 运行部署在由 Azure SQL 数据库服务器/托管实例托管的 SSIS 目录 (SSISDB) 中的包（项目部署模型）
 - 运行部署在由 Azure SQL 托管实例托管的文件系统、Azure 文件存储或 SQL Server 数据库 (MSDB) 中的包（包部署模型）
 
-预配后，可以[通过 Azure PowerShell 或 ADF 门户的“监视器”中心检查 SSIS IR 操作状态](/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)。 使用项目部署模型时，SSIS 包执行日志存储在 SSISDB 内部表或视图中，因此可以使用 SSMS 之类的指定工具对其进行查询、分析和直观显示。 使用包部署模型时，可以将 SSIS 包执行日志作为 CSV 文件存储在文件系统或 Azure 文件存储中，仍需要使用其他指定工具对这些文件进行分析和处理，然后才能对其进行查询、分析和直观显示。
+预配后，可以[通过 Azure PowerShell 或 ADF 门户的“监视器”中心检查 SSIS IR 操作状态](./monitor-integration-runtime.md#azure-ssis-integration-runtime)。 使用项目部署模型时，SSIS 包执行日志存储在 SSISDB 内部表或视图中，因此可以使用 SSMS 之类的指定工具对其进行查询、分析和直观显示。 使用包部署模型时，可以将 SSIS 包执行日志作为 CSV 文件存储在文件系统或 Azure 文件存储中，仍需要使用其他指定工具对这些文件进行分析和处理，然后才能对其进行查询、分析和直观显示。
 
-现在，通过 [Azure Monitor](/azure-monitor/platform/data-platform) 集成，可在 Azure 门户上查询、分析和直观显示从 SSIS IR 操作和 SSIS 包执行生成的所有指标和日志。 此外，还可发出相关警报。
+现在，通过 [Azure Monitor](../azure-monitor/platform/data-platform.md) 集成，可在 Azure 门户上查询、分析和直观显示从 SSIS IR 操作和 SSIS 包执行生成的所有指标和日志。 此外，还可发出相关警报。
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>为 SSIS 操作配置诊断设置和工作区
 
-要将从 SSIS IR 操作和 SSIS 包执行生成的所有指标和日志发送到 Azure Monitor，需要[为 ADF 配置诊断设置和工作区](/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace)。
+要将从 SSIS IR 操作和 SSIS 包执行生成的所有指标和日志发送到 Azure Monitor，需要[为 ADF 配置诊断设置和工作区](#configure-diagnostic-settings-and-workspace)。
 
 ### <a name="ssis-operational-metrics"></a>SSIS 操作指标
 
-SSIS 操作[指标](/azure-monitor/platform/data-platform-metrics)是性能计数器或数字值，用于描述特定时间点的 SSIS IR 启动和停止操作以及 SSIS 包执行的状态。 它们是 [Azure Monitor 中 ADF 指标](/data-factory/monitor-using-azure-monitor#data-factory-metrics)的一部分。
+SSIS 操作[指标](../azure-monitor/platform/data-platform-metrics.md)是性能计数器或数字值，用于描述特定时间点的 SSIS IR 启动和停止操作以及 SSIS 包执行的状态。 它们是 [Azure Monitor 中 ADF 指标](#data-factory-metrics)的一部分。
 
-在 Azure Monitor 上为 ADF 配置诊断设置和工作区时，选中“AllMetrics”复选框将使 SSIS 操作指标可用于[使用 Azure 指标资源管理器进行的交互分析](/azure-monitor/platform/metrics-getting-started)、[在 Azure 仪表板上呈现](/azure-monitor/learn/tutorial-app-dashboards)以及[近实时警报](/azure-monitor/platform/alerts-metric)。
+在 Azure Monitor 上为 ADF 配置诊断设置和工作区时，选中“AllMetrics”复选框将使 SSIS 操作指标可用于[使用 Azure 指标资源管理器进行的交互分析](../azure-monitor/platform/metrics-getting-started.md)、[在 Azure 仪表板上呈现](../azure-monitor/learn/tutorial-app-dashboards.md)以及[近实时警报](../azure-monitor/platform/alerts-metric.md)。
 
 ![命名设置并选择 log-analytics 工作区](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
 ### <a name="ssis-operational-alerts"></a>SSIS 操作警报
 
-若要从 ADF 门户基于 SSIS 操作指标引发警报，请[选择 ADF“监视器”中心的“警报和指标”页面，并按照提供的分步说明进行操作](/data-factory/monitor-visually#alerts)。
+若要从 ADF 门户基于 SSIS 操作指标引发警报，请[选择 ADF“监视器”中心的“警报和指标”页面，并按照提供的分步说明进行操作](./monitor-visually.md#alerts)。
 
 ![从 ADF 门户引发 SSIS 操作警报](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
 
-若要从 Azure 门户基于 SSIS 操作指标引发警报，请[选择 Azure“监视器”中心的“警报”页面，并按照提供的分步说明进行操作](/data-factory/monitor-using-azure-monitor#data-factory-alerts)。
+若要从 Azure 门户基于 SSIS 操作指标引发警报，请[选择 Azure“监视器”中心的“警报”页面，并按照提供的分步说明进行操作](#data-factory-alerts)。
 
 ![从 Azure 门户引发 SSIS 操作警报](media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png)
 
 ### <a name="ssis-operational-logs"></a>SSIS 操作日志
 
-SSIS 操作[日志](/azure-monitor/platform/data-platform-logs)是由 SSIS IR 操作和 SSIS 包执行生成的事件，这些事件提供了有关已识别问题的充足上下文，对根本原因分析很有用。 
+SSIS 操作[日志](../azure-monitor/platform/data-platform-logs.md)是由 SSIS IR 操作和 SSIS 包执行生成的事件，这些事件提供了有关已识别问题的充足上下文，对根本原因分析很有用。 
 
-在 Azure Monitor 上为 ADF 配置诊断设置和工作区时，可以选择相关 SSIS 操作日志，并将其发送到基于 Azure 数据资源管理器的 Log Analytics。 在这里，它们可用于[使用丰富的查询语言进行的分析](/azure-monitor/log-query/log-query-overview)、[在 Azure 仪表板上呈现](/azure-monitor/learn/tutorial-app-dashboards)以及[近实时警报](/azure-monitor/platform/alerts-log)。
+在 Azure Monitor 上为 ADF 配置诊断设置和工作区时，可以选择相关 SSIS 操作日志，并将其发送到基于 Azure 数据资源管理器的 Log Analytics。 在这里，它们可用于[使用丰富的查询语言进行的分析](../azure-monitor/log-query/log-query-overview.md)、[在 Azure 仪表板上呈现](../azure-monitor/learn/tutorial-app-dashboards.md)以及[近实时警报](../azure-monitor/platform/alerts-log.md)。
 
 ![命名设置并选择 log-analytics 工作区](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -634,7 +634,7 @@ Azure Monitor 和 Log Analytics 中的 SSIS 包执行日志的架构和内容类
 | `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
 | `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
 
-有关 SSIS 操作日志特性/属性的详细信息，请参阅 [Azure Monitor 和 Log Analytics 为 ADF 使用的架构](/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)。
+有关 SSIS 操作日志特性/属性的详细信息，请参阅 [Azure Monitor 和 Log Analytics 为 ADF 使用的架构](#schema-of-logs-and-events)。
 
 无论使用哪种调用方法，所选 SSIS 包执行日志始终会发送到 Log Analytics。 例如，可以在 SSMS、SQL Server 代理或其他指定工具上通过 T-SQL 调用包执行，也可以作为 ADF 管道中“执行 SSIS 包”的已触发运行或调试运行进行调用。
 

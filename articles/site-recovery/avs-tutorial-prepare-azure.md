@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 为 Azure VMware 解决方案的灾难恢复准备 Azure 资源
+title: 为 Azure VMware 解决方案 VM 的灾难恢复准备 Azure Site Recovery 资源
 description: 了解如何使用 Azure Site Recovery 为 Azure VMware 解决方案计算机的灾难恢复准备 Azure 资源。
 services: site-recovery
 manager: rochakm
@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 09/29/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 0a503b14970a3a3f76ed626a9ba1ebca462abb4e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 43cde160260fa5cd9655cbdeb062bd1e50adec93
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329218"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977749"
 ---
 <!--Verified Successfully-->
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>为 Azure VMware 解决方案到 Azure 的灾难恢复准备 Azure 资源
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>为 Azure VMware 解决方案 VM 的灾难恢复准备 Azure Site Recovery 资源
 
 本文介绍如何准备 Azure 资源和组件，以便可以使用 [Azure Site Recovery](site-recovery-overview.md) 服务设置 Azure VMware 解决方案的灾难恢复。 Azure VMware 解决方案可在 Azure 中提供私有云。 这些私有云包含基于专用裸机 Azure 基础结构构建的 vSphere 群集。
 
@@ -67,8 +67,8 @@ ms.locfileid: "94329218"
 1. 在 Azure 门户菜单中选择“创建资源”，然后在市场中搜索“恢复” 。
 2. 从搜索结果中选择“备份和站点恢复”，然后在“备份和站点恢复”页中单击“创建”。 
 3. 在“创建恢复服务保管库”页中，选择“订阅”。 我们将使用“Contoso 订阅”。
-4. 在 **资源组** 中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG** 。
-5. 在“保管库名称”中输入一个易记名称，用于标识此保管库。 对于这组教程，我们使用 **ContosoVMVault** 。
+4. 在 **资源组** 中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
+5. 在“保管库名称”中输入一个易记名称，用于标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
 6. 在“区域”中，选择保管库应位于的区域。 我们将使用“中国北部”  。
 7. 选择“查看 + 创建”。
 
@@ -82,8 +82,8 @@ ms.locfileid: "94329218"
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择 **“创建资源”**  >  **“网络”**  >  **“虚拟网络”** 。
 2. 选择“资源管理器”作为部署模型。
-3. 在“名称”中，输入网络名称。 名称在 Azure 资源组中必须唯一。 在本教程中我们将使用 **ContosoASRnet** 。
-4. 在“地址空间”中，输入用 CDR 标记表示的虚拟网络地址范围。 我们将使用 **10.1.0.0/24** 。
+3. 在“名称”中，输入网络名称。 名称在 Azure 资源组中必须唯一。 在本教程中我们将使用 **ContosoASRnet**。
+4. 在“地址空间”中，输入用 CDR 标记表示的虚拟网络地址范围。 我们将使用 **10.1.0.0/24**。
 5. 在“订阅”中，选择要在其中创建网络的订阅。
 6. 指定将在其中创建网络的“资源组”。 我们将使用现有资源组 contosoRG。
 7. 在“位置”中，选择创建了恢复服务保管库的同一个区域。 本教程使用“中国北部”。 该网络必须位于与保管库相同的区域中。
@@ -101,5 +101,4 @@ ms.locfileid: "94329218"
 - [了解](../virtual-network/virtual-networks-overview.md) Azure 网络。
 - [了解](../virtual-machines/managed-disks-overview.md)托管磁盘。
 
-<!-- Update_Description: new article about avs tutorial prepare azure -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

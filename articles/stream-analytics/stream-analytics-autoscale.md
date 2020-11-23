@@ -5,25 +5,25 @@ author: Johnnytechn
 ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 5fa14c26bc1bbc4d977ae1986265cc9a270aa094
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.topic: how-to
+ms.date: 11/16/2020
+ms.openlocfilehash: 9c058b2af978946f640bc02e564a6a741f75dc70
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226362"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978140"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>使用 Azure 自动化服务自动缩放流分析作业
 
 可以通过配置自动缩放来优化流分析作业的成本。 自动缩放可根据输入负载的变化增加或减少作业的流单元 (SU)。 你可以根据需要纵向扩展或纵向缩减，而不必过度预配作业。 可通过两种方式将作业配置为自动进行缩放：
-1. 如果输入负载可预测，则**预定义计划**。 例如，你预计白天发生输入事件的几率更高，并且你希望使用更多 SU 来运行作业。
-2. 如果输入负载不可预测，则**根据作业指标触发纵向扩展和纵向缩减操作**。 可以根据作业指标（例如输入事件数或积压的输入事件数）动态更改 SU 的数量。
+1. 如果输入负载可预测，则 **预定义计划**。 例如，你预计白天发生输入事件的几率更高，并且你希望使用更多 SU 来运行作业。
+2. 如果输入负载不可预测，则 **根据作业指标触发纵向扩展和纵向缩减操作**。 可以根据作业指标（例如输入事件数或积压的输入事件数）动态更改 SU 的数量。
 
 ## <a name="prerequisites"></a>先决条件
 在开始为作业配置自动缩放之前，请完成以下步骤。
-1. 将作业优化为具有[并行拓扑](/stream-analytics/stream-analytics-parallelization)。 如果可以在作业运行时更改其规模，则表示作业具有并行拓扑，可以配置为自动进行缩放。
-2. [创建启用了“RunAsAccount”选项的 Azure 自动化帐户](/automation/automation-create-standalone-account)。 此帐户必须有权管理流分析作业。
+1. 将作业优化为具有[并行拓扑](./stream-analytics-parallelization.md)。 如果可以在作业运行时更改其规模，则表示作业具有并行拓扑，可以配置为自动进行缩放。
+2. [创建启用了“RunAsAccount”选项的 Azure 自动化帐户](../automation/automation-create-standalone-account.md)。 此帐户必须有权管理流分析作业。
 
 ## <a name="set-up-azure-automation"></a>设置 Azure 自动化
 ### <a name="configure-variables"></a>配置变量
@@ -73,7 +73,7 @@ Azure 自动化允许你配置 runbook 触发计划。
 5. 填写所需的字段。 选择“操作类型”时，选择“自动化 Runbook”。 选择要在警报触发时触发的 runbook。 然后，创建操作组。
 
    ![创建操作组](./media/autoscale/create-actiongroup.png)
-6. 在作业中创建一个[新的警报规则](/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal)。 根据所选指标指定条件。 建议使用[输入事件、SU% 利用率或积压的输入事件数](/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)指标来定义自动缩放逻辑  。 在触发纵向扩展操作时，还建议使用 1 分钟聚合粒度和评估频率。 这样做可确保作业有充足的资源来应对输入量高峰。
+6. 在作业中创建一个[新的警报规则](./stream-analytics-set-up-alerts.md#set-up-alerts-in-the-azure-portal)。 根据所选指标指定条件。 建议使用[输入事件、SU% 利用率或积压的输入事件数](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)指标来定义自动缩放逻辑  。 在触发纵向扩展操作时，还建议使用 1 分钟聚合粒度和评估频率。 这样做可确保作业有充足的资源来应对输入量高峰。
 7. 选择上一步中创建的操作组，然后创建警报。
 8. 对要根据作业指标条件触发的任何其他缩放操作重复步骤 2 到 4。
 

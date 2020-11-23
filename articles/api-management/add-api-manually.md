@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 08/27/2018
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 3298cd0c3aff96d125c8443014857c434049bb72
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 67a88eb47b7600195f609acab7eb7ced78eb04cd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976978"
 ---
 # <a name="add-an-api-manually"></a>手动添加 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "91871277"
 2. 在左侧菜单中，选择“+ 添加 API”。
 3. 从列表中选择“空白 API”。  
     空白 API![](./media/add-api-manually/blank-api.png)  
-4. 输入 API 的设置。 在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
+4. 输入 API 的设置。 在[导入和发布第一个 API](import-and-publish.md#import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
 5. 选择“创建” 。
 
 此时，API 管理中没有任何操作映射到后端 API 中的操作。 如果调用通过后端（而不是通过 API 管理）公开的操作，则会收到 404 错误。
@@ -62,7 +62,7 @@ ms.locfileid: "91871277"
 
 ### <a name="test-an-operation"></a>测试操作
 
-在 Azure 门户中测试操作。 或者，可以在**开发人员门户**中测试操作。
+在 Azure 门户中测试操作。 或者，可以在 **开发人员门户** 中测试操作。
 
 1. 选择“测试”选项卡。
 2. 选择“FetchData”。
@@ -84,7 +84,7 @@ ms.locfileid: "91871277"
 
 ### <a name="test-the-operation"></a>测试操作 
 
-在 Azure 门户中测试操作。  或者，可以在**开发人员门户**中测试操作。
+在 Azure 门户中测试操作。  或者，可以在 **开发人员门户** 中测试操作。
 
 1. 选择“测试”选项卡。
 2. 选择“GetStatus”。 默认情况下，代码值设置为“200”。 可以更改默认值以测试其他值。 例如，键入“418”。

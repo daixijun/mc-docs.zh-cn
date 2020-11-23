@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 7e37d3caa779a75d7537c7c76ffd558258891de6
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: c7b6c5ce28e29130eb3695dd3f288a917e496e13
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516736"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849422"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>应用程序网关对多租户后端（例如应用服务）的支持
 
@@ -28,11 +28,11 @@ ms.locfileid: "85516736"
 
 ## <a name="override-host-header-in-the-request"></a>替代请求中的主机标头
 
-指定主机替代的功能在 [HTTP 设置](/application-gateway/configuration-overview#http-settings)中定义，可以在创建规则过程中应用到任何后端池。 多租户后端支持通过以下两种方式来替代主机标头和 SNI 扩展：
+指定主机替代的功能在 [HTTP 设置](./configuration-overview.md#http-settings)中定义，可以在创建规则过程中应用到任何后端池。 多租户后端支持通过以下两种方式来替代主机标头和 SNI 扩展：
 
 - 在 HTTP 设置中显式输入将主机名设置为固定值的功能。 此功能可确保将主机标头替代为该值，前提是在流量流向的后端池中应用了特定的 HTTP 设置。 使用端到端 TLS 时，会在 SNI 扩展中使用此替代的主机名。 有了此功能，后端池场收到的主机标头就可以不同于传入的客户主机标头。
 
-- 从后端池成员的 IP 或 FQDN 派生主机名的功能。 HTTP 设置还提供了一个选项，用于从后端池成员的 FQDN 动态选取主机名，前提是配置了从单个后端池成员派生主机名的选项。 使用端到端 TLS 时，此主机名派生自 FQDN，用在 SNI 扩展中。 有了此功能，后端池就可以有两个或两个以上的多租户 PaaS 服务（例如 Azure Web 应用），而针对每个成员的请求的主机标头就可以包含从该成员的 FQDN 派生的主机名。 为了实现此方案，我们在 HTTP 设置中使用了名为[从后端地址中选取主机名](/application-gateway/configuration-overview#pick-host-name-from-back-end-address)的开关，此开关会将原始请求中的主机标头动态替代为后端池中指定的标头。  例如，如果后端池 FQDN 包含“contoso11.chinacloudsites.cn”和“contoso22.chinacloudsites.cn”，将请求发送到相应的后端服务器时，原始请求的主机标头 contoso.com 将替代为 contoso11.chinacloudsites.cn 或contoso22.chinacloudsites.cn。 
+- 从后端池成员的 IP 或 FQDN 派生主机名的功能。 HTTP 设置还提供了一个选项，用于从后端池成员的 FQDN 动态选取主机名，前提是配置了从单个后端池成员派生主机名的选项。 使用端到端 TLS 时，此主机名派生自 FQDN，用在 SNI 扩展中。 有了此功能，后端池就可以有两个或两个以上的多租户 PaaS 服务（例如 Azure Web 应用），而针对每个成员的请求的主机标头就可以包含从该成员的 FQDN 派生的主机名。 为了实现此方案，我们在 HTTP 设置中使用了名为[从后端地址中选取主机名](./configuration-http-settings.md#pick-host-name-from-back-end-address)的开关，此开关会将原始请求中的主机标头动态替代为后端池中指定的标头。  例如，如果后端池 FQDN 包含“contoso11.chinacloudsites.cn”和“contoso22.chinacloudsites.cn”，将请求发送到相应的后端服务器时，原始请求的主机标头 contoso.com 将替代为 contoso11.chinacloudsites.cn 或contoso22.chinacloudsites.cn。 
 
   ![Web 应用方案](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "85516736"
 
 ### <a name="health-probe"></a>运行状况探测
 
-替代 **HTTP 设置**中的主机标头只会影响请求及其路由， 而不影响运行状况探测行为。 若要使用端到端功能，必须修改探测和 HTTP 设置，使之反映正确的配置。 除了提供在探测配置中指定主机标头的功能以外，自定义探测还支持从当前配置的 HTTP 设置中派生主机标头的功能。 指定此配置时，可以在探测配置中使用 `PickHostNameFromBackendHttpSettings` 参数。
+替代 **HTTP 设置** 中的主机标头只会影响请求及其路由， 而不影响运行状况探测行为。 若要使用端到端功能，必须修改探测和 HTTP 设置，使之反映正确的配置。 除了提供在探测配置中指定主机标头的功能以外，自定义探测还支持从当前配置的 HTTP 设置中派生主机标头的功能。 指定此配置时，可以在探测配置中使用 `PickHostNameFromBackendHttpSettings` 参数。
 
 ### <a name="redirection-to-app-services-url-scenario"></a>重定向到应用服务 URL 的情况
 
@@ -59,9 +59,9 @@ ms.locfileid: "85516736"
 - 在应用服务中配置了重定向。 只需在请求中添加一个尾随的斜杠即可配置重定向。
 - Azure AD 身份验证导致重定向。
 
-若要解决这种情况，请参阅[排查重定向到应用服务 URL 的问题](/application-gateway/troubleshoot-app-service-redirection-app-service-url)。
+若要解决这种情况，请参阅[排查重定向到应用服务 URL 的问题](./troubleshoot-app-service-redirection-app-service-url.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/configure-web-app-portal)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
+访问[为应用服务 Web 应用配置应用程序网关](./configure-web-app-portal.md)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
 

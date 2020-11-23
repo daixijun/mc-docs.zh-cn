@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 门户将 API 应用作为 API 导入
-description: 本教程演示如何使用 API 管理 (APIM) 将 API 应用导入为 API。
+description: 本文演示如何使用 API 管理 (APIM) 将 API 应用导入为 API。
 services: api-management
 documentationcenter: ''
 author: Johnnytechn
@@ -9,16 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 origin.date: 11/22/2017
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 1ffe9cb6530637a6cd8f937e4e93791a223e6122
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: dd5bac5ad5363cd2a5ee11c74d2aad1056e8434f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871348"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978100"
 ---
 # <a name="import-an-api-app-as-an-api"></a>将 API 应用导入为 API
 
@@ -57,7 +57,7 @@ ms.locfileid: "91871348"
 
     * **入门**
     * **不受限制**   
-7. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
+7. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md#import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
 8. 选择“创建”。
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>在 Azure 门户中测试新的 API

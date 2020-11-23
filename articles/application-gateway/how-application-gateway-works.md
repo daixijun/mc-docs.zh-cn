@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: cca66cbf133c334bc0ddf06fdc7bbbe7096f2c2a
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 0ab487099af5f1f0c64158b7f8cf632169ca9d7d
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796342"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849276"
 ---
 # <a name="how-an-application-gateway-works"></a>应用程序网关的工作原理
 
@@ -32,7 +32,7 @@ ms.locfileid: "87796342"
 
 可以使用 Azure 应用程序网关作为内部应用程序负载均衡器或面向 Internet 的应用程序负载均衡器。 面向 Internet 的应用程序网关使用公共 IP 地址。 面向 Internet 的应用程序网关的 DNS 名称可公开解析为其公共 IP 地址。 因此，面向 Internet 的应用程序网关可将客户端请求路由到 Internet。
 
-内部应用程序网关仅使用专用 IP 地址。 如果使用的是自定义或[专用 DNS 区域](/dns/private-dns-overview)，则域名应在内部可解析为应用程序网关的专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关虚拟网络的客户端发出的请求。
+内部应用程序网关仅使用专用 IP 地址。 如果使用的是自定义或[专用 DNS 区域](../dns/private-dns-overview.md)，则域名应在内部可解析为应用程序网关的专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关虚拟网络的客户端发出的请求。
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>应用程序网关如何路由请求
 
@@ -68,4 +68,3 @@ x-forwarded-proto 的有效值为 HTTP 或 HTTPS。 x-forwarded-port 指定请�
 
 [了解应用程序网关组件](application-gateway-components.md)
 
-<!-- Update_Description: wording update -->

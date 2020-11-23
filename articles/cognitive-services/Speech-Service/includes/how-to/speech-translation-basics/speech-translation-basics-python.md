@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/13/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: ff04b5a5caf027a997488a68d4b5b3b66d1aa9e8
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: fdd65dc376060114568bdd609ac758baaf0ca60f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127860"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978869"
 ---
 语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
 
@@ -198,7 +198,7 @@ def get_result_text(reason, result):
 translate_speech_to_text()
 ```
 
-有关语音转文本的详细信息，请参阅[语音识别基础知识](../../../speech-to-text-basics.md)。
+有关语音转文本的详细信息，请参阅[语音识别基础知识](../../../get-started-speech-to-text.md)。
 
 ## <a name="synthesize-translations"></a>合成翻译
 
@@ -309,7 +309,7 @@ def synthesize_translations(result):
 translate_speech_to_text()
 ```
 
-有关语音合成的详细信息，请参阅[语音合成基础知识](../../../text-to-speech-basics.md)。
+有关语音合成的详细信息，请参阅[语音合成基础知识](../../../get-started-text-to-speech.md)。
 
 [config]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig?view=azure-python
 [audioconfig]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python

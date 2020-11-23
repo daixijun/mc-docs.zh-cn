@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: ed90167cbf51b31dce9648d45772a1229e639dd8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e6c6a2f21bab1bf1970755c1f54d631a9e03cdd6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106681"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977238"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>利用 Triton 推理服务器实现的高性能服务（预览） 
 
@@ -30,11 +30,11 @@ Triton 是针对推理进行了优化的框架。 它提供更好的 GPU 利用�
 > 使用 Triton 从 Azure 机器学习进行部署这一功能目前处于预览状态。 客户支持可能不会涵盖预览版功能。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> 本文档中的代码片段用于说明目的，可能不会显示完整的解决方案。 有关工作示例代码，请参阅 [Azure 机器学习中 Triton 的端到端示例](https://aka.ms/aml-triton-sample)。
+> 本文档中的代码片段用于说明目的，可能不会显示完整的解决方案。 有关工作示例代码，请参阅 [Azure 机器学习中 Triton 的端到端示例](https://github.com/Azure/azureml-examples/tree/main/tutorials)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅** 。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
 * 熟悉[如何使用 Azure 机器学习部署模型以及部署到的位置](how-to-deploy-and-where.md)。
 * [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 和[机器学习扩展](reference-azure-machine-learning-cli.md)。
 * 用于本地测试的 Docker 的工作安装。 有关安装和验证 Docker 的信息，请参阅 docker 文档中的[方向和设置](https://docs.docker.com/get-started/)。
@@ -228,7 +228,7 @@ res = triton_client.infer(model_name,
 > [!IMPORTANT]
 > 必须指定 `AzureML-Triton` [特选环境](./resource-curated-environments.md)。
 >
-> Python 代码示例将 `AzureML-Triton` 克隆到另一个名为 `My-Triton` 的环境中。 Azure CLI 代码也使用此环境。 有关克隆环境的详细信息，请参阅 [Environment.Clone()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-) 引用。
+> Python 代码示例将 `AzureML-Triton` 克隆到另一个名为 `My-Triton` 的环境中。 Azure CLI 代码也使用此环境。 有关克隆环境的详细信息，请参阅 [Environment.Clone()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) 引用。
 
 # <a name="python"></a>[Python](#tab/python)
 

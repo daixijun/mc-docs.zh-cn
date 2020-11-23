@@ -5,19 +5,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-origin.date: 10/19/2020
+origin.date: 11/10/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0d2074d7746176f9869d3ce4c084af66901b8e74
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 87c0a13e7bb89b3491ca12cacc710cde69e7bf76
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978284"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -33,6 +33,16 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 
 若要了解 Azure 防火墙的功能，请参阅 [Azure 防火墙功能](features.md)。
 
+## <a name="pricing-and-sla"></a>定价和 SLA
+
+有关 Azure 防火墙定价的信息，请参阅 [Azure 防火墙定价](https://www.azure.cn/pricing/details/azure-firewall/)。
+
+有关 Azure 防火墙 SLA 的信息，请参阅 [Azure 防火墙 SLA](https://www.azure.cn/support/sla/azure-firewall/)。
+
+## <a name="whats-new"></a>新增功能
+
+若要了解 Azure 防火墙的新增功能，请参阅 [Azure 更新](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall)。
+
 ## <a name="known-issues"></a>已知问题
 
 Azure 防火墙存在以下已知问题：
@@ -47,7 +57,7 @@ Azure 防火墙存在以下已知问题：
 |Azure 防火墙 DNAT 不适用于专用 IP 目标|Azure 防火墙 DNAT 支持仅限于 Internet 出口/入口。 DNAT 目前不适用于专用 IP 目标。 例如，分支到分支。|这是当前的一项限制。|
 |无法删除第一个公共 IP 配置|每个 Azure 防火墙公共 IP 地址都分配给一个 IP 配置。  第一个 IP 配置在防火墙部署过程中分配，通常还包含对防火墙子网的引用（除非通过模板部署以不同的方式进行了显式配置）。 无法删除此 IP 配置，因为它会取消分配防火墙。 如果防火墙至少包含另一个可用的公共 IP 地址，则你仍然可以更改或删除与此 IP 配置相关联的公共 IP 地址。|这是设计的结果。|
 |对入站连接的 SNAT|除了 DNAT 以外，通过防火墙公共 IP 地址（入站）建立的连接将通过 SNAT 转换为某个防火墙专用 IP。 当前提出此项要求（也适用于主动/主动 NVA）的目的是确保对称路由。|若要保留 HTTP/S 的原始源，请考虑使用 XFF 标头。 例如，在防火墙前面使用 [Azure 应用程序网关](../application-gateway/rewrite-http-headers.md)等服务。 还可以添加 WAF 作为 Azure Front Door 的一部分，并链接到防火墙。
-|仅在代理模式下支持 SQL FQDN 筛选（端口 1433）|对于 Azure SQL 数据库、Azure Synapse Analytics 和 Azure SQL 托管实例：<br /><br />在预览期间，仅在代理模式下支持 SQL FQDN 筛选（端口 1433）。<br /><br />对于 Azure SQL IaaS：<br /><br />如果使用的是非标准端口，则可以在应用程序规则中指定这些端口。|对于采用重定向模式的 SQL（这是从 Azure 内连接时采用的默认设置），可以将 SQL 服务标记用作 Azure 防火墙网络规则的一部分，改为对访问进行筛选。
+|仅在代理模式下支持 SQL FQDN 筛选（端口 1433）|对于 Azure SQL 数据库、Azure Synapse Analytics 和 Azure SQL 托管实例：<br /><br />仅在代理模式下支持 SQL FQDN 筛选（端口 1433）。<br /><br />对于 Azure SQL IaaS：<br /><br />如果使用的是非标准端口，则可以在应用程序规则中指定这些端口。|对于采用重定向模式的 SQL（这是从 Azure 内连接时采用的默认设置），可以将 SQL 服务标记用作 Azure 防火墙网络规则的一部分，改为对访问进行筛选。
 |不允许 TCP 端口 25 上的出站流量| 将阻止使用 TCP 端口 25 的出站 SMTP 连接。 端口 25 主要用于未经身份验证的电子邮件传递。 这是虚拟机的默认平台行为。 有关详细信息，请参阅[排查 Azure 中的出站 SMTP 连接问题](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)。 但是，与虚拟机不同，目前无法在 Azure 防火墙上启用此功能。 注意：若要允许经过身份验证的 SMTP（端口 587）或基于除 25 之外的端口的 SMTP，请确保配置网络规则而不是应用程序规则，因为目前不支持 SMTP 检查。|请按照 SMTP 故障排除文章中所述的建议方法发送电子邮件。 或者，排除需要从默认路由对防火墙进行出站 SMTP 访问的虚拟机。 改为配置直接对 Internet 进行出站访问。
 |主动 FTP 不受支持|在 Azure 防火墙上禁用主动 FTP，防范使用 FTP PORT 命令进行的 FTP 弹跳攻击。|可以改用被动 FTP。 仍需在防火墙上显式打开 TCP 端口 20 和 21。
 |SNAT 端口使用率指标显示 0%|即使使用 SNAT 端口，Azure 防火墙 SNAT 端口使用率指标也可能显示 0%。 在这种情况下，将此指标用作防火墙运行状况指标的一部分会导致不正确的结果。|此问题已修复，预计在 2020 年 5 月推出生产版。 在某些情况下，重新部署防火墙即可解决此问题，但存在偶然性。 可以只使用防火墙运行状况状态来查找 *status=degraded* 而非 *status=unhealthy*，但这是一种权宜解决方法。 端口耗尽会显示为“已降级”。 “不正常”保留给将来使用，到时会有更多指标影响防火墙运行状况。
@@ -58,14 +68,17 @@ Azure 防火墙存在以下已知问题：
 |不支持端口介于 64000 和 65535 之间的 NAT 规则|Azure 防火墙允许网络和应用程序规则中 1-65535 范围内的任何端口，但是 NAT 规则仅支持 1-63999 范围内的端口。|这是当前的一项限制。
 |配置更新平均可能需要 5 分钟|Azure 防火墙配置更新平均可能需要 3 到 5 分钟，且不支持并行更新。|我们正在研究修复措施。|
 |Azure 防火墙使用 SNI TLS 标头筛选 HTTPS 和 MSSQL 流量|如果浏览器或服务器软件不支持服务器名称指示 (SNI) 扩展，则无法通过 Azure 防火墙进行连接。|如果浏览器或服务器软件不支持 SNI，也许可以使用网络规则（而不是应用程序规则）控制连接。
-|自定义 DNS（预览版）不适用于强制隧道|如果启用了强制隧道，自定义 DNS（预览版）将不起作用。|我们正在研究修复措施。|
+|自定义 DNS 不适用于强制隧道|如果启用了强制隧道，自定义 DNS 将无法使用。|我们正在研究修复措施。|
 |启动/停止操作不适用于在强制隧道模式下配置的防火墙|启动/停止操作不适用于在强制隧道模式下配置的 Azure 防火墙。 如果尝试在配置了强制隧道的情况下启动 Azure 防火墙，会导致以下错误：<br /><br />*Set-AzFirewall:AzureFirewall FW-xx 管理 IP 配置无法添加到现有防火墙中。如果要使用强制隧道支持，请使用管理 IP 配置重新部署。<br />StatusCode:400<br />ReasonPhrase：请求错误*|正在调查中。<br /><br />一种解决方法是，删除现有的防火墙，并使用相同的参数创建一个新的防火墙。|
+|无法使用门户添加防火墙策略标记|Azure 防火墙策略具有修补程序支持限制，可防止使用 Azure 门户添加标记。 生成以下错误：无法保存资源的标记。|我们正在研究修复措施。 或者，可以使用 Azure PowerShell cmdlet `Set-AzFirewallPolicy` 更新标记。
 
 <!--Not Available on See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.-->
 <!--Not Available on TabLine 7+1 on Availability Zones-->
 <!--Not Available on TabLine 8 SNAT on inbound connection [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend)-->
 <!--Not Available on TabLine 8 consider using [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For)-->
 <!--Not Avaialble on For example, use a service such as Azure Front Door in front of the firewall. You can also add WAF as part of Azure Front Door and chain to the firewall.-->
+<!--Not Available on See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)-->
+<!--Not Available on line 66 + 1 Availability Zones-->
 
 ## <a name="next-steps"></a>后续步骤
 

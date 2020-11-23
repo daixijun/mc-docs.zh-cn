@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/13/2019
 ms.author: v-yiso
 ms.date: 02/25/2020
-ms.openlocfilehash: 561d308b999a56c3e78a93967b6bd8a45a996e7f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: aa59f6f9373f02d26fd7e91bfb6e7e4ca808cb42
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327421"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977945"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -337,3 +337,8 @@ ExpressRoute 高级版是以下功能的集合：
 * 在 2017 年 8 月 1 日之前配置的 ExpressRoute 线路的 Microsoft 对等互连会通过 Microsoft 对等互连播发所有服务前缀，即使未定义路由筛选器。
 
 * 在 2017 年 8 月 1 日或之后配置的 ExpressRoute 线路的 Microsoft 对等互连的任何前缀只有在路由筛选器附加到线路之后才会播发。 默认情况下，不会显示任何前缀。
+
+## <a name="expressroute-direct"></a><a name="expressRouteDirect"></a>ExpressRoute Direct
+
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
+

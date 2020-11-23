@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c540f271d8f47610f8cc40ae5f4afc5fa5151f2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bf3b99abb454d6d1696fae1ca025539a001304fa
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118297"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977459"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>在 Application Insights 中收集用于警报和调试的机器学习管道日志文件
 
@@ -38,7 +38,7 @@ ms.locfileid: "92118297"
 
 本部分的简介内容与通过 Azure 机器学习管道使用 OpenCensus 的操作相关。 有关详细教程，请参阅 [OpenCensus Azure Monitor 导出程序](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-将 PythonScriptStep 添加到 Azure 机器学习管道。 使用 opencensus-ext-azure 中的依赖项配置 [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true)。 配置 `APPLICATIONINSIGHTS_CONNECTION_STRING` 环境变量。
+将 PythonScriptStep 添加到 Azure 机器学习管道。 使用 opencensus-ext-azure 中的依赖项配置 [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py)。 配置 `APPLICATIONINSIGHTS_CONNECTION_STRING` 环境变量。
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -153,7 +153,7 @@ Application Insights 中的结果将显示日志消息和级别、文件路径�
 
 ### <a name="additional-helpful-queries"></a>其他有用查询
 
-以下某些查询使用“customDimensions.Level”。 这些严重性级别对应于最初发送 Python 日志时所用的级别。 有关其他查询信息，请参阅 [Azure Monitor 日志查询](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)。
+以下某些查询使用“customDimensions.Level”。 这些严重性级别对应于最初发送 Python 日志时所用的级别。 有关其他查询信息，请参阅 [Azure Monitor 日志查询](/data-explorer/kusto/query/)。
 
 | 用例                                                               | 查询                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Application Insights 中的结果将显示日志消息和级别、文件路径�
 
 在 Application Insights 实例中启用日志后，可以使用这些日志基于查询结果设置 [Azure Monitor 警报](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on)。
 
-还可以将查询结果添加到 [Azure 仪表板](/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query)以获取更多见解。
+还可以将查询结果添加到 [Azure 仪表板](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query)以获取更多见解。

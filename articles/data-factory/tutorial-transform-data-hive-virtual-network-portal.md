@@ -10,13 +10,13 @@ manager: digimobile
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/04/2018
-ms.date: 10/19/2020
-ms.openlocfilehash: af994cee889158276cc773aff54d2424ccc1291a
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/23/2020
+ms.openlocfilehash: ddd53f3d8502a053c8126a7f84b7bbc39eca0a05
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121727"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680539"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>通过 Azure 门户在 Azure 数据工厂中使用 Hive 活动转换 Azure 虚拟网络中的数据
 
@@ -43,7 +43,7 @@ ms.locfileid: "92121727"
 - **Azure 虚拟网络**。 如果没有 Azure 虚拟网络，请遵照[这些说明](../virtual-network/quick-create-portal.md)创建虚拟网络。 在本示例中，HDInsight 位于 Azure 虚拟网络中。 下面是 Azure 虚拟网络的示例配置。 
 
     ![创建虚拟网络](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **HDInsight 群集**。 创建一个 HDInsight 群集，并按照以下文章中所述，将该群集加入到在前一步骤中创建的虚拟网络：[使用 Azure 虚拟网络扩展 Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。 下面是虚拟网络中 HDInsight 的示例配置。 
+- **HDInsight 群集**。 创建一个 HDInsight 群集，并按照以下文章中所述，将该群集加入到在前一步骤中创建的虚拟网络：[使用 Azure 虚拟网络扩展 Azure HDInsight](../hdinsight/hdinsight-plan-virtual-network-deployment.md)。 下面是虚拟网络中 HDInsight 的示例配置。 
 
     ![虚拟网络中的 HDInsight](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**。 遵循[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 中的说明。
@@ -78,7 +78,7 @@ ms.locfileid: "92121727"
 2. 在左侧菜单中单击“新建”，并依次单击“数据 + 分析”、“数据工厂”。   
    
    ![新建 -> DataFactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png)
-3. 在“新建数据工厂”页中，输入 **ADFTutorialHiveFactory** 作为**名称**。 
+3. 在“新建数据工厂”页中，输入 **ADFTutorialHiveFactory** 作为 **名称**。 
       
      ![“新建数据工厂”页](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
@@ -86,14 +86,14 @@ ms.locfileid: "92121727"
   
     数据工厂名“MyAzureSsisDataFactory”不可用
 3. 选择要在其中创建数据工厂的 Azure **订阅**。 
-4. 对于**资源组**，请执行以下步骤之一：
+4. 对于 **资源组**，请执行以下步骤之一：
      
    - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
    - 选择“新建”，并输入资源组的名称。   
          
      若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
 4. 选择“V2”作为“版本”。
-5. 选择数据工厂的**位置**。 列表中只会显示支持创建数据工厂的位置。
+5. 选择数据工厂的 **位置**。 列表中只会显示支持创建数据工厂的位置。
 6. 选择“固定到仪表板”。     
 7. 单击“创建”。
 8. 在仪表板上，你会看状态如下的以下磁贴：“正在部署数据工厂”。 
@@ -122,13 +122,13 @@ ms.locfileid: "92121727"
 4. 在“名称”中输入 **MySelfHostedIR**，然后单击“下一步”。  
 
    ![指定集成运行时名称](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 
-5. 单击复制按钮复制集成运行时的**身份验证密钥**，并将其保存。 使窗口保持打开。 稍后将要使用此密钥注册虚拟机中安装的 IR。 
+5. 单击复制按钮复制集成运行时的 **身份验证密钥**，并将其保存。 使窗口保持打开。 稍后将要使用此密钥注册虚拟机中安装的 IR。 
 
    ![复制身份验证密钥](./media/tutorial-transform-data-using-hive-in-vnet-portal/copy-key.png)
 
 ### <a name="install-ir-on-a-virtual-machine"></a>在虚拟机上安装 IR
 
-1. 在该 Azure VM 上，下载[自我托管的集成运行时](https://www.microsoft.com/download/details.aspx?id=39717)。 使用上一步骤中获取的**身份验证密钥**手动注册自承载集成运行时。 
+1. 在该 Azure VM 上，下载[自我托管的集成运行时](https://www.microsoft.com/download/details.aspx?id=39717)。 使用上一步骤中获取的 **身份验证密钥** 手动注册自承载集成运行时。 
 
     ![注册集成运行时](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
 
@@ -165,7 +165,7 @@ ms.locfileid: "92121727"
    ![选择“Azure Blob 存储”](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-azure-storage.png)
 3. 在“新建链接服务”窗口中执行以下步骤：
 
-    1. 输入 **AzureStorageLinkedService** 作为**名称**。
+    1. 输入 **AzureStorageLinkedService** 作为 **名称**。
     2. 为“通过集成运行时连接”选择“MySelfHostedIR”。 
     3. 对于“存储帐户名称”，请选择自己的 Azure 存储帐户。 
     4. 若要测试与存储帐户的连接，请单击“测试连接”。
@@ -186,8 +186,8 @@ ms.locfileid: "92121727"
     1. 在“名称”中输入 **AzureHDInsightLinkedService**。
     2. 选择“自带 HDInsight”。 
     3. 对于“HDI 群集”，请选择自己的 HDInsight 群集。 
-    4. 输入 HDInsight 群集的**用户名**。
-    5. 输入该用户的**密码**。 
+    4. 输入 HDInsight 群集的 **用户名**。
+    5. 输入该用户的 **密码**。 
     
         ![Azure HDInsight 设置](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-hdinsight.png)
 
@@ -238,7 +238,7 @@ ms.locfileid: "92121727"
 
 ## <a name="trigger-a-pipeline-run"></a>触发管道运行
 
-1. 首先，请单击工具栏中的“验证”按钮来验证管道。 单击**右箭头 (>>)** 关闭“管道验证输出”窗口。 
+1. 首先，请单击工具栏中的“验证”按钮来验证管道。 单击 **右箭头 (>>)** 关闭“管道验证输出”窗口。 
 
     ![验证管道](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. 若要触发某个管道运行，请在工具栏中单击“触发器”，然后单击“立即触发”。 
@@ -277,6 +277,3 @@ ms.locfileid: "92121727"
 
 > [!div class="nextstepaction"]
 >[分支和链接数据工厂控制流](tutorial-control-flow-portal.md)
-
-
-

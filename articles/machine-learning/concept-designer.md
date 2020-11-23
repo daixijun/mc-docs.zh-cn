@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 764c9824357ac214f46f747aef244c618bf9959d
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 2641cfb42d1d1912ae40a4060eb683f2a410c520
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978273"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>什么是 Azure 机器学习设计器？ 
 
@@ -100,7 +100,7 @@ ms.locfileid: "92117861"
 
 ## <a name="deploy"></a>部署
 
-若要执行实时推理，必须将管道部署为 **实时终结点** 。 实时终结点在外部应用程序和评分模型之间创建接口。 对实时端点的调用会将预测结果实时返回至应用程序。 若要调用实时终结点，请传递部署终结点时创建的 API 密钥。 该终结点基于 REST，这是一种流行的 Web 编程项目的体系结构。
+若要执行实时推理，必须将管道部署为 **实时终结点**。 实时终结点在外部应用程序和评分模型之间创建接口。 对实时端点的调用会将预测结果实时返回至应用程序。 若要调用实时终结点，请传递部署终结点时创建的 API 密钥。 该终结点基于 REST，这是一种流行的 Web 编程项目的体系结构。
 
 必须将实时终结点部署到 Azure Kubernetes 服务群集。
 
@@ -114,7 +114,7 @@ ms.locfileid: "92117861"
 
 已发布的管道在每个模块的管道草稿中定义的计算资源上运行。
 
-设计器创建与 SDK 相同的 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) 对象。
+设计器创建与 SDK 相同的 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) 对象。
 
 ## <a name="next-steps"></a>后续步骤
 

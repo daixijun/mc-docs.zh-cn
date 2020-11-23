@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 origin.date: 12/02/2019
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: mvc
-ms.openlocfilehash: c38904e8455289191517f937322bdd254618b9ee
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: eeec8ce574de1094573089445407a665e97cb45e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328789"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977117"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -33,6 +33,8 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -201,13 +203,47 @@ UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
+
+# <a name="portal"></a>[门户](#tab/azure-portal)
+
+1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
+
+2. 在资源组列表中，选择你的资源组的名称。
+
+3. 在资源组的“概览”页中，选择“删除资源组” 。
+
+4. 在确认对话框中，键入资源组的名称，然后选择“删除”。
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了：
 > [!div class="checklist"]
 > * 使用 Azure 资源管理器模板创建带有 VNet 服务终结点的 Azure Database for MySQL 服务器
-> * 使用 [mysql 命令行工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)创建数据库
+> * 使用 mysql 命令行工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
-> 
+
+> [!div class="nextstepaction"]
 > [如何将应用程序连接到 Azure Database for MySQL](./howto-connection-string.md)

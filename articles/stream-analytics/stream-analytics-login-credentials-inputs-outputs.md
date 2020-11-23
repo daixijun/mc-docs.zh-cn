@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 06/21/2019
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ffa5838b8865420a92bad2b1b539b02bd470f56
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 677be5288f31c4623ff2aede47deb7c7ceb75753
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715698"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977416"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>轮转流分析作业的输入和输出的登录凭据
 
@@ -81,5 +81,5 @@ ms.locfileid: "88715698"
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

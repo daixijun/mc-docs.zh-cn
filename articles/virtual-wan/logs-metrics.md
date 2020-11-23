@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 06/05/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: ec46e11f74aeb6dc0333487ca38a667542af11f6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 530635d7de93a5b9fe80eaa799c68d60edd97dfc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103746"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977627"
 ---
 <!--Verified Successfully-->
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 虚拟 WAN 日志和指标
@@ -71,7 +71,7 @@ Azure ExpressRoute 网关提供以下指标：
 
 4. 在“指标”页上，你可以查看感兴趣的指标。
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="屏幕截图显示了站点到站点 VPN 窗格，其中选择了“在 Azure Monitor 中查看”。":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="屏幕截图显示了“指标”页面，其中突出显示了类别。":::
 
 <a name="diagnostic"></a>
 ## <a name="diagnostic-logs"></a>诊断日志
@@ -100,15 +100,15 @@ Azure 点到站点 VPN 网关提供以下诊断：
 
 1. 在门户中，导航到你的虚拟 WAN 资源。 在门户的“虚拟 WAN”页面的“概览”部分，选择“基本信息”以展开视图并获取资源组信息。 复制资源组信息。
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="屏幕截图显示了站点到站点 VPN 窗格，其中选择了“在 Azure Monitor 中查看”。":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="屏幕截图显示了“概览”部分，其中有一个箭头指向“复制”按钮。":::
 
 2. 在“监视”部分，导航到资源组。 选择“诊断设置”，然后输入资源信息。 这是你在本文前面的步骤 2 中从[查看网关指标](#metrics-steps)部分复制的资源信息。
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="屏幕截图显示了站点到站点 VPN 窗格，其中选择了“在 Azure Monitor 中查看”。":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="屏幕截图显示了“监视”部分，其中有一个箭头指向“资源”下拉列表。":::
 
 3. 在结果页上，选择“+ 添加诊断设置”，然后选择一个选项。 你可以选择发送到 Log Analytics、流式传输到事件中心，或者直接存档到某个存储帐户。
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="屏幕截图显示了站点到站点 VPN 窗格，其中选择了“在 Azure Monitor 中查看”。":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="“指标”页":::
 
 <a name="sample-query"></a>
 ### <a name="log-analytics-sample-query"></a>Log Analytics 示例查询
@@ -132,8 +132,7 @@ Azure 点到站点 VPN 网关提供以下诊断：
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](../firewall/tutorial-diagnostics.md)。
+* 若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](../firewall/firewall-diagnostics.md)。
 * 若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 
-<!-- Update_Description: new article about logs metrics -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

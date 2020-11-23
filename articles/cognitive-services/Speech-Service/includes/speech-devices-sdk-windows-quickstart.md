@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 02/20/2020
-ms.date: 09/02/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6a658d56f32d878b36a34f2c5ce716e4e4520d65
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 6e1c7b00818f15d62c1237de159d71b0f757db69
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979008"
 ---
 本快速入门介绍如何使用适用于 Windows 的语音设备 SDK 来生成支持语音的产品。
 
@@ -45,15 +45,15 @@ ms.locfileid: "89317605"
 
 1. 在 Eclipse IDE Launcher 的“工作区”字段中，输入新工作区目录的名称 。 然后选择“启动”。
 
-   ![Eclipse Launcher 的屏幕截图](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![显示 Eclipse 启动程序的屏幕截图，你可在其中输入工作区目录的名称。](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. 片刻之后，Eclipse IDE 的主窗口将会显示。 如果出现了欢迎屏幕，请将其关闭。
 
 1. 从 Eclipse 菜单栏上，依次选择“文件” > “新建” > “Java 项目”以新建一个项目。 如果不可用，请依次选择“项目”和“Java 项目”。
 
-1. 此时将启动“新建 Java 项目”向导。 **浏览**示例项目所在的位置。 选择“完成”。
+1. 此时将启动“新建 Java 项目”向导。 **浏览** 示例项目所在的位置。 选择“完成”  。
 
-   ![“新建 Java 项目”向导的屏幕截图](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![显示“新建 Java 项目”向导的屏幕截图。](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
 1. 在“包资源管理器”中，右键单击你的项目。 从上下文菜单中选择“配置” > “转换为 Maven 项目”。 选择“完成”  。
 
@@ -75,7 +75,7 @@ ms.locfileid: "89317605"
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```
@@ -128,27 +128,27 @@ ms.locfileid: "89317605"
 
 1. 语音设备 SDK 示例应用程序将会启动，并显示以下选项：
 
-   ![示例语音设备 SDK 的示例应用程序和选项](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![显示语音设备 SDK 示例应用程序和选项的屏幕截图。](../media/speech-devices-sdk/java-sample-app-windows.png)
 
    <!-- 1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Demo Conversation Transcription application](../media/speech-devices-sdk/cts-sample-app-windows.png) -->
+   ![Screenshot of a demo Conversation Transcription application.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
-## <a name="create-and-run-a-standalone-application"></a>创建并运行独立应用程序
+## Create and run a standalone application
 
-1. 在“包资源管理器”中，右键单击你的项目。 选择“导出”。
+1. In the **Package explorer**, right-click your project. Choose **Export**.
 
-1. 此时将显示“导出”窗口。 展开“Java”，选择“可运行的 JAR 文件”，然后选择“下一步”。
+1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![“导出”窗口的屏幕截图](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Screenshot that shows the Export window where you select Runnable JAR file.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. 此时将显示“可运行的 JAR 文件导出”窗口。 为应用程序选择“导出目标”，然后选择“完成”。
+1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
 
-   ![“可运行的 JAR 文件导出”的屏幕截图](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Screenshot that shows the Runnable JAR File Export window where you choose the export destination.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. 请将 `kws.table`、`participants.properties`、`unimic_runtime.dll`、`pma.dll` 和 `Microsoft.CognitiveServices.Speech.extension.pma.dll` 放入上面选择的目标文件夹中，因为该应用程序需要这些文件。
+1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` in the destination folder chosen above as these files are needed by the application.
 
-1. 运行独立的应用程序
+1. To run the standalone application
 
    ```powershell
    java -jar SpeechDemo.jar

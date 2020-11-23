@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: d619329743579df48cb36876d3e6db4f5f72e1e9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a4284c37c02c1b530ed7dc499a0293a143760173
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79497357"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849288"
 ---
 # <a name="what-is-azure-application-gateway"></a>什么是 Azure 应用程序网关？
 
@@ -39,6 +39,10 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 
 有关应用程序网关 SLA 信息，请参阅[应用程序网关 SLA](https://www.azure.cn/support/legal/sla/application-gateway/v1_2/)。
 
+## <a name="whats-new"></a>新增功能
+
+若要了解 Azure 应用程序网关的新增功能，请参阅 [Azure 更新](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway)。
+
 ## <a name="next-steps"></a>后续步骤
 
 可以根据自己的需求和环境，使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建测试性应用程序网关。
@@ -47,4 +51,3 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell](quick-create-powershell.md)
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI](quick-create-cli.md)
 
-<!-- Update_Description: wording update -->

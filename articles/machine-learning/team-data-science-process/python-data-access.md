@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1bea2a0dff6c6bc57ce93da3fa258ed5e060eef0
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: fac5ca37f5a62aca37ff463800f7bc1e7ae048ba
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227890"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978247"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure 机器学习 Python 客户端库通过 Python 访问数据集
 Microsoft Azure 机器学习 Python 客户端库的预览可允许从本地 Python 环境安全访问 Azure 机器学习数据集，以及允许在工作区创建并管理数据集。
@@ -69,11 +69,11 @@ pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Pyt
 ### <a name="security-for-data-access"></a><a name="security"></a>数据访问的安全
 Azure 机器学习工作室（经典）提供的用于 Python 客户端库的代码片段包括工作区 ID 和授权令牌。 这些将提供工作区的完全访问，必须受到保护，如密码。
 
-出于安全原因，代码片段功能仅适用于其角色设置为工作区**所有者**的用户。 在“设置”下“用户”页面上的 Azure 机器学习工作室（经典）中会显示你的角色。
+出于安全原因，代码片段功能仅适用于其角色设置为工作区 **所有者** 的用户。 在“设置”下“用户”页面上的 Azure 机器学习工作室（经典）中会显示你的角色。
 
 ![安全性][security]
 
-如果角色未设置为**所有者**，可以请求重新邀请为所有者，或询问工作区所有者以提供代码片段。
+如果角色未设置为 **所有者**，可以请求重新邀请为所有者，或询问工作区所有者以提供代码片段。
 
 若要获取授权令牌，可以选择以下选项之一：
 
@@ -364,6 +364,5 @@ print(ws.datasets['existing dataset'].name)    # IndexError
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /machine-learning/studio-module-reference/convert-to-csv
+[split]: /machine-learning/studio-module-reference/split-data

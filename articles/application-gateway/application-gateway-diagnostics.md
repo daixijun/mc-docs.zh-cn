@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 51807ecf039db40ed7f58262bbd3b4168735ba8c
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: aba4f3f323876326054292b776d9e1606a2f55dc
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796339"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849344"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
@@ -95,7 +95,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中部分日志。 可从 Azure Blob 存储提取所有日志并在 Azure Monitor 日志、Excel 和 Power BI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
-* **活动日志**：可使用 [Azure 活动日志](../azure-resource-manager/resource-group-audit.md)（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下会收集活动日志条目，可在 Azure 门户中查看这些条目。
+* **活动日志**：可使用 [Azure 活动日志](../azure-resource-manager/management/view-activity-logs.md)（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下会收集活动日志条目，可在 Azure 门户中查看这些条目。
 * **访问日志**：可以使用此日志查看应用程序网关访问模式并分析重要信息。 此日志包括调用方的 IP、请求的 URL、响应延迟、返回代码，以及传入和传出的字节数。访问日志每 60 秒收集一次。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例由 instanceId 属性标识。
 * **性能日志**：可使用此日志查看应用程序网关实例的执行情况。 此日志会捕获每个实例的性能信息，包括服务的总请求数、吞吐量（以字节为单位）、失败请求计数、正常和不正常的后端实例计数。 每隔 60 秒会收集一次性能日志。 性能日志仅适用于 v1 SKU。 对于 v2 SKU，请对性能数据使用[指标](application-gateway-metrics.md)。
 * **防火墙日志**：可使用此日志查看通过应用程序网关（配置有 Web 应用程序防火墙）的检测模式或阻止模式记录的请求。 防火墙日志每 60 秒收集一次。 
@@ -152,7 +152,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="activity-log"></a>活动日志
 
-默认情况下，Azure 生成活动日志。 日志可在 Azure 事件日志存储中保留 90 天。 了解有关这些日志的详细信息，请参阅[查看事件和活动日志](../azure-resource-manager/resource-group-audit.md)一文。
+默认情况下，Azure 生成活动日志。 日志可在 Azure 事件日志存储中保留 90 天。 了解有关这些日志的详细信息，请参阅[查看事件和活动日志](../azure-resource-manager/management/view-activity-logs.md)一文。
 
 ### <a name="access-log"></a>访问日志
 
@@ -216,7 +216,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |httpVersion     | 请求的 HTTP 版本。        |
 |receivedBytes     | 接收的数据包的大小（以字节为单位）。        |
 |sentBytes| 发送的数据包的大小（以字节为单位）。|
-|timeTaken| 处理请求并发送其响应所需的时长（以**秒**为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
+|timeTaken| 处理请求并发送其响应所需的时长（以 **秒** 为单位）。 此时长按特定的时间间隔（从应用程序网关接收第一个 HTTP 请求字节到完成响应发送操作所需的时间）来计算。 必须注意，“所用时间”字段通常包括请求和响应数据包在网络上传输的时间。 |
 |sslEnabled| 与后端池的通信是否使用了 TLS。 有效值为 on 和 off。|
 |sslCipher| 用于 TLS 通信的密码套件（如果已启用 TLS）。|
 |sslProtocol| 使用的 SSL/TLS 协议（如果已启用 TLS）。|

@@ -91,6 +91,8 @@
           href: about-vpn-profile-download.md
         - name: 全局和基于中心的配置文件
           href: global-hub-profile.md
+        - name: 配置适用于 Windows 10 的 Azure VPN 客户端
+          href: openvpn-azure-ad-client.md
         - name: 配置 OpenVPN 客户端
           href: howto-openvpn-clients.md
         - name: 配置 Always On VPN 用户隧道
@@ -101,8 +103,6 @@
           href: openvpn-azure-ad-mfa.md
         - name: 配置 Azure AD 身份验证
           href: virtual-wan-point-to-site-azure-ad.md
-        - name: 配置适用于 Windows 10 的 Azure VPN 客户端
-          href: openvpn-azure-ad-client.md
         - name: 配置多应用程序 Azure AD 身份验证
           href: openvpn-azure-ad-tenant-multi-app.md
     - name: 路由
@@ -133,7 +133,7 @@
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: 资源
   items:
-    - name: 常见问题
+    - name: 常见问题解答
       href: virtual-wan-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/virtual-wan/'

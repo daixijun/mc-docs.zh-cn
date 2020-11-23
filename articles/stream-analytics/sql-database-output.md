@@ -6,19 +6,19 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 2d280f81b966a6213e1799113373286eb0ab0db1
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 11/16/2020
+ms.openlocfilehash: ef468f963444c285ccc7355cfb03a8d9b0d577dc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936849"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978141"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure 流分析中的 Azure SQL 数据库输出
 
 可以将 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)用作本质上为关系型数据的输出，也可以将其用于所依赖的内容在关系数据库中托管的应用程序。 Azure 流分析作业将写入到 SQL 数据库的现有表中。 表架构必须与作业输出中的字段及其类型完全匹配。 还可以通过 SQL 数据库输出选项将 [Azure Synapse Analytics](https://docs.azure.cn/synapse-analytics/sql-data-warehouse/) 指定为输出。 若要了解提高写入吞吐量的方法，请参阅[以 Azure SQL 数据库作为输出的流分析](stream-analytics-sql-output-perf.md)一文。
 
-还可以使用 [Azure SQL 托管实例](/sql-database/sql-database-managed-instance)作为输出。 必须[在 SQL 托管实例中配置公共终结点](/sql-database/sql-database-managed-instance-public-endpoint-configure)，然后在 Azure 流分析中手动配置以下设置。 还可以通过手动配置以下设置来支持运行附加了数据库的 SQL Server 的 Azure 虚拟机。
+还可以使用 [Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)作为输出。 必须[在 SQL 托管实例中配置公共终结点](../azure-sql/managed-instance/public-endpoint-configure.md)，然后在 Azure 流分析中手动配置以下设置。 还可以通过手动配置以下设置来支持运行附加了数据库的 SQL Server 的 Azure 虚拟机。
 
 ## <a name="output-configuration"></a>输出配置
 
@@ -47,7 +47,7 @@ ms.locfileid: "91936849"
 
 ## <a name="output-batch-size"></a>输出批大小
 
-可以使用“最大批处理计数”来配置最大消息大小。 每次批量插入操作的默认最大值为 10,000 行，最小值为 100 行。 有关详细信息，请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 每个批最初是按照最大批计数批量插入的。 根据 SQL 的可重试错误对半拆分批（直到达到最小批计数）。
+可以使用“最大批处理计数”来配置最大消息大小。 每次批量插入操作的默认最大值为 10,000 行，最小值为 100 行。 有关详细信息，请参阅 [Azure SQL 限制](../azure-sql/database/resource-limits-logical-server.md)。 每个批最初是按照最大批计数批量插入的。 根据 SQL 的可重试错误对半拆分批（直到达到最小批计数）。
 
 ## <a name="next-steps"></a>后续步骤
 

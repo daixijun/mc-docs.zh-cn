@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 11895710cb64a60db78beaf6b2130d85a3f1e9f0
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f1c067820442265ecee127bd63e3b75df038474c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118958"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978207"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>管理 Azure 机器学习工作室（经典）工作区
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
@@ -36,13 +36,13 @@ ms.locfileid: "92118958"
 若要在 Azure 门户中管理工作室（经典）工作区，请执行以下操作：
 
 1. 使用 Azure 订阅管理员帐户登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在页面顶部的搜索框中，输入“机器学习工作室(经典)工作区”，并选择“机器学习工作室(经典)工作区”****。
+2. 在页面顶部的搜索框中，输入“机器学习工作室(经典)工作区”，并选择“机器学习工作室(经典)工作区”。
 3. 单击想要管理的工作区。
 
 除了标准的资源管理信息和可用选项外，还可以：
 
-- 查看**属性** - 此页显示工作区和资源信息，并可以更改此工作区连接到的订阅和资源组。
-- **重新同步存储密钥** - 此工作区维护存储帐户的密钥。 如果存储帐户更改密钥，则可以单击“重新同步密钥”**** 将密钥与工作区同步。
+- 查看 **属性** - 此页显示工作区和资源信息，并可以更改此工作区连接到的订阅和资源组。
+- **重新同步存储密钥** - 此工作区维护存储帐户的密钥。 如果存储帐户更改密钥，则可以单击“重新同步密钥”将密钥与工作区同步。
 
 若要管理与此工作室（经典）工作区关联的 Web 服务，请使用“机器学习 Web 服务”门户。 有关完整信息，请参阅[使用 Azure 机器学习 Web 服务门户管理 Web 服务](manage-new-webservice.md)。
 

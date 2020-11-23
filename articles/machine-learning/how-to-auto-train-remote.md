@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/04/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: db3e3fd1a4e2fac9f3685f055638107f57e97113
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 50b85c866fdd08015feccf913c1bfe059ae210b9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118200"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978191"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>在云中使用自动化机器学习对模型进行训练
 
@@ -43,7 +43,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>创建资源
 
-在工作区 (`ws`) 中创建 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) 目标（如果它尚不存在）。
+在工作区 (`ws`) 中创建 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py) 目标（如果它尚不存在）。
 
 **时间估计**：创建 AmlCompute 目标需要大约 5 分钟。
 
@@ -90,7 +90,7 @@ else:
 
 ## <a name="access-data-using-tabulardataset-function"></a>使用 TabularDataset 函数访问数据
 
-将 training_data 定义为 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 和标签，并将其传递给 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 中的自动 ML。 默认情况下，`TabularDataset` 方法 `from_delimited_files` 将 `infer_column_types` 设置为 true，这将自动推断列类型。 
+将 training_data 定义为 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 和标签，并将其传递给 [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 中的自动 ML。 默认情况下，`TabularDataset` 方法 `from_delimited_files` 将 `infer_column_types` 设置为 true，这将自动推断列类型。 
 
 如果确实希望手动设置列类型，可以设置 `set_column_types` 参数来手动设置每个列的类型。 在下面的代码示例中，数据来自 sklearn 包。
 
@@ -200,7 +200,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-results"></a>浏览结果
 
-可以使用与[培训教程](tutorial-auto-train-models.md#explore-the-results)中显示的内容相同的 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)来查看图表和结果表格。
+可以使用与[培训教程](tutorial-auto-train-models.md#explore-the-results)中显示的内容相同的 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)来查看图表和结果表格。
 
 ```python
 from azureml.widgets import RunDetails

@@ -6,22 +6,16 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e244f299beceda2df7b73f1cb4aa9fc1b53c62cc
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/23/2020
+ms.openlocfilehash: bdb286a7996a55691496aa142fce277e55b80683
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470214"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908991"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的 SSL/TLS 连接
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将数据库服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
-
->[!NOTE]
-> 根据客户的反馈，我们已将根证书的弃用时间延长至 2021 年 2 月 15 日 (2021/02/15)。
-
-> [!IMPORTANT] 
-> SSL 根证书设置为 2021 年 2 月 15 日 (2021/02/15) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>默认设置
 默认情况下，应将数据库服务配置为需要 SSL 连接才可连接到 MariaDB。  建议尽量不要禁用 SSL 选项。
@@ -61,7 +55,7 @@ Azure Database for MariaDB 提供了为客户端连接强制使用 TLS 版本的
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Azure Database for MariaDB 的密码支持
 
-作为 SSL/TLS 通信的一部分，密码套件会被验证，并且只有支持密码套件才被允许与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，将会拒绝传入的客户端连接。
+作为 SSL/TLS 通信的一部分，密码套件会被验证，并且只有支持密码套件才被允许与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，系统会拒绝传入的客户端连接。
 
 ### <a name="cipher-suite-supported"></a>支持的密码套件
 

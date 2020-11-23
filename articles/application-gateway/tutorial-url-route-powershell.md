@@ -5,21 +5,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a0d8adc34bbb70485b9a9a00738d17b8d5deade4
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 026b2fae340143ea99243c79c03dcf1d43468652
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721081"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849317"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 基于 URL 对 Web 流量进行路由
 
-可以使用 Azure PowerShell 基于用来访问应用程序的 URL 配置到特定的可缩放服务器池的 Web 流量路由。 在本文中，你将使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建包含三个后端池的 [Azure 应用程序网关](application-gateway-introduction.md)。 每个后端池都有特定的用途，例如用于公用数据、图像和视频。  将流量路由到不同的池可以确保客户在需要信息时可以获得所需的信息。
+可以使用 Azure PowerShell 基于用来访问应用程序的 URL 配置到特定的可缩放服务器池的 Web 流量路由。 在本文中，你将使用[虚拟机规模集](../virtual-machine-scale-sets/overview.md)创建包含三个后端池的 [Azure 应用程序网关](./overview.md)。 每个后端池都有特定的用途，例如用于公用数据、图像和视频。  将流量路由到不同的池可以确保客户在需要信息时可以获得所需的信息。
 
-若要启用流量路由，需要创建[路由规则](application-gateway-url-route-overview.md)并将其分配给在特定端口上侦听的侦听器以确保 Web 流量到达池中的合适服务器。
+若要启用流量路由，需要创建[路由规则](./url-route-overview.md)并将其分配给在特定端口上侦听的侦听器以确保 Web 流量到达池中的合适服务器。
 
 在本文中，学习如何：
 

@@ -5,23 +5,19 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.openlocfilehash: e7ff1bdebc57966ebee6353e3ec64fd0515d1ae4
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 11/16/2020
+ms.openlocfilehash: bf1858b3c036ba9bf83d884f3958daac4dfc755d
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326890"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849466"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>设置 Azure Cache for Redis 的 Redis 版本（预览）
 本文介绍如何配置要与缓存实例一起使用的 Redis 软件版本。 Azure Cache for Redis 提供 Redis 的最新主版本和至少一个早期版本。 由于会发布新的 Redis 软件，它将定期更新这些版本。 可在两个可用版本之间进行选择。 请记住，如果缓存当前使用的版本不再受支持，缓存会自动升级到下一版本。
 
 ## <a name="prerequisites"></a>先决条件
 * Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
-
-> [!NOTE]
-> 此功能目前为预览版 - 如有兴趣，可[联系我们](mailto:azurecache@microsoft.com)。
->
 
 ## <a name="create-a-cache"></a>创建缓存
 若要创建缓存，请执行以下步骤：
@@ -34,7 +30,7 @@ ms.locfileid: "94326890"
    
 1. 在“基本信息”页面上，配置新缓存的设置。
    
-    | 设置      | 建议的值  | 说明 |
+    | 设置      | 建议的值  | 描述 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **订阅** | 选择订阅。 | 要在其下创建此新的 Azure Cache for Redis 实例的订阅。 | 
     | **资源组** | 选择一个资源组，或者选择“新建”并输入新的资源组名称。 | 要在其中创建缓存和其他资源的资源组的名称。 将所有应用资源放入一个资源组可以轻松地统一管理或删除这些资源。 | 

@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f4cd09ae55cc67e299670b80552431a069394471
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: adad2aeba2845b24251acb3ca02a80eca0813b96
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721094"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849439"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>创建应用程序网关和重写 HTTP 标头
 
-可以使用 Azure PowerShell 在创建新的[自动缩放和区域冗余的应用程序网关 SKU](/application-gateway/application-gateway-autoscaling-zone-redundant) 时配置[重写 HTTP 请求和响应标头的规则](rewrite-http-headers.md)。
+可以使用 Azure PowerShell 在创建新的[自动缩放和区域冗余的应用程序网关 SKU](./application-gateway-autoscaling-zone-redundant.md) 时配置[重写 HTTP 请求和响应标头的规则](rewrite-http-headers.md)。
 
 在本文中，学习如何：
 

@@ -4,15 +4,15 @@ description: 本文提供有关如何部署使用新应用程序网关的应用�
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/24/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4de32074b673b6ebda01157e224e0de57db56954
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 345d75861b7604f9c12742a6586978a879fcdc4e
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516674"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849319"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>如何安装使用新应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -30,9 +30,9 @@ ms.locfileid: "85516674"
 
 ## <a name="create-an-identity"></a>创建标识
 
-遵循以下步骤创建 Azure Active Directory (AAD) [服务主体对象](/active-directory/develop/app-objects-and-service-principals#service-principal-object)。 请记下 `appId`、`password` 和 `objectId` 值 - 在后续步骤中需要用到。
+遵循以下步骤创建 Azure Active Directory (AAD) [服务主体对象](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 请记下 `appId`、`password` 和 `objectId` 值 - 在后续步骤中需要用到。
 
-1. 创建 AD 服务主体（[详细了解 RBAC](/role-based-access-control/overview)）：
+1. 创建 AD 服务主体（[详细了解 RBAC](../role-based-access-control/overview.md)）：
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -63,11 +63,11 @@ ms.locfileid: "85516674"
 ## <a name="deploy-components"></a>部署组件
 此步骤将以下组件添加到订阅：
 
-- [Azure Kubernetes 服务](/aks/intro-kubernetes)
-- [应用程序网关](/application-gateway/overview) v2
-- 包含 2 个[子网](/virtual-network/virtual-networks-overview)的[虚拟网络](/virtual-network/virtual-networks-overview)
-- [公共 IP 地址](/virtual-network/virtual-network-public-ip-address)
-- [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 将要使用的[托管标识](/active-directory/managed-identities-azure-resources/overview)
+- [Azure Kubernetes 服务](../aks/intro-kubernetes.md)
+- [应用程序网关](./overview.md) v2
+- 包含 2 个[子网](../virtual-network/virtual-networks-overview.md)的[虚拟网络](../virtual-network/virtual-networks-overview.md)
+- [公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)
+- [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md) 将要使用的[托管标识](../active-directory/managed-identities-azure-resources/overview.md)
 
 1. 下载 Azure 资源管理器模板，并根据需要修改该模板。
     ```bash
@@ -103,7 +103,7 @@ ms.locfileid: "85516674"
 ### <a name="setup-kubernetes-credentials"></a>设置 Kubernetes 凭据
 对于以下步骤，需要设置 [kubectl](https://kubectl.docs.kubernetes.io/) 命令用于连接到新的 Kubernetes 群集。 我们将使用 `az` CLI 获取 Kubernetes 的凭据。
 
-获取新部署的 AKS 的凭据（[详细了解](/aks/kubernetes-walkthrough#connect-to-the-cluster)）：
+获取新部署的 AKS 的凭据（[详细了解](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)）：
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -113,7 +113,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 ```
 
 ### <a name="install-aad-pod-identity"></a>安装 AAD Pod Identity
-  Azure Active Directory Pod Identity 提供对 [Azure 资源管理器 (ARM)](/azure-resource-manager/resource-group-overview) 的基于令牌的访问。
+  Azure Active Directory Pod Identity 提供对 [Azure 资源管理器 (ARM)](../azure-resource-manager/management/overview.md) 的基于令牌的访问。
 
   [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) 会将以下组件添加到 Kubernetes 群集：
    * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/)：`AzureIdentity`、`AzureAssignedIdentity`、`AzureIdentityBinding`
@@ -136,9 +136,9 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
      ```
 
 ### <a name="install-helm"></a>安装 Helm
-[Helm](/aks/kubernetes-helm) 是 Kubernetes 的包管理器。 我们将利用它来安装 `application-gateway-kubernetes-ingress` 包：
+[Helm](../aks/kubernetes-helm.md) 是 Kubernetes 的包管理器。 我们将利用它来安装 `application-gateway-kubernetes-ingress` 包：
 
-1. 安装 [Helm](/aks/kubernetes-helm) 并运行以下命令来添加 `application-gateway-kubernetes-ingress` Helm 包：
+1. 安装 [Helm](../aks/kubernetes-helm.md) 并运行以下命令来添加 `application-gateway-kubernetes-ingress` Helm 包：
 
     - 已启用 RBAC 的 AKS 群集 
 
@@ -156,7 +156,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 1. 添加 AGIC Helm 存储库：
     ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.chinacloudapi.cn/ingress-azure-helm-package/
+    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
     ```
 

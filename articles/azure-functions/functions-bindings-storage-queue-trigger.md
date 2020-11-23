@@ -3,15 +3,15 @@ title: 适用于 Azure Functions 的 Azure 队列存储触发器
 description: 了解如何在 Azure 队列存储数据更改时运行 Azure Function。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/25/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, cc996988-fb4f-47
-ms.openlocfilehash: bb8bb17509a84a024d24e920237b80cbc14800b4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 84f5adbe074557dd2227fbd33c1825c5adbd68b0
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849385"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure 队列存储触发器
 
@@ -352,7 +352,7 @@ public class QueueTriggerDemo {
 
 ## <a name="next-steps"></a>后续步骤
 
-- [写入 Blob 存储消息（输出绑定）](./functions-bindings-storage-blob-output.md)
+- [向队列存储写入消息（输出绑定）](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

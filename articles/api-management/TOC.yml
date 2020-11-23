@@ -125,8 +125,6 @@
       items:
         - name: 添加缓存以提升性能
           href: api-management-howto-cache.md
-        - name: 使用外部缓存
-          href: api-management-howto-cache-external.md
     - name: 保护 API
       items:
         - name: 创建订阅

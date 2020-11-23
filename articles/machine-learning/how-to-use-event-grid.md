@@ -10,16 +10,16 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 75cc673996b542090d02dc811c7ca2fd9b0344e6
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 31e99cef331463ac147387c1e1b3d11285f41069
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118588"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978259"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>基于 Azure 机器学习事件触发应用程序、进程或 CI/CD 工作流（预览）
 
-本文介绍如何在 [Azure 事件网格](https://docs.microsoft.com/azure/event-grid/)检测到某些条件时，基于 Azure 机器学习事件（例如，失败通知电子邮件或 ML 管道运行）设置事件驱动的应用程序、进程或 CI/CD 工作流。 
+本文介绍如何在 [Azure 事件网格](/event-grid/)检测到某些条件时，基于 Azure 机器学习事件（例如，失败通知电子邮件或 ML 管道运行）设置事件驱动的应用程序、进程或 CI/CD 工作流。 
 
 Azure 机器学习管理机器学习进程的整个生命周期，包括模型训练、模型部署和监视。 可以借助现代无服务器体系结构，使用事件网格对 Azure 机器学习事件做出反应，例如完成训练运行、注册和部署模型以及检测数据偏移。 然后，可以订阅和使用事件，例如运行状态更改、运行完成、模型注册、模型部署以及工作区中的数据偏移检测。
 
@@ -61,7 +61,7 @@ Azure 机器学习在机器学习生命周期的各个点提供事件：
 
 设置事件时，可以应用筛选器，以仅在特定事件数据上触发。 在下面的示例中，对于运行状态更改事件，你可以按运行类型进行筛选。 仅当满足条件时才会触发该事件。 要了解可以作为筛选依据的事件数据，请参阅 [Azure 机器学习事件网格架构](/event-grid/event-schema-machine-learning)。 
 
-Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。 只有工作区[参与者或所有者](how-to-assign-roles.md#default-roles)可以创建、更新和删除事件订阅。  可在[创建](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true)事件订阅期间或以后将筛选器应用于事件订阅。 
+Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。 只有工作区[参与者或所有者](how-to-assign-roles.md#default-roles)可以创建、更新和删除事件订阅。  可在[创建](/cli/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true)事件订阅期间或以后将筛选器应用于事件订阅。 
 
 
 1. 转到 Azure 门户，选择新订阅或现有订阅。 
@@ -91,7 +91,7 @@ Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。
   --advanced-filter data.ModelTags.key1 StringIn ('value1')
   ```
 
-  要了解有关如何应用筛选器的详细信息，请参阅[事件网格的筛选事件](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)。
+  要了解有关如何应用筛选器的详细信息，请参阅[事件网格的筛选事件](/event-grid/how-to-filter-events)。
 
 ## <a name="consume-machine-learning-events"></a>使用机器学习事件
 
@@ -132,7 +132,7 @@ Azure 事件网格允许客户生成可由 Azure 机器学习事件触发的反�
 
 ### <a name="set-up-with-the-cli"></a>使用 CLI 进行设置
 
-可以安装最新版的 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+可以安装最新版的 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 若要安装事件网格扩展，请在 CLI 中使用以下命令：
 
@@ -159,7 +159,7 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 ### <a name="example-send-email-alerts"></a>示例：发送电子邮件警报
 
-使用 [Azure 逻辑应用](https://docs.microsoft.com/azure/logic-apps/)为所有事件配置电子邮件。 根据条件进行自定义，并指定收件人，以实现跨协作团队的协作和意识。
+使用 [Azure 逻辑应用](/logic-apps/)为所有事件配置电子邮件。 根据条件进行自定义，并指定收件人，以实现跨协作团队的协作和意识。
 
 1. 在 Azure 门户中转到 Azure 机器学习工作区，并从左侧栏中选择“事件”选项卡。 在此处选择“逻辑应用”。 
 
@@ -199,9 +199,9 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 在开始之前，请执行以下操作：
 
 * 设置数据集监视器以[检测工作区中的数据偏移](how-to-monitor-datasets.md)
-* 创建已发布的 [Azure 数据工厂管道](https://docs.microsoft.com/azure/data-factory/)。
+* 创建已发布的 [Azure 数据工厂管道](/data-factory/)。
 
-此示例中使用的是简单的数据工厂管道，用于将文件复制到 blob 存储区，并运行已发布的机器学习管道。 有关此方案的详细信息，请参阅如何设置 [Azure 数据工厂中的机器学习步骤](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
+此示例中使用的是简单的数据工厂管道，用于将文件复制到 blob 存储区，并运行已发布的机器学习管道。 有关此方案的详细信息，请参阅如何设置 [Azure 数据工厂中的机器学习步骤](../data-factory/transform-data-machine-learning-service.md)
 
 ![adf-mlpipeline-stage](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 

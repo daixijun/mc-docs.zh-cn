@@ -4,35 +4,35 @@ description: 适用于 Azure 应用程序网关的 Azure 安全基线
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.custom: security-benchmark
-ms.openlocfilehash: 439f7ab8a832955d658d926b3904ded8b87b7637
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 9dab913c4d73043c5284eeb9bbdc99dbea3f9026
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552762"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849444"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>适用于 Azure 应用程序网关的 Azure 安全基线
 
 Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安全状况的建议。
 
-此服务的基线摘自 [Azure 安全基准版本 1.0](/security/benchmarks/overview)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
+此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 ## <a name="network-security"></a>网络安全性
 
-有关详细信息，请参阅[安全控制：网络安全](/security/benchmarks/security-control-network-security)。
+有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
 **指导**：请确保所有虚拟网络 Azure 应用程序网关子网部署都应用了网络安全组 (NSG)，且具有针对应用程序受信任端口和源的网络访问控制。 虽然 Azure 应用程序网关上支持网络安全组，但必须遵守某些限制和要求，以使 NSG 和 Azure 应用程序网关按预期运行。
 
-* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](/application-gateway/configuration-overview)
+* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](./configuration-overview.md)
 
-* [如何创建采用安全配置的 NSG](/virtual-network/tutorial-filter-network-traffic)
+* [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -47,13 +47,13 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 - 应用程序网关子网上有 NSG
 - 已在该 NSG 上启用了 NSG 流日志
 
-* [如何启用 NSG 流日志](/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [如何启用 NSG 流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [如何启用和使用流量分析](/network-watcher/traffic-analytics)
+* [如何启用和使用流量分析](../network-watcher/traffic-analytics.md)
 
-* [了解 Azure 安全中心提供的网络安全](/security-center/security-center-network-recommendations)
+* [了解 Azure 安全中心提供的网络安全](../security-center/security-center-network-recommendations.md)
 
-* [Azure 应用程序网关的诊断和日志记录常见问题解答](/application-gateway/application-gateway-faq#diagnostics-and-logging)
+* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.md#diagnostics-and-logging)
 
 **Azure 安全中心监视**：是
 
@@ -63,7 +63,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 **指导**：在关键 Web 应用程序前部署 Azure Web 应用程序防火墙 (WAF)，以对传入的流量进行额外的检查。 Web 应用程序防火墙 (WAF) 是（Azure 应用程序网关的）一项服务功能，可以对 Web 应用程序进行集中保护，避免其受到常见攻击和漏洞的伤害。 Azure WAF 通过检查入站 Web 流量来阻止攻击（例如 SQL 注入、跨站点脚本、恶意软件上传和 DDoS 攻击），从而帮助保护 Azure 应用服务 Web 应用的安全。 WAF 基于 OWASP（开放 Web 应用程序安全项目）核心规则集 3.1（仅限 WAF_v2）、3.0 和 2.2.9 中的规则。
 
-* [了解 Azure 应用程序网关功能](/application-gateway/features)
+* [了解 Azure 应用程序网关功能](./features.md)
 
 * [了解 Azure WAF](ag-overview.md)
 
@@ -90,13 +90,13 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 - 应用程序网关子网上有 NSG
 - 已在该 NSG 上启用了 NSG 流日志
 
-* [如何启用 NSG 流日志](/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [如何启用 NSG 流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [如何启用和使用流量分析](/network-watcher/traffic-analytics)
+* [如何启用和使用流量分析](../network-watcher/traffic-analytics.md)
 
-* [了解 Azure 安全中心提供的网络安全](/security-center/security-center-network-recommendations)
+* [了解 Azure 安全中心提供的网络安全](../security-center/security-center-network-recommendations.md)
 
-* [Azure 应用程序网关的诊断和日志记录常见问题解答](/application-gateway/application-gateway-faq#diagnostics-and-logging)
+* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.md#diagnostics-and-logging)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -108,11 +108,11 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 另外，Azure 市场上还提供了多种市场选项，它们均包含 IDS/IPS 功能，例如 Barracuda WAF for Azure。
 
-* [了解 Azure 应用程序网关功能](/application-gateway/features)
+* [了解 Azure 应用程序网关功能](./features.md)
 
 * [了解 Azure WAF](ag-overview.md)
 
-* [了解 Barracuda WAF 云服务](/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+* [了解 Barracuda WAF 云服务](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -122,11 +122,11 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 **指导**：为 Web 应用程序部署 Azure 应用程序网关，并为受信任的证书启用 HTTPS/SSL。
 
-* [如何部署应用程序网关](/application-gateway/quick-create-portal)
+* [如何部署应用程序网关](./quick-create-portal.md)
 
-* [如何将应用程序网关配置为使用 HTTPS](/application-gateway/create-ssl-portal)
+* [如何将应用程序网关配置为使用 HTTPS](./create-ssl-portal.md)
 
-* [了解 Azure Web 应用程序网关的第七层负载均衡](/application-gateway/overview)
+* [了解 Azure Web 应用程序网关的第七层负载均衡](./overview.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -138,9 +138,9 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 对于与 Azure 应用程序网关子网关联的网络安全组 (NSG)，必须为应用程序网关 v1 SKU 在 TCP 端口 65503-65534 上允许传入 Internet 流量，为 v2 SKU 在 TCP 端口 65200-65535 上允许传入 Internet 流量，并将目标子网设为 Any，将源设为 GatewayManager 服务标记。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 外部实体（包括这些网关的客户）无法在这些终结点上通信。
 
-* [了解并使用服务标记](/virtual-network/service-tags-overview)
+* [了解并使用服务标记](../virtual-network/service-tags-overview.md)
 
-* [Azure 应用程序网关配置概述](/application-gateway/configuration-overview)
+* [Azure 应用程序网关配置概述](./configuration-overview.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -152,7 +152,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure 基于角色的访问控制 (Azure RBAC) 和策略）来简化大规模的 Azure 部署。 可以轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -166,11 +166,11 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 可以使用 Azure PowerShell 或 Azure CLI 根据资源的标记查找资源或对其执行操作。
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
-* [如何创建虚拟网络](/virtual-network/quick-create-portal)
+* [如何创建虚拟网络](../virtual-network/quick-create-portal.md)
 
-* [如何创建采用安全配置的 NSG](/virtual-network/tutorial-filter-network-traffic)
+* [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -180,9 +180,9 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 **指导**：使用 Azure 活动日志监视网络资源配置，并检测与 Azure 应用程序网关部署相关的网络设置和资源的更改。 在 Azure Monitor 中创建当关键网络设置或资源发生更改时触发的警报。
 
-* [如何查看和检索 Azure 活动日志事件](/azure-monitor/platform/activity-log-view)
+* [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [如何在 Azure Monitor 中创建警报](/azure-monitor/platform/alerts-activity-log)
+* [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -190,7 +190,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-有关详细信息，请参阅[安全控制：日志记录和监视](/security/benchmarks/security-control-logging-monitoring)。
+有关详细信息，请参阅[安全控制：日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -208,13 +208,13 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 Azure 应用程序网关还提供与 Azure Application Insights 的内置集成。 Application Insights 可收集日志、性能和错误数据。 Application Insights 可自动检测性能异常，并且包含了强大的分析工具来帮助你诊断问题并了解 Web 应用的使用情况。 可以启用连续导出，将遥测从 Application Insights 导出到一个集中位置，以使数据保留的时间长于标准保持期。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-* [如何 Azure 应用程序网关启用诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何 Azure 应用程序网关启用诊断设置](./application-gateway-diagnostics.md)
 
-* [如何启用 Application Insights](/azure-monitor/app/app-insights-overview)
+* [如何启用 Application Insights](../azure-monitor/app/app-insights-overview.md)
 
-* [如何配置连续导出](/azure-monitor/app/export-telemetry)
+* [如何配置连续导出](../azure-monitor/app/export-telemetry.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -228,13 +228,13 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 Azure 应用程序网关还提供与 Azure Application Insights 的内置集成。 Application Insights 可收集日志、性能和错误数据。 Application Insights 可自动检测性能异常，并且包含了强大的分析工具来帮助你诊断问题并了解 Web 应用的使用情况。 可以启用连续导出，将遥测从 Application Insights 导出到一个集中位置，以使数据保留的时间长于标准保持期。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-* [如何 Azure 应用程序网关启用诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何 Azure 应用程序网关启用诊断设置](./application-gateway-diagnostics.md)
 
-* [如何启用 Application Insights](/azure-monitor/app/app-insights-overview)
+* [如何启用 Application Insights](../azure-monitor/app/app-insights-overview.md)
 
-* [如何配置连续导出](/azure-monitor/app/export-telemetry)
+* [如何配置连续导出](../azure-monitor/app/export-telemetry.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -252,7 +252,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
 
-* [如何为 Log Analytics 工作区设置日志保留参数](/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [如何为 Log Analytics 工作区设置日志保留参数](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -266,11 +266,11 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 （可选）可以启用将数据加入 Azure Sentinel 或第三方 SIEM 的功能。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-* [如何 Azure 应用程序网关启用诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何 Azure 应用程序网关启用诊断设置](./application-gateway-diagnostics.md)
 
-* [如何使用 Azure 网络监视器](/azure-monitor/insights/network-insights-overview)
+* [如何使用 Azure 网络监视器](../azure-monitor/insights/network-insights-overview.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -284,13 +284,13 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 使用 Azure 网络监视器以全面了解所有已部署网络资源（包括 Azure 应用程序网关）的运行状况和指标。 在 Azure 网络监视器控制台中，可以查看和创建 Azure 应用程序网关的警报。
 
-* [如何启用 Azure 活动日志的诊断设置](/azure-monitor/platform/diagnostic-settings-legacy)
+* [如何启用 Azure 活动日志的诊断设置](../azure-monitor/platform/activity-log.md)
 
-* [如何 Azure 应用程序网关启用诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何 Azure 应用程序网关启用诊断设置](./application-gateway-diagnostics.md)
 
-* [如何使用 Azure 网络监视器](/azure-monitor/insights/network-insights-overview)
+* [如何使用 Azure 网络监视器](../azure-monitor/insights/network-insights-overview.md)
 
-* [如何在 Azure 中创建警报](/azure-monitor/learn/tutorial-response)
+* [如何在 Azure 中创建警报](../azure-monitor/learn/tutorial-response.md)
 
 **Azure 安全中心监视**：是
 
@@ -302,7 +302,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 配置 Azure 应用程序网关部署的诊断设置。 诊断设置用于将资源的平台日志和指标流式导出配置到你选择的目标位置（存储帐户、事件中心和 Log Analytics）。
 
-* [如何配置 Azure WAF 的诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何配置 Azure WAF 的诊断设置](./application-gateway-diagnostics.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -326,7 +326,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-有关详细信息，请参阅[安全控制：标识和访问控制](/security/benchmarks/security-control-identity-access-control)。
+有关详细信息，请参阅[安全控制：标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -357,9 +357,9 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 - 应从订阅中删除拥有所有者权限的已弃用帐户
 - 应从订阅中删除拥有所有者权限的外部帐户
 
-* [如何使用 Azure 安全中心监视标识和访问（预览）](/security-center/security-center-identity-access)
+* [如何使用 Azure 安全中心监视标识和访问（预览）](../security-center/security-center-identity-access.md)
 
-* [如何使用 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何使用 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：是
 
@@ -383,9 +383,9 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：启用 Azure AD MFA，并遵循 Azure 安全中心标识和访问管理建议。
 
-* [如何在 Azure 中启用 MFA](/active-directory/authentication/howto-mfa-getstarted)
+* [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [如何在 Azure 安全中心监视标识和访问](/security-center/security-center-identity-access)
+* [如何在 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
 
@@ -397,7 +397,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 * [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [如何在 Azure 中启用 MFA](/active-directory/authentication/howto-mfa-getstarted)
+* [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -407,7 +407,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：使用 Azure Active Directory 安全报告在环境中发生可疑活动或不安全的活动时生成日志和警报。 使用 Azure 安全中心监视标识和访问活动。
 
-* [如何在 Azure 安全中心内监视用户的标识和访问活动](/security-center/security-center-identity-access)
+* [如何在 Azure 安全中心内监视用户的标识和访问活动](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
 
@@ -417,7 +417,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指南**：使用条件访问命名位置，仅允许从 IP 地址范围或国家/地区的特定逻辑分组进行访问。
 
-* [如何在 Azure 中配置命名位置](/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [如何在 Azure 中配置命名位置](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -427,7 +427,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：使用 Azure Active Directory (AAD) 作为中心身份验证和授权系统。 AAD 通过对静态数据和传输中数据使用强加密来保护数据。 AAD 还会对用户凭据进行加盐、哈希处理和安全存储。
 
-* [如何创建和配置 AAD 实例](/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [如何创建和配置 AAD 实例](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -437,9 +437,9 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指南**：Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure 标识访问评审来有效管理组成员身份、对企业应用程序的访问和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。
 
-* [了解 Azure AD 报告](/active-directory/reports-monitoring/)
+* [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 
-* [如何使用 Azure 标识访问评审](/active-directory/governance/access-reviews-overview)
+* [如何使用 Azure 标识访问评审](../active-directory/governance/access-reviews-overview.md)
 
 **Azure 安全中心监视**：是
 
@@ -475,13 +475,13 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 ## <a name="data-protection"></a>数据保护
 
-有关详细信息，请参阅[安全控制：数据保护](/security/benchmarks/security-control-data-protection)。
+有关详细信息，请参阅[安全控制：数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
 **指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -491,13 +491,13 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：为开发、测试和生产实施单独的订阅和/或管理组。 请确保所有虚拟网络 Azure 应用程序网关子网部署都应用了网络安全组 (NSG)，且具有针对应用程序受信任端口和源的网络访问控制。 虽然 Azure 应用程序网关上支持网络安全组，但必须遵守某些限制和要求，以使 NSG 和 Azure 应用程序网关按预期运行。
 
-* [如何创建管理组](/governance/management-groups/create)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
-* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](/application-gateway/configuration-overview)
+* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](./configuration-overview.md)
 
-* [如何创建采用安全配置的 NSG](/virtual-network/tutorial-filter-network-traffic)
+* [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -507,9 +507,9 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：请确保所有虚拟网络 Azure 应用程序网关子网部署都应用了网络安全组 (NSG)，且具有针对应用程序受信任端口和源的网络访问控制。 将出站流量仅限于受信任的位置，以帮助缓解数据泄露的威胁。 虽然 Azure 应用程序网关上支持网络安全组，但必须遵守某些限制和要求，以使 NSG 和 Azure 应用程序网关按预期运行。
 
-* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](/application-gateway/configuration-overview)
+* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](./configuration-overview.md)
 
-* [如何创建采用安全配置的 NSG](/virtual-network/tutorial-filter-network-traffic)
+* [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -519,7 +519,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指导**：为 Azure 应用程序网关配置具有 TLS 的端到端加密。
 
-* [如何使用 Azure 应用程序网关配置端到端 TLS](/application-gateway/end-to-end-ssl-portal)
+* [如何使用 Azure 应用程序网关配置端到端 TLS](./end-to-end-ssl-portal.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -531,7 +531,7 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 Microsoft 会管理 Azure 应用程序网关的底层基础结构，并实现了严格的控制来防止客户数据丢失或泄露。
 
-* [了解 Azure 中的客户数据保护](/security/fundamentals/protection-customer-data)
+* [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -541,7 +541,7 @@ Microsoft 会管理 Azure 应用程序网关的底层基础结构，并实现了
 
 **指导**：使用 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 应用程序网关控制平面（Azure 门户）的访问。
 
-* [如何配置 Azure RBAC](/role-based-access-control/role-assignments-portal)
+* [如何配置 Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -567,7 +567,7 @@ Microsoft 会管理 Azure 应用程序网关的底层基础结构，并实现了
 
 **指导**：将 Azure Monitor 与 Azure 活动日志结合使用，以创建在生产 Azure 应用程序网关实例以及其他关键或相关资源发生更改时触发的警报。
 
-* [如何针对 Azure 活动日志事件创建警报](/azure-monitor/platform/alerts-activity-log)
+* [如何针对 Azure 活动日志事件创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure 安全中心监视**：是
 
@@ -575,7 +575,7 @@ Microsoft 会管理 Azure 应用程序网关的底层基础结构，并实现了
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-有关详细信息，请参阅[安全控制：漏洞管理](/security/benchmarks/security-control-vulnerability-management)。
+有关详细信息，请参阅[安全控制：漏洞管理](../security/benchmarks/security-control-vulnerability-management.md)。
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -583,7 +583,6 @@ Microsoft 会管理 Azure 应用程序网关的底层基础结构，并实现了
 
 Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序网关可用的安全控制，以减少与服务配置相关的漏洞。
 
-* [Azure PaaS 服务的功能范围（包括漏洞评估）](/security-center/features-paas)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -611,7 +610,6 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序网关可用的安全控制，以减少与服务配置相关的漏洞。
 
-* [Azure PaaS 服务的功能范围（包括漏洞评估）](/security-center/features-paas)
 
 **Azure 安全中心监视**：不适用
 
@@ -623,7 +621,6 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序网关可用的安全控制，以减少与服务配置相关的漏洞。
 
-* [Azure PaaS 服务的功能范围（包括漏洞评估）](/security-center/features-paas)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -631,7 +628,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="inventory-and-asset-management"></a>库存和资产管理
 
-有关详细信息，请参阅[安全控制：清单和资产管理](/security/benchmarks/security-control-inventory-asset-management)。
+有关详细信息，请参阅[安全控制：清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1：使用自动化资产发现解决方案
 
@@ -639,11 +636,11 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 尽管可以通过 Resource Graph 发现经典 Azure 资源，但我们强烈建议你今后还是创建并使用 Azure 资源管理器资源。
 
-* [如何使用 Azure Resource Graph 创建查询](/governance/resource-graph/first-query-portal)
+* [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
 * [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [了解 Azure RBAC](/role-based-access-control/overview)
+* [了解 Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -653,7 +650,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：将标记应用于 Azure 资源，从而将元数据按逻辑组织到分类中。
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -667,9 +664,9 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 - 不允许的资源类型
 - 允许的资源类型
 
-* [如何创建管理组](/governance/management-groups/create)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -689,9 +686,9 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中的所有 Azure 资源均已获得批准。
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [如何使用 Azure Graph 创建查询](/governance/resource-graph/first-query-portal)
+* [如何使用 Azure Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -727,9 +724,9 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 - 不允许的资源类型
 - 允许的资源类型
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [如何使用 Azure Policy 拒绝特定的资源类型](/governance/policy/samples/not-allowed-resource-types)
+* [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -747,7 +744,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：通过对“Azure 管理”应用配置“阻止访问”，配置 Azure 条件访问来限制用户与 Azure 资源管理器交互的功能。
 
-* [如何配置条件访问以阻止访问 Azure 资源管理器](/role-based-access-control/conditional-access-azure-management)
+* [如何配置条件访问以阻止访问 Azure 资源管理器](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -765,13 +762,13 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：为开发、测试和生产实施单独的订阅和/或管理组。 请确保所有虚拟网络 Azure 应用程序网关子网部署都应用了网络安全组 (NSG)，且具有针对应用程序受信任端口和源的网络访问控制。 虽然 Azure 应用程序网关上支持网络安全组，但必须遵守某些限制和要求，以使 NSG 和 Azure 应用程序网关按预期运行。
 
-* [如何创建管理组](/governance/management-groups/create)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-* [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+* [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
-* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](/application-gateway/configuration-overview)
+* [了解有关将 NSG 与 Azure 应用程序网关结合使用的限制和要求](./configuration-overview.md)
 
-* [如何创建采用安全配置的 NSG](/virtual-network/tutorial-filter-network-traffic)
+* [如何创建采用安全配置的 NSG](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -779,7 +776,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="secure-configuration"></a>安全配置
 
-有关详细信息，请参阅[安全控制：安全配置](/security/benchmarks/security-control-secure-configuration)。
+有关详细信息，请参阅[安全控制：安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -787,7 +784,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 * [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -805,9 +802,9 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure 策略“[拒绝]”和“[不存在则部署]”对不同的 Azure 资源强制实施安全设置。
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [了解 Azure Policy 效果](/governance/policy/concepts/effects)
+* [了解 Azure Policy 效果](../governance/policy/concepts/effects.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -841,7 +838,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：在“Microsoft.Network”命名空间中使用内置的 Azure Policy 定义和 Azure Policy 别名创建自定义策略，以审核、强制实施系统配置并为其发出警报。 另外，开发一个用于管理策略例外的流程和管道。
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -859,7 +856,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：在“Microsoft.Network”命名空间中使用内置的 Azure Policy 定义和 Azure Policy 别名创建自定义策略，以审核、强制实施系统配置并为其发出警报。 使用 Azure Policy“[审核]”、“[拒绝]”和“[不存在则部署]”自动强制实施 Azure 资源的配置。
 
-* [如何配置和管理 Azure Policy](/governance/policy/tutorials/create-and-manage)
+* [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -879,7 +876,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 使用 Azure Key Vault 安全地存储证书。 Azure Key Vault 是由平台管理的机密存储，可以用来保证机密、密钥和 SSL 证书的安全。 Azure 应用程序网关支持与密钥保管库集成，以存储附加到支持 HTTPS 的侦听器的服务器证书。 此支持仅限于应用程序网关 v2 SKU。
 
-* [如何使用 Azure PowerShell 通过 Key Vault 证书配置 SSL 终止](/application-gateway/configure-keyvault-ps)
+* [如何使用 Azure PowerShell 通过 Key Vault 证书配置 SSL 终止](./configure-keyvault-ps.md)
 
 **Azure 安全中心监视**：是
 
@@ -891,7 +888,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 使用 Azure Key Vault 安全地存储证书。 Azure Key Vault 是由平台管理的机密存储，可以用来保证机密、密钥和 SSL 证书的安全。 Azure 应用程序网关支持与密钥保管库集成，以存储附加到支持 HTTPS 的侦听器的服务器证书。 此支持仅限于应用程序网关 v2 SKU。
 
-* [如何使用 Azure PowerShell 通过 Key Vault 证书配置 SSL 终止](/application-gateway/configure-keyvault-ps)
+* [如何使用 Azure PowerShell 通过 Key Vault 证书配置 SSL 终止](./configure-keyvault-ps.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -908,7 +905,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-有关详细信息，请参阅[安全控制：恶意软件防护](/security/benchmarks/security-control-malware-defense)。
+有关详细信息，请参阅[安全控制：恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
@@ -916,7 +913,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 配置 Azure 应用程序网关部署的诊断设置。 诊断设置用于将资源的平台日志和指标流式导出配置到你选择的目标位置（存储帐户、事件中心和 Log Analytics）。
 
-* [如何配置 Azure WAF 的诊断设置](/application-gateway/application-gateway-diagnostics)
+* [如何配置 Azure WAF 的诊断设置](./application-gateway-diagnostics.md)
 
 **Azure 安全中心监视**：是
 
@@ -934,7 +931,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure Web 应用程序防火墙 (WAF) 时，可以配置 WAF 策略。 WAF 策略包含两种类型的安全规则：由客户创作的自定义规则，以及托管规则集（即由 Azure 托管的预配置规则组的集合）。 Azure 托管的规则集可轻松针对一组常见的安全威胁来部署保护。 由于此类规则集由 Azure 托管，因此这些规则会根据需要进行更新以预防新的攻击签名。
 
-* [了解 Azure 托管的 WAF 规则集](ag-overview.md#waf-policy)
+* [了解 Azure 托管的 WAF 规则集](ag-overview.md#waf-policy-and-rules)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -942,7 +939,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="data-recovery"></a>数据恢复
 
-有关详细信息，请参阅[安全控制：数据恢复](/security/benchmarks/security-control-data-recovery)。
+有关详细信息，请参阅[安全控制：数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -984,13 +981,13 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="incident-response"></a>事件响应
 
-有关详细信息，请参阅[安全控制：事件响应](/security/benchmarks/security-control-incident-response)。
+有关详细信息，请参阅[安全控制：事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
 **指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
-* [如何在 Azure 安全中心配置工作流自动化](/security-center/security-center-planning-and-operations-guide)
+* [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 
 * [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1026,7 +1023,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指南**：如果 Microsoft 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了客户的数据，Microsoft 将使用安全事件联系人信息与你取得联系。 事后审查事件，确保问题得到解决。
 
-* [如何设置 Azure 安全中心安全联系人](/security-center/security-center-provide-security-contact-details)
+* [如何设置 Azure 安全中心安全联系人](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure 安全中心监视**：是
 
@@ -1036,6 +1033,8 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用连续导出功能导出 Azure 安全中心警报和建议。 使用连续导出可以手动导出或者持续导出警报和建议。 可以使用 Azure 安全中心数据连接器将警报流式传输到 Sentinel。
 
+* [如何配置连续导出](../security-center/continuous-export.md)
+
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
@@ -1044,13 +1043,15 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure 安全中心内的工作流自动化功能可以通过“逻辑应用”针对安全警报和建议自动触发响应。
 
+* [如何配置工作流自动化和逻辑应用](../security-center/workflow-automation.md)
+
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-有关详细信息，请参阅[安全控制：渗透测试和红队演练](/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+有关详细信息，请参阅[安全控制：渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
@@ -1066,6 +1067,6 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 

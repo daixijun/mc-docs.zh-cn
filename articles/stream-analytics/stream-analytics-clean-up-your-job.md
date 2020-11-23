@@ -1,21 +1,20 @@
 ---
 title: 清理 Azure 流分析作业
 description: 本文演示用于删除 Azure 流分析作业的不同方法。
-services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+author: Johnnytechn
+ms.author: v-johya
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/09/2018
-ms.date: 06/11/2019
-ms.openlocfilehash: 2d27b6ee93968a133a450ae2ce6dddc5c47e0974
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/16/2020
+ms.custom: seodec18
+ms.openlocfilehash: 59e0ba744eae812fe13ab188f39b27fc6a74ceba
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75857104"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978297"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>停止或删除 Azure 流分析作业
 
@@ -59,10 +58,10 @@ ms.locfileid: "75857104"
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>使用 Azure SDK for .NET 停止或删除作业
 
-若要使用 Azure SDK for .NET 停止作业，请使用 [StreamingJobsOperationsExtensions.BeginStop](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) 方法。 若要使用 Azure SDK for .NET 删除作业，请使用 [StreamingJobsOperationsExtensions.BeginDelete](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) 方法。
+若要使用 Azure SDK for .NET 停止作业，请使用 [StreamingJobsOperationsExtensions.BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop) 方法。 若要使用 Azure SDK for .NET 删除作业，请使用 [StreamingJobsOperationsExtensions.BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete) 方法。
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>使用 REST API 停止或删除作业
 
-若要使用 REST API 停止作业，请参阅[停止](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop)方法。 若要使用 REST API 删除作业，请参阅[删除](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete)方法。
+若要使用 REST API 停止作业，请参阅[停止](https://docs.microsoft.com/rest/api/streamanalytics/2016-03-01/streamingjobs/stop)方法。 若要使用 REST API 删除作业，请参阅[删除](https://docs.microsoft.com/rest/api/streamanalytics/2016-03-01/streamingjobs/delete)方法。
 
 <!-- Update_Description: update meta properties -->

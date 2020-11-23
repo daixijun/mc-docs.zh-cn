@@ -5,20 +5,20 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 08/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: eeb60ae6b89f84526a4fb37f13f9d87fe873698c
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+origin.date: 10/21/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: 5c835207312499ca4e140a2f99098b3ba49d2488
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470503"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908951"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MariaDB 提供了各种指标来帮助用户深入了解服务器的行为。
 
 ## <a name="metrics"></a>指标
-所有 Azure 指标的频率都是一分钟，每个指标提供 30 天的历史记录。 可针对指标配置警报。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+所有 Azure 指标的频率都是一分钟，每个指标提供 30 天的历史记录。 可针对指标配置警报。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../azure-monitor/platform/data-platform.md)。
 
 有关分步指南，请参阅[如何设置警报](howto-alert-metric.md)。
 
@@ -62,4 +62,4 @@ ms.locfileid: "92470503"
 ## <a name="next-steps"></a>后续步骤
 
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
-  - 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-metric.md)。
+- 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-metric.md)。

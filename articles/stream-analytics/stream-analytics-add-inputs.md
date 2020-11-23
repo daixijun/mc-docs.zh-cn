@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 origin.date: 06/11/2019
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 9ecf4dca1ddfead89acf4c6ba9d61913166cc4bf
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 11/16/2020
+ms.openlocfilehash: 84ccaaa1375185d8f60eb4b75e23b579c6c8e723
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936824"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978139"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>理解 Azure 流分析的输入
 
@@ -23,11 +23,11 @@ Azure 流分析作业连接到一个或多个数据输入。 每个输入定义�
 - [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)
 - [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/) 
 - [Azure Blob 存储](https://www.azure.cn/home/features/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 这些输入资源与流分析作业可以属于同一 Azure 订阅，也可以属于不同的订阅。
 
-要创建、编辑和测试流分析作业输入，可使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-input)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput)、[.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions) 和 [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)。
+要创建、编辑和测试流分析作业输入，可使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-input)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput)、[.Net API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions) 和 [REST API](https://docs.microsoft.com/rest/api/streamanalytics/2016-03-01/inputs)。
 
 ## <a name="stream-and-reference-inputs"></a>流输入和引用输入
 将数据推送到数据源后，流分析作业就可使用该数据并对其进行实时处理。 输入分为两种类型：数据流输入和引用数据输入。

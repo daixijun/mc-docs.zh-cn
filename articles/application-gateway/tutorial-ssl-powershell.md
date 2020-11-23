@@ -6,19 +6,19 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cd180c732b7496889d127350342b75ebba2e640a
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 2e5c5f540e98ce523f2a4bd5c197481c1e9560f9
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721082"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849461"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>通过 Azure PowerShell 使用 TLS 终端创建应用程序网关
 
-可通过 Azure PowerShell 使用 [TLS/SSL 终端](ssl-overview.md)的证书创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。 
+可通过 Azure PowerShell 使用 [TLS/SSL 终端](ssl-overview.md)的证书创建使用[虚拟机规模集](../virtual-machine-scale-sets/overview.md)作为后端服务器的[应用程序网关](overview.md)。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。 
 
 在本文中，学习如何：
 

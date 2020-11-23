@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d4ae66c15f9f64ed47281afacf5d2be5756d6401
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 2910b49c49164c281a9644612da477fa12b9dd63
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228483"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978176"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>使用 Hive 查询创建用于 Hadoop 群集中数据的功能
 本文档将演示如何使用 Hive 查询创建用于 Hadoop 群集中数据的功能。 这些 Hive 查询使用嵌入式 Hive 用户的定义函数 (UDF) 以及为其提供的脚本。
@@ -30,10 +30,10 @@ ms.locfileid: "88228483"
 ## <a name="prerequisites"></a>必备条件
 本文假设用户具备以下条件：
 
-* 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-quickstart-create-account.md)
-* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。  如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](customize-hadoop-cluster.md)。
+* 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-account-create.md)
+* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。  如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 * 数据已上传到 Azure HDInsight Hadoop 群集中的 Hive 表。 如果没有，请按照[创建并将数据上传到 Hive 表](move-hive-tables.md)，先将数据上传到 Hive 表。
-* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](customize-hadoop-cluster.md)。
+* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>功能生成
 在本部分中，介绍使用 Hive 查询可用其生成功能的方法的几个示例。 如果已生成其他功能，则可将其作为列添加到现有表，或创建具有这些其他功能和主密钥的新表，新表之后可联接到原始表。 以下是显示的示例：
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>计算 GPS 坐标集之间的距离
 本部分中给出的查询可直接应用于纽约出租车行程数据。 此查询旨在演示如何应用 Hive 中嵌入的数学函数来生成功能。
 
-此查询中使用的字段为提取和减少位置的 GPS 坐标，名为*提取\_经度*、*提取\_纬度*、*减少\_经度*、*减少\_纬度*。 计算提取和减少坐标之间直接距离的查询为：
+此查询中使用的字段为提取和减少位置的 GPS 坐标，名为 *提取\_经度*、*提取\_纬度*、*减少\_经度*、*减少\_纬度*。 计算提取和减少坐标之间直接距离的查询为：
 
 ```hiveql
 set R=3959;
@@ -148,7 +148,7 @@ limit 10;
 
 ![创建工作区](./media/create-features-hive/atan2new.png)
 
-嵌入 UDF 的 Hive 的完整列表可在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的**内置函数**部分中找到）。  
+嵌入 UDF 的 Hive 的完整列表可在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的 **内置函数** 部分中找到）。  
 
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a>高级主题：优化 Hive 参数以加快查询速度
 Hive 群集的默认参数设置可能不适合 Hive 查询以及正在处理查询的数据。 在本部分中，讨论用户可对其进行优化以改进 Hive 查询性能的某些参数。 用户需要在查询处理数据之前，先添加优化查询参数。

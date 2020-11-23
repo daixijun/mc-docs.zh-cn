@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 08/03/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: a8b21c34f672d7d5378941ab38308e893a35f8e2
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: fa5ccc68e957fefd9f18cf7393b3a202e4b1b015
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796272"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849474"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>排查入口控制器的常见问题
 
@@ -73,22 +73,18 @@ EOF
 
 请确保复制整个命令 - 从 `cat` 开始，到最后的 `EOF` 为止。
 
-![apply](./media/application-gateway-ingress-controller-troubleshooting/tsg--apply-config.png)
 
 成功部署上述应用后，AKS 群集中将包含新的 Pod、服务和入口。
 
 获取 Pod 列表：`kubectl get pods -o wide`。
 预期已创建名为“test-agic-app-pod”的 Pod。 该 Pod 有一个 IP 地址。 此地址必须在 AKS 所用的应用程序网关的 VNET 中。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 获取服务列表：`kubectl get services -o wide`。 预期会看到名为“test-agic-app-service”的服务。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 获取入口列表：`kubectl get ingress`。 预期已创建名为“test-agic-app-ingress”的入口资源。 该资源具有主机名“test.agic.contoso.com”。
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 其中的一个 Pod 将是 AGIC。 `kubectl get pods` 将显示 Pod 列表，其中的一个 Pod 以“ingress-azure”开头。 使用 `kubectl logs <name-of-ingress-controller-pod>` 获取该 Pod 的所有日志，以验证部署是否成功。 如果部署成功，日志中会添加以下行：
 ```
@@ -115,7 +111,6 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
 1. 使用 `kubectl get ingress` 获取应用程序网关的公共 IP 地址
 2. 使用 `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![Pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 结果 `HTTP/1.1 200 OK` 表示应用程序网关 + AKS + AGIC 系统按预期方式工作。
 
@@ -136,7 +131,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. 通过匹配的 `selector` 标签引用上述 Pod 的一个或多个**服务**。
+  2. 通过匹配的 `selector` 标签引用上述 Pod 的一个或多个 **服务**。
      可使用 `kubectl get services -o wide` 进行验证
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -145,7 +140,7 @@ I0927 22:34:51.282342       1 process.go:171] END AppGateway deployment
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. 引用上述服务的带有 `kubernetes.io/ingress.class: azure/application-gateway` 批注的**入口**。可使用 `kubectl get ingress -o wide --show-labels` 进行验证
+  3. 引用上述服务的带有 `kubernetes.io/ingress.class: azure/application-gateway` 批注的 **入口**。可使用 `kubectl get ingress -o wide --show-labels` 进行验证
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -238,7 +233,7 @@ Kubernetes 社区已经为 [kubectl](https://kubernetes.io/docs/reference/kubect
 |  5        | 记录封送的对象；显示应用到 ARM 的已净化 JSON 配置 |
 
 
-可通过 [helm-config.yaml](#sample-helm-config-file) 文件中的 `verbosityLevel` 变量调整详细级别。 将详细级别提高到 `5` 可以获取已分配到 [ARM](/azure-resource-manager/resource-group-overview) 的 JSON 配置：
+可通过 [helm-config.yaml](#sample-helm-config-file) 文件中的 `verbosityLevel` 变量调整详细级别。 将详细级别提高到 `5` 可以获取已分配到 [ARM](../azure-resource-manager/management/overview.md) 的 JSON 配置：
   - 在 [helm-config.yaml](#sample-helm-config-file) 中独行添加 `verbosityLevel: 5`，然后重新安装
   - 使用 `kubectl logs <pod-name>` 获取日志
 
@@ -295,5 +290,4 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-
 

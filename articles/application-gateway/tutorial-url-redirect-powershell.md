@@ -4,19 +4,19 @@ description: 了解如何使用 Azure PowerShell 创建支持基于 URL 路径�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.topic: how-to
-ms.openlocfilehash: b5e024b734910648b4c62d1485b531a8ecd29a99
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: d2052c23dd6165ecc51cc7d7cd275959678b3d12
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721084"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849316"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持基于 URL 路径的重定向的应用程序网关
 
-创建[应用程序网关](application-gateway-introduction.md)时，可以使用 Azure PowerShell 配置[基于 URL 的路由规则](application-gateway-url-route-overview.md)。 在本文中，将使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
+创建[应用程序网关](./overview.md)时，可以使用 Azure PowerShell 配置[基于 URL 的路由规则](./url-route-overview.md)。 在本文中，将使用[虚拟机规模集](../virtual-machine-scale-sets/overview.md)创建后端池。 然后创建 URL 路由规则，以确保 Web 流量重定向到相应的后端池。
 
 在本文中，学习如何：
 
@@ -516,5 +516,5 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [详细了解应用程序网关的作用](application-gateway-introduction.md)
+> [详细了解应用程序网关的作用](./overview.md)
 

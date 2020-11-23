@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 769be929e1088d650f1da66f8b89c4f9eba37675
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0e250f7b09ed0117ca4d10e2814766d18ee09878
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104795"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977289"
 ---
 <!--Characters Content only-->
 <!--Verified By-pass-->
@@ -56,9 +56,11 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 <a name="direct"></a>
 ## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a>使用 NVA-in-VWAN-hub 的直接互连模型
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="直接互连模型":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="使用 NVA-in-VWAN-hub 的直接互连模型":::
 
-此体系结构模型支持[将第三方网络虚拟设备 (NVA) 直接部署到虚拟中心](https://docs.azure.cn/virtual-wan/about-nva-hub)。 这使得希望将分支 CPE 连接到虚拟中心内同一品牌 NVA 的客户可以在连接到 Azure 工作负荷时利用专有的端到端 SD-WAN 功能。 
+此体系结构模型支持将第三方网络虚拟设备 (NVA) 直接部署到虚拟中心。 这使得希望将分支 CPE 连接到虚拟中心内同一品牌 NVA 的客户可以在连接到 Azure 工作负荷时利用专有的端到端 SD-WAN 功能。 
+
+<!--Not Available on about-nva-hub.md-->
 
 数个虚拟 WAN 合作伙伴一直致力于提供在部署过程中自动配置 NVA 的体验。 将 NVA 预配到虚拟中心后，NVA 可能需要的任何附加配置都必须通过 NVA 合作伙伴门户或管理应用程序来完成。 无法直接访问 NVA。 可直接部署到 Azure 虚拟 WAN 中心的 NVA 是专为在虚拟中心使用而设计的。 若要了解在 VWAN 中心支持 NVA 的合作伙伴及其部署指南，请参阅[虚拟 WAN 合作伙伴](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings)一文。
 
@@ -68,7 +70,7 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 <a name="indirect"></a>
 ## <a name="indirect-interconnect-model"></a>间接互连模型
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="直接互连模型":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="间接互连模型":::
 
 在此体系结构模型中，SD-WAN 分支 CPE 间接连接到虚拟 WAN 中心。 如图所示，企业 VNet 中部署了一个 SD-WAN 虚拟 CPE。 此虚拟 CPE 使用 IPsec 连接到虚拟 WAN 中心。 该虚拟 CPE 充当用于接入 Azure 的 SD-WAN 网关。 需要访问其在 Azure 中的工作负荷的分支可以通过 v-CPE 网关进行访问。
 
@@ -77,7 +79,7 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 <a name="hybrid"></a>
 ## <a name="managed-hybrid-wan-model"></a>托管混合 WAN 模型
 
-:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="直接互连模型":::
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="托管混合 WAN 模型":::
 
 在此体系结构模型中，企业可以利用托管服务提供商 (MSP) 合作伙伴提供的托管 SD-WAN 服务。 此模型类似于上面所述的直接模型或间接模型。 但是，在此模型中，SD-WAN 设计、业务流程和操作由 SD-WAN 提供商提供。
 

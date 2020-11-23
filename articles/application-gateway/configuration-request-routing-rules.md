@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 1cdca28ed86decb17c00e41759031d946a72889d
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 860d9fbdb8164df619d582fe0b53d8ca7755c63a
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721291"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849409"
 ---
 # <a name="application-gateway-request-routing-rules"></a>应用程序网关请求传递规则
 
@@ -20,9 +20,9 @@ ms.locfileid: "90721291"
 
 ## <a name="rule-type"></a>规则类型
 
-创建规则时，可以选择[“基本”或“基于路径”](/application-gateway/application-gateway-components#request-routing-rules)。 
+创建规则时，可以选择[“基本”或“基于路径”](./application-gateway-components.md#request-routing-rules)。 
 
-- 若要将关联的侦听器（例如 *blog<i></i>.contoso.com/\** ）上的所有请求转发到单个后端池，请选择“基本”。
+- 若要将关联的侦听器（例如 *blog <i></i>.contoso.com/\** ）上的所有请求转发到单个后端池，请选择“基本”。
 - 若要将来自特定 URL 路径的请求路由到特定的后端池，请选择“基于路径”。 路径模式仅应用到 URL 的路径，而不应用到该 URL 的查询参数。
 
 ### <a name="order-of-processing-rules"></a>规则的处理顺序

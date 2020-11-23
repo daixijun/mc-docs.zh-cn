@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 87ecf2fb5985ef696d8aba2cf2fdc32c92fd9aa7
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 6748326ccfd76b08765f3be4ec64647b35af6b8f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395266"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978175"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 在 SQL Server 中为数据创建功能
 本文档演示如何在 Azure 上为存储于 SQL Server VM 中的数据生成功能，用于帮助算法更有效地从数据中进行学习。 可以使用 SQL 或 Python 等编程语言来完成此任务。 下面演示了这两种方法。
@@ -31,7 +31,7 @@ ms.locfileid: "91395266"
 ## <a name="prerequisites"></a>必备条件
 本文假设用户具备以下条件：
 
-* 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-quickstart-create-account.md)
+* 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-account-create.md)
 * 在 SQL Server 中存储的数据。 如果尚未存储，请参阅[将数据移到 Azure 机器学习的 Azure SQL 数据库](move-sql-azure.md)以便获取有关如何移动数据的说明。
 
 ## <a name="feature-generation-with-sql"></a><a name="sql-featuregen"></a>使用 SQL 生成特征
@@ -99,12 +99,12 @@ from <tablename>
 
 > [!TIP]
 > 可以使用设定语言，以编程方式插入记录。 可能需要将数据插入区块以提高写入效率。 [下面是如何使用 pyodbc 执行此操作的示例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
-> 另一种方法是采用 [BCP 实用工具](https://msdn.microsoft.com/library/ms162802.aspx)将数据插入数据库中
+> 另一种方法是采用 [BCP 实用工具](https://docs.microsoft.com/sql/tools/bcp-utility)将数据插入数据库中
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>连接到 Azure 机器学习
-新生成的功能可作为列添加到现有表或存储在新表中，也可与原始表结合以进行机器学习。 如果已经创建，可使用 Azure ML 中的[导入数据](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)模块生成或访问生成功能，如下所示：
+新生成的功能可作为列添加到现有表或存储在新表中，也可与原始表结合以进行机器学习。 如果已经创建，可使用 Azure ML 中的[导入数据](/machine-learning/studio-module-reference/import-data)模块生成或访问生成功能，如下所示：
 
 ![Azure ML 读取器](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 

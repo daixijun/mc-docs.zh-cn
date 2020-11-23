@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 04/04/2020
-ms.date: 09/02/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 41516e3da88d731ba58ef8bb1445ce8be113cd42
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: f91ef325e03fb6ab0ebfd82b516a14c2c0d883e7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317562"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979387"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -70,7 +70,7 @@ namespace helloworld
 将此代码插入 `RecognizeIntentAsync()` 方法。 请确保更新以下值：
 
 * 将 `"YourLanguageUnderstandingSubscriptionKey"` 替换为 LUIS 预测密钥。
-* 将 `"YourLanguageUnderstandingServiceRegion"` 替换为 LUIS 位置。 使用[区域](https://docs.azure.cn/cognitive-services/speech-service/regions)中的“区域标识符”。
+* 将 `"YourLanguageUnderstandingServiceRegion"` 替换为 LUIS 位置。 使用[区域](../../../../regions.md)中的“区域标识符”。
 
 >[!TIP]
 > 如果需要帮助查找这些值，请参阅[创建 LUIS 应用以进行意向识别](#create-a-luis-app-for-intent-recognition)。

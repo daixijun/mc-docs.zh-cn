@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 5a498c46a69b75d0d80f5f302963c5c2370a5ea1
-ms.sourcegitcommit: 65a7360bb14b0373e18ec8eaa288ed3ac7b24ef4
+ms.openlocfilehash: b1007a594553af6c5d2e45cd69384f92eb0d4eaf
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219698"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849318"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>在使用应用程序网关入口控制器的 AKS 群集中启用多命名空间支持
 
@@ -35,12 +35,12 @@ AGIC 版本 0.7 将继续专门观察 `default` 命名空间，除非在 Helm �
   - 列出所有可访问的命名空间中的资源
   - 筛选带有 `kubernetes.io/ingress.class: azure/application-gateway` 批注的入口资源
   - 编写组合的[应用程序网关配置](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - 通过 [ARM](/azure-resource-manager/resource-group-overview) 将配置应用到关联的应用程序网关
+  - 通过 [ARM](../azure-resource-manager/management/overview.md) 将配置应用到关联的应用程序网关
 
 ## <a name="conflicting-configurations"></a>有冲突的配置
 多个带有命名空间的[入口资源](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)可能会指示 AGIC 为单个应用程序网关创建有冲突的配置。 （例如，两个入口声明同一个域。）
 
-在层次结构的顶层 - **侦听器**（IP 地址、端口和主机）和**路由规则**（绑定侦听器、后端池和 HTTP 设置）可由多个命名空间/入口创建和共享。
+在层次结构的顶层 - **侦听器**（IP 地址、端口和主机）和 **路由规则**（绑定侦听器、后端池和 HTTP 设置）可由多个命名空间/入口创建和共享。
 
 另一方面 - 路径、后端池、HTTP 设置和 TLS 证书只能由一个命名空间创建，重复项将被删除。
 
@@ -99,7 +99,7 @@ spec:
 ## <a name="restrict-access-to-namespaces"></a>限制对命名空间的访问
 默认情况下，AGIC 根据任何命名空间中带批注的入口配置应用程序网关。 如果你想要限制此行为，可使用以下选项：
   - 通过 [helm-config.yaml](#sample-helm-config-file) 中的 `watchNamespace` YAML 键定义 AGIC 应观察的命名空间，以限制命名空间
-  - 使用[角色/角色绑定](/aks/azure-ad-rbac)来限制 AGIC 只能访问特定的命名空间
+  - 使用[角色/角色绑定](../aks/azure-ad-rbac.md)来限制 AGIC 只能访问特定的命名空间
 
 ## <a name="sample-helm-config-file"></a>示例 Helm 配置文件
 
@@ -155,5 +155,4 @@ spec:
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-
 

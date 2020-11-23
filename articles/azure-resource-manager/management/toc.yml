@@ -22,6 +22,8 @@
       href: resources-without-resource-group-limit.md
     - name: 安全性
       items:
+        - name: 安全基线
+          href: ./security-baseline.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -156,6 +158,8 @@
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 服务更新
       href: 'https://updates.azure.cn/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
     - name: 管理个人数据
       href: resource-manager-personal-data.md
     - name: 视频

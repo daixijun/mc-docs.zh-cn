@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 03/12/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: ce97742d32a6d64fed7b69d357f735eddec04d53
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: 3698d23a444f6b66ee167da5a5cb8389ae16ce76
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715727"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978112"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>为 Azure 流分析配置事件排序策略
 
@@ -21,7 +21,7 @@ ms.locfileid: "88715727"
 
 ## <a name="event-time-and-arrival-time"></a>事件时间和抵达时间
 
-流分析作业可以根据事件时间或抵达时间处理事件。  **事件/应用程序时间**是事件有效负载中的时间戳（生成事件的时间）。 **抵达时间**是输入源（事件中心/IoT 中心/Blob 存储）收到事件时的时间戳。 
+流分析作业可以根据事件时间或抵达时间处理事件。  **事件/应用程序时间** 是事件有效负载中的时间戳（生成事件的时间）。 **抵达时间** 是输入源（事件中心/IoT 中心/Blob 存储）收到事件时的时间戳。 
 
 默认情况下，流分析按抵达时间处理事件，但你可以通过在查询中使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 子句，来按事件时间处理事件。  仅当按事件时间处理事件时，延期抵达和失序策略才适用。 配置这些设置时，应考虑方案的延迟要求和正确性要求。 
 
@@ -84,5 +84,5 @@ ms.locfileid: "88715727"
 
 ## <a name="next-steps"></a>后续步骤
 * [时间处理注意事项](stream-analytics-time-handling.md)
-* [可以在流分析中使用的指标](/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [可以在流分析中使用的指标](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)
 

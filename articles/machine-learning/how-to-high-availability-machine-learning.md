@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: f45a0c91583e20ad925a9bbe0f0503a68a521dbc
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c8e17cd7534e24cb587c87291ee7e0866af862b2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118411"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977471"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>提高 Azure 机器学习的复原能力
 
@@ -80,7 +80,7 @@ Azure 服务包括：
 
 请参阅以下文档，确保配置每个资源的高可用性设置：
 
-* **Azure Kubernetes 服务**：请参阅 [Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法](/aks/operator-best-practices-multi-region)和[创建使用可用性区域的 Azure Kubernetes 服务 (AKS) 群集](/aks/availability-zones)。 如果 AKS 群集是使用 Azure 机器学习工作室、SDK 或 CLI 创建的，则不支持跨区域高可用性。
+* **Azure Kubernetes 服务**：请参阅 [Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法](/aks/operator-best-practices-multi-region)和 [创建使用可用性区域的 Azure Kubernetes 服务 (AKS) 群集](/aks/availability-zones)。 如果 AKS 群集是使用 Azure 机器学习工作室、SDK 或 CLI 创建的，则不支持跨区域高可用性。
 * **容器实例**：业务流程协调程序负责故障转移。 请参阅 [Azure 容器实例和容器业务流程协调程序](/container-instances/container-instances-orchestrator-relationship)。
 * **HDInsight**：请参阅 [Azure HDInsight 支持的高可用性服务](/hdinsight/hdinsight-high-availability-components)。
 
@@ -89,9 +89,9 @@ Azure 服务包括：
 请参阅以下文档，确保配置每个资源的高可用性设置：
 
 * **Azure Blob 容器/Azure 文件存储/Azure Data Lake Gen2**：与默认存储相同。
-* **SQL 数据库**：请参阅 [Azure SQL 数据库和 SQL 托管实例的高可用性](/sql-database/sql-database-high-availability)。
+* **SQL 数据库**：请参阅 [Azure SQL 数据库和 SQL 托管实例的高可用性](../azure-sql/database/high-availability-sla.md)。
 * **Azure Database for PostgreSQL**：请参阅 [Azure Database for PostgreSQL - 单一服务器中的高可用性概念](/postgresql/concepts-high-availability)。
-* **Azure Database for MySQL**：请参阅[了解 Azure Database for MySQL 中的业务连续性](/mysql/concepts-business-continuity)。
+* **Azure Database for MySQL**：请参阅 [了解 Azure Database for MySQL 中的业务连续性](/mysql/concepts-business-continuity)。
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

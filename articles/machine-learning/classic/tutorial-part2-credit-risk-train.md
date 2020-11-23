@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: fe97fd3b2ac6ba16e4908eece5708d8c9a59e9bd
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: ba3260e60d95316ac06ce6e4cc064dd8ba5e5929
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118931"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978282"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>教程 2：训练信用风险模型 - Azure 机器学习工作室（经典版）
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-在本教程中，我们将深入探讨开发预测分析解决方案的过程。 我们将在机器学习工作室（经典版）中开发一个简单模型。  然后将该模型部署为 Azure 机器学习 Web 服务。  部署的模型将使用新数据进行预测。 本教程是**由三个部分构成的系列教程的第二部分**。
+在本教程中，我们将深入探讨开发预测分析解决方案的过程。 我们将在机器学习工作室（经典版）中开发一个简单模型。  然后将该模型部署为 Azure 机器学习 Web 服务。  部署的模型将使用新数据进行预测。 本教程是 **由三个部分构成的系列教程的第二部分**。
 
 假设用户需要根据他们提供的贷款申请相关信息预测个人的信用风险。  
 
@@ -83,13 +83,13 @@ ms.locfileid: "92118931"
 
 现在，需要告诉[训练模型][train-model]模块我们希望它预测信用风险值。
 
-1. 选择[训练模型][train-model]模块。 在**属性**窗格中，单击**启动列选择器**。
+1. 选择[训练模型][train-model]模块。 在 **属性** 窗格中，单击 **启动列选择器**。
 
-1. 在**选择单个列**对话框中，在**可用列**下的搜索字段中键入“信用风险”，在下方选择“信用风险”，并单击向右箭头按钮 ( **>** ) 将“信用风险”移动到**选定列**。 
+1. 在 **选择单个列** 对话框中，在 **可用列** 下的搜索字段中键入“信用风险”，在下方选择“信用风险”，并单击向右箭头按钮 ( **>** ) 将“信用风险”移动到 **选定列**。 
 
     ![选择“训练模型”模块的“信用风险”列](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
-1. 单击**确定**复选标记。
+1. 单击 **确定** 复选标记。
 
 ### <a name="two-class-support-vector-machine"></a>两类支持向量机
 
@@ -123,7 +123,7 @@ ms.locfileid: "92118931"
 
 1. 单击此行右侧的加号 (+)，这会创建一行下拉列表。 在第一个下拉列表中选择“排除”，在第二个下拉列表中选择“列名称”，并在文本字段中输入“信用风险”。 这会指定应忽略“信用风险”列（我们需要执行此操作，因为此列是数值，因此，如果不排除，也将转换）。
 
-1. 单击**确定**复选标记。  
+1. 单击 **确定** 复选标记。  
 
     ![选择用于“规范化数据”模块的列](./media/tutorial-part2-credit-risk-train/normalize-data-select-column.png)
 
@@ -225,14 +225,14 @@ ms.locfileid: "92118931"
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /machine-learning/studio-module-reference/edit-metadata
+[split]: /machine-learning/studio-module-reference/split-data
+[evaluate-model]: /machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /machine-learning/studio-module-reference/normalize-data
+[score-model]: /machine-learning/studio-module-reference/score-model
+[train-model]: /machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

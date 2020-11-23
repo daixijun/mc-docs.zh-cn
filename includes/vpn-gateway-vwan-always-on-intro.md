@@ -5,20 +5,20 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/12/2020
-ms.date: 04.06/2020
+origin.date: 10/07/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 23bb39a27c08233e897eac439ade29173473f0ee
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eb709f7ac33560bda13d98c039be68fac0b59772
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634514"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915580"
 ---
 Windows 10 VPN 客户端 Always On 的一项新功能是能够维护 VPN 连接。 有了 Always On，有效的 VPN 配置文件就能根据触发因素（例如用户登录、网络状态更改或设备屏幕活动状态）自动建立连接并保持连接。
 
-可将网关与 Windows 10 Always On 配合使用，以便建立通往 Azure 的持久性用户隧道和设备隧道。 本文介绍如何配置 Always On VPN 用户隧道。
+可将网关与 Windows 10 Always On 配合使用，以便建立通往 Azure 的持久性用户隧道和设备隧道。
 
 Always On VPN 连接包括下述两种隧道类型之一：
 

@@ -6,20 +6,23 @@ ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 10/09/2020
+ms.date: 11/16/2020
 origin.date: 01/27/2020
-ms.openlocfilehash: 5160b13dbb43db74e2e41055dd9b2c3d7c9aef12
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.openlocfilehash: e130a1c625df4586fc470eb45e5febedf406f427
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936804"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978166"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
 可将 Functions 配置为流分析作业的输出接收器之一，以便通过 Azure 流分析运行 Azure Functions。 Functions 是事件驱动的按需计算体验，它允许实现由 Azure 或第三方服务中出现的事件所触发的代码。 Functions 响应触发的这一功能使其成为流分析作业的自然输出。
 
 流分析通过 HTTP 触发调用 Functions。 通过 Functions 输出适配器，用户可以将 Functions 连接到流分析，以便基于流分析查询触发事件。 
+
+> [!NOTE]
+> 不支持从多租户群集中运行的流分析作业连接到虚拟网络 (VNet) 内的 Azure Functions。
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -131,11 +134,11 @@ ms.locfileid: "91936804"
  
 4. 返回到 Azure 门户。 从“平台功能”  选项卡，浏览到你的函数。 在“开发工具”  下方，选择“应用服务编辑器”  。 
  
-   ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image3.png)
+   ![屏幕截图显示“平台功能”选项卡，其中选择了“应用服务编辑器”。](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. 在应用服务编辑器中，右键单击根目录，并上传 project.json  文件。 上传成功后，刷新页面。 现在，应可看到名为 project.lock.json  的自动生成文件。 该自动生成文件包含对 project.json 文件中指定 .dll 文件的引用。  
 
-   ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image4.png)
+   ![屏幕截图显示从菜单选择了“上传文件”。](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>更新流分析作业，以函数作为输出
 

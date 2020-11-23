@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 878510f4358ec59d1586736a789b58159ad72397
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 60b8b75a68a8eca0e7f32b2eaef1b714541a786d
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721105"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849464"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>排查应用程序网关中的应用服务问题
 
@@ -80,10 +80,10 @@ X-Powered-By: ASP.NET
 
 ## <a name="solution-rewrite-the-location-header"></a>解决方案：重写 location 标头
 
-将 location 标头中的主机名设置为应用程序网关的域名。 为此，请创建一个[重写规则](/application-gateway/rewrite-http-headers)，其中的某个条件可以评估响应中的 location 标头是否包含 chinacloudsites.cn。 该规则还必须执行相应的操作来重写 location 标头，使其包含应用程序网关的主机名。 有关详细信息，请参阅有关[如何重写 location 标头](/application-gateway/rewrite-http-headers#modify-a-redirection-url)的说明。
+将 location 标头中的主机名设置为应用程序网关的域名。 为此，请创建一个[重写规则](./rewrite-http-headers.md)，其中的某个条件可以评估响应中的 location 标头是否包含 chinacloudsites.cn。 该规则还必须执行相应的操作来重写 location 标头，使其包含应用程序网关的主机名。 有关详细信息，请参阅有关[如何重写 location 标头](./rewrite-http-headers.md#modify-a-redirection-url)的说明。
 
 > [!NOTE]
-> HTTP 标头重写支持仅适用于应用程序网关的 [Standard_v2 和 WAF_v2 SKU](/application-gateway/application-gateway-autoscaling-zone-redundant)。 如果使用 v1 SKU，我们建议[从 v1 迁移到 v2](/application-gateway/migrate-v1-v2)。 需要使用 v2 SKU 中提供的重写和其他[高级功能](/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku)。
+> HTTP 标头重写支持仅适用于应用程序网关的 [Standard_v2 和 WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md)。 如果使用 v1 SKU，我们建议[从 v1 迁移到 v2](./migrate-v1-v2.md)。 需要使用 v2 SKU 中提供的重写和其他[高级功能](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)。
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>备用解决方案：使用自定义域名
 

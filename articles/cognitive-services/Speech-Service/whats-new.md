@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 06/12/2020
-ms.date: 09/02/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: fe3b83d34a443b384de882464e07ce95af08f138
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 0dccb0210b8468dc21bb70beb12c28901b011b58
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317449"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977066"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>语音服务：Docs 中的新增内容
 

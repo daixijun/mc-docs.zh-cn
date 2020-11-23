@@ -3,15 +3,15 @@ title: 在 Azure 自动化中部署 Windows 混合 Runbook 辅助角色
 description: 本文介绍如何部署混合 Runbook 辅助角色，你可使用该角色在本地数据中心或云环境的基于 Windows 的计算机上运行 Runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 08/20/2020
-ms.date: 09/07/2020
+origin.date: 10/14/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d33fa15c4323376ff40054b46ed2ab745ee2543c
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: bb15f6e9b7f74c3b34f279f84f3a3715d4207c09
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463199"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680462"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合 Runbook 辅助角色
 
@@ -206,7 +206,7 @@ Runbook 可以使用在 Azure 自动化环境中安装的模块中定义的任�
 
 由于混合 Runbook 辅助角色的主要用途是管理本地资源，很可能需要安装支持这些资源的模块，尤其是 `PowerShellGet` 模块。 有关安装 Windows PowerShell 模块的信息，请参阅 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)。
 
-安装的模块必须位于 `PSModulePath` 环境变量所引用的位置，以便混合辅助角色自动将其导入。 有关详细信息，请参阅[在 PSModulePath 中安装模块](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)。
+安装的模块必须位于 `PSModulePath` 环境变量所引用的位置，以便混合辅助角色自动将其导入。 有关详细信息，请参阅[在 PSModulePath 中安装模块](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module)。
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>从本地 Windows 计算机中删除混合 Runbook 辅助角色
 

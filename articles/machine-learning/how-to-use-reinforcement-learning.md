@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 847788f913914dcefb70c83d94045bfd942f3a47
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 63c015409057d8f76e48874e80baf363141ae152
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104647"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978254"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure 机器学习的强化学习（预览版）
 
@@ -49,8 +49,8 @@ ms.locfileid: "93104647"
  
  - 你自己的 Jupyter 笔记本服务器
 
-    - 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
-    - 安装 [Azure 机器学习 RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true)：`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
+    - 安装 [Azure 机器学习 RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)：`pip install --upgrade azureml-contrib-reinforcementlearning`
     - 创建[工作区配置文件](how-to-configure-environment.md#workspace)。
     - 运行虚拟网络[设置笔记本](https://aka.ms/azure-rl-env-setup)，打开用于分布式强化学习的网络端口。
 
@@ -67,7 +67,7 @@ RL 使用 **奖励** 来告知代理其决策是否成功。 在此环境中，�
 
 当代理在一个训练时期达到平均奖励评分 18 时，训练即告结束。 这意味着，代理在比赛中，凭借最低 18 分的平均比分（总分 21 分）击败了其对手。
 
-迭代模拟和重新训练 DNN 的过程会消耗大量计算资源，且需要大量数据。 提高 RL 作业性能的一种方法是 **将工作并行化** ，使多个训练代理能够同时做出动作并学习知识。 但是，管理分布式 RL 环境可能是一项复杂的任务。
+迭代模拟和重新训练 DNN 的过程会消耗大量计算资源，且需要大量数据。 提高 RL 作业性能的一种方法是 **将工作并行化**，使多个训练代理能够同时做出动作并学习知识。 但是，管理分布式 RL 环境可能是一项复杂的任务。
 
 Azure 机器学习提供了一个框架，用于处理这种复杂性，以便能够横向扩展 RL 工作负荷。
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>创建强化学习试验
 
-创建一个[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)，用于跟踪强化学习运行。 在 Azure 机器学习中，试验是相关试运行的逻辑集合，用于组织运行日志、历史记录、输出等信息。
+创建一个[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)，用于跟踪强化学习运行。 在 Azure 机器学习中，试验是相关试运行的逻辑集合，用于组织运行日志、历史记录、输出等信息。
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -131,7 +131,7 @@ vnet = 'your_vnet'
 
 此示例使用配备了 GPU 的头节点群集来优化深度学习性能。 头节点将训练供代理用来做出决策的神经网络。 头节点还从工作器节点收集数据点，以进一步训练神经网络。
 
-头节点计算使用单个 [`STANDARD_NC6` 虚拟机](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM)。 该 VM 有 6 个虚拟 CPU，这意味着，它可以在 6 个工作 CPU 之间分配工作。
+头节点计算使用单个 `STANDARD_NC6` 虚拟机 (VM)。 该 VM 有 6 个虚拟 CPU，这意味着，它可以在 6 个工作 CPU 之间分配工作。
 
 
 ```python
@@ -173,7 +173,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>工作器节点计算群集
 
-此示例对工作器节点计算目标使用 4 个 [`STANDARD_D2_V2` VM](https://docs.microsoft.com/azure/virtual-machines/nc-series)。 每个工作器节点有 2 个可用 CPU，因此总共有 8 个 CPU 可用于将工作并行化。
+此示例对工作器节点计算目标使用 4 个 `STANDARD_D2_V2` VM。 每个工作器节点有 2 个可用 CPU，因此总共有 8 个 CPU 可用于将工作并行化。
 
 没有必要在工作器节点上配备 GPU，因为 GPU 不执行深度学习。 工作器运行游戏模拟并收集数据。
 
@@ -248,7 +248,7 @@ worker_conf = WorkerConfiguration(
 
 指定正确的 `num_workers` 可以最大程度地发挥并行化的作用。 将工作器数量设置为与可用 CPU 数量相同。 对于本示例，可按如下所示计算此数量：
 
-头节点是有 6 个 vCPU 的 [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series)。 工作器节点群集是 4 个 [Standard_D2_V2 VM](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series)，每个 VM 有 2 个 CPU，因此总共有 8 个 CPU。 但是，必须从工作器计数中减去 1 个 CPU，因为必须有 1 个 CPU 专用于头节点角色。 6个 CPU + 8 个 CPU - 1 个头节点 CPU = 13 个同步工作器。 Azure 机器学习使用头节点和工作器节点群集来区分计算资源。 但是，Ray 并不区分头节点和工作器节点，所有 CPU 都可用于执行工作线程。
+头节点是有 6 个 vCPU 的 Standard_NC6。 工作器节点群集是 4 个 [Standard_D2_V2 VM](../cloud-services/cloud-services-sizes-specs.md#dv2-series)，每个 VM 有 2 个 CPU，因此总共有 8 个 CPU。 但是，必须从工作器计数中减去 1 个 CPU，因为必须有 1 个 CPU 专用于头节点角色。 6个 CPU + 8 个 CPU - 1 个头节点 CPU = 13 个同步工作器。 Azure 机器学习使用头节点和工作器节点群集来区分计算资源。 但是，Ray 并不区分头节点和工作器节点，所有 CPU 都可用于执行工作线程。
 
 
 ```python
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>提交运行
 
-[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)处理正在进行的或已完成的作业的运行历史记录。 
+[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)处理正在进行的或已完成的作业的运行历史记录。 
 
 ```python
 run = exp.submit(config=rl_estimator)

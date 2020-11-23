@@ -11,12 +11,12 @@ metadata:
   ms.author: cherylmc
   origin.date: 08/27/2019
   ms.date: 12/23/2019
-  ms.openlocfilehash: 02a48ba7d6eb045b633942e26954e98b6f5c3c11
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: 737ab03aef363dd530f25b05bd08d84f0f8996d1
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "75335777"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94977808"
 landingContent:
 - title: 关于 ExpressRoute
   linkLists:
@@ -80,6 +80,18 @@ landingContent:
     links:
     - text: 配置监视、指标和警报
       url: expressroute-monitoring-metrics-alerts.md
+- title: ExpressRoute Direct
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 什么是 ExpressRoute Direct？
+      url: expressroute-erdirect-about.md
+    - text: ExpressRoute Direct 常见问题解答
+      url: expressroute-faqs.md#expressRouteDirect
+  - linkListType: how-to-guide
+    links:
+    - text: 配置 ExpressRoute Direct
+      url: expressroute-howto-erdirect.md
 - title: 参考
   linkLists:
   - linkListType: reference

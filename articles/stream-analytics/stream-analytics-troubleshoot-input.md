@@ -6,18 +6,18 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: d80132999b758e996743ba0b1316d6c5de7efe84
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 7c950d18874364ed0aba59e6dc1a54666ddf2f60
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715760"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978106"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 
-本文介绍 Azure 流分析输入连接的常见问题，以及如何排查和解决这些问题。
+本文介绍 Azure 流分析输入连接的常见问题，以及如何排查和解决这些问题。 许多故障排除步骤都需要为流分析作业启用资源日志。 如果未启用资源日志，请参阅[使用资源日志排查 Azure 流分析问题](stream-analytics-job-diagnostic-logs.md)。
 
 ## <a name="input-events-not-received-by-job"></a>作业未收到输入事件 
 
@@ -25,7 +25,7 @@ ms.locfileid: "88715760"
 
 2.  检查输入数据。
 
-    1. 对每个输出使用[示例数据](stream-analytics-sample-data-input.md)按钮。 下载输入示例数据。
+    1. 对每个输出使用[示例数据](./stream-analytics-test-query.md)按钮。 下载输入示例数据。
         
     1. 检查示例数据，了解架构和[数据类型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)。
     
@@ -175,5 +175,5 @@ SELECT foo FROM DataTwo
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

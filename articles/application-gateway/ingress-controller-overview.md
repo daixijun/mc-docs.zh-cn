@@ -5,19 +5,19 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f8c4c52c5cfcafdd5faf255a2b9349ca2ea6e6a4
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: d6af93d480ceab07541b9f7618a1abbdaccf190d
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516699"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849306"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>什么是应用程序网关入口控制器？
 应用程序网关入口控制器 (AGIC) 是一个 Kubernetes 应用程序。有了它，[Azure Kubernetes 服务 (AKS)](https://www.azure.cn/home/features/kubernetes-service/) 客户就可以利用 Azure 的本机[应用程序网关](https://www.azure.cn/home/features/application-gateway/) L7 负载均衡器向 Internet 公开云软件。 AGIC 监视托管时所在的 Kubernetes 群集并持续更新应用程序网关，以便向 Internet 公开所选服务。
 
-在客户的 AKS 上，入口控制器在其自己的 Pod 中运行。 AGIC 监视部分 Kubernetes 资源中的更改。 AKS 群集的状态会转换为特定于应用程序网关的配置并应用到 [Azure 资源管理器 (ARM)](/azure-resource-manager/resource-group-overview)。
+在客户的 AKS 上，入口控制器在其自己的 Pod 中运行。 AGIC 监视部分 Kubernetes 资源中的更改。 AKS 群集的状态会转换为特定于应用程序网关的配置并应用到 [Azure 资源管理器 (ARM)](../azure-resource-manager/management/overview.md)。
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>应用程序网关入口控制器的好处
 有了 AGIC，就不需在 AKS 群集前面设置另一个负载均衡器/公共 IP，避免在请求到达 AKS 群集之前在数据路径中设置多个跃点。 应用程序网关直接使用其专用 IP 与 Pod 通信，不需要 NodePort 或 KubeProxy 服务。 这也会改进部署性能。
@@ -77,5 +77,4 @@ AGIC 加载项在客户的 AKS 群集中仍作为 pod 部署，但是 Helm 部�
 - [**AKS 加载项“棕色地带”部署**](tutorial-ingress-controller-add-on-existing.md)：使用现有的应用程序网关在 AKS 群集上安装 AGIC 加载项。
 - [**Helm“绿色地带”部署**](ingress-controller-install-new.md)：在白板基础结构上通过 Helm、新 AKS 群集和新应用程序网关安装 AGIC。
 - [**Helm“棕色地带”部署**](ingress-controller-install-existing.md)：在现有的 AKS 群集和应用程序网关上通过 Helm 部署 AGIC。
-
 

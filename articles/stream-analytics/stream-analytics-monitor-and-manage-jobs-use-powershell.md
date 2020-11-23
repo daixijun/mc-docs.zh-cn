@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 08/20/2020
-ms.openlocfilehash: ef9d2b0ae1b88a244736b1441ea967fbf64c29ce
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: 3f7361fbc0c564e53558e98787e5646b3365dea6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715744"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977412"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -550,18 +550,17 @@ Azure PowerShell 1.0：
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 
-[msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
-[powershell-install]: /powershell-install-configure/
-[msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
-[msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
-[msdn-rest-api-create-stream-analytics-output]: https://msdn.microsoft.com/library/dn835015.aspx
-[msdn-rest-api-create-stream-analytics-transformation]: https://msdn.microsoft.com/library/dn835007.aspx
+[msdn-switch-azuremode]: https://docs.microsoft.com/previous-versions/azure/dn722470(v=azure.100)
+[powershell-install]: https://docs.microsoft.com/powershell/azure/
+[msdn-rest-api-create-stream-analytics-job]: ./stream-analytics-quick-create-portal.md
+[msdn-rest-api-create-stream-analytics-input]: ./stream-analytics-define-inputs.md
+[msdn-rest-api-create-stream-analytics-output]: ./stream-analytics-define-outputs.md
+[msdn-rest-api-create-stream-analytics-transformation]: /cli/ext/stream-analytics/stream-analytics/transformation
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 <!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
-[stream.analytics.scale.jobs]\: stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]\: https://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]\: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.scale.jobs]\: stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]\: https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference [stream.analytics.rest.api.reference]\: https://docs.microsoft.com/rest/api/streamanalytics/
 

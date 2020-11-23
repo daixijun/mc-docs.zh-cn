@@ -3,15 +3,15 @@ title: 使用 REST API 备份 Azure VM
 description: 本文介绍如何使用 REST API 配置、启动和管理 Azure VM 备份的备份操作。
 author: Johnnytechn
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 9d91e923ab6ac7630118cc286c02e7a6445a9a59
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 407cd34ecef70277bed0df8a89a7544e2c03f4e0
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402622"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977732"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>通过 REST API 使用 Azure 备份来备份 Azure VM
 
@@ -62,7 +62,7 @@ x-ms-client-request-id: 4910609f-bb9b-4c23-8527-eb6fa2d3253f; 4910609f-bb9b-4c23
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-writes: 1199
 x-ms-correlation-request-id: 43cf550d-e463-421c-8922-37e4766db27d
-x-ms-routing-request-id: SOUTHINDIA:20180521T105701Z:43cf550d-e463-421c-8922-37e4766db27d
+x-ms-routing-request-id: CHINAEAST:20180521T105701Z:43cf550d-e463-421c-8922-37e4766db27d
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 10:57:00 GMT
 Location: https://management.chinacloudapi.cn/subscriptions//00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/operationResults/aad204aa-a5cf-4be2-a7db-a224819e5890?api-version=2019-05-13
@@ -86,7 +86,7 @@ x-ms-client-request-id: 25bb6345-f9fc-4406-be1a-dc6db0eefafe; 25bb6345-f9fc-4406
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-reads: 14997
 x-ms-correlation-request-id: cf6cd73b-9189-4942-a61d-878fcf76b1c1
-x-ms-routing-request-id: SOUTHINDIA:20180521T105825Z:cf6cd73b-9189-4942-a61d-878fcf76b1c1
+x-ms-routing-request-id: CHINAEAST:20180521T105825Z:cf6cd73b-9189-4942-a61d-878fcf76b1c1
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 10:58:25 GMT
 X-Powered-By: ASP.NET
@@ -123,7 +123,7 @@ x-ms-client-request-id: 40c8601a-c217-4c68-87da-01db8dac93dd; 40c8601a-c217-4c68
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-reads: 14979
 x-ms-correlation-request-id: 7c2cf56a-e6be-4345-96df-c27ed849fe36
-x-ms-routing-request-id: SOUTHINDIA:20180521T071408Z:7c2cf56a-e6be-4345-96df-c27ed849fe36
+x-ms-routing-request-id: CHINAEAST:20180521T071408Z:7c2cf56a-e6be-4345-96df-c27ed849fe36
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:14:08 GMT
 Server: Microsoft-IIS/8.0
@@ -230,7 +230,7 @@ x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-writes: 1199
 x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
-x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
+x-ms-routing-request-id: CHINAEAST:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
 Location: https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -369,7 +369,7 @@ x-ms-client-request-id: 7df8e874-1d66-4f81-8e91-da2fe054811d; 7df8e874-1d66-4f81
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-writes: 1199
 x-ms-correlation-request-id: 7885ca75-c7c6-43fb-a38c-c0cc437d8810
-x-ms-routing-request-id: SOUTHINDIA:20180521T083541Z:7885ca75-c7c6-43fb-a38c-c0cc437d8810
+x-ms-routing-request-id: CHINAEAST:20180521T083541Z:7885ca75-c7c6-43fb-a38c-c0cc437d8810
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 08:35:41 GMT
 Location: https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationResults/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2019-05-13
@@ -393,7 +393,7 @@ x-ms-client-request-id: 5a63209d-3708-4e69-a75f-9499f4c8977c; 5a63209d-3708-4e69
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 x-ms-ratelimit-remaining-subscription-reads: 14995
 x-ms-correlation-request-id: a8b13524-2c95-445f-b107-920806f385c1
-x-ms-routing-request-id: SOUTHINDIA:20180521T083723Z:a8b13524-2c95-445f-b107-920806f385c1
+x-ms-routing-request-id: CHINAEAST:20180521T083723Z:a8b13524-2c95-445f-b107-920806f385c1
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 08:37:22 GMT
 Server: Microsoft-IIS/8.0
@@ -491,7 +491,7 @@ DELETE 操作是一种[异步操作](../azure-resource-manager/management/async-
 
 撤消意外删除类似于创建备份项。 撤消删除后，会保留该项，但不会触发任何将来的备份。
 
-撤消删除是 *PUT* 操作，它与[更改策略](#changing-the-policy-of-protection)和/或[启用保护](#enabling-protection-for-the-azure-vm)非常类似。 只需通过[请求正文](#example-request-body)中的变量 *isRehydrate* 提供撤消删除意向并提交请求即可。 例如：若要撤消对 testVM 的删除，应使用以下请求正文。
+撤消删除是 *PUT* 操作，它与 [更改策略](#changing-the-policy-of-protection)和/或 [启用保护](#enabling-protection-for-the-azure-vm)非常类似。 只需通过 [请求正文](#example-request-body)中的变量 *isRehydrate* 提供撤消删除意向并提交请求即可。 例如：若要撤消对 testVM 的删除，应使用以下请求正文。
 
 ```http
 {

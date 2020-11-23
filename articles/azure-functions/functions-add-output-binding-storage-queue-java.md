@@ -4,27 +4,27 @@ description: 了解如何使用队列存储输出绑定将 HTTP 触发的 Java �
 author: KarlErickson
 ms.custom: devx-track-java
 ms.author: v-junlch
-ms.date: 10/19/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: b5f5efd39385ca139b463369b0ec9a28c710dc57
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 769851856fa5d2d99746093c573d37ce78231fd8
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472068"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849326"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>将 Java 函数连接到 Azure 存储
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-本文介绍如何将[前一篇快速入门文章](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)中创建的函数与 Azure 存储队列相集成。 添加到此函数的输出绑定会将 HTTP 请求中的数据写入到队列中的消息。
+本文介绍如何将[前一篇快速入门文章](./create-first-function-cli-java.md?tabs=bash,browser)中创建的函数与 Azure 存储队列相集成。 添加到此函数的输出绑定会将 HTTP 请求中的数据写入到队列中的消息。
 
 大多数绑定都需要一个存储的连接字符串，函数将使用该字符串来访问绑定的服务。 为便于建立此连接，请使用连同函数应用一起创建的存储帐户。 与此帐户建立的连接已存储在名为 `AzureWebJobsStorage` 的应用设置中。  
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始学习本文之前，请完成 [Java 快速入门第 1 部分](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)中的步骤。
+在开始学习本文之前，请完成 [Java 快速入门第 1 部分](./create-first-function-cli-java.md?tabs=bash,browser)中的步骤。
 
 ## <a name="download-the-function-app-settings"></a>下载函数应用设置
 

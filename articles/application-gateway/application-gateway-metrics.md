@@ -5,18 +5,18 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 7d44fd02ea97304f13b6912c2d86077ff5ba9e9f
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 144cfc3c90cf949f1bc0fa6723fe403476621e3c
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796261"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849352"
 ---
 # <a name="metrics-for-application-gateway"></a>应用程序网关的指标
 
-应用程序网关会将称为“指标”的数据点发布到 [Azure Monitor](/azure-monitor/overview)，使用户能够监视应用程序网关和后端实例的性能。 这些指标是一组有序时序数据中的数值，用于描述应用程序网关在特定时间的某种状况。 如果请求通过应用程序网关传送，则应用程序网关将会测量其指标并每隔 60 秒发送一次指标。 如果没有任何请求通过应用程序网关传送，或者指标没有数据，则不会报告指标。 有关详细信息，请参阅 [Azure Monitor 指标](/azure-monitor/platform/data-platform-metrics)。
+应用程序网关会将称为“指标”的数据点发布到 [Azure Monitor](../azure-monitor/overview.md)，使用户能够监视应用程序网关和后端实例的性能。 这些指标是一组有序时序数据中的数值，用于描述应用程序网关在特定时间的某种状况。 如果请求通过应用程序网关传送，则应用程序网关将会测量其指标并每隔 60 秒发送一次指标。 如果没有任何请求通过应用程序网关传送，或者指标没有数据，则不会报告指标。 有关详细信息，请参阅 [Azure Monitor 指标](../azure-monitor/platform/data-platform-metrics.md)。
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>应用程序网关 V2 SKU 支持的指标
 
@@ -60,7 +60,7 @@ ms.locfileid: "87796261"
 
 
 
-这些指标可用于确定速度减慢的原因是与客户端网络、应用程序网关性能、后端网络和后端服务器 TCP 堆栈饱和、后端应用程序性能相关，还是与文件大小较大有关。
+这些指标可用于确定速度减慢的原因是与客户端网络、应用程序网关性能、后端网络和后端服务器 TCP 堆栈饱和、后端应用程序性能还是文件大小较大有关。
 
 例如，如果“后端第一个字节响应时间”趋势存在高峰，但“后端连接时间”趋势稳定，则可以推断应用程序网关与后端之间存在网络延迟，但建立连接所用的时间是稳定的，而出现高峰的原因是后端应用程序的响应时间增大。  另一方面，如果“后端第一个字节响应时间”中的高峰与“后端连接时间”中的相应高峰相关联，则可以推断应用程序网关与后端服务器或后端服务器 TCP 堆栈之间的网络已饱和。  
 

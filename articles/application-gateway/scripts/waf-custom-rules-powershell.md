@@ -4,14 +4,15 @@ description: Azure PowerShell 脚本示例 - 创建 Web 应用程序防火墙自
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 08/03/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 1432a6a0b33cfdfe1d7ce0fc9f2043e9de7f55c8
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5b16da8a4d6d091e0714f9dbd68a74da258309fa
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796331"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849443"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>使用 Azure PowerShell 创建 Web 应用程序防火墙 (WAF) 自定义规则
 
@@ -91,7 +92,7 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 创建子网配置。 |
@@ -117,6 +118,6 @@ Remove-AzResourceGroup -Name CustomRulesTest
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 WAF 自定义规则的详细信息，请参阅 [Web 应用程序防火墙的自定义规则](../custom-waf-rules-overview.md)
-- 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+- 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 - 可以在 [Azure 应用程序网关文档](../powershell-samples.md)中找到其他应用程序网关 PowerShell 脚本示例。
 

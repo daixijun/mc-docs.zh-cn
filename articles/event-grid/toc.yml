@@ -94,7 +94,7 @@
       items:
         - name: 系统主题概述
           href: system-topics.md
-        - name: 事件源
+        - name: 事件源（发布服务器）
           items:
             - name: Azure 应用服务
               href: event-schema-app-service.md
@@ -170,6 +170,16 @@
           href: metrics.md
 - name: 操作指南
   items:
+    - name: 创建、查看和管理系统主题
+      items:
+        - name: Azure 门户
+          href: create-view-manage-system-topics.md
+        - name: Azure CLI
+          href: create-view-manage-system-topics-cli.md
+        - name: Azure 资源管理器模板
+          href: create-view-manage-system-topics-arm.md
+    - name: 获取主题或域的访问密钥
+      href: get-access-keys.md
     - name: 发布到自定义主题
       href: post-to-custom-topic.md
     - name: 在 HTTP 终结点接收事件
@@ -200,6 +210,10 @@
           href: move-custom-topics-across-regions.md
         - name: 跨区域移动域
           href: move-domains-across-regions.md
+        - name: 通过 Azure Active Directory 保护 Webhook
+          href: secure-webhook-delivery.md
+        - name: 事件传递、托管标识和专用链接
+          href: managed-service-identity.md
     - name: 疑难解答
       items:
         - name: 启用诊断日志

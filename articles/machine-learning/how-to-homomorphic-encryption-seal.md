@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 8a64294362515170ae766fe61be884f7ede11d55
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 97eedfc5d658c39a0a4f694eb4748b425e0d6bbd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106255"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977470"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>如何部署加密推理 Web 服务（预览版）
 
-了解如何在 [Azure 容器实例](https://docs.microsoft.com/azure/container-instances/) (ACI) 中将映像分类模型部署为加密推理 Web 服务。 Web 服务是包含模型和评分逻辑的 Docker 容器映像。
+了解如何在 [Azure 容器实例](../container-instances/index.yml) (ACI) 中将映像分类模型部署为加密推理 Web 服务。 Web 服务是包含模型和评分逻辑的 Docker 容器映像。
 
 在本指南中，将使用 Azure 机器学习服务执行以下操作：
 
@@ -30,7 +30,7 @@ ms.locfileid: "93106255"
 > * 作出加密预测
 > * 清理资源
 
-ACI 是用于测试和了解模型部署工作流的绝佳解决方案。 对于可缩放的生产部署，请考虑使用 Azure Kubernetes 服务。 有关详细信息，请参阅[部署方式及位置](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)。
+ACI 是用于测试和了解模型部署工作流的绝佳解决方案。 对于可缩放的生产部署，请考虑使用 Azure Kubernetes 服务。 有关详细信息，请参阅[部署方式及位置](./how-to-deploy-and-where.md)。
 
 本示例中使用的加密方法是[同态加密](https://github.com/Microsoft/SEAL#homomorphic-encryption)。 使用同态加密，无需访问机密（解密）密钥即可对加密数据进行计算。 计算的结果已加密，只能由密钥的所有者公开。 
 

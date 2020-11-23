@@ -2,15 +2,15 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/30/2020
-ms.date: 08/03/2020
+origin.date: 10/15/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1dbd3743c73eaa1d034160c59ce7da3ce1b6a8a7
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 34abc0e3c31adc7c0e4962bb2618117a5238657c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317572"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977649"
 ---
 本指南介绍如何安装用于 Linux 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)
 
@@ -18,7 +18,7 @@ ms.locfileid: "89317572"
 
 ## <a name="system-requirements"></a>系统要求
 
-Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9、RHEL 8、CentOS 8）
+Linux：请参阅[受支持的 Linux 分发和目标体系结构](~/articles/cognitive-services/speech-service/speech-sdk.md)的列表。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,21 +29,16 @@ Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9、RHEL 8、CentOS 8）
 
 * 支持的 Linux 平台会要求安装某些库（要求安装 `libssl` 以获取安全套接字层支持；要求安装 `libasound2` 以获取声音支持）。 请参阅下面的发行版，了解安装这些库的正确版本所需的命令。
 
-   * 在 Ubuntu 上：
+   * 在 Ubuntu/Debian 上：
 
      ```sh
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * 在 Debian 9 上：
+     如果 libssl1.0.0 不可用，则改为安装 libssl1.0.x（其中 x 大于 0）或 libssl1.1。
 
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
-     ```
-
-   * 在 RHEL/CentOS 8 上：
+   * 在 RHEL/CentOS 上：
 
      ```sh
      sudo yum update
@@ -52,7 +47,8 @@ Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9、RHEL 8、CentOS 8）
      ```
 
 > [!NOTE]
-> 在 RHEL/CentOS 8 上，按照[如何配置 OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md) 上的说明进行操作。
+> - 在 RHEL/CentOS 7 上，按照[如何为语音 SDK 配置 RHEL/CentOS 7](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md) 上的说明进行操作。
+> - 在 RHEL/CentOS 8 上，按照[如何配置 OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md) 上的说明进行操作。
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

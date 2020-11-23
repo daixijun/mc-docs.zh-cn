@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4dd97e3fb7e70c3914c57742bc3e0bb1b7f1a2d9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2bed1da54dee4a40fa597f10572da51750057670
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106258"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977488"
 ---
 # <a name="collect-data-from-models-in-production"></a>收集生产中模型的数据
 
@@ -67,11 +67,11 @@ Blob 中输出数据的路径遵循以下语法：
 
 - 需要一个 AKS 群集。 有关如何创建此类群集并部署到其中的信息，请参阅[部署方式和部署位置](how-to-deploy-and-where.md)。
 
-- [设置环境](how-to-configure-environment.md)并安装 [Azure 机器学习监视 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
+- [设置环境](how-to-configure-environment.md)并安装 [Azure 机器学习监视 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 
 ## <a name="enable-data-collection"></a>启用数据收集
 
-无论通过 Azure 机器学习或其他工具部署的模型是什么，都可以启用[数据收集](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true)。
+无论通过 Azure 机器学习或其他工具部署的模型是什么，都可以启用[数据收集](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py)。
 
 若要启用数据收集，需要：
 
@@ -91,7 +91,7 @@ Blob 中输出数据的路径遵循以下语法：
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* 是可选参数。 如果模型不需要此参数，则无需使用它。 使用 *CorrelationId* 确实可以帮助你轻松映射到其他数据，例如 *LoanNumber* 或 *CustomerId* 。
+    *CorrelationId* 是可选参数。 如果模型不需要此参数，则无需使用它。 使用 *CorrelationId* 确实可以帮助你轻松映射到其他数据，例如 *LoanNumber* 或 *CustomerId*。
     
     稍后将使用 *Identifier* 参数在 Blob 中生成文件夹结构。 可以使用此参数将原始数据与已处理的数据区分开来。
 
@@ -104,7 +104,7 @@ Blob 中输出数据的路径遵循以下语法：
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-1. 在 AKS 中部署服务时，数据收集不会自动设置为 **true** 。 如以下示例所示更新配置文件：
+1. 在 AKS 中部署服务时，数据收集不会自动设置为 **true**。 如以下示例所示更新配置文件：
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)

@@ -10,18 +10,18 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 831c59f5fda9e2254e36c472ccd7c169579ef22f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 6d70176e25f5afe23ad9c6b4a33aba87698e3470
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118585"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977447"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>使用 REST 创建、运行和删除 Azure ML 资源
 
 
 
-可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
+可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](/cli/azure/?preserve-view=true&view=azure-cli-latest)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
 
 在本文中，学习如何：
 
@@ -35,10 +35,10 @@ ms.locfileid: "92118585"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你对其拥有管理权限的 **Azure 订阅** 。 如果没有此类订阅，请尝试注册[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)
-- 一个 [Azure 机器学习工作区](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-- 管理 REST 请求使用服务主体身份验证。 遵循[为 Azure 机器学习资源和工作流设置身份验证](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)中的步骤在工作区中创建服务主体
-- **curl** 实用工具。 在 [适用于 Linux 的 Windows 子系统](https://aka.ms/wslinstall/)或任何 UNIX 分发版中均已提供了 **curl** 程序。 在 PowerShell 中， **curl** 是 **Invoke-WebRequest** 的别名，并且 `curl -d "key=val" -X POST uri` 变成了 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`。 
+- 你对其拥有管理权限的 **Azure 订阅**。 如果没有此类订阅，请尝试注册[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)
+- 一个 [Azure 机器学习工作区](./how-to-manage-workspace.md)
+- 管理 REST 请求使用服务主体身份验证。 遵循[为 Azure 机器学习资源和工作流设置身份验证](./how-to-setup-authentication.md#service-principal-authentication)中的步骤在工作区中创建服务主体
+- **curl** 实用工具。 在 [适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)或任何 UNIX 分发版中均已提供了 **curl** 程序。 在 PowerShell 中，**curl** 是 **Invoke-WebRequest** 的别名，并且 `curl -d "key=val" -X POST uri` 变成了 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`。 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>检索服务主体身份验证令牌
 
@@ -48,7 +48,7 @@ ms.locfileid: "92118585"
 - 客户端 ID（将与创建的令牌相关联）
 - 客户端机密（应予以保护）
 
-应从创建服务主体的响应中获取这些值。 [为 Azure 机器学习资源和工作流设置身份验证](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)一文介绍了如何获取这些值。 如果使用公司订阅，则可能无权创建服务主体。 在这种情况下，应使用[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)。
+应从创建服务主体的响应中获取这些值。 [为 Azure 机器学习资源和工作流设置身份验证](./how-to-setup-authentication.md#service-principal-authentication)一文介绍了如何获取这些值。 如果使用公司订阅，则可能无权创建服务主体。 在这种情况下，应使用[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)。
 
 若要检索令牌，请执行以下操作：
 
@@ -279,7 +279,7 @@ curl -X PUT \
 print("Hello, REST!")
 ```
 
-将下一个代码片段保存为 **definition.json** 。 确认“Script”值与刚刚压缩的 Python 文件的名称相匹配。 确认“Target”值与可用计算资源的名称相匹配。 
+将下一个代码片段保存为 **definition.json**。 确认“Script”值与刚刚压缩的 Python 文件的名称相匹配。 确认“Target”值与可用计算资源的名称相匹配。 
 
 ```json
 {
@@ -423,5 +423,5 @@ Azure 机器学习工作区使用 Azure 容器注册表 (ACR) 执行某些操作
 ## <a name="next-steps"></a>后续步骤
 
 - 浏览完整的 [AzureML REST API 参考](https://docs.microsoft.com/rest/api/azureml/)。
-- 了解如何[使用设计器预测汽车价格](/machine-learning/tutorial-designer-automobile-price-train-score)。
+- 了解如何[使用设计器预测汽车价格](/tutorial-designer-automobile-price-train-score)。
 - [使用 Jupyter 笔记本探索 Azure 机器学习](/machine-learning/samples-notebooks)。

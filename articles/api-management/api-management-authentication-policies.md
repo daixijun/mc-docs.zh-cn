@@ -12,17 +12,17 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: db036863718cc566b9985eac059f55a9407f2e42
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 7978103b183d9f207da067cf720a235c9599021c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871265"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977398"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://docs.azure.cn/api-management/api-management-policies)。
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-policies.md)。
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> 身份验证策略
 
@@ -68,7 +68,7 @@ ms.locfileid: "91871265"
 -   **策略范围：** 所有范围
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> 使用客户端证书进行身份验证
- 通过 `authentication-certificate` 策略使用客户端证书向后端服务进行身份验证。 需要首先将证书[安装到 API 管理](https://go.microsoft.com/fwlink/?LinkID=511599)，并由其指纹进行标识。
+ 通过 `authentication-certificate` 策略使用客户端证书向后端服务进行身份验证。 需要首先将证书[安装到 API 管理](./api-management-howto-mutual-certificates.md)，并由其指纹进行标识。
 
 ### <a name="policy-statement"></a>策略语句
 
@@ -201,5 +201,5 @@ ms.locfileid: "91871265"
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
 + [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
-+ [策略示例](policy-samples.md)
++ [策略示例](./policy-reference.md)
 

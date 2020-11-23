@@ -1,19 +1,19 @@
 ---
 title: Azure 流分析中的异常情况检测
 description: 本文介绍如何将 Azure 流分析与 Azure 机器学习一起使用以检测异常。
-author: lingliw
-ms.author: v-lingwu
-ms.reviewer: jasonh
+author: Johnnytechn
+ms.author: v-johya
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/21/2019
-ms.date: 08/09/2019
-ms.openlocfilehash: 15782a94d98b94fb6c8e06e0f39d34d655efdfa3
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.date: 11/16/2020
+ms.openlocfilehash: 600e9c15ea8c0b4fbefce7aab758e9f83fd88a41
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852011"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978294"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 流分析中的异常情况检测
 
@@ -109,10 +109,10 @@ FROM AnomalyDetectionStep
 
 这些模型的性能取决于历史记录大小、窗口持续时间、事件负载，以及是否使用函数级分区。 本部分讨论这些配置，并通过示例来说明如何保持每秒 1K、5K 和 10K 个事件的引入速率。
 
-* **历史记录大小** - 这些模型的性能与**历史记录大小**呈线性关系。 历史记录越长，模型为新事件评分所需的时间就越长。 这是因为，这些模型会将新事件与历史缓冲区中的每个以往事件进行比较。
-* **窗口持续时间** - **窗口持续时间**应反映接收历史记录大小指定的事件数所花费的时间。 如果窗口中没有这么多事件，Azure 流分析会插补缺失值。 因此，CPU 消耗量取决于历史记录大小。
-* **事件负载** - **事件负载**越大，模型执行的工作就越多，因而会影响 CPU 消耗量。 假设易并行有利于业务逻辑利用更多的输入分区，则可以通过易并行来横向扩展作业。
-* **函数级分区** -  可以通过在异常情况检测函数调用中使用 ```PARTITION BY``` 来执行**函数级分区**。 此类分区会增大开销，因为需要同时保留多个模型的状态。 函数级分区在设备级分区等方案中使用。
+* **历史记录大小** - 这些模型的性能与 **历史记录大小** 呈线性关系。 历史记录越长，模型为新事件评分所需的时间就越长。 这是因为，这些模型会将新事件与历史缓冲区中的每个以往事件进行比较。
+* **窗口持续时间** - **窗口持续时间** 应反映接收历史记录大小指定的事件数所花费的时间。 如果窗口中没有这么多事件，Azure 流分析会插补缺失值。 因此，CPU 消耗量取决于历史记录大小。
+* **事件负载** - **事件负载** 越大，模型执行的工作就越多，因而会影响 CPU 消耗量。 假设易并行有利于业务逻辑利用更多的输入分区，则可以通过易并行来横向扩展作业。
+* **函数级分区** -  可以通过在异常情况检测函数调用中使用 ```PARTITION BY``` 来执行 **函数级分区**。 此类分区会增大开销，因为需要同时保留多个模型的状态。 函数级分区在设备级分区等方案中使用。
 
 ### <a name="relationship"></a>关系
 历史记录大小、窗口持续时间和总事件负载之间的关系如下：
@@ -155,5 +155,5 @@ Azure 示例[大规模流式处理存储库](https://github.com/Azure-Samples/st
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

@@ -9,12 +9,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2322047ce6e5753a65e49093153eea1a8610a733
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 58ba80a6f89b00b12501aed2c5d96fd59d4e4f76
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327686"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915124"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -132,7 +132,9 @@ Azure Cosmos DB 可保证 100% 的读取请求满足所选一致性级别的一�
 
 对于配置了强一致性（与多个区域一致）的 Azure Cosmos 帐户，99% 的情况下写入延迟等于任意两个最远区域之间的往返时间 (RTT) 的两倍加上 10 毫秒。 区域之间的高网络 RTT 将转变为 Cosmos DB 请求的更高延迟，因为只有在确保已将操作提交到帐户中的所有区域之后，强一致性才会完成该操作。
 
-确切的 RTT 延迟取决于光速距离和 Azure 网络拓扑。 Azure 网络不为任何两个 Azure 区域之间的 RTT 提供任何延迟 SLA，但它会发布 [Azure 网络往返延迟统计信息](../networking/azure-network-latency.md)。 对于你的 Azure Cosmos 帐户，将在 Azure 门户中显示复制延迟。 可以使用 Azure 门户（转到“指标”边栏选项卡，选择“一致性”选项卡）监视与 Azure Cosmos 帐户关联的各个区域之间的复制延迟。
+确切的 RTT 延迟取决于光速距离和 Azure 网络拓扑。 Azure 网络不会针对任意两个 Azure 区域之间的 RTT 提供任何延迟 SLA。 对于你的 Azure Cosmos 帐户，将在 Azure 门户中显示复制延迟。 可以使用 Azure 门户（转到“指标”边栏选项卡，选择“一致性”选项卡）监视与 Azure Cosmos 帐户关联的各个区域之间的复制延迟。
+
+<!--Not Available on [Azure network round-trip latency statistics](../networking/azure-network-latency.md)-->
 
 > [!IMPORTANT]
 > 由于写入延迟大，默认情况下会阻止区域跨越 5000 英里（8000 公里）以上的帐户的强一致性。 若要启用此功能，请联系支持人员。

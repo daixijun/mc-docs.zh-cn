@@ -5,15 +5,15 @@ description: 了解如何使用 Resource Manager 中的 PowerShell 创建应用�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 04/26/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 42403f51b3906b686d5cbccfceb5f7e973bf8217
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: dfa9ea7d22b8cd148f139188edd42bafa3152829
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267564"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849339"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
 
@@ -197,6 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>后续步骤
 
-访问以下文档，了解如何配置 TLS 卸载：[配置 TLS 卸载](application-gateway-ssl-arm.md)
-
+访问以下文档，了解如何配置 TLS 卸载：[配置 TLS 卸载](./tutorial-ssl-powershell.md)
 

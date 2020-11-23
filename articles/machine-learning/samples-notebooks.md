@@ -1,7 +1,7 @@
 ---
 title: 示例 Jupyter Notebook
 titleSuffix: Azure Machine Learning
-description: 找到并使用示例 Jupyter Notebook，以便探索 Azure 机器学习 Python SDK。
+description: 了解如何查找并使用 Juypter 笔记本，这些 Juypter 笔记本旨在帮助你浏览 SDK，并充当你自己的机器学习项目的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,17 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: db70a3337c1fd2d615cd05a5675788fc56336cf3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: fc23766feab3bc3720a780c28d9fdd64790b3df8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106300"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977902"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure 机器学习
+
+> [!NOTE] 
+> 可在 https://github.com/Azure/azureml-examples 找到社区主导的示例存储库。
 
 [示例 Azure 机器学习笔记本存储库](https://github.com/azure/machinelearningnotebooks)包含最新的 Azure 机器学习 Python SDK 示例。 这些 Juypter 笔记本旨在帮助你浏览 SDK，并充当你自己的机器学习项目的模型。
 

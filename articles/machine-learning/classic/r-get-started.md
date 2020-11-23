@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 04d8bcd9a5984b5e8b1f742eea8a8d08fb27ff67
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f6bb079401a92f36d6ce0367cadbf3c25fdc52fa
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118902"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978288"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>在 Azure 机器学习工作室（经典版）中使用 R
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -64,7 +64,7 @@ ms.locfileid: "92118902"
 
 #### <a name="execute-r-code"></a>执行 R 代码
 
-选择“运行”按钮运行此试验时，将执行[执行 R 脚本][execute-r-script]模块中的任何 R 代码。**** 执行完成后，在[执行 R 脚本][execute-r-script]图标上会显示一个对勾。
+选择“运行”按钮运行此试验时，将执行[执行 R 脚本][execute-r-script]模块中的任何 R 代码。 执行完成后，在[执行 R 脚本][execute-r-script]图标上会显示一个对勾。
 
 #### <a name="defensive-r-coding-for-machine-learning-studio-classic"></a>适用于机器学习工作室（经典版）的防御性 R 编码
 
@@ -237,7 +237,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 1. 将 zip 文件从“数据集”拖到“机器学习工作室（经典版）画布” 。
 
-1. 将 **zip 数据**输出图标连接到[执行 R 脚本][execute-r-script]模块的**脚本包**输入。
+1. 将 **zip 数据** 输出图标连接到 [执行 R 脚本][execute-r-script]模块的 **脚本包** 输入。
 
 1. 在[执行 R 脚本][execute-r-script]模块的代码窗口中输入具有 zip 文件名的 `source()` 函数。 在此示例中，我们输入 `source("src/simpleplot.R")`。
 
@@ -255,7 +255,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 cadairydata <- maml.mapInputPort(1)
 ```
 
-选择“运行”按钮执行试验。**** 执行完成后，选择[执行 R 脚本][execute-r-script]模块，并选择“属性”窗格上的“查看 output.log”。 浏览器中打开新的页面，其中显示 output.log 文件的内容。 向下滚动页面时会看到类似以下输出的内容。
+选择“运行”按钮执行试验。 执行完成后，选择[执行 R 脚本][execute-r-script]模块，并选择“属性”窗格上的“查看 output.log”。 浏览器中打开新的页面，其中显示 output.log 文件的内容。 向下滚动页面时会看到类似以下输出的内容。
 
 ```output
 [ModuleOutput] InputDataStructure
@@ -932,7 +932,7 @@ outframe
 
 ### <a name="create-the-dataframe-for-analysis"></a>创建用于分析的数据框
 
-首先将新的[执行 R 脚本][execute-r-script]模块添加到试验中。 将现有的执行 R 脚本模块的[结果数据集][execute-r-script]输出连接到新的模块的 **Dataset1** 输入。 结果应如下例所示。
+首先将新的[执行 R 脚本][execute-r-script]模块添加到试验中。 将现有的执行 R 脚本模块的 [结果数据集][execute-r-script]输出连接到新的模块的 **Dataset1** 输入。 结果应如下例所示。
 
 ![显示已添加新执行 R 脚本模块的试验的屏幕截图。](./media/r-quickstart/fig21.png)
 
@@ -1029,10 +1029,10 @@ summary(milk.lm)
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1062,10 @@ summary(milk.lm)
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1113,21 @@ summary(milk.lm2)
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1
@@ -1306,4 +1306,4 @@ RStudio 随附了齐备的文档。 下面提供了 RStudio 文档中关键部�
 * [Top R language resources to improve your data skills](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html)（用于改善数据技能的顶级 R 语言资源）中列出了 60 多个 R 资源。
 
 <!-- Module References -->
-[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[execute-r-script]: /machine-learning/studio-module-reference/execute-r-script

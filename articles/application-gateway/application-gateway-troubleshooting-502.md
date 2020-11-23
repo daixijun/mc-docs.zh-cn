@@ -4,15 +4,15 @@ description: 了解如何排查应用程序网关服务器错误：502 - Web 服
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/23/2020
+ms.topic: troubleshooting
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 946a377c4ca56665187de257232d448e9e31383d
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 483a5f600da3b74a389e01c5fb14b7ae9563e177
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516446"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849423"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
@@ -95,8 +95,8 @@ NSG/UDR 可能存在于应用程序网关子网中，也可能存在于部署了
 * 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
 * 对 `http://127.0.0.1:port` 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
 * 确保配置的端口已打开，并且没有任何防火墙或 Azure 网络安全组在配置的端口上阻止传入或传出流量。
-* 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)。
-* 如果 VM 是通过 Azure 资源管理器配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/security-overview.md)配置为允许在所需端口上进行访问。
+* 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json)。
+* 如果 VM 是通过 Azure 资源管理器配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/network-security-groups-overview.md)配置为允许在所需端口上进行访问。
 
 ## <a name="problems-with-custom-health-probe"></a>自定义运行状况探测出现问题
 
@@ -195,5 +195,4 @@ BackendAddressPoolsText：
 ## <a name="next-steps"></a>后续步骤
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
-
 

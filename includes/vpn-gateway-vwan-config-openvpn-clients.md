@@ -9,12 +9,12 @@ origin.date: 03/17/2020
 ms.date: 05/11/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 3cc376e53e3d261999147e4bc10dcbfa4088a106
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: c9371bfc7032d9ffaa7088e9297ee6da45f67fd1
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507686"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915572"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Windows 客户端
 
@@ -91,23 +91,23 @@ ms.locfileid: "82507686"
 
     ![打开电子邮件](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
 
-9. 如果没有看到“复制到 OpenVPN”选项，请点击“更多”。
+9. 如果没有看到“复制到 OpenVPN”  选项，请点击“更多”  。
 
     ![更多](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
-10. 点击“复制到 OpenVPN” 
+10. 点击“复制到 OpenVPN”  
 
     ![复制到 OpenVPN](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
 
-11. 在“导入配置文件”页面中点击“添加” 
+11. 在“导入配置文件”页面中点击“添加”  
 
     ![添加](./media/vpn-gateway-vwan-config-openvpn-clients/ios5.png)
 
-12. 在“导入的配置文件”页面中点击“添加” 
+12. 在“导入的配置文件”页面中点击“添加”  
 
     ![点击“添加”](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
 
-13. 启动 OpenVPN 应用，并将“配置文件”页面中的开关向右滑动以进行连接
+13. 启动 OpenVPN 应用，并将“配置文件”  页面中的开关向右滑动以进行连接
 
     ![连接](./media/vpn-gateway-vwan-config-openvpn-clients/ios8.png)
 
@@ -162,13 +162,13 @@ ms.locfileid: "82507686"
 11. 若要使用命令行进行连接，请键入以下命令：
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>&
+    sudo openvpn --config <name and path of your VPN profile file>&
     ```
 12. 要使用 GUI 进行连接，请转到系统设置。
-13. 单击 + 添加新的 VPN 连接。
-14. 在“添加 VPN”下，选择“从文件导入...” 
-15. 浏览到配置文件，然后双击或选择“打开”。
-16. 单击“添加 VPN”窗口上的“添加” 。
+13. 单击  **添加新的 VPN 连接+** 。
+14. 在“添加 VPN”下，选择“从文件导入...”  
+15. 浏览到配置文件，然后双击或选择“打开”。 
+16. 单击“添加 VPN”窗口上的“添加”   。
   
     ![从文件导入](./media/vpn-gateway-vwan-config-openvpn-clients/import.png)
-17. 可以通过在“网络设置”页面上或在系统托盘中的网络图标下打开 VPN 进行连接 。
+17. 可以通过在“网络设置”页面上或在系统托盘中的网络图标下打开 VPN 进行连接   。

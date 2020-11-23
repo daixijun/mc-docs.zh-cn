@@ -6,16 +6,16 @@ manager: rochakm
 ms.topic: article
 origin.date: 03/29/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 28c3b3c6884666f074d29a451e6a03bd774f3180
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: cf1579caec242489ca59678772af3191f621deee
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977322"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -275,6 +275,7 @@ $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $R
 ```
 
 <!--Target object is China North region-->
+<!--Not Available on Zone to Zone replication-->
 
 ### <a name="create-a-replication-policy"></a>创建复制策略
 
@@ -314,6 +315,8 @@ Write-Output $TempASRJob.State
 $EcnToNcnPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+<!--Not Available on Zone to Zone replication-->
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>创建用于故障回复（故障转移后的反向复制）的保护容器映射
 
 在故障转移后，准备好将故障转移的虚拟机恢复到原始 Azure 区域时，执行故障回复。 为了进行故障回复，故障转移的虚拟机将从故障转移的区域反向复制到原始区域。 反向复制时，原始区域和恢复区域的角色将会切换。 原始区域现在变成新的恢复区域，而最初的恢复区域现在会变成主要区域。 反向复制的保护容器映射表示原始和恢复区域的已切换角色。
@@ -347,7 +350,7 @@ $ChinaEastCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -Re
 
 <!--Source object is China East region-->
 
-对于**未使用托管磁盘**的虚拟机，目标存储帐户是虚拟机磁盘复制到的恢复区域中的存储帐户。 目标存储帐户可以是标准存储帐户，也可以是高级存储帐户。 根据磁盘的数据更改率（IO 写入率）以及 Azure Site Recovery 对存储类型支持的变动限制，来选择所需的存储帐户类型。
+对于 **未使用托管磁盘** 的虚拟机，目标存储帐户是虚拟机磁盘复制到的恢复区域中的存储帐户。 目标存储帐户可以是标准存储帐户，也可以是高级存储帐户。 根据磁盘的数据更改率（IO 写入率）以及 Azure Site Recovery 对存储类型支持的变动限制，来选择所需的存储帐户类型。
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -391,11 +394,11 @@ $ChinaNorthTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" 
 
     # Extract the resource ID of the Azure virtual network the nic is connected to from the subnet ID
     $ChinaEastPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
-   ```
+    ```
 
 - 在主要虚拟网络与恢复虚拟网络之间创建网络映射：
 
-   ```azurepowershell
+    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
     $TempASRJob = New-AzRecoveryServicesAsrNetworkMapping -AzureToAzure -Name "A2AEcnToNcnNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $ChinaEastPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $ChinaNorthRecoveryNetwork
 
@@ -407,7 +410,7 @@ $ChinaNorthTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" 
 
     #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
-   ```
+    ```
 
 - 为反向复制（故障回复）创建网络映射：
 
@@ -427,7 +430,7 @@ $ChinaNorthTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" 
 
 ## <a name="replicate-azure-virtual-machine"></a>复制 Azure 虚拟机
 
-复制包含**托管磁盘**的 Azure 虚拟机。
+复制包含 **托管磁盘** 的 Azure 虚拟机。
 
 <!--MOONCAKE: CORRECT ON $ChinaEastCacheStorageAccount -->
 
@@ -465,7 +468,7 @@ $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -A
 
 <!--MOONCAKE: CORRECT ON $ChinaEastCacheStorageAccount -->
 
-复制包含**非托管磁盘**的 Azure 虚拟机。
+复制包含 **非托管磁盘** 的 Azure 虚拟机。
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -658,7 +661,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 可以使用 `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet 禁用复制。
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -10,14 +10,14 @@ metadata:
   ms.service: speech-service
   ms.topic: landing-page
   origin.date: 03/10/2020
-  ms.date: 09/02/2020
+  ms.date: 11/20/2020
   ms.author: v-tawe
-  ms.openlocfilehash: e1311fbff1c6fbba834ff90981bdaef27146d935
-  ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+  ms.openlocfilehash: 16f32510c27e02e3d3d63532200986a1e6284253
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89317454"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94977715"
 landingContent:
 - title: 关于文本转语音
   linkLists:
@@ -59,3 +59,9 @@ landingContent:
       url: speech-ssml-phonetic-sets.md
     - text: 文本转语音定价
       url: https://www.azure.cn/pricing/details/cognitive-services
+- title: 帮助和反馈
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 支持和帮助选项
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

@@ -8,13 +8,13 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 5/26/2019
-ms.date: 10/19/2020
-ms.openlocfilehash: 31ef21d4742ab7ac66051f5cac7257d2b3be5e25
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/23/2020
+ms.openlocfilehash: 59ee0595eeeb15213b041f0c87e1aeea3fb5e707
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041855"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977343"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Node.js 进行连接并查询 Azure Database for MySQL 中的数据
 
@@ -70,9 +70,9 @@ ms.locfileid: "92041855"
    ```
 3. 通过检查 npm list 输出文本来验证安装。 随着新修补程序的发布，版本号可能会变化。
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
-1. 输入以下命令安装 **brew**（适用于 Mac OS X 和 **Node.js** 的易用程序包管理器）。
+1. 输入以下命令安装 brew（适用于 macOS 和 Node.js 的易用程序包管理器） 。
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -323,6 +323,16 @@ function deleteData(){
                 else  console.log('Done.') 
         });
 };
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

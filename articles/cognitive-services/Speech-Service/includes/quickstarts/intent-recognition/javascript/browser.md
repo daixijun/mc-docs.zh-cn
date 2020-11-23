@@ -6,12 +6,12 @@ origin.date: 04/03/2020
 ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: a7c3cc98a4472490e6d0250b74fd696fd576705f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 98ad8eef82505955f52de143672b18761337cd9a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127613"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978423"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>从一些样本代码入手
 
@@ -450,7 +450,7 @@ $subscriptionKey = 'YourSubscriptionKey';
 $region = 'YourServiceRegion';
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://' . $region . '.api.cognitive.microsoft.com/sts/v1.0/issueToken');
+curl_setopt($ch, CURLOPT_URL, 'https://' . $region . '.api.cognitive.azure.cn/sts/v1.0/issueToken');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{}');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Ocp-Apim-Subscription-Key: ' . $subscriptionKey));

@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: e28026994f3db546a8d6964f74d30af490191e5b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 25c88be29552ea1e8564426d7b22407bc2509d9e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021180"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978195"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>快速入门：设置适用于 Windows 的 Data Science Virtual Machine
 
@@ -40,7 +40,7 @@ ms.locfileid: "90021180"
       * **虚拟机名称**：输入虚拟机的名称。 这就是它在 Azure 门户中的显示方式。
       * **位置**：选择最合适的数据中心。 为获得最快的网络访问速度，请选择包含大部分数据，或者最接近实际位置的数据中心。 详细了解 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)。
       * **映像**：保留默认值。
-      * **大小**：它应自动填充为适合一般工作负荷的大小。 详细了解 [Azure 中的 Windows VM 大小](../../virtual-machines/windows/sizes.md)。
+      * **大小**：它应自动填充为适合一般工作负荷的大小。 详细了解 [Azure 中的 Windows VM 大小](../../virtual-machines/sizes.md)。
       * **用户名**：输入管理员用户名。 这是你将用于登录到虚拟机的用户名，无需与 Azure 用户名相同。
       * **密码**：输入将用于登录到虚拟机的密码。    
 1. 选择“查看 + 创建”。
@@ -50,12 +50,12 @@ ms.locfileid: "90021180"
 
 
 > [!NOTE]
-> * 无需为虚拟机上预装的软件支付许可费用。 你需要为在**大小**步骤中选择的服务器大小支付计算成本。
+> * 无需为虚拟机上预装的软件支付许可费用。 你需要为在 **大小** 步骤中选择的服务器大小支付计算成本。
 > * 预配过程将花费 10 到 20 分钟。 在 Azure 门户中可以查看 VM 的状态。
 
 ## <a name="access-the-dsvm"></a>访问 DSVM
 
-创建并预配 VM 后，请按照列出的步骤[连接到基于 Azure 的虚拟机](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md)。 请使用创建虚拟机时在“基本信息”步骤中配置的管理员帐户凭据。 
+创建并预配 VM 后，请按照列出的步骤[连接到基于 Azure 的虚拟机](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base)。 请使用创建虚拟机时在“基本信息”步骤中配置的管理员帐户凭据。 
 
 现在，可以开始使用 VM 上安装并配置的工具。 可以通过“开始”菜单磁贴和桌面图标访问许多工具。
 

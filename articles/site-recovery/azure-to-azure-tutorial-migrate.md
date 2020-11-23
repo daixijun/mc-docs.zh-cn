@@ -6,17 +6,17 @@ ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 01/28/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: a9ae3854f9425c4d7816a5fb260f019edcbd956d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 25b659075678a5a64ba226060f91bf4f8b91d8d6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977292"
 ---
 # <a name="move-vms-to-another-azure-region"></a>将 VM 移动到另一个 Azure 区域
 
@@ -66,7 +66,7 @@ ms.locfileid: "94328756"
 
 - 确保未使用身份验证代理来控制要移动的 VM 的网络连接。
 
-- 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)。
+- 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity)。
 
 - 确定源网络布局和当前正在使用的所有资源。 这包括但不限于负载均衡器、网络安全组 (NSG) 和公共 IP。
 
@@ -95,7 +95,7 @@ ms.locfileid: "94328756"
 1. 登录到 [Azure 门户](https://portal.azure.cn)
 1. 在搜索中，键入“恢复服务”，然后单击“恢复服务保管库”
 1. 在“恢复服务保管库”菜单中，单击“+添加”。
-1. 在“名称”  中，指定友好名称 **ContosoVMVault** 。 如果有多个订阅，请选择合适的一个。
+1. 在“名称”  中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
 1. 创建资源组 ContosoRG  。
 1. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
 1. 在“恢复服务保管库”中，选择“ContosoVMVault” > “复制的项” > “+ 复制”   。

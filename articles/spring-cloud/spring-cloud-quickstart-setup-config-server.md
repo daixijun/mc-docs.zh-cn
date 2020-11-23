@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ae8ea7969c0a4499b17fe835db19e9754fe75d9b
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: 07aa6489859d9dec5d6df1554d4144be0c5f137b
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373969"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849358"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>快速入门：设置 Azure Spring Cloud Config Server
 
@@ -52,6 +52,31 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 
 ---
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud Config Server 的故障排除
+
+以下过程说明如何对 Config Server 设置进行故障排除。
+
+1. 在 Azure 门户中，转到服务“概览”页，然后选择“日志” 。 
+1. 选择“查询”和“显示包含‘错误’或‘异常’术语的应用程序日志” 。 
+1. 单击 **“运行”** 。 
+1. 如果在日志中发现错误“java.lang.illegalStateException”，则表明 Spring Cloud Service 无法从 Config Server 中找到属性。
+
+    [ ![ASC 门户运行查询](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. 转到服务“概述”页。
+1. 选择“诊断并解决问题”。 
+1. 选择“Config Server”检测程序。
+
+    [ ![ASC 门户诊断问题](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. 单击“Config Server 运行状况检查”。
+
+    [ ![ASC 门户精灵](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. 单击“Config Server 状态”以查看来自检测程序的详细信息。
+
+    [ ![ASC 门户运行状况状态](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](./media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>后续步骤
 

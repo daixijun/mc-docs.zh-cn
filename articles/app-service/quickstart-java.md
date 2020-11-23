@@ -11,12 +11,12 @@ ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 30d2b0b8269cb952d122d87904d9d312ad5e9c42
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 8d16abe4ac4ed691015b38850a0c56c41ba32d23
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170501"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977174"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>快速入门：在 Azure 应用服务中创建 Java 应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "92170501"
 
 
 > [!NOTE]
-> 也可使用 IntelliJ 和 Eclipse 等常见 IDE 执行相同的操作。 请查看 [Azure Toolkit for IntelliJ 快速入门](/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)或 [Azure Toolkit for Eclipse 快速入门](/java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)中的类似文档。
+> 也可使用 IntelliJ 和 Eclipse 等常见 IDE 执行相同的操作。 请查看 [Azure Toolkit for IntelliJ 快速入门](https://docs.microsoft.com/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)或 [Azure Toolkit for Eclipse 快速入门](https://docs.microsoft.com/java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)中的类似文档。
 
 
 ![在 Azure 应用服务中运行的示例应用](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
@@ -207,16 +207,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 如果需要，可以直接在 `pom.xml` 中修改应用服务的配置。 下面列出了一些常见配置：
 
-属性 | 必须 | 说明 | 版本
+属性 | 必选 | 说明 | 版本
 ---|---|---|---
 `<schemaVersion>` | false | 指定配置架构的版本。 支持的值是：`v1`、`v2`。 | 1.5.2
 `<subscriptionId>` | false | 指定订阅 ID。 | 0.1.0+
 `<resourceGroup>` | true | 用于 Web 应用的 Azure 资源组。 | 0.1.0+
 `<appName>` | true | Web 应用的名称。 | 0.1.0+
-`<region>` | true | 指定要托管 Web 应用的区域；默认值为“chinaeast2”。 [支持的区域](/java/api/overview/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
+`<region>` | 是 | 指定要托管 Web 应用的区域；默认值为“chinaeast2”。 [支持的区域](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
 `<pricingTier>` | false | Web 应用的定价层。 默认值为 **P1V2**。| 0.1.0+
-`<runtime>` | true | 运行时环境配置，可以在[此处](/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
-`<deployment>` | true | 部署配置，可以在[此处](/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
+`<runtime>` | true | 运行时环境配置，可以在[此处](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
+`<deployment>` | true | 部署配置，可以在[此处](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
 
 请注意 `<appName>` 和 `<resourceGroup>` 的值（在演示中相应地为 `helloworld-1590394316693` 和 `helloworld-1590394316693-rg`），后面会使用它们。
 
@@ -277,7 +277,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 > [纵向扩展](manage-scale-up.md)
 
 > [!div class="nextstepaction"]
-> [面向 Java 开发人员的 Azure 资源](/java/)
+> [面向 Java 开发人员的 Azure 资源](https://docs.microsoft.com/java/)
 
 > [!div class="nextstepaction"]
 > [配置 Java 应用](configure-language-java.md)

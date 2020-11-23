@@ -4,14 +4,14 @@ description: 本文介绍如何创建和配置用于存储备份和恢复点的�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 08/30/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 4d10999accf489fc18034e3ae6b8017415651dc6
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: e88017164b74e051482cf083404eacb045db9b22
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871158"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977962"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>创建和配置恢复服务保管库
 
@@ -91,11 +91,10 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
   同一时间只能在一个保管库中保护 VM。 但是，可以在 LRS 保管库中保护新资源组中的 VM，因为它被视为不同的 VM。
 
   - Azure 备份服务将在 GRS 保管库中保留已备份的恢复点。
-  - 你需要付费才能将恢复点保留在 GRS 保管库中（有关详细信息，请参阅 [Azure 备份定价](https://www.azure.cn/pricing/details/backup/index.html)）。
+  - 你需要付费才能将恢复点保留在 GRS 保管库中（有关详细信息，请参阅 [Azure 备份定价](azure-backup-pricing.md)）。
   - 如果需要，你将能够从 GRS 保管库还原 VM。
   - LRS 保管库中对新资源组中 VM 的第一个备份将是初始副本。
 
-<!--Correct in MC: https://www.azure.cn/pricing/details/backup/index.html-->
 ## <a name="next-steps"></a>后续步骤
 
 [了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。

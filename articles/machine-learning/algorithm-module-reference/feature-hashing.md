@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: v-yiso
 ms.date: 02/22/2020
-ms.openlocfilehash: 3ad4067bed229cbee14771f91780bdb98edd575e
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 40b662321cc81cad9f3944cdf4223af95c51aea2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117893"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978153"
 ---
 # <a name="feature-hashing-module-reference"></a>“特征哈希处理”模块参考
 
@@ -22,7 +22,7 @@ ms.locfileid: "92117893"
 
 使用“特征哈希处理”模块可将英语文本流转换为一组整数特征。 然后，可将此哈希处理的特征集传递给机器学习算法，以训练文本分析模型。
 
-此模块中提供的特征哈希处理功能基于 nimbusml 框架。 有关详细信息，请参阅 [NgramHash 类](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)。
+此模块中提供的特征哈希处理功能基于 nimbusml 框架。 有关详细信息，请参阅 [NgramHash 类](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true)。
 
 ## <a name="what-is-feature-hashing"></a>什么是特征哈希处理？
 

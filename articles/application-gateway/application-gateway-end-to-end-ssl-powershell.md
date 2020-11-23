@@ -4,15 +4,15 @@ description: 本文介绍如何使用 PowerShell 通过 Azure 应用程序网关
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 14c90428050a8c637d43987ed3a1b6169ee82793
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: cb565fffea761b0661ef2e95754fbc9ea688be07
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552372"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849458"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>使用 PowerShell 通过应用程序网关配置端到端 TLS
 

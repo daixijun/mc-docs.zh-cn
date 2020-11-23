@@ -1,5 +1,5 @@
 ---
-title: 将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
+title: 快速入门：将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
 description: 了解如何将 Java 和 JDBC 与 Azure Database for MySQL 数据库配合使用。
 author: WenJason
 ms.author: v-jay
@@ -8,15 +8,15 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 origin.date: 08/17/2020
-ms.date: 11/09/2020
-ms.openlocfilehash: dc219e5de221961fdfbcaa8baa3e0dfaa6c53c43
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 11/23/2020
+ms.openlocfilehash: 9ec12be2e016ac0fc59186f346b225dcbf25f9ec
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977143"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>快速入门：将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
 
 本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for MySQL](./index.yml) 中存储和检索信息。
 
@@ -486,7 +486,7 @@ deleteData(todo, connection);
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>结论和资源清除
+## <a name="clean-up-resources"></a>清理资源
 
 祝贺你！ 你已创建了一个 Java 应用程序，该应用程序使用 JDBC 在 Azure Database for MySQL 中存储和检索数据。
 

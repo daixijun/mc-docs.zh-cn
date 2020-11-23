@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 3/18/2020
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: da70bca23450d9ed06e30da46252c19a2103b5f0
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: fa412e6fbdb5742623fb9335c45cdffeef0db268
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512950"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908984"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for MariaDB 服务器
 
@@ -32,7 +32,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组：
 
@@ -239,4 +239,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 设计 MariaDB 数据库](./tutorial-design-database-cli.md)
+> [使用 Azure CLI 设计 MariaDB 数据库](tutorial-design-database-cli.md)

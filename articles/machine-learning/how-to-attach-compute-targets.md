@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 824522cc1481df7257310e539f3044493bd5bfde
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7f460598f2e39987822ec7dd6f7d86424d65b697
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106554"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978194"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>设置模型训练和部署的计算目标
 
@@ -41,7 +41,7 @@ ms.locfileid: "93106554"
 
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-* [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+* [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
 ## <a name="limitations"></a>限制
 
@@ -58,7 +58,7 @@ ms.locfileid: "93106554"
 
 使用本地计算机进行训练时，无需创建计算目标。  只需从本地计算机[提交训练运行](how-to-set-up-training-targets.md)。
 
-使用本地计算机进行推理时，必须安装 Docker。 若要执行部署，请使用 [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) 来定义 Web 服务将使用的端口。 然后使用[通过 Azure 机器学习部署模型](how-to-deploy-and-where.md)中所述的常规部署流程。
+使用本地计算机进行推理时，必须安装 Docker。 若要执行部署，请使用 [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) 来定义 Web 服务将使用的端口。 然后使用[通过 Azure 机器学习部署模型](how-to-deploy-and-where.md)中所述的常规部署流程。
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>远程虚拟机
 
@@ -68,14 +68,14 @@ Azure 机器学习还支持将自己的计算资源附加到工作区。 任意�
 
 请对此方案使用 Data Science Virtual Machine (DSVM) 作为 Azure VM。 此 VM 在 Azure 中预配置了数据科学和 AI 开发环境。 此 VM 提供精选的工具和框架用于满足整个机器学习开发生命周期的需求。 有关如何将 DSVM 与 Azure 机器学习配合使用的详细信息，请参阅[配置开发环境](/machine-learning/how-to-configure-environment#dsvm)。
 
-1. **创建** ：创建 DSVM，然后使用它来训练模型。 若要创建此资源，请参阅[预配适用于 Linux (Ubuntu) 的 Data Science Virtual Machine](/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)。
+1. **创建**：创建 DSVM，然后使用它来训练模型。 若要创建此资源，请参阅[预配适用于 Linux (Ubuntu) 的 Data Science Virtual Machine](/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)。
 
     > [!WARNING]
     > Azure 机器学习仅支持运行 Ubuntu 的虚拟机。 创建 VM 或选择现有 VM 时，必须选择使用 Ubuntu 的 VM。
     > 
     > Azure 机器学习还要求虚拟机具有公共 IP 地址。
 
-1. **附加** ：若要附加现有虚拟机作为计算目标，必须提供虚拟机的资源 ID、用户名和密码。 可以使用订阅 ID、资源组名称和 VM 名称按以下字符串格式构造 VM 的资源 ID：`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
+1. **附加**：若要附加现有虚拟机作为计算目标，必须提供虚拟机的资源 ID、用户名和密码。 可以使用订阅 ID、资源组名称和 VM 名称按以下字符串格式构造 VM 的资源 ID：`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
  
    ```python
@@ -100,7 +100,7 @@ Azure 机器学习还支持将自己的计算资源附加到工作区。 任意�
     > [!WARNING]
     > 请勿在工作区中为同一 DSVM 创建多个同步附件。 每个新附件都会破坏先前存在的附件。
 
-1. **配置** ：为 DSVM 计算目标创建运行配置。 Docker 与 conda 用于在 DSVM 上创建和配置训练环境。
+1. **配置**：为 DSVM 计算目标创建运行配置。 Docker 与 conda 用于在 DSVM 上创建和配置训练环境。
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -126,7 +126,7 @@ Azure 机器学习还支持将自己的计算资源附加到工作区。 任意�
 
 Azure HDInsight 是用于大数据分析的热门平台。 该平台提供的 Apache Spark 可用于训练模型。
 
-1. **创建** ：先创建 HDInsight 群集，然后使用它来训练模型。 若要在 HDInsight 群集中创建 Spark，请参阅[在 HDInsight 中创建 Spark 群集](/hdinsight/spark/apache-spark-jupyter-spark-sql)。 
+1. **创建**：先创建 HDInsight 群集，然后使用它来训练模型。 若要在 HDInsight 群集中创建 Spark，请参阅[在 HDInsight 中创建 Spark 群集](/hdinsight/spark/apache-spark-jupyter-spark-sql)。 
 
     > [!WARNING]
     > Azure 机器学习要求 HDInsight 群集具有公共 IP 地址。
@@ -135,7 +135,7 @@ Azure HDInsight 是用于大数据分析的热门平台。 该平台提供的 Ap
     
     创建群集后，使用主机名 \<clustername>-ssh.azurehdinsight.cn 连接到该群集，其中的 \<clustername> 是为该群集提供的名称。 
 
-1. **附加** ：若要将 HDInsight 群集附加为计算目标，必须提供该 HDInsight 群集的资源 ID、用户名和密码。 可以使用订阅 ID、资源组名称和 HDInsight 群集名称按以下字符串格式构造 HDInsight 群集的资源 ID：`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
+1. **附加**：若要将 HDInsight 群集附加为计算目标，必须提供该 HDInsight 群集的资源 ID、用户名和密码。 可以使用订阅 ID、资源组名称和 HDInsight 群集名称按以下字符串格式构造 HDInsight 群集的资源 ID：`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -163,7 +163,7 @@ Azure HDInsight 是用于大数据分析的热门平台。 该平台提供的 Ap
     > [!WARNING]
     > 请勿在工作区中为同一 HDInsight 创建多个同步附件。 每个新附件都会破坏先前存在的附件。
 
-1. **配置** ：为 HDI 计算目标创建运行配置。 
+1. **配置**：为 HDI 计算目标创建运行配置。 
 
    ```Python
     from azureml.core.runconfig import RunConfiguration
@@ -191,9 +191,9 @@ Azure Batch 用于在云中高效运行大规模并行高性能计算 (HPC) 应�
 
 若要将 Azure Batch 附加为计算目标，必须使用 Azure 机器学习 SDK 并提供以下信息：
 
--    **Azure Batch 计算名称** ：在工作区中用于计算的易记名称
--    **Azure Batch 帐户名称** ：Azure Batch 帐户的名称
--    **资源组** ：包含 Azure Batch 帐户的资源组。
+-    **Azure Batch 计算名称**：在工作区中用于计算的易记名称
+-    **Azure Batch 帐户名称**：Azure Batch 帐户的名称
+-    **资源组**：包含 Azure Batch 帐户的资源组。
 
 以下代码演示如何将 Azure Batch 附加为计算目标：
 
@@ -252,4 +252,3 @@ Azure 容器实例 (ACI) 是在部署模型时动态创建的。 不能以任何
 * [教程：训练模型](tutorial-train-models-with-aml.md)使用一个托管计算目标来训练模型。
 * 若要构建更好的模型，请了解如何[高效地优化超参数](how-to-tune-hyperparameters.md)。
 * 训练模型后，了解[如何以及在何处部署模型](how-to-deploy-and-where.md)。
-* [通过 Azure 虚拟网络使用 Azure 机器学习](how-to-enable-virtual-network.md)

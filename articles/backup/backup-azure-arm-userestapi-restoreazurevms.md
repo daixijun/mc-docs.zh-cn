@@ -4,15 +4,15 @@ description: 本文介绍如何使用 REST API 管理 Azure 虚拟机备份的�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/12/2018
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 1fd851324decdee8839eb33cfcaea239ec02eacf
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 8094dcd262747f92d5bc473637a2c9be09e256ec
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402448"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977190"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>使用 REST API 还原 Azure 虚拟机
 
@@ -125,7 +125,7 @@ X-Powered-By: ASP.NET
 对备份项执行的所有还原操作都是通过相同 POST API 来执行。只有请求正文随还原方案而更改。
 
 > [!IMPORTANT]
-> [此处](/backup/backup-azure-arm-restore-vms#restore-options)提到了有关各种还原选项及其依赖项的所有详细信息。 请在继续触发这些操作之前查看。
+> [此处](./backup-azure-arm-restore-vms.md#restore-options)提到了有关各种还原选项及其依赖项的所有详细信息。 请在继续触发这些操作之前查看。
 
 触发还原操作是 POST 请求。 若要详细了解 API，请参阅[“触发还原”REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger)。
 

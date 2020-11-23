@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/12/2020
 ms.date: 11/16/2020
 ms.author: v-yiso
-ms.openlocfilehash: 32881b84ba82da2a49909fcc9f263cb4cb731e4d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c77d413dc1aa1864fc657ca02be85dbe39d3920d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327693"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977948"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute 加密
  
@@ -42,3 +42,7 @@ IPsec 是 [IETF 标准](https://tools.ietf.org/html/rfc6071)。 它在 Internet 
 是的。 如果采用 Azure 虚拟 WAN，则可以按照[这些步骤](../virtual-wan/vpn-over-expressroute.md)加密端到端连接。 
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>在 ExpressRoute 连接上启用 IPsec 后，我将获得多少吞吐量？
 如果使用 Azure VPN 网关，请检查[此处的性能数字](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 如果使用第三方 VPN 网关，请向供应商查询性能数字。
+
+## <a name="next-steps"></a>后续步骤
+有关 MACsec 配置的详细信息，请参阅[配置 MACsec](expressroute-howto-macsec.md)。
+

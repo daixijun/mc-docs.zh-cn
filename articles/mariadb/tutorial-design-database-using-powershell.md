@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 origin.date: 05/26/2020
-ms.date: 07/06/2020
-ms.custom: mvc
-ms.openlocfilehash: f549d11e737f49cfa76f194862eb632975ab9650
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.date: 11/23/2020
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 90e298e8e0ed0bd53a5a1bb1ea21944c965b5f7d
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845945"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908974"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在“中国东部 2”区域创建名为“myresourcegroup”的资源组 。
 
@@ -202,9 +202,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 还原的服务器的位置值和定价层值与原始服务器保持相同。
 
-还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”页更改密码。
+还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”  页更改密码。
 
-还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将还原原始服务器中的防火墙规则。
+还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将从原始服务器还原防火墙规则。
 
 ## <a name="next-steps"></a>后续步骤
 

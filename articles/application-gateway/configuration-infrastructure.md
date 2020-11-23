@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 089e546276077b60757b383629503c40081ff8ed
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e4c592dd5bb6f4df05cadcdbf5de438c10f9c0dd
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936936"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849410"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>应用程序网关基础结构配置
 
@@ -55,15 +55,15 @@ ms.locfileid: "91936936"
 对于此方案，请在应用程序网关子网中使用 NSG。 按以下优先顺序对子网施加以下限制：
 
 1. 允许来自源 IP 或 IP 范围的传入流量，其目标为整个应用程序网关子网地址范围，目标端口为入站访问端口，例如，使用端口 80 进行 HTTP 访问。
-2. 允许特定的传入请求，这些请求来自采用 **GatewayManager** 服务标记的源，其目标为“任意”，目标端口为 65503-65534（适用于应用程序网关 v1 SKU）或 65200-65535（适用于 v2 SKU），可以进行[后端运行状况通信](/application-gateway/application-gateway-diagnostics)。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体将无法对这些终结点做出任何更改。
-3. 允许[网络安全组](/virtual-network/security-overview)中的传入 Azure 负载均衡器探测（*AzureLoadBalancer* 标记）和入站虚拟网络流量（*VirtualNetwork* 标记）。
+2. 允许特定的传入请求，这些请求来自采用 **GatewayManager** 服务标记的源，其目标为“任意”，目标端口为 65503-65534（适用于应用程序网关 v1 SKU）或 65200-65535（适用于 v2 SKU），可以进行 [后端运行状况通信](./application-gateway-diagnostics.md)。 此端口范围是进行 Azure 基础结构通信所必需的。 这些端口受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体将无法对这些终结点做出任何更改。
+3. 允许 [网络安全组](../virtual-network/network-security-groups-overview.md)中的传入 Azure 负载均衡器探测（*AzureLoadBalancer* 标记）和入站虚拟网络流量（*VirtualNetwork* 标记）。
 4. 使用“全部拒绝”规则阻止其他所有传入流量。
 5. 允许所有目的地的 Internet 出站流量。
 
 ## <a name="supported-user-defined-routes"></a>支持的用户定义路由 
 
 > [!IMPORTANT]
-> 在应用程序网关子网中使用 UDR 可能会导致[后端运行状况视图](/application-gateway/application-gateway-diagnostics#back-end-health)中的运行状态显示为“未知”。 此外，可能还会导致应用程序网关日志和指标生成失败。 建议不要在应用程序网关子网中使用 UDR，以便能够查看后端运行状况、日志和指标。
+> 在应用程序网关子网中使用 UDR 可能会导致[后端运行状况视图](./application-gateway-diagnostics.md#back-end-health)中的运行状态显示为“未知”。 此外，可能还会导致应用程序网关日志和指标生成失败。 建议不要在应用程序网关子网中使用 UDR，以便能够查看后端运行状况、日志和指标。
 
 - **v1**
 

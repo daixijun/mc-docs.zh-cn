@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 077241d63e6de8d4b4dbb650413fcc73181280f4
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 26b2a72a236a39ad970fd43f211a0347d79bf4ec
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118817"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977054"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>教程：运行“Hello world!” Python 脚本（第 2 部分，共 4 部分）
 
@@ -99,7 +99,7 @@ print(aml_url)
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)连接到你的 Azure 机器学习工作区，以便你可以与 Azure 机器学习资源通信。
+      [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)连接到你的 Azure 机器学习工作区，以便你可以与 Azure 机器学习资源通信。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +107,7 @@ print(aml_url)
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      可以通过[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)轻松地将多个运行组织到单个名称下。 稍后，你可以了解如何使用试验轻松地在数十个运行之间比较指标。
+      可以通过[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)轻松地将多个运行组织到单个名称下。 稍后，你可以了解如何使用试验轻松地在数十个运行之间比较指标。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +115,7 @@ print(aml_url)
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 包装你的 `hello.py` 代码并将其传递到你的工作区。 顾名思义，你可以使用此类来配置你希望脚本如何在 Azure 机器学习中运行。   此类还会指定该脚本将会在哪个计算目标上运行。 在此代码中，目标是在[设置教程](tutorial-1st-experiment-sdk-setup-local.md)中创建的计算群集。
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 包装你的 `hello.py` 代码并将其传递到你的工作区。 顾名思义，你可以使用此类来配置你希望脚本如何在 Azure 机器学习中运行。   此类还会指定该脚本将会在哪个计算目标上运行。 在此代码中，目标是在[设置教程](tutorial-1st-experiment-sdk-setup-local.md)中创建的计算群集。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +123,7 @@ print(aml_url)
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       提交脚本。 此提交被称为[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)。 运行会封装你的代码的单次执行。 可以使用运行来监视脚本进度、捕获输出、分析结果、将指标可视化，等等。
+       提交脚本。 此提交被称为[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)。 运行会封装你的代码的单次执行。 可以使用运行来监视脚本进度、捕获输出、分析结果、将指标可视化，等等。
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -139,13 +139,24 @@ print(aml_url)
 
 运行你的控制脚本，该脚本继而会在[设置教程](tutorial-1st-experiment-sdk-setup-local.md)中创建的计算群集上运行 `hello.py`。
 
+首次运行将需要 5 - 10 分钟才能完成。 这是因为发生了以下情况：
+
+* docker 映像在云中构建
+* 计算群集的大小从 0 个节点调整到 1 个节点
+* docker 映像被下载到该计算。 
+
+当 docker 映像缓存到该计算上时，后续的运行速度将快得多（约 15 秒），你可以通过在第一次运行完成后重新提交以下代码来进行测试。
+
 ```bash
 python 03-run-hello.py
 ```
 
+> [!TIP]
+> 如果运行此代码返回错误“你没有访问订阅的权限”，请参阅[连接到工作区](how-to-manage-workspace.md?tab=python#connect-multi-tenant)，以获取有关身份验证选项的信息。
+
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>通过使用工作室在云中监视代码
 
-输出中将会包含一个指向工作室的链接，该链接类似于：`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`。
+输出中将会包含一个指向工作室的链接，该链接类似于：`https://studio.ml.azure.cn/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`。
 
 单击该链接，转到“输出 + 日志”选项卡。在那里可以看到 `70_driver_log.txt` 文件，该文件的内容类似于：
 

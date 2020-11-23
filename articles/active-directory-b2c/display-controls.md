@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/23/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7781e07e29f0083d42006e64f48fb93ea3ca0587
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c7da0d3f8bd788df7874dcaf0f3d9ffad166a434
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471181"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849258"
 ---
 # <a name="display-controls"></a>显示控件
 
@@ -27,8 +27,6 @@ ms.locfileid: "92471181"
 下图展示了一个自断言注册页面，其中包含两个用于验证主要电子邮件地址和辅助电子邮件地址的显示控件。
 
 ![呈现了显示控件的示例](./media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -62,7 +60,7 @@ ms.locfileid: "92471181"
 
 ### <a name="input-claims"></a>输入声明
 
-在显示控件中，可以使用 **InputClaims** 元素预填充要在页面上从用户那里收集的声明的值。 可在引用此显示控件的自断言技术配置文件中定义任何 **InputClaimsTransformations** 。
+在显示控件中，可以使用 **InputClaims** 元素预填充要在页面上从用户那里收集的声明的值。 可在引用此显示控件的自断言技术配置文件中定义任何 **InputClaimsTransformations**。
 
 以下示例使用已存在的地址预填充要验证的电子邮件地址。
 
@@ -80,7 +78,7 @@ ms.locfileid: "92471181"
 
 与在 [自断言技术配置文件](self-asserted-technical-profile.md#display-claims)中定义的 **显示声明** 类似，显示声明表示在显示控件中要从用户那里收集的声明。 引用的 **ClaimType** 元素需要指定 Azure AD B2C 支持的某个用户输入类型的 **UserInputType** 元素，例如 `TextBox` 或 `DropdownSingleSelect`。 如果显示声明值是某个 **操作** 所必需的，请将 **Required** 属性设置为 `true` 来强制用户为该特定的显示声明提供一个值。
 
-某些显示声明是某些类型的显示控件所必需的。 例如， **VerificationCode** 是 **VerificationControl** 类型的显示控件所必需的。 请使用 **ControlClaimType** 属性指定为该必需声明指定了哪个 DisplayClaim。 例如： 。
+某些显示声明是某些类型的显示控件所必需的。 例如，**VerificationCode** 是 **VerificationControl** 类型的显示控件所必需的。 请使用 **ControlClaimType** 属性指定为该必需声明指定了哪个 DisplayClaim。 例如： 。
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -90,13 +88,13 @@ ms.locfileid: "92471181"
 
 显示控件的 **输出声明** 不会发送到下一个业务流程步骤。 它们仅暂时保存以用于当前显示控件会话。 这些暂时声明可在同一显示控件的不同操作之间共享。
 
-若要将输出声明传播到下一个业务流程步骤，请使用引用此显示控件的实际自断言技术配置文件的 **OutputClaims** 。
+若要将输出声明传播到下一个业务流程步骤，请使用引用此显示控件的实际自断言技术配置文件的 **OutputClaims**。
 
 ### <a name="display-control-actions"></a>显示控件操作
 
 显示控件的 **操作** 是用户在客户端（浏览器）执行特定操作时在 Azure AD B2C 后端发生的过程。 例如，当用户选择页面上的某个按钮时要执行的验证。
 
-操作定义 **验证技术配置文件** 的列表。 它们用于验证显示控件的部分或全部显示声明。 验证技术配置文件将验证用户输入，并可能向用户返回错误。 可以在显示控件操作中使用 **ContinueOnError** 、 **ContinueOnSuccess** 和 **Preconditions** ，使用方式类似于在自断言技术配置文件中的 [验证技术配置文件](validation-technical-profile.md)中使用它们的方式。
+操作定义 **验证技术配置文件** 的列表。 它们用于验证显示控件的部分或全部显示声明。 验证技术配置文件将验证用户输入，并可能向用户返回错误。 可以在显示控件操作中使用 **ContinueOnError**、**ContinueOnSuccess** 和 **Preconditions**，使用方式类似于在自断言技术配置文件中的 [验证技术配置文件](validation-technical-profile.md)中使用它们的方式。
 
 #### <a name="actions"></a>操作
 
@@ -136,7 +134,7 @@ ValidationTechnicalProfile 元素包含以下属性：
 |ContinueOnError|否| 指示在此验证技术配置文件引发错误时，任何后续验证技术配置文件是否应继续进行验证。 可能的值：`true` 或 `false`（默认值，进一步验证配置文件的处理会停止，并且返回错误）。 |
 |ContinueOnSuccess | 否 | 指示在此验证技术配置文件成功时，任何后续验证配置文件是否应继续进行验证。 可能的值：`true` 或 `false`。 默认值是 `true`，表示进一步验证配置文件的处理会继续进行。 |
 
-ValidationTechnicalProfile  元素包含以下元素：
+ValidationTechnicalProfile 元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -149,7 +147,7 @@ Precondition 元素包含以下属性：
 | `Type` | 是 | 要对前置条件执行的检查或查询的类型。 可能的值：`ClaimsExist` 或 `ClaimEquals`。 如果指定的声明存在于用户的当前声明集中，则 `ClaimsExist` 指定应执行的操作。 如果指定的声明存在并且其值等于指定的值，则 `ClaimEquals` 指定应执行的操作。 |
 | `ExecuteActionsIf` | 是 | 指示在测试为 true 或 false 时是否应执行前置条件中的操作。 |
 
-Precondition  元素包含以下元素：
+Precondition 元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |

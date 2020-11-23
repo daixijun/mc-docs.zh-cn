@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 origin.date: 05/19/2020
 ms.date: 06/29/2020
-ms.openlocfilehash: a60de51554b9e0f905b53c6a5d706abd00116390
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: dc962504ad4858a01d0427e56534b5c39e09b515
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118507"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978063"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure 机器学习设计器算法和模块参考
 
@@ -28,7 +28,7 @@ ms.locfileid: "92118507"
 * [Azure 机器学习算法备忘单](../algorithm-cheat-sheet.md)
 
 > [!TIP]
-> 在设计器的任何管道中，可以获取有关特定模块的信息。 在模块列表中的模块上方悬停时，或是在模块的右窗格中，选择模块卡上的“了解更多”  链接。
+> 在设计器的任何管道中，可以获取有关特定模块的信息。 在模块列表中的模块上方悬停时，或是在模块的右窗格中，选择模块卡上的“了解更多”链接。
 
 ## <a name="data-preparation-modules"></a>数据准备模块
 
@@ -46,7 +46,7 @@ ms.locfileid: "92118507"
 | --- |--- | --- |
 | 回归 | 预测值。 | [提升决策树回归](boosted-decision-tree-regression.md) <br/> [决策林回归](decision-forest-regression.md) <br/> [快速林分位回归](fast-forest-quantile-regression.md)  <br/> [线性回归](linear-regression.md)  <br/> [神经网络回归](neural-network-regression.md)  <br/> [泊松回归](poisson-regression.md)  <br/>|
 | 群集 | 将数据分到一组。| [K 均值聚类分析](k-means-clustering.md)
-| 分类 | 预测类。  从二进制（双类）或多类算法中进行选择。| [多类提升决策树](multiclass-boosted-decision-tree.md) <br/> [多类决策林](multiclass-decision-forest.md) <br/> [多类逻辑回归](multiclass-logistic-regression.md)  <br/> [多类神经网络](multiclass-neural-network.md) <br/> [“一对多”多类](one-vs-all-multiclass.md) <br/> [双类平均感知器](two-class-averaged-perceptron.md) <br/>  [双类提升决策树](two-class-boosted-decision-tree.md)  <br/> [双类决策林](two-class-decision-forest.md) <br/>  [双类逻辑回归](two-class-logistic-regression.md) <br/> [双类神经网络](two-class-neural-network.md) <br/> [双类支持向量机](two-class-support-vector-machine.md) | 
+| 分类 | 预测类。  从二进制（双类）或多类算法中进行选择。| [多类提升决策树](multiclass-boosted-decision-tree.md) <br/> [多类决策林](multiclass-decision-forest.md) <br/> [多类逻辑回归](multiclass-logistic-regression.md)  <br/> [多类神经网络](multiclass-neural-network.md) <br/> [“一对多”多类](one-vs-all-multiclass.md) <br/> [“一对一个多类](one-vs-one-multiclass.md) <br/>[双类平均感知器](two-class-averaged-perceptron.md) <br/>  [双类提升决策树](two-class-boosted-decision-tree.md)  <br/> [双类决策林](two-class-decision-forest.md) <br/>  [双类逻辑回归](two-class-logistic-regression.md) <br/> [双类神经网络](two-class-neural-network.md) <br/> [双类支持向量机](two-class-support-vector-machine.md) | 
 
 ## <a name="modules-for-building-and-evaluating-models"></a>用于构建和评估模型的模块
 

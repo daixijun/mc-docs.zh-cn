@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: f503ffa0c0e6139bc07347cb5effb6992a4edf55
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: ba4d1369186e34c37c3f6bc506249f819f503569
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977541"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure 机器学习工作室（经典）Web 服务：部署和使用
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
 
 可以使用 Azure 机器学习工作室（经典）将机器学习工作流和模型作为 Web 服务部署。 然后，可以使用这些 Web 服务，通过 Internet 从应用程序调用机器学习模型，从而实时或者在批处理模式下进行预测。 由于 Web 服务是 RESTful，可以从各种编程语言和平台（如 .NET 和 Java）以及应用程序（如 Excel）调用它们。
 
@@ -43,7 +43,7 @@ ms.locfileid: "92118692"
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>使用 Web 服务资源提供程序 API (Azure 资源管理器 API)
 
-用于 Web 服务的 Azure 机器学习工作室（经典）资源提供程序支持使用 REST API 调用来部署和管理 Web 服务。 有关详细信息，请参阅[机器学习 Web 服务 (REST)](/rest/api/machinelearning/index) 参考。
+用于 Web 服务的 Azure 机器学习工作室（经典）资源提供程序支持使用 REST API 调用来部署和管理 Web 服务。 有关详细信息，请参阅[机器学习 Web 服务 (REST)](https://docs.microsoft.com/rest/api/machinelearning/index) 参考。
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 

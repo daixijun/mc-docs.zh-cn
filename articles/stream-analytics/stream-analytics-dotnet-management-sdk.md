@@ -7,25 +7,24 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 12/06/2018
-ms.date: 10/09/2020
+ms.date: 11/16/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 60a9fe8d32aa54b14d3dcbcf3d1917b7abbaeea5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7b6311b7de2211a39973346deb1a55ff2796efb6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103965"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977419"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
 
-请参阅 [.NET 版流分析 API 的管理参考文档](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
+请参阅 [.NET 版流分析 API 的管理参考文档](https://docs.microsoft.com/previous-versions/azure/dn889315(v=azure.100))。
 
 Azure 流分析是一种完全托管的服务，可以在云中通过流式数据处理复杂的事件，具有延迟性低、可用性高和大小灵活等特点。 客户可以使用流分析来设置流式处理作业，分析数据流和进行近实时分析。  
 
 > [!NOTE]
-> 本文中的示例代码已使用 Azure 流分析的 Management .NET SDK v2.x 版本进行了更新。 有关使用旧版 (1.x) SDK 的示例代码，请参阅[使用流分析的 Management .NET SDK v1.x ](/stream-analytics/stream-analytics-dotnet-management-sdk)。
-<!--Correct in MC: /stream-analytics/stream-analytics-dotnet-management-sdk-->
+> 本文中的示例代码已使用 Azure 流分析的 Management .NET SDK v2.x 版本进行了更新。 有关使用旧版 (1.x) SDK 的示例代码，请参阅[使用流分析的 Management .NET SDK v1.x ]()。
 
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本文前，必须完成以下要求：
@@ -169,7 +168,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>创建流分析输入源
-下面的代码使用 blob 输入源类型和 CSV 序列化创建流分析输入源。 若要创建事件中心输入源，请使用 **EventHubStreamInputDataSource** 而非 **BlobStreamInputDataSource** 。 同样，可以自定义输入源的序列化类型。
+下面的代码使用 blob 输入源类型和 CSV 序列化创建流分析输入源。 若要创建事件中心输入源，请使用 **EventHubStreamInputDataSource** 而非 **BlobStreamInputDataSource**。 同样，可以自定义输入源的序列化类型。
 
    ```csharp
    // Create an input
@@ -295,7 +294,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析管理 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
+* [Azure 流分析管理 .NET SDK](https://docs.microsoft.com/previous-versions/azure/dn889315(v=azure.100))。
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

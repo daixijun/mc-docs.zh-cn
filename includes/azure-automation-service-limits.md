@@ -5,16 +5,16 @@ services: automation
 author: WenJason
 ms.service: automation
 ms.topic: include
-origin.date: 10/14/2020
-ms.date: 11/02/2020
+origin.date: 10/21/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: ef9dccb05f26defc3894b8ed0abf7c7b5790af50
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: d6d3e6da98365cde31687909b5c4243a62cac275
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755997"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680778"
 ---
 #### <a name="process-automation"></a>流程自动化
 
@@ -48,4 +48,4 @@ ms.locfileid: "92755997"
 
 | **资源** | **限制**| **备注** |
 |---|---|---|
-|每个更新部署的计算机数|500||
+|每个更新部署的计算机数|1000||

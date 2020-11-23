@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: ccdd4068dd551cc92b3fd1edd9169af1b0a7d90d
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 9b5095b9f190250dfe71c329f393e51db16df665
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871204"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977206"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 本文讨论 C# 7 中的策略表达式语法。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -254,5 +254,5 @@ ms.locfileid: "91871204"
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
 + [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
-+ [策略示例](policy-samples.md)
++ [策略示例](./policy-reference.md)
 

@@ -4,14 +4,14 @@ description: 介绍如何使用 Azure 备份服务备份和还原已加密的 Az
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/03/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: b4312428c0af336113af4a299945a331a79f82af
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 7a2f5650163698169f8f32949eda40791b7423f8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871171"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978138"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>备份和还原加密的 Azure 虚拟机
 
@@ -19,13 +19,13 @@ ms.locfileid: "91871171"
 
 ## <a name="encryption-using-platform-managed-keys"></a>使用平台管理的密钥进行加密
 
-默认情况下，VM 中的所有磁盘都会通过使用[存储服务加密](/storage/common/storage-service-encryption)的平台管理的密钥 (PMK) 自动进行静态加密。 你可以使用 Azure 备份来备份这些 VM，而无需采取任何支持在你方加密所需的特定措施。 有关使用平台管理的密钥进行加密的详细信息，请[参阅本文](/virtual-machines/windows/disk-encryption#platform-managed-keys)。
+默认情况下，VM 中的所有磁盘都会通过使用[存储服务加密](../storage/common/storage-service-encryption.md)的平台管理的密钥 (PMK) 自动进行静态加密。 你可以使用 Azure 备份来备份这些 VM，而无需采取任何支持在你方加密所需的特定措施。 有关使用平台管理的密钥进行加密的详细信息，请[参阅本文](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)。
 
 ![加密的磁盘](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>使用客户管理的密钥进行加密
 
-使用客户管理的密钥 (CMK) 对磁盘进行加密时，用于对磁盘进行加密的密钥存储在 Azure Key Vault 中，由你进行管理。 使用 CMK 的存储服务加密 (SSE) 不同于 Azure 磁盘加密 (ADE) 加密。 ADE 使用操作系统的加密工具。 SSE 对存储服务中的数据进行加密，使你可以将任何 OS 或映像用于 VM。 有关使用客户管理的密钥对托管磁盘进行加密的详细信息，请[参阅本文](/virtual-machines/windows/disk-encryption#customer-managed-keys)。
+使用客户管理的密钥 (CMK) 对磁盘进行加密时，用于对磁盘进行加密的密钥存储在 Azure Key Vault 中，由你进行管理。 使用 CMK 的存储服务加密 (SSE) 不同于 Azure 磁盘加密 (ADE) 加密。 ADE 使用操作系统的加密工具。 SSE 对存储服务中的数据进行加密，使你可以将任何 OS 或映像用于 VM。 有关使用客户管理的密钥对托管磁盘进行加密的详细信息，请[参阅本文](../virtual-machines/windows/disk-encryption.md#customer-managed-keys)。
 
 ## <a name="encryption-support-using-ade"></a>使用 ADE 的加密支持
 
@@ -117,8 +117,8 @@ Azure 备份可以在使用或者不使用 Azure AD 应用的情况下，通过 
 
 Azure 备份需要拥有只读访问权限才能备份密钥和机密以及关联的 VM。
 
-- Key Vault 与 Azure 订阅的 Azure AD 租户相关联。 如果你是**成员用户**，则 Azure 备份需要有权访问 Key Vault，但不需要你执行进一步的操作。
-- 如果你是**来宾用户**，则必须为 Azure 备份提供 Key Vault 访问权限。
+- Key Vault 与 Azure 订阅的 Azure AD 租户相关联。 如果你是 **成员用户**，则 Azure 备份需要有权访问 Key Vault，但不需要你执行进一步的操作。
+- 如果你是 **来宾用户**，则必须为 Azure 备份提供 Key Vault 访问权限。
 
 设置权限：
 
@@ -130,7 +130,7 @@ Azure 备份需要拥有只读访问权限才能备份密钥和机密以及关�
 
 1. 在“添加访问策略” > “从模板配置(可选)”中，选择“Azure 备份”。  
     - “密钥权限”和“机密权限”中已预先填充所需的权限。 
-    - 如果 VM 是**仅使用 BEK** 加密的，请删除“密钥权限”对应的选择内容，因为只需要机密的权限。
+    - 如果 VM 是 **仅使用 BEK** 加密的，请删除“密钥权限”对应的选择内容，因为只需要机密的权限。
 
     ![Azure 备份选择](./media/backup-azure-vms-encryption/select-backup-template.png)
 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 58a879200a7192be3e69ecdd7ade7c67b4d587ea
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: fea3c499e418e6aaaee5dc4c007b428c070c65c8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118568"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977992"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>教程：创建用于多类图像分类的标记项目 
 
@@ -42,7 +42,7 @@ ms.locfileid: "92118568"
 
 Azure 机器学习工作区是云中的基础资源，用于试验、训练和部署机器学习模型。 它将 Azure 订阅和资源组关联到服务中一个易于使用的对象。
 
-通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。
+可以通过许多[方法来创建工作区](how-to-manage-workspace.md)。 本教程将通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 

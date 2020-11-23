@@ -10,12 +10,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 31a0d0ffa3f0a0d55d62fdc2a255a9dad270c124
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 38b18c11f80f34945748be34e337e4b0c4d542c7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118182"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977926"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>在自动化机器学习中配置数据拆分和交叉验证
 
@@ -23,7 +23,7 @@ ms.locfileid: "92118182"
 
 在 Azure 机器学习中，当使用 AutoML 来生成多个 ML 模型时，每个子运行都需要通过计算该模型的质量指标（例如准确度或加权 AUC）来验证相关的模型。 这些指标的计算方法是将每个模型所做的预测与验证数据中过去观察到的实际标签进行比较。 
 
-AutoML 试验会自动执行模型验证。 下面的各个部分介绍了如何使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 进一步自定义验证设置。 
+AutoML 试验会自动执行模型验证。 下面的各个部分介绍了如何使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 进一步自定义验证设置。 
 
 对于低代码或无代码体验，请参阅[在 Azure 机器学习工作室中创建自动化机器学习试验](how-to-use-automated-ml-for-ml-models.md)。 
 
@@ -46,7 +46,7 @@ AutoML 试验会自动执行模型验证。 下面的各个部分介绍了如何
 
 ## <a name="default--data-splits-and-cross-validation"></a>默认数据拆分和交叉验证
 
-使用 [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 对象定义试验和训练设置。 请注意，在下面的代码片段中，只定义了必需的参数，也就是说， **未** 包括 `n_cross_validation` 或 `validation_ data` 的参数。
+使用 [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 对象定义试验和训练设置。 请注意，在下面的代码片段中，只定义了必需的参数，也就是说，**未** 包括 `n_cross_validation` 或 `validation_ data` 的参数。
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -66,7 +66,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 |训练数据大小| 验证技术 |
 |---|-----|
 |**大于 20,000 行**| 将应用训练/验证数据拆分。 默认行为是将初始训练数据集的 10% 用作验证集。 然后，该验证集将用于指标计算。
-|**小于 20,000 行**| 将应用交叉验证方法。 默认折数取决于行数。 <br> **如果数据集小于 1,000 行** ，则使用 10 折。 <br> **如果行数在 1,000 到 20,000 之间** ，则使用 3 折。
+|**小于 20,000 行**| 将应用交叉验证方法。 默认折数取决于行数。 <br> **如果数据集小于 1,000 行**，则使用 10 折。 <br> **如果行数在 1,000 到 20,000 之间**，则使用 3 折。
 
 ## <a name="provide-validation-data"></a>提供验证数据
 
@@ -92,7 +92,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>提供验证集大小
 
-在这种情况下，只为试验提供单个数据集。 也就是说， **未** 指定 `validation_data` 参数，提供的数据集将分配给 `training_data` 参数。  在 `AutoMLConfig` 对象中，你可以设置 `validation_size` 参数来保存一部分用于验证的训练数据。 这意味着，验证集将由 AutoML 从提供的初始 `training_data` 中拆分出来。 此值的范围应为 0.0 到 1.0（不含，例如，0.2 表示保留 20% 的数据用作验证数据）。
+在这种情况下，只为试验提供单个数据集。 也就是说，**未** 指定 `validation_data` 参数，提供的数据集将分配给 `training_data` 参数。  在 `AutoMLConfig` 对象中，你可以设置 `validation_size` 参数来保存一部分用于验证的训练数据。 这意味着，验证集将由 AutoML 从提供的初始 `training_data` 中拆分出来。 此值的范围应为 0.0 到 1.0（不含，例如，0.2 表示保留 20% 的数据用作验证数据）。
 
 请参阅以下代码示例：
 

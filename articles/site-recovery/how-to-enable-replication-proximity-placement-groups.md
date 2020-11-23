@@ -5,16 +5,16 @@ manager: gaggupta
 ms.topic: how-to
 origin.date: 05/25/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 752935c64da96fd802d7d20f25202f90af5f32b2
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 20e82a960f8b62c58f97cc3cb67116d062ffd310
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655227"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977674"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>将邻近放置组中运行的 Azure 虚拟机复制到另一个区域
 
@@ -94,6 +94,7 @@ $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -A
 ```
 
 <!--CORRECT ON $CeToCnPCMapping-->
+<!--Not Available on Zone to Zone replication on MC-->
 
 成功启动复制操作后，虚拟机数据将复制到恢复区域。
 

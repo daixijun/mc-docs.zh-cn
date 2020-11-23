@@ -8,14 +8,14 @@ ms.author: v-johya
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 08/20/2020
-ms.openlocfilehash: e84def7ec07c5d33c597a03489eeae08aec35ba3
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.custom: mvc, devx-track-azurecli
+ms.date: 11/16/2020
+ms.openlocfilehash: c0c0b413b200fcd8c04fca82d097fa1087955dd6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715716"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976984"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 流分析作业
 
@@ -43,13 +43,13 @@ ms.locfileid: "88715716"
 
    使用 Azure CLI 的扩展引用时，必须先安装该扩展。  借助 Azure CLI 扩展，可访问尚未在核心 CLI 中提供的试验性和预发布的命令。  若要详细了解包含更新和卸载的扩展，请参阅[使用 Azure CLI 的扩展](/cli/azure-cli-extensions-overview)。
 
-   运行以下命令，安装[流分析扩展](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics?view=azure-cli-latest)：
+   运行以下命令，安装[流分析扩展](/cli/ext/stream-analytics/stream-analytics)：
 
     ```azurecli
     az extension add --name stream-analytics
     ```
 
-   运行以下命令，安装 [Azure IoT 扩展](/cli/iot?view=azure-cli-latest)：
+   运行以下命令，安装 [Azure IoT 扩展](/cli/ext/azure-iot)：
 
     ```azurecli
     az extension add --name azure-iot
@@ -77,7 +77,7 @@ ms.locfileid: "88715716"
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    创建 IoT 中心以后，请使用 [az iot hub show-connection-string](/cli/iot/hub?view=azure-cli-latest) 命令获取 IoT 中心连接字符串。 复制整个连接字符串并将其保存。这样，在将 IoT 中心作为输入添加到流分析作业时，就可以使用该字符串。
+    创建 IoT 中心以后，请使用 [az iot hub show-connection-string](/cli/iot/hub) 命令获取 IoT 中心连接字符串。 复制整个连接字符串并将其保存。这样，在将 IoT 中心作为输入添加到流分析作业时，就可以使用该字符串。
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -89,7 +89,7 @@ ms.locfileid: "88715716"
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-3. 使用 [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest) 命令获取设备连接字符串。 复制整个连接字符串并将其保存。这样，在创建 Raspberry Pi 模拟器时，就可以使用该字符串。
+3. 使用 [az iot hub device-identity show-connection-string](/cli/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 命令获取设备连接字符串。 复制整个连接字符串并将其保存。这样，在创建 Raspberry Pi 模拟器时，就可以使用该字符串。
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -125,7 +125,7 @@ ms.locfileid: "88715716"
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. 可以使用 [az storage container create](/cli/storage/container) 命令创建用于存储 blob 的容器。 使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](/storage/common/authorize-data-operations-cli)。
+3. 可以使用 [az storage container create](/cli/storage/container) 命令创建用于存储 blob 的容器。 使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../storage/common/authorize-data-operations-cli.md)。
 
    ```azurecli
    az storage container create \
@@ -139,7 +139,7 @@ ms.locfileid: "88715716"
 
 以下 Azure CLI 代码块创建流分析作业。 查看介绍代码的部分
 
-1. 使用 [az stream-analytics job create](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-create) 命令创建流分析作业。
+1. 使用 [az stream-analytics job create](/cli/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create) 命令创建流分析作业。
 
 ```azurecli
 az stream-analytics job create \
@@ -155,7 +155,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>配置作业输入
 
-使用 [az stream-analytics input](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) cmdlet 将输入添加到作业。 此 cmdlet 使用作业名称、作业输入名称、资源组名称和作业输入定义作为参数。 作业输入定义是一个 JSON 文件，其中包含配置作业的输入所需的属性。 在此示例中，需将 IoT 中心创建为输入。
+使用 [az stream-analytics input](/cli/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create) cmdlet 将输入添加到作业。 此 cmdlet 使用作业名称、作业输入名称、资源组名称和作业输入定义作为参数。 作业输入定义是一个 JSON 文件，其中包含配置作业的输入所需的属性。 在此示例中，需将 IoT 中心创建为输入。
 
 在本地计算机上创建名为 `datasource.json` 的文件，并向其添加以下 JSON 数据。 确保将 `sharedAccessPolicyKey` 的值替换为在上一部分保存的 IoT 中心设备连接字符串的 `SharedAccessKey` 部分。
 
@@ -197,7 +197,7 @@ az stream-analytics input create
 
 ## <a name="configure-output-to-the-job"></a>配置作业输出
 
-使用 [az stream-analytics output create](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet 将输出添加到作业。 此 cmdlet 使用作业名称、作业输出名称、资源组名称和作业输出定义作为参数。 作业输出定义是一个 JSON 文件，其中包含配置作业的输出所需的属性。 此示例使用 Blob 存储作为输出。
+使用 [az stream-analytics output create](/cli/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create) cmdlet 将输出添加到作业。 此 cmdlet 使用作业名称、作业输出名称、资源组名称和作业输出定义作为参数。 作业输出定义是一个 JSON 文件，其中包含配置作业的输出所需的属性。 此示例使用 Blob 存储作为输出。
 
 在本地计算机上创建名为 `datasink.json` 的文件，并向其添加以下 JSON 数据。 确保将 `accountKey` 的值替换为存储帐户的访问密钥，该密钥是存储在 $storageAccountKey 值中的值。
 
@@ -232,7 +232,7 @@ az stream-analytics output create
 
 ## <a name="define-the-transformation-query"></a>定义转换查询
 
-使用 [az stream-analytics transformation create](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/transformation?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-transformation-create) cmdlet 将转换添加到作业。 此 cmdlet 使用作业名称、作业转换名称、资源组名称和作业转换定义作为参数。 
+使用 [az stream-analytics transformation create](/cli/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create) cmdlet 将转换添加到作业。 此 cmdlet 使用作业名称、作业转换名称、资源组名称和作业转换定义作为参数。 
 
 运行 `az stream-analytics transformation create` cmdlet。
 
@@ -256,7 +256,7 @@ az stream-analytics transformation create
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>启动流分析作业并检查输出
 
-使用 [az stream-analytics job start](https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-start) cmdlet 启动作业。 此 cmdlet 使用作业名称、资源组名称、输出启动模式和启动时间作为参数。 `OutputStartMode` 接受的值为 `JobStartTime`、`CustomTime` 或 `LastOutputEventTime`。
+使用 [az stream-analytics job start](/cli/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start) cmdlet 启动作业。 此 cmdlet 使用作业名称、资源组名称、输出启动模式和启动时间作为参数。 `OutputStartMode` 接受的值为 `JobStartTime`、`CustomTime` 或 `LastOutputEventTime`。
 
 以下 cmdlet 在运行以后会返回 `True` 作为输出（如果作业启动）。 在存储容器中，创建的输出文件夹包含已转换的数据。
 

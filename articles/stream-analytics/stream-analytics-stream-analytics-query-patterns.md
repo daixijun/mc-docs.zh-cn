@@ -8,14 +8,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 12/18/2019
-ms.date: 10/09/2020
+ms.date: 11/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f3642bc6e85040d3c0e424c250b1c52e0c0c3e8c
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.openlocfilehash: 2e6936026bc9ec3e1d60c75e9c193611beba7996
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936806"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977673"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure 流分析中的常见查询模式
 
@@ -831,7 +831,7 @@ From
 
 用户定义的函数将从每个使用的事件的 HexValue 计算 bigint 值。
 
-有关详细信息，请参阅 [JavaScript](/stream-analytics/stream-analytics-javascript-user-defined-functions)。
+有关详细信息，请参阅 [JavaScript](./stream-analytics-javascript-user-defined-functions.md)。
 <!--Customized in MC: UDF is not available in MC in C# language.-->
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>使用 MATCH_RECOGNIZE 进行高级模式匹配
@@ -934,5 +934,5 @@ JOIN
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

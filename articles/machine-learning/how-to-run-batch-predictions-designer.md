@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: dc2218e380d0520f37c9bdc9cdb289002c5be674
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c5da90ae1d328364ac3f24f0cd99e5e3e8bf68e7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118246"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978266"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>使用 Azure 机器学习设计器运行批量预测
 
@@ -29,7 +29,7 @@ ms.locfileid: "92118246"
 > * 使用管道终结点
 > * 管理终结点版本
 
-要了解如何使用 SDK 设置批量评分服务，请参阅随附的[操作指南](how-to-run-batch-predictions.md)。
+要了解如何使用 SDK 设置批量评分服务，请参阅随附的[操作指南](./tutorial-pipeline-batch-scoring-classification.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

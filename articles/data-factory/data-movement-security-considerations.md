@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 05/26/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: e84215680a42cf19ad9995047a37c22a90c9e3b6
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/23/2020
+ms.openlocfilehash: 6c12f677dc39a7c961d463e7c832e078262d6858
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523975"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680538"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure 数据工厂中数据移动的安全注意事项
 
@@ -57,7 +57,7 @@ ms.locfileid: "90523975"
 
 ### <a name="securing-data-store-credentials"></a>保护数据存储凭据
 
-- **在 Azure 数据工厂托管存储中存储加密的凭据**。 数据工厂使用由 Azure 管理的证书对数据存储凭据加密，从而帮助为这些凭据提供保护。 这些证书每两年轮换一次（包括证书续订和凭据迁移）。 有关 Azure 存储安全的详细信息，请参阅 [Azure 存储安全概述](/storage/blobs/security-recommendations)。
+- **在 Azure 数据工厂托管存储中存储加密的凭据**。 数据工厂使用由 Azure 管理的证书对数据存储凭据加密，从而帮助为这些凭据提供保护。 这些证书每两年轮换一次（包括证书续订和凭据迁移）。 有关 Azure 存储安全的详细信息，请参阅 [Azure 存储安全概述](../storage/blobs/security-recommendations.md)。
 - **在 Azure Key Vault 中存储凭据**。 还可以将数据存储的凭据存储在 [Azure Key Vault](/key-vault/) 中。 数据工厂在执行某个活动期间会检索该凭据。 有关详细信息，请参阅[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。
 
 ### <a name="data-encryption-in-transit"></a>传输中的数据加密
@@ -96,7 +96,7 @@ Amazon Redshift 支持静态数据的群集加密。 有关详细信息，请参
 Salesforce 支持防火墙平台加密，它允许加密所有文件、附件和自定义字段。 有关详细信息，请参阅 [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)（了解 Web 服务器 OAuth 身份验证流）。  
 
 ## <a name="hybrid-scenarios"></a>混合场景
-混合场景需要在本地网络、虚拟网络 (Azure) 或虚拟私有云 (Amazon) 中安装自承载集成运行时。 自承载集成运行时必须能够访问本地数据存储。 有关自承载集成运行时的详细信息，请参阅[如何创建和配置自承载集成运行时](/data-factory/create-self-hosted-integration-runtime)。 
+混合场景需要在本地网络、虚拟网络 (Azure) 或虚拟私有云 (Amazon) 中安装自承载集成运行时。 自承载集成运行时必须能够访问本地数据存储。 有关自承载集成运行时的详细信息，请参阅[如何创建和配置自承载集成运行时](./create-self-hosted-integration-runtime.md)。 
 
 ![自承载集成运行时通道](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -105,11 +105,11 @@ Salesforce 支持防火墙平台加密，它允许加密所有文件、附件和
 ### <a name="on-premises-data-store-credentials"></a>本地数据存储凭据
 凭据可以存储在数据工厂中，也可以在运行时从 Azure 密钥保管库[由数据工厂引用](store-credentials-in-key-vault.md)。 如果将凭据存储在数据工厂中，则凭据会始终以加密方式存储在自承载集成运行时上。 
  
-- **在本地存储凭据**。 如果直接结合 JSON 中内联的连接字符串和凭据使用 **Set-AzDataFactoryV2LinkedService** cmdlet，则链接服务将加密并存储在自承载集成运行时中。  在这种情况下，凭据将通过 Azure 后端服务（此服务非常安全）传递到自承载集成计算机（最终对其进行加密和存储的地方）。 自承载集成运行时使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 来加密敏感数据和凭据信息。
+- **在本地存储凭据**。 如果直接结合 JSON 中内联的连接字符串和凭据使用 **Set-AzDataFactoryV2LinkedService** cmdlet，则链接服务将加密并存储在自承载集成运行时中。  在这种情况下，凭据将通过 Azure 后端服务（此服务非常安全）传递到自承载集成计算机（最终对其进行加密和存储的地方）。 自承载集成运行时使用 Windows [DPAPI](https://docs.microsoft.com/previous-versions/ms995355(v=msdn.10)) 来加密敏感数据和凭据信息。
 
 - **在 Azure Key Vault 中存储凭据**。 还可以将数据存储的凭据存储在 [Azure Key Vault](/key-vault/) 中。 数据工厂在执行某个活动期间会检索该凭据。 有关详细信息，请参阅[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。
 
-- **在本地存储凭据，而无需通过 Azure 后端将凭据传递到自承载集成运行时**。 如果想要在自承载集成运行时本地加密并存储凭据，而不必通过数据工厂后端传递凭据，请按照[在 Azure 数据工厂中加密本地数据存储的凭据](encrypt-credentials-self-hosted-integration-runtime.md)中的步骤操作。 所有连接器都支持此选项。 自承载集成运行时使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 来加密敏感数据和凭据信息。 
+- **在本地存储凭据，而无需通过 Azure 后端将凭据传递到自承载集成运行时**。 如果想要在自承载集成运行时本地加密并存储凭据，而不必通过数据工厂后端传递凭据，请按照[在 Azure 数据工厂中加密本地数据存储的凭据](encrypt-credentials-self-hosted-integration-runtime.md)中的步骤操作。 所有连接器都支持此选项。 自承载集成运行时使用 Windows [DPAPI](https://docs.microsoft.com/previous-versions/ms995355(v=msdn.10)) 来加密敏感数据和凭据信息。 
 
    使用 **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdle 可加密链接服务凭据和链接服务中的敏感详细信息。 然后，可以通过 **Set-AzDataFactoryV2LinkedService** cmdlet 使用返回的 JSON（结合连接字符串中的 **EncryptedCredential** 元素）创建链接服务。  
 
@@ -153,7 +153,7 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 > 可能需要按相应数据源的要求在企业防火墙级别为域管理端口或设置允许列表。 此表仅以 Azure SQL 数据库和 Azure Synapse Analytics 为例。
 
 > [!NOTE] 
-> 若要详细了解通过 Azure 数据工厂实施的数据访问策略，请参阅[此文](/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory)。
+> 若要详细了解通过 Azure 数据工厂实施的数据访问策略，请参阅[此文](./data-access-strategies.md#data-access-strategies-through-azure-data-factory)。
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>本地/专用网络的防火墙要求    
 在企业中，企业防火墙在组织的中央路由器上运行。 Windows 防火墙在安装自承载集成运行时的本地计算机上作为守护程序运行。 
@@ -179,8 +179,8 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 以下云数据存储要求允许自承载集成运行时计算机的 IP 地址。 默认情况下，其中一些数据存储可能不需要允许列表。 
 
 - [Azure SQL 数据库](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>常见问题
@@ -197,4 +197,3 @@ Azure 虚拟网络是网络在云中的逻辑表示形式。 可以通过设置 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂复制活动性能的信息，请参阅[复制活动性能和优化指南](copy-activity-performance.md)。
 
- 

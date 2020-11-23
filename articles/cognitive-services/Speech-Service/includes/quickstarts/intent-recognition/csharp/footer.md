@@ -4,14 +4,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 01/27/2020
-ms.date: 07/29/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7108b5fdfcafbb89e610c18cd78644e12f191f32
-ms.sourcegitcommit: 5d167ad5411b018522a0fac9f5435a48f4ceb3a6
+ms.openlocfilehash: 8e9273409dbda7f945f2198cad29185fcd8dabab
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "89317540"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978600"
 ---
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 C# 示例](https://aka.ms/speech/github-csharp)
+> [了解 GitHub 上的 C# 示例](https://aka.ms/speech/github-csharp)
+> [请参阅 GitHub 上的高级 LUIS 示例](https://github.com/Azure/pizza_luis_bot)

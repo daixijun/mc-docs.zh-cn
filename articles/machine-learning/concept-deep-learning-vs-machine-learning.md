@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f5eb9b39743dc3650d395a195aa16e725549c843
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 922aab5b9c89f1c0100feef74bfbd64a5a2889d1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117864"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977522"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure 机器学习中的深度学习与机器学习
 
@@ -69,7 +69,7 @@ ms.locfileid: "92117864"
 
 ### <a name="object-detection"></a>对象检测
 
-深度学习已应用于许多对象检测用例。 对象检测包括两个组成部分：图像分类和图像定位。 图像分类识别图像的对象，例如汽车或人。  图像定位提供这些对象的具体位置。  
+深度学习已应用于许多对象检测用例。 对象检测包括两个组成部分：图像分类和图像定位。 图像分类识别图像的对象，例如汽车或人。 图像定位提供这些对象的具体位置。 
 
 对象检测已在游戏、零售、旅游和自动驾驶汽车等行业中使用。
 
@@ -121,4 +121,4 @@ ms.locfileid: "92117864"
 
 - [使用 TensorFlow 估算器和 Keras 将手写数字分类](/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [使用 Chainer 模型将手写数字分类](/machine-learning/how-to-train-ml-models)
+- [使用 Chainer 模型将手写数字分类](./how-to-set-up-training-targets.md)

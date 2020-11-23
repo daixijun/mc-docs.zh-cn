@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 03/18/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: dbad699c6f40c8068d0512dd43f0cffc590720cf
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/23/2020
+ms.openlocfilehash: fd5af20b01baf97006f263ff8479357cfc773ff2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470431"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977338"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 门户设置针对 Azure Database for MySQL 指标的警报 
 
@@ -37,23 +37,23 @@ ms.locfileid: "92470431"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“新建警报规则”（+ 图标）。 
+3. 选择“新建警报规则”（+ 图标）。
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="添加指标警报窗体":::
 
 5. 在“条件”部分中，选择“添加条件”   。
 
 6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="选择指标":::
 
 7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   “30 分钟”）、以及“频率”  。
    
    完成后选择“完成”  。
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="选择警报规则":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="选择指标 2":::
 
 8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
@@ -67,11 +67,11 @@ ms.locfileid: "92470431"
 
     完成后选择“确定”  。
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="选择警报规则":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="操作组":::
 
 11. 指定预警规则名称、说明和严重性。
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="选择警报规则"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="操作组 2"::: 
 
 12. 选择“创建警报规则”可以创建警报  。
 
@@ -87,4 +87,4 @@ ms.locfileid: "92470431"
 
 ## <a name="next-steps"></a>后续步骤
 * 了解[在警报中配置 Webhook](../azure-monitor/platform/alerts-webhooks.md)的详细信息。
-* 获取[指标集合概述](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
+* 获取[指标集合概述](../azure-monitor/platform/data-platform.md)以确保服务可用且响应迅速。

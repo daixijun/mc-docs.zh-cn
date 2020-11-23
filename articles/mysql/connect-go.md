@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 05/26/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 9cc0c8099902552c34e76867da273ba043cc3f51
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/23/2020
+ms.openlocfilehash: 3cdce99c7c6970c83501f60ba4b075a7279304d6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041866"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977346"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Go 语言在 Azure Database for MySQL 中进行连接并查询数据
 
@@ -354,6 +354,16 @@ func main() {
     fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
     fmt.Println("Done.")
 }
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

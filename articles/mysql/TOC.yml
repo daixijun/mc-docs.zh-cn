@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL 文档
+- name: 用于 MySQL 的 Azure 数据库文档
   href: index.yml
 - name: 概述
   items:
@@ -25,6 +25,9 @@
     - name: 减轻数据库损坏的影响
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: 版本控制策略
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: 单台服务器
   expanded: true
   items:

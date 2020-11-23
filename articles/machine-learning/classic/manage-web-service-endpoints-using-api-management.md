@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: ae1f08b5d8e9e48d013267ab6d3be2b3f63d7c6f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0acb9d3dfda792cf85865fe0a3ade7aab9c6a2be
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118961"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977793"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>使用 API 管理以管理 Azure 机器学习工作室（经典）Web 服务
 
-**适用于：**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../compare-azure-ml-to-studio-classic.md)
+**适用对象：** ![适用于.](../../../includes/media/aml-applies-to-skus/yes.png)机器学习工作室（经典）   ![不适用于.](../../../includes/media/aml-applies-to-skus/no.png)[Azure 机器学习](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>概述
@@ -44,7 +44,7 @@ Azure API 管理是一项 Azure 服务，支持通过定义用户访问权限、
 3. 在搜索框中键入“API 管理”，然后选择“API 管理”资源。
 4. 单击“创建”。
 5. “名称”值用于创建唯一 URL（本示例使用“demoazureml”）。
-6. 为服务实例选择**订阅**、**资源组**和**位置**。
+6. 为服务实例选择 **订阅**、**资源组** 和 **位置**。
 7. 指定“组织名称”的值（本示例使用“demoazureml”）。
 8. 输入“管理员电子邮件”- 此电子邮件用于接收 API 管理系统发出的通知。
 9. 单击“创建”。
@@ -152,9 +152,9 @@ Azure API 管理是一项 Azure 服务，支持通过定义用户访问权限、
 
    ![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. 对于“请求参数”，请键入自己的**工作区**和**服务**，为 **apiversion** 键入“2.0”，为 **details** 键入“true”。 可在 AzureML Web 服务仪表板中查找“工作区”和“服务”（请参阅附录 A 中的**测试 Web 服务**）。
+4. 对于“请求参数”，请键入自己的 **工作区** 和 **服务**，为 **apiversion** 键入“2.0”，为 **details** 键入“true”。 可在 AzureML Web 服务仪表板中查找“工作区”和“服务”（请参阅附录 A 中的 **测试 Web 服务**）。
 
-   对于“请求标头”，请单击“添加标头”，并键入“Content-Type”和“application/json”。  再次单击“添加标头”，键入“Authorization”和“Bearer \<your service API-KEY\>”。 可在 AzureML Web 服务仪表板中找到 API-KEY（请参阅附录 A 中的**测试 Web 服务**）。
+   对于“请求标头”，请单击“添加标头”，并键入“Content-Type”和“application/json”。  再次单击“添加标头”，键入“Authorization”和“Bearer \<your service API-KEY\>”。 可在 AzureML Web 服务仪表板中找到 API-KEY（请参阅附录 A 中的 **测试 Web 服务**）。
 
    对于“请求正文”，请键入 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`。
 

@@ -132,6 +132,8 @@
           items:
             - name: 管理 Azure VM 备份
               href: backup-azure-manage-vms.md
+            - name: 管理恢复点
+              href: manage-recovery-points.md
     - name: 备份 Azure VM 上的 SQL Server 数据库
       items:
         - name: 概述
@@ -218,6 +220,8 @@
           href: backup-azure-alternate-dpm-server.md
         - name: 使用 Azure 备份服务器还原 VMware VM
           href: restore-azure-backup-server-vmware.md
+        - name: 备份 MABS 服务器
+          href: backup-the-mabs-server.md
     - name: Azure Stack 上的 Azure 备份服务器
       items:
         - name: 安装 Azure 备份服务器
@@ -318,7 +322,7 @@
       items:
         - name: 概述
           href: security-overview.md
-        - name: 基于角色的访问控制
+        - name: Azure 基于角色的访问控制
           href: backup-rbac-rs-vault.md
         - name: 软删除
           items:
@@ -334,8 +338,8 @@
           href: private-endpoints.md
         - name: Azure 备份中的加密
           href: backup-encryption.md
-        - name: 内置安全控件
-          href: backup-security-controls.md
+        - name: 传输层安全性
+          href: transport-layer-security.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -366,7 +370,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
-      href: /cli/backup?view=azure-cli-latest
+      href: /cli/backup
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.recoveryservices'
     - name: PowerShell - Azure 备份代理
@@ -386,5 +390,3 @@
       href: compliance-offerings.md
     - name: 定价计算器
       href: azure-backup-pricing.md
-    - name: 服务更新
-      href: 'https://azure.microsoft.com/updates/?product=backup'

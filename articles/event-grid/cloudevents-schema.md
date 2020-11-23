@@ -3,14 +3,15 @@ title: 在 CloudEvents 架构中将 Azure 事件网格与事件配合使用
 description: 说明如何对 Azure 事件网格中的事件使用 CloudEvents 架构。 该服务支持 CloudEvents 的 JSON 实现中的事件。
 author: Johnnytechn
 ms.topic: conceptual
-ms.date: 10/10/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 00b708d14d34645a187e242d97ea586126852e0d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 46612718a2ab2e0f9b9be9f9e58707b364eab15b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127809"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977853"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>将 CloudEvents v1.0 架构与事件网格配合使用
 除了采用[默认事件架构](event-schema.md)的事件，Azure 事件网格本身还支持采用 [CloudEvents v1.0 的 JSON 架构](https://github.com/cloudevents/spec/blob/v1.0/json-format.md)和 [HTTP 协议绑定](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)的事件。 [CloudEvents](https://cloudevents.io/) 是一种用于描述事件数据的[开放规范](https://github.com/cloudevents/spec/blob/v1.0/spec.md)。
@@ -154,15 +155,15 @@ New-AzureRmEventGridSubscription `
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.cn");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.cn");
 
         return response;
     }

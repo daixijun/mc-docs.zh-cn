@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2de1fca2c522e30faafb643a4ec9a08579213c5e
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e38b64e15050102cd721d03549c41c07e2e79021
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977566"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>在 Azure 机器学习工作室（经典版）中解释模型结果
 
@@ -261,7 +261,7 @@ Azure 机器学习工作室（经典版）具有不同的模块用于处理其�
 
 **向给定用户推荐项目**
 
-选择“推荐器预测类型”下的“项目推荐”即要求推荐器系统向给定用户推荐项目。 此方案中要选择的最后一个参数是 *推荐项目选择* 。 选项“从评级项目(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，我们选择“从所有项目”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 22。
+选择“推荐器预测类型”下的“项目推荐”即要求推荐器系统向给定用户推荐项目。 此方案中要选择的最后一个参数是 *推荐项目选择*。 选项“从评级项目(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，我们选择“从所有项目”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 22。
 
 ![推荐器系统的评分结果 - 项目推荐](./media/interpret-model-results/22.png)
 
@@ -271,7 +271,7 @@ Azure 机器学习工作室（经典版）具有不同的模块用于处理其�
 
 **查找与给定用户相关的用户**
 
-选择“推荐器预测类型”下的“相关用户”即要求推荐器系统查找给定用户的相关用户。 相关用户是具有相似偏好的用户。 此方案中要选择的最后一个参数是 *相关用户选择* 。 选项“从已为项目评级的用户(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，选择“从所有用户”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 23。
+选择“推荐器预测类型”下的“相关用户”即要求推荐器系统查找给定用户的相关用户。 相关用户是具有相似偏好的用户。 此方案中要选择的最后一个参数是 *相关用户选择*。 选项“从已为项目评级的用户(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，选择“从所有用户”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 23。
 
 ![推荐器系统的评分结果 --相关用户](./media/interpret-model-results/23.png)
 
@@ -281,7 +281,7 @@ Azure 机器学习工作室（经典版）具有不同的模块用于处理其�
 
 **查找与给定项目相关的项目**
 
-选择“推荐器预测类型”下的“相关项目”即要求推荐器系统查找给定项目的相关项目。 相关项目是同一个用户最有可能喜欢的项目。 此方案中要选择的最后一个参数是 *相关项目选择* 。 选项“从评级项目(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，我们选择“从所有项目”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 24。
+选择“推荐器预测类型”下的“相关项目”即要求推荐器系统查找给定项目的相关项目。 相关项目是同一个用户最有可能喜欢的项目。 此方案中要选择的最后一个参数是 *相关项目选择*。 选项“从评级项目(用于模型评估)”主要用于训练过程中的模型评估。 对于此预测阶段，我们选择“从所有项目”。 [Matchbox 推荐器评分][score-matchbox-recommender]输出的可视化类似于图 24。
 
 ![推荐器系统的评分结果 --相关项目](./media/interpret-model-results/24.png)
 
@@ -308,10 +308,10 @@ Azure 机器学习工作室（经典版）具有不同的模块用于处理其�
 图 26. 餐厅推荐问题的 Web 服务结果
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /machine-learning/studio-module-reference/train-matchbox-recommender

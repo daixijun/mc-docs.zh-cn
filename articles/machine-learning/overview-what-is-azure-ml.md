@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: bf534f8563b27f4e7e64579cbc775cd943e1348d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a194228b6f3626ac6a8ea876ba28ba67b68e6a4a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104550"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978253"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -92,9 +92,9 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps：部署和生命周期管理
 有了正确的模型以后，即可轻松地将其用在 Web 服务中、IoT 设备上或 Power BI 中。 有关详细信息，请参阅有关[部署方式及位置](how-to-deploy-and-where.md)的文章。
 
-然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)、[Azure 机器学习工作室](https://studio.ml.azure.cn)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
+然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)、[Azure 机器学习工作室](https://studio.ml.azure.cn)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
 
-可以使用这些模型[实时](how-to-consume-web-service.md)返回预测，或者在有大量数据的情况下[异步](how-to-use-parallel-run-step.md)返回预测。
+可以使用这些模型[实时](how-to-consume-web-service.md)返回预测，或者在有大量数据的情况下[异步](./tutorial-pipeline-batch-scoring-classification.md)返回预测。
 
 使用高级[机器学习管道](concept-ml-pipelines.md)，可以在每一步（从数据准备、模型训练和评估一直到部署）进行协作。 使用 Pipelines 可以：
 
@@ -111,15 +111,15 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与诸如 Git 和 MLFlow 之类的开源工具集成。
 
-+ 如 __Azure Kubernetes 服务__ 、 __Azure 容器实例__ 、 __Azure Databricks__ 、 __Azure Data Lake Analytics__ 和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
-+ __Azure 事件网格__ 。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
-+ __Azure Monitor__ 。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
-+ 如 __Azure 存储帐户__ 、 __Azure Data Lake Storage__ 、 __Azure SQL 数据库__ 、 __Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
-+ __Azure 虚拟网络__ 。 
-+ __Azure Pipelines__ 。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
-+ __Git 存储库日志__ 。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
-+ __MLFlow__ 。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
-+ __Kubeflow__ 。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
++ 如 __Azure Kubernetes 服务__、__Azure 容器实例__、__Azure Databricks__、__Azure Data Lake Analytics__ 和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
++ __Azure 事件网格__。 有关详细信息，请参阅[使用 Azure 机器学习事件](./how-to-use-event-grid.md)。
++ __Azure Monitor__。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
++ 如 __Azure 存储帐户__、__Azure Data Lake Storage__、__Azure SQL 数据库__、__Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
+.
++ __Azure Pipelines__。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
++ __Git 存储库日志__。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
++ __MLFlow__。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
++ __Kubeflow__。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
 
 ### <a name="secure-communications"></a>安全通信
 
@@ -128,7 +128,8 @@ Azure 存储帐户、计算目标和其他资源可在虚拟网络内安全地�
 ## <a name="next-steps"></a>后续步骤
 
 - 通过首选方法创建首个试验：
-  + [使用 Python 笔记本训练和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
+- + [在自己的开发环境开始使用](tutorial-1st-experiment-sdk-setup-local.md)
+  + [在计算实例上使用 Jupyter 笔记本来训练和部署 ML 模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用 R Markdown 训练和部署 ML 模型](tutorial-1st-r-experiment.md) 
   + [使用自动化机器学习训练和部署 ML 模型](tutorial-first-experiment-automated-ml.md) 
   + [使用设计器的拖放功能进行训练和部署](tutorial-designer-automobile-price-train-score.md) 

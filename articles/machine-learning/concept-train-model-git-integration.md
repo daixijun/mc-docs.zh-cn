@@ -10,12 +10,12 @@ ms.author: v-yiso
 author: jpe316
 origin.date: 03/05/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: baacd6b08a5f32ca8ccf70fa58e76b4f1071aae4
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e1ea138876d49d57bcad7e63a7db97ae8efd6aa9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117972"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978028"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure 机器学习的 Git 集成
 
@@ -116,7 +116,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 SSH 可能会显示服务器的 SSH 指纹，并要求你对其进行验证。 应验证显示的指纹是否与 SSH 公钥页中的某个指纹相匹配。
 
-SSH 将在连接到未知主机时显示此指纹，以防止[中间人攻击](https://technet.microsoft.com/library/cc959354.aspx)。 接受主机的指纹后，SSH 将不再提示你，除非指纹发生更改。
+SSH 将在连接到未知主机时显示此指纹，以防止[中间人攻击](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10))。 接受主机的指纹后，SSH 将不再提示你，除非指纹发生更改。
 
 3) 当系统询问是否要继续连接时，请键入 `yes`。 Git 将克隆存储库，并设置原点远程，以便在将来的 Git 命令中使用 SSH 进行连接。
 
@@ -154,8 +154,8 @@ Git 信息存储在训练运行的属性中。 可以使用 Azure 门户、Pytho
 ### <a name="azure-portal"></a>Azure 门户
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择工作区。
-1. 选择“试验”，然后选择一个试验  。
-1. 从“运行号”列中选择一个运行  。
+1. 选择“试验”，然后选择一个试验。
+1. 从“运行号”列中选择一个运行。
 1. 选择“输出 + 日志”，然后展开“日志”和“azureml”条目  。 选择以“###\_azure”开头的链接。
 
 记录的信息包含类似于以下 JSON 的文本：
@@ -179,7 +179,7 @@ Git 信息存储在训练运行的属性中。 可以使用 Azure 门户、Pytho
 
 ### <a name="python-sdk"></a>Python SDK
 
-提交训练运行后，将返回 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 对象。 此对象的 `properties` 属性包含记录的 git 信息。 例如，以下代码可检索提交哈希：
+提交训练运行后，将返回 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 对象。 此对象的 `properties` 属性包含记录的 git 信息。 例如，以下代码可检索提交哈希：
 
 ```python
 run.properties['azureml.git.commit']
@@ -193,7 +193,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-有关详细信息，请参阅 [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) 参考文档。
+有关详细信息，请参阅 [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) 参考文档。
 
 ## <a name="next-steps"></a>后续步骤
 

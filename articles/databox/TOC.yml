@@ -12,6 +12,7 @@
           items:
             - name: 设置 - Azure 门户
               href: data-box-disk-quickstart-portal.md
+              displayName: 'Azure CLI, az databox job create, create Data Box job'
         - name: 教程
           items:
             - name: 1 - 顺序

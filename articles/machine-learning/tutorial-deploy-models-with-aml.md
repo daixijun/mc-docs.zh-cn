@@ -1,7 +1,7 @@
 ---
 title: 图像分类教程：部署模型
 titleSuffix: Azure Machine Learning
-description: 本教程（由两部分组成的系列教程的第二部分）介绍如何通过 Azure 机器学习在 Python Jupyter notebook 中使用 scikit-learn 部署图像分类模型。
+description: 本教程介绍如何通过 Azure 机器学习在 Python Jupyter notebook 中使用 scikit-learn 部署图像分类模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 origin.date: 03/18/2020
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: b5755a3efab12e73e406d6b45da03c8aa437c86f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: aba0b13e3a5c0bb9d8f246d1805a254a97d4bdc5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118498"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978300"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教程：在 Azure 容器实例中部署映像分类模型
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 5a0e387535bc0bb685cd3f412fd71553c0369139
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 64aac6545ab75d89d838a6f5fd89416a9774cebc
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721296"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849412"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>应用程序网关前端 IP 地址配置
 
@@ -32,9 +32,9 @@ ms.locfileid: "90721296"
 
 仅支持一个公共 IP 地址或一个专用 IP 地址。 在创建应用程序网关时选择前端 IP。
 
-- 对于公共 IP 地址，可以在应用程序网关所在的位置创建新的公共 IP 地址或使用现有的公共 IP。 有关详细信息，请参阅[静态与动态公共 IP 地址](/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)。
+- 对于公共 IP 地址，可以在应用程序网关所在的位置创建新的公共 IP 地址或使用现有的公共 IP。 有关详细信息，请参阅[静态与动态公共 IP 地址](./application-gateway-components.md#static-versus-dynamic-public-ip-address)。
 
-- 对于专用 IP 地址，可以在创建应用程序网关的子网中指定一个专用 IP 地址。 如果不显式指定专用 IP 地址，则系统会在子网中自动选择一个任意 IP 地址。 以后无法更改选定的 IP 地址类型（静态或动态）。 有关详细信息，请参阅[创建包含内部负载均衡器的应用程序网关](/application-gateway/application-gateway-ilb-arm)。
+- 对于专用 IP 地址，可以在创建应用程序网关的子网中指定一个专用 IP 地址。 如果不显式指定专用 IP 地址，则系统会在子网中自动选择一个任意 IP 地址。 以后无法更改选定的 IP 地址类型（静态或动态）。 有关详细信息，请参阅[创建包含内部负载均衡器的应用程序网关](./application-gateway-ilb-arm.md)。
 
 某个前端 IP 地址将关联到检查前端 IP 上的传入请求的侦听器。
 

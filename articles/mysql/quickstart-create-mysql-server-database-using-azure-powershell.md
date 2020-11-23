@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 04/28/2020
 ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: fd0caf341054241ea2aef2b600ab23df6695010b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e93ecbb80633945545c1978b19aed4d4d5cdb971
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328879"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977373"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for MySQL 服务器
 
@@ -49,7 +49,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
-以下示例在“美国西部”区域中创建名为“myresourcegroup” 的资源组。
+以下示例在“中国北部 2”区域中创建名为“myresourcegroup”的资源组。
 
 ```azurepowershell
 New-AzResourceGroup -Name myresourcegroup -Location chinanorth2
@@ -67,12 +67,12 @@ New-AzResourceGroup -Name myresourcegroup -Location chinanorth2
 | ResourceGroupName          | myresourcegroup  | 提供 Azure 资源组的名称。                                                                                                                                                                                                                                                                                            |
 | SKU                        | GP_Gen5_2        | SKU 的名称。 请遵循简写约定：pricing-tier\_compute-generation\_vCores。 有关 SKU 参数的详细信息，请参阅此表格后面的信息。                                                                                                                                           |
 | BackupRetentionDay         | 7                | 备份保留时间。 单位为天。 范围为 7-35。                                                                                                                                                                                                                                                                       |
-| GeoRedundantBackup         | Enabled          | 是否应为此服务器启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
+| GeoRedundantBackup         | 已启用          | 是否应为此服务器启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
 | 位置                   | chinanorth2           | 服务器的 Azure 区域。                                                                                                                                                                                                                                                                                                         |
-| SslEnforcement             | Enabled          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
+| SslEnforcement             | 已启用          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | 服务器的存储容量（以 MB 为单位）。 有效的 StorageInMb 最小为 5120 MB，以 1024 MB 为增量递增。 有关存储大小限制的详细信息，请参阅 [Azure Database for MySQL 定价层级](./concepts-pricing-tiers.md)。                                                                               |
 | 版本                    | 5.7              | MySQL 主版本。                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** 。                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 管理员用户的密码，采用安全字符串格式。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。                                       |
 
 Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下示例所示 。

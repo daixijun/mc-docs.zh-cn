@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/27/2020
-ms.date: 08/03/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: e91fe78d9db998378a2e675a77d74092fd476cdb
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 5e85ed7a55d1313bc7bbba098e702d68c7eae727
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979434"
 ---
 针对 macOS 开发时，有三个语音 SDK 可用。
 
@@ -44,7 +44,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.13.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.14.0'
 end
 ```
 

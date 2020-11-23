@@ -6,15 +6,15 @@ ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 origin.date: 04/01/2018
-ms.date: 08/20/2020
-ms.openlocfilehash: e992e7e64b5fcfd7c03a0bc3682e3da3a547e678
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: 2f202d7b6515e78059e002630a626da85adb4329
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715709"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977030"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Azure 流分析中 JavaScript 用户定义的函数
  
@@ -27,7 +27,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 下面是 JavaScript 用户定义的函数可派上用场的一些情景：
 * 使用 **Regexp_Replace()** 和 **Regexp_Extract()** 等正则表达式函数分析和处理字符串
 * 解码和编码数据，例如，二进制到十六进制的转换
-* 使用 JavaScript **数学**函数进行数学计算
+* 使用 JavaScript **数学** 函数进行数学计算
 * 执行排序、联接、查找和填充等数组操作
 
 使用流分析中的 JavaScript 用户定义的函数无法实现以下目的：
@@ -35,7 +35,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 * 针对输入/输出执行自定义事件格式序列化或反序列化
 * 创建自定义聚合
 
-尽管函数定义中并不禁止 **Date.GetDate()** 或 **Math.random()** 等函数，但应该避免使用这些函数。 这些函数在每次被调用时**不会**返回相同的结果，并且 Azure 流分析服务不会保留函数调用和返回结果的日记。 当你或流分析服务重新启动某个作业时，如果某个函数针对相同的事件返回不同的结果，将无法保证可重复性。
+尽管函数定义中并不禁止 **Date.GetDate()** 或 **Math.random()** 等函数，但应该避免使用这些函数。 这些函数在每次被调用时 **不会** 返回相同的结果，并且 Azure 流分析服务不会保留函数调用和返回结果的日记。 当你或流分析服务重新启动某个作业时，如果某个函数针对相同的事件返回不同的结果，将无法保证可重复性。
 
 ## <a name="add-a-javascript-user-defined-function-to-your-job"></a>向作业中添加 JavaScript 用户定义的函数
 
@@ -85,7 +85,7 @@ bigint | Number（JavaScript 只能精确呈现最大 2^53 的整数）
 DateTime | Date（JavaScript 仅支持毫秒）
 Double | Number
 nvarchar(MAX) | 字符串
-Record | 对象
+Record | Object
 Array | Array
 Null | Null
 
@@ -96,7 +96,7 @@ JavaScript | 流分析
 Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double
 Date | DateTime
 字符串 | nvarchar(MAX)
-对象 | Record
+Object | Record
 Array | Array
 Null、Undefined | Null
 其他任何类型（例如函数或错误） | 不支持（导致运行时错误）
@@ -183,5 +183,5 @@ INTO
 FROM
     input A
 ```
-<!--Not available in MC: /stream-analytics/machine-learning-udf, /stream-analytics/stream-analytics-edge-csharp-udf-methods -->
 
+<!--Not available in MC: /stream-analytics/machine-learning-udf, /stream-analytics/stream-analytics-edge-csharp-udf-methods -->

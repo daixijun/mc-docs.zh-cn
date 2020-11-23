@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cd81e7f32fdeddaad5f14fe93bc10ac0dd2226e4
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a9b0268149dfa7fa881b8dbd1ea7ba3100d4be95
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655573"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977437"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>在 VMware 部署规划器中查看成本估算 
 

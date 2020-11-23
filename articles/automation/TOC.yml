@@ -4,7 +4,7 @@
   items:
     - name: 什么是自动化？
       href: automation-intro.md
-    - name: 常见问题
+    - name: 常见问题解答
       href: automation-faq.md
 - name: 快速入门
   items:
@@ -112,7 +112,7 @@
               href: graphical-runbook-sdk.md
         - name: 监视 Runbook
           items:
-            - name: 监视 runbook 输出
+            - name: 配置 runbook 输出
               href: automation-runbook-output-and-messages.md
             - name: 处理图形 Runbook 中的错误
               href: automation-runbook-graphical-error-handling.md
@@ -175,45 +175,45 @@
     - name: 更新管理
       items:
         - name: 概述
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: 链接的 Log Analytics 工作区支持的区域
           href: how-to/region-mappings.md
         - name: 启用
           items:
-            - name: 使用 Azure 资源管理器模板启用“更新管理”
-              href: update-management/update-mgmt-enable-template.md
-            - name: 从 Azure VM 启用“更新管理”
-              href: update-management/update-mgmt-enable-vm.md
-            - name: 从自动化帐户启用更新管理
-              href: update-management/update-mgmt-enable-automation-account.md
+            - name: 使用 Azure 资源管理器模板启用
+              href: update-management/enable-from-template.md
+            - name: 从 Azure VM 启用
+              href: update-management/enable-from-vm.md
+            - name: 从自动化帐户启用
+              href: update-management/enable-from-automation-account.md
         - name: 管理 VM 的更新
           items:
             - name: 入门
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: 评估符合性
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: 部署更新并检查状态
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: 使用前脚本和后脚本
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: 配置警报
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: 与 Configuration Manager 集成
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: 配置 Windows 更新客户端
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: 使用动态组
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: 查询更新管理日志
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: 使用作用域配置
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: 禁用
           items:
             - name: 删除更新管理
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: 从“更新管理”中删除 VM
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: 疑难解答
           items:
             - name: 排查功能部署问题

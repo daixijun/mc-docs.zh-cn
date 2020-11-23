@@ -10,14 +10,14 @@ metadata:
   ms.service: speech-service
   ms.topic: landing-page
   origin.date: 03/19/2020
-  ms.date: 10/16/2020
+  ms.date: 11/20/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 61ee47d0d10a1edbc7b98821b632dd33bcd026c7
-  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+  ms.openlocfilehash: 48f1b5cad60b742bca8ec19466e1ef1c72e8e654
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92128274"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94977716"
 landingContent:
 - title: 关于语音转文本
   linkLists:
@@ -27,6 +27,8 @@ landingContent:
       url: speech-to-text.md
     - text: 什么是批量语音转文本？
       url: batch-transcription.md
+    - text: 什么是自定义语音识别？
+      url: custom-speech-overview.md
     - text: 使用语音 CLI 无需代码即可将语音转换为文本
       url: spx-overview.md
   - linkListType: quickstart
@@ -63,3 +65,9 @@ landingContent:
       url: faq-stt.md
     - text: 语音转文本定价
       url: https://www.azure.cn/pricing/details/cognitive-services
+- title: 帮助和反馈
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 支持和帮助选项
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

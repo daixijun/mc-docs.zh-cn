@@ -4,17 +4,17 @@ description: 教程 - 如何使用 Batch 渲染服务和 Azure 命令行界面�
 ms.topic: tutorial
 origin.date: 03/05/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 380b91436b21b64b0bfb6a8ec15f983eb33a7dd3
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5010df4cda736a2f1681e41acdf0eb05a148c862
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978216"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -31,19 +31,25 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要以“按使用付费”模式使用 Batch 中的渲染应用程序，需要有一个标准预付费套餐订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
+ - 若要以“按使用付费”模式使用 Batch 中的渲染应用程序，需要有一个标准预付费套餐订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
+ - [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本教程需要 Azure CLI 版本 2.0.20 或更高版本。
+
+<!--Not Available on Azure Cloud Shell-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本教程要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
-
+> [!TIP]
+> 可以在 Azure Batch 扩展模板 GitHub 存储库中查看 [Arnold 作业模板](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames)。
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 
 在订阅中创建资源组、Batch 帐户和链接存储帐户（如果尚未这样做）。 
 
-使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组。 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli 
 az group create \
@@ -51,7 +57,7 @@ az group create \
     --location chinaeast2
 ```
 
-使用 [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 命令在资源组中创建 Azure 存储帐户。 本教程使用该存储帐户来存储输入的 3ds Max 场景以及渲染的输出。
+使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) 命令在资源组中创建 Azure 存储帐户。 本教程使用该存储帐户来存储输入的 3ds Max 场景以及渲染的输出。
 
 ```azurecli
 az storage account create \
@@ -60,7 +66,7 @@ az storage account create \
     --location chinaeast2 \
     --sku Standard_LRS
 ```
-使用 [az batch account create](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-create) 命令创建 Batch 帐户。 以下示例在 *myResourceGroup* 中创建名为 *mybatchaccount* 的 Batch 帐户，并链接已创建的存储帐户。  
+使用 [az batch account create](https://docs.azure.cn/cli/batch/account#az_batch_account_create) 命令创建 Batch 帐户。 以下示例在 *myResourceGroup* 中创建名为 *mybatchaccount* 的 Batch 帐户，并链接已创建的存储帐户。  
 
 ```azurecli 
 az batch account create \
@@ -70,7 +76,7 @@ az batch account create \
     --location chinaeast2
 ```
 
-若要创建和管理计算池和作业，需使用 Batch 进行身份验证。 使用 [az batch account login](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-login) 命令登录到帐户。 登录后，`az batch` 命令使用此帐户上下文。 以下示例使用基于 Batch 帐户名称和密钥的共享密钥身份验证。 Batch 还支持通过 [Azure Active Directory](batch-aad-auth.md) 进行身份验证，以便对单个用户或无人参与应用程序进行身份验证。
+若要创建和管理计算池和作业，需使用 Batch 进行身份验证。 使用 [az batch account login](https://docs.azure.cn/cli/batch/account#az_batch_account_login) 命令登录到帐户。 登录后，`az batch` 命令使用此帐户上下文。 以下示例使用基于 Batch 帐户名称和密钥的共享密钥身份验证。 Batch 还支持通过 [Azure Active Directory](batch-aad-auth.md) 进行身份验证，以便对单个用户或无人参与应用程序进行身份验证。
 
 ```azurecli 
 az batch account login \
@@ -80,7 +86,7 @@ az batch account login \
 ```
 ## <a name="upload-a-scene-to-storage"></a>将场景上传到存储
 
-若要将输入场景上传到存储，首先需访问存储帐户并为 Blob 创建目标容器。 若要访问 Azure 存储帐户，请导出 `AZURE_STORAGE_KEY` 和 `AZURE_STORAGE_ACCOUNT` 环境变量。 第一个 Bash shell 命令使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 命令来获取第一个帐户密钥。 设置这些环境变量后，存储命令使用此帐户上下文。
+若要将输入场景上传到存储，首先需访问存储帐户并为 Blob 创建目标容器。 若要访问 Azure 存储帐户，请导出 `AZURE_STORAGE_KEY` 和 `AZURE_STORAGE_ACCOUNT` 环境变量。 第一个 Bash shell 命令使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令来获取第一个帐户密钥。 设置这些环境变量后，存储命令使用此帐户上下文。
 
 ```azurecli
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +94,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-现在，请在存储帐户中为场景文件创建 Blob 容器。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 命令创建允许公开读取访问的名为 *scenefiles* 的 Blob 容器。
+现在，请在存储帐户中为场景文件创建 Blob 容器。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建允许公开读取访问的名为 *scenefiles* 的 Blob 容器。
 
 ```azurecli
 az storage container create \
@@ -102,7 +108,7 @@ az storage container create \
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-将场景文件从本地工作目录上传到 Blob 容器。 以下示例使用 [az storage blob upload-batch](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) 命令，该命令可上传多个文件：
+将场景文件从本地工作目录上传到 Blob 容器。 以下示例使用 [az storage blob upload-batch](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload_batch) 命令，该命令可上传多个文件：
 
 ```azurecli
 az storage blob upload-batch \
@@ -112,7 +118,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>创建渲染池
 
-使用 [az batch pool create](https://docs.azure.cn/cli/batch/pool?view=azure-cli-latest#az-batch-pool-create) 命令创建用于渲染的 Batch 池。 此示例在 JSON 文件中指定池设置。 在当前 shell 中，创建名为 *mypool.json* 的文件，然后复制并粘贴以下内容。 请确保正确复制所有文本。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json) 下载文件。）
+使用 [az batch pool create](https://docs.azure.cn/cli/batch/pool#az_batch_pool_create) 命令创建用于渲染的 Batch 池。 此示例在 JSON 文件中指定池设置。 在当前 shell 中，创建名为 *mypool.json* 的文件，然后复制并粘贴以下内容。 请确保正确复制所有文本。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json) 下载文件。）
 
 ```json
 {
@@ -155,7 +161,7 @@ Batch 支持专用节点。 专用节点为池保留。
 az batch pool create \
     --json-file mypool.json
 ``` 
-池的预配需要数分钟。 若要查看池的状态，请运行 [az batch pool show](https://docs.azure.cn/cli/batch/pool?view=azure-cli-latest#az-batch-pool-show) 命令。 以下命令获取池的分配状态：
+池的预配需要数分钟。 若要查看池的状态，请运行 [az batch pool show](https://docs.azure.cn/cli/batch/pool#az_batch_pool_show) 命令。 以下命令获取池的分配状态：
 
 ```azurecli
 az batch pool show \
@@ -167,7 +173,7 @@ az batch pool show \
 
 ## <a name="create-a-blob-container-for-output"></a>创建用于输出的 Blob 容器
 
-在本教程的示例中，渲染作业中的每个任务都会创建一个输出文件。 在计划此作业之前，请在存储帐户中创建一个 Blob 容器，作为输出文件的目标。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 命令创建可以公开读取访问的 *job-myrenderjob* 容器。 
+在本教程的示例中，渲染作业中的每个任务都会创建一个输出文件。 在计划此作业之前，请在存储帐户中创建一个 Blob 容器，作为输出文件的目标。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建可以公开读取访问的 *job-myrenderjob* 容器。 
 
 ```azurecli
 az storage container create \
@@ -175,7 +181,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-为了将输出文件写入到容器中，Batch 需要使用共享访问签名 (SAS) 令牌。 使用 [az storage account generate-sas](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) 命令创建该令牌。 以下示例创建的令牌用于向帐户中的任何 Blob 容器写入内容，该令牌在 2020 年 11 月 15 日过期：
+为了将输出文件写入到容器中，Batch 需要使用共享访问签名 (SAS) 令牌。 使用 [az storage account generate-sas](https://docs.azure.cn/cli/storage/account#az_storage_account_generate_sas) 命令创建该令牌。 以下示例创建的令牌用于向帐户中的任何 Blob 容器写入内容，该令牌在 2020 年 11 月 15 日过期：
 
 ```azurecli
 az storage account generate-sas \
@@ -195,7 +201,7 @@ se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>创建作业
 
-使用 [az batch job create](https://docs.azure.cn/cli/batch/job?view=azure-cli-latest#az-batch-job-create) 命令创建可在池中运行的渲染作业。 作业一开始没有任务。
+使用 [az batch job create](https://docs.azure.cn/cli/batch/job#az_batch_job_create) 命令创建可在池中运行的渲染作业。 作业一开始没有任务。
 
 ```azurecli
 az batch job create \
@@ -205,7 +211,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>创建任务
 
-使用 [az batch task create](https://docs.azure.cn/cli/batch/task?view=azure-cli-latest#az-batch-task-create) 命令在作业中创建渲染任务。 此示例在 JSON 文件中指定任务设置。 在当前 shell 中，创建名为 *myrendertask.json* 的文件，然后复制并粘贴以下内容。 请确保正确复制所有文本。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json) 下载文件。）
+使用 [az batch task create](https://docs.azure.cn/cli/batch/task#az_batch_task_create) 命令在作业中创建渲染任务。 此示例在 JSON 文件中指定任务设置。 在当前 shell 中，创建名为 *myrendertask.json* 的文件，然后复制并粘贴以下内容。 请确保正确复制所有文本。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json) 下载文件。）
 
 此任务指定一个 3ds Max 命令，用于渲染场景 *MotionBlur-DragonFlying.max* 的单个帧。
 
@@ -262,7 +268,7 @@ Batch 可以计划任务，让任务在池中的节点可用时运行。
 
 ### <a name="view-task-output"></a>查看任务输出
 
-任务的运行需要数分钟。 请使用 [az batch task show](https://docs.azure.cn/cli/batch/task?view=azure-cli-latest#az-batch-task-show) 命令查看任务详细信息。
+任务的运行需要数分钟。 请使用 [az batch task show](https://docs.azure.cn/cli/batch/task#az_batch_task_show) 命令查看任务详细信息。
 
 ```azurecli
 az batch task show \
@@ -270,7 +276,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-任务在计算节点上生成 *dragon0001.jpg*，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-download) 命令将文件从存储下载到本地计算机。
+任务在计算节点上生成 *dragon0001.jpg*，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download) 命令将文件从存储下载到本地计算机。
 
 ```azurecli
 az storage blob download \
@@ -289,7 +295,7 @@ az storage blob download \
 <!--MOONCAKE CUSTOMIZE ON 08/20/2020-->
 <!--MOONCAKE REMOVE THE LOW-PIROIRYT-->
 
-现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](https://docs.azure.cn/cli/batch/pool?view=azure-cli-latest#az-batch-pool-resize) 命令将池中专用节点的数目增加到 6：
+现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](https://docs.azure.cn/cli/batch/pool#az_batch_pool_resize) 命令将池中专用节点的数目增加到 6：
 
 ```azurecli
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 6
@@ -301,7 +307,7 @@ az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 6
 
 ## <a name="render-a-multiframe-scene"></a>渲染多帧场景
 
-请使用 [az batch task create](https://docs.azure.cn/cli/batch/task?view=azure-cli-latest#az-batch-task-create) 命令在名为 *myrenderjob* 的作业中创建渲染任务，就像在单帧示例中一样。 在这里，请在名为 *myrendertask_multi.json* 的 JSON 文件中指定任务设置。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json) 下载文件。）这六个任务中，每个都会指定一个 Arnold 命令行，用于渲染 3ds Max 场景 *MotionBlur-DragonFlying.max* 的一个帧。
+请使用 [az batch task create](https://docs.azure.cn/cli/batch/task#az_batch_task_create) 命令在名为 *myrenderjob* 的作业中创建渲染任务，就像在单帧示例中一样。 在这里，请在名为 *myrendertask_multi.json* 的 JSON 文件中指定任务设置。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json) 下载文件。）这六个任务中，每个都会指定一个 Arnold 命令行，用于渲染 3ds Max 场景 *MotionBlur-DragonFlying.max* 的一个帧。
 
 在当前 shell 中创建名为 *myrendertask_multi.json* 的文件，然后复制并粘贴已下载文件中的内容。 在 JSON 文件中修改 `blobSource` 和 `containerURL` 元素，使之包括存储帐户和 SAS 令牌的名称。 确保更改这六个任务中的每个任务的设置。 保存文件，然后运行以下命令，将任务排队：
 
@@ -311,7 +317,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>查看任务输出
 
-任务的运行需要数分钟。 使用 [az batch task list](https://docs.azure.cn/cli/batch/task?view=azure-cli-latest#az-batch-task-list) 命令查看任务的状态。 例如：
+任务的运行需要数分钟。 使用 [az batch task list](https://docs.azure.cn/cli/batch/task#az_batch_task_list) 命令查看任务的状态。 例如：
 
 ```azurecli
 az batch task list \
@@ -319,7 +325,7 @@ az batch task list \
     --output table
 ```
 
-请使用 [az batch task show](https://docs.azure.cn/cli/batch/task?view=azure-cli-latest#az-batch-task-show) 命令查看各个任务的详细信息。 例如：
+请使用 [az batch task show](https://docs.azure.cn/cli/batch/task#az_batch_task_show) 命令查看各个任务的详细信息。 例如：
 
 ```azurecli
 az batch task show \
@@ -327,7 +333,7 @@ az batch task show \
     --task-id mymultitask1
 ```
 
-这些任务在计算节点上生成名为 *dragon0002.jpg* - *dragon0007.jpg* 的输出文件，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download-batch](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-download-batch) 命令将文件下载到本地计算机上的某个文件夹。 例如：
+这些任务在计算节点上生成名为 *dragon0002.jpg* - *dragon0007.jpg* 的输出文件，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download-batch](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download_batch) 命令将文件下载到本地计算机上的某个文件夹。 例如：
 
 ```azurecli
 az storage blob download-batch \
@@ -341,7 +347,7 @@ az storage blob download-batch \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、Batch 帐户、池和所有相关的资源，则可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 删除资源，如下所示：
+如果不再需要资源组、Batch 帐户、池和所有相关的资源，则可以使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令将其删除。 删除资源，如下所示：
 
 ```azurecli 
 az group delete --name myResourceGroup

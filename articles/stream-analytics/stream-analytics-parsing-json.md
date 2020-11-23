@@ -1,18 +1,19 @@
 ---
 title: 在 Azure 流分析中分析 JSON 和 AVRO
 description: 本文介绍如何针对复杂数据类型（如数组、JSON、CSV 格式数据）进行操作。
-author: Johnnytechn
 ms.service: stream-analytics
+author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 01/29/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 7eac68b7d188fa5c3406fb4b53590809bd1bb127
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 11/16/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 990042e29f576eee56f478c53e6d2160a278d848
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226166"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978289"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>在 Azure 流分析中分析 JSON 和 Avro 数据
 
@@ -86,7 +87,7 @@ FROM input
 
 如果属性名称是变量，请使用 [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) 函数。 这样可以构建动态查询，无需对属性名称进行硬编码。
 
-例如，假设示例数据流需要与包含每个设备传感器阈值的**参考数据相联接**： 下面显示了此类参考数据的代码片段。
+例如，假设示例数据流需要与包含每个设备传感器阈值的 **参考数据相联接**： 下面显示了此类参考数据的代码片段。
 
 ```json
 {
@@ -202,7 +203,7 @@ return JSON.parse(string);
 
 数组数据类型是按顺序排列的值集合。 下面详细介绍一些针对数组值执行的典型操作。 这些事例使用函数 [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics)、[GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics)、[GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics) 和 [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) 运算符。
 
-下面是单一事件的示例。 `CustomSensor03` 和 `SensorMetadata` 都是**数组**类型的：
+下面是单一事件的示例。 `CustomSensor03` 和 `SensorMetadata` 都是 **数组** 类型的：
 
 ```json
 {

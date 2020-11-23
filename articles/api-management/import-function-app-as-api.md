@@ -1,7 +1,7 @@
 ---
 title: 在 API 管理中将 Azure Function App 作为 API 导入
 titleSuffix: Azure API Management
-description: 本教程演示如何将 Azure Function App 作为 API 导入 Azure API 管理中。
+description: 本文演示如何将 Azure Function App 作为 API 导入 Azure API 管理中。
 services: api-management
 documentationcenter: ''
 author: Johnnytechn
@@ -10,15 +10,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 09/29/2020
+ms.topic: article
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 4895597350a2564e570f6fbfb7d5ca889800a8fe
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: b8045d11795c040ccb49a7f0d0d5ef04622e1e79
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871353"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978105"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中将 Azure Function App 作为 API 导入
 
@@ -50,59 +50,59 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
 
 2. 在“添加新 API”列表中，选择“Function App”。 
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-01.png)
+    ![显示函数应用磁贴的屏幕截图。](./media/import-function-app-as-api/add-01.png)
 
 3. 单击“浏览”，选择要导入的 Functions。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-02.png)
+    ![突出显示“浏览”按钮的屏幕截图。](./media/import-function-app-as-api/add-02.png)
 
 4. 单击“Function App”部分，从可用 Function App 的列表中进行选择。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-03.png)
+    ![突出显示“函数应用”部分的屏幕截图。](./media/import-function-app-as-api/add-03.png)
 
 5. 找到要从其导入 Functions 的 Function App，然后单击它并按“选择”。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-04.png)
+    ![突出显示“选择”按钮以及你要从中导入函数的“函数应用”的屏幕截图。](./media/import-function-app-as-api/add-04.png)
 
 6. 选择要导入的 Functions，然后单击“选择”。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-05.png)
+    ![突出显示要导入的函数和“选择”按钮的屏幕截图。](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
     > 可以只导入基于 HTTP 触发器的 Functions，并将授权级别设置设为“匿名”或“函数”。 
 
-7. 切换到“完整”视图并将“产品”分配到新 API 。 如果需要，请在创建过程中指定其他字段，也可以稍后转到“设置”选项卡来配置这些字段。在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
-8. 单击**创建**。
+7. 切换到“完整”视图并将“产品”分配到新 API 。 如果需要，请在创建过程中指定其他字段，也可以稍后转到“设置”选项卡来配置这些字段。在[导入和发布第一个 API](import-and-publish.md#import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
+8. 单击 **创建**。
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> 将 Azure Function App 追加到现有 API
 
 执行以下步骤，将 Azure Function App 追加到现有 API。
 
-1. 在 **Azure API 管理**服务实例中，从左侧的菜单选择“API”。
+1. 在 **Azure API 管理** 服务实例中，从左侧的菜单选择“API”。
 
 2. 选择要将 Azure Function App 导入到其中的 API。 单击“...”，并从上下文菜单中选择“导入”。 
 
-    ![从 Function App 追加](./media/import-function-app-as-api/append-01.png)
+    ![突出显示“导入”菜单选项的屏幕截图。](./media/import-function-app-as-api/append-01.png)
 
 3. 单击“Function App”磁贴。
 
-    ![从 Function App 追加](./media/import-function-app-as-api/append-02.png)
+    ![突出显示“函数应用”磁贴的屏幕截图。](./media/import-function-app-as-api/append-02.png)
 
 4. 在弹出窗口中，单击“浏览”。
 
-    ![从 Function App 追加](./media/import-function-app-as-api/append-03.png)
+    ![显示“浏览”按钮的屏幕截图。](./media/import-function-app-as-api/append-03.png)
 
 5. 单击“Function App”部分，从可用 Function App 的列表中进行选择。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-03.png)
+    ![突出显示“函数应用”列表的屏幕截图。](./media/import-function-app-as-api/add-03.png)
 
 6. 找到要从其导入 Functions 的 Function App，然后单击它并按“选择”。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-04.png)
+    ![突出显示你要从中导入函数的“函数应用”的屏幕截图。](./media/import-function-app-as-api/add-04.png)
 
 7. 选择要导入的 Functions，然后单击“选择”。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/add-05.png)
+    ![突出显示你想要导入的函数的屏幕截图。](./media/import-function-app-as-api/add-05.png)
 
 8. 单击“导入”。
 
@@ -115,7 +115,7 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
 * 主机密钥，该密钥位于 Function App 中，其名称为 apim-{*你的 Azure API 管理服务实例名称*}；
 * 命名值，该值位于 Azure API 管理实例中，其名称为 {*你的 Azure Function App 实例名称*}-key，其中包含创建的主机密钥。
 
-对于 2019 年 4 月 4 日以后创建的 API，主机密钥将通过 HTTP 请求从 API 管理传递到标头中的 Function App。 较旧的 API 将主机密钥作为[查询参数](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization)传递。 可以通过对与 Function App 关联的*后端*实体进行 `PATCH Backend` [REST API 调用](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract)来更改此行为。
+对于 2019 年 4 月 4 日以后创建的 API，主机密钥将通过 HTTP 请求从 API 管理传递到标头中的 Function App。 较旧的 API 将主机密钥作为[查询参数](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization)传递。 可以通过对与 Function App 关联的 *后端* 实体进行 `PATCH Backend` [REST API 调用](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract)来更改此行为。
 
 > [!WARNING]
 > 删除或更改 Azure Function App 主机密钥或 Azure API 管理命名值的值会导致服务之间的通信中断。 这些值不自动同步。
@@ -128,11 +128,11 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
 
 2. 从概览中选择“Function App 设置”。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/keys-02-a.png)
+    ![突出显示“函数应用”设置选项的屏幕截图。](./media/import-function-app-as-api/keys-02-a.png)
 
 3. 密钥位于“主机密钥”部分。
 
-    ![从 Function App 添加](./media/import-function-app-as-api/keys-02-b.png)
+    ![突出显示“主机密钥”部分的屏幕截图。](./media/import-function-app-as-api/keys-02-b.png)
 
 ### <a name="access-the-named-value-in-azure-api-management"></a>访问 Azure API 管理中的命名值
 

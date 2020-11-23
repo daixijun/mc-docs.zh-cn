@@ -1,25 +1,25 @@
 ---
-title: 使用 Azure Site Recovery 准备 Azure VMware 解决方案 VM 灾难恢复
+title: 为到 Azure Site Recovery 的灾难恢复准备 Azure VMware 解决方案
 description: 了解如何使用 Microsoft Azure Site Recovery 服务为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器。
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 09/29/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 0249febebbcd5da1f026729b986ef3613d2e8190
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fbae8ca4a4cd3eabb5906e091ecd8e264f898a05
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329324"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978230"
 ---
 <!--Verified Successfully-->
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>为到 Azure Site Recovery 的灾难恢复准备 Azure VMware 解决方案
 
 本文介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 服务为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器。 
 
@@ -118,5 +118,4 @@ Site Recovery 需要访问 Azure VMware 解决方案服务器，才能够：
 > [设置灾难恢复](avs-tutorial-replication.md)
 - 如果要复制多个 VM，请[执行容量规划](site-recovery-deployment-planner.md)。
 
-<!-- Update_Description: new article about avs tutorial prepare avs -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

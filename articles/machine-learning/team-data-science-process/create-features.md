@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: b9d71f5ad16f1b05b02137a4a8c65dfe57d47496
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 555024e7419710e015bf03c3ca8ad4b4d35e2e92
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118450"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978173"
 ---
 # <a name="feature-engineering-in-data-science"></a>数据科学中的特征工程
 
@@ -60,7 +60,7 @@ ms.locfileid: "92118450"
 
 ### <a name="feature-engineering-using-studio-classic"></a>使用工作室（经典）的特征工程
 
-在工作室（经典）中，下面 4 个训练数据集通过预处理的输入数据集的 4 个分支形成。 除了最左边的分支外，每个分支都包含[执行 R 脚本](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/)模块，会在此模块中构建派生特征（特征集 B、C 和 D）并附加到导入的数据集。
+在工作室（经典）中，下面 4 个训练数据集通过预处理的输入数据集的 4 个分支形成。 除了最左边的分支外，每个分支都包含[执行 R 脚本](/machine-learning/studio-module-reference/execute-r-script)模块，会在此模块中构建派生特征（特征集 B、C 和 D）并附加到导入的数据集。
 
 下图演示了用于在左侧第二个分支中创建特征集 B 的 R 脚本。
 

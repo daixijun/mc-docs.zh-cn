@@ -9,18 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-origin.date: 06/04/2020
-ms.date: 09/21/2020
+origin.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: d882d05e9874a3b26fc3ef33e2ffd03f1c2e1a63
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 2d445346279e66e443a6855f11e12c2dfdf1bc5b
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523956"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680401"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>快速入门：使用 Azure 数据工厂 UI 创建数据工厂
-
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>快速入门：使用 Azure 数据工厂 UI 创建数据工厂 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -39,24 +38,24 @@ ms.locfileid: "90523956"
 1. 选择“分析”，然后选择“数据工厂” 。 
    
    ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为**名称**。 
+1. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为 **名称**。 
  
    Azure 数据工厂的名称必须 *全局唯一*。 如果出现以下错误，请更改数据工厂的名称（例如改为 **&lt;yourname&gt;ADFTutorialDataFactory**），并重新尝试创建。 有关数据工厂项目的命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
   
    ![名称不可用时出错](./media/doc-common-process/name-not-available-error.png)
-1. 对于“订阅”，请选择要在其中创建数据工厂的 Azure 订阅。 
+1. 对于“订阅”，请选择要在其中创建数据工厂的 Azure 订阅。  
 1. 对于“资源组”，请使用以下步骤之一：
      
    - 选择“使用现有”，并从列表中选择现有的资源组。 
    - 选择“新建”，并输入资源组的名称。   
          
    若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
-1. 对于“版本”，选择“V2”。 
-1. 对于“位置”，请选择数据工厂所在的位置。
+1. 对于“版本”，选择“V2”。  
+1. 对于“位置”，请选择数据工厂所在的位置。 
 
    该列表仅显示数据工厂支持的位置，以及 Azure 数据工厂元数据要存储到的位置。 数据工厂使用的关联数据存储（如 Azure 存储和 Azure SQL 数据库）和计算（如 Azure HDInsight）可以在其他区域中运行。
 
-1. 选择“创建” 。 创建完成后，选择“转到资源”导航到“数据工厂”页。  
+1. 选择“创建”。 创建完成后，选择“转到资源”导航到“数据工厂”页。  
 
 1. 选择“创作和监视”磁贴，在单独的选项卡中启动 Azure 数据工厂用户界面 (UI) 应用程序。
    
@@ -72,7 +71,7 @@ ms.locfileid: "90523956"
 ## <a name="create-a-linked-service"></a>创建链接服务
 在此过程中，请创建一个链接服务，将 Azure 存储帐户链接到数据工厂。 链接服务包含的连接信息可供数据工厂服务用来在运行时连接到它。
 
-1. 从左窗格打开[“管理”选项卡](/data-factory/author-management-hub)。
+1. 从左窗格打开[“管理”选项卡](./author-management-hub.md)。
 
 1. 在“链接服务”页上，选择“+ 新建”以创建新的链接服务。
 
@@ -90,7 +89,7 @@ ms.locfileid: "90523956"
 
    d. 选择“创建”以保存链接服务。 
 
-      ![新建链接服务](./media/quickstart-create-data-factory-portal/linked-service.png)
+      ![链接服务](./media/quickstart-create-data-factory-portal/linked-service.png)
 
 
 ## <a name="create-datasets"></a>创建数据集
@@ -121,7 +120,7 @@ ms.locfileid: "90523956"
 
     d. 在“选择文件或文件夹”窗口中浏览到 **adftutorial** 容器中的 **input** 文件夹，选择 **emp.txt** 文件，然后选择“确定”。 
     
-    e. 选择“确定” 。   
+    e. 选择“确定”。   
 
     ![设置 InputDataset 的属性](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
 1. 重复创建输出数据集的步骤：  
@@ -136,7 +135,7 @@ ms.locfileid: "90523956"
 
     e. 在“文件路径”下，输入 **adftutorial/output**。 如果 **output** 文件夹不存在，复制活动会在运行时创建它。
 
-    f. 选择“确定” 。   
+    f. 选择“确定”。   
 
     ![设置 OutputDataset 的属性](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
 
@@ -147,12 +146,12 @@ ms.locfileid: "90523956"
 
 1. 在“常规”面板的“属性”中，将名称指定为 CopyPipeline  。 然后单击右上角的“属性”图标，折叠面板。
 
-1. 在“活动”工具箱中，展开“移动和转换”。 将“复制数据”活动从“活动”工具箱拖到管道设计器图面。  也可在“活动”工具箱中搜索活动。 指定 **CopyFromBlobToBlob** 作为**名称**。
+1. 在“活动”工具箱中，展开“移动和转换”。 将“复制数据”活动从“活动”工具箱拖到管道设计器图面。  也可在“活动”工具箱中搜索活动。 指定 **CopyFromBlobToBlob** 作为 **名称**。
    ![创建复制数据活动](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
-1. 切换到复制活动设置中的“源”选项卡，选择 **InputDataset** 作为**源数据集**。
+1. 切换到复制活动设置中的“源”选项卡，选择 **InputDataset** 作为 **源数据集**。
 
-1. 切换到复制活动设置中的“接收器”选项卡，选择 **OutputDataset** 作为**接收器数据集**。
+1. 切换到复制活动设置中的“接收器”选项卡，选择 **OutputDataset** 作为 **接收器数据集**。
 
 1. 在画布上面的管道工具栏中单击“验证”，以便验证管道设置。 确认已成功验证管道。 若要关闭验证输出，请选择 **>>** （右箭头）按钮。 
    ![验证管道](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
@@ -190,7 +189,7 @@ ms.locfileid: "90523956"
 1. 可以选择“所有管道运行”链接，从“活动运行”视图切换回到“管道运行”视图。   
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>按计划触发管道
-在本教程中，此过程为可选过程。 可以创建*计划程序触发器*，将管道计划为定期运行（每小时运行一次、每天运行一次，等等）。 此过程创建一个触发器。该触发器每分钟运行一次，直至指定的结束日期和时间。 
+在本教程中，此过程为可选过程。 可以创建 *计划程序触发器*，将管道计划为定期运行（每小时运行一次、每天运行一次，等等）。 此过程创建一个触发器。该触发器每分钟运行一次，直至指定的结束日期和时间。 
 
 1. 切换到“创作”选项卡。 
 
@@ -218,4 +217,4 @@ ms.locfileid: "90523956"
 1. 确认每次管道运行时，在 **output** 文件夹中都创建了输出文件，直至指定的结束日期和时间为止。 
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Azure Blob 存储中的一个位置复制到另一个位置。 若要了解如何在更多方案中使用数据工厂，请完成相关[教程](tutorial-copy-data-portal.md)。 
+此示例中的管道将数据从 Azure Blob 存储中的一个位置复制到另一个位置。 若要了解如何在更多方案中使用数据工厂，请完成相关[教程](tutorial-copy-data-portal.md)。

@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/13/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: ff6efc442b733c11f34611556e9e41534e4be8b4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 6f65f7b21c90f6cda56169c725d1eef40ebe5b0c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127857"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978829"
 ---
 语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
 
@@ -328,7 +328,7 @@ void translateSpeech() {
 }
 ```
 
-有关语音合成的详细信息，请参阅[语音合成基础知识](../../../text-to-speech-basics.md)。
+有关语音合成的详细信息，请参阅[语音合成基础知识](../../../get-started-text-to-speech.md)。
 
 [config]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig
 [audioconfig]: https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig

@@ -5,15 +5,15 @@ description: 本文介绍如何在 Azure 应用程序网关上配置 TLS 策略
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 04/26/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: b5bcd7818d6502e9371a8c8350c1af28a65c2f7d
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: fb80361dc345839568680a3c100f73dab29bbafd
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267664"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849337"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 TLS 策略版本和密码套件
 
@@ -217,6 +217,5 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>后续步骤
 
-请访问[应用程序网关重定向概述](application-gateway-redirect-overview.md)，了解如何将 HTTP 流量重定向至 HTTPS 终结点。
+请访问[应用程序网关重定向概述](./redirect-overview.md)，了解如何将 HTTP 流量重定向至 HTTPS 终结点。
 
-<!-- Update_Description: wording update -->

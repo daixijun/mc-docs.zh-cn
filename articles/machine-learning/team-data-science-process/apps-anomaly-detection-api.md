@@ -3,20 +3,20 @@ title: Azure 机器学习异常情况检测 API - Team Data Science Process
 description: 异常情况检测 API 是一个示例，它使用 Microsoft Azure 机器学习，检测时序数据和均匀分布在时间中的数值的异常情况。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 34f52ffdd7fbace8fc28d9ba25a5b628e9b7086d
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: c9213115b2a100e49d8610ef08e631849cd964c5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395269"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978008"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>机器学习异常情况检测 API
 
@@ -52,7 +52,7 @@ ms.locfileid: "91395269"
 默认情况下，部署将使用一个免费的开发/测试计费计划，其中包括 1,000 次交易/月和 2 个计算小时/月。  可以根据需求升级到其他计划。  在[此处](https://www.azure.cn/pricing/details/machine-learning/)的“生产 Web API 定价”下提供了有关不同计划的定价的详细信息。
 
 ## <a name="managing-aml-plans"></a>管理 AML 计划
-可以在[此处](https://services.azureml.net/plans/)管理计费计划。  计划名称将基于在部署 API 时选择的资源组名称，再加上一个订阅所独有的字符串。  在[此处](/machine-learning/studio/manage-new-webservice)的“管理计费计划”部分下提供了有关如何升级计划的说明。
+可以在[此处](https://services.azureml.net/plans/)管理计费计划。  计划名称将基于在部署 API 时选择的资源组名称，再加上一个订阅所独有的字符串。  在[此处](../classic/manage-new-webservice.md)的“管理计费计划”部分下提供了有关如何升级计划的说明。
 
 ## <a name="api-definition"></a>API 定义
 该 Web 服务提供 HTTPS 上基于 REST 的 API，可以不同方式使用该 API，包括 Web 或移动应用程序、R、Python、Excel 等。可将时间系列数据通过 REST API 调用发送到此服务，此服务将运行下面介绍的三种异常类型的组合。

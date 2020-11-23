@@ -4,14 +4,14 @@ description: 了解如何在 Azure Functions 中使用 Azure 事件中心触发�
 author: craigshoemaker
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: e56d4dcd29581c0d1cf9e6a7f6fb957aca10402d
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: d1bf2012becc9eaec64171e18d89c7e8ca887766
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326548"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849454"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure 事件中心触发器
 
@@ -23,5 +23,5 @@ ms.locfileid: "94326548"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [将事件写入事件流（输出绑定）](./functions-bindings-storage-blob-output.md)
+- [将事件写入事件流（输出绑定）](./functions-bindings-event-hubs-output.md)
 

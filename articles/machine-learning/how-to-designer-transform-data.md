@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 4ccf0a944ba228a95c9bae5280b4ef5e9e05b876
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 148f7b8e50d1c21bea9f174731a77c63bad7dc7d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977241"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>在 Azure 机器学习设计器中转换数据
 
 
 本文介绍如何在 Azure 机器学习设计器中转换和保存数据集，以便可以为机器学习准备好自己的数据。
 
-你将使用示例 [Adult Census Income Binary Classification](sample-designer-datasets.md) 数据集来准备两个数据集：一个数据集包含仅来自美国的成年人口信息，另一个数据集包含来自非美国成人的人口信息。
+你将使用示例 [Adult Census Income Binary Classification](./samples-designer.md) 数据集来准备两个数据集：一个数据集包含仅来自美国的成年人口信息，另一个数据集包含来自非美国成人的人口信息。
 
 在本文中，学习如何：
 
@@ -105,7 +105,7 @@ ms.locfileid: "92118427"
     
     数据存储类型：Azure Blob 存储
 
-    **数据存储** ：选择现有数据存储，或选择“新建数据存储”以立即创建一个。
+    **数据存储**：选择现有数据存储，或选择“新建数据存储”以立即创建一个。
 
     路径：`/data/us-income`
 
@@ -122,7 +122,7 @@ ms.locfileid: "92118427"
     
     数据存储类型：Azure Blob 存储
 
-    **数据存储** ：选择与上面相同的数据存储
+    **数据存储**：选择与上面相同的数据存储
 
     路径：`/data/non-us-income`
 

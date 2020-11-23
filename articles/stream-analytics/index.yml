@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure 流分析文档
-summary: Azure 流分析是一项完全托管的实时分析服务，旨在帮助你分析和处理可用于触发警报和操作的快速移动数据流。 参考我们的快速入门、教程和示例，了解如何使用 Azure 流分析。
+summary: Azure 流分析是一项完全托管的实时分析服务，旨在帮助你分析和处理可用于获取见解、生成报表或触发警报和操作的快速移动数据流。 参考我们的快速入门、教程和示例，了解如何使用 Azure 流分析。
 metadata:
   title: Azure 流分析文档
-  description: Azure 流分析是一项完全托管的实时分析服务，旨在帮助你分析和处理可用于触发警报和操作的快速移动数据流。 参考我们的快速入门、教程和示例，了解如何使用 Azure 流分析。
+  description: Azure 流分析是一项完全托管的实时分析服务，旨在帮助你分析和处理可用于获取见解、生成报表或触发警报和操作的快速移动数据流。 参考我们的快速入门、教程和示例，了解如何使用 Azure 流分析。
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
   author: Johnnytechn
   ms.author: v-johya
-  ms.date: 06/12/2020
-  ms.openlocfilehash: ff434b96ff664cb9a48de4bc510e67bf3d615e33
-  ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+  ms.date: 11/16/2020
+  ms.openlocfilehash: b687a1e7239363e87a244962c123be6cf125cce6
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/10/2020
-  ms.locfileid: "91936833"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94978110"
 landingContent:
 - title: 关于 Azure 流分析
   linkLists:
@@ -87,6 +87,8 @@ landingContent:
       url: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - text: 使用 Azure .NET SDK 创建作业监视器
       url: stream-analytics-monitor-jobs.md
+    - text: 使用资源日志进行故障排除
+      url: stream-analytics-job-diagnostic-logs.md
     - text: 排查数据错误
       url: data-errors.md
 - title: 查看临时概念
@@ -125,7 +127,9 @@ landingContent:
     links:
     - text: 使用机器学习来检测异常
       url: stream-analytics-machine-learning-anomaly-detection.md
-    - text: 使用机器学习工作室函数扩展作业
+    - text: 使用 Azure 机器学习工作室执行情绪分析（经典）
+      url: stream-analytics-machine-learning-integration-tutorial.md
+    - text: 使用 Azure 机器学习工作室（经典）函数扩展作业
       url: stream-analytics-scale-with-machine-learning-functions.md
 - title: 试用流分析教程和解决方案
   linkLists:

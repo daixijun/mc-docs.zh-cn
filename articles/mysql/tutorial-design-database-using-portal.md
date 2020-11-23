@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: tutorial
 origin.date: 03/20/2020
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 0c1a1547b5834daebd5a493a59ddb5d6dd186fb1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 470040b4fe0c574118bb791669969c76897e6185
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328919"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978148"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -32,6 +32,8 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > * 查询数据
 > * 更新数据
 > * 还原数据
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -64,7 +66,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     确认密码 | *由用户决定*| 确认管理员帐户密码。
     位置 | *离用户最近的区域*| 选择最靠近用户或其他 Azure 应用程序的位置。
     版本 |  最新版本| 最新版本，有特定要求（即需要其他版本）的除外。
-    定价层 | **常规用途** 、 **第 5 代** 、 **2 个 vCore** 、 **5 GB** 、 **7 天** 、 **异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。  接下来，选择“常规用途”  选项卡。“第 5 代”、“2 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。         可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从 **备份冗余选项** 中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
+    定价层 | **常规用途**、**第 5 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。  接下来，选择“常规用途”  选项卡。“第 5 代”、“2 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。         可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从 **备份冗余选项** 中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="定价层":::
 
@@ -88,14 +90,14 @@ Azure Databases for MySQL 受防火墙保护。 默认情况下，会拒绝与�
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-从 Azure 门户获取 Azure Database for MySQL 服务器的完全限定 **服务器名称** 和 **服务器管理员登录名** 。 使用 mysql 命令行工具通过完全限定的服务器名称连接到服务器。
+从 Azure 门户获取 Azure Database for MySQL 服务器的完全限定 **服务器名称** 和 **服务器管理员登录名**。 使用 mysql 命令行工具通过完全限定的服务器名称连接到服务器。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击左侧菜单中的“所有资源”  ，键入名称，然后搜索“Azure Database for MySQL 服务器”。 选择服务器名称以查看详细信息。
 
-2. 在“概述”  页上，记下 **服务器名称** 和 **服务器管理员登录名** 。 可以单击每个字段旁边的“复制”按钮，将其复制到剪贴板。
+2. 在“概述”  页上，记下 **服务器名称** 和 **服务器管理员登录名**。 可以单击每个字段旁边的“复制”按钮，将其复制到剪贴板。
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 服务器属性":::
 
-在此示例中，服务器名称是 *mydemoserver.mysql.database.chinacloudapi.cn* ，服务器管理员登录名是 *myadmin\@mydemoserver* 。
+在此示例中，服务器名称是 *mydemoserver.mysql.database.chinacloudapi.cn*，服务器管理员登录名是 *myadmin\@mydemoserver*。
 
 ## <a name="connect-to-the-server-using-mysql"></a>使用 mysql 连接服务器
 
@@ -178,12 +180,20 @@ SELECT * FROM inventory;
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 还原窗体":::
 
-   - **还原点** ：在列出的时间范围内选择要还原到的时间点。 请确保将本地时区转换为 UTC。
-   - **还原到新服务器** ：提供一个要还原到的新服务器名称。
-   - **位置** ：该区域与源服务器相同，不能更改。
-   - **定价层** ：定价层与源服务器相同，不能更改。
+   - **还原点**：在列出的时间范围内选择要还原到的时间点。 请确保将本地时区转换为 UTC。
+   - **还原到新服务器**：提供一个要还原到的新服务器名称。
+   - **位置**：该区域与源服务器相同，不能更改。
+   - **定价层**：定价层与源服务器相同，不能更改。
    
 3. 单击“确定”  ，将服务器[还原到删除该表之前的时间点](./howto-restore-server-portal.md)。 还原服务器时将创建服务器的新副本（从指定的时间点开始）。
+
+## <a name="clean-up-resources"></a>清理资源
+
+如果将来不再需要这些资源，可以通过删除资源组或只删除 MySQL 服务器来删除它们。 若要删除资源组，请执行以下步骤：
+1. 在 Azure 门户中，搜索并选择“资源组”。 
+2. 在资源组列表中，选择你的资源组的名称。
+3. 在资源组的概述页面中，选择“删除资源组”。
+4. 在确认对话框中，键入资源组的名称，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: 21dbe8ed61adff30eb89fce23bf8580253376007
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 09/30/2020
+ms.openlocfilehash: 89585162ebb3ea171d2392844e11af8f882372e9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106268"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977446"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>使用 VS Code 扩展（预览版）管理 Azure 机器学习资源
 
@@ -97,7 +97,7 @@ VS Code 扩展目前支持以下类型的数据存储：
 该扩展当前支持以下数据集类型：
 
 - 表格：允许将数据具体化为数据帧（Pandas 或 PySpark）。
-- *文件* ：文件或文件集合。 允许你将文件下载或装载到计算机。
+- *文件*：文件或文件集合。 允许你将文件下载或装载到计算机。
 
 有关详细信息，请参阅[数据集](concept-data.md#datasets)
 
@@ -163,7 +163,7 @@ VS Code 扩展目前支持以下类型的数据存储：
         - Conda 依赖项文件：对于 Anaconda 环境，可以提供包含环境定义的文件。
         - Pip 要求文件：对于 pip 环境，可以提供包含环境定义的文件。
         - 现有的 Conda 环境：此选项会查找本地电脑中的 conda 环境，并尝试基于所选环境来构建环境。
-        - *自定义* ：定义你自己的通道和依赖项
+        - *自定义*：定义你自己的通道和依赖项
     1. 此时会在编辑器中打开一个配置文件。 如果对配置满意，请选择“保存并继续”或打开 VS Code 命令面板（“视图”>“命令面板”），然后键入“Azure ML:保存并继续”。
 
 ### <a name="view-environment-configurations"></a>查看环境配置
@@ -293,7 +293,7 @@ VS Code 扩展目前支持以下类型的数据存储：
 1. 右键单击“计算群集”节点，然后选择“创建计算” 。
 1. 在提示中执行以下操作：
     1. 选择计算类型
-    1. 选择 VM 大小。 详细了解 [VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+    1. 选择 VM 大小。 详细了解 [VM 大小](../virtual-machines/sizes.md)。
     1. 为你的计算提供一个名称。
 
 ### <a name="view-compute-configuration"></a>查看计算配置

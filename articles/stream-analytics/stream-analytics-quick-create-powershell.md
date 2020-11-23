@@ -3,17 +3,16 @@ title: 快速入门 - 使用 Azure PowerShell 创建流分析作业
 description: 本快速入门演示如何使用 Azure PowerShell 模块来部署并运行 Azure 流分析作业。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: stream-analytics
 origin.date: 12/20/2018
-ms.custom: mvc
-ms.openlocfilehash: fdbd9486c8795a14f6641c10507d3bc100943a74
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 76c8e990af5d24e410bf9712dc20a7ce4ad857e8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715712"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978167"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建流分析作业
 
@@ -29,7 +28,7 @@ Azure PowerShell 模块用于通过 PowerShell cmdlet 或脚本创建和管理 A
 
 * 本快速入门需要 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可找到在本地计算机上安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-* 某些 IoT 中心操作不受 Azure PowerShell 支持，必须使用 Azure CLI 2.0.70 或更高版本以及 Azure CLI 的 IoT 扩展来完成。 [安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)，并使用 `az extension add --name azure-iot` 来安装 IoT 扩展。
+* 某些 IoT 中心操作不受 Azure PowerShell 支持，必须使用 Azure CLI 2.0.70 或更高版本以及 Azure CLI 的 IoT 扩展来完成。 [安装 Azure CLI](/cli/install-azure-cli)，并使用 `az extension add --name azure-iot` 来安装 IoT 扩展。
 
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
@@ -57,7 +56,7 @@ Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubsc
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
-$location = "ChinaNorth2"
+$location = "chinaeast"
 New-AzResourceGroup `
     -Name $resourceGroup `
     -Location $location
@@ -69,9 +68,9 @@ New-AzResourceGroup `
 
 以下 Azure CLI 代码块通过多项命令来准备作业所需的输入数据。 查看介绍代码的部分。
 
-1. 在 PowerShell 窗口中运行 [az login](/cli/authenticate-azure-cli?view=azure-cli-latest) 命令，以便登录到 Azure 帐户。
+1. 在 PowerShell 窗口中运行 [az login](/cli/authenticate-azure-cli) 命令，以便登录到 Azure 帐户。
 
-    当你成功登录后，Azure CLI 会返回订阅的列表。 复制用于本快速入门的订阅，然后运行 [az account set](/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) 命令以选择该订阅。 选择在上一部分使用 PowerShell 选择的订阅。 确保将 `<your subscription name>` 替换为订阅的名称。
+    当你成功登录后，Azure CLI 会返回订阅的列表。 复制用于本快速入门的订阅，然后运行 [az account set](/cli/manage-azure-subscriptions-azure-cli#change-the-active-subscription) 命令以选择该订阅。 选择在上一部分使用 PowerShell 选择的订阅。 确保将 `<your subscription name>` 替换为订阅的名称。
 
     ```azurecli
     az login
@@ -85,7 +84,7 @@ New-AzResourceGroup `
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    创建 IoT 中心以后，请使用 [az iot hub show-connection-string](/cli/iot/hub?view=azure-cli-latest) 命令获取 IoT 中心连接字符串。 复制整个连接字符串并将其保存。这样，在将 IoT 中心作为输入添加到流分析作业时，就可以使用该字符串。
+    创建 IoT 中心以后，请使用 [az iot hub show-connection-string](/cli/iot/hub) 命令获取 IoT 中心连接字符串。 复制整个连接字符串并将其保存。这样，在将 IoT 中心作为输入添加到流分析作业时，就可以使用该字符串。
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -97,7 +96,7 @@ New-AzResourceGroup `
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. 使用 [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 命令获取设备连接字符串。 复制整个连接字符串并将其保存。这样，在创建 Raspberry Pi 模拟器时，就可以使用该字符串。
+4. 使用 [az iot hub device-identity show-connection-string](/cli/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 命令获取设备连接字符串。 复制整个连接字符串并将其保存。这样，在创建 Raspberry Pi 模拟器时，就可以使用该字符串。
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -151,7 +150,7 @@ New-AzResourceGroup `
 
 ```json
 {
-  "location":"ChinaNorth2",
+  "location":"chinaeast",
   "properties":{
     "sku":{
       "name":"standard"

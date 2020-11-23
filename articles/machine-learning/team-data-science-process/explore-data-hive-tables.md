@@ -3,20 +3,20 @@ title: 使用 Hive 查询在 Hive 表中浏览数据 - Team Data Science Process
 description: 使用用于在 HDInsight Hadoop 群集的 Hive 表中浏览数据的示例 Hive 脚本。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4964b9bac9dfa6ce8bf856f58587e74e0b02f7e9
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 87254f8f0d3038dfb24a842de5f14ff2cc0ce9ea
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395304"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978303"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>使用 Hive 查询在 Hive 表中浏览数据
 
@@ -28,9 +28,9 @@ ms.locfileid: "91395304"
 本文假设用户具备以下条件：
 
 * 已创建 Azure 存储帐户。 如果需要说明，请参阅[创建 Azure 存储帐户](../../storage/common/storage-account-create.md)
-* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。 如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](customize-hadoop-cluster.md)。
+* 已预配具有 HDInsight 服务的自定义 Hadoop 群集。 如果需要说明，请参阅[为高级分析自定义 Azure HDInsight Hadoop 群集](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 * 数据已上传到 Azure HDInsight Hadoop 群集中的 Hive 表。 如果没有，请按照[创建并将数据上传到 Hive 表](move-hive-tables.md)中的说明，先将数据上传到 Hive 表。
-* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](customize-hadoop-cluster.md)。
+* 已启用群集的远程访问权限。 如果需要说明，请参阅[访问 Hadoop 群集的头节点](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 * 如果需要有关如何提交 Hive 查询的说明，请参阅[如何提交 Hive 查询](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>数据浏览的示例 Hive 查询脚本

@@ -4,17 +4,17 @@ description: 安装运行时、SDK 和工具并创建本地开发群集。 完�
 ms.topic: conceptual
 origin.date: 06/16/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 0d04573e158e56b7a7b379cb9a21cc100ce6793b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 7fa49927375a0471827a4e77657ada76e5d1bdba
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328704"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977367"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 
@@ -60,12 +60,6 @@ Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负�
 
 * [安装 Azure Service Fabric SDK][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（需要安装 Visual Studio 2015 Update 2 或更高版本）
-
-对于 Visual Studio 2015，Service Fabric 工具是使用 Web 平台安装程序与 SDK 和运行时 一起安装的：
-
-* [安装 Azure Service Fabric SDK 和工具][full-bundle-vs2015]
-
 ### <a name="sdk-installation-only"></a>仅安装 SDK
 
 如果只需要 SDK，则安装此包：
@@ -104,7 +98,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
-
 
 <!-- Not Available on [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"-->
 

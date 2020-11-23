@@ -4,14 +4,14 @@ description: 了解如何使用 Azure Functions 将消息写入 Azure 事件中�
 author: craigshoemaker
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.date: 08/11/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: 246c1cb9be887b0bce3148ef5148b74f9603f42b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 899132cb875572315c7cdb9690f0382d5ddc695e
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222725"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849400"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 Azure 事件中心输出绑定
 
@@ -23,5 +23,5 @@ ms.locfileid: "88222725"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [响应发送到事件中心事件流的事件（触发器）](./functions-bindings-storage-blob-trigger.md)
+- [响应发送到事件中心事件流的事件（触发器）](./functions-bindings-event-hubs-trigger.md)
 

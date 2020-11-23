@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a3a784d4009b9bba511766e8f296bcec6db84fe9
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: f15428e1d23875cc9a30c4dc799abb47fac57ec5
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721083"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849462"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>使用 Azure PowerShell 创建托管多个网站的应用程序网关
 
@@ -125,7 +125,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 >[!NOTE]
 > 通过应用程序网关或 WAF v2 SKU，你还可为每个侦听器配置最多 5 个主机名，并且可在主机名中使用通配符。 要了解详细信息，请参阅[侦听器中的通配符主机名](multiple-site-overview.md#wildcard-host-names-in-listener-preview)。
->若要通过 Azure PowerShell 在侦听器中使用多个主机名和通配符，则必须使用 `-HostNames` 而不是 `-HostName`。 使用 HostNames 时，可通过逗号分隔值的形式提及最多 5 个主机名。 例如： `-HostNames "*.contoso.com,*.fabrikam.com"`
+>若要通过 Azure PowerShell 在侦听器中使用多个主机名和通配符，则必须使用 `-HostNames` 而不是 `-HostName`。 使用 HostNames 时，可通过逗号分隔值的形式提及最多 5 个主机名。 例如： `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell
 $contosolistener = New-AzApplicationGatewayHttpListener `

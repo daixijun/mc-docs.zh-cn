@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: v-yiso
 origin.date: 07/09/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 8d18113e09cda1e885e5c14dc20a2c93d77fd3bb
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 50a41209e93efdcedb27352bf9d4b07c99569b22
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117953"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977984"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>使用 Azure 机器学习 Visual Studio Code 扩展（预览版）训练和部署图像分类 TensorFlow 模型
 
@@ -97,7 +97,7 @@ ms.locfileid: "92117953"
     > ![创建计算目标](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. 选择“Azure 机器学习计算(AmlCompute)”。 Azure 机器学习计算是一个托管的计算基础结构，可让用户轻松创建能够与工作区中的其他用户一起使用的单节点或多节点计算。
-1. 选择 VM 大小。 从选项列表中选择“Standard_F2s_v2”。 VM 的大小会影响训练模型所需的时间。 有关 VM 大小的详细信息，请参阅 [Azure 中的 Linux 虚拟机大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+1. 选择 VM 大小。 从选项列表中选择“Standard_F2s_v2”。 VM 的大小会影响训练模型所需的时间。 有关 VM 大小的详细信息，请参阅 [Azure 中的 Linux 虚拟机大小](../virtual-machines/sizes.md)。
 1. 将计算命名为“TeamWkspc-com”，然后按 **Enter** 来创建计算。
 
     此时会在 VS Code 中显示一个文件，其中包含如下所示的内容：
@@ -278,7 +278,7 @@ ms.locfileid: "92117953"
 
 `MNIST-rc` 运行配置添加到“TeamWkspc-com”计算节点下，`MNIST-env` 环境配置添加到“环境”节点下。
 
-## <a name="train-the-model"></a>定型模型
+## <a name="train-the-model"></a>训练模型
 
 在训练过程中创建 TensorFlow 模型的方式是这样的：针对要分类的每个相应的数字处理在该模型中嵌入的训练数据和学习模式。 
 

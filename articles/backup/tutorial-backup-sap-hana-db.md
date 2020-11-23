@@ -4,14 +4,14 @@ description: 在本教程中，了解如何将 Azure VM 上运行的 SAP HANA �
 author: Johnnytechn
 ms.topic: tutorial
 origin.date: 11/12/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 1e9f6d8b5823ad4b15dc1b3de7b061dd8721c69b
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 495d14bfa7d5af6420c17729f017a1e61e22aab5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402370"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978131"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>教程：备份 Azure VM 中的 SAP HANA 数据库
 
@@ -54,7 +54,7 @@ ms.locfileid: "91402370"
 
 | **选项**                        | **优点**                                               | **缺点**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 专用终结点                 | 允许通过虚拟网络中的专用 IP 进行备份  <br><br>   提供网络和保管库端的精细控制 | 产生标准专用终结点成本 |
+| 专用终结点                 | 允许通过虚拟网络中的专用 IP 进行备份  <br><br>   提供网络和保管库端的精细控制 | 产生标准专用终结点[开销](https://www.azure.cn/pricing/details/private-link/) |
 | NSG 服务标记                  | 由于范围更改会自动合并，因此管理变得更容易   <br><br>   无额外成本 | 只可用于 NSG  <br><br>    提供对整个服务的访问 |
 | Azure 防火墙 FQDN 标记          | 自动管理必需的 FQDN，因此更易于管理 | 只可用于 Azure 防火墙                         |
 | 允许访问服务 FQDN/IP | 无额外成本   <br><br>  适用于所有网络安全设备和防火墙 | 可能需要访问一组广泛的 IP 或 FQDN   |
@@ -68,7 +68,7 @@ ms.locfileid: "91402370"
 
 ### <a name="nsg-tags"></a>NSG 标记
 
-如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD 和 Azure 存储创建类似的 [NSG 规则](../virtual-network/security-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。  以下步骤介绍了为 Azure 备份标记创建规则的过程：
+如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/network-security-groups-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。 以下步骤介绍了为 Azure 备份标记创建规则的过程：
 
 1. 在“所有服务”中转到“网络安全组”，然后选择“网络安全组”。
 
@@ -78,7 +78,7 @@ ms.locfileid: "91402370"
 
 1. 选择“添加”，保存新创建的出站安全规则。
 
-同样，可以为 Azure 存储和 Azure AD 创建 NSG 出站安全规则。 有关服务标记的详细信息，请参阅[此文](../virtual-network/service-tags-overview.md)。
+同样，可以为 Azure 存储和 Azure AD 创建 [NSG 出站安全规则](../virtual-network/network-security-groups-overview.md#service-tags)。 有关服务标记的详细信息，请参阅[此文](../virtual-network/service-tags-overview.md)。
 
 ### <a name="azure-firewall-tags"></a>Azure 防火墙标记
 
@@ -212,7 +212,7 @@ hdbuserstore list
 
    ![输入新策略的名称](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
-2. 在“完整备份策略”中选择一个**备份频率**。 可以选择“每日”或“每周” 。 对于本教程，我们选择了“每日”备份。
+2. 在“完整备份策略”中选择一个 **备份频率**。 可以选择“每日”或“每周” 。 对于本教程，我们选择了“每日”备份。
 
    ![选择备份频率](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 

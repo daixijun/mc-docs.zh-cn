@@ -8,11 +8,11 @@ items:
   - href: https://updates.azure.cn/what-is-azure/
     title: 什么是 Azure
   - href: https://www.microsoft.com/china/azure
-    title: 由世纪互联运营的 Microsoft Azure 以及全球 Azure
+    title: 由世纪互联运营的 Microsoft Azure 与全球 Azure
   - href: https://azure.microsoft.com/zh-cn/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2
-    title: Azure 服务的可用性
+    title: Azure 服务可用性
   - href: https://webinars.azure.cn/zh-cn/webinars/
-    title: Azure 直播课
+    title: Azure 网络研讨会
 - title: 产品
   items:
   - title: AI
@@ -90,7 +90,7 @@ items:
     - href: https://azure.microsoft.com/services/event-hubs/
       title: 事件中心
     - href: https://azure.microsoft.com/services/data-factory/
-      title: Data Factory
+      title: 数据工厂
     - href: https://azure.microsoft.com/services/data-explorer/
       title: Azure 数据资源管理器
   - title: 管理工具
@@ -102,9 +102,9 @@ items:
     - href: https://azure.microsoft.com/services/automation/
       title: 自动化
     - href: https://azure.microsoft.com/services/backup/
-      title: Backup
+      title: 备份
     - href: https://azure.microsoft.com/services/site-recovery/
-      title: 站点恢复
+      title: Site Recovery
     - href: https://azure.microsoft.com/services/scheduler/
       title: 计划程序
     - href: https://azure.microsoft.com/services/monitor/
@@ -118,7 +118,7 @@ items:
     - href: https://azure.microsoft.com/services/azure-policy/
       title: Azure Policy
     - href: https://azure.microsoft.com/features/resource-manager/
-      title: Azure Resource Manager
+      title: Azure 资源管理器
     - href: https://www.azure.cn/home/features/resource-graph/
       title: Azure Resource Graph
   - title: 集成
@@ -138,7 +138,7 @@ items:
     - href: https://azure.microsoft.com/services/app-service/
       title: 应用服务
     - href: https://azure.microsoft.com/services/batch/
-      title: 批处理
+      title: Batch
     - href: https://azure.microsoft.com/services/service-fabric/
       title: Service Fabric
     - href: https://azure.microsoft.com/services/cloud-services/
@@ -180,7 +180,7 @@ items:
     - href: https://azure.microsoft.com/services/database-migration/
       title: Azure 数据库迁移服务
     - href: https://azure.microsoft.com/services/site-recovery/
-      title: 站点恢复
+      title: Site Recovery
   - title: 容器
     items:
     - href: https://azure.microsoft.com/services/service-fabric/
@@ -192,7 +192,7 @@ items:
     - href: https://azure.microsoft.com/services/app-service/
       title: 应用服务
     - href: https://azure.microsoft.com/services/batch/
-      title: 批处理
+      title: Batch
     - href: https://azure.microsoft.com/services/kubernetes-service/
       title: Azure Kubernetes 服务 (AKS)
     - href: https://azure.microsoft.com/services/container-instances/
@@ -208,7 +208,7 @@ items:
     - href: https://azure.microsoft.com/services/cosmos-db/
       title: Azure Cosmos DB
     - href: https://azure.microsoft.com/services/cache/
-      title: 用于 Redis 的 Azure 缓存
+      title: Azure Redis 缓存
     - href: https://azure.microsoft.com/services/postgresql/
       title: Azure Database for PostgreSQL
     - href: https://azure.microsoft.com/services/mysql/
@@ -216,7 +216,7 @@ items:
     - href: https://azure.microsoft.com/services/mariadb/
       title: Azure Database for MariaDB
     - href: https://azure.microsoft.com/services/data-factory/
-      title: Data Factory
+      title: 数据工厂
     - href: https://azure.microsoft.com/services/database-migration/
       title: Azure 数据库迁移服务
   - title: Web
@@ -254,7 +254,7 @@ items:
     - href: https://azure.microsoft.com/services/api-management/
       title: API 管理
     - href: https://azure.microsoft.com/services/time-series-insights/
-      title: Azure Time Series Insights
+      title: Azure 时序见解
   - title: 移动
     items:
     - href: https://azure.microsoft.com/services/app-service/
@@ -262,11 +262,11 @@ items:
     - href: https://azure.microsoft.com/services/app-service/web/
       title: Web 应用
     - href: https://azure.microsoft.com/services/app-service/mobile/
-      title: Mobile Apps
+      title: 移动应用
     - href: https://azure.microsoft.com/services/notification-hubs/
       title: 通知中心
     - href: https://azure.microsoft.com/services/app-service/api/
-      title: API Apps
+      title: API 应用
 - href: https://www.azure.cn/pricing/
   title: 定价
 - href: https://azure.microsoft.com/zh-cn/solutions/
@@ -276,7 +276,7 @@ items:
   - href: https://customers.azure.cn/
     title: 案例研究
   - href: https://www.microsoft.com/solution-providers/home
-    title: 查找合作伙伴
+    title: 寻找合作伙伴
 - title: 购买和计费
   items:
   - href: /articles/azure-china-purchasing-guidance/
@@ -308,11 +308,11 @@ items:
   - href: https://updates.azure.cn/azure-ip-advantage/
     title: Azure IP Advantage
   - href: https://www.azure.cn/support/icp/
-    title: ICP 填写
+    title: ICP 填充
   - href: https://www.azure.cn/support/announcement/public-security-registration/
-    title: 公安备案
+    title: 公共安全注册
   - href: https://support.azure.cn/zh-cn/support/faq/
-    title: 常见问题
+    title: 常见问题解答
 - href: https://market.azure.cn/
   title: 市场
 - href: https://azure.microsoft.com/global-infrastructure/china/
@@ -320,14 +320,14 @@ items:
 callToAction:
   primary:
     href: https://wd.azure.cn/pricing/1rmb-trial/
-    title: 试用订阅
+    title: 试用
   secondary:
     href: https://portal.azure.cn/
     title: 门户
 metadata:
-  ms.openlocfilehash: 812959e0264eb68bc460fc314ed829f9ab7e19e1
-  ms.sourcegitcommit: e6cbb4d91e258eb2b20134c42a6dfd2de6ac66ba
+  ms.openlocfilehash: a421996672284e25e619558056761fd4de66db23
+  ms.sourcegitcommit: 1361f47586f4533abeef273224f58378004d0393
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/10/2020
-  ms.locfileid: "91645142"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95323669"

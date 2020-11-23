@@ -11,122 +11,122 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 10/02/2019
-  ms.date: 09/21/2020
-  ms.openlocfilehash: e92e405cc3b5806a30063082f7ca84d2164f8e14
-  ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+  ms.date: 11/23/2020
+  ms.openlocfilehash: 026c7f560885b89e8c35b57b762199f4ee69f366
+  ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90523883"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94680443"
 landingContent:
 - title: 关于 Azure 数据工厂
   linkLists:
   - linkListType: overview
     links:
     - text: 什么是 Azure 数据工厂？
-      url: /data-factory/introduction
+      url: ./introduction.md
   - linkListType: reference
     links:
     - text: 白皮书
-      url: /data-factory/whitepapers
+      url: ./whitepapers.md
     - text: 定价
       url: https://azure.cn/pricing/details/data-factory/
     - text: 通过示例了解定价
-      url: /data-factory/pricing-concepts
+      url: ./pricing-concepts.md
 - title: 入门
   linkLists:
   - linkListType: quickstart
     links:
     - text: Azure 数据工厂 UI
-      url: /data-factory/quickstart-create-data-factory-portal
+      url: ./quickstart-create-data-factory-portal.md
     - text: 复制数据工具
-      url: /data-factory/quickstart-create-data-factory-copy-data-tool
+      url: ./quickstart-create-data-factory-copy-data-tool.md
     - text: Azure PowerShell
-      url: /data-factory/quickstart-create-data-factory-powershell
+      url: ./quickstart-create-data-factory-powershell.md
     - text: .NET
-      url: /data-factory/quickstart-create-data-factory-dot-net
+      url: ./quickstart-create-data-factory-dot-net.md
     - text: Python
-      url: /data-factory/quickstart-create-data-factory-python
+      url: ./quickstart-create-data-factory-python.md
     - text: Rest
-      url: /data-factory/quickstart-create-data-factory-rest-api
+      url: ./quickstart-create-data-factory-rest-api.md
     - text: 资源管理器模板
-      url: /data-factory/quickstart-create-data-factory-resource-manager-template
+      url: ./quickstart-create-data-factory-resource-manager-template.md
 - title: 数据移动
   linkLists:
   - linkListType: concept
     links:
     - text: “复制活动”概述
-      url: /data-factory/copy-activity-overview
+      url: ./copy-activity-overview.md
     - text: 复制性能优化
-      url: /data-factory/copy-activity-performance
+      url: ./copy-activity-performance.md
   - linkListType: overview
     links:
     - text: Data lake 和数据仓库迁移
-      url: /data-factory/data-migration-guidance-overview
+      url: ./data-migration-guidance-overview.md
   - linkListType: tutorial
     links:
     - text: 复制云中的数据
-      url: /data-factory/tutorial-copy-data-tool
+      url: ./tutorial-copy-data-tool.md
     - text: 将本地数据复制到云中
-      url: /data-factory/tutorial-hybrid-copy-data-tool
+      url: ./tutorial-hybrid-copy-data-tool.md
     - text: 批量复制数据
-      url: /data-factory/tutorial-bulk-copy-portal
+      url: ./tutorial-bulk-copy-portal.md
     - text: 以增量方式复制数据
-      url: /data-factory/tutorial-incremental-copy-overview
+      url: ./tutorial-incremental-copy-overview.md
     - text: 加载 ADLS Gen2
-      url: /data-factory/load-azure-data-lake-storage-gen2
+      url: ./load-azure-data-lake-storage-gen2.md
     - text: 加载 Azure Synapse Analytics
-      url: /data-factory/load-azure-sql-data-warehouse
+      url: ./load-azure-sql-data-warehouse.md
     - text: 加载 SAP BW
-      url: /data-factory/load-sap-bw-data
+      url: ./load-sap-bw-data.md
 - title: 直接迁移 SSIS 包
   linkLists:
   - linkListType: overview
     links:
     - text: 将 SSIS 包迁移到 Azure SQL 托管实例
-      url: /data-factory/scenario-ssis-migration-ssisdb-mi
+      url: ./scenario-ssis-migration-ssisdb-mi.md
   - linkListType: tutorial
     links:
     - text: 在 Azure 中运行 SSIS 包
-      url: /data-factory/tutorial-deploy-ssis-packages-azure
+      url: ./tutorial-deploy-ssis-packages-azure.md
   - linkListType: how-to-guide
     links:
     - text: 预配 SSIS Integration Runtime
-      url: /data-factory/create-azure-ssis-integration-runtime
+      url: ./create-azure-ssis-integration-runtime.md
     - text: 将 SSIS IR 加入虚拟网络
-      url: /data-factory/join-azure-ssis-integration-runtime-virtual-network
+      url: ./join-azure-ssis-integration-runtime-virtual-network.md
     - text: 使用“执行 SSIS 包”活动运行 SSIS 包
-      url: /data-factory/how-to-invoke-ssis-package-ssis-activity
+      url: ./how-to-invoke-ssis-package-ssis-activity.md
     - text: 计划 SSIS integration runtime
-      url: /data-factory/how-to-schedule-azure-ssis-integration-runtime
+      url: ./how-to-schedule-azure-ssis-integration-runtime.md
     - text: 自定义 SSIS IR 的安装程序
-      url: /data-factory/how-to-configure-azure-ssis-ir-custom-setup
+      url: ./how-to-configure-azure-ssis-ir-custom-setup.md
     - text: 安装 SSIS IR 的已许可组件
-      url: /data-factory/how-to-develop-azure-ssis-ir-licensed-components
+      url: ./how-to-develop-azure-ssis-ir-licensed-components.md
 - title: 安全性
   linkLists:
   - linkListType: concept
     links:
     - text: 数据移动安全注意事项
-      url: /data-factory/data-movement-security-considerations
+      url: ./data-movement-security-considerations.md
     - text: 数据工厂的托管标识
-      url: /data-factory/data-factory-service-identity
+      url: ./data-factory-service-identity.md
     - text: 在 Azure Key Vault 中存储凭据
-      url: /data-factory/store-credentials-in-key-vault
+      url: ./store-credentials-in-key-vault.md
 - title: 创作、监视和管理
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 以可视化方式监视 Azure 数据工厂
-      url: /data-factory/author-visually
+      url: ./author-visually.md
     - text: 迭代开发和调试
-      url: /data-factory/iterative-development-debugging
+      url: ./iterative-development-debugging.md
     - text: 直观地监视
-      url: /data-factory/monitor-visually
+      url: ./monitor-visually.md
     - text: 使用 Azure Monitor 进行监视
-      url: /data-factory/monitor-using-azure-monitor
+      url: ./monitor-using-azure-monitor.md
     - text: 使用 SDK 进行监视
-      url: /data-factory/monitor-programmatically
+      url: ./monitor-programmatically.md
 - title: Languages
   linkLists:
   - linkListType: reference

@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 02/20/2020
-ms.date: 09/02/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7be683a970ba1783c098d57716888e160b488db1
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 76ed73ffeed9250b5a2b1e2d89340ba26d0f9ce4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317604"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979179"
 ---
 本快速入门介绍如何使用适用于 Android 的语音设备 SDK 来生成支持语音的产品。
 
@@ -171,7 +171,7 @@ ms.locfileid: "89317604"
 
 1. 尽情体验吧！
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 如果无法连接到语音设备。 在命令提示符窗口中键入以下命令。 这会返回设备列表：
 

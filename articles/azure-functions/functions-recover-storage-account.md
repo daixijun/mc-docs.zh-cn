@@ -2,13 +2,13 @@
 title: 排查错误：Azure Functions 运行时不可访问
 description: 了解如何排查存储帐户无效的问题。
 ms.topic: article
-ms.date: 10/19/2020
-ms.openlocfilehash: 315fce912288dbb834798f56e344aad82196f57f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/18/2020
+ms.openlocfilehash: c3bc063c1278e75fd2e133f9de74fb59a1397147
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472047"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849356"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>排查错误：“Azure Functions 运行时不可访问”
 
@@ -76,7 +76,7 @@ ms.locfileid: "92472047"
 
 * 函数应用托管在[内部负载均衡的应用服务环境](../app-service/environment/create-ilb-ase.md)中，并配置为阻止入站 Internet 流量。
 
-* 函数应用的[入站 IP 限制](functions-networking-options.md#inbound-ip-restrictions)配置为阻止 Internet 访问。 
+* 函数应用的[入站 IP 限制](functions-networking-options.md#inbound-access-restrictions)配置为阻止 Internet 访问。 
 
 Azure 门户直接调用正在运行的应用以提取函数列表，并对 Kudu 终结点发出 HTTP 调用。 仍可使用“平台功能”选项卡下的平台级设置。 
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f8feb62342a6d31e226823ad4f83897594b5f7c0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 59acde54e2309d8513948216b3b7ad0b74633b39
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80581663"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849435"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>应用程序网关入口控制器的批注 
 
@@ -22,7 +22,7 @@ ms.locfileid: "80581663"
 
 ## <a name="list-of-supported-annotations"></a>支持的批注列表
 
-对于 AGIC 要观察的入口资源，**必须**使用 `kubernetes.io/ingress.class: azure/application-gateway` 对其进行批注。 只有在批注之后，AGIC 才能使用相关的入口资源。
+对于 AGIC 要观察的入口资源，**必须** 使用 `kubernetes.io/ingress.class: azure/application-gateway` 对其进行批注。 只有在批注之后，AGIC 才能使用相关的入口资源。
 
 | 批注键 | 值类型 | 默认值 | 允许的值
 | -- | -- | -- | -- |
@@ -72,7 +72,7 @@ spec:
 
 ## <a name="tls-redirect"></a>TLS 重定向
 
-可将应用程序网关[配置](/application-gateway/application-gateway-redirect-overview)为向其 HTTPS 对等方自动重定向 HTTP URL。 如果此批注存在且已正确配置 TLS，Kubernetes 入口控制器将创建[采用某种重定向配置的路由规则](/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration)，并将更改应用到应用程序网关。 创建的重定向是 HTTP `301 Moved Permanently`。
+可将应用程序网关[配置](./redirect-overview.md)为向其 HTTPS 对等方自动重定向 HTTP URL。 如果此批注存在且已正确配置 TLS，Kubernetes 入口控制器将创建[采用某种重定向配置的路由规则](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)，并将更改应用到应用程序网关。 创建的重定向是 HTTP `301 Moved Permanently`。
 
 ### <a name="usage"></a>使用情况
 

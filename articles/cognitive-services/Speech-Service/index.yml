@@ -12,14 +12,14 @@ metadata:
   ms.service: speech-service
   ms.topic: hub-page
   origin.date: 03/24/2020
-  ms.date: 10/16/2020
+  ms.date: 11/20/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 3281a56571ac2fb22da9ae96cff963a5c70c83a5
-  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+  ms.openlocfilehash: d4c13607ff1e03d2625141de8699bd7685149da4
+  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92127688"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94978212"
 highlightedContent:
   items:
   - title: 什么是语音服务？
@@ -44,9 +44,9 @@ conceptualContent:
     - itemType: quickstart
       text: 语音转文本入门
       url: get-started-speech-to-text.md
-    - itemType: how-to-guide
-      text: 使用自定义语音识别提高准确性
-      url: how-to-custom-speech.md
+    - itemType: overview
+      text: 关于自定义语音识别
+      url: custom-speech-overview.md
     footerLink:
       text: 更多
       url: index-speech-to-text.yml
@@ -127,7 +127,7 @@ tools:
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: https://aka.ms/csspeech/javaref
-  - title: Javascript
+  - title: JavaScript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
     url: https://aka.ms/csspeech/javascriptref
   - title: Objective-C 和 Swift
@@ -158,10 +158,6 @@ additionalContent:
     - title: 支持
       links:
       - text: 支持和帮助
-        url: support.md
+        url: ../cognitive-services-support-options.md?context=/cognitive-services/speech-service/context/context
       - text: GitHub 问题
         url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-      - text: Stack Overflow
-        url: https://aka.ms/SOspeechquestions
-      - text: UserVoice
-        url: https://cognitive.uservoice.com/forums/912208-speech-service
