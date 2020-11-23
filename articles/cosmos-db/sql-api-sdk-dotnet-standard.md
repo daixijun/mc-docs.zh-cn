@@ -5,21 +5,23 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 08/12/2020
+origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 97367064992652261faf6609a4acb7f606a8f459
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: af0f86dd4196fa141b46dedd7e28c59dbbd2cb12
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246361"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552849"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK v3：下载和发行说明
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -35,22 +37,79 @@ ms.locfileid: "91246361"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
-|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb?preserve-view=true)|
 |**示例**|[.NET代码示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**入门**|[Azure Cosmos DB .NET SDK 入门](sql-api-get-started.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|
-|**当前受支持的框架**|[Microsoft .NET Standard 2.0](https://docs.microsoft.com//dotnet/standard/net-standard)|
+|**Entity Framework Core 教程**|[Entity Framework Core 与 Azure Cosmos DB 提供程序](https://docs.microsoft.com/ef/core/providers/cosmos/#get-started)|
+|**当前受支持的框架**|[Microsoft .NET Standard 2.0](https://docs.microsoft.com/dotnet/standard/net-standard)|
 
 预览功能被视为单独的分支，在准备就绪之前不会包含在正式版本中。 每个预览版本都列出了所有已启用的附加功能。
 
 该格式基于[保留 Changelog](https://keepachangelog.com/en/1.0.0/)，而此项目遵循[语义化版本控制](https://semver.org/spec/v2.0.0.html)。
+
+<a name="3.15.0-preview"></a>
+### <a name="3150-preview---2020-10-21"></a>[3.15.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) - 2020-10-21
+
+#### <a name="added"></a>已添加
+- [#1944](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1944) 性能：添加直接版本以获取响应标头改进
+- [#1933](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1933) 更改源：添加了可通过全新 EmitOldContinuationToken 迁移的全新延续令牌格式。
+- [#1933](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1933) 更改源：添加了在出现 304 错误时重试的功能，并且不再修改 HasMoreResults
+- [#1926](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1926) 查询：为 c# 查询分析器添加了当服务互操作不可用时对 IN 子句中多个参数的支持。
+
+#### <a name="fixed"></a>固定
+- [#1933](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1933) 更改源：修复了未遵循值的 StartFrom bug
+
+<a name="3.14.0-preview"></a>
+### <a name="3140-preview---2020-10-09"></a>[3.14.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.14.0-preview) - 2020-10-09
+
+#### <a name="added"></a>已添加
+- [#1830](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1830) 更改源估算器：增加了对每个租约的详细估算的支持
+
+<a name="3.14.0"></a>
+### <a name="3140---2020-10-09"></a>[3.14.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.14.0) - 2020-10-09
+
+#### <a name="added"></a>已添加
+- [#1876](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1876) 性能：添加了会话令牌优化
+- [#1879](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1879) 性能：添加了 AuthorizationHelper 改进
+- [#1882](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1882) 性能：添加了 SessionContainer 优化和样式修复
+- [#1812](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1812) 查询：添加了分页库的采用
+- [#1920](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1920) 查询：添加了 RegexMatch 系统函数支持
+
+#### <a name="fixed"></a>固定
+- [#1875](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1875) HttpClient：修复了 WASM 中 HttpResponseMessage.RequestMessage 为 null 的问题
+- [#1886](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1886) 更改源处理器：修复了初始化过程中的故障
+- [#1892](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1892) GatewayAddressCache：修复了在地址刷新路径上使用 HashSet 时导致 CPU 利用率过高的问题
+- [#1909](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1909) 授权：修复了在执行写入操作时引发 DocumentClientException 的问题
+
+<a name="3.13.0"></a>
+### <a name="3130---2020-09-21"></a>[3.13.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0) - 2020-09-21
+
+#### <a name="added"></a>已添加
+
+- [#1743](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1743) 查询性能：添加了在已设置 FeedOptions.PartitionKey 时对非 Windows x64 系统上的非聚合单分区查询跳过“获取查询计划”的功能
+- [#1768](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1768) 性能：添加了 SessionToken 优化，以通过删除存储过程、触发器和 UDF 上用于 CRUD 的会话令牌来减小标头大小
+- [#1781](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1781) 性能：添加了标头优化，从而可减少响应分配（每个请求减少 10 KB）。 
+- [#1825](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1825) RequestOptions.Properties：为应用程序添加了指定请求上下文的功能
+- [#1835](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1835) 性能：添加了 HttpClient 优化以避免双重缓冲网关响应
+- [#1837](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1837) 查询 SystemFunctions：添加了日期/时间系统函数
+- [#1842](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1842) 查询性能：添加了单一实例 QueryPartitionProvider。 在重新创建容器时提供帮助。
+- [#1857](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1857) 性能：在一些位置添加了终结器优化（向 pentp 致谢）
+- [#1843](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1843) 性能：添加了 Transport 序列化、SessionTokenMismatchRetryPolicy 和存储响应字典优化
+
+#### <a name="fixed"></a>固定
+
+- [#1757](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1757) Batch API：修复大小限制以减少超时
+- [#1758](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1758) 连接性：修复使用 EnableTcpConnectionEndpointRediscovery 时的地址解析调用
+- [#1788](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1788) 暂时性 HTTP 异常：将重试逻辑添加到所有 http 请求
+- [#1863](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1863) HttpClientHandler：修复了 HttpClientHandler PlatformNotSupportedException
 
 <a name="3.13.0-preview"></a>
 ### <a name="3130-preview---2020-08-12"></a>[3.13.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) - 2020-08-12
@@ -85,9 +144,15 @@ ms.locfileid: "91246361"
 - [#1740](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1740) 连接限制：修复 .NET core 以遵循网关连接限制
 - [#1744](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1744) 传输：修复 PortReuseMode 和其他直接配置设置的使用问题
 
+<a name="3.11.1-preview"></a>
+### <a name="3111-preview---2020-10-01"></a>[3.11.1-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.11.1-preview) - 2020-10-01
+
+- [#1892](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1892) 性能：通过减少 HashSet 锁争用，修复了由 EnableTcpConnectionEndpointRediscovery 导致的 CPU 利用率过高的问题
+
 <a name="3.11.0"></a>
 ### <a name="3110---2020-07-07"></a>[3.11.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.11.0) - 2020-07-07
-
+<a name="3.11.0-preview"></a>
+### <a name="3110-preview---2020-07-07"></a>[3.11.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.11.0-preview) - 2020-07-07
 #### <a name="added"></a>已添加 
 
 - [#1587](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1587) & [1643](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1643) & [1667](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1667)  诊断：向所有请求添加了同步上下文跟踪
@@ -115,7 +180,7 @@ ms.locfileid: "91246361"
 - [#1613](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1613) 查询 FeedIterator：添加了 IDisposable 来修复内存泄漏。 警告：这将需要进行更改以修复用于检查处置的静态分析工具。
 - [#1550](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1550) CosmosOperationCanceledException：这使用户能够访问通过取消标记取消操作时的诊断。 新类型扩展了 OperationCanceledException，因此它没有破坏当前的异常处理，并且在 ToString() 中包括了 CosmosDiagnostic。
 - [#1578](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1578) 查询：添加了内存优化以防止复制缓冲区
-- [#1578](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1578) 查询：添加了支持来忽略 [Contains](/cosmos-db/sql-query-contains) 和 [StartsWith](/cosmos-db/sql-query-startswith) 函数的案例。
+- [#1578](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1578) 查询：添加了支持来忽略 [Contains](https://docs.azure.cn/cosmos-db/sql-query-contains) 和 [StartsWith](https://docs.azure.cn/cosmos-db/sql-query-startswith) 函数的案例。
 - [#1602](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1602) 诊断：向所有操作添加了 CPU 使用率
 - [#1603](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1603) 文档：添加了新的异常处理文档
 
@@ -393,7 +458,7 @@ ms.locfileid: "91246361"
 
 - [#100](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/100) 向 `CosmosClientOptions` 添加了可配置的 Tcp 设置。
 - [#615](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/615)、[#775](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/775) 向响应添加了请求诊断。
-- [#622](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/622) 添加了针对用户和权限的 CRUD 和查询操作，这启用了 [ResourceToken](/cosmos-db/secure-access-to-data#resource-tokens) 支持。
+- [#622](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/622) 添加了针对用户和权限的 CRUD 和查询操作，这启用了 [ResourceToken](https://docs.azure.cn/cosmos-db/secure-access-to-data#resource-tokens) 支持。
 - [#716](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/716) 添加了在 LINQ 查询生成时会启用的驼峰式大小写序列化。
 - [#729](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/729)、[#776](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/776) 针对 LINQ 查询添加了 aggregate（CountAsync/SumAsync 等）扩展。
 - [#743](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/743) 向 `CosmosClientOptions` 添加了 `WebProxy`。
@@ -478,7 +543,7 @@ ms.locfileid: "91246361"
 
 Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺利转换为更高版本/受支持版本。 新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新的 SDK 版本。
 
-在 **2022 年 8 月 31 日**之后，Azure Cosmos DB 将不再进行 bug 修复，不再添加新功能，也不再支持 1.x 版的 Azure Cosmos DB .NET 或 .NET Core SDK for SQL API。 如果你不想升级，则从 1.x 版 SDK 发送的请求将继续由 Azure Cosmos DB 服务处理。
+在 **2022 年 8 月 31 日** 之后，Azure Cosmos DB 将不再进行 bug 修复，不再添加新功能，也不再支持 1.x 版的 Azure Cosmos DB .NET 或 .NET Core SDK for SQL API。 如果你不想升级，则从 1.x 版 SDK 发送的请求将继续由 Azure Cosmos DB 服务处理。
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |

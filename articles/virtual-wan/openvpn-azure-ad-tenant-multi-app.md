@@ -4,18 +4,17 @@ description: 设置用于 P2S OpenVPN 身份验证的 Azure AD 租户，并在 A
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1253571c04095e65c398cb81a2f8dae5acc93697
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 59e1076f08505ce845c25977518b7bb64e26f805
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590928"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978236"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>为 P2S OpenVPN 协议连接创建 Azure Active Directory (AD) 租户
 

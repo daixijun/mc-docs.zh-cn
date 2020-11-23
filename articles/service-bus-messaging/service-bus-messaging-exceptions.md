@@ -4,16 +4,16 @@ description: 本文提供了 Azure 服务总线消息传送异常以及发生异
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a7f2b45f523a9a1339e6a4282fc65577f48d27bd
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: b8af76c2ffe2775c12ae99ec8611939e10fb3276
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590870"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977967"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 本文列出了 .NET Framework API 生成的 .NET 异常。 
@@ -38,8 +38,7 @@ ms.locfileid: "94590870"
 | [ArgumentException](https://docs.microsoft.com/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](https://docs.microsoft.com/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](https://docs.microsoft.com/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |提供给该方法的一个或多个参数均无效。<br /> 提供给 [NamespaceManager](https://docs.azure.cn/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 的 URI 包含路径段。<br /> 提供给 [NamespaceManager](https://docs.azure.cn/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 的 URI 方案无效。 <br />属性值大于 32 KB。 |检查调用代码并确保参数正确。 |重试不起作用。 |
 | [MessagingEntityNotFoundException](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |与操作关联的实体不存在或已被删除。 |确保该实体存在。 |重试不起作用。 |
 | [MessageNotFoundException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |尝试接收具有特定序列号的消息。 找不到此消息。 |确保该消息尚未接收。 检查死信队列，以确定该消息是否被视为死信。 |重试不起作用。 |
-| [MessagingCommunicationException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |客户端无法与服务总线建立连接。 |确保提供的主机名正确并且主机可访问。 <p>如果你的代码在使用防火墙/代理的环境中运行，请确保到服务总线域/IP 地址和端口的流量未被阻止。
-</p>|如果存在间歇性的连接问题，重试可能会有帮助。 |
+| [MessagingCommunicationException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |客户端无法与服务总线建立连接。 |确保提供的主机名正确并且主机可访问。 <p>如果你的代码在使用防火墙/代理的环境中运行，请确保到服务总线域/IP 地址和端口的流量未被阻止。</p>|如果存在间歇性的连接问题，重试可能会有帮助。 |
 | [ServerBusyException](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |服务目前无法处理请求。 |客户端可以等待一段时间，并重试操作。 |客户端可在特定的时间间隔后重试操作。 如果重试导致其他异常，请检查该异常的重试行为。 |
 | [MessagingException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingexception) |在以下情况下，可能会引发一般消息异常：<p>尝试使用属于其他实体类型（例如主题）的名称或路径创建 [QueueClient](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient)。</p><p>尝试发送大于 256 KB 的消息。 </p>服务器或服务在处理请求期间遇到错误。 有关详细信息，请查看异常消息。 这通常是暂时性异常。</p><p>由于实体正受到限制，因此已终止请求。 错误代码：50001、50002、50008。 </p> | 检查代码，并确保只对消息正文使用可序列化对象（或使用自定义序列化程序）。 <p>在文档中查看属性支持的值类型，并只使用支持的类型。</p><p> 检查 [IsTransient](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingexception) 属性。 如果为 true，可以重试操作。 </p>| 如果异常是由于限制导致的，请等待几秒钟，然后重试该操作。 重试行为未定义，在其他场景中可能没有帮助。|
 | [MessagingEntityAlreadyExistsException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |尝试使用已被该服务命名空间中另一实体使用的名称创建实体。 |删除现有的实体，或者选择不同的名称来创建实体。 |重试不起作用。 |
