@@ -4,13 +4,14 @@ description: 对在任何环境中运行的 Java 应用程序进行无代码应�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.openlocfilehash: 8200327db7ee7c3debe862c1b15ef602ff9d6ce9
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.date: 11/10/2020
+ms.custom: devx-track-java
+ms.openlocfilehash: 2c4cb4ce1a0aae7439b6b56c630ba29f75b0305b
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244862"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638199"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>配置选项 - Azure Monitor Application Insights 的 Java 独立代理
 
@@ -50,7 +51,18 @@ ms.locfileid: "87244862"
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights 连接字符串":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 还可以使用环境变量 `APPLICATIONINSIGHTS_CONNECTION_STRING` 设置连接字符串。
+
+如果未设置连接字符串，则将禁用 Java 代理。
 
 ## <a name="cloud-role-name"></a>云角色名称
 
@@ -94,7 +106,7 @@ ms.locfileid: "87244862"
 
 Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.logging 自动捕获应用程序日志记录。
 
-默认情况下，它会捕获在 `WARN` 级别或更高级别执行的所有日志记录。
+默认情况下，它会捕获在 `INFO` 级别或更高级别执行的所有日志记录。
 
 若要更改此阈值，请执行以下代码：
 
@@ -104,7 +116,7 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
@@ -112,20 +124,22 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 }
 ```
 
+还可以使用环境变量 `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` 设置日志记录阈值。
+
 下面介绍了你可以在 `ApplicationInsights.json` 文件中指定的有效的 `threshold` 值，以及这些值如何对应于不同日志记录框架中的日志记录级别：
 
-| `threshold`  | Log4j  | Logback | JUL     |
-|--------------|--------|---------|---------|
-| OFF          | OFF    | OFF     | OFF     |
-| FATAL        | FATAL  | ERROR   | SEVERE  |
-| ERROR/SEVERE | ERROR  | ERROR   | SEVERE  |
-| WARN/WARNING | WARN   | WARN    | WARNING |
-| INFO         | INFO   | INFO    | INFO    |
-| CONFIG       | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG/FINE   | DEBUG  | DEBUG   | FINE    |
-| FINER        | DEBUG  | DEBUG   | FINER   |
-| TRACE/FINEST | TRACE  | TRACE   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| 阈值   | Log4j  | Logback | JUL     |
+|-------------------|--------|---------|---------|
+| OFF               | OFF    | OFF     | OFF     |
+| FATAL             | FATAL  | ERROR   | SEVERE  |
+| ERROR（或 SEVERE） | ERROR  | ERROR   | SEVERE  |
+| WARN（或 WARNING） | WARN   | WARN    | WARNING |
+| INFO              | INFO   | INFO    | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
+| DEBUG（或 FINE）   | DEBUG  | DEBUG   | FINE    |
+| FINER             | DEBUG  | DEBUG   | FINER   |
+| TRACE（或 FINEST） | TRACE  | TRACE   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>JMX 指标
 
@@ -135,22 +149,27 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
-          "objectName": "java.lang:type=MemoryPool,name=Code Cache",
+          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
           "attribute": "Usage.used",
-          "display": "Code Cache Used"
+          "display": "MetaSpace Used"
         }
       ]
     }
   }
 }
 ```
+
+支持数值和布尔 JMX 指标值。 False 表示布尔 JMX 指标映射到 `0`，true 表示映射到 `1`。
+
+[//]: # "注意：此处未记录 APPLICATIONINSIGHTS_JMX_METRICS"
+[//]: # "env var 中嵌入的 json 是比较凌乱的，应仅在无代码附加方案中进行记录"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer（包括 Spring Boot Actuator 中的指标）
 
@@ -182,9 +201,9 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -206,19 +225,21 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
+还可以使用环境变量 `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` 设置采样百分比。
+
 ## <a name="http-proxy"></a>HTTP 代理
 
-如果应用程序位于防火墙后面，无法直接连接到 Application Insights（请参阅 [Application Insights 使用的 IP 地址](/azure-monitor/app/ip-addresses)），则可将 Application Insights Java 3.0 Preview 配置为使用 HTTP 代理：
+如果应用程序位于防火墙后面，无法直接连接到 Application Insights（请参阅 [Application Insights 使用的 IP 地址](./ip-addresses.md)），则可将 Application Insights Java 3.0 Preview 配置为使用 HTTP 代理：
 
 ```json
 {
@@ -245,10 +266,10 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -262,12 +283,12 @@ Application Insights Java 3.0 Preview 通过 Log4j、Logback 和 java.util.loggi
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

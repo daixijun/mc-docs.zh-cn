@@ -3,7 +3,7 @@ title: Azure 安全中心常见问题解答 - 有关虚拟机的问题
 description: 有关 Azure 安全中心中的虚拟机的常见问题解答，Azure 安全中心有助于你预防、检测和响应威胁
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/13/2020
-ms.author: v-tawe
+ms.date: 11/12/2020
+ms.author: v-johya
 origin.date: 02/25/2020
-ms.openlocfilehash: 903c2cbd785a6239dba80014b7d1bef3f95de260
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.openlocfilehash: 828277b79a37c4893d46a49b0adb29c1d211d4d2
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126741"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637850"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>常见问题解答 - 关于虚拟机的问题
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>支持哪些类型的虚拟机？
 
-使用[经典部署模式和 Resource Manager 部署模式](../azure-classic-rm.md)创建的虚拟机 (VM) 支持监视和建议。
+使用[经典部署模式和 Resource Manager 部署模式](/azure-resource-manager/management/deployment-models)创建的虚拟机 (VM) 支持监视和建议。
 
 有关支持平台的列表，请参阅[ Azure 安全中心支持的平台](security-center-os-coverage.md)。
 
@@ -46,15 +46,16 @@ Azure 安全中心可识别出通过 Azure 扩展安装的反恶意软件。 例
 以下是安全中心扫描漏洞、更新和问题的延迟时间：
 
 - 操作系统安全配置 - 数据在 48 小时内更新
-- 系统更新 – 数据在 24 小时内更新
-- 终结点保护问题 – 数据在 8 小时内更新
+- 系统更新 - 数据在 24 小时内更新
+- Endpoint Protection 问题 - 数据在 8 小时内更新
 
 安全中心通常每小时扫描一次新数据，并相应地刷新建议。 
 
 > [!NOTE]
-> 安全中心使用 Log Analytics 代理来收集和存储数据。 若要了解详细信息，请参阅 [Azure 安全中心平台迁移](security-center-platform-migration.md)。
+> 安全中心使用 Log Analytics 代理来收集和存储数据。 若要了解详细信息，请参阅 [Azure 安全中心平台迁移](./security-center-enable-data-collection.md)。
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>为什么会显示消息称“VM 代理缺失”？
 
 VM 代理必须安装在 VM 上才能启用数据收集。 对于从 Azure 市场部署的 VM，默认安装 VM 代理。 有关如何在其他 VM 上安装 VM 代理的详细信息，请参阅博客文章 [VM 代理和扩展](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)。
+

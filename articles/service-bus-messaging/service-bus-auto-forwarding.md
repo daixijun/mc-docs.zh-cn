@@ -4,17 +4,17 @@ description: 本文介绍如何将 Azure 服务总线队列或订阅链接到另
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b94b3b1e55ece3f26812de472f225307516b3a97
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c7ce1bbe43ebdf02054d6a7886c76131b6f4a8d8
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128360"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590882"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自动转发链接服务总线实体
 
@@ -43,7 +43,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 如果 Alice 去度假，则填充她的个人队列，而不是 ERP 主题。 在此方案中，由于销售代表没有接收到任何消息，所以所有 ERP 主题都没有达到配额。
 
 > [!NOTE]
-> 设置自动转发时， **源和目标** 上的 AutoDeleteOnIdle 值自动设置为数据类型的最大值。
+> 设置自动转发时，**源和目标** 上的 AutoDeleteOnIdle 值自动设置为数据类型的最大值。
 > 
 >   - 在源端，自动转发充当接收操作。 因此，具有自动转发设置的源从未真正“空闲”。
 >   - 在目标端，这样做是为了确保始终有要将消息转发到的目标。
@@ -57,6 +57,8 @@ namespaceManager.CreateSubscription(srcSubscription));
 服务总线对于每条转发的消息收取一个操作的费用。 例如，将一条消息发送到一个包含 20 个订阅（每个订阅配置为将消息自动转发到另一队列或主题）的主题，如果所有第一级别的订阅都接收到此消息的副本，则会作为 21 次操作进行计费。
 
 若要创建链接到另一个队列或主题的订阅，则订阅创建者必须具有源和目标实体的 **管理** 权限。 将消息发送到源主题仅需要源主题的 **发送** 权限。
+
+请不要创建超过 4 个跃点的链。 超过 4 个跃点的消息将为死信。
 
 ## <a name="next-steps"></a>后续步骤
 

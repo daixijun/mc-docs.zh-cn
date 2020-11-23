@@ -2,19 +2,19 @@
 title: 使用 REST API 创建和编辑 Azure Policy 安全策略
 description: 通过 REST API 了解 Azure Policy 策略管理。
 services: security-center
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.author: v-tawe
+ms.date: 11/12/2020
+ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: 0c18e1ac89722b6d77cc997fba41a16ea61e8b82
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 427492351a79fe9b92fde506859fda2084bdc466
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423147"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637792"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>使用 REST API 在 Azure Policy 中配置安全策略
 
@@ -22,11 +22,11 @@ Azure 安全中心与 Azure Policy 实现了本机集成，借助它，可以利
 
 Azure Policy 中的重要概念： 
 
-- **策略定义**是一种规则 
+- **策略定义** 是一种规则 
 
-- **计划**是策略定义（规则）的集合 
+- **计划** 是策略定义（规则）的集合 
 
-- **分配**是将计划或策略应用于特定的范围（管理组、订阅等） 
+- **分配** 是将计划或策略应用于特定的范围（管理组、订阅等） 
 
 安全中心有一项内置计划，它包括中心内的所有安全策略。 要评估对 Azure 资源的安全中心策略，应对管理组或希望评估的订阅创建一个分配。
 
@@ -37,7 +37,7 @@ Azure Policy 中的重要概念：
 在下面的示例中，替换以下三个变量：
 
 - **{scope}** ，用于输入要应用策略的管理组或订阅的名称。
-- **{policyAssignmentName}** ，用于输入[相关策略分配的名称](#policy-names)。
+- **{policyAssignmentName}** ，用于输入 [相关策略分配的名称](#policy-names)。
 - **{name}** ，用于输入你的名字或批准策略更改的管理员的名字。
 
 本示例演示如何对订阅或管理组分配内置的安全中心计划
@@ -141,3 +141,4 @@ Azure Policy 中的重要概念：
 
 - [自定义安全策略](custom-security-policies.md)
 - [安全策略概述](tutorial-security-policy.md)
+

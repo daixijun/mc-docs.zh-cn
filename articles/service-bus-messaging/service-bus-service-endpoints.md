@@ -4,17 +4,17 @@ description: 本文提供了有关如何向虚拟网络中添加 Microsoft.Servi
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a4b119eae9dc6fe7b2f720848b7b3c33808dc065
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 90d04eef7d241b87453d32b843e35c1560855e7c
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946906"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590854"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>允许从特定虚拟网络访问 Azure 服务总线命名空间
 
@@ -59,6 +59,9 @@ ms.locfileid: "88946906"
 将服务总线命名空间绑定到虚拟网络的过程分为两步。 首先需要在虚拟网络子网上创建“虚拟网络服务终结点”，并按照[服务终结点概述][vnet-sep]中的说明为“Microsoft.ServiceBus”启用该终结点 。 添加服务终结点后，使用虚拟网络规则将服务总线命名空间绑定到该终结点。
 
 虚拟网络规则是服务总线命名空间与虚拟网络子网的关联。 存在此规则时，绑定到子网的所有工作负荷都有权访问服务总线命名空间。 服务总线本身永远不会建立出站连接，不需要获得访问权限，因此永远不会通过启用此规则来授予对子网的访问权限。
+
+> [!NOTE]
+> 请记住，网络服务终结点为在虚拟网络中运行的应用程序提供对服务总线命名空间的访问权限。 虚拟网络控制终结点的可访问性，但不能控制对服务总线实体（队列、主题或订阅）可以执行的操作。 使用 Azure Active Directory (Azure AD) 授权应用程序可以在命名空间及其实体上执行的操作。 若要详细了解，请参阅[使用 Azure AD 对应用程序进行身份验证和授权，使之能够访问服务总线实体](authenticate-application.md)。
 
 ## <a name="use-azure-portal"></a>使用 Azure 门户
 本部分演示如何使用 Azure 门户添加虚拟网络服务终结点。 若要限制访问，需要集成此事件中心命名空间的虚拟网络服务终结点。

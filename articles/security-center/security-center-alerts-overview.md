@@ -9,20 +9,20 @@ ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
 origin.date: 03/15/2020
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
-ms.openlocfilehash: ee9767632798c9013f6457821b6b8f396f984548
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: dd744e3cfd5db07d49957854f9a9444f3ce544c4
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822382"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637843"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure 安全中心的安全警报
 
-在 Azure 安全中心，针对许多不同的资源类型提供多种不同的警报。 安全中心为部署在 Azure 上的资源以及部署在本地和混合云环境中的资源生成警报。
+安全中心提供许多不同资源类型的各种警报。 安全中心为部署在 Azure 上的资源以及部署在本地和混合云环境中的资源生成警报。
 
-安全警报由高级检测触发，仅在 Azure 安全中心标准层中提供。 提供免费版。 可以从“定价和设置”页升级。 详细了解[安全中心定价](https://www.azure.cn/pricing/details/security-center/)。
+安全警报由高级检测触发，仅适用于 Azure Defender。 提供试用版。 可以从“定价和设置”页升级。 详细了解[安全中心定价](https://www.azure.cn/pricing/details/security-center/)。
 
 ## <a name="respond-to-todays-threats"></a>应对当前的威胁 <a name="respond-threats"> </a>
 
@@ -46,7 +46,7 @@ ms.locfileid: "90822382"
 
 ## <a name="how-does-security-center-detect-threats"></a>安全中心如何检测威胁？ <a name="detect-threats"> </a>
 
-Microsoft 安全研究人员始终在不断地寻找威胁。 由于 Microsoft 在云中和本地广泛存在，因此他们可以访问大量遥测数据。 由于能够广泛访问和收集各种数据集，可以通过本地消费者产品和企业产品以及联机服务发现新的攻击模式和趋势。 因此，当攻击者发布新的越来越复杂的漏斗利用方式时，安全中心就可以快速更新其检测算法。 此方法可以让用户始终跟上变化莫测的威胁环境。
+Microsoft 安全研究人员始终在不断地寻找威胁。 由于在云中和本地的广泛存在，我们可以访问大量的遥测数据。 由于能够广泛访问和收集各种数据集，我们可以通过本地消费者产品和企业产品以及联机服务发现新的攻击模式和趋势。 因此，当攻击者发布新的越来越复杂的漏斗利用方式时，安全中心就可以快速更新其检测算法。 此方法可以让用户始终跟上变化莫测的威胁环境。
 
 为了检测真实威胁和减少误报，安全中心自动收集、分析和集成来自 Azure 资源和网络的日志数据。 它还适用于连接的合作伙伴解决方案，如防火墙和终结点保护解决方案。 安全中心分析该信息（通常需将多个来源的信息关联起来）即可确定威胁。
 
@@ -86,12 +86,17 @@ Azure 安全中心受益于在整个 Microsoft 有安全研究和数据科学团
 
 将这些措施结合起来，形成新的改进型检测方法，使你能够即时受益，而你不需采取任何措施。
 
+## <a name="export-alerts"></a>导出警报
+
+你可以通过多种方法在安全中心外查看警报，其中包括：
+
+- 警报仪表板上的“下载 CSV 报表”可提供到 CSV 的一次性导出。
+- 定价和设置中的“连续导出”允许你将安全警报和建议流配置到 Log Analytics 工作区和事件中心。 [详细了解连续导出](continuous-export.md)
+
 
 ## <a name="next-steps"></a>后续步骤
 
 本文介绍了安全中心的各类警报。 有关详细信息，请参阅：
 
-* [Azure 安全中心中的威胁防护](threat-protection.md) - 有关 Azure 安全中心显示的安全警报来源的简短说明 
-* Azure 活动日志中的安全警报 - 安全警报和事件除了在 Azure 门户中或以编程方式提供之外，还会作为 [Azure 活动日志](/azure-monitor/platform/activity-log-view)中的事件进行审核。 有关事件架构的详细信息，请参阅 [Azure 活动日志中的安全警报](https://go.microsoft.com/fwlink/?linkid=2114113)
-
+- Azure 活动日志中的安全警报 - 安全警报和事件除了在 Azure 门户中或以编程方式提供之外，还会作为 [Azure 活动日志](../azure-monitor/platform/activity-log.md#view-the-activity-log)中的事件进行审核。 有关事件架构的详细信息，请参阅 [Azure 活动日志中的安全警报](https://go.microsoft.com/fwlink/?linkid=2114113)
 

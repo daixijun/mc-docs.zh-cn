@@ -8,12 +8,12 @@ origin.date: 11/26/2018
 ms.date: 09/03/2020
 ms.topic: how-to
 ms.author: v-johya
-ms.openlocfilehash: 5851eb6f92dd494cefaee2ba33045a85ec332d21
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: d9a0150a80261f87bac97d648cbf94a77cbdec09
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057491"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638144"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -21,7 +21,7 @@ ms.locfileid: "90057491"
 <!--Not available in MC: ../ssh-keys-portal.md-->
 
 
-若要从 Linux 或 macOS 客户端使用 SSH 密钥，请参阅[快速](mac-create-ssh-keys.md)指南。 有关 SSH 的更详细概述，请参阅[详细步骤：创建和管理用于在 Azure 中对 Linux VM 进行身份验证的 SSH 密钥](create-ssh-keys-detailed.md)。
+若要从 Linux 或 macOS 客户端使用 SSH 密钥，请参阅[快速步骤](mac-create-ssh-keys.md)。 有关 SSH 的更详细概述，请参阅[详细步骤：创建和管理用于在 Azure 中对 Linux VM 进行身份验证的 SSH 密钥](create-ssh-keys-detailed.md)。
 
 ## <a name="overview-of-ssh-and-keys"></a>SSH 和密钥概述
 
@@ -31,7 +31,7 @@ ms.locfileid: "90057491"
 
 - 创建 VM 时，会将公钥放置在 Linux VM 上。 
 
-- *私钥*仍保留在本地系统上。 请保护好私钥， 不要透露给其他人。
+- *私钥* 仍保留在本地系统上。 请保护好私钥， 不要透露给其他人。
 
 连接到 Linux VM 时，VM 会测试 SSH 客户端，以确保其具有正确的私钥。 如果客户端具有私钥，则授予其访问 VM 的权限。 
 

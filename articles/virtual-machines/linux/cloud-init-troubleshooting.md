@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.reviewer: cynthn
-ms.openlocfilehash: cc3829f2c3328f90bd893e97122b501afdf8d39c
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: e281112f25c3096ec869e5f0c4c3f4db54ca29de
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057635"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637955"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>对使用 cloud-init 的 VM 预配进行故障排除
 
@@ -48,7 +48,7 @@ VM 预配失败的主要原因是 OS 映像不满足在 Azure 上运行的先决
 - [Ubuntu](create-upload-ubuntu.md)
 - [其他：非认可的分发版](create-upload-generic.md)
 
-对于[受支持的 Azure cloud-init 映像](./using-cloud-init.md)，Linux 发行版已准备好所有必需的包和配置，方便用户在 Azure 中正确预配映像。 如果发现无法基于你自己的特选映像创建 VM，请尝试使用一个受支持的、已使用你的可选 `customData` 为其配置了 cloud-init 的市场映像。 如果 `customData` 可以在市场映像中正常使用，则可能是特选映像出现问题。
+对于[受支持的 Azure cloud-init 映像](./using-cloud-init.md)，Linux 发行版已准备好所有必需的包和配置，方便用户在 Azure 中正确预配映像。 如果发现无法基于你自己的特选映像创建 VM，请尝试使用一个受支持的、已使用你的可选 `customData` 为其配置了 cloud-init 的 Azure 市场映像。 如果 `customData` 可以在 Azure 市场映像中正常使用，则可能是特选映像出现问题。
 
 ## <a name="step-3-collect--review-vm-logs"></a>步骤 3：收集和查看 VM 日志
 

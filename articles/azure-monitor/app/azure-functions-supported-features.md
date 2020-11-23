@@ -2,20 +2,25 @@
 title: Azure Application Insights - Azure Functions 支持的功能
 description: 适用于 Azure Functions 的 Application Insights 支持功能
 ms.topic: reference
-author: lingliw
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 11/10/2020
 origin.date: 4/23/2019
-ms.date: 6/4/2019
 ms.reviewer: mbullwin
-ms.author: v-lingwu
-ms.openlocfilehash: ba8070945d977a9a2c3e492ca3f9881652962820
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b40b05ef7a6cbf794f26a7bbcd9f5196cab30323
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80108510"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638215"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>适用于 Azure Functions 的 Application Insights 支持功能
 
+Azure Functions 提供与 Application Insights 的[内置集成](../../azure-functions/functions-monitoring.md)功能（通过 ILogger Interface 可用）。 以下是当前受支持的功能列表。 有关[入门](../../azure-functions/configure-monitoring.md#enable-application-insights-integration)信息，请参阅 Azure Functions 指南。
+
+有关 Functions 运行时版本的详细信息，请参阅[此处](../../azure-functions/functions-versions.md)。
+
+有关 Application Insights 的兼容版本的详细信息，请参阅[依赖项](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)。
 
 ## <a name="supported-features"></a>支持的功能
 
@@ -38,12 +43,12 @@ ms.locfileid: "80108510"
 | &bull; 采样                     | 是             | 是               | 
 | &bull; 检测信号                   |                 | 是               | 
 | | | | 
-| **关联性**                       |                   |                   |               
+| **相关性**                       |                   |                   |               
 | &bull; ServiceBus                     |                   | 是               | 
 | &bull; EventHub                       |                   | 是               | 
 | | | | 
-| **可配置性**                      |                   |                   |           
-| &bull; 完全可配置。<br/>请参阅 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) 了解相应说明。<br/>请参阅 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 了解所有选项。               |                   | 是                   | 
+| **可配置**                      |                   |                   |           
+| &bull; 完全可配置。<br/>请参阅 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) 了解相应说明。<br/>请参阅 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 了解所有选项。               |                   | 是                   | 
 
 
 ## <a name="performance-counters"></a>性能计数器
@@ -53,11 +58,11 @@ ms.locfileid: "80108510"
 
 ## <a name="live-metrics--secure-control-channel"></a>实时指标和安全控制通道
 
-指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥确保通道安全。 有关说明，请参阅[确保控制通道安全](/azure-monitor/app/live-stream#secure-the-control-channel)。
+指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥确保通道安全。 有关说明，请参阅[确保控制通道安全](./live-stream.md#secure-the-control-channel)。
 
 ## <a name="sampling"></a>采样
 
-Azure Functions 默认在其配置中启用采样功能。 有关详细信息，请参阅[配置采样](/azure-functions/functions-monitoring#configure-sampling)。
+Azure Functions 默认在其配置中启用采样功能。 有关详细信息，请参阅[配置采样](../../azure-functions/configure-monitoring.md#configure-sampling)。
 
 如果你的项目依赖 Application Insights SDK 进行手动遥测跟踪，则当采样配置与 Functions 的采样配置不同时，可能会遇到奇怪的行为。 
 
@@ -85,7 +90,4 @@ public class Function1
     }
 }
 ```
-
-
-
 

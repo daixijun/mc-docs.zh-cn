@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.reviewer: mimckitt
-ms.openlocfilehash: 5a1331e9b9a23376fa46623898b08acb2718b5b3
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2770798783aece8cf6f47c92e705504cb3818f01
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057660"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637826"
 ---
 <!--MOONCAKE: "Preempt" equal to low priority which not support on China-->
 
@@ -75,9 +75,9 @@ ms.locfileid: "90057660"
 | - | - | - | - | 
 | 2019-08-01 | 正式版 | 全部 | <li> 添加了对 EventSource 的支持 |
 | 2019-04-01 | 正式版 | 全部 | <li> 添加了对事件说明的支持 |
-| 2019-01-01 | 正式版 | All | <li> 添加了对虚拟机规模集 EventType“Terminate”的支持 |
-| 2017-08-01 | 正式版 | All | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br><li>针对所有请求强制执行元数据标头要求 | 
-| 2017-03-01 | 预览 | All | <li>初始版本 |
+| 2019-01-01 | 正式版 | 全部 | <li> 添加了对虚拟机规模集 EventType“Terminate”的支持 |
+| 2017-08-01 | 正式版 | 全部 | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br><li>针对所有请求强制执行元数据标头要求 | 
+| 2017-03-01 | 预览 | 全部 | <li>初始版本 |
 
 <!--Not Available on | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br /> |-->
 
@@ -130,7 +130,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 <!--Not Available "Preempt" -->
 
 ### <a name="event-properties"></a>事件属性
-|properties  |  说明 |
+|属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br /><br /> 示例： <br /><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | 此事件造成的影响。 <br/><br/> 值： <br /><ul><li> `Freeze`：虚拟机计划暂停数秒。 CPU 和网络连接可能会暂停，但对内存或打开的文件没有影响。<li>`Reboot`：计划重启虚拟机（非永久性内存丢失）。 <li>`Redeploy`：计划将虚拟机移到另一节点（临时磁盘将丢失）。 <li> `Terminate`：计划将删除虚拟机。 |
@@ -155,6 +155,10 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 > [!NOTE] 
 > 在某些情况下，由于硬件降级，Azure 能够预测主机故障，并会尝试通过对迁移进行计划来缓解服务中断。 受影响的虚拟机会收到计划事件，该事件的 `NotBefore` 通常是将来几天的时间。 实际时间因预测的故障风险评估而异。 Azure 会尽可能提前 7 天发出通知，但实际时间可能会有变化，如果预测硬件即将发生故障的可能性很大，则实际时间可能更早。 为了在系统启动迁移之前硬件出现故障时将服务风险降至最低，我们建议你尽快自行重新部署虚拟机。
+
+### <a name="polling-frequency"></a>轮询频率
+
+可根据需要频繁或偶尔轮询终结点以进行更新。 但是，两次请求之间的时间越长，你拥有的对即将发生的事件做出响应的时间就越少。 大多数事件都会提前 5 到 15 分钟通知，尽管在某些情况下，可能只会提前 30 秒通知。 为确保有尽可能多的时间采取缓解措施，我们建议你每秒轮询一次服务。
 
 ### <a name="start-an-event"></a>启动事件 
 

@@ -4,15 +4,15 @@ description: 使用 Azure Application Insights .NET SDK 跟踪自定义操作
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/26/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.reviewer: sergkanz
 ms.author: v-johya
-ms.openlocfilehash: 0f0b0774d40e8b9111a815ca19611b9e800c2e7f
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 11cf3cbbf2e0576063d1cf547f0582444cc7d54c
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199673"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638091"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -209,7 +209,7 @@ public async Task Process(BrokeredMessage message)
 以下示例显示如何跟踪 [Azure 存储队列](../../storage/queues/storage-dotnet-how-to-use-queues.md)操作，并将生成者、使用者和 Azure 存储之间的遥测相关联。 
 
 存储队列具有一个 HTTP API。 用于 HTTP 请求的 Application Insights Dependency Collector 会跟踪对该队列的所有调用。
-它在 ASP.NET 和 ASP.NET Core 应用程序上默认配置。使用其他类型的应用程序时，可参阅[控制台应用程序文档](../../azure-monitor/app/console.md)
+它在 ASP.NET 和 ASP.NET Core 应用程序上默认配置。使用其他类型的应用程序时，可参阅[控制台应用程序文档](./console.md)
 
 用户可能还想将 Application Insights 操作 ID 与存储请求 ID 相关联。 有关如何设置与获取存储请求客户端和服务器请求 ID 的信息，请参阅[对 Azure 存储进行监视、诊断和故障排除](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)。
 
@@ -266,7 +266,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 若要减少应用程序报告的遥测数或者由于其他原因不想跟踪 `Enqueue` 操作，可直接使用 `Activity` API：
 
-- 创建（并启动）新的 `Activity`，而不是启动 Application Insights 操作。 *无*需在其上分配除操作名称以外的任何属性。
+- 创建（并启动）新的 `Activity`，而不是启动 Application Insights 操作。 *无* 需在其上分配除操作名称以外的任何属性。
 - 将 `yourActivity.Id` 串行化到消息有效负载，而不是 `operation.Telemetry.Id`。 还可以使用 `Activity.Current.Id`。
 
 
@@ -349,7 +349,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>依赖项类型
 
-Application Insights 使用依赖项类型来自定义 UI 体验。 对于队列，它识别出以下可改善[事务诊断体验](/azure-monitor/app/transaction-diagnostics)的 `DependencyTelemetry` 类型：
+Application Insights 使用依赖项类型来自定义 UI 体验。 对于队列，它识别出以下可改善[事务诊断体验](./transaction-diagnostics.md)的 `DependencyTelemetry` 类型：
 - `Azure queue` 适用于 Azure 存储队列
 - `Azure Event Hubs` 适用于 Azure 事件中心
 - `Azure Service Bus` 适用于 Azure 服务总线
@@ -428,7 +428,7 @@ public async Task RunMyTaskAsync()
 
 释放操作会导致操作停止，因此你可以执行此操作而不用调用 `StopOperation`。
 
-*警告*：在某些情况下，未处理的异常可能会[阻止](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally)调用 `finally`，因此无法跟踪操作。
+*警告*：在某些情况下，未处理的异常可能会 [阻止](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally)调用 `finally`，因此无法跟踪操作。
 <!-- Correct on link: https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally -->
 
 ### <a name="parallel-operations-processing-and-tracking"></a>并行处理和跟踪操作
@@ -451,7 +451,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-请确保始终在同一**异步**方法中调用 `StartOperation` 和处理操作，以隔离并行运行的操作。 如果操作是同步的（或非异步的），请包装过程并使用 `Task.Run` 跟踪：
+请确保始终在同一 **异步** 方法中调用 `StartOperation` 和处理操作，以隔离并行运行的操作。 如果操作是同步的（或非异步的），请包装过程并使用 `Task.Run` 跟踪：
 
 ```csharp
 public void RunMyTask(string name)
@@ -482,9 +482,10 @@ public async Task RunAllTasks()
 ## <a name="next-steps"></a>后续步骤
 
 - 了解 Application Insights 中的[遥测关联](correlation.md)基础知识。
-- 查看相关数据如何支持[应用程序映射](../../azure-monitor/app/app-map.md)。
-- 有关 Application Insights 的类型和数据模型，请参阅[数据模型](../../azure-monitor/app/data-model.md)。
-- 向 Application Insights 报告自定义[事件和指标](../../azure-monitor/app/api-custom-events-metrics.md)。
+- 查看关联数据如何为[事务诊断体验](./transaction-diagnostics.md)和[应用程序映射](./app-map.md)提供支持。
+- 有关 Application Insights 的类型和数据模型，请参阅[数据模型](./data-model.md)。
+- 向 Application Insights 报告自定义[事件和指标](./api-custom-events-metrics.md)。
 - 查看上下文属性集合的标准[配置](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)。
 - 查看 [System.Diagnostics.Activity 用户指南](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)，了解如何关联遥测。
+
 

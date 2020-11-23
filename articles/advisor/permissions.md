@@ -2,15 +2,15 @@
 title: Azure 顾问中的权限
 description: 介绍顾问权限以及如何通过这些权限来阻止用户配置订阅或者推迟或取消建议。
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 11/13/2020
 origin.date: 04/03/2019
 ms.author: v-johya
-ms.openlocfilehash: ac55849bb1ef28eb7da94bfceb911dd6b2303232
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 920ebca9d5da0faf0d2553ee3b6dbf4876a10c7c
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402662"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638128"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure 顾问中的权限
 
@@ -49,7 +49,7 @@ Azure 顾问根据 Azure 资源和订阅的使用情况和配置来提供建议�
 
 ## <a name="next-steps"></a>后续步骤
 
-本文概述了顾问如何使用 RBAC 来控制用户权限以及如何解决常见问题。 若要详细了解顾问，请参阅以下资源：
+本文概述了顾问如何使用 Azure RBAC 来控制用户权限以及如何解决常见问题。 若要详细了解顾问，请参阅以下资源：
 
 - [什么是 Azure 顾问？](./advisor-overview.md)
 - [Azure 顾问入门](./advisor-get-started.md)

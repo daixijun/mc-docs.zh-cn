@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/20/2017
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.openlocfilehash: 4bda5712d0ca8d53d9f891f33deb952e2be9527b
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: d6f190626f53f9436f54ca0cc17f7aaf9de64acd
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057628"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638193"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。
@@ -26,7 +26,7 @@ PF（数据包筛选器，也写为 pf）是 BSD 许可的有状态数据包筛�
 如果有兴趣在云中为 Web 服务器设置安全防火墙，那么让我们开始吧。 还可以将此 Azure Resource Manager 模板中使用的脚本应用于网络拓扑的设置。
 Azure Resource Manager 模板设置一个使用 PF 执行 NAT/重定向的 FreeBSD 虚拟机和两个安装并配置了 Nginx Web 服务器的 FreeBSD 虚拟机。 除了为两个 Web 服务器出口流量执行 NAT，NAT/重定向虚拟机还在轮询机制下截获 HTTP 请求并将其重定向到这两个 Web 服务器。 VNet 使用专用的不可路由 IP 地址空间 10.0.0.2/24，可以修改模板的参数。 Azure Resource Manager 模板还为整个 VNet 定义路由表，该路由表是用于替代基于目标 IP 地址的 Azure 默认路由的各个路由的集合。 
 
-![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
+![该图显示了 NAT 实例上的公共 IP 地址，该 IP 地址通过轮询机制方法重定向到托管 Nginx Web 服务器的两个后端虚拟机。](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>通过 Azure CLI 进行部署
 需要安装最新版 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并已使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录 Azure 帐户。 使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在 `China North` 位置创建名为 `myResourceGroup` 的资源组。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/15/2019
 ms.date: 08/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: f59e8562ed70e07d5ad6279fa2324347463317b2
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 205a859fd3553afb757b2625765e861007caa847
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917300"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552904"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 动机和权益
 
@@ -35,16 +35,16 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 
 ## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Azure HDInsight 优于本地 Hadoop
 
-- **低成本** - 通过按需创建群集且仅为使用的资源付费，可降低成本。 分离式计算和存储通过保持数据量独立于群集大小来提供灵活性。
+- **低成本** - 通过[按需创建群集](../hdinsight-hadoop-create-linux-clusters-adf.md)且仅为使用的资源付费，可降低成本。 分离式计算和存储通过保持数据量独立于群集大小来提供灵活性。
 
 - **自动创建群集** - 自动创建群集需要最少的设置和配置。 自动化可用于按需群集。
 
 - **托管硬件和配置** - 无需担心 HDInsight 群集的物理硬件或基础结构。 只需指定群集的配置，Azure 就会对其进行设置。
 
-- **易于缩放** - 通过 HDInsight 可纵向 [扩展](../hdinsight-administer-use-portal-linux.md)或缩减工作负载。 Azure 负责重新分配数据和重新均衡工作负载，而不会中断数据处理作业。
+- **易于缩放** - 通过 HDInsight 可纵向[缩放](../hdinsight-administer-use-portal-linux.md)工作负载。 Azure 负责重新分配数据和重新均衡工作负载，而不会中断数据处理作业。
 
 
-- **安全性和符合性** - HDInsight 允许通过  [Azure 虚拟网络](../hdinsight-plan-virtual-network-deployment.md)、 [加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)来保护企业数据资产。 
+- **安全性和合规性** - HDInsight 允许通过 [Azure 虚拟网络](../hdinsight-plan-virtual-network-deployment.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)以及与 [Azure Active Directory](../domain-joined/hdinsight-security-overview.md) 集成来保护企业数据资产。 HDInsight 还满足最常用的行业和政府[符合性标准](https://azure.microsoft.com/overview/trusted-cloud)。
 
 - **简化版本管理** - Azure HDInsight 管理 Hadoop 生态系统组件的版本并使其保持最新。 软件更新在内部部署过程中通常比较复杂。
 
@@ -52,7 +52,7 @@ Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight
 
 - **生产力** - 可在首选开发环境中使用 Hadoop 和 Spark 的各种工具。
 
-- **自定义工具或第三方应用程序的可扩展性** - HDInsight 群集可使用已安装的组件进行扩展，也可以通过 Azure 市场中的[一键式](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 部署与其他大数据解决方案进行集成。
+- **自定义工具或第三方应用程序的可扩展性** - HDInsight 群集可使用已安装的组件进行扩展，也可以通过 Azure 市场中的[一键式](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)部署与其他大数据解决方案进行集成。
 
 
 - **与其他 Azure 服务集成** - HDInsight 可轻松地与其他常用 Azure 服务进行集成，例如：

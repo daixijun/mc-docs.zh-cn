@@ -6,17 +6,17 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/27/2020
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b6e323e81c1c87530f7652b038bd692a30135a2f
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 6c6532f8f408a8cf93e2f7019d5c67d8af4b6f0f
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87260236"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590612"
 ---
 <!--CONFIRM THE DEOPLOMENT REGIONS BEFORE RELEASEMENT-->
 <!--Verified successfully-->

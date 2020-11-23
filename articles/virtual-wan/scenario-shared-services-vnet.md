@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d967deb42568979cf3b994eb3abe3390fc760694
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 89d70c815914813b6d826191ba20495d6d21709d
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105670"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590794"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-route-to-shared-services-vnets"></a>方案：路由到共享服务 VNet
@@ -30,15 +30,17 @@ ms.locfileid: "93105670"
 
 ## <a name="design"></a><a name="design"></a>设计
 
-我们可以使用连接性矩阵来汇总此方案的各项要求。 在该矩阵中，各单元格描述了虚拟 WAN 连接（流的“源”端，表中的行标题）是否了解特定流量流的目标前缀（流的“目标”端，表中斜体形式的列标题）。 “X”的意思是连接性由虚拟 WAN 提供：
+我们可以使用连接性矩阵来汇总此方案的各项要求：
 
 **连接性矩阵**
 
 | 源             | 到:   |*隔离的 VNet*|*共享 VNet*|*分支*|
 |---|---|---|---|---|
-|**隔离的 VNet**|&#8594;|                |        X        |       X      |
-|**共享 VNet** |&#8594;|       X        |        X        |       X      |
-|**分支** |&#8594;|       X        |        X        |       X      |
+|**隔离的 VNet**|&#8594;|        | 直接 | 直接 |
+|**共享 VNet** |&#8594;| 直接 | 直接 | 直接 |
+|**分支** |&#8594;| 直接 | 直接 | 直接 |
+
+上表中的各单元格描述了虚拟 WAN 连接（流的“源”端，行标题）是否与目标（流的“目标”端，斜体形式的列标题）通信。 在此方案中，没有防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN 进行（因此在表中使用“直接”一词）。
 
 与[隔离 VNet 方案](scenario-isolate-vnets.md)类似，此连接性矩阵提供了两种不同的行模式，它们会转换为两个路由表（共享服务 VNet 和分支具有相同的连接要求）。 虚拟 WAN 已经具有默认路由表，因此我们还需要一个自定义路由表，在本例中，我们将其称为 RT_SHARED。
 
@@ -48,12 +50,12 @@ VNet 将与 RT_SHARED 路由表关联。 由于它们需要连接到分支和共
 
 * 隔离的虚拟网络：
     * 关联的路由表：RT_SHARED
-    * 传播到路由表： **默认**
+    * 传播到路由表：**默认**
 * 共享服务虚拟网络：
-    * 关联的路由表： **默认**
+    * 关联的路由表：**默认**
     * 传播到路由表：RT_SHARED 和 Default
 * 分支：
-    * 关联的路由表： **默认**
+    * 关联的路由表：**默认**
     * 传播到路由表：RT_SHARED 和 Default
 
 > [!NOTE]
@@ -69,7 +71,7 @@ VNet 将与 RT_SHARED 路由表关联。 由于它们需要连接到分支和共
 2. 创建一个自定义路由表。 在本例中，我们将路由表称为 RT_SHARED。 有关创建路由表的步骤，请参阅[如何配置虚拟中心路由](how-to-virtual-hub-routing.md)。 使用以下值作为准则：
 
     * **关联**
-        * 对于除共享服务 VNet ***外的 VNet*** ，请选择要隔离的 VNet。 这意味着，所有这些 VNet（共享服务 VNet 除外）都能够基于 RT_SHARED 路由表的路由来访问目标。
+        * 对于除共享服务 VNet ***外的 VNet***，请选择要隔离的 VNet。 这意味着，所有这些 VNet（共享服务 VNet 除外）都能够基于 RT_SHARED 路由表的路由来访问目标。
 
     * **传播**
         * 对于分支，除了可能已经选择的任何其他路由表之外，还需要将路由传播到此路由表。 此步骤可让 RT_SHARED 路由表了解所有分支连接（VPN/ER/用户 VPN）中的路由。

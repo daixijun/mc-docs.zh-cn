@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
-ms.openlocfilehash: 035ad7e5f7060e2efa325b03bd543598e4f81301
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: a6f5413010b319b68953e46919dca27cf761426d
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128819"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638108"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全技术功能
 本文介绍了 Azure 中的安全服务，这些服务可帮助保护云中的数据、资源和应用程序，并满足业务的安全需求。
@@ -356,7 +356,8 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 云应用程序很复杂，包含很多移动部件。 监视可以为用户提供数据，确保应用程序始终处于健康运行状态。 监视还有助于避免潜在问题，或者解决过去的问题。
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) 此外，还可以利用监视数据深入了解应用程序的情况。 了解这些情况有助于改进应用程序的性能或可维护性，或者实现本来需要手动干预的操作的自动化。
+![图中显示你可以利用监视数据深入了解应用程序的情况。](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+此外，还可以利用监视数据深入了解应用程序的情况。 了解这些情况有助于改进应用程序的性能或可维护性，或者实现本来需要手动干预的操作的自动化。
 
 审核网络安全性对于检测网络漏洞以及确保符合 IT 安全和监管治理模型至关重要。 使用安全组视图，可以检索配置的网络安全组和安全规则，以及有效的安全规则。 应用规则列表后，可以确定打开的端口并评估网络漏洞。
 
@@ -382,17 +383,17 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 - **页面查看次数和负载性能** - 由用户的浏览器报告。
 
-- **来自网页的 AJAX 调用** ：速率、响应时间和失败率。
+- **来自网页的 AJAX 调用**：速率、响应时间和失败率。
 
 - **用户和会话计数。**
 
-- Windows 或 Linux 服务器计算机中的 **性能计数器** ，例如 CPU、内存和网络使用情况。
+- Windows 或 Linux 服务器计算机中的 **性能计数器**，例如 CPU、内存和网络使用情况。
 
-- Docker 或 Azure 中的 **主机诊断** 。
+- Docker 或 Azure 中的 **主机诊断**。
 
-- 应用中的 **诊断跟踪日志** - 可以将跟踪事件与请求相关联。
+- 应用中的 **诊断跟踪日志**- 可以将跟踪事件与请求相关联。
 
-- 在客户端或服务器代码中自行编写的 **自定义事件和指标** ，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
+- 在客户端或服务器代码中自行编写的 **自定义事件和指标**，用于跟踪业务事件（例如销售的商品或赢得的游戏）。
 
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 可以使用 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 将解决方案中的资源作为一个组进行处理。
 

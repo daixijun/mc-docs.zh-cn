@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 origin.date: 09/30/2019
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: e9bffb6bd32382a2ca32bfd9739eeee9f437340a
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 10f2a69e82befe0c03695ee88bd6dbf928872687
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317488"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590933"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定设备发送通知
 
@@ -198,7 +198,7 @@ ms.locfileid: "89317488"
 1. 若要使用 `notifications` 类基于类别订阅，请打开 *App.xaml.cs* 文件，然后更新 `InitNotificationsAsync` 方法。
 
     ```csharp
-    // *** Remove or comment out these lines ***
+    // *** Remove or comment out these lines **_
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);
@@ -207,7 +207,7 @@ ms.locfileid: "89317488"
     ```
 
     此过程可确保应用启动时会从本地存储区检索类别 并请求注册这些类别。 我们已在[使用 Azure 通知中心向通用 Windows 平台应用发送通知][get-started]教程中创建 `InitNotificationsAsync` 方法。
-2. 在 *MainPage.xaml.cs* 项目文件的 `OnNavigatedTo` 方法中添加以下代码：
+2. 在 MainPage.xaml.cs 项目文件的 `OnNavigatedTo` 方法中，添加以下代码：
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)

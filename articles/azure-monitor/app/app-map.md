@@ -3,16 +3,17 @@ title: Azure Application Insights 中的应用程序映射 | Azure 文档
 description: 使用应用程序映射监视复杂的应用程序拓扑
 ms.topic: conceptual
 author: Johnnytechn
-origin.date: 03/15/2019
-ms.date: 05/28/2020
-ms.reviewer: sdash
+ms.date: 11/10/2020
+ms.custom: devx-track-csharp
 ms.author: v-johya
-ms.openlocfilehash: 45db9dd51ecb9aca751f7afbfdba40d82d9f1cbd
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+origin.date: 03/15/2019
+ms.reviewer: sdash
+ms.openlocfilehash: 30d0ad8ee3b596553814f277ed2652763252545a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199646"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637945"
 ---
 # <a name="application-map-triage-distributed-applications"></a>应用程序映射：会审分布式应用程序
 
@@ -36,7 +37,7 @@ ms.locfileid: "84199646"
 
 如果所有组件都是单个的 Application Insights 资源中的角色，则不需要此发现步骤。 这样的应用程序的初始负载将具有所有组件。
 
-![应用程序映射屏幕截图](./media/app-map/app-map-001.png)
+![屏幕截图显示了应用程序映射的示例。](./media/app-map/app-map-001.png)
 
 使用此体验的主要目标之一是能够实现可视化效果具有数百个组件的复杂拓扑。
 
@@ -84,9 +85,12 @@ ms.locfileid: "84199646"
 
 ![分析体验的屏幕截图](./media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>设置云角色名称
+## <a name="set-or-override-cloud-role-name"></a>设置或替代云角色名称
 
-应用程序映射使用**云角色名称**属性来标识映射上的组件。 Application Insights SDK 会自动将云角色名称属性添加到组件发出的遥测数据。 例如，SDK 会将网站名称或服务角色名称添加到云角色名称属性。 但是，在某些情况下，你可能希望替代默认值。 若要替代云角色名称并更改要在应用程序映射上显示的内容，请如下所示进行操作：
+应用程序映射使用 **云角色名称** 属性来标识映射上的组件。 若要手动设置或替代云角色名称并更改要在应用程序映射上显示的内容，请执行以下操作：
+
+> [!NOTE]
+> Application Insights SDK 或代理会自动将云角色名称属性添加到 Azure 应用服务环境中组件发出的遥测数据。
 
 # <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
@@ -160,7 +164,7 @@ ASP.NET Web 应用程序的另一种方法是在代码中（例如在 Global.asp
 
 **Java 代理**
 
-对于 [Java 代理 3.0](/azure-monitor/app/java-in-process-agent)，云角色名称设置如下：
+对于 [Java 代理 3.0](./java-in-process-agent.md)，云角色名称设置如下：
 
 ```json
 {
@@ -228,7 +232,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>了解应用程序映射上下文中的云角色名称
 
-以下包含多个云角色名称的应用程序映射可帮助你加深对**云角色名称**的理解：
+以下包含多个云角色名称的应用程序映射可帮助你加深对 **云角色名称** 的理解：
 
 ![应用程序映射屏幕截图](./media/app-map/cloud-rolename.png)
 
@@ -248,7 +252,7 @@ appInsights.addTelemetryInitializer((envelope) => {
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-或者，**云角色实例**可帮助实现以下方案：尽管**云角色名称**会告知问题出现在 Web 前端中的某个位置，但你可能在多个负载均衡的服务器中运行 Web 前端，因此，能够通过 Kusto 查询下钻到更深的层并了解问题是影响所有 Web 前端服务器/实例还是只影响其中的一个服务器/实例可能极其重要。
+或者，**云角色实例** 可帮助实现以下方案：尽管 **云角色名称** 会告知问题出现在 Web 前端中的某个位置，但你可能在多个负载均衡的服务器中运行 Web 前端，因此，能够通过 Kusto 查询下钻到更深的层并了解问题是影响所有 Web 前端服务器/实例还是只影响其中的一个服务器/实例可能极其重要。
 
 另一个方案是，应用在容器化环境中运行，仅仅了解单个服务器可能无法获得足够的信息来找出给定的问题，因此需要替代云角色实例的值。
 
@@ -258,20 +262,19 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 如果无法让应用程序映射按预期方式工作，请尝试以下步骤：
 
-<!--Correct in MC: /azure-monitor/app/platforms -->
 ### <a name="general"></a>常规
 
 1. 请确保你使用的是官方支持的 SDK。 不受支持的/社区 SDK 可能不支持关联。
 
-    有关受支持的 SDK 的列表，请参考此[文章](/azure-monitor/app/platforms)。
+    有关受支持的 SDK 的列表，请参考此[文章](./platforms.md)。
 
 2. 将所有组件都升级到最新 SDK 版本。
 
-3. 如果将 Azure Functions 与 C# 一起使用，请升级到 [Functions V2](/azure-functions/functions-versions)。
+3. 如果将 Azure Functions 与 C# 一起使用，请升级到 [Functions V2](../../azure-functions/functions-versions.md)。
 
-4. 确认[云角色名称](#set-cloud-role-name)已正确配置。
+4. 确认[云角色名称](#set-or-override-cloud-role-name)已正确配置。
 
-5. 如果缺少某个依赖项，请确保它在[自动收集的依赖项](/azure-monitor/app/auto-collect-dependencies)列表中。 如果不在其中，也可以使用某个[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
+5. 如果缺少某个依赖项，请确保它在[自动收集的依赖项](./auto-collect-dependencies.md)列表中。 如果不在其中，也可以使用某个[跟踪依赖项调用](./api-custom-events-metrics.md#trackdependency)手动跟踪它。
 
 ### <a name="too-many-nodes-on-the-map"></a>映射中存在过多的节点
 
@@ -285,7 +288,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 * 依赖项类型应代表依赖项的逻辑类型。 例如，HTTP、 SQL 或 Azure Blob 就是典型的依赖项类型。 它不应包含唯一 ID。
 
-* [上面的部分](/azure-monitor/app/app-map#set-cloud-role-name)介绍了云角色名称的用途。
+* [上面的部分](#set-or-override-cloud-role-name)介绍了云角色名称的用途。
 
 ## <a name="portal-feedback"></a>门户反馈
 

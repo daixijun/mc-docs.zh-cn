@@ -1,6 +1,6 @@
 ---
 title: Azure 实例元数据服务
-description: 一个 RESTful 接口，用于获取有关 VM 计算、网络和即将发生的维护事件的信息。
+description: 了解 Azure 实例元数据服务及其如何提供有关当前正在运行的虚拟机实例的信息。
 services: virtual-machines
 author: Johnnytechn
 manager: paulmey
@@ -8,15 +8,15 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: f303c9d0f6a19a1e9fde05a24f910e0283410c30
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: d4cb12fb91086747d1fb6e3eda4fc683a12ee5c0
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057475"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637777"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure 实例元数据服务 (IMDS)
 
@@ -60,7 +60,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
     "compute": {
         "azEnvironment": "AzureChinaCloud",
         "isHostCompatibilityLayerVm": "true",
-        "location": "ChinaNorth",
+        "location": "chinanorth",
         "name": "examplevmname",
         "offer": "Windows",
         "osType": "linux",
@@ -162,7 +162,7 @@ API | 默认数据格式 | 其他格式
 /attested | json | 无
 /identity | json | 无
 /instance | json | text
-/scheduledevents | json | 无
+/scheduledevents | json | none
 
 若要访问非默认响应格式，请在请求中将所请求的格式指定为查询字符串参数。 例如：
 
@@ -250,8 +250,8 @@ offer | 提供 VM 映像的信息，仅适用于从 Azure 映像库部署的映�
 osType | Linux 或 Windows | 2017-04-02
 placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 计划 | 包含 VM 的名称、产品和发布者（如果是 Azure 市场映像）的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
-platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
+platformUpdateDomain |  正在运行 VM 的[更新域](../manage-availability.md) | 2017-04-02
+platformFaultDomain | 正在运行 VM 的[容错域](../manage-availability.md) | 2017-04-02
 provider | VM 的提供商 | 2018-10-01
 publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
 publisher | VM 映像的发布者 | 2017-04-02
@@ -325,7 +325,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 {
     "azEnvironment": "AzureChinaCloud",
     "customData": "",
-    "location": "ChinaEast",
+    "location": "chinaeast",
     "name": "negasonic",
     "offer": "lampstack",
     "osType": "Linux",
@@ -537,7 +537,7 @@ createOption | 有关 VM 创建方式的信息
 diffDiskSettings | 临时磁盘设置
 diskSizeGB | 磁盘大小 (GB)
 encryptionSettings | 磁盘的加密设置
-图像   | 源用户映像虚拟硬盘
+image   | 源用户映像虚拟硬盘
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
 osType  | 磁盘中包含的 OS 类型

@@ -4,16 +4,16 @@ description: 了解如何使用设备预配服务 (DPS) 实例重新预配设备
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/04/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: f60788327592917f6fa887ef272954fcfce721d4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fe180f45c93db75dc50c89039c7c05607740e2fe
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494123"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590728"
 ---
 # <a name="how-to-reprovision-devices"></a>如何重新预配设备
 
@@ -76,7 +76,7 @@ ms.locfileid: "77494123"
 
 4. 单击“保存”，开始根据所作更改进行设备的重新预配  。
 
-    ![选择注册分配策略](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![突出显示所做的更改和“保存”按钮的屏幕截图。](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

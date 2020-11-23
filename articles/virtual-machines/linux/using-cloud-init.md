@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 01/23/2019
-ms.openlocfilehash: 29221354cc1a32bb7e61e5f9907a6898016b5119
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: fc01066149315a753e1ad8d1967758ed21f1e72d
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057581"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638014"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虚拟机的 cloud-init 支持
 本文介绍在 Azure 中预配时用于配置虚拟机 (VM) 或虚拟机规模集的 [cloud-init](https://cloudinit.readthedocs.io) 的现有支持。 Azure 预配资源后，这些 cloud-init 配置即会在首次启动时运行。  
@@ -44,7 +44,6 @@ cloud-init 还支持不同的发行版。 例如，不要使用 apt-get 安装�
 |Canonical 14.04|UbuntuServer |14.04.5-LTS |最新 |是 | 是 |
 
 <!--Not Available on ### RHEL-->
-
 ### <a name="centos"></a>CentOS
 
 | 发布者/版本 | 产品/服务 | SKU | 版本 | 映像 cloud-init 准备就绪 | Azure 上的 cloud-init 包支持|
@@ -81,10 +80,10 @@ cloud-init 还支持不同的发行版。 例如，不要使用 apt-get 安装�
 ### <a name="debian"></a>Debian
 | 发布者/版本 | 产品/服务 | SKU | 版本 | 映像 cloud-init 准备就绪 | Azure 上的 cloud-init 包支持|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 是（仅限预览） | 否，以预览版提供。 |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 是（仅限预览） | 否，以预览版提供。 |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 是（注意：这是预览版映像，不得继续使用，将于 2021 年 1 月 1 日删除） | 否，以预览版提供。 |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 是（注意：这是预览版映像，不得继续使用，将于 2021 年 1 月 1 日删除） | 否，以预览版提供。 |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| 是 | 是 - 以下包版本提供支持：`20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| 是 | 是 - 以下包版本提供支持：`20.2-2~deb10u1` |
 
 
 目前 Azure Stack 将支持预配启用了 cloud-init 的映像。
@@ -92,7 +91,7 @@ cloud-init 还支持不同的发行版。 例如，不要使用 apt-get 安装�
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理 (WALA) 之间的区别是什么？
 WALA 是一种特定于 Azure 平台的代理，用于预配和配置 VM 并处理 [Azure 扩展](../extensions/features-linux.md)。 
 
-我们正在增强将 VM 配置为使用 cloud-init 而不是 Linux 代理的任务，使现有的 cloud-init 客户能够使用其当前 cloud-init 脚本，或者使新客户能够利用丰富的 cloud-init 配置功能。 如果已使用过 cloud-init 脚本来配置 Linux 系统，那么，**不需要进行额外的设置**就能让 cloud-init 处理这些任务。 
+我们正在增强将 VM 配置为使用 cloud-init 而不是 Linux 代理的任务，使现有的 cloud-init 客户能够使用其当前 cloud-init 脚本，或者使新客户能够利用丰富的 cloud-init 配置功能。 如果已使用过 cloud-init 脚本来配置 Linux 系统，那么，**不需要进行额外的设置** 就能让 cloud-init 处理这些任务。 
 
 cloud-init 无法处理 Azure 扩展，因此，仍需在映像中包含 WALA 才能处理扩展，不过，需要禁用其预配代码。要转换为由 cloud-init 预配的已认可 Linux 发行版映像将会正确安装并设置 WALA。
 
@@ -139,7 +138,7 @@ az vm create \
 
 创建 VM 后，Azure CLI 会显示部署的特定信息。 记下 `publicIpAddress`。 此地址用于访问 VM。  创建 VM、安装程序包和启动应用需要一些时间。 在 Azure CLI 向你返回提示之后，仍然存在继续运行的后台任务。 你可以使用 SSH 连接到 VM 并使用故障排除部分中所述的步骤来查看 cloud-init 日志。 
 
-还可通过传递 [ARM 模板中的参数](/azure-resource-manager/templates/deploy-cli#inline-parameters)来部署已启用 cloud-init 的 VM。
+还可通过传递 [ARM 模板中的参数](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters)来部署已启用 cloud-init 的 VM。
 
 ## <a name="troubleshooting-cloud-init"></a>对 cloud-init 进行故障排除
 VM 预配完成后，会在 `--custom-data` 中定义的所有模块和脚本上运行 cloud-init，以便配置 VM。  若要对配置中存在的任何错误或遗漏进行故障排除，需要在位于 /var/log/cloud-init.log 的 cloud-init 日志中搜索模块名称（例如 `disk_setup` 或 `runcmd`）。

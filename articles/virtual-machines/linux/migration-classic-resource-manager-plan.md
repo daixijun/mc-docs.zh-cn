@@ -1,21 +1,21 @@
 ---
 title: 规划从经典部署模型到 Azure 资源管理器部署模型的迁移
-description: 规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
+description: 在本文中，了解如何规划从经典部署模型到 Linux 中的 Azure 资源管理器的 IaaS 资源迁移。
 services: virtual-machines-linux
 author: Johnnytechn
 manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 04/01/2017
-ms.openlocfilehash: e985005e44f382b7be0f5de81d2b729710db4264
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 8858299dfe30b38bac9f20abce29984fdf5d35da
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057571"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638024"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>规划从经典部署模型到 Linux 中的 Azure 资源管理器的 IaaS 资源迁移
 
@@ -73,7 +73,7 @@ ms.locfileid: "90057571"
 
 **复移制环境并执行测试迁**
   > [!NOTE]
-  > 使用社区贡献的、Azure 支持部门尚未正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
+  > 使用社区贡献的、Azure 支持部门尚未正式支持的工具按原样复制现有环境。 因此，它是 **可选** 步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
   >
 
   针对确切方案（计算、网络和存储）执行实验室测试是确保顺利迁移的最佳办法。 这有助于确保：
@@ -107,7 +107,7 @@ ms.locfileid: "90057571"
 
 - **可用性集** - 对于要迁移到 Azure Resource Manager 的虚拟网络 (vNet)，经典部署（即云服务）包含的 VM 必须全部位于同一个可用性集中，或者 VM 均不得位于任何可用性集中。 云服务中具有多个可用性集与 Azure Resource Manager 不兼容，并且迁移将暂停。  此外，不能出现一些 VM 位于可用性集，而一些 VM 不位于可用性集的情况。 若要解决此问题，需要修正或重新配置云服务。  请相应地进行规划，因为这可能很耗时。
 
-- **Web/辅助角色部署** - 包含 Web 和辅助角色的云服务无法迁移到 Azure Resource Manager。 必须先从虚拟网络中删除 Web/辅助角色，才能开始迁移。  典型的解决方案只是将 Web/辅助角色实例移到单独的经典虚拟网络中，该网络也链接到了 ExpressRoute 回路，或者将代码迁移到较新的 PaaS 应用服务（此讨论已超出本文范围）中。 在前一个重新部署用例中，创建了新的经典虚拟网络，将该 Web/辅助角色移动/重新部署到该新虚拟网络，并从正在删除的虚拟网络中删除这些部署。 无需更改代码。 新的[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)功能可以用来使包含 Web/辅助角色的经典虚拟网络和同一 Azure 区域中的其他虚拟网络（如正在迁移的虚拟网络）通力合作（**虚拟网络迁移完成后，对等虚拟网络无法迁移**），从而提供没有性能损失和延迟/带宽损失的相同功能。 鉴于增加了[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)，现可轻易缓解 Web/辅助角色部署，且不会阻止到 Azure Resource Manager 的迁移。
+- **Web/辅助角色部署** - 包含 Web 和辅助角色的云服务无法迁移到 Azure Resource Manager。 必须先从虚拟网络中删除 Web/辅助角色，才能开始迁移。  典型的解决方案只是将 Web/辅助角色实例移到单独的经典虚拟网络中，该网络也链接到了 ExpressRoute 回路，或者将代码迁移到较新的 PaaS 应用服务（此讨论已超出本文范围）中。 在前一个重新部署用例中，创建了新的经典虚拟网络，将该 Web/辅助角色移动/重新部署到该新虚拟网络，并从正在删除的虚拟网络中删除这些部署。 无需更改代码。 新的 [虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)功能可以用来使包含 Web/辅助角色的经典虚拟网络和同一 Azure 区域中的其他虚拟网络（如正在迁移的虚拟网络）通力合作（**虚拟网络迁移完成后，对等虚拟网络无法迁移**），从而提供没有性能损失和延迟/带宽损失的相同功能。 鉴于增加了[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)，现可轻易缓解 Web/辅助角色部署，且不会阻止到 Azure Resource Manager 的迁移。
 
 - **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中 *（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）* ，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。
 
@@ -147,7 +147,7 @@ ms.locfileid: "90057571"
 
 - **预配超时 VM 状态** - 如果任何 VM 具有状态“预配超时”  ，则需要在迁移前解决此问题。 执行此操作的唯一方法是通过取消预配/重新预配 VM（删除、保留磁盘并重新创建 VM）来使用停机时间。
 
-- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”  错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机**启动**、**停止**、**重启**操作期间经常看到的过渡类型。 **建议做法：** 数分钟后尝试再次迁移。
+- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”  错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机 **启动**、**停止**、**重启** 操作期间经常看到的过渡类型。 **建议做法：** 数分钟后尝试再次迁移。
 
 - **Fabric 群集不存在** - 在某些情况下，由于各种原因，某些 VM 无法迁移。 已知情况之一是当 VM 创建于最近（过去一周左右），且碰巧获得尚未为 Azure Resource Manager 工作负荷配备的 Azure 群集。  将收到一条错误消息，指出“Fabric 群集不存在”  并且无法迁移 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 但是，一个直接的解决方法是对 VM 执行 `stop-deallocate`，然后继续迁移，并在迁移后在 Azure 资源管理器中开始 VM 备份。
 

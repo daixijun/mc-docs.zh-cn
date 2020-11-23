@@ -10,17 +10,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 09/02/2020
+origin.date: 08/17/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fc77f1b9998a1158c88225d540a62c73687f6f28
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 8ba1bdc254eb5110fcad50bd55a34a287ab63ff1
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316473"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590559"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推送
 
@@ -120,8 +120,8 @@ ms.locfileid: "89316473"
 
     此方法使用存储在共享首选项中的凭据调用应用后端来检索通知内容。
 
-4. 现在我们必须处理传入通知，并使用上面的方法来检索要显示的内容。 首先，我们必须使 iOS 应用能在接收推送通知时在后台运行。 在 **XCode** 中，在左侧面板上选择应用项目，并单击中央窗格的“目标”部分中的主应用目标。
-5. 然后，单击中央窗格顶部的“功能”选项卡，然后选中“远程通知”复选框 。
+4. 现在处理传入通知，并使用上面的方法来检索要显示的内容。 首先，使 iOS 应用能在接收推送通知时在后台运行。 在 **XCode** 中，在左侧面板上选择应用项目，并单击中央窗格的“目标”部分中的主应用目标。
+5. 然后，单击中央窗格顶部的“功能”选项卡，然后选中“远程通知”框 。
 
     ![XCode 的屏幕截图，其中已选择应用项目并打开“功能”选项卡。 远程通知复选框处于选中状态。][IOS1]
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/28/2019
 ms.date: 02/24/2020
 ms.author: v-yiso
-ms.openlocfilehash: 45b90c75e6d31d98bdee7a8c6678a7ce6b2d6a8a
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 1985874216975aafe40f8e1ce7da420f1bf43e99
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394702"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552897"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -161,7 +161,7 @@ hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 HDInsight 会记录已写入 STDOUT 和 STDERR 的脚本输出。 可以使用 Ambari Web UI 查看这些信息。
 
 > [!NOTE]  
-> 只有在成功创建群集之后，才能使用 Apache Ambari。 如果在群集创建期间使用脚本操作但创建失败，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)的故障排除部分，了解访问已记录信息的其他方式。
+> 只有在成功创建群集之后，才能使用 Apache Ambari。 如果在群集创建期间使用脚本操作但创建失败，请参阅[排查脚本操作问题](./troubleshoot-script-action.md)以了解访问已记录信息的其他方式。
 
 大多数实用工具和安装包已将信息写入 STDOUT 和 STDERR，不过你可能需要添加更多日志记录。 若要将文本发送到 STDOUT，请使用 `echo`。 例如：
 
@@ -241,7 +241,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |将文件从源 URI 下载到指定的文件路径。 默认情况下，它不会覆盖现有的文件。 |
 | `untar_file TARFILE DESTDIR` |将 tar 文件解压缩（使用 `-xf`）到目标目录。 |
-| `test_is_headnode` |如果在群集头节点上运行，则返回 1；否则返回 0。 |
+| `test_is_headnode` |如果脚本在群集头节点上运行，则返回 1；否则返回 0。 |
 | `test_is_datanode` |如果当前节点是数据（辅助角色）节点，则返回 1；否则返回 0。 |
 | `test_is_first_datanode` |如果当前节点是第一个数据（辅助角色）节点（名为 workernode0），则返回 1；否则返回 0。 |
 | `get_headnodes` |返回群集中头节点的完全限定域名。 名称以逗号分隔。 出错时返回空字符串。 |
@@ -270,7 +270,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 VARIABLENAME=value
 ```
 
-其中，VARIABLENAME 是变量的名称。 若要访问变量，请使用 `$VARIABLENAME`。 例如，若要将位置参数提供的值指定为名为 PASSWORD 的环境变量，请使用以下语句：
+在前面的示例中，`VARIABLENAME` 是变量的名称。 若要访问变量，请使用 `$VARIABLENAME`。 例如，若要将位置参数提供的值指定为名为 PASSWORD 的环境变量，请使用以下语句：
 
 ```bash
 PASSWORD=$1
@@ -294,7 +294,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __可公开读取的 URI__。 例如，在 OneDrive、Dropbox 或其他文件托管服务中存储的数据的 URL。
 
-* 与 HDInsight 群集关联的 __Azure Data Lake Storage 帐户__。 有关将 Azure Data Lake Storage 与 HDInsight 配合使用的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 与 HDInsight 群集关联的 __Azure Data Lake Storage 帐户__。 有关将 Azure Data Lake Storage 与 HDInsight 配合使用的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](./hdinsight-hadoop-provision-linux-clusters.md)。
 
     > [!NOTE]  
     > 用于访问 Data Lake Storage 的服务主体 HDInsight 必须具有对脚本的读取访问权限。
@@ -368,5 +368,4 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
 * 通过 [HDInsight.NET SDK 参考](https://docs.azure.cn/dotnet/api/overview/hdinsight)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
-* 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
-<!--Update_Description: wording update-->
+* 使用 [HDInsight REST API](https://docs.microsoft.com/rest/api/hdinsight/) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。

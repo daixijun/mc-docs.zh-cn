@@ -4,18 +4,18 @@ description: 了解 IoT Edge 运行时如何管理设备上的模块、安全性
 author: kgremban
 manager: philmea
 ms.author: v-tawe
-origin.date: 11/01/2019
-ms.date: 09/30/2020
+origin.date: 11/08/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 8330fa8fc5529a6f84f940f34f8d4b97da44246b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: eceee232a6c61c737be466410ca5f40d37518f51
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564372"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595209"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
@@ -33,7 +33,7 @@ IoT Edge 运行时负责 IoT Edge 设备上的以下功能：
 
 ![运行时向 IoT 中心传达见解和模块运行状况](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 运行时的职责分为两类：通信和模块管理。 这两个角色由作为 IoT Edge 运行时一部分的两个组件执行。 IoT Edge 中心负责通信，而 IoT Edge 代理则负责部署和监视模块。
+IoT Edge 运行时的职责分为两类：通信和模块管理。 这两个角色由作为 IoT Edge 运行时一部分的两个组件执行。  IoT Edge 中心负责通信，而 IoT Edge 代理则负责部署和监视模块。
 
 IoT Edge 中心和 IoT Edge 代理都是模块，就像 IoT Edge 设备上运行的其他任何模块一样。 有时将它们称为“运行时模块”。
 
@@ -50,7 +50,7 @@ IoT Edge 中心不是在本地运行的完整版本的 IoT 中心。 IoT Edge �
 
 ![IoT Edge 中心是物理设备和 IoT 中心之间的网关](./media/iot-edge-runtime/Gateway.png)
 
-IoT Edge 中心可以确定其是否连接到了 IoT 中心。 如果连接丢失，IoT Edge 中心将在本地保存消息或孪生更新。 一旦重新建立连接，将同步所有数据。 用于此临时缓存的位置由 IoT Edge 中心的模块孪生的属性决定。 只要设备具有存储容量，缓存的大小就没有限制并且会增加。 有关详细信息，请参阅[脱机功能](offline-capabilities.md)。
+IoT Edge 中心可以确定其是否连接到了 IoT 中心。 如果连接丢失，IoT Edge 中心将在本地保存消息或孪生更新。 一旦重新建立连接，将同步所有数据。 用于此临时缓存的位置由 IoT Edge 中心的模块孪生的属性决定。 只要设备具有存储容量，缓存的大小就没有限制并且会增加。  有关详细信息，请参阅[脱机功能](offline-capabilities.md)。
 
 ### <a name="module-communication"></a>模块通信
 
@@ -87,8 +87,8 @@ IoT Edge 代理是构成 Azure IoT Edge 运行时的其他模块。 它负责实
 部署清单中的每项都包含有关模块的特定信息，并由 IoT Edge 代理用于控制模块的生命周期。 下面是一些更有趣的属性：
 
 * **settings.image** - IoT Edge 代理用来启动模块的容器映像。 如果该映像受密码保护，则必须为 IoT Edge 代理配置容器注册表的凭据。 可以使用部署清单远程配置容器注册表的凭据，也可以在 IoT Edge 设备本身上通过更新 IoT Edge 程序文件夹中的 `config.yaml` 文件进行配置。
-* **settings.createOptions** - 在启动模块的容器时直接传递到 Moby 容器守护程序的一个字符串。 允许在此属性中为高级配置添加以下选项，如端口转发或附加数据量到模块的容器中。  
-* **status** - IoT Edge 代理放置的模块的状态。 通常，此值设置为“正在运行”，因为大多数人都希望 IoT Edge 代理立即启动设备上的所有模块。 但是，可以将模块的初始状态指定为“已停止”，等待一定时间后再告知 IoT Edge 代理启动模块。 IoT Edge 代理会向报告的属性中的云报告每个模块的状态。 所需属性和报告的属性之间存在差异指示了设备运行状况不正常。 支持的状态为：
+* **settings.createOptions** - 在启动模块的容器时直接传递到 Moby 容器守护程序的一个字符串。 允许在此属性中为高级配置添加以下选项，如端口转发或附加数据量到模块的容器中。  
+* **status** - IoT Edge 代理放置的模块的状态。 通常，此值设置为“正在运行”，因为大多数人都希望 IoT Edge 代理立即启动设备上的所有模块。 但是，可以将模块的初始状态指定为“已停止”，等待一定时间后再告知 IoT Edge 代理启动模块。  IoT Edge 代理会向报告的属性中的云报告每个模块的状态。 所需属性和报告的属性之间存在差异指示了设备运行状况不正常。 支持的状态为：
 
   * 正在下载
   * 正在运行
@@ -125,6 +125,22 @@ IoT Edge 代理在 IoT Edge 设备的安全性中起着关键作用。 例如，
 
 有关 Azure IoT Edge 安全框架的详细信息，请阅读有关 [IoT Edge 安全管理器](iot-edge-security-manager.md)的内容。
 
+## <a name="runtime-quality-telemetry"></a>运行时质量遥测
+
+IoT Edge 从主机运行时和系统模块收集匿名遥测以提高产品质量。 此信息称为运行时质量遥测。 收集的遥测数据作为设备到云的消息从 IoT Edge 代理定期发送到 IoT 中心。 这些消息不会显示在客户的常规遥测中，也不会消耗任何消息配额。
+
+IoT Edge 代理和中心生成指标，你可以收集这些指标来了解设备性能。 IoT Edge 代理收集这些指标的子集，作为运行时质量遥测的一部分。 为运行时质量遥测收集的指标标有 `ms_telemetry` 标志。 有关所有可用指标的信息，请参阅 [Access 内置指标](how-to-access-built-in-metrics.md)。
+
+任何个人身份信息或组织识别信息（如设备和模块名称）都将在上传之前删除，以确保运行时质量遥测的匿名特性。
+
+IoT Edge 代理每小时收集一次遥测数据，每 24 小时向 IoT 中心发送一条消息。
+
+如果要选择不从设备发送运行时遥测数据，可通过以下两种方式实现此目的：
+
+* 将 `SendRuntimeQualityTelemetry` 环境变量的 edgeAgent 设置为 `false`，或者
+* 在部署过程中取消选中 Azure 门户中的选项。
+
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure IoT Edge 模块](iot-edge-modules.md)
+* [了解 Azure IoT Edge 模块](iot-edge-modules.md)
+* [了解 IoT Edge 运行时指标](how-to-access-built-in-metrics.md)

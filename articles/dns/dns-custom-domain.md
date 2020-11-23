@@ -4,16 +4,16 @@ description: 本文介绍如何使用 Azure DNS 为 Azure 资源提供 DNS。
 services: dns
 author: WenJason
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 origin.date: 07/13/2019
-ms.date: 02/17/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 2fa305cc38845c4f56044180150162da414f26b4
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: ede596685f2b7adcfd120e1e8380ae0d87a3006c
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211447"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590771"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 
@@ -104,7 +104,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 导航回到为自定义域名配置的应用服务。 依次单击“自定义域”、“主机名”。   若要添加所创建的 CNAME 记录，请单击“+ 添加主机名”。 
 
-![图 1](./media/dns-custom-domain/figure1.png)
+![屏幕截图中突出显示了“+ 添加主机名”按钮。](./media/dns-custom-domain/figure1.png)
 
 完成此过程后，请运行 **nslookup** 来验证名称解析是否正常工作。
 
@@ -135,7 +135,7 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 单击“存储” > “存储帐户”导航回到存储帐户，选择该存储帐户，单击“自定义域”。 在文本框中键入创建的别名（不带 asverify 前缀），选中“使用间接 CNAME 验证”，单击“保存”   。 完成此步骤后，返回 DNS 区域，并创建不带 asverify 前缀的 CNAME 记录。  此后，可以安全删除带有 cdnverify 前缀的 CNAME 记录。
 
-![Blob 存储自定义域](./media/dns-custom-domain/indirectvalidate.png)
+![屏幕截图显示了“自定义域”页面。](./media/dns-custom-domain/indirectvalidate.png)
 
 运行 `nslookup` 验证 DNS 解析
 

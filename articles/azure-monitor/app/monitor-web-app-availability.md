@@ -2,22 +2,20 @@
 title: 监视任何网站的可用性和响应能力 | Azure Docs
 description: 在 Application Insights 中设置 Web 测试。 当网站不可用或响应速度缓慢时接收警报。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
-origin.date: 09/16/2019
-ms.date: 09/20/2019
+author: Johnnytechn
+ms.date: 11/10/2020
 ms.reviewer: sdash
-ms.author: v-lingwu
-ms.openlocfilehash: 25481489bc68643f8e5f05df20b733567f0b4c9b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: ceb3ccf109a6ec6039181c2f68ae52d8b253963d
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850403"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638185"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>监视任意网站的可用性
 
-部署 Web 应用/网站后，可以设置重复执行的测试来监视可用性和响应能力。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 将来自全球各地的 Web 请求定期发送到应用程序。 如果应用程序无响应或响应太慢，它可以提醒你。
+部署 Web 应用/网站后，可以设置重复执行的测试来监视可用性和响应能力。 [Azure Application Insights](./app-insights-overview.md) 将来自全球各地的 Web 请求定期发送到应用程序。 如果应用程序无响应或响应太慢，它可以提醒你。
 
 对于可以从公共 Internet 访问的任何 HTTP 或 HTTPS 终结点，均可设置可用性测试。 无需更改要测试的网站。 事实上，该网站甚至不需要是你拥有的网站。 可以测试服务所依赖的 REST API 的可用性。
 
@@ -55,10 +53,10 @@ ms.locfileid: "78850403"
 |**测试频率**| 设置从每个测试位置运行测试的频率。 如果有五个测试位置，且默认频率为五分钟，则平均每隔一分钟测试站点一次。|
 |**测试位置**| 是服务器从其将 Web 请求发送到 URL 的位置。 **建议最低测试位置数目为 5**，以确保可以将网站中的问题与网络问题区分开来。 最多可以选择 16 个位置。
 
-**如果 URL 在公共 Internet 中不可见，可以选择性地打开防火墙，只允许测试事务通过**。 若要详细了解可用性测试代理的防火墙例外，请参阅 [IP 地址指南](/azure-monitor/app/ip-addresses#availability-tests)。
+**如果 URL 在公共 Internet 中不可见，可以选择性地打开防火墙，只允许测试事务通过**。 若要详细了解可用性测试代理的防火墙例外，请参阅 [IP 地址指南](./ip-addresses.md#availability-tests)。
 
 > [!NOTE]
-> 强烈建议从多个位置进行测试，**至少为 5 个位置**。 这是为了防止可能由特定位置的暂时性问题导致的虚假警报。 此外，我们发现最佳配置是使**测试位置的数目等于警报位置阈值 + 2**。
+> 强烈建议从多个位置进行测试，**至少为 5 个位置**。 这是为了防止可能由特定位置的暂时性问题导致的虚假警报。 此外，我们发现最佳配置是使 **测试位置的数目等于警报位置阈值 + 2**。
 
 ### <a name="success-criteria"></a>成功标准
 
@@ -82,7 +80,7 @@ ms.locfileid: "78850403"
 
 几分钟之后，单击“刷新”  即可查看测试结果。
 
-![折线图视图](./media/monitor-web-app-availability/availability-refresh-002.png)
+![屏幕截图显示突出显示了“刷新”按钮的“可用性”页。](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 散点图视图显示其中有诊断测试步骤详细信息的测试结果示例。 测试引擎存储已失败的测试的诊断详细信息。 对于成功的测试，将存储执行子集的诊断详细信息。 将鼠标悬停在任何绿点/红点上，可查看测试、测试名称和位置。
 
@@ -99,6 +97,7 @@ ms.locfileid: "78850403"
 对服务执行维护时，可能需要禁用可用性测试或与这些测试关联的警报规则。
 
 ## <a name="if-you-see-failures"></a>如果看到失败
+
 单击红点。
 
 ![单击红点](./media/monitor-web-app-availability/open-instance-3.png)
@@ -110,20 +109,21 @@ ms.locfileid: "78850403"
 * 在 Git 或 Azure Boards 中记录问题或工作项以跟踪问题。 Bug 中将包含转至此事件的链接。
 * 在 Visual Studio 中打开 Web 测试结果。
 
-从[此处](../../azure-monitor/app/transaction-diagnostics.md)详细了解端到端事务诊断体验。
+从[此处](./transaction-diagnostics.md)详细了解端到端事务诊断体验。
 
-单击异常行可查看导致综合可用性测试失败的服务器端异常的详细信息。 还可以获取[调试快照](../../azure-monitor/app/snapshot-debugger.md)，进行更丰富的代码级诊断。
+单击异常行可查看导致综合可用性测试失败的服务器端异常的详细信息。 还可以获取[调试快照](./snapshot-debugger.md)，进行更丰富的代码级诊断。
 
 ![服务器端诊断](./media/monitor-web-app-availability/open-instance-4.png)
 
-除了原始结果外，还可以在[指标资源管理器](/azure-monitor/platform/metrics-getting-started)中查看两个关键的可用性指标：
+除了原始结果外，还可以在[指标资源管理器](../platform/metrics-getting-started.md)中查看两个关键的可用性指标：
 
 1. 可用性：已成功的测试占执行的所有测试的百分比。
 2. 测试持续时间：执行的所有测试的平均测试持续时间。
 
 ## <a name="automation"></a>自动化
-* [使用 PowerShell 脚本自动设置可用性测试](../../azure-monitor/app/powershell.md#add-an-availability-test)。
-* 设置在引发警报时调用的 [webhook](../../azure-monitor/platform/alerts-webhooks.md) 。
+
+* [使用 PowerShell 脚本自动设置可用性测试](./powershell.md#add-an-availability-test)。
+* 设置在引发警报时调用的 [webhook](../platform/alerts-webhooks.md) 。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -133,7 +133,5 @@ ms.locfileid: "78850403"
 
 * [可用性警报](availability-alerts.md)
 * [多步骤 Web 测试](availability-multistep.md)
-
-
 
 

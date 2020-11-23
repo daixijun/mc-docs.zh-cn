@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 02/25/2020
-ms.openlocfilehash: 73dad8179b52842383f12a2c2720be2a6557233e
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 30e5a577ac1efcbf3474e89b3a2a9dd39e9e98f1
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402583"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637891"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>常见问题解答 - 有关数据收集、代理和工作区的问题
 
@@ -30,9 +30,9 @@ ms.locfileid: "91402583"
 
 不是。 Azure Monitor 日志配置为按节点计费时，安全中心创建的工作区中的 Azure Monitor 日志不会产生费用。 安全中心的计费始终依据工作区上安装的以下安全中心安全策略和解决方案：
 
-- **免费层** - 安全中心在默认工作区中启用“SecurityCenterFree”解决方案。 免费层不会产生费用。
+- 关闭 Azure Defender - 安全中心在默认工作区中启用“SecurityCenterFree”解决方案。 如果 Azure Defender 处于关闭状态，则你无需付费。
 
-- **标准层** - 安全中心在默认工作区中启用“Security”解决方案。
+- 开启 Azure Defender - 安全中心在默认工作区中启用“Security”解决方案。
 
 有关详细信息，请参阅[安全中心 定价](https://www.azure.cn/pricing/details/security-center/)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "91402583"
 
 ## <a name="what-is-the-log-analytics-agent"></a>什么是 Log Analytics 代理？
 
-Azure 安全中心依赖 [Log Analytics 代理](/azure-monitor/platform/log-analytics-agent)来监视安全漏洞和威胁。该代理与 Azure Monitor 服务所用的代理相同， 
+Azure 安全中心依赖 [Log Analytics 代理](../azure-monitor/platform/log-analytics-agent.md)来监视安全漏洞和威胁。该代理与 Azure Monitor 服务所用的代理相同， 
 
 有时又称为 Microsoft Monitoring Agent（或“MMA”）。 
 
@@ -52,9 +52,9 @@ Azure 安全中心依赖 [Log Analytics 代理](/azure-monitor/platform/log-anal
 
 请确保计算机正在运行此代理支持的操作系统之一，如以下页面所述：
 
-* [适用于 Windows 的 Log Analytics 代理支持的操作系统](../azure-monitor/platform/agents-overview.md)
+* [适用于 Windows 的 Log Analytics 代理支持的操作系统](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [适用于 Linux 的 Log Analytics 代理支持的操作系统](../azure-monitor/platform/agents-overview.md)
+* [适用于 Linux 的 Log Analytics 代理支持的操作系统](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 详细了解 [Log Analytics 代理收集的数据](security-center-enable-data-collection.md)。
 
@@ -67,7 +67,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 - 当前未在该 VM 上安装 Log Analytics 代理扩展。
 - 该 VM 处于正在运行状态。
-- 安装了 Windows 或 Linux [Azure 虚拟机代理](/virtual-machines/extensions/agent-windows)。
+- 安装了 Windows 或 Linux [Azure 虚拟机代理](../virtual-machines/extensions/agent-windows.md)。
 - 该 VM 未用作应用程序，例如 Web 防火墙或下一代防火墙。
 
 
@@ -78,7 +78,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 代理收集哪些数据？
 
-有关代理监视的应用程序和服务的完整列表，请参阅 [Azure Monitor 监视哪些内容？](/azure-monitor/monitor-reference#azure-services)。
+有关代理监视的应用程序和服务的完整列表，请参阅 [Azure Monitor 监视哪些内容？](../azure-monitor/monitor-reference.md#azure-services)。
 
 > [!IMPORTANT]
 > 请注意，对于某些服务（例如 Azure 防火墙），如果启用了日志记录并选择记录琐碎资源（例如，将日志设置为“详细”），则可能会对 Log Analytics 工作区的存储需求产生重大影响。 
@@ -154,9 +154,9 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 可以在安全策略中为订阅禁用自动预配，但不建议这样做。 禁用自动预配会限制安全中心的建议和警报。 禁用自动预配的具体步骤：
 
-1. 如果订阅配置为标准层，则打开该订阅的安全策略，并选择“免费”层。
+1. 如果订阅已启用 Azure Defender，请打开该订阅的安全策略，然后选择“关闭 Azure Defender”。
 
-   ![定价层][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="启用或禁用 Azure Defender":::
 
 1. 接下来，通过在“安全策略 - 数据收集”页上选择“关”，禁用自动预配。
    ![数据收集][2]
@@ -190,7 +190,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 可将代理连接到任何现有的自定义工作区或安全中心创建的工作区。 如果自定义工作区未启用“Security”或“SecurityCenterFree”解决方案，则需要应用某个解决方案。 若要应用，请选择自定义工作区或订阅，并通过“安全策略 - 定价层”页面应用定价层。
 
-   ![定价层][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="启用或禁用 Azure Defender":::
 
 安全中心将会根据选定的定价层在工作区中启用正确的解决方案。
 
@@ -261,7 +261,6 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

@@ -1,18 +1,18 @@
 ---
 title: 创建和配置用于 Azure 磁盘加密的密钥保管库
-description: 本文介绍创建和配置用于 Azure 磁盘加密的密钥保管库的步骤
+description: 本文介绍创建和配置用于 Linux VM 上的 Azure 磁盘加密的密钥保管库的步骤。
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f42c7112235d029fb122391b8b27d1e0939d68f
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 4fd08c6563683883139feb9ffd973c309c6c6a33
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057634"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638107"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>创建和配置用于 Azure 磁盘加密的密钥保管库
 

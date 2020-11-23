@@ -1,7 +1,7 @@
 ---
-title: 在 Azure 中配置负载均衡器 TCP 重置和空闲超时
+title: 配置负载均衡器 TCP 重置和空闲超时
 titleSuffix: Azure Load Balancer
-description: 本文介绍如何配置 Azure 负载均衡器 TCP 空闲超时。
+description: 本文介绍如何配置 Azure 负载均衡器 TCP 空闲超时和重置。
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -11,50 +11,107 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/09/2020
-ms.date: 11/02/2020
+origin.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: fbaff92dd13b3276474ba18bc34546eaea96f9b1
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 17136bbb8658d52a7de6dfa5576f64fbae3d073d
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628258"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590937"
 ---
-# <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>配置 Azure 负载均衡器的 TCP 空闲超时
+# <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>配置 Azure 负载均衡器的 TCP 重置和空闲超时
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure 负载均衡器的空闲超时范围如下所示：
 
-本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 以创建与 Azure 的连接。
+* 出站规则需要 4 分钟到 100 分钟
+* 负载均衡器规则和入站 NAT 规则需要 4 到 30 分钟
 
-Azure 负载均衡器的空闲超时设置为 4 分钟到 120 分钟。 默认情况下，它设置为 4 分钟。 如果处于非活动状态的时间超过超时值，则不能保证在客户端和云服务之间保持 TCP 或 HTTP 会话。 详细了解 [TCP 空闲超时](load-balancer-tcp-reset.md)。
+它默认设置为 4 分钟。 如果处于非活动状态的时间超过超时值，则不能保证在客户端和服务之间保持 TCP 或 HTTP 会话。 
 
-以下部分介绍如何更改公共 IP 和负载均衡器资源的空闲超时设置。
+以下部分介绍如何更改负载均衡器资源的空闲超时和 TCP 重置设置。
 
+## <a name="set-tcp-reset-and-idle-timeout"></a>设置 TCP 重置和空闲超时
+---
+# <a name="portal"></a>[**门户**](#tab/tcp-reset-idle-portal)
 
-## <a name="configure-the-tcp-idle-timeout-for-your-public-ip"></a>配置公共 IP 的 TCP 空闲超时
+若要设置负载均衡器的空闲超时和 TCP 重置，请编辑负载均衡规则。 
+
+1. 登录 [Azure 门户](https://portal.azure.cn)。
+
+2. 在左侧菜单中，选择“资源组”。
+
+3. 选择负载均衡器的资源组。 在本示例中，资源组的名称为 myResourceGroup。
+
+4. 选择你的负载均衡器。 在本示例中，负载均衡器的名称为 myLoadBalancer。
+
+5. 在“设置”中，选择“负载均衡规则” 。
+
+     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="编辑负载均衡器规则。" border="true":::
+
+6. 选择负载均衡规则。 在本示例中，负载均衡规则的名称为 myLBrule。
+
+7. 在负载均衡规则中，将“空闲超时(分钟)”中的滑块移动到超时值。  
+
+8. 在“TCP 重置”下，选择“启用” 。
+
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="设置空闲超时和 TCP 重置。" border="true":::
+
+9. 选择“保存”。
+
+# <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
+
+若要设置空闲超时和 TCP 重置，请使用 [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer) 在以下负载均衡规则参数中设置值：
+
+* IdleTimeoutInMinutes
+* EnableTcpReset
+
+本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+
+将以下示例替换为你资源中的值：
+
+* **myResourceGroup**
+* **myLoadBalancer**
 
 ```azurepowershell
-$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
-$publicIP.IdleTimeoutInMinutes = "15"
-Set-AzPublicIpAddress -PublicIpAddress $publicIP
+$lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
+$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
+$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-`IdleTimeoutInMinutes` 是可选项。 如果未设置，默认超时为 4 分钟。 可接受的超时范围为 4 到 120 分钟。
+# <a name="azure-cli"></a>[**Azure CLI**](#tab/tcp-reset-idle-cli)
 
-## <a name="set-the-tcp-idle-timeout-on-rules"></a>在规则上设置 TCP 空闲超时
+若要设置空闲超时和 TCP 重置，请将以下参数用于 [az network lb rule update](/cli/network/lb/rule?az_network_lb_rule_update)：
 
-若要为负载均衡器设置空闲超时，请在负载均衡规则上设置“IdleTimeoutInMinutes”。 例如：
+* --idle-timeout
+* --enable-tcp-reset
 
-```azurepowershell
-$lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
-$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
+开始之前验证环境：
+
+* 登录 Azure 门户，并通过运行 `az login` 来检查订阅是否处于活动状态。
+* 通过运行 `az --version` 在终端或命令窗口中检查 Azure CLI 版本。 有关最新版本，请参阅[最新发行说明](/cli/release-notes-azure-cli?tabs=azure-cli)。
+  * 如果没有最新版本，请按照[适用于你操作系统或平台的安装指南](/cli/install-azure-cli)来更新安装。
+
+将以下示例替换为你资源中的值：
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* myLBrule
+
+
+```azurecli
+az network lb rule update \
+    --resource-group myResourceGroup \
+    --name myLBrule \
+    --lb-name myLoadBalancer \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
-
+---
 ## <a name="next-steps"></a>后续步骤
 
-[内部负载均衡器概述](load-balancer-internal-overview.md)
+有关 TCP 空闲超时和重置的详细信息，请参阅[负载均衡器 TCP 重置和空闲超时](load-balancer-tcp-reset.md)
 
-[开始配置面向 Internet 的负载均衡器](quickstart-load-balancer-standard-public-powershell.md)
-
-[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
+有关配置负载均衡器分发模式的详细信息，请参阅[配置负载均衡器分发模式](load-balancer-distribution-mode.md)。

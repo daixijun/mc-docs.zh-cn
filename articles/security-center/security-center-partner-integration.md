@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 03/20/2019
-ms.openlocfilehash: 029428beadab5bc5f4136eb4340b62eb8d45ecc4
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 8bdefb42898a66f3e307c6fda4a9eb709af33643
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402632"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637852"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 安全中心集成安全解决方案
 本文档介绍如何管理已连接到 Azure 安全中心的安全解决方案，以及如何添加新的安全解决方案。
@@ -37,7 +37,8 @@ ms.locfileid: "91402632"
 > 安全中心不会在合作伙伴虚拟设备上安装 Log Analytics 代理，因为大多数安全供应商都禁止在其设备上运行外部代理。
 
 <!--Not available in MC: deploy-vulnerability-assessment-vm.md -->
-<!--Not available in MC: security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports-->
+<!--Not available in MC: defender-for-sql-usage.md-->
+<!--Not available in MC: defender-for-container-registries-usage.md-->
 
 ## <a name="how-security-solutions-are-integrated"></a>安全中心如何集成
 从安全中心部署的 Azure 安全解决方案是自动连接的。 还可以连接其他安全数据源，包括在本地或其他云中运行的计算机。
@@ -85,7 +86,7 @@ ms.locfileid: "91402632"
 <!--active-directory/identity-protection/overview-identity-protection  is not available --> 安全中心会自动发现在 Azure 中运行但未连接到安全中心的安全解决方案，并在“发现的解决方案”部分中显示这些解决方案。 这些解决方案包括 Azure 解决方案，例如合作伙伴解决方案。
 
 > [!NOTE]
-> 在订阅级别，安全中心标准层是已发现解决方案功能所必需的。 若要详细了解定价层，请参阅[定价](security-center-pricing.md)。
+> 在订阅级别为发现的解决方案功能启用 Azure Defender。 若要详细了解定价层，请参阅[定价](security-center-pricing.md)。
 >
 
 在解决方案下选择“连接”，以便与安全中心集成，并获得安全警报通知。
@@ -102,6 +103,6 @@ ms.locfileid: "91402632"
 
 本文介绍了如何在安全中心集成合作伙伴的解决方案。 有关更多信息，请参阅以下文章：
 
-* [导出安全警报和建议](continuous-export.md)。 了解如何设置与 Azure Sentinel 或任何其他 SIEM 的集成。
+* [连续导出安全中心数据](continuous-export.md)。 了解如何设置与 Azure Sentinel 或任何其他 SIEM 的集成。
 * [在安全中心进行安全运行状况监视](security-center-monitoring.md)。 了解如何监视 Azure 资源的运行状况。
 

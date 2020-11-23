@@ -1,21 +1,21 @@
 ---
 title: 针对 Azure 中 Linux 虚拟机的安全建议
-description: 应用这些建议可帮助履行共担责任模型中所述的安全义务，并提高部署的整体安全性。
+description: 应用这些针对 Azure 中 Linux VM 的建议有助于履行共担责任模型中所述的安全义务，并提高部署的整体安全性。
 author: Johnnytechn
 manager: RKarlin
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 45b8c6cd599e983f3181b4bfac4628a8113c70a2
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: 2388e5b104db2b16ac0679f1695b6b1bd5f8a995
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683948"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637901"
 ---
 # <a name="security-recommendations-for-linux-virtual-machines-in-azure"></a>针对 Azure 中 Linux 虚拟机的安全建议
 

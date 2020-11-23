@@ -6,17 +6,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 07/23/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 6a0ba7b568cf83643e2e10b5005792d63b446281
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c0a44b37e06aa9e712340f198ac8f8cca346427a
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103818"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590845"
 ---
 <!--Verified successfully-->
 <!--Transfer from an include file-->
@@ -45,7 +45,8 @@ ms.locfileid: "93103818"
 | **“已停止-解除分配”状态** | 可以先将 VM 和规模集实例停止-解除分配，然后再将其从“已停止-解除分配”状态重启 | 不能将 VM 和规模集实例停止-解除分配                                  |
 | **专用 OS 磁盘支持** | 是                                                                                          | 否                                                                                 |
 | **OS 磁盘重设大小** | 在 VM 创建期间以及将 VM 停止-解除分配后均受支持                                | 仅在 VM 创建期间受支持                                                  |
-| **将大小重设为新的 VM 大小** | 保留 OS 磁盘数据                                                                    | 删除 OS 磁盘上的数据并重新预配 OS                                      |
+| **将大小重设为新的 VM 大小** | 保留 OS 磁盘数据                                                                    | 删除 OS 磁盘上的数据并重新预配 OS       |
+| **页面文件位置** | 对于 Windows，页面文件存储在资源磁盘上                                              | 对于 Windows，页面文件存储在操作系统磁盘上   |
 
 <!--Not Available on Line 33 , and [GS](sizes-previous-gen.md#gs-series)-->
 <!--Not Available on Line 34 GS -->
@@ -57,9 +58,9 @@ ms.locfileid: "93103818"
 临时磁盘还要求 VM 大小支持高级存储。 大小通常（但并非总是）在名称中包含 `s`，例如 DSv2 和 EsV3。 有关详细信息，请参阅 [Azure VM 大小](sizes.md)，其中详述了哪些大小支持高级存储。
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>预览版 - 临时 OS 磁盘现在可以存储在临时磁盘上
-除了可以存储在 VM 缓存上之外，临时 OS 磁盘现在还可以存储在 VM 临时/资源磁盘上。 因此，现在可以在没有缓存或缓存不足但有临时/资源磁盘的 VM（例如 Dav4 和 Eav4）中使用临时 OS 磁盘。 如果 VM 有足够的缓存和临时空间，那么现在还可以通过使用名为 [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement) 的新属性来指定要存储临时 OS 磁盘的位置。 利用此特性，我们在预配 Windows VM 时将页面文件配置为位于OS 磁盘上。 此功能目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 首先，[请求访问权限](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)。
+除了可以存储在 VM 缓存上之外，临时 OS 磁盘现在还可以存储在 VM 临时/资源磁盘上。 因此，现在可以在没有缓存或缓存不足但有临时/资源磁盘的 VM 中使用临时 OS 磁盘。 如果 VM 有足够的缓存和临时空间，那么现在还可以通过使用名为 [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement) 的新属性来指定要存储临时 OS 磁盘的位置。 利用此特性，我们在预配 Windows VM 时将页面文件配置为位于OS 磁盘上。 此功能目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 首先，[请求访问权限](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)。
 
-<!--REASON: Not Available on Dav3, and Eav3 series-->
+<!--REASON: Not Available on Dav3, Dav4, Eav4 and Eav3-->
 
 ## <a name="powershell"></a>PowerShell
 
@@ -92,8 +93,6 @@ az vm create \
 
 对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss#az_vmss_create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
-<!--Verify successfully on Portal-->
-
 ## <a name="portal"></a>门户   
 
 在 Azure 门户中，可以选择在部署 VM 时使用临时磁盘，方法是：打开“磁盘”选项卡的“高级”部分。   对于“使用临时 OS 磁盘”选项，请选择“是”。  
@@ -104,7 +103,7 @@ az vm create \
 
 也可通过门户创建使用临时 OS 磁盘的规模集。 只需确保所选 VM 大小具有足够大的缓存大小，然后在“使用临时 OS 磁盘”中选择“是”即可。  
 
-:::image type="content" source="./media/virtual-machines-common-ephemeral/scale-set.png" alt-text="显示单选按钮的屏幕截图，该按钮选中后即可使用临时 OS 磁盘":::
+:::image type="content" source="./media/virtual-machines-common-ephemeral/scale-set.png" alt-text="显示单选按钮的屏幕截图，该按钮选中后即可使用规模集的临时 OS 磁盘":::
 
 ## <a name="scale-set-template-deployment"></a>规模集模板部署  
 创建一个使用临时 OS 磁盘的规模集时，其过程很简单，就是将 `diffDiskSettings` 属性添加到模板中的 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` 资源类型。 另外，对于临时 OS 磁盘，必须将缓存策略设置为 `ReadOnly`。 

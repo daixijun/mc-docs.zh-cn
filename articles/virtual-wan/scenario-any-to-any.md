@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 05721c42a74b2d8efa06492a63b8c8063d1b5bd8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9337b6be96b4925c5fc63f07ff9e71b8db4a9459
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105672"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590914"
 ---
 <!--Verified Successfully-->
 # <a name="scenario-any-to-any"></a>方案：任意位置到任意位置
@@ -26,23 +26,23 @@ ms.locfileid: "93105672"
 
 ## <a name="design"></a><a name="design"></a>设计
 
-为了确定虚拟 WAN 方案中将会需要多少路由表，可以构建一个连接矩阵，其中每个单元格都表示源（行）是否可以与目标（列）通信。 此方案中的连接矩阵很普通，但我们已将其包含在内，以便与其他方案保持一致。
+为了确定虚拟 WAN 方案中将会需要多少路由表，可以构建一个连接矩阵，其中每个单元格都表示源（行）是否可以与目标（列）通信。
 
-| 源 |   目标 |  VNet | *分支* |
+| From |   目标 |  VNet | *分支* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|      X     |     X    |
-| 分支   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 直接 | 直接 |
+| 分支   | &#8594;| 直接  | 直接 |
 
-上表中每个单元格都描述了虚拟 WAN 连接（流的“源”端，表中的行标题）是否为特定的流量流获取目标前缀（流的“目标”端，表中斜体的列标题），其中“X”表示由虚拟 WAN 提供连接。
+上表中的各单元格描述了虚拟 WAN 连接（流的“源”端，行标题）是否与目标前缀（流的“目标”端，斜体形式的列标题）通信。 在此方案中，没有防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN 进行（因此在表中使用“直接”一词）。
 
 由于来自 VNet 和分支（VPN、ExpressRoute 和用户 VPN）的所有连接都具有相同的连接要求，因此需要单个路由表。 这样，所有的连接都将会关联，并将传播到同一个路由表，即 Default 路由表：
 
 * 虚拟网络：
-  * 关联的路由表： **Default**
-  * 传播到路由表： **Default**
+  * 关联的路由表：**Default**
+  * 传播到路由表：**Default**
 * 分支：
-  * 关联的路由表： **Default**
-  * 传播到路由表： **Default**
+  * 关联的路由表：**Default**
+  * 传播到路由表：**Default**
 
 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 

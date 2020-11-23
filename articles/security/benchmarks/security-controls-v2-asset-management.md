@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 资产管理
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b3b3682e86cb7063ceb2fdd82545d13393ad777
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 46493a909ee06a841a28c2734deb82f02cf4a368
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128836"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637964"
 ---
 # <a name="security-control-v2-asset-management"></a>安全控制 V2：资产管理
 
@@ -36,7 +36,7 @@ ms.locfileid: "92128836"
 
 - [Azure 管理组概述](../../governance/management-groups/overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -58,11 +58,13 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何使用 Azure Resource Graph 浏览器创建查询](../../governance/resource-graph/first-query-portal.md)
 
+- [Azure 安全中心资产库存管理](../../security-center/asset-inventory.md)
+
 - [有关标记资产的详细信息，请参阅资源命名和标记决策指南](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-**责任** ：客户
+**责任**：客户
 
-客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [基础结构和终结点安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -82,7 +84,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何使用 Azure Resource Graph 浏览器创建查询](../../governance/resource-graph/first-query-portal.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -102,9 +104,9 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [删除 Azure 资源组和资源](../../azure-resource-manager/management/delete-resource-group.md)
 
-**责任** ：客户
+**责任**：客户
 
-客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [基础结构和终结点安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -122,9 +124,9 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何配置条件访问来阻止对 Azure 资源管理器的访问](../../role-based-access-control/conditional-access-azure-management.md)
 
-**责任** ：客户
+**责任**：客户
 
-客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [状况管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -150,9 +152,9 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何在 Windows 环境中控制 PowerShell 脚本的执行](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**责任** ：客户
+**责任**：客户
 
-客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [基础结构和终结点安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

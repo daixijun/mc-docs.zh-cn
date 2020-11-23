@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
-ms.openlocfilehash: 5aa58175724510af5c43dc678600e04218fe488d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 626d5f6445a361b0a163941e499fe86899be51ec
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128701"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638067"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>阻止无关联的 DNS 项并避免子域接管
 
@@ -51,7 +51,7 @@ ms.locfileid: "92128701"
 
     1. 威胁操纵者使用之前由你控制的资源的 FQDN 来预配 Azure 资源。 在本示例中为 `app-contogreat-dev-001.chinacloudsites.cn`。
 
-    1. 发送到子域 `myapp.contoso.com` 的流量现在路由到由恶意操作者控制其中内容的资源。
+    1. 发送到子域 `greatapp.contoso.com` 的流量现在路由到由恶意操作者控制其中内容的资源。
 
 
 
@@ -107,11 +107,13 @@ ms.locfileid: "92128701"
 - 至少可对 Azure 订阅进行读取者级别访问
 - 可对 Azure Resource Graph 进行读取访问
 
-如果你是贵组织租户的全局管理员，请按照[提升访问权限以管理所有 Azure 订阅和管理组](/role-based-access-control/elevate-access-global-admin)中的指导，将帐户提升为可访问贵组织的所有订阅。
+如果你是贵组织租户的全局管理员，请按照[提升访问权限以管理所有 Azure 订阅和管理组](../../role-based-access-control/elevate-access-global-admin.md)中的指导，将帐户提升为可访问贵组织的所有订阅。
 
 
 > [!TIP]
-> 如果使用大型 Azure 环境，应考虑 Azure Resource Graph 的带宽限制和分页限制。 [详细了解](/governance/resource-graph/concepts/work-with-data)如何使用大型 Azure 资源数据集。 
+> 如果使用大型 Azure 环境，应考虑 Azure Resource Graph 的带宽限制和分页限制。 
+> 
+> [详细了解如何使用大型 Azure 资源数据集](../../governance/resource-graph/concepts/work-with-data.md)。
 > 
 > 该工具使用订阅批处理来避免这些限制。
 
@@ -145,7 +147,7 @@ ms.locfileid: "92128701"
 
 ### <a name="use-azure-dns-alias-records"></a>使用 Azure DNS 别名记录
 
-Azure DNS 的[别名记录](/dns/dns-alias#scenarios)通过将 DNS 记录的生命周期与 Azure 资源相结合来防止出现无关联引用。 例如，假设某个 DNS 记录限定为别名记录，以指向公共 IP 地址或流量管理器配置文件。 如果删除这些基础资源，DNS 别名记录会变成空的记录集。 它不再引用已删除的资源。 务必注意，别名记录可保护的内容有限。 目前，列表限制如下：
+Azure DNS 的[别名记录](../../dns/dns-alias.md#scenarios)通过将 DNS 记录的生命周期与 Azure 资源相结合来防止出现无关联引用。 例如，假设某个 DNS 记录限定为别名记录，以指向公共 IP 地址或流量管理器配置文件。 如果删除这些基础资源，DNS 别名记录会变成空的记录集。 它不再引用已删除的资源。 务必注意，别名记录可保护的内容有限。 目前，列表限制如下：
 
 - Azure Front Door
 - 流量管理器配置文件
@@ -154,7 +156,7 @@ Azure DNS 的[别名记录](/dns/dns-alias#scenarios)通过将 DNS 记录的生�
 
 尽管目前服务产品有限，但建议尽可能使用别名记录来防止子域接管。
 
-[详细了解](/dns/dns-alias#capabilities) Azure DNS 别名记录的功能。
+[详细了解 Azure DNS 别名记录的功能](../../dns/dns-alias.md#capabilities)。
 
 
 
@@ -164,7 +166,7 @@ Azure DNS 的[别名记录](/dns/dns-alias#scenarios)通过将 DNS 记录的生�
 
 这些记录不会阻止使用 CNAME 项中的名称创建 Azure 应用服务。 如果无法证明域名的所有权，则威胁操纵者无法接收流量或控制内容。
 
-[详细了解](/app-service/app-service-web-tutorial-custom-domain)如何将现有的自定义 DNS 名称映射到 Azure 应用服务。
+[详细了解如何将现有的自定义 DNS 名称映射到 Azure 应用服务](../../app-service/app-service-web-tutorial-custom-domain.md)。
 
 
 
@@ -178,7 +180,7 @@ Azure DNS 的[别名记录](/dns/dns-alias#scenarios)通过将 DNS 记录的生�
 
     - 将“删除 DNS 项”放入停用服务时需进行的检查的列表中。
 
-    - 在具有自定义 DNS 项的所有资源中放入[删除锁定](/azure-resource-manager/management/lock-resources)。 删除锁定可指示取消预配资源前必须删除映射。 只有在与内部训练计划结合时，此类措施才能发挥作用。
+    - 在具有自定义 DNS 项的所有资源中放入[删除锁定](../../azure-resource-manager/management/lock-resources.md)。 删除锁定可指示取消预配资源前必须删除映射。 只有在与内部训练计划结合时，此类措施才能发挥作用。
 
 - **创建发现过程：**
 
@@ -200,9 +202,9 @@ Azure DNS 的[别名记录](/dns/dns-alias#scenarios)通过将 DNS 记录的生�
 
 若要详细了解可用于防止子域接管的相关服务和 Azure 功能，请参阅以下页面。
 
-- [Azure DNS 支持对自定义域使用别名记录](/dns/dns-alias#prevent-dangling-dns-records)
+- [防止与 Azure DNS 无关联的 DNS 记录](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [在 Azure 应用服务中添加自定义域时使用域验证 ID](/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [在 Azure 应用服务中添加自定义域时使用域验证 ID](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询](/governance/resource-graph/first-query-powershell)
+- [快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询](../../governance/resource-graph/first-query-powershell.md)
 

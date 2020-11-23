@@ -1,43 +1,44 @@
 ---
 title: Azure Application Insights SDK 中的筛选和预处理 | Azure Docs
-description: 为 SDK 编写遥测处理器和遥测初始值设定项，以在将遥测发送到 Application Insights 门户之前筛选属性或将其添加到数据。
+description: 为 SDK 编写遥测处理器和遥测初始化表达式，以在将遥测发送到 Application Insights 门户之前筛选属性或将其添加到数据。
 ms.topic: conceptual
 origin.date: 11/23/2016
 author: Johnnytechn
-ms.date: 07/17/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 06e8077213e32680f6bde984bf530e0e0469c17a
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 7c929e5503fbf0905e1f487c20377818adbb9bed
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244852"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637929"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测 | Microsoft Azure
+# <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测
 
 可以为 Application Insights SDK 编写和配置插件，在将遥测发送到 Application Insights 服务之前自定义遥测的扩充和处理方式。
 
-* [采样](sampling.md)可在不影响统计信息的情况下减少遥测量。 它还保留相关数据点，以便可以在诊断问题时导航这些点。 在门户中，总计相乘以补偿采样。
-* 使用遥测处理器进行筛选，就可以先在 SDK 中筛选出遥测，然后再将其发送到服务器。 例如，可以通过排除机器人请求减少遥测量。 与采样相比，筛选是更基本的减少流量的方法。 它允许更好地控制传输的内容，但你必须知道它会影响统计信息（例如，如果筛选出所有成功请求）。
-* 对于从应用发送的任何遥测（包括来自标准模块的遥测），[遥测初始值设定项可以添加或修改属性](#add-properties)。 例如，可以添加计算得出的值；或在门户中筛选数据所依据的版本号。
-* [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 用于发送自定义事件和指标。
+* [采样](sampling.md)可在不影响统计信息的情况下减少遥测量。 它还保留相关数据点，以便你可以在诊断问题时导航这些点。 在门户中，总计相乘以补偿采样。
+* 使用遥测处理器进行筛选，就可以先在 SDK 中筛选出遥测，然后再将其发送到服务器。 例如，可以通过排除机器人请求减少遥测量。 与采样相比，筛选是更基本的减少流量的方法。 它让你可以更好地控制传输的数据，但会影响统计信息。 例如，你可以筛选出所有成功的请求。
+* 对于从应用发送的任何遥测（包括来自标准模块的遥测），[遥测初始化表达式可以添加或修改属性](#add-properties)。 例如，可以添加计算得出的值或在门户中筛选数据所依据的版本号。
+* [SDK API](./api-custom-events-metrics.md) 用于发送自定义事件和指标。
 
 开始之前：
 
-* 为应用程序安装相应的 SDK：[ASP.NET](asp-net.md)、[ASP.NET Core](asp-net-core.md)、[用于 .NET/.NET Core 的非 HTTP/辅助角色](worker-service.md)或 [JavaScript](javascript.md)
+* 为应用程序安装相应的 SDK：[ASP.NET](asp-net.md)、[ASP.NET Core](asp-net-core.md)、[用于 .NET/.NET Core 的非 HTTP/辅助角色](worker-service.md)或 [JavaScript](javascript.md)。
 
 <a name="filtering"></a>
 
 ## <a name="filtering"></a>筛选
 
-使用此技术可以直接控制要在遥测流中包含或排除的内容。 可以通过筛选删除要发送到 Application Insights 的遥测项。 可以将其与采样结合使用，也可以单独使用。
+使用此技术可以直接控制要在遥测流中包含或排除的内容。 可以通过筛选删除要发送到 Application Insights 的遥测项。 你可以将筛选与采样结合使用，也可以单独使用。
 
-若要筛选遥测，请编写遥测处理器并通过 `TelemetryConfiguration` 注册它。 所有遥测都通过处理器，可以选择从流中删除它或将它提供给链中的下一处理器。 这包括来自标准模块的遥测（例如 HTTP 请求收集器和依赖项收集器）以及自行跟踪的遥测。 例如，可以筛选出有关机器人请求或成功依赖项调用的遥测。
+若要筛选遥测，请编写遥测处理器并通过 `TelemetryConfiguration` 注册它。 所有遥测都通过处理器。 你可以选择从流中删除它或将它提供给链中的下一处理器。 包括来自标准模块的遥测（例如 HTTP 请求收集器和依赖项收集器）以及自行跟踪的遥测。 例如，你可以筛选出有关机器人请求或成功依赖项调用的遥测。
 
 > [!WARNING]
 > 使用处理器筛选从 SDK 发送的遥测会使门户中看到的统计信息出现偏差，并使它难以跟进相关项目。
 >
-> 此时，考虑使用[采样](../../azure-monitor/app/sampling.md)。
+> 此时，考虑使用[采样](./sampling.md)。
 >
 >
 
@@ -45,7 +46,7 @@ ms.locfileid: "87244852"
 
 1. 若要创建筛选器，请实现 `ITelemetryProcessor`。
 
-    请注意，遥测处理器构建一个处理链。 当你实例化遥测处理器时，系统会为你提供链中下一个处理器的引用。 将遥测数据点传递到处理方法时，该方法会生效，然后调用（或不调用）链中的下一个遥测处理器。
+    遥测处理器会构建一个处理链。 当你实例化遥测处理器时，系统会为你提供链中下一个处理器的引用。 将遥测数据点传递到处理方法时，该方法会生效，然后调用（或不调用）链中的下一个遥测处理器。
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
@@ -82,7 +83,9 @@ ms.locfileid: "87244852"
 
 2. 添加处理器。
 
-**ASP.NET 应用** 在 ApplicationInsights.config 中插入此代码片段：
+ASP.NET 应用
+
+在 ApplicationInsights.config 中插入此代码片段：
 
 ```xml
 <TelemetryProcessors>
@@ -99,7 +102,7 @@ ms.locfileid: "87244852"
 > 注意将 .config 文件中的类型名称和任何属性名称匹配到代码中的类和属性名称。 如果 .config 文件引用不存在的类型或属性，该 SDK 在发送任何遥测时可能静默失败。
 >
 
-**或者，** 可以在代码中初始化筛选器。 在合适的初始化类（例如，`Global.asax.cs` 中的 AppStart）中，将处理器插入链：
+或者， 可以在代码中初始化筛选器。 在合适的初始化类（例如 `Global.asax.cs` 中的 AppStart）中，将处理器插入链：
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -111,14 +114,14 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-在此点后创建的 TelemetryClients 将使用处理器。
+在此点后创建的遥测客户端将使用你的处理器。
 
-**ASP.NET Core/辅助角色服务应用**
+ASP.NET Core/辅助角色服务应用
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加处理器对于 ASP.NET Core 应用程序无效，或者你在使用 Microsoft.ApplicationInsights.WorkerService SDK。
+> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加处理器对于 ASP.NET Core 应用程序无效，或者如果你在使用 Microsoft.ApplicationInsights.WorkerService SDK，也将无效。
 
-对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 或 [WorkerService](worker-service.md#adding-telemetry-processors) 编写的应用，若要添加新的 `TelemetryProcessor`，请在 `IServiceCollection` 上使用 `AddApplicationInsightsTelemetryProcessor` 扩展方法，如下所示。 此方法在 `Startup.cs` 类的 `ConfigureServices` 方法中调用。
+对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 或 [WorkerService](worker-service.md#adding-telemetry-processors) 编写的应用，若要添加新的遥测处理器，请在 `IServiceCollection` 上使用 `AddApplicationInsightsTelemetryProcessor` 扩展方法，如下所示。 此方法在 `Startup.cs` 类的 `ConfigureServices` 方法中调用。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -171,10 +174,10 @@ public void Process(ITelemetry item)
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>筛选出快速远程依赖项调用
 
-如果只想诊断速度较慢的调用，则筛选出快速调用。
+如果只想诊断速度较慢的调用，可筛掉速度较快的调用。
 
 > [!NOTE]
-> 这会使门户上看到的统计信息出现偏差。
+> 这项筛选操作会使门户上看到的统计信息出现偏差。
 >
 >
 
@@ -201,7 +204,7 @@ public void Process(ITelemetry item)
 
 **使用 ITelemetryInitializer 进行筛选**
 
-1. 创建遥测初始化程序回调函数。 回调函数将 `ITelemetryItem` 作为参数，该项是正在处理的事件。 从此回调返回 `false` 将导致筛选掉遥测项。  
+1. 创建遥测初始化程序回调函数。 回调函数将 `ITelemetryItem` 作为参数，该项是正在处理的事件。 从此回调返回 `false` 将导致筛选掉遥测项。
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -221,12 +224,11 @@ public void Process(ITelemetry item)
 
 ## <a name="addmodify-properties-itelemetryinitializer"></a>添加/修改属性：ITelemetryInitializer
 
+通过遥测初始化表达式使用其他信息来扩充遥测，或者重写通过标准遥测模块设置的遥测属性。
 
-通过遥测初始值设定项使用其他信息来扩充遥测，以及/或者重写通过标准遥测模块设置的遥测属性。
+例如，Web 程序包的 Application Insights 将收集有关 HTTP 请求的遥测。 默认情况下，它标记为所有请求失败，并且响应代码 >= 400。 但是，如果希望将 400 视为成功，可以提供一个设置成功属性的遥测初始化表达式。
 
-例如，Web 包的 Application Insights 将收集有关 HTTP 请求的遥测。 默认情况下，它标记为所有请求失败，并且响应代码 >= 400。 但是，如果希望将 400 视为成功，可以提供一个设置成功属性的遥测初始值设定项。
-
-如果提供了遥测初始值设定项，只要调用任何 Track*() 方法，就会调用它。 这包括由标准遥测模块调用的 `Track()` 方法。 按照约定，这些模块不会设置已由初始值设定项设置的任何属性。 在调用遥测处理器之前调用遥测初始值设定项。 因此，由初始值设定项完成的任何扩充对于处理器来说都是可见的。
+如果提供了遥测初始化表达式，只要调用任何 Track*() 方法，就会调用它。 这包括由标准遥测模块调用的 `Track()` 方法。 按照约定，这些模块不会设置已由初始化表达式设置的任何属性。 在调用遥测处理器之前调用遥测初始值设定项。 因此，由初始值设定项完成的任何扩充对于处理器来说都是可见的。
 
 **定义初始值设定项**
 
@@ -269,7 +271,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**ASP.NET 应用：加载初始值设定项**
+ASP.NET **应用：加载初始值设定项**
 
 在 ApplicationInsights.config 中：
 
@@ -283,7 +285,7 @@ namespace MvcWebRole.Telemetry
 </ApplicationInsights>
 ```
 
-*或者，* 可以在代码中实例化初始值设定项，例如在 Global.aspx.cs 中：
+或者，你可以在代码中实例化初始化表达式，例如在 Global.aspx.cs 中：
 
 ```csharp
 protected void Application_Start()
@@ -293,14 +295,14 @@ protected void Application_Start()
 }
 ```
 
-[查看此示例的详细信息。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+查看[此示例](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)的详细信息。
 
-**ASP.NET Core/辅助角色服务应用：加载初始值设定项**
+ASP.NET **Core/辅助角色服务应用：加载初始值设定项**
 
 > [!NOTE]
-> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效，或者你在使用 Microsoft.ApplicationInsights.WorkerService SDK。
+> 使用 `ApplicationInsights.config` 或 `TelemetryConfiguration.Active` 添加初始化表达式对于 ASP.NET Core 应用程序无效，或者如果你在使用 Microsoft.ApplicationInsights.WorkerService SDK，也将无效。
 
-对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 或 [WorkerService](worker-service.md#adding-telemetryinitializers) 编写的应用，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这可以在 `Startup.ConfigureServices` 方法中完成。
+对于使用 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 或 [WorkerService](worker-service.md#adding-telemetryinitializers) 编写的应用，若要添加新的遥测初始化表达式，请将其添加到依赖项注入容器中，如下所示。 这可以在 `Startup.ConfigureServices` 方法中完成。
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -328,24 +330,22 @@ protected void Application_Start()
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.
@@ -354,13 +354,13 @@ protected void Application_Start()
 </script>
 ```
 
-有关 telemetryItem 上可用的非自定义属性摘要，请参阅[Application Insights 导出数据模型](../../azure-monitor/app/export-data-model.md)。
+有关遥测项上可用的非自定义属性摘要，请参阅 [Application Insights 导出数据模型](./export-data-model.md)。
 
-可添加任意数量的初始值设定项，并按添加顺序调用它们。
+可添加任意数量的初始值设定项。 系统按它们的添加顺序对其进行调用。
 
 ### <a name="opencensus-python-telemetry-processors"></a>OpenCensus Python 遥测处理器
 
-OpenCensus Python 中的遥测处理器是简单的回调函数，在导出遥测之前调用这些函数来处理遥测。 回调函数必须接受[信封](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86)数据类型作为其参数。 若要筛选掉导出的遥测，请确保回调函数返回 `False`。 可在[此处](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py)查看信封中 Azure Monitor 数据类型的架构。
+OpenCensus Python 遥测处理器是简单的回调函数，可在导出遥测之前调用这些函数来处理遥测。 回调函数必须接受[信封](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86)数据类型作为其参数。 若要筛掉不想导出的遥测，请确保回调函数返回 `False`。 可在 [GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py) 上查看信封中 Azure Monitor 数据类型的架构。
 
 > [!NOTE]
 > 可以通过更改 `tags` 字段中的 `ai.cloud.role` 属性来修改 `cloud_RoleName`。
@@ -465,11 +465,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-可以根据需要添加任意数量的处理器，然后按添加顺序对其进行调用。 如果一个处理器应引发异常，则它不会影响后面的处理器。
+可添加任意数量的处理器。 系统按它们的添加顺序对其进行调用。 如果某个处理器引发异常，则它不会影响后面的处理器。
 
 ### <a name="example-telemetryinitializers"></a>示例 TelemetryInitializer
 
-#### <a name="add-custom-property"></a>添加自定义属性
+#### <a name="add-a-custom-property"></a>添加自定义属性
 
 以下初始值设定项示例将自定义属性添加到每个被跟踪的遥测。
 
@@ -484,9 +484,9 @@ public void Initialize(ITelemetry item)
 }
 ```
 
-#### <a name="add-cloud-role-name"></a>添加云角色名称
+#### <a name="add-a-cloud-role-name"></a>添加云角色名称
 
-以下初始值设定项示例将云角色名称设置为每个被跟踪的遥测。
+以下初始化表达式示例将云角色名称设置为每个被跟踪的遥测。
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
@@ -500,7 +500,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>从 HttpContext 添加信息
 
-下面的示例初始值设定项从 [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) 读取数据并将其附加到 `RequestTelemetry` 实例。 `IHttpContextAccessor` 是通过构造函数依赖项注入自动提供的。
+下面的初始化表达式示例从 [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) 读取数据并将其附加到 `RequestTelemetry` 实例。 `IHttpContextAccessor` 是通过构造函数依赖项注入自动提供的。
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -530,22 +530,22 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 遥测处理器和遥测初始值设定项之间的区别是什么？
 
-* 它们的用途有一些重叠之处：二者均可用于添加或修改遥测属性，不过建议将初始值设定项用于该目的。
-* TelemetryInitializers 始终在 TelemetryProcessors 之前运行。
-* TelemetryInitializer 可以多次调用。 按照约定，它们不会设置已设置的任何属性。
-* TelemetryProcessors 允许完全替换或丢弃遥测项。
-* 可保证为所有遥测项调用所有注册的 TelemetryInitializer。 对于遥测处理器，SDK 保证调用刚好第一个遥测处理器。 是否调用余下的处理器取决于前面的遥测处理器。
-* 通过 TelemetryInitializer 使用其他属性来扩充遥测，或者重写现有的。 使用 TelemetryProcessor 筛选出遥测。
+* 它们的功能有部分重叠。 二者都可用于添加或修改遥测的属性，但我们建议你使用初始化表达式执行这项操作。
+* 遥测初始化表达式始终在遥测处理器之前运行。
+* 遥测初始化表达式可以多次调用。 按照约定，它们不会设置任何已设置的属性。
+* 利用遥测处理器，你可以完全替换或丢弃遥测项。
+* 可保证为所有遥测项调用所有注册的遥测初始化表达式。 对于遥测处理器，SDK 可保证调用第一个遥测处理器。 是否调用余下的处理器取决于前面的遥测处理器。
+* 通过遥测初始化表达式使用其他属性来扩充遥测，或者重写现有的遥测。 使用遥测处理器筛掉遥测。
 
-## <a name="troubleshooting-applicationinsightsconfig"></a>ApplicationInsights.config 故障排除
+## <a name="troubleshoot-applicationinsightsconfig"></a>ApplicationInsights.config 故障排除
 
 * 确认完全限定的类型名称和程序集名称是正确的。
 * 确认 applicationinsights.config 文件在输出目录中并且包含所有最新更改。
 
 ## <a name="reference-docs"></a>参考文档
 
-* [API 概述](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET 参考](https://msdn.microsoft.com/library/dn817570.aspx)
+* [API 概述](./api-custom-events-metrics.md)
+* [ASP.NET 参考](https://docs.microsoft.com/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>SDK 代码
 
@@ -554,8 +554,8 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>后续步骤
-* [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)
-* [采样](../../azure-monitor/app/sampling.md)
-* [故障排除](../../azure-monitor/faq.md)
-<!-- Correct in MC: azure-monitor/faq.md -->
+* [搜索事件和日志](./diagnostic-search.md)
+* [采样](./sampling.md)
+* [故障排除](../faq.md)
+
 

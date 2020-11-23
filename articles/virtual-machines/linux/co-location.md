@@ -1,18 +1,18 @@
 ---
 title: 并置 Linux VM
-description: 了解并置 Azure VM 资源如何改善延迟。
+description: 了解 Linux 的并置 Azure VM 资源如何缩短延迟。
 author: Johnnytechn
 ms.service: virtual-machines
 origin.date: 10/30/2019
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
-ms.openlocfilehash: b285560aff7e561df14a78613c3f89a4b05be198
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 07a2bb1b702d9133fde895aa992306263d627379
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057490"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637849"
 ---
 <!--Verified successfully-->
 # <a name="co-locate-resources-for-improved-latency"></a>并置资源以改善延迟
@@ -29,7 +29,7 @@ ms.locfileid: "90057490"
 
 了解如何[测试网络延迟](https://docs.azure.cn/virtual-network/virtual-network-test-latency?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-了解如何[优化网络吞吐量](/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。  
+了解如何[优化网络吞吐量](/virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 <!--Not Available on [use proximity placement groups with SAP applications](/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fvirtual-machines%2fwindows%2ftoc.json)-->
 

@@ -4,16 +4,16 @@ description: Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4f1a30469ffa08d9490f4eea63b6d6749adb5d8e
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: de0260e1781a63ffc10b454bd15584a7bb956380
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947109"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590888"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
@@ -82,7 +82,7 @@ Azure 服务总线目前只对每个连接使用一个会话。 服务总线标�
 
 ### <a name="amqp-outbound-port-requirements"></a>AMQP 出站端口要求
 
-通过 TCP 使用 AMQP 连接的客户端需要在本地防火墙中打开端口 5671 和 5672。 如果启用了 [EnableLinkRedirect](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) 功能，除了这些端口，可能还需要打开其他端口。 `EnableLinkRedirect` 是一项新的消息传递功能，它可以在接收消息时跳过一个跃点，从而有助于提高吞吐量。 客户端将开始通过端口范围 104XX 直接与后端服务通信，如下图所示。 
+通过 TCP 使用 AMQP 连接的客户端需要在本地防火墙中打开端口 5671 和 5672。 如果启用了 [EnableLinkRedirect](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) 功能，除了这些端口，可能还需要打开其他端口。 `EnableLinkRedirect` 是一项新的消息传递功能，它可以在接收消息时跳过一个跃点，从而有助于提高吞吐量。 客户端将开始通过端口范围 104XX 直接与后端服务通信，如下图所示。 
 
 ![目标端口列表][4]
 
@@ -130,7 +130,7 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 ![日志的屏幕截图，显示源、目标、源端口、目标端口和协议名称。 在第一行中，目标端口 10401 (0x28 A 1) 带有黑色边框。][4]
 
-在链接上，传输只发生于发送者有足够的“链接信用额度”时。 链接信用额度是接收者使用*流程*行为原语所设置的计数器，其范围是链接。 将链接信用额度分配给发送者时，将通过传递消息来尝试用完该信用额度。 每个消息传递使剩余的链接信用额度减 1。 当链接信用额度用完时，便会停止传递。
+在链接上，传输只发生于发送者有足够的“链接信用额度”时。 链接信用额度是接收者使用 *流程* 行为原语所设置的计数器，其范围是链接。 将链接信用额度分配给发送者时，将通过传递消息来尝试用完该信用额度。 每个消息传递使剩余的链接信用额度减 1。 当链接信用额度用完时，便会停止传递。
 
 当服务总线采用接收者角色时，则立即提供给发送者充足的链接信用额度，以便立即发送消息。 使用链接信用额度时，服务总线偶尔发送“流程”行为原语给发送者，以更新链接信用额度余额。
 
@@ -140,7 +140,7 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 当传输进入“已接受”、“已拒绝”或“已解除”终端状态的其中一种时，消息锁定就会解除。 终端的状态为“已接受”时，将从服务总线中删除消息。 它保留在服务总线中，并会在传输达到任何其他状态时传递给下一个接收者。 服务总线在因为重复拒绝或解除而达到实体所允许的最大传递计数时，自动将消息转到实体死信队列中。
 
-即使是服务总线 API 现今也不直接公开这种选项，较低级别的 AMQP 协议客户端可以使用链接信用额度模型，通过核发大量的链接信用额度，将针对每个接收请求核发一单位信用额度的“提取式”模型变成“推送式”模型，并接收可用的消息，而不需要任何进一步的交互。 通过 [MessagingFactory.PrefetchCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingfactory?view=azure-dotnet) 或 [MessageReceiver.PrefetchCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver?view=azure-dotnet) 属性设置来支持推送。 如果两者均不为零，则 AMQP 客户端使用它作为链接信用额度。
+即使是服务总线 API 现今也不直接公开这种选项，较低级别的 AMQP 协议客户端可以使用链接信用额度模型，通过核发大量的链接信用额度，将针对每个接收请求核发一单位信用额度的“提取式”模型变成“推送式”模型，并接收可用的消息，而不需要任何进一步的交互。 通过 [MessagingFactory.PrefetchCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 或 [MessageReceiver.PrefetchCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 属性设置来支持推送。 如果两者均不为零，则 AMQP 客户端使用它作为链接信用额度。
 
 在此内容中，务必了解实体内消息锁定的过期时钟在从实体获取消息时启动，而不是在消息放在网络上时启动。 每当客户端通过颁发链接信用额度来表示接收消息的整备性，因此预期主动提取网络上的消息并准备好处理它们。 否则消息锁定可能在消息传递之前过期。 使用链接信用流量控制应直接反映出可立即准备处理分派给接收者的可用消息。
 
@@ -220,27 +220,27 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |消息生存时间 |[TimeToLive](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| ttl |消息生存时间 |[TimeToLive](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| delivery-count |- |[DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 
 | 字段名称 | 使用情况 | API 名称 |
 | --- | --- | --- |
-| message-id |应用程序为此消息定义的自由格式标识符。 用于重复检测。 |[MessageId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| message-id |应用程序为此消息定义的自由格式标识符。 用于重复检测。 |[MessageId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |应用程序定义的用户标识符，服务总线无法进行解释。 |无法通过服务总线 API 访问。 |
-| to |应用程序定义的目标标识符，服务总线无法进行解释。 |[To](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
-| subject |应用程序定义的消息用途标识符，服务总线无法进行解释。 |[Label](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
-| reply-to |应用程序定义的回复路径指示符，服务总线无法进行解释。 |[ReplyTo](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
-| correlation-id |应用程序定义的相关性标识符，服务总线无法进行解释。 |[CorrelationId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
-| content-type |应用程序定义的内容类型指示符，服务总线无法进行解释。 |[ContentType](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| to |应用程序定义的目标标识符，服务总线无法进行解释。 |[To](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |应用程序定义的消息用途标识符，服务总线无法进行解释。 |[Label](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |应用程序定义的回复路径指示符，服务总线无法进行解释。 |[ReplyTo](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |应用程序定义的相关性标识符，服务总线无法进行解释。 |[CorrelationId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |应用程序定义的内容类型指示符，服务总线无法进行解释。 |[ContentType](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |应用程序定义的内容编码指示符，服务总线无法进行解释。 |无法通过服务总线 API 访问。 |
-| absolute-expiry-time |声明消息过期的绝对时刻。 在输入时忽略（观察到标头 TTL），在输出时授权具权威性。 |[ExpiresAtUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| absolute-expiry-time |声明消息过期的绝对时刻。 在输入时忽略（观察到标头 TTL），在输出时授权具权威性。 |[ExpiresAtUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |声明消息的创建时间。 不由服务总线使用 |无法通过服务总线 API 访问。 |
-| group-id |应用程序为相关的消息集定义的标识符。 用于服务总线会话。 |[SessionId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| group-id |应用程序为相关的消息集定义的标识符。 用于服务总线会话。 |[SessionId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |用于标识消息在会话内的相对序列号的计数器。 服务总线会将其忽略。 |无法通过服务总线 API 访问。 |
-| reply-to-group-id |- |[ReplyToSessionId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) |
+| reply-to-group-id |- |[ReplyToSessionId](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>消息注释
 
@@ -248,14 +248,14 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 | 注释映射键 | 使用情况 | API 名称 |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | 声明消息应于何时出现在实体上 |[ScheduledEnqueueTime](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | 应用程序定义的键，指示消息应进入哪个分区。 | [PartitionKey](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | 应用程序定义的分区键值，指示某个事务在何时用于通过传输队列发送消息。 | [ViaPartitionKey](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | 服务定义的 UTC 时间，代表将消息加入队列的实际时间。 输入时忽略。 | [EnqueuedTimeUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | 服务定义的唯一编号，用于分配给消息。 | [SequenceNumber](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | 服务定义的消息的排队序列号。 | [EnqueuedSequenceNumber](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | 服务定义。 日期和时间，在此之前消息将在队列/订阅中被锁定。 | [LockedUntilUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | 服务定义。 原始消息的来源，前提是从死信队列中接收消息。 | [DeadLetterSource](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | 声明消息应于何时出现在实体上 |[ScheduledEnqueueTime](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | 应用程序定义的键，指示消息应进入哪个分区。 | [PartitionKey](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | 应用程序定义的分区键值，指示某个事务在何时用于通过传输队列发送消息。 | [ViaPartitionKey](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | 服务定义的 UTC 时间，代表将消息加入队列的实际时间。 输入时忽略。 | [EnqueuedTimeUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | 服务定义的唯一编号，用于分配给消息。 | [SequenceNumber](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | 服务定义的消息的排队序列号。 | [EnqueuedSequenceNumber](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | 服务定义。 日期和时间，在此之前消息将在队列/订阅中被锁定。 | [LockedUntilUtc](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | 服务定义。 原始消息的来源，前提是从死信队列中接收消息。 | [DeadLetterSource](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>事务功能
 
@@ -420,9 +420,14 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 * [适用于 Windows Server 的服务总线中的 AMQP]
 
 <!--Not Available on [this video course]: https://www.youtube.com-->
-[1]：./media/service-bus-amqp-protocol-guide/amqp1.png [2]：./media/service-bus-amqp-protocol-guide/amqp2.png [3]：./media/service-bus-amqp-protocol-guide/amqp3.png [4]：./media/service-bus-amqp-protocol-guide/amqp4.png
+
+[1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
+[2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
+[3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
+[4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [服务总线 AMQP 概述]: service-bus-amqp-overview.md
 [针对服务总线分区队列和主题的 AMQP 1.0 支持]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [适用于 Windows Server 的服务总线中的 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn574799(v=azure.100)
+
 <!-- Update_Description: update meta properties, wording update, update link -->

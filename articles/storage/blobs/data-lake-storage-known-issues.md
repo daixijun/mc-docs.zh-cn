@@ -5,16 +5,16 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 08/26/2020
-ms.date: 09/28/2020
+origin.date: 10/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: bf1090a4b58f868e8ec22ba1587a40dc554fee11
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 2c4a60441a33fd1a03673094b0480f97fae3750f
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026548"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589430"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -42,7 +42,7 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 
 本部分介绍了同时使用 blob API 和 Data Lake Storage Gen2 API 对相同的数据执行操作时的问题和限制。
 
-* 不能同时使用 Blob API 和 Data Lake Storage API 写入到文件的同一实例。 如果使用 Data Lake Storage Gen2 API 向某个文件进行写入，则调用[获取 Block 列表](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API 时看不到该文件的块。 覆盖某个文件时，可以使用 Data Lake Storage Gen2 API 或 Blob API。 这不会影响文件属性。
+* 不能同时使用 API 和 Data Lake Storage API 写入到文件的同一实例。 如果使用 Data Lake Storage Gen2 API 向某个文件进行写入，则调用[获取 Block 列表](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API 时看不到该文件的块。 唯一的例外是在覆盖时可以使用。 可以使用任一 API 覆盖文件/Blob。
 
 * 如果在使用[列出 Blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 操作时不指定分隔符，则结果会包含目录和 Blob。 如果选择使用分隔符，请只使用正斜杠 (`/`)。 这是唯一支持的分隔符。
 
@@ -82,6 +82,18 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 ## <a name="third-party-applications"></a>第三方应用程序
 
 对于使用 REST API 保持正常运行的第三方应用程序，如果将这些应用程序与调用 Blob API 的 Data Lake Storage Gen2 应用程序配合使用，则它们可继续正常运行。
+
+## <a name="access-control-lists-acl-and-anonymous-read-access"></a>访问控制列表 (ACL) 和匿名读取访问
+
+如果已将[匿名读取访问](storage-manage-access-to-resources.md)授予容器，则 ACL 对该容器或该容器中的文件没有影响。
+
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 高级层的生命周期管理策略
+
+无法在热层、冷层和存档层之间移动高级层中存储的数据。 但可以将数据从高级层复制到其他帐户中的热访问层。
+
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>高性能 BlockBlobStorage 存储帐户的 Dremio 支持
+
+Dremio 尚且不能连接到其上启用了分层命名空间功能的 BlockBlobStorage 帐户。 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Windows Azure Storage Blob (WASB) 驱动程序（不支持用于 Data Lake Storage Gen2）
 

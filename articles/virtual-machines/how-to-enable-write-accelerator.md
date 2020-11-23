@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 02/20/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 7b9e576695097febfe882c1e11ae8c73ad8740dc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 87455853df976f7ece3eca3e829920f41a349947
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103775"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590765"
 ---
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
@@ -36,7 +36,7 @@ ms.locfileid: "93103775"
 >
 > 若要针对不属于基于多个磁盘构建的，且使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的现有 Azure 磁盘启用写入加速器，需要关闭访问该 Azure 磁盘的工作负荷。 必须关闭使用 Azure 磁盘的数据库应用程序。
 >
-> 若要针对基于多个 Azure 高级存储磁盘构建的现有卷，或者使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的条带化卷启用或禁用写入加速器，必须通过单独的步骤，对构成该卷的所有磁盘启用或禁用写入加速器。 **在此类配置中启用或禁用写入加速器之前，请关闭 Azure VM** 。
+> 若要针对基于多个 Azure 高级存储磁盘构建的现有卷，或者使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的条带化卷启用或禁用写入加速器，必须通过单独的步骤，对构成该卷的所有磁盘启用或禁用写入加速器。 **在此类配置中启用或禁用写入加速器之前，请关闭 Azure VM**。
 
 对于 SAP 相关的 VM 配置，应该不需要为 OS 磁盘启用写入加速器。
 
@@ -61,7 +61,7 @@ ms.locfileid: "93103775"
 <!--Not Available on M208ms_v2, M208s_v2| 8  | 10000 | till 10/26/2020 -->
 <!--Not Available on M416ms_v2, M416s_v2| 16 | 20000 | -->
 
-IOPS 限制是针对每个 VM 而不是每个磁盘  。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。
+IOPS 限制是针对每个 VM 而不是每个磁盘  。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。 附加的磁盘不能超过 VM 的写入加速器 IOPS 限制。 例如，即使附加的磁盘可执行 30,000 IOPS，但对于 M416ms_v2，系统不允许磁盘超过 20,000 IOPS。
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>在特定磁盘上启用写入加速器
 

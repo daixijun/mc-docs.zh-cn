@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: article
 origin.date: 01/29/2019
-ms.date: 09/22/2020
-ms.openlocfilehash: a4b42ba255c2a3790561d1c970856751d14f630d
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.date: 11/13/2020
+ms.openlocfilehash: 098123cfe6259d50054ddf0680be62105d570ef1
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402664"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637943"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>使用 Azure 顾问提高应用程序的可靠性
 
@@ -47,7 +47,7 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>对 Azure 存储帐户使用软删除可在意外覆盖或删除之后保存和恢复数据
 
-为存储帐户启用[软删除](../storage/blobs/soft-delete-overview.md)，以便将删除的 blob 转换为软删除状态，而不是永久删除。 覆盖数据时，会生成软删除快照以保存被覆盖数据的状态。 使用软删除可以在意外删除或覆盖时进行恢复。 顾问会识别未启用软删除的 Azure 存储帐户，并建议你启用软删除。
+为存储帐户启用[软删除](../storage/blobs/soft-delete-blob-overview.md)，以便将删除的 blob 转换为软删除状态，而不是永久删除。 覆盖数据时，会生成软删除快照以保存被覆盖数据的状态。 使用软删除可以在意外删除或覆盖时进行恢复。 顾问会识别未启用软删除的 Azure 存储帐户，并建议你启用软删除。
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>配置 VPN 网关为主动-主动以进行连接复原
 
@@ -71,7 +71,7 @@ Azure 顾问会检查是否有任何使用基本 SKU 的 VPN 网关，并建议�
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>确保可用性集容错（暂时禁用）
 
-要为应用程序提供冗余，建议将两个或更多虚拟机分组到一个可用性集中。 顾问标识包含单个虚拟机的可用性集，并建议向其中添加一个或多个虚拟机。 这种配置可以确保在发生计划内或计划外维护期间，至少有一个虚拟机可用，并且它满足 Azure 虚拟机 SLA 要求。可以选择创建虚拟机，或将现有的虚拟机添加到可用性集。  
+要为应用程序提供冗余，建议将两个或更多虚拟机分组到一个可用性集中。 顾问标识包含单个虚拟机的可用性集，并建议向其中添加一个或多个虚拟机。  这种配置可以确保在发生计划内或计划外维护期间，至少有一个虚拟机可用，并且它满足 Azure 虚拟机 SLA 要求。 可以选择创建虚拟机，或将现有的虚拟机添加到可用性集。  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>使用托管磁盘提高数据可靠性（暂时禁用）
 
@@ -79,27 +79,27 @@ Azure 顾问会检查是否有任何使用基本 SKU 的 VPN 网关，并建议�
 
 ## <a name="repair-invalid-log-alert-rules"></a>修复无效的日志警报规则
 
-Azure 顾问会检测到在其条件部分指定了无效查询的警报规则。 可在 Azure Monitor 中创建日志警报规则，并使用这些规则按指定的时间间隔运行分析查询。 查询结果决定了是否需要触发警报。 随着时间的推移，分析查询可能会因所引用资源、表或命令的变化而变得无效。 顾问会建议你更正警报规则中的查询以防止自动禁用它，并确保监视你在 Azure 中的所有资源。 [详细了解如何排查警报规则问题。](https://aka.ms/aa_logalerts_queryrepair)
+Azure 顾问会检测到在其条件部分指定了无效查询的日志警报规则。 Azure Monitor 日志警报规则按指定的频率运行查询，并根据结果触发警报。 随着时间的推移，查询可能会因所引用资源、表或命令的变化而变得无效。 顾问建议对警报查询进行更正，以防止自动禁用规则并确保监视范围。 有关详细信息，请参阅[警报规则故障排除](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>在 Azure Cosmos DB 集合上配置“一致”索引模式
 
-为 Azure Cosmos DB 容器配置延迟索引模式可能会影响查询结果的新鲜度。 顾问会检测到以此方式配置的容器，并建议切换到“一致”模式。 [详细了解 Azure Cosmos DB 中的索引编制策略。](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+为 Azure Cosmos DB 容器配置延迟索引模式可能会影响查询结果的新鲜度。 顾问会检测到以此方式配置的容器，并建议切换到“一致”模式。 [详细了解 Azure Cosmos DB 中的索引编制策略。](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>为 Azure Cosmos DB 容器配置分区键
 
-Azure 顾问将识别即将达到其预配存储配额的 Azure Cosmos DB 非分区集合。 它会建议将这些集合迁移到具有分区键定义的新集合，使服务能够自动横向扩展它们。 [详细了解如何选择分区键。](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure 顾问将识别即将达到其预配存储配额的 Azure Cosmos DB 非分区集合。 它会建议将这些集合迁移到具有分区键定义的新集合，使服务能够自动横向扩展它们。 [详细了解如何选择分区键。](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>将 Azure Cosmos DB .NET SDK 升级到 NuGet 提供的最新版本
 
-Azure 顾问会识别使用旧版本的 .NET SDK 的 Azure Cosmos DB 帐户。 它会建议升级到 NuGet 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB .NET SDK。](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure 顾问会识别使用旧版本的 .NET SDK 的 Azure Cosmos DB 帐户。 它会建议升级到 NuGet 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB .NET SDK。](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>将 Azure Cosmos DB Java SDK 升级到 Maven 提供的最新版本
 
-Azure 顾问会识别使用旧版本的 Java SDK 的 Azure Cosmos DB 帐户。 它会建议升级到 Maven 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB Java SDK。](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure 顾问会识别使用旧版本的 Java SDK 的 Azure Cosmos DB 帐户。 它会建议升级到 Maven 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB Java SDK。](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>将 Azure Cosmos DB Spark 连接器升级到 Maven 提供的最新版本
 
-Azure 顾问会识别使用旧版本的 Azure Cosmos DB Spark 连接器的 Azure Cosmos DB 帐户。 它会建议升级到 Maven 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB Spark 连接器。](https://aka.ms/cosmosdb/spark-connector)
+Azure 顾问会识别使用旧版本的 Azure Cosmos DB Spark 连接器的 Azure Cosmos DB 帐户。 它会建议升级到 Maven 提供的最新版本，以获取最新的修补程序、性能改进和功能。 [详细了解 Azure Cosmos DB Spark 连接器。](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>考虑迁移到 HDInsight 4.0 上的 Kafka 2.1
 
@@ -111,6 +111,9 @@ Azure 顾问会识别使用旧版本的 Azure Cosmos DB Spark 连接器的 Azure
 
 ## <a name="enable-virtual-machine-replication"></a>启用虚拟机复制
 因未启用复制而不能复制到另一区域的虚拟机在出现区域性服务中断时无法复原。 复制虚拟机可在 Azure 区域服务中断期间减少任何不利的业务影响。 顾问会检测到未启用复制的 VM，并建议启用复制。 启用了复制时，如果发生服务中断，可以使虚拟机快速在远程 Azure 区域中启动。 [详细了解虚拟机复制。](../site-recovery/azure-to-azure-quickstart.md)
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>请勿替代主机名以确保网站的完整性
+顾问建议在配置应用程序网关时，尝试避免替代主机名。 如果在应用程序网关前端使用的域不同于访问后端所使用的域，可能会导致 cookie 或重定向 URL 被破坏。 请注意，并非所有情况都是如此，某种类别的后端（如 REST API 的后端）一般对此不太敏感。 请确保后端能够应对此情况或更新应用程序网关配置，以便不需要在后端替代主机名。 在配合应用服务一起使用时，请将自定义域名附加到 Web 应用，并避免在后端使用 .chinacloudsites.cn 主机名。 [详细了解自定义域](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md)。
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何访问顾问中的高可用性建议
 

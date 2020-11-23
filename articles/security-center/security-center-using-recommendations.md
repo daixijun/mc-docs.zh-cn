@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 08/22/2019
-ms.openlocfilehash: 9ad371269261f78719fe6a7ecf15fd50215babb9
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 616594b10256cd3586e008dfd4dddb907ba63de8
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822396"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637808"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 安全中心建议增强安全性
 
@@ -40,9 +40,9 @@ Contoso 最近将其某些本地资源迁移到了 Azure。 Contoso 希望保护
 ## <a name="use-azure-security-center"></a>使用 Azure 安全中心
 Contoso 的 IT 安全部门的 David 已选择将 Contoso 订阅上的安全中心载入 Azure 安全中心，以预防和检测安全漏洞。 
 
-安全中心自动分析 Contoso 的 Azure 资源的安全状态，并应用默认安全策略。 安全中心识别到潜在的安全漏洞时，会基于安全策略中设置的控件创建**建议**。 
+安全中心自动分析 Contoso 的 Azure 资源的安全状态，并应用默认安全策略。 安全中心识别到潜在的安全漏洞时，会基于安全策略中设置的控件创建 **建议**。 
 
-David 在其所有订阅中运行 Azure 安全标准层，以获取可用的建议和安全功能的完整套件。 Jeff 也将所有尚未迁移的现有本地服务器加入云，以便可以跨 [Windows](quick-onboard-windows-computer.md) 和 [Linux](quick-onboard-linux-computer.md) 服务器利用安全中心的混合支持。
+David 在其所有订阅中运行启用了 Azure Defender 的 Azure 安全，以获取可用的建议和安全功能的完整套件。 Jeff 也将所有尚未迁移的现有本地服务器加入云，以便可以跨 Windows 和 Linux 服务器利用安全中心的混合支持。
 
 Jeff 是云工作负荷所有者。 Jeff 负责根据 Contoso 的安全策略应用安全控件。 
 
@@ -61,9 +61,9 @@ Jeff 执行以下任务：
 
 3. Jeff 必须决定要首先处理哪些建议。 因此，Jeff 单击“安全功能分数”并开始根据其提高[安全功能分数](secure-score-security-controls.md)的程度来处理建议。
 
-4. 由于 Jeff 有大量连接的 VM 和服务器，因此他决定关注“计算和应用”。
+4. 由于 Jeff 有大量连接的 VM，因此他决定重点关注他在[资产清单](asset-inventory.md)中的计算机。
 
-5. 当 Jeff 单击“计算和应用”时，会看到建议列表，并根据安全功能分数影响处理这些建议。
+5. 当 Jeff 打开资产清单时，将显示一个建议列表。 Jeff 根据安全功能分数影响来处理它们。
 
 6. Jeff 拥有许多面向 VM 的 Internet，并且由于其端口是公开的，所以担心攻击者可能控制服务器。 因此，Jeff 选择使用[实时 VM 访问](security-center-just-in-time.md)。
 

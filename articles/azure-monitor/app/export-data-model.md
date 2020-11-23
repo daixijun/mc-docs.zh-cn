@@ -4,19 +4,19 @@ description: 介绍在 JSON 中通过连续导出导出的、用作筛选器的�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/08/2019
-ms.date: 05/28/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 42080e8213d37b1e10b0e8fb792474a6f7d0acb6
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: c6222ccd552840f9c306ffb4d57ce707ad24abc9
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199679"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638202"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 导出数据模型
-此表列出了从 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK 发送到门户的遥测属性。
+此表列出了从 [Application Insights](./app-insights-overview.md) SDK 发送到门户的遥测属性。
 [连续导出](export-telemetry.md)的数据输出中会显示这些属性。
-这些属性还显示在[指标资源管理器](../../azure-monitor/platform/metrics-charts.md)和[诊断搜索](../../azure-monitor/app/diagnostic-search.md)的属性筛选器中。
+这些属性还显示在[指标资源管理器](../platform/metrics-charts.md)和[诊断搜索](./diagnostic-search.md)的属性筛选器中。
 
 需要注意的要点：
 
@@ -24,8 +24,9 @@ ms.locfileid: "84199679"
 * 持续时间的单位为微秒，因此 10000000 == 1 秒。
 * 日期和时间采用 UTC，以 ISO 格式 `yyyy-MM-DDThh:mm:ss.sssZ` 表示
 
-
 ## <a name="example"></a>示例
+
+```json
     // A server report about an HTTP request
     {
     "request": [
@@ -104,6 +105,7 @@ ms.locfileid: "84199679"
       }
     }
   }
+```
 
 ## <a name="context"></a>上下文
 所有类型的遥测随附上下文部分。 并非所有字段都连同每个数据点传输。
@@ -145,7 +147,7 @@ ms.locfileid: "84199679"
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
-| context.user.authAcquisitionDate |string |[经过身份验证的用户](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authAcquisitionDate |string |[经过身份验证的用户](./api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |string | |
@@ -153,23 +155,23 @@ ms.locfileid: "84199679"
 | internal.data.id |string | 将项引入到 Application Insights 时分配的 `Unique id` |
 
 ## <a name="events"></a>事件
-[TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 生成的自定义事件。
+[TrackEvent()](./api-custom-events-metrics.md#trackevent) 生成的自定义事件。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
-| event [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
+| event [0] count |integer |100/([采样](./sampling.md)率)。 例如 4 =&gt; 25%。 |
 | event [0] name |string |事件名称。  最大长度为 250。 |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>异常
-报告服务器和浏览器中发生的[异常](../../azure-monitor/app/asp-net-exceptions.md)。
+报告服务器和浏览器中发生的[异常](./asp-net-exceptions.md)。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
+| basicException [0] count |integer |100/([采样](./sampling.md)率)。 例如 4 =&gt; 25%。 |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -193,7 +195,7 @@ ms.locfileid: "84199679"
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>跟踪消息
-由 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 和[日志记录适配器](../../azure-monitor/app/asp-net-trace-logs.md)发送。
+由 [TrackTrace](./api-custom-events-metrics.md#tracktrace) 和[日志记录适配器](./asp-net-trace-logs.md)发送。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
@@ -203,14 +205,14 @@ ms.locfileid: "84199679"
 | message [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>远程依赖项
-由 TrackDependency 发送。 用于报告服务器中[依赖项调用](../../azure-monitor/app/asp-net-dependencies.md)以及浏览器中 AJAX 调用的性能和用法。
+由 TrackDependency 发送。 用于报告服务器中[依赖项调用](./asp-net-dependencies.md)以及浏览器中 AJAX 调用的性能和用法。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |例如“home/index” |
-| remoteDependency [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
+| remoteDependency [0] count |integer |100/([采样](./sampling.md)率)。 例如 4 =&gt; 25%。 |
 | remoteDependency [0] dependencyTypeName |string |HTTP、SQL... |
 | remoteDependency [0] durationMetric.value |number |从依赖项调用到完成响应花费的时间 |
 | remoteDependency [0] `id` |string | |
@@ -224,11 +226,11 @@ ms.locfileid: "84199679"
 | remoteDependency [0] urlData.host |string |最大长度为 200 |
 
 ## <a name="requests"></a>请求
-由 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 发送。 标准模块使用此属性报告在服务器上测量的服务器响应时间。
+由 [TrackRequest](./api-custom-events-metrics.md#trackrequest) 发送。 标准模块使用此属性报告在服务器上测量的服务器响应时间。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
-| request [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如：4 =&gt; 25%. |
+| request [0] count |integer |100/([采样](./sampling.md)率)。 例如：4 =&gt; 25%. |
 | request [0] durationMetric.value |number |从请求到响应花费的时间。 1e7 == 1s |
 | 请求 {0} `id` |string |`Operation id` |
 | request [0] name |string |GET/POST + URL 基。  最大长度为 250 |
@@ -259,11 +261,11 @@ ms.locfileid: "84199679"
 | clientPerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>页面视图
-由 trackPageView() 或 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views) 发送
+由 trackPageView() 或 [stopTrackPage](./api-custom-events-metrics.md#page-views) 发送
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
-| view [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
+| view [0] count |integer |100/([采样](./sampling.md)率)。 例如 4 =&gt; 25%。 |
 | view [0] durationMetric.value |integer |在 trackPageView() 中设置的，或者由 startTrackPage() - stopTrackPage() 设置的可选值。 与 clientPerformance 值不同。 |
 | view [0] name |string |页面标题。  最大长度为 250 |
 | view [0] url |string | |
@@ -272,13 +274,13 @@ ms.locfileid: "84199679"
 | view [0] urlData.host |string | |
 
 ## <a name="availability"></a>可用性
-报告[可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)。
+报告[可用性 Web 测试](./monitor-web-app-availability.md)。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |number |1.0 或 0.0 |
-| availability [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
+| availability [0] count |integer |100/([采样](./sampling.md)率)。 例如 4 =&gt; 25%。 |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
@@ -297,42 +299,48 @@ ms.locfileid: "84199679"
 
 例如：
 
-    {
-     "metric": [ ],
-     "context": {
-     ...
-     "custom": {
-        "dimensions": [
-          { "ProcessId": "4068" }
-        ],
-        "metrics": [
-          {
-            "dispatchRate": {
-              "value": 0.001295,
-              "count": 1.0,
-              "min": 0.001295,
-              "max": 0.001295,
-              "stdDev": 0.0,
-              "sampledValue": 0.001295,
-              "sum": 0.001295
-            }
+```json
+{
+  "metric": [ ],
+  "context": {
+  ...
+    "custom": {
+      "dimensions": [
+        { "ProcessId": "4068" }
+      ],
+      "metrics": [
+        {
+          "dispatchRate": {
+            "value": 0.001295,
+            "count": 1.0,
+            "min": 0.001295,
+            "max": 0.001295,
+            "stdDev": 0.0,
+            "sampledValue": 0.001295,
+            "sum": 0.001295
           }
-         } ] }
+        }
+      ]  
     }
+  }
+}
+```
 
 ## <a name="about-metric-values"></a>关于指标值
 指标报告和其他位置中的指标值是使用标准对象结构报告的。 例如：
 
-      "durationMetric": {
-        "name": "contoso.org",
-        "type": "Aggregation",
-        "value": 468.71603053650279,
-        "count": 1.0,
-        "min": 468.71603053650279,
-        "max": 468.71603053650279,
-        "stdDev": 0.0,
-        "sampledValue": 468.71603053650279
-      }
+```json
+"durationMetric": {
+  "name": "contoso.org",
+  "type": "Aggregation",
+  "value": 468.71603053650279,
+  "count": 1.0,
+  "min": 468.71603053650279,
+  "max": 468.71603053650279,
+  "stdDev": 0.0,
+  "sampledValue": 468.71603053650279
+}
+```
 
 目前（将来可能会变化）在所有通过标准 SDK 模块报告的值中，只有 `count==1` 以及 `name` 和 `value` 字段有用。 这些元素存在差异的唯一情况是你编写自己的 TrackMetric 调用，并在其中设置其他参数。
 
@@ -340,13 +348,14 @@ ms.locfileid: "84199679"
 
 上表中省略了一些极少用到的字段：count、min、max、stdDev 和 sampledValue。
 
-如果需要减少遥测量，可以改用[采样](../../azure-monitor/app/sampling.md)，而不要使用预先聚合的指标。
+如果需要减少遥测量，可以改用[采样](./sampling.md)，而不要使用预先聚合的指标。
 
 ### <a name="durations"></a>持续时间
 除非另有规定，否则持续时间以十分之一微秒表示，因此 10000000.0 表示 1 秒。
 
 ## <a name="see-also"></a>另请参阅
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 * [连续导出](export-telemetry.md)
 * [代码示例](export-telemetry.md#code-samples)
+
 

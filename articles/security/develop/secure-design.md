@@ -1,10 +1,10 @@
 ---
-title: 在 Microsoft Azure 上设计安全的应用程序
+title: 在 Azure 上设计安全的应用程序
 description: 本文讨论了在 Web 应用程序项目的要求和设计阶段需要考虑的最佳做法。
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
-ms.author: v-tawe
-ms.date: 06/11/2019
+ms.author: v-johya
+ms.date: 11/13/2020
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/11/2019
-ms.openlocfilehash: 8b814e2e6f444f8d4b9e1758ce0caf31e6895c81
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 2826e0c91f34153bd1e371edc127202a7b0caab0
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439683"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638113"
 ---
 # <a name="design-secure-applications-on-azure"></a>在 Azure 上设计安全的应用程序
 本文介绍了在为云设计应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 的要求和设计阶段需要考虑的培训资源以及安全问题和概念。 目标是帮助你定义可用于设计更安全应用程序的活动和 Azure 服务。
@@ -44,7 +44,9 @@ ms.locfileid: "84439683"
 
   - [在推送到生产环境前要考虑的前 5 个安全事项](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)介绍了如何在 Azure 上帮助保护你的 Web 应用程序，并保护你的应用免受最常见和最危险的 Web 应用程序攻击。
 
+  - [适用于 Azure 的安全 DevOps 工具包](https://azsk.chinacloudsites.cn/index.html)是脚本、工具、扩展和自动化的集合，可满足广泛使用自动化的 DevOps 团队的综合 Azure 订阅和资源安全性需求。 适用于 Azure 的安全 DevOps 工具包可以展示如何将安全性平稳地集成到本机 DevOps 工作流中。 此工具包提供了安全验证测试 (SVT) 等工具，该工具可帮助开发人员在编码和早期开发阶段编写安全代码并测试其云应用程序的安全配置。
 
+  - [Azure 解决方案的安全性最佳做法](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)提供了一组安全性最佳做法，供你在使用 Azure 设计、部署和管理云解决方案时使用。
 
 ## <a name="requirements"></a>要求
 要求定义阶段是一个关键步骤，它定义你的应用程序是什么，以及它发布后可用来做什么。 在需求阶段，还要考虑将在你的应用程序中构建的安全控制措施。 在此阶段，你还将开始执行在整个 SDL 中都将采取的步骤，以确保发布并部署安全的应用程序。
@@ -119,7 +121,7 @@ ms.locfileid: "84439683"
 
 对于开发，请使用安全的编码库和具有内嵌安全性的软件框架。 开发人员可以使用现有的、经过证明的功能（加密、输入清理、输出编码、密钥或连接字符串以及任何其他会被视为安全控制措施的项目），不需从头开发安全控制措施。 这有助于避免与安全相关的设计和实现缺陷。
 
-请确保使用框架及其提供的所有安全功能的最新版本。 Microsoft 为使用任何平台或语言的所有开发人员提供了一套全面的、用于交付云应用程序的开发工具。 你可以从各种 [SDK](https://www.azure.cn/downloads/) 中进行选择，以便使用所选语言进行编码。
+请确保使用框架及其提供的所有安全功能的最新版本。 Microsoft 为使用任何平台或语言的所有开发人员提供了一套全面的、用于交付云应用程序的[开发工具](https://azure.microsoft.com/product-categories/developer-tools/)。 你可以从各种 [SDK](https://www.azure.cn/downloads/) 中进行选择，以便使用所选语言进行编码。
 你可以利用功能齐全的集成开发环境 (IDE) 和具有高级调试功能和内置 Azure 支持的编辑器。
 
 Microsoft 提供了各种[语言、框架和工具](https://docs.azure.cn/?pivot=sdkstools&panel=sdkstools-all&product=featured)，你可以使用它们在 Azure 上开发应用程序。 一个示例是[面向 .NET 和 .NET Core 开发人员的 Azure](https://docs.azure.cn/dotnet/)。 对于我们提供的每种语言和框架，你可以通过快速入门、教程和 API 参考来快速入门。
@@ -206,9 +208,7 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 使用平台提供的身份验证和授权机制，而不要使用自定义代码。 这是因为开发自定义身份验证代码可能容易出错。 商业代码（例如 Microsoft 编写的代码）通常会接受广泛的安全性评审。 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 是用于标识和访问管理的 Azure 解决方案。 这些 Azure AD 工具和服务可帮助进行安全的开发：
 
-- [Azure AD 标识平台（面向开发人员的 Azure AD）](../../active-directory/develop/about-microsoft-identity-platform.md)是一项云标识服务，开发人员使用它来构建将用户安全登录的应用。 Azure AD 可以为需要构建单租户业务线 (LOB) 应用的开发人员和寻求开发多租户应用的开发人员提供帮助。 除了基本登录以外，使用 Azure AD 构建的应用还可以调用 Microsoft API，以及基于 Azure AD 平台构建的自定义 API。 Azure AD 标识平台支持 OAuth 2.0 和 OpenID Connect 之类的行业标准协议。
-
-- [Azure Active Directory B2C (Azure AD B2C)](/active-directory-b2c/) 是一项标识管理服务，可用来自定义和控制客户在使用应用程序时的注册、登录和管理配置文件的方式。 这包括面向 iOS、Android 和 .NET 等系统开发的应用程序。 使用 Azure AD B2C，可以在执行这些操作的同时保护客户标识。
+- [Microsoft 标识平台](/active-directory/develop/)是一套组件，开发人员可使用这些组件来构建可让用户安全登录的应用。 该平台可以为需要构建单租户业务线 (LOB) 应用的开发人员和寻求开发多租户应用的开发人员提供帮助。 使用 Microsoft 标识平台构建的应用不仅可以进行最基本的登录，还可以调用 Microsoft API 和自定义 API。 Microsoft 标识平台支持 OAuth 2.0 和 OpenID Connect 这样的行业标准协议。
 
 #### <a name="apply-the-principle-of-least-privilege"></a>应用最低权限原则
 
@@ -313,3 +313,4 @@ Key Vault 是一个机密存储：一个用于存储应用程序机密的集中�
 
 - [开发安全的应用程序](secure-develop.md)
 - [部署安全的应用程序](secure-deploy.md)
+

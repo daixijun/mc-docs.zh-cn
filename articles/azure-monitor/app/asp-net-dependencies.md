@@ -4,22 +4,23 @@ description: 使用 Application Insights 监视来自本地或 Azure Web 应用�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/25/2019
-ms.date: 07/17/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 7512bc62794ad9589e40d762e35d2ba73aa27b81
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 71500056e2f30f0d05885348eef6d9afb50bd5ff
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244832"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637937"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
-*依赖项*是应用程序调用的外部组件。 它通常是使用 HTTP、数据库或文件系统调用的服务。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以度量依赖项调用的持续时间、调用结果是否失败，以及依赖项名称等附加信息。 可以调查特定的依赖项调用，并将其与请求和异常相关联。
+依赖项是由应用程序调用的组件。 它通常是使用 HTTP、数据库或文件系统调用的服务。 [Application Insights](./app-insights-overview.md) 可以度量依赖项调用的持续时间、调用结果是否失败，以及依赖项名称等附加信息。 可以调查特定的依赖项调用，并将其与请求和异常相关联。
 
 ## <a name="automatically-tracked-dependencies"></a>自动跟踪的依赖项
 
-适用于 .NET 和 .NET Core 的 Application Insights SDK 随附了 `DependencyTrackingTelemetryModule`：一个自动收集依赖项的遥测模块。 根据链接的官方文档进行配置后，将自动为 [ASP.NET](/azure-monitor/app/asp-net) 和 [ASP.NET Core](/azure-monitor/app/asp-net-core) 应用程序启用此依赖项收集功能。`DependencyTrackingTelemetryModule` 作为[此](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet 包附送，使用 NuGet 包 `Microsoft.ApplicationInsights.Web` 或 `Microsoft.ApplicationInsights.AspNetCore` 时会自动打开它。
+适用于 .NET 和 .NET Core 的 Application Insights SDK 随附了 `DependencyTrackingTelemetryModule`：一个自动收集依赖项的遥测模块。 根据链接的官方文档进行配置后，将自动为 [ASP.NET](./asp-net.md) 和 [ASP.NET Core](./asp-net-core.md) 应用程序启用此依赖项收集功能。`DependencyTrackingTelemetryModule` 作为[此](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet 包附送，使用 NuGet 包 `Microsoft.ApplicationInsights.Web` 或 `Microsoft.ApplicationInsights.AspNetCore` 时会自动打开它。
 
  `DependencyTrackingTelemetryModule` 目前会自动跟踪以下依赖项：
 
@@ -33,19 +34,18 @@ ms.locfileid: "87244832"
 |[ServiceBus 客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 和更高版本。 |
 |Azure Cosmos DB | 仅当使用 HTTP/HTTPS 时，才会自动跟踪。 Application Insights 不会捕获 TCP 模式。 |
 
-如果缺少某个依赖项，或使用其他 SDK，请确保它在[自动收集的依赖项](/azure-monitor/app/auto-collect-dependencies)列表中。 如果依赖项不是自动收集的，仍可通过[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
-<!-- Correct in MC: /azure-monitor/app/auto-collect-dependencies, /azure-monitor/app/api-custom-events-metrics#trackdependency -->
+如果缺少某个依赖项，或使用其他 SDK，请确保它在[自动收集的依赖项](./auto-collect-dependencies.md)列表中。 如果依赖项不是自动收集的，仍可通过[跟踪依赖项调用](./api-custom-events-metrics.md#trackdependency)手动跟踪它。
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>在控制台应用中设置自动依赖项跟踪
 
-要从 .NET 控制台应用自动跟踪依赖项，请安装 Nuget 包 `Microsoft.ApplicationInsights.DependencyCollector`，并按如下所示初始化 `DependencyTrackingTelemetryModule`：
+要从 .NET 控制台应用自动跟踪依赖项，请安装 NuGet 包 `Microsoft.ApplicationInsights.DependencyCollector`，并按如下所示初始化 `DependencyTrackingTelemetryModule`：
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-对于 .NET Core 控制台应用，TelemetryConfiguration.Active 已过时。 请参阅[辅助角色服务文档](/azure-monitor/app/worker-service)和 [ASP.NET Core 监视文档](/azure-monitor/app/asp-net-core)中的指南
+对于 .NET Core 控制台应用，TelemetryConfiguration.Active 已过时。 请参阅[辅助角色服务文档](./worker-service.md)和 [ASP.NET Core 监视文档](./asp-net-core.md)中的指南
 
 ### <a name="how-automatic-dependency-monitoring-works"></a>自动依赖项监视的工作原理
 
@@ -104,9 +104,10 @@ services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o)
 | 平台 | 获取完整 SQL 查询所要执行的步骤 |
 | --- | --- |
 | Azure Web 应用 |在 Web 应用控制面板中，[打开“Application Insights”边栏选项卡](../../azure-monitor/app/azure-web-apps.md)并启用“.NET”下的“SQL 命令” |
-| IIS 服务器（Azure VM、本地服务器，等等。） | 使用 [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 包或使用状态监视器 PowerShell 模块[安装检测引擎](../../azure-monitor/app/status-monitor-v2-api-reference.md)并重启 IIS。 |
-| Azure 云服务 | 添加[启动任务以安装 StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> 应通过为 [ASP.NET](/azure-monitor/app/asp-net) 或 [ASP.NET Core](/azure-monitor/app/asp-net-core) 应用程序安装 NuGet 包，在生成应用时将其加入 ApplicationInsights SDK |
+| IIS 服务器（Azure VM、本地服务器，等等。） | 使用 [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 包或使用状态监视器 PowerShell 模块[安装检测引擎](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine)并重启 IIS。 |
+| Azure 云服务 | 添加[启动任务以安装 StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> 应通过为 [ASP.NET](./asp-net.md) 或 [ASP.NET Core](./asp-net-core.md) 应用程序安装 NuGet 包，在生成应用时将其加入 ApplicationInsights SDK |
 | IIS Express | 使用 [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 包。
+| Azure Web 作业 | 使用 [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 包。
 
 除了上述平台特定的步骤之外，还必须通过使用以下命令修改 applicationInsights.config 文件来显式选择启用 SQL 命令集合：
 
@@ -134,7 +135,7 @@ services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o)
 
 打开“性能”选项卡，导航到顶部的操作旁边的“依赖项”选项卡。
 
-单击整个选项卡下面的某个**依赖项名称**。 选择一个依赖项后，右侧会显示该依赖项的持续时间分布图。
+单击整个选项卡下面的某个 **依赖项名称**。 选择一个依赖项后，右侧会显示该依赖项的持续时间分布图。
 
 ![在“性能”选项卡中，单击顶部的“依赖项”选项卡，然后单击图表中的某个依赖项名称](./media/asp-net-dependencies/2-perf-dependencies.png)
 
@@ -158,8 +159,7 @@ services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o)
 
 ## <a name="logs-analytics"></a>日志（分析）
 
-可以跟踪 [Kusto 查询语言](https://docs.microsoft.com/azure/data-explorer/kusto/query/)中的依赖项。 下面是一些示例。
-<!-- Correct in MC: https://docs.microsoft.com/azure/data-explorer/kusto/query/ -->
+可以跟踪 [Kusto 查询语言](/data-explorer/kusto/query/)中的依赖项。 下面是一些示例。
 
 * 查找所有失败的依赖项调用：
 
@@ -202,12 +202,25 @@ services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o)
 
 * 失败依赖项调用的“success”字段设置为 False。 `DependencyTrackingTelemetryModule` 不会报告 `ExceptionTelemetry`。 [此处](data-model-dependency-telemetry.md)介绍了依赖项的完整数据模型。
 
+### <a name="how-do-i-calculate-ingestion-latency-for-my-dependency-telemetry"></a>如何计算依赖项遥测的引入延迟？
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### <a name="how-do-i-determine-the-time-the-dependency-call-was-initiated"></a>如何确定启动依赖项调用的时间？
+
+在 Log Analytics“查询”视图中，`timestamp` 表示启动 TrackDependency() 调用的时刻，该时刻是在收到依赖项调用响应后立即发生的。 若要计算依赖项调用的开始时间，需要获取 `timestamp`，然后减去记录的依赖项调用的 `duration`。
+
 ## <a name="open-source-sdk"></a>开源 SDK
 与每个 Application Insights SDK 一样，依赖项收集模块也是开源的。 请在[官方 GitHub 存储库](https://github.com/Microsoft/ApplicationInsights-dotnet-server)中阅读和贡献代码，或者报告问题。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [异常](../../azure-monitor/app/asp-net-exceptions.md)
-* [用户和页面数据](../../azure-monitor/app/javascript.md)
-* [可用性](../../azure-monitor/app/monitor-web-app-availability.md)
+* [异常](./asp-net-exceptions.md)
+* [用户和页面数据](./javascript.md)
+* [可用性](./monitor-web-app-availability.md)
+
 

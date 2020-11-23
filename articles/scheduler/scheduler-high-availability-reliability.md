@@ -8,13 +8,13 @@ ms.author: v-jay
 ms.reviewer: klam, estfan
 ms.topic: article
 origin.date: 08/16/2016
-ms.date: 03/30/2020
-ms.openlocfilehash: ac8295142f95804c0962fb901922c15574031bbf
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/16/2020
+ms.openlocfilehash: 75685209f8af6139104dfd3fe99b588b90f8d4a4
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80341695"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590676"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure 计划程序的高可用性和可靠性
 
@@ -23,13 +23,15 @@ ms.locfileid: "80341695"
 >
 > 计划程序在 Azure 门户中不再可用，但 [REST API](https://docs.microsoft.com/rest/api/scheduler) 和 [Azure 计划程序 PowerShell cmdlet](scheduler-powershell-reference.md) 目前仍可用，以便你可以管理作业和作业集合。
 
+Azure 计划程序为作业提供了高可用性和可靠性。 有关详细信息，请参阅 [SLA 计划程序](https://www.azure.cn/support/sla/scheduler/index.html)。
+
 ## <a name="high-availability"></a>高可用性
 
 Azure 计划程序[高度可用]，并使用地域冗余服务部署和地理区域作业复制。
 
 ### <a name="geo-redundant-service-deployment"></a>异地冗余的服务部署
 
-目前，Azure 计划程序可在 Azure 所支持的几乎每个地理区域中使用。 因此，如果托管区域中的 Azure 数据中心变得不可用，仍可以使用 Azure 计划程序，因为该服务的故障转移功能使计划程序可在另一个数据中心提供。
+Azure 计划程序几乎适用于[目前 Azure 支持的每个地理区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 因此，如果托管区域中的 Azure 数据中心变得不可用，仍可以使用 Azure 计划程序，因为该服务的故障转移功能使计划程序可在另一个数据中心提供。
 
 ### <a name="geo-regional-job-replication"></a>地理区域作业复制
 

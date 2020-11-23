@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 特权访问
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/13/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: dee0dee8fd9c7abaecc7cd43f0d2daefc747d12c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 51d53bd80336e0dc6a498cf6deac08035175c7dc
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128759"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637791"
 ---
 # <a name="security-control-v2-privileged-access"></a>安全控制 V2：特权访问
 
@@ -34,11 +34,13 @@ ms.locfileid: "92128759"
 
 你可使用Azure AD Privileged Identity Management (PIM) 提供对 Azure 资源和 Azure AD 的实时 (JIT) 特权访问权限。 JIT 仅在用户需要执行特权任务时授予临时权限。 当 Azure AD 组织中存在可疑或不安全的活动时，PIM 还会生成安全警报。
 
-- [Azure AD 中的管理角色权限](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD 中的管理角色权限](../../active-directory/roles/permissions-reference.md)
 
 - [使用 Azure Privileged Identity Management 安全警报](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-**责任** ：客户
+- [确保 Azure AD 中混合部署和云部署的特权访问安全性](../../active-directory/roles/security-planning.md)
+
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -66,7 +68,7 @@ ms.locfileid: "92128759"
 
 - [访问管理组](../../governance/management-groups/overview.md#management-group-access)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -91,7 +93,7 @@ ms.locfileid: "92128759"
 
 - [如何使用 Azure AD 标识和访问评审](../../active-directory/governance/access-reviews-overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -110,9 +112,9 @@ ms.locfileid: "92128759"
 为了防止意外退出 Azure AD 组织，请设置一个紧急访问帐户，以便在正常管理帐户无法使用时进行访问。 紧急访问帐户通常拥有较高的权限，因此请不要将其分配给特定的个人。 紧急访问帐户只能用于“不受限”紧急情况，即不能使用正常管理帐户的情况。
 应确保妥善保管紧急访问帐户的凭据（例如密码、证书或智能卡），仅将其告诉只能在紧急情况下有权使用它们的个人。
 
-- [在 Azure AD 中管理紧急访问帐户](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [在 Azure AD 中管理紧急访问帐户](../../active-directory/roles/security-emergency-access.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -133,7 +135,9 @@ ms.locfileid: "92128759"
 使用 Azure AD 的权利管理功能可自动执行访问请求工作流，包括访问权限分配、审查和过期。 还支持两阶段或多阶段审批。
 - [什么是 Azure AD 访问评审](../../active-directory/governance/access-reviews-overview.md) 
 
-**责任** ：客户
+- [什么是 Azure AD 权利管理](../../active-directory/governance/entitlement-management-overview.md)
+
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -151,7 +155,7 @@ ms.locfileid: "92128759"
 
 受保护的独立工作站对于机密角色（如管理员、开发人员和关键服务操作员）的安全性至关重要。 使用高度安全的用户工作站和/或 Azure Bastion 执行管理任务。 使用 Azure Active Directory、Microsoft Defender 高级威胁防护 (ATP) 和/或 Microsoft Intune 部署安全的托管用户工作站，用于执行管理任务。 可集中管理安全工作站，强制实施安全配置，包括强身份验证、软件和硬件基线，以及受限制的逻辑和网络访问。 
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -176,7 +180,7 @@ ms.locfileid: "92128759"
 
 - [如何使用 Azure AD 标识和访问评审](../../active-directory/governance/access-reviews-overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -188,7 +192,7 @@ ms.locfileid: "92128759"
 
 - [标识和密钥管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

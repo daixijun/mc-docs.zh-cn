@@ -5,16 +5,16 @@ author: kgremban
 ms.author: v-tawe
 ms.reviewer: arduppal
 origin.date: 12/13/2019
-ms.date: 08/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 06c2424d67bd4898b3109d1804d339886ec32aae
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 60b801881f3cde67edfbb6a91480cf66aa6b4f10
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957769"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595158"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>使用 IoT Edge 上的 Azure Blob 存储在边缘中存储数据
 
@@ -91,7 +91,7 @@ Azure 中的标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)�
 | 属性 | 可能的值 | 说明 |
 | ----- | ----- | ---- |
 | deleteOn | true、false | 默认设置为 `false`。 若要启用此功能，请将此字段设置为 `true`。 <br><br> 环境变量：`deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | 以分钟为单位指定时间。 达到此值时，模块会自动删除本地存储中的 Blob。 <br><br> 环境变量：`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | 以分钟为单位指定时间。 达到此值时，模块会自动删除本地存储中的 Blob。 当前允许的最大分钟数为 35791。 <br><br> 环境变量：`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true、false | 默认情况下，它设置为 `true`。在 deleteAfterMinutes 分钟过后，它会保留上传到云存储的 Blob。 可以将它设置为 `false`。在 deleteAfterMinutes 分钟过后，它会删除数据。 注意：要使此属性生效，应将 uploadOn 设置为 true。  <br><br> **警告**：如果使用的是追加 Blob，则此设置将在值过期时从本地存储中删除追加 Blob，并且以后对这些块执行的任何追加块操作都将失败。 你可能需要确保到期值足够大，以满足应用程序执行追加操作的预期频率。<br><br> 环境变量：`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>使用 SMB 共享作为本地存储
@@ -159,7 +159,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="configure-log-files"></a>配置日志文件
 
-若要了解如何为模块配置日志文件，请参阅这些[生产最佳做法](https://docs.azure.cn/iot-edge/production-checklist#set-up-logs-and-diagnostics)。
+若要了解如何为模块配置日志文件，请参阅这些[生产最佳做法](./production-checklist.md#set-up-logs-and-diagnostics)。
 
 ## <a name="connect-to-your-blob-storage-module"></a>连接到 blob 存储模块
 
@@ -194,7 +194,7 @@ Azure Blob 存储文档包括多种语言的快速入门示例代码。 可以�
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>通过 Azure 存储资源管理器连接到本地存储
 
-可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)连接到本地存储帐户。
+可以使用 [Azure 存储资源管理器](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2)连接到本地存储帐户。
 
 1. 下载并安装 Azure 存储资源管理器
 

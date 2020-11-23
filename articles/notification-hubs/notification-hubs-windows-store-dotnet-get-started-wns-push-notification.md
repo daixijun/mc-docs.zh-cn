@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: 'mvc, ms.custom: devx-track-csharp'
 origin.date: 12/05/2019
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: e8dfe7f84b819bbcaab4bf035afcb8d94f58409d
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 97068149818b0bf0729384a4d8b643bab36863a9
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317563"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590538"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知
 
@@ -67,7 +67,7 @@ ms.locfileid: "89317563"
 3. 展开“产品管理”，然后依次选择“WNS/MPNS”、“Live 服务站点”。 登录 Microsoft 帐户。 应用程序注册页会在新选项卡中打开。也可直接导航到[我的应用程序](https://apps.dev.microsoft.com)页，然后选择应用程序名称以访问该页。
 
     ![WNS MPNS 页](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. 记下“应用程序机密”密码和“包安全标识符(SID)”。
+4. 记下“应用程序机密”密码，还请记下 Windows 应用商店部分下的包安全标识符 (SID) 和应用程序标识  。
 
     >[!WARNING]
     >应用程序机密和程序包 SID 是重要的安全凭据。 请勿将这些值告知任何人或随应用程序分发它们。
@@ -96,10 +96,10 @@ ms.locfileid: "89317563"
 
        ![“新建项目”对话框](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 
-    3. 在“配置新项目”对话框中输入**项目名称**，并指定项目文件的**位置**。
+    3. 在“配置新项目”对话框中输入 **项目名称**，并指定项目文件的 **位置**。
     4. 选择“创建”  。
 
-3. 接受**目标**和**最低**平台版本的默认值，然后选择“确定”。
+3. 接受 **目标** 和 **最低** 平台版本的默认值，然后选择“确定”。
 4. 在“解决方案资源管理器”中，右键单击 Windows Store 应用项目，选择“发布”，然后选择“将应用与 Store 相关联”。 此时会显示“将应用与 Windows 应用商店关联”向导。
 5. 在向导中，使用 Microsoft 帐户登录。
 6. 选择在第 2 步中注册的应用，选择“下一步”，然后选择“关联”   。 这会将所需的 Windows 应用商店注册信息添加到应用程序清单中。
@@ -150,7 +150,9 @@ ms.locfileid: "89317563"
 
     此操作保证每次启动应用程序时都在通知中心注册通道 URI。
 
-12. 若要运行应用，请按键盘的 **F5** 键。 此时会显示包含注册密钥的对话框。 若要关闭对话框，请单击“确定”。
+12. 右键单击 `Package.appxmanifest`，然后选择“查看代码”(F7)。 找到 `<Identity .../>`，并将值替换为[之前](#create-an-app-in-windows-store)创建的 WNS 中的应用程序标识。
+
+13. 若要运行应用，请按键盘的 **F5** 键。 此时会显示包含注册密钥的对话框。 若要关闭对话框，请单击“确定”。
 
     ![注册成功](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
@@ -172,7 +174,7 @@ ms.locfileid: "89317563"
 3. 请在窗口底部的“结果”列表中查看“发送”操作的结果。 此外还会看到一条警报消息。
 
     ![“发送”操作的结果](./media/notification-hubs-windows-store-dotnet-get-started/result-of-send.png)
-4. 会看到通知消息：桌面上的**测试消息**。
+4. 会看到通知消息：桌面上的 **测试消息**。
 
     ![通知消息](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 

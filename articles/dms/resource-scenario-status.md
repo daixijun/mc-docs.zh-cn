@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 07/08/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: ba716a4c41068da57e4048630f6bff91e29b6a9a
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.date: 11/16/2020
+ms.openlocfilehash: 4de7eab8b60517b13db037178a7dc44857b3be65
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045808"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590627"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure 数据库迁移服务支持的迁移方案的状态
 
@@ -30,7 +30,7 @@ Azure 数据库迁移服务旨在支持脱机（一次性）和联机（连续�
 
 ## <a name="migration-scenario-status"></a>迁移方案状态
 
-Azure 数据库迁移服务支持的迁移方案的状态随时间而变化。 一般而言，方案首先在**个人预览版**中发布。 参与个人预览需要客户通过 [DMS 预览站点](https://aka.ms/dms-preview)提交提名。 个人预览完成后，方案状态将更改为**公共预览版**。 Azure 数据库迁移服务用户可以直接从用户界面试用公共预览版的迁移方案。 不需要注册。  但是，公共预览版的迁移方案不一定在所有区域中都可用，并且可能会在最终版本发布之前进行其他更改。 经过公共预览后，方案状态将更改为**正式版**。 正式版 (GA) 是最终发布状态，其功能是完整的且可供所有用户访问。
+Azure 数据库迁移服务支持的迁移方案的状态随时间而变化。 一般而言，方案首先在 **个人预览版** 中发布。 参与个人预览需要客户通过 [DMS 预览站点](https://aka.ms/dms-preview)提交提名。 个人预览完成后，方案状态将更改为 **公共预览版**。 Azure 数据库迁移服务用户可以直接从用户界面试用公共预览版的迁移方案。 不需要注册。  但是，公共预览版的迁移方案不一定在所有区域中都可用，并且可能会在最终版本发布之前进行其他更改。 经过公共预览后，方案状态将更改为 **正式版**。 正式版 (GA) 是最终发布状态，其功能是完整的且可供所有用户访问。
 
 ## <a name="migration-scenario-support"></a>迁移方案支持
 
@@ -77,11 +77,9 @@ Azure 数据库迁移服务支持的迁移方案的状态随时间而变化。 �
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL（单一服务器）** | PostgreSQL | ✔ | GA |
-|   | Azure DB for PostgreSQL（单一服务器*） | ✔ | GA |
+|   | Azure DB for PostgreSQL - 单一服务器 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | 公共预览版 |
-
-*支持 PostgreSQL 版本 10 和更高版本。
 
 ## <a name="next-steps"></a>后续步骤
 

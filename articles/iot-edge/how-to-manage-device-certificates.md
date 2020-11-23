@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/02/2020
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbc8887344068954fae6a87f0871bd7cab14e92e
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 2d6ecb3313ccb91eef734805c322bb552efdbadb
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564209"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595171"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>管理 IoT Edge 设备上的证书
 
@@ -34,10 +34,13 @@ ms.locfileid: "91564209"
 
 ### <a name="prerequisites"></a>先决条件
 
-* [Windows](how-to-install-iot-edge-windows.md) 或 [Linux](how-to-install-iot-edge-linux.md) 上运行的 IoT Edge 设备。
+* IoT Edge 设备。
+
+  如果未设置 IoT Edge 设备，可在 Azure 虚拟机中创建一个。 按照[创建虚拟 Linux 设备](quickstart-linux.md)或[创建虚拟 Windows 设备](quickstart.md)快速入门文章（其中一篇）中的步骤进行操作。
+
 * 有一个根证书颁发机构 (CA) 证书，该证书是自签名证书，或者从 Baltimore、Verisign、DigiCert 或 GlobalSign 等可信商业证书颁发机构购买的证书。
 
-如果你没有根证书颁发机构，但想要试用需要生产证书的 IoT Edge 功能（例如网关方案），可以[创建演示证书来测试 IoT Edge 设备功能](how-to-create-test-certificates.md)。
+  如果你没有根证书颁发机构，但想要试用需要生产证书的 IoT Edge 功能（例如网关方案），可以[创建演示证书来测试 IoT Edge 设备功能](how-to-create-test-certificates.md)。
 
 ### <a name="create-production-certificates"></a>创建生产证书
 
@@ -66,7 +69,7 @@ ms.locfileid: "91564209"
 
 1. 将三个证书和密钥文件复制到 IoT Edge 设备。
 
-   可以使用 [Azure Key Vault](https://docs.azure.cn/key-vault) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。  如果在 IoT Edge 设备本身上生成了证书，则可以跳过此步骤，并使用工作目录的路径。
+   可以使用 [Azure Key Vault](../key-vault/index.yml) 之类的服务或[安全复制协议](https://www.ssh.com/ssh/scp/)之类的功能来移动证书文件。  如果在 IoT Edge 设备本身上生成了证书，则可以跳过此步骤，并使用工作目录的路径。
 
 1. 打开 IoT Edge 安全守护程序配置文件。
 

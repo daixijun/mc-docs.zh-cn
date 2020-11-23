@@ -4,15 +4,16 @@ description: Application Insights 遥测关联
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/07/2019
-ms.date: 08/18/2020
-ms.reviewer: sergkanz
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: ada1da9dea201bb09f95d6e680151613426b5626
-ms.sourcegitcommit: 06113a16e9d68fa9c47676d5454ac9a26f4518b8
+ms.reviewer: sergkanz
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 9f604bcb67a6f9c9eb7ff87f953b069f1f2ba4fc
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513438"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638208"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -55,7 +56,7 @@ Application Insights 定义了用于分配遥测关联的[数据模型](../../az
 
 在对外部服务发出 `GET /api/stock/value` 调用时，需要知道该服务器的标识，以便对 `dependency.target` 字段进行相应的设置。 如果外部服务不支持监视，则会将 `target` 设置为服务的主机名（例如 `stock-prices-api.com`）。 但是，如果该服务通过返回预定义的 HTTP 标头来标识自身，则 `target` 会包含服务标识，使 Application Insights 能够通过查询该服务中的遥测数据来生成分布式跟踪。
 
-## <a name="correlation-headers"></a>关联标头
+## <a name="correlation-headers-using-w3c-tracecontext"></a>使用 W3C TraceContext 的关联标头
 
 Application Insights 正在过渡到 [W3C Trace-Context](https://w3c.github.io/trace-context/)，该协议定义：
 
@@ -71,62 +72,20 @@ Application Insights 正在过渡到 [W3C Trace-Context](https://w3c.github.io/t
 
 Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)。 它使用 `Request-Context` 名称值对来传播直接调用方或被调用方使用的属性集合。 Application Insights SDK 使用此标头设置 `dependency.target` 和 `request.source` 字段。
 
-### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>启用对经典 ASP.NET 应用的 W3C 分布式跟踪支持
- 
-  > [!NOTE]
-  >  从 `Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 开始，不再需要进行配置。
+[W3C Trace-Context](https://w3c.github.io/trace-context/) 和 Application Insights 数据模型按以下方式映射：
 
-W3C Trace-Context 支持以后向兼容的方式实现。 关联预期可与使用旧版 SDK（不提供 W3C 支持）进行检测的应用程序配合使用。
+| Application Insights                   | W3C TraceContext                                      |
+|------------------------------------    |-------------------------------------------------|
+| `Request` 和 `Dependency` 的 `Id`     | [parent-id](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | 此范围的父范围的 [parent-id](https://w3c.github.io/trace-context/#parent-id)。 如果这是根范围，此字段必须为空。     |
 
-如果需要保持使用旧式 `Request-Id` 协议，可通过以下配置禁用 Trace-Context：
 
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
+有关详细信息，请参阅 [Application Insights 遥测数据模型](../../azure-monitor/app/data-model.md)。
 
-如果运行旧版 SDK，我们建议更新它，或应用以下配置来启用 Trace-Context。
-从版本 2.8.0-beta1 开始，`Microsoft.ApplicationInsights.Web` 和 `Microsoft.ApplicationInsights.DependencyCollector` 包中会提供此功能。
-此项默认禁用。 若要启用它，请对 `ApplicationInsights.config` 进行以下更改：
+### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>启用对 .NET 应用的 W3C 分布式跟踪支持
 
-- 在 `RequestTrackingTelemetryModule` 下，添加 `EnableW3CHeadersExtraction` 元素并将其值设置为 `true`。
-- 在 `DependencyTrackingTelemetryModule` 下，添加 `EnableW3CHeadersInjection` 元素并将其值设置为 `true`。
-- 在 `TelemetryInitializers` 下添加 `W3COperationCorrelationTelemetryInitializer`。 设置如以下示例所示：
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>启用对 ASP.NET Core 应用的 W3C 分布式跟踪支持
-
- > [!NOTE]
-  > 从 `Microsoft.ApplicationInsights.AspNetCore` 版本 2.8.0 开始，不再需要进行配置。
- 
-W3C Trace-Context 支持以后向兼容的方式实现。 关联预期可与使用旧版 SDK（不提供 W3C 支持）进行检测的应用程序配合使用。
-
-如果需要保持使用旧式 `Request-Id` 协议，可通过以下配置禁用 Trace-Context：
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-如果运行旧版 SDK，我们建议更新它，或应用以下配置来启用 Trace-Context。
-
-此功能在 `Microsoft.ApplicationInsights.AspNetCore` 的版本 2.5.0-beta1 以及 `Microsoft.ApplicationInsights.DependencyCollector` 的版本 2.8.0-beta1 中提供。
-此项默认禁用。 若要启用该项，请将 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` 设置为 `true`：
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+在所有最新的 .NET Framework/.NET Core SDK 中默认启用基于 W3C TraceContext 的分布式跟踪，并提供与旧 Request-Id 协议的后向兼容性。
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>启用对 Java 应用的 W3C 分布式跟踪支持
 
@@ -175,60 +134,27 @@ public void ConfigureServices(IServiceCollection services)
 
 此功能在 `Microsoft.ApplicationInsights.JavaScript` 中。 此项默认禁用。 若要启用它，请使用 `distributedTracingMode` 配置。提供 AI_AND_W3C 是为了与 Application Insights 检测的任何旧式服务向后兼容：
 
-- **npm 设置（如果使用代码片段设置，则忽略）**
+- **[基于 npm 的设置](./javascript.md#npm-based-setup)**
 
-  ```javascript
-  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
-
-  const appInsights = new ApplicationInsights({ config: {
-    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-    endpointUrl: "TelemetryChannel_Endpoint_Address",
+添加以下配置：
+  ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...other configuration options... */
-  } });
-  appInsights.loadAppInsights();
   ```
   
-- **代码片段设置（如果使用 npm 设置，则忽略）**
+- **[基于代码片段的设置](./javascript.md#snippet-based-setup)**
 
+添加以下配置：
   ```
-  <script type="text/javascript">
-  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-  (
-    {
-      instrumentationKey:"INSTRUMENTATION_KEY",
-      endpointUrl: "TelemetryChannel_Endpoint_Address",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...other configuration options... */
-    }
-  );
-  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-  </script>
   ```
-
-> [!NOTE]
-> 你可以将 TelemetryChannel_Endpoint_Address 的占位符值替换为此[文档](/azure-monitor/app/custom-endpoints?tabs=js)中的 Azure 中国区域的实际终结点地址。
-<!--Customized in MC-->
-
-## <a name="opentracing-and-application-insights"></a>OpenTracing 和 Application Insights
-
-[OpenTracing 数据模型规范](https://opentracing.io/)和 Application Insights 数据模型按以下方式映射：
-
-| Application Insights                   | OpenTracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | 带 `span.kind = server` 的 `Span`                    |
-| `Dependency`                           | 带 `span.kind = client` 的 `Span`                    |
-| `Request` 和 `Dependency` 的 `Id`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `ChildOf` 类型的 `Reference`（父级范围）     |
-
-有关详细信息，请参阅 [Application Insights 遥测数据模型](../../azure-monitor/app/data-model.md)。
-
-有关 OpenTracing 概念的定义，请参阅 OpenTracing [规范](https://github.com/opentracing/specification/blob/master/specification.md)和 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)。
+> [!IMPORTANT] 
+> 若要查看启用关联所需的所有配置，请参阅 [JavaScript 关联文档](/azure-monitor/app/javascript#enable-correlation)。
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python 中的遥测关联
 
-OpenCensus Python 遵循上述 `OpenTracing` 数据模型规范。 它也支持 [W3C Trace-Context](https://w3c.github.io/trace-context/)，无需任何配置。
+OpenCensus Python 支持 [W3C Trace-Context](https://w3c.github.io/trace-context/)，无需额外配置。
+
+作为参考，可在[此处](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace)找到 OpenCensus 数据模型。
 
 ### <a name="incoming-request-correlation"></a>传入请求关联
 
@@ -308,33 +234,18 @@ logger.warning('After the span')
 ```
 请注意，范围中的日志消息有一个对应的 `spanId`。 它与属于名为 `hello` 的范围的 `spanId` 相同。
 
-可以使用 `AzureLogHandler` 导出日志数据。 有关详细信息，请参阅[此文章](/azure-monitor/app/opencensus-python#logs)。
+可以使用 `AzureLogHandler` 导出日志数据。 有关详细信息，请参阅[此文章](./opencensus-python.md#logs)。
 
 ## <a name="telemetry-correlation-in-net"></a>.NET 中的遥测关联
 
-.NET 至今已定义了多种方式来关联遥测和诊断日志：
+.NET 运行时支持借助 [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) 和 [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 进行分发
 
-- `System.Diagnostics.CorrelationManager` 允许跟踪 [LogicalOperationStack 和 ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)。
-- `System.Diagnostics.Tracing.EventSource` 和 Windows 事件跟踪 (ETW) 定义了 [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) 方法。
-- `ILogger` 使用[日志范围](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes)。
-- Windows Communication Foundation (WCF) 和 HTTP 将“当前”上下文传播关联到一起。
-
-但是，这些方法并未实现自动分布式跟踪支持。 `DiagnosticSource` 支持自动跨计算机关联。 .NET 库支持 `DiagnosticSource`，并允许通过 HTTP 等传输方法自动跨计算机传播关联上下文。
-
-`DiagnosticSource` 中的[活动用户指南](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)解释了跟踪活动的基础知识。
-
-ASP.NET Core 2.0 支持提取 HTTP 标头和启动新的活动。
-
-从版本 4.1.0 开始，`System.Net.Http.HttpClient` 支持自动注入关联 HTTP 标头和以活动形式跟踪 HTTP 调用。
-
-经典 ASP.NET 有一个新的 HTTP 模块 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)。 此模块使用 `DiagnosticSource` 实现遥测关联。 它会基于传入的请求标头启动活动。 它还会关联不同请求处理阶段的遥测，即使 Internet Information Services (IIS) 处理的每个阶段在不同的托管线程上运行。
-
-从版本 2.4.0-beta1 开始，Application Insights SDK 使用 `DiagnosticSource` 和 `Activity` 收集遥测数据并将其与当前活动相关联。
+Application Insights .NET SDK 使用 `DiagnosticSource` 和 `Activity` 收集和关联遥测数据。
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Java 中的遥测关联
 
-[Java 代理](/azure-monitor/app/java-in-process-agent)以及 [Java SDK](../../azure-monitor/app/java-get-started.md) 2.0.0 或更高版本支持自动关联遥测。 对于所有在请求范围内发出的遥测（例如跟踪、异常、自定义事件），它会自动填充 `operation_id`。 对于通过 HTTP 进行的服务到服务调用，它还会传播关联标头（如前所述），前提是 [Java SDK 代理](../../azure-monitor/app/java-agent.md)已配置。
+[Java 代理](./java-in-process-agent.md)以及 [Java SDK](../../azure-monitor/app/java-get-started.md) 2.0.0 或更高版本支持自动关联遥测。 对于所有在请求范围内发出的遥测（例如跟踪、异常、自定义事件），它会自动填充 `operation_id`。 对于通过 HTTP 进行的服务到服务调用，它还会传播关联标头（如前所述），前提是 [Java SDK 代理](../../azure-monitor/app/java-agent.md)已配置。
 
 > [!NOTE]
 > Application Insights Java 代理自动收集 JMS、Kafka、Netty/Webflux 等的请求和依赖项。 对于 Java SDK，关联功能仅支持通过 Apache HttpClient 进行的调用。 该 SDK 不支持跨消息传送技术（例如，Kafka、RabbitMQ 和 Azure 服务总线）自动进行上下文传播。 
@@ -380,9 +291,9 @@ ASP.NET Core 2.0 支持提取 HTTP 标头和启动新的活动。
 
 - 编写[自定义遥测](../../azure-monitor/app/api-custom-events-metrics.md)。
 - 对于 ASP.NET Core 和 ASP.NET 中的高级关联方案，请参阅[跟踪自定义操作](custom-operations-tracking.md)。
-- 详细了解如何为其他 SDK [设置 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name)。
-- 在 Application Insights 中载入微服务的所有组件。 查看[支持的平台](../../azure-monitor/app/platforms.md)。
-- 有关 Application Insights 的类型，请参阅[数据模型](../../azure-monitor/app/data-model.md)。
-- 了解如何[扩展和筛选遥测](../../azure-monitor/app/api-filtering-sampling.md)。
+- 详细了解如何为其他 SDK [设置 cloud_RoleName](./app-map.md#set-or-override-cloud-role-name)。
+- 在 Application Insights 中载入微服务的所有组件。 查看[支持的平台](./platforms.md)。
+- 有关 Application Insights 的类型，请参阅[数据模型](./data-model.md)。
+- 了解如何[扩展和筛选遥测](./api-filtering-sampling.md)。
 - 参阅 [Application Insights 配置参考](configuration-with-applicationinsights-config.md)。
 

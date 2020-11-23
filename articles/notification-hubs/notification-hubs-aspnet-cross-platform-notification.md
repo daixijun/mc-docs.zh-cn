@@ -5,25 +5,24 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-origin.date: 09/30/2019
-ms.date: 09/02/2020
+origin.date: 09/14/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 916131d5d400f2fcd0e5dcc206c5dff40eb7cafb
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 4cd76a5990148946de92e5c2f79c91e4008412eb
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316471"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590930"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>使用 Azure 通知中心发送跨平台通知
 
@@ -39,7 +38,7 @@ ms.locfileid: "89316471"
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>使用模板发送跨平台通知
 
-本部分使用了你在[使用 Azure 通知中心向特定用户发送通知]教程中构建的示例代码。 可以从 [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers) 下载该示例。
+本部分使用了你在[使用 Azure 通知中心向特定用户发送通知]教程中构建的示例代码。 可以[从 GitHub 下载完整示例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)。
 
 若要使用模板发送跨平台通知，请执行以下步骤：
 

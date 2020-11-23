@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 05/26/2020
 ms.date: 10/22/2020
 ms.author: v-johya
-ms.openlocfilehash: de8ecaa70c92e0dc344f1428831ebbb822ad2e4e
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: dcc50ef62eef23bba1ebed451a3326c3736caf66
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472007"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637911"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>如何使用翻译器防止翻译内容
 
@@ -50,14 +50,15 @@ ms.locfileid: "92472007"
    ```html
    <div translate="no">This will not be translated.</div>
    <div>This will be translated. </div>
+   ```
 
-3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+3. 使用[动态词典](dynamic-dictionary.md)给出特定翻译。
 
-4. Don't pass the string to the Translator for translation.
+4. 不要将字符串传递到翻译器进行翻译。
 
 
-## Next steps
+## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
-> [Use the Translate operation to translate text](reference/v3-0-translate.md)
+> [使用“翻译”操作来转换文本](reference/v3-0-translate.md)
 
 <!-- Update_Description: update metedata properties -->

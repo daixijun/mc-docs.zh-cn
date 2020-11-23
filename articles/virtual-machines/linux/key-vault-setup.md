@@ -1,20 +1,20 @@
 ---
-title: 为 Linux VM 设置 Azure Key Vault
-description: 如何使用 Azure CLI 设置用于 Azure 资源管理器虚拟机的 Key Vault。
+title: 使用 CLI 设置 Azure Key Vault
+description: 如何使用 Azure CLI 为虚拟机设置 Key Vault。
 author: Johnnytechn
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b3ed18a02721a5385b9b1f61752a72cf707c0b28
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 30cd45d667fc28c457a7ae5da634b0209d9d3f4b
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057625"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637846"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>如何使用 Azure CLI 为虚拟机设置 Key Vault
 
@@ -55,6 +55,7 @@ az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForD
 }
 ```
 
+<!--Correct in MC: https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/-->
 ## <a name="next-steps"></a>后续步骤
 有关使用模板创建 Key Vault 时可以配置的其他选项，请参阅[创建密钥保管库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/)。
 

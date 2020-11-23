@@ -3,17 +3,18 @@ title: Azure 服务总线端到端跟踪和诊断 | Azure
 description: 服务总线客户端诊断和端到端跟踪概述（涉及处理的所有服务均经由的客户端）。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 50c3e227785021582c9f5497c11fc7788b8992e8
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2bcb5bc1bc0abd0e2bd414207245cf2f6b483052
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162125"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590878"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -32,8 +33,8 @@ ms.locfileid: "87162125"
 
 ## <a name="service-bus-net-client-autotracing"></a>服务总线 .NET 客户端自动跟踪
 
-从版本 3.0.0 开始，[适用于 .NET 的 Microsoft Azure 服务总线客户端](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient?view=azure-dotnet)提供可由跟踪系统或客户端代码片段挂接的跟踪检测点。
-使用检测可以从客户端跟踪对服务总线消息传递服务发出的所有调用。 如果消息处理是通过[消息处理程序模式](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler?view=azure-dotnet)完成的，则还会检测消息处理
+从版本 3.0.0 开始，[适用于 .NET 的 Microsoft Azure 服务总线客户端](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient)提供可由跟踪系统或客户端代码片段挂接的跟踪检测点。
+使用检测可以从客户端跟踪对服务总线消息传递服务发出的所有调用。 如果消息处理是通过[消息处理程序模式](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)完成的，则还会检测消息处理
 
 ### <a name="tracking-with-azure-application-insights"></a>使用 Azure Application Insights 进行跟踪
 
@@ -44,7 +45,7 @@ ms.locfileid: "87162125"
 - [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - 安装版本 2.2.0-beta2 或更高版本。
 这些链接提供了有关安装 SDK、创建资源和配置 SDK（如果需要）的详细信息。 针对非 ASP.NET 应用程序，请参阅[适用于控制台应用程序的 Azure Application Insights](../azure-monitor/app/console.md) 一文。
 
-如果使用[消息处理程序模式](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler?view=azure-dotnet)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 否则，请参考以下示例手动进行消息处理跟踪。
+如果使用[消息处理程序模式](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 否则，请参考以下示例手动进行消息处理跟踪。
 
 #### <a name="trace-message-processing"></a>跟踪消息处理
 
@@ -82,7 +83,7 @@ async Task ProcessAsync(Message message)
 
 如果除了 Application Insights SDK 之外，还运行了任何外部代码，则在查看 Application Insights 日志时，会看到更长的持续时间。 
 
-![Application Insights 日志中更长的持续时间](./media/service-bus-end-to-end-tracing/longer-duration.png)
+:::image type="content" source="./media/service-bus-end-to-end-tracing/longer-duration.png" alt-text="Application Insights 日志中更长的持续时间":::
 
 这并不意味着接收消息时存在延迟。 在这种情况下，消息已经被接收，因为消息以参数的形式传递给 SDK 代码。 而且，App Insights 日志（进程）中的“名称”标记指示消息正在由外部事件处理代码处理 。 此问题与 Azure 无关。 相反，这些指标指示的是外部代码的效率，前提是已从服务总线接收到消息。 请参阅 [GitHub 上的此文件](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs)，了解从服务总线接收到消息后，生成和分配“进程”标记的位置。 
 
@@ -156,26 +157,26 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 | 操作名称 | 跟踪的 API | 特定的有效负载属性|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync?view=azure-dotnet) | `IList<Message> Messages` - 正在发送的消息的列表 |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync?view=azure-dotnet) | `Message Message` - 正在处理的消息<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - 计划消息偏移<br/>`long SequenceNumber` - 计划消息的序号（“Stop”事件负载） |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync?view=azure-dotnet) | `long SequenceNumber` - 要取消的消息序号 | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync?view=azure-dotnet) | `int RequestedMessageCount` - 可接收的消息数上限。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync?view=azure-dotnet) | `int FromSequenceNumber` - 浏览消息批的起点。<br/>`int RequestedMessageCount` - 要检索的消息数目。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync?view=azure-dotnet) | `IEnumerable<long> SequenceNumbers` - 包含要接收的序号的列表。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync?view=azure-dotnet) | `IList<string> LockTokens` - 包含要完成的相应消息的锁定标记的列表。|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync?view=azure-dotnet) | `string LockToken` - 要丢弃的相应消息的锁定标记。 |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync?view=azure-dotnet) | `string LockToken` - 要延迟的相应消息的锁定标记。 | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync?view=azure-dotnet) | `string LockToken` - 要加入死信队列的相应消息的锁定标记。 | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync?view=azure-dotnet) | `string LockToken` - 要续订锁定的相应消息的锁定标记。<br/>`DateTime LockedUntilUtc` - 以 UTC 格式显示的新锁定标记过期日期和时间。 （“Stop”事件有效负载）|
-| Microsoft.Azure.ServiceBus.Process | 在 [IReceiverClient.RegisterMessageHandler](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler?view=azure-dotnet) 中提供的消息处理程序 Lambda 函数 | `Message Message` - 正在处理的消息。 |
-| Microsoft.Azure.ServiceBus.ProcessSession | 在 [IQueueClient.RegisterSessionHandler](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler?view=azure-dotnet) 中提供的消息会话处理程序 lambda 函数 | `Message Message` - 正在处理的消息。<br/>`IMessageSession Session` - 正在处理的会话 |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync?view=azure-dotnet) | `RuleDescription Rule` - 提供要添加的规则的规则说明。 |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync?view=azure-dotnet) | `string RuleName` - 要删除的规则的名称。 |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync?view=azure-dotnet) | `IEnumerable<RuleDescription> Rules` - 与订阅关联的所有规则。 （仅限“Stop”有效负载） |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync?view=azure-dotnet) | `string SessionId` - 消息中显示的 sessionId。 |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync?view=azure-dotnet) | `string SessionId` - 消息中显示的 sessionId。<br/>`byte [] State` - 会话状态（“Stop”事件负载） |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync?view=azure-dotnet) | `string SessionId` - 消息中显示的 sessionId。<br/>`byte [] State` - 会话状态 |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync?view=azure-dotnet) | `string SessionId` - 消息中显示的 sessionId。 |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` - 正在发送的消息的列表 |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` - 正在处理的消息<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - 计划消息偏移<br/>`long SequenceNumber` - 计划消息的序号（“Stop”事件负载） |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` - 要取消的消息序号 | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` - 可接收的消息数上限。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` - 浏览消息批的起点。<br/>`int RequestedMessageCount` - 要检索的消息数目。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` - 包含要接收的序号的列表。<br/>`IList<Message> Messages` - 已接收的消息列表（“Stop”事件负载） |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` - 包含要完成的相应消息的锁定标记的列表。|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` - 要丢弃的相应消息的锁定标记。 |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` - 要延迟的相应消息的锁定标记。 | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` - 要加入死信队列的相应消息的锁定标记。 | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` - 要续订锁定的相应消息的锁定标记。<br/>`DateTime LockedUntilUtc` - 以 UTC 格式显示的新锁定标记过期日期和时间。 （“Stop”事件有效负载）|
+| Microsoft.Azure.ServiceBus.Process | 在 [IReceiverClient.RegisterMessageHandler](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) 中提供的消息处理程序 Lambda 函数 | `Message Message` - 正在处理的消息。 |
+| Microsoft.Azure.ServiceBus.ProcessSession | 在 [IQueueClient.RegisterSessionHandler](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) 中提供的消息会话处理程序 lambda 函数 | `Message Message` - 正在处理的消息。<br/>`IMessageSession Session` - 正在处理的会话 |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` - 提供要添加的规则的规则说明。 |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` - 要删除的规则的名称。 |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` - 与订阅关联的所有规则。 （仅限“Stop”有效负载） |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` - 消息中显示的 sessionId。 |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` - 消息中显示的 sessionId。<br/>`byte [] State` - 会话状态（“Stop”事件负载） |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` - 消息中显示的 sessionId。<br/>`byte [] State` - 会话状态 |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` - 消息中显示的 sessionId。 |
 | Microsoft.Azure.ServiceBus.Exception | 任何已检测的 API| `Exception Exception` - 异常实例 |
 
 在每个事件中，可以访问保存当前操作上下文的 `Activity.Current`。

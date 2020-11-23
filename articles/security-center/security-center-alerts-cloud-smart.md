@@ -3,7 +3,7 @@ title: Azure 安全中心事件 - 警报的智能关联
 description: 本主题介绍 Fusion 如何使用云智能警报关联在 Azure 安全中心中生成安全事件。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: e9d5a771-bfbe-458c-9a9b-a10ece895ec1
 ms.service: security-center
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2020
-ms.author: v-tawe
+ms.date: 11/12/2020
+ms.author: v-johya
 origin.date: 07/02/2019
-ms.openlocfilehash: 946e1716dd9c5df750a3e683b0cb5995ac2f5f2b
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 82b9bfe750cd3d83b7335b8639296b3eeba1c3c8
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422918"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637995"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure 安全中心中的云智能警报关联（事件）
 
@@ -37,7 +37,12 @@ Fusion 分析将安全域知识与 AI 相结合，用于分析警报，发现新
 
 在调查事件期间，分析员经常需要额外的上下文，以便得出有关威胁的性质以及如何缓解威胁的裁定。 例如，即使检测到网络异常，但不了解网络上发生的其他情况或者目标资源相关情况，很难知道接下来要采取什么操作。 为了提供帮助，安全事件可以包括工件、相关事件和信息。 可用于安全事件的其他信息因检测到的威胁类型和环境配置而异。 
 
-![检测到的安全事件报告的屏幕截图](./media/security-center-alerts-cloud-smart/security-incident.png)
+> [!TIP]
+> 有关可通过合成分析生成的安全事件警报的列表，请参阅[警报的引用表](alerts-reference.md#alerts-fusion)。
 
-若要更好地了解安全事件，请参阅[如何处理 Azure 安全中心中的安全事件](https://docs.azure.cn/security-center/security-center-incident)。
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="检测到的安全事件报告的屏幕截图":::
+
+
+若要更好地了解安全事件，请参阅[如何管理 Azure 安全中心中的安全事件](security-center-incident.md)。
+
 

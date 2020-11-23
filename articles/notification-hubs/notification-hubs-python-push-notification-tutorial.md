@@ -13,17 +13,17 @@ ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 09/02/2020
+ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2ab7c495ceea2ea1079ed7fd7117463553db9301
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 1b388b911b6a9bf1c08c625465677681b6b188d9
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317482"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590893"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何通过 Python 使用通知中心
 
@@ -410,7 +410,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![控制台的屏幕截图，其中 HTTP 请求、服务总线通知格式、服务总线通知标记和 XWNS 类型值的详细信息以红色框标出。][4]
+![控制台的屏幕截图，其中 HTTP 请求、服务总线通知格式、多个服务总线通知标记和 XWNS 类型值的详细信息以红色框标出。][4]
 
 ### <a name="templated-notification"></a>模板通知
 

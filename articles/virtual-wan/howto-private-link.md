@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-new
-ms.openlocfilehash: 00dbe2d9c4ea2bad0f613721c76a01b1a1ef43d6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5270d60a76463af789a87399a9331ec3266aa9ab
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103747"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590835"
 ---
 <!--Verified Successfully-->
 # <a name="use-private-link-in-virtual-wan"></a>在虚拟 WAN 中使用专用链接
@@ -48,11 +48,11 @@ Azure 专用链接技术可用于通过公开专用终结点，使用专用 IP �
 
 创建 Azure SQL 数据库之后，可以通过浏览专用终结点来验证专用终结点 IP 地址：
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="专用终结点" lightbox="./media/howto-private-link/endpoints.png":::
 
 单击已创建的专用终结点，应该会看到其专用 IP 地址以及完全限定的域名 (FQDN)。 请注意，专用终结点的 IP 地址在部署它的 VNet 范围 (10.1.3.0/24) 内：
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL 终结点" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 <a name="connectivity"></a>
 ## <a name="verify-connectivity-from-the-same-vnet"></a>验证来自同一 VNet 的连接
@@ -72,7 +72,7 @@ Address: 10.1.3.228
 
 如前面的输出中所示，FQDN `wantest.database.chinacloudapi.cn` 映射到了 `wantest.privatelink.database.chinacloudapi.cn`，随专用终结点一起创建的专用 DNS 区域将解析为专用 IP 地址 `10.1.3.228`。 可通过查看专用 DNS 区域来确认已将专用终结点的 A 记录映射到了专用 IP 地址：
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS 区域" lightbox="./media/howto-private-link/dns-zone.png":::
 
 验证正确的 DNS 解析后，可以尝试连接到数据库：
 
@@ -83,7 +83,7 @@ $ sqlcmd -S wantest.database.chinacloudapi.cn -U $username -P $password -Q "$que
 10.1.3.75
 ```
 
-如你所见，我们使用的是一个特殊的 SQL 查询，该查询提供了 SQL 服务器从客户端看到的源 IP 地址。 在这种情况下，服务器会看到客户端及其专用 IP (`10.1.3.75`)，这意味着流量不会流经公共 Internet，而是直接进入专用终结点。
+如你所见，我们使用的是一个特殊的 SQL 查询，该查询提供了 SQL 服务器从客户端看到的源 IP 地址。 在这种情况下，服务器会看到具有其专用 IP (`10.1.3.75`) 的客户端，这意味着流量从 VNet 直接流入专用终结点。
 
 请注意，要使本指南中的示例生效，需要将变量 `username` 和 `password` 设置为与在 Azure SQL 数据库中定义的凭据匹配的值。
 
@@ -99,7 +99,7 @@ $ sqlcmd -S wantest.database.chinacloudapi.cn -U $username -P $password -Q "$que
 
 在此示例中，我们将从另一个 VNet 连接，因此，首先我们将专用 DNS 区域附加到该新的 VNet，以便其工作负载能够将 Azure SQL 数据库完全限定的域名解析为专用 IP 地址。 此操作通过将专用 DNS 区域链接到新的 VNet 来完成：
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="DNS 链接" lightbox="./media/howto-private-link/dns-link.png":::
 
 现在，附加 VNet 中的任何虚拟机都应将 Azure SQL 数据库 FQDN 正确解析为专用链接的专用 IP 地址：
 
@@ -116,7 +116,7 @@ Address: 10.1.3.228
 
 为了再次检查此 VNet (10.1.1.0/24) 是否已连接到配置了专用终结点的原始 VNet (10.1.3.0/24)，可以验证 VNet 中任何虚拟机中的有效路由表：
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="有效路由" lightbox="./media/howto-private-link/effective-routes.png":::
 
 如你所见，有一个路由指向由 Azure 虚拟 WAN 中的虚拟网络网关注入的 VNet 10.1.3.0/24。 现在，我们终于可以测试与数据库的连接了：
 

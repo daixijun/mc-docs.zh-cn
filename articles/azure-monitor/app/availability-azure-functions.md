@@ -4,17 +4,17 @@ description: 本文档将介绍如何使用 TrackAvailability() 创建一个 Azu
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
-ms.openlocfilehash: 92d1109eb5c5e351498cd1beb81af6942a335f45
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 11/10/2020
+ms.openlocfilehash: e853c8118b66275aa364cf2d95ef227e18ada5bc
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199860"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637876"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>使用 Azure Functions 创建和运行自定义可用性测试
 
-本文将介绍如何使用 TrackAvailability() 创建一个 Azure 函数，该函数会根据 TimerTrigger 函数中给定的配置和你自己的业务逻辑定期运行。 此测试的结果将发送到 Application Insights 资源，你可以在其中查询可用性结果数据并对其发出警报。 这样，你就可以创建自定义测试，类似于通过门户的[可用性监视](../../azure-monitor/app/monitor-web-app-availability.md)执行的测试。 使用自定义测试，你可以编写比使用门户 UI 更为复杂的可用性测试、监视 Azure VNET 内部的应用、更改终结点地址或创建可用性测试（即使该功能在你所在的区域中不可用）。
+本文将介绍如何使用 TrackAvailability() 创建一个 Azure 函数，该函数会根据 TimerTrigger 函数中给定的配置和你自己的业务逻辑定期运行。 此测试的结果将发送到 Application Insights 资源，你可以在其中查询可用性结果数据并对其发出警报。 这样，你就可以创建自定义测试，类似于通过门户的[可用性监视](./monitor-web-app-availability.md)执行的测试。 使用自定义测试，你可以编写比使用门户 UI 更为复杂的可用性测试、监视 Azure VNET 内部的应用、更改终结点地址或创建可用性测试（即使该功能在你所在的区域中不可用）。
 
 > [!NOTE]
 > 此示例只是为了向你展示TrackAvailability() API 调用在 Azure 函数中的工作机制， 而不是为了演示如何编写基础 HTTP 测试代码/业务逻辑，后者是将其转变为功能完全正常的可用性测试所需的。 默认情况下，如果你逐步完成此示例，你将创建一个始终会产生故障的可用性测试。
@@ -23,7 +23,7 @@ ms.locfileid: "84199860"
 
 - 如果有 Application Insights 资源：
     - 默认情况下，Azure Functions 会创建 Application Insights 资源，但如果你想要使用已创建的资源之一，则需在创建过程中指定。
-    - 使用以下选项，按照有关如何[创建 Azure Functions 资源和计时器触发的函数](/azure-functions/functions-create-scheduled-function)的说明进行操作（在清理前停止）。
+    - 使用以下选项，按照有关如何[创建 Azure Functions 资源和计时器触发的函数](../../azure-functions/functions-create-scheduled-function.md)的说明进行操作（在清理前停止）。
         -  选择顶部附近的“监视”选项卡。
 
             ![ 使用自己的 App Insights 资源创建 Azure Functions 应用](./media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ ms.locfileid: "84199860"
         - 选择“查看 + 创建”
 - 如果尚未为计时器触发的函数创建 Application Insights 资源：
     - 默认情况下，在创建 Azure Functions 应用程序时，它将为你创建一个 Application Insights 资源。
-    - 按照有关如何[创建 Azure Functions 资源和计时器触发的函数](/azure-functions/functions-create-scheduled-function)的说明进行操作（在清理前停止）。
+    - 按照有关如何[创建 Azure Functions 资源和计时器触发的函数](../../azure-functions/functions-create-scheduled-function.md)的说明进行操作（在清理前停止）。
 
 ## <a name="sample-code"></a>代码示例
 
@@ -135,7 +135,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -177,16 +177,17 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="query-in-logs-analytics"></a>在“日志(分析)”中查询
 
-可以使用“日志(分析)”查看可用性结果、依赖关系等。 若要详细了解“日志”，请访问[日志查询概述](../../azure-monitor/log-query/log-query-overview.md)。
+可以使用“日志(分析)”查看可用性结果、依赖关系等。 若要详细了解“日志”，请访问[日志查询概述](../log-query/log-query-overview.md)。
 
 >[!div class="mx-imgBorder"]
 >![可用性结果](./media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![依赖项](./media/availability-azure-functions/dependencies.png)
+>![屏幕截图显示了“新建查询”选项卡，其依赖项数量限制为 50。](./media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [应用程序映射](../../azure-monitor/app/app-map.md)
-- [事务诊断](../../azure-monitor/app/transaction-diagnostics.md)
+- [应用程序映射](./app-map.md)
+- [事务诊断](./transaction-diagnostics.md)
+
 

@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.subservice: disks
-ms.openlocfilehash: 114ba4ab9d54f0b712aab7b8923b8d3d544a4be1
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 42704a0f77482c33fd130095c6e3d6a0b17a2d62
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057548"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638191"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过你也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
@@ -51,7 +51,38 @@ ms.locfileid: "90057548"
 ## <a name="linux-swap-partition"></a>Linux 交换分区
 如果 Azure VM 来自 Ubuntu 或 CoreOS 映像，则可以使用 CustomData 将 cloud-config 发送到 cloud-init。 如果已[上传使用 cloud-init 的自定义 Linux](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)映像，则还可以使用 cloud-init 配置交换分区。
 
-在 Ubuntu 云映像上，必须使用 cloud-init 配置交换分区。 有关详细信息，请参阅 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
+不能将 /etc/waagent.conf 文件用于管理 cloud-init 所提供和支持的所有映像的交换。 若要获取映的完整列表，请参阅[使用 cloud-init](using-cloud-init.md)。 
+
+若要管理这些映像的交换，最简单的方法是完成以下步骤：
+
+1. 在 /var/lib/cloud/scripts/per-boot 文件夹中，创建名为 create_swapfile.sh 的文件 ：
+
+   **$ sudo touch /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. 将以下行添加到该文件中：
+
+   **$ sudo vi /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > 可以根据资源磁盘中的可用空间按需更改该值，这取决于所使用的 VM 大小。
+
+1. 使文件可执行：
+
+   **$ sudo chmod +x /var/lib/cloud/scripts/per-boot/create_swapfile.sh**
+
+1. 若要创建交换文件，请在完成最后一步之后立即执行脚本：
+
+   **$ sudo /var/lib/cloud/scripts/per-boot/./create_swapfile.sh**
 
 对于不带 cloud-init 支持的映像，从 Azure 市场部署的 VM 映像具有与 OS 集成的 VM Linux 代理。 此代理使 VM 可以与各种 Azure 服务进行交互。 假设已从 Azure 市场部署标准映像，则需执行以下操作来正确配置 Linux 交换文件设置：
 
@@ -76,7 +107,7 @@ Swap:       524284          0     524284
 随着 2.6.18 Linux 内核的推出，默认 I/O 调度算法已从 Deadline 更改为 CFQ（完全公平的队列算法）。 对于随机访问 I/O 模式，CFQ 与 Deadline 之间的性能差异可忽略不计。  对于磁盘 I/O 模式以循序为主的基于 SSD 的磁盘，切换回到 NOOP 或 Deadline 算法可以实现更好的 I/O 性能。
 
 ### <a name="view-the-current-io-scheduler"></a>查看当前的 I/O 调度器
-使用以下命令：  
+请使用以下命令：  
 
 ```bash
 cat /sys/block/sda/queue/scheduler

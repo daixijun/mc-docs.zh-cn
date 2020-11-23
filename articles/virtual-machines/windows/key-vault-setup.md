@@ -1,6 +1,6 @@
 ---
-title: 设置密钥保管库
-description: 如何设置与虚拟机搭配使用的密钥保管库。
+title: 使用 PowerShell 设置 Key Vault
+description: 如何使用 PowerShell 设置用于虚拟机的 Key Vault。
 manager: vashan
 ms.service: virtual-machines
 ms.subservice: security
@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 01/24/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 91d13419e48da4a3446a74ba63703cd4129aebfb
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0c7ae1ae8bafae1d619b1685380e555f86b06b34
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104505"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590638"
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中为虚拟机设置密钥保管库
+# <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为虚拟机设置 Key Vault
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 

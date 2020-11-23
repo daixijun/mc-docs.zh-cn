@@ -4,14 +4,14 @@ description: 将诊断和使用情况数据导出到 Azure 中的存储，然后
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 07/25/2019
-ms.date: 07/17/2020
+ms.date: 11/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 26e6056f2e73d81b23da91536bf7fdf374e37bc0
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: edcaa7f2913632324a19f2e9b522a5181ecbe6c5
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244647"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638048"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
@@ -25,20 +25,20 @@ ms.locfileid: "87244647"
 
 * 通过“指标”或“搜索”选项卡顶部的“导出”按钮，可将表格和图表发送到 Excel 电子表格。
 
-* [Analytics](../../azure-monitor/log-query/log-query-overview.md) 提供功能强大的遥测查询语言。 它还可以导出结果。
-* 如果想要[在 Power BI 中浏览数据](../../azure-monitor/app/export-power-bi.md )，无需使用连续导出也可以做到。
+* [Analytics](../log-query/log-query-overview.md) 提供功能强大的遥测查询语言。 它还可以导出结果。
+* 如果想要[在 Power BI 中浏览数据](./export-power-bi.md)，无需使用连续导出也可以做到。
 * 使用[数据访问 REST API](https://dev.applicationinsights.io/) 能够以编程方式访问遥测数据。
 * 也可以访问“[通过 Powershell 连续导出](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)”设置。
 
-连续导出将数据复制到存储后（数据可在其中保存任意长的时间），在正常[保留期](../../azure-monitor/app/data-retention-privacy.md)内，这些数据仍可在 Application Insights 中使用。
+连续导出将数据复制到存储后（数据可在其中保存任意长的时间），在正常[保留期](./data-retention-privacy.md)内，这些数据仍可在 Application Insights 中使用。
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>连续导出高级存储配置
 
 连续导出不支持以下 Azure 存储功能/配置：
 
-* 将 [VNET/Azure 存储防火墙](/storage/common/storage-network-security)与 Azure Blob 存储一起使用。
+* 将 [VNET/Azure 存储防火墙](../../storage/common/storage-network-security.md)与 Azure Blob 存储一起使用。
 
-* [Azure Data Lake Storage Gen2](/storage/blobs/data-lake-storage-introduction)。
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)。
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> 创建连续导出
 
@@ -64,13 +64,13 @@ ms.locfileid: "87244647"
 
 |名称 | 说明 |
 |:----|:------|
-| [可用性](export-data-model.md#availability) | 报告[可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)。  |
-| [事件](export-data-model.md#events) | [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 生成的自定义事件。 
-| [异常](export-data-model.md#exceptions) |报告服务器和浏览器中发生的[异常](../../azure-monitor/app/asp-net-exceptions.md)。
-| [消息](export-data-model.md#trace-messages) | 由 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 和[日志记录适配器](../../azure-monitor/app/asp-net-trace-logs.md)发送。
+| [可用性](export-data-model.md#availability) | 报告[可用性 Web 测试](./monitor-web-app-availability.md)。  |
+| [事件](export-data-model.md#events) | [TrackEvent()](./api-custom-events-metrics.md#trackevent) 生成的自定义事件。 
+| [异常](export-data-model.md#exceptions) |报告服务器和浏览器中发生的[异常](./asp-net-exceptions.md)。
+| [消息](export-data-model.md#trace-messages) | 由 [TrackTrace](./api-custom-events-metrics.md#tracktrace) 和[日志记录适配器](./asp-net-trace-logs.md)发送。
 | [指标](export-data-model.md#metrics) | 由指标 API 调用生成。
 | [PerformanceCounters](export-data-model.md) | Application Insights 收集到的性能计数器。
-| [请求](export-data-model.md#requests)| 由 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 发送。 标准模块使用此属性报告在服务器上测量的服务器响应时间。| 
+| [请求](export-data-model.md#requests)| 由 [TrackRequest](./api-custom-events-metrics.md#trackrequest) 发送。 标准模块使用此属性报告在服务器上测量的服务器响应时间。| 
 
 ### <a name="to-edit-continuous-export"></a>编辑连续导出
 
@@ -88,14 +88,14 @@ ms.locfileid: "87244647"
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a> 获取哪些事件？
 导出的数据是从应用程序接收的原始遥测数据，只是我们添加了基于客户端 IP 地址计算出的位置数据。
 
-被[采样](../../azure-monitor/app/sampling.md)丢弃的数据不会包含在导出的数据中。
+被[采样](./sampling.md)丢弃的数据不会包含在导出的数据中。
 
 不包含其他计算的指标。 例如，不会导出平均 CPU 使用率，但会导出用来计算平均值的原始遥测数据。
 
-该数据还包含已设置的任何[可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)的结果。
+该数据还包含已设置的任何[可用性 Web 测试](./monitor-web-app-availability.md)的结果。
 
 > [!NOTE]
-> **采样。** 如果应用程序发送大量数据，采样功能可能会运行，并只发送一小部分生成的遥测数据。 [了解有关采样的详细信息。](../../azure-monitor/app/sampling.md)
+> **采样。** 如果应用程序发送大量数据，采样功能可能会运行，并只发送一小部分生成的遥测数据。 [了解有关采样的详细信息。](./sampling.md)
 >
 >
 
@@ -112,7 +112,9 @@ ms.locfileid: "87244647"
 
 路径格式如下：
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 其中
 
@@ -122,37 +124,41 @@ ms.locfileid: "87244647"
 ## <a name="data-format"></a><a name="format"></a> 数据格式
 * 每个 Blob 是一个文本文件，其中包含多个以“\n”分隔的行。 它包含大约半分钟时间内处理的遥测数据。
 * 每行代表遥测数据点，例如请求或页面视图。
-* 每行是未设置格式的 JSON 文档。 如果想要琢磨该文档，请在 Visual Studio 中打开它，并依次选择“编辑”、“高级”、“设置文件格式”：
+* 每行是未设置格式的 JSON 文档。 如果要查看行，请在 Visual Studio 中打开 blob，然后选择“编辑” > “高级” > “设置文件格式”  ：
 
-![使用适当的工具查看遥测数据](./media/export-telemetry/06-json.png)
+   ![使用适当的工具查看遥测数据](./media/export-telemetry/06-json.png)
 
 持续时间以刻度为单位，10000 刻度 = 1 毫秒。 例如，这些值显示从浏览器发送请求用了 1 毫秒时间，接收它用了 3 毫秒，在浏览器中处理页面用了 1.8 秒：
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [属性类型和值的详细数据模型参考。](export-data-model.md)
 
 ## <a name="processing-the-data"></a>处理数据
 如果数据规模不大，可以编写一些代码来提取数据，在电子表格中阅读这些数据，或执行其他操作。 例如：
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 如需更详细的代码示例，请参阅[使用辅助角色][exportasa]。
 
@@ -209,6 +215,7 @@ ms.locfileid: "87244647"
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+
 

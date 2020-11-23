@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/23/2019
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
-ms.openlocfilehash: 98c08211082accf39281520ac070ce8960fd2423
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: f7fa6dcb4a9c077daa20cac851fa954e541a62c0
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402659"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638002"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>使用自适应应用程序控制来减少计算机的攻击面
 
@@ -51,9 +51,9 @@ ms.locfileid: "91402659"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|正式版|
-|定价：|标准层|
-|支持的计算机：|![是](./media/icons/yes-icon.png) 运行 Windows 和 Linux 的 Azure 和非 Azure 计算机<br>![是](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 计算机|
+|发布状态：|正式发布 (GA)|
+|定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
+|支持的计算机：|![是](./media/icons/yes-icon.png) 运行 Windows 和 Linux 的 Azure 和非 Azure 计算机|
 |所需角色和权限：|“安全读者”和“读者”角色可以查看组和已知安全应用程序列表 <br>“参与者”和“安全管理员”角色可以查看组和已知安全应用程序的列表 |
 |云：|![是](./media/icons/yes-icon.png) 中国云|
 |||
@@ -66,7 +66,9 @@ ms.locfileid: "91402659"
 
 选择建议，或打开自适应应用程序控制页面，查看建议的已知安全应用程序列表和计算机组。
 
-1. 从安全中心的菜单中选择“自适应应用程序控制”。
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“自适应应用程序控制”。
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="从 Azure 仪表板打开自适应应用程序控制" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     “自适应应用程序控制”页随即打开，你的 VM 会分组到以下多个选项卡中：
 
@@ -87,7 +89,7 @@ ms.locfileid: "91402659"
       - 这是一台 Windows 计算机，具有通过 GPO 或本地安全策略启用的预先存在的 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 策略
 
       > [!TIP]
-      > 安全中心至少需要两周的数据才能定义每个计算机组的唯一推荐。 “无推荐”选项卡下将显示最近创建的计算机或属于仅最近启用了标准层的订阅的计算机。
+      > 安全中心至少需要两周的数据才能定义每个计算机组的唯一推荐。 “无推荐”选项卡下将显示最近创建的计算机或属于仅最近启用了 Azure Defender 的订阅的计算机。
 
 
 1. 打开“推荐”选项卡。此时将显示带有推荐允许列表的计算机组。
@@ -122,7 +124,7 @@ ms.locfileid: "91402659"
 
 编辑计算机组的规则：
 
-1. 从安全中心的菜单中选择“自适应应用程序控制”。
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“自适应应用程序控制”。
 
 1. 从“已配置”选项卡中，选择包含要编辑的规则的组。
 
@@ -149,6 +151,23 @@ ms.locfileid: "91402659"
 1. 选择“保存”，应用所做的更改。
 
 
+## <a name="review-and-edit-a-groups-settings"></a>查看和编辑组设置
+
+1. 若要查看组详细信息和设置，请选择“组设置”
+
+    此窗格显示组名称（可修改）、OS 类型、位置和其他相关详细信息。
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="自适应应用程序控制的“组设置”页" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > 文件类型保护模式设置中的“强制”选项在所有方案中灰显 。 此时无强制选项可用。 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="文件保护的强制模式将永久灰显。无强制选项可用。":::
+
+1. （可选）修改组名称或文件类型保护模式。
+
+1. 选择“应用”和“保存” 。
+
 
 
 ## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>响应“应更新自适应应用程序控制策略中的允许列表规则”建议
@@ -170,7 +189,7 @@ ms.locfileid: "91402659"
 
 ## <a name="audit-alerts-and-violations"></a>审核警报和冲突
 
-1. 从安全中心的菜单中选择“自适应应用程序控制”。
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“自适应应用程序控制”。
 
 1. 要查看最近发出了警报的计算机组，请查看“已配置”选项卡中列出的组。
 
@@ -185,6 +204,8 @@ ms.locfileid: "91402659"
 ## <a name="move-a-machine-from-one-group-to-another"></a>将计算机从一个组移动到另一个组
 
 将计算机从一个组移动到另一个组时，适用于该计算机的应用程序控制策略会更改为移动到的组的设置。 也可将计算机从已配置的组移动到未配置的组，这样做会删除应用于该计算机的所有应用程序控制规则。
+
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“自适应应用程序控制”。
 
 1. 在“自适应应用程序控制”页中，从“已配置”选项卡中选择包含要移动的计算机的组 。
 
@@ -226,5 +247,5 @@ REST API 提供的一些函数：
 本文档介绍了如何在 Azure 安全中心使用自适应应用程序控制来定义 Azure 和非 Azure 计算机中运行的应用程序允许列表。 要详细了解安全中心的一些其他云工作负载保护功能，请参阅：
 
 * [了解实时 (JIT) VM 访问](just-in-time-explained.md)
-* [保护你的 Azure Kubernetes 群集](azure-kubernetes-service-integration.md)
+* [保护你的 Azure Kubernetes 群集](defender-for-kubernetes-introduction.md)
 

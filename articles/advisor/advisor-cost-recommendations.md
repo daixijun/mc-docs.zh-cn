@@ -3,18 +3,18 @@ title: 使用 Azure 顾问降低服务成本
 description: 使用 Azure 顾问优化 Azure 部署的成本。
 ms.topic: article
 origin.date: 01/29/2019
-ms.date: 09/22/2020
+ms.date: 11/13/2020
 ms.author: v-johya
-ms.openlocfilehash: 4430eb7bf6b8a9abc60b9cc1f95ec55fe840fd6f
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: eac53461efc6a0d1b02d87747f285fe5c0ed2d9a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402651"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637778"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>使用 Azure 顾问降低服务成本
 
-通过识别闲置和未充分利用的资源，Azure 顾问可帮助优化和降低 Azure 总支出。 可在顾问仪表板的“成本”选项卡获取成本建议。
+通过识别闲置和未充分利用的资源，Azure 顾问可帮助优化和降低 Azure 总支出。  可在顾问仪表板的“成本”选项卡获取成本建议。
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>通过调整或关闭未充分利用的实例来优化虚拟机花费 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91402651"
 
 建议的操作是关机或重设大小，具体取决于要评估的资源。
 
-顾问中的高级评估模型在满足以下所有条件时考虑关闭虚拟机： 
+在满足以下所有条件时，顾问中的高级评估模型会考虑关闭虚拟机： 
 - CPU 利用率最大值的第 95 个百分位数小于 3%。 
 - 7 天内的网络利用率低于 2%。
 - 内存压力低于阈值
@@ -61,8 +61,8 @@ ms.locfileid: "91402651"
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB 预留容量
 顾问会分析 Azure Cosmos DB 在过去 30 天内的使用模式，并建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 Azure Cosmos DB 使用量，从而节省即用即付成本。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
-### <a name="sql-paas-reserved-capacity"></a>SQL PaaS 预留容量
-顾问会分析 SQL PaaS 弹性数据库池和 SQL 托管实例在过去 30 天内的使用模式， 然后建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 SQL DB 使用量，从而节省 SQL 计算成本。 SQL 许可证单独收费，不会因预留而打折。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>SQL 数据库和 SQL 托管实例预留容量
+顾问会分析 SQL 数据库和 SQL 托管实例在过去 30 天的使用情况。 然后建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 SQL DB 使用量，从而节省 SQL 计算成本。 SQL 许可证单独收费，不会因预留而打折。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。 
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>应用服务印花费预留容量
 顾问会分析 Azure 应用服务隔离环境在过去 30 天内的印花费使用模式，并建议可优化成本的预留容量购买量。 通过使用预留容量，可以为隔离环境印花费预购买按小时计的使用量，从而节省即用即付成本。 请注意，预留容量仅适用于印花费，而不适用于应用服务实例。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内的使用模式计算各订阅的成本节省估算值。

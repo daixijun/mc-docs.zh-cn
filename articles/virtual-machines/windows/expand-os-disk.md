@@ -11,17 +11,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 1992d049284249e3c867528463e52de46f762bc3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f20cd9622263a6b444bab5653fd0bce3d093afe7
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105763"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590825"
 ---
 <!--Verified successfully -->
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
@@ -34,13 +34,42 @@ ms.locfileid: "93105763"
 > [!IMPORTANT]
 > 若要重设 Azure 虚拟机的 OS 磁盘或数据磁盘的大小，需要将虚拟机解除分配。
 >
-> 扩展磁盘后，需要[扩展 OS 中的卷](#expand-the-volume-within-the-os)才能使用更大的磁盘。
+> 不支持收缩现有磁盘，收缩现有磁盘可能导致数据丢失。
 > 
+> 扩展磁盘后，需要[扩展 OS 中的卷](#expand-the-volume-within-the-os)才能使用更大的磁盘。
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>重设 Azure 门户中的托管磁盘的大小
 
-<!--Not Available on Step 4: Configuration-->
-<!--Verfied Failed at Step 5 & Step 6: Unable to resize the disk size-->
+1. 在 [Azure 门户](https://portal.azure.cn)中，转到要在其中扩展磁盘的虚拟机。 选择“停止”以解除分配 VM。
+2. 停止 VM 后，在“设置”下的左侧菜单中，选择“磁盘” 。
+
+    :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="显示在菜单的“设置”部分中选择了“磁盘”选项的屏幕截图。":::
+
+3. 在“磁盘名称”下，选择要调整大小的磁盘。
+
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="显示“磁盘”窗格的屏幕截图，其中选择了一个磁盘名称。":::
+
+4. 在左侧菜单中的“设置”下，选择“大小 + 性能” 。
+
+<!--MOONCAKE CUSTOMIZATION ON In the left menu under **Settings**, select **Size + performance**-->
+
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Configuration option selected in the Settings section of the menu.":::
+
+5. 在“大小 (GiB)”中，选择所需的磁盘大小。
+
+   > [!WARNING]
+   > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2,048 GB。 （可以扩展 VHD Blob，使之超出该大小，但操作系统只能使用空间的头 2,048 GB。）
+   > 
+
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="显示“配置”窗格的屏幕截图，其中选择了磁盘大小。":::
+
+6. 选择“调整大小”。
+
+<!--MOONCAKE CUSTOMIZATION-->
+
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Configuration pane with the Save button selected.":::
+
+## <a name="resize-a-managed-disk-by-using-powershell"></a>使用 PowerShell 重设托管磁盘的大小
 
 在管理模式下打开 PowerShell ISE 或 PowerShell 窗口，执行以下步骤：
 

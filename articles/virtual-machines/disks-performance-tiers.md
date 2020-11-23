@@ -5,18 +5,18 @@ ms.service: virtual-machines
 ms.topic: how-to
 origin.date: 09/24/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0ad2a0d0c07c768e9ea05bee195bdec0236344d1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: afb9b7658b541d4fbc91c32f93bf166a1a1ef3e4
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106712"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590843"
 ---
 <!--Verified Successfully-->
 # <a name="performance-tiers-for-managed-disks-preview"></a>托管磁盘的性能层（预览）
@@ -56,9 +56,9 @@ Azure 磁盘存储目前提供内置突发功能，以提供更高的性能来�
 ## <a name="restrictions"></a>限制
 
 - 目前仅高级 SSD 支持此功能。
-- 必须先从正在运行的 VM 中拆离磁盘，然后才能更改磁盘层级。
+- 必须先对 VM 解除分配或从正在运行的 VM 中拆离磁盘，然后才能更改磁盘层级。
 - P60、P70 和 P80 性能层的使用仅限于 4096 GiB 或更大的磁盘。
-- 磁盘的性能层每 24 小时只能更改一次。
+- 磁盘的性能层每 24 小时只能降级一次。
 
 ## <a name="regional-availability"></a>区域可用性
 
@@ -114,5 +114,4 @@ az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 - [使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘](linux/expand-disks.md)
 - [展开附加到 Windows 虚拟机的托管磁盘](https://ocs.microsoft.com/windows/expand-os-disk)
 
-<!-- Update_Description: new article about disks performance tiers -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

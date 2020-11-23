@@ -7,17 +7,18 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/20/2020
-ms.openlocfilehash: 65049b80f09fd614a88f9b90aed044cdc3ca86db
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 36ad797768fe7881f061b05047f4365852adc09a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148640"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637857"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 常见问题解答
 
-这份 Microsoft 常见问题解答列出了 Azure Monitor 的常见问题。
+本常见问题解答列出了有关 Azure Monitor 的常见问题。 如果有任何其他问题，请转到[论坛](/answers/questions/topics/single/24223.html)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
+
 
 ## <a name="general"></a>常规
 
@@ -79,6 +80,10 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 ### <a name="how-do-i-retrieve-log-data"></a>如何检索日志数据？
 可使用以 Kusto 查询语言 (KQL) 编写的日志查询从 Log Analytics 工作区检索所有数据。 你可编写自己的查询，也可使用包含特定应用程序或服务的日志查询的解决方案和见解。 请参阅 [Azure Monitor 中的日志查询概述](log-query/log-query-overview.md)。
 
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>能否从 Log Analytics 工作区中删除数据？
+系统会根据数据的[保留期](platform/manage-cost-storage.md#change-the-data-retention-period)从工作区中删除数据。 出于隐私或合规性原因，你可以删除特定数据。 有关详细信息，请参阅[如何导出和删除私人数据](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。
+
+
 ### <a name="what-is-a-log-analytics-workspace"></a>什么是 Log Analytics 工作区？
 Azure Monitor 收集的所有日志数据都存储在 Log Analytics 工作区中。 工作区实质上是从各种来源收集日志数据的容器。 可为所有监视数据使用一个 Log Analytics 工作区，也可要求使用多个工作区。 请参阅[设计 Azure Monitor 日志部署](platform/design-logs-deployment.md)。
 
@@ -90,9 +95,9 @@ Azure Monitor 收集的所有日志数据都存储在 Log Analytics 工作区中
 [查询范围](log-query/scope.md)设置为特定资源时，“查询资源管理器”、“保存”和“新建警报规则”按钮不可用  。 若要创建警报并保存或加载查询，Log Analytics 的范围必须设为某个工作区。 若要在工作区上下文中打开 Log Analytics，请选择“Azure Monitor”菜单中的“日志” 。 选择的是上次使用的工作区，但可以选择任何其他的工作区。 请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](log-query/scope.md)
 
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>从 VM 打开 Log Analytics 时，为什么收到“要使此订阅启用此查询，需注册 Microsoft.Insights”错误？ 
-将自动注册多个资源提供程序，但某些资源提供程序可能需要你手动注册。 注册的范围始终是订阅。 有关详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。
+将自动注册多个资源提供程序，但某些资源提供程序可能需要你手动注册。 注册的作用域始终是订阅。 有关详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。
 
-### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>从 VM 打开 Log Analytics 时，为什么收到“无法访问”错误消息？ 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>从 VM 打开 Log Analytics 时，为何出现无访问权限错误消息？ 
 若要查看 VM 日志，需获得存储 VM 日志的工作区的读取权限。 在这些示例中，管理员必须在 Azure 中为你授予相关权限。
 
 ## <a name="metrics"></a>指标
@@ -136,6 +141,9 @@ Azure 诊断扩展适用于 Azure 虚拟机，它将数据收集到 Azure Monito
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>如何确认 Log Analytics 代理能否与 Azure Monitor 通信？
 在代理计算机上的控制面板中，选择“安全性和设置”，然后选择“Microsoft Monitoring Agent” 。 在“Azure Log Analytics (OMS)”选项卡下，绿色勾号图标表示代理能够与 Azure Monitor 进行通信。 黄色警告图标表示代理存在问题。 一个常见的原因是 Microsoft Monitoring Agent 服务已停止。 请使用服务控制管理器重启该服务。
+
+### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>如何停止 Log Analytics 代理与 Azure Monitor 之间的通信？
+对于直接连接到 Log Analytics 的代理，请打开控制面板，然后依次选择“安全性和设置”和“Microsoft Monitoring Agent” 。 在“Azure Log Analytics (OMS)”选项卡下，删除列出的所有工作区。 在 System Center Operations Manager 中，从 Log Analytics 托管的计算机的列表中删除该计算机。 Operations Manager 会更新该代理的配置以便不再向 Log Analytics 进行报告。 
 
 ### <a name="how-much-data-is-sent-per-agent"></a>每个代理发送多少数据？
 每个代理发送的数据量取决于：
@@ -215,6 +223,7 @@ WireData
 * [Azure 上的 Web 应用](app/azure-web-apps.md)
 * [Azure 上的云服务](app/cloudservices.md)
 * [单页 Web 应用](app/javascript.md)
+* [SharePoint](app/sharepoint.md)
 * [Windows 桌面应用](app/windows-desktop.md)
 * [其他平台](app/platforms.md)
 
@@ -310,7 +319,6 @@ WireData
 * 服务器遥测：Application Insights 模块收集客户端 IP 地址。 如果设置了 `X-Forwarded-For`，则不会进行收集。
 * 若要详细了解如何在 Application Insights 中收集 IP 地址和地理位置数据，请参阅[此文](./app/ip-collection.md)。
 
-
 可以配置 `ClientIpHeaderTelemetryInitializer`，从不同的标头获取 IP 地址。 例如，在某些系统中，代理、负载均衡器或 CDN 会将其移动到 `X-Originating-IP`。 [了解详细信息](https://apmtips.com/posts/2016-07-05-client-ip-address/)。
 
 可以[使用 Power BI](app/export-power-bi.md ) 在映射中显示请求遥测。
@@ -328,7 +336,7 @@ WireData
 
 如果代码发送了此类数据，则有可能。 如果堆栈跟踪中的变量包括个人数据，也可能发生这种情况。 开发团队应进行风险评估，确保妥善处理个人数据。 [深入了解数据保留和隐私](app/data-retention-privacy.md)。
 
-**所有**八进制数的客户端 web 地址始终设置为 0，查找异地位置属性。
+**所有** 八进制数的客户端 web 地址始终设置为 0，查找异地位置属性。
 
 ### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>可在网页源中查看检测密钥。 
 
@@ -386,6 +394,26 @@ WireData
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>如何将 Application Insights 资源移动到新区域？
+
+当前不支持将现有 Application Insights 资源从一个区域移动到另一个区域。 你收集的历史数据无法迁移到新区域。 唯一的部分解决方法是：
+
+1. 在新区域中创建全新的 Application Insights 资源（[经典](app/create-new-resource.md)）。
+2. 重新创建特定于新资源中原始资源的所有唯一自定义项。
+3. 修改应用程序以使用新区域资源的[检测密钥](app/create-new-resource.md#copy-the-instrumentation-key)或[连接字符串](app/sdk-connection-string.md)。  
+4. 测试以确认所有内容是否都按预期处理新的 Application Insights 资源。 
+5. 此时，你可以删除原始资源，这会导致所有历史数据丢失。 你也可以保留原始资源，用于在其数据保留设置期间进行历史报告。
+
+通常需要在新区域中为资源手动重新创建或更新的唯一自定义项包括但不限于：
+
+- 重新创建自定义仪表板和工作簿。 
+- 重新创建或更新任何自定义日志/指标警报的范围。 
+- 重新创建可用性警报。
+- 重新创建用户用于访问新资源所需的任何基于角色的访问控制 (RBAC) 自定义设置。 
+- 复制涉及引入采样、数据保留、每日上限和自定义指标启用的设置。 可通过“使用情况和预估成本”窗格控制这些设置。
+- 依赖 API 密钥（如[版本注释](/azure/azure-monitor/app/annotations)、[实时指标安全控制通道](app/live-stream.md#secure-the-control-channel)等）的任何集成。你将需要生成新的 API 密钥并更新关联的集成。 
+- 需要重新配置经典资源中的连续导出。
+- 需要重新配置基于工作区资源中的诊断设置。
 
 ### <a name="automation"></a>自动化
 
@@ -418,7 +446,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>是否可以将遥测数据发送到 Application Insights 门户？
 
-建议使用我们的 SDK 并使用 [SDK API](app/api-custom-events-metrics.md)。 为各种[平台](app/platforms.md)提供了相应的 SDK 变体。 这些 SDK 可处理缓冲、压缩、限制以及重试等。 但是，[引入架构](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema)和[终结点协议](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公共的。
+建议使用我们的 SDK 并使用 [SDK API](app/api-custom-events-metrics.md)。 为各种[平台](app/platforms.md)提供了相应的 SDK 变体。 这些 SDK 可处理缓冲、压缩、限制以及重试等。 但是，[引入架构](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema)和[终结点协议](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md)是公共的。
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>是否可以监视 Intranet Web 服务器？
 
@@ -513,15 +541,13 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 ## <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
 
-本 Microsoft 常见问题解答列出了用于容器的 Azure Monitor 的常见问题。 如果对该解决方案还有其他任何问题，请访问 [support-azure](https://support.azure.cn/zh-cn/support/support-azure/) 并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
-
 ### <a name="health-feature-is-in-private-preview"></a>运行状况功能现为个人预览版
 
 我们计划进行一系列的更改，目的是增添功能并处理你的反馈。 运行状况功能将在 2020 年6 月底转为个人预览版；有关其他信息，请查看下列 [Azure 更新公告](https://azure.microsoft.com/updates/ci-health-limited-preview/)。
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>节点视图下的“其他进程”表示什么？
 
-“其他进程”旨在帮助你清楚地了解节点上资源使用率较高的根本原因。 这样，你就能将容器化流程与非容器化流程的使用量区分开。
+“其他进程”旨在帮助你清楚了解节点上资源使用率较高的根本原因。 这样，你就能将容器化流程与非容器化流程的使用量区分开。
 
 这些其他进程是哪些进程？ 
 
@@ -551,7 +577,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 联接其他表，在结果中包含这些属性值。
 
-联接 ContainerID 属性，将查询修改为包含 ```ContainerInventory``` 表中的 Image 和 ImageTag 属性。 通过联接 ContainerID 属性，可包含 KubepodInventory 表的 ContaineName 字段中的 Name 属性（如同之前在 ```ContainerLog``` 表中显示的一样）。建议使用此选项。
+联接 ContainerID 属性，将查询修改为包含 ```ContainerInventory``` 表中的 Image 和 ImageTag 属性。 通过在 ContainerID 属性上进行联接，可以包含 KubepodInventory 表的 ContaineName 字段中的 Name 属性（与以前在 ```ContainerLog``` 表中显示的相同）。 这是建议选项。
 
 下面是一个详细查询示例，说明了如何使用联接来获取这些字段值。
 
@@ -648,84 +674,12 @@ LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will no
 
 如果在为 AKS 群集启用用于容器的 Azure Monitor 之后，删除了群集向其发送数据的 Log Analytics 工作区，则在尝试升级群集时会失败。 要解决此情况，必须禁用再重新启用监视功能，使其引用订阅中的其他有效工作区。 在你重新尝试升级群集时，应该就会处理并成功完成。  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>需要为代理打开哪些端口和域或将哪些端口和域加入允许名单？
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>需要为代理打开/允许哪些端口和域？
 
 有关 Azure 中国云的容器化代理所需的代理和防火墙配置信息，请参阅[网络防火墙要求](insights/container-insights-onboard.md#network-firewall-requirements)。
 
-## <a name="azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor
-本 Microsoft 常见问题解答列出了用于 VM 的 Azure Monitor 的常见问题。 如果对该解决方案还有其他任何问题，请访问[论坛](https://feedback.azure.com/forums/34192--general-feedback)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
 
-### <a name="can-i-onboard-to-an-existing-workspace"></a>是否可以载入到现有工作区？
-如果虚拟机已连接到 Log Analytics 工作区，则在载入到用于 VM 的 Azure Monitor 时，可以继续使用该工作区，前提是该工作区位于某个受支持区域中。
-
-
-### <a name="can-i-onboard-to-a-new-workspace"></a>是否可以载入到新工作区？ 
-如果 VM 当前未连接到现有的 Log Analytics 工作区，则你需要创建一个新工作区来存储数据。 如果通过 Azure 门户为用于 VM 的 Azure Monitor 配置了单个 Azure VM，则系统会自动创建新的默认工作区。
-
-### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>如果 VM 已开始向现有工作区报告，我该怎么做？
-如果你已开始从虚拟机收集数据，则可能已将虚拟机配置为向现有的 Log Analytics 工作区报告数据。  只要该工作区在某个受支持区域中，就可以在该现有工作区中启用用于 VM 的 Azure Monitor。  目前，如果使用的工作区不在受支持的区域中，则无法加入用于 VM 的 Azure Monitor。  我们将力求支持更多的区域。
-
-
-### <a name="why-did-my-vm-fail-to-onboard"></a>为何我的 VM 无法载入？
-从 Azure 门户载入 Azure VM 时，将执行以下步骤：
-
-* 创建默认的 Log Analytics 工作区（如果已选择该选项）。
-* 使用 VM 扩展在 Azure VM 上安装 Log Analytics 代理（如果确定有必要）。  
-* 使用某个扩展在 Azure VM 上安装用于 VM 的 Azure Monitor 映射依赖项代理（如果确定有必要）。 
-
-在载入过程中，我们会检查上述每个步骤的状态，并在门户中返回通知状态。 配置工作区和安装代理通常需要 5 到 10 分钟。 在门户中查看监视数据需要额外花费 5 到 10 分钟时间。  
-
-如果在启动载入后有消息指出 VM 需要载入，则 VM 最长需要花费 30 分钟来完成该过程。 
-
-
-
-### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>用于 VM 的 Azure Monitor 映射功能与服务映射有何不同？
-用于 VM 的 Azure Monitor 映射功能基于服务映射，但存在以下差异：
-
-* 可以从“VM”边栏选项卡，或者 Azure Monitor 中的“用于 VM 的 Azure Monitor”访问“映射”视图。
-* “映射”中的连接现在可单击，所选连接的边侧面板中会显示连接指标数据的视图。
-* 可以使用一个新 API 创建映射，以便更好地支持更复杂的映射。
-* 受监视 VM 现在包含在客户端组节点中，圆环图显示该组中受监视与不受监视虚拟机的比例。  展开该组后，还可以在该图表中筛选计算机列表。
-* 受监视虚拟机现在包含在服务器端口组节点中，圆环图显示该组中受监视与不受监视虚拟机的比例。  展开该组后，还可以在该图表中筛选计算机列表。
-* 映射样式已更新，与 Application Insights 中的应用映射更一致。
-* 侧面板已更新，但尚未包含服务映射中支持的整套集成功能 -“更新管理”、“更改跟踪”、“安全性”和“服务台”。 
-* 用于选择要映射的组和计算机的选项已更新，现在支持订阅、资源组、Azure 虚拟机规模集和云服务。
-* 无法在用于 VM 的 Azure Monitor 映射功能中创建新的服务映射计算机组。  
-
-### <a name="why-do-my-performance-charts-show-dotted-lines"></a>为何我的性能图表显示虚线？
-这有几个原因。  如果数据集合中存在间隙，则我们会绘制虚线。  如果为启用的性能计数器修改了数据采样频率（默认设置为每隔 60 秒收集数据），并且为图表选择较窄的时间范围，而采样频率小于图表中使用的桶大小（例如，采样频率为每隔 10 分钟，图表上的每个桶为 5 分钟），则可能会在图表中看到虚线。  在这种情况下，选择查看更宽的时间范围应该可使图表线条显示为实线而不是虚线。
-
-### <a name="are-groups-supported-with-azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor 是否支持组？
-是，一旦安装依赖项代理，我们就会从 VM 中收集信息，以根据订阅、资源组、虚拟机规模集和云服务显示组。  如果你一直在使用服务映射并创建了计算机组，则也会显示这些组。  如果你为正在查看的工作区创建了计算机组，那么这些组也会显示在组筛选器中。 
-
-### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>如何查看聚合性能图表中驱动第 95 百分位线条的详细信息？
-默认情况下，列表已经过排序，会显示所选指标的第 95 百分位值最大的 VM，但“可用内存”图表除外，其中显示第 5 百分位值最小的计算机。  单击图表会打开“前 N 项列表”视图，其中已选择相应的指标。
-
-### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>“映射”功能如何处理不同 VNet 和子网中的重复 IP？
-如果跨子网和 VNet 复制 VM 或 Azure 虚拟机规模集的 IP 范围，可能导致用于 VM 的 Azure Monitor 映射显示错误的信息。 这是一个已知问题，我们正在研究可改进此体验的选项。
-
-### <a name="does-map-feature-support-ipv6"></a>“映射”功能是否支持 IPv6？
-“映射”功能目前仅支持 IPv4，我们正在研究 IPv6 的支持。 我们还支持 IPv6 隧道内部的 IPv4。
-
-### <a name="when-i-load-a-map-for-a-resource-group-or-other-large-group-the-map-is-difficult-to-view"></a>加载资源组或其他大型组的映射时，难以查看映射
-尽管我们已对“映射”做出改进，使其能够处理大型和复杂的配置，但我们认识到，映射中可能包含大量以群集方式工作的节点和连接。  我们将持续致力增强支持以提高可伸缩性。   
-
-### <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>为何“性能”选项卡上的网络图表不同于 Azure VM“概述”页上的网络图表？
-
-Azure VM 的概述页基于来宾 VM 中的活动的主机度量值显示图表。  Azure VM“概述”中的网络图表仅显示计费的网络流量。  这不包括虚拟网络间的流量。  为用于 VM 的 Azure Monitor 显示的数据和图表基于来宾 VM 中的数据，网络图表显示入站和出站到该 VM 的所有 TCP/IP 流量，包括虚拟网络之间的流量。
-
-### <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>如何测量 VMConnection 中存储且在连接面板和工作簿中显示的数据的响应时间？
-
-响应时间为近似值。 我们不会检测应用程序的代码，因此不会真正知道请求的开始时间和响应到达的时间。 相反，我们会观察在连接上发送的数据及之后该连接上返回的数据。 代理会跟踪这些发送和接收并尝试对它们进行配对：一个发送序列后跟一个接收序列就被解释为一个请求/响应对。 这些操作之间的时间是响应时间。 它将包括网络延迟和服务器处理时间。
-
-该近似值非常适合基于请求/响应的协议，即在连接上发出单个请求，到达的也是单个响应。 这种情况适用于 HTTP(S)（不带管道），但不适用于其他协议。
-
-### <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>如果我使用的是 Log Analytics 免费定价计划，它们有何限制？
-如果已经为 Azure Monitor 配置了使用*免费*定价层的 Log Analytics 工作区，则用于 VM 的 Azure Monitor 的映射功能将仅支持已连接到工作区的五台计算机。 如果已有五台 VM 连接到免费工作区，你断开了其中一台 VM 的连接，然后连接到一台新的 VM，则新的 VM 将不受监视并且不会反映在“映射”页上。  
-
-此情况下，在你打开 VM 并从左侧窗格中选择“见解”时，甚至在 VM 上安装它后，系统都将通过“立即尝试”选项向你发出提示 。  但是，如果此 VM 未加入到用于 VM 的 Azure Monitor，则不会像通常情况下那样通过选项向你发出提示。 
-
-
+<!--Not available in MC: ## Azure Monitor for VMs-->
 ## <a name="next-steps"></a>后续步骤
 如果未在此处找到问题的答案，可查看以下论坛，了解其他问题和解答。
 

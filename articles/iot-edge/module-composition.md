@@ -4,17 +4,17 @@ description: 了解部署清单如何声明要部署的模块、如何部署这�
 author: kgremban
 manager: philmea
 ms.author: v-tawe
-origin.date: 03/26/2020
-ms.date: 08/27/2020
+origin.date: 10/08/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57bfc2a52971bb7120bcfbed6daa3b4546b6f5f7
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 34e361769f770f6d3e86048874d9dca067b73a66
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957824"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595112"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模块和建立路由
 
@@ -22,11 +22,11 @@ ms.locfileid: "88957824"
 
 部署清单是一个 JSON 文档，用于描述以下内容：
 
-* **IoT Edge 代理**模块孪生，其中包括三个组件：
+* **IoT Edge 代理** 模块孪生，其中包括三个组件：
   * 在设备上运行的每个模块的容器映像。
   * 用于访问包含模块映像的专用容器注册表的凭据。
   * 有关如何创建和管理每个模块的说明。
-* **IoT Edge 中心**模块孪生：描述消息如何在模块之间流动，并最终传送到 IoT 中心。
+* **IoT Edge 中心** 模块孪生：描述消息如何在模块之间流动，并最终传送到 IoT 中心。
 * 任何附加模块孪生的所需属性（可选）。
 
 必须使用部署清单配置所有 IoT Edge 设备。 在使用有效清单进行配置前，新安装的 IoT Edge 运行时会报告错误代码。
@@ -39,7 +39,7 @@ ms.locfileid: "88957824"
 
 每个部署清单中需要两个模块：`$edgeAgent` 和 `$edgeHub`。 这些模块属于管理 IoT Edge 设备及其上运行的模块的 IoT Edge 运行时。 有关这些模块的详细信息，请参阅[了解 IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-除了两个运行时模块以外，还可以添加最多 30 个你自己的要在 IoT Edge 设备上运行的模块。
+除了两个运行时模块以外，还可以添加最多 50 个你自己的要在 IoT Edge 设备上运行的模块。
 
 仅包含 IoT Edge 运行时（edgeAgent 和 edgeHub）的部署清单是有效的。
 
@@ -47,32 +47,31 @@ ms.locfileid: "88957824"
 
 ```json
 {
-    "modulesContent": {
-        "$edgeAgent": { // required
-            "properties.desired": {
-                // desired properties of the Edge agent
-                // includes the image URIs of all modules
-                // includes container registry credentials
-            }
-        },
-        "$edgeHub": { //required
-            "properties.desired": {
-                // desired properties of the Edge hub
-                // includes the routing information between modules, and to IoT Hub
-            }
-        },
-        "module1": {  // optional
-            "properties.desired": {
-                // desired properties of module1
-            }
-        },
-        "module2": {  // optional
-            "properties.desired": {
-                // desired properties of module2
-            }
-        },
-        ...
+  "modulesContent": {
+    "$edgeAgent": { // required
+      "properties.desired": {
+        // desired properties of the IoT Edge agent
+        // includes the image URIs of all deployed modules
+        // includes container registry credentials
+      }
+    },
+    "$edgeHub": { //required
+      "properties.desired": {
+        // desired properties of the IoT Edge hub
+        // includes the routing information between modules, and to IoT Hub
+      }
+    },
+    "module1": {  // optional
+      "properties.desired": {
+        // desired properties of module1
+      }
+    },
+    "module2": {  // optional
+      "properties.desired": {
+        // desired properties of module2
+      }
     }
+  }
 }
 ```
 
@@ -80,40 +79,101 @@ ms.locfileid: "88957824"
 
 定义 IoT Edge 运行时如何在部署中安装模块。 IoT Edge 代理是管理 IoT Edge 设备的安装、更新和状态报告的运行时组件。 因此，$edgeAgent 模块孪生包含所有模块的配置和管理信息。 此信息包括 IoT Edge 代理本身的配置参数。
 
-有关可以或必须包含的属性的完整列表，请参阅 [IoT Edge 代理和 IoT Edge 中心的属性](module-edgeagent-edgehub.md)。
-
 $edgeAgent 属性遵循此结构：
 
 ```json
-"$edgeAgent": {
-    "properties.desired": {
-        "schemaVersion": "1.0",
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
         "runtime": {
-            "settings":{
-                "registryCredentials":{ // give the edge agent access to container images that aren't public
-                    }
-                }
+          "settings":{
+            "registryCredentials":{
+              // give the IoT Edge agent access to container images that aren't public
             }
+          }
         },
         "systemModules": {
-            "edgeAgent": {
-                // configuration and management details
-            },
-            "edgeHub": {
-                // configuration and management details
-            }
+          "edgeAgent": {
+            // configuration and management details
+          },
+          "edgeHub": {
+            // configuration and management details
+          }
         },
         "modules": {
-            "module1": { // optional
-                // configuration and management details
-            },
-            "module2": { // optional
-                // configuration and management details
-            }
+          "module1": {
+            // configuration and management details
+          },
+          "module2": {
+            // configuration and management details
+          }
         }
-    }
-},
+      }
+    },
+    "$edgeHub": { ... },
+    "module1": { ... },
+    "module2": { ... }
+  }
+}
 ```
+
+IoT Edge 代理架构版本 1.1 随 IoT Edge 版本 1.0.10 一起发布，并启用了模块启动顺序。 对于运行版本 1.0.10 或更高版本的 IoT Edge 部署，建议使用架构版本 1.1。
+
+### <a name="module-configuration-and-management"></a>模块配置和管理
+
+在 IoT Edge 代理所需的属性列表中，你定义要将哪些模块部署到 IoT Edge 设备以及如何配置和管理它们。
+
+有关可以或必须包含的所需属性的完整列表，请参阅 [IoT Edge 代理和 IoT Edge 中心的属性](module-edgeagent-edgehub.md)。
+
+例如：
+
+```json
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
+        "runtime": { ... },
+        "systemModules": {
+          "edgeAgent": { ... },
+          "edgeHub": { ... }
+        },
+        "modules": {
+          "module1": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "startupOrder": 2,
+            "settings": {
+              "image": "myacr.azurecr.cn/module1:latest",
+              "createOptions": "{}"
+            }
+          },
+          "module2": { ... }
+        }
+      }
+    },
+    "$edgeHub": { ... },
+    "module1": { ... },
+    "module2": { ... }
+  }
+}
+```
+
+每个模块都具有 settings 属性，其中包含模块 image、容器注册表中容器映像的地址，以及任何用于在启动时配置映像的 createOptions  。 若要了解详细信息，请参阅[如何配置 IoT Edge 模块的容器创建选项](how-to-use-create-options.md)。
+
+EdgeHub 模块和自定义模块还具有三个属性，这些属性告诉 IoT Edge 代理如何管理它们：
+
+* **状态**：首次部署后，模块是应该运行还是停止。 必需。
+* **RestartPolicy**:如果 IoT Edge 代理停止，则何时以及是否应重新启动该模块。 必需。
+* **StartupOrder**:*在 IoT Edge 版本 1.0.10 中引入。* 首次部署时，IoT Edge 代理应按哪个顺序启动模块。 此顺序是使用整数进行声明的，其中先启动给定启动值为 0 的模块，然后再启动更高值的模块。 EdgeAgent 模块没有启动值，因为它始终先启动。 可选。
+
+  IoT Edge 代理按启动值的顺序启动模块，但不会等待每个模块完成启动才转到下一个模块。
+
+  如果某些模块依赖于其他模块，启动顺序会很有用。 例如，你可能希望 edgeHub 模块先启动，以便在其他模块启动时准备好路由消息。 或者，你可能想先启动某个存储模块，然后再启动向其发送数据的模块。 但是，你应该始终将模块设计为处理其他模块的故障。 容器的性质使其可能在任何时间停止并重新启动任何次数。
 
 ## <a name="declare-routes"></a>声明路由
 
@@ -122,17 +182,36 @@ IoT Edge 中心管理模块、IoT 中心与所有叶设备之间的通信。 因
 使用以下语法在 **$edgeHub** 所需属性中声明路由：
 
 ```json
-"$edgeHub": {
-    "properties.desired": {
+{
+  "modulesContent": {
+    "$edgeAgent": { ... },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.1",
         "routes": {
-            "route1": "FROM <source> WHERE <condition> INTO <sink>",
-            "route2": "FROM <source> WHERE <condition> INTO <sink>"
+          "route1": "FROM <source> WHERE <condition> INTO <sink>",
+          "route2": {
+            "route": "FROM <source> WHERE <condition> INTO <sink>",
+            "priority": 0,
+            "timeToLiveSecs": 86400
+          }
         },
-    }
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
+        }
+      }
+    },
+    "module1": { ... },
+    "module2": { ... }
+  }
 }
 ```
 
-每个路由需要源和接收器，但条件是可用于筛选消息的可选片断。
+IoT Edge 中心架构版本 1.1 随 IoT Edge 版本 1.0.10 一起发布，并启用了路由优先级和生存时间。 对于运行版本 1.0.10 或更高版本的 IoT Edge 部署，建议使用架构版本 1.1。
+
+每一个路由都需要一个消息源和一个消息去往的接收器 。 条件是可用于筛选消息的可选片断。
+
+你可以将优先级分配给要确保优先处理消息的路由。 在上游连接较弱或受限且有需要优先于标准遥测消息进行处理的关键数据的情况下，此功能很有用。
 
 ### <a name="source"></a>源
 
@@ -187,6 +266,32 @@ IoT Edge 提供至少一次保证。 IoT Edge 中心在本地存储消息，以�
 
 IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属性](module-edgeagent-edgehub.md)的 `storeAndForwardConfiguration.timeToLiveSecs` 属性中指定的时间。
 
+### <a name="priority-and-time-to-live"></a>优先级和生存时间
+
+可以使用仅定义路由的字符串或使用路由字符串、优先级整数和生存时间整数的对象声明路由。
+
+选项 1：
+
+   ```json
+   "route1": "FROM <source> WHERE <condition> INTO <sink>",
+   ```
+
+带有 IoT Edge 中心架构版本 1.1 的 IoT Edge 版本 1.0.10 中引入的选项 2：
+
+   ```json
+   "route2": {
+     "route": "FROM <source> WHERE <condition> INTO <sink>",
+     "priority": 0,
+     "timeToLiveSecs": 86400
+   }
+   ```
+
+**优先级** 值可以是 0-9，其中 0 是最高优先级。 消息的排队基于其终结点。 在处理任何针对同一终结点的优先级 1 消息之前，将先处理针对特定终结点的所有优先级 0 消息。 如果同一终结点的多个路由具有相同优先级，则将以先到先得的方式处理它们的消息。 如果未指定优先级，则将路由分配给最低优先级。
+
+除非显式设置，否则 timeToLiveSecs 属性将从 IoT Edge 中心的 storeAndForwardConfiguration 继承其值 。 该值可以是任何正整数。
+
+有关如何管理优先级队列的详细信息，请参阅参考页面以了解[路由优先级和生存时间](https://github.com/Azure/iotedge/blob/master/doc/Route_priority_and_TTL.md)。
+
 ## <a name="define-or-update-desired-properties"></a>定义或更新所需属性
 
 部署清单指定部署到 IoT Edge 设备的每个模块的所需属性。 部署清单中的所需属性会覆盖模块孪生中当前存在的任何所需属性。
@@ -204,7 +309,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "runtime": {
           "type": "docker",
           "settings": {
@@ -231,6 +336,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 0,
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
@@ -243,6 +349,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 2,
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
               "createOptions": "{}"
@@ -253,6 +360,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
+            "startupOrder": 1,
             "env": {
               "tempLimit": {"value": "100"}
             },
@@ -266,13 +374,21 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
     },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+          "sensorToFilter": {
+            "route": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+            "priority": 0,
+            "timeToLiveSecs": 1800
+          },
+          "filterToIoTHub": {
+            "route": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream",
+            "priority": 1,
+            "timeToLiveSecs": 1800
+          }
         },
         "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 10
+          "timeToLiveSecs": 100
         }
       }
     }

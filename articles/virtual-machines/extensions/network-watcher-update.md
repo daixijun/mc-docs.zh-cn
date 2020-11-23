@@ -9,16 +9,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: ffb104283c264776b666ee810c89a3af3fab7706
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 10eabf08fede15474fb52000004773f78f6b3749
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106800"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590736"
 ---
 <!--Verified Successfully-->
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>将网络观察程序扩展更新到最新版本
@@ -54,20 +54,22 @@ ms.locfileid: "93106800"
 在 Azure CLI 提示符下运行以下命令：
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+找到输出中的“AzureNetworkWatcherExtension”，并从输出中的“TypeHandlerVersion”字段识别版本号 。 请注意：有关扩展的信息会在 JSON 输出中多次出现。 请在“extensions”块下查看，你会看到扩展的完整版本号。 
 
-在输出中找到 AzureNetworkWatcher 扩展。 在输出的“TypeHandlerVersion”字段中识别版本号。  
+你会该看到如下内容：:::image type="content" source="./media/network-watcher/azure-cli-screenshot.png" alt-text="Azure CLI 屏幕截图":::
 
 #### <a name="usepowershell"></a>使用 PowerShell
 
 在 PowerShell 提示符下运行以下命令：
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+找到输出中的 Azure 网络观察程序扩展，并从输出中的“TypeHandlerVersion”字段识别版本号。   
 
-在输出中找到 AzureNetworkWatcher 扩展。 在输出的“TypeHandlerVersion”字段中识别版本号。
+你会该看到如下内容：:::image type="content" source="./media/network-watcher/powershell-screenshot.png" alt-text="PowerShell 屏幕截图":::
 
 ### <a name="update-your-extension"></a>更新扩展
 
@@ -79,10 +81,29 @@ Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName
 
 ```powershell
 #Linux command
-Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "ChinaNorth" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"   
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "ChinaNorth" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"
 
 #Windows command
-Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "ChinaNorth" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "ChinaNorth" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"
+```
+
+如果这不起作用。 使用以下步骤删除扩展并重新安装。 此操作会自动添加最新版本。
+
+删除扩展 
+
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+重新安装扩展
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "chinaeast" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "chinaeast" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
 ```
 
 #### <a name="option-2-use-the-azure-cli"></a>选项 2：使用 Azure CLI
@@ -128,5 +149,4 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 如果在本文的任何位置需要更多帮助，请参阅 [Linux](./network-watcher-linux.md) 或 [Windows](./network-watcher-windows.md) 的网络观察程序扩展文档。 还可通过 [Azure 支持](https://support.azure.cn/support/contact/)联系 Azure 专家。 或者，提交 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new article about network watcher update -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

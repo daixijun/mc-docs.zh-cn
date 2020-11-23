@@ -5,20 +5,20 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/30/2020
-ms.date: 08/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7dadc874286f00f124c74f22476b44bf6203b2b2
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 107e32d2a3c4a3d06c244ab139050e54218468e9
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564556"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595200"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>在 Linux 上使用 TPM 创建和预配 IoT Edge 设备
 
-本文介绍如何使用受信任的平台模块 (TPM) 在 Linux IoT Edge 设备上测试自动预配。 可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-roles-operations.md)。
+本文介绍如何使用受信任的平台模块 (TPM) 在 Linux IoT Edge 设备上测试自动预配。 可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[预配](../iot-dps/about-iot-dps.md#provisioning-process)概述。
 
 任务如下：
 
@@ -62,7 +62,7 @@ ms.locfileid: "91564556"
 
 ### <a name="create-virtual-machine"></a>创建虚拟机
 
-1. 下载虚拟机使用的磁盘映像文件，并将其保存在本地。 例如，[Ubuntu 服务器 18.04](http://releases.ubuntu.com/18.04.4/)。 若要了解 IoT Edge 设备支持的操作系统，请参阅 [Azure IoT Edge 支持的系统](support.md)。
+1. 下载虚拟机使用的磁盘映像文件，并将其保存在本地。 例如，[Ubuntu 服务器 18.04](http://releases.ubuntu.com/18.04/)。 若要了解 IoT Edge 设备支持的操作系统，请参阅 [Azure IoT Edge 支持的系统](support.md)。
 
 2. 返回 Hyper-V 管理器，在“操作”菜单中选择“操作” > “新建” > “虚拟机”。   。
 
@@ -161,7 +161,7 @@ ms.locfileid: "91564556"
    2. 提供从虚拟机中复制的“认可密钥”和“注册 ID”。 
 
       > [!TIP]
-      > 如果使用的是物理 TPM 设备，则需要确定**认可密钥**，该密钥对于每个 TPM 芯片都是唯一的，并且可以从与之关联的 TPM 芯片制造商处获得。 例如，可以通过创建认可密钥的 SHA-256 哈希来为 TPM 设备派生唯一的**注册 ID**。
+      > 如果使用的是物理 TPM 设备，则需要确定 **认可密钥**，该密钥对于每个 TPM 芯片都是唯一的，并且可以从与之关联的 TPM 芯片制造商处获得。 例如，可以通过创建认可密钥的 SHA-256 哈希来为 TPM 设备派生唯一的 **注册 ID**。
 
    3. 根据需要，为设备提供一个 ID。 如果未提供设备 ID，则会使用注册 ID。
 
@@ -179,11 +179,36 @@ ms.locfileid: "91564556"
 
 IoT Edge 运行时部署在所有 IoT Edge 设备上。 该运行时的组件在容器中运行，允许你将其他容器部署到设备，以便在边缘上运行代码。 在虚拟机上安装 IoT Edge 运行时。
 
-在开始学习本文之前，请了解与设备类型匹配的 DPS“ID 范围”和设备“注册 ID”。  如果已安装示例 Ubuntu 服务器，请使用 **x64** 说明。 确保将 IoT Edge 运行时配置为自动预配而不是手动预配。
+按照[安装 Azure IoT Edge 运行时](how-to-install-iot-edge.md)中的步骤操作，然后返回到本文来预配设备。
 
-在进行到配置安全守护程序这一步时，请确保选择[选项 2 自动预配](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning)并为 TPM 证明进行配置。
+## <a name="configure-the-device-with-provisioning-information"></a>用预配信息配置设备
 
-[在 Linux 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)
+在设备上安装运行时后，请借助它用于连接到设备预配服务和 IoT 中心的信息来配置设备。
+
+1. 了解在先前部分中收集的 DPS ID 范围和设备注册 ID 。
+
+1. 在 IoT Edge 设备上打开配置文件。
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. 找到该文件的预配配置部分。 取消评论 TPM 预配的行，并确保注释禁止任何其他预配行。
+
+   `provisioning:` 行前面应无空格，并且嵌套项应该缩进两个空格。
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.cn"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. 将 `scope_id` 和 `registration_id` 的值更新为你的 DPS 和设备信息。
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>向 IoT Edge 授予 TPM 的访问权限
 
@@ -282,7 +307,7 @@ journalctl -u iotedge --no-pager --no-full
 iotedge list
 ```
 
-可以验证是否使用了在设备预配服务中创建的个人注册。 在 Azure 门户中导航到设备预配服务实例。 打开创建的个人注册的注册详细信息。 注意注册状态是否为“已分配”并且设备 ID 已列出。
+可以验证是否使用了在设备预配服务中创建的个人注册。 在 Azure 门户中导航到设备预配服务实例。 打开创建的个人注册的注册详细信息。 注意注册状态是否为“已分配”并且设备 ID 已列出。 
 
 ## <a name="next-steps"></a>后续步骤
 

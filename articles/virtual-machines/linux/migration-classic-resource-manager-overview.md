@@ -1,20 +1,20 @@
 ---
 title: 平台支持的从经典部署模型到 Azure 资源管理器部署模型的 IaaS 资源迁移概述
-description: 本文逐步讲解如何对资源进行平台支持的从经典部署模型到 Azure Resource Manager 的迁移
+description: 逐步讲解如何对资源进行平台支持的从经典部署模型到 Azure 资源管理器的迁移。
 author: Johnnytechn
 manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 origin.date: 10/10/2017
-ms.openlocfilehash: 77ddd62767d6550f63d4d4cb6257d23a82d00133
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 6743995d6e3c2fae0e38de2518adb284abeaec76
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057572"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638063"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Linux 中平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移
 

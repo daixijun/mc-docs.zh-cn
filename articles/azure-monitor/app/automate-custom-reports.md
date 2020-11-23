@@ -3,16 +3,16 @@ title: 使用 Azure Application Insights 数据自动化自定义报表
 description: 使用 Azure Application Insights 数据自动化自定义每日/每周/每月报表
 ms.topic: conceptual
 author: Johnnytechn
+ms.date: 11/10/2020
 origin.date: 05/20/2019
-ms.date: 05/28/2020
 ms.reviewer: sdash
 ms.author: v-johya
-ms.openlocfilehash: 78ff4fb7eab746fe4b17a9fd9da5e8ff375ae07d
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 07169e295a3db8f4dff988562af8acf6f5ba07ff
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199692"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638066"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>使用 Azure Application Insights 数据自动化自定义报表
 
@@ -34,7 +34,8 @@ ms.locfileid: "84199692"
 
 可以[采用编程方式查询 Application Insights](https://dev.applicationinsights.io/) 数据，按计划生成自定义报表。 以下选项有助于快速开始：
 
-* 在监视方案中使用“Application Insights 计划摘要”[Azure Function](/azure-functions/functions-create-first-azure-function) 模板。 此函数使用 SendGrid 传递电子邮件。 
+* [使用 Microsoft Flow 自动化报表](../platform/logicapp-flow-connector.md)
+* 在监视方案中使用“Application Insights 计划摘要”[Azure Function](../../azure-functions/functions-create-first-azure-function.md) 模板。 此函数使用 SendGrid 传递电子邮件。 
 
     ![Azure Function 模板](./media/automate-custom-reports/azure-function-template.png)
 
@@ -73,7 +74,7 @@ availabilityResults
 
 1. 创建一个 Azure 函数应用。（仅当要使用 Application Insights 监视新的函数应用时，才需要启用 Application Insights）
 
-   请访问 Azure Functions 文档，了解如何[创建函数应用](/azure-functions/functions-create-first-azure-function#create-a-function-app)
+   请访问 Azure Functions 文档，了解如何[创建函数应用](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
 
 2. 在新的函数应用完成部署后，选择“转到资源”。
 
@@ -84,7 +85,7 @@ availabilityResults
 4. 选择“Application Insights 计划的摘要模板”。
 
      > [!NOTE]
-     > 默认情况下，使用运行时版本 3.x 创建函数应用。 必须[以 Azure Functions 运行时版本](/azure-functions/set-runtime-version) **1.x** 为目标才能使用 Application Insights 计划摘要模板。 转到“配置”>“函数运行时设置”以更改运行时版本。 ![运行时屏幕截图](./media/automate-custom-reports/change-runtime-v.png)
+     > 默认情况下，使用运行时版本 3.x 创建函数应用。 必须 [以 Azure Functions 运行时版本](../../azure-functions/set-runtime-version.md) **1.x** 为目标才能使用 Application Insights 计划摘要模板。 转到“配置”>“函数运行时设置”以更改运行时版本。 ![运行时屏幕截图](./media/automate-custom-reports/change-runtime-v.png)
 
    ![“新建函数 Application Insights 模板”屏幕截图](./media/automate-custom-reports/function-app-04.png)
 
@@ -107,7 +108,7 @@ availabilityResults
    * SendGridAPI =SendGrid API Key
 
      > [!NOTE]
-     > 如果没有 SendGrid 帐户，可以创建一个。 [此处](/azure-functions/functions-bindings-sendgrid)提供了适用于 Azure 函数的 SendGrid 文档。 如果只需要有关如何设置 SendGrid 的简单解释并生成一个 API 密钥，则本文末尾提供了一个。 
+     > 如果没有 SendGrid 帐户，可以创建一个。 [此处](../../azure-functions/functions-bindings-sendgrid.md)提供了适用于 Azure 函数的 SendGrid 文档。 如果只需要有关如何设置 SendGrid 的简单解释并生成一个 API 密钥，则本文末尾提供了一个。 
 
 8. 选择“集成”并在“输出”下单击“SendGrid ($return)”。
 
@@ -151,7 +152,9 @@ availabilityResults
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解如何创建 [Analytics 查询](../../azure-monitor/log-query/get-started-queries.md)。
+* 详细了解如何创建 [Analytics 查询](../log-query/get-started-queries.md)。
 * 详细了解[采用编程方式查询 Application Insights 数据](https://dev.applicationinsights.io/)
-* 详细了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
+* 了解有关[逻辑应用](../../logic-apps/logic-apps-overview.md)的详细信息。
+* 详细了解 [Microsoft Power Automate](https://ms.flow.microsoft.com)。
+
 

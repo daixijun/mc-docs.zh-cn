@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 20ef88aa7db9e74090a16bb145c6e73324e656b1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: cddf299a10bc8b726e91af922dad95171af082af
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104489"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590912"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-isolating-vnets"></a>方案：隔离 VNet
@@ -30,10 +30,10 @@ ms.locfileid: "93104489"
 
 | 源 |   目标 |  VNet | *分支* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|           |     X    |
-| 分支   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 直接 |   直接    |
+| 分支   | &#8594;|  直接  |   直接    |
 
-上表中每个单元格都描述了虚拟 WAN 连接（流的“源”端，行标题）是否为特定流量流获取目标前缀（流的“目标”端，斜体的列标题），其中“X”表示由虚拟 WAN 提供连接。
+上表中的各单元格描述了虚拟 WAN 连接（流的“源”端，行标题）是否与目标前缀（流的“目标”端，斜体形式的列标题）通信。 在此场景中，没有防火墙或网络虚拟设备，因此通信直接通过虚拟 WAN 进行（因此在表中使用“直接”一词）。
 
 此连接矩阵提供了两种不同的行模式，它们会转换为两个路由表。 虚拟 WAN 已经有一个 Default 路由表，所以我们需要有另一个路由表。 在此示例中，我们将该路由表命名为 RT_VNET。
 
@@ -41,9 +41,9 @@ VNet 将会与此 RT_VNET 路由表关联。 由于它们需要连接到分支�
 
 * 虚拟网络：
   * 关联的路由表：RT_VNET
-  * 传播到路由表： **Default**
+  * 传播到路由表：**Default**
 * 分支：
-  * 关联的路由表： **Default**
+  * 关联的路由表：**Default**
   * 传播到路由表：RT_VNET 和 Default 
 
 请注意，由于只有分支传播到 RT_VNET 路由表，因此只有这些才是 VNet 将要获取的前缀，而其他 VNet 的分支则不是。
@@ -57,7 +57,7 @@ VNet 将会与此 RT_VNET 路由表关联。 由于它们需要连接到分支�
 1. 在每个中心创建自定义路由表。 在此示例中，路由表为 RT_VNet。 若要创建路由表，请参阅[如何配置虚拟中心路由](how-to-virtual-hub-routing.md)。 若要详细了解路由表，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 2. 创建 RT_VNet 路由表时，请配置以下设置：
 
-   * **Association** ：选择要隔离的 VNet。
+   * **Association**：选择要隔离的 VNet。
    * 传播：为分支选择选项，意味着分支 (VPN/ER/P2S) 连接会将路由传播到此路由表。
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="隔离的 VNet":::

@@ -1,25 +1,20 @@
 ---
-title: 如何标记 Azure Linux 虚拟机
-description: 了解如何标记使用 Resource Manager 部署模型在 Azure 中创建的 Azure Linux 虚拟机。
-services: virtual-machines-linux
-documentationcenter: ''
+title: 如何使用 CLI 标记 Azure 虚拟机
+description: 了解如何使用 Azure CLI 标记虚拟机。
+services: virtual-machines
 author: Johnnytechn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/03/2020
+ms.date: 11/11/2020
 ms.author: v-johya
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 088d7f4699b64134d6cbebedcd8427e7ed93de30
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: c315cb5849583ae74f87c8a9c5aa3fc03c66b2e7
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057524"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638104"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中标记 Linux 虚拟机
 本文介绍在 Azure 中通过 Resource Manager 部署模型标记 Linux 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 50 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。

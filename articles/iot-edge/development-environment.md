@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 01/04/2019
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 68ee4a5899c03443132169ca46711a845c45f2a3
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: d719e099261233b8d3496efa5a688a12683e7de6
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564557"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595110"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>为 IoT Edge 准备开发和测试环境
 
@@ -84,7 +84,7 @@ Azure IoT Edge 开发工具使用命令行功能简化了 IoT Edge 开发。 此
 | 工具 | 也称为 | 受支持的平台 | 最适用于 |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub 开发工具  | iotedgehubdev | Windows、Linux、macOS | 模拟设备来调试模块。 |
-| IoT Edge 开发容器 | microsoft/iotedgedev | Windows、Linux、macOS | 开发而无需安装依赖项。 |
+| IoT Edge 开发容器 | iotedgedev | Windows、Linux、macOS | 开发而无需安装依赖项。 |
 | 容器中的 IoT Edge 运行时 | iotedgec | Windows、Linux、macOS、ARM | 在可能不支持运行时的设备上进行测试。 |
 | IoT Edge 设备容器 | toolboc/azure-iot-edge-device-container | Windows、Linux、macOS、ARM | 使用多个 IoT Edge 设备大规模测试方案。 |
 

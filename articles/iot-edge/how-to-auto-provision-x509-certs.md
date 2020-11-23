@@ -6,20 +6,20 @@ manager: philmea
 ms.author: v-tawe
 ms.reviewer: kevindaw
 origin.date: 04/09/2020
-ms.date: 08/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 50c5eba498500525c6c68d25091a747eb01663dc
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 8f4621a9056d9562fe5e76638412fba1684a0f3f
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564629"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595190"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>使用 X.509 证书创建和预配 IoT Edge 设备
 
-借助 [Azure IoT 中心设备预配服务 (DPS)](../iot-dps/index.yml)，可以使用 X.509 证书自动预配 IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-roles-operations.md)。
+借助 [Azure IoT 中心设备预配服务 (DPS)](../iot-dps/index.yml)，可以使用 X.509 证书自动预配 IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[预配](../iot-dps/about-iot-dps.md#provisioning-process)概述。
 
 本文介绍如何通过以下步骤，在 IoT Edge 设备上使用 X.509 证书创建设备预配服务注册：
 
@@ -53,7 +53,7 @@ ms.locfileid: "91564629"
 * 证书信任链中的中间或根 CA 证书。 如果创建组注册，则此证书会上传到 DPS。
 
 > [!NOTE]
-> 目前，存在一个 libiothsm 限制，会阻止使用在 2050 年 1 月 1 日或之后过期的证书。
+> 目前存在一个 libiothsm 限制，会阻止使用在 2038 年 1 月 1 日或之后到期的证书。
 
 ### <a name="use-test-certificates"></a>使用测试证书
 
@@ -210,73 +210,76 @@ Windows:
 
 IoT Edge 运行时部署在所有 IoT Edge 设备上。 该运行时的组件在容器中运行，允许你将其他容器部署到设备，以便在边缘上运行代码。
 
+按照[安装 Azure IoT Edge 运行时](how-to-install-iot-edge.md)中的步骤操作，然后返回到本文来预配设备。
+
 只有 IoT Edge 1.0.9 或更高版本才支持使用 DPS 进行的 X.509 预配。
 
-预配设备时需要以下信息：
+## <a name="configure-the-device-with-provisioning-information"></a>用预配信息配置设备
+
+在设备上安装运行时后，请借助它用于连接到设备预配服务和 IoT 中心的信息来配置设备。
+
+准备好以下信息：
 
 * DPS 的“ID 范围”值。  可以从 Azure 门户中 DPS 实例的概述页检索此值。
 * 设备上的设备标识证书链文件。
 * 设备上的设备标识密钥文件。
-* 一个可选的注册 ID（如果未提供，将从设备标识证书中的公用名提取）。
+* 可选的注册 ID。 如果未提供，将从设备标识证书中的公用名拉取。
 
 ### <a name="linux-device"></a>Linux 设备
 
-使用以下链接，运行适用于你的设备体系结构的命令在设备上安装 Azure IoT Edge 运行时。 转到有关配置安全守护程序的部分时，将会配置用于 X.509 自动预配（而不是手动预配）的 IoT Edge 运行时。 完成本文的前面各个部分后，应已获得所需的全部信息和证书文件。
+1. 在 IoT Edge 设备上打开配置文件。
 
-[在 Linux 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-将 X.509 证书和密钥信息添加到 config.yaml 文件时，应以文件 URI 的形式提供路径。 例如：
+1. 找到该文件的预配配置部分。 取消注释 DPS 对称密钥预配的行，并确保注释掉任何其他预配行。
 
-* `file:///<path>/identity_certificate_chain.pem`
-* `file:///<path>/identity_key.pem`
+   `provisioning:` 行前面应无空格，并且嵌套项应该缩进两个空格。
 
-配置文件中用于 X.509 自动预配的节如下所示：
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.cn"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "x509"
+   #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
 
-```yaml
-# DPS X.509 provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.cn"
-  scope_id: "<SCOPE_ID>"
-  attestation:
-    method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
-    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-```
+1. 将 `scope_id`、`identity_cert` 和 `identity_pk` 的值更新为你的 DPS 和设备信息。
 
-请将 `scope_id`、`identity_cert`、`identity_pk` 的占位符值替换为你的 DPS 实例中的范围 ID，以及证书链和密钥文件在设备上的位置的 URI。 如果需要，请提供设备的 `registration_id`，或者保持注释掉此行，以使用标识证书的 CN 名称注册设备。
+   将 X.509 证书和密钥信息添加到 config.yaml 文件时，应以文件 URI 的形式提供路径。 例如：
 
-更新 config.yaml 文件后，请始终重启安全守护程序。
+   `file:///<path>/identity_certificate_chain.pem`
+   `file:///<path>/identity_key.pem`
 
-```bash
-sudo systemctl restart iotedge
-```
+1. 如果需要，请提供设备的 `registration_id`，或者保持注释掉此行，以使用标识证书的 CN 名称注册设备。
+
+1. 重启 IoT Edge 运行时，使之拾取你在设备上所做的所有配置更改。
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Windows 设备
 
-将 IoT Edge 运行时安装在你为其生成了标识证书链和标识密钥的设备上。 将 IoT Edge 运行时配置为自动预配而不是手动预配。
-
-有关在 Windows 上安装 IoT Edge 的更多详细信息，包括管理容器和更新 IoT Edge 等任务的先决条件和说明，请参阅[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)。
-
 1. 在管理员模式下打开 PowerShell 窗口。 在安装 IoT Edge 而不是 PowerShell (x86) 时，请确保使用 PowerShell 的 AMD64 会话。
 
-1. **Deploy-IoTEdge** 命令检查 Windows 计算机是否使用了支持的版本，启用容器功能，然后下载 moby 运行时和 IoT Edge 运行时。 该命令默认使用 Windows 容器。
+1. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时。 该命令默认为使用 Windows 容器手动预配，因此使用 `-DpsX509` 标志借助 X.509 证书身份验证来使用自动预配。
+
+   请将 `{scope_id}`、`{identity cert chain path}` 和 `{identity key path}` 的占位符值替换为 DPS 实例中的相应值，以及设备上的文件路径。
+
+   如果要将设备 ID 设置为除标识证书 CN 名称以外的名称，请添加 `-RegistrationId {registration_id}`。
+
+   如果是在 Windows 上使用 Linux 容器，则添加 `-ContainerOs Linux` 参数。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. 此时，IoT Core 设备可能会自动重启。 其他 Windows 10 或 Windows Server 设备可能会提示你重启。 如果是这样，请立即重启设备。 设备准备就绪后，再次以管理员身份运行 PowerShell。
-
-1. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 除非通过 `-Dps` 标志使用自动预配，否则该命令默认为使用手动预配。
-
-   请将 `{scope_id}`、`{identity cert chain path}` 和 `{identity key path}` 的占位符值替换为 DPS 实例中的相应值，以及设备上的文件路径。 若要指定注册 ID，请同时包含 `-RegistrationId {registration_id}`，并根据需要替换占位符。
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

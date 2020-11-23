@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: article
 origin.date: 06/15/2019
-ms.date: 03/23/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 57b47520b6d29f7222b340cfe8202f420ea73271
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6800d9d5bf30c69693b6c72d13ad2ce78aed4002
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80109808"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590795"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -25,7 +25,7 @@ ms.locfileid: "80109808"
 
 Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上。 此系统使用任意广播网络，以便每个 DNS 查询由最近的可用 DNS 服务器来应答。 Azure DNS 为域提供更快的性能和高可用性。
 
-Azure DNS 基于 Azure 资源管理器。 Azure DNS 可以利用资源管理器功能，例如基于角色的访问控制、审核日志和资源锁定。 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 来管理域和记录。 需要自动 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
+Azure DNS 基于 Azure 资源管理器。 Azure DNS 可以利用资源管理器功能，例如 Azure 基于角色的访问控制、审核日志和资源锁定。 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 来管理域和记录。 需要自动 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
 
 ### <a name="how-much-does-azure-dns-cost"></a>Azure DNS 的费用是多少？
 
@@ -59,7 +59,7 @@ DNS 区域用来托管某个特定域的 DNS 记录。 例如，域 contoso.com 
 
 ### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>在流量管理器中使用域名顶点的别名记录时，是否存在任何限制？
 
-是的。 必须在 Azure 流量管理器中使用静态公共 IP 地址。 使用静态 IP 地址配置**外部终结点**目标。 
+是的。 必须在 Azure 流量管理器中使用静态公共 IP 地址。 使用静态 IP 地址配置 **外部终结点** 目标。 
 
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS 是否支持基于 DNS 的流量路由或终结点故障转移？
 
@@ -178,7 +178,7 @@ Azure DNS 仅支持托管静态 DNS 域，其中对某给定的 DNS 记录来说
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>如何保护我的 DNS 区域不被意外删除？
 
-可以使用 Azure 资源管理器管理 Azure DNS。 Azure DNS 受益于 Azure 资源管理器提供的访问控制功能。 基于角色的访问控制可以控制哪些用户具有对 DNS 区域和记录集的读取或写入访问权限。 资源锁可防止意外修改，或防止删除 DNS 区域和记录集。
+可以使用 Azure 资源管理器管理 Azure DNS。 Azure DNS 受益于 Azure 资源管理器提供的访问控制功能。 Azure 基于角色的访问控制可用于控制哪些用户具有对 DNS 区域和记录集的读取或写入访问权限。 资源锁可防止意外修改，或防止删除 DNS 区域和记录集。
 
 有关详细信息，请参阅[保护 DNS 区域和记录](dns-protect-zones-recordsets.md)。
 

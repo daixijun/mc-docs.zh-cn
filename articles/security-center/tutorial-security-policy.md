@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/04/2019
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
-ms.openlocfilehash: 82120336281effec4a30f82cb2cc29c35ad3c586
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 377e49dec0d5eb02b148f6c2103003d54db45c85
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402554"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637807"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -34,7 +34,7 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 安全中心提供以下选项来让用户使用安全策略：
 
-* 查看和编辑内置默认策略 - 启用安全中心时，会为在安全中心注册的所有订阅（免费或标准定价层）自动分配名为“ASC 默认值”的内置计划。 若要自定义此计划，可在其中启用或禁用单个策略。 要了解现成可用的选项，请参阅[内置安全策略](security-center-policy-definitions.md)列表。
+* **查看和编辑内置默认策略** - 启用安全中心时，会将一个名为“ASC default”的内置计划自动分配到所有已在安全中心注册的订阅。 若要自定义此计划，可在其中启用或禁用单个策略。 要了解现成可用的选项，请参阅[内置安全策略](./policy-reference.md)列表。
 
 * **添加自己的自定义策略** - 如果希望自定义要应用到自己的订阅的安全计划，可以在安全中心执行此操作。 如果计算机不遵循创建的策略，则你会收到建议。 有关生成和分配自定义策略的说明，请参阅[使用自定义安全策略](custom-security-policies.md)。
 
@@ -47,7 +47,7 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 1. 在“安全中心”仪表板中，选择“安全策略” 。
 
-    ![“策略管理”窗格](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="策略管理页面":::
 
    在“策略管理”屏幕中，可以看到管理组数、订阅数、工作区数以及管理组结构。
 
@@ -69,11 +69,11 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
     1. 要查看和编辑默认策略，请选择“查看有效策略”并按如下所述继续操作。 
 
-       ![策略屏幕](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="有效策略屏幕":::
+
        此“安全策略”屏幕反映在所选订阅或管理组中分配的策略所执行的操作。
        
-       * 使用顶部的链接打开在订阅或管理组中应用的每个策略**分配**。 可以使用这些链接访问分配，以及编辑或禁用策略。 例如，如果你发现特定的策略分配正在有效地拒绝终结点保护，可使用该链接来编辑或禁用该策略。
+       * 使用顶部的链接打开在订阅或管理组中应用的每个策略 **分配**。 可以使用这些链接访问分配，以及编辑或禁用策略。 例如，如果你发现特定的策略分配正在有效地拒绝终结点保护，可使用该链接来编辑或禁用该策略。
        
        * 在策略列表中，可以看到策略有效应用于订阅或管理组。 将考虑适用于该范围的每个策略的设置，并显示该策略执行的操作的累积效果。 例如，如果一个分配禁用此策略，而另一个设置为 AuditIfNotExist，则累积效果将应用 AuditIfNotExist。 更积极的效果始终优先。
        
@@ -132,9 +132,8 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 ## <a name="next-steps"></a>后续步骤
 本文介绍了安全策略。 有关更多信息，请参阅以下文章：
 
-* 有关如何使用 PowerShell 设置策略的说明，请参阅[快速入门：使用 Azure PowerShell 模块创建策略分配以识别不合规资源](../governance/policy/assign-policy-powershell.md)
-
-* 有关如何在 Azure Policy 中编辑安全策略的说明，请参阅[创建和管理策略以强制实施合规性](../governance/policy/tutorials/create-and-manage.md)。
-
-* 有关如何使用 Azure Policy 跨订阅或针对管理组设置策略的说明，请参阅[什么是 Azure Policy？](../governance/policy/overview.md)
+- [了解如何使用 PowerShell 设置策略](../governance/policy/assign-policy-powershell.md) - 
+- [了解如何在 Azure Policy 中编辑安全策略](../governance/policy/tutorials/create-and-manage.md) - 
+- [了解如何使用 Azure Policy 跨订阅或在管理组上设置策略](../governance/policy/overview.md)。
+- [了解如何对管理组中的所有订阅启用安全中心](onboard-management-group.md)
 

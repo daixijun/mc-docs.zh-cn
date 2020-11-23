@@ -1,25 +1,25 @@
 ---
-title: Azure 安全中心中的警报验证（EICAR 测试文件）| Azure
-description: 本文档介绍了如何在 Azure 安全中心验证安全警报。
+title: Azure 安全中心的警报验证 | Azure Docs
+description: 了解如何验证在 Azure 安全中心中正确配置了安全警报
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: 8fc1139301d6ed5e1b34592f72577c63b14daa3f
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 97980d63d60eabb61926e9b434830323358ea29a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822383"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638218"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure 安全中心的警报验证
 本文档介绍如何验证系统是否已针对 Azure 安全中心警报进行了适当的配置。
@@ -27,12 +27,6 @@ ms.locfileid: "90822383"
 ## <a name="what-are-security-alerts"></a>什么是安全警报？
 警报是安全中心在检测到资源遭受威胁时生成的通知。 安全中心会按优先级列出警报，同时还会提供所需信息以快速调查问题。 安全中心还提供有关如何针对攻击采取补救措施的建议。
 有关详细信息，请参阅[安全中心中的安全警报](security-center-alerts-overview.md)和[管理和响应安全警报](security-center-managing-and-responding-alerts.md)
-
-## <a name="alert-validation"></a>警报验证
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>在 Windows 虚拟机上验证警报 <a name="validate-windows"></a>
 
@@ -63,17 +57,17 @@ ms.locfileid: "90822383"
 
 ## <a name="validate-alerts-on-kubernetes"></a>在 Kubernetes 上验证警报 <a name="validate-kubernetes"></a>
 
-如果使用的是集成 Azure Kubernetes 服务的安全中心预览功能，请运行以下 kubectl 命令来测试警报是否正常工作：
+如果已将 Azure Kubernetes 服务与安全中心集成，则可以使用以下 kubectl 命令测试警报是否正常运行：
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-有关将 Azure Kubernetes 服务与 Azure 安全中心集成的详细信息，请参阅[本文](azure-kubernetes-service-integration.md)。
+有关保护 Kubernetes 节点和群集的详细信息，请参阅 [Azure Defender for Kubernetes 简介](defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了警报验证过程。 熟悉该验证以后，请尝试阅读以下文章：
 
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)（在 Azure 安全中心验证 Azure Key Vault 威胁检测）
-* [管理和响应 Azure 安全中心的安全警报](https://docs.azure.cn/security-center/security-center-managing-and-responding-alerts) - 了解如何管理和响应安全中心的安全事件。
+* [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) - 了解如何管理和响应安全中心的安全事件。
 * [Azure 安全中心的安全运行状况监视](security-center-monitoring.md) - 了解如何监视 Azure 资源的运行状况。
-* [了解 Azure 安全中心的安全警报](https://docs.azure.cn/security-center/security-center-alerts-type) - 了解各种类型的安全警报。
+* [了解 Azure 安全中心的安全警报](./security-center-alerts-overview.md) - 了解各种类型的安全警报。
 

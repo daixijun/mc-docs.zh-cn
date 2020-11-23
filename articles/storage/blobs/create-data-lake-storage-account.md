@@ -5,16 +5,16 @@ author: WenJason
 ms.topic: how-to
 ms.author: v-jay
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 34409c6e40516e5db0df15e439c77fbdba1f3808
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: d8d432d11bf883773d026b04a14771d874190569
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91050188"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589428"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>创建与 Azure Data Lake Storage Gen2 配合使用的存储帐户
 
@@ -25,12 +25,13 @@ ms.locfileid: "91050188"
 以下类型的存储帐户支持 Data Lake Storage 功能：
 
 - 常规用途 v2
+- BlockBlobStorage
 
 有关如何在它们之间进行选择的信息，请参阅[存储帐户概述](../common/storage-account-overview.md)。
 
 ## <a name="create-a-storage-account-with-a-hierarchical-namespace"></a>创建具有分层命名空间的存储帐户
 
-在启用“分层命名空间”设置的情况下创建[常规用途 V2 帐户](../common/storage-account-create.md)。
+在启用“分层命名空间”设置的情况下创建[常规用途 V2 帐户](../common/storage-account-create.md)或 [BlockBlobStorage](storage-blob-create-account-block-blob.md) 帐户。
 
 在创建帐户时解锁 Data Lake Storage 功能，方法如下：在“创建存储帐户”页面的“高级”选项卡中启用“分层命名空间”设置。   必须在创建帐户时启用此设置。 无法在以后启用它。
 

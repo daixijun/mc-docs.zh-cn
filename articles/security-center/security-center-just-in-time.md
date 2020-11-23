@@ -5,16 +5,16 @@ services: security-center
 author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/25/2020
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.author: v-johya
-ms.openlocfilehash: 1eaf62d9dd9d4a1766eb33e638668d7f8fac4dc8
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 0d368b114fc2138ee911f4a6d12536a08fee561f
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822371"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638124"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>使用实时访问保护管理端口
 
@@ -34,11 +34,11 @@ ms.locfileid: "90822371"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|正式版|
-|定价：|标准层|
-|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。<br>![否](./media/icons/no-icon.png) 由 [Azure 防火墙管理器](https://docs.azure.cn/firewall-manager/overview)控制的 Azure 防火墙保护的 VM|
+|发布状态：|正式发布 (GA)|
+|定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
+|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。|
 |所需角色和权限：|“读取者”角色和“安全读取者”角色都可以查看 JIT 状态和参数。<br>若要创建可与 JIT 配合使用的自定义角色，请参阅[配置和使用 JIT 时需要哪些权限？](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)。<br>若要为那些需要请求对 VM 进行 JIT 访问而不执行其他 JIT 操作的用户创建最小特权角色，请使用安全中心 GitHub 社区页面中的 [Set-JitLeastPrivilegedRole 脚本](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)。|
-|云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) 国家/主权（US Gov、中国 Gov、其他 Gov）|
+|云：|![是](./media/icons/yes-icon.png) 中国云|
 |||
 
 
@@ -46,18 +46,19 @@ ms.locfileid: "90822371"
 
 可以使用安全中心或通过编程方式，为一个或多个 VM 启用采用你自己的自定义选项的 JIT VM 访问。 
 
-<!--Not available in MC: from Azure virtual machines-->
+也可以从 Azure 虚拟机使用默认的硬编码参数启用 JIT。
+
 这些选项中的每一个都在下面的单独选项卡中进行了介绍。
 
 ### <a name="azure-security-center"></a>[**Azure 安全中心**](#tab/jit-config-asc)
 
 ### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>从 Azure 安全中心对 VM 启用 JIT <a name="jit-asc"></a>
 
-![在 Azure 安全中心配置 JIT VM 访问](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="在 Azure 安全中心配置 JIT VM 访问":::
 
 可以从安全中心启用和配置 JIT VM 访问。
 
-1. 从安全中心的菜单中，选择“实时 VM 访问”。
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“实时 VM 访问”。
 
     此时会打开“实时 VM 访问”页，你的 VM 会分组到以下多个选项卡中：
 
@@ -107,7 +108,7 @@ ms.locfileid: "90822371"
 
 若要编辑 VM 的现有 JIT 规则，请执行以下操作：
 
-1. 从安全中心的菜单中，选择“实时 VM 访问”。
+1. 打开 Azure Defender 仪表板，从高级保护区域选择“自适应应用程序控制”。
 
 1. 在“已配置”选项卡上，右键单击要向其添加端口的 VM，然后选择“编辑”。 
 
@@ -119,7 +120,49 @@ ms.locfileid: "90822371"
  
 
 
-<!--Not available in MC: Azure virtual machines-->
+### <a name="azure-virtual-machines"></a>[**Azure 虚拟机**](#tab/jit-config-avm)
+
+### <a name="enable-jit-on-your-vms-from-azure-virtual-machines"></a>从 Azure 虚拟机对 VM 启用 JIT
+
+可以从 Azure 门户的 Azure 虚拟机页面对 VM 启用 JIT。
+
+![在 Azure 虚拟机中配置 JIT VM 访问](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+
+> [!TIP]
+> 如果 VM 已启用实时功能，则转到其配置页面时，将看到实时功能已启用，可使用链接在“安全中心”中打开实时 VM 访问页面，然后查看和更改设置。
+
+1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“虚拟机”。 
+
+1. 选择要通过 JIT 保护的虚拟机。
+
+1. 在菜单中选择“配置”。
+
+1. 在“实时访问”下，选择“启用实时” 。 
+
+    此操作可为使用以下默认设置的 VM 启用实时访问：
+
+    - Windows 计算机：
+        - RDP 端口 3389
+        - 允许的最长访问时间为三小时
+        - 允许的源 IP 地址设置为“任何”
+    - Linux 计算机：
+        - SSH 端口 22
+        - 允许的最长访问时间为三小时
+        - 允许的源 IP 地址设置为“任何”
+
+1. 若要编辑任何这些值，或将更多端口添加到 JIT 配置，请使用 Azure 安全中心的实时页面：
+
+    1. 从安全中心的菜单中，选择“实时 VM 访问”。
+
+    1. 在“已配置”选项卡上，右键单击要向其添加端口的 VM，然后选择“编辑”。 
+
+        ![在 Azure 安全中心编辑 JIT VM 访问配置](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
+
+    1. 在“JIT VM 访问配置”下，可以编辑已保护的端口的现有设置，也可以添加新的自定义端口。
+
+    1. 编辑完端口后，选择“保存”。
+
+
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
 ### <a name="enable-jit-on-your-vms-using-powershell"></a>使用 PowerShell 对 VM 启用 JIT
@@ -199,7 +242,7 @@ ms.locfileid: "90822371"
 
 如果 VM 启用了 JIT，则必须请求连接到它所需的访问权限。 不管你启用 JIT 的方式如何，你都可以通过任何受支持的方式请求访问权限。
 
-![从安全中心请求 JIT 访问权限](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="从安全中心请求 JIT 访问权限":::
 
 1. 从“实时 VM 访问”页选择“已配置”选项卡。 
 
@@ -209,11 +252,11 @@ ms.locfileid: "90822371"
 
     - “连接详细信息”列提供连接 VM 所需的信息，及其打开的端口。
 
-1. 选择“请求访问权限”。**** 此时会打开“请求访问”窗口。
+1. 选择“请求访问权限”。 此时会打开“请求访问”窗口。
 
 1. 在“请求访问”下，为每个 VM 配置要打开的端口、要为其打开该端口的源 IP 地址以及将打开该端口的时间范围。 只能请求访问已配置的端口。 每个端口都有一个从已创建的 JIT 配置派生的最大允许时间。
 
-1. 选择“打开端口”。****
+1. 选择“打开端口”。
 
 > [!NOTE]
 > 如果请求访问的用户使用代理，则“我的 IP”选项可能无法使用。 可能需要定义组织的完整 IP 地址范围。

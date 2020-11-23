@@ -4,19 +4,20 @@ description: 在不重新部署网站的情况下监视网站性能。 使用托
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/26/2019
-ms.date: 07/17/2020
+ms.date: 11/10/2020
+ms.custom: devx-track-dotnet
 ms.author: v-johya
-ms.openlocfilehash: 152c5107335d93f49fda35e48fc8a5f2cb8db901
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 4292f05b7c096482898f81ed506b1a90facf659a
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244921"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94638186"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
 > [!IMPORTANT]
-> 不再建议使用状态监视器，并且从 2021 年 6 月 1 日起将不再支持这个版本的状态监视器。 它已被 Azure Monitor Application Insights 代理（以前称为状态监视器 v2）取代。 若要了解[本地服务器部署](/azure-monitor/app/status-monitor-v2-overview)或 [Azure 虚拟机和虚拟机规模集部署](/azure-monitor/app/azure-vm-vmss-apps)，请参阅我们的文档。
+> 不再建议使用状态监视器，并且从 2021 年 6 月 1 日起将不再支持这个版本的状态监视器。 它已被 Azure Monitor Application Insights 代理（以前称为状态监视器 v2）取代。 若要了解[本地服务器部署](./status-monitor-v2-overview.md)或 [Azure 虚拟机和虚拟机规模集部署](./azure-vm-vmss-apps.md)，请参阅我们的文档。
 
 无需修改或重新部署代码，即可使用 Azure Application Insights 检测实时 Web 应用。 需要一个 [Azure](https://azure.com) 订阅。
 
@@ -25,7 +26,7 @@ ms.locfileid: "87244921"
 - 如果将应用部署到 Azure VM 或 Azure 虚拟机规模集，请按照[这些说明](azure-vm-vmss-apps.md)操作。
 - 如果应用部署在 Azure 应用服务中，请遵循[这些说明](azure-web-apps.md)。
 - 如果应用部署在 Azure VM 中，则可通过 Azure 控制面板启用 Application Insights 监视。
-- （我们还单独提供了有关检测 [Azure 云服务](../../azure-monitor/app/cloudservices.md)的文章。）
+- （我们还单独提供了有关检测 [Azure 云服务](./cloudservices.md)的文章。）
 
 
 ![包含失败请求、服务器响应时间和服务器请求信息的 App Insights 概览图屏幕截图](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -42,14 +43,14 @@ ms.locfileid: "87244921"
 
 |  | 构建时 | 运行时 |
 | --- | --- | --- |
-| 请求和异常 |是 |是 |
-| [更详细异常](../../azure-monitor/app/asp-net-exceptions.md) | |是 |
-| [依赖项诊断](../../azure-monitor/app/asp-net-dependencies.md) |在 NET 4.6+ 上，但更少详细信息 |是，完整的详细信息：结果代码、SQL 命令文本、HTTP 谓词|
-| [系统性能计数器](../../azure-monitor/app/performance-counters.md) |是 |是 |
-| [自定义遥测 API][api] |是 |否 |
-| [跟踪日志集成](../../azure-monitor/app/asp-net-trace-logs.md) |是 |否 |
-| [页面视图和用户数据](../../azure-monitor/app/javascript.md) |是 |否 |
-| 需要重新生成代码 |是 | 否 |
+| **请求和异常** |是 |是 |
+| **[更详细异常](./asp-net-exceptions.md)** | |是 |
+| **[依赖项诊断](./asp-net-dependencies.md)** |在 NET 4.6+ 上，但更少详细信息 |是，完整的详细信息：结果代码、SQL 命令文本、HTTP 谓词|
+| **[系统性能计数器](./performance-counters.md)** |是 |是 |
+| **[自定义遥测 API][api]** |是 |否 |
+| **[跟踪日志集成](./asp-net-trace-logs.md)** |是 |否 |
+| **[页面视图和用户数据](./javascript.md)** |是 |否 |
+| **需要重新生成代码** |是 | 否 |
 
 
 
@@ -73,7 +74,7 @@ ms.locfileid: "87244921"
 
 ## <a name="customize-monitoring-options"></a>自定义监视选项
 
-启用 Application Insights 就会将 DLL 和 ApplicationInsights.config 添加到 Web 应用。 可以[编辑 .config 文件](../../azure-monitor/app/configuration-with-applicationinsights-config.md)，对某些选项进行更改。
+启用 Application Insights 就会将 DLL 和 ApplicationInsights.config 添加到 Web 应用。 可以[编辑 .config 文件](./configuration-with-applicationinsights-config.md)，对某些选项进行更改。
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>重新发布应用时，请重新启用 Application Insights
 
@@ -102,18 +103,19 @@ ms.locfileid: "87244921"
   ```
 
 - 如果需要确认 Application Insights 已成功附加，可在命令窗口中运行 [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle)，确认 IIS 已加载该 applicationinsights.dll。
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>无法连接？ 没有遥测数据？
 
-* 在服务器防火墙中打开[必需的传出端口](../../azure-monitor/app/ip-addresses.md#outgoing-ports)，以便让状态监视器正常工作。
+* 在服务器防火墙中打开[必需的传出端口](./ip-addresses.md#outgoing-ports)，以便让状态监视器正常工作。
 
 ### <a name="unable-to-login"></a>无法登录
 
-* 如果不能登录状态监视器，请改为安装命令行。 状态监视器尝试登录以收集 ikey，但可使用以下命令手动提供该信息：
+如果不能登录状态监视器，请改为安装命令行。 状态监视器尝试登录以收集 ikey，但可使用以下命令手动提供该信息：
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -132,7 +134,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 </dependentAssembly>
 ```
 
-我们将在[此处](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)跟踪此问题。
+我们将在[此处](https://github.com/MohanGsk/ApplicationInsights-Home)跟踪此问题。
 
 
 ### <a name="application-diagnostic-messages"></a>应用程序诊断消息
@@ -196,7 +198,9 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 
 首先导入 Application Insights 模块：
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 找出受监视的应用：
 
@@ -225,12 +229,14 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
     若要下载最新版本，请使用 Update-ApplicationInsightsVersion。
 * 成功时返回 `ApplicationInsightsApplication` 。 如果失败，则向 stderr 记录跟踪。
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -261,7 +267,7 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 ### <a name="when-do-i-use-status-monitor"></a>何时使用状态监视器？
 
 * 检测在 IIS 服务器上运行的任何 Web 应用，即使它已在运行。
-* 为 Web 应用启用其他遥测，此类应用已在编译时[通过 Application Insights SDK 生成](../../azure-monitor/app/asp-net.md)。 
+* 为 Web 应用启用其他遥测，此类应用已在编译时[通过 Application Insights SDK 生成](./asp-net.md)。 
 
 ### <a name="can-i-close-it-after-it-runs"></a>可以在它运行后关闭它吗？
 
@@ -308,7 +314,7 @@ Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https:/
 <a name="download"></a>
 ## <a name="download-status-monitor"></a>下载状态监视器
 
-- 使用新的 [PowerShell 模块](/azure-monitor/app/status-monitor-v2-overview)
+- 使用新的 [PowerShell 模块](./status-monitor-v2-overview.md)
 - 下载并运行[状态监视器安装程序](https://go.microsoft.com/fwlink/?LinkId=506648)
 - 或运行 [Web 平台安装程序](https://www.microsoft.com/web/downloads/platform.aspx)并在其中搜索 Application Insights 状态监视器。
 
@@ -317,10 +323,9 @@ Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https:/
 
 查看遥测：
 
-* [浏览指标](../../azure-monitor/platform/metrics-charts.md)，以便监视性能和使用情况
+* [浏览指标](../platform/metrics-charts.md)，以便监视性能和使用情况
 * [搜索事件和日志][diagnostic]以诊断问题
-* [分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询
-<!--Correct on link: azure-monitor/log-query/log-query-overview.md-->
+* [分析](../log-query/log-query-overview.md)，以便进行更高级的查询
 
 添加更多遥测：
 
@@ -330,13 +335,13 @@ Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https:/
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
-<!--Correct on link: azure-monitor/faq.md-->
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
+[qna]: ../faq.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+
 

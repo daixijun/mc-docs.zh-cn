@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 03/02/2020
-ms.date: 03/30/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ab432a9f51778818a00d751425a8521c1623f744
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 00343e37f44e1bdb588ef89fe7ff76659007dad4
+ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80586831"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94595174"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>使用内置直接方法来与 edgeAgent 通信
 
@@ -70,13 +70,14 @@ az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <
 
 ![在 Azure 门户中调用直接方法“RestartModule”](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## <a name="experimental-methods"></a>试验方法
+## <a name="diagnostic-direct-methods"></a>诊断直接方法
 
-新的直接方法选项作为可供测试的试验功能提供，包括：
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs)：检索直接方法的响应中内联的模块日志。
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs)：检索模块日志，并将其上传到 Azure Blob 存储。
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)：使用支持捆绑检索模块日志，并将 zip 文件上传到 Azure Blob 存储。
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status)：检查上传日志请求或支持捆绑请求的状态。
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md)：检索模块日志，并将其上传到 Azure Blob 存储。
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus)：检查上传日志请求的状态。
-* [GetLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs)：检索直接方法的响应中内联的模块日志。
+从 1.0.10 版本起提供这些诊断直接方法。
 
 ## <a name="next-steps"></a>后续步骤
 

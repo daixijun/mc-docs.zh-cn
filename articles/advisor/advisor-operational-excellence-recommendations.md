@@ -3,14 +3,14 @@ title: 使用顾问改进卓越运营
 description: 使用 Azure 顾问为 Azure 订阅优化和完善卓越运营。
 ms.topic: article
 origin.date: 10/24/2019
-ms.date: 09/22/2020
+ms.date: 11/13/2020
 ms.author: v-johya
-ms.openlocfilehash: 7f3c5a8fdb9f0e792cf80a8d88a0bd2710cca34b
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 69c1cae2210025d9bdd4256f160120c22add978b
+ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402648"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637940"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>使用 Azure 顾问实现卓越运营
 
@@ -40,7 +40,7 @@ Azure 顾问中的卓越运营建议可在以下方面帮助你：
 
 ## <a name="repair-invalid-log-alert-rules"></a>修复无效的日志警报规则
 
-Azure 顾问会检测在其条件部分指定了无效查询的警报规则。 可在 Azure Monitor 中创建日志警报规则，通过它们按指定的时间间隔运行分析查询。 查询结果决定了是否需要触发警报。 随着时间的推移，分析查询可能会因所引用资源、表或命令的变化而变得无效。 顾问会建议你更正警报规则中的查询以防止自动禁用，并确保监视你在 Azure 中的所有资源。 [详细了解如何排查警报规则问题。](https://aka.ms/aa_logalerts_queryrepair)
+Azure 顾问会检测在其条件部分指定了无效查询的警报规则。 可在 Azure Monitor 中创建日志警报规则，通过它们按指定的时间间隔运行分析查询。 查询结果决定了是否需要触发警报。 随着时间的推移，分析查询可能会因所引用资源、表或命令的变化而变得无效。 顾问会建议你更正警报规则中的查询以防止自动禁用，并确保监视你在 Azure 中的所有资源。 [详细了解如何排查警报规则问题。](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>使用 Azure Policy 建议
 
@@ -55,6 +55,12 @@ Azure Policy 是 Azure 中的一项服务，可用于创建、分配和管理策
 **强制审核未使用托管磁盘的 VM。** 
 
 **使能够从资源组继承标记。**  创建或更新任何资源时，此策略将添加或替换父资源组中指定的标记和值。 可触发修正任务来修正现有资源。
+
+顾问会建议一些单独的 Azure 策略，以帮助客户通过采用最佳做法来实现卓越运营。 如果客户决定分配建议的策略，则我们会取消该建议。 如果客户决定稍后删除策略，则顾问将继续取消该建议，因为我们会将其删除视为以下强信号：
+
+1.  客户删除了策略，虽然该策略是顾问的建议，但它不适用于其特定用例。 
+2.  客户在分配和删除策略后就会了解并熟悉该策略，如果策略以后与客户用例相关，则客户可以在没有指导的情况下按需再次分配或删除策略。 如果客户发现再次分配相同的策略可以使其利益最大化，则可以在 Azure Policy 中执行此操作，而无需顾问的建议。 请注意，此逻辑仅适用于“卓越运营”类别中的策略建议。 这些规则不适用于安全建议。  
+
 
 ## <a name="no-validation-environment-enabled"></a>未启用验证环境
 Azure 顾问确定你未在当前订阅中启用验证环境。 创建主机池时，你对属性选项卡中的“验证环境”选择了“否”。若拥有至少一个启用了验证环境的主机池，可通过 Windows 虚拟桌面服务部署确保业务连续性，并可及早发现潜在问题。

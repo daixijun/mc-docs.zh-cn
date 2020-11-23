@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c7232d710896fe3ecd8415f92f4cc495009fa4c1
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: a6dd9e7820010bc62a5bfeb2c4860683b7c49d99
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "90057549"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590613"
 ---
 <!--Verified successfully-->
 <!--CONFIRM THE DEOPLOMENT REGIONS BEFORE RELEASEMENT-->
@@ -31,7 +31,7 @@ ms.locfileid: "90057549"
 
 ![突发桶关系图](media/managed-disks-bursting/bucket-diagram.jpg)
 
-这完全取决于你希望如何使用这 30 分钟的突发。 可以连续使用 30 分钟，也可以在一天内分散地使用。 部署产品后，该产品为满信用额度；当其信用额度耗尽时，可在一天内再次充满信用额度。 你可以自行决定如何累积和花费其突发信用额度，不一定要再次充满 30 分钟的 Bucket 才能突发。 有关突发累积，需要注意的一件事是，各个资源的突发累积都各不相同，因为它基于资源在其性能限制下运行时未使用的 IOPS 和 MB/s。 这意味着，较高基线性能的产品积累其突发额度的速度可能会快于较低基线性能的产品。 例如，处于空闲状态、没有任何活动的 P1 磁盘将每秒积累 120 IOPS，而 P20 磁盘在处于空闲状态、没有任何活动时将每秒积累 2300 IOPS。
+这完全取决于你希望如何使用这 30 分钟的突发。 可以连续使用 30 分钟，也可以在一天内分散地使用。 部署产品后，该产品为满额度；当其额度耗尽时，可在一天内再次充满额度。 你可以自行决定如何累积和花费其突发信用额度，不一定要再次充满 30 分钟的 Bucket 才能突发。 有关突发累积，需要注意的一件事是，各个资源的突发累积都各不相同，因为它基于资源在其性能限制下运行时未使用的 IOPS 和 MB/s。 这意味着，较高基线性能的产品积累其突发额度的速度可能会快于较低基线性能的产品。 例如，处于空闲状态、没有任何活动的 P1 磁盘将每秒积累 120 IOPS，而 P20 磁盘在处于空闲状态、没有任何活动时将每秒积累 2300 IOPS。
 
 ## <a name="bursting-states"></a>突发状态
 启用了突发功能时，资源可能处于以下三种状态之一：
@@ -68,44 +68,11 @@ ms.locfileid: "90057549"
 
 ![非突发 VM - 突发磁盘发生突发](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
-### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>具有非可突发磁盘的可突发虚拟机
-**VM 和磁盘组合：** 
-- Standard_L8s_v2 
-    - 未缓存的 MB/s：160
-    - 最大突发 MB/s：1280
-- P50 OS 磁盘
-    - 预配的 MB/s：250 
-- 2 个 P10 数据磁盘 
-    - 预配的 MB/s：250
+<!--Not Avaialble on ### Burstable virtual machine with non-burstable disks-->
+<!--Not Available on Standard_L8s_v2-->
 
- 初始启动后，应用程序将在 VM 上运行，并且具有非关键工作负荷。 此工作负荷需要 30 MB/S（在所有磁盘上均匀分布）：![突发 VM - 非突发磁盘空闲](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
-
-然后，应用程序需要处理一个批处理作业，该作业需要 600 MB/s。 Standard_L8s_v2 将发生突发以满足这一需求，然后，对磁盘的请求会均匀分布到 P50 磁盘：
-
-![突发 VM - 非突发磁盘发生突发](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
-### <a name="burstable-virtual-machine-with-burstable-disks"></a>具有可突发磁盘的可突发虚拟机
-**VM 和磁盘组合：** 
-- Standard_L8s_v2 
-    - 未缓存的 MB/s：160
-    - 最大突发 MB/s：1280
-- P4 OS 磁盘
-    - 预配的 MB/s：25
-    - 最大突发 MB/s：170 
-- 2 个 P4 数据磁盘 
-    - 预配的 MB/s：25
-    - 最大突发 MB/s：170 
-
-VM 启动时，它将发生突发，从 OS 磁盘请求 1280 MB/s（其突发上限），OS 磁盘将以其 170 MB/s 的突发性能作为响应：
-
-![突发 VM - 突发磁盘启动](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
-
-启动完成后，应用程序将在 VM 上运行。 应用程序具有一个非关键工作负荷，该工作负荷需要 15 MB/s（均匀分布到所有磁盘）：
-
-![突发 VM - 突发磁盘空闲](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
-
-然后，应用程序需要处理一个批处理作业，该作业需要 360 MB/s。 Standard_L8s_v2 发生突发以满足此要求，然后进行请求。 OS 磁盘只需要 20 MB/s。 剩余的 340 MB/s 由突发 P4 数据磁盘处理：  
-
-![突发 VM - 突发磁盘发生突发](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+<!--Not Avaialble on ### Burstable virtual machine with burstable Disks-->
+<!--Not Available on Standard_L8s_v2-->
 
 <!-- Update_Description: new article about managed disks bursting 2 -->
 <!--NEW.date: 05/18/2020-->

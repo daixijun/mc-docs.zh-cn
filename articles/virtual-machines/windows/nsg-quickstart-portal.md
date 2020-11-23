@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure 门户打开 VM 的端口
-description: 了解如何使用 Azure 门户为 Windows VM 打开端口/创建终结点
-ms.service: virtual-machines-windows
+description: 了解如何使用 Azure 门户为 VM 打开端口/创建终结点
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 05/27/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 98dacc8c05e2ecc8d159628f0d134f155a368289
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 15d4c61de202eac45b9aa69056857ff68967d84a
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106296"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590605"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -45,13 +45,13 @@ ms.locfileid: "93106296"
 
 1. 从左侧菜单中选择“入站安全规则”，并选择“添加”。
 
-    :::image type="content" source="./media/nsg-quickstart-portal/advanced.png" alt-text="创建网络安全组":::
+    :::image type="content" source="./media/nsg-quickstart-portal/advanced.png" alt-text="切换到“高级”页":::
 
 1. 在“添加入站安全规则”页中，切换到页面顶部“基本”中的“高级”。   
 
 1. 从下拉菜单中选择常见的“服务”，如 HTTP 。 如果要提供要使用的特定端口，也可以选择“自定义”。 
 
-1. （可选）更改 **优先级** 或 **名称** 。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
+1. （可选）更改 **优先级** 或 **名称**。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
 
 1. 选择“添加”以创建规则。
 
@@ -63,7 +63,7 @@ ms.locfileid: "93106296"
 
 1. 选择虚拟网络，并选择相应的子网。
 
-    :::image type="content" source="./media/nsg-quickstart-portal/select-vnet-subnet.png" alt-text="创建网络安全组":::
+    :::image type="content" source="./media/nsg-quickstart-portal/select-vnet-subnet.png" alt-text="将网络安全组与虚拟网络相关联":::
 
 1. 完成后，请选择“确定”。
 

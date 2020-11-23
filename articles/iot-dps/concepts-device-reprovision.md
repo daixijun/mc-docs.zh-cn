@@ -4,16 +4,16 @@ description: 介绍 Azure IoT 中心设备预配服务 (DPS) 的设备重新预�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/04/2019
-ms.date: 03/02/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: f929857070d7e4d249b5c348dd6541520c09f4c0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6c683702836cdb3e5672bf23bf5e0f791c10339f
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850226"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590759"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IoT 中心设备重新预配概念
 
@@ -33,7 +33,7 @@ ms.locfileid: "78850226"
 
 设备状态数据由[设备孪生](../iot-hub/iot-hub-devguide-device-twins.md)和设备功能组成。 此数据存储在设备预配服务实例和设备所分配到的 IoT 中心中。
 
-![使用设备预配服务进行预配](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![显示如何结合使用预配与设备预配服务的图。](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 设备初次使用设备预配服务实例进行预配时，将执行以下步骤：
 
@@ -53,13 +53,13 @@ ms.locfileid: "78850226"
 
 * **重新预配和迁移数据**：此策略是新注册项的默认策略。 当与注册项关联的设备提交新的请求时，此策略将执行操作 (1)。 根据注册项配置，可将设备重新分配给其他 IoT 中心。 如果设备正在更改 IoT 中心，则将删除初始 IoT 中心内的设备注册。 来自该初始 IoT 中心的已更新设备状态信息将迁移到新的 IoT 中心 (2)。 迁移期间，设备的状态将报告为“正在分配”  。
 
-    ![使用设备预配服务进行预配](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![显示与注册项关联的设备提交新的请求时策略将采取措施的图。](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **重新预配并重置为初始配置**：当与注册项关联的设备提交新的预配请求时，此策略将执行操作 (1)。 根据注册项配置，可将设备重新分配给其他 IoT 中心。 如果设备正在更改 IoT 中心，则将删除初始 IoT 中心内的设备注册。 将向新的 IoT 中心提供预配服务实例在预配设备时接收到的初始配置数数据 (2)。 迁移期间，设备的状态将报告为“正在分配”  。
 
     此策略通常用于恢复出厂设置而无需更改 IoT 中心。
 
-    ![使用设备预配服务进行预配](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![显示与注册项关联的设备提交新的预配请求时策略如何采取措施的图。](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **从不重新预配**：设备从不重新分配到不同的中心。 此策略用于管理后向兼容性。
 
