@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: ab745adda886ced8def08604cbf70a6fe06caf1d
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 70750cf6cb609b6a67762cd908132152191af910
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248450"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975201"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>教程：使用 SQL 数据同步将数据从 SQL Edge 同步到 Azure SQL 数据库
 

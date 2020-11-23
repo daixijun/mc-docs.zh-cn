@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 02011a6b57544fcd79587d299977fdda9924ef2f
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 450fcf369317e7d209d900141563217df0595a3a
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248540"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975204"
 ---
 # <a name="what-is-azure-sql-edge"></a>什么是 Azure SQL Edge？
 

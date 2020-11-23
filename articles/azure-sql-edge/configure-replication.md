@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: c87153c5de7cf710ac1174cc884e12cc1cc1035b
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 81179cd5b7182053a1e30e9c038b373b820787e8
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248462"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975213"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>配置到 Azure SQL Edge 的复制 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91248462"
   
 - Azure SQL Edge 实例必须是发布服务器的推送订阅服务器。
 - 发布服务器和分发服务器可以是：
-   - 在本地运行的 SQL Server 实例，也可以是在 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](https://docs.azure.cn/azure-sql/virtual-machines/)。 SQL Server 实例必须使用高于 SQL Server 2016 的版本。
-   - Azure SQL 托管实例的实例。 SQL 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关详细信息，请参阅[通过 SQL 数据库托管实例进行复制](https://docs.azure.cn/sql-database/replication-with-sql-database-managed-instance/)。
+   - 在本地运行的 SQL Server 实例，也可以是在 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](../azure-sql/virtual-machines/index.yml)。 SQL Server 实例必须使用高于 SQL Server 2016 的版本。
+   - Azure SQL 托管实例的实例。 SQL 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关详细信息，请参阅[通过 SQL 数据库托管实例进行复制](/sql-database/replication-with-sql-database-managed-instance/)。
 
 - 不能将分发数据库和复制代理置于一个 Azure SQL Edge 实例上。  
 
@@ -93,5 +93,3 @@ Azure SQL Edge 订阅不支持以下选项：
 - [复制类型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [监视（复制）](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [初始化订阅](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-

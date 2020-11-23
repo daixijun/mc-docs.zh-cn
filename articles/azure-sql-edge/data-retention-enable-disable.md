@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/04/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 460a67673bd17f05dd317b7fcd77c5b64a1ca2e4
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 33cf3f7104a751fda4537c9898d10f8e844e8b2a
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248526"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975208"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>启用和禁用数据保留策略
 

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 06/03/2020
-ms.date: 06/29/2020
+ms.date: 11/23/2020
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: f2a58d4943d01c37be21d9503c47c6c6e1d7829e
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: ecce6c83cc8b5d6abde5d54ac3b67e09d1d63f08
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323341"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680507"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>重新配置 Azure-SSIS 集成运行时
 
@@ -93,7 +93,7 @@ ms.locfileid: "85323341"
 有关 Azure-SSIS 运行时的详细信息，请参阅以下主题： 
 
 - [Azure-SSIS 集成运行时](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 此文提供有关集成运行时（包括 Azure-SSIS IR）的一般概念性信息。 
-- [教程：将 SSIS 包部署到 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 此文以分步说明的方式介绍了如何创建 Azure-SSIS IR 并使用 Azure SQL 数据库来托管 SSIS 目录。 
+- [教程：将 SSIS 包部署到 Azure](./tutorial-deploy-ssis-packages-azure.md)。 此文以分步说明的方式介绍了如何创建 Azure-SSIS IR 并使用 Azure SQL 数据库来托管 SSIS 目录。 
 - [如何：创建 Azure-SSIS 集成运行时](create-azure-ssis-integration-runtime.md)。 此文延伸了本教程的内容，介绍了如何使用 Azure SQL 托管实例以及如何将 IR 加入虚拟网络。 
 - [将 Azure-SSIS IR 加入虚拟网络](join-azure-ssis-integration-runtime-virtual-network.md)。 此文提供有关将 Azure-SSIS IR 加入 Azure 虚拟网络的概念性信息。 此外，还介绍可以执行哪些步骤来使用 Azure 门户配置虚拟网络，以便 Azure-SSIS IR 能够加入虚拟网络。 
 - [监视 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime)。 此文介绍如何检索有关 Azure-SSIS IR 的信息，以及返回的信息中的状态说明。

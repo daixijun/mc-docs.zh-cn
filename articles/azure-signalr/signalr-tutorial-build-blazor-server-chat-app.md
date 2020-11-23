@@ -5,14 +5,14 @@ author: JialinXin
 ms.service: signalr
 ms.topic: tutorial
 origin.date: 09/09/2020
-ms.date: 10/19/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: ab45c576159a9e99624604492b00a5ff468552e5
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: b42395c9da66041f57e2b70a01467f2c186b4b58
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170780"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975215"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>教程：构建 Blazor Server 聊天应用
 
@@ -95,7 +95,7 @@ ms.locfileid: "92170780"
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. 在 `Pages` 文件夹下创建 `ChartRoom.razor` 以实现 SignalR 客户端。 按以下步骤操作，或直接复制 [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)。
+1. 在 `Pages` 文件夹下创建 `ChatRoom.razor` 以实现 SignalR 客户端。 按以下步骤操作，或直接复制 [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor)。
 
    1. 添加页面链接和引用。
       
@@ -284,7 +284,7 @@ ms.locfileid: "92170780"
    </li>
    ```
    
-1. 更新 `site.css` 以优化图表区域气泡视图。 将代码追加到末尾。
+1. 更新 `site.css` 以优化聊天区域气泡视图。 将代码追加到末尾。
 
    ```css
    /* improved for chat text box */
@@ -355,6 +355,7 @@ ms.locfileid: "92170780"
 1. 单击 <kbd>F5</kbd> 运行应用。 你将可以如下所示进行聊天。
 
    [ ![blazor-chat](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   
 
 ## <a name="publish-to-azure"></a>发布到 Azure
 
@@ -441,6 +442,7 @@ ms.locfileid: "92170780"
 >        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
 >      }
 >    ```
+
 
 ## <a name="clean-up-resources"></a>清理资源
 

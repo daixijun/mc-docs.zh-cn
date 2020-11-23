@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 08/14/2020
 ms.date: 09/07/2020
-ms.openlocfilehash: 7edeccca61a879397a4960de695198f5400805a6
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 60c1900a405176ed0ff50a93b9fda57684e3f89e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118211"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976957"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教程：使用自动化机器学习预测出租车费
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>配置工作区
 
-从现有工作区创建工作区对象。 [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。 `Workspace.from_config()` 读取文件 **config.json** 并将身份验证详细信息加载到名为 `ws` 的对象。 在本教程中，`ws` 在代码的其余部分使用。
+从现有工作区创建工作区对象。 [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。 `Workspace.from_config()` 读取文件 **config.json** 并将身份验证详细信息加载到名为 `ws` 的对象。 在本教程中，`ws` 在代码的其余部分使用。
 
 ```python
 from azureml.core.workspace import Workspace
@@ -206,7 +206,7 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 
 定义用于训练的试验参数和模型设置。 查看[设置](how-to-configure-auto-train.md)的完整列表。 提交带这些默认设置的试验大约需要 5-20 分钟，但如果需要缩短运行时间，可减小 `experiment_timeout_hours` 参数。
 
-|属性| 本教程中的值 |说明|
+|properties| 本教程中的值 |说明|
 |----|----|---|
 |**iteration_timeout_minutes**|2|每个迭代的时间限制（分钟）。 减小此值可缩短总运行时。|
 |**experiment_timeout_hours**|0.3|在试验结束之前，所有合并的迭代所花费的最大时间量（以小时为单位）。|
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>浏览结果
 
-通过 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)浏览自动训练的结果。 使用该小组件可以查看每个运行迭代的图形和表，以及训练准确度指标和元数据。 此外，可以筛选不同于下拉选择器中的主要指标的准确度指标。
+通过 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)浏览自动训练的结果。 使用该小组件可以查看每个运行迭代的图形和表，以及训练准确度指标和元数据。 此外，可以筛选不同于下拉选择器中的主要指标的准确度指标。
 
 ```python
 from azureml.widgets import RunDetails

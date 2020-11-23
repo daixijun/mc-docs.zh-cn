@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: e5a271a198a33f16a4403e6d2db3a42574141cd9
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 56ba7ec1f4ee96c79b1284ec85b233dc2e955765
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248447"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975214"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>在 Azure SQL Edge 中备份和还原数据库 
 
@@ -78,7 +78,7 @@ Azure SQL Edge 支持的备份类型与 SQL Server 相同。 有关完整列表�
 
 Azure SQL Edge 支持备份到页 blob 和块 blob。 有关详细信息，请参阅[备份到块 blob 与备份到页 blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob)。 在下面的示例中，数据库 IronOreSilicaPrediction 将备份到块 blob。 
 
-1. 若要配置备份到块 blob，请首先生成可用于在 Azure SQL Edge 上创建 SQL Server 凭据的共享访问签名 (SAS) 令牌。 该脚本创建与存储访问策略关联的共享访问签名。 有关详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](https://docs.azure.cn/storage/common/storage-sas-overview)，详细了解 SAS 以及 SAS 使用方面的最佳做法。 此脚本还编写在 SQL Server 上创建凭据时所需的 T-SQL 命令。 以下脚本假设你已有一个带有存储帐户的 Azure 订阅，并有一个用于备份的存储容器。
+1. 若要配置备份到块 blob，请首先生成可用于在 Azure SQL Edge 上创建 SQL Server 凭据的共享访问签名 (SAS) 令牌。 该脚本创建与存储访问策略关联的共享访问签名。 有关详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](../storage/common/storage-sas-overview.md)，详细了解 SAS 以及 SAS 使用方面的最佳做法。 此脚本还编写在 SQL Server 上创建凭据时所需的 T-SQL 命令。 以下脚本假设你已有一个带有存储帐户的 Azure 订阅，并有一个用于备份的存储容器。
 
     ```PowerShell
     # Define global variables for the script  
@@ -181,5 +181,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

@@ -14,23 +14,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 11/20/2020
 ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: 774a8302c0f3a030ed51448045886b29d43bfcd8
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 2c821e9e5fccdbbb80e85f90a654aab594c1ca37
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127792"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976952"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全框架：通信安全 | 缓解措施 
 | 产品/服务 | 文章 |
 | --------------- | ------- |
 | **Azure 事件中心** | <ul><li>[使用 SSL/TLS 保护与事件中心之间的通信](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[检查服务帐户特权，并检查自定义服务或 ASP.NET 页面是否遵循 CRM 的安全性](#priv-aspnet)</li></ul> |
-<!-- not avaialble-->
-| 标识服务器  | <ul><li>[确保发往标识服务器的所有流量都通过 HTTPS 连接传输](#identity-https)</li></ul> | | **Web 应用程序** | <ul><li>[验证用于对 SSL、TLS 和 DTLS 连接进行身份验证的 X.509 证书](#x509-ssltls)</li><li>[在 Azure 应用服务中为自定义域配置 TLS/SSL 证书](#ssl-appservice)</li><li>[强制要求发往 Azure 应用服务的所有流量都通过 HTTPS 连接传输](#appservice-https)</li><li>[启用 HTTP 严格传输安全性 (HSTS)](#http-hsts)</li></ul> | | **数据库** | <ul><li>[确保加密 SQL Server 连接并验证证书](#sqlserver-validation)</li><li>[强制以加密形式来与 SQL Server 通信](#encrypted-sqlserver)</li></ul> | | **Azure 存储** | <ul><li>[确保与 Azure 存储之间的通信通过 HTTPS 进行](#comm-storage)</li><li>[如果无法启用 HTTPS，请在下载 Blob 后验证 MD5 哈希](#md5-https)</li><li>[使用 SMB 3.0 兼容的客户端来确保传输到 Azure 文件共享的数据经过加密](#smb-shares)</li></ul> | | **移动客户端** | <ul><li>[实施证书绑定](#cert-pinning)</li></ul> | | **WCF** | <ul><li>[启用 HTTPS - 安全传输通道](#https-transport)</li><li>[WCF：将消息安全保护级别设置为 EncryptAndSign](#message-protection)</li><li>[WCF：使用最低特权帐户运行 WCF 服务](#least-account-wcf)</li></ul> | | **Web API** | <ul><li>[强制要求发往 Web API 的所有流量都通过 HTTPS 连接传输](#webapi-https)</li></ul> | | **Azure Cache for Redis** | <ul><li>[确保与 Azure Cache for Redis 之间的通信通过 TLS 进行](#redis-ssl)</li></ul> | | **IoT 现场网关** | <ul><li>[保护设备与现场网关之间的通信](#device-field)</li></ul> | | **IoT 云网关** | <ul><li>[使用 SSL/TLS 保护设备与云网关之间的通信](#device-cloud)</li></ul> |
+| **标识服务器** | <ul><li>[确保发往标识服务器的所有流量都通过 HTTPS 连接传输](#identity-https)</li></ul> |
+| **Web 应用程序** | <ul><li>[验证用于对 SSL、TLS 和 DTLS 连接进行身份验证的 X.509 证书](#x509-ssltls)</li><li>[在 Azure 应用服务中为自定义域配置 TLS/SSL 证书](#ssl-appservice)</li><li>[强制要求发往 Azure 应用服务的所有流量都通过 HTTPS 连接传输](#appservice-https)</li><li>[启用 HTTP 严格传输安全性 (HSTS)](#http-hsts)</li></ul> |
+| **Database** | <ul><li>[确保加密 SQL Server 连接并验证证书](#sqlserver-validation)</li><li>[强制以加密形式来与 SQL Server 通信](#encrypted-sqlserver)</li></ul> |
+| **Azure 存储** | <ul><li>[确保与 Azure 存储之间的通信通过 HTTPS 进行](#comm-storage)</li><li>[如果无法启用 HTTPS，请在下载 Blob 后验证 MD5 哈希](#md5-https)</li><li>[使用 SMB 3.0 兼容的客户端来确保传输到 Azure 文件共享的数据经过加密](#smb-shares)</li></ul> |
+| **移动客户端** | <ul><li>[实施证书绑定](#cert-pinning)</li></ul> |
+| **WCF** | <ul><li>[启用 HTTPS - 安全传输通道](#https-transport)</li><li>[WCF：将消息安全保护级别设置为 EncryptAndSign](#message-protection)</li><li>[WCF：使用最低特权帐户运行 WCF 服务](#least-account-wcf)</li></ul> |
+| **Web API** | <ul><li>[强制要求发往 Web API 的所有流量都通过 HTTPS 连接传输](#webapi-https)</li></ul> |
+| **用于 Redis 的 Azure 缓存** | <ul><li>[确保与 Azure Cache for Redis 之间的通信通过 TLS 进行](#redis-ssl)</li></ul> |
+| **IoT 现场网关** | <ul><li>[保护设备与现场网关之间的通信](#device-field)</li></ul> |
+| **IoT 云网关** | <ul><li>[使用 SSL/TLS 保护设备与云网关之间的通信](#device-cloud)</li></ul> |
 
 ## <a name="secure-communication-to-event-hub-using-ssltls"></a><a id="comm-ssltls"></a>使用 SSL/TLS 保护与事件中心之间的通信
 

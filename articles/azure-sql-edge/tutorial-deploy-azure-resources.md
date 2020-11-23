@@ -9,13 +9,13 @@ author: VasiyaKrishnan
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 67c301c626b110a1d5b8d73add3181472ff4831d
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 8a6078775f20740497a6f66a909a8936f8f916a2
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248445"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975212"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>安装软件并设置教程所需资源
 
@@ -24,14 +24,16 @@ ms.locfileid: "91248445"
 ## <a name="prerequisites"></a>先决条件
 
 1. 如果没有 Azure 订阅，请创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
-2. 安装 [Python 3.6.8](https://www.python.org/downloads/release/python-368/)。
-      * 使用 Windows x86-x64 可执行安装程序
-      * 将 `python.exe` 添加到 PATH 环境变量 downloads/)。 可以在“针对 Visual Studio 2019 的工具”下找到下载内容。
-3. 安装 [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)。
-4. 安装 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio/)
-5. 打开 Azure Data Studio 并为笔记本配置 Python。 有关详细信息，请参阅[为 Notebook 配置 Python](https://docs.microsoft.com/sql//azure-data-studio/sql-notebooks#configure-python-for-notebooks)。此步骤可能需要几分钟的时间。
-6. 安装最新版本的 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)。 以下脚本要求 AZ PowerShell 是最新版本（3.5.0，2020 年 2 月）。
-7. 下载将在教程中使用的 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 和 [AMD/ARM Docker 映像文件](https://www.docker.com/blog/multi-arch-images/)。
+2. 使用以下工具安装 Visual Studio 2019 
+      * Azure IoT Edge 工具
+      * .NET Core 跨平台开发
+      * 容器开发工具
+3. 安装 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio/)
+4. 打开 Azure Data Studio 并为笔记本配置 Python。  有关详细信息，请参阅[为 Notebook 配置 Python](https://docs.microsoft.com/sql//azure-data-studio/sql-notebooks#configure-python-for-notebooks)。此步骤可能需要几分钟的时间。
+5. 安装最新版本的 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)。 以下脚本要求 AZ PowerShell 是最新版本（3.5.0，2020 年 2 月）。
+6. 通过安装 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)，设置用于调试、运行和测试 IoT Edge 解决方案的环境。
+7. 安装 Docker。
+8. 下载本教程中将使用的 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 文件。 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>使用 PowerShell 脚本部署 Azure 资源
 
@@ -155,26 +157,7 @@ ms.locfileid: "91248445"
    }
    ```
 
-10. 将 ARM/AMD docker 映像推送到容器注册表。
-
-    ```powershell
-    $containerRegistryCredentials = Get-AzContainerRegistryCredential -ResourceGroupName $ResourceGroup -Name $containerRegistryName
-    
-    $amddockerimageFile = Read-Host "Please Enter the location to the amd docker tar file:"
-    $armdockerimageFile = Read-Host "Please Enter the location to the arm docker tar file:"
-    $amddockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":amd64"
-    $armdockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":arm64"
-    
-    docker login $containerRegistry.LoginServer --username $containerRegistryCredentials.Username --password $containerRegistryCredentials.Password
-    
-    docker import $amddockerimageFile $amddockertag
-    docker push $amddockertag
-    
-    docker import $armdockerimageFile $armdockertag
-    docker push $armdockertag
-    ```
-
-11. 在资源组中创建网络安全组。
+10. 在资源组中创建网络安全组。
 
     ```powershell
     $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Name $NetworkSecGroup 
@@ -194,7 +177,7 @@ ms.locfileid: "91248445"
     }
     ```
 
-12. 创建启用 SQL Edge 的 Azure 虚拟机。 此 VM 将充当 Edge 设备。
+11. 创建启用 SQL Edge 的 Azure 虚拟机。 此 VM 将充当 Edge 设备。
 
     ```powershell
     $AzVM = Get-AzVM -ResourceGroupName $ResourceGroup -Name $EdgeDeviceId
@@ -227,7 +210,7 @@ ms.locfileid: "91248445"
     }
     ```
 
-13. 在资源组中创建 IoT 中心。
+12. 在资源组中创建 IoT 中心。
 
     ```powershell
     $iotHub = Get-AzIotHub -ResourceGroupName $ResourceGroup -Name $IoTHubName
@@ -242,7 +225,7 @@ ms.locfileid: "91248445"
     }
     ```
 
-14. 将 Edge 设备添加到 IoT 中心。 此步骤仅创建设备数字标识。
+13. 将 Edge 设备添加到 IoT 中心。 此步骤仅创建设备数字标识。
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -258,7 +241,7 @@ ms.locfileid: "91248445"
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. 获取设备主连接字符串。 这将是 VM 稍后需要的。 以下命令使用 Azure CLI 进行部署。
+14. 获取设备主连接字符串。 这将是 VM 稍后需要的。 以下命令使用 Azure CLI 进行部署。
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -266,18 +249,19 @@ ms.locfileid: "91248445"
     $connString
     ```
 
-16. 更新 Edge 设备上 IoT Edge 配置文件中的连接字符串。 以下命令使用 Azure CLI 进行部署。
+15. 更新 Edge 设备上 IoT Edge 配置文件中的连接字符串。 以下命令使用 Azure CLI 进行部署。
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. 在资源组中创建 Azure 机器学习工作区。
+16. 在资源组中创建 Azure 机器学习工作区。
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
+
 
 ## <a name="next-steps"></a>后续步骤
 

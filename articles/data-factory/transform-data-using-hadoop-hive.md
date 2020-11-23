@@ -11,13 +11,13 @@ ms.author: v-jay
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 05/08/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: d827ff368f6b19bed638aa369b61b707fd06b112
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 11/23/2020
+ms.openlocfilehash: 04d7e8c29b6818beac1f360c3fdd7f1829c5fdfe
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323150"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680481"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Hadoop Hive 活动转换数据
 
@@ -61,7 +61,7 @@ ms.locfileid: "85323150"
 | description         | 描述活动用途的文本                | 否       |
 | type                | 对于 Hive 活动，活动类型是 HDinsightHive        | 是      |
 | linkedServiceName   | 引用在数据工厂中注册为链接服务的 HDInsight 群集。 若要了解此链接服务，请参阅[计算链接服务](compute-linked-services.md)一文。 | 是      |
-| scriptLinkedService | 对 Azure 存储链接服务的引用，该服务用于存储要执行的 Hive 脚本。 此处仅支持 [Azure Blob 存储](/data-factory/connector-azure-blob-storage)和 [ADLS Gen2](/data-factory/connector-azure-data-lake-storage) 链接服务 。 如果未指定此链接服务，则使用 HDInsight 链接服务中定义的 Azure 存储链接服务。  | 否       |
+| scriptLinkedService | 对 Azure 存储链接服务的引用，该服务用于存储要执行的 Hive 脚本。 此处仅支持 [Azure Blob 存储](./connector-azure-blob-storage.md)和 [ADLS Gen2](./connector-azure-data-lake-storage.md) 链接服务 。 如果未指定此链接服务，则使用 HDInsight 链接服务中定义的 Azure 存储链接服务。  | 否       |
 | scriptPath          | 提供由 scriptLinkedService 引用的 Azure 存储中存储的脚本文件的路径。 文件名称需区分大小写。 | 是      |
 | getDebugInfo        | 指定何时将日志文件复制到 HDInsight 群集使用的（或者）scriptLinkedService 指定的 Azure 存储。 允许的值：None、Always 或 Failure。 默认值：无。 | 否       |
 | 参数           | 指定 Hadoop 作业的参数数组。 参数以命令行参数的形式传递到每个任务。 | 否       |

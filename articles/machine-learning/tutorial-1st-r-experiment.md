@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 89cc938a22462ef256be3cdbcc35eb144e812203
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 84e5942082be7f2f4454811682f8d203f083a980
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118112"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976959"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>教程：使用 R 创建机器学习模型（预览版）
 
@@ -45,7 +45,7 @@ ms.locfileid: "92118112"
 
 Azure 机器学习工作区是云中的基础资源，用于试验、训练和部署机器学习模型。 它将 Azure 订阅和资源组关联到服务中一个易于使用的对象。 
 
-通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。 
+可以通过许多[方法来创建工作区](how-to-manage-workspace.md)。 本教程将通过 Azure 门户创建工作区，该门户是用于管理 Azure 资源的基于 Web 的控制台。 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -184,11 +184,11 @@ upload_files_to_datastore(ds,
 * 提交作业
 
 ### <a name="prepare-the-training-script"></a>准备训练脚本
-已在 train-and-ploy-first-model 目录中为你提供名为 `accidents.R` 的训练脚本。 请注意**训练脚本中**的以下详细信息，这些操作的目的是利用 Azure 机器学习进行训练：
+已在 train-and-ploy-first-model 目录中为你提供名为 `accidents.R` 的训练脚本。 请注意 **训练脚本中** 的以下详细信息，这些操作的目的是利用 Azure 机器学习进行训练：
 
 * 训练脚本采用 `-d` 参数来查找包含训练数据的目录。 稍后定义并提交作业时，需要指向数据存储来获取此参数。 Azure ML 会将存储文件夹装载到训练作业的远程群集。
 * 训练脚本使用 `log_metric_to_run()` 将最终准确度作为指标，记录到 Azure ML 中的运行记录。 Azure ML SDK 提供一组日志记录 API，用于在训练运行期间记录各种指标。 这些指标将记录到试验运行记录中，并在其中持久保存。 以后随时可以访问这些指标，或者在[工作室](https://studio.ml.azure.cn)的运行详细信息页中查看这些指标。 参阅有关整套日志记录方法 `log_*()` 的[参考](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)。
-* 训练脚本将模型保存到一个名为**outputs** 的目录中。 Azure ML 将对 `./outputs` 文件夹进行特殊的处理。 在训练期间，Azure ML 会自动将写入到 `./outputs` 的文件上传到运行记录，并将其持久保存为项目。 将训练的模型保存到 `./outputs` 即使是在运行结束之后以及不再可以访问远程训练环境的情况下，你仍可以访问和检索模型文件。
+* 训练脚本将模型保存到一个名为 **outputs** 的目录中。 Azure ML 将对 `./outputs` 文件夹进行特殊的处理。 在训练期间，Azure ML 会自动将写入到 `./outputs` 的文件上传到运行记录，并将其持久保存为项目。 将训练的模型保存到 `./outputs` 即使是在运行结束之后以及不再可以访问远程训练环境的情况下，你仍可以访问和检索模型文件。
 
 ### <a name="create-an-estimator"></a>创建估算器
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>部署为 Web 服务
 
-使用该模型可以预测碰撞时的死亡危险几率。 使用 Azure ML 将模型部署为预测服务。 本教程将在 [Azure 容器实例](https://docs.microsoft.com/azure/container-instances/) (ACI) 中部署 Web 服务。
+使用该模型可以预测碰撞时的死亡危险几率。 使用 Azure ML 将模型部署为预测服务。 本教程将在 [Azure 容器实例](/container-instances/) (ACI) 中部署 Web 服务。
 
 ### <a name="register-the-model"></a>注册模型
 
@@ -313,7 +313,7 @@ r_env <- r_environment(name = "basic_env")
 
 若要改用自己的 Docker 映像进行部署，请指定 `custom_docker_image` 参数。 有关用于定义环境的完整可配置选项集，请参阅 [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) 参考。
 
-完成所有准备工作后，接下来需要创建一个**推理配置**用于封装评分脚本和环境依赖项。
+完成所有准备工作后，接下来需要创建一个 **推理配置** 用于封装评分脚本和环境依赖项。
 
 ```R
 inference_config <- inference_config(
@@ -329,7 +329,7 @@ inference_config <- inference_config(
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-现在，请将模型部署为 Web 服务。 部署**可能需要花费几分钟时间**。 
+现在，请将模型部署为 Web 服务。 部署 **可能需要花费几分钟时间**。 
 
 ```R
 aci_service <- deploy_model(ws, 

@@ -99,6 +99,10 @@
                   href: tutorial-transform-data-spark-portal.md
                 - name: Azure PowerShell
                   href: tutorial-transform-data-spark-powershell.md
+            - name: Databricks Notebook
+              items:
+                - name: 用户界面 (UI)
+                  href: transform-data-using-databricks-notebook.md
             - name: 虚拟网络中的 Hive 转换
               items:
                 - name: 用户界面 (UI)
@@ -143,6 +147,8 @@
       href: concepts-roles-permissions.md
     - name: 命名规则
       href: naming-rules.md
+    - name: 数据冗余
+      href: concepts-data-redundancy.md
 - name: 操作指南
   items:
     - name: 作者
@@ -185,7 +191,7 @@
           href: connector-azure-database-for-postgresql.md
         - name: Azure 文件存储
           href: connector-azure-file-storage.md
-        - name: Azure SQL 数据库
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL 托管实例
           href: connector-azure-sql-managed-instance.md
@@ -375,6 +381,8 @@
           href: copy-activity-fault-tolerance.md
         - name: 数据一致性验证
           href: copy-activity-data-consistency.md
+        - name: 复制活动日志
+          href: copy-activity-log.md
         - name: 格式和压缩支持（旧版）
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: 转换数据
@@ -384,6 +392,12 @@
           href: control-flow-azure-function-activity.md
         - name: 自定义活动
           href: transform-data-using-dotnet-custom-activity.md
+        - name: Databricks Jar 活动
+          href: transform-data-databricks-jar.md
+        - name: Databricks Notebook 活动
+          href: transform-data-databricks-notebook.md
+        - name: Databricks Python 活动
+          href: transform-data-databricks-python.md
         - name: 数据资源管理器命令活动
           href: /data-explorer/data-factory-command-activity?toc=/data-factory/toc.json
         - name: HDInsight Hive 活动
@@ -578,6 +592,8 @@
           href: solution-template-migration-s3-azure.md
         - name: 移动文件
           href: solution-template-move-files.md
+        - name: 使用 Azure Databricks 进行转换
+          href: solution-template-databricks-notebook.md
     - name: 了解定价
       items:
         - name: 定价示例
@@ -590,8 +606,6 @@
           href: data-factory-troubleshoot-guide.md
         - name: 连接器
           href: connector-troubleshoot-guide.md
-        - name: 复制数据工具
-          href: copy-data-tool-troubleshoot-guide.md
         - name: 自承载集成运行时
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure-SSIS 集成运行时

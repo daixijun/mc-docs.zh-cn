@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/03/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 82e0ed24cece07bf5ea9cfd89e4987b129acca05
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: e58168c470e5d163c1047ecbd1b3585b46490338
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248524"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975199"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Azure SQL Edge 支持的功能 
 

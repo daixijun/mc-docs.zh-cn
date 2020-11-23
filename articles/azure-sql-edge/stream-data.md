@@ -9,17 +9,17 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 3a31506e7dd241f354e132850311d3339a682597
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 754302d0a4e92254186f25ec553cf7bade91201f
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248474"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975149"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Azure SQL Edge 中的数据流式处理
 
-Azure SQL Edge 提供了称为 T-SQL 流式处理的数据流式处理功能的原生实现。 它提供实时数据流式处理、分析和事件处理，可同时分析和处理来自多个源的大量快速流数据。 T-SQL 流式处理是使用高性能流式处理引擎构建的，该引擎与为 Microsoft Azure 中的 [Azure 流分析](https://docs.azure.cn/stream-analytics/stream-analytics-introduction)提供支持的引擎相同。 此功能支持的一组功能与在边缘上运行的 Azure 流分析提供的功能类似。
+Azure SQL Edge 提供了称为 T-SQL 流式处理的数据流式处理功能的原生实现。 它提供实时数据流式处理、分析和事件处理，可同时分析和处理来自多个源的大量快速流数据。 T-SQL 流式处理是使用高性能流式处理引擎构建的，该引擎与为 Microsoft Azure 中的 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)提供支持的引擎相同。 此功能支持的一组功能与在边缘上运行的 Azure 流分析提供的功能类似。
 
 与流分析一样，T-SQL 流式处理可以识别从多个 IoT 输入源（包括设备、传感器和应用程序）提取的信息中的模式和关系。 你可以使用这些模式来触发操作并启动工作流。 例如，你可以创建警报、将信息馈送到报表或可视化效果解决方案，或者存储数据供以后使用。 
 
@@ -32,7 +32,7 @@ T-SQL 流式处理可以帮助你：
 
 ## <a name="how-does-t-sql-streaming-work"></a>T-SQL 流式处理的工作原理是什么？
 
-T-SQL 流式处理的工作方式与 [Azure 流分析](https://docs.azure.cn/stream-analytics/stream-analytics-introduction#how-does-stream-analytics-work)完全相同。 例如，它使用流式处理作业的概念来处理实时数据流。 
+T-SQL 流式处理的工作方式与 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md#how-does-stream-analytics-work)完全相同。 例如，它使用流式处理作业的概念来处理实时数据流。 
 
 流分析作业包括：
 
@@ -47,10 +47,10 @@ T-SQL 流式处理的工作方式与 [Azure 流分析](https://docs.azure.cn/str
 - **流查询**：此项定义了转换、聚合、筛选器、排序和联接，在将输入流写入到流输出之前，需要将这些内容应用到输入流。 流查询基于流分析使用的同一查询语言。 有关详细信息，请参阅[流分析查询语言](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)。
 
 > [!IMPORTANT]
-> 与流分析不同，T-SQL 流式处理目前不支持[使用引用数据进行查找](https://docs.azure.cn/stream-analytics/stream-analytics-use-reference-data)或[在流作业中使用 UDF 和 UDA 的引用数据](https://docs.azure.cn/stream-analytics/streaming-technologies#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c)。
+> 与流分析不同，T-SQL 流式处理目前不支持[使用引用数据进行查找](../stream-analytics/stream-analytics-use-reference-data.md)或[在流作业中使用 UDF 和 UDA 的引用数据](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c)。
 
-> [!NOTE]
-> T-SQL 流式处理仅支持流分析支持的部分语言外围应用。 有关详细信息，请参阅[流分析查询语言](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)。
+<!-- > [!NOTE]
+> T-SQL streaming only supports a subset of the language surface area supported by Stream Analytics. For more information, see [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).-->
 
 ## <a name="limitations-and-restrictions"></a>限制和局限
 

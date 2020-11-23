@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 01f467363ba4841bd476100e8d57b4c2570ede98
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 773d26f14496564811f37bd3abc93d66853452ad
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248451"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975209"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>在 Azure SQL Edge 中跟踪数据更改
 
@@ -65,6 +65,3 @@ Azure SQL Edge 还支持 SQL Server 的临时表功能。 此功能（由系统�
 - [在 Azure SQL Edge 中使用 ONNX 实现机器学习和 AI ](onnx-overview.md)
 - [配置到 Azure SQL Edge 的复制](configure-replication.md)
 - [Azure SQL Edge 中的备份和还原数据库功能](backup-restore.md)
-
-
-

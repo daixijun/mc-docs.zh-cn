@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/14/2020
 ms.date: 11/02/2020
-ms.openlocfilehash: 95ae8540f3e454a12732f6cbdcee5b167b8f2d1f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: fc77b23872b6597ba35da1d2cdf704d327285639
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104614"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680511"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure 数据工厂中的查找活动
 
@@ -66,14 +66,14 @@ firstRowOnly | 指示仅返回第一行还是返回所有行。 | Boolean | 不�
 > [!NOTE]
 > 
 > * 不支持 **ByteArray** 类型的源列。
-> * 数据集定义不支持 **结构** 。 对于文本格式化文件，使用标头行提供列名。
+> * 数据集定义不支持 **结构**。 对于文本格式化文件，使用标头行提供列名。
 > * 如果查找源是 JSON 文件，则不支持用于重塑 JSON 对象的 `jsonPathDefinition` 设置。 将检索整个对象。
 
 ## <a name="use-the-lookup-activity-result"></a>使用查找活动结果
 
 查找结果会返回到活动运行结果的 `output` 节。
 
-* **当 `firstRowOnly` 设置为 `true`（默认值）时** ，输出格式如以下代码所示。 查找结果位于固定的 `firstRow` 键下。 若要在后续活动中使用该结果，请使用 `@{activity('LookupActivity').output.firstRow.table` 模式。
+* **当 `firstRowOnly` 设置为 `true`（默认值）时**，输出格式如以下代码所示。 查找结果位于固定的 `firstRow` 键下。 若要在后续活动中使用该结果，请使用 `@{activity('LookupActivity').output.firstRow.table}` 模式。
 
     ```json
     {
@@ -86,7 +86,7 @@ firstRowOnly | 指示仅返回第一行还是返回所有行。 | Boolean | 不�
     }
     ```
 
-* **当 `firstRowOnly` 设置为 `false` 时** ，输出格式如以下代码所示。 `count` 字段指示返回的记录数。 详细值显示在固定的 `value` 数组下。 在这种情况下，查找活动后跟 [Foreach 活动](control-flow-for-each-activity.md)。 使用 `@activity('MyLookupActivity').output.value` 模式将 `value` 数组传递给 ForEach 活动 `items` 字段。 若要访问 `value` 数组中的元素，请使用以下语法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 示例为 `@{activity('lookupActivity').output.value[0].schema}`。
+* **当 `firstRowOnly` 设置为 `false` 时**，输出格式如以下代码所示。 `count` 字段指示返回的记录数。 详细值显示在固定的 `value` 数组下。 在这种情况下，查找活动后跟 [Foreach 活动](control-flow-for-each-activity.md)。 使用 `@activity('MyLookupActivity').output.value` 模式将 `value` 数组传递给 ForEach 活动 `items` 字段。 若要访问 `value` 数组中的元素，请使用以下语法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 示例为 `@{activity('lookupActivity').output.value[0].schema}`。
 
     ```json
     {
@@ -115,7 +115,7 @@ firstRowOnly | 指示仅返回第一行还是返回所有行。 | Boolean | 不�
 
 ### <a name="pipeline"></a>管道
 
-- 查找活动配置为使用 **LookupDataset** ，该项引用 Azure Blob 存储中的一个位置。 查找活动在此位置从 JSON 文件读取 SQL 表名称。 
+- 查找活动配置为使用 **LookupDataset**，该项引用 Azure Blob 存储中的一个位置。 查找活动在此位置从 JSON 文件读取 SQL 表名称。 
 - 复制活动使用查找活动的输出，即 SQL 表的名称。 **SourceDataset** 中的 **tableName** 属性配置为使用查找活动的输出。 复制活动将数据从 SQL 表复制到 Azure Blob 存储中的一个位置。 该位置由 **SinkDataset** 属性指定。 
 
 ```json

@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 07/25/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 5285408c3ae69b4f909b81126bf7f9fa9570d2a4
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: c48bbbf2e569ad95b2f32ff1c6fa92fedc34d479
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248448"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975211"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>连接和查询 Azure SQL Edge
 

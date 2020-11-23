@@ -9,29 +9,33 @@ manager: digimobile
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-nov-2020
 ms.topic: tutorial
 origin.date: 09/25/2019
-ms.date: 11/16/2020
-ms.openlocfilehash: d40cebeb4969253844f4c3c244f7903c63fa13b9
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.date: 11/23/2020
+ms.openlocfilehash: 99cacf926c21f6d494c4f8c422638bf04845ce53
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590720"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976963"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
 可以使用 Azure 数据库迁移服务将数据库从 MongoDB 的本地或云实例联机（在几乎不停机的情况下）迁移到 Azure Cosmos DB 的用于 MongoDB 的 API。
 
-本教程介绍如何执行下列操作：
+本教程演示使用 Azure 数据库迁移服务将 MongoDB 数据迁移到 Azure Cosmos DB 所涉及的步骤：
 > [!div class="checklist"]
->
-> * 创建 Azure 数据库迁移服务的实例。
-> * 使用 Azure 数据库迁移服务创建迁移项目。
-> * 运行迁移。
-> * 监视迁移。
-> * 准备就绪后完成迁移。
+> 
+> * 创建 Azure 数据库迁移服务的实例。 
+> * 创建迁移项目。 
+> * 指定源。 
+> * 指定目标。 
+> * 映射到目标数据库。 
+> * 运行迁移。 
+> * 监视迁移。 
+> * 验证 Azure Cosmos DB 中的数据。 
+> * 准备就绪后完成迁移。 
 
 在本教程中，你将使用 Azure 数据库迁移服务，在几乎不停机的情况下将 Azure 虚拟机中托管的 MongoDB 中的某个数据集迁移到 Azure Cosmos DB 的用于 MongoDB 的 API。 如果尚未设置 MongoDB 源，请参阅[在 Azure 中的 Windows VM 上安装和配置 MongoDB](/virtual-machines/windows/install-mongodb) 一文。
 

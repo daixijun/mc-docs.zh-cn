@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/03/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: f5547dc83beda0054b27d74f5dc9f73b0a968d17
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 66b695fe3599f669d9135c72c1af33656f519231
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248532"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975177"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -43,7 +43,10 @@ DATE_BUCKET (datePart, number, date, origin)
 |*datePart*|缩写形式|  
 |---|---|
 |day|dd, d  |  
-|week |wk, ww |  
+|week |wk, ww | 
+|month |mm, m  |
+|quarter |qq, q  |  
+|**year**|yy, yyyy  |  
 |hour|**hh**|  
 |minute |mi, n  |  
 |second |ss, s  |  

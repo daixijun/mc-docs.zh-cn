@@ -14,13 +14,13 @@ ms.reviewer: douglasl
 manager: digimobile
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 origin.date: 07/20/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: e1f6185aa0eee5e01c46a3a84b3476c61046e0e6
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/23/2020
+ms.openlocfilehash: 2ae9235b48ea74bf433f242c1c7138fb730c6804
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524056"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680522"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用“执行 SSIS 包”活动运行 SSIS 包
 
@@ -32,7 +32,7 @@ ms.locfileid: "90524056"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果还没有 Azure-SSIS Integration Runtime (IR)，请按照以下文章中的分步说明创建 IR：[教程：预配 Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)。
+如果还没有 Azure-SSIS Integration Runtime (IR)，请按照以下文章中的分步说明创建 IR：[教程：预配 Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md)。
 
 ## <a name="run-a-package-in-the-azure-portal"></a>在 Azure 门户中运行包
 在本部分中，我们将使用数据工厂用户界面 (UI) 或应用来创建一个数据工厂管道，其中包含可运行 SSIS 包的“执行 SSIS 包”活动。
@@ -170,7 +170,7 @@ ms.locfileid: "90524056"
 
 ![在“设置”选项卡上设置属性 - 嵌入包](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. 拖放你的包文件（带有 `.dtsx`），或将其从文件夹“上传”到提供的框中。 包会自动压缩并嵌入到活动有效负载中。 嵌入后，可以“下载”包供以后编辑。 你还可以通过将嵌入包分配给可在多个活动中使用的管道参数来**参数化**它，从而优化管道有效负载的大小。 当前不支持嵌入项目文件（带有 `.ispac`），因此无法在嵌入包中将 SSIS 参数/连接管理器与项目级范围一起使用。
+   1. 拖放你的包文件（带有 `.dtsx`），或将其从文件夹“上传”到提供的框中。 包会自动压缩并嵌入到活动有效负载中。 嵌入后，可以“下载”包供以后编辑。 你还可以通过将嵌入包分配给可在多个活动中使用的管道参数来 **参数化** 它，从而优化管道有效负载的大小。 当前不支持嵌入项目文件（带有 `.ispac`），因此无法在嵌入包中将 SSIS 参数/连接管理器与项目级范围一起使用。
    
    1. 如果嵌入包不是全部加密的，并且我们检测到其中使用了“执行包任务 (EPT)”，则系统会自动选中“执行包任务”复选框，并自动添加通过其文件系统路径引用的子包，以便你也可嵌入它们。
    
@@ -200,7 +200,7 @@ ms.locfileid: "90524056"
    
    1. 对于“包存储名称”，请选择附加到你的 Azure-SSIS IR 的一个现有包存储。
 
-   1. 通过在“包路径”框中提供你的包在所选包存储中的路径（不带 `.dtsx` 扩展名），指定要运行的包。 如果所选包存储位于文件系统/Azure 文件存储上，则可以通过选择“浏览文件存储”来浏览并选择包，否则，可以采用 `<folder name>\<package name>` 格式输入其路径。 还可以通过 SQL Server Management Studio (SSMS) 将新包导入到所选的包存储中，这与[旧版 SSIS 包存储](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017)类似。 有关详细信息，请参阅[使用 Azure-SSIS IR 包存储管理 SSIS 包](/data-factory/azure-ssis-integration-runtime-package-store)。
+   1. 通过在“包路径”框中提供你的包在所选包存储中的路径（不带 `.dtsx` 扩展名），指定要运行的包。 如果所选包存储位于文件系统/Azure 文件存储上，则可以通过选择“浏览文件存储”来浏览并选择包，否则，可以采用 `<folder name>\<package name>` 格式输入其路径。 还可以通过 SQL Server Management Studio (SSMS) 将新包导入到所选的包存储中，这与[旧版 SSIS 包存储](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017)类似。 有关详细信息，请参阅[使用 Azure-SSIS IR 包存储管理 SSIS 包](./azure-ssis-integration-runtime-package-store.md)。
 
    1. 如果在单独的文件中配置包，则需要在“配置路径”框中提供配置文件（带扩展名 `.dtsConfig`）的 UNC 路径。 你可以通过选择“浏览文件存储”来浏览并选择配置，也可以手动输入其路径。 例如，如果将配置存储在 Azure 文件存储中，则其路径为 `\\<storage account name>.file.core.chinacloudapi.cn\<file share name>\<configuration name>.dtsConfig`。
 
@@ -250,7 +250,7 @@ ms.locfileid: "90524056"
 
       ![从 SSDT 获取连接管理器属性](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
       
-      这些运行时重写可以在本地访问数据时启用自承载 IR (SHIR) 作为 SSIS IR 的代理（请参阅[将 SHIR 配置为 SSIS IR 的代理](/data-factory/self-hosted-integration-runtime-proxy-ssis)），以及启用使用最新 MSOLEDBSQL 驱动程序、进而允许使用 ADF 托管标识进行 Azure Active Directory (AAD) 身份验证的 Azure SQL 数据库/托管实例连接（请参阅[为 OLEDB 连接配置使用 ADF 托管标识的 AAD 身份验证](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)）。
+      这些运行时重写可以在本地访问数据时启用自承载 IR (SHIR) 作为 SSIS IR 的代理（请参阅[将 SHIR 配置为 SSIS IR 的代理](./self-hosted-integration-runtime-proxy-ssis.md)），以及启用使用最新 MSOLEDBSQL 驱动程序、进而允许使用 ADF 托管标识进行 Azure Active Directory (AAD) 身份验证的 Azure SQL 数据库/托管实例连接（请参阅[为 OLEDB 连接配置使用 ADF 托管标识的 AAD 身份验证](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)）。
 
       ![在“连接管理器”选项卡上通过 SSDT 设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    
@@ -333,7 +333,7 @@ ms.locfileid: "90524056"
 按照[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 中的分步说明安装最新的 Azure PowerShell 模块。
 
 ### <a name="create-a-data-factory-with-azure-ssis-ir"></a>创建包含 Azure-SSIS IR 的数据工厂
-可以使用已预配 Azure-SSIS IR 的现有数据工厂，或者创建包含 Azure-SSIS IR 的新数据工厂。 按照[教程：通过 PowerShell 将 SSIS 包部署到 Azure](/data-factory/tutorial-deploy-ssis-packages-azure-powershell) 中的分步说明，创建包含 Azure-SSIS IR 的新 ADF。
+可以使用已预配 Azure-SSIS IR 的现有数据工厂，或者创建包含 Azure-SSIS IR 的新数据工厂。 按照[教程：通过 PowerShell 将 SSIS 包部署到 Azure](./tutorial-deploy-ssis-packages-azure-powershell.md) 中的分步说明，创建包含 Azure-SSIS IR 的新 ADF。
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>使用“执行 SSIS 包”活动创建管道 
 在此步骤中创建包含“执行 SSIS 包”活动的管道。 该活动运行 SSIS 包。 

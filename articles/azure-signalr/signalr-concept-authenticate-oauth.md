@@ -5,15 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/13/2019
-ms.date: 10/19/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ad4fcba2d60f15b450061da7aa9a9592dd640cca
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 82b948fded6fcaa08ea0a336dae50678904bb262
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170804"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975156"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 
@@ -387,7 +387,7 @@ ms.locfileid: "92170804"
 
 ## <a name="deploy-the-app-to-azure"></a>将应用部署到 Azure
 
-在本部分中，将使用 Azure CLI 的 Azure 命令行接口 (CLI) 在 [Azure 应用服务](https://docs.azure.cn/app-service/)中创建新的 Web 应用，以便在 Azure 中托管 ASP.NET 应用程序。 Web 应用将配置为使用本地 Git 部署。 还将使用 SignalR 连接字符串、GitHub OAuth 应用密码和部署用户配置 Web 应用。
+在本部分中，将使用 Azure CLI 的 Azure 命令行接口 (CLI) 在 [Azure 应用服务](../app-service/index.yml)中创建新的 Web 应用，以便在 Azure 中托管 ASP.NET 应用程序。 Web 应用将配置为使用本地 Git 部署。 还将使用 SignalR 连接字符串、GitHub OAuth 应用密码和部署用户配置 Web 应用。
 
 本部分中的步骤使用 Azure CLI 的 signalr 扩展。 执行以下命令，安装 Azure CLI 的 signalr 扩展：
 
@@ -399,7 +399,7 @@ az extension add -n signalr
 
 ### <a name="create-the-web-app-and-plan"></a>创建 Web 应用和计划
 
-复制下面命令的文本并更新参数。 将更新的脚本粘贴到 Azure CLI，然后按 Enter 创建新的应用服务计划和 Web 应用****。
+复制下面命令的文本并更新参数。 将更新的脚本粘贴到 Azure CLI，然后按 Enter 创建新的应用服务计划和 Web 应用。
 
 ```azurecli
 #========================================================================
@@ -436,7 +436,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 * GitHub OAuth 应用客户端 ID
 * GitHub OAuth 应用客户端密码
 
-复制下面命令的文本并更新参数。 将更新的脚本粘贴到 Azure CLI 中，然后按 Enter 添加应用设置****：
+复制下面命令的文本并更新参数。 将更新的脚本粘贴到 Azure CLI 中，然后按 Enter 添加应用设置：
 
 ```azurecli
 #========================================================================

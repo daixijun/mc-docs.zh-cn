@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/22/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: e733572bee3f0cab82ced032fcc028a6697a42d0
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 6b061b77bed803d8faa1c66805b2708fc1ac04c0
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248517"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975196"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>通过 Docker 部署 Azure SQL Edge
 
@@ -29,7 +29,7 @@ ms.locfileid: "91248517"
 - Docker **overlay2** 存储驱动程序。 这是大多数用户的默认设置。 如果发现自己未使用此存储提供程序并且需要进行更改，请参阅 [docker 文档中有关配置 overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver) 的说明和警告。
 - 至少 10 GB 的磁盘空间。
 - 至少 1 GB 的 RAM。
-- [Azure SQL Edge 的硬件要求](https://docs.azure.cn/azure-sql-edge/features#hardware-support)。
+- [Azure SQL Edge 的硬件要求](./features.md#hardware-support)。
 
 
 ## <a name="pull-and-run-the-container-image"></a>拉取并运行容器映像
@@ -70,7 +70,7 @@ ms.locfileid: "91248517"
 
     | 参数 | 说明 |
     |-----|-----|
-    | **-e "ACCEPT_EULA=Y"** |  将 **ACCEPT_EULA** 变量设置为任意值，以确认接受[最终用户许可协议](https://go.microsoft.com/fwlink/?linkid=2139274)。 Azure SQL Edge 映像所需的设置。 |
+    | **-e "ACCEPT_EULA=Y"** |  将 **ACCEPT_EULA** 变量设置为任意值，以确认接受 [最终用户许可协议](https://go.microsoft.com/fwlink/?linkid=2139274)。 Azure SQL Edge 映像所需的设置。 |
     | -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" | 指定至少包含 8 个字符且符合 [Azure SQL Edge 密码要求](https://docs.microsoft.com/sql/relational-databases/security/password-policy)的强密码。 Azure SQL Edge 映像所需的设置。 |
     | **-p 1433:1433** | 将主机环境中的 TCP 端口（第一个值）映射到容器中的 TCP 端口（第二个值）。 在此示例中，Azure SQL Edge 侦听容器中的 TCP 1433，并对主机上的端口 1433 公开。 |
     | --name azuresqledge | 为容器指定一个自定义名称，而不是使用随机生成的名称。 如果运行多个容器，则无法重复使用相同的名称。 |

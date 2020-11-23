@@ -1,29 +1,29 @@
 ---
 title: 快速入门：创建 Azure SignalR 服务 - ARM 模板
-description: 本快速入门介绍如何使用 Azure 资源管理器模板创建 Azure SignalR 服务。
-author: mgblythe
+description: 在本快速入门中，学习如何使用 Azure 资源管理器模板（ARM 模板）创建 Azure SignalR 服务。
+author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 10/02/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: d801e6fdaf9687f1a60bc63680baac5bf8524146
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.date: 11/20/2020
+ms.openlocfilehash: 25e93f1d719b587d29de4a68627ddfe8fdf3e1ca
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170866"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975216"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>快速入门：使用 ARM 模板部署 Azure SignalR 服务
 
-本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）来创建 Azure SignalR 服务。 可以通过 Azure 门户、PowerShell 或 CLI 部署 Azure SignalR 服务。
+本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）来创建 Azure SignalR 服务。 可通过 Azure 门户、PowerShell 或 CLI 部署 Azure SignalR 服务。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮  。 登录后，该模板将在 Azure 门户中打开。
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 登录后，该模板将在 Azure 门户中打开。
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="使用 Azure 门户中的 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -204,11 +204,11 @@ ms.locfileid: "92170866"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-选择以下链接以使用 Azure 门户中的 ARM 模板部署 Azure SignalR 服务：
+选择以下链接，在 Azure 门户中使用 ARM 模板部署 Azure SignalR 服务：
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="使用 Azure 门户中的 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-在“部署 Azure SignalR 服务”页上：
+在“部署 Azure SignalR 服务”页面上：
 
 1. 如果需要，可以更改“订阅”的默认值。
 
@@ -223,7 +223,7 @@ ms.locfileid: "92170866"
     > [!NOTE]
     > 对于“Free_F1”定价层，容量限制为 1 个单位。
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="使用 Azure 门户中的 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="用于在 Azure 门户中创建 Azure SignalR 服务的 ARM 模板的屏幕截图。":::
 
 6. 选择“查看 + 创建”  。
 
@@ -246,7 +246,7 @@ ms.locfileid: "92170866"
 * 是否启用日志以进行连接或消息传递（“是”或“否”） 
 
 ```azurepowershell
-$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, chinanorth2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
@@ -270,7 +270,7 @@ $paramObjHashTable = @{
     enableMessagingLogs = $enableMessageLogs
 }
 
-Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR service using an ARM template" -Verbose
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
@@ -291,7 +291,7 @@ Read-Host "Press [ENTER] to continue"
 * 是否启用日志以进行连接或消息传递（“是”或“否”） 
 
 ```azurecli
-read -p "Enter a name for the new Azure SignalR service: " serviceName &&
+read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, chinanorth2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
@@ -303,7 +303,7 @@ read -p "Specify whether to enable messaging logs (true or false): " enableMessa
 params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier' capacity='$unitCapacity' serviceMode='$servicingMode' enableConnectivityLogs='$enableConnectionLogs' enableMessagingLogs='$enableMessageLogs &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an Azure SignalR service using an ARM template" &&
+echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
@@ -317,18 +317,18 @@ read -p "Press [ENTER] to continue: "
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-按照以下步骤查看新 Azure SignalR 服务的概览：
+按照以下步骤概要了解新的 Azure SignalR 服务：
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“SignalR”。
 
-2. 在 SignalR 列表中，选择你的新服务。 此时将显示新 Azure SignalR 服务的“概述”页。
+2. 在 SignalR 列表中，选择你的新服务。 此时将显示新的 Azure SignalR 服务的“概述”页面。
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 运行以下交互式代码来查看有关 Azure SignalR 服务的详细信息。 必须输入新服务和资源组的名称。
 
 ```azurepowershell
-$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -340,12 +340,13 @@ Read-Host "Press [ENTER] to continue"
 运行以下交互式代码来查看有关 Azure SignalR 服务的详细信息。 必须输入新服务和资源组的名称。
 
 ```azurecli
-read -p "Enter the name of your Azure SignalR service: " serviceName &&
+read -p "Enter the name of your Azure SignalR Service: " serviceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az signalr show --resource-group $resourceGroupName --name $serviceName" &&
 az signalr show --resource-group $resourceGroupName --name $serviceName &&
 read -p "Press [ENTER] to continue: "
 ```
+
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -378,6 +379,7 @@ echo "DELETE A RESOURCE GROUP (AND ITS RESOURCES):  az group delete --name $reso
 az group delete --name $resourceGroupName &&
 read -p "Press [ENTER] to continue: "
 ```
+
 
 ## <a name="next-steps"></a>后续步骤
 

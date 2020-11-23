@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/22/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 60272307f2bfd137a8e3e86627d7559f4e47109e
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 33efa7de3cd5bd213062c444d8088e3589a3cc8d
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248506"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975197"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>性能最佳做法和配置指南
 
@@ -63,10 +63,3 @@ Azure SQL Edge 中的事务可以是完全持久事务、SQL Server 默认事务
 ### <a name="linux-os-configurations"></a>Linux OS 配置 
 
 请考虑使用以下 [Linux 操作系统配置](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration)设置，以体验 SQL 安装的最佳性能。
-
-
-
-
-
-
-

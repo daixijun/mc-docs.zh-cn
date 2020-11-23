@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 07/27/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: ecb88efd158de940cdb235dab991cb84338d59a6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 11/20/2020
+ms.openlocfilehash: e0eb17af460a6fff53f0c7a1b6f6cb7eaf8a1576
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104292"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975217"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -27,7 +27,7 @@ Azure SQL Edge 目前仅支持以下数据源作为流输入和输出。
 
 | 数据源类型 | 输入 | 输出 | 说明 |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge 中心 | Y | Y | 将流式处理数据读/写到 Azure IoT Edge 中心的数据源。 有关详细信息，请参阅 [IoT Edge 中心](https://docs.azure.cn/iot-edge/iot-edge-runtime#iot-edge-hub)。|
+| Azure IoT Edge 中心 | Y | Y | 将流式处理数据读/写到 Azure IoT Edge 中心的数据源。 有关详细信息，请参阅 [IoT Edge 中心](../iot-edge/iot-edge-runtime.md#iot-edge-hub)。|
 | SQL 数据库 | N | Y | 将流式处理数据写入 SQL 数据库的数据源连接。 数据库可以是 Azure SQL Edge 中的本地数据库，也可以是 SQL Server 或 Azure SQL 数据库中的远程数据库。|
 | Kafka | Y | N | 从 Kafka 主题读取流式处理数据的数据源。 Kafka 支持不适用于 Azure SQL Edge 的 ARM64 版本。|
 
@@ -248,5 +248,4 @@ WITH
 
 ## <a name="see-also"></a>另请参阅
 
-- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
-
+- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md)

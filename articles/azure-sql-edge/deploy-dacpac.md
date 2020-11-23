@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/03/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 90caac765c8d9ca58f37e9bc31d6b45f12ee9ace
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: ef6400b47c55dc6c19cf76a181f8030114228901
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975218"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Edge 中的 SQL 数据库 DACPAC 和 BACPAC 包
 

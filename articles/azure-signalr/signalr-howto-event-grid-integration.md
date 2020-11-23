@@ -6,24 +6,24 @@ author: chenyl
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/13/2019
-ms.date: 02/17/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 0d4c1c39d62aaaf9092ec8579e1a4e664fa27dda
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bd867b3d0705e7e81e2233d9bf684a373a822050
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975147"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>如何将事件从 Azure SignalR 服务发送到事件网格
 
 Azure 事件网格是一个完全托管的事件路由服务，可以通过发布-订阅模型提供一致的事件使用数据。 在本指南中，我们将使用 Azure CLI 创建 Azure SignalR 服务、订阅连接事件，然后部署一个示例 Web 应用程序来接收事件。 最后，可以连接和断开连接，并可在示例应用程序中查看事件负载。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户][azure-account] 。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
+<!-- [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] -->
 
-本文中的 Azure CLI 命令已根据 **Bash** shell 设置了格式。 如果使用其他 shell（例如 PowerShell 或命令提示符），则可能需要相应地调整行连续字符或变量赋值行。 本文使用变量来最大程度地减少所需的命令编辑量。
+ - 本文中的 Azure CLI 命令已根据 **Bash** shell 设置了格式。 如果使用其他 shell（例如 PowerShell 或命令提示符），则可能需要相应地调整行连续字符或变量赋值行。 本文使用变量来最大程度地减少所需的命令编辑量。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -81,7 +81,7 @@ az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --s
 ```azurecli
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -95,7 +95,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>订阅注册表事件
 
-在事件网格中订阅一个主题，以告知你要跟踪哪些事件，以及要将事件发送到何处。  以下 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 命令订阅创建的 Azure SignalR 服务，并将 Web 应用的 URL 指定为要将事件发送到的终结点。 此处可以重复使用在前面几个部分填充的环境变量，因此无需进行编辑。
+在事件网格中订阅一个主题，以告知你要跟踪哪些事件，以及要将事件发送到何处。 以下 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 命令订阅创建的 Azure SignalR 服务，并将 Web 应用的 URL 指定为要将事件发送到的终结点。 此处可以重复使用在前面几个部分填充的环境变量，因此无需进行编辑。
 
 ```azurecli
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)

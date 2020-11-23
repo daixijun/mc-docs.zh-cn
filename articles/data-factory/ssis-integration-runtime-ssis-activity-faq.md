@@ -11,13 +11,13 @@ ms.reviewer: sawinark
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 04/15/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: 394ccac3fcb6e78d54e0621514006c2c25deb4ca
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 11/23/2020
+ms.openlocfilehash: 92d6b367ffc0232c2863ce05865908b4d3031a7a
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680474"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>排查 SSIS Integration Runtime 中的包执行问题
 
@@ -97,12 +97,12 @@ ms.locfileid: "85323298"
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>错误消息：“数据库 'SSISDB' 已达到大小配额”
 
 可能的原因是，在 Azure SQL 数据库或 SQL 托管实例中创建的 SSISDB 数据库已达到其配额。 请尝试以下操作：
-* 考虑增加数据库的 DTU。 有关详细信息，可参阅[逻辑服务器的 SQL 数据库限制](/sql-database/sql-database-resource-limits-logical-server)。
+* 考虑增加数据库的 DTU。 有关详细信息，可参阅[逻辑服务器的 SQL 数据库限制](../azure-sql/database/resource-limits-logical-server.md)。
 * 检查包是否会生成许多日志。 如果是，则可配置一项弹性作业来清理这些日志。 有关详细信息，请参阅[使用 Azure 弹性数据库作业清理 SSISDB 日志](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md)。
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>错误消息：“数据库的请求限制是 ...，现已达到该限制。”
 
-如果在 SSIS Integration Runtime 中同时运行许多的包，可能会发生此错误，因为 SSISDB 已达到请求限制。 请考虑增加 SSISDB 的 DTC 来解决此问题。 有关详细信息，可参阅[逻辑服务器的 SQL 数据库限制](/sql-database/sql-database-resource-limits-logical-server)。
+如果在 SSIS Integration Runtime 中同时运行许多的包，可能会发生此错误，因为 SSISDB 已达到请求限制。 请考虑增加 SSISDB 的 DTC 来解决此问题。 有关详细信息，可参阅[逻辑服务器的 SQL 数据库限制](../azure-sql/database/resource-limits-logical-server.md)。
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>错误消息：“SSIS 操作失败并出现意外的操作状态: ...”
 
@@ -114,7 +114,7 @@ ms.locfileid: "85323298"
 
 ### <a name="error-message-there-is-no-active-worker"></a>错误消息：“没有任何活动的辅助角色。”
 
-此错误通常表示 SSIS Integration Runtime 处于不正常状态。 请在 Azure 门户中检查状态和详细错误。 有关详细信息，请参阅 [Azure-SSIS Integration Runtime](/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)。
+此错误通常表示 SSIS Integration Runtime 处于不正常状态。 请在 Azure 门户中检查状态和详细错误。 有关详细信息，请参阅 [Azure-SSIS Integration Runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime)。
 
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>错误消息：“集成运行时无法升级，最终将会停止工作，因为我们无法访问你为自定义安装提供的 Azure Blob 容器。”
 
@@ -124,7 +124,7 @@ ms.locfileid: "85323298"
 
 一种潜在原因是为 Azure Analysis Services 身份验证配置了已启用 Azure 多重身份验证的用户名或密码。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
 
-1. 请根据[使用服务主体进行自动化](/analysis-services/analysis-services-service-principal)中所述准备服务主体。
+1. 请根据[使用服务主体进行自动化](../analysis-services/analysis-services-service-principal.md)中所述准备服务主体。
 2. 在连接管理器中，配置“使用特定的用户名和密码”：将“AppID”设为用户名，将“clientSecret”设为密码。  
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>错误消息：使用托管标识时发生错误“ADONET 源无法获取连接 {GUID} 并出现以下错误消息:用户 'NT AUTHORITY\ANONYMOUS LOGON' 登录失败”
@@ -166,7 +166,7 @@ ms.locfileid: "85323298"
 
 * 可能的原因和建议的操作：
   * ADF 存储过程活动或 Lookup 活动用于触发 SSIS 包执行。 t-sql 命令可能会遇到暂时性问题，并触发重新运行，这将导致多个包执行。
-  * 请改用 ExecuteSSISPackage 活动，以确保除非用户在活动中设置重试计数，否则包执行不会重新运行。 可以在 [https://docs.azure.cn/data-factory/how-to-invoke-ssis-package-ssis-activity](/data-factory/how-to-invoke-ssis-package-ssis-activity) 中找到详细信息
+  * 请改用 ExecuteSSISPackage 活动，以确保除非用户在活动中设置重试计数，否则包执行不会重新运行。 可以在 [https://docs.azure.cn/data-factory/how-to-invoke-ssis-package-ssis-activity](./how-to-invoke-ssis-package-ssis-activity.md) 中找到详细信息
   * 优化 t-sql 命令，以便能够通过检查是否已触发执行来重新运行
 
 ### <a name="package-execution-takes-too-long"></a>包执行时间太长

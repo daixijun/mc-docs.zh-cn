@@ -6,15 +6,15 @@ ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 12/14/2019
-ms.date: 10/19/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: ee9742a656d2bd26683d0e38513dbe4f3568dbd5
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 7d25f1c6b62343adbf83addd0d2b41320ce65437
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170792"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975178"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>快速入门：通过 JavaScript 使用 Azure Functions 和 SignalR 服务创建聊天室
 
@@ -55,11 +55,11 @@ Azure SignalR 服务可让你轻松地向应用程序添加实时功能，而 Az
 
     ![搜索 SignalR 服务实例](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. 选择“密钥”**** 以查看 SignalR 服务实例的连接字符串。
+1. 选择“密钥”以查看 SignalR 服务实例的连接字符串。
 
 1. 选择并复制主连接字符串。
 
-    ![创建 SignalR 服务](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![屏幕截图突出显示了主连接字符串。](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. 在代码编辑器中，打开克隆存储库中的 *src/chat/javascript* 文件夹。
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.topic: tutorial
 origin.date: 03/13/2020
 ms.date: 05/11/2020
-ms.openlocfilehash: 7b84a6e33771325de701a76ea717f0f4cd8b982e
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 2ca699b007df76164f7e08b1867e412ae676cc5f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097121"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976953"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>教程：将 ML 试验转换为生产 Python 代码
 
@@ -66,7 +66,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
