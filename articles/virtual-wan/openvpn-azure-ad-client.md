@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 89f061dacf06882298000d02b49277a9a71b0a8b
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: e242ae89ff2b2d852edaae6f5581db4aef4faad1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590531"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978235"
 ---
 <!--Verified successfully-->
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>配置用于 P2S OpenVPN 协议连接的 VPN 客户端：Azure AD 身份验证
@@ -75,11 +75,11 @@ ms.locfileid: "94590531"
 
 1. 在页面上，选择“导入”。 
 
-    ![屏幕截图显示从加号菜单中选择了“导入”。](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![屏幕截图显示从加号菜单选择了“导入”。](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. 浏览到 XML 配置文件并将其选中。 选择该文件后，选择“打开”。 
 
-    ![屏幕截图显示可在其中选择文件的“打开”对话框。](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![屏幕截图显示了“打开”对话框，你可在其中选择文件。](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. 指定配置文件的名称，并选择“保存”。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "94590531"
 
 4. 选择“连接”以连接到 VPN。 
 
-    ![屏幕截图显示了用于刚创建的连接的“连接”按钮。](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![屏幕截图显示了刚刚创建的连接的“连接”按钮。](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. 连接后，图标将变为绿色并指示“已连接”。 
 
@@ -98,7 +98,7 @@ ms.locfileid: "94590531"
 
 1. 选择要删除的客户端配置文件旁边的省略号图标。 然后选择“删除”  。
 
-    ![屏幕截图显示从菜单中选择了“删除”。](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![屏幕截图显示从菜单选择了“删除”。](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. 选择“删除”以删除配置文件。 
 
@@ -153,15 +153,15 @@ ms.locfileid: "94590531"
 
 1. 若要诊断连接问题，可以使用“诊断”工具。  选择要诊断的 VPN 连接旁边的“...”以显示菜单。  然后选择“诊断”。 
 
-    ![屏幕截图显示从菜单中选择了“诊断”。](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![屏幕截图显示从菜单选择了“诊断”。](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. 在“连接属性”页上，选择“运行诊断”。  
 
-    ![屏幕截图显示了用于连接的“运行诊断”按钮。](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![屏幕截图显示连接的“运行诊断”按钮。](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. 使用凭据登录。
 
-    ![屏幕截图显示了用于此操作的“登录”对话框。](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![屏幕截图显示此操作的“登录”对话框。](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. 查看诊断结果。
 

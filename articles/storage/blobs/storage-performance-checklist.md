@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a9eb1884512ec8556e2527260240d3b55bdb760
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: c3f302d7f9999494fea276c356d587eb2bb4ab7a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026493"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552018"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 存储的性能与可伸缩性查检表
 
@@ -67,7 +67,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 如果即将达到特定订阅/区域组合允许的最大存储帐户数，请评估你的方案并确定是否符合以下任何条件：
 
 - 是否使用存储帐户作为非托管磁盘，并将这些磁盘添加到虚拟机 (VM)？ 对于此方案，Azure 建议使用托管磁盘。 托管磁盘可自动缩放，你无需创建和管理单个存储帐户。 有关详细信息，请参阅 [Azure 托管磁盘简介](../../virtual-machines/managed-disks-overview.md)
-- 是否对每个客户使用一个存储帐户，以实现数据隔离？ 对于此方案，Azure 建议对每个客户使用 Blob 容器，而不要使用整个存储帐户。 Azure 存储现在允许基于每个容器分配 Azure 角色。 有关详细信息，请参阅[在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限](../common/storage-auth-aad-rbac-portal.md)。
+- 是否对每个客户使用一个存储帐户，以实现数据隔离？ 对于此方案，Azure 建议对每个客户使用 Blob 容器，而不要使用整个存储帐户。 Azure 存储现在允许基于每个容器分配 Azure 角色。 有关详细信息，请参阅[使用 Azure 门户分配用于访问 Blob 和队列数据的 Azure 角色](../common/storage-auth-aad-rbac-portal.md)。
 - 是否使用多个存储帐户进行分片，以增加流入量、流出量、每秒 I/O 操作次数 (IOPS) 或容量？ 对于此方案，Azure 建议在可能的情况下，利用存储帐户的更高限制来减少工作负荷所需的存储帐户数。 若要请求提高存储帐户的限制，请联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/contact/)。
 
 ### <a name="capacity-and-transaction-targets"></a>容量和事务目标

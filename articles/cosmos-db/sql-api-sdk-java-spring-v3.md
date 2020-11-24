@@ -1,26 +1,28 @@
 ---
 title: 用于 SQL API 的 Spring Data Azure Cosmos DB v3 的发行说明和资源
-description: 了解有关用于 SQL API 的 Spring Data Azure Cosmos DB v3 的所有信息，包括发行日期、停用日期和 Azure Cosmos DB SQL Async Java SDK 各版本之间所做的更改。
+description: 了解用于 SQL API 的 Spring Data Azure Cosmos DB v3 的信息，包括发行日期、停用日期以及在 Azure Cosmos DB SQL Async Java SDK 各版本之间所做的更改。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e4ec46a082f3c6610603e38c2a2c591c1c725d6
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 5761cce1a60f45ee2bd0caf1a0a05fe24b6e0d6b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118273"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552844"
 ---
 <!--Verified successfully-->
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>适用于 Core (SQL) API 的 Spring Data Azure Cosmos DB v3：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -36,7 +38,7 @@ ms.locfileid: "92118273"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -108,19 +110,44 @@ cosmos.queryMetricsEnabled=true
 
 ## <a name="resources"></a>资源
 
-* **参与编写 SDK** ：[GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+* **参与编写 SDK**：[GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
 
-* **教程** ：[GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
+* **教程**：[GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
-### <a name="300-beta2-unreleased"></a>3.0.0-beta.2（未发布）
+## <a name="release-history"></a>发布历史记录
+
+## <a name="320-beta1-unreleased"></a>3.2.0-beta.1（未发布）
+
+
+### <a name="310-2020-10-21"></a>3.1.0 (2020-10-21)
+#### <a name="new-features"></a>新功能
+* 添加了对 `ARRAY_CONTAINS` `CriteriaType` 的支持。
+* 已将 azure-cosmos 版本更新为 4.7.1。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了带批注的查询不选取带批注的容器名称的问题。
+
+### <a name="300-2020-09-30"></a>3.0.0 (2020-09-30)
+#### <a name="new-features"></a>新功能
+* 已将 azure-cosmos 依赖项更新为 `4.6.0`
+
+## <a name="300-beta2-2020-09-17"></a>3.0.0-beta.2 (2020-09-17)
+#### <a name="new-features"></a>新功能
+* 已将项目 ID 更新为 `azure-spring-data-cosmos`。
+* 已将 azure-cosmos 依赖项更新为 `4.5.0`。
+* `Query Annotation` 支持本机查询。
+* 支持 Java 11。
+* 通过在 `@Container` 批注中公开 `partitionKeyPath` 字段，添加了对嵌套分区键的支持。
+* 添加了对 `limit` 查询类型的支持，允许在定义存储库 API 时使用 `top` 和 `first`。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了与 `@GeneratedValue` 批注一起使用时的嵌套分区键 bug。
 
 ### <a name="300-beta1-2020-08-17"></a>3.0.0-beta.1 (2020-08-17)
-#### <a name="new-features"></a>新增功能
-* 组 ID 更新为 `com.azure`。
-* 项目 ID 更新为 `azure-spring-data-2-3-cosmos`。
+#### <a name="new-features"></a>新功能
+* 已将组 ID 更新为 `com.azure`。
+* 已将项目 ID 更新为 `azure-spring-data-cosmos-core`。
 * azure-cosmos SDK 依赖项更新为 `4.3.2-beta.2`。
 * 支持审核实体 - 自动管理 createdBy、createdDate、lastModifiedBy 和 lastModifiedDate 注释字段。
-* `@GeneratedValue` 注释支持为 `String` 类型的 ID 字段自动生成 ID。
+* `@GeneratedValue` 批注支持为 `String` 类型的 ID 字段自动生成 ID。
 * 多数据库配置支持具有多个数据库的单个 cosmos 帐户和具有多个数据库的多个 cosmos 帐户。
 * 支持任何字符串字段上的 `@Version` 注释。
 * 同步 API 返回类型更新为 `Iterable` 类型，而非 `List`。
@@ -152,11 +179,11 @@ cosmos.queryMetricsEnabled=true
 
 了解有关 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 的详细信息。
 
-详细了解 [Spring Framework](https://spring.io/projects/spring-framework)。
+了解有关 [Spring Framework](https://spring.io/projects/spring-framework) 的详细信息。
 
-详细了解 [Spring Boot](https://spring.io/projects/spring-boot)。
+详细了解有关 [Spring Boot](https://spring.io/projects/spring-boot) 的详细信息。
 
-详细了解 [Spring Data](https://spring.io/projects/spring-data)。
+详细了解有关 [Spring Data](https://spring.io/projects/spring-data) 的详细信息。
 
 <!-- Update_Description: update meta properties, wording update, update link -->
 <!--NEW.date: 09/28/2020-->

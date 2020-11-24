@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 13e4e5ebea54dfe8063f094a9ca2cef11afcba6a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: c7cf7a7a0e814cd47564776e17d22d22a08ee51f
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647552"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501620"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>将通用 Windows 平台与 MSAL.NET 配合使用时的注意事项
 将通用 Windows 平台 (UWP) 与 MSAL.NET 配合使用的应用程序的开发人员应当考虑本文中所述的概念。
@@ -64,6 +64,5 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 示例 | 平台 | 说明 
 |------ | -------- | -----------|
 |[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | 一个使用 MSAL.NET 的 UWP 客户端应用程序。 它为使用 Azure AD 2.0 终结点进行身份验证的用户访问 Microsoft Graph。 <br>![拓扑](./media/msal-net-uwp-considerations/topology-native-uwp.png)|
-|[active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 一个简单的 Xamarin Forms 应用，展示了如何通过 Azure AD 2.0 终结点使用 MSAL 进行 Azure AD 身份验证。 它还展示了如何访问 Microsoft Graph 并显示了生成的令牌。 <br>![拓扑](./media/msal-net-uwp-considerations/topology-xamarin-native.png)|
+|[active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 一个 Xamarin Forms 应用，展示了如何通过 Microsoft 标识平台使用 MSAL 进行 Azure AD 身份验证。 它还展示了如何访问 Microsoft Graph 并显示了生成的令牌。 <br>![此图展示了如何通过 Microsoft 标识平台使用 MSAL 进行 Azure AD 身份验证。](./media/msal-net-uwp-considerations/topology-xamarin-native.png)|
 
-<!-- Update_Description: wording update -->

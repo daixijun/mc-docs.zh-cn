@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 825d32a324e90fb213c7ca963344347bc84f4362
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 8bce1213e0a95f6beef0d013f688fe00cb2391a4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118364"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552771"
 ---
 <!--Verify Successfully-->
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中基于角色的访问控制
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基于角色的访问控制 (RBAC)。 在 Azure Active Directory 中创建了配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
 
@@ -73,9 +74,7 @@ Azure 门户中的“访问控制(IAM)”窗格用于针对 Azure Cosmos 资源�
 
 - 修改存储过程、触发器或用户定义的函数。
 
-如果应用程序（或者用户通过 Azure 门户）执行这些操作中的任何一种，则需要将它们迁移，以通过 [ARM 模板](manage-sql-with-resource-manager.md)、[PowerShell](manage-with-powershell.md)、[Azure CLI](manage-with-cli.md)、REST 或 [Azure 管理库](https://github.com/Azure-Samples/cosmos-management-net)来执行。 请注意，可使用[多种语言](https://docs.azure.cn/?product=featured#languages-and-tools)进行 Azure 管理。
-
-<!--CORRECT ON https://docs.azure.cn/?product=featured#languages-and-tools-->
+如果应用程序（或者用户通过 Azure 门户）执行这些操作中的任何一种，则需要将它们迁移，以通过 [ARM 模板](./manage-with-templates.md)、[PowerShell](manage-with-powershell.md)、[Azure CLI](manage-with-cli.md)、REST 或 [Azure 管理库](https://github.com/Azure-Samples/cosmos-management-net)来执行。 请注意，可使用[多种语言](https://docs.azure.cn/?product=featured#languages-and-tools)进行 Azure 管理。
 
 ### <a name="set-via-arm-template"></a>通过 ARM 模板进行设置
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbe588ff372303f935633afdd52dbd8a834ef7b
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 14f562bbff2de57ee90682516b75faa55cb11eb0
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041475"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501976"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：配置筛选
 使用筛选功能可以控制本地目录中的哪些对象应该出现在 Azure Active Directory (Azure AD) 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 使用 Exchange Online 和 Skype for Business 等 Microsoft 365 工作负载的用户将受益于完整的全局地址列表，因为这样可以发送电子邮件和呼叫每个联系人。 使用默认配置时，用户获得的体验与使用 Exchange 或 Lync 的本地实现获得的相同。
@@ -127,7 +127,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
 3.  选择“自定义同步选项”，然后单击“下一步”。  
 4.  输入 Azure AD 凭据
 5.  在“连接的目录”  屏幕上，单击“下一步”  。
-6.  在“域和 OU 筛选”页上，单击“刷新”。    新域现在将显示，删除的域会消失。
+6.  在“域和 OU 筛选”页上，单击“刷新”。    新域现在会显示，删除的域会消失。
    ![分区](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>更新运行配置文件
@@ -211,7 +211,7 @@ Azure AD Connect 安装向导始终创建此配置。
 可以应用从 Active Directory 到 Metaverse 的[入站](#inbound-filtering)筛选，以及从 Metaverse 到 Azure AD 的[出站](#outbound-filtering)筛选。 建议应用入站筛选，因为这样做最容易进行维护。 仅当需要先要从多个林加入对象再进行评估时，才使用出站筛选。
 
 ### <a name="inbound-filtering"></a>入站筛选
-入站筛选使用默认配置，其中，传入 Azure AD 的对象必须未将 Metaverse 属性 cloudFiltered 设置为要同步的值。 如果这个属性的值设置为 **True** ，则不会同步对象。 根据设计，此值不应设为 **False** 。 若要确保其他规则能够提供值，这个属性只应具有 True 或 NULL（不存在）值。  
+入站筛选使用默认配置，其中，传入 Azure AD 的对象必须未将 Metaverse 属性 cloudFiltered 设置为要同步的值。 如果这个属性的值设置为 **True**，则不会同步对象。 根据设计，此值不应设为 **False**。 若要确保其他规则能够提供值，这个属性只应具有 True 或 NULL（不存在）值。  
 
 在入站筛选中，使用 **范围** 功能来决定哪些对象要同步或者不同步。 可以在此处根据组织的要求进行调整。 范围模块包含组和子句，决定何时在范围内包含同步规则。   一个组包含一个或多个子句。 多个子句之间使用逻辑“AND”，多个组之间使用逻辑“OR”。
 
@@ -229,14 +229,14 @@ Azure AD Connect 安装向导始终创建此配置。
 1. 通过使用属于 **ADSyncAdmins** 安全组的成员的帐户，登录到正在运行 Azure AD Connect 同步的服务器。
 2. 从“开始”菜单启动“同步规则编辑器”。  
 3. 确保选择了“入站”，然后单击“添加新规则”。  
-4. 为规则指定一个说明性的名称，如 *In from AD - User DoNotSyncFilter* 。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 50），然后单击“下一步”。    
+4. 为规则指定一个说明性的名称，如 *In from AD - User DoNotSyncFilter*。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 50），然后单击“下一步”。    
    ![入站 1 说明](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
 5. 在“范围筛选器”中，单击“添加组”，然后单击“添加子句”。    在“属性”中选择“ExtensionAttribute15”。   确保“运算符”设置为“等于”，在“值”框中键入值“NoSync”。     单击“下一步”  。  
    ![入站 2 范围](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. 将“联接”规则留空，然后单击“下一步”。  
 7. 单击“添加转换”，选择“FlowType”作为“Constant”，选择“cloudFiltered”作为“目标属性”。      在“源”文本框中键入“True”。    单击“添加”保存规则。  
    ![入站 3 转换](./media/how-to-connect-sync-configure-filtering/inbound3.png)
-8. 若要完成配置，需要运行 **完全同步** 。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
+8. 若要完成配置，需要运行 **完全同步**。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
 
 #### <a name="positive-filtering-only-sync-these"></a>正筛选：“只同步这些项目”
 表达正筛选更加复杂，因为必须同时考虑不是明显需要同步的对象，例如会议室。 还要重写现成规则 **In from AD - User Join** 中的默认筛选器。 创建自定义筛选器时，请确保不包括 Azure AD Connect 的关键系统对象、复制冲突对象、特殊邮箱和服务帐户。
@@ -248,7 +248,7 @@ Azure AD Connect 安装向导始终创建此配置。
 1. 通过使用属于 **ADSyncAdmins** 安全组的成员的帐户，登录到正在运行 Azure AD Connect 同步的服务器。
 2. 从“开始”菜单启动“同步规则编辑器”。  
 3. 确保选择了“入站”，然后单击“添加新规则”。  
-4. 为规则指定一个说明性的名称，如 *In from AD - User Sales sync* 。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 51），然后单击“下一步”。    
+4. 为规则指定一个说明性的名称，如 *In from AD - User Sales sync*。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 51），然后单击“下一步”。    
    ![入站 4 说明](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
 5. 在“范围筛选器”中，单击“添加组”，然后单击“添加子句”。    在“属性”中选择“department”。   确保“运算符”设置为“等于”，在“值”框中键入值“Sales”。    单击“下一步”  。  
    ![入站 5 范围](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
@@ -256,13 +256,13 @@ Azure AD Connect 安装向导始终创建此配置。
 7. 单击“添加转换”，选择“Constant”作为“FlowType”，选择“cloudFiltered”作为“目标属性”。      在“源”框中键入“False”。    单击“添加”保存规则。  
    ![入站 6 转换](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    这是一种特殊情况，在此将 cloudFiltered 显式设置为“False”。 
-8. 我们现在必须创建全方位同步规则。 为规则指定一个说明性的名称，如 *In from AD - User Catch-all filter* 。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 99）。  现在选择的优先顺序值比之前同步规则的值更高（优先性更低）。 但同时也预留了一些空间，以便可以在稍后想要开始同步其他部门时添加其他筛选同步规则。 单击“配置目录分区”  。  
+8. 我们现在必须创建全方位同步规则。 为规则指定一个说明性的名称，如 *In from AD - User Catch-all filter*。 依次选择正确的林，选择“用户”作为“CS 对象类型”，选择“人员”作为“MV 对象类型”。     在“链接类型”中选择“联接”。   在“优先顺序”中，键入当前未由其他同步规则使用的值（例如 99）。  现在选择的优先顺序值比之前同步规则的值更高（优先性更低）。 但同时也预留了一些空间，以便可以在稍后想要开始同步其他部门时添加其他筛选同步规则。 单击“配置目录分区”  。  
    ![入站 7 说明](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. 让“范围筛选器”保留空白，然后单击“下一步”。   空白筛选器表示规则将应用到所有对象。
 10. 将“联接”规则留空，然后单击“下一步”。  
 11. 单击“添加转换”，选择“Constant”作为“FlowType”，选择“cloudFiltered”作为“目标属性”。      在“源”框中键入“True”。    单击“添加”保存规则。  
     ![入站 3 转换](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
-12. 若要完成配置，需要运行 **完全同步** 。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
+12. 若要完成配置，需要运行 **完全同步**。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
 
 如果需要，可以创建更多第一种类型的规则，以便在同步中包含更多的对象。
 
@@ -277,9 +277,9 @@ Azure AD Connect 安装向导始终创建此配置。
 4. 查找名为“出站到 Azure AD - 用户加入”或“出站到 Azure AD - 用户加入 SOAInAD”的规则（具体视使用的 Connect 版本而定），然后单击“编辑”。
 5. 在弹出窗口中，回答“是”，以创建规则的副本。 
 6. 在“说明”页上，将“优先顺序”更改为某个尚未使用的值，例如 50。  
-7. 单击左侧导航栏中的“范围筛选器”，然后单击“添加子句”。   在“属性”中选择“mail”。   在“运算符”中选择“ENDSWITH”。   在“值”中键入 **\@contoso.com** ，然后单击“添加子句”。   在“属性”中选择“userPrincipalName”。   在“运算符”中选择“ENDSWITH”。   在“值”  中，键入 **\@contoso.com** 。
+7. 单击左侧导航栏中的“范围筛选器”，然后单击“添加子句”。   在“属性”中选择“mail”。   在“运算符”中选择“ENDSWITH”。   在“值”中键入 **\@contoso.com**，然后单击“添加子句”。   在“属性”中选择“userPrincipalName”。   在“运算符”中选择“ENDSWITH”。   在“值”  中，键入 **\@contoso.com**。
 8. 单击“保存”  。
-9. 若要完成配置，需要运行 **完全同步** 。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
+9. 若要完成配置，需要运行 **完全同步**。请继续阅读 [应用并检查更改](#apply-and-verify-changes)部分。
 
 ## <a name="apply-and-verify-changes"></a>应用并验证更改
 更改配置后，必须将这些更改应用到系统中现有的对象。 也可能需要处理同步引擎中当前不存在的对象，因此同步引擎需要再次读取源系统来验证其内容。

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/18/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b1b3ccd2373c617c7fc8fb5bf3b7ba6e5a5319be
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 8d8cbd712b405fdffef20633813ab8c576d5b570
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647599"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501868"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 身份验证和授权错误代码
 
@@ -156,7 +156,7 @@ ms.locfileid: "88647599"
 | AADSTS50136 | RedirectMsaSessionToApp - 检测到单个 MSA 会话。 |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - 由于缺少外部刷新令牌，会话无效。 |
 | AADSTS50140 | KmsiInterrupt - 此错误是由于用户登录时出现“使我保持登录状态”中断而发生的。 [开具支持票证](https://support.azure.cn/en-us/support/support-azure/)并提供相关性 ID、请求 ID 和错误代码，以获取更多详细信息。 |
-| AADSTS50143 | 会话不匹配 - 会话无效，由于资源不同，用户租户与域提示不匹配。请使用关联 ID、请求 ID 和错误代码 [开具支持票证](https://support.azure.cn/en-us/support/support-azure/)，以获得更多详细信息。 |
+| AADSTS50143 | 会话不匹配 - 会话无效，因为不同的资源导致用户租户与域提示不匹配。 [开具支持票证](https://support.azure.cn/en-us/support/support-azure/)并提供相关性 ID、请求 ID 和错误代码，以获取更多详细信息。 |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - 用户的 Active Directory 密码已过期。 为用户生成新密码，或者让用户使用自助重置工具重置其密码。 |
 | AADSTS50146 | MissingCustomSigningKey - 需要为此应用配置特定于应用的签名密钥。 没有为此应用程序配置签名密钥，或者密钥已过期或尚未生效。 |
 | AADSTS50147 | MissingCodeChallenge - 代码质询参数的大小无效。 |
@@ -200,7 +200,7 @@ ms.locfileid: "88647599"
 | AADSTS70007 | UnsupportedResponseMode - 请求令牌时，应用返回了不受支持的 `response_mode` 值。  |
 | AADSTS70008 | ExpiredOrRevokedGrant - 刷新令牌由于非活动状态而过期。 该令牌是在 XXX 颁发的，并在特定的时间内处于非活动状态。 |
 | AADSTS70011 | InvalidScope - 应用请求的范围无效。 |
-| AADSTS70012 | MsaServerError - 对 MSA（使用者）用户进行身份验证时发生服务器错误。 重试。 如果仍然失败，请[开具支持票证](https://support.azure.cn/en-us/support/support-azure/) |
+| AADSTS70012 | MsaServerError - 对 MSA（使用者）用户进行身份验证时发生服务器错误。 重试。 如果仍然失败，请[开具支持票证](https://support.azure.cn/en-us/support/support-azure/) |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 设备流错误。 授权处于挂起状态。 设备将重试轮询请求。 |
 | AADSTS70018 | BadVerificationCode - 由于用户为设备代码流键入了错误的用户代码，验证码无效。 授权未获批准。 |
 | AADSTS70019 | CodeExpired - 验证码已过期。 让用户重试登录。 |
@@ -320,6 +320,7 @@ ms.locfileid: "88647599"
 | AADSTS1000000 | UserNotBoundError - 绑定 API 要求 Azure AD 用户同时使用外部 IDP 进行身份验证，但尚未执行此操作。 |
 | AADSTS1000002 | BindCompleteInterruptError - 绑定已成功完成，但必须通知用户。 |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - 应用程序处于禁用状态。 |
+| AADSTS7000114| 不允许使用应用程序“appIdentifier”进行应用程序代理调用。|
 | AADSTS7500529 | 值“SAMLId-Guid”不是有效的 SAML ID - Azure AD 使用此属性填充返回的响应的 InResponseTo 属性。 ID 的开头不能是数字，因此常见的策略是在 GUID 的字符串表示形式前面加上类似于“id”的字符串。 例如，id6c1c178c166d486687be4aaf5e482730 是有效的 ID。 |
 
 ## <a name="next-steps"></a>后续步骤

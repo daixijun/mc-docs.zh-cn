@@ -7,19 +7,21 @@ ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 482d9271c87d1ddee8370ac0f51ff9e6779f120b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 1af4e77970b476283e71d9760f08b995d37dba37
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246360"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552723"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB .NET Core SDK v2：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -34,7 +36,7 @@ ms.locfileid: "91246360"
 > * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api
-> * [REST 资源提供程序](/azure-resource-manager/management/azure-services-resource-providers)
+> * [REST 资源提供程序](https://docs.azure.cn/azure-resource-manager/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
@@ -42,7 +44,7 @@ ms.locfileid: "91246360"
 | |  |
 |---|---|
 |**SDK 下载**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb?preserve-view=true)|
 |**示例**|[.NET代码示例](sql-api-dotnet-samples.md)|
 |**入门**|[Azure Cosmos DB .NET 入门](sql-api-sdk-dotnet.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|
@@ -54,6 +56,14 @@ ms.locfileid: "91246360"
 > 如果使用的是 .NET Core，请参阅面向 .NET Standard 的 [.NET SDK](sql-api-sdk-dotnet-standard.md) 最新版本 3.x。
 
 以下 .NET SDK 子版本可在 2.x.x 版本下使用：
+
+<a name="2.12.0"></a>
+### <a name="2120"></a>2.12.0
+
+* 对于需要获取查询计划的查询操作，改进了区域性中断检测。
+* 使用 ConnectionPolicy.EnableTcpConnectionEndpointRediscovery 时，在连接性事件期间提高了 CPU 利用率。
+* 为查询添加了 RegexMatch 系统函数。
+* 通过将池添加到经常分配的对象，提高了“直接 + TCP”连接的性能
 
 <a name="2.11.6"></a>
 ### <a name="2116"></a>2.11.6
@@ -143,7 +153,7 @@ ms.locfileid: "91246360"
 <a name="2.9.0"></a>
 ### <a name="290"></a>2.9.0
 
-* 添加了对 [GROUP BY](/cosmos-db/sql-query-group-by) 查询的支持
+* 添加了对 [GROUP BY](https://docs.azure.cn/cosmos-db/sql-query-group-by) 查询的支持
 * 查询现在在执行之前会检索查询计划，以确保单分区查询和跨分区查询之间的行为一致。
 
 <a name="2.8.1"></a>
@@ -393,7 +403,7 @@ ms.locfileid: "91246360"
 
 <a name="1.12.0"></a>
 ### <a name="1120"></a>1.12.0
-- 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](/cosmos-db/sql-query-aggregates)。
+- 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](https://docs.azure.cn/cosmos-db/sql-query-aggregates)。
 - 将分区集合上的最小吞吐量从 10,100 RU/s 降低到 2500 RU/s。
 
 <a name="1.11.4"></a>
@@ -419,7 +429,7 @@ ms.locfileid: "91246360"
 <a name="1.11.0"></a>
 ### <a name="1110"></a>1.11.0
 
-- 支持新类和方法，可处理集合内的文档[更改源](/documentdb/documentdb-change-feed)。 
+- 支持新类和方法，可处理集合内的文档[更改源](https://docs.azure.cn/documentdb/documentdb-change-feed)。 
 - 支持跨分区查询延续和跨分区查询的一些性能改进。
 - 添加 CreateDatabaseIfNotExistsAsync 和 CreateDocumentCollectionIfNotExistsAsync 方法。
 - 针对以下系统函数提供了 LINQ 支持：IsDefined、IsNull 和 IsPrimitive。
@@ -494,7 +504,7 @@ ms.locfileid: "91246360"
 <a name="1.6.2"></a>
 ### <a name="162"></a>1.6.2
 
-- 实现了[分区集合](/cosmos-db/partitioning-overview)和用户定义的性能级别。 
+- 实现了[分区集合](https://docs.azure.cn/cosmos-db/partitioning-overview)和用户定义的性能级别。 
 
 <a name="1.5.3"></a>
 ### <a name="153"></a>1.5.3
@@ -588,6 +598,7 @@ Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺�
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [2.12.0](#2.12.0) |2020 年 10 月 7 日 |--- |
 | [2.11.6](#2.11.6) |2020 年 8 月 12 日 |--- |
 | [2.11.5](#2.11.5) |2020 年 8 月 4 日 |--- |
 | [2.11.4](#2.11.4) |2020 年 7 月 30 日 |--- |

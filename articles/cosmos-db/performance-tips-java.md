@@ -6,19 +6,20 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 42fa59aeacab3a76d94a28332c4740f9f5774d0d
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: af806e6361ec74dcedb9704aeaa283df785b02de
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118402"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552784"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -34,7 +35,7 @@ ms.locfileid: "92118402"
 > 这些性能提示仅适用于 Azure Cosmos DB Sync Java SDK v2。 有关详细信息，请查看 Azure Cosmos DB Sync Java SDK v2 的[发行说明](sql-api-sdk-java.md)和 [Maven 存储库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)。
 >
 
-Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用一样简单。 若要了解详细信息，请参阅[如何预配容器吞吐量](how-to-provision-container-throughput.md)或[如何预配数据库吞吐量](how-to-provision-database-throughput.md)。 但是，由于 Azure Cosmos DB 通过网络调用进行访问，因此，使用 [Azure Cosmos DB Sync Java SDK v2](documentdb-sdk-java.md) 时，可以通过客户端优化来获得最佳性能。
+Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用一样简单。 若要了解详细信息，请参阅[如何预配容器吞吐量](how-to-provision-container-throughput.md)或[如何预配数据库吞吐量](how-to-provision-database-throughput.md)。 但是，由于 Azure Cosmos DB 通过网络调用进行访问，因此，使用 [Azure Cosmos DB Sync Java SDK v2](./sql-api-sdk-java.md) 时，可以通过客户端优化来获得最佳性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
@@ -47,8 +48,6 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
-    
-        <!-- URL is valid on ._connection_mode without gateay and directhttps -->
     
         网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
@@ -78,12 +77,12 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="图中显示了 Azure Cosmos DB 连接策略。" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="图中显示了两个区域中的请求和响应，其中计算机通过中间层服务连接到 Cosmos DB 帐户。" border="false":::
 
 ## <a name="sdk-usage"></a>SDK 用法
 1. **安装最新的 SDK**
 
-    Azure Cosmos DB SDK 正在不断改进以提供最佳性能。 请参阅 [Azure Cosmos DB SDK](documentdb-sdk-java.md) 页以了解最新的 SDK 并查看改进内容。
+    Azure Cosmos DB SDK 正在不断改进以提供最佳性能。 请参阅 [Azure Cosmos DB SDK](./sql-api-sdk-java.md) 页以了解最新的 SDK 并查看改进内容。
 2. **在应用程序生存期内使用单一实例 Azure Cosmos DB 客户端**
 
     每个 [DocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient) 实例都是线程安全的，在直接模式下运行时可执行高效的连接管理和地址缓存。 若要通过 DocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 DocumentClient 实例。
@@ -97,17 +96,17 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB Sync Java SDK 版本 1.9.0 和更高版本支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-    (a) ***优化 setMaxDegreeOfParallelism\:*** 并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
+    (a) **_优化 setMaxDegreeOfParallelism\:_* _ 并行查询的工作方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
 
     必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-    (b) ***优化 setMaxBufferedItemCount\:*** 并行查询专用于在客户端处理当前一批结果时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
+    (b) _*_优化 setMaxBufferedItemCount\:_*_ 并行查询专用于在客户端处理当前一批结果时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
 
     预提取的工作方式不因 MaxDegreeOfParallelism 而异，并且有一个单独的缓冲区用来存储所有分区的数据。  
 
-5. **按 getRetryAfterInMilliseconds 间隔实现回退**
+5. _ *按 getRetryAfterInMilliseconds 间隔实现退避**
 
-    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 遵循退让可确保最大程度地减少等待重试的时间。 重试策略支持包含在 [Azure Cosmos DB Sync Java SDK](documentdb-sdk-java.md) 版本 1.8.0 及更高版本中。 有关详细信息，请参阅 [getRetryAfterInMilliseconds](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)。
+    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 遵循退让可确保最大程度地减少等待重试的时间。 重试策略支持包含在 [Azure Cosmos DB Sync Java SDK](./sql-api-sdk-java.md) 版本 1.8.0 及更高版本中。 有关详细信息，请参阅 [getRetryAfterInMilliseconds](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds)。
 
 6. **增大客户端工作负荷**
 
@@ -145,7 +144,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
 
 ## <a name="throughput"></a>吞吐量
 <a name="measure-rus"></a>
@@ -191,6 +190,6 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     给定操作的请求费用（请求处理成本）与文档大小直接相关。 大型文档的操作成本高于小型文档的操作成本。
 
 ## <a name="next-steps"></a>后续步骤
-若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

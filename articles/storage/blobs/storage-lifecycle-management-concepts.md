@@ -1,28 +1,30 @@
 ---
-title: 管理 Azure 存储生命周期
-description: 了解如何创建生命周期策略规则，以将陈旧数据从热存储转移到冷存储和存档层。
+title: 通过自动执行 Azure Blob 存储访问层来优化成本
+description: 为在热层、冷层和存档层之间移动数据创建自动化规则。
 author: WenJason
 ms.author: v-jay
-origin.date: 04/24/2020
-ms.date: 08/24/2020
+origin.date: 10/29/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: aa130fa200142f7db0f9597de2efe201e578ee61
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-azurepowershell, references_regions
+ms.openlocfilehash: ecd88adc8cc309df9f2871e2457b1eec8a27d868
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753502"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552020"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 存储生命周期
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>通过自动执行 Azure Blob 存储访问层来优化成本
 
 数据集具有独特的生命周期。 在生命周期的早期，人们经常访问某些数据。 但随着数据的老化，访问需求急剧下降。 有些数据在云中保持空闲状态，并且在存储后很少被访问。 有些数据在创建后的数日或者数月即会过期，还有一些数据集在其整个生存期会频繁受到读取和修改。 Azure Blob 存储生命周期管理为 GPv2 和 Blob 存储帐户提供丰富的基于规则的策略。 可使用该策略将数据转移到适当的访问层，或在数据的生命周期结束时使数据过期。
 
 生命周期管理策略允许：
 
-- 将 Blob 转移到较冷的存储层（从热到冷、从热到存档，或者从冷到存档），以便针对性能和成本进行优化
+- 立即将所访问的 Blob 从冷层转移到热层，以便针对性能进行优化 
+- 将一段时间内未访问或修改的 Blob 转移到较冷的存储层（从热到冷、从热到存档，或者从冷到存档），以便针对成本进行优化
 - 删除生命周期已结束的 Blob
 - 在存储帐户级别定义每天运行一次的规则
 - 将规则应用到容器或 Blob 子集（使用名称前缀作为筛选器）
@@ -31,9 +33,12 @@ ms.locfileid: "88753502"
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
+>[!NOTE]
+>如果需要数据保持可读性（例如，在 StorSimple 使用数据时这样做），请勿设置将 Blob 移到存档层的策略。
+
 ## <a name="availability-and-pricing"></a>可用性和定价
 
-生命周期管理功能在所有 Azure 区域中适用于常规用途 v2 (GPv2) 帐户、Blob 存储帐户和高级块 Blob 存储帐户。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。  
+生命周期管理功能在所有 Azure 区域中适用于常规用途 v2 (GPv2) 帐户、Blob 存储帐户、高级块 Blob 存储帐户和 Azure Data Lake Storage Gen2 帐户。 在 Azure 门户中，可将现有的常规用途 (GPv1) 帐户升级为 GPv2 帐户。 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 生命周期管理功能是免费的。 客户需要支付[设置 Blob 层](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 调用的常规操作费用。 删除操作是免费的。 有关定价的详细信息，请参阅[块 Blob 定价](https://www.azure.cn/pricing/details/storage/blobs/)。
 
@@ -51,7 +56,7 @@ ms.locfileid: "88753502"
 > [!NOTE]
 > 如果为存储帐户启用了防火墙规则，生命周期管理请求可能会被阻止。 可以通过为受信任的 Azure 服务提供例外来取消阻止这些请求。 有关详细信息，请参阅[配置防火墙和虚拟网络](/storage/common/storage-network-security#exceptions)中的“例外”部分。
 
-本文介绍如何使用门户和 PowerShell 方法管理策略。  
+本文介绍如何使用门户和 PowerShell 方法管理策略。
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -64,32 +69,32 @@ ms.locfileid: "88753502"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 在 Azure 门户中，搜索并选择你的存储帐户。 
+1. 在 Azure 门户中，搜索并选择你的存储帐户。 
 
-3. 在“Blob 服务”下，选择“生命周期管理”以查看或更改规则 。
+1. 在“Blob 服务”下，选择“生命周期管理”以查看或更改规则 。
 
-4. 选择“列表视图”选项卡。
+1. 选择“列表视图”选项卡。
 
-5. 选择“添加规则”，然后填写“操作集”窗体字段。  在以下示例中，如果 Blob 有 30 天未修改，它们将转移到冷存储。
+1. 选择“添加规则”，然后填写“操作集”窗体字段。  在以下示例中，如果 Blob 有 30 天未修改，它们将转移到冷存储。
 
    ![Azure 门户中的生命周期管理操作集页](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
 
-6. 选择“筛选器集”添加可选的筛选器。 然后，选择“浏览”以指定作为筛选依据的容器和文件夹。
+1. 选择“筛选器集”添加可选的筛选器。 然后，选择“浏览”以指定作为筛选依据的容器和文件夹。
 
    ![Azure 门户中的生命周期管理筛选器集页](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
 
-8. 选择“查看 + 添加”以查看策略设置。
+1. 选择“查看 + 添加”以查看策略设置。
 
-9. 选择“添加”以添加新策略。
+1. 选择“添加”以添加新策略。
 
 #### <a name="azure-portal-code-view"></a>Azure 门户代码视图
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 在 Azure 门户中，搜索并选择你的存储帐户。
+1. 在 Azure 门户中，搜索并选择你的存储帐户。
 
-3. 在“Blob 服务”下，选择“生命周期管理”以查看或更改策略 。
+1. 在“Blob 服务”下，选择“生命周期管理”以查看或更改策略 。
 
-4. 以下 JSON 是可粘贴到“代码视图”选项卡中的策略示例。
+1. 以下 JSON 是可粘贴到“代码视图”选项卡中的策略示例。
 
    ```json
    {
@@ -119,9 +124,9 @@ ms.locfileid: "88753502"
    }
    ```
 
-5. 选择“保存” 。
+1. 选择“保存” 。
 
-6. 有关此 JSON 示例的详细信息，请参阅[策略](#policy)和[规则](#rules)部分。
+1. 有关此 JSON 示例的详细信息，请参阅[策略](#policy)和[规则](#rules)部分。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -229,7 +234,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 参数名称 | 参数类型 | 注释 | 必须 |
 |----------------|----------------|-------|----------|
-| `name`         | String |规则名称最多只能包含 256 个字母数字字符。 规则名称区分大小写。  该名称必须在策略中唯一。 | True |
+| `name`         | String |规则名称最多只能包含 256 个字母数字字符。 规则名称区分大小写。 该名称必须在策略中唯一。 | True |
 | `enabled`      | 布尔 | 一个允许暂时禁用规则的可选布尔值。 如果未设置，则默认值为 true。 | False | 
 | `type`         | 枚举值 | 当前的有效类型为 `Lifecycle`。 | True |
 | `definition`   | 定义生命周期规则的对象 | 每个定义均由筛选器集和操作集组成。 | True |
@@ -240,7 +245,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ### <a name="sample-rule"></a>示例规则
 
-以下示例规则将筛选帐户，以针对 `container1` 中存在的、以 `foo` 开头的对象运行操作。  
+以下示例规则将筛选帐户，以针对 `container1` 中存在的、以 `foo` 开头的对象运行操作。
 
 >[!NOTE]
 >- 生命周期管理仅支持块 blob 类型。<br>
@@ -298,8 +303,8 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 操作        | 基本 Blob                                   | 快照      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | 目前支持位于热层的 Blob         | 不支持 |
-| tierToArchive | 目前支持位于热层或冷层的 Blob | 不支持 |
+| tierToCool    | 目前支持位于热层的 Blob         | 支持     |
+| tierToArchive | 目前支持位于热层或冷层的 Blob | 受支持     |
 | 删除        | 支持                                   | 支持     |
 
 >[!NOTE]
@@ -430,13 +435,16 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ## <a name="faq"></a>常见问题
 
-**我创建了一个新策略，但操作为什么没有立即运行？**  
-平台每天运行一次生命周期策略。 配置策略后，某些操作可能需要在长达 24 小时之后才能首次运行。  
+**我创建了一个新策略，但操作为什么没有立即运行？**
 
-**如果更新现有策略，运行操作需要多长时间？**  
-已更新的策略最多需要 24 小时才能生效。 策略生效后，最多可能需要 24 小时才能执行操作。 因此，策略操作最多可能需要 48 小时才能完成。   
+平台每天运行一次生命周期策略。 配置策略后，某些操作可能需要在长达 24 小时之后才能首次运行。
 
-**我手动解冻了某个存档的 Blob，如何防止它暂时性地移回到存档层？**  
+**如果更新现有策略，运行操作需要多长时间？**
+
+已更新的策略最多需要 24 小时才能生效。 策略生效后，最多可能需要 24 小时才能执行操作。 因此，策略操作最多可能需要 48 小时才能完成。
+
+**我手动解冻了某个存档的 Blob，如何防止它暂时性地移回到存档层？**
+
 将 Blob 从一个访问层移到另一个访问层后，其上次修改时间不会更改。 如果手动将存档的 Blob 解冻到热层，生命周期管理引擎会将它移回到存档层。 暂时禁用影响此 Blob 的规则可防止该 Blob 再次存档。 可以安全地将 Blob 移回到存档层时，重新启用该规则即可。 如果需要将 Blob 永久保留在热层或冷层，也可以将其复制到另一个位置。
 
 ## <a name="next-steps"></a>后续步骤

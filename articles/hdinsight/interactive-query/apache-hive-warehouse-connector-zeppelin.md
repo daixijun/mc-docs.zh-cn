@@ -7,16 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 35b276457114ad177f8b4833e2b07eb544073d43
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 670aeffdd6c4faa8dafc02bfc7c463aef581ef0c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516797"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552213"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>在 Azure HDInsight 中将 Apache Zeppelin 与 Hive Warehouse Connector 集成
 
 HDInsight Spark 群集包含具有不同解释器的 Apache Zeppelin 笔记本。 在本文中，我们将只关注 Livy 解释器如何使用 Hive Warehouse Connector 从 Spark 访问 Hive 表。
+
+> [!NOTE]
+> 本文包含对术语“白名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 ## <a name="prerequisite"></a>先决条件
 
@@ -24,7 +27,7 @@ HDInsight Spark 群集包含具有不同解释器的 Apache Zeppelin 笔记本�
 
 ## <a name="getting-started"></a>入门
 
-1. 使用 [ssh 命令](../hdinsight-hadoop-linux-use-ssh-unix.md)连接到 Apache Spark 群集。 编辑以下命令（将 CLUSTERNAME 替换为群集的名称），然后输入该命令：
+1. 使用 [ssh 命令](../hdinsight-hadoop-linux-use-ssh-unix.md)连接到 Apache Spark 群集。 编辑以下命令，将 CLUSTERNAME 替换为群集的名称，然后输入该命令：
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
@@ -48,7 +51,7 @@ HDInsight Spark 群集包含具有不同解释器的 Apache Zeppelin 笔记本�
 
 1. 导航到“高级” > “自定义核心站点”。 选择“添加属性...”，以添加以下配置：
 
-    | 配置                 | Value |
+    | 配置                 | 值 |
     | ----------------------------- |-------|
     | hadoop.proxyuser.livy.groups  | *     |
     | hadoop.proxyuser.livy.hosts   | *     |
@@ -61,7 +64,7 @@ HDInsight Spark 群集包含具有不同解释器的 Apache Zeppelin 笔记本�
 
 1. 展开“自定义 livy2-conf”。 选择“添加属性...”，以添加以下配置：
 
-    | 配置                 | Value                                      |
+    | 配置                 | 值                                      |
     | ----------------------------- |------------------------------------------  |
     | livy.file.local-dir-whitelist | /usr/hdp/current/hive_warehouse_connector/ |
 
@@ -75,21 +78,21 @@ HDInsight Spark 群集包含具有不同解释器的 Apache Zeppelin 笔记本�
 
 1. 添加以下配置：
 
-    | 配置                 | Value                                      |
+    | 配置                 | 值                                      |
     | ----------------------------- |:------------------------------------------:|
     | livy.spark.hadoop.hive.llap.daemon.service.hosts | @llap0 |
     | livy.spark.security.credentials.hiveserver2.enabled | 是 |
     | livy.spark.sql.hive.llap | 是 |
     | livy.spark.yarn.security.credentials.hiveserver2.enabled | 是 |
     | livy.superusers | livy,zeppelin |
-    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`。<br>将 VERSION 替换为之前在[入门](#getting-started)中获取的值。 |
-    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`。<br>将 VERSION 替换为之前在[入门](#getting-started)中获取的值。 |
+    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>将 VERSION 替换为之前在[入门](#getting-started)中获取的值。 |
+    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>将 VERSION 替换为之前在[入门](#getting-started)中获取的值。 |
     | livy.spark.sql.hive.hiveserver2.jdbc.url | 将其设置为 Interactive Query 群集的 HiveServer2 Interactive JDBC URL。 |
     | spark.security.credentials.hiveserver2.enabled | 是 |
 
 1. 仅针对 ESP 群集添加以下配置：
 
-    | 配置| Value|
+    | 配置| 值|
     |---|---|
     | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 

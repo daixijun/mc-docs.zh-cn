@@ -1,20 +1,21 @@
 ---
 title: 在 PowerShell 中执行 Azure 队列存储操作
-description: 如何使用 PowerShell 对 Azure 队列存储执行操作
+description: 使用 PowerShell 对 Azure 队列存储执行操作。 使用 Azure 队列存储，可以存储大量可通过 HTTP/HTTPS 访问的消息。
 author: WenJason
 ms.author: v-jay
 origin.date: 05/15/2019
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: f00e37de9eb4f7783267c1afeb5a191b46c99041
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ef4e32cc7450963a67026cdeb1d9ce54748e9207
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199474"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552709"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -86,7 +87,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue -Name $queueName -Context $ctx
 ```
 
-有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx)（命名队列和元数据）。
+有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-Queues-and-Metadata)（命名队列和元数据）。
 
 ## <a name="retrieve-a-queue"></a>检索队列
 
@@ -129,9 +130,9 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 尽量以先进先出的顺序读取消息。 但不能保证完全这样做。 从队列中读取消息时，消息将对查看此队列的所有其他进程不可见。 这可确保如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。  
 
-**不可见超时**定义了消息在再次可供处理之前保持不可见的时间。 默认为 30 秒。
+**不可见超时** 定义了消息在再次可供处理之前保持不可见的时间。 默认为 30 秒。
 
-代码分两步从队列中读取消息。 调用 [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 方法时，将获取队列中的下一条消息。 从 **GetMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 若要完成从队列中删除消息，请调用 [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 方法。 
+代码分两步从队列中读取消息。 调用 [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessage) 方法时，将获取队列中的下一条消息。 从 **GetMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 若要完成从队列中删除消息，请调用 [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage) 方法。 
 
 在以下示例中，你将读完三条队列消息，然后等待 10 秒（不可见超时）。 然后再次读取这三条消息，读取后，通过调用 DeleteMessage 删除该消息。 如果在删除消息后尝试读取队列，$queueMessage 将返回为 NULL。
 

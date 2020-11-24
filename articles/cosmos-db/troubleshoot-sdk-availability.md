@@ -2,24 +2,25 @@
 title: 诊断多区域环境中 Azure Cosmos SDK 的可用性并对其进行故障排除
 description: 了解有关在多区域环境中运行时 Azure Cosmos SDK 可用性行为的所有信息。
 ms.service: cosmos-db
-origin.date: 09/24/2020
+origin.date: 10/20/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9a7d935e4b5988c6ef57f247dfc1abb822a745d6
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 22e2dacedfcb6d93ab94b75a9d417a270964c2fa
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118634"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552277"
 ---
 <!--Verified successfully on troubleshot about SDK-->
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>诊断多区域环境中 Azure Cosmos SDK 的可用性并对其进行故障排除
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍特定区域出现连接性问题或发生区域故障转移时，最新版本的 Azure Cosmos SDK 的行为。
 
@@ -28,7 +29,7 @@ ms.locfileid: "92118634"
 * .NET V2 SDK 中的 [ConnectionPolicy.PreferredLocations](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) 属性。
 * .NET V3 SDK 中的 [CosmosClientOptions.ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) 或 [CosmosClientOptions.ApplicationPreferredRegions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) 属性。
 * Java V4 SDK 中的 [CosmosClientBuilder.preferredRegions](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) 方法。
-* Node SDK 中的 [CosmosClient.preferred_locations](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 参数。
+* Python SDK 中的 [CosmosClient.preferred_locations](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 参数。
 * JS SDK 中的 [CosmosClientOptions.ConnectionPolicy.preferredLocations](https://docs.microsoft.com/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) 参数。
 
 设置区域首选项时，客户端将连接到下表中提到的区域：
@@ -38,7 +39,7 @@ ms.locfileid: "92118634"
 | 单个写入区域 | 首选区域 | 主要区域  |
 | 多个写入区域 | 首选区域 | 首选区域  |
 
-如果未设置首选区域：
+如果不设置首选区域，则 SDK 客户端将默认为主要区域：
 
 |帐户类型 |读取 |写入 |
 |------------------------|--|--|
@@ -48,11 +49,15 @@ ms.locfileid: "92118634"
 > [!NOTE]
 > 主要区域是指 [Azure Cosmos 帐户区域列表](distribute-data-globally.md)中的第一个区域
 
-发生以下任何一种情况时，使用 Azure Cosmos SDK 的客户端都会公开日志，并将重试信息作为操作诊断信息的一部分包括在内：
+通常情况下，SDK 客户端将连接到首选区域（如果设置了区域首选项）或主要区域（如果未设置首选项），并且操作将限于该区域，除非出现以下任何情况。
+
+在这些情况下，使用 Azure Cosmos SDK 的客户端都会公开日志，并会将重试信息作为操作诊断信息的一部分包括在内：
 
 * .NET V2 SDK 中有关响应的 RequestDiagnosticsString 属性。
 * .NET V3 SDK 中有关响应和异常的 Diagnostics 属性。
 * Java V4 SDK 中有关响应和异常的 getDiagnostics() 方法。
+
+按优先级顺序确定下一个区域时，SDK 客户端将使用帐户区域列表，对首选区域（如果有）进行优先级排序。
 
 有关这些事件中的 SLA 保证的详细信息，请参阅[可用性 SLA](high-availability.md#slas-for-availability)。
 
@@ -70,7 +75,7 @@ Azure Cosmos SDK 客户端每隔 5 分钟读取一次帐户配置，并刷新其
 如果将客户端配置为最好连接到 Azure Cosmos 帐户没有的区域，则将忽略首选区域。 如果以后添加该区域，则客户端会检测到该区域，并永久切换到该区域。
 
 <a name="manual-failover-single-region"></a>
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a>对单个写入区域帐户中的写入区域进行故障转移
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a>对单写入区域帐户中的写入区域进行故障转移
 
 如果启动当前写入区域的故障转移，则下一个写入请求将失败，并返回一个已知的后端响应。 检测到此响应时，客户端将查询帐户以了解新的写入区域，然后继续重试当前操作，并将所有未来的写入操作永久路由到新区域。
 
@@ -80,7 +85,7 @@ Azure Cosmos SDK 客户端每隔 5 分钟读取一次帐户配置，并刷新其
 
 ## <a name="session-consistency-guarantees"></a>会话一致性保证
 
-使用[会话一致性](consistency-levels.md#guarantees-associated-with-consistency-levels)时，客户端需要保证其自身可以读取自己的写入内容。 在读取区域首选项与写入区域不同的单个写入区域帐户中，可能会出现以下情况：用户发出写入，当从本地区域进行读取时，本地区域尚未接收到数据复制（光速约束）。 在这种情况下，SDK 会检测到读取操作中的特定故障，并在中心区域重试读取操作，以确保会话一致性。
+使用[会话一致性](consistency-levels.md#guarantees-associated-with-consistency-levels)时，客户端需要保证其自身可以读取自己的写入内容。 在读取区域首选项与写入区域不同的单个写入区域帐户中，可能会出现以下情况：用户发出写入，当从本地区域进行读取时，本地区域尚未接收到数据复制（光速约束）。 在这种情况下，SDK 会检测到读取操作中的特定故障，并在主要区域重试读取操作，以确保会话一致性。
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>TCP 协议上的暂时性连接问题
 

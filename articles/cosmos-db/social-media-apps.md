@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 设计模式 - 社交媒体应用
 description: 利用 Azure Cosmos DB 的存储灵活性和其他 Azure 服务了解社交网络的设计模式。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/28/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b6b1b83e1b70a9b8707fd802aca56086ca06d1de
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 4e0e8914c942fc1b454b07d2e9587802f5007121
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222961"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552726"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分  。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
 
@@ -215,11 +216,17 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 当区块属性受影响需要进行编辑时，可轻松找到受影响的文档。 只需使用指向编制索引属性的查询，例如 `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`，然后更新区块。
 
-<!-- Not Available on ## The search box-->
-<!-- Not Available on [create your Index](../search/search-create-index-portal.md)-->
-<!-- Not Available on [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md)-->
-<!-- Not Available on [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md)-->
-<!--Not Available on [Hitchhiker's Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)-->
+## <a name="the-search-box"></a>搜索框
+
+幸运的是，用户将生成许多内容。 并且你应能够提供搜索和查找可能在其内容流中不直接显示的内容的能力，也许是由于未关注创建者，或者也许是因为只是想要尽力找到六个月之前发布的旧帖子。
+
+由于使用的是 Azure Cosmos DB，因此可使用 [Azure 认知搜索](https://www.azure.cn/home/features/search/)在几分钟内轻松实现搜索引擎，而无需键入任何代码（搜索进程和 UI 除外）。
+
+为什么此过程如此简单？
+
+Azure 认知搜索可实现它们称之为[索引器](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)的内容，这是在数据存储库中挂钩的后台处理程序，可以自动添加、更新或删除索引中的对象。 它们支持 [Azure SQL 数据库索引器](https://docs.microsoft.com/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search)、[Azure Blobs 索引器](../search/search-howto-indexing-azure-blob-storage.md)和 [Azure Cosmos DB 索引器](../search/search-howto-index-cosmosdb.md)。 从 Cosmos DB 到 Azure 认知搜索的信息转换非常简单。 这两种技术都以 JSON 格式存储信息，因此只需[创建索引](../search/search-what-is-an-index.md)并从要编制索引的文档中映射属性。 就这么简单！ 根据数据大小，可在几分钟内通过云基础结构中的最佳搜索即服务解决方案搜索所有内容。
+
+有关 Azure 认知搜索的详细信息，请访问 [Hitchhiker’s Guide to Search](https://docs.microsoft.com/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search)（搜索漫游指南）。
 
 ## <a name="the-underlying-knowledge"></a>基础知识
 
@@ -257,7 +264,7 @@ Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https:/
 
 如果情况不断好转会怎样？ 假设来自其他区域、国家/地区或大洲的用户注意到你的平台并开始使用。 真是太棒了！
 
-可是等等！ 你很快就会发现他们使用平台的体验并不是最佳体验。 他们距离你的运营区域太远，会出现非常严重的延迟情况。 你显然不希望他们放弃使用。 如果有一种简单的方法可以**扩展多区域覆盖范围**就好了。 确实有！
+可是等等！ 你很快就会发现他们使用平台的体验并不是最佳体验。 他们距离你的运营区域太远，会出现非常严重的延迟情况。 你显然不希望他们放弃使用。 如果有一种简单的方法可以 **扩展多区域覆盖范围** 就好了。 确实有！
 
 通过 Cosmos DB，只需单击数次即可通过透明方式[多区域复制数据](../cosmos-db/tutorial-global-distribution-sql-api.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-sql-api.md)中自动选择可用区域。 此进程还意味着可以拥有[多个故障转移区域](high-availability.md)。
 

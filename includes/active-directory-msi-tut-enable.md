@@ -5,19 +5,19 @@ services: active-directory
 author: MarkusVi
 ms.service: active-directory
 ms.topic: include
-ms.date: 02/05/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 885fe8a7ae35fefdf31ef025c79e3f0b03441f96
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 16a7392c247886dd73bcfc8ca852cf6d65eb50c7
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067588"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504050"
 ---
 启用系统分配的托管标识只需单击一次即可。 可以在创建 VM 的过程中或在现有 VM 的属性中启用它。
 
-![新建存储帐户](./media/active-directory-msi-tut-enable/identity.png)
+![屏幕截图显示虚拟机的“系统分配”选项卡，可以在其中打开“系统分配”状态。](./media/active-directory-msi-tut-enable/identity.png)
 
 
 **若要在新 VM 上启用系统分配的托管标识，请执行以下操作：** 

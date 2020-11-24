@@ -7,19 +7,23 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: v-jay
 origin.date: 03/04/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: 68160fa854a14907def4b24dd946aa270f8862fd
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.date: 11/16/2020
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 14f50e3be8d13d3bba0537716ed36fbd39699224
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414705"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552045"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>在 Azure 存储中托管静态网站
 
 可以直接从 Azure 存储 GPv2 帐户中的容器提供静态内容（HTML、CSS、JavaScript 和图像文件）。 若要了解详细信息，请参阅 [Azure 存储中的静态网站托管](storage-blob-static-website.md)。
 
 本文介绍如何使用 Azure 门户、Azure CLI 或 PowerShell 启用静态网站托管。
+
+> [!NOTE]
+> 确保创建常规用途 v2 标准存储帐户。 静态网站在任何其他类型的存储帐户中都不可用。
 
 ## <a name="enable-static-website-hosting"></a>启用静态网站托管
 
@@ -43,7 +47,7 @@ ms.locfileid: "86414705"
 
    当用户尝试导航到静态网站中不存在的页面时，会显示默认错误页。
 
-7. 单击“保存” 。 Azure 门户现在会显示静态网站终结点。 
+7. 单击“ **保存**”。 Azure 门户现在会显示静态网站终结点。 
 
     ![启用针对存储帐户的静态网站托管功能](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -97,7 +101,7 @@ ms.locfileid: "86414705"
    Connect-AzAccount -Environment AzureChinaCloud
    ```
 
-4. 如果你的标识已关联到多个订阅，请将活动订阅设置为将托管你的静态网站的存储帐户的订阅。
+4. 如果你的标识与多个订阅相关联，请将你的活动订阅设置为将托管静态网站的存储帐户的订阅。
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -252,7 +256,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 4. 然后选择“传出”指标。
 
-   ![Azure 存储静态网站指标 - 指标](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![显示 Azure 存储静态网站出口指标的屏幕截图。](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. 从“聚合”选择器中选择“总和”。
 

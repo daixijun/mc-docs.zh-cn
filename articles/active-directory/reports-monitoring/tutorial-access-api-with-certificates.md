@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: report-monitor
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: fe62b9e58ac0ca3f3b15d9a6d8c6f7c5c32ba10c
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f2b24fdb456f4a1026f0db83fe9e2588d9ee6316
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245219"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501861"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教程：使用证书通过 Azure Active Directory 报告 API 获取数据
 
@@ -85,15 +85,17 @@ Azure Active Directory (Azure AD) 报告 API 通过一组基于 REST 的 API，�
    ``` 
 6. 现在，可以使用此证书获取 MS 图形 API 的访问令牌。 使用 MSCloudIdUtils PowerShell 模块中的 Get-MSCloudIdMSGraphAccessTokenFromCert cmdlet，传入从上一步获取的应用程序 ID 和指纹。 
 
-   ![Azure 门户](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![显示 PowerShell 窗口的屏幕截图，其中包含用于创建访问令牌的命令。](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 7. 在 PowerShell 脚本中使用访问令牌来查询图形 API。 使用 MSCloudIDUtils 中的 Invoke-MSCloudIdMSGraphQuery cmdlet 来枚举 signins 和 directoryAudits 终结点。 该 cmdlet 处理分多页的结果，并将这些结果发送到 PowerShell 管道。
 
 8. 查询 directoryAudits 终结点以检索审核日志。 
-   ![Azure 门户](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+
+   ![显示 PowerShell 窗口的屏幕截图，其中包含使用此过程前面的访问令牌来查询 directoryAudits 终结点的命令。](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 9. 查询 signins 终结点以检索登录日志。
-    ![Azure 门户](./media/tutorial-access-api-with-certificates/query-signins.png)
+
+    ![显示 PowerShell 窗口的屏幕截图，其中包含使用此过程前面的访问令牌来查询 signins 终结点的命令。](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. 现在可以选择将此数据导出为 CSV 并保存到 SIEM 系统。 也可以将脚本包装到计划的任务中，以便从租户定期获取 Azure AD 数据，不需将应用程序密钥存储在源代码中。 
 

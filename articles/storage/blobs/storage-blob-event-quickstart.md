@@ -3,18 +3,19 @@ title: 将 Azure Blob 存储事件发送到 Web 终结点 - Azure CLI | Microsof
 description: 使用 Azure 事件网格订阅 Blob 存储事件。 将事件发送到 Webhook。 处理 Web 应用程序中的事件。
 author: WenJason
 ms.author: v-jay
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 origin.date: 03/05/2020
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f519e6f8e4d1bac66d8a75385ebe2ef6655b130d
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a9fa1d4fcf4e967b9c36f06ea4ee7acacf5d9440
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199753"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552050"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>快速入门：使用 Azure CLI 将存储事件路由到 Web 终结点
 
@@ -24,7 +25,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，请使用 
 
 完成本文所述步骤后，即可看到事件数据已发送到 Web 应用。
 
-![查看订阅事件](./media/storage-blob-event-quickstart/view-results.png)
+![Azure 事件网格查看器的屏幕截图，显示已发送到 Web 应用的事件数据。](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 

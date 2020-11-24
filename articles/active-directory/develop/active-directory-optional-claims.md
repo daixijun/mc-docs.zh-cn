@@ -1,23 +1,23 @@
 ---
 title: 向 Azure AD 应用提供可选声明
 titleSuffix: Microsoft identity platform
-description: 如何将自定义的或附加的声明添加到 Microsoft 标识平台颁发的 JSON Web 令牌 (JWT) 令牌。
+description: 如何将自定义的或附加的声明添加到 Microsoft 标识平台颁发的 SAML 2.0 和 JSON Web 令牌 (JWT) 令牌。
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 5498eea30f2ebcaf5b5d7249afb838ac0ad52ed5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 92dc5fb6cb705a571a8344bcada2c876af0c00ca
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244696"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501712"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>如何：向应用提供可选声明
 
@@ -41,7 +41,7 @@ ms.locfileid: "91244696"
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v1.0 和 v2.0 可选声明集
 
-下面列出了默认可对应用程序使用的可选声明集。 若要为应用程序添加自定义可选声明，请参阅下面的[目录扩展](#configuring-directory-extension-optional-claims)。 在向**访问令牌**添加声明时，这些声明应用到应用程序 (Web API) 请求的访问令牌，而不是应用程序请求的声明。 无论客户端如何访问你的 API，正确的数据都存在于用于对该 API 进行身份验证的访问令牌中。
+下面列出了默认可对应用程序使用的可选声明集。 若要为应用程序添加自定义可选声明，请参阅下面的[目录扩展](#configuring-directory-extension-optional-claims)。 在向 **访问令牌** 添加声明时，这些声明应用到应用程序 (Web API) 请求的访问令牌，而不是应用程序请求的声明。 无论客户端如何访问你的 API，正确的数据都存在于用于对该 API 进行身份验证的访问令牌中。
 
 > [!NOTE]
 > 其中的大多数声明可包含在 v1.0 和 v2.0 令牌的 JWT 中，但不可包含在 SAML 令牌中，“令牌类型”列中指明的声明除外。 使用者帐户支持部分在“用户类型”列中标记的此类声明。  列出的许多声明不适用于使用者用户（他们没有租户，因此 `tenant_ctry` 没有值）。
@@ -84,7 +84,7 @@ ms.locfileid: "91244696"
 | `in_corp`     | 企业网络内部        | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。   |  以 MFA 中的[可信 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 设置为基础。    |
 | `family_name` | 姓氏                       | 根据用户对象中的定义提供用户的姓氏。 <br>"family_name":"Miller" | 在 MSA 和 Azure AD 中受支持。 需要 `profile` 范围。   |
 | `given_name`  | 名字                      | 根据用户对象中的设置提供用户的名字和“姓氏”。<br>"given_name":"Frank"                   | 在 MSA 和 Azure AD 中受支持。  需要 `profile` 范围。 |
-| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于关键数据。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
+| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于唯一标识用户信息（例如，用作数据库密钥）。 应改用用户对象 ID (`oid`) 作为数据库密钥。 不应向使用备用登录 ID 登录的用户显示其用户主体名称 (UPN)。 应改用以下 ID 令牌声明向用户显示登录状态：`preferred_username` 或 `unique_name` 适用于 v1 令牌，`preferred_username` 适用于 v2 令牌。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
 
 ### <a name="additional-properties-of-optional-claims"></a>可选声明的附加属性
 
@@ -235,7 +235,7 @@ ms.locfileid: "91244696"
 1. 在列表中选择要为其配置可选声明的应用程序
 1. 在“管理”部分下，选择“令牌配置” 
 1. 选择“添加组声明”
-1. 选择要返回的组类型（“所有组”、“SecurityGroup”或“DirectoryRole”）。   “所有组”选项包括“SecurityGroup”、“DirectoryRole”和“DistributionList”   
+1. 选择要返回的组类型（“安全组”或“目录角色”、“所有组”和/或“分配给应用程序的组”）。 “分配给应用程序的组”选项仅包括分配给应用程序的组。 “所有组”选项包括“SecurityGroup”、“DirectoryRole”和“DistributionList”，但不包括“分配给应用程序的组”    。 
 1. 可选：选择特定的令牌类型属性，将组声明值修改为包含本地组特性，或将声明类型更改为角色
 1. 选择“保存”
 
@@ -253,6 +253,7 @@ ms.locfileid: "91244696"
    - “所有”（此选项包括 SecurityGroup、DirectoryRole 和 DistributionList）
    - "SecurityGroup"
    - "DirectoryRole"
+   - “ApplicationGroup”（此选项仅包括分配给应用程序的组）
 
    例如：
 

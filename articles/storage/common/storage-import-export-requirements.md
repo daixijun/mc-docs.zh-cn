@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: conceptual
 origin.date: 08/12/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 6ee56e7e8b0417e20358298d4b1105e229c9c8f3
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 188487deb531150e244164b558151a5129e4f656
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753427"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552007"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -22,7 +22,7 @@ ms.locfileid: "88753427"
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
 
-为了使用 WAImportExport 工具准备硬盘驱动器，以下**支持 BitLocker 驱动器加密的 64 位操作系统**受支持。
+为了使用 WAImportExport 工具准备硬盘驱动器，以下 **支持 BitLocker 驱动器加密的 64 位操作系统** 受支持。
 
 
 |平台 |版本 |
@@ -51,7 +51,7 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 每个作业只能用于将数据传入/传出一个存储帐户。 换言之，一个导入/导出作业不能跨多个存储帐户。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-account-create.md)。
 
 > [!IMPORTANT]
-> 对于已启用[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md) 功能的存储帐户，请使用“允许受信任的 Microsoft 服务...”设置，[允许导入/导出](/storage/common/storage-network-security)服务将数据导入到 Azure 或从其导出。
+> 对于已启用[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)功能的存储帐户，请使用“允许受信任的 Microsoft 服务...”设置，以便[允许导入/导出](./storage-network-security.md)服务将数据导入到 Azure 或从其导出。
 
 ## <a name="supported-storage-types"></a>受支持的存储类型
 
@@ -95,4 +95,4 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
+* [使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy-v10.md)

@@ -4,17 +4,18 @@ description: 了解如何使用 .NET 客户端库列出 Azure 存储帐户中的
 services: storage
 author: WenJason
 ms.service: storage
-ms.topic: conceptual
-origin.date: 10/01/2019
-ms.date: 10/28/2019
+ms.topic: how-to
+origin.date: 10/14/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 2946f8a6a3acfeb531435abe7f7aa720fdaebf4b
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-csharp
+ms.openlocfilehash: af8d98da3658b8c9f270aacf4de0584cefca7f11
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552057"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 Blob 容器
 
@@ -24,18 +25,27 @@ ms.locfileid: "86414577"
 
 若要列出存储帐户中的容器，请调用以下方法之一：
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+- [GetBlobContainers](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
+- [GetBlobContainersAsync](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 - [ListContainersSegmented](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listcontainerssegmented?view=azure-dotnet)
 - [ListContainersSegmentedAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.listcontainerssegmentedasync?view=azure-dotnet)
+
+---
 
 这些方法的重载提供更多选项用于管理列出操作返回容器的方式。 后续部分将介绍这些选项。
 
 ### <a name="manage-how-many-results-are-returned"></a>管理要返回的结果数
 
-默认情况下，列出操作每次最多返回 5000 条结果。 若要返回更少的结果，请在调用某个 **ListContainerSegmented** 方法时为 `maxresults` 参数提供非零值。
+默认情况下，列出操作每次最多返回 5000 个结果。 若要返回更小的结果集，请为要返回的结果页的大小提供非零值。
 
-如果存储帐户包含 5000 个以上的容器，或者你为 `maxresults` 指定了一个导致列出操作返回存储帐户中一部分容器的值，则 Azure 存储将返回一个包含容器列表的继续标记。  继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
+如果存储帐户包含 5000 个以上的容器，或者你指定了页面大小，以便列表操作返回存储帐户中的容器子集，则 Azure 存储将返回一个包含容器列表的延续令牌。 继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
 
-在代码中检查继续标记的值，以确定它是否为 null。 如果继续标记为 null，则表示结果集是完整的。 如果继续标记不为 null，则再次调用 **ListContainersSegmented** 或 **ListContainersSegmentedAsync**，并传入继续标记以检索下一组结果，直到继续标记为 null。
+在代码中检查延续令牌的值，以确定它是为空（适用于 .NET v12）还是为 NULL（适用于 .NET v11 及更低版本）。 如果继续标记为 null，则表示结果集是完整的。 如果延续令牌不为 NULL，则再次调用列出方法，并传入延续令牌以检索下一组结果，直到延续令牌为 NULL。
 
 ### <a name="filter-results-with-a-prefix"></a>使用前缀筛选结果
 
@@ -43,31 +53,81 @@ ms.locfileid: "86414577"
 
 ### <a name="return-metadata"></a>返回元数据
 
-若要连同结果一起返回容器元数据，请指定 [ContainerListingDetails](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.containerlistingdetails) 枚举的 **Metadata** 值。 Azure 存储包含每个返回的容器的元数据，因此无需同时调用 **FetchAttributes** 方法之一即可检索容器元数据。
+若要将容器元数据与结果一起返回，请为 [BlobContainerTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobcontainertraits) 枚举（适用于 .NET v12）或 [ContainerListingDetails](/dotnet/api/microsoft.windowsazure.storage.blob.containerlistingdetails) 枚举（适用于 .NET v11 及更低版本）指定“Metadata”值）。 Azure 存储包含返回的每个容器的元数据，因此你也不需要提取容器元数据。
 
 ## <a name="example-list-containers"></a>示例：列出容器
 
-以下示例以异步方式列出存储帐户中以指定的前缀开头的容器。 该示例每次以 5 个结果为增量列出容器，并使用继续标记获取下一个结果段。 该示例还会连同结果一起返回容器元数据。
+以下示例以异步方式列出存储帐户中以指定的前缀开头的容器。 该示例列出了以指定前缀开头的容器，并且每次对列表操作的调用均返回指定数量的结果。 然后，它使用延续令牌获取下一段结果。 该示例还会连同结果一起返回容器元数据。
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 ```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
-                                                        string prefix)
+//-------------------------------------------------
+// List containers
+//-------------------------------------------------
+async static Task ListContainers(BlobServiceClient blobServiceClient, 
+                                string prefix, 
+                                int? segmentSize)
 {
-    Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
+    string continuationToken = string.Empty;
 
     try
     {
-        ContainerResultSegment resultSegment = null;
-        BlobContinuationToken continuationToken = null;
-
         do
         {
-            // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Passing null for the maxResults parameter returns the max number of results (up to 5000).
-            // Requesting the container's metadata with the listing operation populates the metadata,
-            // so it's not necessary to also call FetchAttributes() to read the metadata.
+            // Call the listing operation and enumerate the result segment.
+            // When the continuation token is empty, the last segment has been returned
+            // and execution can exit the loop.
+            var resultSegment = 
+                blobServiceClient.GetBlobContainersAsync(BlobContainerTraits.Metadata, prefix, default)
+                .AsPages(continuationToken, segmentSize);
+            await foreach (Azure.Page<BlobContainerItem> containerPage in resultSegment)
+            {
+                foreach (BlobContainerItem containerItem in containerPage.Values)
+                {
+                    Console.WriteLine("Container name: {0}", containerItem.Name);
+                }
+
+                // Get the continuation token and loop until it is empty.
+                continuationToken = containerPage.ContinuationToken;
+
+                Console.WriteLine();
+            }
+
+        } while (continuationToken != string.Empty);
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+```csharp
+private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
+                                                        string prefix,
+                                                        int? segmentSize)
+{
+    Console.WriteLine("List containers beginning with prefix {0}, plus container metadata:", prefix);
+
+    BlobContinuationToken continuationToken = null;
+    ContainerResultSegment resultSegment;
+
+    try
+    {
+        do
+        {
+            // List containers beginning with the specified prefix,
+            // returning segments of 5 results each.
+            // Passing in null for the maxResults parameter returns the maximum number of results (up to 5000).
+            // Requesting the container's metadata as part of the listing operation populates the metadata,
+            // so it's not necessary to call FetchAttributes() to read the metadata.
             resultSegment = await blobClient.ListContainersSegmentedAsync(
-                prefix, ContainerListingDetails.Metadata, 5, continuationToken, null, null);
+                prefix, ContainerListingDetails.Metadata, segmentSize, continuationToken, null, null);
 
             // Enumerate the containers returned.
             foreach (var container in resultSegment.Results)
@@ -82,24 +142,27 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
                 }
             }
 
-            // Get the continuation token. If not null, get the next segment.
+            // Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
 
         } while (continuationToken != null);
+
+        Console.WriteLine();
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
     }
 }
 ```
 
+---
+
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
-[列出容器](https://docs.microsoft.com/rest/api/storageservices/list-containers2)
-[枚举 Blob 资源](https://docs.microsoft.com/rest/api/storageservices/enumerating-blob-resources)
+- [列出容器](https://docs.microsoft.com/rest/api/storageservices/list-containers2)
+- [枚举 Blob 资源](https://docs.microsoft.com/rest/api/storageservices/enumerating-blob-resources)

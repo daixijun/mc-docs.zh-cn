@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/21/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 6e70b6f262fcc75325289d02f0f8dd09030b164b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: fb1122c83d5a3faf6b11df20bdaf2f731080e75e
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245744"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501864"
 ---
 # <a name="migrate-android-applications-that-use-a-broker-from-adalnet-to-msalnet"></a>将使用代理的 Android 应用程序从 ADAL.NET 迁移到 MSAL.NET
 
-如果你的 Xamarin Android 应用当前使用适用于 .NET 的 Azure Active Directory 身份验证库 (ADAL.NET) 和[身份验证代理](brokered-auth.md)，则可以迁移到[适用于 .NET 的 Microsoft 身份验证库](msal-overview.md) (MSAL.NET)。
+如果你的 Xamarin Android 应用当前使用适用于 .NET 的 Azure Active Directory 身份验证库 (ADAL.NET) 和身份验证代理，则可以迁移到[适用于 .NET 的 Microsoft 身份验证库](msal-overview.md) (MSAL.NET)。
 
 ## <a name="prerequisites"></a>先决条件
 

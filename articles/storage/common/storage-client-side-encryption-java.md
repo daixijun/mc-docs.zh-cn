@@ -7,22 +7,23 @@ ms.service: storage
 ms.devlang: java
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2a6dde1438d1b1db0d9b167f51d5d048673a5ba0
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.custom: devx-track-java
+ms.openlocfilehash: d105037df583cf195b2122f6254d499ff2ee074e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723603"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551692"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Java 的 Azure 存储客户端库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)集成，以便管理存储帐户密钥。
+[用于 Java 的 Azure 存储客户端库](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) 支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/)集成，以便管理存储帐户密钥。
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>通过信封技术加密和解密
 加密和解密的过程遵循信封技术。  
@@ -48,7 +49,7 @@ ms.locfileid: "84723603"
 存储客户端库使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
-目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **upload*** 方法或 **openOutputStream** 方法时支持加密。 对于下载，支持完整下载和范围下载。  
+目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 upload 方法或 openOutputStream 方法时支持加密。 对于下载，支持完整下载和范围下载。  
 
 在加密过程中，客户端库生成 16 字节的随机初始化向量 (IV) 和 32 字节的随机内容加密密钥 (CEK) 并将使用此信息对 Blob 数据执行信封加密。 然后，已包装的 CEK 和一些附加加密元数据将与服务上的已加密 Blob 一起存储为 Blob 元数据。
 

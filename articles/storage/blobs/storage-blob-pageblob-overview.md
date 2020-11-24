@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/15/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38941c62d12087b2d2dbf31eca37b4abd4dc0b56
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: e0974ccae0cf0668e0ca2e5894c19f094a102514
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026518"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552049"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 页 Blob 概述
 
@@ -35,6 +35,10 @@ Azure 页 Blob 的重要功能包括 REST 接口、基础存储持久性，以�
 * 应用程序主导的增量快照管理：应用程序可以利用页 Blob 快照和 REST API 来保存应用程序检查点，而不会产生高昂的数据复制成本。 Azure 存储支持页 Blob 的本地快照，这类快照不要求复制整个 Blob。 使用这些公共快照 API 还可以访问和复制快照之间的增量数据。
 * 将应用程序和数据从本地实时迁移到云中：复制本地数据并使用 REST API 将数据直接写入 Azure 页 Blob，同时，本地 VM 可继续保持运行。 与目标同步后，可以使用该数据快速故障转移到 Azure VM。 这样，便可以在几乎不造成停机的情况下，将 VM 和虚拟磁盘从本地迁移到云中，因为数据迁移在后台发生，同时我们可以继续使用 VM，并且故障转移所需的停机时间很短（以分钟计）。
 * [基于 SAS](../common/storage-sas-overview.md) 的共享访问，可以实现支持并发控制的方案，例如多个读取者和单个写入者。
+
+## <a name="pricing"></a>定价
+
+页 Blob 提供的两种类型的存储都有其自己的定价模型。 高级页 blob 遵循托管磁盘定价模型，而标准页 blob 按使用的大小和单个事务计费。 有关详细信息，请参阅 [Azure 页 Blob 定价页](https://azure.cn/pricing/details/storage/page-blobs/)。
 
 ## <a name="page-blob-features"></a>页 Blob 功能
 
@@ -98,7 +102,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-若要在创建后重设页 Blob 的大小，请使用 [Resize](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) 方法。 请求的大小应为 512 字节的倍数。
+若要在创建后重设页 Blob 的大小，请使用 [Resize](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) 方法。 请求的大小应为 512 字节的倍数。
 
 ```csharp
 pageBlobClient.Resize(32 * OneGigabyteAsBytes);

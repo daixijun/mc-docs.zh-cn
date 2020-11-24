@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.author: v-jay
 ms.reviewer: dineshm
 origin.date: 09/04/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a8a3b0c1676cd4e63214a9366bafce30f57b290b
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.custom: devx-track-js
+ms.openlocfilehash: f015ee1fc85e3296f2a1e892735faa134504ca26
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026627"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552043"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 存储中的静态网站托管
 
@@ -59,7 +59,7 @@ ms.locfileid: "91026627"
 如果服务器返回 404 错误，并且你在启用网站时未指定错误文档，则会向用户返回默认 404 页面。
 
 > [!NOTE]
-> 静态网站不支持 [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)。
+> 静态网站不支持[对 Azure 存储的跨域资源共享 (CORS) 支持](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)。
 
 ### <a name="regional-codes"></a>区域代码
 
@@ -83,9 +83,11 @@ ms.locfileid: "91026627"
 
 尽管主静态网站终结点不受影响，但更改公共访问级别会影响主 blob 服务终结点。
 
-例如，如果将 **$web** 容器的公共访问级别从**专用（不允许匿名访问）** 更改为 **Blob（仅允许匿名读取 blob）** ，则对主静态网站终结点 `https://contosoblobaccount.z4.web.core.chinacloudapi.cn/index.html` 的公共访问级别不会更改。
+例如，如果将 **$web** 容器的公共访问级别从 **专用（不允许匿名访问）** 更改为 **Blob（仅允许匿名读取 blob）** ，则对主静态网站终结点 `https://contosoblobaccount.z4.web.core.chinacloudapi.cn/index.html` 的公共访问级别不会更改。
 
 但是，对主 blob 服务终结点 `https://contosoblobaccount.blob.core.chinacloudapi.cn/$web/index.html` 的公共访问权限将从专用更改为公共。 现在，用户可以使用这两个终结点中的任意一个来打开该文件。
+
+禁止对存储帐户的公共访问不会影响该存储帐户中承载的静态网站。 有关详细信息，请参阅[配置对容器和 Blob 的匿名公共读取访问](anonymous-read-access-configure.md)。
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>将自定义域映射到静态网站 URL
 

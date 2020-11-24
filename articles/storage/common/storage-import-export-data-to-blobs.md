@@ -4,17 +4,17 @@ description: 了解如何在 Azure 门户中创建导入和导出作业，以便
 author: WenJason
 services: storage
 ms.service: storage
-ms.topic: article
-origin.date: 03/12/2020
-ms.date: 06/01/2020
+ms.topic: how-to
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 2729c9a0b047a1c72203c67919311b1b9ecb3e70
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: d92d6438a72630e7e62f63b5f40bfaa0b9009f7b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199794"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552741"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -90,6 +90,8 @@ ms.locfileid: "84199794"
 
 ## <a name="step-2-create-an-import-job"></a>步骤 2：创建导入作业
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 在 Azure 门户中执行以下步骤来创建导入作业。
 
 1. 登录到 https://portal.azure.cn/ 。
@@ -115,7 +117,7 @@ ms.locfileid: "84199794"
 5. 在“作业详细信息”中：
 
    * 上传你在驱动器准备步骤中获取的驱动器日志文件。 如果使用了 `waimportexport.exe version1`，请为你准备的每个驱动器上传一个文件。 如果日志文件大小超过了 2 MB，则可以使用随日志文件创建的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。
-   * 选择将用来存放数据的目标存储帐户。 目前仅在中国东部和中国北部支持此功能。
+   * 选择将用来存放数据的目标存储帐户。
    * 放置位置会根据选定存储帐户所属的区域自动进行填充。
 
    ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
@@ -137,8 +139,85 @@ ms.locfileid: "84199794"
    * 单击“确定”以创建导入作业。
 
      ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
-   - 创建后，可以在设置部分下“管理发货信息”中再次查看数据中心的地址。
-     ![查看数据中心的地址](./media/storage-import-export-data-to-blobs/View-info.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+使用以下步骤在 Azure CLI 中创建导入作业。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>创建作业
+
+1. 使用 [az extension add](/cli/extension#az_extension_add) 命令添加 [az import-export](/cli/ext/import-export/import-export) 扩展：
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 可以使用现有资源组，也可以创建新组。 若要创建资源组，请运行 [az group create](/cli/group#az_group_create) 命令：
+
+    ```azurecli
+    az group create --name myierg --location "China East"
+    ```
+
+1. 可以使用现有存储帐户，也可以创建一个存储帐户。 若要创建存储帐户，请运行 [az storage account create](/cli/storage/account#az_storage_account_create) 命令：
+
+    ```azurecli
+    az storage account create --resource-group myierg --name myssdocsstorage --https-only
+    ```
+
+1. 若要获取可将磁盘寄送到的位置的列表，请使用 [az import-export location list](/cli/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 命令：
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. 使用 [az import-export location show](/cli/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 命令获取你所在区域的位置：
+
+    ```azurecli
+    az import-export location show --location "China East"
+    ```
+
+1. 运行以下 [az import-export create](/cli/ext/import-export/import-export#ext_import_export_az_import_export_create) 命令来创建导入作业：
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "China East" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="XXXX XXXX" city="XXXX XXXX" state-or-province=CA postal-code=XXXXXX \
+            country-or-region=China phone=XXXXXXXX \
+        --return-address recipient-name="XXXX XXXX" street-address1="XXXX XXXX" \
+            city=XXXX country-or-region=China state-or-province=CA postal-code=XXXXXX \
+            email=gus@contoso.com phone=XXXXXXXX" \
+        --return-shipping carrier-name=EMS carrier-account-number=XXXXXXXX \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+1. 使用 [az import-export list](/cli/ext/import-export/import-export#ext_import_export_az_import_export_list) 命令查看 myierg 资源组的所有作业：
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 若要更新作业或取消作业，请运行 [az import-export update](/cli/ext/import-export/import-export#ext_import_export_az_import_export_update) 命令：
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>步骤 3（可选）：配置客户管理的密钥
 

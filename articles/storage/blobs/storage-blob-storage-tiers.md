@@ -1,22 +1,22 @@
 ---
-title: 适用于 Blob 的热、冷、存档访问层 - Azure 存储
+title: Azure Blob 存储的访问层 - 热、冷和存档
 description: 了解 Azure Blob 存储的热、冷和存档访问层。 查看支持分层的存储帐户。 比较块 Blob 存储选项。
 author: WenJason
 ms.author: v-jay
-origin.date: 08/27/2020
-ms.date: 09/28/2020
+origin.date: 1029/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: b0469f3210059b9243092fe2a292a081eb074155
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: dfa12a2f62abb659be0161391fd4c10f58fea205
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026585"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552042"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
+# <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob 存储的访问层 - 热、冷和存档
 
 Azure 存储提供了不同的访问层，允许以最具成本效益的方式存储 Blob 对象数据。 可用的访问层包括：
 
@@ -33,13 +33,13 @@ Azure 存储提供了不同的访问层，允许以最具成本效益的方式�
 
 存储在云中的数据以指数速度增长。 若要针对不断增加的存储需求来管理成本，可以根据属性（如访问频率和计划保留期）整理数据以优化成本。 存储在云中的数据可能根据其生成方式、处理方式以及在生存期内的访问方式而有所不同。 某些数据在其整个生存期中都会受到积极的访问和修改。 某些数据则在生存期早期会受到频繁访问，随着数据变旧，访问会极大地减少。 某些数据在云中保持空闲状态，并且在存储后很少（如果有）被访问。
 
-这些数据访问方案的每一个都受益于针对特定访问模式进行了优化的差异化访问层。 Azure Blob 存储采用热、冷、存档访问层，通过单独的定价模型来满足对差异化访问层的这种需要。
+这些数据访问方案的每一个都受益于针对特定访问模式进行了优化的差异化访问层。 Azure Blob 存储采用热、冷和存档访问层，通过单独的定价模型来满足对差异化访问层的这种需要。
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="storage-accounts-that-support-tiering"></a>支持分层的存储帐户
 
-只有 Blob 存储或常规用途 v2 (GPv2) 帐户支持在热层、冷层和存档层之间将对象存储数据分层。 常规用途 v1 (GPv1) 帐户不支持分层。 客户可以通过 Azure 门户轻松将其现有的 GPv1 或 Blob 存储帐户转换为 GPv2 帐户。 GPv2 为 Blob、文件和队列提供新的定价与功能。 某些功能和价格折扣仅在 GPv2 帐户中提供。 请在全面了解定价之后，评估是否使用 GPv2 帐户。 某些工作负荷的价格在 GPv2 中可能比在 GPv1 中更高。 有关详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
+只有 Blob 存储和常规用途 v2 (GPv2) 帐户支持在热层、冷层和存档层之间将对象存储数据分层。 常规用途 v1 (GPv1) 帐户不支持分层。 客户可以通过 Azure 门户轻松将其现有的 GPv1 或 Blob 存储帐户转换为 GPv2 帐户。 GPv2 为 Blob、文件和队列提供新的定价与功能。 某些功能和价格折扣仅在 GPv2 帐户中提供。 请在全面了解定价之后，评估是否使用 GPv2 帐户。 某些工作负荷的价格在 GPv2 中可能比在 GPv1 中更高。 有关详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性。 使用此属性可为未在对象级别设置显式层的任何 Blob 的指定默认访问层。 对于已在对象级别设置该层的对象，不会应用帐户层。 存档层仅适用于对象级别。 可以随时在这些访问层之间进行切换。
 
@@ -74,7 +74,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性。 使用�
 
 所有三个访问层中的 Blob 可以在同一帐户中共存。 如果 Blob 没有显式分配的层，则会从帐户访问层设置推断相应的层。 如果访问层来自帐户，则你可以看到“推断的访问层”Blob 属性已设置为“true”，而“访问层”Blob 属性与帐户层匹配。  在 Azure 门户中，Blob 访问层的“推断访问层”属性显示为“热(推断)”或“冷(推断)”。 
 
-更改帐户访问层适用于帐户中存储的未设置显式层的所有“推断访问层”对象。 如果将帐户层从热切换为冷，则只按 GPv2 帐户中没有设置层的所有 Blob 的写入操作次数（以 10,000 次为单位）收费。 不会在 Blob 存储帐户中对此更改收费。 如果将 Blob 存储或 GPv2 帐户从冷切换为热，则会按读取操作次数（以 10,000 次为单位）和数据检索量（以 GB 为单位）收费。
+更改帐户访问层适用于帐户中存储的未设置显式层的所有“推断访问层”对象。 如果将帐户层从热切换为冷，则只按 GPv2 帐户中没有设置层的所有 Blob 的写入操作次数（以 10,000 次为单位）收费。 不会在 Blob 存储帐户中对此更改收费。 如果在 Blob 存储或 GPv2 帐户中从冷切换为热，则会按读取操作次数（以 10,000 次为单位）和数据检索量（以 GB 为单位）收费。
 
 ## <a name="blob-level-tiering"></a>Blob 级别分层
 
@@ -225,7 +225,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 **如果要对数据分层，是应该使用 Blob 存储帐户还是 GPv2 帐户？**
 
-建议使用 GPv2 帐户而非 Blob 存储帐户进行分层。 GPv2 支持 Blob 存储帐户支持的所有功能，以及许多其他功能。 Blob 存储和 GPv2 的定价几乎相同，但某些新功能和价格折扣只提供给 GPv2 帐户。 GPv1 帐户不支持分层。
+建议使用 GPv2 帐户而非 Blob 存储帐户进行分层。 GPv2 支持 Blob 存储帐户支持的所有功能，以及许多其他的功能。 Blob 存储和 GPv2 的定价几乎相同，但某些新功能和价格折扣只提供给 GPv2 帐户。 GPv1 帐户不支持分层。
 
 GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之前，应仔细评估这二者。 只需单击一下，即可轻松地将现有的 Blob 存储或 GPv1 帐户转换为 GPv2 帐户。 有关详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
@@ -277,7 +277,7 @@ Azure 门户、PowerShell 和 CLI 工具以及 .NET、Java、Python 和 Node.js 
 
 ## <a name="next-steps"></a>后续步骤
 
-评估 GPv2 和 Blob 存储帐户中的热层、冷层与存档层
+评估 GPv2 和 Blob 存储帐户中的热、冷和存档层
 
 - [按区域查看热层、冷层和存档层](https://www.azure.cn/zh-cn/support/service-dashboard/)
 - [管理 Azure Blob 存储生命周期](storage-lifecycle-management-concepts.md)

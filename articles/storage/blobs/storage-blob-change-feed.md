@@ -4,17 +4,17 @@ description: 了解 Azure Blob 存储中的更改源日志以及如何使用这�
 author: WenJason
 ms.author: v-jay
 origin.date: 09/08/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: bb903aa131d368091f28225d8c5c70e153c93624
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: ced3d6da27f14e71dfaac8ee93326046bec66de4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026581"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552062"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob 存储中的更改源支持
 
@@ -138,7 +138,7 @@ ms.locfileid: "91026581"
 更改源生成多个元数据文件和日志文件。 这些文件位于存储帐户的 $blobchangefeed 容器中。 
 
 > [!NOTE]
-> 在当前版本中，$blobchangefeed 容器在 Azure 存储资源管理器或 Azure 门户中不可见。 目前，在调用 ListContainers API 时无法看到 $blobchangefeed 容器，但可以直接对容器调用 ListBlobs API 来查看 Blob。
+> 在当前版本中，$blobchangefeed 容器仅在 Azure 门户中可见，而在 Azure 存储资源管理器中不可见。 目前，在调用 ListContainers API 时无法看到 $blobchangefeed 容器，但可以直接对容器调用 ListBlobs API 来查看 Blob
 
 客户端应用程序可以通过更改源处理器 SDK 随附的 Blob 更改源处理器库来使用更改源。 
 

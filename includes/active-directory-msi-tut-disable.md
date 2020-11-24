@@ -5,17 +5,17 @@ services: active-directory
 author: MarkusVi
 ms.service: active-directory
 ms.topic: include
-ms.date: 02/05/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 05f18bce6d72ba466930bc4ac5c756d1aabb8f0d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 729af3138bc2b42d4fb8e0ac28ac44fb5e7d744b
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067586"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504105"
 ---
 若要在 VM 上禁用系统分配的标识，请将系统分配的标识的状态设为“关”  。 
 
-![新建存储帐户](./media/active-directory-msi-tut-disable/identity.png)
+![屏幕截图显示虚拟机的“系统分配”选项卡，可以在其中关闭“系统分配”状态。](./media/active-directory-msi-tut-disable/identity.png)
 

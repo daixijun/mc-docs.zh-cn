@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: fc50438ff8b9a9b7dd920ae7a2fbeb876519c3d8
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 093c0c71b10e874a067247f68563732213068b90
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041436"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501874"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>排查 Azure AD 连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -52,6 +52,14 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 | \*.chinacloudapi.cn |HTTPS/443 |用于登录 Azure AD。 |
 | secure.aadcdn.partner.microsoftonline-p.cn |HTTPS/443 |用于 MFA。 |
 | \*.partner.microsoftonline.cn |HTTPS/443 |用于配置 Azure AD 目录并导入/导出数据。 |
+| \*.crl3.digicert.com |HTTP/80 |用于验证证书。 |
+| \*.crl4.digicert.com |HTTP/80 |用于验证证书。 |
+| \*.ocsp.digicert.com |HTTP/80 |用于验证证书。 |
+| \*. www.d-trust.net |HTTP/80 |用于验证证书。 |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |用于验证证书。 |
+| \*.crl.microsoft.com |HTTP/80 |用于验证证书。 |
+| \*.oneocsp.microsoft.com |HTTP/80 |用于验证证书。 |
+| \*.ocsp.msocsp.com |HTTP/80 |用于验证证书。 |
 
 ## <a name="errors-in-the-wizard"></a>向导中的错误
 安装向导使用两种不同的安全性上下文。 在“连接到 Azure AD”页上，使用的是当前登录的用户。 在“配置”页上，改为[运行同步引擎服务的帐户](reference-connect-accounts-permissions.md#adsync-service-account)。 如果出现问题，该问题很有可能已显示在向导中的“连接到 Azure AD”页上，因为代理配置是全局性的。
@@ -117,26 +125,26 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:32 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:32 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:33 |connect:// *bwsc02-relay* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.partner.microsoftonline.cn:443 |
 
 **配置**
 
 | 时间 | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:43 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:44 |connect:// *bba900-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:44 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:46 |connect:// *bwsc02-relay* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.partner.microsoftonline.cn:443 |
 
 **初始同步**
 
@@ -144,8 +152,8 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.chinacloudapi.cn:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:49 |connect:// *bba900-anchor* .partner.microsoftonline.cn:443 |
-| 1/11/2016 8:49 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
 
 ## <a name="authentication-errors"></a>身份验证错误
 本部分介绍了 ADAL（Azure AD Connect 使用的身份验证库）和 PowerShell 可能返回的错误。 其中说明的错误可帮助了解后续步骤。
@@ -186,7 +194,7 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>需要 Azure AD 全局管理员角色
-用户已成功完成身份验证。 但用户未分配有全局管理员角色。 此处介绍[如何将全局管理员角色分配给](../users-groups-roles/directory-assign-admin-roles.md)用户。
+用户已成功完成身份验证。 但用户未分配有全局管理员角色。 此处介绍[如何将全局管理员角色分配给](../roles/permissions-reference.md)用户。
 
 <div id="privileged-identity-management">
 <!--

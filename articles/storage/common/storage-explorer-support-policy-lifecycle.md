@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: storage
 ms.topic: article
 origin.date: 07/10/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 270a09ef680891159d018675b1c2067025798354
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 1aff479556dcdd7f9c6df333e2f8726e4ee2b38f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026497"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552744"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure 存储资源管理器支持生命周期和策略
 
@@ -42,6 +42,8 @@ Azure 存储资源管理器每年发布四到六次。 Azure 也可能在计划�
 
 | 存储资源管理器版本  | 发布日期       | 支持结束日期 |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.15.1                   | 2020 年 9 月 2 日  | 2021 年 9 月 2 日   |
+| v1.15.0                   | 2020 年 8 月 27 日    | 2021 年 8 月 27 日     |
 | v1.14.2                   | 2020 年 7 月 16 日      | 2021 年 7 月 16 日       |
 | v1.14.1                   | 2020 年 7 月 14 日      | 2021 年 7 月 14 日       |
 | v1.14.0                   | 2020 年 6 月 24 日      | 2021 年 7 月 14 日       |

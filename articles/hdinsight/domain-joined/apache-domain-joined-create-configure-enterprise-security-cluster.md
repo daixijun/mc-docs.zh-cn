@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: 3e3f1f00867dbeb4c139633c49f17964671f3dbc
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 0ef438f1e43c9ca9508eb34c3359d320fd6691b7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917052"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551874"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>在 Azure HDInsight 中创建和配置企业安全性套餐群集
 
@@ -82,7 +82,7 @@ ms.locfileid: "87917052"
 
         ![创建新的 Active Directory 用户](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. 在“新建对象 - 用户”页上，输入 `HDIUser` 作为**名字**和**用户登录名**。 其他字段会自动填充。 然后，选择“下一步”。
+    1. 在“新建对象 - 用户”页上，输入 `HDIUser` 作为 **名字** 和 **用户登录名**。 其他字段会自动填充。 然后，选择“下一步”。
 
         ![创建第一个管理员用户对象](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -196,7 +196,7 @@ ms.locfileid: "87917052"
 
 1. 在“连接到 Active Directory 域服务”页上，输入企业管理员帐户的用户名和密码。 使用之前创建的用户名 `HDIFabrikam\HDIFabrikamAdmin` 及其密码。 然后，选择“下一步”。
 
-   ![“连接到 Azure AD”页面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![“连接到 ADDS”页](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. 在“Azure AD 登录配置”页上，选择“下一步”。 
    ![“Azure AD 登录配置”页面](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -227,7 +227,7 @@ ms.locfileid: "87917052"
 
 ### <a name="enable-azure-ad-ds"></a>启用 Azure AD DS
 
-按以下步骤启用 Azure AD DS。 有关详细信息，请参阅[通过 Azure 门户启用 Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)。
+按以下步骤启用 Azure AD DS。 有关详细信息，请参阅[通过 Azure 门户启用 Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md)。
 
 1. 创建虚拟网络以承载 Azure AD DS。 运行以下 PowerShell 代码。
 
@@ -302,7 +302,7 @@ ms.locfileid: "87917052"
 
 将使用轻型目录访问协议 (LDAP) 从 Azure Active Directory 读取数据或将数据写入到 Azure Active Directory。 可以通过使用安全套接字层 (SSL) 或传输层安全性 (TLS) 技术，确保 LDAP 流量的机密性和安全性。 可以通过安装正确格式的证书来启用基于 SSL 的 LDAP (LDAPS)。
 
-有关安全 LDAP 的详细信息，请参阅[为 Azure AD DS 托管域配置 LDAP](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap)。
+有关安全 LDAP 的详细信息，请参阅[为 Azure AD DS 托管域配置 LDAP](../../active-directory-domain-services/tutorial-configure-ldaps.md)。
 
 在本部分中，你将创建一个自签名证书，下载该证书，并为 Azure AD DS 托管域 **HDIFabrikam** 配置 LDAPS。
 
