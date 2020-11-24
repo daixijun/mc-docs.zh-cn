@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 中的分页
 description: 了解分页概念和继续标记
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 37e715738e7d4411933f78e089042f556f153cb9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f19a6fcd0870627ac4181f791e6ea48aa420c805
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223492"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552302"
 ---
 <!--Verified successfully-->
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分页
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB 中，查询可能有多页结果。 本文档介绍 Azure Cosmos DB 查询引擎用于决定是否将查询结果拆分为多个页面的条件。 可以选择使用继续标记来管理跨越多个页面的查询结果。
 
@@ -25,7 +26,7 @@ ms.locfileid: "88223492"
 
 有时，查询结果会拆分为多个页面。 每个页面的结果由单独的查询执行生成。 当一次执行无法返回查询结果时，Azure Cosmos DB 会自动将结果拆分为多个页面。
 
-可以通过设置 `MaxItemCount` 来指定查询返回的最大项数。 每个请求都指定了 `MaxItemCount`，并保证查询引擎返回的项数不会多于该数字。 如果不想限制每次查询执行的结果数，可以将 `MaxItemCount` 设置为 `-1`。
+可以通过设置 `MaxItemCount` 来指定查询返回的最大项数。 `MaxItemCount` 是按请求指定的，它指示查询引擎将返回该数量的项或更少的项。 如果不想限制每次查询执行的结果数，可以将 `MaxItemCount` 设置为 `-1`。
 
 此外，还有查询引擎可能需要将查询结果拆分为多个页面的其他原因。 其中包括：
 
@@ -49,18 +50,21 @@ ms.locfileid: "88223492"
 
 ## <a name="continuation-tokens"></a>继续标记
 
-在 .NET SDK 和 Java SDK 中，可以选择将继续标记用作查询的进度书签。 Azure Cosmos DB 查询执行在服务器端无状态，并可以使用继续标记随时恢复。 Node.js SDK 或 Python SDK 中不支持继续标记。
+在 .NET SDK 和 Java SDK 中，可以选择将继续标记用作查询的进度书签。 Azure Cosmos DB 查询执行在服务器端无状态，并可以使用继续标记随时恢复。 Node.js SDK 不支持延续令牌。 对于 Python SDK，单分区查询支持延续令牌，必须在选项对象中指定 PK，因为在查询本身中指定它是不够的。
 
 以下是一些使用继续标记的示例：
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 如果查询返回继续标记，则会有其他查询结果。
 
 在 Azure Cosmos DB 的 REST API 中，可以使用 `x-ms-continuation` 标头管理继续标记。 与使用 .NET 或 Java SDK 进行查询一样，如果 `x-ms-continuation` 响应标头不为空，则表示查询还有其他结果。
 
 只要使用相同的 SDK 版本，继续标记就永远不会过期。 可以选择[限制继续标记的大小](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)。 不管容器中的数据量或物理分区数量如何，查询都会返回一个继续标记。
+
+<!--CORRECT ON https://docs.azure.cn/dotnet/api/-->
 
 不能对具有 [GROUP BY](sql-query-group-by.md) 或 [DISTINCT](sql-query-keywords.md#distinct) 的查询使用继续标记，因为这些查询需要存储大量状态。 对于具有 `DISTINCT` 的查询，如果将 `ORDER BY` 添加到查询中，则可以使用继续标记。
 
@@ -78,5 +82,4 @@ ORDER BY c.name
 - [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [ORDER BY 子句](sql-query-order-by.md)
 
-<!-- Update_Description: new article about sql query pagination -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

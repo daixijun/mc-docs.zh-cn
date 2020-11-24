@@ -5,21 +5,28 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ddc9bae2698c1271af1d8e6c6277e268d62620e
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: devx-track-csharp, contperfq1
+ms.openlocfilehash: 7d19640dcd24ee1261b1970cbd6afa361b9f02b8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118541"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552167"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>安装并使用 Azure Cosmos 模拟器进行本地开发和测试
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-为方便开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用 Azure Cosmos 模拟器可在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在 Azure Cosmos 模拟器中的工作情况感到满意，可以转为在云中使用 Azure Cosmos 帐户。 若要开始，请在本地计算机上下载并安装最新版本的 [Azure Cosmos 模拟器](https://aka.ms/cosmosdb-emulator)。 本文介绍了如何在 Windows、Linux、macOS 和 Windows Docker 环境中安装并使用模拟器。
+为方便开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用 Azure Cosmos 模拟器可在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在 Azure Cosmos 模拟器中的工作情况感到满意，可以转为在云中使用 Azure Cosmos 帐户。 本文介绍了如何在 Windows、Linux、macOS 和 Windows Docker 环境中安装并使用模拟器。
+
+## <a name="download-the-emulator"></a>下载模拟器
+
+若要开始，请在本地计算机上下载并安装最新版本的 Azure Cosmos 模拟器。 [模拟器发行说明](local-emulator-release-notes.md)一文列出了所有可用版本以及每个版本中所做的功能更新。
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false"::: **[下载 Azure Cosmos 模拟器](https://aka.ms/cosmosdb-emulator)**
 
 你可以使用 Azure Cosmos 模拟器结合 [SQL](local-emulator.md#sql-api)、[Cassandra](local-emulator.md#cassandra-api)、[MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb)、[Gremlin](local-emulator.md#gremlin-api) 和[表](local-emulator.md#table-api) API 帐户来开发应用程序。 目前，模拟器中的数据资源管理器仅完全支持查看 SQL 数据；目前无法查看使用 MongoDB、Gremlin/Graph 和 Cassandra 客户端应用程序创建的数据。 若要了解详细信息，请参阅[如何从不同的 API 连接到模拟器终结点](#connect-with-emulator-apis)。
 
@@ -41,7 +48,7 @@ Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它�
 
 * 使用模拟器时，只能在[预配吞吐量](set-throughput.md)模式下创建 Azure Cosmos 帐户；目前它不支持[无服务器](serverless.md)模式。
 
-* 此模拟器不是一项可缩放的服务，它不支持大量容器。 使用 Azure Cosmos 模拟器时，默认情况下，最多可创建 25 个 400 RU/秒的固定大小容器（仅支持使用 Azure Cosmos DB SDK 进行创建），或 5 个不受限容器。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值]emulator-command-line-parameters.md#set-partitioncount)一文。
+* 此模拟器不是一项可缩放的服务，它不支持大量容器。 使用 Azure Cosmos 模拟器时，默认情况下，最多可创建 25 个 400 RU/秒的固定大小容器（仅支持使用 Azure Cosmos DB SDK 进行创建），或 5 个不受限容器。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](emulator-command-line-parameters.md#set-partitioncount)一文。
 
 * 此模拟器没有像云服务一样提供各种 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
 
@@ -67,7 +74,7 @@ Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它�
 
 若要开始，请在本地计算机上下载并安装最新版本的 [Azure Cosmos 模拟器](https://aka.ms/cosmosdb-emulator)。 如果在安装模拟器时遇到任何问题，请参阅[模拟器故障排除](troubleshoot-local-emulator.md)一文来进行调试。
 
-根据你的系统要求，你可以在 [Windows](#run-on-windows)、[用于 Windows 的 Docker](#run-on-windows-docker)、[Linux 或 [macOS](#run-on-linux-macos) 上运行模拟器，如本文后续部分所述。
+根据你的系统要求，你可以在 [Windows](#run-on-windows)、[用于 Windows 的 Docker](#run-on-windows-docker)、[Linux 或 macOS](#run-on-linux-macos) 上运行模拟器，如本文后续部分所述。
 
 ## <a name="check-for-emulator-updates"></a>检查模拟器更新
 
@@ -84,13 +91,13 @@ Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它�
 
 在模拟器启动后，Windows 任务栏通知区域中会显示一个图标。 它会在浏览器中自动打开 Azure Cosmos 数据资源管理器，URL 为 `https://localhost:8081/_explorer/index.html`。
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB 本地模拟器任务栏通知":::
 
 还可以通过命令行或 PowerShell 命令启动和停止模拟器。 有关详细信息，请参阅[命令行工具参考](emulator-command-line-parameters.md)一文。
 
 默认情况下，Azure Cosmos 模拟器在本地计算机（“localhost”）上运行，侦听端口 8081。 地址显示为 `https://localhost:8081/_explorer/index.html`。 如果关闭了资源管理器，稍后想要重新打开它，可在浏览器中打开 URL，或者通过 Windows 托盘图标中的 Azure Cosmos 模拟器进行启动，如下所示。
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos 本地模拟器数据资源管理器启动器":::
 
 <a name="run-on-windows-docker"></a>
 ## <a name="use-the-emulator-on-docker-for-windows"></a>在用于 Windows 的 Docker 上使用模拟器
@@ -136,7 +143,7 @@ Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它�
     ```bash
     Starting emulator
     Emulator Endpoint: https://172.20.229.193:8081/
-    Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    Primary Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
     Exporting SSL Certificate
     You can import the SSL certificate from an administrator command prompt on the host by running:
     cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
@@ -296,7 +303,7 @@ services:
 
 1. 打开该特定项的上下文菜单，选择“获取项”，然后在“信任” > “使用此证书时”选项下选择“始终信任”。   
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
+    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="打开该特定项的上下文菜单，选择“获取项”，然后在“信任 - 使用此证书时”选项下选择“始终信任”":::
 
 <a name="disable-ssl-validation"></a>
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a>选项 2：在应用程序中禁用 SSL 验证
@@ -407,7 +414,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>表 API
 
-在桌面上运行 Azure Cosmos 模拟器后，可使用 [Azure Cosmos DB 表 API SDK](table-storage-how-to-use-dotnet.md) 与模拟器进行交互。 在[命令提示符](emulator-command-line-parameters.md)处，以管理员身份使用“/EnableTableEndpoint”启动模拟器。 接下来，运行下列代码以连接到表 API 帐户：
+在桌面上运行 Azure Cosmos 模拟器后，可使用 [Azure Cosmos DB 表 API SDK](./tutorial-develop-table-dotnet.md) 与模拟器进行交互。 在[命令提示符](emulator-command-line-parameters.md)处，以管理员身份使用“/EnableTableEndpoint”启动模拟器。 接下来，运行下列代码以连接到表 API 帐户：
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -434,25 +441,25 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 1. 在常规命令提示符窗口中运行以下命令：
 
-   ```bash
-   set Path=c:\Python27;%Path%
-   cd /d C:\sdk\apache-cassandra-3.11.3\bin
-   set SSL_VERSION=TLSv1_2
-   set SSL_VALIDATE=false
-   cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
-   ```
+    ```bash
+    set Path=c:\Python27;%Path%
+    cd /d C:\sdk\apache-cassandra-3.11.3\bin
+    set SSL_VERSION=TLSv1_2
+    set SSL_VALIDATE=false
+    cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+    ```
 
 1. 在 CQLSH shell 中，运行下列命令以连接到 Cassandra 终结点：
 
-   ```bash
-   CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
-   DESCRIBE keyspaces;
-   USE mykeyspace;
-   CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
-   INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
-   SELECT * from table1;
-   EXIT
-   ```
+    ```bash
+    CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
+    DESCRIBE keyspaces;
+    USE mykeyspace;
+    CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
+    INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
+    SELECT * from table1;
+    EXIT
+    ```
 
 ### <a name="gremlin-api"></a>Gremlin API
 
@@ -464,11 +471,11 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 1. 在常规命令提示符窗口中运行以下命令：
 
-   ```bash
-   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+    ```bash
+    cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
 
-   copy /y conf\remote.yaml conf\remote-localcompute.yaml
-   notepad.exe conf\remote-localcompute.yaml
+    copy /y conf\remote.yaml conf\remote-localcompute.yaml
+    notepad.exe conf\remote-localcompute.yaml
      hosts: [localhost]
      port: 8901
      username: /dbs/db1/colls/coll1
@@ -478,19 +485,19 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
      serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
      config: { serializeResultToString: true  }}
 
-   bin\gremlin.bat
-   ```
+    bin\gremlin.bat
+    ```
 
 1. 在 Gremlin shell 中，运行下列命令以连接到 Gremlin 终结点：
 
-   ```bash
-   :remote connect tinkerpop.server conf/remote-localcompute.yaml
-   :remote console
-   :> g.V()
-   :> g.addV('person1').property(id, '1').property('name', 'somename1')
-   :> g.addV('person2').property(id, '2').property('name', 'somename2')
-   :> g.V()
-   ```
+    ```bash
+    :remote connect tinkerpop.server conf/remote-localcompute.yaml
+    :remote console
+    :> g.V()
+    :> g.addV('person1').property(id, '1').property('name', 'somename1')
+    :> g.addV('person2').property(id, '2').property('name', 'somename2')
+    :> g.V()
+    ```
 
 <a name="uninstall"></a>
 ## <a name="uninstall-the-local-emulator"></a>卸载本地模拟器

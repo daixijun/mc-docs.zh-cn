@@ -11,20 +11,28 @@ ms.topic: conceptual
 origin.date: 04/14/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: c967192a236b1598c9eb658adb1733c8dd8e6478
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 751898b59a1de29809d7598879a20c5da21a9e76
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723512"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552506"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
-在 Azure HDInsight 中，有多种群集类型和技术可以运行 Apache Hive 查询。 选择适当的群集类型，以帮助根据工作负荷的需求优化性能。
+本文介绍了一些最常见的性能优化，可用于提高 Apache Hive 查询的性能。
 
-例如，选择“Interactive Query”**** 群集类型可以优化 `ad hoc` 交互式查询。 选择 Apache **Hadoop** 群集类型可以优化用作批处理的 Hive 查询。 **Spark** 和 **HBase** 群集类型也可以运行 Hive 查询。 有关针对不同 HDInsight 群集类型运行 Hive 查询的详细信息，请参阅[ Azure HDInsight 中的 Apache Hive 和 HiveQL 是什么？](hadoop/hdinsight-use-hive.md)。
+## <a name="cluster-type-selection"></a>群集类型选择
 
-默认情况下，Hadoop 群集类型的 HDInsight 群集不会进行性能优化。 本文介绍可应用于查询的一些最常见 Hive 性能优化方法。
+在 Azure HDInsight 中，可以对几种不同的群集类型运行 Apache Hive 查询。 
+
+选择适当的群集类型，以便根据工作负荷需求优化性能：
+
+* 选择“Interactive Query”群集类型可以针对 `ad hoc` 交互式查询进行优化。 
+* 选择 Apache **Hadoop** 群集类型可以优化用作批处理的 Hive 查询。 
+* Spark 和 HBase 群集类型也可以运行 Hive 查询，在你运行这些工作负荷的情况下可能适合你。 
+
+有关针对不同 HDInsight 群集类型运行 Hive 查询的详细信息，请参阅[ Azure HDInsight 中的 Apache Hive 和 HiveQL 是什么？](hadoop/hdinsight-use-hive.md)。
 
 ## <a name="scale-out-worker-nodes"></a>向外缩放辅助节点
 
@@ -66,7 +74,7 @@ Tez 速度更快，因为：
 
 I/O 操作是运行 Hive 查询的主要性能瓶颈。 如果可以减少需要读取的数据量，即可改善性能。 默认情况下，Hive 查询会扫描整个 Hive 表。 但是，对于只需扫描少量数据的查询（例如，使用筛选进行查询），此行为会产生不必要的开销。 使用 Hive 分区，Hive 查询只需访问 Hive 表中必要的数据量。
 
-Hive 分区的实现方法是将原始数据重新组织成新目录。 每个分区都有自身的文件目录。 分区由用户定义。 下图说明如何根据年** 列来分区 Hive 表。 每年都会创建新的目录。
+Hive 分区的实现方法是将原始数据重新组织成新目录。 每个分区都有自身的文件目录。 分区由用户定义。 下图说明如何根据年列来分区 Hive 表。 每年都会创建新的目录。
 
 ![Hive 分区](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
@@ -74,7 +82,7 @@ Hive 分区的实现方法是将原始数据重新组织成新目录。 每个�
 
 * **不要分区不足** - 根据仅包含少量值的列进行分区可能导致创建很少的分区。 例如，根据性别（男性和女性）分区只会创建两个分区，因此，最多只会将延迟降低一半。
 * **不要创建过多分区** - 另一种极端情况是，根据包含唯一值的列（例如，userid）创建分区会导致创建多个分区。 创建过多分区会给群集 namenode 带来很大压力，因为它必须处理大量的目录。
-* **避免数据倾斜** - 明智选择分区键，以便所有分区的大小均等。 例如，按“州”列分区可能会导致数据分布出现偏斜。** 因为加利福尼亚州的人口几乎是佛蒙特州的 30 倍，分区大小可能会出现偏差，性能可能有极大的差异。
+* **避免数据倾斜** - 明智选择分区键，以便所有分区的大小均等。 例如，按“州”列分区可能会导致数据分布出现偏斜。 因为加利福尼亚州的人口几乎是佛蒙特州的 30 倍，分区大小可能会出现偏差，性能可能有极大的差异。
 
 要创建分区表，请使用 *Partitioned By* 子句：
 
@@ -92,7 +100,7 @@ STORED AS TEXTFILE;
 
 创建分区表后，可以创建静态分区或动态分区。
 
-* **静态分区**表示已在相应目录中创建了分片数据。 使用静态分区可以根据目录位置手动添加 Hive 分区。 以下代码片段是一个示例。
+* **静态分区** 表示已在相应目录中创建了分片数据。 使用静态分区可以根据目录位置手动添加 Hive 分区。 以下代码片段是一个示例。
 
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
@@ -100,7 +108,7 @@ STORED AS TEXTFILE;
    SELECT * FROM lineitem 
    WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
-   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
    LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
    ```
 
@@ -137,7 +145,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 * 每 10,000 行编制一次索引并允许跳过行。
 * 大幅减少运行时执行时间。
 
-要启用 ORC 格式，请先使用 *Stored as ORC*子句创建一个表：
+要启用 ORC 格式，请先使用 *Stored as ORC* 子句创建一个表：
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -197,6 +205,5 @@ FROM lineitem;
 ## <a name="next-steps"></a>后续步骤
 在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
-* [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [优化 Apache Hive](./optimize-hive-ambari.md)
 * [使用 HDInsight 中的交互式查询分析航班延误数据](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

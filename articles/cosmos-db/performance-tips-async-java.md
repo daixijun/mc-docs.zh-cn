@@ -6,19 +6,20 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 181f47b7cd6f263e90e88dc74cdd07a109e3e41e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 7ce4735e322a9cf9626d6b058dc6977ca0dd9e62
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246518"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552788"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -89,13 +90,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     在 Azure Cosmos DB Async Java SDK v2 中，直接模式是在大多数工作负载下提高数据库性能的最佳选择。 
 
-    * ***直接模式概述***
+    * ***直接模式概述** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="直接模式体系结构插图" border="false":::
 
-        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在客户端上为每个数据库副本最多分配 10 个通道。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
+        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在客户端为每个数据库副本最多分配 10 个通道。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
 
-    * ***直接模式的 ConnectionPolicy 配置选项***
+    * ***直接模式的 ConnectionPolicy 配置选项** _
 
         第一步是使用下面推荐的配置设置。 如果遇到有关此特定主题方面的问题，请与 [Azure Cosmos DB 团队](mailto:CosmosDBPerformanceSupport@service.microsoft.com)联系。
 
@@ -117,17 +118,17 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
         | sendHangDetectionTime      | "PT10S"    |
         | shutdownTimeout            | "PT15S"    |
 
-    * 适用于直接模式的编程提示
+    * ***直接模式的编程提示** _
 
         查看 Azure Cosmos DB Async Java SDK v2 [故障排除](troubleshoot-java-async-sdk.md)一文，将其作为解决任何 SDK 问题的基线。
 
         使用直接模式时的一些重要编程技巧：
 
-        * **在应用程序中使用多线程处理进行高效的 TCP 数据传输** - 发出请求后，应用程序应订阅接收另一线程上的数据。 否则，将强制执行非预期的“半双工”操作，并且将阻止后续请求，以等待上一个请求的回复。
+        **在应用程序中使用多线程处理进行高效的 TCP 数据传输** - 发出请求后，应用程序应通过订阅来接收另一线程上的数据。 否则，将强制执行非预期的“半双工”操作，并且将阻止后续请求，以等待上一个请求的回复。
 
-            * **在专用线程上执行计算密集型工作负荷** - 出于与上一个提示类似的原因，最好将复杂数据处理等操作放置在单独的线程中。 从另一数据存储拉取数据的请求（例如，如果线程同时使用 Azure Cosmos DB 和 Spark 数据存储）可能会增加延迟，建议生成一个额外的线程，等待来自其他数据存储的响应。
+            * **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex   data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread   utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an   additional thread that awaits a response from the other data store.
 
-            * Azure Cosmos DB Async Java SDK v2 中的基础网络 IO 由 Netty 管理，请参阅[有关避免使用阻止 Netty IO 线程的编码模式的提示](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)。
+            * The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty, see these [tips for avoiding coding   patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
         * 数据建模 - Azure Cosmos DB SLA 假定文档大小小于 1KB。 优化数据模型和编程以优先使用较小的文档大小通常可以降低延迟。 如果需要存储和检索大于 1 KB 的文档，建议的方法是将文档链接到 Azure Blob 存储中的数据。
 
@@ -135,21 +136,21 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB Async Java SDK v2 支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-    * ***优化 setMaxDegreeOfParallelism\:***
+    * ***优化 setMaxDegreeOfParallelism\:** _
 
         并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 setMaxDegreeOfParallelism 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。
 
         必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-    * ***优化 setMaxBufferedItemCount\:***
+    _ ***优化 setMaxBufferedItemCount\:** _
 
-        并行查询设计为当客户端正在处理当前结果批时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 setMaxBufferedItemCount 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
+        Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
-        预提取的工作方式不因 MaxDegreeOfParallelism 而异，并且有一个单独的缓冲区用来存储所有分区的数据。
+        Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
-* **按 getRetryAfterInMilliseconds 间隔实现回退**
+_ **按 getRetryAfterInMilliseconds 间隔实现退避**
 
-    在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔退让。 遵循退让可确保最大程度地减少等待重试的时间。
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
 * **增大客户端工作负荷**
 
@@ -252,12 +253,12 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 * **从索引中排除未使用的路径以加快写入速度**
 
-   Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中排除文档的整个部分（也称为子树）。
+    Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中排除文档的整个部分（也称为子树）。
 
-<a name="asyncjava2-indexing"></a>
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+    <a name="asyncjava2-indexing"></a>
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-   ```Java
+    ```Java
     Index numberIndex = Index.Range(DataType.Number);
     numberIndex.set("precision", -1);
     indexes.add(numberIndex);
@@ -265,9 +266,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     includedPaths.add(includedPath);
     indexingPolicy.setIncludedPaths(includedPaths);
     collectionDefinition.setIndexingPolicy(indexingPolicy);
-  ```
+    ```
 
-  有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
 
 <a name="measure-rus"></a>
 ## <a name="throughput"></a>吞吐量
@@ -283,13 +284,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     若要测量任何操作（创建、更新或删除）的开销，请检查 [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 标头来测量这些操作占用的请求单位数。 也可以在 ResourceResponse\<T> 或 FeedResponse\<T> 中找到等效的 RequestCharge 属性。
 
     <a name="asyncjava2-requestcharge"></a>
-### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-  ```Java
-  ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
+    ```Java
+    ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
                                                  false).toBlocking.single();
-  response.getRequestCharge();
-  ```
+    response.getRequestCharge();
+    ```
 
 在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
 
@@ -316,6 +317,6 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

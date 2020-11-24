@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 09d8d9ce50fe2d9e796c0cf94f9889cff5c93306
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a216570b37d4f04c5b4bb745070204dd4f084c33
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472662"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552182"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>用于 Azure HDInsight 的传输中 IPSec 加密
 
@@ -40,9 +40,9 @@ Azure 存储帐户上的服务器端加密以及作为 HDInsight 群集一部分
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="创建群集 -“安全性和网络”选项卡。":::
 
-1. 在“安全性 + 网络”选项卡上，单击“启用传输中加密”复选框 。
+1. 在“安全性 + 网络”选项卡上，选中“启用传输中加密”复选框 。
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="创建群集 -“安全性和网络”选项卡。":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="创建群集 - 启用传输中加密。":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>通过 Azure CLI 创建启用了传输中加密的群集
 

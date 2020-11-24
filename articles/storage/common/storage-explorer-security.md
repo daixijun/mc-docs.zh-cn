@@ -6,14 +6,14 @@ author: WenJason
 ms.service: storage
 ms.topic: best-practice
 origin.date: 07/30/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: bf0cd7bdd6cdc74fd488f86269a3602a69776d40
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 26f34c24fed433097785fd50828d2df314472568
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753671"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552746"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure 存储管理器安全指南
 
@@ -43,15 +43,15 @@ Microsoft Azure 存储资源管理器可用于在 Windows、macOS 和 Linux 上�
 
 本节介绍可用于保护存储资源的两种基于 Azure AD 的技术。
 
-#### <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Azure 基于角色的访问控制 (Azure RBAC)
 
-[Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) 提供对 Azure 资源的精细访问控制。 可以通过 Azure 门户进行管理 RBAC 角色和权限。
+[Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 提供对 Azure 资源的精细访问控制。 可以通过 Azure 门户管理 Azure 角色和权限。
 
-存储资源管理器支持对存储帐户、Blob 和队列的 RBAC 访问。 如果需要访问文件共享或表，需要分配 RBAC 角色，用于授予列出存储帐户密钥的权限。
+存储资源管理器支持对存储帐户、Blob 和队列的 Azure RBAC 访问。 如果需要访问文件共享或表，则需要分配 Azure 角色，用于授予列出存储帐户密钥的权限。
 
 #### <a name="access-control-lists-acls"></a>访问控制列表 (ACL)
 
-[访问控制列表 (ACL)](/storage/blobs/data-lake-storage-access-control) 允许在 ADLS Gen2 blob 容器中的文件和文件夹级别控制访问权限。 你可以使用存储资源管理器管理 ACL。
+[访问控制列表 (ACL)](../blobs/data-lake-storage-access-control.md) 允许在 ADLS Gen2 blob 容器中的文件和文件夹级别控制访问权限。 你可以使用存储资源管理器管理 ACL。
 
 ### <a name="shared-access-signatures-sas"></a>共享访问签名 (SAS)
 
@@ -78,11 +78,11 @@ Microsoft Azure 存储资源管理器可用于在 Windows、macOS 和 Linux 上�
 
 ### <a name="storage-account-keys"></a>存储帐户密钥
 
-存储帐户密钥授予对存储帐户中的服务和资源的无限制访问。 因此，我们建议限制使用密钥访问存储资源管理器中的资源。 使用 RBAC 功能或 SAS 来提供访问权限。
+存储帐户密钥授予对存储帐户中的服务和资源的无限制访问。 因此，我们建议限制使用密钥访问存储资源管理器中的资源。 改用 Azure RBAC 功能或 SAS 来提供访问权限。
 
-某些 RBAC 角色授予检索存储帐户密钥的权限。 具有这些角色的人员可以有效地规避 RBAC 允许或拒绝的权限。 除非有必要，否则建议不要授予此权限。
+某些 Azure 角色授予检索存储帐户密钥的权限。 具有这些角色的人员可以有效地规避 Azure RBAC 授予或拒绝的权限。 除非有必要，否则建议不要授予此权限。
 
-存储资源管理器将尝试使用存储帐户密钥（如果可用）来验证请求。 可以在“设置”（“服务”>“存储帐户”>“禁用密钥”）中禁用此功能。 某些功能不支持 RBAC，例如使用经典存储帐户时。 此类功能仍然需要密钥，并不受此设置的影响。
+存储资源管理器将尝试使用存储帐户密钥（如果可用）来验证请求。 可以在“设置”（“服务”>“存储帐户”>“禁用密钥”）中禁用此功能。 某些功能不支持 Azure RBAC，例如使用经典存储帐户时就是如此。 此类功能仍然需要密钥，并不受此设置的影响。
 
 如果必须使用密钥来访问存储资源，建议遵循以下准则：
 
@@ -103,4 +103,4 @@ Microsoft Azure 存储资源管理器可用于在 Windows、macOS 和 Linux 上�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安全建议](/storage/blobs/security-recommendations)
+- [安全建议](../blobs/security-recommendations.md)

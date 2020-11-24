@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/28/2020
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 9977e22b14fdd5ad9dff6a0e87e66110d7a02e96
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 1167ebb96247e9b5eee90931d69bea617922b457
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440462"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590516"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>排查 Azure 负载均衡器问题
 
@@ -32,8 +32,14 @@ ms.locfileid: "86440462"
 
 当后端 VM 的外部客户端通过负载均衡器时，将使用客户端的 IP 地址进行通信。 请确保将客户端的 IP 地址添加到 NSG 允许列表中。 
 
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>症状：没有来自标准内部负载均衡器 (ILB) 的出站连接
+
+验证及解决方法
+
+标准 ILB 在默认情况下是安全的。 基本 ILB 允许通过隐藏的公共 IP 地址连接到 Internet。 不建议将其用于生产工作负荷，因为该 IP 地址既不是静态的，也不是通过你拥有的 NSG 进行锁定的。 如果你最近从基本 ILB 迁移到了标准 ILB，则应通过[仅出站](egress-only.md)配置显式创建公共 IP，该配置会通过 NSG 锁定 IP。 你还可以在子网上使用 [NAT 网关](../virtual-network/nat-overview.md)。
+
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>故障描述：负载均衡器后端的 VM 不响应运行状况探测
-后端服务器必须通过探测检查后，才可加入负载均衡器集。 有关运行状况探测的详细信息，请参阅[了解负载均衡器探测](load-balancer-custom-probe-overview.md)。 
+后端服务器必须通过探测检查后，才可加入负载均衡器集。 有关运行状况探测的详细信息，请参阅[了解负载均衡器探测](load-balancer-custom-probe-overview.md)。 
 
 负载均衡器后端池 VM 因下列任意原因而不响应探测： 
 - 负载均衡器后端池 VM 不正常 
@@ -53,12 +59,12 @@ ms.locfileid: "86440462"
 验证及解决方法
 
 1. 登录到后端 VM。 
-2. 打开命令提示符并运行下列命令，以验证是否有应用程序在侦听探测端口：   
+2. 打开命令提示符并运行下列命令，以验证是否有应用程序在侦听探测端口：   
             netstat -an
 3. 如果端口状态未列为“正在侦听”，请配置适当的端口。 
-4. 或者，选择其他列为“正在侦听”的端口，并相应地更新负载均衡器配置。              
+4. 或者，选择其他列为“正在侦听”的端口，并相应地更新负载均衡器配置。              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火墙或网络安全组要阻止负载均衡器后端池 VM 上的端口  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火墙或网络安全组要阻止负载均衡器后端池 VM 上的端口  
 如果 VM 上的防火墙要阻止探测端口，或者子网或 VM 上配置的一个或多个网络安全组禁止探测到达端口，则 VM 无法响应运行状况探测。          
 
 验证及解决方法
@@ -66,7 +72,7 @@ ms.locfileid: "86440462"
 * 如果启用了防火墙，请检查它是否配置为允许探测端口。 如果没有，请将其配置为允许探测端口上的流量并重新测试。 
 * 在网络安全组列表中，检查探测端口上的传入或传出流量是否受到干扰。 
 * 此外，检查 VM NIC 或子网上是否存在优先级高于允许 LB 探测和流量的默认规则的“全部拒绝”网络安全组规则（网络安全组必须允许负载均衡器 IP 168.63.129.16）。 
-* 如果上述某规则要阻止探测流量，请将其删除并将规则配置为允许探测流量。  
+* 如果上述某规则要阻止探测流量，请将其删除并将规则配置为允许探测流量。  
 * 测试 VM 是否现已开始响应运行状况探测。 
 
 ### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>原因 4：负载均衡器中的其他错误配置
@@ -88,7 +94,7 @@ ms.locfileid: "86440462"
 
 如果后端池 VM 被列为正常且响应运行状况探测，但仍未参与负载均衡，或未响应数据流量，可能是由于以下某项原因： 
 * 负载均衡器后端池 VM 未侦听数据端口 
-* 网络安全组要阻止负载均衡器后端池 VM 上的端口  
+* 网络安全组要阻止负载均衡器后端池 VM 上的端口  
 * 从相同的 VM 和 NIC 访问负载均衡器 
 * 从参与的负载均衡器后端池 VM 访问 Internet 负载均衡器前端 
 
@@ -98,11 +104,12 @@ ms.locfileid: "86440462"
 验证及解决方法
 
 1. 登录到后端 VM。 
-2. 打开命令提示符并运行下列命令，以验证是否有应用程序在侦听数据端口：  netstat -an 
+2. 打开命令提示符并运行下列命令，以验证是否有应用程序在侦听数据端口：  
+            netstat -an 
 3. 如果端口状态未被列为“正在侦听”，请配置适当的侦听端口 
 4. 如果端口被标记为“正在侦听”，请检查该端口的目标应用程序是否存在问题。
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>原因 2：网络安全组要阻止负载均衡器后端池 VM 上的端口  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>原因 2：网络安全组要阻止负载均衡器后端池 VM 上的端口  
 
 如果子网或 VM 上配置的一个或多个网络安全组要阻止源 IP 或端口，则此 VM 无法响应。
 
@@ -112,7 +119,7 @@ ms.locfileid: "86440462"
 1. 在网络安全组列表中，检查：
     - 数据端口上的传入或传出流量是否受到干扰。 
     - 检查 VM NIC 或子网上是否存在优先级高于允许负载均衡探测和流量的默认规则的“全部拒绝”网络安全组规则（网络安全组必须允许负载均衡器 IP 168.63.129.16 - 即探测端口）
-1. 如果某规则要阻止流量，请将其删除并将规则重新配置为允许数据流量。  
+1. 如果某规则要阻止流量，请将其删除并将规则重新配置为允许数据流量。  
 1. 测试 VM 是否现已开始响应运行状况探测。
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>原因 3：从相同的 VM 和网络接口访问负载均衡器 
@@ -129,7 +136,7 @@ ms.locfileid: "86440462"
 
 解决方案：有几种方法来取消阻止此方案，包括使用代理。 评估应用程序网关或其他第三方代理服务器（例如 nginx 或 haproxy）。 有关应用程序网关的详细信息，请参阅[应用程序网关概述](../application-gateway/application-gateway-introduction.md)
 
-**详细信息**内部负载均衡器不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。 公共负载均衡器提供从虚拟网络内部专用 IP 地址到公共 IP 地址的[出站连接](load-balancer-outbound-connections.md)。 对于内部负载均衡器，此方法可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。
+**详细信息** 内部负载均衡器不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。 公共负载均衡器提供从虚拟网络内部专用 IP 地址到公共 IP 地址的[出站连接](load-balancer-outbound-connections.md)。 对于内部负载均衡器，此方法可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。
 
 负面影响是，如果来自后端池中 VM 的出站流尝试流向该 VM 所在池中内部负载均衡器的前端，并映射回到自身，则这两个流的分支不会匹配。 由于它们不匹配，因此流会失败。 如果流未映射回到后端池中的同一 VM（在前端中创建了流的 VM），则该流将会成功。
 

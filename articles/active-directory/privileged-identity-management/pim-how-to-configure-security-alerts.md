@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 464e5be0b6a62743140e1300b54b7eb447fb3625
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: bd873b04e180d965710a5b512996b1ebc7c1e90c
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749781"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501960"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中为 Azure AD 角色配置安全警报
 
@@ -29,7 +29,7 @@ ms.locfileid: "92749781"
 
 从 2019 年 11 月开始，Privileged Identity Management 的 Azure AD 角色部分将更新为与 Azure 资源角色的体验相匹配的新版本。 这将创建附加功能以及[对现有 API 的更改](azure-ad-roles-features.md#api-changes)。 虽然推出了新版本，但你在本文中遵循的过程取决于你当前拥有的 Privileged Identity Management 版本。 按照本部分中的步骤确定所拥有的 Privileged Identity Management 的版本。 了解 Privileged Identity Management 版本之后，可以选择本文中与该版本匹配的过程。
 
-1. 以具有[特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色的用户身份登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 以具有[特权角色管理员](../roles/permissions-reference.md#privileged-role-administrator)角色的用户身份登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 打开“Azure AD Privileged Identity Management”。  如果在概述页的顶部有横幅，请按照本文“新版本”选项卡中的说明进行操作  。 否则，请按照“先前版本”选项卡中的说明操作  。
 
   [![选择“Azure AD”>“Privileged Identity Management”。](./media/pim-how-to-add-role-to-user/pim-new-version.png)](./media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -44,9 +44,9 @@ ms.locfileid: "92749781"
 
 本部分列出 Azure AD 角色的所有安全警报，以及如何修复和防止这些警报。 严重性的含义如下：
 
-- **高** ：因策略冲突需要立即采取措施。
-- **中** ：不需要立即采取措施但有潜在的策略冲突。
-- **低** ：不需要立即采取措施，但建议考虑可取的策略更改。
+- **高**：因策略冲突需要立即采取措施。
+- **中**：不需要立即采取措施但有潜在的策略冲突。
+- **低**：不需要立即采取措施，但建议考虑可取的策略更改。
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>管理员不使用其特权角色
 
@@ -87,7 +87,7 @@ ms.locfileid: "92749781"
 | **如何修复？** | 请检查列表中的帐户。 如果它们不再需要访问权限，请将其从特权角色中删除。 |
 | **防护** | 确保当知道密码的用户有变化时，共享的帐户会轮换使用强密码。 </br>使用[访问评审](pim-how-to-start-security-review.md)定期审查具有特权角色的帐户，并删除不再需要的角色分配。 |
 | **门户中的缓解措施** | 从用户的特权角色中删除其帐户。 |
-| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 |
+| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 [详细了解如何保护帐户](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>在 Privileged Identity Management 之外分配角色
 
@@ -143,9 +143,9 @@ ms.locfileid: "92749781"
 
 本部分列出 Azure AD 角色的所有安全警报，以及如何修复和防止这些警报。 严重性的含义如下：
 
-- **高** ：因策略冲突需要立即采取措施。
-- **中** ：不需要立即采取措施但有潜在的策略冲突。
-- **低** ：不需要立即采取措施，但建议考虑可取的策略更改。
+- **高**：因策略冲突需要立即采取措施。
+- **中**：不需要立即采取措施但有潜在的策略冲突。
+- **低**：不需要立即采取措施，但建议考虑可取的策略更改。
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>管理员不使用其特权角色
 
@@ -228,7 +228,7 @@ ms.locfileid: "92749781"
 
 可以根据组织的需求和安全目标，在 Privileged Identity Management 中自定义某些安全警报。 执行以下步骤打开安全警报设置：
 
-1. 在 Azure AD 中打开 **Privileged Identity Management** 。
+1. 在 Azure AD 中打开 **Privileged Identity Management**。
 
 1. 选择“Azure AD 角色”。
 

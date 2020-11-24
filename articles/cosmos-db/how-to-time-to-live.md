@@ -3,26 +3,27 @@ title: 在 Azure Cosmos DB 中配置和管理生存时间
 description: 了解如何在 Azure Cosmos DB 中配置和管理容器和项的生存时间
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 03/27/2020
+origin.date: 10/11/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: b2cd61af6b245ca344b9b5c1e277c785c36f64af
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: d15da7639d924af76a4790d2b859a740a04dd585
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552312"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB 中，可以选择在容器级别配置生存时间 (TTL)，也可以在为容器完成设置之后，在项级别重写生存时间。 可以通过 Azure 门户或特定于语言的 SDK 配置容器的 TTL。 可以通过 SDK 配置项级别 TTL 重写。
 
 > [!NOTE]
-> 此内容与 Azure Cosmos DB 事务存储 TTL 相关。 如果正在查找通过 [Azure Synapse Link](https://docs.azure.cn/cosmos-db/synapse-link) 启用 NoETL HTAP 方案的分析存储 TTL，请单击[此处](/cosmos-db/analytical-store-introduction#analytical-ttl)。
+> 此内容与 Azure Cosmos DB 事务存储 TTL 相关。 如果正在查找通过 [Azure Synapse Link](./synapse-link.md) 启用 NoETL HTAP 方案的分析存储 TTL，请单击[此处](./analytical-store-introduction.md#analytical-ttl)。
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>使用 Azure 门户在容器上启用生存时间
 
@@ -32,13 +33,13 @@ ms.locfileid: "92118125"
 
 2. 创建新的 Azure Cosmos 帐户或选择现有的帐户。
 
-3. 打开“数据资源管理器”窗格  。
+3. 打开“数据资源管理器”窗格。
 
 4. 选择一个现有的容器，将其展开并修改以下值：
 
-    * 打开“规模和设置”窗口。 
-    * 在“设置”下找到“生存时间”。  
-    * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值  
+    * 打开“规模和设置”窗口。
+    * 在“设置”下找到“生存时间”。 
+    * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值 
     * 单击“保存”  以保存更改。
 
     :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="在 Azure 门户中配置生存时间":::
@@ -122,7 +123,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>使用 SDK 在容器上设置生存时间
 
-若要在容器上设置生存时间，需提供一个非零正数来指示时间段（以秒为单位）。 在项的上次修改的时间戳 (`_ts`) 过后，将会删除容器中的所有值，具体取决于配置的 TTL 值。
+若要在容器上设置生存时间，需提供一个非零正数来指示时间段（以秒为单位）。 在项的上次修改的时间戳 (`_ts`) 过后，将会删除容器中的所有值，具体取决于配置的 TTL 值。 可以选择设置 `TimeToLivePropertyPath`，它将使用不同的属性而不是系统生成的 `_ts` 属性来确定要基于 TTL 删除的项目。
 
 <a name="dotnet-enable-withexpiry"></a>
 ### <a name="net-sdk"></a>.NET SDK
@@ -222,16 +223,16 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 2. 创建新的 Azure Cosmos 帐户或选择现有的帐户。
 
-3. 打开“数据资源管理器”窗格  。
+3. 打开“数据资源管理器”窗格。
 
 4. 选择一个现有的容器，将其展开并修改以下值：
 
-    * 打开“规模和设置”窗口。 
-    * 在“设置”下找到“生存时间”。  
-    * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值。   
+    * 打开“规模和设置”窗口。
+    * 在“设置”下找到“生存时间”。 
+    * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值。  
     * 单击“保存”  以保存更改。
 
-5. 接下来导航到要为其设置生存时间的项，添加 `ttl` 属性，然后选择“更新”。  
+5. 接下来导航到要为其设置生存时间的项，添加 `ttl` 属性，然后选择“更新”。 
 
     ```json
     {

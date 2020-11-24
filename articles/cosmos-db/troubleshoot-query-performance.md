@@ -3,31 +3,32 @@ title: 排查使用 Azure Cosmos DB 时遇到的查询问题
 description: 了解如何识别、诊断和排查 Azure Cosmos DB SQL 查询问题。
 ms.service: cosmos-db
 ms.topic: troubleshooting
-origin.date: 09/12/2020
+origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 856d56bef99f3c291ddd4a2ae09955672559ccb5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e06ccf4d92c235e8276c33f8614fb2aef7f018f8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118124"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552294"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 应将本文用作起点，以排查 Azure Cosmos DB 核心 (SQL) API 中查询速度缓慢或费用较高的问题。 还可以使用[诊断日志](cosmosdb-monitor-resource-logs.md)来识别速度缓慢或消耗大量吞吐量的查询。
+本文逐步说明排查 Azure Cosmos DB 中的查询问题的一般建议方法。 虽然不应将本文中所述的步骤视为针对潜在查询问题的完全防御方法，但我们在其中包含了最常见的性能提示。 应将本文用作起点，以排查 Azure Cosmos DB 核心 (SQL) API 中查询速度缓慢或费用较高的问题。 还可以使用[诊断日志](cosmosdb-monitor-resource-logs.md)来识别速度缓慢或消耗大量吞吐量的查询。 如果使用的是 Azure Cosmos DB API for MongoDB，则应使用 [Azure Cosmos DB API for MongoDB 查询故障排除指南](mongodb-troubleshoot-query.md)
 
-可对 Azure Cosmos DB 中的查询优化进行广泛分类：
+Azure Cosmos DB 中的查询优化大致分为以下类别：
 
 - 可降低查询请求单位 (RU) 费用的优化
 - 仅降低延迟的优化
 
-几乎可以肯定，降低查询的 RU 费用还将降低延迟。
+如果降低查询的 RU 费用，通常还会降低延迟。
 
 本文提供可使用 [nutrition 数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
 
@@ -194,7 +195,7 @@ RU 费用：409.51 RU
 
 RU 费用：2.98 RU
 
-可以随时将属性添加到索引策略，而不会影响写入可用性或性能。 如果将新属性添加到索引，则使用此属性的查询将立即使用新的可用索引。 查询将在生成新索引时使用该索引。 因此，在重新生成索引时，查询结果可能会不一致。 如果为新属性编制索引，则在重新生成索引期间，仅使用现有索引的查询将不受影响。 你可以[跟踪索引转换进度](/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)。
+可以随时将属性添加到索引策略，而不会影响写入或读取可用性。 你可以[跟踪索引转换进度](./how-to-manage-indexing-policy.md#dotnet-sdk)。
 
 ### <a name="understand-which-system-functions-use-the-index"></a>了解哪些系统函数使用索引
 
@@ -472,7 +473,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 
 ## <a name="optimizations-that-reduce-query-latency"></a>可降低查询延迟的优化
 
-在许多情况下，当查询延迟仍然过高时，RU 费用是可接受的。 以下部分概述了降低查询延迟的提示。 如果对同一数据集多次运行同一查询，则该查询每次都会产生相同的 RU 费用。 但是，每次执行查询时，查询延迟可能各不相同。
+在许多情况下，当查询延迟仍然过高时，RU 费用是可接受的。 以下部分概述了降低查询延迟的提示。 如果对同一个数据集多次运行同一个查询，该查询通常每次都会产生相同的 RU 开销。 但是，每次执行查询时，查询延迟可能各不相同。
 
 ### <a name="improve-proximity"></a>提高邻近度
 
@@ -494,7 +495,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 参阅以下文章，了解有关如何按查询度量 RU、获取执行统计信息以优化查询等信息：
 
 * [使用 .NET SDK 获取 SQL 查询执行指标](profile-sql-api-query.md)
-* [优化 Azure Cosmos DB 的查询性能](sql-api-sql-query-metrics.md)
+* [优化 Azure Cosmos DB 的查询性能](./sql-api-query-metrics.md)
 * [.NET SDK 性能提示](performance-tips.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

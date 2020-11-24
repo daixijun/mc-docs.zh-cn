@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 64c38a4d1b93060a3c7975c3afb67f6fd076b5ba
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ab741104e67d48a0e9e33be0dde4f6def154f991
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937247"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501706"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>如何：为租户中的特定应用自定义在令牌中发出的声明（预览版）
 
@@ -36,9 +36,9 @@ ms.locfileid: "91937247"
 
 ## <a name="claims-mapping-policy-type"></a>声明映射策略类型
 
-在 Azure AD 中，**策略**对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
+在 Azure AD 中，**策略** 对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
 
-声明映射策略是某种类型的**策略**对象，它修改为特定应用程序颁发的令牌中发出的声明。
+声明映射策略是某种类型的 **策略** 对象，它修改为特定应用程序颁发的令牌中发出的声明。
 
 ## <a name="claim-sets"></a>声明集
 
@@ -358,7 +358,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 
 **TransformationMethod：** TransformationMethod 元素用于标识为生成声明的数据而执行的操作。
 
-根据选择的方法，需要一组输入和输出。 使用 **InputClaims**、**InputParameters** 和**OutputClaims** 元素定义输入和输出。
+根据选择的方法，需要一组输入和输出。 使用 **InputClaims**、**InputParameters** 和 **OutputClaims** 元素定义输入和输出。
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：转换方法以及预期输入和输出
 
@@ -419,7 +419,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 
 ### <a name="custom-signing-key"></a>自定义签名密钥
 
-必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 这可以确保确认令牌是由声明映射策略的创建者修改的，并防止应用程序被恶意参与者创建的声明映射策略破坏。 若要添加自定义签名密钥，可以使用 Azure PowerShell cmdlet `new-azureadapplicationkeycredential` 为应用程序对象创建对称密钥凭据。 有关此 Azure PowerShell cmdlet 的详细信息，请参阅 [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0)。
+必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 这可以确保确认令牌是由声明映射策略的创建者修改的，并防止应用程序被恶意参与者创建的声明映射策略破坏。 若要添加自定义签名密钥，可以使用 Azure PowerShell cmdlet [`New-AzureADApplicationKeyCredential`](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) 为应用程序对象创建证书密钥凭据。
 
 启用了声明映射的应用必须通过将 `appid={client_id}` 追加到其 [OpenID Connect 元数据请求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)来验证令牌签名密钥。 下面是你应该使用的 OpenID 连接元数据文档的格式：
 
@@ -476,7 +476,7 @@ https://login.partner.microsoftonline.cn/{tenant}/v2.0/.well-known/openid-config
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以查询 Microsoft Graph API。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](https://docs.microsoft.com/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell
@@ -500,7 +500,7 @@ https://login.partner.microsoftonline.cn/{tenant}/v2.0/.well-known/openid-config
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以查询 Microsoft Graph API。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](https://docs.microsoft.com/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell
@@ -524,7 +524,7 @@ https://login.partner.microsoftonline.cn/{tenant}/v2.0/.well-known/openid-config
       Get-AzureADPolicy
       ```
 1. 将策略分配到服务主体。 还需要获取服务主体的 ObjectId。
-   1. 若要查看组织的所有服务主体，可以查询 Microsoft Graph API。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到 Azure AD 帐户。
+   1. 若要查看组织的所有服务主体，可以[查询 Microsoft Graph API](https://docs.microsoft.com/graph/traverse-the-graph)。 或者，在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中登录到你的 Azure AD 帐户。
    2. 获取服务主体的 ObjectId 后，运行以下命令：
 
       ``` powershell

@@ -9,16 +9,16 @@ origin.date: 07/02/2019
 ms.date: 08/19/2019
 ms.author: v-yiso
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 365247dade23219b64574fb0866af47e0e9c8a95
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 65a0996d8d448916196183142d2ae5df679e3e86
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516544"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552201"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用交互式查询提取、转换和加载数据
 
-在本教程中，我们将下载公开发布的航班数据的原始 CSV 数据文件。 将该文件导入 HDInsight 群集存储，然后使用 Azure HDInsight 中的 Interactive Query 来转换数据。 数据转换完毕后，使用 [Apache Sqoop](https://sqoop.apache.org/) 将数据加载到 Azure SQL 数据库。
+在本教程中，我们将下载公开发布的航班数据的原始 CSV 数据文件。 将该文件导入 HDInsight 群集存储，然后使用 Azure HDInsight 中的 Interactive Query 来转换数据。 数据转换完毕后，使用 [Apache Sqoop](https://sqoop.apache.org/) 将数据加载到 Azure SQL 数据库中的某个数据库中。
 
 本教程涵盖以下任务：
 
@@ -26,14 +26,14 @@ ms.locfileid: "85516544"
 > * 下载示例航班数据
 > * 将数据上传到 HDInsight 群集
 > * 使用交互式查询转换数据
-> * 在 Azure SQL 数据库中创建表
-> * 使用 Sqoop 将数据导出到 Azure SQL 数据库
+> * 在 Azure SQL 数据库的某个数据库中创建表
+> * 使用 Sqoop 将数据导出到 Azure SQL 数据库中的某个数据库
 
 ## <a name="prerequisites"></a>先决条件
 
-* HDInsight 上的一个交互式查询群集。 请参阅[使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择“交互式查询”作为**群集类型**。
+* HDInsight 上的一个交互式查询群集。 请参阅 [使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择“交互式查询”作为 **群集类型**。
 
-* Azure SQL 数据库。 使用 Azure SQL 数据库作为目标数据存储。 如果没有 SQL 数据库，请参阅[在 Azure 门户中创建 Azure SQL 数据库](/sql-database/sql-database-single-database-get-started)。
+* Azure SQL 数据库中的数据库。 使用数据库作为目标数据存储。 如果 Azure SQL 数据库中没有数据库，请参阅[通过 Azure 门户在 Azure SQL 数据库中创建数据库](../../azure-sql/database/single-database-create-quickstart.md)。
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "85516544"
 
 2. 在页面上，清除所有字段，然后选择以下值：
 
-   | 名称 | Value |
+   | 名称 | 值 |
    | --- | --- |
    | 筛选年份 |2019 |
    | 筛选期间 |1 月 |
@@ -286,7 +286,7 @@ ms.locfileid: "85516544"
 
     会在表中看到一系列数据。 该表包括城市名称和该城市的平均航班延迟时间。 
 
-    键入 `exit` 退出 tsql 实用程序。
+    键入 `exit` 退出 tsql 实用工具。
 
 ## <a name="clean-up-resources"></a>清理资源
 

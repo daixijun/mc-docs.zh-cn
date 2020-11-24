@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc7688d9f125758a780993fde31c0370924ef1c
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 7cd652d953c6c246bf922cc20ea59ba67c0c4948
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750170"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501622"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 还原或删除最近删除的用户
-删除用户后，帐户将保持挂起状态 30 天。 在此 30 天期间，可以还原用户帐户及其所有属性。 30 天期限过后，将自动且永久删除用户。
+删除用户后，帐户将保持挂起状态 30 天。 在此 30 天期间，可以还原用户帐户及其所有属性。 30 天期限过后，永久删除过程会自动启动。
 
 可在 Azure 门户中使用 Azure Active Directory (Azure AD) 查看可还原的用户、还原已删除的用户或永久删除用户。
 
@@ -76,7 +76,7 @@ ms.locfileid: "92750170"
     ![“用户 - 已删除的用户”页，其中突出显示了“删除用户”选项](./media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>后续步骤
-还原或删除用户后，可以执行以下基本过程：
+还原或删除用户后，你可以：
 
 - [添加或删除用户](add-users-azure-active-directory.md)
 
@@ -86,5 +86,5 @@ ms.locfileid: "92750170"
 
 - [添加来自其他组织的来宾用户](../external-identities/what-is-b2b.md)
 
-有关其他可用的用户管理任务的详细信息，请参阅 [Azure AD 用户管理文档](../users-groups-roles/index.yml)。
+有关其他可用的用户管理任务的详细信息，请参阅 [Azure AD 用户管理文档](../enterprise-users/index.yml)。
 

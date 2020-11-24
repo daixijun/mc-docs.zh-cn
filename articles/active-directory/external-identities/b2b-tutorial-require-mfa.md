@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad41851a2159babfb8dc2a91f8c6be76cc8da499
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: f02b911b84debdb49be6f2ad7e7d67972db182c8
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648054"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501940"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>教程：对 B2B 用户强制执行多重身份验证
 
@@ -28,7 +28,7 @@ ms.locfileid: "88648054"
 ![显示登录到公司应用的来宾用户的示意图](./media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  公司 A 的某位管理员或员工邀请一名来宾用户使用云或本地应用程序，而此程序被配置为要求进行 MFA 访问验证。
-2.  该来宾用户使用其自己的工作或学校标识进行登录。 
+2.  该来宾用户使用其自己的工作、学校或社交标识进行登录。 
 3.  系统要求该用户完成 MFA 验证。 
 4.  该用户向公司 A 设置 MFA，并选择其 MFA 选项。 该用户获准访问此应用程序。
 
@@ -87,9 +87,9 @@ ms.locfileid: "88648054"
 
     ![显示“云应用”页和“选择”选项的屏幕截图](./media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-12. 在“选择”页上，选择“Azure 管理”，然后选择“选择”  。
+12. 在“选择”页上，选择“Azure 管理”，然后选择“选择”    。
 
-    ![显示已选中 Azure 管理应用的屏幕截图](./media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![突出显示“Azure 管理”选项的屏幕截图。](./media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. 在“云应用”页面上，选择“完成” 。
 14. 在“新建”页面的“访问控制”部分中，选择“授权”  。
@@ -107,7 +107,7 @@ ms.locfileid: "88648054"
 
 1.  在“条件访问 - 策略”页上，选择“What If” 。 
 
-    ![显示选择“What if”选项的位置的屏幕截图](./media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![突出显示了在“条件访问 - 策略”页面上选择“What if”选项的位置的屏幕截图。](./media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  依次选择“用户”和测试来宾用户，然后选中“选择” 。
 

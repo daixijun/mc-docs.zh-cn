@@ -5,17 +5,17 @@ author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
 origin.date: 10/16/2018
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: e69578711f3fe37dd7a08fb224937f1fef015c44
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: bc79613755332e36f056bc959ddc3253150e057f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753369"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552363"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>在 Linux 中排查 Azure 文件存储问题 (SMB)
 
 本文列出了从 Linux 客户端连接时与 Azure 文件相关的常见问题。 并提供了这些问题的可能原因和解决方法。 
 
@@ -47,7 +47,7 @@ ms.locfileid: "88753369"
 
 ### <a name="solution"></a>解决方案
 
-若要解决此问题，请使用 [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)（用于 Linux 上 Azure 文件装载错误的故障排除工具）。 此工具：
+若要解决此问题，请使用 [Troubleshooting tool for Azure Files mounting errors on Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux)（用于 Linux 上 Azure 文件装载错误的故障排除工具）。 此工具：
 
 * 有助于验证客户端运行环境。
 * 可检测导致 Azure 文件访问失败的不兼容客户端配置。
@@ -148,7 +148,7 @@ ms.locfileid: "88753369"
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
-浏览到Azure文件共享所在的存储帐户，单击“访问控制(IAM)”，确保你的用户帐户有权访问该存储帐户。 若要了解详细信息，请参阅[如何使用基于角色的访问控制 (RBAC) 来保护存储帐户](/storage/blobs/security-recommendations#data-protection)。
+浏览到Azure文件共享所在的存储帐户，单击“访问控制(IAM)”，确保你的用户帐户有权访问该存储帐户。 若要了解详细信息，请参阅[如何使用 Azure 基于角色的访问控制 (Azure RBAC) 来保护存储帐户](/storage/blobs/security-recommendations#data-protection)。
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>无法删除 Azure 文件共享中的文件或目录
@@ -296,6 +296,32 @@ Linux 内核中的此重新连接问题现已在以下更改中进行了修复�
 
 ### <a name="solution"></a>解决方案
 可以忽略此错误。
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>无法访问名称末尾带有空格或点的文件夹或文件
+
+在 Linux 上装载 Azure 文件共享时，你将无法访问该共享中的文件夹或文件，诸如 du 和 ls 之类的命令和/或第三方应用程序在访问该共享时可能会失败并显示“无此类文件或目录”错误，但是你能够通过门户将文件上传到所述文件夹。
+
+### <a name="cause"></a>原因
+
+文件夹或文件是从一个将名称末尾的字符编码为另一字符的系统上传的，从 Macintosh 计算机上传的文件可能有“0xF028”或“0xF029”字符，而不是“0x20”（空格）或“0X2E”（点）字符。
+
+### <a name="solution"></a>解决方案
+
+在 Linux 上装载共享时，请在共享上使用 mapchars 选项： 
+
+不是使用：
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+而是使用：
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 

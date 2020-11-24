@@ -1,20 +1,20 @@
 ---
 title: Azure 队列存储参考
-description: 查找 Azure 存储 API 参考、自述文件和客户端库包。
+description: 查找 Azure 队列存储 API 参考、自述文件和客户端库包。
 author: WenJason
 ms.author: v-jay
-origin.date: 06/02/2020
-ms.date: 07/20/2020
+origin.date: 09/10/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: bc0b2714fddd8f2860672832a9cd95b128ffcbbf
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 370a0e22108f0c8466e21508567c39d4531eff99
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414754"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552192"
 ---
 # <a name="azure-queue-storage-reference"></a>Azure 队列存储参考
 
@@ -26,8 +26,8 @@ ms.locfileid: "86414754"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure.Storage.Queues 命名空间](https://docs.microsoft.com/dotnet/api/azure.storage.queues) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [快速入门：适用于 .NET 的 Azure 队列存储客户端库 v12](/storage/queues/storage-quickstart-queues-dotnet) |
-| 11.x | [Microsoft.Azure.Storage.Queue 命名空间](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [快速入门：使用适用于 .NET 的 Azure 存储 SDK v11 来管理队列](/storage/queues/storage-quickstart-queues-dotnet-legacy) |
+| 12.x | [Azure.Storage.Queues 命名空间](https://docs.microsoft.com/dotnet/api/azure.storage.queues) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [快速入门：适用于 .NET 的 Azure 队列存储客户端库 v12](./storage-quickstart-queues-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Queue 命名空间](/dotnet/api/microsoft.windowsazure.storage.queue) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [快速入门：使用适用于 .NET 的 Azure 存储 SDK v11 来管理队列](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>存储管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "86414754"
 
 |  版本  | 参考文档 | 程序包 |
 | :-------: | ----------------------- | ------- |
-| 1.x | [数据移动](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
+| 1.x | [数据移动](/dotnet/api/microsoft.windowsazure.storage.datamovement) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
 
 ## <a name="java-client-libraries"></a>Java 客户端库
 
@@ -51,8 +51,8 @@ ms.locfileid: "86414754"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 Java 的 Azure 存储队列客户端库](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [快速入门：适用于 Java 的 Azure 队列存储客户端库 v12](/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com.microsoft.azure.storage.queue](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue) | [包 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [快速入门：使用 Java v8 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [适用于 Java 的 Azure 存储队列客户端库](https://docs.microsoft.com/java/api/overview/azure/storage-queue-readme) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [快速入门：适用于 Java 的 Azure 队列存储客户端库 v12](./storage-quickstart-queues-java.md) |
+| 8.x | [com.microsoft.azure.storage.queue](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue) | [包 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [快速入门：使用 Java v8 SDK 管理 blob](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>存储管理
 
@@ -68,8 +68,8 @@ ms.locfileid: "86414754"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 Python 的 Azure 存储客户端库 v12](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [包 (PyPI)](https://pypi.org/project/azure-storage-queue/) | [快速入门：适用于 Python 的 Azure 队列存储客户端库 v12](/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [包 (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [如何通过 Python 使用 Azure 队列存储 v2.1](/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [适用于 Python 的 Azure 存储客户端库 v12](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview) | [包 (PyPI)](https://pypi.org/project/azure-storage-queue/) | [快速入门：适用于 Python 的 Azure 队列存储客户端库 v12](./storage-quickstart-queues-python.md) |
+| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [包 (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [如何通过 Python 使用 Azure 队列存储 v2.1](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>JavaScript 客户端库
 
@@ -77,8 +77,8 @@ ms.locfileid: "86414754"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 JavaScript 的 Azure 存储队列客户端库](https://docs.microsoft.com/javascript/api/overview/azure/storage-queue-readme) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [快速入门：适用于 JavaScript 的 Azure 队列存储客户端库 v12](/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue](https://docs.microsoft.com/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [通过 Node.js 使用 Azure 队列服务创建和删除队列](/storage/queues/storage-nodejs-how-to-use-queues) |
+| 12.x | [适用于 JavaScript 的 Azure 存储队列客户端库](https://docs.microsoft.com/javascript/api/overview/azure/storage-queue-readme) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [快速入门：适用于 JavaScript 的 Azure 队列存储客户端库 v12](./storage-quickstart-queues-nodejs.md) |
+| 10.x | [@azure/storage-queue](https://docs.microsoft.com/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [通过 Node.js 使用 Azure 队列服务创建和删除队列](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>REST API
 
@@ -108,8 +108,9 @@ ms.locfileid: "86414754"
 
 | 版本 | 平台 |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Azure CLI
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 109c1dcac8577c220bd1c38bf4c5d3200fe8fa2f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 424af8da52cc7f30b6fd5ad0503feac888c61db3
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647510"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501637"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>通过适用于 JavaScript 的 Microsoft 身份验证库来使用 Azure AD B2C
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>步骤 3：配置身份验证
 
-1. 在示例中打开 `config.js` 文件。
+1. 打开示例中的 config.json 文件。
 
-2. 注册应用程序时，请使用前面获取的应用程序凭据配置示例。 更改以下代码行：将值替换为你的 clientID、主机、tenantId 和策略的名称。
+2. 注册应用程序时，请使用前面获取的应用程序凭据配置示例。 更改以下代码行：将值替换为你的租户名称、客户端 ID 和策略名称。
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.cn>";
-const tenantId = "<your-tenant-ID>.partner.onmschina.cn"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 有关详细信息，请查看此 [Node.js B2C Web API 示例](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)。
 

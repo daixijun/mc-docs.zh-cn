@@ -5,17 +5,17 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
-origin.date: 05/10/2020
-ms.date: 08/24/2020
+origin.date: 10/30/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 065be3c7b648c9a7cc05f77e915b6f9afecc0e79
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ad204acb9a9e7f0aa97ec6ac1a93cca436212ebc
+ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753452"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94589417"
 ---
 # <a name="create-a-blockblobstorage-account"></a>创建 BlockBlobStorage 帐户
 
@@ -104,6 +104,8 @@ az login
 
 8. 选择“高级”选项卡。
 
+9. 若要优化用于数据分析的存储帐户，请将“分层命名空间”设为“启用”。 否则，请将此选项设置为默认值。 通过 BlockBlobStorage 帐户启用此设置时，将为你提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
+
 8. 选择“查看+创建”可查看存储帐户设置。
 
 9. 选择“创建” 。
@@ -143,6 +145,8 @@ az login
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   若要优化用于数据分析的存储帐户，请将 `-EnableHierarchicalNamespace $True` 添加到命令中。 通过 BlockBlobStorage 帐户启用此设置时，将为你提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
+
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要使用 Azure CLI 创建块 Blob 帐户，必须先安装 Azure CLI 版本 2.0.46 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
@@ -171,6 +175,8 @@ az login
     --kind "BlockBlobStorage" \
     --sku "Premium_LRS"
    ```
+
+   若要优化用于数据分析的存储帐户，请将 `--hierarchical-namespace true` 添加到命令中。 通过 BlockBlobStorage 帐户启用此设置时，将为你提供 [Data Lake Storage 的高级层](premium-tier-for-data-lake-storage.md)。  若要详细了解 Data Lake Storage，请参阅 [Azure Data Lake Storage Gen2 简介](data-lake-storage-introduction.md)。
 
 ---
 

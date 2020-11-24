@@ -1,27 +1,28 @@
 ---
 title: 有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 description: 获取有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/28/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: 057641a258c688cc6bfae7a93915f7a9db7f4f24
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 832ad4daf8034599cfaf8156dafa43ac85b14aa6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098456"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552823"
 ---
 <!--Verified successfully, ONLY CHARACTER CONTENT-->
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB 的 API for MongoDB 是一个线路协议兼容层，允许应用程序使用现有的、社区支持的 SDK 和用于 MongoDB 的驱动程序轻松、透明地与本机 Azure Cosmos 数据库引擎通信。 开发人员现在可以使用现有的 MongoDB 工具链和技术，生成能够充分利用 Azure Cosmos DB 的应用程序。 开发人员可以使用 Azure Cosmos DB 的独特功能，其中包括带多主数据库复制功能的多区域分发、自动索引、备份维护、获得财务支持的服务级别协议 (SLA) 等。
+Azure Cosmos DB 的 API for MongoDB 是一个线路协议兼容层，允许应用程序使用现有的、社区支持的 SDK 和用于 MongoDB 的驱动程序轻松、透明地与本机 Azure Cosmos 数据库引擎通信。 开发人员现在可以使用现有的 MongoDB 工具链和技术，生成能够充分利用 Azure Cosmos DB 的应用程序。 开发人员会受益于 Azure Cosmos DB 的独特功能，其中包括带多区域写入复制功能的多区域分发、自动索引、备份维护、提供财务支持的服务级别协议 (SLA) 等。
 
 ## <a name="how-do-i-connect-to-my-database"></a>如何连接到数据库？
 
-若要通过 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos 数据库，最快捷的方法是使用 [Azure 门户](https://portal.azure.cn)。 转到帐户，然后在左侧导航菜单上单击“快速启动”。**** 快速入门是获取连接到数据库的代码片段的最佳方式。
+若要通过 Azure Cosmos DB 的用于 MongoDB 的 API 连接到 Cosmos 数据库，最快捷的方法是使用 [Azure 门户](https://portal.azure.cn)。 转到帐户，然后在左侧导航菜单上单击“快速启动”。 快速入门是获取连接到数据库的代码片段的最佳方式。
 
 Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户需要通过 TLS 进行身份验证和安全通信，因此务必使用 TLSv1.2。
 

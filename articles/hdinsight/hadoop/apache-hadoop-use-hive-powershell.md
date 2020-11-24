@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 12/24/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 90f2280ba4957f432f602a28d8bf7e672c51df49
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 683828a07a788e9aa689d1c002ae16311b70d9a4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394608"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552902"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 运行 Apache Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -149,7 +149,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 Hive 查询�
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > 有关 **Here-Strings** 的详细信息，请参阅<a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
+   > 有关 Here-Strings 的详细信息，请参阅 [HERE-STRINGS](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings)。
 
 ## <a name="troubleshooting"></a>故障排除
 

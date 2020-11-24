@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/02/2020
 ms.author: ashishth
 ms.date: 06/22/2020
-ms.openlocfilehash: 3f5e40669dc3d75c66497a36a8095c59c406b7c6
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 49724b7e483961a5c242f5aeb75ecf6fe65746d8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552697"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>将 Apache HBase 群集迁移到新版本
 
@@ -187,19 +187,49 @@ ms.locfileid: "84723125"
 
     ![选中“为 HBase 启用维护模式”复选框，然后确认](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. 在新 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。****
+1. 如果不使用带增强写入功能的 HBase 群集，请跳过此步骤。 带增强写入功能的 HBase 群集才需要它。
+
+   通过从原始群集的任何 zookeeper 节点或工作器节点上的 ssh 会话运行以下命令，在 HDFS 下备份 WAL 目录。
+   
+   ```bash
+   hdfs dfs -mkdir /hbase-wal-backup**
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   ```
+    
+1. 在新 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。
 
     ![在 Ambari 中单击“服务”>“HDFS”>“配置”>“停止”](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
     ![在 Ambari 中更改容器名称](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **如果不使用带增强写入功能的 HBase 群集，请跳过此步骤。带增强写入功能的 HBase 群集才需要它。**
-   
+1. 如果不使用带增强写入功能的 HBase 群集，请跳过此步骤。 带增强写入功能的 HBase 群集才需要它。
+
    将 `hbase.rootdir` 路径改为指向原始群集的容器。
 
-    ![在 Ambari 中更改 HBase rootdir 的容器名称](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+   ![在 Ambari 中更改 HBase rootdir 的容器名称](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+1. 如果不使用带增强写入功能的 HBase 群集，请跳过此步骤。 只有带增强写入功能的 HBase 群集才需要它，并且只有在原始群集是带增强写入功能的 HBase 群集的情况下才需要它。
+
+   清除此新群集的 zookeeper 和 WAL FS 数据。 在任何 zookeeper 节点或工作器节点中发出以下命令：
+
+   ```bash
+   hbase zkcli
+   rmr /hbase-unsecure
+   quit
+
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   ```
+
+1. 如果不使用带增强写入功能的 HBase 群集，请跳过此步骤。 带增强写入功能的 HBase 群集才需要它。
+   
+   通过新群集的任何 zookeeper 节点或工作器节点上的 ssh 会话，将 WAL 目录还原到新群集的 HDFS 中。
+   
+   ```bash
+   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   ```
+   
 1. 若要将 HDInsight 3.6 升级到 4.0，请按以下步骤操作，否则请跳到步骤 10：
-    1. 选择“服务”**** > ****“重启所有必需服务”，以便重启 Ambari 中的所有必需服务。
+    1. 选择“服务” > “重启所有必需服务”，以便重启 Ambari 中的所有必需服务。
     1. 停止 HBase 服务。
     1. 通过 SSH 连接到 Zookeeper 节点，执行 [zkCli](https://github.com/go-zkcli/zkcli) 命令 `rmr /hbase-unsecure`，以便从 Zookeeper 中删除 HBase 根 znode。
     1. 重启 HBase。

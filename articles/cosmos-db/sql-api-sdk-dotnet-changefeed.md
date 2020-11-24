@@ -7,18 +7,19 @@ ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 74172201ec3126add2c923fbc1774fe120c6e2da
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e7456e9d259f2e45fd253808d9631fb78c2e199e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246366"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552871"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 >
@@ -43,7 +44,7 @@ ms.locfileid: "91246366"
 |   |   |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
+|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.changefeedprocessor?preserve-view=true)|
 |**入门**|[更改源处理器 .NET SDK 入门](change-feed.md)|
 |**当前受支持的框架**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)<br /> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
@@ -56,7 +57,7 @@ ms.locfileid: "91246366"
 
 <a name="2.3.2"></a>
 ### <a name="232"></a>2.3.2
-* 添加了与 [V3 SDK](sql-api-sdk-dotnet-standard.md) 的租用存储兼容性，以支持热迁移路径。 应用程序可以迁移到 V3 SDK 再迁移回更改源处理器库，而不会丢失任何状态。
+* 添加了与启用热迁移路径的 [V3 SDK](sql-api-sdk-dotnet-standard.md) 的租用存储兼容性。 应用程序可以迁移到 V3 SDK 再迁移回更改源处理器库，而不会丢失任何状态。
 
 <a name="2.3.1"></a>
 ### <a name="231"></a>2.3.1
@@ -80,9 +81,9 @@ ms.locfileid: "91246366"
 
 <a name="2.2.7"></a>
 ### <a name="227"></a>2.2.7
-* 获取所有租约所用时间超过租约过期间隔时（例如，由于网络问题），改进了方案的负载均衡策略：
-    * 在此方案中，负载均衡算法过去常常将租约错误地视为过期，导致从活动所有者盗取租约。 这可能会导致对大量租约重新进行不必要的负载均衡。
-    * 在此版本中已修复此问题，方法是避免在获取所有者未更改的过期租约发生冲突时进行重试，并将获取过期租约推迟到下次负载均衡迭代。
+* 对于获取所有租约花费的时间超过租约过期间隔（例如由于网络问题）的情况，改进了负载均衡策略：
+    * 在这种情况下，负载均衡算法过去常常将租约错误地视为过期，导致从活动所有者盗取租约。 这可能会导致对大量租约重新进行不必要的负载均衡。
+    * 此问题在该版本中已通过以下方法修复，即避免在获取所有者未更改的过期租约发生冲突时进行重试，并将获取过期租约推迟到下次负载均衡迭代。
 
 <a name="2.2.6"></a>
 ### <a name="226"></a>2.2.6
@@ -94,7 +95,7 @@ ms.locfileid: "91246366"
 <a name="2.2.5"></a>
 ### <a name="225"></a>2.2.5
 * 添加了对使用共享数据库吞吐量的拆分集合的处理支持。
-    * 此版本修复了使用共享数据库吞吐量的拆分集合可能发生的问题，即在拆分导致分区重新平衡时仅创建一个子分区键范围，而不是两个。 发生这种情况时，更改源处理器可能会在删除旧分区键范围的租约时卡住，而无法创建新租约。 此版本中已修复了此问题。
+    * 此版本修复了使用共享数据库吞吐量的拆分集合可能发生的问题，即在拆分导致分区重新均衡时仅创建一个子分区键范围，而不是两个。 发生这种情况时，更改源处理器可能会在删除旧分区键范围的租约时卡住，而无法创建新租约。 此版本中已修复了此问题。
 
 <a name="2.2.4"></a>
 ### <a name="224"></a>2.2.4
@@ -114,12 +115,12 @@ ms.locfileid: "91246366"
 
 <a name="2.2.1"></a>
 ### <a name="221"></a>2.2.1
-* 多主机帐户和新的会话令牌格式的固定估计器计算。
+* 修复了对具有多个写入区域和新会话令牌格式的帐户的估算器计算。
 
 <a name="2.2.0"></a>
 ### <a name="220"></a>2.2.0
 * 添加了对已分区租用集合的支持。 分区键必须定义为 /id。
-* 次要重大更改：IChangeFeedDocumentClient 接口和 ChangeFeedDocumentClient 类的方法都已更改为包括 RequestOptions 和 CancellationToken 参数。 IChangeFeedDocumentClient 是一个高级的扩展点，通过它可以提供文档客户端自定义实现以与更改源处理器结合使用，例如修饰 DocumentClient 并截获对它的所有调用以进行额外跟踪和错误处理等等。利用此更新，实现 IChangeFeedDocumentClient 的代码将需要更改为在实现中包含新参数。
+* 次要重大更改：IChangeFeedDocumentClient 接口和 ChangeFeedDocumentClient 类的方法都已更改为包括 RequestOptions 和 CancellationToken 参数。 IChangeFeedDocumentClient 是一种高级的扩展点，通过该扩展点，可以提供文档客户端的自定义实现，以便与更改源处理器结合使用，例如，修饰 DocumentClient 并截获对它的所有调用以进行额外跟踪和错误处理等。利用此更新，实现 IChangeFeedDocumentClient 的代码将需要更改为在实现中包含新参数。
 * 次要诊断改进。
 
 <a name="2.1.0"></a>

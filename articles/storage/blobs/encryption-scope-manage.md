@@ -4,28 +4,30 @@ description: 了解如何创建加密范围以在容器或 blob 级别隔离 blo
 services: storage
 author: WenJason
 ms.service: storage
-origin.date: 08/04/2020
-ms.date: 08/24/2020
+origin.date: 09/17/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: be3deb6ddbced525d5a1d312f96df9b639003b42
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 37a34955c8727887a44eacaf58d20f5856d6bc20
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026499"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552100"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>创建和管理加密范围（预览）
 
-通过加密范围（预览），可在单个 blob 或容器级别管理加密。 加密范围将 blob 数据隔离在存储帐户内的安全 enclave 中。 可以使用加密范围在驻留在同一存储帐户中但属于不同客户的数据之间创建安全边界。 有关加密范围的详细信息，请参阅 [Blob 存储（预览）的加密范围](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview)。
+通过加密范围（预览），可在单个 blob 或容器级别管理加密。 加密范围将 blob 数据隔离在存储帐户内的安全 enclave 中。 可以使用加密范围在驻留在同一存储帐户中但属于不同客户的数据之间创建安全边界。 有关加密范围的详细信息，请参阅 [Blob 存储（预览）的加密范围](encryption-scope-overview.md)。
 
 本文介绍如何创建加密范围。 本文还介绍如何在创建 blob 或容器时指定加密范围。
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## <a name="create-an-encryption-scope"></a>创建加密范围
 
-可以使用 Microsoft 托管密钥或 Azure Key Vault 中存储的客户管理的密钥来创建加密范围。 若要使用客户管理的密钥创建加密范围，必须先创建 Azure 密钥保管库，并添加要用于此范围的密钥。 密钥保管库必须同时启用软删除和清除保护属性，并且必须与存储帐户位于同一区域中 。 有关详细信息，请参阅[使用 Azure Key Vault 客户托管的密钥管理 Azure 存储加密](../common/encryption-customer-managed-keys.md)。
+可以使用 Microsoft 管理的密钥或 Azure Key Vault 中存储的客户管理的密钥来创建加密范围。 若要使用客户管理的密钥创建加密范围，必须先创建密钥保管库，并添加要用于此范围的密钥。 密钥保管库必须已启用清除保护，并且必须与存储帐户位于同一区域中。
 
 创建加密范围时会自动启用它。 创建加密范围后，可以在创建 blob 时指定它。 还可以在创建容器时指定默认的加密范围，它将自动应用于容器中的所有 blob。
 
@@ -43,8 +45,6 @@ ms.locfileid: "91026499"
     - 如果选择了“客户管理的密钥”，请指定要用于此加密范围的密钥保险库、密钥和密钥版本，如下图所示。
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="显示如何在 Azure 门户中创建加密范围的屏幕截图":::
-
-若要了解有关通过 Azure Key Vault 配置客户管理的密钥用于 Azure 存储加密的详细信息，请参阅[通过 Azure 门户使用 Azure Key Vault 配置客户管理的密钥](../common/storage-encryption-keys-portal.md)。
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -75,9 +75,9 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>创建由客户管理的密钥保护的加密范围
 
-若要使用 Azure Key Vault 创建受客户管理的密钥保护的新加密范围，请首先为存储帐户配置客户管理的密钥。 必须为存储帐户分配一个托管标识，然后使用该托管标识配置密钥保管库的访问策略，使存储帐户有权访问该密钥保管库。 有关详细信息，请参阅[通过 PowerShell 使用 Azure Key Vault 配置客户管理的密钥](../common/storage-encryption-keys-powershell.md)。
+若要创建受密钥保管库中存储的客户管理的密钥保护的新加密范围，请首先为存储帐户配置客户管理的密钥。 必须为存储帐户分配一个托管标识，然后使用该托管标识配置密钥保管库的访问策略，使存储帐户有权访问该密钥保管库。
 
-若要配置客户管理的密钥以便与加密范围一起使用，必须在密钥保管库上启用软删除和清除保护属性 。 密钥保管库必须与存储帐户位于同一区域中。 有关详细信息，请参阅[使用 Azure Key Vault 客户托管的密钥管理 Azure 存储加密](../common/encryption-customer-managed-keys.md)。
+若要配置与加密范围一起使用的客户管理的密钥，必须在密钥保管库上启用清除保护。 密钥保管库必须与存储帐户位于同一区域中。
 
 请务必将示例中的占位符值替换为你自己的值：
 
@@ -131,9 +131,9 @@ az storage account encryption-scope create \
 
 若要创建受 Microsoft 托管密钥保护的新加密范围，请调用 [az storage account encryption-scope create](/cli/storage/account/encryption-scope#az-storage-account-encryption-scope-create) 命令，并将 `--key-source` 参数指定为 `Microsoft.Storage`。 请务必将占位符值替换为你自己的值：
 
-若要使用 Azure Key Vault 创建受客户管理的密钥保护的新加密范围，请首先为存储帐户配置客户管理的密钥。 必须为存储帐户分配一个托管标识，然后使用该托管标识配置密钥保管库的访问策略，使存储帐户有权访问该密钥保管库。 有关详细信息，请参阅[通过 Azure CLI 使用 Azure Key Vault 配置客户管理的密钥](../common/storage-encryption-keys-cli.md)。
+若要创建受密钥保管库中的客户管理的密钥保护的新加密范围，请首先为存储帐户配置客户管理的密钥。 必须为存储帐户分配一个托管标识，然后使用该托管标识配置密钥保管库的访问策略，使存储帐户有权访问该密钥保管库。 有关详细信息，请参阅[用于 Azure 存储加密的客户管理的密钥](../common/customer-managed-keys-overview.md)。
 
-若要配置客户管理的密钥以便与加密范围一起使用，必须在密钥保管库上启用软删除和清除保护属性 。 密钥保管库必须与存储帐户位于同一区域中。 有关详细信息，请参阅[使用 Azure Key Vault 客户托管的密钥管理 Azure 存储加密](../common/encryption-customer-managed-keys.md)。
+若要配置与加密范围一起使用的客户管理的密钥，必须在密钥保管库上启用清除保护。 密钥保管库必须与存储帐户位于同一区域中。
 
 请务必将示例中的占位符值替换为你自己的值：
 
@@ -172,6 +172,8 @@ az storage account encryption-scope create \
 
 ---
 
+若要了解如何使用密钥保管库中的客户管理的密钥来配置 Azure 存储加密，请参阅[使用 Azure Key Vault 中存储的客户管理的密钥配置加密](../common/customer-managed-keys-configure-key-vault.md)。
+
 ## <a name="list-encryption-scopes-for-storage-account"></a>列出存储帐户的加密范围
 
 # <a name="portal"></a>[Portal](#tab/portal)
@@ -182,14 +184,14 @@ az storage account encryption-scope create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-若要列出可用于 PowerShell 的存储帐户的加密范围，请调用 Get-AzStorageEncryptionScope 命令。 请务必将示例中的占位符值替换为你自己的值：
+若要使用 PowerShell 列出存储帐户可用的加密范围，请调用 **Get-AzStorageEncryptionScope** 命令。 请务必将示例中的占位符值替换为你自己的值：
 
 ```powershell
 Get-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
-若要按存储帐户列出资源组中的所有加密范围，请使用管道语法，如下所示：
+若要按存储帐户列出资源组中的所有加密范围，请使用管道语法：
 
 ```powershell
 Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
@@ -209,6 +211,10 @@ az storage account encryption-scope list \
 
 ## <a name="create-a-container-with-a-default-encryption-scope"></a>创建具有默认加密范围的容器
 
+创建容器时，可以指定默认的加密范围。 默认情况下，该容器中的 blob 将使用该范围。
+
+除非容器配置为要求所有 blob 使用其默认范围，否则可以使用其自己的加密范围创建单个 blob。
+
 # <a name="portal"></a>[Portal](#tab/portal)
 
 若要在 Azure 门户中创建具有默认加密范围的容器，请先创建加密范围，如[创建加密范围](#create-an-encryption-scope)中所述。 接下来，请按照以下步骤创建容器：
@@ -224,7 +230,7 @@ az storage account encryption-scope list \
 
 要使用 PowerShell 创建具有默认加密范围的容器，请调用 [New-AzRmStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azrmstoragecontainer) 命令，并指定 `-DefaultEncryptionScope` 参数的范围。 New-AzRmStorageContainer 命令使用 Azure 存储资源提供程序创建一个容器，使用该容器可配置加密范围和其他资源管理操作。
 
-除非容器配置为要求所有 blob 使用其默认范围，否则可以使用其自己的加密范围创建单个 blob。 若要强制容器中的所有 blob 使用容器的默认范围，请将 `-PreventEncryptionScopeOverride` 参数设置为 `true`。
+若要强制容器中的所有 blob 使用容器的默认范围，请将 `-PreventEncryptionScopeOverride` 参数设置为 `true`。
 
 ```powershell
 $containerName1 = "container1"
@@ -240,7 +246,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-若要使用 Azure CLI 创建具有默认加密范围的容器，请调用 [az storage container create](/cli/storage/container#az-storage-container-create) 命令，并指定 `--default-encryption-scope` 参数的范围。 除非容器配置为要求所有 blob 使用其默认范围，否则可以使用其自己的加密范围创建单个 blob。 若要强制容器中的所有 blob 使用容器的默认范围，请将 `--prevent-encryption-scope-override` 参数设置为 `true`。
+若要使用 Azure CLI 创建具有默认加密范围的容器，请调用 [az storage container create](/cli/storage/container#az-storage-container-create) 命令，并指定 `--default-encryption-scope` 参数的范围。 若要强制容器中的所有 blob 使用容器的默认范围，请将 `--prevent-encryption-scope-override` 参数设置为 `true`。
 
 下面的示例使用 Azure AD 帐户授权操作创建容器。 还可以使用帐户访问密钥。 有关详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
 
@@ -260,7 +266,7 @@ az storage container create \
 
 ## <a name="upload-a-blob-with-an-encryption-scope"></a>上传具有加密范围的 blob
 
-上传 blob 时，可以指定该 blob 的加密范围，或者使用容器的默认加密范围（如果已指定）。 
+上传 blob 时，可以指定该 blob 的加密范围，或者使用容器的默认加密范围（如果已指定）。
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -308,6 +314,8 @@ az storage blob upload \
 
 ## <a name="change-the-encryption-key-for-a-scope"></a>更改范围的加密密钥
 
+若要将保护加密范围的密钥从 Microsoft 托管密钥更改为客户管理的密钥，请首先确保已使用 Azure Key Vault 为存储帐户启用了客户管理的密钥。 有关详细信息，请参阅[使用 Azure Key Vault 中存储的客户管理的密钥配置加密](../common/customer-managed-keys-configure-key-vault.md)或[使用 Azure Key Vault 中存储的客户管理的密钥配置加密](../common/customer-managed-keys-configure-key-vault.md)。
+
 # <a name="portal"></a>[Portal](#tab/portal)
 
 若要更改保护 Azure 门户范围的密钥，请执行以下步骤：
@@ -328,7 +336,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageEncryption
 ```
 
-若要将保护加密范围的密钥从 Microsoft 托管密钥更改为客户管理的密钥，请首先确保已使用 Azure Key Vault 为存储帐户启用了客户管理的密钥。 有关详细信息，请参阅[通过 PowerShell 使用 Azure Key Vault 配置客户管理的密钥](../common/storage-encryption-keys-powershell.md)。 接下来，调用 Update-AzStorageEncryptionScope 命令并传入 `-KeyUri` 和 `-KeyvaultEncryption` 参数：
+接下来，调用 Update-AzStorageEncryptionScope 命令并传入 `-KeyUri` 和 `-KeyvaultEncryption` 参数：
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -350,7 +358,7 @@ az storage account encryption-scope update \
     --key-source Microsoft.Storage
 ```
 
-若要将保护加密范围的密钥从 Microsoft 托管密钥更改为客户管理的密钥，请首先确保已使用 Azure Key Vault 为存储帐户启用了客户管理的密钥。 有关详细信息，请参阅[通过 Azure CLI 使用 Azure Key Vault 配置客户管理的密钥](../common/storage-encryption-keys-cli.md)。 接下来，调用 az storage account encryption-scope update 命令，传入 `--key-uri` 参数，并传入值为 `Microsoft.KeyVault` 的 `--key-source` 参数：
+接下来，调用 az storage account encryption-scope update 命令，传入 `--key-uri` 参数，并传入值为 `Microsoft.KeyVault` 的 `--key-source` 参数：
 
 ```powershell
 az storage account encryption-scope update \
@@ -364,6 +372,8 @@ az storage account encryption-scope update \
 ---
 
 ## <a name="disable-an-encryption-scope"></a>禁用加密范围
+
+禁用加密范围后，将不再为此付费。 禁用不需要的任何加密范围以避免不必要的费用。 有关详细信息，请参阅[静态数据的 Azure 存储加密](../common/storage-service-encryption.md)。
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -397,4 +407,5 @@ az storage account encryption-scope update \
 ## <a name="next-steps"></a>后续步骤
 
 - [静态数据的 Azure 存储加密](../common/storage-service-encryption.md)
-- [在 Azure Key Vault 中使用客户托管密钥管理 Azure 存储加密](../common/encryption-customer-managed-keys.md)
+- [Blob 存储的加密范围（预览）](encryption-scope-overview.md)
+- [用于 Azure 存储加密的客户管理的密钥](../common/customer-managed-keys-overview.md)

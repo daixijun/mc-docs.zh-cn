@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 47f037308e5f64921ff0f90bffd378453fcac470
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 701748b217717d80269fb420f864cf55a89bdf3d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551905"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>适用于 Azure HDInsight 的企业安全性套餐
 
@@ -20,7 +20,7 @@ Enterprise Security 是一种可选包，可在 HDInsight 群集上作为创建�
 
 * 与 Active Directory 集成进行身份验证。
 
-    在过去，创建了包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  借助企业安全性套餐，可以通过将 HDInsight 与 Active Directory 集成来启用基于角色的访问控制。 其中包括本地 Active Directory、Azure Active Directory 域服务。 或是 IaaS 虚拟机中的 Active Directory。 群集上的域管理员可以授权用户使用他们自己的公司（域）用户名和密码。
+    在过去，创建了包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  借助企业安全性套餐，可以通过将 HDInsight 与 Azure Active Directory 域服务集成来启用 Azure 基于角色的访问控制。
 
     有关详细信息，请参阅：
 
@@ -28,7 +28,7 @@ Enterprise Security 是一种可选包，可在 HDInsight 群集上作为创建�
 
     * [在 HDInsight 中计划 Azure 已加入域的 Apache Hadoop 群集](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure.md)
+    * [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 

@@ -1,20 +1,19 @@
 ---
 title: 将 Azure 服务总线与 Azure 专用链接服务集成
 description: 了解如何将 Azure 服务总线与 Azure 专用链接服务集成
+origin.date: 10/07/2020
 author: rockboyfor
-ms.service: service-bus-messaging
-origin.date: 06/23/2020
-ms.date: 08/31/2020
-ms.testscope: yes|no
+ms.date: 11/16/2020
+ms.testscope: yes
 ms.testdate: 08/26/2020
 ms.author: v-yeche
 ms.topic: article
-ms.openlocfilehash: befa78a853cfbe3a21c9c45b39956422845cebbf
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 46ad7537e24595af1f943b4e938e06cced89ae56
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523862"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590522"
 ---
 <!--Verified successfully-->
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>允许通过专用终结点访问 Azure 服务总线命名空间
@@ -185,8 +184,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 | 服务操作 | 服务使用者专用终结点状态 | 说明 |
 |--|--|--|
 | 无 | 挂起的 | 连接是手动创建的，正等待专用链接资源所有者批准。 |
-| 审批 | 已批准 | 连接已自动或手动批准，可供使用。 |
-| 拒绝 | 已拒绝 | 连接被专用链接资源所有者拒绝。 |
+| 审批 | 已批准 | 连接已自动或手动批准，随时可供使用。 |
+| 拒绝 | 已拒绝 | 连接已被专用链接资源所有者拒绝。 |
 | 删除 | 已断开连接 | 连接已被专用链接资源所有者删除，专用终结点仅供参考，应将其删除以清理资源。 |
 
 ### <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>批准、拒绝或删除专用终结点连接
@@ -235,7 +234,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ## <a name="validate-that-the-private-link-connection-works"></a>验证专用链接连接是否有效
 
-应该验证专用终结点资源的同一子网中的资源是否可以通过专用 IP 地址连接到服务总线命名空间，以及它们是否具有正确的专用 DNS 区域集成。
+应该验证专用终结点的虚拟网络中的资源是否可以通过专用 IP 地址连接到服务总线命名空间，以及它们是否具有正确的专用 DNS 区域集成。
 
 首先，遵循[在 Azure 门户中创建 Windows 虚拟机](../virtual-machines/windows/quick-create-portal.md)中的步骤创建一个虚拟机。
 
@@ -277,5 +276,4 @@ Aliases:  <service-bus-namespace-name>.servicebus.chinacloudapi.cn
 
 - 详细了解 [Azure 服务总线](service-bus-messaging-overview.md)
 
-<!-- Update_Description: new article about private link service -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

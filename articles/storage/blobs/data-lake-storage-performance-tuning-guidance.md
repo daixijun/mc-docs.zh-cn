@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: bb6bcaba2bc79ecfc9d908a805143f5ce2a35c43
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 593d1fe9395af8f7db773b23ffc2e0c7eb7b446f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753471"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552120"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 
@@ -28,7 +28,7 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 
 将数据从源系统引入 Data Lake Storage Gen2 时，源硬件、源网络硬件以及与 Data Lake Storage Gen2 的网络连接可能成为瓶颈，请务必考虑到这一点。  
 
-![Data Lake Storage Gen2 性能](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![此图显示了将源系统中的数据引入到 Data Lake Storage Gen2 时要考虑的因素。](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 确保数据移动不受这些因素的影响至关重要。
 
@@ -80,9 +80,9 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 
 作业属于以下三个类别之一：
 
-* CPU 密集型****。  这些作业的计算时间长，I/O 时间最短。  例如，机器学习作业和自然语言处理作业。  
+* CPU 密集型。  这些作业的计算时间长，I/O 时间最短。  例如，机器学习作业和自然语言处理作业。  
 * 内存密集型。  这些作业占用大量内存。  例如，PageRank 作业和实时分析作业。  
-* I/O 密集型****。  这些作业大部分时间都在执行 I/O。  常见示例为，仅执行读取和写入操作的复制作业。  其他示例包括：读取大量数据、执行某些数据转换，然后将数据写回存储区的数据准备作业。  
+* I/O 密集型。  这些作业大部分时间都在执行 I/O。  常见示例为，仅执行读取和写入操作的复制作业。  其他示例包括：读取大量数据、执行某些数据转换，然后将数据写回存储区的数据准备作业。  
 
 以下指南仅适用于 I/O 密集型作业。
 
@@ -93,42 +93,42 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 
 ### <a name="general-considerations-for-an-hdinsight-cluster"></a>HDInsight 群集的一般注意事项
 
-* HDInsight 版本****。 为获得最佳性能，请使用最新版 HDInsight。
+* HDInsight 版本。 为获得最佳性能，请使用最新版 HDInsight。
 * 区域。 将 Data Lake Storage Gen2 帐户和 HDInsight 群集放置在同一区域。  
 
 HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅助角色节点提供特定数量的核心和内存，具体取决于 VM 类型。  运行作业时，YARN 充当资源协商者，负责分配可用的内存和核心以创建容器。  每个容器运行完成作业所需的任务。  容器可并行运行以快速处理任务。 因此，通过并行运行尽可能多的容器可以提高性能。
 
 可优化 HDInsight 群集中的以下 3 层，以增加容器数和使用所有可用的吞吐量。  
 
-* 物理层****
+* 物理层
 * YARN 层
-* 工作负荷层****
+* 工作负荷层
 
 ### <a name="physical-layer"></a>物理层
 
-运行具有更多节点和/或更大 VM 的群集****。  更大的群集可运行更多 YARN 容器，如下图所示。
+运行具有更多节点和/或更大 VM 的群集。  更大的群集可运行更多 YARN 容器，如下图所示。
 
-![Data Lake Storage Gen2 性能](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![此图显示了更大的群集如何使你能够运行更多 YARN 容器。](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
-使用具有更多网络带宽的 VM****。  如果网络带宽低于 Data Lake Storage Gen2 吞吐量，则网络带宽量可能成为瓶颈。  网络带宽大小因不同 VM 而异。  请选择具有可能的最大网络带宽的 VM 类型。
+使用具有更多网络带宽的 VM。  如果网络带宽低于 Data Lake Storage Gen2 吞吐量，则网络带宽量可能成为瓶颈。  网络带宽大小因不同 VM 而异。  请选择具有可能的最大网络带宽的 VM 类型。
 
 ### <a name="yarn-layer"></a>YARN 层
 
-使用较小的 YARN 容器****。  缩减每个 YARN 容器的大小，创建更多包含相同数量资源的容器。
+使用较小的 YARN 容器。  缩减每个 YARN 容器的大小，创建更多包含相同数量资源的容器。
 
-![Data Lake Storage Gen2 性能](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![此图显示了减小每个 YARN 容器以创建更多容器时的结果。](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 始终需要最小的 YARN 容器，具体取决于工作负荷。 如果选取的容器太小，作业会出现内存不足的问题。 YARN 容器通常不应小于 1 GB。 YARN 容器一般为 3 GB。 对于某些工作负荷，可能需要更大的 YARN 容器。  
 
-增加每个 YARN 容器的核心数****。  增加分配给每个容器的核心数，以提高每个容器中运行的并行任务数。  这适用于每个容器运行多个任务的应用程序，例如 Spark。  对于在每个容器中运行单个线程的应用程序（如 Hive），最好分配多个容器，而不是为每个容器分配多个核心。
+增加每个 YARN 容器的核心数。  增加分配给每个容器的核心数，以提高每个容器中运行的并行任务数。  这适用于每个容器运行多个任务的应用程序，例如 Spark。  对于在每个容器中运行单个线程的应用程序（如 Hive），最好分配多个容器，而不是为每个容器分配多个核心。
 
 ### <a name="workload-layer"></a>工作负荷层
 
-使用所有可用的容器****。  将任务数设置为等于或大于可用容器数，以便利用所有资源。
+使用所有可用的容器。  将任务数设置为等于或大于可用容器数，以便利用所有资源。
 
-![Data Lake Storage Gen2 性能](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![此图显示了所有容器的使用情况。](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
-失败的任务成本高昂****。 如果每项任务都有大量数据需要处理，那么任务失败就会导致以高成本重试任务。  因此，最好创建多个任务，每个任务处理少量数据。
+失败的任务成本高昂。 如果每项任务都有大量数据需要处理，那么任务失败就会导致以高成本重试任务。  因此，最好创建多个任务，每个任务处理少量数据。
 
 除上述常规准则外，每个应用程序都有不同的参数，可用于优化该特定应用程序。 下表列出了一些参数和链接，有助于开始对每个应用程序执行性能优化。
 

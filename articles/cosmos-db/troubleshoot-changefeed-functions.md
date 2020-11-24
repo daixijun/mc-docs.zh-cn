@@ -1,21 +1,22 @@
 ---
 title: 排查使用适用于 Cosmos DB 的 Azure Functions 触发器时出现的问题
 description: 使用适用于 Cosmos DB 的 Azure Functions 触发器时出现的常见问题及其解决方法和诊断步骤
-author: rockboyfor
 ms.service: cosmos-db
 origin.date: 03/13/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 611a11a008f65b691d68c010ccc1151b98ad3a9a
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 37e2e920b301e28c9aa69234a33c10c225af53a1
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134881"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552658"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>诊断和排查使用适用于 Cosmos DB 的 Azure Functions 触发器时出现的问题
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍在使用[适用于 Cosmos DB 的 Azure Functions 触发器](change-feed-functions.md)时出现的常见问题及其解决方法和诊断步骤。
 
@@ -32,7 +33,7 @@ ms.locfileid: "82134881"
 
 该扩展包的关键功能是为适用于 Cosmos DB 的 Azure Functions 触发器和绑定提供支持。 它还包括 [Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md)，用于帮助你以编程方式来与 Azure Cosmos DB 交互，而无需使用触发器和绑定。
 
-若要使用 Azure Cosmos DB SDK，请务必不要将项目添加到另一个 NuGet 包引用。 而是**让 SDK 引用通过 Azure Functions 的扩展包进行解析**。 独立于触发器和绑定使用 Azure Cosmos DB SDK
+若要使用 Azure Cosmos DB SDK，请务必不要将项目添加到另一个 NuGet 包引用。 而是 **让 SDK 引用通过 Azure Functions 的扩展包进行解析**。 独立于触发器和绑定使用 Azure Cosmos DB SDK
 
 此外，如果手动创建自己的 [Azure Cosmos DB SDK 客户端](./sql-api-sdk-dotnet-core.md)实例，应遵循以下模式：只提供一个[使用单一实例模式方法](../azure-functions/manage-connections.md#documentclient-code-example-c)的客户端实例。 此过程可避免操作中出现潜在的套接字问题。
 
@@ -44,7 +45,7 @@ Azure 函数失败并出现错误消息“源集合 'collection-name' (在数据
 
 这表示运行触发器所需的一个或两个 Azure Cosmos 容器不存在，或者无法由 Azure 函数访问。 **该错误本身告知了触发器正在根据配置查找的 Azure Cosmos 数据库和容器**。
 
-1. 验证 `ConnectionStringSetting` 属性，以及它是否**引用了 Azure 函数应用中存在的设置**。 此属性中的值不应是连接字符串本身，而是配置设置的名称。
+1. 验证 `ConnectionStringSetting` 属性，以及它是否 **引用了 Azure 函数应用中存在的设置**。 此属性中的值不应是连接字符串本身，而是配置设置的名称。
 2. 验证 `databaseName` 和 `collectionName` 是否在 Azure Cosmos 帐户中存在。 如果使用自动值替换（使用 `%settingName%` 模式），请确保该设置的名称在 Azure 函数应用中存在。
 3. 如果未指定 `LeaseCollectionName/leaseCollectionName`，则默认值为“leases”。 验证此类容器是否存在。 （可选）可将触发器中的 `CreateLeaseCollectionIfNotExists` 属性设置为 `true`，以自动创建该容器。
 4. 验证 [Azure Cosmos 帐户的防火墙配置](how-to-configure-firewall.md)，以查看它是否未阻止 Azure 函数。
@@ -95,7 +96,7 @@ Azure 函数失败并出现错误消息“源集合 'collection-name' (在数据
 > [!NOTE]
 > 默认情况下，如果在代码执行期间发生未经处理的异常，则适用于 Cosmos DB 的 Azure Functions 触发器不会重试一批更改。 这意味着，更改未抵达目标的原因是无法处理它们。
 
-如果你发现触发器根本未收到某些更改，则最常见的情形是有另一个 Azure 函数正在运行  。 该函数可能是部署在 Azure 中的另一个 Azure 函数，或者是在开发人员计算机本地运行的、采用**完全相同配置**（相同的受监视容器和租约容器）的 Azure 函数，并且此 Azure 函数正在窃取你的 Azure 函数预期要处理的更改子集。
+如果你发现触发器根本未收到某些更改，则最常见的情形是有另一个 Azure 函数正在运行  。 该函数可能是部署在 Azure 中的另一个 Azure 函数，或者是在开发人员计算机本地运行的、采用 **完全相同配置**（相同的受监视容器和租约容器）的 Azure 函数，并且此 Azure 函数正在窃取你的 Azure 函数预期要处理的更改子集。
 
 此外，如果你知道正在运行多少个 Azure 函数应用实例，则也可以验证这种情况。 如果检查租约容器并统计其中包含的租约项数，这些项中的非重复 `Owner` 属性值应等于函数应用的实例数。 如果所有者数目超过已知的 Azure 函数应用实例数，则表示这些多出的所有者正在“窃取”更改。
 
@@ -122,8 +123,7 @@ Azure 函数失败并出现错误消息“源集合 'collection-name' (在数据
 
 ## <a name="next-steps"></a>后续步骤
 
-<!--Not Available on * [Enable monitoring for your Azure Functions](../azure-functions/functions-monitoring.md)-->
-
+* [为 Azure Functions 启用监视](../azure-functions/functions-monitoring.md)
 * [Azure Cosmos DB .NET SDK 故障排除](./troubleshoot-dot-net-sdk.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

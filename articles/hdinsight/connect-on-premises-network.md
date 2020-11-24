@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 03/04/2020
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 153f67f011c884342fe7d5d3fe3e54b34d79cb7a
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 19a9ce5f1f07bfd2fd792c1b9b2a0e1d5727c13c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394731"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552879"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -44,7 +44,7 @@ ms.locfileid: "91394731"
 
 * 配置自定义 DNS 服务器和本地 DNS 服务器之间的转发。
 
-该配置启用以下行为：
+这些配置启用以下行为：
 
 * 将完全限定的域名（其中包含虚拟网络的 DNS 后缀）的请求转发到自定义 DNS 服务器。  自定义 DNS 服务器然后会将这些请求转发到 Azure 递归解析程序，由后者返回 IP 地址。
 
@@ -57,8 +57,8 @@ ms.locfileid: "91394731"
 ## <a name="prerequisites"></a>先决条件
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
-* 如果使用 PowerShell，你将需要 [AZ 模块](https://docs.microsoft.com/powershell/azure/overview)。
-* 若要使用 Azure CLI 但尚未安装它，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+* 如果使用 PowerShell，则需要 [AZ 模块](https://docs.microsoft.com/powershell/azure/)。
+* 如果想要使用 Azure CLI，但尚未安装，请参阅 [安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-virtual-network-configuration"></a>创建虚拟网络配置
 
@@ -93,7 +93,7 @@ ms.locfileid: "91394731"
     |区域 | 选择与此前创建的虚拟网络相同的区域。  并非所有 VM 大小都可在所有区域中使用。  |
     |可用性选项 |  选择所需的可用性级别。  Azure 提供一系列的选项，用于管理应用程序的可用性和复原能力。  将解决方案构建为使用可用性区域或可用性集中的已复制 VM，使应用和数据免受事件中心中断和维护事件的影响。 此示例使用“不需要基础结构冗余”  。 |
     |映像 | 保留“Ubuntu Server 18.04 LTS”  。 |
-    |身份验证类型 | __密码__或 __SSH 公钥__：SSH 帐户的身份验证方法。 建议使用公钥，因为更安全。 本示例使用**密码**。  有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。|
+    |身份验证类型 | __密码__ 或 __SSH 公钥__：SSH 帐户的身份验证方法。 建议使用公钥，因为更安全。 本示例使用 **密码**。  有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。|
     |用户名 |输入 VM 的管理员用户名。  本示例使用 **sshuser**。|
     |密码或 SSH 公钥 | 可用字段取决于针对“身份验证类型”所做的选择。   输入相应的值。|
     |公共入站端口|选择“允许所选端口”  。 然后从“选择入站端口”  下拉列表中选择“SSH (22)”  。|
@@ -279,7 +279,7 @@ ms.locfileid: "91394731"
     };
 ```
 
-若要了解如何在 Windows Server 2016  上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
+若要了解如何在 Windows Server 2016  上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
 
 配置本地 DNS 服务器以后，即可在本地网络中使用 `nslookup` 来验证能否解析虚拟网络中的名称。 下面为示例 
 
@@ -359,7 +359,6 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/network-security-groups-overview.md)。
 
-* 有关用户定义路由的详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
-<!--Update_Description: wording update-->
+* 有关用户定义的路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。

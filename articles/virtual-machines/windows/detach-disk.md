@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 01/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: c7440de871ca21ec4daff38f1123724d4f368e3a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 72d67c2eb466cb2076eabc6abe2666a8741bce2e
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105072"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590508"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离数据磁盘
 
@@ -55,8 +55,7 @@ Update-AzVM `
 1. 在左侧菜单中，选择“虚拟机”。
 1. 选择具有要分离的数据磁盘的虚拟机。
 1. 在“设置”下，选择“磁盘” 。
-1. 在“磁盘”窗格的顶部，选择“编辑”。
-1. 在“磁盘”窗格中，在要分离的数据磁盘的最右侧，选择“分离”。
+1. 在“磁盘”窗格中，在要拆离的数据磁盘的最右侧，单击“X”删除按钮。
 1. 选择页面顶部的“保存”以保存更改。
 
 磁盘保留在存储中，但不再附加到虚拟机。

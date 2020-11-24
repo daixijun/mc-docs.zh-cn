@@ -1,30 +1,34 @@
 ---
-title: 使用 Azure CLI 管理 Azure Cosmos DB 资源
-description: 使用 Azure CLI 管理 Azure Cosmos DB 帐户、数据库和容器。
-author: rockboyfor
+title: 使用 Azure CLI 管理 Azure Cosmos DB Core (SQL) API 资源
+description: 使用 Azure CLI 管理 Azure Cosmos DB Core (SQL) API 资源。
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 07/29/2020
-ms.date: 08/17/2020
+origin.date: 10/13/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d5aabade8c1152bf844d4cd6b3ba121344543076
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: af59bc343d2f724177121c869eb8e4288c749a3a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328562"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552313"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
+# <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos Core (SQL) API 资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-以下指南介绍了使用 Azure CLI 自动管理 Azure Cosmos DB 帐户、数据库和容器的常见命令。 [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在[针对 Azure Cosmos DB 的 Azure CLI 示例](cli-samples.md)中找到更多示例，包括如何为 MongoDB、Gremlin、Cassandra 和表 API 创建和管理 Cosmos DB 帐户、数据库和容器。
+以下指南介绍了使用 Azure CLI 自动管理 Azure Cosmos DB 帐户、数据库和容器的常见命令。 [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb)中收录了所有 Azure Cosmos DB CLI 命令的参考页。 还可以在[针对 Azure Cosmos DB 的 Azure CLI 示例](cli-samples.md)中找到更多示例，包括如何为 MongoDB、Gremlin、Cassandra 和表 API 创建和管理 Cosmos DB 帐户、数据库和容器。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.12.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
-<!--Mooncake Customization: Correct to use When-->
+有关其他 API 的 Azure CLI 示例，请参阅[适用于 Cassandra 的 CLI 示例](cli-samples-cassandra.md)、[适用于 MongoDB API 的 CLI 示例](cli-samples-mongodb.md)、[适用于 Gremlin 的 CLI 示例](cli-samples-gremlin.md)、[适用于 Table 的 CLI 示例](cli-samples-table.md)
+
+> [!IMPORTANT]
+> 无法重命名 Azure Cosmos DB 资源，因为这违反了 Azure 资源管理器与资源 URI 的工作方式。
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 帐户
 
@@ -92,10 +96,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### <a name="enable-multiple-write-regions"></a>启用多个写入区域
 
-为 Cosmos 帐户启用多主数据库
+为 Cosmos 帐户启用多区域写入
 
 ```azurecli
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -219,8 +223,9 @@ az cosmosdb keys regenerate \
 
 * [创建数据库](#create-a-database)
 * [创建具有共享吞吐量的数据库](#create-a-database-with-shared-throughput)
+* [迁移数据库以自动缩放吞吐量](#migrate-a-database-to-autoscale-throughput)
 * [更改数据库吞吐量](#change-database-throughput)
-* [管理数据库上的锁定](#manage-lock-on-a-database)
+* [防止数据库被删除](#prevent-a-database-from-being-deleted)
 
 ### <a name="create-a-database"></a>创建数据库
 
@@ -254,6 +259,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### <a name="migrate-a-database-to-autoscale-throughput"></a>迁移数据库以自动缩放吞吐量
+
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### <a name="change-database-throughput"></a>更改数据库吞吐量
 
 将 Cosmos 数据库的吞吐量增加 1000 RU/s。
@@ -280,14 +308,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-database"></a>管理数据库上的锁
+### <a name="prevent-a-database-from-being-deleted"></a>防止数据库被删除
 
-将删除锁置于数据库上。 要详细了解如何执行此操作，请参阅[防止 SDK 更改](role-based-access-control.md#prevent-sdk-changes)。
+将 Azure 资源删除锁置于数据库上，以防止删除该数据库。 此功能要求锁定 Cosmos 帐户，防止其被数据平面 SDK 更改。 若要了解详细信息，请参阅[防止被 SDK 更改](role-based-access-control.md#prevent-sdk-changes)。 Azure 资源锁也可以通过指定 `ReadOnly` 锁类型来防止更改资源。 对于 Cosmos 数据库，可以使用该锁来防止更改吞吐量。
 
 ```azurecli
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -320,7 +348,8 @@ az lock delete --ids $lockid
 * [创建启用了 TTL 的容器](#create-a-container-with-ttl)
 * [使用自定义索引策略创建容器](#create-a-container-with-a-custom-index-policy)
 * [更改容器吞吐量](#change-container-throughput)
-* [管理容器上的锁定](#manage-lock-on-a-container)
+* [迁移容器以自动缩放吞吐量](#migrate-a-container-to-autoscale-throughput)
+* [防止容器被删除](#prevent-a-container-from-being-deleted)
 
 ### <a name="create-a-container"></a>创建容器
 
@@ -458,15 +487,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-container"></a>管理容器上的锁定
+### <a name="migrate-a-container-to-autoscale-throughput"></a>迁移容器以自动缩放吞吐量
 
-在某个容器上放置删除锁定。 要详细了解如何执行此操作，请参阅[防止 SDK 更改](role-based-access-control.md#prevent-sdk-changes)。
+```azurecli
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### <a name="prevent-a-container-from-being-deleted"></a>防止容器被删除
+
+将 Azure 资源删除锁置于容器上，以防止删除该容器。 此功能要求锁定 Cosmos 帐户，防止其被数据平面 SDK 更改。 若要了解详细信息，请参阅[防止被 SDK 更改](role-based-access-control.md#prevent-sdk-changes)。 Azure 资源锁也可以通过指定 `ReadOnly` 锁类型来防止更改资源。 对于 Cosmos 容器，此锁可用于防止更改吞吐量或其他任何属性。
 
 ```azurecli
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -495,8 +550,8 @@ az lock delete --ids $lockid
 
 有关 Azure CLI 的详细信息，请参阅：
 
-- [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
-- [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)
-- [针对 Azure Cosmos DB 的其他 Azure CLI 示例](cli-samples.md)
+* [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
+* [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb)
+* [针对 Azure Cosmos DB 的其他 Azure CLI 示例](cli-samples.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

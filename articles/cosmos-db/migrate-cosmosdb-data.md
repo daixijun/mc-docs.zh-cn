@@ -1,21 +1,21 @@
 ---
 title: 将数百 TB 的数据迁移到 Azure Cosmos DB
 description: 本文档介绍如何将数百 TB 的数据迁移到 Cosmos DB 中
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
-origin.date: 10/23/2019
+ms.topic: how-to
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
-ms.date: 06/22/2020
-ms.openlocfilehash: 791b444bbc1c5a61f2f67d7432a44f9741f5805c
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 9bafe3fdd0d9c78dcca5b3138095061cf05ced20
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098649"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552831"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>将数百 TB 的数据迁移到 Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 可以存储 TB 级的数据。 可以执行大规模数据迁移，将生产工作负荷移动到 Azure Cosmos DB。 本文介绍将大规模数据迁移到 Azure Cosmos DB 涉及的难题，并介绍有助于应对挑战和将数据迁移到 Azure Cosmos DB 的工具。 在本案例研究中，客户使用的是 Cosmos DB SQL API。  
 
@@ -33,19 +33,19 @@ Azure Cosmos DB 可以存储 TB 级的数据。 可以执行大规模数据迁�
 
 * **缺少进度跟踪和检查点**：迁移大型数据集时，必须跟踪迁移进度并创建检查点。 否则，迁移过程中出现的任何错误都会导致迁移停止，且必须从头开始迁移。 如果迁移过程已完成 99%，重新开始整个迁移过程将降低效率。  
 
-* **缺少死信队列**：在大型数据集中，可能有一部分源数据存在问题。 此外，客户端或网络可能出现暂时性的问题。 出现其中的任何一种情况都不应导致整个迁移失败。 尽管大多数迁移工具都具有可靠的重试功能，可防范间歇性的问题，但它们并不总是足够可靠。 例如，如果 0.01% 以下的源数据文档大小大于 2 MB，将会导致文档写入 Azure Cosmos DB 失败。 理想情况下，有用的做法是让迁移工具将这些“失败的”文档保存到另一个死信队列，以便在迁移后进行处理。 
+* **缺少死信队列**：在大型数据集中，可能有一部分源数据存在问题。 此外，客户端或网络可能出现暂时性的问题。 出现其中的任何一种情况都不应导致整个迁移失败。 尽管大多数迁移工具都具有可靠的重试功能，可防范间歇性的问题，但它们并不总是足够可靠。 例如，如果 0.01% 以下的源数据文档大小大于 2 MB，将会导致文档写入 Azure Cosmos DB 失败。 理想情况下，可以让迁移工具将这些“失败的”文档保存到另一个死信队列，以便在迁移后对其进行处理。 
 
 Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述许多限制。 
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>包含批量执行程序库的自定义工具 
 
-使用可跨多个实例轻松横向扩展并能弹性应对暂时性故障的自定义工具可以解决上一部分所述的挑战。 此外，自定义工具可以在不同的检查点处暂停和恢复迁移。 Azure Cosmos DB 已提供整合了其中某些功能的[批量执行程序库](/cosmos-db/bulk-executor-overview)。 例如，批量执行程序库已包含处理暂时性错误的功能，并且可以横向扩展单个节点中的线程，以消耗每个节点中的大约 50 万个 RU。 批量执行程序库还可将源数据集分区成可作为检查点形式独立运行的微批。  
+使用可跨多个实例轻松横向扩展并能弹性应对暂时性故障的自定义工具可以解决上一部分所述的挑战。 此外，自定义工具可以在不同的检查点处暂停和恢复迁移。 Azure Cosmos DB 已提供整合了其中某些功能的[批量执行程序库](./bulk-executor-overview.md)。 例如，批量执行程序库已包含处理暂时性错误的功能，并且可以横向扩展单个节点中的线程，以消耗每个节点中的大约 50 万个 RU。 批量执行程序库还可将源数据集分区成可作为检查点形式独立运行的微批。  
 
 自定义工具使用批量执行程序库，支持跨多个客户端横向扩展，并可以跟踪引入过程中出现的错误。 若要使用此工具，应将源数据分区成 Azure Data Lake Storage (ADLS) 中的不同文件，以便不同的迁移工作线程可以选取每个文件并将其引入 Azure Cosmos DB。 自定义工具利用单独的集合，该集合存储 ADLS 中每个源文件的迁移进度的相关元数据，并跟踪与这些文件关联的任何错误。  
 
 下图描述了使用此自定义工具的迁移过程。 该工具在一组虚拟机上运行，其中每个虚拟机查询 Azure Cosmos DB 中的跟踪集合，以获取某个源数据分区上的租约。 完成此操作后，该工具将读取源数据分区，并使用批量执行程序库将其引入 Azure Cosmos DB。 接下来，跟踪集合将会更新，以记录数据引入的进度和遇到的任何错误。 处理数据分区后，该工具会尝试查询下一个可用的源分区。 它会继续处理下一个源分区，直到迁移了所有数据。 [此处](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)提供了该工具的源代码。  
 
-![迁移工具设置](./media/migrate-cosmosdb-data/migrationsetup.png)
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="迁移工具设置" border="false":::
 
 跟踪集合包含以下示例中所示的文档。 你将看到，源数据中的每个分区都有一个这样的文档。  每个文档包含源数据分区的元数据，例如，该数据分区的位置、迁移状态和错误（如果有）：  
 
@@ -141,6 +141,6 @@ Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述�
 * 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
 * 若要获取大规模迁移的更多帮助，请通过开具[支持票证](https://support.azure.cn/support/support-azure/)联系 Azure Cosmos DB 产品团队。
 
-    <!--Not Available on General Advisory-->
+<!--Not Available on General Advisory-->
     
 <!-- Update_Description: update meta properties, wording update, update link -->

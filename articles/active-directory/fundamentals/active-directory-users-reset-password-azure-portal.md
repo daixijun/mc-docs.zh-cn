@@ -2,47 +2,46 @@
 title: 重置用户的密码 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 重置用户密码的说明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
-origin.date: 09/05/2018
-ms.date: 08/27/2019
+ms.topic: how-to
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07e78d8e5ab845cbfb3aec6e352b4a7ccc4c31bc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9867958f1398ab2ca12accded5f3f7591f0d0622
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70134183"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501685"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>使用 Azure Active Directory 重置用户的密码
 
 如果忘记密码、设备遭锁定用户无法使用，或用户从未收到密码，管理员可以重置用户的密码。
 
 >[!Note]
->除非 Azure AD 租户是用户的主目录，否则你将无法重置其密码。 这意味着，如果用户使用另一个组织中的帐户、Microsoft 帐户登录到你的组织，则你无法重置其密码。<br><br>如果用户拥有外部 Azure AD 的权限源，你将无法重置密码。 只有用户或外部 Azure AD 中的管理员才能重置密码。
+>除非 Azure AD 租户是用户的主目录，否则你将无法重置其密码。 这意味着，如果用户使用另一个组织中的帐户、Microsoft 帐户登录到你的组织，则你无法重置其密码。<br><br>如果用户具有 Windows Server Active Directory 的权限源，则只有在你打开密码回写时才能重置密码。<br><br>如果用户拥有外部 Azure AD 的权限源，你将无法重置密码。 只有用户或外部 Azure AD 中的管理员可以重置密码。
 
 >[!Note]
 >如果你不是管理员，只想获得有关如何重置你自己的工作或学校密码的说明，请参阅[重置工作或学校密码](../user-help/active-directory-passwords-update-your-own-password.md)。
 
 ## <a name="to-reset-a-password"></a>重置密码
 
-1. 以用户管理员或密码管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 有关可用角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. 以用户管理员或密码管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 有关可用角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](../roles/permissions-reference.md#available-roles)
 
-2. 选择“Azure Active Directory”，选择“用户”，搜索并选择需要重置的用户，然后选择“重置密码”    。
+2. 选择“Azure Active Directory”，选择“用户”，搜索并选择需要重置的用户，然后选择“重置密码”。
 
-    将显示“Alain Charon - 配置文件”页面，其中包含“重置密码”选项   。
+    将显示“Alain Charon - 配置文件”页面，其中包含“重置密码”选项。
 
     ![用户的配置文件页面，其中突出显示“重置密码”选项](./media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
-3. 在“重置密码”页面中，选择“重置密码”   。
+3. 在“重置密码”页面中，选择“重置密码”。
 
     > [!Note]
     > 使用 Azure Active Directory 时，会自动为用户生成临时密码。 使用本地 Active Directory 时，会为用户创建密码。
@@ -64,6 +63,5 @@ ms.locfileid: "70134183"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-也可以执行更复杂的用户方案，例如分配委托、使用策略以及共享用户帐户。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)。
+也可以执行更复杂的用户方案，例如分配委托、使用策略以及共享用户帐户。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../enterprise-users/index.yml)。
 
-<!-- Update_Description: wording update -->

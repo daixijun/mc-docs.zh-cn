@@ -4,17 +4,17 @@ description: 阅读有关 Azure 导入导出服务的常见问题解答。
 author: WenJason
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/06/2020
-ms.date: 06/01/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: b19b5e200b36abe5a04bf6174502dec47c175f58
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 5779087a84500ec60a9be94ac4a6f01888001c3e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199793"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552863"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答
 
@@ -36,9 +36,9 @@ ms.locfileid: "84199793"
 
 是的。 Azure 导入/导出服务支持云解决方案提供商 (CSP) 订阅。
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>是否可以使用 Azure 导入/导出服务将 PST 邮箱和 SharePoint 数据复制到 O365？
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>能否使用 Azure 导入/导出服务将 PST 邮箱和 SharePoint 数据复制到 Microsoft 365？
 
-是的。 有关详细信息，请转到[将 PST 文件或 SharePoint 数据导入到 Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)。
+是的。 有关详细信息，请访问[导入组织 PST 文件概述](https://docs.microsoft.com/microsoft-365/compliance/importing-pst-files-to-office-365)。
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>是否可以使用 Azure 导入/导出服务将我的备份脱机复制到 Azure 备份服务？
 
@@ -56,7 +56,7 @@ ms.locfileid: "84199793"
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>在创建导出作业时我是否需要执行任何磁盘准备操作？
 
-否。 但建议执行一些预先检查。 若要检查所需的磁盘数，请使用 WAImportExport 工具的 PreviewExport 命令。 有关详细信息，请参阅[预览导出作业的驱动器使用情况](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 此命令可以根据要使用的驱动器的大小，帮助你预览所选 Blob 的驱动器使用情况。 此外，请检查是否可以向要寄送的用于导出作业的硬盘驱动器进行读取和写入。
+否。 但建议执行一些预先检查。 若要检查所需的磁盘数，请使用 WAImportExport 工具的 PreviewExport 命令。 有关详细信息，请参阅[预览导出作业的驱动器使用情况](https://docs.microsoft.com/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)。 此命令可以根据要使用的驱动器的大小，帮助你预览所选 Blob 的驱动器使用情况。 此外，请检查是否可以向要寄送的用于导出作业的硬盘驱动器进行读取和写入。
 
 ## <a name="importexport-jobs"></a>导入/导出作业
 
@@ -94,6 +94,9 @@ ms.locfileid: "84199793"
 
 请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 Azure。
 
+上传完成后，将驱动器返还到国际地址的过程需要的时间可能会长于本地寄送所需的时间（通常为 2-3 天）。 在 Azure 门户中列出的“打包”阶段，Data Box 团队将确保提供正确的文档，以确保寄送符合各种国际进出口要求。
+
+
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>创建作业时，寄送地址是一个不同于存储帐户位置的位置。 我该怎么办？
 
 某些存储帐户位置映射到备用寄送位置。 此前可用的寄送位置也可临时映射到备用位置。 在寄送驱动器之前，请始终查看你在创建作业的过程中提供的寄送地址。
@@ -114,7 +117,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>如何才能访问此服务导入的数据？
 
-使用 Azure 门户或[存储资源管理器](https://docs.azure.cn/vs-azure-tools-storage-manage-with-storage-explorer)在你的 Azure 存储帐户下访问该数据。  
+使用 Azure 门户或[存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md)在你的 Azure 存储帐户下访问该数据。  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>导入完成后，我的数据在存储帐户中看起来是什么样的？ 是否会保留我的目录层次结构？
 
@@ -126,7 +129,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具是否与 32 位操作系统兼容？
 
-否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](/storage/common/storage-import-export-requirements)。 
+否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](./storage-import-export-requirements.md)。
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 导入/导出支持的最大块 Blob 和页 Blob 大小是多少？
 

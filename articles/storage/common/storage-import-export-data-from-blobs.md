@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
-origin.date: 03/12/2020
-ms.date: 07/20/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 3d80a1ddc2d08a4876841c3fde51e9cf9b1bb2cb
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 546fc171eb8aedb533bd05383e0cc6974e0d4a7b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414639"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552742"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 
@@ -30,6 +30,8 @@ ms.locfileid: "86414639"
 - 拥有足够数量的[受支持类型](storage-import-export-requirements.md#supported-disks)的磁盘。
 
 ## <a name="step-1-create-an-export-job"></a>步骤 1：创建导出作业
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 门户中执行以下步骤来创建导出作业。
 
@@ -79,7 +81,7 @@ ms.locfileid: "86414639"
 
     - 从下拉列表中选择承运商。
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 如果没有承运人帐号，请键入 null 或 unknown。 当导出作业完成后，我们使用此帐户寄回驱动器。 
-    - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
+    - 提供完整且有效的联系人姓名、电话、电子邮件、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
 
         > [!TIP]
         > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
@@ -94,6 +96,82 @@ ms.locfileid: "86414639"
 
     - 单击“确定”以完成导出作业的创建。
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+在 Azure 门户中按照以下步骤来创建导出作业。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>创建作业
+
+1. 使用 [az extension add](/cli/extension#az_extension_add) 命令添加 [az import-export](/cli/ext/import-export/import-export) 扩展：
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 若要获取可从中接收磁盘的位置列表，请使用 [az import-export location list](/cli/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 命令：
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. 运行以下 [az import-export create](/cli/ext/import-export/import-export#ext_import_export_az_import_export_create) 命令来创建使用现有存储帐户的导出作业：
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "China East" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="XXXX XXXX" city="XXXX XXXX" state-or-province=CA postal-code=XXXXXX \
+            country-or-region=China phone=XXXXXXXX \
+        --return-address recipient-name="XXXX XXXX" street-address1="XXXX XXXXXX XXXX" \
+            city=XXXX country-or-region=China state-or-province=CA postal-code=XXXXXX \
+            email=gus@contoso.com phone=XXXXXXXX" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+   此作业会导出存储帐户中的所有 blob。 可以通过将此值替换为“--export”来指定要导出的 Blob：
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   此参数值会导出根容器中名为“logo.bmp”的 blob。
+
+   也可以选择使用前缀来选择容器中的所有 blob。 将此值替换为“--export”：
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
+
+   > [!NOTE]
+   > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
+
+1. 使用 [az import-export list](/cli/ext/import-export/import-export#ext_import_export_az_import_export_list) 命令查看资源组 myierg 的所有作业：
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 若要更新作业或取消作业，请运行 [az import-export update](/cli/ext/import-export/import-export#ext_import_export_az_import_export_update) 命令：
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 ## <a name="step-2-ship-the-drives"></a>步骤 2：寄送驱动器
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
@@ -109,7 +187,7 @@ ms.locfileid: "86414639"
 1. 收到包含导出数据的驱动器后，你需要获取 BitLocker 密钥才能解锁驱动器。 转到 Azure 门户中的导出作业。 单击“导入/导出”选项卡。
 2. 从列表中选择并单击导出作业。 转到“加密”，然后复制密钥。
 
-   ![查看导出作业的 BitLocker 密钥](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![查看导出作业的 BitLocker 密钥](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. 使用 BitLocker 密钥解锁磁盘。
 
@@ -117,15 +195,13 @@ ms.locfileid: "86414639"
 
 ## <a name="step-5-unlock-the-disks"></a>步骤 5：解锁磁盘
 
-如果使用 1.4.0.300 版 WAImportExport 工具，请使用以下命令解锁驱动器：
+使用以下命令解锁驱动器：
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 下面是示例输入的示例。
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-如果使用该工具的更低版本，请使用 BitLocker 对话框解锁驱动器。
 
 现在，可删除作业，也可将其保留。 作业将在 90 天后自动删除。
 

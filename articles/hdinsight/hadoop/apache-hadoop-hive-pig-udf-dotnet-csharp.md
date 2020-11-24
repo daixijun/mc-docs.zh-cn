@@ -1,37 +1,29 @@
 ---
 title: Apache Hadoop 上的 C#、Apache Hive 和 Apache Pig - Azure HDInsight
 description: 了解在 Azure HDInsight 中如何将 C# 用户定义函数 (UDF) 与 Apache Hive 和 Apache Pig 流式处理配合使用。
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-csharp
 origin.date: 12/06/2019
-ms.date: 01/13/2020
+ms.date: 11/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: e9156a219e6c53564f070f6f599a2a6fd1f90a9a
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ec615499cc10d6a506ad01fb704885c3fbabeea2
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462827"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552855"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 用户定义函数与 Apache Hive 和 Apache Pig 配合使用
 
-了解如何在 HDInsight 中将 C# 用户定义函数 (UDF) 与 Apache Hive 和 Apache Pig 配合使用。
+了解如何在 HDInsight 中将 C# 用户定义函数 (UDF) 与 [Apache Hive](https://hive.apache.org) 和 [Apache Pig](https://pig.apache.org) 配合使用。
 
 > [!IMPORTANT]
 > 本文档中的步骤使用基于 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](../hdinsight-component-versioning.md)。
 
-Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此过程称为_流式处理_。 使用 .NET 应用程序时，数据将传递到 STDIN 上的应用程序，该应用程序也会在 STDOUT 上返回结果。 若要从 STDIN 和 STDOUT 读取和写入数据，可以使用控制台应用程序中的 `Console.ReadLine()` 和 `Console.WriteLine()`。
+Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此过程称为 _流式处理_。 使用 .NET 应用程序时，数据将传递到 STDIN 上的应用程序，该应用程序也会在 STDOUT 上返回结果。 若要从 STDIN 和 STDOUT 读取和写入数据，可以使用控制台应用程序中的 `Console.ReadLine()` 和 `Console.WriteLine()`。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -39,7 +31,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     使用任何需要的 IDE。 我们建议使用 [Visual Studio](https://www.visualstudio.com/vs) 或 [Visual Studio Code](https://code.visualstudio.com/)。 本文档中的步骤使用 Visual Studio 2019。
 
-* 将 .exe 文件上传到群集以及运行 Pig 和 Hive 作业的方法。 建议使用针对 Visual Studio 的 Data Lake 工具、Azure PowerShell 和 Azure 经典 CLI。 本文档中的各个步骤都使用针对 Visual Studio 的 Data Lake 工具上传文件和运行 Hive 查询示例。
+* 将 .exe 文件上传到群集以及运行 Pig 和 Hive 作业的方法。 建议使用针对 Visual Studio 的 Data Lake 工具、[Azure PowerShell](https://docs.microsoft.com/powershell/azure) 和 [Azure CLI](/cli/install-azure-cli)。 本文档中的各个步骤都使用针对 Visual Studio 的 Data Lake 工具上传文件和运行 Hive 查询示例。
 
     有关运行 Hive 查询的其他方法的信息，请参阅 [Azure HDInsight 中的 Apache Hive 和 HiveQL 是什么？](hdinsight-use-hive.md)。
 
@@ -67,7 +59,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 3. 在“创建新项目”窗口中，选择“控制台应用(.NET Framework)”模板（C# 版本）。   然后，选择“下一步”  。
 
-4. 在“配置新项目”窗口输入 *HiveCSharp* 作为**项目名称**，然后导航到或创建一个**位置**用于保存新项目。  然后选择“创建”  。
+4. 在“配置新项目”窗口输入 *HiveCSharp* 作为 **项目名称**，然后导航到或创建一个 **位置** 用于保存新项目。  然后选择“创建”  。
 
 5. 在 Visual Studio IDE 中，将 *Program.cs* 的内容替换为以下代码：
 
@@ -134,7 +126,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 3. 在“创建新项目”窗口中，选择“控制台应用(.NET Framework)”模板（C# 版本）。   然后，选择“下一步”  。
 
-4. 在“配置新项目”窗口输入 *PigUDF* 作为**项目名称**，然后转到或创建一个**位置**用于保存新项目。  然后选择“创建”  。
+4. 在“配置新项目”窗口输入 *PigUDF* 作为 **项目名称**，然后转到或创建一个 **位置** 用于保存新项目。  然后选择“创建”  。
 
 5. 在 Visual Studio IDE 中，将 *Program.cs* 的内容替换为以下代码：
 
@@ -185,7 +177,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     ![默认存储帐户，HDInsight 群集，服务器资源管理器](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
-    * 如果可以展开此项，则表示你正在使用 **Azure 存储帐户**作为群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”  。
+    * 如果可以展开此项，则表示你正在使用 **Azure 存储帐户** 作为群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”  。
 
     * 如果无法展开此项，则表示你正在使用 **Azure Data Lake Storage** 作为群集的默认存储。 若要查看该群集的默认存储上的文件，请双击“（默认存储帐户）”  条目。
 

@@ -1,22 +1,23 @@
 ---
 title: 快速入门：使用 Azure CLI 管理 Azure 文件共享
-description: 通过本快速入门了解如何使用 Azure CLI 来管理 Azure 文件。
+description: 在本快速入门中，了解如何使用 Azure CLI 来管理 Azure 文件。 创建资源组和存储帐户，然后创建并使用 Azure 文件共享。
 author: WenJason
 ms.service: storage
 ms.topic: quickstart
 origin.date: 10/26/2018
-ms.date: 03/09/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: e8300d66426c3a7209af631269d3acd00aca87d6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 987e75b4f5f63056dbb91fda2e77f4ad54216e69
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78412598"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552515"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入门：使用 Azure CLI 创建和管理 Azure 文件共享
-本指南介绍通过 Azure CLI 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
+本指南介绍通过 Azure CLI 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准服务器消息块 (SMB) 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -27,7 +28,7 @@ ms.locfileid: "78412598"
 ## <a name="create-a-resource-group"></a>创建资源组
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [az group create](/cli/group) 命令创建一个。 
 
-以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组： 
+以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组：
 
 ```azurecli 
 export resourceGroupName="myResourceGroup"
@@ -81,6 +82,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
@@ -172,6 +174,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \

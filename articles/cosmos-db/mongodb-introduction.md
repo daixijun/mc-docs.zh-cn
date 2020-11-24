@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 10/01/2019
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 3893743eee1c524618c20d7aa2f9f39a9dda6649
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 309d339b3c130a468a69703b3d3677d4290001ec
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552813"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 [Azure Cosmos DB](introduction.md) 是世纪互联针对任务关键型应用程序提供的多区域分配式多模型数据库服务。 Azure Cosmos DB 在中国各地提供[统包式多区域分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它是多模型的，支持文档、键值、图和列式数据模型。Azure Cosmos DB 服务为包含 Cassandra、MongoDB、Gremlin 和 Azure 表存储在内的常见 NoSQL API 实现 Wire Protocol。 这样，你便可以使用熟悉的 NoSQL 客户端驱动程序和工具来与 Cosmos 数据库交互。
 
@@ -39,7 +40,7 @@ Azure Cosmos DB 实现 MongoDB 的 Wire Protocol。 此实现允许与本机 Mon
 * 使应用程序保持可移植性，并继续保持云供应商的不可知性。
 * 为 Cosmos DB 支持的常用 NoSQL API 获取行业领先的、有资金保障的 SLA。
 * 根据需求弹性缩放 Cosmos 数据库的预配吞吐量和存储，并且只需为使用的吞吐量和存储付费。 这可以大幅节省成本。
-* 通过多主数据库复制功能实现统包式多区域分布。
+* 通过多区域写入复制功能实现统包式多区域分布。
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB 的用于 MongoDB 的 API
 
@@ -55,7 +56,7 @@ Azure Cosmos DB 实现 MongoDB 的 Wire Protocol。 此实现允许与本机 Mon
 
 * 在[将 MongoDB 应用程序连接到 Azure Cosmos DB](connect-mongodb-account.md) 教程中了解如何获取帐户连接字符串信息。
 * 在[将 Studio 3T 与 Azure Cosmos DB 配合使用](mongodb-mongochef.md)教程中了解如何在 Studio 3T 中创建 Cosmos 数据库与 MongoDB 应用之间的连接。
-* 在[将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md) 教程中了解如何将数据导入 Cosmos 数据库。
+* 在[将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json) 教程中了解如何将数据导入 Cosmos 数据库。
 * 使用 [Robo 3T](mongodb-robomongo.md) 连接到 Cosmos 帐户。
 * 了解如何[配置多区域分布式应用的读取首选项](../cosmos-db/tutorial-global-distribution-mongodb.md)。
 * 在[故障排除指南](mongodb-troubleshoot.md)中查找常见错误的解决方案

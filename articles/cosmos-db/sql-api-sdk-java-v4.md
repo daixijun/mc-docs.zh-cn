@@ -7,20 +7,21 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 76a0cdb64ed971479ce0c178039e1ec76e5a6dbb
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7b7abe31c84dd68eec0c5bbc39a98bcdfa61955c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118047"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552843"
 ---
 <!--Verified successfully-->
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>用于 Core (SQL) API 的 Azure Cosmos DB Java SDK v4：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -36,7 +37,7 @@ ms.locfileid: "92118047"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -46,8 +47,8 @@ ms.locfileid: "92118047"
 > 这些发行说明仅适用于 Azure Cosmos DB Java SDK v4。 如果你当前使用的是早于 v4 的版本，请参阅[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南，获取升级到 v4 的相关帮助。
 >
 > 以下是快速操作的三个步骤！
-> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/)，以便可以使用 SDK。
-> 2. 通过 [Azure Cosmos DB Java SDK v4 快速入门指南](https://docs.azure.cn/cosmos-db/create-sql-api-java)，可以访问 Maven 项目并完成基本的 Azure Cosmos DB 请求。
+> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)，以便可以使用 SDK。
+> 2. 通过 [Azure Cosmos DB Java SDK v4 快速入门指南](./create-sql-api-java.md)，可以访问 Maven 项目并完成基本的 Azure Cosmos DB 请求。
 > 3. 阅读 Azure Cosmos DB Java SDK v4 [性能提示](performance-tips-java-sdk-v4-sql.md)和[疑难解答](troubleshoot-java-sdk-v4-sql.md)指南，以优化应用程序的 SDK。
 >
 > 此外，[Azure Cosmos DB 研讨会和实验室](https://aka.ms/cosmosworkshop)也是了解如何使用 Azure Cosmos DB Java SDK v4 的绝佳资源！
@@ -60,29 +61,50 @@ ms.locfileid: "92118047"
 |**SDK 下载**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 文档** | [Java API 参考文档](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
 |**参与 SDK** | [GitHub 上用于 Java 的 Azure SDK 中央存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
-|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](https://docs.azure.cn/cosmos-db/create-sql-api-java) <br /> [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](./create-sql-api-java.md) <br /> [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**基本代码示例** | [Azure Cosmos DB：SQL API 的 Java 示例](sql-api-java-sdk-samples.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**包含更改源的控制台应用**| [更改源 - Java SDK v4 示例](create-sql-api-java-changefeed.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
 |**Web 应用示例**| [使用 Java SDK v4 构建 Web 应用](sql-api-java-application.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
 | **性能提示**| [适用于 Java SDK v4 的性能提示](performance-tips-java-sdk-v4-sql.md)| 
 | **故障排除** | [排查 Java SDK v4 问题](troubleshoot-java-sdk-v4-sql.md) |
 | **从旧 SDK 迁移到 v4** | [迁移到 Java V4 SDK](migrate-java-v4-sdk.md) |
-| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/) | 
+| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) | 
 | **Azure Cosmos DB 研讨会和实验室** |[Cosmos DB 研讨会主页](https://aka.ms/cosmosworkshop)
 
 <!--Correct om the **API documentation** https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable-->
 
 ## <a name="release-history"></a>发布历史记录
 
-## <a name="470-beta1-unreleased"></a>4.7.0-beta.1（未发布）
+## <a name="490-beta1-unreleased"></a>4.9.0-beta.1（未发布）
 
+
+### <a name="480-2020-10-27"></a>4.8.0 (2020-10-27)
+#### <a name="new-features"></a>新功能
+* 向 `CosmosItemRequestOptions` 添加了 `contentResponseOnWriteEnabled` 功能。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了从延续令牌恢复时可能会影响查询行为的问题。
+
+### <a name="471-2020-10-21"></a>4.7.1 (2020-10-21)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 改进了 449 重试策略，以在初始重试时强制退避，并从较短的退避开始。
+
+### <a name="470-2020-10-17-note-we-strongly-recommend-our-customers-to-use-version-470-and-above"></a>4.7.0 (2020-10-17) 注释：强烈建议客户使用 4.7.0 及更高版本
+#### <a name="new-features"></a>新功能
+* 添加了针对事务性批处理的 Beta 版本。
+
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了在以“,”作为浮点分隔符的区域设置中分析查询指标时出现的错误。
+* 从网关检索包含无效 json 的响应时，停止了过度的区域故障转移。
+* 修复了一个错误，该错误导致网关中不必要地预期某些查询，即使使用直接传输也是如此。
+* 通过处理通道关闭时引发的 SSLException 来降低日志记录噪声级别。
+* 提高了“404 - ReadSession 不可用”错误的重试逻辑效率。
 
 ### <a name="460-2020-09-30"></a>4.6.0 (2020-09-30)
 #### <a name="new-features"></a>新功能
 * 添加了新的 API，用于在 Cosmos 中支持 AAD 基于角色的访问控制。 这是一项预览功能，需要在帐户设置中启用它。
 * 向 `CosmosPagedFlux`/`CosmosPagedIterable` 添加了处理程序 API (beta)，以便对每个响应调用。
 
-### <a name="452-2020-09-29-note-we-strongly-recommend-our-customers-to-use-version-452-and-above"></a>4.5.2 (2020-09-29) 备注：强烈建议客户使用 4.5.2 版及更高版本
+### <a name="452-2020-09-29"></a>4.5.2 (2020-09-29)
 #### <a name="key-bug-fixes"></a>关键 Bug 修复
 * 增强了在出现间歇性连接问题时执行查询和获取元数据缓存的可靠性。
 

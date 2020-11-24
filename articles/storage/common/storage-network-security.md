@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 00a4a8cea4de4122aace9d30a76db1e78cbcb2ac
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7f62714184342a28c0b2d69cf8679b8f911dff89
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551703"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680341"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
@@ -357,13 +357,13 @@ IP 网络规则仅适用于 **公共 Internet** IP 地址。 IP 规则不允许�
 > [!IMPORTANT]
 > 请务必[将默认规则设置](#change-the-default-network-access-rule)为“拒绝”，否则网络规则不会有任何效果。
 
-## <a name="exceptions"></a>异常
+## <a name="exceptions"></a>例外
 
 在大多数情况下，网络规则有助于为应用程序与数据之间的连接创建安全环境。 不过，某些应用程序依赖于无法通过虚拟网络或 IP 地址规则单独隔离的 Azure 服务。 但是，必须授予此类服务访问存储的权限，才能完全实现应用程序的功能。 在此类情况下，可以使用“允许受信任的 Microsoft 服务...”设置来允许此类服务访问数据、日志或分析。
 
-### <a name="trusted-azure-services"></a>受信任的 Azure 服务
+### <a name="trusted-microsoft-services"></a>受信任的 Microsoft 服务
 
-某些 Azure 服务通过无法包含在网络规则中的网络运行。 可向其中的一部分受信任 Azure 服务授予对存储帐户的访问权限，同时对其他应用保持使用网络规则。 然后，这些受信任的服务将使用强身份验证安全连接到存储帐户。 我们为 Azure 服务启用了两种受信任访问模式。
+某些 Microsoft 服务是从不能在网络规则中包含的网络上运行的。 可以向此类受信任的 Microsoft 服务中的一部分授予对存储帐户的访问权限，同时对其他应用维持网络规则。 然后，这些受信任的服务将使用强身份验证安全地连接到存储帐户。 我们为 Microsoft 服务启用了两种受信任的访问模式。
 
 - 某些服务的资源在注册到订阅后，可在同一订阅中访问存储帐户进行选定操作，例如写入日志或备份。
 - 可通过向其系统分配的托管标识分配 Azure 角色，向某些服务的资源授予对存储帐户的显式访问权限。

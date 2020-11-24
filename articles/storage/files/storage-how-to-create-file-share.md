@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 2/22/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: cfd67082f3675e476696c4511c8a491e5f57f316
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 1db1154809c7adeacb68c71f09589484c189a9ca
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026526"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552535"
 ---
 # <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 若要创建 Azure 文件共享，需要回答有关你将如何使用它的三个问题：
@@ -34,7 +34,7 @@ ms.locfileid: "91026526"
 ## <a name="prerequisites"></a>先决条件
 - 本文假设已创建一个 Azure 订阅。 如果还没有订阅，则在开始前创建一个 [1 元人民币的试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
 - 如果你打算使用 Azure PowerShell，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。
-- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest)。
+- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 Azure 文件共享将部署到存储帐户。存储帐户是代表存储共享池的顶级对象。 此存储池可用于部署多个文件共享。 
@@ -65,7 +65,7 @@ Azure 文件共享将部署到存储帐户。存储帐户是代表存储共享�
 - **存储帐户名称**：要创建的存储帐户资源的名称。 此名称必须全局唯一，但可以是所需的任何名称。 通过 SMB 装载 Azure 文件共享时，存储帐户名称将用作服务器名称。
 - **位置**：要部署到的存储帐户所在的区域。 此区域可以是与资源组关联的区域，也可以是任何其他可用区域。
 - **复制**：尽管此字段的标签为“复制”，但它实际上指的是“冗余”；这是所需的冗余级别：本地冗余 (LRS) 和异地冗余 (GRS)。 此下拉列表还包含读取访问权限异地冗余存储 (RA-GRS)，它不适用于 Azure 文件共享；在选择这些选项的情况下在存储帐户中创建的任何文件共享实际上是异地冗余的。 根据所在的区域或所选的存储帐户类型，可能不允许使用某些冗余选项。
-- **访问层**：此字段不适用于 Azure 文件存储，因此可以选中任一单选按钮。
+- **Blob 访问层**：此字段不适用于 Azure 文件存储，因此可以选中任一单选按钮。 
 
 #### <a name="the-networking-blade"></a>“网络”边栏选项卡
 在“网络”部分可以配置网络选项。 创建存储帐户时，这些设置是可选的，以后可根据需要对其进行配置。 有关这些选项的详细信息，请参阅 [Azure 文件存储的网络注意事项](storage-files-networking-overview.md)。
@@ -73,7 +73,7 @@ Azure 文件共享将部署到存储帐户。存储帐户是代表存储共享�
 #### <a name="the-advanced-blade"></a>“高级”边栏选项卡
 “高级”部分包含 Azure 文件共享的几项重要设置：
 
-- **需要安全传输**：此字段指示存储帐户是否需要对与存储帐户的通信进行传输中加密。 建议将此功能保持启用状态，但是，如果需要 SMB 2.1 支持，则必须禁用此功能。 如果禁用加密，我们建议将存储帐户访问约束到包含服务终结点的虚拟网络。
+- **需要安全传输**：此字段指示存储帐户是否需要对与存储帐户的通信进行传输中加密。 建议将此功能保持启用状态，但是，如果需要 SMB 2.1 支持，则必须禁用此功能。 如果禁用加密，建议你约束存储帐户访问权限，仅允许访问包含服务终结点和/或专用终结点的虚拟网络。
 - **大型文件共享**：此字段为最多涵盖 100 TiB 空间的文件共享启用存储帐户。 启用此功能会将存储帐户限制为只能使用本地冗余存储选项。 为大型文件共享启用 GPv2 存储帐户后，无法禁用大型文件共享功能。 FileStorage 存储帐户（高级文件共享的存储帐户）没有此选项，因为所有高级文件共享最多可以扩展到 100 TiB。
 
 ![适用于 Azure 文件存储的重要高级设置的屏幕截图](media/storage-how-to-create-file-share/create-storage-account-3.png)
@@ -125,7 +125,7 @@ $storAcct = New-AzStorageAccount `
 
 为了简化存储帐户和后续文件共享的创建，我们将在变量中存储多个参数。 可将变量内容替换为所需的任何值，但请注意，存储帐户名称必须全局唯一。
 
-```azurecli
+```bash
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="chinaeast2"
@@ -133,7 +133,7 @@ region="chinaeast2"
 
 我们将使用以下命令创建能够存储标准 Azure 文件共享的存储帐户。 `--sku` 参数与所需的冗余类型相关；如果需要异地冗余存储帐户，则还必须删除 `--enable-large-file-share` 参数。
 
-```azurecli
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -145,7 +145,7 @@ az storage account create \
 
 我们将使用以下命令创建能够存储高级 Azure 文件共享的存储帐户。 请注意，`--sku` 参数已更改为包含 `Premium` 和所需的冗余级别：本地冗余 (`LRS`)。 `--kind` 参数是 `FileStorage` 而不是 `StorageV2`，因为必须在 FileStorage 存储帐户（而不是 GPv2 存储帐户）中创建高级文件共享。
 
-```azurecli
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -183,60 +183,7 @@ az storage account create \
 > [!Important]  
 > 对于高级文件共享，`-QuotaGiB` 参数指的是文件共享的预配大小。 文件共享的预配大小是将要对你计费的数量，与使用情况无关。 标准文件共享按使用情况计费，而不是按预配大小计费。
 
-```azurepowershell
-$shareName = "myshare"
-
-New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -QuotaGiB 1024 | Out-Null
-```
-
-> [!Note]  
-> 文件共享的名称必须是全部小写。 若要全面且详细地了解如何为文件共享和文件命名，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-在使用 Azure CLI 创建 Azure 文件共享之前，必须先获取一个用于为文件共享创建操作授权的存储帐户密钥。 可以使用 [`az storage account keys list`](/cli/storage/account/keys) 命令实现此目的：
-
-```azurecli
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-```
-
-获取存储帐户密钥后，可以使用 [`az storage share create`](/cli/storage/share) 命令创建 Azure 文件共享。 
-
-> [!Important]  
-> 对于高级文件共享，`--quota` 参数指的是文件共享的预配大小。 文件共享的预配大小是将要对你计费的数量，与使用情况无关。 标准文件共享按使用情况计费，而不是按预配大小计费。
-
-```azurecli
-shareName="myshare"
-
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --name $shareName \
-    --quota 1024 \
-    --output none
-```
-
-如果存储帐户包含在虚拟网络中，而调用此命令的计算机不在该虚拟网络中，则此命令将会失败。 可以根据前面所述使用 Azure PowerShell `New-AzRmStorageShare` cmdlet 来解决此时间点限制，或者在位于该虚拟网络中的计算机上执行 Azure CLI（包括通过 VPN 连接执行）。
-
----
-
-> [!Note]  
-> 文件共享的名称必须是全部小写。 若要全面且详细地了解如何为文件共享和文件命名，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
-
-### <a name="create-a-hot-or-cool-file-share"></a>创建热文件共享或冷文件共享
-**常规用途 v2 (GPv2) 存储帐户**可以包含经过事务优化的热文件共享或冷文件共享（或二者的混合）。 事务优化共享可在所有 Azure 区域中提供，但热文件共享和冷文件共享仅在[部分区域](storage-files-planning.md#storage-tiers)提供。 可使用 Azure PowerShell 预览模块或 Azure CLI 创建热或冷文件共享。 
-
-# <a name="portal"></a>[门户](#tab/azure-portal)
-Azure 门户尚不支持创建热文件共享和冷文件共享，也不支持将现有的事务优化的文件共享移动到热或冷文件共享。 请查看有关使用 PowerShell 或 Azure CLI 创建文件共享的说明。
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Update the Azure storage module to use the preview version. You may need to close and 
 # reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
 # the following:
@@ -248,47 +195,38 @@ Uninstall-Module -Name Az.Storage
 Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
 
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
-# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
-# storage accounts. Standard tiers are only available in standard storage accounts. 
-$shareName = "myhotshare"
+# been populated. 
+$shareName = "myshare"
 
 New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -AccessTier Hot
-
-# You can also change an existing share's tier.
-Update-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -AccessTier Cool
+        -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $storageAccountName `
+        -Name $shareName `
+        -QuotaGiB 1024 | `
+    Out-Null
 ```
 
-> [!Note]  
-> 预览版 Az.Storage PowerShell 模块中提供了通过 PowerShell 设置和更改层级的功能。 这些 cmdlet 或其输出在正式发布的 Az.Storage PowerShell 模块中发布之前可能会发生更改，因此，创建脚本时请记住这一点。
-
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-最新的 Azure CLI 更新中提供了在特定层中创建文件共享或将文件共享移动到特定层的功能。 更新 Azure CLI 的操作特定于你使用的操作系统/Linux 发行版。 有关如何在你的系统上更新 Azure CLI 的说明，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+可以使用 [`az storage share-rm create`](/cli/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) 命令创建 Azure 文件共享。 以下 Azure CLI 命令假设你已根据前面“使用 Azure CLI 创建存储帐户”部分中的定义，设置了变量 `$resourceGroupName` 和 `$storageAccountName`。
+
+> [!Important]  
+> 对于高级文件共享，`--quota` 参数指的是文件共享的预配大小。 文件共享的预配大小是将要对你计费的数量，与使用情况无关。 标准文件共享按使用情况计费，而不是按预配大小计费。
 
 ```bash
-# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
-# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
-# storage accounts. Standard tiers are only available in standard storage accounts.
-shareName="myhotshare"
+shareName="myshare"
 
 az storage share-rm create \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
     --name $shareName \
-    --access-tier "Hot"
+    --quota 1024 \
+    --output none
 ```
 
-> [!Note]  
-> 最新的 Azure CLI 包中提供了使用 `--access-tier` 参数设置层级的功能（预览版）。 此命令或其输出在标记为正式发布之前可能会发生更改，因此，创建脚本时请记住这一点。
-
 ---
+
+> [!Note]  
+> 文件共享的名称必须是全部小写。 有关为文件共享和文件命名的完整详细信息，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
 - [规划 Azure 文件存储的部署](storage-files-planning.md)。 

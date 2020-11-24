@@ -10,18 +10,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/09/2019
 ms.date: 12/23/2019
-ms.openlocfilehash: 7de1a5b7284cc0611b559b8a094dc3b1a9119f0a
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 980b7a5b45a6bee1f358d65e88f3656d24baa9d7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723208"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552235"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>为 Azure HDInsight 群集选择适当的 VM 大小
 
 本文介绍如何为 HDInsight 群集中的各个节点选择适当的 VM 大小。 
 
-首先，请了解虚拟机的属性（例如 CPU 处理、RAM 大小和网络延迟）如何影响工作负荷的处理。 接下来，请考虑自己的应用程序，以及它如何与不同的优化 VM 系列相搭配。 请确保你要使用的 VM 系列与你打算部署的群集类型兼容。 最后，可以使用基准测试过程来测试某些示例工作负荷，并检查该系列中的哪个 SKU 适合自己。
+首先，请了解虚拟机的属性（例如 CPU 处理、RAM 大小和网络延迟）如何影响工作负荷的处理。 接下来，请考虑自己的应用程序，以及它如何与不同的优化 VM 系列相搭配。 请确保你要使用的 VM 系列与你打算部署的群集类型兼容。 有关每种群集类型的所有支持和建议的 VM 大小的列表，请参阅 [Azure HDInsight 支持的节点配置](hdinsight-supported-node-configuration.md)。 最后，可以使用基准测试过程来测试某些示例工作负荷，并检查该系列中的哪个 SKU 适合自己。
 
 有关群集其他方面（例如选择存储类型或群集大小）的规划详细信息，请参阅 [HDInsight 群集的容量规划](hdinsight-capacity-planning.md)。
 
@@ -29,9 +29,9 @@ ms.locfileid: "84723208"
 
 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
-- CPU：VM 大小决定了核心数。 核心越多，每个节点可实现的并行计算度就越大。 此外，某些 VM 类型的核心更快。
+- CPU：VM 大小支配核心数。 核心越多，每个节点可实现的并行计算度就越大。 此外，某些 VM 类型的核心更快。
 
-- RAM：VM 大小还决定了 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
+- RAM：VM 大小还支配 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
 
 - 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Data Lake Storage 或 Azure 存储之类的外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](/virtual-machines/linux/sizes)。
 
@@ -54,7 +54,7 @@ Azure 中的虚拟机系列经过优化，可以适应不同的用例。 在下�
 
 下表描述了可以使用 Fsv2 系列 VM 创建的群集类型和节点类型。
 
-| 群集类型 | 版本 | 工作器节点 | 头节点 | ZooKeeper 节点 |
+| 群集类型 | Version | 工作器节点 | 头节点 | ZooKeeper 节点 |
 |---|---|---|---|---|
 | Spark | 全部 | F4 和更大 | 否 | 否 |
 | Hadoop | 全部 | F4 和更大 | 否 | 否 |
@@ -74,4 +74,5 @@ Azure 中的虚拟机系列经过优化，可以适应不同的用例。 在下�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 中 Linux 虚拟机的大小](../virtual-machines/linux/sizes.md)
+- [Azure HDInsight 支持的节点配置](hdinsight-supported-node-configuration.md)
+- [Azure 中 Linux 虚拟机的大小](../virtual-machines/sizes.md)

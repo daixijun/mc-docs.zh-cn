@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/07/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: 58f4595f6574a96ff4a15dc6a4e8f5de93f0418c
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 4df0cb6bfa5737ce2cffe13f3745d2435e17ed82
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552898"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 管理 HDInsight 群集
 
@@ -29,7 +29,7 @@ ms.locfileid: "87917214"
 ## <a name="prerequisites"></a>先决条件
 * **HDInsight 上的 Hadoop 群集**。 请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-* **Windows 10 版 Bash on Ubuntu**。  本文中的示例使用 Windows 10 上的 Bash shell。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。  这些示例在经过轻微的修改后，可在 Windows 命令提示符下运行。  或者，可以使用 Windows PowerShell。
+* Windows 10 版 Bash on Ubuntu。  本文中的示例使用 Windows 10 上的 Bash shell。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。  这些示例在经过轻微的修改后，可在 Windows 命令提示符下运行。  或者，可以使用 Windows PowerShell。
 
 * 命令行 JSON 处理程序 **jq**。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 
@@ -37,7 +37,7 @@ ms.locfileid: "87917214"
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Ambari Rest API 的基本统一资源标识符
 
- HDInsight 上 Ambari REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.cn`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
+ HDInsight 上 Ambari REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称 **区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.cn`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
 
 ## <a name="authentication"></a>身份验证
 
@@ -268,7 +268,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1
 $respObj.Content
 ```
 
-此示例返回的 JSON 文档包含已安装组件的当前配置。 请参阅标记值**。 下面的示例是从 Spark 群集类型返回的数据摘录。
+此示例返回的 JSON 文档包含已安装组件的当前配置。 请参阅标记值。 下面的示例是从 Spark 群集类型返回的数据摘录。
 
 ```json
 "jupyter-site" : {
@@ -363,7 +363,9 @@ $resp.Content
 2. 编辑 `newconfig.json`。  
    打开 `newconfig.json` 文档并在 `properties` 对象中修改/添加值。 以下示例将 `"livy.server.csrf_protection.enabled"` 的值从 `"true"` 更改为 `"false"`。
 
-        "livy.server.csrf_protection.enabled": "false",
+    ```json
+    "livy.server.csrf_protection.enabled": "false",
+    ```
 
     完成修改后，保存该文件。
 
@@ -384,7 +386,7 @@ $resp.Content
     $resp.Content
     ```  
 
-    这些命令会将 newconfig.json 文件的内容提交到群集作为新配置****。 该请求会返回一个 JSON 文档。 此文档中的 **versionTag** 元素应该与提交的版本相匹配，并且 **configs** 对象包含你请求的配置更改。
+    这些命令会将 newconfig.json 文件的内容提交到群集作为新配置。 该请求会返回一个 JSON 文档。 此文档中的 **versionTag** 元素应该与提交的版本相匹配，并且 **configs** 对象包含你请求的配置更改。
 
 ### <a name="restart-a-service-component"></a>重启服务组件
 

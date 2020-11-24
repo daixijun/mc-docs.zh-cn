@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 03/03/2020
+origin.date: 04/28/2020
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 154abe3336b8f6e35994b2b7d6142c8433520cce
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 82c7e378b1bc2c294b25c0db02db132b2b4ea596
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516723"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551945"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -55,7 +55,7 @@ Azure 数据工厂以平台即服务 (PaaS) 的形式提供业务流程功能。
 
 1. 创建和安排数据驱动的工作流。 通过这些管道从不同的数据存储引入数据。
 1. 使用计算服务（如 HDInsight 或 Hadoop）处理和转换数据。 对于此步骤，还可使用 Spark、Azure Data Lake Analytics、Azure Batch 或 Azure 机器学习。
-1. 将输出数据发布到数据存储（例如 Azure SQL 数据仓库），供 BI 应用程序使用。
+1. 将输出数据发布到数据存储（例如 Azure Synapse Analytics），供 BI 应用程序使用。
 
 有关 Azure 数据工厂的详细信息，请参阅[文档](../../data-factory/introduction.md)。
 
@@ -91,11 +91,11 @@ Data Lake Storage 已针对使用 Azure 事件中心或 Apache Storm 运行的�
 
 - **从硬盘驱动器上传数据：** 可以使用 [Azure 导入/导出服务](../../storage/common/storage-import-export-service.md)将包含数据的硬盘驱动器发送到 Azure 数据中心。 数据会首先上传到 Azure Blob 存储。 然后可使用 Azure 数据工厂或 AdlCopy 工具从 Azure Blob 存储将数据复制到 Data Lake Storage。
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL 数据仓库
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL 数据仓库是存储已准备结果的恰当选择。 可以使用 Azure HDInsight 为 SQL 数据仓库执行这些服务。
+Azure Synapse Analytics（以前称为“SQL DW”）是存储准备好的结果的合适选择。 可以使用 Azure HDInsight 为 Azure Synapse Analytics 执行这些服务。
 
-Azure SQL 数据仓库是已针对分析工作负载进行优化的关系数据库。 它根据分区表进行缩放。 表可以跨多个节点分区。 在创建节点时便选择了节点。 可以在事后缩放节点，但是，该主动过程可能需要移动数据。 有关详细信息，请参阅[管理 SQL 数据仓库中的计算资源](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
+Azure Synapse Analytics 是已针对分析工作负荷进行优化的关系数据库存储。 它根据分区表进行缩放。 表可以跨多个节点分区。 在创建节点时便选择了节点。 可以在事后缩放节点，但是，该主动过程可能需要移动数据。 有关详细信息，请参阅[管理 Azure Synapse Analytics 中的计算资源](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 
 ### <a name="apache-hbase"></a>Apache HBase
 

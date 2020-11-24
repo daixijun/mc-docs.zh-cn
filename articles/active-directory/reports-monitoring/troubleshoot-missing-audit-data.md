@@ -1,28 +1,28 @@
 ---
-title: 排查 Azure Active Directory 活动日志中缺少数据的问题 | Microsoft Docs
+title: 排查活动日志中缺少数据的问题 | Microsoft Docs
 description: 为你提供了一种解决方法，解决在 Azure Active Directory 活动日志中缺少数据的问题。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-origin.date: 01/15/2018
-ms.date: 08/28/2018
+ms.subservice: report-monitor
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4c246a56d879826d673ace55d8c06b59d9924a01
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 293e20e021e211bc0b5fb1aee5c01cfef8b64837
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63822798"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501963"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>故障排除：Azure Active Directory 活动日志中缺少数据 
 
@@ -32,22 +32,68 @@ ms.locfileid: "63822798"
 
 我在 Azure 门户中执行了一些操作，本应在`Activity logs > Audit Logs`边栏选项卡中看到这些操作的审核日志，但却找不到。
 
- ![报表](./media/troubleshoot-missing-audit-data/01.png)
+ ![屏幕截图显示了“审核日志”条目。](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>原因
 
 操作不会立即显示在活动日志中。 下表枚举了活动日志的延迟数字。 
 
-| 报表 | &nbsp; | 延迟 (P95) | 延迟 (P99) |
-|--------|--------|---------------|---------------|
-| 目录审核 | &nbsp; | 2 分钟 | 5 分钟 |
+| 报表 | 延迟 (P95) | 延迟 (P99) |
+|--------|---------------|---------------|
+| 目录审核 | 2 分钟 | 5 分钟 |
+| 登录活动 | 2 分钟 | 5 分钟 |
 
 ### <a name="resolution"></a>解决方法
 
-等待 15 分钟到 2 小时，再看操作是否显示在日志中。
+等待 15 分钟到 2 小时，再看操作是否显示在日志中。 如果 2 小时后仍未看到日志，请[提交支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我们会进行调查。
+
+## <a name="i-cant-find-recent-user-sign-ins-in-the-azure-active-directory-sign-ins-activity-log"></a>在 Azure Active Directory 登录活动日志中找不到最近的用户登录活动
+
+### <a name="symptoms"></a>症状
+
+我最近登录了 Azure 门户，本应在`Activity logs > Sign-ins`边栏选项卡中看到这些操作的登录日志，但却找不到。
+
+ ![屏幕截图显示了“活动日志”中的“登录”。](./media/troubleshoot-missing-audit-data/02.png)
+ 
+### <a name="cause"></a>原因
+
+操作不会立即显示在活动日志中。 下表枚举了活动日志的延迟数字。 
+
+| 报表 | 延迟 (P95) | 延迟 (P99) |
+|--------|---------------|---------------|
+| 目录审核 | 2 分钟 | 5 分钟 |
+| 登录活动  2 分钟 | 5 分钟 |
+
+### <a name="resolution"></a>解决方法
+
+等待 15 分钟到 2 小时，再看操作是否显示在日志中。 如果 2 小时后仍未看到日志，请[提交支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)，我们会进行调查。
+
+## <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>无法在 Azure 门户中查看 30 天以上的报表数据
+
+### <a name="symptoms"></a>症状
+
+无法在 Azure 门户中查看 30 天以上的登录和审核数据。 为什么？ 
+
+ ![屏幕截图显示了“日期”菜单。](./media/troubleshoot-missing-audit-data/03.png)
+
+### <a name="cause"></a>原因
+
+根据你持有的许可证，Azure Active Directory 操作会按以下持续时间存储活动报告：
+
+| 报表           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---                 |
+| 目录审核  |  7 天       | 30 天             | 30 天             |
+| 登录活动 | 不可用。 可以在单个用户配置文件边栏选项卡中访问自己在 7 天内的登录活动 | 30 天 | 30 天             |
+
+有关详细信息，请参阅 [Azure Active Directory 报告保留策略](reference-reports-data-retention.md)。  
+
+### <a name="resolution"></a>解决方法
+
+可将审核日志集成到第三方 SIEM 系统（例如 Splunk 或 SumoLogic）中。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Active Directory 报告延迟](reference-reports-latencies.md)。
+* [Azure AD 报告保留期](reference-reports-data-retention.md)。
+* [Azure Active Directory 报告延迟](reference-reports-latencies.md)。
 
 

@@ -4,17 +4,17 @@ description: 了解如何在 Azure 门户中创建导入和导出作业，以便
 author: WenJason
 services: storage
 ms.service: storage
-ms.topic: article
-origin.date: 05/07/2019
-ms.date: 10/28/2019
+ms.topic: conceptual
+origin.date: 05/06/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 4cbeb4f8b98f2a9d8c88b778d7a9251254d50e2b
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: d6682086d65b7c98a7ac3013410e6d12786c40e7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026625"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552880"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -39,7 +39,7 @@ ms.locfileid: "91026625"
 10. 将以下命令行复制到文本编辑器并进行编辑，以创建命令行：
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:**_ /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
 
     下表介绍了这些命令行选项：
@@ -58,7 +58,7 @@ ms.locfileid: "91026625"
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>步骤 2：在 Azure 门户中创建导入作业。
 
-1. 登录 https://portal.azure.cn/ ，在“更多服务”->“存储”->“导入/导出作业”下，单击“创建导入/导出作业”  。
+1. 登录到 https://portal.azure.cn/ ，在“更多服务”->“存储”->“导入/导出作业”下，单击“创建导入/导出作业”。
 
 2. 在“基本”部分中，选择“导入 Azure”，输入作业名称字符串，选择订阅，输入或选择资源组。 输入导入作业的描述性名称。 请注意，输入的名称只能包含小写字母、数字、连字符和下划线，必须以字母开头并且不得包含空格。 在作业进行中以及作业完成后，使用所选名称来跟踪作业。
 
@@ -127,7 +127,7 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 下载最新版本的 [WAImportExport 工具](https://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)。 
 
 >[!NOTE]
->**以前的版本：** 可以[下载此工具的 WAImportExpot V1 版本](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)。 WAImportExpot V1 版本的工具支持**在已将数据预先写入磁盘的情况下准备磁盘**。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
+>**以前的版本：** 可以 [下载此工具的 WAImportExpot V1 版本](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)。 WAImportExpot V1 版本的工具支持 **在已将数据预先写入磁盘的情况下准备磁盘**。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
 
 >
 
@@ -160,7 +160,10 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 
 支持的寄送位置：
 - 中国东部
+- 中国东部 2
 - 中国北部
+- 中国北部 2
+
 
 ### <a name="shipping"></a>寄送
 **将驱动器寄送到数据中心：**
@@ -339,7 +342,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDire
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-若要**添加更多驱动器**，可以创建一个新的驱动器集文件并运行以下命令。 如果后续复制会话中的磁盘驱动器与 InitialDriveset .csv 中指定的不同，可以指定一个新的驱动器集 CSV 文件并将其作为值提供给“AdditionalDriveSet”参数。 使用**同一日记文件**的名称并提供**新的会话 ID**。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
+若要 **添加更多驱动器**，可以创建一个新的驱动器集文件并运行以下命令。 如果后续复制会话中的磁盘驱动器与 InitialDriveset .csv 中指定的不同，可以指定一个新的驱动器集 CSV 文件并将其作为值提供给“AdditionalDriveSet”参数。 使用 **同一日记文件** 的名称并提供 **新的会话 ID**。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -350,7 +353,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveS
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
 
-若要向同一个驱动器集添加更多数据，后续复制会话可以调用 WAImportExport 工具的 PrepImport 命令来复制其他文件/目录：对于 InitialDriveset .csv 文件中为相同硬盘驱动器指定的后续复制会话，请指定**同一日记文件**的名称并提供**新的会话 ID**；不需要提供存储帐户密钥。
+若要向同一个驱动器集添加更多数据，后续复制会话可以调用 WAImportExport 工具的 PrepImport 命令来复制其他文件/目录：对于 InitialDriveset .csv 文件中为相同硬盘驱动器指定的后续复制会话，请指定 **同一日记文件** 的名称并提供 **新的会话 ID**；不需要提供存储帐户密钥。
 
 ```
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
@@ -381,9 +384,9 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 3. 在“第 2 步:作业详细信息”中，从存储帐户部分中选择要导出其中数据的存储帐户。 “放置位置”将根据选定存储帐户所属的区域自动进行填充。 指定要从存储帐户导出到空驱动器的 blob 数据。 可以选择导出该存储帐户中的所有 Blob 数据，也可以指定要导出的 Blob 或 Blob 组。
 
-   若要指定要导出的 Blob，请使用“等于”**** 选择器，并指定该 Blob 的相对路径，以容器名称开头。 使用 *$root* 指定根容器。
+   若要指定要导出的 Blob，请使用“等于”选择器，并指定该 Blob 的相对路径，以容器名称开头。 使用 *$root* 指定根容器。
 
-   若要指定以某一前缀开头的所有 Blob，请使用“开头为”**** 选择器，并指定前缀，以正斜杠“/”开头。 该前缀可以是容器名称的前缀、完整容器名称或者后跟 Blob 名称前缀的完整容器名称。
+   若要指定以某一前缀开头的所有 Blob，请使用“开头为”选择器，并指定前缀，以正斜杠“/”开头。 该前缀可以是容器名称的前缀、完整容器名称或者后跟 Blob 名称前缀的完整容器名称。
 
    下表显示有效 Blob 路径的示例：
 
@@ -407,7 +410,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 5. 单击“摘要页”上的“确定”，完成“创建导入作业”
 
-6. 寄送磁盘后，返回到 Azure 门户上的“导入/导出”**** 页，再执行以下操作：a) 转到并单击导入作业；b) 单击“驱动器寄送后，更新作业状态和跟踪信息”****； 
+6. 寄送磁盘后，返回到 Azure 门户上的“导入/导出”页，再执行以下操作：a) 转到并单击导入作业；b) 单击“驱动器寄送后，更新作业状态和跟踪信息”； 
      c) 选中“标记为‘已寄送’”复选框；d) 输入“快递商”和“跟踪号码”。
 
    如果在创建作业后的 2 周内未更新跟踪号，该作业会过期。
@@ -486,7 +489,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 请仅发运硬盘驱动器。 不要包括电源线或 USB 电缆之类的物品。
 
-**** 是否必须通过 FedEx 或中国邮政寄送驱动器？
+是否必须通过 FedEx 或中国邮政寄送驱动器？
 
 可以通过任何知名的快递商（例如 FedEx 或中国邮政）将驱动器寄送到数据中心。 但是，如果要求我们将驱动器从数据中心寄回给你，你必须提供可用地址。
 

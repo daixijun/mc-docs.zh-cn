@@ -5,21 +5,22 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 03/20/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7abc68969d158b4e661555f8fc5a80706e687eac
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 5261d9c78a9a115dac9d32b2d89dfc2311ed4661
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246674"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552199"
 ---
 <!--Verified successfully on Portal section-->
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>使用系统分配的托管标识访问 Azure Cosmos DB 数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在本文中，你将设置一个无论是否轮换密钥都能可靠运行的解决方案，以使用[托管标识](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)访问 Azure Cosmos DB 密钥  。 本文中的示例使用 Azure Functions，但你可以使用任何支持托管标识的服务。 
 
@@ -54,9 +55,7 @@ ms.locfileid: "91246674"
 > Azure Cosmos DB 中对基于角色的访问控制的支持仅适用于控制平面操作。 将通过主密钥或资源令牌保护数据平面操作。 有关详细信息，请参阅[保护对数据的访问](secure-access-to-data.md)一文。
 
 > [!TIP] 
-> 分配角色时，请仅分配所需的访问权限。 如果服务只需读取数据，请向托管标识分配“Cosmos DB 帐户读取者”角色  。 
-
-<!--Not Available on  [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)-->
+> 分配角色时，请仅分配所需的访问权限。 如果服务只需读取数据，请向托管标识分配“Cosmos DB 帐户读取者”角色  。 若要详细了解最小特权访问权限的重要性，请参阅[降低特权帐户的泄露风险](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)一文。
 
 在此方案中，函数应用将读取水族箱的温度，然后将此数据写回到 Azure Cosmos DB 中的容器。 由于函数应用必须写入数据，因此你需要分配“DocumentDB 帐户参与者”角色  。 
 

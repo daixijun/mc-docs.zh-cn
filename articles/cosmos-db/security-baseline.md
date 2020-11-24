@@ -5,42 +5,42 @@ ms.service: security
 ms.topic: conceptual
 origin.date: 03/16/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 902ffa75d3c93e0ec78831c312c724c2aac3f997
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f56338b372fd113cf74527f2e534b7ec0b006ef4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246722"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552421"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB 的 Azure 安全基线
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建议。
 
-此服务的基线摘自 [Azure 安全基准版本 1.0](/security/benchmarks/overview)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
+此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 ## <a name="network-security"></a>网络安全
 
-有关详细信息，请参阅[安全控制：网络安全性](/security/benchmarks/security-control-network-security)。
+有关详细信息，请参阅[安全控制：网络安全性](../security/benchmarks/security-control-network-security.md)。
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
 
-**指导**：可以通过为网络安全组 (NSG) 配置一组严格的出站规则并将该 NSG 与子网相关联，来降低数据外泄的风险。
-
-<!--Not Available on By using Azure Private Link, you can connect to an Azure Cosmos account via a Private Endpoint. Traffic between your virtual network and the service traverses over the Azure backbone network, eliminating exposure from the public Internet.  -->
+**指导**：可以使用 Azure 专用链接通过专用终结点连接到 Azure Cosmos 帐户。 虚拟网络与服务之间的流量将通过 Azure 主干网络，因此不会从公共 Internet 泄露。 还可以通过为网络安全组 (NSG) 配置一组严格的出站规则并将该 NSG 与子网相关联，降低数据外泄的风险。
 
 还可以使用服务终结点来保护 Azure Cosmos 帐户。 通过启用服务终结点，可将 Azure Cosmos 帐户配置为仅允许从 Azure 虚拟网络的特定子网进行访问。 启用 Azure Cosmos DB 服务终结点后，便可以将对 Azure Cosmos 帐户的访问限制为只能通过来自虚拟网络中某个子网的连接进行。
 
 还可以使用 IP 防火墙保护存储在 Azure Cosmos 帐户中的数据。 Azure Cosmos DB 支持使用基于 IP 的访问控制来提供入站防火墙支持。 可以使用 Azure 门户、Azure 资源管理器模板、Azure CLI 或 Azure PowerShell 在 Azure Cosmos 帐户上设置 IP 防火墙。
 
 <!--Not Available on https://docs.azure.cn/private-link/private-link-overview-->
-<!--Not Available on https://docs.azure.cn/cosmos-db/how-to-configure-private-endpoints-->
+
+如何为 Azure Cosmos DB 配置专用终结点： https://docs.azure.cn/cosmos-db/how-to-configure-private-endpoints 
 
 如何创建采用安全配置的网络安全组： https://docs.azure.cn/virtual-network/tutorial-filter-network-traffic
 
@@ -140,7 +140,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-有关详细信息，请参阅[安全控制：日志记录和监视](/security/benchmarks/security-control-logging-monitoring)。
+有关详细信息，请参阅[安全控制：日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -167,7 +167,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -214,7 +214,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -222,7 +222,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-有关详细信息，请参阅[安全控制：标识和访问控制](/security/benchmarks/security-control-identity-access-control)。
+有关详细信息，请参阅[安全控制：标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -240,9 +240,9 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 在 Azure Active Directory 中创建新角色： https://docs.azure.cn/role-based-access-control/custom-roles
 
-如何使用 PowerShell 获取 Azure Active Directory 中的目录角色： https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+如何使用 PowerShell 获取 Azure Active Directory 中的目录角色： https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-如何使用 PowerShell 获取 Azure Active Directory 中目录角色的成员： https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+如何使用 PowerShell 获取 Azure Active Directory 中目录角色的成员： https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 将用户访问权限仅限于数据操作： https://docs.azure.cn/cosmos-db/how-to-restrict-user-data
 
@@ -252,7 +252,7 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2：在适用的情况下更改默认密码
 
-**指导**：不存在与 Azure AD 或 Azure Cosmos DB 相关的默认密码或空白密码的概念。 Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数据和资源的访问权限：主密钥和资源令牌。 随时可以重新生成这些密钥。
+**指导**：不存在与 Azure AD 或 Azure Cosmos DB 相关的默认密码或空白密码的概念。 但是，Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数据和资源的访问权限：主密钥和资源令牌。 随时可以重新生成这些密钥。
 
 了解如何保护对 Azure Cosmos DB 中数据的访问： https://docs.azure.cn/cosmos-db/secure-access-to-data
 
@@ -315,11 +315,27 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 **责任**：客户
 
-<!--Not Available on ### 3.8: Manage Azure resources from only approved locations-->
-<!--Not Available on https://docs.azure.cn/active-directory/reports-monitoring/quickstart-configure-named-locations-->
+### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8：仅从批准的位置管理 Azure 资源
 
-<!--Not Available on ### 3.9: Use Azure Active Directory-->
-<!--Not Available on  https://docs.azure.cn/active-directory-domain-services/tutorial-create-instance-->
+**指导**：配置条件访问策略的位置条件，并管理你的命名位置。 使用命名位置可以创建 IP 地址范围或者国家和地区的逻辑分组。 可以将对敏感资源（例如 Azure Cosmos DB 实例）的访问限制为已配置的命名位置。
+
+如何在 Azure 中配置命名位置： https://docs.azure.cn/active-directory/reports-monitoring/quickstart-configure-named-locations
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
+### <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
+
+指南：使用 Azure Active Directory (AD) 作为中央身份验证和授权系统。 Azure AD 通过对静态数据和传输中的数据使用强加密来保护数据。 Azure AD 还会对用户凭据进行加盐、哈希处理和安全存储操作。
+
+如何创建和配置 Azure Active Directory 实例： https://docs.azure.cn/active-directory-domain-services/tutorial-create-instance
+
+如何使用 Azure SQL 配置和管理 Azure Active Directory 身份验证： https://docs.azure.cn/sql-database/sql-database-aad-authentication-configure
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10：定期审查和协调用户访问
 
@@ -331,8 +347,15 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 **责任**：客户
 
-<!--Not Available on ### 3.11: Monitor attempts to access deactivated accounts-->
-<!--Not Available on https://docs.azure.cn/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics-->
+### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11：监视尝试访问已停用帐户的行为
+
+**指导**：你可以为 Azure Active Directory 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区（你可以在其中配置所需的警报）。
+
+如何将 Azure 活动日志集成到 Azure Monitor： https://docs.azure.cn/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+
+**Azure 安全中心监视**：当前不可用
+
+**责任**：客户
 
 <!--Not Available on ### 3.12: Alert on account login behavior deviation-->
 <!--Not Available on  https://docs.azure.cn/active-directory/reports-monitoring/concept-risky-sign-ins-->
@@ -344,7 +367,7 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 ## <a name="data-protection"></a>数据保护
 
-有关详细信息，请参阅[安全控制：数据保护](/security/benchmarks/security-control-data-protection)。
+有关详细信息，请参阅[安全控制：数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
@@ -366,7 +389,7 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 如何创建和使用标记： https://docs.azure.cn/azure-resource-manager/resource-group-using-tags
 
-<!--Not Available on https://docs.azure.cn/cosmos-db/how-to-configure-private-endpoints-->
+如何为 Azure Cosmos DB 配置专用终结点： https://docs.azure.cn/cosmos-db/how-to-configure-private-endpoints
 
 如何创建采用安全配置的网络安全组： https://docs.azure.cn/virtual-network/tutorial-filter-network-traffic
 
@@ -454,7 +477,7 @@ Azure 管理 Cosmos DB 的底层基础结构，并实施了严格的控制措施
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-有关详细信息，请参阅[安全控制：漏洞管理。](/security/benchmarks/security-control-vulnerability-management)
+有关详细信息，请参阅[安全控制：漏洞管理。](../security/benchmarks/security-control-vulnerability-management.md)
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -502,7 +525,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ## <a name="inventory-and-asset-management"></a>清单和资产管理
 
-有关详细信息，请参阅[安全控制：清单和资产管理](/security/benchmarks/security-control-inventory-asset-management)。
+有关详细信息，请参阅[安全控制：清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1：使用 Azure 资产发现
 
@@ -512,7 +535,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 如何使用 Azure Resource Graph 创建查询： https://docs.azure.cn/governance/resource-graph/first-query-portal
 
-如何查看 Azure 订阅： https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+如何查看 Azure 订阅： https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 了解 Azure 基于角色的访问控制： https://docs.azure.cn/role-based-access-control/overview
 
@@ -620,7 +643,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 **责任**：不适用
 
-### <a name="611-limit-users-ability-to-interact-with-azureresources-manager-via-scripts"></a>6.11：限制用户通过脚本与 Azure 资源管理器进行交互的能力
+### <a name="611-limit-users-ability-to-interact-with-azureresources-manager-via-scripts"></a>6.11：限制用户通过脚本与 Azure 资源管理器进行交互的功能
 
 **指导**：通过为“Azure 管理”应用配置“阻止访问”，使用 Azure 条件访问来限制用户与 Azure 资源管理器交互的功能。 这可防止在高度安全的环境中创建和更改资源。
 
@@ -648,7 +671,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ## <a name="secure-configuration"></a>安全配置
 
-有关详细信息，请参阅[安全控制：安全配置](/security/benchmarks/security-control-secure-configuration)。
+有关详细信息，请参阅[安全控制：安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -658,7 +681,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 - Cosmos DB 应使用虚拟网络服务终结点
 
-如何查看可用的 Azure Policy 别名： https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+如何查看可用的 Azure Policy 别名： https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 如何配置和管理 Azure Policy： https://docs.azure.cn/governance/policy/tutorials/create-and-manage
 
@@ -741,10 +764,35 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 **责任**：不适用
 
-<!--Not Available on ### 7.11: Manage Azure secrets securely-->
+### <a name="711-manage-azure-secrets-securely"></a>7.11：安全管理 Azure 机密
+
+**指导**：对于在 Azure 应用服务上运行的用于访问 Azure Cosmos DB 实例的 Azure 虚拟机或 Web 应用程序，请将托管服务标识与 Azure Key Vault 结合使用，以简化和保护 Azure Cosmos DB 机密管理。 确保启用 Key Vault 软删除。
+
+<!--Not Avaialble on  https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
+
+如何创建 Key Vault： https://docs.azure.cn/key-vault/general/quick-create-portal
+
+如何对 Key Vault 进行身份验证： https://docs.azure.cn/key-vault/general/authentication
+
+如何分配 Key Vault 访问策略： https://docs.azure.cn/key-vault/general/assign-access-policy-portal
+
+**Azure 安全中心监视**：是
+
+**责任**：客户
+
+### <a name="712-manage-identities-securely-and-automatically"></a>7.12：安全自动管理标识
+
+**指导**：对于在 Azure 应用服务上运行的用于访问 Azure Cosmos DB 实例的 Azure 虚拟机或 Web 应用程序，请将托管服务标识与 Azure Key Vault 结合使用，以简化和保护 Azure Cosmos DB 机密管理。
+
+使用托管标识在 Azure Active Directory (AD) 中为 Azure 服务提供一个自动托管标识。 通过托管标识可向支持 Azure AD 身份验证的任何服务（包括 Key Vault）证明身份，无需在代码中放入任何凭据。
+
+如何配置托管标识： https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+
 <!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
-<!--Not Available on ### 7.12: Manage identities securely and automatically-->
-<!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
+
+**Azure 安全中心监视**：是
+
+**责任**：客户
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除意外的凭据透露
 
@@ -758,11 +806,11 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-有关详细信息，请参阅[安全控制：恶意软件防护](/security/benchmarks/security-control-malware-defense)。
+有关详细信息，请参阅[安全控制：恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
-**指导**：不适用；此项指导适用于计算资源。 在支持 Azure 服务（例如 Azure 应用服务）的底层主机上已启用 Azure 反恶意软件，但是，该软件不会针对客户内容运行。
+**指导**：不适用；此项指导适用于计算资源。 Microsoft Antimalware 已在支持 Azure 服务（例如 Azure 应用服务）的基础主机上启用，但它不会针对客户内容运行。
 
 **Azure 安全中心监视**：不适用
 
@@ -770,7 +818,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2：预先扫描要上传到非计算 Azure 资源的文件
 
-**指导**：在支持 Azure 服务（例如 Azure 应用服务）的底层主机上已启用 Azure 反恶意软件，但是，该软件不会针对客户内容运行。
+**指导**：Microsoft Antimalware 已在支持 Azure 服务（例如 Azure 应用服务）的基础主机上启用，但它不会针对客户内容运行。
 
 你需负责预先扫描要上传到非计算 Azure 资源（包括 Azure Cosmos DB）的任何文件。 Azure 无法访问客户数据，因此无法代表你对客户内容执行反恶意软件扫描。
 
@@ -780,7 +828,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>步骤 8.3：确保反恶意软件和签名已更新
 
-**指导**：不适用；基准适用于计算资源。 在支持 Azure 服务的底层主机上已启用 Azure 反恶意软件，但是，该软件不会针对客户内容运行。
+**指导**：不适用；基准适用于计算资源。 在支持 Azure 服务的底层主机上已启用 Microsoft Antimalware，但是，该软件不会针对客户内容运行。
 
 **Azure 安全中心监视**：不适用
 
@@ -788,7 +836,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 ## <a name="data-recovery"></a>数据恢复
 
-有关详细信息，请参阅[安全控制：数据恢复](/security/benchmarks/security-control-data-recovery)。
+有关详细信息，请参阅[安全控制：数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -832,7 +880,7 @@ https://docs.azure.cn/cosmos-db/how-to-backup-and-restore
 
 如何还原 Azure Key Vault 机密：
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Azure 安全中心监视**：不适用
 
@@ -854,7 +902,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ## <a name="incident-response"></a>事件响应
 
-有关详细信息，请参阅[安全控制：事件响应](/security/benchmarks/security-control-incident-response)。
+有关详细信息，请参阅[安全控制：事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
@@ -866,7 +914,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 有关生成自己的安全事件响应过程的指南： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Microsoft 安全响应中心的事件剖析： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 **Azure 安全中心监视**：不适用
 
@@ -874,7 +922,7 @@ Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及有关导致发出警报的活动存在恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及有关导致发出警报的活动存在恶意企图的置信度。
 
 此外，请明确标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
 
@@ -894,7 +942,7 @@ Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4：提供安全事件联系人详细信息，并针对安全事件配置警报通知
 
-**指导**：如果 Azure 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了客户的数据，Azure 将使用安全事件联系人信息与你取得联系。  事后审查事件，确保问题得到解决。
+**指导**：如果 Microsoft 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了客户的数据，Azure 将使用安全事件联系人信息与你取得联系。  事后审查事件，确保问题得到解决。
 
 如何设置 Azure 安全中心安全联系人： https://docs.azure.cn/security-center/security-center-provide-security-contact-details
 
@@ -902,15 +950,31 @@ Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/
 
 **责任**：客户
 
-<!--Not Available on ### 10.5: Incorporate security alerts into your incident response system-->
-<!--Not Available on https://docs.azure.cn/security-center/continuous-export-->
+### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5：将安全警报整合到事件响应系统中
+
+**指导**：使用连续导出功能导出 Azure 安全中心警报和建议。 使用连续导出可以手动导出或者持续导出警报和建议。 可以使用 Azure 安全中心数据连接器将警报流式传输到 Sentinel。
+
+如何配置连续导出： https://docs.azure.cn/security-center/continuous-export
+
 <!--Not Available on  https://docs.azure.cn/sentinel/connect-azure-security-center-->
-<!--Not Available on  ### 10.6: Automate the response to security alerts-->
-<!--Not Available on   https://docs.azure.cn/security-center/workflow-automation-->
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
+### <a name="106-automate-the-response-to-security-alerts"></a>10.6：自动响应安全警报
+
+指南：使用 Azure 安全中心的工作流自动化功能，通过“逻辑应用”对安全警报和建议自动触发响应。
+
+如何配置工作流自动化和逻辑应用： https://docs.azure.cn/security-center/workflow-automation
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-有关详细信息，请参阅[安全控制：渗透测试和红队演练](/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+有关详细信息，请参阅[安全控制：渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1：定期对 Azure 资源执行渗透测试，确保在 60 天内修正所有发现的关键安全问题
 
@@ -924,7 +988,7 @@ Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/
 
 ## <a name="next-steps"></a>后续步骤
 
-- 参阅 [Azure 安全基准](/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/security/benchmarks/security-baselines-overview)
+- 参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

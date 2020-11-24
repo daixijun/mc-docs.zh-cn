@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/10/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d1b868269b955e3cf0eefa5c7061bfc749184e
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d2a0d7bfa11c6aee8a46a859288dc27237b71ec2
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936950"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501975"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -39,7 +39,7 @@ ms.locfileid: "91936950"
 
   ![显示访问评审流的关系图。](./media/deploy-access-review/1-planning-review.png)
 
-访问评审是一项 [Azure AD Identity Governance](identity-governance-overview.md) 功能。 其他功能是：[权利管理](entitlement-management-overview.md)、[Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 将它们配合使用，可帮助组织解决以下四个问题：
+访问评审是一项 [Azure AD Identity Governance](identity-governance-overview.md) 功能。 其他功能包括：[Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 将它们配合使用，可帮助组织解决以下四个问题：
 
 * 哪些用户应该有权访问哪些资源？
 
@@ -68,7 +68,7 @@ ms.locfileid: "91936950"
 
 你需要一个有效的 Azure AD Premium (P2) 许可证，用于将创建或执行访问评审的每个用户（不是全局管理员或用户管理员）。 有关详细信息，请参阅[访问评审许可证要求](access-reviews-overview.md)。
 
-可能还需要其他 Identity Governance 功能，例如[权利生命周期管理](entitlement-management-overview.md)或 Privileged Identity Management。 在这种情况下，可能还需要相关的许可证。 有关详细信息，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)。
+可能还需要其他 Identity Governance 功能，例如 Privileged Identity Management。 在这种情况下，可能还需要相关的许可证。 有关详细信息，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)。
 
 ## <a name="plan-the-access-reviews-deployment-project"></a>规划访问评审部署项目
 
@@ -165,7 +165,7 @@ ms.locfileid: "91936950"
 
 * 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Microsoft 365 中创建，包括 Microsoft Teams）。
 
-* [访问包](/active-directory/governance/entitlement-management-overview)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
+* 访问包：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
 
 * [Azure AD 角色和 Azure 资源角色](../privileged-identity-management/pim-resource-roles-assign-roles.md)：详见 Privileged Identity Management 中的定义。
 
@@ -181,7 +181,7 @@ ms.locfileid: "91936950"
 | 访问包| 全局管理员<p>访问包的创建者| 仅限全局管理员 |
 
 
-有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。
+有关详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../roles/permissions-reference.md)。
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>谁将评审对资源的访问权限？
 
@@ -277,9 +277,9 @@ ms.locfileid: "91936950"
 
 ## <a name="plan-access-reviews-for-access-packages"></a>规划访问包的访问评审
 
-[访问包](entitlement-management-overview.md)可以极大地简化治理和访问评审策略。 访问包是一个捆绑包，其中包含的所有资源所具有的访问权限是用户在处理项目或执行其任务时需要的。 例如，你可能希望创建一个访问包，其中包含组织中的开发人员所需的所有应用程序，或外部用户应该有权访问的所有应用程序。 然后，管理员或受委托的访问包管理员会将资源（组或应用）以及用户需要将其用于这些资源的角色分组。
+访问包可以极大地简化治理和访问评审策略。 访问包是一个捆绑包，其中包含的所有资源所具有的访问权限是用户在处理项目或执行其任务时需要的。 例如，你可能希望创建一个访问包，其中包含组织中的开发人员所需的所有应用程序，或外部用户应该有权访问的所有应用程序。 然后，管理员或受委托的访问包管理员会将资源（组或应用）以及用户需要将其用于这些资源的角色分组。
 
-[创建访问包](entitlement-management-access-package-create.md)时，可以创建一个或多个访问策略，用于设置用户请求访问包的条件、审批流程的外观，以及人员需要重新请求访问权限的频率。 访问评审在创建或编辑访问包策略时配置。
+创建访问包时，可以创建一个或多个访问策略，用于设置用户请求访问包的条件、审批流程的外观，以及人员需要重新请求访问权限的频率。 访问评审在创建或编辑访问包策略时配置。
 
 打开“生命周期”选项卡即可向下滚动到“访问评审”。
 
@@ -371,7 +371,7 @@ ms.locfileid: "91936950"
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>规划 Azure AD 和 Azure 资源角色的评审
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 简化了企业对 Azure AD 中的资源的特权访问管理方式。 这样可以大大缩小 [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) 和 [Azure 资源](../../role-based-access-control/built-in-roles.md)中的特权角色的列表，提高目录的总体安全性。
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 简化了企业对 Azure AD 中的资源的特权访问管理方式。 这样可以大大缩小 [Azure AD](../roles/permissions-reference.md) 和 [Azure 资源](../../role-based-access-control/built-in-roles.md)中的特权角色的列表，提高目录的总体安全性。
 
 访问评审允许审阅者证实用户是否仍需担任某个角色。 与访问包的访问评审一样，Azure AD 角色和 Azure 资源的评审已集成到 PIM 管理员用户体验中。 建议定期评审下列角色分配：
 
@@ -403,9 +403,9 @@ ms.locfileid: "91936950"
 
 | 操作方法文章| 描述 |
 | - | - |
-| [创建访问评审](entitlement-management-access-reviews-create.md)| 启用对访问包的评审。 |
-| [执行访问评审](entitlement-management-access-reviews-review-access.md)| 针对分配到访问包的其他用户执行访问评审。 |
-| [自我评审分配的访问包](entitlement-management-access-reviews-self-review.md)| 自我评审分配的访问包 |
+| 创建访问评审| 启用对访问包的评审。 |
+| 执行访问评审| 针对分配到访问包的其他用户执行访问评审。 |
+| 自我评审分配的访问包| 自我评审分配的访问包 |
 
 
 > [!NOTE]
@@ -497,8 +497,5 @@ ms.locfileid: "91936950"
 
 了解以下相关技术。
 
-* [什么是 Azure AD 权利管理？](entitlement-management-overview.md)
-
 * [什么是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
-
 

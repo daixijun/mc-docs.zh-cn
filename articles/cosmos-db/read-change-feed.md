@@ -3,23 +3,24 @@ title: 读取 Azure Cosmos DB 更改源
 description: 本文介绍可用于读取和访问 Azure Cosmos DB 中的更改源的各种选项。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/09/2020
+origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 290734cd88b8c80b20c1013b8878be99ac4fe4e6
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: dacce1a79adf913e9b1fcc9f397f52180e9bffb4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246501"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552774"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>读取 Azure Cosmos DB 更改源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-可以使用推送模型或拉取模型来处理 Azure Cosmos DB 更改源。 使用推送模型时，服务器（更改源处理器）会将工作推送到具有用于处理此工作的业务逻辑的客户端。 但是，在检查工作以及存储上次已处理工作的状态时，所遇到的复杂情况将在服务器上进行处理。
+可以使用推送模型或拉取模型来处理 Azure Cosmos DB 更改源。 使用推送模型时，更改源处理器会将工作推送到具有用于处理此工作的业务逻辑的客户端。 但是，在检查工作以及存储上次已处理工作的状态时，所遇到的复杂情况将在更改源处理器中进行处理。
 
 使用拉取模型时，客户端必须从服务器拉取工作。 在这种情况下，客户端不仅具有用于处理工作的业务逻辑，而且还存储上次已处理工作的状态，在并行处理工作的多个客户端上处理负载均衡，并且处理错误。
 
@@ -42,7 +43,7 @@ ms.locfileid: "91246501"
 
 ### <a name="azure-functions"></a>Azure Functions
 
-如果你对更改源还不太了解，则 Azure Functions 是最简单的选项。 由于其简易性，它也是大多数更改源用例的建议选项。 为 Azure Cosmos DB 创建 Azure Functions 触发器时，请选择要连接的容器，每当该容器中发生更改时，都会触发 Azure 函数。 由于 Azure Functions 在后台使用更改源处理器，因此它会自动在容器的[分区](partition-data.md)之间并行化更改处理操作。
+如果你对更改源还不太了解，则 Azure Functions 是最简单的选项。 由于其简易性，它也是大多数更改源用例的建议选项。 为 Azure Cosmos DB 创建 Azure Functions 触发器时，请选择要连接的容器，每当该容器中发生更改时，都会触发 Azure 函数。 由于 Azure Functions 在后台使用更改源处理器，因此它会自动在容器的[分区](partitioning-overview.md)之间并行化更改处理操作。
 
 使用 Azure Functions 进行开发是一种简单体验，可能比在你自己的平台上部署更改源处理器更快。 可以使用 Azure Functions 门户来创建触发器，也可以使用 SDK 以编程方式这样做。 Visual Studio 和 VS Code 支持编写 Azure 函数，你甚至可以使用 Azure Functions CLI 进行跨平台开发。 可以在桌面上编写和调试代码，然后单击一下鼠标部署函数。 有关详细信息，请参阅[使用 Azure Functions 进行无服务器数据库计算](serverless-computing-database.md)和[将更改源与 Azure Functions 配合使用](change-feed-functions.md)。
 
@@ -71,7 +72,7 @@ ms.locfileid: "91246501"
 拉取模型不提供内置的“至少一次”传送保证。 拉取模型允许进行较低级别的控制，可让你确定如何处理错误。
 
 > [!NOTE]
-> 更改源拉取模型当前[仅在 Azure Cosmos DB .NET SDK 中提供了预览版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview)。 该预览版尚不可用于其他 SDK 版本。
+> 更改源拉取模型当前[仅在 Azure Cosmos DB .NET SDK 中提供了预览版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview)。 该预览版尚不可用于其他 SDK 版本。
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>适用于 Cassandra 和 MongoDB 的 API 中的更改源
 

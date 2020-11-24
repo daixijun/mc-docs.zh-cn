@@ -7,16 +7,16 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 origin.date: 05/18/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6dc35aeb7842d3c923235799b667cdb0b1d95ab
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 0dd40e7e87344b6b1cf52d40002d7c2a4c632cc8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753605"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552143"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure CLI 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -33,14 +33,14 @@ ms.locfileid: "88753605"
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>确保安装正确版本的 Azure CLI
 
-1. 如果在本地[安装了](/cli/install-azure-cli?view=azure-cli-latest) Azure CLI，请打开命令控制台应用程序，例如 Windows PowerShell。
+1. 如果在本地[安装了](/cli/install-azure-cli) Azure CLI，请打开命令控制台应用程序，例如 Windows PowerShell。
 
 2. 使用以下命令验证安装的 Azure CLI 版本是否是 `2.6.0` 或更高版本。
 
    ```azurecli
     az --version
    ```
-   如果 Azure CLI 版本低于 `2.6.0`，则安装更高版本。 请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+   如果 Azure CLI 版本低于 `2.6.0`，则安装更高版本。 请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="connect-to-the-account"></a>连接到帐户
 
@@ -217,7 +217,7 @@ az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-syst
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-permissions"></a>管理权限
+## <a name="manage-access-control-lists-acls"></a>管理访问控制列表 (ACL)
 
 可以获取、设置和更新目录和文件的访问权限。
 
@@ -274,7 +274,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 下图显示了设置文件 ACL 后的输出。
 
-![获取 ACL 输出](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![获取 ACL 输出 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 在本示例中，负责人用户和负责人组只有读取和写入权限。 所有其他用户都具有写入和执行权限。 有关访问控制列表的详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](data-lake-storage-access-control.md)。
 

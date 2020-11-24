@@ -1,23 +1,24 @@
 ---
 title: 在 Azure Cosmos DB 中使用存储过程、触发器和 UDF
 description: 本文介绍 Azure Cosmos DB 中存储过程、触发器和用户定义的函数的概念。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/09/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 2822d990a97ecec464cd9557fe02eda4de596c20
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 61196a53a8d71416ed3195333e4ecf3582c1cdc9
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320757"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552487"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言编写**存储过程**、**触发器**和**用户定义的函数 (UDF)** 。 可以使用 JavaScript 编写可在数据库引擎内部执行的逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 或 [Cosmos DB SQL API 客户端 SDK](how-to-use-stored-procedures-triggers-udfs.md) 来创建及执行触发器、存储过程与 UDF。
+Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言编写 **存储过程**、**触发器** 和 **用户定义的函数 (UDF)** 。 可以使用 JavaScript 编写可在数据库引擎内部执行的逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 或 [Cosmos DB SQL API 客户端 SDK](how-to-use-stored-procedures-triggers-udfs.md) 来创建及执行触发器、存储过程与 UDF。
 
 ## <a name="benefits-of-using-server-side-programming"></a>使用服务器端编程的优势
 
@@ -25,7 +26,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 * **过程逻辑：** 作为一种高级编程语言，JavaScript 提供用户熟悉的丰富接口来表达业务逻辑。 可以针对数据执行一系列复杂操作。
 
-* **原子事务：** Azure Cosmos DB 保证在单个存储过程或触发器内执行的数据库操作具有原子性。 此原子功能可让应用程序在单个批中合并相关操作，因此操作要么全部成功，要么全部失败。
+* **原子事务：** 在单个存储过程或触发器内执行的 Azure Cosmos DB 数据库操作具有原子性。 此原子功能可让应用程序在单个批中合并相关操作，因此操作要么全部成功，要么全部失败。
 
 * **性能：** JSON 数据在本质上会映射到 JavaScript 语言类型系统。 这种映射可以实现多种优化，例如，在缓冲池中将 JSON 文档惰性具体化，并使其可按需供执行代码使用。 还有其他与传送业务逻辑到数据库相关的性能优势，包括：
 
@@ -56,7 +57,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 ### <a name="scope-of-a-transaction"></a>事务的范围
 
-存储过程将与 Azure Cosmos 容器关联，存储过程的执行范围限定于一个逻辑分区键。 存储过程必须在执行期间包括一个逻辑分区键值，用于定义事务范围的逻辑分区。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partition-data.md)一文。
+存储过程将与 Azure Cosmos 容器关联，存储过程的执行范围限定于一个逻辑分区键。 存储过程必须在执行期间包括一个逻辑分区键值，用于定义事务范围的逻辑分区。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partitioning-overview.md)一文。
 
 ### <a name="commit-and-rollback"></a>提交和回滚
 
@@ -64,7 +65,7 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 ### <a name="data-consistency"></a>数据一致性
 
-存储过程和触发器始终在 Azure Cosmos 容器的主要副本上执行。 此功能可确保从存储过程执行的读取提供[非常一致性](consistency-levels-tradeoffs.md)。 使用用户定义的函数的查询可以在主要副本或任何辅助副本上执行。 存储过程和触发器旨在支持事务写入 - 同时，最好是将只读逻辑实现为应用程序端逻辑，使用 [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md) 的查询有助于最大程度地利用数据库吞吐量。 
+存储过程和触发器始终在 Azure Cosmos 容器的主要副本上执行。 此功能可确保从存储过程执行的读取提供[非常一致性](./consistency-levels.md)。 使用用户定义的函数的查询可以在主要副本或任何辅助副本上执行。 存储过程和触发器旨在支持事务写入 - 同时，最好是将只读逻辑实现为应用程序端逻辑，使用 [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md) 的查询有助于最大程度地利用数据库吞吐量。 
 
 > [!TIP]
 > 在存储过程或触发器中执行的查询可能看不到同一脚本事务对项目所做的更改。 此语句同时适用于 SQL 查询（如 `getContent().getCollection.queryDocuments()`）以及集成语言查询（如 `getContext().getCollection().filter()`）。

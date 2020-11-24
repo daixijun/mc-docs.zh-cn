@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/29/2020
 ms.date: 10/19/2020
 ms.author: v-yiso
-ms.openlocfilehash: c127be8bda1cdd9eb43b2a925c7d9dcbea46e515
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 008c1fefc6b01329ff6990d7b4dc7b73b2be6364
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472152"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552198"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
 
@@ -48,8 +48,8 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 |设置 |Python 2.7|Python 3.5|
 |----|----|----|
 |`Path`|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark 版本|默认设置为 2.7|空值|
-|Livy 版本|默认设置为 2.7|空值|
+|Spark 版本|默认设置为 2.7|可以将配置更改为 3.5|
+|Livy 版本|默认设置为 2.7|可以将配置更改为 3.5|
 |Jupyter|PySpark 内核|PySpark3 内核|
 
 ## <a name="safely-install-external-python-packages"></a>安全安装外部 Python 包
@@ -130,7 +130,25 @@ HDInsight 群集依赖于内置 Python 环境（Python 2.7 和 Python 3.5）。 
 
     4. 保存更改并重启受影响的服务。 需要重启 Spark2 服务才能使这些更改生效。 Ambari UI 将提示需要重启。单击“重启”以重启所有受影响的服务。
 
-        ![通过 Ambari 更改 Spark 配置](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![重新启动服务](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. 为 Spark 会话设置两个属性，以确保作业指向更新的 spark 配置：`spark.yarn.appMasterEnv.PYSPARK_PYTHON` 和 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`。 
+
+        使用终端或笔记本时，使用 `spark.conf.set` 函数。
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        如果使用的是 livy，请将以下属性添加到请求正文：
+
+        ```
+        �conf� : {
+        �spark.yarn.appMasterEnv.PYSPARK_PYTHON�:�/usr/bin/anaconda/envs/py35/bin/python�,
+        �spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON�:�/usr/bin/anaconda/envs/py35/bin/python�
+        }
+        ```
 
 4. 如果要在 Jupyter 上使用新创建的虚拟环境。 更改 Jupyter 配置并重启 Jupyter。 使用以下语句在所有头节点上运行脚本操作，使 Jupyter 指向新创建的虚拟环境。 请务必修改针对虚拟环境指定的前缀的路径。 运行此脚本操作后，通过 Ambari UI 重启 Jupyter 服务，使此项更改生效。
 

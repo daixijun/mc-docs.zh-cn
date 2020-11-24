@@ -4,17 +4,17 @@ description: 了解规划 Azure 文件部署。 可以直接装载 Azure 文件�
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
-origin.date: 1/3/2020
-ms.date: 09/28/2020
+origin.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4d0126a3b4fcc4d5dc7203aace82d0ca011ae178
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 2b2243438e0ad27e2e963d378364d1748cc8961e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026530"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552556"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 可通过以下主要方式部署 [Azure 文件存储](storage-files-introduction.md)：直接装载无服务器 Azure 文件共享。
@@ -51,6 +51,7 @@ ms.locfileid: "91026530"
 尽管从技术角度讲，通过公共终结点装载 Azure 文件共享要容易得多，但我们预期大多数客户会选择通过 ExpressRoute 或 VPN 连接装载其 Azure 文件共享。 为此，需要为环境配置以下设置：  
 
 - **使用 ExpressRoute、站点到站点或点到站点 VPN 的网络隧道**：通过隧道连接到虚拟网络后，即使端口 445 已被阻止，也能从本地访问 Azure 文件共享。
+- **专用终结点**：专用终结点在虚拟网络的地址空间中为存储帐户指定了一个专用 IP 地址。 这样，无需打开本地网络就可以通过网络隧道连接到 Azure 存储群集拥有的所有 IP 地址范围。 
 - **DNS 转发**：配置本地 DNS，以将存储帐户的名称（例如 `storageaccount.file.core.chinacloudapi.cn`）解析为专用终结点的 IP 地址。
 
 若要规划与 Azure 文件共享部署相关的网络，请参阅 [Azure 文件存储网络注意事项](storage-files-networking-overview.md)。
@@ -82,23 +83,6 @@ Azure 文件共享的软删除（预览版）是一种存储帐户级别设置�
 
 ### <a name="backup"></a>备份
 可以通过[共享快照](/storage/files/storage-snapshots-files)备份 Azure 文件共享，这些快照是共享的只读时间点副本。 快照是增量的，这意味着它们只包含自上一个快照以来更改的数据量。 每个文件共享最多可以有 200 个快照，并将其保留长达 10 年。 可以通过 PowerShell 或命令行界面 (CLI) 在 Azure 门户中手动获取这些快照。 快照存储在文件共享中，这意味着如果删除文件共享，快照也将删除。 若要保护快照备份不被意外删除，请确保为共享启用软删除。
-
-## <a name="storage-tiers"></a>存储层
-[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-通常，Azure 文件存储功能以及与其他服务的互操作性在高级文件共享和标准文件共享（包括事务优化文件共享、热文件共享和冷文件共享）之间是相同的，但有几个重要区别：
-- **冗余选项**
-    - 高级文件共享仅适用于本地冗余 (LRS) 存储。
-    - 标准文件共享可用于本地冗余、异地冗余 (GRS) 和异地区域冗余 (GZRS) 存储。
-- **文件共享的最大大小**
-    - 高级文件共享最多可预配 100 TiB，无需任何额外的操作。
-    - 默认情况下，标准文件共享的上限是 5 TiB，但可以通过选择“大文件共享”存储帐户功能标志将共享限制增加到 100 TiB。 对于本地冗余存储帐户或区域冗余存储帐户，标准文件共享的上限是 100 TiB。 有关增加文件共享大小的详细信息，请参阅[启用和创建大文件共享](/storage/files/storage-files-how-to-create-large-file-share)。
-- **区域可用性**
-    - 高级文件共享并非在每个区域中都可用。 
-    - 标准文件共享在每个 Azure 区域中可用。
-- Azure Kubernetes 服务 (AKS) 在 1.13 及更高版本中支持高级文件共享。
-
-将文件共享创建为高级文件共享或标准文件共享后，便无法自动将其转换为其他层。 若要切换到其他层，必须在该层中创建新的文件共享，并手动将原始共享中的数据复制到所创建的新共享。 建议使用 `robocopy`（适用于 Windows）或 `rsync`（适用于 macOS 和 Linux）来执行该复制。
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>了解高级文件共享的预配
 高级文件共享是基于固定的 GiB/IOPS/吞吐量比率预配的。 对于预配的每个 GiB，将向该共享分配 1 IOPS 和 0.1 MiB/秒的吞吐量，最多可达每个共享的最大限制。 允许的最小预配为 100 GiB 以及最小的 IOPS/吞吐量。
@@ -134,7 +118,7 @@ Azure 文件共享的软删除（预览版）是一种存储帐户级别设置�
 |102,400     | 100,000 | 最大 100,000 | 6,204 | 4,136   |
 
 > [!NOTE]
-> 文件共享性能与计算机网络限制、可用网络带宽、IO 大小、并行度和其他许多因素相关。 若要实现最大性能规模，请将负载分散到多个 VM。 有关一些常见性能问题和解决方法，请参阅[故障排除指南](storage-troubleshooting-files-performance.md)。
+> 文件共享性能与计算机网络限制、可用网络带宽、IO 大小、并行度和其他许多因素相关。 例如，根据使用 8 KiB 读/写 IO 大小进行的内部测试，通过 SMB 连接到高级文件共享的单个 Windows 虚拟机（标准 F16s_v2）可以实现 20K 读 IOPS 和 15K 写 IOPS。 读/写 IO 大小为 512 MiB 时，同一 VM 可以实现 1.1 GiB/秒的出口吞吐量和 370 MiB/秒的入口吞吐量。 若要实现最大性能规模，请将负载分散到多个 VM。 有关一些常见性能问题和解决方法，请参阅[故障排除指南](storage-troubleshooting-files-performance.md)。
 
 #### <a name="bursting"></a>突发
 高级文件共享最大可按系数 3 突发其 IOPS。 突发是自动进行的，根据额度系统运行。 突发采用“尽力而为”的原则，突发限制没有保证，文件共享只能在限制范围内突发。

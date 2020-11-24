@@ -1,28 +1,28 @@
 ---
 title: 使用 Azure Cosmos DB 的 API for MongoB 的 Node.Js Angular 应用（第 1 部分）
 description: 了解如何通过 Angular 和 Node 在 Azure Cosmos DB 上创建 MongoDB 应用，所使用的 API 与本视频教程系列中用于 MongoDB 的 API 完全相同。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.author: v-yeche
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: c05281c236e553a4f0379ffc5e98fac5d689d9e1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 63eaabb551c5046c361f29cea13abc3dbf8f210d
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068337"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552692"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的 API for MongoDB 创建 Angular 应用
 
 本教程包含多个部分，演示了如何通过 Express 和 Angular 创建以 Node.js 编写的新应用，然后将其连接到[使用 Cosmos DB 的用于 MongoDB 的 API 配置的 Cosmos 帐户](mongodb-introduction.md)。
 
-Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以通过它来快速创建和查询文档、键/值和图形数据库，这些数据库受益于以 Cosmos DB 为核心的多区域分布和水平缩放功能。 
+Azure Cosmos DB 是世纪互联的快速 NoSQL 数据库，具有适合任何规模的开放式 API。 通过它，可以开发具有以下特点的新式应用：具有 SLA 支持的速度和可用性、自动和即时可伸缩性，以及适用于许多 NoSQL 引擎的开放源代码 API。
 
 本教程分为多个部分，涵盖以下任务：
 
@@ -52,4 +52,4 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [通过 Angular CLI 创建 Node.js Express 应用](tutorial-develop-mongodb-nodejs-part2.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

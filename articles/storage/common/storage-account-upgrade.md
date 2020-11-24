@@ -1,20 +1,21 @@
 ---
 title: 升级到常规用途 v2 存储帐户
 titleSuffix: Azure Storage
-description: 升级到常规用途 v2 存储帐户。
+description: 使用 Azure 门户、PowerShell 或 Azure CLI 升级到常规用途 v2 存储帐户。 指定 Blob 数据的访问层。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 02/25/2019
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 280688d0d47158de1d71a7d26fd969fd268fc84b
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4487913b36f775a689fcc4bc5ef6150187fd5a98
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414700"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551758"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -49,7 +50,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要使用 Azure CLI 将常规用途 v1 帐户升级为常规用途 v2 帐户，请先安装最新版的 Azure CLI。 请参阅 [Install the Azure CLI 2.0](/cli/install-azure-cli?view=azure-cli-latest)（安装 Azure CLI 2.0），了解如何安装 CLI。 
+若要使用 Azure CLI 将常规用途 v1 帐户升级为常规用途 v2 帐户，请先安装最新版的 Azure CLI。 请参阅 [Install the Azure CLI 2.0](/cli/install-azure-cli)（安装 Azure CLI 2.0），了解如何安装 CLI。 
 
 接下来，调用以下命令来升级帐户（请使用自己的资源组名称、存储帐户名称和所需帐户访问层级来代替相应项）。
 
@@ -111,7 +112,7 @@ Blob 访问层允许根据预期使用模式选择最具经济效益的存储。
 
 若要监视现有存储帐户并收集该数据，可以利用 Azure 存储分析进行日志记录，并为存储帐户提供指标数据。 存储分析可存储一些指标，这些指标包括有关存储服务请求的聚合事务统计信息和容量数据，适用于 GPv1、GPv2 和 Blob 存储帐户类型。 该数据存储在同一存储帐户中的已知表中。
 
-有关详细信息，请参阅 [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx)（关于存储分析指标）和 [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)（存储分析指标表架构）
+有关详细信息，请参阅 [About Storage Analytics Metrics](monitor-storage.md)（关于存储分析指标）和 [Storage Analytics Metrics Table Schema](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)（存储分析指标表架构）
 
 > [!NOTE]
 > Blob 存储帐户公开表服务终结点的目的只是为了存储和访问该帐户的指标数据。

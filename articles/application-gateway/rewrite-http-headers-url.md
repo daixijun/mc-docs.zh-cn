@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: b3fe3476b160ace601f5275840bb872cf8f244b2
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: a468081defae938bd2e43a1c5dd3ae3b7f39f9ac
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801862"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501831"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>使用应用程序网关重写 HTTP 标头和 URL
 
@@ -50,7 +50,7 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 
 若要了解如何使用 Azure 门户在应用程序网关中重写 URL，请参阅[此文](rewrite-url-portal.md)。
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![此图描述了使用应用程序网关重写 URL 的过程。](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > URL 重写功能为预览版，仅适用于 Standard_v2 和 WAF_v2 SKU 版应用程序网关。 建议不要在生产环境中使用。 若要了解关于预览的详细信息，请参阅[此处的使用条款](https://www.azure.cn/support/legal/)。
@@ -60,9 +60,9 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 使用重写操作指定要重写的 URL、请求标头或响应标头，以及将这些项重写后赋予的新值。 URL 或者新标头或现有标头的值可设置为以下类型的值：
 
 * 文本
-* 请求标头。 若要指定请求标头，需使用语法 {http_req_*headerName*}
-* 响应标头。 若要指定响应标头，需使用语法 {http_resp_*headerName*}
-* 服务器变量。 若要指定服务器变量，需使用语法 {var_*serverVariable*}。 请参阅支持的服务器变量的列表
+* 请求标头。 若要指定请求标头，需使用语法 {http_req_ *headerName*}
+* 响应标头。 若要指定响应标头，需使用语法 {http_resp_ *headerName*}
+* 服务器变量。 若要指定服务器变量，需使用语法 {var_ *serverVariable*}。 请参阅支持的服务器变量的列表
 * 文本、请求标头、响应标头和服务器变量的组合。 
 
 ## <a name="rewrite-conditions"></a>重写条件
@@ -114,7 +114,7 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 | client_tcp_rtt            | 有关客户端 TCP 连接的信息。 在支持 TCP_INFO 套接字选项的系统上可用。 |
 | client_user               | 使用 HTTP 身份验证时提供的用于身份验证的用户名。 |
 | host                      | 采用以下优先顺序：请求行中的主机名、Host 请求标头字段中的主机名，或与请求匹配的服务器名称。 示例：在请求 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 中，host 值将为 `contoso.com` |
-| cookie_*name*             | *name* Cookie。                                           |
+| cookie_ *name*             | *name* Cookie。                                           |
 | http_method               | 用于发出 URL 请求的方法。 例如 GET 或 POST。 |
 | http_status               | 会话状态。 例如 200、400 或 403。           |
 | http_version              | 请求协议。 通常为 HTTP/1.0、HTTP/1.1 或 HTTP/2.0。 |

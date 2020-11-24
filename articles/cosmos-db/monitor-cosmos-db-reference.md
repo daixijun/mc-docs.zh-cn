@@ -4,21 +4,22 @@ description: 来自 Azure Cosmos DB 的监视数据的日志和指标参考。
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 07/17/2020
+origin.date: 10/28/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: subject-monitoring
-ms.openlocfilehash: dc40383c403c35b44dc662e4159187de19548fc9
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: ed65712c14ff0eec2a5d3ad25555f3b520927a55
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246384"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552802"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 监视数据参考
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 本文提供了对所收集日志和指标数据的引用，用于分析 Azure Cosmos DB 的性能和可用性。 有关如何为 Azure Cosmos DB 收集和分析监视数据，请参阅[监视 Azure Cosmos DB](monitor-cosmos-db.md) 一文。
 
@@ -44,10 +45,12 @@ ms.locfileid: "91246384"
 | **duration** | **duration_d** | 操作持续时间，以毫秒为单位。 |
 | **requestLength** | **requestLength_s** | 请求的长度（按字节计）。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](/cosmos-db/secure-access-to-data#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | 此属性指示已指定的资源令牌权限 ID。 若要了解有关权限的详细信息，请参阅[安全访问数据](./secure-access-to-data.md#permissions)一文。 |
+| **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | 此属性指示在创建资源令牌时设置的权限模式。 权限模式可以设置值，例如“all”或“read”。 若要了解有关权限的详细信息，请参阅[安全访问数据](./secure-access-to-data.md#permissions)一文。 |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | 将[资源令牌](./secure-access-to-data.md#resource-tokens)用于身份验证时，此值非空。 值指向用户的资源 ID。 |
 | **responseLength** | **responseLength_s** | 响应的长度（按字节计）。|
 
-如需所有 Azure Monitor 日志类别的列表和指向关联架构的链接，请参阅 [Azure Monitor 日志类别和架构](../azure-monitor/platform/diagnostic-logs-schema.md)。 
+如需所有 Azure Monitor 日志类别的列表和指向关联架构的链接，请参阅 [Azure Monitor 日志类别和架构](../azure-monitor/platform/resource-logs-schema.md)。 
 
 ## <a name="metrics"></a>指标
 以下各表列出了为 Azure CosmOS DB 收集的平台指标。 所有指标都存储在“Cosmos DB 标准指标”命名空间中。

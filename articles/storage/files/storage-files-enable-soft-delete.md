@@ -1,24 +1,24 @@
 ---
 title: 启用软删除 - Azure 文件共享
-description: 了解如何在 Azure 文件共享上启用软删除（预览版），以进行数据恢复和防止意外删除。
+description: 了解如何在 Azure 文件共享上启用软删除，以进行数据恢复和防止意外删除。
 author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/28/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 52e4785c771fa5098bcffac239ed56a3dd3af152
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: c53158cfeb569a61803753efa3aa5de27432672a
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026532"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552557"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>在 Azure 文件共享上启用软删除
 
-Azure 存储为文件共享（预览版）提供软删除，以便在应用程序或其他存储帐户用户误删除数据后，可以更轻松地恢复数据。 若要了解有关软删除的详细信息，请参阅[如何防止意外删除 Azure 文件共享](storage-files-prevent-file-share-deletion.md)。
+Azure 存储为文件共享提供软删除，以便在应用程序或其他存储帐户用户错误地删除了数据后，可以更轻松地恢复数据。 若要了解有关软删除的详细信息，请参阅[如何防止意外删除 Azure 文件共享](storage-files-prevent-file-share-deletion.md)。
 
 以下部分说明如何在现有存储帐户上为 Azure 文件共享启用和使用软删除：
 
@@ -38,9 +38,9 @@ Azure 存储为文件共享（预览版）提供软删除，以便在应用程�
 
 ## <a name="prerequisite"></a>先决条件
 
-当前仅在 Az.Storage 模块的 [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) 和 [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) 版本中提供软删除 cmdlet。 
+在 [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) 版 Az.Storage 模块中提供了软删除 cmdlet。 
 
-## <a name="getting-started"></a>入门
+## <a name="getting-started-with-powershell"></a>PowerShell 入门
 
 若要启用软删除，则必须更新文件客户端的服务属性。 下面的示例为存储帐户中的所有文件共享启用了软删除：
 
@@ -69,17 +69,17 @@ Get-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName 
 
     这会显示当前处于“已删除”状态的所有共享。
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="存储帐户软删除设置窗格的屏幕截图。突出显示文件共享部分，启用切换，设置保持期并保存。这将为你的存储帐户中的所有文件共享启用软删除。":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="如果将名称列旁边的状态列设置为“已删除”，则文件共享处于软删除的状态。在指定的保持期后，它将被永久删除。":::
 
 1. 选择共享，然后选择“取消删除”，这将还原共享。
 
     可以确认共享已还原，因为其状态切换为“活动”。
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="存储帐户软删除设置窗格的屏幕截图。突出显示文件共享部分，启用切换，设置保持期并保存。这将为你的存储帐户中的所有文件共享启用软删除。":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="如果将名称列旁边的状态列设置为“活动”，则文件共享已还原。":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-在 2.1.1-preview 版 Az.Storage 模块中提供了软删除 cmdlet。 若要还原软删除的文件共享，请使用以下命令：
+在 3.0.0 版 Az.Storage 模块中提供了软删除 cmdlet。 若要还原软删除的文件共享，请使用以下命令：
 
 ```azurepowershell
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -96,11 +96,11 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 1. 在“文件共享”下，为“软删除文件共享”选择“已禁用”。
 1. 选择“保存”以确认数据保留设置。
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="存储帐户软删除设置窗格的屏幕截图。突出显示文件共享部分，启用切换，设置保持期并保存。这将为你的存储帐户中的所有文件共享启用软删除。":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="禁用软删除将允许在空闲时立即永久删除存储帐户中的所有文件共享。":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-在 2.1.1-preview 版 Az.Storage 模块中提供了软删除 cmdlet。 可以使用以下命令在存储帐户上禁用软删除：
+在 3.0.0 版 Az.Storage 模块中提供了软删除 cmdlet。 可以使用以下命令在存储帐户上禁用软删除：
 
 ```azurepowershell
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

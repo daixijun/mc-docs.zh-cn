@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
-origin.date: 04/08/2019
-ms.date: 08/24/2020
+origin.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d298ce2914d143307d12da5219969c93ae2496f3
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 8143c2f077783d023c7f44a5ce113c8b9de0b340
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753624"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552731"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -63,7 +63,7 @@ ms.locfileid: "88753624"
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
-     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。
+     详细了解如何[准备数据集 CSV 文件](https://docs.microsoft.com/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)。
 
 
 4. 修改工具所在的根文件夹中的 *driveset.csv* 文件。 在 *driveset.csv* 文件中添加类似于以下示例的条目。 此驱动器集文件包含磁盘列表和对应的驱动器号，因此，工具可以正确地选取要准备的磁盘列表。
@@ -84,7 +84,7 @@ ms.locfileid: "88753624"
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md)。
+     可以在同一文件中创建与多个驱动器对应的多个条目。 详细了解如何[准备驱动器集 CSV 文件](https://docs.microsoft.com/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)。
 
 5. 使用 `PrepImport` 选项将数据复制到磁盘驱动器并做好准备。 为了使第一个复制会话通过新的复制会话复制目录和/或文件，请运行以下命令：
 
@@ -107,19 +107,21 @@ ms.locfileid: "88753624"
 
 ## <a name="step-2-create-an-import-job"></a>步骤 2：创建导入作业
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 在 Azure 门户中执行以下步骤来创建导入作业。
 1. 登录到 https://portal.azure.cn/ 。
-2. 转到“所有服务”>“存储”>“导入/导出作业”  。
+2. 转到“所有服务”>“存储”>“导入/导出作业”。
 
     ![转到“导入/导出”](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. 单击“创建导入/导出作业”  。
+3. 单击“创建导入/导出作业”。
 
     ![单击导入/导出作业](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. 在“基本信息”  中：
+4. 在“基本信息”中：
 
-    - 选择“导入到 Azure”。 
+    - 选择“导入到 Azure”。
     - 输入导入作业的描述性名称。 在作业进行过程中以及作业完成后，可以使用此名称来跟踪作业。
         -  此名称只能包含小写字母、数字、连字符和下划线。
         -  此名称必须以字母开头，并且不得包含空格。
@@ -128,7 +130,7 @@ ms.locfileid: "88753624"
 
         ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. 在“作业详细信息”中  ：
+3. 在“作业详细信息”中：
 
     - 上传你在前面的[步骤 1：准备驱动器](#step-1-prepare-the-drives)中创建的日志文件。
     - 选择要将数据导入到的存储帐户。
@@ -136,7 +138,7 @@ ms.locfileid: "88753624"
 
        ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. 在“回寄信息”中  ：
+4. 在“回寄信息”中：
 
     - 从下拉列表中选择承运商。
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 
@@ -148,12 +150,92 @@ ms.locfileid: "88753624"
        ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
 
-5. 在“摘要”  中：
+5. 在“摘要”中：
 
     - 提供用来将磁盘寄回 Azure 的 Azure 数据中心送货地址。 请确保寄送标签上标明了作业名称和完整地址。
-    - 单击“确定”以完成导入作业创建。 
+    - 单击“确定”以完成导入作业创建。
 
         ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+使用以下步骤在 Azure CLI 中创建导入作业。
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>创建作业
+
+1. 使用 [az extension add](/cli/azure/extension#az_extension_add) 命令添加 [az import-export](/cli/ext/import-export/import-export) 扩展：
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 可以使用现有资源组，也可以创建新组。 若要创建资源组，请运行 [az group create](/cli/group#az_group_create) 命令：
+
+    ```azurecli
+    az group create --name myierg --location "China East"
+    ```
+
+1. 可以使用现有存储帐户，也可以创建一个存储帐户。 若要创建存储帐户，请运行 [az storage account create](/cli/storage/account#az_storage_account_create) 命令：
+
+    ```azurecli
+    az storage account create -resource-group myierg -name myssdocsstorage --https-only
+    ```
+
+1. 若要获取可将磁盘寄送到的位置的列表，请使用 [az import-export location list](/cli/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 命令：
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. 使用 [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 命令获取你所在区域的位置：
+
+    ```azurecli
+    az import-export location show --location "China East"
+    ```
+
+1. 运行以下 [az import-export create](/cli/ext/import-export/import-export#ext_import_export_az_import_export_create) 命令来创建导入作业：
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "China East" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="XXXX XXXX" city="XXXX XXXX" state-or-province=CA postal-code=XXXXXX \
+            country-or-region=China phone=XXXXXXXX \
+        --return-address recipient-name="XXXX XXXX" street-address1="XXXX XXXX XXXX" \
+            city=XXXX country-or-region=China state-or-province=CA postal-code=XXXXXX \
+            email=gus@contoso.com phone=XXXXXXXX" \
+        --return-shipping carrier-name=EMS carrier-account-number=XXXXXXXX \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+
+1. 使用 [az import-export list](/cli/ext/import-export/import-export#ext_import_export_az_import_export_list) 命令查看 myierg 资源组的所有作业：
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 若要更新作业或取消作业，请运行 [az import-export update](/cli/ext/import-export/import-export#ext_import_export_az_import_export_update) 命令：
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>步骤 3：将驱动器寄送到 Azure 数据中心
 
@@ -163,15 +245,15 @@ ms.locfileid: "88753624"
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证 Azure 中的数据上传
+## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证数据上传到 Azure
 
 跟踪作业直至完成。 作业完成后，验证数据已上传到 Azure。 仅在已确认上传成功后才删除本地数据。
 
 ## <a name="samples-for-journal-files"></a>日志文件示例
 
-若要**添加更多驱动器**，请创建一个新的驱动器集文件并运行以下命令。
+若要 **添加更多驱动器**，请创建一个新的驱动器集文件并运行以下命令。
 
-如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用同一日记文件  名称并提供新的会话 ID  。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
+如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用 **同一日记文件** 的名称并提供 **新的会话 ID**。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -186,7 +268,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 若要向同一驱动器集添加更多数据，请为后续复制会话使用 PrepImport 命令来复制更多文件/目录。
 
-在后续复制会话中将数据复制到 *InitialDriveset.csv* 文件中指定的同一组硬盘驱动器时，请指定**同一日志文件**名称并提供**新的会话 ID**；不需要提供存储帐户密钥。
+在后续复制会话中将数据复制到 *InitialDriveset.csv* 文件中指定的同一组硬盘驱动器时，请指定 **同一日志文件** 名称并提供 **新的会话 ID**；不需要提供存储帐户密钥。
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

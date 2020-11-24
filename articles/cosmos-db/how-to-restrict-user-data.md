@@ -1,26 +1,28 @@
 ---
 title: 使用 Azure Cosmos DB 限制用户对数据操作的访问
 description: 了解如何使用 Azure Cosmos DB 限制对数据操作的访问
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 075034b6bcf40ce30d874faa7a222478ea9276f7
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: a2a63eecf6ea50497261833a92a03407638e8205
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222923"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552572"
 ---
-# <a name="restrict-user-access-to-data-operations-only"></a>将用户访问权限仅限于数据操作
+# <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中限制用户对数据操作的访问
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 在 Azure Cosmos DB 中，可通过两种方式来验证与数据库服务的交互：
+
 - 与 Azure 门户交互时使用 Azure Active Directory 标识；
-- 从 API 和 SDK 发出调用时使用 Azure Cosmos DB [密钥](secure-access-to-data.md#master-keys)或[资源令牌](secure-access-to-data.md#resource-tokens)。
+- 从 API 和 SDK 发出调用时使用 Azure Cosmos DB [密钥](database-security.md#primary-keys)或[资源令牌](secure-access-to-data.md#resource-tokens)。
 
 每种身份验证方法授予对不同操作集的访问权限，但存在某种重叠：
 

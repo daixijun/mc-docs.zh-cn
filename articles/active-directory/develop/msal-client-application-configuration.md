@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7ee5f24d5c5f8cc91623faf8b9e4f1bac89ff13f
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: eee384d5d7adcd443c13d56e000fb7162404d35e
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126515"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501635"
 ---
 # <a name="application-configuration-options"></a>应用程序配置选项
 
@@ -62,7 +62,7 @@ Azure AD 云颁发机构有两个组成部分：
 
 如果同时指定 `Instance` 和 `AzureCloudInstance`，MSAL.NET 将引发显式异常。
 
-如果未指定实例，应用将面向 Azure 公有云实例（URL `https://login.onpartner.microsoftonline.cn` 的实例）。
+如果未指定实例，应用将面向 Azure 公有云实例
 
 ## <a name="application-audience"></a>应用程序受众
 
@@ -120,7 +120,6 @@ Azure AD 云颁发机构有两个组成部分：
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
 有关更多 iOS 详细信息，请参阅[将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration-ios-broker.md) 和[在 iOS 上利用中转站](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)。
-有关更多 Android 详细信息，请参阅 [Android 中的代理身份验证](brokered-auth.md)。
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>机密客户端应用的重定向 URI
 

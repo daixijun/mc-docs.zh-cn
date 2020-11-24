@@ -4,21 +4,23 @@ description: 了解如何诊断和修复“未找到”异常。
 ms.service: cosmos-db
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 6ba433ca7d5c2d829ff7459ffa566004a2171430
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9b013ea7e6e3678b7968fb4c59eacb8388fb622b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246321"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552089"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>诊断和排查 Azure Cosmos DB 的“未找到”异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 HTTP 状态代码 404 表示资源不再存在。
 
 ## <a name="expected-behavior"></a>预期行为
@@ -32,7 +34,7 @@ HTTP 状态代码 404 表示资源不再存在。
 
 #### <a name="solution"></a>解决方案：
 1. Azure Cosmos DB 的默认帐户一致性为会话一致性。 创建或更新项时，响应将返回一个会话令牌，该令牌可以在 SDK 实例之间传递，以确保读取请求在从具有该更改的副本中进行读取。
-1. 将[一致性级别](consistency-levels-choosing.md)更改为[更高级别](consistency-levels-tradeoffs.md)。
+1. 将[一致性级别](./consistency-levels.md)更改为[更高级别](./consistency-levels.md)。
 
 ### <a name="invalid-partition-key-and-id-combination"></a>分区键和 ID 组合无效
 分区键和 ID 组合无效。
@@ -41,7 +43,7 @@ HTTP 状态代码 404 表示资源不再存在。
 修复导致错误组合的应用程序逻辑。 
 
 ### <a name="invalid-character-in-an-item-id"></a>项 ID 中的字符无效
-项被插入 Azure Cosmos DB，并且项 ID 中带有[无效字符](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.resource.id#remarks)。
+项被插入 Azure Cosmos DB，并且项 ID 中带有[无效字符](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks)。
 
 #### <a name="solution"></a>解决方案：
 将 ID 更改为不包含特殊字符的其他值。 如果不能更改 ID，则可以对 ID 进行 Base64 编码以将特殊字符转义。
@@ -56,7 +58,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
+//https://docs.azure.cn/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -83,7 +85,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>生存时间清除
-项已设置[生存时间 (TTL)](/cosmos-db/time-to-live) 属性。 由于 TTL 属性已过期，项被清除。
+项已设置[生存时间 (TTL)](./time-to-live.md) 属性。 由于 TTL 属性已过期，项被清除。
 
 #### <a name="solution"></a>解决方案：
 更改 TTL 属性以防止清除该项。
@@ -98,8 +100,14 @@ while (invalidItemsIterator.HasMoreResults)
 项所在的数据库或容器已删除。
 
 #### <a name="solution"></a>解决方案：
-1. [还原](/cosmos-db/online-backup-and-restore#backup-retention-period)父资源或重新创建资源。
+1. [还原](./online-backup-and-restore.md#request-data-restore-from-a-backup)父资源或重新创建资源。
 1. 创建新资源来替换已删除的资源。
+
+### <a name="7-containercollection-names-are-case-sensitive"></a>7.容器/集合名称区分大小写
+容器/集合名称在 Cosmos DB 中区分大小写。
+
+#### <a name="solution"></a>解决方案：
+请确保在连接到 Cosmos DB 时使用确切的名称。
 
 ## <a name="next-steps"></a>后续步骤
 * [诊断和排查](troubleshoot-dot-net-sdk.md)在使用 Azure Cosmos DB .NET SDK 时遇到的问题。

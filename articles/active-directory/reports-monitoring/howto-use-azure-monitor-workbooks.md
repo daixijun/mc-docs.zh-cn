@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: de5c381a7dbe17dfac07c53ae7aafe2538241361
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 64630063490ea929c841fd91b7040836a641b567
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245509"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501867"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何将 Azure Monitor 工作簿用于 Azure Active Directory 报表
 
@@ -174,7 +174,7 @@ ms.locfileid: "91245509"
 
 对于已禁用登录，可以按条件访问状态进行细分。
 
-![条件访问状态](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![屏幕截图显示了条件访问状态和最近的登录。](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>条件访问见解
@@ -194,12 +194,12 @@ ms.locfileid: "91245509"
 
 - **数据视图**
 
-![条件访问状态](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![屏幕截图显示了“条件访问”窗格，可在其中选择条件访问策略。](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 影响摘要显示所选策略对其产生特定结果的用户或登录数。 总计显示在选定时间范围内针对选定策略计算的用户或登录数。 单击磁贴可以按该结果类型筛选工作簿中的数据。 
 
-![条件访问状态](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![屏幕截图显示了用于筛选结果（如“总计”、“成功”和“失败”）的磁贴。](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 该工作簿还按以下六项条件细分显示所选策略造成的影响： 
 - **设备状态**
@@ -209,15 +209,11 @@ ms.locfileid: "91245509"
 - **位置**
 - **应用程序**
 
-![条件访问状态](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![屏幕截图显示了“登录总数”筛选器中的详细信息。](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 你还可以调查按工作簿中所选参数进行筛选的单个登录。 搜索按登录频率排序的单个用户，并查看其相应的登录事件。 
 
-![条件访问状态](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![屏幕截图显示了可以查看的单个登录。](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>登录情况（按授权控制）
 

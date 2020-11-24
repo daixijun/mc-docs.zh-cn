@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.custom: references_regions
-ms.openlocfilehash: 50348eeb2ab8ad3c965c2a5e2b016cf0aed11ae0
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e7501ec1c85b7cf38772c08a605894da14b5cfb7
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937436"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501866"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>应用程序网关常见问题
 
@@ -184,11 +184,11 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>应用程序网关子网是否支持网络安全组？
 
-请参阅[应用程序网关子网中的网络安全组](configuration-infrastructure.md#network-security-groups)。
+请参阅[应用程序网关子网中的网络安全组](/application-gateway/configuration-infrastructure#network-security-groups)。
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>应用程序网关子网是否支持用户定义的路由？
 
-请参阅[应用程序网关子网中支持的用户定义的路由](configuration-infrastructure.md#supported-user-defined-routes)。
+请参阅[应用程序网关子网中支持的用户定义的路由](/application-gateway/configuration-infrastructure#supported-user-defined-routes)。
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>应用程序网关子网中是否支持服务终结点策略？
 
@@ -228,7 +228,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>能否仅允许应用程序网关访问几个源 IP 地址？
 
-是的。 请参阅[限制对特定源 IP 的访问](configuration-infrastructure.md#allow-access-to-a-few-source-ips)。
+是的。 请参阅[限制对特定源 IP 的访问](/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips)。
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>能否同时对公共和专用侦听器使用同一个端口？
 
@@ -472,6 +472,10 @@ AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AG
 - 已部署了应用程序网关 v2
 - 应用程序网关子网上有 NSG
 - 已在该 NSG 上启用 NSG 流日志
+
+### <a name="does-application-gateway-store-customer-data"></a>应用程序网关是否存储客户数据？
+
+否，应用程序网关不会存储客户数据。
 
 ## <a name="next-steps"></a>后续步骤
 

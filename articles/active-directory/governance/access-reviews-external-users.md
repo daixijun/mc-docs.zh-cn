@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/21/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: 520c9e764e624d6aa6b0832a4946c058b181653f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 33f32176e02ae61916265144b78266d9497cbb73
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245749"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501856"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>使用 Azure Active Directory (Azure AD) Identity Governance 查看并删除不再具有资源访问权限的外部用户
 
@@ -31,23 +31,6 @@ ms.locfileid: "91245749"
 
 在大多数组织中，最终用户会启动邀请业务合作伙伴和供应商进行协作的过程。 协作需求推动组织为资源所有者和最终用户提供一种方法来定期评估和证明外部用户。 通常，加入新协作合作伙伴的过程是经过了计划和考虑的，但由于许多协作没有明确的结束日期，因此，用户何时不再需要访问权限并非总是十分明显。 同样，标识生命周期管理会促使企业保持 Azure AD 干净并删除不再需要访问组织资源的用户。 在目录中仅保留合作伙伴和供应商的相关标识引用有助于降低员工无意中选择本应已删除的外部用户并授予其访问权限的风险。 本文档将指导你使用多个选项（从所推荐的前瞻性建议到响应活动和清理活动）来管控外部标识。
 
-## <a name="use-entitlement-management-to-grant-and-revoke-access"></a>使用权利管理授予和撤销访问权限
-
-使用权利管理功能，可以通过资源访问权限来[自动实现外部标识的生命周期管理](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users)。 通过建立用于通过权利管理来管理访问权限的流程和过程，以及通过访问包发布资源，跟踪外部用户对资源的访问就会变得容易得多。 在 Azure AD 中通过[权利管理访问包](entitlement-management-overview.md)管理访问权限时，你的组织可以集中定义并管理你的用户以及来自合作伙伴组织的用户的访问权限。 权利管理通过访问包的批准和分配来跟踪外部用户在何处请求访问权限并被分配访问权限。 如果外部用户失去了其所有分配，则权利管理可以自动从租户中删除这些外部用户。 
-
-## <a name="find-guests-not-invited-through-entitlement-management"></a>查找未通过权利管理邀请的来宾
-
-当员工有权与外部用户合作时，他们可能会邀请自组织外部任意数量的用户。 查找外部合作伙伴、将其分组为按公司调整的动态组并对其进行评审可能并不可行，因为可能有太多不同的单个公司要进行评审，或者组织没有所有者或发起人。 Microsoft 提供了一个示例 PowerShell 脚本，该脚本可帮助你分析租户中外部标识的使用情况。 此脚本会枚举外部标识并对其进行分类。 此脚本可帮助你识别并清除可能不再需要的外部标识。 作为脚本的输出的一部分，该脚本示例支持自动创建安全组（其中包含不属于已标识的组的外部合作伙伴），以便通过 Azure AD 访问评审进行进一步分析和使用。
-[GitHub](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse) 上提供了该脚本。 脚本运行完毕后，会生成一个 HTML 输出文件，其中概述了具有以下特点的外部标识：
-
-- 在租户中不再有任何组成员身份
-- 在租户中有一个针对特权角色的分配
-- 在租户中有一个针对应用程序的分配
-
-对于这些外部标识的每一个，输出还包含其单个域。 
-
->[!NOTE]
->上面引用的脚本是一个示例脚本，用于在 Azure AD 中检查组成员身份、角色分配和应用程序分配。 应用程序中可能有外部用户在 Azure AD 外部收到的其他分配，例如 SharePoint（直接成员身份分配）、Azure RBAC 或 Azure DevOps。
 
 ## <a name="review-resources-used-by-external-identities"></a>评审外部标识使用的资源
 
@@ -67,7 +50,7 @@ ms.locfileid: "91245749"
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>使用 Azure AD 访问评审（预览版）禁用并删除外部标识
 
-除了提供用于从资源（例如组或应用程序）中删除不需要的外部标识的选项以外，Azure AD 访问评审还可以阻止外部标识登录你的租户，并可以在 30 天后删除你的租户中的外部标识。
+除了提供用于从资源（例如组或应用程序）中删除不需要的外部标识的选项以外，Azure AD 访问评审还可以阻止外部标识登录你的租户，并可以在 30 天后删除你的租户中的外部标识。 选择“在 30 天内阻止用户登录，然后从租户中删除用户”后，评审会保持“正在申请”状态 30 天。 在此期间，当前评审下的“设置”、“结果”、“审阅者”或“审核日志”不可查看或配置。 
 
 ![完成后的设置](./media/access-reviews-external-users/upon-completion-settings.png)
 
@@ -77,5 +60,4 @@ ms.locfileid: "91245749"
 ## <a name="next-steps"></a>后续步骤
 
 - [访问评审 - Graph API](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)
-- [权利管理 - Graph API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)
 

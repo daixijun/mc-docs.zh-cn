@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: 796e49a46e483dd5758edf5b2f53319c776cd7ce
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: cfe0f6f824c58954b3afffd1ca5fa37c50c5bd4d
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472616"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501618"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>使用 Key Vault 证书进行 TLS 终止
 
@@ -49,6 +49,9 @@ Key Vault 集成提供了两种用于 TLS 终止的模型：
 
    然后导入现有的证书，或者在密钥保管库中创建新证书。 此证书将供通过应用程序网关的应用程序使用。 在此步骤中，也可使用密钥保管库机密，该机密将存储为无密码的 base-64 编码的 PFX 文件。 我们建议使用证书类型是因为适用于密钥保管库中证书类型对象的自动续订功能。 在创建证书或机密以后，即可在密钥保管库中定义访问策略，此类策略允许为标识授予对机密的“获取”访问权限。
    
+   > [!IMPORTANT]
+   > 应用程序网关目前需要 Key Vault 来允许从所有网络进行访问，以便利用集成。 当 Key Vault 设置为“仅允许专用终结点”并选择“网络访问”时，它不支持 Key Vault 集成。 对专用网络和特定网络的支持仍在准备阶段，目的是将 Key Vault 与应用程序网关完全集成。 
+
    > [!NOTE]
    > 如果通过 ARM 模板来部署应用程序网关（不管是使用 Azure CLI 还是使用 PowerShell），或通过从 Azure 门户部署的 Azure 应用程序来执行此操作，则 SSL 证书将以 base64 编码的 PFX 文件形式存储在密钥保管库中。 必须完成[在部署过程中使用 Azure Key Vault 传递安全参数值](../azure-resource-manager/templates/key-vault-parameter.md)中的步骤。 
    >

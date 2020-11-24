@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 18bac6a6421ee6c55c7d4866302c0ba61f9ac519
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1cd2d8e575c311fac88e02384f3dcf9bfb2784ea
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472660"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552179"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 代理（预览版）
 
@@ -45,7 +45,7 @@ HDInsight ID 代理提供身份验证基础结构，支持协议从 OAuth（新�
 
 下图显示了联合用户的基本身份验证流。 首先，网关尝试使用 [ROPC 流](/active-directory/develop/v2-oauth-ropc)完成身份验证。 如果没有密码哈希同步到 Azure AD，则会回退到发现 AD FS 终结点并通过访问 AD FS 终结点完成身份验证。
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="显示使用 HDInsight ID 代理的身份验证流的示意图。":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="显示基本身份验证体系结构的示意图。":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>启用 HDInsight ID 代理
@@ -83,7 +83,7 @@ HDInsight ID 代理功能将向群集添加一个额外的 VM。 此 VM 是 HDIn
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -100,6 +100,9 @@ HDInsight ID 代理功能将向群集添加一个额外的 VM。 此 VM 是 HDIn
 .
 .
 ```
+
+若要查看 ARM 模板的完整示例，请参阅[此处](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template)发布的模板。
+
 
 ## <a name="tool-integration"></a>工具集成
 
@@ -132,6 +135,8 @@ HDInsight ID 代理功能将向群集添加一个额外的 VM。 此 VM 是 HDIn
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.cn/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+若要使用 Beeline 和 Livy，还可以按照[此处](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples)提供的示例代码来设置客户端，以使用 OAuth 并连接到群集。
 
 ## <a name="next-steps"></a>后续步骤
 

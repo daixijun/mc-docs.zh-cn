@@ -7,16 +7,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6e25eab7e4ea063e71749d5274ff1fdb1379f9d9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7299c95411af0c35405e428a1e04c54bb03a95da
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105555"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590598"
 ---
 <!--Verified successfully on the extension name exists-->
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
@@ -30,6 +30,8 @@ ms.locfileid: "93105555"
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
+
+自定义本地 VM 也支持 Key Vault VM 扩展，该 VM 已上传并转换为专用映像，以通过 Windows Server 2019 核心安装用在 Azure 中。
 
 ### <a name="supported-certificate-content-types"></a>支持的证书内容类型
 
@@ -67,7 +69,7 @@ ms.locfileid: "93105555"
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.cn/secrets/mycertificate"
@@ -95,15 +97,15 @@ ms.locfileid: "93105555"
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | string |
+| publisher | Microsoft.Azure.KeyVault | 字符串 |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
+| pollingIntervalInS | 3600 | 字符串 |
+| certificateStoreName | MY | 字符串 |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 或 CurrentUser（区分大小写） | string |
 | requiredInitialSync | 是 | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.cn/secrets/mycertificate"] | 字符串数组
+| observedCertificates  | ["https://myvault.vault.azure.cn/secrets/mycertificate","https://myvault.vault.azure.cn/secrets/mycertificate2"] | 字符串数组
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -138,7 +140,7 @@ ms.locfileid: "93105555"
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.cn/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.cn/secrets/mycertificate", "https://myvault.vault.azure.cn/secrets/mycertificate2"]>
         }      
       }
       }
@@ -160,7 +162,7 @@ ms.locfileid: "93105555"
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
     $extName =  "KeyVaultForWindows"
     $extPublisher = "Microsoft.Azure.KeyVault"
     $extType = "KeyVaultForWindows"
@@ -179,7 +181,7 @@ ms.locfileid: "93105555"
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
     $extName = "KeyVaultForWindows"
     $extPublisher = "Microsoft.Azure.KeyVault"
     $extType = "KeyVaultForWindows"
@@ -203,11 +205,11 @@ ms.locfileid: "93105555"
     
     ```azurecli
     # Start the deployment
-    az vm extension set -n "KeyVaultForWindows" `
+    az vm extension set -name "KeyVaultForWindows" `
      --publisher Microsoft.Azure.KeyVault `
-     -g "<resourcegroup>" `
+     -resource-group "<resourcegroup>" `
      --vm-name "<vmName>" `
-     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * 在虚拟机规模集上部署该扩展：
@@ -218,7 +220,7 @@ ms.locfileid: "93105555"
      --publisher Microsoft.Azure.KeyVault `
      -resource-group "<resourcegroup>" `
      --vmss-name "<vmName>" `
-     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 请注意以下限制/要求：
@@ -230,21 +232,26 @@ ms.locfileid: "93105555"
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 
-### <a name="troubleshoot"></a>故障排除
+### <a name="frequently-asked-questions"></a>常见问题
+
+* 可设置的 observedCertificates 数是否有限制？
+  没有，Key Vault VM 扩展对 observedCertificates 数没有限制。
+
+### <a name="troubleshoot"></a>疑难解答
 
 有关扩展部署状态的数据可以从 Azure 门户和使用 Azure PowerShell 进行检索。 若要查看给定 VM 的扩展部署状态，请使用 Azure PowerShell 运行以下命令。
 
-## <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-扩展执行输出将记录到以下文件：
+#### <a name="logs-and-configuration"></a>日志和配置
 
 ```
 %windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log

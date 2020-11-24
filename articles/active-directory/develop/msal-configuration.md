@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 04f2c20ebe1f03bd8f291e409d748e3810bb2b98
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 404e6f91df55e43002a4ffec61e274da5473e5f9
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647553"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501791"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 身份验证库配置文件
 
@@ -34,6 +34,7 @@ Android Microsoft 身份验证库 (MSAL) 随附了一个[默认的配置 JSON �
 |-----------|------------|-------------|-------|
 | `client_id` | String | 是 | [应用程序注册页](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)中的应用客户端 ID |
 | `redirect_uri`   | String | 是 | [应用程序注册页](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)中的应用重定向 URI |
+| `broker_redirect_uri_registered` | 布尔 | 否 | 可能的值：`true`、`false` |
 | `authorities` | List\<Authority> | 否 | 应用所需的颁发机构列表 |
 | `authorization_user_agent` | AuthorizationAgent（枚举） | 否 | 可能的值：`DEFAULT`、`BROWSER`、`WEBVIEW` |
 | `http` | HttpConfiguration | 否 | 配置 `HttpUrlConnection` `connect_timeout` 和 `read_timeout` |
@@ -46,6 +47,10 @@ Android Microsoft 身份验证库 (MSAL) 随附了一个[默认的配置 JSON �
 ### <a name="redirect_uri"></a>redirect_uri
 
 注册应用程序时注册的重定向 URI。 如果重定向 URI 属于某个中介应用，请参阅[公共客户端应用的重定向 URI](msal-client-application-configuration.md#redirect-uri-for-public-client-apps)，确保对中介应用使用正确的重定向 URI 格式。
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+若要使用中介身份验证，则必须将 `broker_redirect_uri_registered` 属性设置为 `true`。 在中介身份验证方案中，如果应用程序的格式不正确，无法按照[公共客户端应用的重定向 URI](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) 中所述与代理进行对话，则该应用程序会验证重定向 URI 并在它启动时引发异常。
 
 ### <a name="authorities"></a>authorities
 
@@ -81,6 +86,7 @@ Android Microsoft 身份验证库 (MSAL) 随附了一个[默认的配置 JSON �
 > 在 MSAL 中无法启用和禁用授权机构验证。
 > 颁发机构是开发人员已知的、通过配置指定的颁发机构，或者是 Microsoft 已知的、通过元数据指定的颁发机构。
 > 如果 MSAL 收到了向未知颁发机构获取令牌的请求，将导致 `UnknownAuthority` 类型的 `MsalClientException`。
+> 对于 Azure AD B2C，中介身份验证不起作用。
 
 #### <a name="authority-properties"></a>颁发机构属性
 

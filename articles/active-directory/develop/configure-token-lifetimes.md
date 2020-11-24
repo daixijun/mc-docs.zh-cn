@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 30076e4df62ea5aca34c87c57661e2ac51d049c4
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 3265c1fda32786bac14dc6b98396acb06448159e
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754784"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501767"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>配置令牌生存期策略（预览版）
-如果能够创建和管理应用、服务主体和整个组织的令牌生存期，就可以在 Azure AD 中实现各种新的方案。 
+如果能够创建和管理应用、服务主体和整个组织的令牌生存期，就可以在 Azure AD 中实现各种新的方案。  
 
 > [!IMPORTANT]
-> 在预览期间收到客户反馈后，我们已经在 Azure AD 条件访问中实现了身份验证会话管理功能。 你可以使用此新功能，通过设置登录频率来配置刷新令牌生存期。 在 2020 年 5 月 30 日之后，任何新租户都将无法再使用可配置的令牌生存期策略来配置会话和刷新令牌。 弃用将会在该日期之后的几个月内发生，这意味着我们将会停止遵循现有的会话和刷新令牌策略。 在弃用之后，你仍然可以配置访问令牌生存期。
+> 2021 年 1 月 30 日之后，租户将无法再配置刷新和会话令牌生存期，Azure AD 将在该日期之后停止在策略中支持现有的刷新和会话令牌配置。 在弃用之后，你仍然可以配置访问令牌生存期。 
 
 
 本部分逐步讲解一些常见的策略方案，帮助你针对以下属性实施新规则：
@@ -87,7 +87,7 @@ ms.locfileid: "92754784"
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
         ```
 
-    1. 若要查看新策略并获取其 **ObjectId** ，请运行以下命令：
+    1. 若要查看新策略并获取其 **ObjectId**，请运行以下命令：
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -152,7 +152,7 @@ ms.locfileid: "92754784"
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. 将策略分配到 Web API。 还需要获取应用程序的 **ObjectId** 。 请使用 [Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication) cmdlet 来查找应用的 ObjectId，或使用 [Azure 门户](https://portal.azure.cn/)。
+1. 将策略分配到 Web API。 还需要获取应用程序的 **ObjectId**。 请使用 [Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication) cmdlet 来查找应用的 ObjectId，或使用 [Azure 门户](https://portal.azure.cn/)。
 
     获取应用的 ObjectId 并分配该策略：
 

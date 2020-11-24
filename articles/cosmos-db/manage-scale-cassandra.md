@@ -1,26 +1,27 @@
 ---
 title: Azure Cosmos DB 中 Cassandra API 的弹性缩放
 description: 了解可用于缩放 Azure Cosmos DB Cassandra API 帐户的选项及其优点/缺点
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a5c3f4ea9dceb01faee221e7e5931f1485513daf
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 593a7e9faaf7534408fe8cb4e3b56c95c3a681ff
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223428"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552890"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>弹性缩放 Azure Cosmos DB Cassandra API 帐户
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 有多种不同的选项可以探索 Azure Cosmos DB API for Cassandra 的弹性。 若要了解如何在 Azure Cosmos DB 中有效地进行缩放，必须了解如何预配合适数量的请求单位（RU/秒），以考虑系统的性能需求。 若要了解请求单位的详细信息，请参阅[请求单位](request-units.md)一文。 
 
-对于 Cassandra API，可以使用 [.NET 和 Java SDK](/cosmos-db/find-request-unit-charge#cassandra-api) 检索单个查询的请求单位费用。 这有助于确定你在服务中需要预配的 RU 数/秒。
+对于 Cassandra API，可以使用 [.NET 和 Java SDK](./find-request-unit-charge-cassandra.md) 检索单个查询的请求单位费用。 这有助于确定你在服务中需要预配的 RU 数/秒。
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="数据库操作消耗请求单位" border="false":::
 
@@ -51,7 +52,7 @@ ms.locfileid: "88223428"
 <a name="use-control-plane"></a>
 ## <a name="use-the-control-plane"></a>使用控制平面
 
-用于 Cassandra 的 Azure Cosmos DB API 提供使用各种控制平面功能以编程方式调整吞吐量的功能。 有关指导和示例，请参阅 [Azure 资源管理器](manage-cassandra-with-resource-manager.md)、[PowerShell](powershell-samples.md) 和 [Azure CLI](cli-samples.md) 文章。
+用于 Cassandra 的 Azure Cosmos DB API 提供使用各种控制平面功能以编程方式调整吞吐量的功能。 有关指导和示例，请参阅 [Azure 资源管理器](./templates-samples-cassandra.md)、[PowerShell](powershell-samples.md) 和 [Azure CLI](cli-samples.md) 文章。
 
 此方法的优点是可以根据计时器自动扩展或缩减资源，以反映活动的高峰或低活动期。 请参阅[此处](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)的示例，了解如何使用 Azure Functions 和 PowerShell 实现此目的。
 
@@ -69,7 +70,7 @@ ms.locfileid: "88223428"
 
 除了标准（手动）或以编程方式预配吞吐量外，还可以在自动缩放预配的吞吐量中配置 Azure cosmos 容器。 自动缩放会自动立即缩放，以满足指定 RU 范围内的消耗需求，而不会影响 SLA。 若要了解详细信息，请参阅[在自动缩放中创建 Azure Cosmos 容器和数据库](provision-throughput-autoscale.md)一文。
 
-此方法的优点是，它是在系统中管理缩放需求的最简单的方法。 它保证不会**在已配置的 RU 范围内**应用速率限制。 缺点是，如果系统中的缩放需求是可预测的，那么相比使用上面提到的定制控制平面或 SDK 级别方法，自动缩放在处理缩放需求方面可能并没有那么经济高效。
+此方法的优点是，它是在系统中管理缩放需求的最简单的方法。 它不会在已配置的 RU 范围内应用速率限制。 缺点是，如果系统中的缩放需求是可预测的，那么相比使用上面提到的定制控制平面或 SDK 级别方法，自动缩放在处理缩放需求方面可能并没有那么经济高效。
 
 若要设置或更改使用 CQL 的自动缩放的最大吞吐量 (RU)，请使用以下内容（相应地替换密钥空间/表名称）：
 

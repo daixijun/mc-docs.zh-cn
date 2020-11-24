@@ -1,24 +1,25 @@
 ---
 title: 在自动缩放模式下创建 Azure Cosmos 容器和数据库。
 description: 了解好处、用例、以及如何在自动缩放模式下预配 Azure Cosmos 数据库和容器。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/04/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2043e24b66e81e42833d83d1ebfc39e6a6c265ae
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ada59d52c51be8341d69ac692cbd2a18424c27c2
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222450"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552776"
 ---
 <!--Verified successfully-->
 <!--Latest content-->
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>创建具有自动缩放吞吐量的 Azure Cosmos 容器和数据库
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或自动缩放预配吞吐量。 本文介绍自动缩放预配吞吐量的好处和用例。 
 
@@ -84,7 +85,7 @@ Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或�
 | 预配吞吐量 (RU/s) | 手动预配。 | 基于工作负载使用模式自动并即时缩放。 |
 | 请求/操作的速率限制 (429) | 如果消耗超出预配容量，则可能会发生。 | 如果在设置的自动缩放吞吐量范围内消耗 RU/s，则不会发生。    |
 | **容量规划** |  必须执行容量规划，并设置所需的确切吞吐量。 |    系统会自动处理容量规划和容量管理。 |
-| **定价** | 使用[按小时费率的标准（手动）RU/s](https://www.azure.cn/pricing/details/cosmos-db/)，按小时为手动预配 RU/s 付费。 | 按小时为系统在该小时内扩展到的最高 RU/s 付费。 <br/><br/> 对于单写入区域帐户，使用[按小时费率的自动缩放 RU/s](https://www.azure.cn/pricing/details/cosmos-db/)，为每小时使用的 RU/s 付费。 <br/><br/>对于具有多个写入区域的帐户，自动缩放不收取额外费用。 使用相同的[按小时费率的多主数据库 RU/s](https://www.azure.cn/pricing/details/cosmos-db/)，为每小时使用的吞吐量付费。 |
+| **定价** | 使用[按小时费率的标准（手动）RU/s](https://www.azure.cn/pricing/details/cosmos-db/)，按小时为手动预配 RU/s 付费。 | 按小时为系统在该小时内扩展到的最高 RU/s 付费。 <br/><br/> 对于单写入区域帐户，使用[按小时费率的自动缩放 RU/s](https://www.azure.cn/pricing/details/cosmos-db/)，为每小时使用的 RU/s 付费。 <br/><br/>对于具有多个写入区域的帐户，自动缩放不收取额外费用。 需使用相同的[多区域写入 RU/秒小时费率](https://www.azure.cn/pricing/details/cosmos-db/)，为每小时使用的吞吐量付费。 |
 | 最适合工作负载类型 |  可预测和稳定的工作负载|   不可预测和可变的工作负载  |
 
 ## <a name="next-steps"></a>后续步骤
@@ -92,6 +93,6 @@ Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或�
 * 查看[自动缩放常见问题解答](autoscale-faq.md)。
 * 了解如何[在手动与自动缩放吞吐量之间进行选择](how-to-choose-offer.md)。
 * 了解[如何对 Azure Cosmos 数据库或容器预配自动缩放吞吐量](how-to-provision-autoscale-throughput.md)。
-* 深入了解 Azure Cosmos DB 中的[分区](partition-data.md)。
+* 深入了解 Azure Cosmos DB 中的[分区](partitioning-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

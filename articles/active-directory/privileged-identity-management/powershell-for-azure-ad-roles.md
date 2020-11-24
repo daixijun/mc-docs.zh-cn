@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22ab01e0fa8b1e675e1ad217d5091749343c2e4
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c1147322b1f9a684d764e93786a5960e84973a45
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937386"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501667"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>适用于 Privileged Identity Management 中 Azure AD 角色的 PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "91937386"
 > [!Note]
 > 仅当使用新版 Azure AD Privileged Identity Management 时，才支持正式版 PowerShell。 请转到“Privileged Identity Management”，并确保快速启动边栏选项卡中出现了以下横幅。
 > [![检查所用的 Privileged Identity Management 版本](./media/pim-how-to-add-role-to-user/pim-new-version.png "选择“Azure AD”>“Privileged Identity Management”")](./media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)如果未看到此横幅，请等待几周时间，因为我们目前正在推出此项更新的体验。
-> 支持通过 Azure AD 预览版模块使用 Privileged Identity Management PowerShell cmdlet。 如果你一直使用在其他模块，而该模块现在会返回错误消息，请开始使用此新模块。 如果你在不同模块的基础之上构建了任何生产系统，请联系 pim_preview@microsoft.com
+> 支持通过 Azure AD 预览版模块使用 Privileged Identity Management PowerShell cmdlet。 如果你一直使用在其他模块，而该模块现在会返回错误消息，请开始使用此新模块。 如果你基于另一模块构建了任何生产系统，请联系 [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com)。
 
 ## <a name="installation-and-setup"></a>安装和设置
 
@@ -162,5 +162,5 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [分配 Azure AD 自定义角色](azure-ad-custom-roles-assign.md)
 - [删除或更新 Azure AD 自定义角色分配](azure-ad-custom-roles-update-remove.md)
 - [配置 Azure AD 自定义角色分配](azure-ad-custom-roles-configure.md)
-- [Azure AD 中的角色定义](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD 中的角色定义](../roles/permissions-reference.md)
 

@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9edd9d999833a602546c616b717c226e9d4a3793
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6c5eb9b9f476f293bf87aa42a37f7b99668df96c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246721"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552482"
 ---
 <!--Verified successfully-->
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link for Azure Cosmos DB：准实时分析用例
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 适用于 Azure Cosmos DB 的 [Azure Synapse Link](synapse-link.md) 是一种云原生混合事务和分析处理 (HTAP) 功能，可用于对操作数据运行准实时分析。 Synapse Link 在 Azure Cosmos DB 和 Azure Synapse Analytics 之间建立紧密的无缝集成。
 
@@ -98,7 +99,7 @@ Synapse Link for Azure Cosmos DB 用例：
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>示例方案：适用于 Azure Cosmos DB 的 HTAP
 
-近十年，大量客户都在使用 Azure Cosmos DB，将其用于需要弹性缩放、统包多区域分发、多主数据库复制的关键应用程序，以实现事务工作负荷中读写操作的低延迟和高可用性。
+近十年，成千上万的客户都在使用 Azure Cosmos DB，将其用于需要弹性缩放、统包多区域分发、多区域写入复制的关键应用程序，以实现事务工作负荷中读写操作的低延迟和高可用性。
 
 以下列表概述了操作数据支持的使用 Azure Cosmos DB 的各种工作负荷模式：
 
@@ -118,15 +119,15 @@ Synapse Link for Azure Cosmos DB 用例：
 
 * CompanyXYZ 的核心业务依赖于库存管理系统 - 因此可用性和可靠性是核心支柱要求。 使用 Azure Cosmos DB 的好处：
 
-    * 凭借与 Azure 基础结构和透明多主数据库多区域复制的深度集成，Azure Cosmos DB 可针对区域性服务中断提供行业领先的 [99.999% 的高可用性](high-availability.md)。
+    * 凭借与 Azure 基础结构和透明多区域写入、多区域复制的深度集成，Azure Cosmos DB 可提供行业领先的 [99.999% 的高可用性](high-availability.md)以防范区域性服务中断。
 
 * CompanyXYZ 的供应链合作伙伴可能位于不同的地理位置，但他们可能需要查看中国各地的产品库存的单一视图，以支持其本地操作。 这包括需要能够实时读取其他供应链合作伙伴所做的更新。 还能够进行更新，而无需担心与其他合作伙伴在高吞吐量方面发生冲突。 使用 Azure Cosmos DB 的好处：
 
-    * 凭借其独特的多主数据库复制协议和免闩锁且优化了写入的事务存储，Azure Cosmos DB 可保证多区域 99% 的情况下已编入索引的读取和写入延迟均低于 10 毫秒。
+    * 凭借其独特的多区域写入复制协议和免闩锁且优化了写入的事务存储，Azure Cosmos DB 可保证多个区域在 99% 的情况下已进行索引编制的读取和写入的延迟均低于 10 毫秒。
 
     * 通过事务存储中的[实时索引](index-policy.md)，高吞吐量引入批处理和流式处理数据馈送。
 
-    * Azure Cosmos DB 事务存储提供了另外三个选项，而不会走非常一致性和最终一致性这两种极端，从而实现最接近近业务需求的[可用性和性能权衡](consistency-levels-tradeoffs.md)。
+    * Azure Cosmos DB 事务存储提供了另外三个选项，而不会走非常一致性和最终一致性这两种极端，从而实现最接近近业务需求的[可用性和性能权衡](./consistency-levels.md)。
 
 * CompanyXYZ 的供应链合作伙伴具有较大变动的流量模式，范围从数百到数百万个请求，因此库存管理平台需要处理流量中的意外情况。  使用 Azure Cosmos DB 的好处：
 

@@ -1,21 +1,21 @@
 ---
 title: 存储帐户概述
 titleSuffix: Azure Storage
-description: 了解创建和使用 Azure 存储帐户所需的选项。
+description: 阅读 Azure 存储中的存储帐户概述。 查看帐户命名、性能层、访问层、冗余、加密、终结点等。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 01/17/2020
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e8dbdc42e321b14ce1172f894b551a879756f1ab
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: d7bcbdd13bceb5f34f5ed31caa3aa94efdd5460b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414702"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551759"
 ---
 # <a name="storage-account-overview"></a>存储帐户概述
 
@@ -61,7 +61,7 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 - 应用程序为事务密集型，或者使用很大的异地复制带宽，但不需要大的容量。 在这种情况下，常规用途 v1 可能是最经济的选择。
 
-- 使用的[存储服务 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 版本早于 2014-02-14，或使用的客户端库的版本低于 4.x， 并且无法升级应用程序。
+- 使用的[存储服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) 版本早于 2014-02-14，或使用的客户端库的版本低于 4.x， 并且无法升级应用程序。
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 帐户
 
@@ -72,8 +72,6 @@ BlockBlobStorage 帐户目前不支持分层为 “热”、“冷”或“存�
 ### <a name="filestorage-accounts"></a>FileStorage 帐户
 
 FileStorage 帐户是用于存储和创建高级文件共享的专用存储帐户。 此存储帐户类型支持文件，但不支持块 blob、追加 blob、页 blob、表或队列。
-
-FileStorage 帐户提供了独特的性能专用特征，例如 IOPS 突发。 有关这些特征的更多信息，请参阅文件规划指南的[文件共享存储层](../files/storage-files-planning.md#storage-tiers)部分。
 
 ## <a name="naming-storage-accounts"></a>为存储帐户命名
 
@@ -107,9 +105,9 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 
 可用的访问层包括：
 
-- **热**访问层。 此层已优化，适合频繁访问存储帐户中的对象。 访问热层中的数据最经济高效，但存储费用较高。 新的存储帐户默认在热层中创建。
-- **冷**访问层。 此层已优化，适合存储大量不常访问且存储时间至少为 30 天的数据。 将数据存储在冷层中更经济高效，但与访问热层中的数据相比，访问该数据的费用可能较高。
-- **存档**层。 此层仅适用于单个块 Blob。 存档层已针对可以容忍数小时的检索延迟且会保留在存档层至少 180 天的数据进行优化。 存档层是最经济高效的数据存储选项。 但是，访问这些数据的开销比访问热层或冷层中的数据要高。
+- **热** 访问层。 此层已优化，适合频繁访问存储帐户中的对象。 访问热层中的数据最经济高效，但存储费用较高。 新的存储帐户默认在热层中创建。
+- **冷** 访问层。 此层已优化，适合存储大量不常访问且存储时间至少为 30 天的数据。 将数据存储在冷层中更经济高效，但与访问热层中的数据相比，访问该数据的费用可能较高。
+- **存档** 层。 此层仅适用于单个块 Blob。 存档层已针对可以容忍数小时的检索延迟且会保留在存档层至少 180 天的数据进行优化。 存档层是最经济高效的数据存储选项。 但是，访问这些数据的开销比访问热层或冷层中的数据要高。
 
 如果数据的使用模式有所更改，可以随时在这些访问层之间切换。 有关访问层的详细信息，请参阅 [Azure Blob 存储：热、冷和存档访问层](../blobs/storage-blob-storage-tiers.md)。
 
@@ -134,6 +132,7 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 - 表存储：`https://*mystorageaccount*.table.core.chinacloudapi.cn`
 - 队列存储：`https://*mystorageaccount*.queue.core.chinacloudapi.cn`
 - Azure 文件存储：`https://*mystorageaccount*.file.core.chinacloudapi.cn`
+- Azure Data Lake Storage Gen2：`https://*mystorageaccount*.dfs.core.chinacloudapi.cn`（使用[已针对大数据进行专门优化的 ABFS 驱动程序](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)。）
 
 > [!NOTE]
 > 块 blob 和 blob 存储帐户仅公开 Blob 服务终结点。
@@ -167,7 +166,7 @@ Azure 存储提供不同的选项，适用于根据使用模型访问块 Blob �
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制到 Azure 存储（或从中进行复制）。 可以使用 AzCopy 将数据从现有的常规用途存储帐户复制到 Blob 存储帐户，或者将数据从本地存储设备上传。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制到 Azure 存储（或从中进行复制）。 可以使用 AzCopy 将数据从现有的常规用途存储帐户复制到 Blob 存储帐户，或者将数据从本地存储设备上传。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy-v10.md?toc=%252fstorage%252fblobs%252ftoc.json)。
 
 ### <a name="data-movement-library"></a>数据移动库
 

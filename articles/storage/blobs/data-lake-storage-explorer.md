@@ -1,20 +1,20 @@
 ---
 title: 将 Azure 存储资源管理器与 Azure Data Lake Storage Gen2 配合使用
 description: 使用 Azure 存储资源管理器在启用了分层命名空间 (HNS) 的存储帐户中管理目录和文件以及目录访问控制列表 (ACL)。
-author: normesta
+author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/16/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: c73f5727e855284dad54ea0ecad9ec9e5e39dfc7
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: c21a30b12a81c895aa23d0bf68252a3569e2e6fe
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753478"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552129"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure 存储资源管理器管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -39,7 +39,7 @@ ms.locfileid: "88753478"
 
 选择“添加 Azure 帐户”  ，并单击“登录”  。遵照屏幕提示登录到 Azure 帐户。
 
-![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![此屏幕截图显示了 Microsoft Azure 存储资源管理器，并突出显示了“添加 Azure 帐户”选项和“登录”按钮。](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。  以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-azurite.md?toc=%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
 
@@ -75,7 +75,7 @@ ms.locfileid: "88753478"
 
 ## <a name="download-blobs"></a>下载 Blob
 
-若要使用 **Azure 存储资源管理器**下载文件，请选择所需的文件，然后在功能区中选择“下载”。  此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将文件下载到本地位置。 
+若要使用 **Azure 存储资源管理器** 下载文件，请选择所需的文件，然后在功能区中选择“下载”。  此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将文件下载到本地位置。 
 
 ## <a name="managing-access"></a>管理访问权限
 

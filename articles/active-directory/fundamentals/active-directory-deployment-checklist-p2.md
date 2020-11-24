@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c94c212d8841c1b6e1df0b13e6251917f32c41c6
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: d5aed1db2abd35fa3a8e5a991bcd68a170d1c123
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244640"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501760"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -33,7 +33,7 @@ ms.locfileid: "91244640"
 * [Azure AD 许可](https://www.azure.cn/pricing/details/active-directory/)
 * [Microsoft 365 企业版](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [企业移动性 + 安全性](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md)
+* [Azure AD 外部标识定价](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>阶段 1：构建安全基础
 
@@ -41,8 +41,8 @@ ms.locfileid: "91244640"
 
 | 任务 | 详细信息 | 所需的许可证 |
 | ---- | ------ | ---------------- |
-| [指定多个全局管理员](../users-groups-roles/directory-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 | Azure AD Free |
-| [尽可能使用非全局管理角色](../users-groups-roles/directory-assign-admin-roles.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 | Azure AD Free |
+| [指定多个全局管理员](../roles/security-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 | Azure AD Free |
+| [尽可能使用非全局管理角色](../roles/permissions-reference.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 | Azure AD Free |
 | [启用 Privileged Identity Management 以跟踪管理员角色的用途](../privileged-identity-management/pim-getting-started.md) | 启用 Privileged Identity Management 以开始跟踪管理角色的用途。 | Azure AD Premium P2 |
 | [推广自助式密码重置](../authentication/howto-sspr-deployment.md) | 让员工使用管理员控制的策略重置自己的密码，减少支持台收到的密码重置呼叫次数。 | |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 | Azure AD Free |
@@ -60,8 +60,8 @@ ms.locfileid: "91244640"
 | [安装 Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | 准备将现有本地目录中的用户同步到云。 | Azure AD Free |
 | [实现密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md) | 同步密码哈希，以便能够复制密码更改、检测并补救错误密码，以及报告已泄漏的凭据。 | Azure AD Free |
 | [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md) | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 | Azure AD Premium P1 |
-| [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../users-groups-roles/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
-| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md) |
+| [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../enterprise-users/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
+| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD 外部标识定价](../external-identities/external-identities-pricing.md) |
 
 ## <a name="phase-3-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>阶段 3：审核特权标识、完成访问评审和管理用户生命周期
 

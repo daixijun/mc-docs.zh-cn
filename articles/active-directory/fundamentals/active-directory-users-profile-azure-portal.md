@@ -1,24 +1,23 @@
 ---
-title: 添加或更新用户的配置文件信息 - Azure Active Directory | Microsoft Docs
+title: 添加或更新用户配置文件信息 - Azure AD
 description: 有关如何在 Azure Active Directory 中向用户配置文件添加信息（包括图片和作业详细信息）的说明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-origin.date: 04/11/2019
-ms.date: 11/13/2019
+ms.topic: how-to
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddb2a6e1d87b074a19b30ce3e7b9d3d4ddf996c3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b6aee1dfd7c128a6fd9e895fe31be20a99cca077
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74084711"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501954"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 添加或更新用户的配置文件信息
 使用 Azure Active Directory (Azure AD) 来添加用户配置文件信息，包括配置文件图片、工作特定信息和某些设置。 有关添加新用户的详细信息，请参阅[如何添加或删除 Azure Active Directory 中的用户](add-users-azure-active-directory.md)。
@@ -67,6 +66,5 @@ ms.locfileid: "74084711"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-也可以执行其他用户管理任务，例如分配委托、使用策略以及共享用户帐户。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)。
+也可以执行其他用户管理任务，例如分配委托、使用策略以及共享用户帐户。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理文档](../enterprise-users/index.yml)。
 
-<!-- Update_Description: wording update -->

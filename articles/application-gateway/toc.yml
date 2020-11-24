@@ -4,6 +4,8 @@
   items:
     - name: 关于应用程序网关
       href: overview.md
+    - name: 应用程序网关上的 Web 应用程序防火墙
+      href: ag-overview.md
 - name: 快速入门
   expanded: true
   items:
@@ -16,6 +18,8 @@
     - name: 创建应用程序网关 - ARM 模板
       displayName: Resource Manager
       href: quick-create-template.md
+    - name: 部署 WAF v2 - ARM 模板
+      href: quick-create-template-waf.md
 - name: 教程
   items:
     - name: 使用 SSL 进行保护
@@ -32,6 +36,8 @@
       href: tutorial-ingress-controller-add-on-new.md
     - name: AKS 的入口控制器外接程序（棕地）
       href: tutorial-ingress-controller-add-on-existing.md
+    - name: 启用 Web 应用程序防火墙
+      href: application-gateway-web-application-firewall-portal.md
 - name: 示例
   items:
     - name: Azure PowerShell
@@ -43,7 +49,13 @@
 - name: 概念
   items:
     - name: 远程工作支持
-      href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
+      href: ../networking/working-remotely-support.md
+    - name: 托管规则
+      href: application-gateway-crs-rulegroups-rules.md
+    - name: 自定义规则概述
+      href: custom-waf-rules-overview.md
+    - name: 请求大小限制和排除列表
+      href: application-gateway-waf-configuration.md
     - name: 基础
       items:
         - name: 应用程序网关功能
@@ -80,10 +92,10 @@
           href: redirect-overview.md
         - name: 重写 HTTP 标头和 URL
           href: rewrite-http-headers-url.md
-        - name: 安全性
-          items:
-            - name: 安全基线
-              href: security-baseline.md
+    - name: 安全
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: SSL
       items:
         - name: SSL 终止和端到端 SSL
@@ -116,6 +128,26 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
+    - name: 配置 Web 应用程序防火墙
+      items:
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
+        - name: Azure CLI
+          href: tutorial-restrict-web-traffic-cli.md
+    - name: 自定义 WAF 规则
+      items:
+        - name: Azure 门户
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
+    - name: 配置 WAF V2 自定义规则 - PowerShell
+      href: configure-waf-custom-rules.md
+    - name: 自定义规则示例
+      href: create-custom-waf-rules.md
+    - name: 排查 WAF 问题
+      href: web-application-firewall-troubleshoot.md
     - name: 配置内部负载均衡器
       items:
         - name: Azure 门户
@@ -280,7 +312,7 @@
       href: /develop/python/
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/applicationgateway'
-    - name: Azure Resource Manager
+    - name: Azure 资源管理器
       displayName: ARM
       href: ../azure-resource-manager/management/overview.md
     - name: 资源管理器模板

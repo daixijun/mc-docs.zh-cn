@@ -1,24 +1,24 @@
 ---
 title: 使用 Azure PowerShell 打开指向 VM 的端口
-description: 了解如何使用 Azure Resource Manager 部署模型和 Azure PowerShell 在 Windows VM 上打开端口/创建终结点
-ms.service: virtual-machines-windows
+description: 了解如何使用 Azure PowerShell 为 VM 打开端口/创建终结点
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0cd3450f8c159eabb445e6bc2838521eac1c3027
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f3ee5e3a1029294666919a1f7ae9ad1600e24037
+ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106294"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94590599"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>如何使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>快速命令

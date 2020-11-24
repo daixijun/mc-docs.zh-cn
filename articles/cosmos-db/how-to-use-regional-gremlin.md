@@ -6,26 +6,28 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 09/09/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9853115ef01441e11b29d1b82c014b8b4d3a6083
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 13dff47d1474fdb2fc0cb3013a674da47efee829
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246730"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552765"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB Graph 帐户的区域终结点
-Azure Cosmos DB Graph 数据库是[多区域分布](distribute-data-globally.md)的，因此应用程序可以使用多个读取终结点。 需要在多个位置具有写入访问权限的应用程序应启用[多主数据库](how-to-multi-master.md)功能。
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
+Azure Cosmos DB Graph 数据库是[多区域分布](distribute-data-globally.md)的，因此应用程序可以使用多个读取终结点。 需要在多个位置具有写入访问权限的应用程序应启用[多区域写入](how-to-multi-master.md)功能。
 
 选择多个区域的原因：
 1. **水平读取可伸缩性** - 随着应用程序负载的增加，将读取流量路由到不同的 Azure 区域可能是明智的做法。
 2. **延迟较低** - 可以将读取和写入流量路由到最近的 Azure 区域，从而减少每个遍历的网络延迟开销。
 
-**数据驻留**要求通过在 Cosmos DB 帐户上设置 Azure 资源管理器策略来实现。 客户可限制 Cosmos DB 将数据复制到其中的区域。
+**数据驻留** 要求通过在 Cosmos DB 帐户上设置 Azure 资源管理器策略来实现。 客户可限制 Cosmos DB 将数据复制到其中的区域。
 
 ## <a name="traffic-routing"></a>流量路由
 

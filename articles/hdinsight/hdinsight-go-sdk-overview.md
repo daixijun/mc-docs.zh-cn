@@ -8,20 +8,20 @@ ms.topic: conceptual
 origin.date: 01/03/2020
 ms.author: v-yiso
 ms.date: 06/22/2020
-ms.openlocfilehash: 3691dba8e3a88c499bd673ace69c3f6afdac6013
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 7e5ebdc5cd16725e9ff24d3e60d1511774f89bd0
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723293"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552886"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
 ## <a name="overview"></a>概述
 用于 Go 的 HDInsight SDK 提供了用于管理 HDInsight 群集的类和函数。 该 SDK 包含用于创建、删除、更新、列出、调整大小、执行脚本操作，以及监视、获取 HDInsight 群集属性等操作。
 
-> [!NOTE]
->还可以[从此处获得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)适用于此 SDK 的GoDoc 参考资料。
+> [!NOTE]  
+>还可以[从此处获得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight)适用于此 SDK 的GoDoc 参考资料。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -143,7 +143,7 @@ func main() {
 
 #### <a name="example"></a>示例
 
-本示例演示如何创建包含 2 个头节点和 1 个工作节点的 [Apache Spark](https://spark.apache.org/) 群集。
+本示例演示如何创建包含两个头节点和一个工作器节点的 [Apache Spark](https://spark.apache.org/) 群集。
 
 > [!NOTE]
 > 首先需要创建一个资源组和存储帐户，下面将予以介绍。 如果已创建资源组和存储帐户，则可以跳过这些步骤。
@@ -165,7 +165,7 @@ az storage account create -n <Storage Account Name> -g <Existing Resource Group 
 az storage account keys list -n <Storage Account Name>
 ```
 ---
-以下 Go 代码片段创建包含 2 个头节点和 1 个工作节点的 Spark 群集。 按照注释中所述填写空白变量，并根据具体的需要任意更改其他参数。
+以下 Go 代码片段创建一个包含两个头节点和一个工作器节点的 Spark 群集。 按照注释中所述填写空白变量，并根据具体的需要任意更改其他参数。
 
 ```golang
 // The name for the cluster you are creating
@@ -351,8 +351,8 @@ extClient.Authorizer, _ = credentials.Authorizer()
 
 ### <a name="enable-oms-monitoring"></a>启用 OMS 监视
 
-> [!NOTE]
-> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建工作区，可在此了解创建方法：[在 Azure 门户中创建 Log Analytics 工作区](/log-analytics/log-analytics-quick-create-workspace)。
+> [!NOTE]  
+> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建工作区，可在此了解创建方法：[在 Azure 门户中创建 Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md)。
 
 在群集上启用 OMS 监视：
 
@@ -477,4 +477,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>后续步骤
 
-* 探究 [GoDoc 参考资料](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。 GoDoc 提供了 SDK 中的所有函数的参考文档。
+探究 [GoDoc 参考资料](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight)。 GoDoc 提供了 SDK 中的所有函数的参考文档。

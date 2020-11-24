@@ -1,22 +1,22 @@
 ---
 title: B2B 协作用户的条件访问 - Azure AD
-description: Azure Active Directory B2B 协作支持多重身份验证 (MFA)，以便对公司应用程序进行选择性访问
+description: 了解如何对 Azure Active Directory B2B 用户强制实施多重身份验证策略。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedb0e3e7dd3d1b465cb9019b195d37ba6c287e4
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: c5f3830f0d5195da767f21051716ca02ab192b5c
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648047"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501908"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 协作用户的条件访问
 
@@ -87,7 +87,6 @@ ms.locfileid: "88648047"
 
 因此，在针对 B2B 用户进行 MFA 方面，建议始终需要在邀请方租户中进行 MFA。 此要求可能会导致有些情况下需要进行两次 MFA，但是无论在什么时候访问邀请方租户，最终用户体验都是可以预测的：Sally 必须注册邀请方租户的 MFA。
 
-### <a name="location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 用户基于位置和基于风险的条件访问
 
 #### <a name="mobile-application-management-policies-for-b2b"></a>B2B 的移动应用程序管理策略
 
@@ -106,6 +105,6 @@ ms.locfileid: "88648047"
 请参阅以下有关 Azure AD B2B 协作的文章：
 
 * [什么是 Azure AD B2B 协作？](what-is-b2b.md)
-* [Azure AD B2B 协作授权](licensing-guidance.md)
+* [外部标识定价](external-identities-pricing.md)
 * [Azure Active Directory B2B 协作常见问题 (FAQ)](faq.md)
 

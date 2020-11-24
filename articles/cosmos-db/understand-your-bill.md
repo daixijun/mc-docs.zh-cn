@@ -5,28 +5,29 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: fe7849812c5091e53371bfdcd6d108dda9a348dd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6dcad7ed154890e2f42ca8871df60ce54194e7f7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246300"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552891"
 ---
 <!--VERIFIED SUCCESSFULLY-->
 <!--UPDATE CAREFULLY-->
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库操作和消耗的存储收费，因而简化了计费。 与本地或 IaaS 托管的替代方案相比，无需额外的许可费、硬件、使用成本或设施成本。 若想使用 Azure Cosmos DB 的多区域功能，与现有本地或 IaaS 解决方案相比，数据库服务可显着降低成本。
 
 - **数据库操作**：数据库操作的收费方式取决于你使用的 Azure Cosmos 帐户的类型。
 
-  - **预配的吞吐量**：按给定小时内的最大预配吞吐量（增量为 100 RU/秒）以小时来计费。
-  - **无服务器**：每小时按数据库操作消耗的请求单位总数计费。
+    - **预配的吞吐量**：按给定小时内的最大预配吞吐量（增量为 100 RU/秒）以小时来计费。
+    - **无服务器**：每小时按数据库操作消耗的请求单位总数计费。
 
 - **存储**：给定小时内数据和索引所消耗的存储总量（以 GB 为单位）按统一费率计费。
 
@@ -35,7 +36,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 本文通过一些示例来帮助你了解每月帐单上的详细信息。 若存在以下情况，则示例中显示的数字可能会有所不同：Azure Cosmos 容器预配的吞吐量不同；容器跨多个区域；或在一个月内在不同时期运行。 本文中的所有示例都基于[定价页](https://www.azure.cn/pricing/details/cosmos-db/)中显示的定价信息计算账单。
 
 > [!NOTE]
-> 计费按每个小时计算，而不是按 60 分钟的持续时间计算。 
+> 计费按每个小时计算，而不是按 60 分钟的持续时间计算。 定价和计算因所使用的区域而异。有关最新定价信息，请参阅 [Azure Cosmos DB 定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 <!--MOONCAKE CUSTOMIZATION -->
 
@@ -88,7 +89,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 * 此时需支付： 0.051 元 x 222 = 11.322 元/小时。 
 
-* 假设一个月为 744 小时（24 小时 * 31 天），如果 500 小时的预配吞吐量为 1,200 RU/秒，其余 244 小时的预配吞吐量为 22,200 RU/秒，则月度帐单将显示：500 x 0.984 元/小时 + 244 x 18.21元/小时 = 13402.56 元/月。
+* 假设一个月为 744 小时（24 小时 * 31 天），如果 500 小时的预配吞吐量为 1,200 RU/秒，其余 244 小时的预配吞吐量为 22,200 RU/秒，则月度帐单将显示：500 x 0.612 元/小时 + 244 x 11.322 元/小时 = 3068.57 元/月。
 
     <!--Not Available on :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Dedicated throughput bill example":::-->
 
@@ -106,11 +107,11 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
     
 * 假设一个月为 744 小时，如果 300 小时的预配吞吐量为 120K RU/秒，其余 444 小时的预配吞吐量为 155K RU/秒，则月度帐单将显示：300 x 61.2元/小时 + 444 x 79.05元/小时 = 18,360 元+ 35,098.2 元 = 53,458.2 元/月。 
 
-    <!--Not Available on :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Dedicated throughput bill example":::-->
+    <!--Not Available on :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Shared throughput bill example":::-->
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>采用异地复制和多主数据库的计费示例  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>采用异地复制和多区域写入的计费示例  
 
-可随时向 Azure Cosmos 数据库帐户添加/删除中国 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户（按小时配置）中的所有数据库和容器中配置的总预配吞吐量（RU /秒）为 T，而与数据库帐户关联的 Azure 区域数为 N，则对于 Azure Cosmos 数据库帐户而言，在给定时间内（小时）总预配吞吐量分别为：(a) 配置了单个写入区域时，总吞吐量 = T x N RU/秒；(b) 配置了所有能够处理写入的区域时，总吞吐量 = T x (N + 1) RU/每秒。 预配吞吐量（单个写入区域）每 100 RU/秒的费用为 0.051 元/小时，对于多个写入区域（配置多主数据库），每 100 RU/秒的费用为 0.102 元/小时（参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)）。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
+可随时向 Azure Cosmos 数据库帐户添加/删除中国 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户（按小时配置）中的所有数据库和容器中配置的总预配吞吐量（RU /秒）为 T，而与数据库帐户关联的 Azure 区域数为 N，则对于 Azure Cosmos 数据库帐户而言，在给定时间内（小时）总预配吞吐量分别为：(a) 配置了单个写入区域时，总吞吐量 = T x N RU/秒；(b) 配置了所有能够处理写入的区域时，总吞吐量 = T x (N + 1) RU/每秒。 预配吞吐量（单个写入区域）每 100 RU/秒的费用为 0.051 元/小时。对于多个可写区域（多区域写入配置），预配吞吐量每 100 RU/秒的费用为 0.102 元/小时（请查看[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)）。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>计费示例：多区域 Azure Cosmos 帐户，单个区域写入
 
@@ -131,6 +132,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 假定创建位于中国北部的 Azure Cosmos 容器。 创建容器时，指定的吞吐量为 10K RU/秒，本月可存储 1 TB 的数据。 假定添加 3 个区域（中国东部、中国北部 2 和中国东部 2），每个区域的存储和吞吐量都相同，并且你希望能够写入到与 Azure Cosmos 帐户关联的所有区域中的容器。 则月度帐单（假定一个月 31 天）情况如下：
 
 <!--Should be China East, China North 2, China East 2-->
+<!--Multiple region write unit price CNY0.102/Hour-->
 
 |**项目** |**使用情况（月）**|**费率** |**每月成本** |
 |---------|---------|---------|-------|
@@ -144,9 +146,9 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 <!--Customize-->
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>计费示例：包含多主数据库的 Azure Cosmos 帐户，数据库级别的吞吐量包括某些容器的专用吞吐量模式
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>计费示例：包含多区域写入的 Azure Cosmos 帐户，数据库级别的吞吐量，其中包括某些容器的专用吞吐量模式
 
-我们来看看以下示例，示例中包含一个多区域 Azure Cosmos 帐户，其中所有区域都可写入（多主数据库配置）。 为简单起见，假定存储大小保持不变，且不会更改，此处不考虑存储大小，从而简化示例。 本月的预配吞吐量变化如下（假定一月为 31 天或 744 小时）： 
+我们来看看以下示例，示例中包含一个多区域 Azure Cosmos 帐户，其中的所有区域都可写入（多个写入区域配置）。 为简单起见，假定存储大小保持不变，且不会更改，此处不考虑存储大小，从而简化示例。 本月的预配吞吐量变化如下（假定一月为 31 天或 744 小时）： 
 
 <!--Region Mapping: West US       China North-->
 <!--Region Mapping: East US       China East-->
@@ -204,7 +206,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 下图直观地呈现了本月 744 小时内总预配吞吐量的变化情况： 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Dedicated throughput bill example":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="真实示例":::
 
 将按以下方式计算月度总帐单（假定一个月为 31 天/744 小时）：
 
@@ -227,7 +229,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 || |**每月总成本** | |**212,403.9 元** |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a><a name="billing-examples-with-free-tier-accounts"></a>免费层帐户的计费示例
-使用 Azure Cosmos DB 免费层，你将在帐户中获得前 400 RU/s 免费吞吐量和 5 GB 免费存储，并在帐户级别应用。 超过 400 RU/s 和 5 GB 的任何吞吐量和存储都将按定价页面的常规定价费率计费。 在账单上，你不会看到免费的 400 RU/s 和 5 GB 的费用或行项，而只会看到超过免费层涵盖范围的吞吐量和存储。 400 RU/s 适用于任何类型的吞吐量，包括预配吞吐量、自动缩放吞吐量和多主数据库吞吐量。  
+使用 Azure Cosmos DB 免费层，你将在帐户中获得前 400 RU/s 免费吞吐量和 5 GB 免费存储，并在帐户级别应用。 超过 400 RU/s 和 5 GB 的任何吞吐量和存储都将按定价页面的常规定价费率计费。 在账单上，你不会看到免费的 400 RU/s 和 5 GB 的费用或行项，而只会看到超过免费层涵盖范围的吞吐量和存储。 400 RU/秒适用于任何类型的吞吐量，包括预配吞吐量、自动缩放吞吐量和多区域写入吞吐量。  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>计费示例 - 具有预配吞吐量的容器或数据库
 - 假设我们在免费层帐户中创建一个具有 400 RU/s 吞吐量和 5 GB 存储的数据库或容器。
@@ -243,16 +245,16 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 - 超出前 5 GB 的任何存储都将按正常存储费率计费。 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>计费示例 - 多区域单个写入区域帐户
-- 假设我们在免费层帐户中创建一个具有 1200 RU/s 吞吐量和 10 GB 存储的数据库或容器。 我们将帐户复制到 3 个区域，并且有单主数据库（单个写入区域）帐户。
+- 假设我们在免费层帐户中创建一个具有 1200 RU/s 吞吐量和 10 GB 存储的数据库或容器。 我们将帐户复制到 3 个区域。我们有单写入区域帐户。
 - 如果不使用免费层，我们共需要支付 3 * 1200 RU/s = 3600 RU/s 吞吐量和 3 * 10 GB = 30 GB 存储的费用。
 - 使用免费层折扣后，在扣除 400 RU/s 吞吐量和 5 GB 存储后，我们需要支付 3200 RU/s（32 个单位）的有效预配吞吐量（按单个写入区域费率计算）和 25 GB 的存储费用。
 - 每月 RU/s 成本为：32 个单位 * 0.051 元 * 24 小时 * 31 天 = 1,214.21 元。 每月存储成本为：25 GB * 2.576 / GB = 64.4 元。 总成本将为 1,214.21 元 + 64.4 元 = 1,278.61 元。
 - 注意：如果各区域的吞吐量或存储单价不同，则免费层的 400 RU/s 吞吐量和 5 GB 存储将反映创建帐户所在区域的费率。
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>计费示例 - 多区域多主数据库（多写入区域）帐户
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>计费示例 - 多区域多写入区域帐户
 
-此示例反映了在 2019 年 12 月 1 日之后创建的帐户的[多主数据库定价](https://www.azure.cn/pricing/details/cosmos-db/)。 
-- 假设我们在免费层帐户中创建一个具有 1200 RU/s 吞吐量和 10 GB 存储的数据库或容器。 我们将帐户复制到 3 个区域，并且有多主数据库（多写入区域）帐户。 
+此示例反映了在 2019 年 12 月 1 日之后创建的帐户的[多区域写入定价](https://www.azure.cn/pricing/details/cosmos-db/)。 
+- 假设我们在免费层帐户中创建一个具有 1200 RU/s 吞吐量和 10 GB 存储的数据库或容器。 我们将帐户复制到 3 个区域。我们有一个多写入区域帐户。 
 - 如果不使用免费层，我们共需要支付 3 * 1200 RU/s = 3600 RU/s 吞吐量和 3 * 10 GB = 30 GB 存储的费用。
 - 使用免费层折扣后，在扣除 400 RU/s 吞吐量和 5 GB 存储后，我们需要支付 3200 RU/s（32 个单位）的有效预配吞吐量（按多个写入区域费率计算）和 25 GB 的存储费用。
 - 每月 RU/s 成本为：32 个单位 * 0.102 元 * 24 小时 * 31 天 = 2,428.5 元。 每月存储成本为：25 GB * 2.576 / GB = 64.4 元。 总成本将为 2,428.5 元 + 64.4 元 = 2,492.9 元。
@@ -297,7 +299,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
-* 详细了解如何[优化查询成本](optimize-cost-queries.md)
+* 详细了解如何[优化查询成本](./optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

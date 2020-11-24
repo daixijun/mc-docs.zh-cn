@@ -10,17 +10,17 @@ ms.topic: conceptual
 origin.date: 04/07/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 76a57589588a1991052562872db6023f59be5a56
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 90fbaab59fa32ccc55c14cca3d75c981433c489b
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723237"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552335"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-本文介绍几种使用 Azure 资源管理器模板创建 Azure HDInsight 群集的方式。 有关详细信息，请参阅[使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/templates/deploy-powershell.md)。 若要了解其他群集创建工具和功能，请在本页顶部单击选项卡选择器，或参阅[群集创建方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
+本文介绍几种使用 [Azure 资源管理器模板](../azure-resource-manager/templates/deploy-powershell.md)创建 Azure HDInsight 群集的方式。 若要了解其他群集创建工具和功能，请在本页顶部单击选项卡选择器。 另请参阅[群集创建方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -52,11 +52,11 @@ ms.locfileid: "84723237"
 
 ## <a name="deploy-using-powershell"></a>使用 PowerShell 进行部署
 
-可以使用 Azure PowerShell 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/templates/deploy-powershell.md)和[使用 SAS 令牌和 Azure PowerShell 部署专用资源管理器模板](../azure-resource-manager/resource-manager-powershell-sas-token.md)。
+可以使用 Azure PowerShell 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/templates/deploy-powershell.md)和[使用 SAS 令牌和 Azure PowerShell 部署专用资源管理器模板](../azure-resource-manager/templates/secure-template-with-sas-token.md)。
 
 ## <a name="deploy-using-azure-cli"></a>使用 Azure CLI 进行部署
 
-可以使用 Azure CLI 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/templates/deploy-cli.md)和[使用 SAS 令牌和 Azure CLI 部署专用资源管理器模板](../azure-resource-manager/resource-manager-cli-sas-token.md)。
+可以使用 Azure CLI 部署资源管理器模板。 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../azure-resource-manager/templates/deploy-cli.md)和[使用 SAS 令牌和 Azure CLI 部署专用资源管理器模板](../azure-resource-manager/templates/secure-template-with-sas-token.md)。
 
 ## <a name="deploy-using-the-rest-api"></a>使用 REST API 进行部署
 

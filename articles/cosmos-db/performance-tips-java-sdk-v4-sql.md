@@ -4,22 +4,23 @@ description: 了解用于提高 Java SDK v4 的 Azure Cosmos 数据库性能的�
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-origin.date: 07/08/2020
+origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 7c3f94f741456c65fe80fcaddb1b15cd2cab3dd9
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 18d1f6a9f205f524e1186ab8d5c9c15eb6c70835
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246512"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552786"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -36,20 +37,13 @@ ms.locfileid: "91246512"
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 SDK 方法调用一样简单。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 Azure Cosmos DB Java SDK v4 时，可以通过客户端优化获得最高性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
-     
+
 ## <a name="networking"></a>网络
 
 * **连接模式：使用直接模式**
 <a name="direct-connection"></a>
 
-    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在客户端延迟方面）。 连接模式是可用于配置客户端的关键配置设置。 对于 Azure Cosmos DB Java SDK v4，有两种可用的连接模式：  
-
-    * 直接模式（默认）      
-    * 网关模式
-
-    这些连接模式实质上限制了数据平面请求（文档读取和写入）从客户端计算机到 Azure Cosmos DB 后端中分区的路由方式。 通常，直接模式是最佳性能的首选选项，它允许客户端直接与 Azure Cosmos DB 后端分区建立 TCP 连接，并直接发送请求，而不通过中介。 与之相反，在“网关”模式下，客户端发出的请求会路由到 Azure Cosmos DB 前端中所谓的“网关”服务器，该服务器接下来会将你的请求扇出到 Azure Cosmos DB 后端的相应分区。 如果应用程序在有严格防火墙限制的企业网络中运行，则“网关”模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次从/向 Azure Cosmos DB 读取/写入数据时，“网关”模式都涉及到额外的网络跃点（从客户端到网关，以及从网关到分区）。 因此，直接模式因为网络跃点较少，可以提供更好的性能。
-
-     如下所示，使用 directMode() 或 gatewayMode() 方法在 Azure Cosmos DB 客户端生成器中配置数据平面请求的连接模式。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。    否则，以参数（directMode() 的是 DirectConnectionConfig，gatewayMode() 的是 GatewayConnectionConfig）的形式传递配置设置类实例。
+    Java SDK 的默认连接模式是直接连接模式。 可以使用 directMode() 或 gatewayMode() 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。    否则，以参数（directMode() 的是 DirectConnectionConfig，gatewayMode() 的是 GatewayConnectionConfig）的形式传递配置设置类实例。 若要详细了解不同的连接性选项，请参阅[连接性模式](sql-sdk-connection-modes.md)一文。
 
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -175,7 +169,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     由于以下原因，directMode() 方法额外被替代。 控制平面操作（如数据库和容器 CRUD）始终使用网关模式；如果用户已为数据平面操作配置了直接模式，控制平面操作将使用默认的网关模式设置。 大多数用户是这种情况。 但是，如果用户想将直接模式用于数据平面操作，同时获得控制平面网关模式参数的可调性，则可以使用以下 directMode() 的重写：
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a name="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 
@@ -246,13 +240,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 * **在 Azure VM 上启用“加速网络”以降低延迟。**
 
-建议你按说明在 [Windows（单击获取说明）](/virtual-network/create-vm-accelerated-networking-powershell)或 [Linux（单击获取说明）](/virtual-network/create-vm-accelerated-networking-cli)Azure VM 中启用“加速网络”，以便最大程度地提高性能。
+建议你按说明在 [Windows（单击获取说明）](../virtual-network/create-vm-accelerated-networking-powershell.md)或 [Linux（单击获取说明）](../virtual-network/create-vm-accelerated-networking-cli.md)Azure VM 中启用“加速网络”，以便最大程度地提高性能。
 
 没有加速网络，在 Azure VM 与其他 Azure 资源之间传输的 IO 可能会不必要地通过主机和虚拟交换机（位于 VM 与其网卡之间）进行路由。 在数据路径中以内联方式放置主机和虚拟交换机不仅会增加信道中的延迟和抖动，还会占用 VM 的 CPU 周期。 使用加速网络时，VM 直接与 NIC 连接，没有中介；以前由主机和虚拟交换机处理的任何网络策略细节现在都在 NIC 的硬件中处理；主机和虚拟交换机将被绕过。 通常情况下，当启用加速网络后，应会降低延迟并提高吞吐量，同时会提高延迟一致性并降低 CPU 利用率。
 
 限制：加速网络必须受 VM OS 支持，并且只能在已停止并解除分配 VM 的情况下启用。 不能通过 Azure 资源管理器部署此 VM。
 
-有关更多详细信息，请参阅 [Windows](/virtual-network/create-vm-accelerated-networking-powershell) 和 [Linux](/virtual-network/create-vm-accelerated-networking-cli) 说明。
+有关更多详细信息，请参阅 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 和 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 说明。
 
 ## <a name="sdk-usage"></a>SDK 用法
 * **安装最新的 SDK**
@@ -287,7 +281,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     以下代码片段演示了如何分别针对异步 API 或同步 API 操作初始化 Azure Cosmos DB 客户端：
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a name="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 
@@ -325,49 +319,49 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     在 Azure Cosmos DB Java SDK v4 中，直接模式是为大多数工作负荷改善数据库性能的最佳选择。 
 
-    * ***直接模式概述***
+    * ***直接模式概述** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="直接模式体系结构插图" border="false":::
 
-        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在客户端上为每个数据库副本最多分配 10 个通道。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
+        在直接模式下采用的客户端体系结构使得网络利用率可预测，并实现对 Azure Cosmos DB 副本的多路访问。 上图显示了直接模式如何将客户端请求路由到 Cosmos DB 后端中的副本。 直接模式体系结构在客户端为每个数据库副本最多分配 10 个通道。 一个通道是前面带有请求缓冲区（深度为 30 个请求）的 TCP 连接。 属于某个副本的通道由该副本的服务终结点按需动态分配。 当用户在直接模式下发出请求时，TransportClient 会根据分区键将请求路由到适当的服务终结点。 请求队列在服务终结点之前缓冲请求。
 
-    * ***直接模式的配置选项***
+    * ***直接模式的配置选项** _
 
-         如果需要非默认的直接模式行为，则在 Azure Cosmos DB 客户端生成器中创建 DirectConnectionConfig 实例并自定义其属性，然后将自定义的属性实例传递到 directMode() 方法。
+        如果需要非默认的直接模式行为，则在 Azure Cosmos DB 客户端生成器中创建 DirectConnectionConfig 实例并自定义其属性，然后将自定义的属性实例传递到 directMode() 方法。
 
         这些配置设置控制以上讨论的基础直接模式体系结构的行为。
 
         第一步是使用下面推荐的配置设置。 这些 DirectConnectionConfig 选项是高级配置设置，可能会以意想不到的方式影响 SDK 性能；我们建议用户不要对其进行修改，除非他们深刻了解其中的得失，并且进行修改是绝对必要的。 如果遇到有关此特定主题方面的问题，请与 [Azure Cosmos DB 团队](mailto:CosmosDBPerformanceSupport@service.microsoft.com)联系。
 
-        | 配置选项       | 默认    |
-        | :------------------:       | :-----:    |
-        | idleConnectionTimeout      | “PT1M”     |
-        | maxConnectionsPerEndpoint  | "PT0S"     |
-        | connectTimeout             | "PT1M10S"  |
-        | idleEndpointTimeout        | 8388608    |
-        | maxRequestsPerConnection   | 10         |
+        | 配置选项       | 默认   |
+        | :------------------:       | :-----:   |
+        | idleConnectionTimeout      | "PT0"     |
+        | maxConnectionsPerEndpoint  | "130"     |
+        | connectTimeout             | "PT5S"    |
+        | idleEndpointTimeout        | "PT1H"    |
+        | maxRequestsPerConnection   | "30"      |
 
 * **优化分区集合的并行查询。**
 
     Azure Cosmos DB Java SDK v4 支持并行查询，允许以并行方式查询分区的集合。 有关详细信息，请参阅与使用 Azure Cosmos DB Java SDK v4 相关的[代码示例](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-    * ***优化 setMaxDegreeOfParallelism\:***
+    * ***优化 setMaxDegreeOfParallelism\:** _
 
         并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 setMaxDegreeOfParallelism 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。
 
         必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-    * ***优化 setMaxBufferedItemCount\:***
+    _ ***优化 setMaxBufferedItemCount\:** _
 
-        并行查询设计为当客户端正在处理当前结果批时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 setMaxBufferedItemCount 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
+        Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
-        预提取的工作方式不因 MaxDegreeOfParallelism 而异，并且有一个单独的缓冲区用来存储所有分区的数据。
+        Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
-* **增大客户端工作负荷**
+_ **横向扩展客户端工作负荷**
 
-    如果在高吞吐量级别进行测试，客户端应用程序可能会由于计算机的 CPU 或网络利用率达到上限而成为瓶颈。 如果达到此上限，可以跨多个服务器横向扩展客户端应用程序以继续进一步推送 Azure Cosmos DB 帐户。
+    If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
-    建议不要让任何给定服务器上的 CPU 利用率超出 50%，使延迟保持在较低水平。
+    A good rule of thumb is not to exceed >50% CPU utilization on any given server, to keep latency low.
 
     <a name="tune-page-size"></a>
 
@@ -434,19 +428,19 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     由于各种原因，你可能希望或需要在某个产生较高请求吞吐量的线程中添加日志记录。 如果你的目标是使用此线程生成的请求使容器的预配吞吐量完全饱和，则日志记录优化可以极大地提升性能。
 
-    * 配置异步记录器
+    * ***配置异步记录器** _
 
         生成请求的线程的总体延迟计算必然会考虑到同步记录器延迟的因素。 建议使用异步记录器（例如 [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0)），以便将日志记录开销与高性能应用程序线程分开。
 
-    * ***禁用 netty 的日志记录***
+    _ ***禁用 netty 的日志记录** _
 
-        Netty 库日志记录非常琐碎，因此需要将其关闭（在配置中禁止登录可能并不足够），以避免产生额外的 CPU 开销。 如果不处于调试模式，请一起禁用 netty 日志记录。 因此，如果要使用 log4j 来消除 netty 中 ``org.apache.log4j.Category.callAppenders()`` 产生的额外 CPU 开销，请将以下行添加到基代码：
+        Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
         ```java
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
         ```
 
- * **OS 打开文件资源限制**
+ _ **OS 打开文件资源限制**
 
     <!-- Notice: Replace the Red Hat with CentOS-->
 
@@ -553,7 +547,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     ```
 
-    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](index-policy.md)。
 
 ## <a name="throughput"></a>吞吐量
 <a name="measure-rus"></a>
@@ -617,6 +611,6 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
+若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partitioning-overview.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

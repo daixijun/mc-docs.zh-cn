@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: tables
-ms.openlocfilehash: fc4eba2e204be093348170f02eaeba31e33ece7f
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5095353ad1940ac8ac4b33df3e9120179952f91e
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026601"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551830"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -154,7 +155,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 在此示例中，步骤 4 将该员工插入到 **Archive** 表中。 它可以将该员工添加到 Blob 服务中的 blob 或文件系统中的文件。  
 
 ### <a name="recovering-from-failures"></a>从故障中恢复
-为避免辅助角色需重启存档操作，有必要确保步骤 **4** 和 **5** 中的操作为*幂等*操作。 如果使用的是表服务，步骤 **4** 中应使用“插入或替换”操作；步骤 **5** 中应使用当前所用客户端库中的“如果存在则删除”操作。 如果使用的是其他存储系统，则必须使用相应的幂等操作。  
+为避免辅助角色需重启存档操作，有必要确保步骤 **4** 和 **5** 中的操作为 *幂等* 操作。 如果使用的是表服务，步骤 **4** 中应使用“插入或替换”操作；步骤 **5** 中应使用当前所用客户端库中的“如果存在则删除”操作。 如果使用的是其他存储系统，则必须使用相应的幂等操作。  
 
 如果辅助角色始终无法完成步骤 **6**，则在超时后该消息将重新出现在队列中，便于辅助角色尝试重新处理。 辅助角色可以检查已读取队列中的某条消息多少次，如有必要，可通过将该消息发送到单独的队列来将其标记“坏”消息以供调查。 若要深入了解如何读取队列消息和检查取消排队计数，请参阅 [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)（获取消息）。  
 
@@ -294,7 +295,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 假定使用以下结构在表服务中存储员工实体：  
 
-![员工实体结构](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![此屏幕截图显示了如何在表服务中存储员工实体。](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 还需要存储有关员工为组织工作的每年的评价和绩效的历史数据，并且需要能够按年份访问此信息。 一种选择是创建另一个表，该表存储具有以下结构的实体：  
 
@@ -521,7 +522,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 通常，应使用 Blob 服务（而不是表服务）来存储日志数据。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-日志数据的一个常见用例是检索针对特定日期/时间范围选择的日志条目：例如，想要查找应用程序在特定日期的 15:04 和 15:06 之间记录的所有错误和关键消息。 不会希望使用日志消息的日期和时间来确定日志实体要保存到的分区：该操作会导致热分区，因为所有日志实体在任意给定时间内均共享同一 **PartitionKey** 值（请参阅[前置/后置反模式](#prepend-append-anti-pattern)部分）。 例如，日志消息的以下实体架构会导致热分区，因为应用程序会将当前日期小时的所有日志消息都写入到该分区：  
+日志数据的一个常见用例是检索针对特定日期/时间范围选择的日志条目：例如，想要查找应用程序在特定日期的 15:04 和 15:06 之间记录的所有错误和关键消息。 不会希望使用日志消息的日期和时间来确定日志实体要保存到的分区：该操作会导致热分区，因为所有日志实体在任意给定时间内均共享同一 **PartitionKey** 值（请参阅 [前置/后置反模式](#prepend-append-anti-pattern)部分）。 例如，日志消息的以下实体架构会导致热分区，因为应用程序会将当前日期小时的所有日志消息都写入到该分区：  
 
 ![日志消息实体](media/storage-table-design-guide/storage-table-design-IMAGE28.png)
 
@@ -724,7 +725,7 @@ foreach (var e in entities)
 > 
 
 ## <a name="working-with-heterogeneous-entity-types"></a>处理异类实体类型
-表服务是*架构灵活*的表存储，意味着单个表可以存储多种类型的实体，从而在设计中提供了极大的灵活性。 以下示例说明了同时存储员工实体和部门实体的表：  
+表服务是 *架构灵活* 的表存储，意味着单个表可以存储多种类型的实体，从而在设计中提供了极大的灵活性。 以下示例说明了同时存储员工实体和部门实体的表：  
 
 <table>
 <tr>
@@ -927,7 +928,7 @@ foreach (var e in entities)
 ### <a name="retrieving-heterogeneous-entity-types"></a>检索异类实体类型
 如果使用存储客户端库，则有三个选项可处理多个实体类型。  
 
-如果知道使用特定 **RowKey** 和 **PartitionKey** 值存储的实体的类型，则在检索实体时可以指定该实体类型（如前面两个检索 **EmployeeEntity** 类型的实体的示例所示）：[使用存储客户端库执行点查询](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 检索多个实体](#retrieving-multiple-entities-using-linq)。  
+如果知道使用特定 **RowKey** 和 **PartitionKey** 值存储的实体的类型，则在检索实体时可以指定该实体类型（如前面两个检索 **EmployeeEntity** 类型的实体的示例所示）：[使用存储客户端库执行点查询](#executing-a-point-query-using-the-storage-client-library)和 [使用 LINQ 检索多个实体](#retrieving-multiple-entities-using-linq)。  
 
 第二个选项是使用 **DynamicTableEntity** 类型（属性包）而不是具体的 POCO 实体类型，该选项无需序列化实体和将实体反序列化为 .NET 类型，因此还可提升性能。 以下 C# 代码可能会从表中检索多个不同类型的实体，但会将所有实体作 **DynamicTableEntity** 实例返回。 然后，它使用 **EntityType** 属性确定每个实体的类型：  
 

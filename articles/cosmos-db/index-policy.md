@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 965f1a54ee80afe3da8975b0ea18d397e5ca6567
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 39f2a3a6b8a4ea9e1e369f8ca068ae417f955615
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118545"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94551753"
 ---
 <!--Verified successfully-->
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在 Azure Cosmos DB 中，每个容器都有一个确定了如何为容器项编制索引的索引策略。 新创建的容器的默认索引策略为每个项的每个属性建立索引，并对任何字符串或数字强制使用范围索引。 这样，无需提前考虑索引和索引管理，就能获得较高的查询性能。
 
@@ -30,11 +31,11 @@ ms.locfileid: "92118545"
 
 Azure Cosmos DB 支持两种索引模式：
 
-- **一致** ：创建、更新或删除项时，索引将以同步方式更新。 这意味着，读取查询的一致性是[为帐户配置的一致性](consistency-levels.md)。
-- **无** ：针对该容器禁用索引。 将容器用作单纯的键-值存储时，通常会使用此设置，在此情况下无需使用辅助索引。 它还可用于改善批量操作的性能。 批量操作完成后，可将索引模式设置为“一致”，然后使用 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 进行监视，直到完成。
+- **一致**：创建、更新或删除项时，索引将以同步方式更新。 这意味着，读取查询的一致性是[为帐户配置的一致性](consistency-levels.md)。
+- **无**：针对该容器禁用索引。 将容器用作单纯的键-值存储时，通常会使用此设置，在此情况下无需使用辅助索引。 它还可用于改善批量操作的性能。 批量操作完成后，可将索引模式设置为“一致”，然后使用 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 进行监视，直到完成。
 
 > [!NOTE]
-> Azure Cosmos DB 还支持延迟索引模式。 当引擎未执行任何其他工作时，延迟索引将以低得多的优先级对索引执行更新。 这可能导致查询结果 **不一致或不完整** 。 如果计划查询 Cosmos 容器，则不应选择“延迟索引”。 2020 年 6 月，我们引入了一项更改，不再允许将新容器设置为“延迟索引”模式。 如果 Azure Cosmos DB 帐户已经包含至少一个具有延迟索引的容器，则将自动从更改中免除此帐户。 也可以通过联系 [Azure 支持](https://support.azure.cn/support/support-azure/)来请求豁免（在不支持延迟索引的[无服务器](serverless.md)模式下使用 Azure Cosmos 帐户的情况除外）。
+> Azure Cosmos DB 还支持延迟索引模式。 当引擎未执行任何其他工作时，延迟索引将以低得多的优先级对索引执行更新。 这可能导致查询结果 **不一致或不完整**。 如果计划查询 Cosmos 容器，则不应选择“延迟索引”。 2020 年 6 月，我们引入了一项更改，不再允许将新容器设置为“延迟索引”模式。 如果 Azure Cosmos DB 帐户已经包含至少一个具有延迟索引的容器，则将自动从更改中免除此帐户。 也可以通过联系 [Azure 支持](https://support.azure.cn/support/support-azure/)来请求豁免（在不支持延迟索引的[无服务器](serverless.md)模式下使用 Azure Cosmos 帐户的情况除外）。
 
 默认情况下，索引策略设置为 `automatic`。 为此，可将索引策略中的 `automatic` 属性设置为 `true`。 将此属性设置为 `true` 可让 Azure CosmosDB 在写入文档时自动为文档编制索引。
 
@@ -108,9 +109,9 @@ Azure Cosmos DB 支持两种索引模式：
 
 下面是一个示例：
 
-**包含的路径** ：`/food/ingredients/nutrition/*`
+**包含的路径**：`/food/ingredients/nutrition/*`
 
-**排除的路径** ：`/food/ingredients/*`
+**排除的路径**：`/food/ingredients/*`
 
 在这种情况下，包含路径优先于排除路径，因为它更精确。 根据这些路径，位于或嵌套在 `food/ingredients` 路径中的任何数据都将从索引中排除。 异常是包含的路径 `/food/ingredients/nutrition/*` 中的数据，该路径将被索引。
 
@@ -275,7 +276,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 
 添加新索引时，对读取可用性没有影响。 索引转换完成之后，查询将只利用新索引。 在索引转换过程中，查询引擎将继续使用现有的索引，因此，在索引转换过程中，你将观察到，读取性能类似于在启动索引更改之前观察到的情况。 添加新索引时，也不会有查询结果不完整或不一致的风险。
 
-在删除索引并立即运行对已删除索引进行筛选的查询时，无法保证查询结果一致或完整。 如果删除多个索引，并且是在一次索引策略更改中执行此操作，则查询引擎会在整个索引转换中保证结果一致并且完整。 但是，如果通过多个索引策略更改来删除索引，则在所有索引转换完成之前，查询引擎无法保证结果一致或完整。 大多数开发人员都不会在删除索引之后立即尝试运行利用这些索引的查询，所以，这种情况实际上不太可能发生。
+在删除索引并立即运行对已删除索引进行筛选的查询时，无法保证查询结果一致或完整。 如果删除多个索引，并且是在一次索引策略更改中执行此操作，则查询引擎会在整个索引转换中提供一致且完整的结果。 但是，如果通过多个索引策略更改来删除索引，则在所有索引转换完成之前，查询引擎将无法提供一致或完整的结果。 大多数开发人员都不会在删除索引之后立即尝试运行利用这些索引的查询，所以，这种情况实际上不太可能发生。
 
 > [!NOTE]
 > 如果可能，应始终尝试将多个索引更改组合成一次索引策略修改

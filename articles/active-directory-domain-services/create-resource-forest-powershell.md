@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure PowerShell 创建 Azure AD 域服务资源林 | Microsoft Docs
 description: 在本文中，可了解如何使用 Azure PowerShell 创建和配置 Azure Active Directory 域服务资源林以及到本地 Active Directory 域服务环境的出站林。
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: 192edd904aa6bf713ef29418315f99b0e0defdc1
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: af2402d59ffd0cf9a77bd13109a15f119b299c9f
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211427"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501711"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>使用 Azure PowerShell 创建 Azure Active Directory 域服务资源林以及到本地域的出站林信任
 
@@ -74,12 +74,12 @@ ms.locfileid: "92211427"
 
 Azure AD DS 需要一个服务主体从 Azure AD 同步数据。 必须先在 Azure AD 租户中创建此主体，然后再创建托管域资源林。
 
-创建一个 Azure AD 服务主体，使 Azure AD DS 能够通信并对自身进行身份验证。 使用名称为“域控制器服务”的特定应用程序 ID 2565bd9d-da50-47d4-8b85-4c97f669dc36。 请不要更改此应用程序 ID。
+创建一个 Azure AD 服务主体，使 Azure AD DS 能够通信并对自身进行身份验证。 使用名称为“域控制器服务”的特定应用程序 ID 6ba9a5d4-8456-4118-b521-9c5ca10cdf84 。 请不要更改此应用程序 ID。
 
 使用 [Get-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet 创建 Azure AD 服务主体：
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## <a name="create-a-managed-domain-resource-forest"></a>创建托管域资源林

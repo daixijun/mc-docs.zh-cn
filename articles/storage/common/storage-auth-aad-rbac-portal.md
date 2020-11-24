@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure 门户为数据访问分配 Azure 角色
 titleSuffix: Azure Storage
-description: 了解如何使用 Azure 门户通过基于角色的访问控制 (RBAC) 向 Azure Active Directory 安全主体分配权限。 Azure 存储支持通过 Azure AD 使用内置和 Azure 自定义角色进行身份验证。
+description: 了解如何使用 Azure 门户通过 Azure 基于角色的访问控制 (Azure RBAC) 向 Azure Active Directory 安全主体分配权限。 Azure 存储支持通过 Azure AD 使用内置和 Azure 自定义角色进行身份验证。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 07/16/2020
-ms.date: 08/24/2020
+origin.date: 09/23/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d56f49635c8f452a51b05ef6ff55d49953eab3df
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 715d05cfa6845ba1b04c5f4d83af5a988f2c2a47
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753343"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552345"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>使用 Azure 门户为 blob 和队列数据分配 Azure 角色
 
@@ -60,16 +60,16 @@ Azure Active Directory (Azure AD) 通过 [Azure 基于角色的访问控制 (Azu
 1. 找到要针对其分配角色的容器，并显示该容器的设置。
 1. 选择“访问控制(IAM)”以显示容器的访问控制设置  。 选择“角色分配”  选项卡以查看角色分配列表。
 
-    ![显示容器访问控制设置的屏幕截图](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="显示容器访问控制设置的屏幕截图":::
 
 1. 单击“添加角色分配”  按钮以添加一个新角色。
 1. 在“添加角色分配”窗口中，选择要分配的 Azure 存储角色  。 然后通过搜索找到要为其分配该角色的安全主体。
 
-    ![显示如何分配 Azure 角色的屏幕截图](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="显示如何分配 Azure 角色的屏幕截图":::
 
 1. 单击“保存”  。 分配有该角色的标识列出在该角色下。 例如，下图显示添加的用户现在对名为 *sample-container* 的容器中的数据具有读取权限。
 
-    ![显示已分配到某个角色的用户列表的屏幕截图](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="显示已分配到某个角色的用户列表的屏幕截图":::
 
 可以遵循类似的步骤来分配限定为存储帐户、资源组或订阅范围的角色。
 
@@ -96,9 +96,9 @@ Azure Active Directory (Azure AD) 通过 [Azure 基于角色的访问控制 (Azu
 ## <a name="next-steps"></a>后续步骤
 
 - 有关存储资源的 Azure 角色的详细信息，请参阅[使用 Azure Active Directory 验证对 Azure Blob 和队列的访问](storage-auth-aad.md)。 
-- 若要详细了解 RBAC，请参阅[什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)。
+- 若要详细了解 Azure RBAC，请参阅[什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)。
 - 若要了解如何使用 Azure PowerShell、Azure CLI 或 REST API 分配和管理 Azure 角色分配，请参阅以下文章：
-    - [使用 Azure PowerShell 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-powershell.md)
-    - [使用 Azure CLI 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-cli.md)
-    - [使用 REST API 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-rest.md)
+    - [使用 Azure PowerShell 模块添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-powershell.md)
+    - [使用 Azure CLI 添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-cli.md)
+    - [使用 REST API 添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-rest.md)
 - 若要了解如何从存储应用程序内授权访问容器和队列，请参阅[将 Azure AD 与 Azure 存储应用程序配合使用](storage-auth-aad-app.md)。

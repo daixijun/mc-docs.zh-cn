@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: e60a5870b79e2e3e61b6f8793450ea478aafc2d0
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 9e8f82fd6d928f026a6531b9c8b4831dfc50ebb5
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647663"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501881"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>用于登录用户的 Web 应用：应用注册
 
@@ -51,13 +51,13 @@ ms.locfileid: "88647663"
    1. 为应用程序选择支持的帐户类型。 （请参阅[支持的帐户类型](./v2-supported-account-types.md)。）
    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。  例如，输入 **AspNetCore-WebApp**。
    1. 在“重定向 URI”中，添加将在成功进行身份验证后接受返回的令牌响应的应用程序类型和 URI 目标。  例如，输入 https://localhost:44321  。  然后，选择“注册”。
-   ![registration](./media/scenario-webapp/scenario-webapp-app-registration-1.png)
+   ![屏幕截图显示了“注册应用程序”页，可在其中选择“注册”。](./media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. 选择“身份验证”菜单，然后添加以下信息：
-   1. 对于“回复 URL”，请添加“Web”类型的 **https://localhost:44321/signin-oidc**。********
+   1. 对于“回复 URL”，请添加“Web”类型的 **https://localhost:44321/signin-oidc**。
    1. 在“高级设置”部分，将“注销 URL”设置为 **https://localhost:44321/signout-oidc** 。 
    1. 选择“隐式授权”下的“ID 令牌”。
    1. 选择“保存”。
-  ![registration](./media/scenario-webapp/scenario-webapp-app-registration-2.png)
+  ![屏幕截图显示了“身份验证选项”，可在其中进行所述的更改。](./media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -66,16 +66,16 @@ ms.locfileid: "88647663"
    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **MailApp-openidconnect-v2**。
    1. 在“重定向 URI (可选)”部分，选择组合框中的“Web”并输入以下重定向 URI： **https://localhost:44326/** 。 
 1. 选择“注册”以创建应用程序。
-1. 选择“身份验证”菜单。****
+1. 选择“身份验证”菜单。
 1. 在“高级设置” | “隐式授权”部分，选择“ID 令牌”。   本示例需要启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)才能将用户登录。
 1. 选择“保存”。
 
 # <a name="java"></a>[Java](#tab/java)
 
-1. “注册应用程序”页显示后，请输入应用程序的显示名称。**** 例如，输入 **java-webapp**。
-1. 选择“任何组织目录中的帐户”，然后为“应用程序类型”选择“Web 应用/API”。************
-1. 选择“注册”**** 以注册应用程序。
-1. 在左侧菜单中选择“身份验证”。**** 在“重定向 URI”下选择“Web”。********
+1. “注册应用程序”页显示后，请输入应用程序的显示名称。 例如，输入 **java-webapp**。
+1. 选择“任何组织目录中的帐户”，然后为“应用程序类型”选择“Web 应用/API”。
+1. 选择“注册”以注册应用程序。
+1. 在左侧菜单中选择“身份验证”。 在“重定向 URI”下选择“Web”。
 
 1. 输入两个重定向 URI：一个用于登录页，另一个用于图形页。 对于这个 URI，请使用相同的主机和端口号，后接 **/msal4jsample/secure/aad**（登录页）和 **msal4jsample/graph/me**（用户信息页）。
 
@@ -86,11 +86,11 @@ ms.locfileid: "88647663"
 
   然后选择“保存”。
 
-1. 从菜单中选择“证书和机密”。****
+1. 从菜单中选择“证书和机密”。
 1. 在“客户端机密”部分，选择“新建客户端机密”，然后： 
 
    1. 输入密钥说明。
-   1. 选择密钥持续时间“1 年”。****
+   1. 选择密钥持续时间“1 年”。
    1. 选择 **添加** 。
    1. 显示密钥值后，请将其复制供稍后使用。 此值不会再次显示，也无法通过任何其他方式检索。
 
@@ -99,11 +99,11 @@ ms.locfileid: "88647663"
 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **python-webapp**。
    1. 将“支持的帐户类型”更改为“任何组织目录中的帐户”。 
-   1. 在“重定向 URI (可选)”部分，选择组合框中的“Web”并输入以下重定向 URI：**http://localhost:5000/getAToken**。********
+   1. 在“重定向 URI (可选)”部分，选择组合框中的“Web”并输入以下重定向 URI：**http://localhost:5000/getAToken**。
 1. 选择“注册”以创建应用程序。
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，并记下该值供稍后使用。  稍后需要使用它为此项目配置 Visual Studio 配置文件。
-1. 在左侧菜单中，选择“证书和机密”。****
-1. 在“客户端机密”部分，选择“新建客户端机密”，然后：********
+1. 在左侧菜单中，选择“证书和机密”。
+1. 在“客户端机密”部分，选择“新建客户端机密”，然后：
 
    1. 输入密钥说明。
    1. 选择密钥持续时间“1 年”。
@@ -125,4 +125,3 @@ ms.locfileid: "88647663"
 > [!div class="nextstepaction"]
 > [应用的代码配置](scenario-web-app-sign-user-app-configuration.md)
 
-<!-- Update_Description: wording update -->

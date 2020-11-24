@@ -7,20 +7,22 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 12ad37db3804288072c653e0b1f61172cafe36b6
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 08ac908803c422241ca064c267c47b5b8b6abdd7
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552845"
 ---
 <!--Verified successfully-->
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>适用于 Core (SQL) API 的 Spring Data Azure Cosmos DB v2：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -36,7 +38,7 @@ ms.locfileid: "92118398"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -61,7 +63,7 @@ ms.locfileid: "92118398"
 > * [将 Spring Data Gremlin 用于 Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > 希望快速开始？
-> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/)，以便可以使用 SDK。
+> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)，以便可以使用 SDK。
 > 2. 使用 [Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) 创建 Spring Data Azure Cosmos DB 应用。 操作起来非常简单！
 > 3. 通过 [Spring Data Azure Cosmos DB 开发人员指南](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)了解基本的 Azure Cosmos DB 请求。
 >
@@ -77,10 +79,10 @@ ms.locfileid: "92118398"
 | **SDK 下载** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**API 文档** | [Spring Data Azure Cosmos DB 参考文档]() |
 |**参与编写 SDK** | [GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/microsoft/spring-data-cosmosdb) | 
-|**Spring Boot Starter**| [适用于 Java 的 Azure Cosmos DB Spring Boot Starter 客户端库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**Spring Boot Starter**| [适用于 Java 的 Azure Cosmos DB Spring Boot Starter 客户端库](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**用于 Azure Cosmos DB 的 Spring TODO 应用示例**| [应用服务 Linux 中的端到端 Java 体验（第 2 部分）](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
 |**开发人员指南** | [Spring Data Azure Cosmos DB 开发人员指南](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**使用 Starter** | [如何将 Spring Boot Starter 与 Azure Cosmos DB SQL API 配合使用](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [适用于 Azure Cosmos DB Spring Boot Starter 的 GitHub 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**使用 Starter** | [如何将 Spring Boot Starter 与 Azure Cosmos DB SQL API 配合使用](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [适用于 Azure Cosmos DB Spring Boot Starter 的 GitHub 存储库](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Azure 应用服务示例** | [如何将 Spring 和 Cosmos DB 与 Linux 上的应用服务配合使用](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [TODO 应用示例](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 <!--MOONCAKE CORRECT ON THE LINK-->

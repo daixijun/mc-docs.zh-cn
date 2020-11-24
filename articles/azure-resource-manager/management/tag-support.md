@@ -2,18 +2,18 @@
 title: 资源的标记支持
 description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服务的详细信息。
 ms.topic: conceptual
-origin.date: 09/21/2020
+origin.date: 10/21/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3fe725d3bcc4abb9b728f5a3eac5d611bf6dfd19
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 8252e220d04181b081e3118ab34970a2f7265fb7
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936983"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915122"
 ---
 <!--Verify Successfully-->
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
@@ -30,6 +30,7 @@ ms.locfileid: "91936983"
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
@@ -48,6 +49,7 @@ ms.locfileid: "91936983"
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
@@ -157,7 +159,15 @@ ms.locfileid: "91936983"
 > [!NOTE]
 > Azure API 管理仅支持为每个服务创建最多 15 个标记名称/值对。
 
-<!--Not Available on ## Microsoft.AppConfiguration-->
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | configurationStores | 是 | 否 |
+> | configurationStores / eventGridFilters | 否 | 否 |
+> | configurationStores / keyValues | 否 | 否 |
+
 <!--Not Available on ## Microsoft.AppPlatform-->
 <!--Not Available on ## Microsoft.Attestation-->
 
@@ -504,7 +514,16 @@ ms.locfileid: "91936983"
 > | jobs | 是 | 是 |
 
 <!--Not Available on  ## Microsoft.DataBoxEdge-->
-<!--Not Available on  ## Microsoft.Databricks-->
+
+## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | workspaces | 是 | 是 |
+> | workspaces / dbWorkspaces | 否 | 否 |
+> | workspaces / virtualNetworkPeerings | 否 | 否 |
+
 <!--Not Available on  ## Microsoft.DataCatalog-->
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory

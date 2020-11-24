@@ -4,20 +4,20 @@ description: 向管理员介绍如何使用 Azure 门户或 PowerShell 设置访
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 08/17/2020
+ms.topic: how-to
+ms.date: 11/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 238e12c49c834c1b134969f4a8ed02a0871d66ab
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 58e4f8d4a6d6b9c29351cc35c64b660f466954f4
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648060"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501916"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允许或阻止向特定组织中的 B2B 用户发送邀请
 
@@ -161,4 +161,5 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure AD B2B 的概述，请参阅[什么是 Azure AD B2B 协作？](what-is-b2b.md)
+- 有关条件访问和 B2B 协作的信息，请参阅 [B2B 协作用户的条件访问](conditional-access.md)。
 

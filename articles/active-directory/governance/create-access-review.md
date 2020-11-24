@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/10/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65dd59dc0d0e83e5c9cc6e77b9a11c9638b8c2cf
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 586790244b7b07bfe09416eb8ef914525ac2ad7a
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937573"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501862"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中创建对组和应用程序的访问评审
 
@@ -116,7 +116,7 @@ ms.locfileid: "91937573"
 若要详细了解删除不能再访问你组织中资源的来宾用户的最佳做法，请阅读标题为[使用 Azure AD Identity Governance 评审和删除不再具有资源访问权限的外部用户](access-reviews-external-users.md)的文章。
 
 >[!NOTE]
-> 只有你之前已将评审作用域设置为“仅来宾用户”时，应用于被拒绝用户的操作才起作用（请参阅**创建一个或多个访问评审**部分的步骤 8）
+> 只有你之前已将评审作用域设置为“仅来宾用户”时，应用于被拒绝用户的操作才起作用（请参阅 **创建一个或多个访问评审** 部分的步骤 8）
 
 ### <a name="advanced-settings"></a>高级设置
 
@@ -139,7 +139,7 @@ ms.locfileid: "91937573"
 
 ## <a name="start-the-access-review"></a>启动访问评审
 
-指定访问评审的设置后，单击“启动”。**** 访问评审将显示在列表中，并带有其状态指示器。
+指定访问评审的设置后，单击“启动”。 访问评审将显示在列表中，并带有其状态指示器。
 
 ![访问评审及其状态的列表](./media/create-access-review/access-reviews-list.png)
 
@@ -160,6 +160,7 @@ ms.locfileid: "91937573"
 |已自动评审 | 系统已为未评审的所有用户记录了决定。 如果启用了“自动应用”，则评审可以进入“正在应用”阶段了。 |
 |正在应用 | 对于已批准的用户，访问权限不会更改。 |
 |已应用 | 已经从源或目录删除拒绝的用户（如果有）。 |
+|失败 | 无法进行评审。 此错误可能与删除租户、进行许可证更改或进行其他内部租户更改相关。 |
 
 ## <a name="create-reviews-via-apis"></a>通过 API 创建评审
 

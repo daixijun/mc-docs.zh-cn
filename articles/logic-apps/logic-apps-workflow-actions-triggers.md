@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 origin.date: 06/10/2020
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 80b1bb19952bd678dad903c79b117717c36ba990
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: c4e2b700ed2985d12c1692a7f3c0d233c342c977
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414722"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552282"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>有关 Azure 逻辑应用中触发器和操作类型的架构参考指南
 
@@ -65,7 +65,7 @@ ms.locfileid: "86414722"
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | 数组，其中包含一个或多个决定是否运行工作流的[条件](#trigger-conditions)。 仅适用于触发器。 | 
 | <runtime-config-options> | JSON 对象 | 通过设置 `runtimeConfiguration` 属性可更改触发器运行时行为。 有关详细信息，请参阅[运行时配置设置](#runtime-config-options)。 | 
-| <splitOn-expression> | String | 对于返回数组的触发器，可指定一个将数组项[拆分或解除批处理*到多个工作流实例进行处理的表达式*](#split-on-debatch)。 | 
+| <splitOn-expression> | String | 对于返回数组的触发器，可指定一个将数组项 [拆分或解除批处理 *到多个工作流实例进行处理的表达式*](#split-on-debatch)。 | 
 | <operation-option> | String | 通过设置 `operationOptions` 属性可更改默认行为。 有关详细信息，请参阅[操作选项](#operation-options)。 | 
 |||| 
 
@@ -87,8 +87,8 @@ ms.locfileid: "86414722"
 
 | 触发器类型 | 说明 | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | 使用 [Azure 托管 API](../connectors/apis-list.md) 检查或轮询终结点。 | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 通过调用 [Azure 托管 API](../connectors/apis-list.md) 为逻辑应用创建可调用的终结点，以便执行订阅和取消订阅操作。 | 
+| [**ApiConnection**](#apiconnection-trigger) | 使用 [Microsoft 托管 API](../connectors/apis-list.md) 检查或轮询终结点。 | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 通过调用 [Microsoft 托管 API](../connectors/apis-list.md) 为逻辑应用创建可调用的终结点以进行订阅和取消订阅。 | 
 ||| 
 
 ## <a name="triggers---detailed-reference"></a>触发器 - 详细参考
@@ -97,7 +97,7 @@ ms.locfileid: "86414722"
 
 ### <a name="apiconnection-trigger"></a>APIConnection 触发器  
 
-此触发器使用 [Azure 托管 API](../connectors/apis-list.md) 检查或轮询终结点，因此，此触发器的参数可能因终结点而异。 此触发器定义中的许多部分是可选的。 触发器的行为取决于是否包含部分。
+此触发器通过使用 [Microsoft 托管 API](../connectors/apis-list.md) 检查或轮询终结点，因此该触发器的参数可能基于终结点而有所不同。 此触发器定义中的许多部分是可选的。 触发器的行为取决于是否包含部分。
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -163,7 +163,7 @@ ms.locfileid: "86414722"
 
 *示例*
 
-此触发器定义每天检查 Office 365 Outlook 帐户收件箱中的电子邮件：
+此触发器定义每天都会在工作或学校帐户的收件箱中检查电子邮件：
 
 ```json
 "When_a_new_email_arrives": {
@@ -194,7 +194,7 @@ ms.locfileid: "86414722"
 
 ### <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook 触发器
 
-此触发器使用 [Azure 托管 API](../connectors/apis-list.md) 向终结点发送订阅请求，提供供此终结点将响应发送到其中的回叫 URL，然后等待终结点响应。 有关详细信息，请参阅[终结点订阅](#subscribe-unsubscribe)。
+此触发器使用 [Microsoft 托管 API](../connectors/apis-list.md) 向终结点发送订阅请求，提供此终结点可将响应发送到的回叫 URL，并等待终结点响应。 有关详细信息，请参阅[终结点订阅](#subscribe-unsubscribe)。
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -686,7 +686,7 @@ ms.locfileid: "86414722"
 
 ## <a name="trigger-multiple-runs"></a>触发多个运行
 
-触发器可能会返回一个可供逻辑应用处理的数组，但有时候，“for each”循环可能会花过长的时间来处理每个数组项。 此时可改用触发器中的 **SplitOn** 属性，对数组执行解除批处理操作。 解除批处理时会拆分数组项，并启动一个针对每个数组项来运行的新工作流实例。 多种情况下可以使用此方法。例如，需要轮询一个终结点，而该终结点可能在不同的轮询间隔期之间返回多个新项。 若要了解 **SplitOn** 在单个逻辑应用运行中可以处理的最大数组项数，请参阅[限制和配置](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 
+触发器可能会返回一个可供逻辑应用处理的数组，但有时候，“for each”循环可能会花过长的时间来处理每个数组项。 此时可改用触发器中的 **SplitOn** 属性，对数组执行解除批处理操作。 解除批处理时会拆分数组项，并启动一个针对每个数组项来运行的新工作流实例。 多种情况下可以使用此方法。例如，需要轮询一个终结点，而该终结点可能在不同的轮询间隔期之间返回多个新项。 若要了解 **SplitOn** 在单个逻辑应用运行中可以处理的最大数组项数，请参阅 [限制和配置](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 
 
 > [!NOTE]
 > 无法对同步响应模式使用 SplitOn。 任何使用 **SplitOn** 并包括一个响应操作的工作流都会异步运行并即时发送 `202 ACCEPTED` 响应。
@@ -847,8 +847,8 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 | 操作类型 | 说明 | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | 使用 [Azure 托管 API](../connectors/apis-list.md) 调用 HTTP 终结点。 | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | 工作方式类似于 HTTP Webhook，但使用 [Azure 托管 API](../connectors/apis-list.md)。 | 
+| [**ApiConnection**](#apiconnection-action) | 使用 [Microsoft 托管 API](../connectors/apis-list.md) 调用 HTTP 终结点。 | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | 工作方式类似于 HTTP Webhook，但使用 [Microsoft 托管 API](../connectors/apis-list.md)。 | 
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -872,7 +872,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 ### <a name="apiconnection-action"></a>APIConnection 操作
 
-此操作将 HTTP 请求发送到 [Azure 托管 API](../connectors/apis-list.md)，且需要有关该 API 和参数的信息以及对有效连接的引用。 
+此操作将 HTTP 请求发送到 [Microsoft 托管 API](../connectors/apis-list.md)，且需要有关该 API 和参数的信息以及对有效连接的引用。 
 
 ```json
 "<action-name>": {
@@ -899,7 +899,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
 | <action-name> | String | 连接器提供的操作的名称 | 
-| <api-name> | String | 用于连接的 Azure 托管 API 的名称 | 
+| <api-name> | String | 用于连接的 Microsoft 托管 API 的名称 | 
 | <method-type> | String | 用于调用 API 的 HTTP 方法：“GET”、“PUT”、“POST”、“PATCH”或“DELETE” | 
 | <api-operation> | String | 要调用的 API 操作 | 
 |||| 
@@ -916,7 +916,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 *示例*
 
-此定义描述了 Office 365 Outlook 连接器（一个 Azure 托管 API）的“发送电子邮件”操作： 
+此定义演示 Office 365 Outlook 连接器（属于 Microsoft 托管 API）的“发送电子邮件”操作： 
 
 ```json
 "Send_an_email": {
@@ -943,7 +943,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 ### <a name="apiconnectionwebhook-action"></a>APIConnectionWebhook 操作
 
-此操作使用 [Azure 托管 API](../connectors/apis-list.md) 通过 HTTP 向终结点发送订阅请求，提供供此终结点将响应发送到其中的回叫 URL，然后等待终结点响应。 有关详细信息，请参阅[终结点订阅](#subscribe-unsubscribe)。
+此操作使用 [Microsoft 托管 API](../connectors/apis-list.md) 通过 HTTP 向终结点发送订阅请求，提供此终结点可将响应发送到的回叫 URL，并等待终结点响应。 有关详细信息，请参阅[终结点订阅](#subscribe-unsubscribe)。
 
 ```json
 "<action-name>": {
@@ -2250,6 +2250,9 @@ ID,Product_Name
 | <loop-timeout> | String | 针对循环可运行的最长时间的限制。 默认 `timeout` 值为 `PT1H`，即要求的 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)。 |
 |||| 
 
+> [!NOTE]
+> 如果表达式依赖于 Until 循环中任何操作的输出，请确保考虑到该操作导致的任何失败。
+
 *示例*
 
 此循环操作定义向指定 URL 发送一个 HTTP 请求，直到满足以下某个条件：
@@ -2338,6 +2341,7 @@ ID,Product_Name
 | 操作选项 | 类型 | 说明 | 触发器或操作 | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | 以同步方式而非异步方式运行基于 HTTP 的操作。 <p><p>若要设置此选项，请参阅[同步运行操作](#disable-asynchronous-pattern)。 | 操作： <p>[ApiConnection](#apiconnection-action), <br />[HTTP](#http-action)、 <br />[响应](#response-action) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | 对于[启用 Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) 的逻辑应用，若要授予对基于请求的触发器终结点的入站调用的访问权限，请在触发器输出中包含来自 OAuth 访问令牌的 `Authorization` 标头。 有关详细信息，请参阅[在 Request 触发器输出中包含“Authorization”标头](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header)。 | 触发器： <p>[Request](#request-trigger)、 <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `OptimizedForHighThroughput` | String | 将针对每 5 分钟的操作执行数的[默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)更改为[最大限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 <p><p>若要设置此选项，请参阅[在高吞吐量模式下运行](#run-high-throughput-mode)。 | 所有操作 | 
 | `Sequential` | String | 每次运行一个“for each”循环迭代，而不是同时并行运行所有迭代。 <p>此选项与将 `runtimeConfiguration.concurrency.repetitions` 属性设置为 `1` 的作用相同。 可以设置其中任一属性，但不能同时设置二者。 <p><p>若要设置此选项，请参阅[按顺序运行“for each”循环](#sequential-for-each)。| 操作： <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | 按顺序对每个逻辑应用实例运行此触发器，并在等待上一个活动运行完成后，再触发下一个逻辑应用实例。 <p><p>此选项与将 `runtimeConfiguration.concurrency.runs` 属性设置为 `1` 的作用相同。 可以设置其中任一属性，但不能同时设置二者。 <p>若要设置此选项，请参阅[按顺序触发实例](#sequential-trigger)。 | 所有触发器 | 
@@ -2356,8 +2360,6 @@ ID,Product_Name
 * 启用并发后，会显著降低[解除数组批处理](#split-on-debatch)时的 [SplitOn 限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 如果项数超过此限制，会禁用 SplitOn 功能。
 
 * 启用并发控制后，无法禁用并发。
-
-* 启用并发后，会显著降低[解除数组批处理](#split-on-debatch)时的 [SplitOn 限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 如果项数超过此限制，会禁用 SplitOn 功能。
 
 * 启用并发后，长时间运行的逻辑应用实例可能会导致新的逻辑应用实例进入等待状态。 此状态会阻止 Azure 逻辑应用创建新实例，即使并发运行次数小于指定的最大并发运行次数，也会发生这种情况。
 
@@ -2599,7 +2601,10 @@ ID,Product_Name
 
 ### <a name="run-actions-in-a-synchronous-operation-pattern"></a>在同步操作模式下运行操作
 
-默认情况下，Azure 逻辑应用中的 HTTP 操作和 APIConnection 操作遵循标准[异步操作模式](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)，而响应操作则遵循“同步操作模式”。 异步模式指定在操作调用指定的终结点、服务、系统或 API 或向其发送请求后，接收方立即返回[“202 已接受”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3)响应。 此代码确认接收方已接受请求，但尚未完成处理。 响应可以包括一个指定了 URL 和刷新 ID 的 `location` 标头，调用方可以使用该标头来持续轮询或检查异步请求的状态，直到接收方停止处理并返回[“200 正常”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1)成功响应或其他非 202 响应。 有关详细信息，请参阅[异步微服务集成强制实施微服务自治](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)。
+默认情况下，Azure 逻辑应用中的 HTTP 操作和 APIConnection 操作遵循标准的异步操作模式，而响应操作则遵循同步操作模式。 异步模式指定在操作调用指定的终结点、服务、系统或 API 或向其发送请求后，接收方立即返回[“202 已接受”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3)响应。 此代码确认接收方已接受请求，但尚未完成处理。 响应可以包括一个指定了 URL 和刷新 ID 的 `location` 标头，调用方可以使用该标头来持续轮询或检查异步请求的状态，直到接收方停止处理并返回[“200 正常”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1)成功响应或其他非 202 响应。
+
+<!--Not Available on [*asynchronous operation pattern*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)-->
+<!--Not Available on [Asynchronous microservice integration enforces microservice autonomy](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)-->
 
 * 在逻辑应用设计器中，HTTP 操作、APIConnection 操作和“响应”操作具有“异步模式”设置。 启用后，此设置指定调用方不等待处理完成即可继续执行下一操作，但需继续检查状态直到处理停止。 如果禁用，则此设置指定调用方需等待处理完成才能继续执行下一操作。 若要查找此设置，请执行以下步骤：
 

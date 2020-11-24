@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 356d664f689f67cf799472cd4f054cf42ef951b6
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 252363ec576b709f26704170b19ca430c2c9e5b8
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026485"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552884"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 入门
 
@@ -33,12 +33,12 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 - [Windows 64 位](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32 位](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 这些文件压缩成 zip 文件（Windows 和 Mac）或 tar 文件（Linux）。 要在 Linux 上下载并解压缩 tar 文件，请参阅 Linux 分发文档。
 
 > [!NOTE]
-> 若要向/从 [Azure 表存储](/storage/tables/table-storage-overview)服务复制数据，请安装 [AzCopy 版本 7.3](https://aka.ms/downloadazcopynet)。
+> 若要向/从 [Azure 表存储](../tables/table-storage-overview.md)服务复制数据，请安装 [AzCopy 版本 7.3](https://aka.ms/downloadazcopynet)。
 
 
 ## <a name="run-azcopy"></a>运行 AzCopy
@@ -51,7 +51,9 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 若要了解特定的命令，只需包含该命令的名称（例如：`azcopy list -h`）。
 
-![联机帮助](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![联机帮助](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 若要查找每个命令和命令参数的详细参考文档，请参阅 [azcopy](storage-ref-azcopy.md)
 
@@ -79,14 +81,14 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 所需的授权级别取决于是要上传文件，还是只下载文件。
 
-如果你只想下载文件，请验证是否已将[存储 Blob 数据读取者](/role-based-access-control/built-in-roles#storage-blob-data-reader)角色分配到你的用户标识、托管标识或服务主体。
+如果你只想下载文件，请验证是否已将[存储 Blob 数据读取者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)角色分配到你的用户标识、托管标识或服务主体。
 
 > 用户标识、托管标识和服务主体都是安全主体的一种类型，因此本文的余下内容将使用“安全主体”这一术语。 
 
 若要上传文件，请验证是否已将以下角色之一分配到了你的安全主体：
 
-- [存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [存储 Blob 数据所有者](/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [存储 Blob 数据所有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 可在以下任何范围内将这些角色分配到安全主体：
 
@@ -95,14 +97,14 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 - 资源组
 - 订阅
 
-若要了解如何验证和分配角色，请参阅[在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限](/storage/common/storage-auth-aad-rbac-portal?toc=%2fstorage%2fblobs%2ftoc.json)。
+若要了解如何验证和分配角色，请参阅[使用 Azure 门户分配用于访问 Blob 和队列数据的 Azure 角色](./storage-auth-aad-rbac-portal.md?toc=%252fstorage%252fblobs%252ftoc.json)。
 
 > [!NOTE]
 > 请记住，Azure 角色分配可能需要最多五分钟的时间进行传播。
 
 如果安全主体已添加到目标容器或目录的访问控制列表 (ACL)，则无需将这些角色之一分配到安全主体。 在 ACL 中，安全主体需要对目标目录拥有写入权限，并对容器和每个父目录拥有执行权限。
 
-有关详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)。
+有关详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](../blobs/data-lake-storage-access-control.md)。
 
 #### <a name="authenticate-a-user-identity"></a>对用户标识进行身份验证
 
@@ -136,9 +138,9 @@ azcopy login --tenant-id=<tenant-id> --aad-endpoint https://login.partner.micros
 
 可以使用客户端机密或使用与服务主体应用注册关联的证书的密码登录到帐户。
 
-若要详细了解如何创建服务主体，请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](/active-directory/develop/howto-create-service-principal-portal)。
+若要详细了解如何创建服务主体，请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
-若要了解有关服务主体的一般性详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](/active-directory/develop/app-objects-and-service-principals)。
+若要了解有关服务主体的一般性详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../../active-directory/develop/app-objects-and-service-principals.md)。
 
 ##### <a name="using-a-client-secret"></a>使用客户端机密
 
@@ -168,7 +170,7 @@ azcopy login --service-principal  --application-id application-id --tenant-id=te
 
 如果你偏好使用自己的凭据进行授权，可将证书上传到应用注册，然后使用该证书登录。
 
-除了将证书上传到应用注册以外，还需要在运行 AzCopy 的计算机或 VM 中保存该证书的副本。 此证书副本应采用 .PFX 或 .PEM 格式，且必须包含私钥。 该私钥应通过密码予以保护。 如果使用的是 Windows，且证书仅在证书存储中，请确保将该证书导出到 PFX 文件（包括私钥）。 有关指导，请参阅 [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+除了将证书上传到应用注册以外，还需要在运行 AzCopy 的计算机或 VM 中保存该证书的副本。 此证书副本应采用 .PFX 或 .PEM 格式，且必须包含私钥。 该私钥应通过密码予以保护。 如果使用的是 Windows，且证书仅在证书存储中，请确保将该证书导出到 PFX 文件（包括私钥）。 有关指导，请参阅 [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate)
 
 接下来，将 `AZCOPY_SPA_CERT_PASSWORD` 环境变量设为证书密码。
 
@@ -204,7 +206,7 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 
 ##### <a name="using-a-system-wide-managed-identity"></a>使用系统范围的托管标识
 
-首先，确保已在 VM 上启用系统范围的托管标识。 请参阅[系统分配的托管标识](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)。
+首先，确保已在 VM 上启用系统范围的托管标识。 请参阅[系统分配的托管标识](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)。
 
 然后，在命令控制台中，键入以下命令并按 ENTER 键。
 
@@ -214,7 +216,7 @@ azcopy login --identity --aad-endpoint https://login.partner.microsoftonline.cn
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>使用用户分配的托管标识
 
-首先，确保已在 VM 上启用用户分配的托管标识。 请参阅[用户分配的托管标识](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)。
+首先，确保已在 VM 上启用用户分配的托管标识。 请参阅[用户分配的托管标识](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)。
 
 然后，在命令控制台中，键入以下任意命令并按 ENTER 键。
 
@@ -246,7 +248,7 @@ azcopy login --identity --identity-resource-id "<resource-id>" --aad-endpoint ht
 azcopy copy "C:\local\path" "https://account.blob.core.chinacloudapi.cn/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-若要详细了解 SAS 令牌及其获取方式，请参阅[使用共享访问签名 (SAS)](/storage/common/storage-sas-overview)。
+若要详细了解 SAS 令牌及其获取方式，请参阅[使用共享访问签名 (SAS)](./storage-sas-overview.md)。
 
 ## <a name="transfer-files"></a>传输文件
 

@@ -13,17 +13,17 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/09/2020
+ms.date: 11/09/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 168caaf39fcc79aa3d5dc14bd74928bb08d0260c
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 18648b8eec29b190ad532031834c4f6d1137070f
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593797"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501965"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>用于报告的 Azure AD PowerShell cmdlet
 
@@ -59,7 +59,7 @@ Install-module AzureADPreview
 
 下图显示了此命令的一个示例。 
 
-![“数据摘要”按钮](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![屏幕截图显示了 Get-AzureADAuditDirectoryLogs 命令的结果。](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Install-module AzureADPreview
 
 下图显示了此命令的一个示例。 
 
-![“数据摘要”按钮](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![屏幕截图显示了 Get-AzureADAuditSignInLogs 命令的结果。](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

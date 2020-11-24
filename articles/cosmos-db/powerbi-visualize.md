@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 连接器的 Power BI 教程
 description: 使用此 Power BI 教程导入 JSON、创建见解深入的报表以及使用 Azure Cosmos DB 和 Power BI 连接器来将数据可视化。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/21/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0dce807694c44b2f9e119502b14d28c31e13d7d6
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: c7c45b0d99bacda24b3a626de69cf9d8b9afb8d6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222471"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552785"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) 是一种在线服务，你可以使用它创建和共享仪表板和报表。 Power BI Desktop 是一种报表创作工具，可以从各种数据源检索数据。 Azure Cosmos DB 是可以与 Power BI Desktop 一起使用的一种数据源。 可以使用 Power BI 的 Azure Cosmos DB 连接器将 Power BI Desktop 连接到 Azure Cosmos DB 帐户。  将 Azure Cosmos DB 数据导入到 Power BI 之后，可以对其进行转换，创建报表，以及将报表发布到 Power BI。   
 
@@ -35,10 +36,8 @@ ms.locfileid: "88222471"
 
 * 从 GitHub 下载[示例火山数据](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)。
 
-* [创建一个 Azure Cosmos 数据库帐户](/cosmos-db/create-sql-api-dotnet)并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入火山数据。 导入数据时，请考虑数据迁移工具中源和目标的以下设置：
-    
-    <!--Redirect (https://www.azure.cn/documentation/articles/create-account/)  to  (/cosmos-db/create-sql-api-dotnet)-->
-    
+* [创建一个 Azure Cosmos 数据库帐户](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account)并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入火山数据。 导入数据时，请考虑数据迁移工具中源和目标的以下设置：
+
     * **源参数** 
 
         * **导入源：** JSON 文件
@@ -97,7 +96,7 @@ ms.locfileid: "88222471"
 
 7. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的“只读密钥”  边栏选项卡中的“主密钥”  框中取得密钥。 输入相应的密钥，然后单击“连接”  。
 
-    我们建议在生成报表时使用只读密钥。 这可防止主密钥不必要地暴露于潜在的安全风险中。 可以从 Azure 门户的**密钥**边栏选项卡获取只读密钥。 
+    我们建议在生成报表时使用只读密钥。 这可防止主密钥不必要地暴露于潜在的安全风险中。 可以从 Azure 门户的 **密钥** 边栏选项卡获取只读密钥。 
 
 8. 帐户成功连接后，将出现“导航器”窗格  。 “导航器”  会在帐户下显示数据库的列表。
 
@@ -136,7 +135,7 @@ ms.locfileid: "88222471"
 
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 坐标列表":::
 
-1. 若要平展坐标数组，请创建一个名为 LatLong 的**自定义列**。  选择“添加列”  功能区并单击“自定义列”  。  此时将显示“自定义列”  窗口。
+1. 若要平展坐标数组，请创建一个名为 LatLong 的 **自定义列**。  选择“添加列”  功能区并单击“自定义列”  。  此时将显示“自定义列”  窗口。
 
 1. 为新列提供一个名称，例如 LatLong。
 
@@ -165,7 +164,7 @@ ms.locfileid: "88222471"
 
 可以在 Power BI Desktop 报表视图中开始创建报表来将数据可视化。  可以通过将字段拖放到“报表”  画布中来创建报表。
 
-:::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview2.png" alt-text="Power BI Desktop 报表视图 - Power BI 连接器":::
+:::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview2.png" alt-text="Power BI Desktop 报表视图 - 拖放必填字段":::
 
 在“报表”视图中，应找到：
 
@@ -198,13 +197,13 @@ ms.locfileid: "88222471"
 ## <a name="create-a-dashboard-in-powerbicom"></a>在 PowerBI.com 中创建仪表板
 既然有了报表，就将报表分享到 PowerBI.com 吧
 
-从 Power BI Desktop 发布报表到 PowerBI.com 时，会在 PowerBI.com 租户中生成一个“报表”**** 和“数据集”****。 例如，将一个名为 **PowerBITutorial** 的报表发布到 PowerBI.com 后，PowerBITutorial 会出现在 PowerBI.com 的“报表”**** 和“数据集”**** 部分。
+从 Power BI Desktop 发布报表到 PowerBI.com 时，会在 PowerBI.com 租户中生成一个“报表”和“数据集”。 例如，将一个名为 **PowerBITutorial** 的报表发布到 PowerBI.com 后，PowerBITutorial 会出现在 PowerBI.com 的“报表”和“数据集”部分。
 
 :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="PowerBI.com 中新“报表”和“数据集”的屏幕截图":::
 
-若要创建可共享的仪表板，请单击 PowerBI 报表上的“固定活动页”**** 按钮。
+若要创建可共享的仪表板，请单击 PowerBI 报表上的“固定活动页”按钮。
 
-:::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="PowerBI.com 中新“报表”和“数据集”的屏幕截图":::
+:::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="演示如何将报表固定到 PowerBI.com 的屏幕截图":::
 
 然后按照[从报表固定磁贴](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report)中的说明创建新仪表板。 
 
@@ -233,6 +232,6 @@ For a scheduled refresh, do the following.
 
 ## <a name="next-steps"></a>后续步骤
 * 有关 Power BI 的详细信息，请参阅 [Power BI 入门](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
-* 若要了解有关 Azure Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB 文档登陆页](/cosmos-db/)。
+* 若要了解有关 Azure Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB 文档登陆页](https://docs.azure.cn/cosmos-db/)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 02/05/2020
 ms.date: 03/02/2020
-ms.openlocfilehash: fbd40afeafd54a689462dfa966184d33306a90b2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eea2a6929fe9cfaff2558c450afeae81833b36c6
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563564"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552858"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Ambari 的用法
 
@@ -57,7 +57,7 @@ ps -ef | grep failover
 
 ## <a name="ambari-database"></a>Ambari 数据库
 
-HDInsight 幕后会创建 SQL Azure 数据库用作 Ambari 服务器的数据库。 默认的[服务层级是 S0](../sql-database/sql-database-elastic-pool-scale.md)。
+HDInsight 幕后会在 SQL 数据库中创建数据库，用作 Ambari 服务器的数据库。 默认的[服务层级是 S0](../azure-sql/database/elastic-pool-scale.md)。
 
 对于在创建时其工作器节点数超过 16 个的任何群集，数据库服务层级为 S2。
 

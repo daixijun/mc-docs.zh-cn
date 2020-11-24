@@ -1,29 +1,30 @@
 ---
 title: 快速入门 - 使用 Azure 资源管理器模板创建 Azure Cosmos DB 和容器
 description: 快速入门 - 展示了如何使用 Azure 资源管理器模板创建 Azure Cosmos 数据库和容器
-author: rockboyfor
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 06/01/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 8518f2dcd46e52787e2595b46bf9476f8a6e4b36
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1f17a07163c31953d73bed54b414f265cf76c3df
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222448"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552781"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Cosmos DB 和容器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 <!--CORRECT ON  21Vianet-->
 
-Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询键/值数据库、文档数据库和图形数据库。 本快速入门重点介绍部署用以创建 Azure Cosmos 数据库的 Azure 资源管理器模板（ARM 模板）以及在该数据库内创建容器的过程。 稍后你可以在该容器中存储数据。
+Azure Cosmos DB 是世纪互联的快速 NoSQL 数据库，具有适合任何规模的开放式 API。 使用 Azure Cosmos DB，可以快速创建和查询键/值数据库、文档数据库和图形数据库。 本快速入门重点介绍部署用以创建 Azure Cosmos 数据库的 Azure 资源管理器模板（ARM 模板）以及在该数据库内创建容器的过程。 稍后你可以在该容器中存储数据。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -45,218 +46,217 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "accountName": {
-            "type": "string",
-            "defaultValue": "[concat('sql-', uniqueString(resourceGroup().id))]",
-            "metadata": {
-                "description": "Cosmos DB account name, max length 44 characters"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for the Cosmos DB account."
-            }
-        },
-        "primaryRegion": {
-            "type": "string",
-            "metadata": {
-                "description": "The primary replica region for the Cosmos DB account."
-            }
-        },
-        "secondaryRegion": {
-            "type": "string",
-            "metadata": {
-                "description": "The secondary replica region for the Cosmos DB account."
-            }
-        },
-        "defaultConsistencyLevel": {
-            "type": "string",
-            "defaultValue": "Session",
-            "allowedValues": [ "Eventual", "ConsistentPrefix", "Session", "BoundedStaleness", "Strong" ],
-            "metadata": {
-                "description": "The default consistency level of the Cosmos DB account."
-            }
-        },
-        "maxStalenessPrefix": {
-            "type": "int",
-            "minValue": 10,
-            "defaultValue": 100000,
-            "maxValue": 2147483647,
-            "metadata": {
-                "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
-            }
-        },
-        "maxIntervalInSeconds": {
-            "type": "int",
-            "minValue": 5,
-            "defaultValue": 300,
-            "maxValue": 86400,
-            "metadata": {
-                "description": "Max lag time (minutes). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
-            }
-        },  
-        "automaticFailover": {
-            "type": "bool",
-            "defaultValue": true,
-            "allowedValues": [ true, false ],
-            "metadata": {
-                "description": "Enable automatic failover for regions"
-            }
-        },
-        "databaseName": {
-            "type": "string",
-            "defaultValue": "myDatabase",
-            "metadata": {
-                "description": "The name for the database"
-            }
-        },
-        "containerName": {
-            "type": "string",
-            "defaultValue": "myContainer",
-            "metadata": {
-                "description": "The name for the container"
-            }
-        },
-        "throughput": {
-            "type": "int",
-            "defaultValue": 400,
-            "minValue": 400,
-            "maxValue": 1000000,
-            "metadata": {
-                "description": "The throughput for the container"
-            }           
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "accountName": {
+      "type": "string",
+      "defaultValue": "[concat('sql-', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "Cosmos DB account name, max length 44 characters"
+      }
     },
-    "variables": {
-        "accountName": "[toLower(parameters('accountName'))]",
-        "consistencyPolicy": {
-            "Eventual": {
-                "defaultConsistencyLevel": "Eventual"
-            },
-            "ConsistentPrefix": {
-                "defaultConsistencyLevel": "ConsistentPrefix"
-            },
-            "Session": {
-                "defaultConsistencyLevel": "Session"
-            },
-            "BoundedStaleness": {
-                "defaultConsistencyLevel": "BoundedStaleness",
-                "maxStalenessPrefix": "[parameters('maxStalenessPrefix')]",
-                "maxIntervalInSeconds": "[parameters('maxIntervalInSeconds')]"
-            },
-            "Strong": {
-                "defaultConsistencyLevel": "Strong"
-            }
-        },
-        "locations": 
-        [ 
-            {
-                "locationName": "[parameters('primaryRegion')]",
-                "failoverPriority": 0,
-                "isZoneRedundant": false
-            }, 
-            {
-                "locationName": "[parameters('secondaryRegion')]",
-                "failoverPriority": 1,
-                "isZoneRedundant": false
-            }
-        ]
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for the Cosmos DB account."
+      }
     },
-    "resources": 
-    [
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts",
-            "name": "[variables('accountName')]",
-            "apiVersion": "2020-03-01",
-            "kind": "GlobalDocumentDB",
-            "location": "[parameters('location')]",
-            "properties": {
-                "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
-                "locations": "[variables('locations')]",
-                "databaseAccountOfferType": "Standard",
-                "enableAutomaticFailover": "[parameters('automaticFailover')]"
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
-            "properties":{
-                "resource":{
-                    "id": "[parameters('databaseName')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-            "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
-            "apiVersion": "2020-03-01",
-            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
-            "properties":
-            {
-                "resource":{
-                    "id":  "[parameters('containerName')]",
-                    "partitionKey": {
-                        "paths": [
-                        "/myPartitionKey"
-                        ],
-                        "kind": "Hash"
-                    },
-                    "indexingPolicy": {
-                        "indexingMode": "consistent",
-                        "includedPaths": [{
-                                "path": "/*"
-                            }
-                        ],
-                        "excludedPaths": [{
-                                "path": "/myPathToNotIndex/*"
-                            }
-                        ],
-                        "compositeIndexes":[  
-                        [
-                            {
-                                "path":"/name",
-                                "order":"ascending"
-                            },
-                            {
-                                "path":"/age",
-                                "order":"descending"
-                            }
-                        ]
-                    ],
-                    "spatialIndexes": [
-                            {
-                                "path": "/path/to/geojson/property/?",
-                                "types": [
-                                    "Point",
-                                    "Polygon",
-                                    "MultiPolygon",
-                                    "LineString"
-                                ]
-                            }
-                        ]
-                    },
-                    "defaultTtl": 86400,
-                    "uniqueKeyPolicy": {
-                        "uniqueKeys": [
-                        {
-                            "paths": [
-                            "/phoneNumber"
-                            ]
-                        }
-                        ]
-                    }
-                },
-                "options": { "throughput": "[parameters('throughput')]" }
-            }
-        }
+    "primaryRegion": {
+      "type": "string",
+      "metadata": {
+        "description": "The primary replica region for the Cosmos DB account."
+      }
+    },
+    "secondaryRegion": {
+      "type": "string",
+      "metadata": {
+        "description": "The secondary replica region for the Cosmos DB account."
+      }
+    },
+    "defaultConsistencyLevel": {
+      "type": "string",
+      "defaultValue": "Session",
+      "allowedValues": [ "Eventual", "ConsistentPrefix", "Session", "BoundedStaleness", "Strong" ],
+      "metadata": {
+        "description": "The default consistency level of the Cosmos DB account."
+      }
+    },
+    "maxStalenessPrefix": {
+      "type": "int",
+      "defaultValue": 100000,
+      "minValue": 10,
+      "maxValue": 2147483647,
+      "metadata": {
+        "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
+      }
+    },
+    "maxIntervalInSeconds": {
+      "type": "int",
+      "defaultValue": 300,
+      "minValue": 5,
+      "maxValue": 86400,
+      "metadata": {
+        "description": "Max lag time (minutes). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
+      }
+    },
+    "automaticFailover": {
+      "type": "bool",
+      "defaultValue": true,
+      "allowedValues": [ true, false ],
+      "metadata": {
+        "description": "Enable automatic failover for regions"
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "myDatabase",
+      "metadata": {
+        "description": "The name for the database"
+      }
+    },
+    "containerName": {
+      "type": "string",
+      "defaultValue": "myContainer",
+      "metadata": {
+        "description": "The name for the container"
+      }
+    },
+    "throughput": {
+      "type": "int",
+      "defaultValue": 400,
+      "minValue": 400,
+      "maxValue": 1000000,
+      "metadata": {
+        "description": "The throughput for the container"
+      }
+    }
+  },
+  "variables": {
+    "accountName": "[toLower(parameters('accountName'))]",
+    "consistencyPolicy": {
+      "Eventual": {
+        "defaultConsistencyLevel": "Eventual"
+      },
+      "ConsistentPrefix": {
+        "defaultConsistencyLevel": "ConsistentPrefix"
+      },
+      "Session": {
+        "defaultConsistencyLevel": "Session"
+      },
+      "BoundedStaleness": {
+        "defaultConsistencyLevel": "BoundedStaleness",
+        "maxStalenessPrefix": "[parameters('maxStalenessPrefix')]",
+        "maxIntervalInSeconds": "[parameters('maxIntervalInSeconds')]"
+      },
+      "Strong": {
+        "defaultConsistencyLevel": "Strong"
+      }
+    },
+    "locations": [
+      {
+        "locationName": "[parameters('primaryRegion')]",
+        "failoverPriority": 0,
+        "isZoneRedundant": false
+      },
+      {
+        "locationName": "[parameters('secondaryRegion')]",
+        "failoverPriority": 1,
+        "isZoneRedundant": false
+      }
     ]
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2020-06-01-preview",
+      "name": "[variables('accountName')]",
+      "location": "[parameters('location')]",
+      "kind": "GlobalDocumentDB",
+      "properties": {
+        "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+        "locations": "[variables('locations')]",
+        "databaseAccountOfferType": "Standard",
+        "enableAutomaticFailover": "[parameters('automaticFailover')]"
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+      "apiVersion": "2020-06-01-preview",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('databaseName')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "apiVersion": "2020-06-01-preview",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('containerName')]",
+          "partitionKey": {
+            "paths": [
+              "/myPartitionKey"
+            ],
+            "kind": "Hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*"
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/myPathToNotIndex/*"
+              }
+            ],
+            "compositeIndexes": [
+              [
+                {
+                  "path": "/name",
+                  "order": "ascending"
+                },
+                {
+                  "path": "/age",
+                  "order": "descending"
+                }
+              ]
+            ],
+            "spatialIndexes": [
+              {
+                "path": "/path/to/geojson/property/?",
+                "types": [
+                  "Point",
+                  "Polygon",
+                  "MultiPolygon",
+                  "LineString"
+                ]
+              }
+            ]
+          },
+          "defaultTtl": 86400,
+          "uniqueKeyPolicy": {
+            "uniqueKeys": [
+              {
+                "paths": [
+                  "/phoneNumber"
+                ]
+              }
+            ]
+          }
+        },
+        "options": { "throughput": "[parameters('throughput')]" }
+      }
+    }
+  ]
 }
 ```
 
@@ -366,6 +366,6 @@ Write-Host "Press [ENTER] to continue..."
 
 - 阅读 [Azure Cosmos DB 概述](introduction.md)
 - 了解有关 [Azure 资源管理器](../azure-resource-manager/management/overview.md)的详细信息
-- 获取其他 [Azure Cosmos DB 资源管理器模板](resource-manager-samples.md)
+- 获取其他 [Azure Cosmos DB 资源管理器模板](./templates-samples-sql.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

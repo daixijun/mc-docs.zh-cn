@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 10/19/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 4889d6084e2e3479bfb2c0e3a85f88ff59d7e648
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: fe24516048049fe86476aea91ebfeeaf8c72a012
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753590"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552862"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [SMB 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
@@ -41,7 +41,7 @@ uname -r
 * <a id="install-cifs-utils"></a>**确保已安装 cifs-utils 包。**  
     可在所选的 Linux 分发版上使用包管理器安装 cifs-utils 包。 
 
-    在 **Ubuntu** 和**基于 Debian** 的分发版上，请使用 `apt` 包管理器：
+    在 **Ubuntu** 和 **基于 Debian** 的分发版上，请使用 `apt` 包管理器：
 
     ```bash
     sudo apt update
@@ -70,7 +70,7 @@ uname -r
 
 * **最新版本的 Azure 命令行接口 (CLI)。** 若要详细了解如何安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 并选择操作系统。 如果你想要在 PowerShell 6+ 中使用 Azure PowerShell 模块，也可以使用，不过，下面的说明适用于 Azure CLI。
 
-* **确保端口 445 处于打开状态**：SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。  请替换 **<your-resource-group>** 和 **<your-storage-account>**
+* **确保端口 445 处于打开状态**：SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。  替换 `<your-resource-group>` 和 `<your-storage-account>`，然后运行以下脚本：
     ```bash
     $resourceGroupName="<your-resource-group>"
     $storageAccountName="<your-storage-account>"
@@ -115,6 +115,7 @@ uname -r
 1. **使用装载命令来装载 Azure 文件共享**。 在以下示例中，本地 Linux 文件和文件夹权限默认为 0755，表示所有者拥有读取、写入和执行权限（基于文件/目录 Linux 所有者），所有者组中的用户拥有读取和执行权限，系统中的其他用户拥有读取和执行权限。 可以使用 `uid` 和 `gid` 装载选项来设置装入点的用户 ID 和组 ID。 还可根据需要使用 `dir_mode` 和 `file_mode` 来设置自定义权限。 有关如何设置权限的详细信息，请参阅 Wikipedia 上的 [UNIX 数值表示法](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)。 
 
     ```bash
+    # This command assumes you have logged in with az login
     $httpEndpoint=(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -177,6 +178,7 @@ uname -r
 1. **使用以下命令将以下行追加到 `/etc/fstab`** ：在以下示例中，本地 Linux 文件和文件夹权限默认为 0755，表示所有者拥有读取、写入和执行权限（基于文件/目录 Linux 所有者），所有者组中的用户拥有读取和执行权限，系统中的其他用户拥有读取和执行权限。 可以使用 `uid` 和 `gid` 装载选项来设置装入点的用户 ID 和组 ID。 还可根据需要使用 `dir_mode` 和 `file_mode` 来设置自定义权限。 有关如何设置权限的详细信息，请参阅 Wikipedia 上的 [UNIX 数值表示法](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)。
 
     ```bash
+    # This command assumes you have logged in with az login
     $httpEndpoint=(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -201,7 +203,7 @@ uname -r
 
     可在所选的 Linux 分发版上使用包管理器安装 utofs 包。 
 
-    在 **Ubuntu** 和**基于 Debian** 的分发版上，请使用 `apt` 包管理器：
+    在 **Ubuntu** 和 **基于 Debian** 的分发版上，请使用 `apt` 包管理器：
     ```bash
     sudo apt update
     sudo apt install autofs

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/10/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ea0652a477ea0da846310c9474b286aab97de8a
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: ed3a108c566779fdd34ec42a00ef881e3de510ed
+ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046378"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94501738"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -40,8 +40,8 @@ ms.locfileid: "89046378"
 
 当管理员组合使用这些选项时，可以选择以下方法：
 
-- 需要所有选定控制（控制**和**控制）
-- 需要某一选定控制（控制**或**控制）
+- 需要所有选定控制（控制 **和** 控制）
+- 需要某一选定控制（控制 **或** 控制）
 
 默认情况下，条件访问需要所有选定控制。
 
@@ -54,7 +54,7 @@ ms.locfileid: "89046378"
 
 组织可以要求只能尝试从已批准的客户端应用访问选定的云应用。 这些已批准的客户端应用支持 [Intune 应用保护策略](https://docs.microsoft.com/intune/app-protection-policy)，而不受任何移动设备管理 (MDM) 解决方案影响。
 
-为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是适用于 Android 设备的 Microsoft 公司门户。 如果用户尝试进行身份验证时设备上未安装代理应用，则会将用户重定向到应用商店来安装代理应用。
+为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是 Microsoft Authenticator 或适用于 Android 设备的 Microsoft 公司门户。 如果用户尝试进行身份验证时设备上未安装代理应用，则会将用户重定向到相应的 app/play store 来安装所需的代理应用。
 
 此设置适用于以下 iOS 和 Android 应用：
 

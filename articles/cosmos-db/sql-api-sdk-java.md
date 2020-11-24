@@ -7,19 +7,21 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: ee7df6d80e20c1bba768e8322f9c2433a2403ac5
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9e09420b5d702c0af23517240028b2ffa75038ea
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246834"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552841"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -35,7 +37,7 @@ ms.locfileid: "91246834"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,9 +52,9 @@ ms.locfileid: "91246834"
 |**SDK 下载**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API 文档**|[Java API 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb)|
 |**参与 SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**入门**|[Java SDK 入门](sql-api-java-get-started.md)|
+|**入门**|[Java SDK 入门](./create-sql-api-java.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-java-application.md)|
-|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/)|
+|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>发行说明
 
@@ -117,8 +119,10 @@ ms.locfileid: "91246834"
 <a name="2.1.2"></a>
 ### <a name="212"></a>2.1.2
 * 添加了对组合索引的支持。
-* 修复了多区域终结点管理器中的 bug 以强制刷新。
+* 修复了全局终结点管理器中的 bug 以强制刷新。
 * 修复了在直接模式下使用前提条件更新插入的 bug。
+
+<!--CORRECT ON global endpoint-->
 
 <a name="2.1.1"></a>
 ### <a name="211"></a>2.1.1
@@ -276,7 +280,7 @@ ms.locfileid: "91246834"
 
 <a name="1.6.0"></a>
 ### <a name="160"></a>1.6.0
-* 实现了[分区集合](partition-data.md)和[用户定义的性能级别](performance-levels.md)。
+* 实现了[分区集合](partitioning-overview.md)和[用户定义的性能级别](performance-levels.md)。
 
 <a name="1.5.1"></a>
 ### <a name="151"></a>1.5.1

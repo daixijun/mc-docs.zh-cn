@@ -7,16 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 06/16/2019
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2483429078a0dbd24ba8cb979b6acd418dc3553
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09635a5d7a3f2f2f6cd1d434d030c107b669a44f
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753322"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552289"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>使用 .NET 创建存储访问策略
 
@@ -32,7 +33,7 @@ ms.locfileid: "88753322"
 > [!NOTE]
 > 容器上的存储访问策略可以与共享访问签名相关联，后者授予对容器本身的权限，或对它包含的 Blob 的权限。 类似地，文件共享上的存储访问策略可以与共享访问签名相关联，后者授予对共享本身的权限，或对它包含的文件的权限。  
 >
-> 仅服务 SAS 支持存储访问策略。 帐户 SAS 不支持存储访问策略。  
+> 仅服务 SAS 支持存储访问策略。 帐户 SAS 或用户委托 SAS 不支持存储的访问策略。  
 
 有关存储访问策略的更多信息，请参阅[定义存储访问策略](https://docs.microsoft.com/rest/api/storageservices/define-stored-access-policy)。
 

@@ -1,19 +1,19 @@
 ---
 title: Azure 文件存储参考
-description: 查找 Azure 存储 API 参考、自述文件和客户端库包。
+description: 查找 Azure 文件存储 API 参考、自述文件和客户端库包。
 author: WenJason
 ms.author: v-jay
 origin.date: 07/14/2020
-ms.date: 08/24/2020
+ms.date: 11/16/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 57945ea08ac8d9dcbb591fc595e0c28826d969c9
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: e0ecdfdaa249829afadec964ab4aea91190c7ad4
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753577"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552885"
 ---
 # <a name="azure-files-reference"></a>Azure 文件存储参考
 
@@ -68,7 +68,7 @@ ms.locfileid: "88753577"
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [适用于 Python 的 Azure 存储客户端库 v12](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [包 (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [示例](https://docs.microsoft.com/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [包 (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [使用 Python 针对 Azure 文件进行开发](/storage/files/storage-python-how-to-use-file-storage) |
+| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [包 (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [使用 Python 针对 Azure 文件进行开发](/storage/files/storage-python-how-to-use-file-storage) |
 
 ## <a name="javascript-client-libraries"></a>JavaScript 客户端库
 
@@ -107,8 +107,9 @@ ms.locfileid: "88753577"
 
 | 版本 | 平台 |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Azure CLI
 

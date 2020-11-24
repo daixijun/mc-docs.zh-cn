@@ -1,25 +1,26 @@
 ---
-title: 使用 PowerShell 创建和管理 Azure Cosmos DB
-description: 使用 Azure Powershell 管理 Azure Cosmos 帐户、数据库、容器和吞吐量。
+title: 使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源
+description: 使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源。
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 09/18/2020
+origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: a140181ef92e6fa6c94edc3868b970f775048ba7
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c053255f4a18e794ac3b42818dc9a51625ff989c
+ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118051"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94552527"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB SQL API 资源
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-以下指南介绍了如何使用 Powershell 通过脚本来自动管理 Azure Cosmos DB 资源，其中包括帐户、数据库、容器和吞吐量。
+以下指南介绍了如何使用 PowerShell 通过脚本来自动管理 Azure Cosmos DB Core (SQL) API 资源，其中包括 Cosmos 帐户、数据库、容器和吞吐量。 对于其他 API 的 PowerShell cmdlet，请参阅[适用于 Cassandra 的 PowerShell 示例](powershell-samples-cassandra.md)、[适用于 MongoDB API 的 PowerShell 示例](powershell-samples-mongodb.md)、[适用于 Gremlin 的 PowerShell 示例](powershell-samples-gremlin.md)、[适用于 Table 的 PowerShell 示例](powershell-samples-table.md)
 
 > [!NOTE]
 > 本文中的示例使用 [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) 管理 cmdlet。 有关最新更改，请参阅 [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) API 参考页。
@@ -31,6 +32,9 @@ ms.locfileid: "92118051"
 ## <a name="getting-started"></a>入门
 
 请按照[如何安装和配置 Azure PowerShell][powershell-install-configure] 中的说明，安装 PowerShell 并在其中登录 Azure 帐户。
+
+> [!IMPORTANT]
+> 无法重命名 Azure Cosmos DB 资源，因为这违反了 Azure 资源管理器与资源 URI 的工作方式。
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 帐户
 
@@ -79,7 +83,7 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName`：要在其中部署 Cosmos 帐户的 Azure 资源组。 它必须已存在。
 * `$locations`：数据库帐户的区域，带有 `FailoverPriority 0` 的区域为写入区域。
 * `$accountName`：Azure Cosmos 帐户的名称。 必须独一无二且必须为小写，仅包含字母数字和“-”字符，长度为 3 到 31 个字符。
-* `$apiKind`：要创建的 Cosmos 帐户的类型。 有关详细信息，请参阅 [Cosmos DB 中的 API](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis)。
+* `$apiKind`：要创建的 Cosmos 帐户的类型。 有关详细信息，请参阅 [Cosmos DB 中的 API](introduction.md#simplified-application-development)。
 * `$consistencyPolicy`、`$maxStalenessInterval` 和 `$maxStalenessPrefix`：Azure Cosmos 帐户的默认一致性级别和设置。 有关详细信息，请参阅 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)。
 
 可以为 Azure Cosmos 帐户配置 IP 防火墙、虚拟网络服务终结点和专用终结点。 有关如何为 Azure Cosmos DB 配置 IP 防火墙的信息，请参阅[配置 IP 防火墙](how-to-configure-firewall.md)。 若要了解如何为 Azure Cosmos DB 启用服务终结点，请参阅[配置从虚拟网络进行访问的权限](how-to-configure-vnet-service-endpoint.md)。 若要了解如何为 Azure Cosmos DB 启用专用终结点，请参阅[配置从专用终结点进行访问的权限](how-to-configure-private-endpoints.md)。
@@ -116,12 +120,14 @@ Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 * 更改默认的一致性策略
 * 更改 IP 范围筛选器
 * 更改虚拟网络配置
-* 启用多主数据库
+* 启用多区域写入
 
 > [!NOTE]
 > 不能同时添加或删除区域 (`locations`) 并更改 Azure Cosmos 帐户的其他属性。 修改区域的操作必须作为单独的操作与任何其他对帐户的更改操作分开执行。
 > [!NOTE]
 > 此命令可添加和删除区域，但不可修改故障转移优先级或触发手动故障转移。 请参阅[修改故障转移优先级](#modify-failover-priority)和[触发手动故障转移](#trigger-manual-failover)。
+
+<!--CORRECT ON China East, China North, and China East 2-->
 
 ```powershell
 # Create account with two regions
@@ -173,7 +179,8 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-<a name="multi-master"></a>
+
+<a name="multi-region-writes"></a>
 ### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a>为 Azure Cosmos 帐户启用多个写入区域
 
 ```powershell
@@ -183,13 +190,13 @@ $enableAutomaticFailover = $false
 $enableMultiMaster = $true
 
 # First disable automatic failover - cannot have both automatic
-# failover and multi-master on an account
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
     -EnableAutomaticFailover:$enableAutomaticFailover
 
-# Now enable multi-master
+# Now enable multi-region writes
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -287,8 +294,8 @@ $accountName = "mycosmosaccount"
 $enableAutomaticFailover = $true
 $enableMultiMaster = $false
 
-# First disable multi-master - cannot have both automatic
-# failover and multi-master on an account
+# First disable multi-region writes - cannot have both automatic
+# failover and multi-region writes on an account
 Update-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
@@ -366,6 +373,7 @@ Get-AzResourceLock `
 * [创建 Azure Cosmos DB 数据库](#create-db)
 * [创建共享吞吐量的 Azure Cosmos DB 数据库](#create-db-ru)
 * [获取 Azure Cosmos DB 数据库的吞吐量](#get-db-ru)
+* [将数据库吞吐量迁移到自动缩放](#migrate-db-ru)
 * [列出帐户中的所有 Azure Cosmos DB 数据库](#list-db)
 * [获取单个 Azure Cosmos DB 数据库](#get-db)
 * [删除 Azure Cosmos DB 数据库](#delete-db)
@@ -414,6 +422,21 @@ Get-AzCosmosDBSqlDatabaseThroughput `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
+```
+
+<a name="migrate-db-ru"></a>
+## <a name="migrate-database-throughput-to-autoscale"></a>将数据库吞吐量迁移到自动缩放
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+
+Invoke-AzCosmosDBSqlDatabaseThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -Name $databaseName `
+    -ThroughputType Autoscale
 ```
 
 <a name="list-db"></a>
@@ -502,6 +525,7 @@ Remove-AzResourceLock `
 * [使用自动缩放功能创建 Azure Cosmos DB 容器](#create-container-autoscale)
 * [使用大分区键创建 Azure Cosmos DB 容器](#create-container-big-pk)
 * [获取 Azure Cosmos DB 容器的吞吐量](#get-container-ru)
+* [将容器吞吐量迁移到自动缩放](#migrate-container-ru)
 * [使用自定义索引创建 Azure Cosmos DB 容器](#create-container-custom-index)
 * [在索引关闭的情况下创建 Azure Cosmos DB 容器](#create-container-no-index)
 * [创建键和 TTL 都独一无二的 Azure Cosmos DB 容器](#create-container-unique-key-ttl)
@@ -591,6 +615,23 @@ Get-AzCosmosDBSqlContainerThroughput `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+
+<a name="migrate-container-ru"></a>
+### <a name="migrate-container-throughput-to-autoscale"></a>将容器吞吐量迁移到自动缩放
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+
+Invoke-AzCosmosDBSqlContainerThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -DatabaseName $databaseName `
+    -Name $containerName `
+    -ThroughputType Autoscale
 ```
 
 <a name="create-container-custom-index"></a>
@@ -831,11 +872,11 @@ Remove-AzResourceLock `
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-[powershell-install-configure]: /powershell-install-configure
+[powershell-install-configure]: https://docs.microsoft.com/powershell/azure/
 [scaling-multiple-regionally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-multiple-regionally]: distribute-data-globally.md
-[azure-resource-groups]: /azure-resource-manager/resource-group-overview#resource-groups
-[azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
+[azure-resource-groups]: ../azure-resource-manager/management/overview.md#resource-groups
+[azure-resource-tags]: ../azure-resource-manager/management/tag-resources.md
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 
 <!-- Update_Description: update meta properties, wording update, update link -->
