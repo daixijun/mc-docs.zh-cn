@@ -29109,6 +29109,32 @@
             "source_path": "articles/application-insights/",
             "redirect_url": "/azure-monitor/overview",
             "redirect_document_id": false
-        }
+        },
+    {
+      "source_path": "articles/storage/blobs/authorize-blob-access-portal.md",
+      "redirect_url": "/storage/blobs/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-queue-access-portal.md",
+      "redirect_url": "/storage/queues/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/authorize-active-directory-powershell.md",
+      "redirect_url": "/storage/blobs/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-active-directory-powershell.md",
+      "redirect_url": "/storage/queues/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/authorize-data-operations-cli.md",
+      "redirect_url": "/storage/blobs/authorize-data-operations-cli",
+      "redirect_document_id": true
+    }
+
     ]
 }
