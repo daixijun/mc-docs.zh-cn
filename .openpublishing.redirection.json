@@ -1,6 +1,5 @@
 {
-    "redirections": [
-        {
+    "redirections": [{
             "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
             "redirect_url": "/cognitive-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
@@ -28455,37 +28454,37 @@
             "redirect_url": "/storage/blobs/sas-service-create",
             "redirect_document_id": false
         },
-		{
-				"source_path": "articles/storage/common/authorize-active-directory-powershell.md",
-				"redirect_url": "/storage/blobs/authorize-active-directory-powershell",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/storage/common/storage-encryption-keys-portal.md",
-				"redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
-				"redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/storage/common/storage-encryption-keys-cli.md",
-				"redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/storage/common/storage-security-controls.md",
-				"redirect_url": "/storage/common/security-baseline",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
-				"redirect_url": "/storage/blobs/anonymous-read-access-configure",
-				"redirect_document_id": false
-		},
-		{
+        {
+            "source_path": "articles/storage/common/authorize-active-directory-powershell.md",
+            "redirect_url": "/storage/blobs/authorize-active-directory-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-security-controls.md",
+            "redirect_url": "/storage/common/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
+            "redirect_url": "/storage/blobs/anonymous-read-access-configure",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-monitor/app/docker.md",
             "redirect_url": "/azure-monitor/azure-monitor-app-hub",
             "redirect_document_id": false
@@ -28505,95 +28504,95 @@
             "redirect_url": "/storage/blobs/authorize-blob-access-portal",
             "redirect_document_id": false
         },
-	    {
+        {
             "source_path": "articles/machine-learning/how-to-use-parallel-run-step.md",
             "redirect_url": "/machine-learning/tutorial-pipeline-batch-scoring-classification",
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-overview.md",
-        "redirect_url": "/automation/update-management/overview",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-overview.md",
+            "redirect_url": "/automation/update-management/overview",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-enable-template.md",
-        "redirect_url": "/automation/update-management/enable-from-template",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-enable-template.md",
+            "redirect_url": "/automation/update-management/enable-from-template",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-enable-portal.md",
-        "redirect_url": "/automation/update-management/enable-from-portal",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-enable-portal.md",
+            "redirect_url": "/automation/update-management/enable-from-portal",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-enable-vm.md",
-        "redirect_url": "/automation/update-management/enable-from-vm",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-enable-vm.md",
+            "redirect_url": "/automation/update-management/enable-from-vm",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-enable-automation-account.md",
-        "redirect_url": "/automation/update-management/enable-from-automation-account",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-enable-automation-account.md",
+            "redirect_url": "/automation/update-management/enable-from-automation-account",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-enable-runbook.md",
-        "redirect_url": "/automation/update-management/enable-from-runbook",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-enable-runbook.md",
+            "redirect_url": "/automation/update-management/enable-from-runbook",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
-        "redirect_url": "/automation/update-management/manage-updates-for-vm",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
+            "redirect_url": "/automation/update-management/manage-updates-for-vm",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/manage-update-multi.md",
-        "redirect_url": "/automation/update-management/manage-updates-for-vm",
-        "redirect_document": false
+            "source_path": "articles/automation/manage-update-multi.md",
+            "redirect_url": "/automation/update-management/manage-updates-for-vm",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/automation-view-update-assessments.md",
-        "redirect_url": "/automation/update-management/update-mgmt-view-update-assessments",
-        "redirect_document": false
+            "source_path": "articles/automation/automation-view-update-assessments.md",
+            "redirect_url": "/automation/update-management/update-mgmt-view-update-assessments",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-pre-post-scripts.md",
-        "redirect_url": "/automation/update-management/pre-post-scripts",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-pre-post-scripts.md",
+            "redirect_url": "/automation/update-management/pre-post-scripts",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-mecmintegration.md",
-        "redirect_url": "/automation/update-management/mecmintegration",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-mecmintegration.md",
+            "redirect_url": "/automation/update-management/mecmintegration",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-configure-wuagent.md",
-        "redirect_url": "/automation/update-management/configure-wuagent",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-configure-wuagent.md",
+            "redirect_url": "/automation/update-management/configure-wuagent",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-groups.md",
-        "redirect_url": "/automation/update-management/configure-groups",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-groups.md",
+            "redirect_url": "/automation/update-management/configure-groups",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-query-logs.md",
-        "redirect_url": "/automation/update-management/query-logs",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-query-logs.md",
+            "redirect_url": "/automation/update-management/query-logs",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-scope-configuration.md",
-        "redirect_url": "/automation/update-management/scope-configuration",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-scope-configuration.md",
+            "redirect_url": "/automation/update-management/scope-configuration",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-remove-feature.md",
-        "redirect_url": "/automation/update-management/remove-feature",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-remove-feature.md",
+            "redirect_url": "/automation/update-management/remove-feature",
+            "redirect_document": false
         },
         {
-        "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
-        "redirect_url": "/automation/update-management/remove-vms",
-        "redirect_document": false
+            "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
+            "redirect_url": "/automation/update-management/remove-vms",
+            "redirect_document": false
         },
         {
             "source_path": "articles/active-directory/develop/authorization-agents.md",
@@ -28895,90 +28894,90 @@
             "redirect_url": "/azure-functions/create-first-function-vs-code-csharp",
             "redirect_document_id": false
         },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-data-access.md",
-                "redirect_url": "/time-series-insights/concepts-access-policies",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-long-data-type.md",
-                "redirect_url": "/time-series-insights/breaking-changes-long-data-type",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-how-to-id.md",
-                "redirect_url": "/time-series-insights/how-to-select-tsid",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-how-to-manage.md",
-                "redirect_url": "/time-series-insights/how-to-provision-manage",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-how-to-shape-events.md",
-                "redirect_url": "/time-series-insights/how-to-shape-query-json",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-how-to-troubleshoot.md",
-                "redirect_url": "/time-series-insights/how-to-diagnose-troubleshoot",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-how-to-tsm.md",
-                "redirect_url": "/time-series-insights/how-to-edit-your-model",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-overview.md",
-                "redirect_url": "/time-series-insights/overview-what-is-tsi",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-plan.md",
-                "redirect_url": "/time-series-insights/how-to-plan-your-environment",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-storage-ingress.md",
-                "redirect_url": "/time-series-insights/concepts-ingestion-overview",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-tsm.md",
-                "redirect_url": "/time-series-insights/concepts-model-overview",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-tsq.md",
-                "redirect_url": "/time-series-insights/concepts-query-overview",
-                "redirect_document_id": false
-            },
-            {
-                "source_path": "articles/time-series-insights/time-series-insights-update-use-cases.md",
-                "redirect_url": "/time-series-insights/overview-use-cases",
-                "redirect_document_id": false
-            },
         {
-        "source_path": "articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
-        "redirect_url": "/vpn-gateway/tutorial-create-gateway-portal",
-        "redirect_document_id": false
+            "source_path": "articles/time-series-insights/time-series-insights-data-access.md",
+            "redirect_url": "/time-series-insights/concepts-access-policies",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
-        "redirect_url": "/vpn-gateway/reset-gateway",
-        "redirect_document_id": false
+            "source_path": "articles/time-series-insights/time-series-insights-long-data-type.md",
+            "redirect_url": "/time-series-insights/breaking-changes-long-data-type",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/vpn-gateway/vpn-gateway-security-controls.md",
-        "redirect_url": "/vpn-gateway/security-baseline",
-        "redirect_document_id": false
+            "source_path": "articles/time-series-insights/time-series-insights-update-how-to-id.md",
+            "redirect_url": "/time-series-insights/how-to-select-tsid",
+            "redirect_document_id": false
         },
         {
-        "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
-        "redirect_url": "/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
-        "redirect_document_id": false
+            "source_path": "articles/time-series-insights/time-series-insights-update-how-to-manage.md",
+            "redirect_url": "/time-series-insights/how-to-provision-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-how-to-shape-events.md",
+            "redirect_url": "/time-series-insights/how-to-shape-query-json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-how-to-troubleshoot.md",
+            "redirect_url": "/time-series-insights/how-to-diagnose-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-how-to-tsm.md",
+            "redirect_url": "/time-series-insights/how-to-edit-your-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-overview.md",
+            "redirect_url": "/time-series-insights/overview-what-is-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-plan.md",
+            "redirect_url": "/time-series-insights/how-to-plan-your-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-storage-ingress.md",
+            "redirect_url": "/time-series-insights/concepts-ingestion-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-tsm.md",
+            "redirect_url": "/time-series-insights/concepts-model-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-tsq.md",
+            "redirect_url": "/time-series-insights/concepts-query-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-update-use-cases.md",
+            "redirect_url": "/time-series-insights/overview-use-cases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
+            "redirect_url": "/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
+            "redirect_url": "/vpn-gateway/reset-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-security-controls.md",
+            "redirect_url": "/vpn-gateway/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
+            "redirect_url": "/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/backup/backup-security-controls.md",
@@ -29110,31 +29109,191 @@
             "redirect_url": "/azure-monitor/overview",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/storage/blobs/authorize-blob-access-portal.md",
-      "redirect_url": "/storage/blobs/authorize-data-operations-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/queues/authorize-queue-access-portal.md",
-      "redirect_url": "/storage/queues/authorize-data-operations-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/blobs/authorize-active-directory-powershell.md",
-      "redirect_url": "/storage/blobs/authorize-data-operations-powershell",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/storage/queues/authorize-active-directory-powershell.md",
-      "redirect_url": "/storage/queues/authorize-data-operations-powershell",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/storage/common/authorize-data-operations-cli.md",
-      "redirect_url": "/storage/blobs/authorize-data-operations-cli",
-      "redirect_document_id": true
-    }
+        {
+            "source_path": "articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/account-overview.md",
+            "redirect_url": "/cosmos-db/account-databases-containers-items",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/consistency-levels-across-apis.md",
+            "redirect_url": "/cosmos-db/consistency-levels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/consistency-levels-choosing.md",
+            "redirect_url": "/cosmos-db/consistency-levels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/consistency-levels-tradeoffs.md",
+            "redirect_url": "/cosmos-db/consistency-levels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/databases-containers-items.md",
+            "redirect_url": "/cosmos-db/account-databases-containers-items",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/firewall-support.md",
+            "redirect_url": "/cosmos-db/how-to-configure-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/gremlin-compatibility.md",
+            "redirect_url": "/cosmos-db/gremlin-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
+            "redirect_url": "/cosmos-db/online-backup-and-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/how-to-configure-change-feed-start-time.md",
+            "redirect_url": "/cosmos-db/change-feed-processor#starting-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
+            "redirect_url": "/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
+            "redirect_url": "/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/manage-cassandra-with-resource-manager.md",
+            "redirect_url": "/cosmos-db/templates-samples-cassandra",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/manage-gremlin-with-resource-manager.md",
+            "redirect_url": "/cosmos-db/templates-samples-gremlin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/manage-mongodb-with-resource-manager.md",
+            "redirect_url": "/cosmos-db/templates-samples-mongodb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/manage-sql-with-resource-manager.md",
+            "redirect_url": "/cosmos-db/manage-with-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+            "redirect_url": "/cosmos-db/optimize-cost-reads-writes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/partition-data.md",
+            "redirect_url": "/cosmos-db/partitioning-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/resource-manager-samples.md",
+            "redirect_url": "/cosmos-db/templates-samples-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/scaling-throughput.md",
+            "redirect_url": "/cosmos-db/request-units",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/vnet-service-endpoint.md",
+            "redirect_url": "/cosmos-db/how-to-configure-vnet-service-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dedicated-hosts-portal.md",
+            "redirect_url": "/virtual-machines/dedicated-hosts-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/disk-bursting.md",
+            "redirect_url": "/virtual-machines/disk-bursting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/disk-encryption.md",
+            "redirect_url": "/virtual-machines/disk-encryption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/manage-availability.md",
+            "redirect_url": "/virtual-machines/manage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-wan/scenario-route-between-hubs-firewall.md",
+            "redirect_url": "/virtual-wan/scenario-route-between-vnets-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/authorize-blob-access-portal.md",
+            "redirect_url": "/storage/blobs/authorize-data-operations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/authorize-queue-access-portal.md",
+            "redirect_url": "/storage/queues/authorize-data-operations-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/authorize-active-directory-powershell.md",
+            "redirect_url": "/storage/blobs/authorize-data-operations-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/storage/queues/authorize-active-directory-powershell.md",
+            "redirect_url": "/storage/queues/authorize-data-operations-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/storage/common/authorize-data-operations-cli.md",
+            "redirect_url": "/storage/blobs/authorize-data-operations-cli",
+            "redirect_document_id": true
+        }
 
     ]
 }
