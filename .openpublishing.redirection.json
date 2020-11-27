@@ -1,5 +1,21 @@
 {
-    "redirections": [{
+    "redirections": [
+        {
+            "source_path": "articles/search/policy-samples.md",
+            "redirect_url": "/search/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/search/search-create-index-portal.md",
+            "redirect_url": "/search/search-what-is-an-index",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/search/search-get-started-nodejs.md",
+            "redirect_url": "/search/search-get-started-javascript",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
             "redirect_url": "/cognitive-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
