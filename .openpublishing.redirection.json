@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/key-vault/general/soft-delete-powershell.md",
+            "redirect_url": "/key-vault/general/key-vault-recovery?tabs=azure-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/key-vault/general/soft-delete-cli.md",
+            "redirect_url": "/key-vault/general/key-vault-recovery?tabs=azure-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/policy-samples.md",
             "redirect_url": "/search/policy-reference",
             "redirect_document_id": false
@@ -29309,7 +29319,64 @@
             "source_path": "articles/storage/common/authorize-data-operations-cli.md",
             "redirect_url": "/storage/blobs/authorize-data-operations-cli",
             "redirect_document_id": true
-        }
+        },
+    {
+      "source_path": "articles/media-services/previous/media-services-motion-detection.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-video-summarization.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-video-optical-character-recognition.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-face-and-emotion-detection.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-content-moderation.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-analytics-overview.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-portal-analyze.md",
+      "redirect_url": "/media-services/previous/legacy-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-premium-workflow-encoder-formats.md",
+      "redirect_url": "/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-compare-encoders.md",
+      "redirect_url": "/media-services/previous/media-services-media-encoder-standard-formats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-media-encoder-premium-workflow-tutorials.md",
+      "redirect_url": "/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
+      "redirect_url": "/media-services/previous/media-services-encode-asset",
+      "redirect_document_id": false
+    }
+
+
 
     ]
 }
