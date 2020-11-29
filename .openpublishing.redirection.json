@@ -29374,7 +29374,22 @@
       "source_path": "articles/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
       "redirect_url": "/media-services/previous/media-services-encode-asset",
       "redirect_document_id": false
-    }
+    },
+        {
+            "source_path": "articles/api-management/api-management-security-controls.md",
+            "redirect_url": "/api-management/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
+            "redirect_url": "/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
+            "redirect_url": "/cognitive-services/metrics-advisor/overview",
+            "redirect_document_id": false
+        }
 
 
 
