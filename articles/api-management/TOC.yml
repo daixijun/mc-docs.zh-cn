@@ -19,6 +19,9 @@
       href: powershell-create-service-instance.md
     - name: 创建实例 - Visual Studio Code
       href: vscode-create-service-instance.md
+    - name: 创建实例 - ARM 模板
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: 教程
   items:
     - name: 1 - 导入第一个 API
@@ -59,8 +62,6 @@
       items:
         - name: 安全基线
           href: security-baseline.md
-        - name: 内置安全控件
-          href: api-management-security-controls.md
     - name: 订阅
       href: api-management-subscriptions.md
     - name: 版本
@@ -153,6 +154,8 @@
       items:
         - name: 了解开发人员门户
           href: api-management-howto-developer-portal.md
+        - name: 从弃用的门户迁移到新的开发人员门户
+          href: developer-portal-deprecated-migration.md
         - name: 使用 Azure AD 进行身份验证
           href: api-management-howto-aad.md
         - name: 使用 Azure AD B2C 进行身份验证
@@ -163,13 +166,13 @@
           href: api-management-howto-configure-notifications.md
         - name: 启动控制台 OAuth 支持
           href: api-management-howto-oauth2.md
-        - name: 旧门户 - 自定义门户
+        - name: 弃用的门户 - 自定义门户
           href: api-management-customize-styles.md
-        - name: 旧门户 - 修改页面和布局
+        - name: 弃用的门户 - 修改页面和布局
           href: api-management-modify-content-layout.md
-        - name: 旧门户 - 通过模板进行自定义
+        - name: 弃用的门户 - 通过模板进行自定义
           href: api-management-developer-portal-templates.md
-    - name: 旧门户模板
+    - name: 弃用的门户模板
       items:
         - name: 数据模型参考
           href: api-management-template-data-model-reference.md
@@ -257,8 +260,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: 参考
   items:
+    - name: Azure CLI
+      href: /cli/apim
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.apimanagement/?view=azps-2.6.0'
+      href: 'https://docs.microsoft.com/powershell/module/az.apimanagement/'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/apimanagement/'
     - name: REST（原始）
@@ -268,14 +273,18 @@
     - name: Azure Policy 内置策略定义
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: 资源日志架构
+      href: gateway-log-schema-reference.md
 - name: 资源
   items:
-    - name: 常见问题解答
+    - name: 常见问题
       href: api-management-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/api-management/'
     - name: 区域可用性
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
     - name: API 设计指南
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
     - name: API 实现指南

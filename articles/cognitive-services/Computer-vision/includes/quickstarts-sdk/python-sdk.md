@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 10/16/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 51e058b17f871cf9e6d832c4b72f6beedd7ea427
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: b68c4f1c0c11e8eaa97b8ac8bbdf249d81d8ca12
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127639"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306600"
 ---
 <a name="HOLTop"></a>
 
@@ -27,16 +27,21 @@ ms.locfileid: "92127639"
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
 
-> [!NOTE]
-> 你可以下载如下所示的[示例的完整源代码](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py)，以及 [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 提供的每个函数的示例。
 
 ## <a name="setting-up"></a>设置
  
+### <a name="install-the-client-library"></a>安装客户端库
+
+可使用以下方式安装客户端库：
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-computervision
+```
+
 ### <a name="create-a-new-python-application"></a>创建新的 Python 应用程序
 
-创建新的 Python 脚本 &mdash; 例如 *quickstart-file.py*。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
+创建新的 Python 文件 &mdash;，例如 quickstart-file.py。 在喜好的编辑器或 IDE 中打开该文件，并导入以下库。
 
 ```python
 # <snippet_imports>
@@ -108,18 +113,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -835,6 +831,9 @@ END - Recognize Printed Text with OCR - remote
 
 print("End of Computer Vision quickstart.")
 ```
+
+> [!TIP]
+> 想要立即查看整个快速入门代码文件？ 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上找到它，其中包含此快速入门中的代码示例。
 
 然后，为该资源的 Azure 终结点和密钥创建变量。
 
@@ -908,18 +907,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -1636,16 +1626,11 @@ END - Recognize Printed Text with OCR - remote
 print("End of Computer Vision quickstart.")
 ```
 
-> [!NOTE]
-> 如果在启动应用程序后创建了环境变量，则需要关闭再重新打开运行该应用程序的编辑器、IDE 或 shell 才能访问该变量。
+> [!IMPORTANT]
+> 转到 Azure 门户。 如果在“先决条件”部分中创建的计算机视觉资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
+>
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 例如，[Azure 密钥保管库](/key-vault/key-vault-overview)。
 
-### <a name="install-the-client-library"></a>安装客户端库
-
-可使用以下方式安装客户端库：
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-computervision
-```
 
 ## <a name="object-model"></a>对象模型
 
@@ -1666,9 +1651,6 @@ pip install --upgrade azure-cognitiveservices-vision-computervision
 * [读取印刷体文本和手写文本](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>验证客户端
-
-> [!NOTE]
-> 本快速入门假设你已为计算机视觉密钥创建了名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 的[环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 使用终结点和密钥实例化某个客户端。 使用密钥创建 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 对象，然后在终结点上使用该对象创建 [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) 对象。
 
@@ -1742,18 +1724,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -2472,7 +2445,7 @@ print("End of Computer Vision quickstart.")
 
 ## <a name="analyze-an-image"></a>分析图像
 
-保存对要分析的图像的 URL 的引用。
+使用客户端对象分析远程图像的可视化功能。 首先保存对要分析的图像的 URL 的引用。
 
 ```python
 # <snippet_imports>
@@ -2544,18 +2517,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -3272,6 +3236,9 @@ END - Recognize Printed Text with OCR - remote
 print("End of Computer Vision quickstart.")
 ```
 
+> [!TIP]
+> 还可以分析本地图像。 请参阅 [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) 方法，如 analyze_image_in_stream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上的示例代码，了解涉及本地图像的方案。
+
 ### <a name="get-image-description"></a>获取图像说明
 
 下面的代码获取为图像生成的描述文字列表。 有关更多详细信息，请参阅[描述图像](../../concept-describing-images.md)。
@@ -3346,18 +3313,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -4148,18 +4106,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -4950,18 +4899,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -5752,18 +5692,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -6554,18 +6485,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -7356,18 +7278,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -8158,18 +8071,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -8960,18 +8864,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -9764,18 +9659,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -10564,18 +10450,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -11366,18 +11243,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -12172,18 +12040,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -12900,6 +12759,9 @@ END - Recognize Printed Text with OCR - remote
 print("End of Computer Vision quickstart.")
 ```
 
+> [!TIP]
+> 还可以从本地图像读取文本。 请参阅 [ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) 方法，如 read_in_stream。 或者，请参阅 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上的示例代码，了解涉及本地图像的方案。
+
 ### <a name="get-read-results"></a>获取读取结果
 
 接下来，获取从 read 调用返回的操作 ID，并使用它查询服务以获取操作结果。 下面的代码每隔一秒钟检查一次操作，直到返回结果。 然后，它将提取的文本数据输出到控制台。
@@ -12974,18 +12836,9 @@ Authenticate
 Authenticates your credentials and creates a client.
 '''
 # <snippet_vars>
-# Add your Computer Vision subscription key to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-# Add your Computer Vision endpoint to your environment variables.
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
-else:
-    print("\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
+subscription_key = "<your subscription key>"
+endpoint = "<your API endpoint>"
+
 # </snippet_vars>
 
 # <snippet_client>
@@ -13728,4 +13581,5 @@ python quickstart-file.py
 
 * [什么是计算机视觉？](../../overview.md)
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) 上找到此示例的源代码。
+           
 

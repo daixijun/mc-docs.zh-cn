@@ -9,12 +9,12 @@ metadata:
   origin.date: 03/11/2020
   ms.date: 09/02/2020
   ms.author: v-tawe
-  ms.openlocfilehash: d201a2bf82f9090fb8bb4dd6f79277ae386836f5
-  ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+  ms.openlocfilehash: eede7a43ce3323b8f239a3e6502fd0b10414ba44
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89316341"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300829"
 landingContent:
 - title: 关于 Azure 通知中心
   linkLists:
@@ -63,11 +63,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: .NET API
-      url: /dotnet/api/microsoft.azure.notificationhubs?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.notificationhubs
     - text: PowerShell
       url: https://docs.microsoft.com/powershell/module/az.notificationhubs/?view=azps-3.6.1
     - text: CLI
-      url: https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest
+      url: https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub
 - title: 资源
   linkLists:
   - linkListType: concept

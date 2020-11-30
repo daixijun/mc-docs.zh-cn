@@ -3,20 +3,20 @@ title: 快速入门：使用 REST API 在 PowerShell 中创建搜索索引
 titleSuffix: Azure Cognitive Search
 description: 在此 REST API 快速入门中，了解如何使用 PowerShell 的 Invoke-RestMethod 和 Azure 认知搜索 REST API 创建索引、加载数据以及运行查询。
 manager: nitinme
-author: tchristiani
+author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 origin.date: 08/17/2020
-ms.date: 09/10/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed0cd6e285595995042f4c72a63d56cce0a67420
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: dd17f155fbdae06d2de0960c87e812c566ee1a2e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021585"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300069"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>快速入门：在 PowerShell 中使用 REST API 创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]

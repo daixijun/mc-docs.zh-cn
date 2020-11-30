@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: zhanxia
 ms.date: 04/16/2020
-ms.openlocfilehash: 89ee926cadc4a73f44fb4780eb1f2c21d455925f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 20e3075641aa912982896423763d832444ef1091
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117913"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978159"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>设计器的异常和错误代码
 
@@ -862,7 +862,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
  如果用于访问 Azure 存储帐户的密钥不正确，则 Azure 机器学习中会出现此错误。 例如，如果在复制和粘贴 Azure 存储密钥时将其截断了，或者使用了错误的密钥，那么你可能会看到此错误。  
 
- 有关如何获取 Azure 存储帐户的密钥的详细信息，请参阅[查看、复制和重新生成存储访问密钥](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/)。  
+ 有关如何获取 Azure 存储帐户的密钥的详细信息，请参阅[查看、复制和重新生成存储访问密钥](../../storage/common/storage-account-create.md)。  
 
 **解决方法：** 重新访问该模块，并验证该帐户的 Azure 存储密钥是否正确；如有必要，请从 Azure 经典门户重新复制密钥。  
 
@@ -1083,9 +1083,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 请参阅以下文章，获取有关针对机器学习的 Hive 查询的帮助：
 
-+ [从 Azure Blob 存储创建 Hive 表并加载数据](/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [使用 Hive 查询浏览表中的数据](/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [使用 Hive 查询在 Hadoop 群集中为数据创建功能](/machine-learning/machine-learning-data-science-create-features-hive)
++ [从 Azure Blob 存储创建 Hive 表并加载数据](../team-data-science-process/move-hive-tables.md)
++ [使用 Hive 查询浏览表中的数据](../team-data-science-process/explore-data-hive-tables.md)
++ [使用 Hive 查询在 Hadoop 群集中为数据创建功能](../team-data-science-process/create-features-hive.md)
 + [适用于 SQL 的 Hive 用户速查表 (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1516,7 +1516,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 提供此错误是为了捕获未通过其他方式处理的内部引擎错误。 因此，导致此错误的原因可能有所不同，具体取决于产生错误的模块。  
 
-若要获得更多帮助，建议将错误附带的详细消息发布到 Azure 机器学习论坛，同时提供情况说明（包括用作输入的数据）。 此反馈将帮助我们确定错误的优先级，并确定接下来要处理的最重要的问题。  
+若要获得更多帮助，建议将错误附带的详细消息发布到 [Azure 机器学习论坛](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)，同时提供情况说明（包括用作输入的数据）。 此反馈将帮助我们确定错误的优先级，并确定接下来要处理的最重要的问题。  
 
 |异常消息|
 |------------------------|

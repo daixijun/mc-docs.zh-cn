@@ -4,19 +4,20 @@ description: 介绍如何将 Webhook 用作 Azure 事件网格事件的事件处
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
-ms.openlocfilehash: 4cc3cfd8de8d45f841e2448e8edb980ae1b1b218
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 11/18/2020
+ms.openlocfilehash: 0942aa2eb4fd00b0b44e5a95869aa807aaa0368a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228990"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977809"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhook、自动化 runbook、逻辑应用作为 Azure 事件网格事件的事件处理程序
 事件处理程序是发送事件的位置。 处理程序将执行一些进一步的操作来处理事件。 会自动将多个 Azure 服务配置为处理事件。 也可以使用任意 Webhook 来处理事件。 Webhook 不需要托管在 Azure 中便可处理事件。 事件网格仅支持 HTTPS Webhook 终结点。
 
 > [!NOTE]
-> 支持通过 Webhook 将 Azure 自动化 runbook 和逻辑应用用作事件处理程序。 
+> - 支持通过 Webhook 将 Azure 自动化 runbook 和逻辑应用用作事件处理程序。 
+> - 尽管可以使用“Webhook”作为终结点类型来将 Azure 函数配置为事件处理程序，但请使用“Azure 函数”作为终结点类型  。 有关详细信息，请参阅 [Azure 函数作为事件处理程序](handler-functions.md)。
 
 ## <a name="webhooks"></a>Webhook
 有关使用 Webhook 作为事件处理程序的概述和示例，请参阅以下文章。 
@@ -24,9 +25,8 @@ ms.locfileid: "88228990"
 |标题  |说明  |
 |---------|---------|
 | 快速入门：使用 [Azure CLI](custom-event-quickstart.md)、[PowerShell](custom-event-quickstart-powershell.md) 和[门户](custom-event-quickstart-portal.md)创建和路由自定义事件。 | 展示了如何将自定义事件发送到 WebHook。 |
-| 快速入门：使用 [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)、[PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) 将 Blob 存储事件路由到自定义 Web 终结点。 | 展示了如何将 Blob 存储事件发送到 WebHook。 |
+| 快速入门：使用 [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)、[PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) 和[门户](blob-event-quickstart-portal.md)将 Blob 存储事件路由到自定义 Web 终结点。 | 展示了如何将 Blob 存储事件发送到 WebHook。 |
 | [概述：将事件接收到 HTTP 终结点](receive-events.md) | 介绍如何验证 HTTP 终结点以接收来自事件订阅的事件，然后接收和反序列化事件。 |
-<!--Not available in MC: blob-event-quickstart-portal.md-->
 
 
 <!--Not available in MC: ensure-tags-exists-on-new-virtual-machines.md-->

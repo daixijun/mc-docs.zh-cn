@@ -4,16 +4,16 @@ description: 配置 IP 规则，以便能够从所选的公共 IP 地址或地�
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3be72cc3e62c7ed3f8ec0fdcd071495b057cd29d
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0a5084b4c31d2c5bce47adb2ba418382fcedc903
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564434"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300021"
 ---
 <!--Verified successfully on Portal and CLI-->
 # <a name="configure-public-ip-network-rules"></a>配置公共 IP 网络规则
@@ -70,7 +70,9 @@ az acr network-rule add \
 （可选）禁用注册表上的公共终结点。 禁用公共终结点会重写所有防火墙配置。 例如，建议使用[专用链接](container-registry-private-link.md)禁用对虚拟网络中受保护注册表的公共访问。
 
 > [!NOTE]
-> 如果在虚拟网络中使用[服务终结点](container-registry-vnet.md)设置了注册表，则禁用对注册表公共终结点的访问也会在虚拟网络中禁用对注册表的访问。
+> 如果在虚拟网络中使用服务终结点设置了注册表，则禁用对注册表公共终结点的访问也会在虚拟网络中禁用对注册表的访问。
+
+<!--Not Available on [service endpoint](container-registry-vnet.md)-->
 
 ### <a name="disable-public-access---cli"></a>禁用公共访问 - CLI
 

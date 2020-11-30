@@ -4,23 +4,23 @@ description: 了解如何排查部署、运行或管理 Azure 容器实例时的
 ms.topic: article
 origin.date: 06/25/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 01/15/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 2a4dcd2ba5de2a545c72d992d9bdccff8bb12992
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d66ce1e8339c3735639129fc152654e114b65285
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106121"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024630"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>排查 Azure 容器实例中的常见问题
 
 本文展示了如何排查管理容器或向 Azure 容器实例部署容器时出现的常见问题。 另请参阅[常见问题解答](container-instances-faq.md)。
 
-如果需要更多支持，请参阅 [Azure 门户](https://support.azure.cn/support/support-azure/)中可用的“获取支持”。
+如果需要更多支持，请参阅 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)中可用的“帮助 + 支持”选项。
 
 ## <a name="issues-during-container-group-deployment"></a>容器组部署过程中的问题
 ### <a name="naming-conventions"></a>命名约定
@@ -106,7 +106,7 @@ ms.locfileid: "93106121"
 ## <a name="issues-during-container-group-runtime"></a>容器组运行过程中的问题
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>容器不断退出并重启（没有长时间运行的进程）
 
-容器组的 [重启策略](container-instances-restart-policy.md)默认为 **Always** ，因此容器组中的容器在运行完成后始终会重启。 如果打算运行基于任务的容器，则可能需要将此策略更改为 **OnFailure** 或 **Never** 。 如果指定了“失败时”  ，但仍不断重启，则可能容器中执行的应用程序或脚本存在问题。
+容器组的 [重启策略](container-instances-restart-policy.md)默认为 **Always**，因此容器组中的容器在运行完成后始终会重启。 如果打算运行基于任务的容器，则可能需要将此策略更改为 **OnFailure** 或 **Never**。 如果指定了“失败时”  ，但仍不断重启，则可能容器中执行的应用程序或脚本存在问题。
 
 在没有长时间运行的进程的情况下运行容器组时，可能会看到重复退出并重启 Ubuntu 或 Alpine 等映像。 通过 [EXEC](container-instances-exec.md) 连接将无法正常工作，因为容器没有使其保持活动的进程。 若要解决此问题，请在容器组部署中包含如下所示的启动命令，以使容器保持运行。
 
@@ -237,7 +237,7 @@ Azure 容器实例尚不支持具有常规 docker 配置的端口映射。 如�
 
 <!-- LINKS - External -->
 
-<!--Not Available on [azure-name-restrictions]: /cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources-->
+<!--Not Available on [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources-->
 
 [naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview

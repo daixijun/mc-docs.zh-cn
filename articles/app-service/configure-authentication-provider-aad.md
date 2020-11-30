@@ -4,15 +4,15 @@ description: 了解如何将 Azure Active Directory 身份验证配置为应用�
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 origin.date: 04/14/2020
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e69419d146cd4b58da37555be7f70820dcc8d218
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: a0a4f836fff4f6cd907810202d1e2530cdb28c9c
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170822"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306430"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>将应用服务或 Azure Functions 应用配置为使用 Azure AD 登录
 
@@ -33,6 +33,7 @@ ms.locfileid: "92170822"
 > 此功能暂不适用于 Azure Functions 的 Linux 消耗计划
 
 <!-- ## <a name="express"> </a>Configure with express settings -->
+<!--3. Select **Azure Active Directory** > **Express**.-->
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>使用高级设置进行配置
 
@@ -104,7 +105,7 @@ ms.locfileid: "92170822"
 1. 选择“创建”。
 1. 创建应用注册后，复制“应用程序(客户端) ID”的值。
 1. 选择“API 权限” > “添加权限” > “我的 API”。  
-1. 选择前面为应用服务应用创建的应用注册。 如果未看到该应用注册，请确保在[在 Azure AD 中为应用服务应用创建应用注册](#register)部分已添加 **user_impersonation** 范围。
+1. 选择前面为应用服务应用创建的应用注册。 如果未看到该应用注册，请确保在 [在 Azure AD 中为应用服务应用创建应用注册](#register)部分已添加 **user_impersonation** 范围。
 1. 在“委托的权限”下，依次选择“user_impersonation”和“添加权限”。
 
 现在，你已配置了可以代表用户访问应用服务应用的本机客户端应用程序。
@@ -122,7 +123,7 @@ ms.locfileid: "92170822"
 
 现在可以通过将 `resource` 参数设置为目标应用的“应用程序 ID URI”，[使用客户端 ID 和客户端机密请求访问令牌](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret)。 然后，可以使用标准 [OAuth 2.0 授权标头](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource)将生成的访问令牌提供给目标应用，应用服务身份验证/授权将像平常一样验证和使用该令牌，以指示调用方（在本例中是应用程序，不是用户）已进行身份验证。
 
-目前，这允许 Azure AD 租户中的_任何_客户端应用程序请求访问令牌，并向目标应用进行身份验证。 如果还想要强制_授权_以只允许某些客户端应用程序，则必须执行一些附加配置。
+目前，这允许 Azure AD 租户中的 _任何_ 客户端应用程序请求访问令牌，并向目标应用进行身份验证。 如果还想要强制 _授权_ 以只允许某些客户端应用程序，则必须执行一些附加配置。
 
 1. 在表示要保护的应用服务或 Functions 应用的应用注册清单中[定义应用角色](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md)。
 1. 在表示需要获得授权的客户端的应用注册上，选择“API 权限” > “添加权限” > “我的 API”。

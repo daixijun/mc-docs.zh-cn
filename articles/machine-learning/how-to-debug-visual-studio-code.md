@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 616ec01f14a010e187d2c009a92e90b096909ba4
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8d937df8573f200ab5600740314e86f47cb881d3
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103685"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977921"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>使用 Visual Studio Code 进行交互式调试
 
 
 
-了解如何使用 Visual Studio Code (VS Code) 和 [depugpy](https://github.com/microsoft/debugpy/) 以交互方式调试 Azure 机器学习试验、管道和部署。
+了解如何使用 Visual Studio Code (VS Code) 和 [debugpy](https://github.com/microsoft/debugpy/) 以交互方式调试 Azure 机器学习试验、管道和部署。
 
 ## <a name="run-and-debug-experiments-locally"></a>在本地运行和调试试验
 
@@ -94,8 +94,6 @@ ms.locfileid: "93103685"
   * 虚拟网络中的 Azure 虚拟机
   * 虚拟网络中笔记本 VM 的计算实例
   * 通过 VPN 或 ExpressRoute 与虚拟网络建立了专用网络连接的客户端计算机。
-
-
 
 > [!TIP]
 > 虽然可以使用不在虚拟网络后面的 Azure 机器学习资源，但仍建议使用虚拟网络。
@@ -339,7 +337,7 @@ ip_address: 10.3.0.5
 某些情况下，可能需要以交互方式调试包含在模型部署中的 Python 代码。 例如，如果输入脚本失败，并且无法通过其他记录确定原因。 通过使用 VS Code 和 debugpy，可以附加到在 Docker 容器中运行的代码。
 
 > [!IMPORTANT]
-> 使用 `Model.deploy()` 和 `LocalWebservice.deploy_configuration` 在本地部署模型时，此调试方法不起作用。 相反，你必须使用 [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) 方法创建一个映像。
+> 使用 `Model.deploy()` 和 `LocalWebservice.deploy_configuration` 在本地部署模型时，此调试方法不起作用。 相反，你必须使用 [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) 方法创建一个映像。
 
 若要在本地部署 Web 服务，需要在本地系统上安装能够正常工作的 Docker。 有关使用 Docker 的详细信息，请参阅 [Docker 文档](https://docs.docker.com/)。 请注意，在使用计算实例时，已安装 Docker。
 

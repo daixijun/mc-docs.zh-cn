@@ -15,12 +15,12 @@ ms.testscope: no
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9c1402f7960608996ef2f4d3fbcb25e0b39713b8
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 22a2abb6dfb55b9d228d235bcc689be59f6233fe
+ms.sourcegitcommit: c4b0a0ddd52ceca82cfdbdbdf07aad00d0f3ed03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919276"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "94978125"
 ---
 ### <a name="general-requirements"></a>一般要求
 
@@ -46,8 +46,12 @@ ms.locfileid: "87919276"
 
 **其他网络资源** - Batch 自动在包含 VNet 的资源组中分配其他网络资源。
 
+<!--MOONCAKE: REMOVE or low-priority nodes-->
+
 > [!IMPORTANT]
-> 对于每 100 个专用或低优先级节点，Batch 会分配：1 个网络安全组 (NSG)、1 个公共 IP 地址、1 个负载均衡器。 这些资源受订阅的[资源配额](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)限制。 对于大型池，可能需要为一个或多个此类资源请求增加配额。
+> 对于每 100 个专用节点，Batch 会分配：1 个网络安全组 (NSG)、1 个公共 IP 地址、1 个负载均衡器。 这些资源受订阅的[资源配额](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)限制。 对于大型池，可能需要为一个或多个此类资源请求增加配额。
+
+<!--Not Available on or low-priority-->
 
 #### <a name="network-security-groups-batch-default"></a>网络安全组：Batch 默认值
 

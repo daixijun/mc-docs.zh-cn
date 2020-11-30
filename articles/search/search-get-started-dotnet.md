@@ -8,21 +8,21 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 08/05/2020
-ms.date: 09/10/2020
+origin.date: 10/05/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b17ccbdf2fa49b0d920d2ffb96a2de16581e191
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: db602457883abeb80a001624dcb725df6df6e46a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021586"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300072"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>快速入门：使用 Azure.Search.Documents 客户端库创建搜索索引
 
-使用新的 [Azure.Search.Documents（版本 11）客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)以 C# 创建 .NET Core 控制台应用程序，用于创建、加载和查询搜索索引。
+使用新的 [Azure.Search.Documents（版本 11）客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme)以 C# 创建 .NET Core 控制台应用程序，用于创建、加载和查询搜索索引。
 
-[下载源代码](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11)，从一个已完成的项目着手，或按照本文中的步骤操作，创建自己的项目。
+[下载源代码](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11)，从一个已完成的项目着手，或按照本文中的步骤操作，创建自己的项目。
 
 > [!NOTE]
 > 正在查找早期版本？ 请转而参阅[使用 Microsoft.Azure.Search v10 创建搜索索引](search-get-started-dotnet-v10.md)。
@@ -37,11 +37,17 @@ ms.locfileid: "90021586"
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)（版本不限）。 示例代码已在 Visual Studio 2019 的免费社区版上进行了测试。
 
++ [Azure.Search.Documents NuGet 包](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+## <a name="set-up-your-project"></a>设置项目
+
+汇总服务连接信息，然后启动 Visual Studio 以新建可在 .NET Core 上运行的控制台应用项目。
+
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-endpoint"></a>获取密钥和终结点
+### <a name="copy-a-key-and-endpoint"></a>复制密钥和终结点
 
-对服务的调用要求每个请求都有一个 URL 终结点和一个访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 认知搜索，则请按以下步骤获取必需信息：
+对服务的调用要求每个请求都有一个 URL 终结点和一个访问密钥。 第一步，找到要添加到项目中的 API 密钥和 URL。 在稍后的步骤中创建客户端时，将指定这两个值。
 
 1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。 示例终结点可能类似于 `https://mydemo.search.azure.cn`。
 
@@ -51,10 +57,6 @@ ms.locfileid: "90021586"
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
-## <a name="set-up-your-project"></a>设置项目
-
-启动 Visual Studio 并新建能在 .NET Core 上运行的控制台应用项目。 
-
 ### <a name="install-the-nuget-package"></a>安装 NuGet 包
 
 项目创建后，添加客户端库。 [Azure.Search.Documents 包](https://www.nuget.org/packages/Azure.Search.Documents/)包含一个客户端库，其中提供了用于与 .NET 中的搜索服务一起使用的所有 API。
@@ -63,7 +65,7 @@ ms.locfileid: "90021586"
 
 1. 单击“浏览”。
 
-1. 搜索 `Azure.Search.Documents`，并选择 11.0.0 版本。
+1. 搜索 `Azure.Search.Documents`，并选择 11.0 或更高版本。
 
 1. 单击右侧的“安装”，将该程序集添加到你的项目和解决方案。
 
@@ -94,12 +96,12 @@ ms.locfileid: "90021586"
        SearchIndexClient idxclient = new SearchIndexClient(serviceEndpoint, credential);
 
        // Create a SearchClient to load and query documents
-       SearchClient qryclient = new SearchClient(serviceEndpoint, indexName, credential);
+       SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
     ```
 
 ## <a name="1---create-an-index"></a>1 - 创建索引
 
-此快速入门生成酒店索引，你将在其中加载酒店数据并对其运行查询。 在此步骤中，定义索引中的字段。 每个字段定义都包含名称、数据类型以及确定如何使用该字段的属性。
+本快速入门生成 Hotels 索引，你将在其中加载酒店数据并对其执行查询。 在此步骤中，定义索引中的字段。 每个字段定义都包含名称、数据类型以及确定如何使用该字段的属性。
 
 在此示例中，为了简单和可读性，使用了 Azure.Search.Documents 库的同步方法。 但是，对于生产场景，应使用异步方法来保持应用程序的可缩放性和响应性。 例如，使用 [CreateIndexAsync](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync)，而不是 [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex)。
 
@@ -133,7 +135,7 @@ ms.locfileid: "90021586"
     }
     ```
 
-1. 在“Program.cs”中，指定字段和属性。 [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) 和 [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) 用于创建索引。
+1. 在 Program.cs 中，创建一个 [SearchIndex](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchindex) 对象，然后调用 [CreateIndex](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.searchindexclient.createindex) 方法来表示搜索服务中的索引。
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -156,9 +158,13 @@ ms.locfileid: "90021586"
 
 该字段的特性决定字段在应用程序中的使用方式。 例如，`IsFilterable` 属性必须分配给每个支持筛选表达式的字段。
 
-与要求在可搜索字符串字段上使用 [IsSearchable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable) 的 .NET SDK 早期版本不同，你可使用 [SearchableField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchablefield) 和 [SimpleField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.simplefield) 来简化字段定义。
+在 Azure.Search.Documents 客户端库中，可以使用 [SearchableField](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchablefield) 和 [SimpleField](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.simplefield) 来简化字段定义。 两者都是 [SearchField](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield) 的派生形式，可能会简化你的代码：
 
-与早期版本类似，定义本身仍需要其他属性。 例如，[IsFilterable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable)、[IsSortable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable) 和 [IsFacetable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) 必须进行显式属性化，如上例中所示。 
++ `SimpleField` 可以是任何数据类型，始终不可搜索（全文搜索查询将忽略它），并且可检索（未隐藏）。 其他属性默认情况下处于关闭状态，但可以启用。 你可能会将 `SimpleField` 用于仅在筛选器、facet 或计分概要文件中使用的文档 ID 或字段。 如果是这样，请确保应用该方案所需的所有属性，例如为文档 ID 应用 `IsKey = true`。 有关详细信息，请参阅源代码中的 [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs)。
+
++ `SearchableField` 必须是字符串，并且始终可搜索、可检索。 其他属性默认情况下处于关闭状态，但可以启用。 因为此字段类型是可搜索的，所以它支持同义词和分析器属性的完整补集。 有关详细信息，请参阅源代码中的 [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs)。
+
+无论使用基本 `SearchField` API 还是任一帮助程序模型，都必须显式启用筛选器、facet 和排序属性。 例如，[IsFilterable](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield.isfilterable)、[IsSortable](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield.issortable) 和 [IsFacetable](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield.isfacetable) 必须进行显式属性化，如上例中所示。 
 
 <a name="load-documents"></a>
 
@@ -166,11 +172,11 @@ ms.locfileid: "90021586"
 
 Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中，加载符合刚刚创建的酒店索引的 JSON 文档。
 
-在 Azure 认知搜索中，文档这一数据结构既是索引输入，也是查询输出。 文档输入从外部数据源获取，可能是数据库中的行、Blob 存储中的 blob 或磁盘上的 JSON 文档。 在此示例中，我们采用了快捷方式，并在代码本身中嵌入了五个酒店的 JSON 文档。 
+在 Azure 认知搜索中，搜索文档这一数据结构既是索引输入，也是查询输出。 文档输入从外部数据源获取，可能是数据库中的行、Blob 存储中的 blob 或磁盘上的 JSON 文档。 在此示例中，我们采用了快捷方式，并在代码本身中嵌入了五个酒店的 JSON 文档。 
 
-上传文档时，必须使用 [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) 对象。 IndexDocumentsBatch 包含[操作](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)的集合，其中每个操作均包含一个文档和一个属性，该属性用于指示 Azure 认知搜索要执行什么操作（[上传、合并、删除和 mergeOrUpload](search-what-is-data-import.md#indexing-actions)）。
+上传文档时，必须使用 [IndexDocumentsBatch](https://docs.microsoft.com/dotnetapi/azure.search.documents.models.indexdocumentsbatch-1) 对象。 `IndexDocumentsBatch` 对象包含[操作](https://docs.microsoft.com/dotnetapi/azure.search.documents.models.indexdocumentsbatch-1.actions)集合，其中每个操作均包含一个文档和一个属性，该属性用于指示 Azure 认知搜索要执行什么操作（[upload、merge、delete 和 mergeOrUpload](search-what-is-data-import.md#indexing-actions)）。
 
-1. 在“Program.cs”中，创建文档和索引操作的数组，然后将数组传递给 `ndexDocumentsBatch`。下面的文档符合宾馆类定义的 hotels-quickstart-v11 索引。
+1. 在 Program.cs 中，创建文档和索引操作的数组，然后将该数组传递给 `IndexDocumentsBatch`。 以下文档符合 hotel 类定义的 hotels-quickstart-v11 索引。
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -184,7 +190,7 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
     IndexDocumentsOptions idxoptions = new IndexDocumentsOptions { ThrowOnAnyError = true };
 
     Console.WriteLine("{0}", "Loading index...\n");
-    qryclient.IndexDocuments(batch, idxoptions);
+    srchclient.IndexDocuments(batch, idxoptions);
     ```
 
     初始化 [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) 对象后，可以通过对 [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) 对象调用 [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) 将其发送到索引。
@@ -226,7 +232,7 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
 1. 创建 RunQueries 方法，该方法用于执行查询并返回结果。 结果是 Hotel 对象。
 
     ```csharp
-    private static void RunQueries(SearchClient qryclient)
+    private static void RunQueries(SearchClient srchclient)
     {
         SearchOptions options;
         SearchResults<Hotel> response;
@@ -239,7 +245,7 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
             OrderBy = { "" }
         };
 
-        response = qryclient.Search<Hotel>("motel", options);
+        response = srchclient.Search<Hotel>("motel", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #2: Find hotels where 'type' equals hotel...\n");
@@ -249,7 +255,7 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
             Filter = "hotelCategory eq 'hotel'",
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #3: Filter on rates less than $200 and sort by when the hotel was last updated...\n");
@@ -260,9 +266,16 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
             OrderBy = { "lastRenovationDate desc" }
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
     }
+    ```
+
+1. 将 RunQueries 添加到 `Main()`。
+
+    ```csharp
+    Console.WriteLine("Starting queries...\n");
+    RunQueries(srchclient);
     ```
 
 此示例展示两种[在查询中匹配术语的方法](search-query-overview.md#types-of-queries)：全文搜索和筛选器：
@@ -279,7 +292,7 @@ Azure 认知搜索对存储在服务中的内容进行搜索。 在此步骤中�
 
 按 F5 可重新生成应用并完整运行该程序。 
 
-输出包含 [Console.WriteLIne](https://docs.microsoft.com/dotnet/api/system.console.writeline) 中的消息，并添加了查询信息和结果。
+输出包含 [Console.WriteLine](https://docs.microsoft.com/dotnet/api/system.console.writeline) 中的消息，并添加了查询信息和结果。
 
 ## <a name="clean-up-resources"></a>清理资源
 

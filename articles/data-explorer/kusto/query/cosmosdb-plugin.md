@@ -11,18 +11,18 @@ origin.date: 09/11/2020
 ms.date: 10/30/2020
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0e5d42cc6c7b3d6b058d3bd1711cfabc19bbc3b8
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 6e37d640296ff42ba93ef6bc11a5dfebd3006a40
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590540"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300309"
 ---
 # <a name="cosmosdb_sql_request-plugin"></a>cosmosdb_sql_request 插件
 
 ::: zone pivot="azuredataexplorer"
 
-`cosmosdb_sql_request` 插件会将 SQL 查询发送到 Cosmos DB SQL 网络终结点，并返回查询的结果。 此插件主要为查询小数据集而设计，例如，使用存储在 [Azure Cosmos DB](/azure/cosmos-db/) 中的参考数据来扩充数据。
+`cosmosdb_sql_request` 插件会将 SQL 查询发送到 Cosmos DB SQL 网络终结点，并返回查询的结果。 此插件主要为查询小数据集而设计，例如，使用存储在 [Azure Cosmos DB](/cosmos-db/) 中的参考数据来扩充数据。
 
 ## <a name="syntax"></a>语法
 
@@ -82,7 +82,7 @@ evaluate cosmosdb_sql_request(
 
 ### <a name="query-cosmos-db-with-parameters"></a>使用参数查询 Cosmos DB
 
-以下示例使用 SQL 查询参数从备用区域查询数据。 有关详细信息，请参阅 [`preferredLocations`](/azure/cosmos-db/tutorial-global-distribution-sql-api?tabs=dotnetv2%2Capi-async#preferred-locations)。
+以下示例使用 SQL 查询参数从备用区域查询数据。 有关详细信息，请参阅 [`preferredLocations`](/cosmos-db/tutorial-global-distribution-sql-api?tabs=dotnetv2%2Capi-async#preferred-locations)。
 
 ```kusto
 evaluate cosmosdb_sql_request(

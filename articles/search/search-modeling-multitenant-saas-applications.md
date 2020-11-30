@@ -7,14 +7,14 @@ author: LiamCavanagh
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: 63ac3a2a4af7f48b44fe14a115686b64c6d887db
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/25/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 62aa9e0a6e54d8192d806d92aa7e153bc117f330
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021465"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299988"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>多租户 SaaS 应用程序与 Azure 认知搜索的设计模式
 
@@ -27,15 +27,15 @@ ms.locfileid: "90021465"
 
 在讨论设计模式之前，应务必了解一些基本概念。
 
-使用 Azure 认知搜索时，即已订阅一种*搜索服务*。 当数据上传到 Azure 认知搜索后，将存储在搜索服务内的一个*索引*中。 单个服务中可能有大量索引。 若要利用熟悉的数据库概念，搜索服务可以比作一个数据库，而服务中的索引可以比作数据库中的表。
+使用 Azure 认知搜索时，即已订阅一种 *搜索服务*。 当数据上传到 Azure 认知搜索后，将存储在搜索服务内的一个 *索引* 中。 单个服务中可能有大量索引。 若要利用熟悉的数据库概念，搜索服务可以比作一个数据库，而服务中的索引可以比作数据库中的表。
 
-搜索服务中的每个索引具有自己的架构，由大量的可自定义*字段*定义。 数据以各*文档*的形式添加到 Azure 认知搜索索引中。 每个文档都必须上传到一个特定索引，并且必须适合该索引的架构。 使用 Azure 认知搜索进行数据搜索时，将针对某个特定索引发出全文搜索查询。  若要与数据库中的概念进行比较，字段可以比作表中的列，文档可以比作行。
+搜索服务中的每个索引具有自己的架构，由大量的可自定义 *字段* 定义。 数据以各 *文档* 的形式添加到 Azure 认知搜索索引中。 每个文档都必须上传到一个特定索引，并且必须适合该索引的架构。 使用 Azure 认知搜索进行数据搜索时，将针对某个特定索引发出全文搜索查询。  若要与数据库中的概念进行比较，字段可以比作表中的列，文档可以比作行。
 
 ### <a name="scalability"></a>可伸缩性
 标准[定价层](https://www.azure.cn/pricing/details/search/)中的任何 Azure 认知搜索服务都可以在两个维度中扩展：存储和可用性。
 
-* 可以添加*分区*以便增加搜索服务的存储。
-* 可以将*副本*添加到服务中，以便增加搜索服务可处理请求的吞吐量。
+* 可以添加 *分区* 以便增加搜索服务的存储。
+* 可以将 *副本* 添加到服务中，以便增加搜索服务可处理请求的吞吐量。
 
 添加和删除分区以及副本，可使搜索服务的容量随着应用程序需要的大量数据和流量一起增加。 为了使搜索服务实现读取 [SLA](https://www.azure.cn/support/legal/sla/)，需要两个副本。 为了使服务实现读写 [SLA](https://www.azure.cn/support/legal/sla/)，需要三个副本。
 
@@ -77,7 +77,8 @@ Azure 认知搜索提供几个可用于隔离租户数据和工作负荷的边�
 3. *二者混合：* 为较大、活跃度较高的租户分配专用服务，而为较小的租户分配共享服务中的单个索引。
 
 ## <a name="1-index-per-tenant"></a>1.每租户索引
-![每租户索引模型描绘](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="每租户索引模型描绘" border="false":::
 
 在每租户索引模型中，多个租户占用一个 Azure 认知搜索服务，其中每个租户拥有自己的索引。
 
@@ -94,7 +95,8 @@ Azure 认知搜索允许各索引和索引总数的规模增加。 如果选择�
 如果索引总数对于单个服务而言增长过高，另一个服务必须预配为能够容纳新租户。 如果当新服务添加后，必须在搜索服务之间移动索引，索引中的数据必须以手动方式从一个索引复制到另一个中，因为 Azure 认知搜索不允许移动索引。
 
 ## <a name="2-service-per-tenant"></a>2.每租户服务
-![每租户服务模型描绘](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="每租户服务模型描绘" border="false":::
 
 在每租户服务体系结构中，每个租户都有自己的搜索服务。
 

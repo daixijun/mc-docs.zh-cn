@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 6a8a514c132fa12bc8dafb81a19a2b99a6f63853
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 6a8ec6c20b359218050e4464b787bf3dcdee7caa
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516617"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300944"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>排查 Azure HDInsight 中的资源创建失败问题
 
@@ -25,7 +25,7 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 若要解决此问题，请使用 Azure 门户、CLI 或 PowerShell 删除不再需要的部署。
 
-有关详细信息，请参阅[解决资源配额错误](/azure-resource-manager/resource-manager-quota-errors)。
+有关详细信息，请参阅[解决资源配额错误](../azure-resource-manager/templates/error-resource-quota.md)。
 
 ## <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>错误：最大节点已超过此区域中的可用核心数目
 
@@ -33,20 +33,18 @@ Azure 的配额限制为每个资源组 800 个部署。 将按资源组、订�
 
 若要请求增加配额，请按以下步骤操作：
 
-1. 转到 [Azure 门户](https://portal.azure.cn)并选择“帮助 + 支持”。****
+1. 转到 [Azure 门户](https://portal.azure.cn)并选择“帮助 + 支持”。
 
-1. 选择“新建支持请求”****。
+1. 选择“新建支持请求”。
 
-1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息：**** ****
+1. 在“新建支持请求”页的“基本信息”选项卡上提供以下信息： 
 
-   * **问题类型：** 选择“服务和订阅限制(配额)”。****
+   * **问题类型：** 选择“服务和订阅限制(配额)”。
    * **订阅：** 选择要修改的订阅。
-   * **配额类型：** 选择“HDInsight”。****
+   * **配额类型：** 选择“HDInsight”。
 
 有关详细信息，请参阅[创建支持票证来增加核心](hdinsight-capacity-planning.md#quotas)。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

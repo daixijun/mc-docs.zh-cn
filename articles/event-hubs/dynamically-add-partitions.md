@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 06/23/2020
 ms.date: 08/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3f27d26c73e4ec1c0a104639b64694dcc159a3a2
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 40ba5263004ba607109a8c1b25e978386393b64c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715321"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300417"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>动态将分区添加到 Azure 事件中心的事件中心（Apache Kafka 主题）
 事件中心通过分区使用者模式提供消息流式处理功能，在此模式下，每个使用者只读取消息流的特定子集或分区。 此模式支持事件处理的水平缩放，同时提供队列和主题中不可用的其他面向流的功能。 分区是事件中心内保留的有序事件。 当较新的事件到达时，它们将添加到此序列的末尾。 有关一般分区的详细信息，请参阅[分区](event-hubs-scalability.md#partitions)
@@ -35,7 +35,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-使用 [az eventhubs eventhub update](/cli/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI PowerShell 命令更新事件中心中的分区。 
+使用 [az eventhubs eventhub update](/cli/eventhubs/eventhub#az-eventhubs-eventhub-update) CLI PowerShell 命令更新事件中心中的分区。 
 
 ```azurecli
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12

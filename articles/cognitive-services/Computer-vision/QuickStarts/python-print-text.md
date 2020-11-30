@@ -9,46 +9,44 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 10/16/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 23a20aac024b73d25d795cd05530a30f916634b4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 0b25846f3cb8fc81e1c753b3ce3bc4b07716cac5
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127723"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306170"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>快速入门：使用计算机视觉 REST API 和 Python 提取印刷体文本 (OCR)
 
-> [!NOTE]
-> 如果要提取英语文本，请考虑使用新的[读取操作](/cognitive-services/computer-vision/concept-recognizing-text)。 [Python 快速入门](/cognitive-services/computer-vision/quickstarts/python-hand-text)可用。 
+<!---new Read operation is not available in MC.->
+In this quickstart, you will extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
-本快速入门将使用计算机视觉 REST API，通过光学字符识别 (OCR) 从图像中提取印刷体文本。 借助 [OCR](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) 方法，可检测图像中的印刷体文本，并将识别的字符提取到计算机可用的字符流中。
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
-可以在 [MyBinder](https://mybinder.org) 上使用 Jupyter 笔记本以分步方式运行此快速入门。 要启动活页夹，请选择以下按钮：
-
-[![活页夹](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 
-## <a name="prerequisites"></a>先决条件
+## Prerequisites
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
-* 如果想在本地运行此示例，必须安装 [Python](https://www.python.org/downloads/)。
-* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
-    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
-    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
+* An Azure subscription - [Create one for trial](https://www.azure.cn/pricing/details/cognitive-services/)
+* You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
+* Once you have your Azure subscription, <a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
-## <a name="create-and-run-the-sample"></a>创建并运行示例
+## Create and run the sample
 
-要创建和运行示例，请执行以下步骤：
+To create and run the sample, do the following steps:
 
-1. 将以下代码复制到文本编辑器中。
-1. （可选）将 `image_url` 的值替换为要从中提取印刷体文本的另一图像的 URL。
-1. 将代码保存为以 `.py` 为扩展名的文件。 例如，`get-printed-text.py`。
-1. 打开命令提示符窗口。
-1. 在提示符处，使用 `python` 命令运行示例。 例如，`python get-printed-text.py`。
+1. Copy the following code into a text editor.
+1. Optionally, replace the value of `image_url` with the URL of a different image from which you want to extract printed text.
+1. Save the code as a file with an `.py` extension. For example, `get-printed-text.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python get-printed-text.py`.
 
 ```python
 import os
@@ -71,7 +69,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-ocr_url = endpoint + "vision/v3.0/ocr"
+ocr_url = endpoint + "vision/v3.1/ocr"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
@@ -110,9 +108,9 @@ plt.show()
 plt.axis("off")
 ```
 
-## <a name="upload-image-from-local-storage"></a>从本地存储上传图像
+## Upload image from local storage
 
-如果要分析本地图像，请将 Content-Type 标头设置为“application/octet-stream”，并将请求正文设置为字节数组而不是 JSON 数据。
+If you want to analyze a local image, set the Content-Type header to application/octet-stream, and set the request body to a byte array instead of JSON data.
 
 ```python
 image_path = "<path-to-local-image-file>"
@@ -125,9 +123,9 @@ response = requests.post(ocr_url, headers=headers, params=params, data = image_d
 ```
 
 
-## <a name="examine-the-response"></a>检查响应
+## Examine the response
 
-成功的响应以 JSON 格式返回。 示例网页会在命令提示符窗口中分析和显示成功响应，如下例所示：
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -228,12 +226,12 @@ response = requests.post(ocr_url, headers=headers, params=params, data = image_d
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## Next steps
 
-接下来，了解一款使用计算机视觉执行光学字符识别 (OCR) 功能的 Python 应用程序；创建智能裁剪缩略图；对图像中的视觉特征进行检测、分类、标记和说明。
+Next, explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; and detect, categorize, tag, and describe visual features in images.
 
 > [!div class="nextstepaction"]
-> [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
+> [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
 
-* 要快速体验计算机视觉 API，请尝试使用 [Open API 测试控制台](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa/console)。
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
 

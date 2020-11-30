@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 5c75ccffe905f409693a411721dd8a1846108c10
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 520f8d5a32529cf14174383eaef25da25374b83f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104771"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978198"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>什么是 Azure 机器学习中的计算目标? 
 
@@ -89,7 +89,7 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 
 ### <a name="supported-vm-series-and-sizes"></a>支持的 VM 系列和大小
 
-为 Azure 机器学习中的托管计算资源选择节点大小时，可以从 Azure 提供的选定 VM 大小中进行选择。 Azure 针对不同工作负载为 Linux 和 Windows 提供了一系列大小。 若要了解详细信息，请参阅 [VM 类型和大小](/virtual-machines/linux/sizes)。
+为 Azure 机器学习中的托管计算资源选择节点大小时，可以从 Azure 提供的选定 VM 大小中进行选择。 Azure 针对不同工作负载为 Linux 和 Windows 提供了一系列大小。 若要了解详细信息，请参阅 [VM 类型和大小](/virtual-machines/sizes)。
 
 选择 VM 大小时有几个例外和限制：
 
@@ -100,22 +100,22 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 
 | **支持的 VM 系列**  | **限制** |
 |------------|------------|
-| D | 无 |
-| Dv2 | 无 |  
-| Dv3 | 无|
-| DSv2 | 无 | 
-| DSv3 | 无|
-| FSv2 | 无 | 
-| HBv2 | 需要批准 |  
-| HCS | 需要批准 |  
-| M | 需要批准 |
-| NC | 无 |    
-| NCsv2 | 需要批准 |
-| NCsv3 | 需要批准 |  
-| NDs | 需要批准 |
-| NDv2 | 需要批准 |
-| NV | 无 |
-| NVv3 | 需要批准 | 
+| D | 无。 |
+| Dv2 | 无。 |  
+| Dv3 | 无。|
+| DSv2 | 无。 | 
+| DSv3 | 无。|
+| FSv2 | 无。 | 
+| HBv2 | 需要审批。 |  
+| HCS | 需要审批。 |  
+| M | 需要审批。 |
+| NC | 无。 |    
+| NCsv2 | 需要审批。 |
+| NCsv3 | 需要审批。 |  
+| NDs | 需要审批。 |
+| NDv2 | 需要审批。 |
+| NV | 无。 |
+| NVv3 | 需要审批。 | 
 
 
 虽然 Azure 机器学习支持这些 VM 系列，但它们可能并非在所有 Azure 区域中均可用。 若要检查 VM 系列是否可用，请参阅[可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)。

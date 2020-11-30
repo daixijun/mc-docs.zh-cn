@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 953c68b93f6862eeaf7a915ffb5541f4b698d5b5
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 12b079e9e574cb69c4608b88740572ee4bf30569
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866733"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190269"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用功能标志
 
@@ -27,7 +27,7 @@ ms.locfileid: "88866733"
 
 功能管理库还会在幕后管理功能标志生命周期。 例如，这些库可刷新和缓存标志状态，或者保证标志状态在请求调用期间保持不变。 此外，ASP.NET Core 库提供现成的集成，包括 MVC 控制器操作、视图、路由和中间件。
 
-[将功能标志添加到 ASP.NET Core 应用快速入门](./quickstart-feature-flag-aspnet-core.md)介绍了在 ASP.NET Core 应用程序中添加功能标志的多种方法。 本教程将更详细地介绍这些方法。 有关完整参考信息，请参阅 [ASP.NET Core 功能管理文档](https://go.microsoft.com/fwlink/?linkid=2091410)。
+[将功能标志添加到 ASP.NET Core 应用快速入门](./quickstart-feature-flag-aspnet-core.md)介绍了在 ASP.NET Core 应用程序中添加功能标志的多种方法。 本教程将更详细地介绍这些方法。 有关完整参考信息，请参阅 [ASP.NET Core 功能管理文档](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)。
 
 在本教程中，您将学习如何执行以下操作：
 
@@ -107,7 +107,7 @@ public class Startup
               .UseStartup<Startup>();
    ```
 
-2. 打开 *Startup.cs*，并更新 `Configure` 方法以添加中间件，从而允许在 ASP.NET Core Web 应用继续接收请求的同时，功能标志值以重复的时间间隔进行刷新。
+2. 打开“Startup.cs”并更新 `Configure` 方法，添加名为 `UseAzureAppConfiguration` 的内置中间件。 此中间件允许在 ASP.NET Core Web 应用继续接收请求的同时定期刷新功能标志值。
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -230,6 +230,12 @@ public IActionResult Index()
 当由于控制功能标志状态为“关闭”而阻止了 MVC 控制器或操作时，将调用已注册的 `IDisabledFeaturesHandler`接口。  默认的 `IDisabledFeaturesHandler` 接口向客户端返回 404 状态代码，但不返回响应正文。
 
 ## <a name="mvc-views"></a>MVC 视图
+
+打开 Views 目录中的 _ViewImports.cshtml  ，并添加功能管理器标记帮助器  ：
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 在 MVC 视图中，可以使用 `<feature>` 标记根据是否启用了某个功能标志来呈现内容：
 

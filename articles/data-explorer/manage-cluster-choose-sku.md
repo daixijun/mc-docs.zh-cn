@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/14/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 30f83b4d74f677fbc1ea0f909def8714520e4567
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 52de8297dc0985416fe39a704bffdd3ca22a0389
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105693"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300126"
 ---
 # <a name="select-the-correct-compute-sku-for-your-azure-data-explorer-cluster"></a>为 Azure 数据资源管理器群集选择正确的计算 SKU 
 
@@ -32,7 +32,7 @@ ms.locfileid: "93105693"
 
 Azure 数据资源管理器提供两种类型的群集：
 
-* **生产** ：生产群集包含用于引擎和数据管理群集的两个节点，根据 Azure 数据资源管理器的 [SLA](https://www.azure.cn/support/sla/data-explorer/) 运行。
+* **生产**：生产群集包含用于引擎和数据管理群集的两个节点，根据 Azure 数据资源管理器的 [SLA](https://www.azure.cn/support/sla/data-explorer/) 运行。
 
 * **开发/测试（无 SLA）** ：开发/测试群集为引擎和数据管理群集提供单个节点。 此群集类型是成本最低的配置，因为它的实例计数较小，且不收取引擎标记费用。 此群集配置不附带 SLA，因为它不提供冗余。
 
@@ -105,7 +105,7 @@ Azure 数据资源管理器提供两种类型的群集：
 |Standard_DS14_v2 + 3&nbsp;TB&nbsp;PS| 存储优化 | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1,000
 |Standard_DS14_v2 + 4&nbsp;TB&nbsp;PS| 存储优化 | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1,000
 
-* 可使用 Azure 数据资源管理器 [ListSkus API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet) 查看各区域已更新的计算 SKU 的列表。 
+* 可使用 Azure 数据资源管理器 [ListSkus API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus) 查看各区域已更新的计算 SKU 的列表。 
 * 详细了解[各种 SKU](/virtual-machines/windows/sizes)。 
 
 ## <a name="next-steps"></a>后续步骤

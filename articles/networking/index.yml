@@ -13,12 +13,12 @@ metadata:
   manager: mtillman
   origin.date: 09/28/2020
   ms.date: 10/16/2020
-  ms.openlocfilehash: 8c4b4470945ba1e3bcc95c9325d4c43637fc2940
-  ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
+  ms.openlocfilehash: 2e4bc6de6836fceb9318a16457569449a645629f
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/12/2020
-  ms.locfileid: "94550773"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300594"
 highlightedContent:
   items:
   - title: 什么是 Azure 网络？
@@ -220,4 +220,4 @@ additionalContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.5.0#networking
     - title: 适用于 Azure 网络的 Azure CLI 命令
       summary: 在 CLI 参考中查找 Azure 网络命令。
-      url: https://docs.azure.cn/cli/network?view=azure-cli-latest
+      url: https://docs.azure.cn/cli/network

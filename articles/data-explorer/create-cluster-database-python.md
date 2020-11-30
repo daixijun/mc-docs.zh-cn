@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 2df42752c9b5752b9f3f4f2637fcf7c303598b2c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d162ac122c0b48ecd4df99ab85161acff3dbd790
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105168"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300380"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -94,7 +94,7 @@ pip install azure-mgmt-kusto
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
 
     > [!NOTE]
-    > **创建群集** 是一个长时间运行的操作。 **create_or_update** 方法返回 LROPoller 的实例，请参阅 [LROPoller 类](https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python)获取详细信息。
+    > **创建群集** 是一个长时间运行的操作。 **create_or_update** 方法返回 LROPoller 的实例，请参阅 [LROPoller 类](https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller)获取详细信息。
 
 1. 运行以下命令，检查群集是否已成功创建：
 
@@ -150,8 +150,8 @@ pip install azure-mgmt-kusto
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | cluster_name | mykustocluster  | 将在其中创建数据库的群集的名称。|
-   | database_name | mykustodatabase  | 数据库名称。|
+   | cluster_name | mykustocluster | 将在其中创建数据库的群集的名称。|
+   | database_name | mykustodatabase | 数据库名称。|
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
    | soft_delete_period | *3650 天，0:00:00* | 供查询使用的数据的保留时间。 |
    | hot_cache_period | *3650 天，0:00:00* | 数据将在缓存中保留的时间。 |

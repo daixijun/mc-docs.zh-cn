@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 08/12/2019
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1f8106e2ce5babf4325d3089287606f51527683d
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: e7360c89802e0968860db873bee7b214aa7e1dfb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678470"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300390"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
 

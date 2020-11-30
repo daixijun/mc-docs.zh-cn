@@ -9,12 +9,12 @@ origin.date: 03/20/2018
 ms.date: 03/02/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4f370149b2fb7d02549abc09b63a0a6c8e0ff5a7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eefc352d7e0c1556bb221046759709c94a670cba
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78213842"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301041"
 ---
 必须满足以下要求才能完成本教程：
 
@@ -25,7 +25,7 @@ ms.locfileid: "78213842"
 **Docker**：要完成本教程，需在本地安装 Docker。 Docker 提供用于在 [macOS][docker-mac]、[Windows][docker-windows] 和 [Linux][docker-linux] 上配置 Docker 环境的包。
 
 > [!IMPORTANT]
-> 必须  在本地计算机  上同时安装 Azure CLI 和 Docker 引擎才能完成本教程。
+> 必须在本地计算机上同时安装 Azure CLI 和 Docker 引擎才能完成本教程。
 
 <!--Not Available on Because the Azure Cloud shell does not include the Docker daemon, -->
 <!--Not Avaialble on You cannot use the Azure Cloud Shell for this tutorial.-->
@@ -39,6 +39,6 @@ ms.locfileid: "78213842"
 
 <!-- LINKS - Internal -->
 
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 
 <!-- Update_Description: update meta properties, wording update, update link -->

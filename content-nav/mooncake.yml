@@ -319,15 +319,15 @@ items:
   title: Azure 全球/中国
 callToAction:
   primary:
-    href: https://wd.azure.cn/pricing/1rmb-trial/
+    href: https://www.microsoft.com/china/azure/index-en.html?fromtype=cn
     title: 试用
   secondary:
     href: https://portal.azure.cn/
     title: 门户
 metadata:
-  ms.openlocfilehash: a421996672284e25e619558056761fd4de66db23
-  ms.sourcegitcommit: 1361f47586f4533abeef273224f58378004d0393
+  ms.openlocfilehash: 745281c6cacc546020627089ad41c973b14d4f2a
+  ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95323669"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96231291"

@@ -5,15 +5,15 @@ services: redis-cache
 author: curib
 ms.service: cache
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: a8352b292f15dc071e0b4a35a90f990d1f1b0f10
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: bafc7e05041ef1693ef8b592153ab648e5036e00
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472038"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026422"
 ---
 1. 若要创建缓存，请登录到 [Azure 门户](https://portal.azure.cn)并选择“创建资源”  。
 
@@ -28,7 +28,7 @@ ms.locfileid: "92472038"
    
    | 设置      | 建议的值  | 说明 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn* 。 | 
+   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn*。 | 
    | **订阅** | 单击下拉箭头并选择你的订阅。 | 要在其下创建此新的 Azure Cache for Redis 实例的订阅。 | 
    | **资源组** | 单击下拉箭头并选择一个资源组，或者选择“新建”并输入新的资源组名称。 | 要在其中创建缓存和其他资源的资源组的名称。 将所有应用资源放入一个资源组可以轻松地统一管理或删除这些资源。 | 
    | **位置** | 单击下拉箭头并选择一个位置。 | 选择与要使用该缓存的其他服务靠近的[区域](https://azure.microsoft.com/regions/)。 |
@@ -40,9 +40,11 @@ ms.locfileid: "92472038"
 
 1. 选择页面底部的“下一步:高级”选项卡，或者单击页面底部的“下一步:高级”按钮。
 
-1. 在基本或标准缓存实例的“高级”选项卡中，如果想要启用非 TLS 端口，请选择启用开关。
+1. 在基本或标准缓存实例的“高级”选项卡中，如果想要启用非 TLS 端口，请选择启用开关。 还可以选择你想使用的 Redis 版本，4 或（预览版）6。
 
-1. 在高级缓存实例的“高级”选项卡中，配置非 TLS 端口、群集和数据持久性的设置。
+    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis 版本 4 或 6。":::
+
+1. 在高级缓存实例的“高级”选项卡中，配置非 TLS 端口、群集和数据持久性的设置。 还可以选择你想使用的 Redis 版本，4 或（预览版）6。 
 
 1. 选择页面底部的“下一步:标记”选项卡，或者单击“下一步:标记”按钮。
 

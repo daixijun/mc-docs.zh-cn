@@ -16,12 +16,12 @@ origin.date: 10/22/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 003e8a2d5c72cc041ef6085d888f312707302556
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 2abd765c879cdad6eb9ff92ff42e2b1e002d159f
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590566"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152990"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -355,7 +355,7 @@ ms.locfileid: "94590566"
     |------------------|-----------------------------------------------------------------|
     | **项目详细信息**  |                                                                 |
     | 订阅     | 选择 Azure 订阅                                  |
-    | 资源组   | 选择“CreatePubLBQS-rg” |
+    | 资源组   | 选择“myResourceGroupLB” |
     | **实例详细信息** |                                                                 |
     | 名称             | 输入“myVNet”                                    |
     | 区域           | 选择“中国东部 2”  |
@@ -421,7 +421,7 @@ ms.locfileid: "94590566"
     | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
 
-3. 选择“确定”  。
+3. 选择“确定” 。
 
 ### <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 

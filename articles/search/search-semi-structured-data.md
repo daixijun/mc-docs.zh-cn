@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
-origin.date: 06/23/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 91eb2faf6de03a1ef26735081bc20a14436e6950
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/25/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 60ebb5a44c7634620615526cf491b6321a8ea5a6
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021567"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300783"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>教程：使用 REST 为 Azure 存储中的 JSON Blob 编制索引
 
@@ -55,7 +55,7 @@ Azure 认知搜索可使用一个知晓如何读取半结构化数据的[索引�
 
 1. 搜索“存储帐户”，并选择“Microsoft 的存储帐户”产品/服务。 
 
-   ![创建存储帐户](media/cognitive-search-tutorial-blob/storage-account.png "创建存储帐户")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="创建存储帐户" border="false":::
 
 1. 在“基本信息”选项卡中，必须填写以下项。 对于其他任何字段，请接受默认设置。
 
@@ -77,11 +77,11 @@ Azure 认知搜索可使用一个知晓如何读取半结构化数据的[索引�
 
 1. 创建容器后，将其打开，然后在命令栏中选择“上传”  。
 
-   ![在命令栏上上传](media/search-semi-structured-data/upload-command-bar.png "在命令栏上上传")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="在命令栏上上传" border="false":::
 
 1. 导航到包含示例文件的文件夹。 选择所有这些文件，然后单击“上传”  。
 
-   ![上传文件](media/search-semi-structured-data/clinicalupload.png "上传文件")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="上传文件" border="false":::
 
 上传完成后，这些文件应会显示在数据容器内其自身的子文件夹中。
 
@@ -99,7 +99,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="获取 HTTP 终结点和访问密钥" border="false":::
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -111,7 +111,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 在标头中，将“Content-type”设置为 `application/json`，将 `api-key` 设置为 Azure 认知搜索服务的管理 API 密钥。 设置标头后，可将其用于本练习中的每个请求。
 
-  ![Postman 请求 URL 和标头](media/search-get-started-postman/postman-url.png "Postman 请求 URL 和标头")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman 请求 URL 和标头" border="false":::
 
 URI 必须指定 api-version，每个调用应返回 **201 Created**。 用于使用 JSON 数组的正式版 api-version 为 `2020-06-30`。
 
@@ -316,11 +316,11 @@ URI 必须指定 api-version，每个调用应返回 **201 Created**。 用于�
 
 1. 添加 `$select` 查询参数以将结果限制为更少的字段：`https://[service name].search.azure.cn/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`。  对于此查询，有 100 个匹配的文档，但默认情况下，Azure 认知搜索仅在结果中返回 50 个文档。
 
-   ![参数化查询](media/search-semi-structured-data/lastquery.png "参数化查询")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="参数化查询" border="false":::
 
 1. 更复杂查询的示例包含 `$filter=MinimumAge ge 30 and MaximumAge lt 75`，它只返回参数 MinimumAge 大于或等于 30 且参数 MaximumAge 小于 75 的结果。 请将 `$select` 表达式替换为 `$filter` 表达式。
 
-   ![半结构化搜索](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="半结构化搜索" border="false":::
 
 还可以使用逻辑运算符（and、or、not）和比较运算符（eq、ne、gt、lt、ge、le）。 字符串比较区分大小写。 有关详细信息和示例，请参阅[创建简单查询](search-query-simple-examples.md)。
 

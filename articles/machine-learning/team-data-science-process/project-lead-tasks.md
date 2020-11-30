@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a97d5cb6206900de34dc70ba152554beb69bf681
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d428154ca1c8d7a6479a67136f8a709848a0db5b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977757"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Team Data Science Process 中的项目主管任务
 
@@ -41,11 +41,11 @@ ms.locfileid: "75598597"
 本教程假设[组管理员](group-manager-tasks.md)和[团队主管](team-lead-tasks.md)已设置了以下资源和权限：
 
 - 数据单位的 Azure DevOps **组织**
-- 数据科学团队的团队**项目**
-- 团队模板和实用工具**存储库**
-- 你对组织帐户的**权限**，用于为项目创建和编辑存储库
+- 数据科学团队的团队 **项目**
+- 团队模板和实用工具 **存储库**
+- 你对组织帐户的 **权限**，用于为项目创建和编辑存储库
 
-若要克隆存储库并修改其在本地计算机或 Data Science Virtual Machine (DSVM) 上的内容，或者要设置 Azure 文件存储并将其装载到 DSVM，则还需要做好以下准备：
+若要克隆存储库并修改其在本地计算机或 Data Science Virtual Machine (DSVM) 上的内容，或者要设置 Azure 文件存储并将其装载到 DSVM，则还需要查看以下清单：
 
 - Azure 订阅。
 - 计算机上安装的 Git。 如果要使用 DSVM，则需预安装 Git。 否则，请参阅[平台和工具附录](platforms-and-tools.md#appendix)。
@@ -57,7 +57,7 @@ ms.locfileid: "75598597"
 
 若要在团队的 **MyTeam** 项目中创建项目存储库，请执行以下操作：
 
-1. 在 *https:\//\<server name>/\<organization name>/\<team name>* 上转到团队项目的“摘要”页  ，例如 **https:\//dev.azure.com/DataScienceUnit/MyTeam**，从左侧导航栏中选择“Repos”  。 
+1. 在 https:\//\<server name>/\<organization name>/\<team name>（例如 https:\//dev.azure.com/DataScienceUnit/MyTeam）上转到团队项目的“摘要”页，然后从左侧导航栏中选择“存储库” 。 
    
 1. 在页面顶部选择存储库名称，然后从下拉列表中选择“新建存储库”  。
    
@@ -83,7 +83,7 @@ ms.locfileid: "75598597"
    
    ![选择“导入”](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. 在“导入 Git 存储库”  对话框中，选择“Git”作为“源类型”，然后在“克隆 URL”下输入 **TeamTemplate** 存储库的 URL。    URL 为 *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>* 。 例如：**https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**。 
+1. 在“导入 Git 存储库”  对话框中，选择“Git”作为“源类型”，然后在“克隆 URL”下输入 **TeamTemplate** 存储库的 URL。    URL 为 https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>。 例如：**https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**。 
    
 1. 选择“导入”  。 团队模板存储库的内容将导入到项目存储库中。 
    

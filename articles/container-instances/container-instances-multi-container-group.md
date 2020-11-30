@@ -2,18 +2,19 @@
 title: 教程 - 部署多容器组 - 模板
 description: 本教程介绍如何通过 Azure CLI 使用 Azure 资源管理器模板在 Azure 容器实例中部署包含多个容器的容器组。
 ms.topic: article
-origin.date: 04/03/2019
-ms.date: 07/27/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 01/15/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 1028dc3ffff09f93f31900596085db60e7defb8d
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: bc55dd16908fc09ee7614b30b826c5baec95ab84
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96300422"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>教程：使用资源管理器模板部署多容器组
@@ -36,7 +37,9 @@ Azure 容器实例支持使用[容器组](container-instances-container-groups.m
 > [!NOTE]
 > 多容器组当前仅限于 Linux 容器。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -75,7 +78,7 @@ code azuredeploy.json
     {
       "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -160,10 +163,10 @@ code azuredeploy.json
 az group create --name myResourceGroup --location chinaeast2
 ```
 
-使用 [az group deployment create][az-group-deployment-create] 命令部署模板。
+使用 [az deployment group create][az-deployment-group-create] 命令部署模板。
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
+az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 将在几秒钟内收到来自 Azure 的初始响应。
@@ -178,7 +181,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 若要查看正在运行的应用程序，请在浏览器中转到它的 IP 地址。 例如，在此示例输出中，IP 为 `52.168.26.124`：
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     chinaeast2
@@ -194,11 +197,11 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 输出：
 
-```bash
+```console
 listening on port 80
-::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 若要查看 Sidecar 容器的日志，请运行指定 `aci-tutorial-sidecar` 容器的类似命令。
@@ -209,8 +212,8 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 输出：
 
-```bash
-Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
+```console
+Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -223,7 +226,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Thu, 21 Mar 2019 20:36:41 GMT
+Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 
@@ -245,11 +248,11 @@ Connection: keep-alive
 <!-- LINKS - Internal -->
 
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create
+[az-container-logs]: https://docs.microsoft.com/cli/azure/container#az_container_logs
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 
-<!--Not Available on [template-reference]: /templates/microsoft.containerinstance/containergroups-->
+<!--Not Available on [template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

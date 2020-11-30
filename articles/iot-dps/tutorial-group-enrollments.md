@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 4ae1a0bfcebbcb0fbf6ba1f8c2aafed850f37495
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: bfe891c3b0dab8eddaa31d3472ac4567f7af0a3d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106337"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300792"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>教程：使用适用于 IoT 中心设备预配服务的 Java 设备和服务 SDK 与组登记来创建和预配模拟的 X.509 设备
 
@@ -24,9 +24,9 @@ ms.locfileid: "93106337"
 在继续操作之前，请确保完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)中的步骤。
 
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
-1. 确保已在计算机上安装 [Java SE 开发工具包 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。
+1. 确保已在计算机上安装 [Java SE 开发工具包 8](https://docs.microsoft.com/java/azure/jdk/)。
 
 1. 下载并安装 [Maven](https://maven.apache.org/install.html)。
 
@@ -53,7 +53,7 @@ ms.locfileid: "93106337"
 
         1. 选择新建的证书：
             - 单击“生成验证码”。  复制生成的代码。
-            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。   按 **Enter** 。
+            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。   按 **Enter**。
             - 在 Azure 门户中选择新建的 **_verifyCert4.pem_** 文件。 单击“验证”。 
 
               ![验证证书](./media/tutorial-group-enrollments/validate-certificate.png)

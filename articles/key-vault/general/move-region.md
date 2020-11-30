@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 04/24/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 3f2752225a95d45764bd022606504f5f2de32d70
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 3499e4dcb74572367748796a08be3edb754e947f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678523"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300943"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>跨区域移动 Azure 密钥保管库
 

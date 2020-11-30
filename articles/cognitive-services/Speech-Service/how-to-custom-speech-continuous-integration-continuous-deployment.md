@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 06/09/2020
 ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5bcb09288b5d07dee3155ba17d77787fcb121ae9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 904040277f16c15adfe0aa8e842dd24cebf55687
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977581"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300028"
 ---
 # <a name="cicd-for-custom-speech"></a>自定义语音识别的 CI/CD
 
@@ -74,7 +74,7 @@ CI/CD 工作流的主要目的是使用定型数据生成一个新模型，并�
 
 对自定义语音识别的 CI/CD 自动化工作流使用以下工具：
 
-- [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 用于创建 Azure 服务主体身份验证、查询 Azure 订阅并将测试结果存储在 Azure Blob 中。
+- [Azure CLI](https://docs.azure.cn/cli/) 用于创建 Azure 服务主体身份验证、查询 Azure 订阅并将测试结果存储在 Azure Blob 中。
 - [Azure 语音 CLI](spx-overview.md) 用于从命令行或自动工作流与语音服务交互。
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>使用 GitHub Actions 的 DevOps 自定义语音识别解决方案

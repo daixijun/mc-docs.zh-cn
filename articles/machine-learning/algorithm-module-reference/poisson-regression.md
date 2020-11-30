@@ -1,7 +1,7 @@
 ---
 title: 泊松回归：模块参考
 titleSuffix: Azure Machine Learning
-description: 了解如何使用泊松回归模块创建泊松回归模型。
+description: 了解如何使用 Azure 机器学习设计器中的泊松回归模块创建泊松回归模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 0df484a2d76d9c2925a66d08afd4f27f01045dc9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 49e2d8d39d6c14d36b1fc9f5975ca08aca8920aa
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118334"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977791"
 ---
 # <a name="poisson-regression"></a>泊松回归
 
@@ -29,7 +29,7 @@ ms.locfileid: "92118334"
 - 泊松分布是一种离散分布。因此，对非整数使用此方法是没有意义的。
 
 > [!TIP]
-> 如果你的目标不是计数，泊松回归可能并不是适当的方法。 试用[设计器中的其他回归模块](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms)。 
+> 如果你的目标不是计数，泊松回归可能并不是适当的方法。 试用[设计器中的其他回归模块](./module-reference.md#machine-learning-algorithms)。 
 
 设置回归方法后，必须使用包含要预测的值示例的数据集来训练模型。 然后，可以使用训练后的模型进行预测。
 
@@ -57,13 +57,13 @@ ms.locfileid: "92118334"
 
 3. 在“泊松回归”模块的右侧窗格中，设置“创建训练程序模式”选项，以指定模型的训练方式 。  
   
-    - **单个参数** ：如果知道自己想要如何配置模型，请提供一组特定的值作为参数。
+    - **单个参数**：如果知道自己想要如何配置模型，请提供一组特定的值作为参数。
   
-    - **参数范围** ：如果不确定最佳参数，请使用 [优化模型超参数](tune-model-hyperparameters.md)模块进行参数扫描。 训练程序遍历指定的多个值，以找到最佳配置。
+    - **参数范围**：如果不确定最佳参数，请使用 [优化模型超参数](tune-model-hyperparameters.md)模块进行参数扫描。 训练程序遍历指定的多个值，以找到最佳配置。
   
 4. 优化容错：键入一个值，用于定义优化期间的容许区间。 值越小，拟合就会越慢，但准确性越高。
 
-5. L1 正则化权重和 L2 正则化权重 ：键入要用于 L1 和 L2 正则化的值。  “正则化”将约束添加到有关独立于训练数据的模型各个方面的算法。 正则化通常也用来避免过度拟合。 
+5. L1 正则化权重和 L2 正则化权重 ：键入要用于 L1 和 L2 正则化的值。 “正则化”将约束添加到有关独立于训练数据的模型各个方面的算法。 正则化通常也用来避免过度拟合。 
 
     - L1 正则化很有用，如果目标是能够尽可能为稀疏的模型。
 
@@ -73,7 +73,7 @@ ms.locfileid: "92118334"
 
     在此模块中，你可以应用 L1 和 L2 正则化的组合。 通过组合 L1 和 L2 正则化，可以对参数值的大小施加惩罚。 学员尝试最大程度减少产生负面影响降至最低丢失的一种折中。
 
-    有关 L1 和 L2 正则化的详细讨论，请参阅[机器学习的 L1 和 L2 正则化](https://msdn.microsoft.com/magazine/dn904675.aspx)。
+    有关 L1 和 L2 正则化的详细讨论，请参阅[机器学习的 L1 和 L2 正则化](https://docs.microsoft.com/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)。
 
 6. L-BFGS 的内存大小：指定要为模型拟合和优化保留的内存量。
 
@@ -83,7 +83,7 @@ ms.locfileid: "92118334"
 
 7. 将训练数据集和未训练的模型连接到其中一个训练模块： 
 
-    - 如果将“创建训练程序模式”设置为“单个参数”，请使用 
+    - 如果将“创建训练程序模式”设置为“单个参数”，请使用[训练模型](train-model.md)模块。
 
     - 如果将“创建训练程序模式”设置为“参数范围”，请使用[优化模型超参数](tune-model-hyperparameters.md)模块 。
 

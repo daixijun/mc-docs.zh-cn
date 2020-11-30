@@ -4,15 +4,15 @@ description: 在不使用 Dockerfile 的情况下，使用 az acr pack build 命
 ms.topic: article
 origin.date: 10/24/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: devx-track-js
-ms.openlocfilehash: a265b3d144f93b97bd61d1e17f2699502ca49293
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 426529c150e7e9bfe8335cf4bb45569e6f04b451
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024549"
 ---
 <!--Verified successfully-->
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>使用 Cloud Native Buildpack 从应用生成映像并推送该映像

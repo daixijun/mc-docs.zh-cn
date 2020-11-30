@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/10/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 9058f751ee519ea886063f68b7c34797043401be
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7821fc0f17ec9b0647a24251bcaefe50879daee9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106053"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300671"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>使用 Azure 数据资源管理器 Go SDK 引入数据 
 
@@ -149,12 +149,12 @@ func ingestFile(kc *kusto.Client, blobStoreAccountName, blobStoreContainer, blob
 
     运行示例代码时，将执行以下操作：
     
-    1. **删除表** ：删除 `StormEvents` 表（如果存在）。
-    1. **创建表** ：创建 `StormEvents` 表。
-    1. **创建映射** ：创建 `StormEvents_CSV_Mapping` 映射。
-    1. **引入文件** ：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
+    1. **删除表**：删除 `StormEvents` 表（如果存在）。
+    1. **创建表**：创建 `StormEvents` 表。
+    1. **创建映射**：创建 `StormEvents_CSV_Mapping` 映射。
+    1. **引入文件**：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
 
-1. 若要创建用于身份验证的服务主体，请通过 Azure CLI 使用 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令。 采用程序将使用的环境变量的形式设置服务主体信息，包括群集终结点和数据库名称：
+1. 若要创建用于身份验证的服务主体，请通过 Azure CLI 使用 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 命令。 采用程序将使用的环境变量的形式设置服务主体信息，包括群集终结点和数据库名称：
 
     ```console
     export AZURE_SP_CLIENT_ID="<replace with appID>"

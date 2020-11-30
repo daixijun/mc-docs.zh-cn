@@ -3,23 +3,24 @@ title: 在应用服务计划中创建 Function App - Azure CLI
 description: Azure CLI 脚本示例 - 在应用服务计划中创建 Function App
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
-ms.date: 12/05/2019
-ms.custom: mvc
-ms.author: v-junlch
-ms.openlocfilehash: 737f366e7b0c68c18b0fa098b1bfb970f5da6cbc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 8b9aeb0b62d0f4d0bb7ef56ae5fc382432fcf808
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74885042"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970748"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在应用服务计划中创建 Function App
 
 此 Azure Functions 示例脚本将创建一个函数应用，作为函数的容器。 创建的函数应用使用专用应用服务计划，这意味着服务器资源将始终启用。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本文要求使用 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -28,30 +29,38 @@ ms.locfileid: "74885042"
 ```azurecli
 #!/bin/bash
 
+# Function app and storage account names must be unique.
+storageName=mystorageaccount$RANDOM
+functionAppName=myappsvcpfunc$RANDOM
+region=chinanorth2
+
 # Create a resource resourceGroupName
-az group create `
-  --name myResourceGroup `
-  --location chinanorth
+az group create \
+  --name myResourceGroup \
+  --location $region
 
 # Create an azure storage account
-az storage account create `
-  --name myappsvcpstore `
-  --location chinanorth `
-  --resource-group myResourceGroup `
+az storage account create \
+  --name $storageName \
+  --location $region \
+  --resource-group myResourceGroup \
   --sku Standard_LRS
 
 # Create an App Service plan
-az appservice plan create `
-  --name myappserviceplan `
-  --resource-group myResourceGroup `
-  --location chinanorth
+az functionapp plan create \
+  --name myappserviceplan \
+  --resource-group myResourceGroup \
+  --location $region \
+  --sku B1
 
 # Create a Function App
-az functionapp create `
-  --name myappsvcpfunc `
-  --storage-account myappsvcpstore `
-  --plan myappserviceplan `
-  --resource-group myResourceGroup
+az functionapp create \
+  --name $functionAppName \
+  --storage-account $storageName \
+  --plan myappserviceplan \
+  --resource-group myResourceGroup \
+  --functions-version 2
+  
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -60,11 +69,11 @@ az functionapp create `
 
 表中的每条命令均链接到特定于命令的文档。 此脚本使用以下命令：
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建 Azure 存储帐户。 |
-| [az appservice plan create](/cli/appservice/plan#az-appservice-plan-create) | 创建应用服务计划。 |
+| [az functionapp plan create](/cli/functionapp/plan#az-functionapp-plan-create) | 创建高级计划。 |
 | [az functionapp create](/cli/functionapp#az-functionapp-create) | 在应用服务计划中创建函数应用。 |
 
 ## <a name="next-steps"></a>后续步骤
@@ -73,4 +82,3 @@ az functionapp create `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->

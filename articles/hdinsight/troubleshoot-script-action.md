@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 2c46e555184965a8237d91bce9f8db0735ab4526
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 6278598df7a2dbb098737c85a67f484036319bc8
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394514"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300447"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>排查 Azure HDInsight 中的脚本操作问题
 
@@ -27,11 +27,11 @@ ms.locfileid: "91394514"
 
 1. 在 Web 浏览器中，导航到 `https://CLUSTERNAME.azurehdinsight.cn`，其中 `CLUSTERNAME` 是群集的名称。
 
-1. 从页面顶部栏中选择“操作”条目 **** 。 此时会显示通过 Ambari 在群集上执行的当前操作和以前操作的列表。
+1. 从页面顶部栏中选择“操作”条目  。 此时会显示通过 Ambari 在群集上执行的当前操作和以前操作的列表。
 
     ![选中了“操作”的 Ambari Web UI 栏](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. 查找“操作”**** 列中包含 **run\_customscriptaction** 的条目。 这些条目是在运行脚本操作时创建的。
+1. 查找“操作”列中包含 **run\_customscriptaction** 的条目。 这些条目是在运行脚本操作时创建的。
 
     ![“Apache Ambari 脚本操作”操作](./media/troubleshoot-script-action/ambari-script-action.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "91394514"
 
     ![脚本操作日志](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    在此目录下，日志分别针对**头节点**、**工作器节点**和 **Zookeeper 节点**进行组织。 请看以下示例：
+    在此目录下，日志分别针对 **头节点**、**工作器节点** 和 **Zookeeper 节点** 进行组织。 请看以下示例：
 
     * **头节点**：`<ACTIVE-HEADNODE-NAME>.chinacloudapp.cn`
 
@@ -110,7 +110,4 @@ sudo pip install azure-storage==0.20.0
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
-
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”****，或打开“帮助 + 支持”**** 中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](/azure-portal/supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

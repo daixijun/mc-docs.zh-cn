@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 origin.date: 07/27/2020
 ms.date: 09/29/2020
-ms.openlocfilehash: 9ddce49abe5eb2bba81875e57e980fcbbb0e71dd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1d2742bcde5d4753406ee5090880c3d8614796b9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105491"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978157"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -61,7 +61,7 @@ if spec is None:
 > “执行 Python 脚本”模块不支持使用“apt-get”之类的命令安装依赖于其他本机库的包，例如 Java、PyODBC 等。这是因为，此模块是在仅预安装了 Python 并且具有非管理员权限的简单环境中执行的。  
 
 ## <a name="upload-files"></a>上传文件
-“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-) 上传文件。
+“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-) 上传文件。
 
 以下示例演示如何在“执行 Python 脚本”模块中上传映像文件：
 
@@ -110,7 +110,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. 将 **执行 Python 脚本** 模块添加到管道。
 
-2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1** 。
+2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1**。
 
     数据集的使用是可选的。 如果要使用 Python 生成数据，或者使用 Python 代码将数据直接导入到模块中，则可以使用数据集。
 
@@ -120,9 +120,50 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
     ![执行 Python 输入映射](media/module/python-module.png)
 
-4. 若要包括新的 Python 包或代码，请在脚本捆绑包中添加包含这些自定义资源的压缩文件。 脚本捆绑包的输入必须是作为文件类型数据集上传到工作区的压缩文件。 可以在“数据集”资产页中上传数据集。 可以从设计器创作页面左侧模块树中的“我的数据集”列表中拖取数据集模块。 
+4. 若要包括新的 Python 包或代码，请将包含这些自定义资源的压缩文件连接到脚本绑定端口。 或者，如果脚本大于 16 KB，请使用脚本绑定端口以避免错误，如命令行超过 16597 个字符的限制。 
 
-    在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留该结构，但你必须在路径前面追加一个名为 **src** 的目录。
+    
+    1. 将脚本和其他自定义资源捆绑到一个 zip 文件中。
+    1. 将 zip 文件作为“文件数据集”上传到工作室。 
+    1. 从设计器创作页面左侧模块窗格的“数据集”列表中拖取数据集模块。 
+    1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
+    
+    在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留结构。
+ 
+    > [!WARNING]
+    > 请勿使用 app 作为文件夹或脚本的名称，因为 app 是内置服务的保留字  。 但可以使用其他命名空间，如 `app123`。
+   
+    下面是一个脚本绑定示例，其中包含一个 python 脚本文件和一个 txt 文件：
+      
+    > [!div class="mx-imgBorder"]
+    > ![脚本绑定示例](media/module/python-script-bundle.png)  
+
+    下面是 `my_script.py` 的内容：
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    以下是示例代码，显示了如何使用脚本绑定中的文件：    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. 在“Python 脚本”文本框中，键入或粘贴有效的 Python 脚本。
 

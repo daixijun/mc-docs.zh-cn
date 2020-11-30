@@ -18,12 +18,12 @@ ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2b732df9a0da712b159212da51cc06333eb187b
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 699e04fc6def9b07a1853d3b894302cf06568003
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316456"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300858"
 ---
 # <a name="registration-management"></a>注册管理
 
@@ -50,7 +50,7 @@ ms.locfileid: "89316456"
 - 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
 - 使用安装还能执行部分注册更新。 可以使用 [JSON-Patch standard](https://tools.ietf.org/html/rfc6902)以 PATCH 方法来请求部分安装更新。 想要更新注册中的标记时，此方法很有用。 用户不需要删除整个注册，并重新发送前面的所有标记。
 
-安装可包含以下属性。 有关完整的安装属性列表，请参阅[使用 REST API 创建或覆盖安装](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安装属性](/dotnet/api/microsoft.azure.notificationhubs.installation)。
+安装可包含以下属性。 有关完整的安装属性列表，请参阅[使用 REST API 创建或覆盖安装](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安装属性](https://docs.microsoft.com/dotnetapi/microsoft.azure.notificationhubs.installation)。
 
 ```json
 // Example installation format to show some supported properties

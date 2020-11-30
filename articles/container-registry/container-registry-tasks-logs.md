@@ -3,14 +3,15 @@ title: 查看任务运行日志 - 任务
 description: 如何查看和管理 ACR 任务生成的运行日志。
 ms.topic: article
 origin.date: 03/09/2020
-ms.date: 05/08/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7c1ca6a9b88d812fe7fbd8357f7785b830ce2a9b
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: f55abd569f21a71664ef574462fdc23cbcb82cb6
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392437"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024555"
 ---
 <!--Verified successfully-->
 # <a name="view-and-manage-task-run-logs"></a>查看和管理任务运行日志
@@ -21,9 +22,9 @@ ms.locfileid: "83392437"
 
 ## <a name="view-streamed-logs"></a>查看流式传输的日志
 
-手动触发任务时，日志输出会直接流式传输到控制台。 例如，使用 [az acr build](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build)、[az acr run](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run) 或 [az acr task run](https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run) 命令手动触发任务时，你会看到流式传输到控制台的日志输出。 
+手动触发任务时，日志输出会直接流式传输到控制台。 例如，使用 [az acr build](https://docs.azure.cn/cli/acr#az_acr_build)、[az acr run](https://docs.azure.cn/cli/acr#az_acr_run) 或 [az acr task run](https://docs.azure.cn/cli/acr/task#az_acr_task_run) 命令手动触发任务时，你会看到流式传输到控制台的日志输出。 
 
-以下示例 [az acr run](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run) 命令手动触发一个任务，该任务运行从同一注册表中拉取的容器：
+以下示例 [az acr run](https://docs.azure.cn/cli/acr#az_acr_run) 命令手动触发一个任务，该任务运行从同一注册表中拉取的容器：
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
@@ -61,7 +62,7 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>查看存储的日志 
 
-Azure 容器注册表存储所有任务的运行日志。 可以在 Azure 门户中查看已存储的运行日志。 也可使用 [az acr task logs](https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-logs) 命令查看选定的日志。 默认情况下，日志保留 30 天。
+Azure 容器注册表存储所有任务的运行日志。 可以在 Azure 门户中查看已存储的运行日志。 也可使用 [az acr task logs](https://docs.azure.cn/cli/acr/task#az_acr_task_logs) 命令查看选定的日志。 默认情况下，日志保留 30 天。
 
 如果任务是自动触发的（例如，由源代码更新触发），则访问已存储的日志是查看运行日志的唯一方法。  任务自动触发器包括源代码提交或拉取请求、基础映像更新和计时器触发器。
 
@@ -71,9 +72,9 @@ Azure 容器注册表存储所有任务的运行日志。 可以在 Azure 门户
 1. 在“服务”  中，选择  “任务” > “运行”  。
 1. 选择一个“运行 ID”  来查看运行状态和运行日志。 运行日志包含与流式传输的日志（如果生成了该日志）相同的信息。
 
-![查看任务运行登录门户](./media/container-registry-tasks-logs/portal-task-run-logs.png)
+:::image type="content" source="./media/container-registry-tasks-logs/portal-task-run-logs.png" alt-text="查看任务运行登录门户":::
 
-若要使用 Azure CLI 查看日志，请运行 [az acr task logs](https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-logs) 并指定运行 ID、任务名称，或指定由生成任务创建的特定映像。 如果指定了任务名称，则该命令会显示上次创建的运行的日志。
+若要使用 Azure CLI 查看日志，请运行 [az acr task logs](https://docs.azure.cn/cli/acr/task#az_acr_task_logs) 并指定运行 ID、任务名称，或指定由生成任务创建的特定映像。 如果指定了任务名称，则该命令会显示上次创建的运行的日志。
 
 以下示例输出 ID 为 cf4  的运行的日志：
 
@@ -86,7 +87,7 @@ az acr task logs --registry mycontainerregistry1220 \
 
 你可能希望将任务运行日志存储在本地文件系统上，或使用替代存档解决方案，例如 Azure 存储。
 
-例如，创建一个本地 tasklogs  目录，并将 [az acr task logs](https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-logs) 的输出重定向到一个本地文件：
+例如，创建一个本地 tasklogs  目录，并将 [az acr task logs](https://docs.azure.cn/cli/acr/task#az_acr_task_logs) 的输出重定向到一个本地文件：
 
 ```azurecli
 mkdir ~/tasklogs
@@ -101,31 +102,21 @@ az acr task logs --registry mycontainerregistry1220 \
 
 * 详细了解 [Azure 容器注册表任务](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://www.azure.cn/support/legal/subscription-agreement/
-
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack?view=azure-cli-latest#az-acr-pack-build
-[az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-update]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-update
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
-[az-login-service-principal]: https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack#az_acr_pack_build
+[az-acr-task]: https://docs.azure.cn/cli/acr/task
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az_acr_task_update
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
+[az-login-service-principal]: https://docs.azure.cn/cli/authenticate-azure-cli
 
 <!-- IMAGES -->
 
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png
 
-<!-- Update_Description: new article about container registry tasks logs -->
-<!--NEW.date: 04/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: quickstart
-origin.date: 07/01/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: b679091207f029c540d6ddebd3aa695cdc3b7134
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/25/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 01b7170fa15c65dfd46ac70fd3c7e13aefec2a76
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021082"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300714"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>快速入门：在门户中创建演示应用（Azure 认知搜索）
 
@@ -36,7 +36,7 @@ ms.locfileid: "90021082"
 
   本快速入门使用内置的“房地产”示例数据和索引，因为该示例包含缩略图（向导支持将图像添加到结果页）。 若要创建本练习中使用的索引，请运行“导入数据”向导，并选择“realestate-us-sample”数据源。
 
-  ![示例数据的数据源页](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="示例数据的数据源页" border="false":::
 
 索引可供使用后，转到下一步。
 
@@ -62,7 +62,7 @@ ms.locfileid: "90021082"
 
 1. 在“说明”中，选择一个提供详细信息的字段，这些信息可以帮助用户确定是否要单击进入特定的文档。
 
-   ![示例数据的数据源页](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="配置示例数据的结果" border="false":::
 
 ## <a name="add-a-sidebar"></a>添加边栏
 
@@ -84,7 +84,7 @@ ms.locfileid: "90021082"
 
 以下屏幕截图显示了向导中的选项，同时显示了应用中呈现的页面。 其中展示了如何使用字段选项，以及如何使用“显示字段名称”在建议中包含或排除标签。
 
-![查询建议配置](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="查询建议配置":::
 
 ## <a name="create-download-and-execute"></a>创建、下载和执行
 
@@ -96,7 +96,7 @@ ms.locfileid: "90021082"
 
 基础索引由虚构生成的、已在不同文档中复制的数据构成，说明有时与图像不符。 如果基于自己的索引创建应用，则预期会获得更有整体性的体验。
 
-![运行应用](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="运行应用":::
 
 
 ## <a name="clean-up-resources"></a>清理资源

@@ -15,15 +15,15 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: b4298652773bae7e720ff4eb78f5832833d55f7d
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e2ec0c7739143ea6330ea563f666bcf9b3c5e575
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244795"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300734"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒体服务 v3 概述
 
@@ -34,7 +34,7 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 媒体服务 v3 SDK 基于[媒体服务 v3 OpenAPI 规范 (Swagger)](https://aka.ms/ams-v3-rest-sdk)。
 
 > [!NOTE]
-> 目前，可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理媒体服务 v3 [直播活动](live-events-outputs-concept.md)、查看（而不是管理）v3 [资产](assets-concept.md)、[获取有关访问 API 的信息](./access-api-howto.md)。 对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+> 目前，可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理媒体服务 v3 [直播活动](live-events-outputs-concept.md)、查看（而不是管理）v3 [资产](assets-concept.md)、[获取有关访问 API 的信息](./access-api-howto.md)。 对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,12 +58,12 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 * 使用 Azure 媒体服务和 [Azure 认知服务 API](https://docs.azure.cn/?pivot=products&panel=ai&product=featured) 实现教育在线学习视频平台，提供语音转文本字幕、多种语言翻译等功能。
 * 将 Azure 媒体服务与 [Azure 认知服务 API](https://docs.azure.cn/?pivot=products&panel=ai&product=featured) 配合使用来为视频添加字幕和描述文字，满足更多受众的需求（例如，听力障碍人士或想用不同语言阅读的人）。
 
-## <a name="how-can-i-get-started-with-v3"></a>如何开始使用 v3？ 
+## <a name="how-can-i-get-started-with-v3"></a>如何开始使用 v3？
 
 了解如何使用媒体服务 v3 来编码和打包内容、进行视频点播流式处理、实时广播。 教程、API 参考和其他文档介绍了如何安全地向数百万用户传送可缩放的点播和直播视频或音频流。
 
 > [!TIP]
-> 在开始开发之前，请查看：<br/>* [基本概念](concepts-overview.md)（包括打包、编码、保护等重要概念）<br/>* [使用媒体服务 v3 API 进行开发](media-services-apis-overview.md)（包括有关访问 API、命名约定等的信息）
+> 在开始开发之前，请查看：[基本概念](concepts-overview.md)（包含打包、编码和保护等重要概念）以及如何[通过媒体服务 v3 API 进行开发](media-services-apis-overview.md)（其中包含有关访问 API、命名约定等内容的信息）。
 
 ### <a name="sdks"></a>SDK
 

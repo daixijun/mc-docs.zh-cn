@@ -1,8 +1,8 @@
 ---
 title: Azure 容器注册表的内置策略定义
 description: 列出 Azure 容器注册表的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 10/07/2020
-ms.date: 11/02/2020
+origin.date: 10/20/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.topic: reference
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5882962dfa1e4b51b537fd679462047c96807093
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1a4d7d4e4dc696785cbae4bf6bf8bdd25df115a3
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104135"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024597"
 ---
 <!--Verified successfully on 09/18/2020-->
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure 容器注册表的 Azure Policy 内置定义

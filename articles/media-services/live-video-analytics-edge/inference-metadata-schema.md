@@ -3,13 +3,13 @@ title: 推理元数据架构 - Azure
 description: 本文介绍推理元数据架构。
 ms.topic: overview
 origin.date: 09/14/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: dd9d64779e3d6fba993c8ea8e8102decc79a9e19
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 11/30/2020
+ms.openlocfilehash: 4b0505ff1e3cc974fa816f04c4d1889823af0ed9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414129"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300841"
 ---
 # <a name="inference-metadata-schema"></a>推理元数据架构 
 
@@ -124,5 +124,5 @@ ms.locfileid: "89414129"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [gRPC 数据协定](grpc-data-contract.md)
-- [HTTP 数据协定](http-data-contract.md)
+- [gRPC 数据协定](./grpc-extension-protocol.md)
+- [HTTP 数据协定](./http-extension-protocol.md)

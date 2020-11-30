@@ -9,16 +9,16 @@ origin.date: 02/02/2018
 ms.date: 02/02/2018
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: bd876d6f8ae74f89395c1db0af75fb1a2f3dc736
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b05353b4d78fdee1658a43ccddc3b123e541fc25
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71059579"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301053"
 ---
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-在 Azure CLI 中，使用 [`az group create`](/cli/group?view=azure-cli-latest) 命令创建资源组。 以下示例在“中国北部”位置创建名为“myResourceGroup”的资源组。 要查看“免费”层中应用服务支持的所有位置，请运行 [`az appservice list-locations --sku FREE`](/cli/appservice?view=azure-cli-latest) 命令。
+在 Azure CLI 中，使用 [`az group create`](/cli/group) 命令创建资源组。 以下示例在“中国北部”位置创建名为“myResourceGroup”的资源组。 要查看“免费”层中应用服务支持的所有位置，请运行 [`az appservice list-locations --sku FREE`](/cli/appservice) 命令。
 
 ```azurecli
 az group create --name myResourceGroup --location "China North"

@@ -10,14 +10,14 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 origin.date: 02/27/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3295f44414fc6a731ef2308cce0fa5f7930ab10f
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 685f59b2f7cd32a8695e67c9524d6ecf17722ea4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678515"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300004"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure Key Vault 中设置和检索机密
 
@@ -27,7 +27,7 @@ ms.locfileid: "90678515"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![“部署到 Azure”](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+[![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -228,7 +228,7 @@ ms.locfileid: "90678515"
 
 1. 选择下图登录到 Azure 并打开一个模板。 该模板将创建 Key Vault 和机密。
 
-    [![“部署到 Azure”](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+    [![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 2. 选择或输入以下值。
 
@@ -241,7 +241,7 @@ ms.locfileid: "90678515"
     * 位置：选择一个位置。  例如，“中国东部 2”。
     * **密钥保管库名称**：输入密钥保管库的名称，该名称在 .vault.azure.cn 命名空间中必须全局唯一。 在下一部分验证部署时，需要该名称。
     * **租户 ID**：模板函数会自动检索租户 ID。 不要更改默认值。
-    * **AD 用户 ID**：输入在[先决条件](#prerequisites)中检索到的 Azure AD 用户对象 ID。
+    * **AD 用户 ID**：输入在 [先决条件](#prerequisites)中检索到的 Azure AD 用户对象 ID。
     * **机密名称**：输入要存储在 Key Vault 中的机密的名称。 例如 **adminpassword**。
     * **机密值**：输入机密值。 如果存储密码，则建议使用在“先决条件”中创建的生成密码。
     * **我同意上述条款和条件**：选中。
@@ -278,7 +278,7 @@ Write-Host "Press [ENTER] to continue..."
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![ARM 模板, Key Vault 集成, 部署门户验证输出](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![屏幕截图显示了 CLI 中的部署门户验证输出。](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

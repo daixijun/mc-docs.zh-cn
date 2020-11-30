@@ -9,16 +9,16 @@ origin.date: 02/02/2018
 ms.date: 08/13/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 64ac7a0943fee20b84b8e0cfdf92e98f93911e41
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 88df469d143a53d9955f553b1211750b7d69731b
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223162"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301051"
 ---
 在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/overview.md#app-service-on-linux)。 
 
-在 Azure CLI 中，可以使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) 命令。 在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes --linux`](/cli/webapp?view=azure-cli-latest#az-webapp-list-runtimes)。 
+在 Azure CLI 中，可以使用 [`az webapp create`](/cli/webapp#az-webapp-create) 命令。 在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes --linux`](/cli/webapp#az-webapp-list-runtimes)。 
 
 ```azurecli
 # Bash

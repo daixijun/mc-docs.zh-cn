@@ -2,23 +2,23 @@
 title: 创建 LUIS 资源
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/17/2020
+ms.date: 11/23/2020
 origin.date: 04/07/2020
-ms.author: v-tawe
-ms.openlocfilehash: edb57cc2c1395bb6a45a9fc0c59332878ed2dc40
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 147f1030915b0b5022905a89b0b82e10eb8c72a0
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098377"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306333"
 ---
 <a name="create-luis-resources"></a>
 
-## <a name="create-luis-resources-in-azure-portal"></a>在 Azure 门户中创建 LUIS 资源
+## <a name="create-luis-resources-in-the-azure-portal"></a>在 Azure 门户中创建 LUIS 资源
 
 1. 使用[此链接](https://portal.azure.cn/#create/Microsoft.CognitiveServicesLUISAllInOne)在 Azure 门户中开始创建 LUIS 资源。
 
@@ -26,19 +26,20 @@ ms.locfileid: "85098377"
 
     |名称|目的|
     |--|--|
-    |订阅名称| 将对资源计费的订阅。|
+    |订阅 | 将对资源计费的订阅。|
     |资源组| 你选择或创建的自定义资源组名称。 使用资源组可将 Azure 资源分组，以便进行访问和管理。|
-    |名称| 你选择的自定义名称，作为自定义子域用于创作以及预测终结点查询。|
+    |名称| 你选择的自定义名称。 它用作创作以及预测终结点查询的自定义子域。|
     |创作位置|与模型关联的区域。|
-    |创作定价层|定价层确定每秒和每月的最大事务数。|
-    |运行时位置|与已发布的预测终结点运行时关联的区域。|
-    |运行时定价层|定价层确定每秒和每月的最大事务数。|
+    |创作定价层|确定每秒和每月的最大事务数。|
+    |预测位置|与已发布的预测终结点运行时关联的区域。|
+    |预测定价层|确定每秒和每月的最大事务数。|
 
     > [!div class="mx-imgBorder"]
-    > [![创建语言理解资源](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
+    > [![显示“创建”下的“基本信息”选项卡的屏幕截图。](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-1. 单击“查看 + 创建”  并等待创建资源。
-1. 创建这两个资源后，请仍在 Azure 门户中选择新的创作资源，然后选择“快速入门”  以获取创作终结点 URL  和密钥  ，从而以编程方式进行创作。
+1. 选择“查看 + 创建”并等待创建资源。
+1. 创建这两个资源之后，仍然在 Azure 门户中选择新的创作资源。 然后选择“快速入门”，获取创作“终结点 URL”和“密钥”，通过编程方式进行创作  。
 
 > [!TIP]
 > 若要使用资源，请在 LUIS 门户中[分配资源](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)。
+

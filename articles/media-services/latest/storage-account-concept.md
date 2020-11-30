@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 05a14c7c598e24bfbc025cb4dbe1f733911fe648
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c85dba05a0dc68825e01f8a22a3df1b30bdc356e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244958"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300745"
 ---
 # <a name="azure-storage-accounts"></a>Azure 存储帐户
 
@@ -69,7 +69,7 @@ ms.locfileid: "91244958"
 
 ## <a name="azure-storage-firewall"></a>Azure 存储防火墙
 
-Azure 媒体服务不支持启用了 Azure 存储防火墙的存储帐户。
+Azure 媒体服务不支持启用了 Azure 存储防火墙或[专用终结点](../../storage/common/storage-network-security.md)的存储帐户。
 
 ## <a name="next-steps"></a>后续步骤
 

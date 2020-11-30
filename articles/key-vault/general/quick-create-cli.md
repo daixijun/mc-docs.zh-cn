@@ -8,33 +8,24 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 origin.date: 07/20/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1b50cc3b1c1f746c89ebaba8a3bcafac0b50fc7a
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: dc82a91b5b0de1c462423ba40dfe818824af68b1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678521"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300936"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建密钥保管库
 
 Azure Key Vault 是一项云服务，它为[密钥](../keys/index.yml)、[机密](../secrets/index.yml)和[证书](../certificates/index.yml)提供了安全的存储。 有关 Key Vault 的详细信息，请参阅[关于 Azure Key Vault](overview.md)；有关密钥保管库中可存储的内容的详细信息，请参阅[关于密钥、机密和证书](about-keys-secrets-certificates.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+<!-- [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)] -->
 
-在本快速入门中，你将使用 [Azure CLI](/cli/) 创建一个密钥保管库。 Azure CLI 用于通过命令或脚本创建和管理 Azure 资源。  如果选择在本地安装并使用 CLI，本快速入门要求 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
-
-若要使用 CLI 登录到 Azure，可以键入：
-
-```azurecli
-az cloud set -n AzureChinaCloud
-az login
-```
-
-若要详细了解通过 CLI 使用的登录选项，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)
+ - 本快速入门需要 Azure CLI 版本 2.0.4 或更高版本。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -82,5 +73,5 @@ az group delete --name myResourceGroup
 在本快速入门中，你创建了一个 Key Vault 并将其删除。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
 
 - 阅读 [Azure Key Vault 概述](overview.md)
-- 请参阅 [Azure CLI az keyvault 命令](/cli/keyvault?view=azure-cli-latest)参考
+- 请参阅 [Azure CLI az keyvault 命令](/cli/keyvault)参考
 - 查看 [Azure Key Vault 最佳做法](best-practices.md)

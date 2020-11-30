@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb6f583faa6eb77cbe7e2f0cbaf447b9a9a8877c
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: eb48a8a4978f13a00ef314aba4e0c16f271934a8
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678370"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300319"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>快速入门：适用于 .NET 的 Azure Key Vault 客户端库 (SDK v4)
 
@@ -29,15 +29,15 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 <!-- - Use FIPS 140-2 Level 2 validated HSMs. -->
 
-[API 参考文档](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[API 参考文档](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.secrets) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
 * [.NET Core 3.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
-* [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
-本快速入门假设在 Windows 终端（例如 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6) 或 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6)）中运行 `dotnet`、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 和 Windows 命令。
+本快速入门假设在 Windows 终端（例如 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6) 或 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6)）中运行 `dotnet`、[Azure CLI](/cli/install-azure-cli) 和 Windows 命令。
 
 ## <a name="setting-up"></a>设置
 
@@ -102,7 +102,7 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 不过，为了简单起见，本快速入门创建了一个需要使用服务主体和访问控制策略的 .NET 控制台应用程序。 服务主体要求使用格式为“http://&lt;my-unique-service-principal-name&gt;”的唯一名称。
 
-使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令创建服务主体：
+使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建服务主体：
 
 ```azurecli
 az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
@@ -149,7 +149,7 @@ $clientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>为服务主体授予对 Key Vault 的访问权限
 
-通过将 clientId 传递给 [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，为密钥保管库创建授予服务主体权限的访问策略。 授予服务主体对密钥和机密的 get、list 和 set 权限。
+通过将 clientId 传递给 [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令，为密钥保管库创建授予服务主体权限的访问策略。 授予服务主体对密钥和机密的 get、list 和 set 权限。
 
 ```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions list get set delete purge
@@ -207,7 +207,7 @@ using Azure.Security.KeyVault.Secrets;
 
 ### <a name="authenticate-and-create-a-client"></a>进行身份验证并创建客户端
 
-向密钥保管库进行身份验证和创建密钥保管库客户端，依赖于上面[设置环境变量](#set-environmental-variables)步骤中的环境变量。 密钥保管库的名称将扩展为密钥保管库 URI，格式为“https://\<your-key-vault-name\>.vault.azure.cn”。 下面的代码使用[“DefaultAzureCredential()”](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)向密钥保管库进行身份验证，该密钥保管库会读取环境变量来检索访问令牌。 
+向密钥保管库进行身份验证和创建密钥保管库客户端，依赖于上面[设置环境变量](#set-environmental-variables)步骤中的环境变量。 密钥保管库的名称将扩展为密钥保管库 URI，格式为“https://\<your-key-vault-name\>.vault.azure.cn”。 下面的代码使用[“DefaultAzureCredential()”](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential)向密钥保管库进行身份验证，该密钥保管库会读取环境变量来检索访问令牌。 
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -226,7 +226,7 @@ var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential(credent
 client.SetSecret(secretName, secretValue);
 ```
 
-可以使用 [az keyvault secret show](/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 命令来验证是否设置了机密：
+可以使用 [az keyvault secret show](/cli/keyvault/secret#az-keyvault-secret-show) 命令来验证是否设置了机密：
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -254,7 +254,7 @@ KeyVaultSecret secret = client.GetSecret(secretName);
 client.StartDeleteSecret(secretName);
 ```
 
-可以使用 [az keyvault secret show](/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 命令来验证是否已删除机密：
+可以使用 [az keyvault secret show](/cli/keyvault/secret#az-keyvault-secret-show) 命令来验证是否已删除机密：
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret

@@ -3,17 +3,16 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-java
 ms.author: v-johya
-ms.openlocfilehash: 96b8d7d9729c803b8da84e9d52fbaa293f8d280a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8bd30fc0744c53b1aa99143f61652d628ba6cae5
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499123"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306611"
 ---
-<!-- word updating-->
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
 [!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
@@ -33,7 +32,7 @@ cd get-languages-sample
 gradle init --type basic
 ```
 
-当提示你选择一个 **DSL** 时，选择 **Kotlin** 。
+当提示你选择一个 **DSL** 时，选择 **Kotlin**。
 
 ## <a name="configure-the-build-file"></a>配置生成文件
 
@@ -98,7 +97,7 @@ private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/languages?api-version=3.0";
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="create-a-client-and-build-a-request"></a>创建客户端并生成请求
 
@@ -168,7 +167,7 @@ gradle run
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](../language-support.md)中查找国家/地区缩写。
 
 成功的响应以 JSON 格式返回，如以下示例所示：
 
@@ -261,4 +260,5 @@ gradle run
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

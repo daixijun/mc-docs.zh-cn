@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/24/2020
+ms.date: 11/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 823b2beddf15cb57a8e5522bc622b27180c9b190
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 89016503aa1a726970a5395e4013a338418d5c9f
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918476"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -373,7 +373,7 @@ ms.locfileid: "91245174"
 此组是用作常规工作负荷或应用程序所需的最低属性。 它可以用于另一部分中未列出的工作负荷或非 Microsoft 应用。 它显式用于以下目的：
 
 * Yammer（只使用 User）
-* [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](https://docs.microsoft.com/sharepoint/create-b2b-extranet)
 
 如果不使用 Azure AD 目录来支持 Microsoft 365、Dynamics 或 Intune，则可以使用这一组属性。 它包含一小部分核心属性。
 
@@ -420,7 +420,7 @@ ms.locfileid: "91245174"
 | msDS-KeyCredentialLink |X |在用户已注册 Windows Hello for Business 后。 | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
-选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
+选择启用 **Exchange 混合** 部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
 
 | 属性名称（本地 AD） | 属性名称（连接 UI） | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |---|

@@ -4,12 +4,12 @@ description: 了解如何将 Azure Policy 资源（例如策略定义和策略�
 ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: be903b259183287bc1c50d04d46deb5c9ee4247e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d1b0204c4c27df25b17a8ecf553edf7962ea64de
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329108"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300901"
 ---
 # <a name="export-azure-policy-resources"></a>导出 Azure Policy 资源
 
@@ -61,11 +61,11 @@ ms.locfileid: "94329108"
 
 ## <a name="export-with-azure-cli"></a>使用 Azure CLI 导出
 
-Azure Policy 定义、计划和分配都可以使用 [Azure CLI](/cli/azure/install-azure-cli) 导出为 JSON。 上述每条命令都使用一个 name 参数来指定要为哪个对象获取 JSON。 name 属性通常是 GUID，而不是对象的 displayName。
+Azure Policy 定义、计划和分配都可以使用 [Azure CLI](/cli/install-azure-cli) 导出为 JSON。 上述每条命令都使用一个 name 参数来指定要为哪个对象获取 JSON。 name 属性通常是 GUID，而不是对象的 displayName。
 
-- 定义 - [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show)
-- 计划 - [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
-- 分配 - [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show)
+- 定义 - [az policy definition show](/cli/policy/definition#az-policy-definition-show)
+- 计划 - [az policy set-definition show](/cli/policy/set-definition#az-policy-set-definition-show)
+- 分配 - [az policy assignment show](/cli/policy/assignment#az-policy-assignment-show)
 
 下面是一个示例，说明如何使用 name“VirtualMachineStorage”获取策略定义的 JSON：
 
@@ -75,11 +75,11 @@ az policy definition show --name 'VirtualMachineStorage'
 
 ## <a name="export-with-azure-powershell"></a>使用 Azure PowerShell 导出
 
-Azure Policy 定义、计划和分配都可以使用 [Azure PowerShell](/powershell/azure/) 导出为 JSON。 上述每个 cmdlet 都使用一个 Name 参数来指定要为哪个对象获取 JSON。 Name 属性通常是 GUID，而不是对象的 displayName。
+Azure Policy 定义、计划和分配都可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 导出为 JSON。 上述每个 cmdlet 都使用一个 Name 参数来指定要为哪个对象获取 JSON。 Name 属性通常是 GUID，而不是对象的 displayName。
 
-- 定义 - [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition)
-- 计划 - [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
-- 分配 - [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
+- 定义 - [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicydefinition)
+- 计划 - [Get-AzPolicySetDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicysetdefinition)
+- 分配 - [Get-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyassignment)
 
 下面是一个示例，说明如何使用 Name“VirtualMachineStorage”获取策略定义的 JSON：
 

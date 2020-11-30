@@ -8,17 +8,17 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/17/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: fe6ef37f3b3daea749cf438bfd82fe69af9259ea
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 250da299b635c94b5b6686233def93020580ab89
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021600"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300051"
 ---
 # <a name="image-analysis-cognitive-skill"></a>图像分析认知技能
 
-图像分析技能根据图像内容提取一组丰富的可视特征  。 例如，可从图像生成标题栏、生成标记或识别名人和地标。 此技能使用认知服务中的[计算机视觉](../cognitive-services/computer-vision/home.md)提供的机器学习模型。 
+图像分析技能根据图像内容提取一组丰富的可视特征  。 例如，可从图像生成标题栏、生成标记或识别名人和地标。 此技能使用认知服务中的[计算机视觉](../cognitive-services/computer-vision/overview.md)提供的机器学习模型。 
 
 > [!NOTE]
 > 如果事务量较少（不到 20 个事务），则这些事务可以在 Azure 认知搜索中免费执行，但较大的工作负荷需要[附加可计费认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API 以及在 Azure 认知搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
@@ -36,7 +36,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 参数名称     | 说明 |
 |--------------------|-------------|
 | `defaultLanguageCode` |  表示要返回的语言的字符串。 该服务以指定的语言返回识别结果。 如果未指定此属性，则默认值为“en”。 <br/><br/>支持的语言为： <br/>en - 英语（默认） <br/> *es* - 西班牙语 <br/> *ja* - 日语 <br/> *pt* - 葡萄牙语 <br/> zh - 简体中文|
-| `visualFeatures` |    表示要返回的可视特征类型的一组字符串。 有效的可视特征类型包括：  <ul><li>*adult* - 检测图片是否具有色情性质（描绘裸体或性行为），以及是否具有血腥内容（描绘极端暴力或血腥）。 还会检测性暗示内容（也称为不雅内容）。</li><li>*brands* - 检测图像中的各种品牌，包括大致位置。 *brands* 视觉功能仅在英文版本中提供。</li><li> *categories* - 根据认知服务[计算机视觉文档](../cognitive-services/computer-vision/category-taxonomy.md)中定义的分类对图像内容进行分类。 </li><li>*description* - 用受支持的语言以完整的句子描述图像内容。</li><li>*faces* - 检测人脸是否存在。 如果存在，则生成坐标、性别和年龄。</li><li>  *objects* - 检测图像中的各种对象，包括大致位置。 *objects* 视觉功能仅在英文版本中提供。</li><li> tags - 使用与图像内容相关字词的详细列表来标记图像。</li></ul> 可视特征的名称区分大小写。 请注意，color 和 imageType 视觉特征已弃用，但仍可通过[自定义技能](./cognitive-search-custom-skill-interface.md)来访问此功能。|
+| `visualFeatures` |    表示要返回的可视特征类型的一组字符串。 有效的可视特征类型包括：  <ul><li>*adult* - 检测图片是否具有色情性质（描绘裸体或性行为），以及是否具有血腥内容（描绘极端暴力或血腥）。 还会检测性暗示内容（也称为不雅内容）。</li><li>*brands* - 检测图像中的各种品牌，包括大致位置。 *brands* 视觉功能仅在英文版本中提供。</li><li> *categories* - 根据认知服务 [计算机视觉文档](../cognitive-services/computer-vision/category-taxonomy.md)中定义的分类对图像内容进行分类。 </li><li>*description* - 用受支持的语言以完整的句子描述图像内容。</li><li>*faces* - 检测人脸是否存在。 如果存在，则生成坐标、性别和年龄。</li><li>  *objects* - 检测图像中的各种对象，包括大致位置。 *objects* 视觉功能仅在英文版本中提供。</li><li> tags - 使用与图像内容相关字词的详细列表来标记图像。</li></ul> 可视特征的名称区分大小写。 请注意，color 和 imageType 视觉特征已弃用，但仍可通过[自定义技能](./cognitive-search-custom-skill-interface.md)来访问此功能。|
 | `details` | 表示要返回的特定于域的详细信息的一组字符串。 有效的可视特征类型包括： <ul><li>*celebrities* - 识别在图像中检测到的名人。</li><li>*landmarks* - 识别在图像中检测到的地标。 </li></ul> |
 
 ## <a name="skill-inputs"></a>技能输入

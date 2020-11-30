@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中自定义出口路
 services: container-service
 ms.topic: article
 origin.date: 06/29/2020
-ms.date: 10/12/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 69515f07361acbc4d867e79571cc510a234484da
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 7deed19f80e3580345d891cac72c4dd7c92ccac2
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937366"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024578"
 ---
 <!--Verified on Prerequisites successfully-->
 <!--Verified to dig function-->

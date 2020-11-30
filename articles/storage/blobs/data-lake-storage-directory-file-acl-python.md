@@ -4,18 +4,18 @@ description: 在启用了分层命名空间 (HNS) 的存储帐户中使用 Pytho
 author: WenJason
 ms.service: storage
 origin.date: 09/10/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 427462a39f11acf683acee0207df1f7b6437de2c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1d3a5279e361eb2062c94941c8b75932999a8431
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552124"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153053"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Python 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -342,7 +342,7 @@ def manage_file_permissions():
      print(e) 
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>以递归方式设置 ACL（预览）
+### <a name="set-an-acl-recursively"></a>以递归方式设置 ACL
 
 你可以为父目录的现有子项以递归方式添加、更新和删除 ACL，而不必为每个子项单独进行这些更改。 有关详细信息，请参阅[以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)](recursive-access-control-lists.md)。
 

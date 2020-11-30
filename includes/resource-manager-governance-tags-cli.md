@@ -9,14 +9,14 @@ origin.date: 02/20/2018
 ms.date: 04/15/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 829b535fa2e8cc0d71006a5e89f0ab1382ade63d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e2333019bbdd59b074d7fa991bff1b5b3f7c5696
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63859695"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301077"
 ---
-若要为资源组添加两个标记，请使用 [az group update](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-update) 命令：
+若要为资源组添加两个标记，请使用 [az group update](https://docs.azure.cn/zh-cn/cli/group#az-group-update) 命令：
 
 ```azurecli
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT

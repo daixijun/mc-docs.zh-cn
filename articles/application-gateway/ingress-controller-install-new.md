@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 345d75861b7604f9c12742a6586978a879fcdc4e
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: ef5f7003515a19e7308b3fd0bfd32d56ad448925
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849319"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024560"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>如何安装使用新应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -189,7 +189,8 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+        environment: AzureChinaCloud
+        
         # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.

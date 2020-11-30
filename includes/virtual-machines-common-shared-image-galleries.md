@@ -1,21 +1,20 @@
 ---
 title: include 文件
-description: include 文件
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d6c6655aea6171bf35f46eed9d5e9882010906bd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: eee47f31d2e8acbdab64eb3f7a57b5818a9c0fb4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103604"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300482"
 ---
 共享映像库是一种可以帮助你围绕映像构建结构和组织的服务。 共享映像库提供：
 
@@ -40,7 +39,7 @@ ms.locfileid: "93103604"
 | 资源 | 说明|
 |----------|------------|
 | **映像源** | 这是可用于在映像库中创建“映像版本”的资源。 映像源可以是现有的 Azure VM（可以是[通用或专用](#generalized-and-specialized-images)的）、托管映像、快照、VHD 或其他映像库中的映像版本。 |
-| **映像库** | 与 Azure 市场一样， **映像库** 是用于管理和共享映像的存储库，但你可以控制谁有权访问这些映像。 |
+| **映像库** | 与 Azure 市场一样，**映像库** 是用于管理和共享映像的存储库，但你可以控制谁有权访问这些映像。 |
 | **映像定义** | 映像定义在库中创建，携带有关该映像以及在内部使用该映像的要求的信息。 这包括了该映像是 Windows 还是 Linux 映像、发行说明以及最低和最高内存要求。 它是某种映像类型的定义。 |
 | **映像版本** | 使用库时，将使用 **映像版本** 来创建 VM。 可根据环境的需要创建多个映像版本。 与托管映像一样，在使用 **映像版本** 创建 VM 时，将使用映像版本来创建 VM 的新磁盘。 可以多次使用映像版本。 |
 
@@ -77,7 +76,7 @@ ms.locfileid: "93103604"
 - 标记 - 可以在创建映像定义时添加标记。 有关标记的详细信息，请参阅[使用标记来组织资源](../articles/azure-resource-manager/management/tag-resources.md)。
 - 最小和最大 vCPU 与内存建议量 - 如果映像附带 vCPU 和内存建议量，则你可以将该信息附加到映像定义。
 - 不允许的磁盘类型 - 可以提供有关 VM 所需存储的信息。 例如，如果映像不适合标准 HDD 磁盘，请将其添加到禁止列表。
-- 市场映像的购买计划信息 `-PurchasePlanPublisher`、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 有关购买计划的详细信息，请参阅[在 Azure 市场中查找映像](https://docs.azure.cn/virtual-machines/cli-ps-findimage)。
+- 市场映像的购买计划信息 `-PurchasePlanPublisher`、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 若要详细了解购买计划信息，请参阅[在 Azure 市场中查找映像](https://docs.azure.cn/virtual-machines/windows/cli-ps-findimage)和[在创建映像时提供 Azure 市场购买计划信息](../articles/virtual-machines/marketplace-images.md)。
 
     <!--Not Available on [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md)-->
 
@@ -100,7 +99,7 @@ ms.locfileid: "93103604"
 
 - 从专用映像创建的 VM 和规模集可以更快地启动并运行。 由于它们是从已经开始启动的源创建的，因此从这些映像创建的 VM 启动速度会更快。
 - 可用于登录到 VM 的帐户也可用于通过使用该 VM 创建的专用映像创建的任何 VM。
-- VM 具有用于创建映像的 VM 的 **计算机名** 。 应更改计算机名以避免冲突。
+- VM 具有用于创建映像的 VM 的 **计算机名**。 应更改计算机名以避免冲突。
 - `osProfile` 是使用 `secrets` 将某些敏感信息传递给 VM 的方式。 在使用 KeyVault、WinRM，以及在 `osProfile` 中使用 `secrets` 的其他功能时，这可能会导致出现问题。 在某些情况下，可以使用托管服务标识 (MSI) 解决这些限制。
 
 ## <a name="regional-support"></a>区域支持
@@ -122,7 +121,7 @@ ms.locfileid: "93103604"
 - 每个区域的每个订阅限制为 10 个映像版本副本
 - 附加到映像的任何磁盘的大小必须小于或等于 1 TB
 
-有关详细信息，请参阅[根据限制检查资源使用情况](/networking/check-usage-against-limits)，以获取有关如何检查当前使用情况的示例。
+有关详细信息，请参阅[根据限制检查资源使用情况](https://docs.azure.cn/networking/check-usage-against-limits)，以获取有关如何检查当前使用情况的示例。
 
 ## <a name="scaling"></a>扩展
 使用共享映像库可以指定要让 Azure 保留的映像副本数。 这有助于实现多 VM 部署方案，因为可将 VM 部署分散到不同的副本，减少单个副本过载导致实例创建过程受到限制的可能性。
@@ -134,7 +133,7 @@ ms.locfileid: "93103604"
 
 鉴于映像大小、内容和 OS 类型等因素，我们始终建议保留的副本数应超出该副本数。
 
-:::image type="content" source="./media/shared-image-galleries/scaling.png" alt-text="演示如何在库中创建多个映像版本的示意图":::
+:::image type="content" source="./media/shared-image-galleries/scaling.png" alt-text="演示如何缩放映像的示意图":::
 
 <!--Not Available on ## Make your images highly available-->
 <!--Not Available on Azure Zone Redundant Storage (ZRS)-->
@@ -144,7 +143,7 @@ ms.locfileid: "93103604"
 
 创建共享映像版本后，可以更新该版本要复制到的区域。 复制到不同区域所需的时间取决于要复制的数据量，以及该版本要复制到的区域数。 在某些情况下，这可能需要几个小时。 在复制期间，可以查看每个区域的复制状态。 在一个区域中完成映像复制后，接着可以在该区域中使用该映像版本部署 VM 或规模集。
 
-:::image type="content" source="./media/shared-image-galleries/replication.png" alt-text="演示如何在库中创建多个映像版本的示意图":::
+:::image type="content" source="./media/shared-image-galleries/replication.png" alt-text="演示如何复制映像的示意图":::
 
 ## <a name="access"></a>访问
 
@@ -161,8 +160,10 @@ ms.locfileid: "93103604"
 
 ## <a name="billing"></a>计费
 使用共享映像库服务不会产生额外的费用。 以下资源会产生费用：
-- 存储共享映像版本的存储费用。 费用取决于映像版本的副本数，以及版本要复制到的区域数。 例如，如果你有 2 个映像，并将其同时复制到 3 个区域，则你需要根据映像的大小，为 6 个托管磁盘付费。 有关详细信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/managed-disks/)。
+- 存储每个副本的存储成本。 存储按快照收费，基于映像版本的占用大小、映像版本的副本数量以及将版本复制到的区域数。 
 - 将第一个映像版本从源区域复制到目标区域的网络传出费用。 后续副本将在区域中处理，因此不会产生额外的费用。 
+
+例如，假设你有一个 127 GB 的 OS 磁盘的映像，它只占用 10 GB 的存储空间，还有一个 32 GB 的空数据磁盘。 每个映像的占用大小仅为 10 GB。 将映像复制到 3 个区域，每个区域有两个副本。 总共有 6 个快照，每个快照使用 10 GB。 将根据 10 GB 的占用大小向你收取每个快照的存储成本。 你将为要复制到另外两个区域的第一个副本支付网络流出量费用。 有关每个区域中快照定价的详细信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/managed-disks/)。 有关网络流出量的详细信息，请参阅[带宽定价](https://www.azure.cn/pricing/details/data-transfer/)。
 
 ## <a name="updating-resources"></a>正在更新资源
 
@@ -190,7 +191,7 @@ ms.locfileid: "93103604"
 - [.NET](https://docs.azure.cn/dotnet/api/overview/virtualmachines/management)
 - [Java](https://docs.azure.cn/java/)
 - [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines)
 - [Go](https://docs.microsoft.com/azure/go/)
 
     <!--URL correct on https://docs.microsoft.com/azure/go/-->
@@ -253,8 +254,8 @@ ms.locfileid: "93103604"
 
  应用场景 3：如果本地文件系统中包含 VHD，则需要将 VHD 上传到托管映像，然后可以从该映像创建映像定义和映像版本。
 
-- 如果 VHD 适用于 Windows VM，请参阅[上传 VHD](/virtual-machines/windows/upload-generalized-managed)。
-- 如果 VHD 适用于 Linux VM，请参阅[上传 VHD](/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- 如果 VHD 适用于 Windows VM，请参阅[上传 VHD](https://docs.azure.cn/virtual-machines/windows/upload-generalized-managed)。
+- 如果 VHD 适用于 Linux VM，请参阅[上传 VHD](https://docs.azure.cn/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>是否可以从专用化磁盘创建映像版本？
 

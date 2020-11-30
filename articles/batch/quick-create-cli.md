@@ -4,17 +4,17 @@ description: 快速了解如何使用 Azure CLI 创建 Batch 帐户和运行 Bat
 ms.topic: quickstart
 origin.date: 08/13/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 10/19/2018
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1acaef4eb4ef09f9fac4aeb0b5ccf9d93a2a794b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 71eb836b6fc8d9ab23cfb6ec6a59ca193b866066
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105645"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970721"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 
@@ -22,17 +22,19 @@ ms.locfileid: "93105645"
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 完成本快速入门以后，你会了解 Batch 服务的重要概念，并可使用更逼真的工作负荷进行更大规模的 Batch 试用。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- 选择在本地安装并使用 CLI 时，本快速入门要求运行 Azure CLI 2.0.20 或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+- 本快速入门需要 Azure CLI 版本 2.0.20 或更高版本。
+
+<!--Not Available on Azure Cloud Shell-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用“[az group create](https://docs.azure.cn/cli/group#az_group_create)”命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 以下示例在“chinaeast2”位置创建名为“QuickstartBatch-rg”的资源组 。
 
@@ -112,7 +114,7 @@ az batch job create \
 
 现在，请使用 [az batch task create](https://docs.azure.cn/cli/batch/task#az_batch_task_create) 命令创建一些在作业中运行的任务。 此示例创建四个相同的任务。 每个任务都运行`command-line`，用于显示计算节点上的 Batch 环境变量，然后等待 90 秒。 使用 Batch 时，可以在此命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
 
-以下 Bash 脚本创建 4 个并行任务（ *mytask1* 到 *mytask4* ）。
+以下 Bash 脚本创建 4 个并行任务（*mytask1* 到 *mytask4*）。
 
 ```azurecli
 for i in {1..4}
@@ -142,7 +144,7 @@ az batch task show \
 
 ## <a name="view-task-output"></a>查看任务输出
 
-若要列出计算节点上的任务所创建的文件，请使用 [az batch task file list](https://docs.azure.cn/cli/batch/task/file#az_batch_task_file_list) 命令。 以下命令列出 *mytask1* 创建的文件：
+若要列出计算节点上的任务所创建的文件，请使用 [az batch task file list](https://docs.azure.cn/cli/batch/task#az-batch-task-file-list) 命令。 以下命令列出 *mytask1* 创建的文件：
 
 ```azurecli
 az batch task file list \
@@ -163,7 +165,7 @@ stderr.txt  https://mybatchaccount.chinaeast2.batch.chinacloudapi.cn/jobs/myjob/
 
 ```
 
-若要将某个输出文件下载到本地目录，请使用 [az batch task file download](https://docs.azure.cn/cli/batch/task/file#az_batch_task_file_download) 命令。 在此示例中，任务输出位于 `stdout.txt`。
+若要将某个输出文件下载到本地目录，请使用 [az batch task file download](https://docs.azure.cn/cli/batch/task#az-batch-task-file-download) 命令。 在此示例中，任务输出位于 `stdout.txt`。
 
 ```azurecli
 az batch task file download \

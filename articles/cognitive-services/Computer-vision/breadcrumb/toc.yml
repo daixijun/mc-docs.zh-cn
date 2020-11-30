@@ -9,3 +9,14 @@
         - name: 计算机视觉空间分析
           tocHref: /legal/cognitive-services/computer-vision/
           topicHref: /cognitive-services/Computer-vision/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: 认知服务
+      tocHref: /cognitive-services/
+      topicHref: /cognitive-services/index
+      items:
+        - name: 计算机视觉
+          tocHref: /cognitive-services/
+          topicHref: /cognitive-services/computer-vision/index

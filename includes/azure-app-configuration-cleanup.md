@@ -9,12 +9,12 @@ origin.date: 01/31/2020
 ms.date: 02/17/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 4d6ede66ed7cffbdbad7f524e2a2bc8bd755d4af
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 79a05dc2004898b57b242072681b63ba70fa949b
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866604"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231490"
 ---
 如果不想继续使用本文中创建的资源，请删除此处创建的资源组以避免产生费用。
 
@@ -22,8 +22,8 @@ ms.locfileid: "88866604"
 > 删除资源组的操作不可逆。 将永久删除资源组以及其中的所有资源。 请确保不要意外删除错误的资源组或资源。 如果在包含要保留的其他资源的资源组中创建了本文的资源，请从相应的窗格中单独删除每个资源，而不是删除该资源组。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)，然后选择“资源组”。
-1. 在“按名称筛选”框中，输入资源组的名称****。 
-1. 在结果列表中，选择资源组，然后右键单击该行或使用**省略号** (**...**) 按钮打开上下文菜单。
+1. 在“按名称筛选”框中，输入资源组的名称。 
+1. 在结果列表中，选择资源组名称以查看概述。
 1. 选择“删除资源组”。
 1. 系统会要求确认是否删除资源组。 重新键入资源组的名称进行确认，然后选择“删除”  。
 

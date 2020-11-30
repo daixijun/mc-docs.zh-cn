@@ -3,17 +3,16 @@ title: 使用门户上传、编码和流式传输内容 - Azure
 description: 本快速入门介绍如何使用门户通过 Azure 媒体服务上传、编码和流式传输内容。
 ms.topic: quickstart
 origin.date: 08/31/2020
-ms.date: 09/28/2020
-ms.service: media-services
+ms.date: 11/30/2020
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-ms.openlocfilehash: 829fe3abf566a1c47e83b5188f96de243113bc02
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+manager: femila
+ms.openlocfilehash: dcf43b8f774402183f85574cb4cb3f2989aac520
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245646"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300857"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>快速入门：使用门户上传、编码和流式传输内容
 
@@ -37,7 +36,7 @@ ms.locfileid: "91245646"
     查看以下内容： 
 
   * [云上传和存储](storage-account-concept.md)
-  * [资产概念](assets-concept.md)
+  * [资产的概念](assets-concept.md)
 * 将高质量的数字媒体文件上传到一个资产（输入资产）后，可对其进行处理（编码）。 处理的内容将进入另一个资产（输出资产）。 
     * 将上传的文件[编码](encoding-concept.md)为可在各种浏览器和设备上播放的格式。
 * 处理完内容后，即可将媒体内容交付给客户端播放器。 若要使输出资产中的视频可供客户端进行播放，必须创建流式处理定位符。 创建流式处理定位符时，需要指定流式处理策略 。 使用流式处理策略可为流式处理定位符定义流式处理协议和加密选项（如果有） 。
@@ -56,7 +55,7 @@ ms.locfileid: "91245646"
 
 [创建媒体服务帐户](create-account-howto.md#use-the-azure-portal)
 
-## <a name="upload"></a>上载
+## <a name="upload"></a>上传
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 找到并单击你的媒体服务帐户。
@@ -66,7 +65,7 @@ ms.locfileid: "91245646"
 
 如果导航到资产窗口，可看到一个新资产已添加到列表中：
 
-![上载](./media/manage-assets-quickstart/upload.png)
+![Azure 门户的屏幕截图，显示了通过选择“资产(新)”打开的“资产”窗口和通过选择“上传”按钮添加的新资产。](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>编码
 
@@ -78,7 +77,7 @@ ms.locfileid: "91245646"
 
 如果导航到资产窗口，可看到该输出资产已添加到列表中：
 
-![编码](./media/manage-assets-quickstart/encode.png)
+![Azure 门户中“资产”窗口的屏幕截图，显示进行了媒体编码器标准编码的资产 ignite.mp4（已添加到资产列表）。](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>监视作业进度
 

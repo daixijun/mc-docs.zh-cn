@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 11/22/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: cc15a6f552e57c084f7e133ce5222e3e8c544d9d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0a1f806f5bed9b3ac5bdd08c1faa5475bf93aa2b
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104597"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306251"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure 认知服务的支持和帮助选项
 
@@ -57,6 +57,7 @@ ms.locfileid: "93104597"
 **决策**
 
 * [内容审查器](https://docs.microsoft.com/answers/topics/azure-content-moderator.html)
+* [指标顾问（预览版）]()
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 上发布问题
 
@@ -88,6 +89,7 @@ ms.locfileid: "93104597"
 **决策**
 
 * [内容审查器](https://stackoverflow.com/search?q=azure+content+moderator)
+* [指标顾问（预览版）](https://stackoverflow.com/search?q=azure+metrics+advisor)
 
 ## <a name="submit-feedback-on-user-voice"></a>在 User Voice 上提交反馈
 
@@ -119,5 +121,5 @@ ms.locfileid: "93104597"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [什么是 Azure 认知服务？](welcome.md)
+> [什么是 Azure 认知服务？](./what-are-cognitive-services.md)
 

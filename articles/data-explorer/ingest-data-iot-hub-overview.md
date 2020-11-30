@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 577e8eb99b74854b9861534c098be96b0d967c35
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 89d8c5d84918bfbbae222df308093ddf4224c497
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104057"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300363"
 ---
 # <a name="iot-hub-data-connection"></a>IoT 中心数据连接
 
@@ -26,7 +26,7 @@ IoT 引入管道需要完成几个步骤。 首先，创建一个 IoT 中心，�
 
 ## <a name="data-format"></a>数据格式
 
-* 将以 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) 对象的形式从事件中心终结点读取数据。
+* 将以 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata) 对象的形式从事件中心终结点读取数据。
 * 请参阅[支持的格式](ingestion-supported-formats.md)。
     > [!NOTE]
     > IoT 中心不支持 .raw 格式。
@@ -35,14 +35,14 @@ IoT 引入管道需要完成几个步骤。 首先，创建一个 IoT 中心，�
 
 ## <a name="ingestion-properties"></a>引入属性
 
-引入属性指示引入过程将数据路由到何处以及如何对其进行处理。 可以使用 [EventData.Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) 指定事件的[引入属性](ingestion-properties.md)。 可以设置以下属性：
+引入属性指示引入过程将数据路由到何处以及如何对其进行处理。 可以使用 [EventData.Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties) 指定事件的[引入属性](ingestion-properties.md)。 可以设置以下属性：
 
 |属性 |说明|
 |---|---|
 | 表 | 现有目标表的名称（区分大小写）。 替代“`Data Connection`”窗格上设置的“`Table`”。 |
 | 格式 | 数据格式。 替代“`Data Connection`”窗格上设置的“`Data format`”。 |
 | IngestionMappingReference | 要使用的现有[引入映射](kusto/management/create-ingestion-mapping-command.md)的名称。 替代“`Data Connection`”窗格上设置的“`Column mapping`”。|
-| 编码 |  数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks)。 |
+| 编码 |  数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding#remarks)。 |
 
 > [!NOTE]
 > 只有创建数据连接后进入队列的事件才会被引入。
@@ -50,7 +50,7 @@ IoT 引入管道需要完成几个步骤。 首先，创建一个 IoT 中心，�
 ## <a name="events-routing"></a>事件路由
 
 设置到 Azure 数据资源管理器群集的 IoT 中心连接时，请指定目标表属性（表名、数据格式和映射）。 此设置是用于你的数据的默认路由，也称为“静态路由”。
-还可以使用事件属性指定每个事件的目标表属性。 连接将按照 [EventData.Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) 中指定的要求动态路由数据，替代此事件的静态属性。
+还可以使用事件属性指定每个事件的目标表属性。 连接将按照 [EventData.Properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties) 中指定的要求动态路由数据，替代此事件的静态属性。
 
 > [!Note]
 > 如果选择了“我的数据包括路由信息”，则必须提供必要的路由信息作为事件属性的一部分。

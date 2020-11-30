@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 3fd5bdc04a8ee9edf08faf83f4a23209af20bd43
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c622b5c17f38c8c764d630660f87870a3fc73065
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106025"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978260"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -110,6 +110,16 @@ ms.locfileid: "93106025"
 
 另外，还可以从笔记本工具栏中启动 Jupyter 或 JupyterLab。  Azure 机器学习不提供来自 Jupyter 或 JupyterLab 的更新，也不修复其中的 bug，因为这些开源产品不在 Microsoft 支持的范围内。
 
+### <a name="focus-mode"></a>焦点模式
+
+使用焦点模式展开当前视图，以便将焦点放在活动的选项卡上。 焦点模式将隐藏笔记本文件资源管理器。
+
+1. 在终端窗口工具栏中，选择“焦点模式”以打开焦点模式。 根据窗口宽度的不同，它可能位于工具栏的“…”菜单项下。
+1. 在焦点模式下，通过选择“标准视图”返回到标准视图。
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="切换焦点模式/标准视图":::
+
+
 ### <a name="use-intellisense"></a>使用 IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) 是一个代码完成辅助插件，其中包括许多功能：“列出成员”、“参数信息”、“快速信息”和“完成单词”。 这些功能可帮助你详细了解所使用的代码、跟踪正在键入的参数，只需几次击键即可添加对属性和方法的调用。  
@@ -179,7 +189,7 @@ ms.locfileid: "93106025"
 
 ### <a name="view-logs-and-output"></a>查看日志和输出
 
-使用[笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
+使用[笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
 
 ## <a name="change-the-notebook-environment"></a>更改笔记本环境
 
@@ -209,7 +219,7 @@ ms.locfileid: "93106025"
 1. 选择笔记本工具栏中的“[打开终端](#terminal)”。
 1. 使用终端窗口创建新环境。  例如，以下代码会创建 `newenv`：
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. 激活该环境。  例如，创建 `newenv` 的结果如下：
 
@@ -219,8 +229,8 @@ ms.locfileid: "93106025"
 1. 在新环境中安装 pip 和 ipykernel 包，并为该 conda 环境创建内核
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

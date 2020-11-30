@@ -10,18 +10,18 @@ ms.topic: tutorial
 origin.date: 05/06/2020
 ms.date: 06/02/2020
 ms.author: v-tawe
-ms.openlocfilehash: 40de41681a4643cf868f45f67a7149a3eb1afe88
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 811b798137a9b2eac1a77e96800d1fe854721744
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678429"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300918"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>教程：使用托管标识将 Key Vault 连接到 .NET Azure Web 应用
 
 虽然 Azure Key Vault 提供安全存储凭据及其他机密的方式，但代码需要对 Key Vault 进行身份验证才能检索这些凭据和机密。 [Azure 资源的托管标识概述](../../active-directory/managed-identities-azure-resources/overview.md)可帮助你解决此问题，其中介绍了如何在 Azure AD 中为 Azure 服务提供自动托管的标识。 此标识可用于通过支持 Azure AD 身份验证的任何服务（包括 Key Vault）的身份验证，这样就无需在代码中插入任何凭据了。
 
-本教程使用托管标识将 Azure Web 应用向 Azure Key Vault 进行身份验证。 尽管这些步骤使用[适用于 .NET 的 Azure Key Vault v4 客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/key-vault?view=azure-dotnet)和 [Azure CLI](/cli/get-started-with-azure-cli)，但在使用你选择的开发语言、Azure PowerShell 和/或 Azure 门户时，相同的基本原则也适用。
+本教程使用托管标识将 Azure Web 应用向 Azure Key Vault 进行身份验证。 尽管这些步骤使用[适用于 .NET 的 Azure Key Vault v4 客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/key-vault)和 [Azure CLI](/cli/get-started-with-azure-cli)，但在使用你选择的开发语言、Azure PowerShell 和/或 Azure 门户时，相同的基本原则也适用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,11 +29,11 @@ ms.locfileid: "90678429"
 
 * Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial/)。
 * [.NET Core 3.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
-* [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group?view=azure-cli-latest#az-group-create) 命令创建一个资源组，用于存放密钥保管库和 Web 应用：
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group#az-group-create) 命令创建一个资源组，用于存放密钥保管库和 Web 应用：
 
 ```azurecli
 az group create --name "myResourceGroup" -l "ChinaEast"
@@ -43,7 +43,7 @@ az group create --name "myResourceGroup" -l "ChinaEast"
 
 现在，你将创建一个密钥保管库，并在其中放置机密，以便在本教程的后面部分使用。
 
-若要创建密钥保管库，请使用 [az keyvault create](/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 命令：
+若要创建密钥保管库，请使用 [az keyvault create](/cli/keyvault#az-keyvault-create) 命令：
 
 > [!Important]
 > 每个密钥保管库必须具有唯一的名称。 将以下示例中的 <your-unique-keyvault-name> 替换为你的密钥保管库名称。
@@ -54,7 +54,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 记下返回的 `vaultUri`（其格式将为“https://<your-keyvault-name>.vault.azure.cn/”）。 它将在[更新代码](#update-the-code)步骤中使用。
 
-现在可以使用 [az keyvault secret set](/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 命令将机密放入密钥保管库中。 将机密名称设置为“MySecret”，将值设置为 "Success!"。
+现在可以使用 [az keyvault secret set](/cli/keyvault/secret#az-keyvault-secret-set) 命令将机密放入密钥保管库中。 将机密名称设置为“MySecret”，将值设置为 "Success!"。
 
 ```azurecli
 az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
@@ -101,7 +101,7 @@ git commit -m "first commit"
 
 可以使用“deployment user”将 FTP 和本地 Git 部署到 Azure Web 应用。 配置部署用户之后，可对所有 Azure 部署使用此用户。 帐户级部署用户名和密码不同于 Azure 订阅凭据。 
 
-若要配置部署用户，请运行 [az webapp deployment user set](/cli/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 命令。 选择符合以下准则的用户名和密码： 
+若要配置部署用户，请运行 [az webapp deployment user set](/cli/webapp/deployment/user#az-webapp-deployment-user-set) 命令。 选择符合以下准则的用户名和密码： 
 
 - 用户名在 Azure 中必须唯一，并且为了本地Git推送，不能包含“@”符号。 
 - 密码必须至少为 8 个字符，且具有字母、数字和符号这三种元素中的两种。 
@@ -116,13 +116,13 @@ JSON 输出会将该密码显示为 `null`。 如果收到 `'Conflict'. Details:
 
 ### <a name="create-an-app-service-plan"></a>创建应用服务计划
 
-使用 Azure CLI [az appservice plan create](/cli/appservice/plan?view=azure-cli-latest) 命令创建应用服务计划。 以下示例在“免费”定价层中创建名为 `myAppServicePlan` 的应用服务计划：
+使用 Azure CLI [az appservice plan create](/cli/appservice/plan) 命令创建应用服务计划。 以下示例在“免费”定价层中创建名为 `myAppServicePlan` 的应用服务计划：
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息：
+创建应用服务计划后，Azure CLI 会显示类似于以下示例的信息：
 
 <pre>
 { 
@@ -237,7 +237,7 @@ http://<your-webapp-name>.chinacloudsites.cn
 
 ## <a name="create-and-assign-a-managed-identity"></a>创建并分配托管标识
 
-在 Azure CLI 中，若要为此应用程序创建标识，请运行 [az webapp-identity assign](https://docs.microsoft.com/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 命令：
+在 Azure CLI 中，若要为此应用程序创建标识，请运行 [az webapp-identity assign](https://docs.microsoft.com/cli/azure/webapp/identity#az-webapp-identity-assign) 命令：
 
 ```azurecli
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -253,7 +253,7 @@ az webapp identity assign --name "<your-webapp-name>" --resource-group "myResour
 }
 ```
 
-若要为 Web 应用授予在密钥保管库上执行 **get** 和 **list** 的权限，请将 principalID 传递到 Azure CLI [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令：
+若要为 Web 应用授予在密钥保管库上执行 **get** 和 **list** 的权限，请将 principalID 传递到 Azure CLI [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令：
 
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -282,7 +282,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-将以下行添加到 `app.UseEndpoints` 调用之前，更新 URI 以反映密钥保管库的 `vaultUri`。 下面的代码将 [DefaultAzureCredential()](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) 用于向密钥保管库进行身份验证，该类使用来自应用程序托管标识的令牌进行身份验证。 它还在密钥保管库受到限制的情况下将指数退避用于重试。
+将以下行添加到 `app.UseEndpoints` 调用之前，更新 URI 以反映密钥保管库的 `vaultUri`。 下面的代码将 [DefaultAzureCredential()](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 用于向密钥保管库进行身份验证，该类使用来自应用程序托管标识的令牌进行身份验证。 它还在密钥保管库受到限制的情况下将指数退避用于重试。
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -332,7 +332,7 @@ http://<your-webapp-name>.chinacloudsites.cn
 
 - 详细了解 [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)
 - 详细了解[应用服务的托管标识](../../app-service/overview-managed-identity.md?tabs=dotnet)
-- 请参阅[适用于 .NET 的 Azure Key Vault 客户端库 API 参考](https://docs.microsoft.com/dotnet/api/overview/azure/key-vault?view=azure-dotnet)
+- 请参阅[适用于 .NET 的 Azure Key Vault 客户端库 API 参考](https://docs.microsoft.com/dotnet/api/overview/azure/key-vault)
 - 请参阅[适用于 .NET 的 Azure Key Vault 客户端库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)
 - 请参阅[适用于 .NET 的 v4 Azure Key Vault 客户端库 NuGet 包](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 

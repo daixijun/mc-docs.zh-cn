@@ -9,18 +9,114 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 6de032084831b02b2545e37d6617ef64e498f412
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7555b7dd2d2b5953a0075be02a394d8346261c8d
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978049"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
-本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的 [**适用于 Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考页。
+本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的[适用于 Python 的主要 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 参考页。
 
 请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>用于 Python 的 Azure 机器学习 SDK v1.18.0
++ **Bug 修复与改进**
+  + **azureml-automl-core**
+    +  通过允许使用高斯噪声填充短时序来改进其处理。
+  + **azureml-automl-runtime**
+    + 如果 DateTime 列具有 OutOfBoundsDatetime 值，则引发 ConfigException
+    + 通过允许使用高斯噪声填充短时序来改进其处理。
+    + 确保每个文本列都可以根据该文本列中字符串的长度，利用 N 元语法范围内的字符语法转换。
+    + 为在用户本地计算上运行的 AutoML 试验的最佳模式提供原始特征的解释
+  + **azureml-core**
+    + 固定包 pyjwt，以避免在即将发布的版本中引入中断性版本。
+    + 创建一个实验将返回具有相同给定名称的活动试验或最后存档的试验（如果该实验存在）或新的试验。
+    + 按名称调用 get_experiment 将返回具有该给定名称的活动试验或上次存档的试验。
+    + 用户在重新激活实验时不能重命名它。
+    + 改进了错误消息，以在数据集不正确地传递到试验（如 ScriptRunConfig）时包含潜在的修补程序。 
+    + 改进了 `OutputDatasetConfig.register_on_complete` 文档，以包含在名称已存在时会发生的行为。
+    + 现在，指定可能与常见环境变量发生冲突的数据集输入和输出名称将导致警告
+    + 重新设定了在注册数据存储时参数 `grant_workspace_access` 的用途。 将其设置为 `True` 以从机器学习工作室访问虚拟网络后面的数据。
+      [了解详细信息](/machine-learning/how-to-enable-studio-virtual-network)
+    + 已优化链接服务 API。 我们没有提供资源 Id，而是在配置中定义了 3 个独立的参数 sub_id、rg 和 name。
+    + 为了使客户能够自行解决令牌损坏问题，可使工作区令牌同步成作为一种公共方法。
+    + 此更改允许将空字符串用作 script_param 的值
+  + **azureml-pipeline-core**
+    + 支持 SynapseCompute 类型和 SynapseSparkStep 的 SDK。 客户可以在 Synapse Spark 池上运行试验和管道运行。
+  + **azureml-pipeline-steps**
+    + 支持 SynapseCompute 类型和 SynapseSparkStep 的 SDK。 客户可以在 Synapse Spark 池上运行试验和管道运行。
+  + azureml-synapse
+    + 添加 Synapse magic 和 SparkMonitor，允许用户提交 Syanpse 作业并在笔记本中查看作业进度。
+  + **azureml-train-automl-client**
+    +  通过允许使用高斯噪声填充短时序来改进其处理。
+  + **azureml-train-automl-runtime**
+    + 如果 DateTime 列具有 OutOfBoundsDatetime 值，则引发 ConfigException
+    + 添加了对在用户本地计算上运行的 AutoML 试验的最佳模式提供原始特征解释的支持
+    + 通过允许使用高斯噪声填充短时序来改进其处理。
+  + **azureml-train-core**
+    + 此更改允许将空字符串用作 script_param 的值
+  + **azureml-train-restclients-hyperdrive**
+    + README 已更改，可提供更多上下文
+  + **azureml-widgets**
+    + 向小组件的图表/并行坐标库添加字符串支持。
+
+## <a name="2020-11-05"></a>2020-11-05
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>图像实例分段的数据标签（多边形注释）（预览）
+
+数据标签中的图像实例分段（多边形注释）项目类型现在可用，因此用户可以围绕图像中的对象轮廓绘制多边形并进行标注。 用户将能够为图像中感兴趣的每个对象分配一个类和一个多边形。
+
+详细了解[图像实例分段标签](how-to-label-images.md)。
+
+
+
+## <a name="2020-10-26"></a>2020-10-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1170"></a>用于 Python 的 Azure 机器学习 SDK v1.17.0
++ 新示例
+  + https://github.com/Azure/azureml-examples 提供了一个新的社区主导的示例存储库
++ **Bug 修复与改进**
+  + **azureml-automl-core**
+    + 修复了 get_output 可能会引发 XGBoostError 的问题。
+  + **azureml-automl-runtime**
+    + AutoML 创建的基于时间/日历的功能现在将具有前缀。
+    + 修复了在针对启用了大量类和子采样的分类数据集训练 StackEnsemble 期间发生的 IndexError。
+    + 修复了在重新拟合模型后 VotingRegressor 预测可能不准确的问题。
+  + **azureml-core**
+    + 添加了有关 AKS 部署配置和 Azure Kubernetes 服务概念之间关系的其他详细信息。
+    + 客户可以使用链接服务 SDK 将 synapse 工作区链接到 AML 工作区。 支持 CRUD。
+    + 环境客户端标签支持。 用户可以标记环境并通过标签引用它们。
+  + **azureml-dataprep**
+    + 完善了在 Scala 2.12 中使用当前不受支持的 Spark 时出现的错误消息。
+  + **azureml-explain-model**
+    + 已正式弃用 azureml-explain-model 包
+  + **azureml-mlflow**
+    + 解决了针对 azureml 后端的 mlflow.projects.run 中未正确处理完成状态的 bug。
+  + **azureml-pipeline-core**
+    + 添加基于管道终结点创建、列出和获取管道计划的支持。
+    +  改进了 PipelineData.as_dataset 文档，添加了无效用法的示例：不正确地使用 PipelineData.as_dataset 现在将引发 ValueException
+    + 更改了 HyperDriveStep 管道笔记本，以便在运行 HyperDriveStep 之后直接在 PipelineStep 中注册最佳模型。
+  + **azureml-pipeline-steps**
+    + 更改了 HyperDriveStep 管道笔记本，以便在运行 HyperDriveStep 之后直接在 PipelineStep 中注册最佳模型。
+  + **azureml-train-automl-client**
+    + 修复了 get_output 可能会引发 XGBoostError 的问题。
+
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Azure 机器学习工作室笔记本体验（10 月更新）
++ **新功能**
+  + [完整虚拟网络支持](/machine-learning/how-to-enable-studio-virtual-network)
+  + [焦点模式](/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + 保存笔记本 Ctrl-S
+  + 行号
+
++ **Bug 修复与改进**
+  + 提高了速度和内核可靠性
+  + Jupyter 小组件 UI 更新
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -179,7 +275,7 @@ ms.locfileid: "93106177"
   + 新的入门登陆页 
   
 + **预览功能**
-    + 笔记本中的“收集”功能。 利用�[收集](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)�功能，用户现在可以轻松清理笔记本，“收集”功能使用笔记本的自动依赖项分析，确保保留基本代码，但删除所有不相关的部分。
+    + 笔记本中的“收集”功能。 利用�[收集](/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)�功能，用户现在可以轻松清理笔记本，“收集”功能使用笔记本的自动依赖项分析，确保保留基本代码，但删除所有不相关的部分。
 
 + **Bug 修复与改进**
   + 提高了速度和可靠性
@@ -347,7 +443,7 @@ ms.locfileid: "93106177"
   + **azureml-pipeline-steps**
     + 更新了 azureml-pipeline-steps 的文档。
     +  在 ParallelRunConfig 的 `load_yaml()` 中添加了相关支持，允许用户在配置的其余部分中或在单独的文件中定义内联环境
-  + **azureml-train-automl-client** 。
+  + **azureml-train-automl-client**。
     + 删除了在 AutoMLConfig 中指定 `enable_cache` 的功能
   + **azureml-train-automl-runtime**
     + 通过 BERT 添加了可用性有限的多节点、多 gpu 分布式特征化。
@@ -682,7 +778,7 @@ ms.locfileid: "93106177"
 ## <a name="2020-05-04"></a>2020-05-04
 **全新笔记本体验**
 
-现在，你可以直接在 Azure 机器学习的工作室 Web 体验中创建、编辑和共享机器学习笔记本和文件。 你可以在这些笔记本中使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 中提供的所有类和方法。请从[此处](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks)开始
+现在，你可以直接在 Azure 机器学习的工作室 Web 体验中创建、编辑和共享机器学习笔记本和文件。 你可以在这些笔记本中使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 中提供的所有类和方法。请从[此处](/machine-learning/how-to-run-jupyter-notebooks)开始
 
 **引入的新功能：**
 
@@ -1043,7 +1139,7 @@ ms.locfileid: "93106177"
 
 + **新功能**
   + 数据集：添加了两个选项 `on_error` 和 `out_of_range_datetime`，以便在数据包含错误值时使 `to_pandas_dataframe` 失败，而不是用 `None` 来填充它们。
-  + 工作区：为包含敏感数据的工作区添加了 `hbi_workspace` 标志，以便启用进一步的加密，并对工作区禁用高级诊断。 我们还添加了为关联的 Cosmos DB 实例使用自己的密钥的支持，若要获得此项支持，可以在创建工作区时指定 `cmk_keyvault` 和 `resource_cmk_uri` 参数，以便在预配工作区时在订阅中创建 Cosmos DB 实例。 [在此处了解详细信息。](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
+  + 工作区：为包含敏感数据的工作区添加了 `hbi_workspace` 标志，以便启用进一步的加密，并对工作区禁用高级诊断。 我们还添加了为关联的 Cosmos DB 实例使用自己的密钥的支持，若要获得此项支持，可以在创建工作区时指定 `cmk_keyvault` 和 `resource_cmk_uri` 参数，以便在预配工作区时在订阅中创建 Cosmos DB 实例。 [在此处了解详细信息。](/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Bug 修复与改进**
   + **azureml-automl-runtime**
@@ -1241,7 +1337,7 @@ SDK 的主要功能包括：
 
 ### <a name="azure-machine-learning-integration-with-event-grid"></a>Azure 机器学习与事件网格的集成 
 
-Azure 机器学习现在是事件网格的资源提供程序，你可以通过 Azure 门户或 Azure CLI 配置机器学习事件。 用户可以针对运行完成状态、模型注册、模型部署以及检测到的数据偏移创建事件。 可将这些事件路由到事件网格支持的事件处理程序以供使用。 有关更多详细信息，请参阅机器学习事件[架构](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning)和[教程](how-to-use-event-grid.md)文章。
+Azure 机器学习现在是事件网格的资源提供程序，你可以通过 Azure 门户或 Azure CLI 配置机器学习事件。 用户可以针对运行完成状态、模型注册、模型部署以及检测到的数据偏移创建事件。 可将这些事件路由到事件网格支持的事件处理程序以供使用。 有关更多详细信息，请参阅机器学习事件[架构](/event-grid/event-schema-machine-learning)和[教程](how-to-use-event-grid.md)文章。
 
 ## <a name="2019-10-31"></a>2019-10-31
 
@@ -1249,7 +1345,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
 
 + **新功能**
   + 通过 [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift) 包添加了数据集监视器，用于持续监视存在数据偏移的时序数据集或其他统计更改。 如果检测到偏移或符合针对数据的其他条件，则可以触发警报和事件。 有关详细信息，请参阅[我们的文档](how-to-monitor-datasets.md)。
-  + 在 Azure 机器学习中宣布两个新版本（也称为 SKU）。 在此版本中，现在可以创建“基本”或“企业”Azure 机器学习工作区。 所有现有工作区默认为“基本”版本，随时可以转到 Azure 门户或工作室来升级工作区。 可以从 Azure 门户创建“基本”或“企业”工作区。 有关详细信息，请阅读[我们的文档](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)。 在 SDK 中，可以使用工作区对象的“sku”属性确定工作区的版本。
+  + 在 Azure 机器学习中宣布两个新版本（也称为 SKU）。 在此版本中，现在可以创建“基本”或“企业”Azure 机器学习工作区。 所有现有工作区默认为“基本”版本，随时可以转到 Azure 门户或工作室来升级工作区。 可以从 Azure 门户创建“基本”或“企业”工作区。 有关详细信息，请阅读[我们的文档](/machine-learning/how-to-manage-workspace)。 在 SDK 中，可以使用工作区对象的“sku”属性确定工作区的版本。
   + 我们还增强了 Azure 机器学习计算 - 现在，可以在 Azure Monitor 中查看群集的指标（例如节点总数、正在运行的节点、总核心配额），并可以查看用于调试的诊断日志。 此外，还可以查看群集上当前正在运行或已排队的运行，以及群集中各个节点的 IP 等详细信息。 可以在门户中查看这些信息，或者使用 SDK 或 CLI 中的相应函数来查看。
 
   + **预览功能**
@@ -1310,7 +1406,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
     + 更改了 [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-)，以便在注册数据集后返回注册名称和版本。
     + 修复了无法反复使用将数据集用作参数的 ScriptRunConfig 来提交试验运行的 bug。
     + 在运行期间检索到的数据集将受到跟踪，并可以在运行详细信息页中查看，或者在运行完成后调用 [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) 来查看。
-    + 允许将 Azure 机器学习管道中的中间数据转换为表格数据集，并在 [`AutoMLStep`](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep) 中使用。
+    + 允许将 Azure 机器学习管道中的中间数据转换为表格数据集，并在 [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlstep) 中使用。
     + 添加了对部署和打包受支持模型（ONNX、scikit-learn 和 TensorFlow）的支持，无需 InferenceConfig 实例。
     + 在 SDK 和 CLI 中为服务部署（ACI 和 AKS）添加了覆盖标志。 如果提供此标志，将覆盖现有服务（如果存在同名的服务）。 如果服务不存在，将创建新服务。
     +  可将模型注册到 Onnx 和 Tensorflow 这两个新框架。 模型注册接受模型的示例输入数据、示例输出数据和资源配置。
@@ -1327,7 +1423,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
     + 各种 Bug 修复
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + 从管道 `yaml` 文件提交 Azure 机器学习管道运行不再需要 azureml-dataprep。
-  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
+  + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/)
     + 在自动生成的 conda env 中添加了 azureml-defaults 用于解决模型部署失败
     + AutoML 远程训练现在包含 azureml-defaults，允许重复使用训练 env 进行推理。
   + **azureml-train-core**
@@ -1432,12 +1528,12 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
       + 参数“daily_latest_only”已弃用。
     + 支持检索基于数据集的数据偏移输出。
   + **azureml-explain-model**
-    + 添加了直接使用 MimicWrapper 创建 [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) 的支持
+    + 添加了直接使用 MimicWrapper 创建 [ScoringExplainer](https://docs.microsoft.com/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) 的支持
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + 改进了创建大管道的性能。
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
     + 在 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow) 评估器中添加了 TensorFlow 2.0 支持。
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/)**
     + 当设置迭代失败时，父运行将不再失败，因为业务流程可以处理此问题。
     + 为 AutoML 试验添加了 local-docker 和 local-conda 支持
     + 为 AutoML 试验添加了 local-docker 和 local-conda 支持。
@@ -1461,12 +1557,12 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
     + 添加了组织有序的环境。 这些环境中已预先配置用于常用机器学习任务的库，并且已预先生成并缓存为 Docker 映像，以加快执行速度。 默认情况下，这些环境会显示在[工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29)的环境列表中，其前缀为“AzureML”。
 
   + **azureml-train-automl**
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/)**
     + 添加了对 ADB 和 HDI 的 ONNX 转换支持
 
 + **预览功能**
   + **azureml-train-automl**
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/)**
     + 支持用作文本特征化器的 BERT 和 BiLSTM（仅限预览版）
     + 支持列用途和转换器参数的特征化自定义（仅限预览版）
     + 当用户在训练期间启用模型解释时支持原始解释（仅限预览版）
@@ -1478,7 +1574,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
 + **Bug 修复与改进**
   + **azureml-automl-core**
     + 已将 FeaturizationConfig 引入到 AutoMLConfig 和 AutoMLBaseSettings
-    + 已将 FeaturizationConfig 引入到 [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 和 AutoMLBaseSettings
+    + 已将 FeaturizationConfig 引入到 [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 和 AutoMLBaseSettings
       + 使用给定的列和特征类型替代用于特征化的列用途
       + 替代转换器参数
     + 为 explain_model() 和 retrieve_model_explanations() 添加了弃用消息
@@ -1523,9 +1619,9 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + 添加了用于通过 AML 管道支持 R 脚本运行的 [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep)。
     + 修复了 AzureBatchStep 中的元数据参数分析问题，此问题会导致出现错误消息“未指定参数 SubscriptionId 的分配”。
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/)**
     + 支持将 training_data、validation_data、label_column_name 和 weight_column_name 用作数据输入格式。
-    + 为 [explain_model()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) 和 [retrieve_model_explanations()](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-) 添加了弃用消息。
+    + 为 [explain_model()](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) 和 [retrieve_model_explanations()](https://docs.microsoft.com/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime.automlexplainer#retrieve-model-explanation-child-run-) 添加了弃用消息。
 
 
 ## <a name="2019-09-16"></a>2019-09-16
@@ -1879,7 +1975,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
   + **azureml-pipeline-steps**
     + DatabricksStep 中的输入和输出现在支持 DBFS 数据存储。
     + 更新了 Azure Batch 步骤的输入/输出相关文档。
-    + 在 AzureBatchStep 中，已将 *delete_batch_job_after_finish* 默认值更改为 *true* 。
+    + 在 AzureBatchStep 中，已将 *delete_batch_job_after_finish* 默认值更改为 *true*。
   + **azureml-telemetry**
     +  已将 azureml-contrib-opendatasets 移到 azureml-opendatasets。
     + 允许将打开的数据集类注册到 Azure 机器学习工作区并无缝利用 AML 数据集功能。
@@ -1911,7 +2007,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
 
 + **新功能**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** 现已作为 **azureml-opendatasets** 提供。 旧包仍可正常运行，但我们建议使用 **azureml-opendatasets** ，以获得更丰富的功能和改进。
+    + **azureml-contrib-opendatasets** 现已作为 **azureml-opendatasets** 提供。 旧包仍可正常运行，但我们建议使用 **azureml-opendatasets**，以获得更丰富的功能和改进。
     + 使用此新包可将打开的数据集注册为 Azure 机器学习工作区中的数据集，并利用数据集提供的任何功能。
     + 它还包括一些现有的功能，例如，将打开的数据集用作 Pandas/SPARK 数据帧，以及某些数据集（如天气）的位置联接。
 

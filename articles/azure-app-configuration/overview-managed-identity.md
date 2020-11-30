@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1671f688e2ed079d02e43f03515593cd74fe91b6
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 1a60a5b0d9344339240a042ceb9c09bdd7b782b6
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866709"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190311"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>如何将托管标识用于 Azure 应用程序配置
 
@@ -31,7 +31,7 @@ ms.locfileid: "88866709"
 
 若要使用 Azure CLI 设置托管标识，请对现有配置存储区使用 [az appconfig identity assign] 命令。 运行本部分中的示例有三个选项：
 
-- 如果想要使用本地 CLI 控制台，请[安装最新版 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)（2.1 或更高版本）。
+- 如果想要使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.1 或更高版本）。
 
 以下步骤将指导你完成使用 CLI 创建应用程序配置存储区并为其分配标识的操作：
 
@@ -62,7 +62,7 @@ ms.locfileid: "88866709"
 
 若要使用 Azure CLI 设置托管标识，请对现有配置存储区使用 [az appconfig identity assign] 命令。 运行本部分中的示例有三个选项：
 
-- 如果喜欢使用本地 CLI 控制台，请[安装最新版 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)（2.0.31 或更高版本）。
+- 如果喜欢使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.0.31 或更高版本）。
 
 以下步骤演示如何创建用户分配的标识和应用程序配置存储区，然后使用 CLI 将该标识分配给存储：
 

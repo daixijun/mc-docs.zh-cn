@@ -3,15 +3,16 @@ title: 教程 - 在代码提交时构建映像
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时在云中自动触发容器映像生成。
 ms.topic: tutorial
 origin.date: 05/04/2019
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 2a9521748b160906069f9b50d71c1fbcdda3c26b
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f0f0eaa683d3e6ce36556935939c8598c49c7cd2
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024637"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时，在云中自动化容器映像生成
 
@@ -287,11 +288,11 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-task]: https://docs.azure.cn/cli/acr/task
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
 
 <!-- Update_Description: update meta properties, wording update, update link -->

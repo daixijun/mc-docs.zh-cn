@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于高�
 services: container-service
 ms.topic: article
 origin.date: 08/21/2020
-ms.date: 09/21/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 03/27/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 4164371c93ab8d9dfa2daaca4469b6d3fdad4f72
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 8e60e60ac97519cdfca892ce2bd9795d9a9a4589
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146800"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024544"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -46,7 +46,7 @@ ms.locfileid: "91146800"
 
 本文假定你拥有现有的 AKS 群集，其中包含支持 GPU 的节点。 AKS 群集须运行 Kubernetes 1.10 或更高版本。 如果需要满足这些要求的 AKS 群集，请参阅本文第一部分来[创建 AKS 群集](#create-an-aks-cluster)。
 
-还需安装并配置 Azure CLI 2.0.64 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.64 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 <!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
@@ -126,7 +126,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: dockerhub.azk8s.cn/nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -251,7 +251,7 @@ spec:
     spec:
       containers:
       - name: samples-tf-mnist-demo
-        image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+        image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
         resources:
@@ -260,7 +260,7 @@ spec:
       restartPolicy: OnFailure
 ```
 
-<!--MOONCAKE: IMAGE CORRECT ON image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu-->
+<!--MOONCAKE: IMAGE CORRECT ON image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu-->
 
 使用 [kubectl apply][kubectl-apply] 命令运行该作业。 此命令分析清单文件并创建定义的 Kubernetes 对象：
 
@@ -268,23 +268,9 @@ spec:
 kubectl apply -f samples-tf-mnist-demo.yaml
 ```
 
-<!--MOONCAKE: Add OR-->
-
-或
-
-<!--MOONCAKE: Add OR-->
-<!--MOONCAKE Unique content on 03/28/2019-->
-
-```
-kubectl create -f https://raw.githubusercontent.com/andyzhangx/demo/master/linux/gpu/gpu-demo-mooncake.yaml
-```
-
-<!--MOONCAKE Unique content on 03/28/2019-->
-<!--DONT REMOVE IT-->
-
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>查看启用了 GPU 的工作负荷的状态和输出
 
-将 [kubectl get jobs][kubectl-get] 命令与 `--watch` 参数配合使用，监视作业的进度。 先拉取映像并处理数据集可能需要几分钟时间。 当“COMPLETIONS”列显示“1/1”时，作业便已成功完成   。 使用 `kubetctl --watch`Ctrl-C*退出* 命令：
+将 [kubectl get jobs][kubectl-get] 命令与 `--watch` 参数配合使用，监视作业的进度。 先拉取映像并处理数据集可能需要几分钟时间。 当“COMPLETIONS”列显示“1/1”时，作业便已成功完成   。 使用 `kubetctl --watch`Ctrl-C *退出* 命令：
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -410,11 +396,11 @@ kubectl delete jobs samples-tf-mnist-demo
 
 <!-- LINKS - internal -->
 
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

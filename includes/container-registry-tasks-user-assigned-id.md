@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4ae38c0f4f31741e2cdd18f512a3a58523ee9a7a
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 7e81c77a975989860e9c0ff1718df34719a1ed0a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427556"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301119"
 ---
 ### <a name="create-a-user-assigned-identity"></a>创建用户分配的标识
 
@@ -52,7 +52,7 @@ clientID=$(az identity show \
 
 <!-- LINKS - Internal -->
 
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-show]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-show
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az-identity-create
+[az-identity-show]: https://docs.microsoft.com/cli/azure/identity#az-identity-show
 
 <!-- Update_Description: update meta properties, wording update, update link -->

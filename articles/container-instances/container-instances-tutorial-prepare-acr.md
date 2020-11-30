@@ -4,15 +4,15 @@ description: Azure 容器实例教程第 2 部分（共 3 部分）- 准备 Azur
 ms.topic: tutorial
 origin.date: 12/18/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 6e1a54bff767cc380167b1e9f244ce4f93cc2921
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 47d6ca9ac6f543b2e35152a5993e15e012469c87
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564281"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024527"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>教程：创建 Azure 容器注册表并推送容器映像
@@ -62,7 +62,7 @@ mycontainerregistry082.azurecr.cn
 docker images
 ```
 
-此时应会显示在[前一篇教程](container-instances-tutorial-prepare-app.md)中生成的 *aci-tutorial-app* 映像，以及计算机上包含的其他所有映像：
+此时应会显示在 [前一篇教程](container-instances-tutorial-prepare-app.md)中生成的 *aci-tutorial-app* 映像，以及计算机上包含的其他所有映像：
 
 ```console
 $ docker images
@@ -70,7 +70,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-使用容器注册表的登录服务器标记 aci-tutorial-app 映像**。 此外，请将 `:v1` 标记添加到映像名称的末尾，指示映像版本号。 将 `<acrLoginServer>` 替换为前面执行的 [az acr show][az-acr-show] 命令的结果。
+使用容器注册表的登录服务器标记 aci-tutorial-app 映像。 此外，请将 `:v1` 标记添加到映像名称的末尾，指示映像版本号。 将 `<acrLoginServer>` 替换为前面执行的 [az acr show][az-acr-show] 命令的结果。
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -87,7 +87,7 @@ mycontainerregistry082.azurecr.cn/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>向 Azure 容器注册表推送映像
 
-使用专用注册表的完整登录服务器名称标记 aci-tutorial-app 映像后，可以使用 [docker push][docker-push] 命令将该映像推送到注册表**。 将 `<acrLoginServer>` 替换为在前面步骤中获取的完整登录服务器名称。
+使用专用注册表的完整登录服务器名称标记 aci-tutorial-app 映像后，可以使用 [docker push][docker-push] 命令将该映像推送到注册表。 将 `<acrLoginServer>` 替换为在前面步骤中获取的完整登录服务器名称。
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -127,7 +127,7 @@ Result
 aci-tutorial-app
 ```
 
-若要查看特定映像的标记，请使用 [az acr repository show-tags][az-acr-repository-show-tags] 命令。**
+若要查看特定映像的标记，请使用 [az acr repository show-tags][az-acr-repository-show-tags] 命令。
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
@@ -172,12 +172,12 @@ v1
 
 <!-- LINKS - Internal -->
 
-[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
 [az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository
-[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-show-tags
-[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
+[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show_tags
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 
 <!-- Update_Description: update meta properties, wording update, update link -->

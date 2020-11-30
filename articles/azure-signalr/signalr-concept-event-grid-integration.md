@@ -9,12 +9,12 @@ origin.date: 11/13/2019
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: 1d6fbae4395dac50ad0d36acb196d8245e11b415
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 402677b45c9c31c4159ec445df505f45aece710e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170799"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300925"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>响应 Azure SignalR 服务事件
 
@@ -22,7 +22,7 @@ Azure SignalR 服务事件允许应用程序使用新式无服务器体系结构
 
 Azure SignalR 服务事件会可靠地发送到事件网格服务，该服务通过丰富的重试策略和死信传递向应用程序提供可靠的传递服务。 若要了解详细信息，请参阅[事件网格消息传递和重试](../event-grid/delivery-and-retry.md)。
 
-![事件网格模型](/azure/event-grid/media/overview/functional-model.png)
+![事件网格模型](/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>无服务器状态
 只有在客户端连接处于无服务器状态时，Azure SignalR 服务事件才处于活动状态。 如果客户端不路由到中心服务器，则它会进入无服务器状态。 仅当客户端连接连接到的中心没有中心服务器时，经典模式才适用。 建议最好使用无服务器模式。 若要了解服务模式的更多详细信息，请参阅[如何选择服务模式](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose)。

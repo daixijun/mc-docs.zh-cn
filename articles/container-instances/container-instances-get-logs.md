@@ -3,15 +3,16 @@ title: 获取容器实例日志和事件
 description: 了解如何在 Azure 容器实例中检索容器日志和事件，以便排查容器问题
 ms.topic: article
 origin.date: 12/30/2019
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 9b3e813b6aab39e997f82c6a9066ec34472f91de
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7318dda468c18eb155c262391d039e92f361249e
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80516973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024461"
 ---
 <!--Verified successfully-->
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>在 Azure 容器实例中检索容器日志和事件
@@ -158,9 +159,8 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 <!-- LINKS - Internal -->
 
-[az-container-attach]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-attach
-[az-container-logs]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-attach]: https://docs.microsoft.com/cli/azure/container#az_container_attach
+[az-container-logs]: https://docs.microsoft.com/cli/azure/container#az_container_logs
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
 
-<!-- Update_Description: new article about container instances get logs -->
-<!--NEW.date: 01/15/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

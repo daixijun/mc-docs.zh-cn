@@ -15,12 +15,12 @@ ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64383b9108be3fe2d9c06d47e3be1b69d104d455
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 839a9c78efdbdd03a7c82be4541e92ab6dac0871
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590932"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300630"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 通知中心
 
@@ -112,7 +112,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 
 2. 获取命名空间的列表。
 
-   若要查看有关新命名空间的详细信息，请使用 [az notification-hub namespace list](https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) 命令。  如果要查看订阅的所有命名空间，则 `--resource-group` 参数为可选。
+   若要查看有关新命名空间的详细信息，请使用 [az notification-hub namespace list](https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) 命令。  如果要查看订阅的所有命名空间，则 `--resource-group` 参数为可选。
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 
 3. 获取通知中心的列表。
 
-   Azure CLI 会在执行每个命令后返回成功或错误消息；不过你一定能够查询通知中心的列表。  [az notification-hub list](https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) 命令旨在实现此目的。
+   Azure CLI 会在执行每个命令后返回成功或错误消息；不过你一定能够查询通知中心的列表。  [az notification-hub list](https://docs.microsoft.com/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) 命令旨在实现此目的。
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

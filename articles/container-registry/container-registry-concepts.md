@@ -3,16 +3,17 @@ title: 关于存储库和映像
 description: Azure 容器注册表、存储库和容器映像的重要概念简介。
 ms.topic: article
 origin.date: 06/16/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66edfed8959bb5b2c305db5bee53cce439d87615
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: f26f1a0e75756320bf2f643b21b5b4ad68f03231
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863163"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024627"
 ---
 <!--Verify sucessfully, spliting articles-->
 # <a name="about-registries-repositories-and-images"></a>关于注册表、存储库和映像
@@ -21,7 +22,9 @@ ms.locfileid: "86863163"
 
 ## <a name="registry"></a>注册表
 
-容器注册表是一项存储和分发容器映像的服务  。 Docker Hub 是一个公共容器注册表，支持开放源社区并充当映像的通用目录。 Azure 容器注册表为用户提供映像直接控制、集成身份验证、支持全局分发和网络邻近部署可靠性的[异地复制](container-registry-geo-replication.md)、[虚拟网络和防火墙配置](container-registry-vnet.md)、[标记锁定](container-registry-image-lock.md)以及许多其他的增强功能。 
+容器注册表是一项存储和分发容器映像的服务  。 Docker Hub 是一个公共容器注册表，支持开放源社区并充当映像的通用目录。 Azure 容器注册表为用户提供映像直接控制、集成身份验证、支持全局分发和网络邻近部署可靠性的[异地复制](container-registry-geo-replication.md)、[标记锁定](container-registry-image-lock.md)以及其他许多增强功能。 
+
+<!--Not Available on [virtual network and firewall configuration](container-registry-vnet.md)-->
 
 除了 Docker 容器映像以外，Azure 容器注册表还支持相关的[内容项目](container-registry-image-formats.md)，包括开放容器计划 (OCI) 映像格式。
 
@@ -143,6 +146,6 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 <!-- LINKS - Internal -->
 
-[az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
+[az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show_manifests
 
 <!-- Update_Description: update meta properties, wording update, update link -->

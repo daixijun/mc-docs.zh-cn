@@ -4,15 +4,15 @@ description: 本教程介绍在更新同一注册表中的基础映像时，如�
 ms.topic: tutorial
 origin.date: 01/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: 81f4c99d3ea6fe84d9d0462cba96c04a55d3711b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 81f2b6cdc83b028f6d127d6db5072b1a59631650
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024638"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教程：在 Azure 容器注册表中更新基础映像时自动化容器映像生成 
@@ -249,10 +249,7 @@ docker stop updatedapp
 
 <!-- LINKS - External -->
 
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
 [base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base

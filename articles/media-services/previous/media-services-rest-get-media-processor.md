@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/20/2019
-ms.date: 09/28/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 4645405eead8b655657ec093b14c1f745e735a33
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 021254201662bdc58b1377113998351a951ec4ad
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245048"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299991"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 
@@ -29,18 +29,18 @@ ms.locfileid: "91245048"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## <a name="overview"></a>概述
-媒体处理器是完成特定视频或音频处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 提交到媒体服务的所有任务需要通过一个媒体处理器来编码、加密或转换视频或音频内容。 
 
-## <a name="azure-media-processors"></a>Azure 媒体处理器 
+媒体处理器是完成特定视频或音频处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 提交到媒体服务的所有任务需要通过一个媒体处理器来编码、加密或转换视频或音频内容。
+
+## <a name="azure-media-processors"></a>Azure 媒体处理器
 
 以下主题提供媒体处理器列表：
 
-* [编码媒体处理器](scenarios-and-availability.md#encoding-media-processors)
-* [分析媒体处理器](scenarios-and-availability.md#analytics-media-processors)
+* [编码媒体处理器](scenarios-and-availability.md)
+* [分析媒体处理器](scenarios-and-availability.md)
 
 >[!NOTE]
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。

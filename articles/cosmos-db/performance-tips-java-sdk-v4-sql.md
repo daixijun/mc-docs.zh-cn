@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 18d1f6a9f205f524e1186ab8d5c9c15eb6c70835
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 4687594faac947b29b3808189e3f5820c9838fe7
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552786"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190318"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
@@ -440,25 +440,25 @@ _ **横向扩展客户端工作负荷**
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
         ```
 
- _ **OS 打开文件资源限制**
+_ **OS 打开文件资源限制**
 
     <!-- Notice: Replace the Red Hat with CentOS-->
 
-    某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加了上限。 运行以下命令以查看当前限制：
+    Some Linux systems (like CentOS) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
 
     ```bash
     ulimit -a
     ```
 
-    打开的文件数 (nofile) 需要足够大，以便为配置的连接池大小和 OS 打开的其他文件留出足够的空间。 可以修改此参数，以增大连接池大小。
+    The number of open files (nofile) needs to be large enough to have enough room for your configured connection pool size and other open files by the OS. It can be modified to allow for a larger connection pool size.
 
-    打开 limits.conf 文件：
+    Open the limits.conf file:
 
     ```bash
     vim /etc/security/limits.conf
     ```
 
-    添加/修改以下行：
+    Add/modify the following lines:
 
     ```
     * - nofile 100000

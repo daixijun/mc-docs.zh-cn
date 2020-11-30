@@ -4,16 +4,16 @@ description: 了解如何对 Azure Key Vault 进行身份验证
 author: ShaneBala-keyvault
 ms.author: v-tawe
 origin.date: 08/27/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8556e0e4c4bee0f9782bc796d17401a670871402
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 902af1fa3d499a4829945bb89b5906f9be6f9c6c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678464"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300855"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>对 Azure Key Vault 进行身份验证
 
@@ -21,7 +21,7 @@ ms.locfileid: "90678464"
 
 ## <a name="app-identity-and-security-principals"></a>应用标识和安全主体
 
-使用密钥保管库进行的身份验证可与 [Azure Active Directory (Azure AD)](/active-directory/fundamentals/active-directory-whatis) 结合使用，后者负责对任何给定安全主体的标识进行身份验证。
+使用密钥保管库进行的身份验证可与 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 结合使用，后者负责对任何给定安全主体的标识进行身份验证。
 
 安全主体是一个对象，表示请求访问 Azure 资源的用户、组、服务或应用程序。 Azure 为每个安全主体分配唯一的对象 ID。
 
@@ -37,9 +37,9 @@ ms.locfileid: "90678464"
 
     借助托管标识，Azure 在内部管理应用程序的服务主体，并自动通过其他 Azure 服务对应用程序进行身份验证。 托管标识可用于部署到各种服务的应用程序。
 
-    有关详细信息，请参阅[托管标识概述](/active-directory/managed-identities-azure-resources/overview)。 另请参阅[支持托管标识的 Azure 服务](/active-directory/managed-identities-azure-resources/services-support-managed-identities)，其链接到介绍如何为特定服务（例如应用服务、Azure Functions、虚拟机等）启用托管标识的文章。
+    有关详细信息，请参阅[托管标识概述](../../active-directory/managed-identities-azure-resources/overview.md)。 另请参阅[支持托管标识的 Azure 服务](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)，其链接到介绍如何为特定服务（例如应用服务、Azure Functions、虚拟机等）启用托管标识的文章。
 
-* 如果不能使用托管标识，请改为将应用程序注册到 Azure AD 租户，如[快速入门：将应用程序注册到 Azure 标识平台](/active-directory/develop/quickstart-register-app)中所述。 注册操作还会创建第二个应用程序对象，该对象在所有租户中标识该应用。
+* 如果不能使用托管标识，请改为将应用程序注册到 Azure AD 租户，如[快速入门：将应用程序注册到 Azure 标识平台](../../active-directory/develop/quickstart-register-app.md)中所述。 注册操作还会创建第二个应用程序对象，该对象在所有租户中标识该应用。
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>授权安全主体访问 Key Vault
 
@@ -57,13 +57,13 @@ ms.locfileid: "90678464"
  
     若要分配和管理角色，请参阅以下文章：
 
-    - [Azure 门户](/role-based-access-control/role-assignments-portal)
-    - [Azure CLI](/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/role-based-access-control/role-assignments-powershell)
+    - [Azure 门户](../../role-based-access-control/role-assignments-portal.md)
+    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    密钥保管库目前支持[参与者](/role-based-access-control/built-in-roles#key-vault-contributor)角色，该角色允许对密钥保管库资源进行管理操作。 目前还有多个其他角色以预览版提供。 还可以按照 [Azure 自定义角色](/role-based-access-control/custom-roles)中所述创建自定义角色。
+    密钥保管库目前支持[参与者](../../role-based-access-control/built-in-roles.md#key-vault-contributor)角色，该角色允许对密钥保管库资源进行管理操作。 目前还有多个其他角色以预览版提供。 还可以按照 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)中所述创建自定义角色。
 
-    有关角色的一般信息，请参阅[什么是 Azure 基于角色的访问控制 (RBAC)？](/role-based-access-control/overview)。
+    有关角色的一般信息，请参阅[什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)。
 
 
 > [!IMPORTANT]
@@ -73,7 +73,7 @@ ms.locfileid: "90678464"
 
 默认情况下，密钥保管库允许通过公共 IP 地址访问资源。 为了提高安全性，还可以将访问限制为仅允许特定的 IP 范围、服务终结点、虚拟网络进行访问。
 
-有关详细信息，请参阅[访问防火墙保护下的 Azure 密钥保管库](/key-vault/general/access-behind-firewall)。
+有关详细信息，请参阅[访问防火墙保护下的 Azure 密钥保管库](./access-behind-firewall.md)。
 
 
 ## <a name="the-key-vault-authentication-flow"></a>密钥保管库身份验证流
@@ -81,7 +81,7 @@ ms.locfileid: "90678464"
 1. 服务主体请求使用 Azure AD 进行身份验证，例如：
     * 用户使用用户名和密码登录到 Azure 门户。
     * 应用程序调用 Azure REST API，提供客户端 ID 和密码或客户端证书。
-    * Azure 资源（例如具有托管标识的虚拟机）与 [Azure 实例元数据服务 (IMDS)](/virtual-machines/windows/instance-metadata-service) REST 终结点联系以获取访问令牌。
+    * Azure 资源（例如具有托管标识的虚拟机）与 [Azure 实例元数据服务 (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) REST 终结点联系以获取访问令牌。
 
 1. 如果使用 Azure AD 成功进行身份验证，则将向服务主体授予 OAuth 令牌。
 
@@ -90,7 +90,7 @@ ms.locfileid: "90678464"
 1. 密钥保管库防火墙会检查以下条件。 如果满足任何条件，则允许调用。 否则，调用将被阻止并返回禁止访问响应。
 
     * 防火墙已禁用，并且可以从公共 Internet 访问密钥保管库的公共终结点。
-    * 调用方是[密钥保管库受信任的服务](/key-vault/general/overview-vnet-service-endpoints#trusted-services)，因此允许其绕过防火墙。
+    * 调用方是[密钥保管库受信任的服务](./overview-vnet-service-endpoints.md#trusted-services)，因此允许其绕过防火墙。
     * 调用方按 IP 地址、虚拟网络或服务终结点在防火墙中列出。
     <!-- * The caller can reach Key Vault over a configured private link connection.     -->
 
@@ -110,20 +110,20 @@ ms.locfileid: "90678464"
 
 | 密钥保管库机密 | 密钥保管库密钥 | Key Vault 证书 |
 |  --- | --- | --- |
-| [Python](/key-vault/secrets/quick-create-python) | [Python](/key-vault/keys/quick-create-python) | [Python](/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/key-vault/secrets/quick-create-net-v3) | -- | -- |
-| [Java](/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Azure 门户](/key-vault/secrets/quick-create-portal) | [Azure 门户](/key-vault/keys/quick-create-portal) | [Azure 门户](/key-vault/certificates/quick-create-portal) |
-| [Azure CLI](/key-vault/secrets/quick-create-cli) | [Azure CLI](/key-vault/keys/quick-create-cli) | [Azure CLI](/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/key-vault/certificates/quick-create-powershell) |
-| [ARM 模板](/key-vault/secrets/quick-create-net) | -- | -- |
+| [Azure 门户](../secrets/quick-create-portal.md) | [Azure 门户](../keys/quick-create-portal.md) | [Azure 门户](../certificates/quick-create-portal.md) |
+| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [ARM 模板](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>后续步骤
 
 - [密钥保管库访问策略故障排除](troubleshooting-access-issues.md)
 - [密钥保管库 REST API 错误代码](rest-error-codes.md)
 - [密钥保管库开发人员指南](developers-guide.md)
-- [什么是 Azure 基于角色的访问控制 (RBAC)？](/role-based-access-control/overview)
+- [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)

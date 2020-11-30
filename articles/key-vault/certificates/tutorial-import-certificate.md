@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 origin.date: 04/16/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 488f66290b58c4dd8e2ea848996e4b6774c3844b
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: cc0cd87223b7d3d2c4717500249e51d48aaf1923
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678475"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300823"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>教程：在 Azure Key Vault 中导入证书
 
@@ -87,7 +87,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 收到证书已成功导入的消息后，可以单击列表中的该证书以查看其属性。 
 
-![证书属性](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+![显示证书属性查看位置的屏幕截图。](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>使用 Azure CLI 导入证书
 
@@ -105,9 +105,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-详细了解[参数](https://docs.azure.cn/cli/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+详细了解[参数](/cli/keyvault/certificate#az-keyvault-certificate-import)
 
-导入证书后，可以使用 [certificate show](https://docs.azure.cn/cli/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show) 来查看证书
+导入证书后，可以使用 [certificate show](/cli/keyvault/certificate#az-keyvault-certificate-show) 来查看证书
 
 
 ```azurecli
@@ -153,6 +153,6 @@ Import-AzureKeyVaultCertificate
 
 在本教程中，你创建了一个 Key Vault 并在其中导入了一个证书。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
 
-- 详细了解如何[在 Azure Key Vault 中管理证书创建](https://docs.azure.cn/key-vault/certificates/create-certificate-scenarios)
+- 详细了解如何[在 Azure Key Vault 中管理证书创建](./create-certificate-scenarios.md)
 - 参阅[使用 REST API 导入证书](https://docs.microsoft.com/rest/api/keyvault/importcertificate/importcertificate)的示例
 - 查看 [Azure Key Vault 最佳做法](../general/best-practices.md)

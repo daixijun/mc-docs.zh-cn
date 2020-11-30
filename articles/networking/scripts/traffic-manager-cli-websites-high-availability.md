@@ -13,12 +13,12 @@ ms.workload: traffic-manager
 origin.date: 06/26/2018
 ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: d67c9c1061d7326eb1ab50a8b350a10aa1e1f10c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0c195da79410aa98f8b7532f8463f891349e30cc
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884069"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300947"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>为实现应用程序的高可用性路由流量 - Azure CLI
 
@@ -135,11 +135,11 @@ az group delete --name myResourceGroup2 --yes
 
 此脚本使用以下命令创建资源组、Web 应用、流量管理器配置文件和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/cli/group) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.azure.cn/cli/appservice/plan) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az webapp create](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务计划中的 Azure Web 应用。 |
+| [az webapp create](https://docs.azure.cn/cli/webapp#az-webapp-create) | 创建应用服务计划中的 Azure Web 应用。 |
 | [az network traffic-manager profile create](https://docs.azure.cn/cli/network/traffic-manager/profile) | 创建 Azure 流量管理器配置文件。 |
 | [az network traffic-manager endpoint create](https://docs.azure.cn/cli/network/traffic-manager/endpoint) | 将终结点添加到 Azure 流量管理器配置文件。 |
 

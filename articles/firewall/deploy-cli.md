@@ -5,17 +5,17 @@ services: firewall
 ms.service: firewall
 origin.date: 08/29/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: eed0c3cb2ea57a2ece07baf9f03d29245acdfc42
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 3fd50a146b22d90ac8df6df540f863ecf9c32588
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246802"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970726"
 ---
 <!--Verify Successsfully-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
@@ -48,21 +48,14 @@ ms.locfileid: "91246802"
 
 如果你愿意，可以使用 [Azure 门户](tutorial-firewall-deploy-portal.md)或 [Azure PowerShell](deploy-ps.md) 完成此过程。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>先决条件
+- 本文需要 Azure CLI 版本 2.0.4 或更高版本。
 
-### <a name="azure-cli"></a>Azure CLI
+<!--Not Available on Azure Cloud Shell-->
 
-如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
-
-安装 Azure 防火墙扩展：
-
-```azurecli
-az extension add -n azure-firewall
-```
 
 ## <a name="set-up-the-network"></a>设置网络
 

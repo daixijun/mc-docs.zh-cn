@@ -58,6 +58,8 @@
           href: ../fundamentals/active-directory-whatis.md
         - name: 管理域名
           href: domains-manage.md
+        - name: 验证子域是否是托管域
+          href: domains-verify-custom-subdomain.md
         - name: 删除目录
           href: directory-delete-howto.md
         - name: 多个目录

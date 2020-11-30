@@ -8,17 +8,17 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 07/12/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: b82eacb83eeba0c2f6a91dbecdbc91edfd176cd8
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 63647f341f0d61c7813d854db5c8f2eec9420792
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020886"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300756"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>配置从 Azure 认知搜索索引器到 Azure VM 上 SQL Server 的连接
 
-如[使用索引器将 Azure SQL 数据库连接到 Azure 认知搜索](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，针对 **Azure VM 上的 SQL Server**（或简称 **SQL Azure VM**）创建索引器受 Azure 认知搜索支持，但首先需要满足一些与安全性相关的先决条件。 
+如 [使用索引器将 Azure SQL 数据库连接到 Azure 认知搜索](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，针对 **Azure VM 上的 SQL Server**（或简称 **SQL Azure VM**）创建索引器受 Azure 认知搜索支持，但首先需要满足一些与安全性相关的先决条件。 
 
 从 Azure 认知搜索到 VM 上的 SQL Server 的连接是公共 Internet 连接。 对于这些连接通常会遵循的所有安全措施在此处也适用：
 
@@ -31,7 +31,7 @@ ms.locfileid: "90020886"
 1. 查看证书的属性，验证使用者名称是否是 Azure VM 的完全限定的域名 (FQDN)。 可以使用 CertUtils 等工具或证书管理单元查看属性。 可从 [Azure 门户](https://portal.azure.cn/)中 VM 服务边栏选项卡的“基本要素”部分中获取 FQDN（位于“公共 IP 地址/DNS 名称标签”  字段中）。
    
    * 对于使用较新的资源管理器  模板创建的 VM，FQDN 的格式设置为 `<your-VM-name>.<region>.cloudapp.chinacloudapi.cn`
-   * 对于创建为**经典** VM 的较旧 VM，FQDN 的格式设置为 `<your-cloud-service-name.chinacloudapp.cn>`。
+   * 对于创建为 **经典** VM 的较旧 VM，FQDN 的格式设置为 `<your-cloud-service-name.chinacloudapp.cn>`。
 
 2. 使用注册表编辑器 (regedit) 将 SQL Server 配置为使用证书。 
    
@@ -42,19 +42,19 @@ ms.locfileid: "90020886"
      `[MSSQL13.MSSQLSERVER]` 部分因版本和实例名称而异。 
    * 将证书  密钥的值设置为已导入到 VM 的 TLS/SSL 证书的指纹  。
      
-     可通过多种方式获取指纹，有些方式十分有效。 如果从 MMC 的**证书**管理单元中复制指纹，可能会[如此支持文章中所述](https://support.microsoft.com/kb/2023869/)选取不可见的前导字符，这会导致在尝试连接时出错。 提供了几种更正此问题的解决方法。 最简单的方法是按 Backspace 键退格，并重新键入指纹的第一个字符，以在 regedit 中删除密钥值字段中的前导字符。 此外，也可以使用其他工具复制指纹。
+     可通过多种方式获取指纹，有些方式十分有效。 如果从 MMC 的 **证书** 管理单元中复制指纹，可能会 [如此支持文章中所述](https://support.microsoft.com/kb/2023869/)选取不可见的前导字符，这会导致在尝试连接时出错。 提供了几种更正此问题的解决方法。 最简单的方法是按 Backspace 键退格，并重新键入指纹的第一个字符，以在 regedit 中删除密钥值字段中的前导字符。 此外，也可以使用其他工具复制指纹。
 
 3. 向服务帐户授予权限。 
    
-    请确保向 SQL Server 服务帐户授予 TLS/SSL 证书私钥的相应权限。 如果忽略此步骤，SQL Server 将不会启动。 可使用**证书**管理单元或 **CertUtils** 执行此任务。
+    请确保向 SQL Server 服务帐户授予 TLS/SSL 证书私钥的相应权限。 如果忽略此步骤，SQL Server 将不会启动。 可使用 **证书** 管理单元或 **CertUtils** 执行此任务。
     
 4. 重新启动 SQL Server 服务。
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>在 VM 中配置 SQL Server 连接
 设置 Azure 认知搜索所需的加密连接后，Azure VM 上的 SQL Server 内还有一些其他配置步骤。 如果尚未执行这些步骤，下一步是使用以下文章之一完成配置：
 
-* 有关 **Resource Manager** VM，请参阅[使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)。 
-* 有关**经典** VM，请参阅[连接到 Azure 上的 SQL Server 虚拟机（经典）](../virtual-machines/windows/classic/sql-connect.md)。
+* 有关 **Resource Manager** VM，请参阅 [使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)。 
+* 有关 **经典** VM，请参阅 [连接到 Azure 上的 SQL Server 虚拟机（经典）](../virtual-machines/windows/classic/sql-connect.md)。
 
 具体而言，查看每个文章中的“通过 Internet 连接”部分。
 
@@ -64,12 +64,12 @@ ms.locfileid: "90020886"
 下面的链接提供了有关 VM 部署的 NSG 配置的说明。 使用这些说明，根据其 IP 地址为 Azure 认知搜索终结点配置 ACL。
 
 > [!NOTE]
-> 有关背景知识，请参阅[什么是网络安全组？](../virtual-network/security-overview.md)
+> 有关背景知识，请参阅[什么是网络安全组？](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 
-* 有关 **Resource Manager** VM，请参阅[如何为 ARM 部署创建 NSG](../virtual-network/tutorial-filter-network-traffic.md)。 
-* 有关**经典** VM，请参阅[如何为经典部署创建 NSG](../virtual-network/virtual-networks-create-nsg-classic-ps.md)。
+* 有关 **Resource Manager** VM，请参阅 [如何为 ARM 部署创建 NSG](../virtual-network/tutorial-filter-network-traffic.md)。 
+* 有关 **经典** VM，请参阅 [如何为经典部署创建 NSG](../virtual-network/virtual-networks-create-nsg-classic-ps.md)。
 
 IP 寻址会产生一些挑战，如果了解问题和潜在解决方法，则可以轻松应对。 剩余部分提供了有关处理 ACL 中与 IP 地址相关的问题的建议。
 

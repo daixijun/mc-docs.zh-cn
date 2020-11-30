@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: ecdb53e3b508ea42de98d2a02e6de3b12e631aeb
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 11/12/2020
+ms.openlocfilehash: 106a3b38bf63d919e8087bc8857fcdcc9e1e72cc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104249"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978066"
 ---
 # <a name="convert-to-image-directory"></a>转换为图像目录
 
@@ -47,7 +47,8 @@ ms.locfileid: "93104249"
     
     ![图像示例数据集](./media/module/image-sample-dataset.png)
 
-    对于评分，图像数据集文件夹仅需要包含未分类的图像。
+    > [!NOTE]
+    > 对于推理，图像数据集文件夹仅需要包含未分类的图像。
 
 1. 在工作区中[将图像数据集注册为文件数据集](/machine-learning/how-to-create-register-datasets)，因为“转换为图像目录”模块的输入必须是文件数据集。
 

@@ -59,7 +59,7 @@
       href: ../common/customer-managed-keys-overview.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 可伸缩性和性能目标
       href: storage-files-scale-targets.md
-    - name: 常见问题解答
+    - name: 常见问题
       href: storage-files-faq.md
 - name: 操作指南
   items:
@@ -113,6 +113,8 @@
           items:
             - name: 检查“上次同步时间”属性
               href: ../common/last-sync-time-get.md?toc=%2fstorage%2ffiles%2ftoc.json
+            - name: 启动帐户故障转移
+              href: ../common/storage-initiate-account-failover.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 开发
       items:
         - name: 配置连接字符串
@@ -159,9 +161,9 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: 排查 Linux 上的 Azure 文件问题 (SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
-        - name: 排查 Azure 文件存储性能问题
+        - name: 排查 Azure 文件共享性能问题
           href: storage-troubleshooting-files-performance.md
-        - name: 关于删除 Azure 文件存储的疑难解答
+        - name: 关于删除 Azure 文件共享的疑难解答
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: 参考
   items:

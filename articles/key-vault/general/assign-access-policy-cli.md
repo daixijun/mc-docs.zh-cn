@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 08/27/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 48fac137d530016419b0c4f7391ae9511b8ccd7b
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 7e37823be0e5fbeb3bf8f5566b9b3f903f94b596
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678554"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300760"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>分配 Key Vault 访问策略
 
@@ -24,11 +24,11 @@ Key Vault 访问策略确定给定的服务主体（即应用程序或用户组�
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-若要详细了解如何使用 Azure CLI 在 Azure Active Directory 中创建组，请参阅 [az ad group create](/cli/ad/group?view=azure-cli-latest#az-ad-group-create) 和 [az ad group member add](/cli/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)。
+若要详细了解如何使用 Azure CLI 在 Azure Active Directory 中创建组，请参阅 [az ad group create](/cli/ad/group#az-ad-group-create) 和 [az ad group member add](/cli/ad/group/member#az-ad-group-member-add)。
 
 ## <a name="configure-the-azure-cli-and-sign-in"></a>配置 Azure CLI 并登录
 
-1. 若要在本地运行 Azure CLI 命令，请安装 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+1. 若要在本地运行 Azure CLI 命令，请安装 [Azure CLI](/cli/install-azure-cli)。
 
 1. 仅限本地 CLI：使用 `az login` 登录到 Azure：
 
@@ -43,19 +43,19 @@ Key Vault 访问策略确定给定的服务主体（即应用程序或用户组�
 
 确定要为其分配访问策略的应用程序、组或用户的对象 ID：
 
-- 应用程序和其他服务主体：请使用 [az ad sp list](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-list) 命令来检索服务主体。 请检查命令的输出，以确定要为其分配访问策略的安全主体的对象 ID。
+- 应用程序和其他服务主体：请使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list) 命令来检索服务主体。 请检查命令的输出，以确定要为其分配访问策略的安全主体的对象 ID。
 
     ```azurecli
     az ad sp list --show-mine
     ```
 
-- 组：请使用 [az ad group list](/cli/ad/group?view=azure-cli-latest#az-ad-group-list) 命令，并通过 `--display-name` 参数筛选结果：
+- 组：请使用 [az ad group list](/cli/ad/group#az-ad-group-list) 命令，并通过 `--display-name` 参数筛选结果：
 
      ```azurecli
     az ad group list --display-name <search-string>
     ```
 
-- 用户：请使用 [az ad user show](/cli/ad/user?view=azure-cli-latest#az-ad-user-show) 命令，并在 `--id` 参数中传递用户的电子邮件地址：
+- 用户：请使用 [az ad user show](/cli/ad/user#az-ad-user-show) 命令，并在 `--id` 参数中传递用户的电子邮件地址：
 
     ```azurecli
     az ad user show --id <email-address-of-user>
@@ -63,7 +63,7 @@ Key Vault 访问策略确定给定的服务主体（即应用程序或用户组�
 
 ## <a name="assign-the-access-policy"></a>分配访问策略
     
-使用 [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令来分配所需的权限：
+使用 [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令来分配所需的权限：
 
 ```azurecli
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -71,7 +71,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 将 `<object-id>` 替换为服务主体的对象 ID。
 
-为这些特定类型分配权限时，只需包括 `--secret-permissions`、`--key-permissions` 和 `--certificate-permissions`。 [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 文档中提供了 `<secret-permissions>`、`<key-permissions>` 和 `<certificate-permissions>` 的允许值。
+为这些特定类型分配权限时，只需包括 `--secret-permissions`、`--key-permissions` 和 `--certificate-permissions`。 [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 文档中提供了 `<secret-permissions>`、`<key-permissions>` 和 `<certificate-permissions>` 的允许值。
 
 ## <a name="next-steps"></a>后续步骤
 

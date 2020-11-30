@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 origin.date: 10/01/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: speech-full-stack-objectivec-swift
+zone_pivot_groups: programming-languages-set-twenty-four
 keywords: 文本转语音
-ms.openlocfilehash: 753b5b18bf188fb5feeca4ad71b3e7b0cb7b33c0
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: f767c0c249c69ed1544c89475f9dc4c901d3d6c3
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127924"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970780"
 ---
 # <a name="get-started-with-text-to-speech"></a>开始使用文本转语音
 
@@ -47,7 +47,11 @@ ms.locfileid: "92127924"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/text-to-speech-basics/text-to-speech-basics-curl.md)]
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 

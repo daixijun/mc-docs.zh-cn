@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 origin.date: 01/26/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4eaffe58fd8655c146be330854e8e542f11740a2
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 8cfff026a8ce8eee10c7349972630ec210b144e3
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128382"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300953"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>自动轮换使用一组身份验证凭据的资源的机密
 
@@ -25,7 +25,7 @@ ms.locfileid: "92128382"
 
 本教程介绍如何定期自动轮换使用一组身份验证凭据的数据库和服务的机密。 具体而言，本教程将使用 Azure 事件网格通知触发的函数来轮换 Azure Key Vault 中存储的 SQL Server 密码：
 
-![轮换解决方案示意图](../media/rotate1.png)
+![轮换解决方案示意图](../media/rotate-1.png)
 
 1. 在机密过期之前的 30 天，Key Vault 会向事件网格发布“即将过期”事件。
 1. 事件网格会检查事件订阅，并使用 HTTP POST 调用已订阅该事件的函数应用终结点。
@@ -50,7 +50,7 @@ ms.locfileid: "92128382"
 1. 选择“查看 + 创建”。
 1. 选择“创建”
 
-    ![创建资源组](../media/rotate2.png)
+    ![创建资源组](../media/rotate-2.png)
 
 现在，你已拥有一个 Key Vault 和一个 SQL Server 实例。 可以在 Azure CLI 中运行以下命令来验证此设置：
 
@@ -69,6 +69,8 @@ akvrotation-sql/master  akvrotation      chinaeast      Microsoft.Sql/servers/da
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>创建和部署 sql server 密码轮替函数
+> [!IMPORTANT]
+> 以下模板要求 Key Vault、SQL Server 和 Azure 函数位于同一资源组中
 
 接下来，创建一个使用系统托管标识的函数应用以及其他所需组件，并部署 sql server 密码轮替函数
 
@@ -92,7 +94,7 @@ akvrotation-sql/master  akvrotation      chinaeast      Microsoft.Sql/servers/da
 1. 选择“查看 + 创建”。
 1. 选择“创建”。
 
-   ![选择“查看 + 创建”](../media/rotate3.png)
+   ![选择“查看 + 创建”](../media/rotate-3.png)
 
 完成上述步骤后，你将获得一个存储帐户、一个服务器场和一个函数应用。 可以在 Azure CLI 中运行以下命令来验证此设置：
 
@@ -114,7 +116,7 @@ akvrotation-fnapp        akvrotation       chinaeast      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       chinaeast      Microsoft.insights/components
 ```
 
-有关如何创建函数应用和使用托管标识访问密钥保管库的信息，请参阅[从 Azure 门户创建函数应用](/azure-functions/functions-create-function-app-portal)、[如何将托管标识用于应用服务和 Azure Functions](/app-service/overview-managed-identity) 以及[使用 Azure 门户分配密钥保管库访问策略](../general/assign-access-policy-portal.md)。
+有关如何创建函数应用和使用托管标识访问密钥保管库的信息，请参阅[从 Azure 门户创建函数应用](../../azure-functions/functions-create-function-app-portal.md)、[如何将托管标识用于应用服务和 Azure Functions](../../app-service/overview-managed-identity.md) 以及[使用 Azure 门户分配密钥保管库访问策略](../general/assign-access-policy-portal.md)。
 
 ### <a name="rotation-function"></a>轮换函数
 在先前步骤中部署的函数使用事件通过更新 Key Vault 和 SQL 数据库来触发机密轮替。 
@@ -208,11 +210,11 @@ az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "S
 
 若要验证该机密是否已轮换，请转到“Key Vault” > “机密”：
 
-![转到“机密”](../media/rotate8.png)
+![转到“机密”](../media/rotate-8.png)
 
 打开“sqlPassword”机密并查看原始版本和轮换后的版本：
 
-![打开 sqluser 机密](../media/rotate9.png)
+![打开 sqluser 机密](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>创建 Web 应用
 

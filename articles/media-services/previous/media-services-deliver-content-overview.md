@@ -9,14 +9,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 9459c1d4ff7b031b41796b0e0389bfe5533798e2
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 0397c660a302edc8a2cdecb83efd0d1a033b67d5
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245689"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300764"
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 
@@ -33,7 +33,7 @@ ms.locfileid: "91245689"
     * 平滑流式处理。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 
 本文概述重要的内容传送概念。
 
@@ -70,7 +70,7 @@ ms.locfileid: "91245689"
 > 
 > 
 
-若要更新定位符的过期日期，请使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API。 请注意，更新 SAS 定位符的过期日期时，URL 会发生变化。
+若要更新定位符的过期日期，请使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator) API。 请注意，更新 SAS 定位符的过期日期时，URL 会发生变化。
 
 定位符不用于管理按用户的访问控制。 通过数字版权管理 (DRM) 解决方案，可以为不同的用户提供不同的访问权限。 有关详细信息，请参阅 [保护媒体](https://docs.microsoft.com/previous-versions/azure/dn282272(v=azure.100))。
 
@@ -148,10 +148,10 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ## <a name="streaming-endpoints"></a>流式处理终结点
 
-流式处理终结点代表一个流式处理服务，它可以直接将内容分发给客户端播放器应用程序。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 有两种类型的流式处理终结点，**标准**和**高级**。 有关详细信息，请参阅： [流式处理终结点概述](media-services-streaming-endpoints-overview.md)。
+流式处理终结点代表一个流式处理服务，它可以直接将内容分发给客户端播放器应用程序。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 有两种类型的流式处理终结点，**标准** 和 **高级**。 有关详细信息，请参阅： [流式处理终结点概述](media-services-streaming-endpoints-overview.md)。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 ## <a name="known-issues"></a>已知问题
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>更改为平滑流式处理清单版本

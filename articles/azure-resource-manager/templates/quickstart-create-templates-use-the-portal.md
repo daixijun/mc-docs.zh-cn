@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 46b4b177037bc7aa5427ea4739fdd89801364dae
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 831d94ec9d2d2228e7a4d81e0ab9d44978a628e1
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441011"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024536"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 ARM 模板
@@ -72,7 +72,7 @@ ms.locfileid: "86441011"
 1. 打开下载的 zip 文件，然后将“template.json”保存到计算机。 在下一部分，请使用模板部署工具来编辑此模板。
 1. 选择“参数”选项卡，查看为参数提供的值。 部署模板时，请写下这些值，下一部分需要它们。
 
-    ![通过门户生成模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    ![屏幕截图突出显示了“参数”选项卡，其中显示了你提供的值。](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
     使用模板文件和参数文件可以创建一个资源（在本教程中为 Azure 存储帐户）。
 
@@ -95,7 +95,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 1. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
 1. 对模板进行以下三处更改：
 
-    ![Azure Resource Manager 模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
+    ![Azure 资源管理器模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
     - 删除“storageAccountName”参数，如上一屏幕截图所示。
     - 添加一个名为“storageAccountName”的变量，如上一屏幕截图所示：
@@ -169,10 +169,10 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
         }
         ```
 
-1. 选择“保存” 。
+1. 选择“保存”。
 1. 输入以下值：
 
-    |名称|Value|
+    |名称|值|
     |----|----|
     |**资源组**|选择在上一部分中创建的资源组名称。 |
     |**区域**|选择资源组的位置。 例如，**中国北部**。 |
@@ -185,7 +185,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
     |**允许 Blob 公共访问**| 对于本快速入门，请选择“false”。 |
 
 1. 选择“查看 + 创建”。
-1. 选择“创建” 。
+1. 选择“创建”。
 1. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
 
     ![Azure 资源管理器模板部署通知](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

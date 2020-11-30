@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f9d1f6d4074d0791cd166af981327d37fdf0e982
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 605d4575f8094b68bcb2547050e5f941dc4ec50c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590941"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300436"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>教程：通过设备预配服务 (DPS) 使用自定义分配策略
 
@@ -474,7 +474,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 
 若要按名称删除资源组：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，然后选择“资源组”。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后选择“资源组”。 
 
 2. 在“按名称筛选...”文本框中，键入包含资源的资源组名称“contoso-us-resource-group”。 
 

@@ -9,18 +9,18 @@ metadata:
   ms.subservice: templates
   ms.topic: landing-page
   ms.collection: na
-  origin.date: 07/30/2020
+  origin.date: 11/06/2020
   author: rockboyfor
-  ms.date: 11/02/2020
+  ms.date: 11/30/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: d27672955a341115d80335a73cdd596d433b350d
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: 6e1c2615d06246b6273a9a7673f2b2ca2b227a30
+  ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93105240"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96024573"
 landingContent:
 - title: 关于 ARM 模板
   linkLists:
@@ -92,14 +92,18 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 资源组
+      url: deploy-to-resource-group.md
     - text: 订阅
       url: deploy-to-subscription.md
     - text: 管理组
       url: deploy-to-management-group.md
     - text: 租户
       url: deploy-to-tenant.md
-    - text: 跨范围部署
-      url: cross-scope-deployment.md
+    - text: 范围扩展资源
+      url: scope-extension-resources.md
+    - text: 跨范围的模板函数
+      url: scope-functions.md
 - title: 浏览参考内容
   linkLists:
   - linkListType: reference

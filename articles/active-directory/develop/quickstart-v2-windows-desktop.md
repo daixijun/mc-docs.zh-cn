@@ -8,19 +8,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9f694c23920c31c798b0ca15a4fdc521e15ca2d8
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 5230c2c59ffc849ca0a30e701f1f9794d476529d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918493"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API
 
-本快速入门介绍如何编写 Windows 桌面.NET (WPF) 应用程序，该应用程序能够登录工作和学校帐户，获取访问令牌以及调用 Microsoft Graph API。 （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
+在本快速入门中，你将下载并运行一个代码示例，该示例演示 Windows desktop .NET (WPF) 应用程序如何让用户登录并获取访问令牌来调用 Microsoft Graph API。 
+
+有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>先决条件
@@ -70,7 +72,7 @@ ms.locfileid: "92749950"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 使用 Visual Studio 2019 运行项目。
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [下载代码示例](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -83,7 +85,7 @@ ms.locfileid: "92749950"
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
-> 1. 将 zip 文件提取到靠近磁盘根目录的本地文件夹，例如 **C:\Azure-Samples** 。
+> 1. 将 zip 文件提取到靠近磁盘根目录的本地文件夹，例如 **C:\Azure-Samples**。
 > 1. 在 Visual Studio 中打开项目。
 > 1. 编辑 **App.Xaml.cs** 并将字段 `ClientId` 和 `Tenant` 的值替换为以下代码：
 >
@@ -93,9 +95,9 @@ ms.locfileid: "92749950"
 >    ```
 >
 > 其中：
-> - `Enter_the_Application_Id_here` - 是已注册应用程序的 **应用程序（客户端）ID** 。
+> - `Enter_the_Application_Id_here` - 是已注册应用程序的 **应用程序（客户端）ID**。
 > - `Enter_the_Tenant_Info_Here` - 设置为以下选项之一：
->   - 如果应用程序支持“此组织目录中的帐户”，请将该值替换为 **租户 ID** 或 **租户名称** （例如 contoso.microsoft.com）
+>   - 如果应用程序支持“此组织目录中的帐户”，请将该值替换为 **租户 ID** 或 **租户名称**（例如 contoso.microsoft.com）
 >   - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为`organizations`
 >
 > > [!TIP]
@@ -133,7 +135,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 
 > |其中： | 说明 |
 > |---------|---------|
-> | `ClientId` | 是在 Azure 门户中注册的应用程序的 **应用程序(客户端) ID** 。 可以在 Azure 门户的应用的“概览”页中找到此值。 |
+> | `ClientId` | 是在 Azure 门户中注册的应用程序的 **应用程序(客户端) ID**。 可以在 Azure 门户的应用的“概览”页中找到此值。 |
 
 ### <a name="requesting-tokens"></a>请求令牌
 

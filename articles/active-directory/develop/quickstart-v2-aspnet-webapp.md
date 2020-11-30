@@ -9,18 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: 391645faeb3033ac0480113d4cfc1fb942a5c339
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 7549e781bc0f3b6dd05360e9fda357afdf36d5fc
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918431"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 标识平台登录功能
-本快速入门通过代码示例了解 ASP.NET Web 应用如何从任何 Azure Active Directory (Azure AD) 实例登录工作和学校帐户。  （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
+
+在本快速入门中，你将下载并运行一个代码示例，该示例演示 ASP.NET Web 应用如何从任何 Azure Active Directory (Azure AD) 组织中登录用户。 
+
+有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>先决条件
 >
@@ -69,9 +72,9 @@ ms.locfileid: "92749971"
 > [!div renderon="docs"]
 > [下载 Visual Studio 2019 解决方案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > 使用 Visual Studio 2019 运行项目。
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [下载代码示例](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -81,13 +84,13 @@ ms.locfileid: "92749971"
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>步骤 3：运行 Visual Studio 项目
 
-1. 将 zip 文件提取到更靠近根文件夹的本地文件夹（例如， **C:\Azure-Samples** ）
+1. 将 zip 文件提取到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
 1. 在 Visual Studio 中打开解决方案 (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. 可能需要右键单击项目 `AppModelv2-WebApp-OpenIDConnect-DotNet` 和“还原 NuGet 包”，具体取决于 Visual Studio 的版本
 1. 打开包管理器控制台（“视图”->“其他 Windows”->“包管理器控制台”）并运行 `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 
 > [!div renderon="docs"]
-> 5. 编辑 **Web.config** ，将参数 `ClientId` 和 `Tenant` 替换为：
+> 5. 编辑 **Web.config**，将参数 `ClientId` 和 `Tenant` 替换为：
 >    ```xml
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
@@ -95,7 +98,7 @@ ms.locfileid: "92749971"
 >    其中：
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
 > - `Enter_the_Tenant_Info_Here` - 是下述选项之一：
->   - 如果应用程序支持“仅我的组织”，请将该值替换为 **租户 ID** 或 **租户名称** （例如 contoso.partner.onmschina.cn）
+>   - 如果应用程序支持“仅我的组织”，请将该值替换为 **租户 ID** 或 **租户名称**（例如 contoso.partner.onmschina.cn）
 >   - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为`organizations`
 >
 > > [!TIP]
@@ -125,7 +128,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN 启动类
 
-OWIN 中间件使用在托管进程初始化时运行的“启动类”。 在本快速入门中， *startup.cs* 文件位于根文件夹下。 以下代码显示本快速入门使用的参数：
+OWIN 中间件使用在托管进程初始化时运行的“启动类”。 在本快速入门中，*startup.cs* 文件位于根文件夹下。 以下代码显示本快速入门使用的参数：
 
 ```csharp
 public void Configuration(IAppBuilder app)

@@ -7,18 +7,18 @@ metadata:
   services: bastion
   ms.service: bastion
   ms.topic: landing-page
-  origin.date: 08/29/2019
+  origin.date: 10/20/2020
   author: rockboyfor
-  ms.date: 11/02/2020
+  ms.date: 11/30/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: 67c5ad36b2ffb841dbd0a0f6c8390e073e37250c
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: e86f1d6ad18a16665b06eee32248bcb766e28c04
+  ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93105235"
+  ms.lasthandoff: 11/25/2020
+  ms.locfileid: "96024621"
 landingContent:
 - title: 关于 Azure Bastion
   linkLists:
@@ -32,6 +32,10 @@ landingContent:
       url: bastion-faq.md
 - title: 入门
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 配置 Bastion 并连接到 VM
+      url: quickstart-host-portal.md
   - linkListType: how-to-guide
     links:
     - text: 创建 Bastion 主机

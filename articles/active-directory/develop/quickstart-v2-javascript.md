@@ -9,19 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 41df798f27512d299180ad28bc9240c15b488a15
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 73c360c721f002361fe3276fddeef8cf8f40fb26
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918423"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入门：在 JavaScript SPA 中登录用户并获得访问令牌
 
-在本快速入门中，你将使用代码示例了解 JavaScript 单页应用程序 (SPA) 如何登录工作帐户和学校帐户的用户。 JavaScript SPA 还可以获取用于调用 Microsoft Graph API 或任何 Web API 的访问令牌。 有关说明，请参阅[示例工作原理](#how-the-sample-works)。
+在本快速入门中，你将下载并运行一个代码示例，该示例演示 JavaScript 单页应用程序 (SPA) 如何让用户登录并调用 Microsoft Graph。 此代码示例还演示如何获取访问令牌来调用 Microsoft Graph API 或任何 Web API。
+
+有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -74,10 +76,10 @@ ms.locfileid: "92749954"
 > [!div renderon="docs"]
 > 若要使用 Node.js 在 Web 服务器中运行项目，请[下载核心项目文件](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)。
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > 使用 Node.js 在 Web 服务器中运行项目
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [下载代码示例](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
@@ -102,7 +104,7 @@ ms.locfileid: "92749954"
 >
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
@@ -112,8 +114,8 @@ ms.locfileid: "92749954"
 > - \<Enter_the_Application_Id_Here> 是所注册应用程序的应用程序（客户端）ID。
 > - \<Enter_the_Cloud_Instance_Id_Here> 是 Azure 云的实例。 对于 **国家** 云（例如“中国”云），请参阅 [国家云](./authentication-national-cloud.md)。
 > - \<Enter_the_Tenant_info_here> 设置为以下选项之一：
->    - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如， *contoso.microsoft.com* ）。
->    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations** 。
+>    - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如，*contoso.microsoft.com*）。
+>    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations**。
 >    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为“common”
 >
 > > [!TIP]

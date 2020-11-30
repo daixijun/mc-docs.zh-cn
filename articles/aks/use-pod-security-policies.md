@@ -5,18 +5,19 @@ services: container-service
 ms.topic: article
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/30/2020
 ms.testscope: yes|no
 ms.testdate: 08/10/2020null
 ms.author: v-yeche
-ms.openlocfilehash: e38152aa2693f7b3ffd258c34ab233529a38dfd3
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: adf0751829089c2c243d14b6e7dab7733834dc16
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146728"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024471"
 ---
-<!--Verified successfully-->
+<!--Not Available on Mooncake till 11/24/2020-->
+<!--REASON:BadRequestError: No registered resource provider found for location 'chinaeast2' and API version '2020-11-01' for type 'managedClusters'.-->
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>预览 - 在 Azure Kubernetes 服务 (AKS) 中使用 Pod 安全策略保护群集
 
 <!--Not Available on [Azure Policy for AKS](use-pod-security-on-azure-policy.md)-->
@@ -42,7 +43,7 @@ ms.locfileid: "91146728"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安装 aks-preview CLI 扩展
 
@@ -66,7 +67,7 @@ az extension update --name aks-preview
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-状态显示为“已注册”需要几分钟时间**。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
+状态显示为“已注册”需要几分钟时间。 可以使用 [az feature list][az-feature-list] 命令检查注册状态：
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -195,7 +196,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: dockerhub.azk8s.cn/library/nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -230,7 +231,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: dockerhub.azk8s.cn/library/nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令创建 Pod，并指定 YAML 清单的名称：
@@ -263,7 +264,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: dockerhub.azk8s.cn/library/nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```
@@ -459,18 +460,15 @@ kubectl delete namespace psp-aks
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [network-policies]: use-network-policies.md
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-update]: https://docs.microsoft.com/cli/azure/aks#az_aks_update
-
-<!--MOONCAKE: CORRECT ON [az-aks-update]: https://docs.microsoft.com/cli/azure/aks#az_aks_update-->
-
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-update]: https://docs.azure.cn/cli/ext/aks-preview/aks#ext_aks_preview_az_aks_update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 
 <!-- Update_Description: update meta properties, wording update, update link -->

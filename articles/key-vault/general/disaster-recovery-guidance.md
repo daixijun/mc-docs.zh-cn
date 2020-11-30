@@ -1,6 +1,6 @@
 ---
-title: Azure 服务中断影响 Azure Key Vault 时该怎么办 - Azure Key Vault | Microsoft Docs
-description: 了解 Azure 服务中断影响 Azure Key Vault 时该怎么办。
+title: Azure Key Vault 可用性和冗余 - Azure Key Vault | Microsoft Docs
+description: 了解 Azure Key Vault 可用性和冗余。
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -8,22 +8,26 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 origin.date: 08/28/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 04d44d78fd810bd35b2d13a0e7442d2783bd2ec9
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 36df9e3561fc62c2f4b7882bfbe20f9a10b62a8f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678509"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300490"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 密钥保管库可用性和冗余
 
 Azure 密钥保管库具有多层冗余功能，确保密钥和机密持续可供应用程序使用，即使服务的单个组件发生故障也是如此。
 
-密钥保管库的内容会在区域中复制，并且会复制到至少 150 英里以外（但位于同一个地理位置）的次要区域，以保持密钥和机密的高持续性。 有关特定区域对的详细信息，请参阅 [Azure 配对区域](../../best-practices-availability-paired-regions.md)一文。
+<!--
+> [!NOTE]
+> This guide applies to vaults. Managed HSM pools use a different high availability and disaster recovery model. See [Managed HSM Disaster Recovery Guide](../managed-hsm/disaster-recovery-guide.md) for more information.
+-->
+会在区域中复制密钥保管库的内容，并复制到至少 150 英里以外的次要区域，但位于同一个地理位置，以保持密钥和机密的持久性。 有关特定区域对的详细信息，请参阅 [Azure 配对区域](../../best-practices-availability-paired-regions.md)。 配对区域模型的例外是巴西南部，它只允许选择将数据保存在巴西南部。 巴西南部使用本地冗余存储 (LRS) 在单个位置/区域内复制数据三次。   
 
-如果密钥保管库服务中的单独组件发生故障，则区域内的替代组件将继续处理请求，确保不会导致功能损失。 要开始此过程，你无需执行任何操作；此过程以透明的方式自动发生。
+如果密钥保管库服务中的单独组件发生故障，则区域内的替代组件将继续处理请求，确保不会导致功能损失。 无需执行任何操作即可开始此过程，它会自动发生，且相关信息是透明的。
 
 在整个 Azure 区域不可用的情况下（这很少见），对该区域中的 Azure 密钥保管库发出的请求会自动路由（“故障转移”  ）到次要区域。 当主要区域再次可用时，请求将路由回（“故障回复”  ）到主要区域。 同样，不需要采取任何措施，因为这会自动发生。
 
@@ -46,6 +50,7 @@ Azure 密钥保管库具有多层冗余功能，确保密钥和机密持续可�
   * 验证
   * 签名
   * 备份
-* 在故障转移期间，无法更改密钥保管库属性。 不能更改访问策略或防火墙配置和设置。
-* 故障回复之后，所有请求类型（包括读取*和*写入请求）都将可用。
 
+* 在故障转移期间，无法更改密钥保管库属性。 不能更改访问策略或防火墙配置和设置。
+
+* 故障回复之后，所有请求类型（包括读取 *和* 写入请求）都将可用。

@@ -11,12 +11,12 @@ ms.testscope: yes|no
 ms.testdate: 08/10/2020null
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: cca1216cb0a6ba31ad558ce5d22a9fa2defeacec
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: ef95e9149a09a9af4dc29862084cd501691cd8ca
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946900"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301045"
 ---
 <!--Verified successfully-->
 <!--Only Charactors Content from the verified articles-->
@@ -55,7 +55,7 @@ Azure 托管磁盘使用[信封加密](../articles/storage/common/storage-client
 1. 托管磁盘使用托管标识将请求发送到 Azure Key Vault。
 1. 若要读取或写入数据，托管磁盘会将请求发送到 Azure Key Vault 以加密（包装）和解密（解包）数据加密密钥，以便执行数据的加密和解密。 
 
-若要撤销对客户托管密钥的访问权限，请参阅 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 和 [Azure Key Vault CLI](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest)。 撤销访问权限会实际阻止对存储帐户中所有数据的访问权限，因为 Azure 存储无法访问加密密钥。
+若要撤销对客户托管密钥的访问权限，请参阅 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 和 [Azure Key Vault CLI](https://docs.azure.cn/cli/keyvault)。 撤销访问权限会实际阻止对存储帐户中所有数据的访问权限，因为 Azure 存储无法访问加密密钥。
 
 <!-- Update_Description: new article about virtual machines managed disks description customer managed keys -->
 <!--NEW.date: 08/10/2020-->

@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4ea71e8034813dd45c0fe040cd1cb053f5666c0d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6478c2202f0905d0e48cb136a64154392f0c6dbd
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328647"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190268"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>解决将 VMware VM 或物理计算机故障转移到 Azure 时出现的错误
 
@@ -117,9 +117,23 @@ Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 发生此情�
 >[!Note]
 >启用除“启动诊断”以外的任何设置，都需要在故障转移之前在虚拟机中安装 Azure VM 代理
 
-<!--Not Available on ## Unable to open serial console after failover of a UEFI based machine into Azure-->
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>将基于 UEFI 的计算机故障转移到 Azure 后无法打开串行控制台
 
-## <a name="unexpected-shutdown-message-event-id-6008"></a>意外的关闭消息（事件 ID 6008）
+如果可以使用 RDP 连接到计算机，但无法打开串行控制台，请执行以下步骤：
+
+* 如果计算机操作系统是 Red Hat 或 Oracle Linux 7.*/8.0，请在具有根权限的故障转移 Azure 虚拟机上运行以下命令。 在执行命令后重启 VM。
+
+    ```console
+    grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+    ```
+
+* 如果计算机操作系统是 CentOS 7.*，请在具有根权限的故障转移 Azure 虚拟机上运行以下命令。 在执行命令后重启 VM。
+
+    ```console
+    grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+    ```
+
+## <a name="unexpected-shutdown-message-event-id-6008"></a>意外关闭消息（事件 ID 6008）
 
 在故障转移后启动 Windows VM 时，如果在恢复的 VM 上收到一条有关意外关闭的消息，则表明在用于故障转移的恢复点中未捕获 VM 关闭状态。 如果恢复到某个点，在这个点 VM 尚未完全关闭，则会发生这种情况。
 
@@ -175,4 +189,5 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 如需更多帮助，请在[有关 Site Recovery 的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)上发布查询。 我们的活动社区应能够为你提供帮助。
 
+<!--Feedback not available-->
 <!-- Update_Description: update meta properties, wording update, update link -->

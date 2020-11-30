@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 08/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: fe142b7804f841aebd79c2993d12fbe8ab6a5afe
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 9605b266525d434a6c295bd42583ee671351c0aa
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715234"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300405"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>快速入门：使用 Go 将事件发送到事件中心或从其接收事件
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -58,7 +58,7 @@ import (
 
 ### <a name="create-service-principal"></a>创建服务主体
 
-按照[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)中的说明创建新的服务主体。 使用以下名称将提供的凭据保存在环境中。 同时预先配置 Azure SDK for Go 和事件中心包，查找以下变量名称：
+按照[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)中的说明创建新的服务主体。 使用以下名称将提供的凭据保存在环境中。 同时预先配置 Azure SDK for Go 和事件中心包，查找以下变量名称：
 
 ```bash
 export AZURE_CLIENT_ID=

@@ -8,15 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-origin.date: 08/12/2019
-ms.date: 09/16/2020
+origin.date: 10/22/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: f07b4756a1320a10cc3c012353c18bd454e46412
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 7ea5170d41e726044d4fd63d7672f3938a2bd348
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678541"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300812"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault 备份
 
@@ -26,11 +26,14 @@ ms.locfileid: "90678541"
 
 Azure 密钥保管库自动提供了一些功能来帮助你维护可用性并防止数据丢失。 仅当有充分且重要的业务理由时才备份机密。 备份密钥保管库中的机密可能会带来操作难题，例如在机密过期或轮换时维护多组日志、权限和备份。
 
-密钥保管库在灾难情况下维持可用性，并将请求自动故障转移到配对区域，而无需用户进行任何干预。 有关详细信息，请参阅 [Azure Key Vault 可用性和冗余](https://docs.azure.cn/key-vault/general/disaster-recovery-guidance)。
+密钥保管库在灾难情况下维持可用性，并将请求自动故障转移到配对区域，而无需用户进行任何干预。 有关详细信息，请参阅 [Azure Key Vault 可用性和冗余](./disaster-recovery-guidance.md)。
 
-如果要防止意外或恶意删除机密，请在密钥保管库上配置软删除和清除保护功能。 有关详细信息，请参阅 [Azure 密钥保管库软删除概述](https://docs.azure.cn/key-vault/general/soft-delete-overview)。
+如果要防止意外或恶意删除机密，请在密钥保管库上配置软删除和清除保护功能。 有关详细信息，请参阅 [Azure 密钥保管库软删除概述](./soft-delete-overview.md)。
 
 ## <a name="limitations"></a>限制
+
+> [!IMPORTANT]
+> 对于密钥、机密和证书对象，Key Vault 不支持备份超过 500 个的历史版本。 尝试备份密钥、机密或证书对象可能会导致出现错误。 无法删除密钥、机密或证书的历史版本。
 
 Azure 密钥保管库当前不提供在单个操作中备份整个密钥保管库的方法。 任何使用此文档中列出的命令执行密钥保管库自动备份的尝试都可能导致错误，且 Microsoft 或 Azure 密钥保管库团队不支持此操作。 
 
@@ -122,4 +125,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>后续步骤
 
-启用 Key Vault 的[日志记录和监视](https://docs.azure.cn/key-vault/general/logging)。
+启用 Key Vault 的[日志记录和监视](./logging.md)。

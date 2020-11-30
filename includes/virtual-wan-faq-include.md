@@ -6,21 +6,23 @@ ms.service: virtual-wan
 ms.topic: include
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4a20e9c78583698ad3ad428971f3a4d9a8a603df
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 702a073352f770496c8ad16a37378567eb0660b4
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026013"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure 虚拟 WAN 是否已正式发布 (GA)？
 
 是，Azure 虚拟 WAN 已正式发布 (GA)。 但是，虚拟 WAN 包含若干功能和方案。 虚拟 WAN 中有 Azure 应用“预览”标记的功能或方案。 在这些情况下，特定的功能或者方案本身处于预览阶段。 如果你未使用特定的预览功能，则常规 GA 支持适用。 有关预览版支持的详细信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
+
+<!--MOONCAKE CORRECT ON http://www.azure.cn/support/legal/subscription-agreement-->
 
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>用户是否需要将中心辐射型拓扑与 SD-WAN/VPN 设备配合使用才能使用 Azure 虚拟 WAN？
 
@@ -115,7 +117,7 @@ ms.locfileid: "92472535"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>是否需要使用首选的合作伙伴设备？
 
-否。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
+不是。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虚拟 WAN 合作伙伴如何自动与 Azure 虚拟 WAN 建立连接？
 
@@ -161,7 +163,7 @@ ms.locfileid: "92472535"
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>辐射 VNet 是否可以包含虚拟网络网关？
 
-否。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
+不是。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>VPN 连接是否支持 BGP？
 
@@ -261,6 +263,8 @@ ER 到 ER 之间的传输始终通过 Global Reach 进行。 虚拟中心网关�
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>虚拟 WAN 是否支持 IPv6？
 
 虚拟 WAN 中心及其网关不支持 IPv6。 如果你具有支持 IPv4 和 IPv6 的 VNet，并且要将 VNet 连接到虚拟 WAN，那么当前不支持此方案。 
+
+对于通过 Azure 防火墙打开 Internet 接入点的点到站点（用户）VPN 方案，你可能需要关闭客户端设备上的 IPv6 连接，以强制流量流向虚拟 WAN 中心。 这是因为新式设备默认使用 IPv6 地址。
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>对于自动完成多种虚拟 WAN 功能的脚本，建议其使用哪个 API 版本？
 

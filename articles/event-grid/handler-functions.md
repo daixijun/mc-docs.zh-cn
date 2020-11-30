@@ -4,21 +4,30 @@ description: 介绍如何将 Azure Functions 用作事件网格事件的事件�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/10/2020
-ms.openlocfilehash: 5f45df1eb80af81715017202fa1e2c42b41a695d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.date: 11/18/2020
+ms.openlocfilehash: bf9a159743f25dd711994c947e1511249a9b57b1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128065"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977842"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Functions 作为事件网格事件的事件处理程序
 
 事件处理程序是发送事件的位置。 处理程序将通过一个操作来处理事件。 几个 Azure 服务已自动配置为处理事件，Azure Functions 就是其中之一。 
 
-在无服务器体系结构中使用 Azure Functions 响应事件网格中的事件。 使用 Azure Functions 作为处理程序时，请使用事件网格触发器而不是通用 HTTP 触发器。 事件网格会自动验证事件网格触发器。 使用通用 HTTP 触发器时，必须自行实现[验证响应](webhook-event-delivery.md)。
 
-有关详细信息，请参阅 [Azure Functions 的事件网格触发器](../azure-functions/functions-bindings-event-grid.md)，概要了解如何在函数中使用事件网格触发器。
+若要使用 Azure 函数作为事件的处理程序，请遵循以下其中一种方法： 
+
+-   使用[事件网格触发器](../azure-functions/functions-bindings-event-grid-trigger.md)。  将“Azure 函数”指定为“终结点类型” 。 然后，指定将处理事件的 Azure 函数应用和函数。 
+-   使用 [HTTP 触发器](../azure-functions/functions-bindings-http-webhook.md)。  将“Web Hook”指定为“终结点类型” 。 然后，指定将处理事件的 Azure 函数的 URL。 
+
+建议使用第一种方法（事件网格触发器），因为它与第二种方法相比具有以下优势：
+-   事件网格会自动验证事件网格触发器。 使用通用 HTTP 触发器时，必须自行实现[验证响应](webhook-event-delivery.md)。
+-   事件网格根据函数处理事件的感知速率自动调整事件传递到事件网格事件触发的函数的速率。 这种速率匹配功能可避免由于函数无法处理事件而导致的传递错误，因为函数的事件处理速率可能会随时间而改变。 若要在高吞吐量下提高效率，请在事件订阅上启用批处理。 有关详细信息，请参阅[启用批处理](#enable-batching)。
+
+    > [!NOTE]
+    > 目前，在以 CloudEvents 架构传递事件时，无法为 Azure Functions 应用使用事件网格触发器。 应转而使用 HTTP 触发器。
 
 ## <a name="tutorials"></a>教程
 
@@ -62,7 +71,7 @@ ms.locfileid: "92128065"
 
 可以在“事件网格主题”页的“功能”选项卡上更新现有订阅的这些值。 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="在创建订阅时启用批处理":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="创建后启用批处理":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 可以在 Azure 资源管理器模板中设置 maxEventsPerBatch 和 preferredBatchSizeInKilobytes。 有关详细信息，请参阅 [Microsoft.EventGrid eventSubscriptions 模板参考](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions)。
@@ -73,9 +82,6 @@ ms.locfileid: "92128065"
 ### <a name="azure-powershell"></a>Azure PowerShell
 可以使用 [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription)  或 [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet，通过以下参数配置与批处理相关的设置：`-MaxEventsPerBatch` 或 `-PreferredBatchSizeInKiloBytes`。
 
-> [!NOTE]
-> 不支持将事件传递到另一个租户中的 Azure 函数。 
-
 ## <a name="next-steps"></a>后续步骤
-如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。 
+如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。
 

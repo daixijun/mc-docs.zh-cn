@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 03/11/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: f903c30e182d4a9d806bc66fe0941a0af4c35faa
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c9c0cf295ef75366e944e2dc8fb7236b6d4ba9b5
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021533"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024441"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>更新或轮换 Azure Kubernetes 服务 (AKS) 的凭据
 
@@ -27,7 +27,7 @@ ms.locfileid: "90021533"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-需要安装并配置 Azure CLI 2.0.65 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.65 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>为 AKS 群集更新或创建新的服务主体
 
@@ -109,7 +109,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret "$SP_SECRET"
+    --client-secret $SP_SECRET
 ```
 
 对于中小型群集，在 AKS 中更新服务主体凭据需要一段时间。
@@ -135,13 +135,13 @@ az aks update-credentials \
 <!-- LINKS - internal -->
 
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_update_credentials
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-aks-update-credentials]: https://docs.azure.cn/cli/aks#az_aks_update_credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [aad-integration]: ./azure-ad-integration-cli.md
 [create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
-[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-list]: https://docs.azure.cn/cli/ad/sp/credential#az-ad-sp-credential-list
-[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-credential-list]: https://docs.azure.cn/cli/ad/sp/credential#az_ad_sp_credential_list
+[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential#az_ad_sp_credential_reset
 
 <!-- Update_Description: update meta properties, wording update, update link -->

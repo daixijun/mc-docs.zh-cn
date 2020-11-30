@@ -8,15 +8,15 @@ ms.author: v-tawe
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-origin.date: 06/23/2020
-ms.date: 09/10/2020
+origin.date: 09/25/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3557c95e694cfa6079c31136e75428cc131e9538
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 6b035559fea2aaf639a0dd9997ba27c9ce1a3fc9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021575"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300076"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>快速入门：使用 REST API 在 Java 中创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "90021575"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-创建一个 Java 控制台应用程序，用于通过 [IntelliJ](https://www.jetbrains.com/idea/)、[Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) 和 [Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/) 创建、加载及查询搜索索引。本文提供有关创建该应用程序的分步说明。 此外，还可以[下载并运行完整的应用程序](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)。
+创建一个 Java 控制台应用程序，用于通过 [IntelliJ](https://www.jetbrains.com/idea/)、[Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/) 和 [Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/) 创建、加载及查询搜索索引。本文提供有关创建该应用程序的分步说明。 此外，还可以[下载并运行完整的应用程序](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -38,7 +38,7 @@ ms.locfileid: "90021575"
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](https://docs.microsoft.com/java/azure/jdk/)
 
 + [创建 Azure 认知搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。
 
@@ -54,7 +54,7 @@ ms.locfileid: "90021575"
 
    也可以创建查询密钥。 最好使用只读权限发出查询请求。
 
-![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="获取服务名称以及管理密钥和查询密钥" border="false":::
 
 发送到服务的每个请求都需要一个 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -68,7 +68,7 @@ ms.locfileid: "90021575"
 1. 选择“Maven”。
 1. 在“项目 SDK”列表中选择“Java 11 SDK”。
 
-    ![创建 Maven 项目](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="创建 Maven 项目" border="false":::
 
 1. 对于“GroupId”和“ArtifactId”，请输入 `AzureSearchQuickstart`。
 1. 接受剩余的默认值以打开项目。
@@ -79,7 +79,7 @@ ms.locfileid: "90021575"
 1. 在“设置”窗口中，选择“生成、执行、部署” > “生成工具” > “Maven” > “导入”。
 1. 选中“自动导入 Maven 项目”复选框，然后单击“确定”关闭窗口。 在下一步骤中更新 pom.xml 文件时，Maven 插件和其他依赖项将自动同步。
 
-    ![IntelliJ 设置中的 Maven 导入选项](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="IntelliJ 设置中的 Maven 导入选项" border="false":::
 
 1. 打开 pom.xml 文件，将内容替换为以下 Maven 配置详细信息。 这些信息包括对 [Exec Maven 插件](https://www.mojohaus.org/exec-maven-plugin/)和 [JSON 接口 API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2) 的引用
 
@@ -141,7 +141,7 @@ ms.locfileid: "90021575"
 
     完成后，项目树应如下图所示。
 
-    ![项目目录结构](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="项目目录结构" border="false":::
 
 1. 单击“确定”  以关闭该窗口。
 
@@ -374,10 +374,10 @@ ms.locfileid: "90021575"
 
 1. 验证项目是否采用以下结构。
 
-    ![项目目录结构](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="项目目录结构和类" border="false":::
 
 1. 打开“Maven”工具窗口并执行以下 Maven 目标：`verify exec:java`
-![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute maven goal: verify exec:java" border="false":::
 
 处理完成后，查看后接零 (0) 退出代码的 BUILD SUCCESS 消息。
 

@@ -4,16 +4,17 @@ description: 了解 Kubernetes 的基本群集和工作负荷组件以及它们�
 services: container-service
 ms.topic: conceptual
 origin.date: 06/03/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 89e65478d6325c09a2dbc9d983475c2f894f3832
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: 85e03d3e8314fe8dd17434717b3f5f4b933585fa
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024410"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -144,7 +145,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: dockerhub.azk8s.cn/library/nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -190,7 +191,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: dockerhub.azk8s.cn/library/nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:

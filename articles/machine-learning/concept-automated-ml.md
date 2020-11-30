@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 463d45d88bd9cca32cdd82f1818761a97182fa7b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d883ed81c23133d15e598b91aa592dc6c1cf832c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104769"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978274"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 
@@ -72,18 +72,18 @@ ms.locfileid: "93104769"
 
 使用 **Azure 机器学习** 可以通过以下步骤设计和运行自动化 ML 训练试验：
 
-1. **识别要解决的 ML 问题** ：分类、预测或回归
+1. **识别要解决的 ML 问题**：分类、预测或回归
 
-1. **选择是要使用 Python SDK 还是工作室 Web 体验** ：了解 [Python SDK 与工作室 Web 体验](#parity)之间的搭配用法。
+1. **选择是要使用 Python SDK 还是工作室 Web 体验**：了解 [Python SDK 与工作室 Web 体验](#parity)之间的搭配用法。
 
    * 如果你的编程经验有限或者没有经验，请在 [https://studio.ml.azure.cn](https://studio.ml.azure.cn/) 上尝试使用 Azure 机器学习工作室 Web 体验  
    * Python 开发人员请查看 [Azure 机器学习 Python SDK](how-to-configure-auto-train.md) 
     
-1. **指定已标记训练数据的源和格式** ：Numpy 数组或 Pandas 数据帧
+1. **指定已标记训练数据的源和格式**：Numpy 数组或 Pandas 数据帧
 
-1. **配置模型训练的计算目标** ，例如 [本地计算机、Azure 机器学习计算、远程 VM 或 Azure Databricks](how-to-set-up-training-targets.md)。  了解如何对[远程资源](how-to-auto-train-remote.md)进行自动训练。
+1. **配置模型训练的计算目标**，例如 [本地计算机、Azure 机器学习计算、远程 VM 或 Azure Databricks](how-to-set-up-training-targets.md)。  了解如何对[远程资源](how-to-auto-train-remote.md)进行自动训练。
 
-1. **配置自动化机器学习参数** ，用于确定要对不同模型运行的迭代次数、超参数设置、高级预处理/特征化，以及在确定最佳模型时要查看的具体指标。  
+1. **配置自动化机器学习参数**，用于确定要对不同模型运行的迭代次数、超参数设置、高级预处理/特征化，以及在确定最佳模型时要查看的具体指标。  
 1. **提交训练运行。**
 
 1. **查看结果** 
@@ -134,14 +134,14 @@ ms.locfileid: "93104769"
 
 + Azure 机器学习工作室：[通过以下步骤](how-to-use-automated-ml-for-ml-models.md#customize-featurization)在“查看其他配置”部分中启用“自动特征化”。
 
-+ Python SDK：在 [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 对象中指定 `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'`。 详细了解如何[启用特征化](how-to-configure-auto-features.md)。 
++ Python SDK：在 [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 对象中指定 `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'`。 详细了解如何[启用特征化](how-to-configure-auto-features.md)。 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a> 系综模型
 
 自动化机器学习支持默认已启用的系综模型。 系综学习通过组合多个模型而不是使用单个模型，来改善机器学习结果和预测性能。 系综迭代显示为运行的最后一个迭代。 自动化机器学习使用投票和堆叠系综方法来组合模型：
 
-* **投票** ：根据预测类概率（对于分类任务）或预测回归目标（对于回归任务）的加权平均值进行预测。
-* **堆叠** ：堆叠方法组合异构的模型，并根据各个模型的输出训练元模型。 当前的默认元模型是 LogisticRegression（对于分类任务）和 ElasticNet（对于回归/预测任务）。
+* **投票**：根据预测类概率（对于分类任务）或预测回归目标（对于回归任务）的加权平均值进行预测。
+* **堆叠**：堆叠方法组合异构的模型，并根据各个模型的输出训练元模型。 当前的默认元模型是 LogisticRegression（对于分类任务）和 ElasticNet（对于回归/预测任务）。
 
 提供排序系综初始化的 [Caruana 系综选择算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)用于决定要在系综中使用的模型。 从较高层面看，此算法使用个体评分最高的最多五个模型来初始化集成，并验证这些模型是否在最佳评分的 5% 阈值范围内，以避免初始系综不佳。 然后，对于每个系综迭代，会将一个新模型添加到现有系综，并计算最终评分。 如果新模型改善了现有的系综评分，则会更新系综以包含新模型。
 
@@ -151,14 +151,14 @@ ms.locfileid: "93104769"
 
 自动化 ML 的 Web 界面始终使用远程[计算目标](concept-compute-target.md)。  但使用 Python SDK 时，可以选择本地计算或远程计算目标进行自动化 ML 训练。
 
-* **本地计算** ：训练在本地便携式计算机或 VM 计算中发生。 
-* **远程计算** ：训练在机器学习计算群集中发生。  
+* **本地计算**：训练在本地便携式计算机或 VM 计算中发生。 
+* **远程计算**：训练在机器学习计算群集中发生。  
 
 ### <a name="choose-compute-target"></a>选择计算目标
 选择计算目标时请考虑以下因素：
 
- * **选择本地计算** ：如果你的方案涉及到使用小数据和短训练（即，每个子运行持续几秒或几分钟）进行初始探索或演示，则可能更适合在本地计算机上进行训练。  这样就无需进行设置，并且可以直接使用基础结构资源（电脑或 VM）。
- * **选择远程 ML 计算群集** ：如果使用较大的数据集进行训练（例如，在生产训练中创建需要较长时间训练的模型），则远程计算可以提供好得多的端到端时间性能，因为 `AutoML` 会在群集节点之间并行化训练。 在远程计算上，内部基础结构的启动时间大约会根据每个子运行增加 1.5 分钟，如果 VM 尚未启动并运行，则群集基础结构的启动时间也会额外增加几分钟。
+ * **选择本地计算**：如果你的方案涉及到使用小数据和短训练（即，每个子运行持续几秒或几分钟）进行初始探索或演示，则可能更适合在本地计算机上进行训练。  这样就无需进行设置，并且可以直接使用基础结构资源（电脑或 VM）。
+ * **选择远程 ML 计算群集**：如果使用较大的数据集进行训练（例如，在生产训练中创建需要较长时间训练的模型），则远程计算可以提供好得多的端到端时间性能，因为 `AutoML` 会在群集节点之间并行化训练。 在远程计算上，内部基础结构的启动时间大约会根据每个子运行增加 1.5 分钟，如果 VM 尚未启动并运行，则群集基础结构的启动时间也会额外增加几分钟。
 
 ### <a name="pros-and-cons"></a>优点和缺点
 选择是要使用本地还是远程计算时，请考虑两者的以下优点和缺点。
@@ -204,7 +204,7 @@ ms.locfileid: "93104769"
 
 Azure 机器学习提供了两种使用自动化 ML 的体验方式：
 
-* 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * 编程经验有限/无经验的客户可以使用 [https://studio.ml.azure.cn](https://studio.ml.azure.cn/) 上的 Azure 机器学习工作室  
 
@@ -219,7 +219,7 @@ Azure 机器学习提供了两种使用自动化 ML 的体验方式：
 |**将数据拆分为训练/验证集**| ✓|✓
 |**支持 ML 任务：分类、回归和预测**| ✓| ✓
 |**基于主要指标进行优化**| ✓| ✓
-|**支持将 AML 计算作为计算目标** | ✓|✓
+|支持将 Azure ML 计算作为计算目标 | ✓|✓
 |配置预测范围、目标滞后和滚动窗口|✓|✓
 |**设置退出条件** |✓|✓ 
 |**设置并发迭代数**| ✓|✓
@@ -263,7 +263,7 @@ Azure 机器学习提供了两种使用自动化 ML 的体验方式：
 
 [在此 Jupyter 笔记本示例中](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)了解如何转换为 ONNX 格式。 了解 [ONNX 支持的算法](how-to-configure-auto-train.md#select-your-experiment-type)。
 
-ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生成的模型，而无需重新编写代码，同时可避免 REST 终结点造成的任何网络延迟。 详细了解如何[使用 ONNX 运行时 C# API 推理 ONNX 模型](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)。 
+ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生成的模型，而无需重新编写代码，同时可避免 REST 终结点造成的任何网络延迟。 详细了解[在带有 ML.NET 的 .NET 应用程序中使用 AutoML ONNX 模型](./how-to-use-automl-onnx-model-dotnet.md)和[使用 ONNX 运行时 C# API 推断 ONNX 模型](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -289,7 +289,7 @@ ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生�
 
 ### <a name="python-sdk-reference"></a>Python SDK 参考 
 
-阅读 [AutoML 类参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)，加深你对 SDK 设计模式和类规范的专业知识的理解。 
+阅读 [AutoML 类参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)，加深你对 SDK 设计模式和类规范的专业知识的理解。 
 
 > [!Note]
 > 自动化机器学习功能也可以在其他 Microsoft 解决方案（例如 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)、[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)、[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 和 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)）中使用

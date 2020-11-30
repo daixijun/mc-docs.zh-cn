@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 249dd54799ad405b4fb26469168e77b8e408f447
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f506de9df5dfbb9e2e5d530896b4f427a3990ede
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245606"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300614"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>从本地文件创建作业输入
 
@@ -71,11 +71,11 @@ private static async Task<Asset> CreateInputAssetAsync(
 
     // Use Storage API to get a reference to the Asset container
     // that was created by calling Asset's CreateOrUpdate method.  
-    CloudBlobContainer container = new CloudBlobContainer(sasUri);
-    var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+    BlobContainerClient container = new BlobContainerClient(sasUri);
+    BlobClient blob = container.GetBlobClient(Path.GetFileName(fileToUpload));
 
     // Use Strorage API to upload the file into the container in storage.
-    await blob.UploadFromFileAsync(fileToUpload);
+    await blob.UploadAsync(fileToUpload);
 
     return asset;
 }
@@ -84,11 +84,7 @@ private static async Task<Asset> CreateInputAssetAsync(
 以下代码片段将创建一个输出资产（如果它尚不存在）：
 
 ```c#
-private static async Task<Asset> CreateOutputAssetAsync(
-    IAzureMediaServicesClient client, 
-    string resourceGroupName, 
-    string accountName, 
-    string assetName)
+private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
 {
     // Check if an Asset already exists
     Asset outputAsset = await client.Assets.GetAsync(resourceGroupName, accountName, assetName);
@@ -97,14 +93,14 @@ private static async Task<Asset> CreateOutputAssetAsync(
 
     if (outputAsset != null)
     {
-    // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-    // Note that the returned Asset can have a different name than the one specified as an input parameter.
-    // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-    string uniqueness = $"-{Guid.NewGuid().ToString("N")}";
-    outputAssetName += uniqueness;
-                
-    Console.WriteLine("Warning – found an existing Asset with name = " + assetName);
-    Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);                
+        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+        // Note that the returned Asset can have a different name than the one specified as an input parameter.
+        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+        string uniqueness = $"-{Guid.NewGuid():N}";
+        outputAssetName += uniqueness;
+
+        Console.WriteLine("Warning – found an existing Asset with name = " + assetName);
+        Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);
     }
 
     return await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, outputAssetName, asset);

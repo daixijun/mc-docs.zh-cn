@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/15/2019
 ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 35daecaf2f0958e62596ff8a5b72679c2dc6cb69
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0219155e8d56a61601e4519edd94ec7800235729
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292495"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300875"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hadoop YARN 进行故障排除
 
@@ -48,7 +48,7 @@ ms.locfileid: "72292495"
 2. 选择 **default** 队列。
 
     ![选择 default 队列](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. 将 **default** 队列的**容量**从 50% 更改为 25%。 将 **thriftsvr** 队列的**容量**更改为 25%。
+3. 将 **default** 队列的 **容量** 从 50% 更改为 25%。 将 **thriftsvr** 队列的 **容量** 更改为 25%。
 
     ![将 default 和 thriftsvr 队列的容量更改为 25%](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 若要创建新队列，请选择“添加队列”。 
@@ -59,7 +59,7 @@ ms.locfileid: "72292495"
 
     ![为队列 Spark 命名](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. 将**容量**值保留为 50%，并选择“操作”按钮。 
+6. 将 **容量** 值保留为 50%，并选择“操作”按钮。 
 
     ![选择“操作”按钮](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. 选择“保存并刷新队列”。 
@@ -147,7 +147,4 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
-
-
-- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

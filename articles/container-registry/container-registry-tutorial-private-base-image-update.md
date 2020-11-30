@@ -4,15 +4,15 @@ description: 在本教程中，你将配置一个 Azure 容器注册表任务，
 ms.topic: tutorial
 origin.date: 01/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: devx-track-js
-ms.openlocfilehash: e1b1cd609b2207906d5ca0656ae659959208609d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 5ef6a07fc6213267c4dab6a6977afa6264fda8d5
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024636"
 ---
 <!--Verify sucessfully-->
 <!--Part content of released articles-->

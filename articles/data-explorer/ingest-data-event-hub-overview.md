@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 0d1349ea5fa357a8f4a1326b9395c3400ca170c7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a14f787ab017f866b397cfa29e682fee1c60694e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106093"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300364"
 ---
 # <a name="event-hub-data-connection"></a>事件中心数据连接
 
@@ -26,7 +26,7 @@ ms.locfileid: "93106093"
 
 ## <a name="data-format"></a>数据格式
 
-* 将以 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) 对象的形式从事件中心读取数据。
+* 将以 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata) 对象的形式从事件中心读取数据。
 * 请参阅[支持的格式](ingestion-supported-formats.md)。
     > [!NOTE]
     > 事件中心不支持 .raw 格式。
@@ -37,7 +37,7 @@ ms.locfileid: "93106093"
   
 ## <a name="ingestion-properties"></a>引入属性
 
-引入属性会指示引入过程、数据路由到的位置以及数据处理方式。 可以使用 [EventData.Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) 指定事件引入的[引入属性](ingestion-properties.md)。 可以设置以下属性：
+引入属性会指示引入过程、数据路由到的位置以及数据处理方式。 可以使用 [EventData.Properties](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties) 指定事件引入的[引入属性](ingestion-properties.md)。 可以设置以下属性：
 
 |属性 |说明|
 |---|---|
@@ -45,7 +45,7 @@ ms.locfileid: "93106093"
 | 格式 | 数据格式。 替代“`Data Connection`”窗格上设置的“`Data format`”。 |
 | IngestionMappingReference | 要使用的现有[引入映射](kusto/management/create-ingestion-mapping-command.md)的名称。 替代“`Data Connection`”窗格上设置的“`Column mapping`”。|
 | 压缩 | 数据压缩。`None`（默认值）或 `GZip` 压缩。|
-| 编码 | 数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks)。 |
+| 编码 | 数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding#remarks)。 |
 | 标记（预览版） | 将要与引入的数据（格式设置为 JSON 数组字符串）关联的[标记](kusto/management/extents-overview.md#extent-tagging)的列表。 使用标记时存在[性能影响](kusto/management/extents-overview.md#performance-notes-1)。 |
 
 <!--| Database | Name of the existing target database.|-->
@@ -57,7 +57,7 @@ ms.locfileid: "93106093"
 ## <a name="events-routing"></a>事件路由
 
 设置到 Azure 数据资源管理器群集的事件中心连接时，请指定目标表属性（表名、数据格式、压缩和映射）。 数据的默认路由也称为 `static routing`。
-还可以使用事件属性指定每个事件的目标表属性。 连接将按照 [EventData.Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties?view=azure-dotnet#Microsoft_ServiceBus_Messaging_EventData_Properties) 中指定的要求动态路由数据，替代此事件的静态属性。
+还可以使用事件属性指定每个事件的目标表属性。 连接将按照 [EventData.Properties](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties) 中指定的要求动态路由数据，替代此事件的静态属性。
 
 在以下示例中设置事件中心详细信息，并将天气指标数据发送到 `WeatherMetrics` 表。
 数据采用 `json` 格式。 `mapping1` 在 `WeatherMetrics` 表中预定义。

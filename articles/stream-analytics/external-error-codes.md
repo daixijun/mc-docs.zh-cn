@@ -4,14 +4,14 @@ description: 通过外部错误代码对 Azure 流分析进行故障排除。
 ms.author: v-johya
 author: Johnnytechn
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 26a04d5d1e8652e66abdce995c995e72ef1f0ec0
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 7d2934a17dc20bde2e86ecac87b8c1d248891595
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715699"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978111"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Azure 流分析外部错误代码
 
@@ -85,16 +85,17 @@ ms.locfileid: "88715699"
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **原因**：初始化 Synapse SQL 池输出时出错。
+* **原因：** 初始化专用 SQL 池输出时出错。
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **原因**：将输出写入 Synapse SQL 池时出错。
+* **原因：** 将输出写入专用 SQL 池时出错。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [对输入连接进行故障排除](stream-analytics-troubleshoot-input.md)
 * [对 Azure 流分析输出进行故障排除](stream-analytics-troubleshoot-output.md)
 * [对 Azure 流分析查询进行故障排除](stream-analytics-troubleshoot-query.md)
+* [使用资源日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md)
 * [Azure 流分析数据错误](data-errors.md)
 

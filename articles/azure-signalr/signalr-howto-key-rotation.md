@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 03/01/2019
 ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9d6b317f3f672594c0e871232828c75423f3a022
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c1777244a6566b78234d7a8d9ee0c63a5569ebe9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74179099"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300926"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>如何轮换 Azure SignalR 服务的访问密钥
 
@@ -36,7 +36,7 @@ ms.locfileid: "74179099"
 
    ![重新生成密钥](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-还可以使用 [Azure CLI](/cli/signalr/key?view=azure-cli-latest#az-signalr-key-renew) 重新生成密钥。
+还可以使用 [Azure CLI](/cli/signalr/key#az-signalr-key-renew) 重新生成密钥。
 
 ## <a name="update-configurations-with-new-connection-strings"></a>使用新的连接字符串更新配置
 

@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: d92162d93c5b03fb9c54889b00cd255f7b6a19ea
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: dd7b776bf4e76da7532070104ce3fe8f25902c34
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749955"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918425"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入门：从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph API
 
-本快速入门包含一个代码示例，该示例演示了本机 iOS 或 macOS 应用程序如何使用 Microsoft 标识平台登录工作和学校帐户、获取访问令牌并调用 Microsoft Graph API。
+在本快速入门中，你将下载并运行一个代码示例，该示例演示本机 iOS 或 macOS 应用程序如何让用户登录并获取访问令牌来调用 Microsoft Graph API。
 
-本快速入门适用于 iOS 和 macOS 应用。 某些步骤只是 iOS 应用所需的。 这些步骤会指出它们仅适用于 iOS。
+本快速入门适用于 iOS 和 macOS 应用。 某些步骤仅为 iOS 应用所需，并将如下所示进行说明。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -115,7 +115,7 @@ ms.locfileid: "92749955"
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
-> 1. 打开项目设置。 在“标识”部分，输入以前在门户中输入的 **捆绑标识符** 。
+> 1. 打开项目设置。 在“标识”部分，输入以前在门户中输入的 **捆绑标识符**。
 > 1. 右键单击“Info.plist”，然后选择“打开为” > “源代码”。
 > 1. 在 dict 根节点下，将 `Enter_the_bundle_Id_Here` 替换为你在门户中使用的“捆绑 ID”。
 >
@@ -274,5 +274,4 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > [!div class="nextstepaction"]
 > [教程：从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph](tutorial-v2-ios.md)
-
 

@@ -3,15 +3,16 @@ title: 教程 - 多步骤 ACR 任务
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时，在云中自动触发多步骤工作流来生成、运行和推送容器映像。
 ms.topic: tutorial
 origin.date: 05/09/2019
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 95576c2015642864075333560aeaf4e91d1f77a4
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: be87fe8e2814628a248762646ab027aba03cf9cd
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093510"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024456"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 
@@ -88,7 +89,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-此任务指定，每当向 `--context` 指定的主分支存储库提交代码时，ACR 任务都要基于该分支中的代码运行该多步骤任务。  存储库根目录中的 `--file` 指定的 YAML 文件将定义步骤。 
+此任务指定，每当向 `--context` 指定的主分支存储库提交代码时，ACR 任务都要基于该分支中的代码运行该多步骤任务。 存储库根目录中的 `--file` 指定的 YAML 文件将定义步骤。 
 
 成功的 [az acr task create][az-acr-task-create] 命令的输出应如下所示：
 
@@ -280,9 +281,9 @@ cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:
 
 默认情况下，ACR 任务有权从运行任务的注册表推送或提取映像。 你可能想要运行一个除了面向运行注册表以外，还面向其他一个或多个注册表的多步骤任务。 例如，你可能需要在一个注册表中生成映像，并在由生产系统访问的另一个注册表中存储具有不同标记的映像。 此示例演示如何创建此类任务，并提供另一个注册表的凭据。
 
-如果没有另一个注册表，请为此示例创建一个注册表。 如果需要注册表，请参阅[上一教程](container-registry-tutorial-quick-task.md)或[快速入门：使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)。
+如果没有另一个注册表，请为此示例创建一个注册表。 如果需要注册表，请参阅[前面教程](container-registry-tutorial-quick-task.md)，或[快速入门：使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)。
 
-若要创建任务，需要注册表登录服务器的名称，其格式为“mycontainerregistrydate.azurecr.cn”  （全小写）。 此示例使用第二个注册表来存储按生成日期标记的映像。
+若要创建任务，需要注册表登录服务器的名称，其格式为“mycontainerregistrydate.azurecr.cn”（全小写）。 此示例使用第二个注册表来存储按生成日期标记的映像。
 
 ### <a name="yaml-file"></a>YAML 文件
 
@@ -332,7 +333,7 @@ az acr task create \
 
 若要将映像推送到 `regDate` 值标识的注册表，请使用 [az acr task credential add][az-acr-task-credential-add] 命令将该注册表的登录凭据添加到任务。
 
-对于此示例，我们建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的[服务主体](container-registry-auth-service-principal.md)。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
+对于此示例，我们建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的 [服务主体](container-registry-auth-service-principal.md)。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
 
 在以下 `az acr task credential add`命令中传递服务主体应用程序 ID 和密码：
 
@@ -348,7 +349,7 @@ az acr task credential add --name example2 \
 
 ### <a name="test-the-multi-step-workflow"></a>测试多步骤工作流
 
-与前面的示例一样，若要测试多步骤任务，请执行 [az acr task run][az-acr-task-run] 命令手动将其触发。 若要通过向 Git 存储库提交代码来触发任务，请参阅[通过提交触发生成](#trigger-a-build-with-a-commit)部分。
+与在前面的示例中一样，若要测试多步骤任务，请执行 [az acr task run][az-acr-task-run] 命令手动将其触发。 若要通过向 Git 存储库提交代码来触发任务，请参阅[通过提交触发生成](#trigger-a-build-with-a-commit)部分。
 
 ```azurecli
 az acr task run --registry $ACR_NAME --name example2
@@ -465,13 +466,13 @@ Run ID: cf1g was successful after 46s
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential?view=azure-cli-latest#az-acr-task-credential-add    
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-task]: https://docs.azure.cn/cli/acr/task
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-acr-task-credential-add]: https://docs.azure.cn/cli/acr/task/credential#az_acr_task_credential_add    
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
 
 <!-- IMAGES -->
 

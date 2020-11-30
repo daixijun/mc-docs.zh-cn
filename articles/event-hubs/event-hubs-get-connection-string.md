@@ -5,12 +5,12 @@ ms.topic: article
 origin.date: 06/23/2020
 ms.date: 08/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9ce2bf72003e17e32319d3d1c4b5309f2e6afa02
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 94e3e01965e824f60c8aec436a93b4b7de8066d5
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715233"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300408"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>获取事件中心连接字符串
 
@@ -69,7 +69,7 @@ az eventhubs namespace authorization-rule keys list --resource-group dummyresour
 az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
 ```
 
-有关事件中心 Azure CLI 命令的详细信息，请参阅[事件中心的 Azure CLI](https://docs.azure.cn/cli/eventhubs?view=azure-cli-latest)。
+有关事件中心 Azure CLI 命令的详细信息，请参阅[事件中心的 Azure CLI](https://docs.azure.cn/cli/eventhubs)。
 
 ## <a name="next-steps"></a>后续步骤
 

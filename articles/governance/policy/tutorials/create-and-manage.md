@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/05/2020
 ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: e74c1ff53e0aa62f4aba2d49398da3d886e8a43f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 619df939f37dd31d102ea73b64a26df4a7be08f9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328280"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977817"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教程：创建和管理策略以强制实施符合性
 
@@ -51,7 +51,7 @@ ms.locfileid: "94328280"
 
 1. 可基于“范围”排除资源。 “排除”从低于“范围”级别的一个级别开始 。 “排除”是可选的，因此暂时将其留空。
 
-1. 选择“策略定义”旁边的省略号打开可用定义的列表。 可以使用“内置”来筛选策略定义的 **类型** ，以查看所有相关策略定义及其说明。
+1. 选择“策略定义”旁边的省略号打开可用定义的列表。 可以使用“内置”来筛选策略定义的 **类型**，以查看所有相关策略定义及其说明。
 
 1. 选择“如果缺少，则从资源组继承标记”。 如果不能立即找到它，请在搜索框中键入“继承标记”，然后按 ENTER 或者选择搜索框的外部。
    找到并选择策略定义后，选择“可用定义”页底部的“选择”。 
@@ -354,7 +354,7 @@ az policy definition list
 
 1. 输入计划的“名称”和“说明”。 
 
-   此示例验证资源是否符合有关保证安全的策略定义。 将计划命名为“保证安全”，并将说明设置为： **创建此计划的目的是处理所有与保护资源相关的策略定义** 。
+   此示例验证资源是否符合有关保证安全的策略定义。 将计划命名为“保证安全”，并将说明设置为： **创建此计划的目的是处理所有与保护资源相关的策略定义**。
 
 1. 对于“类别”，请从现有的选项中选择，或者创建新类别。
 
@@ -398,7 +398,7 @@ az policy definition list
    > [!NOTE]
    > 在使用某些 `strongType` 参数时，不能自动确定值的列表。 在这种情况下，会在参数行的右侧显示省略号。 选择它会打开“参数范围(&lt;参数名称&gt;)”页。 在此页中，选择用于提供值选项的订阅。 此参数范围仅在创建计划定义过程中使用，对策略评估或分配后的计划范围没有影响。
 
-   将“允许的位置”值类型设置为“设置值”，然后从下拉列表中选择“美国东部 2”。 对于“在资源中添加或替换标记”策略定义的两个实例，将“标记名称”参数设置为“Env”和“CostCenter”，将“标记值”参数设置为“Test”和“Lab”，如下所示 。 将其他值保留为“默认值”。 在计划中使用相同的定义两次，但使用不同的参数，此配置在分配范围内的资源中使用值“Test”添加或替换“Env”标记值，使用值“Lab”添加或替换“CostCenter”标记值。
+   将“允许的位置”值类型设置为“设置值”，然后从下拉列表中选择“中国东部 2”。 对于“在资源中添加或替换标记”策略定义的两个实例，将“标记名称”参数设置为“Env”和“CostCenter”，将“标记值”参数设置为“Test”和“Lab”，如下所示 。 将其他值保留为“默认值”。 在计划中使用相同的定义两次，但使用不同的参数，此配置在分配范围内的资源中使用值“Test”添加或替换“Env”标记值，使用值“Lab”添加或替换“CostCenter”标记值。
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="屏幕截图显示“计划定义”页“策略参数”选项卡上“允许的位置”定义参数的输入的允许值选项及两个标记参数集。":::
 
@@ -515,7 +515,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. 浏览所有策略分配并打开“保证安全”策略分配。
 
-1. 设置“排除项”：选择省略号并选择要排除的资源组（在本示例中为 _LocationsExcluded_ ）。 选择“添加到所选范围”，然后选择“保存” 。
+1. 设置“排除项”：选择省略号并选择要排除的资源组（在本示例中为 _LocationsExcluded_）。 选择“添加到所选范围”，然后选择“保存” 。
 
    :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="“计划分配”页上用于将排除的资源组添加到策略分配的“排除”选项的屏幕截图。" border="false":::
 

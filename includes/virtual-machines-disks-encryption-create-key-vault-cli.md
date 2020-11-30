@@ -11,14 +11,14 @@ ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 76555805aa252192a7f7c2c514e705d1d9909180
-ms.sourcegitcommit: 6c9e5b3292ade56d812e7e214eeb66aeb9b8776e
+ms.openlocfilehash: 3d6c676b5bfe99d5028b10aef83009e80a721964
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86218840"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300138"
 ---
-1. 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+1. 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2) 并已使用 [az login](https://docs.azure.cn/cli/reference-index#az-login) 登录到 Azure 帐户。
 
 1. 创建 Azure Key Vault 和加密密钥的实例。
 

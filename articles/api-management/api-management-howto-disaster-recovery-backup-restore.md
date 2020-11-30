@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: b382218ae5c199801c6fc1e4d854fc4784086b78
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: a9a950abab5bce18b1f8f226935fa771f91bf168
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871378"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306231"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
@@ -68,7 +68,7 @@ ms.locfileid: "91871378"
 4. 输入应用程序的名称。
 5. 对于应用程序类型，选择“本机”。 
 6. 输入占位符 URL，例如，为“重定向 URI”  输入 `http://resources`，因为它是必填字段，但以后不使用该值。 单击此复选框以保存应用程序。
-7. 单击**创建**。
+7. 单击 **创建**。
 
 ### <a name="add-an-application"></a>添加应用程序
 
@@ -152,7 +152,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 -   `subscriptionId` - 订阅的 ID，该订阅包含的 API 管理服务是你尝试备份的
 -   `resourceGroupName` - Azure API 管理服务的资源组名称
 -   `serviceName` - 正在创建其备份的 API 管理服务的名称，在创建时指定
--   `api-version` - 替换为 `2018-06-01-preview`
+-   `api-version` - 替换为 `2019-12-01`
 
 在请求正文中，指定目标 Azure 存储帐户名称、访问密钥、blob 容器名称和备份名称：
 
@@ -171,14 +171,14 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>发出备份请求或还原请求时的限制
 
--   请求正文中指定的**容器** **必须存在**。
--   当备份正在进行时，请**避免在服务中进行管理更改**，例如 SKU 升级或降级、域名更改等。
+-   请求正文中指定的 **容器** **必须存在**。
+-   当备份正在进行时，请 **避免在服务中进行管理更改**，例如 SKU 升级或降级、域名更改等。
 -   从创建时开始，**备份还原仅保证 30 天**。
--   备份操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的**更改** **可能不包含在备份中，会丢失**。
+-   备份操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的 **更改** **可能不包含在备份中，会丢失**。
 -   允许  从控制平面访问 Azure 存储帐户，前提是它已启用[防火墙][azure-storage-ip-firewall]。 客户应在其存储帐户上打开一组 [Azure API 管理控制平面 IP 地址][control-plane-ip-address]，以便将数据备份到其中或从其中还原数据。 这是因为对 Azure 存储的请求不会通过“计算”>（Azure API 管理控制平面）以 SNAT 方式转换成公共 IP。 跨区域存储请求将进行 SNAT 转换。
 
 #### <a name="what-is-not-backed-up"></a>不备份的内容
--   用于创建分析报表的**用法数据** **不包括**在备份中。 使用 [Azure API 管理 REST API][azure api management rest api] 定期检索分析报表以保证安全。
+-   用于创建分析报表的 **用法数据** **不包括** 在备份中。 使用 [Azure API 管理 REST API][azure api management rest api] 定期检索分析报表以保证安全。
 -   [自定义域 TLS/SSL](configure-custom-domain.md) 证书
 -   [自定义 CA 证书](api-management-howto-ca-certificates.md)，包括客户上传的中间或根证书
 -   [虚拟网络](api-management-using-with-vnet.md)集成设置。
@@ -202,7 +202,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 -   `subscriptionId` - 订阅 ID，该订阅包含的 API 管理服务是需要将备份还原到其中的
 -   `resourceGroupName` - 资源组的名称，该资源组包含的 Azure API 管理服务是需要将备份还原到其中的
 -   `serviceName` - 要将备份还原到其中的 API 管理服务的名称，在创建时指定
--   `api-version` - 替换为 `2018-06-01-preview`
+-   `api-version` - 替换为 `api-version=2019-12-01`
 
 在请求正文中，指定备份文件位置。 也就是说，添加 Azure 存储帐户名称、访问密钥、Blob 容器名称和备份名称：
 
@@ -222,7 +222,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 > [!IMPORTANT]
 > 要还原到的服务的 **SKU** 必须与正在还原的已备份服务的 SKU **匹配**。
 >
-> 还原操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的**更改** **可能会被覆盖**。
+> 还原操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的 **更改** **可能会被覆盖**。
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

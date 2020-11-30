@@ -1,10 +1,9 @@
 ---
 title: 快速入门 - 诊断 VM 网络流量筛选器问题 - Azure CLI
 titleSuffix: Azure Network Watcher
-description: 本快速入门介绍了如何使用 Azure 网络观察程序的 IP 流验证功能来诊断虚拟机网络流量筛选器问题。
+description: 了解如何通过 Azure CLI 使用 Azure 网络观察程序的 IP 流验证功能来诊断虚拟机网络流量筛选器问题。
 services: network-watcher
 documentationcenter: network-watcher
-author: rockboyfor
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -16,38 +15,46 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: fc57d8ee65f5640af8b766a0bbad30a790eb1166
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 1658ee4d586ede034f533bf93858b5c72e718fe2
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548061"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300451"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure CLI
 
 在本快速入门中，请先部署虚拟机 (VM)，然后检查到某个 IP 地址和 URL 的通信以及来自某个 IP 地址的通信。 确定通信失败的原因以及解决方法。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本快速入门需要 Azure CLI 版本 2.0 或更高版本。
+
+    <!--Not Available on  If using Azure Cloud Shell, the latest version is already installed.-->
+
+- 本快速入门中的 Azure CLI 命令已设置了格式，以便在 Bash Shell 中运行。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 Azure CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 验证 Azure CLI 版本以后，请运行 `az login`，以便创建与 Azure 的连接。 本快速入门中的 Azure CLI 命令已设置了格式，以便在 Bash Shell 中运行。
 
 ## <a name="create-a-vm"></a>创建 VM
 
-在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
+在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
+使用 [az vm create](https://docs.azure.cn/cli/vm#az_vm-_create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
 
 ```azurecli
 az vm create \
@@ -65,7 +72,7 @@ az vm create \
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在“中国东部”区域启用网络观察程序，请跳到[使用 IP 流验证](#use-ip-flow-verify)。 使用 [az network watcher configure](https://docs.azure.cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部”区域中创建网络观察程序：
+如果已在“中国东部”区域启用网络观察程序，请跳到[使用 IP 流验证](#use-ip-flow-verify)。 使用 [az network watcher configure](https://docs.azure.cn/cli/network/watcher#az_network_watcher_configure) 命令在“中国东部”区域中创建网络观察程序：
 
 ```azurecli
 az network watcher configure \
@@ -76,7 +83,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>使用 IP 流验证
 
-创建 VM 时，Azure 在默认情况下会允许或拒绝出入 VM 的网络流量。 可以在以后覆盖 Azure 的默认设置，允许或拒绝其他类型的流量。 若要测试来自一个源 IP 地址但发往不同目标的流量是获得允许还是被拒绝，请使用 [az network watcher test-ip-flow](https://docs.azure.cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-test-ip-flow) 命令。
+创建 VM 时，Azure 在默认情况下会允许或拒绝出入 VM 的网络流量。 可以在以后覆盖 Azure 的默认设置，允许或拒绝其他类型的流量。 若要测试来自一个源 IP 地址但发往不同目标的流量是获得允许还是被拒绝，请使用 [az network watcher test-ip-flow](https://docs.azure.cn/cli/network/watcher#az_network_watcher_test_ip_flow) 命令。
 
 测试从 VM 发往 www.bing.com 的某个 IP 地址的出站通信：
 
@@ -128,7 +135,7 @@ az network watcher test-ip-flow \
 
 ## <a name="view-details-of-a-security-rule"></a>查看安全规则的详细信息
 
-若要确定[使用 IP 流验证](#use-ip-flow-verify)中的规则允许或阻止通信的原因，请使用 [az network nic list-effective-nsg](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg) 命令查看网络接口的有效安全规则：
+若要确定[使用 IP 流验证](#use-ip-flow-verify)中的规则允许或阻止通信的原因，请使用 [az network nic list-effective-nsg](https://docs.azure.cn/cli/network/nic#az_network_nic_list_effective_nsg) 命令查看网络接口的有效安全规则：
 
 ```azurecli
 az network nic list-effective-nsg \
@@ -136,9 +143,9 @@ az network nic list-effective-nsg \
   --name myVmVMNic
 ```
 
-返回的输出包含 **AllowInternetOutbound** 规则的以下文本，该规则在[使用 IP 流验证](#use-ip-flow-verify)下的前述步骤中允许对 www.bing.com 进行出站访问：
+返回的输出包含 **AllowInternetOutbound** 规则的以下文本，该规则在 [使用 IP 流验证](#use-ip-flow-verify)下的前述步骤中允许对 www.bing.com 进行出站访问：
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -177,9 +184,9 @@ az network nic list-effective-nsg \
 
 可以在上述输出中看到 **destinationAddressPrefix** 为 **Internet**。 尚不清楚 13.107.21.200 与 **Internet** 的关系如何。 可以看到多个地址前缀列在 **expandedDestinationAddressPrefix** 下。 列表中的前缀之一为 **12.0.0.0/6**，它涵盖了 IP 地址范围 12.0.0.1-15.255.255.254。 由于 13.107.21.200 在该地址范围内，因此 **AllowInternetOutBound** 规则允许此出站流量。 另外，在上述输出中没有显示优先级更高（数字更小）的可以覆盖此规则的规则。 若要拒绝到某个 IP 地址的出站通信，可以添加一项优先级更高的安全规则，拒绝通过端口 80 向该 IP 地址发送出站流量。
 
-在[使用 IP 流验证](#use-ip-flow-verify)中运行 `az network watcher test-ip-flow` 命令以测试发往 172.131.0.100 的出站通信时，输出指示 **DefaultOutboundDenyAll** 规则拒绝了该通信。 **DefaultOutboundDenyAll** 规则相当于在 `az network nic list-effective-nsg` 命令的以下输出中列出的 **DenyAllOutBound** 规则：
+在 [使用 IP 流验证](#use-ip-flow-verify)中运行 `az network watcher test-ip-flow` 命令以测试发往 172.131.0.100 的出站通信时，输出指示 **DefaultOutboundDenyAll** 规则拒绝了该通信。 **DefaultOutboundDenyAll** 规则相当于在 `az network nic list-effective-nsg` 命令的以下输出中列出的 **DenyAllOutBound** 规则：
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -210,9 +217,9 @@ az network nic list-effective-nsg \
 
 该规则将 **0.0.0.0/0** 列为 **destinationAddressPrefix**。 此规则拒绝到 172.131.0.100 的出站通信，因为此地址不在 `az network nic list-effective-nsg` 命令输出中的任何其他出站规则的 **destinationAddressPrefix** 范围内。 若要允许出站通信，可以添加一项优先级更高的安全规则，允许出站流量到达 172.131.0.100 的端口 80。
 
-在[使用 IP 流验证](#use-ip-flow-verify)中运行 `az network watcher test-ip-flow` 命令以测试来自 172.131.0.100 的入站通信时，输出指示 **DefaultInboundDenyAll** 规则拒绝了该通信。 **DefaultInboundDenyAll** 规则相当于在 `az network nic list-effective-nsg` 命令的以下输出中列出的 **DenyAllInBound** 规则：
+在 [使用 IP 流验证](#use-ip-flow-verify)中运行 `az network watcher test-ip-flow` 命令以测试来自 172.131.0.100 的入站通信时，输出指示 **DefaultInboundDenyAll** 规则拒绝了该通信。 **DefaultInboundDenyAll** 规则相当于在 `az network nic list-effective-nsg` 命令的以下输出中列出的 **DenyAllInBound** 规则：
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -247,7 +254,7 @@ az network nic list-effective-nsg \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 将其删除：
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 将其删除：
 
 ```azurecli
 az group delete --name myResourceGroup --yes

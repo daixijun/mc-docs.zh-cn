@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 07/03/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c20f8a63aee1fe2323b35464991babeda1121bf5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 15ddfa8ae4d8ff9195cd7925942865b3257c1ad5
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104629"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306294"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>对照以 C# 编写的自定义术语列表检查文本
 
@@ -297,7 +297,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -305,9 +305,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 删除术语或列表非常简单。 使用 SDK 执行以下任务：
 
-- 删除术语。 ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
-- 删除列表中的所有术语而不删除列表。 ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
-- 删除列表及其所有内容。 ( **ContentModeratorClient.ListManagementTermLists.Delete** )
+- 删除术语。 (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
+- 删除列表中的所有术语而不删除列表。 (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- 删除列表及其所有内容。 (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>删除术语
 

@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 03/13/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: de4bf414491ba46a5716c41d2d17813b11f834f6
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 00abceb6120ce2e30879ea384cc65d0601e2146b
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021094"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300037"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure 认知搜索中的排名算法
 
@@ -106,7 +106,7 @@ PUT https://[search service name].search.azure.cn/indexes/[index name]?api-versi
 
 ## <a name="see-also"></a>另请参阅  
 
-+ [REST API 参考](https://docs.microsoft.com/rest/api/searchservice/)   
-+ [将计分概要文件添加到索引](index-add-scoring-profiles.md)    
-+ [创建索引 API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [Azure 认知搜索 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [REST API 参考](https://docs.microsoft.com/rest/api/searchservice/)
++ [将计分概要文件添加到索引](index-add-scoring-profiles.md)
++ [创建索引 API](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Azure 认知搜索 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)

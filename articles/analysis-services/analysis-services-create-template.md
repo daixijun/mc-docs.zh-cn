@@ -6,17 +6,17 @@ ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 02d1d5f47e4b28d2ee0bd20ed70f6b1eec34512b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 18076b3cd73daebe40a781bbb9cf7133a844a560
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146233"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024428"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-server---arm-template"></a>快速入门：创建服务器 - ARM 模板
@@ -90,7 +90,7 @@ ms.locfileid: "91146233"
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "The SAS URI to a private Azure Blob Storage container with read, write and list permissions. Required only if you intend to use the backup/restore functionality. See https://docs.azure.cn/analysis-services/analysis-services-backup "
+        "description": "The SAS URI to a private Azure Blob Storage container with read, write and list permissions. Required only if you intend to use the backup/restore functionality. See https://docs.azure.cn/analysis-services/analysis-services-backup"
       }
     }
   },
@@ -113,7 +113,7 @@ ms.locfileid: "91146233"
 }
 ```
 
-该模板中定义了包含防火墙规则的单个 Microsoft.AnalysisServices/servers 资源。
+该模板中定义了包含防火墙规则的单个 `Microsoft.AnalysisServices/servers` 资源。
 
 <!--Not Available on [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/servers)-->
 

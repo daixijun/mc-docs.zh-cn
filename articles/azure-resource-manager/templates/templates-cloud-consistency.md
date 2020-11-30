@@ -4,17 +4,17 @@ description: 开发可针对不同的云环境一致地工作的 Azure 资源管
 ms.topic: conceptual
 origin.date: 12/09/2018
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: 205c3349f5d8d75fa0567da45fd4be605f95a652
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: cbb423557ee0692d52dc092c2a196760760c5955
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937538"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024604"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>开发用于确保云一致性的 ARM 模板
 
@@ -218,7 +218,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 }
 ```
 
-使用此方法，包括配置脚本在内的所有部署项目均可存储在模板本身所在的位置。 若要更改所有链接的位置，只需为 _artifactsLocation 参数_指定其他基 URL。
+使用此方法，包括配置脚本在内的所有部署项目均可存储在模板本身所在的位置。 若要更改所有链接的位置，只需为 _artifactsLocation 参数_ 指定其他基 URL。
 
 ## <a name="factor-in-differing-regional-capabilities"></a>区分区域功能的因素
 
@@ -228,7 +228,12 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 模板部署和配置资源。 资源类型由资源提供程序提供。 例如，计算资源提供程序 (Microsoft.Compute) 提供多个资源类型，例如 virtualMachines 和 availabilitySets。 每个资源提供程序均可向常见协定定义的 Azure 资源管理器提供一个 API，从而可以跨所有资源提供程序实现一致、统一的创作体验。 但全球 Azure 中可用的资源提供程序在主权云或 Azure Stack 区域中可能不可用。
 
-:::image type="content" source="./media/templates-cloud-consistency/resource-providers.png" alt-text="Azure 环境"::: --out table
+:::image type="content" source="./media/templates-cloud-consistency/resource-providers.png" alt-text="资源提供程序":::
+
+要验证资源提供程序在给定云中是否可用，请在 Azure 命令行界面 ([CLI](https://docs.azure.cn/cli/install-azure-cli)) 中运行以下脚本：
+
+```azurecli
+az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
 此外还可以使用以下 PowerShell cmdlet 查看可用的资源提供程序：
@@ -672,7 +677,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 下图展示了团队使用集成开发环境 (IDE) 的开发过程的典型示例。 在时间线中的不同阶段执行不同的测试类型。 在这里，两名开发者正在处理同一解决方案，但这种情况同样适用于单个开发者或一个大型团队。 每个开发者通常会创建中央存储库的本地副本，这样每个人都可以处理本地副本，并且不会影响可能使用同一文件的其他用户。
 
-:::image type="content" source="./media/templates-cloud-consistency/workflow.png" alt-text="Azure 环境":::
+:::image type="content" source="./media/templates-cloud-consistency/workflow.png" alt-text="图显示了在本地 I D E 上并行的两组单元测试和集成测试，它们在 C I / C D 开发流中合并为单元测试，然后是集成测试，然后是测试部署，然后是部署。":::
 
 请考虑以下用于测试和自动化的提示：
 
@@ -684,7 +689,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure 资源管理器模板注意事项](/azure-stack/user/azure-stack-develop-templates)
+* [Azure 资源管理器模板注意事项](https://docs.azure.cn/azure-stack/user/azure-stack-develop-templates)
 
     <!--MOONCAKE: correct on /azure-stack/user/azure-stack-develop-templates-->
     

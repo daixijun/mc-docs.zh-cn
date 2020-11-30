@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 origin.date: 06/18/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 9dbf65e1946febf1aae07a46719b537cad530d38
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 74c3815aaa4d56f2be2140afda41cd4038e6d1a9
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024629"
 ---
 <!--Verified successfully-->
 <!--Verified on Portal-->
@@ -199,18 +199,18 @@ az group delete --name myResourceGroup --yes --no-wait
 
 <!-- INTERNAL LINKS -->
 
-[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-nodepool-add]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-nodepool-list]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_list
-[az-aks-nodepool-update]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_update
-[az-aks-nodepool-upgrade]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_upgrade
-[az-aks-nodepool-scale]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_scale
-[az-aks-nodepool-delete]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_delete
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
-[az-extension-update]: https://docs.microsoft.com/cli/azure/extension#az_extension_update
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-nodepool-add]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-list]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_list
+[az-aks-nodepool-update]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_delete
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az_group_deployment_create

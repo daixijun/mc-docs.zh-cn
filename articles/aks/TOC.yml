@@ -116,6 +116,8 @@
           href: scale-cluster.md
         - name: 升级 AKS 群集
           href: upgrade-cluster.md
+        - name: 使用运行时间 SLA
+          href: uptime-sla.md
         - name: 升级节点映像
           href: node-image-upgrade.md
         - name: 处理节点 OS 更新
@@ -195,14 +197,14 @@
           href: control-kubeconfig-access.md
         - name: 使用网络策略保护 Pod 流量
           href: use-network-policies.md
-        - name: 使用 pod 安全策略（预览版）
-          href: use-pod-security-policies.md
         - name: 定义 API 服务器授权 IP 范围
           href: api-server-authorized-ip-ranges.md
         - name: 更新群集凭据
           href: update-credentials.md
         - name: 实现 Azure Active Directory 集成
           items:
+            - name: AKS 管理的 Azure AD
+              href: managed-aad.md
             - name: Azure AD 集成（旧版）
               href: azure-ad-integration-cli.md
         - name: 将 Kubernetes RBAC 用于 Azure AD 集成
@@ -258,6 +260,9 @@
           href: gpu-cluster.md
         - name: 使用 Azure Database for PostgreSQL
           href: ../postgresql/concepts-aks.md
+          maintainContext: true
+        - name: 使用 Azure API 管理
+          href: ../api-management/api-management-kubernetes.md
           maintainContext: true
     - name: 选择并部署服务网格
       items:
@@ -330,5 +335,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题解答
+    - name: 常见问题
       href: faq.md

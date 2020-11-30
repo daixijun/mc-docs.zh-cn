@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/27/2020
 ms.author: v-johya
-ms.openlocfilehash: 95f1bdda086d8d00fc06579a40e85551ddad4011
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 0a6ddb8a317101776288c0202acbb634336c8887
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472924"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306437"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>包含常见词汇和概念的指标顾问术语表
 
@@ -145,9 +145,9 @@ ms.locfileid: "92472924"
 
 上限或下限以外的值是异常。
 
-**最小值** ：下限
+**最小值**：下限
 
-**最大值** ：上限
+**最大值**：上限
 
 ### <a name="change-threshold"></a>变化阈值
 
@@ -246,6 +246,5 @@ ms.locfileid: "92472924"
 
 ## <a name="next-steps"></a>后续步骤
 - [指标顾问概述](overview.md)
-- [尝试演示网站](quickstarts/explore-demo.md)
 - [使用 Web 门户](quickstarts/web-portal.md)
 

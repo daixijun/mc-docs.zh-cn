@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/02/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: df7b392c7a56165002bd8b6143f95c8565ecb433
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: a040e6bb7ec1a4f2bef2cf33649ac7ecd6a0eb37
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373973"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300909"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>排查常见的 Azure Spring Cloud 问题
 
@@ -119,14 +119,6 @@ ms.locfileid: "94373973"
 如果要使用资源管理器模板设置 Azure Spring Cloud 服务实例，请先参阅[了解 Azure 资源管理器模板的结构和语法](../azure-resource-manager/templates/template-syntax.md)。
 
 Azure Spring Cloud 服务实例的名称将用于请求 `azureapps.io` 下的子域名，因此，如果该名称与现有名称冲突，设置操作会失败。 可以在活动日志中找到更多详细信息。
-
-### <a name="i-cant-deploy-a-net-core-app"></a>无法部署 .NET Core 应用
-
-无法通过 Azure 门户或资源管理器模板为 .NET Core Steeltoe 应用上传 .zip 文件。
-
-使用 [Azure CLI](/cli/get-started-with-azure-cli) 部署应用程序包时，Azure CLI 会定期轮询部署进度，并最终显示部署结果。
-
-确保应用程序打包时采用正确的 .zip 文件格式。 如果未正确打包，进程会停止响应或会收到错误消息。
 
 ### <a name="i-cant-deploy-a-jar-package"></a>无法部署 JAR 包
 

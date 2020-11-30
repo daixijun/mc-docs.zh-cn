@@ -3,9 +3,11 @@
 - name: 概述
   expanded: true
   items:
-    - name: Azure 认知搜索是什么？
+    - name: 什么是认知搜索？
       href: search-what-is-azure-search.md
-    - name: 新增功能
+    - name: 认知搜索中的功能
+      href: search-features-list.md
+    - name: 认知搜索中的新增功能
       href: whats-new.md
 - name: 快速入门
   items:
@@ -30,9 +32,9 @@
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
-    - name: Node.js
-      href: search-get-started-nodejs.md
-    - name: Postman
+    - name: JavaScript
+      href: search-get-started-javascript.md
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -86,13 +88,12 @@
       href: 'https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cognitive-search'
     - name: REST 示例
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search'
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 全文搜索
       href: search-lucene-query-architecture.md
+    - name: 相关性评分
+      href: index-similarity-and-scoring.md
     - name: 索引器
       href: search-indexer-overview.md
     - name: AI 扩充
@@ -136,7 +137,7 @@
           href: search-howto-complex-data-types.md
         - name: 为关系数据建模
           href: index-sql-relational-data.md
-    - name: 引入任意数据
+    - name: 导入任何数据
       items:
         - name: 数据导入概述
           href: search-what-is-data-import.md
@@ -148,44 +149,48 @@
           href: search-howto-large-index.md
         - name: 处理并发更新
           href: search-howto-concurrency.md
-    - name: 引入仅限 Azure 的数据
+    - name: 导入 Azure 数据（索引器）
       items:
-        - name: 配置索引器
-          href: search-indexer-overview.md
-        - name: 监视索引器
-          href: search-howto-monitor-indexers.md
-        - name: 计划索引器
-          href: search-howto-schedule-indexers.md
-        - name: 映射字段
-          href: search-indexer-field-mappings.md
-        - name: 数据源
+        - name: 使用索引器
           items:
-            - name: Azure Blob
-              items:
-                - name: 在 Blob 上搜索
-                  href: search-blob-storage-integration.md
-                - name: 使用 AI 了解 Blob
-                  href: search-blob-ai-integration.md
-                - name: 配置 Blob 索引器
-                  href: search-howto-indexing-azure-blob-storage.md
-                - name: 为一对多 blob 创建索引
-                  href: search-howto-index-one-to-many-blobs.md
-                - name: 为 CSV Blob 创建索引
-                  href: search-howto-index-csv-blobs.md
-                - name: 为 JSON Blob 创建索引
-                  href: search-howto-index-json-blobs.md
-            - name: Azure 表
-              href: search-howto-indexing-azure-tables.md
-            - name: Azure Cosmos DB
-              href: search-howto-index-cosmosdb.md
-            - name: Azure Data Lake Storage Gen2
-              href: search-howto-index-azure-data-lake-storage.md
-            - name: SQL 数据库
-              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: SQL 托管实例
-              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-            - name: SQL Server VM
-              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+            - name: 监视索引器
+              href: search-howto-monitor-indexers.md
+            - name: 计划索引器
+              href: search-howto-schedule-indexers.md
+            - name: 映射字段
+              href: search-indexer-field-mappings.md
+        - name: Azure Blob
+          items:
+            - name: 在 Blob 上搜索
+              href: search-blob-storage-integration.md
+            - name: 使用 AI 了解 Blob
+              href: search-blob-ai-integration.md
+            - name: 配置 Blob 索引器
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 为已更改和已删除的 Blob 创建索引
+              href: search-howto-index-changed-deleted-blobs.md
+            - name: 为一对多 blob 创建索引
+              href: search-howto-index-one-to-many-blobs.md
+            - name: 为纯文本创建索引
+              href: search-howto-index-plaintext-blobs.md
+            - name: 为 CSV Blob 创建索引
+              href: search-howto-index-csv-blobs.md
+            - name: 为 JSON Blob 创建索引
+              href: search-howto-index-json-blobs.md
+            - name: 为加密的 Blob 创建索引
+              href: search-howto-index-encrypted-blobs.md
+        - name: Azure 表
+          href: search-howto-indexing-azure-tables.md
+        - name: Azure Cosmos DB
+          href: search-howto-index-cosmosdb.md
+        - name: Azure Data Lake Storage Gen2
+          href: search-howto-index-azure-data-lake-storage.md
+        - name: Azure SQL 数据库
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Azure SQL 托管实例
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: Azure SQL Server VM
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: 使用技能 (AI)
       items:
         - name: 附加认知服务资源
@@ -266,8 +271,6 @@
       items:
         - name: 处理结果
           href: search-pagination-page-layout.md
-        - name: 相关性评分
-          href: index-similarity-and-scoring.md
         - name: 为配置文件评分
           href: index-add-scoring-profiles.md
         - name: 相似性算法
@@ -292,9 +295,11 @@
           href: search-api-preview.md
         - name: 使用 .NET 进行开发
           items:
-            - name: 使用 Microsoft.Azure.Search (v10)
+            - name: 使用 Azure.Search.Documents
               href: search-howto-dotnet-sdk.md
-            - name: 开始使用 (v10)
+            - name: 使用 Microsoft.Azure.Search
+              href: search-howto-dotnet-sdk-v10.md
+            - name: 旧的快速入门 (Microsoft.Azure.Search)
               href: search-get-started-dotnet-v10.md
         - name: 升级 SDK
           items:
@@ -359,43 +364,45 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: /cli/search?view=azure-cli-latest
+      href: /cli/search
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.search'
     - name: 资源管理器模板
       href: 'https://docs.microsoft.com/azure/templates/microsoft.search/searchservices'
     - name: REST
       items:
-        - name: 搜索 2020-06-30
+        - name: 搜索 API（稳定版）
           href: 'https://docs.microsoft.com/rest/api/searchservice'
-        - name: 搜索 2020-06-30-Preview
+        - name: 搜索 API（预览版）
           href: 'https://docs.microsoft.com/rest/api/searchservice/index-preview'
-        - name: 管理 2020-03-13
+        - name: 管理 API（稳定版）
           href: 'https://docs.microsoft.com/rest/api/searchmanagement'
-        - name: 管理 2019-10-01-Preview
-          href: 'https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview'
+        - name: 管理 API（预览版）
+          href: 'https://docs.microsoft.com/rest/api/searchmanagement/index-preview'
     - name: .NET
       items:
         - name: 搜索 API
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme'
         - name: 管理 API
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search/management'
     - name: Java
       items:
+        - name: 搜索 API
+          href: 'https://docs.microsoft.com/java/api/overview/azure/search-documents-readme'
         - name: 管理 API
-          href: 'https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/search/management'
     - name: JavaScript
       items:
         - name: 搜索 API
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme'
         - name: 管理 API
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search/management'
     - name: Python
       items:
         - name: 搜索 API
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python'
+          href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme'
         - name: 管理 API
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search?view=azure-python'
+          href: 'https://docs.microsoft.com/python/api/overview/azure/search'
     - name: OData 语言参考
       items:
         - name: 概述
@@ -463,6 +470,9 @@
           items:
             - name: 命名实体识别
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: Azure 社区支持
@@ -487,7 +497,7 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: 开发人员课程 (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: 常见问题解答
+    - name: 常见问题
       href: search-faq-frequently-asked-questions.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/search/'

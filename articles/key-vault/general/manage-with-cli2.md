@@ -8,15 +8,15 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 origin.date: 08/12/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3630036e35d03438dff065313b4dd7f83fdde0c3
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 3480dd0bc2022fc23ca2e65b45bfe5093d96670e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678495"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300803"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -121,7 +121,7 @@ az account list-locations
 az provider register -n Microsoft.KeyVault
 ```
 
-### <a name="create-a-key-vault"></a>创建密钥保管库
+### <a name="create-a-key-vault"></a>创建 key vault
 
 使用 `az keyvault create` 命令来创建密钥保管库。 此脚本包含三个必需参数：资源组名称、密钥保管库名称和地理位置。
 
@@ -199,7 +199,7 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 
 应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 如何将应用程序配置为获取令牌取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
 
-有关向 Azure Active Directory 注册应用程序的详细步骤，请查看标题为[将应用程序与 Azure Active Directory 集成](../../active-directory/develop/active-directory-integrating-applications.md)、[使用门户创建可访问资源的 Azure ActiveDirectory 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)和[使用 Azure CLI 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)的文章。
+有关向 Azure Active Directory 注册应用程序的详细步骤，请查看标题为[将应用程序与 Azure Active Directory 集成](../../active-directory/develop/quickstart-register-app.md)、[使用门户创建可访问资源的 Azure ActiveDirectory 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)和[使用 Azure CLI 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)的文章。
 
 在 Azure Active Directory 中注册应用程序：
 

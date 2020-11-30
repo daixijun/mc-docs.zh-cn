@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 09/04/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 20b21287962e0afc1edbffc81e3b2e95a05de146
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: d9c6b67465c21a611fb7b8e520d05e12844f314f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678493"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300298"
 ---
 # <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 
@@ -141,42 +141,11 @@ Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对�
 
 ## <a name="certificate-contacts"></a>证书联系人
 
-证书联系人包含联系人信息以发送由证书生存期事件触发的通知。 密钥保管库中的所有证书共享联系人信息。 如果保管库中的任何证书发生事件，所有指定联系人都会收到通知。  
-
-如果证书的策略设置为自动续订，则在发生以下事件时发送通知。  
-
-- 证书续订之前
-- 证书续订之后，指出是否已成功续订证书，或是否存在错误，需要手动续订证书。  
-
-  如果你将证书策略设置为手动续订（仅限电子邮件），系统会在你需要续订证书时发送通知。  
+证书联系人包含联系人信息以发送由证书生存期事件触发的通知。 密钥保管库中的所有证书共享联系人信息。 如果保管库中的任何证书发生事件，所有指定联系人都会收到通知。 有关如何设置证书联系人的信息，请参阅[此处](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>证书访问控制
 
- 证书的访问控制由 Key Vault 托管，并且由包含这些证书的 Key Vault 提供。 在同一 Key Vault 中，证书的访问控制策略不同于密钥和机密的访问控制策略。 用户可以创建一个或多个保管库来保存证书，以维护方案相应的证书分段和管理。  
-
- 在密钥保管库上的机密访问控制条目中可以按主体使用以下权限，这些权限对机密对象上允许的操作采取严密的镜像操作：  
-
-- 针对证书管理操作的权限
-  - *get*：获取最新版本的证书或任何版本的证书 
-  - *list*：列出最新版本的证书或任何版本的证书  
-  - *update*：更新证书
-  - *create*：创建 Key Vault 证书
-  - *import*：将证书材料导入到 Key Vault 证书
-  - *delete*：删除证书、策略及其所有版本  
-  - *recover*：恢复已删除的证书
-  - *backup*：备份密钥保管库中的证书
-  - *restore*：将备份证书还原到密钥保管库
-  - *managecontacts*：管理 Key Vault 证书联系人  
-  - *manageissuers*：管理 Key Vault 证书颁发机构/颁发者
-  - *getissuers*：获取证书的颁发机构/颁发者
-  - *listissuers*：列出证书的颁发机构/颁发者  
-  - *setissuers*：创建或更新 Key Vault 证书的颁发机构/颁发者  
-  - *deleteissuers*：删除 Key Vault 证书的颁发机构/颁发者  
- 
-- 针对特权操作的权限
-  - *purge*：清除（永久删除）已删除的证书
-
-有关详细信息，请参阅 [Key Vault REST API 中的证书操作参考](https://docs.microsoft.com/rest/api/keyvault)。 有关建立权限的信息，请参阅[保管库 - 创建或更新](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)和[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
+ 证书的访问控制由 Key Vault 托管，并且由包含这些证书的 Key Vault 提供。 在同一 Key Vault 中，证书的访问控制策略不同于密钥和机密的访问控制策略。 用户可以创建一个或多个保管库来保存证书，以维护方案相应的证书分段和管理。  有关证书访问控制的详细信息，请参阅[此处](certificate-access-control.md)
 
 ## <a name="next-steps"></a>后续步骤
 

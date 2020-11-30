@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: 4ba723f3aa7e734aa4faba940b703b6a4e24ab95
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b8c1a6b275c0873fad94392abc15c28f27417655
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105233"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306257"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>使用 Java 调用 Azure 文本分析认知服务
 <a name="HOLTop"></a>
@@ -553,7 +553,7 @@ public class GetKeyPhrases {
 
 ## <a name="identify-entities"></a>识别实体
 
-实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 [实体](/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)从文本中提取字词，如“United States”，然后提供此词语的类型和/或维基百科的链接。 “United States”的类型为 `location`，而在维基百科上的链接为 `https://en.wikipedia.org/wiki/United_States`。  以下示例识别英文文档的实体。
+实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 [实体](../how-tos/text-analytics-how-to-entity-linking.md)从文本中提取字词，如“United States”，然后提供此词语的类型和/或维基百科的链接。 “United States”的类型为 `location`，而在维基百科上的链接为 `https://en.wikipedia.org/wiki/United_States`。  以下示例识别英文文档的实体。
 
 1. 在最喜爱的 IDE（或桌面上的新文件夹）中新建一个 Java 项目。 在其中创建名为 `GetEntities.java` 的类。
 1. 向类中添加以下提供的代码。

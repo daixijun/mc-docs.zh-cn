@@ -46,6 +46,11 @@
       href: event-based-video-recording-tutorial.md
     - name: 播放多天的录制内容
       href: playback-multi-day-recordings-tutorial.md
+    - name: 分析实时视频
+      items:
+        - name: 通过 HTTP 扩展使用 OVMS
+          displayName: 'intel, OpenVINO'
+          href: use-intel-openvino-tutorial.md
 - name: 示例
   items:
     - name: C# 直接方法示例
@@ -84,7 +89,9 @@
       href: manage-recording-policy-how-to.md
     - name: 通过门户调用直接方法
       href: use-azure-portal-to-invoke-direct-methods.md
-    - name: 故障排除
+    - name: 配置信号入口
+      href: configure-signal-gate-how-to.md
+    - name: 疑难解答
       href: troubleshoot-how-to.md
 - name: 参考
   items:

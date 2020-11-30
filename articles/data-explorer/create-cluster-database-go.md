@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/28/2020
 ms.date: 10/30/2020
-ms.openlocfilehash: 67240712693d200e458d2669946267c5864a4c3d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 531aa4a4afe83b99e52cc458ea67762fa4b5de1c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106676"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300386"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-using-go"></a>使用 Go 创建 Azure 数据资源管理器群集和数据库
 
@@ -196,7 +196,7 @@ func deleteCluster(sub, clusterName, rgName string) {
     cd azure-data-explorer-go-cluster-management
     ```
 
-2. 程序使用客户端凭据进行身份验证。 使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令创建服务主体。 保存客户端 ID、客户端密码和租户 ID 信息，以便在下一步中使用。
+2. 程序使用客户端凭据进行身份验证。 使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建服务主体。 保存客户端 ID、客户端密码和租户 ID 信息，以便在下一步中使用。
 
 3. 导出所需的环境变量，包括服务主体信息。 输入要在其中创建群集的订阅 ID、资源组和区域。
 

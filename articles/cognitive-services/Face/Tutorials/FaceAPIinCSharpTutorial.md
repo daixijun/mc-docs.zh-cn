@@ -1,32 +1,33 @@
 ---
 title: 教程：通过 .NET SDK 检测和显示图像中的人脸数据
 titleSuffix: Azure Cognitive Services
-description: 本教程将创建一个 Windows 应用，以便使用人脸 API 来检测和定格图像中的人脸。
+description: 本教程将创建一个 Windows 应用，以便使用人脸服务来检测和定格图像中的人脸。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1ddc07de1e341a0091872980e92cf8fc1897d5c0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 97eb58c7693e9fab6613c6f0a01feed73e1a5da2
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844697"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306291"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教程：创建一个用于显示图像中人脸数据的 WPF 应用
+# <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>教程：创建 Windows Presentation Framework (WPF) 应用以显示图像中的人脸数据
 
-本教程介绍如何通过 .NET 客户端 SDK 使用 Azure 人脸 API 检测图像中的人脸，然后在 UI 中显示该数据。 你将创建一个 Windows Presentation Framework (WPF) 应用程序，用于检测人脸，围绕每张脸绘制一个框架，并在状态栏中显示人脸描述。 
+本教程介绍如何通过 .NET 客户端 SDK 使用 Azure 人脸服务检测图像中的人脸，然后在 UI 中显示该数据。 你将创建一个 WPF 应用程序，用于检测人脸，围绕每张人脸绘制一个框架，并在状态栏中显示人脸描述。 
 
 本教程演示如何：
 
 > [!div class="checklist"]
 > - 创建 WPF 应用程序
-> - 安装人脸 API 客户端库
+> - 安装人脸客户端库
 > - 使用客户端库检测图像中的人脸
 > - 围绕每个检测到的人脸绘制一个框架
 > - 在状态栏上显示被框出的人脸的描述
@@ -35,22 +36,26 @@ ms.locfileid: "67844697"
 
 完整的示例代码在 GitHub 上的[认知人脸 CSharp 示例](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample)存储库中提供。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
-- 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
+* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
+* 为密钥和服务终结点字符串[创建环境变量](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)，分别名为 `FACE_SUBSCRIPTION_KEY` 和 `FACE_ENDPOINT`。
+- 任何版本的 [Visual Studio](https://www.visualstudio.com/downloads/)。
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
 执行以下步骤，以便创建新的 WPF 应用程序项目。
 
-1. 在 Visual Studio 中打开“新建项目”对话框。 展开“已安装”，接着展开“Visual C#”，然后选择“WPF 应用(.NET Framework)”。   
-1. 将应用程序命名为“FaceTutorial”，然后单击“确定”   。
-1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包： 
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+1. 在 Visual Studio 中打开“新建项目”对话框。 展开“已安装”，接着展开“Visual C#”，然后选择“WPF 应用(.NET Framework)”。  
+1. 将应用程序命名为“FaceTutorial”，然后单击“确定” 。
+1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包：
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.6.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)
 
 ## <a name="add-the-initial-code"></a>添加初始代码
 
@@ -100,14 +105,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 ```
 
-接下来，在 **MainWindow** 类中插入以下代码。 此代码将使用订阅密钥创建 **FaceClient** 实例，该密钥必须由你自己输入。 你需要在 `faceEndpoint` 中将区域字符串设置为适用于你的订阅的正确区域（有关所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
+接下来，在 **MainWindow** 类中插入以下代码。 此代码将使用订阅密钥和终结点创建 FaceClient 实例。
 
 ```csharp
-// Replace <SubscriptionKey> with your valid subscription key.
-// For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-private const string subscriptionKey = "<SubscriptionKey>";
-
-private const string faceEndpoint = "https://api.cognitive.azure.cn";
+// Add your Face subscription key to your environment variables.
+private static string subscriptionKey = Environment.GetEnvironmentVariable("FACE_SUBSCRIPTION_KEY");
+// Add your Face endpoint to your environment variables.
+private static string faceEndpoint = Environment.GetEnvironmentVariable("FACE_ENDPOINT");
 
 private readonly IFaceClient faceClient = new FaceClient(
     new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -124,20 +128,23 @@ private const string defaultStatusBarText =
     "Place the mouse pointer over a face to see the face description.";
 ```
 
-接下来，将以下代码粘贴到 **MainWindow** 方法中。
+接下来，添加 MainWindow 构造函数。 它将检查终结点 URL 字符串，然后将其与客户端对象关联。
 
 ```csharp
-InitializeComponent();
+public MainWindow()
+{
+    InitializeComponent();
 
-if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
-{
-    faceClient.Endpoint = faceEndpoint;
-}
-else
-{
-    MessageBox.Show(faceEndpoint,
-        "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
-    Environment.Exit(0);
+    if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
+    {
+        faceClient.Endpoint = faceEndpoint;
+    }
+    else
+    {
+        MessageBox.Show(faceEndpoint,
+            "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
+        Environment.Exit(0);
+    }
 }
 ```
 
@@ -171,7 +178,6 @@ private async void BrowseButton_Click(object sender, RoutedEventArgs e)
     bitmapSource.EndInit();
 
     FacePhoto.Source = bitmapSource;
-}
 ```
 
 ```csharp
@@ -183,15 +189,15 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 
 ### <a name="try-the-app"></a>试用应用
 
-按菜单上的“启动”，对应用进行测试。  应用窗口打开后，单击左下角的“浏览”。  此时会打开“打开的文件”对话框。  从文件系统中选择一个图像，验证它是否显示在窗口中。 然后，关闭应用并转到下一步。
+按菜单上的“启动”，对应用进行测试。 应用窗口打开后，单击左下角的“浏览”。 此时会打开“打开的文件”对话框。 从文件系统中选择一个图像，验证它是否显示在窗口中。 然后，关闭应用并转到下一步。
 
 ![显示未修改的人脸图像的屏幕截图](../Images/getting-started-cs-ui.png)
 
 ## <a name="upload-image-and-detect-faces"></a>上传图像并检测人脸
 
-应用会通过调用 **FaceClient.Face.DetectWithStreamAsync** 方法来检测人脸，该方法可包装用于上传本地图像的[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API。
+应用会通过调用 **FaceClient.Face.DetectWithStreamAsync** 方法来检测人脸，该方法可包装用于上传本地图像的 [检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API。
 
-在 **MainWindow** 类中 **FacePhoto_MouseMove** 方法下面插入以下方法。 此方法会定义一系列人脸特性，用于检索提交的图像文件并将其读取到**流**中。 然后，它将这两个对象传递到 **DetectWithStreamAsync** 方法调用。
+在 **MainWindow** 类中 **FacePhoto_MouseMove** 方法下面插入以下方法。 此方法会定义一系列人脸特性，用于检索提交的图像文件并将其读取到 **流** 中。 然后，它将这两个对象传递到 **DetectWithStreamAsync** 方法调用。
 
 ```csharp
 // Uploads the image file and calls DetectWithStreamAsync.
@@ -404,7 +410,6 @@ for (int i = 0; i < faceList.Count; ++i)
 if (!mouseOverFace) faceDescriptionStatusBar.Text = defaultStatusBarText;
 ```
 
-
 ## <a name="run-the-app"></a>运行应用
 
 运行此应用程序并通过浏览方式查找包含人脸的图像。 等待几秒钟，以便人脸服务响应。 此时会在图像中的每个人脸上看到一个红色矩形。 如果将鼠标移到人脸矩形上，状态栏中会显示该人脸的描述。
@@ -419,4 +424,3 @@ if (!mouseOverFace) faceDescriptionStatusBar.Text = defaultStatusBarText;
 > [!div class="nextstepaction"]
 > [如何检测图像中的人脸](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
 
-<!-- Update_Description: wording update -->

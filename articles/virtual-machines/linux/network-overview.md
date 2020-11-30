@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: v-johya
-ms.openlocfilehash: 871c04f3a816f75ac52a457031c638d677b83518
-ms.sourcegitcommit: ebedf9e489f5218d4dda7468b669a601b3c02ae5
+ms.openlocfilehash: b7c6b95b24a0249b0239a980c1fabe510cda1f41
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159091"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300742"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure 中的虚拟网络和虚拟机 
 

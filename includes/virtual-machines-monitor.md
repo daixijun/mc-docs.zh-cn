@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f8f2860e4d42ec181ec51578ba2a30f5c3c2d984
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: e03b6cd83c9066bd99d1fb40f40fd31a42a0be83
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223113"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301116"
 ---
 ----
 title: include 文件 description: include 文件 author: rockboyfor ms.service: virtual-machines ms.topic: include origin.date:09/30/2019 ms.date:07/06/2020 ms.author: v-yeche
@@ -16,7 +16,7 @@ title: include 文件 description: include 文件 author: rockboyfor ms.service:
 
 ## <a name="diagnostics-and-metrics"></a>诊断和指标 
 
-可以在 Azure 门户、Azure CLI、Azure PowerShell 和编程应用程序编程接口 (API) 中使用[指标](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)来设置和监视[诊断数据](https://docs.azure.cn/cli/vm/diagnostics?view=azure-cli-latest)收集。 例如，可以：
+可以在 Azure 门户、Azure CLI、Azure PowerShell 和编程应用程序编程接口 (API) 中使用[指标](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)来设置和监视[诊断数据](https://docs.azure.cn/cli/vm/diagnostics)收集。 例如，可以：
 
 - **观察 VM 的基本指标。** Azure 门户的“概述”屏幕上显示的基本指标包括 CPU 使用率、网络使用情况、总磁盘字节数以及每秒的磁盘操作数。
 
@@ -24,7 +24,7 @@ title: include 文件 description: include 文件 author: rockboyfor ms.service:
 
     VM 启动时，启动诊断代理将捕获启动输出并将其存储在 Azure 存储中。 此数据可以用于排查 VM 启动问题。 从命令行工具创建 VM 时，不会自动启用启动诊断。 在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 如果在 Azure 门户中启用启动诊断，则会自动创建一个存储帐户。
 
-    如果未在创建 VM 时启用启动诊断，可在以后随时使用 [Azure CLI](https://docs.azure.cn/cli/vm/boot-diagnostics?view=azure-cli-latest)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) 或 [Azure 资源管理器模板](../articles/virtual-machines/windows/extensions-diagnostics-template.md)启用它。
+    如果未在创建 VM 时启用启动诊断，可在以后随时使用 [Azure CLI](https://docs.azure.cn/cli/vm/boot-diagnostics)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) 或 [Azure 资源管理器模板](../articles/virtual-machines/windows/extensions-diagnostics-template.md)启用它。
 
 - **启用来宾 OS 诊断数据收集。** 创建 VM 时，可以在“设置”屏幕上启用来宾 OS 诊断。 如果确实启用了诊断数据收集，[用于 Linux 的 IaaSDiagnostics 扩展](../articles/virtual-machines/linux/diagnostic-extension.md)或[用于 Windows 的 IaaSDiagnostics 扩展](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)将添加到 VM，使你可以收集更多的磁盘、CPU 和内存数据。
 
@@ -56,7 +56,7 @@ title: include 文件 description: include 文件 author: rockboyfor ms.service:
 
     <!--Not Available on - [Save it to a storage account](../articles/azure-monitor/platform/archive-activity-log.md)-->
     
-还可以通过使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.azure.cn/cli/monitor?view=azure-cli-latest) 或[监视 REST API](https://docs.microsoft.com/rest/api/monitor/) 访问活动日志数据。
+还可以通过使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.azure.cn/cli/monitor) 或[监视 REST API](https://docs.microsoft.com/rest/api/monitor/) 访问活动日志数据。
 
 [Azure 资源日志](../articles/azure-monitor/platform/platform-logs-overview.md)是 VM 发出的日志，其中提供与该 VM 的操作相关的各种频繁生成的数据。 不同于活动日志，资源日志提供有关在 VM 中执行的操作的见解。
 

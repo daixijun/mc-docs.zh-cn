@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4a10a1b23aed7beb1e521bb0188902d398603d72
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 24b5ffb70b00ea1422a87f8476d5d9fae43e2565
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024483"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -27,7 +27,7 @@ ms.locfileid: "91936999"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-a-storage-class"></a>创建存储类
 
@@ -48,7 +48,7 @@ ms.locfileid: "91936999"
 
 有关 Azure 文件存储的 Kubernetes 存储类的详细信息，请参阅 [Kubernetes 存储类][kubernetes-storage-classes]。
 
-创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 有关 *mountOptions* 的详细信息，请参阅[装载选项][mount-options]部分。
+创建名为 `azure-file-sc.yaml` 的文件，并将其复制到以下示例清单中。 有关 *mountOptions* 的详细信息，请参阅 [装载选项][mount-options]部分。
 
 ```yaml
 kind: StorageClass
@@ -125,7 +125,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: dockerhub.azk8s.cn/library/nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -154,7 +154,7 @@ kubectl apply -f azure-pvc-files.yaml
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          dockerhub.azk8s.cn/library/nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000
@@ -221,7 +221,7 @@ parameters:
 
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [az-group-list]: https://docs.azure.cn/cli/group#az_group_list
-[az-resource-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-resource-show]: https://docs.azure.cn/cli/aks#az_aks_show
 [az-storage-account-create]: https://docs.azure.cn/cli/storage/account#az_storage_account_create
 [az-storage-create]: https://docs.azure.cn/cli/storage/account#az_storage_account_create
 [az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list
@@ -230,7 +230,7 @@ parameters:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md

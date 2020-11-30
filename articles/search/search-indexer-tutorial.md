@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
-origin.date: 06/23/2020
-ms.date: 09/10/2020
+origin.date: 09/25/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d0a16ebc46c6ad49b6b6c55ed52c3e7e132b1650
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 240f21b427687cac2981559e32e258f44e7b6a53
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021200"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300512"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>教程：使用 .NET SDK 为 Azure SQL 数据编制索引
 
@@ -58,7 +58,7 @@ ms.locfileid: "90021200"
 
 1. 找到或创建一个 **SQL 数据库**。 可以使用默认设置和最低级别的定价层。 创建服务器的一大优势是可以指定管理员用户名和密码，这是在后面的步骤中创建和加载表所必需的。
 
-   ![“新建数据库”页](./media/search-indexer-tutorial/indexer-new-sqldb.png "“新建数据库”页")
+   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="“新建数据库”页" border="false":::
 
 1. 单击“查看 + 创建”以部署新的服务器和数据库。 等待服务器和数据库部署。
 
@@ -70,7 +70,7 @@ ms.locfileid: "90021200"
 
 1. 选择该文件，然后单击“打开”。 此脚本应与以下屏幕截图类似：
 
-   ![SQL 脚本](./media/search-indexer-tutorial/sql-script.png "SQL 脚本")
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="SQL 脚本" border="false":::
 
 1. 单击“运行”以执行查询。 在“结果”窗格中，应看到一条 3 行内容的消息，指示查询成功。
 
@@ -100,7 +100,7 @@ API 调用需要服务 URL 和访问密钥。 搜索服务是使用这二者创�
 
 1. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥 。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-   ![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="获取 HTTP 终结点和访问密钥" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - 设置环境
 
@@ -202,7 +202,7 @@ public string HotelName { get; set; }
 
 按 F5 生成并运行解决方案。 程序在调试模式下执行。 控制台窗口报告每项操作的状态。
 
-   ![控制台输出](./media/search-indexer-tutorial/console-output.png "控制台输出")
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="控制台输出" border="false":::
 
 代码将在 Visual Studio 本地运行，连接到 Azure 中的搜索服务，后者又会连接到 Azure SQL 数据库并检索数据集。 由于此处会发生多项操作，因此可能会造成多个故障点。 如果遇到错误，请先检查以下条件：
 
@@ -218,7 +218,7 @@ public string HotelName { get; set; }
 
 1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中轮流打开每个列表，以验证是否已创建该对象。 “索引”、“索引器”和“数据源”分别包含“hotels”、“azure-sql-indexer”和“azure-sql”。
 
-   ![索引器和数据源磁贴](./media/search-indexer-tutorial/tiles-portal.png)
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="索引器和数据源磁贴" border="false":::
 
 1. 选择 hotels 索引。 在 hotels 页上，“搜索资源管理器”是第一个选项卡。 
 
@@ -226,7 +226,7 @@ public string HotelName { get; set; }
 
    索引中的三个条目以 JSON 文档的形式返回。 搜索浏览器返回 JSON 格式的文档，方便你查看整个结构。
 
-   ![查询索引](./media/search-indexer-tutorial/portal-search.png "查询索引")
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="查询索引" border="false":::
    
 1. 接下来，输入搜索字符串：`search=river&$count=true`。 
 

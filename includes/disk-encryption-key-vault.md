@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 1af6634a9463510e4f235650064400bd0791601e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8d5de43a4bccf3b4b569a815cec0abcfa989a06a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104340"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301074"
 ---
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -24,7 +24,7 @@ ms.locfileid: "93104340"
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
-使用 [az group create](/cli/group?view=azure-cli-latest#az-group-create) Azure CLI 命令、[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell 命令或从 [Azure 门户](https://portal.azure.cn)创建资源组。
+使用 [az group create](/cli/group#az-group-create) Azure CLI 命令、[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell 命令或从 [Azure 门户](https://portal.azure.cn)创建资源组。
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: traffic-manager
 origin.date: 09/18/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: f2efb110f9ec952fe2d6b1f5f17866b013005df0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c0e861bfd6112b575f62de697ad176946f4bfc85
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472063"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300769"
 ---
 <!--Verified successfully-->
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>使用 Azure CLI 的流量管理器子网替代
@@ -38,11 +38,11 @@ ms.locfileid: "92472063"
 
 若要创建流量管理器子网替代，可以使用 Azure CLI 将替代子网添加到流量管理器终结点。
 
-## <a name="azure-cli"></a>Azure CLI
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 2.0.28 或更高版本。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.28 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>使用子网替代更新流量管理器终结点。
 使用 Azure CLI 通过 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) 更新终结点。
@@ -80,6 +80,6 @@ az network traffic-manager endpoint update \
 
 详细了解流量管理器[流量路由方法](traffic-manager-routing-methods.md)。
 
-了解[子网流量路由方法](/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+了解[子网流量路由方法](https://docs.azure.cn/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

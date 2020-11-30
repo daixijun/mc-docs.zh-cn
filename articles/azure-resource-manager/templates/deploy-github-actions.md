@@ -4,17 +4,17 @@ description: 介绍如何使用 GitHub Actions 部署资源管理器模板。
 ms.topic: conceptual
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: cf8a39013f90d5d4104bcccd8fc0a638f81b242b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: github-actions-azure
+ms.openlocfilehash: fb9c4e3aff67f0960992b509b44cda41d0f7033f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104751"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978128"
 ---
 <!--Verified successfully on 2020/07/13 by harris-->
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>使用 GitHub Actions 部署 Azure 资源管理器模板
@@ -42,17 +42,23 @@ ms.locfileid: "93104751"
 
 ## <a name="generate-deployment-credentials"></a>生成部署凭据
 
-可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac&preserve-view=true) 命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 
+可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac) 命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 
 
 <!--Not Avaialble on [Azure Cloud Shell](https://shell.azure.com/)-->
+
+如果没有资源组，请创建一个。 
+
+```azurecli
+az group create -n {MyResourceGroup}
+```
 
 请将 `myApp` 占位符替换为应用程序的名称。 
 
 ```azurecli
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-在上面的示例中，请将占位符替换为你的订阅 ID 和资源组名称。 输出是一个 JSON 对象，包含的角色分配凭据可提供对应用服务应用的访问权限，如下所示。 复制此 JSON 对象供以后使用。
+在上面的示例中，请将占位符替换为你的订阅 ID 和资源组名称。 输出是一个 JSON 对象，包含的角色分配凭据可提供对应用服务应用的访问权限，如下所示。 复制此 JSON 对象供以后使用。 你只需要具有 `clientId`、`clientSecret`、`subscriptionId` 和 `tenantId` 值的部分。 
 
 ```output 
   {
@@ -73,13 +79,13 @@ ms.locfileid: "93104751"
 
 1. 在 [GitHub](https://github.com/) 中，浏览你的存储库。
 
-1. 选择“设置”>“机密”>“新建机密”。
+1. 选择“设置”>“机密”>“新的机密”。
 
-1. 将 Azure CLI 命令的整个 JSON 输出粘贴到机密的“值”字段中。 为机密指定名称 `AZURE_CREDENTIALS`。
+1. 将 Azure CLI 命令的整个 JSON 输出粘贴到机密的值字段中。 为机密指定名称 `AZURE_CREDENTIALS`。
 
-1. 创建另一个名为 `AZURE_RG` 的机密。 将资源组的名称添加到该机密的“值”字段。 
+1. 创建另一个名为 `AZURE_RG` 的机密。 将资源组的名称添加到该机密的“值”字段（例如：`myResourceGroup`）。 
 
-1. 再创建一个名为 `AZURE_SUBSCRIPTION` 的机密。 将订阅 ID 添加到该机密的“值”字段。 
+1. 再创建一个名为 `AZURE_SUBSCRIPTION` 的机密。 将订阅 ID 添加到该机密的“值”字段（例如：`90fd3f9d-4c61-432d-99ba-1273f236afa2`）。 
 
 ## <a name="add-resource-manager-template"></a>添加资源管理器模板
 
@@ -118,8 +124,8 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
@@ -129,10 +135,12 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > 可以改为在 ARM 部署操作中指定一个 JSON 格式的参数文件（例如：`.azuredeploy.parameters.json`）。  
 
     工作流文件的第一部分包含：
 
-    - **name** ：工作流的名称。
+    - **name**：工作流的名称。
     - 事件：触发工作流的 GitHub 事件的名称。 当主分支上有推送事件时，将触发工作流，修改所指定的两个文件中的至少一个。 这两个文件分别是工作流文件和模板文件。
 
 1. 选择“开始提交”。

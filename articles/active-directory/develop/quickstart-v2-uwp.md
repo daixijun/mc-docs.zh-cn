@@ -9,19 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 573ea4a275abb144980d5434386107db7088b995
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 2fcb3d55c86f246a7e2a90b882a4c90f513bc26d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749946"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918419"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
-本快速入门使用代码示例来演示通用 Windows 平台 (UWP) 应用程序如何让用户使用工作和学校帐户进行登录、如何获取访问令牌以及如何调用 Microsoft Graph API。 有关说明，请参阅[示例工作原理](#how-the-sample-works)。
+本快速入门通过下载并运行一个代码示例演示通用 Windows 平台 (UWP) 应用程序如何让用户登录并获取访问令牌来调用 Microsoft Graph API。 
+
+有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>先决条件
@@ -110,7 +112,7 @@ ms.locfileid: "92749946"
 
 在本地计算机上运行示例应用程序：
 
-1. 在 Visual Studio 工具栏中，选择适当的平台（可能为 **x64** 或 **x86** ，不是 ARM）。 目标设备应从“设备”更改为“本地计算机” 。
+1. 在 Visual Studio 工具栏中，选择适当的平台（可能为 **x64** 或 **x86**，不是 ARM）。 目标设备应从“设备”更改为“本地计算机” 。
 1. 选择“调试” > “在不调试的情况下启动”。
     
     如果系统提示你执行此操作，你可能首先需要启用“开发人员模式”，然后再次执行“启动（不调试）”以启动该应用 。

@@ -2,22 +2,24 @@
 title: 创建连接到 Azure Cosmos DB 的函数应用 - Azure CLI
 description: Azure CLI 脚本示例 - 创建用于连接到 Azure Cosmos DB 的 Azure Function
 ms.topic: sample
-ms.date: 02/14/2020
-ms.custom: mvc
-ms.openlocfilehash: f47eb42d2da7506d0fa8603154f204ef0ec51319
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 273c29e3ce589ec4f536232569a49a659135db49
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428687"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970744"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 
 此 Azure Functions 示例脚本先创建一个函数应用，然后将该函数连接到 Azure Cosmos DB 数据库。 创建的应用设置（包含连接）可以与 [Azure Cosmos DB 触发器或绑定](../functions-bindings-cosmosdb.md)配合使用。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果在本地使用 CLI，请确保运行 Azure CLI 2.0 或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -26,45 +28,53 @@ ms.locfileid: "77428687"
 ```azurecli
 #!/bin/bash
 
-# create a resource group with location
-az group create `
-  --name myResourceGroup `
-  --location chinanorth
+# Function app and storage account names must be unique.
+storageName=mystorageaccount$RANDOM
+functionAppName="myfuncwithcosmosdb$RANDOM"
+region=chinanorth2
 
-# create a storage account 
-az storage account create `
-  --name funccosmosdbstore `
-  --location chinanorth `
-  --resource-group myResourceGroup `
+# Create a resource group with location.
+az group create \
+  --name myResourceGroup \
+  --location $region
+
+# Create a storage account for the function app. 
+az storage account create \
+  --name $storageName \
+  --location $region \
+  --resource-group myResourceGroup \
   --sku Standard_LRS
 
-# create an app service plan
-az appservice plan create `
-  --name myappserviceplan `
-  --resource-group myResourceGroup `
-  --location chinanorth
+# Create a serverless function app in the resource group.
+az functionapp create \
+  --name $functionAppName \
+  --resource-group myResourceGroup \
+  --storage-account $storageName \
+  --consumption-plan-location $region \
+  --functions-version 2
 
-# create a new function app, assign it to the resource group you have just created
-az functionapp create `
-  --name myfunccosmosdb `
-  --resource-group myResourceGroup `
-  --storage-account funccosmosdbstore `
-  --plan myappserviceplan
-
-# create cosmosdb database, name must be lowercase.
-az cosmosdb create `
-  --name myfunccosmosdb `
+# Create an Azure Cosmos DB database using the same function app name.
+az cosmosdb create \
+  --name $functionAppName \
   --resource-group myResourceGroup
 
-# Retrieve cosmosdb connection string
-$endpoint=az cosmosdb show --name myfunccosmosdb --resource-group myResourceGroup --query documentEndpoint --output tsv
+# Get the Azure Cosmos DB connection string.
+endpoint=$(az cosmosdb show \
+  --name $functionAppName \
+  --resource-group myResourceGroup \
+  --query documentEndpoint \
+  --output tsv)
 
-$key=az cosmosdb list-keys --name myfunccosmosdb --resource-group myResourceGroup --query primaryMasterKey --output tsv
+key=$(az cosmosdb list-keys \
+  --name $functionAppName \
+  --resource-group myResourceGroup \
+  --query primaryMasterKey \
+  --output tsv)
 
-# configure function app settings to use cosmosdb connection string
-az functionapp config appsettings set `
-  --name myfunccosmosdb `
-  --resource-group myResourceGroup `
+# Configure function app settings to use the Azure Cosmos DB connection string.
+az functionapp config appsettings set \
+  --name $functionAppName \
+  --resource-group myResourceGroup \
   --setting CosmosDB_Endpoint=$endpoint CosmosDB_Key=$key
 ```
 
@@ -91,7 +101,6 @@ az functionapp config appsettings set `
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
 
-<!-- Update_Description: wording update -->
 
 
 

@@ -5,16 +5,16 @@ ms.service: container-service
 ms.topic: conceptual
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1e597f29fc7d7132e51e9d342c1dffacc3116e0c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: aca8bc1f20af937ee9a8005622af8ee0ac473473
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024474"
 ---
 <!--Verified successfully-->
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Azure Kubernetes 服务 (AKS) 节点映像升级
@@ -115,8 +115,7 @@ az aks nodepool show \
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 
-<!-- Update_Description: new article about node image upgrade -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

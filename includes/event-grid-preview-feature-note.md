@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 071d0413c5d05680732e04d59c9814d3f0f0d86f
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: fba88c70257d18d48a29165f543b474c8fcede94
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678336"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301046"
 ---
 此功能为预览版。 若要使用它，必须安装预览扩展或模块。
 
 ### <a name="install-extension-for-azure-cli"></a>安装适用于 Azure CLI 的扩展
 
-对于 Azure CLI，需要[事件网格扩展](/cli/azure-cli-extensions-list)。
+对于 Azure CLI，需要[事件网格扩展](/cli-cli-extensions-list)。
 
 * 如果之前已安装此扩展，请使用 `az extension update -n eventgrid` 进行更新
 * 如果之前尚未安装此扩展，请使用 `az extension add -n eventgrid` 安装

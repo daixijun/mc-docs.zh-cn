@@ -14,12 +14,12 @@ ms.custom: devx-track-azurecli
 origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7e8666f32e04db41f682dd17807a1d6e45687b9a
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3675a011d4563ebdff9ad6bda5a28b2ce7512d30
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244951"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300746"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - Azure CLI
 
@@ -51,7 +51,7 @@ az group create -n amsResourceGroup -l chinaeast2
 
 本示例创建一个常规用途 v2 标准 LRS 帐户。
 
-若要通过存储帐户进行试验，请使用 `--sku Standard_LRS`。 选取用于生产的 SKU 时，请考虑使用 `--sku Standard_RAGRS`，以便通过异地复制来确保业务连续性。 有关详细信息，请参阅[存储帐户](/cli/storage/account?view=azure-cli-latest)。
+若要通过存储帐户进行试验，请使用 `--sku Standard_LRS`。 选取用于生产的 SKU 时，请考虑使用 `--sku Standard_RAGRS`，以便通过异地复制来确保业务连续性。 有关详细信息，请参阅[存储帐户](/cli/storage/account)。
 
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l chinaeast2 -g amsResourceGroup
@@ -86,7 +86,7 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 
 ## <a name="start-the-streaming-endpoint"></a>启动流式处理终结点
 
-以下 Azure CLI 命令将启动默认的**流式处理终结点**。
+以下 Azure CLI 命令将启动默认的 **流式处理终结点**。
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -158,7 +158,7 @@ az ams transform create --name testEncodingTransform --preset AdaptiveStreaming 
 
 ## <a name="create-an-output-asset"></a>创建输出资产
 
-创建一个输出**资产**用作编码作业的输出。
+创建一个输出 **资产** 用作编码作业的输出。
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -235,7 +235,7 @@ az ams job start --name testJob001 --transform-name testEncodingTransform --base
 
 ### <a name="check-status"></a>查看状态
 
-在 5 分钟内检查作业的状态。 该状态应该是“Finished”。 如果作业未完成，请在几分钟后重新检查。 如果作业已完成，请转到下一步骤并创建**流式处理定位符**。
+在 5 分钟内检查作业的状态。 该状态应该是“Finished”。 如果作业未完成，请在几分钟后重新检查。 如果作业已完成，请转到下一步骤并创建 **流式处理定位符**。
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001

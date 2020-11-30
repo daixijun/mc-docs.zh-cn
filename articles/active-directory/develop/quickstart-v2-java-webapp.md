@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 87ef8ffff44e4d27b4f96ac4f6b143f9a5a30037
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 33d3e7260dbad6486d29d0f7184f3157984b098d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918498"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入门：向 Java Web 应用添加 Microsoft 登录功能
 
-本快速入门介绍如何将 Java Web 应用与 Microsoft 标识平台集成。 应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。
+在本快速入门中，你将下载并运行一个代码示例，该示例演示 Java Web 应用程序如何让用户登录并调用 Microsoft Graph API。 任何 Azure Active Directory (Azure AD) 组织的用户都可以登录到应用程序。
 
-完成本快速入门后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。 （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
+ 有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -54,7 +54,7 @@ ms.locfileid: "92749956"
 > 1. 选择“新注册”。
 > 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
 >    - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `java-webapp`。
->    - 选择“注册”。
+>    - 选择“注册”  。
 > 1. 在“概述”页上，找到应用程序的“应用程序(客户端) ID”和“目录(租户) ID”值。 复制这些值，供以后使用。
 > 1. 从菜单选择“身份验证”，然后添加以下信息：
 >    - 添加“Web”平台配置。  将这些 `https://localhost:8443/msal4jsample/secure/aad` 和 `https://localhost:8443/msal4jsample/graph/me` 添加为“重定向 URI”。
@@ -64,7 +64,7 @@ ms.locfileid: "92749956"
 >    - 键入（实例应用密码的）密钥说明。
 >    - 选择密钥持续时间“1 年”。
 >    - 选择“添加”时，将显示密钥值。
->    - 复制密钥的值供以后使用。 该密钥值将不会再次显示，也无法通过其他任何方式检索，因此，该值在 Azure 门户中显示时，请立即记下来。
+>    - 复制密钥的值供以后使用。 此密钥值将不再显示，也无法通过其他任何方式检索，因此，在 Azure 门户中显示后，请尽快记下此值。
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>步骤 1：在 Azure 门户中配置应用程序
@@ -84,7 +84,7 @@ ms.locfileid: "92749956"
 > [下载代码示例](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如， **C:\Azure-Samples** ）
+> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
 >
 > 若要将 https 与 localhost 一起使用，请填写 server.ssl.key 属性。 若要生成自签名证书，请使用 keytool 实用工具（包含在 JRE 中）。
 >
@@ -99,7 +99,7 @@ ms.locfileid: "92749956"
 >   ```
 >   将生成的 keystore 文件放在“resources”文件夹中。
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [下载代码示例](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -123,7 +123,7 @@ ms.locfileid: "92749956"
 > 其中：
 >
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
-> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的 **客户端密码** 。
+> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的 **客户端密码**。
 > - `Enter_the_Tenant_Info_Here` - 是注册的应用程序的目录（租户）ID 值。
 > 1. 若要将 https 与 localhost 一起使用，请填写 server.ssl.key 属性。 若要生成自签名证书，请使用 keytool 实用工具（包含在 JRE 中）。
 >
@@ -155,8 +155,8 @@ ms.locfileid: "92749956"
 1. 在前面的页面上，选择“登录”按钮以重定向到 Azure Active Directory 并提示用户输入其凭据。
 
 1. 用户通过身份验证后，会重定向到 https://localhost:8443/msal4jsample/secure/aad。 他们现在已登录，页面将显示有关已登录帐户的信息。 示例 UI 包含以下按钮：
-    - *注销* ：从应用程序中注销当前用户，并将其重定向到主页。
-    - *显示用户信息* ：获取 Microsoft Graph 的令牌，并使用包含该令牌的请求调用 Microsoft Graph，这将返回有关已登录用户的基本信息。
+    - *注销*：从应用程序中注销当前用户，并将其重定向到主页。
+    - *显示用户信息*：获取 Microsoft Graph 的令牌，并使用包含该令牌的请求调用 Microsoft Graph，这将返回有关已登录用户的基本信息。
 
 ##### <a name="running-from-tomcat"></a>从 Tomcat 运行
 

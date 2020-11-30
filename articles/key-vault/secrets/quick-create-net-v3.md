@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 65433f0e27a7df8ad4ef0598f811c682d3e3ca25
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 1764f9add9bd3558460e938acff0ae7e8429602d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678377"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300321"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>快速入门：适用于 .NET 的 Azure Key Vault 客户端库 (SDK v3)
 
@@ -31,7 +31,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 <!-- - Use FIPS 140-2 Level 2 validated HSMs. -->
 
-[API 参考文档](https://docs.microsoft.com/dotnet/api/overview/key-vault?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API 参考文档](https://docs.microsoft.com/dotnet/api/overview/key-vault) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 > [!NOTE]
 > 每个密钥保管库必须具有唯一的名称。 在以下示例中，将 <your-unique-keyvault-name> 替换为密钥保管库的名称。
@@ -41,9 +41,9 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 * Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
 * [.NET Core 3.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
-* [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
-本快速入门假定你正在 Windows 终端（例如 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)、[Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6)）中运行 `dotnet`、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 和 Windows 命令。
+本快速入门假定你正在 Windows 终端（例如 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)、[Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6)）中运行 `dotnet`、[Azure CLI](/cli/install-azure-cli) 和 Windows 命令。
 
 ## <a name="setting-up"></a>设置
 
@@ -105,7 +105,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 不过，为了简单起见，本快速入门创建了一个需要使用服务主体和访问控制策略的 .NET 控制台应用程序。 服务主体要求使用格式为“http://&lt;my-unique-service-principal-name&gt;”的唯一名称。
 
-使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令创建服务主体：
+使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建服务主体：
 
 ```azurecli
 az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
@@ -131,7 +131,7 @@ az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>为服务主体授予对 Key Vault 的访问权限
 
-通过将 clientId 传递给 [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，为密钥保管库创建授予服务主体权限的访问策略。 授予服务主体对密钥和机密的 get、list 和 set 权限。
+通过将 clientId 传递给 [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令，为密钥保管库创建授予服务主体权限的访问策略。 授予服务主体对密钥和机密的 get、list 和 set 权限。
 
 ```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
@@ -207,7 +207,7 @@ KeyVaultClient kvClient = new KeyVaultClient(async (authority, resource, scope) 
 await kvClient.SetSecretAsync($"{kvURL}", secretName, secretValue);
 ```
 
-可以使用 [az keyvault secret show](/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 命令来验证是否设置了机密：
+可以使用 [az keyvault secret show](/cli/keyvault/secret#az-keyvault-secret-show) 命令来验证是否设置了机密：
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret

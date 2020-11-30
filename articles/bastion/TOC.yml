@@ -19,6 +19,8 @@
       href: ../networking/working-remotely-support.md?toc=%2fbastion%2ftoc.json
     - name: 利用 Bastion 进行远程工作
       href: work-remotely-support.md
+    - name: Bastion 和 VNet 对等互连
+      href: vnet-peering.md
 - name: 操作指南
   items:
     - name: 创建主机
@@ -47,7 +49,7 @@
       href: bastion-nsg.md
     - name: 监视和管理会话
       href: session-monitoring.md
-    - name: 故障排除
+    - name: 疑难解答
       href: troubleshoot.md
 - name: 参考
   items:

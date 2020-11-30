@@ -1,29 +1,134 @@
 ---
-title: 监视数据引用 | Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: 了解 Azure 机器学习收集的数据和资源，以及 Azure Monitor 中可用的资源。 Azure Monitor 收集和显示有关 Azure 机器学习工作区的数据，并允许查看指标、设置警报和分析记录的数据。
+title: 监视 Azure 机器学习数据引用 | Microsoft Docs
+description: 用于监视 Azure 机器学习的参考文档。 了解 Azure Monitor 中收集的和提供的数据和资源。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
-ms.openlocfilehash: e1607ee5c05cfcc96ee75fa9a952790fc69f5ae8
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 10/02/2020
+ms.openlocfilehash: d3fbd9f4148163d409a821641f45e7c009973470
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395509"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977877"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Azure 机器学习监视数据引用
+# <a name="monitoring-azure-machine-learning-data-reference"></a>监视 Azure 机器学习数据引用
 
 了解 Azure Monitor 从 Azure 机器学习工作区收集的数据和资源。 有关收集和分析监视数据的详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
 
+## <a name="metrics"></a>指标
+
+本部分列出了为 Azure 机器学习自动收集的所有平台指标。 这些指标的资源提供程序是 [Microsoft.MachineLearningServices/workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)。
+
+**Model**
+
+| 指标 | 计价单位 | 说明 |
+| ----- | ----- | ----- |
+| 模型部署失败 | 计数 | 失败的模型部署数。 |
+| 模型部署开始 | 计数 | 开始的模型部署数。 |
+| 模型部署成功 | 计数 | 成功的模型部署数。 |
+| 模型注册失败 | 计数 | 失败的模型注册数。 |
+| 模型注册成功 | 计数 | 成功的模型注册数。 |
+
+**配额**
+
+配额信息仅用于 Azure 机器学习计算。
+
+| 指标 | 计价单位 | 说明 |
+| ----- | ----- | ----- |
+| 活动核心数 | 计数 | 活动计算核心的数量。 |
+| 活动节点数 | 计数 | 活动节点的数量。 |
+| 空闲核心数 | 计数 | 空闲计算核心的数量。 |
+| 空闲节点数 | 计数 | 空闲计算节点的数量。 |
+| 正在离开核心数 | 计数 | 正在离开核心的数量。 |
+| 正在离开节点数 | 计数 | 正在离开节点的数量。 |
+| 已占用核心数 | 计数 | 已占用核心的数量。 |
+| 已占用节点 | 计数 | 已占用节点的数量。 |
+| 配额使用率百分比 | 百分比 | 已使用配额的百分比。 |
+| 核心总数 | 计数 | 核心总数。 |
+| 节点总数 | 计数 | 节点总数。 |
+| 不可用核心数 | 计数 | 不可用核心的数量。 |
+| 不可用节点数 | 计数 | 不可用节点的数量。 |
+
+**资源**
+
+| 指标 | 计价单位 | 说明 |
+| ----- | ----- | ----- |
+| CpuUtilization | 百分比 | 在运行/作业过程中，给定节点使用的 CPU 百分比。 仅当作业在节点上运行时，才会发布此指标。 一个作业可以使用一个或多个节点。 此指标按节点发布。 |
+| GpuUtilization | 百分比 | 在运行/作业过程中，给定节点使用的 GPU 百分比。 一个节点可以有一个或多个 GPU。 此指标按每个节点的 GPU 发布。 |
+
+**Run**
+
+有关训练运行的信息。
+
+| 指标 | 计价单位 | 说明 |
+| ----- | ----- | ----- |
+| 已完成的运行数 | 计数 | 已完成运行的数量。 |
+| 失败运行数 | 计数 | 失败运行的数量。 |
+| 已开始运行 | 计数 | 已开始运行的数量。 |
+
+## <a name="metric-dimensions"></a>指标维度
+
+有关指标维度定义的详细信息，请参阅[多维指标](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)。
+
+Azure 机器学习具有以下与指标关联的维度。
+
+| 维度 | 说明 |
+| ---- | ---- |
+| 群集名称 | 计算实例的名称。 可用于所有配额指标。 |
+| VM 系列名称 | 群集使用的 VM 系列的名称。 可用于配额使用率百分比。 |
+| VM 优先级 | VM 的优先级。 可用于配额使用率百分比。
+| CreatedTime | 仅适用于 CpuUtilization 和 GpuUtilization。 |
+| DeviceId | 设备 (GPU) 的 ID。 仅适用于 GpuUtilization。 |
+| NodeId | 作业运行时所在的已创建节点的 ID。 仅适用于 CpuUtilization 和 GpuUtilization。 |
+| RunId | 运行/作业的 ID。 仅适用于 CpuUtilization 和 GpuUtilization。 |
+| ComputeType | 运行时使用的计算类型。 仅适用于已完成的运行数、失败运行数和已启动的运行数。 |
+| PipelineStepType | 运行时使用的 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) 类型。 仅适用于已完成的运行数、失败运行数和已启动的运行数。 |
+| PublishedPipelineId | 运行时使用的已发布管道的 ID。 仅适用于已完成的运行数、失败运行数和已启动的运行数。 |
+| RunType | 运行的类型。 仅适用于已完成的运行数、失败运行数和已启动的运行数。 |
+
+RunType 维度的有效值为：
+
+| Value | 说明 |
+| ----- | ----- |
+| 试验 | 非管道运行。 |
+| PipelineRun | 管道运行，它是 StepRun 的父级。 |
+| StepRun | 管道步骤的运行。 |
+| ReusedStepRun | 重用上次运行的管道步骤的运行。 |
+
+## <a name="activity-log"></a>活动日志
+
+下表列出了可能在活动日志中创建的与 Azure 机器学习相关的操作。
+
+| Operation | 说明 |
+|:---|:---|
+| 创建或更新机器学习工作区 | 已创建或更新工作区 |
+| 检查计算名称可用性 | 检查计算名称是否已在使用中 |
+| 创建或更新计算资源 | 已创建或更新计算资源 |
+| 删除计算资源 | 已删除计算资源 |
+| 列出机密 | 执行操作时列出的机器学习工作区的机密 |
+
 ## <a name="resource-logs"></a>资源日志
 
-下表列出了在 Azure Monitor 日志或 Azure 存储中收集 Azure 机器学习资源日志时这些资源日志的属性。
+本部分列出了可为 Azure 机器学习工作区收集的资源日志类型。
+
+资源提供程序和类型：[Microsoft.MachineLearningServices/workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+
+| 类别 | 显示名称 |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## <a name="schemas"></a>架构
+
+Azure 机器学习正在使用以下架构
 
 ### <a name="amlcomputejobevents-table"></a>AmlComputeJobEvents 表
 
@@ -42,8 +147,8 @@ ms.locfileid: "91395509"
 | ResourceGroupName | 资源组的名称 |
 | JobName | 作业的名称 |
 | ClusterId | 群集的 ID |
-| EventType | 作业事件的类型，例如 JobSubmitted、JobRunning、JobFailed、JobSucceeded，等等。 |
-| ExecutionState | 作业（运行）的状态，例如已排队、正在运行、成功、失败 |
+| EventType | 作业事件的类型。 例如 JobSubmitted、JobRunning、JobFailed、JobSucceeded。 |
+| ExecutionState | 作业（运行）的状态。 例如已排队、正在运行、成功、失败 |
 | ErrorDetails | 作业错误的详细信息 |
 | CreationApiVersion | 用于创建作业的 Api 版本 |
 | ClusterResourceGroupName | 群集的资源组名称 |
@@ -109,7 +214,7 @@ ms.locfileid: "91395509"
 | VmSize | 节点的 VM 大小 |
 | VmFamilyName | 节点所属的 VM 系列 |
 | VmPriority | 已创建的节点的优先级 Dedicated/LowPriority |
-| 发布者 | VM 映像的发布服务器，例如 microsoft-dsvm |
+| 发布者 | VM 映像的发布者。 例如 microsoft-dsvm |
 | 产品/服务 | 与 VM 创建相关联的产品/服务 |
 | SKU | 已创建的节点/VM 的 SKU |
 | 版本 | 创建节点/VM 时使用的映像版本 |
@@ -122,93 +227,8 @@ ms.locfileid: "91395509"
 | StartTaskEndTime | 向节点分配任务并结束任务的时间 |
 | TotalE2ETimeInSeconds | 总时间节点处于活动状态 |
 
-### <a name="metrics"></a>指标
 
-下表列出了为 Azure 机器学习收集的平台指标，所有度量值都存储在“Azure 机器学习工作区”命名空间中。
-
-**Model**
-
-| 指标 | 计价单位 | 说明 |
-| ----- | ----- | ----- |
-| 模型部署失败 | 计数 | 失败的模型部署数。 |
-| 模型部署开始 | 计数 | 开始的模型部署数。 |
-| 模型部署成功 | 计数 | 成功的模型部署数。 |
-| 模型注册失败 | 计数 | 失败的模型注册数。 |
-| 模型注册成功 | 计数 | 成功的模型注册数。 |
-
-**配额**
-
-配额信息仅用于 Azure 机器学习计算。
-
-| 指标 | 计价单位 | 说明 |
-| ----- | ----- | ----- |
-| 活动核心数 | 计数 | 活动计算核心的数量。 |
-| 活动节点数 | 计数 | 活动节点的数量。 |
-| 空闲核心数 | 计数 | 空闲计算核心的数量。 |
-| 空闲节点数 | 计数 | 空闲计算节点的数量。 |
-| 正在离开核心数 | 计数 | 正在离开核心的数量。 |
-| 正在离开节点数 | 计数 | 正在离开节点的数量。 |
-| 已占用核心数 | 计数 | 已占用核心的数量。 |
-| 已占用节点 | 计数 | 已占用节点的数量。 |
-| 配额使用率百分比 | 百分比 | 已使用配额的百分比。 |
-| 核心总数 | 计数 | 核心总数。 |
-| 节点总数 | 计数 | 节点总数。 |
-| 不可用核心数 | 计数 | 不可用核心的数量。 |
-| 不可用节点数 | 计数 | 不可用节点的数量。 |
-
-下面是可用于筛选配额指标的维度：
-
-| 维度 | 适用指标 | 说明 |
-| ---- | ---- | ---- |
-| 群集名称 | 所有配额指标 | 计算实例的名称。 |
-| VM 系列名称 | 配额使用率百分比 | 群集使用的 VM 系列的名称。 |
-| VM 优先级 | 配额使用率百分比 | VM 的优先级。
-
-**资源**
-
-| 指标 | 计价单位 | 说明 |
-| ----- | ----- | ----- |
-| CpuUtilization | 百分比 | 在运行/作业过程中，给定节点使用的 CPU 百分比。 仅当作业在节点上运行时，才会发布此指标。 一个作业可以使用一个或多个节点。 此指标按节点发布。 |
-| GpuUtilization | 百分比 | 在运行/作业过程中，给定节点使用的 GPU 百分比。 一个节点可以有一个或多个 GPU。 此指标按每个节点的 GPU 发布。 |
-
-下面是可用于筛选资源指标的维度：
-
-| 维度 | 说明 |
-| ----- | ----- |
-| CreatedTime | |
-| DeviceId | 设备 (GPU) 的 ID。 仅适用于 GpuUtilization。 |
-| NodeId | 作业运行时所在的已创建节点的 ID。 |
-| RunId | 运行/作业的 ID。 |
-
-**Run**
-
-有关训练运行的信息。
-
-| 指标 | 计价单位 | 说明 |
-| ----- | ----- | ----- |
-| 已完成的运行数 | 计数 | 已完成运行的数量。 |
-| 失败运行数 | 计数 | 失败运行的数量。 |
-| 已开始运行 | 计数 | 已开始运行的数量。 |
-
-下面是可用于筛选运行指标的维度：
-
-| 维度 | 说明 |
-| ---- | ---- |
-| ComputeType | 运行时使用的计算类型。 |
-| PipelineStepType | 运行时使用的 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) 类型。 |
-| PublishedPipelineId | 运行时使用的已发布管道的 ID。 |
-| RunType | 运行的类型。 |
-
-RunType 维度的有效值为：
-
-| Value | 说明 |
-| ----- | ----- |
-| 试验 | 非管道运行。 |
-| PipelineRun | 管道运行，它是 StepRun 的父级。 |
-| StepRun | 管道步骤的运行。 |
-| ReusedStepRun | 重用上次运行的管道步骤的运行。 |
-
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - 有关监视 Azure 机器学习的说明，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
 - 有关监视 Azure 资源的详细信息，请参阅[通过 Azure Monitor 监视 Azure 资源](/azure-monitor/insights/monitor-azure-resource)。

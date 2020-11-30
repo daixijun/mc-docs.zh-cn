@@ -4,18 +4,18 @@ description: 本文介绍如何使用 Azure Bastion 连接到运行 Windows 的 
 services: bastion
 ms.service: bastion
 ms.topic: how-to
-origin.date: 10/12/2020
+origin.date: 10/21/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: f324eb2b77eef298a3f087bc9a7604098c20743b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7b3ddbaa32429ad8dcf464da00dbe6ddac5db8f3
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106361"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024647"
 ---
 <!--Verifed successfully on 09/07/2020-->
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>使用 Azure Bastion 连接到 Windows 虚拟机

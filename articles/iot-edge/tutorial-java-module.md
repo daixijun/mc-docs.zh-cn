@@ -13,12 +13,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d6c2cdc40d9a0f2323d78a801c647cce009e31a9
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: c43dcb43256ef110e91a6692c58d8a1a7ffcf796
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595124"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300776"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 Java IoT Edge 模块
 
@@ -59,7 +59,7 @@ ms.locfileid: "94595124"
 若要开发以 Java 编写的 IoT Edge 模块，请在开发计算机上安装下述额外的必备组件： 
 
 * 适用于 Visual Studio Code 的 [Java 扩展包](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)。
-* [Java SE 开发工具包 10](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
+* [Java SE 开发工具包 10](https://docs.microsoft.com/java/azure/jdk/)。请[将 `JAVA_HOME` 环境变量](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)设置为指向 JDK 安装项目。
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]

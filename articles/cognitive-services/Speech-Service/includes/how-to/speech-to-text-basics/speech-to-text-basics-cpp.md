@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/06/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8def09c8f99dcc4e7bf82260d2cbee819224bc74
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 9e9997b8be573e10463a6972afe63b0489aeb2da
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128176"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970857"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -32,68 +32,62 @@ ms.locfileid: "92128176"
 
 ## <a name="create-a-speech-configuration"></a>创建语音配置
 
-若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。
+若要使用语音 SDK 调用语音服务，需要创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 此类包含有关你的订阅的信息，例如你的密钥和关联的区域、终结点、主机或授权令牌。 通过使用密钥和区域创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 请参阅[查找密钥和区域](../../../overview.md#find-keys-and-region)页面，查找密钥区域对。
 
-> [!NOTE]
-> 无论你是要执行语音识别、语音合成、翻译，还是意向识别，都需要创建一个配置。
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
 
-可以通过以下几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)：
+auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+```
 
-* 使用订阅：传入密钥和关联的区域。
+可以通过以下其他几种方法初始化 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)：
+
 * 使用终结点：传入语音服务终结点。 密钥或授权令牌是可选的。
 * 使用主机：传入主机地址。 密钥或授权令牌是可选的。
 * 使用授权令牌：传入授权令牌和关联的区域。
 
-让我们看看如何使用密钥和区域创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)。 请查看[区域支持](https://docs.azure.cn/cognitive-services/speech-service/regions#speech-sdk)页以找到你的区域标识符。
+> [!NOTE]
+> 无论你是要执行语音识别、语音合成、翻译，还是意向识别，都需要创建一个配置。
 
-```cpp
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## <a name="recognize-from-microphone"></a>从麦克风识别
 
-## <a name="initialize-a-recognizer"></a>初始化识别器
-
-创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) 后，下一步是初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)。 初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 时，需要向其传递 `speech_config`。 这会提供语音服务验证请求所需的凭据。
-
-```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>从麦克风或文件识别
-
-如果要指定音频输入设备，则需要创建一个 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) 并在初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 时将其作为参数传递。
-
-若要使用设备麦克风识别语音，请使用 `FromDefaultMicrophoneInput()` 创建 `AudioConfig`，并在创建 `SpeechRecognizer` 对象时传递 audio config。
+若要使用设备麦克风识别语音，需使用 `FromDefaultMicrophoneInput()` 创建 `AudioConfig`。 然后初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)，传递 `audioConfig` 和 `config`。
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
+
+cout << "Speak into your microphone." << std::endl;
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-> [!TIP]
-> [了解如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
+如果你想使用特定的音频输入设备，则需要在 `AudioConfig` 中指定设备 ID。 了解[如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
 
-如果要从音频文件（而不是使用麦克风）识别语音，则仍需要创建 `AudioConfig`。 但创建 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)（而不是调用 `FromDefaultMicrophoneInput()`）时，需要调用 `FromWavFileInput()` 并传递 `filename` 参数。
+## <a name="recognize-from-file"></a>从文件识别
+
+如果要从音频文件（而不是使用麦克风）识别语音，则仍需要创建 `AudioConfig`。 但创建 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) 时，需要调用 `FromWavFileInput()`（而不是调用 `FromDefaultMicrophoneInput()`）并传递文件路径。
 
 ```cpp
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
+
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
 ## <a name="recognize-speech"></a>识别语音
 
 用于 C++ 的语音 SDK 的[识别器类](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)公开了一些可用于语音识别的方法。
 
-* 单步识别（异步）- 在非阻塞（异步）模式下执行识别。 这将识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。
-* 连续识别（异步）- 异步启动连续识别操作。 用户必须连接到处理事件才能接收识别结果。 若要停止异步连续识别，请调用 [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)。
-
-> [!NOTE]
-> 详细了解如何[选择语音识别模式](../../../how-to-choose-recognition-mode.md)。
-
 ### <a name="single-shot-recognition"></a>单步识别
 
-下面是使用 [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) 进行异步单步识别的示例：
+单步识别可异步识别单个言语。 单个言语的结束是通过在结束时倾听静音或处理最长 15 秒音频时确定的。 下面是使用 [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) 进行异步单步识别的示例：
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();

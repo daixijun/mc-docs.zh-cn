@@ -9,21 +9,21 @@ origin.date: 02/27/2019
 ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 13f3c20511c59527df9b8831825c92527da363fe
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: e94f52d511e583736033275e53f71b91233a7bdb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871129"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301150"
 ---
 > [!NOTE]
 > `az webapp up` 命令执行以下操作：
 >
->- 创建一个默认的[资源组](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create)。
+>- 创建一个默认的[资源组](https://docs.azure.cn/cli/group#az-group-create)。
 >
->- 创建一个默认的[应用服务计划](https://docs.azure.cn/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)。
+>- 创建一个默认的[应用服务计划](https://docs.azure.cn/cli/appservice/plan#az-appservice-plan-create)。
 >
->- 使用指定名称[创建应用](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az-webapp-create)。
+>- 使用指定名称[创建应用](https://docs.azure.cn/cli/webapp#az-webapp-create)。
 >
 >- [使用 Zip](https://docs.azure.cn/app-service/deploy-zip) 将文件从当前工作目录部署到应用。
 >

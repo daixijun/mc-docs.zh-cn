@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 origin.date: 07/15/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: f54f1709d216f00ae2a06037418574cb62cffd74
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 32f2a2da05813fe67da3a6bfe815b3f27ada59f0
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021591"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300078"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>快速入门：使用 ARM 模板部署认知搜索
 

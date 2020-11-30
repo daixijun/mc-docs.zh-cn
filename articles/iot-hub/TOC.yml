@@ -53,7 +53,7 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: 第 2 部分 - 查看消息路由结果
           href: tutorial-routing-view-message-routing-results.md
-    - name: 使用指标和诊断日志
+    - name: 使用指标和日志
       href: tutorial-use-metrics-and-diags.md
     - name: 执行手动故障转移
       href: tutorial-manual-failover.md
@@ -106,12 +106,12 @@
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: 向消息路由添加查询
                   href: iot-hub-devguide-routing-query-syntax.md
-            - name: 响应 IoT 中心事件
-              href: iot-hub-event-grid.md
             - name: 从 IoT 中心发送云到设备的消息
               href: iot-hub-devguide-messages-c2d.md
             - name: 选择通信协议
               href: iot-hub-devguide-protocols.md
+        - name: 通过事件网格来响应 IoT 中心事件
+          href: iot-hub-event-grid.md
         - name: 从设备上传文件
           href: iot-hub-devguide-file-upload.md
         - name: 管理设备标识
@@ -176,9 +176,6 @@
               href: iot-hub-how-to-android-things.md
         - name: 在不使用 Azure IoT SDK 的情况下进行开发
           href: iot-hub-devguide-no-sdk.md
-        - name: 查询中心路由中的 Avro 数据
-        - name: 订阅来自事件网格的设备连接状态事件
-          href: iot-hub-how-to-order-connection-state-events.md
         - name: 发送“云到设备”消息
           items:
             - name: .NET
@@ -270,10 +267,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: 使用 Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Azure Monitor 中的指标
-          href: iot-hub-metrics.md
-        - name: 设置诊断日志
-          href: iot-hub-monitor-resource-health.md
         - name: 使用 X.509 证书来保护中心
           href: iot-hub-security-x509-get-started.md
         - name: 升级 IoT 中心
@@ -290,6 +283,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: 批量导入和导出 IoT 设备
           href: iot-hub-bulk-identity-mgmt.md
+    - name: 监视
+      items:
+        - name: 监视 IoT 中心
+          href: monitor-iot-hub.md
+        - name: 监视数据参考
+          href: monitor-iot-hub-reference.md
+        - name: IoT 中心服务和资源运行状况
+          href: iot-hub-azure-service-health-integration.md
+        - name: 订阅来自事件网格的设备连接状态事件
+          href: iot-hub-how-to-order-connection-state-events.md
     - name: 使用真实设备
       items:
         - name: 使用联机模拟器
@@ -414,7 +417,7 @@
       items:
         - name: 操作监视
           href: iot-hub-operations-monitoring.md
-        - name: 迁移到诊断设置
+        - name: 迁移到 Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
 - name: 资源
   items:

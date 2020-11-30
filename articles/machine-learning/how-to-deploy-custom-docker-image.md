@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9c52f6c35eb2c1f7e37d09b2435cad6b237ac633
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 76b703ec212562699c5963bb23078400335df5ed
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118152"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978178"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自定义 Docker 基础映像部署模型
 
@@ -41,9 +41,9 @@ ms.locfileid: "92118152"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 机器学习工作组。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
-* [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+* Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
+* [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。 
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 * [用于 Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md)。
 * 可在 Internet 上访问的 [Azure 容器注册表](/container-registry)或其他 Docker 注册表。
 * 本文档中的步骤假设你熟悉如何创建和使用“推理配置”对象作为模型部署的一部分。 有关详细信息，请参阅[部署位置及方式](how-to-deploy-and-where.md)。
@@ -91,6 +91,9 @@ Azure ML 会维护一组发布到 Microsoft 容器注册表的 CPU 和 GPU 基�
 
 CPU 映像从 ubuntu16.04 生成。 cuda9 的 GPU 映像从 nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04 生成。 cuda10 的 GPU 映像从 nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04 生成。
 <a id="getname"></a>
+
+> [!IMPORTANT]
+> 使用自定义 Docker 映像时，建议固定包版本，以便更好地确保可再现性。
 
 ### <a name="get-container-registry-information"></a>获取容器注册表信息
 
@@ -189,7 +192,7 @@ CPU 映像从 ubuntu16.04 生成。 cuda9 的 GPU 映像从 nvidia/cuda:9.0-cudn
     Run ID: cda was successful after 2m56s
     ```
 
-如需深入了解如何使用 Azure 容器注册表生成映像，请参阅[使用 Azure 容器注册表任务](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)生成和运行容器映像
+如需深入了解如何使用 Azure 容器注册表生成映像，请参阅[使用 Azure 容器注册表任务](/container-registry/container-registry-quickstart-task-cli)生成和运行容器映像
 
 如需深入了解如何将现有映像上传到 Azure 容器注册表，请参阅[将首个映像推送到专用 Docker 容器注册表](/container-registry/container-registry-get-started-docker-cli)。
 
@@ -231,7 +234,7 @@ Microsoft 在可公开访问的存储库中提供了多个 docker 映像，可�
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>将映像与 Azure 机器学习 SDK 结合使用
 
-若要使用存储在工作区的 Azure 容器注册表中的映像，或使用存储在可公开访问的容器注册表中的映像，请设置以下[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)属性 ：
+若要使用存储在工作区的 Azure 容器注册表中的映像，或使用存储在可公开访问的容器注册表中的映像，请设置以下[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py)属性 ：
 
 + `docker.enabled=True`
 + `docker.base_image`：设置为注册表和映像的路径。
@@ -265,7 +268,7 @@ myenv.python.conda_dependencies=conda_dep
 
 必须添加版本 >= 1.0.45 的 azureml-defaults 作为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 还必须将环境的 inferencing_stack_version 属性设置为“latest”，这将安装 Web 服务所需的特定 apt 包。 
 
-定义环境后，将其与 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) 对象一起使用，以定义模型和 Web 服务将在其中运行的推理环境。
+定义环境后，将其与 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) 对象一起使用，以定义模型和 Web 服务将在其中运行的推理环境。
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -294,7 +297,7 @@ print(service.state)
 > [!IMPORTANT]
 > 目前，机器学习 CLI 可以使用来自工作区的 Azure 容器注册表或可公开访问的存储库的映像。 而不能使用来自独立的专用注册表的映像。
 
-使用机器学习 CLI 部署模型之前，请创建一个使用自定义映像的[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)。 然后创建引用该环境的推理配置文件。 也可以在推理配置文件中直接定义环境。 下面的 JSON 文档演示了如何在公共容器注册表中引用映像。 在本示例中，以内联方式定义环境：
+使用机器学习 CLI 部署模型之前，请创建一个使用自定义映像的[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py)。 然后创建引用该环境的推理配置文件。 也可以在推理配置文件中直接定义环境。 下面的 JSON 文档演示了如何在公共容器注册表中引用映像。 在本示例中，以内联方式定义环境：
 
 ```json
 {

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 01/21/2020
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: ea3b803065821ca0519c02c5b475c9ae46eacc65
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 6ecf0fba4a2f7f653e3cbdf03325222a5bd0eacf
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472005"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306453"
 ---
 # <a name="translator-30-breaksentence"></a>翻译器 3.0：BreakSentence
 
@@ -142,7 +142,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
   </tr>
 </table> 
 
-如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](./v3-0-reference.md#errors)上找到。 
 
 ## <a name="examples"></a>示例
 
@@ -151,5 +151,4 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
 ```curl
 curl -X POST "https://api.translator.azure.cn/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
 

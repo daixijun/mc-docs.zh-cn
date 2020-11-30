@@ -11,30 +11,30 @@ metadata:
   ms.author: v-johya
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 10/27/2020
-  ms.openlocfilehash: cfde19624b4ba3d0be0e3cef549dd7064716e882
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.date: 11/23/2020
+  ms.openlocfilehash: 70c890b28232289b0d25fb0c4f0834a3f46e1be9
+  ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93106054"
+  ms.lasthandoff: 11/29/2020
+  ms.locfileid: "96306318"
 highlightedContent:
   items:
   - title: 什么是认知服务？
     itemType: overview
-    url: ./welcome.md
+    url: ./what-are-cognitive-services.md
+  - title: 开发选项
+    itemType: concept
+    url: ./cognitive-services-development-options.md
+  - title: 认知服务和机器学习
+    itemType: concept
+    url: ./cognitive-services-and-machine-learning.md
   - title: 语言支持
     itemType: reference
     url: ./language-support.md
-  - title: 创建资源
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
-  - title: 在容器中使用
-    itemType: concept
-    url: ./cognitive-services-container-support.md
-  - title: 安全性
-    itemType: concept
-    url: cognitive-services-security.md
+  - title: 支持和帮助选项
+    itemType: reference
+    url: ./cognitive-services-support-options.md
 conceptualContent:
   items:
   - title: 影像
@@ -64,18 +64,24 @@ conceptualContent:
     - url: ./speech-service/index.yml
       itemType: overview
       text: 语音服务
+    - url: https://speech.microsoft.cn/
+      itemType: overview
+      text: " - 通过 Speech Studio 自定义"
   - title: 决策
     summary: 构建应用，用于呈现有助于做出明智和高效决策的建议。
     links:
     - url: ./content-moderator/index.yml
       itemType: overview
       text: 内容审查器
+    - url: ./metrics-advisor/index.yml
+      itemType: overview
+      text: 指标顾问（预览版）
   - title: 认知服务容器
     summary: Azure 认知服务中的容器支持让开发人员能够使用与 Azure 中可用的 API 一样丰富的 API，并能够灵活地选择在何处部署和托管随 Docker 容器提供的服务。
     links:
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: 认知服务容器
+      text: 什么是认知服务容器？
     - url: ./containers/azure-kubernetes-recipe.md
       itemType: deploy
       text: 部署到 Azure Kubernetes 服务
@@ -93,10 +99,14 @@ additionalContent:
       links:
       - text: 语言理解 (LUIS)
         url: https://luis.ai
+      - text: Speech Studio
+        url: https://speech.microsoft.cn/
     - title: SDK 和 REST API
       links:
       - text: C#
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+      - text: Go
+        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
         url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
       - text: JavaScript

@@ -1,7 +1,7 @@
 ---
 title: 公共区域与主权区域之间的平等性
 titleSuffix: Azure Machine Learning
-description: Azure 机器学习的某些功能（例如公共预览版功能）只能在公有云区域中使用。 本文列出了也可在 Azure 政府版、Azure 德国和 Azure 中国世纪互联地区使用的功能。
+description: 本文列出了公有云与 Azure 政府、Azure 德国和 Azure 中国世纪互联区域之间的功能平等性。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 55e514553e9a555a0556cbf094334cc9dec7efe2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3e981c5b682fe828b3f2d3fa7fe3bb28936bf702
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118134"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977869"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -24,13 +24,13 @@ ms.locfileid: "92118134"
 
 在全球 Azure 区域列表中，有多个为特定市场提供服务的“主权”区域。 例如，Azure 政府和 Azure 中国世纪互联区域。 目前，Azure 机器学习部署到以下主权云区域中：
 
-* Azure 政府区域**美国-亚利桑那**和**美国-弗吉尼亚**。
-* Azure 中国世纪互联区域**中国东部 2**。
+* Azure 政府区域 **美国-亚利桑那** 和 **美国-弗吉尼亚**。
+* Azure 中国世纪互联区域 **中国东部 2**。
 
 > [!TIP]
 > 为了区分主权和非主权区域，本文将使用术语“公有云”来指代非主权区域。
 
-我们的目标是在公有云与主权区域之间提供最大的平等性。 所有 Azure 机器学习功能在我们的公有云中正式发布后，将在 **30 天内**在这些区域中提供。 我们还在这些区域中启用选定数量的预览功能。 下面显示了我们的主权云与公有云之间的当前平等性差异。
+我们的目标是在公有云与主权区域之间提供最大的平等性。 所有 Azure 机器学习功能在我们的公有云中正式发布后，将在 **30 天内** 在这些区域中提供。 我们还在这些区域中启用选定数量的预览功能。 下面显示了我们的主权云与公有云之间的当前平等性差异。
 
 ## <a name="azure-government"></a>Azure Government 
 
@@ -122,7 +122,7 @@ ms.locfileid: "92118134"
 | 对计算资源的 Root 和 SSH 访问。                                          | YES | YES |  |
 | 维护已部署系统（实例、终结点等）的安全性，包括终结点保护、修补和日志记录 |  PARTIAL|  PARTIAL |VNet 后的 ACI 和专用终结点当前不可用 |                                  
 | 控制（禁用/限制/约束）ACI/AKS 集成的使用                    | PARTIAL| PARTIAL |VNet 后的 ACI 和专用终结点当前不可用|
-| 基于角色的访问控制 (RBAC) - 自定义角色创建                           | YES | YES |  |
+| Azure 基于角色的访问控制 (Azure RBAC) - 自定义角色创建                           | YES | YES |  |
 | 控制对 ML 服务使用的 ACR 映像的访问（Azure 提供/维护的与自定义的）  |PARTIAL|  PARTIAL | Azure 政府版不支持专用终结点和 VNet 后的 ACR |
 | **机器学习服务常规使用情况** |  | | |
 | 能够使用开发环境构建模型、训练该模型、将其作为终结点托管并通过 WebApp 使用它     | YES | YES |  |

@@ -6,29 +6,31 @@ ms.author: v-junlch
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.subservice: cli
-ms.date: 08/06/2020
+ms.date: 11/16/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4742af5d9bd197bac4333f2eda6c951cd26ade0d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: c47cdad64f08c7bd60a10761534ee0f43ee328ca
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914161"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970755"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure CLI 创建虚拟机规模集并部署一个示例应用程序。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 2.0.29 或更高版本。 
 
 
 ## <a name="create-a-scale-set"></a>创建规模集
-使用 [az group create](/cli/group) 创建资源组，才能创建规模集。 以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组：
+使用 [az group create](/cli/group) 创建资源组，才能创建规模集。 以下示例在“chinanorth2”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinanorth2
 ```
 
 现在，使用 [az vmss create](/cli/vmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 的规模集，该规模集设置为在应用更改时自动更新；如果 *~/.ssh/id_rsa* 中没有 SSH 密钥，此示例还会生成 SSH 密钥。 登录到 VM 实例时需要使用这些 SSH 密钥。 若要使用一组现有的 SSH 密钥，请改用 `--ssh-key-value` 参数并指定密钥的位置。
@@ -63,7 +65,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>允许流量发往应用程序
-创建规模集时，已自动部署一个 Azure 负载均衡器。 该负载均衡器会将流量分配到规模集中的 VM 实例。 若要允许流量抵达示例 Web 应用程序，请使用 [az network lb rule create](/cli/network/lb/rule) 创建一个负载均衡器规则。 以下示例创建名为“myLoadBalancerRuleWeb”  的规则：
+创建规模集时，已自动部署一个 Azure 负载均衡器。 该负载均衡器会将流量分配到规模集中的 VM 实例。 若要允许流量抵达示例 Web 应用程序，请使用 [az network lb rule create](/cli/network/lb/rule) 创建一个负载均衡器规则。 以下示例创建名为“myLoadBalancerRuleWeb”的规则：
 
 ```azurecli
 az network lb rule create \
@@ -79,7 +81,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-scale-set"></a>测试规模集
-若要查看正在运行的规模集，请在 Web 浏览器中访问示例 Web 应用程序。 使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 获取负载均衡器的公共 IP 地址。 以下示例获取创建为规模集一部分的“myScaleSetLBPublicIP”  的 IP 地址：
+若要查看正在运行的规模集，请在 Web 浏览器中访问示例 Web 应用程序。 使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 获取负载均衡器的公共 IP 地址。 以下示例获取创建为规模集一部分的“myScaleSetLBPublicIP”的 IP 地址：
 
 ```azurecli
 az network public-ip show \
@@ -95,7 +97,7 @@ az network public-ip show \
 
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group) 命令将其删除，如下所示。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group) 命令将其删除，如下所示。 `--no-wait` 参数会使光标返回提示符处，无需等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
 
 ```azurecli
 az group delete --name myResourceGroup --yes --no-wait

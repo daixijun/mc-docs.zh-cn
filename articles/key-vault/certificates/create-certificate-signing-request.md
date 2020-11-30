@@ -9,20 +9,20 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 origin.date: 06/17/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 877c3622a69e769451571815508abfb95cbb5708
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 34932a29185085de31ac5bf17a206c6dd20986c9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678446"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300293"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>在 Key Vault 中创建和合并 CSR
 
 Azure Key Vault 支持将你选择的任何证书颁发机构颁发的数字证书存储在密钥保管库中。 它支持使用私钥/公钥对创建证书签名请求，可由所选的任何证书颁发机构签名。 选择的证书颁发机构可以是内部企业 CA，也可以是外部公共 CA。 证书签名请求（也称为 CSR 或证书请求）是用户向证书颁发机构 (CA) 发送的一条消息，用于请求颁发数字证书。
 
-若要详细了解证书的常规信息，请参阅 [Azure Key Vault 证书](/key-vault/certificates/about-certificates)。
+若要详细了解证书的常规信息，请参阅 [Azure Key Vault 证书](./about-certificates.md)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
 
@@ -75,7 +75,7 @@ Azure Key Vault 支持将你选择的任何证书颁发机构颁发的数字证�
     ![证书属性](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  此时，将看到证书已添加到“证书”列表中。 选择刚创建的新证书。 证书的当前状态为“已禁用”，因为它尚未由 CA 颁发。
 7. 单击“证书操作”选项卡，然后选择“下载 CSR” 。
- ![证书属性](../media/certificates/create-csr-merge-csr/download-csr.png)
+ ![突出显示“下载 CSR”按钮的屏幕截图。](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  将 .csr 文件带到 CA，以便对请求进行签名。
 9.  CA 对请求进行签名后，请带回证书文件以在同一“证书操作”屏幕中合并已签名的请求。

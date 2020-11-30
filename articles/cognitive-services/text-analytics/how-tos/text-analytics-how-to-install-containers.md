@@ -10,15 +10,15 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 11/21/2019
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 keywords: 本地, Docker, 容器, 情绪分析, 自然语言处理
-ms.openlocfilehash: 7f04fad7528d946359554aef53c6c6c741be4709
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 69991b8630dae8ebab7ad1bb317c0d95499086af
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105642"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306174"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安装和运行文本分析容器
 
@@ -33,7 +33,7 @@ ms.locfileid: "93105642"
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。
 
 > [!IMPORTANT]
-> 试用版限制为每月 5000 个事务，并且仅“免费”和“标准”<a href="https://www.azure.cn/pricing/details/cognitive-services/text-analytics" target="_blank">定价层<span class="docon docon-navigate-external x-hidden-focus"></span></a>对于容器有效 。 有关事务请求费率的更多信息，请参阅[数据限制](/cognitive-services/text-analytics/overview#data-limits)。
+> 试用版限制为每月 5000 个事务，并且仅“免费”和“标准”<a href="https://www.azure.cn/pricing/details/cognitive-services/text-analytics" target="_blank">定价层<span class="docon docon-navigate-external x-hidden-focus"></span></a>对于容器有效 。 有关事务请求费率的更多信息，请参阅[数据限制](../overview.md#data-limits)。
 
 ## <a name="prerequisites"></a>先决条件
 

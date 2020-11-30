@@ -6,12 +6,12 @@ origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52c11db2445149a4ecf3dcbd653b4b0e117e6623
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 4ccba0dfc2ef655f9a66c32fce2611029c93d1c4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063308"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300128"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Azure 事件中心的 .NET 编程指南（旧版 Microsoft.Azure.EventHubs 包）
 本文介绍使用 Azure 事件中心编写代码时的一些常见情况。 它假设你对事件中心已有初步的了解。 有关事件中心的概念概述，请参阅 [事件中心概述](./event-hubs-about.md)。
@@ -39,7 +39,7 @@ Install-Package Microsoft.Azure.EventHubs
 
 ## <a name="create-an-event-hubs-client"></a>创建事件中心客户端
 
-用来与事件中心交互的主类是 [Microsoft.Azure.EventHubs.EventHubClient][EventHubClient]。 可以使用 [CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createfromconnectionstring) 方法实例化此类，如以下示例所示：
+用来与事件中心交互的主类是 [Microsoft.Azure.EventHubs.EventHubClient][EventHubClient]。 可以使用 [CreateFromConnectionString](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.createfromconnectionstring) 方法实例化此类，如以下示例所示：
 
 ```csharp
 private const string EventHubConnectionString = "Event Hubs namespace connection string";
@@ -55,11 +55,11 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>将事件发送到事件中心
 
-可通过以下方式将事件发送到事件中心：创建一个 [EventHubClient][] 实例并通过 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 方法异步发送该实例。 此方法采用单个 [EventData][] 实例参数，并以异步方式将其发送至事件中心。
+可通过以下方式将事件发送到事件中心：创建一个 [EventHubClient][] 实例并通过 [SendAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.sendasync) 方法异步发送该实例。 此方法采用单个 [EventData][] 实例参数，并以异步方式将其发送至事件中心。
 
 ## <a name="event-serialization"></a>活动序列化
 
-[EventData][] 类具有[两个重载构造函数](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor)，这些构造函数采用各种参数、字节或字节数组来表示事件数据有效负载。 将 JSON 与 [EventData][]类结合使用时，可以使用 **Encoding.UTF8.GetBytes()** 来检索 JSON 编码字符串的字节数组。 例如：
+[EventData][] 类具有[两个重载构造函数](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventdata.-ctor)，这些构造函数采用各种参数、字节或字节数组来表示事件数据有效负载。 将 JSON 与 [EventData][]类结合使用时，可以使用 **Encoding.UTF8.GetBytes()** 来检索 JSON 编码字符串的字节数组。 例如：
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -75,7 +75,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > 如果你不熟悉分区，请参阅[此文](event-hubs-features.md#partitions)。 
 
-发送事件数据时，可以指定一个在经哈希处理后生成分区分配的值。 请使用 [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) 属性指定分区。 但是，决定使用分区意味着在可用性和一致性之间进行选择。 
+发送事件数据时，可以指定一个在经哈希处理后生成分区分配的值。 请使用 [PartitionSender.PartitionID](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.partitionsender.partitionid) 属性指定分区。 但是，决定使用分区意味着在可用性和一致性之间进行选择。 
 
 ### <a name="availability-considerations"></a>可用性注意事项
 
@@ -93,23 +93,23 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## <a name="batch-event-send-operations"></a>批处理事件发送操作
 
-分批发送事件可有助于提高吞吐量。 可以使用 [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API 来创建一个批，以便稍后向其添加数据对象进行 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 调用。
+分批发送事件可有助于提高吞吐量。 可以使用 [CreateBatch](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.createbatch) API 来创建一个批，以便稍后向其添加数据对象进行 [SendAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.sendasync) 调用。
 
-单个批不能超过事件的 1 MB 限制。 此外，批中的每个消息都要使用相同的发布者标识。 发送者负责确保批不超过最大事件大小。 如果超过该限制，会生成客户端 **Send** 错误。 可以使用帮助器方法 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) 来确保批不超过 1 MB。 从 [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API 获取空的 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)，然后使用 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) 添加事件来构造批。 
+单个批不能超过事件的 1 MB 限制。 此外，批中的每个消息都要使用相同的发布者标识。 发送者负责确保批不超过最大事件大小。 如果超过该限制，会生成客户端 **Send** 错误。 可以使用帮助器方法 [EventHubClient.CreateBatch](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.createbatch) 来确保批不超过 1 MB。 从 [CreateBatch](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.createbatch) API 获取空的 [EventDataBatch](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventdatabatch)，然后使用 [TryAdd](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventdatabatch.tryadd) 添加事件来构造批。 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>异步发送和按比例发送
 
-请通过异步方式将事件发送到事件中心。 以异步方式发送可以增大客户端发送事件的速率。 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 返回一个 [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) 对象。 可以在客户端上使用 [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) 类来控制客户端重试选项。
+请通过异步方式将事件发送到事件中心。 以异步方式发送可以增大客户端发送事件的速率。 [SendAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.sendasync) 返回一个 [Task](https://docs.microsoft.com/dotnetapi/system.threading.tasks.task?view=netcore-3.1) 对象。 可以在客户端上使用 [RetryPolicy](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.retrypolicy) 类来控制客户端重试选项。
 
 ## <a name="event-consumers"></a>事件使用者
 [EventProcessorHost][] 类处理来自事件中心的数据。 在 .NET 平台上构建事件读取者时，应该使用此实现。 [EventProcessorHost][] 为事件处理器实现提供线程安全、多进程安全的运行时环境，该环境还能提供检查点和分区租用管理。
 
-若要使用 [EventProcessorHost][] 类，可以实现 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)。 此接口包含四个方法：
+若要使用 [EventProcessorHost][] 类，可以实现 [IEventProcessor](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor)。 此接口包含四个方法：
 
-* [OpenAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.openasync)
-* [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.closeasync)
-* [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
-* [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
+* [OpenAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor.openasync)
+* [CloseAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor.closeasync)
+* [ProcessEventsAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
+* [ProcessErrorAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 若要开始处理事件，请实例化 [EventProcessorHost][]，为事件中心提供适当的参数。 例如：
 
@@ -125,7 +125,7 @@ var eventProcessorHost = new EventProcessorHost(
         StorageContainerName);
 ```
 
-然后，调用 [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync)，将 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 实现注册到运行时：
+然后，调用 [RegisterEventProcessorAsync](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync)，将 [IEventProcessor](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.processor.ieventprocessor) 实现注册到运行时：
 
 ```csharp
 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
@@ -155,7 +155,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 * [事件中心 API 概述](./event-hubs-samples.md)
 * [什么是事件中心](./event-hubs-about.md)
 * [事件中心中的可用性和一致性](event-hubs-availability-and-consistency.md)
-* [事件处理程序主机 API 参考](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [事件处理程序主机 API 参考](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
 [EventHubClient]: /dotnet/api/microsoft.azure.eventhubs.eventhubclient

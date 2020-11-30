@@ -4,18 +4,18 @@ description: 介绍如何通过 Azure 资源管理器模板在管理组范围部
 ms.topic: conceptual
 origin.date: 09/24/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: c65daaec27b206b63f2c1db13d4b69637a4158fa
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 0952d3b21ba580800e53e1bec49ba0f739eeb63f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937547"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978127"
 ---
-# <a name="create-resources-at-the-management-group-level"></a>在管理组级别创建资源
+# <a name="management-group-deployments-with-arm-templates"></a>使用 ARM 模板进行管理组部署
 
 随着组织的不断发展，可以部署 Azure 资源管理器模板（ARM 模板）来创建管理组级别的资源。 例如，你可能需要为管理组定义和分配[策略](../../governance/policy/overview.md)或 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。 使用管理组级别的模板，可以声明方式在管理组级别应用策略和分配角色。
 
@@ -39,7 +39,7 @@ ms.locfileid: "91937547"
 * policySetDefinitions
 * remediations
 
-对于基于角色的访问控制，请使用：
+对于 Azure 基于角色的访问控制 (Azure RBAC)，请使用：
 
 * roleAssignments
 * roleDefinitions
@@ -48,7 +48,7 @@ ms.locfileid: "91937547"
 
 * deployments
 
-用于管理资源：
+若要管理资源，请使用：
 
 * tags
 
@@ -61,18 +61,76 @@ ms.locfileid: "91937547"
 对于模板，请使用：
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    ...
+}
 ```
 
 对于所有部署范围，参数文件的架构都相同。 对于参数文件，请使用：
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
+## <a name="deployment-commands"></a>部署命令
+
+若要部署到管理组，请使用管理组部署命令。
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+对于 Azure CLI，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg#az_deployment_mg_create)：
+
+```azurecli
+az deployment mg create \
+  --name demoMGDeployment \
+  --location chinanorth \
+  --management-group-id myMG \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+对于 Azure PowerShell，请使用 [New-AzManagementGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagementgroupdeployment)。
+
+```powershell
+New-AzManagementGroupDeployment `
+  -Name demoMGDeployment `
+  -Location "China North" `
+  -ManagementGroupId "myMG" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
+```
+
+---
+
+有关部署命令和部署 ARM 模板的选项的更多详细信息，请参阅：
+
+* [使用 ARM 模板和 Azure 门户部署资源](deploy-portal.md)
+* [使用 ARM 模板和 Azure CLI 部署资源](deploy-cli.md)
+* [使用 ARM 模板和 Azure PowerShell 部署资源](deploy-powershell.md)
+* [使用 ARM 模板和 Azure 资源管理器 REST API 部署资源](deploy-rest.md)
+* [使用部署按钮从 GitHub 存储库部署模板](deploy-to-azure-button.md)
+    
+    <!--Not Available on * [Deploy ARM templates from local Shell](deploy-cloud-shell.md)-->
+    
 ## <a name="deployment-scopes"></a>部署范围
 
-部署到管理组时，可以将部署命令中指定的管理组作为目标，也可以选择租户中的其他管理组。
+部署到管理组时，可以将资源部署到：
+
+* 操作的目标管理组
+* 租户中的另一个管理组
+* 管理组中的订阅
+* 管理组中的资源组（通过两个嵌套部署）
+* [扩展资源](scope-extension-resources.md)可应用于资源
+
+部署模板的用户必须有权访问指定的作用域。
+
+本部分演示如何指定不同范围。 可以在单个模板中组合这些不同范围。
+
+### <a name="scope-to-target-management-group"></a>将范围设定为目标管理组
 
 将通过部署命令对管理组应用模板的资源部分中定义的资源。
 
@@ -86,6 +144,8 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
     "outputs": {}
 }
 ```
+
+### <a name="scope-to-another-management-group"></a>将范围设定为另一个管理组
 
 若要以另一个管理组为目标，请添加嵌套部署并指定 `scope` 属性。 将 `scope` 属性设置为 `Microsoft.Management/managementGroups/<mg-name>` 格式的值。
 
@@ -119,8 +179,9 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
     "outputs": {}
 }
 ```
+### <a name="scope-to-subscription"></a>订阅的范围
 
-还可以将管理组中的订阅或资源组作为目标。 部署模板的用户必须有权访问指定的作用域。
+还可以将管理组中的订阅作为目标。 部署模板的用户必须有权访问指定的作用域。
 
 若要以管理组中的订阅为目标，请使用嵌套部署和 `subscriptionId` 属性。
 
@@ -152,7 +213,9 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 }
 ```
 
-若要以订阅中的资源组为目标，请添加另一个嵌套部署和 `resourceGroup` 属性。
+### <a name="scope-to-resource-group"></a>将范围限定于资源组
+
+若要以订阅中的资源组为目标，请添加两个嵌套部署。 第一个部署以具有资源组的订阅为目标。 第二个部署通过设置 `resourceGroup` 属性来以资源组为目标。
 
 ```json
 {
@@ -175,7 +238,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2020-06-01",
               "name": "nestedRG",
-              "resourceGroup": "rg2",
+              "resourceGroup": "demoResourceGroup",
               "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -193,32 +256,6 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 若要使用管理组部署在订阅中创建资源组并将存储帐户部署到该资源组，请参阅[部署到订阅和资源组](#deploy-to-subscription-and-resource-group)。
 
-## <a name="deployment-commands"></a>部署命令
-
-管理组部署的命令与资源组部署的命令不同。
-
-对于 Azure CLI，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg#az_deployment_mg_create)：
-
-```azurecli
-az deployment mg create \
-  --name demoMGDeployment \
-  --location ChinaNorth \
-  --management-group-id myMG \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
-```
-
-对于 Azure PowerShell，请使用 [New-AzManagementGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagementgroupdeployment)。
-
-```powershell
-New-AzManagementGroupDeployment `
-  -Name demoMGDeployment `
-  -Location "China North" `
-  -ManagementGroupId "myMG" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
-```
-
-对于 REST API，请使用[部署 - 在管理组范围内创建](https://docs.microsoft.com/rest/api/resources/deployments/createorupdateatmanagementgroupscope)。
-
 ## <a name="deployment-location-and-name"></a>部署位置和名称
 
 对于管理组级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
@@ -227,32 +264,9 @@ New-AzManagementGroupDeployment `
 
 每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
 
-## <a name="use-template-functions"></a>使用模板函数
-
-对于管理组部署，在使用模板函数时有一些重要注意事项：
-
-* 不支持 [resourceGroup()](template-functions-resource.md#resourcegroup) 函数。
-* 不支持 [subscription()](template-functions-resource.md#subscription) 函数。
-* 支持 [reference()](template-functions-resource.md#reference) 和 [list()](template-functions-resource.md#list) 函数。
-* 请勿对部署到管理组的资源使用 [resourceId()](template-functions-resource.md#resourceid) 函数。
-
-    对于作为管理组的扩展实现的资源，请改用 [extensionResourceId()](template-functions-resource.md#extensionresourceid) 函数。 部署到管理组的自定义策略定义是管理组的扩展。
-
-    若要获取管理组级别的自定义策略定义的资源 ID，请使用：
-
-    ```json
-    "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-    ```
-
-    对于管理组中可用的租户资源，请使用 [tenantResourceId](template-functions-resource.md#tenantresourceid) 函数。 内置策略定义是租户级别资源。
-
-    若要获取内置策略定义的资源 ID，请使用：
-
-    ```json
-    "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-    ```
-
 ## <a name="azure-policy"></a>Azure Policy
+
+部署到管理组的自定义策略定义是管理组的扩展。 若要获取自定义策略定义的 ID，请使用 [extensionResourceId()](template-functions-resource.md#extensionresourceid) 函数。 内置策略定义是租户级别资源。 若要获取内置策略定义的 ID，请使用 [tenantResourceId](template-functions-resource.md#tenantresourceid) 函数。
 
 下面的示例演示如何[定义](../../governance/policy/concepts/definition-structure.md)管理组级别策略，并对其进行分配。
 

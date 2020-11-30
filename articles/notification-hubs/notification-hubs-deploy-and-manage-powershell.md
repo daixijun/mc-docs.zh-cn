@@ -17,12 +17,12 @@ ms.date: 09/02/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 15b04bb7ee159bdd29a7f4f1f6870776a495a8a7
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 65392237eb3b28b2f99d1f27dc9bf434cabc432f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316470"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300850"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 部署和管理通知中心
 
@@ -77,7 +77,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>创建 `NamespaceManager` 类
 
-若要预配通知中心，请从 SDK 创建 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) 类的实例。
+若要预配通知中心，请从 SDK 创建 [NamespaceManager](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.namespacemanager) 类的实例。
 
 可以使用 Azure PowerShell 随附的 [Get-AzureSBAuthorizationRule] cmdlet 检索用于提供连接字符串的授权规则。 对 `NamespaceManager` 实例的引用存储于 `$NamespaceManager` 变量中。 `$NamespaceManager` 用于设置通知中心。
 
@@ -161,7 +161,7 @@ else
 [Member Offers]: https://www.azure.cn/pricing/
 [1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [安装和配置 Azure PowerShell]: /powershell-install-configure
-[通知中心的 .NET API]: https://docs.azure.cndotnet/api/overview/notification-hubs?view=azure-dotnet
+[通知中心的 .NET API]: https://docs.azure.cndotnet/api/overview/notification-hubs
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
 [Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

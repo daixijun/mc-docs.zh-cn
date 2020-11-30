@@ -14,14 +14,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 2d8a9c14e4d45d23ad20fcb4532e35a2f8252352
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 1f7377e57d4ec81b006dbb633aa071dac7565821
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245594"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300828"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>使用门户创建并监视带有事件网格的 Azure 媒体服务事件
 
@@ -63,7 +63,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 
 1. 事件订阅中预先填写了媒体服务帐户的值。 
 1. 对于“终结点类型”，选择“Web 挂钩”。
-1. 在本主题中，我们让“所有事件类型”保持选中状态。 但是，你可以筛选特定事件类型。 
+1. 在本主题中，让“订阅所有事件类型”保持选中状态。 不过可以取消选中，然后筛选特定事件类型。 
 1. 单击“选择终结点”链接。
 
     对于 Webhook 终结点，请提供你的 Web 应用的 URL，并将 `api/updates` 添加到主页 URL。 

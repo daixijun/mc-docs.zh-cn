@@ -3,15 +3,17 @@ title: 加密部署数据
 description: 了解为容器实例资源保存的数据的加密，以及如何使用客户管理的密钥来加密数据
 ms.topic: article
 origin.date: 01/17/2020
-ms.date: 11/02/2020
+ms.date: 11/30/2020
+ms.testscope: no
+ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 9a304e0ba1ab3595a69cc5bab4bd1b78526015e9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5587277df9ed4b4276080e53b352c2f49668ce98
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104142"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96300900"
 ---
 <!--Verified successfully-->
 # <a name="encrypt-deployment-data"></a>加密部署数据
@@ -34,6 +36,8 @@ ACI 中的数据是使用 256 位 AES 加密法加密和解密的。 此加密�
 |    **密钥访问权限** |    仅限 Azure    |    Azure、客户    |
 
 本文档的余下内容将介绍使用你自己的密钥（客户管理的密钥）加密 ACI 部署数据所要执行的步骤。 
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

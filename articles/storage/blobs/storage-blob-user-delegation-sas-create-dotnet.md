@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 1c1ebfd3a80eed33675cda86c212679b279f4cb2
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f8925996bd43018c597174ad07809690a4469a2f
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552966"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153117"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>使用 .NET 为容器或 blob 创建用户委托 SAS
 
@@ -173,7 +173,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
     UriBuilder fullUri = new UriBuilder()
     {
         Scheme = "https",
-        Host = string.Format("{0}.blob.core.windows.net", accountName),
+        Host = string.Format("{0}.blob.core.chinacloudapi.cn", accountName),
         Path = string.Format("{0}/{1}", containerName, blobName),
         Query = sasToken
     };

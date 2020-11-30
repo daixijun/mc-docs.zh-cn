@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 03e4ec35431c3ff32a53cfc3e956ea1b4afcce22
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 7a49144c0def3ebdade805bec570844a4ba89cbe
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211636"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306306"
 ---
 # <a name="translator-v2-to-v3-migration"></a>将 Translator V2 迁移到 V3
 
@@ -37,7 +37,7 @@ Microsoft Translator 团队已发布 Translator 版本 3 (V3)。 此版本包括
 * 音译 - 已将一个 transliterate 方法添加到 API。 此方法会将一个脚本（例如阿拉伯语） 中的单词和句子转换成另一个脚本（例如 拉丁语）。
 * 语言 - 新的“languages”方法会提供 JSON 格式的语言信息，以便与“translate”、“dictionary”和“transliterate”方法结合使用。
 * 新的翻译功能 - 已将新功能添加到“translate”方法，以支持 V2 API 中作为单独方法提供的某些功能。 示例包括 TranslateArray。
-* 讲述方法 - Microsoft Translator 不再支持文本转语音功能。 [Microsoft 语音服务](/cognitive-services/speech-service/text-to-speech)中提供了文本转语音功能。
+* 讲述方法 - Microsoft Translator 不再支持文本转语音功能。 [Microsoft 语音服务](../speech-service/text-to-speech.md)中提供了文本转语音功能。
 
 以下 V2 和 V3 方法列表指明了能够提供 V2 随附的功能的 V3 方法和 API。
 
@@ -47,8 +47,8 @@ Microsoft Translator 团队已发布 Translator 版本 3 (V3)。 此版本包括
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [语言](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [语言](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft 语音服务](/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft 语音服务](/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Microsoft 语音服务](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Microsoft 语音服务](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 不再支持的功能       |
@@ -112,7 +112,7 @@ Microsoft Translator V3 的定价方式与 V2 相同：按字符（包括空格�
 > 
 > Microsoft Translator Hub 将于 2019 年 5 月 17 日停用。 [查看重要迁移信息和日期](https://www.microsoft.com/translator/business/hub/)。   
 
-Microsoft Translator V3 默认使用神经机器翻译。 因此，它不能与 Microsoft Translator Hub 一起使用。 Translator Hub 仅支持传统的统计机器翻译。 现在，可以使用 Custom Translator 对神经翻译进行自定义。 
+Microsoft Translator V3 默认使用神经机器翻译。 因此，它不能与 Microsoft Translator Hub 一起使用。 Translator Hub 仅支持传统的统计机器翻译。
 
 使用 V3 文本 API 的神经翻译不支持使用标准类别（SMT、语音、技术、generalnn）。
 

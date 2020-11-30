@@ -2,16 +2,17 @@
 title: 将 Azure 文件卷装载到容器组
 description: 了解如何装载 Azure 文件卷以保持 Azure 容器实例的状态
 ms.topic: article
-origin.date: 12/30/2019
-ms.date: 01/15/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 6c835a370b143884105194ee87889a9fa21eb5db
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 02c1595268a5855c95c5cc1f110bc9f76d0d87c5
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428301"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024404"
 ---
 <!--Verified successfully-->
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>在 Azure 容器实例中装载 Azure 文件共享
@@ -110,7 +111,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP \
 与 CLI 示例中一样，`dnsNameLabel` 值在创建容器实例的 Azure 区域中必须是唯一的。 如果需要，请在 YAML 文件中更新该值。
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: chinaeast2
 name: file-share-demo
 properties:
@@ -177,7 +178,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -232,11 +233,11 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 }
 ```
 
-若要使用资源管理器模板进行部署，请将前面的 JSON 保存到名为 `deploy-aci.json` 的文件中，然后使用 `--template-file` 参数执行 [az group deployment create][az-group-deployment-create] 命令：
+若要使用资源管理器模板进行部署，请将前面的 JSON 保存到名为 `deploy-aci.json` 的文件中，然后使用 `--template-file` 参数执行 [az deployment group create][az-deployment-group-create] 命令：
 
 ```azurecli
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
 ## <a name="mount-multiple-volumes"></a>装载多个卷
@@ -252,6 +253,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
   "name": "myvolume1",
   "azureFile": {
     "shareName": "share1",
+    "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
     "storageAccountName": "myStorageAccount",
     "storageAccountKey": "<storage-account-key>"
   }
@@ -260,6 +262,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
   "name": "myvolume2",
   "azureFile": {
     "shareName": "share2",
+    "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
     "storageAccountName": "myStorageAccount",
     "storageAccountKey": "<storage-account-key>"
   }
@@ -295,9 +298,8 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 
-<!-- Update_Description: new article about container instances volume azure files -->
-<!--NEW.date: 01/15/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

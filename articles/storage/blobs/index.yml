@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/20/2019
-  ms.date: 11/16/2020
-  ms.openlocfilehash: bd95c0ec1ae6e7f6f22e788f3232711896e16013
-  ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+  ms.date: 11/30/2020
+  ms.openlocfilehash: 593a6e570cd7237e69ef24f6541c9fb757c45347
+  ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/12/2020
-  ms.locfileid: "94552091"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96153115"
 landingContent:
 - title: 关于 Blob 存储
   linkLists:
@@ -125,7 +125,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 使用 Azure AD 帐户访问 Blob 数据
-      url: authorize-blob-access-portal.md
+      url: authorize-data-operations-portal.md
     - text: 通过 Azure RBAC 管理服务权限
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fstorage%2fblobs%2ftoc.json
     - text: 使用托管标识授予对 Blob 存储的访问权限

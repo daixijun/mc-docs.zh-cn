@@ -5,15 +5,15 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 3a1afc5aa787b71f8a5c61a788b7508b67771db1
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: eb5d84b922cf95782f35d9faa18e0eca03df296a
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504091"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025438"
 ---
 下面是 Azure Active Directory (Azure AD) 服务的使用限制和其他服务限制。
 
@@ -21,7 +21,7 @@ ms.locfileid: "94504091"
 | --- | --- |
 | 租户 | 单个用户最多可以是 500 个 Azure AD 租户的成员或来宾。<br/>单个用户最多可以创建 200 个目录。 |
 | 域 | 可以添加不超过 900 个的托管域名。 如果将所有域设置为与本地 Active Directory 联合，则可在每个租户中添加不超过 450 个域名。 |
-|资源 |<ul><li>默认情况下，Azure Active Directory 免费版用户最多可以在单个租户中创建 50,000 个 Azure AD 资源。 如果你有至少一个经过验证的域，则组织的默认默认 Azure AD 服务配额会扩展到 300000 个 Azure AD 资源。 此服务限制与 Azure AD 定价页上 500000 个资源的定价层限制无关。 若要超过默认配额，必须联系 Microsoft 支持部门。</li><li>非管理员用户最多可以创建 250 个 Azure AD 资源。 活动资源和可还原的已删除资源都会计入此配额。 只能还原在不到 30 天前删除的 Azure AD 资源。 不再可还原的已删除 Azure AD 资源在 30 天内按四分之一的值计入此配额。 如果开发人员在其日常工作期间可能会反复超过此配额，你可以[创建并分配一个自定义角色](../articles/active-directory/roles/quickstart-app-registration-limits.md)，并为此角色授予创建无限个应用注册的权限。</li></ul> |
+|资源 |<ul><li>默认情况下，Azure Active Directory 免费版用户最多可以在单个租户中创建 50,000 个 Azure AD 资源。 如果你有至少一个经过验证的域，则组织的默认默认 Azure AD 服务配额会扩展到 300000 个 Azure AD 资源。 即使在你执行了内部管理员接管，并且组织已转换为具有至少一个已验证的域的托管租户之后，自助服务注册为组织创建的 Azure AD 服务配额仍然为 50,000 个 Azure AD 资源。 此服务限制与 Azure AD 定价页上 500000 个资源的定价层限制无关。 若要超过默认配额，必须联系 Microsoft 支持部门。</li><li>非管理员用户最多可以创建 250 个 Azure AD 资源。 活动资源和可还原的已删除资源都会计入此配额。 只能还原在不到 30 天前删除的 Azure AD 资源。 不再可还原的已删除 Azure AD 资源在 30 天内按四分之一的值计入此配额。 如果开发人员在其日常工作期间可能会反复超过此配额，你可以[创建并分配一个自定义角色](../articles/active-directory/roles/quickstart-app-registration-limits.md)，并为此角色授予创建无限个应用注册的权限。</li></ul> |
 | 架构扩展 |<ul><li>String 类型扩展最多只能有 256 个字符。 </li><li>Binary 类型扩展限制在 256 字节以内。</li><li>只能将 100 个扩展值（包括所有类型和所有应用程序）写入任何单一 Azure AD 资源中。</li><li>仅“用户”、“组”、“TenantDetail”、“设备”、“应用程序”和“ServicePrincipal”实体可以用字符串类型或二进制文件类型单一值属性进行扩展。</li><li>架构扩展仅在 Graph API 1.21 预览版中可用。 必须授予应用程序编写访问注册扩展的权限。</li></ul> |
 | 应用程序 |最多有 100 位用户可以是单一应用程序的所有者。 |
 |应用程序清单 |最多可在应用程序清单中添加 1200 个条目。 |

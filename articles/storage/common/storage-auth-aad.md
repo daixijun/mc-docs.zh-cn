@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 07/16/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 14a36bb76ab510f3bab4e4b40936817c45da51a4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f71bfb48ce3d828f20ce354984eee5bd51f8ec75
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551687"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153030"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授予对 Blob 和队列的访问权限
 
@@ -78,11 +78,11 @@ Azure 门户可以使用 Azure AD 帐户或帐户访问密钥来访问 Azure 存
 
 若要使用 Azure AD 帐户通过 Azure 门户访问 Blob 或队列数据，需要拥有访问 Blob 和队列数据的权限，另外还需要拥有在 Azure 门户中浏览存储帐户资源的权限。 Azure 存储提供的内置角色授予对 Blob 和队列资源的访问权限，但不授予对存储帐户资源的权限。 出于此原因，访问门户还需要分配范围为存储帐户或更高级别的 Azure 资源管理器角色，例如[读取者](../../role-based-access-control/built-in-roles.md#reader)角色。 “读取者”角色授予限制性最高的权限，但也接受可授予存储帐户管理资源访问权限的其他 Azure 资源管理器角色。 若要详细了解如何分配权限，使用户能够使用 Azure AD 帐户在 Azure 门户中访问数据，请参阅[使用 Azure 门户分配用于访问 Blob 和队列数据的 Azure 角色](storage-auth-aad-rbac-portal.md)。
 
-当你导航到容器或队列时，Azure 门户会指示当前正在使用哪种授权方案。 有关门户中的数据访问的详细信息，请参阅[选择如何授权访问 Azure 门户中的 blob 数据](../blobs/authorize-blob-access-portal.md)和[选择如何授权访问 Azure 门户中的队列数据](../queues/authorize-queue-access-portal.md)。
+当你导航到容器或队列时，Azure 门户会指示当前正在使用哪种授权方案。 有关门户中的数据访问的详细信息，请参阅[选择如何授权访问 Azure 门户中的 blob 数据](../blobs/authorize-data-operations-portal.md)和[选择如何授权访问 Azure 门户中的队列数据](../queues/authorize-data-operations-portal.md)。
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>通过 PowerShell 或 Azure CLI 访问数据
 
-Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](../blobs/authorize-active-directory-powershell.md)。
+Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](../blobs/authorize-data-operations-powershell.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

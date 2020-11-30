@@ -6,15 +6,15 @@ ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 11/13/2018
-ms.date: 08/21/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: 329b120858f8bfe67d82d0a9271a30292a526c5e
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: de8dfaea88761a5b118e89c74f38276cdad1e5ad
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715294"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970722"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>使用应用服务创建 SignalR 服务
 
@@ -22,11 +22,13 @@ ms.locfileid: "88715294"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
-此脚本使用适用于 Azure CLI 的 signalr 扩展  。 使用此示例脚本前，执行以下命令，安装适用于 Azure CLI 的 signalr 扩展  ：
+此脚本使用适用于 Azure CLI 的 signalr 扩展。 使用此示例脚本前，执行以下命令，安装适用于 Azure CLI 的 signalr 扩展：
 
 ```azurecli
 #!/bin/bash
@@ -77,7 +79,7 @@ az webapp config appsettings set --name $myWebAppName --resource-group $myResour
 
 表中的每条命令均链接到特定于命令的文档。 此脚本使用以下命令：
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az signalr create](/cli/signalr#az-signalr-create) | 创建 Azure SignalR 服务资源。 |

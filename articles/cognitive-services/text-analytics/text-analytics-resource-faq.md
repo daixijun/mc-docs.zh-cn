@@ -3,20 +3,20 @@ title: 有关文本分析 API 的常见问题解答
 titleSuffix: Azure Cognitive Services
 description: 查找与 Azure 认知服务的文本分析 API 有关的概念、代码和方案相关的常见问题解答。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 02/13/2019
-ms.date: 03/01/2019
-ms.author: v-junlch
-ms.openlocfilehash: 5f9e3f555b4b8fbaa0971b67631294365b603ae5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/23/2020
+ms.author: v-johya
+ms.openlocfilehash: 8c92725015699655ab87eb37c1e0062216e69c20
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78154790"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306434"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>有关文本分析认知服务的常见问题解答 (FAQ)
 
@@ -34,7 +34,9 @@ ms.locfileid: "78154790"
 
 ## <a name="can-i-request-additional-languages"></a>我可以请求其他语言吗？
 
-情绪分析和关键短语提取可用于[部分语言](text-analytics-supported-languages.md)。 自然语言处理很复杂，需要进行大量测试才能发布新功能。 出于这个原因，我们避免预先宣布支持，这样就不会有人依赖需要更多时间才能成熟的功能。 
+情绪分析和关键短语提取可用于[部分语言](./language-support.md)。 自然语言处理很复杂，需要进行大量测试才能发布新功能。 出于这个原因，我们避免预先宣布支持，这样就不会有人依赖需要更多时间才能成熟的功能。 
+
+为帮助我们确定下一步要处理哪些语言的优先顺序，请在[用户之声](https://cognitive.uservoice.com/forums/555922-text-analytics)上为特定语言投票。 
 
 ## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>为什么关键短语提取会返回某些单词而不返回其他单词？
 
@@ -54,3 +56,4 @@ ms.locfileid: "78154790"
 
  [StackOverflow：文本分析 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow：认知服务](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+

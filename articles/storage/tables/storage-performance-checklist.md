@@ -7,15 +7,15 @@ ms.author: v-jay
 ms.service: storage
 ms.topic: overview
 origin.date: 10/10/2019
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb9e90982f684f30a3595cfcb38136d91079407c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 0cdf8b4eca941319f8b07d490b44e7e2c6eef3a1
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552590"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153092"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>表存储的性能与可伸缩性查检表
 
@@ -154,7 +154,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅该语言的文档以确定如何设置连接限制。  
 
-有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)。  
+有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://docs.microsoft.com/archive/blogs/darrenj/web-services-concurrent-connections)。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增大最小线程数
 
@@ -172,7 +172,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>客户端库和工具
 
-为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](/storage/#reference)。
+为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。
 
 ## <a name="handle-service-errors"></a>处理服务错误
 
@@ -198,7 +198,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 从存储服务 2013-08-15 版开始，表服务就支持使用 JSON 而非基于 XML 的 AtomPub 格式来传输表数据。 使用 JSON 最多可以减少 75% 的有效负载大小，并可以显著提高应用程序的性能。
 
-有关详细信息，请参阅文章 [Azure 表：JSON 简介](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json)和[表服务操作的有效负载格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
+有关详细信息，请参阅文章 [Azure 表：JSON 简介](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json)和[表服务操作的有效负载格式](https://docs.microsoft.com/rest/api/storageservices/Payload-Format-for-Table-Service-Operations)。
 
 ### <a name="disable-nagle"></a>禁用 Nagle
 

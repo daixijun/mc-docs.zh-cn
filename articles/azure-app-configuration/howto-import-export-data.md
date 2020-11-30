@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 871ce5bb3075a1c9b002a33f3e05d0937e3f1bf7
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: f93903c23084614f349351e4c9408a37597fe42f
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866692"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190287"
 ---
 # <a name="import-or-export-configuration-data"></a>导入或导出配置数据
 
 Azure 应用程序配置支持数据导入和导出操作。 使用这些操作可以批量处理配置数据，并在应用程序配置存储和代码项目之间交换数据。 例如，可以设置一个“应用程序配置”存储用于测试，另一个用于生产。 可以在它们之间复制应用程序设置，这样就不必两次输入数据。
 
-本文提供了使用应用程序配置导入和导出数据的相关指导信息。 如果要设置与 GitHub 存储库的持续同步，请参阅我们的 [GitHub 操作](https://aka.ms/azconfig-gha1)。
+本文提供了使用应用程序配置导入和导出数据的相关指导信息。 如果要设置与 GitHub 存储库的持续同步，请参阅我们的 [GitHub 操作](./concept-github-action.md)。
 
 ## <a name="import-data"></a>导入数据
 

@@ -8,12 +8,12 @@ ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 52ee203d29b71c007bc51c9e6eeb4ffe3cc99b8e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 78267bf73d6691eede4003a358ab50022848b1af
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024633"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-network-issues-with-registry"></a>排查与注册表相关的网络问题
@@ -82,7 +82,8 @@ ContainerRegistryLoginEvents 表中的注册表资源日志可能有助于诊断
 
 * [配置公共 IP 网络规则](container-registry-access-selected-networks.md)
 * [使用 Azure 专用链接以私密方式连接到 Azure 容器注册表](container-registry-private-link.md)
-* [使用 Azure 虚拟网络中的服务终结点限制对容器注册表的访问](container-registry-vnet.md)
+
+<!--Not Available on [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md)-->
 
 ### <a name="configure-vnet-access"></a>配置 VNet 访问权限
 
@@ -101,7 +102,9 @@ ContainerRegistryLoginEvents 表中的注册表资源日志可能有助于诊断
 相关链接：
 
 * [使用 Azure 专用链接以私密方式连接到 Azure 容器注册表](container-registry-private-link.md)
-* [使用 Azure 虚拟网络中的服务终结点限制对容器注册表的访问](container-registry-vnet.md)
+
+    <!--Not Available on * [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md)-->
+
 * [AKS 群集所需的出站网络规则和 FQDN](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes：调试 DNS 解析](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [虚拟网络服务标记](../virtual-network/service-tags-overview.md)

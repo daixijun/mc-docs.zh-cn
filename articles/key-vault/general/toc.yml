@@ -134,13 +134,13 @@
     - name: Azure CLI
       href: /cli/keyvault
     - name: .NET
-      href: /dotnet/api/overview/keyvault/management?view=azure-dotnet
+      href: /dotnet/api/overview/keyvault/management
     - name: Java
-      href: /java/api/overview/keyvault?view=azure-java-stable
+      href: /java/api/overview/keyvault
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index'
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/keyvault/management?view=azure-python'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/keyvault/management'
     - name: REST
       href: /rest/api/keyvault
     - name: 资源管理器模板

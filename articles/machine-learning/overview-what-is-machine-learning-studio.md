@@ -1,6 +1,6 @@
 ---
 title: 什么是 Azure 机器学习工作室？
-description: Azure 机器学习工作室是 Azure 机器学习工作区的 Web 门户。 工作室结合了无代码和代码优先体验，以创建包容的数据科学平台。
+description: 该工作室是 Azure 机器学习工作区的 Web 门户。 此工作室将无代码和代码优先体验结合起来，打造包容的数据科学平台。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7d08c11f159efcee8ae224be8573df4fa9d0f4e6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9b46800ebe3ba9951888cabf306c5dde702613c2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104536"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978251"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 
@@ -98,7 +98,9 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
 ## <a name="next-steps"></a>后续步骤
 
 请访问[工作室](https://studio.ml.azure.cn)，或浏览以下教程中的不同创作选项：  
-  + [使用 Python 笔记本训练和部署模型](tutorial-1st-experiment-sdk-setup.md)
+
+- + [在自己的开发环境开始使用](tutorial-1st-experiment-sdk-setup-local.md)
+  + [在计算实例上使用 Jupyter 笔记本来训练和部署模型](tutorial-1st-experiment-sdk-setup.md)
   + [使用自动化机器学习训练和部署模型](tutorial-first-experiment-automated-ml.md)  
   + [使用设计器训练和部署模型](tutorial-designer-automobile-price-train-score.md)
-
+  + [在受保护的虚拟网络中使用工作室](how-to-enable-studio-virtual-network.md)

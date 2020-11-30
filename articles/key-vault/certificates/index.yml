@@ -12,12 +12,12 @@ metadata:
   ms.author: v-tawe
   origin.date: 04/07/2020
   ms.date: 09/15/2020
-  ms.openlocfilehash: 60f4ac1dd7248a48fa6e072bc1fe56c42eee47f1
-  ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+  ms.openlocfilehash: 05621235592fe95ac5cf03aeb0e9b3a0136d857c
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/16/2020
-  ms.locfileid: "90678480"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300284"
 landingContent:
 - title: 证书
   linkLists:
@@ -52,13 +52,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: .NET 客户端库
-      url: https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet
+      url: https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates
     - text: Python 客户端库
-      url: https://docs.microsoft.com/python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+      url: https://docs.microsoft.com/python/api/overview/azure/keyvault-certificates-readme
     - text: Java 客户端库
       url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
     - text: Node.js 客户端库
-      url: https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/
 - title: 有关 Key Vault 的详细信息
   linkLists:
   - linkListType: overview

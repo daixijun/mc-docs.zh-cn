@@ -8,12 +8,12 @@ ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ffbeec842f2bc8b3d4efcaa0b5d34b02f5306e8b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 34c3db956c4c59289d9df8a8c75a266b71acfd6a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146769"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300576"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>排查将 Azure 资源移到新的资源组或订阅时遇到的问题
@@ -26,10 +26,11 @@ ms.locfileid: "91146769"
 
 <!--MOONCAKE: CORRECT ON FOLLOWING UPGRADE SUBSCRIPTION-->
 
-* 若要升级试用版，请参阅[将试用版或 Azure Imagine Azure 订阅升级为标准预付费套餐](https://docs.azure.cn/billing/billing-upgrade-1rmb-trial/)。
+<!--MOONCAKE: NOT AVAILABLE ON 11/27/2020 [Upgrade your Trial or Azure Imagine Azure subscription to Standard Pay-in-Advance Offer](https://docs.azure.cn/billing/billing-upgrade-1rmb-trial/)-->
+
 * 若要更改标准预付费套餐帐户，请参阅[将 Azure 标准预付费套餐订阅更改为其他套餐](https://docs.azure.cn/billing/billing-upgrade-to-ea/)。
 
-<!--MOONCAKE: CORRECT ON /billing/billing-upgrade-1rmb-trial AND /billing/billing-upgrade-to-ea-->
+<!--MOONCAKE: CORRECT ON /billing/billing-upgrade-to-ea-->
 
 如果无法转换订阅，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/)。 选择“订阅管理”  作为问题类型。
 

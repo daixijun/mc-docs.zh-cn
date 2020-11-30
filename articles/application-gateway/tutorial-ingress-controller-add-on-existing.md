@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 10727a4616c0649d16d918eb0945836c75cc4ca3
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c92040f0bdf37fb9f4125defaeb55293762d6ee2
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970736"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>教程：通过 Azure CLI 使用现有的应用程序网关为现有 AKS 群集启用应用程序网关入口控制器加载项（预览版）
 
@@ -29,36 +29,25 @@ ms.locfileid: "91937504"
 > * 在 AKS 群集上部署将 AGIC 用于入口的示例应用程序
 > * 检查是否可以通过应用程序网关访问应用程序
 
-## <a name="prerequisites"></a>先决条件
-
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-使用 [az feature register](/cli/feature#az-feature-register) 命令注册 *AKS-IngressApplicationGatewayAddon* 功能标志，如以下示例所示；当此加载项仍为预览版时，只需为每个订阅执行一次此操作：
-```azurecli
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-```
+ - 本教程需要 Azure CLI 版本 2.0.4 或更高版本。 
 
-可能需要花费几分钟时间，状态才会显示为“已注册”。 可以使用 [az feature list](/cli/feature#az-feature-register) 命令检查注册状态：
-```azurecli
-az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
+ - 使用 [az feature register](/cli/feature#az-feature-register) 命令注册 *AKS-IngressApplicationGatewayAddon* 功能标志，如以下示例所示；当此加载项仍为预览版时，只需为每个订阅执行一次此操作：
+     ```azurecli
+     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
+     ```
+    可能需要花费几分钟时间，状态才会显示为“已注册”。 可以使用 [az feature list](/cli/feature#az-feature-register) 命令检查注册状态：
+     ```azurecli
+     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+     ```
 
-准备就绪后，使用 [az provider register](/cli/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-对于本教程，请确保安装/更新 aks-preview 扩展；请使用以下 Azure CLI 命令
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-```azurecli
-az extension update --name aks-preview
-az extension list
-```
+ - 准备就绪后，使用 [az provider register](/cli/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -72,7 +61,7 @@ az group create --name myResourceGroup --location canadacentral
 
 现在，你将部署新的 AKS 群集，以模拟你有一个现有 AKS 群集且需要为其启用 AGIC 加载项的情况。  
 
-在下面的示例中，你将在所创建的资源组 myResourceGroup 中使用 [Azure CNI](/aks/concepts-network#azure-cni-advanced-networking) 和[托管实例](/aks/use-managed-identity)部署名为 myCluster 的新 AKS 群集 。    
+在下面的示例中，你将在所创建的资源组 myResourceGroup 中使用 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 和[托管实例](../aks/use-managed-identity.md)部署名为 myCluster 的新 AKS 群集 。    
 
 ```azurecli
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
@@ -93,7 +82,7 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 ```
 
 > [!NOTE]
-> 应用程序网关入口控制器 (AGIC) 加载项**仅**支持应用程序网关 v2 SKU（标准版和 WAF 版），**不**支持应用程序网关 v1 SKU。 
+> 应用程序网关入口控制器 (AGIC) 加载项 **仅** 支持应用程序网关 v2 SKU（标准版和 WAF 版），**不** 支持应用程序网关 v1 SKU。 
 
 ## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>使用现有的应用程序网关在现有的 AKS 群集中启用 AGIC 加载项 
 

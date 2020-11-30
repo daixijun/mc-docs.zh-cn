@@ -5,24 +5,17 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/03/2020
-ms.date: 09/07/2020
+origin.date: 10/20/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: a916ab7f96aaab3b5951a72710e65a2674f76517
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: d6a815f2e6049deb128c028517e6a4bcb7960843
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970657"
 ---
-可以通过以下步骤使用资源管理器部署模型和 Azure 门户创建一个 VNet。 有关虚拟网络的详细信息，请参阅[虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
-
->[!NOTE]
->使用虚拟网络作为跨界体系结构的一部分时，请务必与本地网络管理员进行协调，以划分一个 IP 地址范围专供此虚拟网络使用。 如果 VPN 连接的两端存在重复的地址范围，则会以意外方式路由流量。 此外，若要将此虚拟网络连接到另一个虚拟网络，地址空间不能与另一虚拟网络重叠。 相应地规划网络配置。
->
->
-
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在“搜索资源、服务和文档(G+/)”中，键入“虚拟网络”。  
 

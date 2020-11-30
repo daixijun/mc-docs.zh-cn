@@ -4,14 +4,14 @@ description: 介绍 ACR 任务。ACR 任务是 Azure 容器注册表中的功能
 ms.topic: article
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6523e240ec7eddc871e674945a7eb20c40620d5f
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 4f0744d613def9dc4a9bc659a73f757fda1434b3
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024551"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 任务自动执行容器映像的生成和维护
 
@@ -19,7 +19,7 @@ ms.locfileid: "91564610"
 
 ## <a name="what-is-acr-tasks"></a>什么是 ACR 任务？
 
-**ACR 任务**是 Azure 容器注册表中的一个功能套件。 它为 Linux、Windows 和 ARM 等[平台](#image-platforms)提供基于云的容器映像生成，并可以针对 Docker 容器自动执行 [OS 和框架修补](#automate-os-and-framework-patching)。 ACR 任务不仅可以使用按需容器映像生成将“内部循环”开发周期扩展到云，而且还能启用源代码更新、容器基础映像或计时器更新所触发的自动生成。 例如，使用基本映像更新触发器，可以自动执行 OS 和应用程序框架修补工作流，在遵守不可变容器原则的前提下维护安全的环境。
+**ACR 任务** 是 Azure 容器注册表中的一个功能套件。 它为 Linux、Windows 和 ARM 等[平台](#image-platforms)提供基于云的容器映像生成，并可以针对 Docker 容器自动执行 [OS 和框架修补](#automate-os-and-framework-patching)。 ACR 任务不仅可以使用按需容器映像生成将“内部循环”开发周期扩展到云，而且还能启用源代码更新、容器基础映像或计时器更新所触发的自动生成。 例如，使用基本映像更新触发器，可以自动执行 OS 和应用程序框架修补工作流，在遵守不可变容器原则的前提下维护安全的环境。
 
 ## <a name="task-scenarios"></a>任务方案
 
@@ -130,7 +130,7 @@ ACR 任务旨在用作容器生命周期基元。 例如，将 ACR 任务集成�
 
 ## <a name="view-task-output"></a>查看任务输出
 
-每个任务运行都会生成日志输出，检查该输出即可确定任务步骤是否已成功运行。 手动触发某个任务时，会将任务运行的日志输出流式传输到控制台，并将其存储起来供以后检索。 自动触发某个任务后（例如，提交源代码或更新基础映像后触发），只会存储任务日志。 在 Azure 门户中查看运行日志，或者使用 [az acr task logs](https://docs.azure.cn/cli/acr/task#az-acr-task-logs) 命令。
+每个任务运行都会生成日志输出，检查该输出即可确定任务步骤是否已成功运行。 手动触发某个任务时，会将任务运行的日志输出流式传输到控制台，并将其存储起来供以后检索。 自动触发某个任务后（例如，提交源代码或更新基础映像后触发），只会存储任务日志。 在 Azure 门户中查看运行日志，或者使用 [az acr task logs](https://docs.azure.cn/cli/acr/task#az_acr_task_logs) 命令。
 
 请参阅有关[查看和管理任务日志](container-registry-tasks-logs.md)的详细信息。
 
@@ -142,21 +142,17 @@ ACR 任务旨在用作容器生命周期基元。 例如，将 ACR 任务集成�
 
 <!-- LINKS - External -->
 
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://www.azure.cn/support/legal/subscription-agreement/
 
 <!-- LINKS - Internal -->
 
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-acr-build]: https://docs.azure.cn/cli/acr#az-acr-build
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
 [az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: https://docs.azure.cn/cli/acr/task
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az-acr-task-create
-[az-login]: https://docs.azure.cn/cli/reference-index#az-login
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
 [az-login-service-principal]: https://docs.azure.cn/cli/authenticate-azure-cli
 
 <!-- IMAGES -->

@@ -1,33 +1,35 @@
 ---
 title: 使用 Azure CLI 加密 Azure 规模集磁盘
-description: 了解如何使用 Azure PowerShell 来加密 Windows 虚拟机规模集中的 VM 实例和附加的磁盘
+description: 了解如何使用 Azure CLI 对 Windows 虚拟机规模集中的 VM 实例和附加磁盘进行加密
 author: ju-shim
 ms.author: v-junlch
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 08/06/2020
+ms.date: 11/16/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 42a2b4880f20eade12bbbb9cf6e253c70126a159
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 97435bf389512df0b3135be98d768cf2c7b836ab
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914157"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970674"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 对虚拟机规模集中的 OS 和附加数据磁盘进行加密
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门演示如何使用 Azure CLI 创建和加密虚拟机规模集。 若要详细了解如何将 Azure 磁盘加密应用于虚拟机规模集，请参阅[适用于虚拟机规模集的 Azure 磁盘加密](disk-encryption-overview.md)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0.31 或更高版本。 
 
 ## <a name="create-a-scale-set"></a>创建规模集
 
-使用 [az group create](/cli/group) 创建资源组，才能创建规模集。 以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组：
+使用 [az group create](/cli/group) 创建资源组，才能创建规模集。 以下示例在“chinanorth2”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinanorth2
 ```
 
 现在，使用 [az vmss create](/cli/vmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 的规模集，该规模集设置为在应用更改时自动更新；如果 *~/.ssh/id_rsa* 中没有 SSH 密钥，此示例还会生成 SSH 密钥。 每个 VM 实例附有 32Gb 的数据磁盘，可使用 Azure [自定义脚本扩展](../virtual-machines/extensions/custom-script-linux.md)通过 [az vmss extension set](/cli/vmss/extension) 准备数据磁盘：
@@ -137,7 +139,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 加密 VM 实例后，状态代码将报告 EncryptionState/encrypted，如下面的示例输出所示：
 
-```bash
+```console
 [
   {
     "disks": [

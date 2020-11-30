@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1fd9d24073c7d10f74696e8efc6b8ced35a0a1e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 9ae640cb004e587541ddf1d6a61341f3498dc517
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021170"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978319"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake 中可缩放的数据科学：端到端演练
 此演练介绍如何使用 Azure Data Lake 对 NYC 出租车行程和车费数据集的示例进行数据浏览和二进制分类任务，以预测小费是否是按车费所支付的。 它指导端到端完成 [Team Data Science Process](/machine-learning/team-data-science-process/) 的步骤，从数据采集到模型训练，再到部署发布模型的 Web 服务。
@@ -34,7 +34,7 @@ ms.locfileid: "90021170"
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) 具有数据科学家所需的所有功能，让他们可以轻松存储任何大小、形状和速度的数据，并且可以以经济高效的方式执行数据处理、高级分析以及具有高扩展性的机器学习建模。   按每个作业付费，只有实际处理数据时才会产生费用。 Azure Data Lake Analytics 包括一种名为 U-SQL 的语言，它将 SQL 的声明性本质与 C# 的表达能力很好地加以结合，借此提供可扩展的分布式查询功能。 它通过读取应用构架、插入自定义逻辑和用户定义函数 (UDF) 使用户能够处理非结构化数据，同时包括了可扩展性以实现大规模精细化控制。 若要深入了解 U-SQL 的设计理念，请参阅 [Visual Studio 博客文章](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)。
 
-Data Lake Analytics 也是 Cortana Analytics 套件的重要部分，可与 Azure SQL 数据仓库、Power BI 以及数据工厂协同工作。 这种组合为你提供了完整的云大数据和高级分析平台。
+Data Lake Analytics 也是 Cortana Analytics 套件的重要部分，可与 Azure Synapse Analytics、Power BI 以及数据工厂协同工作。 这种组合为你提供了完整的云大数据和高级分析平台。
 
 本演练首先介绍了如何安装完成数据科学处理任务所需的先决条件和资源。 然后概述了使用 U-SQL 进行数据处理的步骤，最后介绍了如何将 Python 和 Hive 与 Azure 机器学习工作室（经典版）配合使用以构建和部署预测模型。
 
@@ -48,7 +48,7 @@ Data Lake Analytics 也是 Cortana Analytics 套件的重要部分，可与 Azur
 Azure 机器学习工作室（经典）用于通过以下两种方法生成和部署预测模型：首先使用 Python 脚本，然后使用 HDInsight (Hadoop) 群集上的 Hive 表。
 
 ### <a name="scripts"></a>脚本
-本演练中仅概述了主要步骤。 可从 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) 下载完整的 **U-SQL 脚本**和 **Jupyter Notebook**。
+本演练中仅概述了主要步骤。 可从 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) 下载完整的 **U-SQL 脚本** 和 **Jupyter Notebook**。
 
 ## <a name="prerequisites"></a>先决条件
 在开始阅读这些主题前，必须具有：
@@ -57,7 +57,7 @@ Azure 机器学习工作室（经典）用于通过以下两种方法生成和�
 * [建议] Visual Studio 2013 或更高版本。 如果尚未安装这些版本之一，可从 [Visual Studio Community](https://www.visualstudio.com/vs/community/) 下载免费的 Community 版本。
 
 > [!NOTE]
-> 除了 Visual Studio，还可以使用 Azure 门户提交 Azure Data Lake 查询。 说明在名为**使用 U-SQL 处理数据**的部分提供，可从中了解如何使用 Visual Studio 以及在门户中完成此操作。
+> 除了 Visual Studio，还可以使用 Azure 门户提交 Azure Data Lake 查询。 说明在名为 **使用 U-SQL 处理数据** 的部分提供，可从中了解如何使用 Visual Studio 以及在门户中完成此操作。
 >
 >
 
@@ -92,7 +92,7 @@ Azure 机器学习工作室（经典）用于通过以下两种方法生成和�
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>创建 Azure Blob 存储帐户
-从 [Azure 门户](https://portal.azure.cn)创建 Azure Blob 存储帐户。 有关详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-create-storage-account.md)中的“创建存储帐户”部分。
+从 [Azure 门户](https://portal.azure.cn)创建 Azure Blob 存储帐户。 有关详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-account-create.md)中的“创建存储帐户”部分。
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-由于第一行中存在标题，因此需移除标题，并将列类型更改为合适的类型。 可使用 **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ 将已处理的数据保存到 Azure Data Lake 存储，或使用 **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name** 将已处理的数据保存到 Azure Blob 存储帐户。
+由于第一行中存在标题，因此需移除标题，并将列类型更改为合适的类型。 可使用 **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name** _ 将已处理的数据保存到 Azure Data Lake 存储，或使用 **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name** 将已处理的数据保存到 Azure Blob 存储帐户。
 
 ```sql
 // change data types
@@ -481,7 +481,7 @@ USING Outputters.Csv();
 ## <a name="build-and-deploy-models-in-azure-machine-learning"></a>在 Azure 机器学习中生成和部署模型
 可以使用两个选项，将数据拉取到 Azure 机器学习中进行构建
 
-* 在第一个选项中，使用已写入到 Azure Blob 的抽样数据（在上述**数据采样**步骤中），并使用 Python 从 Azure 机器学习构建和部署模型。
+* 在第一个选项中，使用已写入到 Azure Blob 的抽样数据（在上述 **数据采样** 步骤中），并使用 Python 从 Azure 机器学习构建和部署模型。
 * 在第二个选项中，使用 Hive 查询直接在 Azure Data Lake 中查询数据。 此选项要求创建新的 HDInsight 群集，或使用现有的 HDInsight 群集，其中 Hive 表指向 Azure Data Lake 存储中的 NY 出租车数据。  以下部分讨论这两个选项。
 
 ## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>选项 1：使用 Python 生成和部署机器学习模型
@@ -722,8 +722,8 @@ LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>在 Azure 机器学习工作室中生成和部署模型
 现在可以通过 Azure 机器学习生成和部署预测是否为行程支付小费的模型。 分层采样数据可在二进制分类（是否支付小费）问题中使用。 可通过 Azure 机器学习工作室生成和部署使用多类分类 (tip_class) 和回归 (tip_amount) 的预测模型，但是此处只介绍如何处理使用二进制分类模型的内容。
 
-1. 使用“数据输入和输出”部分的“导入数据”模块，将数据导入 Azure 机器学习工作室（经典版）。 有关详细信息，请参阅[导入数据模块](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/)参考页。
-2. 在“属性”面板中，选择“Hive 查询”作为**数据源**。
+1. 使用“数据输入和输出”部分的“导入数据”模块，将数据导入 Azure 机器学习工作室（经典版）。 有关详细信息，请参阅[导入数据模块](/machine-learning/studio-module-reference/import-data)参考页。
+2. 在“属性”面板中，选择“Hive 查询”作为 **数据源**。
 3. 将以下 Hive 脚本粘贴到“Hive 数据库查询”编辑器
 
     ```hiveql
@@ -756,7 +756,7 @@ LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder
 ## <a name="whats-next"></a>后续步骤
 [Team Data Science Process (TDSP)](/machine-learning/team-data-science-process/) 的学习路径提供了主题的链接，这些主题描述了高级分析过程中的每个步骤。 [Team Data Science Process 演练](walkthroughs.md)页中详细列举了一系列演练，演示如何在各种预测分析方案中使用资源和服务：
 
-* [运行中的 Team Data Science Process：使用 SQL 数据仓库 ](sqldw-walkthrough.md)
+* [Team Data Science Process 实务：使用 Azure Synapse Analytics](sqldw-walkthrough.md)
 * [运行中的 Team Data Science Process：使用 HDInsight Hadoop 群集](hive-walkthrough.md)
 * [Team Data Science Process：使用 SQL Server](sql-walkthrough.md)
 * [有关使用 Spark on Azure HDInsight 的 Data Science Process 概述](spark-overview.md)

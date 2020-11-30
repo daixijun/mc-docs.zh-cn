@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7bb23cf73341a8f17454bada4c174c81ccc204d9
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 7c5e820a638ff52bb979605ed9ea61b68e704888
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245657"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300838"
 ---
 # <a name="create-a-media-services-account"></a>创建媒体服务帐户
 
@@ -47,7 +47,7 @@ ms.locfileid: "91245657"
 * 查看（而不是管理）v3 [资产](assets-concept.md)、 
 * [获取有关访问 API 的信息](./access-api-howto.md)。 
 
-对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://docs.microsoft.com/rest/api/media/accountfilters)、[CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 ### <a name="use-the-azure-portal-to-create-a-media-services-account"></a>使用 Azure 门户创建媒体服务帐户
 
@@ -66,7 +66,7 @@ ms.locfileid: "91245657"
 1. 选择“固定到仪表板”以查看帐户部署进度。
 1. 单击窗体底部的“创建”。
 
-    创建媒体服务帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始对内容进行流式处理并利用[动态打包](dynamic-packaging-overview.md)和[动态加密](content-protection-overview.md)功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+    创建媒体服务帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始对内容进行流式处理并利用[动态打包](dynamic-packaging-overview.md)和[动态加密](content-protection-overview.md)功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
 

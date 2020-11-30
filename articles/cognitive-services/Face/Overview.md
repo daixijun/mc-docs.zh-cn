@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
 origin.date: 07/03/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: cog-serv-seo-aug-2020
 keywords: 人脸识别, 人脸识别软件, 人脸分析, 人脸匹配, 人脸识别应用, 按图像搜索人脸, 人脸识别搜索
-ms.openlocfilehash: 440e17204c0ad5d98e88c52f1d263cdef10455e8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a45665a3d8e3f49871356ef225a326d027bc468a
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106124"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306301"
 ---
 # <a name="what-is-the-azure-face-service"></a>什么是 Azure 人脸服务？
 
@@ -33,7 +33,7 @@ Azure 人脸服务提供用于检测、识别和分析图像中人脸的 AI 算�
 人脸服务可以检测图像中的人脸，并返回其位置的矩形坐标。 人脸检测还可提取一系列人脸相关属性，例如身头部姿势、性别、年龄、情感、面部毛发和眼镜。
 
 > [!NOTE]
-> 也可以通过[计算机视觉服务](/cognitive-services/computer-vision/home)使用人脸检测功能。 但是，如果要对人脸数据执行进一步操作，则应改用此服务。
+> 也可以通过[计算机视觉服务](../computer-vision/overview.md)使用人脸检测功能。 但是，如果要对人脸数据执行进一步操作，则应改用此服务。
 
 ![一位女士和一位男士的图像，在其面部绘制了矩形并显示了年龄和性别](./Images/Face.detection.jpg)
 

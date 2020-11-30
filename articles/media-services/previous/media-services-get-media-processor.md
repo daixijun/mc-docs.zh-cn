@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 09/28/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1a1521835ffebced6bcc1a618fe7bd586949f5d
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 77cd8ef230b81439e54fe37250123ba56e8335a3
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244907"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300950"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 
@@ -30,18 +30,17 @@ ms.locfileid: "91244907"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
 
 ## <a name="overview"></a>概述
+
 在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
 
-## <a name="azure-media-processors"></a>Azure 媒体处理器 
+## <a name="azure-media-processors"></a>Azure 媒体处理器
 
 以下主题提供媒体处理器列表：
 
-* [编码媒体处理器](scenarios-and-availability.md#encoding-media-processors)
-* [分析媒体处理器](scenarios-and-availability.md#analytics-media-processors)
+* [编码媒体处理器](scenarios-and-availability.md)
+* [分析媒体处理器](scenarios-and-availability.md)
 
 ## <a name="get-media-processor"></a>获取媒体处理器
 
@@ -60,10 +59,10 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 }
 ```
 
-
 ## <a name="media-services-learning-paths"></a>媒体服务学习路径
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
-了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
 
+了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。

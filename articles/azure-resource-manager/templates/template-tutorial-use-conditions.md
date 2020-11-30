@@ -3,17 +3,17 @@ title: 在模板中使用条件
 description: 了解如何根据条件部署 Azure 资源。 演示如何部署新资源或使用现有资源。
 origin.date: 04/23/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 08de9fca51bd597a44448b2822f9d783653856ff
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: c442100a0ad3d50ddf42fd5f91d5e6137557455c
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807883"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024608"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-arm-templates"></a>教程：在 ARM 模板中使用条件
@@ -43,7 +43,7 @@ ms.locfileid: "88807883"
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 若要完成本文，需要做好以下准备：
 
@@ -101,7 +101,7 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
 1. 在整个模板中，将三个 **variables('storageAccountName')** 替换为 **parameters('storageAccountName')** 。
 1. 删除以下变量定义：
 
-    :::image type="content" source="./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png" alt-text="资源管理器模板使用条件关系图":::
+    :::image type="content" source="./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png" alt-text="突出显示需要删除的变量定义的屏幕截图。":::
 
 1. 将以下两个参数添加到 parameters 节的开头：
 
@@ -134,7 +134,7 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
 
     更新的存储帐户定义如下所示：
 
-    :::image type="content" source="./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png" alt-text="在资源管理器中使用条件":::
+    :::image type="content" source="./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png" alt-text="显示更新的存储帐户定义的屏幕截图。":::
 1. 使用以下值更新虚拟机资源定义的 **storageUri** 属性：
 
     ```json

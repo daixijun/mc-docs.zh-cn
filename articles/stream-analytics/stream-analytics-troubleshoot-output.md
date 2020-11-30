@@ -6,28 +6,28 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9e420241b722a3b25058f0f71a4570ceaac11bfa
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 8fe190cb2c3c0cb52639680cdbe0035d95ed53ae
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715733"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978104"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure 流分析输出的故障排除
 
-本文介绍了 Azure 流分析输出连接的常见问题，以及如何排查输出问题。
+本文介绍了 Azure 流分析输出连接的常见问题，以及如何排查输出问题。 许多故障排除步骤都需要为流分析作业启用资源日志和其他诊断日志。 如果没有启用资源日志，请参阅[使用资源日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md)。
 
 ## <a name="the-job-doesnt-produce-output"></a>作业不生成输出
 
-1. 使用每项输出对应的“测试连接”按钮来验证与输出的连接****。
-1. 查看“监视器”**** 选项卡上的[监视指标](stream-analytics-monitoring.md)。由于值将进行聚合，因此指标会延迟几分钟。
+1. 使用每项输出对应的“测试连接”按钮来验证与输出的连接。
+1. 查看“监视器”选项卡上的[监视指标](stream-analytics-monitoring.md)。由于值将进行聚合，因此指标会延迟几分钟。
 
-   * 如果“输入事件”的值大于零，则作业可以读取输入数据****。 如果“输入事件”的值小于或等于零，表示作业的输入有问题****。 有关详细信息，请参阅[对输入连接进行故障排除](stream-analytics-troubleshoot-input.md)。 如果作业具有参考数据输入，请在查看输入事件指标时按逻辑名称应用拆分。 如果仅参考数据中没有输入事件，则可能意味着此输入源未正确配置，无法获取正确的参考数据集。
-   * 如果“数据转换错误”**** 的值大于零并不断增大，请参阅 [Azure 流分析数据错误](data-errors.md)，详细了解数据转换错误。
-   * 如果“运行时错误”**** 的值大于零，表示作业可以接收数据，但在处理查询时生成错误。 若要查找错误，请转到[审核日志](../azure-resource-manager/management/view-activity-logs.md)，然后筛选“失败”**** 状态。
-   * 如果“输入事件”**** 的值大于零，而“输出事件”**** 的值等于零，则下列陈述之一是正确的：
+   * 如果“输入事件”的值大于零，则作业可以读取输入数据。 如果“输入事件”的值小于或等于零，表示作业的输入有问题。 有关详细信息，请参阅[对输入连接进行故障排除](stream-analytics-troubleshoot-input.md)。 如果作业具有参考数据输入，请在查看输入事件指标时按逻辑名称应用拆分。 如果仅参考数据中没有输入事件，则可能意味着此输入源未正确配置，无法获取正确的参考数据集。
+   * 如果“数据转换错误”的值大于零并不断增大，请参阅 [Azure 流分析数据错误](data-errors.md)，详细了解数据转换错误。
+   * 如果“运行时错误”的值大于零，表示作业可以接收数据，但在处理查询时生成错误。 若要查找错误，请转到[审核日志](../azure-resource-manager/management/view-activity-logs.md)，然后筛选“失败”状态。
+   * 如果“输入事件”的值大于零，而“输出事件”的值等于零，则下列陈述之一是正确的：
       * 查询处理导致了输出事件为零。
       * 事件或字段的格式可能不正确，导致在执行查询处理后的输出为零。
       * 由于连接或身份验证原因，作业无法将数据推送到输出接收器。
@@ -67,8 +67,6 @@ ms.locfileid: "88715733"
 * 上游源是否受限制
 * 查询中的处理逻辑是否是计算密集型的
 
-若要查看输出详细信息，请在 Azure 门户中依次选择流式处理作业和“作业关系图”****。 对于每个输入，每个分区都有一个积压工作 (backlog) 事件指标。 如果指标持续增长，则表明系统资源受到约束。 指标增长可能是由于输出接收器限制或 CPU 利用率高引起的。
-
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL 数据库输出键冲突警告
 
 如果你将 Azure SQL 数据库配置为流分析作业的输出，它会将记录批量插入到目标表中。 一般来说，Azure 流分析保证[至少一次传递](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)到输出接收器。 当 SQL 表定义了唯一约束时，你仍可以实现[确切地一次传递]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)到 SQL 输出。
@@ -81,15 +79,33 @@ ms.locfileid: "88715733"
 
 * 无法对主键或使用 ALTER INDEX 的唯一约束设置 IGNORE_DUP_KEY。 必须删除并重新创建索引。  
 * 可以通过对唯一索引使用 ALTER INDEX 来设置 IGNORE_DUP_KEY。 此实例与 PRIMARY KEY/UNIQUE 约束不同，它是使用 CREATE INDEX 或 INDEX 定义创建的。  
-* IGNORE_DUP_KEY 选项不应用于列存储索引，因为无法对此类索引强制实现唯一性。  
+* IGNORE_DUP_KEY 选项不应用于列存储索引，因为无法对此类索引强制实现唯一性。
+
+## <a name="sql-output-retry-logic"></a>SQL 输出重试逻辑
+
+当带有 SQL 输出的流分析作业收到第一批事件时，将执行以下步骤：
+
+1. 作业尝试连接到 SQL。
+2. 作业提取目标表的架构。
+3. 作业针对目标表架构验证列名称和类型。
+4. 作业根据批处理中的输出记录准备内存中数据表。
+5. 作业使用 BulkCopy [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver) 将数据表写入 SQL。
+
+在这些步骤中，SQL 输出可能会遇到以下类型的错误：
+
+* 使用指数退避重试策略重试的暂时性[错误](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others)。 最小重试间隔取决于各个错误代码，但是间隔通常小于 60 秒。 上限最多可为五分钟。 
+
+   [登录失败](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531)和[防火墙问题](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues)会在上次尝试后至少 5 分钟重试一次，直到成功为止。
+
+* 数据错误（如强制转换错误和架构约束冲突）将通过输出错误策略进行处理。 通过重试二进制拆分批处理来处理这些错误，直到导致错误的单个记录通过跳过或重试得到处理。 主唯一键约束冲突[始终需得到处理](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)。
+
+* 存在 SQL 服务问题或内部代码缺陷时，可能会出现非暂时性错误。 例如，对于弹性池达到其存储限制之类的错误（代码 1132），重试无法解决。 在这些情况下，流分析作业将遭遇[降级](job-states.md)。
+* 在步骤 5 的 `BulkCopy` 期间，可能出现 `BulkCopy` 超时。 `BulkCopy` 偶尔会出现操作超时。 默认配置的最小超时为五分钟，当连续达到此值时，它将增加一倍。
+一旦超时超过 15 分钟，`BulkCopy` 的最大批处理大小提示将减少到一半，直到每批剩下 100 个事件为止。
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Azure 流分析 (1.0) 中的列名称是小写的
 
-如果使用的是原始兼容性级别 (1.0)，Azure 流分析会将列名称更改为小写。 此行为已在以后的兼容性级别中修复。 若要保留大小写，请迁移到兼容性级别 1.1 或更高版本。 有关详细信息，请参阅[流分析作业的兼容性级别](/stream-analytics/stream-analytics-compatibility-level)。
-
-## <a name="get-help"></a>获取帮助
-
-如需获取进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+如果使用的是原始兼容性级别 (1.0)，Azure 流分析会将列名称更改为小写。 此行为已在以后的兼容性级别中修复。 若要保留大小写，请迁移到兼容性级别 1.1 或更高版本。 有关详细信息，请参阅[流分析作业的兼容性级别](./stream-analytics-compatibility-level.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -97,5 +113,5 @@ ms.locfileid: "88715733"
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

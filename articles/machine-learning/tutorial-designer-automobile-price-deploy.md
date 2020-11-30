@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 83bcd8783cdbbb636fad5aa3d30c1cd37cd6e193
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 2a995c077a16cb6c76ffa6a343b11218f8f65215
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118386"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977997"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>教程：使用设计器部署机器学习模型
 
@@ -61,7 +61,7 @@ ms.locfileid: "92118386"
 
 1. 选择“提交”，并使用在第一部分中使用的相同计算目标和试验。
 
-    如果是第一次运行，则管道可能需要长达 20 分钟的时间才能完成运行。 默认计算设置中的最小节点大小为 0，这意味着设计器必须在空闲后分配资源。 由于计算资源已分配，因此，重复的管道运行花费的时间会更少。 此外，设计器还对每个模块使用缓存的结果，以便进一步提高效率。
+    如果这是第一次运行，则管道可能需要长达 20 分钟的时间才能完成运行。 默认计算设置中的最小节点大小为 0，这意味着设计器必须在空闲后分配资源。 由于计算资源已分配，因此，重复的管道运行花费的时间会更少。 此外，设计器还对每个模块使用缓存的结果，以便进一步提高效率。
 
 1. 选择“部署”。
 
@@ -99,25 +99,23 @@ ms.locfileid: "92118386"
 
 1. 选择“部署”。
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="显示“创建管道”按钮位置的屏幕截图":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="显示如何设置新的实时终结点的屏幕截图":::
 
     部署完成后，将在画布上方显示成功通知。 这可能需要几分钟时间。
 
-## <a name="test-the-real-time-endpoint"></a>测试实时终结点
+## <a name="view-the-real-time-endpoint"></a>查看实时终结点
 
-部署完成后，可通过转到“终结点”页来测试实时终结点。
+部署完成后，可通过转到“终结点”页来查看实时终结点。
 
 1. 在“终结点”页上，选择已部署的终结点。
 
-    ![显示“实时终结点”选项卡的屏幕截图，其中突出显示了最近创建的终结点](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. 在“详细信息”选项卡中，可以查看更多信息，例如 REST URI、状态和标签。
 
-1. 选择“测试”。
+1. 在“使用”选项卡中，可以找到安全密钥并设置身份验证方法。
 
-1. 可以手动输入测试数据或使用自动填充的示例数据，然后选择“测试”。
+1. 在“部署日志”选项卡中，你可以找到实时终结点的详细部署日志。 
 
-    门户会将测试请求提交到终结点并显示结果。 尽管为输入数据生成了价格值，但它不用于生成预测值。
-
-    ![显示如何测试实时终结点的屏幕截图，其中突出显示了价格的评分标签](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+有关使用 Web 服务的详细信息，请参阅[使用部署为 Web 服务的模型](how-to-consume-web-service.md)
 
 ## <a name="clean-up-resources"></a>清理资源
 

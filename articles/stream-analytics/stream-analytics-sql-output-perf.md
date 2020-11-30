@@ -1,5 +1,5 @@
 ---
-title: 从 Azure 流分析输出到 Azure SQL 数据库
+title: 通过 Azure 流分析提高 Azure SQL 数据库的吞吐量性能
 description: 了解如何将数据从 Azure 流分析输出到 SQL Azure，并实现更高的写入吞吐量速率。
 author: Johnnytechn
 ms.author: v-johya
@@ -7,15 +7,15 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: 8a2071ad0402f9f32abd9f46ab84f246b4c20754
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: 133698c5aa0904995d0425302e178a84ff6853df
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715767"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978287"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>从 Azure 流分析输出到 Azure SQL 数据库
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>通过 Azure 流分析提高 Azure SQL 数据库的吞吐量性能
 
 本文提供有关在使用 Azure 流分析将数据载入 Azure SQL 数据库时，如何提高写入吞吐量性能的提示。
 
@@ -36,13 +36,13 @@ Azure 流分析中的 SQL 输出支持使用并行写入作为一个选项。 �
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **分区表和索引** - 在包含与分区键（例如 PartitionId）相同的列的表中使用[分区](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL 表和分区索引可以在写入期间明显减少分区之间的争用。 对于分区表，需要在 PRIMARY 文件组中创建[分区函数](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017)和[分区方案](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017)。 这也可以在加载新数据时提高现有数据的可用性。 根据分区的数量，可能会达到日志 IO 限制；升级 SKU 可以提高限制。
+- **分区表和索引** - 在包含与分区键（例如 PartitionId）相同的列的表中使用 [分区](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) SQL 表和分区索引可以在写入期间明显减少分区之间的争用。 对于分区表，需要在 PRIMARY 文件组中创建[分区函数](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql)和[分区方案](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql)。 这也可以在加载新数据时提高现有数据的可用性。 根据分区的数量，可能会达到日志 IO 限制；升级 SKU 可以提高限制。
 
-- **避免唯一键冲突** - 如果 Azure 流分析活动日志中出现[多个键冲突警告消息](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)，请确保作业不受唯一约束冲突（在恢复期间可能会发生）的影响。 可以通过在索引中设置 [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) 选项来避免此问题。
+- **避免唯一键冲突** - 如果 Azure 流分析活动日志中出现 [多个键冲突警告消息](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)，请确保作业不受唯一约束冲突（在恢复期间可能会发生）的影响。 可以通过在索引中设置 [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) 选项来避免此问题。
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure 数据工厂和内存中表
 
-- **用作临时表的内存中表** - 使用[内存中表](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)可以大大提高数据加载速度，但内存必须能够装得下这些数据。 基准测试表明，从内存中表批量加载到基于磁盘的表，比使用单个写入器直接批量插入到包含标识列和聚集索引的基于磁盘的表的速度大约要快 10 倍。 若要利用这种批量插入性能，请设置一个[使用 Azure 数据工厂的复制作业](/data-factory/connector-azure-sql-database.md)，用于将数据从内存中表复制到基于磁盘的表。
+- **用作临时表的内存中表** - 使用 [内存中表](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)可以大大提高数据加载速度，但内存必须能够装得下这些数据。 基准测试表明，从内存中表批量加载到基于磁盘的表，比使用单个写入器直接批量插入到包含标识列和聚集索引的基于磁盘的表的速度大约要快 10 倍。 若要利用这种批量插入性能，请设置一个[使用 Azure 数据工厂的复制作业](/data-factory/connector-azure-sql-database.md)，用于将数据从内存中表复制到基于磁盘的表。
 
 ## <a name="avoiding-performance-pitfalls"></a>避免性能陷阱
 批量插入数据比通过单次插入加载数据的速度要快得多，因为避免了传输数据、分析 insert 语句、运行该语句以及发出事务记录的重复开销。 因而在存储引擎中使用更高效的路径流式传输数据。 但是，此路径的设置成本比基于磁盘的表中的单个 insert 语句的成本要高得多。 保本点通常约为 100 行，如果超过此数量，批量加载几乎总是更高效。 

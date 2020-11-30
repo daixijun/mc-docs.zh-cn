@@ -45,7 +45,7 @@
       items:
         - name: 流量管理器使用的国家/地区层次结构
           href: traffic-manager-geographic-regions.md
-    - name: 安全
+    - name: 安全性
       items:
         - name: 安全基线
           href: security-baseline.md

@@ -3,16 +3,17 @@ title: Azure 容器注册表中存储库的权限
 description: 创建一个令牌，使其权限范围限定于高级注册表中的特定存储库，用来拉取或推送映像，或执行其他操作
 ms.topic: article
 origin.date: 05/27/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7cb50dae128944adb011a0f2742d2469fb0ffe38
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: af27aede22e07ec6bda9acb1ef5ac7377aa2b4b5
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024642"
 ---
 <!--Verified successfully-->
 # <a name="create-a-token-with-repository-scoped-permissions"></a>创建具有存储库范围权限的令牌
@@ -62,11 +63,11 @@ ms.locfileid: "86863192"
 
 下图显示了令牌与范围映射之间的关系。 
 
-![注册表令牌和范围映射](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
+:::image type="content" source="media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png" alt-text="注册表令牌和范围映射":::
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure CLI** - Azure CLI 2.0.76 或更高版本中提供了用于创建和管理令牌的 Azure CLI 命令。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+* **Azure CLI** - Azure CLI 2.0.76 或更高版本中提供了用于创建和管理令牌的 Azure CLI 命令。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * **Docker** - 若要对注册表进行身份验证以拉取或推送映像，你需要安装一个本地 Docker。 Docker 提供适用于 [macOS](https://docs.docker.com/docker-for-mac/)[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系统的安装说明。
 * **容器注册表** - 如果没有，请在你的 Azure 订阅中创建一个高级容器注册表，或升级现有注册表。 例如，使用 [Azure 门户](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 
 
@@ -209,7 +210,7 @@ az acr token create --name MyToken \
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.cn/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.cn/samples/alpine:v1
+docker tag alpine myregistry.azurecr.cn/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>使用令牌进行身份验证
@@ -439,23 +440,23 @@ az acr token delete --name MyToken --registry myregistry
 
 <!-- LINKS - Internal -->
 
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-acr-repository]: https://docs.azure.cn/cli/acr/repository/?view=azure-cli-latest
-[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository/?view=azure-cli-latest#az-acr-repository-show-tags
-[az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository/?view=azure-cli-latest#az-acr-repository-show-manifests
-[az-acr-repository-delete]: https://docs.azure.cn/cli/acr/repository/?view=azure-cli-latest#az-acr-repository-delete
-[az-acr-scope-map]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest
-[az-acr-scope-map-create]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest#az-acr-scope-map-create
-[az-acr-scope-map-list]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest#az-acr-scope-map-show
-[az-acr-scope-map-show]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest#az-acr-scope-map-list
-[az-acr-scope-map-update]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest#az-acr-scope-map-update
-[az-acr-scope-map-list]: https://docs.microsoft.com/cli/azure/acr/scope-map?view=azure-cli-latest#az-acr-scope-map-list
-[az-acr-token]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest
-[az-acr-token-show]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-show
-[az-acr-token-list]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-list
-[az-acr-token-delete]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-delete
-[az-acr-token-create]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-create
-[az-acr-token-update]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-update
-[az-acr-token-credential-generate]: https://docs.microsoft.com/cli/azure/acr/token?view=azure-cli-latest#az-acr-token-credential-generate
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-acr-repository]: https://docs.azure.cn/cli/acr/repository/
+[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository/#az_acr_repository_show_tags
+[az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository/#az_acr_repository_show_manifests
+[az-acr-repository-delete]: https://docs.azure.cn/cli/acr/repository/#az_acr_repository_delete
+[az-acr-scope-map]: https://docs.microsoft.com/cli/azure/acr/scope-map/
+[az-acr-scope-map-create]: https://docs.microsoft.com/cli/azure/acr/scope-map/#az_acr_scope_map_create
+[az-acr-scope-map-list]: https://docs.microsoft.com/cli/azure/acr/scope-map/#az_acr_scope_map_show
+[az-acr-scope-map-show]: https://docs.microsoft.com/cli/azure/acr/scope-map/#az_acr_scope_map_list
+[az-acr-scope-map-update]: https://docs.microsoft.com/cli/azure/acr/scope-map/#az_acr_scope_map_update
+[az-acr-scope-map-list]: https://docs.microsoft.com/cli/azure/acr/scope-map/#az_acr_scope_map_list
+[az-acr-token]: https://docs.microsoft.com/cli/azure/acr/token/
+[az-acr-token-show]: https://docs.microsoft.com/cli/azure/acr/token/#az_acr_token_show
+[az-acr-token-list]: https://docs.microsoft.com/cli/azure/acr/token/#az_acr_token_list
+[az-acr-token-delete]: https://docs.microsoft.com/cli/azure/acr/token/#az_acr_token_delete
+[az-acr-token-create]: https://docs.microsoft.com/cli/azure/acr/token/#az_acr_token_create
+[az-acr-token-update]: https://docs.microsoft.com/cli/azure/acr/token/#az_acr_token_update
+[az-acr-token-credential-generate]: https://docs.microsoft.com/cli/azure/acr/token/credential/#az_acr_token_credential_generate
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 07/17/2020
 ms.author: v-junlch
-ms.openlocfilehash: 82a169562a84cfb7d5cee2d14f76910638c87086
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: dabc96e8ca03d7d9bca0ca9f7f1191295f863a4e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441281"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301042"
 ---
 使用函数触发器来响应发送到事件中心事件流的事件。 若要设置触发器，必须具有基础事件中心的读取访问权限。 触发函数时，传递给函数的消息充当字符串类型。
 
@@ -48,7 +48,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-若要在函数代码中访问[事件元数据](#event-metadata)，请绑定到 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 对象（需要对 `Microsoft.Azure.EventHubs` 使用 using 语句）。 此外，还可以通过在方法签名中使用绑定表达式来访问相同的属性。  以下示例演示了获取相同数据的两种方法：
+若要在函数代码中访问[事件元数据](#event-metadata)，请绑定到 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata) 对象（需要对 `Microsoft.Azure.EventHubs` 使用 using 语句）。 此外，还可以通过在方法签名中使用绑定表达式来访问相同的属性。  以下示例演示了获取相同数据的两种方法：
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -129,7 +129,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-若要在函数代码中访问[事件元数据](#event-metadata)，请绑定到 [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) 对象（需要对 `Microsoft.Azure.EventHubs` 使用 using 语句）。 此外，还可以通过在方法签名中使用绑定表达式来访问相同的属性。  以下示例演示了获取相同数据的两种方法：
+若要在函数代码中访问[事件元数据](#event-metadata)，请绑定到 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata) 对象（需要对 `Microsoft.Azure.EventHubs` 使用 using 语句）。 此外，还可以通过在方法签名中使用绑定表达式来访问相同的属性。  以下示例演示了获取相同数据的两种方法：
 
 ```cs
 #r "Microsoft.Azure.EventHubs"
@@ -311,7 +311,7 @@ JavaScript 不支持特性。
 
 ## <a name="configuration"></a>配置
 
-下表解释了在 function.json 文件和 `EventHubTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json  文件和 `EventHubTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 87825ce9f9ae9f14e5022aefcfcc4a985d46e6cd
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3b9b599a83a321fe9dd91e6633cf32ffe3e5c9a1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244948"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300544"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>教程：使用媒体服务 v3 对视频进行上载、编码和流式传输
 
@@ -67,12 +67,12 @@ ms.locfileid: "91244948"
 
 该示例执行以下操作：
 
-1. 创建一个新**转换**（首先检查指定的转换是否存在）。
+1. 创建一个新 **转换**（首先检查指定的转换是否存在）。
 2. 创建一个输出资产，用作编码作业的输出。
-3. 创建一个输入**资产**并将指定的本地视频文件上传到其中。 该资产用作作业的输入。
+3. 创建一个输入 **资产** 并将指定的本地视频文件上传到其中。 该资产用作作业的输入。
 4. 使用创建的输入和输出提交编码作业。
 5. 检查作业的状态。
-6. 创建**流定位符**。
+6. 创建 **流定位符**。
 7. 生成流式处理 URL。
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
@@ -139,11 +139,11 @@ private static async Task<Asset> CreateInputAssetAsync(
 
     // Use Storage API to get a reference to the Asset container
     // that was created by calling Asset's CreateOrUpdate method.  
-    CloudBlobContainer container = new CloudBlobContainer(sasUri);
-    var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+    BlobContainerClient container = new BlobContainerClient(sasUri);
+    BlobClient blob = container.GetBlobClient(Path.GetFileName(fileToUpload));
 
     // Use Strorage API to upload the file into the container in storage.
-    await blob.UploadFromFileAsync(fileToUpload);
+    await blob.UploadAsync(fileToUpload);
 
     return asset;
 }
@@ -151,7 +151,7 @@ private static async Task<Asset> CreateInputAssetAsync(
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>创建输出资产用于存储作业结果
 
-输出[资产](https://docs.microsoft.com/rest/api/media/assets)会存储作业编码的结果。 项目定义 DownloadResults 函数，该函数将结果从此输出资产中下载到**输出**文件夹中，便于用户查看获取的内容。
+输出[资产](https://docs.microsoft.com/rest/api/media/assets)会存储作业编码的结果。 项目定义 DownloadResults 函数，该函数将结果从此输出资产中下载到 **输出** 文件夹中，便于用户查看获取的内容。
 
 ```c#
 private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
@@ -166,11 +166,11 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
         // Note that the returned Asset can have a different name than the one specified as an input parameter.
         // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-        string uniqueness = $"-{Guid.NewGuid().ToString("N")}";
+        string uniqueness = $"-{Guid.NewGuid():N}";
         outputAssetName += uniqueness;
-        
+
         Console.WriteLine("Warning – found an existing Asset with name = " + assetName);
-        Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);                
+        Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);
     }
 
     return await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, outputAssetName, asset);
@@ -179,7 +179,7 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>创建转换和一个对上传的文件进行编码的作业
 
-对媒体服务中的内容进行编码或处理时，一种常见的模式是将编码设置设为脚本。 然后，需提交**作业**，将该脚本应用于视频。 为每个新视频提交新作业后，可将该脚本应用到库中的所有视频。 媒体服务中的脚本称为“转换”。 有关详细信息，请参阅[转换和作业](./transforms-jobs-concept.md)。 本教程中的示例定义有关将视频进行编码以将其流式传输到各种 iOS 和 Android 设备的脚本。
+对媒体服务中的内容进行编码或处理时，一种常见的模式是将编码设置设为脚本。 然后，需提交 **作业**，将该脚本应用于视频。 为每个新视频提交新作业后，可将该脚本应用到库中的所有视频。 媒体服务中的脚本称为“转换”。 有关详细信息，请参阅[转换和作业](./transforms-jobs-concept.md)。 本教程中的示例定义有关将视频进行编码以将其流式传输到各种 iOS 和 Android 设备的脚本。
 
 #### <a name="transform"></a>转换
 
@@ -187,7 +187,7 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
 
 可以使用内置 EncoderNamedPreset 或使用自定义预设。 有关详细信息，请参阅[如何自定义编码器预设](customize-encoder-presets-how-to.md)。
 
-在创建时[转换](https://docs.microsoft.com/rest/api/media/transforms)，首先应检查是否其中一个已存在使用**获取**方法，如下面的代码中所示。 在 Media Services v3**获取**实体上的方法返回**null**如果实体不存在 （不区分大小写的名称检查）。
+在创建时 [转换](https://docs.microsoft.com/rest/api/media/transforms)，首先应检查是否其中一个已存在使用 **获取** 方法，如下面的代码中所示。 在 Media Services v3 **获取** 实体上的方法返回 **null** 如果实体不存在 （不区分大小写的名称检查）。
 
 ```c#
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -274,7 +274,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 事件网格旨在实现高可用性、一致性能和动态缩放。 使用事件网格，应用可以侦听和响应来自几乎所有 Azure 服务和自定义源的事件。 处理基于 HTTP 的反应事件非常简单，这有助于通过对事件的智能筛选和路由生成高效的解决方案。  请参阅[将事件路由到自定义 Web 终结点](job-state-events-cli-how-to.md)。
 
-**作业**通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消” 。
+**作业** 通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消” 。
 
 ```c#
 private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient client,
@@ -283,10 +283,9 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
     string transformName,
     string jobName)
 {
-    const int SleepIntervalMs = 60 * 1000;
+    const int SleepIntervalMs = 20 * 1000;
 
-    Job job = null;
-
+    Job job;
     do
     {
         job = await client.Jobs.GetAsync(resourceGroupName, accountName, transformName, jobName);
@@ -298,7 +297,7 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
             Console.Write($"\tJobOutput[{i}] is '{output.State}'.");
             if (output.State == JobState.Processing)
             {
-                Console.Write($"  Progress: '{output.Progress}'.");
+                Console.Write($"  Progress (%): '{output.Progress}'.");
             }
 
             Console.WriteLine();
@@ -323,7 +322,7 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
 
 编码完成后，下一步是使输出资产中的视频可供客户端播放。 可通过两个步骤完成此操作：首先创建[流式处理定位符](https://docs.microsoft.com/rest/api/media/streaminglocators)，然后生成客户端可以使用的流式处理 URL。
 
-创建**流定位符**的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，流式处理定位符立即生效，并持续到被删除为止。
+创建 **流定位符** 的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，流式处理定位符立即生效，并持续到被删除为止。
 
 创建 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 时，需要指定所需的 StreamingPolicyName。 在此示例中将流式传输明文（或未加密的内容），因此使用预定义的明文流式传输策略 (PredefinedStreamingPolicy.ClearStreamingOnly)。
 
@@ -358,10 +357,10 @@ private static async Task<StreamingLocator> CreateStreamingLocatorAsync(
 
 ### <a name="get-streaming-urls"></a>获取流式 URL
 
-创建[流定位符](https://docs.microsoft.com/rest/api/media/streaminglocators)后，可以获取流 URL，如 **GetStreamingURLs** 中所示。 若要生成 URL，需要连接[流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)的主机名和**流定位符**路径。 此示例使用默认的**流式处理终结点**。 首次创建媒体服务帐户时，此默认的**流式处理终结点**处于停止状态，因此需要调用 **Start**。
+创建 [流定位符](https://docs.microsoft.com/rest/api/media/streaminglocators)后，可以获取流 URL，如 **GetStreamingURLs** 中所示。 若要生成 URL，需要连接 [流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)的主机名和 **流定位符** 路径。 此示例使用默认的 **流式处理终结点**。 首次创建媒体服务帐户时，此默认的 **流式处理终结点** 处于停止状态，因此需要调用 **Start**。
 
 > [!NOTE]
-> 在此方法中，需要指定在创建输出资产的**流定位符**时所用的 locatorName。
+> 在此方法中，需要指定在创建输出资产的 **流定位符** 时所用的 locatorName。
 
 ```c#
 private static async Task<IList<string>> GetStreamingUrlsAsync(
@@ -388,11 +387,13 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
     foreach (StreamingPath path in paths.StreamingPaths)
     {
-        UriBuilder uriBuilder = new UriBuilder();
-        uriBuilder.Scheme = "https";
-        uriBuilder.Host = streamingEndpoint.HostName;
+        UriBuilder uriBuilder = new UriBuilder
+        {
+            Scheme = "https",
+            Host = streamingEndpoint.HostName,
 
-        uriBuilder.Path = path.Paths[0];
+            Path = path.Paths[0]
+        };
         streamingUrls.Add(uriBuilder.ToString());
     }
 
@@ -406,22 +407,25 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 ```c#
 private static async Task CleanUpAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName)
+   IAzureMediaServicesClient client,
+   string resourceGroupName,
+   string accountName,
+   string transformName,
+   string jobName,
+   List<string> assetNames,
+   string contentKeyPolicyName = null
+   )
 {
+    await client.Jobs.DeleteAsync(resourceGroupName, accountName, transformName, jobName);
 
-    var jobs = await client.Jobs.ListAsync(resourceGroupName, accountName, transformName);
-    foreach (var job in jobs)
+    foreach (var assetName in assetNames)
     {
-        await client.Jobs.DeleteAsync(resourceGroupName, accountName, transformName, job.Name);
+        await client.Assets.DeleteAsync(resourceGroupName, accountName, assetName);
     }
 
-    var assets = await client.Assets.ListAsync(resourceGroupName, accountName);
-    foreach (var asset in assets)
+    if (contentKeyPolicyName != null)
     {
-        await client.Assets.DeleteAsync(resourceGroupName, accountName, asset.Name);
+        client.ContentKeyPolicies.Delete(resourceGroupName, accountName, contentKeyPolicyName);
     }
 }
 ```

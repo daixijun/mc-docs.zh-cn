@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 79630bac3b903ab0f860725f9c607b4e44dbcf0e
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: d66cb78d594fd2ca06610f9e96d0e518406c6571
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647478"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918504"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>在 Chrome 浏览器中处理 SameSite Cookie 更改
 
@@ -81,12 +81,9 @@ ms.locfileid: "88647478"
 
 详细了解 SameSite 和 Web 应用方案：
 
-> [!div class="nextstepaction"]
-> [Google Chrome 中的 SameSite 常见问题解答](https://www.chromium.org/updates/same-site/faq)
+- [Google Chrome 中的 SameSite 常见问题解答](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Chromium SameSite 页](https://www.chromium.org/updates/same-site)
+- [Chromium SameSite 页](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)
+- [场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)
 

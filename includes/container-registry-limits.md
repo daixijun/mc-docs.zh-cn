@@ -6,17 +6,17 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: include
 origin.date: 06/18/2020
-ms.date: 08/10/2020
+ms.date: 11/27/2020
 ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4d59051c8ed46a31cbf6880883d433879b0f744d
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 5c6f5c6e859172b63efad328176559673fa9c3eb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88753616"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300931"
 ---
 | 资源 | 基本 | Standard | Premium |
 |---|---|---|---|
@@ -30,14 +30,16 @@ ms.locfileid: "88753616"
 | Webhook | 2 | 10 | 500 |
 | 异地复制 | 空值 | 空值 | [支持][geo-replication] |
 | 内容信任 | 空值 | 空值 | [支持][content-trust] |
-| 服务终结点 VNet 访问 | 空值 | 空值 | [预览][vnet] |
+| 具有专用终结点的专用链接 | 空值 | 空值 | [支持][plink] |
+| &bull; 专用终结点 | 空值 | 空值 | 10 |
 | 客户管理的密钥 | 空值 | 空值 | [支持][cmk] |
 | 存储库范围内的权限 | 空值 | 空值 | [预览][token]|
 | &bull; 令牌 | 空值 | 空值 | 20,000 |
 | &bull; 范围映射 | 空值 | 空值 | 20,000 |
 | &bull; 每个范围映射的存储库 | 空值 | 空值 | 500 |
 
-<!--Not Available on Line 28+1 | Private link with private endpoints -->
+
+<!--Not Available on Line 29+1 | Service endpoint VNet access -->
 
 <sup>1</sup> 在每日费率中包括的每个层级的存储。 对于附加存储，将按 GiB（存在存储限制）收取额外的每日费率费用。 有关费率的信息，请参阅 [Azure 容器注册表定价][pricing]。
 
@@ -55,9 +57,10 @@ ms.locfileid: "88753616"
 
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
-[vnet]: ../articles/container-registry/container-registry-vnet.md
 
-<!-- Not Available on [plink]: ../articles/container-registry/container-registry-private-link.md-->
+<!--Not Available on [vnet]: ../articles/container-registry/container-registry-vnet.md-->
+
+[plink]: ../articles/container-registry/container-registry-private-link.md
 
 [cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

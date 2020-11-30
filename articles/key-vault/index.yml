@@ -14,12 +14,12 @@ metadata:
   ms.author: v-tawe
   origin.date: 04/07/2020
   ms.date: 09/15/2020
-  ms.openlocfilehash: 9d61bb18e7d0f415c905d391a9110f0ae7d4f536
-  ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+  ms.openlocfilehash: f24e6809819e2747e6f49592c57081cfca94ba68
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/16/2020
-  ms.locfileid: "90678491"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300475"
 highlightedContent:
   items:
   - title: Azure Key Vault 简介
@@ -92,16 +92,16 @@ conceptualContent:
     - url: ./general/client-libraries.md
       itemType: reference
       text: Azure Key Vault 的客户端库
-    - url: https://docs.microsoft.com/dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - url: https://docs.microsoft.com/dotnet/api/overview/azure/key-vault
       itemType: reference
       text: .NET 客户端库
-    - url: https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python
+    - url: https://docs.microsoft.com/python/api/overview/azure/key-vault-index
       itemType: reference
       text: Python 客户端库
     - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
       itemType: reference
       text: Java 客户端库
-    - url: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    - url: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index
       itemType: reference
       text: Node.js 客户端库
   - title: 将 Key Vault 与存储配合使用

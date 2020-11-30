@@ -8,15 +8,15 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: article
 origin.date: 09/30/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
 ms.custom: security-recommendations
-ms.openlocfilehash: f4904287c6a220a1b810facf2e174c41aa0e84f3
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: f1622a87c30a417e74e4d06d69e795ce2fec8248
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678487"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300913"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault 安全建议
 
@@ -25,7 +25,7 @@ ms.locfileid: "90678487"
 包含在本文中的某些建议可能受 Azure 安全中心的自动监视。 在保护你在 Azure 中的资源方面，Azure 安全中心是第一道防线。 它定期分析 Azure 资源的安全状态，以识别潜在的安全漏洞。 然后向你提供有关如何解决这些安全漏洞的建议。
 
 - 有关 Azure 安全中心建议的详细信息，请参阅 [Azure 安全中心的安全性建议](../../security-center/security-center-recommendations.md)。
-- 有关 Azure 安全中心的信息，请参阅[什么是 Azure 安全中心？](../../security-center/security-center-intro.md)
+- 有关 Azure 安全中心的信息，请参阅[什么是 Azure 安全中心？](../../security-center/security-center-introduction.md)
 
 ## <a name="data-protection"></a>数据保护
 

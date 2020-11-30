@@ -5,17 +5,17 @@ services: container-service
 ms.topic: tutorial
 origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: f815f27b24db0caa74c25bcc2c1c35c2c0f72b57
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 215a0040fb90c98f06d92e794abbc0c52af6076f
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024626"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 

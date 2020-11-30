@@ -5,14 +5,14 @@ ms.topic: conceptual
 origin.date: 01/17/2019
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 06e980d064f226ea46beac02ad31e34545cc8c43
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 4070de46c20247889d43246b96d672cc1d18f393
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228001"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977811"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>使用事件域管理主题和发布事件
 
@@ -69,7 +69,7 @@ New-AzureRmEventGridDomain `
   "id": "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>",
   "inputSchema": "EventGridSchema",
   "inputSchemaMapping": null,
-  "location": "chinaeast",
+  "location": "chinanorth2",
   "name": "<my-domain-name>",
   "provisioningState": "Succeeded",
   "resourceGroup": "<my-resource-group>",
@@ -82,7 +82,7 @@ New-AzureRmEventGridDomain `
 
 ## <a name="manage-access-to-topics"></a>管理对主题的访问
 
-可通过[角色分配](../role-based-access-control/role-assignments-cli.md)来管理对主题的访问。 角色分配使用基于角色的访问控制来限制对 Azure 资源的操作，仅允许经授权用户在特定范围内执行操作。
+可通过[角色分配](../role-based-access-control/role-assignments-cli.md)来管理对主题的访问。 角色分配使用 Azure 基于角色的访问控制来限制对 Azure 资源的操作，仅允许经授权用户在特定范围内执行操作。
 
 事件网格包含两个内置角色，可以使用这些角色为特定用户分配对域中不同主题的访问权限。 这些角色为 `EventGrid EventSubscription Contributor (Preview)` 和 `EventGrid EventSubscription Reader (Preview)`，分别用于创建/删除订阅，以及只允许列出事件订阅。
 

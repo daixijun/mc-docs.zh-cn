@@ -72,6 +72,8 @@
           href: tutorial-dr-drill-azure.md
         - name: 故障转移到 Azure
           href: hyper-v-azure-failover-failback-tutorial.md
+        - name: 使用专用终结点启用本地复制
+          href: ./hybrid-how-to-enable-replication-private-endpoints.md
     - name: 迁移到 Azure
       items:
         - name: 为本地复制准备 Azure
@@ -318,6 +320,8 @@
               href: physical-azure-set-up-source.md
             - name: 设置目标环境
               href: vmware-azure-set-up-target.md
+            - name: 使用专用终结点启用本地复制
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: 部署移动服务
               items:
                 - name: 关于移动服务安装
@@ -398,6 +402,8 @@
               href: service-updates-how-to.md
             - name: 删除保管库
               href: delete-vault.md
+    - name: 适用于邻近放置组的 Site Recovery
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: 应用的灾难恢复
       items:
         - name: 关于本地应用的灾难恢复
@@ -410,6 +416,8 @@
           href: site-recovery-sharepoint.md
         - name: Dynamics AX
           href: site-recovery-dynamicsax.md
+        - name: RDS
+          href: site-recovery-workload.md#protect-remote-desktop-services
         - name: Exchange
           href: site-recovery-workload.md#protect-exchange
         - name: SAP

@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 6cd46cd60dba6c3be0fc31d226c0f44d6ea67d6e
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 11/16/2020
+ms.openlocfilehash: bc28c9c26b2a20586248c2fbfaba6a65d79fb43c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978117"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>来自 Azure 流分析的 Azure Cosmos DB 输出
 
@@ -39,7 +39,7 @@ ms.locfileid: "91936865"
 
 ## <a name="partitioning"></a>分区
 
-分区键基于查询中的 PARTITION BY 子句。 输出编写器的数量与[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区一致。 流分析会将 Cosmos DB 输出分区键转换为字符串。 例如，如果分区键的值为 bigint 类型的 1，则它将转换为字符串类型的“1”。
+分区键基于查询中的 PARTITION BY 子句。 输出编写器的数量与[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区一致。 流分析会将 Cosmos DB 输出分区键转换为字符串。 例如，如果分区键的值为 bigint 类型的 1，则它将转换为字符串类型的“1”。 无论是否将分区属性写入 Cosmos DB，都会发生这种转换。
 
 ## <a name="output-batch-size"></a>输出批大小
 

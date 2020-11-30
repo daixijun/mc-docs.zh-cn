@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: d5ca045ba180a0235d0e8199ce7850ff30968c7c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 46f4c6090b4d69925f5c458eaf183a06f923755a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021353"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978029"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>使用 Azure 机器学习优化数据处理
 
@@ -55,7 +55,7 @@ CSV 文件通常用于导入和导出数据，因为它们易于在 Excel 中进
 
 详细了解 Azure 机器学习的[可用 VM 系列和大小](concept-compute-target.md#supported-vm-series-and-sizes)。 
 
-有关 RAM 规范，请参阅相应的 VM 系列页，例如，[Dv2-Dsv2 系列](../virtual-machines/dv2-dsv2-series-memory.md)或 [NC 系列](../virtual-machines/nc-series.md)。
+有关 RAM 规范，请参阅相应的 VM 系列页，例如 [Dv2-Dsv2 系列](../virtual-machines/dv2-dsv2-series-memory.md)。
 
 ### <a name="minimize-cpu-workloads"></a>最小化 CPU 工作负载
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: ba676cbd730ab2719b500efe6f2749ae627d8a60
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ac28a660b19c0a27e874dcb55453311b54871619
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244980"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300750"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教程：使用 DRM 动态加密和许可证传送服务
 
@@ -43,7 +43,7 @@ ms.locfileid: "91244980"
 
 ![Azure Media Player 中的具有 DRM 保护视频的 AMS](./media/protect-with-drm/ams_player.png)
 
-本教程介绍了如何：
+本教程演示如何：
 
 > [!div class="checklist"]
 > * 创建编码转换。
@@ -80,7 +80,7 @@ ms.locfileid: "91244980"
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
 
-若要开始将媒体服务 API 与 .NET 结合使用，请创建 AzureMediaServicesClient 对象****。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。
+若要开始将媒体服务 API 与 .NET 结合使用，请创建 AzureMediaServicesClient 对象。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。
 
 ```c#
 private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
@@ -111,11 +111,11 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
         // Note that the returned Asset can have a different name than the one specified as an input parameter.
         // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-        string uniqueness = $"-{Guid.NewGuid().ToString("N")}";
+        string uniqueness = $"-{Guid.NewGuid():N}";
         outputAssetName += uniqueness;
-        
+
         Console.WriteLine("Warning – found an existing Asset with name = " + assetName);
-        Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);                
+        Console.WriteLine("Creating an Asset with this name instead: " + outputAssetName);
     }
 
     return await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, outputAssetName, asset);
@@ -126,7 +126,7 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
 
 创建新实例时，需要指定希望生成的输出内容[转换](transforms-jobs-concept.md)。 所需参数是 `transformOutput` 对象，如以下代码所示。 每个 TransformOutput 包含一个预设。 预设介绍了视频和/或音频处理操作的分步说明，这些操作将用于生成所需的 TransformOutput。 本文中的示例使用名为 AdaptiveStreaming 的内置预设。 此预设将输入的视频编码为基于输入的分辨率和比特率自动生成的比特率阶梯（比特率 - 分辨率对），并通过与每个比特率 - 分辨率对相对应的 H.264 视频和 AAC 音频生成 ISO MP4 文件。 
 
-在创建新的**转换**之前，应该先检查是否已存在使用 **Get** 方法的转换，如以下代码中所示。  在 Media Services v3**获取**实体上的方法返回**null**如果实体不存在 （不区分大小写的名称检查）。
+在创建新的 **转换** 之前，应该先检查是否已存在使用 **Get** 方法的转换，如以下代码中所示。  在 Media Services v3 **获取** 实体上的方法返回 **null** 如果实体不存在 （不区分大小写的名称检查）。
 
 ```c#
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -166,7 +166,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 
 ## <a name="submit-job"></a>提交作业
 
-如上所述，**转换**对象为脚本，[作业则是](transforms-jobs-concept.md)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容。 Job 指定输入视频位置和输出位置等信息。
+如上所述，**转换** 对象为脚本，[作业则是](transforms-jobs-concept.md)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容。 Job 指定输入视频位置和输出位置等信息。
 
 本教程基于直接从 [HTTPs 源 URL](job-input-from-http-how-to.md) 引入的文件创建作业的输入。
 
@@ -210,9 +210,9 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 ## <a name="wait-for-the-job-to-complete"></a>等待作业完成
 
-该作业需要一些时间才能完成操作。 在该过程中，你应能够接收通知。 以下代码示例显示如何轮询服务以获取**作业**状态。
+该作业需要一些时间才能完成操作。 在该过程中，你应能够接收通知。 以下代码示例显示如何轮询服务以获取 **作业** 状态。 对于生产应用程序，由于可能出现延迟，并不建议将轮询作为最佳做法。 如果在帐户上过度使用轮询，轮询会受到限制。 开发者应改用事件网格。 请参阅[将事件路由到自定义 Web 终结点](job-state-events-cli-how-to.md)。
 
-**作业**通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态  。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消”   。
+**作业** 通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消” 。
 
 ```c#
 private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient client,
@@ -221,10 +221,9 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
     string transformName,
     string jobName)
 {
-    const int SleepIntervalMs = 60 * 1000;
+    const int SleepIntervalMs = 20 * 1000;
 
-    Job job = null;
-
+    Job job;
     do
     {
         job = await client.Jobs.GetAsync(resourceGroupName, accountName, transformName, jobName);
@@ -236,7 +235,7 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
             Console.Write($"\tJobOutput[{i}] is '{output.State}'.");
             if (output.State == JobState.Processing)
             {
-                Console.Write($"  Progress: '{output.Progress}'.");
+                Console.Write($"  Progress (%): '{output.Progress}'.");
             }
 
             Console.WriteLine();
@@ -287,7 +286,7 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
             ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim
         };
         List<ContentKeyPolicyRestrictionTokenKey> alternateKeys = null;
-        ContentKeyPolicyTokenRestriction restriction 
+        ContentKeyPolicyTokenRestriction restriction
             = new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey, ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims);
 
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
@@ -304,14 +303,14 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
                 Restriction = restriction
             });
 
-     // add CBCS ContentKeyPolicyOption into the list
-     //   options.Add(
-     //       new ContentKeyPolicyOption()
-     //       {
-     //           Configuration = fairplayConfig,
-     //           Restriction = restriction,
-     //           Name = "ContentKeyPolicyOption_CBCS"
-     //       });
+        // add CBCS ContentKeyPolicyOption into the list
+        //   options.Add(
+        //       new ContentKeyPolicyOption()
+        //       {
+        //           Configuration = fairplayConfig,
+        //           Restriction = restriction,
+        //           Name = "ContentKeyPolicyOption_CBCS"
+        //       });
 
         policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
     }
@@ -319,11 +318,9 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
     {
         // Get the signing key from the existing policy.
         var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
+        if (policyProperties.Options[0].Restriction is ContentKeyPolicyTokenRestriction restriction)
         {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
+            if (restriction.PrimaryVerificationKey is ContentKeyPolicySymmetricTokenKey signingKey)
             {
                 TokenSigningKey = signingKey.KeyValue;
             }
@@ -340,9 +337,9 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 1. 创建[流式处理定位符](streaming-locators-concept.md)。
 2. 生成客户端可以使用的流式处理 URL。
 
-创建**流定位器**的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，流式处理定位符**** 立即生效， 并持续到被删除为止。
+创建 **流定位器** 的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，流式处理定位符立即生效， 并持续到被删除为止。
 
-创建**流定位器**时，需要指定所需的 `StreamingPolicyName`。 本教程使用某个预定义的流式处理策略来告知 Azure 媒体服务如何发布流式处理的内容。 在此示例中，请将 StreamingLocator.StreamingPolicyName 设置为“Predefined_MultiDrmCencStreaming”策略。 将应用 PlayReady 加密，并根据配置的 DRM 许可证将密钥传送到播放客户端。 如果还要使用 CBCS (FairPlay) 加密流，请使用“Predefined_MultiDrmStreaming”。
+创建 **流定位器** 时，需要指定所需的 `StreamingPolicyName`。 本教程使用某个预定义的流式处理策略来告知 Azure 媒体服务如何发布流式处理的内容。 在此示例中，请将 StreamingLocator.StreamingPolicyName 设置为“Predefined_MultiDrmCencStreaming”策略。 将应用 PlayReady 加密，并根据配置的 DRM 许可证将密钥传送到播放客户端。 如果还要使用 CBCS (FairPlay) 加密流，请使用“Predefined_MultiDrmStreaming”。
 
 > [!IMPORTANT]
 > 使用自定义的[流策略](streaming-policy-concept.md)时，应为媒体服务帐户设计有限的一组此类策略，并在需要同样的加密选项和协议时重新将这些策略用于 StreamingLocators。 媒体服务帐户具有对应于 StreamingPolicy 条目数的配额。 不应为每个 StreamingLocator 创建新的 StreamingPolicy。
@@ -395,11 +392,11 @@ private static string GetTokenAsync(string issuer, string audience, string keyId
     {
         new Claim(ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim.ClaimType, keyIdentifier)
     };
-    
+
     // To set a limit on how many times the same token can be used to request a key or a license.
     // add  the "urn:microsoft:azure:mediaservices:maxuses" claim.
     // For example, claims.Add(new Claim("urn:microsoft:azure:mediaservices:maxuses", 4));
-    
+
     JwtSecurityToken token = new JwtSecurityToken(
         issuer: issuer,
         audience: audience,
@@ -416,7 +413,7 @@ private static string GetTokenAsync(string issuer, string audience, string keyId
 
 ## <a name="build-a-streaming-url"></a>生成流 URL
 
-创建 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 后，可以获取流 URL。 若要生成 URL，需要连接 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主机名称和流定位器路径****。 此示例使用默认的**流式处理终结点**。 首次创建媒体服务帐户时，此默认的**流式处理终结点**处于停止状态，因此需要调用 **Start**。
+创建 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 后，可以获取流 URL。 若要生成 URL，需要连接 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主机名称和流定位器路径。 此示例使用默认的 **流式处理终结点**。 首次创建媒体服务帐户时，此默认的 **流式处理终结点** 处于停止状态，因此需要调用 **Start**。
 
 ```c#
 private static async Task<string> GetDASHStreamingUrlAsync(
@@ -443,9 +440,11 @@ private static async Task<string> GetDASHStreamingUrlAsync(
 
     foreach (StreamingPath path in paths.StreamingPaths)
     {
-        UriBuilder uriBuilder = new UriBuilder();
-        uriBuilder.Scheme = "https";
-        uriBuilder.Host = streamingEndpoint.HostName;
+        UriBuilder uriBuilder = new UriBuilder
+        {
+            Scheme = "https",
+            Host = streamingEndpoint.HostName
+        };
 
         // Look for just the DASH path and generate a URL for the Azure Media Player to playback the encrypted DASH content. 
         // Note that the JWT token is set to expire in 1 hour. 
@@ -474,33 +473,26 @@ private static async Task<string> GetDASHStreamingUrlAsync(
 
 ```c#
 private static async Task CleanUpAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName,
-    string contentKeyPolicyName)
+   IAzureMediaServicesClient client,
+   string resourceGroupName,
+   string accountName,
+   string transformName,
+   string jobName,
+   List<string> assetNames,
+   string contentKeyPolicyName = null
+   )
 {
+    await client.Jobs.DeleteAsync(resourceGroupName, accountName, transformName, jobName);
 
-    var jobs = await client.Jobs.ListAsync(resourceGroupName, accountName, transformName);
-    foreach (var job in jobs)
+    foreach (var assetName in assetNames)
     {
-        await client.Jobs.DeleteAsync(resourceGroupName, accountName, transformName, job.Name);
+        await client.Assets.DeleteAsync(resourceGroupName, accountName, assetName);
     }
 
-    var streamingLocators = await client.StreamingLocators.ListAsync(resourceGroupName, accountName);
-    foreach (var locator in streamingLocators)
+    if (contentKeyPolicyName != null)
     {
-        await client.StreamingLocators.DeleteAsync(resourceGroupName, accountName, locator.Name);
+        client.ContentKeyPolicies.Delete(resourceGroupName, accountName, contentKeyPolicyName);
     }
-
-    var assets = await client.Assets.ListAsync(resourceGroupName, accountName);
-    foreach (var asset in assets)
-    {
-        await client.Assets.DeleteAsync(resourceGroupName, accountName, asset.Name);
-    }
-
-    client.ContentKeyPolicies.Delete(resourceGroupName, accountName, contentKeyPolicyName);
-
 }
 ```
 

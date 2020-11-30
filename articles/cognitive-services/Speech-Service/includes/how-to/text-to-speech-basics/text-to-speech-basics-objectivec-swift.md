@@ -2,14 +2,15 @@
 author: v-demjoh
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 9/22/2020
-ms.author: v-demjoh
-ms.openlocfilehash: 4bdace5bfa0ce6c062f248b6c8d446fd9bbfa95f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+origin.date: 9/22/2020
+ms.date: 11/20/2020
+ms.author: v-tawe
+ms.openlocfilehash: 8fcc9ffec6a961532a3d47d415617c1f10d6c3e6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127926"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970782"
 ---
 可以使用适用于 Swift 和 Objective-C 的语音 SDK 从文本合成语音。
 

@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 06/22/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8c69c9ae87969b7f424fe67aa8c451c402405503
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 29e5ec65f99dd1b6e951066d05279fd3204da9fd
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551981"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153040"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -47,7 +47,7 @@ ms.locfileid: "94551981"
 确保端口 445 处于打开状态：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已被阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否正在阻止端口 445。 若要了解如何解决 445 端口被阻止的问题，请参阅 Windows 故障排除指南的[原因 1：端口 445 被阻止](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked)部分。
 
 ## <a name="using-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
-若要在 Windows 中使用某个 Azure 文件共享，必须装载该文件共享（为其分配驱动器号或装载点路径），或通过其 [UNC 路径](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)来访问它。 
+若要在 Windows 中使用某个 Azure 文件共享，必须装载该文件共享（为其分配驱动器号或装载点路径），或通过其 [UNC 路径](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)来访问它。 
 
 本文使用存储帐户密钥来访问文件共享。 存储帐户密钥是存储帐户的管理员密钥，包括对所要访问的文件共享中的所有文件和文件夹的管理员权限，以及对存储帐户中包含的所有文件共享和其他存储资源（Blob、队列、表等）的管理员权限。
 
@@ -197,11 +197,11 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 ### <a name="smb-resources"></a>SMB 资源
 - [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)（停止使用 SMB 1）
 - [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)（SMB 1 产品交换所）
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)（使用 DSCEA 发现环境中的 SMB 1）
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)（通过组策略禁用 SMB 1）
+- [Discover SMB 1 in your environment with DSCEA](https://docs.microsoft.com/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)（使用 DSCEA 发现环境中的 SMB 1）
+- [Disabling SMB 1 through Group Policy](https://docs.microsoft.com/archive/blogs/secguide/disabling-smbv1-through-group-policy)（通过组策略禁用 SMB 1）
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接，获取有关 Azure 文件的更多信息：
 - [规划 Azure 文件部署](storage-files-planning.md)
-- [常见问题](../storage-files-faq.md)
-- [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
+- [常见问题](./storage-files-faq.md)
+- [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)

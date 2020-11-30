@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: dcb15fd0ce804573fb97dec93d9c30f9ea9326ae
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 597525e47e45670b9964ac7f392c9df59f614768
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978210"
 ---
 # <a name="graph-search-query-syntax"></a>Graph 搜索查询语法
 
@@ -49,7 +49,7 @@ ms.locfileid: "90021649"
  
 - 通配符匹配： 
     - `machi?e learning`
-    -   `mach*ing`
+    -   `mach_ing`
  
 >[!NOTE]
 > Lucene 查询的开头不能使用“*”字符。
@@ -59,7 +59,7 @@ ms.locfileid: "90021649"
  
 筛选器查询使用以下模式：
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 可以使用以下节点属性作为关键字：

@@ -3,19 +3,20 @@ title: 教程 - 快速容器映像生成
 description: 本教程介绍如何使用 Azure 容器注册表任务（ACR 任务）在 Azure 中生成 Docker 容器映像，然后将其部署到 Azure 容器实例。
 ms.topic: tutorial
 origin.date: 09/24/2018
+author: rockboyfor
 ms.date: 04/06/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 151c67b1cca0e957b10a046f5bdc13153197a7cb
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f6e0b366798d2a4418f365fc4136e99537980fb4
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093508"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024635"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教程：使用 Azure 容器注册表任务在云中生成并部署容器映像
 
-**ACR 任务**是 Azure 容器注册表中的功能套件，用于在 Azure 中以简化、高效的方式生成 Docker 容器映像。 本文介绍如何使用 ACR 任务的快速任务功能  。
+**ACR 任务** 是 Azure 容器注册表中的功能套件，用于在 Azure 中以简化、高效的方式生成 Docker 容器映像。 本文介绍如何使用 ACR 任务的快速任务功能。
 
 “内部循环”开发周期是指编写代码、生成和测试应用程序，然后提交到源代码管理的迭代过程。 快速任务可将内部循环扩展到云中，同时提供成功生成验证并自动将成功生成的映像推送到容器注册表。 映像将在云中本机生成，其位置靠近注册表，可加快部署。
 
@@ -52,7 +53,7 @@ ms.locfileid: "82093508"
 
 创建存储库分支后，克隆分支然后输入包含本地克隆的目录。
 
-使用 `git` 克隆存储库，将“\<your-github-username\>”替换为你的 GitHub 用户名  ：
+使用 `git` 克隆存储库，将 \<your-github-username\> 替换为你的 GitHub 用户名：
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -72,7 +73,9 @@ cd acr-build-helloworld-node
 
 现已将源代码拉取到计算机中，请执行以下步骤来创建容器注册表并使用 ACR 任务生成容器映像。
 
-为使执行示例命令更轻松，本系列教程使用 shell 环境变量。 执行以下命令来设置 `ACR_NAME` 变量。 将“\<registry-name\>”替换为新容器注册表的唯一名称  。 注册表名称在 Azure 中必须唯一，仅包含小写字母，并且包含 5-50 个字母数字字符。 本教程中创建的其他资源都基于该名称，因此仅需要修改该第一个变量。
+为使执行示例命令更轻松，本系列教程使用 shell 环境变量。 执行以下命令来设置 `ACR_NAME` 变量。 将 \<registry-name\> 替换为新容器注册表的唯一名称。 注册表名称在 Azure 中必须唯一，仅包含小写字母，并且包含 5-50 个字母数字字符。 本教程中创建的其他资源都基于该名称，因此仅需要修改该第一个变量。
+
+<!--Not Avaialble on https://shell.azure.com-->
 
 ```console
 ACR_NAME=<registry-name>
@@ -87,7 +90,7 @@ az group create --resource-group $RES_GROUP --location chinanorth
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location chinanorth
 ```
 
-创建注册表后，使用 ACR 任务从示例代码生成容器映像。 执行 [az acr build][az-acr-build] 命令以执行快速任务  ：
+创建注册表后，使用 ACR 任务从示例代码生成容器映像。 执行 [az acr build][az-acr-build] 命令以执行快速任务：
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -174,7 +177,7 @@ ACR 任务默认将成功生成的映像自动推送到注册表，这样即可�
 
 所有生产方案都应使用[服务主体][service-principal-auth]访问 Azure 容器注册表。 使用服务主体可以提供对容器映像的基于角色的访问控制。 例如，可将服务主体配置为拥有注册表的仅限提取的访问权限。
 
-#### <a name="create-a-key-vault"></a>创建密钥保管库
+#### <a name="create-a-key-vault"></a>创建 key vault
 
 如果 [Azure Key Vault](/key-vault/) 中没有保管库，请在 Azure CLI 中使用以下命令创建一个保管库。
 
@@ -188,7 +191,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 现在需要创建服务主体，并将其凭据存储在 Key Vault 中。
 
-请使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的**密码**存储在保管库中：
+请使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的 **密码** 存储在保管库中：
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -203,9 +206,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-上述命令中的 `--role` 参数使用“acrpull”  角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”  。
+上述命令中的 `--role` 参数使用“acrpull”角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”。
 
-接下来，将服务主体的 appId（传递给 Azure 容器注册表用于身份验证的“用户名”）存储在保管库中   ：
+接下来，将服务主体的 appId（传递给 Azure 容器注册表用于身份验证的“用户名”）存储在保管库中：
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -217,8 +220,8 @@ az keyvault secret set \
 
 现已创建 Azure Key Vault 并在其中存储了两个机密：
 
-* `$ACR_NAME-pull-usr`：用作容器注册表**用户名**的服务主体 ID。
-* `$ACR_NAME-pull-pwd`：用作容器注册表**密码**的服务主体密码。
+* `$ACR_NAME-pull-usr`：用作容器注册表 **用户名** 的服务主体 ID。
+* `$ACR_NAME-pull-pwd`：用作容器注册表 **密码** 的服务主体密码。
 
 现在，当你或你的应用程序和服务从注册表提取映像时，可以按名称引用这些机密。
 
@@ -286,7 +289,7 @@ Server running at http://localhost:80
 az container delete --resource-group $RES_GROUP --name acr-tasks
 ```
 
-若要删除本教程中创建的所有资源，包括容器注册表、密钥保管库和服务主体，请运行以下命令  。 但是，本系列的[下一个教程](container-registry-tutorial-build-task.md)也会使用这些资源，因此，如果直接前往下一个教程，则可以保留这些资源。
+若要删除本教程中创建的所有资源，包括容器注册表、密钥保管库和服务主体，请运行以下命令。 但是，本系列的[下一个教程](container-registry-tutorial-build-task.md)也会使用这些资源，因此，如果直接前往下一个教程，则可以保留这些资源。
 
 ```azurecli
 az group delete --resource-group $RES_GROUP
@@ -295,7 +298,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>后续步骤
 
-使用快速任务测试内部循环后，请配置一个生成任务，以便在将源代码提交到 Git 存储库时触发容器映像生成  ：
+使用快速任务测试内部循环后，请配置一个生成任务，以便在将源代码提交到 Git 存储库时触发容器映像生成：
 
 > [!div class="nextstepaction"]
 > [使用任务触发自动生成](container-registry-tutorial-build-task.md)
@@ -306,15 +309,15 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-container-attach]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-attach
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-delete]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-delete
-[az-keyvault-create]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-create
-[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
+[az-container-attach]: https://docs.microsoft.com/cli/azure/container#az_container_attach
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-delete]: https://docs.microsoft.com/cli/azure/container#az_container_delete
+[az-keyvault-create]: https://docs.azure.cn/cli/keyvault/secret#az_keyvault_create
+[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret#az_keyvault_secret_set
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->

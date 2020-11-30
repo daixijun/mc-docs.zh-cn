@@ -4,17 +4,17 @@ description: 了解 Azure Kubernetes 服务 (AKS) 中的访问和标识，包括
 services: container-service
 ms.topic: conceptual
 origin.date: 07/07/2020
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 1cacbdaa23cd4bb4599d6b5afffc5cc558fef40d
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: db90a004bf613b45f6528af11044de00845ba6d7
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024415"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的访问和标识选项
 
@@ -161,7 +161,7 @@ AKS 提供以下四个内置角色。 它们类似于 [Kubernetes 内置角色](
 <!-- LINKS - Internal -->
 
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 
 <!--CORRECT ON azure-ad-integration-cli.md-->

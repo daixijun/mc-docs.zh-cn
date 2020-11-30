@@ -3,14 +3,14 @@ title: Azure 事件网格概念
 description: 介绍 Azure 事件网格及其概念。 定义事件网格的几个关键组件。
 author: Johnnytechn
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 9c4caa7ac0339ae39be26e553efe25c31ebfa2f6
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 2df7310774117a1280c0e9e7fbc80a0d8a3f83eb
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228470"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977847"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure 事件网格中的概念
 
@@ -41,10 +41,9 @@ ms.locfileid: "88228470"
 
 系统主题是 Azure 服务（如 Azure 存储、Azure 事件中心和 Azure 服务总线）提供的内置主题。 可以在 Azure 订阅中创建系统主题并订阅这些主题。 有关详细信息，请参阅[系统主题概述](system-topics.md)。 
 
-自定义主题是应用程序和第三方主题。 在创建或分配了对自定义主题的访问权限后，就会在订阅中看到该自定义主题。 有关详细信息，请参阅[自定义主题](custom-topics.md)。
+ 自定义主题是应用程序和第三方的主题。 在创建或分配了对自定义主题的访问权限后，就会在订阅中看到该自定义主题。 有关详细信息，请参阅[自定义主题](custom-topics.md)。 设计应用程序时，可以灵活地决定要创建多少个主题。 对于大型解决方案，请为每个类别的相关事件创建自定义主题。 例如，假设有一个应用程序发送与修改用户帐户和处理订单相关的事件。 任何事件处理程序都不太可能同时需要这两个类别的事件。 请创建两个自定义主题，让事件处理程序订阅其感兴趣的主题。 对于小型解决方案，可能希望将所有事件发送到单个主题。 事件订阅者可以筛选他们所需的事件类型。
 
-设计应用程序时，可以灵活地决定要创建多少个主题。 对于大型解决方案，请为每个类别的相关事件创建自定义主题。 例如，假设有一个应用程序发送与修改用户帐户和处理订单相关的事件。 任何事件处理程序都不太可能同时需要这两个类别的事件。 请创建两个自定义主题，让事件处理程序订阅其感兴趣的主题。 对于小型解决方案，可能希望将所有事件发送到单个主题。 事件订阅者可以筛选他们所需的事件类型。
-
+<!--Not available in MC: **partner topic**-->
 ## <a name="event-subscriptions"></a>事件订阅
 
 订阅告诉事件网格你有兴趣接收主题上的哪些事件。 在创建订阅时，你提供处理事件的终结点。 可以筛选发送到终结点的事件。 可以按事件类型或使用者模式进行筛选。 有关详细信息，请参阅[事件网格订阅架构](subscription-creation-schema.md)。

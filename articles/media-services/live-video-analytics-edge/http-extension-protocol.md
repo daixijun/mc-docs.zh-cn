@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 09/14/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: a9a9c94976621adc41fc500690d9eb5b6de36437
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: 560081148a77ce3df8d9ecabfe8ccfdf2a1207cc
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245755"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300008"
 ---
 # <a name="http-extension-protocol"></a>HTTP 扩展协议
 
@@ -104,4 +104,4 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 
 ## <a name="next-steps"></a>后续步骤
 
-[gRPC 数据协定](grpc-data-contract.md)
+[gRPC 数据协定](./grpc-extension-protocol.md)

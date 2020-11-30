@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: v-junlch
-ms.openlocfilehash: d78fb5d89ad271c42cf98849cb3170141e7f8d5e
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 27e7203d585739215bc7f57ea206b41890b52066
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472136"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970685"
 ---
 ## <a name="publish-the-project-to-azure"></a>将项目发布到 Azure
 
@@ -25,19 +25,15 @@ ms.locfileid: "92472136"
 
 1. 根据提示提供以下信息：
 
-    - **选择文件夹** ：从工作区中选择一个文件夹，或浏览到包含函数应用的文件夹。 如果已打开有效的函数应用，则不会看到此信息。
+    - **选择文件夹**：从工作区中选择一个文件夹，或浏览到包含函数应用的文件夹。 如果已打开有效的函数应用，则不会看到此信息。
 
-    - **选择订阅** ：选择要使用的订阅。 如果只有一个订阅，则不会看到此项。
+    - **选择订阅**：选择要使用的订阅。 如果只有一个订阅，则不会看到此项。
 
-    - **在 Azure 中选择函数应用** ：选择`- Create new Function App`。 （请不要选择本文中未介绍的 `Advanced` 选项。）
+    - **在 Azure 中选择函数应用**：选择`- Create new Function App`。 （请不要选择本文中未介绍的 `Advanced` 选项。）
       
-    - **输入函数应用的全局唯一名称** ：键入在 URL 路径中有效的名称。 将对你键入的名称进行验证，以确保其在 Azure Functions 中是唯一的。
+    - **输入函数应用的全局唯一名称**：键入在 URL 路径中有效的名称。 将对你键入的名称进行验证，以确保其在 Azure Functions 中是唯一的。
     
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    - **选择运行时** ：选择你一直在本地运行的 Node.js 版本。 可以使用 `node --version` 命令来检查你的版本。
-    ::: zone-end
-
-    - **选择新资源的位置** ：为了获得更好的性能，请选择你附近的 [区域](https://azure.microsoft.com/regions/)。 
+    - **选择新资源的位置**：为了获得更好的性能，请选择你附近的 [区域](https://azure.microsoft.com/regions/)。 
     
 1.  完成后，将使用基于函数应用名称的名称在订阅中创建以下 Azure 资源：
     

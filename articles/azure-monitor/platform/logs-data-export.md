@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: Johnnytechn
 ms.author: v-johya
 ms.date: 11/10/2020
-ms.openlocfilehash: 940d18e93c65aae377a7a60940372a25842aaa55
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 5c32ae4e3604d01936ca8cc1739e6fd553fb16a1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638300"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977275"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor 中的 Log Analytics 工作区数据导出功能（预览版）
 使用 Azure Monitor 中的 Log Analytics 工作区数据导出功能，可以在收集 Log Analytics 工作区中所选表的数据时，将数据持续导出到 Azure 存储帐户或 Azure 事件中心。 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -58,7 +58,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区导出数
 ## <a name="data-completeness"></a>数据完整性
 如果目标不可用，数据导出会继续重新尝试发送数据，最多持续 30 分钟。 如果 30 分钟后仍不可用，数据将被放弃，直到目标变为可用。
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>成本
 数据导出功能当前不收取额外费用。 数据导出的定价将在以后公布，在开始计费之前将提供相关通知。 如果你选择在通知期后继续使用数据导出，则将按照适用的费率缴费。
 
 ## <a name="export-destinations"></a>导出目标
@@ -68,7 +68,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区导出数
 
 存储帐户 Blob 路径为 WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json。 由于追加 Blob 在存储中的写入限制为 50K，如果追加的数量很大，则导出的 Blob 的数量可能会增加。 在这种情况下，Blob 的命名模式将为 PT1H_#.json，其中 # 是增量 Blob 计数。
 
-存储帐户数据格式为 [JSON 行](diagnostic-logs-append-blobs.md)。 这意味着每个记录将由换行符分隔，JSON 记录之间没有外部记录数组和逗号。 
+存储帐户数据格式为 JSON Lines。 这意味着每个记录将由换行符分隔，JSON 记录之间没有外部记录数组和逗号。 
 
 [![存储示例数据](./media/logs-data-export/storage-data.png)](./media/logs-data-export/storage-data.png#lightbox)
 
@@ -400,7 +400,7 @@ GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
 | NWConnectionMonitorTestResult | |
 | NWConnectionMonitorTestResult | |
 | OfficeActivity | 部分支持。 某些数据通过 Webhook 从 Office 365 引入到 Log Analytics。 当前不导出此数据。 |
-| 操作 | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前不导出此数据。 |
+| Operation | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前不导出此数据。 |
 | 性能 | 部分支持。 当前仅支持 Windows 性能数据。 当前未导出 Linux 性能数据。 |
 | ProtectionStatus | |
 | SCCMAssessmentRecommendation | |

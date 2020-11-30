@@ -5,14 +5,14 @@ ms.reviewer: srinathv
 author: Johnnytechn
 ms.topic: troubleshooting
 origin.date: 08/30/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 5052568271ec1a4db239871587bd2dc559263309
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 756b8a9493b5f1c3406b530139a00d7f6b3907d4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978223"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>排查 Azure 虚拟机上的备份失败问题
 
@@ -30,12 +30,11 @@ ms.locfileid: "91871155"
   * 若要确保没有快照扩展问题，请[卸载扩展，然后强制重新加载并重试备份](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)。
 * 验证 VM 是否已建立 Internet 连接。
   * 确保另一备份服务未运行。
-* 在 `Services.msc` 中确保 **Windows Azure 来宾代理**服务处于“正在运行”状态。 如果 **Windows Azure 来宾代理**服务缺失，请按照[在恢复服务保管库中备份 Azure VM](./backup-azure-arm-vms-prepare.md#install-the-vm-agent) 中的说明来安装它。
+* 在 `Services.msc` 中确保 **Windows Azure 来宾代理** 服务处于“正在运行”状态。 如果 **Windows Azure 来宾代理** 服务缺失，请按照 [在恢复服务保管库中备份 Azure VM](./backup-azure-arm-vms-prepare.md#install-the-vm-agent) 中的说明来安装它。
 * 事件日志可能会显示其他备份产品（例如 Windows Server 备份）的备份故障，而不会显示因 Azure 备份导致的故障。 通过以下步骤确定问题是否来自 Azure 备份：
   * 如果事件源或消息的“备份”条目出现错误，请检查 Azure IaaS VM Backup 备份是否已成功，以及是否已使用所需快照类型创建一个还原点。
   * 如果 Azure 备份正常运行，则问题可能出在其他备份解决方案。
-  * 下面是一个示例，介绍了事件查看器错误 517，其中的 Azure 备份正常运行，但“Windows Server 备份”发生故障：<br>
-    ![Windows Server 备份故障](./media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * 下面是一个示例，介绍了事件查看器错误 517，其中的 Azure 备份正常运行，但“Windows Server 备份”发生故障：![Windows Server 备份故障](./media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * 如果 Azure 备份故障，则请在本文的“常见 VM 备份错误”部分查找相应的错误代码。
 
 ## <a name="common-issues"></a>常见问题
@@ -89,7 +88,7 @@ ms.locfileid: "91871155"
 错误代码：ExtensionInstallationFailedMDTC <br/>
 错误消息：扩展安装失败，出现错误“COM+ 无法与 Microsoft 分布式事务处理协调器通信”。 <br/>
 
-备份操作失败，因为 Windows 服务 **COM+ 系统**应用程序出现问题。  若要解决此问题，请执行以下步骤：
+备份操作失败，因为 Windows 服务 **COM+ 系统** 应用程序出现问题。  若要解决此问题，请执行以下步骤：
 
 * 尝试启动/重启 Windows 服务“COM+ 系统应用程序”（通过权限提升的命令提示符“- net start COMSysApp”）。
 * 确保“分布式事务处理协调器”服务作为“网络服务”帐户运行。  否则，请将其更改为以“网络服务”帐户的身份运行，并重启“COM+ 系统应用程序”。
@@ -109,31 +108,33 @@ ms.locfileid: "91871155"
 发生此错误的原因是 VSS 编写器处于错误状态。 Azure 备份扩展与 VSS 编写器交互以拍摄磁盘快照。 若要解决此问题，请执行以下步骤：
 
 步骤 1：请重启处于错误状态的 VSS 编写器。
-- 在提升的命令提示符处，运行 ```vssadmin list writers```。
-- 输出包含所有 VSS 编写器及其状态。 对于状态不是“[1] 稳定”的每个 VSS 编写器，请重启相应 VSS 编写器的服务。 
-- 若要重启服务，请从提升的命令提示符处运行以下命令：
+
+* 在提升的命令提示符处，运行 ```vssadmin list writers```。
+* 输出包含所有 VSS 编写器及其状态。 对于状态不是“[1] 稳定”的每个 VSS 编写器，请重启相应 VSS 编写器的服务。
+* 若要重启服务，请从提升的命令提示符处运行以下命令：
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > 重启某些服务可能会影响生产环境。 请确保遵循批准过程，并在计划的停机时间重启服务。
- 
-   
+
 步骤 2：如果重启 VSS 编写器不能解决该问题，请从提升的命令提示符（以管理员身份）运行以下命令，以防止为 blob 快照创建线程。
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 步骤 3：如果步骤 1 和 2 不能解决该问题，则故障可能是由于 IOPS 有限而导致 VSS 编写器超时。<br>
 
 若要进行验证，请导航到“系统和事件查看器应用程序日志”，然后检查以下错误消息：<br>
-*将写入操作保存到影子复制的卷时，影子副本提供程序超时。这可能是应用程序或系统服务在卷上进行过多活动所致。请稍后在卷上的活动减少时重试。*<br>
+将写入操作保存到影子复制的卷时，影子副本提供程序超时。 这可能是应用程序或系统服务在卷上进行过多活动所致。 请稍后在卷上的活动减少时重试。<br>
 
 解决方案：
-- 检查是否可以跨 VM 磁盘分配负载。 这将减少单个磁盘上的负载。 可以通过在存储级别启用诊断指标来检查 IOP 限制。
-- 更改备份策略，以在非高峰时段（VM 上的负载最低时）执行备份。
-- 升级 Azure 磁盘以支持更高的 IOP。 [在此处了解详细信息](/virtual-machines/disks-types)
+
+* 检查是否可以跨 VM 磁盘分配负载。 这将减少单个磁盘上的负载。 可以通过在存储级别启用诊断指标来检查 IOP 限制。
+* 更改备份策略，以在非高峰时段（VM 上的负载最低时）执行备份。
+* 升级 Azure 磁盘以支持更高的 IOP。 [在此处了解详细信息](../virtual-machines/disks-types.md)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - 由于 VSS（卷影复制）服务的状态错误，快照操作失败
 
@@ -143,31 +144,32 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 发生此错误的原因是 VSS 服务处于错误状态。 Azure 备份扩展与 VSS 服务交互以拍摄磁盘快照。 若要解决此问题，请执行以下步骤：
 
 重启 VSS（卷影复制）服务。
-- 请导航到 Services.msc，然后重启“卷影复制服务”。<br>
+
+* 请导航到 Services.msc，然后重启“卷影复制服务”。<br>
 （或者）<br>
-- 在提升的命令提示符下运行以下命令：
+* 在提升的命令提示符下运行以下命令：
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 如果问题仍然存在，请在计划的停机时间重启 VM。
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable - VM 创建失败，因为所选 VM 大小不可用
 
-错误代码：UserErrorSkuNotAvailable 错误消息：VM 创建失败，因为所选 VM 大小不可用。 
- 
+错误代码：UserErrorSkuNotAvailable 错误消息：VM 创建失败，因为所选 VM 大小不可用。
+
 发生此错误是因为在还原操作过程中选择的 VM 大小不受支持。 <br>
 
-若要解决此问题，请在还原操作过程中使用[还原磁盘](/backup/backup-azure-arm-restore-vms#restore-disks)选项。 使用这些磁盘通过 [Powershell cmdlets](/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 从[可用的受支持 VM 大小](/backup/backup-support-matrix-iaas#vm-compute-support)列表中创建 VM。
+若要解决此问题，请在还原操作过程中使用[还原磁盘](./backup-azure-arm-restore-vms.md#restore-disks)选项。 使用这些磁盘通过 [Powershell cmdlets](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 从[可用的受支持 VM 大小](./backup-support-matrix-iaas.md#vm-compute-support)列表中创建 VM。
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported - 由于没有市场购买请求，创建 VM 失败
 
-错误代码：UserErrorMarketPlaceVMNotSupported 错误消息：由于没有市场购买请求，创建 VM 失败。 
- 
+错误代码：UserErrorMarketPlaceVMNotSupported 错误消息：由于没有市场购买请求，创建 VM 失败。
+
 Azure 备份支持备份和还原 Azure 市场中可用的 VM。 尝试还原 Azure 市场中不再可用的 VM（具有特定的计划/发布者设置）时，会发生此错误，[请在此处了解详细信息](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)。
-- 若要解决此问题，请在还原操作过程中使用[还原磁盘](/backup/backup-azure-arm-restore-vms#restore-disks)选项，然后使用 [PowerShell](/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 或 [Azure CLI](/backup/tutorial-restore-disk) cmdlet 创建 VM，其中包含与该 VM 对应的最新市场信息。
-- 如果发布者没有任何市场信息，你可以使用数据磁盘来检索数据，并将其附加到现有 VM。
+
+* 若要解决此问题，请在还原操作过程中使用[还原磁盘](./backup-azure-arm-restore-vms.md#restore-disks)选项，然后使用 [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 或 [Azure CLI](./tutorial-restore-disk.md) cmdlet 创建 VM，其中包含与该 VM 对应的最新市场信息。
+* 如果发布者没有任何市场信息，你可以使用数据磁盘来检索数据，并将其附加到现有 VM。
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 无法分析备份扩展的配置
 
@@ -247,7 +249,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **步骤 2**：尝试将备份计划更改到 VM 的负载较小（CPU/IOP 等较小）的某个时间
 
-**步骤 3**：尝试[增大 VM 的大小](https://azure.microsoft.com/blog/resize-virtual-machines/)并重试操作
+**步骤 3**：尝试 [增大 VM 的大小](/virtual-machines/windows/resize-vm)并重试操作
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001，ResourceNotFound - 无法执行操作，因为 VM 不存在/400094, BCMV2VMNotFound - 虚拟机不存在/找不到 Azure 虚拟机
 
@@ -318,13 +320,23 @@ VM 代理是 Azure 恢复服务扩展的先决条件。 安装 Azure 虚拟机�
 
 ## <a name="restore"></a>还原
 
-#### <a name="disks-appear-offline-after-file-restore"></a>文件还原后磁盘显示为脱机状态
+### <a name="disks-appear-offline-after-file-restore"></a>文件还原后磁盘显示为脱机状态
 
-如果还原后发现磁盘处于脱机状态，请执行以下操作： 
-* 验证执行脚本的计算机是否满足 OS 要求。 [了解详细信息](/backup/backup-azure-restore-files-from-vm#system-requirements)。  
-* 确保不会还原到同一个源，[了解详细信息](/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine)。
+如果还原后发现磁盘处于脱机状态，请执行以下操作：
 
+* 验证执行脚本的计算机是否满足 OS 要求。 [了解详细信息](./backup-azure-restore-files-from-vm.md#system-requirements)。  
+* 确保不会还原到同一个源，[了解详细信息](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine)。
 
+### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - 还原失败，因为找不到 VM 的快照
+
+错误代码：UserErrorInstantRpNotFound <br>
+错误消息：还原失败，因为找不到 VM 的快照。 快照可能已被删除，请检查。<br>
+
+尝试从尚未转移到保管库且已在快照阶段删除的恢复点还原时，会发生此错误。 
+<br>
+若要解决此问题，请尝试从其他还原点还原 VM。<br>
+
+#### <a name="common-errors"></a>常见错误 
 | 错误详细信息 | 解决方法 |
 | --- | --- |
 | 还原失败，发生云内部错误。 |<ol><li>尝试还原的云服务使用 DNS 设置进行配置。 可以检查： <br>“$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings”。<br>如果配置了“地址”，则配置了 DNS 设置。<br> <li>尝试还原的云服务配置了“ReservedIP”，且云服务中的现有 VM 处于停止状态。 可以使用以下 PowerShell cmdlet 检查云服务是否已保留 IP：$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName。 <br><li>正在尝试将具有以下特殊网络配置的虚拟机还原到同一个云服务中： <ul><li>采用负载均衡器配置的虚拟机（内部和外部）。<li>具有多个保留 IP 的虚拟机。 <li>具有多个 NIC 的虚拟机。 </ul><li>请在 UI 中选择新的云服务，或参阅[还原注意事项](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations)，了解具有特殊网络配置的 VM。</ol> |

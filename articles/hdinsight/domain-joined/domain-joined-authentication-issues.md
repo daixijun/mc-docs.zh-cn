@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 504e72522de09ee19f2a7427e0f0ac1a03e54bd3
-ms.sourcegitcommit: e1a0ea64b617b7f96655c29cd8edd69890cbd553
+ms.openlocfilehash: 8926aa7324c47629f344c6980d294be3ff527b2f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89592493"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300924"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Azure HDInsight 中的身份验证问题
 
@@ -214,8 +214,4 @@ Kinit 失败，`Preauthentication` 失败。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
-
-* 通过 [Azure 社区支持](https://azure.microsoft.com/support/community/)获取 Azure 专家的解答。
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”，或打开“帮助 + 支持”中心。 
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

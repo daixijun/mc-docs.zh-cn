@@ -2,17 +2,18 @@
 title: Azure Batch 中的节点和池
 description: 从开发的角度来了解计算节点和池及其在 Azure Batch 工作流中的运用。
 ms.topic: conceptual
-origin.date: 06/16/2020
-ms.date: 08/24/2020
+origin.date: 11/10/2020
+author: rockboyfor
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 06/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 56358c40910a5e23ba6beda38d099585a71e9c4c
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 1a41fa1cb63a519938b4adca44edd5e8367fe4af
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654996"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978126"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch 中的节点和池
 
@@ -30,7 +31,7 @@ Batch 中的所有计算节点还包括：
 
 - 任务可引用的标准[文件夹结构](files-and-directories.md)和关联的[环境变量](jobs-and-tasks.md)。
 - **防火墙** 设置。
-- [远程访问](error-handling.md#connect-to-compute-nodes) Windows（远程桌面协议 (RDP)）和 Linux（安全外壳 (SSH)）节点。
+- [远程访问](error-handling.md#connect-to-compute-nodes) Windows（远程桌面协议 (RDP)）和 Linux（安全外壳 (SSH)）节点（除非你[创建禁用远程访问的池](pool-endpoint-configuration.md)）。
 
 默认情况下，节点可以彼此通信，但无法与不属于同一池的虚拟机通信。 若要允许节点安全地与其他虚拟机或本地网络通信，可以[在 Azure 虚拟网络 (VNet) 的子网中](batch-virtual-network.md)预配该池。 当你这样做时，可以通过公共 IP 地址访问节点。 这些公共 IP 地址由 Batch 创建，可能会在池的生存期内更改。 你还可以[创建具有所控制的静态公共 IP 地址的池](create-pool-public-ip.md)，这样可确保它们不会意外更改。
 
@@ -72,15 +73,15 @@ Batch 中提供了两种类型的池配置。
 
 虚拟机配置指定池由 Azure 虚拟机组成。 可以从 Linux 或 Windows 映像创建这些 VM。
 
-基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从市场映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。 如果包括数据磁盘，需要在 VM 中装载并格式化这些磁盘，然后才能使用。
+[Batch 节点代理](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md)是一个程序，它在池中的每个节点上运行，并在节点与 Batch 服务之间提供命令和控制接口。 节点代理对于不同操作系统有不同的实现（称为 SKU）。 基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从市场映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。 如果包括数据磁盘，需要在 VM 中装载并格式化这些磁盘，然后才能使用。
 
 ### <a name="cloud-services-configuration"></a>云服务配置
 
 云服务配置指定池由 Azure 云服务节点组成。 云服务只提供 Windows 计算节点。
 
-[Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了适用于云服务配置池的操作系统。 创建包含云服务节点的池时，需要指定节点大小及其 OS 系列（用于确定哪些版本的 .NET 随 OS 一起安装）。 将云服务部署到 Azure 的速度比部署运行 Windows 的虚拟机更快。 如果需要 Windows 计算节点池，可能会发现云服务具有部署时间上的性能优势。
+[Azure 来宾 OS 版本和 SDK 兼容性对照表](../cloud-services/cloud-services-guestos-update-matrix.md)中列出了适用于云服务配置池的操作系统，[云服务的大小](../cloud-services/cloud-services-sizes-specs.md)中列出了可用的计算节点大小。 创建包含云服务节点的池时，需要指定节点大小及其 OS 系列（用于确定哪些版本的 .NET 随 OS 一起安装）。 将云服务部署到 Azure 的速度比部署运行 Windows 的虚拟机更快。 如果需要 Windows 计算节点池，可能会发现云服务具有部署时间上的性能优势。
 
-与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅[云服务概述](../cloud-services/cloud-services-choose-me.md)）。 对于 OS 版本，建议指定 `Latest (*)`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 OS 版本并安装新的 OS 映像。 所有正在运行的任务将会中断并重新排队。
+与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅 [云服务概述](../cloud-services/cloud-services-choose-me.md)）。 对于 OS 版本，建议指定 `Latest (*)`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 OS 版本并安装新的 OS 映像。 所有正在运行的任务将会中断并重新排队。
 
 ### <a name="node-agent-skus"></a>节点代理 SKU
 
@@ -113,7 +114,7 @@ Batch 中提供了两种类型的池配置。
 
 专用类型的节点有其自己的目标设置，你可以为其指定所需的节点数。
 
-计算节点数之所以称为*目标*，是因为在某些情况下，池可能无法达到所需的节点数。 例如，如果池先达到了 Batch 帐户的[核心配额](batch-quota-limit.md)，则该池可能达不到目标。 或者，如果已将限制最大节点数的自动缩放公式应用于池，则该池也可能达不到目标。
+计算节点数之所以称为 *目标*，是因为在某些情况下，池可能无法达到所需的节点数。 例如，如果池先达到了 Batch 帐户的[核心配额](batch-quota-limit.md)，则该池可能达不到目标。 或者，如果已将限制最大节点数的自动缩放公式应用于池，则该池也可能达不到目标。
 
 有关专用节点的定价信息，请参阅 [Batch 定价](https://www.azure.cn/pricing/details/batch/)。
 
@@ -140,7 +141,7 @@ Batch 中提供了两种类型的池配置。
 
 - **时间度量值** 基于指定的时数内每隔五分钟收集的统计信息。
 - **资源度量值** 基于 CPU 使用率、带宽使用率、内存使用率和节点的数目。
-- **任务指标**基于任务状态，例如“活动”（已排队）、“正在运行”或“已完成”。  
+- **任务指标** 基于任务状态，例如“活动”（已排队）、“正在运行”或“已完成”。  
 
 如果自动缩放会减少池中的计算节点数，则必须考虑如何处理在执行减少操作时运行的任务。 为了满足这一点，Batch 提供可包含在公式中的[节点解除分配选项](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption)。 例如，可以指定运行中的任务立即停止，然后重新排入队列，以便在另一个节点上运行，或允许先完成再从池中删除节点。 请注意，在所有任务都已完成，或者所有任务保留期都已过期之前，将节点解除选项设置为 `taskcompletion` 或 `retaineddata` 会阻止池调整大小操作。
 
@@ -192,7 +193,7 @@ Batch 中提供了两种类型的池配置。
 
 在设计 Azure Batch 解决方案时，必须指定如何及何时创建池，以及这些池中的计算节点可用性要保持多久。
 
-在极端情况下，可以针对提交的每个作业创建一个池，并在其任务执行完成时立即删除该池。 这样，只有在需要时才分配节点，节点空闲时会立即关闭，因此可以最大程度地提高利用率。 这意味着作业必须等待分配节点，但务必注意，在任务已单独分配并且启动任务已完成时，会立即计划待执行的任务。 批处理*不会*在等到池中的所有节点都可用后才将任务分配到节点。 这可确保最大程度地利用所有可用节点。
+在极端情况下，可以针对提交的每个作业创建一个池，并在其任务执行完成时立即删除该池。 这样，只有在需要时才分配节点，节点空闲时会立即关闭，因此可以最大程度地提高利用率。 这意味着作业必须等待分配节点，但务必注意，在任务已单独分配并且启动任务已完成时，会立即计划待执行的任务。 批处理 *不会* 在等到池中的所有节点都可用后才将任务分配到节点。 这可确保最大程度地利用所有可用节点。
 
 在另一种极端情况下，如果最高优先级是让作业立即启动，则你可以预先创建池，并使其节点在提交作业之前可用。 在此情况下，任务可以立即启动，但节点可能会保持空闲状态以等待分配任务。
 
@@ -202,7 +203,7 @@ Batch 中提供了两种类型的池配置。
 
 在加密或解密任务的敏感信息（例如 [Azure 存储帐户](accounts.md#azure-storage-accounts)的密钥）时，通常需要使用证书。 为此，可以在节点上安装证书。 加密的机密通过命令行参数或内嵌在某个任务资源中来传递给任务，已安装的证书可用于解密机密。
 
-可以使用[添加证书](https://docs.microsoft.com/rest/api/batchservice/certificate/add)操作 (Batch REST) 或 [CertificateOperations.CreateCertificate](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.certificateoperations?view=azure-dotnet) 方法 (Batch .NET) 将证书添加到 Batch 帐户。 然后，可以将该证书与新池或现有池相关联。
+可以使用[添加证书](https://docs.microsoft.com/rest/api/batchservice/certificate/add)操作 (Batch REST) 或 [CertificateOperations.CreateCertificate](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.certificateoperations) 方法 (Batch .NET) 将证书添加到 Batch 帐户。 然后，可以将该证书与新池或现有池相关联。
 
 将证书与池关联后，Batch 服务将在池中的每个节点上安装该证书。 在启动节点之后、启动任何任务（包括[启动任务](jobs-and-tasks.md#start-task)和[作业管理器任务](jobs-and-tasks.md#job-manager-task)）之前，Batch 服务将安装相应的证书。
 

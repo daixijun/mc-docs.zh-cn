@@ -19,12 +19,12 @@ ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 08edd2cf4ccb734bbae4e94a3379bad8019e2a54
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: a884c9d74059c1979901523714ab19d170d44d2e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316452"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300910"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>如何：发送预定通知
 
@@ -32,7 +32,7 @@ ms.locfileid: "89316452"
 
 
 ## <a name="schedule-your-notifications"></a>计划通知
-发送通知时，只需如以下示例中所示，使用通知中心 SDK 中的 [`ScheduledNotification` 类](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification?view=azure-dotnet#microsoft_azure_notificationhubs_schedulednotification)：
+发送通知时，只需如以下示例中所示，使用通知中心 SDK 中的 [`ScheduledNotification` 类](https://docs.microsoft.com/dotnetapi/microsoft.azure.notificationhubs.schedulednotification#microsoft_azure_notificationhubs_schedulednotification)：
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

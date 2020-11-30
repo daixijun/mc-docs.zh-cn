@@ -9,27 +9,27 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/11/2020
-ms.date: 09/10/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 642b56bdcf23d6eb711b0368d2ed58ed0276d6bb
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: fa74f9e867f377c2ae565d95b32315e8e5ca0dc3
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021417"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300513"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>使用 Azure 认知搜索索引器进行字段映射和转换
 
 ![索引器阶段](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "索引器阶段")
 
-使用 Azure 认知搜索索引器时，你有时会发现，输入数据与目标索引的架构不完全匹配。 在这种情况下，可以在索引编制过程中使用**字段映射**来调整数据的形状。
+使用 Azure 认知搜索索引器时，你有时会发现，输入数据与目标索引的架构不完全匹配。 在这种情况下，可以在索引编制过程中使用 **字段映射** 来调整数据的形状。
 
 在某些情况下，字段映射会很有用：
 
 * 数据源具有名为 `_id` 的字段，但 Azure 认知搜索不允许字段名称以下划线开头。 使用字段映射可以有效地为字段重命名。
 * 你希望使用同一数据源数据填充索引中的多个字段。 例如，你可能想要将不同的分析器应用到这些字段。
 * 你希望使用多个数据源中的数据填充索引字段，而每个数据源使用不同的字段名称。
-* 需要对数据进行 Base64 编码或解码。 字段映射支持多个**映射函数**，包括用于 Base64 编码和解码的函数。
+* 需要对数据进行 Base64 编码或解码。 字段映射支持多个 **映射函数**，包括用于 Base64 编码和解码的函数。
 
 > [!NOTE]
 > 索引器中的字段映射是将数据字段映射到索引字段的一种简单方法，可实现轻量级数据转换。 较复杂的数据可能需要经过预处理，才能将形状调整为有利于编制索引的形式。 可以考虑使用 [Azure 数据工厂](../data-factory/index.yml)。
@@ -202,7 +202,7 @@ Azure 认知搜索支持两种不同的 Base64 编码。 在编码和解码同�
 
 Azure 认知搜索支持 URL 安全的 base64 编码和正常的 base64 编码。 在索引编制期间经过 base64 编码的字符串在以后应使用相同的编码选项进行解码，否则结果将与原始字符串不匹配。
 
-如果将用于编码或解码的 `useHttpServerUtilityUrlTokenEncode` 或 `useHttpServerUtilityUrlTokenDecode` 参数分别设置为 `true`，则 `base64Encode` 的行为与 [HttpServerUtility.UrlTokenEncode](https://docs.microsoft.com/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) 类似，`base64Decode` 的行为与 [HttpServerUtility.UrlTokenDecode](https://docs.microsoft.com/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8) 类似。
+如果将用于编码或解码的 `useHttpServerUtilityUrlTokenEncode` 或 `useHttpServerUtilityUrlTokenDecode` 参数分别设置为 `true`，则 `base64Encode` 的行为与 [HttpServerUtility.UrlTokenEncode](https://docs.microsoft.com/dotnet/api/system.web.httpserverutility.urltokenencode) 类似，`base64Decode` 的行为与 [HttpServerUtility.UrlTokenDecode](https://docs.microsoft.com/dotnet/api/system.web.httpserverutility.urltokendecode) 类似。
 
 > [!WARNING]
 > 如果使用 `base64Encode` 来生成密钥值，则必须将 `useHttpServerUtilityUrlTokenEncode` 设置为 true。 只能将 URL 安全的 base64 编码用于密钥值。 请参阅[命名规则（Azure 认知搜索）](https://docs.microsoft.com/rest/api/searchservice/naming-rules)，了解对密钥值中字符的整套限制。

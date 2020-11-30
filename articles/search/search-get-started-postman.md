@@ -2,20 +2,20 @@
 title: 快速入门：使用 REST API 在 Postman 中创建搜索索引
 titleSuffix: Azure Cognitive Search
 description: 在本 REST API 快速入门中，了解如何使用 Postman 调用 Azure 认知搜索 REST API 并了解示例数据和定义。
-author: tchristiani
 manager: nitinme
+author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 origin.date: 08/17/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 3993be023fd9a647e82bc065740816222d638133
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 7ff9e3d8a47c42a9bd55a6d80bd4f765996f5961
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021477"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300071"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>快速入门：使用 REST API 在 Postman 中创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
@@ -237,7 +237,7 @@ Content-Type: application/json
 如果收到 207，则指示至少有一个文档无法上传。 如果收到 404，则表示请求的标头或正文有语法错误：请验证是否已更改终结点，使之包括 `/docs/index`。
 
 > [!Tip]
-> 对于所选数据源，可以选择备用的 ** indexer 方法，以便简化并减少进行索引操作所需的代码量。 有关详细信息，请参阅 [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)（Indexer 操作）。
+> 对于所选数据源，可以选择备用的 indexer 方法，以便简化并减少进行索引操作所需的代码量。 有关详细信息，请参阅 [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)（Indexer 操作）。
 
 
 ## <a name="3---search-an-index"></a>3 - 搜索索引
@@ -254,13 +254,13 @@ Content-Type: application/json
 
 3. 单击“Send”。
 
-此查询为空，在搜索结果中返回文档的计数。 在单击“发送”后，请求和响应应类似于以下针对 Postman 的屏幕截图****。 状态代码应为 200。
+此查询为空，在搜索结果中返回文档的计数。 在单击“发送”后，请求和响应应类似于以下针对 Postman 的屏幕截图。 状态代码应为 200。
 
  ![使用 URL 上的搜索字符串 GET](media/search-get-started-postman/postman-query.png "使用 URL 上的搜索字符串 GET")
 
 尝试其他查询示例来了解语法。 你可以执行字符串搜索、逐字筛选查询、限制结果集、将搜索范围限定为特定字段等。
 
-将当前 URL 替换为以下 URL，并每次单击“发送”以查看结果****。
+将当前 URL 替换为以下 URL，并每次单击“发送”以查看结果。
 
 ```
 # Query example 1 - Search on restaurant and wifi
@@ -275,7 +275,7 @@ https://<YOUR-SEARCH-SERVICE>.search.azure.cn/indexes/hotels-quickstart/docs?sea
 https://<YOUR-SEARCH-SERVICE>.search.azure.cn/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2019-05-06
 
 # Query example 4 - Sort by a specific field (Address/City) in ascending order
-https://<YOUR-SEARCH-SERVICE>.search.azure.cn/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.azure.cn/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2020-06-30
 ```
 
 ## <a name="get-index-properties"></a>获取索引属性

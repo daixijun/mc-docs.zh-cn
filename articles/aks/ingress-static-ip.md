@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1ccc930bf405bc25c5246c4d114f98c57d119300
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 31be05b6a6021bd0a24e3ce9abaead048717abfc
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146759"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024582"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -212,7 +212,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -250,7 +250,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -379,21 +379,21 @@ certificate.cert-manager.io/tls-secret created
 
 打开 Web 浏览器，访问 Kubernetes 入口控制器的 FQDN，例如 *`https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn`* 。
 
-由于这些示例使用 `letsencrypt-staging`，浏览器不信任颁发的 TLS/SSL 证书。 接受警告提示以继续运行应用程序。 证书信息显示这个*伪 LE 中间 X1* 证书是由 Let's Encrypt 颁发的。 此伪证书指出 `cert-manager` 正确处理了请求并接收了提供程序提供的证书：
+由于这些示例使用 `letsencrypt-staging`，浏览器不信任颁发的 TLS/SSL 证书。 接受警告提示以继续运行应用程序。 证书信息显示这个 *伪 LE 中间 X1* 证书是由 Let's Encrypt 颁发的。 此伪证书指出 `cert-manager` 正确处理了请求并接收了提供程序提供的证书：
 
 :::image type="content" source="media/ingress/staging-certificate.png" alt-text="Let's Encrypt 临时证书":::
 
 如果将 Let's Encrypt 更改为使用 `prod` 而不是 `staging`，则会使用由 Let's Encrypt 颁发的可信证书，如以下示例所示：
 
-:::image type="content" source="media/ingress/certificate.png" alt-text="Let's Encrypt 临时证书":::
+:::image type="content" source="media/ingress/certificate.png" alt-text="Let's Encrypt 证书":::
 
 演示应用程序显示在 Web 浏览器中：
 
-:::image type="content" source="media/ingress/app-one.png" alt-text="Let's Encrypt 临时证书":::
+:::image type="content" source="media/ingress/app-one.png" alt-text="应用程序示例 1":::
 
 现在向 FQDN 添加 */hello-world-two* 路径，例如 *`https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn/hello-world-two`* 。 下面显示了带自定义标题的第二个演示应用程序：
 
-:::image type="content" source="media/ingress/app-two.png" alt-text="Let's Encrypt 临时证书":::
+:::image type="content" source="media/ingress/app-two.png" alt-text="应用程序示例 2":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -489,8 +489,8 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_chi
 
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md

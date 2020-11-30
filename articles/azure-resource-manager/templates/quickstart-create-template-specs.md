@@ -1,19 +1,19 @@
 ---
 title: 创建和部署模板规格
 description: 了解如何通过 ARM 模板创建模板规格。 然后，将模板规格部署到订阅中的资源组。
-origin.date: 10/02/2020
+origin.date: 11/10/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 2abf3a064625f0c97119d65933bb45be50a7d2ac
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 83881b75c5bff7a43bfd85cdf012f12d376a7fbf
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024477"
 ---
 <!--NOT AVAIALBLE on Mooncake-->
 <!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
@@ -195,7 +195,7 @@ ms.locfileid: "92469999"
 1. 使用 ARM 模板创建模板规格时，该模板将嵌入资源定义。 复制以下模板并将其本地保存为 azuredeploy.json。 本快速入门假设你已将模板保存到路径 c:\Templates\azuredeploy.json，不过你可以使用任何路径。
 
     > [!NOTE]
-    > 在嵌入的模板中，必须使用第二个左括号对所有左括号进行转义。 请使用 `[[`，而不是 `[`。
+    > 在嵌入的模板中，必须使用第二个左括号对所有[模板表达式](template-expressions.md)进行转义。 请使用 `"[[`，而不是 `"[`。 JSON 数组仍使用单个左括号。
 
     ```json
     {

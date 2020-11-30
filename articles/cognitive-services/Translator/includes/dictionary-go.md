@@ -3,16 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 0ae79e6fb68c7ffcbc04a5e1adf61de170f000b9
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1792ffa8e36a3a00a60eb39d56311bf98cfddbe6
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499245"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306612"
 ---
-<!-- word updating-->
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
 [!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
@@ -94,7 +93,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：字典查找](/cognitive-services/translator/reference/v3-0-dictionary-lookup)。
+> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：字典查找](../reference/v3-0-dictionary-lookup.md)。
 
 ## <a name="create-a-struct-for-your-request-body"></a>创建请求正文的结构
 
@@ -131,7 +130,7 @@ if err != nil {
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="handle-and-print-the-response"></a>处理并输出响应
 
@@ -224,4 +223,5 @@ go run dictionaryLookup.go
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

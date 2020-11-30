@@ -6,21 +6,21 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 7de3aa2e307ea33cf9917e91a16399c90e0a0cca
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: b2efd47aaedaec3ba7b20ebfdb25e87ad490b250
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715704"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978103"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>流分析开窗函数简介
 
 在实时流方案中，对临时窗口中包含的数据执行操作是一种常见模式。 流分析提供对开窗函数的本机支持，使开发人员能够最小的工作量创建复杂的流进程作业。
 
-有四种类型的时态窗口可供选择：[**翻滚**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)、[**跳跃**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics)、[**滑动**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)和[**会话**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)窗口。  可在流分析作业中查询语法的 [GROUP BY](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 子句中使用开窗函数  。 还可以使用 [Windows() 函数](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)聚合在多个窗口中聚合事件。
+有五种类型的时态窗口可供选择：[**翻滚**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)、[**跳跃**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics)、[**滑动**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)和 [**会话**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)窗口。  可在流分析作业中查询语法的 [GROUP BY](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 子句中使用开窗函数  。 还可以使用 [Windows() 函数](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)聚合在多个窗口中聚合事件。
 
-所有[开窗](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)操作都在窗口“结束”时输出结果  。 窗口的输出是基于所用聚合函数的单个事件。 该输出事件包含窗口的结束时间戳，所有开窗函数都以固定的长度定义。 
+所有[开窗](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)操作都在窗口“结束”时输出结果  。 请注意，在启动流分析作业时，可以指定“作业输出开始时间”，系统将自动提取传入流中先前的事件，以在指定时间输出第一个窗口；例如，当你开始使用“立即”选项时，它将立即开始发出数据 。 窗口的输出是基于所用聚合函数的单个事件。 该输出事件包含窗口的结束时间戳，所有开窗函数都以固定的长度定义。 
 
 ![流分析开窗函数的概念](./media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -30,7 +30,7 @@ ms.locfileid: "88715704"
 ![流分析翻转窗口](./media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>跳跃窗口
-跳跃开窗函数在一段固定的时间内向前跳跃。 人们往往将此类窗口视为可以重叠的翻转窗口，因此一个事件可以属于多个跳跃窗口结果集。 要使跳跃窗口与翻转窗口相同，需将跃点大小指定为与窗口大小相同。 
+跳跃开窗函数在一段固定的时间内向前跳跃。 可能很容易将它们视为可以重叠且比窗口大小更频繁发出的翻转窗口。 事件可以属于多个跳跃窗口结果集。 要使跳跃窗口与翻转窗口相同，需将跃点大小指定为与窗口大小相同。 
 
 ![流分析跳跃窗口](./media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
@@ -62,6 +62,5 @@ ms.locfileid: "88715704"
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

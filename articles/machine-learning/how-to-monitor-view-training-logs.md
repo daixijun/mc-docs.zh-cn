@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1f3bd23326e898bc7b99f227ec3e6dc27d21053f
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f547d37788dc29eab803b2af964a4c4c2b709391
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978262"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
 
@@ -58,7 +58,7 @@ ms.locfileid: "92118253"
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>使用 Jupyter Notebook 小组件监视运行
 
-使用 ScriptRunConfig 方法提交运行时，可使用 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)监视运行的进度。 和运行提交一样，该小组件采用异步方式，并每隔 10-15 秒提供实时更新，直到作业完成。
+使用 ScriptRunConfig 方法提交运行时，可使用 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)监视运行的进度。 和运行提交一样，该小组件采用异步方式，并每隔 10-15 秒提供实时更新，直到作业完成。
 
 在等待运行完成的期间查看 Jupyter 小组件。
     
@@ -105,7 +105,9 @@ RunDetails(run).show()
 
 可以在 [Azure 机器学习工作室](https://studio.azureml.net/)中浏览已完成的运行记录，包括记录的指标。
 
-导航到“试验”选项卡并选择自己的试验。 在“试验运行”仪表板中，可以看到为每次运行跟踪的指标和日志。 
+导航到“试验”选项卡。若要查看工作区中各个试验的所有运行，请选择“所有运行”选项卡。可应用顶部菜单栏中的“试验”筛选器来深入了解特定试验的运行。 
+
+对于各个试验视图，请选择“所有试验”选项卡。在“试验运行”仪表板中，可以看到为每次运行跟踪的指标和日志。 
 
 向下钻取至特定运行以查看其输出或日志，或下载试验的快照，以便与其他人共享试验文件夹。
 

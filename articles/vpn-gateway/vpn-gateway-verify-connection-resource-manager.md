@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 05/16/2017
-ms.date: 09/07/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a278150c17afe5b8b4a2b766380382cc47a83c12
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ce8d2ffceb1c0230addbfcbb529c2869c4316bf8
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463026"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "95970694"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
 

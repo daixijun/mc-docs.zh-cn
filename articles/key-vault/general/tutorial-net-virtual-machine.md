@@ -10,12 +10,12 @@ origin.date: 07/20/2020
 ms.date: 09/16/2020
 ms.author: v-tawe
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 60c55fa9c06c92293c6e7f7a3a972a40a7584a9b
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 9fa76208d00cc6fde07c58da22fd2b6bf0fb489c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678528"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300917"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>教程：将 Azure Key Vault 与通过 .NET 编写的虚拟机配合使用
 
@@ -43,7 +43,7 @@ Azure Key Vault 可以帮助保护机密，例如访问应用程序、服务和 
 对于 Windows、Mac 和 Linux：
   * [Git](https://git-scm.com/downloads)
   * [.NET Core 3.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
-  * [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+  * [Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-resources-and-assign-permissions"></a>创建资源并分配权限
 
@@ -76,7 +76,7 @@ az login
 | [Azure 门户](../../virtual-machines/windows/quick-create-portal.md) | [Azure 门户](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>为 VM 分配标识
-使用 [az vm identity assign](/cli/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 命令为虚拟机创建系统分配的标识：
+使用 [az vm identity assign](/cli/vm/identity#az-vm-identity-assign) 命令为虚拟机创建系统分配的标识：
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -92,7 +92,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 ```
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>为 VM 标识分配权限
-使用 [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令将以前创建的标识权限分配给密钥保管库：
+使用 [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令将以前创建的标识权限分配给密钥保管库：
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -146,7 +146,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-添加以下行，更新 URI 以反映密钥保管库的 `vaultUri`。 下面的代码将 [DefaultAzureCredential()](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) 用于向密钥保管库进行身份验证，该类使用来自应用程序托管标识的令牌进行身份验证。 它还在密钥保管库受到限制的情况下将指数退避用于重试。
+添加以下行，更新 URI 以反映密钥保管库的 `vaultUri`。 下面的代码将 [DefaultAzureCredential()](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 用于向密钥保管库进行身份验证，该类使用来自应用程序托管标识的令牌进行身份验证。 它还在密钥保管库受到限制的情况下将指数退避用于重试。
 
 ```csharp
   class Program

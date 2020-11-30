@@ -6,17 +6,17 @@ ms.service: virtual-wan
 ms.topic: include
 origin.date: 10/09/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: addf9f1e4b1c6287b8db13c7e9dec21a5c98914e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d4650804cba1adc9aad03b0a0bb3dd322fe3425c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329574"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979249"
 ---
 你可以查看本部分中的链接，了解有关合作伙伴提供的服务的更多信息。 如果你的分支设备合作伙伴未在下面的部分中列出，请让你的分支设备提供商联系我们。 他们可以通过向 azurevirtualwan@microsoft.com 发送电子邮件来与我们联系。
 
@@ -33,7 +33,7 @@ ms.locfileid: "94329574"
 |[Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate 和 Azure 虚拟 WAN 集成部署指南](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf)、[路由方案博客 ](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba](https://www.arubanetworks.com/microsoft-vwan/)|[Aruba SD-WAN 和 Azure 虚拟 WAN 部署指南](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 |[NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry 支持中心：Azure 虚拟 WAN](https://support.netfoundry.io/hc/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
-|[Nuage/Nokia（仅通过英国电信提供）](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage 和 Azure 虚拟 WAN 部署指南](https://onestore.nokia.com/asset/210073)|
+|[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage 和 Azure 虚拟 WAN 部署指南](https://onestore.nokia.com/asset/210073)|
 |[开放式系统](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[开放式系统和 Azure 虚拟 WAN 部署指南](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |

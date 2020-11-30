@@ -37,7 +37,7 @@
 - name: 示例
   items:
     - name: 代码示例
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%2Binstance'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%2binstance'
     - name: 资源管理器模板
       href: container-instances-samples-rm.md
 - name: 概念
@@ -66,7 +66,7 @@
           href: container-instances-vnet.md
         - name: 从 Azure 容器注册表部署
           href: container-instances-using-azure-container-registry.md
-        - name: 使用 GitHub Actions 进行部署（预览版）
+        - name: 使用 GitHub 操作进行部署
           href: container-instances-github-action.md
         - name: 加密部署数据
           href: container-instances-encrypt-data.md
@@ -98,7 +98,7 @@
       items:
         - name: Azure 文件共享
           href: container-instances-volume-azure-files.md
-        - name: 机密
+        - name: Secret
           href: container-instances-volume-secret.md
         - name: 空目录
           href: container-instances-volume-emptydir.md
@@ -122,7 +122,7 @@
           href: container-instances-get-logs.md
         - name: 使用 Azure Monitor 日志进行日志记录
           href: container-instances-log-analytics.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 排查常见问题
           href: container-instances-troubleshooting.md

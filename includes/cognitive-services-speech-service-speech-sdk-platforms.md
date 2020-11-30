@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 03/26/2020
 ms.date: 04/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: d0931092bff1b9f4c9999519448132b8039f80d4
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 674831496fd0216d076e289a2232e020181bb047
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126955"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301142"
 ---
 | 编程语言 | 平台                                                                           | SDK 参考              |
 |----------------------|------------------------------------------------------------------------------------|----------------------------|
@@ -25,9 +25,9 @@ ms.locfileid: "82126955"
 
 <sup>2 Java 语音 SDK 也作为[语音设备 SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md) 的一部分提供。</sup>
 
-[net-sdk]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet
+[net-sdk]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech
 [cpp-sdk]: https://docs.microsoft.com/cpp/cognitive-services/speech/
-[javasdk]: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable
-[ecmasdk]: https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/?view=azure-node-latest
+[javasdk]: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech
+[ecmasdk]: https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/
 [obj-sdk]: https://docs.microsoft.com/objectivec/cognitive-services/speech/
-[pyt-sdk]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/?view=azure-python
+[pyt-sdk]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/

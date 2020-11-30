@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 09/06/2018
-ms.date: 10/01/2018
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: ad080fa2b2b43816f8d167e41a3fed3c386eb5ff
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 46289d2338ba5fdd1c5bd90c2fcc09c80c68ec69
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63820986"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "95970771"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>安装用于 P2S 证书身份验证连接的客户端证书
 

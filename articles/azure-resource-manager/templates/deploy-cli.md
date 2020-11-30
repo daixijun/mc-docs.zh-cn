@@ -2,18 +2,18 @@
 title: 使用 Azure CLI 和模板部署资源
 description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 ms.topic: conceptual
-origin.date: 09/08/2020
+origin.date: 10/22/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/23/2020
 ms.testscope: yes|no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7db863ee8d0bed91095b6b2a666aa6358ece0ee2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c90e09b6c6fb5d45021e90154f0d172ade9417d9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970790"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>通过 ARM 模板和 Azure CLI 来部署资源
 
@@ -29,17 +29,15 @@ ms.locfileid: "91937528"
 
 ## <a name="deployment-scope"></a>部署范围
 
-可将部署目标设定为资源组、订阅、管理组或租户。 大多数情况下，我们会将以资源组指定为部署目标。 若要在更大范围内应用策略和角色分配，请使用订阅、管理组或租户部署。 部署到订阅时，可以创建资源组并将资源部署到该资源组。
+可将部署目标设定为资源组、订阅、管理组或租户。 根据部署范围使用不同的命令。
 
-根据部署范围使用不同的命令。
-
-* 若要部署到资源组****，请使用 [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_group_create)：
+* 若要部署到资源组，请使用 [az deployment group create](https://docs.azure.cn/cli/deployment/group#az_deployment_group_create)：
 
     ```azurecli
     az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
     ```
 
-* 若要部署到订阅****，请使用 [az deployment sub create](https://docs.microsoft.com/cli/azure/deployment/sub#az_deployment_sub_create)：
+* 若要部署到订阅，请使用 [az deployment sub create](https://docs.azure.cn/cli/deployment/sub#az_deployment_sub_create)：
 
     ```azurecli
     az deployment sub create --location <location> --template-file <path-to-template>
@@ -47,7 +45,7 @@ ms.locfileid: "91937528"
 
     有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
-* 若要部署到管理组****，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg#az_deployment_mg_create)：
+* 若要部署到管理组，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg#az_deployment_mg_create)：
 
     ```azurecli
     az deployment mg create --location <location> --template-file <path-to-template>
@@ -55,7 +53,7 @@ ms.locfileid: "91937528"
 
     有关管理组级部署的详细信息，请参阅[在管理组级别创建资源](deploy-to-management-group.md)。
 
-* 若要部署到租户****，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant#az_deployment_tenant_create)：
+* 若要部署到租户，请使用 [az deployment tenant create](https://docs.azure.cn/cli/deployment/tenant#az_deployment_tenant_create)：
 
     ```azurecli
     az deployment tenant create --location <location> --template-file <path-to-template>
@@ -63,26 +61,25 @@ ms.locfileid: "91937528"
 
     有关租户级别部署的详细信息，请参阅[在租户级别创建资源](deploy-to-tenant.md)。
 
-本文中的示例使用资源组部署。
+对于每一个范围，部署模板的用户必须具有创建资源所必需的权限。
 
 ## <a name="deploy-local-template"></a>部署本地模板
 
-将资源部署到 Azure 时，执行以下操作：
+可以部署本地计算机中的模板，也可以部署存储在外部的模板。 本节介绍如何部署本地模板。
 
-1. 登录到 Azure 帐户
-2. 创建用作已部署资源的容器的资源组。 资源组名称只能包含字母数字字符、句点、下划线、连字符和括号。 它最多可以包含 90 个字符。 它不能以句点结尾。
-3. 将定义了要创建的资源的模板部署到资源组。
-
-模板可以包括可用于自定义部署的参数。 例如，可以提供为特定环境（如开发环境、测试环境和生产环境）定制的值。 示例模板定义了存储帐户 SKU 的参数。
-
-以下示例将创建一个资源组，并从本地计算机部署模板：
+如果要部署到不存在的资源组，请创建该资源组。 资源组名称只能包含字母数字字符、句点、下划线、连字符和括号。 它最多可以包含 90 个字符。 名称不能以句点结尾。
 
 ```azurecli
 az group create --name ExampleGroup --location "China North"
+```
+
+若要部署本地模板，请在部署命令中使用 `--template-file` 参数。 下面的示例还显示了如何设置来自该模板的参数值。
+
+```azurecli
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -92,9 +89,36 @@ az deployment group create \
 "provisioningState": "Succeeded",
 ```
 
+## <a name="deploy-remote-template"></a>部署远程模板
+
+你可能更愿意将 ARM 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
+
+如果要部署到不存在的资源组，请创建该资源组。 资源组名称只能包含字母数字字符、句点、下划线、连字符和括号。 它最多可以包含 90 个字符。 名称不能以句点结尾。
+
+```azurecli
+az group create --name ExampleGroup --location "China North"
+```
+
+若要部署外部模板，请使用 `template-uri` 参数。
+
+[!INCLUDE [azure-resource-manager-update-templateurl-parameter-china](../../../includes/azure-resource-manager-update-templateurl-parameter-china.md)]
+
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。
+
+<!--Not Available on  However, if you want to manage access to the template, consider using template specs-->
+<!--Not Available on  [template specs](#deploy-template-spec)-->
+
 ## <a name="deployment-name"></a>部署名称
 
-在前面的示例中，你已将部署命名为 `ExampleDeployment`。 如果没有为部署提供名称，将使用模板文件的名称。 例如，如果部署一个名为 `azuredeploy.json` 的模板，但未指定部署名称，则该部署将命名为 `azuredeploy`。
+部署 ARM 模板时，可以为部署指定名称。 此名称可以帮助你从部署历史记录中检索该部署。 如果没有为部署提供名称，将使用模板文件的名称。 例如，如果部署一个名为 `azuredeploy.json` 的模板，但未指定部署名称，则该部署将命名为 `azuredeploy`。
 
 每次运行部署时，一个包含部署名称的条目会添加到资源组的部署历史记录中。 如果运行另一个部署并为其指定了相同的名称，则会将先前的条目替换为当前部署。 如果要在部署历史记录中保持唯一条目，请为每个部署指定唯一名称。
 
@@ -118,42 +142,12 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 
 为避免与并发部署冲突并确保部署历史记录中的条目是唯一的，请为每个部署指定唯一的名称。
 
-## <a name="deploy-remote-template"></a>部署远程模板
-
-你可能更愿意将 ARM 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
-
-若要部署外部模板，请使用 **template-uri** 参数。 使用示例中的 URI 从 GitHub 部署示例模板。
-
-```azurecli
-az group create --name ExampleGroup --location "China North"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](secure-template-with-sas-token.md)。
-
 <!--Not Available on ## Deploy template spec-->
 <!--Private Preview till on 09/22/2020-->
 
 ## <a name="preview-changes"></a>预览更改
 
 在部署模板之前，可以预览模板将对环境做出的更改。 使用[假设操作](template-deploy-what-if.md)验证模板是否进行了预期的更改。 模拟操作还验证模板是否有错误。
-
-
-<!--MOONCAKE: Not Available on Cloud Shell and corresponding code -->
-<!--Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]-->
-
-在本地 Shell 中使用以下命令：
-
-```azurecli
-az group create --name examplegroup --location "China East"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## <a name="parameters"></a>parameters
 
@@ -258,6 +252,5 @@ az deployment group create \
 - 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
 - 若要了解如何在模板中定义参数，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 - 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](common-deployment-errors.md)。
-- 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](secure-template-with-sas-token.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

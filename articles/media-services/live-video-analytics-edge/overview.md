@@ -3,13 +3,13 @@ title: 什么是 IoT Edge 上的实时视频分析 - Azure
 description: 本主题概述了 IoT Edge 上的实时视频分析。 该平台提供了可用于增强 IoT 解决方案的功能。 例如，捕获、记录、分析直播视频并将结果（视频和/或视频分析）发布到 Azure 服务。
 ms.topic: overview
 origin.date: 05/27/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: a25f3b9469d7699e582bf8e66a6889952536c00e
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.date: 11/30/2020
+ms.openlocfilehash: 45a8bff72097eecf2623dbf2d29d62371b0453d1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162774"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300891"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>什么是 IoT Edge 上的实时视频分析？ （预览版）
 
@@ -27,7 +27,10 @@ IoT Edge 上的实时视频分析被设计成可扩展平台，由此可连接�
 
 ## <a name="supported-environments"></a>支持的环境
 
-支持 Linux AMD64 和 X64 环境。
+支持 Linux x86-64 和 ARM64 环境。
+> [!NOTE]
+> 内部版本 `1.0.4` 及更高版本支持 ARM64 设备。
+> 支持在 ARM64 设备上运行 Azure IoT Edge 运行时，该支持为公共预览版。
 
 ## <a name="get-started"></a>入门
 

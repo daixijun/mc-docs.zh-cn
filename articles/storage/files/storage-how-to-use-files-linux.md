@@ -8,12 +8,12 @@ origin.date: 10/19/2019
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: fe24516048049fe86476aea91ebfeeaf8c72a012
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 825317f65121d681d28f599637a254ea5862a071
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552862"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153043"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [SMB 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
@@ -327,5 +327,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 请参阅以下链接，获取有关 Azure 文件的更多信息：
 
 * [规划 Azure 文件部署](storage-files-planning.md)
-* [常见问题](../storage-files-faq.md)
+* [常见问题](./storage-files-faq.md)
 * [故障排除](storage-troubleshoot-linux-file-connection-problems.md)

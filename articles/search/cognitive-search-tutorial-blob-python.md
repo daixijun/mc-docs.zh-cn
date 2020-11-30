@@ -8,15 +8,15 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-origin.date: 06/12/2020
-ms.date: 09/10/2020
+origin.date: 09/25/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 75b2783d41818529c755d620f8ea527b06b582e3
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e2839d60d751eda65944e3417d4dcd41e0f2da37
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021603"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300055"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>教程：使用 Python 和 AI 从 Azure Blob 生成可搜索的内容
 
@@ -60,7 +60,7 @@ ms.locfileid: "90021603"
 
 1. 搜索“存储帐户”，并选择“Microsoft 的存储帐户”产品/服务。
 
-   ![创建存储帐户](media/cognitive-search-tutorial-blob/storage-account.png "创建存储帐户")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="创建存储帐户" border="false":::
 
 1. 在“基本信息”选项卡中，必须填写以下项。 对于其他任何字段，请接受默认设置。
 
@@ -82,7 +82,7 @@ ms.locfileid: "90021603"
 
 1. 选择“cog-search-demo”，然后单击“上传”打开下载文件所保存到的文件夹。 选择所有的非图像文件。 应有 7 个文件。 单击“确定”以上传。
 
-   ![上传示例文件](media/cognitive-search-tutorial-blob/sample-files.png "上传示例文件")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="上传示例文件" border="false":::
 
 1. 在退出 Azure 存储之前获取一个连接字符串，以便可以在 Azure 认知搜索中构建连接。 
 
@@ -118,7 +118,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
 
    此外，获取查询密钥。 最好使用只读权限发出查询请求。
 
-   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="获取服务名称以及管理密钥和查询密钥" border="false":::
 
 所有请求要求在发送到服务的每个请求的标头中指定 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -191,7 +191,7 @@ print(r.status_code)
 
 在 Azure 门户中，在搜索服务仪表板页面上，验证 cogsrch-py-datasource 是否出现在“数据源”列表中。 单击“刷新”更新页面。
 
-![门户中的“数据源”磁贴](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "门户中的“数据源”磁贴")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="门户中的“数据源”磁贴" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>步骤 2：创建技能集
 
@@ -304,7 +304,7 @@ print(r.status_code)
 
 技能集的图形表示形式如下所示。
 
-![了解技能组](media/cognitive-search-tutorial-blob/skillset.png "了解技能组")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="了解技能组" border="false":::
 
 输出可以映射到索引、用作下游技能的输入，或者既映射到索引又用作输入（在语言代码中就是这样）。 在索引中，语言代码可用于筛选。 文本分析技能使用语言代码作为输入来告知有关断字的语言规则。
 
@@ -316,7 +316,7 @@ print(r.status_code)
 
 本演练使用以下字段和字段类型：
 
-| field-names: | id         | content   | languageCode | keyPhrases         | 组织     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | 组织     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -473,11 +473,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 在响应中，监视 `"lastResult"` 的 `"status"` 和 `"endTime"` 值。 定期运行脚本以检查状态。 索引器完成后，状态将设置为 success ，将指定 endTime，响应将包括在扩充期间发生的任何错误和警告。
 
-![已创建索引器](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "已创建索引器")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="已创建索引器" border="false":::
 
 处理某些源文件和技能的组合时经常会出现警告，这并不总是意味着出现了问题。 许多警告是良性的。 例如，如果为不包含文本的 JPEG 文件编制索引，则会看到此屏幕截图中所示的警告。
 
-![索引器警告示例](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "索引器警告示例")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="索引器警告示例" border="false":::
 
 ## <a name="5---search"></a>5 - 搜索
 
@@ -494,7 +494,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 最终结果如以下示例所示。 屏幕截图仅显示响应的一部分。
 
-![查询所有字段的索引](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "查询所有字段的索引")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="查询所有字段的索引" border="false":::
 
 输出是索引架构，其中包含每个字段的名称、类型和特性。
 
@@ -509,7 +509,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 最终结果如以下示例所示。 屏幕截图仅显示响应的一部分。
 
-![查询组织内容的索引](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "查询索引以返回组织内容")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="查询组织内容的索引" border="false":::
 
 对其他字段重复此操作，在本练习中这些字段是 `content`、`languageCode`、`keyPhrases` 和 `organizations`。 可以使用逗号分隔列表通过 `$select` 返回多个字段。
 
@@ -523,7 +523,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 可以使用门户来删除索引、索引器、数据源和技能集。 删除索引器时，可以根据需要选择同时删除索引、技能组和数据源。
 
-![删除搜索对象](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "在门户中删除搜索对象")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="在门户中删除搜索对象" border="false":::
 
 还可以使用脚本删除它们。 以下脚本演示如何删除技能集。 
 

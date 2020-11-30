@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 03/11/2020
 ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: 614aa7e8572068e8301912b4386b75b60a28692f
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 7c0366aec7ed550a054ffdbea583a3e761e4fbf4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678510"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300499"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -85,7 +85,7 @@ ms.locfileid: "90678510"
 
 #### <a name="net"></a>.NET
 
-[适用于 Key Vault 的 .NET API 参考](https://docs.microsoft.com/dotnet/api/overview/key-vault?view=azure-dotnet )。
+[适用于 Key Vault 的 .NET API 参考](https://docs.microsoft.com/dotnet/api/overview/key-vault )。
 
 #### <a name="java"></a>Java
 
@@ -95,15 +95,15 @@ ms.locfileid: "90678510"
 
 在 Node.js 中，Key Vault 管理 API 和 Key Vault 对象 API 相互独立。 下面的概述文章介绍了如何访问这两个 API。 
 
-[用于 Node.js 的 Azure Key Vault 模块](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
+[用于 Node.js 的 Azure Key Vault 模块](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index)
 
 #### <a name="python"></a>Python
 
-[用于 Python 的 Azure Key Vault 库](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
+[用于 Python 的 Azure Key Vault 库](https://docs.microsoft.com/python/api/overview/azure/key-vault-index)
 
 #### <a name="azure-cli"></a>Azure CLI
 
-[适用于 Key Vault 的 Azure CLI](/cli/keyvault?view=azure-cli-latest)
+[适用于 Key Vault 的 Azure CLI](/cli/keyvault)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 

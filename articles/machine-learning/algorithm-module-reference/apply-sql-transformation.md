@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8db2a2a87b6dfefd39edf4e922d20e43221b863a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 96a459ceef02e8f092676eb3ecefd3d54a190f09
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118480"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978064"
 ---
 # <a name="apply-sql-transformation"></a>应用 SQL 转换
 
@@ -29,13 +29,28 @@ ms.locfileid: "92118480"
 -   执行 SQL 查询语句，筛选或更改数据，并以数据表的形式返回查询结果。  
 
 > [!IMPORTANT]
-> 此模块中使用的 SQL 引擎是 SQLite  。 有关 SQLite 语法的详细信息，请参阅 [SQL as Understood by SQLite](https://www.sqlite.org/index.html)。  
+> 此模块中使用的 SQL 引擎是 SQLite  。 有关 SQLite 语法的详细信息，请参阅 [SQL as Understood by SQLite](https://www.sqlite.org/index.html)。
+> 此模块会将数据传输到内存 DB 中的 SQLite，因此模块执行需要更多内存，并且可能会遇到 `Out of memory` 错误。 确保计算机具有足够的 RAM。
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>如何配置应用 SQL 转换  
 
 该模块可将最多三个数据集用作输入。 引用连接到每个输入端口的数据集时，必须使用名称 `t1`、`t2` 和 `t3`。 表编号指示输入端口的索引。  
+
+下面是演示如何联接两个表的示例代码。 t1 和 t2 是连接到“应用 SQL 转换”左侧和中间输入端口的两个数据集：
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
-剩余参数是使用 SQLite 语法的 SQL 查询。 在“SQL 脚本”文本框中键入多行时，请使用分号终止每条语句  。 否则，换行符会转换为空格。  
+剩余参数是使用 SQLite 语法的 SQL 查询。 在“SQL 脚本”文本框中键入多行时，请使用分号终止每条语句。 否则，换行符会转换为空格。  
 
 此模块支持 SQLite 语法的所有标准语句。 如需了解不支持的语句列表，请参阅[技术说明](#technical-notes)部分。
 

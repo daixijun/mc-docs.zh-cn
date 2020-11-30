@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 04/02/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: 5f34794cea2d3320624bb4f9261c2a2233f4c502
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: e7cf39ab75d2955fd0a9349af2057de572fbc255
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715757"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978113"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>使用 Azure 流分析的地理围栏和地理空间聚合方案
 
@@ -116,7 +116,8 @@ ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofen
 GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
 ```
 
-此查询每隔一分钟输出该城市中每个区域在过去 15 分钟的请求计数。 可以在 Power BI 仪表板中轻松显示此信息，或者通过与 Azure Functions 等服务的集成，以短信的形式将其广播给所有司机。
+此查询每隔一分钟输出该城市中每个区域在过去 15 分钟的请求计数。 可以通过与 Azure 函数等服务的集成，以短信的形式将其广播给所有司机。
+<!--Not available in MC: power bi-->
 
 下图演示了该查询在 Power BI 仪表板中的输出。 
 

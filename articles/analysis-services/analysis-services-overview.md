@@ -3,20 +3,20 @@ title: 什么是 Azure Analysis Services | Azure
 description: 了解 Azure Analysis Services，它是一种可在云中提供企业级数据模型的完全托管平台即服务 (PaaS)。
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 09/08/2020
+origin.date: 10/19/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 939c0861d7e5a7b224e95b06d32bae7664e5d7c6
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 5442bed6f90795bbd27a30d67e672a39f2e92453
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470473"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024480"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -24,7 +24,7 @@ ms.locfileid: "92470473"
 
 Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在云中提供企业级的数据模型。 使用高级糅合和建模功能，可以在单个受信任的表格语义数据模型中合并多个数据源中的数据、定义指标以及保护数据。 数据模型可让用户更快速轻松地使用 Power BI 和 Excel 等工具执行即席数据分析。
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="Azure Analysis Services":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="数据源":::
 
 <!-- Not Available VIDEO on [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)-->
 
@@ -165,7 +165,7 @@ Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/analy
 
 通过数据库角色向查询数据的非管理最终用户授予访问权限。 数据库角色作为数据库中的单独对象创建，并且仅适用于创建该角色的数据库。 数据库角色按（数据库）“管理员”、“读取”与“读取和处理”权限来定义。 使用 SSMS 或 PowerShell 添加用户和组帐户。
 
-### <a name="row-level-security"></a>行级安全性
+### <a name="row-level-security"></a>行级别安全性
 
 所有兼容级别的表格模型都支持行级安全性。 行级安全性的定义方式如下：在模型中使用 DAX 表达式，这些表达式可在表中定义行，以及在用户可查询的相关表的许多方向定义任何行。 为“读取”与“读取和处理”权限定义使用 DAX 表达式的行筛选器。 
 
@@ -184,7 +184,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ## <a name="use-the-tools-you-already-know"></a>使用熟悉的工具
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-dev-tools.png" alt-text="Azure Analysis Services":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-dev-tools.png" alt-text="BI 开发人员工具":::
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -210,7 +210,7 @@ Analysis Services 有一个生机勃勃的开发人员社区，他们会创建�
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-clients.png" alt-text="Azure Analysis Services":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-clients.png" alt-text="数据可视化":::
 
 利用新式的数据浏览和可视化工具（例如 Power BI、Excel、Reporting Services 和第三方工具），用户可以通过交互性强且视觉效果丰富的方式来了解模型数据。 
 
@@ -224,9 +224,11 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 本部分列出了特定于 Azure Analysis Services 的文档。 使用浏览器屏幕左侧的目录可查找文章。 
 
-由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](/analysis-services/?view=azure-analysis-services-current)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
+由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="Azure Analysis Services":::
+<!--CORRECT ON https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current-->
+
+:::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="分享的文档":::
 
 ### <a name="contribute"></a>欢迎供稿！
 

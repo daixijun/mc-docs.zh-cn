@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 3adfe2aa6c5100f506a28c0b9aae991d736362be
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 788c0bac87f5b9456af229f030b39e8590f4b1cd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106272"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978314"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习训练环境
 
@@ -57,8 +57,9 @@ ms.locfileid: "93106272"
 > * 检查对虚拟网络的订阅或资源组实施的安全策略或锁定是否限制了管理虚拟网络所需的权限。 如果你打算通过限制流量来保护虚拟网络，请为计算服务保持打开某些端口。 有关详细信息，请参阅[所需的端口](#mlcports)部分。
 > * 若要将多个计算实例或群集放入一个虚拟网络，可能需要请求提高一个或多个资源的配额。
 > * 如果工作区的一个或多个 Azure 存储帐户也在虚拟网络中受保护，它们必须与 Azure 机器学习计算实例或群集位于同一虚拟网络中。 
-> * 为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。 请确保网络允许到 *.instances.azureml.net 和 *.instances.azureml.ms 的 websocket 连接。
-
+> * 为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。 请确保网络允许到 *.instances.azureml.net 和 *.instances.azureml.ms 的 websocket 连接。 
+> * 在专用链接工作区中部署计算实例时，只能从虚拟网络内部访问。 如果使用自定义 DNS 或主机文件，请为 `<instance-name>.<region>.instances.azureml.ms` 添加一个条目，该条目具有工作区专用终结点的专用 IP 地址。 有关详细信息，请参阅[自定义 DNS](./how-to-custom-dns.md) 一文。
+    
 > [!TIP]
 > 机器学习计算实例或群集自动在包含虚拟网络的资源组中分配更多网络资源。 对于每个计算实例或群集，此服务分配以下资源：
 > 
@@ -107,9 +108,9 @@ Batch 服务在附加到 VM 的网络接口 (NIC) 级别添加网络安全组 (N
 
 - 使用 NSG 规则来拒绝出站 Internet 连接。
 
-- 对于 __计算实例__ 或 __计算群集__ ，请将出站流量限制为以下各项：
-   - Azure 存储 - 使用 __服务标记__ __Storage.RegionName__ 。 其中 `{RegionName}` 是 Azure 区域的名称。
-   - Azure 容器注册表 - 使用 __服务标记__ __AzureContainerRegistry.RegionName__ 。 其中 `{RegionName}` 是 Azure 区域的名称。
+- 对于 __计算实例__ 或 __计算群集__，请将出站流量限制为以下各项：
+   - Azure 存储 - 使用 __服务标记__ __Storage.RegionName__。 其中 `{RegionName}` 是 Azure 区域的名称。
+   - Azure 容器注册表 - 使用 __服务标记__ __AzureContainerRegistry.RegionName__。 其中 `{RegionName}` 是 Azure 区域的名称。
    - Azure 机器学习，通过使用服务标记 AzureMachineLearning
    - Azure 资源管理器，通过使用服务标记 AzureResourceManager
    - Azure Active Directory - 使用 __服务标记__ __AzureActiveDirectory__
@@ -160,7 +161,7 @@ Batch 服务在附加到 VM 的网络接口 (NIC) 级别添加网络安全组 (N
 
     * 下载 [Azure IP 范围和服务标记](https://www.microsoft.com/download/details.aspx?id=56519)，并在文件中搜索 `BatchNodeManagement.<region>` 和 `AzureMachineLearning.<region>`（其中 `<region>` 是你的 Azure 区域）。
 
-    * 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 下载信息。 以下示例下载 IP 地址信息，并筛选出“中国东部 2”区域的信息：
+    * 使用 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest) 下载信息。 以下示例下载 IP 地址信息，并筛选出“中国东部 2”区域的信息：
 
         ```azurecli
         az network list-service-tags -l "China East 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='chinaeast2']"
@@ -276,7 +277,7 @@ except ComputeTargetException:
 使用 Azure 门户或 Azure CLI 创建 VM 或 HDInsight 群集，然后将群集置于 Azure 虚拟网络中。 有关详细信息，请参阅以下文章：
 * [为 Linux VM 创建和管理 Azure 虚拟网络](/virtual-machines/linux/tutorial-virtual-network)
 
-* [使用 Azure 虚拟网络扩展 HDInsight](/hdinsight/hdinsight-extend-hadoop-virtual-network)
+* [使用 Azure 虚拟网络扩展 HDInsight](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 
 ### <a name="configure-network-ports"></a>配置网络端口 
 
@@ -298,7 +299,7 @@ except ComputeTargetException:
 
 1. 在“操作”下，选择“允许”。 
 
-保留网络安全组的默认出站规则。 有关详细信息，请参阅[安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的“默认安全规则”。
+保留网络安全组的默认出站规则。 有关详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md#default-security-rules)中的“默认安全规则”。
 
 如果你不想要使用默认出站规则，同时想要限制虚拟网络的出站访问，请参阅[限制来自虚拟网络的出站连接](#limiting-outbound-from-vnet)部分。
 

@@ -1,16 +1,16 @@
 ---
-title: 使用托管服务标识进行事件传送
+title: 事件传递、托管服务标识和专用链接
 description: 本文介绍如何为 Azure 事件网格主题启用托管服务标识。 用于将事件转发到受支持的目标。
 ms.topic: how-to
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/10/2020
-ms.openlocfilehash: 3e85eeb134ecb25a4fb0dfdf1b3ab9162092f9df
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.date: 11/18/2020
+ms.openlocfilehash: 231803b91ee2b5004cf00ee547ef460fd98debf9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128379"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977812"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>使用托管标识进行事件传递
 本文介绍了如何为 Azure 事件网格主题或域启用[托管服务标识](../active-directory/managed-identities-azure-resources/overview.md)。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
@@ -280,8 +280,6 @@ az eventgrid event-subscription create
     --deadletter-identity systemassigned 
     -n $sa_esname 
 ```
-
-
 
 ## <a name="next-steps"></a>后续步骤
 有关托管服务标识的详细信息，请参阅[什么是 Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。 

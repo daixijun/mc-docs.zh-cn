@@ -92,8 +92,6 @@
               href: container-registry-private-link.md
             - name: 配置公共注册表访问
               href: container-registry-access-selected-networks.md
-            - name: 使用服务终结点限制访问（预览版）
-              href: container-registry-vnet.md
             - name: 使用客户管理的密钥加密
               href: container-registry-customer-managed-keys.md
             - name: 在防火墙后访问

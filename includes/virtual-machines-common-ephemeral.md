@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f6e5005b9e621d04c0e4bb33cd7404693730f0b6
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: caf46c01cef7edfcbcbebddd0ebeb208a0688ab2
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427544"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301048"
 ---
 <!--Verify successfully-->
 
@@ -72,7 +72,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-若要将临时磁盘用于 CLI VM 部署，请将 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 中的 `--ephemeral-os-disk` 参数设置为 `true`，将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+若要将临时磁盘用于 CLI VM 部署，请将 [az vm create](https://docs.azure.cn/cli/vm#az-vm-create) 中的 `--ephemeral-os-disk` 参数设置为 `true`，将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
 ```azurecli
 az vm create \
@@ -85,7 +85,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss#az-vmss-create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
 <!--Verify successfully on Portal-->
 

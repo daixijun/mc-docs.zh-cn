@@ -5,12 +5,12 @@ origin.date: 06/02/2020
 ms.date: 06/02/2020
 ms.service: notification-hubs
 ms.topic: include
-ms.openlocfilehash: 55cb0bc83e6697ed9d1eb87c355c7b9d50837792
-ms.sourcegitcommit: 5656c18d7d2faa09329b1a15e352d1622e252d5f
+ms.openlocfilehash: 7c7bd5756fc353d8aee1eeb7663f844a5dc4a27b
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "89316492"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301019"
 ---
 ### <a name="create-a-web-project"></a>创建 Web 项目
 
@@ -261,7 +261,7 @@ ASP.NET Core 支持[依赖项注入 (DI)](https://docs.microsoft.com/aspnet/core
     ```
 
     > [!NOTE]
-    > 此类包含此方案所需的泛型和无提示通知的标记化通知有效负载。 有效负载在[安装](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet)外定义，以便无需通过服务更新现有安装即可进行试验。 以这种方式处理对安装的更改超出了本教程的范围。 对于生产环境，请考虑使用[自定义模板](https://docs.azure.cn/notification-hubs/notification-hubs-templates-cross-platform-push-messages)。
+    > 此类包含此方案所需的泛型和无提示通知的标记化通知有效负载。 有效负载在[安装](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)外定义，以便无需通过服务更新现有安装即可进行试验。 以这种方式处理对安装的更改超出了本教程的范围。 对于生产环境，请考虑使用[自定义模板](https://docs.azure.cn/notification-hubs/notification-hubs-templates-cross-platform-push-messages)。
 
 1. 选择“常规” > “空类”，输入 DeviceInstallation.cs 作为“名称”，然后单击“新建”添加以下实现  。
 

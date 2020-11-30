@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 2/22/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 1db1154809c7adeacb68c71f09589484c189a9ca
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3f944867ecf279c9e0bbc12628fd30c3071e0a80
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552535"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153098"
 ---
 # <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 若要创建 Azure 文件共享，需要回答有关你将如何使用它的三个问题：
@@ -34,7 +34,7 @@ ms.locfileid: "94552535"
 ## <a name="prerequisites"></a>先决条件
 - 本文假设已创建一个 Azure 订阅。 如果还没有订阅，则在开始前创建一个 [1 元人民币的试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
 - 如果你打算使用 Azure PowerShell，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。
-- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+- 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 Azure 文件共享将部署到存储帐户。存储帐户是代表存储共享池的顶级对象。 此存储池可用于部署多个文件共享。 
@@ -207,7 +207,7 @@ New-AzRmStorageShare `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-可以使用 [`az storage share-rm create`](/cli/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) 命令创建 Azure 文件共享。 以下 Azure CLI 命令假设你已根据前面“使用 Azure CLI 创建存储帐户”部分中的定义，设置了变量 `$resourceGroupName` 和 `$storageAccountName`。
+可以使用 [`az storage share-rm create`](/cli/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) 命令创建 Azure 文件共享。 以下 Azure CLI 命令假设你已根据前面“使用 Azure CLI 创建存储帐户”部分中的定义，设置了变量 `$resourceGroupName` 和 `$storageAccountName`。
 
 > [!Important]  
 > 对于高级文件共享，`--quota` 参数指的是文件共享的预配大小。 文件共享的预配大小是将要对你计费的数量，与使用情况无关。 标准文件共享按使用情况计费，而不是按预配大小计费。
@@ -226,7 +226,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> 文件共享的名称必须是全部小写。 有关为文件共享和文件命名的完整详细信息，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
+> 文件共享的名称必须是全部小写。 有关为文件共享和文件命名的完整详细信息，请参阅 [命名和引用共享、目录、文件和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 
 ## <a name="next-steps"></a>后续步骤
 - [规划 Azure 文件存储的部署](storage-files-planning.md)。 

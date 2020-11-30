@@ -4,16 +4,16 @@ description: 使用 Service Fabric 的定期备份和还原功能，来配置可
 ms.topic: article
 origin.date: 02/01/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 36dde68ce94217cb8990de6b4f6d96cf3de32159
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6e5a93443984f395dd47398fd9231e9108a0d3f5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328712"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978119"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>了解 Azure Service Fabric 中的定期备份配置
 
@@ -94,6 +94,7 @@ ms.locfileid: "94328712"
             "ContainerName": "BackupContainer"
         }
         ```
+
         > [!NOTE]
         > 备份还原服务不适用于 v1 Azure 存储
         >

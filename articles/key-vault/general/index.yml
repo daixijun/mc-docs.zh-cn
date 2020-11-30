@@ -12,12 +12,12 @@ metadata:
   manager: rkarlin
   origin.date: 09/19/2019
   ms.date: 09/16/2020
-  ms.openlocfilehash: 2a470470494be06f09c6268c5b1391cd4d392d46
-  ms.sourcegitcommit: a3f936c07cada0344f50d3b0ed1d5c8b6c815f3f
+  ms.openlocfilehash: 9c38fa280b0afc7f522489ac0dc3e304f5b978a0
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/18/2020
-  ms.locfileid: "90769732"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300487"
 landingContent:
 - title: 关于 Azure Key Vault
   linkLists:
@@ -70,13 +70,13 @@ landingContent:
     - text: Azure Key Vault 的客户端库
       url: client-libraries.md
     - text: .NET 客户端库
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/key-vault
     - text: Python 客户端库
-      url: https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python
+      url: https://docs.microsoft.com/python/api/overview/azure/key-vault-index
     - text: Java 客户端库
       url: https://azure.github.io/azure-sdk-for-java/keyvault.html
     - text: Node.js 客户端库
-      url: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

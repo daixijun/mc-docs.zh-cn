@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 origin.date: 06/13/2019
-ms.date: 04/13/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 21217881a48072750bcd2a6694218b8377059794
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 1eb8d7c786bdbf7f592fb7e44130afbf317b9c5c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414014"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300825"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>教程：使用媒体服务进行实时流式传输
 
 > [!NOTE]
 > 尽管本教程使用了 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 示例，但 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支持的 [SDK](media-services-apis-overview.md#sdks) 的常规步骤是相同的。
 
-在 Azure 媒体服务中，[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)负责处理实时传送视频流内容。 直播活动提供输入终结点（引入 URL），然后由你将该终结点提供给实时编码器。 直播活动从实时编码器接收实时输入流，并通过一个或多个[流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)使其可用于流式处理。 直播活动还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。 本教程演示如何使用 .NET Core 创建**直通**类型的直播活动。
+在 Azure 媒体服务中，[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)负责处理实时传送视频流内容。 直播活动提供输入终结点（引入 URL），然后由你将该终结点提供给实时编码器。 直播活动从实时编码器接收实时输入流，并通过一个或多个[流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)使其可用于流式处理。 直播活动还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。 本教程演示如何使用 .NET Core 创建 **直通** 类型的直播活动。
 
 本教程介绍如何：
 
@@ -96,7 +96,7 @@ private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAs
 
 ### <a name="create-a-live-event"></a>创建直播活动
 
-本部分介绍如何创建**直通**类型的实时事件（LiveEventEncodingType 设置为 None）。 有关实时事件的可用类型的详细信息，请参阅[实时事件类型](live-events-outputs-concept.md#live-event-types)。 
+本部分介绍如何创建 **直通** 类型的实时事件（LiveEventEncodingType 设置为 None）。 有关实时事件的可用类型的详细信息，请参阅[实时事件类型](live-events-outputs-concept.md#live-event-types)。 
  
 可能需要在创建直播活动时指定的一些事项包括：
 
@@ -260,7 +260,7 @@ StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(c
 if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
 {
     Console.WriteLine("Streaming Endpoint was Stopped, restarting now..");
-    await client.StreamingEndpoints.StartAsync (config.ResourceGroup, config.AccountName, streamingEndpointName);
+    await client.StreamingEndpoints.StartAsync(config.ResourceGroup, config.AccountName, streamingEndpointName);
 }
 ```
 

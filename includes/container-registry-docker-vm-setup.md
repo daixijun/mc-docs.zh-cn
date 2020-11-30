@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 05/07/2020
 ms.date: 09/29/2020
 ms.author: v-yeche
-ms.openlocfilehash: ee052c6970e0e42acfcfdb0100dd968e770c00d3
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: f01875c48b8e15522d63090c6cf5472ca5104810
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564262"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301054"
 ---
 <!--Verified successfully-->
 ## <a name="create-a-docker-enabled-virtual-machine"></a>创建启用了 Docker 的虚拟机
@@ -69,7 +69,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>安装 Azure CLI
 
-按照[使用 apt 安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt?view=azure-cli-latest) 中的步骤在 Ubuntu 虚拟机上安装 Azure CLI。 例如：
+按照[使用 apt 安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt) 中的步骤在 Ubuntu 虚拟机上安装 Azure CLI。 例如：
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -77,9 +77,9 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 退出 SSH 连接。
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-vm-create]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
+[az-group-create]: https://docs.azure.cn/cli/group
 
 <!-- Update_Description: new article about container registry docker vm setup -->
 <!--NEW.date: 06/08/2020-->

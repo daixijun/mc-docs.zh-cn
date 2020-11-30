@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 origin.date: 08/21/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 8d59c771c18bf8c00108b7f725a9e68149a89449
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: fbad71b88c690df58d5e6d2c89490efb15eb439f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020900"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300537"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>教程：从 Power Apps 查询认知搜索索引
 
@@ -32,7 +32,7 @@ ms.locfileid: "90020900"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Power Apps 帐户](http://make.powerapps.com)
+* [Power Apps 帐户](https://make.powerapps.com)
 
 * [Hotels-sample 索引](search-get-started-portal.md)
 
@@ -42,7 +42,7 @@ ms.locfileid: "90020900"
 
 Power Apps 中的连接器是一个数据源连接。 在此步骤中，你将创建一个自定义连接器，用以连接到云中的搜索索引。
 
-1. [登录](http://make.powerapps.com)到 Power Apps。
+1. [登录](https://make.powerapps.com)到 Power Apps。
 
 1. 在左侧，展开“数据” > “自定义连接器”。 
  

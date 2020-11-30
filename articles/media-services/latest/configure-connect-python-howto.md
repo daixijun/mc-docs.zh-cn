@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: devx-track-python
-ms.openlocfilehash: c8788dde599851498986fc93eeef2a7ce5b3191f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 6c55d19dedcf47af5ae26b2fc86c436bac9d2cb8
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245497"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300835"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>连接到媒体服务 v3 API - Python
 
@@ -108,4 +108,4 @@ pip3 install azure-mgmt-media==1.1.1
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [Python SDK](https://aka.ms/ams-v3-python-sdk)。
-- 查看媒体服务 [Python 参考](https://aka.ms/ams-v3-python-ref)文档。
+- 查看媒体服务 [Python 参考](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management)文档。

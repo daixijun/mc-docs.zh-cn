@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 10/02/2020
 ms.date: 11/20/2020
-ms.openlocfilehash: 25e93f1d719b587d29de4a68627ddfe8fdf3e1ca
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: 2e096a7da823cdb5dfb56f0dee770457eeccd19a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975216"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300652"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>快速入门：使用 ARM 模板部署 Azure SignalR 服务
 
@@ -23,7 +23,7 @@ ms.locfileid: "94975216"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 登录后，该模板将在 Azure 门户中打开。
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -206,7 +206,7 @@ ms.locfileid: "94975216"
 
 选择以下链接，在 Azure 门户中使用 ARM 模板部署 Azure SignalR 服务：
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="在 Azure 门户中使用 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 在“部署 Azure SignalR 服务”页面上：
 

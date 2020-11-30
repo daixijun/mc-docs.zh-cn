@@ -3,14 +3,14 @@ title: 在高级计划中创建函数应用 - Azure CLI
 description: 使用 Azure CLI 在 Azure 中的可缩放高级计划中创建函数应用
 ms.service: azure-functions
 ms.topic: sample
-ms.date: 09/25/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fd5c5ed340e481e1d61582894b4e85c36591a717
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: ca9a49210c03bf07d7dca28ecf788e5da1988869
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246961"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970742"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>在高级计划中创建函数应用 - Azure CLI
 
@@ -18,7 +18,9 @@ ms.locfileid: "91246961"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本文要求使用 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -67,7 +69,7 @@ az functionapp create \
 
 表中的每条命令均链接到特定于命令的文档。 此脚本使用以下命令：
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建 Azure 存储帐户。 |

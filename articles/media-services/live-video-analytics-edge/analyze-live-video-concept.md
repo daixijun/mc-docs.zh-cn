@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 6bf53ee4c98d85cd5d296f88931194757b423976
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: bcd7f378d6f4c7acf869d475f75b9866bf714bfb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245489"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300890"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>在不录制的情况下分析实时视频
 
@@ -44,7 +44,7 @@ ms.locfileid: "91245489"
 增强此示例的一种方法是，在抵达帧速率筛选器处理器节点之前使用动作检测器处理器。 这将减少推理服务上的负载，因为仅在视频中有运动活动时使用它。
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="基于通过外部推理模块实现的运动检测帧的实时视频分析":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="基于通过外部推理模块实现的运动检测帧的实时视频分析":::
 
 ## <a name="next-steps"></a>后续步骤
 

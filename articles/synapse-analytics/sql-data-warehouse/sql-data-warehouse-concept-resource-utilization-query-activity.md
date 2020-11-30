@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/09/2020
-ms.date: 08/10/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c3e41c145247b58e4e612437e0118b949bc75590
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: e951b535cd77d34cb7fc0aea3dd5e2bedf001288
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917292"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153005"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>监视 Azure Synapse Analytics 中的资源利用率和查询活动
 
@@ -54,7 +54,7 @@ Azure 门户中提供了以下可用于 Synapse SQL 的指标。 这些指标通
 
 为了让用户通过 T-SQL 以编程方式监视 Synapse SQL，该服务提供了一系列动态管理视图 (DMV)。 在主动排查和识别工作负荷的性能瓶颈时，这些视图非常有用。
 
-若要查看适用于 Synapse SQL 的 DMV 的列表，请参阅此[文档](./sql-data-warehouse-reference-tsql-system-views.md#synapse-sql-pool-dynamic-management-views-dmvs)。 
+若要查看适用于 Synapse SQL 的 DMV 的列表，请参阅此[文档](./sql-data-warehouse-reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs)。 
 
 ## <a name="metrics-and-diagnostics-logging"></a>指标和诊断日志记录 
 

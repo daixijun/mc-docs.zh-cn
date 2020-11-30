@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 2f41156f697318e786979a565002e36990e1a26c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5539fc5b41531566f9584f19aeb06ef695fe42c4
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106701"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306435"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>人脸服务静态数据的加密
 
@@ -29,6 +29,6 @@ ms.locfileid: "93106701"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [什么是 Azure Key Vault？](/key-vault/key-vault-overview)
+* [什么是 Azure Key Vault？](../../key-vault/general/overview.md)
 * [认知服务客户管理的密钥请求表单](https://aka.ms/cogsvc-cmk)
 

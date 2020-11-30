@@ -6,20 +6,20 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee1cccf88ce0fa5805462547850d96f056b41276
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: d2ceef0fe6c8815c2d61a2b5aedb293ea58f4da9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715732"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978108"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure 流分析查询的故障排除
 
 本文介绍开发流分析查询的常见问题以及如何进行故障排除。
 
-本文介绍了编写 Azure 流分析查询时遇到的常见问题，以及如何排查和更正查询问题。 许多故障排除步骤都需要为流分析作业启用资源日志。
+本文介绍了编写 Azure 流分析查询时遇到的常见问题，以及如何排查和更正查询问题。 许多故障排除步骤都需要为流分析作业启用资源日志。 如果没有启用资源日志，请参阅[使用资源日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md)。
 
 ## <a name="query-is-not-producing-expected-output"></a>查询未生成预期输出
 
@@ -27,7 +27,7 @@ ms.locfileid: "88715732"
 
     - 在 Azure 门户的“查询”选项卡上，选择“测试” 。 使用下载的示例数据[测试查询](stream-analytics-test-query.md)。 检查并尝试修正所有错误。   
 
-3.  如果使用了 [Timestamp By](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)，请验证事件的时间戳是否大于[作业开始时间](stream-analytics-time-handling.md)。
+3.  如果使用了 [Timestamp By](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)，请验证事件的时间戳是否大于[作业开始时间](./stream-analytics-time-handling.md)。
 
 4.  避免常犯的错误，例如：
     - 查询中的一个 [WHERE](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 子句筛选掉了所有事件，从而阻止生成输出。
@@ -36,14 +36,17 @@ ms.locfileid: "88715732"
     - 事件时间戳先于作业开始时间，事件被删除。
     - [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 条件不匹配。 如果没有匹配，则输出为零。
 
-5.  确保按预期方式配置事件排序策略。 转到“设置”，选择“[事件排序](stream-analytics-time-handling.md)” 。 使用“测试”按钮测试查询时，不会应用此策略。 这是在浏览器中测试与在生产中运行作业之间的一个差别。 
+5.  确保按预期方式配置事件排序策略。 转到“设置”，选择“[事件排序](./stream-analytics-time-handling.md)” 。 使用“测试”按钮测试查询时，不会应用此策略。 这是在浏览器中测试与在生产中运行作业之间的一个差别。 
 
 6. 使用活动和资源日志进行调试：
-    - 使用[审核日志](../azure-resource-manager/resource-group-audit.md)，并进行筛选来发现和调试错误。
+    - 使用[审核日志](../azure-resource-manager/management/view-activity-logs.md)，并进行筛选来发现和调试错误。
+    - 使用[作业资源日志](stream-analytics-job-diagnostic-logs.md)来发现和调试错误。
 
 ## <a name="resource-utilization-is-high"></a>资源利用率高
 
 确保利用 Azure 流分析中的并行化。 可以学习通过配置输入分区和调整分析查询定义来[使用查询并行化对流分析作业进行缩放](stream-analytics-parallelization.md)。
+
+如果资源利用率始终超过 80%，则水印延迟增加，积压事件的数量增加，请考虑增加流单元。 高利用率指示作业使用接近分配的最大资源。
 
 ## <a name="debug-queries-progressively"></a>逐步调试查询
 
@@ -105,5 +108,5 @@ ms.locfileid: "88715732"
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

@@ -3,15 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-js
-ms.openlocfilehash: 962cbdb433a1d93000e0f4bf3bab24ac12172c50
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 215d90c7268f2a072063edf98a29de3bc9347089
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499060"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306595"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -55,7 +55,7 @@ var endpoint = process.env[endpoint_var];
 使用通过请求模块提供的 `request()` 方法，可以以 `options` 对象的形式传递 HTTP 方法、URL、请求参数、标头和 JSON 正文。 在此代码片段中，我们将配置请求：
 
 >[!NOTE]
-> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：断句](/cognitive-services/translator/reference/v3-0-break-sentence)。
+> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：断句](../reference/v3-0-break-sentence.md)。
 
 ```javascript
 let options = {
@@ -81,7 +81,7 @@ let options = {
 
 如果使用的是认知服务多服务订阅，则还必须在请求标头中包括 `Ocp-Apim-Subscription-Region`。
 
-有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+有关详细信息，请参阅[身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>发出请求并输出响应
 
@@ -129,4 +129,5 @@ node sentence-length.js
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

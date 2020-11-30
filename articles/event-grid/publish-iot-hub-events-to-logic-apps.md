@@ -6,15 +6,15 @@ author: Johnnytechn
 ms.service: iot-hub
 ms.topic: tutorial
 origin.date: 11/21/2019
-ms.date: 10/10/2020
+ms.date: 11/18/2020
 ms.author: v-johya
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8671cd3c74b5c7e8d08ce3efc570f43e226690a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: a87901b55031fc798520ecc3800be593e357199b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128322"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977719"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>教程：使用事件网格和逻辑应用发送有关 Azure IoT 中心事件的电子邮件通知
 
@@ -22,22 +22,16 @@ ms.locfileid: "92128322"
 
 本文逐步讲解一个使用 IoT 中心和事件网格的示例配置。 在本文末尾，我们将设置一个 Azure 逻辑应用，使其在每次将设备连接到 IoT 中心或与其断开连接时，都会发送一封通知电子邮件。 事件网格可用于及时通知关键设备断开连接。 指标和诊断可能需要几分钟（即 20 分钟或更长时间 -- 尽管我们不想给它加数字）才会在日志/警报中显示。 对于关键基础结构，这可能是不可接受的。
 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+
 ## <a name="prerequisites"></a>先决条件
 
-* 一个有效的 Azure 订阅。 如果没有订阅，可以[创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 逻辑应用支持的任何电子邮件提供程序（例如 Office 365 Outlook 或 Outlook.com）中的电子邮件帐户。 此电子邮件帐户用于发送事件通知。
 
-* Azure 逻辑应用支持的任何电子邮件提供程序（例如 Office 365 Outlook 或 Outlook.com）中的电子邮件帐户。 此电子邮件帐户用于发送事件通知。 
-
-
+<!--Customized in MC-->
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-可使用门户中的 Azure Cloud Shell 终端快速创建新的 IoT 中心。
-
-1. 登录 [Azure 门户](https://portal.azure.cn)。 
-
-1. 在页面右上角选择“Cloud Shell”按钮。
-
-   ![“Cloud Shell”按钮](./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png)
+可以使用 Azure CLI 快速创建新的 IoT 中心。
 
 1. 运行以下命令来创建新资源组：
 
@@ -50,8 +44,6 @@ ms.locfileid: "92128322"
    ```azurecli
    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1 
    ```
-
-1. 最小化 Cloud Shell 终端。 你将在本教程的后面部分返回到 Shell。
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用
 
@@ -131,7 +123,7 @@ ms.locfileid: "92128322"
 
    ![选择电子邮件提供程序连接器](./media/publish-iot-hub-events-to-logic-apps/outlook-step.png)
 
-1. 选择“发送电子邮件 (V2)”操作。**** 
+1. 选择“发送电子邮件 (V2)”操作。 
 
 1. 选择“登录”并登录到你的电子邮件帐户。 选择“是”，允许应用访问你的信息。
 
@@ -202,11 +194,10 @@ ms.locfileid: "92128322"
 
 1.  选择“创建”。
 
+<!--Customized in MC-->
 ## <a name="simulate-a-new-device-connecting-and-sending-telemetry"></a>模拟新设备连接并发送遥测数据
 
 使用 Azure CLI 快速模拟设备连接来测试逻辑应用。 
-
-1. 选择“Cloud Shell”按钮以重新打开终端。
 
 1. 运行以下命令创建模拟设备标识：
     

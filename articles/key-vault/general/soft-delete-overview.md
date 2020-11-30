@@ -9,12 +9,12 @@ ms.author: v-tawe
 manager: rkarlin
 origin.date: 03/19/2019
 ms.date: 09/16/2020
-ms.openlocfilehash: a8489eb2b3700b613c7d63793ac10a804ae613f0
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 56d40904705f50934bdf8869c18797cde71208e1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678534"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300921"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 软删除概述
 
@@ -29,7 +29,7 @@ Key Vault 的软删除功能可用于恢复已删除的保管库和已删除的�
 
 ## <a name="supporting-interfaces"></a>支持接口
 
-软删除功能最初是通过 [REST](https://docs.microsoft.com/rest/api/keyvault/)、[CLI](soft-delete-cli.md)、[PowerShell](soft-delete-powershell.md) 和 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) 接口以及 [ARM 模板](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults)提供的。
+软删除功能最初是通过 [REST](https://docs.microsoft.com/rest/api/keyvault/)、[CLI](soft-delete-cli.md)、[PowerShell](soft-delete-powershell.md) 和 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 接口以及 [ARM 模板](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults)提供的。
 
 ## <a name="scenarios"></a>方案
 

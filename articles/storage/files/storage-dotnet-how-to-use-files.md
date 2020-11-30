@@ -6,16 +6,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 10/02/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d1f875a7aca5ec90927733eac1c1f7bca0b8aa6
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 10b29fbfb5cd2fc992930e93a802048cfe8127fc
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552553"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152983"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -471,11 +471,10 @@ if (share.Exists())
 
 从 Azure 文件存储客户端库的 5.x 版开始，可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。
 
-还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [AzCopy 入门](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
+还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [AzCopy 入门](../common/storage-use-azcopy-v10.md?toc=%252fstorage%252ffiles%252ftoc.json)。
 
 > [!NOTE]
 > 如果将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob，必须使用共享访问签名 (SAS) 授予对源对象的访问权限，即使是在同一存储帐户内进行复制。
->
 
 ### <a name="copy-a-file-to-another-file"></a>将一个文件复制到另一个文件
 
@@ -1050,8 +1049,8 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ### <a name="tooling-support-for-file-storage"></a>文件存储的工具支持
 
-- [AzCopy 入门](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
-- [在 Windows 中排查 Azure 文件问题](/storage/storage-troubleshoot-file-connection-problems)
+- [AzCopy 入门](../common/storage-use-azcopy-v10.md?toc=%252fstorage%252ffiles%252ftoc.json)
+- [在 Windows 中排查 Azure 文件问题](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>参考
 

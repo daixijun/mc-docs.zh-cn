@@ -9,12 +9,12 @@ origin.date: 08/14/2019
 ms.date: 09/07/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 061e5bad2fd0f0c7de277116d316204e05cca4d7
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ea86f1ce184dcfa466a204d952d9461aaa9c60c5
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89464251"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301117"
 ---
 以下配置用于执行下面的步骤：
 
@@ -42,4 +42,4 @@ sudo apt install libstrongswan-extra-plugins
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[有关如何安装 Azure CLI 的其他说明](/cli/install-azure-cli-apt?view=azure-cli-latest)
+[有关如何安装 Azure CLI 的其他说明](/cli/install-azure-cli-apt)

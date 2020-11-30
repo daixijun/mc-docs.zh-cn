@@ -9,14 +9,14 @@ origin.date: 12/20/2019
 ms.date: 08/13/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: f98597e260d9777b79a95575d9ff3236a5770383
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 1e107e4703bb9be1517f2acdeae962c7bb1ad9cd
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223152"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301055"
 ---
-在 Azure CLI 中，使用 [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) 命令在资源组中创建应用服务计划。
+在 Azure CLI 中，使用 [`az appservice plan create`](/cli/appservice/plan#az-appservice-plan-create) 命令在资源组中创建应用服务计划。
 
 [!INCLUDE [app-service-plan](app-service-plan-linux.md)]
 

@@ -23,6 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Python
+          href: quickstart-python.md
         - name: ARM 模板
           href: quickstart-resource-manager.md
           displayName: 'ARM, azure resource manager template'
@@ -32,6 +34,8 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: 支持 .NET Core 的 Azure Functions
+          href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: 教程
@@ -62,17 +66,20 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: 与 CI/CD 管道集成
-      href: integrate-ci-cd-pipeline.md
+    - name: CI/CD 管道集成
+      items:
+        - name: 使用 Azure Pipelines 推送
+          href: push-kv-devops-pipeline.md
+        - name: 使用 GitHub Actions 推送
+          href: concept-github-action.md
+        - name: 使用导出的配置生成项目
+          href: integrate-ci-cd-pipeline.md
     - name: 使用 Helm 与 Kubernetes 部署集成
       href: integrate-kubernetes-deployment-helm.md
 - name: 示例
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 键和值
@@ -81,8 +88,6 @@
       href: concept-point-time-snapshot.md
     - name: 特色管理
       href: concept-feature-management.md
-    - name: 使用 GitHub Actions 进行同步
-      href: concept-github-action.md
     - name: 事件处理
       href: concept-app-configuration-event.md
     - name: 安全性
@@ -101,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: 操作指南
   items:
-    - name: 为一部分用户启用某一功能
+    - name: 为一部分用户启用功能
       href: howto-feature-filters-aspnet-core.md
+    - name: 为指定用户/组启用功能
+      href: howto-targetingfilter-aspnet-core.md
     - name: 对每个环境配置使用标签
       href: howto-labels-aspnet-core.md
     - name: 导入或导出配置数据
@@ -120,33 +127,84 @@
     - name: 配置
       items:
         - name: Azure CLI
-          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core 提供程序
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework 生成器
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: 用于 .NET 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Java Spring 提供程序
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+          href: 'https://github.com/microsoft/spring-cloud-azure/tree/master/'
         - name: 用于 Java 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: 用于 Python 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: 用于 JavaScript 的 Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST API
-          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 特色管理
       items:
         - name: .NET Core 库
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+          href: /dotnet/api/microsoft.featuremanagement
         - name: .NET Core 筛选器库
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: 配置存储管理
       items:
         - name: REST API
-          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+          href: /rest/api/appconfiguration/
+        - name: PowerShell
+          href: /powershell/module/az.appconfiguration/
+        - name: Terraform
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
+    - name: REST API
+      items:
+        - name: 概述
+          href: rest-api.md
+        - name: 资源
+          items:
+            - name: 键
+              href: ./rest-api-keys.md
+            - name: 键-值
+              href: ./rest-api-key-value.md
+            - name: 标签
+              href: ./rest-api-labels.md
+            - name: 锁
+              href: ./rest-api-locks.md
+            - name: 修订
+              href: ./rest-api-revisions.md
+        - name: 协议
+          items:
+            - name: 身份验证
+              href: ./rest-api-authentication-index.md
+              items:
+                - name: Azure Active Directory 身份验证
+                  href: rest-api-authentication-azure-ad.md
+                - name: HMAC 身份验证
+                  href: rest-api-authentication-hmac.md
+            - name: 授权
+              href: ./rest-api-authorization-index.md
+              items:
+                - name: Azure Active Directory 授权
+                  href: rest-api-authorization-azure-ad.md
+                - name: HMAC 授权
+                  href: rest-api-authorization-hmac.md
+            - name: 一致性模型
+              href: ./rest-api-consistency.md
+            - name: 常用标头
+              href: ./rest-api-headers.md
+            - name: 遏制
+              href: ./rest-api-throttling.md
+            - name: 版本控制
+              href: ./rest-api-versioning.md
+        - name: 开发
+          items:
+            - name: Fiddler
+              href: ./rest-api-fiddler.md
+            - name: Postman
+              href: ./rest-api-postman.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价
@@ -161,7 +219,7 @@
           href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
         - name: Cloud Native Show 上的 Azure 应用配置
           href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
-        - name: Azure Friday 功能筛选
-          url: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
+        - name: 推出新功能
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
     - name: 提供产品反馈
       href: 'https://github.com/Azure/AppConfiguration/issues'

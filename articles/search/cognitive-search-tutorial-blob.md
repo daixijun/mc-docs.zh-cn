@@ -7,14 +7,14 @@ author: luiscabrer
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
-origin.date: 02/26/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: c58fcd1e1841166c1630814d649e71044d01c6ac
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 07/15/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 83c4f870abd570a13167988002f9e0400bf86ab9
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021602"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300049"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>教程：使用 REST 和 AI 从 Azure Blob 生成可搜索的内容
 
@@ -42,9 +42,9 @@ ms.locfileid: "90021602"
 
 ## <a name="download-files"></a>下载文件
 
-1. 打开此 [OneDrive 文件夹](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，然后单击左上角的“下载”将文件复制到计算机。  
+1. 打开此 [OneDrive 文件夹](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，然后单击左上角的“下载”将文件复制到计算机。 
 
-1. 右键单击 zip 文件并选择“全部提取”。  有 14 个不同类型的文件。 本练习将使用其中的 7 个文件。
+1. 右键单击 zip 文件并选择“全部提取”。 有 14 个不同类型的文件。 本练习将使用其中的 7 个文件。
 
 ## <a name="1---create-services"></a>1 - 创建服务
 
@@ -54,31 +54,31 @@ ms.locfileid: "90021602"
 
 ### <a name="start-with-azure-storage"></a>从 Azure 存储开始
 
-1. [登录到 Azure 门户](https://portal.azure.cn/)并单击“+ 创建资源”。 
+1. [登录到 Azure 门户](https://portal.azure.cn/)并单击“+ 创建资源”。
 
-1. 搜索“存储帐户”，并选择“Microsoft 的存储帐户”产品/服务。 
+1. 搜索“存储帐户”，并选择“Microsoft 的存储帐户”产品/服务。
 
    ![创建存储帐户](media/cognitive-search-tutorial-blob/storage-account.png "创建存储帐户")
 
 1. 在“基本信息”选项卡中，必须填写以下项。 对于其他任何字段，请接受默认设置。
 
-   + 资源组  。 选择现有的资源组或创建新资源组，但对于所有服务请使用相同的组，以便可以统一管理这些服务。
+   + 资源组。 选择现有的资源组或创建新资源组，但对于所有服务请使用相同的组，以便可以统一管理这些服务。
 
    + **存储帐户名称**。 如果你认为将来可能会用到相同类型的多个资源，请使用名称来区分类型和区域，例如 blobstoragechinaeast2。 
 
    + **位置**。 如果可能，请选择 Azure 认知搜索和认知服务所用的相同位置。 使用一个位置可以避免带宽费用。
 
-   + **帐户类型**。 选择默认设置“StorageV2 (常规用途 v2)”  。
+   + **帐户类型**。 选择默认设置“StorageV2 (常规用途 v2)”。
 
-1. 单击“查看 + 创建”以创建服务。 
+1. 单击“查看 + 创建”以创建服务。
 
-1. 创建后，单击“转到资源”打开“概述”页。 
+1. 创建后，单击“转到资源”打开“概述”页。
 
-1. 单击“Blob”服务。 
+1. 单击“Blob”服务。
 
-1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo*。 
+1. 单击“+ 容器”创建容器，并将其命名为 *cog-search-demo*。
 
-1. 选择“cog-search-demo”，然后单击“上传”打开下载文件所保存到的文件夹。   选择所有的非图像文件。 应有 7 个文件。 单击“确定”以上传。 
+1. 选择“cog-search-demo”，然后单击“上传”打开下载文件所保存到的文件夹。 选择所有的非图像文件。 应有 7 个文件。 单击“确定”以上传。 
 
    ![上传示例文件](media/cognitive-search-tutorial-blob/sample-files.png "上传示例文件")
 
@@ -86,7 +86,7 @@ ms.locfileid: "90021602"
 
    1. 向后浏览到存储帐户的“概览”页（我们使用了 blobstragechinaeast2 作为示例）。 
    
-   1. 在左侧导航窗格中，选择“访问密钥”并复制其中一个连接字符串。  
+   1. 在左侧导航窗格中，选择“访问密钥”并复制其中一个连接字符串。 
 
    连接字符串是类似于以下示例的 URL：
 
@@ -112,11 +112,11 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
 
 1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取搜索服务的名称。  可以通过查看终结点 URL 来确认服务名称。 如果终结点 URL 为 `https://mydemo.search.azure.cn`，则服务名称为 `mydemo`。
 
-2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
+2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥 。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
    此外，获取查询密钥。 最好使用只读权限发出查询请求。
 
-   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![获取服务名称以及管理密钥和查询密钥](media/search-get-started-javascript/service-name-and-keys.png)
 
 所有请求要求在发送到服务的每个请求的标头中指定 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -144,7 +144,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[YOUR-SERVICE-NAME].search.azure.cn/datasources?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义（请将 `connectionString` 替换为存储帐户的实际连接）。 
+1. 在请求的 **正文** 中复制以下 JSON 定义（请将 `connectionString` 替换为存储帐户的实际连接）。 
 
    此外，请记得编辑容器名称。 在前一步骤中，我们已建议使用“cog-search-demo”作为容器名称。
 
@@ -174,7 +174,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
     https://[YOUR-SERVICE-NAME].search.azure.cn/skillsets/cog-search-demo-ss?api-version=2020-06-30
     ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 此技能集包括以下内置技能。
+1. 在请求的 **正文** 中复制以下 JSON 定义。 此技能集包括以下内置技能。
 
    | 技能                 | 说明    |
    |-----------------------|----------------|
@@ -259,7 +259,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[YOUR-SERVICE-NAME].search.azure.cn/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 `content` 字段存储文档本身。 `languageCode`、`keyPhrases` 和 `organizations` 的附加字段表示技能集创建的新信息（字段和值）。
+1. 在请求的 **正文** 中复制以下 JSON 定义。 `content` 字段存储文档本身。 `languageCode`、`keyPhrases` 和 `organizations` 的附加字段表示技能集创建的新信息（字段和值）。
 
     ```json
     {
@@ -343,7 +343,7 @@ AI 扩充由认知服务（包括用于自然语言和图像处理的文本分�
    https://[servicename].search.azure.cn/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. 在请求的**正文**中复制以下 JSON 定义。 请注意字段映射元素；这些映射非常重要，因为它们定义了数据流。 
+1. 在请求的 **正文** 中复制以下 JSON 定义。 请注意字段映射元素；这些映射非常重要，因为它们定义了数据流。 
 
    `fieldMappings` 在技能集之前处理，它将数据源中的内容发送到索引中的目标字段。 稍后要使用字段映射将未修改的现有内容发送到索引。 如果两端的字段名称和类型相同，则无需映射。
 

@@ -10,14 +10,14 @@ origin.date: 08/02/2019
 ms.date: 10/29/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 14a49717c35d2affb39c8d322bd235c07d95d111
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 463294cd6f37e3aacd44498f0a7324b9cef79851
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73034457"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301140"
 ---
-Blob 触发器提供了几个元数据属性。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 这些值的语义与 [CloudBlob](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 类型相同。
+Blob 触发器提供了几个元数据属性。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 这些值的语义与 [CloudBlob](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.storage.blob.cloudblob) 类型相同。
 
 |properties  |类型  |说明  |
 |---------|---------|---------|

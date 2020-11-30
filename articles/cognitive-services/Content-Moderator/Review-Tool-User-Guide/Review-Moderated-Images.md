@@ -3,20 +3,20 @@ title: 通过审阅工具使用内容审阅 - 内容审查器
 titleSuffix: Azure Cognitive Services
 description: 了解“审阅”工具如何允许人工审查者审阅 Web 门户中的图像。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/23/2020
 origin.date: 03/15/2019
-ms.author: v-tawe
-ms.openlocfilehash: 274ce5e70c52b7144fc2006c3714d16667692d99
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.author: v-johya
+ms.openlocfilehash: 83f9855a30da923b3e72414e10e79ac5ce44e2c8
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654983"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306353"
 ---
 # <a name="create-human-reviews"></a>创建人工审阅
 
@@ -28,18 +28,18 @@ ms.locfileid: "84654983"
 
 ## <a name="image-reviews"></a>图像评审
 
-1. 转到[审阅工具](https://contentmoderator.cognitive.microsoft.com/)，选择“试用”**** 选项卡，然后上传一些图像供审阅。
-1. 上传的图像完成处理后，转到“审阅”**** 选项卡，然后选择“图像”****。
+1. 转到[审阅工具](https://contentmoderator.cognitive.microsoft.com/)，选择“试用”选项卡，然后上传一些图像供审阅。
+1. 上传的图像完成处理后，转到“审阅”选项卡，然后选择“图像”。
 
     ![显示审阅工具的 Chrome 浏览器，其中突出显示了“审阅图像”选项](images/review-images-1.png)
 
     图像会显示自动审核过程分配的任何标签。 通过审阅工具提交的图像对其他审阅者不可见。
 
-1. 可以选择移动“要显示的审阅”**** 滑块 (1) 以调整屏幕上显示的图像数量。 单击“已标记”**** 或“未标记”**** 按钮 (2) 对图像进行相应排序。 单击标记面板 (3) 以打开或关闭它。
+1. 可以选择移动“要显示的审阅”滑块 (1) 以调整屏幕上显示的图像数量。 单击“已标记”或“未标记”按钮 (2) 对图像进行相应排序。 单击标记面板 (3) 以打开或关闭它。
 
     ![Chrome 浏览器显示带有标记图片的审阅工具以供审阅](images/review-images-2.png)
 
-1. 若要查看有关图像的详细信息，请单击缩略图中的省略号，然后选择“查看详细信息”****。 可以使用“移至”**** 选项将图像分配给子团队（有关子团队的详细信息，请参阅[团队](./configure.md#manage-team-and-subteams)部分）。
+1. 若要查看有关图像的详细信息，请单击缩略图中的省略号，然后选择“查看详细信息”。 可以使用“移至”选项将图像分配给子团队（有关子团队的详细信息，请参阅[团队](./configure.md#manage-team-and-subteams)部分）。
 
     ![突出显示“查看详细信息”选项的图像](images/review-images-3.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "84654983"
 
     ![在单独窗格中列出审阅详细信息的图像](images/review-images-4.png)
 
-1. 根据需要审核并更新标记分配后，单击****“下一步”即可提交评论。 提交后，你有大约五秒的时间来单击****“上一步”按钮返回上一屏幕并再次查看图像。 之后，图像不再位于“提交”队列中，并且****“上一步”按钮不再可用。
+1. 根据需要审核并更新标记分配后，单击“下一步”即可提交评论。 提交后，你有大约五秒的时间来单击“上一步”按钮返回上一屏幕并再次查看图像。 之后，图像不再位于“提交”队列中，并且“上一步”按钮不再可用。
 
 ## <a name="text-reviews"></a>文本评审
 
@@ -57,4 +57,5 @@ ms.locfileid: "84654983"
 
 ## <a name="next-steps"></a>后续步骤
 
-本指南介绍了如何从内容审查器[审阅工具](https://contentmoderator.cognitive.microsoft.com)设置和使用审阅。 接下来，请参阅 [REST API 指南](../try-review-api-review.md)或 [.NET SDK 快速入门](../dotnet-sdk-quickstart.md)，了解如何以编程方式创建审阅。
+本指南介绍了如何从内容审查器[审阅工具](https://contentmoderator.cognitive.microsoft.com)设置和使用审阅。 接下来，请参阅 [REST API 指南](../try-review-api-review.md)或 [.NET SDK 快速入门](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)，了解如何以编程方式创建审阅。
+

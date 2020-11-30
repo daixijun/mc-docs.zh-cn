@@ -7,21 +7,21 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3567f11dd90f823d83e2709b808c898bba7fe4f5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 13c5ffa012ef5681f1f35a00717f5370e14b3f53
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598021"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978249"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process 中单个参与者的任务
 
 本主题概述在 [Team Data Science Process](overview.md) (TDSP) 中设置项目时，单个参与者完成的任务  。 目标是在标准化 TDSP 的协作型团队环境中工作。 TDSP 设计用于帮助改进协作和团队学习。 有关致力于标准化 TDSP 的数据科学团队要处理的人员角色及其相关任务的概述，请参阅[团队数据科学流程角色和任务](roles-tasks.md)。
 
-下图显示了各个项目参与者（数据科学家）在设置其团队环境时所要完成的任务。 有关如何在 TDSP 下执行数据科学项目的说明，请参阅[执行数据科学项目](project-execution.md)。 
+下图显示了各个项目参与者（数据科学家）在设置其团队环境时所要完成的任务。 有关如何在 TDSP 下执行数据科学项目的说明，请参阅[执行数据科学项目](./agile-development.md)。 
 
 ![单个参与者的任务](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "75598021"
 - Azure 文件存储，设置用于共享团队或项目的资产（如果适用） 
 - 权限，用于从项目存储库中克隆并推送回项目存储库  
 
-要克隆存储库并修改本地计算机或 DSVM 上的内容，或将 Azure 文件存储装载到 DSVM，需要以下内容：
+若要克隆存储库并修改本地计算机或 DSVM 上的内容，或将 Azure 文件存储装载到 DSVM，需要考虑以下清单：
 
 - Azure 订阅。
 - 计算机上安装的 Git。 如果要使用 DSVM，则需预安装 Git。 否则，请参阅[平台和工具附录](platforms-and-tools.md#appendix)。
@@ -55,7 +55,7 @@ ms.locfileid: "75598021"
 
 要在本地使用存储库并将所做的更改推送到共享的团队和项目存储库，请先将存储库复制或克隆到本地计算机  。 
 
-1. 在 Azure DevOps 中，转到团队项目的“摘要”页，地址为 https:\//\<server name>/\<organization name>/\<team name>，例如 https:\//dev.azure.com/DataScienceUnit/MyTeam   。
+1. 在 Azure DevOps 中，转到团队项目的“摘要”页面，地址为 https:\//\<server name>/\<organization name>/\<team name>，例如 https:\//dev.azure.com/DataScienceUnit/MyTeam。
    
 1. 在左侧导航栏中，选择“存储库”，然后在页面顶部选择要克隆的存储库  。
    

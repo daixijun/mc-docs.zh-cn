@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 11/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87192fae60ebe3797da32e1273225ad96be29aab
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: f96aeebff126f6f573171928ba3557bf94f37dcd
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164848"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918472"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步服务功能
 
 Azure AD Connect 的同步功能有两个组件：
 
-* 名为 **Azure AD Connect 同步**的本地组件，也称为**同步引擎**。
+* 名为 **Azure AD Connect 同步** 的本地组件，也称为 **同步引擎**。
 * 驻留在 Azure AD 中的服务，也称为 **Azure AD Connect 同步服务**
 
-本主题说明 **Azure AD Connect 同步服务**的以下功能如何工作，以及如何使用 Windows PowerShell 来配置这些功能。
+本主题说明 **Azure AD Connect 同步服务** 的以下功能如何工作，以及如何使用 Windows PowerShell 来配置这些功能。
 
-可以使用[用于 Windows PowerShell 的 Azure Active Directory 模块](https://aka.ms/aadposh)来配置这些设置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
+可以使用[用于 Windows PowerShell 的 Azure Active Directory 模块](https://docs.microsoft.com/previous-versions/azure/jj151815(v=azure.100))来配置这些设置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
 
 若要查看 Azure AD 目录中的配置，请运行 `Get-MsolDirSyncFeatures`。  
 ![Get-MsolDirSyncFeatures 结果](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -49,7 +49,7 @@ Azure AD Connect 的同步功能有两个组件：
 启用某个功能后，无法再次将其禁用。
 
 > [!NOTE]
-> 从 2016 年 8 月 24 日起，将为新的 Azure AD 目录默认启用*重复属性复原*功能。 今后还会针对此日期之前创建的目录推出并启用此功能。 在为目录启用此功能之前的短时间内，用户会收到电子邮件通知。
+> 从 2016 年 8 月 24 日起，将为新的 Azure AD 目录默认启用 *重复属性复原* 功能。 今后还会针对此日期之前创建的目录推出并启用此功能。 在为目录启用此功能之前的短时间内，用户会收到电子邮件通知。
 > 
 > 
 
@@ -60,9 +60,11 @@ Azure AD Connect 的同步功能有两个组件：
 | DirectoryExtensions |[Azure AD Connect 同步：目录扩展](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果某些属性是另一个对象的副本而不会在导出期间导致整个对象失败，则允许隔离该属性。 |
 | 密码哈希同步 |[使用 Azure AD Connect 同步实现密码哈希同步](how-to-connect-password-hash-synchronization.md) |
+| UserWriteback |当前不支持。 |
 
-## <a name="duplicate-attribute-resiliency"></a>重复属性复原 <a name="duplicate-attribute-resiliency"></a>
-将重复属性“隔离”并分配临时值，而不是使预配包含重复 UPN/proxyAddress 的对象失败。 解决冲突时，自动将临时 UPN 更改为适当的值。 有关详细信息，请参阅[标识同步和重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
+## <a name="duplicate-attribute-resiliency"></a>重复属性复原
+
+将属性“隔离”并分配临时值，而不是使预配包含重复 UPNs/proxyAddresses 的对象失败。 解决冲突时，自动将临时 UPN 更改为适当的值。 有关详细信息，请参阅[标识同步和重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName 软匹配
 

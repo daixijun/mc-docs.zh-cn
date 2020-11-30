@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 24fc2a878c23a292c377441298a4138738228be6
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: a049fef22912faa09b4174f636c354ebe60ee6fc
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564607"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300948"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>快速入门：使用对称密钥向 IoT 中心预配模拟设备
 
@@ -35,7 +35,7 @@ ms.locfileid: "91564607"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 确保已在计算机上安装 [Java SE 开发工具包 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) 或更高版本。
+* 确保已在计算机上安装 [Java SE 开发工具包 8](https://docs.microsoft.com/java/azure/jdk/) 或更高版本。
 
 * 下载并安装 [Maven](https://maven.apache.org/install.html)。
 
@@ -79,7 +79,7 @@ ms.locfileid: "91564607"
 
 4. 保存注册后，将生成“主要密钥”和“辅助密钥”，并将其添加到注册条目   。 对称密钥设备注册会在“单独注册”  选项卡的“注册 ID”  列下显示为“symm-key-java-device-007”  。 
 
-    打开注册并复制生成的“主要密钥”  的值。 稍后在更新设备的 Java 代码时，将使用此密钥值和**注册 ID**。
+    打开注册并复制生成的“主要密钥”  的值。 稍后在更新设备的 Java 代码时，将使用此密钥值和 **注册 ID**。
 
 
 

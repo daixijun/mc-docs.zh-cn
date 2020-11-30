@@ -5,16 +5,16 @@ author: Johnnytechn
 ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 12/07/2018
-ms.date: 07/06/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb1132704988bf227f40b84a38bc272fb3df9c3a
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 69d0a7c5da49d4a9257063ed1c55b644db06f5a6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226168"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978295"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时欺诈检测
 
@@ -44,11 +44,11 @@ ms.locfileid: "86226168"
     >[!NOTE]
     >Windows 可能会阻止下载的 .zip 文件。 如果无法将其解压缩，请右键单击该文件，然后选择“属性”。 如果看到“此文件来自其他计算机，可能被阻止以帮助保护该计算机”的消息，则选择“取消阻止”选项，然后单击“应用”。
 
-如果想要检查流分析作业的结果，还需要一种用于查看 Azure Blob 存储容器内容的工具。 如果使用 Visual Studio，则可以使用 [Azure Tools for Visual Studio](/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，可以安装独立工具，如 [Azure 存储资源管理器](http://storageexplorer.com/)或 [Azure 资源管理器](http://www.cerebrata.com/products/azure-explorer/introduction)。 
+如果想要检查流分析作业的结果，还需要一种用于查看 Azure Blob 存储容器内容的工具。 如果使用 Visual Studio，则可以使用 [Azure Tools for Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，可以安装独立工具，如 [Azure 存储资源管理器](https://storageexplorer.com/)或 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)。 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>创建 Azure 事件中心以引入事件
 
-若要分析数据流，请将其引入到 Azure 中。 引入数据的典型方式是使用 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)，该中心每秒可以引入数百万个事件，从而使用户能够处理并存储事件信息。 本教程将创建事件中心，然后让呼叫事件生成器应用将呼叫数据发送至该事件中心。
+若要分析数据流，请将其引入到 Azure 中。 引入数据的典型方式是使用 [Azure 事件中心](../event-hubs/event-hubs-about.md)，该中心每秒可以引入数百万个事件，从而使用户能够处理并存储事件信息。 本教程将创建事件中心，然后让呼叫事件生成器应用将呼叫数据发送至该事件中心。
 
 >[!NOTE]
 >有关此过程的更详细版本，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 
@@ -58,7 +58,7 @@ ms.locfileid: "86226168"
 
 1. 登录到 Azure 门户，然后单击屏幕左上角的“创建资源”。
 
-2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择**星号 (`*`)** 。   确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。  
+2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择 **星号 (`*`)** 。   确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。  
 
    ![搜索事件中心](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "86226168"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
-9. 单击**创建**。
+9. 单击 **创建**。
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授予对事件中心的访问权限，并获取连接字符串
 
@@ -99,7 +99,7 @@ ms.locfileid: "86226168"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4. 单击**创建**。
+4. 单击 **创建**。
 
 5. 部署策略后，在共享访问策略列表中单击该策略。
 
@@ -187,7 +187,7 @@ ms.locfileid: "86226168"
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. 单击**创建**。
+3. 单击 **创建**。
 
     创建作业后，门户将显示作业详细信息。 尽管尚无任何应用正在运行，但必须先配置该作业，然后才能启动。
 
@@ -212,7 +212,7 @@ ms.locfileid: "86226168"
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. 单击**创建**。
+4. 单击 **创建**。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>创建查询以转换实时数据
 
@@ -354,9 +354,8 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 现已定义事件流、用于引入事件的事件中心输入，以及用于通过流执行转换的查询。 最后一步是定义作业的输出接收器，即转换后的流要写入到的位置。 
 
-可以使用许多资源作为输出接收器：SQL Server 数据库、表存储，甚至是另一个事件中心。 本教程将流写入 Azure Blob 存储，该存储是收集事件信息供后续分析的典型选择，因为它可以包括非结构化数据。
-<!-- Not available in MC: data lake, power BI -->
-
+可以使用许多资源作为输出接收器：SQL Server 数据库、表存储、Data Lake 存储，甚至另一个事件中心。 本教程将流写入 Azure Blob 存储，该存储是收集事件信息供后续分析的典型选择，因为它可以包括非结构化数据。
+<!-- Not available in MC: power BI -->
 
 如果已有 Blob 存储帐户，则可以使用该帐户。 在本教程中，你将了解如何创建新的存储帐户。
 
@@ -427,11 +426,13 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="next-steps"></a>后续步骤
 
+可以继续阅读本教程的以下文章：
+
 <!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md)-->
 有关常规流分析的详细信息，请查看以下文章：
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure 流分析管理 REST API 参考](https://docs.microsoft.com/rest/api/streamanalytics/)
 

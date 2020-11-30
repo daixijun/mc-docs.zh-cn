@@ -4,18 +4,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/15/2020
-ms.date: 10/16/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9f781d2a7d0128ca47fd93cec3f820424d679e6a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 5b9558dc1eddd5028c728ade2bcc39726db54267
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127855"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970738"
 ---
 ## <a name="download-and-install"></a>下载并安装
 
 #### <a name="windows-install"></a>[Windows 安装](#tab/windowsinstall)
+
+> [!NOTE]
+> 在 Windows 上，需要安装适用于平台的 [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 首次安装时，可能需要重启 Windows。
 
 按照以下步骤在 Windows 上安装语音 CLI：
 
@@ -105,7 +108,7 @@ pwd
 
 ## <a name="create-subscription-config"></a>创建订阅配置
 
-若要开始使用语音 CLI，首先需要输入语音订阅密钥和区域信息。 请查看[区域支持](https://docs.azure.cn/cognitive-services/speech-service/regions#speech-sdk)页，找到你的区域标识符。
+若要开始使用语音 CLI，需要输入语音订阅密钥和区域标识符。 按照[免费试用语音服务](../overview.md#try-the-speech-service-for-free)中的步骤获取这些凭据。
 获得订阅密钥和区域标识符后（例如 `chinaeast2`），运行以下命令。
 
 ```shell

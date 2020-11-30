@@ -1,22 +1,22 @@
 ---
 title: 使用工作室部署在设计器中训练的模型
 titleSuffix: Azure Machine Learning
-description: 使用 Azure 机器学习工作室部署在设计器中训练的模型。
+description: 使用 Azure 机器学习工作室部署机器学习模型，而无需编写任何代码。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: eb32c0449a9530730e736cb210bb297a7dc9312d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 96482154728647909be810e88725eb0c01cbb688
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105263"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978264"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>使用工作室部署在设计器中训练的模型
 

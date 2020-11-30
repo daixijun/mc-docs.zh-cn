@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: a83e661698c9dd3565694a039605b3f8f129497a
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: dba8b7737c1cb67af61213a7eaf4edae94f7f00f
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501616"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970831"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>教程：使用新的应用程序网关实例为新的 AKS 群集启用入口控制器加载项（预览版）
 
@@ -30,37 +30,26 @@ ms.locfileid: "94501616"
 > * 在 AKS 群集上部署将 AGIC 用于入口的示例应用程序。
 > * 检查是否可以通过应用程序网关访问应用程序。
 
-## <a name="prerequisites"></a>先决条件
-
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+ - 本教程需要 Azure CLI 版本 2.0.4 或更高版本。 
 
-若要注册 AKS-IngressApplicationGatewayAddon 功能标志，请使用 [az feature register](/cli/feature#az-feature-register) 命令，如以下示例所示： 当该加载项仍处于预览阶段时，对于每个订阅，只需执行此操作一次。
-```azurecli
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-```
+ - 若要注册 AKS-IngressApplicationGatewayAddon 功能标志，请使用 [az feature register](/cli/feature#az-feature-register) 命令，如以下示例所示： 当该加载项仍处于预览阶段时，对于每个订阅，只需执行此操作一次。
+    ```azurecli
+    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
+    ```
 
-可能需要花费几分钟时间，状态才会显示为“`Registered`”。 可以使用 [az feature list](/cli/feature#az-feature-register) 命令来检查注册状态：
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
+   可能需要花费几分钟时间，状态才会显示为“`Registered`”。 可以使用 [az feature list](/cli/feature#az-feature-register) 命令来检查注册状态：
+    ```azurecli
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+    ```
 
-准备就绪后，使用 [az provider register](/cli/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-安装或更新本教程的 aks-preview 扩展。 运行以下 Azure CLI 命令：
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-```azurecli
-az extension update --name aks-preview
-az extension list
-```
+ - 准备就绪后，使用 [az provider register](/cli/provider#az-provider-register) 命令刷新 Microsoft.ContainerService 资源提供程序的注册状态：
+    ```azurecli
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -80,7 +69,7 @@ az group create --name myResourceGroup --location canadacentral
 > - 通过门户启用应用程序网关上的 WAF。 
 > - 首先创建 WAF_v2 应用程序网关实例，然后按照如何[在现有的 AKS 群集和现有应用程序网关实例中启用 AGIC 加载项](tutorial-ingress-controller-add-on-existing.md)中的说明进行操作。 
 
-下面的示例将使用 [Azure CNI](/aks/concepts-network#azure-cni-advanced-networking) 和[托管标识](/aks/use-managed-identity)部署名为 myCluster 的新 AKS 群集。 还将在创建的 myResourceGroup 资源组中启用 AGIC 加载项。 
+下面的示例将使用 [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) 和[托管标识](../aks/use-managed-identity.md)部署名为 myCluster 的新 AKS 群集。 还将在创建的 myResourceGroup 资源组中启用 AGIC 加载项。 
 
 如果在未指定现有应用程序网关实例的情况下部署启用 AGIC 加载项的新 AKS 群集，则将自动创建 Standard_v2 SKU 应用程序网关实例。 因此还需要指定应用程序网关实例的名称和子网地址空间。 应用程序网关实例的名称将是 myApplicationGateway，将要使用的子网地址空间是 10.2.0.0/16。 请确保你已在本教程开头添加或更新了 aks-preview 扩展。 
 
@@ -136,5 +125,4 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [了解如何禁用 AGIC 加载项](./ingress-controller-disable-addon.md)
-
 

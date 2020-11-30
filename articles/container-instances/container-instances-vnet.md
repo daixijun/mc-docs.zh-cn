@@ -4,17 +4,17 @@ description: 了解如何使用 Azure 命令行接口将容器组部署到新的
 ms.topic: article
 origin.date: 07/02/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.custom: devx-track-js
-ms.openlocfilehash: 8df8815f252a5ff4994705f660f8fa47ed8385b7
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: f5900569212c2ac300b095840683e9933a2f6c58
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564265"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024413"
 ---
 <!--Verified successfully-->
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>将容器实例部署到 Azure 虚拟网络
@@ -45,7 +45,7 @@ ms.locfileid: "91564265"
 
 ### <a name="example"></a>示例
 
-以下 [az container create][az-container-create] 命令指定新虚拟网络和子网的设置。 提供[支持](container-instances-region-availability.md#availability---virtual-network-deployment)在虚拟网络中部署容器组的区域中创建的资源组的名称。 此命令将部署公共 Microsoft [aci-helloworld][aci-helloworld] 容器，该容器运行一个提供静态网页的小型 Node.js Web 服务器。 在下一部分，我们要将另一个容器组部署到同一子网，并测试这两个容器实例之间的通信。
+以下 [az container create][az-container-create] 命令指定新虚拟网络和子网的设置。 提供[支持](container-instances-region-availability.md)在虚拟网络中部署容器组的区域中创建的资源组的名称。 此命令将部署公共 Microsoft [aci-helloworld][aci-helloworld] 容器，该容器运行一个提供静态网页的小型 Node.js Web 服务器。 在下一部分，我们要将另一个容器组部署到同一子网，并测试这两个容器实例之间的通信。
 
 <!--CORRECT ON Microsoft aci-helloworld IMAGE-->
 
@@ -246,7 +246,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 [az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
 [az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
-[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet#az-network-vnet-create
-[az-network-profile-list]: https://docs.azure.cn/cli/network/profile#az-network-profile-list
+[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet#az_network_vnet_create
+[az-network-profile-list]: https://docs.azure.cn/cli/network/profile#az_network_profile_list
 
 <!-- Update_Description: update meta properties, wording update, update link -->

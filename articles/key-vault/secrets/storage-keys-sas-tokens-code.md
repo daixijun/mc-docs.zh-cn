@@ -8,21 +8,21 @@ author: msmbaldwin
 ms.author: v-tawe
 manager: rkarlin
 origin.date: 09/10/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 587ac3843b0087dfc38fa2f6e994d04e4b0f44f6
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 3e487fe9057fd9299f24ab7ed9d30b2cecd1531e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678513"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299999"
 ---
-# <a name="fetch-shared-access-signature-tokens-in-code"></a>通过编写代码提取共享访问签名令牌
+# <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>创建 SAS 定义，并通过编写代码提取共享访问签名令牌
 
 你可以使用存储在密钥保险库中的共享访问签名 (SAS) 令牌来管理存储帐户。 有关详细信息，请参阅[使用 SAS 授予对 Azure 存储资源的有限访问权限](../../storage/common/storage-sas-overview.md)。
 
 > [!NOTE]
-> 建议使用[基于角色的访问控制(RBAC)](../../storage/common/storage-auth-aad.md) 来保护存储帐户，以获得比“共享密钥”授权更高的安全性和易用性。
+> 建议使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../storage/common/storage-auth-aad.md) 保护存储帐户，以便获得卓越的安全性，并通过共享密钥授权轻松使用。
 
 本文展示了用于创建 SAS 定义和获取 SAS 令牌的 .NET 代码的示例。 请参阅我们的 [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) 示例，获取完整详细信息，包括为密钥保管库托管的存储帐户生成的客户端的信息。 有关如何创建和存储 SAS 令牌的信息，请参阅[使用密钥保管库和 Azure CLI 管理存储帐户密钥](overview-storage-keys.md)或[使用密钥保管库和 Azure PowerShell 管理存储帐户密钥](overview-storage-keys-powershell.md)。
 
@@ -79,9 +79,12 @@ KeyVaultSecret sasToken = await secretClient.GetSecretAsync($"{storageAccountNam
 
 如果共享访问签名令牌即将过期，可以再次获取相同的机密并生成新的令牌。
 
+要了解如何使用从 Key Vault SAS 中检索的令牌访问 Azure 存储服务，请参阅[使用帐户 SAS 访问 Blob 服务](../../storage/common/storage-account-sas-create-dotnet.md#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> 如果应用从存储收到 403，则应用需要准备好刷新 SAS，使你能够处理密钥被泄露的情况，并且轮替操作需要比正常轮替期更频繁。 
+
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[使用 SAS 授予对 Azure 存储资源的有限访问权限](../../storage/common/storage-sas-overview.md)。
 - 了解如何[使用密钥保管库和 Azure CLI 管理存储帐户密钥](overview-storage-keys.md)或 [Azure PowerShell](overview-storage-keys-powershell.md)。
-- 请参阅完整的[共享链接](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/)示例。
-- 更多 [Key Vault 示例](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
 - 请参阅[托管存储帐户密钥示例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)

@@ -1,20 +1,20 @@
 ---
 title: Azure Data Box 磁盘门户管理员指南 | Microsoft Docs
-description: 介绍如何使用 Azure 门户管理 Azure Data Box。
+description: 了解如何使用 Azure 门户管理 Data Box Disk。 管理订单、管理磁盘，并在订单进行过程中跟踪其状态。
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 origin.date: 01/09/2019
-ms.date: 07/29/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 1e8f6ff8581a49283cfd551fdf91b1dda5c728ba
-ms.sourcegitcommit: c3f15613c875bb52d5a105445efd0f36b9f24c9c
+ms.openlocfilehash: 900a0986f89e17c46bf22d25d94bacaf002ad9f6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86473458"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977885"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>使用 Azure 门户管理 Data Box Disk
 
@@ -28,17 +28,17 @@ ms.locfileid: "86473458"
 
 可以执行以下步骤来取消订单。
 
-1. 转到“概况”>“取消”。  
+1. 转到“概况”>“取消”。 
 
-    ![取消订单 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![订单“概述”选项卡上的取消命令](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2. 填写取消订单的原因。  
 
-    ![取消订单 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![取消订单的原因](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
-3. 取消订单后，门户会更新订单的状态，并显示订单“已取消”。 
+3. 取消订单后，门户会更新订单的状态，并显示订单“已取消”。
 
-    ![取消订单 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![取消的订单](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 取消订单时，你不会收到电子邮件通知。
 
@@ -48,15 +48,15 @@ ms.locfileid: "86473458"
 
 执行以下步骤来克隆订单。
 
-1. 转到“概况”>“克隆”。  
+1. 转到“概况”>“克隆”。 
 
-    ![克隆订单 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![订单“概述”选项卡上的克隆命令](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2. 订单的所有详细信息保持不变。 订单名称是原始订单名称后接 *-Clone*。 选中表示确认你已查看隐私信息的复选框。 单击“创建”。     
 
 几分钟后将会创建克隆的订单，并且门户会更新，以显示新订单。
 
-[![克隆订单 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![克隆的订单](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>删除订单
 
@@ -64,17 +64,17 @@ ms.locfileid: "86473458"
 
 只能删除已完成或已取消的订单。 执行以下步骤删除订单。
 
-1. 转到“所有资源”  。 搜索订单。
+1. 转到“所有资源”。 搜索订单。
 
-    ![搜索 Data Box 磁盘订单](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![搜索订单](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
-2. 单击要删除的订单，并转到“概况”。  在命令栏中，单击“删除”  。
+2. 单击要删除的订单，并转到“概况”。 从命令栏中，单击“删除”。
 
-    ![删除 Data Box 磁盘订单 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![删除订单](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. 当系统提示确认删除订单时，请输入订单名称。 单击 **“删除”** 。
 
-     ![删除 Data Box 磁盘订单 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![确认订单删除](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>下载发货标签
@@ -82,13 +82,13 @@ ms.locfileid: "86473458"
 如果磁盘随附的退件发货标签错放或丢失，你可能需要下载发货标签。 
 
 执行以下步骤下载发货标签。
-1. 转到“概况”>“下载发货标签”。  只有在磁盘已发货后，此选项才可用。 
+1. 转到“概况”>“下载发货标签”。 只有在磁盘已发货后，此选项才可用。 
 
-    ![下载发货标签](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![下载发货标签](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2. 这会将下载以下退件发货标签。 保存标签并打印，然后粘贴在退件上。
 
-    ![示例发货标签](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![示例发货标签](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>编辑寄送地址
 
@@ -96,13 +96,13 @@ ms.locfileid: "86473458"
 
 执行以下步骤编辑订单。
 
-1. 转到“订单详细信息”>“编辑寄送地址”。 
+1. 转到“订单详细信息”>“编辑寄送地址”。
 
-    ![编辑寄送地址 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![“订单详细信息”中的编辑寄送地址命令](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. 现在可以编辑寄送地址，然后保存更改。
 
-    ![编辑寄送地址 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![“编辑送货地址”对话框](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>编辑通知详细信息
 
@@ -110,17 +110,17 @@ ms.locfileid: "86473458"
 
 执行以下步骤编辑通知详细信息。
 
-1. 转到“订单详细信息”>“编辑通知详细信息”。 
+1. 转到“订单详细信息”>“编辑通知详细信息”。
 
-    ![编辑通知详细信息 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![“订单详细信息”中的编辑通知详细信息命令](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. 现在可以编辑通知详细信息，然后保存更改。
  
-    ![编辑通知详细信息 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![“编辑通知详细信息”对话框](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>查看订单状态
 
-|订单状态 |说明 |
+|订单状态 |描述 |
 |---------|---------|
 |已订购     | 已成功下单。 <br> 如果磁盘缺货，你会收到通知。 <br>如果磁盘有货，Azure 会指定要发货的磁盘，并准备磁盘包装。        |
 |已处理     | 订单处理已完成。 <br> 在订单处理期间，将执行以下操作：<li>使用 AES-128 BitLocker 加密技术将磁盘加密。 </li> <li>锁定 Data Box 磁盘，防止任何未经授权的访问。</li><li>在此过程中，将生成用于解锁磁盘的支持密钥。</li>        |
@@ -130,7 +130,7 @@ ms.locfileid: "86473458"
 |Received     | Azure 数据中心已收到磁盘。 数据复制即将开始。        |
 |已复制数据     |正在复制数据。<br> 请等待数据复制完成。         |
 |已完成       |已成功完成订单。<br> 从服务器中删除本地数据之前，请验证数据是否已在 Azure 中。         |
-|已完成但出错| 数据复制已完成，但出现错误。 <br> 使用“概述”  中提供的路径查看要上传的错误日志。 有关详细信息，请转到[下载上传错误日志](data-box-disk-troubleshoot-upload.md#download-logs)。   |
+|已完成但出错| 数据复制已完成，但出现错误。 <br> 使用“概述”中提供的路径查看要上传的错误日志。 有关详细信息，请转到[下载上传错误日志](data-box-disk-troubleshoot-upload.md#download-logs)。   |
 |已取消            |订单已取消。 <br> 你取消了订单，或者由于遇到错误，服务取消了订单。     |
 
 

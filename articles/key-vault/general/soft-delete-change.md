@@ -6,17 +6,16 @@ author: ShaneBala-keyvault
 manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: general
-ms.topic: tutorial
+ms.topic: conceptual
 origin.date: 07/27/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: a4cb547cc7406bb06a342ef9ea68b292205292c1
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: bdb559e9640f00ad1567bd78b075d421c313488b
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678535"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300923"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>对所有 Key Vault 启用软删除
 

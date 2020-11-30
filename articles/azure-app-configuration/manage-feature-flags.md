@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 08223647196f54e1892f90c597de6ea9009d5d44
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: e3e8012d44ceaba3f3dcde80b468f53868c974b8
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866646"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190271"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>教程：在 Azure 应用程序配置中管理功能标志
 
@@ -56,6 +56,7 @@ ms.locfileid: "88866646"
     |---|---|
     | Microsoft.Percentage | {"Value":0-100 percent} |
     | Microsoft.TimeWindow | {"Start":UTC time, "End":UTC time} |
+    | Microsoft.Targeting | {“受众”：定义用户、组和推出百分比的 JSON blob。 请参阅[此设置文件](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json)的 `EnabledFor` 元素下的示例}
 
     ![功能标志筛选器](./media/azure-app-configuration-feature-flag-filter.png)
 
@@ -63,9 +64,9 @@ ms.locfileid: "88866646"
 
 若要更改功能标志的状态值，请执行以下操作：
 
-1. 选择“功能管理器”。 
+1. 选择“功能管理器”。
 
-1. 在要修改的功能标志的右侧，选择省略号 ( **...** )，然后选择“编辑”  。
+1. 在要修改的功能标志的右侧，选择省略号 (**...**)，然后选择“编辑”。
 
 1. 设置功能标志的新状态。
 

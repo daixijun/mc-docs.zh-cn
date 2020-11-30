@@ -9,14 +9,14 @@ ms.service: cognitive-services
 keywords: 认知服务, 认知智能, 认知解决方案, ai 服务
 ms.topic: conceptual
 origin.date: 10/04/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 5d82e59bd7b5604dfefcf5a924e5b6112648d1b0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d3681ba2aab455c55468d927c774dcb9772a7edc
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105709"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306276"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>快速入门：使用 Azure 命令行接口 (CLI) 创建认知服务资源
 
@@ -24,9 +24,9 @@ ms.locfileid: "93105709"
 
 Azure 认知服务是包含 REST API 和客户端库 SDK 的云服务，可帮助开发人员将认知智能内置于应用程序，而无需具备直接的人工智能 (AI) 或数据科学技能或知识。 借助 Azure 认知服务，开发人员可以通过能够看、听、说、理解甚至开始推理的认知解决方案，轻松将认知功能添加到他们的应用程序中。
 
-认知服务由你在 Azure 订阅中创建的 Azure [资源](/azure-resource-manager/resource-group-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。
+认知服务由你在 Azure 订阅中创建的 Azure [资源](../azure-resource-manager/management/manage-resources-portal.md)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。
 
-本快速入门介绍如何使用 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 注册 Azure 认知服务以及创建包含单服务或多服务订阅的帐户。 这些服务由 Azure [资源](/azure-resource-manager/resource-group-portal)表示，可用于连接到一个或多个 Azure 认知服务 API。
+本快速入门介绍如何使用 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 注册 Azure 认知服务以及创建包含单服务或多服务订阅的帐户。 这些服务由 Azure [资源](../azure-resource-manager/management/manage-resources-portal.md)表示，可用于连接到一个或多个 Azure 认知服务 API。
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -194,7 +194,7 @@ az group delete --name cognitive-services-resource-group
 ## <a name="see-also"></a>另请参阅
 
 * [对 Azure 认知服务的请求进行身份验证](authentication.md)
-* [什么是 Azure 认知服务？](Welcome.md)
+* [什么是 Azure 认知服务？](./what-are-cognitive-services.md)
 * [自然语言支持](language-support.md)
 * [Docker 容器支持](cognitive-services-container-support.md)
 

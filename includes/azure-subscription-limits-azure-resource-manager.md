@@ -9,12 +9,12 @@ origin.date: 03/26/2020
 ms.date: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1ce6f24321551421431b3d346b27f0714d429189
-ms.sourcegitcommit: 8d56bc6baeb42d675695ecef1909d76f5c4a6ae3
+ms.openlocfilehash: 665b446431f954bfd02fdc62b455a6c22d59b3d0
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83406211"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300930"
 ---
 <!--MOONCAKE: CORRECT ON https://www.azure.cn/pricing-->
 <!--MOONCAKE: CORRECT ON /billing/billing-add-change-azure-subscription-administrator/-->
@@ -31,6 +31,6 @@ ms.locfileid: "83406211"
 
 <sup>1</sup>可以将最多 50 个标记直接应用于一个订阅。 但是，订阅可以包含无限数量的标记，这些标记应用于订阅中的资源组和资源。 每个资源或资源组的标记数限制为 50。 当标记数少于或等于 10,000 时，资源管理器仅返回订阅中[唯一标记名和值的列表](https://docs.microsoft.com/rest/api/resources/tags)。 即使数目超过 10,000，也仍可按标记查找资源。 
 
-<sup>2</sup>如果达到 800 个部署的限制，则会从历史记录中删除不再需要的部署。 若要删除订阅级别部署，请使用 [Remove-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/Remove-AzDeployment) 或 [az deployment sub delete](https://docs.microsoft.com/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-delete)。
+<sup>2</sup>如果达到 800 个部署的限制，则会从历史记录中删除不再需要的部署。 若要删除订阅级别部署，请使用 [Remove-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/Remove-AzDeployment) 或 [az deployment sub delete](https://docs.microsoft.com/cli/azure/deployment/sub#az-deployment-sub-delete)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,12 +9,12 @@ origin.date: 03/05/2020
 ms.date: 06/15/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9fdcf30901f5e6bb626c88fb16627ac18f8ce647
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.openlocfilehash: 9f087f57ab592f20deae5ec66442572ae86d8530
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84574629"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301049"
 ---
 <!--Verified successfully by PG team-->
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -31,9 +31,9 @@ ms.locfileid: "84574629"
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-在 Linux 上，CLI 安装因操作系统版本而异。  请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 以便为特定 Linux 版本进行安装。
+在 Linux 上，CLI 安装因操作系统版本而异。  请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 以便为特定 Linux 版本进行安装。
 
-若要创建增量快照，请使用具有 `--incremental` 参数的 [az snapshot create](https://docs.azure.cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create)。
+若要创建增量快照，请使用具有 `--incremental` 参数的 [az snapshot create](https://docs.azure.cn/cli/snapshot#az-snapshot-create)。
 
 下面的示例创建一个增量快照，将 `<yourDesiredSnapShotNameHere>`、`<yourResourceGroupNameHere>`、`<exampleDiskName>` 和 `<exampleLocation>` 替换为你自己的值，然后运行该示例：
 
@@ -66,7 +66,7 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="resource-manager-template"></a>Resource Manager 模板
 
-还可以使用 Azure 资源管理器模板创建增量快照。 需要确保 apiVersion 设置为 2019-03-01 且增量属性也设置为 true****。 以下代码片段是使用资源管理器模板创建增量快照的示例：
+还可以使用 Azure 资源管理器模板创建增量快照。 需要确保 apiVersion 设置为 2019-03-01 且增量属性也设置为 true。 以下代码片段是使用资源管理器模板创建增量快照的示例：
 
 ```json
 {

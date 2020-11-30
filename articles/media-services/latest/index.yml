@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 21/16/2020
-  ms.date: 09/07/2020
-  ms.openlocfilehash: 8b6fa14e1ef4763c2a892db2c6d6232e81746ad4
-  ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+  ms.date: 11/30/2020
+  ms.openlocfilehash: fc18bcc6884f3409cca8a49262b48b9dcabfed31
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89413329"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300831"
 landingContent:
 - title: 关于媒体服务
   linkLists:
@@ -61,13 +61,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure CLI
-      url: https://aka.ms/ams-v3-cli-ref
+      url: https://docs.microsoft.com/cli/azure/ams
     - text: REST
       url: https://docs.microsoft.com/rest/api/media/
     - text: .NET
-      url: https://aka.ms/ams-v3-dotnet-ref
+      url: /dotnet/api/overview/mediaservices/management
     - text: Java
-      url: https://aka.ms/ams-v3-java-ref
+      url: https://docs.microsoft.com/java/api/overview/azure/mediaservices/management
 - title: 实时流式处理
   linkLists:
   - linkListType: concept

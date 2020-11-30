@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 origin.date: 06/30/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 36fe2ecc4430278f07c4f1e22ecf441d925f054b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: d763fef5da3574ae9f999e7b0861fbfe1e67e095
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021090"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300784"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure 认知搜索知识存储
 
@@ -115,7 +115,7 @@ ms.locfileid: "90021090"
     + **页**
     + **关键短语**
 
-1. 输入在上一步骤中保存的**存储帐户连接字符串**。
+1. 输入在上一步骤中保存的 **存储帐户连接字符串**。
 
     ![配置知识存储](media/knowledge-store-create-portal/hotel-reviews-ks.png "配置知识存储")
 

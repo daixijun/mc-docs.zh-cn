@@ -4,15 +4,15 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集上部署和使
 ms.topic: conceptual
 origin.date: 03/05/2018
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 515a54f8bdf9006a2ac131cb8af3ce3539c1382f
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: bf5bd9ea329c77b625bc9252ce7758598c189fe9
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024622"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -141,7 +141,12 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 单击“部署新函数”并搜索 Figlet 。 选择 Figlet 函数，然后单击“部署”。
 
-:::image type="content" source="media/container-service-serverless/figlet.png" alt-text="OpenFaaS UI"
+:::image type="content" source="media/container-service-serverless/figlet.png" alt-text="屏幕截图显示了“部署新函数”对话框，其中的搜索行中有文本“figlet”。":::
+
+使用 curl 来调用该函数。 将下例中的 IP 地址替换为 OpenFaas 网关的 IP 地址。
+
+```console
+curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
 输出：
@@ -245,7 +250,7 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 还可以在 OpenFaaS UI 中测试函数。
 
-:::image type="content" source="media/container-service-serverless/OpenFaaSUI.png" alt-text="OpenFaaS UI":::
+:::image type="content" source="media/container-service-serverless/OpenFaaSUI.png" alt-text="替换文字":::
 
 ## <a name="next-steps"></a>后续步骤
 

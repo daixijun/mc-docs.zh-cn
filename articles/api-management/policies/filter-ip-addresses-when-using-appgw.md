@@ -4,25 +4,25 @@ titleSuffix: Azure API Management
 description: Azure API 管理策略示例 - 演示如何在使用应用程序网关时对请求 IP 地址进行筛选。
 services: api-management
 documentationcenter: ''
-author: jftl6y
+author: Johnnytechn
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 01/13/2020
-ms.date: 02/24/2020
-ms.author: v-yiso
+ms.date: 11/18/2020
+ms.author: v-johya
 ms.custom: fasttrack-new
-ms.openlocfilehash: 15cf0e4ba13adce5169959b968bcabf81e0ad19f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 453164d28812e4e586acb17a9a35645091af4d7f
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77429949"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306300"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>使用应用程序网关时对请求 IP 地址进行筛选
 
-本文展示了一个 Azure API 管理策略示例，该示例演示了当通过应用程序网关或其他中介访问 API 管理实例时，如何筛选请求 IP 地址。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-samples.md)。
+本文展示了一个 Azure API 管理策略示例，该示例演示了当通过应用程序网关或其他中介访问 API 管理实例时，如何筛选请求 IP 地址。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-reference.md)。
 
 ## <a name="policy"></a>策略
 
@@ -120,4 +120,5 @@ ms.locfileid: "77429949"
 了解有关 APIM 策略的详细信息：
 
 + [访问限制策略](../api-management-access-restriction-policies.md)
-+ [策略示例](../policy-samples.md)
++ [策略示例](../policy-reference.md)
+

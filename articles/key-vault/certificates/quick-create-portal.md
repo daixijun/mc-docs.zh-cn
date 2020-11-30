@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/24/2020
-ms.date: 07/01/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 2d6e128d5a4e70afa8816b6bec7015f219094c27
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: d1c8d6c77f411bd5b83a0e89cd2251bd532f054e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796186"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300278"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索证书
 
@@ -46,7 +46,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 请记下下面列出的两个属性：
 
 * **保管库名称**：在示例中，此项为 Example-Vault。 将在其他步骤中使用此名称。
-* **保管库 URI**：在本示例中，此项为 https://example-vault.vault.azure.cn/ 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+* **保管库 URI**：在本示例中，此项为 `https://example-vault.vault.azure.cn/` 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 目前，只有你的 Azure 帐户有权对这个新保管库执行操作。
 
@@ -62,7 +62,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
     - **证书创建方法**：生成。
     - **证书名称**：ExampleCertificate。
     - **使用者**：CN=ExampleDomain
-    - 让其他值保留默认设置。 单击**创建**。
+    - 让其他值保留默认设置。 单击“创建”。
 
 收到证书已成功创建的消息后，即可单击列表中的该证书， 然后就可以看到某些属性。 如果单击当前版本，则可看到在上一步指定的值。
 

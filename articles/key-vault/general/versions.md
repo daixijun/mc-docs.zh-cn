@@ -6,14 +6,14 @@ author: msmbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 06/30/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7524604840926c44a96098c63b19ff3d8c09dc6f
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 002f6299aa6dd7514ef79b1b60a389fd8cb544d8
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678424"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300957"
 ---
 # <a name="key-vault-versions"></a>Key Vault 版本
 
@@ -34,7 +34,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 ## <a name="2019"></a>2019
 
 - 发布下一代 Azure Key Vault SDK。 有关其用法的示例，请参阅适用于 [Python](../secrets/quick-create-python.md)、[.NET](../secrets/quick-create-net.md)、[Java](../secrets/quick-create-java.md) 和 [Node.js](../secrets/quick-create-node.md) 的 Azure Key Vault 机密快速入门。
-- 用于管理密钥保管库证书的新 Azure 策略。 请参阅 [Key Vault 的 Azure Policy 内置定义](../policy-samples.md)。
+- 用于管理密钥保管库证书的新 Azure 策略。 请参阅 [Key Vault 的 Azure Policy 内置定义](../policy-reference.md)。
 - Azure Key Vault 虚拟机扩展现已正式发布。  请参阅[适用于 Linux 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-linux.md)和[适用于 Windows 的 Key Vault 虚拟机扩展](../../virtual-machines/extensions/key-vault-windows.md)。
 
 <!-- - Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md). -->
@@ -52,8 +52,8 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 
 本年度发布的新功能：
 
-- 托管存储帐户密钥。 新增了存储帐户密钥功能，可更轻松地与 Azure 存储集成。 参阅概述主题[托管存储帐户密钥概述](https://docs.azure.cn/key-vault/key-vault-ovw-storage-keys)，了解详细信息。
-- 软删除。 软删除功能增强了密钥保管库和密钥保管库对象的数据保护。 参阅概述主题[软删除概述](https://docs.azure.cn/key-vault/key-vault-ovw-soft-delete)，了解详细信息。
+- 托管存储帐户密钥。 新增了存储帐户密钥功能，可更轻松地与 Azure 存储集成。 参阅概述主题[托管存储帐户密钥概述](../secrets/overview-storage-keys.md)，了解详细信息。
+- 软删除。 软删除功能增强了密钥保管库和密钥保管库对象的数据保护。 参阅概述主题[软删除概述](./soft-delete-overview.md)，了解详细信息。
 
 ## <a name="2015"></a>2015
 

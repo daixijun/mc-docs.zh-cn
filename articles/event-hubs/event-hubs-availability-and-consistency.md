@@ -6,12 +6,12 @@ origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df33b07a0df794df9c27c375b01c3fb960f9bfe8
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: cf0258dcbf92143a66215c60b5c9477cba53e7ea
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063364"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300407"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 
@@ -32,10 +32,10 @@ Brewer 的定理按如下所示定义一致性和可用性：
 开始使用事件中心的最简单方法是使用默认行为。 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs（5.0.0 或更高版本）](#tab/latest)
-如果新建 [EventHubProducerClient](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)  对象并使用 [SendAsync](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)  方法，则事件将自动分布在事件中心的分区之间。 此行为可实现最大运行时间量。
+如果新建 [EventHubProducerClient](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)  对象并使用 [SendAsync](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)  方法，则事件将自动分布在事件中心的分区之间。 此行为可实现最大运行时间量。
 
 #### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs（4.1.0 或更早版本）](#tab/old)
-如果创建新的 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 对象并使用 **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
+如果创建新的 **[EventHubClient](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient)** 对象并使用 **[Send](https://docs.microsoft.com/dotnetapi/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
 
 ---
 

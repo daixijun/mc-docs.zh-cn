@@ -9,16 +9,16 @@ origin.date: 02/02/2018
 ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 8547264c5b98e2c83379f23d5ef97878c7ec53ec
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 3674e39584bfdfc38cf6902bdcd00238ff04da6d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871139"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301112"
 ---
 在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/overview.md#app-service-on-linux)。 
 
-在 Azure CLI 中，可以使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest) 命令。 在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes --linux`](/cli/webapp?view=azure-cli-latest)。 
+在 Azure CLI 中，可以使用 [`az webapp create`](/cli/webapp) 命令。 在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes --linux`](/cli/webapp)。 
 
 ```azurecli
 # Bash

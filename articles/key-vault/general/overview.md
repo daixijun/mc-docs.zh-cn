@@ -1,23 +1,22 @@
 ---
-title: Azure Key Vault 概述 - Azure Key Vault | Microsoft Docs
+title: Azure Key Vault 概述 - Azure Key Vault
 description: Azure Key Vault 是一个安全的机密存储，提供对机密、密钥和证书的管理，所有这些都由硬件安全模块支持。
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
-origin.date: 01/07/2019
-ms.date: 09/15/2020
+origin.date: 10/01/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 602eb400428aa934e376175c4cc874e0c0557ab2
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 2f5ce8c1d93bf237a68eff8044e1cc201cba299f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678381"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300935"
 ---
 # <a name="about-azure-key-vault"></a>关于 Azure Key Vault
 
@@ -25,7 +24,7 @@ Azure Key Vault 有助于解决以下问题：
 
 - **机密管理** - Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥和其他机密，并对其访问进行严格控制
 - **密钥管理** - Azure Key Vault 也可用作密钥管理解决方案。 可以通过 Azure Key Vault 轻松创建和控制用于加密数据的加密密钥。 
-- **证书管理** - Azure Key Vault 也是一项服务，可用来轻松预配、管理和部署公用和专用传输层安全性/安全套接字层 (TLS/SSL) 证书，以用于 Azure 以及内部连接资源。 
+- **证书管理** - Azure Key Vault 也是一项服务，可用来轻松预配、管理和部署公用和专用传输层安全性/安全套接字层 (TLS/SSL) 证书，以用于 Azure 以及内部连接资源。
 
 <!-- - **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validated HSMs -->
 
@@ -39,11 +38,9 @@ Azure Key Vault 有助于解决以下问题：
 
 ### <a name="securely-store-secrets-and-keys"></a>安全地存储机密和密钥
 
-机密和密钥由 Azure 使用行业标准算法和密钥长度进行保护。
-
 访问密钥保管库需要适当的身份验证和授权，否则调用方（用户或应用程序）无法进行访问。 身份验证用于确定调用方的身份，而授权则决定了调用方能够执行的操作。
 
-身份验证通过 Azure Active Directory 来完成。 授权可以通过基于角色的访问控制 (RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
+身份验证通过 Azure Active Directory 来完成。 授权可以通过 Azure 基于角色的访问控制 (Azure RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 Azure RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
 
 <!-- Azure Key Vaults may be either software- or hardware-HSM protected. For situations where you require added assurance you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. Microsoft uses nCipher hardware security modules. You can use nCipher tools to move a key from your HSM to Azure Key Vault. -->
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 1761385125a2d97a3f0d8d6de236607b1f3911f3
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 03d6fe9ce4c09b7004a22bf760e321a0793f30b2
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245607"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300854"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>从 HTTPS URL 创建作业输入
 
@@ -34,7 +34,7 @@ ms.locfileid: "91245607"
 
 ```c#
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
-    string resourceGroup,
+    string resourceGroupName,
     string accountName,
     string transformName,
     string outputAssetName,
@@ -56,7 +56,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
     // to get the existing job. In Media Services v3, Get methods on entities returns null 
     // if the entity doesn't exist (a case-insensitive check on the name).
     Job job = await client.Jobs.CreateAsync(
-        resourceGroup,
+        resourceGroupName,
         accountName,
         transformName,
         jobName,

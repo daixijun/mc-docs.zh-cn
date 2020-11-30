@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/09/2019
-ms.date: 08/13/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7257af835d8b8da1da1d1c5644c997d1414d63da
-ms.sourcegitcommit: 5055d580fb7ef1722e32e09a334d1d3e28295dd6
+ms.openlocfilehash: 377a0712a4c1cacef0d00b377151710e0c13699e
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503340"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306447"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>使用 CLI 将应用服务与应用程序网关集成
 
@@ -30,9 +30,11 @@ ms.locfileid: "89503340"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0.74 版或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。
+
+<!-- If using Azure Cloud Shell, the latest version is already installed.-->
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -113,7 +115,7 @@ az network public-ip show \
 
 此脚本使用以下命令创建资源组、应用服务应用、Cosmos DB 和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [`az group create`](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [`az network vnet create`](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) | 创建虚拟网络。 |

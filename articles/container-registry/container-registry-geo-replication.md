@@ -4,16 +4,16 @@ description: 开始创建和管理异地复制的 Azure 容器注册表，使注
 ms.topic: article
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 84facd581c5fabc8c7599b2ba2f0f81f6b7764fe
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 1f7c9600dea558764ebfe93eed2871bcc1f31984
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024533"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器注册表中的异地复制
 
@@ -31,7 +31,7 @@ ms.locfileid: "90021615"
 >
 
 ## <a name="example-use-case"></a>示例用例
-Contoso 在中国各地运行着一个公开展示网站。 为了向这些市场提供本地近网内容，Contoso 在中国北部和中国东部运行 [Azure Kubernetes 服务](/aks/) (AKS) 群集。 部署为 Docker 映像的网站应用程序在所有区域中均使用相同的代码和映像。 从在每个区域独特部署的数据库检索该区域的本地内容。 对于本地数据库这样的资源，每个区域部署均有其唯一配置。
+Contoso 在中国各地运行着一个公开展示网站。 为了向这些市场提供本地近网内容，Contoso 在中国北部和中国东部运行 [Azure Kubernetes 服务](../aks/index.yml) (AKS) 群集。 部署为 Docker 映像的网站应用程序在所有区域中均使用相同的代码和映像。 从在每个区域独特部署的数据库检索该区域的本地内容。 对于本地数据库这样的资源，每个区域部署均有其唯一配置。
 
 开发团队位于北京，使用中国北部数据中心。
 
@@ -64,7 +64,7 @@ docker push contosochinaeast.azurecr.cn/public/products/web:1.2
 
 ## <a name="configure-geo-replication"></a>配置异地复制
 
-配置异地复制就如在地图上单击区域一样简单。 还可以使用工具（包括 Azure CLI 中的 [az acr replication](https://docs.azure.cn/cli/acr/replication?view=azure-cli-latest#az-acr-replication) 命令）管理异地复制，或使用 [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)部署为异地复制启用的注册表。
+配置异地复制就如在地图上单击区域一样简单。 还可以使用工具（包括 Azure CLI 中的 [az acr replication](https://docs.azure.cn/cli/acr/replication#az_acr_replication) 命令）管理异地复制，或使用 [Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)部署为异地复制启用的注册表。
 
 <!--MOONCAKE: CORRECT THE DEPLOYMENT-->
 
@@ -109,7 +109,7 @@ ACR 将开始在配置的副本间同步映像。 完成后，门户将显示“
 
 ## <a name="delete-a-replica"></a>删除副本
 
-为注册表配置副本后，如果不再需要该副本，则可以随时将其删除。 使用 Azure 门户或其他工具（例如 Azure CLI 中的 [az acr replication delete](https://docs.azure.cn/cli/acr/replication?view=azure-cli-latest#az-acr-replication-delete) 命令）删除副本。
+为注册表配置副本后，如果不再需要该副本，则可以随时将其删除。 使用 Azure 门户或其他工具（例如 Azure CLI 中的 [az acr replication delete](https://docs.azure.cn/cli/acr/replication#az_acr_replication_delete) 命令）删除副本。
 
 若要在 Azure 门户中删除副本：
 
@@ -126,13 +126,15 @@ az acr replication delete --name chinanorth --registry myregistry
 
 异地复制是 Azure 容器注册表[高级服务层级](container-registry-skus.md)的一项功能。 将注册表复制到所需区域时，每个区域都会产生高级注册表费用。
 
+<!--MOONCAKE: CORRECT ON TWICE-->
+
 在前面的示例中，Contoso 将两个注册表合并到一起，并向中国东部和中国北部添加副本。 Contoso 每月将支付两次高级费用，且无额外配置或管理。 现在每个区域就从本地拉取映像，既提升了性能和可靠性，又节省了从中国北部到中国东部的网络传输费用。
 
 <!--MOONCAKE: CORRECT ON TWICE-->
 
 ## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>使用异地复制注册表对推送操作进行故障排除
 
-将映像推送到异地复制注册表的 Docker 客户端可能不会将所有映像层及其清单推送到单个复制区域。 出现这种情况的原因可能是因为 Azure 流量管理器将注册表请求路由到离网络最近的复制注册表。 如果注册表有两个*附近*的复制区域，则可以将映像层和清单分发到两个站点，并且在验证清单时推送操作将失败。 之所以出现此问题是因为在某些 Linux 主机上解析注册表的 DNS 名称的方式。 这个问题不会发生在 Windows 上，因为 Windows 提供了一个客户端 DNS 缓存。
+将映像推送到异地复制注册表的 Docker 客户端可能不会将所有映像层及其清单推送到单个复制区域。 出现这种情况的原因可能是因为 Azure 流量管理器将注册表请求路由到离网络最近的复制注册表。 如果注册表有两个 *附近* 的复制区域，则可以将映像层和清单分发到两个站点，并且在验证清单时推送操作将失败。 之所以出现此问题是因为在某些 Linux 主机上解析注册表的 DNS 名称的方式。 这个问题不会发生在 Windows 上，因为 Windows 提供了一个客户端 DNS 缓存。
 
 如果出现此问题，一种解决方案是在 Linux 主机上应用客户端 DNS 缓存，比如 `dnsmasq`。 这有助于确保一致地解析注册表的名称。 如果你使用 Azure 中的 Linux VM 推送到注册表，请参阅 [Azure 中 Linux 虚拟机的 DNS 名称解析选项](../virtual-machines/linux/azure-dns.md)中的选项。
 
@@ -150,7 +152,7 @@ az acr replication delete --name chinanorth --registry myregistry
 az acr replication list --registry --output table
 
 # Disable routing to replication
-az acr replication update update --name chinanorth \
+az acr replication update --name chinanorth \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled false
 ```
@@ -158,7 +160,7 @@ az acr replication update update --name chinanorth \
 若要恢复路由到副本，请执行以下操作：
 
 ```azurecli
-az acr replication update update --name chinanorth \
+az acr replication update --name chinanorth \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled true
 ```
@@ -170,7 +172,7 @@ az acr replication update update --name chinanorth \
 > [!div class="nextstepaction"]
 > [Azure 容器注册表中的异地复制](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: https://docs.azure.cn/cli/acr/replication?view=azure-cli-latest#az-acr-replication-list
-[az-acr-replication-update]: https://docs.azure.cn/cli/acr/replication?view=azure-cli-latest#az-acr-replication-update
+[az-acr-replication-list]: https://docs.azure.cn/cli/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: https://docs.azure.cn/cli/acr/replication#az_acr_replication_update
 
 <!-- Update_Description: update meta properties, wording update, update link -->

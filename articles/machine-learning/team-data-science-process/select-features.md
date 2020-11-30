@@ -11,28 +11,28 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ceba45669cd62124bb753c6fa47b56187975789b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5a9d745004da7a0fc70942cb4093fb203dc6c3da
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599295"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978246"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Team Data Science Process (TDSP) 中的功能选择
 本文介绍特征工程的目的，并提供其在机器学习数据增强过程中作用的相关示例。 这些示例来自 Azure 机器学习工作室。
 
-特征的工程设计和选择是 [Team Data Science Process (TDSP) 是什么？](overview.md)一文中所述的 Team Data Science Process (TDSP) 的一部分。 特征工程和选择是 TDSP 的**开发特征**步骤的一部分。
+特征的工程设计和选择是 [Team Data Science Process (TDSP) 是什么？](overview.md)一文中所述的 Team Data Science Process (TDSP) 的一部分。 特征工程和选择是 TDSP 的 **开发特征** 步骤的一部分。
 
 * **特征工程**：该过程尝试从数据中的现有原始特征创建其他相关特征，并提高学习算法的预测能力。
 * **特征选择**：该过程选择原始数据特征的关键子集，试图降低定型问题的维度。
 
-通常，首先应用**特征工程**生成其他特征，然后执行**特征选择**步骤，消除不相关、冗余或高度相关的特征。
+通常，首先应用 **特征工程** 生成其他特征，然后执行 **特征选择** 步骤，消除不相关、冗余或高度相关的特征。
 
 ## <a name="filter-features-from-your-data---feature-selection"></a>从数据中筛选特征 - 特征选择
-特征选择是一个过程，通常适用于为预测建模任务（如分类或回归任务）构建定型数据集。 目标是从原始数据集中选择特征子集，即通过使用最少特征集来表示数据中最大方差量以减少其维度。 此特征子集用于定型模型。 特征选择有两个主要目的。
+功能选择可用于分类和回归任务。 目标是从原始数据集中选择特征子集，即通过使用最少特征集来表示数据中最大方差量以减少其维度。 此特征子集用于定型模型。 特征选择有两个主要目的。
 
 * 第一，特征选择通常通过消除不相关、冗余或高度相关的特征，来提高分类准确度。
-* 第二，它会减少特征数，这使模型定型过程更高效。 高效对于定型成本高昂的学习器（例如支持向量机）尤其重。要。
+* 第二，它会减少特征数，这使模型定型过程更高效。 效率对于训练成本高昂的学习器（例如支持向量机）很重要。
 
 虽然特征选择确实试图减少数据集中用于定型模型的特征数，但不会将它称为术语“降维”。 特征选择方法提取数据中原始特征的子集，而不会改变它们。  降维方法采用可以转换原始特征并且可对它们进行修改的工程特征。 降维方法示例包括主成分分析、典型相关分析和奇异值分解。
 
@@ -64,7 +64,6 @@ ms.locfileid: "75599295"
 并不总是必须执行特征工程或特征选择。 根据收集的数据、选择的算法以及实验的目的决定是否需要。
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
+[feature-hashing]: /machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: https://docs.microsoft.com/previous-versions/azure/dn905854(v=azure.100)
+[fisher-linear-discriminant-analysis]: /machine-learning/studio-module-reference/fisher-linear-discriminant-analysis

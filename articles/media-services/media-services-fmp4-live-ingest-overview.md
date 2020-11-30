@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 14d487978c4ecd4676607995e23738358187219c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 3b96bede7c692a28632b138d8474f0cfd542eecb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413222"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300773"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒体服务分片 MP4 实时引入规范 
 
@@ -40,7 +40,7 @@ ms.locfileid: "89413222"
 ![引入流][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3.位流格式 – ISO 14496-12 分片 MP4
-本文档所述的实时传送视频流引入的有线格式基于 [ISO-14496-12]。 若要深入了解分片 MP4 格式以及点播视频文件和实时传送视频流引入的扩展，请参阅 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)。
+本文档所述的实时传送视频流引入的有线格式基于 [ISO-14496-12]。 若要深入了解分片 MP4 格式以及点播视频文件和实时传送视频流引入的扩展，请参阅 [[MS-SSTR]](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)。
 
 ### <a name="live-ingest-format-definitions"></a>实时引入格式定义
 下表列出了适用于 Azure 媒体服务的实时引入的特殊格式定义：
@@ -57,7 +57,7 @@ ms.locfileid: "89413222"
 ## <a name="4-protocol-format--http"></a>4.协议格式 – HTTP
 媒体服务基于 ISO 分片 MP4 的实时引入使用长时间运行的标准 HTTP POST 请求，以将分片 MP4 格式打包的编码媒体数据传输到服务。 每个 HTTP POST 发送一个完整的分片 MP4 位流（“流”），其开头为标头框（“ftyp”  、“实时服务器清单框”  及“moov”框  ），后接一系列片段（“moof”  与“mdat”  框）。 有关 HTTP POST 请求的 URL 语法，请参阅 [1] 中的第 9.2 节。 以下是 POST URL 的示例： 
 
-    http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>要求
 详细要求如下：
@@ -71,7 +71,7 @@ ms.locfileid: "89413222"
 1. 如果 HTTP POST 请求在流结束前终止或超时并出现一个 TCP 错误，则编码器必须使用新的连接来发出新的 POST 请求，并按照上述要求操作。 此外，编码器必须在流中为每个轨迹重新发送之前的两个 MP4 片段，并恢复流式传输，而不在媒体时间线上造成中断。 为每个轨迹重新发送最后两个 MP4 片段可确保不会丢失数据。 换句话说，如果流包含音频和视频轨迹，并且当前 POST 请求失败，则编码器必须重新连接，并为音频轨迹重新发送最后两个片段（先前已成功发送），为视频轨迹重新发送最后两个片段（先前已成功发送），以确保不会丢失任何数据。 编码器必须维护媒体片段的“转发”缓冲区，当重新连接时会重新发送此缓冲区。
 
 ## <a name="5-timescale"></a>5.时间刻度
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) 描述了 SmoothStreamingMedia  （第 2.2.2.1 节）、StreamElement  （第 2.2.2.3 节）、StreamFragmentElement  （第 2.2.2.6 节）和 LiveSMIL  （第 2.2.7.3.1 节）的时间刻度使用情况。 如果没有时间刻度值，则使用默认值 10,000,000 (10 MHz)。 尽管平滑流式处理格式规范不会阻止使用其他时间刻度值，但大多数编码器实现会使用此默认值 (10 MHz) 来生成平滑流式处理引入数据。 由于 [Azure 媒体动态打包](./previous/media-services-dynamic-packaging-overview.md)功能的原因，建议为视频流使用 90-KHz 时间刻度，为音频流使用 44.1 KHZ 或 48.1 KHZ 时间刻度。 如果不同的流采用不同的时间刻度值，则必须发送流级时间刻度。 有关详细信息，请参阅 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)。     
+[[MS-SSTR]](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) 描述了 SmoothStreamingMedia  （第 2.2.2.1 节）、StreamElement  （第 2.2.2.3 节）、StreamFragmentElement  （第 2.2.2.6 节）和 LiveSMIL  （第 2.2.7.3.1 节）的时间刻度使用情况。 如果没有时间刻度值，则使用默认值 10,000,000 (10 MHz)。 尽管平滑流式处理格式规范不会阻止使用其他时间刻度值，但大多数编码器实现会使用此默认值 (10 MHz) 来生成平滑流式处理引入数据。 由于 [Azure 媒体动态打包](./previous/media-services-dynamic-packaging-overview.md)功能的原因，建议为视频流使用 90-KHz 时间刻度，为音频流使用 44.1 KHZ 或 48.1 KHZ 时间刻度。 如果不同的流采用不同的时间刻度值，则必须发送流级时间刻度。 有关详细信息，请参阅 [[MS-SSTR]](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)。     
 
 ## <a name="6-definition-of-stream"></a>6.“流”的定义
 流是指在撰写实时演播内容、处理流故障转移和冗余方案的实时引入中操作的基本单位。 流定义为一个唯一的分片 MP4 位流，其中可包含单个轨迹或多个轨迹。 完整实时演播可能包含一个或多个流，具体取决于实时编码器的配置。 以下示例演示了使用流撰写完整实时演播内容的各种选项。

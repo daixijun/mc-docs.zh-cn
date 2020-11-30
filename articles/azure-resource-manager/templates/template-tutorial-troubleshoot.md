@@ -3,17 +3,17 @@ title: 对部署进行故障排除
 description: 了解如何监视和排查 Azure 资源管理器模板部署问题。 显示活动日志和部署历史记录。
 origin.date: 01/15/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: f71fe4508bc562a4c089a636e0ea044730ecff22
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 885c2f7e83e647df4490901971a899e8806bd2f7
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807894"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024613"
 ---
 <!--Verify Succesfully-->
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>教程：排查 ARM 模板部署问题
@@ -22,8 +22,8 @@ ms.locfileid: "88807894"
 
 有两种类型的错误与模板部署相关：
 
-- **验证错误**源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。
-- **部署错误**源于部署过程中发生的条件。 原因包括尝试访问并行部署的资源。
+- **验证错误** 源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。
+- **部署错误** 源于部署过程中发生的条件。 原因包括尝试访问并行部署的资源。
 
 两种类型的错误都会返回用于对部署进行故障排除的错误代码。 两种类型的错误都会显示在活动日志中。 但是，验证错误不会显示在部署历史记录中，因为部署从未启动。
 
@@ -104,14 +104,14 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 2. 打开资源组，方法是：选择“资源组”，然后选择资源组名称。 此时会看到“部署”下显示“1 个失败” 。
 
-    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png" alt-text="资源管理器教程故障排除":::
+    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png" alt-text="屏幕截图突出显示了失败的部署。":::
 3. 选择“错误详细信息”。
 
-    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png" alt-text="资源管理器教程故障排除":::
+    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png" alt-text="屏幕截图突出显示了“错误”详细信息链接。":::
 
     错误消息与此前显示的相同：
 
-    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png" alt-text="资源管理器教程故障排除":::
+    :::image type="content" source="./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png" alt-text="屏幕截图显示了错误详细信息。":::
 
 也可在活动日志中查找错误：
 

@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9a83f59eb10a3730099505128238418036341b72
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 10a9ef15319d5f81e8180818345cac0517577160
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021479"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978232"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>执行 Team Data Science Process 的演练
 
-这些综合演练演示了特定方案的 Team Data Science Process 步骤。 这些演练演示如何将云、本地工具和服务合并到智能应用程序的工作流中。 这些演练按所使用的**平台**进行分组。
+这些综合演练演示了特定方案的 Team Data Science Process 步骤。 这些演练演示如何将云、本地工具和服务合并到智能应用程序的工作流中。 这些演练按所使用的 **平台** 进行分组。
 
 
 ## <a name="walkthrough-descriptions"></a>演练说明
@@ -32,7 +32,7 @@ ms.locfileid: "90021479"
 - [使用 Hive 的 HDInsight Hadoop 演练](walkthroughs-hdinsight-hadoop.md) 这些演练在 HDInsight Hadoop 群集中使用 Hive 进行预测分析。
 - [使用 U-SQL 的 Azure Data Lake 演练](walkthroughs-azure-data-lake.md) 这些演练在 Azure Data Lake 中使用 U-SQL 进行预测分析。
 - [SQL Server](walkthroughs-sql-server.md) 这些演练使用 SQL Server、SQL Server R Services 和 SQL Server Python Services 进行预测分析。
-- [SQL 数据仓库](walkthroughs-sql-data-warehouse.md) 这些演练使用 SQL 数据仓库进行预测分析。 
+- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) 这些演练使用 Azure Synapse Analytics 进行预测分析。 
 
 
 

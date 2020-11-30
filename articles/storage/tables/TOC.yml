@@ -1,12 +1,12 @@
 - name: Azure 表存储文档
-  href: /storage/tables/
+  href: ./index.yml
 - name: 概述
   expanded: true
   items:
     - name: Azure 表存储概述
       href: table-storage-overview.md
     - name: 选择表存储或表 API
-      href: /cosmos-db/table-support
+      href: ../../cosmos-db/table-support.md
       maintainContext: true
 - name: 快速入门
   items:
@@ -15,31 +15,31 @@
 - name: 示例
   items:
     - name: .NET
-      href: /cosmos-db/table-storage-how-to-use-dotnet
+      href: ../../cosmos-db/tutorial-develop-table-dotnet.md
       maintainContext: true
     - name: F#
       href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
       maintainContext: true
     - name: Java
-      href: /cosmos-db/table-storage-how-to-use-java
+      href: ../../cosmos-db/table-storage-how-to-use-java.md
       maintainContext: true
     - name: Node.js
-      href: /cosmos-db/table-storage-how-to-use-nodejs
+      href: ../../cosmos-db/table-storage-how-to-use-nodejs.md
       maintainContext: true
     - name: C++
-      href: /cosmos-db/table-storage-how-to-use-c-plus
+      href: ../../cosmos-db/table-storage-how-to-use-c-plus.md
       maintainContext: true
     - name: PHP
-      href: /cosmos-db/table-storage-how-to-use-php
+      href: ../../cosmos-db/table-storage-how-to-use-php.md
       maintainContext: true
     - name: Python
-      href: /cosmos-db/table-storage-how-to-use-python
+      href: ../../cosmos-db/table-storage-how-to-use-python.md
       maintainContext: true
     - name: Ruby
-      href: /cosmos-db/table-storage-how-to-use-ruby
+      href: ../../cosmos-db/table-storage-how-to-use-ruby.md
       maintainContext: true
     - name: PowerShell
-      href: /storage/tables/table-storage-how-to-use-powershell
+      href: ./table-storage-how-to-use-powershell.md
       maintainContext: true
 - name: 概念
   items:
@@ -88,7 +88,7 @@
     - name: 升级存储帐户
       href: ../common/storage-account-upgrade.md?toc=%2fstorage%2ftables%2ftoc.json
     - name: 使用存储模拟器
-      href: /azure/storage/common/storage-use-emulator?toc=%2fstorage%2ftables%2ftoc.json
+      href: ../common/storage-use-emulator.md?toc=%252fstorage%252ftables%252ftoc.json
       maintainContext: true
     - name: 保护表数据
       items:

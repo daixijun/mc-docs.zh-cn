@@ -1,22 +1,18 @@
 ---
 title: 选择创作资源
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: diberry
-ms.openlocfilehash: 627f370e2ca1f8329edab49158c219faefec4fd2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/23/2020
+ms.author: v-johya
+ms.openlocfilehash: bd10977279c080a15c6467ed50eed9d4afa12bc5
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884482"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306457"
 ---
 ## <a name="select-subscription-and-authoring-resource"></a>选择订阅和创作资源
 
-在 LUIS 门户中，若要查看应用列表或创建应用，请选择订阅和创作资源。 通过 LUIS 创作资源访问应用。 
+当你选择特定订阅和创作资源时，你将看到与之关联的应用的列表。
 
-![选择创作订阅和创作资源](../media/select-authoring-resource/select-authoring-resource.png)
+:::image type="content" source="../media/select-authoring-resource/select-authoring-resource-my-english-app-2.png" alt-text="选择创作订阅和创作资源" lightbox="../media/select-authoring-resource/select-authoring-resource-my-english-app-2.png":::
+

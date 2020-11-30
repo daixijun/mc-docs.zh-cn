@@ -4,16 +4,16 @@ description: 排查 Azure 密钥保管库访问策略问题
 author: sebansal
 ms.author: v-tawe
 origin.date: 08/10/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ea647564282d858ac0d1145acee077716ad2965
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 7fc9c33f1b76590b32ecdc3c6dabede207681d5c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678531"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300919"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>排查 Azure 密钥保管库访问策略问题
 
@@ -21,11 +21,11 @@ ms.locfileid: "90678531"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>如何确定访问密钥保管库的方式和时间？
 
-在创建一个或多个 Key Vault 之后，可能需要监视 Key Vault 的访问方式、时间和访问者。 可以通过为 Azure 密钥保管库启用日志记录执行监视，有关启用日志记录的分步指南，请[了解详细信息](https://docs.azure.cn/key-vault/general/logging)。
+在创建一个或多个 Key Vault 之后，可能需要监视 Key Vault 的访问方式、时间和访问者。 可以通过为 Azure 密钥保管库启用日志记录执行监视，有关启用日志记录的分步指南，请[了解详细信息](./logging.md)。
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>如何监视保管库可用性、服务延迟周期或密钥保管库的其他性能指标？
 
-当你开始缩放服务时，发送到密钥保管库的请求数量将会增加。 此类需求有可能会增加请求的延迟，并且在极端情况下，可能会导致请求受到限制，从而影响服务的性能。 你可以监视密钥保管库性能指标，并获得特定阈值的警报，有关配置监视的分步指南，请[了解详细信息](https://docs.azure.cn/key-vault/general/alert)。
+当你开始缩放服务时，发送到密钥保管库的请求数量将会增加。 此类需求有可能会增加请求的延迟，并且在极端情况下，可能会导致请求受到限制，从而影响服务的性能。 你可以监视密钥保管库性能指标，并获得特定阈值的警报，有关配置监视的分步指南，请[了解详细信息](./alert.md)。
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>我无法修改访问策略，如何启用它？
 用户需要有足够的 AAD 权限才能修改访问策略。 在这种情况下，用户需要具有更高级的参与者角色。
@@ -52,7 +52,9 @@ ms.locfileid: "90678531"
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>如何在不删除现有访问策略的情况下，使用 ARM 模板重新部署 Key Vault？
 
-目前，重新部署密钥保管库会删除密钥保管库中的所有访问策略，并将其替换为 ARM 模板中的访问策略。 Key Vault 访问策略没有增量选项。 若要在密钥保管库中保留访问策略，需要读取密钥保管库中现有的访问策略并使用这些策略填充 ARM 模板，以避免任何访问中断。
+目前，重新部署密钥保管库会删除密钥保管库中的所有访问策略，并将其替换为 ARM 模板中的访问策略。 Key Vault 访问策略没有增量选项。 若要在 Key Vault 中保留访问策略，需要读取 Key Vault 中现有的访问策略，并使用这些策略填充 ARM 模板以避免任何访问中断。
+
+有助于此方案的另一种方法是将 Azure RBAC 和角色用作访问策略的替代方法。 通过 Azure RBAC，无需再次指定策略即可重新部署密钥保管库。 可在[此处](./rbac-guide.md)详细了解此解决方案。
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>以下错误类型的建议故障排除步骤
 

@@ -1,23 +1,22 @@
 ---
 title: Azure 事件网格安全和身份验证
 description: 介绍 Azure 事件网格及其概念。
-services: event-grid
 author: Johnnytechn
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: fbe93e94f42e3649eea1751e1d6f4ffcce94813d
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 3bf623524335e30b68550dbd885030d6dccca9ff
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723881"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978082"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>授权访问事件网格资源
-借助 Azure 事件网格，可以控制授予不同用户用来执行各种管理操作的访问级别，例如列出事件订阅、创建新的事件订阅及生成密钥。 事件网格使用 Azure 的基于角色的访问控制 (RBAC)。
+借助 Azure 事件网格，可以控制授予不同用户用来执行各种管理操作的访问级别，例如列出事件订阅、创建新的事件订阅及生成密钥。 事件网格使用 Azure 基于角色的访问控制 (Azure RBAC)。
 
+> [!NOTE]
+> 事件网格不支持 Azure RBAC 将事件发布到事件网格主题或域中。 使用共享访问签名 (SAS) 密钥或令牌对发布事件的客户端进行身份验证。 有关详细信息，请参阅[对发布客户端进行身份验证](security-authenticate-publishing-clients.md)。 
 
 ## <a name="operation-types"></a>操作类型
 
@@ -192,12 +191,12 @@ ms.locfileid: "84723881"
 ### <a name="system-topics-azure-service-publishers"></a>系统主题（Azure 服务发布服务器）
 对于系统主题，需要在资源范围内写入新事件订阅的权限，才能发布该事件。 该资源的格式为：`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-例如，若要订阅存储帐户上名为“myacct”的事件，需要 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct` 的 Microsoft.EventGrid/EventSubscriptions/Write 权限****
+例如，若要订阅存储帐户上名为“myacct”的事件，需要 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct` 的 Microsoft.EventGrid/EventSubscriptions/Write 权限
 
 ### <a name="custom-topics"></a>自定义主题
 对于自定义主题，需要在事件网格主题范围内写入新事件订阅的权限。 该资源的格式为：`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-例如，若要订阅名为“mytopic”的自定义主题，需要 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic` 的 Microsoft.EventGrid/EventSubscriptions/Write 权限****
+例如，若要订阅名为“mytopic”的自定义主题，需要 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic` 的 Microsoft.EventGrid/EventSubscriptions/Write 权限
 
 
 

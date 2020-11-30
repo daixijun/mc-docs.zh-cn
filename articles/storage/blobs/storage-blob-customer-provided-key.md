@@ -6,16 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/20/2020
-ms.date: 08/24/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 87c818623f6f2820a158056b921ab7b206e887f9
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8a9a5ade151c98e0c03f169b2f3d56b1458b3085
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753447"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153045"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>使用 .NET 在对 Blob 存储的请求中指定客户提供的密钥
 
@@ -25,7 +26,7 @@ ms.locfileid: "88753447"
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-若要详细了解如何使用 Azure 存储中的 Azure 标识客户端库进行身份验证，请参阅[使用 Azure Active Directory 和 Azure 资源的托管标识授权访问 Blob 和队列](../common/storage-auth-aad-msi.md?toc=%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)中标题为**使用 Azure 标识库进行身份验证**的部分。
+若要详细了解如何使用 Azure 存储中的 Azure 标识客户端库进行身份验证，请参阅 [使用 Azure Active Directory 和 Azure 资源的托管标识授权访问 Blob 和队列](../common/storage-auth-aad-msi.md?toc=%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)中标题为 **使用 Azure 标识库进行身份验证** 的部分。
 
 ## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>示例：使用客户提供的密钥上传 Blob
 
@@ -75,5 +76,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>后续步骤
 
+- [在对 Blob 存储的请求中提供加密密钥](encryption-customer-provided-keys.md)
 - [静态数据的 Azure 存储加密](../common/storage-service-encryption.md)
-- [使用 Azure 资源的 Azure Active Directory 和托管标识授予对 Blob 和队列的访问权限](../common/storage-auth-aad-msi.md)

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: a0b3c9a7ea2fae192b5e7ae7be92980be47a326d
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e6f1e2da5186cfbca60ece4b36a81c49beeb8a29
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245582"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300694"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用现有播放器播放内容
 
@@ -52,11 +52,11 @@ Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 
 
 #### <a name="playready-with-token"></a>带令牌的 PlayReady
 
-[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
+[http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 ### <a name="dash-players"></a>DASH 播放器
 
-[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+"https://dashplayer.azurewebsites.net"
 
 [https://dashif.org](https://dashif.org)
 

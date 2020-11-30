@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公共 IP 地址。
 services: virtual-network
 documentationcenter: na
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/28/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a0bfbf2340aa8dafe865ffc59eaebd1241a7b9bc
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: d8b5d92d5e10b84caa62422e840510fb0e6473ca
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564550"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300391"
 ---
 # <a name="public-ip-addresses"></a>公共 IP 地址
 
@@ -41,6 +41,8 @@ ms.locfileid: "91564550"
 公共 IP 地址是使用 IPv4 或 IPv6 地址创建的。 
 
 ## <a name="sku"></a><a name="sku"></a>SKU
+
+<!--Not Available on [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md)-->
 
 使用以下 SKU 之一创建公共 IP 地址：
 
@@ -112,7 +114,7 @@ ms.locfileid: "91564550"
 * Azure 资源可与使用基于 IP 地址的安全模型的其他应用或服务通信。
 * 使用链接到 IP 地址的 TLS/SSL 证书。
 
-<!--CORRECT ON confirmation.aspx?id=57062 -->
+<!--CORRECT ON [China](https://www.microsoft.com/download/confirmation.aspx?id=57062)-->
 
 > [!NOTE]
 > Azure 会从每个 Azure 云中每个区域的唯一地址范围中分配公共 IP 地址。 可以下载 Azure [中国](https://www.microsoft.com/download/confirmation.aspx?id=57062)云的范围（前缀）列表。
@@ -145,7 +147,7 @@ ms.locfileid: "91564550"
 
 ## <a name="virtual-machines"></a>虚拟机
 
-将公共 IP 地址分配到其**网络接口**可将其与 [Windows](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机相关联。 
+将公共 IP 地址分配到其 **网络接口** 可将其与 [Windows](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/overview.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机相关联。 
 
 为公共 IP 地址选择“动态”或“静态” 。 详细了解如何[将 IP 地址分配到网络接口](virtual-network-network-interface-addresses.md)。
 
@@ -168,7 +170,7 @@ ms.locfileid: "91564550"
 
 ## <a name="application-gateways"></a>应用程序网关
 
-将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 
+将公共 IP 地址分配给网关的 **前端** 配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 
 
 * 将“动态”基本公共 IP 地址分配给应用程序网关 V1 前端配置。 
 
@@ -200,7 +202,7 @@ Azure 中的[网络限制](../azure-resource-manager/management/azure-subscripti
 
 ## <a name="pricing"></a>定价
 
-公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)页。
+公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses)页。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Azure 中的专用 IP 地址](private-ip-addresses.md)

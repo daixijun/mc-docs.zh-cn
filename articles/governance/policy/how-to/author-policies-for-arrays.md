@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 09/30/2020
 ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 921a4cf17eaaef639c91916d434b0a783271d82b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 35a055841bedfb9fae569a14eb197015aee85a47
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327824"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300779"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>为 Azure 资源上的数组属性创作策略
 
@@ -97,7 +97,7 @@ Azure 资源管理器属性通常定义为字符串和布尔值。 存在一对�
 
 若要将此字符串与每个 SDK 一起使用，请使用以下命令：
 
-- Azure CLI：带有参数 params 的命令 [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- Azure CLI：带有参数 params 的命令 [az policy assignment create](/cli/policy/assignment#az-policy-assignment-create)
 - Azure PowerShell：带有参数 PolicyParameter 的 Cmdlet [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/New-Azpolicyassignment)
 - REST API：在 PUT [create](https://docs.microsoft.com/rest/api/resources/policyassignments/create) 操作中，作为请求正文（作为 properties.parameters 属性的值）的一部分
 

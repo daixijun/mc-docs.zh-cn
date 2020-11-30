@@ -6,12 +6,12 @@ origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae71fec9004f5d7baeeb1af69e56c19c222954d5
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 251485e9938ff09ff416dbe5ebedcd2a4871a1bc
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063258"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300238"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
@@ -71,4 +71,4 @@ ms.locfileid: "90063258"
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub 引用](/dotnet/api/Microsoft.Azure.Management.EventHub) 
+* [Microsoft.Azure.Management.EventHub 引用](https://docs.microsoft.com/dotnetapi/Microsoft.Azure.Management.EventHub) 

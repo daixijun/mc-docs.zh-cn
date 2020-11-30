@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 08/20/2020
-ms.openlocfilehash: ab56bcf2a0ce532d53dd79c0e7dce5292b7f46aa
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 11/16/2020
+ms.openlocfilehash: d9dad63ba01b7d70a1c7e165db2cdabcd523281c
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715731"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978114"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure 流分析数据错误
 
@@ -21,7 +21,7 @@ ms.locfileid: "88715731"
 
 ## <a name="resource-logs-schema"></a>资源日志架构
 
-以下 JSON 是数据错误资源日志的“属性”字段示例值****。
+请参阅[使用诊断日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md#resource-logs-schema)，了解资源日志的架构。 以下 JSON 是数据错误资源日志的“属性”字段示例值。
 
 ```json
 {
@@ -212,12 +212,16 @@ ms.locfileid: "88715731"
 
 ## <a name="output-data-errors"></a>输出数据错误
 
+根据配置的不同，Azure 流分析可以在有或没有对输出接收器发出 I/O 请求的情况下识别输出数据错误。 例如，使用 Azure 表输出时，可以在没有 I/O 请求的情况下识别出缺少所需的列（如 `PartitionKey`）。 但是，SQL 输出中的约束冲突确实需要 I/O 请求。
+
+有几个数据错误只能在调用输出接收器之后才能检测到，这可能会降低处理速度。 若要解决此问题，请更改作业的配置或导致数据错误的查询。
+
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
 * 原因：输出所需的列不存在。 例如，定义为 Azure 表 PartitionKey 的列不存在。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括缺少必需的列。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括缺少必需的列。
 * 日志详细信息
    * 列名称，以及记录标识符或记录部分。
 
@@ -232,7 +236,7 @@ ms.locfileid: "88715731"
 * 原因：列值不符合输出。 例如，列名称不是有效的 Azure 表列。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括无效的列名称。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括无效的列名称。
 * 日志详细信息
    * 列名称，以及记录标识符或记录部分。
 
@@ -247,7 +251,7 @@ ms.locfileid: "88715731"
 * 原因：列无法转换为输出中的有效类型。 例如，列的值与 SQL 表中定义的约束或类型不兼容。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括类型转换错误。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括类型转换错误。
 * 日志详细信息
    * 列的名称。
    * 记录标识符或记录部分。
@@ -263,7 +267,7 @@ ms.locfileid: "88715731"
 * 原因：消息的值大于支持的输出大小。 例如，事件中心输出的记录大于 1 MB。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括记录超过大小限制。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括记录超过大小限制。
 * 日志详细信息
    * 记录标识符或记录部分。
 
@@ -278,7 +282,7 @@ ms.locfileid: "88715731"
 * 原因：记录中已包含与 System 列同名的列。 例如，CosmosDB 输出中包含一个名为 ID 的列，而另外还有一个 ID 列。
 * 提供的门户通知：是
 * 资源日志级别：警告
-* 影响：将会根据[输出数据策略](/stream-analytics/stream-analytics-output-error-policy)设置处理所有输出数据转换错误，包括重复的键。
+* 影响：将会根据[输出数据策略](./stream-analytics-output-error-policy.md)设置处理所有输出数据转换错误，包括重复的键。
 * 日志详细信息
    * 列的名称。
    * 记录标识符或记录部分。
@@ -288,6 +292,8 @@ ms.locfileid: "88715731"
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
+* [使用诊断日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md)
 
 * [了解流分析作业监视以及如何监视查询](stream-analytics-monitoring.md)
 

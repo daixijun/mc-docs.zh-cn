@@ -5,15 +5,15 @@ ms.topic: include
 origin.date: 06/24/2019
 ms.date: 10/11/2019
 ms.author: v-tawe
-ms.openlocfilehash: 692463ebfe0ba2cfbabc9637bae488dd79d71a48
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 728b5234bd1eb12016c9fc09303cc62bd1013369
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74389494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027158"
 ---
 <!-- > [!NOTE]
-> Subscription owners can disable the creation of Cognitive Services resources for resource groups and subscriptions by applying [Azure policy](/governance/policy/overview#policy-definition), assigning a “Not allowed resource types” policy definition, and specifying **Microsoft.CognitiveServices/accounts** as the target resource type. -->
+> Subscription owners can disable the creation of Cognitive Services resources for resource groups and subscriptions by applying [Azure policy](https://docs.microsoft.com/governance/policy/overview#policy-definition), assigning a “Not allowed resource types” policy definition, and specifying **Microsoft.CognitiveServices/accounts** as the target resource type. -->
 可以通过两种不同的资源访问 Azure 认知服务：多服务资源或单服务资源。
 
 * 多服务资源：

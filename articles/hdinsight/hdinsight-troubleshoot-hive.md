@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/15/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: e206bd49d1891f6ba9e97c53175fe9caf7ae63bb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 46132efc3eb5f48c7fd5f3b9b8a60a7f38d16d04
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73426068"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300872"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Hive 进行故障排除
 
@@ -60,7 +60,7 @@ hive -f alltables.sql
 
 ### <a name="resolution-steps"></a>解决步骤
 
-1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅**其他阅读材料**。
+1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 **其他阅读材料**。
 
 2. 若要查看 Hive 客户端日志，请使用以下命令：
 
@@ -180,9 +180,4 @@ hive -f alltables.sql
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
-
-
-
-
-- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

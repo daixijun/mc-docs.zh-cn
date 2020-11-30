@@ -16,12 +16,12 @@ ms.date: 08/10/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: cae72d654d5b51304ce6c7bc509a29a606abddf3
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: b808006bb9baf4c819d70f8e5ecc4e43d376c07a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548036"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300774"
 ---
 <!--Verify Failed: at 'Select Function app settings > Go to App Service Editor.' -->
 <!--Global article is not up-to-date: Some pictures are not suitable with the content -->
@@ -383,7 +383,9 @@ $Encryptedpassword
 [functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
 [functions2]:./media/network-watcher-alert-triggered-packet-capture/functions2.png
 [functions3]:./media/network-watcher-alert-triggered-packet-capture/functions3.png
-[functions4]:./media/network-watcher-alert-triggered-packet-capture/functions4.png
+
+<!--Not Available on [functions4]:./media/network-watcher-alert-triggered-packet-capture/functions4.png-->
+
 [functions5]:./media/network-watcher-alert-triggered-packet-capture/functions5.png
 [functions6]:./media/network-watcher-alert-triggered-packet-capture/functions6.png
 [functions7]:./media/network-watcher-alert-triggered-packet-capture/functions7.png

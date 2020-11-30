@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: a0a9f61a69ee4bb409b98b2f9035fb12ae0ff3db
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: a5e3124df4f8aa45823009e33511636c22fcc0bd
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866716"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190302"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>与 CI/CD 管道集成
 
@@ -35,9 +35,9 @@ ms.locfileid: "88866716"
 
 ### <a name="prerequisites"></a>先决条件
 
-如果在本地生成，请下载并安装 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)（如果尚未安装）。
+如果在本地生成，请下载并安装 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)（如果尚未安装）。
 
-要进行云生成，例如使用 Azure DevOps，请确保在生成系统中安装了 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+要进行云生成，例如使用 Azure DevOps，请确保在生成系统中安装了 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
 ### <a name="export-an-app-configuration-store"></a>导出应用程序配置存储区
 

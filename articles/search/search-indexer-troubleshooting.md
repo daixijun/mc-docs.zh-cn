@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: 0fcaf34b53715e857626db4028f3312e54b6d9b8
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: faa5fd8ef2180369d12513f8f69177beea8b198f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021077"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300508"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>排查 Azure 认知搜索中的常见索引器问题
 
@@ -39,7 +39,7 @@ Azure 存储、CosmosDB 和 Azure SQL 提供可配置的防火墙。 防火墙�
 
 有 2 个选项可让索引器访问此类实例中的这些资源：
 
-* 通过允许从**所有网络**进行访问（如果可行）来禁用防火墙。
+* 通过允许从 **所有网络** 进行访问（如果可行）来禁用防火墙。
 * 或者，可以允许搜索服务的 IP 地址以及资源防火墙规则中 `AzureCognitiveSearch` [服务标记](../virtual-network/service-tags-overview.md#available-service-tags)的 IP 地址范围进行访问（IP 地址范围限制）。
 
 在以下链接中可以找到有关对每种数据源类型配置 IP 地址范围限制的详细信息：
@@ -92,7 +92,7 @@ api-key: [admin key]
 Blob 索引器可[查找并提取容器中 Blob 的文本](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs)。 提取文本时出现的一些问题包括：
 
 * 文档仅包含扫描的图像。 包含扫描图像 (JPG) 之类的非文本内容的 PDF Blob 不会在标准 Blob 索引管道中生成结果。 如果图像内容包含文本元素，则可通过[认知搜索](cognitive-search-concept-image-scenarios.md)来查找并提取文本。
-* Blob 索引器配置为仅索引元数据。 若要提取内容，必须将 Blob 索引器配置为[提取内容和元数据](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)：
+* Blob 索引器配置为仅索引元数据。 若要提取内容，必须将 Blob 索引器配置为[提取内容和元数据](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)：
 
 ```
 PUT https://[service name].search.azure.cn/indexers/[indexer name]?api-version=2020-06-30

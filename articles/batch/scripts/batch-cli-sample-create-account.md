@@ -2,27 +2,31 @@
 title: Azure CLI 脚本示例 - 创建 Batch 帐户 - Batch 服务
 description: 此脚本在 Batch 服务模式下创建 Azure Batch 帐户，并演示如何查询或更新该帐户的各个属性。
 ms.topic: sample
-author: rockboyfor
 origin.date: 01/29/2018
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0abc3fa68dc59a18568bdc3069e2926999204b83
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: e64ea70bf1eb912cdc20b0daba7593114ae1aabc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654929"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970719"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 示例：在 Batch 服务模式下创建 Batch 帐户
 
 此脚本在 Batch 服务模式下创建 Azure Batch 帐户，并演示如何查询或更新该帐户的各个属性。 在默认 Batch 服务模式下创建 Batch 帐户时，其计算节点由 Batch 服务在内部分配。 分配的计算节点受到单独的 vCPU（核心）配额的限制。可以通过共享密钥凭据或 Azure Active Directory 令牌对帐户进行身份验证。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 
+- 本教程需要 Azure CLI 版本 2.0.20 或更高版本。
+
+<!--Not Available on Azure Cloud Shell-->
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="example-script"></a>示例脚本
 
@@ -80,21 +84,21 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>脚本说明
 
-此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
+此脚本使用以下命令。 表中的每条命令链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az batch account create](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-create) | 创建批处理帐户。 |
-| [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) | 创建存储帐户。 |
-| [az batch account set](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-set) | 更新批处理帐户的属性。  |
-| [az batch account show](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-show) | 检索指定批处理帐户的详细信息。  |
-| [az batch account keys list](https://docs.azure.cn/cli/batch/account/keys?view=azure-cli-latest#az-batch-account-keys-list) | 检索指定批处理帐户的访问密钥。  |
-| [az batch account login](https://docs.azure.cn/cli/batch/account?view=azure-cli-latest#az-batch-account-login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
-| [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az batch account create](https://docs.azure.cn/cli/batch/account#az_batch_account_create) | 创建批处理帐户。 |
+| [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
+| [az batch account set](https://docs.azure.cn/cli/batch/account#az_batch_account_set) | 更新批处理帐户的属性。  |
+| [az batch account show](https://docs.azure.cn/cli/batch/account#az_batch_account_show) | 检索指定批处理帐户的详细信息。  |
+| [az batch account keys list](https://docs.azure.cn/cli/batch/account/keys#az_batch_account_keys_list) | 检索指定批处理帐户的访问密钥。  |
+| [az batch account login](https://docs.azure.cn/cli/batch/account#az_batch_account_login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
+| [az group delete](https://docs.azure.cn/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

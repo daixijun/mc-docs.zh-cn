@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/02/2020
+ms.date: 11/17/2020
 ms.author: v-junlch
-ms.openlocfilehash: aab4834eb4439775168e25ab896be04da8c44a3e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b5f546e20ef271376e571917ad7c0db3f11849ab
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266060"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970827"
 ---
 直接在 function.json 文件中定义绑定属性。 根据绑定类型，可能还需要其他属性。 [队列输出配置](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration)描述 Azure 存储队列绑定所需的字段。 扩展可以轻松地将绑定添加到 function.json 文件。 
 
@@ -26,13 +26,12 @@ ms.locfileid: "78266060"
 绑定将添加到 function.json 中的 `bindings` 数组，应如下所示：
 
 ```json
-{
- "type": "queue",
- "direction": "out",
- "name": "msg",
- "queueName": "outqueue",
- "connection": "AzureWebJobsStorage"
-}
-
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
 ```
 

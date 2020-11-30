@@ -12,13 +12,13 @@ metadata:
   author: 
   ms.author: 
   origin.date: 10/12/2019
-  ms.date: 09/07/2020
-  ms.openlocfilehash: 503535df1b52ff5a0a79d8fe2e53063db4eee44e
-  ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+  ms.date: 11/30/2020
+  ms.openlocfilehash: 7d04cb5bc2a40b118f9ef6f36830ea261eca2007
+  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89413248"
+  ms.lasthandoff: 11/27/2020
+  ms.locfileid: "96300819"
 landingContent:
 - title: 关于 IoT Edge 上的实时视频分析（预览版）
   linkLists:
@@ -64,6 +64,8 @@ landingContent:
       url: event-based-video-recording-tutorial.md
     - text: 播放多天的录制内容
       url: playback-multi-day-recordings-tutorial.md
+    - text: 使用 OpenVINO 模型服务器分析实时视频
+      url: use-intel-openvino-tutorial.md
 - title: 开发
   linkLists:
   - linkListType: how-to-guide

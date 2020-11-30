@@ -220,9 +220,9 @@
             - name: azure-messaging-eventhubs（最新）
               href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
             - name: azure-eventhubs（旧版）
-              href: 'https://docs.microsoft.com/java/api/overview/azure/eventhubs/client?view=azure-java-stable'
+              href: 'https://docs.microsoft.com/java/api/overview/azure/eventhubs/client'
         - name: 管理库
-          href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.eventhub'
     - name: Python
       items:
         - name: 从 azure-eventhub 版本 1 迁移到版本 5
@@ -230,23 +230,23 @@
         - name: 客户端库
           items:
             - name: azure-eventhub 版本 5
-              href: 'https://docs.microsoft.com/python/api/azure-eventhub/?view=azure-python'
+              href: 'https://docs.microsoft.com/python/api/azure-eventhub/'
             - name: azure-eventhub 版本 1
-              href: 'https://docs.microsoft.com/python/api/azure-eventhub/?view=azure-python-previous'
+              href: 'https://docs.microsoft.com/python/api/azure-eventhub/-previous'
         - name: 管理库
-          href: /python/api/overview/azure/event-hub?view=azure-python
-    - name: Javascript
+          href: /python/api/overview/azure/event-hub
+    - name: JavaScript
       items:
         - name: 从 azure/eventhubs 版本 2 迁移到版本 5
           href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
         - name: 客户端库
           items:
             - name: azure/eventhubs 版本 5
-              href: 'https://docs.microsoft.com/javascript/api/@azure/event-hubs/?view=azure-node-latest'
+              href: 'https://docs.microsoft.com/javascript/api/@azure/event-hubs/'
             - name: azure/eventhubs 版本 2
               href: 'https://docs.microsoft.com/javascript/api/@azure/event-hubs/?view=azure-node-legacy'
         - name: 管理库
-          href: 'https://docs.microsoft.com/javascript/api/@azure/arm-eventhub/?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/@azure/arm-eventhub/'
     - name: Go
       items:
         - name: 客户端库
@@ -266,7 +266,7 @@
       href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 常见问题解答
+    - name: 常见问题
       href: event-hubs-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/event-hubs/'

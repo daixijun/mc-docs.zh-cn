@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 050e2133ed66cbb268f67b1c3eae538ad99b57a3
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: 16854ba83aeb87fd1d69a0daf8b026ff09a9285e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595178"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300375"
 ---
 # <a name="monitor-module-twins"></a>监视模块孪生
 
@@ -173,9 +173,9 @@ Azure IoT 中心中的模块孪生可以监视 IoT Edge 部署的连接性和运
 
 1. 使用 [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 方法创建 [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 的实例。
 
-1. 使用 [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) 方法获取模块克隆属性的集合。
+1. 使用 [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) 方法获取模块克隆属性的集合。
 
-1. 使用 [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) 方法创建侦听程序（用于传递回调）来捕获对所需属性的更改。
+1. 使用 [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) 方法创建侦听程序（用于传递回调）来捕获对所需属性的更改。
 
 1. 在回调方法中，使用 [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 方法更新模块孪生中报告的属性，传递要设置的 [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) 属性值。
 

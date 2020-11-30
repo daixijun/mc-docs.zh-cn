@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 origin.date: 02/11/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: c659a9faed14a434cac8d28763590dc9d1bfa7bf
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 67377e62f9315ba583934d99fe7f01c648b2ed1f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020914"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299987"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 认知搜索服务
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "90020914"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-可以在 Windows、Linux 上运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 认知搜索。 **Az.Search** 模块扩展了 [Azure PowerShell](https://docs.microsoft.com/powershell/)，完全可与[搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement) 搭配使用，并可执行以下任务：
+可以在 Windows、Linux 上运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 认知搜索。 **Az.Search** 模块扩展了 [Azure PowerShell](https://docs.microsoft.com/powershell/)，完全可与 [搜索管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement) 搭配使用，并可执行以下任务：
 
 > [!div class="checklist"]
 > * [列出订阅中的搜索服务](#list-search-services)
@@ -171,7 +171,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## <a name="create-or-delete-a-service"></a>创建或删除服务
 
-[**New-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 用于[创建新的搜索服务](search-create-service-portal.md)。
+[**New-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 用于 [创建新的搜索服务](search-create-service-portal.md)。
 
 ```powershell
 New-AzSearchService -ResourceGroupName "demo-chinaeast2" -Name "my-demo-searchapp" -Sku "Standard" -Location "China East 2" -PartitionCount 3 -ReplicaCount 3
@@ -224,7 +224,7 @@ New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <sear
 
 ## <a name="scale-replicas-and-partitions"></a>缩放副本和分区
 
-[**Set-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) 用于[增加或减少副本与分区](search-capacity-planning.md)，以调整服务中的可计费资源。 增加副本或分区会增大费用，两者都提供固定和可变的费率。 如果你暂时需要更大的处理能力，可以增加副本和分区来处理工作负荷。 “概述”门户页中的监视区域提供有关查询延迟、每秒查询数和限制的磁贴，指示当前容量是否足够。
+[**Set-AzSearchService**](https://docs.microsoft.com/powershell/module/az.search/set-azsearchservice?view=azps-1.4.0) 用于 [增加或减少副本与分区](search-capacity-planning.md)，以调整服务中的可计费资源。 增加副本或分区会增大费用，两者都提供固定和可变的费率。 如果你暂时需要更大的处理能力，可以增加副本和分区来处理工作负荷。 “概述”门户页中的监视区域提供有关查询延迟、每秒查询数和限制的磁贴，指示当前容量是否足够。
 
 添加或删除资源可能需要一段时间。 容量调整在后台发生，使现有工作负荷能够继续运行。 附加容量准备就绪后，将立即用于处理传入的请求，无需进行额外的配置。 
 

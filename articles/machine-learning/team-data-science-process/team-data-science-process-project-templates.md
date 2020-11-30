@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d72aa8b57e68319343c6a0ca8416cd442d78b9a1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6c6ef3ae704c28013391b442dc28b8c420ede287
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599207"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978237"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 项目规划
 
@@ -58,7 +58,7 @@ Team Data Science Process (TDSP) 提供用于构建数据科学项目开发的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[数据科学项目的敏捷开发](agile-development.md) 此文档介绍如何使用 Team Data Science Process 在项目团队中以系统化的协作型版本控制方式执行数据科学项目。
+[数据科学项目的敏捷开发](agile-development.md) - 此文档介绍如何使用 Team Data Science Process 以系统化的协作型版本控制方式执行数据科学项目。
 
-我们还提供了相应的演练，用于演示**具体方案**的操作过程的所有步骤。 [示例演练](walkthroughs.md)一文列出了相关步骤并以缩略图说明的形式提供了链接。 这些演练演示如何将云、本地工具和服务合并到工作流或管道中，以创建智能应用程序。 
+我们还提供了相应的演练，用于演示 **具体方案** 的操作过程的所有步骤。 [示例演练](walkthroughs.md)一文列出了相关步骤并以缩略图说明的形式提供了链接。 这些演练演示如何将云、本地工具和服务合并到工作流或管道中，以创建智能应用程序。 
 

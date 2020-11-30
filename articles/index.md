@@ -8,12 +8,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: c3628c4771063dbd1bacce2bf593d918f83e350f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5260c394b1c422b6d661d6742c52c41b11706ab1
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970797"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -236,11 +236,6 @@ ms.locfileid: "94328783"
                             <li></li>
                             <li></li>
                             <li></li>
-                            <li class="bottomRightItem">
-                                <a href="https://aka.ms/aapw0h">
-                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">查看所有中国区 Azure 服务<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                 </ul>

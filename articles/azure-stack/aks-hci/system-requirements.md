@@ -6,12 +6,12 @@ author: WenJason
 ms.author: v-jay
 origin.date: 09/22/2020
 ms.date: 11/09/2020
-ms.openlocfilehash: a82d821f6adc49ae23050998d3cc78c0984fabdb
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 106120636524806527d54bc73ee52929a0be3c94
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330670"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153114"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -86,7 +86,7 @@ Windows Admin Center 计算机和 Azure Stack HCI 群集中的所有节点都需
 | ---------- | ---- | --- | ---- |
 https://helm.sh/blog/get-helm-sh/  | 443 | 下载代理、WAC | 用于下载 Helm 二进制文件 
 https://storage.googleapis.com/  | 443 | Cloud Init | 下载 Kubernetes 二进制文件 
-https://azurecliprod.blob.core.windows.net/ | 443 | Cloud Init | 下载二进制文件和容器 
+https://azurecliprod.blob.core.chinacloudapi.cn/ | 443 | Cloud Init | 下载二进制文件和容器 
 https://aka.ms/installazurecliwindows | 443 | WAC | 下载 Azure CLI 
 *.api.cdp.microsoft.com、*.dl.delivery.mp.microsoft.com、*.emdl.ws.microsoft.com | 80、443 | 下载代理 | 下载元数据 
 *.dl.delivery.mp.microsoft.com、*.do.dsp.mp.microsoft.com. | 80、443 | 下载代理 | 下载 VHD 映像 
