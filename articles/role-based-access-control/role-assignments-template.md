@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/20/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 55c29c711b008e2327151d537b10bb583400579d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 25a56578bb2eb6723a612a3cbb812fdea7a4c619
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472190"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849473"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板添加 Azure 角色分配
 
@@ -209,14 +209,7 @@ az deployment create --location chinanorth --template-file rbac-test.json --para
 
 ### <a name="resource-scope"></a>资源范围
 
-如果需要在资源级别添加角色分配，则角色分配的格式是不同的。 提供要为其分配角色的资源的资源提供程序命名空间和资源类型。 还在角色分配的名称中包含资源的名称。
-
-对于角色分配的类型和名称，使用以下格式：
-
-```json
-"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
-"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
-```
+如果需要在资源级别添加角色分配，请将角色分配的 `scope` 属性设置为资源的名称。
 
 以下模板演示：
 
@@ -230,7 +223,7 @@ az deployment create --location chinanorth --template-file rbac-test.json --para
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -248,6 +241,13 @@ az deployment create --location chinanorth --template-file rbac-test.json --para
             ],
             "metadata": {
                 "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -274,9 +274,10 @@ az deployment create --location chinanorth --template-file rbac-test.json --para
             "properties": {}
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "scope": "[concat('Microsoft.Storage/storageAccounts', '/', variables('storageName'))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -305,7 +306,9 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ### <a name="new-service-principal"></a>新服务主体
 
-如果创建新服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果创建新托管标识，然后尝试将角色分配给同一 Azure 资源管理器模板中的服务主体，则角色分配可能会失败。 失败原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的其他区域中。 若要解决这种情况，应在创建角色分配时将 `principalType` 属性设置为 `ServicePrincipal`。
+如果创建新服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果创建新托管标识，然后尝试将角色分配给同一 Azure 资源管理器模板中的服务主体，则角色分配可能会失败。 失败原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的其他区域中。
+
+若要解决这种情况，应在创建角色分配时将 `principalType` 属性设置为 `ServicePrincipal`。 还必须将角色分配的 `apiVersion` 设置为 `2018-09-01-preview` 或更高版本。
 
 以下模板演示：
 

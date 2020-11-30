@@ -11,12 +11,12 @@ ms.author: aashishb
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: bd4171d5b2229662b9797e3728564f34edd840c3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d525ca49929fd017f50248c68bb4b719109a9bfd
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106141"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978151"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -84,7 +84,7 @@ ms.locfileid: "93106141"
     若要查找评分终结点的 IP 地址，请查看已部署服务的评分 URI。 有关查看评分 URI 的详细信息，请参阅[使用部署为 Web 服务的模型](how-to-consume-web-service.md#connection-information)。
 
    > [!IMPORTANT]
-   > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的“默认安全规则”。
+   > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md#default-security-rules)中的“默认安全规则”。
 
    [![入站安全规则](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -113,35 +113,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 创建过程完成后，可在虚拟网络后面的 AKS 群集上运行推理或模型评分。 有关详细信息，请参阅[如何部署 AKS](how-to-deploy-and-where.md)。
 
-## <a name="secure-vnet-traffic"></a>保护 VNet 流量
-
-有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
-
-* __专用 AKS 群集__ ：此方法使用 Azure 专用链接在 VNet 中为 AKS 群集创建专用终结点。
-* __内部 AKS 负载均衡器__ ：此方法将群集的负载均衡器配置为使用 VNet 中的内部 IP 地址。
-
-> [!WARNING]
-> 两种配置是实现同一目标（保护到 VNet 内 AKS 群集的流量）的不同方法。 **请使用其中的一种方法，但不能同时使用两种方法** 。
-
-### <a name="private-aks-cluster"></a>专用 AKS 群集
-
-默认情况下，AKS 群集具有一个带有公共 IP 地址的控制平面（或 API 服务器）。 可以通过创建专用 AKS 群集，将 AKS 配置为使用专用控制平面。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
-
-创建专用 AKS 群集之后，[将群集连接到虚拟网络](how-to-create-attach-kubernetes.md)以便用于 Azure 机器学习。
+## <a name="network-contributor-role"></a>网络参与者角色
 
 > [!IMPORTANT]
-> 在将启用了专用链接的 AKS 群集用于 Azure 机器学习之前，必须建立一个支持事件案例，否则无法启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
-
-## <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
-
-默认情况下，AKS 部署使用[公共负载均衡器](../aks/load-balancer-standard.md)。 在本部分中，你会了解如何将 AKS 配置为使用内部负载均衡器。 内部（或专用）负载平衡器用于仅在前端允许专用 IP 的情况。 内部负载均衡器用于对虚拟网络内部的流量进行负载均衡
-
-可以通过将 AKS 配置为使用内部负载均衡器来启用专用负载均衡器。 
-
-#### <a name="network-contributor-role"></a>网络参与者角色
-
-> [!IMPORTANT]
-> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
+> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。
 >
 > 若要将标识添加为网络参与者，请执行以下步骤：
 
@@ -170,12 +145,37 @@ aks_target = ComputeTarget.create(workspace=ws,
     ```
 若要详细了解如何结合使用内部负载均衡器与 AKS，请参阅[结合使用内部负载均衡器与 Azure Kubernetes 服务](/aks/internal-lb)。
 
+## <a name="secure-vnet-traffic"></a>保护 VNet 流量
+
+有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
+
+* __专用 AKS 群集__：此方法使用 Azure 专用链接来保护与群集的通信，以便进行部署/管理操作。
+* __内部 AKS 负载均衡器__：此方法将终结点（用于将项目部署到 AKS）配置为在虚拟网络中使用专用 IP。
+
+> [!WARNING]
+> 内部负载均衡器不适用于使用 kubenet 的 AKS 群集。 若要同时使用内部负载均衡器和专用 AKS 群集，请使用 Azure 容器网络接口 (CNI) 配置专用 AKS 群集。 有关详细信息，请参阅[在 Azure Kubernetes 服务中配置 Azure CNI 网络](../aks/configure-azure-cni.md)。
+
+### <a name="private-aks-cluster"></a>专用 AKS 群集
+
+默认情况下，AKS 群集具有一个带有公共 IP 地址的控制平面（或 API 服务器）。 可以通过创建专用 AKS 群集，将 AKS 配置为使用专用控制平面。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
+
+创建专用 AKS 群集之后，[将群集连接到虚拟网络](how-to-create-attach-kubernetes.md)以便用于 Azure 机器学习。
+
+> [!IMPORTANT]
+> 在将启用了专用链接的 AKS 群集用于 Azure 机器学习之前，必须建立一个支持事件案例，否则无法启用此功能。 有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
+
+### <a name="internal-aks-load-balancer"></a>内部 AKS 负载均衡器
+
+默认情况下，AKS 部署使用[公共负载均衡器](../aks/load-balancer-standard.md)。 在本部分中，你会了解如何将 AKS 配置为使用内部负载均衡器。 内部（或专用）负载平衡器用于仅在前端允许专用 IP 的情况。 内部负载均衡器用于对虚拟网络内部的流量进行负载均衡
+
+可以通过将 AKS 配置为使用内部负载均衡器来启用专用负载均衡器。 
+
 #### <a name="enable-private-load-balancer"></a>启用专用负载均衡器
 
 > [!IMPORTANT]
 > 在 Azure 机器学习工作室中创建 Azure Kubernetes 服务群集时，无法启用专用 IP。 使用 Python SDK 或 Azure CLI 扩展进行机器学习时，可以创建一个具有内部负载均衡器的 AKS 群集。
 
-以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__ ：
+以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__：
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -214,6 +214,9 @@ except:
 ```azurecli
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
+
+> [!IMPORTANT]
+> 使用 CLI，只能创建带有内部负载均衡器的 AKS 群集。 没有可以升级现有群集以使用内部负载均衡器的 az ml 命令。
 
 有关详细信息，请参阅 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
 
@@ -256,8 +259,11 @@ Azure 容器实例在部署模型时动态创建。 你必须为部署使用的�
     > [!IMPORTANT]
     > 启用委派时，使用 `Microsoft.ContainerInstance/containerGroups` 作为“将子网委派给服务”值。
 
-2. 使用 [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) 部署模型（使用 `vnet_name` 和 `subnet_name` 参数）。 将这些参数设置为启用了委派的虚拟网络名称和子网。
+2. 使用 [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) 部署模型（使用 `vnet_name` 和 `subnet_name` 参数）。 将这些参数设置为启用了委派的虚拟网络名称和子网。
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> 限制来自虚拟网络的出站连接
+
+如果你不想要使用默认的出站规则，同时想要限制虚拟网络的出站访问，则必须允许访问 Azure 容器注册表。 例如，确保网络安全组 (NSG) 包含允许访问“AzureContainerRegistry.RegionName”服务标记的规则，其中的 {RegionName} 是 Azure 区域的名称。
 
 ## <a name="next-steps"></a>后续步骤
 

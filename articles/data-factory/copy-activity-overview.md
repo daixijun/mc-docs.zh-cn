@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/12/2020
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: bdec40dced40adc6ff65c96835fbda20a8b7f888
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 133b2852e643692f30aab118869cbd8e2dc4db98
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104552"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680502"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure 数据工厂中的复制活动
 
@@ -259,6 +259,13 @@ ms.locfileid: "93104552"
 ## <a name="fault-tolerance"></a>容错
 
 默认情况下，如果源数据行与接收器数据行不兼容，复制活动将停止复制数据，并返回失败结果。 要使复制成功，可将复制活动配置为跳过并记录不兼容的行，仅复制兼容的数据。 有关详细信息，请参阅[复制活动容错](copy-activity-fault-tolerance.md)。
+
+## <a name="data-consistency-verification"></a>数据一致性验证
+
+当你将数据从源存储移动到目标存储时，Azure 数据工厂复制活动提供了一个选项，供你执行额外的数据一致性验证，以确保数据不仅成功地从源存储复制到目标存储，而且验证了源存储和目标存储之间的一致性。 在数据移动过程中发现不一致的文件后，可以中止复制活动，或者通过启用容错设置跳过不一致的文件来继续复制其余文件。 通过在复制活动中启用会话日志设置，可以获取跳过的文件名称。 有关详细信息，请参阅[复制活动中的数据一致性验证](copy-activity-data-consistency.md)。
+
+## <a name="session-log"></a>会话日志
+你可以记录复制的文件名，这样就可以通过检查复制活动会话日志来进一步确保数据不仅成功地从源存储复制到目标存储，而且在源存储和目标存储之间一致。 有关详细信息，请参阅[复制活动中的会话日志](copy-activity-log.md)。
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下快速入门、教程和示例：

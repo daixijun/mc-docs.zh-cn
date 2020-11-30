@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
-origin.date: 02/15/2019
-ms.date: 09/07/2020
+origin.date: 09/02/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: d66ed8e21834383cd23bee67647a63c33311716a
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 2e80b11b3ac4ab25593dc0531fba82d816e866a5
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463186"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908925"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 
@@ -63,7 +63,7 @@ ms.locfileid: "89463186"
 
 此配置的步骤使用 TestVNet1 和 TestVNet4。
 
-![v2v 示意图](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![此图显示的 VNet 到 VNet 步骤适用于同一订阅中的 VNet。](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>如何连接相同订阅中的 VNet
 
@@ -284,7 +284,7 @@ ms.locfileid: "89463186"
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>VNet 到 VNet 常见问题解答
 

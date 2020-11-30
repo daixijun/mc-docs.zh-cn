@@ -1,21 +1,20 @@
 ---
 title: 选择池的 VM 大小
 description: 如何选择 Azure Batch 池中计算节点的可用 VM 大小
-ms.service: batch
 ms.topic: conceptual
-origin.date: 09/22/2020
+origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: cd477282c8be86c8f2b9d5f3f2a4e72dc81de5b7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a5b17d5125fbd8f022fd5d4b55bd2c877956d2d9
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104745"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977588"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -45,26 +44,28 @@ ms.locfileid: "93104745"
 | 基本 A | 除 Basic_A0 (A0) 之外的所有大小 |
 | A | 除 Standard_A0 之外的所有大小 |
 | Av2 | 所有大小 |
-| B | 无 |
+| B | 不支持 |
 | Dv2, DSv2 | 所有大小 |
 | Dv3, Dsv3 | 所有大小 |
 | Ddv4、Ddsv4 |  所有大小 |
+| Dv4、Dsv4 | 不支持 |
 | Ev3, Esv3 | 除 E64is_v3 之外的所有大小 |
 | Edv4, Edsv4 |  所有大小 |
+| Ev4、Esv4 | 不支持 |
 | F, Fs | 所有大小 |
 | Fsv2 | 所有大小 |
 | H | 所有大小 |
 | M<sup>1</sup> | 所有大小 |
 | NCv3<sup>1</sup> | 所有大小 |
 
-<sup>1</sup> 可以在虚拟机配置的 Batch 池中分配这些 VM 大小，但你必须创建一个新的 Batch 帐户并请求特定的[配额增加](batch-quota-limit.md#increase-a-quota)。 Batch 帐户完全支持每个 VM 系列的 vCPU 配额后，将取消此限制。
+<sup>1</sup> 可以在虚拟机配置的 Batch 池中分配这些 VM 系列，但你必须创建一个新的 Batch 帐户并请求具体的[配额增加数](batch-quota-limit.md#increase-a-quota)。 Batch 帐户完全支持每个 VM 系列的 vCPU 配额后，将取消此限制。
 
 <!--Not Avaialble on ### Using Generation 2 VM Images-->
 <!--Not Avaialble on [Mv2](../virtual-machines/mv2-series.md)-->
 
 ### <a name="pools-in-cloud-service-configuration"></a>云服务配置中的池
 
-云服务配置中的 Batch 池支持所有 [云服务的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，但以下项 **除外** ：
+云服务配置中的 Batch 池支持所有 [云服务的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，但以下项 **除外**：
 
 | VM 系列  | 不支持的大小 |
 |------------|-------------------|

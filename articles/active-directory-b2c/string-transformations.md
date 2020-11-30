@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6a3b5f01299a87e2f962b3a2bea2ab4fee0242f9
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 8db4100c2bb5eb2537f1bb95fb513d61f503ee74
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297691"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849296"
 ---
 # <a name="string-claims-transformations"></a>字符串声明转换
 
@@ -464,7 +464,7 @@ login-NonInteractive 验证技术配置文件调用 AssertEmailAndStrongAuthenti
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -886,7 +886,7 @@ login-NonInteractive 验证技术配置文件调用 AssertEmailAndStrongAuthenti
     - **inputClaim**: "+164-411-452-054"
 - 输入参数：
     - **oldValue**: "-"
-    - **length**:  ""
+    - **newValue**：""
 - 输出声明：
     - **outputClaim**: "+164411452054"
 

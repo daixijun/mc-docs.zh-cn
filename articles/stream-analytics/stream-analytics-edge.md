@@ -7,14 +7,14 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.topic: how-to
 origin.date: 02/14/2020
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: dfbe3d99c0a06dbc972dba391d4db941beefd8ad
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: ea84fcd121754bccbc158a4113b92755c268585a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715774"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978136"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -33,11 +33,11 @@ IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
 
-ASA Edge 作业在部署到 [Azure IoT Edge 设备](/iot-edge/how-iot-edge-works)的容器中运行。 它们由两个部分组成：
+ASA Edge 作业在部署到 [Azure IoT Edge 设备](../iot-edge/about-iot-edge.md)的容器中运行。 它们由两个部分组成：
 1.  负责作业定义的云部分：用户在云中定义输入、输出、查询和其他设置（无序事件等）。
 2.  在 IoT 设备上运行的模块。 它包含 ASA 引擎，并从云接收作业定义。 
 
-ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](/iot-edge/module-deployment-monitoring)的详细信息。
+ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](../iot-edge/module-deployment-monitoring.md)的详细信息。
 
 ![Azure 流分析 Edge 作业](./media/stream-analytics-edge/stream-analytics-edge-job.png)
 
@@ -49,16 +49,16 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 | --- | --- |
 | 创建存储容器 | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。 |
 | 创建 ASA 边缘作业 | 创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。 |
-| **在设备上设置 IoT Edge 环境** | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 或 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 说明。|
+| **在设备上设置 IoT Edge 环境** | [Windows](../iot-edge/quickstart.md) 或 [Linux](../iot-edge/quickstart-linux.md) 说明。|
 | 在 IoT Edge 设备上部署 ASA | ASA 作业定义被导出到之前创建的存储容器。 |
 
-你可以按照[本分步教程](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)在 IoT Edge 上部署你的第一个 ASA 作业。 下面的视频可帮助你了解在 IoT Edge 设备上运行流分析作业的过程：  
+你可以按照[本分步教程](../iot-edge/tutorial-deploy-stream-analytics.md)在 IoT Edge 上部署你的第一个 ASA 作业。 下面的视频可帮助你了解在 IoT Edge 设备上运行流分析作业的过程：  
 
 <!-- Not Availalble on > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]-->
 
 #### <a name="create-a-storage-container"></a>创建存储容器
 需要存储容器才能导出 ASA 已编译查询和作业配置。 它用于使用特定查询来配置 ASA Docker 映像。 
-1. 请按照[这些说明](/storage/common/storage-create-storage-account)在 Azure 门户创建存储帐户。 你可以保留所有默认选项以在 ASA 中使用此帐户。
+1. 请按照[这些说明](../storage/common/storage-account-create.md)在 Azure 门户创建存储帐户。 你可以保留所有默认选项以在 ASA 中使用此帐户。
 2. 在新创建的存储帐户中，创建一个 blob 存储容器：
     1. 依次单击“Blob”和“+ 容器” 。 
     2. 输入名称，并将容器保留为“专用”。
@@ -95,7 +95,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 - 在 Edge 设备上安装 Docker 和 IoT Edge 运行时。
 - 在 IoT 中心将设备设置为“IoT Edge 设备”。
 
-这些步骤在针对 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 或 [Linux](/iot-edge/quickstart-linux) 的 IoT Edge 文档中有相关描述。  
+这些步骤在针对 [Windows](../iot-edge/quickstart.md) 或 [Linux](../iot-edge/quickstart-linux.md) 的 IoT Edge 文档中有相关描述。  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>在 IoT Edge 设备上部署 ASA
@@ -111,11 +111,11 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 > 将作业部署到 IoT Edge 设备时，ASA 会为作业定义文件创建共享访问签名 (SAS)。 SAS 密钥使用设备孪生安全地传输到 IoT Edge 设备。 此密钥将在其创建之日后的三年过期。 更新 IoT Edge 作业时，SAS 将更改，但映像版本不会更改。 更新后，请遵循部署工作流，并在设备上记录更新通知。
 
 
-有关 IoT Edge 部署的详细信息，请参阅[此页](/iot-edge/module-deployment-monitoring)。
+有关 IoT Edge 部署的详细信息，请参阅[此页](../iot-edge/module-deployment-monitoring.md)。
 
 
 ##### <a name="configure-routes"></a>配置路由
-IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声明方式路由消息的方法。 [此处](/iot-edge/module-composition)描述了完整的语法。
+IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声明方式路由消息的方法。 [此处](../iot-edge/module-composition.md)描述了完整的语法。
 在 ASA 作业中创建的输入和输出的名称可以用作路由的终结点。  
 
 ###### <a name="example"></a>示例
@@ -143,7 +143,7 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>与云作业相比，IoT Edge 作业当前受限制
 目标是在 IoT Edge 作业和云作业之间进行平衡。 支持大多数 SQL 查询语言功能，从而能够在云和 IoT Edge 上运行相同的逻辑。
 但是，以下功能尚不支持 Edge 作业：
-* JavaScript 中的用户定义函数 (UDF)。 [用于 IoT Edge 作业的 C#](/stream-analytics/stream-analytics-edge-csharp-udf)（预览版）中提供了 UDF。
+* JavaScript 中的用户定义函数 (UDF)。 用于 IoT Edge 作业的 C# 中提供了 UDF。
 * 用户定义聚合 (UDA)。
 * Azure ML 函数。
 * 在单个步骤中使用超过 14 个聚合。
@@ -154,7 +154,7 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 * 延迟到达策略
 
 ### <a name="runtime-and-hardware-requirements"></a>运行时和硬件要求
-<!--Not Available on [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)-->
+若要在 IoT Edge 上运行 ASA，需要可以运行 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 的设备。 
 
 ASA 和 Azure IoT Edge 使用 Docker 容器来提供可在多个主机操作系统（Windows、Linux）上运行的便携式解决方案。
 
@@ -163,7 +163,7 @@ IoT Edge 上的 ASA 可用作 Windows 和 Linux 映像运行于 x86-64 或 ARM�
 
 ### <a name="input-and-output"></a>输入和输出
 #### <a name="input-and-output-streams"></a>输入和输出流
-ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入和输出。 要与特定模块实现相互连接，你可以在部署时设置路由配置。 有关详细信息，请参阅 [IoT Edge 模块组成文档](/iot-edge/module-composition)。
+ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入和输出。 要与特定模块实现相互连接，你可以在部署时设置路由配置。 有关详细信息，请参阅 [IoT Edge 模块组成文档](../iot-edge/module-composition.md)。
 
 输入和输出均支持 CSV 和 JSON 格式。
 
@@ -204,23 +204,23 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 
 此版本信息上次更新时间为 2019-06-27：
 
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-alpine3.7
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - 基础映像：mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - 平台：
       - 体系结构：amd64
       - os：linux
-  
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+ 
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - 基础映像：mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - 平台：
       - 体系结构：arm
       - os：linux
-  
-- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - 基础映像：microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+ 
+- 映像：`mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - 基础映像：mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - 平台：
-      - 体系结构：amd64
-      - os：windows
+      - 体系结构：arm64
+      - os：linux
       
       
 ## <a name="get-help"></a>获取帮助
@@ -228,15 +228,14 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure IoT Edge 的详细信息](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [IoT Edge 教程上的 ASA ](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Azure IoT Edge 的详细信息](../iot-edge/about-iot-edge.md)
+* [IoT Edge 教程上的 ASA ](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [使用 API 实现流分析的 CI/CD](stream-analytics-cicd-api.md)
 
 <!--Link references-->
-<!--Not available in MC: ../stream-analytics-developer-guide.md-->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: https://docs.microsoft.com/rest/api/streamanalytics/
 

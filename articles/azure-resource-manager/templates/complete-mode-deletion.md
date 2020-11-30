@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: d9448391e0a2bc1aaac22d89aee40d6bcf8e420b
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 33e0134b6d3cee9e3be89d65edae6cb327c5f9f5
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470446"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915107"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -37,6 +37,8 @@ ms.locfileid: "92470446"
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
@@ -55,7 +57,9 @@ ms.locfileid: "92470446"
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
@@ -64,6 +68,7 @@ ms.locfileid: "92470446"
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Features](#microsoftfeatures)
+> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HDInsight](#microsofthdinsight)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
@@ -84,6 +89,7 @@ ms.locfileid: "92470446"
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
@@ -98,6 +104,7 @@ ms.locfileid: "92470446"
 > - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Web](#microsoftweb)
 
@@ -156,8 +163,24 @@ ms.locfileid: "92470446"
 > | 服务 | 是 |
 > | validateServiceName | 否 |
 
-<!--Not Available on ## Microsoft.AppConfiguration-->
-<!--Not Available on ## Microsoft.AppPlatform-->
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | configurationStores | 是 |
+> | configurationStores/eventGridFilters | 否 |
+> | configurationStores/keyValues | 否 |
+
+## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | Spring | 是 |
+> | Spring/apps | 否 |
+> | Spring/apps/deployments | 否 |
+
 <!--Not Available on ## Microsoft.Attestation-->
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -237,6 +260,8 @@ ms.locfileid: "92470446"
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
 > | batchAccounts | 是 |
+> | batchAccounts / certificates | 否 |
+> | batchAccounts / pools | 否 |
 
 <!--Not Available on ## Microsoft.Billing-->
 <!--Not Available on ## Microsoft.BingMaps-->
@@ -499,7 +524,16 @@ ms.locfileid: "92470446"
 > | jobs | 是 |
 
 <!--Not Available on ## Microsoft.DataBoxEdge-->
-<!--Not Available on ## Microsoft.Databricks-->
+
+## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | workspaces | 是 |
+> | workspaces/dbWorkspaces | 否 |
+> | workspaces/virtualNetworkPeerings | 否 |
+
 <!--Not Available on ## Microsoft.DataCatalog-->
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -516,6 +550,7 @@ ms.locfileid: "92470446"
 
 <!--Not Available on ## Microsoft.DataLakeAnalytics-->
 <!--Not Available on ## Microsoft.DataLakeStore-->
+
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
@@ -736,6 +771,7 @@ ms.locfileid: "92470446"
 > | vaults / keys / versions | 否 |
 > | vaults / secrets | 否 |
 
+<!--NOT AVAIALBLE ON HSM FEATURE-->
 <!--Not Available on > | hsmPools | Yes |-->
 <!--Not Available on > | managedHSMs | Yes |-->
 <!-- Not Available on ## Microsoft.Kubernetes-->
@@ -778,9 +814,20 @@ ms.locfileid: "92470446"
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
 > | workspaces | 是 |
+> | workspaces/batchEndpoints | 是 |
+> | workspaces/batchEndpoints/deployments | 是 |
+> | workspaces/codes | 否 |
+> | workspaces/codes/versions | 否 |
 > | workspaces / computes | 否 |
+> | workspaces/datastores | 否 |
 > | workspaces / eventGridFilters | 否 |
+> | workspaces/jobs | 否 |
+> | workspaces/labelingJobs | 否 |
 > | workspaces / linkedServices | 否 |
+> | workspaces/models | 否 |
+> | workspaces/models/versions | 否 |
+> | workspaces/onlineEndpoints | 是 |
+> | workspaces/onlineEndpoints/deployments | 是 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -897,6 +944,7 @@ ms.locfileid: "92470446"
 > | firewallPolicies | 是 |
 > | getDnsResourceReference | 否 |
 > | internalNotify | 否 |
+> | ipGroups | 是 |
 > | loadBalancers | 是 |
 > | localNetworkGateways | 是 |
 > | natGateways | 是 |
@@ -1028,7 +1076,17 @@ ms.locfileid: "92470446"
 > | capacities | 是 |
 
 <!--Not Available on ## Microsoft.ProjectBabylon-->
-<!--Not Available on ## Microsoft.ProviderHub-->
+
+## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | providerRegistrations | 否 |
+> | providerRegistrations / defaultRollouts | 否 |
+> | providerRegistrations / resourceTypeRegistrations | 否 |
+> | rollouts | 是 |
+
 <!--Not Available on ## Microsoft.Quantum-->
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
@@ -1075,7 +1133,7 @@ ms.locfileid: "92470446"
 > | childAvailabilityStatuses | 否 |
 > | childResources | 否 |
 > | emergingissues | 否 |
-> | 活动 | 否 |
+> | events | 否 |
 > | impactedResources | 否 |
 > | metadata | 否 |
 > | 通知 | 否 |
@@ -1221,6 +1279,7 @@ ms.locfileid: "92470446"
 > | SignalR | 是 |
 > | SignalR / eventGridFilters | 否 |
 
+<!-- Not Available on ## Microsoft.Singularity-->
 <!-- Not Available on ## Microsoft.SoftwarePlan-->
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
@@ -1289,10 +1348,22 @@ ms.locfileid: "92470446"
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
 > | clusters | 是 |
+> | clusters/privateEndpoints | 否 |
 > | streamingjobs | 是 |
 
 <!-- Not Available on ## Microsoft.Subscription-->
-<!-- Not Available on ## Microsoft.Synapse-->
+
+## <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | privateLinkHubs | 是 |
+> | workspaces | 是 |
+> | workspaces/bigDataPools | 是 |
+> | workspaces / operationStatuses | 否 |
+> | workspaces / sqlDatabases | 是 |
+> | workspaces / sqlPools | 是 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -1344,6 +1415,8 @@ ms.locfileid: "92470446"
 > | runtimes | 否 |
 > | serverFarms | 是 |
 > | serverFarms / eventGridFilters | 否 |
+> | serverFarms / firstPartyApps | 否 |
+> | serverFarms / firstPartyApps / keyVaultSettings | 否 |
 > | sites | 是 |
 > | sites/config  | 否 |
 > | sites / eventGridFilters | 否 |

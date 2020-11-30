@@ -1,39 +1,37 @@
 ---
 title: Azure 服务总线 - 消息浏览
-description: 通过浏览和扫视服务总线消息，Azure 服务总线客户端可以枚举队列或订阅中驻留的所有消息。
+description: 通过浏览和速览服务总线消息，Azure 服务总线客户端可以枚举队列或订阅中的所有消息。
 ms.topic: article
-origin.date: 06/23/2020
+origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 464f90a6369c674927a79d6f4792149aff5e8078
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: d480fd7cc8f363a2318deaf6e502f539ee47cfa1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977033"
 ---
 # <a name="message-browsing"></a>消息浏览
 
-通过消息浏览或速览，服务总线客户端可以枚举队列或订阅中驻留的所有消息，通常用于诊断和调试目的。
+通过消息浏览或速览，服务总线客户端可以枚举队列或订阅中的所有消息，以用于诊断和调试。
 
-速览操作返回队列或订阅消息日志中驻留的所有消息，而不仅仅是可通过 `Receive()` 或 `OnMessage()` 循环立即获取的消息。 每个消息的 `State` 属性指明消息是有效（可供接收）、[延迟](message-deferral.md)还是[已计划](message-sequencing.md)。
+对队列执行的速览操作会返回队列中的所有消息，而不仅限于可使用 `Receive()` 或 `OnMessage()` 循环立即获取的消息。 每个消息的 `State` 属性指明消息是有效（可供接收）、[延迟](message-deferral.md)还是[已计划](message-sequencing.md)。 对订阅执行的速览操作会返回订阅消息日志中除计划消息之外的所有消息。 
 
-已使用和过期的消息通过异步运行“垃圾回收”操作进行清理，但这不一定与消息过期完全同步。因此，`Peek` 可能确实会返回已过期的消息，如果接下来对队列或订阅调用接收操作，这些消息将会遭到删除或成为死信。
+已使用的消息和过期的消息通过异步“垃圾回收”运行进行清理。 此步骤未必会在消息过期后立即执行。 这就是 `Peek` 可能返回已过期消息的原因。 下一次对队列或订阅调用接收操作时，这些消息将被删除或设为死信。 请在尝试从队列中恢复延迟的消息时谨记此行为。 过期的消息无法再通过其他任何方式定期检索，即使是 Peek 返回的消息，也不例外。 返回这些消息是设计使然，因为 Peek 是反映日志当前状态的诊断工具。
 
-如果试图从队列中恢复延迟的消息，请务必注意这一点。 其 [ExpiresAtUtc](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) 时刻已过的消息，便无法再通过其他任何方式定期检索，即使是 Peek 返回的消息，也不例外。 返回这些消息是有意而为之，因为 Peek 是反映日志当前状态的诊断工具。
+Peek 还会返回以前已锁定且当前由其他接收程序处理的消息。 但是，因为 Peek 返回的是离线快照，所以无法在速览的消息上观察到消息的锁状态。 当应用程序尝试读取 [LockedUntilUtc](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 和 [LockToken](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 属性时，这些属性将引发 [InvalidOperationException](https://docs.microsoft.com/dotnet/api/system.invalidoperationexception)。
 
-Peek 还会返回锁定的消息，以及当前由其他接收程序处理但尚未完成的消息。 不过，由于 Peek 返回的快照已断开连接，因此无法通过速览消息观测到消息的锁定状态，如果应用程序尝试读取 [LockedUntilUtc](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 和 [LockToken](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 属性，它们会抛出 [InvalidOperationException](https://docs.microsoft.com/dotnet/api/system.invalidoperationexception)。
-
-<!--Not Available on https://docs.azure.cn/dotnet/api/system.invalidoperationexception?view=azure-dotnet-->
+<!--Not Available on https://docs.azure.cn/dotnet/api/system.invalidoperationexception-->
 
 ## <a name="peek-apis"></a>Peek API
 
-[Peek/PeekAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 和 [PeekBatch/PeekBatchAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 方法存在于所有 .NET 和 Java 客户端库以及所有接收程序对象中：**MessageReceiver**、**MessageSession**。 Peek 适用于所有队列、订阅及其对应的死信队列。
+[Peek/PeekAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 和 [PeekBatch/PeekBatchAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 方法存在于 .NET 和 Java 客户端库中，并且存在于以下接收程序对象上：**MessageReceiver**、**MessageSession**。 Peek 适用于队列、订阅及其对应的死信队列。
 
-如果重复调用，Peek 方法会按序号从低到高的顺序，枚举队列或订阅日志中的所有消息。 这是消息的排队顺序，并不是消息的最终检索顺序。
+如果重复调用，**Peek** 方法会按顺序（从最低可用序号到最高可用序号）枚举队列或订阅日志中的所有消息。 这是消息的排队顺序，并不是消息的最终检索顺序。
 
 [PeekBatch](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) 可以检索多个消息，并以枚举形式返回它们。 如果没有消息可返回，枚举对象为空，而不是 NULL。
 

@@ -1,21 +1,21 @@
 ---
 title: 教程：使用设计器预测汽车价格
 titleSuffix: Azure Machine Learning
-description: 了解如何使用拖放式界面来训练、评分和部署机器学习模型。 本教程是有关使用线性回归预测汽车价格的、由两个部分构成的教程系列的第一部分。
+description: 训练机器学习模型，使用线性回归预测汽车价格。 本教程是由两个部分构成的系列教程的第一部分。
 author: peterclu
 ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ff84153e4341c86c00a20e9865c4ee0159b39228
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f8ae18bae1c8a3a73ef26f2e9e958f7fda1d620f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105889"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977187"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>教程：使用设计器预测汽车价格
 
@@ -66,7 +66,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
 管道在计算目标上运行，该目标是附加到工作区的计算资源。 创建计算目标后，就可以在以后的运行中重用它。
 
-可为整个管道设置 **默认计算目标** ，告知每个模块要默认使用同一个计算目标。 但是，可以基于每个模块指定计算目标。
+可为整个管道设置 **默认计算目标**，告知每个模块要默认使用同一个计算目标。 但是，可以基于每个模块指定计算目标。
 
 1. 在管道名称旁边，选择画布顶部的 **齿轮图标** ![齿轮图标的屏幕截图](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) 打开“设置”窗格。
 
@@ -112,7 +112,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
 ### <a name="remove-a-column"></a>删除列
 
-训练模型时，必须对缺失的数据执行某些操作。 在此数据集中， **normalized-losses** 列缺失许多值，因此需要从模型中完全排除该列。
+训练模型时，必须对缺失的数据执行某些操作。 在此数据集中，**normalized-losses** 列缺失许多值，因此需要从模型中完全排除该列。
 
 1. 在画布左侧的模块控制板中，展开“数据转换”部分并找到“选择数据集中的列”模块。 
 
@@ -221,7 +221,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
     > [!IMPORTANT]
     > 请确保“拆分数据”的左侧输出端口连接到“训练模型”。  左侧端口包含训练集。 右侧端口包含测试集。
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="选择列":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="显示“训练模型”模块的正确配置的屏幕截图。“线性回归”模块将连接到“训练模型”模块的左端口，“拆分数据”模块将连接到“训练模型”的右端口。":::
 
 1. 选择 **训练模型** 模块。
 
@@ -236,7 +236,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
     管道应如下所示：
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="选择列":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="显示添加“训练模型”模块后管道的正确配置的屏幕截图。":::
 
 ### <a name="add-the-score-model-module"></a>添加“评分模型”模块
 
@@ -256,7 +256,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
     最终的管道应如下所示：
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="选择列":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="显示管道的正确配置的屏幕截图。":::
 
 ## <a name="submit-the-pipeline"></a>提交管道
 
@@ -285,7 +285,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
     在此处可以看到从测试数据预测的价格和实际价格。
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="选择列":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="输出可视化效果的屏幕截图，其中突出显示了“评分标签”列":::
 
 ### <a name="evaluate-models"></a>评估模型
 
@@ -297,9 +297,9 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
 * **平均绝对误差(MAE)** ：绝对误差的平均值。 误差是指预测值与实际值之间的差。
 * **均方根误差(RMSE)** ：对测试数据集所做预测的平均误差的平方根。
-* **相对绝对误差** ：相对于实际值与所有实际值平均值之间的绝对差异的绝对误差平均值。
-* **相对平方误差** ：相对于实际值与所有实际值平均值之间的平方差异的平方误差平均值。
-* **决定系数** ：也称为 R 平方值，这是一个统计指标，表示模型的数据拟合度。
+* **相对绝对误差**：相对于实际值与所有实际值平均值之间的绝对差异的绝对误差平均值。
+* **相对平方误差**：相对于实际值与所有实际值平均值之间的平方差异的平方误差平均值。
+* **决定系数**：也称为 R 平方值，这是一个统计指标，表示模型的数据拟合度。
 
 每个误差统计值越小越好。 值越小，表示预测越接近实际值。 对于决定系数，其值越接近 1 (1.0)，预测就越精确。
 

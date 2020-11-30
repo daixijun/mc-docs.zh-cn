@@ -1,22 +1,22 @@
 ---
-title: 使用基于角色的访问控制管理备份
-description: 使用基于角色的访问控制来管理对恢复服务保管库中的备份管理操作的访问。
+title: 使用 Azure 基于角色的访问控制来管理备份
+description: 使用 Azure 基于角色的访问控制来管理对恢复服务保管库中的备份管理操作的访问。
 ms.reviewer: utraghuv
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 origin.date: 06/24/2019
-ms.openlocfilehash: 3dfddf87453b48e5d7df0e5ac0c32f7666bdd27b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: f69834b137ce1f4df76ddcaf9d24cba9eb9cdf99
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871271"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977265"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用基于角色的访问控制管理 Azure 备份恢复点
+# <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用 Azure 基于角色的访问控制来管理 Azure 备份恢复点
 
-Azure 基于角色的访问控制 (Azure RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以在团队中实现职责分离，仅向用户授予执行作业所需的访问权限。
+Azure 基于角色的访问控制 (Azure RBAC) 可用于对 Azure 进行细致的访问管理。 使用 Azure RBAC，可以在团队中实现职责分离，仅向用户授予他们执行作业所需的访问权限。
 
 > [!IMPORTANT]
 > Azure 备份提供的角色仅限于执行可在 Azure 门户中执行的操作，或者通过 REST API 或恢复服务保管库 PowerShell 或 CLI cmdlet 执行的操作。 这些角色对在 Azure 备份代理客户端 UI、System Center Data Protection Manager UI 或 Azure 备份服务器 UI 中执行的操作不具有控制权。
@@ -80,11 +80,11 @@ Azure 备份提供三个用于控制备份管理操作的内置角色。 详细�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md)：Azure 门户中的 RBAC 入门。
+* [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md)：Azure 门户中的 Azure RBAC 入门。
 * 了解如何通过以下方式管理访问权限：
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [基于角色的访问控制故障排除](../role-based-access-control/troubleshooting.md)：获取解决常见问题的建议。
+* [Azure 基于角色的访问控制故障排除](../role-based-access-control/troubleshooting.md)：获取有关修复常见问题的建议。
 
 <!-- Update_Description: wording update -->

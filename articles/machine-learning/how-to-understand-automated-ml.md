@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: 3f77dc8a44dee2bd5835d3ee477e0dc0fe7ec8fc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9b5608381f89e9dbe1360b9678d5acbd1b7f31ff
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106070"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977024"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>评估自动化机器学习试验结果
 
-本文介绍如何查看和评估自动化机器学习、AutoML 和试验的结果。 这些试验包含多个运行，其中每个运行都会创建一个模型。 为了帮助你评估每个模型，AutoML 会自动生成特定于试验类型的性能指标和图表。 
+本文介绍如何查看和评估自动化机器学习、自动化 ML 和试验的结果。 这些试验包含多个运行，其中每个运行都会创建一个模型。 为了帮助你评估每个模型，自动化 ML 会自动生成特定于试验类型的性能指标和图表。 
 
-例如，AutoML 为分类和回归模型提供不同的图表。 
+例如，自动化 ML 为分类和回归模型提供不同的图表。 
 
 |分类|回归
 |---|---|
@@ -41,7 +41,7 @@ ms.locfileid: "93106070"
 
 自动化机器学习试验完成后，可通过 [Azure 机器学习工作室](overview-what-is-machine-learning-studio.md)，在机器学习工作区中找到运行历史记录。 
 
-对于 SDK 试验，在使用 `RunDetails` [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)时，可在运行期间看到相同的结果。
+对于 SDK 试验，在使用 `RunDetails` [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)时，可在运行期间看到相同的结果。
 
 以下步骤和动画演示了如何在工作室中查看运行历史记录以及特定模型的性能指标和图表。
 
@@ -49,7 +49,7 @@ ms.locfileid: "93106070"
 
 若要在工作室中查看运行历史记录、模型性能指标和图表： 
 
-1. [登录到工作室](https://ml.azure.com/)并导航到你的工作区。
+1. [登录到工作室](https://studio.ml.azure.cn/)并导航到你的工作区。
 1. 在工作区的左侧面板中，选择“运行”。
 1. 在试验列表中，选择要探索的试验。
 1. 在底部的表中，选择“运行”。
@@ -61,7 +61,7 @@ ms.locfileid: "93106070"
 
 ## <a name="classification-performance-metrics"></a>分类性能指标
 
-下表总结了 AutoML 针对为试验生成的每个分类模型计算的模型性能指标。 
+下表汇总了模型性能指标，这些指标是自动化 ML 针对每个为试验生成的分类模型计算的。 
 
 指标|说明|计算|其他参数
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|加权准确度是当分配给每个示例的权重等于该�
 
 ### <a name="binary-vs-multiclass-metrics"></a>二元分类指标与多类指标
 
-AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类还是两个以上的类，都会报告相同的验证指标。 但是，某些指标旨在用于多类分类。 正如你所期望的那样，这些指标在应用于二元分类数据集时不会将任何类视为 `true` 类。 明确用于多类的指标以 `micro`、`macro` 或 `weighted` 为后缀。 示例包括 `average_precision_score`、`f1_score`、`precision_score`、`recall_score`、`AUC`。
+自动化 ML 不区分二元分类指标与多类指标。 不管数据集有两个类还是两个以上的类，都会报告相同的验证指标。 但是，某些指标旨在用于多类分类。 正如你所期望的那样，这些指标在应用于二元分类数据集时不会将任何类视为 `true` 类。 明确用于多类的指标以 `micro`、`macro` 或 `weighted` 为后缀。 示例包括 `average_precision_score`、`f1_score`、`precision_score`、`recall_score`、`AUC`。
 
 例如，多类平均召回率（`micro`、`macro` 或 `weighted`）不按 `tp / (tp + fn)` 计算召回率，而是对二进制分类数据集的两个类进行平均。 这相当于分别计算 `true` 类和 `false` 类的召回率，然后取二者的平均值。
 
@@ -154,7 +154,7 @@ AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类
 
 ### <a name="what-does-a-good-model-look-like"></a>良好的模型是怎样的？
 
-提升曲线越高（即模型在基线之上越高），表示模型性能更好。 
+一个性能更好的模型会有一个提升曲线，该曲线在图上更高，并且离基线更远。 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>示例 1：表现比随机选择模型差的分类模型
 ![比随机选择模型更差的分类模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -203,7 +203,7 @@ AutoML 不区分二元分类指标与多类指标。 不管数据集有两个类
 
 ## <a name="regression-performance-metrics"></a>回归性能指标
 
-下表总结了 AutoML 针对为试验生成的每个回归模型或预测模型计算的模型性能指标。 
+下表汇总了模型性能指标，这些指标是自动化 ML 针对每个为试验生成的回归模型或预测模型计算的。 
 
 |指标|说明|计算|其他参数
 --|--|--|--|
@@ -228,12 +228,12 @@ normalized_root_mean_squared_log_error|规范化均方根对数误差指均方�
 每次运行后，可以查看每个回归模型的预测与真实图形。 为了保护数据隐私，值已装箱在一起，每个箱的大小在图表区域的下半部分显示为条形图。 可将预测模型（带有浅色阴影，其中显示了误差边际）与模型的理想值进行比较。
 
 ### <a name="what-does-a-good-model-look-like"></a>良好的模型是怎样的？
-可以使用此图形来衡量模型的性能，因为预测值与 y=x 行越接近，预测模型的准确度就越高。
+可以使用此图来衡量模型的性能，因为预测值与 y=x 行越接近，预测模型的性能就越佳。
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>示例 1：准确度较低的分类模型
+#### <a name="example-1-a-regression-model-with-low-performance"></a>示例 1：性能较低的回归模型
 ![预测准确度较低的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>示例 2：准确度较高的回归模型 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>示例 2：性能较高的回归模型
 ![预测准确度较高的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -248,7 +248,7 @@ normalized_root_mean_squared_log_error|规范化均方根对数误差指均方�
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>示例 1：误差中带有偏差的回归模型
 ![误差中带有偏差的 SA 回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>示例 2：误差较均匀分布的回归模型
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>示例 2：误差分布更均匀的回归模型
 ![误差较均匀分布的回归模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

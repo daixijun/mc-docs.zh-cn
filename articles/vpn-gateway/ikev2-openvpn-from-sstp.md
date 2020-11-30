@@ -4,16 +4,16 @@ description: 本文帮助你了解如何克服 SSTP 的 128 个并发连接的�
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
-ms.topic: conceptual
-origin.date: 03/30/2020
-ms.date: 05/11/2020
+ms.topic: how-to
+origin.date: 09/03/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 7240537036b81df637c8e287ed7c7ea2ad0ac25c
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: 209c255e79450bcefec1c0e236725faf1fe1dacf
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507687"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908988"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>从 SSTP 过渡到 OpenVPN 协议或 IKEv2
 
@@ -48,7 +48,7 @@ IKEv2 使用非标准 UDP 端口，因此，你需要确保这些端口未在用
 
 若要将 IKEv2 添加到现有网关，只需在门户中转到虚拟网络网关下的“点到站点配置”选项卡，然后从下拉框中选择“IKEv2 和 SSTP (SSL)”。 
 
-![点到站点](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![此屏幕截图显示了“点到站点配置”页，其中的“隧道类型”下拉列表处于打开状态，而“IKEv2 和 SSTP(SSL)”则处于选中状态。](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>选项 2 - 删除 SSTP 并在网关上启用 OpenVPN

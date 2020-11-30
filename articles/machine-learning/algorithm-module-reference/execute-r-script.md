@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: v-yiso
 ms.date: 07/27/2020
-ms.openlocfilehash: f4351e6a1785ee5065b202ed8d4a60ae9e764cab
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2cb6bcf92dcfda6c2905874974ef345cadc6b6c6
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105490"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977563"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
@@ -147,11 +147,11 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 连接该脚本需要的任何输入。 输入是可选的，可以包含数据和其他 R 代码。
 
-    * **Dataset1** ：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
+    * **Dataset1**：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
 
-    * **Dataset2** ：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
+    * **Dataset2**：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
 
-    * **脚本包** ：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
+    * **脚本包**：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
 
 1. 在“R 脚本”文本框中，键入或粘贴有效的 R 脚本。
 
@@ -198,7 +198,7 @@ azureml_main <- function(dataframe1, dataframe2){
     
     1. 将脚本和其他自定义资源捆绑到一个 zip 文件中。
     1. 将 zip 文件作为“文件数据集”上传到工作室。 
-    1. 从设计器创作页面左侧模块窗格的“我的数据集”列表中拖取数据集模块。 
+    1. 从设计器创作页面左侧模块窗格的“数据集”列表中拖取数据集模块。 
     1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
     
     下面是使用脚本包中的脚本的示例代码：

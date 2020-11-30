@@ -5,16 +5,17 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: WenJason
 ms.service: vpn-gateway
-ms.topic: conceptual
-origin.date: 02/14/2018
-ms.date: 04/09/2020
+ms.topic: how-to
+origin.date: 09/02/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 8c51cd9788a3e5421571e80b1aa247cadaf84211
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a2d64df9b00222097c75221fda9a3a009b709490
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634594"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908975"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
@@ -66,7 +67,7 @@ ms.locfileid: "80634594"
 
 此配置的步骤使用 TestVNet1 和 TestVNet4。
 
-  ![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![此图显示的 VNet 到 VNet 步骤适用于同一订阅中的 VNet。](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 ## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>连接同一订阅中的 VNet
 
@@ -204,10 +205,10 @@ ms.locfileid: "80634594"
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 

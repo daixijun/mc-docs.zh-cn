@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/09/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 2caeba8c5ff83e38319b16fb9259651baa857b46
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: 9b8a100d8632d82f3c43598cc8a8bf523f9bff62
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83002069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977116"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>如何将 Azure API 管理与 Azure Application Insights 集成
 
@@ -33,29 +33,29 @@ Azure API 管理可以轻松地与 Azure Application Insights 集成（一个可
 在使用 Azure Application Insights 之前，需要先创建一个服务实例。
 
 1. 打开 **Azure 门户**，导航到“Application Insights”。   
-    ![App Insights 创建](./media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+    ![显示如何导航到 Application Insights 的屏幕截图。](./media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. 单击“+ 添加”。   
     ![App Insights 创建](./media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. 填写窗体。 选择“常规”作为“应用程序类型”。  
-4. 单击**创建**。
+4. 单击 **创建**。
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>在 Azure Application Insights 与 Azure API 管理服务实例之间创建连接
 
-1. 在 **Azure 门户**中导航到自己的 **Azure API 管理服务实例**。
+1. 在 **Azure 门户** 中导航到自己的 **Azure API 管理服务实例**。
 2. 在左侧菜单中选择“Application Insights”。 
 3. 单击“+ 添加”。   
-    ![App Insights 记录器](./media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+    ![显示在何处添加新连接的屏幕截图。](./media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. 选择前面创建的 **Application Insights** 实例并提供简短说明。
-5. 单击**创建**。
+5. 单击 **创建**。
 6. 你刚刚创建了一个具有检测密钥的 Azure Application Insights 记录器。 该记录器现在应已显示在列表中。  
-    ![App Insights 记录器](./media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![此屏幕截图显示了在何处使用检测密钥查看新创建的 Azure Application Insights 记录器。](./media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
 > 在后台，将在 API 管理实例中创建了一个 [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) 实体，其中包含 Application Insights 实例的检测密钥。
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>为 API 启用 Application Insights 日志记录
 
-1. 在 **Azure 门户**中导航到自己的 **Azure API 管理服务实例**。
+1. 在 **Azure 门户** 中导航到自己的 **Azure API 管理服务实例**。
 2. 在左侧菜单中选择“API”  。
 3. 单击你的 API（在本例中为“演示会议 API”）。 
 4. 从顶部栏转到“设置”选项卡。 
@@ -121,7 +121,6 @@ Azure Application Insights 接收：
 <!-- Not suitable in China, so removed -->
 ## <a name="next-steps"></a>后续步骤
 
-+ 详细了解 [Azure Application Insights](https://docs.azure.cn/azure-monitor/app/app-insights-overview)。
++ 详细了解 [Azure Application Insights](/application-insights/)。
 + 考虑[使用 Azure 事件中心进行日志记录](api-management-howto-log-event-hubs.md)。
-<!-- Correct in China: https://docs.azure.cn/azure-monitor/app/app-insights-overview-->
 

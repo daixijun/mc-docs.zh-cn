@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 4d6d43ee5a60a57f1227b4815bccc592f67096c1
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c9853ac3c18889a7aacfe98baf3b1babc430afe7
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117954"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977236"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>从逻辑应用触发机器学习管道的运行
 
@@ -92,6 +92,9 @@ ms.locfileid: "92117954"
     > ![HTTP 设置](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. 选择“保存”，你的计划现已准备就绪。
+
+> [!IMPORTANT]
+> 如果使用基于角色的访问控制 (RBAC) 来管理对管道的访问，请[设置管道方案的权限（训练或评分）](how-to-assign-roles.md#common-scenarios)。
 
 ## <a name="next-steps"></a>后续步骤
 

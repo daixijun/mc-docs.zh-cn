@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 origin.date: 01/10/2020
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 5127280863c359549f2f8660d218d07f16e81a57
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 84dd0217ed5273898aea9c46b6c2e3d792e06d91
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871323"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977403"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 
-本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
+本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-policies.md)。
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> 高级策略
 
@@ -157,7 +157,7 @@ ms.locfileid: "91871323"
 ### <a name="policy-statement"></a>策略语句
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
 ### <a name="examples"></a>示例
@@ -256,6 +256,7 @@ ms.locfileid: "91871323"
 | timeout="整数"                             | 在引发超时错误之前，等待后端服务返回 HTTP 响应标头的时间量（秒）。 最小值为 0 秒。 大于 240 秒的值可能不会被遵守，因为底层网络基础设施在此时间后可能会丢弃闲置的连接。 | 否       | 无    |
 | follow-redirects="false &#124; true"          | 指定是由网关执行从后端服务的重定向，还是将重定向返回到调用方。                                                                                                                                                                                                    | 否       | false   |
 | buffer-request-body="false &#124; true"       | 设置为“true”时，请求将被缓冲，并将在[重试](api-management-advanced-policies.md#Retry)时重新使用。                                                                                                                                                                                               | 否       | false   |
+| buffer-response="false &#124; true" | 影响分块响应的处理。 如果设置为“false”，则从后端接收的每个区块会立即返回给调用方。 如果设置为“true”，则会对区块进行缓冲（8KB，除非检测到流的末尾），然后再返回给调用方。 | 否 | 是 |
 | fail-on-error-status-code="false &#124; true" | 设置为 true 时触发 400 到 599（含）范围的响应代码的 [on-error](api-management-error-handling-policies.md) 节。                                                                                                                                                                      | 否       | false   |
 
 ### <a name="usage"></a>使用情况
@@ -470,8 +471,8 @@ status code and media type. If no example or schema found, the content is empty.
 | first-fast-retry | 如果设置为 `true`，则会立即执行首次重试。                                                                                  | 否       | `false` |
 
 > [!NOTE]
-> 仅指定 `interval` 时，则会执行**固定**时间间隔的重试。
-> 仅指定 `interval` 和 `delta` 时，将使用**线性**时间间隔重试算法，其中，两次重试之间的等待时间按以下公式计算：`interval + (count - 1)*delta`。
+> 仅指定 `interval` 时，则会执行 **固定** 时间间隔的重试。
+> 仅指定 `interval` 和 `delta` 时，将使用 **线性** 时间间隔重试算法，其中，两次重试之间的等待时间按以下公式计算：`interval + (count - 1)*delta`。
 > 指定 `interval`、`max-interval`、`delta` 时，将应用指数时间间隔重试算法，其中，两次重试之间的等待时间根据以下公式从 `interval` 值呈指数增长到 `max-interval` 值：`min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`。
 
 ### <a name="usage"></a>使用情况
@@ -1042,5 +1043,5 @@ status code and media type. If no example or schema found, the content is empty.
 -   [API 管理中的策略](api-management-howto-policies.md)
 -   [策略表达式](api-management-policy-expressions.md)
 -   [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
--   [策略示例](policy-samples.md)
+-   [策略示例](./policy-reference.md)
 

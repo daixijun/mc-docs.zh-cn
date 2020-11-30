@@ -4,14 +4,14 @@ description: 本文介绍了使用 Azure 备份来备份 Azure VM 上的 SAP HAN
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 11/7/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 31da29a4e1f31c2ff9d81c7b1287c9860e7a0d58
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 5483560a6025bdffe22d9584217d22e692da0c8b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402494"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977175"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>针对备份 Azure VM 上的 SAP HANA 数据库的支持矩阵
 
@@ -26,7 +26,7 @@ Azure 备份支持将 SAP HANA 数据库备份到 Azure。 本文总结了在使
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **拓扑**               | 仅在 Azure Linux VM 中运行的 SAP HANA                    | HANA 大型实例 (HLI)                                   |
 | **区域**                   |  中国东部、中国北部、中国东部 2、中国北部 2  |
-| **OS 版本**            | 带 SP2、SP3 和 SP4 的 SLES 12；带 SP0 和 SP1 的 SLES 15 <br><br>  自 2020 年 8 月 1 日起，适用于 RHEL 的 SAP HANA 备份（7.4、7.6、7.7 和 8.1）已正式发布。                |                                             |
+| **OS 版本**            | 带 SP2、SP3、SP4 和 SP5 的 SLES 12；带 SP0 和 SP1 的 SLES 15 <br><br>  自 2020 年 8 月 1 日起，适用于 RHEL 的 SAP HANA 备份（7.4、7.6、7.7 和 8.1）已正式发布。                |                                             |
 | **HANA 版本**          | SDC on HANA 1.x、MDC on HANA 2.x <= SPS04 Rev 48、SPS05（尚未对启用了加密的方案进行验证）      |                                                            |
 | **HANA 部署**       | 基于单个 Azure VM 的 SAP HANA - 仅纵向扩展 <br><br> 进行高可用性部署时，两个不同计算机上的两个节点均被视为具有单独数据链的单个节点。               | 横向扩展 <br><br> 在高可用性部署中，备份不会自动故障转移到辅助节点。 应为每个节点单独进行备份配置。                                           |
 | **HANA 实例**         | 单个 Azure VM 上的单个 SAP HANA 实例 - 仅纵向扩展 | 单个 VM 上的多个 SAP HANA 实例                  |
@@ -34,7 +34,7 @@ Azure 备份支持将 SAP HANA 数据库备份到 Azure。 本文总结了在使
 | **HANA 数据库大小**     | 大小不超过 2 TB 的 HANA 数据库（这不是 HANA 系统的内存大小）               |                                                              |
 | **备份类型**           | 完整备份、差异备份和日志备份                          | 增量、快照                                       |
 | **还原类型**          | 请参阅 SAP HANA 说明 [1642148](https://launchpad.support.sap.com/#/notes/1642148)，了解支持的还原类型 |                                                              |
-| **备份限制**          | 每个 SAP HANA 实例最多可以进行 2 TB 的完整备份         |                                                              |
+| **备份限制**          | 每个 SAP HANA 实例最多可以进行 2 TB 的完整备份（软限制）         |                                                              |
 | **特殊配置** |                                                              | SAP HANA + 动态分层 <br>  通过 LaMa 进行克隆        |
 
 ------

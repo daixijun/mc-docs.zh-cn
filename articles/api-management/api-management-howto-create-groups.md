@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: ed1bb92519a5b545a09e2da76ea095fc993ce524
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 242c9f41474a16d27a7188b4dc1b9a544a0ac4d4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871393"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977402"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何创建和使用组来管理 Azure API 管理中的开发人员帐户
 
@@ -49,30 +49,30 @@ API 管理具有下列不可变的系统组：
 
 本部分说明如何将新组添加到 API 管理帐户。
 
-1. 选择屏幕左侧的“组”**** 选项卡。
+1. 选择屏幕左侧的“组”选项卡。
 2. 单击“+添加”。
 3. 输入组的唯一名称和可选说明。
 4. 按“创建”。
 
     ![添加新组](./media/api-management-howto-create-groups/groups001.png)
 
-创建组后，该组将添加到“组”**** 列表。 <br/>若要编辑组的“名称”**** 或“说明”****，请单击组的名称和“设置”****。<br/>若要删除组，请单击组的名称并按“删除”****。
+创建组后，该组将添加到“组”列表。 <br/>若要编辑组的“名称”或“说明”，请单击组的名称和“设置”。<br/>若要删除组，请单击组的名称并按“删除”。
 
 现在已创建组，它可以与产品和开发人员相关联。
 
 ## <a name="associate-a-group-with-a-product"></a><a name="associate-group-product"> </a>将组与产品关联
 
-1. 选择左侧的“产品”**** 选项卡。
+1. 选择左侧的“产品”选项卡。
 2. 单击所需产品的名称。
-3. 按“访问控制”****。
-4. 单击“+ 添加组”。****
+3. 按“访问控制”。
+4. 单击“+ 添加组”。
 
-    ![将组与产品关联](./media/api-management-howto-create-groups/groups002.png)
+    ![突出显示“添加组”按钮的屏幕截图。](./media/api-management-howto-create-groups/groups002.png)
 5. 选择要添加的组。
 
-    ![将组与产品关联](./media/api-management-howto-create-groups/groups003.png)
+    ![显示选定组并突出显示“选择”按钮的屏幕截图。](./media/api-management-howto-create-groups/groups003.png)
 
-    若要从产品中删除组，请单击“删除”****。
+    若要从产品中删除组，请单击“删除”。
 
     ![删除组](./media/api-management-howto-create-groups/groups004.png)
 
@@ -85,16 +85,16 @@ API 管理具有下列不可变的系统组：
 
 本部分演示如何将组与成员相关联。
 
-1. 选择屏幕左侧的“组”**** 选项卡。
+1. 选择屏幕左侧的“组”选项卡。
 2. 选择“**成员**”。
 
     ![添加成员](./media/api-management-howto-create-groups/groups005.png)
-3. 按“+添加”**** 并选择成员。
+3. 按“+添加”并选择成员。
 
-    ![添加成员](./media/api-management-howto-create-groups/groups006.png)
+    ![突出显示“添加”按钮、选定用户和“选择”按钮的屏幕截图。](./media/api-management-howto-create-groups/groups006.png)
 4. 按“选择”。
 
-一旦开发人员和组之间添加关联，可以在“用户”**** 选项卡中查看它。
+一旦开发人员和组之间添加关联，可以在“用户”选项卡中查看它。
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>后续步骤
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 3/18/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: b2d39ef44cd23125184ce88c428ddb967601870d
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 11/23/2020
+ms.openlocfilehash: 8a80a4e0e7d9c806ea82cc4c2c45fa01cad78365
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395425"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977354"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的安全性
 
@@ -38,6 +38,8 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对服务器的访�
 ### <a name="virtual-network-firewall-rules"></a>虚拟网络防火墙规则
 虚拟网络服务终结点将虚拟网络连接扩展到 Azure 主干网。 使用虚拟网络规则，Azure Database for MySQL 服务器就会允许从虚拟网络中的所选子网进行连接。 有关详细信息，请参阅[虚拟网络服务终结点概述](concepts-data-access-and-security-vnet.md)。
 
+### <a name="private-ip"></a>专用 IP
+使用专用链接可以通过专用终结点连接到 Azure 中的 Azure Database for MySQL。 Azure 专用链接实质上是将 Azure 服务引入专用虚拟网络 (VNet) 中。 就像 VNet 中的任何其他资源一样，可以使用专用 IP 地址访问 PaaS 资源。 有关详细信息，请参阅[专用链接概述](concepts-data-access-security-private-link.md)
 
 ## <a name="access-management"></a>访问管理
 

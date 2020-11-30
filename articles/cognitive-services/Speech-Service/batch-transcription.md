@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 08/28/2020
-ms.date: 10/16/2020
+origin.date: 11/03/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dc402808195395221e7ec7cea52d258f66e32964
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 92956d641fa49b29890eb69a1dddbdc48c0bb789
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127952"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977165"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批量听录
 
@@ -37,8 +37,6 @@ ms.locfileid: "92127952"
 
 你可以查看和测试详细的 API，它以 [Swagger 文档](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0)的形式提供。
 
-此 API 不需要自定义终结点，并且没有并发要求。
-
 批量听录作业是按“尽力而为”的原则安排的。
 你无法估计作业何时将变为运行状态，但在正常系统负载下，它应该在几分钟内发生。 进入运行状态后，听录速度比音频运行时播放速度更快。
 
@@ -47,9 +45,12 @@ ms.locfileid: "92127952"
 与语音服务的其他所有功能一样，需要按照[入门指南](overview.md#try-the-speech-service-for-free)通过 [Azure 门户](https://portal.azure.cn)创建订阅密钥。
 
 >[!NOTE]
-> 若要使用批量听录，需要具备语音服务的标准订阅 (S0)。 免费订阅密钥 (F0) 无效。 有关详细信息，请参阅[定价和限制](https://www.azure.cn/pricing/details/cognitive-services/)。
+> 若要使用批量听录，需要具备语音服务的标准订阅 (S0)。 免费订阅密钥 (F0) 不可用。 有关详细信息，请参阅[定价和限制](https://www.azure.cn/pricing/details/cognitive-services/)。
 
 如果计划自定义模型，请按照[声音自定义](how-to-customize-acoustic-models.md)和[语言自定义](how-to-customize-language-model.md)中的步骤操作。 若要在批量听录中使用所创建的模型，需要提供其模型位置。 可以在检查模型的详细信息（`self` 属性）时检索模型位置。 批量听录服务不需要已部署的自定义终结点。
+
+>[!NOTE]
+> 作为 REST API 的一部分，批量听录具有一组[配额和限制](speech-services-quotas-and-limits.md#batch-transcription)，建议你查看它们。 为了充分利用批处理听录功能来有效地听录大量音频文件，建议你始终根据每个请求发送多个文件，或指向包含要听录的音频文件的 Blob 存储容器。 该服务会以并发方式听录文件，减少周转时间。 可以直截了当地在单个请求中使用多个文件 - 请参阅[配置](#configuration)部分。 
 
 ## <a name="batch-transcription-api"></a>批量听录 API
 
@@ -66,12 +67,16 @@ ms.locfileid: "92127952"
 
 ### <a name="configuration"></a>配置
 
-配置参数以 JSON 形式（一个或多个单独文件）提供：
+配置参数以 JSON 形式提供。
+
+**听录一个或多个单独的文件。** 如果要听录的文件不止一个，建议在一个请求中发送多个文件。 下面的示例使用三个文件：
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -81,7 +86,7 @@ ms.locfileid: "92127952"
 }
 ```
 
-配置参数以 JSON 形式（处理整个存储容器）提供：
+**处理整个存储容器：**
 
 ```json
 {
@@ -94,12 +99,14 @@ ms.locfileid: "92127952"
 }
 ```
 
-以下 JSON 指定了用于批量听录的自定义训练模型：
+**在批量听录中使用自定义训练模型。** 此示例使用三个文件：
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -157,14 +164,14 @@ ms.locfileid: "92127952"
       `channels`
    :::column-end:::
    :::column span="2":::
-      （可选）默认情况下转录 `0` 和 `1`。 待处理的声道编号数组。 可在此指定处理音频文件中可用通道的子集（例如只听录 `0`）。
+      （可选）默认情况下转录 `0` 和 `1`。 待处理的声道编号数组。 可在这里指定待处理音频文件中提供的通道的子集（例如，仅 `0`）。
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      （可选）默认情况下不删除。 完成听录后保留听录的持续时间，此持续时间之后会自动删除听录。 `timeToLive` 适用于批量处理听录，可确保最终将会删除这些听录（例如 `PT12H` 12 小时）。
+      （可选）默认情况下不删除。 完成听录后保留听录的持续时间，此持续时间之后会自动删除听录。 `timeToLive` 适用于批量处理听录，可确保最终删除这些听录（例如，`PT12H` 表示 12 小时）。
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -319,13 +326,9 @@ ms.locfileid: "92127952"
 `samples/batch` 子目录内的 [GitHub 示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中提供了完整示例。
 
 如果使用的是自定义模型，请使用订阅信息、服务区域、指向要听录的音频文件的 URI 以及模型位置来更新示例代码。
-<!--
-> [!NOTE]
-> When creating batch client, please change the endpoint as `https://chinaeast2.cris.azure.cn` for Azure China.
--->
 
 ```csharp
-/var newTranscription = new Transcription
+var newTranscription = new Transcription
 {
     DisplayName = DisplayName, 
     Locale = Locale, 
@@ -346,69 +349,83 @@ Console.WriteLine($"Created transcription {newTranscription.Self}");
 示例代码设置客户端并提交听录请求。 然后，它会轮询状态信息并输出关于听录进度的详细信息。
 
 ```csharp
-    if (paginatedTranscriptions == null)
-    {
-        paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
-    }
-    else
-    {
-        paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
-    }
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
 
-    // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
-    foreach (var transcription in paginatedTranscriptions.Values)
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
     {
-        switch (transcription.Status)
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
         {
-            case "Failed":
-            case "Succeeded":
-                // we check to see if it was one of the transcriptions we created from this client.
-                if (!createdTranscriptions.Contains(transcription.Self))
-                {
-                    // not created form here, continue
-                    continue;
-                }
-
-                completed++;
-
-                // if the transcription was successful, check the results
-                if (transcription.Status == "Succeeded")
-                {
-                    var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
-
-                    var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
-                    var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
-                    Console.WriteLine("Transcription succeeded. Results: ");
-                    Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
-                }
-                else
-                {
-                    Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
-                }
-
-                break;
-
-            case "Running":
-                running++;
-                break;
-
-            case "NotStarted":
-                notStarted++;
-                break;
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
         }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
     }
+    while (paginatedTranscriptions.NextLink != null);
 
-    // for each transcription in the list we check the status
-    Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 }
-while (paginatedTranscriptions.NextLink != null);
-
 ```
-
 
 有关上述调用的完整详细信息，请参阅 [Swagger 文档](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0)。 有关此处所示的完整示例，请转到 `samples/batch` 子目录中的 [GitHub](https://aka.ms/csspeech/samples)。
 
-此示例使用异步设置发布音频并接收听录状态。
+此示例使用异步设置来发布音频并接收听录状态。
 `PostTranscriptions` 方法发送音频文件详细信息，而 `GetTranscriptions` 方法接收状态。
 `PostTranscriptions` 返回句柄，`GetTranscriptions` 使用此句柄创建一个句柄来获取听录状态。
 

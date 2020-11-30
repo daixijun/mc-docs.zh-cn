@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 383827dbfdb3fc8db7b4b187da62f6f5322d5e9d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 4126825bef1dac4ad9499c9d232cd1679d718918
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328853"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849426"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>教程：使用托管标识将密钥保管库连接到 Azure Spring Cloud 应用
 
@@ -75,6 +75,8 @@ export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspri
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> 禁用系统分配的托管标识后，使用 `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` 删除应用的访问权限。
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>使用 Spring Boot 简易版构建示例 Spring Boot 应用
 此应用将有权从 Azure Key Vault 获取机密。 使用简易版应用：[Azure Key Vault 机密 Spring Boot 简易版](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets)。  Azure Key Vault 添加为 Spring PropertySource 的实例。  可以像任何外部化配置属性（如文件中的属性）一样方便地访问和使用存储在 Azure Key Vault 中的机密。 

@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 4/13/2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 138269c63a294f5abb764e5bf749b49c89a5a035
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+origin.date: 11/6/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: c3e80b35efa62f29ef7f63d0b31dcc389f734e19
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127025"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977355"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的慢查询日志
 
@@ -22,6 +22,8 @@ ms.locfileid: "82127025"
 在 Azure Database for MySQL 中，慢查询日志可供用户使用。 不支持访问事务日志。 可以使用慢查询日志来查明性能瓶颈以进行故障排除。
 
 有关 MySQL 慢查询日志的详细信息，请参阅 MySQL 参考手册中的[慢查询日志部分](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
+
+在服务器上启用[查询存储](concepts-query-store.md)时，你可能会看到记录在慢查询日志中的类似“`CALL mysql.az_procedure_collect_wait_stats (900, 30);`”的查询。 此行为是预期的行为，因为查询存储功能会收集有关查询的统计信息。 
 
 ## <a name="configure-slow-query-logging"></a>配置慢查询日志记录 
 默认情况下，慢查询日志被禁用。 若要启用它，请将 `slow_query_log` 设置为 ON。 可以使用 Azure 门户或 Azure CLI 启用此功能。 
@@ -148,4 +150,4 @@ Azure Database for MySQL 集成了 Azure Monitor 诊断日志。 在 MySQL 服�
     
 ## <a name="next-steps"></a>后续步骤
 - [如何通过 Azure 门户配置慢速查询日志](howto-configure-server-logs-in-portal.md)
-- [如何通过 Azure CLI 配置慢速查询日志](howto-configure-server-logs-in-cli.md)。
+- [如何通过 Azure CLI 配置慢速查询日志](howto-configure-server-logs-in-cli.md)

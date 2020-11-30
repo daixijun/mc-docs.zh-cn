@@ -2,14 +2,14 @@
 title: 有关 Azure Functions 中的网络的常见问题解答
 description: 有关 Azure Functions 的网络的一些最常见问题解答和方案。
 ms.topic: troubleshooting
-ms.date: 10/19/2020
+ms.date: 11/18/2020
 ms.reviewer: glenga
-ms.openlocfilehash: ab3147614096c1525d52534657e911b7798d40a2
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8f6ba582eee3d7f5579600d0912447baf0b299d2
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472050"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849365"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>有关 Azure Functions 中的网络的常见问题解答
 
@@ -31,11 +31,9 @@ ms.locfileid: "92472050"
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>如何将我的函数应用限制到某个虚拟网络？
 
-可以使用 [服务终结点](./functions-networking-options.md#private-site-access)将函数应用的 **入站** 流量限制倒某个虚拟网络。 此配置仍然允许函数应用对 Internet 进行出站调用。
+可以使用 [服务终结点](./functions-networking-options.md#use-service-endpoints)将函数应用的 **入站** 流量限制倒某个虚拟网络。 此配置仍然允许函数应用对 Internet 进行出站调用。
 
-若要完全限制某个函数以便所有流量流过虚拟网络，唯一方式是使用内部负载平衡应用服务环境。 此选项将站点部署在虚拟网络中的专用基础结构上，并通过虚拟网络发送所有触发器和流量。 
-
-有关如何使用应用服务环境的详细信息，请从[在应用服务环境中创建和使用内部负载均衡器](../app-service/environment/create-ilb-ase.md)一文着手。
+若要完全限制一个函数，使所有流量都通过一个虚拟网络，可以使用带有出站虚拟网络集成的[专用终结点](./functions-networking-options.md#private-endpoint-connections)或应用服务环境。
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>如何从函数应用访问虚拟网络中的资源？
 
@@ -47,7 +45,7 @@ ms.locfileid: "92472050"
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>如何从虚拟网络中的资源触发函数？
 
-可以使用[服务终结点](./functions-networking-options.md#private-site-access)允许从虚拟网络调用 HTTP 触发器。 
+可以允许通过[服务终结点](./functions-networking-options.md#use-service-endpoints)或[专用终结点连接](./functions-networking-options.md#private-endpoint-connections)从虚拟网络调用 HTTP 触发器。 
 
 还可以通过将函数应用部署到高级计划、应用服务计划或应用服务环境，从虚拟网络中的所有其他资源触发函数。 有关详细信息，请参阅[非 HTTP 虚拟网络触发器](./functions-networking-options.md#virtual-network-triggers-non-http)
 

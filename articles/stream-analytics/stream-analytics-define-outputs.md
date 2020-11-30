@@ -7,27 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 10/09/2020
-ms.openlocfilehash: 72e2a7c55a5c17c3798fa5f3f46cca9eddfc26ac
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 11/16/2020
+ms.openlocfilehash: 38eae524496fe110748acfc08e9b99d06b2f3a31
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936844"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977427"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure 流分析的输出
 
 Azure 流分析作业由输入、查询和输出构成。 可以将转换后的数据发送到多个输出类型。 本文列出了支持的流分析输出。 设计流分析查询时，使用 [INTO 子句](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics)引用输出的名称。 可针对每个作业使用单个输出，也可通过向查询添加多个 INTO 子句，针对每个流式处理作业使用多个输出（如果需要）。
 
-要创建、编辑和测试流分析作业输出，可使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-output)、[Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)、[.NET API](https://docs.azure.cn/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet) 和 [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output)。
+要创建、编辑和测试流分析作业输出，可使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-output)、[Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)、[.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations) 和 [REST API](https://docs.microsoft.com/rest/api/streamanalytics/)。
 
 部分输出类型支持[分区](#partitioning)，并且[输出批大小](#output-batch-size)可变化以优化吞吐量。 下表显示了每种输出类型支持的功能：
 
 | 输出类型 | 分区 | 安全 | 
 |-------------|--------------|----------|
-|[Azure SQL 数据库](sql-database-output.md)|是，但需要启用。|SQL 用户身份验证 </br> MSI（预览）|
+|[Azure SQL 数据库](sql-database-output.md)|是，可选。|SQL 用户身份验证 </br> MSI（预览）|
 |[Blob 存储和 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|是|MSI </br> 访问密钥|
-|[Azure 事件中心](event-hubs-output.md)|是|访问密钥|
+|[Azure 事件中心](event-hubs-output.md)|是，需要在输出配置中设置分区键列。|访问密钥|
 |[Azure 表存储](table-storage-output.md)|是|帐户密钥|
 |[Azure 服务总线队列](service-bus-queues-output.md)|是|访问密钥|
 |[Azure 服务总线主题](service-bus-topics-output.md)|是|访问密钥|
@@ -41,7 +41,7 @@ Azure 流分析作业由输入、查询和输出构成。 可以将转换后的�
 流分析支持所有输出的分区。 有关分区键和输出编写器数目的详细信息，请参阅你感兴趣的特定输出类型的文章。 在上一节中链接了所有输出文章。  
 
 <!-- Not Available ## Power BI-->
-可以在查询中使用 `INTO <partition count>`子句（请参阅 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）来控制输出写入器的数量，这可能有助于实现所需的作业拓扑。 如果输出适配器未分区，则一个输入分区中缺少数据将导致延迟最多可达延迟到达的时间量。 在这种情况下，输出将合并到单个写入器，这可能会导致管道中出现瓶颈。 若要了解有关延迟到达策略的详细信息，请参阅 [Azure 流分析事件顺序注意事项](stream-analytics-time-handling.md)。
+另外，若要对分区进行更高级的优化，可以在查询中使用 `INTO <partition count>`（请参阅 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）子句来控制输出写入器的数量，这可能有助于实现所需的作业拓扑。 如果输出适配器未分区，则一个输入分区中缺少数据将导致延迟最多可达延迟到达的时间量。 在这种情况下，输出将合并到单个写入器，这可能会导致管道中出现瓶颈。 若要了解有关延迟到达策略的详细信息，请参阅 [Azure 流分析事件顺序注意事项](./stream-analytics-time-handling.md)。
 
 ## <a name="output-batch-size"></a>输出批大小
 
@@ -91,6 +91,6 @@ Azure 流分析作业由输入、查询和输出构成。 可以将转换后的�
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: https://docs.microsoft.com/rest/api/streamanalytics/
 

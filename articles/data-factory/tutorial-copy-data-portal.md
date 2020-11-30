@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-origin.date: 05/28/2020
-ms.date: 07/27/2020
+origin.date: 11/11/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 28ce50596d6d568556c177e146adeceac3cbf433
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: 91ae4c8794148072c7bcdc3e9df9a62d32be6bfe
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974307"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680381"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂，将数据从 Azure Blob 存储复制到 Azure SQL 数据库中的数据库
 
@@ -118,15 +118,15 @@ ms.locfileid: "86974307"
 
 1. 1. 在“常规”面板的“属性”中，将“名称”指定为 CopyPipeline  。 然后通过单击右上角的“属性”图标来折叠面板。
 
-1. 在“活动”工具箱中，展开“移动和转换”类别，然后将“复制数据”活动从工具箱拖放到管道设计器图面。   指定 **CopyFromBlobToSql** 作为**名称**。
+1. 在“活动”工具箱中，展开“移动和转换”类别，然后将“复制数据”活动从工具箱拖放到管道设计器图面。   指定 **CopyFromBlobToSql** 作为 **名称**。
 
     ![复制活动](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
 ### <a name="configure-source"></a>配置源
 
 >[!TIP]
->本教程使用“帐户密钥”作为源数据存储的身份验证类型，但你可以根据需要选择其他受支持的身份验证方法：“SAS URI”、“服务主体”和“托管标识”。 有关详细信息，请参阅[此文](/data-factory/connector-azure-blob-storage#linked-service-properties)中的相应部分。
->为了安全地存储数据存储的机密，我们还建议使用 Azure Key Vault。 有关详细说明，请参阅[此文](/data-factory/store-credentials-in-key-vault)。
+>本教程使用“帐户密钥”作为源数据存储的身份验证类型，但你可以根据需要选择其他受支持的身份验证方法：“SAS URI”、“服务主体”和“托管标识”。 有关详细信息，请参阅[此文](./connector-azure-blob-storage.md#linked-service-properties)中的相应部分。
+>为了安全地存储数据存储的机密，我们还建议使用 Azure Key Vault。 有关详细说明，请参阅[此文](./store-credentials-in-key-vault.md)。
 
 1. 转到“源”选项卡。选择“+ 新建”创建源数据集。
 
@@ -148,8 +148,8 @@ ms.locfileid: "86974307"
 
 ### <a name="configure-sink"></a>配置接收器
 >[!TIP]
->本教程使用“SQL 身份验证”作为接收器数据存储的身份验证类型，但你可以根据需要选择其他受支持的身份验证方法：“服务主体”和“托管标识”。 有关详细信息，请参阅[此文](/data-factory/connector-azure-sql-database#linked-service-properties)中的相应部分。
->为了安全地存储数据存储的机密，我们还建议使用 Azure Key Vault。 有关详细说明，请参阅[此文](/data-factory/store-credentials-in-key-vault)。
+>本教程使用“SQL 身份验证”作为接收器数据存储的身份验证类型，但你可以根据需要选择其他受支持的身份验证方法：“服务主体”和“托管标识”。 有关详细信息，请参阅[此文](./connector-azure-sql-database.md#linked-service-properties)中的相应部分。
+>为了安全地存储数据存储的机密，我们还建议使用 Azure Key Vault。 有关详细说明，请参阅[此文](./store-credentials-in-key-vault.md)。
 
 1. 转到“接收器”选项卡，选择“+ 新建”，创建一个接收器数据集。 
 
@@ -225,19 +225,17 @@ ms.locfileid: "86974307"
 
     a. 在“名称”下输入 **RunEveryMinute**。
 
-    b. 在“结束”下选择“在特定日期”。 
+    b. 更新触发器的“开始日期”。 如果该日期早于当前日期/时间，则触发器会在所做的更改发布之后开始生效。 
 
-    c. 在“结束日期”下选择下拉列表。
+    c. 在“时区”下选择下拉列表。
 
-    d. 选择“当天”选项。 默认情况下，结束日期设置为第二天。
+    d. 将“重复周期”设置为“每分钟一次” 。
 
-    e. 更新“结束时间”部分，使之超过当前的日期/时间数分钟。 触发器只会在发布所做的更改后激活。 如果将其设置为仅数分钟后激活，而到时又不进行发布，则看不到触发器运行。
+    e. 选择“指定结束日期”复选框，将“结束时间”部分更新为晚于当前日期/时间几分钟 。 触发器只会在发布所做的更改后激活。 如果将其设置为仅数分钟后激活，而到时又不进行发布，则看不到触发器运行。
 
-    f. 选择“确定” 。
+    f. 对于“已激活”选项，请选择“是”。 
 
-    g. 对于“已激活”选项，请选择“是”。 
-
-    h.如果该值不存在，请单击“添加行”。 选择“确定” 。
+    g. 选择“确定”。
 
     > [!IMPORTANT]
     > 每个管道运行都有相关联的成本，因此请正确设置结束日期。
@@ -257,7 +255,7 @@ ms.locfileid: "86974307"
 1. 验证是否每分钟将两个行（对于每个管道运行）插入 **emp** 表中，直至指定的结束时间。
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何：
+此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建数据工厂。

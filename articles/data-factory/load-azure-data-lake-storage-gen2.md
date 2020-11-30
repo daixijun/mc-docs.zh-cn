@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 06/08/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: d466259a85df900d8f2c966211aac3b1b33e1ebd
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+origin.date: 11/09/2019
+ms.date: 11/23/2020
+ms.openlocfilehash: 8f1381cc52abc36c625e15497a1294d50cb3dc72
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323359"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680501"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Data Lake Storage Gen2 中
 
@@ -86,7 +86,7 @@ Azure 数据工厂提供可横向扩展的托管数据移动解决方案。 得�
 
 6. 通过选中“以递归方式”和“以二进制方式复制”选项，指定复制行为 。 选择“**下一步**”。
 
-    ![指定输出文件夹](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
+    ![屏幕截图显示了“选择输入文件或文件夹”，你可以在其中选择“以二进制方式复制”和“以递归方式”。](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
 7. 在“目标数据存储”页中，单击“+ 新建连接”，接着选择“Azure Data Lake Storage Gen2”，然后选择“继续”   。
 
@@ -101,7 +101,7 @@ Azure 数据工厂提供可横向扩展的托管数据移动解决方案。 得�
 
 9. 在“选择输出文件或文件夹”页中，输入 **copyfroms3** 作为输出文件夹名称，然后选择“下一步”。 ADF 将在复制过程中创建相应的 ADLS Gen2 文件系统和子文件夹（如果不存在）。
 
-    ![指定输出文件夹](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
+    ![屏幕截图显示了所输入的文件夹路径。](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
 10. 在“设置”页中选择“下一步”，以便使用默认设置 。
 

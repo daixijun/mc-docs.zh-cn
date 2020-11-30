@@ -5,13 +5,13 @@ author: curib
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 12d7ac635131be531d58250e1a17970663d1c2e1
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 11/16/2020
+ms.openlocfilehash: 53f28099d95e8e3d2e859f1914615a5795e2a0a9
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326877"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849388"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>使用 Azure 专用链接的 Azure Cache for Redis（公共预览版）
 在本文中，你将了解如何通过 Azure 门户创建虚拟网络、Azure Cache for Redis 实例和专用终结点。 你还将学习如何向现有的 Azure Cache for Redis 实例添加专用终结点。
@@ -98,7 +98,6 @@ Azure 专用终结点是一个网络接口，可以通过私密且安全的方�
 1. 在基本或标准缓存实例的“高级”选项卡中，如果想要启用非 TLS 端口，请选择启用开关。
 
 1. 在高级缓存实例的“高级”选项卡中，配置非 TLS 端口、群集和数据持久性的设置。
-
 
 1. 选择页面底部的“下一步:标记”选项卡，或者单击“下一步:标记”按钮。
 
@@ -205,8 +204,38 @@ Azure 专用终结点是一个网络接口，可以通过私密且安全的方�
 
 13. 显示绿色的“已通过验证”消息后，选择“创建” 。
 
+## <a name="faq"></a>常见问题解答
+
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>为什么无法连接到专用终结点？
+如果缓存已是 VNet 注入缓存，则专用终结点不能与缓存实例一起使用。 如果缓存实例使用的是不受支持的功能（如下所列），则无法连接到专用终结点实例。 此外，需要在 7 月 27 日之后创建缓存实例才能使用专用终结点。
+
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>专用终结点不支持哪些功能？
+异地复制、防火墙规则、门户控制台支持、每个群集缓存多个终结点、防火墙规则的持久性和区域冗余。 
+
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>如何将专用终结点更改为禁止公用网络访问？
+有一个 `publicNetworkAccess` 标志，默认情况下为 `Enabled`。 如果缓存设置为 `Enabled`，此标志旨在允许你选择性地同时允许公共和专用终结点访问缓存。 如果设置为 `Disabled`，它将只允许专用终结点访问。 你可以使用以下 PATCH 请求将值设置为 `Disabled`。
+```http
+PATCH  https://management.chinacloudapi.cn/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>是否对专用终结点启用了网络安全组 (NSG)？
+否，已对专用终结点禁用了 NSG。 但是，如果子网上还有其他资源，则 NSG 强制将应用于这些资源。
+
+### <a name="how-can-i-connect-to-a-clustered-cache"></a>如何连接到群集缓存？
+需要将 `publicNetworkAccess` 设置为 `Disabled`，并且只能有一个专用终结点连接。
+
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>由于我的专用终结点实例不在我的 VNet 中，它如何与我的 VNet 关联？
+它将仅链接到 VNet。 由于它不在 VNet 中，因此不需要为依赖终结点修改 NSG 规则。
+
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>如何将 VNet 注入缓存迁移到专用终结点缓存？
+需要删除 VNet 注入缓存，并使用专用终结点创建新的缓存实例。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure 专用链接，请参阅 [Azure 专用链接文档](../private-link/private-link-overview.md)。
+* 若要详细了解 Azure 专用链接，请参阅 [Azure 专用链接文档](../private-link/private-link-overview.md)。
+* 若要比较缓存实例的各种网络隔离选项，请参阅 [Azure Cache for Redis 网络隔离选项文档](cache-network-isolation.md)。
 

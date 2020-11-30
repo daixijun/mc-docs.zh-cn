@@ -4,16 +4,16 @@ description: 通过为每个节点类型/虚拟机规模集设置自动缩放规
 ms.topic: conceptual
 origin.date: 03/12/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 25dada5a518c58b97617b8c545623b3b4f9b521d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: d1c148b3a3fbc1d7074f6bf43b05cc068fee9872
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655523"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977710"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="scale-a-cluster-in-or-out"></a>缩小或扩大群集
@@ -59,7 +59,6 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 > [!NOTE]
 > 在横向缩减方案中，除非节点类型具有金级或银级[持续性级别][durability]，否则需要使用相应节点名称来调用 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)。 对于铜级持续性，不建议一次横向缩减多个节点。
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>手动将 VM 添加到节点类型/虚拟机规模集
 
@@ -102,6 +101,9 @@ Service Fabric 系统服务在群集中以主节点类型运行。 横向缩减�
 ### <a name="remove-the-service-fabric-node"></a>删除 Service Fabric 节点
 
 手动删除节点状态的步骤仅适用于具有“铜”持续性层的节点类型。  对于“白银”和“黄金”持续性层，平台会自动完成上述步骤。  有关持续性的详细信息，请参阅 [Service Fabric 群集容量规划][durability]。
+
+>[!NOTE]
+> 为任何已启用“黄金”或“白银”耐久性级别的虚拟机规模集保留至少五个节点。 如果横向缩减到此阈值以下，群集会进入错误状态，需要手动清除已删除的节点。
 
 为了使群集节点均匀地分布在升级域和容错域中，从而使它们的利用均匀，应该首先删除最近创建的节点。 换句话说，应该按照创建节点的相反顺序删除节点。 最近创建的节点是具有最大 `virtual machine scale set InstanceId` 属性值的节点。 下面的代码示例返回最近创建的节点。
 
@@ -244,6 +246,9 @@ Service Fabric Explorer 中列出的节点是 Service Fabric 系统服务（特�
 
 1. 为群集中的节点类型选择金级或银级持续性级别，这会提供基础结构集成。 这随后会在横向缩减时自动从我们的系统服务 (FM) 状态中删除节点。
     在[此处](service-fabric-cluster-capacity.md)了解有关持续性级别的详细信息
+
+    > [!NOTE]
+    > 为任何已启用“黄金”或“白银”耐久性级别的虚拟机规模集保留至少五个节点。 如果横向缩减到此阈值以下，群集会进入错误状态，需要手动清除已删除的节点。
 
 2. 横向缩减 VM 实例之后，需要调用 [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate)。
 

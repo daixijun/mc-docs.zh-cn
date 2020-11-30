@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/04/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 98ef1f59515ce7e7e9245861d15a5c11920ec809
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 98fdbfa9db179fa6bf75097afed24cb46c5a1fd8
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326491"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849476"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -59,7 +59,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    如果收到错误“权限不足，无法完成操作”，则很可能是因为 Azure CLI 尝试在 Azure AD 中查找被分派人标识，但服务主体在默认情况下无法读取 Azure AD。
+    如果收到“权限不足，无法完成操作”错误，则很可能是因为 Azure CLI 尝试在 Azure AD 中查找被分配者标识，但服务主体在默认情况下无法读取 Azure AD。
 
     可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/roles/permissions-reference.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- 如果尝试删除订阅的上一个“所有者”角色分配，则可能会看到“无法删除上一个 RBAC 管理员分配”错误。 不支持删除订阅的上一个“所有者”角色分配，这样是为了避免孤立订阅。
 
 ## <a name="problems-with-custom-roles"></a>自定义角色出现问题
 

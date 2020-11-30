@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3ee1987a6d25dc98648b848a4f05f73473e7f465
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 83f4a18005c729b42adc9ab45129f87657a4b2dc
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118203"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978193"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>将防火墙后的工作区用于 Azure 机器学习
 
@@ -32,6 +32,10 @@ ms.locfileid: "92118203"
 > 添加网络规则时，请将“协议”设置为“任何”，并将端口设置为 `*`。
 >
 > 有关配置 Azure 防火墙的详细信息，请参阅[部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule)。
+
+## <a name="routes"></a>路由
+
+配置包含 Azure 机器学习资源的子网的出站路由时，请使用[强制隧道](how-to-secure-training-vnet.md#forced-tunneling)部分中的指导来保护训练环境。
 
 ## <a name="microsoft-hosts"></a>Microsoft 主机
 
@@ -59,6 +63,8 @@ ms.locfileid: "92118203"
 | **mcr.microsoft.com** | 用于 docker 基础映像的 Microsoft 容器注册表 |
 | **your-acr-server-name.azurecr.io** | 仅当 Azure 容器注册表位于虚拟网络后面时才需要。 通过此配置，将创建从 Microsoft 环境到订阅中的 ACR 实例的专用链接。 将 ACR 服务器名称用于 Azure 机器学习工作区。 |
 | **\*.notebooks.azure.net** | Azure 机器学习工作室中的笔记本需要。 |
+| **\*.file.core.windows.net** | Azure 机器学习工作室中的文件资源管理器所需。 |
+| **\*.dfs.core.windows.net** | Azure 机器学习工作室中的文件资源管理器所需。 |
 | **graph.windows.net** | 笔记本所需 |
 
 > [!TIP]
@@ -88,4 +94,3 @@ ms.locfileid: "92118203"
 ## <a name="next-steps"></a>后续步骤
 
 * [教程：使用 Azure 门户部署和配置 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md)
-* [保护 Azure 虚拟网络中的 Azure ML 试验和推理作业](how-to-enable-virtual-network.md)

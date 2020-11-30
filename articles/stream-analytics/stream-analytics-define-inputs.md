@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/17/2020
-ms.date: 10/09/2020
-ms.openlocfilehash: 3a497796369da4d2fe0a299a07e89b8298b1e160
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 11/16/2020
+ms.openlocfilehash: 8d3c83e20484714f3fadb711edccc42dc8ebbe07
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104514"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978134"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -22,6 +22,7 @@ ms.locfileid: "93104514"
 - [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)
 - [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/) 
 - [Azure Blob 存储](https://www.azure.cn/home/features/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 这些输入资源与流分析作业可以属于同一 Azure 订阅，也可以属于不同的订阅。
 
@@ -48,22 +49,22 @@ Azure 事件中心提供高度可缩放的发布-订阅事件投资者。 事件
 
 下表介绍了 Azure 门户的“新输入”页中用于从事件中心流式传输数据输入的每个属性：
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **输入别名** |在作业查询中用于引用此输入的友好名称。 |
 | **订阅** | 选择事件中心资源所在的订阅。 | 
 | **事件中心命名空间** | 事件中心命名空间是包含一组消息传递实体的容器。 创建新的事件中心后，另请创建命名空间。 |
 | **事件中心名称** | 要用作输入的事件中心的名称。 |
 | **事件中心策略名称** | 提供对事件中心的访问权限的共享访问策略。 每个共享访问策略具有名称、所设权限以及访问密钥。 此选项会自动进行填充，除非已选择手动提供事件中心设置的选项。|
-| **事件中心使用者组** （推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **事件中心使用者组**（推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
+| **分区键** | 这是一个可选字段，它只有在将作业配置为使用[兼容性级别](./stream-analytics-compatibility-level.md) 1.2 或更高版本时才可用。 如果你的输入是按属性分区的，则可以在此处添加此属性的名称。 如果你的查询包含此属性的 PARTITION BY 或 GROUP BY 子句，则此属性用于提高该查询性能。 如果此作业使用兼容性级别 1.2 或更高版本，则此字段默认为“PartitionId”。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或其他（Protobuf、XML、专有...））。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 目前只支持 UTF-8 这种编码格式。 |
 | **事件压缩类型** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |
 
 如果数据来自事件中心流输入，则可以在流分析查询中访问以下元数据字段：
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **EventProcessedUtcTime** |流分析处理事件的日期和时间。 |
 | **EventEnqueuedUtcTime** |事件中心收到事件的日期和时间。 |
@@ -97,7 +98,7 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 
 下表介绍了将 IoT 中心配置为流输入时，Azure 门户的“新输入”页中的每个属性。
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **输入别名** | 在作业查询中用于引用此输入的友好名称。|
 | **订阅** | 选择 IoT 中心资源所在的订阅。 | 
@@ -106,7 +107,7 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 | **共享访问策略名称** | 提供对 IoT 中心的访问权限的共享访问策略。 每个共享访问策略具有名称、所设权限以及访问密钥。 |
 | **共享访问策略密钥** | 用于授予对 IoT 中心的访问权限的共享访问密钥。  此选项会自动进行填充，除非已选择手动提供 IoT 中心设置的选项。 |
 | **使用者组** | 强烈建议对每个流分析作业使用不同的使用者组。 用于从 IoT 中心引入数据的使用者组。 流分析使用 $Default 所有者组，除非指定了其他组。  |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **分区键** | 这是一个可选字段，它只有在将作业配置为使用[兼容性级别](./stream-analytics-compatibility-level.md) 1.2 或更高版本时才可用。 如果你的输入是按属性分区的，则可以在此处添加此属性的名称。 如果你的查询包含此属性的 PARTITION BY 或 GROUP BY 子句，则此属性用于提高该查询性能。 如果此作业使用兼容性级别 1.2 或更高版本，则此字段默认为“PartitionId”。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或其他（Protobuf、XML、专有...））。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 目前只支持 UTF-8 这种编码格式。 |
 | **事件压缩类型** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |
@@ -114,7 +115,7 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 
 如果使用的流数据来自 IoT 中心，则可以在流分析查询中访问以下元数据字段：
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **EventProcessedUtcTime** | 处理事件的日期和时间。 |
 | **EventEnqueuedUtcTime** | IoT 中心收到事件的日期和时间。 |
@@ -126,18 +127,18 @@ Azure IoT 中心是已针对 IoT 方案进行优化，具有高度可缩放的�
 | **IoTHub.EnqueuedTime** | IoT 中心收到消息的时间。 |
 
 
-## <a name="stream-data-from-blob-storage"></a>从 Blob 存储流式传输数据
-对于需要将大量非结构化数据存储在云中的情况，Azure Blob 存储提供了一种经济高效且可伸缩的解决方案。 通常情况下，可以将 Blob 存储中的数据视为静态数据，但 Blob 数据可以作为数据流由流分析处理。 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>从 Blob 存储或 Data Lake Storage Gen2 流式传输数据
+对于需要在云中存储大量非结构化数据的情况，可以使用 Azure Blob 存储或 Azure Data Lake Storage Gen2 (ADLS Gen2) 提供的经济高效且可缩放的解决方案。 Blob 存储或 ADLS Gen2 中的数据通常被视为静态数据，但这些数据可以由流分析处理为数据流。 
 
-通过流分析来使用 Blob 存储输入时，日志处理是一种常用方案。 在此方案中，首先从某个系统捕获遥测数据文件，然后根据需要对这些数据进行分析和处理以提取有意义的数据。
+通过流分析来使用这样的输入时，日志处理是一种常用方案。 在此方案中，首先从某个系统捕获遥测数据文件，然后根据需要对这些数据进行分析和处理以提取有意义的数据。
 
-流分析中 Blob 存储事件的默认时间戳是上次修改 Blob 的时间戳，即 `BlobLastModifiedUtcTime`。 如果 blob 在 13:00 上传到存储帐户，并且 Azure 流分析作业在 13:01 使用选项“立即”启动，则不会选取该 blob，因为其修改时间在作业运行期间之外。
+流分析中 Blob 存储或 ADLS Gen2 事件的默认时间戳是上次修改该事件时的时间戳，即 `BlobLastModifiedUtcTime`。 如果一个 blob 在 13:00 上传到存储帐户，并且 Azure 流分析作业在 13:01 使用“立即”选项启动，则不会选取该 blob，因为它的修改时间在作业运行期间之外。
 
 如果 blob 在 13:00 上传到存储帐户容器，并且 Azure 流分析作业使用“自定义时间”在 13:00 或更早时间启动，则将选取该 blob，因为其修改时间在作业运行期间内。
 
 如果在 13:00 使用“立即”启动 Azure 流分析作业，并在 13:01 将 blob 上传到存储帐户容器，则 Azure 流分析会选取该 blob。 分配给每个 blob 的时间戳仅基于 `BlobLastModifiedTime`。 blob 所在的文件夹与分配的时间戳无关。 例如，如果有一个 `BlobLastModifiedTime` 为 2019-11-11 的 blob 2019/10-01/00/b1.txt，则分配给此 blob 的时间戳为 2019-11-11。
 
-若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 关键字。 如果 blob 文件可用，流分析作业将每秒从 Azure Blob 存储输入中拉取数据。 如果 blob 文件不可用，则存在指数回退，且最长时间延迟为 90 秒。
+若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 关键字。 如果该 blob 文件可用，则流分析作业每一秒都会从 Azure Blob 存储或 ADLS Gen2 输入中拉取数据。 如果 blob 文件不可用，则存在指数回退，且最长时间延迟为 90 秒。
 
 CSV 格式的输入需要标头行来定义数据集的字段，并且所有标头行字段必须是唯一的。
 
@@ -150,24 +151,25 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 
 下表介绍了将 Blob 存储配置为流输入时，Azure 门户的“新输入”页中的每个属性。
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **输入别名** | 在作业查询中用于引用此输入的友好名称。 |
-| **订阅** | 选择 IoT 中心资源所在的订阅。 | 
+| **订阅** | 选择存储资源所在的订阅。 | 
 | **存储帐户** | 存储 Blob 文件所在的存储帐户的名称。 |
-| **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非已选择手动提供 Blob 存储设置的选项。 |
-| **容器** | 用于 Blob 输入的容器。 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 Blob 上传到 Azure Blob 存储服务时，必须为该 Blob 指定一个容器。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
-| **路径模式** （可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
-| **日期格式** （可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
-| **时间格式** （可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
-| **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
+| **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非你选择手动提供这些设置的选项。 |
+| **容器** | 容器为 blob 提供逻辑分组。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
+| **路径模式**（可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure blob 字符</a>。 不包括容器名称或文件名。 |
+| **日期格式**（可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
+| **时间格式**（可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
+| **分区键** | 这是一个可选字段，它只有在将作业配置为使用[兼容性级别](./stream-analytics-compatibility-level.md) 1.2 或更高版本时才可用。 如果你的输入是按属性分区的，则可以在此处添加此属性的名称。 如果你的查询包含此属性的 PARTITION BY 或 GROUP BY 子句，则此属性用于提高该查询性能。 如果此作业使用兼容性级别 1.2 或更高版本，则此字段默认为“PartitionId”。 |
+| **输入分区的计数** | 此字段只有在路径模式中存在 {partition} 的情况下才会存在。 此属性的值为 >=1 的整数。 无论 {partition} 出现在 pathPattern 中的什么位置，都会使用介于 0 与此字段的值之间的某个数字再减去 1。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或其他（Protobuf、XML、专有...））。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
 | **压缩** | 用于读取传入数据流的压缩类型，例如 None（默认）、GZip 或 Deflate。 |
 
 如果数据来自 Blob 存储源，则可以在流分析查询中访问以下元数据字段：
 
-| 属性 | 说明 |
+| properties | 说明 |
 | --- | --- |
 | **BlobName** |提供事件源自的输入 blob 的名称。 |
 | **EventProcessedUtcTime** |流分析处理事件的日期和时间。 |

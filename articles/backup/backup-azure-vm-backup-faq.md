@@ -5,14 +5,14 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: c683a9ea7e7f25bc6e44e68ad6c2a17dfc339e3b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 00c43e76cd7798248b61492a88259e1f90d842f4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871464"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94976964"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -27,7 +27,7 @@ ms.locfileid: "91871464"
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>为什么初始备份需要很长的时间才能完成？
 
 初始备份始终是完整备份，它取决于数据大小和处理备份的时间。 <br>
-若要提高备份性能，请参阅[备份最佳做法](/backup/backup-azure-vms-introduction#best-practices)、[备份注意事项](/backup/backup-azure-vms-introduction#backup-and-restore-considerations)和[备份性能](/backup/backup-azure-vms-introduction#backup-performance)<br>
+若要提高备份性能，请参阅[备份最佳做法](./backup-azure-vms-introduction.md#best-practices)、[备份注意事项](./backup-azure-vms-introduction.md#backup-and-restore-considerations)和[备份性能](./backup-azure-vms-introduction.md#backup-performance)<br>
 增量备份的总备份时间不超过 24 小时，但是，首次备份可能并非如此。
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>备份成本包含在 VM 成本内吗？
@@ -80,9 +80,13 @@ ms.locfileid: "91871464"
 
 删除锁定，并从该资源组中清除还原点集合，以使将来的备份成功。 [按照这些步骤](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)删除还原点集合。
 
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>我在包含与我的虚拟机相关的所有资源的资源组级别设置了一个锁。 我的备份是否会正常工作？
+
+Azure 备份以 `AzureBackupRG_<geo>_<number>` 格式创建一个单独的资源组，以存储 ResourcePointCollections 对象。 由于此资源组由服务拥有，因此锁定该资源组会导致备份失败。 锁只能应用于客户创建的资源组。
+
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Azure 备份是否支持标准 SSD 托管磁盘？
 
-是的，Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。
+是的，Azure 备份支持[标准 SSD 托管磁盘](/virtual-machines/disks-types#standard-ssd)。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>可使用支持写入加速器 (WA) 的磁盘备份 VM 吗？
 
@@ -202,7 +206,7 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 
 如果需要，旧 VM 的还原点将可用于还原。 如果不需要此备份数据，则可以停止保护具有删除数据的旧 VM。
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
 
 有，可以从门户关联到同一备份策略的 VM 数量限制为 100 个。 我们建议，如果 VM 数超过 100 个，请创建具有相同计划或不同计划的多个备份策略。
 
@@ -210,7 +214,7 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 
 目前，你可根据分配给 VM 的备份策略来查看备份项 (VM) 级别的保留设置。
 
-要查看备份的保留设置，一种方法是在 Azure 门户中导航到 VM 的备份项[仪表板](/backup/backup-azure-manage-vms#view-vms-on-the-dashboard)。 选择指向其备份策略的链接有助于查看与 VM 关联的全部每日、每周、每月和每年保留点的保留期。
+要查看备份的保留设置，一种方法是在 Azure 门户中导航到 VM 的备份项[仪表板](./backup-azure-manage-vms.md#view-vms-on-the-dashboard)。 选择指向其备份策略的链接有助于查看与 VM 关联的全部每日、每周、每月和每年保留点的保留期。
 
-还可使用[备份资源管理器](/backup/monitor-azure-backup-with-backup-explorer)在单一管理平台查看所有 VM 的保留设置。 从任何恢复服务保管库中导航到备份资源管理器，转到“备份项”选项卡，然后选择“高级视图”，查看每个 VM 的详细保留信息。
+还可使用[备份资源管理器](./monitor-azure-backup-with-backup-explorer.md)在单一管理平台查看所有 VM 的保留设置。 从任何恢复服务保管库中导航到备份资源管理器，转到“备份项”选项卡，然后选择“高级视图”，查看每个 VM 的详细保留信息。
 

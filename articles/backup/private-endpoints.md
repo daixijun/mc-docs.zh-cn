@@ -4,13 +4,13 @@ description: 了解创建 Azure 备份的专用终结点的过程以及使用专
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/28/2020
-ms.openlocfilehash: 2164bed6f88407d651a61c8b3851d93c806af4ef
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.date: 11/17/2020
+ms.openlocfilehash: cb8e74f753f36c7bf541fa1cbf58296f99461bb5
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871422"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977718"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure 备份的专用终结点
 
@@ -64,71 +64,13 @@ ms.locfileid: "91871422"
     >[!NOTE]
     >启用后，不得禁用托管标识（即使是暂时禁用）。 禁用托管标识可能导致出现不一致的行为。
 
-## <a name="dns-changes"></a>DNS 更改
-
-使用专用终结点需要专用 DNS 区域，以允许备份扩展将专用链接 FQDN 解析到专用 IP。 总共需要三个专用 DNS 区域。 尽管必须创建这些区域中的两个区域，但可以选择将第三个区域与专用终结点集成（创建专用终结点时）或者单独创建第三个区域。
-
-还可以使用自定义 DNS 服务器。 有关使用自定义 DNS 服务器的详细信息，请参阅[自定义 DNS 服务器的 DNS 更改](#dns-changes-for-custom-dns-servers)。
-
-### <a name="creating-mandatory-dns-zones"></a>创建必需的 DNS 区域
-
-需要创建两个必需的 DNS 区域：
-
-- `privatelink.blob.core.chinacloudapi.cn`（用于备份/还原数据）
-- `privatelink.queue.core.chinacloudapi.cn`（用于服务通信）
-
-1. 在“所有服务”搜索栏中搜索“专用 DNS 区域”，然后从下拉列表中选择“专用 DNS 区域”  。
-
-    ![选择“专用 DNS 区域”](./media/private-endpoints/private-dns-zone.png)
-
-1. 显示“专用 DNS 区域”窗格后，选择“+ 添加”按钮以开始创建新区域 。
-
-1. 在“创建专用 DNS 区域”窗格中，填写所需的详细信息。 订阅必须与将在其中创建专用终结点的位置相同。
-
-    区域必须命名为：
-
-    - `privatelink.blob.core.chinacloudapi.cn`
-    - `privatelink.queue.core.chinacloudapi.cn`
-
-    | **区域**                           | **服务** | **订阅和资源组 (RG) 详细信息**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.chinacloudapi.cn`  | Blob        | **订阅**：与需要创建专用终结点的位置相同  RG：VNET 或专用终结点的 RG |
-    | `privatelink.queue.core.chinacloudapi.cn` | 队列       | RG：VNET 或专用终结点的 RG |
-
-    ![创建专用 DNS 区域](./media/private-endpoints/create-private-dns-zone.png)
-
-1. 完成后，请继续查看并创建 DNS 区域。
-
-### <a name="optional-dns-zone"></a>可选的 DNS 区域
-
-你可以选择将你的专用终结点与 Azure 备份的专用 DNS 区域集成（在[创建和使用用于备份的专用终结点](#creating-and-using-private-endpoints-for-backup)部分介绍过）以进行服务通信。 如果你不希望与专用 DNS 区域集成，可以选择使用自己的 DNS 服务器或单独创建专用 DNS 区域。 这是对上一部分介绍的两个必需的专用 DNS 区域的补充。
-
-如果要在 Azure 中创建单独的专用 DNS 区域，可以使用用于创建必需的 DNS 区域的相同步骤执行相同操作。 命名和订阅详细信息如下所示：
-
-| **区域**                                                     | **服务** | **订阅和资源组详细信息**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.azure.cn`  <br><br>   请注意：此处的 geo 指的是地区代码。 例如，wcus 和 ne 分别表示美国中西部和中国北部 。 | Backup      | **订阅**：与需要创建专用终结点的位置相同  RG：订阅中的任何 RG |
-
-请参阅[此列表](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)，了解地区代码。
-
-<!--Removed in MC: For URL naming conventions in national geos:-->
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>将专用 DNS 区域与虚拟网络链接
-
-上面创建的 DNS 区域现在必须链接到要备份的服务器所在的虚拟网络。 需要为创建的所有 DNS 区域执行此操作。
-
-1. 转到在上一步创建的 DNS 区域，并导航到左侧栏的“虚拟网络链接”。 操作完成后，选择“+ 添加”按钮
-1. 填写必需的详细信息。 必须使用服务器所在的虚拟网络的相应详细信息填写“订阅”和“虚拟网络”字段 。 其他字段必须保留不动。
-
-    ![添加虚拟网络链接](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>授予保管库创建所需专用终结点的权限
 
 若要为 Azure 备份创建所需的专用终结点，保管库（保管库的托管标识）必须具有以下资源组的权限：
 
 - 包含目标 VNet 的资源组
 - 要在其中创建专用终结点的资源组
-- 包含专用 DNS 区域的资源组
+- 包含专用 DNS 区域的资源组，如[此处](#creating-private-endpoints-for-backup)详细讨论的那样
 
 建议向保管库（托管标识）授予这三个资源组的“参与者”角色。 以下步骤介绍了如何针对特定的资源组执行此操作（需要为三个资源组中的每个资源组执行此操作）：
 
@@ -171,6 +113,8 @@ ms.locfileid: "91871422"
 
         ![填写“配置”选项卡](./media/private-endpoints/configuration-tab.png)
 
+        如果要使用自定义 DNS 服务器，而不与 Azure 专用 DNS 区域集成，请参阅[此部分](#dns-changes-for-custom-dns-servers)。  
+
     1. （可选）可以为专用终结点添加标记。
 
     1. 输入详细信息后，继续“查看 + 创建”。 完成验证后，选择“创建”以创建专用终结点。
@@ -187,103 +131,6 @@ ms.locfileid: "91871422"
 
     ![批准专用终结点](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>添加 DNS 记录
-
->[!NOTE]
-> 如果使用的是集成的 DNS 区域，则不需要执行此步骤。 但是，如果你已创建自己的 Azure 专用 DNS 区域，或者使用的是自定义专用 DNS 区域，请确保按照本部分的说明创建条目。
-
-为保管库创建可选的专用 DNS 区域和专用终结点后，需要将 DNS 记录添加到 DNS 区域。 可以手动执行此操作，也可以使用 PowerShell 脚本执行此操作。 只需对备份 DNS 区域执行此操作，Blob 和队列的区域会自动更新。
-
-### <a name="add-records-manually"></a>手动添加记录
-
-这要求你将专用终结点中的每个 FQDN 条目添加到专用 DNS 区域。
-
-1. 转到“专用 DNS 区域”并导航到左侧栏上的“概述”选项 。 完成操作后，选择“+ 记录集”以开始添加记录。
-
-    ![选择“+记录集”以添加记录](./media/private-endpoints/select-record-set.png)
-
-1. 在打开的“添加记录集”窗格中，为每个 FQDN 和专用 IP 添加一个条目作为“A 类型”记录 。 可从专用终结点中获取 FQDN 和 IP 列表（在“概述”下）。 如以下示例中所示，专用终结点中的第一个 FQDN 将添加到专用 DNS 区域中的记录集。
-
-    ![FQDN 和 IP 列表](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![添加记录集](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>使用 PowerShell 脚本添加记录
-
-<!--Not available in MC: Cloud Shell-->
-1. 将以下代码粘贴到名为“dnszonerecordcreation.ps1”的本地文件中： 
-```powershell
-Param(
-    [parameter(position=0,Mandatory=$true)]
-    $subscription,
-    
-    [parameter(position=1,Mandatory=$true)]
-    $vaultPEName,
-
-    [parameter(position=2,Mandatory=$true)]
-    $vaultPEResourceGroup,
-
-    [parameter(position=3,Mandatory=$true)]
-    $dnsResourceGroup,
-    
-    [parameter(position=4,Mandatory=$true)]
-    $privatezone
-)
-Install-Module Az.PrivateDns
-Import-Module -Name Az.PrivateDns
-
-Connect-AzAccount -Environment AzureChinaCloud
-Set-AzContext -SubscriptionId $subscription
-
-$privateEndpoint = Get-AzPrivateEndpoint -Name $vaultPEName -ResourceGroupName $vaultPEResourceGroup
-
-$zone = Get-AzPrivateDnsZone -ResourceGroupName $dnsResourceGroup -Name $privatezone 
- 
-$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations)
-{ 
-    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns)
-    { 
-        Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-
-        $recordName = $fqdn.split('.',2)[0] 
-        $dnsZone = $fqdn.split('.',2)[1] 
-
-        $dnsZone
-        $dneentry = $recordName
-        $dneentry
-
-        $recordSet =  Get-AzPrivateDnsRecordSet -ResourceGroupName $dnsResourceGroup -ZoneName $privatezone -Name $dneentry -RecordType A 
-        
-        if($recordSet -eq $null)
-        {
-            New-AzPrivateDnsRecordSet -Name $dneentry -RecordType A -ZoneName $privatezone  `
-                -ResourceGroupName $dnsResourceGroup -Ttl 600 `
-                -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
-        }
-        else
-        {
-            Get-AzPrivateDnsRecordSet -ResourceGroupName $dnsResourceGroup -ZoneName $privatezone -Name $dneentry -RecordType A | Add-AzPrivateDnsRecordConfig -Ipv4Address $ipconfig.properties.privateIPAddress | Set-AzPrivateDnsRecordSet
-        }
-    } 
-}
-```
-
-1. 运行以下脚本：
-
-    ```powershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    参数如下：
-
-    - **订阅**：资源（保管库的专用终结点和专用 DNS 区域）所驻留的订阅
-    - **vaultPEName**：为保管库创建的专用终结点的名称
-    - **vaultPEResourceGroup**：包含保管库的专用终结点的资源组
-    - **dnsResourceGroup**：包含专用 DNS 区域的资源组
-    - **Privatezone**：专用 DNS 区域的名称
-
 ## <a name="using-private-endpoints-for-backup"></a>使用专用终结点进行备份
 
 当 VNet 中为保管库创建的专用终结点获得批准后，即可开始使用它们来执行备份和还原。
@@ -293,12 +140,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations)
 >
 >1. 已创建（新的）恢复服务保管库
 >1. 已启用保管库，以使用系统分配的托管标识
->1. 已创建三个专用 DNS 区域（如果使用的是集成的 DNS 区域进行备份，则需创建两个区域）
->1. 已将专用 DNS 区域链接到 Azure 虚拟网络
 >1. 已向保管库的托管标识分配相关权限
 >1. 已为保管库创建专用终结点
 >1. 已批准专用终结点（如果未自动批准）
->1. 已将所需的 DNS 记录添加到专用 DNS 区域以进行备份（仅适用于未使用集成的专用 DNS 区域的情况）
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>在 Azure VM 中备份和还原工作负载（SQL、SAP HANA）
 
@@ -447,117 +291,18 @@ armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/
 }
 ```
 
-```powershell
+```azurepowershell
  New-AzRoleDefinition -InputFile "PrivateEndpointContributorRoleDef.json"
  New-AzRoleDefinition -InputFile "NetworkInterfaceReaderRoleDef.json"
  New-AzRoleDefinition -InputFile "PrivateEndpointSubnetContributorRoleDef.json"
 ```
 
+<!--Customized in MC-->
 #### <a name="use-a-script"></a>使用脚本
 
+1. 使用此 PowerShell 文件运行以下脚本：[VaultMsiPrereqScript](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/VaultMsiPrereqScript.ps1)：
 
-1. 将以下代码粘贴到名为“VaultMsiPrereqScript.ps1”的本地文件中：
-
-```powershell
-Param(
-[parameter(position=0,Mandatory=$true)]
-$subscription,
-[parameter(position=1,Mandatory=$true)]
-$vaultPEResourceGroup,
-[parameter(position=2,Mandatory=$true)]
-$vaultPESubnetResourceGroup,
-[parameter(position=3,Mandatory=$true)]
-$vaultMsiName)
-
-Install-Module Az.Resources
-Import-Module Az.Resources
-
-Connect-AzAccount -Environment AzureChinaCloud
-Set-AzContext -SubscriptionId $subscription
-
-$role = Get-AzRoleDefinition "PrivateEndpointContributorRole"
-if($role  -eq $null)
-{
-    ## Creating role 'PrivateEndpointContributorRole'
-    $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
-    $role.Name = 'PrivateEndpointContributorRole'
-    $role.Description = 'Allows management of Private Endpoint'
-    $role.IsCustom = $true
-    $perms = 'Microsoft.Network/privateEndpoints/*'
-    $role.Actions = $perms
-    $subs = '/subscriptions/' + $subscription
-    $role.AssignableScopes = $subs
-    New-AzRoleDefinition -Role $role
-}
-
-$role = Get-AzRoleDefinition "PrivateEndpointSubnetContributorRole"
-if($role  -eq $null)
-{
-    ## Creating role 'PrivateEndpointSubnetContributorRole'
-    $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
-    $role.Name = 'PrivateEndpointSubnetContributorRole'
-    $role.Description = 'Allows adding of Private Endpoint connection to Virtual Networks'
-    $role.IsCustom = $true
-    $perms = 'Microsoft.Network/virtualNetworks/subnets/join/action'
-    $role.Actions = $perms
-    $subs = '/subscriptions/' + $subscription
-    $role.AssignableScopes = $subs
-    New-AzRoleDefinition -Role $role
-}
-
-$role = Get-AzRoleDefinition "NetworkInterfaceReaderRole"
-if($role  -eq $null)
-{
-    ## Creating role 'NetworkInterfaceReaderRole'
-    $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
-    $role.Name = 'NetworkInterfaceReaderRole'
-    $role.Description = 'Allows read on networkInterfaces'
-    $role.IsCustom = $true
-    $perms = 'Microsoft.Network/networkInterfaces/read'
-    $role.Actions = $perms
-    $subs = '/subscriptions/' + $subscription
-    $role.AssignableScopes = $subs
-    New-AzRoleDefinition -Role $role
-}
-
-$msiObjId = ((Get-AzADServicePrincipal -SearchString $vaultMsiName)[0]).Id
-
-$rolesNamesForVaultPERg = @("PrivateEndpointContributorRole", "NetworkInterfaceReaderRole", "Private DNS Zone Contributor")
-
-foreach ($roleName in $rolesNamesForVaultPERg)
-{
-    $role= Get-AzRoleAssignment -ObjectId $msiObjId -RoleDefinitionName $roleName -ResourceGroupName $vaultPEResourceGroup
-
-    if($role -eq $null)
-    {
-        New-AzRoleAssignment -ObjectId $msiObjId -RoleDefinitionName $roleName -ResourceGroupName $vaultPEResourceGroup
-    }
-    else
-    {
-        Write-Host("Already assigned role for " + $roleName)
-    }
-}
-
-$rolesNamesForSubnetRg = @("PrivateEndpointSubnetContributorRole", "Private DNS Zone Contributor")
-
-foreach ($roleName in $rolesNamesForSubnetRg)
-{
-    $role= Get-AzRoleAssignment -ObjectId $msiObjId -RoleDefinitionName $roleName -ResourceGroupName $vaultPESubnetResourceGroup
-
-    if($role -eq $null)
-    {
-        New-AzRoleAssignment -ObjectId $msiObjId -RoleDefinitionName $roleName -ResourceGroupName $vaultPESubnetResourceGroup
-    }
-    else
-    {
-        Write-Host("Already assigned role for " + $roleName)
-    }
-}
-```
-
-1. 运行以下脚本：
-
-    ```powershell
+    ```azurepowershell
     ./VaultMsiPrereqScript.ps1 -subscription <subscription-Id> -vaultPEResourceGroup <vaultPERG> -vaultPESubnetResourceGroup <subnetRG> -vaultMsiName <msiName>
     ```
 
@@ -577,7 +322,7 @@ foreach ($roleName in $rolesNamesForSubnetRg)
 
 #### <a name="auto-approved-private-endpoints"></a>自动批准专用终结点
 
-```powershell
+```azurepowershell
 $vault = Get-AzRecoveryServicesVault `
         -ResourceGroupName $vaultResourceGroupName `
         -Name $vaultName
@@ -646,7 +391,9 @@ $privateEndpoint = New-AzPrivateEndpoint `
 >[!NOTE]
 >在上述文本中，geo 指地区代码。 例如，wcus 和 ne 分别表示美国中西部和中国北部 。
 
-请参阅[此列表](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)，了解地区代码。
+请参阅[此列表](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)，了解地区代码。 请参阅以下链接来了解 URL 命名约定：
+
+- [中国](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>为自定义 DNS 服务器添加 DNS 记录
 

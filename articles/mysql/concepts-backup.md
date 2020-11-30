@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 3/27/2020
-ms.date: 11/09/2020
-ms.openlocfilehash: 73faa3543baa66e4bb66bcf78f85630ef37ede09
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 11/23/2020
+ms.openlocfilehash: 5ed51f294732fa54fdd32cfa8ed20704ff14c2b2
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327722"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977047"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -46,7 +46,7 @@ Azure Database for MySQL 对数据文件和事务日志进行备份。 可以通
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>存储容量最大达 16 TB 的常规用途存储服务器
 
-在 [Azure 区域](/mysql/concepts-pricing-tiers#storage)的一个子集中，所有新预配的服务器都可支持存储容量最大达 16 TB 的常规用途存储。 换句话说，对于支持该常规用途存储的所有[区域](/mysql/concepts-pricing-tiers#storage)，常规用途存储容量默认最大为 16 TB。 16 TB 存储服务器上的备份是基于快照的。 第一次完整快照备份在创建服务器后立即进行计划。 第一次完整快照备份将作为服务器的基准备份保留。 后续快照备份仅为差异备份。 
+在 [Azure 区域](/mysql/concepts-pricing-tiers#storage)的一个子集中，所有新预配的服务器都可支持存储容量最大达 16 TB 的常规用途存储。 换句话说，对于支持该常规用途存储的所有[区域](concepts-pricing-tiers.md#storage)，常规用途存储容量默认最大为 16 TB。 16 TB 存储服务器上的备份是基于快照的。 第一次完整快照备份在创建服务器后立即进行计划。 第一次完整快照备份将作为服务器的基准备份保留。 后续快照备份仅为差异备份。
 
 一天至少进行一次差异快照备份。 差异快照备份不按固定计划进行。 差异快照备份每 24 小时进行一次，除非自上次差异备份后事务日志（MySQL 中的二进制日志）超过 50 GB。 一天内，最多允许有 6 张差异快照。
 
@@ -110,7 +110,12 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 
 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 异地还原利用服务器的最新备份。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 
+> [!IMPORTANT]
+>如果对新建的服务器执行异地还原，则初始备份同步可能需要 24 小时以上，具体取决于数据大小，因为初始完整快照备份的复制时间要长得多。 后续快照备份是增量备份，因此，在创建服务器 24 小时后，还原速度会更快。 如果你要评估异地还原以定义 RTO，建议你进行等待，在服务器创建 24 小时后再评估异地还原，以便更好地进行估算。
+
 在异地还原过程中，可以更改的服务器配置包括计算的代、vCore、备份保持期和备份冗余选项。 不支持在异地还原过程中更改定价层（“基本”、“常规用途”或“内存优化”）或存储大小。
+
+估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 ### <a name="perform-post-restore-tasks"></a>执行还原后任务
 

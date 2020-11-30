@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 3/18/2020
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1b41964754c392b990666158d580fc39ee7c626b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 06a3cf4f093d6ecb61f24f9a04029a63d4f8de88
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327811"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977132"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>使用 Azure CLI 自动增长 Azure Database for MySQL 存储
 
@@ -25,11 +25,14 @@ ms.locfileid: "94327811"
 [达到存储限制](./concepts-pricing-tiers.md#reaching-the-storage-limit)的服务器将设置为只读。 如果启用了存储自动增长，则对于预配的存储大小小于 100 GB 的服务器，可用存储空间一旦小于 1 GB 或预配存储的 10%（以这二者中的较大值为准），预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间小于预配的存储大小的 5% 时，预配的存储大小就会增加 5%。 [此处](./concepts-pricing-tiers.md#storage)所指定的最大存储限制适用。
 
 ## <a name="prerequisites"></a>必备条件
-若要完成本操作指南，需要：
-- [Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-cli.md)
 
-> [!IMPORTANT]
-> 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+若要完成本操作说明指南：
+
+- 需要 [Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-cli.md)。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 ## <a name="enable-mysql-server-storage-auto-grow"></a>启用 MySQL 服务器存储自动增长
 

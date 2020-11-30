@@ -1,8 +1,8 @@
 ---
 title: 使用 Windows 身份验证访问数据存储和文件共享
 description: 了解如何配置 Azure SQL 数据库中的 SSIS 目录和 Azure 数据工厂中的 Azure-SSIS Integration Runtime，以运行使用 Windows 身份验证访问数据存储和文件共享的包。
-origin.date: 3/22/2018
-ms.date: 06/29/2020
+origin.date: 10/27/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.prod_service: integration-services
@@ -11,25 +11,25 @@ ms.technology: integration-services
 author: WenJason
 ms.author: v-jay
 ms.reviewer: maghan
-ms.openlocfilehash: 50de4f9765777b19aa27c6545739bf854f1b312b
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 2eeb4e55460b0ab5d2272fe50c0612f1187da66f
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323244"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680476"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>从 Azure 的 SSIS 包中使用 Windows 身份验证访问数据存储和文件共享
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-可以从 Azure 数据工厂 (ADF) 的 Azure-SSIS Integration Runtime (IR) 上运行的 SSIS 包中使用 Windows 身份验证访问数据存储（如 SQL Server、文件共享、Azure 文件存储等）。 数据存储可以位于本地环境，可以托管在 Azure 虚拟机 (VM) 上，也可以作为托管服务在 Azure 中运行。 如果它们位于本地环境，则需要将 Azure SSIS IR 加入连接到本地网络的虚拟网络（Azure 虚拟网络），请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](/data-factory/join-azure-ssis-integration-runtime-virtual-network)。 以下四种方法可从 Azure-SSIS IR 上运行的 SSIS 包中使用 Windows 身份验证访问数据存储：
+可以从 Azure 数据工厂 (ADF) 的 Azure-SSIS Integration Runtime (IR) 上运行的 SSIS 包中使用 Windows 身份验证访问数据存储（如 SQL Server、文件共享、Azure 文件存储等）。 数据存储可以位于本地环境，可以托管在 Azure 虚拟机 (VM) 上，也可以作为托管服务在 Azure 中运行。 如果它们位于本地环境，则需要将 Azure SSIS IR 加入连接到本地网络的虚拟网络（Azure 虚拟网络），请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。 以下四种方法可从 Azure-SSIS IR 上运行的 SSIS 包中使用 Windows 身份验证访问数据存储：
 
 | 连接方法 | 有效范围 | 安装步骤 | 在包中访问方法 | 凭据集和连接资源的数量 | 连接资源的类型 | 
 |---|---|---|---|---|---|
-| 设置活动级别执行上下文 | 每个执行 SSIS 包活动 | 将 SSIS 包作为 ADF 管道中的执行 SSIS 包活动运行时，配置“Windows 身份验证”属性以设置“执行/运行方式”上下文。<br/><br/> 有关详细信息，请参阅[配置执行 SSIS 包活动](/data-factory/how-to-invoke-ssis-package-ssis-activity)。 | 通过 UNC 路径直接访问包资源（例如，如果使用文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName`） | 仅支持适用于所有连接资源的一个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](/storage/files/storage-how-to-use-files-windows) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
-| 设置目录级别执行上下文 | 每个 Azure-SSIS IR，但是，如果同时设置活动级别执行上下文，则会被替代（见上文） | 执行 SSISDB `catalog.set_execution_credential` 存储过程来设置“执行/运行方式”上下文。<br/><br/> 有关详细信息，请参阅本文下面的其余部分。 | 通过 UNC 路径直接访问包资源（例如，如果使用文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName`） | 仅支持适用于所有连接资源的一个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](/storage/files/storage-how-to-use-files-windows) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
-| 通过 `cmdkey` 命令持久保留凭据 | 每个 Azure-SSIS IR，但是，如果同时设置活动/目录级别执行上下文，则会被替代（见上文） | 预配 Azure-SSIS IR 时，在自定义安装脚本 (`main.cmd`) 中执行 `cmdkey` 命令（例如，如果使用文件共享或 Azure 文件存储：`cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` 或 `cmdkey /add:YourAzureStorageAccountName.file.core.chinacloudapi.cn /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`）。<br/><br/> 有关详细信息，请参阅[为 Azure-SSIS IR 自定义安装程序](/data-factory/how-to-configure-azure-ssis-ir-custom-setup)。 | 通过 UNC 路径直接访问包资源（例如，如果使用文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName`） | 支持不同连接资源的多个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](/storage/files/storage-how-to-use-files-windows) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
-| 在包执行时装载驱动器（非永久） | 每个包 | 在包的控制流开头添加的执行过程任务中（例如，`net use D: \\YourFileShareServerName\YourFolderName`）执行 `net use` 命令 | 通过映射驱动器访问文件共享 | 支持不同文件共享的多个驱动器 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](/storage/files/storage-how-to-use-files-windows) |
+| 设置活动级别执行上下文 | 每个执行 SSIS 包活动 | 将 SSIS 包作为 ADF 管道中的执行 SSIS 包活动运行时，配置“Windows 身份验证”属性以设置“执行/运行方式”上下文。<br/><br/> 有关详细信息，请参阅[配置执行 SSIS 包活动](./how-to-invoke-ssis-package-ssis-activity.md)。 | 直接在包中访问资源，例如，使用 UNC 路径访问文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName` | 仅支持适用于所有连接资源的一个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
+| 设置目录级别执行上下文 | 每个 Azure-SSIS IR，但是，如果同时设置活动级别执行上下文，则会被替代（见上文） | 执行 SSISDB `catalog.set_execution_credential` 存储过程来设置“执行/运行方式”上下文。<br/><br/> 有关详细信息，请参阅本文下面的其余部分。 | 直接在包中访问资源，例如，使用 UNC 路径访问文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName` | 仅支持适用于所有连接资源的一个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
+| 通过 `cmdkey` 命令持久保留凭据 | 每个 Azure-SSIS IR，但是，如果同时设置活动/目录级别执行上下文，则会被替代（见上文） | 预配 Azure-SSIS IR 时在自定义安装脚本 (`main.cmd`) 中执行 `cmdkey` 命令（例如，在使用文件共享、Azure 文件存储或 SQL Server 的情况下）：<br/><br/> `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword`,<br/><br/> `cmdkey /add:YourAzureStorageAccountName.file.core.chinacloudapi.cn /user:azure\YourAzureStorageAccountName /pass:YourAccessKey` 或<br/><br/> `cmdkey /add:YourSQLServerFullyQualifiedDomainNameOrIPAddress:YorSQLServerPort /user:YourDomainName\YourUsername /pass:YourPassword`.<br/><br/> 有关详细信息，请参阅[为 Azure-SSIS IR 自定义安装程序](./how-to-configure-azure-ssis-ir-custom-setup.md)。 | 直接在包中访问资源，例如，使用 UNC 路径访问文件共享或 Azure 文件存储：`\\YourFileShareServerName\YourFolderName` 或 `\\YourAzureStorageAccountName.file.core.chinacloudapi.cn\YourFolderName` | 支持不同连接资源的多个凭据集 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> - 使用 Windows 身份验证的本地/Azure VM 上的 SQL Server<br/><br/> - 使用 Windows 身份验证的其他资源 |
+| 在包执行时装载驱动器（非永久） | 每个包 | 在包的控制流开头添加的执行过程任务中（例如，`net use D: \\YourFileShareServerName\YourFolderName`）执行 `net use` 命令 | 通过映射驱动器访问文件共享 | 支持不同文件共享的多个驱动器 | - 本地/Azure VM 上的文件共享<br/><br/> - Azure 文件，请参阅[使用 Azure 文件共享](../storage/files/storage-how-to-use-files-windows.md) |
 |||||||
 
 > [!WARNING]
@@ -108,7 +108,7 @@ ms.locfileid: "85323244"
 
 2. 允许通过 Windows 防火墙进行访问。 有关详细信息，请参阅[配置 Windows 防火墙以访问 SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access)。
 
-3. 将 Azure-SSIS IR 加入连接到本地 SQL Server 的 Azure 虚拟网络。  有关详细信息，请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
+3. 将 Azure-SSIS IR 加入连接到本地 SQL Server 的 Azure 虚拟网络。  有关详细信息，请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
 
 4. 使用 SSISDB `catalog.set_execution_credential` 存储过程提供凭据，如本文中所述。
 
@@ -133,7 +133,7 @@ ms.locfileid: "85323244"
 
 1. 允许通过 Windows 防火墙进行访问。
 
-2. 将 Azure-SSIS IR 加入连接到本地文件共享的 Azure 虚拟网络。  有关详细信息，请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](/data-factory/join-azure-ssis-integration-runtime-virtual-network)。
+2. 将 Azure-SSIS IR 加入连接到本地文件共享的 Azure 虚拟网络。  有关详细信息，请参阅[将 Azure-SSIS IR 加入 Azure 虚拟网络](./join-azure-ssis-integration-runtime-virtual-network.md)。
 
 3. 使用 SSISDB `catalog.set_execution_credential` 存储过程提供凭据，如本文中所述。
 

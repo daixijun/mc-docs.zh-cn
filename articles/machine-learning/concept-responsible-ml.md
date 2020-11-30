@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 2b4f7d6ea16a37495f9fae09fba89eeacd20f749
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 83a99f61664026326cd1592f81cc0b135489addf
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947054"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977248"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>什么是负责机器学习？ （预览版）
 
@@ -33,7 +33,7 @@ ms.locfileid: "88947054"
 - 控制端到端机器学习过程
   - 用数据表记录机器学习生命周期
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="负责 ML 支柱":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="负责的 ML 支柱 - 可解释性、差异隐私、同态加密、审核线索 - Azure 机器学习":::
 
 随着人工智能和自治系统越来越多地融入社会结构，积极主动地努力预测和缓解这些技术带来的意外后果是很重要的。
 

@@ -12,15 +12,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
 origin.date: 01/02/2020
-ms.openlocfilehash: 2989bd3c3f83b5094cd0813ab8c61818f90ffc09
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 2ea1d54eaf9505f4ea3a31441107502acb7b83bb
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871209"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977400"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 
@@ -43,6 +43,7 @@ ms.locfileid: "91871209"
 -   忽略安全定义。
 -   不支持 API 操作的内联架构定义。 架构定义在 API 范围内定义，可在 API 操作请求或响应范围内引用。
 -   定义的 URL 参数需要是 URL 模板的一部分。
+-   在 API 操作级别不支持 `server` 对象。
 -   不支持 `Produces` 关键字，该关键字描述 API 返回的 MIME 类型。 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI 版本 2
@@ -104,7 +105,7 @@ WSDL 文件用于创建 SOAP 传递和 SOAP到 REST API。
 -   **WSDL:Import** - 不支持此属性。 客户应将导入项合并到一个文档中。
 -   **包含多个部分的消息** - 不支持这些类型的消息。
 -   **WCF wsHttpBinding** - 使用 Windows Communication Foundation 创建的 SOAP 服务应使用 basicHttpBinding - 不支持 wsHttpBinding。
--   **MTOM** - 使用 MTOM 的服务<em>可能</em>正常工作。 目前暂未提供官方支持。
+-   **MTOM** - 使用 MTOM 的服务 <em>可能</em>正常工作。 目前暂未提供官方支持。
 -   **递归** - APIM 不支持以递归方式定义的类型（例如，引用这些类型本身的数组）。
 -   **多个命名空间** - 可以在架构中使用多个名称空间，但只能使用目标名称空间来定义消息部分。 不保留用于定义其他输入或输出元素的目标以外的命名空间。 虽然可以导入这样的 WSDL 文档，但在导出时，所有消息部分都将具有 WSDL 的目标命名空间。
 -   **数组** - SOAP 到 REST 转换仅支持包装数组，如下例所示：

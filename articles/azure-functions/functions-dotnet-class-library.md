@@ -3,13 +3,13 @@ title: Azure Functions C# developer reference（Azure Functions C# 开发人员�
 description: '了解如何开发使用 C # 的 Azure 功能。'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/19/2020
-ms.openlocfilehash: 6c2c2e144740374e86255c5d51334df0f66aa51d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/18/2020
+ms.openlocfilehash: 52e10f8307746a0a56c9325adba18efa5dd647c6
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472588"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849380"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -17,12 +17,13 @@ ms.locfileid: "92472588"
 
 本文介绍了如何在 .NET 类库中使用 C# 开发 Azure Functions。
 
+作为 C# 开发人员，你可能还会对以下文章之一感兴趣：
+
+| 入门 | 概念| 引导式学习/示例 |
+| -- | -- | -- | 
+| <ul><li>[使用 Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[使用 Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[使用命令行工具](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li><li>[Visual Studio 开发](functions-develop-vs.md)</li><li>[依赖关系注入](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[创建无服务器应用程序](https://docs.microsoft.com/learn/paths/create-serverless-applications/)</li><li>[C# 示例](https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 Azure Functions 支持 C# 和 C# 脚本编程语言。 如果要寻找有关[在 Azure 门户中使用 C#](functions-create-function-app-portal.md) 的指南，请参阅 [C# 脚本 (.csx) 开发人员参考](functions-reference-csharp.md)。
-
-本文假设你已阅读了以下文章：
-
-* [Azure Functions 开发人员指南](functions-reference.md)
-* [Azure Functions Visual Studio 2019 工具](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>支持的版本
 
@@ -38,7 +39,7 @@ Functions 运行时版本使用特定版本的 .NET。 下表显示了可与项�
 
 ## <a name="functions-class-library-project"></a>Functions 类库项目
 
-在 Visual Studio 中， **Azure Functions** 项目模板会创建一个 C# 类库项目，它包含以下文件：
+在 Visual Studio 中，**Azure Functions** 项目模板会创建一个 C# 类库项目，它包含以下文件：
 
 * [host.json](functions-host-json.md) - 存储着在本地或者在 Azure 中运行时会影响项目中的所有函数的配置设置。
 * [local.settings.json](functions-run-local.md#local-settings-file) - 存储着在本地运行时使用的应用设置和连接字符串。 此文件包含机密且不会发布到 Azure 中的函数应用中。 而是，应[将应用设置添加到函数应用](functions-develop-vs.md#function-app-settings)。

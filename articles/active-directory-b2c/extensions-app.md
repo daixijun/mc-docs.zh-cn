@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的扩展应用程序 | Microsoft Docs
 description: 还原 b2c-extensions-app。
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/03/2020
+ms.topic: reference
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: ab853d18910f5cf9154eb0b94dbf524b41351e58
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e9eace2f36f1f9370c9b2d83579371c30f691843
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028350"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849251"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C：扩展应用
 

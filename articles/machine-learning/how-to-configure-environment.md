@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b7f84bb187cdfd2b850a3ca94dd2bc34f08efed8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0a703830bd1852502d67595d09bd587aecdbf88a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106178"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977502"
 ---
-# <a name="set-up-a-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置开发环境
+# <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置 Python 开发环境
 
 了解如何为 Azure 机器学习配置 Python 开发环境。
 
@@ -27,8 +27,8 @@ ms.locfileid: "93106178"
 | 环境 | 优点 | 缺点 |
 | --- | --- | --- |
 | [本地环境](#local) | 可以全面控制开发环境和依赖项。 使用所选的任何生成工具、环境或 IDE 来运行。 | 入门需要更长的时间。 必须安装必要的 SDK 包，此外，必须安装一个环境（如果尚未安装）。 |
-| [Azure 机器学习计算实例](#compute-instance) | 最容易入门。 整个 SDK 已安装在工作区 VM 中，笔记本教程已预先克隆，随时可供运行。 | 缺少对开发环境和依赖项的控制。 Linux VM 会产生额外的成本（可以停止不使用的 VM，以免产生费用）。 请参阅[定价详细信息](https://www.azure.cn/pricing/details/virtual-machines/linux/)。 |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | 类似于基于云的计算实例（已预装 Python 和 SDK），但预装了其他流行的数据科学和机器学习工具。 易于缩放，并可与其他自定义工具和工作流结合使用。 | 与基于云的计算实例相比，入门过程更慢。 |
+| [Azure 机器学习计算实例](#compute-instance) | 最容易入门。 整个 SDK 已安装在工作区 VM 中，笔记本教程已预先克隆，随时可供运行。 | 缺少对开发环境和依赖项的控制。 Linux VM 会产生额外的成本（可以停止不使用的 VM，以免产生费用）。 请参阅[定价详细信息](https://www.azure.cn/pricing/details/virtual-machines/linux/)。 |
 
 本文还将提供以下工具的更多用法提示：
 
@@ -42,7 +42,7 @@ ms.locfileid: "93106178"
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a>（仅限本地和 DSVM）创建一个工作区配置文件
 
-工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json* ，其格式如下：
+工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json*，其格式如下：
 
 ```json
 {
@@ -60,7 +60,7 @@ ms.locfileid: "93106178"
 
 * Azure 门户
 
-    **下载文件** ：在 [Azure 门户](https://ms.portal.azure.cn)中，选择工作区的“概览”部分中的“ **下载 config.json”** 。
+    **下载文件**：在 [Azure 门户](https://ms.portal.azure.cn)中，选择工作区的“概览”部分中的“**下载 config.json”** 。
 
     ![Azure 门户](./media/how-to-configure-environment/configure.png)
 
@@ -83,9 +83,11 @@ ms.locfileid: "93106178"
         print('Workspace not found')
     ```
 
-## <a name="local-computer"></a><a id="local"></a>本地计算机
+## <a name="local-computer-or-remote-vm-environment"></a><a id="local"></a>本地计算机或远程 VM 环境
 
-若要配置本地开发环境（也可能是远程虚拟机，例如 Azure 机器学习计算实例或 DSVM）：
+你可以在本地计算机或远程虚拟机上设置环境，例如 Azure 机器学习计算实例或 Data Science VM。 
+
+若要配置本地开发环境或远程 VM，请执行以下操作：
 
 1. 创建 Python 虚拟环境（virtualenv，conda）。
 
@@ -96,7 +98,7 @@ ms.locfileid: "93106178"
     > 如果在 Linux 或 macOS 上操作，并使用除 bash 以外的 shell（例如 zsh），则在运行某些命令时可能会收到错误消息。 若要解决此问题，请使用 `bash` 命令启动新的 bash shell，然后运行命令。
 
 1. 激活新创建的 Python 虚拟环境。
-1. 安装 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
+1. 安装 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 1. 若要将本地环境配置为使用你的 Azure 机器学习工作区，请[创建一个工作区配置文件](#workspace)或使用现有文件。
 
 设置本地环境后，便可以开始使用 Azure 机器学习。 若要开始，请参阅 [Azure 机器学习 Python 入门指南](tutorial-1st-experiment-sdk-setup-local.md)。
@@ -121,6 +123,9 @@ ms.locfileid: "93106178"
 
 若要开始使用 Azure 机器学习和 Jupyter Notebook，请参阅 [Azure 机器学习笔记本存储库](https://github.com/Azure/MachineLearningNotebooks)。
 
+> [!NOTE]
+> 可在 https://github.com/Azure/azureml-examples 找到社区主导的示例存储库。
+
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 若要使用 Visual Studio Code 进行开发：
@@ -138,10 +143,10 @@ Azure 机器学习[计算实例](concept-compute-instance.md)是一个安全的�
 
 随时可从 Azure 机器学习工作区内部创建组件。 只需提供名称并指定 Azure VM 类型即可。 请参考以下文章尝试操作计算实例：[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)。
 
-若要了解计算实例的详细信息（包括如何安装包），请参阅[计算实例](concept-compute-instance.md)。
+若要详细了解计算实例（包括如何安装包），请参阅[创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。
 
 > [!TIP]
-> 若要防止未使用的计算实例产生费用，请[停止计算实例](tutorial-1st-experiment-bring-data.md#clean-up-resources)。
+> 若要防止未使用的计算实例产生费用，请[停止计算实例](how-to-create-manage-compute-instance.md#manage)。
 
 除了 Jupyter Notebook 服务器和 JupyterLab 以外，还可以在 [Azure 机器学习工作室内的集成笔记本功能](how-to-run-jupyter-notebooks.md)中使用计算实例。
 
@@ -149,7 +154,7 @@ Azure 机器学习[计算实例](concept-compute-instance.md)是一个安全的�
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 
-DSVM 是自定义的虚拟机 (VM) 映像。 它专为数据科学工作而设计，其中预配置了工具和软件，例如：
+Data Science VM 是一种可用作开发环境的自定义虚拟机 (VM) 映像。 它专为数据科学工作而设计，其中预配置了工具和软件，例如：
 
   - TensorFlow、PyTorch、Scikit-learn、XGBoost 和 Azure 机器学习 SDK 等包
   - Spark Standalone 和 Drill 等常用数据科学工具
@@ -157,23 +162,23 @@ DSVM 是自定义的虚拟机 (VM) 映像。 它专为数据科学工作而设�
   - Visual Studio Code 和 PyCharm 等集成开发环境 (IDE)
   - Jupyter Notebook 服务器
 
-有关更全面的工具列表，请参阅 [DSVM 包括的工具指南](data-science-virtual-machine/tools-included.md)。
+有关更全面的工具列表，请参阅 [Data Science VM 工具指南](data-science-virtual-machine/tools-included.md)。
 
 > [!IMPORTANT]
-> 如果你计划将 DSVM 用作训练或推理作业的[计算目标](concept-compute-target.md)，则仅 Ubuntu 受支持。
+> 如果你计划将 Data Science VM 用作训练或推理作业的[计算目标](concept-compute-target.md)，则仅 Ubuntu 受支持。
 
-若要使用 DSVM 作为开发环境，请执行以下操作：
+若要使用 Data Science VM 作为开发环境，请执行以下操作：
 
-1. 使用下列方法之一创建一个 DSVM：
+1. 使用下列方法之一创建一个 Data Science VM：
 
     * 使用 Azure 门户创建一个 [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) 或 [Windows](data-science-virtual-machine/provision-vm.md) DSVM。
-    * [使用 ARM 模板创建 DSVM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md)。
+    * [使用 ARM 模板创建 Data Science VM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md)。
     * 使用 Azure CLI
 
-        若要创建 Ubuntu DSVM，请使用以下命令：
+        若要创建 Ubuntu Data Science VM，请使用以下命令：
 
         ```azurecli-interactive
-        # create a Ubuntu DSVM in your resource group
+        # create a Ubuntu Data Science VM in your resource group
         # note you need to be at least a contributor to the resource group in order to execute this command successfully
         # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
         az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
@@ -189,19 +194,19 @@ DSVM 是自定义的虚拟机 (VM) 映像。 它专为数据科学工作而设�
 
 1. 激活包含 Azure 机器学习 SDK 的 conda 环境。
 
-    * 对于 Ubuntu DSVM：
+    * 对于 Ubuntu Data Science VM：
 
         ```bash
         conda activate py36
         ```
 
-    * 对于 Windows DSVM：
+    * 对于 Windows Data Science VM：
 
         ```bash
         conda activate AzureML
         ```
 
-1. 若要将 DSVM 配置为使用你的 Azure 机器学习工作区，请[创建一个工作区配置文件](#workspace)或使用现有的工作区配置文件。
+1. 若要将 Data Science VM 配置为使用你的 Azure 机器学习工作区，请[创建一个工作区配置文件](#workspace)或使用现有的工作区配置文件。
 
 你可以使用 Visual Studio Code 和 [Azure 机器学习 Visual Studio Code 扩展](#vscode)（与本地环境类似）与 Azure 机器学习进行交互。
 
@@ -210,5 +215,5 @@ DSVM 是自定义的虚拟机 (VM) 映像。 它专为数据科学工作而设�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 Azure 机器学习中使用 MNIST 数据集[训练模型](tutorial-train-models-with-aml.md)
-- 查看[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考文档
+- 在 Azure 机器学习中使用 MNIST 数据集来[训练模型](tutorial-train-models-with-aml.md)。
+- 请参阅[适用于 Python 的 Azure 机器学习 SDK 参考](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。 

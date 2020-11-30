@@ -6,16 +6,16 @@ keywords: 设置, 超时, 语言, 区域
 author: mgblythe
 ms.author: v-tawe
 origin.date: 08/05/2020
-ms.date: 10/19/2020
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: be3da0e24465614d0577af547e5fa72988ac9a10
-ms.sourcegitcommit: d3cc6752552aa2babad24da4959ddb7147a86717
+ms.openlocfilehash: 764875d01b8d72c5c56c71f14f1c16d161e8f2eb
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92924958"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975176"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 
@@ -34,7 +34,7 @@ ms.locfileid: "92924958"
 
 1. 选择要在启动门户时用作默认订阅的订阅。 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="按订阅筛选资源列表。"::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="选择要在启动门户时用作默认订阅的订阅。"::: 
 
 
 ## <a name="choose-your-default-view"></a>选择默认视图 
@@ -45,13 +45,13 @@ ms.locfileid: "92924958"
 
 - 无法自定义主页。  主页将显示热门 Azure 服务的快捷方式，并列出你最近使用的资源。 我们还会提供 Microsoft Learn 和 Azure 路线图等资源的有用链接。
 
-- 可以自定义仪表板，以创建专为你设计的工作区。 例如，可以生成一个以项目、任务或角色为中心的仪表板。 如果选择“仪表板”，则默认视图将切换到最近使用的仪表板。  有关详细信息，请参阅[在 Azure 门户中创建和共享仪表板](azure-portal-dashboards.md)。
+- 可以自定义仪表板，以创建专为你设计的工作区。 例如，可以生成一个以项目、任务或角色为中心的仪表板。 如果选择“仪表板”，则默认视图将切换到最近使用的仪表板。 有关详细信息，请参阅[在 Azure 门户中创建和共享仪表板](azure-portal-dashboards.md)。
 
 ## <a name="choose-a-portal-menu-mode"></a>选择门户菜单模式
 
 门户菜单的默认模式控制门户菜单在页面上占用的空间量。
 
-![显示 Azure 门户设置的屏幕截图，其中突出显示了“主题”](./media/set-preferences/menu-mode.png)
+![屏幕截图，显示如何设置门户菜单的默认模式。](./media/set-preferences/menu-mode.png)
 
 - 门户菜单处于“浮出控件”模式时，它会被隐藏，直到你需要使用它。 选择菜单图标可以打开或关闭菜单。
 
@@ -73,7 +73,7 @@ ms.locfileid: "92924958"
 
 ![显示 Azure 门户设置的屏幕截图，其中突出显示了弹出式通知](./media/set-preferences/popup-notifications.png)
 
-若要阅读在当前会话中收到的所有通知，请从全局页头中选择“通知”。 
+若要阅读在当前会话中收到的所有通知，请从全局页头中选择“通知”。
 
 ![显示 Azure 门户全局页头的屏幕截图，其中显示突出了“通知”](./media/set-preferences/read-notifications.png)
 
@@ -81,11 +81,11 @@ ms.locfileid: "92924958"
 
 ## <a name="change-the-inactivity-timeout-setting"></a>更改非活动状态超时设置
 
-如果你忘记了保护工作站，非活动状态超时设置有助于保护资源免受未经授权的访问。 空闲一段时间后，将自动注销你的 Azure 门户会话。
+如果你忘记了保护工作站，非活动状态超时设置有助于保护资源免受未经授权的访问。 空闲一段时间后，将自动注销你的 Azure 门户会话。 作为个人，你可以更改自己的超时设置。 如果你是管理员，可在目录级别为目录中所有用户完成这项设置。
 
 ### <a name="change-your-individual-timeout-setting-user"></a>更改个人的超时设置（用户）
 
-选择“不活动时将我注销”下面的下拉列表。  选择在空闲多长时间后注销你的 Azure 门户会话。
+选择“不活动时将我注销”下面的下拉列表。 选择在空闲多长时间后注销你的 Azure 门户会话。
 
 ![显示门户设置的屏幕截图，其中突出显示了非活动超时设置](./media/set-preferences/inactive-signout-user.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "92924958"
 
 ![显示如何导出设置的屏幕截图](./media/set-preferences/useful-links-export-settings.png)
 
-导出设置时会创建一个 .json 文件，其中包含你的用户设置（如颜色主题、收藏夹和专用仪表板）。 由于用户设置的动态性质和数据损坏风险，因此不能从 .json  文件导入设置。
+导出设置时会创建一个 .json 文件，其中包含你的用户设置（如颜色主题、收藏夹和专用仪表板）。 由于用户设置的动态性质和数据损坏风险，因此不能从 .json 文件导入设置。
 
 ## <a name="delete-user-settings-and-dashboards"></a>删除用户设置和仪表板
 
@@ -135,9 +135,9 @@ ms.locfileid: "92924958"
 ## <a name="change-language-and-regional-settings"></a>更改语言和区域设置
 
 有两项设置控制 Azure 门户中文本的显示方式： 
-- “语言”设置控制文本在 Azure 门户中的显示语言。  
+- “语言”设置控制文本在 Azure 门户中的显示语言。 
 
-- “区域格式”控制日期、时间、数字和货币的显示方式。 
+- “区域格式”控制日期、时间、数字和货币的显示方式。
 
 若要更改 Azure 门户中使用的语言，请使用下拉列表从可用语言列表中进行选择。
 
@@ -145,7 +145,7 @@ ms.locfileid: "92924958"
 
 例如，如果选择“英语”作为语言，然后选择“美国”作为区域格式，将以美元显示货币。 如果选择“英语”作为语言，然后选择“欧洲”作为区域格式，则以欧元显示货币。
 
-选择“应用”以更新语言和区域格式设置。 
+选择“应用”以更新语言和区域格式设置。
 
    ![显示语言和区域格式设置的屏幕截图](./media/set-preferences/language.png)
 

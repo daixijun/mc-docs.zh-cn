@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 53c5dca411ab3a0215e7d7bfc601e5f0d6bc3481
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b219f47adc15f7a02df304b33d0a93a707a54340
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655481"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977432"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>运行用于 VMware 灾难恢复的部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -97,9 +97,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 可以针对各个 VM 集运行该工具的多个实例。 确保不要在任何分析集中重复使用 VM 名称。 例如，如果已分析 10 个 VM（VM1 到 VM10），过几天后又想要分析另外 5 个 VM（VM11 到 VM15），则可通过另一个命令行控制台针对第二组 VM（VM11 到 VM15）运行该工具。 请确保第二组 VM 不包含第一个分析实例中的任何 VM 名称，或请确保为第二次运行使用不同的输出目录。 如果使用该工具的两个实例分析相同的 VM 并使用相同的输出目录，生成的报告将不准确。
 
 默认情况下，此工具配置为在分析后为最多 1000 个 VM 生成报告。 若要更改限制，可以更改 *ASRDeploymentPlanner.exe.config* 文件中的 MaxVMsSupported 项值。
-
 ```
+
 <!-- Maximum number of vms supported-->
+
 <add key="MaxVmsSupported" value="1000"/>
 ```
 使用默认设置时，若要分析特定数量的 VM（例如 1500 个 VM），请创建两个 VMList.txt 文件。 一个包含 1000 个 VM，另一个是 500 个 VM 的列表。 运行 Azure Site Recovery 部署规划器的这两个实例：一个使用 VMList1.txt，另一个使用 VMList2.txt。 可以使用同一目录路径来存储两个 VMList VM 的已分析数据。
@@ -170,16 +171,17 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
 | -UseManagedDisks | （可选）UseManagedDisks - 是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时要考虑到：对虚拟机进行的故障转移/测试性故障转移是在托管磁盘而不是非托管磁盘上完成的。 |
 |-SubscriptionId |（可选）订阅 GUID。 请注意，当你需要根据订阅、与订阅相关联的套餐使用“指定的货币”  中的特定目标 Azure 区域的最新价格生成成本估算报告时，此参数是必需的。|
-|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br />默认值为 ChinaNorth 或上次使用的目标区域。|
-|-OfferId|（可选）与给定订阅关联的套餐。 默认值为 MS-MC-ARZ-33P（标准预付款产品/服务）。|
-|-Currency|（可选）在生成的报表中显示的成本所采用的货币。|
+|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br />默认值为 ChinaNorth2 或上次使用的目标区域。<br />请参阅[支持的目标区域](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)的列表。|
+|-OfferId|（可选）与给定订阅关联的套餐。 默认值为 MS-AZR-0003P（标准预付款产品/服务）。|
+|-Currency|（可选）在生成的报表中显示的成本所采用的货币。 <br />请参阅[支持的货币](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)的列表。|
 
-<!-- Not Avaiable line 168 on  [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
-<!-- Not Avaiable on Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) -->
+<!--Not Available on Default is US Dollar ($) or the last used currency.-->
 
 默认情况下，此工具配置为在分析后为最多 1000 个 VM 生成报告。 若要更改限制，可以更改 *ASRDeploymentPlanner.exe.config* 文件中的 MaxVMsSupported 项值。
 ```xml
+
 <!-- Maximum number of vms supported-->
+
 <add key="MaxVmsSupported" value="1000"/>
 ```
 

@@ -3,14 +3,15 @@ title: 测试 Azure Functions
 description: 为 Visual Studio 中的 C# 函数和 VS Code 中的 JavaScript 函数创建自动测试
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.custom: devx-track-csharp, devx-track-js
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: af37174547345bf5ef607441a88a1ba34128c522
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 42ae971afac4d9331aef50f8097e9a4bd0e5f620
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440475"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849264"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -250,7 +251,7 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**：此测试创建 `ListLogger` 的实例并将其传递给计时器函数。 运行该函数后，将检查日志以确保存在预期的消息。
 
-如果要在测试中访问应用程序设置，可以使用 [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
+如果要在测试中访问应用程序设置，可以将包含模拟环境变量值的 `IConfiguration` 实例[注入](./functions-dotnet-dependency-injection.md)到函数中。
 
 ### <a name="run-tests"></a>运行测试
 
@@ -314,7 +315,7 @@ module.exports = {
 
 此模块实现 `IsPastDue` 属性，表示该实例是一个虚构的计时器实例。 此处不需要计时器配置（如 NCRONTAB 表达式），因为测试工具只是直接调用函数以测试结果。
 
-接下来，使用 VS Code Functions 扩展[创建新的 JavaScript HTTP 函数](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
+接下来，使用 VS Code Functions 扩展 [创建新的 JavaScript HTTP 函数](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01)，并将其命名为 *HttpTrigger*。 创建函数后，在名为 **index.test.js** 的同一文件夹中添加一个新文件，然后添加以下代码：
 
 ```javascript
 const httpFunction = require('./index');
@@ -388,4 +389,3 @@ npm test
 - [Azure Functions 错误处理](./functions-bindings-error-pages.md)
 - [Azure 函数事件网格触发器本地调试](./functions-debug-event-grid-trigger-local.md)
 
-<!-- Update_Description: wording update -->

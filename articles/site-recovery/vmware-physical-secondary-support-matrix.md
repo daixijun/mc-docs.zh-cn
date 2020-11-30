@@ -7,16 +7,16 @@ services: site-recovery
 ms.topic: article
 origin.date: 11/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 587a6d385b41e536ef86cfb341efb2cafe0a93f7
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bd2d1ef727c53f4c822a0b7a9ae388b39f93acab
+ms.sourcegitcommit: 3438213523e78f6bf850df72179737946da9e174
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655274"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975114"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
@@ -26,7 +26,7 @@ ms.locfileid: "89655274"
 - 如果要将 Hyper-V VM 复制到辅助站点，请查看[此支持矩阵](hyper-v-azure-support-matrix.md)。
 
 > [!NOTE]
-> 复制本地 VMware VM 和物理服务器的功能由 InMage Scout 提供。 InMage Scout 随附在 Azure Site Recovery 服务订阅中。
+> 复制本地 VMware VM 和物理服务器的功能由 InMage Scout 提供。 InMage Scout 随附在 Microsoft Azure Site Recovery 服务订阅中。
 
 ## <a name="end-of-support-announcement"></a>结束支持公告
 Site Recovery 方案（在本地 VMware 或物理数据中心之间进行复制）即将结束支持。
@@ -53,10 +53,7 @@ vCenter 服务器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果运行 6.0 或 6.5
 **操作系统** | **详细信息**
 --- | ---
 Windows Server | 64 位 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2。|
-Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3、11 SP4 |
-
-<!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
-<!-- Not Available on Oracle Enterprise Linux 6.4, 6.5, 6.8 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
+Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5、6.8（运行 Red Hat 兼容内核），或 Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4 | 
 
 ## <a name="linux-machine-storage"></a>Linux 计算机存储
 

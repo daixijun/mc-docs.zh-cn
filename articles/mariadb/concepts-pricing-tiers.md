@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 8/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: c9670f83c492442fc4a452defc6564612f9e27b4
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+origin.date: 10/14/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: f1c80c5e422c1b2f9d54abb5034f5b382bb3bccf
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470501"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908947"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 定价层
 
@@ -23,7 +23,7 @@ ms.locfileid: "92470501"
 | 计算的代 | 第 5 代 |第 5 代 | 第 5 代 |
 | vCore 数 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | 每个 vCore 的内存 | 2 GB | 5 GB | 10 GB |
-| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
+| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
 | 数据库备份保留期 | 7 到 35 天 | 7 到 35 天 | 7 到 35 天 |
 
 可以从下表着手来选择定价层。
@@ -47,15 +47,9 @@ ms.locfileid: "92470501"
 | 存储属性   | 基本 | 常规用途 | 内存优化 |
 |:---|:----------|:--------------------|:---------------------|
 | 存储类型 | 基本存储 | 常规用途存储 | 常规用途存储 |
-| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
+| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
-| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS |
-
-> [!NOTE]
-> 中国东部 2 和中国北部 2 支持最多 16 TB 和 20,000 IOPS 的存储。
->
-> “中国东部”和“中国北部”区域支持最多 4TB 的存储和 6000 IOPS。
->
+| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
 
 在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。
 
@@ -65,6 +59,23 @@ ms.locfileid: "92470501"
 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
 
 可以通过 Azure 门户或 Azure CLI 命令监视 I/O 使用情况。 要监视的相关指标是[存储上限、存储百分比、已用存储和 IO 百分比](concepts-monitoring.md)。
+
+### <a name="large-storage-preview"></a>大型存储（预览版）
+
+我们正在提高“常规用途”和“内存优化”层中的存储上限。 选择加入预览版的新建服务器可以预配高达 16 TB 的存储。 IOPS 按 3:1 的比率缩放，最高可达 20,000 IOPS。 与使用当前已正式发布的存储一样，在创建服务器之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。
+
+| 存储属性 | 常规用途 | 内存优化 |
+|:-------------|:--------------------|:---------------------|
+| 存储类型 | Azure 高级存储 | Azure 高级存储 |
+| 存储大小 | 32 GB 到 16 TB| 32 到 16 TB |
+| 存储增量大小 | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS| 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS |
+
+> [!IMPORTANT]
+> 大型存储目前位于中国东部 2 和中国北部 2 的公共预览版中。
+>
+> 其他所有区域支持最大 4TB 的存储，最高可达 6000 IOPS。
+>
 
 ### <a name="reaching-the-storage-limit"></a>达到存储限制
 

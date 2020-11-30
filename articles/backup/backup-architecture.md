@@ -4,14 +4,14 @@ description: 概述 Azure 备份服务使用的体系结构、组件和流程。
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: b120f909b61f88d24ca81bebf27f28604bee191e
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 721c58135fcf3d2d728a49612c798605e90e2d70
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871197"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977372"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
@@ -125,6 +125,12 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 - “每月”、“每年”备份点的保留期称为“长期保留 (LTR)”
 - 创建保管库时，还会创建“DefaultPolicy”，“DefaultPolicy”可用于备份资源。
 - 对备份策略保留期所做的任何更改都将以追溯方式应用于除新恢复点以外的所有旧恢复点。
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>策略更改对恢复点的影响
+
+- **保留期增加/减少：** 更改保留期后，新的保留期也会应用于现有恢复点。 因此，某些恢复点会被清除。 如果保留期增加，则现有恢复点的保留期也会增加。
+- **从每天更改为每周：** 当计划的备份从每天更改为每周时，会清除现有的每日恢复点。
+- **从每周更改为每天：** 现有的每周备份将根据当前保留策略规定的剩余天数进行保留。
 
 ### <a name="additional-reference"></a>其他参考
 

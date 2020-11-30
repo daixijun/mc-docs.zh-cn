@@ -1,25 +1,25 @@
 ---
 title: Azure VPN 网关：关于 P2S 路由
-description: 本文介绍点到站点 VPN 路由的工作原理。
+description: 了解不同操作系统、远程访问协议和虚拟网络配置的 Azure 点到站点 VPN 路由。
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 03/24/2020
-ms.date: 04/06/2020
+origin.date: 10/07/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: d61da3e4090a8991a09969df055ab54343851d48
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c01d77c77b727dbfa3270eec824b745fac7a64d0
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634552"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908914"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 
 本文介绍 Azure 点到站点 VPN 路由的工作原理。 P2S VPN 路由行为依赖于客户端 OS、用于 VPN 连接的协议，以及虚拟网络 (VNet) 相互之间的连接方式。
 
-Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于许多客户端操作系统，包括 Windows、Linux、、MacOS、Android 和 iOS。 SSTP 仅可用于 Windows。 如果更改网络拓扑并且具有 VPN 客户端，必须再次下载和安装 Windows 客户端的 VPN 客户端包，以使更改应用于客户端。
+Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于许多客户端操作系统，包括 Windows、Linux、macOS、Android 和 iOS。 SSTP 仅可用于 Windows。 如果更改网络拓扑并且具有 VPN 客户端，必须再次下载和安装 Windows 客户端的 VPN 客户端包，以使更改应用于客户端。
 
 > [!NOTE]
 > 本文仅适用于 IKEv2。
@@ -33,7 +33,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 本示例中的点到站点 VPN 网关连接适用于未连接或未与其他任何虚拟网络 (VNet1) 对等互连的 VNet。 在此示例中，客户端可以访问 VNet1。
 
-![独立 VNet 路由](./media/vpn-gateway-about-point-to-site-routing/1.jpg "独立 VNet 路由")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="独立 VNet 路由" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -57,7 +57,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 的客户端可以直接访问对等互连 VNet，但如果 VNet 对等互连或网络拓扑发生任何更改，必须重新下载 VPN 客户端。 非 Windows 客户端可直接访问对等互连 VNet。 访问不可传递，且仅限直接对等互连的 VNet。
 
-![多个对等互连 VNet](./media/vpn-gateway-about-point-to-site-routing/2.jpg "多个对等互连 VNet")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="多个对等互连 VNet" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>地址空间：
 
@@ -87,7 +87,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 或其他受支持 OS 的客户端只能访问 VNet1。 若要访问其他 VNet，必须使用 BGP。
 
-![多个 VNet 和 S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "多个 VNet 和 S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="多个 VNet 和 S2S" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -115,7 +115,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 使用 Windows 或其他受支持的 OS 的客户端可以访问使用站点到站点 VPN 连接连接的所有 VNet，但必须将到已连接 VNet 的路由手动添加到 Windows 客户端。
 
-![多个 VNet 和 S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "多个 VNet 和 S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="多个 VNet 和 S2S (BGP)" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -143,7 +143,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 Windows 客户端和非 Windows 客户端只能访问 VNet1。
 
-![使用 VNet 和分支机构进行路由](./media/vpn-gateway-about-point-to-site-routing/5.jpg "使用 VNet 和分支机构进行路由")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="使用 VNet 和分支机构进行路由" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -169,7 +169,7 @@ Windows 客户端和非 Windows 客户端只能访问 VNet1。
 
 Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将到 Site1 的路由手动添加到客户端。 非 Windows 客户端可以访问 VNet 以及本地分支机构。
 
-![一个 VNet 和一个分支机构 (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "一个 VNet 和一个分支机构")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="使用 VNet 和分支机构进行路由 - BGP" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -196,7 +196,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 所有客户端都只能访问 VNet1。
 
-![多个 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/7.jpg "多个 VNet S2S 和分支机构")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="显示多 VNet S2S 和分支机构的示意图" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>地址空间
 
@@ -226,7 +226,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 使用 Windows 的客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，但必须将到 VNet2、VNet3 和 Site1 的路由手动添加到该客户端。 非 Windows 客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，而无需任何手动干预。 访问权限是可传递的，并且客户端可访问所有已连接 VNet 和站点（本地）中的资源。
 
-![多个 VNet S2S 和分支机构](./media/vpn-gateway-about-point-to-site-routing/8.jpg "多个 VNet S2S 和分支机构")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="多个 VNet S2S 和分支机构" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>地址空间
 

@@ -4,13 +4,13 @@ description: 可以使用 Azure Data Box 以脱机方式将初始备份数据从
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/28/2020
-ms.openlocfilehash: eff37fda5731640adbc32b650901ca71db9287ee
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.date: 11/17/2020
+ms.openlocfilehash: 4c2171aee6660d971d0e184d5167de681c9ea150
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871555"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977616"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>使用 Azure Data Box 进行 DPM 和 MABS 的脱机植入（预览版）
 
@@ -45,6 +45,9 @@ ms.locfileid: "91871555"
 | \<= 7.2 TB | [Azure Data Box Disk](https://docs.azure.cn/databox/data-box-disk-overview) |
 
 \*典型压缩率在 10-20% 之间变化 
+
+> [!IMPORTANT]
+> 来自单个数据源的初始备份数据必须包含在单个 Azure Data Box 磁盘中，并且不能在具有相同或不同 SKU 的多个设备之间共享。 但是，Azure Data Box 可能会包含来自多个数据源的初始备份。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -136,7 +139,7 @@ DPM/MABS 上运行的 MARS 代理应升级到[最新版本](https://aka.ms/azure
     > ![USB 驱动器](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > 例如，如果磁盘的路径是 `\\mydomain\myserver\disk1\`，且 disk1 包含一个名为 PageBlob 的目录，则需要在 DPM/MABS 服务器向导上提供的路径为 `\\mydomain\myserver\disk1\`。
-    > 如果[设置 Azure Data Box 100 TB 设备](/backup/offline-backup-azure-data-box#setup-azure-data-box)，请提供以下信息作为设备 `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` 的网络路径。
+    > 如果[设置 Azure Data Box 100 TB 设备](./offline-backup-azure-data-box.md#set-up-azure-data-box)，请提供以下信息作为设备 `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` 的网络路径。
 
 15. 选择“**下一页**”。 在“摘要”页上查看设置，然后选择“创建组” 。
 
@@ -167,7 +170,7 @@ DPM/MABS 上运行的 MARS 代理应升级到[最新版本](https://aka.ms/azure
 将数据成功备份到 Azure Data Box Disk 后，请执行以下步骤。
 
 - 请执行[本文](https://docs.azure.cn/databox/data-box-disk-deploy-picked-up)中的步骤，将 Azure Data Box Disk 寄送到 Azure。
-- 在 Azure 门户中[监视 Data Box 作业](https://docs.azure.cn/databox/data-box-disk-deploy-upload-verify)。 Azure Data Box 作业完成后，DPM/MABS 服务器会在下一次执行计划的备份时自动将数据从存储帐户移动到恢复服务保管库。 如果成功创建了恢复点，它随后会将备份作业标记为“作业已完成”。
+- 在 Azure 门户中[监视 Data Box 作业](../databox/data-box-disk-deploy-upload-verify.md)。 Azure Data Box 作业完成后，DPM/MABS 服务器会在下一次执行计划的备份时自动将数据从存储帐户移动到恢复服务保管库。 如果成功创建了恢复点，它随后会将备份作业标记为“作业已完成”。
 
   > [!NOTE]
   > DPM/MABS 服务器会在创建保护组期间按计划的时间触发备份。 但是，这些作业将标记“等待 Azure Data Box 作业完成”，直到作业完成为止。

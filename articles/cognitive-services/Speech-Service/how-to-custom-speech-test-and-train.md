@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/27/2020
-ms.date: 06/19/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 2c6b838d64a55d83657d5667d74e25124ac9f074
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: e5d694a697e46d76c2c8229f0ad5cf318e77dcb3
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85613298"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977584"
 ---
 # <a name="prepare-data-for-custom-speech"></a>准备自定义语音识别的数据
 
@@ -60,7 +60,7 @@ ms.locfileid: "85613298"
 
 若要上传数据，请导航到<a href="https://speech.azure.cn/customspeech" target="_blank">自定义语音识别门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。 在门户中，单击“上传数据”启动向导并创建第一个数据集。 在上传数据之前，系统会要求你为数据集选择语音数据类型。
 
-![从语音门户选择音频](./media/custom-speech/custom-speech-select-audio.png)
+![屏幕截图，突出显示了语音门户中的“音频上传”选项。](./media/custom-speech/custom-speech-select-audio.png)
 
 上传的每个数据集必须符合所选数据类型的要求。 必须先将数据设置为正确格式再上传它。 格式正确的数据可确保自定义语音识别服务对其进行准确处理。 以下部分列出了要求。
 

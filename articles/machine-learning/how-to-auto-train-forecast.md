@@ -10,17 +10,17 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 08/20/2020
-ms.openlocfilehash: cf84568af2bf84a42731184baaf6fbee911e15fe
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 2d5b0acce6a1ee09aac7eb2ca0a3694335957d32
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118199"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978190"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自动训练时序预测模型
 
 
-本文介绍如何在 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 中使用自动化机器学习 AutoML 来配置和训练时序预测回归模型。 
+本文介绍如何在 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 中使用自动化机器学习 AutoML 来配置和训练时序预测回归模型。 
 
 为此，需要： 
 
@@ -120,7 +120,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ## <a name="configure-experiment"></a>配置试验
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 对象定义自动化机器学习任务所需的设置和数据。 预测模型的配置与标准回归模型的设置相似，但存在专门针对时序数据的某些模型、配置选项和特征化步骤。 
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 对象定义自动化机器学习任务所需的设置和数据。 预测模型的配置与标准回归模型的设置相似，但存在专门针对时序数据的某些模型、配置选项和特征化步骤。 
 
 ### <a name="supported-models"></a>支持的模型
 在模型创建和优化过程中，自动化机器学习会自动尝试各种模型和算法。 用户不需要指定算法。 对于预测试验，本机时序模型和深度学习模型都是推荐系统的一部分。 下表对此模型子集进行了汇总。 
@@ -138,7 +138,7 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 
 与回归问题类似，你要定义标准训练参数，例如任务类型、迭代次数、训练数据和交叉验证次数。 对于预测任务，还必须设置对试验有影响的其他参数。 
 
-下表汇总了这些额外的参数。 有关语法设计模式，请查看[参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)。
+下表汇总了这些额外的参数。 有关语法设计模式，请查看[参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)。
 
 | 参数&nbsp;名称 | 说明 | 必须 |
 |-------|-------|-------|
@@ -149,28 +149,31 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 |`target_lags`|要根据数据频率滞后目标值的行数。 此滞后表示为一个列表或整数。 默认情况下，在独立变量和依赖变量之间的关系不匹配或关联时，应使用滞后。 ||
 |`feature_lags`| 当设置了 `target_lags` 并且 `feature_lags` 设置为 `auto` 时，要滞后的功能将由自动化 ML 自动确定。 启用功能滞后有助于提高准确性。 默认情况下会禁用功能滞后。 ||
 |`target_rolling_window_size`|要用于生成预测值的 *n* 个历史时间段，该值小于或等于训练集大小。 如果省略，则 *n* 为完整训练集大小。 如果训练模型时只想考虑一定量的历史记录，请指定此参数。 详细了解[目标滚动窗口聚合](#target-rolling-window-aggregation)。||
+|`short_series_handling`| 启用“短时序处理”，以避免在训练期间由于数据不足而失败。 默认情况下，“短时序处理”设置为 True。|
 
 
 以下代码 
-* 将 `time-series settings` 创建为字典对象。 
+* 利用 `ForecastingParameters` 类为试验训练定义预测参数
 * 将 `time_column_name` 设置为数据集中的 `day_datetime` 字段。 
-* 将 `time_series_id_column_names` 参数定义为 `"store"`。 这可确保为数据创建 **两个单独的时序组** ，一个用于商店 A，一个用于商店 B。
+* 将 `time_series_id_column_names` 参数定义为 `"store"`。 这可确保为数据创建 **两个单独的时序组**，一个用于商店 A，一个用于商店 B。
 * 将 `forecast_horizon` 设置为 50 以针对整个测试集进行预测。 
 * 使用 `target_rolling_window_size` 将预测窗口设置为 10 个时段
 * 使用 `target_lags` 参数指定目标值滞后两个时段。 
 * 将 `target_lags` 设置为建议的“auto”设置，这将自动为你检测此值。
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-然后，将这些 `time_series_settings` 传入到标准 `AutoMLConfig` 对象中，同时还会传入 `forecasting` 任务类型、主要指标、退出标准和训练数据。 
+然后，将这些 `forecasting_parameters` 传入到标准 `AutoMLConfig` 对象中，同时还会传入 `forecasting` 任务类型、主要指标、退出标准和训练数据。 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -242,7 +245,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 ### <a name="enable-deep-learning"></a>启用深度学习
 
 > [!NOTE]
-> DNN 对自动机器学习的预测支持目前为 **预览版** ，不支持本地运行。
+> DNN 对自动机器学习的预测支持目前为 **预览版**，不支持本地运行。
 
 你还可以通过深层神经网络 (DNN) 利用深度学习来改进模型的分数。 通过自动化 ML 的深度学习，可预测单变量和多变量时序数据。
 

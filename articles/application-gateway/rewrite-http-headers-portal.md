@@ -1,30 +1,29 @@
 ---
-title: 重写 Azure 应用程序网关中的 HTTP 请求和响应标头 - Azure 门户 | Microsoft Docs
+title: 在门户中重写 HTTP 请求和响应标头 - Azure 应用程序网关
 description: 了解如何使用 Azure 门户配置应用程序网关，重写通过网关传递的请求和响应中的 HTTP 标头
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-origin.date: 04/10/2019
-ms.date: 09/10/2019
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f3175b539f31226c42a0d8aa17b6b0178c0b5cc1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 140a6645c9363a658d7af7430bb172cfd1b328ba
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70857346"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849469"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>重写 Azure 应用程序网关中的 HTTP 请求和响应标头 - Azure 门户
 
-本文介绍如何使用 Azure 门户配置[应用程序网关 v2 SKU](/application-gateway/application-gateway-autoscaling-zone-redundant) 实例，重写请求和响应中的 HTTP 标头。
+本文介绍如何使用 Azure 门户配置[应用程序网关 v2 SKU](./application-gateway-autoscaling-zone-redundant.md) 实例，重写请求和响应中的 HTTP 标头。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-若要完成本文中的步骤，需要有应用程序网关 v2 SKU 实例。 v1 SKU 不支持重写标头。 如果没有 v2 SKU，请在开始之前创建[应用程序网关 v2 SKU](/application-gateway/tutorial-autoscale-ps) 实例。
+若要完成本文中的步骤，需要有应用程序网关 v2 SKU 实例。 v1 SKU 不支持重写标头。 如果没有 v2 SKU，请在开始之前创建[应用程序网关 v2 SKU](./tutorial-autoscale-ps.md) 实例。
 
 ## <a name="create-required-objects"></a>创建所需对象
 
@@ -132,5 +131,5 @@ ms.locfileid: "70857346"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何设置某些常见用例，请参阅[常见标头重写方案](/application-gateway/rewrite-http-headers)。
+若要详细了解如何设置某些常见用例，请参阅[常见标头重写方案](./rewrite-http-headers.md)。
 

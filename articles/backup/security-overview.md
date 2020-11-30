@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 13/05/2020
 ms.author: v-johya
-ms.date: 09/28/2020
-ms.openlocfilehash: bdab91ce3294975fc6f5ef0bf0bf8ca22f6c366c
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.date: 11/17/2020
+ms.openlocfilehash: edd60d3fabb04828b560153a0657660409a4c23a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871321"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977599"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure 备份中的安全功能概述
 
@@ -19,7 +19,7 @@ ms.locfileid: "91871321"
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>管理和控制标识与用户访问
 
-恢复服务保管库使用的存储帐户是隔离的，恶意用户无法对其进行访问。 仅允许通过 Azure 备份管理操作（例如还原）进行访问。 借助 Azure 备份，可使用 [Azure 基于角色的访问控制 (Azure RBAC)](./backup-rbac-rs-vault.md) 通过精细访问权限来控制托管的操作。 RBAC 可以在团队内部实现职责分离，仅向用户授予其履行自己的职责所需的访问权限级别。
+恢复服务保管库使用的存储帐户是隔离的，恶意用户无法对其进行访问。 仅允许通过 Azure 备份管理操作（例如还原）进行访问。 借助 Azure 备份，可使用 [Azure 基于角色的访问控制 (Azure RBAC)](./backup-rbac-rs-vault.md) 通过精细访问权限来控制托管的操作。 使用 Azure RBAC 可以在团队内部实现职责分离，仅向用户授予完成其作业所需的访问权限。
 
 Azure 备份提供了三个[内置角色](../role-based-access-control/built-in-roles.md)来控制备份管理操作：
 
@@ -27,7 +27,7 @@ Azure 备份提供了三个[内置角色](../role-based-access-control/built-in-
 * 备份操作员 - 拥有参与者的所有权限，但无法删除备份，也不能管理备份策略
 * 备份读取者 - 拥有查看所有备份管理操作的权限
 
-详细了解[用于管理 Azure 备份的基于角色的访问控制](./backup-rbac-rs-vault.md)。
+详细了解[用于管理 Azure 备份的 Azure 基于角色的访问控制](./backup-rbac-rs-vault.md)。
 
 Azure 备份服务中内置了多个安全控制机制，用于防止、检测和应对安全漏洞。 详细了解 [Azure 备份的安全控制](./backup-security-controls.md)。
 

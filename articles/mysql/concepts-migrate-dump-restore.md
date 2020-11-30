@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 10/30/2020
-ms.date: 11/09/2020
-ms.openlocfilehash: 0d8e23e769c2c95918a1385259df03878629c5ab
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 11/23/2020
+ms.openlocfilehash: d1fb3e5ef395ac28ba9d25b819c271230ed074fb
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328812"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977155"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 
@@ -22,6 +22,8 @@ ms.locfileid: "94328812"
 本文介绍了在 Azure Database for MySQL 中备份和还原数据库的两种常见方式
 - 从命令行转储和还原（使用 mysqldump）
 - 使用 PHPMyAdmin 转储和还原
+
+还可参阅[数据库迁移指南](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)，获取有关将数据库迁移到 Azure Database for MySQL 的详细信息和用例。 遵循本指南提供的指导，就可以成功地进行规划和执行到 Azure 的 MySQL 迁移。
 
 ## <a name="before-you-begin"></a>准备阶段
 若要逐步执行本操作方法指南，需要具备以下条件：

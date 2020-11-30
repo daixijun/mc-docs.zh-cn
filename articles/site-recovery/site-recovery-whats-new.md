@@ -4,16 +4,16 @@ description: 提供 Azure Site Recovery 服务中的新功能和最新更新的�
 ms.topic: conceptual
 origin.date: 10/22/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 60fc3038925ba83d7feac7bc0e216b651b7b0dfd
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 16d3c0f239c67793a71380222d2297bb612f4813
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977428"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -37,6 +37,8 @@ ms.locfileid: "94328652"
 
 [详细了解](service-updates-how-to.md)更新安装和支持。
 
+## <a name="updates-october-2020"></a>更新（2020 年 10 月）
+
 ### <a name="update-rollup-51"></a>更新汇总 51
 
 [更新汇总 51](https://support.microsoft.com/help/4590304/update-rollup-51-for-azure-site-recovery) 提供以下更新：
@@ -46,7 +48,9 @@ ms.locfileid: "94328652"
 **提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（请参阅汇总中的详述）。
 **问题修复/改进** | 汇总中详细介绍了许多修复程序和改进，包括对出行服务的新 Linux 支持。
 
-## <a name="update-september-2020"></a>更新（2020 年 9 月）
+## <a name="updates-september-2020"></a>更新（2020 年 9 月）
+
+### <a name="update-rollup-50"></a>更新汇总 50
 
 [更新汇总 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) 提供以下更新：
 
@@ -124,9 +128,7 @@ ms.locfileid: "94328652"
 
 ### <a name="azure-vmware-disaster-recovery"></a>Azure VMware 灾难恢复
 
-Azure 虚拟机现在支持使用客户管理的密钥进行静态加密。 
-
-<!--Not Available on [Learn more](azure-to-azure-how-to-enable-replication-cmk-disks.md)-->
+Azure 虚拟机现在支持使用客户管理的密钥进行静态加密。 [了解详细信息](azure-to-azure-how-to-enable-replication-cmk-disks.md)。
 
 ### <a name="update-rollup-43"></a>更新汇总 43
 
@@ -545,7 +547,7 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 
 **功能** | **详细信息**
 --- | ---
-**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/> 现在支持基于 Linux 且在旧式 BIOS 兼容模式下使用 GUID 分区表 (GPT) 分区样式的 VM。 有关详细信息，请查看 [Azure VM 常见问题解答](/virtual-machines/linux/faq-for-disks)。 
+**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/> 现在支持基于 Linux 且在旧式 BIOS 兼容模式下使用 GUID 分区表 (GPT) 分区样式的 VM。 有关详细信息，请查看 [Azure VM 常见问题解答](../virtual-machines/faq-for-disks.md)。 
 **迁移后的 VM 灾难恢复** | 支持将已迁移到 Azure 的本地 VMware VM 灾难恢复到次要区域，启用复制之前无需在 VM 上卸载移动服务。
 **Windows Server 2008** | 支持迁移运行 Windows Server 2008 R2/2008 64 位和 32 位的计算机。<br/><br/> 仅限迁移（复制和故障转移）。 不支持故障回复。
 

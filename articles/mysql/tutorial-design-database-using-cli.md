@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 12/02/2019
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3d6e3d3777d54961155666bf73125caa1eaf7448
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6836e744ad1bc300087215dae6812adf5d0af90f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328022"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977119"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -32,9 +32,11 @@ Azure Database for MySQL 是 Azure 中基于 MySQL 社区版数据库引擎的�
 > * 更新数据
 > * 还原数据
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+## <a name="prerequisites"></a>先决条件
 
-可以在自己的计算机上[安装 Azure CLI]( /cli/install-azure-cli) 来运行本教程中的代码块。
+如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
+可以在你自己的计算机上[安装 Azure CLI](/cli/install-azure-cli) 来运行本教程中的代码块。
 
 本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
@@ -198,12 +200,25 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 该命令是同步的，且会在服务器还原后返回。 还原完成后，找到创建的新服务器。 验证数据是否按预期还原。
 
+## <a name="clean-up-resources"></a>清理资源
+如果不需要将这些资源用于其他快速入门/教程，则可通过执行以下命令将其删除： 
+
+```azurecli
+az group delete --name myresourcegroup
+```
+
+若要删除新创建的服务器，可运行 [az mysql server delete](/cli/mysql/server#az-mysql-server-delete) 命令。
+
+```azurecli
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了：
 > [!div class="checklist"]
 > * 创建 Azure Database for MySQL 服务器
 > * 配置服务器防火墙
-> * 使用 [mysql 命令行工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)创建数据库
+> * 使用 mysql 命令行工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据

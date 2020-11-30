@@ -1,21 +1,21 @@
 ---
 title: 将数据导入设计器中
 titleSuffix: Azure Machine Learning
-description: 了解如何将数据从各种数据源导入到 Azure 机器学习设计器。
+description: 了解如何使用 Azure 机器学习数据集和“导入数据”模块将数据导入到 Azure 机器学习设计器中。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: v-yiso
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2b9488eca21c33d48535cd035c1aec61c69ff62a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f4f9b01679b3453f57f8254a4e36979295ace566
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118422"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977237"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>将数据导入到 Azure 机器学习设计器
 
@@ -54,6 +54,8 @@ ms.locfileid: "92118422"
 
 可在模块面板中的“数据集”下找到已注册的数据集。 若要使用某个数据集，请将其拖放到管道画布上。 然后，将该数据集的输出端口连接到画布中的其他模块。 
 
+如果注册文件数据集，则数据集的输出端口类型为“AnyDirectory”。 如果注册表格数据集，则数据集的输出端口类型为“DataFrameDirectory”。 请注意，如果将数据集的输出端口连接到设计器中的其他模块，则需要对齐数据集和模块的端口类型。
+
 ![屏幕截图，其中显示了设计器面板中已保存数据集的位置](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
@@ -86,10 +88,10 @@ ms.locfileid: "92118422"
 
 设计器在内部可以识别以下数据类型：
 
-* String
+* 字符串
 * Integer
 * 小数
-* 布尔
+* Boolean
 * Date
 
 设计器使用一个内部数据类型在模块之间传递数据。 可使用[转换为数据集](algorithm-module-reference/convert-to-dataset.md)模块将数据显式转换为数据表格式。 接受非内部格式的任何模块都将在不提示的情况对数据进行转换，然后再将其传递给下一个模块。

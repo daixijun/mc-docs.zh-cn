@@ -3,14 +3,14 @@ title: Azure Functions 可靠事件处理
 description: 避免 Azure Functions 中缺少事件中心消息
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: a355387db628db04a79df88aaa78fa8ada566de0
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 4a8c5004c33587d4c3506c6cedfa6a2438efb616
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945235"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849460"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions 可靠事件处理
 
@@ -50,7 +50,7 @@ Azure Functions 在循环执行以下步骤的同时使用事件中心事件：
 
 此行为揭示了几个要点：
 
-- 未经处理的异常可能导致丢失消息。 导致异常的执行会继续递进指针。
+- 未经处理的异常可能导致丢失消息。 导致异常的执行会继续递进指针。  设置[重试策略](./functions-bindings-error-pages.md#retry-policies-preview)会延迟指针的进度，直到评估了整个重试策略为止。
 - 函数保证至少传送一次。 代码和相关系统可能需要[考虑到同一消息可能会接收两次这一事实](./functions-idempotent.md)。
 
 ## <a name="handling-exceptions"></a>处理异常
@@ -59,9 +59,9 @@ Azure Functions 在循环执行以下步骤的同时使用事件中心事件：
 
 ### <a name="retry-mechanisms-and-policies"></a>重试机制和策略
 
-某些异常在性质上是暂时性的，稍后再次尝试操作时不会重现。 正因如此，第一个步骤始终是重试操作。 你可以自己编写重试处理规则，但是这些规则太常见了，有很多工具都可以使用。 使用这些库可以定义可靠的重试策略，而这些策略也有助于保持处理顺序。
+某些异常在性质上是暂时性的，稍后再次尝试操作时不会重现。 正因如此，第一个步骤始终是重试操作。  可以在函数执行过程中利用函数应用[重试策略](./functions-bindings-error-pages.md#retry-policies-preview)或创建者重试逻辑。
 
-将故障处理库引入函数可以定义基本和高级重试策略。 例如，可以实现一个遵循以下规则所演示的工作流的策略：
+将故障处理行为引入函数可以定义基本的和高级的重试策略。 例如，可以实现一个遵循以下规则所演示的工作流的策略：
 
 - 尝试插入某条消息三次（可以在每次重试之前设置一定的延迟）。
 - 如果所有重试的最终结果均为失败，则将一条消息添加到队列，以便可以在流中继续进行处理。
@@ -69,10 +69,6 @@ Azure Functions 在循环执行以下步骤的同时使用事件中心事件：
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) 是适用于 C# 应用程序的复原和暂时性故障处理库的一个示例。
-
-使用预编译的 C# 类库时，每当发生未经处理的异常，都可以借助[异常筛选器](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch)来运行代码。
-
-[Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 存储库中提供了演示如何使用异常筛选器的示例。
 
 ## <a name="non-exception-errors"></a>非异常错误
 

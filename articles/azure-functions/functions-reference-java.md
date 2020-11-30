@@ -2,14 +2,14 @@
 title: Azure Functions Java 开发人员参考
 description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5e769c872dd02f6efe1ddbafa602736eec61d446
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 6dbf26a8feed9d50183453d55e394ecab13c4424
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326418"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849355"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -19,7 +19,7 @@ ms.locfileid: "94326418"
 
 | 入门 | 概念| 
 | -- | -- |  
-| <ul><li>[使用 Visual Studio Code 的 Java 函数](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[使用终端/命令提示符的 Java/Maven 函数](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[使用 Eclipse 的 Java 函数](functions-create-maven-eclipse.md)</li><li>[使用 IntelliJ IDEA 的 Java 函数](functions-create-maven-intellij.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li></ul> |
+| <ul><li>[使用 Visual Studio Code 的 Java 函数](./create-first-function-vs-code-java.md)</li><li>[使用终端/命令提示符的 Java/Maven 函数](./create-first-function-cli-java.md)</li><li>[使用 Gradle 的 Java 函数](functions-create-first-java-gradle.md)</li><li>[使用 Eclipse 的 Java 函数](functions-create-maven-eclipse.md)</li><li>[使用 IntelliJ IDEA 的 Java 函数](functions-create-maven-intellij.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[性能注意事项](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Java 函数基础知识
 
@@ -55,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-若要开始使用此原型，请参阅 [Java 快速入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)。 
+若要开始使用此原型，请参阅 [Java 快速入门](./create-first-function-cli-java.md)。
 
 ## <a name="folder-structure"></a>文件夹结构
 

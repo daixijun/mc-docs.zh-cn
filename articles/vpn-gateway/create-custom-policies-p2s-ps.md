@@ -7,16 +7,16 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 09/09/2020
-ms.date: 09/28/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 53bccff9e29c9734d19c02eef6e9eefd3939c660
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: cf2cea8e09b416818514a02467d4edf7e47f5132
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395570"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908987"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>为点到站点创建和设置自定义 IPsec 策略
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>为点到站点创建和设置自定义 IPsec 策略（预览版）
 
 如果你的环境需要自定义 IPsec 策略来用于加密，则可以轻松地使用所需设置来配置策略对象。 本文可帮助你创建自定义策略对象，然后使用 PowerShell 对其进行设置。
 

@@ -1,16 +1,17 @@
 ---
 title: Azure Functions SignalR 服务输出绑定
-description: 了解如何从 Azure Functions 发送 SignalR 服务消息。
+description: 了解 Azure Functions 的 SignalR 服务输出绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/02/2020
+ms.custom: devx-track-csharp
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: 732bde1ba58b63a98c2d6c24b3183c1bcaf5312e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 763fdbab84afc16d4030b0b8f6e28201f8df3906
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266112"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849397"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Azure Functions 的 SignalR 服务输出绑定
 

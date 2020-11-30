@@ -6,15 +6,15 @@ author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
 origin.date: 09/01/2019
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.reviewer: craigg
-ms.openlocfilehash: 0efaa3d40e674696c73e6c34c69cf8079a77726c
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 11f31ce3f08cbc90f53c07acaa2f462211d16d9b
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523977"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680537"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>排查 Azure 数据工厂问题
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,6 +25,113 @@ ms.locfileid: "90523977"
 
 如果遇到连接器问题（例如，使用复制活动时遇到错误），请参阅[排查 Azure 数据工厂连接器问题](connector-troubleshoot-guide.md)。
 
+## <a name="azure-databricks"></a>Azure Databricks
+
+### <a name="error-code-3200"></a>错误代码:3200
+
+- **消息**：错误 403。
+
+- **原因**：`The Databricks access token has expired.`
+
+- **建议**：默认情况下，Azure Databricks 访问令牌的有效期为 90 天。 请创建新令牌并更新链接服务。
+
+### <a name="error-code-3201"></a>错误代码:3201
+
+- **消息**：`Missing required field: settings.task.notebook_task.notebook_path.`
+
+- **原因**：`Bad authoring: Notebook path not specified correctly.`
+
+- **建议**：在 Databricks 活动中指定笔记本路径。
+
+<br/> 
+
+- **消息**：`Cluster... does not exist.`
+
+- **原因**：`Authoring error: Databricks cluster does not exist or has been deleted.`
+
+- **建议**：验证 Databricks 群集是否存在。
+
+<br/> 
+
+- **消息**：`Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
+
+- **原因**：`Bad authoring.`
+
+- **建议**：为工作区寻址方案指定绝对路径，或者为 Databricks 文件系统 (DFS) 中存储的文件指定 `dbfs:/folder/subfolder/foo.py`。
+
+<br/> 
+
+- **消息**：`{0} LinkedService should have domain and accessToken as required properties.`
+
+- **原因**：`Bad authoring.`
+
+- **建议**：验证 [链接服务定义](compute-linked-services.md#azure-databricks-linked-service)。
+
+<br/> 
+
+- **消息**：`{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+
+- **原因**：`Bad authoring.`
+
+- **建议**：验证 [链接服务定义](compute-linked-services.md#azure-databricks-linked-service)。
+
+<br/> 
+
+- **消息**：`Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+
+- **原因**：`Bad authoring.`
+
+- **建议**：参考错误消息。
+
+<br/>
+
+### <a name="error-code-3202"></a>错误代码:3202
+
+- **消息**：`There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
+
+- **原因**：`Too many Databricks runs in an hour.`
+
+- **建议**：检查将此 Databricks 工作区用于其作业创建速率的所有管道。 如果管道总共启动的 Databricks 运行数过多，请将一些管道迁移到新工作区。
+
+<br/> 
+
+- **消息**：`Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
+
+- **原因**：`Authoring error: No value provided for the parameter.`
+
+- **建议**：检查管道 JSON，确保 baseParameters 笔记本中的所有参数指定非空值。
+
+<br/> 
+
+- **消息**：`User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+
+- **原因**：不允许已生成访问令牌的用户访问链接服务中指定的 Databricks 群集。
+
+- **建议**：确保该用户在工作区中拥有所需的权限。
+
+### <a name="error-code-3203"></a>错误代码:3203
+
+- **消息**：`The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+
+- **原因**：群集已终止。 对于交互式群集，此问题可能是争用条件问题。
+
+- **建议**：若要避免此错误，请使用作业群集。
+
+### <a name="error-code-3204"></a>错误代码:3204
+
+- **消息**：`Job execution failed.`
+
+- **原因**：错误消息指出了各种问题，例如意外的群集状态或特定的活动。 往往不会显示任何错误消息。
+
+- **建议**：空值
+
+### <a name="error-code-3208"></a>错误代码：3208
+
+- **消息**：`An error occurred while sending the request.`
+
+- **原因：** 与 Databricks 服务的网络连接已中断。
+
+- **建议**：如果使用的是自承载集成运行时，请确保来自集成运行时节点的网络连接是可靠的。 如果使用的是 Azure 集成运行时，则重试通常有效。
 ## <a name="azure-functions"></a>Azure 函数
 
 ### <a name="error-code-3602"></a>错误代码：3602
@@ -98,6 +205,88 @@ ms.locfileid: "90523977"
 - **原因：** Azure 函数活动定义不完整。
 
 - **建议**：检查输入的 Azure 函数活动 JSON 定义是否包含链接服务详细信息。
+
+## <a name="azure-machine-learning"></a>Azure 机器学习
+
+### <a name="error-code-4101"></a>错误代码:4101
+
+- **消息**：`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+
+- **原因**：属性 `%propertyName;` 的定义格式错误或缺失。
+
+- **建议**：检查是否使用正确的数据在活动 `%activityName;` 中定义了属性 `%propertyName;`。
+
+### <a name="error-code-4110"></a>错误代码:4110
+
+- **消息**：`AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
+
+- **原因**：AzureMLExecutePipeline 活动定义不完整。
+
+- **建议**：检查输入的 AzureMLExecutePipeline 活动 JSON 定义是否正确包含链接服务详细信息。
+
+### <a name="error-code-4111"></a>错误代码:4111
+
+- **消息**：`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **原因**：活动定义不正确。
+
+- **建议**：检查输入的 AzureMLExecutePipeline 活动 JSON 定义是否正确包含链接服务详细信息。
+
+### <a name="error-code-4112"></a>错误代码:4112
+
+- **消息**：`AzureMLService linked service has invalid value for property '%propertyName;'.`
+
+- **原因**：属性“%propertyName;”的定义格式错误或缺失。
+
+- **建议**：检查是否使用正确的数据在链接服务中定义了属性 `%propertyName;`。
+
+### <a name="error-code-4121"></a>错误代码:4121
+
+- **消息**：`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+
+- **原因**：用于访问 Azure 机器学习的凭据已过期。
+
+- **建议**：验证凭据是否有效，然后重试。
+
+### <a name="error-code-4122"></a>错误代码:4122
+
+- **消息**：`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+
+- **原因**：Azure 机器学习链接服务中提供的凭据无效，或者没有操作权限。
+
+- **建议**：验证链接服务中的凭据是否有效且有权访问 Azure 机器学习。
+
+### <a name="error-code-4123"></a>错误代码:4123
+
+- **消息**：`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+
+- **原因**：活动的属性（例如 `pipelineParameters`）对于 Azure 机器学习 (ML) 管道无效。
+
+- **建议**：检查活动属性的值是否与链接服务中指定的已发布 Azure ML 管道的预期有效负载相匹配。
+
+### <a name="error-code-4124"></a>错误代码:4124
+
+- **消息**：`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+
+- **原因**：已发布的 Azure ML 管道终结点不存在。
+
+- **建议**：验证链接服务中指定的已发布 Azure 机器学习管道终结点是否在 Azure 机器学习中存在。
+
+### <a name="error-code-4125"></a>错误代码:4125
+
+- **消息**：`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+
+- **原因**：Azure 机器学习中出现服务器错误。
+
+- **建议**：请稍后重试。 如果问题持续出现，请联系 Azure 机器学习团队以获得帮助。
+
+### <a name="error-code-4126"></a>错误代码:4126
+
+- **消息**：`Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
+
+- **原因**：Azure ML 管道运行失败。
+
+- **建议**：检查 Azure 机器学习中的其他错误日志，然后修复 ML 管道。
 
 ## <a name="common"></a>通用
 
@@ -173,7 +362,7 @@ ms.locfileid: "90523977"
 
 - **建议**：验证尝试访问的终结点是否响应请求。 可以使用 Fiddler/Postman 等工具。
 
-## <a name="custom"></a>“自定义”
+## <a name="custom"></a>自定义
 
 下表适用于 Azure Batch。
  
@@ -255,79 +444,30 @@ ms.locfileid: "90523977"
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>错误代码：200
-
-- **消息**：`Unexpected error happened: '%error;'.`
-
-- **原因：** 出现内部服务问题。
-
-- **建议**：请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-201"></a>错误代码：201
-
-- **消息**：`JobType %jobType; is not found.`
-
-- **原因：** 某个新作业类型不受 ADF 的支持。
-
-- **建议**：请联系 ADF 支持团队以获得更多帮助。
-
-### <a name="error-code-202"></a>错误代码：202
-
-- **消息**：`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **原因：** 错误消息包含问题的详细信息。
-
-- **建议**：错误消息中的详细信息应有助于排查问题。 如果没有足够的信息，请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-203"></a>错误代码：203
-
-- **消息**：`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **原因：** 错误消息包含问题的详细信息。
-
-- **建议**：错误消息中的详细信息应有助于排查问题。 如果没有足够的信息，请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-204"></a>错误代码：204
-
-- **消息**：`The resumption token is missing for runId '%runId;'.`
-
-- **原因：** 出现内部服务问题。
-
-- **建议**：请联系 ADF 支持人员以获得更多帮助。
-
-### <a name="error-code-205"></a>错误代码：205
-
-- **消息**：`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **原因：** 创建 HDI 按需群集时出错。
-
-- **建议**：请联系 ADF 支持人员以获得更多帮助。
-
 ### <a name="error-code-206"></a>错误代码：206
 
-- **消息**：`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **消息**：`The batch ID for Spark job is invalid. Please retry your job.`
 
 - **原因：** 导致此错误的服务出现了内部问题。
 
-- **建议**：此问题可能是暂时性的。 请重试作业，如果问题依旧出现，请联系 ADF 支持人员以获得更多帮助。
+- **建议**：此问题可能是暂时性的。 请在一段时间后重试作业。
 
 ### <a name="error-code-207"></a>错误代码：207
 
-- **消息**：`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **消息**：`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **原因：** 尝试从主存储帐户确定区域时出现内部错误。
 
-- **建议**：尝试另一个存储。 如果此解决方法不可接受，请联系 ADF 支持团队以获得更多帮助。
+- **建议**：尝试另一个存储。 
 
 ### <a name="error-code-208"></a>错误代码：208
 
-- **消息**：`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **消息**：`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **原因：** 尝试读取服务主体或实例化 MSI 身份验证时出现内部错误。
 
-- **建议**：请考虑提供一个有权在所提供订阅中创建 HDInsight 群集的服务主体，然后重试。 验证是否[正确设置了托管标识](/hdinsight/hdinsight-managed-identities)。
+- **建议**：请考虑提供一个有权在所提供订阅中创建 HDInsight 群集的服务主体，然后重试。 验证是否[正确设置了托管标识](../hdinsight/hdinsight-managed-identities.md)。
 
-   如果此解决方法不可接受，请联系 ADF 支持团队以获得更多帮助。
 
 ### <a name="error-code-2300"></a>错误代码：2300
 
@@ -337,7 +477,7 @@ ms.locfileid: "90523977"
 
 - **建议**：验证是否未删除该群集且提供的 URI 正确。 在浏览器中打开该 URI 时，应会看到 Ambari UI。 如果该群集位于虚拟网络中，则 URI 应是专用 URI。 若要打开该 URI，请使用同一虚拟网络中的虚拟机 (VM)。
 
-   有关详细信息，请参阅[直接连接到 Apache Hadoop 服务](/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)。
+   有关详细信息，请参阅[直接连接到 Apache Hadoop 服务](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services)。
  
  </br>
 
@@ -345,9 +485,9 @@ ms.locfileid: "90523977"
 
 - **建议**：这可能是普通的 HDInsight 连接问题或网络连接问题。 首先确认是否可以从任何浏览器打开 HDInsight Ambari UI。 然后检查凭据是否仍然有效。
    
-   如果使用自承载集成运行时 (IR)，请从安装了自承载 IR 的 VM 或计算机执行此步骤。 然后再次尝试从数据工厂提交作业。 如果仍然失败，请联系数据工厂团队以获得支持。
+   如果使用自承载集成运行时 (IR)，请从安装了自承载 IR 的 VM 或计算机执行此步骤。 然后再次尝试从数据工厂提交作业。
 
-   有关详细信息，请阅读 [Ambari Web UI](/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui)。
+   有关详细信息，请阅读 [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui)。
 
  </br>
 
@@ -355,7 +495,7 @@ ms.locfileid: "90523977"
 
 - **建议**：更正凭据，然后重新部署链接服务。 首先在任何浏览器中打开群集 URI 并尝试登录，以便验证凭据在 HDInsight 中是否有效。 如果凭据无效，可从 Azure 门户重置凭据。
 
-   对于 ESP 群集，可通过[自助式密码重置](/active-directory/user-help/active-directory-passwords-update-your-own-password)来重置密码。
+   对于 ESP 群集，可通过[自助式密码重置](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)来重置密码。
 
  </br>
 
@@ -371,8 +511,8 @@ ms.locfileid: "90523977"
        有关详细信息，请参阅 Azure HDInsight 故障排除文档。 例如：
 
        * [Ambari UI 502 错误](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
-       * [Apache Spark Thrift 服务器的 RpcTimeoutException](/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
-       * [排查应用程序网关中的网关无效错误](/application-gateway/application-gateway-troubleshooting-502)
+       * [Apache Spark Thrift 服务器的 RpcTimeoutException](../hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception.md)
+       * [排查应用程序网关中的网关无效错误](../application-gateway/application-gateway-troubleshooting-502.md)
 
  </br>
 
@@ -380,7 +520,7 @@ ms.locfileid: "90523977"
 
 - **建议**：限制提交到 HDInsight 的并发作业数。 如果这些作业是同一活动提交的，请参阅“数据工厂活动并发性”。 更改触发器，以将并发管道运行分散到不同的时间。
 
-   请参阅 [HDInsight 文档](/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors)，根据错误中的建议调整 `templeton.parallellism.job.submit`。
+   请参阅 [HDInsight 文档](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md)，根据错误中的建议调整 `templeton.parallellism.job.submit`。
 
 ### <a name="error-code-2301"></a>错误代码：2301
 
@@ -406,7 +546,7 @@ ms.locfileid: "90523977"
        1. 有关警报的详细信息以及警报解决方法，请参阅[管理和监视群集](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html)。
     1. 检查 YARN 内存。 如果 YARN 内存很高，作业处理可能会延迟。 如果没有足够的资源来适应 Spark 应用程序/作业，请纵向扩展群集，以确保群集具有足够的内存和核心。 
  1. 运行示例测试作业。
-    1. 如果在 HDInsight 后端运行相同的作业，请检查该作业是否成功。 有关示例运行的示例，请参阅[运行 HDInsight 随附的 MapReduce 示例](/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. 如果在 HDInsight 后端运行相同的作业，请检查该作业是否成功。 有关示例运行的示例，请参阅[运行 HDInsight 随附的 MapReduce 示例](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. 如果作业在 HDInsight 上仍然失败，请检查要提供给支持人员的应用程序日志和信息：
     1. 检查作业是否已提交到 YARN。 如果作业尚未提交到 YARN，请使用 `--master yarn`。
     1. 如果应用程序已执行完毕，请收集 YARN 应用程序的开始时间和结束时间。 如果应用程序尚未执行完毕，请收集开始时间/启动时间。
@@ -428,7 +568,7 @@ ms.locfileid: "90523977"
        1. 有关警报的详细信息以及警报解决方法，请参阅[管理和监视群集](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html)。
     1. 检查 YARN 内存。 如果 YARN 内存很高，作业处理可能会延迟。 如果没有足够的资源来适应 Spark 应用程序/作业，请纵向扩展群集，以确保群集具有足够的内存和核心。 
  1. 运行示例测试作业。
-    1. 如果在 HDInsight 后端运行相同的作业，请检查该作业是否成功。 有关示例运行的示例，请参阅[运行 HDInsight 随附的 MapReduce 示例](/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. 如果在 HDInsight 后端运行相同的作业，请检查该作业是否成功。 有关示例运行的示例，请参阅[运行 HDInsight 随附的 MapReduce 示例](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. 如果作业在 HDInsight 上仍然失败，请检查要提供给支持人员的应用程序日志和信息：
     1. 检查作业是否已提交到 YARN。 如果作业尚未提交到 YARN，请使用 `--master yarn`。
     1. 如果应用程序已执行完毕，请收集 YARN 应用程序的开始时间和结束时间。 如果应用程序尚未执行完毕，请收集开始时间/启动时间。
@@ -460,7 +600,7 @@ ms.locfileid: "90523977"
 
 - **建议**：错误消息应有助于识别问题。 请修复 JSON 配置，然后重试。
 
-   有关详细信息，请查看 [Azure HDInsight 按需链接服务](/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service)。
+   有关详细信息，请查看 [Azure HDInsight 按需链接服务](./compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。
 
 ### <a name="error-code-2310"></a>错误代码：2310
 
@@ -577,8 +717,8 @@ ms.locfileid: "90523977"
    1. 确认已正确设置 ODBC/Java Database Connectivity (JDBC) 连接。
       1. 对于 JDBC，如果使用相同的虚拟网络，则可以从以下位置获取此连接：<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. 若要确保正确设置 JDBC，请参阅[在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive](/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver)。
-      1. 对于开放式数据库 (ODB)，请参阅[教程：使用 ODBC 和 PowerShell 查询 Apache Hive](/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) 以确保设置正确。 
+      1. 若要确保正确设置 JDBC，请参阅[在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md)。
+      1. 对于开放式数据库 (ODB)，请参阅[教程：使用 ODBC 和 PowerShell 查询 Apache Hive](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) 以确保设置正确。 
    1. 验证 Hiveserver2、Hive 元存储和 Hiveserver2 Interactive 是否处于活动运行状态。 
    1. 检查 Ambari 用户界面 (UI)：
       1. 确保所有服务仍在运行。
@@ -597,8 +737,8 @@ ms.locfileid: "90523977"
    1. 确认已正确设置 ODBC/Java Database Connectivity (JDBC) 连接。
       1. 对于 JDBC，如果使用相同的虚拟网络，则可以从以下位置获取此连接：<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. 若要确保正确设置 JDBC，请参阅[在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive](/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver)。
-      1. 对于开放式数据库 (ODB)，请参阅[教程：使用 ODBC 和 PowerShell 查询 Apache Hive](/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) 以确保设置正确。 
+      1. 若要确保正确设置 JDBC，请参阅[在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md)。
+      1. 对于开放式数据库 (ODB)，请参阅[教程：使用 ODBC 和 PowerShell 查询 Apache Hive](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) 以确保设置正确。 
    1. 验证 Hiveserver2、Hive 元存储和 Hiveserver2 Interactive 是否处于活动运行状态。 
    1. 检查 Ambari 用户界面 (UI)：
       1. 确保所有服务仍在运行。
@@ -653,8 +793,6 @@ ms.locfileid: "90523977"
 - **原因：** 活动不支持存储链接服务类型。
 
 - **建议**：验证所选的链接服务是否为活动支持的类型之一。 HDI 活动支持 AzureBlobStorage 和 AzureBlobFSStorage 链接服务。
-
-   有关详细信息，请阅读[可与 Azure HDInsight 群集配合使用的存储选项的比较](/hdinsight/hdinsight-hadoop-compare-storage-options)
 
 ### <a name="error-code-2355"></a>错误代码：2355
 
@@ -749,35 +887,40 @@ ms.locfileid: "90523977"
 
 1. 下载、安装并打开 [Fiddler](https://www.telerik.com/download/fiddler)。
 
-1. 如果 Web 应用程序使用 HTTPS，请转到“工具” > “Fiddler 选项” > “HTTPS”。**** **** ****
+1. 如果 Web 应用程序使用 HTTPS，请转到“工具” > “Fiddler 选项” > “HTTPS”。  
 
-   1. 在“HTTPS”选项卡中，选择“捕获 HTTPS 连接”和“解密 HTTPS 流量”。**** ****
+   1. 在“HTTPS”选项卡中，选择“捕获 HTTPS 连接”和“解密 HTTPS 流量”。 
 
       ![Fiddler 选项](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. 如果应用程序使用 TLS/SSL 证书，请将 Fiddler 证书添加到设备。
 
-   请转到：“工具” > “Fiddler 选项” > “HTTPS” > “操作” > “将根证书导出到桌面”。**** **** **** **** > ****
+   请转到：“工具” > “Fiddler 选项” > “HTTPS” > “操作” > “将根证书导出到桌面”。    > 
 
-1. 转到“文件” > “捕获流量”来关闭捕获。**** **** 或者按 **F12**。
+1. 转到“文件” > “捕获流量”来关闭捕获。  或者按 **F12**。
 
 1. 清除浏览器缓存以删除所有已缓存的项；必须重新下载这些项。
 
 1. 创建请求：
 
-1. 选择“编辑器”选项卡。****
+1. 选择“编辑器”选项卡。
 
    1. 设置 HTTP 方法和 URL。
  
    1. 根据需要添加标头和请求正文。
 
-   1. 选择“执行”****。
+   1. 选择“执行”。
 
 1. 再次打开流量捕获，并在页面上完成出问题的事务。
 
-1. 请转到：“文件” > “保存” > “所有会话”。**** **** ****
+1. 请转到：“文件” > “保存” > “所有会话”。  
 
 有关详细信息，请参阅 [Fiddler 入门](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)。
+
+## <a name="general"></a>常规
+
+### <a name="activity-stuck-issue"></a>活动停滞问题
+如果观察到活动运行的时间比正常运行的时间长得多，并且几乎没有任何进展，则可能是停滞。 你可以尝试取消它，然后重试，看是否有帮助。 如果是复制活动，则可以参阅[排查复制活动的性能问题](copy-activity-performance-troubleshooting.md)一文，了解性能监视和故障排除。
 
 ## <a name="next-steps"></a>后续步骤
 

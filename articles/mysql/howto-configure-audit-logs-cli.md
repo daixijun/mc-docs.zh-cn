@@ -4,15 +4,16 @@ description: 本文介绍如何从 Azure CLI 配置和访问 Azure Database for 
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
-origin.date: 4/13/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: a1c0d295db58cbfb59afe1f4abf5909660458afe
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.topic: how-to
+origin.date: 6/24/2020
+ms.date: 11/23/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d8e84fea7304329d5d3f885f752b0bf02306c549
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440448"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977331"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>在 Azure CLI 中配置和访问审核日志
 
@@ -23,12 +24,13 @@ ms.locfileid: "86440448"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要逐步执行本操作方法指南，需要：
+若要逐步执行本操作指南：
 
-- [Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-portal.md)
+- 需要 [Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-portal.md)。
 
-> [!IMPORTANT]
-> 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。 
 
 ## <a name="configure-audit-logging"></a>配置审核日志记录
 
@@ -42,7 +44,7 @@ ms.locfileid: "86440448"
     az mysql server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. 通过更新 **audit_log_events** 参数，选择要记录的[事件类型](concepts-audit-logs.md#configure-audit-logging)。
+1. 通过更新 **audit_log_events** 参数，选择要记录的 [事件类型](concepts-audit-logs.md#configure-audit-logging)。
     ```azurecli
     az mysql server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

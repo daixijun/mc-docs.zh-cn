@@ -2,22 +2,22 @@
 title: 创建 UI 定义元素
 description: 介绍了为 Azure 门户构造 UI 定义时要使用的元素。
 ms.topic: conceptual
-origin.date: 07/13/2020
+origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 885967d3828a138c7cc69977469b9a0821db0747
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 179f0a781ae68d6591036fe6d924c15f57be5f9b
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146585"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915121"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 元素
 
-本文介绍了 CreateUiDefinition 的所有受支持元素的架构和属性。 
+本文介绍了 CreateUiDefinition 的所有受支持元素的架构和属性。
 
 ## <a name="schema"></a>架构
 
@@ -59,6 +59,7 @@ ms.locfileid: "91146585"
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.ServicePrincipalSelector](microsoft-common-serviceprincipalselector.md)
 - [Microsoft.Common.Slider](microsoft-common-slider.md)
 - [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
@@ -66,6 +67,7 @@ ms.locfileid: "91146585"
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.KeyVault.KeyVaultCertificateSelector](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft.ManagedIdentity.IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
@@ -73,6 +75,7 @@ ms.locfileid: "91146585"
 - [Microsoft.Solutions.ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft.Storage.StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## <a name="next-steps"></a>后续步骤
 

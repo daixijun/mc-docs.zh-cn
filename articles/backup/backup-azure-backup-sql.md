@@ -4,14 +4,14 @@ description: 有关使用 Azure 备份服务备份 SQL Server 数据库的简介
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 10/18/2018
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: af57902a37b385d371b91639c43dd3e973a3f47b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 789cac9252c0479bf16b15af428cefe0b1fb9c8f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871475"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977635"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>将 SQL Server 备份到 Azure 作为 DPM 工作负荷
 
@@ -26,7 +26,8 @@ ms.locfileid: "91871475"
 1. 从 Azure 恢复数据库。
 
 >[!NOTE]
->DPM 2019 UR2 支持使用群集共享卷 (CSV) 的 SQL Server 故障转移群集实例 (FCI)。
+>DPM 2019 UR2 支持使用群集共享卷 (CSV) 的 SQL Server 故障转移群集实例 (FCI)。<br><br>
+>此功能支持保护 [Azure 上使用存储空间直通的 SQL Server 故障转移群集实例](/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)。 DPM 服务器必须部署在 Azure 虚拟机中，才能保护在 Azure VM 上部署的 SQL FCI 实例。 
 
 ## <a name="prerequisites-and-limitations"></a>先决条件和限制
 
@@ -176,7 +177,7 @@ ms.locfileid: "91871475"
 
 若要从 Azure 恢复受保护的实体（例如某个 SQL Server 数据库）：
 
-1. 打开 DPM 服务器管理控制台。 转到“恢复”工作区查看 DPM 备份的服务器。 选择数据库（在本示例中为 ReportServer$MSDPM2012）。 选择以 **Online** 结尾的**恢复时间**。
+1. 打开 DPM 服务器管理控制台。 转到“恢复”工作区查看 DPM 备份的服务器。 选择数据库（在本示例中为 ReportServer$MSDPM2012）。 选择以 **Online** 结尾的 **恢复时间**。
 
     ![选择恢复点](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 1. 右键单击数据库名称并选择“恢复”。

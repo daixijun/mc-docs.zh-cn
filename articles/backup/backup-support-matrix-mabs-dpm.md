@@ -3,15 +3,15 @@ title: MABS 和 System Center DPM 支持矩阵
 description: 本文汇总了使用 Microsoft Azure 备份服务器 (MABS) 或 System Center DPM 备份本地和 Azure VM 资源时的 Azure 备份支持。
 author: Johnnytechn
 origin.date: 02/17/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.author: v-johya
-ms.openlocfilehash: d6b44bf2b9bd3e55c4692f811a36850b2e89fd53
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 756eb47765af822de88df64fe66790b42943ed26
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977365"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 备份服务器或 System Center DPM 进行备份时的支持矩阵
 
@@ -63,7 +63,7 @@ DPM 和 MABS 支持备份各种应用、服务器和客户端操作系统。 它
 
 **部署** | **支持** | **详细信息**
 --- | --- | ---
-**本地部署** | 物理服务器<br/><br/>Hyper-V VM<br/><br/> VMware VM | 如果将 DPM/MABS 安装为 VMware VM，它只会备份 VMware VM，以及这些 VM 上运行的工作负荷。
+**本地部署** | 物理服务器<br/><br/>Hyper-V VM<br/><br/> VMware VM | 有关更多详细信息，请参阅[保护矩阵](backup-mabs-protection-matrix.md)。 
 **部署为 Azure Stack VM** | 仅限 MABS | 不能使用 DPM 来备份 Azure Stack VM。
 **部署为 Azure VM** | 保护 Azure VM，以及这些 VM 上运行的工作负荷。 | Azure 中运行的 DPM/MABS 无法备份本地计算机。
 
@@ -117,10 +117,10 @@ Azure 备份可以备份运行以下任何操作系统的 DPM/MABS 实例。 操
 DPM 服务器/MABS 需要以下 URL 的访问权限：
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.cn
-- *.partner.microsoftonline.cn
-- *.chinacloudapi.cn
+- `*.Microsoft.com`
+- `*.WindowsAzure.cn`
+- `*.partner.microsoftonline.cn`
+- `*.chinacloudapi.cn`
 
 ### <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 
@@ -130,7 +130,7 @@ DPM 服务器/MABS 需要以下 URL 的访问权限：
 
 - `http://www.msftncsi.com/ncsi.txt`
 - `microsoft.com`
-- `.WindowsAzure.com`
+- `.WindowsAzure.cn`
 - `.partner.microsoftonline.cn`
 - `.chinacloudapi.cn`
 

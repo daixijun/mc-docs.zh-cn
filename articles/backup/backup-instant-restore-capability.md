@@ -5,14 +5,14 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: d05af27b5545592f008d760c33de1b82fb48abdb
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 9f8af1a74e2460bfceaa8397de088ed879805a7f
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402650"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977272"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
@@ -55,8 +55,7 @@ ms.locfileid: "91402650"
 
 ## <a name="cost-impact"></a>成本影响
 
-增量快照存储在 VM 的存储帐户中，用于即时恢复。 使用增量快照意味着快照占用的空间等于创建该快照后写入的页面所占用的空间。 仍然对快照占用的每 GB 使用空间计费，每 GB 价格与[定价页](https://www.azure.cn/pricing/details/storage/managed-disks/index.html)上提到的价格相同。 对于使用非托管磁盘的 VM，可以在每个磁盘的 VHD 文件的菜单中看到快照。 对于托管磁盘，快照存储在指定资源组的还原点集合资源中，并且快照本身不直接可见。
-<!--Correct in China: https://www.azure.cn/pricing/details/storage/managed-disks/index.html-->
+增量快照存储在 VM 的存储帐户中，用于即时恢复。 使用增量快照意味着快照占用的空间等于创建该快照后写入的页面所占用的空间。 仍然对快照占用的每 GB 使用空间计费，每 GB 价格与[定价页](https://www.azure.cn/pricing/details/storage/managed-disks/index.html)上提到的价格相同。 对于使用非托管磁盘的 VM，可以在每个磁盘的 VHD 文件的菜单中看到快照。 对于托管磁盘，快照将存储在指定资源组的还原点集合资源中，并且快照本身不直接可见。
 
 >[!NOTE]
 > 就每周策略来说，快照保留期固定为 5 天。

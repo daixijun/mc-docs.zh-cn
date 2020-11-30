@@ -11,18 +11,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: eb469714ba7292f910b6cc96eb2812396f0c973a
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 6f88653acc27d48939ef52529a78bcbf33d8d66e
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871415"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977105"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>添加缓存以提高 Azure API 管理中的性能
 
-API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减少 API 延迟、带宽消耗和不经常更改数据的 web 服务负载。
+API 管理中的 API 和操作可以使用响应缓存进行配置。 响应缓存可以显著减少 API 调用方的延迟和 API 提供程序的后端负载。
+
+> [!IMPORTANT]
+> 内置缓存是易失性的，由同一 API 管理服务中同一区域的所有单元共享。
 
 若要更详细地了解缓存，请参阅 [API 管理缓存策略](api-management-caching-policies.md)和 [Azure API 管理中的自定义缓存](api-management-sample-cache-by-key.md)。
 
@@ -37,7 +40,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 ## <a name="availability"></a>可用性
 
 > [!NOTE]
-> 内部缓存在 Azure API 管理的“消耗”层中不可用。 可以改为[使用外部 Azure Redis 缓存](api-management-howto-cache-external.md)。
+> 内部缓存在 Azure API 管理的“消耗”层中不可用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -76,10 +79,7 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
    <cache-store duration="20" />
    ```
 
-    **持续时间**指定缓存响应的到期时间间隔。 此示例中的时间间隔为 **20** 秒。
-
-> [!TIP]
-> 如果使用的是外部缓存，如[在 Azure API 管理中使用外部 Azure Redis 缓存](api-management-howto-cache-external.md)中所述，可能需要指定缓存策略的 `caching-type` 属性。 有关更多详细信息，请参阅 [API 管理缓存策略](api-management-caching-policies.md)。
+    **持续时间** 指定缓存响应的到期时间间隔。 此示例中的时间间隔为 **20** 秒。
 
 ## <a name="call-an-operation-and-test-the-caching"></a><a name="test-operation"> </a>调用操作和测试缓存
 若要查看作用的缓存，请从开发人员门户调用操作。
@@ -94,7 +94,6 @@ API 管理中的操作可以配置为响应缓存。 响应缓存可以显著减
 ## <a name="next-steps"></a><a name="next-steps"> </a>后续步骤
 * 有关缓存策略的详细信息，请参阅 [API 管理策略参考][API Management policy reference]中的[缓存策略][Caching policies]。
 * 有关使用策略表达式按密钥缓存项目的信息，请参阅 [Azure API 管理中的自定义缓存](api-management-sample-cache-by-key.md)。
-* 有关使用外部 Azure Redis 缓存的详细信息，请参阅[在 Azure API 管理中使用外部 Azure Redis 缓存](api-management-howto-cache-external.md)。
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

@@ -4,14 +4,14 @@ description: 此数据模型参考了将诊断事件发送到 Log Analytics (LA)
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/30/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: ebd800ae0ad355d0588f7a463e06deb86106ccb2
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: c5782e4ef648ca9fa60aed5a48fc89356444646b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402382"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977611"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure 备份诊断事件的数据模型
 
@@ -220,6 +220,29 @@ ms.locfileid: "91402382"
 | VaultUniqueId                  | 文本          | 用于标识与存储实体相关的保管库的唯一 ID |
 | VolumeFriendlyName             | 文本          | 存储卷的友好名称                          |
 | SourceSystem                   | 文本          | 当前数据的源系统 - Azure                    |
+
+## <a name="valid-operation-names-for-each-table"></a>每个表的有效操作名称
+
+上述表中每条记录都有关联的操作名称。 操作名称描述记录的类型（也指示会为该记录填充表中的哪些字段）。 每个表（类别）都支持一个或多个非重复的操作名称。 下面汇总了上述每个表支持的操作名称。
+
+| **表名称/类别**                   | **支持的操作名称** | **描述**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | 表示一条记录，其中包含给定备份项的所有详细信息，如 ID、名称、类型等。 |
+| CoreAzureBackup | BackupItemAssociation | 表示备份项与关联的受保护容器之间的映射（如果适用）。 |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | 表示备份项与其前端大小之间的映射。 |
+| CoreAzureBackup | ProtectedContainer | 表示一条记录，其中包含给定的受保护容器的所有详细信息，如 ID、名称、类型等。 |
+| CoreAzureBackup | ProtectedContainerAssociation | 表示受保护的容器与用于其备份的保管库之间的映射。 |
+| CoreAzureBackup | 保管库 | 表示一个记录，其中包含给定保管库的所有详细信息，例如， ID、名称、标记、位置等。 |
+| CoreAzureBackup | RecoveryPoint | 表示一个记录，其中包含给定备份项的最早和最新的恢复点。 |
+| AddonAzureBackupJobs | 作业 |  表示一个记录，其中包含给定作业的所有详细信息。 例如，作业操作、开始时间、状态等。 |
+| AddonAzureBackupAlerts | 警报 | 表示一个记录，其中包含给定警报的所有详细信息。 例如，警报创建时间、严重性、状态等。  |
+| AddonAzureBackupStorage | 存储 | 表示一个记录，其中包含给定存储实体的所有详细信息。 例如，存储名称、类型等。 |
+| AddonAzureBackupStorage | StorageAssociation | 表示备份项与该备份项消耗的云存储总量之间的映射。 |
+| AddonAzureBackupProtectedInstance | ProtectedInstance | 表示一个记录，其中包含每个容器或备份项的受保护实例的计数。 对于 Azure VM 备份，受保护实例的计数在备份项级别提供；对于其他工作负荷，它在受保护容器级别提供。 |
+| AddonAzureBackupPolicy | 策略 |  表示一个记录，其中包含备份和保留策略的所有详细信息。 例如，ID、名称、保留设置等。 |
+| AddonAzureBackupPolicy | PolicyAssociation | 表示备份项和应用到该项的备份策略之间的映射。 |   
+
+通常，你需要在不同表之间以及属于同一个表的不同记录集（按操作名称区分）之间执行联接，以获取分析所需的所有字段。 若要开始使用，请参阅[示例查询](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)。 
 
 ## <a name="next-steps"></a>后续步骤
 

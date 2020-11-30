@@ -1,18 +1,18 @@
 ---
-title: 使用 PowerShell 创建自定义探测 - Azure 应用程序网关
+title: 使用经典部署模型创建自定义探测 - Azure 应用程序网关
 description: 了解如何使用经典部署模型中的 PowerShell 创建应用程序网关的自定义探测
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 04/26/2020
+ms.topic: how-to
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: ac055e61dd7ca90ba0db55c54d5f839ce358fdcb
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: 02901bf9ac9b015a280819f5b19f74f4bc13b64a
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267570"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849330"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
@@ -149,7 +149,7 @@ Get-AzureApplicationGateway AppGwTest
 | **超时** | 定义 HTTP 响应检查的探测超时。|
 | **UnhealthyThreshold** | 将后端实例标记为“不正常”  所需的失败 HTTP 响应数目。|
 
-\<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
+在 \<BackendHttpSettings\> 配置中引用探测名称，以分配使用自定义探测设置的后端池。
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>将自定义探测添加到现有应用程序网关
 
@@ -200,8 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>后续步骤
 
-如果要配置传输层安全性 (TLS)（以前称为“安全套接字层 (SSL)”）卸载，请参阅[配置应用程序网关以进行 TLS 卸载](application-gateway-ssl.md)。
+如果要配置传输层安全性 (TLS)（以前称为“安全套接字层 (SSL)”）卸载，请参阅[配置应用程序网关以进行 TLS 卸载](./tutorial-ssl-powershell.md)。
 
-如果要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](application-gateway-ilb.md)。
-
+如果要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb-arm.md)。
 

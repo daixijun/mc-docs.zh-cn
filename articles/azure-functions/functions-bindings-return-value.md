@@ -3,14 +3,15 @@ title: 使用 Azure 函数的返回值
 description: 了解如何管理 Azure 函数的返回值
 author: craigshoemaker
 ms.topic: reference
-ms.date: 12/04/2019
+ms.custom: devx-track-csharp
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: d62b2ca10a6f9ac76ee53dec241c2c725fcbd9e4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: be553e0c4140273c08c465f9d5589ea64f6f94a3
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884936"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849396"
 ---
 # <a name="using-the-azure-function-return-value"></a>使用 Azure 函数返回值
 
@@ -129,6 +130,27 @@ module.exports = function (context, input) {
     context.done(null, json);
 }
 ```
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+下面是 *function.json* 文件中的输出绑定：
+
+```json
+{
+    "name": "Response",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{blobname}"
+}
+```
+
+以下 PowerShell 代码使用 http 输出绑定的返回值：
+
+```powershell
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $blobname
+    })
+```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -155,4 +177,3 @@ public static String run(
 > [!div class="nextstepaction"]
 > [处理 Azure Functions 绑定错误](./functions-bindings-errors.md)
 
-<!-- Update_Description: wording update -->

@@ -2,13 +2,13 @@
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 13323c994cd95850bc34a90fb305c0b948d77d03
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/18/2020
+ms.openlocfilehash: 42c56360eeda1bbf1043132237ab2f2ebe83a9d5
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472698"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849375"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -116,6 +116,11 @@ host.json 中与绑定相关的配置将同样地应用于函数应用中的每�
     },
     "managedDependency": {
         "enabled": true
+    },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -336,7 +341,7 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 
 ## <a name="manageddependency"></a>managedDependency
 
-托管依赖项是一项功能，目前仅支持基于 PowerShell 的函数。 它使依赖项可以由服务自动管理。 `enabled` 属性设置为 `true` 时，`requirements.psd1` 文件会被处理。 发布任何次要版本时会更新依赖项。 
+托管依赖项是一项功能，目前仅支持基于 PowerShell 的函数。 它使依赖项可以由服务自动管理。 `enabled` 属性设置为 `true` 时，`requirements.psd1` 文件会被处理。 发布任何次要版本时会更新依赖项。 有关详细信息，请参阅 PowerShell 文章中的[托管依赖项](functions-reference-powershell.md#dependency-management)。
 
 ```json
 {
@@ -349,6 +354,28 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 ## <a name="queues"></a>queues
 
 可在[存储队列触发器和绑定](functions-bindings-storage-queue-output.md#host-json)中查找设置。  
+
+## <a name="retry"></a>retry
+
+控制应用中所有执行的[重试策略](./functions-bindings-error-pages.md#retry-policies-preview)选项。
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|properties  |默认 | 描述 |
+|---------|---------|---------| 
+|strategy|null|必需。 要使用的重试策略。 有效值为 `fixedDelay` or `exponentialBackoff`进行求值的基于 SQL 语言的筛选器表达式。|
+|maxRetryCount|null|必需。 每个函数执行允许的最大重试次数。 `-1` 表示无限重试。|
+|delayInterval|null|使用 `fixedDelay` 策略时在重试之间使用的延迟。|
+|minimumInterval|null|使用 `exponentialBackoff` 策略时的最小重试延迟。|
+|maximumInterval|null|使用 `exponentialBackoff` 策略时的最大重试延迟。| 
 
 ## <a name="sendgrid"></a>SendGrid
 

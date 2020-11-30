@@ -5,15 +5,15 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 10/16/2020
-ms.date: 11/02/2020
+origin.date: 10/29/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: a4aa88f2f36a97ede2bde2e357f51008052868f3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c331deb90a2afe985c2ad283790cd7238eb9fbc5
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680489"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -524,7 +524,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 然后，你可以通过删除筛选器来获取客户端与数据工厂服务器之间的对话。
 
     ![获取对话](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
-- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值** （摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
+- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值**（摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
 
     默认 TTL 和跃点限制值在不同的操作系统中有所不同，下面是一些操作系统的默认值：
     - Linux 内核 2.4 (circa 2001)：对于 TCP、UDP 和 ICMP，该值为 255
@@ -593,34 +593,69 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>接收电子邮件以更新网络配置，以允许与新 IP 地址进行通信
 
-#### <a name="symptoms"></a>症状
+#### <a name="email-notification-from-microsoft"></a>来自 Microsoft 的电子邮件通知
 
 你可能会收到以下电子邮件通知，该通知建议于 2020 年 11 月 8 日之前更新网络配置，以允许与 Azure 数据工厂的新 IP 地址进行通信：
 
    ![电子邮件通知](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>解决方法
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>如何确定你是否受此通知的影响
 
-此通知适用于从 Integration Runtime（在本地或 Azure 虚拟专用网络中运行）到 ADF 服务的出站通信   。 例如，如果你在 Azure VNET 中具有需要访问 ADF 服务的自承载 IR 或 Azure-SQL Server Integration Services (SSIS) IR，则需要检查是否需要在“网络安全组 (NSG)”规则中添加此新 IP 范围。 如果出站 NSG 规则使用服务标记，则不会产生任何影响。
+此通知影响以下场景：
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>应用场景 1：在公司防火墙后在本地运行的自承载集成运行时的出站通信
+如何确定你是否受影响：
+- 如果你使用以下文档中所述的方法基于 FQDN 名称定义防火墙规则，则你不受影响：[防火墙配置和 IP 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)。
+- 不过，如果你在公司防火墙上显式启用了出站 IP 允许列表，则你会受影响。
 
-#### <a name="more-details"></a>更多详细信息
+受影响时要采取的操作：通知网络基础设施团队在 2020 年 11 月 8 日之前更新网络配置，以使用最新的数据工厂 IP 地址。  若要下载最新的 IP 地址，请转到[服务标记 IP 范围下载链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
-对于在本地网络或 Azure 虚拟网络中具有自承载 IR 或 SSIS IR 且需与 ADF 服务进行通信的方案，这些新 IP 范围仅影响从本地防火墙或 Azure 虚拟专用网络到 ADF 服务的出站通信规则（有关参考信息，请参阅[防火墙配置和 IP 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)）  。
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>应用场景 2：在客户管理的 Azure 虚拟网络内的 Azure VM 上运行的自承载集成运行时的出站通信
+如何确定你是否受影响：
+- 检查包含自承载集成运行时的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不受影响。
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。 
+ ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置中显式启用了出站 IP 地址的允许列表，则你会受影响。
 
-对于使用 Azure VPN 的现有用户：
+受影响时要采取的操作：通知网络基础设施团队在 2020 年 11 月 8 日之前更新 Azure 虚拟网络配置中的 NSG 规则，以使用最新的数据工厂 IP 地址。  若要下载最新的 IP 地址，请转到[服务标记 IP 范围下载链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
-1. 检查配置了 SSIS（又称 Azure SSIS）的专用网络中的所有出站 NSG 规则。 如果没有出站限制，则不会对其产生任何影响。
-1. 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。 
-  
-    ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>应用场景 3：客户管理的 Azure 虚拟网络中 SSIS Integration Runtime 的出站通信
+- 检查包含 SSIS Integration Runtime 的专用网络中是否有任何出站 NSG 规则。 如果没有出站限制，则不受影响。
+- 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。
+- 不过，如果你在 Azure 虚拟网络上的 NSG 规则设置中显式启用了出站 IP 地址的允许列表，则你会受影响。
 
-1. 如果直接在规则设置中使用 IP 地址，请检查是否添加了[服务标记 IP 范围下载链接](/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)中的所有 IP 范围。 我们已将新 IP 范围放入此文件中。 对于新用户：只需按照文档中的相关自承载 IR 或 SSIS IR 配置来配置 NSG 规则即可。
+受影响时要采取的操作：通知网络基础设施团队在 2020 年 11 月 8 日之前更新 Azure 虚拟网络配置中的 NSG 规则，以使用最新的数据工厂 IP 地址。  若要下载最新的 IP 地址，请转到[服务标记 IP 范围下载链接](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)。
 
-对于在本地具有 SSIS IR 或自承载 IR 的现有用户：
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>无法建立 SSL/TLS 安全通道的信任关系 
 
-- 与网络基础结构团队进行验证，查看团队是否需要为出站规则添加关于通信的新 IP 范围地址。
-- 对于基于 FQDN 名称的防火墙规则，使用[防火墙配置和 IP 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)中记载的设置时，无需进行更新。 
-- 某些本地防火墙支持服务标记，如果使用更新的 Azure 服务标记配置文件，则无需进行其他更改。
+#### <a name="symptoms"></a>症状
+
+自承载 IR 无法连接到 ADF 服务。
+
+检查 SHIR 事件日志或 CustomLogEvent 表中的客户端通知日志，你会发现以下错误消息：
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+如何检查 ADF 服务的服务器证书：
+
+最简单的方法是在浏览器中打开 ADF 服务 URL，例如，在安装了 SHIR 的计算机上打开 https://chinae2.frontend.datamovement.azure.cn/ ，然后查看服务器证书信息：
+
+  ![检查 ADF 服务的服务器证书](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![检查服务器证书路径](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>原因
+
+此问题有两个可能的原因：
+
+- ADF 服务服务器证书的根 CA 在安装了 SHIR 的计算机上不受信任。 
+- 你在环境中使用了代理，并且代理替换了 ADF 服务的服务器证书，而安装了 SHIR 的计算机不信任被替换的服务器证书。
+
+#### <a name="solution"></a>解决方案
+
+- 对于原因 1，请确保 ADF 服务器证书及其证书链在安装了 SHIR 的计算机上受信任。
+- 对于原因 2，请在 SHIR 计算机上信任被替换的根 CA，或者将代理配置为不替换 ADF 服务器证书。
+
+请参阅[此文](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate)来详细了解如何在 Windows 上信任证书。
 
 ## <a name="self-hosted-ir-sharing"></a>自承载 IR 共享
 

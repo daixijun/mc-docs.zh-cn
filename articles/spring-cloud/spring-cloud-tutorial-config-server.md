@@ -5,16 +5,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.author: v-junlch
 author: bmitchell287
-ms.date: 11/02/2020
+ms.date: 11/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b75984895537eb480890089a214caddf773099c4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 4873f609c508183088de7be222db98b5afdbc449
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328858"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849357"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>为服务设置 Spring Cloud 配置服务器实例
+
+
 
 本文介绍如何将 Spring Cloud 配置服务器实例连接到 Azure Spring Cloud 服务。
 
@@ -79,6 +81,9 @@ Azure Spring Cloud 支持使用 Azure DevOps、GitHub、GitLab 和 Bitbucket 来
 | `host-key`                 | 否     | Git 存储库服务器的主机密钥，不应包含 `host-key-algorithm` 涵盖的算法前缀。 |
 | `host-key-algorithm`       | 否     | 主机密钥算法应为 ssh-dss、ssh-rsa、ecdsa-sha2-nistp256、ecdsa-sha2-nistp384 或 ecdsa-sha2-nistp521    。 仅当存在 `host-key` 时，才是必需的。 |
 | `strict-host-key-checking` | 否     | 指示在利用专用 `host-key` 时配置服务器实例是否无法启动。 应为 true（默认值）或 false 。 |
+
+> [!NOTE]
+> 如果未指定，Config Server 会采用 `master`（om Git 本身）作为默认标签。 但 GitHub 最近已将默认分支从 `master` 更改为 `main`。 为了避免 Azure Spring Cloud Config Server 故障，在使用 GitHub 设置 Config Server 时，请注意默认标签，尤其是对于新创建的存储库。
 
 -----
 

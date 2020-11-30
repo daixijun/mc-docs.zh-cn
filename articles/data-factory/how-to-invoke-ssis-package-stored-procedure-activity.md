@@ -12,14 +12,15 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/10/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: fa54c27fa8b06a89e566966de9028408502fa128
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 537f7517f404464f92a1be89941f00e90851ae6c
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914314"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680446"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用存储过程活动运行 SSIS 包
 
@@ -33,7 +34,7 @@ ms.locfileid: "87914314"
 本文中的演练使用 Azure SQL 数据库来托管 SSIS 目录。 还可使用 Azure SQL 托管实例。
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>创建 Azure-SSIS 集成运行时
-如果还没有 Azure-SSIS 集成运行时，请按照[教程：部署 SSIS 包](tutorial-create-azure-ssis-runtime-portal.md)。
+如果还没有 Azure-SSIS 集成运行时，请按照[教程：部署 SSIS 包](./tutorial-deploy-ssis-packages-azure.md)。
 
 ## <a name="data-factory-ui-azure-portal"></a>数据工厂 UI（Azure 门户）
 在此部分中，将使用数据工厂 UI 创建数据工厂管道，管道中包含可调用 SSIS 包的存储过程活动。
@@ -46,7 +47,7 @@ ms.locfileid: "87914314"
 3. 在左侧菜单中单击“新建”，并依次单击“数据 + 分析”、“数据工厂”。 
    
    ![新建 -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为**名称**。 
+2. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为 **名称**。 
       
      ![“新建数据工厂”页](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
@@ -54,16 +55,16 @@ ms.locfileid: "87914314"
   
      ![名称不可用 - 错误](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. 选择要在其中创建数据工厂的 Azure **订阅**。 
-4. 对于**资源组**，请执行以下步骤之一：
+4. 对于 **资源组**，请执行以下步骤之一：
      
    - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
    - 选择“新建”，并输入资源组的名称。   
          
      若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
 4. 选择“V2”作为“版本”。
-5. 选择数据工厂的**位置**。 下拉列表中仅显示数据工厂支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库等）和计算资源（HDInsight 等）可以位于其他位置。
+5. 选择数据工厂的 **位置**。 下拉列表中仅显示数据工厂支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库等）和计算资源（HDInsight 等）可以位于其他位置。
 6. 选择“固定到仪表板”。     
-7. 单击**创建**。
+7. 单击 **创建**。
 8. 在仪表板上，你会看状态如下的以下磁贴：“正在部署数据工厂”。 
 
      ![“正在部署数据工厂”磁贴](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
@@ -78,7 +79,7 @@ ms.locfileid: "87914314"
 1. 在“入门”页中，单击“创建管道”： 
 
     ![“入门”页](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. 在“活动”工具箱中展开“常规”，将**存储过程**活动拖放到管道设计器图面。 
+2. 在“活动”工具箱中展开“常规”，将 **存储过程** 活动拖放到管道设计器图面。 
 
     ![拖放存储过程活动](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. 在存储过程活动的属性窗口中切换到“SQL 帐户”选项卡，然后单击“+ 新建”。 与托管 SSIS 目录（SSIDB 数据库）的 Azure SQL 数据库中的数据库建立连接。 
@@ -95,15 +96,15 @@ ms.locfileid: "87914314"
     7. 单击“测试连接”按钮，测试与数据库之间的连接。
     8. 单击“保存”按钮保存链接服务。 
 
-        ![Azure SQL 数据库链接服务](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![屏幕截图，显示了用于添加新链接服务的过程。](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 在属性窗口中，从“SQL 帐户”选项卡切换到“存储过程”选项卡，然后执行以下步骤： 
 
     1. 选择“编辑”。 
     2. 对于“存储过程名称”字段，输入 `sp_executesql`。 
     3. 在“存储过程参数”部分中单击“+ 新建”。 
     4. 对于参数的“名称”，输入“stmt”。 
-    5. 输入“字符串”作为参数**类型**。 
-    6. 输入以下 SQL 查询作为参数的**值**：
+    5. 输入“字符串”作为参数 **类型**。 
+    6. 输入以下 SQL 查询作为参数的 **值**：
 
         在 SQL 查询中，指定 **folder_name**、**project_name** 和 **package_name** 参数的右侧值。 
 
@@ -193,7 +194,7 @@ ms.locfileid: "87914314"
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-* 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须属于**参与者**或**所有者**角色，或者是 Azure 订阅的**管理员**。
+* 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须属于 **参与者** 或 **所有者** 角色，或者是 Azure 订阅的 **管理员**。
 * 若要查看目前提供数据工厂的 Azure 区域的列表，请在以下页面上选择感兴趣的区域，然后展开“分析”以找到“数据工厂”：[可用产品(按区域)](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>创建 Azure SQL 数据库链接服务

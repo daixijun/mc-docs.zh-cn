@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: troubleshooting
 origin.date: 07/05/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.service: backup
-ms.openlocfilehash: c7424852529ca61d7ac36ffe043988651de13a66
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 843c087defef7a157f4a3234196439e62a99fe16
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977609"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -46,13 +46,13 @@ ms.locfileid: "91402660"
 - **确保所有 Azure VM 扩展均处于“预配成功”状态**：如果任何扩展处于失败状态，则可能干扰备份。
 - 打开 Azure 门户>“VM”>“设置”>“扩展”>“扩展状态”，然后检查所有扩展是否都处于“预配成功”状态。
 - 确保所有[扩展问题](../virtual-machines/extensions/overview.md#troubleshoot-extensions)都已解决，然后重试备份操作。
-- **确保 COM+ 系统应用程序**已启动并正在运行。 此外，**分布式事务处理协调器服务**应以“网络服务帐户”身份运行。 请按照本文中的步骤[排查 COM+ 和 MSDTC 问题](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)。
+- **确保 COM+ 系统应用程序** 已启动并正在运行。 此外，**分布式事务处理协调器服务** 应以“网络服务帐户”身份运行。 请按照本文中的步骤[排查 COM+ 和 MSDTC 问题](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error)。
 
 ### <a name="step-4-check-azure-backup-vm-extension-health"></a>步骤 4：检查 Azure 备份 VM 扩展运行状况
 
 Azure 备份使用 VM 快照扩展获取 Azure 虚拟机的应用程序一致性备份。 Azure 备份将在启用备份后触发的首次计划备份期间安装该扩展。
 
-- **确保 VMSnapshot 扩展未处于失败状态**：请按照此[部分](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state)中列出的步骤验证并确保 Azure 备份扩展正常。
+- **确保 VMSnapshot 扩展未处于失败状态**：请按照此 [部分](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state)中列出的步骤验证并确保 Azure 备份扩展正常。
 
 - **检查防病毒软件是否在阻止扩展**：某些防病毒软件可能阻止扩展执行。
   
@@ -60,14 +60,14 @@ Azure 备份使用 VM 快照扩展获取 Azure 虚拟机的应用程序一致性
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **检查是否需要网络访问权限**：从 Azure 存储扩展存储库下载扩展包，并将扩展状态上传内容发布到 Azure 存储。 [了解详细信息](../virtual-machines/extensions/features-windows.md#network-access)。
+- 检查是否需要网络访问权限：从 Azure 存储扩展存储库下载扩展包，并将扩展状态上传内容发布到 Azure 存储。 [了解详细信息](../virtual-machines/extensions/features-windows.md#network-access)。
   - 如果使用不受支持的代理版本，则需要允许从 VM 对该区域中的 Azure 存储进行出站访问。
   - 如果已使用来宾防火墙或代理阻止对 `168.63.129.16` 的访问，则不管采用上述哪种方法，扩展都会失败。 需要端口 80、443 和 32526，[了解详细信息](../virtual-machines/extensions/features-windows.md#network-access)。
 
 - **确保已在来宾 VM 内启用 DHCP**：必须这样做才能从 DHCP 获取主机或构造地址，以便 IaaS VM 备份可以正常工作。 如果需要静态专用 IP，则应通过 Azure 门户或 PowerShell 进行配置，同时确保启用 VM 内的 DHCP 选项，[了解详细信息](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)。
 
-- **确保 VSS 编写器服务已启动并正在运行**：请按照以下步骤[排查 VSS 编写器问题](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)。
-- **遵循备份最佳做法准则**：查看[启用 Azure VM 备份的最佳做法](backup-azure-vms-introduction.md#best-practices)。
+- **确保 VSS 编写器服务已启动并正在运行**：请按照以下步骤 [排查 VSS 编写器问题](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state)。
+- **遵循备份最佳做法准则**：查看 [启用 Azure VM 备份的最佳做法](backup-azure-vms-introduction.md#best-practices)。
 - **查看加密磁盘准则**：如果要为具有加密磁盘的 VM 启用备份，请确保已提供所有必需的权限。 若要了解详细信息，请参阅[备份和还原加密的 Azure VM](backup-azure-vms-encryption.md)。
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 代理无法与 Azure 备份通信
@@ -77,10 +77,10 @@ Azure 备份使用 VM 快照扩展获取 Azure 虚拟机的应用程序一致性
 
 Azure VM 代理可能已停止、已过期、处于不一致状态或未安装。 这些状态会阻止 Azure 备份服务触发快照。
 
-- 打开 Azure 门户>“VM”>“设置”>“属性”窗格 > 确保 VM“状态”为“正在运行”，“代理状态”为“就绪”**** **** **** **** ****。 如果 VM 代理已停止或处于不一致状态，请重启代理<br>
+- 打开 Azure 门户>“VM”>“设置”>“属性”窗格 > 确保 VM“状态”为“正在运行”，“代理状态”为“就绪”    。 如果 VM 代理已停止或处于不一致状态，请重启代理<br>
   - 对于 Windows VM，请遵循以下[步骤](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)重启来宾代理。<br>
   - 对于 Linux VM，请遵循以下[步骤](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)重启来宾代理。
-- 打开 Azure 门户>“VM”>“设置”>“扩展”> 确保所有扩展均处于“预配成功”状态**** ****。 如果未处于该状态，请按照以下[步骤](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state)解决问题。
+- 打开 Azure 门户>“VM”>“设置”>“扩展”> 确保所有扩展均处于“预配成功”状态 。 如果未处于该状态，请按照以下[步骤](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state)解决问题。
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 无法与 VM 代理通信以获取快照状态
 
@@ -104,10 +104,9 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 **错误代码**：UserErrorVmProvisioningStateFailed<br>
 **错误消息**：VM 处于预配失败状态<br>
 
-当其中一个扩展失败将 VM 状态置于预配失败状态时，会发生此错误。<br>打开 Azure 门户>“VM”>“设置”>“扩展”>“扩展状态”，然后检查所有扩展是否都处于“预配成功”状态**** ****。 若要了解详细信息，请参阅[预配状态](../virtual-machines/states-lifecycle.md#provisioning-states)。
+当其中一个扩展失败将 VM 状态置于预配失败状态时，会发生此错误。<br>打开 Azure 门户>“VM”>“设置”>“扩展”>“扩展状态”，然后检查所有扩展是否都处于“预配成功”状态 。 若要了解详细信息，请参阅[预配状态](../virtual-machines/states-lifecycle.md#provisioning-states)。
 
-- 如果 VMSnapshot 扩展处于失败状态，则右键单击失败的扩展并将其删除。 触发按需备份。 此操作会重新安装扩展并运行备份作业。  <br>
-- 如果其他任何扩展处于失败状态，则可能会干扰备份。 确保这些扩展问题已解决，然后重试备份操作。
+- 如果任何扩展处于失败状态，则可能干扰备份。 确保这些扩展问题已解决，然后重试备份操作。
 - 如果 VM 预配状态处于“正在更新”状态，则可能会干扰备份。 确保它正常，然后重试备份操作。
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已达到还原点集合的最大限制
@@ -141,7 +140,7 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 完成以下故障排除步骤，然后重试操作：
 
-[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)****  
+[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)  
 
 ## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot 扩展操作失败
 
@@ -194,7 +193,7 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 **错误代码**：UserErrorCrpReportedUserError <br>
 **错误消息**：由于出现错误，备份失败。 有关详细信息，请参阅“作业错误消息详细信息”。
 
-此错误从 IaaS VM 报告。 若要确定问题的根本原因，请访问恢复服务保管库设置。 在“监视”部分选择“备份作业”，筛选并查看状态。**** **** 选择“失败”，查看基本错误消息详细信息。 根据错误详细信息页中的建议采取进一步操作。
+此错误从 IaaS VM 报告。 若要确定问题的根本原因，请访问恢复服务保管库设置。 在“监视”部分选择“备份作业”，筛选并查看状态。  选择“失败”，查看基本错误消息详细信息。 根据错误详细信息页中的建议采取进一步操作。
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - 备份失败：此虚拟机不受 Azure 备份的(主动)保护
 
@@ -212,12 +211,12 @@ Azure VM 代理可能已停止、已过期、处于不一致状态或未安装�
 VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮助获取最新版本。 此外，还有助于与服务重新开始通信。
 
 1. 确定 Windows Azure 来宾代理服务是否在 VM 服务 (services.msc) 中运行。 尝试重启 Windows Azure 来宾代理服务并启动备份。
-2. 如果服务中未显示 Windows Azure 来宾代理服务，请在“控制面板”中转到“程序和功能”，确定是否已安装 Windows Azure 来宾代理服务****。
-3. 如果“程序和功能”中显示了 Windows Azure 来宾代理，请将其卸载****。
+2. 如果服务中未显示 Windows Azure 来宾代理服务，请在“控制面板”中转到“程序和功能”，确定是否已安装 Windows Azure 来宾代理服务。
+3. 如果“程序和功能”中显示了 Windows Azure 来宾代理，请将其卸载。
 4. 下载并安装[最新版本的代理 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 必须拥有管理员权限才能完成安装。
 5. 检查服务中是否显示了 Windows Azure 来宾代理服务。
 6. 运行按需备份：
-   - 在门户中，选择“立即备份”****。
+   - 在门户中，选择“立即备份”。
 
 此外，检查是否在 VM 中[安装了 Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)。 VM 代理需要使用 .NET 4.5 来与服务通信。
 
@@ -249,12 +248,12 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 如果需要 waagent 的详细日志记录，请执行以下步骤：
 
 1. 在 /etc/waagent.conf 文件中，找到以下行：**Enable verbose logging (y|n)**
-2. 将 **Logs.Verbose** 值从 n** 更改为 y**。
+2. 将 **Logs.Verbose** 值从 n 更改为 y。
 3. 保存更改，然后遵循本部分前面所述的步骤重启 waagent。
 
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>未设置 VM-Agent 配置选项（对于 Linux VM）
 
-配置文件 (/etc/waagent.conf) 可控制 waagent 的操作。 配置文件选项 Extensions.Enable 和 Provisioning.Agent 应分别设置为 y 和 auto，以使备份正常工作**** **** **** ****。
+配置文件 (/etc/waagent.conf) 可控制 waagent 的操作。 配置文件选项 Extensions.Enable 和 Provisioning.Agent 应分别设置为 y 和 auto，以使备份正常工作   。
 有关 VM-Agent 配置文件选项的完整列表，请参阅 <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>应用程序控制解决方案正在阻止 IaaSBcdrExtension.exe
@@ -263,7 +262,7 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 
 #### <a name="solution-to-this-issue"></a>此问题的解决方案
 
-从 AppLocker（或其他应用程序控制软件）中排除 `/var/lib` 路径或 IaaSBcdrExtension.exe 可执行文件****。
+从 AppLocker（或其他应用程序控制软件）中排除 `/var/lib` 路径或 IaaSBcdrExtension.exe 可执行文件。
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>无法检索快照状态或无法创建快照
 
@@ -275,14 +274,14 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 
 | 原因 | 解决方案 |
 | --- | --- |
-| 由于在远程桌面协议 (RDP) 中关闭了 VM，VM 状态报告不正确。 | 如果在 RDP 中关闭了 VM，请检查门户，确定 VM 状态是否正确。 如果不正确，请在门户中使用 VM 仪表板上的“关闭”**** 选项来关闭 VM。 |
-| VM 无法从 DHCP 获取主机或结构地址。 | 必须在来宾内启用 DHCP，才能正常进行 IaaS VM 备份。 如果 VM 无法从 DHCP 响应 245 获取主机或结构地址，则无法下载或运行任何扩展。 如果需要静态专用 IP，则应通过 Azure 门户或 PowerShell 进行配置，同时确保启用 VM 内的 DHCP 选项**** ****。 [详细了解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何通过 PowerShell 设置静态 IP 地址。
+| 由于在远程桌面协议 (RDP) 中关闭了 VM，VM 状态报告不正确。 | 如果在 RDP 中关闭了 VM，请检查门户，确定 VM 状态是否正确。 如果不正确，请在门户中使用 VM 仪表板上的“关闭”选项来关闭 VM。 |
+| VM 无法从 DHCP 获取主机或结构地址。 | 必须在来宾内启用 DHCP，才能正常进行 IaaS VM 备份。 如果 VM 无法从 DHCP 响应 245 获取主机或结构地址，则无法下载或运行任何扩展。 如果需要静态专用 IP，则应通过 Azure 门户或 PowerShell 进行配置，同时确保启用 VM 内的 DHCP 选项 。 [详细了解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何通过 PowerShell 设置静态 IP 地址。
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>删除恢复点资源组中的锁
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 转到“所有资源选项”，选择采用 AzureBackupRG_`<Geo>`_`<number>` 格式的还原点集合资源组。****
-3. 在“设置”部分，选择“锁”以显示锁。**** ****
+2. 转到“所有资源选项”，选择采用 AzureBackupRG_`<Geo>`_`<number>` 格式的还原点集合资源组。
+3. 在“设置”部分，选择“锁”以显示锁。 
 4. 若要删除锁，请选择省略号，然后选择“删除”。
 
     ![删除锁](./media/backup-azure-arm-vms-prepare/delete-lock.png)
@@ -315,7 +314,7 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
     ![选择资源组](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. 选择“资源组”。此时会显示“概述”窗格。
-4. 选择“显示隐藏的类型”选项，以显示所有已隐藏的资源。**** 选择采用 AzureBackupRG_`<VMName>`_`<number>` 格式的还原点集合。
+4. 选择“显示隐藏的类型”选项，以显示所有已隐藏的资源。 选择采用 AzureBackupRG_`<VMName>`_`<number>` 格式的还原点集合。
 
     ![选择还原点集合](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 

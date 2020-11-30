@@ -3,15 +3,15 @@ title: MARS 代理的支持矩阵
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
 author: Johnnytechn
 origin.date: 08/30/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.author: v-johya
-ms.openlocfilehash: 165c03b7963fdc80f8bc012c0f34fbf8b8ec65ea
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 9b4f3fae000b5e15241f1c723a933436257177a1
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977364"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -58,7 +58,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 MARS 代理需要以下 URL 的访问权限：
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.azure.cn
+- *.Microsoft.com
 - *.WindowsAzure.cn
 - *.MicrosoftOnline.cn
 - *.chinacloudapi.cn
@@ -70,14 +70,14 @@ MARS 代理需要以下 URL 的访问权限：
 
 对上面列出的所有 URL 和 IP 地址的访问都使用端口 443 上的 HTTPS 协议。
 
-使用 MARS 代理从 Azure VM 备份文件和文件夹时，还需要将 Azure 虚拟网络配置为允许访问。 如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](/virtual-network/security-overview#service-tags)，以便在连接后进行身份验证和数据传输。 以下步骤介绍了为 Azure 备份标记创建规则的过程：
+使用 MARS 代理从 Azure VM 备份文件和文件夹时，还需要将 Azure 虚拟网络配置为允许访问。 如果使用网络安全组 (NSG)，请使用 AzureBackup 服务标记以允许对 Azure 备份进行出站访问。 除了 Azure 备份标记外，还需要通过为 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）创建类似的 [NSG 规则](../virtual-network/network-security-groups-overview.md#service-tags)，以便在连接后进行身份验证和数据传输。 以下步骤介绍了为 Azure 备份标记创建规则的过程：
 
 1. 在“所有服务”中转到“网络安全组”，然后选择“网络安全组”。
 2. 在“设置”下选择“出站安全规则”。
-3. 选择 **添加** 。 根据[安全规则设置](/virtual-network/manage-network-security-group#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
+3. 选择 **添加** 。 根据[安全规则设置](../virtual-network/manage-network-security-group.md#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 请确保将选项“目标”设置为“服务标记”，将“目标服务标记”设置为“AzureBackup”。
 4. 选择“添加”，保存新创建的出站安全规则。
 
-同样，可以为 Azure 存储和 Azure AD 创建 NSG 出站安全规则。 有关服务标记的详细信息，请参阅[此文](/virtual-network/service-tags-overview)。
+同样，可以为 Azure 存储和 Azure AD 创建 NSG 出站安全规则。 有关服务标记的详细信息，请参阅[此文](../virtual-network/service-tags-overview.md)。
 
 ### <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 
@@ -97,7 +97,7 @@ MARS 代理需要以下 URL 的访问权限：
 - Azure Active Directory (12076:5060)
 - Azure 存储（根据恢复服务保管库的位置）
 
-有关详细信息，请参阅 [ExpressRoute 路由要求](../expressroute/expressroute-routing.md)。
+有关详细信息，请参阅 [ExpressRoute 路由要求](../expressroute/expressroute-routing.md#bgp)。
 
 >[!NOTE]
 >对于新线路，公共对等互连已弃用。
@@ -116,7 +116,7 @@ MARS 代理需要以下 URL 的访问权限：
 
 **功能** | **详细信息**
 --- | ---
-带宽控制 | 。 在 MARS 代理中，使用“更改属性”来调整带宽。****
+带宽控制 | 。 在 MARS 代理中，使用“更改属性”来调整带宽。
 网络限制 | 不适用于运行 Windows Server 2008 R2、Windows Server 2008 SP2 或 Windows 7 的备份计算机。
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
@@ -172,6 +172,17 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 或更高版本| 54,400 GB
 Windows 7| 1,700 GB
 
+### <a name="minimum-retention-limits"></a>最小保留期限制
+
+下面是可为不同恢复点设置的最小保留期：
+
+|恢复点 |持续时间  |
+|---------|---------|
+|每日恢复点    |   7 天      |
+|每周恢复点     |    4 周     |
+|每月恢复点    |   3 个月      |
+|每年恢复点  |      1 年   |
+
 ### <a name="other-limitations"></a>其他限制
 
 - MARS 不支持在单个保管库中保护多台同名计算机。
@@ -203,12 +214,12 @@ OneDrive（同步的文件是稀疏流）| 不支持。
 网络共享| 不支持 |卷必须位于服务器本地。
 BitLocker 锁定卷| 不支持 |必须先解锁卷才能开始备份。
 文件系统标识| 不支持 |仅支持 NTFS。
-可移动媒体| 不支持 |所有备份项源必须处于固定状态。**
+可移动媒体| 不支持 |所有备份项源必须处于固定状态。
 已删除重复数据的驱动器 | 支持 | Azure 备份将删除了重复项的数据转换为正常数据。 它可以优化、加密、存储数据并将其发送到保管库。
 
 ## <a name="support-for-initial-offline-backup"></a>初始脱机备份支持
 
-Azure 备份支持“脱机种子设定”，以使用磁盘将初始备份数据传输到 Azure。** 如果初始备份的大小可能会达到 TB 量级，则此项支持很有帮助。 支持以下脱机备份：
+Azure 备份支持“脱机种子设定”，以使用磁盘将初始备份数据传输到 Azure。 如果初始备份的大小可能会达到 TB 量级，则此项支持很有帮助。 支持以下脱机备份：
 
 - 直接备份运行 MARS 代理的本地计算机上的文件和文件夹。
 - 备份 DPM 服务器或 MABS 中的工作负荷和文件。

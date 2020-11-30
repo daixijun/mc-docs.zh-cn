@@ -5,17 +5,17 @@ author: Johnnytechn
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 01/31/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6e7025eb256a47efe21c6965a79f904a6d41fa27
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 74aa48d7b95d42eb5960fb0cb9a28793b96371a0
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871411"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977704"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>使用 Azure CLI 在 Azure 中备份虚拟机
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
 
@@ -31,7 +31,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通�
 
 - 名为 myResourceGroup 的资源组；
 - 名为 myVM 的 VM  ；
-- ** chinanorth 位置的资源。
+- chinanorth 位置的资源。
 
 ```azurecli
 az backup vault create --resource-group myResourceGroup \

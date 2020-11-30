@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b355c5a249b89ee535c970c4cb6813922ff37499
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ca8ef4c05e3976f03675234248ab6c3805fc9037
+ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937263"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915090"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 
@@ -118,7 +118,9 @@ ms.locfileid: "91937263"
 * applicationGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
 * bastionHosts
-<!--Not Available on * ddosProtectionPlans-->
+    
+    <!--Not Available on * ddosProtectionPlans-->
+    
 * dnszones
 * dnszones/A
 * dnszones/AAAA
@@ -159,6 +161,10 @@ ms.locfileid: "91937263"
 
 * workspaceCollections - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* capacities - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * namespaces
@@ -171,18 +177,15 @@ ms.locfileid: "91937263"
 
 * namespaces
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+<!--Not Avaiable on ## Microsoft.Singularity-->
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servers/databases
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

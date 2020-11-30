@@ -4,13 +4,13 @@ description: 了解将云和本地工作负载备份到云的最佳做法和指�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/28/2020
-ms.openlocfilehash: 47a0ad03aead928afaec6038a89fce0c946cec32
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.date: 11/17/2020
+ms.openlocfilehash: 8459134a2fae6a8307a83f6c8486312ad6a73986
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871562"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977603"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>将云和本地工作负载备份到云
 
@@ -44,13 +44,13 @@ Azure 备份为各种工作负载（本地和云）启用数据保护。 它是 
 
 * 恶意删除保护 - 通过备份的软删除来防止有人意外或恶意尝试删除备份。 已删除的备份数据将免费存储 14 天，并允许其从该状态恢复。
 
-* 安全的加密备份 - Azure 备份利用 Azure 平台的内置安全功能（例如 RBAC 和加密），确保你的备份数据以安全的方式存储。
+* **安全的加密备份 -** Azure 备份利用 Azure 平台的内置安全功能（例如 Azure RBAC 和加密），确保你的备份数据以安全的方式存储。
 
 * 备份数据生命周期管理 - Azure 备份会自动清理较旧的备份数据，以遵循保留策略。 你还可以将操作存储中的数据分层存储到保管库存储中。
 
 ### <a name="management-plane"></a>管理平面
 
-* 访问控制 - 保管库（恢复服务和备份保管库）提供管理功能，可通过 Azure 门户、备份中心、保管库仪表板、SDK、CLI 进行访问，甚至还可以通过 REST API 进行访问。 它也是 RBAC 边界，让你可以选择仅限经过授权的管理员才能对备份进行访问。
+* 访问控制 - 保管库（恢复服务和备份保管库）提供管理功能，可通过 Azure 门户、备份中心、保管库仪表板、SDK、CLI 进行访问，甚至还可以通过 REST API 进行访问。 它也是 Azure RBAC 边界，让你可以选择对备份访问权限进行限制，仅限经过授权的管理员进行访问。
 
 * 策略管理 - 每个保管库中的 Azure 备份策略定义了应该何时触发备份，以及需要将备份保留多长时间。 你还可以管理这些策略，并将它们应用于多个项。
 
@@ -86,13 +86,11 @@ Azure 备份使用保管库（恢复服务保管库和备份保管库）来安�
 
 * “软删除”对新建的保管库默认为“已启用”，旨在防止意外或恶意删除备份数据。 请遵循[这些](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)步骤检查和修改设置。
 
-* 跨区域还原可用于将 Azure VM 还原到次要区域（Azure 配对区域）中。 使用此选项可以执行钻取来满足审核或符合性要求，以及在主要区域发生灾难时还原 VM 或其磁盘。 CRR 是适用于任何 GRS 保管库的可选功能。 [在此处了解更多信息](backup-create-rs-vault.md)。
-
 * 在完成保管库设计之前，请查看[保管库支持矩阵](backup-support-matrix.md#vault-support)，以了解可能会影响或限制你的设计选择的因素。
 
 ## <a name="backup-policy-considerations"></a>备份策略注意事项
 
-Azure 备份策略有两个组件：计划（何时进行备份）和*保留期*（要将备份保留多长时间）。 可以基于要备份的数据的类型、RTO/RPO 要求、运营或法规符合性需求和工作负载类型（例如，VM、数据库、文件）定义策略。 [在此处了解更多信息](backup-architecture.md#backup-policy-essentials)。
+Azure 备份策略有两个组件：计划（何时进行备份）和 *保留期*（要将备份保留多长时间）。 可以基于要备份的数据的类型、RTO/RPO 要求、运营或法规符合性需求和工作负载类型（例如，VM、数据库、文件）定义策略。 [在此处了解更多信息](backup-architecture.md#backup-policy-essentials)。
 
 创建备份策略时，请注意以下准则：
 
@@ -226,13 +224,13 @@ Azure 备份服务的功能让你可以灵活地有效管理你的成本，并�
 
 ### <a name="monitoring"></a>监视
 
-* Azure 备份针对操作（例如配置备份、备份、还原、删除备份等）提供**内置的作业监视**。 这仅限用于保管库，并且最适用于监视单个保管库。 [在此处了解更多信息](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault)。
+* Azure 备份针对操作（例如配置备份、备份、还原、删除备份等）提供 **内置的作业监视**。 这仅限用于保管库，并且最适用于监视单个保管库。 [在此处了解更多信息](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault)。
 
-* 如果需要大规模监视操作活动，则可使用**备份资源管理器**来提供整个备份资产的聚合视图，从而实现详细的深化分析和故障排除。 内置的 Azure Monitor 工作簿提供了一个中心位置，可帮助你跨租户、位置、订阅、资源组和保管库监视 Azure 中的整个备份资产的操作活动。 [在此处了解更多信息](monitor-azure-backup-with-backup-explorer.md)。
+* 如果需要大规模监视操作活动，则可使用 **备份资源管理器** 来提供整个备份资产的聚合视图，从而实现详细的深化分析和故障排除。 内置的 Azure Monitor 工作簿提供了一个中心位置，可帮助你跨租户、位置、订阅、资源组和保管库监视 Azure 中的整个备份资产的操作活动。 [在此处了解更多信息](monitor-azure-backup-with-backup-explorer.md)。
   * 使用它可识别未配置为要进行备份的资源，并确保你永不会错过保护不断增长的资产中的关键数据。
   * 该仪表板提供过去 7 天（最大值）的操作活动。 如果需要保留此数据，则可以导出为 Excel 文件并保留这些数据。
 
-* 如果需要长期保留并查看操作活动，请使用**报告**。 备份管理员的一个常见需求是根据时间跨度较长的数据获取有关备份的见解。 此类解决方案的用例包括：
+* 如果需要长期保留并查看操作活动，请使用 **报告**。 备份管理员的一个常见需求是根据时间跨度较长的数据获取有关备份的见解。 此类解决方案的用例包括：
   * 分配和预测需使用的云存储空间。
   * 审核备份和还原。
   * 确定不同粒度级别的关键趋势。
@@ -246,15 +244,15 @@ Azure 备份服务的功能让你可以灵活地有效管理你的成本，并�
 
 * 警报主要是一种获得通知（以便采取相关操作）的方法。 “备份警报”部分显示 Azure 备份服务生成的警报。
 
-* Azure 备份提供了**内置的警报**通知机制，可通过电子邮件针对故障、警告和关键操作发出通知。 可以指定在生成警报时接收通知的个人电子邮件地址或通讯组列表。 还可以选择是要接收每个警报的通知，还是将这些警报分组成按小时摘要，然后接收通知。
+* Azure 备份提供了 **内置的警报** 通知机制，可通过电子邮件针对故障、警告和关键操作发出通知。 可以指定在生成警报时接收通知的个人电子邮件地址或通讯组列表。 还可以选择是要接收每个警报的通知，还是将这些警报分组成按小时摘要，然后接收通知。
   * 这些警报由服务定义，并针对有限的场景（备份/还原失败、停止保护并保留数据/停止保护并删除数据，等等）提供支持。 [在此处了解更多信息](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)。
   * 如果执行了破坏性操作（例如“停止保护并删除数据”），那么，即使未针对恢复服务保管库配置通知，也会引发警报，并且会向订阅所有者、管理员和共同管理员发送电子邮件。
   * 某些工作负载可能会导致失败频发（例如，SQL Server 每 15 分钟发生一次失败）。 为了防止每次发生失败时都会引发大量的警报，警报会进行合并。 [在此处了解更多信息](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)。
   * 内置的警报不能自定义，并且仅限于 Azure 门户中定义的电子邮件。
 
-* 如果需要**创建自定义警报**（例如，成功作业的警报），请使用 Log Analytics。 在 Azure Monitor 中，可以在 Log Analytics 工作区内创建你自己的警报。 混合工作负载 (DPM/MABS) 也可以将数据发送到 LA，并使用 LA 为 Azure 备份支持的工作负载提供常见警报。
+* 如果需要 **创建自定义警报**（例如，成功作业的警报），请使用 Log Analytics。 在 Azure Monitor 中，可以在 Log Analytics 工作区内创建你自己的警报。 混合工作负载 (DPM/MABS) 也可以将数据发送到 LA，并使用 LA 为 Azure 备份支持的工作负载提供常见警报。
 
-* 还可以通过内置的恢复服务保管库**活动日志**获取通知。 但是，它只支持有限的场景，并且不适用于计划备份（与活动日志相比，资源日志更适用于该操作）之类的操作。 若要详细了解这些限制，以及如何使用 Log Analytics 工作区对 Azure 备份保护的所有工作负载进行大规模的监视和警报发送，请参阅此[文章](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale)。
+* 还可以通过内置的恢复服务保管库 **活动日志** 获取通知。 但是，它只支持有限的场景，并且不适用于计划备份（与活动日志相比，资源日志更适用于该操作）之类的操作。 若要详细了解这些限制，以及如何使用 Log Analytics 工作区对 Azure 备份保护的所有工作负载进行大规模的监视和警报发送，请参阅此[文章](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale)。
 
 ## <a name="next-steps"></a>后续步骤
 

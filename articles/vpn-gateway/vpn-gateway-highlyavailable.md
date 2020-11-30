@@ -1,27 +1,19 @@
 ---
-title: 包含 Azure VPN 网关的高可用性配置概述 | Microsoft 文档
+title: Azure VPN 网关：概述 - 高度可用的网关配置
 description: 本文概述使用 Azure VPN 网关的高可用性配置选项。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 09/24/2016
-ms.date: 03/04/2019
+origin.date: 09/02/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 2339317b1094cb2dbdcf64df07a8e4659d317466
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 93ad116e9877731489a31726edd8ce3ae210104a
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63851902"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908876"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨界连接与 VNet 到 VNet 连接
 本文概述使用 Azure VPN 网关的跨界连接和 VNet 到 VNet 连接的高可用性配置选项。
@@ -29,7 +21,7 @@ ms.locfileid: "63851902"
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>关于 Azure VPN 网关冗余
 每个 Azure VPN 网关由两个采用主动-待机配置的实例组成。 当主动实例发生任何计划内维护或计划外中断时，待机实例会自动接管负载（故障转移），恢复 S2S VPN 连接或 VNet 到 VNet 连接。 这种交接会造成短暂的中断。 发生计划内维护时，10 到 15 秒内应可恢复连接。 发生计划外的问题时，恢复连接所需的时间更长，在最糟的情况下大约需要 1 到 1.5 分钟。 对于 P2S VPN 客户端到网关的连接，会断开 P2S 连接，并且用户需要从客户端计算机重新连接。
 
-![主动-待机](./media/vpn-gateway-highlyavailable/active-standby.png)
+![此图中显示了一个本地站点，其中的专用 IP 子网和本地 VPN 通过连接到一个活动 Azure VPN 网关来连接到 Azure 中托管的子网，并有一个可用的备用网关。](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>高可用性跨界连接
 若要为跨界连接提供更高的可用性，可以使用多种选项：
@@ -58,7 +50,7 @@ ms.locfileid: "63851902"
 ### <a name="active-active-azure-vpn-gateway"></a>主动-主动 Azure VPN 网关
 现在，可以在主动-主动配置中创建一个 Azure VPN 网关，其中的两个网关 VM 实例将与本地 VPN 设备建立 S2S VPN 隧道，如下图所示：
 
-![主动-主动](./media/vpn-gateway-highlyavailable/active-active.png)
+![此图显示了一个本地站点，其中的专用 IP 子网和本地 VPN 通过连接到两个活动的 Azure VPN 网关来连接到 Azure 中托管的子网。](./media/vpn-gateway-highlyavailable/active-active.png)
 
 在此配置中，每个 Azure 网关实例都有唯一的公共 IP 地址，每个实例将与本地网络网关和连接中指定的本地 VPN 设备建立 IPsec/IKE S2S VPN 隧道。 请注意，这两个 VPN 隧道实际上属于同一个连接。 仍然需要配置本地 VPN 设备，以便与这两个 Azure VPN 网关公共 IP 地址建立两条 S2S VPN 隧道，或者接受这种通道。
 
@@ -80,7 +72,7 @@ ms.locfileid: "63851902"
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>通过 Azure VPN 网关实现高可用性 VNet 到 VNet 连接
 上述主动-主动配置同样适用于 Azure VNet 到 VNet 连接。 可为两个虚拟网络创建主动-主动 VPN 网关并将它们连接到一起，同样在两个 VNet 之间构成包含 4 个隧道的全面网格连接，如下图所示：
 
-![VNet 到 VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![此图显示了两个托管专用 IP 子网的 Azure 区域和两个 Azure VPN 网关，两个虚拟站点通过这两个网关进行连接。](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 这可以确保用于任何计划内维护事件的两个虚拟网络之间始终有一对隧道，进一步提高可用性。 尽管用于跨界连接的相同拓扑需要两个连接，但如上所示的 VNet 到 VNet 拓扑只需要为每个网关建立一个连接。 此外，除非基于 VNet 到 VNet 连接的传输路由是必需的，否则 BGP 是可选的。
 

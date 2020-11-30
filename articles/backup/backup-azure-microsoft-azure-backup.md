@@ -4,14 +4,14 @@ description: 本文介绍了如何准备环境，以使用 Microsoft Azure 备�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/13/2018
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: c7e673ff01300981dbf463fa7cf492e79039b86b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: a8548f1c60f7ebe27ef1b758279f7ff7d206a1c4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871241"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977406"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安装和升级 Azure 备份服务器
 
@@ -75,7 +75,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 >
 > Windows Server Core 或 Microsoft Hyper-V Server 不支持安装 Azure 备份服务器。
 
-请始终将 Azure 备份服务器加入域。 如果计划将服务器移到其他域，请先安装 Azure 备份服务器，然后将服务器加入到新域。 部署之后，*不支持*将现有 Azure 备份服务器计算机移到新域中。
+请始终将 Azure 备份服务器加入域。 如果计划将服务器移到其他域，请先安装 Azure 备份服务器，然后将服务器加入到新域。 部署之后，*不支持* 将现有 Azure 备份服务器计算机移到新域中。
 
 无论是将备份数据发送到 Azure 还是在本地保留，都必须将 Azure 备份服务器注册到恢复服务保管库。
 
@@ -203,10 +203,13 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
     ![提供文件的安装位置](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     备份到 Azure 需要有暂存位置。 请确保暂存位置的空间至少为要备份到云的数据的 5%。 在磁盘保护方面，安装完成之后需要配置独立的磁盘。 有关存储池的详细信息，请参阅[准备数据存储](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)。
+
+    磁盘存储的容量要求主要取决于受保护数据的大小、每日恢复点大小、预期的卷数据增长率和保持期目标。 我们建议将磁盘存储的大小设置为受保护数据的大小的两倍。 此处假定每日恢复点大小为受保护的数据大小的 10%，并且保持期为 10 天。 若要对大小进行准确的估算，请查看 [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301)。 
+
 5. 为受限的本地用户帐户提供强密码，然后选择“下一步”。
 
     ![提供强密码](./media/backup-azure-microsoft-azure-backup/security-screen.png)
-6. 选择是否要使用 *Microsoft 更新*来检查更新，然后选择“下一步”。
+6. 选择是否要使用 *Microsoft 更新* 来检查更新，然后选择“下一步”。
 
    > [!NOTE]
    > 我们建议让 Windows 更新重定向到 Microsoft 更新，此网站为 Windows 和 Microsoft Azure 备份服务器等其他产品提供了安全更新与重要更新。
@@ -233,7 +236,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 第一个备份副本保存在已附加到 Azure 备份服务器计算机的存储中。 有关添加磁盘的详细信息，请参阅[配置存储池和磁盘存储](./backup-mabs-add-storage.md)。
 
 > [!NOTE]
-> 即使你打算将数据发送到 Azure，也需要添加备份存储。 在当前的 Azure 备份服务器体系结构中，Azure 备份保管库将保存数据的*第二个*副本，而本地存储将保存第一个（必需的）备份副本。
+> 即使你打算将数据发送到 Azure，也需要添加备份存储。 在当前的 Azure 备份服务器体系结构中，Azure 备份保管库将保存数据的 *第二个* 副本，而本地存储将保存第一个（必需的）备份副本。
 >
 >
 
@@ -254,7 +257,7 @@ MABS 使用 System Center Data Protection Manager 保护代理。 [此处](https
 
 3. 若要在所选计算机上安装更新的保护代理，请在“操作”窗格中选择“更新”。
 
-4. 对于未连接到网络的客户端计算机，在计算机连接到网络之前，“代理状态”**** 列会显示“挂起更新”**** 状态。
+4. 对于未连接到网络的客户端计算机，在计算机连接到网络之前，“代理状态”列会显示“挂起更新”状态。
 
    在客户端计算机连接到网络之后，客户端计算机的“代理更新”列会显示“正在更新”状态。
 
@@ -294,9 +297,9 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 | 连接状态 | Azure 订阅 | 备份到 Azure | 备份到磁盘 | 从 Azure 还原 | 从磁盘还原 |
 | --- | --- | --- | --- | --- | --- |
-| 已连接 |活动 |允许 |允许 |允许 |允许 |
-| 已连接 |已过期 |已停止 |已停止 |允许 |允许 |
-| 已连接 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
+| 连续 |活动 |允许 |允许 |允许 |允许 |
+| 连续 |已过期 |已停止 |已停止 |允许 |允许 |
+| 连续 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
 | 连接断开超过 15 天 |活动 |已停止 |已停止 |允许 |允许 |
 | 连接断开超过 15 天 |已过期 |已停止 |已停止 |允许 |允许 |
 | 连接断开超过 15 天 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
@@ -358,7 +361,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 4. 备份应会继续，而无需重启生产服务器。
 5. 现在，可以开始保护数据。 如果要升级到新式备份存储，同时对数据进行保护，则还可以选择要将备份存储到的卷，并检查卷上的空间是否低于预配的空间。 [了解详细信息](backup-mabs-add-storage.md)。
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 如果 Microsoft Azure 备份服务器在安装阶段（或者备份或还原时）失败并出现错误，请参阅此[错误代码文档](https://support.microsoft.com/kb/3041338)以获取详细信息。
 此外，还可以参考 [Azure 备份相关的常见问题](backup-azure-backup-faq.md)

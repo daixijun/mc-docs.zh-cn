@@ -4,14 +4,14 @@ description: 通过配置错误代码对 Azure 流分析进行故障排除。
 ms.author: v-johya
 author: Johnnytechn
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 11/16/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 6c7fa5b8cf59a26867e7db8e33d6d80feec866ec
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 9591d01a81dc7dc4ebd6f18cbecab3abe7c8b577
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715718"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978115"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Azure 流分析配置错误代码
 
@@ -94,12 +94,13 @@ ms.locfileid: "88715718"
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
 * **原因**：不支持 SQL 数据库。
-* **建议**：使用 Synapse SQL 池。
+* **建议**：使用专用 SQL 池。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [对输入连接进行故障排除](stream-analytics-troubleshoot-input.md)
 * [对 Azure 流分析输出进行故障排除](stream-analytics-troubleshoot-output.md)
 * [对 Azure 流分析查询进行故障排除](stream-analytics-troubleshoot-query.md)
+* [使用资源日志对 Azure 流分析进行故障排除](stream-analytics-job-diagnostic-logs.md)
 * [Azure 流分析数据错误](data-errors.md)
 

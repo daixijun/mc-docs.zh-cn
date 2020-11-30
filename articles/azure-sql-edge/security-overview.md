@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/22/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 0a483ca389546cfb4499b7f43910bc4c68aa71fa
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 11/20/2020
+ms.openlocfilehash: 2a32e1d009ef9623300a87082d619cb5416da8fe
+ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248492"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94975165"
 ---
 # <a name="securing-azure-sql-edge"></a>保护 Azure SQL Edge
 
@@ -93,8 +93,8 @@ Azure SQL Edge 的平台包括物理 docker 主机、主机上的操作系统，
 
 Azure SQL Edge 安全性最佳做法包括编写安全的客户端应用程序。 有关如何在网络层保护客户端应用程序安全的详细信息，请参阅 [Client Network Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration)。
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server 安全性目录视图和函数  
- 安全信息显示在多个视图和函数（已针对性能和效用进行了优化）中。 下表包含有关安全性视图和函数的信息。  
+### <a name="security-catalog-views-and-functions"></a>安全性目录视图和函数  
+安全信息显示在多个视图和函数（已针对性能和效用进行了优化）中。 下表包含有关 Azure SQL Edge 中安全性视图和函数的信息。  
   
 |函数和视图|链接|  
 |---------------------------|---------|  

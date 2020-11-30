@@ -7,15 +7,15 @@ ms.subservice: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 11/25/2019
-ms.date: 08/10/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3a77144fd85c5d2f3001078d320243f3ed062cae
-ms.sourcegitcommit: f837837326a4856b06d1924d17521a0a7e892850
+ms.openlocfilehash: 39dd717ce4fac1171c1736de7e2b65850c9fb762
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89449790"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680525"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>排查混合 Runbook 辅助角色问题
 
@@ -47,7 +47,7 @@ Runbook 在尝试执行三次后很快暂停。 在某些情况下，Runbook 可
 
 #### <a name="resolution"></a>解决方法
 
-确保计算机在端口 443 上对 * **.azure-automation.cn** 有出站访问权限。
+验证计算机在端口 443 上对“\*.azure-automation.cn”是否有出站访问权限。
 
 运行混合 Runbook 辅助角色的计算机应满足最低硬件要求，然后才能将辅助角色配置为托管此功能。 它们使用的 Runbook 和后台进程可能会导致系统过度使用，造成 Runbook 作业延迟或超时。
 
@@ -115,7 +115,7 @@ At line:3 char:1
 
 #### <a name="resolution"></a>解决方法
 
-如果混合 Runbook 辅助角色是 Azure VM，则可改用[使用托管标识的 Runbook 身份验证](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities)。 此方案允许使用 Azure VM 的托管标识而非运行方式帐户向 Azure 资源进行身份验证，从而简化了身份验证。 如果混合 Runbook 辅助角色是本地计算机，需要在此计算机上安装运行方式帐户证书。 若要了解如何安装证书，请参阅[在混合 Runbook 辅助角色上运行 Runbook](../automation-hrw-run-runbooks.md) 中有关如何运行 PowerShell Runbook **Export-RunAsCertificateToHybridWorker** 的步骤。
+如果混合 Runbook 辅助角色是 Azure VM，则可改用[使用托管标识的 Runbook 身份验证](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities)。 此方案允许使用 Azure VM 的托管标识而非运行方式帐户向 Azure 资源进行身份验证，从而简化了身份验证。 如果混合 Runbook 辅助角色是本地计算机，需要在此计算机上安装运行方式帐户证书。 若要了解如何安装证书，请参阅 [在混合 Runbook 辅助角色上运行 Runbook](../automation-hrw-run-runbooks.md) 中有关如何运行 PowerShell Runbook **Export-RunAsCertificateToHybridWorker** 的步骤。
 
 ### <a name="scenario-error-403-during-registration-of-a-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>场景：在注册混合 Runbook 辅助角色期间发生错误 403
 
@@ -250,7 +250,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>场景：无法添加混合 Runbook 辅助角色
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>场景：无法添加 Windows 混合 Runbook 辅助角色
 
 #### <a name="issue"></a>问题
 
@@ -269,6 +269,46 @@ Machine is already registered
 若要解决此问题，请删除以下注册表项，重启 `HealthService`，然后再次尝试运行 `Add-HybridRunbookWorker` cmdlet。
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>场景：无法添加 Linux 混合 Runbook 辅助角色
+
+#### <a name="issue"></a>问题
+
+尝试使用 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python 脚本添加混合 Runbook 辅助角色时收到以下消息：
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+此外，尝试使用 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python 脚本取消注册混合 Runbook 辅助角色：
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>原因
+
+如果计算机已注册到一个不同的自动化帐户，并且 Azure 混合辅助角色组已被删除，或者在将混合 Runbook 辅助角色从计算机中删除后尝试重新添加它，则可能会出现此问题。
+
+#### <a name="resolution"></a>解决方法
+
+若要解决此问题，请执行下列操作：
+
+1. 删除代理 `sudo sh onboard_agent.sh --purge`。
+
+1. 运行以下命令：
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. 重新载入代理 `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.cn`。
+
+1. 等待文件夹 `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` 填充。
+
+1. 重新尝试 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python 脚本。
 
 ## <a name="next-steps"></a>后续步骤
 

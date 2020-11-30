@@ -4,14 +4,14 @@ description: 汇总 Azure 备份服务的支持设置和限制。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 02/17/2019
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: 96d5c344e2bc192cdb88714b47ea673124d27ba5
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 6d9ed5bf0bd9a98cd5769b8ca2b50e609bc17e98
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402518"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977179"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 
@@ -26,7 +26,7 @@ ms.locfileid: "91402518"
 <!-- Not abailable in MC: backup-azure-move-recovery-services-vault.md-->
 ## <a name="vault-support"></a>保管库支持
 
-Azure 备份使用恢复服务保管库来安排和管理备份。 它还使用保管库来存储备份的数据。
+Azure 备份使用恢复服务保管库来协调和管理以下工作负荷类型的备份：Azure VM、Azure VM 中的 SQL、Azure VM 中的 SAP HANA，以及使用 Azure 备份代理、Azure 备份服务器和 System Center DPM 的本地工作负荷。 它还使用恢复服务保管库来存储这些工作负荷的已备份数据。
 
 下表介绍恢复服务保管库的功能：
 

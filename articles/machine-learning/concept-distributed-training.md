@@ -1,7 +1,7 @@
 ---
 title: 什么是分布式训练？
 titleSuffix: Azure Machine Learning
-description: 了解分布式训练以及 Azure 机器学习如何支持分布式训练。
+description: 了解 Azure 机器学习支持哪种类型的分布式训练，以及可用于分布式训练的开源框架集成。
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 15df08c3bf4ef6159c316d4849707f962a49d08e
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 7ffbab2a3fa3cddcfd1222f0a2c13dbf3db7fd2a
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395475"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977249"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Azure 机器学习的分布式训练
 
@@ -24,7 +24,7 @@ ms.locfileid: "91395475"
 
 ## <a name="deep-learning-and-distributed-training"></a>深度学习和分布式训练 
 
-分布式训练有两种主要类型：[数据并行](#data-parallelism)和[模型并行](#model-parallelism)。 对于深度学习模型上的分布式训练，[Python 中的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 支持与常用框架 PyTorch 和 TensorFlow 进行集成。 两种框架都采用数据并行方式进行分布式训练，并且可以利用 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) 来优化计算速度。 
+分布式训练有两种主要类型：[数据并行](#data-parallelism)和[模型并行](#model-parallelism)。 对于深度学习模型上的分布式训练，[Python 中的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 支持与常用框架 PyTorch 和 TensorFlow 进行集成。 两种框架都采用数据并行方式进行分布式训练，并且可以利用 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) 来优化计算速度。 
 
 * [使用 PyTorch 进行分布式训练](how-to-train-pytorch.md#distributed-training)
 
@@ -51,6 +51,6 @@ ms.locfileid: "91395475"
 ## <a name="next-steps"></a>后续步骤
 
 * 了解如何使用 Python SDK [将计算目标用于模型训练](how-to-set-up-training-targets.md)。
-* 有关技术示例，请参阅[体系结构方案参考信息](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)。
+* 有关技术示例，请参阅[参考体系结构方案](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)。
 * [使用 TensorFlow 训练 ML 模型](how-to-train-tensorflow.md)。
 * [使用 PyTorch 训练 ML 模型](how-to-train-pytorch.md)。 

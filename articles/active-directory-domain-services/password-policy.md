@@ -2,23 +2,23 @@
 title: 在 Azure AD 域服务中创建和使用密码策略 | Microsoft Docs
 description: 了解如何以及为何使用细化的密码策略来保护和控制 Azure AD DS 托管域中的帐户密码。
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 5331f638d7e245dae936b2777328016425da9426
-ms.sourcegitcommit: fe9ccd3bffde0dd2b528b98a24c6b3a8cbe370bc
+ms.openlocfilehash: 91a6242de69859999fb0b67c35b437c51f0eaf86
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86472627"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849283"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Active Directory 域服务托管域上的密码和帐户锁定策略
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory 域服务托管域上的密码和帐户锁定策略
 
 若要管理 Azure Active Directory 域服务 (Azure AD DS) 中的用户安全，可以定义细化的密码策略来控制帐户锁定设置或最短密码长度和复杂性。 将创建一个默认的细化密码策略，并将其应用于 Azure AD DS 托管域中的所有用户。 为了提供细化控制并满足特定的业务需求或合规性需求，可以创建更多的策略并将其应用于特定的用户组。
 

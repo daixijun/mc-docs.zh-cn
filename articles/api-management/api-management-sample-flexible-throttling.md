@@ -13,18 +13,32 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
 origin.date: 02/03/2018
-ms.openlocfilehash: f0f4a0beeaee4b1028de22801f21b8e36a79cb1a
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 8fd9e768506ede03a6ed637fe75351ee450732bb
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871460"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977204"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>使用 Azure API 管理进行高级请求限制
 限制传入请求是 Azure API 管理的重要功能。 通过控制请求的速率或传输的请求/数据总量，API 管理让 API 提供程序能够保护其 API 不被滥用，为不同的 API 产品层创造价值。
+
+## <a name="rate-limits-and-quotas"></a>速率限制和配额
+速率限制和配额用于不同目的。
+
+### <a name="rate-limits"></a>速率限制
+速率限制通常用于防止短暂而密集的数据量突发。 例如，如果你知道后端服务的数据库在调用量大的情况下存在瓶颈，则可使用此设置将 `rate-limit-by-key` 策略设置为不允许大调用量。
+
+### <a name="quotas"></a>配额
+配额通常用于控制较长一段时间的调用率。 例如，可以设置特定订阅者在给定月份内能够发出的调用总数。 为了通过 API 获利，还可以为基于层级的订阅设置不同的配额。 例如，基本层订阅每月最多可以进行 10,000 次调用，而高级层订阅每月最多可以进行 100,000,000 次调用。
+
+在 Azure API 管理中，速率限制在节点间的传播速度通常更快，以防出现峰值。 相对而言，使用配额信息会在较长的时间内使用，因此其实现有所不同。
+
+> [!CAUTION]
+> 由于限制体系结构的分布式性质，速率限制永远不可能完全准确。 允许的请求的配置数字和实际数字之间的差异因请求量和速度、后端延迟以及其他因素而异。
 
 ## <a name="product-based-throttling"></a>基于产品的限制
 到目前为止，速率限制功能局限于特定产品订阅的限定范围，在 Azure 门户中定义。 API 提供程序可以使用它将限制应用到注册使用其 API 的开发人员，但是，举例而言，它无法帮助限制 API 的每个最终用户。 想让开发人员的应用程序的单个用户使用整个配额，并让开发人员的其他客户无法使用应用程序，是有可能的。 此外，生成大量请求的多个客户可能限制临时用户的访问权限。

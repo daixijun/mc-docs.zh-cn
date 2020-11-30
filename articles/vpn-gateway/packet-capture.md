@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 09/03/2020
-ms.date: 09/28/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: f57fda892f35a9bd1fb8eeb4a1ad1cfe4c0550a8
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: fb50b9b8b7bfa5ac9c463ab5b85e52ee2fe71fd0
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395330"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908924"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>为 VPN 网关配置数据包捕获
 
@@ -319,7 +319,7 @@ VPN 网关数据包捕获可在网关上运行，也可在特定的连接上运�
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>通过使用 PowerShell 设置数据包捕获
 
-以下示例显示使用 PowerShell 命令启动和停止数据包捕获。 有关参数选项的详细信息，请参阅[此 PowerShell 文档](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)。
+以下示例显示使用 PowerShell 命令启动和停止数据包捕获。 有关参数选项的详细信息，请参阅 [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)。
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>启动 VPN 网关的数据包捕获
 
@@ -355,6 +355,9 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - 建议的最短数据包捕获持续时间为 600 秒。 由于路径上多个组件之间的同步问题，较短的数据包捕获可能无法提供完整的数据。
 - 数据包捕获数据文件以 PCAP 格式生成。 使用 Wireshark 或其他常用应用程序打开 PCAP 文件。
 - 基于策略的网关不支持数据包捕获。
+- 如果 `SASurl` 参数配置不正确，则跟踪可能会失败，并显示 Azure 存储错误。 有关如何正确生成 `SASurl` 参数的示例，请参阅 [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture)。
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

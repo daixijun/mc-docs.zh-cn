@@ -1,27 +1,30 @@
 ---
-title: 使用 Azure CLI 自动增长 Azure Database for MariaDB 存储
+title: 自动增长存储 - Azure CLI - Azure Database for MariaDB
 description: 本文介绍如何使用 Azure CLI 在 Azure Database for MariaDB 中启用自动增长存储。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
-origin.date: 8/7/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: eb70e705bdfcecc2f29f8d35de8361e8f983a862
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+origin.date: 3/18/2020
+ms.date: 11/23/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 130c13da6d28a53d702c59c3b8b2451d575507b6
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71309199"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908961"
 ---
 # <a name="auto-grow-azure-database-for-mariadb-storage-using-the-azure-cli"></a>使用 Azure CLI 自动增长 Azure Database for MariaDB 存储
 本文介绍如何将 Azure Database for MariaDB 服务器存储配置为在不影响工作负荷的情况下增长。
 
-[达到存储限制](/mariadb/concepts-pricing-tiers#reaching-the-storage-limit)的服务器将设置为只读。 如果启用了存储自动增长，则对于预配的存储大小小于 100 GB 的服务器，可用存储空间一旦小于 1 GB 或预配存储的 10%（以这二者中的较大值为准），预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间小于预配的存储大小的 5% 时，预配的存储大小就会增加 5%。 [此处](/mariadb/concepts-pricing-tiers#storage)所指定的最大存储限制适用。
+[达到存储限制](concepts-pricing-tiers.md#reaching-the-storage-limit)的服务器将设置为只读。 如果启用了存储自动增长，则对于预配的存储大小小于 100 GB 的服务器，可用存储空间一旦小于 1 GB 或预配存储的 10%（以这二者中的较大值为准），预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间小于预配的存储大小的 5% 时，预配的存储大小就会增加 5%。 [此处](concepts-pricing-tiers.md#storage)所指定的最大存储限制适用。
 
 ## <a name="prerequisites"></a>必备条件
-若要完成本操作指南，需要：
-- [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-cli.md)
+
+若要完成本指南：
+
+- 需要 [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-cli.md)。
 
 > [!IMPORTANT]
 > 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。

@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/20/2018
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: ce7fcd3f0b7942e1bbad3488c4d4473223ee345e
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 7197f1a0469a5ddc952f62763dda360edbcc8ac8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977118"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>自动缩放 Azure API 管理实例  
 
-Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可以通过 Azure Monitor 启用和配置，仅在 Azure API 管理服务的**标准**和**高级**层中受支持。
+Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可以通过 Azure Monitor 启用和配置，仅在 Azure API 管理服务的 **标准** 和 **高级** 层中受支持。
 
 本文逐步讲解配置自动缩放的过程，并建议自动缩放规则的最佳配置。
 
@@ -43,31 +43,31 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
 在配置自动缩放行为之前，需要考虑到缩放存在的某些限制和造成的后果。
 
-+ 只能为 Azure API 管理服务的**标准**和**高级**层启用自动缩放。
++ 只能为 Azure API 管理服务的 **标准** 和 **高级** 层启用自动缩放。
 + 定价层还指定了服务实例的最大单元数。
 + 缩放过程至少需要 20 分钟。
 + 如果服务被另一操作锁定，则缩放请求将会失败并自动重试。
-+ 对于使用多区域部署的服务，只能缩放**主要位置**中的单元。 不能缩放其他位置中的单元。
++ 对于使用多区域部署的服务，只能缩放 **主要位置** 中的单元。 不能缩放其他位置中的单元。
 
 ## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>为 Azure API 管理服务启用和配置自动缩放
 
 遵循以下步骤为 Azure API 管理服务配置自动缩放：
 
-1. 在 Azure 门户中导航到“Monitor”实例。****
+1. 在 Azure 门户中导航到“Monitor”实例。
 
     ![Azure Monitor](./media/api-management-howto-autoscale/01.png)
 
-2. 在左侧菜单中选择“自动缩放”****。
+2. 在左侧菜单中选择“自动缩放”。
 
     ![Azure Monitor - 自动缩放 - 资源](./media/api-management-howto-autoscale/02.png)
 
 3. 基于下拉菜单中的筛选器找到自己的 Azure API 管理服务。
 4. 选择所需的 Azure API 管理服务实例。
-5. 在新打开的部分，单击“启用自动缩放”按钮。****
+5. 在新打开的部分，单击“启用自动缩放”按钮。
 
     ![Azure Monitor - 自动缩放 - 启用](./media/api-management-howto-autoscale/03.png)
 
-6. 在“规则”部分，单击“+ 添加规则”。********
+6. 在“规则”部分，单击“+ 添加规则”。
 
     ![Azure Monitor - 自动缩放 - 添加规则](./media/api-management-howto-autoscale/04.png)
 
@@ -94,7 +94,7 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
     ![Azure Monitor - 横向扩展规则](./media/api-management-howto-autoscale/05.png)
 
-9. 再次单击“+ 添加规则”。****
+9. 再次单击“+ 添加规则”。
 
     这次需要定义横向缩减规则。 这可以确保在 API 用量减少时不会浪费资源。
 
@@ -121,12 +121,12 @@ Azure API 管理服务实例可以根据一组规则自动缩放。 此行为可
 
     ![Azure Monitor - 横向缩减规则](./media/api-management-howto-autoscale/06.png)
 
-12. 设置 Azure API 管理单元的**最大**数目。
+12. 设置 Azure API 管理单元的 **最大** 数目。
 
     > [!NOTE]
     > Azure API 管理会限制实例可以横向扩展到单元数。 此限制取决于服务层级。
 
-    ![Azure Monitor - 横向缩减规则](./media/api-management-howto-autoscale/07.png)
+    ![此屏幕截图突出显示了在何处设置 Azure API 管理单元的最大数目。](./media/api-management-howto-autoscale/07.png)
 
 13. 单击“保存” 。 现已配置自动缩放。
 

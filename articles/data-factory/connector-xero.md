@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 08/03/2020
-ms.date: 09/21/2020
+origin.date: 10/29/2020
+ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: c31f2454a08458fea0c9768f576bfbcf6b166626
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: c715180c23c59621526718ba9ed2a3c9fc7a65af
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523637"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680445"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>使用 Azure 数据工厂从 Xero 复制数据
 
@@ -56,13 +56,13 @@ Xero 链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | type 属性必须设置为：**Xero** | 是 |
 | connectionProperties | 定义如何连接到 Xero 的一组属性。 | 是 |
-| 在 `connectionProperties` 下： | | |
+| _在 `connectionProperties` 下：_ _* | | |
 | host | Xero 服务器的终结点 (`api.xero.com`)。  | 是 |
 | authenticationType | 允许的值为 `OAuth_2.0` 和 `OAuth_1.0`。 | 是 |
 | consumerKey | 与 Xero 应用程序关联的使用者密钥。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | privateKey | 为 Xero 专用应用程序生成的 .pem 文件中的私钥，请参阅[创建公钥/私钥对](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)。 注意：使用 `openssl genrsa -out privatekey.pem 512` 可生成数位为 512 的 privatekey.pem，不支持生成 1024 数位。 包括 .pem 文件中的所有文本，包括 Unix 行尾(\n)，请参见下面的示例。<br/>将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenantId | 与 Xero 应用程序关联的租户 ID。 适用于 OAuth 2.0 身份验证。<br>请参阅[查看你有权访问的租户](https://developer.xero.com/documentation/oauth2/auth-flow)部分，了解如何获取租户 ID。 | 是，适用于 OAuth 2.0 身份验证 |
-| refreshToken | 与 Xero 应用程序关联的 OAuth 2.0 刷新令牌，用于在访问令牌到期时刷新访问令牌。 适用于 OAuth 2.0 身份验证。 请参阅[本文](https://developer.xero.com/documentation/oauth2/auth-flow)，了解如何获取刷新令牌。<br>刷新令牌将永不过期。 若要获取刷新令牌，必须请求 [offline_access 范围](https://developer.xero.com/documentation/oauth2/scopes)。<br/>将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是，适用于 OAuth 2.0 身份验证 |
+| refreshToken | 适用于 OAuth 2.0 身份验证。<br/>OAuth 2.0 刷新令牌与  Xero 应用程序关联，用于刷新访问令牌；访问令牌在 30 分钟后过期。 了解 Xero 授权流的工作原理，并了解如何从[此文](https://developer.xero.com/documentation/oauth2/auth-flow)获取刷新令牌。 若要获取刷新令牌，必须请求 [offline_access 范围](https://developer.xero.com/documentation/oauth2/scopes)。 <br/>**已知限制**：请注意，在将刷新令牌用于访问令牌刷新后，Xero 会将其重置。 对于操作化工作负荷，在每个复制活动运行之前，需要设置有效的刷新令牌供 ADF 使用。<br/>将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是，适用于 OAuth 2.0 身份验证 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 加密数据源终结点。 默认值为 true。  | 否 |
 | useHostVerification | 指定通过 TLS 进行连接时是否要求服务器证书中的主机名与服务器的主机名匹配。 默认值为 true。  | 否 |
 | usePeerVerification | 指定通过 TLS 进行连接时是否要验证服务器的标识。 默认值为 true。  | 否 |
@@ -142,7 +142,7 @@ Xero 链接服务支持以下属性：
 
 要从 Xero 复制数据，请将数据集的 type 属性设置为“XeroObject”  。 支持以下属性：
 
-| properties | 说明 | 必需 |
+| properties | 描述 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：**XeroObject** | 是 |
 | tableName | 表的名称。 | 否（如果指定了活动源中的“query”） |
@@ -170,12 +170,12 @@ Xero 链接服务支持以下属性：
 
 ### <a name="xero-as-source"></a>以 Xero 作为源
 
-要从 Xero 复制数据，请将复制活动中的源类型设置为“XeroSource”  。 复制活动**source**部分支持以下属性：
+要从 Xero 复制数据，请将复制活动中的源类型设置为“XeroSource”  。 复制活动 **source** 部分支持以下属性：
 
-| properties | 说明 | 必需 |
+| properties | 描述 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为：**XeroSource** | 是 |
-| 查询 | 使用自定义 SQL 查询读取数据。 例如：`"SELECT * FROM Contacts"`。 | 否（如果指定了数据集中的“tableName”） |
+| query | 使用自定义 SQL 查询读取数据。 例如：`"SELECT * FROM Contacts"`。 | 否（如果指定了数据集中的“tableName”） |
 
 **示例：**
 

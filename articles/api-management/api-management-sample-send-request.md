@@ -13,15 +13,15 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
 origin.date: 12/15/2016
-ms.openlocfilehash: c2c4f125e41d006496f50653781c868b21f93f89
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 121302c5d8bc553bb42eb55360a2df2f605c2061
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871462"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977200"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>通过 Azure API 管理服务使用外部服务
 Azure API 管理服务中的策略可以单纯根据传入的请求、传出的响应以及基本配置信息执行多种不同的有用工作。 但是，如果能够与 API 管理策略中的外部服务进行交互，则可以使更多的想法成为可能。
@@ -179,7 +179,7 @@ API 管理的主要功能是保护后端资源。 如果 API 使用的授权服�
 ### <a name="making-the-requests"></a>发出请求
 创建该操作后，可以专门针对该操作配置策略。 
 
-![仪表板操作](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![显示“策略范围”屏幕的屏幕截图。](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 第一个步骤是提取来自传入请求的任何查询参数，以便将其转发到后端。 在本示例中，仪表板每隔一段时间显示信息，因此具有 `fromDate` 和 `toDate` 参数。 可以使用 `set-variable` 策略来提取请求 URL 中的信息。
 

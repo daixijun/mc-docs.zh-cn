@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 09/14/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 4c710bb7fcfff123cee8844c891f144aa7bdfebe
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/23/2020
+ms.openlocfilehash: 444572d3d226724b8f8804728e892700cb82eff0
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680395"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>通过示例了解数据工厂定价
 
@@ -49,7 +49,7 @@ ms.locfileid: "92121719"
 | 获取管道 | 1 个读/写实体 |
 | 运行管道 | 2 个活动运行（1 个用于触发器运行，1 个用于活动运行） |
 | 复制数据假设：执行时间 = 10 分钟 | 10 \* 4 Azure Integration Runtime（默认 DIU 设置 = 4）有关数据集成单元和副本性能优化的详细信息，请参阅[此文](copy-activity-performance.md) |
-| 监视管道假设：仅发生 1 次运行 | 重试了 2 个监视运行记录（1 个用于管道运行，1 个用于活动运行） |
+| 监视管道假设：仅发生 1 次运行 | 检索到 2 个监视运行记录（1 个用于管道运行，1 个用于活动运行） |
 
 **方案定价总计：￥0.44547136**
 
@@ -60,14 +60,14 @@ ms.locfileid: "92121719"
   - 活动运行 = 0.010176\*2 = ￥0.020352 [1 次运行 = ￥10.176/1000 = 0.010176]
   - 数据移动活动 = ￥0.424（以 10 分钟的执行时间按比例计算。 Azure Integration Runtime 上的定价为 ￥2.544/小时）
 
-## <a name="copy-data-and-transform-with-azure-hdinsight-hourly"></a>使用 Azure HDInsight 按小时复制数据并进行转换
+## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>使用 Azure Databricks 按小时复制数据并进行转换
 
-在此方案中，需使用 Azure HDInsight 按计划将数据每隔一小时从 AWS S3 复制到 Azure Blob 存储并对数据进行转换。
+在此方案中，需使用 Azure Databricks 按计划将数据每隔一小时从 AWS S3 复制到 Azure Blob 存储并对数据进行转换。
 
 若要完成此方案，需使用以下项创建一个管道：
 
 1. 一个使用输入数据集（适用于将要从 AWS S3 复制的数据）和输出数据集（适用于 Azure 存储上的数据）的复制活动。
-2. 一个用于数据转换的 Azure HDInsight 活动。
+2. 一个用于数据转换的 Azure Databricks 活动。
 3. 一个计划触发器，用于每隔一小时执行一次管道。
 
 ![此图显示了具有计划触发器的管道。 在此管道中，复制活动会流向输入数据集、输出数据集和 DataBricks 活动（在 Azure Databricks 上运行）。 输入数据集会流向 AWS S3 链接服务。 输出数据集会流向 Azure 存储链接服务。](media/pricing-concepts/scenario2.png)
@@ -80,8 +80,8 @@ ms.locfileid: "92121719"
 | 获取管道 | 1 个读/写实体 |
 | 运行管道 | 3 个活动运行（1 个用于触发器运行，2 个用于活动运行） |
 | 复制数据假设：执行时间 = 10 分钟 | 10 \* 4 Azure Integration Runtime（默认 DIU 设置 = 4）有关数据集成单元和副本性能优化的详细信息，请参阅[此文](copy-activity-performance.md) |
-| 监视管道假设：仅发生 1 次运行 | 重试了 3 个监视运行记录（1 个用于管道运行，2 个用于活动运行） |
-| 执行 Azure HDInsight 假设：执行时间 = 10 分钟 | 10 分钟执行外部管道活动 |
+| 监视管道假设：仅发生 1 次运行 | 检索到 3 个监视运行记录（1 个用于管道运行，2 个用于活动运行） |
+| 执行 Databricks 活动假设：执行时间 = 10 分钟 | 10 分钟执行外部管道活动 |
 
 **方案定价总计：$0.16916**
 
@@ -95,13 +95,13 @@ ms.locfileid: "92121719"
 
 ## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>使用动态参数按小时复制数据并进行转换
 
-在此方案中，需使用 Azure HDInsight（使用脚本中的动态参数）按计划将数据每隔一小时从 AWS S3 复制到 Azure Blob 存储并进行转换。
+在此方案中，需使用 Azure Databricks（使用脚本中的动态参数）按计划将数据每隔一小时从 AWS S3 复制到 Azure Blob 存储并进行转换。
 
 若要完成此方案，需使用以下项创建一个管道：
 
 1. 一个使用输入数据集（适用于将要从 AWS S3 复制的数据）和输出数据集（适用于 Azure 存储上的数据）的复制活动。
 2. 一个查找活动，用于将参数动态传递到转换脚本。
-3. 一个用于数据转换的 Azure HDInsight 活动。
+3. 一个用于数据转换的 Azure Databricks 活动。
 4. 一个计划触发器，用于每隔一小时执行一次管道。
 
 ![此图显示了具有计划触发器的管道。 在此管道中，复制活动会流向输入数据集、输出数据集和查找活动（流向在 Azure Databricks 上运行的 DataBricks 活动）。 输入数据集会流向 AWS S3 链接服务。 输出数据集会流向 Azure 存储链接服务。](media/pricing-concepts/scenario3.png)
@@ -114,9 +114,9 @@ ms.locfileid: "92121719"
 | 获取管道 | 1 个读/写实体 |
 | 运行管道 | 4 个活动运行（1 个用于触发器运行，3 个用于活动运行） |
 | 复制数据假设：执行时间 = 10 分钟 | 10 \* 4 Azure Integration Runtime（默认 DIU 设置 = 4）有关数据集成单元和副本性能优化的详细信息，请参阅[此文](copy-activity-performance.md) |
-| 监视管道假设：仅发生 1 次运行 | 重试了 4 个监视运行记录（1 个用于管道运行，3 个用于活动运行） |
+| 监视管道假设：仅发生 1 次运行 | 检索到 4 个监视运行记录（1 个用于管道运行，3 个用于活动运行） |
 | 执行查找活动假设：执行时间 = 1 分钟 | 1 分钟执行管道活动 |
-| 执行 Azure HDInsight 假设：执行时间 = 10 分钟 | 10 分钟执行外部管道活动 |
+| 执行 Databricks 活动假设：执行时间 = 10 分钟 | 10 分钟执行外部管道活动 |
 
 **方案定价总计：￥0.46729854**
 

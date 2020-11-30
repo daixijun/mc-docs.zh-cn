@@ -10,14 +10,14 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/11/2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 6ebeff1479f3d6d3cf1431aca5714cca16713994
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+origin.date: 10/25/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: 9dc1c09faf29078aa462d92cb23e1c63377962db
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105785"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680518"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>创建按翻转窗口运行管道的触发器
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -98,12 +98,12 @@ ms.locfileid: "93105785"
 | JSON 元素 | 说明 | 类型 | 允许的值 | 必须 |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | 触发器的类型。 类型为固定值“TumblingWindowTrigger”。 | String | "TumblingWindowTrigger" | 是 |
-| **runtimeState** | 触发器运行时的当前状态。<br/>**注意** ：此元素是 \<readOnly>。 | String | “Started”、“Stopped”、“Disabled” | 是 |
-| **frequency** | 一个字符串，表示触发器重复出现的频率单位（分钟或小时）。 如果 **startTime** 日期值粒度比 **frequency** 值更细，则会在计算窗口边界时考虑 **startTime** 日期。 例如：如果 **frequency** 值为每小时， **startTime** 值为 2017-09-01T10:10:10Z，则第一个窗口为 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)。 | String | “minute”、“hour”  | 是 |
-| **interval** | 一个正整数，表示 **frequency** 值对应的时间间隔，决定了触发器的运行频率。 例如，如果 **interval** 为 3， **frequency** 为“hour”，则触发器每 3 小时重复触发一次。 <br/>**注意** ：最小窗口间隔为 5 分钟。 | Integer | 正整数。 | 是 |
-| **startTime**| 第一个匹配项，可以是过去的时间。 第一个触发器间隔是 ( **startTime** , **startTime** + **interval** )。 | DateTime | 一个日期时间值。 | 是 |
+| **runtimeState** | 触发器运行时的当前状态。<br/>**注意**：此元素是 \<readOnly>。 | String | “Started”、“Stopped”、“Disabled” | 是 |
+| **frequency** | 一个字符串，表示触发器重复出现的频率单位（分钟或小时）。 如果 **startTime** 日期值粒度比 **frequency** 值更细，则会在计算窗口边界时考虑 **startTime** 日期。 例如：如果 **frequency** 值为每小时，**startTime** 值为 2017-09-01T10:10:10Z，则第一个窗口为 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)。 | String | “minute”、“hour”  | 是 |
+| **interval** | 一个正整数，表示 **frequency** 值对应的时间间隔，决定了触发器的运行频率。 例如，如果 **interval** 为 3，**frequency** 为“hour”，则触发器每 3 小时重复触发一次。 <br/>**注意**：最小窗口间隔为 5 分钟。 | Integer | 正整数。 | 是 |
+| **startTime**| 第一个匹配项，可以是过去的时间。 第一个触发器间隔是 (**startTime**, **startTime** + **interval**)。 | DateTime | 一个日期时间值。 | 是 |
 | **endTime**| 最后一个匹配项，可以是过去的时间。 | DateTime | 一个日期时间值。 | 是 |
-| **delay** | 延迟窗口数据处理开始的时间量。 管道运行在预期的执行时间加上 **delay** 的量之后启动。 **delay** 的定义是：在预期的执行时间过后，触发器在触发新的运行之前等待的时间。 **delay** 不改变窗口 **startTime** 。 例如，值为 00:10:00 的 **delay** 意味着 10 分钟的延迟。 | Timespan<br/>(hh:mm:ss)  | 一个时间跨度值，默认值为 00:00:00。 | 否 |
+| **delay** | 延迟窗口数据处理开始的时间量。 管道运行在预期的执行时间加上 **delay** 的量之后启动。 **delay** 的定义是：在预期的执行时间过后，触发器在触发新的运行之前等待的时间。 **delay** 不改变窗口 **startTime**。 例如，值为 00:10:00 的 **delay** 意味着 10 分钟的延迟。 | Timespan<br/>(hh:mm:ss)  | 一个时间跨度值，默认值为 00:00:00。 | 否 |
 | **maxConcurrency** | 同时针对已就绪窗口触发的触发器运行数。 例如，若要每小时回填，昨天的运行会产生 24 个 windows。 如果 **maxConcurrency** = 10，则仅针对头 10 个窗口 (00:00-01:00 - 09:00-10:00) 触发触发器事件。 在头 10 个触发的管道运行完成后，将针对接下来的 10 个窗口 (10:00-11:00 - 19:00-20:00) 触发触发器运行。 继续进行 **maxConcurrency** = 10 的此示例，如果有 10 个窗口就绪，则总共有 10 个管道运行。 如果只有 1 个窗口就绪，则只有 1 管道运行。 | Integer | 一个介于 1 到 50 之间的整数。 | 是 |
 | **retryPolicy: Count** | 将管道运行标记为“失败”之前的重试次数。  | Integer | 一个整数，其默认值为 0（不重试）。 | 否 |
 | **retryPolicy: intervalInSeconds** | 重试之间的延迟（以秒为单位指定）。 | Integer | 秒数，其默认值为 30。 | 否 |
@@ -163,7 +163,20 @@ ms.locfileid: "93105785"
 
 ### <a name="tumbling-window-trigger-dependency"></a>翻转窗口触发器依赖项
 
-若要确保仅在数据工厂中成功执行另一个翻转窗口触发器后才执行翻转窗口触发器，请[创建翻转窗口触发器依赖项](tumbling-window-trigger-dependency.md)。 
+若要确保仅在数据工厂中成功执行另一个翻转窗口触发器后才执行翻转窗口触发器，请[创建翻转窗口触发器依赖项](tumbling-window-trigger-dependency.md)。
+
+### <a name="cancel-tumbling-window-run"></a>取消翻转窗口运行
+
+如果特定窗口处于“正在等待”、“正在等待依赖项”或“正在运行”状态，则可以取消翻转窗口触发器的运行。
+
+* 如果窗口处于“正在运行”状态，则取消关联的“管道运行”，然后触发器运行会被标记为“已取消”
+* 如果窗口处于“正在等待”或“正在等待依赖项”状态，则可以取消该窗口的监视：
+
+![从“监视”页取消翻转窗口触发器](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+还可以重新运行已取消的窗口。 重新运行会采用触发器的最新发布定义，并且指定窗口的依赖项会在重新运行时重新进行评估
+
+![为之前取消的运行重新运行翻转窗口触发器](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell 示例
 
@@ -213,7 +226,7 @@ ms.locfileid: "93105785"
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. 使用 **Get-AzDataFactoryV2Trigger** cmdlet 确认触发器的状态为 **Stopped** ：
+3. 使用 **Get-AzDataFactoryV2Trigger** cmdlet 确认触发器的状态为 **Stopped**：
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
@@ -225,7 +238,7 @@ ms.locfileid: "93105785"
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. 使用 **Get-AzDataFactoryV2Trigger** cmdlet 确认触发器的状态为 **Started** ：
+5. 使用 **Get-AzDataFactoryV2Trigger** cmdlet 确认触发器的状态为 **Started**：
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"

@@ -3,18 +3,21 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/09/2020
-ms.date: 06/19/2020
+ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 992249594b09758b12d8d566fdb599e74ecd5ace
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: a2a466cbd4aaa3394432cac7f642a611a61cca1b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611864"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977090"
 ---
 处理压缩音频是使用 [GStreamer](https://gstreamer.freedesktop.org) 实现的。 出于许可原因，GStreamer 二进制文件未编译，也未与语音 SDK 链接。 开发人员需要安装几个依赖项和插件。
 
-# <a name="ubuntu-1604-1804-or-debian-9"></a>[Ubuntu 16.04、18.04 或 Debian 9](#tab/debian)
+> [!NOTE]
+> 请参阅[受支持的 Linux 发行版和目标体系结构](~/articles/cognitive-services/speech-service/speech-sdk.md)的列表。
+
+# <a name="ubuntudebian"></a>[Ubuntu/Debian](#tab/debian)
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
@@ -24,7 +27,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# <a name="rhelcentos-78"></a>[RHEL/CentOS 7/8](#tab/centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 08/15/2019
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6bc28ce656cbf7eda33cccf9418afd451279c6e9
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 7258102e03c7e21874445ecf39c0aca89489dd93
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441114"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977519"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 和 Azure 机器学习：创建和加速 ML 模型
 
@@ -30,7 +30,7 @@ Microsoft 和合作伙伴社区创建了 ONNX 作为表示机器学习模型的�
 
 ONNX 运行时用于大规模 Microsoft 服务，如必应、Office 和 Azure 认知服务。 性能提升取决于许多因素，但这些 Microsoft 服务的 CPU 平均起来可实现 2 倍的性能提升。 除了 Azure 机器学习服务外，ONNX 运行时还在支持机器学习工作负荷的其他产品中运行，包括：
 + Windows:该运行时作为 [Windows 机器学习](https://docs.microsoft.com/windows/ai/windows-ml/)的一部分内置于 Windows 中，在数亿台设备上运行。 
-+ Azure SQL 产品系列：针对 [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) 和 [Azure SQL 托管实例](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview)中的数据运行本机评分。
++ Azure SQL 产品系列：对 [Azure SQL Edge](../azure-sql-edge/onnx-overview.md) 中的数据运行本机评分。
 + ML.NET：[在 ML.NET 中运行 ONNX 模型](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx)。
 
 [![ONNX 流程图，其中显示了训练、转换器和部署](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)

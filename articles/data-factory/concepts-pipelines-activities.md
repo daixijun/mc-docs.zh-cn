@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/19/2019
-ms.date: 10/19/2020
-ms.openlocfilehash: adde74df39859ec67043d055e2b0064586f15a32
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/23/2020
+ms.openlocfilehash: 5d51b43aa678a65f904b080925d4a97cbc51d1d3
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121692"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94680377"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 数据工厂中的管道和活动
 
@@ -26,7 +26,7 @@ ms.locfileid: "92121692"
 ## <a name="overview"></a>概述
 数据工厂可以包含一个或多个数据管道。 “管道”是共同执行一项任务的活动的逻辑分组。 例如，管道可能包含一组引入和清理日志数据的活动，然后在 HDInsight 群集上启动 Spark 作业以分析日志数据。 可以通过管道将活动作为一个集来管理，而非单独管理每个活动。 可以部署和计划管道，而不需单独对活动进行操作。
 
-管道中的活动定义对数据执行的操作。 例如，可使用复制活动将数据从 SQL Server 复制到 Azure Blob 存储。 然后，使用在 Azure HDInsight 群集上运行 Hive 脚本的 Hive 活动，将 Blob 存储中的数据处理/转换为生成输出数据。 最后，再使用一个复制活动将输出数据复制到 Azure Synapse Analytics 池，基于该池构建商业智能报告解决方案。
+管道中的活动定义对数据执行的操作。 例如，可使用复制活动将数据从 SQL Server 复制到 Azure Blob 存储。 然后，使用 Databricks Notebook 活动来处理数据并将数据从 Blob 存储转换为 Azure Synapse Analytics 池，在此池的基础上构建商业智能报表解决方案。
 
 数据工厂包含三组活动：[数据移动活动](copy-activity-overview.md)、[数据转换活动](transform-data.md)和[控制活动](#control-flow-activities)。 每个活动可获取零个或多个输入[数据集](concepts-datasets-linked-services.md)，并生成一个或多个输出[数据集](concepts-datasets-linked-services.md)。 下图显示了数据工厂中管道、活动和数据集之间的关系：
 
@@ -55,6 +55,9 @@ Azure 数据工厂支持以下转换活动，这些活动既可以单独添加�
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [存储过程](transform-data-using-stored-procedure.md) | Azure SQL、Azure Synapse Analytics（以前称为 SQL 数据仓库）或 SQL Server
 [自定义活动](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Databricks Jar 活动](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Python 活动](transform-data-databricks-python.md) | Azure Databricks
 
 有关详细信息，请参阅[数据转换活动](transform-data.md)一文。
 
@@ -98,13 +101,13 @@ Azure 数据工厂支持以下转换活动，这些活动既可以单独添加�
 }
 ```
 
-标记 | 说明 | 类型 | 必需
+标记 | 描述 | 类型 | 必需
 --- | ----------- | ---- | --------
-name | 管道的名称。 指定一个名称，它表示管道要执行的操作。 <br/><ul><li>最大字符数：140</li><li>必须以字母、数字或下划线 (\_) 开头</li><li>不允许使用以下字符：“.”、“+”、“?”、“/”、“<”、“>”、“*”、“%”、“&”、“:”、“\" </li></ul> | String | 是
+name | 管道的名称。 指定一个名称，它表示管道要执行的操作。 <br/><ul><li>最大字符数：140</li><li>必须以字母、数字或下划线 (\_) 开头</li><li>不允许使用以下字符：“.”、“+”、“?”、“/”、“<”、“>”、“*”、“%”、“&”、“:”、“\" </li></ul> | 字符串 | 是
 description | 指定描述管道用途的文本。 | 字符串 | 否
 活动 | **activities** 节中可定义有一个或多个活动。 请参阅[活动 JSON](#activity-json) 一节，以了解有关活动 JSON 元素的详细信息。 | Array | 是
-参数 | **参数**部分可在在管道内定义一个或多个参数，使你的管道能够灵活地重复使用。 | 列出 | 否
-concurrency | 管道可以具有的最大并发运行数。 默认情况下，没有最大值。 如果达到并发限制，则附加管道运行将排队，直到较早的管道完成为止 | Number | 否 
+parameters | **参数** 部分可在在管道内定义一个或多个参数，使你的管道能够灵活地重复使用。 | 列出 | 否
+concurrency | 管道可以具有的最大并发运行数。 默认情况下，没有最大值。 如果达到并发限制，则附加管道运行将排队，直到较早的管道完成为止 | 数字 | 否 
 annotations | 与管道关联的标记的列表 | Array | 否
 
 ## <a name="activity-json"></a>活动 JSON
@@ -133,7 +136,7 @@ annotations | 与管道关联的标记的列表 | Array | 否
 
 下表描述了活动 JSON 定义中的属性：
 
-标记 | 说明 | 必需
+标记 | 描述 | 必需
 --- | ----------- | ---------
 name | 活动的名称。 指定一个名称，它表示活动要执行的操作。 <br/><ul><li>最大字符数：55</li><li>必须以字母、数字或下划线 (\_) 开头</li><li>不允许使用以下字符：“.”、“+”、“?”、“/”、“<”、“>”、“*”、“%”、“&”、“:”、“\" | 是</li></ul>
 description | 描述活动用途的文本 | 是
@@ -198,7 +201,7 @@ secureOutput | 当设置为 true 时，来自活动的输出会被视为安全�
 }
 ```
 
-标记 | 描述 | 必选
+标记 | 描述 | 必需
 --- | ----------- | --------
 name | 活动的名称。 指定一个名称，它表示活动要执行的操作。<br/><ul><li>最大字符数：55</li><li>必须以字母、数字或下划线 (\_) 开头</li><li>不允许使用以下字符：“.”、“+”、“?”、“/”、“<”、“>”、“*”、“%”、“&”、“:”、“\" | 是</li><ul>
 description | 描述活动用途的文本 | 是

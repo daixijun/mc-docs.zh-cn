@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/16/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 1ae34b57a9dd874d4f1ed5d8ba4f7db5ce564c43
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 4190a0c4215bb0075a917534da6ef0471aa7da9e
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326439"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94849277"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的令牌概述
 
@@ -134,7 +134,7 @@ https://contoso.b2clogin.cn/contoso.partner.onmschina.cn/b2c_1_signupsignin1/dis
 https://contoso.b2clogin.cn/contoso.partner.onmschina.cn/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-若要确定对令牌签名所用的策略（以及请求元数据的位置），有两个选择。 首先，策略名称包含在令牌的 `acr` 声明中。 可以通过对主体进行 Base-64 解码，并反序列化生成的 JSON 字符串，从而分析 JWT 主体中的声明。 `acr` 声明是用于颁发令牌的策略名称。 另一个方法是在发出请求时在 `state` 参数的值中对策略进行编码，并对其进行解码以确定使用的策略。 任意一种方法均有效。
+若要确定对令牌签名所用的策略（以及请求元数据的位置），有两个选择。 首先，策略名称包含在令牌的 `tfp`（默认）或 `acr` 声明（按照配置）中。 可以通过对主体进行 Base-64 解码，并反序列化生成的 JSON 字符串，从而分析 JWT 主体中的声明。 `tfp` 或 `acr` 声明是用于颁发令牌的策略的名称。 另一个方法是在发出请求时在 `state` 参数的值中对策略进行编码，并对其进行解码以确定使用的策略。 任意一种方法均有效。
 
 关于如何执行签名验证的说明已超出了本文档的讨论范围。 有许多开源库可帮助验证令牌。
 

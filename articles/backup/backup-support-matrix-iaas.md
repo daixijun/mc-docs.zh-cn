@@ -4,14 +4,14 @@ description: 提供有关在使用 Azure 备份服务备份 Azure VM 时的支�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 09/28/2020
+ms.date: 11/17/2020
 ms.author: v-johya
-ms.openlocfilehash: a3b0ab348b3beec19bfc3b759d22cf536945e427
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 4bfbafc3712d59e70a7429d772e6cd12bbfcc3ec
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871284"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94977181"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 
@@ -90,7 +90,7 @@ Azure 备份不支持 32 位操作系统。
 **设置** | **限制**
 --- | ---
 每个受保护实例（计算机/工作负荷）的恢复点数上限 | 9999。
-恢复点的最长过期时间 | 无限制。
+恢复点的最长过期时间 | 无限制（99 年）。
 备份到保管库时的最高备份频率（Azure VM 扩展） | 每天一次。
 备份到保管库时的最高备份频率（MARS 代理） | 每日三次备份。
 备份到 DPM/MABS 时的最高备份频率 | SQL Server 每隔 15 分钟。<br/><br/> 其他工作负荷每小时一次。
@@ -132,7 +132,7 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 升级到托管 VM 后还原非托管 VM 的备份| 。<br/><br/> 可以还原磁盘，然后创建托管 VM。
 在将 VM 迁移到托管磁盘之前将 VM 还原到还原点 | 。<br/><br/> 还原到非托管磁盘（默认设置），将已还原的磁盘转换为托管磁盘，然后使用托管磁盘创建 VM。
 还原已删除的 VM。 | 。<br/><br/> 可以从恢复点还原 VM。
-通过门户还原属于多 DC 配置的域控制器 (DC) VM | 如果使用 PowerShell 还原磁盘并创建 VM，则支持此操作。
+还原域控制器 VM  | 。 有关详细信息，请参阅[还原域控制器 VM](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
 还原不同虚拟网络中的 VM |。<br/><br/> 虚拟网络必须位于同一订阅和区域中。
 
 ## <a name="vm-compute-support"></a>VM 计算支持
@@ -165,6 +165,8 @@ Azure VM 数据磁盘 | 支持备份最多包含 32 个磁盘的 Azure VM。<br>
 将磁盘添加到受保护的 VM | 。
 调整受保护 VM 上的磁盘大小 | 。
 共享存储| 不支持使用群集共享卷 (CSV) 或横向扩展文件服务器备份 VM。 在备份过程中，CSV 写入器可能会失败。 还原时，包含 CSV 卷的磁盘可能不会启动。
+[共享磁盘](../virtual-machines/disks-shared-enable.md) | 不支持。
+超级 SSD 磁盘 | 不支持。 有关更多详细信息，请参阅[这些限制](selective-disk-backup-restore.md#limitations)。
 
 ## <a name="vm-network-support"></a>VM 网络支持
 
@@ -220,7 +222,7 @@ Azure 备份支持对备份流量进行压缩，详细情况汇总在下表中�
 
 **计算机** | **压缩到 MABS/DPM (TCP)** | **压缩到保管库 (HTTPS)**
 --- | --- | ---
-没有 DPM/MABS 的本地 Windows 计算机 | 不可用 | ![是][green]
+没有 DPM/MABS 的本地 Windows 计算机 | NA | ![是][green]
 Azure VM | NA | NA
 本地计算机/装有 DPM 的 Azure VM | ![是][green] | ![是][green]
 本地计算机/装有 MABS 的 Azure VM | ![是][green] | ![是][green]

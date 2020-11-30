@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: how-to
 origin.date: 6/24/2020
-ms.date: 08/17/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b84a06da1b24e5d1f5c9c336d17e66e201e0390
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 26e9a65859d367e284122bd162bb450f5907908e
+ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223041"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94908976"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>在 Azure CLI 中配置和访问 Azure Database for Maria DB 审核日志
 
@@ -21,9 +21,9 @@ ms.locfileid: "88223041"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要逐步执行本操作方法指南，需要：
+若要完成本指南：
 
-- [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- 需要 [Azure Database for MariaDB 服务器](quickstart-create-mariadb-server-database-using-azure-portal.md)。
 
 > [!IMPORTANT]
 > 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
@@ -40,7 +40,7 @@ ms.locfileid: "88223041"
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. 通过更新 **audit_log_events** 参数，选择要记录的[事件类型](concepts-audit-logs.md#configure-audit-logging)。
+1. 通过更新 **audit_log_events** 参数，选择要记录的 [事件类型](concepts-audit-logs.md#configure-audit-logging)。
     ```azurecli
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

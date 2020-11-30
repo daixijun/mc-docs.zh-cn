@@ -3,36 +3,36 @@ title: 使用 R、Python 和 T-SQL 分析 SQL Server - Team Data Science Process
 description: 演练在 SQL Server 中使用 R、Python 和 T-SQL 进行预测分析的示例。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c66b3fa1cb5de02db338b2c9f4532080f5df13f6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 87881f563589a0c9d353b717b8de55bafa63a2c8
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599177"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978233"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>使用 R、Python 和 T-SQL 的 SQL Server 数据科学演练
 
 这些演练使用 SQL Server、SQL Server R Services 和 SQL Server Python Services 进行预测分析。 R 和 Python 代码部署在存储过程中。 它们遵循 Team Data Science Process 中所述的步骤。 有关 Team Data Science Process 的概述，请参阅[数据科学过程](overview.md)。 
 
-其他执行 Team Data Science Process 的数据科学演练按所使用的**平台**分组。 有关这些示例的明细，请参阅[执行 Team Data Science Process 的演练](walkthroughs.md)。
+其他执行 Team Data Science Process 的数据科学演练按所使用的 **平台** 分组。 有关这些示例的明细，请参阅[执行 Team Data Science Process 的演练](walkthroughs.md)。
 
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>在 SQL Server 中使用 Python 和 SQL 查询预测出租车小费 
 
-[使用 SQL Server](sql-walkthrough.md) 演练展示如何使用 SQL Server 和纽约市公用出租车车程和费用数据集生成和部署机器学习分类以及回归模型。
+[使用 SQL Server](sql-walkthrough.md) 演练展示如何生成和部署机器学习分类以及回归模型。  所用数据是公开提供的纽约市出租车行程和费用数据集。
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>在 SQL Server 中使用 Microsoft R 预测出租车小费 
 
-[使用 SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) 演练向数据科学家提供了 R 代码、SQL Server 数据和自定义 SQL 函数，来生成和部署 R 模型到 SQL Server。 本演练旨在向 R 开发人员介绍 R Services（数据库内）。
+[使用 SQL Server R Services](https://docs.microsoft.com/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) 演练演示如何生成 R 模型并将其部署到 SQL Server。 本演练旨在向 R 开发人员介绍 R Services（数据库内）。
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>在 SQL Server 中通过 T-SQL 或存储过程使用 R 预测出租车小费
