@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: e360807c12df7ccea13c8ecb8d7c89df78d0785c
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: bd2fe69911772d1e8b77679c18e0e236921da554
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849320"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024559"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>安装使用现有应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -154,6 +154,7 @@ armAuth:
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
+        environment: AzureChinaCloud
     
         # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
@@ -217,6 +218,7 @@ armAuth:
          --set appgw.name=applicationgatewayABCD \
          --set appgw.resourceGroup=your-resource-group \
          --set appgw.subscriptionId=subscription-uuid \
+         --set appgw.environment=AzureChinaCloud \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
          --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
@@ -273,6 +275,7 @@ appgw:
     subscriptionId: <subscriptionId>    # existing field
     resourceGroup: <resourceGroupName>  # existing field
     name: <applicationGatewayName>      # existing field
+    environment: AzureChinaCloud        # existing field
     shared: true                        # <<<<< Add this field to enable shared Application Gateway >>>>>
 ```
 

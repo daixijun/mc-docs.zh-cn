@@ -9,12 +9,12 @@ ms.testscope: yes|no
 ms.testdate: 11/23/2020null
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 0a4fa6dc56c1324c00bb8ee508e914ca07b2a8c5
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c860bdff405a5a051c9ce27811f8f628f2f213fb
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849533"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024416"
 ---
 <!--Pending for PM review-->
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>如何使用 Azure 容器注册表任务消耗并维护公共内容
@@ -60,11 +60,11 @@ ms.locfileid: "94849533"
 1. 一个用来保护所有机密的 **Azure 密钥保管库**
 1. 一个承载 `hello-world` 生成应用程序的 **Azure 容器实例**
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 以下步骤配置在演练中创建和使用的资源的值。
 
-### <a name="set-environment-variables"></a>设置环境变量
+### <a name="set-environment-variables"></a>设置环境变量。
 
 配置你的环境特有的变量。 我们会遵循最佳做法，将具有持久性内容的资源置于其自己的资源组中，以最大程度地减少意外删除情况。 不过，你可以根据需要将其放在单个资源组中。
 
@@ -776,5 +776,4 @@ az group delete -n $ACI_RG --no-wait -y
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.azk8s.cn
 
-<!-- Update_Description: new article about tasks consume public content -->
-<!--NEW.date: 11/23/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

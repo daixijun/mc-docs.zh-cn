@@ -4,16 +4,16 @@ description: Azure 容器注册表中的一些做法和工作流，用于管理�
 ms.topic: article
 origin.date: 10/29/2020
 author: rockboyfor
-ms.date: 11/23/2020
-ms.testscope: yes|no
-ms.testdate: 11/23/2020null
+ms.date: 11/30/2020
+ms.testscope: no
+ms.testdate: 11/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4e30afdad2c88e04f277db39f5dab75ab2a44835
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c8b7e1de012a7f9698fd0095072400e634b75064
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849511"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024566"
 ---
 <!--Verified successfully-->
 # <a name="manage-public-content-with-azure-container-registry"></a>通过 Azure 容器注册表管理公共内容
@@ -45,7 +45,7 @@ ms.locfileid: "94849511"
 
 ### <a name="authenticate-from-azure-services"></a>从 Azure 服务进行身份验证
 
-多个 Azure 服务（包括应用服务和 Azure 容器实例）支持从公共注册表（例如 Docker Hub）拉取映像来进行容器部署。 如果需要从 Docker Hub 部署映像，建议你配置设置来使用 Docker Hub 帐户进行身份验证。 示例:
+多个 Azure 服务（包括应用服务和 Azure 容器实例）支持从公共注册表（例如 Docker Hub）拉取映像来进行容器部署。 如果需要从 Docker Hub 部署映像，建议你配置设置来使用 Docker Hub 帐户进行身份验证。 示例：
 
 **应用服务**
 
@@ -73,7 +73,7 @@ ms.locfileid: "94849511"
 
 `az acr import` 不需要本地 Docker 安装。 你可以使用 Azure CLI 的本地安装运行它，也可以直接在 Azure 本地 Shell 中运行它。 它支持任何 OS 类型的映像、多体系结构映像或 OCI 项目（例如 Helm 图表）。
 
-例如：
+示例：
 
 ```azurecli
 az acr import \
