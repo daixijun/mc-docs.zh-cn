@@ -3,16 +3,17 @@ title: 部署已启用 GPU 的容器实例
 description: 了解如何使用 GPU 资源部署 Azure 容器实例，以运行计算密集型容器应用。
 ms.topic: article
 origin.date: 07/22/2020
-ms.date: 09/25/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 03/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 501ae8aff1318fa0aef5ce94275de8b871702bcd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6df97fc6094d19abd3232db89e0514c717a29a6d
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246690"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024486"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>部署使用 GPU 资源的容器实例
 
@@ -33,15 +34,13 @@ ms.locfileid: "91246690"
 
 **支持的 OS 类型**：仅限 Linux
 
-**其他限制**：将容器组部署到虚拟网络中时不能使用 GPU 资源。
-
-<!--Not Avaialble on [virtual network](container-instances-vnet.md)-->
+**其他限制**：将容器组部署到[虚拟网络](container-instances-vnet.md)中时不能使用 GPU 资源。
 
 ## <a name="about-gpu-resources"></a>关于 GPU 资源
 
 ### <a name="count-and-sku"></a>计数和 SKU
 
-若要在容器实例中使用 GPU，请使用以下信息指定 GPU 资源**：
+若要在容器实例中使用 GPU，请使用以下信息指定 GPU 资源：
 
 * **计数** - GPU 数量：1、2 或 4  。
 * **SKU** - GPU SKU：**V100**。 每个 SKU 都映射到以下支持 Azure GPU 的 VM 系列中的 NVIDIA Tesla GPU：
@@ -61,9 +60,9 @@ ms.locfileid: "91246690"
 
 ### <a name="things-to-know"></a>使用须知
 
-* **部署时间** - 创建包含 GPU 资源的容器组最多需要 8-10 分钟****。 这是因为需为预配和配置 Azure 中的 GPU VM 留出更多时间。 
+* **部署时间** - 创建包含 GPU 资源的容器组最多需要 8-10 分钟。 这是因为需为预配和配置 Azure 中的 GPU VM 留出更多时间。 
 
-* **定价** - 类似于不含 GPU 资源的容器组，Azure 对具有 GPU 资源的容器组的持续时间内消耗的资源收费**。 持续时间自容器开始拉取第一个容器的映像起开始计算，至容器组终止为止。 它不包括部署容器组的时间。
+* **定价** - 类似于不含 GPU 资源的容器组，Azure 对具有 GPU 资源的容器组的持续时间内消耗的资源收费。 持续时间自容器开始拉取第一个容器的映像起开始计算，至容器组终止为止。 它不包括部署容器组的时间。
 
     请参阅[定价详细信息](https://www.azure.cn/pricing/details/container-instances/)。
 
@@ -75,7 +74,7 @@ ms.locfileid: "91246690"
 
 ## <a name="yaml-example"></a>YAML 示例
 
-添加 GPU 资源的一种方式就是使用 [YAML 文件](container-instances-multi-container-yaml.md)部署容器组。 将以下 YAML 复制到名为 gpu-deploy-aci.yaml 的新文件中，然后保存该文件**。 此 YAML 创建名为 gpucontainergroup 的容器组并使用 K80 GPU 指定容器实例**。 该实例运行示例 CUDA 矢量添加应用程序。 请求的资源足以运行工作负载。
+添加 GPU 资源的一种方式就是使用 [YAML 文件](container-instances-multi-container-yaml.md)部署容器组。 将以下 YAML 复制到名为 gpu-deploy-aci.yaml 的新文件中，然后保存该文件。 此 YAML 创建名为 gpucontainergroup 的容器组并使用 K80 GPU 指定容器实例。 该实例运行示例 CUDA 矢量添加应用程序。 请求的资源足以运行工作负载。
 
 ```YAML
 additional_properties: {}
@@ -97,7 +96,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-使用 [az container create][az-container-create] 命令并在 `--file` 参数中指定 YAML 文件名，以部署容器组。 需要提供支持 GPU 资源的资源组名称和容器组位置（例如 chinaeast2）**。  
+使用 [az container create][az-container-create] 命令并在 `--file` 参数中指定 YAML 文件名，以部署容器组。 需要提供支持 GPU 资源的资源组名称和容器组位置（例如 chinaeast2）。  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location chinaeast2
@@ -139,7 +138,7 @@ Done
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {
@@ -174,7 +173,7 @@ Done
 }
 ```
 
-使用 [az deployment group create][az-deployment-group-create] 命令部署模板。 需要提供支持 GPU 资源的在区域（例如 chinaeast2）中创建的资源组的名称**。
+使用 [az deployment group create][az-deployment-group-create] 命令部署模板。 需要提供支持 GPU 资源的在区域（例如 chinaeast2）中创建的资源组的名称。
 
 ```azurecli
 az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
@@ -244,10 +243,10 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-logs]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-deployment-group-create]: https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-container-logs]: https://docs.microsoft.com/cli/azure/container#az_container_logs
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 
 <!-- Update_Description: update meta properties, wording update, update link -->

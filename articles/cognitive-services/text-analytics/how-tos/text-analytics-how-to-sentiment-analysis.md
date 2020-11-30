@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 origin.date: 03/09/2020
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 18a4070cd2eb042ac4fcfb2429900d17009f92af
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 55cda5c2378db3891ab9fbc241262cc6e80423b3
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105706"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306470"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>如何：使用文本分析 API 检测情绪
 
@@ -24,7 +24,7 @@ ms.locfileid: "93105706"
 
 发送情绪分析请求后，API 会在句子和文档级别返回情绪标签（如“消极”、“中性”和“积极”）和置信度分数。
 
-情绪分析支持多种语言，并在预览版中提供了更多的语言。 有关详细信息，请参阅[支持的语言](../text-analytics-supported-languages.md)。
+情绪分析支持多种语言，并在预览版中提供了更多的语言。 有关详细信息，请参阅[支持的语言](../language-support.md)。
 
 ## <a name="sentiment-analysis-versions-and-features"></a>情绪分析版本和功能
 
@@ -79,9 +79,9 @@ ms.locfileid: "93105706"
 
 创建 POST 请求。 可[使用 Postman](text-analytics-how-to-call-api.md) 或以下参考链接中的“API 测试控制台”来快速构建并发送请求。 
 
-#### <a name="version-31-preview1"></a>[版本 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[版本 3.1-preview.2](#tab/version-3-1)
 
-[情绪分析 v3.1 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[情绪分析 v3.1 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[版本 3.0](#tab/version-3)
 
@@ -96,13 +96,13 @@ ms.locfileid: "93105706"
 > [!NOTE]
 > 可以在 Azure 门户上找到文本分析资源的密钥和终结点。 它们将位于资源的“快速启动”页上的“资源管理”下。 
 
-#### <a name="version-31-preview1"></a>[版本 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[版本 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/sentiment`
 
 若要获取观点挖掘结果，必须包含 `opinionMining=true` 参数。 例如：
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 默认情况下，此参数设置为 `false`。 
 
@@ -143,7 +143,7 @@ ms.locfileid: "93105706"
 
 系统会立即返回输出。 可将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中。 然后，将输出导入到可以用来对数据进行排序、搜索和操作的应用程序。 由于多语言和表情符号支持，响应可能包含文本偏移。 有关详细信息，请参阅[如何处理偏移](../concepts/text-offsets.md)。
 
-#### <a name="version-31-preview1"></a>[版本 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[版本 3.1-preview.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>情绪分析 v3.1 示例响应
 

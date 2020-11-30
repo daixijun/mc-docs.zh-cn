@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 03/28/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1add13447bc9055382f98a56869e592c3a03f2ca
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0e63ea8ea9ab5a5f7fa0ec2eb776041a2fee28ec
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106342"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306468"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定人脸识别模型
 
@@ -54,7 +54,7 @@ recognition_03 模型（2020 年发布）是当前可用的最准确的模型。
 * recognition_03
 
 
-或者，可以指定 _returnRecognitionModel_ 参数（默认为 **false** ）来指示是否应在响应中返回 _recognitionModel_ 。 因此，[Face - Detect] REST API 的请求 URL 将如下所示：
+或者，可以指定 _returnRecognitionModel_ 参数（默认为 **false**）来指示是否应在响应中返回 _recognitionModel_。 因此，[Face - Detect] REST API 的请求 URL 将如下所示：
 
 `https://api.cognitive.azure.cn/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -79,7 +79,7 @@ string personGroupId = "mypersongroupid";
 await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-在此代码中，创建了 ID 为 `mypersongroupid` 的 **PersonGroup** ，它设置为使用 _recognition_02_ 模型提取人脸特征。
+在此代码中，创建了 ID 为 `mypersongroupid` 的 **PersonGroup**，它设置为使用 _recognition_02_ 模型提取人脸特征。
 
 相应地，需要指定在检测人脸以根据此 **PersonGroup** 进行比较（通过 [人脸 - 检测] API）时要使用的模型。 使用的模型应始终为 **PersonGroup** 的配置相一致；否则，操作将会由于模型不兼容而失败。
 
@@ -118,9 +118,9 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 
 本文已介绍如何指定要与不同人脸服务 API 配合使用的识别模型。 接下来，请遵循相应的快速入门开始使用人脸识别。
 
-* [人脸 .NET SDK](../Quickstarts/csharp-sdk.md)
-* [人脸 Python SDK](../Quickstarts/python-sdk.md)
-* [人脸 Go SDK](../Quickstarts/go-sdk.md)
+* [人脸 .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [人脸 Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [人脸 Go SDK](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [人脸 - 检测]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d
 [人脸 - 查找相似人脸]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

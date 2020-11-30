@@ -6,18 +6,18 @@ metadata:
   description: Azure Batch 在云中高效运行大规模应用程序。 为你的解决方案计划计算密集型任务并动态调整资源，而无需管理基础结构。
   ms.service: batch
   ms.topic: landing-page
-  origin.date: 09/23/2019
+  origin.date: 10/09/2020
   author: rockboyfor
-  ms.date: 09/21/2020
+  ms.date: 11/30/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: cc8138d984c36afc4cd57a7b44695b2a0ec92eac
-  ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+  ms.openlocfilehash: c818c8b09fc3e1f9561ba09c125ff3b66153489f
+  ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/24/2020
-  ms.locfileid: "91146794"
+  ms.lasthandoff: 11/29/2020
+  ms.locfileid: "96306472"
 landingContent:
 - title: 关于 Azure Batch
   linkLists:
@@ -39,8 +39,12 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: 面向开发人员的工作流和功能概述
+    - text: 工作流和功能概述
       url: batch-service-workflow-features.md
+    - text: 作业和任务
+      url: jobs-and-tasks.md
+    - text: 节点和池
+      url: nodes-and-pools.md
 - title: 分步指南
   linkLists:
   - linkListType: tutorial
@@ -49,6 +53,8 @@ landingContent:
       url: tutorial-parallel-dotnet.md
     - text: 并行文件处理 - Python
       url: tutorial-parallel-python.md
+    - text: 将 Python 脚本与数据工厂配合使用
+      url: tutorial-run-python-batch-azure-data-factory.md
     - text: 将 OCR 与 Batch 和 Functions 配合使用
       url: tutorial-batch-functions.md
     - text: 使用 Arnold 进行场景呈现
@@ -62,11 +68,13 @@ landingContent:
     - text: 创建批处理帐户
       url: batch-account-create-portal.md
     - text: 创建和管理池
-      url: batch-custom-images.md
+      url: batch-sig-images.md
     - text: 并发运行任务
       url: batch-parallel-node-tasks.md
     - text: 使用应用程序包
       url: batch-application-packages.md
+    - text: 运行容器应用程序
+      url: batch-docker-container-workloads.md
   - linkListType: concept
     links:
     - text: 支持的 VM 大小
@@ -93,3 +101,5 @@ landingContent:
       url: https://docs.microsoft.com//python/api/overview/azure/batch
     - text: REST
       url: https://docs.microsoft.com/rest/api/batchservice/
+    - text: Batch API 生命周期
+      url: https://docs.microsoft.com/rest/api/batchservice/batch-api-status

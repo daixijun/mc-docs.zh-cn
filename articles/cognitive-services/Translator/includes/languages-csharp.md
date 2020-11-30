@@ -3,15 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2e33d8d9fd34a4ee2762bfb958343b81c14ab1e
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 46994f59119de092c47d544726cf427d00911c76
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499122"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306618"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -121,7 +121,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](../reference/v3-0-reference.md#authentication)。
 
 要使用“Pretty Print”（响应格式）打印响应，请将此函数添加到 Program 类：
 
@@ -151,7 +151,7 @@ dotnet run
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](../language-support.md)中查找国家/地区缩写。
 
 ```json
 {
@@ -246,4 +246,5 @@ dotnet run
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

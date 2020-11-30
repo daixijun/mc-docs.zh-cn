@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 origin.date: 11/08/2019
-ms.date: 10/19/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 34d5891da33ec10199774421704fe187ac95a21d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8f3dadf05136021c420b6cc73ec4ff45b4f982d0
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472304"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306485"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -90,7 +90,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 当你使用了所有这些免费的 1000 个终结点查询或超出定价层的每月事务配额时，将收到 HTTP 403 错误状态代码。
 
-若要修复此错误，需要[将定价层更改](luis-how-to-azure-subscription.md#change-pricing-tier)为更高层，或者[创建新资源](get-started-portal-deploy-app.md#create-the-endpoint-resource)并[将其分配给应用](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
+若要修复此错误，需要[将定价层更改](luis-how-to-azure-subscription.md#change-the-pricing-tier)为更高层，或者[创建新资源](get-started-portal-deploy-app.md#create-the-endpoint-resource)并[将其分配给应用](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
 
 此错误的解决方法包括：
 
@@ -105,7 +105,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 解决方法包括：
 
-* 如果不在最高层，可以[提高定价层](luis-how-to-azure-subscription.md#change-pricing-tier)。
+* 如果不在最高层，可以[提高定价层](luis-how-to-azure-subscription.md#change-the-pricing-tier)。
 * 如果使用量超过了最高定价层相应的使用量，请添加更多的语言理解资源，并在这些资源前面放置一个负载均衡器。 带有 Kubernetes 或 Docker Compose 的[“语言理解”容器](luis-container-howto.md)可以帮助解决此问题。
 * 收到此状态代码时，可以使用你自己实现的[重试策略](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)来限制客户端应用程序请求。
 
@@ -216,8 +216,6 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 请参阅修复 HTTP 状态代码 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 和 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 了解详细信息。
 
-<!--Not available in MC: luis-migration-authoring.md-->
-
 ## <a name="app-management"></a>应用管理
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>如何下载用户表述的日志？
@@ -265,7 +263,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 #### <a name="resolve-issue-in-luis"></a>在 LUIS 中解决问题
 从 [LUIS 终结点](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)传递相同的言语到 LUIS。 如果收到错误，请在 LUIS 中解决该问题直到不再返回错误。 常见错误包括：
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - 此问题表明需要从创作密钥更改为[终结点密钥](luis-how-to-azure-subscription.md)，或者需要更改[服务层级](luis-how-to-azure-subscription.md#change-pricing-tier)。
+* `Out of call volume quota. Quota will be replenished in <time>.` - 此问题表明需要从创作密钥更改为[终结点密钥](luis-how-to-azure-subscription.md)，或者需要更改[服务层级](luis-how-to-azure-subscription.md#change-the-pricing-tier)。
 
 <!--Not available in MC: Bot Service-->
 ## <a name="integrating-luis"></a>集成 LUIS

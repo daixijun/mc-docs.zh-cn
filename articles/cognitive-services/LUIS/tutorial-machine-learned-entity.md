@@ -4,15 +4,15 @@ description: 使用机器学习实体从言语中提取结构化数据。 若要
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: d11181d583541232e92acb546a12f2f1a6f76e5a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 505e986960b467faa2b5c8b3888af4eba1d0f9a9
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472297"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306488"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>教程：在语言理解 (LUIS) 中使用机器学习实体从用户言语中提取结构化数据
 
@@ -74,7 +74,7 @@ ms.locfileid: "92472297"
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    在最左侧文本 `pickup` (#1) 之前开始选择，然后移到最右侧文本 `anchovies`（#2 - 这将结束标记过程）的上方。 此时将显示一个弹出菜单。 在弹出框中，输入实体的名称作为 `Order` (#3)。 然后从列表选择 `Order Create new entity` (#4)。
+    在第一个示例意向的文本上单击并拖动光标。 在出现的菜单中，输入实体的名称作为 `Order`。 然后从列表选择 `Order Create new entity`。
 
     ![标记完整订单文本的开头和结尾](./media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -253,7 +253,7 @@ ms.locfileid: "92472297"
 
     `2 small cheese pizzas for pickup`
 
-    最后一个查询字符串参数为 `query`，表示陈述 **查询** 。
+    最后一个查询字符串参数为 `query`，表示陈述 **查询**。
 
     ```json
     {

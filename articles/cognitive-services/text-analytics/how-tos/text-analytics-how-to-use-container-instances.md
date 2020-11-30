@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: d3b6ccea2e17647ab3740e1a4118e63560126c83
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d9f7701b11e782b5d537965939f3d4ff45a12500
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103924"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306471"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>将文本分析容器部署到 Azure 容器实例
 
@@ -50,7 +50,7 @@ ms.locfileid: "93103924"
 ## <a name="next-steps"></a>后续步骤 
 
 * 使用更多[认知服务容器](../../cognitive-services-container-support.md)
-* 使用[文本分析连接服务](../vs-text-connected-service.md)
+* 使用[文本分析连接服务](../index.yml)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: /container-instances

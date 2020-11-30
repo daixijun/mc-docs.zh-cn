@@ -3,20 +3,21 @@ title: 教程：在 .NET 中审查视频和脚本 - 内容审查器
 titleSuffix: Azure Cognitive Services
 description: 本教程可帮助你了解如何使用机器辅助审查和人工介入评论创建，来生成完整的视频和脚本审查解决方案。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.author: v-tawe
+ms.date: 11/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
 origin.date: 04/14/2020
-ms.openlocfilehash: cc0068f885086b77b1d12023098b18cd918c6b5c
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: bd953b16eaa3ad9b5b7f2ba5fc8e2e550d0f3ffd
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654953"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306495"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教程：视频和脚本审查
 
@@ -35,7 +36,7 @@ ms.locfileid: "84654953"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 在[内容审查器评审工具](https://contentmoderator.cognitive.microsoft.com/)网站上注册并创建自定义标记。 执行此步骤时如需帮助，请参阅[使用标记](Review-Tool-User-Guide/tags.md)。
+- 在[内容审查器评审工具](https://contentmoderator.cognitive.microsoft.com/)网站上注册并创建自定义标记。 执行此步骤时如需帮助，请参阅[使用标记](./review-tool-user-guide/configure.md#tags)。
 
     ![屏幕截图：视频审查自定义标记](images/video-tutorial-custom-tags.png)
 - 若要运行示例应用程序，需要有 Azure 帐户、Azure 媒体服务帐户、Azure 内容审查器资源，以及 Azure Active Directory 凭据。 有关如何获取这些资源的说明，请查看[视频审查 API](video-moderation-api.md) 指南。
@@ -121,7 +122,7 @@ static void Main(string[] args)
 如果不存在命令行参数，`Main()` 将调用 `GetUserInputs()`。 此方法提示用户输入单个视频文件的路径，并指定是否应生成文本脚本。
 
 > [!NOTE]
-> 控制台应用程序使用 Azure Media Indexer API 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
+> 控制台应用程序使用 [Azure Media Indexer API](../../media-services/previous/legacy-components.md) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
 
 ### <a name="initialize-and-processvideo-methods"></a>Initialize 和 ProcessVideo 方法
 
@@ -139,49 +140,49 @@ static void Main(string[] args)
 最后，通过为每个视频文件调用 `ProcessVideo()`，一次处理一个视频文件。
 
 ```csharp
-private static async Task ProcessVideo(string videoPath)
-{
-    var watch = System.Diagnostics.Stopwatch.StartNew();
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.WriteLine("\nVideo compression process started...");
+        private static async Task ProcessVideo(string videoPath)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\nVideo compression process started...");
 
-    var compressedVideoPath = amsComponent.CompressVideo(videoPath);
-    if (string.IsNullOrWhiteSpace(compressedVideoPath))
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Video Compression failed.");
-    }
+            var compressedVideoPath = amsComponent.CompressVideo(videoPath);
+            if (string.IsNullOrWhiteSpace(compressedVideoPath))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Video Compression failed.");
+            }
 
-    Console.WriteLine("\nVideo compression process completed...");
+            Console.WriteLine("\nVideo compression process completed...");
 
-    UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
-    UploadAssetResult uploadResult = new UploadAssetResult();
+            UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
+            UploadAssetResult uploadResult = new UploadAssetResult();
 
-    if (generateVtt)
-    {
-        uploadResult.GenerateVTT = generateVtt;
-    }
-    Console.WriteLine("\nVideo moderation process started...");
+            if (generateVtt)
+            {
+                uploadResult.GenerateVTT = generateVtt;
+            }
+            Console.WriteLine("\nVideo moderation process started...");
 
-    if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nVideo moderation process failed.");
-    }
+            if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nVideo moderation process failed.");
+            }
 
-    Console.WriteLine("\nVideo moderation process completed...");
-    Console.WriteLine("\nVideo review process started...");
+            Console.WriteLine("\nVideo moderation process completed...");
+            Console.WriteLine("\nVideo review process started...");
 
-    string reviewId = await videoReviewApi.CreateVideoReviewInContentModerator(uploadResult);
+            string reviewId = await videoReviewApi.CreateVideoReviewInContentModerator(uploadResult);
 
-    watch.Stop();
+            watch.Stop();
 
-    Console.WriteLine("\nVideo review successfully completed...");
-    Console.WriteLine("\nTotal Elapsed Time: {0}", watch.Elapsed);
-    Logger.Log("Video File Name: " + Path.GetFileName(videoPath));
-    Logger.Log($"ReviewId: {reviewId}");
-    Logger.Log($"Total Elapsed Time: {watch.Elapsed}");
-}
+            Console.WriteLine("\nVideo review successfully completed...");
+            Console.WriteLine("\nTotal Elapsed Time: {0}", watch.Elapsed);
+            Logger.Log("Video File Name: " + Path.GetFileName(videoPath));
+            Logger.Log($"ReviewId: {reviewId}");
+            Logger.Log($"Total Elapsed Time: {watch.Elapsed}");
+        }
 ```
 
 `ProcessVideo()` 方法非常简单。 它按顺序执行以下操作：
@@ -203,35 +204,35 @@ private static async Task ProcessVideo(string videoPath)
 用于压缩单个视频文件的代码是 `AMSComponent.cs` 中的 `AmsComponent` 类。 负责此功能的方法是 `CompressVideo()`，如下所示。
 
 ```csharp
-public string CompressVideo(string videoPath)
-{
-    string ffmpegBlobUrl;
-    if (!ValidatePreRequisites())
-    {
-        Console.WriteLine("Configurations check failed. Please cross check the configurations!");
-        throw new Exception();
-    }
+        public string CompressVideo(string videoPath)
+        {
+            string ffmpegBlobUrl;
+            if (!ValidatePreRequisites())
+            {
+                Console.WriteLine("Configurations check failed. Please cross check the configurations!");
+                throw new Exception();
+            }
 
-    if (File.Exists(_configObj.FfmpegExecutablePath))
-    {
-        ffmpegBlobUrl = this._configObj.FfmpegExecutablePath;
-    }
-    else
-    {
-        Console.WriteLine("ffmpeg.exe is missing. Please check the Lib folder");
-        throw new Exception();
-    }
+            if (File.Exists(_configObj.FfmpegExecutablePath))
+            {
+                ffmpegBlobUrl = this._configObj.FfmpegExecutablePath;
+            }
+            else
+            {
+                Console.WriteLine("ffmpeg.exe is missing. Please check the Lib folder");
+                throw new Exception();
+            }
 
-    string videoFilePathCom = videoPath.Split('.')[0] + "_c.mp4";
-    ProcessStartInfo processStartInfo = new ProcessStartInfo();
-    processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-    processStartInfo.FileName = ffmpegBlobUrl;
-    processStartInfo.Arguments = "-i \"" + videoPath + "\" -vcodec libx264 -n -crf 32 -preset veryfast -vf scale=640:-1 -c:a aac -aq 1 -ac 2 -threads 0 \"" + videoFilePathCom + "\"";
-    var process = Process.Start(processStartInfo);
-    process.WaitForExit();
-    process.Close();
-    return videoFilePathCom;
-}
+            string videoFilePathCom = videoPath.Split('.')[0] + "_c.mp4";
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            processStartInfo.FileName = ffmpegBlobUrl;
+            processStartInfo.Arguments = "-i \"" + videoPath + "\" -vcodec libx264 -n -crf 32 -preset veryfast -vf scale=640:-1 -c:a aac -aq 1 -ac 2 -threads 0 \"" + videoFilePathCom + "\"";
+            var process = Process.Start(processStartInfo);
+            process.WaitForExit();
+            process.Close();
+            return videoFilePathCom;
+        }
 ```
 
 此代码执行以下步骤：
@@ -253,39 +254,39 @@ public string CompressVideo(string videoPath)
 视频必须先存储在 Azure 媒体服务中，然后才能由内容审查服务进行处理。 `Program.cs` 中的 `Program` 类有一个简短的方法 `CreateVideoStreamingRequest()`，该方法返回一个对象，表示用于上传视频的流式处理请求。
 
 ```csharp
-private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
-{
-    return
-        new UploadVideoStreamRequest
+        private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
         {
-            VideoStream = File.ReadAllBytes(compressedVideoFilePath),
-            VideoName = Path.GetFileName(compressedVideoFilePath),
-            EncodingRequest = new EncodingRequest()
-            {
-                EncodingBitrate = AmsEncoding.AdaptiveStreaming
-            },
-            VideoFilePath = compressedVideoFilePath
-        };
-}
+            return
+                new UploadVideoStreamRequest
+                {
+                    VideoStream = File.ReadAllBytes(compressedVideoFilePath),
+                    VideoName = Path.GetFileName(compressedVideoFilePath),
+                    EncodingRequest = new EncodingRequest()
+                    {
+                        EncodingBitrate = AmsEncoding.AdaptiveStreaming
+                    },
+                    VideoFilePath = compressedVideoFilePath
+                };
+        }
 ```
 
 生成的 `UploadVideoStreamRequest` 对象在 `UploadVideoStreamRequest.cs` 中定义（其父级 `UploadVideoRequest` 在 `UploadVideoRequest.cs` 中定义）。 此处未显示这些类；它们很短，仅用于保存压缩的视频数据及其相关信息。 另一个仅包含数据的类 `UploadAssetResult` (`UploadAssetResult.cs`) 用于保存上传过程的结果。 现在可以理解 `ProcessVideo()` 中的这些行了：
 
 ```csharp
-UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
-UploadAssetResult uploadResult = new UploadAssetResult();
+            UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
+            UploadAssetResult uploadResult = new UploadAssetResult();
 
-if (generateVtt)
-{
-    uploadResult.GenerateVTT = generateVtt;
-}
-Console.WriteLine("\nVideo moderation process started...");
+            if (generateVtt)
+            {
+                uploadResult.GenerateVTT = generateVtt;
+            }
+            Console.WriteLine("\nVideo moderation process started...");
 
-if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("\nVideo moderation process failed.");
-}
+            if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStreamRequest, uploadResult))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nVideo moderation process failed.");
+            }
 ```
 
 这些行执行以下任务：
@@ -299,60 +300,60 @@ if (!videoModerator.CreateAzureMediaServicesJobToModerateVideo(uploadVideoStream
 `CreateAzureMediaServicesJobToModerateVideo()` 方法位于 `VideoModerator.cs` 中，它包含与 Azure 媒体服务交互的大量代码。 该方法的源代码显示在以下摘录中。
 
 ```csharp
-public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
-{
-    asset = CreateAsset(uploadVideoRequest);
-    uploadResult.VideoName = uploadVideoRequest.VideoName;
-    // Encoding the asset , Moderating the asset, Generating transcript in parallel
-    IAsset encodedAsset = null;
-    //Creates the job for the tasks.
-    IJob job = this._mediaContext.Jobs.Create("AMS Review Job");
+        public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
+        {
+            asset = CreateAsset(uploadVideoRequest);
+            uploadResult.VideoName = uploadVideoRequest.VideoName;
+            // Encoding the asset , Moderating the asset, Generating transcript in parallel
+            IAsset encodedAsset = null;
+            //Creates the job for the tasks.
+            IJob job = this._mediaContext.Jobs.Create("AMS Review Job");
 
-    //Adding encoding task to job.
-    ConfigureEncodeAssetTask(uploadVideoRequest.EncodingRequest, job);
+            //Adding encoding task to job.
+            ConfigureEncodeAssetTask(uploadVideoRequest.EncodingRequest, job);
 
-    ConfigureContentModerationTask(job);
+            ConfigureContentModerationTask(job);
 
-    //adding transcript task to job.
-    if (uploadResult.GenerateVTT)
-    {
-        ConfigureTranscriptTask(job);
-    }
+            //adding transcript task to job.
+            if (uploadResult.GenerateVTT)
+            {
+                ConfigureTranscriptTask(job);
+            }
 
-    var watch = System.Diagnostics.Stopwatch.StartNew();
-    //submit and execute job.
-    job.Submit();
-    job.GetExecutionProgressTask(new CancellationTokenSource().Token).Wait();
-    watch.Stop();
-    Logger.Log($"AMS Job Elapsed Time: {watch.Elapsed}");
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            //submit and execute job.
+            job.Submit();
+            job.GetExecutionProgressTask(new CancellationTokenSource().Token).Wait();
+            watch.Stop();
+            Logger.Log($"AMS Job Elapsed Time: {watch.Elapsed}");
 
-    if (job.State == JobState.Error)
-    {
-        throw new Exception("Video moderation has failed due to AMS Job error.");
-    }
+            if (job.State == JobState.Error)
+            {
+                throw new Exception("Video moderation has failed due to AMS Job error.");
+            }
 
-    UploadAssetResult result = uploadResult;
-    encodedAsset = job.OutputMediaAssets[0];
-    result.ModeratedJson = GetCmDetail(job.OutputMediaAssets[1]);
-    // Check for valid Moderated JSON
-    var jsonModerateObject = JsonConvert.DeserializeObject<VideoModerationResult>(result.ModeratedJson);
+            UploadAssetResult result = uploadResult;
+            encodedAsset = job.OutputMediaAssets[0];
+            result.ModeratedJson = GetCmDetail(job.OutputMediaAssets[1]);
+            // Check for valid Moderated JSON
+            var jsonModerateObject = JsonConvert.DeserializeObject<VideoModerationResult>(result.ModeratedJson);
 
-    if (jsonModerateObject == null)
-    {
-        return false;
-    }
-    if (uploadResult.GenerateVTT)
-    {
-        GenerateTranscript(job.OutputMediaAssets.Last());
-    }
+            if (jsonModerateObject == null)
+            {
+                return false;
+            }
+            if (uploadResult.GenerateVTT)
+            {
+                GenerateTranscript(job.OutputMediaAssets.Last());
+            }
 
-    uploadResult.StreamingUrlDetails = PublishAsset(encodedAsset);
-    string downloadUrl = GenerateDownloadUrl(asset, uploadVideoRequest.VideoName);
-    uploadResult.StreamingUrlDetails.DownloadUri = downloadUrl;
-    uploadResult.VideoName = uploadVideoRequest.VideoName;
-    uploadResult.VideoFilePath = uploadVideoRequest.VideoFilePath;
-    return true;
-}
+            uploadResult.StreamingUrlDetails = PublishAsset(encodedAsset);
+            string downloadUrl = GenerateDownloadUrl(asset, uploadVideoRequest.VideoName);
+            uploadResult.StreamingUrlDetails.DownloadUri = downloadUrl;
+            uploadResult.VideoName = uploadVideoRequest.VideoName;
+            uploadResult.VideoFilePath = uploadVideoRequest.VideoFilePath;
+            return true;
+        }
 ```
 
 此代码执行以下任务：
@@ -421,41 +422,41 @@ public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest 
 当设置 `GenerateVTT` 标志时，还会生成来自视频的音频脚本。
 
 > [!NOTE]
-> 控制台应用程序使用 Azure Media Indexer API 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
+> 控制台应用程序使用 [Azure Media Indexer API](../../media-services/previous/legacy-components.md) 根据上传视频的音频轨道生成脚本。结果以 WebVTT 格式提供。 有关此格式的详细信息，请参阅 [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API)（Web 视频文本轨道格式）。
 
 ## <a name="create-a-human-review"></a>创建人工评审
 
 审查过程会从视频返回一个关键帧列表，以及其音频轨道的脚本。 下一步是在内容审查器评审工具中为人工审查器创建评审。 回到 `Program.cs` 中的 `ProcessVideo()` 方法，你会看到对 `CreateVideoReviewInContentModerator()` 方法的调用。 此方法位于 `videoReviewApi` 类中，该类位于 `VideoReviewAPI.cs` 中，如下所示。
 
 ```csharp
-public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
-{
-    string reviewId = string.Empty;
-    List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
-    string path = uploadAssetResult.GenerateVTT == true ? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension(uploadAssetResult.VideoName) + "_aud_SpReco.vtt" : "";
-    TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
-    if (File.Exists(path))
-    {
-        screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
-        uploadAssetResult.Category1TextScore = screenTextResult.Category1Score;
-        uploadAssetResult.Category2TextScore = screenTextResult.Category2Score;
-        uploadAssetResult.Category3TextScore = screenTextResult.Category3Score;
-        uploadAssetResult.Category1TextTag = screenTextResult.Category1Tag;
-        uploadAssetResult.Category2TextTag = screenTextResult.Category2Tag;
-        uploadAssetResult.Category3TextTag = screenTextResult.Category3Tag;
-    }
-    var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
-    if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
-    {
-        throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
-    }
-    var reviewIds = await ExecuteCreateReviewApi(reviewVideoRequestJson);
-    reviewId = reviewIds.FirstOrDefault();
-    frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
-    await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
+        public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
+        {
+            string reviewId = string.Empty;
+            List<ProcessedFrameDetails> frameEntityList = framegenerator.CreateVideoFrames(uploadAssetResult);
+            string path = uploadAssetResult.GenerateVTT == true ? this._amsConfig.FfmpegFramesOutputPath + Path.GetFileNameWithoutExtension(uploadAssetResult.VideoName) + "_aud_SpReco.vtt" : "";
+            TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult();
+            if (File.Exists(path))
+            {
+                screenTextResult = await GenerateTextScreenProfanity(reviewId, path, frameEntityList);
+                uploadAssetResult.Category1TextScore = screenTextResult.Category1Score;
+                uploadAssetResult.Category2TextScore = screenTextResult.Category2Score;
+                uploadAssetResult.Category3TextScore = screenTextResult.Category3Score;
+                uploadAssetResult.Category1TextTag = screenTextResult.Category1Tag;
+                uploadAssetResult.Category2TextTag = screenTextResult.Category2Tag;
+                uploadAssetResult.Category3TextTag = screenTextResult.Category3Tag;
+            }
+            var reviewVideoRequestJson = CreateReviewRequestObject(uploadAssetResult, frameEntityList);
+            if (string.IsNullOrWhiteSpace(reviewVideoRequestJson))
+            {
+                throw new Exception("Video review process failed in CreateVideoReviewInContentModerator");
+            }
+            var reviewIds = await ExecuteCreateReviewApi(reviewVideoRequestJson);
+            reviewId = reviewIds.FirstOrDefault();
+            frameEntityList = framegenerator.GenerateFrameImages(frameEntityList, uploadAssetResult, reviewId);
+            await CreateAndPublishReviewInContentModerator(uploadAssetResult, frameEntityList, reviewId, path, screenTextResult);
 
-    return reviewId;
-}
+            return reviewId;
+        }
 ```
 
 `CreateVideoReviewInContentModerator()` 调用其他数种方法来执行以下任务：
@@ -475,7 +476,7 @@ public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult 
 
 ## <a name="process-the-transcript"></a>处理脚本
 
-到目前为止，本教程中提供的代码主要侧重于可视内容。 评论语音内容是一个单独的可选过程，如前文所述，它使用根据音频生成的脚本。 现在是时候看一下如何在评论过程中创建和使用文本脚本。 生成脚本的任务由 [Azure Media Indexer](https://docs.azure.cn/media-services/media-services-index-content) 服务执行。
+到目前为止，本教程中提供的代码主要侧重于可视内容。 评论语音内容是一个单独的可选过程，如前文所述，它使用根据音频生成的脚本。 现在是时候看一下如何在评论过程中创建和使用文本脚本。 生成脚本的任务由 [Azure Media Indexer](../../media-services/previous/media-services-index-content.md) 服务执行。
 
 应用程序执行以下任务：
 
@@ -492,16 +493,16 @@ public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult 
 让我们直接提交脚本作业。 `CreateAzureMediaServicesJobToModerateVideo()`（已介绍）调用 `ConfigureTranscriptTask()`。
 
 ```csharp
-private void ConfigureTranscriptTask(IJob job)
-{
-    string mediaProcessorName = _amsConfigurations.MediaIndexer2MediaProcessor;
-    IMediaProcessor processor = _mediaContext.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
+        private void ConfigureTranscriptTask(IJob job)
+        {
+            string mediaProcessorName = _amsConfigurations.MediaIndexer2MediaProcessor;
+            IMediaProcessor processor = _mediaContext.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
 
-    string configuration = File.ReadAllText(_amsConfigurations.MediaIndexerConfigurationJson);
-    ITask task = job.Tasks.AddNew("AudioIndexing Task", processor, configuration, TaskOptions.None);
-    task.InputAssets.Add(asset);
-    task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
-}
+            string configuration = File.ReadAllText(_amsConfigurations.MediaIndexerConfigurationJson);
+            ITask task = job.Tasks.AddNew("AudioIndexing Task", processor, configuration, TaskOptions.None);
+            task.InputAssets.Add(asset);
+            task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
+        }
 ```
 
 从解决方案的 `Lib` 文件夹中的文件 `MediaIndexerConfig.json` 读取脚本任务的配置。 为配置文件和脚本过程的输出创建 AMS 资产。 当 AMS 作业运行时，此任务会根据视频文件的音频轨道创建文本脚本。
@@ -514,26 +515,26 @@ private void ConfigureTranscriptTask(IJob job)
 脚本作为 AMS 资产发布。 为了扫描脚本以筛选令人反感的内容，应用程序将从 Azure 媒体服务下载资产。 `CreateAzureMediaServicesJobToModerateVideo()` 调用此处所示的 `GenerateTranscript()` 来检索文件。
 
 ```csharp
-public bool GenerateTranscript(IAsset asset)
-{
-    try
-    {
-        var outputFolder = this._amsConfigurations.FfmpegFramesOutputPath;
-        IAsset outputAsset = asset;
-        IAccessPolicy policy = null;
-        ILocator locator = null;
-        policy = _mediaContext.AccessPolicies.Create("My 30 days readonly policy", TimeSpan.FromDays(360), AccessPermissions.Read);
-        locator = _mediaContext.Locators.CreateLocator(LocatorType.Sas, outputAsset, policy, DateTime.UtcNow.AddMinutes(-5));
-        DownloadAssetToLocal(outputAsset, outputFolder);
-        locator.Delete();
-        return true;
-    }
-    catch
-    {   //TODO:  Logging
-        Console.WriteLine("Exception occured while generating index for video.");
-        throw;
-    }
-}
+        public bool GenerateTranscript(IAsset asset)
+        {
+            try
+            {
+                var outputFolder = this._amsConfigurations.FfmpegFramesOutputPath;
+                IAsset outputAsset = asset;
+                IAccessPolicy policy = null;
+                ILocator locator = null;
+                policy = _mediaContext.AccessPolicies.Create("My 30 days readonly policy", TimeSpan.FromDays(360), AccessPermissions.Read);
+                locator = _mediaContext.Locators.CreateLocator(LocatorType.Sas, outputAsset, policy, DateTime.UtcNow.AddMinutes(-5));
+                DownloadAssetToLocal(outputAsset, outputFolder);
+                locator.Delete();
+                return true;
+            }
+            catch
+            {   //TODO:  Logging
+                Console.WriteLine("Exception occured while generating index for video.");
+                throw;
+            }
+        }
 ```
 
 在进行一些必要的 AMS 设置之后，通过调用 `DownloadAssetToLocal()`（一种将 AMS 资产复制到本地文件的泛型函数）来执行实际下载。
@@ -555,19 +556,19 @@ public bool GenerateTranscript(IAsset asset)
 首先，初始化所有变量和集合。
 
 ```csharp
-private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
-{
-    List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
-    bool category1Tag = false;
-    bool category2Tag = false;
-    bool category3Tag = false;
-    double category1Score = 0;
-    double category2Score = 0;
-    double category3Score = 0;
-    List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
-    StringBuilder sb = new StringBuilder();
-    List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
-    CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+        private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
+        {
+            List<TranscriptProfanity> profanityList = new List<TranscriptProfanity>();
+            bool category1Tag = false;
+            bool category2Tag = false;
+            bool category3Tag = false;
+            double category1Score = 0;
+            double category2Score = 0;
+            double category3Score = 0;
+            List<string> vttLines = File.ReadAllLines(filepath).Where(line => !line.Contains("NOTE Confidence:") && line.Length > 0).ToList();
+            StringBuilder sb = new StringBuilder();
+            List<CaptionScreentextResult> csrList = new List<CaptionScreentextResult>();
+            CaptionScreentextResult captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
 ```
 
 ### <a name="parse-the-transcript-for-captions"></a>分析脚本字幕
@@ -575,46 +576,46 @@ private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<
 接下来，分析 VTT 格式的脚本的字幕和时间戳。 评审工具会在视频评审屏幕的“脚本”选项卡中显示这些字幕。 时间戳用于将字幕与相应的视频帧同步。
 
 ```csharp
-foreach (var line in vttLines.Skip(1))
-{
-    if (line.Contains("-->"))
-    {
-        if (sb.Length > 0)
-        {
-            captionScreentextResult.Captions.Add(sb.ToString());
-            sb.Clear();
-        }
-        if (captionScreentextResult.Captions.Count > 0)
-        {
-            csrList.Add(captionScreentextResult);
-            captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
-        }
-        string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
-        string startTimeString = times[0].Trim();
-        string endTimeString = times[1].Trim();
-        int startTime = (int)TimeSpan.ParseExact(startTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-        int endTime = (int)TimeSpan.ParseExact(endTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
-        captionScreentextResult.StartTime = startTime;
-        captionScreentextResult.EndTime = endTime;
-    }
-    else
-    {
-        sb.Append(line);
-    }
-    if (sb.Length + line.Length > 1024)
-    {
-        captionScreentextResult.Captions.Add(sb.ToString());
-        sb.Clear();
-    }
-}
-if (sb.Length > 0)
-{
-    captionScreentextResult.Captions.Add(sb.ToString());
-}
-if (captionScreentextResult.Captions.Count > 0)
-{
-    csrList.Add(captionScreentextResult);
-}
+            foreach (var line in vttLines.Skip(1))
+            {
+                if (line.Contains("-->"))
+                {
+                    if (sb.Length > 0)
+                    {
+                        captionScreentextResult.Captions.Add(sb.ToString());
+                        sb.Clear();
+                    }
+                    if (captionScreentextResult.Captions.Count > 0)
+                    {
+                        csrList.Add(captionScreentextResult);
+                        captionScreentextResult = new CaptionScreentextResult() { Captions = new List<string>() };
+                    }
+                    string[] times = line.Split(new string[] { "-->" }, StringSplitOptions.RemoveEmptyEntries);
+                    string startTimeString = times[0].Trim();
+                    string endTimeString = times[1].Trim();
+                    int startTime = (int)TimeSpan.ParseExact(startTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
+                    int endTime = (int)TimeSpan.ParseExact(endTimeString, @"hh\:mm\:ss\.fff", CultureInfo.InvariantCulture).TotalMilliseconds;
+                    captionScreentextResult.StartTime = startTime;
+                    captionScreentextResult.EndTime = endTime;
+                }
+                else
+                {
+                    sb.Append(line);
+                }
+                if (sb.Length + line.Length > 1024)
+                {
+                    captionScreentextResult.Captions.Add(sb.ToString());
+                    sb.Clear();
+                }
+            }
+            if (sb.Length > 0)
+            {
+                captionScreentextResult.Captions.Add(sb.ToString());
+            }
+            if (captionScreentextResult.Captions.Count > 0)
+            {
+                csrList.Add(captionScreentextResult);
+            }
 ```
 
 ### <a name="moderate-captions-with-the-text-moderation-service"></a>使用文本审查服务审查字幕
@@ -627,99 +628,99 @@ if (captionScreentextResult.Captions.Count > 0)
 > 免费层密钥有一个 RPS 速率限制。
 
 ```csharp
-int waitTime = 1000;
-    foreach (var csr in csrList)
-    {
-        bool captionAdultTextTag = false;
-        bool captionRacyTextTag = false;
-        bool captionOffensiveTextTag = false;
-        Screen screenRes = new Screen();
-        bool retry = true;
+            int waitTime = 1000;
+            foreach (var csr in csrList)
+            {
+                bool captionAdultTextTag = false;
+                bool captionRacyTextTag = false;
+                bool captionOffensiveTextTag = false;
+                Screen screenRes = new Screen();
+                bool retry = true;
 
-        foreach (var caption in csr.Captions)
-        {
-            while (retry)
-            {
-                try
+                foreach (var caption in csr.Captions)
                 {
-                    System.Threading.Thread.Sleep(waitTime);
-                    var lang = await CMClient.TextModeration.DetectLanguageAsync("text/plain", caption);
-                    var res = await CMClient.TextModeration.ScreenTextWithHttpMessagesAsync(lang.DetectedLanguageProperty, caption, string.Empty, null, null, null, true);
-                    screenRes = res.Body;
-                    retry = false;
-                }
-                catch (Exception e)
-                {
-                    if (e.Message.Contains("429"))
+                    while (retry)
                     {
-                        Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                        waitTime = (int)(waitTime * 1.5);
-                        Console.WriteLine($"wait time: {waitTime}");
-                    }
-                    else
-                    {
-                        retry = false;
-                        Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
-                    }
-                }
-            }
-             
-            if (screenRes != null)
-            {
-                TranscriptProfanity transcriptProfanity = new TranscriptProfanity();
-                transcriptProfanity.TimeStamp = "";
-                List<Terms> transcriptTerm = new List<Terms>();
-                if (screenRes.Terms != null)
-                {
-                    foreach (var term in screenRes.Terms)
-                    {
-                        var profanityobject = new Terms
+                        try
                         {
-                            Term = term.Term,
-                            Index = term.Index.Value
-                        };
-                        transcriptTerm.Add(profanityobject);
+                            System.Threading.Thread.Sleep(waitTime);
+                            var lang = await CMClient.TextModeration.DetectLanguageAsync("text/plain", caption);
+                            var res = await CMClient.TextModeration.ScreenTextWithHttpMessagesAsync(lang.DetectedLanguageProperty, caption, string.Empty, null, null, null, true);
+                            screenRes = res.Body;
+                            retry = false;
+                        }
+                        catch (Exception e)
+                        {
+                            if (e.Message.Contains("429"))
+                            {
+                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
+                                waitTime = (int)(waitTime * 1.5);
+                                Console.WriteLine($"wait time: {waitTime}");
+                            }
+                            else
+                            {
+                                retry = false;
+                                Console.WriteLine($"Moderation API call failed. Message: {e.Message}");
+                            }
+                        }
                     }
-                    transcriptProfanity.Terms = transcriptTerm;
-                    profanityList.Add(transcriptProfanity);
+                     
+                    if (screenRes != null)
+                    {
+                        TranscriptProfanity transcriptProfanity = new TranscriptProfanity();
+                        transcriptProfanity.TimeStamp = "";
+                        List<Terms> transcriptTerm = new List<Terms>();
+                        if (screenRes.Terms != null)
+                        {
+                            foreach (var term in screenRes.Terms)
+                            {
+                                var profanityobject = new Terms
+                                {
+                                    Term = term.Term,
+                                    Index = term.Index.Value
+                                };
+                                transcriptTerm.Add(profanityobject);
+                            }
+                            transcriptProfanity.Terms = transcriptTerm;
+                            profanityList.Add(transcriptProfanity);
+                        }
+                        if (screenRes.Classification.Category1.Score.Value > _amsConfig.Category1TextThreshold) captionAdultTextTag = true;
+                        if (screenRes.Classification.Category2.Score.Value > _amsConfig.Category2TextThreshold) captionRacyTextTag = true;
+                        if (screenRes.Classification.Category3.Score.Value > _amsConfig.Category3TextThreshold) captionOffensiveTextTag = true;
+                        if (screenRes.Classification.Category1.Score.Value > _amsConfig.Category1TextThreshold) category1Tag = true;
+                        if (screenRes.Classification.Category2.Score.Value > _amsConfig.Category2TextThreshold) category2Tag = true;
+                        if (screenRes.Classification.Category3.Score.Value > _amsConfig.Category3TextThreshold) category3Tag = true;
+                        category1Score = screenRes.Classification.Category1.Score.Value > category1Score ? screenRes.Classification.Category1.Score.Value : category1Score;
+                        category2Score = screenRes.Classification.Category2.Score.Value > category2Score ? screenRes.Classification.Category2.Score.Value : category2Score;
+                        category3Score = screenRes.Classification.Category3.Score.Value > category3Score ? screenRes.Classification.Category3.Score.Value : category3Score;
+                    }
+                    foreach (var frame in frameEntityList.Where(x => x.TimeStamp >= csr.StartTime && x.TimeStamp <= csr.EndTime))
+                    {
+                        frame.IsAdultTextContent = captionAdultTextTag;
+                        frame.IsRacyTextContent = captionRacyTextTag;
+                        frame.IsOffensiveTextContent = captionOffensiveTextTag;
+                    }
                 }
-                if (screenRes.Classification.Category1.Score.Value > _amsConfig.Category1TextThreshold) captionAdultTextTag = true;
-                if (screenRes.Classification.Category2.Score.Value > _amsConfig.Category2TextThreshold) captionRacyTextTag = true;
-                if (screenRes.Classification.Category3.Score.Value > _amsConfig.Category3TextThreshold) captionOffensiveTextTag = true;
-                if (screenRes.Classification.Category1.Score.Value > _amsConfig.Category1TextThreshold) category1Tag = true;
-                if (screenRes.Classification.Category2.Score.Value > _amsConfig.Category2TextThreshold) category2Tag = true;
-                if (screenRes.Classification.Category3.Score.Value > _amsConfig.Category3TextThreshold) category3Tag = true;
-                category1Score = screenRes.Classification.Category1.Score.Value > category1Score ? screenRes.Classification.Category1.Score.Value : category1Score;
-                category2Score = screenRes.Classification.Category2.Score.Value > category2Score ? screenRes.Classification.Category2.Score.Value : category2Score;
-                category3Score = screenRes.Classification.Category3.Score.Value > category3Score ? screenRes.Classification.Category3.Score.Value : category3Score;
             }
-            foreach (var frame in frameEntityList.Where(x => x.TimeStamp >= csr.StartTime && x.TimeStamp <= csr.EndTime))
+            TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult()
             {
-                frame.IsAdultTextContent = captionAdultTextTag;
-                frame.IsRacyTextContent = captionRacyTextTag;
-                frame.IsOffensiveTextContent = captionOffensiveTextTag;
-            }
+                TranscriptProfanity = profanityList,
+                Category1Tag = category1Tag,
+                Category2Tag = category2Tag,
+                Category3Tag = category3Tag,
+                Category1Score = category1Score,
+                Category2Score = category2Score,
+                Category3Score = category3Score
+            };
+            return screenTextResult;
         }
-    }
-    TranscriptScreenTextResult screenTextResult = new TranscriptScreenTextResult()
-    {
-        TranscriptProfanity = profanityList,
-        Category1Tag = category1Tag,
-        Category2Tag = category2Tag,
-        Category3Tag = category3Tag,
-        Category1Score = category1Score,
-        Category2Score = category2Score,
-        Category3Score = category3Score
-    };
-    return screenTextResult;
-}
 ```
 
 ### <a name="text-moderation-breakdown"></a>文本审查细分
 
 `TextScreen()` 是一种很复杂的方法，因此，让我们逐一分解该方法。
 
-1. 首先，该方法逐行读取脚本文件。 它忽略空白行以及包含具有置信度分数的 `NOTE` 的行。 它从文件的*提示*中提取时间戳和文本项。 提示表示音频轨道中的文本，包括开始时间和结束时间。 提示以带有字符串 `-->` 的时间戳行开头。 后面跟有一行或多行文本。
+1. 首先，该方法逐行读取脚本文件。 它忽略空白行以及包含具有置信度分数的 `NOTE` 的行。 它从文件的 *提示* 中提取时间戳和文本项。 提示表示音频轨道中的文本，包括开始时间和结束时间。 提示以带有字符串 `-->` 的时间戳行开头。 后面跟有一行或多行文本。
 
 1. `CaptionScreentextResult`（在 `TranscriptProfanity.cs` 中定义）的实例用于保存从每个提示分析得到的信息。  当检测到新的时间戳行，或者达到 1024 个字符的最大文本长度时，会向 `csrList` 添加新的 `CaptionScreentextResult`。 
 
@@ -764,3 +765,4 @@ Total Elapsed Time: 00:05:56.8420355
 
 > [!div class="nextstepaction"]
 > [视频审查](./video-moderation-human-review.md)
+

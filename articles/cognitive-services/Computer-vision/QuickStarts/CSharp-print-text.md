@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 10/16/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: df93923652206537e80888b37919af4bd90a9a0b
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 64db97f35db81e9bb280b6f3d63fbf25831c4b66
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128403"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306469"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>快速入门：使用计算机视觉 2.0 REST API OCR 操作和 C# 提取文本
 
-本快速入门将使用计算机视觉 REST API [OCR 操作](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc)功能从图像中提取印刷体文本。 借助此操作，可检测图像中的印刷体文本，并将识别的字符提取到计算机可用的字符流中。
+本快速入门将使用计算机视觉 REST API [OCR 操作](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)功能从图像中提取印刷体文本。 借助此操作，可检测图像中的印刷体文本，并将识别的字符提取到计算机可用的字符流中。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -249,4 +249,3 @@ namespace CSHttpClientSample
 > [!div class="nextstepaction"]
 > [计算机视觉 API C# 教程](../Tutorials/CSharpTutorial.md)
 
-<!-- Update_Description: wording update -->

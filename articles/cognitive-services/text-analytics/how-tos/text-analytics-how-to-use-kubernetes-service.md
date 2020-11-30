@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 origin.date: 04/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 3e632143fe4d04043a84c0fe4461791ec100685c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ec3d6920b2b5eee0f6a17a04116d5142a9dc8df0
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106212"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306467"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>将文本分析容器部署到 Azure Kubernetes 服务
 
-了解如何将 Azure 认知服务[文本分析](/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)容器映像部署到 Azure Kubernetes 服务 (AKS)。 该过程展示了创建文本分析资源的方法、创建关联的情绪分析映像的方法，以及在浏览器中练习前两项的相关业务流程的方法。 使用容器可以将你的关注点从管理基础结构转移到应用程序开发上。
+了解如何将 Azure 认知服务[文本分析](./text-analytics-how-to-install-containers.md)容器映像部署到 Azure Kubernetes 服务 (AKS)。 该过程展示了创建文本分析资源的方法、创建关联的情绪分析映像的方法，以及在浏览器中练习前两项的相关业务流程的方法。 使用容器可以将你的关注点从管理基础结构转移到应用程序开发上。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -61,5 +61,5 @@ ms.locfileid: "93106212"
 ## <a name="next-steps"></a>后续步骤
 
 _ 使用更多[认知服务容器](../../cognitive-services-container-support.md)
-* 使用[文本分析连接服务](../vs-text-connected-service.md)
+* 使用[文本分析连接服务](../index.yml)
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 6d3b33b7fdd0827b161d3bf962dbdde8a4886f9a
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 8eded47eb251b6cb49d8c7f11bf6f10390a7e22b
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023696"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306492"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>将人脸容器部署到 Azure 容器实例
 
 > [!IMPORTANT]
 > 已达到人脸容器用户的限制。 目前不接受人脸容器的新应用程序。
 
-了解如何将认知服务[人脸](../face-how-to-install-containers.md)容器部署到 Azure [容器实例](/container-instances/)。 此过程演示如何创建 Azure 人脸资源。 然后讨论如何拉取关联的容器映像。 最后，我们重点介绍了从浏览器中执行这两个业务流程的能力。 使用容器可以将开发人员的注意力从管理基础结构转移到应用程序开发上。
+了解如何将认知服务[人脸](../face-how-to-install-containers.md)容器部署到 Azure [容器实例](../../../container-instances/index.yml)。 此过程演示如何创建 Azure 人脸资源。 然后讨论如何拉取关联的容器映像。 最后，我们重点介绍了从浏览器中执行这两个业务流程的能力。 使用容器可以将开发人员的注意力从管理基础结构转移到应用程序开发上。
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 

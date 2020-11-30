@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 169bc150470fd00b1cf23db0b90383c775b42abc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2695acf45eedaf589457e3a1c43fa46235b582c9
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105199"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306489"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>将人脸数据迁移到其他人脸订阅
 
@@ -29,7 +29,7 @@ ms.locfileid: "93105199"
 
 需要准备好以下各项：
 
-- 两个人脸订阅密钥，其中一个包含现有数据，另一个是迁移目标。 若要订阅人脸服务并获取密钥，请遵照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明操作。
+- 两个人脸订阅密钥，其中一个包含现有数据，另一个是迁移目标。 若要订阅人脸服务并获取密钥，请遵照[创建认知服务帐户](../../cognitive-services-apis-create-account.md)中的说明操作。
 - 对应于目标订阅的人脸订阅 ID 字符串。 在 Azure 门户中选择“概述”可以找到该字符串。  
 - 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 
@@ -37,7 +37,7 @@ ms.locfileid: "93105199"
 
 本指南使用一个简单的控制台应用来运行人脸数据迁移。 有关完整的实现，请参阅 GitHub 上的[人脸快照示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)。
 
-1. 在 Visual Studio 中创建新的控制台应用 .NET Framework 项目。 将其命名为 **FaceApiSnapshotSample** 。
+1. 在 Visual Studio 中创建新的控制台应用 .NET Framework 项目。 将其命名为 **FaceApiSnapshotSample**。
 1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击该项目并选择“管理 NuGet 包”  。 选择“浏览”选项卡，然后选择“包括预发行版”   。 找到并安装以下包：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 

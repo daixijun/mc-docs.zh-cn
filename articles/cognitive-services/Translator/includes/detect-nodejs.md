@@ -3,15 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-js
-ms.openlocfilehash: 1549e6fced6a69a4c5e6887b5c2c6801afc1efd4
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 7d2afa09f0a40b8dbd78d5a175a6035afd7ab8a4
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499219"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306621"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -77,7 +77,7 @@ let options = {
 
 如果使用的是认知服务多服务订阅，则还必须在请求标头中包括 `Ocp-Apim-Subscription-Region`。
 
-有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+有关详细信息，请参阅[身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>发出请求并输出响应
 
@@ -105,7 +105,7 @@ node detect.js
 运行示例后，应当会看到输出到终端的以下内容：
 
 > [!NOTE]
-> 请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+> 请在此[语言列表](../language-support.md)中查找国家/地区缩写。
 
 ```json
 [
@@ -141,4 +141,5 @@ node detect.js
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+
