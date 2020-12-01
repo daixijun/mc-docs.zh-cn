@@ -154,7 +154,7 @@ Test-SRTopology -SourceComputerName Server1 -SourceVolumeName W: -SourceLogVolum
 
 ### <a name="step-2-create-the-replication-partnership"></a>步骤 2：创建复制合作关系
 
-现在，你已完成了 `Test-SRTopology` 测试，可以配置存储副本并创建复制合作关系了。 在某个 nutshell 中，我们将通过以下方式来配置存储副本：为每个站点创建复制组 (RG)，然后为 Site1 中的源服务器节点（Server1、Server2）和 Site2 中的目标（已复制）服务器节点（Server3、Server4）指定数据卷和日志卷。
+现在，你已完成了 `Test-SRTopology` 测试，可以配置存储副本并创建复制合作关系了。 简而言之，我们将通过以下方式来配置存储副本：为每个站点创建复制组 (RG)，然后为 Site1 中的源服务器节点（Server1、Server2）和 Site2 中的目标（已复制）服务器节点（Server3、Server4）指定数据卷和日志卷。
 
 让我们开始以下操作：
 

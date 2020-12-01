@@ -167,8 +167,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | disableExceptionTracking | false | 如果为 true，则不自动收集异常。 默认值为 false。 |
 | disableTelemetry | false | 如果为 true，则不收集或发送遥测数据。 默认值为 false。 |
 | enableDebug | false | 如果为 true，则不管 SDK 日志记录设置如何，**内部** 调试数据都将引发为异常，**而不是** 记录这些数据。 默认值为 false。 <br>*注意：如果启用此设置，每当发生内部错误时，都会导致丢弃遥测数据。 这可能有利于快速识别 SDK 的配置或用法问题。 如果你不希望在调试时丢失遥测数据，请考虑使用 `consoleLoggingLevel` 或 `telemetryLoggingLevel`，而不是 `enableDebug`。 |
-| loggingLevelConsole | 0 | 将内部 Application Insights 错误记录到控制台。 <br>0：关闭， <br>1:仅限严重错误， <br>2:所有内容（错误和警告） |
-| loggingLevelTelemetry | 1 | 将 **内部** Application Insights 错误作为遥测数据发送。 <br>0：关闭， <br>1:仅限严重错误， <br>2:所有内容（错误和警告） |
+| loggingLevelConsole | 0 | 将内部 Application Insights 错误记录到控制台。 <br>0：关闭， <br>1：仅限严重错误， <br>2：所有内容（错误和警告） |
+| loggingLevelTelemetry | 1 | 将 **内部** Application Insights 错误作为遥测数据发送。 <br>0：关闭， <br>1：仅限严重错误， <br>2：所有内容（错误和警告） |
 | diagnosticLogInterval | 10000 | 内部日志记录队列的（内部）轮询间隔（以毫秒为单位） |
 | samplingPercentage | 100 | 要发送的事件百分比。 默认值为 100，表示发送所有事件。 如果你希望避免大型应用程序达到数据上限，请设置此项。 |
 | autoTrackPageVisitTime | false | 如果为 true，则对于页面视图，将跟踪前一个检测的页面的查看时间并将其作为遥测数据发送，同时，为当前的页面视图启动新的计时器。 默认值为 false。 |
@@ -198,7 +198,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | enableResponseHeaderTracking | false | 如果为 true，则跟踪 AJAX 和 Fetch 请求的响应标头，默认值为 false。
 | distributedTracingMode | `DistributedTracingModes.AI` | 设置分布式跟踪模式。 如果设置了 AI_AND_W3C 模式或 W3C 模式，则将生成 W3C 跟踪上下文标头 (traceparent/tracestate)，并将其包含在所有传出请求中。 提供 AI_AND_W3C 是为了与任何旧版 Application Insights 检测服务向后兼容。 请参阅[此处](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)的示例。
 | enableAjaxErrorStatusText | false | 默认值为 false。 如果为 true，则在 AJAX 请求失败时包含依赖关系事件中的响应错误数据文本。
-| enableAjaxPerfTracking | false | 默认值为 false。 用于启用查找并包含报告的 `ajax`（XHR 和 fetch）报告的指标中其他浏览器 window.performance 计时的标记。
+| enableAjaxPerfTracking | false | 默认值为 false。 一个标记，用于启用此操作 - 查看其他浏览器 window.performance 计时，并将其包含在报告的 `ajax`（XHR 和 fetch）的报告指标中。
 | maxAjaxPerfLookupAttempts | 3 | 默认值为 3。 查找 window.performance 计时的最大次数，此值为必需，因为并非所有浏览器在报告 XHR 请求完成之前都会填充 window.performance，而对于 fetch 请求，将在请求完成之后添加该值。
 | ajaxPerfLookupDelay | 25 | 默认值为 25 毫秒。 重新尝试为 `ajax` 请求查找 windows.performance 计时时要等待的时间，时间以毫秒计并直接传递给 setTimeout()。
 | enableUnhandledPromiseRejectionTracking | false | 如果为 true，则将自动收集未处理的拒绝承诺并报告为 JavaScript 错误。 如果 disableExceptionTracking 为 true（不跟踪异常），则将忽略配置值且不会报告未处理的拒绝承诺。
@@ -242,7 +242,7 @@ Access-Control-Allow-Headers：`Request-Id`、`Request-Context`、`<your header>
 
 默认情况下，此 SDK **不会** 处理单页应用程序中发生的基于状态的路由更改。 若要为单页应用程序启用自动路由更改跟踪，可将 `enableAutoRouteTracking: true` 添加到设置配置。
 
-目前，我们提供了一个单独的 [React 插件](javascript-react-plugin.md)（可以使用此 SDK 对其进行初始化）。 该插件也能为你实现路由更改跟踪，并可收集其他特定于 React 的遥测数据。
+目前，我们提供了一个单独的 [React 插件](javascript-react-plugin.md)（可以使用此 SDK 对其进行初始化）。 它还将实现路由更改跟踪，并可收集其他特定于 React 的遥测数据。
 > [!NOTE]
 > 仅当你不使用 React 插件时，才使用 `enableAutoRouteTracking: true`。 当路由更改时，这两种方法都能发送新的 PageView。 如果这两种方法均已启用，则可能会发送重复的 PageView。
 
@@ -261,7 +261,7 @@ Access-Control-Allow-Headers：`Request-Id`、`Request-Context`、`<your header>
 
 还可以通过门户中的“浏览器”体验查看 JavaScript SDK 中的数据。
 
-选择“浏览器”，然后选择“失败”或“性能”。
+选择“浏览器”，然后选择“失败”或“性能”。  
 
 ![Application Insights“浏览器”页的屏幕截图，其中显示了如何将浏览器故障或浏览器性能添加到可以为 Web 应用程序查看的指标中。](./media/javascript/browser.png)
 
