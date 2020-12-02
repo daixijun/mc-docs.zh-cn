@@ -29389,7 +29389,13 @@
             "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/explore-demo.md",
             "redirect_url": "/cognitive-services/metrics-advisor/overview",
             "redirect_document_id": false
-        }
+        },
+    { 
+      "source_path": "articles/azure-stack/operator/azure-stack-diagnostic-log-collection-overview.md", 
+      "redirect_url": "/azure-stack/operator/diagnostic-log-collection", 
+      "redirect_document_id": false
+    }   
+
 
 
 
