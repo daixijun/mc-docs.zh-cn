@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/27/2020
 ms.author: v-johya
-ms.openlocfilehash: cd8089badfd41e751cc161bc869a22f6ea3cc397
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f1d7f63ad4a6a61db583613fd7cdaf351bfc09c5
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473049"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306441"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>指标顾问常见问题解答
 
 ### <a name="what-is-the-cost-of-my-instance"></a>实例的成本是多少？
 
 目前可在预览版中免费使用实例。
-
-### <a name="why-is-the-demo-website-readonly"></a>为什么演示网站是只读的？
-
-[演示网站](https://anomaly-detector.chinacloudsites.cn/)公开可用。 将此实例设为只读，以防止意外上传任何数据。
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>为什么无法创建资源？ “定价层”不可用且显示“已为此订阅创建 1个 S0”？
 
@@ -92,7 +88,7 @@ ms.locfileid: "92473049"
 
 请注意，这些查询仅返回单个时间戳位置的数据，并且包含指标顾问引入的所有维度组合。 
 
-:::image type="content" source="media/query-result.png" alt-text="F0 资源已存在时显示的消息" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="带有一个时间戳的查询结果" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>如何将峰值和低谷检测为异常？
@@ -108,6 +104,19 @@ ms.locfileid: "92473049"
 
 如果数据通常极不稳定且波动很大，你希望在数据变得十分稳定甚至变成一条平线时收到警告，则可以将“更改阈值”配置为在更改极小时检测此类数据点。
 有关详细信息，请参阅[异常情况检测配置](how-tos/configure-metrics.md#anomaly-detection-methods)。
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>如何设置电子邮件设置并启用通过电子邮件发送警报的功能？
+
+1.  具有订阅管理员或资源组管理员权限的用户需要导航到在 Azure 门户中创建的指标顾问资源，并选择“访问控制(IAM)”选项卡。 
+2.  选择“添加角色分配”
+3.  选取“认知服务指标顾问管理员”角色，然后选择帐户，如下图所示。
+4.  单击“保存”按钮，你就会被成功地添加为指标顾问资源的管理员。 请注意，上述所有操作都需要由订阅管理员或资源组管理员执行。 
+
+:::image type="content" source="media/access-control.png" alt-text="选择了“添加角色分配”的“访问控制(IAM)”菜单页，后跟一个显示“向选定用户分配访问权限”的框，其中包含“认知服务指标顾问管理员”访问角色，后跟所选 UI 的“保存”按钮，用于说明搜索用户和添加特定访问权限级别的步骤。" lightbox="media/access-control.png":::
+
+
+5.  传播权限最多可能需要一分钟时间。 然后，选择指标顾问工作区，并选择“电子邮件设置”选项（在左侧导航面板中）。 填写必需项，尤其是与 SMTP 相关的信息。 
+6.  选择“保存”，完成电子邮件配置。 你可以创建新的挂钩并订阅指标异常，以获得近乎实时的警报。 
 
 ## <a name="advanced-concepts"></a>高级概念
 
@@ -131,7 +140,7 @@ ms.locfileid: "92473049"
 
 在指标顾问中，用户可以指定其要从分层拓扑的一个节点向下钻取或汇总的任何路径。 更准确地说，分层拓扑是有向无环图而非树结构。 完整的分层拓扑由所有潜在的维度组合组成，如下所示： 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="F0 资源已存在时显示的消息" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="分层拓扑图，由多个相互连接的顶点和边组成，这些顶点和边的维度标注为 S、DC 和 M，其对应数字范围为 1 到 6" lightbox="media/dimension-combinations-view.png":::
 
 从理论上讲，如果维度 `Service` 具有 `Ls` 个非重复值，维度 `Data center` 具有 `Ldc` 个非重复值，维度 `Machine` 具有 `Lm` 个非重复值，则分层拓扑中可能有 `(Ls + 1) * (Ldc + 1) * (Lm + 1)` 个维度组合。 
 
@@ -141,10 +150,9 @@ ms.locfileid: "92473049"
  
 例如，当 `Service = S2 | Data Center = DC2 | Machine = M5` 上发生异常时，异常的偏差会影响也已检测到异常的父节点 `Service= S2`，但异常不会影响 `DC2` 上的整个数据中心以及 `M5` 上的所有服务。 将按照以下屏幕截图中的方式构建事件树，最常见的异常是在 `Service = S2` 上捕获的，根本原因可以按两条通向 `Service = S2 | Data Center = DC2 | Machine = M5` 的路径进行分析。
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 个标记的顶点，具有两条不同的路径，这些路径通过边与标记为 S2 的公共节点相连。最常见的异常是在 Service = S2 上捕获的，根本原因可以按两条通向 Service = S2 | Data Center = DC2 | Machine = M5 的路径进行分析" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 个标记的顶点，有两条不同的路径，这些路径通过边与标记为 S2 的公共节点相连。最常见的异常是在 Service = S2 上捕获的，根本原因可以按两条通向 Service = S2 | Data Center = DC2 | Machine = M5 的路径进行分析" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>后续步骤
 - [指标顾问概述](overview.md)
-- [尝试演示网站](quickstarts/explore-demo.md)
 - [使用 Web 门户](quickstarts/web-portal.md)
 

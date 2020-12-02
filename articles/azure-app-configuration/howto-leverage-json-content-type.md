@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: d7e517f7187d00eacdb2a9ab8029cd9c0693e48f
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 64fece751ef81a35c14c5b07bd2bf4e71752d7a0
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866651"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96300192"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>利用内容类型在应用程序配置中存储 JSON 密钥值
 
@@ -63,11 +63,11 @@ ms.locfileid: "88866651"
 > * 在应用程序中使用 JSON 键值。
 
 
-## <a name="prerequisites"></a>必备条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- Azure CLI 的最新版本（2.10.0 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 如果使用的是 Azure CLI，则必须先使用 `az login` 进行登录。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+- 本教程需要 Azure CLI 2.10.0 或更高版本。 
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 5c3a887532ef76b41a06755a86d1e899992c1edd
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: b7f3672b8aba0b8d7d2e6b693dc0b704689032ae
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866614"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190296"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>自动备份应用程序配置存储区
 
@@ -37,12 +37,15 @@ ms.locfileid: "88866614"
 
 在本教程中，你将在 `centralus` 区域创建辅助存储，并在 `chinaeast2` 区域创建所有其他资源。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure 订阅。 [创建一个使用账户](https://www.azure.cn/pricing/1rmb-trial)。 
+## <a name="prerequisites"></a>必备条件 
+
 - 包含 Azure 开发工作负载的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
 - [.NET Core SDK](https://dotnet.microsoft.com/download)。
-- Azure CLI 的最新版本（2.3.1 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 如果使用 Azure CLI，需要先使用 `az login` 登录。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本教程需要 Azure CLI 2.3.1 或更高版本。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -60,7 +63,7 @@ az group create --name $resourceGroupName --location chinaeast2
 ## <a name="create-app-configuration-stores"></a>创建应用程序配置存储区
 
 在不同区域创建主应用程序配置和辅助应用程序配置存储区。
-将  `<primary_appconfig_name>` 和 `<secondary_appconfig_name>` 替换为配置存储区的唯一名称。 每个存储名称必须唯一，因为它将用作 DNS 名称。
+将 `<primary_appconfig_name>` 和 `<secondary_appconfig_name>` 替换为配置存储的唯一名称。 每个存储名称必须唯一，因为它将用作 DNS 名称。
 
 ```azurecli
 primaryAppConfigName="<primary_appconfig_name>"

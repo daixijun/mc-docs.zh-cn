@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: f10229214bcc62e5fd71cf53a921b5643e842f7a
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: d5311b1800ce96c9d42415107522d6ce30ab9cc5
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866623"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190295"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 应用程序配置常见问题解答
 
@@ -42,6 +42,10 @@ ms.locfileid: "88866623"
 ## <a name="does-app-configuration-encrypt-my-data"></a>应用程序配置是否加密我的数据？
 
 是。 应用程序配置加密它持有的所有键值，并加密网络通信。 键名称和标签充当检索配置数据的索引，且不进行加密。
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>应用配置中存储的数据位于何处？ 
+
+应用配置中存储的客户数据位于创建客户的应用配置存储的区域中。 应用配置可能会将数据复制到[配对区域](../best-practices-availability-paired-regions.md)以获得数据复原能力，但它不会将客户数据复制或移动到其地理位置之外，如 [Azure 中的数据驻留](https://azure.microsoft.com/global-infrastructure/data-residency/)所定义的那样。 客户和最终用户可从全球任何位置移动、复制或访问其客户数据。
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>应用程序配置与 Azure 应用服务有什么不同？
 
@@ -84,14 +88,14 @@ ms.locfileid: "88866623"
 
 - **每个订阅的资源数**：资源由单个配置存储区组成。 每个订阅在免费层中只能有一个配置存储区。 订阅在标准层中可以有无限数量的配置存储区。
 - **每个资源的存储空间**：在免费层中，每个配置存储区限 10 MB 的存储空间。 在标准层中，每个配置存储区最多使用 1GB 的存储空间。
-- **键历史记录**：“应用程序配置”会存储对键所做的所有更改的历史记录。 在免费层中，会存储七天的历史记录。 在标准层中，此历史记录存储 30 天。
-- **每日请求数**：免费层存储限每日 1,000 个请求。 一旦存储量达到 1,000 个请求，它会针对后续所有请求返回 HTTP 状态代码 429，直到 UTC 午夜时间。
+- **修订历史记录**：“应用程序配置”会存储对键所做的所有更改的历史记录。 在免费层中，会存储七天的历史记录。 在标准层中，此历史记录存储 30 天。
+- **请求配额**：免费层存储限每日 1,000 个请求。 当存储达到 1,000 个请求时，它会针对所有请求返回 HTTP 状态代码 429，直到 UTC 午夜时间。
 
-    对于标准层存储，每日前 200,000 个请求包含在每日费用中。 其他请求按超额计费。
+    标准层存储限制为每小时 20,000 个请求。 此配额用尽后，系统会对所有请求返回 HTTP 状态代码 429，直到该小时结束为止。
 
 - **服务级别协议**：标准层具有 99.9% 的 SLA 可用性。 免费层没有 SLA。
-- **安全功能**：这两个层都包括基本安全功能，包括使用 Microsoft 管理的密钥进行加密、通过 HMAC 或 Azure Active Directory 进行身份验证、RBAC 支持和托管标识。 标准层提供更高级的安全功能，包括使用客户管理的密钥进行加密。
-- **成本**：标准层存储每日收取使用费。 对超过每日配额的请求也收取超额费用。 免费层的存储可免费使用。
+- **安全功能**：这两个层都包括基本安全功能，包括使用 Microsoft 管理的密钥进行的加密、通过 HMAC 或 Azure Active Directory 进行的身份验证、Azure RBAC 支持、托管标识和服务标记。 标准层提供更高级的安全功能，包括专用链接支持和使用客户管理的密钥进行的加密。
+- **成本**：标准层存储每日收取使用费。 每日前 200,000 个请求包含在每日费用中。 对超过每日配额的请求也收取超额费用。 免费层的存储可免费使用。
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>我可以将存储从免费层升级到标准层吗？ 我可以将存储从标准层降级到免费层吗？
 

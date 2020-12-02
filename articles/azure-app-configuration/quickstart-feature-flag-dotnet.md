@@ -15,20 +15,20 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 29fbed030cf9be275f120b208212b7df9531b1e1
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 3d49b3aae49f558b4c490c96ff870306a4b32f6f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866638"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96437395"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>快速入门：向 .NET Framework 应用添加功能标志
 
 在本快速入门中，你要将 Azure 应用程序配置合并到 .NET Framework 应用中，以创建功能管理的端到端实现。 可以使用应用程序配置服务集中存储所有功能标志并控制其状态。 
 
-.NET 功能管理库使用全面的功能标志支持扩展了该框架。 这些库在 .NET 配置系统的基础上构建。 它们可以通过其 .NET 配置提供程序无缝集成到应用程序配置。
+.NET 功能管理库使用功能标志支持扩展该框架。 这些库在 .NET 配置系统的基础上构建。 它们通过其 .NET 配置提供程序与应用程序配置集成。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -38,7 +38,7 @@ ms.locfileid: "88866638"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。  
+6. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。 
 
     > [!div class="mx-imgBorder"]
     > ![启用名为 Beta 的功能标志](media/add-beta-feature-flag.png)
@@ -47,15 +47,15 @@ ms.locfileid: "88866638"
 
 ## <a name="create-a-net-console-app"></a>创建 .NET 控制台应用
 
-1. 启动 Visual Studio，并选择“文件” > “新建” > “项目”    。
+1. 启动 Visual Studio，并选择“文件” > “新建” > “项目”  。
 
-1. 在**创建新项目**中，针对“控制台”  项目类型进行筛选，然后单击“控制台应用(.NET Framework)”  。 单击“下一步”。 
+1. 在 **创建新项目** 中，针对“控制台”项目类型进行筛选，然后单击“控制台应用(.NET Framework)”。 单击“配置目录分区” 。
 
-1. 在**配置新项目**中，输入项目名称。 在“Framework”  下，选择“.NET Framework 4.8”  或更高版本。 单击“创建”。 
+1. 在 **配置新项目** 中，输入项目名称。 在“Framework”下，选择“.NET Framework 4.8”或更高版本。 单击 **创建**。
 
 ## <a name="connect-to-an-app-configuration-store"></a>连接到应用程序配置存储区
 
-1. 右键单击项目，然后选择“管理 NuGet 包”  。 在“浏览”选项卡中，搜索以下 NuGet 包并将其添加到项目中  。 如果无法找到，请选中“包括预发行版”复选框  。
+1. 右键单击项目，然后选择“管理 NuGet 包”。 在“浏览”选项卡中，搜索以下 NuGet 包并将其添加到项目中。 如果无法找到，请选中“包括预发行版”复选框。
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -70,6 +70,7 @@ ms.locfileid: "88866638"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. 更新 `Main` 方法以连接到应用程序配置，指定 `UseFeatureFlags` 选项以检索功能标志。 若启用 `Beta` 功能标志，将显示一条消息。
@@ -99,12 +100,14 @@ ms.locfileid: "88866638"
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>在本地生成并运行应用
 
-1. 将名为 ConnectionString 的环境变量设置为应用程序配置存储区的连接字符串  。 如果使用 Windows 命令提示符，请运行以下命令：
+1. 将名为 ConnectionString 的环境变量设置为应用程序配置存储区的连接字符串。 如果使用 Windows 命令提示符，请运行以下命令：
 
     ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"

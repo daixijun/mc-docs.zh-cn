@@ -8,23 +8,24 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 1d8635726b0a98fcd4475e1d5cf99502f749707e
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 6687651de97d9f02867dcf8f1189f6ed9437982a
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866698"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190297"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>使用功能筛选器为一部分用户启用某个功能
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>使用功能筛选器启用条件功能标志
 
 使用功能标志可以在应用程序中激活或停用功能。 简单的功能标志为“开”或“关”。 应用程序会始终采用相同的行为方式。 例如，你可以在一个功能标志后面推出新功能。 启用该功能标志后，所有用户都将看到新功能。 禁用功能标志将隐藏新功能。
 
 相比之下，使用“条件功能标志”可以动态启用或禁用功能标志。 应用程序的行为可能会有所不同，具体取决于功能标志条件。 假设要首先向小部分用户显示新功能。 使用条件功能标志可以为某些用户启用功能标志，同时为其他用户禁用该标志。 功能筛选器在每次计算出其结果时确定功能标志的状态。
 
-`Microsoft.FeatureManagement` 库包括两个功能筛选器：
+`Microsoft.FeatureManagement` 库包括三个功能筛选器：
 
 - `PercentageFilter` 基于百分比启用功能标志。
 - `TimeWindowFilter` 在指定时间段内启用功能标志。
+- `TargetingFilter` 为指定的用户和组启用功能标志。
 
 还可以创建自己的功能筛选器来实现 [Microsoft.FeatureManagement.IFeatureFilter 接口](/dotnet/api/microsoft.featuremanagement.ifeaturefilter)。
 
@@ -84,9 +85,9 @@ public void ConfigureServices(IServiceCollection services)
 若要查看此功能标志的效果，请在浏览器中启动该应用程序，并多次点击“刷新”按钮。 你会看到 Beta 项在大约 50% 的时间中出现在工具栏上。 它在其余时间隐藏，因为 `PercentageFilter` 会为一部分请求停用 Beta 功能。 以下视频显示了正在起作用的这一行为。
 
 > [!div class="mx-imgBorder"]
-> ![正在起作用的 PercentageFilter](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter 的实际运用](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [功能管理概述](./concept-feature-management.md)
+> [为目标受众启用分阶段推出功能](./howto-targetingfilter-aspnet-core.md)

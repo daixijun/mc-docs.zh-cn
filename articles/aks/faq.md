@@ -4,16 +4,16 @@ description: 查找有关 Azure Kubernetes 服务 (AKS) 的某些常见问题的
 ms.topic: conceptual
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 43b10c73ba252d4f1d7435990b1c2cfd40b923a9
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 4c914d88f1d3f3afa315e0259160cea69fe01384
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024546"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -66,7 +66,7 @@ AKS 在多个 Azure 基础结构资源之上构建，包括虚拟机规模集、
 
 为了启用此体系结构，每个 AKS 部署跨越两个资源组：
 
-1. 创建第一个资源组。 此组仅包含 Kubernetes 服务资源。 在部署过程中，AKS 资源提供程序会自动创建第二个资源组。 例如，第二个资源组为 *MC_myResourceGroup_myAKSCluster_chinaeast2* 。 有关如何指定这第二个资源组的名称，请参阅下一部分。
+1. 创建第一个资源组。 此组仅包含 Kubernetes 服务资源。 在部署过程中，AKS 资源提供程序会自动创建第二个资源组。 例如，第二个资源组为 *MC_myResourceGroup_myAKSCluster_chinaeast2*。 有关如何指定这第二个资源组的名称，请参阅下一部分。
 1. 第二个资源组（称为节点资源组）包含与该群集相关联的所有基础结构资源。 这些资源包括 Kubernetes 节点 VM、虚拟网络和存储。 默认情况下，节点资源组使用类似于 *MC_myResourceGroup_myAKSCluster_chinaeast2* 的名称。 每当删除群集时，AKS 会自动删除节点资源，因此，仅应对生命周期与群集相同的资源使用 AKS。
 
     <!--CUSTOMIZATION: MEET SCORECARD REQUEST ON resources THAT share the cluster's lifecycle-->
@@ -96,9 +96,7 @@ AKS 在多个 Azure 基础结构资源之上构建，包括虚拟机规模集、
 
 如果修改或删除节点资源组中 Azure 创建的标记和其他资源属性，可能会出现意外的结果，例如缩放和升级错误。 使用 AKS，可以创建和修改由最终用户创建的自定义标记，还可以在[创建节点池](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)时添加这些标记。 例如，可以创建或修改标记，以分配业务单位或成本中心。 这也可以通过在托管资源组上创建具有作用域的 Azure 策略来实现。
 
-但是，在 AKS 群集中的节点资源组下修改任何 Azure 在资源中创建的标记是不受支持的操作，会中断服务级别目标 (SLO)。
-
-<!--Not Available on  For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)-->
+但是，在 AKS 群集中的节点资源组下修改任何 Azure 在资源中创建的标记是不受支持的操作，会中断服务级别目标 (SLO)。 有关详细信息，请参阅 [AKS 是否提供服务级别协议？](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS 支持哪些 Kubernetes 许可控制器？ 是否可以添加或删除许可控制器？
 
@@ -112,6 +110,9 @@ AKS 支持以下[许可控制器][admission-controllers]：
 - MutatingAdmissionWebhook
 - ValidatingAdmissionWebhook
 - ResourceQuota
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 目前无法修改 AKS 中的准入控制器列表。
 
@@ -126,9 +127,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS 对 API 服务器出口设置了防火墙，因此需要能够从群集内部访问许可控制器 Webhook。
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>许可控制器 Webhook 是否会影响 kube 系统和内部 AKS 命名空间？
 
-为了保护系统的稳定性，并防止自定义的许可控制器影响 kube 系统中的内部服务，我们在命名空间 AKS 中设置了一个 **许可执行程序** ，它自动排除 kube 系统和 AKS 内部命名空间。 此服务确保自定义许可控制器不会影响在 kube 系统中运行的服务。
+为了保护系统的稳定性，并防止自定义的许可控制器影响 kube 系统中的内部服务，我们在命名空间 AKS 中设置了一个 **许可执行程序**，它自动排除 kube 系统和 AKS 内部命名空间。 此服务确保自定义许可控制器不会影响在 kube 系统中运行的服务。
 
 如果你有一个用于在 kube 系统上部署某些内容的关键用例（不建议这样做），并且需要使用自定义许可 Webhook 来涵盖该系统，则可添加以下标签或注释，这样许可执行程序就会忽略该系统。
 
@@ -144,8 +147,11 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[适用于 CSI 机�
 
 Windows Server 对节点池的支持具有一些限制，Kubernetes 项目中的上游 Windows Server 也具有这些限制。 有关这些限制的详细信息，请参阅[在 AKS 中使用 Windows Server 容器的一些限制][aks-windows-limitations]。
 
-<!--Not Available on ## Does AKS offer a service-level agreement?-->
-<!--Not Available on [Uptime SLA][uptime-sla.md]-->
+<a name="does-aks-offer-a-service-level-agreement"></a>
+## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服务级别协议？
+
+AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功能）。
+
 
 <!--Not Available on  ## Can I apply Azure reservation discounts to my AKS agent nodes?-->
 <!--Not Available on   [Azure reservations][reservation-discounts]-->
@@ -212,13 +218,20 @@ Windows Server 对节点池的支持具有一些限制，Kubernetes 项目中的
 
 ## <a name="can-i-use-custom-vm-extensions"></a>是否可以使用自定义 VM 扩展？
 
-否。AKS 是一项托管服务，不支持操作 IaaS 资源。 要安装自定义组件等， 请利用 Kubernetes 的 API 和机制。 例如，使用 DaemonSet 安装所需的组件。
+支持 Log Analytics 代理，因为它是由 Azure 管理的扩展。 在其他情况下不支持。AKS 是一项托管服务，不支持操作 IaaS 资源。 若要安装自定义组件等内容，请使用 Kubernetes API 和相关机制。 例如，使用 DaemonSets 安装所需组件。
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS 是否将任何客户数据存储在群集区域之外？
 
 <!--MOONCAKE: CORRECT ON within the cluster's region-->
 
 不是。 客户数据存储在异地。
+
+## <a name="are-aks-images-required-to-run-as-root"></a>AKS 映像是否需要以根用户身份运行？
+
+除了以下两个映像，AKS 映像不需要以根用户身份运行：
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
 <!-- LINKS - internal -->
 
@@ -250,11 +263,12 @@ Windows Server 对节点池的支持具有一些限制，Kubernetes 项目中的
 
 <!--Not Avaialble on [availability-zones]: ./availability-zones.md-->
 <!--Not Avaialble on [az-regions]: ../availability-zones/az-region.md-->
-<!--Not Avaialble on [uptime-sla]： ./uptime-sla.md-->
+
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 
-[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,
+[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
