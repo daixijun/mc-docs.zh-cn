@@ -1,37 +1,62 @@
 ---
-title: Azure IoT 中心迁移到诊断设置
-description: 如何更新 Azure IoT 中心以使用 Azure 诊断设置而非使用操作监视功能来实时监视 IoT 中心内的操作状态。
+title: 将 Azure IoT 中心操作监视迁移到 Azure Monitor 中的 IoT 中心资源日志 |Microsoft Docs
+description: 如何更新 Azure IoT 中心以使用 Azure Monitor（而非使用操作监视）来实时监视 IoT 中心内操作的状态。
 author: kgremban
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 03/11/2019
-ms.date: 11/11/2019
-ms.author: v-yiso
-ms.openlocfilehash: be9a850d99d0ab54ce57fe392d53c28b69d9dab9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 03/11/2019
+ms.author: kgremban
+ms.openlocfilehash: be638e3934cb3e84ab69d9b04f7a6caa77c714c4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327791"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300634"
 ---
-# <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>将 IoT 中心从操作监视迁移到诊断设置
+# <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>将 IoT 中心从操作监视迁移到 Azure Monitor 资源日志
 
-使用[操作监视](iot-hub-operations-monitoring.md)跟踪 IoT 中心内的操作状态的客户可以将该工作流迁移到 [Azure 诊断设置](../azure-monitor/platform/platform-logs-overview.md)（Azure Monitor 的一项功能）。 诊断设置针对许多 Azure 服务提供了资源级诊断信息。
+使用[操作监视](iot-hub-operations-monitoring.md)来跟踪 IoT 中心内操作状态的客户可以将该工作流迁移到 [Azure Monitor 资源日志](../azure-monitor/platform/platform-logs-overview.md)（Azure Monitor 的一项功能）。 资源日志为许多 Azure 服务提供资源级诊断信息。
 
-**IoT 中心的操作监视功能已弃用**，已从门户中删除。 本文提供了将工作负荷从操作监视移动到诊断设置的步骤。 若要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)。
+**IoT 中心的操作监视功能已弃用**，已从门户中删除。 本文提供了将工作负载从操作监视移动到 Azure Monitor 资源日志的步骤。 若要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)。
 
 ## <a name="update-iot-hub"></a>更新 IoT 中心
 
-若要在 Azure 门户中更新 IoT 中心，请首先开启诊断设置，然后关闭操作监视。  
+若要在 Azure 门户中更新 IoT 中心，请先创建诊断设置，然后关闭操作监视。  
 
-[!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
+### <a name="create-a--diagnostic-setting"></a>创建诊断设置
+
+1. 登录 [Azure 门户](https://portal.azure.cn)，导航到 IoT 中心。
+
+1. 在左窗格中的“监视”下，选择“诊断设置” 。 然后选择“添加诊断设置”。
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="突出显示“监视”部分的“诊断设置”的屏幕截图。":::
+
+1. 在“诊断设置”窗格中，为该诊断设置指定一个名称。
+
+1. 在“类别详细信息”下，选择要监视的操作的类别。 若要详细了解可用于 IoT 中心的操作类别，请参阅[资源日志](monitor-iot-hub-reference.md#resource-logs)。
+
+1. 在“目标详细信息”下，选择要将日志发送到的位置。 可以选择以下这些目标的任意组合：
+
+   * 存档到存储帐户
+   * 流式传输到事件中心
+   * 通过 Log Analytics 工作区发送到 Azure Monitor 日志
+
+   以下屏幕截图显示了一个诊断设置，该诊断设置将“连接”和“设备遥测”类别中的操作路由到 Log Analytics 工作区：
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/add-diagnostic-setting.png" alt-text="屏幕截图显示了已完成的诊断设置。":::
+
+1. 选择“保存”，保存这些设置。
+
+新设置在大约 10 分钟后生效。 在此之后，日志就会出现在已配置的目标中。 有关配置诊断的详细信息，请参阅[从 Azure 资源收集和使用日志数据](/azure/azure-monitor/platform/platform-logs-overview)。
+
+若要详细了解如何创建诊断设置（包括使用 PowerShell 和 Azure CLI 进行创建），请参阅 Azure Monitor 文档中的[诊断设置](/azure/azure-monitor/platform/diagnostic-settings)。
 
 ### <a name="turn-off-operations-monitoring"></a>关闭操作监视
 
 > [!NOTE]
-> 从 2019 年 3 月 11 日开始，IoT 中心的 Azure 门户接口不再有操作监视功能。 以下步骤不再适用。 若要进行迁移，请确保在上面的 Azure Monitor 诊断设置中启用正确的类别。
+> 从 2019 年 3 月 11 日开始，IoT 中心的 Azure 门户接口不再有操作监视功能。 以下步骤不再适用。 若要进行迁移，请确保使用上面的 Azure Monitor 诊断设置将正确的类别路由到目标。
 
 在工作流中测试新的诊断设置后，可以关闭操作监视功能。 
 
@@ -43,9 +68,9 @@ ms.locfileid: "94327791"
 
 ## <a name="update-applications-that-use-operations-monitoring"></a>更新使用操作监视的应用程序
 
-操作监视和诊断设置的架构略有不同。 请更新当前使用操作监视的应用程序以映射到诊断设置使用的架构，这非常重要。 
+操作监视和资源日志在架构上略有不同。 请更新当前使用操作监视的应用程序，以映射到资源日志使用的架构，这非常重要。
 
-此外，诊断设置还提供了五个新的跟踪类别。 更新应用程序的现有架构后，还要添加新类别：
+此外，IoT 中心资源日志还提供了五个新类别以用于跟踪。 更新应用程序的现有架构后，还要添加新类别：
 
 * 云到设备孪生操作
 * 设备到云孪生操作
