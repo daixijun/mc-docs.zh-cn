@@ -29390,11 +29390,16 @@
             "redirect_url": "/cognitive-services/metrics-advisor/overview",
             "redirect_document_id": false
         },
-    { 
-      "source_path": "articles/azure-stack/operator/azure-stack-diagnostic-log-collection-overview.md", 
-      "redirect_url": "/azure-stack/operator/diagnostic-log-collection", 
-      "redirect_document_id": false
-    }   
+        {
+            "source_path": "articles/security-center/faq-billing.md",
+            "redirect_url": "/security-center/security-center-pricing#faq---pricing-and-billing",
+            "redirect_document_id": false
+        },
+		{ 
+			"source_path": "articles/azure-stack/operator/azure-stack-diagnostic-log-collection-overview.md", 
+			"redirect_url": "/azure-stack/operator/diagnostic-log-collection", 
+			"redirect_document_id": false
+		}   
 
 
 
