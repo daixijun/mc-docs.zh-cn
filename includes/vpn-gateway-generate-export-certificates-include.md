@@ -6,19 +6,19 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 10/29/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: fad16c58ae3dc8d26e95431b5d4b2d3da065661f
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: ad156f32f72ad83ac584e1bbdd256e761b4c3489
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970778"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746897"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>创建自签名根证书
 
-使用 New-SelfSignedCertificate cmdlet 创建自签名根证书。 有关参数的其他信息，请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
+使用 New-SelfSignedCertificate cmdlet 创建自签名根证书。 有关参数的其他信息，请参阅 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)。
 
 1. 在运行 Windows 10 或 Windows Server 2016 的计算机上，使用提升的权限打开 Windows PowerShell 控制台。
 1. 使用以下示例创建自签名根证书。 以下示例创建名为“P2SRootCert”、会自动安装在“Certificates-Current User\Personal\Certificates”中的自签名根证书。 打开“certmgr.msc”  或“管理用户证书”  ，即可查看证书。
@@ -40,7 +40,7 @@ ms.locfileid: "95970778"
 
 以下步骤引导完成从自签名根证书生成客户端证书的过程。 可以从相同根证书生成多个客户端证书。 使用以下步骤生成客户端证书时，客户端证书会自动安装在用于生成该证书的计算机上。 如果想要在另一台客户端计算机上安装客户端证书，可以导出该证书。
 
-这些示例使用 New-SelfSignedCertificate cmdlet 生成有效期为一年的客户端证书。 有关参数的其他信息（例如为客户端证书设置其他有效期），请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
+这些示例使用 New-SelfSignedCertificate cmdlet 生成有效期为一年的客户端证书。 有关参数的其他信息（例如为客户端证书设置其他有效期），请参阅 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)。
 
 ### <a name="example-1---powershell-console-session-still-open"></a>示例 1 - PowerShell 控制台会话仍处于打开状态
 

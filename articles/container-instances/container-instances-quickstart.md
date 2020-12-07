@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 8f798f65ecdc3811af4fb0f742f8923c9a1e043a
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 5c6b6aa2b2f3663e563267af6e05dfbb7b4579a8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96300245"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507515"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure 中部署容器实例
@@ -166,7 +166,7 @@ az group delete --name myResourceGroup
 <!-- LINKS - External -->
 
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://www.azure.cn/pricing/1rmb-trial/
+[azure-account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->

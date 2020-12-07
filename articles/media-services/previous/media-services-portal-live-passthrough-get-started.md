@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 04/01/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 04388e724c7c548f97b9c22dac58b32c74c09002
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 80bcdc316431cf7f188efbdc7bd7b8f34d441e6d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300687"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432139"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>在 Azure 门户中使用本地编码器实时传送流
 
@@ -41,7 +41,7 @@ ms.locfileid: "96300687"
 ## <a name="prerequisites"></a>先决条件
 以下是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 网络摄像机。 例如， [Telestream Wirecast 编码器](media-services-configure-wirecast-live-encoder.md)。 
 

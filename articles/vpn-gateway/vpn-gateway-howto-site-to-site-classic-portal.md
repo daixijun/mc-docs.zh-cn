@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 10/08/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 1c9618a353617645ab50fe27a70455e69b2b3ca9
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 3f6f96c652afe67415c3fe0a0e8e4e3cf8155ce9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970795"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747230"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -136,7 +136,7 @@ ms.locfileid: "95970795"
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>如何重置 VPN 网关
 
-如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md#resetclassic)。
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](./reset-gateway.md#resetclassic)。
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>如何更改网关 SKU
 

@@ -7,12 +7,12 @@ ms.author: v-jay
 ms.service: media-services
 origin.date: 04/27/2020
 ms.date: 11/30/2020
-ms.openlocfilehash: 297fbd6b55604bd5a60ecd068695f3a860c0dc9e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 1b095a2b6073d07c54e2e30c8ed3953903bff4fe
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300912"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432600"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>快速入门：检测运动，将视频录制到媒体服务
 
@@ -22,7 +22,7 @@ ms.locfileid: "96300912"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 计算机上的 [Visual Studio Code](https://code.visualstudio.com/) 有 [Azure IoT Tools 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。
 * 如果之前尚未完成[快速入门](get-started-detect-motion-emit-events-quickstart.md)，请完成以下步骤：
     * [设置 Azure 资源](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)

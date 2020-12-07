@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 01/08/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: daf7025d4fe29a48d6c549e304a614f6bbcd04f5
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 4e0ebc05216f51deb12764771817e59e488b1b71
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970754"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747232"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用证书身份验证（经典）配置点到站点连接
 
@@ -67,7 +67,7 @@ ms.locfileid: "95970754"
 * **连接类型**：选择“点到站点”。
 * **GatewaySubnet 地址范围（CIDR 块）：** 192.168.200.0/24
 
-开始之前，请确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+开始之前，请确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>创建虚拟网络
 
@@ -154,7 +154,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 1. 在客户端计算机上，转到 VPN 设置。
 1. 选择你创建的 VPN。 如果你使用了示例设置，则连接会被标记为“Group TestRG VNet1”。
-1. 选择“连接”  。
+1. 选择“连接”。
 1. 在“Windows Azure 虚拟网络”框中，选择“连接”。 如果显示了关于证书的弹出消息，请选择“继续”以使用提升的权限，并选择“是”以接受配置更改 。
 1. 当连接成功时，你会看到“已连接”通知。
 
@@ -203,7 +203,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 可以通过将指纹添加到吊销列表来吊销客户端证书。
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅[如何：检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅[如何：检索证书的指纹](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 1. 将信息复制到文本编辑器，删除其中的空格，使之成为连续的字符串。
 1. 导航到“点到站点 VPN 连接”，然后选择“管理证书”。 
 1. 选择“吊销列表”，打开“吊销列表”页。
@@ -220,6 +220,6 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 * 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。 
 
-* 要详细了解网络和 Linux 虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/network-overview.md)。
+* 要详细了解网络和 Linux 虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。
 
 * 有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

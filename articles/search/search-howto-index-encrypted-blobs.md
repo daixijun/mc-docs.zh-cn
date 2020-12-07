@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/02/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 4d8cf9ee99ad5b7d90f57ace83bb1c450f7e839b
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 6c6f3ab1727d69808edfb2d6a7a9c8d9cb145ae2
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300704"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430884"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中使用 Blob 索引器和技能组为加密的 Blob 编制索引
 
@@ -29,7 +29,7 @@ ms.locfileid: "96300704"
 > * 执行该管道以创建并加载索引。
 > * 使用全文搜索和丰富的查询语法浏览结果。
 
-如果你没有 Azure 订阅，请在开始之前建立一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform?WT.mc_id=A261C142F)。
+如果你没有 Azure 订阅，请在开始之前建立一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

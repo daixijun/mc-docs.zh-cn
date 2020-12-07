@@ -16,12 +16,12 @@ ms.date: 11/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a408ccf36a880aa0f5c1b3982a654b1a51df8f1
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 211e07cfa1fcae8515333b5cdc304def33080038
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918487"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508977"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本文介绍 Azure Active Directory (Azure AD) Connect 的先决条件和硬件要求。
@@ -30,7 +30,7 @@ ms.locfileid: "95918487"
 在安装 Azure AD Connect 之前，需要准备好以下项目。
 
 ### <a name="azure-ad"></a>Azure AD
-* 需要 Azure AD 租户。 通过 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)获得一个租户。 可以使用以下门户之一来管理 Azure AD Connect：
+* 需要 Azure AD 租户。 通过 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)获得一个租户。 可以使用以下门户之一来管理 Azure AD Connect：
   * [Azure 门户](https://portal.azure.cn)。
 * [添加并验证域](../fundamentals/add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
 * 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果 Azure AD 中需要更多的对象，则请创建支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要具备许可证，例如 Microsoft 365、Azure AD Premium 或企业移动性 + 安全性。

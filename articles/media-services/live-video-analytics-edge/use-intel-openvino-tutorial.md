@@ -5,12 +5,12 @@ ms.topic: tutorial
 origin.date: 09/08/2020
 ms.date: 11/30/2020
 titleSuffix: Azure
-ms.openlocfilehash: 3095213d0e418cb675c8755e17b1f6d09ebe72fe
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 6d76875407be7fb077d2299c0a92dadab057b357
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301001"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432366"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>教程：使用 OpenVINO™ Model Server（由 Intel 提供的 AI 扩展）来分析实时视频 
 
@@ -23,7 +23,7 @@ ms.locfileid: "96301001"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 包含活动订阅的 Azure 帐户。 如果没有帐户，可[创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 包含活动订阅的 Azure 帐户。 如果没有帐户，可[创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 包含以下扩展的 [Visual Studio Code](https://code.visualstudio.com/)：
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)

@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 10/23/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 0f19ee04dc103224a880165fb4a7de07a8c3a3b5
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 0c9bff88b7ece68c24ecab545e1daf75273dc64c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970835"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746983"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 
@@ -25,22 +25,20 @@ ms.locfileid: "95970835"
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
-> 
->
-
 
 ![站点到站点 VPN 网关跨界连接示意图](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
 使用站点到站点 VPN 网关连接，通过 IPsec/IKE（IKEv1 或 IKEv2）VPN 隧道将本地网络连接到 Azure 虚拟网络。 此类型的连接要求位于本地的 VPN 设备分配有一个面向外部的公共 IP 地址。 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>在开始之前
 
 在开始配置之前，请验证是否符合以下条件：
 
 * 确保有一台兼容的 VPN 设备，并且可对其进行配置。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
 * 确认 VPN 设备有一个面向外部的公共 IPv4 地址。
 * 如果不熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
-* 检查是否已安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+* 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 ### <a name="example-values"></a><a name="example"></a>示例值
 

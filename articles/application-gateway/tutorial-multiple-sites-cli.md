@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 54424644c8aef47af4a05cb90b87cd887e5b13c0
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: d2b391479be9f56f9bcaaa98b6a82ab5d2c8cbbb
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970829"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509004"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>使用 Azure CLI 创建托管多个网站的应用程序网关
 
@@ -33,7 +33,7 @@ ms.locfileid: "95970829"
 
 如果需要，可以使用 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 完成此过程。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

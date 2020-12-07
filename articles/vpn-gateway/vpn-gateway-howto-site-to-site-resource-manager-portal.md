@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 10/22/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: c05f893541fc924d1554d39ddd7854e19e0a96ef
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 1fd5975285d48830f33f4f256c6d79a6b8203b9c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970808"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746986"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -35,7 +35,7 @@ ms.locfileid: "95970808"
 
 在开始配置之前，请验证你是否符合以下条件：
 
-* 具有活动订阅的 Azure 帐户。 如果没有帐户，请[创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 具有活动订阅的 Azure 帐户。 如果没有帐户，请[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 确保有一台兼容的 VPN 设备，并且可对其进行配置。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
 * 确认 VPN 设备有一个面向外部的公共 IPv4 地址。
 * 如果不熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
@@ -146,7 +146,7 @@ ms.locfileid: "95970808"
 * 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 * 有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-forced-tunneling-rm.md)。
 * 有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
-* 有关如何限制发往虚拟网络中资源的网络流量的信息，请参阅[网络安全](../virtual-network/security-overview.md)。
+* 有关如何限制发往虚拟网络中资源的网络流量的信息，请参阅[网络安全](../virtual-network/network-security-groups-overview.md)。
 * 有关 Azure 如何在 Azure 资源、本地资源和 Internet 资源之间路由流量的信息，请参阅[虚拟网络流量路由](../virtual-network/virtual-networks-udr-overview.md)。
 * 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅[创建站点到站点 VPN 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
 * 若要了解如何使用 Azure 资源管理器模板创建 VNet 到 VNet VPN 连接，请参阅[部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。

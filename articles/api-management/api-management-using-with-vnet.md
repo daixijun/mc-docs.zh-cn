@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: references_regions
-ms.openlocfilehash: 1dbc061036d0a941e398ac6185d2451e00eaaf9b
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: e2ca6c6c52f5b4cea1345e0ea9ce930ca86df6c8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306427"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432611"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -38,7 +38,7 @@ ms.locfileid: "96306427"
 
 + 一个有效的 Azure 订阅。
 
-    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
@@ -169,7 +169,7 @@ ms.locfileid: "96306427"
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>疑难解答
 * **初始设置**：如果在某个子网中初次部署 API 管理服务未成功，建议首先在同一子网中部署一个虚拟机。 接下来，在虚拟机中部署远程桌面，并验证是否与 Azure 订阅中的以下每个资源建立了连接
     * Azure 存储 Blob
-    * Azure SQL Database
+    * Azure SQL 数据库
     * Azure 存储表
 
   > [!IMPORTANT]

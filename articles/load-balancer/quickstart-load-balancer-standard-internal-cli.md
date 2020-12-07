@@ -16,12 +16,12 @@ origin.date: 10/23/2020
 ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: f22f112499e74db6d3a77382f82fb4cf238222c6
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 4dd5a9c29f5dd9c09efd8b807c4a8b0f5ce3fe72
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306483"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747261"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -842,7 +842,7 @@ runcmd:
 8. 将上一步骤的 IP 地址输入到浏览器的地址栏。 IIS Web 服务器的默认页会显示在浏览器上。
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="创建标准的内部负载均衡器" border="true":::
-   
+
 要查看所有三个 VM 中的负载均衡器分配流量，可以自定义每个 VM 的 IIS Web 服务器的默认页面，然后从客户端计算机强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源

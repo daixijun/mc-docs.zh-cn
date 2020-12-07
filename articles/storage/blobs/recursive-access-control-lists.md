@@ -10,12 +10,12 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 740f86a57699d6aa6f749fd465f0fb3981c01d65
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 08f465636a6c0bdf5afc6ffedfe259b56e797e59
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152991"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432086"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -25,7 +25,7 @@ ACL 继承已可用于在父目录下创建的新子项。 你现在还可以以
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 请参阅[获取 Azure 试用版](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](create-data-lake-storage-account.md)说明创建一个。
 

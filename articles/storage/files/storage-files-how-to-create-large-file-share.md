@@ -9,20 +9,20 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4412c36c3b316e71cd6b485cc9e4cbf6945dd797
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 1fd3d67af6746baea5482e31bbe57021d364f841
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152982"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432482"
 ---
 # <a name="enable-and-create-large-file-shares"></a>启用和创建大型文件共享
 
 在存储帐户上启用大文件共享时，文件共享可以纵向扩展到 100 TiB，同时还可以提高标准共享的 IOPS 和吞吐量上限。 也可以在现有存储帐户中为现有的文件共享启用此缩放。 有关详细信息，请参阅[文件共享和文件缩放目标](storage-files-scale-targets.md#azure-files-scale-targets)。 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest)。
 - 如果你打算使用 Azure PowerShell 模块，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "96152982"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 在 Azure 门户中，选择“所有服务”。 
 1. 在资源列表中输入“存储帐户”。 键入时，列表会根据输入的内容进行筛选。 选择“存储帐户”。
 1. 在显示的“存储帐户”窗口中，选择“添加”。 

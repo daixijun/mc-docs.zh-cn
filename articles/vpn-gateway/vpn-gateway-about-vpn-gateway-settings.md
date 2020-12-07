@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 10/21/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 442944119442a16ddf74037e95c1fc13723e4aa3
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 477f03d82ac4ba36025b26828698a63ae54c4613
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970634"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746855"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
@@ -175,7 +175,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 | **经典** | **资源管理器** |
 | --- | --- |
 | [PowerShell](https://docs.microsoft.com/powershell/module/az.network/#networking) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways) |
+| [REST API](https://docs.microsoft.com/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways) |
 | 不支持 | [Azure CLI](/cli/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>后续步骤

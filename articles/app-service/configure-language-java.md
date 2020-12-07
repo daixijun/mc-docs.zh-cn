@@ -6,17 +6,17 @@ author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 origin.date: 04/12/2019
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 98aa7204731971daf3d9134e6e884796e1133842
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 3cece3faf6e2f4fa4c7339a202d550cb00e1ea04
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306203"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747107"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Java 应用
 
@@ -679,7 +679,7 @@ JBoss EAP 仅适用于高级和独立硬件选项。 在公共预览期间在免
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 版本和维护
 
-Azure 支持的 Java 开发工具包 (JDK) 为提供 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。 Azul Zulu Enterprise 内部版 OpenJDK 是适用于 Azure 和 Azure Stack 的 OpenJDK 的免费、多平台、生产就绪型发行版，由 Microsoft 及 Azul Systems 提供支持。 这些版本包含构建和运行 Java SE 应用程序所需的所有组件。 你可以通过 [Java JDK 安装](https://aka.ms/azure-jdks)安装 JDK。
+Azure 支持的 Java 开发工具包 (JDK) 为提供 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。 Azul Zulu Enterprise 内部版 OpenJDK 是适用于 Azure 和 Azure Stack 的 OpenJDK 的免费、多平台、生产就绪型发行版，由 Microsoft 及 Azul Systems 提供支持。 这些版本包含构建和运行 Java SE 应用程序所需的所有组件。 你可以通过 [Java JDK 安装](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)安装 JDK。
 
 主要版本更新将通过 Azure 应用服务中的新运行时选项提供。 客户可以通过配置应用服务部署来更新到这些较新的 Java 版本，他们需要负责测试和确保重大更新符合其需求。
 

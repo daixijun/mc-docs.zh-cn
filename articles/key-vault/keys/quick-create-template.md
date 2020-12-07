@@ -11,12 +11,12 @@ ms.custom: mvc,subject-armqs
 origin.date: 10/14/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7688a34a5771f4e20b456338fe8ff7d692c243cf
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 82e9b1ff9d321381f7b0831029175ba4a1500b2d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431048"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>快速入门：使用 ARM 模板（预览版）创建 Azure 密钥保管库和密钥
 
@@ -26,7 +26,7 @@ ms.locfileid: "96300990"
 
 若要完成本文，需要做好以下准备：
 
-- 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+- 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 模板需要使用你的 Azure AD 用户对象 ID 来配置权限。 以下过程获取对象 ID (GUID)。
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e06abb346906884bb88fdd419a432b2fe16e3eb8
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: f3c1ab19ebe9ae8f8142e3156b30b87b6f552a2c
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918434"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508819"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>快速入门：使用 Microsoft 标识平台保护 ASP.NET Core Web API
 
@@ -26,7 +26,7 @@ ms.locfileid: "95918434"
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>先决条件
 >
-> - 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+> - 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > - [Azure Active Directory 租户](quickstart-create-new-tenant.md)
 > - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 或 [Visual Studio Code](https://code.visualstudio.com/)

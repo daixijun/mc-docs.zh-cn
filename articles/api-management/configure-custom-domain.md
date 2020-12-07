@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 01/13/2020
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 6082bbe6eef7caf3d960815eb5eb59c8ebf213b1
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 4f04dd1953016d00babe9a4b3353bc87a6f82031
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306319"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432528"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>为 Azure API 管理实例配置自定义域名
 
@@ -36,7 +36,7 @@ ms.locfileid: "96306319"
 
 -   一个有效的 Azure 订阅。
 
-    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 -   API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 -   由你或你的组织拥有的自定义域名。 本主题不会提供有关如何购买自定义域名的说明。

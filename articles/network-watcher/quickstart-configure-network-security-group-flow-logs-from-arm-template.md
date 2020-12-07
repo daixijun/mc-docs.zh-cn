@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: b814bc170c3b61697984fe716582c71753e70635
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 9528d733df76a648bbc63bbe3bb7a5ad572ea4d9
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300147"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432564"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>快速入门：使用 ARM 模板配置网络安全组流日志
@@ -36,7 +36,7 @@ ms.locfileid: "96300147"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

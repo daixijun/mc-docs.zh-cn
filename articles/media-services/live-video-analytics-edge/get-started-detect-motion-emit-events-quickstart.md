@@ -7,12 +7,12 @@ ms.author: v-jay
 ms.service: media-services
 origin.date: 04/27/2020
 ms.date: 11/30/2020
-ms.openlocfilehash: 38be8d3b936b33c5a06fe556f628b0095d03a262
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 24794c7510ca0811195271b98a9b237dfa388aa3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300014"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431845"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>快速入门：入门 - IoT Edge 上的实时视频分析
 
@@ -25,7 +25,7 @@ ms.locfileid: "96300014"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 如果没有帐户，可以[创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 如果没有帐户，可以[创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 开发计算机上的 [Visual Studio Code](https://code.visualstudio.com/)。 请确保具有 [Azure IoT Tools 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。
 * 确保开发计算机连接到的网络允许经由端口 5671 的高级消息队列协议协议 (AMQP)。 此设置使 Azure IoT Tools 可以与 Azure IoT 中心通信。
 

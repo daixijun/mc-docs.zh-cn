@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f433f3758f156aa68496723eddb0bda24f0efa61
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: f7bee861b28f6b18f8fda97f73370c3496e8c441
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300466"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508997"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>快速入门：适用于 Python 的 Azure Key Vault 客户端密钥库
 
@@ -24,7 +24,7 @@ ms.locfileid: "96300466"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [免费创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+- Azure 订阅 - [免费创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Python 2.7+ 或 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/install-azure-cli)
 
@@ -51,7 +51,7 @@ ms.locfileid: "96300466"
 
 ### <a name="install-the-packages"></a>安装包
 
-1. 在终端或命令提示符中，创建合适的项目文件夹，然后创建并激活 Python 虚拟环境，如[使用 Python 虚拟环境](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)中所述。
+1. 在终端或命令提示符中，创建合适的项目文件夹，然后创建并激活 Python 虚拟环境，如[使用 Python 虚拟环境](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)中所述。
 
 1. 安装 Azure Active Directory 标识库：
 

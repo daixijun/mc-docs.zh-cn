@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 11/03/2020
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 7207e07f1670f74c3dae444fb8930ced3b7cb089
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 71c1493eca15cec81bdfc0ff00466efd4e9a39a3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300688"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432438"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>使用 Azure 门户创建媒体服务帐户
 
@@ -40,7 +40,7 @@ ms.locfileid: "96300688"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="create-an-ams-account"></a>创建 AMS 帐户
 

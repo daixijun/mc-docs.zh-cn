@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/03/2020
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: b3d5bac14d851503a1649b885d25367b697ad9da
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 017d371859298d2e9722439e18da6da4b785f93a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300698"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432303"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述
 
@@ -49,7 +49,7 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 
 若要开始使用 Azure 媒体服务，应该具备以下条件：
 
-* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 媒体服务帐户。 有关详细信息，请参阅[创建帐户](media-services-portal-create-account.md)。
 * （可选）设置开发环境。 为开发环境选择“.NET”或“REST API”。 有关详细信息，请参阅 [设置环境](media-services-dotnet-how-to-use.md)。
 

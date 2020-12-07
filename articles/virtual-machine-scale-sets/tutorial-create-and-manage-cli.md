@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/16/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 69ec23e2e91c3cda308208ab91826e994e6e455f
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: b491141e74ed551b76c36e013fd0a336ad9b0164
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508590"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 本教程介绍如何执行下列操作：
@@ -26,7 +26,7 @@ ms.locfileid: "95970711"
 > * 手动缩放规模集
 > * 执行常见的规模集管理任务
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
