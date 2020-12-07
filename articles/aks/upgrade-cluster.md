@@ -3,17 +3,18 @@ title: 升级 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何升级 Azure Kubernetes 服务 (AKS) 群集以获取最新的功能和安全更新。
 services: container-service
 ms.topic: article
-origin.date: 05/28/2020
-ms.date: 08/10/2020
+origin.date: 10/21/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 12289219f2c7a90131ca71942df7ea50e5e15e68
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: de70940d5c104593dac0aff4b41f00b349521bad
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021532"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024438"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -62,7 +63,7 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 ## <a name="upgrade-an-aks-cluster"></a>升级 AKS 群集
 
-如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 将向运行指定 Kubernetes 版本的群集添加一个新节点，然后仔细地一次[隔离并清空][kubernetes-drain]一个旧节点，将对正在运行的应用程序造成的中断情况降到最低。 确认新节点运行应用程序 Pod 以后，就会删除旧节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。
+如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 会将一个新的缓冲区节点添加到运行指定 Kubernetes 版本的群集。 然后，它会[隔离并排空][kubernetes-drain]旧节点之一，以最大程度地减少对正在运行的应用程序的干扰（如果你使用的是最大浪涌，它会同时[隔离并排空][kubernetes-drain]与指定的缓冲区节点数相同的节点数）。 旧节点在完全排空时，会被重置映像以接收新版本，并且会成为下一个要升级的节点的缓冲区节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。 在此过程结束时，将删除上一个排空节点，从而维持现有的代理节点计数。
 
 ```azurecli
 az aks upgrade \
@@ -105,11 +106,11 @@ myAKSCluster  chinaeast2      myResourceGroup  1.13.10               Succeeded  
 
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_upgrades
-[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks#az_aks_upgrade
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-aks-get-upgrades]: https://docs.azure.cn/cli/aks#az_aks_get_upgrades
+[az-aks-upgrade]: https://docs.azure.cn/cli/aks#az_aks_upgrade
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 
 <!-- Update_Description: update meta properties, wording update, update link -->

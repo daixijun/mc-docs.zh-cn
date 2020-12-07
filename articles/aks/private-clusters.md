@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/17/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2cb6bbf2c0e7155893ac9f4e2ed79aae5c07edf0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 8ee478b897e89640bf9c01bef15748c5098088a2
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470511"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024585"
 ---
 <!--Verified successfully from PG team confirmation-->
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>创建专用 Azure Kubernetes 服务群集
@@ -27,7 +27,7 @@ ms.locfileid: "92470511"
 
 ## <a name="region-availability"></a>上市区域
 
-专用群集在[支持 AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,) 的 Azure 中国区域提供。
+专用群集在[支持 AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2) 的 Azure 中国区域提供。
 
 <!--CORRECT ON Azure China regions-->
 <!--Not Available on * Azure China 21Vianet isn't currently supported.-->
@@ -52,7 +52,7 @@ az group create -l chinaeast2 -n MyResourceGroup
 ```azurecli
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-其中 --enable-private-cluster 是专用群集的必需标志。 
+其中的 `--enable-private-cluster` 是专用群集的必需标志。 
 
 ### <a name="advanced-networking"></a>高级网络  
 
@@ -68,7 +68,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-其中 --enable-private-cluster 是专用群集的必需标志。 
+其中的 `--enable-private-cluster` 是专用群集的必需标志。 
 
 > [!NOTE]
 > 如果 Docker 桥地址 CIDR (172.17.0.1/16) 与子网 CIDR 冲突，请相应地更改 Docker 桥地址。
@@ -137,16 +137,16 @@ API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需
 
 [az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 [az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
-[az-extension-update]: https://docs.microsoft.com/cli/azure/extension#az_extension_update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 
 <!--Not Available on [private-link-service]: ../private-link/private-link-service-overview.md#limitations-->
 
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
 
-<!--Not Available on [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents-->
 <!--Not Available on [availability-zones]: availability-zones.md-->
 
 <!-- Update_Description: new article about private clusters -->

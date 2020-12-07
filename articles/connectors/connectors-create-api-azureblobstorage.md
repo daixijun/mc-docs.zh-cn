@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 origin.date: 02/21/2020
-ms.date: 03/30/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 89babe878dadb4c51ab6d9252b5abce166903f34
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: faa37c105cba64d3ac520b343107b8a8b51bbf44
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211637"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024469"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 
@@ -61,7 +62,7 @@ ms.locfileid: "92211637"
 
     此示例使用以下触发器：“添加或修改 Blob 时(仅属性)” 
 
-    ![选择 Azure Blob 存储触发器](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-trigger.png)
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-trigger.png" alt-text="选择 Azure Blob 存储触发器":::
 
 3. 如果系统提示输入连接详细信息，请[立即创建 Blob 存储连接](#create-connection)。 或者，如果连接已存在，请提供触发器所需的信息。
 
@@ -71,7 +72,7 @@ ms.locfileid: "92211637"
 
     2. 在文件夹列表中选择右尖括号 ( **>** )，然后以浏览方式查找并选择所需的文件夹。
 
-        ![选择要与触发器配合使用的存储文件夹](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
+        :::image type="content" source="./media/connectors-create-api-azureblobstorage/trigger-select-folder.png" alt-text="选择要与触发器配合使用的存储文件夹":::
 
     3. 选择你希望触发器以多大时间间隔和频率来检查文件夹中的更改。
 
@@ -89,7 +90,7 @@ ms.locfileid: "92211637"
 
 2. 在逻辑应用设计器的触发器或操作下，选择“新建步骤”。 
 
-    ![向逻辑应用工作流添加新步骤](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png" alt-text="向逻辑应用工作流添加新步骤"::: 
 
     若要在现有步骤之间添加操作，请将鼠标移到连接箭头上方。 依次选择出现的加号 ( **+** ) 和“添加操作”  。
 
@@ -97,7 +98,7 @@ ms.locfileid: "92211637"
 
     此示例使用以下操作：“获取 Blob 内容” 
 
-    ![选择 Azure Blob 存储操作](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-action.png)
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-action.png" alt-text="选择 Azure Blob 存储操作":::
 
 4. 如果系统提示输入连接详细信息，请[立即创建 Azure Blob 存储连接](#create-connection)。
 或者，如果连接已存在，请提供操作所需的信息。
@@ -106,7 +107,7 @@ ms.locfileid: "92211637"
 
     1. 从“Blob”框中选择文件夹图标。 
 
-        ![选择要与操作配合使用的存储文件夹](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
+        :::image type="content" source="./media/connectors-create-api-azureblobstorage/action-select-folder.png" alt-text="选择要与操作配合使用的存储文件夹":::
 
     2. 根据 Blob 的 ID 编号查找并选择所需的文件。  可以在上述 Blob 存储触发器返回的 Blob 元数据中找到此 ID 编号。 
 
@@ -131,7 +132,7 @@ ms.locfileid: "92211637"
 
     例如：
 
-    ![创建 Azure Blob 存储帐户连接](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png" alt-text="创建 Azure Blob 存储帐户连接"::: 
 
 1. 准备就绪后，选择“创建”。 
 
@@ -187,7 +188,7 @@ ms.locfileid: "92211637"
 
 1. 在“例外”下，选择“允许受信任的 Microsoft 服务访问此存储帐户”，然后选择“保存”。   
 
-    ![选择允许 Microsoft 受信任服务的例外](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png" alt-text="选择允许 Azure 受信任服务的例外":::
 
 1. 在逻辑应用的设置中，[启用对托管标识的支持](../logic-apps/create-managed-service-identity.md)。
 
@@ -202,11 +203,12 @@ ms.locfileid: "92211637"
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>通过 Azure API 管理访问存储帐户
 
-如果使用 [API 管理](../api-management/api-management-key-concepts.md)的专用层，则可支持存储 API，方法是使用 API 管理并允许其 IP 地址通过防火墙。 简单而言，将 API 管理使用的 Azure 虚拟网络添加到存储帐户的防火墙设置， 然后使用 API 管理操作或 HTTP 操作调用 Azure 存储 API 即可。 但是，如果选择此选项，则需自行处理身份验证过程。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
+如果使用 [API 管理](../api-management/api-management-key-concepts.md)的专用层，则可支持存储 API，方法是使用 API 管理并允许其 IP 地址通过防火墙。 简单而言，将 API 管理使用的 Azure 虚拟网络添加到存储帐户的防火墙设置， 然后使用 API 管理操作或 HTTP 操作调用 Azure 存储 API 即可。 但是，如果选择此选项，则需自行处理身份验证过程。
+
+<!--Not Available on For more info, see [Simple enterprise integration architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)-->
 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解其他[逻辑应用连接器](../connectors/apis-list.md)
 
-<!-- Update_Description: new article about connectors create api azureblobstorage -->
-<!--NEW.date: 03/30/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

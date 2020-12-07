@@ -9,23 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 957f2cfbe2949c55b40819dbddf9ca81e22931c7
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: a00c160f19e93cde1deb966f3994cc34cfc75b07
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918503"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>适用于 iOS 设备的共享设备模式
 
-> [!NOTE]
-> 此功能目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+>[!IMPORTANT]
+> 此功能 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 一线工作人员（例如零售职员、机组人员和现场服务工人）通常使用共享移动设备来完成其工作。 如果用户共享其密码或 PIN（不管是有意还是无意）来访问共享设备上的客户和数据业务数据，那么这些共享设备可能会有安全风险。
 

@@ -3,16 +3,17 @@ title: 基础映像更新 - 任务
 description: 了解应用程序容器映像的基础映像，并了解基础映像更新如何触发 Azure 容器注册表任务。
 ms.topic: article
 origin.date: 01/22/2019
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: bac8de75c9d7cb20ff2ad9caf27cc764c648a074
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 6ee98ac6e9e6c89d248b5bed1646b6d4a8315acf
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024521"
 ---
 <!--Verify sucessfully-->
 <!--Parts of released files-->
@@ -29,9 +30,13 @@ ms.locfileid: "86863195"
 
 在某些情况下（例如当有专用开发团队时），基础映像可能不止指定 OS 或框架。 例如，基础映像可以是需要跟踪的共享服务组件映像。 团队成员可能需要跟踪此基础映像以进行测试，或者在开发应用程序映像时需要定期更新该映像。
 
+## <a name="maintain-copies-of-base-images"></a>维护基础映像的副本
+
+对于注册表中依赖于公共注册表（例如 Docker Hub）中维护的基本内容的任何内容，建议你将内容复制到 Azure 容器注册表或另一个专用注册表中。 然后，请确保通过引用专用基础映像来生成应用程序映像。 Azure 容器注册表提供了[映像导入](container-registry-import-images.md)功能，可以轻松地从公共注册表或其他 Azure 容器注册表复制内容。 下一部分介绍如何使用 ACR 任务在生成应用程序更新时跟踪基础映像更新。 可以在自己的 Azure 容器注册表中跟踪基础映像更新，也可以选择在上游公共注册表中进行跟踪。
+
 ## <a name="track-base-image-updates"></a>跟踪基础映像更新
 
-更新容器的基础映像时，ACR 任务能够自动生成映像。
+更新容器的基础映像时，ACR 任务能够自动生成映像。 你可以使用此功能来维护和更新 Azure 容器注册表中公共基础映像的副本，然后重新生成依赖于基础映像的应用程序映像。
 
 在生成容器映像时，ACR 任务会动态发现基础映像依赖项。 因此，它可以检测应用程序映像的基础映像何时更新。 使用一个预配置的生成任务，ACR 任务可以自动重新生成引用基础映像的每个应用程序映像。 通过这种自动检测和重新生成，ACR 任务能够节省在正常情况下手动跟踪和更新引用已更新基础映像的每个应用程序映像所需的时间和精力。
 
@@ -65,11 +70,11 @@ ms.locfileid: "86863195"
     
     <!--CORRECT FORMAT ON --registry myregistry(MANDATORY) -->
 
-* **触发依赖项跟踪** - 若要启用某个 ACR 任务来确定并跟踪容器映像的依赖项（包括其基础映像），必须先将该任务触发**至少一次**。 例如，使用 [az acr task run][az-acr-task-run] 命令手动触发该任务。
+* **触发依赖项跟踪** - 若要启用某个 ACR 任务来确定并跟踪容器映像的依赖项（包括其基础映像），必须先将该任务触发 **至少一次**。 例如，使用 [az acr task run][az-acr-task-run] 命令手动触发该任务。
 
 * **基础映像的稳定标记** - 若要在更新基础映像时触发任务，基础映像必须有一个稳定的标记，例如 `node:9-alpine`。 在将 OS 和框架修补到最新稳定版本时会更新的基础映像往往带有此标记。 如果使用新的版本标记更新基础映像，则不会触发任务。 有关映像标记的详细信息，请参阅[最佳做法指南](container-registry-image-tag-version.md)。 
 
-* **其他任务触发器** - 在由基础映像更新触发的任务中，你还可以启用基于[源代码提交](container-registry-tutorial-build-task.md)或[计划](container-registry-tasks-scheduled.md)的触发器。 基础映像更新还可以触发[多步骤任务](container-registry-tasks-multi-step.md)。
+* **其他任务触发器** - 在由基础映像更新触发的任务中，你还可以启用基于 [源代码提交](container-registry-tutorial-build-task.md)或 [计划](container-registry-tasks-scheduled.md)的触发器。 基础映像更新还可以触发[多步骤任务](container-registry-tasks-multi-step.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -90,15 +95,15 @@ ms.locfileid: "86863195"
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack?view=azure-cli-latest#az-acr-pack-build
-[az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-update]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-update
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
-[az-login-service-principal]: https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack#az_acr_pack_build
+[az-acr-task]: https://docs.azure.cn/cli/acr/task
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az_acr_task_update
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
+[az-login-service-principal]: https://docs.azure.cn/cli/authenticate-azure-cli
 
 <!-- IMAGES -->
 

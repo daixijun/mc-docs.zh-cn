@@ -1,5 +1,5 @@
 ---
-title: 从 Apache Kafka 群集读取数据的 Apache Spark 流式处理作业失败，并在 Azure HDInsight 中出现 NoClassDefFoundError
+title: NoClassDefFoundError - 在 Azure HDInsight 中使用 Apache Kafka 数据的 Apache Spark
 description: 从 Apache Kafka 群集读取数据的 Apache Spark 流式处理作业失败，并在 Azure HDInsight 中出现 NoClassDefFoundError
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 07/29/2019
 ms.date: 10/28/2019
-ms.openlocfilehash: ab5b6c2d63e24ad78144d39aa7b9aaa793c03e3c
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: f7803177e3d073753a1633ec236c5457fa78fbb7
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516575"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300119"
 ---
 # <a name="apache-spark-streaming-job-that-reads-apache-kafka-data-fails-with-noclassdeffounderror-in-hdinsight"></a>读取 Apache Kafka 数据的 Apache Spark 流式处理作业失败，在 HDInsight 中显示 NoClassDefFoundError
 
@@ -50,9 +50,4 @@ spark-submit \
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
-
-* 通过 [Azure 社区支持](https://azure.microsoft.com/support/community/)获取 Azure 专家的解答。
-
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 在 Microsoft Azure 订阅中可以访问订阅管理和计费支持；通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

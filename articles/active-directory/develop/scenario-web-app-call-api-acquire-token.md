@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 381ee575c568386b9f0f8cf270acd3be3914ebc9
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 974b4ff13db3756b1d8924a23445926d8bc0254b
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937026"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918344"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>调用 Web API 的 Web 应用：获取应用的令牌
 
@@ -203,6 +203,5 @@ def graphcall():
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [调用 Web API](scenario-web-app-call-api-call-api.md)
+转到此方案中的下一篇文章：[调用 Web API](scenario-web-app-call-api-call-api.md)。
 

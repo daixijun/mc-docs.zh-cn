@@ -1,29 +1,29 @@
 ---
-title: Azure API 管理策略示例 - 向后端服务添加功能
+title: 示例 API 管理策略 - 向后端服务添加功能
+titleSuffix: Azure API Management
 description: Azure API 管理策略示例 - 演示如何向后端服务添加功能。 例如，接受位置的名称而不是天气预报 API 中的纬度和经度。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: 6c52ff19996fd7fb1b4ac5656ead4f5b39e1ec21
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: 46cd9766951ae2f3e8a87e3ae7be5c64bbb94768
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63826491"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306464"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>向后端服务添加功能
 
-本文介绍 Azure API 管理策略示例，演示如何向后端服务添加功能。 例如，接受位置的名称而不是天气预报 API 中的纬度和经度。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-samples.md)。
+本文介绍 Azure API 管理策略示例，演示如何向后端服务添加功能。 例如，接受位置的名称而不是天气预报 API 中的纬度和经度。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-reference.md)。
 
 ## <a name="policy"></a>策略
 
@@ -93,5 +93,5 @@ ms.locfileid: "63826491"
 了解有关 APIM 策略的详细信息：
 
 + [转换策略](../api-management-transformation-policies.md)
-+ [策略示例](../policy-samples.md)
++ [策略示例](../policy-reference.md)
 

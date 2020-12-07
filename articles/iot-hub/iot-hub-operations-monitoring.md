@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 03/11/2019
 ms.author: v-yiso
 ms.date: 11/16/2020
-ms.openlocfilehash: 86d0165533d5bb2f13f96e735f1c8b714afbdc81
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e788edae5ed25d59cad1c3048302b267fc326445
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327604"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300572"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 中心操作监视（已弃用）
 
@@ -266,8 +266,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南](iot-hub-devguide.md)
+若要进一步了解如何使用 Azure Monitor 来监视 IoT 中心，请参阅：
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
+
+* [从 IoT 中心操作监视迁移到 Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

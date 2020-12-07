@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 8960c3368b14f9fce144976df04f76df464ed75a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e9cca5c210df4553fd9ed1b4f05ca91a59afd770
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106806"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306484"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>使用 Docker Compose 部署多个容器
 
@@ -35,24 +35,17 @@ ms.locfileid: "93106806"
   * 仅限使用 F0 或标准定价层的“计算机视觉”资源。
   * 仅限使用 F0 或标准定价层的“表单识别器”资源。
   * 具有 S0 定价层的认知服务资源。
-
-## <a name="request-access-to-the-container-registry"></a>请求访问容器注册表
-
-完成并提交[认知服务语音容器请求表单](https://aka.ms/speechcontainerspreview/)。 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+* 如果使用的是封闭预览版容器，则需要填写[在线请求表单](https://aka.ms/csgate/)才能使用它。
 
 ## <a name="docker-compose-file"></a>Docker Compose 文件
 
-YAML 文件定义要部署的所有服务。 这些服务依赖于 `DockerFile` 或现有的容器映像。 在本例中，我们将使用两个预览映像。 复制并粘贴以下 YAML 文件，并将其保存为 *docker-compose.yaml* 。 在文件中提供适当的 **apikey** 、 **billing** 和 **EndpointUri** 值。
+YAML 文件定义要部署的所有服务。 这些服务依赖于 `DockerFile` 或现有的容器映像。 在本例中，我们将使用两个预览映像。 复制并粘贴以下 YAML 文件，并将其保存为 *docker-compose.yaml*。 在文件中提供适当的 **apikey**、**billing** 和 **EndpointUri** 值。
 
 ```yaml
 version: '3.7'
 services:
   forms:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
        billing: # < Your form recognizer billing URL >
@@ -70,7 +63,7 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
+    image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
       apikey: # < Your computer vision API key >
@@ -98,8 +91,8 @@ docker-compose up
 当 Docker 首次使用此配置执行 **docker-compose up** 命令时，它将提取 **services** 节点下配置的映像，然后下载并装载这些映像：
 
 ```console
-Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
-latest: Pulling from microsoft/cognitive-services-form-recognizer
+Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
+latest: Pulling from azure-cognitive-services/form-recognizer/layout
 743f2d6c1f65: Pull complete
 72befba99561: Pull complete
 2a40b9192d02: Pull complete
@@ -113,8 +106,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
-latest: Pulling from microsoft/cognitive-services-read
+Pulling ocr (mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview:)...
+latest: Pulling from /azure-cognitive-services/vision/read:3.1-preview
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -166,8 +159,8 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
-2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
+2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
 ### <a name="test-containers"></a>测试容器

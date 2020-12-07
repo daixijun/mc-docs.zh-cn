@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 29968055eb4bd556c0b6b3b5b247787943ebde99
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: f16b905afc610eff6374e38f3f3cd9f6e149e48c
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937094"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918368"
 ---
 # <a name="scenario-single-page-application"></a>方案：单页应用程序
 
@@ -32,13 +32,13 @@ ms.locfileid: "91937094"
 
 许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（例如 Angular、Vue 和 React）来编写它们。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。
 
-Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
+Microsoft 标识平台提供了 **两个** 选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
 
-- [OAuth 2.0 授权代码流（使用 PKCE）](./v2-oauth2-auth-code-flow.md)。 授权代码流允许应用程序用授权代码来交换 **ID** 令牌（表示已经过身份验证的用户），以及交换调用受保护 API 所需的**访问**令牌。 此外，它还返回**刷新**令牌，这类令牌提供以用户身份长期访问资源而无需与这些用户交互的权限。 这是**建议的**做法。
+- [OAuth 2.0 授权代码流（使用 PKCE）](./v2-oauth2-auth-code-flow.md)。 授权代码流允许应用程序用授权代码来交换 **ID** 令牌（表示已经过身份验证的用户），以及交换调用受保护 API 所需的 **访问** 令牌。 此外，它还返回 **刷新** 令牌，这类令牌提供以用户身份长期访问资源而无需与这些用户交互的权限。 这是 **建议的** 做法。
 
 ![单页应用程序 - 授权](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)。 隐式授权流允许应用程序获取 **ID** 和**访问**令牌。 与授权代码流不同，隐式授权流不会返回**刷新令牌**。
+- [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)。 隐式授权流允许应用程序获取 **ID** 和 **访问** 令牌。 与授权代码流不同，隐式授权流不会返回 **刷新令牌**。
 
 ![单页应用程序 - 隐式](./media/scenarios/spa-app.svg)
 
@@ -58,6 +58,5 @@ Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [应用注册](scenario-spa-app-registration.md)
+转到此方案中的下一篇文章：[应用注册](scenario-spa-app-registration.md)。
 

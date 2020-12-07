@@ -30,6 +30,20 @@
       href: quickstart-arm-template.md
 - name: 教程
   items:
+    - name: 保护访问存储和 Azure Graph 的应用
+      items:
+        - name: 概述
+          href: scenario-secure-app-overview.md
+        - name: 设置应用服务身份验证
+          href: scenario-secure-app-authentication-app-service.md
+        - name: 保护访问存储的应用
+          href: scenario-secure-app-access-storage.md
+        - name: 保护以用户身份访问 Azure Graph 的应用
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: 保护以应用身份访问 Azure Graph 的应用
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: 清理资源
+          href: scenario-secure-app-clean-up-resources.md
     - name: 将应用与 DB 配合使用
       items:
         - name: 将 .NET Core 与 SQL DB 配合使用
@@ -177,7 +191,7 @@
         - name: 配置 PremiumV2 层
           href: app-service-configure-premium-tier.md
         - name: 横向扩展到多个实例
-          href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fapp-service%2ftoc.json
         - name: 高密度承载
           href: manage-scale-per-app.md
     - name: 监视应用
@@ -211,7 +225,7 @@
         - name: 在区域之间移动
           href: manage-move-across-regions.md
         - name: 移动订阅
-          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: 运行后台任务
       items:
         - name: 创建 WebJobs
@@ -240,12 +254,12 @@
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/app-service/'
     - name: 配额信息
-      href: ../azure-subscription-service-limits.md#app-service-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: 服务更新
       href: 'https://www.azure.cn/what-is-new'
     - name: 迁移助手指南
       href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
-    - name: 最佳实践
+    - name: 最佳做法
       href: app-service-best-practices.md
     - name: 示例
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
@@ -263,7 +277,7 @@
           href: troubleshoot-performance-degradation.md
         - name: 排查域和证书问题
           href: troubleshoot-domain-ssl-certificates.md
-        - name: 常见问题解答
+        - name: 常见问题
           items:
             - name: 可用性、性能和应用程序常见问题解答
               href: faq-availability-performance-application-issues.md

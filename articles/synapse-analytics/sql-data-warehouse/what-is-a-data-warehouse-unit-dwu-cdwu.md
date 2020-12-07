@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 11/22/2019
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8225dcc87fea2976cc1031a9c5bd9f97ccd733bc
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 7f2b0f5f8c5f09cf7c323ac85128815f872c0f64
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375604"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153087"
 ---
 # <a name="data-warehouse-units-dwus"></a>数据仓库单位 (DWU)
 
@@ -25,7 +25,7 @@ ms.locfileid: "93375604"
 
 ## <a name="what-are-data-warehouse-units"></a>什么是数据仓库单位？
 
-[Synapse SQL 池](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)表示所预配的分析资源的集合。 分析资源定义为 CPU、内存和 IO 的组合。
+[Synapse SQL 池](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)表示所预配的分析资源的集合。 分析资源定义为 CPU、内存和 IO 的组合。
 
 这三项资源捆绑到称为数据仓库单位 (DWU) 的计算规模单位中。 DWU 表示抽象、规范化的计算资源和性能度量值。
 
@@ -35,8 +35,8 @@ ms.locfileid: "93375604"
 
 数据仓库单位性能基于这些数据仓库负载指标：
 
-- 标准 SQL 池查询扫描大量行并执行复杂聚合的速度。 这是一种 I/O 和 CPU 密集型操作。
-- SQL 池从 Azure 存储 Blob 引入数据的速度。 这是一种网络和 CPU 密集型操作。
+- 标准专用 SQL 池查询扫描大量行并执行复杂聚合的速度。 这是一种 I/O 和 CPU 密集型操作。
+- 专用 SQL 池从 Azure 存储 Blob 引入数据的速度。 这是一种网络和 CPU 密集型操作。
 - [`CREATE TABLE AS SELECT`](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 命令复制表的速度。 此操作涉及从存储读取数据、将数据分配到设备的节点上，以及重新将数据写入到存储。 这是一种 CPU、IO 和网络密集型操作。
 
 增加 DWU：
@@ -49,12 +49,12 @@ ms.locfileid: "93375604"
 
 服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。
 
-服务级别目标 (SLO) 是确定 SQL 池的成本和性能级别的可伸缩性设置。 第 2 代 SQL 池的服务级别以数据仓库单位 (DWU) 计量，例如 DW2000c。
+服务级别目标 (SLO) 是决定专用 SQL 池的成本和性能级别的可伸缩性设置。 第 2 代专用 SQL 池的服务级别是以数据仓库单位 (DWU) 计量的，例如 DW2000c。
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 最近添加了额外的缩放功能，以支持低至 100 cDWU 的计算层。 当前在 Gen1 上需要较低计算层的现有数据仓库现可升级到当前可用区域中的 Gen2，无需额外成本。  如果你的区域尚不支持，仍可升级到支持的区域。
 
-在 T-SQL 中，SERVICE_OBJECTIVE 设置决定了 SQL 池的服务级别和性能层级。
+在 T-SQL 中，SERVICE_OBJECTIVE 设置决定了专用 SQL 池的服务级别和性能层级。
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -89,7 +89,7 @@ DWU 和 cDWU 都支持增加或减少计算，以及在无需使用数据仓库�
 2. 在测试数据加载到系统中时，监视应用程序性能，将所选 DWU 数目与观测到的性能变化进行比较。
 3. 确认峰值活动周期的其他要求。 在活动中表现出明显峰值和低谷的工作负载可能需要频繁地进行缩放。
 
-SQL 池是一个横向扩展系统，可预配大量计算并查询大量数据。
+专用 SQL 池是一个横向扩展系统，可预配大量计算并查询大量数据。
 
 要查看其真正的缩放功能（尤其是针对较大的 DWU），建议在缩放的同时对数据集进行缩放，确保可向 CPU 提供足够的数据。 对于规模测试，建议至少使用 1 TB。
 
@@ -99,7 +99,7 @@ SQL 池是一个横向扩展系统，可预配大量计算并查询大量数据�
 
 ## <a name="permissions"></a>权限
 
-更改数据仓库单位需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 中所述的权限。
+更改数据仓库单位需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 中所述的权限。
 
 Azure 内置角色（如 SQL DB 参与者和 SQL Server 参与者）可以更改 DWU 设置。
 
@@ -151,7 +151,7 @@ Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServi
 若要更改 DWU，请执行以下操作：
 
 1. 连接到与服务器关联的 master 数据库。
-2. 使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL 语句。 以下示例将数据库 MySQLDW 的服务级别目标设置为 DW1000c。 
+2. 使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) TSQL 语句。 以下示例将数据库 MySQLDW 的服务级别目标设置为 DW1000c。 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -205,7 +205,7 @@ FROM      sys.databases
     ;
     ```
 
-此 DMV 返回针对 SQL 池的各种管理操作的相关信息，例如操作和操作状态（IN_PROGRESS 或 COMPLETED）。
+此 DMV 返回针对专用 SQL 池的各种管理操作的相关信息，例如操作和操作状态（IN_PROGRESS 或 COMPLETED）。
 
 ## <a name="the-scaling-workflow"></a>缩放工作流
 

@@ -4,7 +4,7 @@ description: 本快速入门将使用 Azure CLI 快速部署在隔离的 Azure �
 ms.topic: quickstart
 origin.date: 03/21/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
 ms.custom:
 - seo-python-october2019
@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: d001fa7865cd097148206d4dda305c9af339679f
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 8f798f65ecdc3811af4fb0f742f8923c9a1e043a
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564290"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96300245"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure 中部署容器实例
@@ -28,13 +28,13 @@ ms.locfileid: "91564290"
 
 ![在浏览器中显示已部署到 Azure 容器实例的应用][aci-app-browser]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户][azure-account]。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-可以使用本地安装的 Azure CLI 来完成此快速入门。 如果想要在本地使用它，建议使用 2.0.55 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
-
-<!--Not Avaialble on Azure Cloud Shell-->
+- 本快速入门需要 Azure CLI 2.0.55 或更高版本。 如果使用的是 Azure 本地 Shell，则最新版本已安装。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -107,7 +107,7 @@ listening on port 80
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-附加后，刷新浏览器数次，以生成其他一些输出。 完成后，使用 `Control+C` 分离控制台。 会得到类似于下面的输出：
+附加后，刷新浏览器数次，以生成其他一些输出。 完成后，使用 `Control+C` 分离控制台。 应该会看到与下面类似的输出：
 
 ```output
 Container 'mycontainer' is in state 'Running'...
@@ -128,7 +128,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>清理资源
 
-使用完容器后，可使用 [az container delete][az-container-delete] 命令将其删除：
+完成容器的操作后，可使用 [az container delete][az-container-delete] 命令将其删除：
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -140,7 +140,7 @@ az container delete --resource-group myResourceGroup --name mycontainer
 az container list --resource-group myResourceGroup --output table
 ```
 
-mycontainer 容器不应出现在命令的输出中  。 如果资源组中没有任何其他容器，则不会显示任何输出。
+mycontainer 容器不应出现在命令的输出中。 如果资源组中没有任何其他容器，则不会显示任何输出。
 
 如果已使用完 *myResourceGroup* 资源组及其包含的所有资源，请使用 [az group delete][az-group-delete] 命令将其删除：
 
@@ -177,8 +177,8 @@ az group delete --name myResourceGroup
 [az-container-list]: https://docs.microsoft.com/cli/azure/container#az_container_list
 [az-container-logs]: https://docs.microsoft.com/cli/azure/container#az_container_logs
 [az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 

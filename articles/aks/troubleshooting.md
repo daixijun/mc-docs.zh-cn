@@ -5,16 +5,16 @@ services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 80bde26472f493b5647aaeaeb4de609e3d1e70eb
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: d4d71be2a84e9e52121aeb18e486f58efc915861
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024487"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -200,8 +200,12 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 这需要 `--api-server-authorized-ip-ranges` 包括所使用的自动化/开发/工具系统的 IP 或 IP 范围。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
 
-<!--Not Available on ## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?-->
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>我无法在 Azure 门户的 Kubernetes 资源查看器中查看配置了 API 服务器授权 IP 范围的群集的资源。 如何修复此问题？
+
+Kubernetes 资源查看器要求 `--api-server-authorized-ip-ranges` 包含对本地客户端计算机或 IP 地址范围（在此范围内浏览门户）的访问权限。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
+
 <!--Not Available on [Kubernetes resource viewer](kubernetes-portal.md)-->
+
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>在限制出口流量后收到错误消息
 
 限制来自 AKS 群集的出口流量时，需要遵循针对 AKS 的[必需和可选的建议](limit-egress-traffic.md)出站端口/网络规则和 FQDN/应用程序规则。 如果你的设置与以上任意规则冲突，某些 `kubectl` 命令将无法正常运行。 在创建 AKS 群集时，也可能会遇到错误。
@@ -223,6 +227,12 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 鉴于这些限制错误是在订阅级别测量的，在以下情况下它们仍可能发生：
 - 有发出 GET 请求的第三方应用程序（例如， 监视应用程序等）。建议降低这些调用的频率。
 - VMSS 中有大量 AKS 群集/节点池。 通常的建议是确保给定订阅中的群集少于 20-30 个。
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>无论我是否执行操作，群集的预配状态都会从“就绪”变为“失败”。 应采取何种操作？
+
+如果无论你是否执行操作，群集的预配状态都从“就绪”变为“失败”，而群集上的应用程序仍在继续运行，则此问题可以由服务自动解决，应用程序应该不会受到影响。
+
+如果群集的预配状态仍为“失败”或者群集上的应用程序停止工作，请[提交支持请求](https://www.azure.cn/support/contact/#submit)。
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure 存储和 AKS 疑难解答
 
@@ -366,7 +376,7 @@ initContainers:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 和更高版本 | 0777 |
 
-可以对存储类对象指定装载选项。 以下示例设置 *0777* ：
+可以对存储类对象指定装载选项。 以下示例设置 *0777*：
 
 ```yaml
 kind: StorageClass
@@ -405,7 +415,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
 
-若要解决此问题，请结合 Azure 磁盘插件使用 *subPath* 。 
+若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
 
 > [!NOTE] 
 > 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。
@@ -478,11 +488,6 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 在 1.15.0 之前的 Kubernetes 版本中，可能会收到错误消息，如“错误: WaitForAttach 找不到磁盘的 Lun”。  为解决此问题，请等待大约 15 分钟，然后重试。
 
-<!-- LINKS - internal -->
-
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
-
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>为什么使用带有 kubernetes.io 前缀的节点标签时升级到 Kubernetes 1.16 失败
 
 从 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [开始，kubelet 只能将已定义的带有 kubernetes.io 前缀的标签子集](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal)应用于节点。 未经许可，AKS 无法代表你删除活动标签，因为这可能导致受影响的工作负载发生故障。
@@ -494,5 +499,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 3. 删除较旧的 nodepool
 
 AKS 正在研究对 nodepool 上的活动标签进行改变的功能以改进这种缓解效果。
+
+<!-- LINKS - internal -->
+
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

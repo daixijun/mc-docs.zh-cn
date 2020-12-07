@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 origin.date: 3/18/2020
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 590892d01b090ac1c85fff47769ae1ec502038a3
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 827f8bb1f5a7177c5bed47db59d889eedbb4c106
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327301"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970756"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MySQL VNet 服务终结点
 
@@ -23,28 +23,22 @@ ms.locfileid: "94327301"
 
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到 Azure Database for MySQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 若要概览 Azure Database for MySQL VNet 服务终结点（包括限制），请参阅 [Azure Database for MySQL 服务器 VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for MySQL 的所有支持区域中，VNet 服务终结点均可用。
 
-## <a name="prerequisites"></a>先决条件
-若要逐步执行本操作方法指南，需要：
-- 安装 [Azure CLI](/cli/install-azure-cli) 命令行实用程序。
-- [Azure Database for MySQL 服务器和数据库](quickstart-create-mysql-server-database-using-azure-cli.md)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 需要 [Azure Database for MySQL 服务器和数据库](quickstart-create-mysql-server-database-using-azure-cli.md)。
+ 
+- 本文需要 Azure CLI 版本 2.0 或更高版本。 
 
 > [!NOTE]
 > 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 > 在 VNet 对等互连的情况下，如果流量通过具有服务终结点的公共 VPN 网关流动，并且应该流向对等机，请创建 ACL/VNet 规则，以便网关 VNet 中的 Azure 虚拟机能够访问 Azure Database for MySQL 服务器。
 
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>为 Azure Database for MySQL 配置 Vnet 服务终结点
-[az network vnet](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。
+[az network vnet](/cli/network/vnet) 命令用于配置虚拟网络。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-
-本文要求运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
-
-如果在本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
-```azurecli
-az login
-```
-
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account#az-account-set) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account#az-account-set) 命令选择帐户下的特定订阅 ID。 用 az login 输出中你的订阅的 ID 属性替换订阅 ID 占位符 。
 
 - 该帐户必须拥有创建虚拟网络和服务终结点所需的必要权限。
 

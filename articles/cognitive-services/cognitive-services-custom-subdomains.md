@@ -1,21 +1,21 @@
 ---
 title: 自定义子域
 titleSuffix: Azure Cognitive Services
-description: 每个认知服务资源的自定义子域名是通过 Azure 门户、Azure Powershell 或 Azure CLI 创建的。
+description: 每个认知服务资源的自定义子域名是通过 Azure 门户或 Azure CLI 创建的。
 services: cognitive-services
-author: erhopf
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 07/24/2019
-ms.date: 10/11/2019
-ms.author: v-tawe
-ms.openlocfilehash: f228693b790b4d7f1ca9287f1e89dd893761e797
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.date: 11/23/2020
+ms.author: v-johya
+ms.openlocfilehash: 9e5a2952bb2243e57fd90b63a4f34e6bbb549622
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723396"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306256"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>认知服务的自定义子域名
 
@@ -31,7 +31,7 @@ ms.locfileid: "84723396"
 2. 在“概述”边栏选项卡中，找到并选择“生成自定义域名”。  
 3. 此时会打开一个面板，其中包含有关为资源创建唯一自定义子域的说明。
    > [!WARNING]
-   > 创建自定义子域名后，**无法**对其进行更改。
+   > 创建自定义子域名后，**无法** 对其进行更改。
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>是否需要更新现有的资源？
 
@@ -40,7 +40,7 @@ ms.locfileid: "84723396"
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>如果 SDK 要求提供资源的区域，该怎么办？
 
 > [!WARNING]
-> 语音服务目前**不**支持自定义子域。 在使用语音服务和关联的 SDK 时，请使用区域终结点。
+> 语音服务目前 **不** 支持自定义子域。 在使用语音服务和关联的 SDK 时，请使用区域终结点。
 
 区域终结点和自定义子域名均受支持，且可换用。 但是，必须提供完整的终结点。
 
@@ -76,6 +76,6 @@ ms.locfileid: "84723396"
 
 ## <a name="see-also"></a>另请参阅
 
-* [什么是认知服务？](Welcome.md)
-
+* [什么是认知服务？](./what-are-cognitive-services.md)
 * [身份验证](authentication.md)
+

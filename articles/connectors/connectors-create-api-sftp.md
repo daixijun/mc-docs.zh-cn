@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 origin.date: 11/01/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.author: v-yeche
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35cbfae79111cb9f244b54a7c3535768e376bc13
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 469828439aa7adbcc4c978f2161c44ee8b19d3d1
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024598"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>在 Azure 逻辑应用中监视、创建和管理 SFTP 文件
 
@@ -34,7 +34,7 @@ ms.locfileid: "91564608"
 
 ## <a name="limits"></a>限制
 
-SFTP 连接器仅处理 *50 MB 或更小*的文件，不支持[消息分块](../logic-apps/logic-apps-handle-large-messages.md)。 对于较大的文件，请使用 [SFTP-SSH 连接器](../connectors/connectors-sftp-ssh.md)。 有关 SFTP 连接器和 SFTP-SSH 连接器之间的差异，请查看 SFTP-SSH 文章中的[比较 SFTP-SSH 与 SFTP](../connectors/connectors-sftp-ssh.md#comparison)。
+SFTP 连接器仅处理 *50 MB 或更小* 的文件，不支持 [消息分块](../logic-apps/logic-apps-handle-large-messages.md)。 对于较大的文件，请使用 [SFTP-SSH 连接器](../connectors/connectors-sftp-ssh.md)。 有关 SFTP 连接器和 SFTP-SSH 连接器之间的差异，请查看 SFTP-SSH 文章中的[比较 SFTP-SSH 与 SFTP](../connectors/connectors-sftp-ssh.md#comparison)。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -47,10 +47,10 @@ SFTP 连接器仅处理 *50 MB 或更小*的文件，不支持[消息分块](../
     > SFTP 连接器支持以下私钥格式：OpenSSH、ssh.com 和 PuTTY
     >
     > 创建逻辑应用时，在添加所需的 SFTP 触发器或操作之后，需要提供 SFTP 服务器的连接信息。 
-    > 如果使用 SSH 私钥，请确保从 SSH 私钥文件中复制密钥，并将其粘贴到连接详细信息。不要手动输入或编辑密钥，否则可能导致连接失败。 
+    > 如果使用 SSH 私钥，请确保从 SSH 私钥文件中复制密钥，并将其粘贴到连接详细信息。不要手动输入或编辑密钥，否则可能导致连接失败。  
     > 有关详细信息，请参阅本文中的后续步骤。
 
-* 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
+_ 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基础知识
 
 * 要在其中访问 SFTP 帐户的逻辑应用。 若要从 SFTP 触发器开始，请[创建一个空白逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 SFTP 操作，请使用另一个触发器（例如“重复”触发器）启动逻辑应用。 
 
@@ -95,9 +95,9 @@ SFTP 触发器的工作原理是轮询 SFTP 文件系统并查找自上次轮询
 
     1. 选择“编辑”   >   “复制”。
 
-    1. 在添加的 SFTP 触发器或操作中，粘贴已复制到“SSH 私钥”属性中的完整密钥，支持换行。   请务必粘贴该密钥， 而不要手动输入或编辑密钥。
+    1. 在添加的 SFTP 触发器或操作中，粘贴已复制到“SSH 私钥”属性中的完整密钥，支持换行。  请务必粘贴该密钥 *， 而不要手动输入或编辑该密钥。
 
-1. 输入完连接详细信息后，选择“创建”。 
+1. 输入完连接详细信息后，选择“创建”。
 
 1. 为所选触发器或操作提供所需的详细信息，然后继续生成逻辑应用的工作流。
 
@@ -119,7 +119,7 @@ SFTP 触发器的工作原理是轮询 SFTP 文件系统并查找自上次轮询
 
 ## <a name="connector-reference"></a>连接器参考
 
-有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看连接器的[参考页](/data-factory/connector-sftp)。
+有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看连接器的[参考页](../data-factory/connector-sftp.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

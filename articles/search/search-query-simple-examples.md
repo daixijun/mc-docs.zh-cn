@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: e891d4ab8ea8ac4895eb41197049b184ec69243d
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 11/05/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 92dae715a4bdd65624cc3d9b30418c6d55ed0ac7
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021570"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300560"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>在 Azure 认知搜索中创建简单的查询
 
@@ -38,13 +38,13 @@ ms.locfileid: "90021570"
 
 指定请求标头后，只需更改“search=”字符串即可在本文中的各项查询中重复使用  。 
 
-  ![Postman 请求标头](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Postman 请求头设置参数" border="false":::
 
 ### <a name="set-the-request-url"></a>设置请求 URL
 
 请求是一个与包含 Azure 认知搜索终结点和搜索字符串的 URL 配对的 GET 命令。
 
-  ![Postman 请求标头](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman 请求头 GET" border="false":::
 
 URL 组合具备以下元素：
 
@@ -98,7 +98,7 @@ https://azs-playground.search.azure.cn/indexes/nycjobs/docs?api-version=2020-06-
 
 此查询的响应应与以下屏幕截图类似。
 
-  ![Postman 示例响应](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Postman 示例响应" border="false":::
 
 你可能已经注意到响应中的搜索分数。 由于搜索不是全文搜索或者没有应用条件，因此不存在排名时评分统统为 1。 对于不带条件的空搜索，按任意顺序返回行。 包括实际条件时，能看到搜索分数变成有意义的值。
 
@@ -134,7 +134,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 如果一起使用，则会先对整个索引应用 filter，再对筛选结果执行 search。 filter 可减少 search 查询需要处理的文档集，因此是一种非常有用的技术，可用于提高查询性能。
 
-  ![筛选器查询响应](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="筛选器查询响应" border="false":::
 
 若要使用 GET 在 Postman 中尝试此查询，可以粘贴以下字符串：
 
@@ -168,7 +168,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![数字范围的范围筛选器](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="数字范围的范围筛选器" border="false":::
 
 
 ```http
@@ -182,7 +182,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![文本范围的范围筛选器](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="文本范围的范围筛选器" border="false":::
 
 也可以使用 GET 在 Postman 中尝试这些查询：
 
@@ -195,7 +195,7 @@ https://azs-playground.search.azure.cn/indexes/nycjobs/docs?api-version=2020-06-
 ```
 
 > [!NOTE]
-> 基于值的范围分面是常见的搜索应用程序要求。 有关为分面导航结构生成筛选器的详细信息和示例，请参阅[*如何实现分面导航*中的“基于范围的筛选器”](search-faceted-navigation.md#filter-based-on-a-range)。
+> 基于值的范围分面是常见的搜索应用程序要求。 有关为分面导航结构生成筛选器的详细信息和示例，请参阅 [*如何实现分面导航* 中的“基于范围的筛选器”](search-faceted-navigation.md#filter-based-on-a-range)。
 
 ## <a name="example-5-geo-search"></a>示例 5：地理搜索
 
@@ -252,14 +252,14 @@ https://azs-playground.search.azure.cn/indexes/nycjobs/docs?api-version=2020-06-
 https://azs-playground.search.azure.cn/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![搜索模式 - any](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="搜索模式 - any" border="false":::
 
 若将 searchMode 更改为 `all`，会强制累积条件并返回一个较小的结果集，它只有 21 个文档，其文档数是包含完整短语“fire department”的文档减去 Metrotech Center 工作岗位数之差。
 
 ```http
 https://azs-playground.search.azure.cn/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![搜索模式 - all](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="搜索模式 - all" border="false":::
 
 ## <a name="example-8-structuring-results"></a>示例 8：构建结果
 

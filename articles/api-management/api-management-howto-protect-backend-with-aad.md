@@ -1,27 +1,24 @@
 ---
-title: 同时使用 OAuth 2.0 以及 AAD 和 API 管理来保护 API
+title: 使用 OAuth 2.0 和 Azure AD 在 API 管理中保护 API 后端
 titleSuffix: Azure API Management
-description: 了解如何结合使用 Azure Active Directory 和 API 管理来保护 Web API 后端。
+description: 了解如何在 Azure API 管理中使用 OAuth 2.0 用户授权和 Azure Active Directory 保护对 Web API 后端的访问
 services: api-management
-documentationcenter: ''
 author: Johnnytechn
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 4ce6f09fd6641c7d75b9dd5740e19db706db63ce
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.custom: contperfq1
+ms.openlocfilehash: 3e16c3330b48a6eedee01775d2827da352cccafa
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871356"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306224"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>在 Azure API 管理中使用 OAuth 2.0 授权和 Azure AD 保护 Web API 后端 
 
-本指南介绍如何结合 Azure Active Directory (Azure AD) 使用 OAuth 2.0 协议配置 Azure API 管理实例，以保护 API。 
+本指南介绍如何[结合 Azure Active Directory (Azure AD) 使用 OAuth 2.0 协议](../active-directory/develop/active-directory-v2-protocols.md)配置 [Azure API 管理](api-management-key-concepts.md)实例，以保护 API。 
 
 > [!NOTE]
 > 此功能可在“开发人员”、“基本”、“标准”和“高级”层中使用   。
@@ -46,7 +43,7 @@ ms.locfileid: "91871356"
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>在 Azure AD 中注册一个应用程序用于表示 API
 
-若要使用 Azure AD 保护 API，请首先在 Azure AD 中注册一个表示该 API 的应用程序。 
+若要使用 Azure AD 保护 API，请首先在 Azure AD 中注册一个表示该 API 的应用程序。 以下步骤使用 Azure 门户来注册应用程序。 有关应用注册的详细信息，请参阅[快速入门：配置应用程序以公开 Web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md)。
 
 1. 转到 [Azure 门户](https://portal.azure.cn)来注册应用程序。 搜索并选择“应用注册”。
 
@@ -79,7 +76,7 @@ ms.locfileid: "91871356"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)来注册应用程序。
 
-1.  搜索并选择“应用注册”。
+1. 搜索并选择“应用注册”。
 
 1. 选择“新注册”。
 
@@ -98,7 +95,7 @@ ms.locfileid: "91871356"
 
    1. 从客户端应用的页面列表中，选择“证书和机密”，然后选择“新建客户端密码”。
 
-   1. 在“添加客户端密码”下，提供**说明**。 选择密钥过期时间，然后选择“添加”。
+   1. 在“添加客户端密码”下，提供 **说明**。 选择密钥过期时间，然后选择“添加”。
 
 创建机密后，请记下密钥值，以便在后续步骤中使用。 
 
@@ -220,7 +217,7 @@ ms.locfileid: "91871356"
 > [!NOTE]
 > 此 `openid-config` URL 对应于 v1 终结点。 对于 v2 `openid-config` 终结点，请使用以下 URL：
 >
-> `https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configuration`。
+> `https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configuration`.
 
 ## <a name="build-an-application-to-call-the-api"></a>生成应用程序来调用 API
 

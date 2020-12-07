@@ -2,23 +2,39 @@
 title: 身份验证、请求和响应
 description: 了解 Azure Key Vault 如何使用 JSON 格式的请求和响应，以及了解使用密钥保管库所需的身份验证。
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-origin.date: 01/07/2019
-ms.date: 09/15/2020
+origin.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8fa389531245389476bab2519288488b81f740fb
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 3c06ec6cb98e5e83120eb6d776d845a480f20c90
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678462"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300762"
 ---
 # <a name="authentication-requests-and-responses"></a>身份验证、请求和响应
+
+Azure Key Vault 提供了两种类型的容器来存储和管理云应用程序的机密：
+
+|容器类型|支持的对象类型|数据平面终结点|
+|--|--|--|
+| **保管库**|<ul><li>受软件保护的密钥</li><li>证书</li><li>存储帐户密钥</li></ul> | https://{vault-name}.vault.azure.cn
+
+下面是用于访问每种对象的 URL 后缀
+
+|对象类型|URL 后缀|
+|--|--|
+|受软件保护的密钥| /keys |
+|机密|/secrets|
+|证书| /certificates|
+|存储帐户密钥|/storageaccounts
+||
 
 Azure Key Vault 支持 JSON 格式的请求和响应。 Azure Key Vault 请求会与部分 URL 参数、JSON 编码的请求和响应正文一起定向到使用 HTTPS 的有效 Azure Key Vault URL。
 
@@ -37,7 +53,7 @@ Azure Key Vault 支持 JSON 格式的请求和响应。 Azure Key Vault 请求�
 
 - 若要在 Key Vault 中使用名为 TESTKEY 的密钥签名摘要，请使用 - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  对 Key Vault 请求的授权始终如下所示：`https://{keyvault-name}.vault.azure.cn/`  
+- 对于向 Key Vault 发出的请求，授权始终如下所示。对于保管库：`https://{keyvault-name}.vault.azure.cn/`
 
   密钥始终存储在 /keys 路径下，机密始终存储在 /secrets 路径下。  
 
@@ -115,4 +131,3 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   authorization：可用于获取请求访问令牌的 OAuth2 授权服务的地址。  
 
 -   resource：要在授权请求中使用的资源 (`https://vault.azure.cn`) 的名称。  
-

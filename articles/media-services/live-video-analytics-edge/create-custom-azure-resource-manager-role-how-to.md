@@ -3,13 +3,13 @@ title: 创建自定义 Azure 资源管理器角色并将其分配给服务主体
 description: 本文提供有关如何使用 Azure CLI 创建自定义 Azure 资源管理器角色，并将其分配给 IoT Edge 上实时视频分析的服务主体的指南。
 ms.topic: how-to
 origin.date: 05/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 4e4ba2100b55d5bd1c459a4db8e429010f5a60e6
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 11/30/2020
+ms.openlocfilehash: 59d5861622c98d22d763ce14e63f2babf57bce42
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413394"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300142"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>创建自定义 Azure 资源管理器角色并将其分配给服务主体
 
@@ -227,7 +227,7 @@ az role assignment list  --assignee < objectId>
 
 这可以确认我们已将自定义用户角色与用于应用程序的服务主体关联。
 
-### <a name="test-the-service-principal-rbac"></a>测试服务主体 RBAC  
+### <a name="test-the-service-principal-access-control"></a>测试服务主体访问控制
 
 1. 使用服务主体登录。 为此，我们将需要 3 条信息，以便 Azure Active Directory 授予我们适当的访问令牌，这些令牌可以从[创建服务主体](#create-service-principal)步骤的输出中获取：
     1. AadClientID 

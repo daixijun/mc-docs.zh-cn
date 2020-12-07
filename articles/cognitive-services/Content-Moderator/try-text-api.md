@@ -1,22 +1,22 @@
 ---
 title: 使用文本审查 API 来审查文本 - 内容审查器
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 通过使用联机控制台中的文本审查 API 体验文本审查。
 services: cognitive-services
-author: sanjeev3
-ms.author: v-junlch
+author: Johnnytechn
+ms.author: v-johya
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 05/29/2019
-ms.date: 07/10/2019
-ms.openlocfilehash: bb72168054b1d721a13a9b2f6453635ee4de7818
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/23/2020
+ms.openlocfilehash: b7ca31310aa29e2b08e642a6a001b60bcd6dce58
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844935"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306502"
 ---
 # <a name="moderate-text-from-the-api-console"></a>从 API 控制台审查文本
 
@@ -47,7 +47,7 @@ ms.locfileid: "67844935"
 在文本屏幕中选择要使用的查询参数。 在本例中，使用语言  的默认值。 也可以将其留空，因为作为其执行的一部分，该操作将自动检测可能的语言。
 
 > [!NOTE]
-> 对于 **language** 参数，请分配 `eng` 或将其留空以查看机器辅助的**分类**响应（预览功能）。 **此功能仅支持英语**。
+> 对于 **language** 参数，请分配 `eng` 或将其留空以查看机器辅助的 **分类** 响应（预览功能）。 **此功能仅支持英语**。
 >
 > 对于不雅用语  检测，请使用本文所列的支持语言的 [ISO 639-3 代码](http://www-01.sil.org/iso639-3/codes.asp)或留空。
 
@@ -63,13 +63,9 @@ ms.locfileid: "67844935"
 
 在“请求正文”  框中，输入一些文本。 以下示例显示文本中的有意拼写错误。
 
-> [!NOTE]
-> 以下示例文本中的无效社会安全号码是有意而为。 目的是传达示例输入和输出格式。
-
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-Also, 999-99-9999 looks like a social security number (SSN).
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 
+255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 ```
 
 ## <a name="analyze-the-response"></a>分析响应
@@ -80,96 +76,61 @@ Also, 999-99-9999 looks like a social security number (SSN).
 > 计算机辅助的“分类”功能处于预览状态，仅支持英语。
 
 ```json
-{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.\r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.\r\nAlso, 544-56-7788 looks like a social security number (SSN).",
-"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. \r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. \r\nAlso, 544- 56- 7788 looks like a social security number ( SSN) .",
-"Misrepresentation":null,
-"PII":{  
-  "Email":[  
-    {  
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
-  ],
-  "IPA":[  
-    {  
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
-  ],
-  "Phone":[  
-    {  
-      "CountryCode":"US",
-      "Text":"6657789887",
-      "Index":56
-    },
-    {  
-      "CountryCode":"US",
-      "Text":"870 608 4000",
-      "Index":211
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
-      "Index":207
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0344 800 2400",
-      "Index":227
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0800 820 3300",
-      "Index":244
-    }
-  ],
-  "Address":[  
-    {  
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
-      "Index":89
-    }
-  ],
-  "SSN":[  
-    {  
-      "Text":"999999999",
-      "Index":56
-    },
-    {  
-      "Text":"999-99-9999",
-      "Index":266
-    }
-  ]
-},
-"Classification":{  
-  "ReviewRecommended":true,
-  "Category1":{  
-    "Score":1.5113095059859916E-06
-  },
-  "Category2":{  
-    "Score":0.12747249007225037
-  },
-  "Category3":{  
-    "Score":0.98799997568130493
-  }
-},
-"Language":"eng",
-"Terms":[  
-  {  
-    "Index":21,
-    "OriginalIndex":21,
-    "ListId":0,
-    "Term":"crap"
-  }
-],
-"Status":{  
-  "Code":3000,
-  "Description":"OK",
-  "Exception":null
-},
-"TrackingId":"2eaa012f-1604-4e36-a8d7-cc34b14ebcb4"
+{
+   "original_text":"Is this a grabage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "normalized_text":"   grabage  crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "auto_corrected_text":"Is this a garbage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "status":{
+      "code":3000,
+      "description":"OK"
+   },
+   "pii":{
+      "email":[
+         {
+            "detected":"abcdef@abcd.com",
+            "sub_type":"Regular",
+            "text":"abcdef@abcd.com",
+            "index":32
+         }
+      ],
+      "ssn":[
+
+      ],
+      "ipa":[
+         {
+            "sub_type":"IPV4",
+            "text":"255.255.255.255",
+            "index":72
+         }
+      ],
+      "phone":[
+         {
+            "country_code":"US",
+            "text":"6657789887",
+            "index":56
+         }
+      ],
+      "address":[
+         {
+            "text":"1 Microsoft Way, Redmond, WA 98052",
+            "index":89
+         }
+      ]
+   },
+   "language":"eng",
+   "terms":[
+      {
+         "index":12,
+         "original_index":21,
+         "list_id":0,
+         "term":"crap"
+      }
+   ],
+   "tracking_id":"WU_ibiza_65a1016d-0f67-45d2-b838-b8f373d6d52e_ContentModerator.
+   F0_fe000d38-8ecd-47b5-a8b0-4764df00e3b5"
 }
 ```
 
@@ -177,6 +138,5 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="next-steps"></a>后续步骤
 
-在代码中使用 REST API，或者从[文本审查 .NET 快速入门](text-moderation-quickstart-dotnet.md)开始，与你的应用程序集成。
+若要与应用程序集成，请在代码中使用 REST API，或按照 [.NET SDK 快速入门](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)进行操作。
 
-<!-- Update_Description: wording update -->

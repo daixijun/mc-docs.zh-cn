@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 origin.date: 01/06/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 2a883a84cc0d50704b1928f54aaa186e94a602d2
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: e6c5e43768388c8199838da080561dd1e4f214e1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020932"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300815"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中为增量扩充配置缓存
 
 > [!IMPORTANT] 
 > 增量扩充目前以公共预览版提供。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。
-> [REST API 版本 2019-05-06-Preview 和 2020-06-30-Preview](search-api-preview.md) 提供此功能。 目前不支持门户或 .NET SDK。
+> [REST API 预览版](search-api-preview.md)提供此功能。 目前不支持门户或 .NET SDK。
 
 本文介绍如何将缓存添加到扩充管道，以便能够以增量方式修改步骤，而无需每次更改后都要重新生成。 默认情况下，技能集是无状态的，更改其任何构成部分都要从头到尾地重新运行索引器。 使用增量扩充时，索引器可以根据技能集或索引器定义中检测到的更改，确定需要刷新文档树的哪些组成部分。 现有的已处理输出将会保留，在可能的情况下可供重复使用。 
 

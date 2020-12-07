@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b80f136c35cef94725313658ecc0fd61d48aae1b
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c47843896886978a1f24c1931e5022f47e5f80c9
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918382"
 ---
 # <a name="scenario-protected-web-api"></a>方案：受保护的 Web API
 
@@ -42,6 +42,5 @@ ms.locfileid: "91937092"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [应用注册](scenario-protected-web-api-app-registration.md)
+转到此方案中的下一篇文章：[应用注册](scenario-protected-web-api-app-registration.md)。
 

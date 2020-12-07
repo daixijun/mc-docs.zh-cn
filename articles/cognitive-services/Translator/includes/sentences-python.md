@@ -3,16 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: a423aff55a45c27d2b45d8ebb84ee6c0f7d7bc09
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 40196190de17271d11558bdf2bc9d7b6dd7afe7c
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499179"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306593"
 ---
-<!-- word updating -->
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
 [!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
@@ -49,12 +48,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-“翻译”全局终结点设置为 `endpoint`。 `path` 设置 `breaksentence` 路由并确定我们需使用 API 的版本 3。
+“翻译”终结点设置为 `endpoint`。 `path` 设置 `breaksentence` 路由并确定我们需使用 API 的版本 3。
 
 此示例中的 `params` 用于设置所提供文本的语言。 `params` 不是 `breaksentence` 路由所需的。 如果不包含在请求中，此 API 会尝试检测所提供文本的语言，并会在响应中提供此信息以及置信度分数。
 
 >[!NOTE]
-> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：语言](/cognitive-services/translator/reference/v3-0-break-sentence)。
+> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：语言](../reference/v3-0-break-sentence.md)。
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -64,7 +63,7 @@ constructed_url = endpoint + path + params
 
 ## <a name="add-headers"></a>添加标头
 
-若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 有关详细信息，请参阅[身份验证](../reference/v3-0-reference.md#authentication)。
 
 将以下代码片段复制到项目中。
 
@@ -76,7 +75,7 @@ headers = {
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="create-a-request-to-determine-sentence-length"></a>创建一个用于确定句子长度的请求
 
@@ -138,4 +137,5 @@ python sentence-length.py
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

@@ -5,18 +5,18 @@ description: 说明 Microsoft 标识平台对重定向 URI（回复 URL）格式
 author: SureshJa
 ms.author: v-junlch
 manager: CelesteDG
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: c32d41b9e5a4f16b06fc2a84cb8702a71b7f680d
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 46ab29e6523660f2e7d8f7bad17f0a2a1fa3535e
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501863"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918415"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>重定向 URI（回复 URL）限制和局限
 
@@ -61,7 +61,9 @@ Azure Active Directory (Azure AD) 应用程序模型目前同时支持 HTTP 和 
 
 从开发的角度来看，这意味着：
 
-* 不要注册多个只有端口不同的重定向 URI。 登录服务器会任意选择一个，并使用与该重定向 URI 关联的行为（例如，是 `web` 类型的、`native` 类型的还是 `spa` 类型的重定向）。
+* 不要注册多个只有端口不同的重定向 URI。 登录服务器会任意选取一个，并使用与该重定向 URI 关联的行为（例如，不管它是 `web` 类型的、`native` 类型的还是 `spa` 类型的重定向，都会这样做）。
+
+    当你想在同一应用程序注册中使用不同的身份验证流（例如，授权代码授予和隐式流）时，这尤其重要。 若要将正确的响应行为与每个重定向 URI 相关联，登录服务器必须能够区分重定向 URI，在只有端口不同的情况下不能这样做。
 * 如果需要在 localhost 上注册多个重定向 URI，以在开发过程中测试不同的流，请使用 URI 的 *path* 组件来区分它们。 例如，`http://127.0.0.1/MyWebApp` 与 `http://127.0.0.1/MyNativeApp` 不匹配。
 * 当前不支持 IPv6 环回地址 (`[::1]`)。
 * 若要防止应用被错误配置的防火墙或重命名的网络接口中断，请使用重定向 URI 中的 IP 文本环回地址 `127.0.0.1`，而不是使用 `localhost`。

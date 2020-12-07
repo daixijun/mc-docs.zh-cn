@@ -3,27 +3,26 @@ title: Azure API 管理策略示例 - 筛选响应内容
 description: Azure API 管理策略示例 - 演示如何基于与请求关联的产品从响应有效负载中筛选数据元素。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: a456c1bb312e544e1d8fe42b1c7cd635a34445a9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: 6e2f4f2d72e10e1a9e29d7cecb5d2c50b2b69470
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63852372"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306193"
 ---
 # <a name="filter-response-content"></a>筛选响应内容
 
-本文介绍 Azure API 管理策略示例，该示例演示如何基于与请求关联的产品从响应有效负载中筛选数据元素。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-samples.md)。
+本文介绍 Azure API 管理策略示例，该示例演示如何基于与请求关联的产品从响应有效负载中筛选数据元素。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-reference.md)。
 
 ## <a name="policy"></a>策略
 
@@ -72,5 +71,5 @@ ms.locfileid: "63852372"
 了解有关 APIM 策略的详细信息：
 
 + [转换策略](../api-management-transformation-policies.md)
-+ [策略示例](../policy-samples.md)
++ [策略示例](../policy-reference.md)
 

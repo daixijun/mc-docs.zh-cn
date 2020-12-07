@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 06/03/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: yes|no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 283102aae2f982aafbe5990d7cb69cd9fefa671f
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 456999cdbfb0a99e3081d9bfc656e9a55fae722d
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469980"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024414"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>访问 Azure Kubernetes 服务 (AKS) 中的 Kubernetes Web 仪表板
 
@@ -76,7 +76,7 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>登录到仪表板 (kubernetes 1.16+)
 
 > [!IMPORTANT]
-> 从 [Kubernetes 仪表板 v1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 或 kubernetes v1.16 + 开始，由于[该版本中的安全修补程序](https://github.com/kubernetes/dashboard/pull/3400)，服务帐户“kubernetes-dashboard”不再能够用于检索资源。 因此，没有身份验证信息的请求会返回 401 未授权错误。 从服务帐户检索的持有者令牌仍可通过此 [Kubernetes 仪表板示例](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)中的方式使用，但与早期版本相比，这会影响仪表板加载项的登录流。
+> 从 [Kubernetes 仪表板 v1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 或 kubernetes v1.16 + 开始，由于[该版本中的安全修补程序](https://github.com/kubernetes/dashboard/pull/3400)，服务帐户“kubernetes-dashboard”不再能够用于检索资源。 因此，没有身份验证信息的请求会返回 [401 未授权错误](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998)。 从服务帐户检索的持有者令牌仍可通过此 [Kubernetes 仪表板示例](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)中的方式使用，但与早期版本相比，这会影响仪表板加载项的登录流。
 >
 >如果仍运行 1.16 之前的版本，则仍可向“kubernetes-dashboard”服务帐户授予权限，但不建议这样做：
 > ```console
@@ -112,7 +112,7 @@ kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROU
 
 成功后，将显示类似如下的页面。
 
-:::image type="content" source="./media/kubernetes-dashboard/dashboard-overview.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/dashboard-overview.png" alt-text="Kubernetes Web 仪表板的概述页":::
 
 ## <a name="create-an-application"></a>创建应用程序
 
@@ -126,18 +126,18 @@ kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROU
 1. 若要使用图形化向导，请选择“创建应用”。
 1. 为部署提供一个名称，例如 *nginx*
 1. 输入要使用的容器映像的名称，例如 *nginx:1.15.5*
-1. 若要为 Web 流量公开端口 80，请创建一个 Kubernetes 服务。 在“服务”下，选择“外部”，对于端口和目标端口，都输入 **80** 。 
+1. 若要为 Web 流量公开端口 80，请创建一个 Kubernetes 服务。 在“服务”下，选择“外部”，对于端口和目标端口，都输入 **80**。 
 1. 准备就绪后，选择“部署”来创建应用。
 
-:::image type="content" source="./media/kubernetes-dashboard/create-app.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/create-app.png" alt-text="在 Kubernetes Web 仪表板中部署应用":::
 
 为 Kubernetes 服务分配公共外部 IP 地址需要一到两分钟时间。 在左侧，在“发现和负载均衡”下，选择“服务”。 此时将列出应用的服务，包括“外部终结点”，如以下示例中所示：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-services.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/view-services.png" alt-text="查看服务和终结点的列表":::
 
 选择终结点地址以在 Web 浏览器窗口中打开默认的 NGINX 页面：
 
-:::image type="content" source="./media/kubernetes-dashboard/default-nginx.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/default-nginx.png" alt-text="查看部署的应用程序的默认 NGINX 页面":::
 
 ## <a name="view-pod-information"></a>查看 Pod 信息
 
@@ -145,7 +145,7 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 
 若要查看有关应用程序 Pod 的详细信息，请在左侧菜单中选择“Pod”。 此时会显示可用 Pod 的列表。 选择你的 *nginx* Pod 来查看信息，例如资源消耗：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-pod-info.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/view-pod-info.png" alt-text="查看 Pod 信息":::
 
 ## <a name="edit-the-application"></a>编辑应用程序
 
@@ -155,14 +155,14 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 
 1. 在左侧菜单中选择“部署”，然后选择你的 *nginx* 部署。
 1. 在右上角的导航栏中选择“编辑”。
-1. 找到 `spec.replica` 值，大约在第 20 行。 若要增加应用程序的副本数，请将此值从 *1* 更改为 *3* 。
+1. 找到 `spec.replica` 值，大约在第 20 行。 若要增加应用程序的副本数，请将此值从 *1* 更改为 *3*。
 1. 在完成后，选择“更新”。
 
-:::image type="content" source="./media/kubernetes-dashboard/edit-deployment.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/edit-deployment.png" alt-text="编辑部署以更新副本数":::
 
 在副本集内创建新 Pod 需要花费一些时间。 在左侧菜单上，选择“副本集”，然后选择你的 *nginx* 副本集。 Pod 列表现在反映了已更新的副本计数，如以下示例输出中所示：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-replica-set.png" alt-text="登录屏幕":::
+:::image type="content" source="./media/kubernetes-dashboard/view-replica-set.png" alt-text="查看副本集的信息":::
 
 ## <a name="next-steps"></a>后续步骤
 

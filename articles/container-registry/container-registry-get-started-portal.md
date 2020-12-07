@@ -1,21 +1,22 @@
 ---
 title: 快速入门 - 在门户中创建注册表
-description: 快速了解如何使用 Azure 门户在 Azure 容器注册表中创建专用 Docker 注册表。
+description: 快速了解如何通过 Azure 门户创建专用 Azure 容器注册表。
 ms.topic: quickstart
-origin.date: 06/11/2020
-ms.date: 07/27/2020
+origin.date: 08/04/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c4410c9584632936c108e14a700e50c65ea2af7b
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: eb738b98279c3a4249a5f29246dbc6217252bd13
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024535"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用容器注册表
+# <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>快速入门：通过 Azure 门户创建 Azure 容器注册表
 
 Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中存储和管理专用 Docker 容器映像和相关的项目。 在本快速入门教程中，你会使用 Azure 门户创建容器注册表。 然后，使用 Docker 命令将容器映像推送到注册表中，最终从注册表提取并运行该映像。
 
@@ -57,16 +58,22 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="门户中的容器注册表概述":::
 
-记下“登录服务器”的值。 使用 Docker 推送和拉取映像时，请在以下步骤中使用此值。
+记下登录服务器的注册表名称和值。 使用 Docker 推送和拉取映像时，请在以下步骤中使用这些值。
 
 ## <a name="log-in-to-registry"></a>登录到注册表
 
-必须登录到注册表实例才可推送和拉取容器映像。 在本地计算机上[登录到 Azure CLI][get-started-with-azure-cli]，然后运行 [az acr login][az-acr-login] 命令。 （使用 Azure CLI 登录时仅指定注册表名称。 不要包含“azurecr.cn”后缀。）
+必须登录到注册表实例才可推送和拉取容器映像。 在本地计算机上[登录到 Azure CLI][get-started-with-azure-cli]，然后运行 [az acr login][az-acr-login] 命令。 （使用 Azure CLI 登录时仅指定注册表名称。 不要包含“azurecr.cn”域后缀。）
 
 <!--CORRECT ON azurecr.cn-->
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+示例：
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 该命令在完成后返回 `Login Succeeded`。 
@@ -114,9 +121,9 @@ az acr login --name <registry-name>
 
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
 [container-registry-skus]: container-registry-skus.md
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[get-started-with-azure-cli]: https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[get-started-with-azure-cli]: https://docs.azure.cn/cli/get-started-with-azure-cli
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

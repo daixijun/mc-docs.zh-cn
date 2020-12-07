@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/15/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e0974ccae0cf0668e0ca2e5894c19f094a102514
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 40ed019826452385fc73e06558c9adfc67a2fdf2
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552049"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152949"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 页 Blob 概述
 
@@ -25,6 +25,10 @@ Azure 存储提供了三种类型的 Blob 存储：块 Blob、追加 Blob 和页
 页 Blob 是 512 字节页面的集合，提供读/写任意字节范围的功能。 因此，页 Blob 非常适用于存储基于索引的稀疏数据结构，如虚拟机和数据库的 OS 磁盘与数据磁盘。 例如，Azure SQL 数据库使用页 Blob 作为数据库的基础持久性存储。 此外，页 Blob 往往还用于支持基于范围的更新的文件。  
 
 Azure 页 Blob 的重要功能包括 REST 接口、基础存储持久性，以及无缝迁移到 Azure 的功能。 下一部分将更详细地介绍这些功能。 此外，有两种类型的存储目前支持 Azure 页 Blob：高级存储和标准存储。 高级存储专门针对需要持续高性能和低延迟的工作负荷而设计，因此，高级页 Blob 非常适合用于高性能存储方案。 标准存储帐户更具成本效益，可用于运行对延迟不太敏感的工作负荷。
+
+## <a name="restrictions"></a>限制
+
+页 blob 只能使用“热”访问层，不能使用“冷”或“存档”层。 有关访问层的详细信息，请参阅 [Azure Blob 存储的访问层 - 热、冷和存档](storage-blob-storage-tiers.md)。
 
 ## <a name="sample-use-cases"></a>示例用例
 

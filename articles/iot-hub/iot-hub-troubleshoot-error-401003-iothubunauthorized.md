@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 origin.date: 01/30/2020
 ms.date: 11/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 0c2cb0e8a55b7e3dde54767ba26e4b42a344c1da
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 69e2f92a70f673a1f79651ffd81e7936cbc85ea7
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328470"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300793"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -58,7 +58,9 @@ IoT 中心无法对 auth 标头、规则或密钥进行身份验证。 这可能
 
 如果使用 IoT SDK 通过设备连接字符串进行连接，则不需要执行任何操作。 IoT SDK 会重新生成新令牌，以在 SAS 令牌过期时重新连接。 
 
-如果担心错误数量太多，请切换到 C SDK，这会在过期之前续订 SAS 令牌。 此外，对于 AMQP，SAS 令牌可以在不断开连接的情况下进行刷新。
+SDK 的默认令牌有效期为 60 分钟；但是，对于某些 SDK，令牌有效期和令牌续订阈值是可配置的。 此外，设备在令牌续订时断开连接并重新连接时生成的错误对于每个 SDK 都是不同的。 若要了解更多信息，并了解如何确定设备在日志中使用哪个 SDK，请参阅 [Azure IoT SDK 的 MQTT 设备断开连接行为](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks)。
+
+对于设备开发人员，如果担心错误数量太多，请切换到 C SDK，这会在 SAS 令牌过期之前续订它。 对于 AMQP，SAS 令牌可以在不断开连接的情况下进行刷新。
 
 ### <a name="solution-2"></a>解决方案 2
 

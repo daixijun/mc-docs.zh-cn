@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8d8cbd712b405fdffef20633813ab8c576d5b570
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: e5b7610be3bcf38908cc34de62d0de19c0c422a8
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918492"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 身份验证和授权错误代码
 
@@ -74,7 +74,7 @@ ms.locfileid: "94501868"
 ## <a name="lookup-current-error-code-information"></a>查找当前错误代码信息
 错误代码和消息可能会更改。  有关最新信息，请查看 [https://login.partner.microsoftonline.cn/error](https://login.partner.microsoftonline.cn/error) 页，以查找 AADSTS 错误说明、修复程序和一些建议的解决方法。  
 
-针对返回的错误代码的数字部分进行搜索。  例如，如果收到错误代码“AADSTS16000”，则在 [https://login.partner.microsoftonline.cn/error](https://login.partner.microsoftonline.cn/error) 中搜索“16000”。  还可以通过将错误代码编号添加到 URL [https://login.partner.microsoftonline.cn/error?code=16000](https://login.partner.microsoftonline.cn/error?code=16000) 来直接链接到特定错误。
+例如，如果收到错误代码“AADSTS50058”，则在 [https://login.partner.microsoftonline.cn/error](https://login.partner.microsoftonline.cn/error) 中搜索“50058”。  还可以通过将错误代码编号添加到 URL [https://login.partner.microsoftonline.cn/error?code=50058](https://login.partner.microsoftonline.cn/error?code=50058) 来直接链接到特定错误。
 
 ## <a name="aadsts-error-codes"></a>AADSTS 错误代码
 
@@ -251,7 +251,7 @@ ms.locfileid: "94501868"
 | AADSTS90051 | InvalidNationalCloudId - 国家云标识符包含无效的云标识符。 |
 | AADSTS90055 | TenantThrottlingError - 传入的请求过多。 此异常是针对阻止的租户引发的。 |
 | AADSTS90056 | BadResourceRequest - 若要兑换访问令牌的代码，应用应该向 `/token` 终结点发送 POST 请求。 另外，在此之前，应该提供授权代码，并在发往 `/token` 终结点的 POST 请求中发送此代码。 有关 OAuth 2.0 授权代码流的概述，请参阅此文：[../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md)。 将用户定向到 `/authorize` 终结点，该终结点会返回 authorization_code。 通过向 `/token` 终结点发布请求，用户可以获取访问令牌。 在 Azure 门户中登录，并检查“应用注册”>“终结点”以确认是否正确配置了两个终结点。 |
-| AADSTS90072 | PassThroughUserMfaError - 用户登录时所用的外部帐户在其登录到的租户中不存在；因此，该用户无法满足该租户的 MFA 要求。 必须先将该帐户作为外部用户添加到该租户中。 请注销并使用其他 Azure AD 用户帐户登录。 |
+| AADSTS90072 | PassThroughUserMfaError - 用户登录时所用的外部帐户在其登录到的租户中不存在；因此，该用户无法满足该租户的 MFA 要求。 如果用户已同步，但是 Active Directory 和 Azure AD 之间的 ImmutableID (sourceAnchor) 属性不匹配，也可能会发生此错误。 必须先将该帐户作为外部用户添加到该租户中。 请注销并使用其他 Azure AD 用户帐户登录。 |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - 服务尝试处理 WS 联合身份验证消息时出错。 消息无效。 |
 | AADSTS90082 | OrgIdWsFederationNotSupported - 目前不支持对该请求使用所选的身份验证策略。 |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - 此站点不允许来宾帐户。 |
@@ -315,7 +315,7 @@ ms.locfileid: "94501868"
 | AADSTS700022 | InvalidMultipleResourcesScope - 为输入参数范围提供的值无效，因为它包含多个资源。 |
 | AADSTS700023 | InvalidResourcelessScope - 请求访问令牌时，为输入参数范围提供的值无效。 |
 | AADSTS7000215 | 提供的客户端密码无效。 开发人员错误 - 应用尝试在没有必需的或正确的身份验证参数的情况下登录。|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - 提供的客户端密钥已过期。 访问 Azure 门户，为你的应用创建新密钥，或者考虑使用证书凭据提高安全性：[https://docs.azure.cn/active-directory/develop/active-directory-certificate-credentials](https://docs.azure.cn/active-directory/develop/active-directory-certificate-credentials) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - 提供的客户端密钥已过期。 访问 Azure 门户，为你的应用创建新密钥，或者考虑使用证书凭据提高安全性：[/active-directory/develop/active-directory-certificate-credentials](/active-directory/develop/active-directory-certificate-credentials) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - 提供的授权代码是用于其他租户的，因此已被拒绝。 兑换 OAuth2 授权代码时所针对的租户必须是获取该代码时所针对的租户（根据情况使用 /common 或 {tenant ID} 进行指定） |
 | AADSTS1000000 | UserNotBoundError - 绑定 API 要求 Azure AD 用户同时使用外部 IDP 进行身份验证，但尚未执行此操作。 |
 | AADSTS1000002 | BindCompleteInterruptError - 绑定已成功完成，但必须通知用户。 |

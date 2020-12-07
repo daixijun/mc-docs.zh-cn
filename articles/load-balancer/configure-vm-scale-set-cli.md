@@ -1,38 +1,36 @@
 ---
 title: 配置包含现有 Azure 负载均衡器的虚拟机规模集 - Azure CLI
-description: 了解如何配置包含现有 Azure 负载均衡器的虚拟机规模集。
+description: 了解如何使用 Azure CLI 配置包含现有 Azure 负载均衡器的虚拟机规模集。
 author: WenJason
 ms.author: v-jay
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 origin.date: 03/25/2020
-ms.date: 04/06/2020
-ms.openlocfilehash: d160a14a1f822c3ae8100050a2c8ed018c6264cc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/30/2020
+ms.openlocfilehash: 664470d81a1462db0c3a1b956b4db51be261ae5b
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625807"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306212"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>使用 Azure CLI 配置包含现有 Azure 负载均衡器的虚拟机规模集
 
-本文介绍如何配置包含现有 Azure 负载均衡器的虚拟机规模集。 
+本文介绍如何配置包含现有 Azure 负载均衡器的虚拟机规模集。
 
-## <a name="prerequisites"></a>必备条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure 订阅。
-- 要将虚拟机规模集部署到的订阅中的现有标准 SKU 负载均衡器。
-- 虚拟机规模集的 Azure 虚拟网络。
+## <a name="prerequisites"></a>必备条件 
 
-本文要求安装 Azure CLI 2.0.28 或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+- 在将要部署虚拟机规模集的订阅中，需要现有的标准 SKU 负载均衡器。
 
-## <a name="sign-in-to-azure-cli"></a>登录 Azure CLI
+- 需要一个用于虚拟机规模集的 Azure 虚拟网络。
 
-登录到 Azure。
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```azurecli
-az login
-```
+- 本文需要 Azure CLI 2.0.28 或更高版本。
+
+<!--Not Available on If using Azure local Shell, the latest version is already installed.-->
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>部署包含现有负载均衡器的虚拟机规模集
 
@@ -55,12 +53,12 @@ az vmss create \
 
 以下示例部署一个虚拟机规模集：
 
-- 该虚拟机规模集名为 myVMSS 
-- 其中包含名为 myLoadBalancer 的 Azure 负载均衡器 
-- 其中包含名为 myBackendPool 的负载均衡器后端池 
-- 其中包含名为 myVnet 的 Azure 虚拟网络 
-- 其中包含名为 mySubnet 的子网 
-- 其中包含名为 myResourceGroup 的资源组 
+- 该虚拟机规模集名为 myVMSS
+- 其中包含名为 myLoadBalancer 的 Azure 负载均衡器
+- 其中包含名为 myBackendPool 的负载均衡器后端池
+- 其中包含名为 myVnet 的 Azure 虚拟网络
+- 其中包含名为 mySubnet 的子网
+- 其中包含名为 myResourceGroup 的资源组
 - 虚拟机规模集的 Ubuntu 服务器映像
 
 ```azurecli

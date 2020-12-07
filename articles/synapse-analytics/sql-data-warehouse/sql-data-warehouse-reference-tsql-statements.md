@@ -1,6 +1,6 @@
 ---
-title: T-SQL 语句
-description: Synapse SQL 池支持的 T-SQL 语句的相关文档的链接。
+title: 专用 SQL 池中的 T-SQL 语句
+description: 指向 Azure Synapse Analytics 中专用 SQL 池支持的 T-SQL 语句的相关文档的链接。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,20 +8,20 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 05/01/2019
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e62b579ce3b12cceab3f2fdcfc5f15be3744d2d4
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 22e670b2fec6c3ca344dc44bcee38ebf997e91c6
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014181"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152971"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Synapse SQL 池支持的 T-SQL 语句
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池支持的 T-SQL 语句 
 
-Synapse SQL 池支持的 T-SQL 语句的相关文档的链接。
+指向专用 SQL 池支持的 T-SQL 语句的相关文档的链接。
 
 ## <a name="data-definition-language-ddl-statements"></a>数据定义语言 (DDL) 语句
 
@@ -132,4 +132,4 @@ Synapse SQL 池支持的 T-SQL 语句的相关文档的链接。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关更多参考信息，请参阅 [Synapse SQL 池中的 T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)和 [Synapse SQL 池中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。
+有关更多参考信息，请参阅[专用 SQL 池中的 T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)和[专用 SQL 池中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。

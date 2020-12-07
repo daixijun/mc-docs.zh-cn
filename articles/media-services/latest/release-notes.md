@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-origin.date: 08/31/2020
-ms.date: 09/28/2020
+origin.date: 10/21/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 9d64ee6466a167b4405b19588720bea22b5e629a
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ac4e3fc38873be641a9b9948cf03745159005e2e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244960"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300748"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -41,7 +41,7 @@ ms.locfileid: "91244960"
 
 ## <a name="july-2020"></a>2020 年 7 月
 
-### <a name="high-availablity"></a>高可用性
+### <a name="high-availability"></a>高可用性
 
 我们发布了一个高可用性的媒体服务和视频点播 (VOD) [概述](./media-services-high-availability-encoding.md)和[示例](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)。
 
@@ -85,9 +85,9 @@ ms.locfileid: "91244960"
 
 #### <a name="deprecation-of-media-processors"></a>弃用媒体处理器
 
-我们宣布弃用 Windows Azure 媒体编码器 (WAME) 和 Azure 媒体编码器 (AME) 媒体处理器，这两个处理器将停用。 有关停用日期，请参阅此[旧组件](../previous/legacy-components.md)主题。
+我们宣布弃用 Windows Azure 媒体编码器 (WAME) 和 Azure 媒体编码器 (AME) 媒体处理器，这两个处理器将停用。 有关停用日期，请参阅此[旧组件](../previous/legacy-components.md)文章。
 
-有关详细信息，请参阅[将 WAME 迁移到 Media Encoder Standard](/media-services/previous/migrate-windows-azure-media-encoder) 和[将 AME 迁移到 Media Encoder Standard](/media-services/previous/migrate-windows-azure-media-encoder)。
+有关详细信息，请参阅[将 WAME 迁移到 Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) 和[将 AME 迁移到 Media Encoder Standard](../previous/migrate-azure-media-encoder.md)。
  
 ## <a name="june-2019"></a>2019 年 6 月
 
@@ -122,7 +122,6 @@ ms.locfileid: "91244960"
 添加了包括媒体服务性能改进的更新。
 
 * 更新了支持处理的最大文件大小。 请参阅[配额和限制](limits-quotas-constraints.md)。
-* [编码速度改进](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)。
 
 ## <a name="april-2019"></a>2019 年 4 月
 
@@ -161,21 +160,21 @@ V3 API 的正式版中的更新包括：
 
 ## <a name="november-2018"></a>2018 年 11 月
 
-CLI 2.0 模块现在可用于 [Azure 媒体服务 v3 正式版](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) - v 2.0.50。
+CLI 2.0 模块现在可用于 [Azure 媒体服务 v3 正式版](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest&preserve-view=true) - v 2.0.50。
 
 ### <a name="new-commands"></a>新命令
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 用于管理媒体预留单位。 有关详细信息，请参阅[缩放媒体预留单位](media-reserved-units-cli-how-to.md)。
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - 用于管理媒体预留单位。 有关详细信息，请参阅[缩放媒体预留单位](media-reserved-units-cli-how-to.md)。
 
 ### <a name="new-features-and-breaking-changes"></a>新功能和重大更改
 
@@ -233,9 +232,9 @@ CLI 2.0 模块现在可用于 [Azure 媒体服务 v3 正式版](https://docs.mic
 
 新转换对象简化编码模型。 通过新对象，可以轻松创建和共享编码资源管理器模板和预设。 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory 身份验证和 RBAC
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Azure Active Directory 身份验证和 Azure RBAC
 
-Azure AD 身份验证和基于角色的访问控制 (RBAC) 通过 Azure AD 中的角色或用户启用安全转换、直播活动、内容密钥策略或资产。
+Azure AD 身份验证和 Azure 基于角色的访问控制 (Azure RBAC) 通过 Azure AD 中的角色或用户启用安全转换、实时事件、内容密钥策略或资产。
 
 #### <a name="client-sdks"></a>客户端 SDK  
 
@@ -284,8 +283,8 @@ CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DA
 
 * 转换和作业，用于对媒体内容进行编码 。 有关示例，请参阅[流式传输文件](stream-files-tutorial-with-api.md)。
 * **流式处理定位符**，用于发布内容并将其流式传输到最终用户设备
-* **流式处理策略**和**内容密钥策略**，用于在传送内容时配置密钥传递和内容保护 (DRM)。
-* **直播活动**和**实时输出**，用于配置实时传送视频流内容的引入和归档。
+* **流式处理策略** 和 **内容密钥策略**，用于在传送内容时配置密钥传递和内容保护 (DRM)。
+* **直播活动** 和 **实时输出**，用于配置实时传送视频流内容的引入和归档。
 * 资产，用于在 Azure 存储中存储和发布媒体内容。 
 * **流式处理终结点**，用于配置和缩放实时和点播媒体内容的动态打包、加密和流式处理。
 

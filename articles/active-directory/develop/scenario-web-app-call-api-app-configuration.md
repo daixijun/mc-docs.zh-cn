@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ee067b9bc5bbe1212dd11826bc3fcf23c97b3d4f
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 5105268d57f896c850cf3118cf86090c4baa70d6
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937596"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918345"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>调用 Web API 的 Web 应用：代码配置
 
@@ -519,6 +519,5 @@ def _build_msal_app(cache=None):
 
 此时，当用户登录时，令牌存储在令牌缓存中。 让我们来看看随后是如何在 Web 应用的其他部分中使用它的。
 
-> [!div class="nextstepaction"]
-> [调用 Web API 的 Web 应用：在全局注销时从缓存中删除帐户](scenario-web-app-call-api-sign-in.md)
+[在全局注销时从缓存中删除帐户](scenario-web-app-call-api-sign-in.md)
 

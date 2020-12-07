@@ -2,28 +2,29 @@
 title: 清除标记和清单
 description: 使用清除命令根据年龄和标记筛选器从 Azure 容器注册表中删除多个标记和清单，并选择性地安排清除操作计划。
 ms.topic: article
-origin.date: 05/14/2020
-ms.date: 07/27/2020
+origin.date: 11/10/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: d677b8b8c19c5da28db31bafc92aee3d60312515
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: c0ff656499e42fe2c3b3d7a1ff9c243f6964430e
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863170"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024628"
 ---
 <!--Verified successfully-->
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>自动清除 Azure 容器注册表中的映像
 
 在开发工作流中使用 Azure 容器注册表时，注册表中可能很快会填满在一小段时间后不需要的映像或其他项目。 你可能会想删除早于某一特定持续时间或与指定名称筛选器匹配的所有标记。 为帮助你快速删除多个项目，本文介绍了 `acr purge` 命令，可以将其作为按需或[计划的](container-registry-tasks-scheduled.md) ACR 任务来运行。 
 
-`acr purge` 命令当前在公共容器映像 (`mcr.microsoft.com/acr/acr-cli:0.2`) 中分发，该映像通过 GitHub 中 [acr-cli](https://github.com/Azure/acr-cli) 存储库中的源代码生成。
+`acr purge` 命令当前在公共容器映像 (`mcr.microsoft.com/acr/acr-cli:0.3`) 中分发，该映像通过 GitHub 中 [acr-cli](https://github.com/Azure/acr-cli) 存储库中的源代码生成。
 
 可以使用本地安装的 Azure CLI 来运行本文中的 ACR 任务示例。 如果想要在本地使用它，则需要使用 2.0.76 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。 
 
-<!--Not Available on the Azure local Shell or-->
+<!--Not Available on the Azure Cloud Shell or-->
 
 > [!IMPORTANT]
 > 此功能目前处于预览状态。 需同意[补充使用条款][terms-of-use]才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
@@ -51,6 +52,7 @@ ms.locfileid: "86863170"
 
 * `--untagged` - 指定删除没有相关标记的清单（未标记的清单）。
 * `--dry-run` - 指定不删除任何数据，但其输出与在没有此标志的情况下运行此命令时的输出相同。 此参数有助于测试清除命令，确保它不会无意中删除要保留的数据。
+* `--keep` - 指定保留最新的 x 个待删除标记。
 
 对于其他参数，请运行 `acr purge --help`。 
 
@@ -184,9 +186,9 @@ az acr task create --name weeklyPurgeTask \
 
 <!-- LINKS - Internal -->
 
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-run]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-show]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-show
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-run]: https://docs.azure.cn/cli/acr#az_acr_run
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az_acr_task_show
 
 <!-- Update_Description: update meta properties, wording update, update link -->

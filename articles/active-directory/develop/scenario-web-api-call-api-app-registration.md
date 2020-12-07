@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 0dd31926e019959a3ce19d490f49913a3abccb4c
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 19a0ee6019fef650d4c641f21d2f46cf222df33b
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245027"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918356"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>调用 Web API 的 Web API：应用注册
 
@@ -32,6 +32,5 @@ Web 应用代表收到持有者令牌的用户调用 API。 Web 应用需要请�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [调用 Web API 的 Web API：代码配置](scenario-web-api-call-api-app-configuration.md)
+转到此方案中的下一篇文章：[应用代码配置](scenario-web-api-call-api-app-configuration.md)。
 

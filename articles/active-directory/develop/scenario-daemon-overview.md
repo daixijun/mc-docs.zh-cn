@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7c23c144ea6410a0dd3d4bcb298f77e5849ec857
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d2cf2a6f1db2395b1b6ba0bbe7bf2a65a17484e6
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937457"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918402"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>方案：用于调用 Web API 的守护程序应用程序
 
@@ -61,6 +61,5 @@ ms.locfileid: "91937457"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 应用注册](./scenario-daemon-app-registration.md)
+转到此方案中的下一篇文章：[应用注册](./scenario-daemon-app-registration.md)。
 

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: f92c1f6acac37f4ef01380839e8319dec96dadba
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 24789c83d0e9cb6fe34cb6a8253f1448c5622fd3
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749952"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918497"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>快速入门：调用受 Microsoft 标识平台保护的 ASP.NET Web API
 
-本快速入门将公开一个 Web API 并对其进行保护，以便只有通过身份验证的用户才能访问它。 本文介绍如何公开 ASP.NET Web API，使其可以接受与 Microsoft 标识平台集成的任何公司或组织中的工作或学校帐户颁发的令牌。
+在本快速入门中，你将下载并运行一个代码示例，该示例演示如何通过将访问其资源限制为仅授权帐户来保护 ASP.NET Web API。 该示例支持对任何 Azure Active Directory (Azure AD) 组织中的帐户进行授权。
 
 本文还使用 Windows Presentation Foundation (WPF) 应用演示如何请求访问令牌来访问 Web API。
 

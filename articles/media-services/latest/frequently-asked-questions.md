@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: ff0eead927b3863a7c6a50a4b1f1b21ad9c70769
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: b8e62314ff6d955c16eeb3fb7b6c5c08594c41a1
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245649"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300617"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>媒体服务 v3 常见问题解答
 
@@ -32,13 +32,13 @@ ms.locfileid: "91245649"
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Azure 门户针对媒体服务 v3 有哪些限制？
 
-可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 实时事件、查看 v3 资产和作业、获取有关访问 API 的信息以及加密内容。 <br/>对于其他所有管理任务（例如，管理转换和作业），请使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 实时事件、查看 v3 资产和作业、获取有关访问 API 的信息以及加密内容。 <br/>对于其他所有管理任务（例如，管理转换和作业），请使用 [REST API](https://docs.microsoft.com/rest/api/media/accountfilters)、[CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 如果视频以前是使用媒体服务 v3 API 上传到媒体服务帐户的，或者内容是基于实时输出生成的，则 Azure 门户中不会显示“编码”或“加密”按钮 。 使用媒体服务 v3 API 来执行这些任务。  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure 角色可对 Azure 媒体服务资源执行哪些操作？ 
 
-请参阅[媒体服务帐户的基于角色的访问控制 (RBAC)](rbac-overview.md)。
+请参阅[媒体服务帐户的 Azure 基于角色的访问控制 (Azure RBAC)](rbac-overview.md)。
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>如何流式传输到 Apple iOS 设备？
 
@@ -162,7 +162,7 @@ ms.locfileid: "91245649"
 * 查看（而不是管理）v3 [资产](assets-concept.md)。 
 * [获取有关访问 API 的信息](./access-api-howto.md)。 
 
-对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[Azure CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+对于其他所有管理任务（例如，[转换和作业](transforms-jobs-concept.md)和[内容保护](content-protection-overview.md)），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[Azure CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3 中是否有 AssetFile 概念？
 

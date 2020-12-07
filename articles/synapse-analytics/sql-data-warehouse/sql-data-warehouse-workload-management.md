@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 07/06/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 02d28139403d62d6cb99dbefb415e2851f5c9ccf
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: f9a4741cf27826286f52a94ccd609d28158e08dc
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845895"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153085"
 ---
 # <a name="what-is-workload-management"></a>什么是工作负荷管理？
 
@@ -43,7 +43,7 @@ ms.locfileid: "85845895"
 
 例如，如果将临时用户角色成员身份授予 smallrc，则允许该用户使用系统上 100% 的内存。  对于资源类，无法预留资源并确保其可用于关键工作负荷。
 
-Azure Synapse 中的 Synapse SQL 池工作负荷管理包括三个高级概念：[工作负荷分类](sql-data-warehouse-workload-classification.md)、[工作负荷重要性](sql-data-warehouse-workload-importance.md)和[工作负荷隔离](sql-data-warehouse-workload-isolation.md)。  通过这些功能，可以更好地控制工作负荷如何使用系统资源。
+Azure Synapse 中的专用 SQL 池工作负荷管理包括三大概念：[工作负荷分类](sql-data-warehouse-workload-classification.md)、[工作负荷重要性](sql-data-warehouse-workload-importance.md)和[工作负荷隔离](sql-data-warehouse-workload-isolation.md)。  通过这些功能，可以更好地控制工作负荷如何使用系统资源。
 
 工作负荷分类的概念是，将请求分配到工作负荷组并设置重要性级别。  过去，这种分配通过使用 [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class) 的角色成员身份完成。  现在可通过[创建工作负荷分类器](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)完成此操作。  分类功能提供更丰富的一组选项，例如标签、会话和对请求进行分类的时间。
 

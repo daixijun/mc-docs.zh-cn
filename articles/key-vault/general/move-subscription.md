@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 05/05/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 1c1bad00acf12901face68230c995602c47af5aa
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 43ca949bd901990fb9035321817ec363571c1f1d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678573"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300942"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>将 Azure Key Vault 移动到另一个订阅
 
@@ -37,6 +37,9 @@ ms.locfileid: "90678573"
 * 添加与租户 B 关联的新访问策略条目。
 
 ## <a name="limitations"></a>限制
+
+> [!IMPORTANT]
+> **无法移动用于磁盘加密的密钥保管库** 如果为 VM 使用带磁盘加密的密钥保管库，则在启用磁盘加密时，无法将密钥保管库移动到其他资源组或订阅。 在将密钥保管库移动到新的资源组或订阅之前，必须禁用磁盘加密。 
 
 某些服务主体（用户和应用程序）绑定到特定的租户。 如果将密钥保管库移动到其他租户中的订阅，则可能无法还原对特定服务主体的访问权限。 请进行检查，确保在要将密钥保管库移动到其中的租户中存在所有基本的服务主体。
 
@@ -78,7 +81,7 @@ ms.locfileid: "90678573"
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
 $vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
+$vault = Get-AzResource -ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
 $vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
 $vault.Properties.AccessPolicies = @()                                     # Access policies can be updated with real
                                                                            # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
@@ -97,11 +100,11 @@ az keyvault update -n myvault --remove Properties.accessPolicies           # Rem
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
 
-既然保管库已与正确的租户 ID 关联，并且旧的访问策略条目已删除，请使用 Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet 或 Azure CLI [az keyvault set-policy](/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令设置新的访问策略条目。
+既然保管库已与正确的租户 ID 关联，并且旧的访问策略条目已删除，请使用 Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet 或 Azure CLI [az keyvault set-policy](/cli/keyvault#az-keyvault-set-policy) 命令设置新的访问策略条目。
 
-如果使用的是 Azure 资源的托管标识，则还需要将其更新为新的 Azure Active Directory 租户。 有关托管标识的详细信息，请参阅[托管标识概述](/active-directory/managed-identities-azure-resources/overview)。
+如果使用的是 Azure 资源的托管标识，则还需要将其更新为新的 Azure Active Directory 租户。 有关托管标识的详细信息，请参阅[托管标识概述](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 如果使用的是托管标识，则还必须更新标识，因为旧标识将不再位于相应的 Azure Active Directory 租户中。 参阅下述有助于解决此问题的文档。 
 
-* [更新 MSI](https://docs.azure.cn/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [将订阅转移到新目录](https://docs.azure.cn/role-based-access-control/transfer-subscription)
+* [更新 MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [将订阅转移到新目录](../../role-based-access-control/transfer-subscription.md)

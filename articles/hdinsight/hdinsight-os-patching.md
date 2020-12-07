@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 01/21/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 6766b5976572241ad69695bf3541682020fb11a5
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a5a340e3d4489c3be0d6ff79e3a6cfe7a3717739
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471914"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300729"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>为基于 Linux 的 HDInsight 群集配置 OS 修补计划 
 
@@ -72,7 +72,7 @@ Welcome to Spark on HDInsight.
 
 | 参数 | 接受的值 | 定义 |
 | --- | --- | --- |
-| 要安装的更新的类型 | 0、1 或 2 | 值为 0 表示仅安装内核更新。 值为 1 表示安装所有更新，为 2 表示仅安装内核 + 安全更新。 如果未提供任何参数，则默认值为 0。 |
+| 要安装的更新的类型 | 0、1 或 2 | 值为 0 表示仅安装内核更新。 值为 1 表示安装内核 + 安全更新，为 2 表示安装所有更新。 如果未提供任何参数，则默认值为 0。 |
 | 要执行的重启类型 | 0、1 或 2 | 值为 0 表示禁用重启。 值为 1 表示启用计划重启，为 2 表示启用即时重启。 如果未提供任何参数，则默认值为 0。 用户必须更改输入参数 1 才能输入参数 2。 |
 
 > [!NOTE]

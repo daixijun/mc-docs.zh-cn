@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
-ms.custom: aaddev
-ms.openlocfilehash: e46e9a7a7727c9fc7f5f1804262db76ec30d5327
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 76e361959a1460e95d2c19eeba5f7fabce27126e
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186660"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918406"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>调用 Web API 的桌面应用：代码配置
 
@@ -259,6 +259,5 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [获取桌面应用的令牌](scenario-desktop-acquire-token.md)
+转到此方案中的下一篇文章：[获取桌面应用的令牌](scenario-desktop-acquire-token.md)。
 

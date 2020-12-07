@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1279d56fd56e303d39765b4154414103360a34b2
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 9596a4393bbe42a7670db975244e1ee478520509
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501860"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918369"
 ---
 # <a name="single-page-application-app-registration"></a>单页应用程序：应用注册
 
@@ -77,8 +77,5 @@ ms.locfileid: "94501860"
 
 ## <a name="next-steps"></a>后续步骤
 
-接下来，配置应用代码，以使用在先前步骤中创建的应用注册：
-
-> [!div class="nextstepaction"]
-> [应用的代码配置](scenario-spa-app-configuration.md)
+接下来，配置应用代码，以使用在先前步骤中创建的应用注册：[应用的代码配置](scenario-spa-app-configuration.md)。
 

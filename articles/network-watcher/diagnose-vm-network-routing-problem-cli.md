@@ -1,10 +1,9 @@
 ---
 title: 诊断 VM 网络路由问题 - Azure CLI
 titleSuffix: Azure Network Watcher
-description: 本文介绍如何使用 Azure 网络观察程序的“下一个跃点”功能来诊断虚拟机网络路由问题。
+description: 本文介绍如何通过 Azure CLI 使用 Azure 网络观察程序的“下一跃点”功能来诊断虚拟机网络路由问题。
 services: network-watcher
 documentationcenter: network-watcher
-author: rockboyfor
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,38 +14,45 @@ ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 7bca7e322d91142d3985a7bd3f6a6cc76d6a023b
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 06f10ed3b01b301f3a2f8c8b738286db9da2498d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548064"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300450"
 ---
 <!--Verify Successfully-->
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>诊断虚拟机网络路由问题 - Azure CLI
 
 本文首先部署虚拟机 (VM)，然后检查其与 IP 地址和 URL 的通信。 确定通信失败的原因以及解决方法。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
+
+    <!--Not Available on  If using Azure China Shell, the latest version is already installed.-->
+
+- 本文中的 Azure CLI 命令已格式化，适合在 Bash Shell 中运行。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 Azure CLI，本文要求运行 Azure CLI 2.0.28 版或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 验证 Azure CLI 版本以后，请运行 `az login`，以便创建与 Azure 的连接。 本文中的 Azure CLI 命令已格式化，适合在 Bash Shell 中运行。
-
 ## <a name="create-a-vm"></a>创建 VM
 
-在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
+使用 [az vm create](https://docs.azure.cn/cli/vm#az_vm_create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
 
 ```azurecli
 az vm create \
@@ -64,7 +70,7 @@ az vm create \
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在“中国东部”区域启用网络观察程序，请跳到[使用下一跃点](#use-next-hop)。 使用 [az network watcher configure](https://docs.azure.cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部”区域中创建网络观察程序：
+如果已在“中国东部”区域启用网络观察程序，请跳到[使用下一跃点](#use-next-hop)。 使用 [az network watcher configure](https://docs.azure.cn/cli/network/watcher#az_network_watcher_configure) 命令在“中国东部”区域中创建网络观察程序：
 
 ```azurecli
 az network watcher configure \
@@ -75,7 +81,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>使用下一个跃点
 
-Azure 自动创建到默认目标的路由。 可以创建自定义路由来覆盖默认路由。 有时，自定义路由可能会导致通信故障。 要测试来自 VM 的路由，请使用 [az network watcher show-next-hop](https://docs.azure.cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) 确定流量发送到特定地址时的下一个路由跃点。
+Azure 自动创建到默认目标的路由。 可以创建自定义路由来覆盖默认路由。 有时，自定义路由可能会导致通信故障。 要测试来自 VM 的路由，请使用 [az network watcher show-next-hop](https://docs.azure.cn/cli/network/watcher#az_network_watcher_show_next_hop) 确定流量发送到特定地址时的下一个路由跃点。
 
 测试从 VM 发往 www.bing.com 的某个 IP 地址的出站通信：
 
@@ -107,7 +113,7 @@ az network watcher show-next-hop \
 
 ## <a name="view-details-of-a-route"></a>查看路由详细信息
 
-若要进一步分析路由情况，请使用 [az network nic show-effective-route-table](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table) 命令查看网络接口的有效路由：
+若要进一步分析路由情况，请使用 [az network nic show-effective-route-table](https://docs.azure.cn/cli/network/nic#az_network_nic_show_effective_route_table) 命令查看网络接口的有效路由：
 
 ```azurecli
 az network nic show-effective-route-table \
@@ -117,7 +123,7 @@ az network nic show-effective-route-table \
 
 返回的输出中包含以下文本：
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -137,7 +143,7 @@ az network nic show-effective-route-table \
 
 但是，使用 `az network watcher show-next-hop` 命令测试发送到 172.31.0.100 的出站通信时，结果显示没有下一跃点类型。 返回的输出中包含以下文本：
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -157,7 +163,7 @@ az network nic show-effective-route-table \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 将其删除：
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 将其删除：
 
 ```azurecli
 az group delete --name myResourceGroup --yes

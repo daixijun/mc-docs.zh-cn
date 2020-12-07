@@ -1,27 +1,27 @@
 ---
-title: 检测图像类型 - 计算机视觉
+title: 图像类型检测 - 计算机视觉
 titleSuffix: Azure Cognitive Services
 description: 与计算机视觉 API 的图像类型检测功能相关的概念。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 03/11/2019
-ms.date: 03/27/2019
-ms.author: v-junlch
+ms.date: 11/23/2020
+ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: f0d7e0cc1c2df90e747e5a1829bb83644a5ec64f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5ca73ff04d6663b561aec15b4dc1a9705fdae318
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63844516"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306366"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>使用计算机视觉检测图像类型
 
-利用[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API，计算机视觉可以分析图像的内容类型，指示图像是剪贴画还是线条图。
+利用[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API，计算机视觉可以分析图像的内容类型，指示图像是剪贴画还是线条图。
 
 ## <a name="detecting-clip-art"></a>检测剪贴画
 
@@ -114,8 +114,10 @@ ms.locfileid: "63844516"
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="use-the-api"></a>使用 API
 
-请参阅[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)参考文档，了解如何检测图像类型。
+图像类型检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `ImageType` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"imageType"` 部分内容的字符串。
 
-<!-- Update_Description: wording update -->
+* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 按需流式处理操作导入 Postman 集合
-description: 本文提供了用于 Azure 媒体服务 REST 调用的 Postman 集合的定义。
+description: 了解 Postman 集合，其中包含调用 Azure 媒体服务 REST API 的分组 HTTP 请求。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 8946c402eef7ff61300d0e16db2e4c7aedc49955
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 70e8bbb634a078795881e00e2e484cc7e282600a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245673"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300794"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用按需流式处理操作导入一个 Postman 集合
 
@@ -3340,7 +3340,7 @@ ms.locfileid: "91245673"
                                 "Jobs"
                             ]
                         },
-                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](https://docs.azure.cn/media-services/media-services-custom-mes-presets-with-dotnet)\nOr for JSON samples of our system presets, see the [Sample Presets page](https://docs.azure.cn/media-services/media-services-mes-presets-overview)\n\n[Job Entity REST API](https://msdn.microsoft.com/library/azure/hh974289.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](./media-services-custom-mes-presets-with-dotnet.md)\nOr for JSON samples of our system presets, see the [Sample Presets page](./media-services-mes-presets-overview.md)\n\n[Job Entity REST API](https://docs.microsoft.com/rest/api/media/operations/job)\n\n[Full REST API documentation](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)"
                     },
                     "response": [
                         {

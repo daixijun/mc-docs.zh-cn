@@ -6,24 +6,24 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 03/19/2020
-ms.date: 04/06/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 0ad6d31573f04a90f82276ac2242b77a34cb669c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f8057b896542efa8bd8210a8b6403a472506076b
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634540"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970706"
 ---
 生成客户端证书时，该证书会自动安装在用于生成它的计算机上。 如果想要在另一台客户端计算机上安装客户端证书，需要导出生成的客户端证书。
 
 1. 若要导出客户端证书，请打开“管理用户证书”  。 生成的客户端证书默认位于“Certificates - Current User\Personal\Certificates”中。 右键单击要导出的客户端证书，单击“所有任务”  ，并单击“导出”  打开“证书导出向导”。 
 
-   ![Export](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
+   ![屏幕截图显示当前用户的“证书”窗口，其中选择了“证书”，并且从“所有任务”中选择了“导出”。](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
 2. 在“证书导出向导”中，单击“下一步”以继续。 
 
-   ![Next](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
+   ![屏幕截图显示了证书导出向导的欢迎消息。](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
 3. 选择“是，导出私钥”  ，并单击“下一步”  。
 
    ![导出私钥](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
@@ -32,10 +32,10 @@ ms.locfileid: "80634540"
    ![导出文件格式](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
 5. 在“**安全性**”页上，必须保护私钥。 如果选择使用密码，请务必记下或牢记为此证书设置的密码。 然后单击“下一步”。 
 
-   ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+   ![屏幕截图显示了证书导出向导的“安全性”页，其中输入并确认了密码，并突出显示了“下一步”。](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
 6. 在“要导出的文件”  中，“浏览”  到要将证书导出的目标位置。 在“文件名”  中，为证书文件命名。 然后单击“下一步”。 
 
    ![要导出的文件](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. 单击“完成”  导出证书。
 
-   ![完成](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![屏幕截图显示证书导出向导，其中已输入设置。](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

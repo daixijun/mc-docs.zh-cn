@@ -9,23 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: bf69bf7a30b80c2b15cab8215c119bd35e06dcff
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: ee38b41755b27eaa726f7fe017fb3f3f76afa4b9
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501636"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918447"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>适用于 Android 设备的共享设备模式
 
-> [!NOTE]
-> 此功能目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+>[!IMPORTANT]
+> 此功能 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 一线工作人员（例如零售助理、机组人员和现场服务工人）通常使用共享移动设备来完成其工作。 当他们开始共享密码或 PIN 号来访问共享设备上的客户和业务数据时，这会造成问题。
 

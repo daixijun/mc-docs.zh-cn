@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 06/22/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 3235e7a5c4612123820a860c781d0e5e00f5c73a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 10/22/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: ca8a69235faf86764105cb40239e6a9488da1e0c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020912"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300558"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Azure 认知搜索中的查询类型和组成部分
 
@@ -34,7 +34,7 @@ ms.locfileid: "90020912"
 }
 ```
 
-+ **`queryType`** 设置分析器，该分析器可以是[默认的简单查询分析器](search-query-simple-examples.md)（最适合用于全文搜索），也可以是[完整的 Lucene 查询分析器](search-query-lucene-examples.md)（用于正则表达式、邻近搜索、模糊和通配符搜索等高级查询构造）。
++ **`queryType`** 设置分析器，该分析器可以是 [默认的简单查询分析器](search-query-simple-examples.md)（最适合用于全文搜索），也可以是 [完整的 Lucene 查询分析器](search-query-lucene-examples.md)（用于正则表达式、邻近搜索、模糊和通配符搜索等高级查询构造）。
 
 + `search` 提供匹配条件（通常是整个搜索词或短语，但往往带有布尔运算符）。 包含单个独立字词的查询称为字词查询。 由括在引号中的多个部分组成的查询称为短语查询。 搜索可以不用定义（如 `search=*` 中所示），但如果没有要匹配的条件，则结果集由任意选定的文档组成。
 
@@ -93,7 +93,7 @@ ms.locfileid: "90020912"
 |-------------|-------------|
 | [搜索浏览器（门户）](search-explorer.md) | 提供搜索栏，以及索引和 API 版本选项。 结果会以 JSON 文档的形式返回。 建议用于浏览、测试和验证。 <br/>[了解详细信息。](search-get-started-portal.md#query-index) | 
 | [Postman 或其他 REST 工具](search-get-started-postman.md) | Web 测试工具是用公式表示 REST 调用的极佳选择。 REST API 支持 Azure 认知搜索中的每个可能操作。 在本文中，了解如何设置 HTTP 请求标头和正文，以便向 Azure 认知搜索发送请求。  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用于查询 Azure 认知搜索索引的客户端。  <br/>[了解详细信息。](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](https://docs.microsoft.com/dotnetapi/azure.search.documents.searchclient) | 可用于查询 Azure 认知搜索索引的客户端。  <br/>[了解详细信息。](search-howto-dotnet-sdk.md)  |
 | [搜索文档 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引上的 GET 或 POST 方法，使用查询参数进行其他输入。  |
 
 ## <a name="choose-a-parser-simple--full"></a>选择一个分析器：简单 | 完整
@@ -122,7 +122,7 @@ Azure 认知搜索支持广泛的查询类型。
 
 | 查询类型 | 使用情况 | 示例和详细信息 |
 |------------|--------|-------------------------------|
-| 自由格式文本搜索 | 搜索参数和任一分析器| 全文搜索在索引中所有*可搜索*字段中扫描一个或多个字词，其工作方式与你所期望的搜索引擎 (如 Bing) 的工作方式相同。 简介中的示例属于全文搜索。<br/><br/>全文搜索默认使用标准 Lucene 分析器来执行文本分析，以将字词设为小写，并删除“the”等干扰词。 可将默认设置替代为可以修改文本分析的[非英语分析器](index-add-language-analyzers.md#language-analyzer-list)或[专用的与语言无关的分析器](index-add-custom-analyzers.md#AnalyzerTable)。 例如，将整个字段内容视为单个标记的[关键字](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)。 此分析器可用于邮政编码、ID 和某些产品名称等数据。 | 
+| 自由格式文本搜索 | 搜索参数和任一分析器| 全文搜索在索引中所有 *可搜索* 字段中扫描一个或多个字词，其工作方式与你所期望的搜索引擎 (如 Bing) 的工作方式相同。 简介中的示例属于全文搜索。<br/><br/>全文搜索默认使用标准 Lucene 分析器来执行文本分析，以将字词设为小写，并删除“the”等干扰词。 可将默认设置替代为可以修改文本分析的[非英语分析器](index-add-language-analyzers.md#language-analyzer-list)或[专用的与语言无关的分析器](index-add-custom-analyzers.md#AnalyzerTable)。 例如，将整个字段内容视为单个标记的[关键字](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)。 此分析器可用于邮政编码、ID 和某些产品名称等数据。 | 
 | 筛选的搜索 | [OData 筛选表达式](query-odata-filter-orderby-syntax.md)和任一分析器 | 筛选器查询对索引中的所有可筛选字段计算布尔表达式  。 与搜索不同，筛选器查询与字段内容完全匹配，包括字符串字段的大小写区分。 另一项差别在于，筛选器查询以 OData 语法表示。 <br/>[筛选表达式示例](search-query-simple-examples.md#example-3-filter-queries) |
 | 地理搜索 | 字段中的 [Edm.GeographyPoint 类型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)、筛选表达式和任一分析器 | 存储在字段中的具有 Edm.GeographyPoint 的坐标用于“附近查找”或基于地图的搜索控件。 <br/>[地理搜索示例](search-query-simple-examples.md#example-5-geo-search)|
 | 范围搜索 | 筛选表达式和简单分析器 | 在 Azure 认知搜索中，范围查询是使用筛选器参数生成的。 <br/>[范围筛选器示例](search-query-simple-examples.md#example-4-range-filters) | 

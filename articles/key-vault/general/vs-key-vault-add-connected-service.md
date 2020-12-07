@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 origin.date: 08/07/2019
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: dddc3da75ee21032412f8a2f2a1243ce5206b5db
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 1bfe6f28981cca1d9ee605b7aaef209dd2aea5db
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678419"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300958"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务将 Key Vault 添加到 Web 应用程序
 
@@ -191,6 +191,9 @@ ms.locfileid: "90678419"
 | .NET; NuGet | Azure.Security.KeyVault.Keys |
 | .NET; NuGet | Azure.Security.KeyVault.Secrets |
 
+> [!IMPORTANT] 
+> 默认情况下，会安装 Azure.Identity 1.1.1，它不支持 Visual Studio Credential。 你可以使用 Visual Studio Credential 手动将包引用更新为 1.2+。
+
 ### <a name="added-files-for-aspnet-framework"></a>为 ASP.NET Framework 添加了文件
 
 - 添加了 `ConnectedService.json`，其中记录了有关连接服务提供程序、版本和指向文档的链接的一些信息。
@@ -202,6 +205,6 @@ ms.locfileid: "90678419"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果已根据本教程完成上述操作，则为你设置的 Key Vault 权限适合与你自己的 Azure 订阅配合运行，但可能不适合于生产方案。 可以创建托管标识来管理应用的 Key Vault 访问权限。 请参阅[如何向 Key Vault 进行身份验证](/key-vault/general/authentication)和[分配 Key Vault 访问策略](/key-vault/general/assign-access-policy-portal)。
+如果已根据本教程完成上述操作，则为你设置的 Key Vault 权限适合与你自己的 Azure 订阅配合运行，但可能不适合于生产方案。 可以创建托管标识来管理应用的 Key Vault 访问权限。 请参阅[如何向 Key Vault 进行身份验证](./authentication.md)和[分配 Key Vault 访问策略](./assign-access-policy-portal.md)。
 
 在 [Key Vault 开发人员指南](developers-guide.md)中了解如何使用 Key Vault 进行开发。

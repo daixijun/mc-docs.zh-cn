@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/28/2019
+ms.date: 11/30/2019
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cac3e19aa977681b31999461c379376bf7929f0
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: a4865d2afcdc897b5d622bebdcf0f0bc4bd50fc3
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245585"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300277"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
 
@@ -42,7 +42,7 @@ ms.locfileid: "91245585"
 2. 根据[此文](../../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
 
 >[!NOTE]
-> **ConnectionString** 环境变量中指定的存储帐户需与应用位于同一区域（请参阅下一步）。
+> **StorageConnection** 环境变量中指定的存储帐户需与应用位于同一区域（详见下一步）。
 
 ## <a name="configure-function-app-settings"></a>配置 Function App 设置
 
@@ -58,21 +58,21 @@ ms.locfileid: "91245585"
 
 **AMSClientSecret**：Azure AD 应用程序客户端密码。
 
-**ConnectionString**：与媒体服务帐户关联的帐户的存储连接。 “function.json”文件和“run.csx”文件使用了此值（如下所述）。  
+**StorageConnection**：媒体服务帐户关联帐户的存储连接。 “function.json”文件和“run.csx”文件使用了此值（如下所述）。  
 
 ## <a name="create-a-function"></a>创建函数
 
-部署 Function App 后，可在**应用服务** Azure Functions 中找到它。
+部署 Function App 后，可在 **应用服务** Azure Functions 中找到它。
 
 1. 选择 Function App，然后单击“新建函数”。 
 2. 选择“C#”  语言和“数据处理”  方案。
-3. 选择“BlobTrigger”  模板。 只要将 blob 上传到输入容器，就会触发此函数  。 下一步的“路径”中指定了**输入**名称。
+3. 选择“BlobTrigger”  模板。 只要将 blob 上传到输入容器，就会触发此函数  。 下一步的“路径”中指定了 **输入** 名称。
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![屏幕截图显示了“选择模板”对话框，其中的 BlobTrigger 处于选中状态。](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. 选择“BlobTrigger”后，页面上会显示更多控件  。
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![屏幕截图显示了“为函数命名”对话框。](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. 单击“创建”。  
 
@@ -80,7 +80,7 @@ ms.locfileid: "91245585"
 
 Azure 函数与代码文件以及本部分所述的其他文件相关联。 当使用 Azure 门户创建函数时，将为你创建 function.json 和 run.csx   。 需要添加或上传 project.json 文件  。 本文剩余部分对每个文件进行了简要介绍，并说明其定义。
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![屏幕截图显示了项目中的 json 文件。](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -130,7 +130,7 @@ project.json 文件包含依赖项。 下面是一个 **project.json** 文件示
     
 ### <a name="runcsx"></a>run.csx
 
-这是函数的 C# 代码。  下方定义的函数可监视新 MP4 文件中名为**输入**的存储帐户容器（即路径中指定的容器）。 将文件放入存储容器后，blob 触发器就会执行此函数。
+这是函数的 C# 代码。  下方定义的函数可监视新 MP4 文件中名为 **输入** 的存储帐户容器（即路径中指定的容器）。 将文件放入存储容器后，blob 触发器就会执行此函数。
     
 本部分定义的示例演示了 
 
@@ -334,7 +334,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="test-your-function"></a>测试函数
 
-要测试函数，需将 MP4 文件上传到连接字符串中所指定存储帐户的**输入**容器中。  
+要测试函数，需将 MP4 文件上传到连接字符串中所指定存储帐户的 **输入** 容器中。  
 
 1. 选择在 StorageConnection 环境变量中指定的存储帐户  。
 2. 单击“Blob”  。
@@ -342,7 +342,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 4. 按“上传”并浏览到要上传的 .mp4 文件  。
 
 >[!NOTE]
-> 在消耗计划中使用 Blob 触发器时，函数应用处于空闲状态后，处理新 Blob 的过程中可能会出现长达 10 分钟的延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [Blob 存储触发器和绑定](/azure-functions/functions-bindings-storage-blob)。
+> 在消耗计划中使用 Blob 触发器时，函数应用处于空闲状态后，处理新 Blob 的过程中可能会出现长达 10 分钟的延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [Blob 存储触发器和绑定](../../azure-functions/functions-bindings-storage-blob.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

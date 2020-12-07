@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/09/2020
+ms.date: 11/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e7ff484d959c7ce5ef7e7395933734954dd644
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 1f1c13005712ef713fe94b694a6b2883f72f64bb
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501957"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918513"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -51,12 +51,9 @@ ms.locfileid: "94501957"
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>获得 Azure AD Premium 许可证后是否能查看上个月的数据？
-
-如果最近刚切换到高级版本（包括试用版），则最初最多能看到 7 天的数据。 随着数据累积，可以看到过去 30 天的数据。
 
 ---
- 
+
 ### <a name="how-long-does-azure-ad-store-the-data"></a>Azure AD 存储数据多长时间？
 
 **活动报告**    
@@ -75,6 +72,12 @@ ms.locfileid: "94501957"
 | :--            | :--           | :--                 | :--                 |
 | 有风险的用户  | 7 天        | 30 天             | 90 天             |
 | 有风险的登录 | 7 天        | 30 天             | 90 天             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>获得 Azure AD Premium 许可证后是否能查看上个月的数据？
+
+否，不能。 对于免费版本，Azure 最多可存储 7 天的活动数据。 这意味着，从免费版切换到高级版时，最多只能看到 7 天的数据。
 
 ---
 

@@ -8,18 +8,19 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
 origin.date: 08/15/2019
-ms.date: 04/13/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c05e871941a7c12583f36f43d6877b315e452b7e
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 47766b5b1f976e05df47b21d6a71a8d643d2ff02
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198576"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153113"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 Azure Synapse Analytics
+
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
@@ -27,16 +28,16 @@ ms.locfileid: "82198576"
 > 
 > 
 
-使用 Visual Studio 只需几分钟便可查询 Azure Synapse 中的 SQL 池。 此方法使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 扩展。 
+使用 Visual Studio 只需几分钟即可查询 Azure Synapse 中的专用 SQL 池。 此方法使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 扩展。 
 
 ## <a name="prerequisites"></a>先决条件
 要使用本教程，需要：
 
-* 现有的 SQL 池。 若要创建一个，请参阅[创建 SQL 池](create-data-warehouse-portal.md)。
+* 现有专用 SQL 池。 若要创建一个，请参阅[创建专用 SQL 池](create-data-warehouse-portal.md)。
 * 适用于 Visual Studio 的 SSDT。 如果安装了 Visual Studio，则可能已有 SSDT for Visual Studio。 有关安装指说明和选项，请参阅 [安装 Visual Studio 和 SSDT](sql-data-warehouse-install-visual-studio.md)。
-* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到 SQL 池](sql-data-warehouse-connect-overview.md)。
+* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到专用 SQL 池](sql-data-warehouse-connect-overview.md)。
 
-## <a name="1-connect-to-your-sql-pool"></a>1.连接到 SQL 池
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1.连接到专用 SQL 池
 1. 打开 Visual Studio 2019。
 2. 通过选择“视图”   > “SQL Server 对象资源管理器”  打开 SQL Server 对象资源管理器。
    
@@ -76,4 +77,4 @@ ms.locfileid: "82198576"
     ![查询结果](./media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## <a name="next-steps"></a>后续步骤
-若要为你的环境配置 Azure Active Directory 身份验证，请参阅[向 SQL 池进行身份验证](sql-data-warehouse-authentication.md)。
+若要为你的环境配置 Azure Active Directory 身份验证，请参阅[向专用 SQL 池进行身份验证](sql-data-warehouse-authentication.md)。

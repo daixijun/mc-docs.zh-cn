@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 28cb52a213351cdc2508bdad5aede08cd64f7521
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 70d371e9e534edcb21748c480a7dfae91acd3f7e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245681"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300726"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 
@@ -41,7 +41,7 @@ ms.locfileid: "91245681"
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
 2. 在“设置”  边栏选项卡中，选择“流式处理终结点”  。
    
-    ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![显示“媒体服务”页的屏幕截图，在“设置”边栏选项卡中选择了“流式处理终结点”。](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > 仅当流式处理终结点处于运行状态时才进行计费。
@@ -57,7 +57,7 @@ ms.locfileid: "91245681"
 2. 若要删除流式处理终结点，请按“删除”  按钮。      
 3. 单击“启动”  按钮以启动流式处理终结点。
    
-    ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![此屏幕截图显示了所选的“终结点”操作并显示了“流式处理终结点详细信息”窗格。](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>配置流式处理终结点
@@ -76,7 +76,7 @@ ms.locfileid: "91245681"
 
 后面提供了字段的简要说明。
 
-![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![屏幕截图，显示了为流式处理终结点选择的“设置”操作。](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. 最大缓存策略：用于为资产配置通过此流式处理终结点提供的缓存生存期。 如果未设置任何值，则使用默认值。 也可直接在 Azure 存储中定义默认值。
 2. 允许的 IP 地址：用于指定将允许连接到发布的流式处理终结点的 IP 地址。 如果未指定 IP 地址，则任何 IP 地址都可以连接。 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如“10.0.0.1/22”）或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如“10.0.0.1(255.255.255.0)”）。

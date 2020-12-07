@@ -1,6 +1,6 @@
 ---
 title: 从守护程序应用调用 Web API - Microsoft 标识平台 | Azure
-description: 了解如何构建用于调用 Web API 的守护程序应用
+description: 了解如何构建用于调用 Web API 的守护程序应用。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 176ed54a471df197470e02d4e84b9325cf8e39fa
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: d10b711b35d17c08dd1fa270914276aac936729b
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647693"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918404"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>调用 Web API 的守护程序应用 - 从应用调用 Web API
 
@@ -69,18 +69,15 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 移到生产环境](./scenario-daemon-production.md?tabs=dotnet)
+转到此方案中的下一篇文章：[移到生产环境](./scenario-daemon-production.md?tabs=dotnet)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 移到生产环境](./scenario-daemon-production.md?tabs=python)
+转到此方案中的下一篇文章：[移到生产环境](./scenario-daemon-production.md?tabs=python)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 移到生产环境](./scenario-daemon-production.md?tabs=java)
+转到此方案中的下一篇文章：[移到生产环境](./scenario-daemon-production.md?tabs=java)。
 
 ---
 

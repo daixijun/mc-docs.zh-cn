@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 05/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 0132f77e3b37c4ad146e6d8fabb5c01658e7bcb1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: ee29052a25586e0571338adcdc7bf902acc95777
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244799"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300158"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将视频连续录制到云中并从云中播放
 
@@ -164,7 +164,16 @@ ms.locfileid: "91244799"
 
 ## <a name="run-the-program"></a>运行程序 
 
-1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
+1. <!--In Visual Studio Code, go-->转到 src/cloud-to-device-console-app/operations.json。
 1. 在 GraphTopologySet 节点下，编辑以下内容：
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `

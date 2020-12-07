@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 037e620e1df026e1d45c43f17c33d69add5c65d2
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: 297fbd6b55604bd5a60ecd068695f3a860c0dc9e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245697"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300912"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>快速入门：检测运动，将视频录制到媒体服务
 
@@ -43,6 +43,16 @@ ms.locfileid: "91245697"
 ## <a name="use-direct-method-calls"></a>使用直接方法调用
 
 可以通过调用直接方法来使用该模块分析实时视频流。 阅读 [IoT Edge 上的实时视频分析的直接方法](direct-methods.md)，了解模块提供的所有直接方法。 
+
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
 
 ### <a name="invoke-graphtopologylist"></a>调用 GraphTopologyList
 此步骤会枚举模块中的所有[图形拓扑](media-graph-concept.md#media-graph-topologies-and-instances)。

@@ -2,17 +2,18 @@
 title: 设置专用链接
 description: 在容器注册表上设置专用终结点，并实现在本地虚拟网络中通过专用链接进行访问的功能。 专用链接访问是高级服务层级的一项功能。
 ms.topic: article
+origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 09b4ca69069f69003e0e28e7079ebb0931c82527
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: b1ec3a2c4526cf6f9e3912cc6a21a46db129832c
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589443"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024644"
 ---
 <!--Verified successfully both CLI and PORTAL-->
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
@@ -36,7 +37,7 @@ ms.locfileid: "94589443"
 
     <!--Not Available on [Azure local Shell](../cloud-shell/quickstart.md)-->
     
-* 如果还没有容器注册表，请创建一个（需要“高级”层级），并[导入](container-registry-import-images.md)示例映像，如来自 Docker 的 `hello-world`。 例如，使用 [Azure 门户][quickstart-portal]或 [Azure CLI][quickstart-cli] 创建注册表。
+* 如果还没有容器注册表，请创建一个（需要“高级”层级），并[导入](container-registry-import-images.md)示例公共映像，如来自 Azure 容器注册表的 `mcr.microsoft.com/hello-world`。 例如，使用 [Azure 门户][quickstart-portal]或 [Azure CLI][quickstart-cli] 创建注册表。
 * 若要使用其他 Azure 订阅中的专用链接配置注册表访问，需要在该订阅中注册 Azure 容器注册表的资源提供程序。 例如：
 
     ```azurecli
@@ -358,8 +359,8 @@ myregistry.privatelink.azurecr.cn. 10 IN A      10.0.0.7
 ;; ANSWER SECTION:
 myregistry.azurecr.cn.  2881    IN  CNAME   myregistry.privatelink.azurecr.cn.
 myregistry.privatelink.azurecr.cn. 2881 IN CNAME xxxx.xx.azcr.io.
-xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
-xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.chinaeast2.cloudapp.chinacloudapi.cn.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.cn.
+xxxx-xxx-reg.trafficmanager.cn. 300 IN  CNAME   xxxx.chinaeast2.cloudapp.chinacloudapi.cn.
 xxxx.chinaeast2.cloudapp.chinacloudapi.cn. 10   IN A 20.45.122.144
 
 [...]
@@ -408,13 +409,18 @@ az acr private-endpoint-connection list \
 
 本示例中的专用终结点会集成与基本虚拟网络关联的专用 DNS 区域。 此安装程序直接使用 Azure 提供的 DNS 服务将注册表的公共 FQDN 解析为其在虚拟网络中的专用 IP 地址。 
 
-专用链接支持其他使用专用区域的 DNS 配置方案，包括使用自定义 DNS 解决方案。 例如，你可能有一个自定义 DNS 解决方案，该方案部署在虚拟网络中，或部署在使用 VPN 网关连接到虚拟网络的本地网络中。 若要在这些情况下将注册表的公共 FQDN 解析为专用 IP 地址，需要配置到 Azure DNS 服务 (168.63.129.16) 的服务器级别转发器。 确切的配置选项和步骤取决于现有的网络和 DNS。
+专用链接支持其他使用专用区域的 DNS 配置方案，包括使用自定义 DNS 解决方案。 例如，你可能有一个自定义 DNS 解决方案，该方案部署在虚拟网络中，或部署在使用 VPN 网关连接到虚拟网络的本地网络中。
+
+若要在这些情况下将注册表的公共 FQDN 解析为专用 IP 地址，需要配置到 Azure DNS 服务 (168.63.129.16) 的服务器级别转发器。 确切的配置选项和步骤取决于现有的网络和 DNS。
 
 <!--Not Available on [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md)-->
 
+> [!IMPORTANT]
+> 如果为了高可用性，你在多个区域中创建了专用终结点，我们建议你在每个区域中使用单独的资源组，并将虚拟网络和关联的专用 DNS 区域放置在其中。 此配置还可防止由于共享同一专用 DNS 区域而导致 DNS 解析不可预测的问题。
+
 ## <a name="clean-up-resources"></a>清理资源
 
-如果在同一资源组中创建了所有 Azure 资源，并且不再需要这些资源，则可以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令删除资源：
+如果在同一资源组中创建了所有 Azure 资源，并且不再需要这些资源，则可以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令删除资源：
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP

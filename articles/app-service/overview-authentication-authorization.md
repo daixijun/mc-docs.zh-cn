@@ -4,16 +4,16 @@ description: 了解 Azure 应用服务和 Azure Functions 中内置的身份验�
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 origin.date: 07/08/2020
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9f7f5f4e3e516ac41b73b818d13b7b7f95b89c38
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 5c3e540c698cc65d9ea5057f9179d2d757b0d290
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170762"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306506"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的身份验证和授权
 
@@ -60,7 +60,7 @@ The authentication and authorization module runs in a separate container, isolat
 
 ### <a name="userapplication-claims"></a>用户/应用程序声明
 
-对于所有语言框架，应用服务都通过将传入令牌（无论是来自经过身份验证的最终用户还是来自客户端应用程序）中的声明注入请求标头，使其可供代码使用。 对于 ASP.NET 4.6 应用，应用服务会在 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) 中填充经过身份验证的用户声明，使你能够遵循标准的 .NET 代码模式（包括 `[Authorize]` 属性）。 同样，对于 PHP 应用，应用服务会填充 `_SERVER['REMOTE_USER']` 变量。 对于 Java 应用，[可从 Tomcat servlet 访问](configure-language-java.md#authenticate-users-easy-auth)声明。
+对于所有语言框架，应用服务都通过将传入令牌（无论是来自经过身份验证的最终用户还是来自客户端应用程序）中的声明注入请求标头，使其可供代码使用。 对于 ASP.NET 4.6 应用，应用服务会在 [ClaimsPrincipal.Current](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal.current) 中填充经过身份验证的用户声明，使你能够遵循标准的 .NET 代码模式（包括 `[Authorize]` 属性）。 同样，对于 PHP 应用，应用服务会填充 `_SERVER['REMOTE_USER']` 变量。 对于 Java 应用，[可从 Tomcat servlet 访问](configure-language-java.md#authenticate-users-easy-auth)声明。
 
 对于 [Azure Functions](../azure-functions/functions-overview.md)，没有为 .NET 代码填充 `ClaimsPrincipal.Current`，但你仍然可以在请求标头中找到用户声明，也可通过请求上下文甚至通过绑定参数来获取 `ClaimsPrincipal` 对象。 有关详细信息，请参阅[使用客户端标识](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities)。
 
@@ -81,7 +81,7 @@ The authentication and authorization module runs in a separate container, isolat
 
 将为经身份验证的会话缓存 ID 令牌、访问令牌和刷新令牌，它们只能由关联的用户访问。  
 
-如果不需要在应用中使用令牌，可以禁用令牌存储。
+如果不需要在应用中使用令牌，可以在应用的“身份验证/授权”页中禁用令牌存储。
 
 ### <a name="logging-and-tracing"></a>日志记录和跟踪
 
@@ -148,14 +148,17 @@ The authentication and authorization module runs in a separate container, isolat
 > [!CAUTION]
 > 以这种方式限制访问适用于对应用的所有调用，对于想要主页公开可用的应用程序来说，这可能是不可取的，就像在许多单页应用程序中一样。
 
+> [!NOTE]
+> 默认情况下，Azure AD 租户中的任何用户都可以从 Azure AD 请求应用程序的令牌。 若要仅允许一组定义的用户访问应用，可以[在 Azure AD 中配置应用程序](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)。
+
 ## <a name="more-resources"></a>更多资源
 
 <!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)   -->
 <!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md) -->
 
-[在应用服务中自定义身份验证和授权](app-service-authentication-how-to.md)
-[.NET Core 与 Azure AppService EasyAuth（第三方）集成](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[使用 .NET Core（第三方）进行 Azure 应用服务身份验证](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [在应用服务中自定义身份验证和授权](app-service-authentication-how-to.md)
+* [.NET Core 与 Azure 应用服务 EasyAuth 的集成（第三方）](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [使用 .NET Core 进行 Azure 应用服务身份验证（第三方）](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 特定于提供程序的操作方法指南：
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 11/24/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13afb21a88f873f37f06dffb8eea1b132d4f6a10
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: dff75a461518bdf6d75b8149dbeabc954aca67c5
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326977"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918512"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中按管理员任务委托管理员角色
 
@@ -201,6 +201,7 @@ ms.locfileid: "94326977"
 ---- | --------------------- | ----------------
 配置身份验证方法 | 全局管理员角色 | 
 配置密码保护 | 安全管理员
+配置智能锁定 | 安全管理员
 读取所有配置 | 全局读取者 | 
 
 ## <a name="security---conditional-access"></a>安全性 - 条件访问
@@ -253,6 +254,7 @@ ms.locfileid: "94326977"
 更新受限管理员的用户主体名称（请参阅文档） | 用户管理员 | 
 更新特权管理员的用户主体名称属性（请参阅文档） | 全局管理员角色 | 
 更新用户设置 | 全局管理员角色 | 
+更新身份验证方法 | 身份验证管理员 | 特权身份验证管理员、全局管理员
 
 
 ## <a name="support"></a>支持

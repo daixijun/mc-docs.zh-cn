@@ -5,15 +5,15 @@ keywords: Azure 应用服务, Web 应用, 常见问题解答, Linux, oss, 用于
 author: msangapu-msft
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 6a6d60e420585f546d04c29856c65244708433b2
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 1422f1d55b0b46b7bcebacd4b4d698a518baa57e
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170687"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306423"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure 应用服务常见问题解答
 
@@ -21,25 +21,25 @@ ms.locfileid: "92170687"
 
 如果你有问题，请对本文发表评论。
 
-<!-- ## Built-in images
+## <a name="built-in-images"></a>内置映像
 
-**I want to fork the built-in Docker containers that the platform provides. Where can I find those files?**
+**我想对平台提供的内置 Docker 容器进行分叉。在哪里可以找到这些文件？**
 
-You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
+可以在 [GitHub](https://github.com/azure-app-service) 上找到所有 Docker 文件。 可以在 [Docker Hub](https://hub.docker.com/u/appsvc/) 上找到所有 Docker 容器。
 
 <a id="#startup-file"></a>
 
-**What are the expected values for the Startup File section when I configure the runtime stack?**
+**配置运行时堆栈时，“启动文件”部分的所需值是什么？**
 
-| Stack           | Expected Value                                                                         |
+| 堆栈           | 预期值                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | the command to start your JAR app (for example, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
-| Node.js         | the PM2 configuration file or your script file                                |
-| .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby            | the Ruby script that you want to initialize your app with                     |
+| Java SE         | 用于启动 JAR 应用的命令（例如 `java -jar /home/site/wwwroot/app.jar --server.port=80`） |
+| Tomcat          | 用于执行任何所需配置的脚本的位置（例如 `/home/site/deployments/tools/startup_script.sh`）          |
+| Node.js         | PM2 配置文件或脚本文件                                |
+| .NET Core       | 编译后的 DLL 名称为 `dotnet <myapp>.dll`                                 |
+| Ruby            | 要用于初始化你的应用的 Ruby 脚本                     |
 
-These commands or scripts are executed after the built-in Docker container is started, but before your application code is started. -->
+这些命令或脚本会在内置 Docker 容器启动之后但在应用程序代码启动之前执行。
 
 ## <a name="management"></a>管理
 
@@ -61,9 +61,11 @@ These commands or scripts are executed after the built-in Docker container is st
 
 ## <a name="continuous-integration-and-deployment"></a>持续集成和持续部署
 
-<!-- **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
+**更新 Docker Hub 上的映像后，我的 Web 应用仍使用旧的 Docker 容器映像。是否支持对自定义容器的持续集成和部署？**
 
-Yes, to set up continuous integration/deployment for Azure Container Registry or DockerHub, by following [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container. -->
+支持，用于为 Azure 容器注册表或 DockerHub 设置持续集成/部署。 对于专用注册表，可以通过先停止然后启动 Web 应用来刷新容器。 或者，可以更改或添加虚拟应用程序设置，从而强制刷新容器。
+
+<!--[Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)-->
 
 **是否支持过渡环境？**
 
@@ -95,7 +97,7 @@ Yes, to set up continuous integration/deployment for Azure Container Registry or
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -107,72 +109,72 @@ const io = require('socket.io')(server,{
 
 支持，在 Git 部署过程中，Kudu 应检测到正在部署 PHP 应用程序（这得益于 composer.lock 文件的存在），然后触发 composer 安装。
 
-<!-- ## Custom containers
+## <a name="custom-containers"></a>自定义容器
 
-**I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
+**我使用的是自己的自定义容器。我希望平台将 SMB 共享装载到 `/home/` 目录。**
 
-If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *true*, the `/home/` directory **will be shared** across scale instances, and files written **will persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false* will disable the mount.
+如果 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 设置未指定，或者设为 true，则 `/home/` 目录会在缩放实例之间共享，且写入的文件会在重启后保留 。 将 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 显式设置为 false 会禁用装载。
 
-**My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
+**自定义容器需要很长时间才能启动，并且平台在它完成启动之前便重启了容器。**
 
-You can configure the amount of time the platform will wait before it restarts your container. To do so, set the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the value you want. The default value is 230 seconds, and the maximum value is 1800 seconds.
+可以配置该平台在重启容器之前的等待时间。 为此，可将 `WEBSITES_CONTAINER_START_TIME_LIMIT` 应用设置设为所需的值。 默认值为 230 秒，最大值为 1800 秒。
 
-**What is the format for the private registry server URL?**
+**专用注册表服务器 URL 的格式是什么？**
 
-Provide the full registry URL, including `http://` or `https://`.
+提供完整注册表 URL，包括 `http://` 或 `https://`。
 
-**What is the format for the image name in the private registry option?**
+**专用注册表选项中的映像名称的格式是什么？**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.cn/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+添加完整映像名称，包括专用注册表 URL（例如，myacr.azurecr.cn/dotnet:latest）。 使用自定义端口的映像名称[无法通过门户输入](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)。 若要设置 `docker-custom-image-name`，请使用 [`az` 命令行工具](https://docs.azure.cn/cli/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)。
 
-**Can I expose more than one port on my custom container image?**
+**是否可以在自定义容器映像上公开多个端口？**
 
-We don't support exposing more than one port.
+不支持公开多个端口。
 
-**Can I bring my own storage?**
+**可以自带存储吗？**
 
-Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) is in preview.
+可以，[自带存储](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage)以预览版形式提供。
 
-**Why can't I browse my custom container's file system or running processes from the SCM site?**
+**为何无法从 SCM 站点浏览自定义容器的文件系统或正在运行的进程？**
 
-The SCM site runs in a separate container. You can't check the file system or running processes of the app container.
+SCM 站点在单独的容器中运行。 用户无法查看应用容器的文件系统或正在运行的进程。
 
-**My custom container listens to a port other than port 80. How can I configure my app to route requests to that port?**
+**我的自定义容器侦听端口 80 之外的其他端口。如何将应用配置为向该端口路由流量？**
 
-We have automatic port detection. You can also specify an app setting called *WEBSITES_PORT* and give it the value of the expected port number. Previously, the platform used the *PORT* app setting. We are planning to deprecate this app setting and to use *WEBSITES_PORT* exclusively.
+我们提供自动端口检测。 也可以指定名为 *WEBSITES_PORT* 的应用设置，并为其提供所需的端口号值。 以前，平台使用 *PORT* 应用设置。 我们计划弃用此应用设置，改为独占使用 *WEBSITES_PORT*。
 
-**Do I need to implement HTTPS in my custom container?**
+**是否需要在自定义容器中实现 HTTPS？**
 
-No, the platform handles HTTPS termination at the shared front ends. -->
+不需要，平台会处理共享前端上的 HTTPS 终止。
 
-<!-- ## Multi-container with Docker Compose
+## <a name="multi-container-with-docker-compose"></a>多容器与 Docker Compose 结合使用
 
-**How do I configure Azure Container Registry (ACR) to use with multi-container?**
+**如何将 Azure 容器注册表 (ACR) 配置为用于多容器？**
 
-In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose configuration file to include the ACR image name.
+若要将 ACR 用于多容器，**所有容器映像** 都必须托管在同一台 ACR 注册表服务器上。 在将它们托管在同一台注册表服务器上之后，需要创建应用程序设置，然后更新 Docker Compose 配置文件，使之包含 ACR 映像名称。
 
-Create the following application settings:
+创建以下应用程序设置：
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.cn`)
-- DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
+- DOCKER_REGISTRY_SERVER_URL（完整 URL，例如：`https://<server-name>.azurecr.cn`）
+- DOCKER_REGISTRY_SERVER_PASSWORD（在 ACR 设置中启用管理员访问权限）
 
-Within the configuration file, reference your ACR image like the following example:
+在配置文件内引用 ACR 映像，如下例所示：
 
 ```yaml
 image: <server-name>.azurecr.cn/<image-name>:<tag>
 ```
 
-**How do I know which container is internet accessible?**
+**怎么知道哪个容器可以访问 Internet？**
 
-- Only one container can be open for access
-- Only port 80 and 8080 is accessible (exposed ports)
+- 只能打开一个容器进行访问
+- 只能访问端口 80 和 8080（公开的端口）
 
-Here are the rules for determining which container is accessible - in the order of precedence:
+以下规则用于确定哪个容器可供访问 — 按优先顺序排列：
 
-- Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
-- The first container to define port 80 or 8080
-- If neither of the above is true, the first container defined in the file will be accessible (exposed) -->
+- 设置为容器名称的应用程序设置 `WEBSITES_WEB_CONTAINER_NAME`
+- 第一个定义端口 80 或 8080 的容器
+- 如果以上规则均不适用，则文件中定义的第一个容器将可供访问（公开）-->
 
 
 ## <a name="web-sockets"></a>Web 套接字

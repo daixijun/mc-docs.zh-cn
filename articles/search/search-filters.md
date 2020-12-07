@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 197bc1972b6ed9501991a5a80357be50b88e1cc4
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 528950fa721901c2e015d178bb8b478c6ebadb07
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021587"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300077"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure 认知搜索中的筛选器 
 
@@ -65,7 +65,7 @@ ms.locfileid: "90021587"
 ## <a name="defining-filters"></a>定义筛选器
 筛选器是使用 [Azure 认知搜索中支持的 OData V4 语法子集](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)构建的 OData 表达式。 
 
-可为每个**搜索**操作指定一个筛选器，但筛选器本身可以包含多个字段和多个条件，如果使用 **ismatch** 函数，则还可以包含多个全文搜索表达式。 在多部分筛选表达式中，可按任意顺序指定谓词（受运算符优先顺序规则的约束）。 如果尝试按特定的顺序重新排列谓词，性能不会有明显的提升。
+可为每个 **搜索** 操作指定一个筛选器，但筛选器本身可以包含多个字段和多个条件，如果使用 **ismatch** 函数，则还可以包含多个全文搜索表达式。 在多部分筛选表达式中，可按任意顺序指定谓词（受运算符优先顺序规则的约束）。 如果尝试按特定的顺序重新排列谓词，性能不会有明显的提升。
 
 筛选表达式的限制之一是请求的最大大小限制。 整个 POST 请求（包括筛选器）最大可为 16 MB；对于 GET 请求，最大可为 8 KB。 筛选表达式中的子句数也有限制。 根据经验，如果有数百个子句，则就存在达到限制的风险。 我们建议正确设计应用程序，使之不会生成大小不受限制的筛选器。
 
@@ -139,11 +139,11 @@ POST https://[service name].search.azure.cn/indexes/hotels/docs/search?api-versi
 
 在 REST API 中，默认为简单字段启用了可筛选性。  可筛选字段会增大索引大小；对于不打算真正在筛选器中使用的字段，请务必设置 `"filterable": false`。 有关字段定义设置的详细信息，请参阅[创建索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。
 
-在 .NET SDK 中，可筛选性默认为“关”。  可以通过将相应 [Field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 对象的 [IsFilterable 属性](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet)设置为 `true`，使某个字段可筛选。 也可以使用 [IsFilterable 特性](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)以声明方式实现此目的。 在以下示例中，该特性已在一个映射到索引定义的模型类的 `BaseRate` 属性中设置。
+在 .NET SDK 中，可筛选性默认为“关”。  可以通过将相应 [SearchField](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield) 对象的 [IsFilterable 属性](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchfield.isfilterable)设置为 `true`，使某个字段可筛选。 在以下示例中，该特性已在一个映射到索引定义的模型类的 `BaseRate` 属性中设置。
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>使现有字段可筛选

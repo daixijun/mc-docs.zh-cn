@@ -4,19 +4,19 @@ description: 获取 Azure 文件存储常见问题的解答。 你可以在云�
 author: WenJason
 ms.service: storage
 origin.date: 02/23/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: d4390a4f2344ff18777df72a1685575e3d0691cd
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: e8b43eb875fd35ea090859f0f92a1b4652a6ebd2
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552629"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152980"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
-[Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
+[Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
 
 ## <a name="general"></a>常规
 * <a id="why-files-useful"></a>
@@ -105,14 +105,14 @@ ms.locfileid: "94552629"
 * <a id="file-auditing"></a>
 **如何审核 Azure 文件存储中的文件访问和更改？**
 
-  可以使用 [Azure 存储日志（预览版）](/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview)来跟踪文件更改和用户访问权限。 这些日志可用于故障排除，系统会尽最大努力记录请求。
+  可以使用 [Azure 存储日志](/storage/common/monitor-storage?tabs=azure-powershell#analyzing-log-data)来跟踪文件更改和用户访问权限。 这些日志可用于故障排除，系统会尽最大努力记录请求。
 
 ## <a name="on-premises-access"></a>本地访问
 
 * <a id="port-445-blocked"></a>
 **我的 ISP 或 IT 阻止了端口 445，这导致 Azure 文件装载失败。我该怎样做？**
 
-    可在此处了解[解决端口 445 受阻问题的各种方法](/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。 Azure 文件只允许来自区域或数据中心外部的使用 SMB 3.0（带加密支持）的连接。 SMB 3.0 协议引入了许多安全功能，包括通道加密，在 Internet 上使用非常安全。 但是，由于在较低 SMB 版本中发现漏洞的历史原因，端口 445 可能已被阻止。 理想情况下，应仅针对 SMB 1.0 流量阻止该端口，并且应在所有客户端上关闭 SMB 1.0。
+    可在此处了解[解决端口 445 受阻问题的各种方法](./storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked)。 Azure 文件只允许来自区域或数据中心外部的使用 SMB 3.0（带加密支持）的连接。 SMB 3.0 协议引入了许多安全功能，包括通道加密，在 Internet 上使用非常安全。 但是，由于在较低 SMB 版本中发现漏洞的历史原因，端口 445 可能已被阻止。 理想情况下，应仅针对 SMB 1.0 流量阻止该端口，并且应在所有客户端上关闭 SMB 1.0。
 
 * <a id="expressroute-not-required"></a>
 **必须使用 Azure ExpressRoute 才能在本地连接到 Azure 文件或使用 Azure 文件同步吗？**  

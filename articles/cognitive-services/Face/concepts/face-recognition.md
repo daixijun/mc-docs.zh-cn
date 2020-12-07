@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 4350e1c5cc023ee8fff808a77ee8d6b75cb696f9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6d370106dbcda27fb8b3922b00cb8fec3126d01c
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105439"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306184"
 ---
 # <a name="face-recognition-concepts"></a>人脸识别的概念
 
@@ -59,7 +59,7 @@ ms.locfileid: "93105439"
 使用以下提示来确保输入的图像提供最准确的识别结果：
 
 * 支持的输入图像格式为 JPEG、PNG、GIF（第一帧）和 BMP。
-* 图像文件不得大于 4 MB。
+* 图像文件不得大于 6 MB。
 * 创建 Person 对象时，请使用具有不同类型的角度和照明效果的照片。
 * 某些人脸会因技术难题而识别不到，例如：
   * 具有极端照明（例如严重的背光）的图像。

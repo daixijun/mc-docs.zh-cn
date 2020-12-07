@@ -1,13 +1,22 @@
 ---
-ms.openlocfilehash: e9eb052c3eb41124fecb395eafaa27672646ea20
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: fc2b51db9dea15ffd58d8c8204df4c72f46be936
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413436"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301105"
 ---
 若要运行该示例代码，请按照以下步骤执行：
 
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
 1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
 1. 在 GraphTopologySet 节点上，确保你看到以下值：
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9e8f82fd6d928f026a6531b9c8b4831dfc50ebb5
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 1bc24114727a8ae6e2a37eefcd7b6d697b2bfde0
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918327"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>用于登录用户的 Web 应用：应用注册
 
@@ -122,6 +122,5 @@ ms.locfileid: "94501881"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [应用的代码配置](scenario-web-app-sign-user-app-configuration.md)
+转到此方案中的下一篇文章：[应用的代码配置](scenario-web-app-sign-user-app-configuration.md)。
 

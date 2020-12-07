@@ -3,20 +3,20 @@ title: 使用 .NET 创建视频脚本评审 - 内容审查器
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用适用于 .NET 的 Azure 认知服务内容审查器 SDK 创建视频脚本审阅。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.author: v-tawe
+ms.date: 11/23/2020
+ms.author: v-johya
 origin.date: 10/24/2019
-ms.openlocfilehash: 85b875413ab736bb94764fd34d2222a7580017a9
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 1d39a48e92260cec395c70a81023e5d9060eb2d0
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654951"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306494"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 创建视频脚本评论
 
@@ -37,7 +37,7 @@ ms.locfileid: "84654951"
 
 如果计划在 SDK 示例中使用 Azure 提供的 API 密钥，请按照[将 Azure 密钥与评审 API 配合使用](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis)部分中提到的步骤操作，以允许应用程序调用评审 API 并创建评审。
 
-如果使用评审工具生成的免费试用密钥，则评审工具帐户已经知道密钥，因此无需其他步骤。
+如果使用评审工具生成的试用密钥，则评审工具帐户已经知道密钥，因此无需其他步骤。
 
 ## <a name="prepare-your-video-for-review"></a>准备视频以供评论
 
@@ -45,13 +45,13 @@ ms.locfileid: "84654951"
 
 ![视频演示缩略图](images/ams-video-demo-view.PNG)
 
-- 复制此 [Azure 媒体服务演示](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest)页面上的 **URL** 作为清单 URL。
+- 复制此 [Azure 媒体服务演示](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.chinacloudapi.cn%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest)页面上的 **URL** 作为清单 URL。
 
 ## <a name="create-your-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 向解决方案添加新的“控制台应用(.NET Framework)”**** 项目。
+1. 向解决方案添加新的“控制台应用(.NET Framework)”项目。
 
-1. 将项目命名为“VideoTranscriptReviews”****。
+1. 将项目命名为“VideoTranscriptReviews”。
 
 1. 将此项目选为解决方案的单一启动项目。
 
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>添加私有属性
 
-将以下专用属性添加到 VideoTranscriptReviews**** 命名空间中的 Program**** 类。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”**** 选项卡中找到它们。
+将以下专用属性添加到 VideoTranscriptReviews 命名空间中的 Program 类。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”选项卡中找到它们。
 
 ```csharp
 namespace VideoReviews
@@ -145,12 +145,12 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有以下必需参数：
 1. 一个字符串，包含应为“application/json”的 MIME 类型。 
 1. 内容审查器团队名称。
-1. 一个 **IList\<CreateVideoReviewsBodyItem>** 对象。 每个 CreateVideoReviewsBodyItem **** 对象表示一次视频审查。 本快速入门一次创建一条评论。
+1. 一个 **IList\<CreateVideoReviewsBodyItem>** 对象。 每个 CreateVideoReviewsBodyItem  对象表示一次视频审查。 本快速入门一次创建一条评论。
 
 **CreateVideoReviewsBodyItem** 具有多个属性。 至少应设置以下属性：
-- Content****。 要评论的视频的 URL。
-- ContentId****。 要分配给视频评论的 ID。
-- Status****。 将该值设置为“未发布”。 如果未进行设置，则默认为“挂起”，这意味着视频评论已发布并且正在等待人工评论。 视频评论发布后，就无法再向其中添加视频帧、脚本或脚本审查结果。
+- Content。 要评论的视频的 URL。
+- ContentId。 要分配给视频评论的 ID。
+- Status。 将该值设置为“未发布”。 如果未进行设置，则默认为“挂起”，这意味着视频评论已发布并且正在等待人工评论。 视频评论发布后，就无法再向其中添加视频帧、脚本或脚本审查结果。
 
 > [!NOTE]
 > **CreateVideoReviews** 返回 IList\<string>。 这些字符串中的每一个都包含视频评论 ID。 这些 ID 是 GUID，与 **ContentId** 属性的值不同。
@@ -205,7 +205,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 脚本必须采用 WebVTT 格式。 有关更多信息，请参阅 [WebVTT：Web 视频文本轨道格式](https://www.w3.org/TR/webvtt1/)。
 
 > [!NOTE]
-> 该程序使用 VTT 格式的示例脚本。 在实际解决方案中，可使用 Azure Media Indexer 服务根据视频[生成脚本](https://docs.azure.cn/media-services/media-services-index-content)。
+> 该程序使用 VTT 格式的示例脚本。 在实际解决方案中，可使用 Azure Media Indexer 服务根据视频[生成脚本](../../media-services/previous/media-services-index-content.md)。
 
 将以下方法定义添加到 VideotranscriptReviews 命名空间中的 Program 类。
 
@@ -318,7 +318,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 将 **Main** 方法定义添加到 VideoTranscriptReviews 命名空间中的 Program 类。 最后，关闭 Program 类和 VideoTranscriptReviews 命名空间。
 
 > [!NOTE]
-> 该程序使用 VTT 格式的示例脚本。 在实际解决方案中，可使用 Azure Media Indexer 服务根据视频[生成脚本](https://docs.azure.cn/media-services/media-services-index-content)。
+> 该程序使用 VTT 格式的示例脚本。 在实际解决方案中，可使用 Azure Media Indexer 服务根据视频[生成脚本](../../media-services/previous/media-services-index-content.md)。
 
 ```csharp
 static void Main(string[] args)
@@ -326,7 +326,7 @@ static void Main(string[] args)
     using (ContentModeratorClient client = NewClient())
     {
         // Create a review with the content pointing to a streaming endpoint (manifest)
-        var streamingcontent = "https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest";
+        var streamingcontent = "https://amssamples.streaming.mediaservices.chinacloudapi.cn/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest";
         string review_id = CreateReview(client, "review1", streamingcontent);
 
         var transcript = @"WEBVTT
@@ -367,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>导航到视频脚本评论
 
-转到“评论”>“视频”>“视频”屏幕上内容审查器评论工具中的的视频脚本评论**** **** ****。
+转到“评论”>“视频”>“视频”屏幕上内容审查器评论工具中的的视频脚本评论  。
 
 你会看到以下功能：
 - 你添加的两行脚本
@@ -383,3 +383,4 @@ Press any key to close the application.
 了解如何在评论工具中生成[视频评论](video-reviews-quickstart-dotnet.md)。
 
 查看有关如何开发[完整视频审查解决方案](video-transcript-moderation-review-tutorial-dotnet.md)的详细教程。
+

@@ -5,20 +5,21 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/20/2020
-ms.date: 11/16/2020
+origin.date: 10/29/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d92d6438a72630e7e62f63b5f40bfaa0b9009f7b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c3df87ced64e945d19a2e755fdf3933289439ea1
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552741"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152979"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
-本文提供了有关如何使用 Azure 导入/导出服务安全地将大量数据导入到 Azure Blob 存储的分步说明。 若要将数据导入到 Azure Blob，此服务要求你将包含数据的已加密磁盘驱动器寄送到某个 Azure 数据中心。  
+本文提供了有关如何使用 Azure 导入/导出服务安全地将大量数据导入到 Azure Blob 存储的分步说明。 若要将数据导入到 Azure Blob，此服务要求你将包含数据的已加密磁盘驱动器寄送到某个 Azure 数据中心。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -65,7 +66,7 @@ ms.locfileid: "94552741"
 7. 若要准备磁盘，请运行以下命令。 **这可能要花费几小时到几天时间，具体取决于数据大小。**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     在运行该工具的同一文件夹中会创建一个日志文件。 还会创建两个其他文件 - 一个 *.xml* 文件（您在其中运行工具的文件夹）和一个 *drive-manifest.xml* 文件（数据所在的文件夹）。
@@ -110,7 +111,7 @@ ms.locfileid: "94552741"
        * 此名称可以包含大写和小写字母、数字、连字符。
        * 此名称必须以字母开头，并且不得包含空格。
    * 选择一个订阅。
-   * 输入或选择一个资源组。  
+   * 输入或选择一个资源组。
 
      ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
@@ -216,6 +217,102 @@ ms.locfileid: "94552741"
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+使用以下步骤在 Azure PowerShell 中创建导入作业。
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> 尽管 Az.ImportExport PowerShell 模块为预览版，但你需要使用 `Install-Module` cmdlet 单独安装它。 
+
+```azurepowershell
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>创建作业
+
+1. 可以使用现有资源组，也可以创建新组。 若要创建资源组，请运行 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet：
+
+   ```azurepowershell
+   New-AzResourceGroup -Name myierg -Location chinaeast
+   ```
+
+1. 可以使用现有存储帐户，也可以创建一个存储帐户。 若要创建存储帐户，请运行 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet：
+
+   ```azurepowershell
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location chinaeast -EnableHttpsTrafficOnly $true
+   ```
+
+1. 若要获取可将磁盘寄送到的位置的列表，请使用 [Get-AzImportExportLocation](https://docs.microsoft.com/powershell/module/az.importexport/get-azimportexportlocation) cmdlet：
+
+   ```azurepowershell
+   Get-AzImportExportLocation
+   ```
+
+1. 使用带有 `Name` 参数的 `Get-AzImportExportLocation` cmdlet 获取区域的位置：
+
+   ```azurepowershell
+   Get-AzImportExportLocation -Name chinaeast
+   ```
+
+1. 运行以下 [New-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/new-azimportexport) 示例来创建导入作业：
+
+   ```azurepowershell
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'chinaeast'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = 'XXXX XXXX'
+      ShippingInformationCity = 'XXXX XXXX'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = 'XXXXXX'
+      ShippingInformationCountryOrRegion = 'China'
+      ShippingInformationPhone = '1234567890'
+      ReturnAddressRecipientName = 'XXXX XXXX'
+      ReturnAddressStreetAddress1 = 'XXXX XXXX'
+      ReturnAddressCity = 'XXXX'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = 'XXXXXX'
+      ReturnAddressCountryOrRegion = 'China'
+      ReturnAddressPhone = '1234567890'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'EMS'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+1. 使用 [Get-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/get-azimportexport) cmdlet 查看 myierg 资源组的所有作业：
+
+   ```azurepowershell
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 若要更新作业或取消作业，请运行 [Update-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/update-azimportexport) cmdlet：
+
+   ```azurepowershell
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

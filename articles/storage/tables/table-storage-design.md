@@ -1,20 +1,20 @@
 ---
 title: 在 Azure 表存储中设计可伸缩的高性能表。 | Microsoft Docs
-description: 在 Azure 表存储中设计可伸缩的高性能表。
+description: 了解如何在 Azure 表存储中设计可缩放的高性能表。 查看表分区、实体组事务以及容量和成本注意事项。
 services: storage
-author: WenJason
 ms.service: storage
+author: WenJason
+ms.author: v-jay
 ms.topic: article
 origin.date: 03/09/2020
-ms.date: 07/20/2020
-ms.author: v-jay
+ms.date: 11/30/2020
 ms.subservice: tables
-ms.openlocfilehash: 956646f2af7abf85e24db8dec02fe83f975c3052
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: e6ab64342b056820e6ce13bb620947a2a678edc2
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414688"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153079"
 ---
 # <a name="design-scalable-and-performant-tables"></a>设计可伸缩的高性能表
 
@@ -23,7 +23,7 @@ ms.locfileid: "86414688"
 要设计可伸缩的高性能表，必须考虑性能、可伸缩性和成本等诸多因素。 如果你以前为关系数据库设计过架构，则应当很熟悉这些注意事项，尽管 Azure 表服务存储模型与关系模型之间有一些相似之处，但也存在重大差异。 这些差异通常会导致不同的设计，这些设计对于熟悉关系数据库的人来说可能看起来不直观或是错误的，但如果正在设计 Azure 表服务等 NoSQL 键/值存储，就会体会到这些设计是合理的。 许多设计差异将反映这样一个事实：表服务旨在支持云级别应用程序，这些应用程序可包含数十亿个实体（或关系数据库术语所称的行）的数据，或者用于必须支持高事务量的数据集。 因此，需要以不同方式考虑如何存储数据，并了解表服务的工作原理。 相对于使用关系数据库的解决方案而言，设计良好的 NoSQL 数据存储可以使解决方案以更低的成本更进一步扩展。 本指南中介绍这些主题。  
 
 ## <a name="about-the-azure-table-service"></a>关于 Azure 表服务
-本部分重点介绍表服务的一些主要功能，这些功能尤其与设计性能和可伸缩性相关。 如果不熟悉 Azure 存储和表服务，请在阅读本文的其他部分之前，先阅读 [Azure 存储简介](../../storage/common/storage-introduction.md)和[通过 .NET 实现 Azure 表存储入门](../../cosmos-db/table-storage-how-to-use-dotnet.md)。 尽管本指南的重点是介绍表服务，但它也包括对 Azure 队列和 Blob 服务的论述，并介绍了如何将它们与表服务一起使用。  
+本部分重点介绍表服务的一些主要功能，这些功能尤其与设计性能和可伸缩性相关。 如果不熟悉 Azure 存储和表服务，请在阅读本文的其他部分之前，先阅读 [Azure 存储简介](../../storage/common/storage-introduction.md)和[通过 .NET 实现 Azure 表存储入门](../../cosmos-db/tutorial-develop-table-dotnet.md)。 尽管本指南的重点是介绍表服务，但它也包括对 Azure 队列和 Blob 服务的论述，并介绍了如何将它们与表服务一起使用。  
 
 什么是表服务？ 从名称可以推测出，表服务将使用表格格式来存储数据。 在标准术语中，表的每一行表示一个实体，而列存储该实体的各种属性。 每个实体都有唯一地标识它的一对键，还有一个时间戳列，表服务使用该列来跟踪实体的最后更新时间。 时间戳是自动应用的，无法使用任意值手动覆盖它。 表服务使用此上次修改时间戳 (LMT) 来管理开放式并发。  
 
@@ -38,7 +38,7 @@ ms.locfileid: "86414688"
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>时间戳</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -50,7 +50,7 @@ ms.locfileid: "86414688"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>年龄</th>
+<th>Age</th>
 <th>电子邮件</th>
 </tr>
 <tr>
@@ -70,11 +70,11 @@ ms.locfileid: "86414688"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>年龄</th>
+<th>Age</th>
 <th>电子邮件</th>
 </tr>
 <tr>
-<td>六月</td>
+<td>Jun</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -83,7 +83,7 @@ ms.locfileid: "86414688"
 </tr>
 <tr>
 <td>Marketing</td>
-<td>部门</td>
+<td>系</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -107,7 +107,7 @@ ms.locfileid: "86414688"
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>年龄</th>
+<th>Age</th>
 <th>电子邮件</th>
 </tr>
 <tr>
@@ -122,7 +122,7 @@ ms.locfileid: "86414688"
 </table>
 
 
-到目前为止，此数据看起来非常类似于关系数据库中的表，主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外，**FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 虽然与关系数据库中不同，表服务的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 若要深入了解表服务（例如支持的数据类型、支持的日期范围、命名规则和大小限制），请参阅 [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
+到目前为止，此数据看起来非常类似于关系数据库中的表，主要区别是有必需的列，以及能够在同一个表中存储多种实体类型。 此外，**FirstName** 或 **Age** 等用户定义的每个属性还具有数据类型（如 integer 或 string），就像关系数据库中的列一样。 虽然与关系数据库中不同，表服务的架构灵活性质意味着每个实体的属性不需要具有相同的数据类型。 若要在单个属性中存储复杂数据类型，必须使用序列化格式（例如，JSON 或 XML）。 若要深入了解表服务（例如支持的数据类型、支持的日期范围、命名规则和大小限制），请参阅 [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)（了解表服务数据模型）。
 
 对 **PartitionKey** 和 **RowKey** 的选择是实现良好的表设计的基础。 表中存储的每个实体都必须具有唯一的 **PartitionKey** 和 **RowKey**。 与关系数据库表中的键一样，将为 **PartitionKey** 和 **RowKey** 值编制索引来创建聚集索引以便快速地进行查找。 但是，表服务不创建任何辅助索引，因此，**PartitionKey** 和 **RowKey** 是唯一具有索引的属性。 [表设计模式](table-storage-design-patterns.md)中介绍的一些模式展示了可以如何解决此明显的限制。  
 
@@ -131,7 +131,7 @@ ms.locfileid: "86414688"
 ## <a name="table-partitions"></a>表分区
 帐户名称、表名称和 **PartitionKey** 共同标识存储服务中表服务用于存储实体的分区。 作为实体寻址方案的一部分，分区定义事务的作用域（详见下方的[实体组事务](#entity-group-transactions)），并构成表服务缩放方式的基础。 有关分区的详细信息，请参阅[表存储的性能与可伸缩性核对清单](storage-performance-checklist.md)。  
 
-在表服务中，单个节点为一个或多个完整的分区提供服务，并且该服务可通过对节点上的分区进行动态负载均衡来进行缩放。 如果某节点负载过轻，表服务将该节点针对的分区范围*拆分*为不同节点；流量下降时，该服务可将无操作的节点的分区范围*合并*为单个节点。  
+在表服务中，单个节点为一个或多个完整的分区提供服务，并且该服务可通过对节点上的分区进行动态负载均衡来进行缩放。 如果某节点负载过轻，表服务将该节点针对的分区范围 *拆分* 为不同节点；流量下降时，该服务可将无操作的节点的分区范围 *合并* 为单个节点。  
 
 有关表服务的内部细节（特别是服务管理分区的方式）的详细信息，请参阅文章 [Microsoft Azure 存储：具有非常一致性的高可用云存储服务](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)。  
 

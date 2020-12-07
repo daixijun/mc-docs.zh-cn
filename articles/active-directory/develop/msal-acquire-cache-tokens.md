@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ca53c347869320fd5f05f1ae9a841c3c97085f82
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: e8157cf60c8e383c6f5e30bbdeb1a749ae39092c
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647683"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970724"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>使用 Microsoft 身份验证库 (MSAL) 获取和缓存令牌
 
@@ -72,7 +72,7 @@ MSAL 维护一个令牌缓存（对于机密客户端应用程序，则会维护
 
 应用程序代码应该先尝试以无提示方式从缓存中获取令牌。 如果方法调用返回“需要 UI”错误或异常，请尝试通过其他方式获取令牌。
 
-但是，在下面的两个流中，**不应**尝试以无提示方式获取令牌：
+但是，在下面的两个流中，**不应** 尝试以无提示方式获取令牌：
 
 - [客户端凭据流](msal-authentication-flows.md#client-credentials)：不使用用户令牌缓存，而是使用应用程序令牌缓存。 在将请求发送到安全令牌服务 (STS) 之前，此方法负责验证此应用程序令牌缓存。
 - Web 应用中的[授权代码流](msal-authentication-flows.md#authorization-code)：因为它兑换应用程序通过将用户登录并让他们许可更多范围而获得的代码。 由于是将代码而不是将帐户作为参数传递，该方法在兑换代码之前无法查看缓存，而兑换代码需要调用服务。
@@ -101,7 +101,7 @@ MSAL 维护一个令牌缓存（对于机密客户端应用程序，则会维护
 
 对于机密客户端应用程序（Web 应用、Web API 或类似于 Windows 服务的守护程序应用程序），请执行以下操作：
 
-- 使用[客户端凭据流](msal-authentication-flows.md#client-credentials)获取**应用程序本身**而不是用户的令牌。 此方法可用于同步工具或者那些处理普通用户而不是特定用户的工具。
+- 使用 [客户端凭据流](msal-authentication-flows.md#client-credentials)获取 **应用程序本身** 而不是用户的令牌。 此方法可用于同步工具或者那些处理普通用户而不是特定用户的工具。
 - 使用适用于 Web API 的[代表流](msal-authentication-flows.md#on-behalf-of)代表用户调用 API。 系统会使用客户端凭据标识应用程序，以根据用户断言（例如 SAML 或 JWT 令牌）获取令牌。 需要在服务到服务调用中访问特定用户的资源的应用程序使用此流。
 - 在用户通过授权请求 URL 登录后，在 Web 应用中使用[授权代码流](msal-authentication-flows.md#authorization-code)获取令牌。 OpenID Connect 应用程序通常使用此机制，可让用户使用 Open ID Connect 登录，然后代表用户访问 Web API。
 
@@ -115,6 +115,10 @@ MSAL 维护一个令牌缓存（对于机密客户端应用程序，则会维护
 - 租户 ID 包含用户所在的租户。 对于来宾用户（Azure AD B2B 方案），租户 ID 是来宾租户，而不是唯一的租户。 以用户的名义传送令牌时，身份验证结果还包含有关此用户的信息。 对于未使用用户帐户请求令牌的机密客户端流（适用于应用程序），此用户信息为 null。
 - 令牌的颁发范围。
 - 用户的唯一 ID。
+
+## <a name="advanced-accessing-the-users-cached-tokens-in-background-apps-and-services"></a>（高级）在后台应用和服务中访问用户的缓存令牌
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

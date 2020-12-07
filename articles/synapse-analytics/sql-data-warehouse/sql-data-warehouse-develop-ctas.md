@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 03/26/2019
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: ecc5f9acca239a98bd01f30baec786ab24e43b91
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 808d55166ff6ef3c3a230c32909be6ad036ebcf8
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198502"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152931"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -207,62 +207,29 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>替换 Delete 语句的 ANSI Join
+## <a name="ansi-join-replacement-for-merge"></a>替换 MERGE 的 ANSI Join 
 
-有时，删除数据的最佳方法是使用 CTAS，特别是对于使用 ANSI Join 语法的 `DELETE` 语句。 这是因为，Synapse SQL 不支持在 `DELETE` 语句的 `FROM` 子句中使用 ANSI Join。 无需删除数据，可以选择要保留的数据。
-
-下面是转换后的 `DELETE` 语句示例：
+在 Azure Synapse Analytics 中，带有 NOT MATCHED BY TARGET 的 [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15)（预览版）要求目标是哈希分布式表。  一种解决方法是，用户可以使用带有 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) 或 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) 的 ANSI JOIN，以根据与另一个表的联接结果修改目标表数据。  示例如下。
 
 ```sql
-CREATE TABLE dbo.DimProduct_upsert
-WITH
-(   Distribution=HASH(ProductKey)
-,   CLUSTERED INDEX (ProductKey)
-)
-AS -- Select Data you want to keep
-SELECT p.ProductKey
-, p.EnglishProductName
-,  p.Color
-FROM  dbo.DimProduct p
-RIGHT JOIN dbo.stg_DimProduct s
-ON p.ProductKey = s.ProductKey;
+CREATE TABLE dbo.Table1   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+CREATE TABLE dbo.Table2   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+INSERT INTO dbo.Table1 VALUES(1, 10.0);  
+INSERT INTO dbo.Table2 VALUES(1, 0.0);  
+GO  
+UPDATE dbo.Table2   
+SET dbo.Table2.ColB = dbo.Table2.ColB + dbo.Table1.ColB  
+FROM dbo.Table2   
+    INNER JOIN dbo.Table1   
+    ON (dbo.Table2.ColA = dbo.Table1.ColA);  
+GO  
+SELECT ColA, ColB   
+FROM dbo.Table2;
 
-RENAME OBJECT dbo.DimProduct TO DimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
-```
-
-## <a name="replace-merge-statements"></a>替换 Merge 语句
-
-使用 CTAS 至少可以部分替换 merge 语句。 可以将 `INSERT` 和 `UPDATE` 合并成单个语句。 任何已删除的记录将在 `SELECT` 语句中受到限制，以便从结果中省略。
-
-以下示例适用于 `UPSERT`：
-
-```sql
-CREATE TABLE dbo.[DimProduct_upsert]
-WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED INDEX ([ProductKey])
-)
-AS
--- New rows and new versions of rows
-SELECT s.[ProductKey]
-, s.[EnglishProductName]
-, s.[Color]
-FROM      dbo.[stg_DimProduct] AS s
-UNION ALL  
--- Keep rows that are not being touched
-SELECT      p.[ProductKey]
-, p.[EnglishProductName]
-, p.[Color]
-FROM      dbo.[DimProduct] AS p
-WHERE NOT EXISTS
-(   SELECT  *
-    FROM    [dbo].[stg_DimProduct] s
-    WHERE   s.[ProductKey] = p.[ProductKey]
-);
-
-RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>显式声明数据类型和输出是否可为 null

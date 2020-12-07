@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 origin.date: 05/05/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: a2ababfd22ac1400ebc4b2d145c9dfaf12331505
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: d6757b3d05335f719ac79aa5e68a9b80a2fd89f1
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026631"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152958"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>公共基本负载均衡器的 Azure Monitor 日志
 
 可以在 Azure 中使用不同类型的日志对基本负载均衡器进行管理和故障排除。 可通过门户访问其中某些日志。 可以将日志流式传输到事件中心或 Log Analytics 工作区。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 Power BI 等各种工具中查看。  可从下表了解有关各种类型日志的详细信息。
 
-* **活动日志：** 可以使用[查看活动日志以监视对资源的操作](/azure-resource-manager/resource-group-audit)，查看提交到 Azure 订阅的所有活动及其状态。 活动日志默认情况下启用，并且可以在 Azure 门户中查看。
+* **活动日志：** 可以使用 [查看活动日志以监视对资源的操作](/azure-resource-manager/resource-group-audit)，查看提交到 Azure 订阅的所有活动及其状态。 活动日志默认情况下启用，并且可以在 Azure 门户中查看。
 * **警报事件日志：** 可以使用此日志查看负载均衡器引发的警报。 每隔五分钟收集一次负载均衡器的状态。 仅在引发了负载均衡器警报事件的情况下，才会向此日志写入相关内容。
 * **运行状况探测日志：** 可以使用此日志查看运行状况探测器检测到的问题，例如后端池中由于运行状况探测失败未从负载均衡器接收请求的实例数。 当运行状况探测状态发生更改时，将写入此日志。
 
@@ -155,7 +155,7 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 “dipDo
 可使用以下任意方法查看和分析活动日志数据：
 
 * **Azure 工具：** 通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户检索活动日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/management/view-activity-logs.md)一文中详细介绍了每种方法的分步说明。
-* **Power BI：** 如果还没有 [Power BI](https://azure.cn/pricing) 帐户，可以免费试用。 使用[适用于 Power BI 的 Azure 审核日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，可以借助预配置的仪表板分析数据，也可以自定义视图来满足自己的要求。
+* **Power BI：** 如果还没有 [Power BI](https://azure.cn/pricing) 帐户，可以试用它。 使用[适用于 Power BI 的 Azure 审核日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，可以借助预配置的仪表板分析数据，也可以自定义视图来满足自己的要求。
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>查看和分析运行状况探测和事件日志
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: 722e51309885307a694c2d45731e20d259df48b9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 722c7b8fbb90cdd409294109b951432b9db4bed5
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328087"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300898"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>了解 Azure Spring Cloud 中的应用状态
 
@@ -72,5 +72,5 @@ Azure Spring Cloud UI 提供有关正在运行的应用程序状态信息。  �
 
 
 ## <a name="see-also"></a>请参阅
-* [准备要部署到 Azure Spring Cloud 中的 Spring 或 Steeltoe 应用程序](spring-cloud-tutorial-prepare-app-deployment.md)
+* [准备要部署到 Azure Spring Cloud 中的 Spring 应用程序](spring-cloud-tutorial-prepare-app-deployment.md)
 

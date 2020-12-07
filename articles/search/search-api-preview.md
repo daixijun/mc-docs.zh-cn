@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 07/09/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 905abfce50b7503d91b6de60e1366ae1340873d6
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/22/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 7eb22222b6543e2cd0b0a0929a880f44a1e7f6f2
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020946"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300721"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure 认知搜索中的预览版功能
 
@@ -25,12 +25,12 @@ ms.locfileid: "90020946"
 |功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 类别 | 说明 | 可用性  |
 |---------|------------------|-------------|---------------|
 | [featuresMode 参数](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | 相关性（评分） | 展开相关性分数以显示详细信息：单字段相似度得分、单字段术语频率，以及单字段匹配的唯一标记数。 你可以在[自定义评分解决方案](https://github.com/Azure-Samples/search-ranking-tutorial)中使用这些数据点。 | 使用 api-version 为 2020-06-30-Preview 或 2019-05-06-Preview 的[搜索文档 (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) 添加此查询参数。 |
-| [本机 blob 软删除](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | 索引器、Azure blob| Azure 认知搜索中的 Azure Blob 存储索引器会识别处于软删除状态的 blob，并在编制索引过程中删除相应的搜索文档。 | 使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建索引器 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 添加此配置设置。 |
+| [本机 blob 软删除](search-howto-index-changed-deleted-blobs.md) | 索引器、Azure blob| Azure 认知搜索中的 Azure Blob 存储索引器会识别处于软删除状态的 blob，并在编制索引过程中删除相应的搜索文档。 | 使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建索引器 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 添加此配置设置。 |
 | [自定义实体查找技能](cognitive-search-skill-custom-entity-lookup.md ) | AI 扩充（技能组） | 可在用户自定义的单词和短语列表中查找文本的一项认知技能。 它使用此列表为包含任何匹配实体的所有文档加上标签。 该技能还支持一定程度的模糊匹配，应用此匹配方法可以查找类似但不完全相同的匹配项。 | 请使用门户中的技能组编辑器或使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建技能组 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) 来引用此预览版技能。 |
 | [PII 检测技能](cognitive-search-skill-pii-detection.md) | AI 扩充（技能组） | 编制索引期间使用的一项认知技能，它可以从输入文本中提取个人身份信息，并可让你通过多种方式在该文本中屏蔽此类信息。 | 请使用门户中的技能组编辑器或使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建技能组 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) 来引用此预览版技能。 |
 | [增量扩充](cognitive-search-incremental-indexing-conceptual.md) | 索引器配置| 将缓存添加到扩充管道。如果有针对性的修改（例如更新技能集或另一对象）不会更改内容，则此功能可让你重复使用现有的输出。 缓存仅适用于技能集生成的扩充文档。| 使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建索引器 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 添加此配置设置。 |
 | [Cosmos DB 索引器：MongoDB API、Gremlin API、Cassandra API](search-howto-index-cosmosdb.md) | 索引器数据源 | 对于 Cosmos DB，SQL API 已正式发布，但 MongoDB、Gremlin 和 Cassandra API 为预览版。 | 请[先注册](https://aka.ms/azure-cognitive-search/indexer-preview)，以便我们可以在后端为你的订阅启用支持（仅适用于 Gremlin 和 Cassandra）。 MongoDB 数据源可以在门户中配置。 否则，使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建数据源 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) 为所有三个 API 的数据源配置提供支持。 |
-|  [Azure Data Lake Storage Gen2 索引器](search-howto-index-azure-data-lake-storage.md) | 索引器数据源 | 为 Data Lake Storage Gen2 中的内容和元数据编制索引。| 你需要[注册](https://aka.ms/azure-cognitive-search/indexer-preview)，然后我们才能在后端为你的订阅启用支持。 使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建数据源 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) 访问此数据源。 |
+| [Azure Data Lake Storage Gen2 索引器](search-howto-index-azure-data-lake-storage.md) | 索引器数据源 | 为 Data Lake Storage Gen2 中的内容和元数据编制索引。| 你需要[注册](https://aka.ms/azure-cognitive-search/indexer-preview)，然后我们才能在后端为你的订阅启用支持。 使用 api-version=2020-06-30-Preview 或 api-version=2019-05-06-Preview 的[创建数据源 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) 访问此数据源。 |
 | [moreLikeThis](search-more-like-this.md) | 查询 | 查找与特定文档相关的文档。 早期预览版中已有此功能。 | 在 api-version 为 2020-06-30-Preview、2019-05-06-Preview、2016-09-01-Preview 或 2017-11-11-Preview 的[搜索文档 (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) 调用中添加此查询参数。 |
 
 ## <a name="how-to-call-a-preview-rest-api"></a>如何调用预览版 REST API
@@ -41,9 +41,9 @@ Azure 认知搜索始终先通过 REST API 预发布实验功能，再通过 .NE
 
 虽然某些预览版功能在门户和 .NET SDK 中可能可用，但 REST API 始终具有预览版功能。
 
-+ 对于搜索操作，当前预览版版本为 [ **`2020-06-30-Preview`** ](https://docs.microsoft.com/rest/api/searchservice/index-preview)。
++ 对于搜索操作，当前预览版版本为 [ **`2020-06-30-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-preview)。
 
-+ 对于管理操作，当前预览版版本为 [ **`2019-10-01-Preview`** ](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)。
++ 对于管理操作，当前预览版版本为 [ **`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)。
 
 早期预览版仍然可用，但随着时间推移会变得过时。 如果代码调用 `api-version=2019-05-06-Preview`、`api-version=2016-09-01-Preview` 或 `api-version=2017-11-11-Preview`，则这些调用仍然有效。 但是，只有最新预览版会获得改进。
 
@@ -59,7 +59,7 @@ Azure 认知搜索服务在多个版本内可用。 有关详细信息，请参�
 
 ## <a name="next-steps"></a>后续步骤
 
-查看搜索 REST API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助，或[联系支持人员](https://support.azure.cn/support/contact)。
+查看搜索 REST 预览版 API 参考文档。 如果遇到问题，请通过 [StackOverflow](https://stackoverflow.com/) 向我们寻求帮助，或[联系支持人员](https://support.azure.cn/support/contact)。
 
 > [!div class="nextstepaction"]
 > [搜索服务 REST API 参考（预览版）](https://docs.microsoft.com/rest/api/searchservice/index-preview)

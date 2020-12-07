@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 86dcdb0429e62bad48eef5835a891df8c380683d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 77fa24a7326da6fa21c74be0070056ffdec96a89
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327422"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190270"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>关于适用于 VMware VM 和物理服务器的移动服务
 
@@ -40,9 +40,7 @@ ms.locfileid: "94327422"
 
 - 确保符合所有推送安装[先决条件](vmware-azure-install-mobility-service.md)。
 - 确保所有服务器配置均符合[将 VMware VM 和物理服务器灾难恢复到 Azure 的支持矩阵](vmware-physical-azure-support-matrix.md)中的条件。
-- 从 9.36 版本开始，对于 SUSE Linux Enterprise Server 11 SP3、CentOS 5 和 Debian 7，请确保最新的安装程序[在配置服务器和横向扩展进程服务器上可用](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
-
-<!--Not Available on RHEL 5 -->
+- 从 9.36 版本开始，对于 SUSE Linux Enterprise Server 11 SP3、RHEL 5、CentOS 5 和 Debian 7，请确保最新的安装程序[在配置服务器和横向扩展进程服务器上可用](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
 
 以下部分介绍了推送安装工作流：
 
@@ -207,15 +205,18 @@ ms.locfileid: "94327422"
 
 安装程序文件 | 操作系统（仅限 64 位）
 --- | ---
-`Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 <br /> Windows Server 2012 R2 <br /> Windows Server 2012 <br /> Windows Server 2008 R2 SP1
-[等待手动下载并放置在此文件夹中](#rhel-5-or-centos-5-server) |  CentOS 5
-`Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` |  CentOS 6
-`Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` |  CentOS 7
-`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` |  CentOS 8
-`Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 <br /> 包括 SP2 和 SP3。
+`Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1
+[等待手动下载并放置在此文件夹中](#rhel-5-or-centos-5-server) | Red Hat Enterprise Linux (RHEL) 5 </br> CentOS 5
+`Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
+`Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
+`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 8 </br> CentOS 8
+`Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> 包括 SP2 和 SP3。
 [等待手动下载并放置在此文件夹中](#suse-11-sp3-server) | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15 
+`Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
+`Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7 
+`Microsoft-ASR_UA_version_OL8-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 8
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Ubuntu Linux 16.04 LTS 服务器
 `Microsoft-ASR_UA_version_UBUNTU-18.04-64_GA_date_release.tar.gz` | Ubuntu Linux 18.04 LTS 服务器
@@ -224,11 +225,9 @@ ms.locfileid: "94327422"
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
 `Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
 
-<!--Not Available on CentOS-->
-<!--Not Available on Oracle Enterprise Linux-->
 
 <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server"></a>
-## <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-centos-5-debian-7-server"></a>下载适用于 SUSE 11 SP3、CentOS 5 和 Debian 7 服务器的最新移动代理安装程序
+## <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server"></a>下载适用于 SUSE 11 SP3、RHEL 5 和 Debian 7 服务器的最新移动代理安装程序
 
 <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>
 ### <a name="suse-11-sp3-server"></a><a name="suse-11-sp3-server"></a>SUSE 11 SP3 服务器
@@ -244,7 +243,7 @@ ms.locfileid: "94327422"
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 <a name="#rhel-5-or-centos-5-server"></a>
-### <a name="centos-5-server"></a>CentOS 5 服务器
+### <a name="rhel-5-or-centos-5-server"></a>RHEL 5 或 CentOS 5 服务器
 
 从 9.36 版本开始作为更新或保护 RHEL 5 计算机的先决条件：
 

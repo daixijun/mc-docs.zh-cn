@@ -5,24 +5,21 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/29/2020
-ms.date: 11/16/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6fdd5257e0f1f1a574a24fce0ba89369d6beb93
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 740f86a57699d6aa6f749fd465f0fb3981c01d65
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552072"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152991"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
 ACL 继承已可用于在父目录下创建的新子项。 你现在还可以以递归方式为父目录的现有子项添加、更新和删除 ACL，而不必为每个子项单独进行这些更改。
-
-> [!NOTE]
-> 以递归方式设置访问列表的功能为公共预览版，在所有区域提供。  
 
 [库](#libraries) | [示例](#code-samples) | [最佳做法](#best-practice-guidelines)
 
@@ -30,7 +27,7 @@ ACL 继承已可用于在父目录下创建的新子项。 你现在还可以以
 
 - Azure 订阅。 请参阅[获取 Azure 试用版](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-- 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](data-lake-storage-quickstart-create-account.md)说明创建一个。
+- 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](create-data-lake-storage-account.md)说明创建一个。
 
 - 执行递归 ACL 过程所需的正确权限。 正确的权限包括下列任一项： 
 
@@ -417,6 +414,8 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 > [!NOTE]
 > 如果要设置 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`。
 
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请查看 [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 参考文章。
+
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 使用 [az storage fs access set-recursive](/cli/storage/fs/access#az_storage_fs_access_set_recursive) 命令以递归方式设置 ACL。
@@ -471,6 +470,8 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 }
 
 ```
+
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请参阅 .NET [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)。
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -574,6 +575,8 @@ def set_permission_recursively(is_default_scope):
      print(e)
 ```
 
+若要查看通过指定批大小以递归方式成批处理 ACL 的示例，请参阅 python [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)。
+
 ---
 
 ## <a name="update-an-acl-recursively"></a>以递归方式更新 ACL
@@ -603,6 +606,8 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 
 > [!NOTE]
 > 如果要更新 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`。
+
+若要查看通过指定批大小以递归方式成批更新 ACL 的示例，请查看 [Update-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) 参考文章。
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -647,6 +652,8 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
 
 }
 ```
+
+若要查看通过指定批大小以递归方式成批更新 ACL 的示例，请参阅 .NET [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)。
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -713,6 +720,8 @@ def update_permission_recursively(is_default_scope):
      print(e)
 ```
 
+若要查看通过指定批大小以递归方式成批处理 ACL 的示例，请参阅 python [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)。
+
 ---
 
 ## <a name="remove-acl-entries-recursively"></a>以递归方式删除 ACL 条目
@@ -738,6 +747,8 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 
 > [!NOTE]
 > 如果要删除 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`。
+
+若要查看通过指定批大小以递归方式成批删除 ACL 的示例，请查看 [Remove-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) 参考文章。
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -779,6 +790,8 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 
 }
 ```
+
+若要查看通过指定批大小以递归方式成批删除 ACL 的示例，请参阅 .NET [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)。
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -840,6 +853,8 @@ def remove_permission_recursively(is_default_scope):
      print(e)
 ```
 
+若要查看通过指定批大小以递归方式成批处理 ACL 的示例，请参阅 python [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)。
+
 ---
 
 ## <a name="recover-from-failures"></a>从故障中恢复
@@ -848,7 +863,7 @@ def remove_permission_recursively(is_default_scope):
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-将结果返回到变量。 通过管道将失败的条目传输到格式化的表。
+此示例将结果返回到变量，然后将失败的条目通过管道传递给已设置格式的表。
 
 ```powershell
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
@@ -863,6 +878,8 @@ $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemNa
 $result
 
 ```
+
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请查看 [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 参考文章。
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -904,6 +921,8 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
 
 }
 ```
+
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请参阅 .NET [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)。
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -965,23 +984,18 @@ def resume_set_acl_recursive(continuation_token):
      return continuation_token
 ```
 
+若要查看通过指定批大小以递归方式成批处理 ACL 的示例，请参阅 python [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)。
+
 ---
 
 如果你希望过程继续完成而不被权限错误中断，则可以指定它。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-此示例以递归方式设置 ACL 条目。 如果此代码遇到权限错误，它会记录该故障并继续执行。 此示例将结果（包括失败数）输出到控制台。 
+此示例使用 `ContinueOnFailure` 参数，这样，即使操作遇到权限错误也会继续执行。 
 
 ```powershell
-$ContinueOnFailure = $true
-
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
 echo "[Result Summary]"
 echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
@@ -989,6 +1003,8 @@ echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount
 echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
 echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
+
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请查看 [Set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) 参考文章。
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -1026,6 +1042,8 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
         counters.FailedChangesCount.ToString());
 }
 ```
+
+若要查看通过指定批大小以递归方式成批设置 ACL 的示例，请参阅 .NET [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)。
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -1085,6 +1103,8 @@ def continue_on_failure():
      print(e)
 ```
 
+若要查看通过指定批大小以递归方式成批处理 ACL 的示例，请参阅 python [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)。
+
 ---
 
 ## <a name="resources"></a>资源
@@ -1098,6 +1118,7 @@ def continue_on_failure():
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
+- [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)
 
 #### <a name="code-samples"></a>代码示例
 

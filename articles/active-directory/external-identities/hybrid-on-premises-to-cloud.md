@@ -4,26 +4,26 @@ description: 使用 Azure AD B2B 协作时所用的相同凭据，向本地托�
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 08/17/2020
+ms.topic: how-to
+ms.date: 11/23/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffdfc52842448263a28cbd61cc4e98747cf3bb1
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 130540f597b4a1608c2db7be702f22a60d38bbe6
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648113"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918302"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>使用 Azure AD B2B 协作向本地托管的合作伙伴帐户授予对云资源的访问权限
 
 在 Azure Active Directory (Azure AD) 推出之前，使用本地标识系统的组织一贯是在其本地目录中管理合作伙伴帐户。 在此类组织中，开始将应用转移到 Azure AD 时，需要确保合作伙伴能够访问所需的资源。 资源是本地还是云中并不重要。 此外，你希望合作伙伴用户能够对本地和 Azure AD 资源使用相同的登录凭据。 
 
-如果在本地目录中创建外部合作伙伴的帐户（例如，在 partners.contoso.com 域中为名为 Wendy Moran 的外部用户创建登录名为“wmoran”的帐户），则现在可将这些帐户同步到云。 具体而言，可以使用 Azure AD Connect 将合作伙伴帐户作为 Azure AD B2B 用户（即 UserType = Guest 的用户）同步到云。 这样，合作伙伴用户便可以使用与其本地帐户相同的凭据访问云资源，且不需要向他们授予超过需要的访问权限。 
+如果在本地目录中创建外部合作伙伴的帐户（例如，在 partners.contoso.com 域中为名为 Wendy Moran 的外部用户创建登录名为“wmoran”的帐户），则现在可将这些帐户同步到云。 具体而言，可以使用 Azure AD Connect 将合作伙伴帐户同步到云，这将创建 UserType = Guest 的用户帐户。 这样，合作伙伴用户便可以使用与其本地帐户相同的凭据访问云资源，且不需要向他们授予超过需要的访问权限。
 
 ## <a name="identify-unique-attributes-for-usertype"></a>识别 UserType 的唯一属性
 
@@ -38,7 +38,7 @@ ms.locfileid: "88648113"
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>配置 Azure AD Connect 来将用户同步到云
 
-在识别唯一属性后，可以配置 Azure AD Connect 来将这些用户作为 Azure AD B2B 用户（即 UserType = Guest 的用户）同步到云。 从授权角度来看，这些用户与通过 Azure AD B2B 协作邀请流程创建的 B2B 用户没有区别。
+在标识唯一属性后，可以配置 Azure AD Connect 来将这些用户同步到云，这将创建 UserType = Guest 的用户帐户。 从授权角度来看，这些用户与通过 Azure AD B2B 协作邀请流程创建的 B2B 用户没有区别。
 
 有关实现说明，请参阅[启用 UserType 同步](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)。
 

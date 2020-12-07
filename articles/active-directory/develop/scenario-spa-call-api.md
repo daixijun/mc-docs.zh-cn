@@ -2,24 +2,21 @@
 title: 生成调用 Web API 的单页应用 - Microsoft 标识平台 | Azure
 description: 了解如何生成调用 Web API 的单页应用程序
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 84a68bc6d6c6555abbb13f3a275c9a2fe8640252
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e8d4c6ae9478c677efd1c036f05f6b495c76bb87
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918367"
 ---
 # <a name="single-page-application-call-a-web-api"></a>单页应用程序：调用 Web API
 
@@ -55,7 +52,5 @@ MSAL Angular 包装器器利用 HTTP 拦截器自动以无提示方式获取访�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [转移到生产环境](scenario-spa-production.md)
+转到此方案中的下一篇文章：[移到生产环境](scenario-spa-production.md)。
 
-<!-- Update_Description: wording update -->

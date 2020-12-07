@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 376394f4a49ac1f0c4a93a4327971f622e2fe016
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: e7ce32b214dda470f52ea3a0c4d3a7457bfa30fa
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413598"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96301124"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>检查和编辑示例文件
 
@@ -16,11 +16,11 @@ ms.locfileid: "89413598"
 
 1. 转到 src/cloud-to-device-console-app 文件夹。 你可在此处看到 appsettings.json 文件和一些其他文件：
 
-    * c2d-console-app.csproj - Visual Studio Code 的项目文件。
-    * operations.json - 希望程序运行的操作的列表。
-    * Program.cs - 示例程序代码。 此代码：
+    * c2d-console-app.csproj - Visual Studio Code 的项目文件*_。
+    _ operations.json - 希望程序运行的操作的列表。*_
+    _ Program.cs - 示例程序代码*_。 此代码：
 
-        * 加载应用设置。
+        _ 加载应用设置。
         * 调用 IoT Edge 模块上的实时视频分析公开的直接方法。 可以通过调用模块的[直接方法](../../../direct-methods.md)来使用该模块分析实时视频流。
         * 暂停以检查“终端”窗口中程序的输出，并检查“输出”窗口中模块生成的事件 。
         * 调用直接方法以清理资源。
@@ -68,9 +68,18 @@ ms.locfileid: "89413598"
 
 ### <a name="prepare-to-monitor-events"></a>准备监视事件
 
-右键单击实时视频分析设备，并选择“开始监视内置事件终结点”。 需要执行此步骤，以在 Visual Studio Code 的“输出”窗口中监视 IoT 中心事件。 
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
 
-![开始监视](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
+1. 右键单击实时视频分析设备，并选择“开始监视内置事件终结点”。 需要执行此步骤，以在 Visual Studio Code 的“输出”窗口中监视 IoT 中心事件。 
+
+   ![开始监视](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>运行示例程序
 

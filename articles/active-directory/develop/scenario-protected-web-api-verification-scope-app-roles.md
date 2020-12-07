@@ -1,7 +1,7 @@
 ---
 title: 验证受范围和应用角色保护的 Web API | Azure
 titleSuffix: Microsoft identity platform
-description: 了解如何生成受保护的 Web API 和配置应用程序的代码。
+description: 验证 API 是否仅由代表具有适当范围的用户的应用程序以及具有适当应用程序角色的守护程序应用调用。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: bd362ef74c0c2a9fa9822660f14fd08e6757bb79
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 32d1e30d03ea1a0c461813652eb41c09a28159ed
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593813"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918379"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>受保护的 Web API：验证范围和应用角色
 
@@ -152,6 +152,5 @@ bool isAppOnlyToken = oid == sub;
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [移到生产环境](scenario-protected-web-api-production.md)
+转到此方案中的下一篇文章：[转向生产](scenario-protected-web-api-production.md)。
 

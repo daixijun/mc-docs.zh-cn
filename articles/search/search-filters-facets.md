@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 09/10/2020
+origin.date: 11/05/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0c215e88d2430ed92ff58fa4fe6b577a6852995e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: bacc91c39c747b42320b6d62eab538212187fabb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021592"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300080"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中生成分面筛选器 
 
@@ -30,7 +30,8 @@ ms.locfileid: "90021592"
 
 分面为动态并在查询中返回。 搜索响应带有用于导航结果的分面类别。 如果不熟悉分面，可通过以下示例了解分面导航结构。
 
-  ![显示搜索对话框的图像，其中包含按业务标题分组的筛选后搜索结果。 箭头指示结果是 facet 导航结构中显示的 facet。](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="筛选的搜索结果":::
+“显示搜索对话框的图像，其中包含按业务标题分组的筛选后搜索结果。 箭头指示结果是 facet 导航结构中显示的 facet”:::image-end:::
 
 不熟悉分面导航并希望了解更多详情？ 请参阅[如何在 Azure 认知搜索中实现分面导航](search-faceted-navigation.md)。
 

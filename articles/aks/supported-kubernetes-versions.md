@@ -4,17 +4,17 @@ description: 了解 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 版本支持
 services: container-service
 ms.topic: article
 origin.date: 09/08/2020
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 780df88eba3961e61ea467bebfa1e3593e436162
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: cbf97691166308d64fff4b91c59a1fcdf095b227
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024488"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
@@ -106,12 +106,12 @@ New Supported Version List
 
 你可以在 [AKS Kubernetes 发布日历](#aks-kubernetes-release-calendar)上参考即将推出的版本发布和弃用。
 
-对于 Kubernetes 的新**次要**版本
+对于 Kubernetes 的新 **次要** 版本
 1. AKS 至少在删除前 30 天在 [AKS 发行说明](https://aka.ms/aks/releasenotes)中发布预告，其中包含新版本发布的计划日期以及相应的旧版本弃用。
 2. AKS 会向具有 AKS 和门户访问权限的所有用户发布一个[服务运行状况通知](../service-health/service-health-overview.md)，并向订阅管理员发送一封电子邮件，其中包含计划的版本删除日期。
 3. 自版本删除起，用户有 30 天的时间升级到受支持的次要版本发布，以继续获得支持。
 
-对于 Kubernetes 的新**修补程序**版本
+对于 Kubernetes 的新 **修补程序** 版本
   * 由于修补程序版本的紧急性质，可以在修补程序变为可用时将其引入到服务中。
   * 通常情况下，对于新修补程序版本的发布，AKS 不会进行广泛的通信。 但是，AKS 会持续监视和验证可用的 CVE 修补程序，以便及时在 AKS 中支持它们。 如果发现修补程序或需要用户进行操作，AKS 将通知用户升级到新发布的修补程序。
   * 自从 AKS 中删除修补程序版本之时起，用户有 30 天的时间升级到受支持的修补程序并继续获取支持。
@@ -138,13 +138,15 @@ az aks get-versions --location chinaeast2 --output table
 
 <!--Not Available on [here](https://en.wikipedia.org/wiki/Kubernetes#History)-->
 
-|  K8s 版本 | 上游版本  | AKS 预览版  | AKS GA  | 生命周期终止 |
+|  K8s 版本 | 上游版本  | AKS 预览版  | AKS GA  | 生命周期结束 |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 2019 年 9 月 19 日  | 2019 年 1 月   | 2020 年 3 月  | 1.19 GA | 
+| 1.16  | 2019 年 9 月 19 日  | 2019 年 1 月   | 2020 年 3 月  | 2021 年 1 月* | 
 | 1.17  | 19-12-09  | 2019 年 1 月   | 2020 年 7 月  | 1.20 GA | 
 | 1.18  | 20-03-23  | 2020 年 5 月   | 2020 年 8 月  | 1.21 GA | 
 | 1.19  | 20-08-04  | 2020 年 9 月   | 2020 年 11 月  | 1.22 GA | 
-| 1.20  | 2020 年 12 月 8 日  | 2021 年 1 月   | 2021 年 3 月  | 1.23 GA | 
+| 1.20  | 2020 年 12 月 8 日  | 2021 年 1 月   | 2021 年 3 月  | 1.23 GA |
+
+\* 由于假期的原因，AKS 将 1.16 的生命周期从 2020 年 11 月延长至 2021 年 1 月。 [了解详细信息](https://github.com/Azure/AKS/releases/tag/2020-10-12)。
 
 ## <a name="faq"></a>常见问题解答
 
@@ -197,7 +199,7 @@ az aks get-versions --location chinaeast2 --output table
 <!-- LINKS - Internal -->
 
 [aks-upgrade]: upgrade-cluster.md
-[az-aks-get-versions]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_versions
+[az-aks-get-versions]: https://docs.azure.cn/cli/aks#az_aks_get_versions
 [preview-terms]: https://www.azure.cn/support/legal/subscription-agreement/
 
 <!-- Update_Description: update meta properties, wording update, update link -->

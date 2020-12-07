@@ -1,27 +1,27 @@
 ---
 title: 通过 REST API 暂停、恢复、缩放
-description: 通过 REST API 管理 Azure Synapse Analytics 数据仓库中的计算能力。
+description: 通过 REST API 在 Azure Synapse Analytics 中管理专用 SQL 池（以前称为 SQL DW）的计算能力。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 03/29/2019
-ms.date: 07/06/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 58ac5c7f59e980a29be987f6f4f984267345fae8
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 4730fefdd597ecd8f3fe2fd8f768e7b07c8969c4
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845911"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152964"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>适用于 Azure Synapse Analytics 数据仓库的 REST API
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的 REST API
 
-用于管理 Azure Synapse Analytics 数据仓库中的计算的 REST API。
+用于管理 Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的计算的 REST API。
 
 ## <a name="scale-compute"></a>缩放计算
 
@@ -65,7 +65,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 ## <a name="get-maintenance-schedule"></a>获取维护计划
 
-检查已经为数据仓库设置的维护计划。
+检查已为专用 SQL 池（以前称为 SQL DW）设置的维护计划。
 
 ```
 GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -74,7 +74,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 ## <a name="set-maintenance-schedule"></a>设置维护计划
 
-要为现有数据仓库设置并更新维护计划。
+设置和更新现有专用 SQL 池（以前称为 SQL DW）的维护计划。
 
 ```
 PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

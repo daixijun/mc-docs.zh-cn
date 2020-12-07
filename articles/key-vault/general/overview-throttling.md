@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 origin.date: 12/02/2019
-ms.date: 04/20/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 2cced5a1a870bbc34ac665b14cd247ab9fab781f
-ms.sourcegitcommit: fe9ccd3bffde0dd2b528b98a24c6b3a8cbe370bc
+ms.openlocfilehash: cf66ca8624df71685414233262e6d136191d23ac
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86471862"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300939"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 限制指南
 
@@ -31,7 +31,7 @@ Key Vault 最初设计用于在部署时存储和检索机密。  世界已经�
 
 Key Vault 最初是根据 [Azure Key Vault 服务限制](service-limits.md)中指定的限制创建的。  下面是最大化 Key Vault 吞吐率的一些建议指导原则/最佳做法：
 1. 确保已实施限制。  客户端必须遵循 429 指数退避策略，并确保按照下面的指导执行重试。
-1. 将 Key Vault 流量划分到多个保管库和不同区域。   为每个安全性/可用性域使用单独的保管库。   如果你有 5 个应用，每个应用已划分到 2 个区域，则我们建议配置 10 个保管库，其中每个保管库包含应用和区域特有的机密。  所有事务类型的订阅范围限制是单个 Key Vault 限制的 5 倍。 例如，每个订阅的“软件 - 其他”事务限制为每个订阅 10 秒内 10,000 个事务。 考虑在服务或应用中缓存机密，以便同时减少 Key Vault 的直接 RPS，并/或处理基于突发的流量。  还可以将流量划分到不同的区域，以最大程度地减少延迟并使用不同的订阅/保管库。  不要将超过订阅限制的流量发送到单个 Azure 区域中的 Key Vault 服务。
+1. 将 Key Vault 流量划分到多个保管库和不同区域。   为每个安全性/可用性域使用单独的保管库。   如果你有 5 个应用，每个应用已划分到 2 个区域，则我们建议配置 10 个保管库，其中每个保管库包含应用和区域特有的机密。  所有事务类型的订阅范围限制是单个 Key Vault 限制的 5 倍。 例如，每个订阅的“软件 - 其他”事务限制为每个订阅 10 秒内 5,000 个事务。 考虑在服务或应用中缓存机密，以便同时减少 Key Vault 的直接 RPS，并/或处理基于突发的流量。  还可以将流量划分到不同的区域，以最大程度地减少延迟并使用不同的订阅/保管库。  不要将超过订阅限制的流量发送到单个 Azure 区域中的 Key Vault 服务。
 1. 在内存中缓存从 Azure Key Vault 检索的机密，并尽可能地从内存中重新使用机密。  仅当缓存的副本停止工作（例如，因为它已在源中轮换）时，才从 Azure Key Vault 重新读取。 
 1. Key Vault 是为你自己的服务机密设计的。   如果存储客户的机密（尤其是对于高吞吐量密钥存储方案），请考虑将密钥放在支持加密的数据库中或存储帐户中，并只将主密钥存储在 Azure Key Vault 中。
 1. 可以在不访问 Key Vault 的情况下加密、包装和验证公钥操作，这不仅可以降低限制的风险，而且还能提高可靠性（前提是正确缓存公钥材料）。
@@ -56,7 +56,7 @@ Key Vault 最初是根据 [Azure Key Vault 服务限制](service-limits.md)中�
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>如何针对服务限制来限制应用
 
-以下是在服务受到限制时应实施的**最佳做法**：
+以下是在服务受到限制时应实施的 **最佳做法**：
 - 减少每个请求的操作数。
 - 减少请求频率。
 - 避免立即重试。 

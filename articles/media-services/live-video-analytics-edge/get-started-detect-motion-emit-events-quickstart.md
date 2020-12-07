@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: e84be22a676ee06f52266727d07c911a6c455b5e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: 38be8d3b936b33c5a06fe556f628b0095d03a262
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245560"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300014"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>快速入门：入门 - IoT Edge 上的实时视频分析
 
@@ -74,7 +74,16 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 按照以下说明使用 Azure IoT Tools 扩展连接到 IoT 中心。
 
-1. 在 Visual Studio Code 中选择“视图” > “资源管理器”。 或是选择 Ctrl+Shift+E。
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
+1. 选择”查看” > ”资源管理器”， 或选择 Ctrl+Shift+E。
 1. 在“资源管理器”选项卡的左下角，选择“Azure IoT 中心”。
 1. 选择“更多选项”图标以查看上下文菜单。 然后选择“设置 IoT 中心连接字符串”。
 1. 输入框出现时，在其中输入 IoT 中心连接字符串。 可以从 appsettings.json 中获取连接字符串。
@@ -82,6 +91,9 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 如果连接成功，边缘设备列表随即显示。 应该会看到至少一个设备，名为 lva-sample-device。 现在你可以管理 IoT Edge 设备，并通过上下文菜单与 Azure IoT 中心进行交互。 若有查看部署在边缘设备上的模块，请在“lva-sample-device”下，展开“模块”节点。
 
 ![lva-sample-device 节点](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> 如果你自己已在边缘设备（例如 ARM64 设备）上[手动部署了 IoT Edge 上的实时视频分析](deploy-iot-edge-device.md)，则你会在 Azure IoT 中心看到模块显示在该设备下。 你可以选择该模块，然后执行下面的剩余步骤。
 
 ## <a name="use-direct-method-calls"></a>使用直接方法调用
 

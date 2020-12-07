@@ -1,21 +1,21 @@
 ---
 title: 教程 - 将 Azure Key Vault 与通过 Python 编写的虚拟机配合使用 | Microsoft Docs
-description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
+description: 在本教程中，将为虚拟机配置一个 Python 应用程序，以便从密钥保管库读取机密。
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 origin.date: 07/20/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 65565a0f16bd91fe15aa87894be6725ade0e5702
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: fc457a3db3420bd7f366dc1b996c424927353207
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678527"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300915"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>教程：将 Azure Key Vault 与通过 Python 编写的虚拟机配合使用
 
@@ -83,7 +83,7 @@ az vm create \
 
 ## <a name="assign-an-identity-to-the-vm"></a>为 VM 分配标识
 
-使用 Azure CLI [az vm identity assign](/cli/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 命令为虚拟机创建系统分配的标识：
+使用 Azure CLI [az vm identity assign](/cli/vm/identity#az-vm-identity-assign) 命令为虚拟机创建系统分配的标识：
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

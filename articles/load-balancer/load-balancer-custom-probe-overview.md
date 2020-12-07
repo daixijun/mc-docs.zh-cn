@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 4c74d7de96bb83c4cb70c87300732990890defd6
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: cda2c117599c4140b5870dd4b1ee12674e669cf0
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026477"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306209"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -32,7 +32,6 @@ ms.locfileid: "91026477"
 | --- | --- | --- |
 | **[探测类型](#types)** | TCP、HTTP、HTTPS | TCP、HTTP |
 | **[探测停止行为](#probedown)** | 所有探测停止，所有 TCP 流继续。 | 所有探测停止，所有 TCP 流过期。 | 
-
 
 >[!IMPORTANT]
 >请通篇查看本文档，包括下面有关创建可靠服务的重要[设计指导原则](#design)。
@@ -240,11 +239,11 @@ AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-o
 
 如果在防火墙策略中不允许探测的[源 IP](#probesource)，运行状况探测将会失败，因为它无法访问实例。  而由于发生运行状况探测失败，负载均衡器会将实例标记为关闭。  这种错误的配置可能导致负载均衡的应用程序方案失败。
 
-要使负载均衡器的运行状况探测将实例标记为运行，**必须**在任何 Azure [网络安全组](../virtual-network/security-overview.md)和本地防火墙策略中允许此 IP 地址。  默认情况下，每个网络安全组都包含[服务标记](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer，以允许运行状况探测流量。
+要使负载均衡器的运行状况探测将实例标记为运行，**必须** 在任何 Azure [网络安全组](../virtual-network/security-overview.md)和本地防火墙策略中允许此 IP 地址。  默认情况下，每个网络安全组都包含[服务标记](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer，以允许运行状况探测流量。
 
 若要测试运行状况探测故障或者将单个实例标记为停止，可以使用[网络安全组](../virtual-network/security-overview.md)显式阻止该运行状况探测（目标端口或[源 IP](#probesource)），并模拟探测故障。
 
-不要使用 Azure 拥有的包含 168.63.129.16 的 IP 地址范围来配置 VNet。  这种配置与运行状况探测的 IP 地址冲突，可能导致方案失败。
+不要使用 Azure 拥有的包含 168.63.129.16 的 IP 地址范围来配置 VNet。 这种配置与运行状况探测的 IP 地址冲突，可能导致方案失败。
 
 如果 VM 上有多个接口，则需要确保能够响应收到请求的接口上的探测。  可能需要根据每个接口，对 VM 中的此地址进行源网络地址转换。
 

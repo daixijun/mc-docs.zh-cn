@@ -1,29 +1,29 @@
 ---
-title: Azure API 管理策略示例 - 使用外部授权程序授权请求 | Microsoft Docs
+title: 示例 API 管理策略 - 使用外部授权程序授权请求
+titleSuffix: Azure API Management
 description: Azure API 管理策略示例 - 展示了如何使用封装自定义或旧身份验证/授权逻辑的外部授权程序授权请求。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2018
-ms.date: 08/13/2018
-ms.author: v-yiso
-ms.openlocfilehash: 7b77b5e4b72ddddd66dd39f6af91a91eb017adb0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: b0ce9e79c453907d157738d128b79a879113fb60
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70736680"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306465"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>使用外部授权程序授权请求
 
-本文中的 Azure API 管理策略示例展示了如何使用封装自定义身份验证/授权逻辑的外部授权程序来保护 API 访问。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-samples.md)。
+本文中的 Azure API 管理策略示例展示了如何使用封装自定义身份验证/授权逻辑的外部授权程序来保护 API 访问。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-reference.md)。
 
 ## <a name="policy"></a>策略
 
@@ -101,4 +101,5 @@ ms.locfileid: "70736680"
 了解有关 APIM 策略的详细信息：
 
 + [访问限制策略](../api-management-access-restriction-policies.md)
-+ [策略示例](../policy-samples.md)
++ [策略示例](../policy-reference.md)
+

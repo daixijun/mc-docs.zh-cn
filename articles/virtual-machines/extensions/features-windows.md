@@ -11,17 +11,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6dcaf6e00bdf7c7fefcfc4c3f77c696b29f108d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5d847bc5e1b841857c2298edfbabf081cb485997
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106254"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300590"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -343,7 +343,7 @@ AutoUpgradeMinorVersion     : True
 
 若要查看何时对扩展执行了更新，请查看 VM 上的代理日志，路径为 *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-在以下示例中，VM 上安装了 *Microsoft.Compute.CustomScriptExtension 1.8* 。 为版本 *1.9* 提供了修补程序：
+在以下示例中，VM 上安装了 *Microsoft.Compute.CustomScriptExtension 1.8*。 为版本 *1.9* 提供了修补程序：
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -362,7 +362,7 @@ AutoUpgradeMinorVersion     : True
 
 1. 若要检查 Windows 来宾代理日志，请在 C:\WindowsAzure\Logs\WaAppAgent.log  中查看预配扩展时的活动
 
-2. 查看 *C:\WindowsAzure\Logs\Plugins\<extensionName>* 中的实际扩展日志，以了解更多详细信息
+2. 查看 C:\WindowsAzure\Logs\Plugins\\<extensionName> 中的实际扩展日志，以了解更多详细信息
 
 3. 查看特定扩展文档中有关错误代码和已知问题等的故障排除部分。
 
@@ -374,13 +374,13 @@ AutoUpgradeMinorVersion     : True
 
 2. 不符合最低先决条件。 某些扩展依赖于 VM SKU，例如 HPC 映像。 扩展可能需要满足特定的网络访问要求，例如，能够与 Azure 存储或公共服务通信。 其他原因包括访问包存储库、磁盘空间耗尽或安全限制。
 
-<!--Not Available on FEATURE HPC-->
+    <!--CORRECT ON such as HPC images-->
 
 3. 包管理器独占访问权限。 在某些情况下，可能会遇到长时间运行的 VM 配置与扩展安装相冲突的问题，两者都需要包管理器的独占访问权限。
 
 ### <a name="view-extension-status"></a>查看扩展状态
 
-针对 VM 运行 VM 扩展后，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 ( *Substatuses[1]* )。
+针对 VM 运行 VM 扩展后，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 (*Substatuses[1]* )。
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

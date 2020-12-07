@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 05/11/2020
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1b03fb88db706c4f53972dd43953dc7c219ab321
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b0b613763c8de278f0c8bf748849236eac702d94
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103668"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306254"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure 认知服务安全性
 
@@ -200,4 +200,6 @@ NSString* value =
 
 ## <a name="next-steps"></a>后续步骤
 
-* 探索各种[认知服务](welcome.md)
+* 探索各种[认知服务](./what-are-cognitive-services.md)
+* 详细了解[认知服务虚拟网络](cognitive-services-virtual-networks.md)
+

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 0558d1a6148b67b86242a43ee8893e05269570f3
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 743ac9b4c335c049d713551635ad02988b90b82f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244901"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300244"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒体服务实时传送视频流概述
 
@@ -93,7 +93,7 @@ Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传�
 
 下图显示的是直通工作流中涉及的 AMS 平台的主要组成部分。
 
-![实时工作流](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![此图显示了“直通”工作流的 AMS 平台的主要组成部分。](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 有关详细信息，请参阅[使用从本地编码器接收多比特率实时流的频道](media-services-live-streaming-with-onprem-encoders.md)。
 

@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/30/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 2a545545fa292560fd816e9bc3d0398643d31983
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: e2f3b6898674bcc6255757a29adca8d81a5d4c37
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021594"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300446"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>如何整形和导出扩充内容
 
@@ -357,7 +357,7 @@ ms.locfileid: "90021594"
 
 ```generatedKeyName``` 和 ```referenceKeyName``` 属性用于关联表之间的数据，甚至可以关联投影类型之间的数据。 子表/投影中的每一行都有一个指向回父级的属性。 子级中的列或属性的名称是来自父级的 ```referenceKeyName```。 如果未提供 ```referenceKeyName```，服务默认使用来自父级中 ```generatedKeyName``` 的名称。 
 
-Power BI 依赖于这些生成的键来发现表中的关系。 如果需要以不同的方式命名子表中的列，请在父表中设置 ```referenceKeyName``` 属性。 例如，将 ```generatedKeyName``` 设置为 pbiDocument 表的 ID，并将 ```referenceKeyName``` 设置为 DocumentID。 这会导致包含文档 ID 的 pbiEntities 和 pbiKeyPhrases 表中的列命名为 DocumentID。
+Power BI 依赖于这些生成的键来发现表中的关系。 如果需要以不同的方式命名子表中的列，请在父表中设置 ```referenceKeyName``` 属性。 例如，将 ```generatedKeyName``` 设置为 pbiDocument 表的 ID，并将 ```referenceKeyName``` 设置为 DocumentID。 这会导致包含文档 ID 的 pbiEntities 和 pbiKeyPhrases 表中的列被命名为 DocumentID。
 
 ## <a name="projecting-to-objects"></a>投影到对象
 
@@ -678,4 +678,3 @@ Power BI 依赖于这些生成的键来发现表中的关系。 如果需要以�
 
 > [!div class="nextstepaction"]
 > [知识存储中的投影](knowledge-store-projection-overview.md)
-

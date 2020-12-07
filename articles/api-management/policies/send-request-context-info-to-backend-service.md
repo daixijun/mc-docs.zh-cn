@@ -1,25 +1,25 @@
 ---
-title: Azure API 管理策略示例 - 将请求上下文信息发送到后端服务
+title: 示例 API 管理策略 - 将请求上下文信息发送到后端服务
+titleSuffix: Azure API Management
 description: Azure API 管理策略示例 - 演示如何将请求上下文信息发送到后端服务。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: 9e7b2cca5b1c220c2b28cb0fa2fce11cec2c7e33
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: cfc3d5bfcbf06eebf7b0615243093545543b8672
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63858235"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306424"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>将请求上下文信息转发到后端服务
 

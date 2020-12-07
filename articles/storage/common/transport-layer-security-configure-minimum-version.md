@@ -6,17 +6,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/27/2020
-ms.date: 11/09/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e90f74d920ff7bfc6033e53b3abc24310449e4a9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e1f1cd430dcabb472fc8c54fae2f4076f5754358
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329125"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153007"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>针对发送到存储帐户的请求强制实施必需的最低版本的传输层安全性 (TLS)
 
@@ -38,6 +38,8 @@ Azure 存储当前支持 TLS 协议的三个版本：1.0、1.1 和 1.2。 Azure 
 
 若要为存储帐户配置最低 TLS 版本，请为该帐户设置 **MinimumTlsVersion** 版本。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关 Azure 资源管理器部署模型的详细信息，请参阅[存储帐户概述](storage-account-overview.md)。
 
+默认情况下，不会设置 MinimumTlsVersion 属性。在你显式设置此属性之前，它不会返回值。  如果属性值为 null，则存储帐户会允许以 TLS 1.0 或更高版本发送的请求。
+
 # <a name="portal"></a>[Portal](#tab/portal)
 
 通过 Azure 门户创建存储帐户时，默认情况下，最低 TLS 版本设置为 1.2。
@@ -53,8 +55,6 @@ Azure 存储当前支持 TLS 协议的三个版本：1.0、1.1 和 1.2。 Azure 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 若要通过 PowerShell 为存储帐户配置最低的 TLS 版本，请安装 [Azure PowerShell 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 或更高版本。 接下来，为新的或现有的存储帐户配置 **MinimumTLSVersion** 属性。 **MinimumTlsVersion** 的有效值为 `TLS1_0`、`TLS1_1` 和 `TLS1_2`。
-
-通过 PowerShell 创建存储帐户时，默认情况下不会设置 **MinimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 1.0 或更高版本发送的请求。
 
 以下示例创建一个存储帐户并将 **MinimumTLSVersion** 设置为 TLS 1.1，然后更新该帐户并将 **MinimumTLSVersion** 设置为 TLS 1.2。 该示例还检索每个事例中的属性值。 请记得将括号中的占位符值替换为你自己的值：
 
@@ -85,8 +85,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要通过 Azure CLI 为存储帐户配置最低的 TLS 版本，请安装 Azure CLI 2.9.0 或更高版本。 有关详细信息，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 接下来，为新的或现有的存储帐户配置 **minimumTlsVersion** 属性。 **minimumTlsVersion** 的有效值为 `TLS1_0`、`TLS1_1` 和 `TLS1_2`。
-
-通过 Azure CLI 创建存储帐户时，默认情况下不会设置 **minimumTlsVersion** 属性。 在显式设置此属性之前，此属性不会返回值。 如果属性值为 **null** ，则存储帐户允许以 TLS 1.0 或更高版本发送的请求。
 
 以下示例创建一个存储帐户并将 **minimumTLSVersion** 设置为 TLS 1.1。 然后，它更新帐户并将 **minimumTLSVersion** 属性设置为 TLS 1.2。 该示例还检索每个事例中的属性值。 请记得将括号中的占位符值替换为你自己的值：
 
@@ -121,7 +119,7 @@ az storage account show \
 若要通过模板为存储帐户配置最低 TLS 版本，请创建一个将 **MinimumTLSVersion** 属性设置为 `TLS1_0`、`TLS1_1` 或 `TLS1_2` 的模板。 以下步骤说明了如何在 Azure 门户中创建模板。
 
 1. 在 Azure 门户中，选择“创建资源”。
-1. 在“搜索市场”中键入“模板部署”，然后按 **ENTER** 。 
+1. 在“搜索市场”中键入“模板部署”，然后按 **ENTER**。 
 1. 依次选择“模板部署(使用自定义模板进行部署)(预览版)”、“创建”、“在编辑器中生成自己的模板”。
 1. 在模板编辑器中，粘贴以下 JSON 以创建新帐户，并将最低 TLS 版本设置为 TLS 1.2。 请记得将尖括号中的占位符替换为你自己的值。
 

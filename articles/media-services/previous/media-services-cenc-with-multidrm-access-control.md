@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf59124fa32060d2371d1f3b6411286c35bd710c
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f0e994d13d3f43bf4179000bb9aaaa703447ae27
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245699"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300733"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒体服务设计带访问控制的内容保护系统
 
@@ -410,11 +410,11 @@ Azure AD 颁发的 JWT 是用于访问此指针资源的访问令牌。
 
 **自定义 Azure AD 租户域帐户**：自定义 Azure AD 租户域的自定义登录页。
 
-![自定义 Azure AD 租户域帐户](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![屏幕截图，显示自定义 Azure AD 租户域的自定义登录页。](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **采用智能卡的 Microsoft 域帐户**：由 Microsoft 公司 IT 部门自定义的、采用双重身份验证的登录页。
 
-![自定义 Azure AD 租户域帐户](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![此屏幕截图显示了由 Microsoft 公司 IT 部门自定义的、采用双重身份验证的登录页。](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft 帐户**：使用者的 Microsoft 帐户登录页。
 

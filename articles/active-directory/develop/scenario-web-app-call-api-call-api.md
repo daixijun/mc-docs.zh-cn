@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: d4765c8d1ffa66db91d8e2cc373fd5d96523c808
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 6473debf89d06be7c45fb9bcd7ae9e3dd93609ba
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937578"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918338"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>调用 Web API 的 Web 应用：调用 Web API
 
@@ -199,6 +199,5 @@ def graphcall():
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [转移到生产环境](scenario-web-app-call-api-production.md)
+转到此方案中的下一篇文章：[移到生产环境](scenario-web-app-call-api-production.md)。
 

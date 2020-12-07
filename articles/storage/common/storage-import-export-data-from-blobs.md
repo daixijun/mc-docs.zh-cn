@@ -5,16 +5,17 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/20/2020
-ms.date: 11/16/2020
+origin.date: 10/29/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 546fc171eb8aedb533bd05383e0cc6974e0d4a7b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 93701db8f3577c30e03a41853bb4fcebdfefb81a
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552742"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152998"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 
@@ -57,7 +58,7 @@ ms.locfileid: "94552742"
 
 5. 在“作业详细信息”中：
 
-    - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。 目前仅在中国东部和中国北部支持此功能。
+    - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。
     - 放置位置会根据选定存储帐户所属的区域自动进行填充。
     - 指定要从存储帐户导出到空驱动器的 blob 数据。
     - 选择“全部导出”以导出存储帐户中的所有 blob 数据。
@@ -72,7 +73,7 @@ ms.locfileid: "94552742"
 
     - 可以从 blob 列表文件进行导出。
 
-        ![从 blob 列表文件导出](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
+        ![从 blob 列表文件导出](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
 
    > [!NOTE]
    > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
@@ -171,6 +172,93 @@ ms.locfileid: "94552742"
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+使用以下步骤在 Azure PowerShell 中创建导出作业。
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> 尽管 Az.ImportExport PowerShell 模块为预览版，但你需要使用 `Install-Module` cmdlet 单独安装它。 
+
+```azurepowershell
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>创建作业
+
+1. 若要获取可从中接收磁盘的位置的列表，请使用 [Get-AzImportExportLocation](https://docs.microsoft.com/powershell/module/az.importexport/get-azimportexportlocation) cmdlet：
+
+   ```azurepowershell
+   Get-AzImportExportLocation
+   ```
+
+1. 运行以下 [New-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/new-azimportexport) 示例来创建使用现有存储帐户的导出作业：
+
+   ```azurepowershell
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'Myexportjob1'
+      Location = 'chinaeast'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      ExportBlobListblobPath = '\'
+      JobType = 'Export'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = 'XXXX XXXX'
+      ShippingInformationCity = 'XXXX XXXX'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = 'XXXXXX'
+      ShippingInformationCountryOrRegion = 'China'
+      ShippingInformationPhone = '1234567890'
+      ReturnAddressRecipientName = 'XXXX XXXX'
+      ReturnAddressStreetAddress1 = 'XXXX XXXX'
+      ReturnAddressCity = 'XXXX'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'China'
+      ReturnAddressPhone = '1234567890'
+      ReturnAddressEmail = 'gus@contoso.com'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+    > [!TIP]
+    > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
+   此作业会导出存储帐户中的所有 blob。 可以通过将此值替换为“-ExportBlobListblobPath”来指定要导出的 Blob：
+
+   ```azurepowershell
+   -ExportBlobListblobPath $root\logo.bmp
+   ```
+
+   此参数值会导出根容器中名为“logo.bmp”的 blob。
+
+   也可以选择使用前缀来选择容器中的所有 blob。 将此值替换为“-ExportBlobListblobPath”：
+
+   ```azurepowershell
+   -ExportBlobListblobPath '/myiecontainer'
+   ```
+
+   有关详细信息，请参阅[有效 blob 路径示例](#examples-of-valid-blob-paths)。
+
+   > [!NOTE]
+   > 如果在复制数据时，要导出的 blob 正在使用中，则 Azure 导入/导出服务将生成该 blob 的快照并复制快照。
+
+1. 使用 [Get-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/get-azimportexport) cmdlet 查看资源组 myierg 的所有作业：
+
+   ```azurepowershell
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. 若要更新作业或取消作业，请运行 [Update-AzImportExport](https://docs.microsoft.com/powershell/module/az.importexport/update-azimportexport) cmdlet：
+
+   ```azurepowershell
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
+
 ---
 ## <a name="step-2-ship-the-drives"></a>步骤 2：寄送驱动器
 
@@ -197,7 +285,7 @@ ms.locfileid: "94552742"
 
 使用以下命令解锁驱动器：
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`
 
 下面是示例输入的示例。
 

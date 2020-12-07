@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 09/28/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 33b307b6ba1d654b2f9c45549f9a5c1a9188b5fc
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 7207e07f1670f74c3dae444fb8930ced3b7cb089
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245633"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300688"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>使用 Azure 门户创建媒体服务帐户
 
@@ -36,7 +36,7 @@ ms.locfileid: "91245633"
 本文展示了如何使用 Azure 门户创建媒体服务帐户。
 
 > [!NOTE]
-> 若要了解 Azure 媒体服务功能在不同区域的可用性，请参阅 [AMS 功能的跨数据中心可用性](scenarios-and-availability.md#availability)。
+> 若要了解 Azure 媒体服务功能在不同区域的可用性，请参阅[跨区域的 AMS 功能](availability-regions-v-2.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -55,15 +55,15 @@ ms.locfileid: "91245633"
    3. 在“资源组”中，选择新的或现有的资源。  资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../../azure-resource-manager/management/overview.md#resource-groups)了解更多信息。
    4. 在“位置”中，选择用于存储媒体服务帐户的媒体和元数据记录的地理区域。 此区域用于处理和流式传输媒体。 下拉列表中仅显示可用的媒体服务区域。 
    5. 在“存储帐户”中，选择一个存储帐户以便为媒体服务帐户中的媒体内容提供 Blob 存储。 可选择媒体服务帐户所在的地理区域内的现有存储帐户，也可创建存储帐户。 在同一区域内会创建一个新的存储帐户。 适用于存储帐户名的规则对媒体服务帐户同样适用。
-      
+
        单击[此处](../../storage/common/storage-introduction.md)了解有关存储的详细信息。
    6. 选择“固定到仪表板”以查看帐户部署进度。
 4. 单击窗体底部的“创建”。
-   
+
     成功创建帐户后，会加载概述页。 在流式处理终结点表中，帐户包含一个处于“已停止”状态的默认流式处理终结点。 
 
     >[!NOTE]
-    >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+    >创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
    
 ## <a name="to-manage-your-ams-account"></a>管理 AMS 帐户
 

@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 10/28/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 12427344af4fc5e1b3d4bbb5543e6c7ae7f4b6f0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 02032653283fa77ed1c9b73ecda140d22ad89371
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470130"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024623"
 ---
 # <a name="manage-analysis-services"></a>管理 Analysis Services
 在 Azure 中创建 Analysis Services 服务器后，可能会有一些需要立即执行或在稍后操作期间执行的管理任务。 例如，处理刷新数据、控制谁有权访问服务器上的模型，或者监视服务器的运行状况。 某些管理任务仅可在 Azure 门户中执行，而其他一些可在 SQL Server Management Studio (SSMS) 中执行，还有部分在两者中均可执行。
@@ -23,12 +23,12 @@ ms.locfileid: "92470130"
 ## <a name="azure-portal"></a>Azure 门户
 在 [Azure 门户](https://portal.azure.cn/)中，可创建和删除服务器、监控服务器资源、更改大小和管理有权访问服务器的人员。  如果遇到问题，可提交支持请求。
 
-:::image type="content" source="./media/analysis-services-manage/aas-manage-portal.png" alt-text="在 Azure 中获取服务器名称":::
+:::image type="content" source="./media/analysis-services-manage/aas-manage-portal.png" alt-text="此屏幕截图显示了 Azure 门户，可以在其中创建和删除服务器、监视服务器资源、更改大小，并可管理有权访问服务器的人员。":::
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 就像连接到自身组织中的服务器实例一样，在 Azure 中连接到服务器。 可在 SSMS 中执行许多相同的任务，例如处理数据或创建处理脚本、管理角色和使用 PowerShell。
 
-:::image type="content" source="./media/analysis-services-manage/aas-manage-ssms.png" alt-text="在 Azure 中获取服务器名称":::
+:::image type="content" source="./media/analysis-services-manage/aas-manage-ssms.png" alt-text="SQL Server Management Studio":::
 
 ### <a name="download-and-install-ssms"></a>下载并安装 SSMS
 若要获取全部最新功能，并在连接至 Azure Analysis Services 服务器时享受最流畅的体验，请确保使用最新版本的 SSMS。 
@@ -54,11 +54,11 @@ ms.locfileid: "92470130"
     
     选择“Windows 身份验证”  ，以使用 Windows 域\用户名和密码凭据。
 
-    **Active Directory 密码身份验证** ，其使用组织帐户。 例如，从未加入域的计算机进行连接时。
+    **Active Directory 密码身份验证**，其使用组织帐户。 例如，从未加入域的计算机进行连接时。
 
     选择“Active Directory - 通用且具有 MFA 支持”  ，以使用[非交互式或多重身份验证](../azure-sql/database/authentication-mfa-ssms-overview.md)。 
 
-    :::image type="content" source="./media/analysis-services-manage/aas-manage-connect-ssms.png" alt-text="在 Azure 中获取服务器名称":::
+    :::image type="content" source="./media/analysis-services-manage/aas-manage-connect-ssms.png" alt-text="在 SSMS 中连接":::
 
 <a name="server-administrators"></a>
 ## <a name="server-administrators-and-database-users"></a><a name="server-administrators-and-database-users"></a>服务器管理员和数据库用户

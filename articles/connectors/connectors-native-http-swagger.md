@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 3f58e21b084538946ab2e1b8d408058b623696e0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: bb42dace20ae653a26ebf1195923cb7dd84a8752
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024625"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用调用 REST 终结点
 
@@ -32,6 +32,8 @@ ms.locfileid: "92470490"
     通常，REST 终结点必须满足此条件，连接器才能工作：
 
     * Swagger 文件必须托管在可公开访问的 HTTPS URL 上。
+
+    * Swagger 文件必须包含定义中每个操作的 `operationID`。 如果未包含，则连接器只显示 Swagger 文件中的最后一个操作。 
 
     * 必须为 Swagger 文件启用[跨域资源共享 (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)。
 
@@ -91,7 +93,7 @@ ms.locfileid: "92470490"
 
 1. 在设计器的搜索框中，输入“swagger”作为筛选器。 在“操作”列表中选择“HTTP + Swagger”操作。 
 
-    :::image type="content" source="./media/connectors-native-http-swagger/select-http-swagger-action.png" alt-text="选择 HTTP + Swagger 触发器":::
+    :::image type="content" source="./media/connectors-native-http-swagger/select-http-swagger-action.png" alt-text="选择 HTTP + Swagger 操作":::
 
 1. 在“SWAGGER 终结点 URL”框中，输入 Swagger 文件的 URL，然后选择“下一步”。 
 
@@ -99,17 +101,17 @@ ms.locfileid: "92470490"
 
     `https://chinaeast2.dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-parameters.png" alt-text="选择 HTTP + Swagger 触发器":::
+    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-parameters.png" alt-text="输入 Swagger 终结点的 URL":::
 
 1. 当设计器显示了 Swagger 文件描述的操作时，请选择要使用的操作。
 
-    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-operations.png" alt-text="选择 HTTP + Swagger 触发器":::
+    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-operations.png" alt-text="Swagger 文件中的操作":::
 
 1. 提供要包含在终结点调用中的操作参数的值（根据所选的操作而异）。
 
     此示例未使用参数，而是将操作重命名为“HTTP + Swagger action:Face - Identify”，使步骤名称更具描述性。
 
-    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-operation-details.png" alt-text="选择 HTTP + Swagger 触发器":::
+    :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-operation-details.png" alt-text="操作详细信息":::
 
 1. 要添加其他可用参数，请打开“添加新参数”列表，然后选择所需参数。
 
@@ -127,13 +129,13 @@ ms.locfileid: "92470490"
 
 1. 现在，为 Blob 启用 CORS。 在存储帐户的菜单中选择“CORS”。 在“Blob 服务”选项卡上指定值，然后选择“保存”。 
 
-    | 属性 | Value |
+    | 属性 | 值 |
     |----------|-------|
     | **允许的源** | `*` |
-    | **允许的方法** | `GET`、`HEAD`、`PUT` |
+    | **允许的方法** | `GET`, `HEAD`, `PUT` |
     | **允许的标头** | `*` |
     | **公开的标头** | `*` |
-    | **最大期限** （以秒为单位） | `200` |
+    | **最大期限**（以秒为单位） | `200` |
     |||
 
     此示例使用 [Azure 门户](https://portal.azure.cn)，不过，你也可以使用 [Azure 存储资源管理器](https://storageexplorer.com/)之类的工具，或使用此示例 [PowerShell 脚本](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)自动配置此设置。
@@ -152,14 +154,14 @@ ms.locfileid: "92470490"
 
 | 属性名称 | 类型 | 说明 |
 |---------------|------|-------------|
-| headers | object | 请求中的标头 |
-| body | object | JSON 对象 | 包含请求中正文内容的对象 |
+| headers | 对象 | 请求中的标头 |
+| body | 对象 | JSON 对象 | 包含请求中正文内容的对象 |
 | 状态代码 | int | 请求中的状态代码 |
 |||
 
 | 状态代码 | 说明 |
 |-------------|-------------|
-| 200 | OK |
+| 200 | 确定 |
 | 202 | 已接受 |
 | 400 | 错误的请求 |
 | 401 | 未授权 |

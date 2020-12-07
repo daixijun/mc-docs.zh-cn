@@ -5,22 +5,22 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/29/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f32351f287118450405dbeab4ade2ceb5ca06b1f
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 4412c36c3b316e71cd6b485cc9e4cbf6945dd797
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026527"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152982"
 ---
 # <a name="enable-and-create-large-file-shares"></a>启用和创建大型文件共享
 
-在存储帐户中启用大型文件共享时，文件共享最大可以扩展到 100 TiB。 可以在现有存储帐户中为现有的文件共享启用此缩放。
+在存储帐户上启用大文件共享时，文件共享可以纵向扩展到 100 TiB，同时还可以提高标准共享的 IOPS 和吞吐量上限。 也可以在现有存储帐户中为现有的文件共享启用此缩放。 有关详细信息，请参阅[文件共享和文件缩放目标](storage-files-scale-targets.md#azure-files-scale-targets)。 
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 - 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
 - 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest)。

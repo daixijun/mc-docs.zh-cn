@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/20/2020
-ms.date: 09/10/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 43ce9b7858e43f2e43a7f5307b6297060ea2776e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 7ce03949ff6a52d614705f607b7070c97018035c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020951"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300723"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>用于 Azure 认知搜索中文本处理的分析器
 
@@ -150,7 +150,7 @@ Azure 认知搜索允许通过附加的 indexAnalyzer 和 searchAnalyzer 字段�
 * 在这种情况下，自定义分析器为“my_analyzer”，它将反过来使用自定义的标准分词器“my_standard_tokenizer”和两个词元筛选器：小写的自定义 asciifolding 筛选器“my_asciifolding”。
 * 它还定义了 2 个自定义字符型筛选器“map_dash”和“remove_whitespace”。 第一个使用下划线替换所有破折号，而第二个用于删除所有空格。 空间需要在映射规则中进行 UTF-8 编码。 字符型筛选器在标记化之前进行应用并将影响生成的标记（标准 tokenizer 在破折号和空格上中断，但不会在下划线上中断）。
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -209,7 +209,7 @@ Azure 认知搜索允许通过附加的 indexAnalyzer 和 searchAnalyzer 字段�
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -219,7 +219,7 @@ Azure 认知搜索允许通过附加的 indexAnalyzer 和 searchAnalyzer 字段�
 
 “分析器”元素逐字段替代标准分析器。 不能全局替代。 在本例中，`text1` 使用 Pattern 分析器和 `text2`，它不指定分析器，仅使用默认值。
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -242,7 +242,7 @@ Azure 认知搜索允许通过附加的 indexAnalyzer 和 searchAnalyzer 字段�
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -251,7 +251,7 @@ Azure 认知搜索允许通过附加的 indexAnalyzer 和 searchAnalyzer 字段�
 API 包括为索引和搜索指定不同分析器的其他索引属性。 必须以对的形式指定 **searchAnalyzer** 和 **indexAnalyzer** 属性，并替换单个 **analyzer** 属性。
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -270,7 +270,7 @@ API 包括为索引和搜索指定不同分析器的其他索引属性。 必须
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -278,7 +278,7 @@ API 包括为索引和搜索指定不同分析器的其他索引属性。 必须
 
 包含其他语言字符串的字段可使用语言分析器，而其他字段将保留默认值（或使用某些其他预定义或自定义分析器）。 如果使用语言分析器，则必须将其同时用于索引和搜索操作。 使用语言分析器的字段不得对索引和搜索使用不同的分析器。
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -303,7 +303,7 @@ API 包括为索引和搜索指定不同分析器的其他索引属性。 必须
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>C# 示例
 
@@ -320,7 +320,7 @@ API 包括为索引和搜索指定不同分析器的其他索引属性。 必须
 
 此示例将 Microsoft 英语和法语分析器分配给说明字段。 它是从更大的酒店索引定义中提取的代码片段，使用 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 示例的 hotels.cs 文件中的酒店类进行创建。
 
-调用[分析器](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)，指定 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 类型，提供在 Azure 认知搜索中受支持的文本分析器。
+调用 [LexicalAnalyzer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer)，指定 [LexicalAnalyzerName](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 类型，提供在 Azure 认知搜索中受支持的文本分析器。
 
 ```csharp
     public partial class Hotel
@@ -346,7 +346,7 @@ API 包括为索引和搜索指定不同分析器的其他索引属性。 必须
 
 如果需要自定义或配置，则需向索引添加分析器构造。 定义以后，即可将其添加到字段定义，如上一示例所示。
 
-创建 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) 对象。 如需更多示例，请参阅 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)。
+创建 [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.customanalyzer) 对象。 如需更多示例，请参阅 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)。
 
 ```csharp
 {

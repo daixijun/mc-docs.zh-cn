@@ -8,13 +8,14 @@ ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: ccab1737ae5c9a210617fdeb4600bc38fe5db21b
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 1fff9d2287786991f03e824e68e6334ea1cc27c8
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470173"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024542"
 ---
+<!--Verified successfully till Nov 2019-->
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
 使用 Azure Kubernetes 服务 (AKS)，可以提供 *kube-apiserver* 和 *kube-controller-manager* 等主组件作为托管服务。 创建和管理运行 *kubelet* 与容器运行时的节点，并通过托管的 Kubernetes API 服务器部署应用程序。 为帮助排查应用程序和服务问题，可能需要查看这些主组件生成的日志。 本文介绍如何使用 Azure Monitor 日志从 Kubernetes 主组件启用和查询日志。
@@ -50,9 +51,11 @@ Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS �
 
 除了 Kubernetes 编写的条目，项目的审核日志还包含 来自 AKS 的条目。
 
-审核日志记录为两种类别：kube-audit-admin 和 kube-audit 。 kube-audit 类别包含每个审核事件的所有审核日志数据，包括 get、list、create、update、delete、patch 和 post       。
+审核日志记录为三种类别：kube-audit、kube-audit-admin 和 guard  。
 
-kube-audit-admin 类别是 kube-audit 日志类别的子集 。 kube-audit-admin 通过从日志中排除 get 和 list 审核事件，大大减少了日志数量  。
+- kube-audit 类别包含每个审核事件的所有审核日志数据，包括 get、list、create、update、delete、patch 和 post       。
+- kube-audit-admin 类别是 kube-audit 日志类别的子集 。 kube-audit-admin 通过从日志中排除 get 和 list 审核事件，大大减少了日志数量  。
+- guard 类别是托管的 Azure AD 和 Azure RBAC 审核。 对于托管的 Azure AD：输入令牌，输出用户信息。对于 Azure RBAC：输入和输出访问评审。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 群集上计划测试 pod
 
@@ -66,7 +69,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: dockerhub.azk8s.cn/library/nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -88,7 +91,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>查看收集的日志
 
-可能需要等待几分钟，诊断日志才会启用并显示。
+可能需要等待长达 10 分钟，诊断日志才会启用并显示。
 
 > [!NOTE]
 > 如果需要将所有审核日志数据用于实现合规性或其他目的，请收集这些数据并将其存储在成本较低的存储（例如 blob 存储）中。 使用 kube-audit-admin 日志类别收集和保存有意义的审核日志数据集，以便进行监视和发出警报。
@@ -128,7 +131,6 @@ AzureDiagnostics
 | where log_s contains "nginx"
 | project log_s
 ```
-
 
 有关如何查询和筛选日志数据的详细信息，请参阅[查看或分析使用 Log Analytics 日志搜索收集的数据][analyze-log-analytics]。
 
@@ -181,6 +183,9 @@ AKS 记录以下事件：
 [az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
 [az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
 [az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
+
+<!--MOONCAKE CUSTOMIZE ON URL NOT HAVE REFERENCE WITH AZURE DOCS-->
+
 [log-schema-azureactivity]: https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity
 [log-schema-azurediagnostics]: https://docs.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics
@@ -199,5 +204,6 @@ AKS 记录以下事件：
 [log-schema-kubeservices]: https://docs.microsoft.com/azure/azure-monitor/reference/tables/kubeservices
 [log-schema-perf]: https://docs.microsoft.com/azure/azure-monitor/reference/tables/perf
 
+<!--MOONCAKE CUSTOMIZE ON URL NOT HAVE REFERENCE WITH AZURE DOCS-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

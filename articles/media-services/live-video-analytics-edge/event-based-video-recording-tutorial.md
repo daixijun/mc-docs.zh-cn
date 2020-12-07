@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 05/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 42b486490133c7f48c3669920e7add48e51d4111
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: 0d8f5078dba5bec82d3d490809a17be0ab653351
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245565"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300170"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将基于事件的视频录制到云中并从云中播放
 
@@ -193,8 +193,16 @@ ms.locfileid: "91245565"
     
 ## <a name="run-the-program"></a>运行程序
 
-1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
+1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
+1. 右键单击并选择“扩展设置”。
 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="扩展设置":::
+1. 搜索并启用“显示详细消息”。
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
+1. <!--In Visual Studio Code, go-->转到 src/cloud-to-device-console-app/operations.json。
 1. 在 GraphTopologySet 节点下，编辑以下内容：
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
@@ -203,7 +211,6 @@ ms.locfileid: "91245565"
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. 选择 F5 以启动调试会话。 在“终端”窗口中，你将看到一些输出的消息。
-
 1. operations.json 文件首先调用 GraphTopologyList 和 GraphInstanceList。 如果在先前的快速入门或教程后清理了资源，此操作会返回空列表，然后暂停以便你能够选择 Enter，如下所示：
 
     ```
@@ -221,7 +228,6 @@ ms.locfileid: "91245565"
     Executing operation WaitForInput
     Press Enter to continue
     ```
-
 1. 在“终端”窗口中选择 Enter 后，会执行下一组直接方法调用 ：
    * 使用上述 topologyUrl 调用 GraphTopologySet
    * 使用以下正文调用 GraphInstanceSet
@@ -255,11 +261,9 @@ ms.locfileid: "91245565"
    * 再次调用 GraphInstanceList 以显示图形实例处于运行状态
      
 1. “终端”窗口中的输出现在会在出现“按 Enter 继续”提示时暂停 。 此时请勿选择 Enter。 向上滚动，查看调用的直接方法的 JSON 响应有效负载。
-
 1. 如果现在切换到 Visual Studio Code 中的“输出”窗口，则将看到 IoT Edge 上的实时视频分析模块向 IoT 中心发送消息。
 
    下节中讨论了这些消息。
-     
 1. 图形实例继续运行并录制视频。 RTSP 模拟器不断循环源视频。 根据下一部分中的介绍审阅这些消息。 然后，若要停止实例，请返回“终端”窗口，并选择 Enter 。 接下来会使用以下方法执行一系列调用，以清理资源：
 
    * 调用 GraphInstanceDeactivate 以停用图形实例。

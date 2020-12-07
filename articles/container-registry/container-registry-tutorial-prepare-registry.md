@@ -4,23 +4,21 @@ description: 创建 Azure 容器注册表，配置异地复制，准备 Docker �
 ms.topic: tutorial
 origin.date: 06/30/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 12/09/2019
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 8230872d4604d9796d7dac02f78a2df480d3b89c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 384af5cce2a69dc362c214d4f8032840a3ca97cc
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106282"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024490"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
 Azure 容器注册表是部署在 Azure 中的专用 Docker 注册表，能使部署尽量靠近网络。 本套教程由三篇文章构成，介绍如何使用异地复制将 Linux 容器中运行的 ASP.NET Core Web 应用程序部署到两个[用于容器的 Web 应用](../app-service/index.yml)实例。 在其中可以了解 Azure 如何通过最靠近的异地复制存储库将映像部署到每个 Web 应用实例。
-
-<!--Not Available on [Web Apps for Containers](../app-service/containers/index.yml)-->
 
 在这套由三个部分构成的系列教程中，第一部分的内容包括：
 
@@ -53,7 +51,7 @@ Azure 本地 Shell 不包含完成本教程每个步骤所需的 Docker 组件�
 
 <!--MOONCAKE: CUSTOMIZE-->
 
-选择“创建资源”，在“新建”页的筛选器栏中键入“容器注册表”，然后按 Enter 键，最后在“市场”页中选择“容器注册表”来创建容器注册表。
+选择“创建资源”，在“新建”页的筛选器栏中键入“容器注册表”，按 Enter 键，然后在“市场”页中选择“容器注册表”来创建容器注册表。
 
 <!--MOONCAKE: CUSTOMIZE-->
 
@@ -61,10 +59,10 @@ Azure 本地 Shell 不包含完成本教程每个步骤所需的 Docker 组件�
 
 使用以下设置配置新注册表。 在“基本信息”选项卡中：
 
-* **注册表名称** ：创建在 Azure 中全局唯一的、包含 5-50 个字母数字字符的注册表名称
-* **资源组** ： **新建** > `myResourceGroup`
-* **位置** ：`China North`
-* **SKU** ：`Premium`（异地复制需要此项设置）
+* **注册表名称**：创建在 Azure 中全局唯一的、包含 5-50 个字母数字字符的注册表名称
+* **资源组**：**新建** > `myResourceGroup`
+* **位置**：`China North`
+* **SKU**：`Premium`（异地复制需要此项设置）
 
 依次选择“查看 + 创建”和“创建”来创建注册表实例 。
 
@@ -81,19 +79,19 @@ Azure 本地 Shell 不包含完成本教程每个步骤所需的 Docker 组件�
 
 在 Azure 门户中导航到新的容器注册表，选择“服务”下面的“复制项” ：
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure 门户容器注册表 UI 中的复制项":::
 
 此时会出现一幅地图，其中显示了绿色的六边形，表示支持异地复制的 Azure 区域：
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure 门户中的区域地图":::
 
 选择注册表对应的绿色六边形将它复制到“中国东部”区域，然后选择“创建复制项”下面的“创建”： 
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure 门户中的“创建复制项”UI":::
 
 完成复制后，门户会显示两个区域的“就绪”状态。 使用“刷新”按钮刷新复制状态；创建并同步副本可能需要大约一分钟时间。
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure 门户中的复制项状态 UI":::
 
 ## <a name="enable-admin-account"></a>启用管理员帐户
 
@@ -101,7 +99,7 @@ Azure 本地 Shell 不包含完成本教程每个步骤所需的 Docker 组件�
 
 在 Azure 门户中导航到新的容器注册表，选择“设置”下面的“访问密钥” 。 在“管理员用户”下，选择“启用” 。
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="在 Azure 门户中启用管理员帐户":::
 
 ## <a name="container-registry-login"></a>容器注册表登录
 
@@ -119,7 +117,7 @@ az acr login --name <acrName>
 
 本教程中的示例包括使用 [ASP.NET Core][aspnet-core] 生成的小型 Web 应用程序。 该应用提供一个 HTML 页面，其中显示了 Azure 容器注册表已从中部署映像的区域。
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="在 Azure 门户中配置容器注册表":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="显示在浏览器中的教程应用":::
 
 使用 git 将示例下载到某个本地目录，并执行 `cd` 切换到该目录：
 
@@ -132,19 +130,19 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>更新 Dockerfile
 
-示例中包含的 Dockerfile 演示如何生成容器。 它首先创建一个正式的 [aspnetcore][dockerhub-aspnetcore] 映像，将应用程序文件复制到容器，安装依赖项，使用正式的 [aspnetcore-build][dockerhub-aspnetcore-build] 映像编译输出，最后生成优化的 aspnetcore 映像。
+示例中包含的 Dockerfile 演示如何生成容器。 它首先创建一个正式的 ASP.NET Core 运行时映像，将应用程序文件复制到容器，安装依赖项，使用正式的 .NET Core SDK 映像编译输出，最后生成优化的 aspnetcore 映像。
 
 在克隆的源中，[Dockerfile][dockerfile] 位于 `./AcrHelloworld/Dockerfile`。
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.cn
 ENV DOCKER_REGISTRY <acrName>.azurecr.cn
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -196,8 +194,8 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.cn/acr-hellowo
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -255,8 +253,6 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile
 
 <!-- Update_Description: update meta properties, wording update, update link -->

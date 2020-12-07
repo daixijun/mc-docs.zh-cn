@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: fc591628d2d3e0ee2041167d8405f7c64d47d4a7
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 04388e724c7c548f97b9c22dac58b32c74c09002
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244887"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300687"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>在 Azure 门户中使用本地编码器实时传送流
 
@@ -134,7 +134,7 @@ ms.locfileid: "91244887"
 ## <a name="get-ingest-urls"></a>获取引入 URL
 创建通道后，可以获得要提供给实时编码器的引入 URL。 编码器使用这些 URL 来输入实时流。
 
-![已创建](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![此屏幕截图显示了“实时传送视频流”页，其中选择了一个频道并显示了频道窗格。](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>观看事件
 如果要观看事件，请在 Azure 门户中单击“观看”  ，或者先复制流式处理 URL，然后使用所选播放器进行播放。 

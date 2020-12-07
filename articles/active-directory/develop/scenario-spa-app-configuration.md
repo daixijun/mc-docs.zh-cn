@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: bca2008e6f3ee9acd073d1ee495523ba4de7eab8
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 910c1f423ea8b9839b01dc7afb7fcf741a29556f
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593629"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918373"
 ---
 # <a name="single-page-application-code-configuration"></a>单页应用程序：代码配置
 
@@ -75,6 +75,5 @@ export class AppModule { }
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [登录和注销](scenario-spa-sign-in.md)
+转到此方案中的下一篇文章：[登录和注销](scenario-spa-sign-in.md)。
 

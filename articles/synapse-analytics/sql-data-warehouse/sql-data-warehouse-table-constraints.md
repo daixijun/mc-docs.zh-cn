@@ -1,44 +1,44 @@
 ---
 title: 主键、外键和唯一键
-description: Azure Synapse Analytics 的 Synapse SQL 池中的表约束支持
+description: 在 Azure Synapse Analytics 中使用专用 SQL 池时的表约束支持
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 09/05/2019
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 48f2fef7169247687d625d05f85af531c2a52b2b
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 8e6871cab676bb03c6a4484b806c1507f049a41e
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198438"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153103"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Synapse SQL 池中的主键、外键和唯一键
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用专用 SQL 池的主键、外键和唯一键
 
-了解 Synapse SQL 池中的表约束，包括主键、外键和唯一键。
+了解专用 SQL 池中的表约束，包括主键、外键和唯一键。
 
 ## <a name="table-constraints"></a>表约束
 
-Synapse SQL 池支持以下表约束： 
+专用 SQL 池支持以下表约束： 
 - 仅当同时使用 NONCLUSTERED 和 NOT ENFORCED 时才支持 PRIMARY KEY。    
 - 仅在使用 NOT ENFORCED 时才支持 UNIQUE 约束。
 
 有关语法，请查看 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 和 [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)。 
 
-Synapse SQL 池不支持外键约束。  
+专用 SQL 池不支持外键约束。  
 
 
 ## <a name="remarks"></a>备注
 
-有了主键和/或唯一键，Synapse SQL 池引擎就可以为查询生成最佳执行计划。  主键列或唯一约束列中的所有值都应独一无二。
+有了主键和/或唯一键，专用 SQL 池引擎就可以为查询生成最佳执行计划。  主键列或唯一约束列中的所有值都应独一无二。
 
-在 Synapse SQL 池中创建具有主键或唯一约束的表以后，用户需确保这些列中的所有值都是独一无二的。  违反这一点可能会导致查询返回不准确的结果。  此示例表明，如果主键或唯一约束列包含重复值，查询可能返回不准确的结果。  
+在专用 SQL 池中创建具有主键或唯一约束的表以后，用户需确保这些列中的所有值都是独一无二的。  违反这一点可能会导致查询返回不准确的结果。  此示例表明，如果主键或唯一约束列包含重复值，查询可能返回不准确的结果。  
 
 ```sql
  -- Create table t1
@@ -165,12 +165,13 @@ a1          total
 
 ## <a name="examples"></a>示例
 
-创建具有主键的 Synapse SQL 池表： 
+创建具有主键的专用 SQL 池表： 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-创建具有唯一约束的 Synapse SQL 池表：
+
+创建具有唯一约束的专用 SQL 池表：
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -178,4 +179,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>后续步骤
 
-为 Synapse SQL 池创建表后，下一步是将数据加载到该表中。 有关进行加载的教程，请参阅[将数据加载到 Synapse SQL 池](load-data-wideworldimportersdw.md)。
+为专用 SQL 池创建表后，下一步是将数据加载到该表中。 有关加载的教程，请参阅[将数据加载到专用 SQL 池](load-data-wideworldimportersdw.md)。

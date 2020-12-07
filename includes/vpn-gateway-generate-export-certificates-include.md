@@ -5,23 +5,25 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/19/2020
-ms.date: 04/06/2020
+origin.date: 10/29/2020
+ms.date: 11/23/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 5d805c1e2fe1901a98b504c0c4d8bf711b5b0fa5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fad16c58ae3dc8d26e95431b5d4b2d3da065661f
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95970778"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>创建自签名根证书
 
 使用 New-SelfSignedCertificate cmdlet 创建自签名根证书。 有关参数的其他信息，请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
 
 1. 在运行 Windows 10 或 Windows Server 2016 的计算机上，使用提升的权限打开 Windows PowerShell 控制台。
-2. 使用以下示例创建自签名根证书。 以下示例创建名为“P2SRootCert”、会自动安装在“Certificates-Current User\Personal\Certificates”中的自签名根证书。 打开“certmgr.msc”  或“管理用户证书”  ，即可查看证书。
+1. 使用以下示例创建自签名根证书。 以下示例创建名为“P2SRootCert”、会自动安装在“Certificates-Current User\Personal\Certificates”中的自签名根证书。 打开“certmgr.msc”  或“管理用户证书”  ，即可查看证书。
+
+   使用 `Connect-AzAccount -Environment AzureChinaCloud` cmdlet 登录。 然后，运行以下示例并进行必要的修改。
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -29,7 +31,8 @@ ms.locfileid: "80634568"
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. 若要在创建此根证书后立即创建客户端证书，请让 PowerShell 控制台保持打开状态。
+
+1. 使 PowerShell 控制台保持打开状态，并继续执行后续步骤以生成客户端证书。
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>生成客户端证书
 
@@ -62,7 +65,8 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
-2. 从返回的列表中找到使用者名称，然后将该名称旁边的指纹复制到文本文件中。 以下示例显示了两个证书。 CN 名称是要从中生成子证书的自签名根证书的名称。 在本例中，该根证书为“P2SRootCert”。
+
+1. 从返回的列表中找到使用者名称，然后将该名称旁边的指纹复制到文本文件中。 以下示例显示了两个证书。 CN 名称是要从中生成子证书的自签名根证书的名称。 在本例中，该根证书为“P2SRootCert”。
 
    ```
    Thumbprint                                Subject
@@ -70,7 +74,8 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
-3. 使用上一步骤中获取的指纹为根证书声明变量。 将 THUMBPRINT 替换为要从中生成子证书的根证书的指纹。
+
+1. 使用上一步骤中获取的指纹为根证书声明变量。 将 THUMBPRINT 替换为要从中生成子证书的根证书的指纹。
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -81,7 +86,8 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
    ```
-4. 修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，会生成名为“P2SChildCert”的客户端证书。 如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书会自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
+
+1. 修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，会生成名为“P2SChildCert”的客户端证书。 如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书会自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
 
    ```powershell
    New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `

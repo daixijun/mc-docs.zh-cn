@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 42f5b3de8603f5f3ccfe1cf949aca46cc24961ed
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 040aa49d8c93df91e60a84b9c85c4e95c591455a
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937099"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918399"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>方案：用于调用 Web API 的 桌面应用
 
@@ -61,6 +61,5 @@ ms.locfileid: "91937099"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [桌面应用：应用注册](scenario-desktop-app-registration.md)
+转到此方案中的下一篇文章：[应用注册](scenario-desktop-app-registration.md)。
 

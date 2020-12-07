@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 01/13/2020
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 1e8059f3288878229e60791f726c416807af6334
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 6082bbe6eef7caf3d960815eb5eb59c8ebf213b1
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871218"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306319"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>为 Azure API 管理实例配置自定义域名
 
@@ -51,10 +51,10 @@ ms.locfileid: "91871218"
     可以为许多终结点分配自定义域名。 当前有以下终结点可用：
 
     - **网关**（默认值为：`<apim-service-name>.azure-api.cn`），
-    - **门户**（默认值为：`<apim-service-name>.portal.azure-api.cn`），
+    - **开发人员门户（旧版）** （默认值为 `<apim-service-name>.portal.azure-api.cn`），
+    - **开发人员门户**（默认值为 `<apim-service-name>.developer.azure-api.cn`）。
     - **管理**（默认值为：`<apim-service-name>.management.azure-api.cn`），
     - **SCM**（默认值为：`<apim-service-name>.scm.azure-api.cn`），
-    - **NewPortal**（默认值为：`<apim-service-name>.developer.azure-api.cn`）。
 
     > [!NOTE]
     > 只有“网关”终结点可用于“消耗”层中的配置。
@@ -66,7 +66,7 @@ ms.locfileid: "91871218"
 1. 在右侧窗口中，单击“自定义”。
 
     - 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。
-    - 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
+    - 在 **证书** 中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其 **密码**。
 
     > [!NOTE]
     > 通配符域名（例如 `*.contoso.com`）在除消耗层以外的所有层中都受支持。

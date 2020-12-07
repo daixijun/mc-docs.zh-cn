@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 08/13/2019
 ms.date: 09/23/2019
-ms.openlocfilehash: e9e5e5b86d8087c1cdb815684f12c8e90465aa92
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 908b157ed3c9786ac3a4b32fbc9637f055843fa8
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516767"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300884"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>无法访问 Azure HDInsight 中的 Data Lake 存储文件
 
@@ -161,12 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-若要分配现有证书，请创建一个证书，并准备好 .pfx 文件和密码。 将证书与创建群集时使用的服务主体相关联，并准备好 AppId。
+若要分配现有证书，请创建一个证书，并准备好 .pfx 文件和密码。 使用准备好的 AppId 将证书与创建群集时使用的服务主体相关联。
 
 将参数替换为实际值后，执行 PowerShell 命令。
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
-
-* 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 有关更多详细信息，请参阅[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 Microsoft Azure 订阅包含对订阅管理和计费支持的访问权限，并且通过 [Azure 支持计划](https://azure.microsoft.com/support/plans/)之一提供技术支持。
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

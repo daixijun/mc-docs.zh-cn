@@ -5,18 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d5c635cd008d0fe9cd0bc0d1b74c0506997d5889
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 2d0ab1466cc58fae95a400c1b6e845c6807f0c0e
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470168"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024526"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>将服务主体添加到服务器管理员角色 
 
@@ -43,7 +43,7 @@ ms.locfileid: "92470168"
 
 4. 验证服务主体帐户 ID，然后单击“确定”。
 
-    :::image type="content" source="./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png" alt-text="搜索服务主体帐户":::
+    :::image type="content" source="./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png" alt-text="此屏幕截图显示了服务主体帐户 ID 并突出显示了“确定”按钮。":::
 
 ## <a name="using-a-resource-manager-template"></a>使用资源管理器模板
 

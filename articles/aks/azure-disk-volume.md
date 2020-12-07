@@ -4,14 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Azure 磁�
 services: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 05/25/2020
+author: rockboyfor
+ms.date: 11/30/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 27a581f8d7229edf57f49f73f6289ae92593fbd0
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 0194a7a8d21d66be9ae21be912d82b9054e67ea1
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021553"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024556"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 磁盘手动创建并使用卷
 
@@ -26,13 +29,11 @@ ms.locfileid: "90021553"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-azure-disk"></a>创建 Azure 磁盘
 
-创建用于 AKS 的 Azure 磁盘时，可以在**节点**资源组中创建磁盘资源。 此方法允许 AKS 群集访问和管理磁盘资源。 如果想要在单独的资源组中创建磁盘，则必须向群集的 Azure Kubernetes 服务 (AKS) 服务主体授予磁盘的资源组的 `Contributor` 角色。
-
-<!--Not Available on [Use managed identities](use-managed-identity.md)-->
+创建用于 AKS 的 Azure 磁盘时，可以在 **节点** 资源组中创建磁盘资源。 此方法允许 AKS 群集访问和管理磁盘资源。 如果想要在单独的资源组中创建磁盘，则必须向群集的 Azure Kubernetes 服务 (AKS) 服务主体授予磁盘的资源组的 `Contributor` 角色。 或者，可以使用系统分配的托管标识来获得权限，而不是使用服务主体。 有关详细信息，请参阅[使用托管标识](use-managed-identity.md)。
 
 对于本文，请在节点资源组中创建磁盘。 首先，使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取名为 myResourceGroup 的资源组中 AKS 群集名称 myAKSCluster 的节点资源组：
 
@@ -42,9 +43,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_chinaeast2
 ```
 
-现在，使用 [az disk create][az-disk-create] 命令创建磁盘。 指定在上一命令中获取的节点资源组名称，然后指定磁盘资源的名称，例如 *myAKSDisk*。 以下示例创建一个 *20*GiB 的磁盘，并且在创建后输出磁盘的 ID。
-
-<!--Not Available on If you need to create a disk for use with Windows Server containers (currently in preview in AKS)-->
+现在，使用 [az disk create][az-disk-create] 命令创建磁盘。 指定在上一命令中获取的节点资源组名称，然后指定磁盘资源的名称，例如 *myAKSDisk*。 以下示例创建一个 *20* GiB 的磁盘，并且在创建后输出磁盘的 ID。 如果需要创建与 Windows Server 容器一起使用的磁盘，请添加 `--os-type windows` 参数以正确格式化该磁盘。
 
 ```azurecli
 az disk create \
@@ -65,9 +64,7 @@ az disk create \
 
 ## <a name="mount-disk-as-volume"></a>装载磁盘作为卷
 
-若要将 Azure 磁盘装载到 Pod 中，请在容器规范中配置卷。使用以下内容创建名为 `azure-disk-pod.yaml` 的新文件。 将 `diskName` 更新为在上一步骤中创建的磁盘的名称，将 `diskURI` 更新为在磁盘创建命令的输出中显示的磁盘 ID。 如果需要，请更新 `mountPath`，这是 Azure 磁盘在 Pod 中的装载路径。
-
-<!--Not Available on For Windows Server containers (currently in preview in AKS)-->
+若要将 Azure 磁盘装载到 Pod 中，请在容器规范中配置卷。使用以下内容创建名为 `azure-disk-pod.yaml` 的新文件。 将 `diskName` 更新为在上一步骤中创建的磁盘的名称，将 `diskURI` 更新为在磁盘创建命令的输出中显示的磁盘 ID。 如果需要，请更新 `mountPath`，这是 Azure 磁盘在 Pod 中的装载路径。 对于 Windows Server 容器，请使用 Windows 路径约定指定 mountPath，例如“D:”。
 
 ```yaml
 apiVersion: v1
@@ -76,7 +73,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: dockerhub.azk8s.cn/library/nginx:1.15.5
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
     resources:
       requests:
@@ -143,13 +140,13 @@ Events:
 
 <!-- LINKS - internal -->
 
-[az-disk-list]: https://docs.azure.cn/cli/disk#az-disk-list
-[az-disk-create]: https://docs.azure.cn/cli/disk#az-disk-create
-[az-group-list]: https://docs.azure.cn/cli/group#az-group-list
-[az-resource-show]: https://docs.azure.cn/cli/resource#az-resource-show
+[az-disk-list]: https://docs.azure.cn/cli/disk#az_disk_list
+[az-disk-create]: https://docs.azure.cn/cli/disk#az_disk_create
+[az-group-list]: https://docs.azure.cn/cli/group#az_group_list
+[az-resource-show]: https://docs.azure.cn/cli/resource#az_resource_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76d5a26ad1a4581422c089fa60e41162c6c9950e
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 99d3a656cbe22bfd310f3996a442dec4af356dea
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041586"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918474"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南简要介绍了如何开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序，目标受众为 Active Directory/Microsoft 365 全局管理员。
@@ -27,7 +27,7 @@ ms.locfileid: "92041586"
 
 注册应用程序以使用 Azure Active Directory。 注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
 
-目录的任何成员（不是来宾）都可以注册应用程序，也称为 *创建应用程序对象* 。
+目录的任何成员（不是来宾）都可以注册应用程序，也称为 *创建应用程序对象*。 如果你无法注册应用程序，则意味着你的目录的全局管理员已限制了此功能，你可能需要与他们联系以[获得适当的权限](/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles)，然后才能注册该应用程序。 若要详细了解如何限制用户的权限，请参阅[在 Azure Active Directory 中委托应用注册权限](/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications)。
 
 注册应用程序后，可让任何用户执行以下操作：
 
@@ -54,6 +54,8 @@ ms.locfileid: "92041586"
 * 将应用程序配置为要求用户分配，并分配用户
 * 抑制默认的用户同意体验
 
+## <a name="configure-access-rules"></a>配置访问规则
+在 SaaS 应用中配置基于应用程序的访问规则。 例如，这可能要求 MFA，或只允许受信任网络上的用户访问。 [配置访问规则](../conditional-access/app-based-mfa.md)文档中提供了相关详细信息。
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>将应用程序配置为要求用户分配，并分配用户
 默认情况下，用户无需分配即可访问应用程序。 不过，如果应用程序公开角色或者希望应用程序显示在用户的“我的应用”上，则应该要求用户分配。

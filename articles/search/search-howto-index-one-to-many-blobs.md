@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 07/11/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 1b6aca90fafbe0a28b1fbbeb532571372b9307ef
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 5a8a9ddeeed088fcee79a79f5ad7b61588d70f17
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020918"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300536"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>为可以生成多个搜索文档的 Blob 编制索引
 默认情况下，Blob 索引器将一个 Blob 的内容视为单个搜索文档。 某些 **parsingMode** 值支持单个 Blob 导致多个搜索文档的方案。 允许索引器从一个 Blob 提取多个搜索文档的不同类型的 **parsingMode** 包括：
@@ -67,7 +67,7 @@ _Blob2.json_
 
 此设置会生成包含以下信息的 Azure 认知搜索索引（为简洁起见，base64 编码的 ID 已缩短）
 
-| id | 温度 | 压力 | timestamp |
+| ID | 温度 | 压力 | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ...YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ...YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -105,7 +105,7 @@ _Blob2.json_
 
 但是，此映射不会生成索引中显示的 4 个文档，因为 `recordid` 字段在各 Blob 中不是唯一的。   因此，我们建议对“一对多”分析模式，应用从 `AzureSearch_DocumentKey` 属性到键索引字段的隐式字段映射。
 
-如果确实想要设置显式字段映射，请确保 _sourceField_ 对于**所有 Blob** 中的每个实体都是不同的。
+如果确实想要设置显式字段映射，请确保 _sourceField_ 对于 **所有 Blob** 中的每个实体都是不同的。
 
 > [!NOTE]
 > `AzureSearch_DocumentKey` 用来确保每个提取实体的唯一性的方法可能会发生变化，因此你不应该依赖于使用其值来解决应用程序的需求。

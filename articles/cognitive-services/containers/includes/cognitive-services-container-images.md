@@ -6,14 +6,14 @@ manager: nitinme
 description: 表示所有认知服务产品的容器注册表、存储库和映像名称的两个表。
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 19de0d70c4d6cbf7ea3cc2880a30e721751052d1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f4366626138c6e504e65cb403d03b8cd69f05fd4
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104617"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306261"
 ---
 ### <a name="container-repositories-and-images"></a>容器存储库和映像
 
@@ -69,6 +69,8 @@ Microsoft 容器注册表 (MCR) 同步发布了认知服务的所有正式发布
 
 | 服务 | 容器 | 容器注册表/存储库/映像名称 |
 |--|--|--|
+| [计算机视觉]() | Read v2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| [计算机视觉]() | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 | [运行状况文本分析](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | 运行状况文本分析 | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
 
 

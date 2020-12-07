@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 07/12/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 1640f77e2765be8d6cb2a27c5b3ab5400522e2d2
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 11/06/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 8d74d5a3925edc961d1a10e35767276d28b720a0
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021571"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300514"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>如何计划 Azure 认知搜索中的索引器
 
@@ -38,7 +38,7 @@ ms.locfileid: "90021571"
 
 一次只能运行一个索引器执行。 如果在计划索引器的下一次执行时该索引器已运行，该执行将推迟到下一个计划时间。
 
-让我们考虑更具体的示例。 假设我们要使用每小时**间隔**和**开始时间** 2019 年 6 月 1 日上午 8:00 (UTC) 来配置索引器计划。 下面是索引器运行时间超过一小时时可能出现的情况：
+让我们考虑更具体的示例。 假设我们要使用每小时 **间隔** 和 **开始时间** 2019 年 6 月 1 日上午 8:00 (UTC) 来配置索引器计划。 下面是索引器运行时间超过一小时时可能出现的情况：
 
 * 第一次索引器执行的开始时间为 2019 年 6 月 1 日上午 8:00 (UTC) 或近似时间。 假设此执行需要 20 分钟（或小于 1 小时的任何时间）。
 * 第二次索引器执行的开始时间为 2019 年 6 月 1 日上午 9:00 (UTC) 或近似时间。 假设此执行耗时 70 分钟（超过 1 小时），并且在上午 10:10 (UTC) 之前无法完成。
@@ -81,7 +81,7 @@ ms.locfileid: "90021571"
     }
 ```
 
-**间隔**参数是必需的。 间隔是指开始两个连续的索引器执行之间的时间。 允许的最小间隔为 5 分钟；最长为一天。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 它的模式为：`P(nD)(T(nH)(nM))`。 示例：`PT15M` 为每隔 15 分钟，`PT2H` 为每隔 2 小时。
+**间隔** 参数是必需的。 间隔是指开始两个连续的索引器执行之间的时间。 允许的最小间隔为 5 分钟；最长为一天。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 它的模式为：`P(nD)(T(nH)(nM))`。 示例：`PT15M` 为每隔 15 分钟，`PT2H` 为每隔 2 小时。
 
 可选的 **startTime** 指示计划的执行何时开始。 如果省略，则使用当前 UTC 时间。 此时间可以是过去的时间，在此情况下，计划的第一次执行的运行方式如同索引器在原始 **startTime** 之后连续运行。
 
@@ -91,30 +91,34 @@ ms.locfileid: "90021571"
 
 ## <a name="schedule-using-the-net-sdk"></a>使用 .NET SDK 进行计划
 
-可以使用 Azure 认知搜索 .NET SDK 定义索引器的计划。 为此，请在创建或更新索引器时包含 **schedule** 属性。
+可以使用 Azure 认知搜索 .NET SDK 定义索引器的计划。 为此，请在创建或更新索引器时包含 Schedule 属性。
 
-以下 C# 示例使用预定义的数据源和索引创建一个索引器，并将其计划设置为从现在起的 30 分钟开始每天运行一次：
+以下 C# 示例使用预定义的数据源和索引创建一个 Azure SQL 数据库索引器，并将其计划设置为从现在开始每天运行一次：
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-如果省略 **schedule** 参数，则索引器将在创建后立即运行一次。
 
-**startTime** 参数可设置为过去的时间。 在此情况下，计划的第一次执行的运行方式如同索引器在给定 **startTime** 之后连续运行。
 
-计划是使用 [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) 类定义的。 **IndexingSchedule** 构造函数需要一个使用 **TimeSpan** 对象指定的 **interval** 参数。 允许的最小间隔值为 5 分钟，最大间隔值为 24 小时。 指定为 **DateTimeOffset** 对象的第二个 **startTime** 参数是可选的。
+如果省略 Schedule 属性，则索引器将在创建后立即运行一次。
 
-.NET SDK 允许使用 [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) 类及其 [Indexers](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) 属性（实现 **IIndexersOperations** 接口中的方法）来控制索引器操作。 
+StartTime 参数可设置为过去的时间。 在此情况下，所计划的第一次执行如同索引器在给定 StartTime 之后连续运行。
 
-随时可以使用 [Run](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run)、[RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync) 或 [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) 方法按需运行索引器。
+计划是使用 [IndexingSchedule](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.indexingschedule) 类定义的。 IndexingSchedule 构造函数需要一个使用 TimeSpan 对象指定的 Interval 参数。 允许的最小间隔值为 5 分钟，最大间隔值为 24 小时。 指定为 DateTimeOffset 对象的第二个 StartTime 参数是可选的。
 
-有关创建、更新和运行索引器的详细信息，请参阅 [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet)。
+.NET SDK 允许使用 [SearchIndexerClient](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.searchindexerclient) 控制索引器操作。 
+
+随时可以使用 [RunIndexer](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.searchindexerclient.runindexer) 或 [RunIndexerAsync](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.searchindexerclient.runindexerasync) 方法按需运行索引器。
+
+有关创建、更新和运行索引器的详细信息，请参阅 [SearchIndexerClient](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.searchindexerclient)。

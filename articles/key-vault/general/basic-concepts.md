@@ -9,22 +9,22 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 origin.date: 01/18/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1ca084f9a6ea199af14fd7098a58c36936ef1fec
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: e80e683e45a795a4e48093700fd5d022fdf33685
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678457"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300811"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault 基本概念
 
-Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密是你希望严格控制对其的访问的任何东西，例如 API 密钥、密码或证书。 保管库是机密的逻辑组。
+Azure Key Vault 是一个用于安全地存储和访问机密的云服务。 机密是你想要严格控制对其的访问的任何内容，例如 API 密钥、密码、证书或加密密钥。 Key Vault 服务支持：保管库。 保管库支持存储软件密钥、机密和证书。
 
 下面是其他重要的术语：
 
-- **租户**：租户是拥有和管理特定的 Microsoft 云服务实例的组织。 它通常用来引用组织的 Azure 和 Office 365 服务集。
+- **租户**：租户是拥有和管理特定的 Microsoft 云服务实例的组织。 它最常用来引用组织的 Azure 和 Microsoft 365 服务集。
 
 - **保管库所有者**：保管库所有者可以创建密钥保管库并获得它的完全访问权限和控制权。 保管库所有者还可以设置审核来记录谁访问了机密和密钥。 管理员可以控制密钥生命周期。 他们可以滚动到密钥的新版本、对其进行备份，以及执行相关的任务。
 
@@ -36,7 +36,7 @@ Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密
 
 - **安全主体**：Azure 安全主体是用户创建的应用、服务和自动化工具用来访问特定 Azure 资源的安全标识。 可将其视为具有特定角色，并且权限受到严格控制的“用户标识”（用户名和密码，或者证书）。 与普通的用户标识不同，安全主体应该只需执行特定的操作。 如果只向它授予执行管理任务所需的最低权限级别，则可以提高安全性。 与应用程序或服务一起使用的安全主体专称为“服务主体”。
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md)：Azure AD 是租户的 Active Directory 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md)：Azure AD 是租户的 Active Directory 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。
 
 - **Azure 租户 ID**：租户 ID 是用于在 Azure 订阅中标识 Azure AD 实例的唯一方法。
 
@@ -60,7 +60,7 @@ Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密
 | --- | --- | --- |
 | Azure 应用程序开发人员 |“我想要编写使用密钥进行签名和加密的 Azure 应用程序。 但我希望这些密钥与应用程序分开，使解决方案适用于在地理上分散的应用程序。 <br/><br/>希望这些密钥和机密都是经过加密的，而无需自己编写代码。 我还希望这些密钥和机密对于我来说很容易在应用程序中使用，并发挥最佳性能。” |√ 密钥存储在保管库中，可按需由 URI 调用。<br/><br/> √ 密钥由 Azure 使用行业标准的算法、密钥长度和硬件安全模块进行保护。<br/><br/> √ 密钥会在与应用程序处于同一 Azure 数据中心的 HSM 中进行处理。 与驻留在单独位置（如本地）的密钥相比，此方法提供了更好的可靠性和更低的延迟。 |
 | 软件即服务 (SaaS) 开发人员 |“对于客户的租户密钥和机密，我不想承担任何实际或潜在法律责任。 <br/><br/>我希望客户拥有并管理其密钥，这样我就可以集中精力做我最擅长的事情，即提供核心软件功能。” |√ 客户可以将他们自己的密钥导入 Azure 并进行管理。 当 SaaS 应用程序需要使用客户的密钥来执行加密操作时，Key Vault 将代表应用程序执行这些操作。 应用程序看不到客户的密钥。 |
-| 首席安全官 (CSO) |“我想要知道应用程序是否遵循 FIPS 140-2 Level 2 HSM 的安全密钥管理规范。 <br/><br/>我想要确保我的组织掌控密钥生命周期，并可监视密钥的使用。 <br/><br/>而且，尽管我们使用多个 Azure 服务和资源，但我想从 Azure 中的单个位置管理密钥。” |√ HSM 通过了 FIPS 140-2 第 2 级验证。<br/><br/>√ Key Vault 设计用于确保 Microsoft 不会看到或提取你的密钥。<br/><br/>√ 以近实时方式记录密钥的使用。<br/><br/>√ 无论 Azure 中拥有的密钥数量，以及支持的地区和使用这些密钥的应用程序，保管库都仅提供单个界面。 |
+| 首席安全官 (CSO) |“我想要知道我们的应用程序是否符合 FIPS 140-2 第 2 级的安全密钥管理要求。 <br/><br/>我想要确保我的组织掌控密钥生命周期，并可监视密钥的使用。 <br/><br/>而且，尽管我们使用多个 Azure 服务和资源，但我想从 Azure 中的单个位置管理密钥。” |√ 为经过 FIPS 140-2 第 2 级验证的 HSM 选择“保管库”。<br/><br/>√ Key Vault 设计用于确保 Microsoft 不会看到或提取你的密钥。<br/><br/>√ 以近实时方式记录密钥的使用。<br/><br/>√ 无论 Azure 中拥有的密钥数量，以及支持的地区和使用这些密钥的应用程序，保管库都仅提供单个界面。 |
 
 具有 Azure 订阅的任何人都可以创建和使用密钥保管库。 尽管 Key Vault 使开发人员和安全管理员受益，但是可以由管理其他 Azure 服务的组织管理员来实施和管理。 例如，此管理员可以使用 Azure 订阅登录、创建组织用来存储密钥的保管库，并负责执行操作任务，如下所示：
 

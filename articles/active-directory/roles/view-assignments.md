@@ -1,26 +1,26 @@
 ---
-title: 在 Azure AD 门户中查看自定义角色分配 | Microsoft Docs
-description: 现在，你可以在 Azure AD 管理中心查看和管理 Azure AD 管理员角色的成员。
+title: 在 Azure Active Directory 门户中查看自定义角色分配 | Microsoft Docs
+description: 现在，你可以在 Azure Active Directory 管理中心查看和管理 Azure Active Directory 管理员角色的成员。
 services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 11/24/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ac41378f8c3d891e5dc8235dcb6581e066cb2a
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: f1823c27d364c17a3f949675a895ca95c4005da4
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327051"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918515"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>在 Azure Active Directory 中查看自定义角色分配
+# <a name="view-custom-role-assignments-using-azure-active-directory"></a>使用 Azure Active Directory 查看自定义角色分配
 
 本文介绍如何在 Azure Active Directory (Azure AD) 中查看已分配的自定义角色。 在 Azure Active Directory (Azure AD) 中，角色可以在组织范围内分配，也可以在单应用程序范围内分配。
 

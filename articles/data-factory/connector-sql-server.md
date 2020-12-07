@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 09/21/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 3dd7dfab255b90ade69b19e84416e6ab729ef23b
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/23/2020
+ms.openlocfilehash: a6e19523fb740e9ace35bf52340f20cc90b598fe
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121695"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95970791"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 SQL Server 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -63,10 +63,10 @@ SQL Server 链接服务支持以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
-| type | type 属性必须设置为 **SqlServer** 。 | 是 |
+| type | type 属性必须设置为 **SqlServer**。 | 是 |
 | connectionString |指定使用 SQL 身份验证或 Windows 身份验证连接到 SQL Server 数据库时所需的 **connectionString** 信息。 请参阅以下示例。<br/>还可以在 Azure Key Vault 中输入密码。 如果使用 SQL 身份验证，请从连接字符串中提取 `password` 配置。 有关详细信息，请参阅表格后面的 JSON 示例，以及[在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)。 |是 |
-| userName |如果使用 Windows 身份验证，请指定用户名。 例如， **domainname\\username** 。 |否 |
-| password |指定为用户名指定的用户帐户的密码。 将此字段标记为 **SecureString** ，以便安全地将其存储在 Azure 数据工厂中。 或者，可以[引用 Azure Key Vault 中存储的机密](store-credentials-in-key-vault.md)。 |否 |
+| userName |如果使用 Windows 身份验证，请指定用户名。 例如，**domainname\\username**。 |否 |
+| password |指定为用户名指定的用户帐户的密码。 将此字段标记为 **SecureString**，以便安全地将其存储在 Azure 数据工厂中。 或者，可以[引用 Azure Key Vault 中存储的机密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 此[集成运行时](concepts-integration-runtime.md)用于连接到数据存储。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
 >[!TIP]
@@ -99,13 +99,13 @@ SQL Server 链接服务支持以下属性：
         "type": "SqlServer",
         "typeProperties": {
             "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -193,15 +193,15 @@ SQL Server 链接服务支持以下属性：
 | isolationLevel | 指定 SQL 源的事务锁定行为。 允许的值为：ReadCommitted、ReadUncommitted、RepeatableRead、Serializable、Snapshot    。 如果未指定，则使用数据库的默认隔离级别。 请参阅[此文档](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel)了解更多详细信息。 | 否 |
 | partitionOptions | 指定用于从 SQL Server 加载数据的数据分区选项。 <br>允许值包括：None（默认值）、PhysicalPartitionsOfTable 和 DynamicRange  。<br>启用分区选项（即，该选项不为 `None`）时，用于从 SQL Server 并行加载数据的并行度由复制活动上的 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
-| 在 `partitionSettings` 下： | | |
-| partitionColumnName | 指定并行复制范围分区使用的源列（整数类型或日期/日期时间类型）的名称。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
+| _在 `partitionSettings` 下：_ _* | | |
+| partitionColumnName | 以整数类型、日期类型或日期/时间类型（`int`、`smallint`、`bigint`、`date`、`smalldatetime`、`datetime`、`datetime2` 或 `datetimeoffset`）指定源列的名称，范围分区将使用它进行并行复制。 如果未指定，系统会自动检测表的索引或主键并将其用作分区列。<br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfDynamicRangePartitionCondition `。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 
 **需要注意的要点：**
 
-- 如果为 **SqlSource** 指定 **sqlReaderQuery** ，则复制活动针对 SQL Server 源运行此查询以获取数据。 也可通过指定 sqlReaderStoredProcedureName 和 storedProcedureParameters 来指定存储过程，前提是存储过程使用参数 。
-- 如果不指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName** ，则数据集 JSON 的“structure”节中定义的列用于构建查询。 查询 `select column1, column2 from mytable` 针对 SQL Server 运行。 如果数据集定义没有“structure”，则会从表中选择所有列。
+- 如果为 **SqlSource** 指定 **sqlReaderQuery**，则复制活动针对 SQL Server 源运行此查询以获取数据。 也可通过指定 sqlReaderStoredProcedureName 和 storedProcedureParameters 来指定存储过程，前提是存储过程使用参数 。
+- 如果不指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName**，则数据集 JSON 的“structure”节中定义的列用于构建查询。 查询 `select column1, column2 from mytable` 针对 SQL Server 运行。 如果数据集定义没有“structure”，则会从表中选择所有列。
 
 **示例：使用 SQL 查询**
 
@@ -394,15 +394,15 @@ GO
 
 | 方案                                                     | 建议的设置                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 从包含物理分区的大型表进行完整加载。        | **分区选项** ：表的物理分区。 <br><br/>在执行期间，数据工厂将自动检测物理分区并按分区复制数据。 <br><br/>若要检查表是否有物理分区，可参考[此查询](#sample-query-to-check-physical-partition)。 |
-| 从不包含物理分区但包含用于数据分区的整数或日期时间列的大型表进行完整加载。 | **分区选项** ：动态范围分区。<br>**分区列** （可选）：指定用于对数据进行分区的列。 如果未指定，将使用索引或主键列。<br/>分区上限和分区下限（可选） ：指定是否要确定分区步幅。 这不适用于筛选表中的行，表中的所有行都将进行分区和复制。 如果未指定，复制活动会自动检测这些值。<br><br>例如，如果分区列“ID”的值范围为 1 至 100，其下限设置为 20、上限设置为 80，并行复制设置为 4，则数据工厂会按 4 个分区检索数据，ID 范围分别为 <=20、[21, 50]、[51, 80] 和 >=81。 |
-| 使用自定义查询从不包含物理分区但包含用于数据分区的整数或日期/日期时间列的表加载大量数据。 | **分区选项** ：动态范围分区。<br>**查询** ：`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`。<br>**分区列** ：指定用于对数据进行分区的列。<br>分区上限和分区下限（可选） ：指定是否要确定分区步幅。 这不适用于筛选表中的行，查询结果中的所有行都将进行分区和复制。 如果未指定，复制活动会自动检测该值。<br><br>在执行期间，数据工厂会将 `?AdfRangePartitionColumnName` 替换为每个分区的实际列名和值范围，并将其发送到 SQL Server。 <br>例如，如果分区列“ID”的值范围为 1 至 100，其下限设置为 20、上限设置为 80，并行复制设置为 4，则数据工厂会按 4 个分区检索数据，ID 范围分别为 <=20、[21, 50]、[51, 80] 和 >=81。 <br><br>下面是针对不同场景的更多示例查询：<br> 1.查询整个表： <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2.使用列选择和附加的 where 子句筛选器从表中查询： <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3.使用子查询进行查询： <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4.在子查询中使用分区查询： <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| 从包含物理分区的大型表进行完整加载。        | **分区选项**：表的物理分区。 <br><br/>在执行期间，数据工厂将自动检测物理分区并按分区复制数据。 <br><br/>若要检查表是否有物理分区，可参考[此查询](#sample-query-to-check-physical-partition)。 |
+| 从不包含物理分区但包含用于数据分区的整数或日期时间列的大型表进行完整加载。 | **分区选项**：动态范围分区。<br>**分区列**（可选）：指定用于对数据进行分区的列。 如果未指定，将使用索引或主键列。<br/>分区上限和分区下限（可选） ：指定是否要确定分区步幅。 这不适用于筛选表中的行，表中的所有行都将进行分区和复制。 如果未指定，复制活动会自动检测这些值。<br><br>例如，如果分区列“ID”的值范围为 1 至 100，其下限设置为 20、上限设置为 80，并行复制设置为 4，则数据工厂会按 4 个分区检索数据，ID 范围分别为 <=20、[21, 50]、[51, 80] 和 >=81。 |
+| 使用自定义查询从不包含物理分区但包含用于数据分区的整数或日期/日期时间列的表加载大量数据。 | **分区选项**：动态范围分区。<br>**查询**：`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`。<br>**分区列**：指定用于对数据进行分区的列。<br>分区上限和分区下限（可选） ：指定是否要确定分区步幅。 这不适用于筛选表中的行，查询结果中的所有行都将进行分区和复制。 如果未指定，复制活动会自动检测该值。<br><br>在执行期间，数据工厂会将 `?AdfRangePartitionColumnName` 替换为每个分区的实际列名和值范围，并将其发送到 SQL Server。 <br>例如，如果分区列“ID”的值范围为 1 至 100，其下限设置为 20、上限设置为 80，并行复制设置为 4，则数据工厂会按 4 个分区检索数据，ID 范围分别为 <=20、[21, 50]、[51, 80] 和 >=81。 <br><br>下面是针对不同场景的更多示例查询：<br> 1.查询整个表： <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2.使用列选择和附加的 where 子句筛选器从表中查询： <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3.使用子查询进行查询： <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4.在子查询中使用分区查询： <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 使用分区选项加载数据的最佳做法：
 
 1. 选择独特的列作为分区列（如主键或唯一键），以避免数据倾斜。 
-2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。  
+2. 如果表具有内置分区，请使用名为“表的物理分区”分区选项来提升性能。    
 3. 如果使用 Azure Integration Runtime 复制数据，则可设置较大的“[数据集成单元 (DIU)](copy-activity-performance-features.md#data-integration-units)”(>4) 以利用更多计算资源。 检查此处适用的方案。
 4. “[复制并行度](copy-activity-performance-features.md#parallel-copy)”可控制分区数量，将此数字设置得太大有时会损害性能，建议将此数字设置按以下公式计算的值：（DIU 或自承载 IR 节点数）*（2 到 4）。
 
@@ -474,7 +474,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-在数据库中使用 MERGE 逻辑定义一个存储过程（如以下示例所示），以便从上述存储过程活动指向该过程。 假设目标是包含三个列的 **Marketing** 表： **ProfileID** 、 **State** 和 **Category** 。 根据 **ProfileID** 列执行更新插入。
+在数据库中使用 MERGE 逻辑定义一个存储过程（如以下示例所示），以便从上述存储过程活动指向该过程。 假设目标是包含三个列的 **Marketing** 表：**ProfileID**、**State** 和 **Category**。 根据 **ProfileID** 列执行更新插入。
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -505,11 +505,11 @@ END
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> 调用 SQL 接收器的存储过程
 
-将数据复制到 SQL Server 数据库中时，还可以通过对每批源表使用附加参数来配置和调用用户指定的存储过程。 存储过程功能利用[表值参数](https://msdn.microsoft.com/library/bb675163.aspx)。
+将数据复制到 SQL Server 数据库中时，还可以通过对每批源表使用附加参数来配置和调用用户指定的存储过程。 存储过程功能利用[表值参数](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/table-valued-parameters)。
 
 当内置复制机制无法使用时，还可使用存储过程。 例如，在将源数据最终插入目标表之前应用额外的处理。 额外处理的示例包括合并列、查找其他值以及将数据插入多个表。
 
-以下示例演示如何使用存储过程，在 SQL Server 数据库中的表内执行 upsert。 假设输入数据和接收器 **Marketing** 表各有三列： **ProfileID** 、 **State** 和 **Category** 。 基于 ProfileID 列执行更新插入，并仅将其应用于名为“ProductA”的特定类别。
+以下示例演示如何使用存储过程，在 SQL Server 数据库中的表内执行 upsert。 假设输入数据和接收器 **Marketing** 表各有三列：**ProfileID**、**State** 和 **Category**。 基于 ProfileID 列执行更新插入，并仅将其应用于名为“ProductA”的特定类别。
 
 1. 在数据库中，使用与 **sqlWriterTableType** 相同的名称定义表类型。 表类型的架构与输入数据返回的架构相同。
 
@@ -628,18 +628,18 @@ END
 
     ![启用远程连接](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    有关详细步骤，请参阅[配置远程访问服务器配置选项](https://msdn.microsoft.com/library/ms191464.aspx)。
+    有关详细步骤，请参阅[配置远程访问服务器配置选项](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option)。
 
 2. 启动“SQL Server 配置管理器”。 针对所需实例展开“SQL Server 网络配置”，并选择“MSSQLSERVER 的协议” 。 协议将显示在右窗格中。 右键单击“TCP/IP”并选择“启用”以启用 TCP/IP 。
 
     ![启用 TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    有关详细信息和启用 TCP/IP 协议的其他方法，请参阅[启用或禁用服务器网络协议](https://msdn.microsoft.com/library/ms191294.aspx)。
+    有关详细信息和启用 TCP/IP 协议的其他方法，请参阅[启用或禁用服务器网络协议](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol)。
 
 3. 在同一窗口中，双击“TCP/IP”以启动“TCP/IP 属性”窗口 。
-4. 切换到“IP 地址”选项卡。向下滚动到“IPAll”部分。 记下“TCP 端口”的值。 默认值为 **1433** 。
+4. 切换到“IP 地址”选项卡。向下滚动到“IPAll”部分。 记下“TCP 端口”的值。 默认值为 **1433**。
 5. 在计算机上创建 Windows 防火墙规则，以便允许通过此端口传入流量。 
-6. **验证连接** ：若要使用完全限定名称连接到 SQL Server，请从另一台计算机使用 SQL Server Management Studio。 例如 `"<machine>.<domain>.corp.<company>.com,1433"`。
+6. **验证连接**：若要使用完全限定名称连接到 SQL Server，请从另一台计算机使用 SQL Server Management Studio。 例如 `"<machine>.<domain>.corp.<company>.com,1433"`。
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

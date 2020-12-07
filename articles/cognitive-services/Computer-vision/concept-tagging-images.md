@@ -1,23 +1,23 @@
 ---
-title: 将内容标记应用于图像 - 计算机视觉
+title: 内容标记 - 计算机视觉
 titleSuffix: Azure Cognitive Services
 description: 了解与计算机视觉 API 的图像标记功能相关的概念。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 11/23/2020
+ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 6f85579575a18b6cedabb29993a2beeaf4ca4793
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8ccacb51cb0f8568953cbb9d3a524fe2d7dcd27e
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63844491"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306365"
 ---
 # <a name="applying-content-tags-to-images"></a>将内容标记应用于图像
 
@@ -84,7 +84,14 @@ ms.locfileid: "63844491"
 }
 ```
 
+## <a name="use-the-api"></a>使用 API
+
+标记功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Tags` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"tags"` 部分内容的字符串。
+
+* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>后续步骤
 
-了解[对图像进行分类](concept-categorizing-images.md)和[描述图像](concept-describing-images.md)的概念。
+了解[对图像进行分类](concept-categorizing-images.md)和[描述图像](concept-describing-images.md)的相关概念。
 

@@ -10,15 +10,15 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 05/11/2020
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: bf6c12504fbdd70c7998de4eab6a02225dbf4e80
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: a570de20946c1a7e339f44e406bf1b95af2dbfd3
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375697"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152965"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 入门
 
@@ -44,6 +44,8 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) 是一个工具，可用于�
 - [行级安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（包括表值函数）
 - [动态数据屏蔽](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
 - 具有[标识列](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)的表
+- 某些 T-SQL 功能，如：
+   - [STRING_AGG](https://docs.microsoft.com/sql/t-sql/functions/string-agg-transact-sql?view=sqlallproducts-allversions) 字符串函数中的 WITHIN GROUP 子句。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: d537a6d5cdd53c15d487a9ab522202dc59b24090
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 811d7061e4f29479bd124d8f9e8b1d357d272f6d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245270"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918360"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>单页应用程序：登录和注销
 
@@ -306,6 +306,5 @@ this.authService.logout();
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [获取应用的令牌](scenario-spa-acquire-token.md)
+转到此方案中的下一篇文章：[获取应用的令牌](scenario-spa-acquire-token.md)。
 

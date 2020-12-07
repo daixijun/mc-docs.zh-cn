@@ -4,17 +4,18 @@ description: 有关如何使用 Azure 队列服务创建队列以及如何使用
 author: WenJason
 ms.author: v-jay
 origin.date: 06/09/2019
-ms.date: 07/20/2020
+ms.date: 11/30/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
-ms.openlocfilehash: db0332cfa8ddcdbfc7d7170ca7a983b5b4009f68
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 84928e04b7be0e145a9fd42b5c8e26b6ba0ebcdc
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414593"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153059"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>教程：在 .NET 中使用 Azure 存储队列
 
@@ -43,9 +44,9 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-首先创建 Azure 存储帐户。 有关创建存储帐户的分步指南，请参阅[创建存储帐户](../common/storage-account-create.md?toc=%2Fstorage%2Fqueues%2Ftoc.json)快速入门。
+首先创建 Azure 存储帐户。 有关创建存储帐户的分步指南，请参阅[创建存储帐户](../common/storage-account-create.md?toc=%2Fstorage%2Fqueues%2Ftoc.json)快速入门。 这是在先决条件中创建试用 Azure 帐户后执行的单独步骤。
 
-## <a name="create-the-app"></a>创建应用程序
+## <a name="create-the-app"></a>创建应用
 
 创建名为 **QueueApp** 的 .NET Core 应用程序。 为方便起见，此应用将通过队列发送和接收消息。
 
@@ -148,7 +149,7 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
 
 由于该应用使用云资源，因此代码将以异步方式运行。
 
-1. 更新 Main 方法以异步运行。 将 **void** 替换为**异步任务**返回值。
+1. 更新 Main 方法以异步运行。 将 **void** 替换为 **异步任务** 返回值。
 
    ```csharp
    static async Task Main(string[] args)
@@ -713,7 +714,7 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+在本教程中，你了解了如何执行以下操作：
 
 1. 创建队列
 1. 在队列中添加和删除消息

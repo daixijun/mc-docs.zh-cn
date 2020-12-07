@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 5bd7d502409ab5a04b381322f6095c2737dd01a5
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 19f84d4fb33b5e7f306c0f76f52a52f208bc4395
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186657"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918324"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>用于登录用户的 Web 应用：移到生产环境
 
@@ -24,9 +24,7 @@ ms.locfileid: "84186657"
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>后续步骤
-
-### <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>故障排除
 
 > [!NOTE]
 > 用户首次登录到 Web 应用程序时，他们将需要同意。 但是，在某些组织中，用户可能会看到如下所示的消息：
@@ -35,28 +33,17 @@ ms.locfileid: "84186657"
 >
 > 这是因为租户管理员已禁用让用户同意的功能。 在这种情况下，你需要与租户管理员联系，以便他们针对应用程序要求的范围进行管理员许可。
 
-### <a name="same-site"></a>同一站点
+## <a name="same-site"></a>同一站点
 
-请确保了解 Chrome 浏览器的新版本可能存在的问题
-
-> [!div class="nextstepaction"]
-> [如何在 Chrome 浏览器中处理 SameSite Cookie 更改](howto-handle-samesite-cookie-changes-chrome-browser.md)
+请确保了解 Chrome 浏览器的新版本可能存在的问题：[如何在 Chrome 浏览器中处理 SameSite Cookie 更改](howto-handle-samesite-cookie-changes-chrome-browser.md)。
 
 Microsoft.Identity.Web NuGet 包处理最常见的 SameSite 问题。
-
-### <a name="scenario-for-calling-web-apis"></a>用于调用 Web API 的方案
-
-Web 应用登录用户后，它就可以代表已登录用户调用 Web API。 从 Web 应用调用 Web API 是以下方案的目标：
-
-> [!div class="nextstepaction"]
-> [用于调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>深入探讨：ASP.NET Core Web 应用教程
 
 了解如何在此 ASP.NET Core 教程中通过其他方法登录用户： 
 
-> [!div class="nextstepaction"]
-> [允许 Web 应用通过 Microsoft 面向开发人员的标识平台登录用户和调用 API](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+[允许 Web 应用通过 Microsoft 面向开发人员的标识平台登录用户和调用 API](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
 
 此循序渐进教程提供了 Web 应用的生产就绪代码，包括如何在以下组织中添加使用帐户进行的登录：
 
@@ -70,6 +57,9 @@ Web 应用登录用户后，它就可以代表已登录用户调用 Web API。 �
 
 通过 GitHub 上的此示例详细了解 Java Web 应用： 
 
-> [!div class="nextstepaction"]
-> [一个 Java Web 应用程序，该应用程序使用 Microsoft 标识平台登录用户并调用 Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+[一个 Java Web 应用程序，该应用程序使用 Microsoft 标识平台登录用户并调用 Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+
+## <a name="next-steps"></a>后续步骤
+
+Web 应用登录用户后，它就可以代表已登录用户调用 Web API。 从 Web 应用调用 Web API 是以下方案的目标：[调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md)。
 

@@ -1,6 +1,6 @@
 ---
-title: 媒体服务帐户的基于角色的访问控制 - Azure | Microsoft Docs
-description: 本文介绍 Azure 媒体服务帐户的基于角色的访问控制 (RBAC)。
+title: 媒体服务帐户的 Azure 基于角色的访问控制 - Azure | Microsoft Docs
+description: 本文介绍 Azure 媒体服务帐户的 Azure 基于角色的访问控制 (Azure RBAC)。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -10,17 +10,17 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
 origin.date: 08/31/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 612ba41fa80230b0079783f6299d262337c088f7
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ab76324ed646b09db68ea509862909f18daff6e2
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244975"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300749"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>媒体服务帐户的基于角色的访问控制 (RBAC)
+# <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>媒体服务帐户的 Azure 基于角色的访问控制 (Azure RBAC)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -28,7 +28,7 @@ ms.locfileid: "91244975"
 
 ## <a name="design-principles"></a>设计原理
 
-V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 在响应中，密钥始终为 null、空值或进行了净化。 用户需要调用单独的操作方法来获取机密或凭据。 “读者”角色  不能调用多项操作，例如 Asset.ListContainerSas、StreamingLocator.ListContentKeys、ContentKeyPolicies.GetPolicyPropertiesWithSecrets。 可以通过单独的操作根据需要采用自定义角色来设置更细致的 RBAC 安全权限。
+V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 在响应中，密钥始终为 null、空值或进行了净化。 用户需要调用单独的操作方法来获取机密或凭据。 “读者”角色  不能调用多项操作，例如 Asset.ListContainerSas、StreamingLocator.ListContentKeys、ContentKeyPolicies.GetPolicyPropertiesWithSecrets。 可以通过单独的操作根据需要采用自定义角色来设置更细化的 Azure RBAC 安全权限。
 
 若要列出媒体服务支持的操作，请执行以下代码：
 
@@ -43,9 +43,9 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 
 有关详细信息，请参阅以下文章：
 
-- [经典订阅管理员角色、Azure 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [经典订阅管理员角色、Azure 角色和 Azure AD 角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)
-- [使用 RBAC 管理访问权限](../../role-based-access-control/role-assignments-rest.md)
+- [使用 REST API 添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-rest.md)
 - [媒体服务资源提供程序操作](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>后续步骤

@@ -6,17 +6,17 @@ author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 origin.date: 04/12/2019
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java
+ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: afda0f4b68808f1b117663754b61ce0817ca5699
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 98aa7204731971daf3d9134e6e884796e1133842
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977199"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306203"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Java 应用
 
@@ -53,6 +53,8 @@ Azure 应用服务可让 Java 开发人员在完全托管服务中快速生成�
 ## <a name="logging-and-debugging-apps"></a>日志记录和调试应用
 
 可以通过 Azure 门户对每个应用使用性能报告、流量可视化和运行状况检查。
+<!--### Stream diagnostic logs-->
+<!--zone-end-->
 
 ### <a name="flight-recorder"></a>网络流量记录器
 
@@ -207,6 +209,9 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 ### <a name="authenticate-users-easy-auth"></a>对用户进行身份验证（简易身份验证）
 
 在 Azure 门户中使用“身份验证和授权”选项设置应用身份验证。 在此处，可以使用 Azure Active Directory 或社交登录名（例如 GitHub）启用身份验证。 仅当配置单个身份验证提供程序时，Azure 门户配置才起作用。 有关详细信息，请参阅[将应用服务应用配置为使用 Azure Active Directory 登录](configure-authentication-provider-aad.md)，以及其他标识提供者的相关文章。 如果需要启用多个登录提供程序，请遵照[自定义应用服务身份验证](app-service-authentication-how-to.md)一文中的说明。
+
+<!--Facebook, Google-->
+
 #### <a name="java-se"></a>Java SE
 
 Spring Boot 开发人员可以使用 [Azure Active Directory Spring Boot Starter](https://docs.microsoft.com/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) 通过熟悉的 Spring Security 注释和 API 来保护应用程序。 务必增加 application.properties 文件中的最大标头大小。 我们建议值为 `16384`。
@@ -324,7 +329,7 @@ keyStore.load(
 5. 将解压缩的 NewRelic Java 代理文件上传到 /home/site/wwwroot/apm 下的一个目录中。 代理的文件应位于 /home/site/wwwroot/apm/newrelic 中。
 6. 修改位于 /home/site/wwwroot/apm/newrelic/newrelic.yml 处的 YAML 文件，并将占位符许可证值替换为你自己的许可证密钥。
 7. 在 Azure 门户中，浏览到你在应用服务中的应用程序并创建一个新的应用程序设置。
-   
+
     - 对于 Java SE 应用，请创建一个名为 `JAVA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的环境变量。
     - 对于 Tomcat，请创建一个名为 `CATALINA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的环境变量。
 
@@ -442,7 +447,7 @@ keyStore.load(
 1. 在 [Azure CLI](/cli) 中安装 webapp 扩展：
 
     ```azurecli
-    az extension add -–name webapp
+    az extension add --name webapp
     ```
 
 2. 运行以下 CLI 命令，创建从本地系统到应用服务的 SSH 隧道：
@@ -598,7 +603,7 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
     1. 在 Azure CLI 中，安装 webapp 扩展：
 
       ```azurecli
-      az extension add -–name webapp
+      az extension add --name webapp
       ```
 
     2. 运行以下 CLI 命令，创建从本地系统到应用服务的 SSH 隧道：
@@ -666,11 +671,15 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
 
 如果选择固定次要版本，则需要定期更新站点上 JVM 的次要版本。 为了确保应用程序在较新的次要版本上运行，请创建一个过渡槽并在暂存站点上递增次要版本。 确认应用程序在新的次要版本上正常运行后，可以交换过渡槽和生产槽。
 
+## <a name="jboss-eap-hardware-options"></a>JBoss EAP 硬件选项
+
+JBoss EAP 仅适用于高级和独立硬件选项。 在公共预览期间在免费层、共享层、基本层或标准层上创建了 JBoss EAP 站点的客户应纵向扩展到“高级”或“独立”硬件层，以避免出现意外行为。
+
 ## <a name="java-runtime-statement-of-support"></a>Java 运行时支持声明
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 版本和维护
 
-Azure 支持的 Java 开发工具包 (JDK) 为提供 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。 Azul Zulu Enterprise 内部版 OpenJDK 是适用于 Azure 和 Azure Stack 的 OpenJDK 的免费、多平台、生产就绪型发行版，由 Microsoft 及 Azul Systems 提供支持。 这些版本包含构建和运行 Java SE 应用程序所需的所有组件。 你可以通过 [Java JDK 安装](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)安装 JDK。
+Azure 支持的 Java 开发工具包 (JDK) 为提供 [Azul Systems](https://www.azul.com/) 提供的 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)。 Azul Zulu Enterprise 内部版 OpenJDK 是适用于 Azure 和 Azure Stack 的 OpenJDK 的免费、多平台、生产就绪型发行版，由 Microsoft 及 Azul Systems 提供支持。 这些版本包含构建和运行 Java SE 应用程序所需的所有组件。 你可以通过 [Java JDK 安装](https://aka.ms/azure-jdks)安装 JDK。
 
 主要版本更新将通过 Azure 应用服务中的新运行时选项提供。 客户可以通过配置应用服务部署来更新到这些较新的 Java 版本，他们需要负责测试和确保重大更新符合其需求。
 

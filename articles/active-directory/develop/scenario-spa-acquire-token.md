@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: afdc7c74d4a19c970ba93cd824f58695a96fb945
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: ad5f54e298ba86f36e9aa1f2b8a0414b898467fe
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126449"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918370"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>单页应用程序：获取用于调用 API 的令牌
 
@@ -198,6 +198,5 @@ myMSALObj.acquireTokenPopup(request);
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [调用 Web API](scenario-spa-call-api.md)
+转到此方案中的下一篇文章：[调用 Web API](scenario-spa-call-api.md)。
 

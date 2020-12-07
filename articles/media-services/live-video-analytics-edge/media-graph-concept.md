@@ -6,13 +6,13 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 origin.date: 05/01/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: ee49f8bef339c93f608adf35087dfea327a4689b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 11/30/2020
+ms.openlocfilehash: ed4d82803d75d8e7584f94c15ed404c9081d9ae6
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245557"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300752"
 ---
 # <a name="media-graph"></a>媒体图
 
@@ -30,9 +30,9 @@ ms.locfileid: "91245557"
 
 IoT Edge 上的实时视频分析支持不同类型的源、处理器和接收器。
 
-* **源节点**支持将媒体捕获到媒体图中。 从概念上讲，此上下文中的媒体可能是音频流、视频流、数据流或将音频、视频和/或数据组合在单个流中的流。
-* **处理器节点**支持处理媒体图中的媒体。
-* **接收器节点**支持将处理结果交付到媒体图之外的服务和应用。
+* **源节点** 支持将媒体捕获到媒体图中。 从概念上讲，此上下文中的媒体可能是音频流、视频流、数据流或将音频、视频和/或数据组合在单个流中的流。
+* **处理器节点** 支持处理媒体图中的媒体。
+* **接收器节点** 支持将处理结果交付到媒体图之外的服务和应用。
 
 ## <a name="media-graph-topologies-and-instances"></a>媒体图拓扑和实例 
 
@@ -45,7 +45,7 @@ IoT Edge 上的实时视频分析支持不同类型的源、处理器和接收�
 以下状态图显示了图形拓扑和图形实例的生命周期。
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="媒体图":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="图形拓扑和图形实例生命周期":::
 
 首先[创建图形拓扑](direct-methods.md#graphtopologyset)。 然后对每个要使用此拓扑处理的实时视频源，[创建图形实例](direct-methods.md#graphinstanceset)。 
 
@@ -74,7 +74,7 @@ IoT Edge 上的实时视频分析支持媒体图中以下类型的节点：
 
 #### <a name="rtsp-source"></a>RTSP 源 
 
-通过 RTSP 源节点，你可以从 [RTSP](https://tools.ietf.org/html/rfc2326 服务器引入媒体。 监控和基于 IP 的照相机使用名为 RTSP（实时流式处理协议）的协议传输它们的数据，这不同于其他类型的设备（例如手机和摄像机）。 此协议用于建立和控制服务器（照相机）和客户端之间的媒体会话。 媒体图中的 RTSP 源节点充当客户端，可以与 RTSP 服务器建立会话。 许多设备（例如大多数 [IP 照相机](https://en.wikipedia.org/wiki/IP_camera)）有内置的 RTSP 服务器。 [ONVIF](https://www.onvif.org/) 强制要求在 [Profile G、S 和 T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) 兼容设备的定义中支持 RTSP。 RTSP 源节点要求你指定 RTSP URL 以及凭据才能启用经过身份验证的连接。
+通过 RTSP 源节点，你可以从 [RTSP](https://tools.ietf.org/html/rfc2326 server) 引入媒体。 监控和基于 IP 的照相机使用名为 RTSP（实时流式处理协议）的协议传输它们的数据，这不同于其他类型的设备（例如手机和摄像机）。 此协议用于建立和控制服务器（照相机）和客户端之间的媒体会话。 媒体图中的 RTSP 源节点充当客户端，可以与 RTSP 服务器建立会话。 许多设备（例如大多数 [IP 照相机](https://en.wikipedia.org/wiki/IP_camera)）有内置的 RTSP 服务器。 [ONVIF](https://www.onvif.org/) 强制要求在 [Profile G、S 和 T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) 兼容设备的定义中支持 RTSP。 RTSP 源节点要求你指定 RTSP URL 以及凭据才能启用经过身份验证的连接。
 
 #### <a name="iot-hub-message-source"></a>IoT 中心消息源 
 

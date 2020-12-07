@@ -7,18 +7,18 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: cc21a634b71a1f3dcbc80b63eea25f0d38e13937
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b45aecab828c46aa1d8a91eb4cd03cc3e5f7016c
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104615"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306262"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure 认知服务容器安全性
 
-开发应用程序时，安全性是主要关注因素。 安全性重要是因为它是成功的指标。 构建包含认知服务容器的软件解决方案时，必须了解你所受的限制和能够使用的功能。 有关网络安全的详细信息，请参阅[配置 Azure 认知服务虚拟网络][az-security]。
+开发应用程序时，安全性是主要关注因素。 安全性重要是因为它是成功的指标。 构建包含认知服务容器的软件解决方案时，必须了解你所受的限制和能够使用的功能。 有关网络安全性的详细信息，请参阅[配置 Azure 认知服务虚拟网络][az-security]。
 
 > [!IMPORTANT]
 > 默认情况下，认知服务容器 API 上没有安全措施。 之所以这样设置，是因为大多数情况下容器会作为 Pod 的一部分运行，而 Pod 受网络桥的保护，与外部隔离。 但是，可以在启用身份验证时，让其工作起来与访问[基于云的认知服务][request-authentication]时使用的身份验证完全相同。
@@ -33,7 +33,7 @@ ms.locfileid: "93104615"
 
 ### <a name="container-networking"></a>容器网络
 
-若要提交计费所需的计量信息，则需要认知服务容器。 唯一例外是脱机容器，因为后者遵循不同的计费方法。 如果无法允许列出认知服务容器依赖的各种网络通道，则容器不能正常运行。
+若要提交计费所需的计量信息，则需要认知服务容器。 如果无法允许列出认知服务容器依赖的各种网络通道，则容器不能正常运行。
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>允许列出认知服务域和端口
 
@@ -51,4 +51,5 @@ ms.locfileid: "93104615"
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
 [request-authentication]: ../../authentication.md
+[az-security]: ../../cognitive-services-virtual-networks.md
 

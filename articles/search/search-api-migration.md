@@ -7,14 +7,14 @@ author: brjohnstmsft
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 08/26/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 37c88108504fd61e48da058659c7b0ff07ad4b4c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 10/09/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 483d7b4e7051289e46a32c653e8e8b1020692762
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020948"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300722"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>升级到 Azure 认知搜索服务中最新的 REST API
 
@@ -41,13 +41,19 @@ ms.locfileid: "90020948"
 
 ## <a name="upgrade-to-2020-06-30"></a>升级到 2020-06-30
 
-版本 2020-06-30 是 REST API 的新正式版。 没有中断性变更，但存在一些行为差异。 
+版本 2020-06-30 是 REST API 的新正式版。 存在一个中断性变更和几个行为差异。 
 
 此 API 版本中现在通常可用的功能包括：
 
 * [知识存储](knowledge-store-concept-intro.md)，通过技能组创建的扩充内容的持久存储，创建的目的是通过其他应用程序进行下游分析和处理。 有了此功能，索引器驱动的 AI 扩充管道除了可以填充搜索索引外，还可以填充知识存储。 如果你使用了此功能的预览版，则它相当于正式版。 唯一需要的代码更改是修改 api-version。
 
-行为变更包括以下内容：
+### <a name="breaking-change"></a>重大更改
+
+如果代码包含以下功能，针对早期 API 版本编写的现有代码会在遇到 api-version=2020-06-30 及更高版本时中断运行：
+
+* 筛选器表达式中的任何 Edm.Date 文本（由年、月、日组成的日期，例如 `2020-12-12`）必须遵循 Edm.DateTimeOffset 格式：`2020-12-12T00:00:00Z`。 由于时区不同，需要进行此更改才能处理错误的或意外的查询结果。
+
+### <a name="behavior-changes"></a>行为更改
 
 * [BM25 排名算法](index-ranking-similarity.md)将以前的排名算法替换为更新的技术。 新服务将自动使用此算法。 对于现有服务，必须将参数设置为使用新算法。
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 1b410aee3e7bc7e1e6f9a4342a4ddea242ef6341
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a045c2368b7fc2fdfc15e172abb530da626119a4
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106576"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306590"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>健康状况类别、实体和属性的文本分析
 
@@ -142,11 +142,11 @@ ms.locfileid: "93106576"
 
 **CARE_ENVIRONMENT** - 为患者提供护理的环境或位置。 例如，急诊室、医师办公室、心脏科、临终关怀中心、医院。
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="医疗保健环境实体的示例。":::
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="此屏幕截图显示了医疗保健环境实体的示例。":::
 
 **HEALTHCARE_PROFESSION** - 执业医生或非执业医疗从业者。 例如，牙医、病理学家、神经学家、放射科医生、药剂师、营养师、理疗师、脊椎指压师。
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="医疗保健环境实体的示例。":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="此屏幕截图显示了医疗保健环境实体的另一个示例。":::
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="医疗保健环境实体的另一个示例。":::
 
@@ -184,9 +184,9 @@ ms.locfileid: "93106576"
 
 :::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="带有症状和药物实体的病情限定符属性的示例。":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="带有诊断实体的病情限定符属性的另一个示例。":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="此屏幕截图显示了包含诊断实体的病情限定符属性的另一个示例。":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="带有诊断实体的病情限定符属性的另一个示例。":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="此屏幕截图显示了包含诊断实体的病情限定符属性的另一个示例。":::
 
 **DIRECTION** - 表征身体医疗状况的方向术语。
 
@@ -204,15 +204,15 @@ ms.locfileid: "93106576"
 
 **MEASUREMENT_VALUE** - 表征身体状况的值。 例如，在“1.5x2x1 cm 肿瘤”中，术语“1.5x2x1”是“肿瘤”的值  。 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="带有症状或征兆实体的方向属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="此屏幕截图显示了包含症状或征兆实体的方向属性的示例。":::
 
 **RELATIONAL_OPERATOR** - 表示身体状况附加信息之间关系的短语。 例如，时间或测量值。 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="带有症状或征兆实体的方向属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="此屏幕截图显示了包含症状或征兆实体的方向属性的另一个示例。":::
 
 **TIME** - 与身体状况的开始和/或长度（持续时间）有关的时间术语。 例如，症状开始（发作）或疾病发生的时间。
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="带有症状或征兆实体的方向属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="此屏幕截图显示了包含症状或征兆实体的方向属性的另一个示例。":::
 
 ### <a name="supported-relations"></a>支持的关系
 
@@ -256,9 +256,9 @@ ms.locfileid: "93106576"
 
 **RELATIONAL_OPERATOR** - 表示药物与其他信息之间的关系的短语。 例如，所需的测量值。
 
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="带有药物实体的关系运算符属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="此屏幕截图显示了包含药物实体的关系运算符属性的示例。":::
 
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="带有药物实体的关系运算符属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="此屏幕截图显示了包含药物实体的关系运算符属性的另一个示例。":::
 
 ### <a name="supported-relations"></a>支持的关系
 
@@ -280,11 +280,11 @@ ms.locfileid: "93106576"
 
 **DIRECTION** - 表征治疗的方向术语。
 
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="治疗方向属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="此屏幕截图显示了治疗方向属性的示例。":::
 
 **FREQUENCY** - 治疗发生或应该发生的频率。
 
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="治疗方向属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="此屏幕截图显示了治疗方向属性的另一个示例。":::
  
 **RELATIONAL_OPERATOR** - 表示治疗与其他信息之间的关系的短语。  例如，距离上一个过程经过了多少时间。
 
@@ -292,7 +292,7 @@ ms.locfileid: "93106576"
 
 **TIME** - 与治疗的开始和/或长度（持续时间）有关的时间术语。 例如治疗的日期。
 
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="治疗时间属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="此屏幕截图显示了治疗时间属性的示例。":::
 
 
 ### <a name="supported-relations"></a>支持的关系
@@ -307,5 +307,5 @@ ms.locfileid: "93106576"
 
 **FAMILY_RELATION** - 主体的家庭关系的提及。 例如父亲、女儿、兄弟姐妹、父母。
 
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="治疗时间属性的示例。":::
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="此屏幕截图显示了治疗时间属性的另一个示例。":::
 

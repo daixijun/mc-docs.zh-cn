@@ -1,15 +1,15 @@
 ---
-title: IoT Edge 上的实时视频分析配额 - Azure
+title: IoT Edge 上的实时视频分析配额和限制 - Azure
 description: 本文介绍 IoT Edge 上的实时视频分析配额和限制。
 ms.topic: conceptual
 origin.date: 05/22/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 3f5a664e1db3e732fe0bd5db8ab194564a53a88f
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 11/30/2020
+ms.openlocfilehash: 9147d739319d47788b80da5a4d13b908953af65f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413584"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300775"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
 
@@ -66,6 +66,10 @@ ms.locfileid: "89413584"
 * 能够在不中断的情况下将媒体服务帐户从一个订阅迁移到另一个订阅。
 * 能够将多个存储帐户用于媒体服务帐户。
 * 能够在不重启的情况下动态更改模块所需属性中的服务主体信息。
+
+只能使用支持 RTSP 协议的 IP 相机。 可以在 [ONVIF 一致性](https://www.onvif.org/conformant-products)产品页上找到支持 RTSP 的 IP 相机。 查找符合配置文件 G、S 或 T 的设备。
+
+此外，还应将这些相机配置为使用 H.264 视频和 AAC 音频。 当前不支持其他编解码器。 
 
 ## <a name="next-steps"></a>后续步骤
 

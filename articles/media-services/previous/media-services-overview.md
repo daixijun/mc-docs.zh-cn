@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/19/2019
-ms.date: 09/28/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 773b0a69c29ecb17a462a10de1f7d5d806a8502a
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: b3d5bac14d851503a1649b885d25367b697ad9da
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245581"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300698"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述
 
@@ -79,7 +79,7 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 
 ## <a name="code-samples"></a>代码示例
 
-在****“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
+在“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
 
 ## <a name="concepts"></a>概念
 
@@ -87,15 +87,13 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>支持的媒体服务功能跨数据中心方案和可用性
 
-有关详细信息，请参阅 [AMS 功能和服务的跨数据中心方案和可用性](scenarios-and-availability.md)。
+有关 Azure 常见方案的详细信息，请参阅 [AMS 方案](scenarios-and-availability.md)。
+有关区域可用性的信息，请参阅[媒体服务可用性](availability-regions-v-2.md)。
 
 ## <a name="service-level-agreement-sla"></a>服务级别协议 (SLA)
 
 有关详细信息，请参阅 [Azure SLA](https://www.azure.cn/support/legal/sla/)。
 
-若要了解此功能在数据中心的可用性，请参阅[可用性](scenarios-and-availability.md#availability)部分。
-
 ## <a name="support"></a>支持
 
 [Azure 支持](https://www.azure.cn/support/contact/) 为 Azure（包括媒体服务）提供支持选项。
-<!--Update_Description: wording update-->

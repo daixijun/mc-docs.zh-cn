@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 02/10/2020
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: dff70864f76c57838907285e7f123da5c3415654
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6725c01e70eeae2cc15053b3cc38f88102907f88
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105621"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306173"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -24,7 +24,7 @@ ms.locfileid: "93105621"
 
 ### <a name="entity-linking"></a>实体链接
 
-实体链接是一种对文本中找到的实体的身份进行识别和消歧的功能（例如，确定 `Mars` 一词是指行星还是指罗马战神）。 此过程要求知识库采用适当的语言，以便链接文本中识别的实体。
+实体链接是一种对文本中找到的实体的身份进行识别和消歧的功能（例如，确定出现的“Mars”一词是指行星还是指罗马战神）。 此过程要求知识库采用适当的语言，以便链接文本中识别的实体。
 
 
 ### <a name="named-entity-recognition-ner"></a>命名实体识别 (NER)
@@ -71,7 +71,7 @@ ms.locfileid: "93105621"
 
 #### <a name="version-31-preview2"></a>[版本 3.1-preview.2](#tab/version-3-preview)
 
-命名实体识别 `v3.1-preview.2` 对 NER 和实体链接请求使用不同的终结点。 根据你的请求使用以下 URL 格式：
+命名实体识别 `v3.1-preview.2` 对 NER、PII 和实体链接请求使用不同的终结点。 根据你的请求使用以下 URL 格式：
 
 实体链接
 * `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/linking`
@@ -83,6 +83,7 @@ NER
 
 [`General` 的命名实体识别版本 3.1-preview 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+个人身份信息 (PII)
 * 个人 (`PII`) 信息 - `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 还可以使用可选的 `domain=phi` 参数来检测文本中的健康状况 (`PHI`) 信息。 

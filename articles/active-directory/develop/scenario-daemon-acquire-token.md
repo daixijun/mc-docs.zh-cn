@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 2b2580c45e672fa81872588447a49c60711eb2ad
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 6cb339dfebc2a2931bb2fa3c0f8c1f5ba01a83e5
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647735"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918491"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>用于调用 Web API 的守护程序应用 - 获取令牌
 
@@ -24,7 +24,7 @@ ms.locfileid: "88647735"
 
 ## <a name="scopes-to-request"></a>请求的作用域
 
-请求客户端凭据流时，其作用域是资源的名称后跟 `/.default`。 此表示法告知 Azure Active Directory (Azure AD) 使用在应用程序注册过程中静态声明的*应用程序级权限*。 另外，这些 API 权限必须由租户管理员授予。
+请求客户端凭据流时，其作用域是资源的名称后跟 `/.default`。 此表示法告知 Azure Active Directory (Azure AD) 使用在应用程序注册过程中静态声明的 *应用程序级权限*。 另外，这些 API 权限必须由租户管理员授予。
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -202,7 +202,7 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 
 ## <a name="application-token-cache"></a>应用程序令牌缓存
 
-在 MSAL.NET 中，`AcquireTokenForClient` 使用应用程序令牌缓存。 （所有其他 AcquireToken*XX* 方法都使用用户令牌缓存。）不要在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用“用户”  令牌缓存。 `AcquireTokenForClient` 会检查*应用程序*令牌缓存本身并对其进行更新。
+在 MSAL.NET 中，`AcquireTokenForClient` 使用应用程序令牌缓存。 （所有其他 AcquireToken *XX* 方法都使用用户令牌缓存。）不要在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用“用户”  令牌缓存。 `AcquireTokenForClient` 会检查 *应用程序* 令牌缓存本身并对其进行更新。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -233,18 +233,15 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 调用 Web API](./scenario-daemon-call-api.md?tabs=dotnet)
+转到此方案中的下一篇文章：[调用 Web API](./scenario-daemon-call-api.md?tabs=dotnet)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 调用 Web API](./scenario-daemon-call-api.md?tabs=python)
+转到此方案中的下一篇文章：[调用 Web API](./scenario-daemon-call-api.md?tabs=python)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [守护程序应用 - 调用 Web API](./scenario-daemon-call-api.md?tabs=java)
+转到此方案中的下一篇文章：[调用 Web API](./scenario-daemon-call-api.md?tabs=java)。
 
 ---
 

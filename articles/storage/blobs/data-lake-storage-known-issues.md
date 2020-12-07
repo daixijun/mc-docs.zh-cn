@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/28/2020
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2c4a60441a33fd1a03673094b0480f97fae3750f
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: 8d751e7e0fbc8f8fdf936b962793ddf53da884e5
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589430"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153054"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -42,7 +42,7 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 
 本部分介绍了同时使用 blob API 和 Data Lake Storage Gen2 API 对相同的数据执行操作时的问题和限制。
 
-* 不能同时使用 API 和 Data Lake Storage API 写入到文件的同一实例。 如果使用 Data Lake Storage Gen2 API 向某个文件进行写入，则调用[获取 Block 列表](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API 时看不到该文件的块。 唯一的例外是在覆盖时可以使用。 可以使用任一 API 覆盖文件/Blob。
+* 不能使用 blob API 和 Data Lake Storage API 将内容写入到文件的同一实例。 如果使用 Data Lake Storage Gen2 API 向某个文件进行写入，则调用[获取 Block 列表](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API 时看不到该文件的块。 唯一的例外是在覆盖时可以使用。 可以使用任一 API 覆盖文件/Blob。
 
 * 如果在使用[列出 Blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 操作时不指定分隔符，则结果会包含目录和 Blob。 如果选择使用分隔符，请只使用正斜杠 (`/`)。 这是唯一支持的分隔符。
 
@@ -55,7 +55,9 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 * [获取页面范围](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [增量复制 Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [从 URL 放置页](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [追加块](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [通过 URL 追加块](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 具有分层命名空间的帐户不支持非托管 VM 磁盘。 若要在存储帐户中启用分层命名空间，请将非托管 VM 磁盘置于未启用分层命名空间功能的存储帐户中。
 
@@ -63,7 +65,7 @@ Blob API 和 Data Lake Storage Gen2 API 可以对相同的数据执行操作。
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>支持以递归方式设置访问控制列表 (ACL)
 
-在[公共预览版](recursive-access-control-lists.md)中，能够将 ACL 更改以递归方式从父目录应用到子项。 在此功能的当前版本中，你可以使用 PowerShell、.NET SDK 和 Python SDK 应用 ACL 更改。 尚不支持 Java SDK、Azure CLI、Azure 门户或 Azure 存储资源管理器。
+将 ACL 更改以递归方式从父目录应用到子项的功能已正式发布。 在此功能的当前版本中，你可以使用 PowerShell、Azure CLI、.NET、Java 和 Python SDK 应用 ACL 更改。 尚不支持 Azure 门户或 Azure 存储资源管理器。
 
 <a id="known-issues-tools"></a>
 

@@ -8,17 +8,17 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: f243ee50fc4661683104969845ef54153d3993c1
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 0174980a22d4949dd5282d943dabdba8ceb428fb
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020890"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300753"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>配置从 Azure 认知搜索索引器到 SQL 托管实例的连接
 
-如[使用索引器将 Azure SQL 数据库连接到 Azure 认知搜索](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 认知搜索通过公共终结点支持针对 **SQL 托管实例**创建索引器。
+如 [使用索引器将 Azure SQL 数据库连接到 Azure 认知搜索](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 认知搜索通过公共终结点支持针对 **SQL 托管实例** 创建索引器。
 
 ## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>通过公共终结点创建 Azure SQL 托管实例
 在选中“启用公共终结点”  选项的情况下创建 SQL 托管实例。
@@ -28,10 +28,10 @@ ms.locfileid: "90020890"
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>启用 Azure SQL 托管实例公共终结点
 还可以在“安全性”   > “虚拟网络”   > “公共终结点”   > “启用”  下为现有 SQL 托管实例启用公共终结点。
 
-   ![启用公共终结点](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "启用公共终结点")
+   ![使用托管实例 VNET 启用公共终结点](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "启用公共终结点")
 
 ## <a name="verify-nsg-rules"></a>验证 NSG 规则
-检查网络安全组是否具有允许来自 Azure 服务的连接的正确的**入站安全规则**。
+检查网络安全组是否具有允许来自 Azure 服务的连接的正确的 **入站安全规则**。
 
    ![NSG 入站安全规则](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG 入站安全规则")
 
@@ -46,7 +46,7 @@ ms.locfileid: "90020890"
 > 对于这两个规则中的每一个，请设置 "PORT" = `3342`, "PROTOCOL" = `TCP`, "DESTINATION" = `Any`, "ACTION" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>获取公共终结点连接字符串
-请确保使用**公共终结点**（端口 3342，而不是端口 1433）的连接字符串。
+请确保使用 **公共终结点**（端口 3342，而不是端口 1433）的连接字符串。
 
    ![公共终结点连接字符串](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "公共终结点连接字符串")
 

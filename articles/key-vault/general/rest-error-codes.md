@@ -10,13 +10,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 origin.date: 12/16/2019
-ms.date: 09/15/2020
-ms.openlocfilehash: c2de1ac3d1c1898d5faa818942a69f2e4f262aff
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.date: 11/27/2020
+ms.openlocfilehash: d05f6c6d6d4f42df5f4c9192de68b807ec64131e
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678490"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300174"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 错误代码
  
@@ -56,7 +56,7 @@ Content-Length: 31
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>令牌缺少关联的适当资源。 
 
-从 Azure OAUTH 终结点请求访问令牌时，必须提供名为“resource”的参数。 该值对于令牌提供程序而言非常重要，因为它限定了令牌的目标使用范围。 用于访问 Key Vault 的**所有**令牌的资源为 *https:\//vault.keyvault.cn*（不包括尾部斜杠）。
+从 Azure OAUTH 终结点请求访问令牌时，必须提供名为“resource”的参数。 该值对于令牌提供程序而言非常重要，因为它限定了令牌的目标使用范围。 用于访问 Key Vault 的 **所有** 令牌的资源为 *https:\//vault.keyvault.cn*（不包括尾部斜杠）。
 
 ### <a name="the-token-is-expired"></a>令牌已过期
 
@@ -129,7 +129,7 @@ resource=https%3A%2F%2Fvault.azure.cn&client_id=<registered-app-ID>&client_secre
 HTTP 403 表示请求已完成身份验证（知道请求方标识），但标识无权访问请求的资源。 此错误有两种原因：
 
 - 没有为标识设置访问策略。
-- 请求方资源的 IP 地址未列入 Key Vault 防火墙设置中的允许列表。
+- 请求资源的 IP 地址在密钥保管库的防火墙设置中未被批准。
 
 如果客户的应用程序未使用客户端 ID，但客户认为已使用，则往往会出现 HTTP 403。 这通常意味着，未为实际调用方标识正确设置访问策略。
 
@@ -143,7 +143,7 @@ HTTP 403 表示请求已完成身份验证（知道请求方标识），但标�
 
 “客户端地址(00.00.00.00)未获授权，调用方不是受信任的服务”
 
-有一个有限的“Azure 信任的服务”列表。 Azure 网站**不是**受信任的 Azure 服务。
+有一个有限的“Azure 信任的服务”列表。 Azure 网站 **不是** 受信任的 Azure 服务。 有关详细信息，请参阅博客文章：[通过 Azure 应用服务访问 Key Vault 防火墙](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services)。
 
 必须将 Azure 网站的 IP 地址添加到 Key Vault 才能使其正常工作。
 
@@ -167,5 +167,3 @@ HTTP 403 表示请求已完成身份验证（知道请求方标识），但标�
 - 如果通过缓存无法减少请求数，并且计时退避不起作用，请考虑将密钥拆分到多个 Key Vault 中。 单个订阅的服务限制是单个 Key Vault 限制的 5 倍。 如果使用 5 个以上的 Key Vault，应考虑使用多个订阅。 
 
 可在以下文章中找到详细的指导，包括如何请求提高限制：[Azure Key Vault 限制指南](overview-throttling.md)
-
-

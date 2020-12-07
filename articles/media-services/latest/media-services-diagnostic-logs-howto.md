@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9283a8b18d4aad0f3ce00a58697b0d57ead3fce6
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ff685e2fde31c5b4904499ac9810c3260cec6f7c
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245641"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300604"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>监视媒体服务诊断日志
 
@@ -43,7 +43,7 @@ ms.locfileid: "91245641"
 1. 通过 https://portal.azure.cn 登录到 Azure 门户。
 1. 导航到其中的媒体服务帐户，然后单击“监视”下的“诊断设置”。   在此处查看订阅中所有资源的列表，这些资源通过 Azure Monitor 生成监视数据。
 
-    ![诊断设置部分](media/media-services-diagnostic-logs/logs01.png)
+    ![屏幕截图，突出显示了“监视”部分的“诊断设置”。](media/media-services-diagnostic-logs/logs01.png)
 
 1. 单击“添加诊断设置”  。
 

@@ -4,15 +4,15 @@ description: API 管理的 Azure 安全基线
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 85da4f0d746facd305df60a7241646f3e8cf8b67
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 817f6e07feb0975f11eeeacb8fa47d335392d1cc
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551992"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306417"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API 管理的 Azure 安全基线
 
@@ -22,7 +22,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -98,7 +98,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 * [了解 Azure 应用程序网关](../application-gateway/index.yml)
 
-* [了解 Azure 安全中心集成的威胁情报](../security-center/threat-protection.md)
+* [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -185,7 +185,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 **指南**：定义并实现与 Azure API 管理部署相关的网络设置的标准安全配置。 在“Microsoft.ApiManagement”和“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure API 管理部署及其相关资源的网络配置。 还可以利用 Azure 虚拟网络的内置策略定义，例如：
 - 应启用 DDoS 防护标准版
 
-还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、基于角色的访问控制 (RBAC)和策略），来简化大规模的 Azure 部署。 可以轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
+还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure 基于角色的访问控制 (Azure RBAC) 和策略）来简化大规模的 Azure 部署。 可以轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -273,7 +273,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指导**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
+**指南**：在 Azure Monitor 中，根据组织的合规性规则设置 Log Analytics 工作区保持期。 使用 Azure 存储帐户进行长期/存档存储。
 
 * [如何为 Log Analytics 工作区设置日志保留参数](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -301,7 +301,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 **责任**：客户
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：启用针对异常活动的警报
+### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7：针对异常活动启用警报
 
 **指南**：启用 Azure 活动日志诊断设置以及 Azure API 管理实例的诊断设置，并将日志发送到 Log Analytics 工作区。 在 Log Analytics 中执行查询，以搜索字词、识别趋势、分析模式，并根据收集的数据提供许多其他见解。 可以根据 Log Analytics 工作区查询来创建警报。
 
@@ -313,7 +313,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 * [如何启用 Azure API 管理的诊断设置](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [如何针对未经授权的请求配置警报规则](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [如何针对 Azure API 管理配置警报规则](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [如何查看 Azure API 管理实例的容量指标](./api-management-capacity.md)
 
@@ -363,11 +363,11 @@ Azure Active Directory (AD) 具有必须显式分配且可查询的内置角色�
 
 * [如何在 Azure API 管理中使用基于角色的访问控制](./api-management-role-based-access-control.md)
 
-* [如何获取 Azure API 管理实例下的用户列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [如何获取 Azure API 管理实例下的用户列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [如何使用 PowerShell 获取 Azure AD 中分配到目录角色的用户列表](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [如何使用 PowerShell 获取 Azure AD 中分配到目录角色的用户列表](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment)
 
-* [如何使用 PowerShell 获取 Azure AD 中目录角色定义](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [如何使用 PowerShell 获取 Azure AD 中目录角色定义](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition)
 
 * [了解 Azure 安全中心提供的标识和访问管理建议](../security-center/recommendations-reference.md#recs-identity)
 
@@ -442,7 +442,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 **责任**：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
 
 **指导**：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 生成日志和警报。
 
@@ -466,7 +466,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 ### <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
 
-**指南**：请尽可能使用 Azure AD 作为中心身份验证和授权系统。 AAD 通过对静态数据和传输中数据使用强加密来保护数据。 Azure AD 还会对用户凭据进行加盐、哈希处理和安全存储操作。
+**指南**：请尽可能使用 Azure AD 作为中心身份验证和授权系统。 Azure AD 通过对静态数据和传输中的数据使用强加密来保护数据。 Azure AD 还会对用户凭据进行加盐、哈希处理和安全存储操作。
 
 将 Azure API 管理开发人员门户配置为使用 Azure Active Directory 对开发人员帐户进行身份验证。
 
@@ -476,7 +476,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 * [如何结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API](./api-management-howto-protect-backend-with-aad.md)
 
-* [如何创建和配置 AAD 实例](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+* [如何创建和配置 Azure AD 实例](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -492,7 +492,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 * [如何在 Azure API 管理中管理用户帐户](./api-management-howto-create-or-invite-developers.md)
 
-* [如何获取 API 管理用户的列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [如何获取 API 管理用户的列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuse)
 
 * [如何创建和使用组来管理 Azure API 管理中的开发人员帐户](./api-management-howto-create-groups.md)
 
@@ -554,9 +554,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 **指导**：为开发、测试和生产实施单独的订阅和/或管理组。 Azure API 管理实例应由虚拟网络 (VNet)/子网分隔并正确标记。
 
-* [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-
-* [如何创建管理组](../governance/management-groups/create.md)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 * [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
@@ -714,7 +712,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 * [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-* [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)
 
 * [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -740,9 +738,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 - 不允许的资源类型
 - 允许的资源类型
 
-* [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-
-* [如何创建管理组](../governance/management-groups/create.md)
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 * [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
@@ -806,7 +802,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [如何使用 Azure Policy 拒绝特定的资源类型](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -856,7 +852,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 **指南**：使用 Azure Policy 为 Azure API 管理服务定义和实施标准安全配置。 在“Microsoft.ApiManagement”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure API 管理服务的配置。
 
-* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias)
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1040,7 +1036,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 * [如何使用 Azure API 管理中的服务备份和还原实现灾难恢复](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [如何备份 Azure Key Vault 证书](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [如何备份 Azure Key Vault 证书](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Azure 安全中心监视**：不适用
 
@@ -1052,7 +1048,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 * [如何调用 API 管理还原操作](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [如何还原 Azure Key Vault 证书](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [如何还原 Azure Key Vault 证书](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Azure 安全中心监视**：不适用
 
@@ -1068,7 +1064,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 在 Key Vault 中启用“软删除”，以防止意外删除或恶意删除密钥。
 
-* [如何在 Key Vault 中启用“软删除”](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [如何在 Key Vault 中启用“软删除”](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：不适用
 
@@ -1080,7 +1076,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 * [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1094,7 +1090,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
 此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 

@@ -6,27 +6,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: f6011f5e8fdc82333f5a9eb2d8ef66a3f7ad9b59
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8e2ce1180992b6965c1024ba43a64cd184075494
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103579"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306599"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[版本 3.1 预览](#tab/version-3-1)
 
-[v3 参考文档](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 包(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 参考文档](https://docs.microsoft.com/javascript/api/overview/azure/ai-text-analytics-readme) | [v3 库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 包(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-30"></a>[版本 3.0](#tab/version-3)
 
-[v3 参考文档](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 包(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 参考文档](https://docs.microsoft.com/javascript/api/overview/azure/ai-text-analytics-readme) | [v3 库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 包(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-21"></a>[版本 2.1](#tab/version-2)

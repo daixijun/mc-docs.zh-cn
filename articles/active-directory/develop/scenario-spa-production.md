@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1ecb7780a2edeacbb9daaf9221220332979cf043
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 9d4e24024d61e8b43d47f2a196964024e48131ae
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918364"
 ---
 # <a name="single-page-application-move-to-production"></a>单页应用程序：移到生产环境
 
@@ -36,28 +36,13 @@ ms.locfileid: "89593615"
 
 ## <a name="next-steps"></a>后续步骤
 
-深入了解快速入门示例，该示例介绍的代码说明了如何使用 **MSAL.js** 登录用户并获取访问令牌来调用 **Microsoft Graph API**：
+- 深入了解快速入门示例，该示例介绍的代码说明了如何使用 **MSAL.js** 登录用户并获取访问令牌来调用 **Microsoft Graph API**：[JavaScript SPA 教程](./tutorial-v2-javascript-spa.md)。
 
-> [!div class="nextstepaction"]
-> [JavaScript SPA 教程](./tutorial-v2-javascript-spa.md)
+- 此示例演示如何使用 **MSAL.js** 为自己的后端 Web API (ASP.NET Core) 获取令牌：[使用 ASP.NET 后端的 SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)。
 
-此示例演示如何使用 **MSAL.js** 为自己的后端 Web API (ASP.NET Core) 获取令牌：
+- 此示例演示如何使用 passport-azure-ad 验证后端 Web API (Node.js) 的访问令牌：[Node.js Web API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)。
 
-> [!div class="nextstepaction"]
-> [使用 ASP.NET 后端的 SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- 此示例演示如何使用 **MSAL.js** 在向 **Azure Active Directory B2C** (Azure AD B2C) 注册的应用中登录用户：[使用 Azure AD B2C 的 SPA](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)。
 
-此示例演示如何使用 **passport-azure-ad** 验证后端 Web API (Node.js) 的访问令牌。
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-此示例演示如何使用 **MSAL.js** 在向 **Azure Active Directory B2C** (Azure AD B2C) 注册的应用中登录用户：
-
-> [!div class="nextstepaction"]
-> [使用 Azure AD B2C 的 SPA](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-此示例演示如何使用 **passport-azure-ad** 为向 **Azure Active Directory B2C** (Azure AD B2C) 注册的应用验证访问令牌
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- 此示例演示如何使用 passport-azure-ad 为向 Azure Active Directory B2C (Azure AD B2C) 注册的应用验证访问令牌：[Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)。
 

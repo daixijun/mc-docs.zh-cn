@@ -2,20 +2,20 @@
 title: 使用 Istio 进行智能路由
 titleSuffix: Azure Kubernetes Service
 description: 了解如何使用 Istio 在 Azure Kubernetes 服务 (AKS) 群集中提供智能路由并部署 Canary 发布
-author: rockboyfor
 ms.topic: article
 origin.date: 10/09/2019
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ad3b2d98cc1dd515077fd60c7f60b995e3bdea10
-ms.sourcegitcommit: 6c9e5b3292ade56d812e7e214eeb66aeb9b8776e
+ms.openlocfilehash: 3f97ba7eeef7da69440e3784e0d8738fa030327f
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86218814"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024491"
 ---
 <!--CORRECT ON client-operating-system-->
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>借助 Istio 在 Azure Kubernetes 服务 (AKS) 中使用智能路由和 Canary 发布
@@ -57,7 +57,7 @@ AKS 投票应用示例向用户提供了两个投票选项（“猫”或“狗�
 
 首先将应用程序部署到 Azure Kubernetes 服务 (AKS) 群集。 下图说明了本部分结束时运行的内容 - 所有组件的 `1.0` 版本及由 Istio Ingress 网关维护的入站请求：
 
-![AKS 投票应用组件和路由。](media/servicemesh/istio/scenario-routing-components-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-components-01.png" alt-text="此图显示了通过 Istio 入口网关为入站请求提供服务的所有组件的 1.0 版本。":::
 
 按照本文操作所需的项目可在 [Azure-Samples/aks-voting-app][github-azure-sample] GitHub 存储库中获取。 下载这些项目或克隆该存储库，如下所示：
 
@@ -178,7 +178,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 打开浏览器，并粘贴该 IP 地址。 将显示 AKS 投票应用示例。
 
-![在已启用 Istio 的 AKS 群集中运行的 AKS 投票应用。](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-deploy-app-01.png" alt-text="在已启用 Istio 的 AKS 群集中运行的 AKS 投票应用。":::
 
 屏幕底部的信息显示应用使用 `voting-app` 的 `1.0` 版本，并使用 `voting-storage` (Redis) 的 `1.0` 版本作为存储选项。
 
@@ -188,7 +188,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 下图显示了将在本部分结束时运行的内容 - 仅 `voting-analytics` 组件的 `1.1` 版本具有路由自 `voting-app` 组件的流量。 即使 `voting-analytics` 组件的 `1.0` 版本继续运行，并且 `voting-analytics` 服务引用了它，Istio 代理也禁用它的往返流量。
 
-![AKS 投票应用组件和路由。](media/servicemesh/istio/scenario-routing-components-02.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-components-02.png" alt-text="此图显示只有 1.1 版投票分析组件有从投票应用组件路由的流量。":::
 
 让我们部署 `voting-analytics` 组件的 `1.1` 版本。 在 `voting` 命名空间中创建此组件：
 
@@ -206,9 +206,9 @@ deployment.apps/voting-analytics-1-1 created
 
 浏览器在下面所示的两个视图之间交替。 由于将 Kubernetes [服务][kubernetes-service]用于了 `voting-analytics` 组件，并且仅有单个标签选择器 (`app: voting-analytics`)，因此 Kubernetes 在匹配该选择器的 Pod 之间使用轮询机制的默认行为。 在这种情况下，它同时是 `voting-analytics` Pod 的 `1.0` 和 `1.1` 版本。
 
-![在 AKS 投票应用中运行的分析组件 1.0 版本。](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-deploy-app-01.png" alt-text="在 AKS 投票应用中运行的分析组件 1.0 版本。":::
 
-![在 AKS 投票应用中运行的分析组件 1.1 版本。](media/servicemesh/istio/scenario-routing-update-app-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-update-app-01.png" alt-text="在 AKS 投票应用中运行的分析组件 1.1 版本。":::
 
 可以将 `voting-analytics` 组件的两个版本之间的切换可视化，如下所示。 要记得使用自己的 Istio Ingress 网关的 IP 地址。
 
@@ -273,7 +273,7 @@ virtualservice.networking.istio.io/voting-storage created
 
 若重新在浏览器中打开 AKS 投票应用，则 `voting-app` 组件仅使用 `voting-analytics` 组件的新版本 `1.1`。
 
-![在 AKS 投票应用中运行的分析组件 1.1 版本。](media/servicemesh/istio/scenario-routing-update-app-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-update-app-01.png" alt-text="在 AKS 投票应用中运行的分析组件 1.1 版本。":::
 
 现在路由到 `voting-analytics` 组件的 `1.1` 版本，可以更加轻松地将此可视化，如下所示。 要记得使用自己的 Istio Ingress 网关的 IP 地址：
 
@@ -377,7 +377,7 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 * `voting-app` 组件的 `2.0` 版本、`voting-analytics` 组件的 `2.0` 版本和 `voting-storage` 组件的 `2.0` 版本能够相互通信。
 * 仅已设置特定功能标记的用户可以访问用户 `voting-app` 组件的 `2.0` 版本。 此更改通过 cookie 使用功能标记管理。
 
-![AKS 投票应用组件和路由。](media/servicemesh/istio/scenario-routing-components-03.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-components-03.png" alt-text="此图演示了本部分结束时将要运行的内容。":::
 
 首先，更新 Istio 目标规则和虚拟服务，以适用于这些新组件。 这些更新将确保不会以错误的方式将流量路由到新组件，并确保用户不会获得不需要的访问：
 
@@ -421,9 +421,9 @@ kubectl get pods --namespace voting -w
 
 现在应该能够在投票应用程序的 `1.0` 版本和 `2.0` 版本 (Canary) 之间切换。 屏幕底部的功能标记切换将设置 cookie。 `voting-app` 虚拟服务使用此 cookie 将用户路由到新版本 `2.0`。
 
-![AKS 投票应用的 1.0 版本 - 未设置功能标记。](media/servicemesh/istio/scenario-routing-canary-release-01.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-canary-release-01.png" alt-text="AKS 投票应用的 1.0 版本 - 未设置功能标记。":::
 
-![AKS 投票应用的 2.0 版本 - 设置了功能标记。](media/servicemesh/istio/scenario-routing-canary-release-02.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-canary-release-02.png" alt-text="AKS 投票应用的 2.0 版本 - 设置了功能标记。":::
 
 应用的各个版本的投票计数不同。 此差异突出了正在使用两个不同的存储后端。
 
@@ -431,13 +431,13 @@ kubectl get pods --namespace voting -w
 
 成功测试 Canary 发布后，更新 `voting-app` 虚拟服务，以将所有流量路由到 `voting-app` 组件的 `2.0` 版本。 然后无论是否设置了功能标记，所有用户均会看到应用程序的 `2.0` 版本：
 
-![AKS 投票应用组件和路由。](media/servicemesh/istio/scenario-routing-components-04.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-components-04.png" alt-text="此图显示无论是否设置了功能标志，用户都会看到应用程序的 2.0 版本。":::
 
 更新所有的目标规则，以删除不想要激活的组件版本。 然后更新所有虚拟服务，以停止引用这些版本。
 
 由于不再有任何流量到达这些组件的任何旧版本，因此现在可以安全地删除这些组件的所有部署。
 
-![AKS 投票应用组件和路由。](media/servicemesh/istio/scenario-routing-components-05.png)
+:::image type="content" source="media/servicemesh/istio/scenario-routing-components-05.png" alt-text="AKS 投票应用组件和路由。":::
 
 现在你已成功推出 AKS 投票应用的新版本。
 

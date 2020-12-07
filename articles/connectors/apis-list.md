@@ -7,16 +7,16 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 origin.date: 06/11/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b8403ddb8a9f19d377ca79dfa2fcd6324ea54ee6
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: dc9e6f95c35bc7363e0f80d745189e5ecfecda2e
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564451"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024489"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
@@ -75,7 +75,7 @@ ms.locfileid: "91564451"
 
 | 名称 | 说明 |
 |------|-------------|
-| [![“计划”内置连接器][schedule-icon]<br />计划][schedule-doc] | - 使用[ **“重复周期”** 触发器][schedule-recurrence-doc]，按指定的重复周期以简单到高级的计划运行逻辑应用。 <br />- 使用[ **“滑动窗口”** 触发器][schedule-sliding-window-doc]，运行需要处理连续区块中的数据的逻辑应用。 <br />- 使用[ **“延迟”** 操作][schedule-delay-doc]，将逻辑应用暂停指定的持续时间。 <br />- 使用[ **“延迟截止时间”** 操作][schedule-delay-until-doc]，将逻辑应用暂停到指定的日期和时间。 |
+| [![“计划”内置连接器][schedule-icon]<br />计划][schedule-doc] | - 使用 [ **“重复周期”** 触发器][schedule-recurrence-doc]，按指定的重复周期以简单到高级的计划运行逻辑应用。 <br />- 使用 [ **“滑动窗口”** 触发器][schedule-sliding-window-doc]，运行需要处理连续区块中的数据的逻辑应用。 <br />- 使用 [ **“延迟”** 操作][schedule-delay-doc]，将逻辑应用暂停指定的持续时间。 <br />- 使用 [ **“延迟截止时间”** 操作][schedule-delay-until-doc]，将逻辑应用暂停到指定的日期和时间。 |
 | [![“批处理”内置连接器][batch-icon]<br />批处理][batch-doc] | - 使用“批处理消息”触发器来批量处理消息。 <br />- 使用“发送要批量处理的消息”操作调用具有现有批处理触发器的逻辑应用。 |
 | [![HTTP 内置连接器][http-icon]<br />HTTP][http-doc] | 使用适用于 HTTP 的触发器和操作调用 HTTP 或 HTTPS 终结点。 其他 HTTP 内置触发器和操作包括 [HTTP + Swagger 内置连接器][http-swagger-doc]和 [HTTP + Webhook][http-webhook-doc]。 |
 | [![“请求”内置连接器][http-request-icon]<br />请求][http-request-doc] | - 使用“请求”触发器，使逻辑应用可从其他应用程序或服务调用、针对事件网格资源事件触发，或者针对 Azure 安全中心警报触发。 <br />- 使用“响应”操作将响应发送到应用或服务。 |
@@ -151,7 +151,9 @@ ms.locfileid: "91564451"
 
 ## <a name="on-premises-connectors"></a>本地连接器
 
-逻辑应用提供下面这些常用的标准连接器用于访问本地系统中的数据和资源。 在创建与本地系统的连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。
+在创建与本地系统的连接之前，必须先[下载、安装并设置本地数据网关][gateway-doc]。 此网关提供安全信道，无需设置所需的网络基础结构。
+
+逻辑应用提供了下面这些常用的标准连接器，用于访问本地系统中的数据和资源。 对于本地连接器列表，请参阅[支持的数据源](../logic-apps/logic-apps-gateway-connection.md#supported-connections)。
 
 :::row:::
     :::column:::

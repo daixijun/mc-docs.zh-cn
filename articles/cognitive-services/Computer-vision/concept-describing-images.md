@@ -1,27 +1,27 @@
 ---
-title: 描述图像 - 计算机视觉
+title: 图像说明 - 计算机视觉
 titleSuffix: Azure Cognitive Services
 description: 与计算机视觉 API 的图像描述功能相关的概念。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 11/23/2020
+ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 6cd3540464c4e61088e560e249207db194555c4f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b02c010c12952b2d90ffedeeaa28135172a9d528
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63860470"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306376"
 ---
 # <a name="describe-images-with-human-readable-language"></a>使用人类可读语言描述图像
 
-计算机视觉可以分析图像并生成描述其内容的人工可读的句子。 该算法实际返回基于不同视觉功能的多个描述，且每个描述都有一个可信度分数。 最终输出是按可信度从高到低排列的描述的列表。
+计算机视觉可以分析图像并生成描述其内容的人工可读的句子。 该算法实际返回基于不同视觉功能的多个描述，且每个描述都有一个置信度分数。 最终输出是按可信度从高到低排列的描述的列表。
 
 ## <a name="image-description-example"></a>图像说明示例
 
@@ -57,8 +57,14 @@ ms.locfileid: "63860470"
 }
 ```
 
+## <a name="use-the-api"></a>使用 API
+
+图像说明功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Description` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"description"` 部分内容的字符串。
+
+* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>后续步骤
 
-了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的概念。
+了解[标记图像](concept-tagging-images.md)和[对图像进行分类](concept-categorizing-images.md)的相关概念。
 
-<!-- Update_Description: wording update -->

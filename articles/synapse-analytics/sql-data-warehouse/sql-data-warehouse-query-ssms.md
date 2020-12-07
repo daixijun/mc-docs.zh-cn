@@ -1,25 +1,25 @@
 ---
 title: 使用 SSMS 进行连接
-description: 使用 SQL Server Management Studio (SSMS) 连接到 Azure Synapse Analytics 并进行查询。
+description: 使用 SQL Server Management Studio (SSMS) 在 Azure Synapse Analytics 中连接并查询专用 SQL 池。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7259ce64fc7d0e7ca23d868a917f882c6f0b9b63
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 19390572dabc0947b182650afb5742b6126f7284
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198581"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152950"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 Azure Synapse Analytics
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 Azure Synapse Analytics 中的专用 SQL 池
 
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
@@ -32,11 +32,11 @@ ms.locfileid: "82198581"
 
 要使用本教程，需要：
 
-* 现有的 SQL 池。 若要创建一个，请参阅[创建 SQL 池](create-data-warehouse-portal.md)。
+* 现有专用 SQL 池。 若要创建一个，请参阅[创建专用 SQL 池](create-data-warehouse-portal.md)。
 * 安装了 SQL Server Management Studio (SSMS)。 免费[下载 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（如果尚未安装）。
-* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到 SQL 池](sql-data-warehouse-connect-overview.md)。
+* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到专用 SQL 池](sql-data-warehouse-connect-overview.md)。
 
-## <a name="1-connect-to-your-sql-pool"></a>1.连接到 SQL 池
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1.连接到专用 SQL 池
 
 1. 打开 SSMS。
 2. 选择“文件”   > “连接对象资源管理器”  ，打开对象资源管理器。

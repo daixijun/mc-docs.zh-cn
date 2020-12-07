@@ -1,25 +1,25 @@
 ---
 title: 保护数据库
-description: 有关在 Synapse SQL 池资源中保护数据库和开发解决方案的技巧。
+description: 在 Azure Synapse Analytics 中保护专用 SQL 池和开发解决方案的技巧。
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 11/09/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 00021cc2cd9f2d112804e19afd2058817e91594d
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: d7ac36f3f8339065d2ca131cdc0c8d90c7b93cfd
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375685"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153025"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>保护 Azure Synapse 中的数据库
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中保护专用 SQL 池
 
 > [!div class="op_single_selector"]
 >
@@ -28,7 +28,7 @@ ms.locfileid: "93375685"
 > * [加密（门户）](sql-data-warehouse-encryption-tde.md)
 > * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-本文详细介绍了保护 Synapse SQL 池的基本知识。 具体而言，本文介绍如何从资源着手，以便在使用 SQL 池预配的数据库中限制访问、保护数据和监视活动。
+本文详细介绍保护专用 SQL 池的基本知识。 具体而言，本文介绍如何从相关资源着手，使用专用 SQL 池来限制访问、保护数据和监视活动。
 
 ## <a name="connection-security"></a>连接安全性
 
@@ -36,15 +36,15 @@ ms.locfileid: "93375685"
 
 [逻辑 SQL Server](../../azure-sql/database/logical-servers.md) 及其数据库使用防火墙规则来拒绝源自未显式批准的 IP 地址的连接企图。 若要从应用程序或客户端计算机的公共 IP 地址进行连接，必须先使用 Azure 门户、REST API 或 PowerShell 创建服务器级防火墙规则。
 
-最佳做法是尽量通过服务器级防火墙来限制允许的 IP 地址范围。  要从本地计算机访问 SQL 池，请确保网络和本地计算机上的防火墙允许在 TCP 端口 1433 上的传出通信。  
+最佳做法是尽量通过服务器级防火墙来限制允许的 IP 地址范围。  若要从本地计算机访问专用 SQL 池，请确保网络和本地计算机上的防火墙允许 TCP 端口 1433 上的传出通信。  
 
 Azure Synapse Analytics 使用服务器级 IP 防火墙规则。 不支持数据库级 IP 防火墙规则。 有关详细信息，请参阅 [Azure SQL 数据库防火墙规则](../../azure-sql/database/firewall-configure.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-默认加密到 SQL 池的连接。  通过修改连接设置来禁用加密的操作会被忽略。
+默认加密与专用 SQL 池的连接。  通过修改连接设置来禁用加密的操作会被忽略。
 
 ## <a name="authentication"></a>身份验证
 
-身份验证是指连接到数据库时如何证明身份。 SQL 池当前支持通过用户名和密码，以及 Azure Active Directory 进行 SQL Server 身份验证。
+身份验证是指连接到数据库时如何证明身份。 专用 SQL 池当前支持使用用户名和密码通过 Azure Active Directory 进行 SQL Server 身份验证。
 
 在为数据库创建服务器时，已指定了一个包含用户名和密码的“服务器管理员”登录名。 使用这些凭据，可以通过 SQL Server 身份验证以数据库所有者（或“dbo”）的身份在该服务器对任何数据库进行验证。
 
@@ -58,7 +58,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-然后，使用服务器管理员登录名连接到“SQL 池数据库”，并基于刚刚创建的服务器登录名创建数据库用户。
+然后，使用服务器管理员登录名连接到专用 SQL 池数据库，并基于已创建的服务器登录名创建数据库用户。
 
 ```sql
 -- Connect to the database and create a database user
@@ -105,4 +105,4 @@ GRANT SELECT ON SCHEMA::Test to ApplicationUser
 
 ## <a name="next-steps"></a>后续步骤
 
-有关通过不同协议连接到仓库的详细信息和示例，请参阅[连接到 SQL 池](sql-data-warehouse-connect-overview.md)。
+有关通过不同协议连接到仓库的详细信息和示例，请参阅[连接到专用 SQL 池](sql-data-warehouse-connect-overview.md)。

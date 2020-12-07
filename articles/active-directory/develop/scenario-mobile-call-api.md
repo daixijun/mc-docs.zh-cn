@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 734e0c316743e3a6394e61ad63f284e55e70a5ef
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 40836460f66402b44519713848d204fe2491ed8d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85944999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918391"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>从移动应用调用 Web API
 
@@ -159,7 +159,5 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [移到生产环境](scenario-mobile-production.md)
+转到此方案中的下一篇文章：[移到生产环境](scenario-mobile-production.md)。
 
-<!-- Update_Description: wording update -->

@@ -9,18 +9,20 @@ ms.topic: troubleshooting
 origin.date: 01/30/2020
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 1e91a31fc3a294579463791994646ce95baa9ef7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c9e9ff700f92a1bab3004c9450fc720fa92673ab
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068534"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300795"
 ---
 # <a name="400027-connectionforcefullyclosedonnewconnection"></a>400027 ConnectionForcefullyClosedOnNewConnection
 
 本文介绍 **400027 ConnectionForcefullyClosedOnNewConnection** 错误的原因和解决方案。
 
 ## <a name="symptoms"></a>症状
+
+你的设备在使用 .NET SDK 和 MQTT 传输类型时因为 ConnectionStatusChangeReason 断开连接，并显示 Communication_Error。
 
 设备到云的孪生操作（如读取或修补报告的属性）或直接方法调用失败，错误代码为 **400027**。
 

@@ -5,23 +5,22 @@ description: 了解如何使用 .NET 客户端库获取 Azure 存储帐户类型
 services: storage
 author: WenJason
 ms.author: v-jay
-origin.date: 08/06/2019
-ms.date: 07/20/2020
+origin.date: 11/12/2020
+ms.date: 11/30/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 09e29b5fc27bd03a9c40cabc7952389f5304e253
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d39bcaa74d8f059a5a0d19d74d76b3431018f8a9
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414647"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153032"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>使用 .NET 获取存储帐户类型和 SKU 名称
 
 本文介绍如何使用[用于 .NET 的 Azure 存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage?view=azure-dotnet)获取 Blob 的 Azure 存储帐户类型和 SKU 名称。
-
-从版本 2018-03-28 开始，服务版本上提供帐户信息。
 
 ## <a name="about-account-type-and-sku-name"></a>关于帐户类型和 SKU 名称
 
@@ -31,9 +30,39 @@ ms.locfileid: "86414647"
 
 ## <a name="retrieve-account-information"></a>检索帐户信息
 
-若要获取与 Blob 关联的存储帐户类型和 SKU 名称，请调用 [GetAccountProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) 或 [GetAccountPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) 方法。
-
 以下代码示例检索并显示只读帐户属性。
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+若要获取与 Blob 关联的存储帐户类型和 SKU 名称，请调用 [GetAccountInfo](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) 或 [GetAccountInfoAsync](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) 方法。
+
+```csharp
+private static async Task GetAccountInfoAsync(string connectStr)
+{
+    try
+    {
+        BlobServiceClient blobServiceClient = new BlobServiceClient(connectStr);
+
+        // Get the blob's storage account properties.
+        AccountInfo acctInfo = await blobServiceClient.GetAccountInfoAsync();
+
+        // Display the properties.
+        Console.WriteLine("Account info");
+        Console.WriteLine($" AccountKind: {acctInfo.AccountKind}");
+        Console.WriteLine($"     SkuName: {acctInfo.SkuName}");
+    }
+    catch (RequestFailedException ex)
+    {
+        Console.WriteLine($"HTTP error code {ex.Status}: {ex.ErrorCode}");
+        Console.WriteLine(ex.Message);
+        Console.ReadLine();
+    }
+}
+```
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+若要获取与 Blob 关联的存储帐户类型和 SKU 名称，请调用 [GetAccountProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) 或 [GetAccountPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) 方法。
 
 ```csharp
 private static async Task GetAccountInfoAsync(CloudBlob blob)
@@ -58,6 +87,8 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

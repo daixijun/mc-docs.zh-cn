@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 91018820316554194fd4834c6246ac3e2a6a79da
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ce4f28dba4283294bbe41ad5cdcac5354c3cb052
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937576"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918329"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>方案：用于登录用户的 Web 应用
 
@@ -28,29 +28,25 @@ ms.locfileid: "91937576"
 
 如果需要创建第一个可移植 (ASP.NET Core) Web 应用来登录用户，请按以下快速入门操作：
 
-> [!div class="nextstepaction"]
-> [快速入门：用于登录用户的 ASP.NET Core Web 应用](quickstart-v2-aspnet-core-webapp.md)
+[快速入门：用于登录用户的 ASP.NET Core Web 应用](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 如果想了解如何向现有 ASP.NET Web 应用程序添加登录，请尝试以下快速入门：
 
-> [!div class="nextstepaction"]
-> [快速入门：用于登录用户的 ASP.NET Web 应用](quickstart-v2-aspnet-webapp.md)
+[快速入门：用于登录用户的 ASP.NET Web 应用](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 如果是 Java 开发人员，请尝试以下快速入门：
 
-> [!div class="nextstepaction"]
-> [快速入门：向 Java Web 应用添加 Microsoft 登录功能](quickstart-v2-java-webapp.md)
+[快速入门：向 Java Web 应用添加 Microsoft 登录功能](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 如果使用 Python 进行开发，请尝试以下快速入门：
 
-> [!div class="nextstepaction"]
-> [快速入门：向 Python Web 应用添加 Microsoft 登录功能](quickstart-v2-python-webapp.md)
+[快速入门：向 Python Web 应用添加 Microsoft 登录功能](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -65,7 +61,7 @@ Web 应用可对 Web 浏览器中的用户进行身份验证。 在此方案中�
 在第二阶段，可让应用程序代表已登录用户调用 Web API。 此下一阶段是另一方案，详见[调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md)。
 
 > [!NOTE]
-> 向 Web 应用添加登录就是保护 Web 应用并验证用户令牌，这正是**中间件**库所做的。 就 .NET 而言，此方案尚不需要 Microsoft 身份验证库 (MSAL)，后者用于获取令牌来调用受保护的 API。 身份验证库在后续方案中引入，此时 Web 应用需要调用 Web API。
+> 向 Web 应用添加登录就是保护 Web 应用并验证用户令牌，这正是 **中间件** 库所做的。 就 .NET 而言，此方案尚不需要 Microsoft 身份验证库 (MSAL)，后者用于获取令牌来调用受保护的 API。 身份验证库在后续方案中引入，此时 Web 应用需要调用 Web API。
 
 ## <a name="specifics"></a>详情
 
@@ -81,23 +77,19 @@ Web 应用可对 Web 浏览器中的用户进行身份验证。 在此方案中�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+转到此方案中的下一篇文章：[应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)。
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+转到此方案中的下一篇文章：[应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+转到此方案中的下一篇文章：[应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=java)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+转到此方案中的下一篇文章：[应用注册](./scenario-web-app-sign-user-app-registration.md?tabs=python)。
 
 ---
 

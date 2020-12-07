@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 04/08/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 337aa6da7e741d75915e51b56edf2c2b4f39d3c4
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 73032ac33f8da6376c5858dca449aaeb25286153
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470179"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024485"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的群集创建和管理多个节点池
 
@@ -50,7 +50,7 @@ ms.locfileid: "92470179"
 若要开始，请创建包含单个节点池的 AKS 群集。 以下示例使用 [az group create][az-group-create] 命令在 *chinaeast2* 区域中创建名为 *myResourceGroup* 的资源组。 然后使用 [az AKS create][az-aks-create] 命令创建名为 *myAKSCluster* 的 AKS 群集。
 
 > [!NOTE]
-> 使用多个节点池时， **不支持** “基本”负载均衡器 SKU。 默认情况下，AKS 群集是在 Azure CLI 和 Azure 门户中使用“标准”负载均衡器 SKU 创建的。
+> 使用多个节点池时，**不支持**“基本”负载均衡器 SKU。 默认情况下，AKS 群集是在 Azure CLI 和 Azure 门户中使用“标准”负载均衡器 SKU 创建的。
 
 ```azurecli
 # Create a resource group in China East 2
@@ -98,7 +98,7 @@ az aks nodepool add \
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-以下示例输出显示已成功地在节点池中创建包含三个节点的 *mynodepool* 。 在上一步骤中创建 AKS 群集时，已创建包含 *2* 个节点的默认 *nodepool1* 。
+以下示例输出显示已成功地在节点池中创建包含三个节点的 *mynodepool*。 在上一步骤中创建 AKS 群集时，已创建包含 *2* 个节点的默认 *nodepool1*。
 
 ```output
 [
@@ -219,7 +219,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>升级包含多个节点池的群集控制平面
 
 > [!NOTE]
-> Kubernetes 使用标准的[语义化版本控制](https://semver.org/)方案。 版本号以 *x.y.z* 表示，其中， *x* 是主要版本， *y* 是次要版本， *z* 是修补程序版本。 例如，版本 *1.12.6* 中的 1 是主要版本，12 是次要版本，6 是修补程序版本。 控制平面和初始节点池的 Kubernetes 版本是在群集创建过程中设置的。 将所有附加节点池添加到群集时，将为其设置 Kubernetes 版本。 不同节点池的 Kubernetes 版本可能不同，节点池与控制平面的 Kubernetes 版本也可能不同。
+> Kubernetes 使用标准的[语义化版本控制](https://semver.org/)方案。 版本号以 *x.y.z* 表示，其中，*x* 是主要版本，*y* 是次要版本，*z* 是修补程序版本。 例如，版本 *1.12.6* 中的 1 是主要版本，12 是次要版本，6 是修补程序版本。 控制平面和初始节点池的 Kubernetes 版本是在群集创建过程中设置的。 将所有附加节点池添加到群集时，将为其设置 Kubernetes 版本。 不同节点池的 Kubernetes 版本可能不同，节点池与控制平面的 Kubernetes 版本也可能不同。
 
 AKS 群集包含两个具有关联 Kubernetes 版本的群集资源对象。
 
@@ -254,7 +254,7 @@ AKS 群集包含两个具有关联 Kubernetes 版本的群集资源对象。
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-若要缩放节点池中的节点数，请使用 [az aks node pool scale][az-aks-nodepool-scale] 命令。 以下示例将 *mynodepool* 中的节点数缩放为 *5* ：
+若要缩放节点池中的节点数，请使用 [az aks node pool scale][az-aks-nodepool-scale] 命令。 以下示例将 *mynodepool* 中的节点数缩放为 *5*：
 
 ```azurecli
 az aks nodepool scale \
@@ -265,7 +265,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-使用 [az aks node pool list][az-aks-nodepool-list] 命令再次列出节点池的状态。 以下示例显示 *mynodepool* 处于 *Scaling* （正在缩放）状态，其中的新节点计数为 *5* ：
+使用 [az aks node pool list][az-aks-nodepool-list] 命令再次列出节点池的状态。 以下示例显示 *mynodepool* 处于 *Scaling*（正在缩放）状态，其中的新节点计数为 *5*：
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -308,7 +308,7 @@ AKS 提供了一项单独的功能，用于通过一项称为[群集自动缩放
 
 ## <a name="delete-a-node-pool"></a>删除节点池
 
-不再需要某个池时，可将其删除并删除底层 VM 节点。 若要删除节点池，请使用 [az aks node pool delete][az-aks-nodepool-delete] 命令并指定节点池名称。 以下示例删除在前面步骤中创建的 *mynoodepool* ：
+不再需要某个池时，可将其删除并删除底层 VM 节点。 若要删除节点池，请使用 [az aks node pool delete][az-aks-nodepool-delete] 命令并指定节点池名称。 以下示例删除在前面步骤中创建的 *mynoodepool*：
 
 > [!CAUTION]
 > 如果删除节点池时发生数据丢失，没有任何选项可以恢复数据。 如果无法在其他节点池中计划 pod，则这些应用程序将不可用。 当使用中的应用程序没有数据备份或者无法在群集中的其他节点池上运行时，请务必不要删除节点池。
@@ -317,7 +317,7 @@ AKS 提供了一项单独的功能，用于通过一项称为[群集自动缩放
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-[az aks node pool list][az-aks-nodepool-list] 命令的以下示例输出显示 *mynodepool* 处于 *Deleting* （正在删除）状态：
+[az aks node pool list][az-aks-nodepool-list] 命令的以下示例输出显示 *mynodepool* 处于 *Deleting*（正在删除）状态：
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -356,11 +356,11 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>指定节点池的 VM 大小
 
-在前面的创建节点池示例中，对群集中创建的节点使用了默认 VM 大小。 一个更常见的场景是创建具有不同 VM 大小和功能的节点池。 例如，可以创建一个包含具有大量 CPU 或内存的节点的节点池，或创建一个提供 GPU 支持的节点池。 下一步骤将[使用排斥和容许](#schedule-pods-using-taints-and-tolerations)来告知 Kubernetes 计划程序如何将访问权限限制为可在这些节点上运行的 pod。
+在前面的创建节点池示例中，对群集中创建的节点使用了默认 VM 大小。 一个更常见的场景是创建具有不同 VM 大小和功能的节点池。 例如，可以创建一个包含具有大量 CPU 或内存的节点的节点池，或创建一个提供 GPU 支持的节点池。 下一步骤将[使用排斥和容许](#setting-nodepool-taints)来告知 Kubernetes 计划程序如何将访问权限限制为可在这些节点上运行的 pod。
 
 以下示例创建使用 *Standard_NC6s_v3* VM 大小的基于 GPU 的节点池。 这些 VM 采用 NVIDIA Tesla K80 卡。 有关可用 VM 大小的信息，请参阅 [Azure 中的 Linux 虚拟机大小][vm-sizes]。
 
-再次使用 [az aks node pool add][az-aks-nodepool-add] 命令创建节点池。 这一次请指定名称 *gpunodepool* ，并使用 `--node-vm-size` 参数指定 *Standard_NC6s_v3* 大小：
+再次使用 [az aks node pool add][az-aks-nodepool-add] 命令创建节点池。 这一次请指定名称 *gpunodepool*，并使用 `--node-vm-size` 参数指定 *Standard_NC6s_v3* 大小：
 
 ```azurecli
 az aks nodepool add \
@@ -409,89 +409,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 成功创建 *gpunodepool* 需要花费几分钟时间。
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>使用排斥和容许计划 pod
-
-群集现在包含两个节点池 - 最初创建的默认节点池，以及基于 GPU 的节点池。 使用 [kubectl get nodes][kubectl-get] 命令查看群集中的节点。 以下示例输出显示了节点：
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-Kubernetes 计划程序能够使用排斥和容许来限制可在节点上运行的工作负荷。
-
-* 将 **排斥** 应用到指明了只能计划特定 pod 的节点。
-* 然后，将 **容许** 应用到可以 *容许* 节点排斥的 pod。
-
-有关如何使用 Kubernetes 高级计划功能的详细信息，请参阅[有关 AKS 中的高级计划程序功能的最佳做法][taints-tolerations]
-
-本示例使用 --node-taints 命令向基于 GPU 的节点应用排斥。 指定上述 `kubectl get nodes` 命令的输出中显示的基于 GPU 的节点名称。 排斥以“键=值”对的形式应用，然后作为计划选项应用。 以下示例使用 *sku=gpu* 对，并定义具有 *NoSchedule* 功能的其他 pod：
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-以下基本示例 YAML 清单使用容许来允许 Kubernetes 计划程序在基于 GPU 的节点上运行 NGINX pod。 有关针对 MNIST 数据集运行 Tensorflow 作业的更适当但更耗时的示例，请参阅[对 AKS 上的计算密集型工作负荷使用 GPU][gpu-cluster]。
-
-创建名为 `gpu-toleration.yaml` 的文件，并将其复制到以下示例 YAML 中：
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: dockerhub.azk8s.cn/library/nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-使用 `kubectl apply -f gpu-toleration.yaml` 命令计划 pod：
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-只需花费几秒钟时间即可计划 pod 并提取 NGINX 映像。 使用 [kubectl describe pod][kubectl-describe] 命令查看 pod 状态。 以下精简示例输出显示已应用 *sku=gpu:NoSchedule* 容许。 在 events 节中，计划程序已将 pod 分配到 *aks-gpunodepool-28993262-vmss000000* 基于 GPU 的节点：
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-只能在 gpunodepool 中的节点上计划已应用此容许的 Pod。 任何其他 pod 将在 *nodepool1* 节点池中计划。 如果创建额外的节点池，可以使用额外的排斥和容许来限制可在这些节点资源上计划的 pod。
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>指定节点池的排斥、标签或标记
 
 ### <a name="setting-nodepool-taints"></a>设置节点池排斥
@@ -537,7 +454,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-排斥信息将显示在 Kubernetes 中，以便于处理节点的计划规则。
+排斥信息将显示在 Kubernetes 中，以便于处理节点的计划规则。 Kubernetes 计划程序能够使用排斥和容许来限制可在节点上运行的工作负荷。
+
+* 将 **排斥** 应用到指明了只能计划特定 pod 的节点。
+* 然后，将 **容许** 应用到可以 *容许* 节点排斥的 pod。
+
+有关如何使用 Kubernetes 高级计划功能的详细信息，请参阅[有关 AKS 中的高级计划程序功能的最佳做法][taints-tolerations]
+
+在上一步中，你在创建节点池时应用了 *sku=gpu:NoSchedule* 排斥。 以下基本示例 YAML 清单使用容许来允许 Kubernetes 计划程序在该节点池中的节点上运行 NGINX Pod。
+
+创建名为 `nginx-toleration.yaml` 的文件，并将其复制到以下示例 YAML 中：
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+使用 `kubectl apply -f nginx-toleration.yaml` 命令计划 pod：
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+只需花费几秒钟时间即可计划 pod 并提取 NGINX 映像。 使用 [kubectl describe pod][kubectl-describe] 命令查看 pod 状态。 以下精简示例输出显示已应用 *sku=gpu:NoSchedule* 容许。 在 events 节中，计划程序已将 Pod 分配到 aks-taintnp-28993262-vmss000000 节点：
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                                          Message
+  ----    ------     ----   ----                                          -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+只能在 taintnp 中的节点上计划已应用此容许的 Pod。 任何其他 pod 将在 *nodepool1* 节点池中计划。 如果创建额外的节点池，可以使用额外的排斥和容许来限制可在这些节点资源上计划的 pod。
 
 ### <a name="setting-nodepool-labels"></a>设置节点池标签
 
@@ -642,7 +620,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 * 将名为 *myagentpool* 的 *Linux* 节点池更新为运行三个节点。
 * 将节点池中的节点设置为运行 Kubernetes 版本 1.15.7。
-* 将节点大小定义为 *Standard_DS2_v2* 。
+* 将节点大小定义为 *Standard_DS2_v2*。
 
 根据需要编辑这些值，以更新、添加或删除节点池：
 
@@ -796,8 +774,8 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-nodepool-upgrade]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_delete
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
-[az-extension-update]: https://docs.microsoft.com/cli/azure/extension#az_extension_update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az_group_deployment_create

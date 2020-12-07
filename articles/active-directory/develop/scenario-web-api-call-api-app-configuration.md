@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: f58179cbd8a30497bf685f52f8bcbc0a7098a2df
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: a19277c9a3e9a73d73e62c733d3173ac55510ebd
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918359"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>调用 Web API 的 Web API：代码配置
 
@@ -256,6 +256,5 @@ Python Web API 需要使用一些中间件来验证从客户端接收的持有�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [调用 Web API 的 Web API：获取应用的令牌](scenario-web-api-call-api-acquire-token.md)
+转到此方案中的下一篇文章：[获取应用的令牌](scenario-web-api-call-api-acquire-token.md)。
 

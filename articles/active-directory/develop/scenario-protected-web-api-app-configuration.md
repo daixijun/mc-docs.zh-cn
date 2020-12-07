@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 3826fec512d3589d9b66fc58721a084999d76b75
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 5a40064b940c9689dfc42df4cf28dcb43f537fe2
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937093"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918385"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保护的 Web API：代码配置
 
@@ -241,6 +241,5 @@ https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-valid
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [验证代码中的范围和应用角色](scenario-protected-web-api-verification-scope-app-roles.md)
+转到此方案中的下一篇文章：[在代码中验证范围和应用角色](scenario-protected-web-api-verification-scope-app-roles.md)。
 

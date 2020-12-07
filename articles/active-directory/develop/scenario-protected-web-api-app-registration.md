@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 4863ef37e3c7b3f47e5711dd7ddbf37d87016014
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 5fcbec230019ffdc2f7c83b242cdbbddd9a4e061
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647720"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918386"
 ---
 # <a name="protected-web-api-app-registration"></a>受保护的 Web API：应用注册
 
@@ -153,6 +153,5 @@ Web API 将检查应用角色。 此角色是软件开发人员公开应用程�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [应用代码配置](scenario-protected-web-api-app-configuration.md)
+转到此方案中的下一篇文章：[应用代码配置](scenario-protected-web-api-app-configuration.md)。
 

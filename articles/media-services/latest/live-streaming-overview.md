@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: conceptual
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 501b7e96f1d9a72e972c44d94fe669bbe1e9cdec
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c69f1269fdd09b6184ec72c93e3deb4f5a64b960
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245092"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300607"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒体服务 v3 实时传送视频流
 
@@ -39,7 +39,7 @@ ms.locfileid: "91245092"
 本文提供有关使用媒体服务实时传送视频流的概述和指导，并提供其他相关文章的链接。
  
 > [!NOTE]
-> 可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 [直播活动](live-events-outputs-concept.md)、查看 v3 [资产](assets-concept.md)、获取有关访问 API 的信息。 对于其他所有管理任务（例如，转换和作业），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+> 可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 [直播活动](live-events-outputs-concept.md)、查看 v3 [资产](assets-concept.md)、获取有关访问 API 的信息。 对于其他所有管理任务（例如，转换和作业），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 ## <a name="dynamic-packaging-and-delivery"></a>动态打包和交付
 
@@ -59,9 +59,9 @@ ms.locfileid: "91245092"
 
 ### <a name="pass-through"></a>直通
 
-![直通](./media/live-streaming/pass-through.svg)
+![此图显示了如何引入和处理来自直通实时事件的视频和音频源。](./media/live-streaming/pass-through.svg)
 
-使用直通**实时事件**，可以依赖本地实时编码器生成多比特率视频流，并将其作为贡献源发送到实时事件（使用 RTMP 或分段 MP4 输入协议）。 实时事件随后会通过传入视频流进入动态打包器（流式处理终结点），而无需经过进一步的转码。 此类直通实时事件已针对长时间运行的实时事件或 24x365 线性实时传送视频流进行优化。 
+使用直通 **实时事件**，可以依赖本地实时编码器生成多比特率视频流，并将其作为贡献源发送到实时事件（使用 RTMP 或分段 MP4 输入协议）。 实时事件随后会通过传入视频流进入动态打包器（流式处理终结点），而无需经过进一步的转码。 此类直通实时事件已针对长时间运行的实时事件或 24x365 线性实时传送视频流进行优化。 
 
 ### <a name="live-encoding"></a>实时编码  
 

@@ -6,17 +6,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/09/2020
-ms.date: 11/16/2020
+origin.date: 11/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 13f288ee50c6964b4e063316e2e99d35fff6e169
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: bbff7b868a0c9ee5fbc49833406a6f106ad70f3d
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552990"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153077"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>配置对容器和 blob 的匿名公共读取访问
 
@@ -54,8 +54,7 @@ Azure 存储支持对容器和 blob 进行可选的匿名公共读取访问。 �
 
 若要允许或禁止对存储帐户的公共访问，请配置帐户的 **AllowBlobPublicAccess** 属性。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关详细信息，请参阅[存储帐户概述](../common/storage-account-overview.md)。
 
-> [!NOTE]
-> 默认情况下，不会设置 **AllowBlobPublicAccess** 属性。在你显式设置此属性之前，它不会返回值。 当此属性值为 **null** 或为 **true** 时，存储帐户允许公共访问。
+默认情况下，不会设置 **AllowBlobPublicAccess** 属性。在你显式设置此属性之前，它不会返回值。 当此属性值为 null 或为 true 时，存储帐户允许公共访问。
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
@@ -241,7 +240,7 @@ Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要通过 Azure CLI 更新一个或多个容器的公共访问级别，请调用 [az storage container set permission](/cli/storage/container#az-storage-container-set-permission) 命令。 通过传入帐户密钥、连接字符串或共享访问签名 (SAS) 来授权此操作。 设置容器的公共访问级别的[设置容器 ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl) 操作不支持使用 Azure AD 进行授权。 有关详细信息，请参阅[调用 blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。
+若要通过 Azure CLI 更新一个或多个容器的公共访问级别，请调用 [az storage container set permission](https://docs.azure.cn/cli/storage/container#az-storage-container-set-permission) 命令。 通过传入帐户密钥、连接字符串或共享访问签名 (SAS) 来授权此操作。 设置容器的公共访问级别的[设置容器 ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl) 操作不支持使用 Azure AD 进行授权。 有关详细信息，请参阅[调用 blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。
 
 下面的示例创建一个禁用了公共访问的容器，然后更新该容器的公共访问设置，以允许对容器及其 blob 进行匿名访问。 请记得将括号中的占位符值替换为你自己的值：
 

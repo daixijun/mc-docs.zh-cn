@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 20b612052b59db1e1c8f56175bda95ad0437bdfb
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 3a58e8d3382187ef5de562b4ff9c9931a5c8321d
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647666"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918335"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>调用 Web API 的 Web 应用：在全局注销时从令牌缓存中删除帐户
 
@@ -50,23 +50,19 @@ Python 示例不会在全局注销时删除缓存中的帐户。
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
+转到此方案中的下一篇文章：[获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)。
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
+转到此方案中的下一篇文章：[获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=java)
+转到此方案中的下一篇文章：[获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=java)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=python)
+转到此方案中的下一篇文章：[获取 Web 应用的令牌](./scenario-web-app-call-api-acquire-token.md?tabs=python)。
 
 ---
 
