@@ -10,12 +10,12 @@ ms.topic: how-to
 origin.date: 8/30/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 306a3a6ace47e236dbe5ac520ed3856e4fc6445d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: f244afb3b2ce159aee4094e1838286506c122cf4
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300189"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431173"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>使用 Azure 基于角色的访问控制提供对 Key Vault 密钥、证书和机密的访问权限（预览）
 
@@ -67,7 +67,7 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 
 若要添加角色分配，必须具有：
 
-- 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+- 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](../../role-based-access-control/built-in-roles.md#user-access-administrator)或[所有者](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>对密钥保管库启用 Azure RBAC 权限

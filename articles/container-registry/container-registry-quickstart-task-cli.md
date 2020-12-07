@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
 ms.custom: contperfq1
-ms.openlocfilehash: 4884265c82f2ea3a7dd12b7399b4668fd1375b31
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 320c32a1d91022ee11cdc8e74d566eca87fb281e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96300360"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507300"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入门：使用 Azure 容器注册表任务生成和运行容器映像
@@ -206,7 +206,7 @@ az group delete --name myResourceGroup
 [docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[azure-account]: https://www.azure.cn/pricing/1rmb-trial/
+[azure-account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!-- LINKS - internal -->
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/24/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: d3e9f35977a7c939b4ae81ca831e5d502c177d75
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: cdf125fe1dc8354f281d075bd48fa1dfc93a2a3d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431151"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建数据库和表策略
 
@@ -26,7 +26,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [测试群集和数据库](create-cluster-database-python.md)
 * [测试表](python-ingest-data.md#create-a-table-on-your-cluster)
 

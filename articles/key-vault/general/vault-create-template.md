@@ -11,12 +11,12 @@ ms.topic: how-to
 origin.date: 10/05/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 91151564266d599364289d6414ac7e6982010031
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e5847687ac434d9913ffcfa3c95fb688b6019ad6
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300988"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431206"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>如何使用资源管理器模板创建 Azure 密钥保管库和保管库访问策略
 
@@ -24,11 +24,11 @@ ms.locfileid: "96300988"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 完成本文中的步骤：
 
-* 如果没有 Azure 订阅，可以在开始之前[创建一个免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+* 如果没有 Azure 订阅，可以在开始之前[创建一个免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 ## <a name="create-a-key-vault-resource-manager-template"></a>创建 Key Vault 资源管理器模板
@@ -169,7 +169,7 @@ ms.locfileid: "96300988"
 
 | 机密 | 键 | 证书 |
 |--|--|--|
-|<ul><li>[快速入门](../secrets/quick-create-template.md)<li>[引用](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|空值|空值|
+|<ul><li>[快速入门](../secrets/quick-create-template.md)<li>[引用](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|不可用|不可用|
 
 可在以下文章中找到更多 Key Vault 模板：[Key Vault 资源管理器参考](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)。
 

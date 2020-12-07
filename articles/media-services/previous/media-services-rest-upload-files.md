@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 61be82c3ec5b89d237f8c8bbd6c77719e4910621
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: c253e7b8f0197d421b983d30111b0efd2a95fb07
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300790"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432282"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
 
@@ -46,7 +46,7 @@ ms.locfileid: "96300790"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 - 查看[通过 ADD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)一文。
 - 另外，有关详细信息，请参阅[通过 Azure AD 身份验证使用 REST 访问媒体服务 API](./media-services-rest-connect-with-aad.md) 一文。
@@ -97,7 +97,7 @@ ms.locfileid: "96300790"
 
     ![屏幕截图显示从“Postman”窗口选择了“1. 获取 AAD 身份验证令牌 - 获取服务主体的 Azure AD 令牌”，并选择了“发送”按钮。](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. 按“发送”。 
+5. 按“发送”。
 
     可以看到包含“access_token”的响应。 “test”脚本采用此值，并设置 **AccessToken** 环境变量（如前所述）。 如果检查环境变量的话，将会看到，此变量现在包含剩余操作中使用的访问令牌（持有者令牌）值。 
 
@@ -115,7 +115,7 @@ ms.locfileid: "96300790"
 ### <a name="create-an-access-policy"></a>创建访问策略
 
 1. 选择“AccessPolicy” -> “创建要上传的 AccessPolicy”。 
-2. 按“发送”。 
+2. 按“发送”。
 
     ![屏幕截图显示从左侧菜单中选择了“AccessPolicy - 创建要上传的 AccessPolicy”，并选择了“发送”按钮。](./media/media-services-rest-upload-files/postman-access-policy.png)
 
@@ -136,7 +136,7 @@ ms.locfileid: "96300790"
 ### <a name="create-an-asset"></a>创建资产
 
 1. 选择“资产” -> “创建资产”。 
-2. 按“发送”。 
+2. 按“发送”。
 
     ![屏幕截图显示从“集合”菜单选择了“资产 - 创建资产”，并选择了“发送”按钮。](./media/media-services-rest-upload-files/postman-create-asset.png)
 
@@ -167,7 +167,7 @@ SAS URL 采用以下格式：
 ### <a name="create-a-sas-locator"></a>创建 SAS 定位符
 
 1. 选择“定位符” -> “创建 SAS 定位符”。 
-2. 按“发送”。 
+2. 按“发送”。
 
     “test”脚本将会根据指定的媒体文件名和 SAS 定位符信息创建“上传 URL”，并设置相应的环境变量。
 
@@ -177,7 +177,7 @@ SAS URL 采用以下格式：
 
 ### <a name="overview"></a>概述
 
-创建上传 URL 后，需要直接使用 Azure Blob API 编写一些代码，用于将文件上传到 SAS 容器。 有关详细信息，请参阅以下文章：
+创建上传 URL 后，需要直接使用 Azure Blob API 编写一些代码，用于将文件上传到 SAS 容器。 有关详细信息，请参阅下列文章：
 
 - [使用 Azure 存储 REST API](../../storage/common/storage-rest-api-auth.md?toc=%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
@@ -196,7 +196,7 @@ SAS URL 采用以下格式：
 3. 在“标头”选项卡中，为“密钥”指定“x-ms-blob-type”，为“值”指定“BlockBlob”。
 2. 在“正文”选项卡中，单击“二进制”。
 4. 选择具有 **MediaFileName** 环境变量中指定的名称的文件。
-5. 按“发送”。 
+5. 按“发送”。
 
     ![屏幕截图显示选择了“(UploadURL)”选项卡。](./media/media-services-rest-upload-files/postman-upload-file.png)
 
@@ -205,7 +205,7 @@ SAS URL 采用以下格式：
 上传文件后，需要在已上传到与资产关联的 Blob 存储的媒体文件的资产中创建元数据。
 
 1. 选择“AssetFiles” -> “CreateFileInfos”。 
-2. 按“发送”。 
+2. 按“发送”。
 
     ![上传文件](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

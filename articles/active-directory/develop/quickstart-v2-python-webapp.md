@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 9a532f523af9d1c5490575489a86345968ef9657
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 150284a337422a374b2803658cbb94780d10f0e4
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918495"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508797"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入门：向 Python Web 应用添加 Microsoft 登录功能
 
@@ -27,7 +27,7 @@ ms.locfileid: "95918495"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 或 [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/)、[Flask-Session](https://pypi.org/project/Flask-Session/)、[请求](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -55,13 +55,13 @@ ms.locfileid: "95918495"
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。
 > 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
->      - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `python-webapp`。
+>      - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `python-webapp`。
 >      - 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
->      - 选择“注册”  。
+>      - 选择“注册”。
 >      - 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
 > 1. 从菜单中选择“身份验证”，然后添加以下信息：
 >    - 添加 **Web** 平台配置。 添加 `http://localhost:5000/getAToken` 作为“重定向 URI”。
->    - 选择“保存”。 
+>    - 选择“保存” 。
 > 1. 在左侧菜单中选择“证书和机密”，然后在“客户端机密”部分单击“新建客户端机密”：  
 >
 >      - 键入（实例应用机密）的密钥说明。

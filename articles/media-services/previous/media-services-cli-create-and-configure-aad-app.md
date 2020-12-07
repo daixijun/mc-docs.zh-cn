@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 08/26/2019
 ms.date: 11/30/2019
 ms.author: v-jay
-ms.openlocfilehash: 5bbdf8414e499c66e531acd4f6ffac8571c0be54
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 3f7d9ba5d46107f45edcaf78cde480a8a0e0b8d8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300731"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432444"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>使用 Azure CLI 创建 Azure AD 应用并将其配置为访问媒体服务 API
 
@@ -32,7 +32,7 @@ ms.locfileid: "96300731"
 
 ## <a name="prerequisites"></a>必备条件
 
-- 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+- 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个媒体服务帐户。 有关详细信息，请参阅[利用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 
 ## <a name="use-the-powershell"></a>使用 PowerShell

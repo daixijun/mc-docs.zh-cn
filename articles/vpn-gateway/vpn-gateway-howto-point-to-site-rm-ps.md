@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 10/29/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 00d9176dd5cd43fd76fc67406662f249110676d1
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 5c91dba5cd3c8325ffac90e8951e7056d5d1fe27
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970806"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746993"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点 VPN 连接：PowerShell
 
@@ -26,9 +26,9 @@ ms.locfileid: "95970806"
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个 [1 元试用账户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -222,7 +222,7 @@ $profile.VPNProfileSASUrl
 ### <a name="mac-vpn-client"></a>Mac VPN 客户端
 
 在“网络”对话框中，找到要使用的客户端配置文件，单击“连接”。 
-请查看[安装 - Mac (OS X)](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
+请查看[安装 - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) 获取详细说明。 如果连接有问题，请验证虚拟网络网关是否未使用基本 SKU。 Mac 客户端不支持基本 SKU。
 
   ![Mac 连接](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -317,7 +317,7 @@ $profile.VPNProfileSASUrl
 
 **若要撤消：**
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅[如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅[如何检索证书的指纹](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 
 1. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。 该字符串在下一步声明为变量。
 
@@ -378,7 +378,6 @@ $profile.VPNProfileSASUrl
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。
 
 有关 P2S 故障排除信息，请参阅[故障排除：Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
-<!--Update_Description: code update-->

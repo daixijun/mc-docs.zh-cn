@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 origin.date: 10/23/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 6ddcbe4f077aa95d34ac758e4cb3fe56739bda36
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 64640b3032c99c27fae01af8422286d6723ed61c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970763"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432539"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>教程：使用 Azure 门户创建和管理 VPN 网关
 
@@ -33,7 +33,7 @@ Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程�
 
 ## <a name="prerequisites"></a>先决条件
 
-具有活动订阅的 Azure 帐户。 如果没有帐户，请[创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+具有活动订阅的 Azure 帐户。 如果没有帐户，请[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-virtual-network"></a><a name="CreatVNet"></a>创建虚拟网络
 

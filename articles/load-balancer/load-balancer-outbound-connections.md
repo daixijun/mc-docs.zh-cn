@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
 origin.date: 10/13/2020
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 3143cdb0d3e389a6d450dfb98d5b916db8b32a17
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: c33d0d84fb425a2b6144e6b1f9ae78aa47feebcc
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306402"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747184"
 ---
 # <a name="using-snat-for-outbound-connections"></a>使用 SNAT 进行出站连接
 
@@ -57,7 +57,6 @@ SNAT 启用后端实例的 IP 伪装。 此伪装可以防止外部源直接访�
   * 具有公共 IP 的虚拟机。
   * 没有公共 IP 的虚拟机。
   * 没有公共 IP 且没有标准负载均衡器的虚拟机。
-        
 
  ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a>方案 1：具有公共 IP 的虚拟机
 

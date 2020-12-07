@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 11/3/2020
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 0bc2c6c388c09e77fba58c6c0e0984bd5b50ffd1
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 7e294d32f4f1cd03e2c1dd790a0cb870557b9eb5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300796"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432587"
 ---
 # <a name="azure-media-services-common-scenarios"></a>Azure 媒体服务常见方案
 
@@ -39,7 +39,7 @@ ms.locfileid: "96300796"
 
 ### <a name="prerequisites"></a>先决条件
 
-* 一个 Azure 帐户。 如果没有帐户，可以创建一个 1 元试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial-full/)。
+* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 媒体服务帐户。 有关详细信息，请参阅[创建帐户](media-services-portal-create-account.md)。
 * 要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 

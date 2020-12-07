@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
 origin.date: 10/13/2020
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: b5c3d47503922f1bcfb24d74223dbb990c8f0d51
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 3d9f3d0ebd001113c87f828d5171d15e453ca088
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306481"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747260"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>使用 Azure 负载均衡器配置出站规则
 
@@ -84,7 +84,7 @@ ms.locfileid: "96306481"
 可通过两种方式使用此参数：
 
 1. 禁止将入站 IP 地址用于出站 SNAT。 在负载均衡规则中禁用出站 SNAT。
-  
+
 2. 对同时用于入站和出站连接的 IP 地址的出站 **SNAT** 参数进行优化。 必须禁用自动出站 NAT 才能让出站规则掌管控制权。 若要更改也用于入站连接的某个地址的 SNAT 端口分配，则必须将 `disableOutboundSnat` 参数设置为 true。 
 
 如果尝试重新定义用于入站连接的 IP 地址，则配置出站规则的操作会失败。  请先禁用负载均衡规则的出站 NAT。
@@ -101,10 +101,8 @@ ms.locfileid: "96306481"
 如果 NSG 阻止来自 AZURE_LOADBALANCER 默认标记的运行状况探测请求，那么 VM 的运行状况探测程序将失败，并且 VM 被标记为不可用。 负载均衡器停止向此 VM 发送新流。
 
 ## <a name="scenarios-with-outbound-rules"></a>具有出站规则的方案
-        
 
 ### <a name="outbound-rules-scenarios"></a>出站规则方案
-
 
 * 将出站连接配置为源自一组特定的公共 IP 或前缀。
 * 修改 [SNAT](load-balancer-outbound-connections.md) 端口分配。
@@ -116,18 +114,13 @@ ms.locfileid: "96306481"
 
 ### <a name="scenario-1-configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>场景 1：将出站连接配置为源自一组特定的公共 IP 或前缀
 
-
 #### <a name="details"></a>详细信息
-
 
 使用此方案将出站连接调整成源自一组公共 IP 地址。 根据来源向允许列表或拒绝列表添加公共 IP 或前缀。
 
-
 此公共 IP 或前缀可与负载均衡规则使用的相同。 
 
-
 若要使用与负载均衡规则使用的公共 IP 或前缀不同的公共 IP 或前缀，请执行以下操作： 
-
 
 1. 创建公共 IP 前缀或公共 IP 地址。
 2. 创建公共标准负载均衡器 
@@ -138,54 +131,41 @@ ms.locfileid: "96306481"
 
 ### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>场景 2：修改 [SNAT](load-balancer-outbound-connections.md) 端口分配
 
-
 #### <a name="details"></a>详细信息
-
 
 可以使用出站规则[基于后端池大小优化自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。 
 
-
 如果遇到 SNAT 耗尽的情况，请增加给定的 [SNAT](load-balancer-outbound-connections.md) 端口数（默认值为 1024）。 
-
 
 每个公共 IP 地址最多提供 64,000 个临时端口。 后端池中的 VM 数决定了分配给每个 VM 的端口数。 后端池中的一个 VM 最多可以访问 64,000 个端口。 对于两个 VM 的情况，可以使用出站规则为每个 VM 最多指定 32,000 个 [SNAT](load-balancer-outbound-connections.md) 端口 (2x 32,000 = 64,000)。 
 
-
 可以使用出站规则来优化默认情况下给定的 SNAT 端口。 你指定的端口数可以多于或少于默认 [SNAT](load-balancer-outbound-connections.md) 端口分配提供的端口数。 出站规则的前端中的每个公共 IP 地址最多提供 64,000 个可用作 [SNAT](load-balancer-outbound-connections.md) 端口的临时端口。 
-
 
 负载均衡器以 8 的倍数提供 [SNAT](load-balancer-outbound-connections.md) 端口。 如果提供的值不能被 8 整除，则会拒绝配置操作。 每个负载均衡规则和入站 NAT 规则将占用 8 个端口。 如果负载均衡或入站 NAT 规则与其他规则共享相同的 8 个端口，则不会再使用其他端口。
 
-
 如果你尝试指定的 [SNAT](load-balancer-outbound-connections.md) 端口数超出了系统所能提供的端口数（具体取决于公共 IP 地址数），系统会拒绝该配置操作。 例如，如果你为每个 VM 指定 10,000 个端口，而后端池中 7 个 VM 共享 1 个公共 IP 地址，系统会拒绝该配置。 7 乘以 10,000 超出了 64,000 个端口的限制。 将更多的公共 IP 地址添加到出站规则的前端即可实现该方案。 
-
 
 将端口数指定为 0 即可恢复到[默认端口分配](load-balancer-outbound-connections.md#preallocatedports)。 前 50 个 VM 实例会获得 1024 个端口，而 51-100 个 VM 实例会获得 512 个端口，以此类推，直到最大实例数。 有关默认 SNAT 端口分配的详细信息，请参阅 [SNAT 端口分配表](./load-balancer-outbound-connections.md#preallocatedports)。
 
 
 ### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>场景 3：仅启用出站连接
 
-
 #### <a name="details"></a>详细信息
-
 
 使用公共标准负载均衡器为一组 VM 提供出站 NAT。 在此方案中，可以单独使用出站规则，而无需配置其他规则。
 
-
 > [!NOTE]
 > **Azure 虚拟网络 NAT** 可以为虚拟机提供出站连接，无需使用负载均衡器。 有关详细信息，请参阅[什么是 Azure 虚拟网络 NAT？](../virtual-network/nat-overview.md)。
 
-### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>方案 4：仅对 VM 使用出站 NAT（无入站连接）
 
+### <a name="scenario-4-outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>方案 4：仅对 VM 使用出站 NAT（无入站连接）
 
 > [!NOTE]
 > **Azure 虚拟网络 NAT** 可以为虚拟机提供出站连接，无需使用负载均衡器。 有关详细信息，请参阅[什么是 Azure 虚拟网络 NAT？](../virtual-network/nat-overview.md)。
 
 #### <a name="details"></a>详细信息
 
-
 对于此方案，请执行以下操作：Azure 负载均衡器出站规则和虚拟网络 NAT 是用于虚拟网络流出量的选项。
-
 
 1. 创建公共 IP 或前缀。
 2. 创建公共标准负载均衡器。 
@@ -194,52 +174,38 @@ ms.locfileid: "96306481"
 5. 将 VM 置于后端池。
 6. 配置启用出站 NAT 所需的出站规则。
 
-
-
 使用前缀或公共 IP 来缩放 [SNAT](load-balancer-outbound-connections.md) 端口。 将出站连接的源添加到允许列表或拒绝列表。
 
 
-
 ### <a name="scenario-5-outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>方案 5：内部标准负载均衡器的出站 NAT
-
 
 > [!NOTE]
 > **Azure 虚拟网络 NAT** 可以利用内部标准负载均衡器为虚拟机提供出站连接。 有关详细信息，请参阅[什么是 Azure 虚拟网络 NAT？](../virtual-network/nat-overview.md)。
 
 #### <a name="details"></a>详细信息
 
-
 除非已通过实例级公共 IP 或虚拟网络 NAT 明确声明，或通过将后端池成员与仅限出站的负载均衡器配置相关联，否则内部标准负载均衡器无法使用出站连接。 
-
 
 有关详细信息，请参阅[仅出站的负载均衡器配置](./egress-only.md)。
 
 
-
-
 ### <a name="scenario-6-enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>方案 6：使用公共标准负载均衡器为出站 NAT 启用 TCP 和 UDP 协议
-
 
 #### <a name="details"></a>详细信息
 
-
 使用公共标准负载均衡器时，提供的自动出站 NAT 与负载均衡规则的传输协议相匹配。 
-
 
 1. 在负载均衡规则中禁用出站 [SNAT](load-balancer-outbound-connections.md)。 
 2. 在同一个负载均衡器上配置出站规则。
 3. 重复使用 VM 已用的后端池。 
 4. 指定“协议”：“所有”作为出站规则的一部分。 
 
-
 只使用入站 NAT 规则时，不会提供出站 NAT。 
-
 
 1. 将 VM 放入后端池。
 2. 使用公共 IP 地址或公共 IP 前缀定义一个或多个前端 IP 配置 
 3. 在同一个负载均衡器上配置出站规则。 
 4. 指定“协议”：“所有”作为出站规则的一部分
-
 
 ## <a name="limitations"></a>限制
 

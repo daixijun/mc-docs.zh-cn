@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 09/29/2020
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 590765ad8bacba59063083dea45438747d36aa27
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2969a64cfd8ce70a9a7be4f3b3a887dcb8093c90
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300728"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432316"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流
 
@@ -71,7 +71,7 @@ ms.locfileid: "96300728"
 以下是完成本教程所需具备的条件。
 
 * 若要完成本教程，需要一个 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。
-有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+有关详细信息，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [创建帐户](media-services-portal-create-account.md)。
 * 可以发送单比特率实时流的摄像头和编码器。
 

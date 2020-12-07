@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 02/03/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 29ab1f418a47eab7a44c932667ac9671560d5225
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: c347f65e5d77dd67167a74324fa46931bc26599e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146442"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431153"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板向 Azure 数据资源管理器添加数据库主体
 
@@ -26,7 +26,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建[群集和数据库](create-cluster-database-portal.md)
 
 ## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>用于添加数据库主体的 Azure 资源管理器模板

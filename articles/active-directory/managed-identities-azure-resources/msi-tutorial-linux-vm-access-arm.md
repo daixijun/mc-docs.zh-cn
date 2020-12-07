@@ -16,12 +16,12 @@ ms.date: 11/24/2020
 ms.author: v-junlch
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66949e7072ff75baae03e58f5e9bb4dcfdf5be58
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: a63219f475a35dc2ff695452f4a97cf38a78161a
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918471"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509055"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教程：使用 Linux VM 上的用户分配托管标识访问 Azure 资源管理器
 
@@ -40,7 +40,7 @@ ms.locfileid: "95918471"
 ## <a name="prerequisites"></a>先决条件
 
 - 具备托管标识相关知识。 如果不熟悉 Azure 资源功能的托管标识，请参阅此[概述](overview.md)。 
-- 一个 Azure 帐户，[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 一个 Azure 帐户，[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 还需要 Linux 虚拟机。 如需为本教程创建虚拟机，则可以按照标题为[使用 Azure 门户创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)的文章进行操作
 - 若要运行示例脚本，可安装最新版的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure，在本地运行这些脚本。
 

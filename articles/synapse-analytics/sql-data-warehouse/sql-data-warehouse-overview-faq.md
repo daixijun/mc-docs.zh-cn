@@ -11,12 +11,12 @@ origin.date: 11/04/2019
 ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c71830717aa517a26d0e0164aa6438d9144c1949
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: aa8e2727e51b4e4aa232be341ad82a404326d13a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152942"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432670"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics（前称为 SQL 数据仓库）常见问题解答
 
@@ -36,7 +36,7 @@ A. 专用 SQL 池是指 Azure Synapse 中正式发布的企业数据仓库功能
 
 问： Azure Synapse 如何入门？
 
-A. 可以从一个 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)着手。 
+A. 可以从一个 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)着手。 
 
 问： Azure Synapse 提供哪些功能来确保数据安全性？
 

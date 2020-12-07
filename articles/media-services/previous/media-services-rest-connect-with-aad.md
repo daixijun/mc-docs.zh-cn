@@ -15,12 +15,12 @@ origin.date: 03/20/2019
 ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: c91bf5973d90e7d89d9e3c5b43aef78e220511e5
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 81812bb1dbc40e3f2d801615f4a04e31a56d0238
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300266"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432135"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问媒体服务 API
 
@@ -52,7 +52,7 @@ ms.locfileid: "96300266"
 
 ## <a name="prerequisites"></a>必备条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 - 查看[使用 Azure AD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)一文。
 - 安装 [Postman](https://www.getpostman.com/) REST 客户端以执行本文所示的 REST API。 
