@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 5a493fa258331068cd9325df5874dcecc920c983
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c91bf5973d90e7d89d9e3c5b43aef78e220511e5
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245627"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300266"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问媒体服务 API
 
@@ -72,7 +72,7 @@ ms.locfileid: "91245627"
 |客户端 ID（应用程序 ID）|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 应用程序（客户端）ID。 需要客户端 ID 才能获取访问令牌。 |
 |客户端机密|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 应用程序密钥（客户端密码）。 需要客户端密码才能获取访问令牌。|
 
-### <a name="get-aad-auth-info-from-the-azure-portal"></a>从 Azure 门户获取 AAD 身份验证信息
+### <a name="get-azure-active-directory-auth-info-from-the-azure-portal"></a>从 Azure 门户获取 Azure Active Directory 身份验证信息
 
 若要获取信息，请按照以下步骤操作：
 
@@ -81,7 +81,7 @@ ms.locfileid: "91245627"
 3. 选择“API 访问”  。
 4. 点击“通过服务主体连接到 Azure 媒体服务 API”  。
 
-    ![API 访问](./media/connect-with-rest/connect-with-rest01.png)
+    ![屏幕截图显示从“媒体服务”菜单中选择了“API 访问”，并从右侧窗格选择了“通过服务主体连接到 Azure 媒体服务 API”。](./media/connect-with-rest/connect-with-rest01.png)
 
 5. 选择现有的“Azure AD 应用程序”或新建一个 Azure AD 应用程序（如下所示）  。
 
@@ -95,7 +95,7 @@ ms.locfileid: "91245627"
    3. 再次按“新建”  。
    4. 按“保存”  。
 
-      ![API 访问](./media/connect-with-rest/new-app.png)
+      ![屏幕截图显示了“新建”对话框，其中突出显示了“创建应用”文本框，并选择了“保存”按钮。](./media/connect-with-rest/new-app.png)
 
       新的应用将显示在页面上。
 
@@ -104,7 +104,7 @@ ms.locfileid: "91245627"
    1. 选择应用程序。
    2. 从右侧的窗口获取“客户端 ID”  。 
 
-      ![API 访问](./media/connect-with-rest/existing-client-id.png)
+      ![屏幕截图显示已选择“Azure AD 应用”和“管理应用程序”，并在右侧窗格突出显示了“客户端 ID”。](./media/connect-with-rest/existing-client-id.png)
 
 7. 获取应用程序的“密钥”（客户端密码）  。 
 
@@ -138,7 +138,7 @@ ms.locfileid: "91245627"
 4. 选择“标头”选项卡  。
 5. 使用“密钥/值”数据网格输入“标头”信息  。 
 
-    ![数据网格](./media/connect-with-rest/headers-data-grid.png)
+    ![屏幕截图显示已选择“标头”选项卡和“批量编辑”操作按钮。](./media/connect-with-rest/headers-data-grid.png)
 
     或者，单击 Postman 窗口右侧的“批量编辑”链接，然后粘贴以下代码  。
 
@@ -163,13 +163,13 @@ ms.locfileid: "91245627"
 
 8. 按“发送”。 
 
-    ![获取令牌](./media/connect-with-rest/connect-with-rest04.png)
+    ![屏幕截图显示了“发布”文本框以及“标头”和“正文”选项卡，其中突出显示了“access_token”，并检测到了“发送”按钮。](./media/connect-with-rest/connect-with-rest04.png)
 
 返回的响应包含需要用于访问任何 AMS API 的访问令牌  。
 
 ## <a name="test-the-assets-api-using-the-access-token"></a>使用访问令牌测试资产 API 
 
-此部分介绍如何使用 **Postman** 访问**资产** API。
+此部分介绍如何使用 **Postman** 访问 **资产** API。
 
 1. 打开 Postman  。
 2. 选择“GET”  。

@@ -3,16 +3,15 @@ author: Johnnytechn
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: b7933a93617c5a18a4654c1cd9b073c7244974ff
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8d9dc0be312535e32973db53097353065cbb8bf7
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499103"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306614"
 ---
-<!-- word updating-->
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
 [!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
@@ -42,10 +41,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-“翻译”全局终结点设置为 `endpoint`。 `path` 设置 `languages` 路由并确定我们需使用 API 的版本 3。
+“翻译”终结点设置为 `endpoint`。 `path` 设置 `languages` 路由并确定我们需使用 API 的版本 3。
 
 >[!NOTE]
-> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：语言](/cognitive-services/translator/reference/v3-0-languages)。
+> 有关终结点、路由和请求参数的详细信息，请参阅[翻译 3.0：语言](../reference/v3-0-languages.md)。
 
 ```python
 path = '/languages?api-version=3.0'
@@ -65,7 +64,7 @@ headers = {
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](../reference/v3-0-reference.md#authentication)。
 
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>创建一个请求，以获取支持的语言的列表
 
@@ -97,7 +96,7 @@ python get-languages.py
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](../language-support.md)中查找国家/地区缩写。
 
 此示例已截断，显示了结果的片段：
 
@@ -194,4 +193,5 @@ python get-languages.py
 查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+> [API 参考](../reference/v3-0-reference.md)
+

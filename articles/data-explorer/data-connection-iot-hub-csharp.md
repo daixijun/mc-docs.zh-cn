@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: e57bddfc3961e2048487a2dc654aa3bcfca949b4
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 661a1588070834d56f4bf1af3e3deff82d6b24a0
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105162"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431188"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-c-preview"></a>使用 C#（预览版）为 Azure 数据资源管理器创建 IoT 中心数据连接
 
@@ -29,7 +29,7 @@ ms.locfileid: "93105162"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果尚未安装 Visual Studio 2019，可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建[群集和数据库](create-cluster-database-csharp.md)
 * 创建[表和列映射](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)
 * 设置[数据库和表策略](database-table-policies-csharp.md)（可选）
@@ -85,8 +85,8 @@ await kustoManagementClient.DataConnections.CreateOrUpdate(resourceGroupName, cl
 | clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | 可以访问租户中资源的应用程序的客户端 ID。|
 | clientSecret | *xxxxxxxxxxxxxx* | 可以访问租户中资源的应用程序的客户端密码。 |
 | resourceGroupName | *testrg* | 包含群集的资源组的名称。|
-| clusterName | mykustocluster  | 群集的名称。|
-| databaseName | mykustodatabase  | 群集中目标数据库的名称。|
+| clusterName | mykustocluster | 群集的名称。|
+| databaseName | mykustodatabase | 群集中目标数据库的名称。|
 | dataConnectionName | *myeventhubconnect* | 所需的数据连接名称。|
 | tableName | *StormEvents* | 目标数据库中目标表的名称。|
 | mappingRuleName | *StormEvents_CSV_Mapping* | 与目标表相关的列映射的名称。|

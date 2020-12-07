@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2505f0ecf7b775505492ef4e68e63a67fb054cb5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: a21d1befd2dec319a1f70c5b6d12f22fd25a870f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245629"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432283"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 
@@ -29,7 +29,7 @@ ms.locfileid: "91245629"
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 >
 
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  
@@ -42,7 +42,7 @@ ms.locfileid: "91245629"
     各视频和音频示例都使用 **AES-128 CBC** 模式进行加密。 **FairPlay 流式处理** (FPS) 集成到设备操作系统，iOS 和 Apple TV 本身支持这项功能。 OS X 上的 Safari 使用加密媒体扩展 (EME) 接口支持启用 FPS。
 * **Microsoft PlayReady**
 
-下图显示了 **HLS + FairPlay 或 PlayReady 动态加密**工作流。
+下图显示了 **HLS + FairPlay 或 PlayReady 动态加密** 工作流。
 
 ![动态加密工作流的图示](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "91245629"
 
 在使用媒体服务传送通过 FairPlay 加密的 HLS 和传送 FairPlay 许可证时，需要以下各项：
 
-  * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+  * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
   * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
   * 注册 [Apple 开发计划](https://developer.apple.com/)。
   * Apple 要求内容所有者获取[部署包](https://developer.apple.com/contact/fps/)。 说明已使用媒体服务实现密钥安全模块 (KSM)，以及正在请求最终 FPS 包。 最终 FPS 包中有如何生成证书和获取应用程序密钥 (ASK) 的说明。 可使用 ASK 配置 FairPlay。

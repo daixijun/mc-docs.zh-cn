@@ -6,22 +6,22 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: aca61cf48340c7b5a84e5c0f29f5ce1801c03f21
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 0f48b246ccec63002f0e99880b9925d92669fc36
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198730"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153089"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics 工作负荷分类
 
-本文介绍了在 Azure Synapse 中使用 Synapse SQL 池为传入请求分配工作负荷组和重要性的工作负荷分类过程。
+本文介绍了工作负荷分类过程，即使用 Azure Synapse 中的专用 SQL 池，向传入请求分配工作负荷组和重要性。
 
 ## <a name="classification"></a>分类
 
@@ -35,7 +35,7 @@ ms.locfileid: "82198730"
 
 ## <a name="classification-process"></a>分类过程
 
-目前，对 Azure Synapse 中的 Synapse SQL 池进行分类是通过使用 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 将用户分配给具有相应资源类的角色来实现的。 使用此功能时，将请求特征化，使之超出资源类登录范围的能力会受到限制。 现在，可以通过 [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 语法来利用更丰富的分类方法。  使用此语法，Synapse SQL 池用户可以通过 `workload_group` 参数为请求分配重要性和系统资源数。
+目前，对 Azure Synapse 中的专用 SQL 池进行分类是这样实现的：使用 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 将用户分配给具有相应资源类的角色。 使用此功能时，将请求特征化，使之超出资源类登录范围的能力会受到限制。 现在，可以通过 [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 语法来利用更丰富的分类方法。  使用此语法，专用 SQL 池用户可以通过 `workload_group` 参数为请求分配重要性和系统资源数。
 
 > [!NOTE]
 > 分类是按每个请求评估的。 可以不同的方式对单个会话中的多个请求进行分类。

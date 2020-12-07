@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2913586e9b83ab978a29ac900bd94cae2e8091fe
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0d8ead300f313763eb902009db7fa2ea8612b659
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432446"
 ---
 <!--Not Avaialble on Mooncake till 09/29/2020-->
 <!--Windows Container Instance is invalid on MOONCAKE-->
@@ -27,7 +27,7 @@ ms.locfileid: "91564293"
 
 ![在浏览器中显示的已部署到 Azure 容器实例的应用][qs-powershell-01]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

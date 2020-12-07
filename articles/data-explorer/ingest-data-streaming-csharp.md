@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/13/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 9d403bc150a2c25f36473cfc9ffd493b43d5225b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 279419073a9dfa4d5d0ee2f09903d6fab954cc01
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146579"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431179"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-c"></a>使用 C# 在 Azure 数据资源管理器群集上配置流式引入
 
@@ -26,7 +26,7 @@ ms.locfileid: "91146579"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果尚未安装 Visual Studio 2019，可以下载并使用“免费的”[Visual Studio 2019 社区版](https://www.visualstudio.com/downloads/)。  在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-csharp.md)
    
 ## <a name="enable-streaming-ingestion-on-your-cluster-using-c"></a>使用 C# 在群集上启用流式引入

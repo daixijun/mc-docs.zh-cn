@@ -12,12 +12,12 @@ ms.custom: mvc, devx-track-azurecli
 origin.date: 04/16/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: cc0cd87223b7d3d2c4717500249e51d48aaf1923
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a94dd768cad519ba88dea5a87766fb62cad0b9b1
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430811"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>教程：在 Azure Key Vault 中导入证书
 
@@ -34,7 +34,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 在开始之前，请阅读 [Key Vault 的基本概念](../general/basic-concepts.md)。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

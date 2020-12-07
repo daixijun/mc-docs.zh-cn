@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bac56fb6e2bf52a2366446fe4f2fd186ef816de1
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 891d4d84db581c1f7a04091df4e16a6906aeb001
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750000"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918446"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -60,7 +60,7 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 以下选项被视为旧身份验证协议
 
-- 经身份验证的 SMTP - 由 POP 和 IMAP 客户端用来发送电子邮件。
+- 经过身份验证的 SMTP - 由 POP 和 IMAP 客户端用于发送电子邮件。
 - 自动发现 - 由 Outlook 和 EAS 客户端用来查找和连接 Exchange Online 中的邮箱。
 - Exchange ActiveSync (EAS) - 用于连接到 Exchange Online 中的邮箱。
 - Exchange Online PowerShell - 用于通过远程 PowerShell 连接到 Exchange Online。 如果阻止 Exchange Online PowerShell 的基本身份验证，则需使用 Exchange Online PowerShell 模块进行连接。 有关说明，请参阅[使用多重身份验证连接到 Exchange Online PowerShell](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)。
@@ -116,6 +116,10 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 策略生效可能需要长达 24 小时的时间。
 
 可为 **其他客户端** 条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
+
+### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 和 B2B 来宾用户
+
+若要阻止 B2B 用户通过旧式身份验证访问 SharePoint Online，组织必须使用 `Set-SPOTenant` PowerShell 命令并将 `-LegacyAuthProtocolsEnabled` 参数设置为 `$false`，以在 SharePoint 上禁用旧式身份验证。 有关设置此参数的详细信息，请参阅有关 [Set-SPOTenant](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps) 的 SharePoint PowerShell 参考文档
 
 ## <a name="next-steps"></a>后续步骤
 

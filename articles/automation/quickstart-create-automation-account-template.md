@@ -14,12 +14,12 @@ origin.date: 07/23/2020
 ms.date: 11/02/2020
 ms.author: v-jay
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: b8377ef0ad4b742bf71263bd2a7eb12ea01d710d
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: ee1fd2935672e01b542a32c4308b45cdbff18d77
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750210"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432526"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>快速入门：使用 ARM 模板创建自动化帐户
 
@@ -33,7 +33,7 @@ Azure 自动化提供基于云的自动化和配置服务，用于支持 Azure �
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

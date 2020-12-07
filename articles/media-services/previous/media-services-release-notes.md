@@ -12,15 +12,15 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2019
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 582a24349d30d94a73695d405d48d50373e144d0
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 013af240534e9ad5f31ced969c682533c4e3af07
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244866"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300264"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -53,6 +53,18 @@ ms.locfileid: "91244866"
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
 
+## <a name="september-2020"></a>2020 年 9 月
+
+以下 v2 属性将不再用历史作业进度数据填充：
+
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+若要获取任务历史记录，应通过 Webhook 使用 v2 作业通知或通过通知终结点使用队列消息。 有关详情，请参阅：
+
+* [使用 Azure 队列存储监视媒体服务作业通知](media-services-dotnet-check-job-progress-with-queues.md)
+* [使用 Azure Webhook 监视媒体服务作业通知](media-services-dotnet-check-job-progress-with-webhooks.md)
+
 ## <a name="february-2020"></a>2020 年 2 月
 
 一些分析媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
@@ -62,7 +74,7 @@ ms.locfileid: "91244866"
 
 我们宣布停用 Windows Azure 媒体编码器 (WAME) 和 Azure 媒体编码器 (AME) 媒体处理器 。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
 
-有关详细信息，请参阅[将 WAME 迁移到 Media Encoder Standard](/media-services/previous/migrate-windows-azure-media-encoder) 和[将 AME 迁移到 Media Encoder Standard](/media-services/previous/migrate-azure-media-encoder)。
+有关详细信息，请参阅[将 WAME 迁移到 Media Encoder Standard](./migrate-windows-azure-media-encoder.md) 和[将 AME 迁移到 Media Encoder Standard](./migrate-azure-media-encoder.md)。
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -207,12 +219,12 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 ## <a name="august-2015-release"></a><a id="august_changes_15"></a>2015 年 8 月版本
 * 现已推出用于 Java 0.8.0 版的媒体服务 SDK 和新示例。 有关详细信息，请参阅：
     
-* 已更新 Azure Media Player，现支持多音频流。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
+* 已更新 Azure Media Player，现支持多音频流。 有关详细信息，请参阅[此博客文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>2015 年 7 月版本
 * 宣布了 Media Encoder Standard 公开上市。 有关详细信息，请参阅[此博客文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
-    Media Encoder Standard 使用[本节](https://go.microsoft.com/fwlink/?LinkId=618336)所述的预设值。 使用 4k 编码预设时，请获取高级预留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
+    Media Encoder Standard 使用[本节](./media-services-mes-presets-overview.md)所述的预设值。 使用 4k 编码预设时，请获取高级预留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
 * 媒体服务和 Media Player 中采用了直播实时字幕。 有关详细信息，请参阅[此博客文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新

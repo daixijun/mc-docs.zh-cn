@@ -3,14 +3,14 @@ title: Azure Functions 网络选项
 description: 在 Azure Functions 中可用的所有网络选项的概述。
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: 36b8a7dba20a1369e2077554b7e794800dc6e3af
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: e86a731cec47948b49b446de6606345146eea923
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326423"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970758"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -30,18 +30,36 @@ ms.locfileid: "94326423"
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>入站 IP 限制
+## <a name="inbound-access-restrictions"></a>入站访问限制
 
-可以使用 IP 限制来定义被允许或拒绝访问应用的 IP 地址的优先级排序列表。 该列表可以包含 IPv4 和 IPv6 地址。 如果存在一个或多个条目，则列表末尾会存在一个隐式的“拒绝所有”。 IP 限制适用于所有函数托管选项。
+可以使用访问限制来定义被允许或拒绝访问应用的 IP 地址的优先级排序列表。 此列表可以包含 IPv4 和 IPv6 地址，或使用[服务终结点](#use-service-endpoints)的特定虚拟网络子网。 如果存在一个或多个条目，则列表末尾会存在一个隐式的“拒绝所有”。 IP 限制适用于所有函数托管选项。
+
+访问限制在[高级](functions-premium-plan.md)、[消耗](functions-scale.md#consumption-plan)和[应用服务](functions-scale.md#app-service-plan)中提供。
 
 > [!NOTE]
-> 如果进行了网络限制，则只能从虚拟网络内部使用门户编辑器，或者在已将用于访问 Azure 门户的计算机的 IP 地址加入安全收件人列表之后使用该编辑器。 不过，仍然可以从任何计算机访问“平台功能”选项卡上的任何功能。
+> 如果进行了网络限制，则只能从虚拟网络内部进行部署，或者在已将用于访问 Azure 门户的计算机的 IP 地址加入安全收件人列表之后进行部署。 不过，你仍然可以使用门户管理该函数。
 
 若要了解详细信息，请参阅 [Azure 应用服务静态访问限制](../app-service/app-service-ip-restrictions.md)。
 
-## <a name="private-site-access"></a>专用站点访问
+### <a name="use-service-endpoints"></a>使用服务终结点
+
+使用服务终结点可以限制对所选 Azure 虚拟网络子网的访问。 若要限制对特定子网的访问，请使用“虚拟网络”类型创建限制规则。 然后，可以选择要允许或拒绝访问的订阅、虚拟网络和子网。 
+
+如果尚未为所选子网的 Microsoft.Web 启用服务终结点，它们会自动启用，除非你选择了“忽略缺少的 Microsoft.Web 服务终结点”复选框。 在应用上而不是子网上启用服务终结点的方案主要取决于你是否有权在子网上启用它们。 
+
+如果需要其他人在子网上启用服务终结点，请选择“忽略缺少的 Microsoft.Web 服务终结点”复选框。 将为服务终结点配置应用，以便稍后在子网中启用它们。 
+
+![“添加 IP 限制”窗格的屏幕截图，其中选择了虚拟网络类型。](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+不能使用服务终结点来限制对在应用服务环境中运行的应用程序的访问。 当应用处于应用服务环境中时，可以应用 IP 访问规则来控制对它的访问。 
+
+若要了解如何设置服务终结点，请参阅[建立 Azure Functions 专用站点访问](functions-create-private-site-access.md)。
+
+## <a name="private-endpoint-connections"></a>专用终结点连接
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+若要调用具有专用终结点连接的其他服务（如存储或服务总线），请确保将应用配置为[对专用终结点进行出站调用](#private-endpoints)。
 
 ## <a name="virtual-network-integration"></a>虚拟网络集成
 
@@ -73,8 +91,8 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 1. 创建或配置另一存储帐户。  此存储帐户将是我们使用服务终结点保护的存储帐户，可连接我们的函数。
 1. 在受保护的存储帐户中[创建文件共享](../storage/files/storage-how-to-create-file-share.md#create-file-share)。
 1. 为此存储帐户启用服务终结点或专用终结点。  
-    * 如果使用服务终结点，请确保启用专用于函数应用的子网。
-    * 如果使用专用终结点，请确保创建 DNS 记录并将应用配置为[使用专用终结点](#azure-dns-private-zones)。  此存储帐户将需要一个专用终结点来存储 `file` 和 `blob` 子资源。  如果使用某些功能（如 Durable Functions），则还需要可通过专用终结点连接访问的 `queue` 和 `table`。
+    * 如果使用专用终结点连接，此存储帐户将需要一个专用终结点来存储 `file` 和 `blob` 子资源。  如果使用某些功能（如 Durable Functions），则还需要可通过专用终结点连接访问的 `queue` 和 `table`。
+    * 如果使用服务终结点，请为存储帐户启用专用于函数应用的子网。
 1. （可选）将函数应用存储帐户中的文件和 blob 内容复制到受保护的存储帐户和文件共享。
 1. 复制此存储帐户的连接字符串。
 1. 将函数应用的“配置”下的“应用程序设置”更新为以下内容：
@@ -82,6 +100,9 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
     - 将 `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 更新为受保护存储帐户的连接字符串。
     - 将 `WEBSITE_CONTENTSHARE` 更新为在受保护存储帐户中创建的文件共享的名称。
     - 使用名称 `WEBSITE_CONTENTOVERVNET` 和值 `1` 创建新设置。
+    - 如果存储帐户使用专用终结点连接，请验证或添加以下设置
+        - `WEBSITE_VNET_ROUTE_ALL`，值为 `1`。
+        - `WEBSITE_DNS_SERVER`，值为 `168.63.129.16` 
 1. 保存应用程序设置。  
 
 函数应用会重启，并会立即连接到受保护的存储帐户。
@@ -110,6 +131,9 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 ```azurecli
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> 启用虚拟网络触发器可能会影响应用程序的性能，因为应用服务计划实例需要监视触发器来确定何时缩放。 这种影响可能非常小。
 
 版本 2.x 和更高版本的 Functions 运行时支持虚拟网络触发器。 支持以下非 HTTP 触发器类型。
 

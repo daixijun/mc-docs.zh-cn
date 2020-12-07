@@ -3,17 +3,18 @@ title: 在 Azure Kubernetes 服务中使用托管标识
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用托管标识
 services: container-service
 ms.topic: article
+origin.date: 07/17/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: e603b0c1a6f572c1bca09c18c927a9223d29bb74
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 89da74d7f4e59ea0b8c5fd4889003a64778fb9ce
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128264"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024437"
 ---
 <!--Verified successfully-->
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用托管标识
@@ -31,20 +32,19 @@ ms.locfileid: "92128264"
 ## <a name="limitations"></a>限制
 
 * 具有托管标识的 AKS 群集只能在群集创建过程中启用。
-* 现有 AKS 群集无法迁移到托管标识。
 * 在群集升级操作期间，托管标识暂时不可用。
 * 不支持启用了托管标识的群集的租户移动/迁移。
-* 如果群集启用了 `aad-pod-identity`，节点托管标识 (NMI) pod 将修改节点的 iptable，以拦截对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 拦截，即使 pod 不使用 `aad-pod-identity`。 可以将 AzurePodIdentityException CRD 配置为通知 `aad-pod-identity` 应在不使用 NMI 进行出任何处理的情况下，代理与 CRD 中定义的标签匹配的 pod 所发起的对元数据终结点的任何请求。 应通过配置 AzurePodIdentityException CRD 在 `aad-pod-identity` 中排除在 _kube-system_ 命名空间中具有 `kubernetes.azure.com/managedby: aks` 标签的系统 pod。 有关详细信息，请参阅[禁用特定 pod 或应用程序的 aad-pod-identity](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)。
+* 如果群集启用了 `aad-pod-identity`，节点托管标识 (NMI) pod 将修改节点的 iptable，以拦截对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 拦截，即使 pod 不使用 `aad-pod-identity`。 可以将 AzurePodIdentityException CRD 配置为通知 `aad-pod-identity` 应在不使用 NMI 进行出任何处理的情况下，代理与 CRD 中定义的标签匹配的 pod 所发起的对元数据终结点的任何请求。 应通过配置 AzurePodIdentityException CRD 在 `aad-pod-identity` 中排除在 _kube-system_ 命名空间中具有 `kubernetes.azure.com/managedby: aks` 标签的系统 pod。 有关详细信息，请参阅[禁用特定 pod 或应用程序的 aad-pod-identity](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)。
     若要配置例外情况，请安装 [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)。
 
 ## <a name="summary-of-managed-identities"></a>托管标识摘要
 
 AKS 对内置服务和加载项使用多个托管标识。
 
-<!--MOONCAKE: REMOVE `Bring your own identity` COLUMN DETAILS-->
+<!--Not Available on  Bring your own identity COLUMN-->
 
 | 标识                       | 名称    | 使用案例 | 默认权限 |
-|----------------------------|-----------|----------|
+|--------------------------------|---------|----------|---------------------|
 | 控制面板 | 不可见 | 由 AKS 用于托管网络资源，包括入口负载均衡器和 AKS 托管公共 IP | 节点资源组的参与者角色 |
 | Kubelet | AKS Cluster Name-agentpool | 向 Azure 容器注册表 (ACR) 进行身份验证 | NA（对于 kubernetes v1.15+） |
 | 加载项 | AzureNPM | 无需标识 | 不可用 |
@@ -112,6 +112,23 @@ az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>将现有的基于服务主体的 AKS 群集更新为托管标识
+
+现在，可以使用以下 CLI 命令更新具有托管标识的 AKS 群集。
+
+首先，更新系统分配的标识：
+
+```azurecli
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+然后更新用户分配的标识：
+
+```azurecli
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> 将系统分配的标识或用户分配的标识更新为托管标识后，请在节点上执行 `az nodepool upgrade --node-image-only` 以完成对托管标识的更新。
 
 <!--Not Available on ## Bring your own control plane MI (Preview)-->
 <!--Not Available on ## Next steps-->

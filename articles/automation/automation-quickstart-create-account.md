@@ -7,18 +7,18 @@ ms.date: 08/10/2020
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 4040e646d520f67138c274f79b9df327306c9507
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 1550e10e6cf0288b4f8a089198f8ed6e1493772c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788312"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432270"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 
 可以使用 Azure 门户通过 Azure 创建 Azure 自动化帐户。Azure 门户是一个基于浏览器的用户界面，在其中可以访问许多资源。 一个自动化帐户可以跨所有区域和订阅管理给定租户的资源。 
 
-本快速入门将引导你创建一个自动化帐户，并在该帐户中运行 Runbook。 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+本快速入门将引导你创建一个自动化帐户，并在该帐户中运行 Runbook。 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

@@ -2,20 +2,21 @@
 title: 使用 Azure Cosmos DB 和 Active Directory 进行基于证书的身份验证
 description: 了解如何为基于证书的身份验证配置 Azure AD 标识，以便从 Azure Cosmos DB 访问密钥。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 06/11/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 78075c6e0636963058e5084a4493b040bd5c0999
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: dacd85f82fb7ff5fab96d81800be00b34720a8e0
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328504"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598674"
 ---
 <!--Verify successfully-->
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>为基于证书的身份验证配置 Azure AD 标识以从 Azure Cosmos DB 帐户访问密钥
@@ -27,9 +28,9 @@ ms.locfileid: "94328504"
 
 * 安装[最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps)的 Azure PowerShell。
 
-* 如果你没有 [Azure 订阅](https://docs.azure.cn/billing/billing-sign-up-azure-account-with-1rmb-trial-subscription)，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-<!--CORRECT ON https://docs.azure.cn/billing/billing-sign-up-azure-account-with-1rmb-trial-subscription-->
+<!--Not Available on [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)-->
 
 ## <a name="register-an-app-in-azure-ad"></a>在 Azure AD 中注册应用
 
@@ -62,7 +63,6 @@ ms.locfileid: "94328504"
 1. 使用管理员权限打开 Windows PowerShell ISE。 安装 AZ PowerShell 模块并连接到你的订阅（如果尚未这样做）。 如果你有多个订阅，可按以下命令中所示设置当前订阅的上下文：
 
     ```powershell
-
     Install-Module -Name Az -AllowClobber
     Connect-AzAccount -Environment AzureChinaCloud
 

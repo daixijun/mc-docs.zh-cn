@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
+ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5e67061a05c6d018ba64bf649dff12f662bbb85
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 112f2f7dd76be7df2b4f585f2942ab139f179cd0
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021464"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300067"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>如何管理 Azure 认知搜索中的并发
 
@@ -31,7 +31,7 @@ ms.locfileid: "90021464"
 所有资源均有一个实体标记 (ETag)，它提供对象版本信息。  通过先检查 ETag，确保资源的 ETag 与本地副本匹配，可避免典型工作流（获取、本地修改、更新）中的并发更新。
 
 + REST API 在请求头使用 [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)。
-+ .NET SDK 通过 accessCondition 对象，对资源设置 [If-Match | If-Match-None 标头](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 来设置 ETag。 从 [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) 继承的任何对象都具有 accessCondition 对象。
++ .NET SDK 通过 accessCondition 对象，对资源设置 [If-Match | If-Match-None 标头](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 来设置 ETag。 使用 ETag（如 [SynonymMap.ETag](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.synonymmap.etag) 和 [SearchIndex.ETag](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchindex.etag)）的对象具有一个 accessCondition 对象。
 
 每次更新资源时，其 ETag 将自动更改。 实现并发管理时，只需对更新请求设置一个前提条件，要求远程资源的 ETag 与在客户端上修改的资源副本的 ETag 相同。 如果并发进程已更改远程资源，ETag 将不满足前提条件，请求将失败并出现 HTTP 412。 如果使用 .NET SDK，这表示为 `CloudException`，此时 `IsAccessConditionFailed()` 扩展方法返回 true。
 

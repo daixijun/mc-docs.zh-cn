@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/17/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 03bde7022acbb137710f7f6c4cfd131a58c2d023
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: 86b42a5c6b69ba053c99179e4bb3b6d26f3a3e20
+ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027010"
 ---
 > [!NOTE]
 > 当我们从 `https://raw.githubusercontent.com/` 网站下载特定模板并尝试从自定义模板进行部署时，有时会遇到某些问题。

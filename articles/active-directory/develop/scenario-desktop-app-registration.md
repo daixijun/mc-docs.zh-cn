@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: c498545d1e7916e6b7d804d2f438d0b7cbc06c65
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d5b3b5f93789295a59f79ea5a56dcd115246a753
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937098"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918401"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>调用 Web API 的桌面应用：应用注册
 
@@ -59,6 +59,5 @@ ms.locfileid: "91937098"
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [桌面应用：应用配置](scenario-desktop-app-configuration.md)
+转到此方案中的下一篇文章：[应用代码配置](scenario-desktop-app-configuration.md)。
 

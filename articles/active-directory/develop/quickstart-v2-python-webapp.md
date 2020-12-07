@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6501a8d226daca9582d175382598b3119f636050
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 9a532f523af9d1c5490575489a86345968ef9657
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918495"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入门：向 Python Web 应用添加 Microsoft 登录功能
 
-本快速入门介绍如何将 Python Web 应用程序与 Microsoft 标识平台集成。 应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。
+在本快速入门中，你将下载并运行一个代码示例，该示例演示 Python Web 应用程序如何让用户登录并获取访问令牌来调用 Microsoft Graph API。 拥有任何 Azure Active Directory (Azure AD) 组织中的帐户的用户都能登录到该应用程序。
 
-完成本指南后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。 （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
+有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -61,7 +61,7 @@ ms.locfileid: "92749949"
 >      - 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
 > 1. 从菜单中选择“身份验证”，然后添加以下信息：
 >    - 添加 **Web** 平台配置。 添加 `http://localhost:5000/getAToken` 作为“重定向 URI”。
->    - 选择“保存” 。
+>    - 选择“保存”。 
 > 1. 在左侧菜单中选择“证书和机密”，然后在“客户端机密”部分单击“新建客户端机密”：  
 >
 >      - 键入（实例应用机密）的密钥说明。
@@ -73,7 +73,7 @@ ms.locfileid: "92749949"
 >      - 单击“添加权限”按钮，然后
 >      - 确保已选中“Microsoft API”选项卡
 >      - 在“常用 Microsoft API”部分中，单击“Microsoft Graph”
->      - 在“委托的权限”部分中，确保已勾选正确的权限： **User.ReadBasic.All** 。 如有必要，请使用搜索框。
+>      - 在“委托的权限”部分中，确保已勾选正确的权限：**User.ReadBasic.All**。 如有必要，请使用搜索框。
 >      - 选择“添加权限”按钮
 >
 > [!div class="sxs-lookup" renderon="portal"]
@@ -96,7 +96,7 @@ ms.locfileid: "92749949"
 > [下载代码示例](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如， **C:\Azure-Samples** ）
+> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [下载代码示例](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
@@ -107,7 +107,7 @@ ms.locfileid: "92749949"
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>步骤 3：配置应用程序
 >
-> 1. 将 zip 文件提取到更靠近根文件夹的本地文件夹（例如， **C:\Azure-Samples** ）
+> 1. 将 zip 文件提取到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
 > 1. 如果使用集成开发环境，请在偏好的 IDE 中打开示例（可选）。
 > 1. 打开 **app_config.py** 文件，该文件可以在根文件夹中找到，并替换为以下代码片段：
 >
@@ -119,7 +119,7 @@ ms.locfileid: "92749949"
 > 其中：
 >
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
-> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的 **客户端密码** 。
+> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的 **客户端密码**。
 > - `Enter_the_Tenant_Name_Here` - 是注册的应用程序的目录（租户）ID 值。
 
 > [!div class="sxs-lookup" renderon="portal"]

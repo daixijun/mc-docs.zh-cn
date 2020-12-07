@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/14/2020
 ms.date: 11/06/2020
 ms.topic: sample
-ms.openlocfilehash: 73b3ed17e593be4ae725befe15d763a185273226
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: dc9aa6037d98bb71c368626024e7187776ea0e02
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431085"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Advanced Resource Graph 查询示例
 
@@ -36,7 +36,7 @@ ms.locfileid: "94328509"
 - [查询来宾配置分配报表的详细信息](#query-gcreports)
 - [查找计算机不符合来宾配置分配的所有原因](#query-gcmachinedetails)
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="language-support"></a>语言支持
 
@@ -168,7 +168,7 @@ Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 
 ## <a name="virtual-machines-matched-by-regex"></a><a name="vm-regex"></a>由正则表达式匹配的虚拟机
 
-此查询查找与某个 [正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)（称为 _regex_ ）匹配的虚拟机。 可以使用 **matches regex \@** 定义要匹配的正则表达式，即 `^Contoso(.*)[0-9]+$`。
+此查询查找与某个 [正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)（称为 _regex_）匹配的虚拟机。 可以使用 **matches regex \@** 定义要匹配的正则表达式，即 `^Contoso(.*)[0-9]+$`。
 该 regex 定义说明如下：
 
 - `^` - 匹配项必须以该字符串的开头开头。
@@ -245,7 +245,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 ## <a name="key-vaults-with-subscription-name"></a><a name="join"></a>具有订阅名称的密钥保管库
 
-以下查询演示了 `join`（“类型”为“leftouter”）的复杂用法。 查询将联接表限制为订阅资源并具有 `project`，以仅包括原始字段 _SubscriptionId_ 和重命名为 _SubName_ 的 _name_ 字段。 字段重命名避免了 `join` 将其添加为 _name1_ ，因为该字段已存在于 _资源_ 中。 原始表使用 `where` 进行筛选，以下 `project` 包括两个表中的列。 查询结果是所有密钥保管库，其中显示密钥保管库的类型、名称以及其所在订阅的名称。
+以下查询演示了 `join`（“类型”为“leftouter”）的复杂用法。 查询将联接表限制为订阅资源并具有 `project`，以仅包括原始字段 _SubscriptionId_ 和重命名为 _SubName_ 的 _name_ 字段。 字段重命名避免了 `join` 将其添加为 _name1_，因为该字段已存在于 _资源_ 中。 原始表使用 `where` 进行筛选，以下 `project` 包括两个表中的列。 查询结果是所有密钥保管库，其中显示密钥保管库的类型、名称以及其所在订阅的名称。
 
 ```kusto
 Resources
@@ -552,7 +552,7 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 
 > [!NOTE]
 > 如果查询未使用 **project** 指定返回的属性，则 **subscriptionDisplayName** 和 **tenantDisplayName** 将自动包括在结果中。
-> 如果查询确实使用了 **project** ，则每个 _DisplayName_ 字段必须显式包含在 **project** 中，否则它们将不会在结果中返回，即使使用了 **Include** 参数也是如此。 **Include** 参数对 [表](../concepts/query-language.md#resource-graph-tables)不起作用。
+> 如果查询确实使用了 **project**，则每个 _DisplayName_ 字段必须显式包含在 **project** 中，否则它们将不会在结果中返回，即使使用了 **Include** 参数也是如此。 **Include** 参数对 [表](../concepts/query-language.md#resource-graph-tables)不起作用。
 
 ---
 

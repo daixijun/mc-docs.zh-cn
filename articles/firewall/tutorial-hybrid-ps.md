@@ -6,17 +6,17 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b5652640c16bb9a1121bb81bb8cf259641cb658b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 0f783150e14c308a4f29b5c80b33c85b1cbf94c2
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246717"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746621"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
 
@@ -55,7 +55,7 @@ ms.locfileid: "91246717"
 
 若要正常开展此方案，必须符合三项关键要求：
 
-- 分支子网中有一个指向 Azure 防火墙 IP 地址（用作默认网关）的用户定义的路由 (UDR)。 必须在此路由表上**禁用**虚拟网络网关路由传播。
+- 分支子网中有一个指向 Azure 防火墙 IP 地址（用作默认网关）的用户定义的路由 (UDR)。 必须在此路由表上 **禁用** 虚拟网络网关路由传播。
 - 中心网关子网中的 UDR 必须指向用作分支网络下一跃点的防火墙 IP 地址。
 
     无需在 Azure 防火墙子网中创建 UDR，因为它会从 BGP 探测路由。
@@ -74,7 +74,7 @@ ms.locfileid: "91246717"
 
 若要查看相关的 Azure PowerShell 参考文档，请访问 [Azure PowerShell 参考](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="declare-the-variables"></a>声明变量
 
@@ -502,6 +502,6 @@ Set-AzFirewall -AzureFirewall $azfw
 
 接下来，可以监视 Azure 防火墙日志。
 
-[教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+[教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

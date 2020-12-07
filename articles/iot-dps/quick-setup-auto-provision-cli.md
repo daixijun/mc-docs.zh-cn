@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 528be7cd1b92a8a60ec99be6e909456f20e105ba
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 56b30e5c74b55a22948e5e11ced2e664409f3ff2
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564248"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431132"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>快速入门：使用 Azure CLI 设置 IoT 中心设备预配服务
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门详述了如何使用 Azure CLI 创建 IoT 中心和 IoT 中心设备预配服务并将两个服务链接到一起。 
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!IMPORTANT]
 > 在本快速入门中创建的 IoT 中心和预配服务将会充当可以公开发现的 DNS 终结点。 如果决定更改用于这些资源的名称，请确保不使用任何敏感信息。
@@ -57,7 +57,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 使用 [az iot dps create](/cli/iot/dps#az-iot-dps-create) 命令创建设备预配服务。 
 
-以下示例在 chinaeast 位置创建名为 my-sample-dps 的预配服务****。 你还需要为自己的预配服务选择一个全局唯一的名称。 请确保名称遵循 IoT 中心设备预配服务的正确命名约定：名称长度应为 3-64 个字符，只能包含大写或小写字母数字字符或连字符（“-”）。
+以下示例在 chinaeast 位置创建名为 my-sample-dps 的预配服务。 你还需要为自己的预配服务选择一个全局唯一的名称。 请确保名称遵循 IoT 中心设备预配服务的正确命名约定：名称长度应为 3-64 个字符，只能包含大写或小写字母数字字符或连字符（“-”）。
 
 ```azurecli 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location chinaeast

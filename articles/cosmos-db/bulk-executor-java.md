@@ -13,12 +13,12 @@ ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 73d7f34d67073fcd0b782930eda40165af2902f1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0ea3eef9956edb89f60a8e604f83222d2c5e61c6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328111"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431832"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "94328111"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。  
 
 * 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](./local-emulator.md)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。
 

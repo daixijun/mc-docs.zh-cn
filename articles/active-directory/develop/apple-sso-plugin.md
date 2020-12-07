@@ -9,23 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 15513fba3b28259f5a08b8590c0b8deb36784ab9
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 5e154a5016cf4849737e77538005aaad9d8b1c88
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918508"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>适用于 Apple 设备的 Microsoft 企业 SSO 插件（预览版）
 
-> [!NOTE]
-> 此功能目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+>[!IMPORTANT]
+> 此功能 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 适用于 Apple 设备的 Microsoft 企业 SSO 插件为支持 Apple [企业单一登录](https://developer.apple.com/documentation/authenticationservices)功能的所有应用程序中的 Azure Active Directory (Azure AD) 帐户提供单一登录 (SSO)  。 此插件是在 Microsoft 与 Apple 的密切合作下开发的，可以提高应用程序的可用性，同时提供 Apple 和 Microsoft 能够提供的最佳保护。
 
@@ -53,10 +51,10 @@ ms.locfileid: "92749985"
 
 使用以下参数配置适用于 Apple 设备的 Microsoft 企业 SSO 插件：
 
-- **类型** ：重定向
-- **扩展 ID** ：`com.microsoft.azureauthenticator.ssoextension`
-- **团队 ID** ：（iOS 不需要此字段）
-- **URL** ：
+- **类型**：重定向
+- **扩展 ID**：`com.microsoft.azureauthenticator.ssoextension`
+- **团队 ID**：（iOS 不需要此字段）
+- **URL**：
   - `https://login.partner.microsoftonline.cn`
   - `https://login.chinacloudapi.cn`
   
@@ -75,8 +73,8 @@ ms.locfileid: "92749985"
 
 - 键：`AppAllowList`
 - 类型：`String`
-- **值** ：允许加入 SSO 的应用程序的应用程序捆绑包 ID 的逗号分隔列表
-- **示例** ：`com.contoso.workapp, com.contoso.travelapp`
+- **值**：允许加入 SSO 的应用程序的应用程序捆绑包 ID 的逗号分隔列表
+- **示例**：`com.contoso.workapp, com.contoso.travelapp`
 
 MDM 管理员允许[同意的应用](./application-consent-experience.md)加入 SSO，从而可以通过无提示的方式为最终用户获取令牌。 因此，仅将受信任的应用程序添加到允许列表，这一点很重要。 
 
@@ -90,7 +88,7 @@ MDM 管理员允许[同意的应用](./application-consent-experience.md)加入 
 
 - 键：`browser_sso_interaction_enabled`
 - 类型：`Integer`
-- **值** ：1 或 0
+- **值**：1 或 0
 
 建议启用此标志，跨所有应用获得更一致的体验。 此项默认禁用。 
 
@@ -102,7 +100,7 @@ Microsoft 企业 SSO 插件通过将共享凭据附加到来自允许的应用�
 
 - 键：`disable_explicit_app_prompt`
 - 类型：`Integer`
-- **值** ：1 或 0
+- **值**：1 或 0
 
 建议启用此标志，跨所有应用获得更一致的体验。 此项默认禁用。 
 

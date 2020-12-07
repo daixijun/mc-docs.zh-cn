@@ -15,12 +15,12 @@ ms.date: 07/06/2020
 ms.author: v-yeche
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4b26f3298a3e7a9a817c89bfcd4182c7eb063b35
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: b0a263ea4dee8c89deb08768e9ae9c41bdf86fd7
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432235"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>如何使用 Azure 门户为 Windows 虚拟机预配 SQL Server
 
@@ -33,7 +33,7 @@ ms.locfileid: "85946171"
 > [!TIP]
 > 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](frequently-asked-questions-faq.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <a name="select"></a>
 ## <a name="sql-server-virtual-machine-gallery-images"></a>SQL Server 虚拟机库映像
@@ -251,7 +251,7 @@ ms.locfileid: "85946171"
 * 备份系统数据库
 * 配置备份计划
 
-若要加密备份，请选择“启用”。 然后指定**密码**。 Azure 创建一个证书来加密备份，并使用指定的密码来保护该证书。
+若要加密备份，请选择“启用”。 然后指定 **密码**。 Azure 创建一个证书来加密备份，并使用指定的密码来保护该证书。
 
 ![SQL 自动备份](./media/create-sql-vm-portal/azure-sql-arm-autobackup2.png)
 

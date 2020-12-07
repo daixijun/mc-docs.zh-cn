@@ -1,23 +1,23 @@
 ---
-title: 检测特定于域的内容 - 计算机视觉
+title: 特定于域的内容 - 计算机视觉
 titleSuffix: Azure Cognitive Services
 description: 了解如何指定图像分类域以返回有关图像的更多详细信息。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 05/14/2019
-ms.author: v-junlch
+ms.date: 11/23/2020
+ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 7483892d7245ff1e4589f2965b5008de14a2d822
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 28273d9ffe40c4a16ecde8668169aceb63fb6f92
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65598885"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306367"
 ---
 # <a name="detect-domain-specific-content"></a>检测特定于域的内容
 
@@ -27,7 +27,7 @@ ms.locfileid: "65598885"
 
 ### <a name="scoped-analysis"></a>作用域分析
 
-可通过调用 [Models/\<model\>/Analyze](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API，仅使用选择的特定于域的模型来分析图像。
+可通过调用 [Models/\<model\>/Analyze](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API，仅使用所选的特定于域的模型来分析图像。
 
 以下是 **models/celebrities/analyze** API 为给定图像返回的示例 JSON 响应：
 
@@ -58,7 +58,7 @@ ms.locfileid: "65598885"
 
 ### <a name="enhanced-categorization-analysis"></a>增强版分类分析
 
-特定于域的模型还可用于对常规图像分析进行补充。 可通过在 [Analyze](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 调用的 *details* 参数中指定特定于域的模型，作为[高级分类](concept-categorizing-images.md)的一部分执行此操作。
+特定于域的模型还可用于对常规图像分析进行补充。 可通过在 [Analyze](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API 调用的 *details* 参数中指定特定于域的模型，作为 [高级分类](concept-categorizing-images.md)的一部分执行此操作。
 
 在这种情况下，首先会调用 86 类别分类分类器。 如果检测到的任何类别具有匹配的特定于域的模型，图像也会通过该模型并会添加结果。
 
@@ -106,7 +106,7 @@ ms.locfileid: "65598885"
 | 名人 | 名人识别，支持属于 `people_` 类别的图像 |
 | 地标 | 地标识别，支持属于 `outdoor_` 或 `building_` 类别的图像 |
 
-调用 [Models](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API 将返回此信息，以及每个模型可应用于的类别：
+调用 [Models](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) API 将返回此信息，以及每个模型可应用于的类别：
 
 ```json
 {
@@ -142,4 +142,3 @@ ms.locfileid: "65598885"
 
 了解有关[对图像进行分类](concept-categorizing-images.md)的概念。
 
-<!-- Update_Description: wording update -->

@@ -8,18 +8,18 @@ ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 06/02/2020
 ms.date: 07/08/2020
-ms.openlocfilehash: d525f4d27ce08d857b1436f24d8a7599995e9fe5
-ms.sourcegitcommit: 5fb9ae9adc04e79d6d0e78c9e69dbe8aa3ceb00a
+ms.openlocfilehash: 9f2824ab89637066fdb6d947bd850ea889101e55
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86100230"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431053"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>教程：在 Power BI 中可视化 Azure 数据资源管理器中的数据
 
 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Power BI 是一种业务分析解决方案，可以用来可视化数据，并在组织内共享结果。 在本教程中，首先了解 Azure 数据资源管理器中视觉对象的呈现方式。 然后使用 Power BI 连接到 Azure 数据资源管理器，生成基于示例数据的报表，并将报表发布到 Power BI 服务。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 如果没有注册 Power BI Pro，请在开始之前[注册免费试用版](https://app.powerbi.com/signupredirect?pbi_source=web)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 如果没有注册 Power BI Pro，请在开始之前[注册免费试用版](https://app.powerbi.com/signupredirect?pbi_source=web)。
 
 本教程介绍如何执行下列操作：
 

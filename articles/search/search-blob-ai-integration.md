@@ -1,20 +1,20 @@
 ---
 title: 使用 AI 了解 Blob 存储数据
 titleSuffix: Azure Cognitive Search
-description: 使用 Azure 认知搜索中的 AI 扩充管道将语义、自然语言处理和图像分析添加到 Azure Blob。
+description: 了解 Azure 认知搜索中的自然语言和图像分析功能，以及这些过程如何应用于存储在 Azure Blob 中的内容。
 manager: nitinme
 author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: 06a24e8412c6dbc0782bc0f8dde473376b6e86ae
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/23/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 6d333a68c7fe52a32dc3e4cf5b7eed2c6069a828
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020940"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300718"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>使用 AI 了解 Blob 存储数据
 
@@ -23,9 +23,9 @@ Azure Blob 存储中的数据通常是各种非结构化内容，例如图像、
 + 使用光学字符识别 (OCR) 从图像中提取文本
 + 基于照片生成场景说明或标记
 + 检测语言，将文本翻译成不同的语言
-+ 使用命名实体识别 (NER) 处理文本，以查找对人员、日期、地点或组织的引用 
++ 查找对人员、日期、地点或组织的引用，通过实体识别推断结构
 
-尽管你可能只需要其中的一项 AI 功能，但常见的做法是将其中的多项功能组合到同一管道中（例如，从扫描的图像中提取文本，然后查找文本中引用的所有日期和地点）。 
+尽管你可能只需要其中的一项 AI 功能，但常见的做法是将其中的多项功能组合到同一管道中（例如，从扫描的图像中提取文本，然后查找文本中引用的所有日期和地点）。 通常会根据你的数据和要求，以先进的外部包和内部模型的形式添加自定义 AI 或机器学习处理。
 
 AI 扩充将创建新信息，这些信息以文本的形式捕获，并存储在字段中。 扩充后，可以通过全文搜索从搜索索引访问此信息，或者将扩充的文档发回到 Azure 存储，以便为新的应用体验提供支持，包括探索用于发现或分析方案的数据。 
 
@@ -37,31 +37,37 @@ AI 扩充是 Azure 认知搜索的索引编制体系结构的一部分。认知�
 
 输入是 Azure Blob 存储中单个容器内的 Blob。 Blob 几乎可以是任何类型的文本或图像数据。 
 
-输出始终是搜索索引，用于在客户端应用程序中快速执行搜索、检索和浏览。 此外，输出还可以是知识存储。知识存储将扩充的文档投影到 Azure Blob 或 Azure 表中，以便在 Power BI 等工具或数据科学工作负荷中进行下游分析。 
+输出始终是搜索索引，用于在客户端应用程序中快速执行搜索、检索和浏览。 此外，输出还可以是[知识存储](knowledge-store-concept-intro.md)，知识存储将扩充的文档投影到 Azure Blob 或 Azure 表中，以便在 Power BI 等工具或数据科学工作负荷中进行下游分析。
 
 输入与输出之间是管道体系结构本身。 管道基于索引器功能。可将技能集分配到索引器。技能集由一个或多个提供 AI 的技能构成。    管道的用途是生成作为原始内容输入的扩充文档，但在切换不同的管道阶段时，它还会拾取其他结构、上下文和信息。  在编制索引期间，将使用扩充文档来创建要在全文搜索或者浏览和分析中使用的倒排索引与其他结构。
 
-## <a name="start-with-services"></a>从服务开始
+## <a name="required-resources"></a>所需资源
 
-需要 Azure 认知搜索和 Azure Blob 存储。 在 Blob 存储中，需要一个提供源内容的容器。
+你需要 Azure Blob 存储、Azure 认知搜索以及提供 AI 的第三方服务或机制：
 
-可以直接在存储帐户门户页中开始。 在左侧导航页中的“Blob 服务”下，单击“添加 Azure 认知搜索”创建新服务或选择现有服务。   
++ 对于内置 AI，认知搜索与 Azure 认知服务视觉和自然语言处理 API 集成。 可以[附加认知服务资源](cognitive-search-attach-cognitive-services.md)来添加光学字符识别 (OCR)、图像分析或自然语言处理（语言检测、文本翻译、实体识别、关键短语提取）。 
 
-将 Azure 认知搜索添加到存储帐户后，可以遵循标准过程来扩充任何 Azure 数据源中的数据。 我们建议通过 Azure 认知搜索中的“导入数据”向导轻松完成 AI 扩充的初次体验。  本快速入门将指导你完成以下步骤：[在门户中创建 AI 扩充管道](cognitive-search-quickstart-blob.md)。 
++ 对于使用 Azure 资源的自定义 AI，可以定义包装要使用的外部函数或模型的自定义技能。 [自定义技能](cognitive-search-custom-skill-interface.md)可以使用 Azure Functions、Azure 机器学习、Azure 表单识别器或其他可以通过 HTTPS 访问的资源提供的代码。
 
-以下部分将探讨其他组件和概念。
++ 对于自定义非 Azure AI，模型需要通过 HTTP 访问索引器。
+
+如果你没有现成的所有服务，请直接从存储帐户门户页面开始。 在左侧导航页中的“Blob 服务”下，单击“添加 Azure 认知搜索”创建新服务或选择现有服务。   
+
+将 Azure 认知搜索添加到存储帐户后，可以遵循标准过程来扩充任何 Azure 数据源中的数据。 我们建议通过 Azure 认知搜索中的“导入数据”向导轻松完成 AI 扩充的初次体验。  可以在工作流中附加认知服务资源。 本快速入门将指导你完成以下步骤：[在门户中创建 AI 扩充管道](cognitive-search-quickstart-blob.md)。 
+
+以下部分将详细介绍组件和工作流。
 
 ## <a name="use-a-blob-indexer"></a>使用 Blob 索引器
 
 AI 扩充是索引管道的一个加载项，在 Azure 认知搜索中，这些管道构建在索引器的基础之上。  索引器是数据源感知的子服务，其中配备了内部逻辑用于对数据采样、读取元数据、检索数据，以及将数据从本机格式序列化为 JSON 文档供以后导入。 索引器独立于 AI，我们往往单独使用它来执行导入，但是，若要生成 AI 扩充管道，则还需要附带分配索引器和技能集。 本部分重点介绍索引器；下一部分重点介绍技能集。
 
-Azure 存储中的 Blob 使用 [Azure 认知搜索 Blob 存储索引器](search-howto-indexing-azure-blob-storage.md)编制索引。 可以使用“导入数据”向导、REST API 或 .NET SDK 调用此索引器。  在代码中，使用此索引器的方式是设置类型，并提供包括 Azure 存储帐户和 Blob 容器的连接信息。 可以通过创建虚拟目录（随后可将其作为参数传递），或者筛选文件类型扩展名，来指定 Blob 的子集。
+Azure 存储中的 Blob 使用 [Blob 索引器](search-howto-indexing-azure-blob-storage.md)编制索引。 可以使用“导入数据”向导、REST API 或 SDK 调用此索引器。 当索引器使用的数据源是 Azure Blob 容器时，将调用 Blob 索引器。 可以通过创建虚拟目录（随后可将其作为参数传递），或者筛选文件类型扩展名，来对 Blob 的子集编制索引。
 
 索引器执行“文档破解”，会打开一个 Blob 来检查内容。 这是连接到数据源后，在管道中发生的第一个步骤。 对于 Blob 数据，此步骤会检测 PDF、Office 文档、图像和其他内容类型。 文档破解和文本提取是免费的。 使用图像提取进行文档破解将按照[定价页](https://www.azure.cn/pricing/details/search/)中的费率收费。
 
 尽管会破解所有文档，但仅当显式提供了用于扩充的技能时，才会发生扩充。 例如，如果管道只包含图像分析，则会忽略容器或文档中的文本。
 
-Blob 索引器附带配置参数，如果基础数据提供足够的信息，则索引器支持更改跟踪。 可以在 [Azure 认知搜索 Blob 存储索引器](search-howto-indexing-azure-blob-storage.md)中详细了解核心功能。
+Blob 索引器附带配置参数，如果基础数据提供足够的信息，则索引器支持更改跟踪。 有关详细信息，请参阅[如何配置 Blob 索引器](search-howto-indexing-azure-blob-storage.md)。
 
 ## <a name="add-ai-components"></a>添加 AI 组件
 

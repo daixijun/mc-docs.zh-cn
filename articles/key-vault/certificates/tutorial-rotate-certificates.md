@@ -12,12 +12,12 @@ ms.custom: mvc
 origin.date: 04/16/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 299cb681b2133f109e7e2418a6b8525958a95b7a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 4719182b767da1a68e35ba3af6054b59983d3fdc
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300821"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430863"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>教程：配置 Key Vault 中的证书自动轮换
 
@@ -34,7 +34,7 @@ ms.locfileid: "96300821"
 
 在开始之前，请阅读 [Key Vault 的基本概念](../general/basic-concepts.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

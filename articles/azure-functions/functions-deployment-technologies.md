@@ -3,13 +3,13 @@ title: Azure Functions 中的部署技术
 description: 了解将代码部署到 Azure Functions 的不同方式。
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.openlocfilehash: d29322bb8c9874f0da6f4edd5c02bae712ba3e2f
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 11/30/2020
+ms.openlocfilehash: 7daaa2602985ffc61f179ffce7601a0385624641
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326598"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507954"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技术
 
@@ -85,7 +85,7 @@ Azure Functions 可以自动在它在压缩部署后接收的代码上执行生�
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-默认情况下，[Azure Functions Core Tools](functions-run-local.md) 和[适用于 Visual Studio Code 的 Azure Functions 扩展](functions-create-first-function-vs-code.md#publish-the-project-to-azure)在部署到 Linux 时执行远程生成。 因此，这两种工具在 Azure 中自动创建这些设置。
+默认情况下，[Azure Functions Core Tools](functions-run-local.md) 和[适用于 Visual Studio Code 的 Azure Functions 扩展](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure)在部署到 Linux 时执行远程生成。 因此，这两种工具在 Azure 中自动创建这些设置。
 
 在 Linux 上以远程方式生成应用时，应用[从部署包运行](run-functions-from-deployment-package.md)。
 
@@ -170,7 +170,7 @@ Web 部署可打包 Windows 应用程序（包括 Azure 中的 Windows 上运行
 
 >__何时使用：__ 在门户中可以十分方便地开始使用 Azure Functions。 对于更密集的开发工作，我们建议使用以下客户端工具之一：
 >
->* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >* [Azure Functions Core Tools（命令行）](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

@@ -2,22 +2,22 @@
 title: 用于部署的链接模板
 description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 ms.topic: conceptual
-origin.date: 09/08/2020
+origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ed603045fdc819e8a7b81cf12cd9ccac00c694b3
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e6d75fab135e4d682998d7df8dad9486237425df
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937526"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024458"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
-若要部署复杂的解决方案，可以将模板分解为许多相关模板，然后通过主模板将它们一起部署。 相关模板可以是嵌入在主模板内的单独文件或模板语法。 本文使用术语“链接模板”来指代一个通过主模板中的链接进行引用的单独模板文件。 它使用术语**嵌套模板**指代主模板内嵌套的模板语法。
+若要部署复杂的解决方案，可以将模板分解为许多相关模板，然后通过主模板将它们一起部署。 相关模板可以是嵌入在主模板内的单独文件或模板语法。 本文使用术语“链接模板”来指代一个通过主模板中的链接进行引用的单独模板文件。 它使用术语 **嵌套模板** 指代主模板内嵌套的模板语法。
 
 对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件。 可以轻松地将这些模板重复用于其他方案。
 
@@ -289,7 +289,7 @@ ms.locfileid: "91937526"
 
 ## <a name="linked-template"></a>链接的模板
 
-若要链接某个模板，请向主模板中添加一个部署资源。 在 **templateLink** 属性中，指定要包括的模板的 URI。 以下示例链接到部署新存储帐户的模板。
+若要链接某个模板，请向主模板中添加一个部署资源。 在 **templateLink** 属性中，指定要包括的模板的 URI。 以下示例链接到存储帐户中的模板。
 
 <!--Not Available on [deployments resource](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments)-->
 
@@ -318,13 +318,17 @@ ms.locfileid: "91937526"
 }
 ```
 
-引用链接模板时，`uri` 的值不能是本地文件或只能在本地网络上使用的文件。 必须提供可下载的 http 或 https 形式的 URI 值。
+引用链接模板时，`uri` 的值不能是本地文件或只能在本地网络上使用的文件。 Azure 资源管理器必须能够访问该模板。 提供可下载的 http 或 https 形式的 URI 值 。 
 
-> [!NOTE]
->
-> 可以使用参数（如 `_artifactsLocation` 参数）来引用模板，例如：`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`，这些参数最终会解析为某个使用“http”或“https”的项
+可以使用包含 http 或 https 的参数来引用模板 。 例如，一种常见模式是使用 `_artifactsLocation` 参数。 可以使用如下所示的表达式来设置链接模板：
 
-资源管理器必须能够访问模板。 一种做法是将链接模板放入存储帐户，并对该项使用 URI。
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+如果要链接到 GitHub 中的模板，请使用原始 URL。 链接的格式为：`https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`。 若要获取原始链接，请选择“原始”。
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="选择原始 URL":::
 
 ### <a name="parameters-for-linked-template"></a>链接模板的参数
 
@@ -632,35 +636,35 @@ ms.locfileid: "91937526"
 
 ```json
 {
-  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
-  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
-  &quot;parameters&quot;: {
-    &quot;publicIPAddresses_name&quot;: {
-      &quot;type&quot;: &quot;string&quot;
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "publicIPAddresses_name": {
+      "type": "string"
     }
   },
-  &quot;variables&quot;: {},
-  &quot;resources&quot;: [
+  "variables": {},
+  "resources": [
     {
-      &quot;type&quot;: &quot;Microsoft.Network/publicIPAddresses&quot;,
-      &quot;apiVersion&quot;: &quot;2018-11-01&quot;,
-      &quot;name&quot;: &quot;[parameters('publicIPAddresses_name')]&quot;,
-      &quot;location&quot;: &quot;chinaeast&quot;,
-      &quot;properties&quot;: {
-        &quot;publicIPAddressVersion&quot;: &quot;IPv4&quot;,
-        &quot;publicIPAllocationMethod&quot;: &quot;Static&quot;,
-        &quot;idleTimeoutInMinutes&quot;: 4,
-        &quot;dnsSettings&quot;: {
-          &quot;domainNameLabel&quot;: &quot;[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]&quot;
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2018-11-01",
+      "name": "[parameters('publicIPAddresses_name')]",
+      "location": "chinaeast",
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4,
+        "dnsSettings": {
+          "domainNameLabel": "[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]"
         }
       },
-      &quot;dependsOn&quot;: []
+      "dependsOn": []
     }
   ],
-  &quot;outputs&quot;: {
-    &quot;returnedIPAddress&quot;: {
-      &quot;type&quot;: &quot;string&quot;,
-      &quot;value&quot;: &quot;[reference(parameters('publicIPAddresses_name')).ipAddress]&quot;
+  "outputs": {
+    "returnedIPAddress": {
+      "type": "string",
+      "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]"
     }
   }
 }
@@ -670,25 +674,25 @@ ms.locfileid: "91937526"
 
 ```json
 {
-  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
-  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
-  &quot;parameters&quot;: {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
   },
-  &quot;variables&quot;: {},
-  &quot;resources&quot;: [
+  "variables": {},
+  "resources": [
     {
-      &quot;type&quot;: &quot;Microsoft.Resources/deployments&quot;,
-      &quot;apiVersion&quot;: &quot;2019-10-01&quot;,
-      &quot;name&quot;: &quot;[concat('linkedTemplate', copyIndex())]&quot;,
-      &quot;copy&quot;: {
-        &quot;count&quot;: 3,
-        &quot;name&quot;: &quot;ip-loop&quot;
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "[concat('linkedTemplate', copyIndex())]",
+      "copy": {
+        "count": 3,
+        "name": "ip-loop"
       },
-      &quot;properties&quot;: {
-        &quot;mode&quot;: &quot;Incremental&quot;,
-        &quot;templateLink&quot;: {
-        &quot;uri&quot;: &quot;[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]&quot;,
-        &quot;contentVersion&quot;: &quot;1.0.0.0"
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+        "uri": "[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]",
+        "contentVersion": "1.0.0.0"
         },
         "parameters":{
           "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}

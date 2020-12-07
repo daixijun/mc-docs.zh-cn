@@ -15,12 +15,12 @@ ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 839a9c78efdbdd03a7c82be4541e92ab6dac0871
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: f3c71692e37f81cb33af79799b093261430654af
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300630"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431124"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 通知中心
 
@@ -28,7 +28,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 
 在本快速入门中，你将使用 Azure CLI 创建通知中心。 第一部分提供创建通知中心命名空间的步骤。 第二部分提供在现有命名空间中创建通知中心的步骤。 此外，介绍如何创建自定义访问策略。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 

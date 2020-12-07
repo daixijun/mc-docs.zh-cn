@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7a29a4a7a26e6f7eaf21732e67e30f3332cba382
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ea090b4f30820f624f9bca964c1a26d07937b55e
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937085"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918353"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>调用 Web API 的 Web API：调用 API
 
@@ -164,6 +164,5 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [调用 Web API 的 Web API：移到生产环境](scenario-web-api-call-api-production.md)
+转到此方案中的下一篇文章：[转向生产](scenario-web-api-call-api-production.md)。
 

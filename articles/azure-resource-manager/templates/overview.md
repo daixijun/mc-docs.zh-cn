@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 984253c2ad7fb3094b1b07b0778bc6e9ac2883f3
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: f4866ee4afc5ed3c8df58f03fde6e388a4f60bbd
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441016"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024619"
 ---
 <!--Verify successfully-->
 # <a name="what-are-arm-templates"></a>什么是 ARM 模板？
@@ -43,7 +43,7 @@ ms.locfileid: "86441016"
 
 * **测试**：可以使用 ARM 模板工具包 (arm-ttk) 对模板进行测试，确保模板符合建议的准则。 此测试工具包是一个 PowerShell 脚本，可从 [GitHub](https://github.com/Azure/arm-ttk) 下载。 使用此工具包，可以更轻松地使用模板语言开发专门技术。
 
-* **预览更改**：可以使用[模拟操作](template-deploy-what-if.md)在部署模板前预览更改。 通过模拟，你可看到将创建、更新或删除哪些资源，以及将更改的任何资源属性。 模拟操作会检查环境的当前状态，因此无需管理状态。
+* **预览更改**：可以使用 [模拟操作](template-deploy-what-if.md)在部署模板前预览更改。 通过模拟，你可看到将创建、更新或删除哪些资源，以及将更改的任何资源属性。 模拟操作会检查环境的当前状态，因此无需管理状态。
 
 * **内置验证**：只有在通过验证后才会部署模板。 资源管理器在开始部署之前会检查模板，以确保部署成功。 部署不太可能会在半完成状态时停止。
 
@@ -59,7 +59,7 @@ ms.locfileid: "86441016"
 
 * **可导出的代码**：可以通过导出资源组的当前状态或查看特定部署所用的模板，来获取现有资源组的模板。 查看[导出的模板](export-template-portal.md)是了解模板语法的有用方法。
 
-* **创作工具**：可以使用 [Visual Studio Code](use-vs-code-to-create-template.md) 和模板工具扩展来创作模板。 你将获得 Intellisense、语法突出显示、内联帮助以及其他许多语言功能。 除了 Visual Studio code 以外，还可以使用 [Visual Studio](create-visual-studio-deployment-project.md)。
+* **创作工具**：可以使用 [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) 和模板工具扩展来创作模板。 你将获得 Intellisense、语法突出显示、内联帮助以及其他许多语言功能。 除了 Visual Studio Code 以外，还可以使用 [Visual Studio](create-visual-studio-deployment-project.md)。
 
 ## <a name="template-file"></a>模板文件
 

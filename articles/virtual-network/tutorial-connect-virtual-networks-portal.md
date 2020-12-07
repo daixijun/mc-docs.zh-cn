@@ -14,12 +14,12 @@ origin.date: 01/22/2020
 ms.date: 02/24/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 665b99265ad035e9799589504353d8d7ae459fb4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9c456ba526242997cb484da72410cc4b5b02c8cd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653270"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507636"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -33,7 +33,7 @@ ms.locfileid: "77653270"
 
 如果你愿意，可以使用 [Azure CLI](tutorial-connect-virtual-networks-cli.md) 或 [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -46,15 +46,15 @@ ms.locfileid: "77653270"
 
     <!--MOONCAKE: CUSTOMIZED till on 02/26/2020-->
     
-3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”  ：
+3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
 
     |设置|值|
     |---|---|
     |名称|myVirtualNetwork1|
     |地址空间|10.0.0.0/16|
     |订阅| 选择订阅。|
-    |资源组| 选择“新建”，并输入 myResourceGroup  |
-    |位置| 选择“中国东部”。 |
+    |资源组| 选择“新建”，并输入 myResourceGroup|
+    |位置| 选择“中国东部”。|
     |子网名称|Subnet1|
     |子网地址范围|10.0.0.0/24|
 
@@ -66,7 +66,7 @@ ms.locfileid: "77653270"
     |---|---|
     |名称|myVirtualNetwork2|
     |地址空间|10.1.0.0/16|
-    |资源组| 选择“使用现有”，然后选择“myResourceGroup”   。|
+    |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
     |子网名称 | Subnet2|
     |子网地址范围|10.1.0.0/24|
     
@@ -74,21 +74,21 @@ ms.locfileid: "77653270"
 
 ## <a name="peer-virtual-networks"></a>将虚拟网络对等互连
 
-1. 在 Azure 门户顶部的“搜索”  框中，开始键入“MyVirtualNetwork1”。 当“myVirtualNetwork1”出现在搜索结果中时，将其选中。 
-2. 在“设置”下选择“对等互连”，然后选择“+ 添加”，如下图所示：   
+1. 在 Azure 门户顶部的“搜索”框中，开始键入“MyVirtualNetwork1”。 当“myVirtualNetwork1”出现在搜索结果中时，将其选中。
+2. 在“设置”下选择“对等互连”，然后选择“+ 添加”，如下图所示：  
 
     <!--MOONCAKE: CORRECT ON + Add -->
     <!--MOONCAKE: CUSTOMIZED till on 11/29/2019-->
     
     ![创建对等互连](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. 输入或选择以下信息，接受剩下的默认设置，然后选择“确定”  。
+3. 输入或选择以下信息，接受剩下的默认设置，然后选择“确定”。
 
-    |设置|值|
+    |设置|“值”|
     |---|---|
     |从 myVirtualNetwork1 到远程虚拟网络的对等互连的名称|myVirtualNetwork1-myVirtualNetwork2 - 当页面首次加载时，将在此处看到短语“remote virtual network”。 选择远程虚拟网络后，短语“远程虚拟网络”将替换为远程虚拟网络的名称。|
     |订阅| 选择订阅。|
-    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2 (myResourceGroup)”   。 可以在相同区域或不同区域中选择虚拟网络。|
+    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2 (myResourceGroup)”。 可以在相同区域或不同区域中选择虚拟网络。|
     
     <!--Not Available on |Name of the peering from myVirtualNetwork2 to myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|-->
 
@@ -96,16 +96,16 @@ ms.locfileid: "77653270"
 
 
 
-4. 在 Azure 门户顶部的“搜索”  框中，开始键入“MyVirtualNetwork2”  。 当“myVirtualNetwork2”出现在搜索结果中时，将其选中。 
+4. 在 Azure 门户顶部的“搜索”框中，开始键入“MyVirtualNetwork2”。 当“myVirtualNetwork2”出现在搜索结果中时，将其选中。
 
-5. 再次完成步骤 2-3，并做出以下更改，然后选择“确定”  ：
+5. 再次完成步骤 2-3，并做出以下更改，然后选择“确定”：
 
-    |设置|值|
+    |设置|“值”|
     |---|---|
     |创建从 myVirtualNetwork2 到 myVirtualNetwork1 的对等互连名称|myVirtualNetwork2-myVirtualNetwork1|
     |虚拟网络|myVirtualNetwork1|
 
-    “对等互连状态”为“已连接”，如下图所示：  
+    “对等互连状态”为“已连接”，如下图所示：
 
     ![对等互连状态](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "77653270"
 <!--MOONCAKE: CUSTOMIZED till on 11/29/2019-->
 
 1. 在 Azure 门户中，选择“创建资源”。 
-2. 选择“虚拟机”，然后选择“Windows Server 2016 Datacenter”。   可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。  
+2. 选择“虚拟机”，然后选择“Windows Server 2016 Datacenter”。  可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
     
     <!--Correct on Virtual Machines-->
     <!--MOONCAKE: CUSTOMIZED till on 11/29/2019-->
@@ -131,23 +131,23 @@ ms.locfileid: "77653270"
 
     |设置|值|
     |---|---|
-    |资源组| 选择“使用现有”，然后选择“myResourceGroup”   。|
+    |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
     |名称|myVM1|
-    |位置| 选择“中国东部”。 |
+    |位置| 选择“中国东部”。|
     |用户名| 输入所选用户名。|
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
 
-4. 为“大小”  选项选择 VM 大小。
-5. 在“网络”  下选择以下值：
+4. 为“大小”选项选择 VM 大小。
+5. 在“网络”下选择以下值：
 
     |设置|值|
     |---|---|
-    |虚拟网络| myVirtualNetwork1 - 如果尚未选择它，请选择“虚拟网络”，然后选择“myVirtualNetwork1”。  |
-    |子网| Subnet1 - 如果尚未选择它，请选择“子网”  ，然后选择“Subnet1”  。|
+    |虚拟网络| myVirtualNetwork1 - 如果尚未选择它，请选择“虚拟网络”，然后选择“myVirtualNetwork1”。|
+    |子网| Subnet1 - 如果尚未选择它，请选择“子网”，然后选择“Subnet1”。|
 
-6. 选择“网络”  。 为“公共入站端口”选项选择“允许选定端口”。 为此下面的“选择入站端口”选项选择 **RDP**。 
+6. 选择“网络”。 为“公共入站端口”选项选择“允许选定端口”。 为此下面的“选择入站端口”选项选择 **RDP**。 
 
-7. 选择左下角的“查看 + 创建”  按钮开始 VM 部署。
+7. 选择左下角的“查看 + 创建”按钮开始 VM 部署。
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
@@ -162,14 +162,14 @@ ms.locfileid: "77653270"
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-1. 在门户顶部的“搜索”  框中，开始键入“myVm1”。  当“myVm1”出现在搜索结果中时，请选择它。 
-2. 通过选择“连接”创建到 *myVm1* VM 的远程桌面连接  ，如下图中所示：
+1. 在门户顶部的“搜索”框中，开始键入“myVm1”。 当“myVm1”出现在搜索结果中时，请选择它。
+2. 通过选择“连接”创建到 *myVm1* VM 的远程桌面连接，如下图中所示：
 
     ![连接到虚拟机](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
-3. 若要连接到 VM，请打开已下载的 RDP 文件。 出现提示时，选择“连接”  。
-4. 输入在创建 VM 时指定的用户名和密码（可能需要选择“更多选择”，然后选择“使用其他帐户”，以便指定在创建 VM 时输入的凭据），然后选择“确定”。   
-5. 你可能会在登录过程中收到证书警告。 选择“是”以继续进行连接。 
+3. 若要连接到 VM，请打开已下载的 RDP 文件。 出现提示时，选择“连接”。
+4. 输入在创建 VM 时指定的用户名和密码（可能需要选择“更多选择”，然后选择“使用其他帐户”，以便指定在创建 VM 时输入的凭据），然后选择“确定”。
+5. 你可能会在登录过程中收到证书警告。 选择“是”以继续进行连接。
 6. 在后面的步骤中，将使用 ping 从 *myVm1* VM 与 *myVm2* VM 进行通信。 Ping 使用 Internet 控制消息协议 (ICMP)，默认情况下会拒绝 ICMP 通过 Windows 防火墙。 在 *myVm1* VM 上，允许 ICMP 穿过 Windows 防火墙，以便在稍后的步骤中可以使用 PowerShell 从 *myVm2* 对此 VM 执行 ping 命令：
 
     ```powershell
@@ -196,9 +196,9 @@ ms.locfileid: "77653270"
 
 不再需要资源组时，可将资源组及其包含的所有资源一并删除： 
 
-1. 在门户顶部的“搜索”框中输入“myResourceGroup”   。 当在搜索结果中看到“myResourceGroup”时，将其选中。 
-2. 选择“删除资源组”  。
-3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。   
+1. 在门户顶部的“搜索”框中输入“myResourceGroup”。 当在搜索结果中看到“myResourceGroup”时，将其选中。
+2. 选择“删除资源组”。
+3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。 
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,14 +7,14 @@ author: amotley
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: f459b26947d179b2434683b10d74eb9e3d91089b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/23/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: b43d455f1e870e3f55b9850b1627efd1856766dc
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021607"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300059"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>排查 Azure 认知搜索中的常见索引器错误和警告
 
@@ -60,9 +60,9 @@ ms.locfileid: "90021607"
 
 | Reason | 详细信息/示例 | 解决方法 |
 | --- | --- | --- |
-| Blob 超过大小限制 | 文档大小为 `'150441598'` 字节，这超过了当前服务层级支持的最大文档提取大小（`'134217728'` 字节）。 | [Blob 索引错误](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| Blob 采用了不受支持的内容类型 | 文档采用了不受支持的内容类型 `'image/png'` | [Blob 索引错误](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| Blob 已加密 | 无法处理文档 - 它可能已加密或者受密码保护。 | 可以使用 [Blob 设置](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)跳过 Blob。 |
+| Blob 超过大小限制 | 文档大小为 `'150441598'` 字节，这超过了当前服务层级支持的最大文档提取大小（`'134217728'` 字节）。 | [Blob 索引错误](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Blob 采用了不受支持的内容类型 | 文档采用了不受支持的内容类型 `'image/png'` | [Blob 索引错误](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Blob 已加密 | 无法处理文档 - 它可能已加密或者受密码保护。 | 可以使用 [Blob 设置](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)跳过 Blob。 |
 | 暂时性问题 | “处理 Blob 时出错:请求已中止：请求已被取消。” “在处理期间文档超时。” | 偶尔出现意外的连接问题。 稍后再次尝试通过索引器运行文档。 |
 
 <a name="could-not-parse-document"></a>
@@ -350,3 +350,7 @@ ms.locfileid: "90021607"
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>警告：Cosmos DB 集合“X”采用延迟索引策略。 某些数据可能已丢失
 
 无法以一致的方式查询采用[延迟](https://docs.azure.cn/cosmos-db/index-policy#indexing-mode)索引策略的集合，从而导致索引器缺少数据。 若要解决此警告，请将索引策略更改为“一致”。
+
+## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>警告：文档包含非常长的字词（超过 64 个字符）。 这些字词可能会导致模型预测被截断和/或不可靠。
+
+此警告自文本分析服务发出。  在某些情况下，可以忽略此警告，例如文档包含较长的 URL（它很可能不是关键短语或驱动性情绪等）时。  请注意，字词超过 64 个字符时将被截断为 64 个字符，这会影响模型预测。  

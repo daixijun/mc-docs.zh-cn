@@ -9,14 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: v-yiso
 author: Blackmist
-origin.date: 09/21/2020
-ms.date: 10/26/2020
-ms.openlocfilehash: a93335d6e9d00d339fecde3b13fc367b846252e4
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 09/30/2020
+ms.openlocfilehash: af8d9b1acd853f54fb2fb6ea07205b3a7a2fbc89
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118175"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970847"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>使用 Azure 资源管理器模板创建 Azure 机器学习的工作区
 
@@ -29,13 +28,13 @@ ms.locfileid: "92118175"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅** 。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
 
-* 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+* 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 * 某些方案需要你开具支持票证。 这些方案为：
 
-    * __使用客户管理的密钥 (CMK) 启用专用链接的工作区__
+    * __使用客户管理的密钥启用专用链接的工作区__
     * __虚拟网络后的工作区的 Azure 容器注册表__
 
     有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
@@ -56,11 +55,11 @@ ms.locfileid: "92118175"
 
 示例模板具有两个 **必需** 参数：
 
-* 将在其中创建资源的 **位置** 。
+* 将在其中创建资源的 **位置**。
 
     模板将使用你为大多数资源选择的位置。 例外的情况是 Application Insights 服务，它不像其他所有服务一样在所有位置都可用。 如果选择该服务不可用的位置，将会在中国东部 2 位置创建该服务。
 
-* **工作区名称** ：Azure 机器学习工作区的友好名称。
+* **工作区名称**：Azure 机器学习工作区的友好名称。
 
     > [!NOTE]
     > 工作区名称不区分大小写。
@@ -125,7 +124,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-默认情况下，作为模板的一部分创建的所有资源都是新的。 不过，你也可以选择使用现有资源。 可以通过向模板提供其他参数来使用现有资源。 例如，如果你想要使用现有的存储帐户，请将 **storageAccountOption** 值设置为 **existing** ，并在 **storageAccountName** 参数中提供存储帐户的名称。
+默认情况下，作为模板的一部分创建的所有资源都是新的。 不过，你也可以选择使用现有资源。 可以通过向模板提供其他参数来使用现有资源。 例如，如果你想要使用现有的存储帐户，请将 **storageAccountOption** 值设置为 **existing**，并在 **storageAccountName** 参数中提供存储帐户的名称。
 
 > [!IMPORTANT]
 > 若要使用现有 Azure 存储帐户，则该帐户不能是高级帐户（Premium_LRS 和 Premium_GRS）。 它也不能具有分层命名空间（与 Azure Data Lake Storage Gen2 一起使用）。 工作区的默认存储帐户不支持高级存储和分层命名空间。 工作区的默认存储帐户不支持高级存储和分层命名空间。 可以将高级存储或分层命名空间用于非默认存储帐户。
@@ -162,14 +161,16 @@ New-AzResourceGroupDeployment `
 
 以下示例模板演示如何创建具有三项设置的工作区：
 
-* 启用工作区的高保密性设置
-* 启用工作区加密
-* 使用现有的 Azure Key Vault 检索客户管理的密钥
+* 为工作区启用高保密性设置。 这将创建新 Cosmos DB 实例。
+* 为工作区启用加密。
+* 使用现有的 Azure Key Vault 检索客户管理的密钥。 使用客户管理的密钥为工作区创建新 Cosmos DB 实例。
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > 创建工作区后，无法更改机密数据、加密、密钥保管库 ID 或密钥标识符的设置。 要更改这些值，必须使用新值创建新工作区。
 
-有关详细信息，请参阅[静态加密](concept-enterprise-security.md#encryption-at-rest)。
+有关详细信息，请参阅[静态加密](concept-data-encryption.md#encryption-at-rest)。
 
 > [!IMPORTANT]
 > 在使用此模板之前，订阅必须满足一些特定要求：
@@ -218,7 +219,7 @@ New-AzResourceGroupDeployment `
 
 若要允许使用客户管理的密钥，请在部署该模板时设置以下参数：
 
-* 将 **encryption_status** 设置为 **Enabled** 。
+* 将 **encryption_status** 设置为 **Enabled**。
 * 将 **cmk_keyvault** 设置为在前面的步骤中获取的 `cmk_keyvault` 值。
 * 将 **resource_cmk_uri** 设置为在前面的步骤中获取的 `resource_cmk_uri` 值。
 
@@ -251,9 +252,9 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-当使用客户管理的密钥时，Azure 机器学习会创建包含 Cosmos DB 实例的另一个资源组。 有关详细信息，请参阅[静态加密 - Cosmos DB](concept-enterprise-security.md#encryption-at-rest)。
+当使用客户管理的密钥时，Azure 机器学习会创建包含 Cosmos DB 实例的另一个资源组。 有关详细信息，请参阅[静态加密 - Cosmos DB](concept-data-encryption.md#encryption-at-rest)。
 
-你可为数据提供的一个附加配置是将 **confidential_data** 参数设置为 **true** 。 为此，请执行以下操作：
+你可为数据提供的一个附加配置是将 **confidential_data** 参数设置为 **true**。 为此，请执行以下操作：
 
 * 开始加密 Azure 机器学习计算群集的本地暂存磁盘（如果以前未在该订阅中创建任何群集）。 如果你之前在订阅中创建了群集，请创建一个支持票证，为你的计算群集启用暂存磁盘加密。
 * 在各次运行之间清理本地暂存磁盘。
@@ -275,6 +276,38 @@ New-AzResourceGroupDeployment `
 > [!IMPORTANT]
 > Application Insights 不支持部署到虚拟网络后面。
 
+### <a name="only-deploy-workspace-behind-private-endpoint"></a>仅将工作区部署到专用终结点后面
+
+如果关联的资源不在虚拟网络后面，则可以将 **privateEndpointType** 参数设置为 `AutoAproval` 或 `ManualApproval`，以将工作区部署到专用终结点后面。 对于新的和现有的工作区，都可以这样做。 更新现有工作区时，请使用现有工作区中的信息填写模板参数。
+
+> [!IMPORTANT]
+> Azure 政府区域或 Azure 中国世纪互联区域不支持使用具有专用链接的 Azure 机器学习工作区。
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```azurecli
+az deployment group create \
+    --name "exampledeployment" \
+    --resource-group "examplegroup" \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" \
+    --parameters workspaceName="exampleworkspace" \
+      location="eastus" \
+      privateEndpointType="AutoApproval"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name "exampledeployment" `
+  -ResourceGroupName "examplegroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-machine-learning-advanced/azuredeploy.json" `
+  -workspaceName "exampleworkspace" `
+  -location "eastus" `
+  -privateEndpointType "AutoApproval"
+```
+
+---
 
 ### <a name="use-a-new-virtual-network"></a>使用新的虚拟网络
 
@@ -391,7 +424,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="use-an-existing-virtual-network--resources"></a>使用现有虚拟网络和资源
 
-若要使用现有的关联资源来部署工作区，你必须将 **vnetOption** 参数设置为 **existing** ，并设置子网参数。 但是，在进行部署之前，你需要在虚拟网络中为每个资源创建服务终结点。 与使用新的虚拟网络部署类似，在虚拟网络后面可以有一个资源或全部资源。
+若要使用现有的关联资源来部署工作区，你必须将 **vnetOption** 参数设置为 **existing**，并设置子网参数。 但是，在进行部署之前，你需要在虚拟网络中为每个资源创建服务终结点。 与使用新的虚拟网络部署类似，在虚拟网络后面可以有一个资源或全部资源。
 
 > [!IMPORTANT]
 > 子网应具有 `Microsoft.Storage` 服务终结点
@@ -508,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 门户
 
-1. 遵循[从自定义模板部署资源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)中的步骤。 在到达“选择模板”屏幕时，从下拉列表中选择 **201-machine-learning-advanced** 模板。
+1. 遵循[从自定义模板部署资源](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)中的步骤。 在到达“选择模板”屏幕时，从下拉列表中选择 **201-machine-learning-advanced** 模板。
 1. 选择“选择模板”以使用该模板。 根据你的部署方案，提供以下必需的信息和任何其他参数。
 
    * 订阅：选择用于这些资源的 Azure 订阅。

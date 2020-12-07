@@ -4,17 +4,17 @@ description: 本文提供了有关如何向虚拟网络中添加 Microsoft.Servi
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 90d04eef7d241b87453d32b843e35c1560855e7c
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 482ee20fb819418c47412cd1e24200678183eb5b
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590854"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970627"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>允许从特定虚拟网络访问 Azure 服务总线命名空间
 
@@ -25,24 +25,14 @@ ms.locfileid: "94590854"
 然后，绑定到子网的工作负荷与相应的服务总线命名空间之间将存在专用和独立的关系，消息传递服务终结点的可观察网络地址位于公共 IP 范围内对此没有影响。
 
 >[!WARNING]
-> 实现虚拟网络集成可以防止其他 Azure 服务与服务总线交互。
->
-> 实现虚拟网络时，受信任的 Azure 服务不受支持。
->
-> 不适用于虚拟网络常见 Azure 方案（请注意，该列表内容并不详尽）-
-> - 与 Azure 事件网格的集成
-> - Azure IoT 中心路由
-> - Azure IoT Device Explorer
+> 实现虚拟网络集成可以防止其他 Azure 服务与服务总线交互。 例外情况是，即使启用了网络服务终结点，也可以允许从某些受信任的服务访问服务总线资源。 有关受信任服务的列表，请参阅[受信任服务](#trusted-microsoft-services)。
 >
 > 以下 Azure 服务必须在虚拟网络中
 > - Azure 应用服务
 > - Azure Functions
-> - Azure Monitor（诊断设置）
 
 > [!IMPORTANT]
-> 虚拟网络仅在[高级层](service-bus-premium-messaging.md)服务总线命名空间中受支持。
-> 
-> 在服务总线中使用 VNet 服务终结点时，不应在将标准层服务总线命名空间和高级层服务总线命名空间混合使用的应用程序中启用这些终结点。 原因是标准层不支持 VNet。 此终结点仅限于高级层命名空间。
+> 虚拟网络仅在[高级层](service-bus-premium-messaging.md)服务总线命名空间中受支持。 将 VNet 服务终结点用于服务总线时，不应在混合使用标准层和高级层服务总线命名空间的应用程序中启用这些终结点。 原因是标准层不支持 VNet。 此终结点仅限于高级层命名空间。
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>通过 VNet 集成启用的高级安全方案 
 
@@ -99,6 +89,8 @@ ms.locfileid: "94590854"
 
     > [!NOTE]
     > 有关允许从特定 IP 地址或范围访问的说明，请参阅[允许从特定 IP 地址或范围访问](service-bus-ip-filtering.md)。
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>使用 Resource Manager 模板
 以下资源管理器模板支持向现有服务总线命名空间添加虚拟网络规则。

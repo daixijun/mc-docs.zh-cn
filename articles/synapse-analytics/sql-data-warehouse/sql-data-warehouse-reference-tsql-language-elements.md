@@ -1,27 +1,27 @@
 ---
-title: T-SQL 语言元素
-description: Synapse SQL 池支持的 T-SQL 语句的相关文档的链接。
+title: 专用 SQL 池的 T-SQL 语言元素
+description: Azure Synapse Analytics 中专用 SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 06/13/2018
-ms.date: 05/11/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98257fdac01c7558e335b0afcd611c2d90b936dd
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 7447da2e9183c6c731a07f15dc0d72a8d06e1c79
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198794"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152969"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Synapse SQL 池支持的 T-SQL 语言元素
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的 T-SQL 语言元素 
 
-Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
+专用 SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 
 ## <a name="core-elements"></a>核心元素
 
@@ -117,6 +117,7 @@ Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 * [COS](https://docs.microsoft.com/sql/t-sql/functions/cos-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COT](https://docs.microsoft.com/sql/t-sql/functions/cot-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COUNT](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [CONCAT_WS](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COUNT_BIG](https://docs.microsoft.com/sql/t-sql/functions/count-big-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CUME_DIST](https://docs.microsoft.com/sql/t-sql/functions/cume-dist-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [CURRENT_TIMESTAMP](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -209,6 +210,8 @@ Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 * [STDEV](https://docs.microsoft.com/sql/t-sql/functions/stdev-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEVP](https://docs.microsoft.com/sql/t-sql/functions/stdevp-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STR](https://docs.microsoft.com/sql/t-sql/functions/str-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [STRING_AGG](https://docs.microsoft.com/sql/t-sql/functions/string-agg-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [STRING_SPLIT](https://docs.microsoft.com/sql/t-sql/functions/string-split-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STUFF](https://docs.microsoft.com/sql/t-sql/functions/stuff-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SUM](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -221,6 +224,7 @@ Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 * [TAN](https://docs.microsoft.com/sql/t-sql/functions/tan-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TERTIARY_WEIGHTS](https://docs.microsoft.com/sql/t-sql/functions/collation-functions-tertiary-weights-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TIMEFROMPARTS](https://docs.microsoft.com/sql/t-sql/functions/timefromparts-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TODATETIMEOFFSET](https://docs.microsoft.com/sql/t-sql/functions/todatetimeoffset-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TYPE_ID](https://docs.microsoft.com/sql/t-sql/functions/type-id-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [TYPE_NAME](https://docs.microsoft.com/sql/t-sql/functions/type-name-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -291,4 +295,4 @@ Synapse SQL 池支持的 T-SQL 语言元素的相关文档的链接。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关更多参考信息，请参阅 [Synapse SQL 池中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)和 [Synapse SQL 池中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。
+有关更多参考信息，请参阅[专用 SQL 池中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)和[专用 SQL 池中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。

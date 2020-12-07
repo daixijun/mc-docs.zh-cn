@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/05/2020
 ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: da8d1e5d942506bfc9b9eaf42455deb814a4e8a5
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 359a65df686d5f6ba160692dab5430bb3058704d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328259"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431107"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
@@ -35,7 +35,7 @@ ms.locfileid: "94328259"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="identify-requirements"></a>确定要求
 
@@ -124,7 +124,7 @@ ms.locfileid: "94328259"
 ...
 ```
 
-“属性”下面提供了名为 **supportsHttpsTrafficOnly** 、设置为 **false** 的值。 此属性似乎是我们所要查找的属性。 此外，该资源的 **类型** 为 **Microsoft.Storage/storageAccounts** 。 该类型告知我们，要将策略限定于此类型的资源。
+“属性”下面提供了名为 **supportsHttpsTrafficOnly**、设置为 **false** 的值。 此属性似乎是我们所要查找的属性。 此外，该资源的 **类型** 为 **Microsoft.Storage/storageAccounts**。 该类型告知我们，要将策略限定于此类型的资源。
 
 #### <a name="create-a-resource-in-the-portal"></a>在门户中创建资源
 
@@ -153,7 +153,7 @@ GitHub 上的 [Azure 快速启动模板](https://github.com/Azure/azure-quicksta
 
 #### <a name="resource-reference-docs"></a>资源参考文档
 
-若要验证 supportsHttpsTrafficOnly 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的 ARM 模板参考。 属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求， **supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
+若要验证 supportsHttpsTrafficOnly 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的 ARM 模板参考。 属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
 
 <!-- Azure Resource Explorer not availible -->
 
@@ -366,7 +366,7 @@ Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccount
 
 ### <a name="parameters"></a>参数
 
-尽管我们未使用参数来更改评估，但确实需要使用一个参数来允许更改 **效果** 以进行故障排除。 定义 **effectType** 参数，并将其值限制为 **Deny** 和 **Disabled** 。 这两个选项与我们的业务要求相符。 完成的参数块如以下示例所示：
+尽管我们未使用参数来更改评估，但确实需要使用一个参数来允许更改 **效果** 以进行故障排除。 定义 **effectType** 参数，并将其值限制为 **Deny** 和 **Disabled**。 这两个选项与我们的业务要求相符。 完成的参数块如以下示例所示：
 
 ```json
 "parameters": {

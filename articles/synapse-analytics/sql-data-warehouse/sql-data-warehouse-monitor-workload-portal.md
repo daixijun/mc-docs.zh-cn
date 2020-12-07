@@ -11,12 +11,12 @@ origin.date: 02/04/2020
 ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: e91eb78e948182dbef8cfc03a0070483de5e65d6
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: d06aa042546b1cfd010cc2788db28daca3bc152e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375700"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432019"
 ---
 # <a name="monitor-workload---azure-portal"></a>监视工作负荷 - Azure 门户
 
@@ -24,7 +24,7 @@ ms.locfileid: "93375700"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - SQL 池：我们将收集 SQL 池的日志。 如果尚未预配 SQL 池，请参阅[创建 SQL 池](load-data-from-azure-blob-storage-using-polybase.md)中的说明。
 
 ## <a name="create-a-log-analytics-workspace"></a>创建 Log Analytics 工作区

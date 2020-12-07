@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 05/29/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 25d7429af46476a886c0ec335be3963a75d91a9f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d2336ae574805cc4b798c72b753413d2a90b8b80
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104755"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431190"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>教程：在 Azure 数据资源管理器中引入和查询监视数据 
 
@@ -33,7 +33,7 @@ ms.locfileid: "93104755"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。 在本教程中，数据库名为 TestDatabase  。
 
 ## <a name="azure-monitor-data-provider-diagnostic-metrics-and-logs-and-activity-logs"></a>Azure Monitor 数据提供程序：诊断指标和日志以及活动日志
@@ -207,7 +207,7 @@ Azure 活动日志是订阅级日志，提供对订阅中的资源执行的操�
 
 ### <a name="create-the-target-tables"></a>创建目标表
 
-Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的中间表 *ActivityLogsRawRecords* 以及诊断指标和日志的中间表 *DiagnosticRawRecords* 。 此时，数据已经过处理和扩展。 接着，使用更新策略将扩展的数据引入到活动日志的 *ActivityLogs* 表、诊断指标的 *DiagnosticMetrics* 表以及诊断日志的 *DiagnosticLogs* 表。 这意味着需要创建两个单独的表来引入活动日志，并创建三个单独的表来引入诊断指标和日志。
+Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的中间表 *ActivityLogsRawRecords* 以及诊断指标和日志的中间表 *DiagnosticRawRecords*。 此时，数据已经过处理和扩展。 接着，使用更新策略将扩展的数据引入到活动日志的 *ActivityLogs* 表、诊断指标的 *DiagnosticMetrics* 表以及诊断日志的 *DiagnosticLogs* 表。 这意味着需要创建两个单独的表来引入活动日志，并创建三个单独的表来引入诊断指标和日志。
 
 使用 Azure 数据资源管理器 Web UI 在 Azure 数据资源管理器数据库中创建目标表。
 
@@ -461,23 +461,23 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     ![活动日志窗口](media/ingest-data-no-code/activity-log.png)
 
-1. 此时会打开“诊断设置”窗口。  选择“+ 添加诊断设置”。 
+1. 此时会打开“诊断设置”窗口。 选择“+ 添加诊断设置”。 
 
     :::image type="content" source="media/ingest-data-no-code/add-diagnosting-setting.png" alt-text="在 Azure 数据资源管理器门户的“诊断设置”窗口中添加诊断设置":::
 
 1. 此时将打开一个新的“诊断设置”窗口。 
 
-    :::image type="content" source="media/ingest-data-no-code/export-activity-log.PNG" alt-text="在 Azure 数据资源管理器门户的“诊断设置”窗口中添加诊断设置":::
+    :::image type="content" source="media/ingest-data-no-code/export-activity-log.PNG" alt-text="具有要填写的字段的“诊断设置”窗口 - Azure 数据资源管理器门户":::
 
     执行以下步骤：
     1. 在“诊断设置名称”字段中输入名称。  
     1. 在复选框的右侧，选择你希望从订阅中收集的平台日志。
-    1. 选择“流式传输到事件中心”复选框  。
+    1. 选择“流式传输到事件中心”复选框。
     1. 选择订阅。
     1. 在“事件中心命名空间”列表中，选择 AzureMonitoringData。
     1. 还可选择“事件中心名称”。
     1. 在“事件中心策略名称”列表中，选择默认的事件中心策略名称。
-    1. 在窗口的左上角，选择“保存”  。 这将创建一个名为 insights-operational-logs 的事件中心（除非你已在上面选择事件中心名称）。
+    1. 在窗口的左上角，选择“保存”。 这将创建一个名为 insights-operational-logs 的事件中心（除非你已在上面选择事件中心名称）。
       
     
 
@@ -499,17 +499,17 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 ### <a name="create-the-data-connection-for-diagnostic-metrics-and-logs-and-activity-logs"></a>为诊断指标和日志以及活动日志创建数据连接
 
-1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”  。
-1. 在“数据库”窗口中，选择 TestDatabase 数据库  。
+1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”。
+1. 在“数据库”窗口中，选择 TestDatabase 数据库。
 1. 在左侧菜单中，选择“数据引入”。
 1. 在“数据引入”窗口中，单击“+ 添加数据连接” 。
-1. 在“数据连接”窗口中输入以下信息： 
+1. 在“数据连接”窗口中输入以下信息：
 
     ![事件中心数据连接](media/ingest-data-no-code/event-hub-data-connection.png)
 
 # <a name="diagnostic-metrics--diagnostic-logs"></a>[诊断指标/诊断日志](#tab/diagnostic-metrics+diagnostic-logs) 
 
-1. 在“数据连接”窗口中使用以下设置  ：
+1. 在“数据连接”窗口中使用以下设置：
 
     数据源：
 
@@ -523,11 +523,11 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。  本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
+    有两个路由选项：静态和动态。 本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | **表** | *DiagnosticRawRecords* | 在 TestDatabase 数据库中创建的表  。 |
+    | **表** | *DiagnosticRawRecords* | 在 TestDatabase 数据库中创建的表。 |
     | **数据格式** | *JSON* | 表中使用的格式。 |
     | **列映射** | *DiagnosticRawRecordsMapping* | 在 *TestDatabase* 数据库中创建的映射，它将传入的 JSON 数据映射到 *DiagnosticRawRecords* 表的列名和数据类型。|
     | | |
@@ -536,7 +536,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 # <a name="activity-logs"></a>[活动日志](#tab/activity-logs)
 
-1. 在“数据连接”窗口中使用以下设置  ：
+1. 在“数据连接”窗口中使用以下设置：
 
     数据源：
 
@@ -550,13 +550,13 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。  本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
+    有两个路由选项：静态和动态。 本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | **表** | *ActivityLogsRawRecords* | 在 TestDatabase 数据库中创建的表  。 |
+    | **表** | *ActivityLogsRawRecords* | 在 TestDatabase 数据库中创建的表。 |
     | **数据格式** | *JSON* | 表中使用的格式。 |
-    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型  。|
+    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型。|
     | | |
 
 1. 选择“创建” 。  

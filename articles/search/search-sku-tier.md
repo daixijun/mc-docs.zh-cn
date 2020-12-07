@@ -1,24 +1,24 @@
 ---
-title: 选择定价层或 SKU
+title: 选择一个定价层
 titleSuffix: Azure Cognitive Search
-description: 可在以下 SKU 中预配 Azure 认知搜索：“免费”、“基本”和“标准”，其中“标准”在各种资源配置和容量级别中均可用。
+description: 可在以下层中预配 Azure 认知搜索：“免费”、“基本”和“标准”，其中“标准”在各种资源配置和容量级别中均可用。
 manager: nitinme
 author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 07/14/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 6fcc024f36c8dd654b21af307ae96720c9560d2a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 10/14/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: 4a2e72b6841e458dde31e387d138050ee40ff780
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021563"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300381"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>选择 Azure 认知搜索的定价层
 
-创建 Azure 认知搜索服务时，[资源是在某个定价层或 SKU 中创建的](search-create-service-portal.md)，该定价层或 SKU 在该服务的整个生存期内是固定的。 层包括“免费”、“基本”、“标准”和“存储优化”。 “标准”和“存储优化”提供多种配置和容量。
+创建 Azure 认知搜索服务时，[资源是在某个定价层中创建的](search-create-service-portal.md)，该定价层在该服务的整个生存期内是固定的。 层包括“免费”、“基本”、“标准”和“存储优化”。 “标准”和“存储优化”提供多种配置和容量。
 
 大多数客户从“免费”层着手，以便能够评估该服务。 评估后，他们往往会在某个更高的层上创建另一个服务用于开发和生产部署。
 
@@ -28,18 +28,18 @@ ms.locfileid: "90021563"
 
 | 功能 | 限制 |
 |---------|-------------|
-| [索引器](search-indexer-overview.md) | 索引器在 S3 HD 上不可用。 |
+| [索引器](search-indexer-overview.md) | 索引器在 S3 HD 上不可用。  |
 | [AI 扩充](search-security-manage-encryption-keys.md) | 在免费层上运行，但不建议这样做。 |
 | [客户托管的加密密钥](search-security-manage-encryption-keys.md) | 在免费层上不可用。 |
 | [IP 防火墙访问](service-configure-firewall.md) | 在免费层上不可用。 |
 
 大多数功能都可在每个层（包括免费层）上使用，但如果不为其提供足够的容量，则资源密集型功能可能无法正常工作。 例如，[AI 扩充](cognitive-search-concept-intro.md)包含长时间运行的技能，除非数据集较小，否则这些技能在免费服务中会超时。
 
-## <a name="tiers-skus"></a>层 (SKU)
+## <a name="tiers"></a>层
 
 可以通过以下方式区分层：
 
-+ 可创建的索引和索引器数量
++ 索引和索引器数量（最大限制）
 + 分区（物理存储）的大小和速度
 
 选择的层决定了计费费率。 以下 Azure 门户屏幕截图显示了可用的层，其中不包括定价层（可在门户中和[定价页](https://www.azure.cn/pricing/details/search/)上找到该层）。 “免费”、“基本”和“标准”层是最常用的层。  
@@ -99,7 +99,7 @@ ms.locfileid: "90021563"
 | 操作 | 计费影响 |
 |-----------|----------------|
 | 文档破解、文本提取 | 免费 |
-| 文档破解、图像提取 | 根据从文档中提取的图像数计费。 在[索引器配置](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)中，**imageAction** 是触发图像提取的参数。 如果 **imageAction** 设置为“none”（默认值），则不收取图像提取费用。 Azure 认知搜索的[定价详细信息](https://www.azure.cn/pricing/details/search/)页上阐述了图像提取费率。|
+| 文档破解、图像提取 | 根据从文档中提取的图像数计费。 在 [索引器配置](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)中，**imageAction** 是触发图像提取的参数。 如果 **imageAction** 设置为“none”（默认值），则不收取图像提取费用。 Azure 认知搜索的[定价详细信息](https://www.azure.cn/pricing/details/search/)页上阐述了图像提取费率。|
 | [内置认知技能](cognitive-search-predefined-skills.md) | 计费费率与直接使用认知服务执行任务的费率相同。 |
 | 自定义技能 | 自定义技能是你提供的功能。 使用自定义技能的费用完全取决于自定义代码是否调用其他计量的服务。 |
 

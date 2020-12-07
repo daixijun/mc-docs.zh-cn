@@ -11,12 +11,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 3dd97e31eece0bef46b0bd6932df0810e055d162
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: d7aa26633f8445e57388b814282b0a8a11deef93
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014377"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432562"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>在 Azure 门户中预配运行 SQL Server 的 Linux 虚拟机
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "90014377"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a> 创建安装了 SQL Server 的 Linux VM
 
@@ -65,7 +65,7 @@ ms.locfileid: "90014377"
 
 ### <a name="set-up-your-linux-vm"></a>设置 Linux VM
 
-1. 在“基本信息”选项卡中，选择自己的**订阅**和**资源组**。 
+1. 在“基本信息”选项卡中，选择自己的 **订阅** 和 **资源组**。 
 
     ![“基本信息”窗口](./media/sql-vm-create-portal-quickstart/basics.png)
 

@@ -12,18 +12,18 @@ ms.custom: mvc
 origin.date: 03/24/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: d1c8d6c77f411bd5b83a0e89cd2251bd532f054e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 7d7168ea929f88dddc7ae953cb7a81466728ec33
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431127"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索证书
 
 Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可以安全地存储密钥、密码、证书和其他机密。 可以通过 Azure 门户创建和管理 Azure Key Vault。 在本快速入门中，你将创建一个密钥保管库并使用它来存储证书。 有关 Key Vault 的详细信息，请参阅[概述](../general/overview.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

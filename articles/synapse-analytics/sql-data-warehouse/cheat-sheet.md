@@ -8,15 +8,15 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 origin.date: 11/04/2019
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 90e2a97ae17139e82e80ec95b8d24e15b9e90acf
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 4fff12f09c00afb921dd406f3b23089faaa86a09
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014378"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152987"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）的速查表
 
@@ -38,7 +38,7 @@ ms.locfileid: "90014378"
 
 ## <a name="data-migration"></a>数据迁移
 
-首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入临时表中。 使用以下配置：
+首先，将数据加载到 Azure Blob 存储中。 接下来，使用 [COPY 语句](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)（预览版）将数据加载到临时表中。 使用以下配置：
 
 | 设计 | 建议 |
 |:--- |:--- |
@@ -65,8 +65,8 @@ ms.locfileid: "90014378"
 * 确保常见的哈希键具有相同的数据格式。
 * 请勿以 varchar 格式进行分发。
 * 可以将具有常见哈希键的维度表哈希分布到具有频繁联接操作的事实数据表。
-* 使用 *[sys.dm_pdw_nodes_db_partition_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 分析数据中的任何偏斜。
-* 使用 *[sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* 分析查询背后的数据移动、监视时间广播以及随机选择操作需要。 这有助于查看分布策略。
+* 使用 *[sys.dm_pdw_nodes_db_partition_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 分析数据中的任何偏斜。
+* 使用 *[sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* 分析查询背后的数据移动、监视时间广播以及随机选择操作需要。 这有助于查看分布策略。
 
 详细了解[复制表](design-guidance-for-replicated-tables.md)和[分布式表](sql-data-warehouse-tables-distribute.md)。
 
@@ -110,7 +110,7 @@ ms.locfileid: "90014378"
 
 ## <a name="maintain-statistics"></a>维护统计信息
 
-对数据做*重大*更改时务必更新统计信息。 请参阅[更新统计信息](sql-data-warehouse-tables-statistics.md#update-statistics)，确定是否发生重大更改。 更新的统计信息可以优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。
+对数据做 *重大* 更改时务必更新统计信息。 请参阅[更新统计信息](sql-data-warehouse-tables-statistics.md#update-statistics)，确定是否发生重大更改。 更新的统计信息可以优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。
 
 还可以定义更新频率。 例如，可能想要更新每天都要添加新值的日期列。 对涉及联接的列、WHERE 子句中使用的列、在 GROUP BY 中找到的列进行信息统计，可以获得最大效益。
 
@@ -122,7 +122,7 @@ ms.locfileid: "90014378"
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
+最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
 
 详细了解如何使用[资源类和并发](resource-classes-for-workload-management.md)。
 

@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 02/14/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 39db72edd21b3cd9256b7faced065b79691c6e16
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 05cc549d1b7dee1685c10fb3f5b4066a8a906dbe
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021405"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300152"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Azure 认知搜索的性能缩放
 
@@ -31,7 +31,7 @@ ms.locfileid: "90021405"
 
 1. 从较小的每秒查询数 (QPS) 开始，并逐渐增加在测试中执行的数量，直到查询延迟降到定义的目标之下为止。 这是一个重要的基准，可帮助你计划应用程序在使用量增长方面的规模。
 
-1. 只要有可能，请重用 HTTP 连接。 如果使用 Azure 认知搜索 .NET SDK，这意味着你应该重用某个实例或 [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) 实例，并且如果使用 REST API，就应该重用单个 HttpClient。
+1. 只要有可能，请重用 HTTP 连接。 如果使用的是 Azure 认知搜索 .NET SDK，这意味着你应该重用某个实例或 [SearchClient](https://docs.microsoft.com/dotnetapi/azure.search.documents.searchclient) 实例，如果使用的是 REST API，则应该重用单个 HttpClient。
 
 1. 差异化查询请求的主旨，以针对索引的不同组成部分执行搜索。 差异化很重要，因为如果不断执行相同的搜索请求，那么比起包含一个更加迥然不同的查询集，数据的缓存将开始使性能看起变得更好。
 

@@ -16,12 +16,12 @@ origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d4521fe1ca4eacaa4bd7438387be5760fbf7ffd
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 8a4278002453ee10b8755bd1e0e56ea5536a2439
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245487"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432329"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知
 
@@ -50,7 +50,7 @@ ms.locfileid: "91245487"
 
 以下是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://azure.cn/pricing/free-trial/)。
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 了解[如何使用 Azure Functions](../../azure-functions/functions-overview.md)。 另请查看 [Azure Functions HTTP 和 Webhook 绑定](../../azure-functions/functions-bindings-http-webhook.md)。
 
@@ -72,7 +72,7 @@ ms.locfileid: "91245487"
 
 ## <a name="create-a-function"></a>创建函数
 
-部署 Function App 后，可在**应用服务** Azure Functions 中找到它。
+部署 Function App 后，可在 **应用服务** Azure Functions 中找到它。
 
 1. 选择 Function App，然后单击“新建函数”。 
 2. 选择“C#”代码和“API 和 Webhook”方案   。 

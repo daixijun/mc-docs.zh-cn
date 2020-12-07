@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 origin.date: 03/07/2019
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 407b774d8a2efd4cee2257b7283b3ff11b6d3140
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 9988d1d00a76fa99633140ffc239721858303e85
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678452"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300810"
 ---
 # <a name="best-practices-to-use-key-vault"></a>使用密钥保管库的最佳做法
 
@@ -25,7 +25,7 @@ ms.locfileid: "90678452"
 Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（例如证书、连接字符串和密码）。 因为此数据是敏感数据和业务关键数据，所以需要保护对密钥保管库的访问，只允许得到授权的应用程序和用户进行访问。 [本文](secure-your-key-vault.md)提供密钥保管库访问模型的概述。 其中介绍了身份验证和授权，以及如何保护对密钥保管库的访问。
 
 控制对保管库的访问权限的建议如下：
-1. 锁定对订阅、资源组和密钥保管库 (RBAC) 的访问权限
+1. 锁定对订阅、资源组和密钥保管库 (Azure RBAC) 的访问权限
 2. 为每个保管库创建访问策略
 3. 使用最低特权访问主体授予访问权限
 4. 打开防火墙和 [VNET 服务终结点](overview-vnet-service-endpoints.md)
@@ -46,9 +46,9 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 ### <a name="azure-cli-backup-commands"></a>Azure CLI 备份命令
 
-* [备份证书](https://docs.azure.cn/cli/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
-* [备份密钥](https://docs.azure.cn/cli/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
-* [备份机密](https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+* [备份证书](https://docs.azure.cn/cli/keyvault/certificate#az-keyvault-certificate-backup)
+* [备份密钥](https://docs.azure.cn/cli/keyvault/key#az-keyvault-key-backup)
+* [备份机密](https://docs.azure.cn/cli/keyvault/secret#az-keyvault-secret-backup)
 
 
 ## <a name="turn-on-logging"></a>启用日志记录

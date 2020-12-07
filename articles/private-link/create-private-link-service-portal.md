@@ -11,19 +11,19 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 33f51b0d7c48cf0e0c6b856bcd89016011649481
-ms.sourcegitcommit: 6e88e0e41b35d160a09f7a906ca3b7e837f51803
+ms.openlocfilehash: aa93e152300677e3a2b35b64fe05c2b6638ccbb5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412119"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432418"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用链接服务
 
 Azure 专用链接服务是指你自己的、由专用链接管理的服务。 可以向专用链接授予对 Azure 标准负载均衡器后面运行的服务或资源的访问权限。 服务的使用者可从其自己的虚拟网络以私密方式访问该服务。 本快速入门介绍如何使用 Azure 门户创建专用链接服务。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

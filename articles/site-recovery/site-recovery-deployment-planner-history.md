@@ -11,12 +11,12 @@ ms.date: 09/14/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 59dde36a45a70a4270417b0f32967d9db1101946
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 42b7d8c366d1e2fd8516da9cd2101bb71b16b63b
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655423"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190265"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery 部署规划器版本历史记录
 
@@ -61,10 +61,8 @@ ms.locfileid: "89655423"
 - 在兼容性清单中添加了最大支持 20 Mbps 数据更改率（变动率）的 VM。
 - 改进了错误消息
 - 添加了对 vCenter 6.7 的支持。
-- 添加了对 Windows Server 2019 的支持。
-    
-    <!--Not Available on and Red Hat Enterprise Linux (RHEL) workstation-->
-    
+- 添加了对 Windows Server 2019 和 Red Hat Enterprise Linux (RHEL) 工作站的支持。
+
 ## <a name="version-23"></a>版本 2.3
 
 **发布日期：2018 年 12 月 3日**
@@ -99,7 +97,7 @@ ms.locfileid: "89655423"
 - 修复了 GetThroughput 操作的 bug。
 - 添加了相应的选项用于限制要分析或要生成报告的 VM 数。 默认限制为 1,000 个 VM。
 - VMware 到 Azure 的灾难恢复：
-    - 修复了将 Windows Server 2016 Datacenter 加入不兼容表的问题。 
+    - 修复了将 Windows Server 2016 VM 加入不兼容表的问题。 
     - 更新了可扩展固件接口 (EFI) Windows VM 的兼容性消息。
 - 更新了从 VMware 灾难恢复到 Azure 以及从 Hyper-V 灾难恢复到 Azure 时，每个 VM 的 VM 数据变动率限制。 
 - 改进了 VM 列表文件分析的可靠性。

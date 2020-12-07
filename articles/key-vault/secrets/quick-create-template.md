@@ -12,12 +12,12 @@ ms.custom: mvc,subject-armqs
 origin.date: 02/27/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 685f59b2f7cd32a8695e67c9524d6ecf17722ea4
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2570467142fc5550c684c283d407cf2f386e84fa
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300004"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431196"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure Key Vault 中设置和检索机密
 
@@ -33,7 +33,7 @@ ms.locfileid: "96300004"
 
 若要完成本文，需要做好以下准备：
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 模板需要使用你的 Azure AD 用户对象 ID 来配置权限。 以下过程获取对象 ID (GUID)。
 

@@ -16,12 +16,12 @@ ms.date: 10/29/2020
 ms.author: v-jay
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 58aca9fbfe3a6d74b6f0305ddd8a182aaa47c455
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: a5712a61cf646732000393aa36b2538ba8a6ff2e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470455"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432191"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>如何使用 Azure PowerShell 在 Azure 虚拟机上预配 SQL Server
 
@@ -29,7 +29,7 @@ ms.locfileid: "92470455"
 
 本指南介绍使用 PowerShell 在 Azure 虚拟机 (VM) 上预配 SQL Server 选项。 有关依赖于默认值的简化的 Azure PowerShell 示例，请参阅 [SQL VM Azure PowerShell 快速入门](sql-vm-create-powershell-quickstart.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -136,7 +136,7 @@ $OSDiskName = $VMName + "OSDisk"
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. 对于本教程，请使用 SQL Server 2017 Developer Edition ( **SQLDEV** )。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
+1. 对于本教程，请使用 SQL Server 2017 Developer Edition (**SQLDEV**)。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
 
    ```powershell
    $Sku = "SQLDEV"

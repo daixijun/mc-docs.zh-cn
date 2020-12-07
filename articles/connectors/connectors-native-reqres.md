@@ -7,17 +7,17 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 origin.date: 08/27/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 5ce8366ec2b3d56154f24ed4e07433b62490b464
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b5b4aa891732df5044548ac8cfd36f493c66f457
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024482"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>在 Azure 逻辑应用中接收和响应入站 HTTPS 请求
 
@@ -33,7 +33,7 @@ ms.locfileid: "93103951"
 
 本文介绍如何使用请求触发器和响应操作，以便逻辑应用可以接收和响应入站调用。
 
-有关发往逻辑应用的入站调用（例如传输层安全性（TLS，以前称为安全套接字层 (SSL)）或 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的加密、安全性和授权的信息，请参阅[保护访问和数据 - 对基于请求的触发器的入站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)。
+有关逻辑应用入站调用（例如传输层安全性 (TLS) [以前称为安全套接字层 (SSL)] 和 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的安全性、授权和加密的详细信息，以及使用 Azure API 管理来公开逻辑应用，或限制发起入站调用的 IP 地址的详细信息，请参阅[保护访问和数据 - 对基于请求的触发器的入站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)。
 
 <!--Not Avaialble on [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)-->
 
@@ -49,10 +49,9 @@ ms.locfileid: "93103951"
 
 此内置触发器创建可手动调用的终结点，该终结点只能处理 HTTPS 上的入站请求。 当调用方将请求发送到此终结点时，[请求触发器](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)会激发并运行逻辑应用。 有关如何调用此触发器的详细信息，请参阅[在 Azure 逻辑应用中使用 HTTPS 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
 
-逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#request-limits)内使入站请求保持打开状态。 假设逻辑应用包含[响应操作](#add-response)，如果逻辑应用在此时间之后未向调用方发回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 状态返回给调用方。 如果逻辑应用不包含响应操作， 
-> 则逻辑应用立即将 `202 ACCEPTED` 状态返回给调用方。
+逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#request-limits)内使入站请求保持打开状态。 假设逻辑应用包含[响应操作](#add-response)，如果逻辑应用在此时间之后未向调用方发回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 状态返回给调用方。 如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 状态。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
 1. 逻辑应用设计器打开后，在搜索框中，输入 `http request` 作为筛选器。 从触发器列表中选择“当收到 HTTP 请求时”触发器。
 
@@ -62,7 +61,7 @@ ms.locfileid: "93103951"
 
     :::image type="content" source="./media/connectors-native-reqres/request-trigger.png" alt-text="请求触发器":::
 
-    | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+    | 属性名称 | JSON 属性名称 | 必选 | 说明 |
     |---------------|--------------------|----------|-------------|
     | **HTTP POST URL** | {无} | 是 | 保存逻辑应用后生成的终结点 URL，用于调用逻辑应用 |
     | **请求正文 JSON 架构** | `schema` | 否 | 描述传入请求正文中的属性和值的 JSON 架构 |
@@ -169,7 +168,7 @@ ms.locfileid: "93103951"
 
 1. 若要添加其他属性，请打开“添加新参数”列表，并选择要添加的参数。
 
-    | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+    | 属性名称 | JSON 属性名称 | 必选 | 说明 |
     |---------------|--------------------|----------|-------------|
     | **方法** | `method` | 否 | 传入的请求在调用逻辑应用时必须使用的方法 |
     | **相对路径** | `relativePath` | 否 | 逻辑应用终结点 URL 可接受的参数的相对路径 |
@@ -201,6 +200,10 @@ ms.locfileid: "93103951"
 1. 若要触发逻辑应用，请将 HTTP POST 发送到生成的 URL。
 
     例如，可以使用 [Postman](https://www.getpostman.com/) 等工具来发送 HTTP POST。 有关触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅以下主题：[请求触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)和[通过 Azure 逻辑应用中的 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
+
+有关逻辑应用入站调用（例如传输层安全性 (TLS) [以前称为安全套接字层 (SSL)] 和 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的安全性、授权和加密的详细信息，以及使用 Azure API 管理来公开逻辑应用，或限制发起入站调用的 IP 地址的详细信息，请参阅[保护访问和数据 - 对基于请求的触发器的入站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)。
+
+<!--Not Available on [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)-->
 
 ## <a name="trigger-outputs"></a>触发器输出
 

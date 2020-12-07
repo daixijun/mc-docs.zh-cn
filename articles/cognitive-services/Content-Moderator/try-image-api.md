@@ -1,22 +1,22 @@
 ---
 title: 使用 API 控制台审查图像 - 内容审查器
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用 Azure 内容审查器中的图像审查 API，可以启动图像内容的扫描和审阅式审查工作流。
 services: cognitive-services
-author: sanjeev3
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 01/10/2019
-ms.date: 03/26/2019
-ms.author: v-junlch
-ms.openlocfilehash: 4c31818cd77c8af0bd677d6675da756a04025705
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/23/2020
+ms.author: v-johya
+ms.openlocfilehash: 4db7f01d1e76d7db358081b4ae6e85eb533e973a
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63852210"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306331"
 ---
 # <a name="moderate-images-from-the-api-console"></a>在 API 控制台中审查图像
 
@@ -103,6 +103,5 @@ ms.locfileid: "63852210"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要与应用集成，请在代码中使用 REST API，或从[图像审查 .NET 快速入门](image-moderation-quickstart-dotnet.md)入手。
+在代码中使用 REST API，或按照 [.NET SDK 快速入门](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)执行操作，将图像审查添加到应用程序。
 
-<!-- Update_Description: wording update -->

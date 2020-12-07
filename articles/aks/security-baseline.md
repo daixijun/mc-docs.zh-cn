@@ -5,17 +5,17 @@ ms.service: container-service
 ms.topic: conceptual
 origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8f4296635fc312ae3d1a2c090a8b20eaf5c6dd7e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: dc6d36173970bb3966b639763e8f87b8105fcf4d
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552168"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024514"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>适用于 Azure Kubernetes 服务的 Azure 安全基线
@@ -24,7 +24,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](https://docs.azure.cn/zh-cn/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](https://docs.azure.cn/security/benchmarks/security-baselines-overview)。
 
 ## <a name="network-security"></a>网络安全性
 
@@ -32,7 +32,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
-**指导**：默认情况下，随着 Microsoft Azure Kubernetes 服务 (AKS) 群集的创建，会自动创建一个网络安全组和路由表。 使用负载均衡器、端口映射或入口路由创建服务时，AKS 会自动修改网络安全组以便流量流向正确的方向。 网络安全组自动与客户节点上的虚拟 NIC 关联，并将路由表与虚拟网络上的子网关联。 
+**指导**：默认情况下，随着 Azure Kubernetes 服务 (AKS) 群集的创建，会自动创建一个网络安全组和路由表。 使用负载均衡器、端口映射或入口路由创建服务时，AKS 会自动修改网络安全组以便流量流向正确的方向。 网络安全组自动与客户节点上的虚拟 NIC 关联，并将路由表与虚拟网络上的子网关联。 
 
 使用 AKS 网络策略来限制网络流量，方法是根据所选的命名空间和标签选择器为群集中 Linux pod 间的入口和出口流量定义规则。 使用网络策略时要求 Azure CNI 插件具有已定义的虚拟网络和子网，并且只能在群集创建时启用。 不能将它们部署到现有的 AKS 群集。
 
@@ -74,7 +74,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 - [应用程序网关入口控制器](../application-gateway/ingress-controller-overview.md)
 
-<!--Not Available on [Use Azure API Management with microservices deployed in Azure Kubernetes Service](../api-management/api-management-kubernetes.md)-->
+- [将 Azure API 管理与 Azure Kubernetes 服务中部署的微服务结合使用](../api-management/api-management-kubernetes.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -576,7 +576,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [了解 AKS 中群集隔离的最佳做法](operator-best-practices-cluster-isolation.md)
 
-<!--Not Avaiable on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
+<!--Not Available  on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
 - [了解 AKS 中的网络连接和安全的最佳做法](operator-best-practices-network.md)
 
@@ -799,7 +799,7 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 排斥、标签或标记可用于定期核对清单，并确保及时从订阅中删除未经授权的资源。
 
-<!--Not Avaiable on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
+<!--Not Available  on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
@@ -846,29 +846,16 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 跟踪计算机的配置，以帮助查明整个环境中的操作问题，并更好地了解计算机的状态。
 
-<!--Not Avaiable on [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
+<!--Not Available  on [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
 
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
 
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7：删除未批准的 Azure 资源和软件应用程序
-
-**指导**：使用 Azure 自动化更改跟踪和清单功能查找环境中安装的软件。 
-
-收集并查看计算机上的软件、文件、Linux 守护程序、Windows 服务和 Windows 注册表项的清单，并监视未经批准的软件应用程序。 
-
-跟踪计算机的配置，以帮助查明整个环境中的操作问题，并更好地了解计算机的状态。
-
-<!--Not Avaiable on [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
-
-- [如何使用文件完整性监视](../security-center/security-center-file-integrity-monitoring.md)
-
-<!--Not Avaiable on  [Understand Azure Change Tracking](../automation/change-tracking.md)-->
-
-**Azure 安全中心监视**：不适用
-
-**责任**：客户
+<!--Not Available on ### 6.7: Remove unapproved Azure resources and software applications-->
+<!--Not Available  on [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
+<!--Not Available on [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)-->
+<!--Not Available  on  [Understand Azure Change Tracking](../automation/change-tracking.md)-->
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
@@ -880,7 +867,7 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 在安全中心中为环境中存在的应用程序启用自适应应用程序分析。
 
-<!--Not Avaiable on  [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
+<!--Not Available  on  [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
 
 如何使用 Azure 安全中心自适应应用程序
 - [控件](../security-center/security-center-adaptive-application.md)
@@ -937,7 +924,7 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 使用 Azure AD 集成，可授权用户或组访问一个命名空间或多个群集内的 Kubernetes 资源。 
 
-使用 Azure AD PowerShell 模块执行即席查询，以发现属于 AKS 管理组成员的帐户；定期协调访问。 使用 Azure CLI 执行“获取托管 Kubernetes 群集的访问凭据”等操作。 实现安全中心标识和访问管理建议。
+使用 Azure AD PowerShell 模块执行即席查询，以发现属于 AKS 管理组成员的帐户，并使用它来定期协调访问。 使用 Azure CLI 执行“获取托管 Kubernetes 群集的访问凭据”等操作。 实现安全中心标识和访问管理建议。
 
 - [使用 Azure CLI 管理 AKS](https://docs.azure.cn/cli/aks)
 
@@ -961,11 +948,11 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 在 Kubernetes 中实现命名空间以创建逻辑隔离边界。 使用“Microsoft.ContainerService”命名空间中的 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure Kubernetes 服务 (AKS) 实例的配置。 
 
-检查并为隔离和多租户实现附加的 Kubernetes 功能，包括以下几个方面：计划、网络、身份验证/授权和容器。 还可以使用单独的订阅和/或管理组进行开发、测试和生产。 将 AKS 群集与虚拟网络、适当标记的子网分开，并使用 Web 应用程序防火墙 (WAF) 进行保护。
+检查并为隔离和多租户实现附加的 Kubernetes 功能和注意事项，包括以下内容：计划、网络、身份验证/授权和容器。 还可以使用单独的订阅和/或管理组进行开发、测试和生产。 将 AKS 群集与虚拟网络、适当标记的子网分开，并使用 Web 应用程序防火墙 (WAF) 进行保护。
 
 - [了解 AKS 中群集隔离的最佳做法](operator-best-practices-cluster-isolation.md)
 
-<!--Not Avaiable on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
+<!--Not Available  on [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
@@ -995,7 +982,7 @@ AKS 的内置策略定义示例包括：
 
 使用 Azure 资源管理器以 JavaScript 对象表示法 (JSON) 导出 AKS 配置的模板。 定期检查以确保这些配置符合组织的安全要求。 使用来自 Azure 安全中心的建议作为 Azure 资源的安全配置基线。 
 
-- [如何配置和管理 AKS pod 安全策略](use-pod-security-policies.md)
+<!--Not Available on - [How to configure and manage AKS pod security policies](use-pod-security-policies.md)-->
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1302,7 +1289,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1327,10 +1314,9 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 ### <a name="103-test-security-response-procedures"></a>10.3：测试安全响应过程
 
-**指导**：定期执行演练来测试系统的事件响应功能。 识别弱点和差距，并根据需要修改计划。
+**指导**：定期执行演练来测试系统的事件响应功能。 请参阅 NIST 的刊物，识别弱点和差距，并按需修改计划。
 
-请参阅 NIST 的刊物：IT 
-- [规划和功能](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)的测试、培训与演练计划指南
+- [IT 计划和功能的测试、培训与演练计划指南](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure 安全中心监视**：不适用
 
@@ -1387,5 +1373,4 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 - 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
 - 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
-<!-- Update_Description: new article about security baseline -->
-<!--NEW.date: 10/26/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

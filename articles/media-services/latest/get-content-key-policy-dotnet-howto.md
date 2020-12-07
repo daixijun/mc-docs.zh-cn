@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: d154f0c6ffc625036ee3b998fb477f4f7ba3f636
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 33ffb6ab68b355833bdf8e605f10dd401099508a
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245647"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300833"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>从现有策略获取签名密钥
 
@@ -27,7 +27,7 @@ ms.locfileid: "91245647"
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
 
-V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 请参阅此处的详细说明：有关详细信息，请参阅 [RBAC 和媒体服务帐户](rbac-overview.md)
+V3 API 的主要设计原则之一是使 API 更安全。 v3 API 不会在 **Get** 或 **List** 操作中返回机密或凭据。 请参阅此处的详细说明：有关详细信息，请参阅 [Azure RBAC 和媒体服务帐户](rbac-overview.md)
 
 本文中的示例演示如何使用 .NET 从现有策略中获取签名密钥。 
  
@@ -63,11 +63,10 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
             ContentKeyPolicyTokenClaim.ContentKeyIdentifierClaim
         };
         List<ContentKeyPolicyRestrictionTokenKey> alternateKeys = null;
-        ContentKeyPolicyTokenRestriction restriction 
+        ContentKeyPolicyTokenRestriction restriction
             = new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey, ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims);
 
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         // ContentKeyPolicyFairPlayConfiguration fairplayConfig = ConfigureFairPlayPolicyOptions();
 
         List<ContentKeyPolicyOption> options = new List<ContentKeyPolicyOption>();
@@ -81,14 +80,14 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
                 Restriction = restriction
             });
 
-     // add CBCS ContentKeyPolicyOption into the list
-     //   options.Add(
-     //       new ContentKeyPolicyOption()
-     //       {
-     //           Configuration = fairplayConfig,
-     //           Restriction = restriction,
-     //           Name = "ContentKeyPolicyOption_CBCS"
-     //       });
+        // add CBCS ContentKeyPolicyOption into the list
+        //   options.Add(
+        //       new ContentKeyPolicyOption()
+        //       {
+        //           Configuration = fairplayConfig,
+        //           Restriction = restriction,
+        //           Name = "ContentKeyPolicyOption_CBCS"
+        //       });
 
         policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
     }
@@ -96,11 +95,9 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
     {
         // Get the signing key from the existing policy.
         var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
+        if (policyProperties.Options[0].Restriction is ContentKeyPolicyTokenRestriction restriction)
         {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
+            if (restriction.PrimaryVerificationKey is ContentKeyPolicySymmetricTokenKey signingKey)
             {
                 TokenSigningKey = signingKey.KeyValue;
             }

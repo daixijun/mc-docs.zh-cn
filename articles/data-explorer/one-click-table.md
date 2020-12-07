@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/06/2020
 ms.date: 10/30/2020
-ms.openlocfilehash: 358e19ba6982c1d8cce59d93bc2935bfa5499cbd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: fad4dd810abbf94ab599210b4a786673eff8d2c5
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106537"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430843"
 ---
 # <a name="create-a-table-in-azure-data-explorer-preview"></a>在 Azure 数据资源管理器中创建表（预览）
 
@@ -21,7 +21,7 @@ ms.locfileid: "93106537"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。
 * 登录到 [Azure 数据资源管理器 Web UI](https://dataexplorer.azure.cn/) 并[添加与群集的连接](web-query-data.md#add-clusters)。
 

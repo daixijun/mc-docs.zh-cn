@@ -6,17 +6,17 @@ ms.service: firewall
 ms.topic: tutorial
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0da2450b3c8f431988d982398b024ea8d75bc5da
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 3adf6f6c81100038382d6e699c5aec92362fd900
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246424"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746622"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教程：在 Azure 门户中通过 Azure 防火墙 DNAT 筛选入站 Internet 流量
 
@@ -33,7 +33,7 @@ ms.locfileid: "91246424"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -65,7 +65,7 @@ ms.locfileid: "91246424"
 8. 对于“位置”，请选择前面使用的同一位置。 
 9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 
 
-     防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
+     防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
      
      > [!NOTE]
      > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
@@ -232,6 +232,6 @@ ms.locfileid: "91246424"
 接下来，可以监视 Azure 防火墙日志。
 
 > [!div class="nextstepaction"]
-> [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+> [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

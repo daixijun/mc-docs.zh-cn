@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 05/19/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 956b9fd864917170f3012f8989951b2f05a049bf
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 01689ff67dd2e3a4dcd56b8ef433365c9edb3300
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146738"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431202"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>通过 C# 以端到端方式将 blob 引入到 Azure 数据资源管理器中
 
@@ -28,7 +28,7 @@ Azure 数据资源管理器是一项快速且可缩放的数据探索服务，�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="install-c-nuget"></a>安装 C# NuGet
 

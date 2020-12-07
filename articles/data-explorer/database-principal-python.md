@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 02/03/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 429da32aeaac5702e82da206f0723526bfe3aa27
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 66a243151e69826cb1e0e0c6d555ff44c46c482a
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300255"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431154"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>使用 Python 向 Azure 数据资源管理器添加数据库主体
 
@@ -26,7 +26,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [创建群集和数据库](create-cluster-database-python.md)
 
 ## <a name="install-python-package"></a>安装 Python 包

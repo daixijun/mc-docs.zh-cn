@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 01/08/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 921be4a264ffae2634a153f7552dd290029a8117
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2a230d913c36c7066c929532d21752a1b3639dbf
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104074"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431047"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>将数据从 IoT 中心引入到 Azure 数据资源管理器 
 
@@ -31,8 +31,8 @@ ms.locfileid: "93104074"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 创建 [一个测试群集和数据库](create-cluster-database-portal.md)，所用数据库名称为 *testdb* 。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* 创建 [一个测试群集和数据库](create-cluster-database-portal.md)，所用数据库名称为 *testdb*。
 * 介绍如何模拟设备的[示例应用](https://github.com/Azure-Samples/azure-iot-samples-csharp)和文档。
 * 用于运行示例应用的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。
 

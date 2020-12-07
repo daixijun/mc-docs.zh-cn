@@ -4,19 +4,20 @@ description: 使用 Azure 虚拟网络中的服务终结点限制对 Azure 容�
 ms.topic: article
 origin.date: 05/04/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 09/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: ad4ecbec937752e8eb5c84b7021eb3a2dc615f42
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 78dfba6043196bf5ddc1d1c9bff68e79f28e194d
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564261"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024631"
 ---
-<!--NOT AVAILABLE ON MOONCAKE TILL ON 09/30/2020-->
+<!--NOT AVAILABLE ON MOONCAKE TILL ON 11/25/2020-->
 <!--FOLLOW THE GLOBAL LATEST INTRODUCE NOT SUITABLE TO AZURE CHINA-->
+<!--Supported service names are: Microsoft.Storage, Microsoft.Sql, Microsoft.AzureCosmosDB, Microsoft.Web, Microsoft.NetworkServiceEndpointTest, Microsoft.KeyVault, Microsoft.EventHub, Microsoft.ServiceBus, Microsoft.ContainerRegistry, Microsoft.CognitiveServices-->
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>使用 Azure 虚拟网络中的服务终结点限制对容器注册表的访问
 
 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)为 Azure 资源和本地资源提供安全的专用网络。 使用[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)可以保护容器注册表的公共 IP 地址，仅在自己的虚拟网络中对其进行访问。 此终结点为流量提供通过 Azure 主干网络到达资源的最优路径。 虚拟网络和子网的标识也随每个请求进行传输。
@@ -34,6 +35,8 @@ ms.locfileid: "91564261"
 * 不能使用 Azure 门户在注册表上配置服务终结点。
 * 只有 [Azure Kubernetes 服务](../aks/intro-kubernetes.md)群集或 Azure [虚拟机](../virtual-machines/linux/overview.md)可以用作主机，以使用服务终结点访问容器注册表。 其他 Azure 服务（包括 Azure 容器实例）不受支持。
 * 每个注册表最多支持 100 条网络访问规则。
+
+<!--Not Available on Azure China cloud-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,13 +56,11 @@ ms.locfileid: "91564261"
 
 ## <a name="configure-network-access-for-registry"></a>为注册表配置网络访问
 
-在本部分中，将容器注册表配置为允许从 Azure 虚拟网络中的子网进行访问。 我们提供了使用 Azure CLI 和 Azure 门户的等效步骤。
+在本部分中，将容器注册表配置为允许从 Azure 虚拟网络中的子网进行访问。 使用 Azure CLI 提供步骤。
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>允许从虚拟网络进行访问 - CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>将服务终结点添加到子网
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>将服务终结点添加到子网
-
-创建 VM 时，Azure 默认情况下会在同一个资源组中创建虚拟网络。 虚拟网络的名称基于虚拟机的名称。 例如，如果将虚拟机命名为 myDockerVM，则默认虚拟网络名称为 myDockerVMVNET，且子网名为 myDockerVMSubnet。 在 Azure 门户中对此进行验证或使用 [az network vnet list][az-network-vnet-list] 命令验证：
+创建 VM 时，Azure 默认情况下会在同一个资源组中创建虚拟网络。 虚拟网络的名称基于虚拟机的名称。 例如，如果将虚拟机命名为 myDockerVM，则默认虚拟网络名称为 myDockerVMVNET，其中包含名为 myDockerVMSubnet 的子网。 使用 [az network vnet list][az-network-vnet-list] 命令对此进行验证：
 
 ```azurecli
 az network vnet list \
@@ -105,15 +106,15 @@ az network vnet subnet show \
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>更改默认网络对注册表的访问权限
+### <a name="change-default-network-access-to-registry"></a>更改默认网络对注册表的访问权限
 
-默认情况下，Azure 容器注册表允许来自任何网络上的主机的连接。 要将访问权限仅授予所选网络，请将默认操作更改为拒绝访问。 请将以下 [az acr update][az-acr-update] 命令中的占位符替换为你的注册表名称：
+默认情况下，Azure 容器注册表允许来自任何网络上的主机的连接。 要将访问权限仅授予所选网络，请将默认操作更改为拒绝访问。 在以下 [az acr update][az-acr-update] 命令中，替换注册表的名称：
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>向注册表添加网络规则
+### <a name="add-network-rule-to-registry"></a>向注册表添加网络规则
 
 使用 [az acr network-rule add][az-acr-network-rule-add] 命令向注册表添加允许从 VM 子网进行访问的网络规则。 使用以下命令替换容器注册表的名称和子网的资源 ID： 
 
@@ -147,11 +148,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.cn/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>还原默认注册表访问
 
-若要将注册表还原为默认允许访问，请删除配置的所有网络规则。 然后，设置默认操作以允许访问。 我们提供了使用 Azure CLI 和 Azure 门户的等效步骤。
+若要将注册表还原为默认允许访问，请删除配置的所有网络规则。 然后，设置默认操作以允许访问。 
 
-### <a name="restore-default-registry-access---cli"></a>还原默认注册表访问 - CLI
-
-#### <a name="remove-network-rules"></a>删除网络规则
+### <a name="remove-network-rules"></a>删除网络规则
 
 若要查看为注册表配置的网络规则列表，请运行以下 [az acr network-rule list][az-acr-network-rule-list] 命令：
 
@@ -170,7 +169,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>允许访问
+### <a name="allow-access"></a>允许访问
 
 在以下 [az acr update][az-acr-update] 命令中，替换注册表的名称：
 ```azurecli
@@ -179,13 +178,11 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果所有 Azure 资源都是在同一资源组中创建的并且不再需要，你以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令删除资源：
+如果在同一资源组中创建了所有 Azure 资源，并且不再需要这些资源，则可以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令删除资源：
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-若要在门户中清理资源，请导航到 myResourceGroup 资源组。 加载资源组后，单击“删除资源组”以删除该资源组和其中存储的资源。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -198,7 +195,6 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - External -->
 
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://www.azure.cn/support/legal/subscription-agreement/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -211,24 +207,24 @@ az group delete --name myResourceGroup
 <!-- LINKS - Internal -->
 
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
-[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
-[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-show
-[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-list
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
-[az-acr-network-rule-add]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-add
-[az-acr-network-rule-remove]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-remove
-[az-acr-network-rule-list]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-list
-[az-acr-run]: https://docs.azure.cn/cli/acr#az-acr-run
-[az-acr-update]: https://docs.azure.cn/cli/acr#az-acr-update
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show
+[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_list
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-acr-network-rule-add]: https://docs.azure.cn/cli/acr/network-rule/#az_acr_network_rule_add
+[az-acr-network-rule-remove]: https://docs.azure.cn/cli/acr/network-rule/#az_acr_network_rule_remove
+[az-acr-network-rule-list]: https://docs.azure.cn/cli/acr/network-rule/#az_acr_network_rule_list
+[az-acr-run]: https://docs.azure.cn/cli/acr#az_acr_run
+[az-acr-update]: https://docs.azure.cn/cli/acr#az_acr_update
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
 [az-group-create]: https://docs.azure.cn/cli/group
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
-[az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-update
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/#az-network-vnet-list
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-vm-create]: https://docs.azure.cn/cli/vm#az_vm_create
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/#az_network_vnet_subnet_update
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/#az_network_vnet_list
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.cn

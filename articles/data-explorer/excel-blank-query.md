@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/30/2019
 ms.date: 09/24/2020
-ms.openlocfilehash: 1cd623e80a7432720da649a9660449c6e9405bdf
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5cf1d9d7b29617ebf302d895d3fcbc5342f8aebe
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146745"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431201"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>使用导入到 Microsoft Excel 中的 Azure 数据资源管理器 Kusto 查询进行数据可视化
 
@@ -21,7 +21,7 @@ Azure 数据资源管理器提供两个可以在 Excel 中连接到数据的选�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个属于 Azure Active Directory 的组织电子邮件帐户，以便连接到 [Azure 数据资源管理器帮助群集](https://dataexplorer.azure.cn/clusters/help/databases/Samples) 
 <br>或</br>
 * 创建[测试群集和数据库](create-cluster-database-portal.md)并登录到 [Azure 数据资源管理器 Web UI 应用程序](https://dataexplorer.azure.cn/)。

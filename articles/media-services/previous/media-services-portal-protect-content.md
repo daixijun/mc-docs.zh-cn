@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: b487d3551f4e9cee4105c0f8eb34f0dd272c959e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: cdcba877c6a98328ec7ee25edf9fb9d7f918abb6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244885"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432142"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 门户配置内容保护策略
 
@@ -30,7 +30,7 @@ ms.locfileid: "91244885"
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 >
 
  使用 Azure 媒体服务，可以在媒体从离开计算机到存储、处理和传送的整个过程中确保其安全。 可以通过媒体服务传送按高级加密标准 (AES)（使用 128 位加密密钥）动态加密的内容。 也可借助 PlayReady 和/或 Widevine 数字版权管理 (DRM) 以及 Apple FairPlay，将其与通用加密 (CENC) 配合使用。 
@@ -78,7 +78,7 @@ PlayReady 许可证模板设置在 PlayReady 许可证上启用的功能。 有�
 
 
 ## <a name="fairplay-configuration"></a>FairPlay 配置
-若要启用 FairPlay 加密，请选择“FairPlay 配置”  。 然后选择“应用证书”并输入**应用程序机密密钥**。 有关 FairPlay 配置和要求的详细信息，请参阅[使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-FairPlay.md)。
+若要启用 FairPlay 加密，请选择“FairPlay 配置”  。 然后选择“应用证书”并输入 **应用程序机密密钥**。 有关 FairPlay 配置和要求的详细信息，请参阅[使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-FairPlay.md)。
 
 ![FairPlay 配置](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -104,7 +104,7 @@ PlayReady 许可证模板设置在 PlayReady 许可证上启用的功能。 有�
 * **仅将 PlayReady 应用于平滑流式处理、HLS 和 MPEG-DASH** 即可通过 PlayReady DRM 动态加密平滑流式处理、HLS 和 MPEG-DASH 流。
 * **仅将 FairPlay 应用于 HLS** 即可通过 FairPlay 动态加密 HLS 流。
 
-2. 若要启用 FairPlay 加密，请在“内容保护全局设置”边栏选项卡上选择“FairPlay 配置”。   然后选择“应用证书”并输入**应用程序机密密钥**。
+2. 若要启用 FairPlay 加密，请在“内容保护全局设置”边栏选项卡上选择“FairPlay 配置”。   然后选择“应用证书”并输入 **应用程序机密密钥**。
 
     ![加密类型](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 

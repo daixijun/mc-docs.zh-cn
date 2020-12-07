@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 10/30/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: dd7985513a31aa350b7423d006377b8e85271294
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 543bc2cd8aea5b3d2b276809ac94a23517fec138
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680512"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432513"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Synapse Analytics 中
 
@@ -41,7 +41,7 @@ ms.locfileid: "94680512"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/en-us/pricing/1rmb-trial-full/?form-type=identityauth)。
+* Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure Synapse Analytics：此数据仓库保存从 SQL 数据库复制的数据。 如果没有 Azure Synapse Analytics，请参阅[创建 Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md) 中的说明。
 * Azure SQL 数据库：本教程从 Azure SQL 数据库中的 Adventure Works LT 示例数据集中复制数据。 可以按照[在 Azure SQL 数据库中创建示例数据库](../azure-sql/database/single-database-create-quickstart.md)中的说明在 SQL 数据库中创建此示例数据库。
 * Azure 存储帐户：Azure 存储用作大容量复制操作中的暂存 blob。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)中的说明。

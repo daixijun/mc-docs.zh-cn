@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 11/28/2019
 ms.date: 09/24/2020
-ms.openlocfilehash: db8f4a6557697f7cc49b2e87bcad73bcfe7586c1
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 4abcbfdaf691ad631e78ecd97e4bbb7e99d80743
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146384"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431185"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板为 Azure 数据资源管理器创建 IoT 中心数据连接
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [门户](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager 模板](data-connection-iot-hub-resource-manager.md)
@@ -28,7 +28,7 @@ ms.locfileid: "91146384"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建[群集和数据库](create-cluster-database-portal.md)
 * 创建[表和列映射](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
 * 创建[配置了共享访问策略的 IoT 中心](ingest-data-iot-hub.md#create-an-iot-hub)。

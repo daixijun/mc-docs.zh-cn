@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.data: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 0f3410a99557cc2a8633c220a7f6d3896c23a3a9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c43c7558710c642d34270cc837221cba35698e4d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431205"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 创建 Azure 数据资源管理器群集和数据库
 
@@ -31,11 +31,11 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 ## <a name="prerequisites"></a>必备条件
 
 * 如果尚未安装 Visual Studio 2019，可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
-* 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>身份验证
 为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 查看[创建 Azure AD 应用程序](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序，并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>创建 Azure 数据资源管理器群集
@@ -106,8 +106,8 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | clusterName | mykustocluster  | 将在其中创建数据库的群集的名称。|
-   | databaseName | mykustodatabase  | 数据库名称。|
+   | clusterName | mykustocluster | 将在其中创建数据库的群集的名称。|
+   | databaseName | mykustodatabase | 数据库名称。|
    | resourceGroupName | *testrg* | 将在其中创建群集的资源组名称。 |
    | softDeletePeriod | *3650:00:00:00* | 供查询使用的数据的保留时间。 |
    | hotCachePeriod | *3650:00:00:00* | 数据将在缓存中保留的时间。 |

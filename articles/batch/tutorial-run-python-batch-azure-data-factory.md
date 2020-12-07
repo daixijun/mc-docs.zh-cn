@@ -1,21 +1,21 @@
 ---
-title: 通过数据工厂运行 Python 脚本
-description: 教程 - 了解如何使用 Azure Batch 通过 Azure 数据工厂将 Python 脚本作为管道的一部分运行。
-author: rockboyfor
+title: 教程 - 通过数据工厂运行 Python 脚本
+description: 了解如何使用 Azure Batch 通过 Azure 数据工厂将 Python 脚本作为管道的一部分运行。
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 08/12/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 034bdadce267666d5f09943334a2289a71dc5884
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 737d2bce31e92d62a4087dabff2de4d76742332b
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658560"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747229"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>教程：使用 Azure Batch 通过 Azure 数据工厂运行 Python 脚本
@@ -32,12 +32,12 @@ ms.locfileid: "88658560"
 
 以下示例运行一个 Python 脚本，该脚本从 Blob 存储容器接收 CSV 输入，执行数据处理过程，并将输出写入到单独的 Blob 存储容器。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 * 已安装一个 [Python](https://www.python.org/downloads/) 分发版用于本地测试。
-* [Azure](https://pypi.org/project/azure/) `pip` 包。
+* [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) `pip` 包。
 * [iris.csv 数据集](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Azure Batch 帐户和关联的 Azure 存储帐户。 有关如何创建 Batch 帐户并将其链接到存储帐户的详细信息，请参阅[创建 Batch 帐户](quick-create-portal.md#create-a-batch-account)。
 * 一个 Azure 数据工厂帐户。 有关如何通过 Azure 门户创建数据工厂的详细信息，请参阅[创建数据工厂](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory)。
@@ -61,7 +61,7 @@ ms.locfileid: "88658560"
     1. 将规模类型为“固定大小”，将专用节点计数设置为 2。
     1. 在“数据科学”下，选择“Dsvm Windows”作为操作系统。 
     1. 选择 `Standard_f2s_v2` 作为虚拟机大小。
-    1. 启用启动任务，并添加命令 `cmd /c "pip install pandas"`。 用户标识可以保留为默认的“池用户”。
+    1. 启用启动任务，并添加命令 `cmd /c "pip install azure-storage-blob pandas"`。 用户标识可以保留为默认的“池用户”。
     1. 选择“确定”。
 
 ## <a name="create-blob-containers"></a>创建 Blob 容器
@@ -79,18 +79,18 @@ ms.locfileid: "88658560"
 
 ```python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 storageEndpoint    = "core.chinacloudapi.cn"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey,
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                endpoint_suffix=storageEndpoint
                                )
 
@@ -104,10 +104,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-将脚本另存为 `main.py`，然后将其上传到“Azure 存储”容器。 在将其上传到 Blob 容器之前，请务必在本地测试并验证其功能：
+将脚本另存为 `main.py`，然后将其上传到 Azure 存储的 `input` 容器。 在将其上传到 Blob 容器之前，请务必在本地测试并验证其功能：
 
 ``` bash
 python main.py
@@ -159,9 +161,6 @@ python main.py
 若要详细了解 Azure 数据工厂，请参阅：
 
 > [!div class="nextstepaction"]
-> [Azure 数据工厂](../data-factory/introduction.md)
-> [管道和活动](../data-factory/concepts-pipelines-activities.md)
-> [自定义活动](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Azure 数据工厂概述](../data-factory/introduction.md)
 
-<!-- Update_Description: new article about tutorial run python batch azure data factory -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

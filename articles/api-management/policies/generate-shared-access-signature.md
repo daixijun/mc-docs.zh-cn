@@ -1,29 +1,29 @@
 ---
-title: Azure API 管理策略示例 - 生成共享访问签名
+title: API 管理策略示例 - 生成共享访问签名
+titleSuffix: Azure API Management
 description: Azure API 管理策略示例 - 演示如何使用表达式生成共享访问签名并使用 rewrite-uri 策略将请求转发到 Azure 存储。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: 0926d2daaef95e61dec6bd0847bef50de29f8de1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/18/2020
+ms.author: v-johya
+ms.openlocfilehash: a2948b10a6862bd4825a1713c71885474e8bb7d7
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78213717"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306480"
 ---
 # <a name="generate-shared-access-signature"></a>生成共享访问签名
 
-本文介绍 Azure API 管理策略示例，该示例演示如何使用表达式生成[共享访问签名](/storage/common/storage-dotnet-shared-access-signature-part-1)并使用 rewrite-uri 策略将请求转发到 Azure 存储。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-samples.md)。
+本文介绍 Azure API 管理策略示例，该示例演示如何使用表达式生成[共享访问签名](../../storage/common/storage-sas-overview.md)并使用 rewrite-uri 策略将请求转发到 Azure 存储。 若要设置或编辑策略代码，请执行[设置或编辑策略](../set-edit-policies.md)中所述的步骤。 若要查看其他示例，请参阅[策略示例](../policy-reference.md)。
 
 ## <a name="policy"></a>策略
 
@@ -126,5 +126,5 @@ ms.locfileid: "78213717"
 了解有关 APIM 策略的详细信息：
 
 + [转换策略](../api-management-transformation-policies.md)
-+ [策略示例](../policy-samples.md)
++ [策略示例](../policy-reference.md)
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 02/03/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: f1f7889fb30951f49943d3b5b58d9f13fbead684
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 56f4d2fb99704fe778bb5de2070a3dcabf90be95
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146447"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431155"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-c"></a>使用 C# 添加 Azure 数据资源管理器的数据库主体
 
@@ -26,8 +26,8 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果尚未安装 Visual Studio 2019，可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [创建群集和数据库](create-cluster-database-csharp.md)。
 
 ## <a name="install-c-nuget"></a>安装 C# NuGet

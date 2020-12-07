@@ -5,16 +5,16 @@ services: load-balancer
 author: WenJason
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: v-jay
 origin.date: 09/14/2020
-ms.date: 11/16/2020
-ms.openlocfilehash: 51d0e0d3850d3f5078e336ed57f87b0a26f8e700
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.date: 12/07/2020
+ms.openlocfilehash: fc2d7752d9ca35e2bf2b553c2140ab09c2f3aa64
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590503"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746963"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建内部负载均衡器，以对 VM 进行负载均衡
 
@@ -28,7 +28,7 @@ ms.locfileid: "94590503"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -288,14 +288,15 @@ ms.locfileid: "94590503"
 - [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadBalancers)：内部负载均衡器。
 - [**Microsoft.Compute/virtualMachines**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualMachines)：虚拟机。
 
+<!--(https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)-->
 ## <a name="deploy-the-template"></a>部署模板
 
 **Azure CLI**
 
 ```azurecli
 read -p "Enter the location (i.e. chinaeast2): " location
-$resourceGroupName="myResourceGroupLB"
-$templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json" 
+resourceGroupName="myResourceGroupLB"
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -322,7 +323,7 @@ az deployment group create \
 
 如果不再需要上述资源组及其包含的所有资源，可以使用 [az group delete](/cli/group#az-group-delete) 命令将其删除。
 
-```azurecli 
+```azurecli
   az group delete \
     --name myResourceGroupLB
 ```

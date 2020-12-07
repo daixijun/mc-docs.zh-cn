@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6c4bacc448f0d278db2f3d53b316fff726d04285
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 2b8c776be916e4a755bb987dbb61fa0403ff36f6
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564227"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431129"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>教程：跨负载均衡的 IoT 中心预配设备
 
@@ -26,7 +26,7 @@ ms.locfileid: "91564227"
 > * 将设备预配服务分配策略设置为“均匀分发” 
 > * 将新的 IoT 中心链接到设备预配服务
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,10 +46,10 @@ ms.locfileid: "91564227"
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>设置设备预配服务分配策略
 
-分配策略是一项设备预配服务设置，用于确定将设备分配到 IoT 中心的方式。 支持三种分配策略： 
+分配策略是一项设备预配服务设置，用于确定将设备分配到 IoT 中心的方式。 支持三种分配策略： 
 
 1. **最低延迟**：将设备预配到具有最低延迟的 IoT 中心。
-2. **均衡加权分布**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 这是默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
+2. **均衡加权分布**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 这是默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
 3. **通过注册列表进行静态注册**：注册列表中所需 IoT 中心的规范优先于设备预配服务级别的分配策略。
 
 请按照以下步骤设置分配策略：
@@ -73,7 +73,7 @@ ms.locfileid: "91564227"
 > [!div class="checklist"]
 > * 使用 Azure 门户将另一台设备预配到另一个 IoT 中心 
 > * 添加第二台设备的注册列表条目
-> * 将设备预配服务分配策略设置为“均匀分发”****
+> * 将设备预配服务分配策略设置为“均匀分发”
 > * 将新的 IoT 中心链接到设备预配服务
 
 ## <a name="next-steps"></a>后续步骤

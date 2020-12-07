@@ -9,21 +9,25 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 04/29/2020
-ms.date: 09/16/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: 692c806050f316f8d0cf442e65dcff817422fecb
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 4ea74e80162cd25d506eb0e8ee737ac56455e16f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678519"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300941"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>在资源组之间移动 Azure Key Vault
 
 ## <a name="overview"></a>概述
 
 在资源组之间移动密钥保管库是受支持的密钥保管库功能。 在资源组之间移动密钥保管库不会影响密钥保管库防火墙或访问策略配置。 已连接的应用程序和服务主体应该会继续按预期工作。
+
+> [!IMPORTANT]
+> 无法移动用于磁盘加密的密钥保管库。
+> 如果为 VM 使用带磁盘加密的密钥保管库，则在启用磁盘加密时，无法将密钥保管库移动到其他资源组或订阅。 在将密钥保管库移动到新的资源组或订阅之前，必须禁用磁盘加密。 
 
 ## <a name="design-considerations"></a>设计注意事项
 

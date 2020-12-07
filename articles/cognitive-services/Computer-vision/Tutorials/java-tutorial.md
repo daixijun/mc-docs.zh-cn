@@ -1,7 +1,7 @@
 ---
 title: 执行图像操作 - Java
 titlesuffix: Azure Cognitive Services
-description: 介绍一款使用 Azure 认知服务中的计算机视觉 API 的基本 Java Swing 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
+description: 介绍一款使用 Azure 认知服务中的计算机视觉 API 的基本 Java Swing 应用。 执行 OCR、创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,41 +11,41 @@ ms.topic: conceptual
 ms.author: v-junlch
 ms.custom: seodec18
 origin.date: 04/30/2019
-ms.date: 06/06/2019
-ms.openlocfilehash: 52cdea003f688c0205f024301deb7fd3b74ed982
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 12/01/2020
+ms.openlocfilehash: 940880678e7dcf4e248ff3a6dd302b858dd336b4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66830062"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432459"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>通过 REST API 和 Java 使用计算机视觉功能
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>将计算机视觉功能与 REST API 和 Java 一起使用
 
 本教程展示 Azure 认知服务计算机视觉 REST API 的功能。
 
-探讨一个使用计算机视觉 REST API 执行光学字符识别 (OCR)、创建智能裁剪的缩略图，以及在图像中检测、标记和描述视觉特征（包括人脸）并对其分类的 Java Swing 应用程序。 此示例允许提交图像 URL 来分析或处理图像。 可以使用此开源示例作为模板在 Java 中生成自己的应用，以便使用计算机视觉 REST API。
+介绍一款 Java Swing 应用程序，它使用计算机视觉 REST API 执行光学符号识别 (OCR)、创建智能裁剪的缩略图，还检测、分类、标记和描述图像中的人脸等视觉特征。 通过本示例可提交一个图像 URL 进行分析和处理。 你可使用此开源示例作为模板，在 Java 中自行构建使用计算机视觉 REST API 的应用。
 
-本教程介绍如何将计算机视觉用于以下领域：
+本教程将介绍如何使用计算机视觉执行以下操作：
 
 > [!div class="checklist"]
 > * 分析图像
-> * 标识图像中的自然或人工地标
-> * 标识图像中的名人
-> * 根据图像创建高质量缩略图
+> * 识别图像中的自然或人造地标
+> * 识别图像中的名人
+> * 创建图像的质量缩略图
 > * 读取图像中的印刷体文本
 > * 读取图像中的手写文本
 
-Java Swing 形式的应用程序已编写好，但尚无功能。 在本教程中，请添加特定于计算机视觉 REST API 的代码，以便完成应用程序的功能。
+Java Swing 表单应用程序已编写完毕，但不具备功能。 在本教程中，你将添加特定于计算机视觉 REST API 的代码，以补全应用程序的功能。
 
 ## <a name="prerequisites"></a>先决条件
 
 ### <a name="platform-requirements"></a>平台要求
 
-本教程的内容已使用 NetBeans IDE 开发。 具体说来，是  Java SE 版本的 NetBeans，可[在此处下载](https://netbeans.org/downloads/index.html)。
+本教程是采用 NetBeans IDE 开发的。 具体而言，Java SE 版的 NetBeans 可[在此处下载](https://netbeans.org/downloads/index.html)。
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>订阅计算机视觉 API 并获取订阅密钥
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>订阅计算机视觉 API 并获得订阅密钥
 
-创建示例之前，必须先订阅 Azure 认知服务中随附的计算机视觉 API。 有关订阅和密钥管理的详细信息，请参阅[订阅](https://www.azure.cn/pricing/1rmb-trial/)。 主密钥和辅助密钥均适用于本教程。
+创建示例之前，必须先订阅 Azure 认知服务中随附的计算机视觉 API。 有关订阅和密钥管理的详细信息，请参阅[订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 主密钥和辅助密钥均适用于本教程。
 
 ## <a name="acquire-incomplete-tutorial-project"></a>获取不完整的教程项目
 
@@ -53,50 +53,50 @@ Java Swing 形式的应用程序已编写好，但尚无功能。 在本教程�
 
 1. 转到[认知服务 Java 计算机视觉教程](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial)存储库。
 1. 单击“克隆或下载”  按钮。
-1. 单击“下载 ZIP”下载教程项目的  .zip 文件。
+1. 单击“下载 ZIP”，下载教程项目的 .zip 文件。
 
-不需解压缩 .zip 文件的内容，因为 NetBeans 从 .zip 文件导入项目。
+无需提取 .zip 文件的内容，因为 NetBeans 从 .zip 文件导入项目。
 
 ### <a name="import-the-tutorial-project"></a>导入教程项目
 
-将  cognitive-services-java-computer-vision-tutorial-master.zip 文件导入 NetBeans。
+将 cognitive-services-java-computer-vision-tutorial-master.zip 文件导入 NetBeans。
 
-1. 在 NetBeans 中单击“文件”   >   “导入项目” >   “从 ZIP...”。此时会显示“从 ZIP 导入项目”对话框。 
-1. 在“ZIP 文件:”字段中单击“浏览”按钮，找到 cognitive-services-java-computer-vision-tutorial-master.zip 文件，然后单击“打开”。    
-1. 在“从 ZIP 导入项目”对话框中单击“导入”。  
-1. 在“项目”面板中，  展开“ComputerVision”   >   “源包” >  **&lt;&gt;“默认包”** 。 
-   某些版本的 NetBeans 使用  src 而不是“源包”   >  **&lt;&gt;** “默认包”。 在这种情况下，请展开  src。
-1. 双击“MainFrame.java”  将文件加载到 NetBeans 编辑器中。  此时会显示  MainFrame.java 文件的“设计”选项卡。
-1. 单击“源”  选项卡查看 Java 源代码。
+1. 在 NetBeans 中单击“文件” > “导入项目” > “从 ZIP...”。此时会显示“从 ZIP 导入项目”对话框。
+1. 在“ZIP 文件:”字段中，单击“浏览”按钮找到 cognitive-services-java-computer-vision-tutorial-master.zip 文件，然后单击“打开”。
+1. 单击“从 ZIP 导入项目”对话框中的“导入”。
+1. 在“项目”面板中，展开“ComputerVision” > “源包” > &lt;默认包&gt;。 
+   某些版本的 NetBeans 使用 src 而不是“源包” >  **&lt;&gt;** “默认包”。 在这种情况下，展开“src”。
+1. 双击“MainFrame.java”，将文件加载到 NetBeans 编辑器。 随即出现 MainFrame.java 文件的“设计”选项卡。
+1. 单击“源”选项卡查看 Java 源代码。
 
 ### <a name="build-and-run-the-tutorial-project"></a>生成并运行教程项目
 
-1. 按 F6 生成并运行教程应用程序。 
+1. 按 F6 生成并运行教程应用程序。
 
-    在教程应用程序中单击相应的选项卡，打开该功能的窗格。 按钮的方法为空，因此不执行任何操作。
+    在教程应用程序中，单击选项卡以显示该功能的窗格。 按钮的方法为空，因此不执行任何操作。
 
-    窗口底部为字段“订阅密钥”和“订阅区域”。   必须向这些字段填充有效的订阅密钥以及该订阅密钥的正确区域。 
+    窗口底部是字段“订阅密钥”和“订阅区域”。 必须使用有效的订阅密钥和该订阅密钥正确的区域填充这些字段。 
 
 1. 退出教程应用程序。
 
-## <a name="add-tutorial-code-to-the-project"></a>向项目添加教程代码
+## <a name="add-tutorial-code-to-the-project"></a>将教程代码添加到项目
 
-Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算机视觉的不同功能（分析、OCR 等）。 六个教程部分没有相互依赖关系，因此可以添加一个部分、六个部分全部添加，或者添加任意子集。 可以按任意顺序添加部分。
+为 Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算机视觉的不同功能（分析、OCR 等）。 六个教程部分没有相互依赖关系，因此可以添加一个部分、六个部分全部添加，或者添加任意子集。 可以按任意顺序添加部分。
 
 ### <a name="analyze-an-image"></a>分析图像
 
-计算机视觉的分析功能可扫描图像中超过 2,000 个可识别的对象、生物、风景和动作。 分析完成以后，分析功能会返回一个 JSON 对象，用描述性标记、颜色分析、标题等对图像进行描述。
+计算机视觉的分析功能可扫描图像中超过 2,000 个可识别的对象、生物、风景和动作。 分析完成后，分析功能返回一个 JSON 对象，它使用描述性的标签、色彩分析和题注等解说图像。
 
-若要完成教程应用程序的分析功能，请执行以下步骤：
+要完成教程应用程序的分析功能，请执行以下步骤：
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>为分析按钮添加事件处理程序代码
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>为“分析”按钮添加事件处理程序代码
 
- analyzeImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  AnalyzeImage 方法进行图像分析。 当  AnalyzeImage 返回时，该方法会在“响应”文本区域显示格式化的 JSON 响应，  从  JSONObject 提取第一个标题，然后显示该标题，以及该标题正确的置信水平。
+analyzeImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 AnalyzeImage 方法来分析图像。 当 AnalyzeImage 返回时，该方法会在“响应”文本区域中显示格式化的 JSON 响应，从 JSONObject 中提取第一个标题，并显示标题以及标题正确的可信度。
 
-复制以下代码并将其粘贴到  analyzeImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 analyzeImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void analyzeImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,9 +144,9 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- AnalyzeImage 方法包装进行图像分析的 REST API 调用。 该方法返回  JSONObject 对图像进行描述，或者在出错的情况下返回  null。
+AnalyzeImage 方法包装 REST API 调用以分析图像。 该方法返回描述图像的 JSONObject，或者如果出现错误，则返回 null。
 
-复制  AnalyzeImage 方法并将其粘贴到  analyzeImageButtonActionPerformed 方法下方。
+复制 AnalyzeImage 方法并将其粘贴到 analyzeImageButtonActionPerformed 方法的正下方。
 
 ```java
     /**
@@ -205,22 +205,22 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-analyze-function"></a>运行 Analyze 函数
 
-按  F6 运行应用程序。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  输入要分析的图像的 URL，然后单击“分析图像”按钮对图像进行分析并查看结果。 
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 输入图像 URL 进行分析，然后单击“分析图像”按钮以分析图像并查看结果。
 
 ### <a name="recognize-a-landmark"></a>识别地标
 
-计算机视觉的地标功能可以分析图像中是否存在自然的和人工的地标，例如山脉或著名建筑。 分析完以后，地标功能会返回一个 JSON 对象，其中标识了图像中发现的地标。
+计算机视觉的地标功能可分析图像中的自然和人造地标，例如山脉或著名的建筑物。 分析完成后，地标功能返回一个 JSON 对象，它标识在图像中找到的地标。
 
-若要完成教程应用程序的地标功能，请执行以下步骤：
+要完成教程应用程序的地标功能，请执行以下步骤：
 
 #### <a name="add-the-event-handler-code-for-the-form-button"></a>为表单按钮添加事件处理程序代码
 
- landmarkImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  LandmarkImage 方法进行图像分析。 当  LandmarkImage 返回时，该方法会在“响应”文本区域显示格式化的 JSON 响应，  然后从  JSONObject 提取第一个地标名称，并将其连同指示地标已正确标识的置信水平显示在窗口中。
+landmarkImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 LandmarkImage 方法来分析图像。 当 LandmarkImage 返回时，该方法会在“响应”文本区域中显示格式化的 JSON 响应，然后从 JSONObject 中提取第一个地标名称并在窗口中显示该名称以及正确识别地标的可信度。
 
-复制以下代码并将其粘贴到  landmarkImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 landmarkImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void landmarkImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,9 +268,9 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- LandmarkImage 方法包装进行图像分析的 REST API 调用。 该方法返回  JSONObject 对图像中找到的地标进行描述，或者在出错的情况下返回  null。
+LandmarkImage 方法包装 REST API 调用以分析图像。 该方法返回描述图像中找到的地标的 JSONObject，或者如果出现错误，则返回 null。
 
-复制  LandmarkImage 方法并将其粘贴到  landmarkImageButtonActionPerformed 方法下方。
+复制 LandmarkImage 方法并将其粘贴到 landmarkImageButtonActionPerformed 方法的正下方。
 
 ```java
      /**
@@ -329,22 +329,22 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-landmark-function"></a>运行 landmark 函数
 
-按  F6 运行应用程序。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  单击“地标”选项卡，输入地标图像的 URL，然后单击“分析图像”按钮对图像进行分析并查看结果。  
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 单击“地标”选项卡，输入地标图像的 URL，然后单击“分析图像”按钮以分析图像并查看结果。
 
 ### <a name="recognize-celebrities"></a>识别名人
 
-计算机视觉的名人功能分析图像中是否存在名人。 分析完以后，名人功能会返回一个 JSON 对象，其中标识了图像中发现的名人。
+计算机视觉的名人功能可分析图像中的名人。 分析完成后，名人功能返回一个 JSON 对象，它标识在图像中找到的名人。
 
-若要完成教程应用程序的名人功能，请执行以下步骤：
+要完成教程应用程序的名人功能，请执行以下步骤：
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>为名人按钮添加事件处理程序代码
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>为“名人”按钮添加事件处理程序代码
 
- celebritiesImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  CelebritiesImage 方法进行图像分析。 当  CelebritiesImage 返回时，该方法会在“响应”文本区域显示格式化的 JSON 响应，  然后从  JSONObject 提取第一个名人名称，并将该名称连同指示名人已正确标识的置信水平显示在窗口中。
+celebritiesImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 CelebritiesImage 方法来分析图像。 当 CelebritiesImage 返回时，该方法会在“响应”文本区域中显示格式化的 JSON 响应，然后从 JSONObject 中提取第一个名人姓名并在窗口中显示该姓名以及正确识别名人的可信度。
 
-复制以下代码并将其粘贴到  celebritiesImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 celebritiesImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void celebritiesImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,9 +392,9 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- CelebritiesImage 方法包装进行图像分析的 REST API 调用。 该方法返回  JSONObject 对图像中找到的名人进行描述，或者在出错的情况下返回  null。
+CelebritiesImage 方法包装 REST API 调用以分析图像。 该方法返回描述图像中找到的名人的 JSONObject，或者如果出现错误，则返回 null。
 
-复制  CelebritiesImage 方法并将其粘贴到  celebritiesImageButtonActionPerformed 方法下方。
+复制 CelebritiesImage 方法并将其粘贴到 celebritiesImageButtonActionPerformed 方法的正下方。
 
 ```java
      /**
@@ -453,22 +453,22 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-celebrities-function"></a>运行 celebrities 函数
 
-按  F6 运行应用程序。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  单击“名人”选项卡，输入名人图像的 URL，然后单击“分析图像”按钮对图像进行分析并查看结果。  
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 单击“名人”选项卡，输入名人图像的 URL，然后单击“分析图像”按钮以分析图像并查看结果。
 
-### <a name="intelligently-generate-a-thumbnail"></a>以智能方式生成缩略图
+### <a name="intelligently-generate-a-thumbnail"></a>智能生成缩略图
 
-计算机视觉的缩略图功能根据图像生成缩略图。 缩略图功能可以使用智能裁剪功能  来标识图像中的感兴趣区域，使缩略图聚焦在该区域，目的是生成更美的缩略图。
+计算机视觉的缩略图功能可通过图像生成缩略图。 通过使用“智能裁剪”功能，缩略图功能将识别图像中的兴趣区域并集中于此区域创建缩略图，进而生成视觉上更美观的缩略图。
 
-若要完成教程应用程序的缩略图功能，请执行以下步骤：
+要完成教程应用程序的缩略图功能，请执行以下步骤：
 
-#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>为缩略图按钮添加事件处理程序代码
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>为“缩略图”按钮添加事件处理程序代码
 
- thumbnailImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  getThumbnailImage 方法创建缩略图。 当  getThumbnailImage 返回时，该方法显示生成的缩略图。
+thumbnailImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 getThumbnailImage 方法来创建缩略图。 当 getThumbnailImage 返回时，该方法会显示生成的缩略图。
 
-复制以下代码并将其粘贴到  thumbnailImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 thumbnailImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void thumbnailImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,9 +509,9 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- getThumbnailImage 方法包装进行图像分析的 REST API 调用。 该方法返回  BufferedImage，其中包含缩略图，或者在出错的情况下返回 null。  错误消息会返回到  jsonError 字符串数组的第一个元素中。
+getThumbnailImage 方法包装 REST API 调用以分析图像。 该方法返回包含缩略图的 BufferedImage，或者如果出现错误，则返回 null。 在 jsonError 字符串数组的第一个元素中将返回错误消息。
 
-复制以下  getThumbnailImage 方法并将其粘贴到  thumbnailImageButtonActionPerformed 方法下方。
+复制以下 getThumbnailImage 方法，并将其粘贴到 thumbnailImageButtonActionPerformed 方法的正下方。
 
 ```java
      /**
@@ -576,22 +576,22 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-thumbnail-function"></a>运行 thumbnail 函数
 
-按  F6 运行应用程序。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  单击“缩略图”选项卡，输入图像的 URL，然后单击“生成缩略图”按钮对图像进行分析并查看结果。  
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 单击“缩略图”选项卡，输入图像 URL，然后单击“生成缩略图”按钮以分析图像并查看结果。
 
 ### <a name="read-printed-text-ocr"></a>读取印刷体文本 (OCR)
 
-计算机视觉的光学字符识别 (OCR) 功能分析图像中是否有印刷体文本。 分析完以后，OCR 会返回一个 JSON 对象，其中包含图像中的文本和文本位置。
+计算机视觉的光学字符识别 (OCR) 功能可分析图像中的印刷体文本。 分析完成后，OCR 返回一个 JSON 对象，它包含图像中的文本及其位置。
 
-若要完成教程应用程序的 OCR 功能，请执行以下步骤：
+要完成教程应用程序的 OCR 功能，请执行以下步骤：
 
-#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>为 OCR 按钮添加事件处理程序代码
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>为“OCR”按钮添加事件处理程序代码
 
- ocrImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  OcrImage 方法进行图像分析。 当  OcrImage 返回时，该方法会在“响应”文本区域以格式化 JSON 的方式显示检测到的文本。 
+ocrImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 OcrImage 方法来分析图像。 当 OcrImage 返回时，该方法会在“响应”文本区域中以格式化 JSON 的形式显示检测到的文本。
 
-复制以下代码并将其粘贴到  ocrImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 ocrImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void ocrImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -626,9 +626,9 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- OcrImage 方法包装进行图像分析的 REST API 调用。 该方法返回从调用返回的 JSON 数据的  JSONObject，或者在出现错误的情况下返回 null。 
+OcrImage 方法包装 REST API 调用以分析图像。 该方法返回从调用返回的 JSON 数据的 JSONObject，或者如果出现错误，则返回 null。
 
-复制以下  OcrImage 方法并将其粘贴到  ocrImageButtonActionPerformed 方法下方。
+复制以下 OcrImage 方法并将其粘贴到 ocrImageButtonActionPerformed 方法的正下方。
 
 ```java
      /**
@@ -687,22 +687,22 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-ocr-function"></a>运行 OCR 函数
 
-按  F6 运行应用程序。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  单击“OCR”选项卡，输入印刷体文本图像的 URL，然后单击“读取图像”按钮对图像进行分析并查看结果。  
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 单击“OCR”选项卡，输入印刷体文本图像的 URL，然后单击“读取图像”按钮以分析图像并查看结果。
 
-### <a name="read-handwritten-text-handwriting-recognition"></a>读取手写文本（手写识别）
+### <a name="read-handwritten-text-handwriting-recognition"></a>读取手写文本（识别手写体）
 
-计算机视觉的手写识别功能分析图像中是否有手写文本。 分析完以后，手写识别功能会返回一个 JSON 对象，其中包含图像中的文本和文本位置。
+计算机视觉的手写体识别功能可分析图像中的手写文本。 分析完成后，手写体识别功能返回一个 JSON 对象，它包含图像中的文本及其位置。
 
-若要完成教程应用程序的手写识别功能，请执行以下步骤：
+要完成教程应用程序的手写体识别功能，请执行以下步骤：
 
-#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>为手写按钮添加事件处理程序代码
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>为“手写”按钮添加事件处理程序代码
 
- handwritingImageButtonActionPerformed 事件处理程序方法会清除窗体，显示在 URL 中指定的图像，然后调用  HandwritingImage 方法进行图像分析。 当  HandwritingImage 返回时，该方法会在“响应”文本区域以格式化 JSON 的方式显示检测到的文本。 
+handwritingImageButtonActionPerformed 事件处理程序方法将表单清空、显示 URL 中指定的图像，然后调用 HandwritingImage 方法来分析图像。 当 HandwritingImage 返回时，该方法会在“响应”文本区域中以格式化 JSON 的形式显示检测到的文本。
 
-复制以下代码并将其粘贴到  handwritingImageButtonActionPerformed 方法中。
+将以下代码复制粘贴到 handwritingImageButtonActionPerformed 方法。
 
 > [!NOTE]
-> NetBeans 不允许将内容粘贴到方法定义行 (```private void```) 或该方法的右大括号处。 若要复制代码，请复制方法定义和右大括号之间的行，然后将其通过粘贴方式覆盖方法的内容。
+> NetBeans 不允许粘贴到方法定义行 (```private void```) 或该方法的右大括号。 要复制代码，请复制方法定义和右大括号之间的代码行，并将其粘贴到方法的内容中。
 
 ```java
     private void handwritingImageButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -737,11 +737,11 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="add-the-wrapper-for-the-rest-api-call"></a>添加用于 REST API 调用的包装器
 
- HandwritingImage 方法包装两个进行图像分析所需的 REST API 调用。 由于手写识别很耗时，因此使用一个两步过程。 第一个调用提交需处理的图像；第二个调用检索处理完成时检测到的文本。
+HandwritingImage 方法包装分析图像时所需的两个 REST API 调用。 由于手写体识别非常耗时，因此分两步执行。 第一个调用提交图像进行分析；第二个调用检索完成处理时检测到的文本。
 
-检索文本后，  HandwritingImage 方法返回  JSONObject 对文本和文本位置进行说明，或者在出错的情况下返回 null。 
+检索文本后，HandwritingImage 方法返回描述文本和文本位置的 JSONObject，或者如果出现错误，则返回 null。
 
-复制以下  HandwritingImage 方法并将其粘贴到  handwritingImageButtonActionPerformed 方法下方。
+复制以下 HandwritingImage 方法并将其粘贴到 handwritingImageButtonActionPerformed 方法的正下方。
 
 ```java
      /**
@@ -845,11 +845,11 @@ Java Swing 应用程序设置了六个选项卡。 每个选项卡展示计算�
 
 #### <a name="run-the-handwriting-function"></a>运行 handwriting 函数
 
-若要运行应用程序，请按  F6。 将订阅密钥置于“订阅密钥”字段中，  然后在“订阅区域”中验证是否使用了正确的区域。  单击“读取手写文本”选项卡，输入手写文本图像的 URL，然后单击“读取图像”按钮对图像进行分析并查看结果。  
+按 F6 运行应用程序。 在“订阅密钥”字段中填写订阅密钥，并验证确保“订阅区域中”使用的区域正确无误。 单击“读取手写文本”选项卡，输入手写文本图像的 URL，然后单击“读取图像”按钮以分析图像并查看结果。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本指南中，已使用计算机视觉 REST API 和 Java 来测试了许多可用的图像分析功能。 接下来，请参阅参考文档以了解有关所涉及 API 的更多信息。
+在本指南中，你使用了计算机视觉 REST API 和 Java 来测试多种可用的图像分析功能。 接下来，请参阅参考文档以了解有关所涉及 API 的更多信息。
 
 - [计算机视觉 REST API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
 

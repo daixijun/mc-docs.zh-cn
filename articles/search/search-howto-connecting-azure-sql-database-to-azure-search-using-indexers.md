@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 07/12/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 4165c8cbcc420d90b36b8fc5fe0e5b17866f56ec
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 11/27/2020
+ms.openlocfilehash: 30e4d4673a04eddfba34ff4994a235226bb440ea
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020888"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300754"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>使用 Azure 认知搜索索引器连接到 Azure SQL 内容并为其编制索引
 
@@ -27,9 +27,9 @@ ms.locfileid: "90020888"
 
 ## <a name="indexers-and-data-sources"></a>索引器和数据源
 
-**数据源**指定要编制索引的数据、用于访问数据的凭据和有效标识数据更改（新行、修改的行或删除的行）的策略。 它定义为独立的资源，以便可供多个索引器使用。
+**数据源** 指定要编制索引的数据、用于访问数据的凭据和有效标识数据更改（新行、修改的行或删除的行）的策略。 它定义为独立的资源，以便可供多个索引器使用。
 
-**索引器**是将单个数据源连接到目标搜索索引的资源。 可通过以下方式使用索引器：
+**索引器** 是将单个数据源连接到目标搜索索引的资源。 可通过以下方式使用索引器：
 
 * 执行数据的一次性复制以填充索引。
 * 按计划使用数据源中的更改更新索引。
@@ -40,10 +40,10 @@ ms.locfileid: "90020888"
 可使用以下内容设置和配置 Azure SQL 索引器：
 
 * [Azure 门户](https://portal.azure.cn)中的导入数据向导
-* Azure 认知搜索 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure 认知搜索 [.NET SDK](https://docs.microsoft.com/dotnetapi/azure.search.documents.indexes.models.searchindexer)
 * Azure 认知搜索 [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
-在本文中，我们将使用 REST API 创建**索引器**和**数据源**。
+在本文中，我们将使用 REST API 创建 **索引器** 和 **数据源**。
 
 ## <a name="when-to-use-azure-sql-indexer"></a>何时使用 Azure SQL 索引器
 根据与数据相关的多个因素，可能适合也可能不适合使用 Azure SQL 索引器。 如果数据符合以下要求，可以使用 Azure SQL 索引器。
@@ -75,7 +75,8 @@ ms.locfileid: "90020888"
     }
    ```
 
-   可从 [Azure 门户](https://portal.azure.cn)获取连接字符串；请使用 `ADO.NET connection string` 选项。
+   连接字符串可遵循以下格式之一：可从 [Azure 门户](https://portal.azure.cn)获取连接字符串；请使用 `ADO.NET connection string` 选项。
+    1. 不包含以下格式的帐户密钥的托管标识连接字符串：`Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`。
 
 2. 创建目标 Azure 认知搜索索引（如果还没有）。 可以使用[门户](https://portal.azure.cn)或[创建索引 API](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 创建索引。 确保目标索引的架构与源表的架构兼容 - 请参阅 [SQL 和 Azure 认知搜索数据类型之间的映射](#TypeMapping)。
 
@@ -93,7 +94,7 @@ ms.locfileid: "90020888"
     }
    ```
 
-通过此方式创建的索引器不包含计划。 它会在创建后自动运行一次。 可使用**运行索引器**请求随时再次运行：
+通过此方式创建的索引器不包含计划。 它会在创建后自动运行一次。 可使用 **运行索引器** 请求随时再次运行：
 
 ```
     POST https://myservice.search.azure.cn/indexers/myindexer/run?api-version=2020-06-30
@@ -104,7 +105,7 @@ ms.locfileid: "90020888"
 
 可能需要允许 Azure 服务连接到数据库。 有关如何执行该操作的说明，请参阅[从 Azure 连接](../azure-sql/database/firewall-configure.md)。
 
-若要监视索引器状态和执行历史记录（已编制索引的项目数、失败数等），请使用**索引器状态**请求：
+若要监视索引器状态和执行历史记录（已编制索引的项目数、失败数等），请使用 **索引器状态** 请求：
 
 ```
     GET https://myservice.search.azure.cn/indexers/myindexer/status?api-version=2020-06-30
@@ -150,7 +151,7 @@ ms.locfileid: "90020888"
 有关响应的其他信息可在[获取索引器状态](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)中找到
 
 ## <a name="run-indexers-on-a-schedule"></a>按计划运行索引器
-还可以排列索引器，以按计划定期运行。 若要执行此操作，在创建或更新索引器时添加**计划**属性。 下面的示例显示了用于更新索引器的 PUT 请求：
+还可以排列索引器，以按计划定期运行。 若要执行此操作，在创建或更新索引器时添加 **计划** 属性。 下面的示例显示了用于更新索引器的 PUT 请求：
 
 ```
     PUT https://myservice.search.azure.cn/indexers/myindexer?api-version=2020-06-30
@@ -164,7 +165,7 @@ ms.locfileid: "90020888"
     }
 ```
 
-**间隔**参数是必需的。 间隔是指开始两个连续的索引器执行之间的时间。 允许的最小间隔为 5 分钟；最长为一天。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 它的模式为： `P(nD)(T(nH)(nM))`。 示例：`PT15M` 为每隔 15 分钟，`PT2H` 为每隔 2 小时。
+**间隔** 参数是必需的。 间隔是指开始两个连续的索引器执行之间的时间。 允许的最小间隔为 5 分钟；最长为一天。 必须将其格式化为 XSD“dayTimeDuration”值（[ISO 8601 持续时间](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集）。 它的模式为： `P(nD)(T(nH)(nM))`。 示例：`PT15M` 为每隔 15 分钟，`PT2H` 为每隔 2 小时。
 
 若要详细了解如何定义索引器计划，请参阅[如何为 Azure 认知搜索计划索引器](search-howto-schedule-indexers.md)。
 
@@ -175,7 +176,7 @@ ms.locfileid: "90020888"
 Azure 认知搜索使用  “增量索引编制”来避免索引器每次运行时都必须为整个表或视图重新编制索引。 Azure 认知搜索提供了两个更改检测策略来支持增量索引编制。 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL 集成的更改跟踪策略
-如果 SQL 数据库支持[更改跟踪](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)，我们建议使用 **SQL 集成的更改跟踪策略**。 这是最有效的策略。 此外，它允许 Azure 认知搜索标识删除的行，无需向表中添加显式“软删除”列。
+如果 SQL 数据库支持 [更改跟踪](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)，我们建议使用 **SQL 集成的更改跟踪策略**。 这是最有效的策略。 此外，它允许 Azure 认知搜索标识删除的行，无需向表中添加显式“软删除”列。
 
 #### <a name="requirements"></a>要求 
 
@@ -369,7 +370,7 @@ SQL 索引器公开多个配置设置：
 
 是的。 索引器在搜索服务中的一个节点上运行，该节点的资源在编制查询流量索引并进行处理和其他 API 请求之间共享。 如果运行密集型编制索引和查询工作负荷，并频繁遇到 503 错误或响应时间增加，请考虑[纵向扩展搜索服务](search-capacity-planning.md)。
 
-**问：是否可以将[故障转移群集](../azure-sql/database/auto-failover-group-overview.md)中的次要副本用作数据源？**
+**问：是否可以将 [故障转移群集](../azure-sql/database/auto-failover-group-overview.md)中的次要副本用作数据源？**
 
 视情况而定。 对于表或视图的完整索引编制，可以使用辅助副本。 
 

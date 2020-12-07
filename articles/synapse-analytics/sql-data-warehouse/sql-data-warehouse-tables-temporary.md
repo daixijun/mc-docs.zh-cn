@@ -1,6 +1,6 @@
 ---
 title: 临时表
-description: 在 Synapse SQL 池中使用临时表的基本指南，重点介绍会话级临时表的原则。
+description: 在专用 SQL 池中使用临时表的基本指南，重点介绍会话级临时表的原则。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,33 +8,35 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/01/2019
-ms.date: 08/03/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d7a40ff4dc789ecd47b2af0a54784ae4408b7e0f
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 92f311c6c9f9bb2f381ad128bb79d7d83e4e36a4
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426353"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153047"
 ---
-# <a name="temporary-tables-in-synapse-sql-pool"></a>Synapse SQL 池中的临时表
+# <a name="temporary-tables-in-dedicated-sql-pool"></a>专用 SQL 池中的临时表
+
 本文包含使用临时表的基本指导，并重点介绍会话级别临时表的原则。 
 
 使用本文中的信息可以帮助将代码模块化，从而同时提高可重用性和易维护性。
 
 ## <a name="what-are-temporary-tables"></a>什么是临时表？
-临时表在处理数据时非常有用，尤其是在具有暂时性中间结果的转换期间。 在 SQL 池中，临时表存在于会话级别。  
+
+临时表在处理数据时非常有用，尤其是在具有暂时性中间结果的转换期间。 在专用 SQL 池中，临时表存在于会话级别。  
 
 临时表仅对其所创建于的会话可见，并在该会话注销时自动删除。  
 
 临时表可以提高性能，因为其结果将写入到本地而不是远程存储。
 
-临时表在处理数据时非常有用，尤其是在具有暂时性中间结果的转换期间。 使用 SQL 池时，临时表存在于会话级别。  它们仅对其所创建于的会话可见。 因此，会话注销时将自动删除它们。 
+临时表在处理数据时非常有用，尤其是在具有暂时性中间结果的转换期间。 使用专用 SQL 池时，临时表存在于会话级别。  它们仅对其所创建于的会话可见。 因此，会话注销时将自动删除它们。 
 
-## <a name="temporary-tables-in-sql-pool"></a>SQL 池中的临时表
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>专用 SQL 池中的临时表
 
-在 SQL 池资源中，临时表可以提高性能，因为其结果将写入到本地而不是远程存储。
+在专用 SQL 池资源中，临时表可以提高性能，因为其结果将写入到本地而不是远程存储。
 
 ### <a name="create-a-temporary-table"></a>创建临时表
 
@@ -206,7 +208,7 @@ GO
 
 但是，由于存储过程的末尾没有 `DROP TABLE`，当存储过程完成后，它将保留创建的表，以便能够在存储过程之外进行读取。  
 
-在 SQL 池中，与其他 SQL Server 数据库不同的是，可以在创建临时表的过程外部使用该临时表。  可以在会话中的任何位置使用 SQL 池临时表。 此功能可提高代码的模块化程度与易管理性，如以下示例所示：
+与其他 SQL Server 数据库不同，在专用 SQL 池中，可以脱离创建临时表的过程来使用该临时表。  可以在会话中的任何位置使用专用 SQL 池临时表。 此功能可提高代码的模块化程度与易管理性，如以下示例所示：
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -228,11 +230,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>临时表的限制
-SQL 池在实现临时表时确实会施加一些限制。  目前，仅支持会话范围的临时表。  不支持全局临时表。  
+专用 SQL 池在实现临时表时确实会施加一些限制。  目前，仅支持会话范围的临时表。  不支持全局临时表。  
 
 并且，不能基于临时表创建视图。  只能通过哈希或轮循机制分布来创建临时表。  不支持重复的临时表分布。 
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解开发表，请参阅[使用 Synapse SQL 资源设计表](sql-data-warehouse-tables-overview.md)一文。
+若要详细了解如何开发表，请参阅[使用专用 SQL 池设计表](sql-data-warehouse-tables-overview.md)一文。
 

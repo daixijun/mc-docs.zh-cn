@@ -1,6 +1,6 @@
 ---
-title: 从异地备份还原数据仓库
-description: 有关异地还原 SQL 池的指南。
+title: 从异地备份还原专用 SQL 池
+description: 用于在 Azure Synapse Analytics 中异地还原专用 SQL 池的操作指南
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,33 +8,33 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 07/12/2019
-ms.date: 08/10/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 86481ab8b0d39bdd7af2300e3d78d4b40cce5b4a
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 909f6c73e82ad5865a1c050cecc4691b6f9e404b
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917158"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152993"
 ---
-# <a name="geo-restore-for-sql-pool"></a>SQL 池的异地还原
+# <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中异地还原专用 SQL 池
 
-本文介绍了如何通过 Azure 门户和 PowerShell 从异地备份还原 SQL 池。
+本文介绍了如何通过 Azure 门户和 PowerShell 从异地备份还原专用 SQL 池。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**验证 DTU 容量。** 每个 SQL 池都由一个具有默认 DTU 配额的[逻辑 SQL Server](../../azure-sql/database/logical-servers.md)（例如 myserver.database.chinacloudapi.cn）托管。 验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
+**验证 DTU 容量。** 每个专用 SQL 池都由一个具有默认 DTU 配额的[逻辑 SQL Server](../../azure-sql/database/logical-servers.md)（例如 myserver.database.chinacloudapi.cn）托管。 验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>通过 PowerShell 从 Azure 地理区域还原
 
 若要从异地备份还原，请使用 [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 和 [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet。
 
 > [!NOTE]
-> 可以执行到第 2 代的异地还原！ 若要执行此操作，请将一个第 2 代 ServiceObjectiveName（例如 DW1000**c**）指定为可选参数。
+> 可以执行到第 2 代的异地还原！ 若要执行此操作，请将一个第 2 代 ServiceObjectiveName（例如 DW1000 **c**）指定为可选参数。
 >
 
 1. 开始之前，请确保[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
@@ -75,7 +75,7 @@ $GeoRestoredDatabase.status
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>通过 Azure 门户从 Azure 地理区域还原
 
-按下述步骤从异地备份还原 SQL 池：
+按下述步骤从异地备份还原专用 SQL 池：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)帐户。
 2. 单击“+ 创建资源”。
@@ -98,5 +98,5 @@ $GeoRestoredDatabase.status
 
 ## <a name="next-steps"></a>后续步骤
 
-- [还原现有的 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
-- [还原已删除的 SQL 池](sql-data-warehouse-restore-deleted-dw.md)
+- [还原现有专用 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
+- [还原已删除的专用 SQL 池](sql-data-warehouse-restore-deleted-dw.md)

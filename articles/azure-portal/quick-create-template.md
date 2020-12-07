@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 06/15/2020
 ms.date: 08/27/2020
-ms.openlocfilehash: 3b76dc5ca2e5a8f5fbc8b7f6e18074fdf0b033a7
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: f358fa4f306e725cd6cb50ede79f5476938ccaa5
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947573"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430821"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure 门户中创建仪表板
 
@@ -27,7 +27,7 @@ Azure 门户中的仪表板可以集中且有组织地呈现你的云资源。 �
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 现有 VM。
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机

@@ -8,24 +8,24 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 origin.date: 8/30/2020
-ms.date: 10/30/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: e047be651d2bea605fae2cbe38215d4e4e9cbd8a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 306a3a6ace47e236dbe5ac520ed3856e4fc6445d
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106142"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300189"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>使用 Azure 基于角色的访问控制提供对 Key Vault 密钥、证书和机密的访问权限（预览）
 
-Azure 基于角色的访问控制 (Azure RBAC) 是在 [Azure 资源管理器](https://docs.azure.cn/azure-resource-manager/resource-group-overview)基础上构建的授权系统，针对 Azure 资源提供精细的访问权限管理。
+Azure 基于角色的访问控制 (Azure RBAC) 是在 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)基础上构建的授权系统，针对 Azure 资源提供精细的访问权限管理。
 
 Azure RBAC 允许用户管理密钥、机密和证书权限。 它提供了一个可跨所有密钥保管库管理所有权限的位置。 
 
 Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组、订阅、资源组或单个资源。  用于密钥保管库的 Azure RBAC 还提供了对单个密钥、机密和证书设定单独权限的功能
 
-有关详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](https://docs.azure.cn/role-based-access-control/overview)。
+有关详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>单个密钥、机密和证书的最佳做法
 
@@ -35,7 +35,7 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 
 -   需要在层之间分离访问控制的多层应用程序
 
--   包含公共机密的共享密钥保管库（当应用程序需要访问该密钥保管库中的机密子集时）
+-   在多个应用程序之间共享单个机密
 
 有关 Azure Key Vault 管理指南的详细信息，请参阅：
 
@@ -43,6 +43,8 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 - [Azure Key Vault 服务限制](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>用于 Key Vault 数据平面操作的 Azure 内置角色（预览版）
+> [!NOTE]
+> `Key Vault Contributor` 角色负责管理平面操作，可管理密钥保管库。 它不允许访问密钥、机密和证书。
 
 | 内置角色 | 说明 | ID |
 | --- | --- | --- |
@@ -55,11 +57,18 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 | Key Vault 机密管理人员(预览版)| 对密钥保管库的机密执行任何操作（管理权限除外）。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault 机密用户(预览版)| 读取机密内容。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-有关 Azure 内置角色定义的详细信息，请参阅 [Azure 内置角色](https://docs.azure.cn/role-based-access-control/built-in-roles)。
+有关 Azure 内置角色定义的详细信息，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>对密钥保管库使用 Azure RBAC 机密、密钥和证书权限
 
 用于密钥保管库的新 Azure RBAC 权限模型提供了保管库访问策略权限模型的替代方案。 
+
+### <a name="prerequisites"></a>先决条件
+
+若要添加角色分配，必须具有：
+
+- 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+- `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](../../role-based-access-control/built-in-roles.md#user-access-administrator)或[所有者](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>对密钥保管库启用 Azure RBAC 权限
 
@@ -68,11 +77,11 @@ Azure RBAC 模型提供了在不同范围级别设置权限的功能：管理组
 
 1.  对新密钥保管库启用 Azure RBAC 权限：
 
-    ![启用 RBAC 权限 - 新建保管库](../media/rbac/image-1.png)
+    ![启用 Azure RBAC 权限 - 新建保管库](../media/rbac/image-1.png)
 
 2.  对现有密钥保管库启用 Azure RBAC 权限：
 
-    ![启用 RBAC 权限 - 现有保管库](../media/rbac/image-2.png)
+    ![启用 Azure RBAC 权限 - 现有保管库](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>分配角色
 
@@ -205,7 +214,7 @@ az role definition create --role-definition '{ \
 
 有关如何创建自定义角色的详细信息，请参阅：
 
-[Azure 自定义角色](https://docs.azure.cn/role-based-access-control/custom-roles)
+[Azure 自定义角色](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>已知的限制和性能
 
@@ -215,6 +224,6 @@ az role definition create --role-definition '{ \
 
 ## <a name="learn-more"></a>了解更多
 
-- [Azure RBAC 概述](https://docs.azure.cn/role-based-access-control/overview)
+- [Azure RBAC 概述](../../role-based-access-control/overview.md)
 
-<!-- - [Custom Roles Tutorial](https://docs.azure.cn/role-based-access-control/tutorial-custom-role-cli) -->
+<!-- - [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md) -->

@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 11/09/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 78456e12a098f1f1dfabe95c2ea9f28c29bd71f8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a1173b713e867117a8a8783643867a487179eeb3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328425"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431818"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>教程：将数据迁移到 Azure Cosmos DB 中的 Cassandra API 帐户
@@ -31,7 +31,7 @@ ms.locfileid: "94328425"
 > * 使用 cqlsh COPY 命令迁移数据
 > * 使用 Spark 迁移数据
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites-for-migration"></a>迁移的先决条件
 

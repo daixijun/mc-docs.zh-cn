@@ -1,18 +1,18 @@
 ---
-title: Azure Functions 错误处理指南
-description: 了解如何处理 Azure Functions 中的错误，并提供指向特定绑定错误的链接。
+title: Azure Functions 错误处理和重试指南
+description: 通过指向特定绑定错误的链接，了解如何处理 Azure Functions 中的错误并在其中重试事件。
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 11/18/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0e58941424fde5044d36e51fbcc8a46c9cf10257
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 9af2c742eecdc657db0b4b14605362421bb57e78
+ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472017"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "95970746"
 ---
-# <a name="azure-functions-error-handling"></a>Azure Functions 错误处理
+# <a name="azure-functions-error-handling-and-retries"></a>Azure Functions 错误处理和重试
 
 处理 Azure Functions 中的错误对于避免丢失数据、错过事件以及监视应用程序的运行状况非常重要。
 
@@ -20,7 +20,7 @@ ms.locfileid: "92472017"
 
 ## <a name="handling-errors"></a>处理错误
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>绑定错误代码
 

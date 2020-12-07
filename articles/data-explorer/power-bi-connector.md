@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/10/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 89c7d59e5b6a4a6d38f0507b46a46e7dcfd71484
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0b5ca3b126ec5c2b53f77603a933ce7e6afa9327
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106089"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430847"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 
@@ -23,7 +23,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 若要完成本文，需要满足以下条件：
 
-* 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个属于 Azure Active Directory 成员的组织电子邮件帐户，以便连接到 [Azure 数据资源管理器帮助群集](https://dataexplorer.azure.cn/clusters/help/databases/samples)。
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/)（选择“免费下载”  ）
 
@@ -87,7 +87,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
     ![将 DamageCrops 按降序排序](media/power-bi-connector/sort-descending.png)
 
-1. 在“主页”选项卡中，选择“保留行”，然后选择“保留最前面几行”。    输入值 *1000* ，引入已存储表的前面 1000 行。
+1. 在“主页”选项卡中，选择“保留行”，然后选择“保留最前面几行”。    输入值 *1000*，引入已存储表的前面 1000 行。
 
     ![保留最前面几行](media/power-bi-connector/keep-top-rows.png)
 

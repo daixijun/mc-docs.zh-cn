@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/05/2020
 ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 619df939f37dd31d102ea73b64a26df4a7be08f9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 313e3f529e4fb3c792eee5e0d4b931b7de2e14c2
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977817"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431007"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教程：创建和管理策略以强制实施符合性
 
@@ -26,7 +26,7 @@ ms.locfileid: "94977817"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="assign-a-policy"></a>分配策略
 

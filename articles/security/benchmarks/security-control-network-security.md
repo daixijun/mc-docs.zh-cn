@@ -1,19 +1,19 @@
 ---
 title: Azure 安全控制 - 网络安全
 description: Azure 安全控制 - 网络安全
-author: msmbaldwin
+author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: v-tawe
+ms.date: 12/03/2020
+ms.author: v-johya
 ms.custom: security-benchmark
 origin.date: 12/30/2019
-ms.openlocfilehash: 9252c63aa0e5b451cbde24c86f1138ad3dec74b1
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 2cafc9cbefac744cb0e096c0e4a00b80c8caf3ea
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200084"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747121"
 ---
 # <a name="security-control-network-security"></a>安全控制：网络安全
 
@@ -29,15 +29,13 @@ ms.locfileid: "84200084"
 
 或者，如果你有特定用例，则可以通过实施 Azure 防火墙来满足要求。
 
-- [了解虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)
+- [了解虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-<!--Private Link is not available -->
+- [如何创建虚拟网络](../../virtual-network/quick-create-portal.md)
 
-- [如何创建虚拟网络](https://docs.azure.cn/virtual-network/quick-create-portal)
+- [如何创建采用安全配置的 NSG](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [如何创建采用安全配置的 NSG](https://docs.azure.cn/virtual-network/tutorial-filter-network-traffic)
-
-- [如何部署和配置 Azure 防火墙](https://docs.azure.cn/firewall/tutorial-firewall-deploy-portal)
+- [如何部署和配置 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2：监视和记录虚拟网络、子网和 NIC 的配置与流量
 
@@ -47,11 +45,11 @@ ms.locfileid: "84200084"
 
 使用 Azure 安全中心并遵循网络保护建议来帮助保护 Azure 中的网络资源。 启用 NSG 流日志，并将日志发送到存储帐户以进行流量审核。 还可以将 NSG 流日志发送到 Log Analytics 工作区，并使用流量分析来提供有关 Azure 云中流量流的见解。 流量分析的优势包括能够可视化网络活动、识别热点、识别安全威胁、了解流量流模式，以及查明网络不当配置。
 
-- [如何启用 NSG 流日志](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [如何启用 NSG 流日志](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [如何启用和使用流量分析](https://docs.azure.cn/network-watcher/traffic-analytics)
+- [如何启用和使用流量分析](../../network-watcher/traffic-analytics.md)
 
-- [了解 Azure 安全中心提供的网络安全](https://docs.azure.cn/security-center/security-center-network-recommendations)
+- [了解 Azure 安全中心提供的网络安全](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1.3：保护关键 Web 应用程序
 
@@ -60,8 +58,6 @@ ms.locfileid: "84200084"
 | 1.3 | 9.5 | 客户 |
 
 在关键 Web 应用程序前部署 Azure Web 应用程序防火墙 (WAF)，以对传入的流量进行额外的检查。 启用 WAF 的诊断设置，并将日志引入存储帐户、事件中心或 Log Analytics 工作区。
-
-- [如何部署 Azure WAF](https://docs.azure.cn/web-application-firewall/ag/create-waf-policy-ag)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4：拒绝与已知恶意的 IP 地址进行通信
 
@@ -76,15 +72,11 @@ ms.locfileid: "84200084"
 
 使用 Azure 安全中心自适应网络强化，推荐基于实际流量和威胁情报限制端口和源 IP 的 NSG 配置。
 
-<!-- DDoS not available -->
+- [如何部署 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [如何部署 Azure 防火墙](https://docs.azure.cn/firewall/tutorial-firewall-deploy-portal)
+- [了解 Azure 安全中心集成的威胁情报](../../security-center/azure-defender.md)
 
-- [了解 Azure 安全中心集成的威胁情报](https://docs.azure.cn/security-center/security-center-alerts-service-layer)
-
-- [了解 Azure 安全中心自适应网络强化](https://docs.azure.cn/security-center/security-center-adaptive-network-hardening)
-
-- [了解 Azure 安全中心实时网络访问控制](https://docs.azure.cn/security-center/security-center-just-in-time)
+- [了解 Azure 安全中心实时网络访问控制](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1.5：记录网络数据包
 
@@ -94,7 +86,7 @@ ms.locfileid: "84200084"
 
 启用网络观察程序数据包捕获来调查异常活动。
 
-- [如何启用网络观察程序](https://docs.azure.cn/network-watcher/network-watcher-create)
+- [如何启用网络观察程序](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6：部署基于网络的入侵检测/入侵防护系统 (IDS/IPS)
 
@@ -102,15 +94,15 @@ ms.locfileid: "84200084"
 |--|--|--|
 | 1.6 | 12.6、12.7 | 客户 |
 
-从 Azure 市场中选择一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能。  如果不需要基于有效负载检查的入侵检测和/或防护，则可以使用包含威胁情报功能的 Azure 防火墙。 使用基于 Azure 防火墙威胁情报的筛选，能发出警报并拒传入和传出已知恶意 IP 地址和域的流量。 IP 地址和域源自 Microsoft 威胁智能源。
+从 Azure 市场中选择一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能。  如果不需要基于有效负载检查的入侵检测和/或防护，则可以使用包含威胁情报功能的 Azure 防火墙。 基于 Azure 防火墙威胁情报的筛选功能可以发出警报，并拒绝传入和传出已知恶意 IP 地址和域的流量。 IP 地址和域源自 Microsoft 威胁智能源。
 
 在组织的每个网络边界上部署所选的防火墙解决方案，以检测和/或拒绝恶意流量。
 
 - [Azure 市场](https://market.azure.cn/marketplace/?term=Firewall)
 
-- [如何部署 Azure 防火墙](https://docs.azure.cn/firewall/tutorial-firewall-deploy-portal)
+- [如何部署 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [如何配置 Azure 防火墙警报](https://docs.azure.cn/firewall/threat-intel)
+- [如何配置 Azure 防火墙警报](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1.7：管理发往 Web 应用程序的流量
 
@@ -120,11 +112,11 @@ ms.locfileid: "84200084"
 
 为 Web 应用程序部署 Azure 应用程序网关，并为受信任的证书启用 HTTPS/TLS。
 
-- [如何部署应用程序网关](https://docs.azure.cn/application-gateway/quick-create-portal)
+- [如何部署应用程序网关](../../application-gateway/quick-create-portal.md)
 
-- [如何将应用程序网关配置为使用 HTTPS](https://docs.azure.cn/application-gateway/create-ssl-portal)
+- [如何将应用程序网关配置为使用 HTTPS](../../application-gateway/create-ssl-portal.md)
 
-- [了解 Azure Web 应用程序网关的第七层负载均衡](https://docs.azure.cn/application-gateway/overview)
+- [了解 Azure Web 应用程序网关的第七层负载均衡](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8：最大程度地降低网络安全规则的复杂性和管理开销
 
@@ -136,9 +128,9 @@ ms.locfileid: "84200084"
 
 还可使用应用程序安全组来帮助简化复杂的安全配置。 使用应用程序安全组可将网络安全性配置为应用程序结构的固有扩展，从而可以基于这些组将虚拟机分组以及定义网络安全策略。
 
-- [了解并使用服务标记](https://docs.azure.cn/virtual-network/service-tags-overview)
+- [了解并使用服务标记](../../virtual-network/service-tags-overview.md)
 
-- [了解并使用应用程序安全组](https://docs.azure.cn/virtual-network/security-overview#application-security-groups)
+- [了解并使用应用程序安全组](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9：维护网络设备的标准安全配置
 
@@ -148,11 +140,11 @@ ms.locfileid: "84200084"
 
 使用 Azure Policy 为网络资源定义并实施标准安全配置。
 
-还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、RBAC 控制措施和策略），来简化大规模的 Azure 部署。 可将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
+还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure RBAC 控制措施和策略），来简化大规模的 Azure 部署。 可将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
 
-- [如何配置和管理 Azure Policy](https://docs.azure.cn/governance/policy/tutorials/create-and-manage)
+- [如何配置和管理 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [用于网络的 Azure Policy 示例](https://docs.azure.cn/governance/policy/samples/#network)
+- [用于网络的 Azure Policy 示例](../../governance/policy/samples/built-in-policies.md#network)
 
 <!-- not available -->
 
@@ -168,11 +160,11 @@ ms.locfileid: "84200084"
 
 可以使用 Azure PowerShell 或 Azure CLI 根据资源的标记查找资源或对其执行操作。
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../../azure-resource-manager/management/tag-resources.md)
 
-- [如何创建虚拟网络](https://docs.azure.cn/virtual-network/quick-create-portal)
+- [如何创建虚拟网络](../../virtual-network/quick-create-portal.md)
 
-- [如何创建采用安全配置的 NSG](https://docs.azure.cn/virtual-network/tutorial-filter-network-traffic)
+- [如何创建采用安全配置的 NSG](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11：使用自动化工具来监视网络资源配置和检测更改
 
@@ -182,10 +174,11 @@ ms.locfileid: "84200084"
 
 使用 Azure 活动日志监视网络资源配置，并检测 Azure 资源的更改。 在 Azure Monitor 中创建当关键资源发生更改时触发的警报。
 
-- [如何查看和检索 Azure 活动日志事件](https://docs.azure.cn/azure-monitor/platform/activity-log-view)
+- [如何查看和检索 Azure 活动日志事件](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [如何在 Azure Monitor 中创建警报](https://docs.azure.cn/azure-monitor/platform/alerts-activity-log)
+- [如何在 Azure Monitor 中创建警报](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>后续步骤
 
 - 请参阅下一个安全控制：[日志记录和监视](security-control-logging-monitoring.md)
+

@@ -8,12 +8,12 @@ ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 16d3c0f239c67793a71380222d2297bb612f4813
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ec941b50edfc8b7a36904f0e448c93bca44f7265
+ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977428"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96190274"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -418,10 +418,8 @@ Site Recovery 现在支持将常规用途 v2 存储帐户用于缓存存储或�
 
 **功能** | **详细信息**
 --- | ---
-**Linux 支持** | 添加了对 Ubuntu、Debian 和 SUSE 新内核版本的支持。
+**Linux 支持** | 添加了对 RedHat 工作站 6/7 以及适用于 Ubuntu、Debian 和 SUSE 的新内核版本的支持。
 **存储空间直通** | Site Recovery 支持使用存储空间直通 (S2D) 的 Azure VM。
-
-<!--Not Available on RedHat Workstation 6/7-->
 
 ### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>VMware VM/物理服务器灾难恢复
 
@@ -429,9 +427,7 @@ Site Recovery 现在支持将常规用途 v2 存储帐户用于缓存存储或�
 
 **功能** | **详细信息**
 --- | ---
-**Linux 支持** | 添加了对 Ubuntu、Debian 和 SUSE 新内核版本的支持。
-
-<!--Not Available on Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6-->
+**Linux 支持** | 添加了对 RedHat Enterprise Linux 7.6、RedHat 工作站 6/7、Oracle Linux 6.10 和 Oracle Linux 7.6 以及适用于 Ubuntu、Debian 和 SUSE 的新内核版本的支持。
 
 ### <a name="update-rollup-31"></a>更新汇总 31
 
@@ -536,22 +532,19 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 
 **功能** | **详细信息**
 --- | ---
-**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/>
+**Linux 支持** | 添加了对 RedHat Enterprise Linux 6.10、CentOS 6.10 的支持。<br/><br/>
 **跨订阅灾难恢复** | 支持将一个区域中的 Azure VM 复制到同一 Azure Active Directory 租户中不同订阅内的另一个区域。 [了解详细信息](https://aka.ms/cross-sub-blog)。
 
 <!--Not Available on **Cloud support** | Supported disaster recovery for Azure VMs in the Germany cloud.-->
-<!--Not Available on RedHat Enterprise Linux 6.10;-->
 
 ### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/物理服务器灾难恢复
 下表中总结了本月添加的功能。
 
 **功能** | **详细信息**
 --- | ---
-**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/> 现在支持基于 Linux 且在旧式 BIOS 兼容模式下使用 GUID 分区表 (GPT) 分区样式的 VM。 有关详细信息，请查看 [Azure VM 常见问题解答](../virtual-machines/faq-for-disks.md)。 
+**Linux 支持** | 添加了对 RedHat Enterprise Linux 6.10、CentOS 6.10 的支持。<br/><br/> 现在支持基于 Linux 且在旧式 BIOS 兼容模式下使用 GUID 分区表 (GPT) 分区样式的 VM。 有关详细信息，请查看 [Azure VM 常见问题解答](../virtual-machines/faq-for-disks.md)。
 **迁移后的 VM 灾难恢复** | 支持将已迁移到 Azure 的本地 VMware VM 灾难恢复到次要区域，启用复制之前无需在 VM 上卸载移动服务。
 **Windows Server 2008** | 支持迁移运行 Windows Server 2008 R2/2008 64 位和 32 位的计算机。<br/><br/> 仅限迁移（复制和故障转移）。 不支持故障回复。
-
-<!--Not Available on RedHat Enterprise Linux 6.10,-->
 
 ## <a name="updates-july-2018"></a>更新（2018 年 7 月）
 

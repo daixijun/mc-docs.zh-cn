@@ -5,12 +5,12 @@ origin.date: 10/20/2020
 ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: tutorial
-ms.openlocfilehash: cfe0e17496a2f79fb0dab32e55b7b40165637b8a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f213ebaeb6d9d466cd7459a87826289bc829e9bb
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329389"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431105"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>教程：通过 GitHub 实现 Azure Policy as Code
 
@@ -25,7 +25,7 @@ ms.locfileid: "94329389"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 查看[设计 Azure Policy as Code 工作流](../concepts/policy-as-code.md)，以了解本教程中使用的设计模式。
 
 ### <a name="export-azure-policy-objects-from-the-azure-portal"></a>从 Azure 门户导出 Azure Policy 对象
@@ -42,10 +42,10 @@ ms.locfileid: "94329389"
 
 1. 在“基本信息”选项卡上，设置以下选项，然后选择“策略”选项卡或页面底部的“下一步:  策略”按钮。
 
-   - **存储库筛选器** ：设置为“我的存储库”以仅查看自己拥有的存储库，或设置为“所有存储库”以查看为 GitHub 操作授予了访问权限的所有存储库 。
-   - **存储库** ：设置为要将 Azure Policy 资源导出到的存储库。
-   - **分支** ：在存储库中设置分支。 在将更新进一步合并到源代码中之前，非常适合使用非默认分支来验证更新。
-   - **目录** ：要将 Azure Policy 资源导出到的根级别文件夹。 此目录下的子文件夹基于导出的资源而创建。
+   - **存储库筛选器**：设置为“我的存储库”以仅查看自己拥有的存储库，或设置为“所有存储库”以查看为 GitHub 操作授予了访问权限的所有存储库 。
+   - **存储库**：设置为要将 Azure Policy 资源导出到的存储库。
+   - **分支**：在存储库中设置分支。 在将更新进一步合并到源代码中之前，非常适合使用非默认分支来验证更新。
+   - **目录**：要将 Azure Policy 资源导出到的根级别文件夹。 此目录下的子文件夹基于导出的资源而创建。
 
 1. 在“策略”选项卡上，选择省略号，然后选择管理组、订阅或资源组的组合，以设置搜索范围。
    

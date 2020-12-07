@@ -9,12 +9,12 @@ author: rockboyfor
 ms.date: 11/09/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 2a3ea926ec570570a728d7df1b1bf13f7d1595c1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0ca1372e49f6e36a17e624477877fe1701ea6157
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328110"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431830"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>教程：将示例数据加载到 Azure Cosmos DB 中的 Cassandra API 表
@@ -28,7 +28,7 @@ ms.locfileid: "94328110"
 > * 将数据加载到 Cassandra 表
 > * 运行应用程序
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

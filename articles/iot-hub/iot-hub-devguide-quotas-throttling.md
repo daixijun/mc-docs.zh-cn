@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/08/2019
 ms.author: v-yiso
 ms.date: 04/06/2020
-ms.openlocfilehash: ed197bd923af488927791ee5dceca1266e12ec2e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: b4fc1a280f13cdd69592d37fde54b638de67ae3f
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327327"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300806"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -58,7 +58,7 @@ IoT 即插即用设备会为每个接口（包括根）发送至少一条遥测�
 | 最大并发连接设备流数<sup>1</sup> | 50 | 50 | 50 |
 | 最大设备流数据传输<sup>1</sup>（每日聚合量） | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>此功能在 IoT 中心的基本层内不可用。 有关详细信息，请参阅[如何选择正确的 IoT 中心](iot-hub-scaling.md)。 <br/><sup>2</sup>限制计量大小为 4 KB。
+<sup>1</sup>此功能在 IoT 中心的基本层内不可用。 有关详细信息，请参阅[如何选择正确的 IoT 中心](iot-hub-scaling.md)。 <br/><sup>2</sup>限制计量大小为 4 KB。 限制仅基于请求有效负载大小。
 
 ### <a name="throttling-details"></a>限制详细信息
 
@@ -68,7 +68,7 @@ IoT 即插即用设备会为每个接口（包括根）发送至少一条遥测�
 
    最后，如果有效负载为 156 KB 到 160 KB，则在中心只能每个单位每秒进行 1 次调用，然后就会达到 160 KB/秒/单位的限制。
 
-*  就 S2 层级的作业设备操作（更新孪生、调用直接方法）来说，  50/秒/单位仅适用于使用作业来调用方法的情况。 如果直接调用直接方法，则适用原始的 24 MB/秒/单位（针对 S2）限制。
+*  就 S3 层级的作业设备操作（更新孪生、调用直接方法）来说，50/秒/单位仅适用于使用作业来调用方法的情况。 如果直接调用直接方法，则适用原始的 24 MB/秒/单位（针对 S3）限制。
 
 *  **配额** 是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](https://www.azure.cn/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。
 

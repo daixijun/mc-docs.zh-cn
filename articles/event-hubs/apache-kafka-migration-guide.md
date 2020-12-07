@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: v-tawe
 origin.date: 06/23/2020
 ms.date: 11/04/2020
-ms.openlocfilehash: 6549a9883f60c86b322652efdb5c7fd0d27330c3
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: b85dc2c4c84ff9ce054f42404fe5ba0da19c1487
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375673"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430870"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>迁移到用于 Apache Kafka 的 Azure 事件中心生态系统
 Azure 事件中心公开了一个 Apache Kafka 终结点，使你能够使用 Kafka 协议连接到事件中心。 对现有 Kafka 应用程序稍作更改即可连接到 Azure 事件中心并充分利用 Azure 生态系统的优势。 事件中心可与许多现有 Kafka 应用程序（包括 MirrorMaker）配合使用。 有关详细信息，请参阅[适用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)
@@ -18,7 +18,7 @@ Azure 事件中心公开了一个 Apache Kafka 终结点，使你能够使用 Ka
 ## <a name="pre-migration"></a>预迁移 
 
 ### <a name="create-an-azure-account"></a>创建 Azure 帐户
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
 按照[创建事件中心](event-hubs-create.md)一文中的分步说明创建事件中心命名空间和事件中心。 

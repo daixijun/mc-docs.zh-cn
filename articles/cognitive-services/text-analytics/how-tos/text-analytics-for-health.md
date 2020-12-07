@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: eb061de43a71244140102b7ccf07587a7fe2a760
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ea391c46de36d838a7ca07ae2988a81122da00da
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105630"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306440"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>如何：使用健康状况文本分析（预览）
 
@@ -121,7 +121,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 还可以使用 Azure 容器实例 (ACI) 更轻松地部署。 ACI 资源允许在托管的无服务器 Azure 环境中按需运行 Docker 容器。 
 
 有关使用 Azure 门户部署 ACI 资源的步骤，请参阅[如何使用 Azure 容器实例](text-analytics-how-to-use-container-instances.md)。 还可以通过 Azure CLI 使用以下 PowerShell 脚本，这将使用容器映像在订阅上创建 ACI。  等待脚本完成（大约 25-30 分钟），然后提交第一个请求。  由于每个 ACI 资源的最大 CPU 数的限制，如果你希望每个请求提交 5 个以上的大型文档（每个文档大约 5000 个字符），请不要选择此选项。
-请参阅 [ACI 区域支持](/container-instances/container-instances-region-availability)文章，获取可用性信息。 
+请参阅 [ACI 区域支持](../../../container-instances/container-instances-region-availability.md)文章，获取可用性信息。 
 
 > [!NOTE] 
 > Azure 容器实例不包括对内置域的 HTTPS 支持。 如果需要 HTTPS，则需要手动配置它，包括创建证书和注册域。 可以通过下面的 NGINX 查找有关如何执行此操作的说明。
@@ -224,7 +224,11 @@ docker-compose up
 
 
 ## <a name="example-api-request"></a>示例 API 请求
-该容器提供基于 REST 的查询预测终结点 API。
+该容器提供基于 REST 的查询预测终结点 API。  我们还在容器中提供了一个可视化工具，通过将演示追加到容器的终结点，可以访问该工具，例如：
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 使用下面的示例 cURL 请求将查询提交到已部署的容器，并使用适当的值替换 `serverURL` 变量。
 

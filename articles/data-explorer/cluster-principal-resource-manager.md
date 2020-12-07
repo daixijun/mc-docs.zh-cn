@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 02/03/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: cf32d8ba97acc95fc746cbfd3611d416a64ab143
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5d11b90fa9dc1e58cff07f142922f59a228d51d5
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146767"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431157"
 ---
 # <a name="add-cluster-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板向 Azure 数据资源管理器添加群集主体
 
@@ -26,7 +26,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [创建群集](create-cluster-database-portal.md)。
 
 ## <a name="azure-resource-manager-template-for-adding-a-cluster-principal"></a>用于添加群集主体的 Azure 资源管理器模板

@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 06/17/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 34932a29185085de31ac5bf17a206c6dd20986c9
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a12ac4a093eb6eb5f6a0eabbc44451f0164bc918
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300293"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431208"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>在 Key Vault 中创建和合并 CSR
 
@@ -24,7 +24,7 @@ Azure Key Vault 支持将你选择的任何证书颁发机构颁发的数字证�
 
 若要详细了解证书的常规信息，请参阅 [Azure Key Vault 证书](./about-certificates.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>在 Key Vault 中添加不受信任的 CA 颁发的证书
 

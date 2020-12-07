@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/20/2020
 ms.date: 11/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b5e3e86b4ab7197d603c02d3a50347b68a3e51bc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f07031edfe6bd300e066cb1f0c543b4ce4e73de9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328038"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431181"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure Policy 扩展
 
@@ -27,7 +27,7 @@ ms.locfileid: "94328038"
 
 完成本文中的步骤需要以下各项：
 
-- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Visual Studio Code](https://code.visualstudio.com)。
 
 ## <a name="install-azure-policy-extension"></a>安装 Azure Policy 扩展

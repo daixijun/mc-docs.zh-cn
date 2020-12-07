@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 origin.date: 09/25/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 60ebb5a44c7634620615526cf491b6321a8ea5a6
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 029053b31cca75ba71407ea4a00c1798f1ca1b60
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300783"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430998"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>教程：使用 REST 为 Azure 存储中的 JSON Blob 编制索引
 
@@ -28,7 +28,7 @@ Azure 认知搜索可使用一个知晓如何读取半结构化数据的[索引�
 > * 配置和运行索引器以读取容器和从 Azure blob 存储中提取可搜索内容
 > * 搜索刚刚创建的索引
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

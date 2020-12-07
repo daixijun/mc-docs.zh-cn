@@ -16,12 +16,12 @@ origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 080a05d6e1503434f8c9abd05f6d6d57bd511eff
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 8503d3fae617bf673e051e71a97ac242632b15e6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245064"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432628"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 
@@ -35,7 +35,7 @@ ms.locfileid: "91245064"
 
 以下是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * .NET Framework 4.0 或更高版本。
 * Visual Studio。
@@ -70,7 +70,7 @@ ms.locfileid: "91245064"
 使用 Azure 媒体服务时，最常见的场景之一是通过自适应比特率流式处理传送视频。 媒体服务提供动态打包，可按媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）及时传送自适应比特率 MP4 编码内容，而无需存储上述各种流格式的预打包版本。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
 
 若要启动流式处理终结点，请执行以下操作：
 
@@ -198,7 +198,7 @@ ms.locfileid: "91245064"
 
 要利用动态打包，需将夹层（源）文件编码或转换成一组自适应比特率 MP4 文件或自适应比特率平滑流文件。  
 
-以下代码演示如何提交编码作业。 该作业所包含的一项任务会指定要使用 **Media Encoder Standard**将夹层文件转码成一组自适应比特率 MP4。 代码会提交作业，并等待作业完成。
+以下代码演示如何提交编码作业。 该作业所包含的一项任务会指定要使用 **Media Encoder Standard** 将夹层文件转码成一组自适应比特率 MP4。 代码会提交作业，并等待作业完成。
 
 作业完成后，即可流式处理资产，或渐进式下载转码后所创建的 MP4 文件。
 

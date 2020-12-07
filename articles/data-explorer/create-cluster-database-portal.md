@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 07/22/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 3605676cea150de59574d25828f3d1dc71bc19cf
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 533e4f0d9400951abdf36082e66792dccf6a5a56
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105180"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430859"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入门：创建 Azure 数据资源管理器群集和数据库
 
@@ -29,11 +29,11 @@ ms.locfileid: "93105180"
 
 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本快速入门中，你将创建群集和数据库。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
-登录到 [Azure 门户](https://portal.azure.cn/)。
+登录 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-a-cluster"></a>创建群集
 

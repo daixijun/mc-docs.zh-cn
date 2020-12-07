@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 origin.date: 06/08/2020
 ms.date: 09/21/2020
-ms.openlocfilehash: 9de180d3f3f431e356ea486cdb7b499d6cf0e3f6
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 5fb6d8065e059a328fadd2e3e0d5230844ced85d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524042"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432417"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用“复制数据”工具，将数据从 Azure Blob 存储复制到 SQL 数据库
 
@@ -37,9 +37,9 @@ ms.locfileid: "90524042"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
-* **Azure 存储帐户**，使用 Blob 存储作为_源_数据存储。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)中的说明。
-* **Azure SQL 数据库**：使用 SQL 数据库作为_接收器_数据存储。 如果没有 SQL 数据库，请参阅[创建 SQL 数据库](../azure-sql/database/single-database-create-quickstart.md)中的说明。
+* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* **Azure 存储帐户**，使用 Blob 存储作为 _源_ 数据存储。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)中的说明。
+* **Azure SQL 数据库**：使用 SQL 数据库作为 _接收器_ 数据存储。 如果没有 SQL 数据库，请参阅[创建 SQL 数据库](../azure-sql/database/single-database-create-quickstart.md)中的说明。
 
 ### <a name="create-a-blob-and-a-sql-table"></a>创建 blob 和 SQL 表
 
@@ -47,7 +47,7 @@ ms.locfileid: "90524042"
 
 #### <a name="create-a-source-blob"></a>创建源 blob
 
-1. 启动**记事本**。 复制以下文本，并在磁盘上将其保存在名为 **inputEmp.txt** 的文件中：
+1. 启动 **记事本**。 复制以下文本，并在磁盘上将其保存在名为 **inputEmp.txt** 的文件中：
 
     ```
     FirstName|LastName

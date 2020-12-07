@@ -12,12 +12,12 @@ ms.custom: mvc
 origin.date: 09/03/2019
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 88ab7f3eff14c8ddb0e3233010284cd2673b99c2
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 5fb686e802320a253b5617647ea1b31421ab6373
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300320"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430831"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密
 
@@ -27,7 +27,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

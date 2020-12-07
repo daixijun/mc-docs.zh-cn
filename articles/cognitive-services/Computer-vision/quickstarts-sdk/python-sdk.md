@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 07/23/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4fa68f88a06173104106089aa9e553eb8d7aa403
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3ecc033bcd4d855cd0c27c75cd0b1aa87c3919b2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70104025"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432435"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>适用于 Python 的 Azure 认知服务计算机视觉 SDK
 
@@ -44,7 +44,7 @@ ms.locfileid: "70104025"
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果你拥有 Azure 订阅 <a name="if-you-have-an-azure-subscription"></a>
 
-在订阅中创建资源的最简单方法是使用以下 [Azure CLI][azure_cli] 命令。 这样会创建一个认知服务密钥，该密钥可以在许多认知服务中使用。 需要选择现有的资源组名称（例如“my-cogserv-group”）和新的计算机视觉资源名称（例如“my-computer-vision-resource”）。 
+在订阅中创建资源的最简单方法是使用以下 [Azure CLI][azure_cli] 命令。 这样会创建一个认知服务密钥，该密钥可以在许多认知服务中使用。 需要选择现有的资源组名称（例如“my-cogserv-group”）和新的计算机视觉资源名称（例如“my-computer-vision-resource”）。
 
 ```Bash
 RES_REGION=chinanorth
@@ -85,7 +85,7 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## <a name="authentication"></a>身份验证
 
-创建计算机视觉资源后，需要使用该资源的**终结点**及其**帐户密钥**之一来实例化客户端对象。
+创建计算机视觉资源后，需要使用该资源的 **终结点** 及其 **帐户密钥** 之一来实例化客户端对象。
 
 创建 [ComputerVisionClient][ref_computervisionclient] 客户端对象的实例时需要使用这些值。
 
@@ -100,7 +100,7 @@ ACCT_NAME=<computervision-account-name>
 
 如果忘记了终结点和密钥，可以使用以下方法找到它们。 如需创建密钥和终结点，则可使用适用于 [Azure 订阅持有人](#if-you-have-an-azure-subscription)的方法。
 
-使用以下 Azure CLI 代码片段在两个环境变量中填充计算机视觉帐户的**终结点**及其**密钥**之一（也可以在 [Azure 门户][azure_portal]中找到这些值）。 此代码片段已针对 Bash shell 格式化。
+使用以下 Azure CLI 代码片段在两个环境变量中填充计算机视觉帐户的 **终结点** 及其 **密钥** 之一（也可以在 [Azure 门户][azure_portal]中找到这些值）。 此代码片段已针对 Bash shell 格式化。
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -248,7 +248,7 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 可以使用 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail] 生成图像的缩略图 (JPG)。 缩略图的比例不需要与原始图像相同。
 
-安装 Pillow 以使用  此示例：
+安装 Pillow 以使用此示例：
 
 ```bash
 pip install Pillow
@@ -275,11 +275,11 @@ for x in thumbnail:
 image.save('thumbnail.jpg')
 ```
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="general"></a>常规
 
-使用 Python SDK 与 [ComputerVisionClient][ref_computervisionclient] 客户端对象交互时，将使用 [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 类返回错误。 服务返回的错误对应于返回给 REST API 请求的相同 HTTP 状态代码。
+使用 Python SDK 来与 [ComputerVisionClient][ref_computervisionclient] 客户端对象交互时，将使用 [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 返回错误。 服务返回的错误对应于返回给 REST API 请求的相同 HTTP 状态代码。
 
 例如，如果你尝试使用无效的密钥分析图像，则会返回 `401` 错误。 以下代码片段通过捕获异常并显示有关错误的其他信息来妥善处理该[错误][ref_httpfailure]。
 
@@ -318,7 +318,7 @@ except HTTPFailure as e:
 
 [azure_cli]: /cli/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_portal]: https://portal.azure.cn
-[azure_sub]: https://www.azure.cn/pricing/1rmb-trial/
+[azure_sub]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 [venv]: https://docs.python.org/3/library/venv.html
 [virtualenv]: https://virtualenv.pypa.io
@@ -331,7 +331,7 @@ except HTTPFailure as e:
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://www.azure.cn/pricing/1rmb-trial/?
+[computervision_resource]: https://www.microsoft.com/china/azure/index.html?fromtype=cn?
 
 [computervision_docs]: /cognitive-services/computer-vision/home
 

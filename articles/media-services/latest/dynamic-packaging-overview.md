@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/13/2020
-ms.date: 09/28/2020
+origin.date: 09/30/2020
+ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 95af8c30b9de4aefe5b16c8d0bddaf3ed8f22942
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: de657946a136ab45bb7876828fd54d3979fadbfa
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245144"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300834"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>媒体服务 v3 中的动态打包
 
@@ -31,10 +31,10 @@ ms.locfileid: "91245144"
 
 Azure 媒体服务可用于对许多媒体源文件格式进行编码。 它通过不同的流式处理协议（无论是否提供内容保护）来提供它们，以覆盖所有主要设备（如 iOS 和 Android 设备）。 这些客户端可理解不同的协议。 例如，iOS 要求以 HTTP Live Streaming (HLS) 格式传送流，Android 设备支持 HLS 以及 MPEG DASH。 
 
-在媒体服务中，[流式处理终结点](streaming-endpoint-concept.md)（源）表示动态（即时）打包和源服务，该服务可直接将你的实时和按需内容发送到客户端播放器应用。 它使用下一部分中所述的一种常见流式处理媒体协议。 动态打包是所有流式处理终结点（标准或高级）的标准功能。
+在媒体服务中，[流式处理终结点](streaming-endpoint-concept.md)（源）表示动态（即时）打包和源服务，该服务可直接将你的实时和按需内容发送到客户端播放器应用。 它使用下一部分中所述的一种常见流式处理媒体协议。 动态打包是所有流式处理终结点的标准功能。
 
 > [!NOTE]
-> 可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 [直播活动](live-events-outputs-concept.md)、查看 v3 [资产](assets-concept.md)、获取有关访问 API 的信息。 对于其他所有管理任务（例如，转换和作业），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://aka.ms/ams-v3-cli-ref) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
+> 可以使用 [Azure 门户](https://portal.azure.cn/)执行以下操作：管理 v3 [直播活动](live-events-outputs-concept.md)、查看 v3 [资产](assets-concept.md)、获取有关访问 API 的信息。 对于其他所有管理任务（例如，转换和作业），请使用 [REST API](https://docs.microsoft.com/rest/api/media/)、[CLI](https://docs.microsoft.com/cli/azure/ams) 或某个受支持的 [SDK](media-services-apis-overview.md#sdks)。
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>准备源文件供传输
 
@@ -47,7 +47,7 @@ Azure 媒体服务动态打包仅支持 MP4 容器格式的视频和音频文件
 
 要使编码资产中的视频可供客户端播放，必须创建[流式处理定位符](streaming-locators-concept.md)，然后生成流式处理 URL。 然后，根据流式处理客户端清单中指定的格式（HLS、MPEG DASH 或平滑流式处理），使用你选择的协议接收流。
 
-因此，只需以单一存储格式存储文件并为其付费，然后媒体服务服务就会基于客户端的请求构建并提供相应响应。
+因此，用户只需以单一存储格式存储文件并为其付费，媒体服务服务就会基于客户端的请求构建并提供相应响应。
 
 如果计划使用媒体服务动态加密来保护内容，请参阅[流式处理协议和加密类型](content-protection-overview.md#streaming-protocols-and-encryption-types)。
 
@@ -60,6 +60,9 @@ Azure 媒体服务动态打包仅支持 MP4 容器格式的视频和音频文件
 |HLS V4 |`https://amsv3account-cne21.streaming.media.chinacloudapp.cn/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-cne21.streaming.media.chinacloudapp.cn/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
 |HLS CMAF| `https://amsv3account-cne21.streaming.media.chinacloudapp.cn/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+> [!NOTE]
+> Apple 以前的准则建议低带宽网络的回退提供仅限音频的流。  目前，媒体服务编码器自动生成仅限音频的曲目。现在，Apple 准则表明不应包含仅限音频的曲目，特别是对于 Apple TV 发行版。  为了防止播放机默认设置为仅限音频的曲目，我们建议在 URL 中使用“audio-only=false”标记（这将在 HLS 中删除仅音频呈现形式），或使用 HLS-V3。 例如，`http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`。
 
 ### <a name="mpeg-dash-protocol"></a>MPEG-DASH 协议
 
@@ -136,7 +139,7 @@ Azure 媒体服务动态打包仅支持 MP4 容器格式的视频和音频文件
 动态打包支持采用 MP4 容器文件格式，并包含使用 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)（MPEG-4 AVC 或 AVC1）或是 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)（HEVC、hev1 或 hvc1）进行编码的视频的视频文件。
 
 > [!NOTE]
-> 已使用动态打包测试了高达 4K 的分辨率和高达 60 帧/秒的帧速率。 [高级编码器](../previous/media-services-encode-asset.md#media-encoder-premium-workflow)支持通过旧版 v2 API 编码为 H.265。
+> 已使用动态打包测试了高达 4K 的分辨率和高达 60 帧/秒的帧速率。
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>动态打包支持的音频编解码器
 

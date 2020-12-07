@@ -11,12 +11,12 @@ ms.workload: powerbi
 origin.date: 09/25/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 05cd89e6cd84c14efb1f9e5844eaaf4bd0637be7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 601a6aaa80a1a19e10093debab2adbbced486c75
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63856048"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509014"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作区集合常见问题解答
 
@@ -53,13 +53,13 @@ Power BI 工作区集合仅用于为供第三方使用而提供的应用程序�
 ## <a name="do-you-offer-any-tools-or-guidance-to-help-me-estimate-how-many-renderssession-i-should-expect-how-will-i-know-how-many-renders-have-been-completed"></a>是否提供了任何工具或指南来帮助用户估计应预估的呈现/会话数？ 如何才能知道已完成了多少呈现？
 Azure 门户会提供关于针对订阅已执行的呈现/报表会话数的帐单详细信息。
 
-## <a name="do-i-need-a-power-bi-subscription-in-order-to-develop-applications-with-power-bi-workspace-collections-how-do-i-get-started"></a>使用 Power BI 工作区集合开发应用程序是否需要 Power BI 订阅？ 如何入门？
+## <a name="do-i-need-a-power-bi-subscription-in-order-to-develop-applications-with-power-bi-workspace-collections-how-do-i-get-started"></a>使用 Power BI 工作区集合开发应用程序是否需要 Power BI 订阅？ 如何开始？
 作为应用程序开发人员，创建希望在应用程序中使用的报表和可视化元素无需具有 Power BI 订阅。 但需要 Azure 订阅和免费的 Power BI Desktop 应用程序。
 
 有关如何使用 Power BI 工作区集合服务的详细信息，请参阅服务文档。
 
 ## <a name="i-have-an-azure-subscription-can-i-use-power-bi-workspace-collections-using-my-existing-subscription"></a>用户有一个 Azure 订阅。 是否可以通过现有的订阅使用 Power BI 工作区集合？
-是的。 可以使用现有的 Azure 订阅预配和使用 Power BI 工作区集合服务。
+可以。 可以使用现有的 Azure 订阅预配和使用 Power BI 工作区集合服务。
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>应用程序的最终用户是否需要 Power BI 许可证？
 不是。 应用程序的最终用户无需单独购买 Power BI 订阅便可访问应用内数据可视化元素。 在 Power BI 工作区集合模型中，会通过 Azure 消耗计量器针对服务向应用程序提供商计费。 请参阅[定价和许可页](https://www.azure.cn/pricing/details/power-bi-embedded)。
@@ -80,17 +80,17 @@ Power BI 工作区集合服务使用“应用令牌”进行身份验证和授�
 ## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
 可以访问 [Power BI 工作区集合文档页](get-started.md)。 通过访问 [Power BI 博客](https://powerbi.microsoft.com/blog/)或通过访问 dev.powerbi.cn 上的 Power BI 开发人员中心，可以了解该服务的最新信息。 也可以在 [Stackoverflow](https://stackoverflow.com/questions/tagged/powerbi) 上提问。
 
-## <a name="how-do-i-get-started"></a>如何入门？
-可以立即开始体验免费版！ 如果拥有 Azure 订阅，现在就可以直接从 Azure 门户预配 Power BI 工作区集合。 也可以创建自己的 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 一旦 Power BI 工作区集合服务预配完毕，就可以直接轻松使用 Power BI REST API，或使用 [GitHub](https://www.nuget.org/profiles/powerbi) 上提供的开发人员 SDK。 关于如何使用开发人员 SDK 提供的示例。
+## <a name="how-do-i-get-started"></a>如何开始？
+可以立即开始体验免费版！ 如果拥有 Azure 订阅，现在就可以直接从 Azure 门户预配 Power BI 工作区集合。 也可以创建自己的 [Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 一旦 Power BI 工作区集合服务预配完毕，就可以直接轻松使用 Power BI REST API，或使用 [GitHub](https://www.nuget.org/profiles/powerbi) 上提供的开发人员 SDK。 关于如何使用开发人员 SDK 提供的示例。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [什么是 Power BI 工作区集合](what-are-power-bi-workspace-collections.md)
 [Power BI 工作区集合入门](get-started.md)
 [示例入门](get-started-sample.md)   
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-更多疑问？ [尝试 Power BI 社区](https://community.powerbi.com/)
+更多问题？ [尝试参与 Power BI 社区](https://community.powerbi.com/)
 
 
 <!-- Update_Description: update metedata properties -->

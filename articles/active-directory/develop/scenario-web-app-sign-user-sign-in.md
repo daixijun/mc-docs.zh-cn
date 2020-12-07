@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 86817eef3f1109ad044806aada4c5259b1bbeac6
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 94b1079a630420ff38da4018e5f0588d3c7d2935
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918322"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>用于登录用户的 Web 应用：登录和注销
 
@@ -432,6 +432,5 @@ public class AccountController : Controller
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [转移到生产环境](scenario-web-app-sign-user-production.md)
+转到此方案中的下一篇文章：[转向生产](scenario-web-app-sign-user-production.md)。
 

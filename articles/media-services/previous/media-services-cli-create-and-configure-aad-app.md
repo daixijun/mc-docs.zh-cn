@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/26/2019
-ms.date: 09/28/2019
+ms.date: 11/30/2019
 ms.author: v-jay
-ms.openlocfilehash: 4e54bd4559b044760e1e50e5773ab7b914338988
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 5bbdf8414e499c66e531acd4f6ffac8571c0be54
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245691"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300731"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>使用 Azure CLI 创建 Azure AD 应用并将其配置为访问媒体服务 API
 
@@ -63,7 +63,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 
 有关详细信息，请参阅[使用 Azure CLI 创建 Azure 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)
 
-另请参阅[使用 Azure 命令行接口管理基于角色的访问控制](../../role-based-access-control/role-assignments-cli.md)。 
+另请参阅[使用 Azure CLI 添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-cli.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 

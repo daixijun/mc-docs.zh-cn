@@ -6,17 +6,17 @@ ms.service: firewall
 ms.topic: tutorial
 origin.date: 07/15/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4c7dfdbfdb33fd202d0c182447ee67e54ad61844
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 3dad554926739a1d6ebb212267306e3cc3d99a36
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246429"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746702"
 ---
 <!--Verify Successfully on origin.date: 07/15/2020-->
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教程：使用 Azure 门户部署和配置 Azure 防火墙
@@ -54,7 +54,7 @@ ms.locfileid: "91246429"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="set-up-the-network"></a>设置网络
 
@@ -67,7 +67,7 @@ ms.locfileid: "91246429"
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 在 Azure 门户菜单上，选择“资源组”或从任意页面搜索并选择“资源组”。 然后选择“添加”。
 3. 对于“资源组名称”，请输入“Test-FW-RG”。
-4. 对于“订阅”，请选择自己的订阅。
+4. 对于“订阅”，请选择自己的订阅。 
 5. 对于“资源组位置”，请选择一个位置。  你创建的所有其他资源必须位于同一位置。
 6. 选择“创建”。
 
@@ -87,7 +87,7 @@ ms.locfileid: "91246429"
 6. 在完成时选择“下一步:IP 地址”。
 7. 对于“IPv4 地址空间”，请键入“10.0.0.0/16”。
 8. 在“子网”下，选择“默认值”。
-9. 对于“子网名称”，键入“AzureFirewallSubnet”。  防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
+9. 对于“子网名称”，键入“AzureFirewallSubnet”。  防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
 10. 对于“地址范围”，请键入 **10.0.1.0/26**。
 11. 选择“保存”。
 
@@ -113,7 +113,7 @@ ms.locfileid: "91246429"
 
 <!--MOONCAKE CUSTOMIZATION-->
 
-   |设置  |Value  |
+   |设置  |值  |
    |---------|---------|
    |资源组     |**Test-FW-RG**|
    |虚拟机名称     |**Srv-Work**|
@@ -138,9 +138,9 @@ ms.locfileid: "91246429"
 1. 在 Azure 门户菜单或“主页”页上，选择“创建资源” 。
 2. 在搜索框中键入“防火墙”，然后按 **Enter**。
 3. 选择“防火墙”，然后选择“创建” 。
-4. 在“创建防火墙”页上，使用下表配置防火墙： 
+4. 在“创建防火墙”页上，使用下表配置防火墙：
 
-    |设置  |Value  |
+    |设置  |“值”  |
     |---------|---------|
     |订阅     |\<your subscription\>|
     |资源组     |**Test-FW-RG** |
@@ -165,7 +165,7 @@ ms.locfileid: "91246429"
 2. 在“网络”下，选择“路由表”。  
 3. 选择 **添加** 。
 4. 对于“名称”，请键入 **Firewall-route**。
-5. 对于“订阅”，请选择自己的订阅。
+5. 对于“订阅”，请选择自己的订阅。 
 6. 对于“资源组”，请选择“Test-FW-RG”。
 7. 对于“位置”，请选择前面使用的同一位置。 
 8. 选择“创建”。
@@ -193,11 +193,11 @@ ms.locfileid: "91246429"
 3. 选择“应用程序规则集合”选项卡。
 4. 选择“添加应用程序规则集合”。
 5. 对于“名称”，请键入 **App-Coll01**。
-6. 对于“优先级”，请键入 **200**。 
+6. 对于“优先级”，请键入 **200**。
 7. 对于“操作”，请选择“允许”。
-8. 在“规则”  下的“目标 FQDN”  中，键入 **Allow-QQ** 作为**名称**。
-9. 对于**源类型**，请选择“IP 地址”  。
-10. 对于**源**，请键入 **10.0.2.0/24**。
+8. 在“规则”  下的“目标 FQDN”  中，键入 **Allow-QQ** 作为 **名称**。
+9. 对于 **源类型**，请选择“IP 地址”  。
+10. 对于 **源**，请键入 **10.0.2.0/24**。
 11. 对于“协议:端口”，请键入 **http, https**。
 12. 对于“目标 FQDN”，请键入 `www.qq.com`
 13. 选择 **添加** 。
@@ -211,14 +211,14 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 1. 选择“网络规则集合”选项卡。
 2. 选择“添加网络规则集合”。
 3. 对于“名称”，请键入 **Net-Coll01**。
-4. 对于“优先级”，请键入 **200**。 
+4. 对于“优先级”，请键入 **200**。
 5. 对于“操作”，请选择“允许”。
 6. 在“规则”下，对于“名称”键入 **Allow-DNS**。
 7. 对于“协议”，请选择“UDP”。
-9. 对于**源类型**，请选择“IP 地址”。
-1. 对于**源**，请键入 **10.0.2.0/24**。
+9. 对于 **源类型**，请选择“IP 地址”。
+1. 对于 **源**，请键入 **10.0.2.0/24**。
 2. 对于“目标类型”，请选择“IP 地址”。 
-3. 对于**目标地址**，请键入 **209.244.0.3,209.244.0.4**
+3. 对于 **目标地址**，请键入 **209.244.0.3,209.244.0.4**
 
     这些是由 CenturyLink 操作的公共 DNS 服务器。
 1. 对于“目标端口”，请键入 **53**。
@@ -234,14 +234,13 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 4. 对于“优先级”，请键入 **200**。
 5. 在“规则”下，对于“名称”，键入“rdp-nat”  。
 6. 对于“协议”，请选择“TCP”。
-7. 对于**源类型**，请选择“IP 地址”。
-8. 对于“源”，请键入 \* 。
-9. 对于“目标地址”，键入防火墙的公共 IP 地址。
+7. 对于 **源类型**，请选择“IP 地址”。
+8. 对于“源”，请键入\*。
+9. 对于“目标地址”，请键入防火墙的公共 IP 地址。
 10. 对于“目标端口”，请键入 **3389**。
 11. 对于“已翻译的地址”，键入 Srv-work 的专用 IP 地址。
 12. 对于“已翻译的端口”  ，键入 **3389**。
 13. 选择 **添加** 。
-
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>更改 **Srv-Work** 网络接口的主要和辅助 DNS 地址
 
@@ -281,6 +280,6 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+> [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

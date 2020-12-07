@@ -1,21 +1,20 @@
 ---
-title: 将 Docker 映像推送到专用 Azure 容器注册表
+title: 推送和拉取 Docker 映像
 description: 使用 Docker CLI 在 Azure 的专用容器注册表中推送和拉取 Docker 映像
 services: container-registry
-author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2019
-ms.date: 08/26/2019
+author: rockboyfor
+ms.date: 11/30/2020
 ms.author: v-yeche
-ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: db86429b246a90f9c42fade641509b9a17f2e6d6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: 1741667cb10ae6dd620915527382420a26d5b29f
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70134436"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024523"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -30,7 +29,7 @@ Azure 容器注册表存储和管理专用 [Docker](https://hub.docker.com) 容�
 
 ## <a name="log-in-to-a-registry"></a>登录到注册表
 
-可[通过多种方式验证](container-registry-authentication.md)专用容器注册表。 在命令行中操作时，建议的方法是使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login)。 例如，若要登录到名为 *myregistry* 的注册表：
+可[通过多种方式验证](container-registry-authentication.md)专用容器注册表。 在命令行中操作时，建议的方法是使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/cli/acr#az_acr_login)。 例如，若要登录到名为 *myregistry* 的注册表：
 
 ```azurecli
 az acr login --name myregistry
@@ -65,7 +64,7 @@ docker run -it --rm -p 8080:80 nginx
 
 浏览到 `http://localhost:8080`，查看由正在运行的容器中的 Nginx 提供服务的默认网页。 应看到类似于下面的页面：
 
-![本地计算机上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
+:::image type="content" source="./media/container-registry-get-started-docker-cli/nginx.png" alt-text="本地计算机上的 Nginx":::
 
 由于已使用 `-it` 以交互方式启动了容器，因此在浏览器中导航到该容器后，可在命令行中查看 Nginx 服务器的输出。
 
@@ -117,7 +116,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 docker rmi myregistry.azurecr.cn/samples/nginx
 ```
 
-若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除 `samples/nginx:latest` 标记引用的清单、所有唯一的层数据以及引用此清单的其他所有标记。
+若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/cli/acr/repository#az_acr_repository_delete)。 例如，以下命令删除 `samples/nginx:latest` 标记引用的清单、所有唯一的层数据以及引用此清单的其他所有标记。
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
@@ -130,9 +129,8 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 <!-- Not Available on  Deploy container images from your registry to:-->
 
 * [Azure Kubernetes 服务 (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
-
-<!-- Not Available on * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)-->
-<!-- Not Available on * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)-->
+* [Azure 容器实例](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
 可以选择安装[适用于 Visual Studio Code 的 Docker 扩展](https://code.visualstudio.com/docs/azure/docker)以及适用于 Azure 容器注册表的 [Azure 帐户](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)扩展。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
 
@@ -142,4 +140,4 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

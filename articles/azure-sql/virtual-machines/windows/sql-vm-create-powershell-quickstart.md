@@ -13,12 +13,12 @@ origin.date: 12/21/2018
 ms.date: 08/17/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: ee815fccfb1227416cbf00e01c633292f7b9658d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7ecd3ef98638d628a37abac249524b0722bc2abf
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223141"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431943"
 ---
 <!--Verified successfully on redirect articles-->
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 在 Windows 虚拟机上创建 SQL Server
@@ -33,7 +33,7 @@ ms.locfileid: "88223141"
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> 获取 Azure 订阅
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 ## <a name="get-azure-powershell"></a><a id="powershell"></a> 获取 Azure PowerShell

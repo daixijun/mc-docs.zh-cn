@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7bee3b6f1d30ca9228299e8e38b811f48df21b8d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e7f8fb4767649abcc07203fe8e12da57109c73b7
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300724"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431131"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 
@@ -23,7 +23,7 @@ ms.locfileid: "96300724"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 本快速入门要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 
@@ -347,7 +347,7 @@ az group delete --name {your resource group name}
 
 
 <!-- Links -->
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial
+[trial-subscription]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [lnk-CLI-install]: https://docs.azure.cn/cli/install-az-cli2
 [lnk-login-command]: https://docs.azure.cn/cli/get-started-with-az-cli2
 [lnk-az-account-command]: https://docs.azure.cn/cli/account

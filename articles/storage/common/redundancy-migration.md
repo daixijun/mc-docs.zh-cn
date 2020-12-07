@@ -6,17 +6,18 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 05/05/2020
-ms.date: 07/20/2020
+origin.date: 09/24/2020
+ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9326930232779e3fb5bcda3e88fd6ca3c1991888
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 121b10370e5f116121524ec1a321f82c649ae279
+ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414681"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96153107"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>更改存储帐户的复制方式
 
@@ -42,6 +43,9 @@ Azure 存储提供以下类型的复制：
 
 <sup>1</sup> 会产生一次性出口费用。
 
+> [!CAUTION]
+> 如果你为 (RA-)GRS 执行了[帐户故障转移](storage-disaster-recovery-guidance.md)，则在故障转移后该帐户在新的主要区域中是本地冗余的。 
+
 ## <a name="change-the-replication-setting"></a>更改复制设置
 
 只要不更改在主要区域中复制数据的方式，就可以使用 Azure 门户、PowerShell 或 Azure CLI 更改存储帐户的复制设置。
@@ -53,8 +57,8 @@ Azure 存储提供以下类型的复制：
 若要在 Azure 门户中更改存储帐户的冗余选项，请执行以下步骤：
 
 1. 导航到 Azure 门户中的存储帐户。
-1. 选择**配置**设置。
-1. 更新**复制**设置。
+1. 选择 **配置** 设置。
+1. 更新 **复制** 设置。
 
 ![屏幕截图，其中显示了如何在门户中更改复制选项](media/redundancy-migration/change-replication-option.png)
 

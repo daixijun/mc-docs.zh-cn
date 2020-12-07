@@ -1,21 +1,21 @@
 ---
 title: 适用于文本分析 API 的外部和社区内容
 titleSuffix: Azure Cognitive Services
-description: 合作伙伴博客、YouTube 视频、Azure 认知服务文本分析 API 培训。
+description: 合作伙伴博客、Azure 认知服务文本分析 API 培训。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: e649f6c0720a0beddb08493003738ebf68a5776c
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 6f87482c696c54db11c5da6f15b2db30edc351dd
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023712"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306436"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>适用于文本分析认知服务的外部和社区内容
 
@@ -31,7 +31,7 @@ ms.locfileid: "88023712"
 
 + [使用 SQL Server 数据的逻辑应用中的情绪分析（TechNet 博客）](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Dynamics 365 CRM Online 的情绪分析（MSDN 博客）](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Dynamics 365 CRM Online 的情绪分析（MSDN 博客）](https://docs.microsoft.com/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + [使用 MS Flow 识别 Yammer 组中的评论情绪（Microsoft 技术社区）](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 

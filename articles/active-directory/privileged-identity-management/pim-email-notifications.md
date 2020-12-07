@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 05/28/2020
+ms.date: 11/24/2020
 ms.author: v-junlch
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f6236c050fbc0008a814c6c615c6d098470dd2
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 86a571408419f060d56f822c64ab54619972d825
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186899"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918510"
 ---
 # <a name="email-notifications-in-pim"></a>PIM 中的电子邮件通知
 
@@ -79,10 +79,13 @@ Azure AD 角色的每周 Privileged Identity Management 摘要电子邮件将发
 
 ## <a name="email-timing-for-activation-approvals"></a>激活审批的电子邮件发送时机
 
-当用户激活其角色且角色设置需要审批时，审批者每次审批会收到三封电子邮件：
+当用户激活其角色且角色设置需要审批时，审批者每次审批会收到两封电子邮件：
 
 - 请求批准或拒绝用户的激活请求（由请求批准引擎发送）
 - 已批准用户请求（由请求批准引擎发送）
+
+此外，全局管理员和特权角色管理员每次审批会收到一封电子邮件：
+
 - 已激活用户角色（由 Privileged Identity Management 发送）
 
 请求批准引擎发送的前两封电子邮件可以延迟。 目前，90% 的电子邮件需要三到十分钟才能送达，但是对于 1% 的客户来说，可能需要更长时间，最多十五分钟。

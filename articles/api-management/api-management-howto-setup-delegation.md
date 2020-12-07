@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 11/18/2020
 ms.author: v-johya
-ms.openlocfilehash: 463de8591e301308a32e031c239cd3262a605e76
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 5ba9818ac313b235a13b8c4663b57db4c8d1b856
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871354"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306463"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 
@@ -61,20 +61,18 @@ ms.locfileid: "91871354"
    * 根据 **returnUrl** 和 **salt** 查询参数计算字符串的 HMAC-SHA512 哈希（[下文提供了示例代码]）：
      
      > HMAC(**salt** + '\n' + **returnUrl**)
-     > 
-     > 
+
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
 3. 验证收到的是否为登录/注册请求：需将 **operation** 查询参数设置为“**SignIn**”。
 4. 向用户提供登录或注册 UI
 5. 如果用户要注册，则需在 API 管理中为其创建相应的帐户。 请使用 API 管理 REST API [创建用户]。 这样做时，请确保将用户 ID 设置为与用户存储中的用户 ID 相同的值，或设置为可跟踪的 ID。
 6. 在成功对用户进行身份验证后：
    
-   * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
+   * 通过 API 管理 REST API [请求共享访问令牌]
    * 将 returnUrl 查询参数追加到从上述 API 调用接收的 SSO URL：
      
-     > 例如，`https://customer.portal.azure-api.cn/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
+     > 例如，`https://<developer portal domain, for example: contoso.developer.azure-api.cn>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
    * 将用户重定向到上述生成的 URL
 
 除了 **SignIn** 操作，还可以执行帐户管理，只需按上述步骤使用以下某个操作即可：
@@ -180,7 +178,7 @@ var signature = digest.toString('base64');
 <!-- Video not suitable for China, so removed -->
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/generatessourl
+[请求共享访问令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [创建用户]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
 [调用订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

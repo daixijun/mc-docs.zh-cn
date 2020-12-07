@@ -10,19 +10,19 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 392b18c2ad6750ec2cef6446489a6e61437b7b16
-ms.sourcegitcommit: 6e88e0e41b35d160a09f7a906ca3b7e837f51803
+ms.openlocfilehash: 30d64dd5735af4cd20ffe280ba517c82988865a8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412126"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431583"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>快速入门：使用 Azure 门户创建专用终结点
 
 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。 本快速入门介绍如何使用 Azure 门户在 Azure 虚拟网络中创建一个 VM，以及一个包含 Azure 专用终结点的逻辑 SQL 服务器。 然后，可以从该 VM 安全访问 SQL 数据库。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -52,13 +52,13 @@ ms.locfileid: "89412126"
 
 <!-- MOONCAKE: CUSTOMIZATION-->
 
-1. 在 Azure 门户屏幕的左上角，选择“创建资源”****，在“新建”**** 页的“搜索市场”**** 筛选框中键入“Windows Server 2019 Datacenter”****，然后单击 Enter 键，并在搜索结果中选择“Windows Server 2019 Datacenter”****。
+1. 在 Azure 门户屏幕的左上角，选择“创建资源”，在“新建”页的“搜索市场”筛选框中键入“Windows Server 2019 Datacenter”，然后单击 Enter 键，并在搜索结果中选择“Windows Server 2019 Datacenter”。
 
-1. 在“Windows Server 2019 Datacenter”页中选择“创建”****。
+1. 在“Windows Server 2019 Datacenter”页中选择“创建”。
 
     <!-- MOONCAKE: CUSTOMIZATION-->
     
-1. 在“创建虚拟机 - 基本信息”**** 中，输入或选择以下信息：
+1. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
     
     <!--CORRECT ON Windows Server 2019 Datacenter - Gen 1-->
     
@@ -66,42 +66,42 @@ ms.locfileid: "89412126"
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
-    | 资源组 | 选择“myResourceGroup”。**** 已在上一部分创建此内容。  |
+    | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。  |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入 *myVm*。 |
-    | 区域 | 选择“中国东部 2”****。 |
-    | 可用性选项 | 保留默认值“不需要基础结构冗余”****。 |
+    | 区域 | 选择“中国东部 2”。 |
+    | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
     | 映像 | 选择“Windows Server 2019 Datacenter - Gen 1”。 |
-    | 大小 | 保留默认值“标准 DS1 v2”****。 |
+    | 大小 | 保留默认值“标准 DS1 v2”。 |
     | **管理员帐户** |  |
     | 用户名 | 输入所选用户名。 |
     | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     | 确认密码 | 重新输入密码。 |
     | **入站端口规则** |  |
-    | 公共入站端口 | 保留默认值“无”****。 |
+    | 公共入站端口 | 保留默认值“无”。 |
     | **节省资金** |  |
-    | 已有 Windows 许可证？ | 保留默认值“否”****。 |
+    | 已有 Windows 许可证？ | 保留默认值“否”。 |
     |||
 
 1. 在完成时选择“下一步:**磁盘”** 。
 
-1. 在“创建虚拟机 - 磁盘”中保留默认值，然后选择“下一步:**** **网络”** 。
+1. 在“创建虚拟机 - 磁盘”中保留默认值，然后选择“下一步: **网络”** 。
 
-1. 在“创建虚拟机 - 基本信息”**** 中，选择以下信息：
+1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
 
     | 设置 | Value |
     | ------- | ----- |
-    | 虚拟网络 | 保留默认值“MyVirtualNetwork”****。  |
-    | 地址空间 | 保留默认值“10.1.0.0/24”。****|
-    | 子网 | 保留默认值“mySubnet (10.1.0.0/24)”。****|
-    | 公共 IP | 保留默认值“(new) myVm-ip”****。 |
-    | 公共入站端口 | 选择“允许所选端口”****。 |
-    | 选择入站端口 | 选择“HTTP”和“RDP”。**** ****|
+    | 虚拟网络 | 保留默认值“MyVirtualNetwork”。  |
+    | 地址空间 | 保留默认值“10.1.0.0/24”。|
+    | 子网 | 保留默认值“mySubnet (10.1.0.0/24)”。|
+    | 公共 IP | 保留默认值“(new) myVm-ip”。 |
+    | 公共入站端口 | 选择“允许所选端口”。 |
+    | 选择入站端口 | 选择“HTTP”和“RDP”。 |
     |||
 
-1. 选择“查看 + 创建”****。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置****。
+1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。
 
-1. 看到“验证通过”消息时，选择“创建”**** ****。
+1. 看到“验证通过”消息时，选择“创建” 。
 
 ## <a name="create-a-logical-sql-server"></a>创建逻辑 SQL 服务器
 
@@ -109,24 +109,24 @@ ms.locfileid: "89412126"
 
 <!-- MOONCAKE: CUSTOMIZATION-->
 
-1. 在 Azure 门户屏幕的左上角，选择“创建资源”****，在“新建”**** 页的“搜索市场”**** 筛选框中键入“SQL 数据库”****，然后单击 Enter 键，并在搜索结果中选择“SQL 数据库”****。
+1. 在 Azure 门户屏幕的左上角，选择“创建资源”，在“新建”页的“搜索市场”筛选框中键入“SQL 数据库”，然后单击 Enter 键，并在搜索结果中选择“SQL 数据库”。
 
-1. 在“SQL 数据库”页中选择“创建”****。
+1. 在“SQL 数据库”页中选择“创建”。
 
     <!-- MOONCAKE: CUSTOMIZATION-->
     
-1. 在“创建 SQL 数据库 - 基本信息”中，输入或选择以下信息：****
+1. 在“创建 SQL 数据库 - 基本信息”中，输入或选择以下信息：
 
     | 设置 | Value |
     | ------- | ----- |
     | **数据库详细信息** | |
     | 订阅 | 选择订阅。 |
-    | 资源组 | 选择“myResourceGroup”。**** 已在上一部分创建此内容。|
+    | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
     | **实例详细信息** |  |
     | 数据库名称  | 输入 *mydatabase*。 如果此名称已被使用，请创建唯一的名称。 |
     |||
-5. 在“服务器”**** 中，选择“新建”****。 
-6. 在“新建服务器”中，输入或选择以下信息****：
+5. 在“服务器”中，选择“新建”。 
+6. 在“新建服务器”中，输入或选择以下信息：
 
     | 设置 | Value |
     | ------- | ----- |
@@ -135,9 +135,9 @@ ms.locfileid: "89412126"
     | 密码 | 输入所选密码。 密码长度必须至少为 8 个字符，且符合定义的要求。 |
     | 位置 | 选择要将 SQL 服务器放到的 Azure 区域。 |
 
-7. 选择“确定” ****。 
-8. 选择“查看 + 创建”****。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置****。 
-9. 当看到“验证通过”消息时，选择“创建”****。 
+7. 选择“确定” 。 
+8. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
+9. 当看到“验证通过”消息时，选择“创建”。 
 
 <!--DUPLICATE ON **Create**-->
 
@@ -161,8 +161,8 @@ ms.locfileid: "89412126"
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
     | **实例详细信息** |  |
-    | 名称 | 输入“myPrivateEndpoint”**。 如果此名称已被使用，请创建唯一的名称。 |
-    |区域|选择“chinaeast2”****。|
+    | 名称 | 输入“myPrivateEndpoint”。 如果此名称已被使用，请创建唯一的名称。 |
+    |区域|选择“chinaeast2”。|
     |||
     
 5. 在完成时选择“下一步:资源”。
@@ -172,9 +172,9 @@ ms.locfileid: "89412126"
     | ------- | ----- |
     |连接方法  | 选择“连接到我的目录中的 Azure 资源”。|
     | 订阅| 选择订阅。 |
-    | 资源类型 | 选择“Microsoft.Sql/servers”****。 |
-    | 资源 |选择“myServer”**|
-    |目标子资源 |选择“sqlServer”**|
+    | 资源类型 | 选择“Microsoft.Sql/servers”。 |
+    | 资源 |选择“myServer”|
+    |目标子资源 |选择“sqlServer”|
     |||
 7. 在完成时选择“下一步:配置”。
 8. 在“创建专用终结点 - 配置”中，输入或选择以下信息：
@@ -182,11 +182,11 @@ ms.locfileid: "89412126"
     | 设置 | 值 |
     | ------- | ----- |
     |**网络**| |
-    | 虚拟网络| 选择“MyVirtualNetwork”。** |
-    | 子网 | 选择“mySubnet”**。 |
+    | 虚拟网络| 选择“MyVirtualNetwork”。 |
+    | 子网 | 选择“mySubnet”。 |
     |**专用 DNS 集成**||
     |与专用 DNS 区域集成 |请选择“是”。 |
-    |专用 DNS 区域 |选择“(New)privatelink.database.chinacloudapi.cn”** |
+    |专用 DNS 区域 |选择“(New)privatelink.database.chinacloudapi.cn” |
     |||
 
 1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
@@ -198,11 +198,11 @@ ms.locfileid: "89412126"
 
 1. 在门户的搜索栏中，输入 *myVm*。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开**** ****。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
 1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
 
-1. 打开 downloaded.rdp** 文件。
+1. 打开 downloaded.rdp 文件。
 
     1. 出现提示时，选择“连接”。
 
@@ -234,12 +234,12 @@ ms.locfileid: "89412126"
     ```
 3. 安装 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
 
-4. 在“连接服务器”中，输入或选择以下信息****：
+4. 在“连接服务器”中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
     | 服务器类型| 选择“数据库引擎”。|
-    | 服务器名称| 选择“myserver.database.chinacloudapi.cn”** |
+    | 服务器名称| 选择“myserver.database.chinacloudapi.cn” |
     | 用户名 | 以 username@servername 形式输入用户名，这是在 SQL Server 创建过程中提供的。 |
     |密码 |输入创建 SQL 服务器期间提供的密码。 |
     |记住密码|请选择“是”。|
@@ -251,9 +251,9 @@ ms.locfileid: "89412126"
 
 ## <a name="clean-up-resources"></a>清理资源 
 用完专用终结点、SQL 服务器和 VM 之后，请删除资源组及其包含的所有资源： 
-1. 在门户顶部的“搜索”框中输入“myResourceGroup”，并从搜索结果中选择“myResourceGroup”********。 
+1. 在门户顶部的“搜索”框中输入“myResourceGroup”，并从搜索结果中选择“myResourceGroup”。 
 2. 选择“删除资源组”。 
-3. 对于“键入资源组名称”，请输入“myResourceGroup”，然后选择“删除”**** ****。
+3. 对于“键入资源组名称”，请输入“myResourceGroup”，然后选择“删除” 。
 
 ## <a name="next-steps"></a>后续步骤
 

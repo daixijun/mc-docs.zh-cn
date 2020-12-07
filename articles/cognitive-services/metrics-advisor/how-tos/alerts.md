@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/27/2020
 ms.author: v-johya
-ms.openlocfilehash: c8fd8d9f51045415334a4d1a5aa9cdc6ebc36d54
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 42c0d3b3b389c7dcac132098680950f48dcdf7f8
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472944"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306439"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>操作说明：配置警报并使用挂钩获取通知
 
@@ -28,13 +28,13 @@ ms.locfileid: "92472944"
 ### <a name="email-hook"></a>电子邮件挂钩
 
 > [!Note]
-> 指标顾问资源管理员需要配置电子邮件设置，并在发送异常警报之前将 SMTP 相关信息输入指标顾问。 资源组管理员或订阅管理员需要在指标顾问资源的“访问控制”选项卡中至少分配一个“认知服务指标顾问管理员”角色。 
+> 指标顾问资源管理员需要配置电子邮件设置，并在发送异常警报之前将 SMTP 相关信息输入指标顾问。 资源组管理员或订阅管理员需要在指标顾问资源的“访问控制”选项卡中至少分配一个“认知服务指标顾问管理员”角色。 [详细了解电子邮件设置配置](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email)。
 
 若要创建电子邮件挂钩，可使用以下参数： 
 
 电子邮件挂钩是将异常警报发送到“电子邮件收件人”部分中指定的电子邮件地址的通道。 系统将发送两种类型的警报电子邮件：“数据馈送不可用”警报和“事件报表”，其中包含一个或多个异常 。 
 
-|参数 |说明  |
+|参数 |描述  |
 |---------|---------|
 | 名称 | 电子邮件挂钩的名称 |
 | 电子邮件收件人| 要向其发送警报的电子邮件地址|
@@ -73,7 +73,7 @@ Web 挂钩是指标顾问服务中所有可用信息的入口点，并在触发�
 
 若要创建 Azure DevOps 挂钩，需要添加以下信息
 
-|参数 |说明  |
+|参数 |描述  |
 |---------|---------|
 | 名称 | 挂钩的名称 |
 | 组织 | DevOps 所属的组织 |
@@ -88,11 +88,11 @@ Web 挂钩是指标顾问服务中所有可用信息的入口点，并在触发�
 转到指标详细信息页，在指标详细信息页的左下角找到“警报设置”部分。 它列出了应用于所选检测配置的所有警报设置。 创建新的检测配置时，没有警报设置，并且不会发送任何警报。  
 可以使用“添加”、“编辑”和“删除”图标来修改警报设置  。
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Web 挂钩创建窗口。":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="“警报设置”菜单项。":::
 
 单击“添加”或“编辑”按钮，获取用于添加或编辑警报设置的窗口 。
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Web 挂钩创建窗口。":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="添加或编辑警报设置":::
 
 警报设置名称：此警报设置的名称。 它将显示在警报电子邮件标题中。
 
@@ -134,7 +134,7 @@ Web 挂钩是指标顾问服务中所有可用信息的入口点，并在触发�
 |AND     | 仅当序列与每个警报部分匹配且所有数据点是异常时发送警报。 如果指标具有不同的维度名称，则永远不会触发警报。         |
 |OR     | 如果至少有一个部分包含异常，则发送警报。         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Web 挂钩创建窗口。":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="多个警报设置部分的运算符":::
 
 ## <a name="next-steps"></a>后续步骤
 

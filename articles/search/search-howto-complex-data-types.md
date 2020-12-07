@@ -8,18 +8,18 @@ ms.author: v-tawe
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 07/12/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 6503fcca80e9dd6f4cb19000f17bb7ba36bc777c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 10/07/2020
+ms.date: 11/27/2020
+ms.openlocfilehash: e6bba193d342451ab967166a523563a3b66afe16
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021470"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300068"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中为复杂数据类型建模
 
-用于填充 Azure 认知搜索索引的外部数据集可以采用多种形状。 有时它们包含分层或嵌套的子结构。 示例包括单个客户的多个地址、单个 SKU 的多个颜色和大小、一本书籍的多位作者等等。 在建模术语中，这些结构可能称作复杂、组合、复合或聚合数据类型。 Azure 认知搜索对此概念使用的术语是“复杂类型”。 在 Azure 认知搜索中，复杂类型是使用**复杂字段**建模的。 复杂字段是包含子级（子字段）的字段，这些子级可以是任何数据类型（包括其他复杂类型）。 其工作原理类似于编程语言中的结构化数据类型。
+用于填充 Azure 认知搜索索引的外部数据集可以采用多种形状。 有时它们包含分层或嵌套的子结构。 示例包括单个客户的多个地址、单个 SKU 的多个颜色和大小、一本书籍的多位作者等等。 在建模术语中，这些结构可能称作复杂、组合、复合或聚合数据类型。 Azure 认知搜索对此概念使用的术语是“复杂类型”。 在 Azure 认知搜索中，复杂类型是使用 **复杂字段** 建模的。 复杂字段是包含子级（子字段）的字段，这些子级可以是任何数据类型（包括其他复杂类型）。 其工作原理类似于编程语言中的结构化数据类型。
 
 复杂字段表示文档中的单个对象，或对象的数组，具体取决于数据类型。 `Edm.ComplexType` 类型的字段表示单个对象，而 `Collection(Edm.ComplexType)` 类型的字段表示对象的数组。
 
@@ -36,11 +36,13 @@ Azure 认知搜索原生支持复杂类型和集合。 使用这些类型几乎�
 
 以下 JSON 文档由简单字段和复杂字段构成。 复杂字段（例如 `Address` 和 `Rooms`）包含子字段。 `Address` 包含这些子字段的单个值集，因为它是文档中的单个对象。 相反，`Rooms` 包含其子字段的多个值集，集合中的每个对象各有一个值集。
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -49,21 +51,30 @@ Azure 认知搜索原生支持复杂类型和集合。 使用这些类型几乎�
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
 
+<a name="indexing-complex-types></a>
+
+## <a name="indexing-complex-types"></a>为复杂类型编制索引
+
+在编制索引期间，单个文档中的所有复杂集合总共最多可包含 3000 个元素。 复杂集合的元素是该集合的成员，因此“客房”集合（此酒店示例中唯一的复杂集合）中的每个客房都是一个元素。 在上面的示例中，如果“秘密点汽车旅馆”有 500 个客房，酒店文档将包含 500 个客房元素。 对于嵌套的复杂集合，除了外部（父）元素之外，还计入每个嵌套元素。
+
+此限制仅适用于复杂集合，不适用于复杂类型（如地址）或字符串集合（如标记）。
+
 ## <a name="creating-complex-fields"></a>创建复杂字段
 
-与处理任何索引定义时一样，可以使用门户、[REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) 或 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 创建包含复杂类型的架构。 
+与处理任何索引定义时一样，可以使用门户、[REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) 或 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) 创建包含复杂类型的架构。 
 
 以下示例演示了包含简单字段、集合与复杂类型的 JSON 索引架构。 请注意，在复杂类型中，与顶级字段一样，每个子字段包含一个类型，有时还包含属性。 架构对应于以上示例数据。 `Address` 是一个非集合的复杂字段（一家酒店只有一个地址）。 `Rooms` 是复杂集合字段（一家酒店有多间客房）。
 
@@ -94,7 +105,7 @@ Azure 认知搜索原生支持复杂类型和集合。 使用这些类型几乎�
 
 ## <a name="updating-complex-fields"></a>更新复杂字段
 
-一般情况下，应用于字段的所有[重建索引规则](search-howto-reindex.md)仍会应用于复杂字段。 在此处重述一些主要规则以及添加字段并不需要重建索引，但大多数修改操作需要重建索引。
+一般情况下，应用于字段的所有[重建索引规则](search-howto-reindex.md)仍会应用于复杂字段。 在此处重述一些主要规则以及将字段添加到复杂类型并不需要重建索引，但大多数修改操作需要重建索引。
 
 ### <a name="structural-updates-to-the-definition"></a>对定义的结构更新
 
@@ -146,7 +157,7 @@ Azure 认知搜索原生支持复杂类型和集合。 使用这些类型几乎�
 
 > `$filter=Address/Country eq 'Canada'`
 
-若要根据复杂集合字段进行筛选，可以结合 [`any` 和 `all` 运算符](search-query-odata-collection-operators.md)使用 **Lambda 表达式**。 在这种情况下，Lambda 表达式的**范围变量**是包含子字段的对象。 可以使用标准 OData 路径语法来引用这些子字段。 例如，以下筛选器将返回至少提供一间豪华客房，且所有客房都禁止吸烟的所有酒店：
+若要根据复杂集合字段进行筛选，可以结合 [`any` 和 `all` 运算符](search-query-odata-collection-operators.md)使用 **Lambda 表达式**。 在这种情况下，Lambda 表达式的 **范围变量** 是包含子字段的对象。 可以使用标准 OData 路径语法来引用这些子字段。 例如，以下筛选器将返回至少提供一间豪华客房，且所有客房都禁止吸烟的所有酒店：
 
 > `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 

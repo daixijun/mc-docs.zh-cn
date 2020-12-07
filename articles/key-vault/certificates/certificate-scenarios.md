@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 origin.date: 06/13/2020
-ms.date: 09/15/2020
+ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5f4de28138721d9ef46d1b787760213c4df09916
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: ed8b8a9dc054303a33c2babf0fe2b3bfdbda10c4
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678492"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300295"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -38,7 +38,7 @@ ms.locfileid: "90678492"
 
 **步骤 1** - 证书颁发机构 (CA) 提供者  
 -   对于任何给定公司（例如 Contoso）来说，以 IT 管理员、PKI 管理员或任何可以使用 CA 来管理帐户的人员的身份加入 是使用 Key Vault 证书的先决条件。  
-    以下 CA 是目前可以与 Key Vault 配合使用的提供者：  
+    以下 CA 是目前可以与 Key Vault 配合使用的提供者。 在[此处](./create-certificate.md#partnered-ca-providers)了解详细信息   
     -   DigiCert - Key Vault 提供 DigiCert 的 OV TLS/SSL 证书。  
     -   GlobalSign - Key Vault 提供 GlobalSign 的 OV TLS/SSL 证书。  
 
@@ -53,7 +53,7 @@ ms.locfileid: "90678492"
 
     若要详细了解如何通过 CA 提供者来创建帐户，请参阅 [Key Vault 博客](https://aka.ms/kvcertsblog)上的相关文章。  
 
-**步骤 3.1** - 设置用于接收通知的[证书联系人](https://docs.microsoft.com/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts)。 这是 Key Vault 用户的联系人。 Key Vault 不强制执行此步骤。  
+**步骤 3.1** - 设置用于接收通知的 [证书联系人](https://docs.microsoft.com/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts)。 这是 Key Vault 用户的联系人。 Key Vault 不强制执行此步骤。  
 
 注意 - 上述过程（一直到步骤 3.1）是一次性操作。  
 
@@ -83,7 +83,7 @@ ms.locfileid: "90678492"
       -   由于创建操作延迟，因此可能会启动取消操作。 取消操作可能生效，也可能不生效。  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>与集成 CA 关联的网络安全性和访问策略
-Key Vault 服务将请求发送到 CA（出站流量）。 因此，它与启用了防火墙的密钥保管库完全兼容。 Key Vault 不与 CA 共享访问策略。 CA 必须配置为独立接受签名请求。 [有关集成受信任 CA 的指南](https://docs.azure.cn/key-vault/certificates/how-to-integrate-certificate-authority)
+Key Vault 服务将请求发送到 CA（出站流量）。 因此，它与启用了防火墙的密钥保管库完全兼容。 Key Vault 不与 CA 共享访问策略。 CA 必须配置为独立接受签名请求。 [有关集成受信任 CA 的指南](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>导入证书  
  也可将证书导入 Key Vault - PFX 或 PEM。  

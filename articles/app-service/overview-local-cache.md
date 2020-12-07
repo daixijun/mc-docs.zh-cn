@@ -5,21 +5,22 @@ tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 origin.date: 03/04/2016
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 8fa2cef3815e0d418bf72174abeef8aff608cca2
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: c7a79565a04dc24b027344717424c5bd7a55997e
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170834"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306505"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 应用服务本地缓存概述
 
 > [!NOTE]
 > 函数应用或 [Linux 上的应用服务](overview.md#app-service-on-linux)不支持本地缓存。
 
+<!--[Windows Containers](quickstart-custom-container.md?pivots=container-windows)-->
 
 Azure 应用服务内容将存储在 Azure 存储中，作为内容共享持续呈现。 此设计旨在兼容各种应用，具有以下特点：  
 
@@ -47,7 +48,11 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 * 通过任何支持的方法进行的应用部署都将直接发布到持久共享内容存储。 若要刷新本地缓存中的 D:\home\site 和 D:\home\siteextensions 文件夹，需要重新启动应用。  若要确保无缝的生命周期，请参阅本文后面提供的信息。
 * SCM 站点的默认内容视图仍是共享内容存储的视图。
 
-## <a name="enable-local-cache-in-app-service"></a>在应用服务中启用本地缓存
+## <a name="enable-local-cache-in-app-service"></a>在应用服务中启用本地缓存 
+
+> [!NOTE]
+> F1 或 D1 层不支持本地缓存 。 
+
 组合使用保留的应用设置即可配置本地缓存。 可以通过以下方法配置这些应用设置：
 
 * [Azure 门户](#Configure-Local-Cache-Portal)
@@ -90,8 +95,8 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 ## <a name="best-practices-for-using-app-service-local-cache"></a>使用应用服务本地缓存的最佳实践
 建议将本地缓存与[过渡环境](../app-service/deploy-staging-slots.md)功能结合在一起使用。
 
-* 将值为 `Always` 的*粘性*应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 添加到**生产**槽。 如果使用的是 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也可将其作为粘性设置添加到“生产”槽。
-* 创建**过渡**槽，并发布到过渡槽。 如果获得了生产槽的本地缓存优势，则要想通过无缝的“构建-部署-测试”生命周期进行过渡，通常不需要将过渡槽设置为使用本地缓存。
+* 将值为 `Always` 的 *粘性* 应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 添加到 **生产** 槽。 如果使用的是 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也可将其作为粘性设置添加到“生产”槽。
+* 创建 **过渡** 槽，并发布到过渡槽。 如果获得了生产槽的本地缓存优势，则要想通过无缝的“构建-部署-测试”生命周期进行过渡，通常不需要将过渡槽设置为使用本地缓存。
 * 针对“过渡”槽来测试站点。  
 * 准备就绪以后，在过渡槽和生产槽之间执行[交换操作](../app-service/deploy-staging-slots.md#Swap)。  
 * 粘性设置包含名称，会粘到某个槽上。 因此，将“过渡”槽交换成“生产”槽以后，该槽会继承本地缓存应用设置。 新交换的“生产”槽会在几分钟后以本地缓存为基础运行，并会在交换后进行槽预热的过程中预热。 因此，在槽交换完成后，“生产”槽会在本地缓存的基础上运行。
@@ -117,4 +122,4 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 本地缓存确实可以防止与存储相关的应用重启情况。 但是，在对 VM 进行计划内基础结构升级时，应用仍可能重新启动。 启用本地缓存以后，总体说来应用重启的次数应该会少一些。
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>本地缓存是否会阻止某些目录被复制到更快的本地驱动器？
-在复制存储内容过程中，将排除任何名为存储库的文件夹。 如果站点内容包含应用日常操作中可能不必要的源控件存储库，则此方法非常有用。 
+在复制存储内容过程中，将排除任何名为存储库的文件夹。 如果站点内容包含应用日常操作中可能不必要的源控件存储库，则此方法非常有用。

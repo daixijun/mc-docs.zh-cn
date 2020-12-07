@@ -5,17 +5,17 @@ services: firewall
 ms.service: firewall
 origin.date: 11/12/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: 8feaeb1412bc386db1e487df859698d21dc45978
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7b720fc2cbddc363d3987e0f2fba7df2417d16c8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977800"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747265"
 ---
 <!--Verify Successfully by changing some of the parameters to fit Azure China-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
@@ -48,11 +48,11 @@ ms.locfileid: "94977800"
 
 如果需要，可以使用 [Azure 门户](tutorial-firewall-deploy-portal.md)完成此过程。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
-此过程要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Connect-AzAccount -Environment AzureChinaCloud`，以便创建与 Azure 的连接。
+此过程要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 验证 PowerShell 版本以后，请运行 `Connect-AzAccount -Environment AzureChinaCloud`，以便创建与 Azure 的连接。
 
 ## <a name="set-up-the-network"></a>设置网络
 
@@ -255,6 +255,6 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>后续步骤
 
-* [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+* [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

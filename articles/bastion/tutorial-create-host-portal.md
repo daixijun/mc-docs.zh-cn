@@ -10,12 +10,12 @@ ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: a1ec6c6dcac4e5dafa3e6e1547381741e4bef8e9
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 5ef6d8aecee41e29b009344a5bece4133bfb7cf9
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024617"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432662"
 ---
 <!--Verified successfully on 09/07/2020-->
 <!--Verified from the renamed articles-->
@@ -29,7 +29,7 @@ ms.locfileid: "96024617"
 > * 为你的 VNet 创建 Bastion 主机
 > * 连接到 Windows 虚拟机
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

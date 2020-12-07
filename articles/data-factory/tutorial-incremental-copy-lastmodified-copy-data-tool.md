@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 6/10/2019
 ms.date: 06/29/2020
-ms.openlocfilehash: 7d6a72f34ad84b536866d5422ece8aa0ef4c7c50
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: da1581ff5dd061f05f3d19012a830b86879fa127
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321983"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431940"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>使用复制数据工具根据 LastModifiedDate 以增量方式复制新的和已更改的文件
 
@@ -40,7 +40,7 @@ ms.locfileid: "85321983"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * **Azure 存储帐户**，将 Blob 存储用作源和接收器数据存储。 如果没有 Azure 存储帐户，请按照[创建存储帐户](../storage/common/storage-account-create.md)中的说明操作。
 
 ## <a name="create-two-containers-in-blob-storage"></a>在 Blob 存储中创建两个容器

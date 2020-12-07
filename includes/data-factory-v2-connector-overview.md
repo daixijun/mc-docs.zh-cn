@@ -2,15 +2,15 @@
 author: WenJason
 ms.service: data-factory
 ms.topic: include
-origin.date: 08/18/2020
-ms.date: 09/21/2020
+origin.date: 09/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 23e15f03803270ee4e9b211c972515c7db049fa7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 2cbd06a77c44b2f4ee2c042499dc623b2df81783
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523794"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747226"
 ---
 | 类别              | 数据存储                                                   | [复制活动](../articles/data-factory/copy-activity-overview.md)（源/接收器） | [Lookup 活动](../articles/data-factory/control-flow-lookup-activity.md) | [获取元数据活动](../articles/data-factory/control-flow-get-metadata-activity.md)/[验证活动](../articles/data-factory/control-flow-validation-activity.md) | [删除活动](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -23,6 +23,7 @@ ms.locfileid: "90523794"
 | &nbsp;                | [Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) | ✓/−                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Azure Databricks Delta Lake](../articles/data-factory/connector-azure-databricks-delta-lake.md) | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Azure 文件存储](../articles/data-factory/connector-azure-file-storage.md) | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Azure SQL 数据库](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                           | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL 托管实例](../articles/data-factory/connector-azure-sql-managed-instance.md) | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |

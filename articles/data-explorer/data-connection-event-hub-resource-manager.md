@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 11/28/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 5e2c990528fe675629b30bd30985f6b7bcd04b92
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: cd645d4ea5072b393b2aec3cca10c7f21d5b7d3a
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105171"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431186"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板为 Azure 数据资源管理器创建事件中心数据连接
 
@@ -28,7 +28,7 @@ ms.locfileid: "93105171"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建[群集和数据库](create-cluster-database-portal.md)
 * 创建[表和列映射](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
 * 创建[事件中心](/event-hubs/event-hubs-create)

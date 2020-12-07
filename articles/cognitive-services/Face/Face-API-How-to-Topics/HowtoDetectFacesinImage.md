@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 04/18/2019
-ms.date: 10/27/2020
+ms.date: 11/23/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05c833d2e0d357a35c2d34def670d2779397771a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0e168259e9bf4b88103496ebe7caa05284d3ab65
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105455"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96306490"
 ---
 # <a name="get-face-detection-data"></a>获取人脸检测数据
 
@@ -898,3 +898,5 @@ namespace ConsoleApp1
 ## <a name="related-topics"></a>相关主题
 
 - [参考文档 (REST)](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [参考文档 (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview//cognitiveservices/client/faceapi?view=azure-dotnet)
+

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 11/09/2019
 ms.date: 11/23/2020
-ms.openlocfilehash: 8f1381cc52abc36c625e15497a1294d50cb3dc72
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 7bead027137436253938b36938a8a7897c3f165a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680501"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432515"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Data Lake Storage Gen2 中
 
@@ -34,7 +34,7 @@ Azure 数据工厂提供可横向扩展的托管数据移动解决方案。 得�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/en-us/pricing/1rmb-trial-full/?form-type=identityauth)。
+* Azure 订阅：如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 启用了 Data Lake Storage Gen2 的 Azure 存储帐户：如果没有存储帐户，请[创建一个帐户](https://portal.azure.cn/#create/Microsoft.StorageAccount-ARM)。
 * AWS 帐户与一个包含数据的 S3 存储桶：本文介绍如何从 Amazon S3 复制数据。 可以按类似步骤使用其他数据存储。
 

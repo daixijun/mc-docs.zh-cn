@@ -5,17 +5,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU �
 services: container-service
 ms.topic: article
 origin.date: 06/14/2020
-ms.date: 10/26/2020
+ms.date: 11/30/2020
 ms.testscope: yes|no
 ms.testdate: 07/09/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: a7557382edcaee8452165ff39802f0e8fb1e5f89
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 686be0beaa951530aa791b0f60e1ea3a623297b1
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470413"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024418"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -115,7 +115,7 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2* 。 
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2*。 
 
 还可以在创建群集时，通过追加 `--load-balancer-managed-outbound-ip-count` 参数并将其设置为所需的值，使用 `load-balancer-managed-ip-count` 参数来设置托管出站公共 IP 的初始数量 。 托管出站公共 IP 的默认数量为 1。
 
@@ -267,9 +267,9 @@ az aks update \
 - 为 *allocatedOutboundPorts* 指定的值还必须是 8 的倍数。
 - 你必须有足够的出站 IP 容量，具体取决于节点 VM 和所需的已分配出站端口的数量。 若要验证是否有足够的出站 IP 容量，请使用以下公式： 
 
-    *outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts* 。
+    *outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*。
 
-    例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort* ，则至少需要有 3 个 *outboundIP* 。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
+    例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort*，则至少需要有 3 个 *outboundIP*。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
     
 - 将 *IdleTimeoutInMinutes* 设置为默认值 30 分钟之外的值时，请考虑你的工作负荷多长时间将需要出站连接。 还要考虑在 AKS 外部使用的“标准”SKU 负载平衡器的默认超时值是 4 分钟。 如果 *idletimeoutminutes* 值较准确地反映你的具体 AKS 工作负载，则有助于降低由于绑定不再使用的连接而导致的 SNAT 耗尽。
 
@@ -404,7 +404,7 @@ spec:
 [az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
 [az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
 [az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
@@ -423,11 +423,11 @@ spec:
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
 
 <!-- Update_Description: update meta properties, wording update, update link -->

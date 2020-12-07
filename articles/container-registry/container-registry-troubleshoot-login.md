@@ -4,16 +4,16 @@ description: 登录到 Azure 容器注册表时的常见问题的症状、原因
 ms.topic: article
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8fcf06606ef9ca2749310d97c48063cf03a88600
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a374a5147f234961c4f20dda11b6f9e0cfaee0d8
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024632"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
@@ -83,10 +83,11 @@ az acr login --name myregistry
 检查用于你的方案的凭据或由注册表所有者提供给你的凭据的有效性。 一些可能的问题：
 
 * 如果使用 Active Directory 服务主体，请确保在 Active Directory 租户中使用正确的凭据：
-  * 用户名 - 服务主体应用程序 ID（也称为 *客户端 ID* ）
-  * 密码 - 服务主体密码（也称为 *客户端密码* ）
+  * 用户名 - 服务主体应用程序 ID（也称为 *客户端 ID*）
+  * 密码 - 服务主体密码（也称为 *客户端密码*）
 * 如果使用 Azure 服务（如 Azure Kubernetes 服务或 Azure DevOps）来访问注册表，请确认服务的注册表配置。
 * 如果运行了带有 `--expose-token` 选项的 `az acr login`，以允许在不使用 Docker 守护程序的情况下登录注册表，请确保使用用户名 `00000000-0000-0000-0000-000000000000` 进行身份验证。
+* 如果将注册表配置为[匿名拉取访问](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)，则以前的 Docker 登录名存储的现有 Docker 凭据可阻止匿名访问。 先运行 `docker logout`，再在注册表上尝试匿名拉取操作。
 
 相关链接：
 
@@ -103,7 +104,9 @@ az acr login --name myregistry
 
 确认与凭据关联的注册表权限，例如用于从注册表拉取映像的Azure 角色 `AcrPull`，或用于推送映像的 `AcrPush` 角色。 
 
-若要在门户中访问注册表或要使用 Azure CLI 进行注册表管理，至少需要用于执行 Azure 资源管理器操作的 `Reader` 角色。
+若要在门户中访问注册表或要使用 Azure CLI 进行注册表管理，至少需要用于执行 Azure 资源管理器操作的 `Reader` 角色或等效权限。
+
+如果你的权限最近更改为允许通过门户访问注册表，你可能需要尝试在浏览器中使用 incognito 或专用会话，以避免使用任何过时的浏览器缓存或 Cookie。
 
 你或注册表所有者必须在订阅中具有足够的权限，才能添加或删除角色分配。
 

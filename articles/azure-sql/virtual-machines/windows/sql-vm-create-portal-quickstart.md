@@ -13,12 +13,12 @@ origin.date: 07/11/2019
 ms.date: 08/17/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 5bfde6fa399416e0b9f8c5c9a7cd7d8c151d5d9e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 49cad3f4a61fefcac551f5a16ee5724b0e7eeb3b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223142"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431964"
 ---
 <!--Verified Redirect files-->
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：通过 Azure 门户在 Windows 虚拟机上创建 SQL Server 2017
@@ -37,7 +37,7 @@ ms.locfileid: "88223142"
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> 获取 Azure 订阅
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="select-a-sql-server-vm-image"></a><a id="select"></a>选择 SQL Server VM 映像
 
@@ -58,7 +58,7 @@ ms.locfileid: "88223142"
     
     <!--CORRECT ON newsearch.png-->
 
-1. 选择“创建” 。
+1. 选择“创建”。
 
    ![新搜索窗口](./media/sql-vm-create-portal-quickstart/create-sql-2017-vm-image.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "88223142"
 
 1. 提供一个强 **密码**。
 
-1. 输入新的**资源组**名称。 可借助此组管理与虚拟机关联的所有资源。
+1. 输入新的 **资源组** 名称。 可借助此组管理与虚拟机关联的所有资源。
 
 1. 确认其他默认设置，然后单击“确定”继续。
 
@@ -101,7 +101,7 @@ ms.locfileid: "88223142"
     ![入站端口](./media/sql-vm-create-portal-quickstart/inbound-ports.png)
 
     > [!NOTE]
-    > 可以选择“MS SQL (1433)”端口以远程访问 SQL Server。 但是，这不必要，因为 **SQL Server 设置**步骤也提供此选项。 如果在此步骤中选择了端口 1433，则无论在“SQL Server 设置”步骤中选择了哪一项，都会打开该端口。
+    > 可以选择“MS SQL (1433)”端口以远程访问 SQL Server。 但是，这不必要，因为 **SQL Server 设置** 步骤也提供此选项。 如果在此步骤中选择了端口 1433，则无论在“SQL Server 设置”步骤中选择了哪一项，都会打开该端口。
 
 1. 单击“确定”保存所做的更改并继续。
 
@@ -146,7 +146,7 @@ ms.locfileid: "88223142"
 
 1. 在“密码”  框中，键入登录的密码。
 
-1. 选择“连接” 。
+1. 选择“连接”。
 
     ![ssms 连接](./media/sql-vm-create-portal-quickstart/ssms-connect.png)
 

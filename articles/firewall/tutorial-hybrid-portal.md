@@ -4,21 +4,21 @@ description: 本教程介绍如何使用 Azure 门户部署和配置 Azure 防�
 services: firewall
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 10/19/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
-ms.testdate: 08/03/2020
+ms.testdate: 12/07/2020
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 82082def3cca7a20fa17f949933eb3e6780a8598
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c78207bb0e2d69d3020fdfd52ad41ae5eaaafa3a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327285"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746626"
 ---
-<!--Verify Successfully -->
+<!--Verify Successfully-->
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙
 
 将本地网络连接到 Azure 虚拟网络以创建混合网络时，必须能够控制对 Azure 网络资源的访问，这是整体安全计划的重要部分。
@@ -71,7 +71,7 @@ ms.locfileid: "94327285"
 >[!NOTE]
 >即使 UDR 指向作为默认网关的 Azure 防火墙，也会直接路由直接对等互连 VNet 之间的流量。 若要在此方案中将子网到子网流量发送到防火墙，UDR 必须在这两个子网上显式地包含目标子网网络前缀。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>创建防火墙中心虚拟网络
 
@@ -80,13 +80,13 @@ ms.locfileid: "94327285"
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 在 Azure 门户主页上，选择“资源组” > “添加” 。
 3. 对于“订阅”，请选择自己的订阅。 
-4. 对于“资源组名称”，请键入 **FW-Hybrid-Test**。
+1. 对于“资源组名称”，请键入 **FW-Hybrid-Test**。
     
-    <!--CORRECT ON RESOURCE GROUP NAME (Asia Pacific)China East-->
+    <!--CORRECT ON RESOURCE GROUP NAME China East-->
     
-5. 对于“区域”，请选择“(亚太)中国东部”。 以后创建的所有资源必须位于同一位置。
-6. 选择“查看 + 创建”。
-7. 选择“创建”。
+2. 对于“区域”，请选择“中国东部”。   以后创建的所有资源必须位于同一位置。
+3. 选择“查看 + 创建”。
+4. 选择“创建”。
 
 现在创建 VNet：
 
@@ -95,16 +95,16 @@ ms.locfileid: "94327285"
 
 1. 在 Azure 门户主页上，选择“创建资源”。
 2. 在“网络”下，选择“虚拟网络”。 
-7. 对于“资源组”，请选择“FW-Hybrid-Test”。 
+1. 对于“资源组”，请选择“FW-Hybrid-Test”。 
 1. 对于“名称”，请键入 **VNet-hub**。
-2. 在完成时选择“下一步:IP 地址”。
-3. 对于“IPv4 地址空间”，请键入“10.5.0.0/16” 。
-6. 在“子网名称”下，选择“默认值”。
-7. 对于“名称”，请键入“AzureFirewallSubnet” 。 防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
-8. 对于“地址范围”，请键入 **10.5.0.0/26**。 
-9. 选择“保存”。
-10. 选择“查看 + 创建”。
-11. 选择“创建”。
+1. 在完成时选择“下一步:IP 地址”。
+1. 对于“IPv4 地址空间”，请删除默认地址然后键入“10.5.0.0/16” 。
+1. 在“子网名称”下，选择“添加子网” 。
+1. 对于“子网名称”，键入“AzureFirewallSubnet”。  防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
+1. 对于“子网地址范围”，请键入“10.5.0.0/26” 。 
+1. 选择 **添加** 。
+1. 选择“查看 + 创建”  。
+1. 选择“创建”。
 
 ## <a name="create-the-spoke-virtual-network"></a>创建分支虚拟网络
 
@@ -114,12 +114,12 @@ ms.locfileid: "94327285"
 1. 对于“名称”，请键入 **VNet-Spoke**。
 2. 对于“区域”，请选择“中国东部”。  
 3. 在完成时选择“下一步:IP 地址”。
-4. 对于“IPv4 地址空间”，请键入“10.6.0.0/16” 。
-6. 在“子网名称”下，选择“默认值”。
-7. 对于“名称”，请键入“SN-Workload” 。
-8. 对于“地址范围”，请键入 **10.6.0.0/24**。 
-9. 选择“保存”。
-10. 选择“查看 + 创建”。
+4. 对于“IPv4 地址空间”，请删除默认地址然后键入“10.6.0.0/16” 。
+6. 在“子网名称”下，选择“添加子网” 。
+7. 对于“子网名称”，请键入“SN-Workload” 。
+8. 对于“子网地址范围”，请键入“10.6.0.0/24” 。 
+9. 选择 **添加** 。
+10. 选择“查看 + 创建”  。
 11. 选择“创建”。
 
 ## <a name="create-the-on-premises-virtual-network"></a>创建本地虚拟网络
@@ -130,12 +130,12 @@ ms.locfileid: "94327285"
 1. 对于“名称”，请键入 **VNet-OnPrem**。
 2. 对于“区域”，请选择“中国东部”。  
 3. **选择“下一步:** IP 地址”
-4. 对于“IPv4 地址空间”，请键入“192.168.0.0/16” 。
-5. 在“子网名称”下，选择“默认值”。
-7. 对于“名称”，请键入“SN-Corp” 。
-8. 对于“地址范围”，请键入 **192.168.1.0/24**。  
-9. 选择“保存”。
-10. 选择“查看 + 创建”。
+4. 对于“IPv4 地址空间”，请删除默认地址然后键入“192.168.0.0/16” 。
+5. 在“子网名称”下，选择“添加子网” 。
+7. 对于“子网名称”，请键入“SN-Corp” 。
+8. 对于“子网地址范围”，请键入“192.168.1.0/24” 。 
+9. 选择 **添加** 。
+10. 选择“查看 + 创建”  。
 11. 选择“创建”。
 
 现在，为网关创建第二个子网。
@@ -159,7 +159,7 @@ ms.locfileid: "94327285"
 
     <!--MoonCake Customization on the portal-->
 
-    |设置  |值  |
+    |设置  |“值”  |
     |---------|---------|
     |订阅     |\<your subscription\>|
     |资源组     |**FW-Hybrid-Test** |
@@ -187,7 +187,7 @@ ms.locfileid: "94327285"
 5. 对于“优先级”，请键入 **100**。
 6. 对于“操作”，请选择“允许”。
 6. 在“规则”下，为“名称”键入 **AllowWeb**。 
-7. 对于“协议”，请选择“TCP”。  
+7. 对于“协议”，请选择“TCP”。 
 8. 对于 **源类型**，请选择“IP 地址”。
 9. 对于 **源**，请键入 **192.168.1.0/24**。
 10. 对于“目标类型”，请选择“IP 地址” 。
@@ -216,7 +216,7 @@ ms.locfileid: "94327285"
 现在，为中心虚拟网络创建 VPN 网关。 网络到网络配置需要 RouteBased VpnType。 创建 VPN 网关通常需要 45 分钟或更长时间，具体取决于所选 VPN 网关的 SKU。
 
 1. 在 Azure 门户主页上，选择“创建资源”。
-2. 在搜索文本框中，键入“虚拟网络网关”并按 **Enter**。
+2. 在搜索文本框中，键入“虚拟网络网关”。
 3. 依次选择“虚拟网络网关”、“创建”。
 4. 对于“名称”，请键入 **GW-hub**。
 5. 对于“区域”，请选择前面使用的同一区域。
@@ -258,7 +258,7 @@ ms.locfileid: "94327285"
 5. 选择“VNet 到 VNet”作为“连接类型”。
 6. 对于“第二个虚拟网络网关”，请选择“GW-Onprem”。
 7. 对于“共享密钥(PSK)”，请键入 **AzureA1b2C3**。
-8. 选择“确定”。
+8. 选择“确定”  。
 
 创建本地到中心虚拟网络连接。 此步骤类似于前一步骤，但这次是创建从 VNet-Onprem 到 VNet-hub 的连接。 确保共享密钥匹配。 几分钟后会建立连接。
 
@@ -269,7 +269,7 @@ ms.locfileid: "94327285"
 5. 选择“VNet 到 VNet”作为“连接类型”。
 6. 对于“第二个虚拟网络网关”，请选择“GW-hub”。
 7. 对于“共享密钥(PSK)”，请键入 **AzureA1b2C3**。
-8. 选择“确定”。
+8. 选择“确定”  。
 
 #### <a name="verify-the-connection"></a>验证连接
 
@@ -284,23 +284,32 @@ ms.locfileid: "94327285"
 1. 打开“FW-Hybrid-Test”资源组并选择“VNet-hub”虚拟网络。
 2. 在左栏中选择“对等互连”。
 3. 选择 **添加** 。
-4. 对于“名称”，请键入 **HubtoSpoke**。
-5. 对于“虚拟网络”，请选择“VNet-spoke”。
-6. 键入 **SpoketoHub** 作为从 VNetSpoke 到 VNet-hub 的对等互连名称。
-7. 选择“允许网关传输”。
-8. 选择“确定”。
+4. 在“此虚拟网络”下：
 
-### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>配置 SpoketoHub 对等互连的其他设置
+   |设置名称  |值  |
+   |---------|---------|
+   |对等互连链接名称| HubtoSpoke|
+   |到远程虚拟网络的流量|   允许（默认）      |
+   |从远程虚拟网络转接的流量    |   允许（默认）      |
+   |虚拟网络网关     |  使用此虚拟网络的网关       |
 
-需要对 SpoketoHub 对等互连启用“允许转发的流量”。
+5. 在“远程虚拟网络”下：
 
-1. 打开“FW-Hybrid-Test”资源组并选择“VNet-Spoke”虚拟网络。
-2. 在左栏中选择“对等互连”。
-3. 选择“SpoketoHub”对等互连。
-4. 在“允许从 VNet-hub 转发到 VNet-Spoke 的流量”下，选择“已启用”。
-5. 选择“保存”。
+   |设置名称  |值  |
+   |---------|---------|
+   |对等互连链接名称 | SpoketoHub|
+   |虚拟网络部署模型| 资源管理器|
+   |订阅|\<your subscription\>|
+   |虚拟网络| VNet-Spoke
+   |到远程虚拟网络的流量     |   允许（默认）      |
+   |从远程虚拟网络转接的流量    |   允许（默认）      |
+   |虚拟网络网关     |  使用此远程虚拟网络的网关       |
 
-## <a name="create-the-routes"></a><a name="create-the-routes"></a>创建路由
+5. 选择 **添加** 。
+
+   :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="VNet 对等互连":::
+
+## <a name="create-the-routes"></a>创建路由
 
 接下来创建一对路由：
 
@@ -326,7 +335,7 @@ ms.locfileid: "94327285"
 15. 键入 **10.6.0.0/16** 作为地址前缀。
 16. 选择“虚拟设备”作为下一跃点类型。
 17. 键入前面记下的防火墙专用 IP 地址作为下一跃点地址。
-18. 选择“确定”。
+18. 选择“确定”  。
 
 现在，将路由关联到子网。
 
@@ -344,14 +353,14 @@ ms.locfileid: "94327285"
 5. 选择“创建”。
 7. 选择“FW-Hybrid-Test”作为资源组。
 
-    <!--MOONCAKE CUSTOMIZE TILL ON 11/05/2020-->
+    <!--MOONCAKE CUSTOMIZE TILL ON 12/07/2020-->
     
 8. 对于“位置”，请选择前面使用的同一位置。 
 1. 键入 **UDR-DG** 作为名称。
 4. 对于“传播网关路由”，请选择“禁用” 。
 1. 选择“创建”。
     
-    <!--MOONCAKE CUSTOMIZE TILL ON 11/05/2020-->
+    <!--MOONCAKE CUSTOMIZE TILL ON 12/07/2020-->
     
 2. 创建路由表后，请选择它以打开路由表页。
 3. 在左栏中选择“路由”。
@@ -360,7 +369,7 @@ ms.locfileid: "94327285"
 6. 键入 **0.0.0.0/0** 作为地址前缀。
 7. 选择“虚拟设备”作为下一跃点类型。
 8. 键入前面记下的防火墙专用 IP 地址作为下一跃点地址。
-9. 选择“确定” 。
+9. 选择“确定”  。
 
 现在，将路由关联到子网。
 
@@ -475,6 +484,6 @@ ms.locfileid: "94327285"
 接下来，可以监视 Azure 防火墙日志。
 
 > [!div class="nextstepaction"]
-> [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+> [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

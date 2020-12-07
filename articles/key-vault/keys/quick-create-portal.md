@@ -12,18 +12,18 @@ ms.custom: mvc
 origin.date: 03/24/2020
 ms.date: 04/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: fcb34eb20b01ad0760348940ade16ca8860cb0c7
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.openlocfilehash: 3117977428788d5db827db669afb31c955fc9279
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588824"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431069"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索密钥
 
 Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可以安全地存储密钥、密码、证书和其他机密。 可以通过 Azure 门户创建和管理 Azure Key Vault。 在本快速入门中，你将创建一个密钥保管库并使用它来存储密钥。 有关 Key Vault 的详细信息，请参阅[概述](../general/overview.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -31,21 +31,21 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 ## <a name="create-a-vault"></a>创建保管库
 
-1. 在 Azure 门户菜单或“主页”中，选择“创建资源”   。
-2. 在“搜索”框中输入“Key Vault”  。
-3. 从结果列表中选择“Key Vault”  。
-4. 在“Key Vault”部分，选择“创建”  。
-5. 在“创建密钥保管库”部分，提供以下信息： 
-    - **名称**：必须提供唯一的名称。 在本快速入门中，我们使用 Example-Vault  。 
-    - **订阅**：选择订阅。
-    - 在“资源组”  下选择“新建”  ，然后输入资源组名称。
-    - 在“位置”下拉菜单中选择一个位置。 
+1. 在 Azure 门户菜单或“主页”中，选择“创建资源” 。
+2. 在“搜索”框中输入“Key Vault”。
+3. 从结果列表中选择“Key Vault”。
+4. 在“Key Vault”部分，选择“创建”。
+5. 在“创建密钥保管库”部分，提供以下信息：
+    - 名称：必须提供唯一的名称。 在本快速入门中，我们使用 Example-Vault。 
+    - 订阅：选择订阅。
+    - 在“资源组”下选择“新建”，然后输入资源组名称。
+    - 在“位置”下拉菜单中选择一个位置。
     - 让其他选项保留默认值。
-6. 提供上述信息后，选择“创建”  。
+6. 提供上述信息后，选择“创建”。
 
 请记下下面列出的两个属性：
 
-* **保管库名称**：在示例中，此项为 Example-Vault  。 将在其他步骤中使用此名称。
+* **保管库名称**：在示例中，此项为 Example-Vault。 将在其他步骤中使用此名称。
 * **保管库 URI**：在本示例中，此项为 https://example-vault.vault.azure.cn/ 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 目前，只有你的 Azure 帐户有权对这个新保管库执行操作。
@@ -61,7 +61,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 3. 在“创建密钥”  屏幕上，选择以下值：
     - **选项**：生成。
     - **名称**：ExampleKey。
-    - 让其他值保留默认设置。 单击**创建**。
+    - 让其他值保留默认设置。 单击“创建”。 
 
 收到密钥已成功创建的消息后，即可单击列表中的该密钥， 然后就可以看到某些属性。 如果单击当前版本，则可看到在上一步指定的值。
 
@@ -74,8 +74,8 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 如果不再需要资源组，可以将其删除，这将删除 Key Vault 和相关的资源。 要通过门户删除资源组，请执行以下操作：
 
 1. 在门户顶部的“搜索”框中输入资源组的名称。 在搜索结果中看到在本快速入门中使用的资源组后，将其选中。
-2. 选择“删除资源组”  。
-3. 在“键入资源组名称:”框中，键入资源组的名称，然后选择“删除”   。
+2. 选择“删除资源组”。
+3. 在“键入资源组名称:”框中，键入资源组的名称，然后选择“删除” 。
 
 
 ## <a name="next-steps"></a>后续步骤

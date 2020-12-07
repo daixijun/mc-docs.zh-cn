@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 18c4bd7c88b17fc300e94010d78d0093a8e42408
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: d523a36f5cdbfb776017b35f75e17b5cee257f20
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918337"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>可将用户登录的 Web 应用：代码配置
 
@@ -340,23 +340,19 @@ Session(app)
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+转到此方案中的下一篇文章：[登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)。
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+转到此方案中的下一篇文章：[登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)。
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+转到此方案中的下一篇文章：[登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=java)。
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+转到此方案中的下一篇文章：[登录和注销](./scenario-web-app-sign-user-sign-in.md?tabs=python)。
 
 ---
 

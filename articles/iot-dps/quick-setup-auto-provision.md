@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b414867fd8f55ecbd7165147e5c9122310c7018c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7a24097df681684796732c51cd2bc6b78e7b3ced
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431134"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>快速入门：使用 Azure 门户设置 IoT 中心设备预配服务
 
@@ -27,7 +27,7 @@ IoT 中心设备预配服务可以与 IoT 中心配合使用，无需人为干�
 * 将 IoT 中心链接到设备预配服务
 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -45,7 +45,7 @@ IoT 中心设备预配服务可以与 IoT 中心配合使用，无需人为干�
 
     * **名称：** 为新的设备预配服务实例提供一个唯一名称。 如果输入的名称可用，会显示一个绿色复选标记。
     * **订阅：** 选择要用来创建此设备预配服务实例的订阅。
-    * **资源组：** 此字段允许你创建新的资源组，或选择现有资源组来包含新实例。 选择包含你之前创建的 IoT 中心的同一资源组，例如 **TestResources** 。 通过将所有相关资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除包含在该组中的所有资源。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](../azure-resource-manager/management/manage-resource-groups-portal.md)。
+    * **资源组：** 此字段允许你创建新的资源组，或选择现有资源组来包含新实例。 选择包含你之前创建的 IoT 中心的同一资源组，例如 **TestResources**。 通过将所有相关资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除包含在该组中的所有资源。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](../azure-resource-manager/management/manage-resource-groups-portal.md)。
     * **位置：** 选择离你的设备最近的位置。
 
       ![在门户边栏选项卡中输入有关设备预配服务实例的基本信息](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

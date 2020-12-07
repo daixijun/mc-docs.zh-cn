@@ -14,12 +14,12 @@ ms.author: v-junlch
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1547948b8ecfc3c2d883f589c022cb7695b3b852
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 68d53343f930fb8cc396d3aa1aa70a92988f1ec8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70134195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508875"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -28,7 +28,7 @@ ms.locfileid: "70134195"
 
 本快速入门介绍如何查看组织的所有现有组和分配的成员。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>先决条件
 在开始之前，需要：
@@ -89,7 +89,7 @@ ms.locfileid: "70134195"
     ![“组 - 所有组”页，其中显示了所有现有的组](./media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
 
 ## <a name="search-for-the-group"></a>搜索组
-搜索“组 - 所有组”页，找到“MDM 策略 - 西部”组。  
+搜索“组 - 所有组”页，找到“MDM 策略 - 西部”组。 
 
 1. 在“组 - 所有组”页上的“搜索”框中键入 _MDM_。  
 
@@ -97,7 +97,7 @@ ms.locfileid: "70134195"
 
     ![已填写搜索框的“组 - 所有组”页](./media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
-3. 选择“MDM 策略 - 西部”组。 
+3. 选择“MDM 策略 - 西部”组。
 
 4. 在“MDM 策略 - 西部概述”页上查看组信息，包括该组的成员数目。 
 
@@ -119,7 +119,7 @@ ms.locfileid: "70134195"
 
     此时会显示“MDM 策略 - 西部概述”页。 
 
-3. 选择“删除”  。
+3. 选择“删除”。 
 
     随即会删除该组及其关联的成员。
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 origin.date: 09/25/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 5b1096277b3d30024712a50e62f15b628b654d4a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d14d6f9518e87f6f9ed7444c4bc4b8611624531a
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300497"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431174"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>教程：为 Kubernetes 上的机密存储 CSI 驱动程序配置并运行 Azure Key Vault 提供程序
 
@@ -35,7 +35,7 @@ ms.locfileid: "96300497"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 在开始学习本教程之前，请安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli-windows)。
 

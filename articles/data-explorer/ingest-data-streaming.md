@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/13/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 30c9188c737bda2428878647746cda7676869f0c
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: c71c6909ca50231ecb3123794addccd641847714
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146374"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431189"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-the-azure-portal"></a>使用 Azure 门户在 Azure 数据资源管理器群集上配置流式引入
 
@@ -25,7 +25,7 @@ ms.locfileid: "91146374"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>在群集上启用流式引入
@@ -45,7 +45,7 @@ ms.locfileid: "91146374"
 1. 在“配置”窗格中，选择“打开”以启用“流式引入”。  
 1. 选择“保存” 。
 
-    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-on.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-on.png" alt-text="在 Azure 数据资源管理器中启用流式引入":::
 
 > [!WARNING]
 > 启用流式引入之前，请查看[限制](#limitations)。
@@ -55,7 +55,7 @@ ms.locfileid: "91146374"
 1. 在 Azure 门户中导航到群集。
 1. 选择“查询”。
 
-    :::image type="content" source="media/ingest-data-streaming/cluster-select-query-tab.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/cluster-select-query-tab.png" alt-text="在Azure 数据资源管理器门户中选择“查询”以启用流式引入":::
 
 1. 将以下命令复制到“查询窗格”中，然后选择“运行”以创建将通过流式引入接收数据的表 。
 
@@ -63,7 +63,7 @@ ms.locfileid: "91146374"
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
     ```
 
-    :::image type="content" source="media/ingest-data-streaming/create-table.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/create-table.png" alt-text="创建流式引入 Azure 数据资源管理器的表":::
 
 1. 在已创建的表或包含此表的数据库上定义[流式引入策略](kusto/management/streamingingestionpolicy.md)。 
  
@@ -82,7 +82,7 @@ ms.locfileid: "91146374"
     .alter database StreamingTestDb policy streamingingestion enable
     ```
 
-    :::image type="content" source="media/ingest-data-streaming/define-streaming-ingestion-policy.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/define-streaming-ingestion-policy.png" alt-text="定义 Azure 数据资源管理器中的流式引入策略":::
 
 [!INCLUDE [ingest-data-streaming-use](includes/ingest-data-streaming-types.md)]
 
@@ -97,13 +97,13 @@ ms.locfileid: "91146374"
     .delete table TestTable policy streamingingestion 
     ```
 
-    :::image type="content" source="media/ingest-data-streaming/delete-streaming-ingestion-policy.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/delete-streaming-ingestion-policy.png" alt-text=" Azure 数据资源管理器中的流式引入策略":::
 
 1. 在“设置”中选择“配置”。 
 1. 在“配置”窗格中，选择“关闭”以禁用“流式引入”。  
 1. 选择“保存” 。
 
-    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-off.png" alt-text="在 Azure 数据资源管理器中创建群集时启用流式引入":::
+    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-off.png" alt-text="在 Azure 数据资源管理器中关闭流式引入":::
 
 [!INCLUDE [ingest-data-streaming-limitations](includes/ingest-data-streaming-limitations.md)]
 

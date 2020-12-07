@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/10/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: 7821fc0f17ec9b0647a24251bcaefe50879daee9
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 1d0c84ce9decfbdbac992b95a32adf961f9aec8d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300671"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431195"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>使用 Azure 数据资源管理器 Go SDK 引入数据 
 
@@ -30,7 +30,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 安装 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 * 安装满足 [Go SDK 最低要求](kusto/api/golang/kusto-golang-client-library.md#minimum-requirements)的 [Go](https://golang.org/)。 
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。

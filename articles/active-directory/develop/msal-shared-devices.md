@@ -9,25 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 11/20/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 4c4060f541a92ac842f8df23f7b30ea6f946699a
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: b39e6b42261686d788a99fc5f02ee20674eae01c
+ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127192"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95918502"
 ---
 # <a name="overview-of-shared-device-mode"></a>共享设备模式的概述
 
 共享设备模式是 Azure Active Directory 的一项功能，使用该模式可以生成能够为一线工作人员提供支持的应用程序，并在部署给这些人员的设备上启用共享设备模式。
 
-> [!NOTE]
-> 此功能目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+>[!IMPORTANT]
+> 此功能 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="what-are-firstline-workers"></a>什么是一线工作人员？
 

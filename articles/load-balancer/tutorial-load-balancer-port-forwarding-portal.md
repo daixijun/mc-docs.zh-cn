@@ -16,12 +16,12 @@ origin.date: 02/26/2019
 ms.date: 11/02/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: b3544863bab5f8a1183d23b6cd541a3467f7cf09
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 3b0006efb5e370b2758e46f58cde4cdb3fecab1a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507981"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教程：使用门户在 Azure 负载均衡器中配置端口转发
 
@@ -37,7 +37,7 @@ ms.locfileid: "92628195"
 > * 创建负载均衡器入站 NAT 端口转发规则。
 > * 在 VM 上安装和配置 IIS，以查看负载均衡和运行中的端口转发。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 对于本教程中的所有步骤，请通过 [https://portal.azure.cn](https://portal.azure.cn) 登录 Azure 门户。
 
@@ -92,24 +92,24 @@ ms.locfileid: "92628195"
 1. 在门户左上角，选择“创建资源” > “计算” > “Windows Server 2016 Datacenter”。 
    
 1. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择以下值： 
-   - **订阅** > **资源组** ：下拉并选择“MyResourceGroupLB”。
-   - **虚拟机名称** ：键入“MyVM1”。
-   - **区域** ：选择“中国北部”。 
-   - **用户名** ：键入“azureuser”。
+   - **订阅** > **资源组**：下拉并选择“MyResourceGroupLB”。
+   - **虚拟机名称**：键入“MyVM1”。
+   - **区域**：选择“中国北部”。 
+   - **用户名**：键入“azureuser”。
    - 密码：键入“Azure1234567”。 
      在“确认密码”字段中，重新键入该密码。
    
 1. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:** 网络”。 
    
    确保选中以下项：
-   - **虚拟网络** ： **MyVNet**
-   - **子网** ： **MyBackendSubnet**
+   - **虚拟网络**：**MyVNet**
+   - **子网**：**MyBackendSubnet**
    
 1. 在“公共 IP”下，选择“新建”，在“创建公共 IP 地址”页面上选择“标准”，然后选择“确定”。 
    
 1. 在“网络安全组”下选择“高级”，以创建新的网络安全组（简称 NSG，一种防火墙）。 
    1. 在“配置网络安全组”字段中，选择“新建”。  
-   1. 键入 *MyNetworkSecurityGroup* ，然后选择“确定”。 
+   1. 键入 *MyNetworkSecurityGroup*，然后选择“确定”。 
    
    >[!NOTE]
    >请注意，默认情况下，NSG 已有打开端口 3389（远程桌面 (RDP) 端口）的传入规则。
@@ -129,7 +129,7 @@ ms.locfileid: "92628195"
    
 1. 检查设置，验证成功后，选择“创建”。 
 
-1. 按步骤创建另一个 VM，其名称为 *MyVM2* ，所有其他设置与 MyVM1 相同。 
+1. 按步骤创建另一个 VM，其名称为 *MyVM2*，所有其他设置与 MyVM1 相同。 
    
    对于“网络安全组”，选择“高级”后，下拉并选择已创建的“MyNetworkSecurityGroup”。 
    
@@ -148,14 +148,14 @@ ms.locfileid: "92628195"
    
 1. 在“添加入站安全规则”对话框中，键入或选择以下内容：
    
-   - **源** ：选择“服务标记”。  
-   - **源服务标记** ：选择“Internet”。 
-   - **目标端口范围** ：键入 *80* 。
-   - **协议** ：选择“TCP”。 
-   - **操作** ：选择“允许”。  
-   - **优先级** ：键入 *100* 。 
-   - **名称** ：键入 *MyHTTPRule* 。 
-   - **说明** ：键入“允许 HTTP”。 
+   - **源**：选择“服务标记”。  
+   - **源服务标记**：选择“Internet”。 
+   - **目标端口范围**：键入 *80*。
+   - **协议**：选择“TCP”。 
+   - **操作**：选择“允许”。  
+   - **优先级**：键入 *100*。 
+   - **名称**：键入 *MyHTTPRule*。 
+   - **说明**：键入“允许 HTTP”。 
    
 1. 选择“添加”  。 
    
@@ -175,7 +175,7 @@ ms.locfileid: "92628195"
    
 1. 在“设置”下，选择“后端池”。 
    
-1. 在“后端池”页上展开 **MyBackendPool** ，确保 **VM1** 和 **VM2** 都已列出。
+1. 在“后端池”页上展开 **MyBackendPool**，确保 **VM1** 和 **VM2** 都已列出。
 
 1. 选择“MyBackendPool”。 
    
@@ -193,12 +193,12 @@ ms.locfileid: "92628195"
    
 1. 在“添加运行状况探测”页上，键入或选择以下值：
    
-   - **名称** ：键入 *MyHealthProbe* 。
-   - **协议** ：下拉并选择“HTTP”。 
-   - **端口** ：键入 *80* 。 
-   - **路径** ：接受 */* 作为默认 URI。 可以将此值替换为任何其他的 URI。 
-   - **时间间隔** ：键入 *15* 。 时间间隔是两次探测尝试之间的秒数。
-   - **不正常阈值** ：键入 *2* 。 此值是将 VM 视为不正常之前发生的连续探测失败次数。
+   - **名称**：键入 *MyHealthProbe*。
+   - **协议**：下拉并选择“HTTP”。 
+   - **端口**：键入 *80*。 
+   - **路径**：接受 */* 作为默认 URI。 可以将此值替换为任何其他的 URI。 
+   - **时间间隔**：键入 *15*。 时间间隔是两次探测尝试之间的秒数。
+   - **不正常阈值**：键入 *2*。 此值是将 VM 视为不正常之前发生的连续探测失败次数。
    
 1. 选择“确定”。
    
@@ -208,7 +208,7 @@ ms.locfileid: "92628195"
 
 负载均衡器规则定义如何将流量分配给 VM。 此规则定义传入流量的前端 IP 配置、用于接收流量的后端 IP 池，以及所需的源和目标端口。 
 
-名为 **MyLoadBalancerRule** 的负载均衡器规则在前端 **LoadBalancerFrontEnd** 中侦听端口 80。 该规则也在端口 80 上将网络流量发送到后端地址池 **MyBackendPool** 。 
+名为 **MyLoadBalancerRule** 的负载均衡器规则在前端 **LoadBalancerFrontEnd** 中侦听端口 80。 该规则也在端口 80 上将网络流量发送到后端地址池 **MyBackendPool**。 
 
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“MyLoadBalancer”。
    
@@ -216,12 +216,12 @@ ms.locfileid: "92628195"
    
 1. 在“添加负载均衡规则”页上，键入或选择以下值：
    
-   - **名称** ：键入 *MyLoadBalancerRule* 。
-   - **协议** ：选择“TCP”。
-   - **端口** ：键入 *80* 。
-   - **后端端口** ：键入 *80* 。
-   - **后端池** ：选择“MyBackendPool”。
-   - **运行状况探测** ：选择“MyHealthProbe”。 
+   - **名称**：键入 *MyLoadBalancerRule*。
+   - **协议**：选择“TCP”。
+   - **端口**：键入 *80*。
+   - **后端端口**：键入 *80*。
+   - **后端池**：选择“MyBackendPool”。
+   - **运行状况探测**：选择“MyHealthProbe”。 
    
 1. 选择“确定”。
    
@@ -238,15 +238,15 @@ ms.locfileid: "92628195"
 1. 在“添加入站 NAT 规则”页上，键入或选择以下值：
    
    - 名称：键入“MyNATRuleVM1”。
-   - **端口** ：键入 4221。
-   - **目标虚拟机** ：从下拉列表中选择“MyVM1”。
+   - **端口**：键入 4221。
+   - **目标虚拟机**：从下拉列表中选择“MyVM1”。
    - **网络 IP 配置** ：从下拉列表中选择“ipconfig1”。
-   - **端口映射** ：选择“自定义”。
-   - **目标端口** ：键入“3389”。
+   - **端口映射**：选择“自定义”。
+   - **目标端口**：键入“3389”。
    
 1. 选择“确定”。
    
-1. 重复步骤，使用“端口”添加名为 MyNATRuleVM2 的入站 NAT 规则：4222 和 **目标虚拟机** ：MyVM2。
+1. 重复步骤，使用“端口”添加名为 MyNATRuleVM2 的入站 NAT 规则：4222 和 **目标虚拟机**：MyVM2。
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
@@ -266,7 +266,7 @@ ms.locfileid: "92628195"
    
 1. 在“Windows 安全性”屏幕上选择“更多选择” ，然后选择“使用其他帐户”。 
    
-   输入用户名 *azureuser* 和密码 *Azure1234567* ，然后选择“确定”。
+   输入用户名 *azureuser* 和密码 *Azure1234567*，然后选择“确定”。
    
 1. 使用“是”对任何证书请求进行响应。 
    
@@ -276,7 +276,7 @@ ms.locfileid: "92628195"
 
 使用 PowerShell 安装 IIS，并将默认 IIS 网页替换为显示 VM 名称的页面。
 
-1. 在 MyVM1 和 MyVM2 上，通过“开始”菜单启动 **Windows PowerShell** 。 
+1. 在 MyVM1 和 MyVM2 上，通过“开始”菜单启动 **Windows PowerShell**。 
 
 2. 运行以下命令，以便安装 IIS 并替换默认的 IIS 网页：
    
@@ -325,7 +325,7 @@ ms.locfileid: "92628195"
    
 1. 在“Windows 安全性”屏幕上选择“更多选择” ，然后选择“使用其他帐户”。 
    
-   输入用户名 *azureuser* 和密码 *Azure1234567* ，然后选择“确定”。
+   输入用户名 *azureuser* 和密码 *Azure1234567*，然后选择“确定”。
    
 1. 使用“是”对任何证书请求进行响应。 
    

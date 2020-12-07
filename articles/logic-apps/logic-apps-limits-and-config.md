@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: f2a4117f9e9c5ed595db29c09bbf6725caf1370f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 24ef2f6304189978af6dc10541d8536b17895205
+ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328104"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024586"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -340,8 +340,48 @@ Azure 逻辑应用用于传入和传出调用的 IP 地址由逻辑应用所在�
     例如，逻辑应用不能直接访问使用防火墙规则的存储帐户，因此存在于同一区域中。 但是，如果允许[区域中托管连接器的出站 IP 地址](../logic-apps/logic-apps-limits-and-config.md#outbound)，则逻辑应用可以访问其他区域中的存储帐户，除非你使用 Azure 表存储或 Azure 队列存储连接器。 若要访问表存储或队列存储，则可改用 HTTP 触发器和操作。 有关其他选项，请参阅[访问防火墙后的存储帐户](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)。
 
 <a name="inbound"></a>
+
+### <a name="inbound-ip-addresses"></a>入站 IP 地址
+> [!TIP]
+> 为帮助你更简单地创建安全规则，可选择性地使用[服务标记](../virtual-network/service-tags-overview.md)和 `LogicAppsManagement`，而不是为每个区域指定入站逻辑应用 IP 地址前缀。
+> 此标记可使用逻辑应用服务的区域。
+
+> [!NOTE]
+>  有关最新的服务标记信息，可下载并查看 [Azure IP 范围和服务标记 - 中国云](https://www.microsoft.com/download/confirmation.aspx?id=57062)。
+>
+
+<a name="multi-tenant-inbound"></a>
+
+#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>多租户 Azure - 入站 IP 地址
+
+| 多租户区域 | IP |
+|---------------------|----|
+| 中国 | 2404:7940:1:402::4f0, 2404:7940:101:402::cf0, 2404:7940:201:402::4f0, 2404:7940:301:402::4f0 |
 <a name="outbound"></a>
 
+<a name="multi-tenant-azure---outbound-ip-addresses"></a>
+### <a name="outbound-ip-addresses"></a>出站 IP 地址
+
+该部分列出了 Azure 逻辑应用服务和托管连接器的出站 IP 地址。 如果你有 Azure 政府，请参阅 [Azure 政府 - 出站 IP 地址](#azure-government-outbound)。
+
+> [!TIP]
+> 为帮助你更简单地创建安全规则，可选择使用[服务标记](../virtual-network/service-tags-overview.md) `LogicApps`，而不为每个区域指定出站逻辑应用 IP 地址前缀。
+> 对于托管连接器，可以选择使用 `AzureConnectors` 服务标记，而不是为每个区域指定出站托管连接器 IP 地址前缀。 这些标记适用于可使用逻辑应用服务的区域。 
+
+> [!NOTE]
+>  有关最新的服务标记信息，可下载并查看 [Azure IP 范围和服务标记 - 中国云](https://www.microsoft.com/download/confirmation.aspx?id=57062)。
+>
+
+<a name="multi-tenant-outbound"></a>
+
+#### <a name="multi-tenant-azure---outbound-ip-addresses"></a>多租户 Azure - 出站 IP 地址
+
+| 多租户区域 | 逻辑应用 IP | 托管连接器 IP |
+|---------------------|---------------|-----------------------|
+| 中国东部          | 52.130.112.64 | 52.130.112.32, 139.217.168.112 |
+| 中国东部 2        | 40.73.172.224 | 40.73.168.224, 52.130.120.32 |
+| 中国北部         | 139.217.52.224 | 52.130.128.32, 139.217.48.112 |
+| 中国北部 2       | 40.73.141.160 |  40.73.136.224, 40.73.141.192/27 |
 ## <a name="next-steps"></a>后续步骤
 
 * 了解如何[创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)  

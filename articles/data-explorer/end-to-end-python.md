@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 02/03/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: f57c0c0811b6fb71c6498624583ea9c42e1f27a2
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 0e26820c815cffff14f3036c835616692bb56bcc
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300241"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431200"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>通过 Python 以端到端方式将 blob 引入到 Azure 数据资源管理器中
 
@@ -28,7 +28,7 @@ Azure 数据资源管理器是一项快速且可缩放的数据探索服务，�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="install-the-python-package"></a>安装 Python 包
 

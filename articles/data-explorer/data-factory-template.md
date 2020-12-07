@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/08/2019
 ms.date: 09/24/2020
-ms.openlocfilehash: fcb52a5303f7bd2f0cb433de5df8e97b0d85a93a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 41ef712fbd18027e25c968c636190ff963a343e5
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146469"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431159"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>使用 Azure 数据工厂模板从数据库批量复制到 Azure 数据资源管理器 
 
@@ -33,7 +33,7 @@ Azure 数据资源管理器是一个快速、完全托管的数据分析服务�
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。
 * [创建数据工厂](data-factory-load-data.md#create-a-data-factory)。
 * 数据库中的数据源。

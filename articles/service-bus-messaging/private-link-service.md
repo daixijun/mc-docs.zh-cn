@@ -3,43 +3,35 @@ title: 将 Azure 服务总线与 Azure 专用链接服务集成
 description: 了解如何将 Azure 服务总线与 Azure 专用链接服务集成
 origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.testscope: yes
 ms.testdate: 08/26/2020
 ms.author: v-yeche
 ms.topic: article
-ms.openlocfilehash: 46ad7537e24595af1f943b4e938e06cced89ae56
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: bea63d9d4668ca00faf6260161ad2da83e86c9b4
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590522"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970796"
 ---
 <!--Verified successfully-->
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>允许通过专用终结点访问 Azure 服务总线命名空间
-
 使用 Azure 专用链接服务，可以通过虚拟网络中的专用终结点访问 Azure 服务（例如 Azure 服务总线、Azure 存储和 Azure Cosmos DB）以及 Azure 托管的客户服务/合作伙伴服务。
+
+> [!IMPORTANT]
+> 通过 Azure 服务总线高级层支持此功能。 有关高级层的详细信息，请参阅[服务总线高级和标准消息传送层](service-bus-premium-messaging.md)。
 
 专用终结点是一个网络接口，可以通过专用且安全的方式将你连接到 Azure 专用链接支持的服务。 专用终结点使用 VNet 中的专用 IP 地址将服务有效接入 VNet 中。 发往服务的所有流量都可以通过专用终结点路由，因此不需要网关、NAT 设备、ExpressRoute 或 VPN 连接或公共 IP 地址。 虚拟网络与服务之间的流量将通过 Azure 主干网络，因此不会从公共 Internet 泄露。 可以连接到 Azure 资源的实例，从而获得最高级别的访问控制粒度。
 
-有关详细信息，请参阅[什么是 Azure 专用链接？](../private-link/private-link-overview.md)
+<!--Not Available on For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)-->
 
 >[!WARNING]
-> 实施专用终结点可以阻止其他 Azure 服务与服务总线进行交互。
->
-> 使用虚拟网络时，受信任的 Azure 服务不受支持。
->
-> 不适用于虚拟网络常见 Azure 方案（请注意，该列表内容并不详尽）-
-> - 与 Azure 事件网格的集成
-> - Azure IoT 中心路由
-> - Azure IoT Device Explorer
+> 实施专用终结点可以阻止其他 Azure 服务与服务总线进行交互。 例外情况是，可以允许从某些受信任的服务访问服务总线资源，即使启用了专用终结点也是如此。 有关受信任服务的列表，请参阅[受信任服务](#trusted-microsoft-services)。
 >
 > 以下 Azure 服务必须在虚拟网络中
 > - Azure 应用服务
 > - Azure Functions
-
-> [!IMPORTANT]
-> 通过 Azure 服务总线高级层支持此功能。 有关高级层的详细信息，请参阅[服务总线高级和标准消息传送层](service-bus-premium-messaging.md)。
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>使用 Azure 门户添加专用终结点
 
@@ -114,6 +106,8 @@ ms.locfileid: "94590522"
 12. 确认已创建专用终结点。 如果你是资源的所有者，并且已选择“连接到我的目录中的 Azure 资源”选项作为连接方法，则应已“自动批准”终结点连接。   如果它处于“挂起”状态，请参阅[使用 Azure 门户管理专用终结点](#manage-private-endpoints-using-azure-portal)部分。
 
     :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="已创建专用终结点":::
+
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>使用 PowerShell 添加专用终结点
 以下示例演示如何使用 Azure PowerShell 创建与服务总线命名空间的专用终结点连接。

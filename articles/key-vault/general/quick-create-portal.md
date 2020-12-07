@@ -12,18 +12,18 @@ ms.custom: mvc
 origin.date: 09/03/2019
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 37a45d6a8dd25fd6662eb6d0a98a10158159572b
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 55facf73808bdc7d616ad0145adae3d7d1b2c908
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300934"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431172"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建密钥保管库
 
 Azure Key Vault 是一项云服务，它为[密钥](../keys/index.yml)、[机密](../secrets/index.yml)和[证书](../certificates/index.yml)提供了安全的存储。 有关 Key Vault 的详细信息，请参阅[关于 Azure Key Vault](overview.md)；有关密钥保管库中可存储的内容的详细信息，请参阅[关于密钥、机密和证书](about-keys-secrets-certificates.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 

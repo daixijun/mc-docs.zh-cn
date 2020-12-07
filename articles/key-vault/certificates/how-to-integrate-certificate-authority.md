@@ -11,12 +11,12 @@ ms.topic: how-to
 origin.date: 06/02/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 26ddd8c120ceb8c89b17d4106fcf4ad2cf5a44cf
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b6a98d6f728a540cdac049673a7849fb1dc55cb2
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431070"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>将 Key Vault 与 DigiCert 证书颁发机构集成
 
@@ -26,7 +26,7 @@ Azure 密钥保管库用户可以直接从其 Key Vault 生成 DigiCert 证书�
 
 有关证书的常规详细信息，请参阅 [Azure Key Vault 证书](./about-certificates.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

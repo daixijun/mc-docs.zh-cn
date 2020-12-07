@@ -8,16 +8,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 49c76fe955922ff5aa3692289d9a6322cee305cd
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: c0d94f54628e5cd78a5f73659f9bed4ad1bc82f3
+ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590844"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96300393"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -80,6 +80,33 @@ Linux 诊断扩展支持以下分发和版本。 分发和版本的列表仅适�
 * **Azure CLI**。 在计算机上[设置 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 环境。
 * wget 命令（如果尚无此命令，请运行 `sudo apt-get install wget`。
 * 现有 Azure 订阅以及用于存储数据的现有常规用途存储帐户。  常规用途存储帐户支持必需的表存储。  Blob 存储帐户将不起作用。
+* Python 2
+
+### <a name="python-requirement"></a>Python 要求
+
+Linux 诊断扩展需要 Python 2。 如果虚拟机使用的发行版默认情况下不包括 Python 2，则必须进行安装。 以下示例命令将在不同的发行版上安装 Python 2。    
+
+<!--Not Available on Red Hat, Oracle-->
+
+ - CentOS：`yum install -y python2`
+ - Ubuntu、Debian：`apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+ 
+
+
+Python2 可执行文件必须将别名设置为“python”。 下面是可用来设置此别名的一种方法：
+
+1. 运行以下命令以删除所有现有别名。
+
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. 运行以下命令以创建别名。
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>示例安装
 
@@ -511,7 +538,7 @@ sinks | （可选）一个逗号分隔列表，包含应将原始样本指标结
 
 元素 | 值
 ------- | -----
-文件 | 要监视和捕获的日志文件的完整路径名。 路径名必须命名单个文件；它不能命名目录，也不能包含通配符。 “Omsagent”用户帐户必须具有文件路径的读取访问权限。
+file | 要监视和捕获的日志文件的完整路径名。 路径名必须命名单个文件；它不能命名目录，也不能包含通配符。 “Omsagent”用户帐户必须具有文件路径的读取访问权限。
 表 | （可选）指定的存储帐户（在受保护的配置中指定）中的 Azure 存储表，文件“结尾”处的新行将写入此表。
 sinks | （可选）日志行发送到的附加接收器的名称的逗号分隔列表。
 
