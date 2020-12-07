@@ -73,12 +73,16 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: 使用 IntelliJ 部署应用
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: 使用 Azure PowerShell 部署 Azure Spring Cloud
+          href: spring-cloud-howto-deploy-powershell.md
     - name: 配置
       items:
         - name: 启动、停止和删除应用
           href: spring-cloud-howto-start-stop-delete.md
         - name: 添加持久性存储
           href: spring-cloud-howto-persistent-storage.md
+        - name: 识别出站公共 IP 地址
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: 监视
       items:
         - name: 分布式跟踪和 Application Insights

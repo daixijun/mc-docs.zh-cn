@@ -5,15 +5,15 @@ ms.subservice: application-insights
 ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 origin.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 97822baa39c319d2dbc56ef87a3000dd43367e62
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8c5226a606f5ad4bc94da5273cb27f8b563e7d70
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327943"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432018"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>快速入门：使用 Azure Application Insights 开始监视 Node.js Web 应用程序
 
@@ -23,7 +23,7 @@ ms.locfileid: "94327943"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 正常运行的 Node.js 应用程序。
 
 ## <a name="enable-application-insights"></a>启用 Application Insights
@@ -51,7 +51,7 @@ ms.locfileid: "94327943"
 
 ## <a name="configure-appinsights-sdk"></a>配置 AppInsights SDK
 
-1. 选择“概述”，然后复制应用程序的 **检测密钥** 。 
+1. 选择“概述”，然后复制应用程序的 **检测密钥**。 
 
    ![查看 Application Insights 检测密钥](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "94327943"
 > 如果使用了现有资源组，以下说明将不起作用，只需删除单个 Application Insights 资源即可。 请记住，无论何时删除资源组，属于该组的所有底层资源都将被删除。
 
 1. 在 Azure 门户的左侧菜单中，选择“资源组”  ，然后选择“myResourceGroup”  。
-2. 在资源组页上选择“删除”  ，在文本框中输入 **myResourceGroup** ，然后选择“删除”  。
+2. 在资源组页上选择“删除”  ，在文本框中输入 **myResourceGroup**，然后选择“删除”  。
 
 ## <a name="next-steps"></a>后续步骤
 

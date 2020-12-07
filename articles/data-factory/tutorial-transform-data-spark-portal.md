@@ -11,12 +11,12 @@ ms.date: 05/11/2020
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: b3ebcf0f882bf603d64e9fc912b7f6089b120385
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 78910b3eb95c2d0210545d6675cc5084c0067493
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198100"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432560"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换云中的数据
 
@@ -32,7 +32,7 @@ ms.locfileid: "82198100"
 > * 触发管道运行。
 > * 监视管道运行。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -119,7 +119,7 @@ ms.locfileid: "82198100"
 在本部分创作两个链接服务： 
     
 - 一个用于将 Azure 存储帐户链接到数据工厂的 **Azure 存储链接服务**。 按需 HDInsight 群集使用此存储。 此存储还包含要运行的 Spark 脚本。 
-- 一个**按需 HDInsight 链接服务**。 Azure 数据工厂自动创建 HDInsight 群集并运行 Spark 程序。 然后，当群集空闲预配置的时间后，就会删除 HDInsight 群集。 
+- 一个 **按需 HDInsight 链接服务**。 Azure 数据工厂自动创建 HDInsight 群集并运行 Spark 程序。 然后，当群集空闲预配置的时间后，就会删除 HDInsight 群集。 
 
 ### <a name="create-an-azure-storage-linked-service"></a>创建 Azure 存储链接服务
 
@@ -164,9 +164,9 @@ ms.locfileid: "82198100"
    
    h.如果该值不存在，请单击“添加行”。 展开“OS 类型”。 
    
-   i. 输入名称作为**群集用户名**。 
+   i. 输入名称作为 **群集用户名**。 
    
-   j. 输入该用户的**群集密码**。 
+   j. 输入该用户的 **群集密码**。 
    
    k. 选择“完成”。  
 

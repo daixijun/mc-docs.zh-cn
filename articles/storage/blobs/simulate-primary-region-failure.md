@@ -11,12 +11,12 @@ origin.date: 04/16/2020
 ms.date: 06/01/2020
 ms.author: v-jay
 ms.reviewer: artek
-ms.openlocfilehash: faab21ddf4f1c2ddfea2afaf6ceeaa995c74bce2
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: adfe3fc922f90904eab3a980badffa840452aff6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200280"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432084"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>教程：模拟从主要区域读取数据时出现的故障
 
@@ -24,7 +24,7 @@ ms.locfileid: "84200280"
 
 若要模拟故障，可以使用[静态路由](#simulate-a-failure-with-an-invalid-static-route)或 [Fiddler](#simulate-a-failure-with-fiddler)。 使用这两种方法都可以模拟这样一个故障：向[读取访问权限异地冗余存储](../common/storage-redundancy.md) (RA-GRS) 存储帐户的主终结点发送请求，导致应用程序改从辅助终结点读取数据。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 此系列的第二部分介绍如何：
 

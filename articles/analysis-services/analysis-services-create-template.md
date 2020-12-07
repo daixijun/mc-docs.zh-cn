@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 18076b3cd73daebe40a781bbb9cf7133a844a560
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: ed7197bb45c4b6f6b9230f567c6505e371c39c5f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024428"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508027"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-server---arm-template"></a>快速入门：创建服务器 - ARM 模板
@@ -31,7 +31,7 @@ ms.locfileid: "96024428"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
+* **Azure 订阅**：访问 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来创建一个帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
 ## <a name="review-the-template"></a>查看模板

@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: e01717e5653444738e3541b811623bb1e6492030
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 526a664c61703e7702bf2f4cd5261ac977543c0b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328616"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507672"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Node.js 连接和查询 Azure Cosmos DB SQL API 帐户中的数据
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "94328616"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。 你还可以使用 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)以及 URI `https://localhost:8081` 和密钥 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。
+- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你还可以使用 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)以及 URI `https://localhost:8081` 和密钥 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。
     
     <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
     
@@ -71,7 +71,7 @@ ms.locfileid: "94328616"
 
     除了前面的设置，还可以选择为容器添加“唯一键”。 在此示例中，请将此字段留空。 开发人员可以使用唯一键向数据库添加一层数据完整性。 创建容器时，通过创建唯一键策略，可确保每个分区键的一个或多个值的唯一性。 若要了解详细信息，请参阅 [Azure Cosmos DB 中的唯一键](unique-keys.md)一文。
 
-    选择“确定”。 数据资源管理器将显示新的数据库和容器。
+    选择“确定”  。 数据资源管理器将显示新的数据库和容器。
 
 ## <a name="add-sample-data"></a>添加示例数据
 
@@ -85,7 +85,7 @@ ms.locfileid: "94328616"
 
 现在让我们从 GitHub 克隆 Node.js 应用，设置连接字符串并运行。
 
-1. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+1. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git

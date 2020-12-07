@@ -4,16 +4,16 @@ description: 了解如何使用 Commvault 在 Azure Stack Hub 上备份 VM。
 author: WenJason
 ms.topic: how-to
 origin.date: 04/20/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 3b6233df07fbd56e86816d5287b4cadd7103cb13
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 366cdb32f737af8c41a10988048f7955d02ea0b2
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437714"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507745"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>使用 Commvault 在 Azure Stack Hub 上备份 VM
 
@@ -58,17 +58,17 @@ ms.locfileid: "91437714"
 
     b. 选择“标准 HDD”。
     
-    c. 输入**用户名**。
+    c. 输入 **用户名**。
     
-    d. 输入**密码**。
+    d. 输入 **密码**。
     
     e. 确认密码。
     
-    f. 选择用于备份的**订阅**。
+    f. 选择用于备份的 **订阅**。
     
-    g. 选择一个**资源组**。
+    g. 选择一个 **资源组**。
     
-    h.如果该值不存在，请单击“添加行”。 选择 Azure Stack Hub 的**位置**。 如果使用的是 ASDK，请选择“本地”。
+    h.如果该值不存在，请单击“添加行”。 选择 Azure Stack Hub 的 **位置**。 如果使用的是 ASDK，请选择“本地”。
     
     i. 选择“确定” 。
 
@@ -125,7 +125,7 @@ ms.locfileid: "91437714"
 
 2. 在 Commvault VM 上安装 Azure Stack Hub PowerShell 和 Azure Stack Hub 工具。
 
-    a. 有关安装 Azure Stack Hub PowerShell 的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。  
+    a. 有关安装 Azure Stack Hub PowerShell 的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。  
     b. 有关安装 Azure Stack Hub 工具的说明，请参阅[从 GitHub 下载 Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。
 
 3. 在 Commvault 安装到 Commvault VM 后，打开 Commcell 控制台。 在“开始”中，选择“Commvault” > “Commvault Commcell 控制台”。 

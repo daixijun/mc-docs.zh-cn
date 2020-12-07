@@ -16,18 +16,18 @@ ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2db191f76e8f3b1e929b47c14e35d8708f7baa1b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 6926ccf82d656eaac5e2dcb818141858634d50d7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564544"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507486"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>在 Azure 虚拟网络中部署 IPv6 双堆栈应用程序 - CLI
 
 本文介绍如何在 Azure 中部署一个使用标准负载均衡器的双堆栈 (IPv4 + IPv6) 应用程序，其中包含具有双堆栈子网的双堆栈虚拟网络、采用双重 (IPv4 + IPv6) 前端配置的标准负载均衡器、具有采用双重 IP 配置的 NIC 的 VM、双重网络安全组规则，以及双重公共 IP。
 
-如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

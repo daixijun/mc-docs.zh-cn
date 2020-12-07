@@ -9,12 +9,12 @@ ms.date: 09/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0cd7b12dc948eb3d6113922f55b9733fb12bf5a9
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 0c686d6f09d9654f8c038d0f014543ee4104bfee
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655010"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508050"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -37,7 +37,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 确保已满足以下先决条件：
 
-- 一个 [Azure](https://www.azure.cn/) 帐户。 可以从 [试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。 此外，可以阅读 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
+- 一个 [Azure](https://www.azure.cn/) 帐户。 可以从 [试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)开始。 此外，可以阅读 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
 - Azure PowerShell。 若要深入了解此版本及其安装方法，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 此外，本文中提及的特定示例要求满足以下先决条件：
@@ -63,7 +63,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
     Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices
     ```
 
-1. 验证命令输出中是否将“RegistrationState”设置为“已注册”，如果是，则可继续执行步骤 2********。 否则，需要通过运行以下命令注册订阅中缺失的提供程序：
+1. 验证命令输出中是否将“RegistrationState”设置为“已注册”，如果是，则可继续执行步骤 2。 否则，需要通过运行以下命令注册订阅中缺失的提供程序：
 
     ```azurepowershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices

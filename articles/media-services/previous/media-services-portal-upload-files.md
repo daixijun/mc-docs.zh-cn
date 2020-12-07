@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 04/01/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 9caa1aafc518d5d1f375dc8132c55e347f7d516f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 4f8b6dc8816ed236d1edf5a96fd33fdfb59307f3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245679"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432130"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>在 Azure 门户中将文件上传到媒体服务帐户
 
@@ -39,7 +39,7 @@ ms.locfileid: "91245679"
 
 媒体服务针对文件处理设置了一个最大文件大小。 若要详细了解文件大小限制，请参阅[媒体服务配额和限制](media-services-quotas-and-limitations.md)。
 
-若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="upload-files"></a>上传文件
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。

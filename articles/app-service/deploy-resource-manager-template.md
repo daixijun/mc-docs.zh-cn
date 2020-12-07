@@ -7,12 +7,12 @@ origin.date: 01/03/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 168679e5b9c586108c28f286748c85d8b70b7f47
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: dfebc419a705795e66b972eb5f3e0e0edc980536
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170589"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431607"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 

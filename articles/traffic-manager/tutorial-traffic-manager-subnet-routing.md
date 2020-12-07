@@ -14,12 +14,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8e61990c44b6cd04bdf6974849645aca5dbf5a8b
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 1e04387baedaaa76a598ae43c2fe1bd7f97db917
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590926"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508114"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>教程：使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -37,14 +37,14 @@ ms.locfileid: "94590926"
 > * 将 VM 终结点添加到流量管理器配置文件
 > * 查看正在运行的流量管理器
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 为了查看流量管理器的运作方式，本教程要求部署以下各项：
 
-- 两个基本网站在不同的 Azure 区域运行 - 中国东部（作为内部网站）和中国北部（作为生产网站）   。
-- 用于测试流量管理器的两个测试 VM - 一个 VM 位于“中国东部”，另一个 VM 位于“中国北部”。  
+- 两个基本网站在不同的 Azure 区域运行 - 中国东部（作为内部网站）和中国北部（作为生产网站）。
+- 用于测试流量管理器的两个测试 VM - 一个 VM 位于“中国东部”，另一个 VM 位于“中国北部”。 
 
 测试 VM 用于演示流量管理器如何基于用户查询发起的子网，将用户流量路由到内部网站或生产网站。
 
@@ -177,7 +177,7 @@ ms.locfileid: "94590926"
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
-添加运行 IIS 服务器的两个 VM (myIISVMChinaEast & myIISVMChinaNorth)，根据用户查询的子网路由用户流量。
+添加运行 IIS 服务器的两个 VM (myIISVMChinaEast & myIISVMChinaNorth)，根据用户查询的子网路由用户流量 。
 
 1. 在门户的搜索栏中，搜索在前面部分创建的流量管理器配置文件名称，并在显示的结果中选择该配置文件。
 2. 在“流量管理器配置文件”  的“设置”  部分单击“终结点”  ，然后单击“添加”。 

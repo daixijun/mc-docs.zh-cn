@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2020
 ms.author: v-junlch
 ms.custom: devx-track-python
-ms.openlocfilehash: ff734b99d5c81279f668194d58d497a9128d1dae
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c9807c38f5723be17fbb80fd04aae85cfd715a4e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471616"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508625"
 ---
 # <a name="use-service-management-from-python"></a>从 Python 使用服务管理
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 门户][management-portal]中提供的众多与服务管理相关的功能  。 此功能可用于创建、更新和删除云服务、部署、数据管理服务和虚拟机。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
@@ -28,7 +28,7 @@ ms.locfileid: "92471616"
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>什么是服务管理？
 利用 Azure 服务管理 API，可通过编程方式访问通过 [Azure 门户][management-portal]提供的众多服务管理功能。 Azure SDK for Python 可用于管理云服务和存储帐户。
 
-若要使用服务管理 API，需要[创建 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+若要使用服务管理 API，需要[创建 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="concepts"></a><a name="Concepts"> </a>概念
 Azure SDK for Python 可包装[服务管理 API][svc-mgmt-rest-api]，这是一个 REST API。 所有 API 操作都通过 TLS 执行，并使用 X.509 v3 证书互相进行身份验证。 可以从在 Azure 中运行的服务内访问管理服务。 还可以直接通过 Internet 从可发送 HTTPS 请求和接收 HTTPS 响应的任意应用程序访问管理服务。

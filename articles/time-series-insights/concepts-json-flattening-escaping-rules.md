@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: cea2029c970d77eabc70c757625ba870c115f041
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 12/01/2020
+ms.openlocfilehash: 1d7390787a0b0db017466a66d910beb7becac1ff
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472130"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508038"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>JSON 平展、转义和数组处理
 
@@ -22,7 +22,7 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 
 > [!IMPORTANT]
 >
-> * 在选择[时序 ID 属性](time-series-insights-update-how-to-id.md)和/或事件源[时间戳属性](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)之前，请查看以下规则。 如果你的 TS ID 或时间戳位于嵌套对象内或具有下述一个或多个特殊字符，请务必确保你提供的属性名称与应用引入规则后的列名称相匹配。 请参阅下面的示例 [B](concepts-json-flattening-escaping-rules.md#example-b)。
+> * 在选择[时序 ID 属性](./how-to-select-tsid.md)和/或事件源[时间戳属性](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)之前，请查看以下规则。 如果你的 TS ID 或时间戳位于嵌套对象内或具有下述一个或多个特殊字符，请务必确保你提供的属性名称与应用引入规则后的列名称相匹配。 请参阅下面的示例 [B](concepts-json-flattening-escaping-rules.md#example-b)。
 
 | 规则 | 示例 JSON | [时序表达式语法](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Parquet 中的属性列名称
 |---|---|---|---|
@@ -34,7 +34,7 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 | 基元类型的数组存储为 Dynamic 类型 |  ```"values": [154, 149, 147]``` | 动态类型只能通过 [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API 进行检索 | `values_dynamic` |
 | 包含对象的数组有两种行为，具体取决于对象内容：如果数组中的对象内有 TS ID 或时间戳属性，则数组会展开，以便初始 JSON 有效负载产生多个事件。 这使你能够将多个事件成批转换为一个 JSON 结构。 与数组对等的所有顶级属性都会随每个展开的对象一起保存。 如果数组中没有 TS ID 和时间戳，则它会整体另存为 Dynamic 类型。 | 请参阅下面的示例 [A](concepts-json-flattening-escaping-rules.md#example-a)、[B](concepts-json-flattening-escaping-rules.md#example-b) 和 [C](concepts-json-flattening-escaping-rules.md#example-c)
 | 包含混合元素的数组不会平展。 |  ```"values": ["foo", {"bar" : 149}, 147]``` | 动态类型只能通过 [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API 进行检索 | `values_dynamic` |
-| 512 个字符是 JSON 属性名称的长度上限。 如果名称超过 512 个字符，则会将其截断为 512 个字符，并追加“_<'hashCode'>”。 **注意** ，这也适用于从平展的对象连接的属性名称（表示嵌套的对象路径）。 |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
+| 512 个字符是 JSON 属性名称的长度上限。 如果名称超过 512 个字符，则会将其截断为 512 个字符，并追加“_<'hashCode'>”。 **注意**，这也适用于从平展的对象连接的属性名称（表示嵌套的对象路径）。 |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>了解数组的双重行为
 
@@ -44,7 +44,7 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>如何知道我的对象数组是否会产生多个事件
 
-如果你的一个或多个时序 ID 属性嵌套在数组中的对象内，或者事件源时间戳属性是嵌套的，则引入引擎会将其拆分，以创建多个事件。 你为 TS ID 和/或时间戳提供的属性名称应遵循上述平展规则，因此会指示你的 JSON 的形状。 请参阅下面的示例，并查看有关如何[选择时序 ID 属性](time-series-insights-update-how-to-id.md)的指南。
+如果你的一个或多个时序 ID 属性嵌套在数组中的对象内，或者事件源时间戳属性是嵌套的，则引入引擎会将其拆分，以创建多个事件。 你为 TS ID 和/或时间戳提供的属性名称应遵循上述平展规则，因此会指示你的 JSON 的形状。 请参阅下面的示例，并查看有关如何[选择时序 ID 属性](./how-to-select-tsid.md)的指南。
 
 ### <a name="example-a"></a>示例 A
 

@@ -1,20 +1,20 @@
 ---
 title: 教程 - 为 Azure Active Directory 域服务创建管理 VM | Microsoft Docs
 description: 本教程介绍如何创建并配置一个用来管理 Azure Active Directory 域服务托管域的 Windows 虚拟机。
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 7c6f36cd5b82160ca334ba64ffda38f6e689da82
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: e8a3251ea98f3c7613809b6989926748a82d43aa
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028631"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508711"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>教程：创建一个管理 VM 用于配置和管理 Azure Active Directory 域服务托管域
 
@@ -29,14 +29,14 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 > * 在 Windows Server VM 上安装 Active Directory 管理工具
 > * 使用 Active Directory 管理中心执行常见任务
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。
@@ -160,5 +160,5 @@ Azure AD DS 为用户、应用程序和服务提供一个托管域供其使用�
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 

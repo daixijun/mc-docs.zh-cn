@@ -20,12 +20,12 @@ ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f276ada72e1bcb62114bb5deafb4604ceb340a68
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: ca4bccf58582ae3eea64d08454f594f2df458b29
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564514"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507159"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>在 PowerShell 中使用网络安全组筛选网络流量
 
@@ -38,7 +38,7 @@ ms.locfileid: "91564514"
 * 将虚拟机 (VM) 部署到子网中
 * 测试流量筛选器
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn) 。
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 

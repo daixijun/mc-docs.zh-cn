@@ -4,15 +4,15 @@ description: 了解 Azure Stack Hub 管理基础知识。
 author: WenJason
 ms.topic: article
 origin.date: 06/16/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 87d18d724897a5259bed46e1882c988f92453191
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 0cce344bd508a1b8fb8bbf83fe2a85ca4604d535
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867738"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508100"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
 
@@ -115,7 +115,7 @@ Azure Stack Hub 使用 Azure 资源管理器作为其基础的部署、管理和
 
 用户需要知道如何[访问用户门户](../user/azure-stack-use-portal.md)，或者如何通过 PowerShell 进行连接。 在集成系统环境中，用户门户地址随部署而变。 需向用户提供正确的 URL。
 
-如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。 用户必须[安装](azure-stack-powershell-install.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
+如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。 用户必须[安装](powershell-install-az-module.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
 
 **订阅套餐**
 
@@ -138,7 +138,7 @@ Azure Stack Hub 使用 Azure 资源管理器作为其基础的部署、管理和
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack 开发工具包 (ASDK)
 
-对于 ASDK，可以在 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home)中提出与支持相关的问题。 若要访问论坛，请选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“MSDN 论坛”。   我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Azure CSS 提供官方支持。
+对于 ASDK，可以在 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home)中提出与支持相关的问题。 若要访问论坛，请选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“MSDN 论坛”。   我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Azure 支持提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 

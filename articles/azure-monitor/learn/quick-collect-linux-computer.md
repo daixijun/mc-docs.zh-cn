@@ -11,15 +11,15 @@ origin.date: 12/24/2019
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 501484b6f17fba6f5610dcdeb08163e99e6aa994
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f314dcad64e908027a24e4868d91f2dda7805da4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327780"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431999"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入门：使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "94327780"
 
 若要了解支持的配置，请参阅[支持的操作系统](../platform/agents-overview.md#supported-operating-systems)和[网络防火墙配置](../platform/log-analytics-agent.md#network-requirements)。
  
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -42,7 +42,7 @@ ms.locfileid: "94327780"
 2. 选择“创建”，然后为以下各项选择选项：
 
    * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。  
-   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的 **订阅** 。
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的 **订阅**。
    * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
    * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
@@ -59,9 +59,9 @@ ms.locfileid: "94327780"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. 在 Azure 门户左上角选择“所有服务”。 在搜索框中输入 **Log Analytics** 。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”。
+1. 在 Azure 门户左上角选择“所有服务”。 在搜索框中输入 **Log Analytics**。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”。
 
-2. 在 Log Analytics 工作区列表中，选择前面创建的工作区。 （可能已将其命名为 **DefaultLAWorkspace** 。）
+2. 在 Log Analytics 工作区列表中，选择前面创建的工作区。 （可能已将其命名为 **DefaultLAWorkspace**。）
 
 3. 选择“代理管理”：
  
@@ -116,7 +116,7 @@ Azure Monitor 可以从你为长期分析和报告指定的 Linux syslog 和性�
 
 1. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入 Log Analytics。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”，并在 Log Analytics 工作区列表中选择要查找的工作区，然后选择 Log Analytics 工作区的“高级设置”  。
 
-2. 选择“数据”，然后选择 **Syslog** 。  
+2. 选择“数据”，然后选择 **Syslog**。  
 
 3. 可以通过键入日志名称来添加 syslog。 输入“Syslog”，然后选择加号 ( **+** )。  
 

@@ -9,12 +9,12 @@ origin.date: 11/19/2019
 ms.date: 08/24/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: afeb8afc5722d9c79b77213f22056fd12ba00272
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: b05584d4801e463d0dba1e23c010a06099175eb6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026607"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432488"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>教程：使用 Azure HDInsight 提取、转换和加载数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "91026607"
 > * 使用 Apache Hive 转换数据。
 > * 使用 Sqoop 将数据加载到 Azure SQL 数据库。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,9 +41,9 @@ ms.locfileid: "91026607"
 
 * **Azure SQL 数据库**：使用 Azure SQL 数据库作为目标数据存储。 如果 Azure SQL 数据库中没有数据库，请参阅[通过 Azure 门户在 Azure SQL 数据库中创建数据库](../../sql-database/sql-database-get-started.md)。
 
-* **Azure CLI**：如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+* **Azure CLI**：如果尚未安装 Azure CLI，请参阅 [安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
-* **安全外壳 (SSH) 客户端**：有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **安全外壳 (SSH) 客户端**：有关详细信息，请参阅 [使用 SSH 连接到 HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="download-the-flight-data"></a>下载航班数据
 

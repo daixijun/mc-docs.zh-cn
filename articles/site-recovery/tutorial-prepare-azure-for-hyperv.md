@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 3443a198b1dcba51a81cfc7ca4b904c2346a5e9e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 6a3d469e6efc92abecb14a4c38de28d0a4206731
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508070"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>为 Hyper-V 灾难恢复准备 Azure 资源
 
@@ -35,7 +35,7 @@ ms.locfileid: "89655703"
 > * 创建一个恢复服务保管库，用于存储 VM 和其他复制组件的元数据与配置信息。
 > * 设置 Azure 网络。 在故障转移后创建的 Azure VM 将加入此网络。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in"></a>登录
 
@@ -55,7 +55,7 @@ ms.locfileid: "89655703"
 
 已复制计算机的映像保存在 Azure 存储中。 在从本地故障转移到 Azure 时，会从该存储中创建 Azure VM。 存储帐户必须位于与恢复服务保管库相同的区域。
 
-1. 在 [Azure 门户](https://portal.azure.cn)菜单中，选择“创建资源” > “存储” > “存储帐户”************。
+1. 在 [Azure 门户](https://portal.azure.cn)菜单中，选择“创建资源” > “存储” > “存储帐户”。
     
     <!--MOONCAKE: CORRECT ON **Storage account**-->
     
@@ -66,7 +66,7 @@ ms.locfileid: "89655703"
 6. 在“性能”中，选择“标准”。 接下来，在“访问层级”中选择默认选项“热”。 
 7. 在“订阅”中，选择要在其中创建新存储帐户的订阅。
 8. 在“资源组”中，输入新的资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 本教程使用 **ContosoRG**。
-9. 在“位置”中，选择存储帐户的地理位置。 本教程使用“中国北部”****。
+9. 在“位置”中，选择存储帐户的地理位置。 本教程使用“中国北部”。
 10. 选择“创建”以创建存储帐户。
 
     :::image type="content" source="media/tutorial-prepare-azure/create-storageacct.png" alt-text="创建存储帐户选项的屏幕截图。":::
@@ -76,8 +76,8 @@ ms.locfileid: "89655703"
 1. 在 Azure 门户中选择“+创建资源”，然后在 Azure 市场中搜索“恢复服务”。
 2. 选择“备份和站点恢复(OMS)”。 接下来，在“备份和站点恢复”页上，选择“创建”。 
 1. 在“恢复服务保管库”>“名称”中，输入一个易记名称用于标识该保管库。 在本教程中，请使用 ContosoVMVault。
-2. 在**资源组**中，选择现有资源组或创建新资源组。 本教程使用 **contosoRG**。
-3. 在“位置”中，选择该保管库要放到的区域。 本教程使用“中国北部”****。
+2. 在 **资源组** 中，选择现有资源组或创建新资源组。 本教程使用 **contosoRG**。
+3. 在“位置”中，选择该保管库要放到的区域。 本教程使用“中国北部”。
 4. 若要从仪表板快速访问保管库，请选择“固定到仪表板” > “创建”。
 
     :::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="创建恢复服务保管库页的屏幕截图。":::
@@ -93,7 +93,7 @@ ms.locfileid: "89655703"
 3. 指定要在其中创建网络的资源组。 本教程使用现有资源组 **contosoRG**。
 4. 在“地址范围”中，输入 **10.0.0.0/24** 作为网络范围。 此网络没有子网。
 5. 在“订阅”中，选择要在其中创建网络的订阅。
-6. 在“位置”中****，选择“中国北部”****。 该网络必须位于与恢复服务保管库相同的区域中。
+6. 在“位置”中，选择“中国北部”。 该网络必须位于与恢复服务保管库相同的区域中。
     
     <!--Not Available on basic DDoS protection-->
     

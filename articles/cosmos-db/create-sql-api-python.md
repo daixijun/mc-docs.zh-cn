@@ -16,12 +16,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 74fcfa5101de5a2acfd257453fceb79415ecdfc9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: baaa8b15b9f7d7d9b67bed60a47238cfb1bfa88e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328618"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507677"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户生成 Python 应用程序
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "94328618"
 
 - 一个 Cosmos DB 帐户。 选项包括：
     * 具有 Azure 有效订阅：
-        * [创建 Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial)或使用现有订阅 
+        * [创建 Azure 免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或使用现有订阅 
         * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn)
         * [Azure Cosmos DB 免费层](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：

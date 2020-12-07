@@ -11,12 +11,12 @@ ms.date: 05/11/2020
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: ca1e63ea5b027823aac0993fc883dbe6d94c4b60
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 78a8e7213206940ed6bb04335a580ce60e1e849d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198096"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432556"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换云中的数据
 
@@ -31,7 +31,7 @@ ms.locfileid: "82198096"
 > * 启动管道运行。
 > * 监视管道运行。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -145,7 +145,7 @@ ms.locfileid: "82198096"
 
 
 ## <a name="author-a-pipeline"></a>创作管道 
-本步骤创建包含 Spark 活动的新管道。 该活动使用**单词计数**示例。 从此位置下载内容（如果尚未这样做）。
+本步骤创建包含 Spark 活动的新管道。 该活动使用 **单词计数** 示例。 从此位置下载内容（如果尚未这样做）。
 
 在偏好的编辑器中创建一个 JSON 文件，复制管道定义的以下 JSON 定义，并将该文件另存为 **MySparkOnDemandPipeline.json**。 
 
@@ -333,7 +333,7 @@ ms.locfileid: "82198096"
 
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Azure Blob 存储中的一个位置复制到另一个位置。 你已了解如何： 
+此示例中的管道将数据从 Azure Blob 存储中的一个位置复制到另一个位置。 你已了解如何执行以下操作： 
 
 > [!div class="checklist"]
 > * 创建数据工厂。 

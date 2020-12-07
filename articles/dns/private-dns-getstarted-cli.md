@@ -9,12 +9,12 @@ origin.date: 10/20/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ca9e8807acab202b3a1f1a1877ae550336b3860b
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 1aa0e0de31f7d626e72e9378c0b17b08a0a96692
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590783"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432480"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 专用 DNS 区域
 
@@ -24,7 +24,7 @@ DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS
 
 ## <a name="prerequisites"></a>必备条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 如果你愿意，可以使用 [Azure PowerShell](private-dns-getstarted-powershell.md) 完成本快速入门中的步骤。
 

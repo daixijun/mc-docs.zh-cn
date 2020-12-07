@@ -17,12 +17,12 @@ ms.date: 05/27/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805373c6d0214caf6363b687cd2a2c4463c79e18
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 387146a4ce37be8e5656687ebc8f8557fb708ced
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186964"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508934"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>教程：将 Azure AD 日志存档到 Azure 存储帐户
 
@@ -32,7 +32,7 @@ ms.locfileid: "84186964"
 
 若要使用此功能，需满足以下条件:
 
-* 一个具有 Azure 存储帐户的 Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 一个具有 Azure 存储帐户的 Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure AD 租户。
 * 一个是 Azure AD 租户的全局管理员或安全管理员的用户。 
 

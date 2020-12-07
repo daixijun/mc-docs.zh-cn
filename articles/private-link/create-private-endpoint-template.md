@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: yes|no
 ms.testdate: 09/07/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 4a8ab537c52c2fd4bd86669d83976d7fc725af95
-ms.sourcegitcommit: 6e88e0e41b35d160a09f7a906ca3b7e837f51803
+ms.openlocfilehash: 63153325cad9b5c321189e303d5a141048c07b2c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507902"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建专用终结点
@@ -33,7 +33,7 @@ ms.locfileid: "89412707"
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+需要一个具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

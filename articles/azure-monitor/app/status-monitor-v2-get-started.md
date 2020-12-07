@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/22/2019
 ms.author: v-johya
-ms.date: 10/29/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 531b4ac0c41272474e9360a06bf8100cf7769789
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 4eb817d3bfe6984f6a2ace525005577a9d0ccb33
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103595"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431725"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>本地服务器的 Azure Monitor Application Insights 代理入门
 
@@ -22,7 +22,7 @@ ms.locfileid: "93103595"
 
 有关这些命令的说明、自定义说明以及有关故障排除的信息，请参阅[详细说明](status-monitor-v2-detailed-instructions.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="download-and-install-via-powershell-gallery"></a>通过 PowerShell 库下载并安装
 

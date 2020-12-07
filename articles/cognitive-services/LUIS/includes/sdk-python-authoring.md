@@ -6,16 +6,16 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 08/07/2020
+ms.date: 12/01/2020
 ms.topic: include
 ms.custom: include file
 ms.author: v-johya
-ms.openlocfilehash: 2e4aee9411309f952914b99b4b2dfe325d53d9cd
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 1d788dc3fb7390ed45541316a1821c91cefaa04f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88024224"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477998"
 ---
 可以使用适用于 Python 的语言理解 (LUIS) 创作客户端库执行以下操作：
 
@@ -28,9 +28,9 @@ ms.locfileid: "88024224"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 最新版本的 [Python 3.x](https://www.python.org/)。
-* 有了 Azure 订阅后，在 Azure 门户中[创建语言理解创作资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesLUISAllInOne)，以获取创作密钥和终结点。 等待其部署并单击“转到资源”按钮****。
+* 有了 Azure 订阅后，在 Azure 门户中[创建语言理解创作资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesLUISAllInOne)，以获取创作密钥和终结点。 等待其部署并单击“转到资源”按钮。
     * 需要从[创建](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal)的资源获取密钥和终结点，以便将应用程序连接到语言理解创作。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。 可以使用免费定价层 (`F0`) 来试用该服务。
 
 ## <a name="setting-up"></a>设置

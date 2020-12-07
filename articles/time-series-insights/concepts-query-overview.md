@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 948da6a2209f53ff46a22b3f4a2bf5dc3f272128
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: f39f1ee280f07b7466e6d3a31d61ca59be77df6a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413974"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508045"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>查询来自 Azure 时序见解第 2 代的数据
 
@@ -60,7 +60,7 @@ Azure 时序见解第 2 代使用丰富的基于字符串的表达式语言[时�
 
   > [!IMPORTANT]
 
-  > * 根据 [JSON 平展和转义规则即将发生的变化](/time-series-insights/ingestion-rules-update)中的说明，数组将会被存储为动态类型。 若要访问存储为这种类型的有效负载属性，只能通过获取事件 API。
+  > * 根据 [JSON 平展和转义规则即将发生的变化](./ingestion-rules-update.md)中的说明，数组将会被存储为动态类型。 若要访问存储为这种类型的有效负载属性，只能通过获取事件 API。
 
 * [获取时序 API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)：此 API 对原始事件应用变量定义的计算，可用于查询和检索计算值与关联的事件时间戳。 这些变量可以在时序模型中定义，或者在查询中以内联方式提供。 此 API 支持分页，可以检索选定输入的完整响应数据集。
 
@@ -72,5 +72,5 @@ Azure 时序见解第 2 代使用丰富的基于字符串的表达式语言[时�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解可在[时序模型](/time-series-insights/time-series-insights-update-tsm)中定义的不同变量。
+* 详细了解可在[时序模型](./concepts-model-overview.md)中定义的不同变量。
 

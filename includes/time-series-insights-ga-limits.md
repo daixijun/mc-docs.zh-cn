@@ -4,17 +4,17 @@ description: include 文件
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 12/01/2020
 author: deepakpalled
 ms.author: v-junlch
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 9573ea69fd7737689cca74c42c29009504c73ebb
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d2fb553b0eda5f5b583ffb128da2a6356bc5d56f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413846"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507469"
 ---
 下面概述了 Azure 时序见解 Gen1 中的主要限制。
 
@@ -44,7 +44,7 @@ S2 SKU 环境每月支持更多的事件，并具有显著更高的入口容量�
 
 ### <a name="property-limits"></a>属性限制
 
-Gen1 属性限制取决于所选的 SKU 环境。 提供的事件属性具有相应的 JSON、CSV 和图表列，可以在 [Azure 时序见解资源管理器](/time-series-insights/time-series-quickstart)中查看。
+Gen1 属性限制取决于所选的 SKU 环境。 提供的事件属性具有相应的 JSON、CSV 和图表列，可以在 [Azure 时序见解资源管理器](../articles/time-series-insights/time-series-quickstart.md)中查看。
 
 | SKU | 最大属性数 |
 | --- | --- |
@@ -55,8 +55,8 @@ Gen1 属性限制取决于所选的 SKU 环境。 提供的事件属性具有相
 
 每个实例最多支持两个事件源。
 
-* 了解如何[添加事件中心源](/time-series-insights/how-to-ingest-data-event-hub)。
-* 配置 [IoT 中心源](/time-series-insights/how-to-ingest-data-iot-hub)。
+* 了解如何[添加事件中心源](../articles/time-series-insights/how-to-ingest-data-event-hub.md)。
+* 配置 [IoT 中心源](../articles/time-series-insights/how-to-ingest-data-iot-hub.md)。
 
 ### <a name="api-limits"></a>API 限制
 

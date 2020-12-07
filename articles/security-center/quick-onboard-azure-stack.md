@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/02/2019
-ms.date: 09/14/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 60b4ebd2fd1e83670da8e206885c0e3b70165d8a
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 7006b780713eb85b059faf4368003c1770002b71
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402559"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432023"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入门：将 Azure Stack 虚拟机载入安全中心
 载入 Azure 订阅后，可以通过从 Azure Stack 市场添加“Azure 监视、更新和配置管理”虚拟机扩展，启用安全中心来保护 Azure Stack 上运行的虚拟机。
@@ -28,7 +28,7 @@ ms.locfileid: "91402559"
 本快速入门介绍如何在 Azure Stack中运行的 虚拟机（支持 Linux 和 Windows）上添加“Azure 监视、更新和配置管理”虚拟机扩展。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 在开始学习本快速入门之前，必须在安全中心的标准层上拥有一个 Azure 订阅。 有关升级说明，请参阅[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)。 可以免费试用安全中心标准层 30 天。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 

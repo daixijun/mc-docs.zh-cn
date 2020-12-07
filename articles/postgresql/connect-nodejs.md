@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 5/6/2019
 ms.date: 10/19/2020
-ms.openlocfilehash: dad3efc448d355b5f7712f3b48aa172f6d849ec7
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.openlocfilehash: d7ff4b908331a466a0d014f17f91dc4741ba616d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432113"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 Node.js 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -27,7 +27,7 @@ ms.locfileid: "92041850"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 完成[快速入门：在 Azure 门户中创建 Azure Database for PostgreSQL 服务器](quickstart-create-server-database-portal.md)或[快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md) 中的步骤。
 

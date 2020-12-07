@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: cb3591951ade9d4b57e87104a04bcba40850ba28
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 6f4d518c72841047b22b3d05d056a9c1e0c04a41
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300214"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432437"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 创建要与 Azure 媒体服务 API 配合使用的 Azure AD 应用
 
@@ -32,7 +32,7 @@ ms.locfileid: "96300214"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)入手。
+- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)入手。
 - 一个媒体服务帐户。 有关详细信息，请参阅[在 Azure 门户中创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 
 - Azure PowerShell。 有关详细信息，请参阅[如何使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。

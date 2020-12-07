@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 026b2fae340143ea99243c79c03dcf1d43468652
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: e88047f8c956514affcbcbcf08dfde4fbbc17603
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849317"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508980"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 基于 URL 对 Web 流量进行路由
 
@@ -31,7 +31,7 @@ ms.locfileid: "94849317"
 
 如果需要，可以使用 [Azure CLI](tutorial-url-route-cli.md) 或 [Azure 门户](create-url-route-portal.md)完成本过程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

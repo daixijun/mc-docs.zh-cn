@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: v-junlch
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 9a679dc28f25bc2e81d8d2b2d3e5a6f55ac3fd35
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: f3acaac8455baa726f52422f1fd25dff3b921ca3
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326544"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508965"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 创建第一个 Azure 函数
 
@@ -22,13 +22,13 @@ ms.locfileid: "94326544"
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](./media/functions-create-java-maven/hello-azure.png) -->
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
 若要使用 Java 和 IntelliJ 开发函数，请安装以下软件：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 + [Azure 支持的 Java 开发工具包 (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)（适用于 Java 8）
 + 安装了 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 旗舰版或社区版
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)

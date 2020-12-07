@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5c93ebbd73bbfb908039f641bc2e53b056f1ae24
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 05f0b4094264c1e75c76d7b571c5565f3153e02e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326749"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508699"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中注册单页应用程序 (SPA)
 
@@ -39,7 +39,7 @@ Azure AD B2C 提供了两个选项，用于允许单页应用程序让用户登�
 ![单页应用程序 - 授权](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### <a name="implicit-grant-flow"></a>隐式授予流
-- [OAuth 2.0 隐式流](implicit-flow-single-page-application.md)。 某些框架（如 [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)）仅支持隐式授权流。 隐式授权流允许应用程序获取 **ID** 和 **访问** 令牌。 与授权代码流不同，隐式授权流不会返回 **刷新令牌** 。 
+- [OAuth 2.0 隐式流](implicit-flow-single-page-application.md)。 某些框架（如 [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)）仅支持隐式授权流。 隐式授权流允许应用程序获取 **ID** 和 **访问** 令牌。 与授权代码流不同，隐式授权流不会返回 **刷新令牌**。 
 
 ![单页应用程序 - 隐式](./media/tutorial-single-page-app/spa-app.svg)
 
@@ -47,7 +47,7 @@ Azure AD B2C 提供了两个选项，用于允许单页应用程序让用户登�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 如果尚未创建自己的 [Azure AD B2C 租户](tutorial-create-tenant.md)，请立即创建一个。 可以使用现有的 Azure AD B2C 租户。
 

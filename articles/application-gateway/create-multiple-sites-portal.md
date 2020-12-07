@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: f481ca504844a90df628864a691d1673647fd0b3
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: adc9dc8e2d4e793f301ec03e14b02f8401231367
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849387"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508964"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>教程：使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -31,7 +31,7 @@ ms.locfileid: "94849387"
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="多站点应用程序网关":::
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

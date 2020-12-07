@@ -11,12 +11,12 @@ ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 11/21/2019
 ms.date: 10/29/2020
-ms.openlocfilehash: 5433410e8aac2db184682b84bddae8db06f5f9a0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 0c4724e7ad283677e9b58d87a08ee44f860c2421
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470358"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432489"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>教程：在 Azure SQL 托管实例和 SQL Server 之间配置事务复制
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "92470358"
 
 若要完成本教程，请确保具备以下先决条件：
 
-- 一个 [Azure 订阅](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。 
+- 一个 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 - 尝试在同一虚拟网络中部署两个托管实例。
 - 本地或 Azure VM 上的 SQL Server 订阅服务器。 本教程使用 Azure VM。  
 - [SQL Server Management Studio (SSMS) 18.0 或更高版](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。
@@ -286,12 +286,12 @@ GO
 1. 连接到 `sql-mi-publisher` 托管实例。
 1. 在“对象资源管理器”中，展开“复制”节点，然后右键单击“本地发布”文件夹  。 单击“新建发布...”。
 1. 选择“下一步”，离开“欢迎”页。
-1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“ **下一步** ”。
-1. 在“发布类型”页上，选择“事务发布” 。 选择“ **下一页** ”。
-1. 在“项目”页上，选中“表”旁边的框 。 选择“ **下一页** ”。
+1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“**下一步**”。
+1. 在“发布类型”页上，选择“事务发布” 。 选择“**下一页**”。
+1. 在“项目”页上，选中“表”旁边的框 。 选择“**下一页**”。
 1. 在“筛选器表行”页上，选择“下一步”而不添加任何筛选器 。
-1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“ **下一页** ”。
-1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“ **下一页** ”。
+1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“**下一页**”。
+1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“**下一页**”。
 
    ![配置快照代理安全性](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 

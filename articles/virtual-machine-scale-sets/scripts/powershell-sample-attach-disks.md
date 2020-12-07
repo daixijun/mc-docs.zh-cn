@@ -9,17 +9,17 @@ ms.subservice: disks
 ms.date: 08/07/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 124a406e73b1bfee7567b8522f689e6e80e56f9f
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: a70ad66989c9849435a9b90a5e04652f56f06886
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508911"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 为虚拟机规模集附加并使用数据磁盘
 此脚本创建虚拟机规模集并附加和准备数据磁盘。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

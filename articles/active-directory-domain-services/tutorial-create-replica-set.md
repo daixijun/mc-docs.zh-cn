@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: v-junlch
-ms.openlocfilehash: a0f9ec9337356117c469700b997959cb2a81a336
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 4f62a1c5b3b5450ade2cf61e9ec2e277de0de5bc
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715363"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508745"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>教程：在 Azure Active Directory 域服务（预览版）中创建和使用针对复原能力或地理位置的副本集
 
@@ -32,14 +32,14 @@ ms.locfileid: "88715363"
 > * 创建副本集
 > * 删除副本集
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 使用 Azure 资源管理器部署模型创建的并在 Azure AD 租户中配置的 Azure Active Directory 域服务托管域。

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/22/2018
 ms.date: 11/23/2020
-ms.openlocfilehash: df3181cbc14d8e6eaad0cfa8be4d4ca714086680
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: f5a9ec8886fc383b221b891f4a281621cbe78f29
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432557"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Hive 活动转换 Azure 虚拟网络中的数据
 
@@ -33,7 +33,7 @@ ms.locfileid: "94680536"
 > * 监视管道运行 
 > * 验证输出。 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -2,20 +2,20 @@
 title: Azure AD 域服务的网络计划和连接 | Microsoft Docs
 description: 了解运行 Azure Active Directory 域服务时的一些虚拟网络设计注意事项以及连接所用的资源。
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: d0ea98f483b1c7b3eff88803bfd006cc5eef3035
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 94b02422ad821b557e3c37a5300425864ec641d3
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507218"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory 域服务的虚拟网络设计注意事项和配置选项
 
@@ -104,7 +104,7 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 
 ## <a name="network-security-groups-and-required-ports"></a>网络安全组和必需端口
 
-[网络安全组 (NSG)](../virtual-network/security-overview.md) 包含一系列规则，这些规则可以允许或拒绝网络流量在 Azure 虚拟网络中流动。 部署托管域时会创建网络安全组，其中包含一系列规则，服务按照些规则提供身份验证和管理功能。 此默认网络安全组与托管域部署到的虚拟网络子网相关联。
+[网络安全组 (NSG)](../virtual-network/network-security-groups-overview.md) 包含一系列规则，这些规则可以允许或拒绝网络流量在 Azure 虚拟网络中流动。 部署托管域时会创建网络安全组，其中包含一系列规则，服务按照些规则提供身份验证和管理功能。 此默认网络安全组与托管域部署到的虚拟网络子网相关联。
 
 需要以下网络安全组规则，托管域才能提供身份验证服务和管理服务。 请勿编辑或删除托管域所部署到的虚拟网络子网中的这些网络安全组规则。
 
@@ -176,5 +176,5 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 
 * [Azure 虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure 网络安全组](../virtual-network/security-overview.md)
+* [Azure 网络安全组](../virtual-network/network-security-groups-overview.md)
 

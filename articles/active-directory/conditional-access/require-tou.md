@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd020ca315eed3724224fd1e0d9df9499f68ed9c
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 62cd2e9109d9632f80a6bcf70d174fd59c990149
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501805"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508913"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>快速入门：在访问云应用之前要求接受使用条款
 
@@ -29,7 +29,7 @@ ms.locfileid: "94501805"
 
 :::image type="content" source="./media/require-tou/5555.png" alt-text="Azure 门户的屏幕截图。显示定义名为“要求 Isabella 接受 TOU”的策略的窗格。" border="false":::
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

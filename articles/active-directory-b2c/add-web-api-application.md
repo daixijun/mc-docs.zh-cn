@@ -5,23 +5,23 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 11/04/2020
+ms.date: 12/01/2020
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 343ba6f5b67b52de85de36317f355f92f546a4fe
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 30d754a890137f3285b102aa01bdc3e487558e3d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326408"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507147"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>向 Azure Active Directory B2C 租户添加 Web API 应用程序
 
  在租户中注册 Web API 资源，以便他们可以接受并响应提供访问令牌的客户端应用程序的请求。 本文介绍如何在 Azure Active Directory B2C (Azure AD B2C) 中注册 Web API。
 
-要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 

@@ -9,17 +9,17 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13e91c3afb6b1ed08b5ba77358c03e82e37c8465
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 8d4c9c19edaa62d23132d16a283c4fe35c96aac6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432512"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入门：使用 Azure CLI 创建和管理 Azure 文件共享
 本指南介绍通过 Azure CLI 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准服务器消息块 (SMB) 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 对于本文中的步骤，必须运行 Azure CLI 2.0.4 或更高版本。 若要查找 Azure CLI 版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 

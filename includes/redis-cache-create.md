@@ -5,24 +5,24 @@ services: redis-cache
 author: curib
 ms.service: cache
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: bafc7e05041ef1693ef8b592153ab648e5036e00
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 2a7892a6940c9270e378ae094e766d6d85642ad3
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026422"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508868"
 ---
 1. 若要创建缓存，请登录到 [Azure 门户](https://portal.azure.cn)并选择“创建资源”  。
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="选择 Azure Cache for Redis。":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="左侧导航窗格中突出显示了“创建资源”。":::
 
    
 1. 在“新建”页上选择“数据库”，然后选择“Azure Cache for Redis”。
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="选择 Azure Cache for Redis。":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="在“新建”中，突出显示了“数据库”和“Azure Cache for Redis”。":::
    
 1. 在“新建 Redis 缓存”页上配置新缓存的设置。
    

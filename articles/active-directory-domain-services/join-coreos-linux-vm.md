@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 39dd87df2e86a558a15d3207bd7ff90e66fc323b
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 67bb71ebfd2df850ca678610c87200ff4e382567
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028567"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508679"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>将 CoreOS 虚拟机加入 Azure Active Directory 域服务托管域
 
@@ -29,7 +29,7 @@ ms.locfileid: "88028567"
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。

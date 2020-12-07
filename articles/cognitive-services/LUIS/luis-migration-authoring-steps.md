@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 12/01/2020
 origin.date: 05/17/2020
 ms.author: v-tawe
-ms.openlocfilehash: a81555478fe96869716665c9eb4094c7dc03af26
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 0c0a83fb7df57abd53ed0d690d187c30b5f9232b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102069"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432717"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>迁移到 Azure 创作资源的步骤
 
@@ -27,9 +27,9 @@ ms.locfileid: "85102069"
 
 * 可选：通过导出每个应用或使用导出 [API](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)，对 LUIS 门户的应用列表中的应用进行备份。
 * 可选：保存每个应用的协作者列表。 在迁移过程中，可向所有协作者发送电子邮件。
-* 必需：需要具备 [Azure 订阅](https://wd.azure.cn/pricing/1rmb-trial-full)。 订阅过程中需要帐单信息。 但是，如果使用 LUIS，可以使用免费 (F0) 定价层。 随着使用量的增加，你最终可能会发现需要付费层。
+* 必需：需要具备 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 订阅过程中需要帐单信息。 但是，如果使用 LUIS，可以使用免费 (F0) 定价层。 随着使用量的增加，你最终可能会发现需要付费层。
 
-如果没有 Azure 订阅，请进行[注册](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请进行[注册](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="access-the-migration-process"></a>访问迁移过程
 
@@ -47,7 +47,7 @@ ms.locfileid: "85102069"
 
     ![迁移过程中的第一个弹出窗口，选择“立即迁移”。](./media/migrate-authoring-key/migrate-now.png)
 
-1. （可选）如果你的任何应用有协作者，则系统会提示你**向他们发送一封电子邮件**，让他们了解迁移情况。 这是可选步骤。
+1. （可选）如果你的任何应用有协作者，则系统会提示你 **向他们发送一封电子邮件**，让他们了解迁移情况。 这是可选步骤。
 
     一旦你将帐户迁移到 Azure，你的应用将不再可供协作者使用。
 
@@ -75,16 +75,16 @@ ms.locfileid: "85102069"
 
     ![创建创作资源](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    **创建新的创作资源**时，请提供以下信息：
+    **创建新的创作资源** 时，请提供以下信息：
 
     * **资源名称** - 你选择的自定义名称，用作创作和预测终结点查询的 URL 的一部分。
     * **租户** - 与 Azure 订阅关联的租户。
     * **订阅名称** - 将对资源计费的订阅。
     * **资源组** - 你选择或创建的自定义资源组名称。 使用资源组可将 Azure 资源分组，以便进行访问和管理。
-    * **位置** - 位置选项基于**资源组**选择。
+    * **位置** - 位置选项基于 **资源组** 选择。
     * **定价层** - 定价层确定每秒和每月的最大事务数。
 
-1. 验证创作资源并**立即迁移**。
+1. 验证创作资源并 **立即迁移**。
 
     ![创建创作资源](./media/migrate-authoring-key/choose-authoring-resource-and-migrate.png)
 

@@ -8,12 +8,12 @@ ms.author: v-jay
 author: WenJason
 origin.date: 08/31/2020
 ms.date: 09/28/2020
-ms.openlocfilehash: 82ae7a5fd11cee6c8ed0324ec0a1fdb82ac7124e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 1d5be7c857946fe2366cafca194e09f872612e30
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245131"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432461"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>使用 OBS 创建 Azure 媒体服务实时传送流
 
@@ -31,7 +31,7 @@ ms.locfileid: "91245131"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -84,7 +84,7 @@ OBS 启动时有一个默认场景，但未选择任何输入。
 
 ### <a name="add-a-video-source"></a>添加视频源
 
-1. 在“源”面板中，单击**添加**图标，选择新的源设备。 此时会打开“源”菜单。
+1. 在“源”面板中，单击 **添加** 图标，选择新的源设备。 此时会打开“源”菜单。
 
 1. 从源设备菜单中选择“视频捕获设备”。 此时会打开“创建/选择源”菜单。
 
@@ -100,7 +100,7 @@ OBS 启动时有一个默认场景，但未选择任何输入。
 
 ### <a name="add-an-audio-source"></a>添加音频源
 
-1. 在“源”面板中，单击**添加**图标，选择新的源设备。 此时会打开“源设备”菜单。
+1. 在“源”面板中，单击 **添加** 图标，选择新的源设备。 此时会打开“源设备”菜单。
 
 1. 从源设备菜单中选择“音频输入捕获”。 此时会打开“创建/选择源”菜单。
 

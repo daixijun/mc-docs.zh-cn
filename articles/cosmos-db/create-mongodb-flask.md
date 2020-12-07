@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 72f2a1dfcb74f835f0d3bd10a202d8fa1dc409b9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 47b64f2bff99bcd6c30de464bd2ccd87e892d43b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328898"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507926"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "94328898"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。 或者，可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。 
+- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 或者，可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。 
 
     <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
     
@@ -58,7 +58,7 @@ ms.locfileid: "94328898"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git

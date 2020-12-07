@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: ebba7ff4ba1bdcc7f1b36bc62c7dd6ed52a7f76c
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 0554d64e0b01e1aa73069030e23063806830dc7e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721170"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508097"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure 时序见解第 2 代中的时序模型
 
@@ -23,7 +23,8 @@ ms.locfileid: "90721170"
 
 > [!TIP]
 >
-> * 通过 Azure 时序见解资源管理器了解[如何使用时序模型](/time-series-insights/how-to-edit-your-model)。
+> * 有关实时时序模型的示例，请转到  [Contoso 风力发电厂演示](https://insights.timeseries.azure.com/preview/samples)环境。
+> * 通过 Azure 时序见解资源管理器了解[如何使用时序模型](./how-to-edit-your-model.md)。
 
 ## <a name="summary"></a>摘要
 
@@ -46,7 +47,7 @@ ms.locfileid: "90721170"
 * 如果能够将数据关联且合并一个可方便查看的视图，则可以证明数据可视化的作用。 例如，将电压传感器与温度传感器一起显示。
 * 既要管理多个实体的多维数据，同时又要提供比较、缩放和时间范围功能，可能很难实现。
 
-时序模型为此虚构示例中出现的许多场景提供一个**便利的解决方案**：
+时序模型为此虚构示例中出现的许多场景提供一个 **便利的解决方案**：
 
 [![时序模型智能烤箱图表示例](./media/v2-update-tsm/time-series-model-smart-oven.png)](./media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
@@ -126,7 +127,7 @@ ms.locfileid: "90721170"
 ```
 
 > [!TIP]
-> 有关实例 API 创建、读取、更新和删除 (CRUD) 支持，请阅读[数据查询](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis)一文和[实例 API REST 文档](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)。
+> 有关实例 API 创建、读取、更新和删除 (CRUD) 支持，请阅读[数据查询](./concepts-query-overview.md#time-series-model-query-tsm-q-apis)一文和[实例 API REST 文档](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)。
 
 ## <a name="time-series-model-hierarchies"></a>时序模型层次结构
 

@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: abe29e5c21743d534b9f51b7f5a3b3e0b7f72ead
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: da6436e3f5a5cf1f04abcb48ae3d6552dc6f0ffa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551938"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432607"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>通过共享密钥授权调用 REST API 操作
 
@@ -29,7 +29,7 @@ ms.locfileid: "94551938"
 
 - 安装 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)（包含 **Azure 开发** 工作负荷）。
 
-- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 通用存储帐户。 如果还没有存储帐户，请参阅[创建存储帐户](storage-account-create.md)。
 

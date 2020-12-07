@@ -4,16 +4,16 @@ description: 了解 Azure Stack Hub VM。
 author: WenJason
 ms.topic: conceptual
 origin.date: 10/01/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 04900ba8414f55ad884bf472573d13c7a55470e5
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 7daf89b0cd3734c872885853e33690041496522e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508009"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM 简介
 
@@ -65,7 +65,7 @@ Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VH
 |方法|说明|
 |---------|---------|
 |Azure Stack Hub 门户|选择要使用的映像时，系统会自动指定值。|
-|Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
+|Azure Stack Hub PowerShell|`Get-AzVMImagePublisher -Location "location"`<br>`Get-AzVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、套餐和 SKU。

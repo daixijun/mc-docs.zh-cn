@@ -20,12 +20,12 @@ ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c166efde46ddaf2f14d0a99c2d86ebc4f349fbc4
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 53b30a49f685745b3c348b31982db3c360ff3982
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564335"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507920"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -41,7 +41,7 @@ ms.locfileid: "91564335"
 * 将虚拟机 (VM) 部署到不同子网
 * 通过 NVA 将从一个子网的流量路由到另一个子网
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 

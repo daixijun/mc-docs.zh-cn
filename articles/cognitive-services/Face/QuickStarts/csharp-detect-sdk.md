@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 07/10/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 6b89855a0395e2874ac2bc190e879e2ee4fadd40
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f26542818ae4e0363d78c7f50deccfe7e64b420e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119548"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432654"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
 在本快速入门中，请使用人脸服务 SDK 和 C# 检测图像中的人脸。 如需本快速入门中代码的工作示例，请查看 GitHub 上的[认知服务视觉 csharp 快速入门](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)存储库中的人脸项目。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -31,7 +31,7 @@ ms.locfileid: "71119548"
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **FaceDetection**。 
+1. 在 Visual Studio 中创建新的 **控制台应用 (.NET Framework)** 项目并将其命名为 **FaceDetection**。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”  。 单击“浏览”选项卡，选择“包括预发行版”，然后找到并安装以下包：  
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d777659286adfc5fbb000f8d142b81a29ce67d7a
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: aab727ff8fcf0400cf3f7478d541d935c8f4a611
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326444"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508667"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教程：创建 Azure Active Directory B2C 租户
 
@@ -33,7 +33,7 @@ ms.locfileid: "94326444"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>创建 Azure AD B2C 租户
 
@@ -51,9 +51,9 @@ ms.locfileid: "94326444"
 
     ![创建在 Azure 门户中选择的新 Azure AD B2C 租户](./media/tutorial-create-tenant/portal-02-create-tenant.png)
     
-1. 输入 **组织名称** 和 **初始域名** 。 选择 **国家或地区** （以后不能更改），然后选择“创建”。
+1. 输入 **组织名称** 和 **初始域名**。 选择 **国家或地区**（以后不能更改），然后选择“创建”。
 
-    域名将用作完整租户域名的一部分。 在此示例中，租户名称是 *contosob2c.partner.onmschina.cn* ：
+    域名将用作完整租户域名的一部分。 在此示例中，租户名称是 *contosob2c.partner.onmschina.cn*：
 
 1. 租户创建过程完成后，请在租户创建页面的顶部选择“创建新的 B2C 租户或链接到现有租户”链接。
 
@@ -63,9 +63,9 @@ ms.locfileid: "94326444"
 
    ![Azure 门户中“链接现有订阅”的选项](./media/tutorial-create-tenant/portal-05-link-subscription.png)
 
-1. 选择创建的 **Azure AD B2C 租户** ，然后选择你的 **订阅** 。
+1. 选择创建的 **Azure AD B2C 租户**，然后选择你的 **订阅**。
 
-    对于“资源组”，选择“新建”。 输入要包含该租户的资源组的 **名称** ，选择 **资源组位置** ，然后选择“创建”。
+    对于“资源组”，选择“新建”。 输入要包含该租户的资源组的 **名称**，选择 **资源组位置**，然后选择“创建”。
 
     ![Azure 门户中的“链接订阅”设置窗体](./media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
     

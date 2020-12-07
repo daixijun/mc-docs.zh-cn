@@ -8,12 +8,12 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 06/25/2019
 ms.date: 11/09/2020
-ms.openlocfilehash: 702628b9e78c15949a34138c34160057f71fb913
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 08a92cc46d1a226f9036acfc56b9106c2f423fca
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328252"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432645"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL - 单个服务器
 
@@ -30,7 +30,7 @@ ms.locfileid: "94328252"
 > * 还原数据
 
 ## <a name="prerequisites"></a>先决条件
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-database-for-postgresql"></a>创建用于 PostgreSQL 的 Azure 数据库
 
@@ -55,11 +55,11 @@ ms.locfileid: "94328252"
     资源组| myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
     服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.chinacloudapi.cn* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
     数据源 | 无  | 选择“无”，从头开始创建新的服务器  。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”  ）。
-    管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser** 、 **azure_pg_admin** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** ， 不能以 **pg_** 开头。
+    管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
     密码 |你的密码| 服务器管理员帐户的新密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0 到 9)和非字母数字字符（!, $, #, % 等）。
     位置|离用户最近的区域| 最靠近用户的位置。
     版本|最新主版本| 除非另有特定的要求，否则为最新 PostgreSQL 主版本。
-    计算 + 存储 | **常规用途** 、 **第 5 代** 、 **2 个 vCore** 、 **5 GB** 、 **7 天** 、 **异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”  。 接下来，选择“常规用途”  选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值         。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”  中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
+    计算 + 存储 | **常规用途**、**第 5 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”  。 接下来，选择“常规用途”  选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值         。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”  中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 有关详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
@@ -76,7 +76,7 @@ ms.locfileid: "94328252"
 
     :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="“通知”窗格":::
    
-   默认情况下，会在服务器下创建 **postgres** 数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 （另一个默认数据库是 **azure_maintenance** ， 其功能是将托管服务进程与用户操作分开。 你不能访问此数据库。）
+   默认情况下，会在服务器下创建 **postgres** 数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 （另一个默认数据库是 **azure_maintenance**， 其功能是将托管服务进程与用户操作分开。 你不能访问此数据库。）
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则
@@ -89,7 +89,7 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
 
 2. 在服务器页中，选择“连接安全性”  。 
 
-3. 单击“规则名称”下的文本框  ，并添加新的防火墙规则，以指定连接的 IP 范围。 输入 IP 范围。 单击“ **保存** ”。
+3. 单击“规则名称”下的文本框  ，并添加新的防火墙规则，以指定连接的 IP 范围。 输入 IP 范围。 单击“ **保存**”。
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Azure Database for PostgreSQL - 创建防火墙规则":::
 
@@ -107,7 +107,7 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 搜索服务器":::
 
-2. 单击服务器名称 **mydemoserver** 。
+2. 单击服务器名称 **mydemoserver**。
 
 3. 选择服务器的“概述”  页面。 记下“服务器名称”  和“服务器管理员登录名”  。
 
@@ -197,10 +197,10 @@ SELECT * FROM inventory;
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Azure 门户 - 还原窗体选项":::
 
-   - **还原点** ：选择更改服务器前的时间点
-   - **目标服务器** ：提供一个要还原到的新服务器名称
-   - **位置** ：不能选择区域，此区域默认与源服务器相同
-   - **定价层** ：还原服务器时不能更改此值。 此值与源服务器相同。 
+   - **还原点**：选择更改服务器前的时间点
+   - **目标服务器**：提供一个要还原到的新服务器名称
+   - **位置**：不能选择区域，此区域默认与源服务器相同
+   - **定价层**：还原服务器时不能更改此值。 此值与源服务器相同。 
 3. 单击“确定”  ，[将服务器还原到删除该表之前的时间点](./howto-restore-server-portal.md)。 将服务器还原到不同的时间点会基于原始服务器到指定时间点为止的内容创建一个新的副本服务器，前提是该时间点在[定价层](./concepts-pricing-tiers.md)的保留期内。
 
 ## <a name="next-steps"></a>后续步骤

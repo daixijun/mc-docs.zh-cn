@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0aea9c735abc76ec1c3f892b4b1a8b43c4b7b2fc
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 5fc15cbf38ae7b3d32005576a18f8d1038be6296
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028626"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508762"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>教程：为 Azure Active Directory 域服务托管域配置虚拟网络
 
@@ -31,14 +31,14 @@ ms.locfileid: "88028626"
 > * 在 Azure AD DS 虚拟网络中创建 IP 地址范围和额外的子网
 > * 配置与独立于 Azure AD DS 的网络之间的虚拟网络对等互连
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 需要在 Azure AD 租户中拥有“全局管理员”特权才能配置 Azure AD DS。

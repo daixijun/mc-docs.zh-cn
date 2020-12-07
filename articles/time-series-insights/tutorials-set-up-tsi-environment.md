@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 08/04/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: e5ef57d3798ec7a9e2ee355e568f16e2af99f2b3
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: c092f5c5174546899928c09ec27b7495d6ef7add
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801821"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507990"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>教程：设置 Azure 时序见解 Gen2 环境
 
@@ -28,11 +28,12 @@ ms.locfileid: "87801821"
 > * 创建 Azure 时序见解 Gen2 环境。
 > * 将 Azure 时序见解 Gen2 环境连接到 IoT 中心。
 
-注册一个 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)（如果还没有）。
+注册一个 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)（如果还没有）。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 必须至少具有 Azure 订阅的参与者角色。 有关详细信息，请阅读[使用基于角色的访问控制和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
+* 必须至少具有 Azure 订阅的参与者角色。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
+
 
 ## <a name="create-an-azure-time-series-insights-gen2-environment"></a>创建 Azure 时序见解 Gen2 环境
 
@@ -53,8 +54,8 @@ ms.locfileid: "87801821"
     | **资源组** | 为 Azure 时序见解 Gen2 环境资源选择现有的资源组或创建新的资源组。 资源组是 Azure 资源的容器。 最佳做法是使用与设备模拟器创建的其他 IoT 资源相同的资源组。 |
     | **位置** | 为 Azure 时序见解 Gen2 环境选择数据中心区域。 为了避免额外的延迟，最好是在设备模拟器创建的 IoT 中心所在的区域中创建 Azure 时序见解 Gen2 环境。 |
     | **层** |  选择 Gen2(L1)。 这是 Azure 时序见解 Gen2 产品的 SKU。 |
-    | **时序 ID 属性名称** | 输入属性名称，需包含唯一标识时序实例的值。 以后不能更改在“属性名称”框中作为时序 ID 输入的值。 在本教程中，请输入 ***iothub-connection-device-id***。若要详细了解包含复合时序 ID 的时序 ID，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)。 |
-    | **存储帐户名称** | 为新存储帐户输入全局唯一名称。|
+    | **时序 ID 属性名称** | 输入属性名称，需包含唯一标识时序实例的值。 以后不能更改在“属性名称”框中作为时序 ID 输入的值。 在本教程中，请输入 iothub-connection-device-id。 若要详细了解包含复合时序 ID 的时序 ID，请阅读[选择时序 ID 的最佳做法](./how-to-select-tsid.md)。 |
+    | 存储帐户名称* | 为新存储帐户输入全局唯一名称。|
     | **存储帐户类型** | 为新的存储帐户选择存储类型。 建议选择 StorageV2|
     | **存储帐户复制** | 为新的存储帐户选择存储类型。 根据你的位置选择，你可以选择 LRS、GRS 或 ZRS。 对于本教程，你可选择 LRS|
     | **分层命名空间** |选择 StorageV2 存储类型后，可以选择此选项。 默认禁用此项。 对于本教程，你可将其保留为默认禁用状态|
@@ -79,7 +80,7 @@ ms.locfileid: "87801821"
    | **IoT 中心名称** | 选择为设备模拟器创建的 IoT 中心名称。 |
    | **Iot 中心访问策略** | 选择“iothubowner”。 |
    | **IoT 中心使用者组** | 选择“新建”，输入唯一名称，然后选择“+ 添加” 。 在 Azure 时序见解 Gen2 中，使用者组必须是唯一值。 |
-   | **时间戳属性** | 此值用于标识传入遥测数据中的**时间戳**属性。 在本教程中，请将此框留空。 此模拟器使用 IoT 中心的传入时间戳，Azure 时序见解 Gen2 默认使用该时间戳。 |
+   | **时间戳属性** | 此值用于标识传入遥测数据中的 **时间戳** 属性。 在本教程中，请将此框留空。 此模拟器使用 IoT 中心的传入时间戳，Azure 时序见解 Gen2 默认使用该时间戳。 |
 
 1. 选择“查看 + 创建”。
 
@@ -105,7 +106,7 @@ ms.locfileid: "87801821"
 
    1. 验证凭据是否已列出：
 
-      如果未列出你的凭据，则必须通过选择“添加”并搜索自己的凭据来授予自己访问该环境的权限。 若要详细了解如何设置权限，请参阅[授予数据访问权限](./time-series-insights-data-access.md)。
+      如果未列出你的凭据，则必须通过选择“添加”并搜索自己的凭据来授予自己访问该环境的权限。 若要详细了解如何设置权限，请参阅[授予数据访问权限](./concepts-access-policies.md)。
 
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -138,4 +139,9 @@ ms.locfileid: "87801821"
 
 > [!div class="nextstepaction"]
 > [Azure 时序见解 Gen2 数据建模](./concepts-model-overview.md)
+
+详细了解如何将环境连接到 Power BI：
+
+> [!div class="nextstepaction"]
+> [在 Power BI 中可视化来自 Azure 时序见解 Gen2 的数据](./how-to-connect-power-bi.md)
 

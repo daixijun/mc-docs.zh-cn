@@ -4,17 +4,17 @@ description: include 文件
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/04/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: b2ba351c4be7d23d86b7cb9105c96fbec62c6b50
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: ec165e4b7147d3e96d7ad7eb2caa82074dcd5558
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329482"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507408"
 ---
-[Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的配置设置。
+[Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md) 的配置设置。
 
 > [!NOTE]
 > Azure Functions 运行时的所有版本均支持 Durable Functions 的所有主要版本。 但是，根据 Azure Functions 运行时的版本和使用的 Durable Functions 扩展版本，host json 配置的架构略有不同。 以下示例可与 Azure Functions 2.0 和3.0 一起使用。 在这两个示例中，如果使用 Azure Functions 1.0，则可用设置是相同的，但 host.json 的“durableTask”部分应位于 host. json 配置的根目录中，而不是作为“extension”下的字段。
@@ -97,11 +97,11 @@ ms.locfileid: "94329482"
 }
 ```
 
-任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，则函数应用的默认任务中心名称是 **DurableFunctionsHub** 。 有关详细信息，请参阅[任务中心](../articles/azure-functions/durable-functions-task-hubs.md)。
+任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，则函数应用的默认任务中心名称是 **DurableFunctionsHub**。 有关详细信息，请参阅[任务中心](../articles/azure-functions/durable/durable-functions-task-hubs.md)。
 
 |properties  |默认 | 说明 |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|可以使用备用[任务中心](../articles/azure-functions/durable-functions-task-hubs.md)名称将多个 Durable Functions 应用程序彼此隔离，即使这些应用程序使用同一存储后端。|
+|hubName|DurableFunctionsHub|可以使用备用[任务中心](../articles/azure-functions/durable/durable-functions-task-hubs.md)名称将多个 Durable Functions 应用程序彼此隔离，即使这些应用程序使用同一存储后端。|
 |controlQueueBatchSize|32|要从控制队列中一次性拉取的消息数。|
 |controlQueueBufferThreshold|256|一次可以在内存中缓冲的控制队列消息数，此时调度程序将等待，然后再将任何其他消息出队。|
 |partitionCount |4|控制队列的分区计数。 可以是 1 到 16 之间的正整数。|
@@ -124,5 +124,5 @@ ms.locfileid: "94329482"
 |useLegacyPartitionManagement|是|如果设置为 `false`，则将使用分区管理算法，该算法可减少在横向扩展时重复执行函数的可能性。从 v2.3.0 开始可用。 在将来的版本中，默认值将更改为 `false`。|
 |useGracefulShutdown|false|（预览）启用正常关闭以减少主机关闭导致进程内函数执行失败的机会。|
 
-许多此类设置用于优化性能。 有关详细信息，请参阅[性能和规模](../articles/azure-functions/durable-functions-perf-and-scale.md)。
+许多此类设置用于优化性能。 有关详细信息，请参阅[性能和规模](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)。
 

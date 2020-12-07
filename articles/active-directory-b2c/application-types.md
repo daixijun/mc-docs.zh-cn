@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 12e2a10c2d4b1a077546777f62fbc10ca38d9a89
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 77bfa3f213f3ff60d7211e70a885a57dd224dad0
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326465"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507150"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>可在 Azure Active Directory B2C 中使用的应用程序类型
  
@@ -141,7 +141,7 @@ Web API 可从许多类型的客户端（包括 Web 应用程序、桌面和移�
 
 尽管 Azure AD B2C 身份验证服务目前不直接支持 OAuth 2.0 客户端凭据授予流，但你可以使用 Azure AD 和 Microsoft 标识平台/令牌终结点为 Azure AD B2C 租户中的应用程序设置客户端凭据流。 Azure AD B2C 租户与 Azure AD 企业租户共享某些功能。
 
-若要设置客户端凭据流，请参阅 [Azure Active Directory v2.0 和 OAuth 2.0 客户端凭据流](/active-directory/develop/active-directory-v2-protocols-oauth-client-creds)。 如 [Azure AD 令牌参考](/active-directory/develop/active-directory-token-and-claims)中所述，身份验证成功后会收到格式化的令牌，以便 Azure AD 可使用它。
+若要设置客户端凭据流，请参阅 [Azure Active Directory v2.0 和 OAuth 2.0 客户端凭据流](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)。 如 [Azure AD 令牌参考](../active-directory/develop/id-tokens.md)中所述，身份验证成功后会收到格式化的令牌，以便 Azure AD 可使用它。
 
 有关注册管理应用程序的说明，请参阅[使用 Microsoft Graph 管理 Azure AD B2C](microsoft-graph-get-started.md)。
 

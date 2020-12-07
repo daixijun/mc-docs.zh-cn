@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 11/16/2020
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 9ea2a74a83ec052c75d8604381fe24239eba1de1
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c44ea12568cd0cac3151fca56b02686f0159a8f6
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970713"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508597"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教程：使用 Azure 模板自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。 本教程介绍如何执行下列操作：
@@ -25,7 +25,7 @@ ms.locfileid: "95970713"
 > * 对 VM 实例进行压力测试并触发自动缩放规则
 > * 在需求下降时自动横向缩减
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -73,7 +73,7 @@ ms.locfileid: "95970713"
 | *operator*        | 用于比较指标数据和阈值的运算符。                                                     | 大于    |
 | *threshold*       | 使自动缩放规则触发操作的值。                                                      | 70%             |
 | *direction*       | 定义在应用规则的情况下，规模集应横向缩减还是扩展。                                              | 增加        |
-| type            | 表明 VM 实例数应该根据特定值进行更改。                                    | 更改计数    |
+| *type*            | 表明 VM 实例数应该根据特定值进行更改。                                    | 更改计数    |
 | *value*           | 应用规则时应减少或增加多少 VM 实例。                                             | 3               |
 | *cooldown*        | 为使自动缩放操作有时间生效，再次应用规则前需要等待的时间。 | 5 分钟       |
 

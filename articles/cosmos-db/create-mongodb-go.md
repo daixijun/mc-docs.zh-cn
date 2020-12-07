@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7acc4709878c6c8ade08d6553214784995597d2b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0cd19d456b8dc4b43527e87219e74d1f5b154f22
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328693"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507788"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：将 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB
@@ -38,7 +38,7 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
 示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](./mongodb-introduction.md#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
 
 ## <a name="prerequisites"></a>先决条件
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
+- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
     
     <!--Not Avaialble on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
     
@@ -66,7 +66,7 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
 
     ```bash
     git clone https://github.com/Azure-Samples/cosmosdb-go-mongodb-quickstart

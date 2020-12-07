@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 5/26/2019
 ms.date: 11/23/2020
-ms.openlocfilehash: 59ee0595eeeb15213b041f0c87e1aeea3fb5e707
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e68b7d227abf748b1bfcf839b484acb1aea5f885
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977343"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432624"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Node.js 进行连接并查询 Azure Database for MySQL 中的数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "94977343"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Azure Database for MySQL 服务器。 [使用 Azure 门户创建 Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-portal.md)或[使用 Azure CLI 创建 Azure Database for MySQL 服务器](quickstart-create-mysql-server-database-using-azure-cli.md)。
 
 > [!IMPORTANT] 

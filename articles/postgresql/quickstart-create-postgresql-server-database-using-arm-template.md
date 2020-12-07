@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 05/14/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: 73c7a95947769612293bcb3072818e7d0e31775e
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.openlocfilehash: eaf1899358d0a2d4d399fd55a239f6d47cea3e3c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041857"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432178"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>快速入门：使用 ARM 模板创建 Azure Database for PostgreSQL 单一服务器
 
@@ -29,16 +29,16 @@ ms.locfileid: "92041857"
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure CLI](/cli/)。
 
 ---
@@ -312,7 +312,7 @@ ms.locfileid: "92041857"
 
 3. 输入服务器名称、管理员登录名和管理员登录密码  。
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="部署到 Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="“部署具有 VNet 的 Azure Database for PostgreSQL”窗口，Azure 快速入门模板，Azure 门户":::
 
 4. 根据需要更改其他默认设置：
 
@@ -376,7 +376,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 按照以下步骤查看新 Azure Database for PostgreSQL 服务器的概览：
 
@@ -411,7 +411,7 @@ read -p "Press [ENTER] to continue: "
 
 如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
 

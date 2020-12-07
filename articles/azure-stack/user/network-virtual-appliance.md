@@ -3,17 +3,17 @@ title: 排查 Azure Stack Hub 上的网络虚拟设备问题
 description: 排查在 Microsoft Azure Stack Hub 中使用网络虚拟设备 (NVA) 时遇到的 VM 或 VPN 连接问题。
 author: WenJason
 ms.author: v-jay
-origin.date: 09/08/2020
-ms.date: 10/12/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: f1e70a8444763e49c0d6c7399452794030775b9a
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: f2a5fb618ba1b27ba56fdaa27a829ff69b862f62
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437506"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507445"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>排查网络虚拟设备问题
 
@@ -56,13 +56,34 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>检查是否在 NVA 上启用了 IP 转发
 
-#### <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户
+### <a name="portal"></a>[门户](#tab/portal)
 
-1. 在 Azure Stack Hub 门户中找到 NVA 资源，选择“网络”，然后选择网络接口。****
-2. 在“网络接口”页上，选择“IP 配置”。**** ****
+1. 在 Azure Stack Hub 门户中找到 NVA 资源，选择“网络”，然后选择网络接口。
+2. 在“网络接口”页上，选择“IP 配置”。 
 3. 确保已启用 IP 转发。
 
-#### <a name="use-powershell"></a>使用 PowerShell
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
+
+1. 运行以下命令。 将尖括号中的值替换为你的信息。
+
+   ```powershell
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. 检查“EnableIPForwarding”属性。
+
+3. 如果未启用 IP 转发，请运行以下命令将其启用：
+
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
 
 1. 运行以下命令。 将尖括号中的值替换为你的信息。
 
@@ -70,7 +91,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
-2. 检查“EnableIPForwarding”属性****。
+2. 检查“EnableIPForwarding”属性。
 
 3. 如果未启用 IP 转发，请运行以下命令将其启用：
 
@@ -82,6 +103,8 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>检查流量是否可路由到 NVA
 

@@ -1,20 +1,20 @@
 ---
 title: 将 Windows Server VM 加入 Azure AD 域服务托管域 | Microsoft Docs
 description: 在此教程中，会了解如何将 Windows Server 虚拟机加入到 Azure Active Directory 域服务托管域。
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: f56a9f60282e56d5b6404e0b733d34f723ed30eb
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 91578a30aebc16ec775faaa164172a68e5968b22
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028551"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508640"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>教程：将 Windows Server 虚拟机加入到 Azure Active Directory 域服务托管域
 
@@ -27,14 +27,14 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 > * 将 Windows Server VM 连接到 Azure 虚拟网络
 > * 将 VM 加入托管域
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要以下各资源：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。
@@ -244,8 +244,8 @@ Windows Server VM 应成功加入托管域，加入方式与常规本地计算�
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
-[password-sync]: tutorial-create-instance.md
+[password-sync]: ./tutorial-create-instance.md
 [add-computer]: https://docs.microsoft.com/powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [set-azvmaddomainextension]: https://docs.microsoft.com/powershell/module/az.compute/set-azvmaddomainextension
 

@@ -9,12 +9,12 @@ origin.date: 11/18/2019
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: fb5df2894ba7b962a9c5771bfe5b2cd21641f971
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a1b0e9895f4cbc727a7c98ac726aa329af13a8ca
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552114"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432493"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>调整性能：Hive、HDInsight 和 Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ ms.locfileid: "94552114"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * **Data Lake Storage Gen2 帐户**。 有关如何创建帐户的说明，请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)
 * 具有 Data Lake Storage Gen2 帐户访问权限的 Azure HDInsight 群集  。 请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **在 HDInsight 上运行 Hive**。  若要了解有关在 HDInsight 上运行 Hive 作业的信息，请参阅[在 HDInsight 上使用 Hive](/hdinsight/hdinsight-use-hive)

@@ -18,19 +18,19 @@ ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9386ae261c372ad773fa61285aa46aa085f0ca96
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 2e9dc628275e9cede53784b8049a1a6dee5c99c3
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564621"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508030"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 
 虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间以及与 Internet 进行私下通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后可以从 Internet 连接到 VM，并通过虚拟网络进行私下通信。
 
 ## <a name="prerequisites"></a>先决条件
-如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!--Not Needed here [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-powershell.md)]-->
 
@@ -54,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 
 ### <a name="create-the-virtual-network"></a>创建虚拟网络
 
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaEast”位置创建名为“myVirtualNetwork”的默认虚拟网络****：
+使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaEast”位置创建名为“myVirtualNetwork”的默认虚拟网络：
 
 ```powershell
 $virtualNetwork = New-AzVirtualNetwork `

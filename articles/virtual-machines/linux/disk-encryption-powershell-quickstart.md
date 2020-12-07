@@ -7,21 +7,21 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 origin.date: 05/17/2019
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83465b1509054e15bd369fab49779fc0a6d52015
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 10be72c59fa1b05d5f559b85815320f325ad8602
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057529"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431679"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>快速入门：在 Azure 中使用 Azure PowerShell 创建和加密 Linux VM
 
 Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 本快速入门介绍如何使用 Azure PowerShell 模块创建 Linux 虚拟机 (VM)、创建用于存储加密密钥的密钥保管库以及加密 VM。 本快速入门使用 Canonical 提供的 Ubuntu 16.04 LTS 市场映像和 VM Standard_D2S_V3 大小。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

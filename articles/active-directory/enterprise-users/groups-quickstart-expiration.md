@@ -14,12 +14,12 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9003b1352ac2f0c3fc517da95cd575c7b787c6fb
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 83c05ee2a2fde4b533427588961f51e8ccc12023
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327103"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508958"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>将 Azure Active Directory 中的 Microsoft 365 组设置为过期
 
@@ -35,7 +35,7 @@ ms.locfileid: "94327103"
 > [!NOTE]
 > 现在，组使用 Azure AD 智能，根据是否在最近使用而自动续订。 此续订决策基于 Microsoft 365 服务（如 Outlook、SharePoint、Teams、Yammer 等）中组的用户活动。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisite"></a>先决条件
 

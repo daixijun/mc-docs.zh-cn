@@ -4,14 +4,14 @@ description: 使用 Application Insights 监视 Node.js 服务的性能并诊断
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 11/10/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 37ff6a9c05db895e0ec1d051d2f114ecd42bd067
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: de79bafaa30a447afea0cae74cce5f96b98b741a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638183"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432413"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
@@ -31,7 +31,7 @@ Node.js SDK 可以自动监视传入和传出的 HTTP 请求、异常和某些�
 
 开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]。 如果组织已经拥有 Azure 订阅，管理员可以按照[这些说明][add-aad-user]将你添加到该订阅。
 
-[azure-free-offer]: https://www.azure.cn/pricing/1rmb-trial/
+[azure-free-offer]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 

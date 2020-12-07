@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 737537e283137de36e796e26558da2800edebfac
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3682c7745dfff5723213d69d9280c3c2bdd5da71
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327652"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508044"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>快速入门：使用 `gocql` 客户端构建 Go 应用来管理 Azure Cosmos DB Cassandra API 数据
@@ -36,7 +36,7 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
     <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/?WT.mc_id=cassandrago-docs-abhishgu)-->
 

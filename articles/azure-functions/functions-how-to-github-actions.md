@@ -3,15 +3,15 @@ title: 使用 GitHub Actions 在 Azure Functions 中进行代码更新
 description: 了解如何使用 GitHub Actions 来定义一个在 GitHub 中生成和部署 Azure Functions 项目的工作流。
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, github-actions-azure
-ms.openlocfilehash: 18b0ca6212c853768504699823e5311c81ac0227
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 9c25cfdb64b0275d056f1f429d80720f7973e624
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326521"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508910"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 Github Actions 进行持续交付
 
@@ -31,10 +31,10 @@ ms.locfileid: "94326521"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 GitHub 帐户。 如果没有该帐户，请注册[免费版](https://github.com/join)。  
 - 在 Azure 上托管的使用 GitHub 存储库的工作函数应用。   
-    - [快速入门：在 Azure 中使用 Visual Studio Code 创建函数](functions-create-first-function-vs-code.md)
+    - [快速入门：在 Azure 中使用 Visual Studio Code 创建函数](./create-first-function-vs-code-csharp.md)
 
 ## <a name="generate-deployment-credentials"></a>生成部署凭据
 

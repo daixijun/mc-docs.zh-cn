@@ -18,12 +18,12 @@ ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 760315673cca1514fa8e3f2b3417a13c20605205
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: c14bcd8cc9af1aba02fec11fa0c69651e1280447
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564540"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507462"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -36,7 +36,7 @@ ms.locfileid: "91564540"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果你没有 Azure 帐户，请使用有效的订阅设置一个帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial/)。 在开始学习本文的余下内容之前，请完成以下任务之一：
+如果你没有 Azure 帐户，请使用有效的订阅设置一个帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 在开始学习本文的余下内容之前，请完成以下任务之一：
 
 - **门户用户**：使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
 

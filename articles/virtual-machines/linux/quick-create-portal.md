@@ -5,21 +5,21 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: f7ed9dc5cf03aa962f611d261cca625b6edd33d5
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2a5c413a4dec7b79a862b10fda3959e65b5e5493
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057680"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431636"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Linux 虚拟机
 
 可以通过 Azure 门户创建 Azure 虚拟机 (VM)。 Azure 门户是基于浏览器的用户界面，用于创建 Azure 资源。 本快速入门介绍如何使用 Azure 门户部署运行 Ubuntu 18.04 LTS 的 Linux 虚拟机 (VM)。 若要查看运行中的 VM，也可以通过 SSH 登录到该 VM 并安装 NGINX Web 服务器。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "90057680"
 1. 在搜索中键入“虚拟机”。
 1. 在“服务”下，选择“虚拟机” 。
 1. 在“虚拟机”页上，选择“添加” 。 此时将打开“创建虚拟机”页。
-1. 在“基本信息”选项卡中的“项目详细信息”下，确保选择了正确的订阅，然后选择**新建**资源组。 对于名称.*，请键入 myResourceGroup。 
+1. 在“基本信息”选项卡中的“项目详细信息”下，确保选择了正确的订阅，然后选择 **新建** 资源组。 对于名称.*，请键入 myResourceGroup。 
 
     ![“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置](./media/quick-create-portal/project-details.png)
 

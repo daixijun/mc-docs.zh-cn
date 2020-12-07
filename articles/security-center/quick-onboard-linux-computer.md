@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/02/2018
-ms.date: 09/14/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 65f28aebc539ac63b0440c0750da5fad566c84b5
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: a75f8aadc93e848b410be7fabd344bb12e50938c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822355"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432490"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>快速入门：将 Linux 计算机载入到安全中心
 加入 Azure 订阅之后，可以通过预配代理为在 Azure 外部（例如，在本地或在其他云中）运行的 Linux 资源启用安全中心。 该代理称为 Log Analytics 代理，但也称 OMS 代理。
@@ -28,7 +28,7 @@ ms.locfileid: "90822355"
 本快速入门展示了如何在 Linux 计算机上安装该代理。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 在开始学习本快速入门之前，你必须位于安全中心的“标准”定价层。 有关升级说明，请参阅[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 

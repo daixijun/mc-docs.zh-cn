@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: ggailey777
   ms.author: v-junlch
-  ms.date: 08/24/2020
-  ms.openlocfilehash: b3b0e8b75e616058904971bfc597d9dc8b4be1ff
-  ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+  ms.date: 11/30/2020
+  ms.openlocfilehash: e40dcd7792268405e6068fbc8903e68c6ae36622
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "88946983"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96508019"
 landingContent:
 - title: 关于 Azure Functions
   linkLists:
@@ -26,18 +26,28 @@ landingContent:
     links:
     - text: 托管选项
       url: functions-scale.md
+  - linkListType: learn
+    links:
+    - text: 选择无服务器计算选项
+      url: https://docs.microsoft.com/learn/modules/choose-azure-service-to-integrate-and-automate-business-processes/index
 - title: 入门
   linkLists:
   - linkListType: quickstart
     links:
     - text: 创建第一个函数 (C#)
-      url: functions-create-your-first-function-visual-studio.md
+      url: create-first-function-vs-code-csharp.md
     - text: 创建第一个函数 (Java)
-      url: functions-create-first-azure-function-azure-cli.md
+      url: create-first-function-vs-code-java.md
     - text: 创建第一个函数 (JavaScript)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
+      url: create-first-function-vs-code-node.md
     - text: 创建第一个函数 (PowerShell)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
+      url: create-first-function-vs-code-powershell.md
+    - text: 创建你的第一个函数 (TypeScript)
+      url: create-first-function-vs-code-typescript.md
+  - linkListType: learn
+    links:
+    - text: 创建无服务器逻辑
+      url: https://docs.microsoft.com/learn/modules/create-serverless-logic-with-azure-functions/
 - title: 开发函数
   linkLists:
   - linkListType: concept
@@ -54,6 +64,12 @@ landingContent:
       url: functions-test-a-function.md
     - text: 错误处理。
       url: functions-bindings-error-pages.md
+  - linkListType: learn
+    links:
+    - text: 使用 Visual Studio 开发函数
+      url: https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
+    - text: 从命令行开发函数
+      url: https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
 - title: 连接到服务
   linkLists:
   - linkListType: concept
@@ -66,6 +82,12 @@ landingContent:
     links:
     - text: 使用事件网格事件
       url: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - linkListType: learn
+    links:
+    - text: 使用绑定链接函数
+      url: https://docs.microsoft.com/learn/modules/chain-azure-functions-data-using-bindings/index
+    - text: 连接到 GitHub webhook
+      url: https://docs.microsoft.com/learn/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/index
 - title: 部署函数
   linkLists:
   - linkListType: deploy
@@ -98,12 +120,20 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
+    - text: 高级托管计划
+      url: functions-premium-plan.md
     - text: Durable Functions
       url: durable/durable-functions-overview.md
+  - linkListType: learn
+    links:
+    - text: 创建长时间运行的无服务器工作流
+      url: https://docs.microsoft.com/learn/modules/create-long-running-serverless-workflow-with-durable-functions/index
 - title: 示例
   linkLists:
   - linkListType: download
     links:
+    - text: Azure Functions 示例
+      url: https://docs.microsoft.com/samples/browse/?products=azure-functions
     - text: Azure 无服务器社区库
       url: https://www.serverlesslibrary.net/
     - text: Azure 资源管理器模板

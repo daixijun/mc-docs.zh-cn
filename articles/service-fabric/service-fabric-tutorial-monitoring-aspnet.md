@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 5a2ca396d155e5c83354479475b086415c9fe48d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 2fd52c1d9544538a45a8fc279d1f1a6a9458b1be
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655348"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508000"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教程：使用 Application Insights 在 Service Fabric 上监视和诊断 ASP.NET Core 应用程序
 
@@ -38,8 +38,8 @@ ms.locfileid: "89655348"
 
 在开始学习本教程之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/)
-* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序

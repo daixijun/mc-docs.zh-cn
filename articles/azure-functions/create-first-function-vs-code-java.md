@@ -3,12 +3,12 @@ title: 使用 Visual Studio Code 创建 Java 函数 - Azure Functions
 description: 了解如何创建 Java 函数，然后使用 Visual Studio Code 中的 Azure Functions 扩展将本地项目发布到 Azure Functions 中托管的无服务器实例。
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.openlocfilehash: e7c8e7c4b3c3625efa6837d02c29b3dfb38b27b7
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 44093e1c8efa14a8e0eeeda384e39fa9e02c6f3e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970804"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508800"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建 Java 函数
 
@@ -25,7 +25,7 @@ ms.locfileid: "95970804"
 
 在开始之前，请确保已满足下列要求：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + [Java 开发人员工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8 或 11。
 

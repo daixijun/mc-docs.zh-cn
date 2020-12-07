@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 origin.date: 03/12/2018
 ms.date: 11/23/2020
-ms.openlocfilehash: 6a2124dbc918807ed8b816ec92836f4451f599eb
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 279b1c51ec5ef47c9e9b959d5e40d5db264b63dd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680613"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431861"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>使用 Azure 数据工厂中的 Databricks Notebook 活动运行 Databricks Notebook
 
@@ -35,7 +35,7 @@ ms.locfileid: "94680613"
 
   - 监视管道运行。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -65,7 +65,7 @@ ms.locfileid: "94680613"
 
     本快速入门中的一些步骤假定对资源组使用 **ADFTutorialResourceGroup** 名称。 若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。
 
-1.  对于“版本”，选择“V2”。  
+1.  对于“版本”，选择“V2”。 
 
 1.  对于“位置”，请选择数据工厂所在的位置。 
 

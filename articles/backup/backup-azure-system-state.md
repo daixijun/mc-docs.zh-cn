@@ -4,14 +4,14 @@ description: 了解如何将 Windows Server 计算机的系统状态备份到 Az
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/23/2018
-ms.date: 09/28/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: a60d79797b5ce686dd76e14b73bdd51f13791d7b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 9f8d5e4edcb921b00709c5520fb1115d5ea9a1b6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871406"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432716"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>将 Windows 系统状态备份到 Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "91871406"
 
 如果想要深入了解 Azure 备份，请阅读此 [概述](backup-overview.md)。
 
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn) ，这样就可以访问任何 Azure 服务。
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

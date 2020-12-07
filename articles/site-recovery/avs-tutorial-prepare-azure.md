@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 43cde160260fa5cd9655cbdeb062bd1e50adec93
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5240907db25f23b76e8d7677b7d10c1400cdc6bc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977749"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508006"
 ---
 <!--Verified Successfully-->
 # <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>为 Azure VMware 解决方案 VM 的灾难恢复准备 Azure Site Recovery 资源
@@ -49,7 +49,7 @@ ms.locfileid: "94977749"
 
 <!--Not Available on [Deploy](../azure-vmware/tutorial-create-private-cloud.md)-->
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 然后登录到 [Azure 门户](https://portal.azure.cn)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 然后登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="verify-account-permissions"></a>验证帐户权限
 
@@ -70,7 +70,7 @@ ms.locfileid: "94977749"
 4. 在 **资源组** 中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
 5. 在“保管库名称”中输入一个易记名称，用于标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
 6. 在“区域”中，选择保管库应位于的区域。 我们将使用“中国北部”  。
-7. 选择“查看 + 创建”。
+7. 选择“查看 + 创建”  。
 
    :::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="创建恢复服务保管库页的屏幕截图。":::
 

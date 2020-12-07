@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 91a6242de69859999fb0b67c35b437c51f0eaf86
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: ec926b24e84a5b423a19bbab5cb4805ac7df66d5
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508772"
 ---
 # <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Azure Active Directory 域服务托管域上的密码和帐户锁定策略
 
@@ -32,7 +32,7 @@ ms.locfileid: "94849283"
 需有以下资源和特权才能完成本文：
 
 * 一个有效的 Azure 订阅。
-  * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+  * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
   * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。

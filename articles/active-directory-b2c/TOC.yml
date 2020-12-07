@@ -193,7 +193,7 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: 布尔
+                    - name: Boolean
                       href: boolean-transformations.md
                     - name: Date
                       href: date-transformations.md
@@ -237,7 +237,7 @@
                       href: application-insights-technical-profile.md
                     - name: Azure Active Directory
                       href: active-directory-technical-profile.md
-                    - name: Azure 多重身份验证
+                    - name: Azure AD 多重身份验证
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
                     - name: Azure AD SSPR

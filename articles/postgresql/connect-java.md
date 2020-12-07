@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.devlang: java
 origin.date: 08/17/2020
 ms.date: 11/09/2020
-ms.openlocfilehash: 838eadc3afc1cc8c621d231b482c87e343e609c9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c4b94cd1fb166db87ef9e071822811651c2f8e47
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327318"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432114"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>将 Java和 JDBC 与 Azure Database for PostgreSQL 配合使用
 
@@ -24,7 +24,7 @@ JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 Azure 帐户。 如果没有，请[获取试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 一个 Azure 帐户。 如果没有，请[获取试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Azure CLI](/cli/install-azure-cli)。
 - 一个受支持的 [Java 开发工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。

@@ -3,18 +3,18 @@ title: 验证 Azure 图形集成
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器来验证 Azure Stack Hub 的图形集成。
 author: WenJason
-ms.topic: article
-origin.date: 03/04/2020
-ms.date: 05/18/2020
+ms.topic: how-to
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 8821539787dc9ef53d0f5e775ba6ffb2af8f225c
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 9d260678b6919f5d338680d8431f6b804bec7698
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422377"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508035"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的图形集成
 
@@ -57,7 +57,7 @@ ms.locfileid: "83422377"
 1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. 在 PowerShell 提示符下，运行以下命令以将 *$graphCredential* 变量设置为 Graph 帐户。 请将 `contoso\graphservice` 替换为你的帐户（使用 `domain\username` 格式）。

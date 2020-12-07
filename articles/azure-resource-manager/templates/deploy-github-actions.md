@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: github-actions-azure
-ms.openlocfilehash: fb9c4e3aff67f0960992b509b44cda41d0f7033f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7565e4fe8ac83b89c3d3a1fdeb92bc38b584fdde
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978128"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508078"
 ---
 <!--Verified successfully on 2020/07/13 by harris-->
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>使用 GitHub Actions 部署 Azure 资源管理器模板
@@ -25,7 +25,7 @@ ms.locfileid: "94978128"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 GitHub 帐户。 如果没有该帐户，请注册[免费版](https://github.com/join)。  
     - GitHub 存储库，用于存储资源管理器模板和工作流文件。 若要创建一个存储库，请参阅[创建新存储库](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository)。
 

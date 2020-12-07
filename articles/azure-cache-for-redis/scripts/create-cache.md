@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 脚本示例 - 创建 Azure Redis 缓存 | Microsoft Docs
-description: Azure CLI 脚本示例 - 创建 Azure Redis 缓存
-services: cache
-documentationcenter: ''
+title: 创建 Azure Cache for Redis - Azure CLI
+description: 此 Azure CLI 代码示例演示如何使用命令 az redis create 创建 Azure Cache for Redis 实例。
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: afd7f6e0-9297-4c98-a95e-597be939cef7
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-origin.date: 08/30/2017
-ms.date: 02/26/2019
+ms.topic: sample
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: f38895e4b8a0bef07a804cf8323d2af96f3ff77c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2b5c89f8a1053f8ffb36e7874a6d41dd7307f495
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63829300"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507189"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>创建 Azure Redis 缓存
 
@@ -41,6 +34,7 @@ az group create --name contosoGroup --location chinanorth
 
 # Create a Basic C0 (256 MB) Redis Cache
 az redis create --name contosoCache --resource-group contosoGroup --location chinanorth --sku Basic --vm-size C0
+
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
@@ -61,4 +55,3 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->

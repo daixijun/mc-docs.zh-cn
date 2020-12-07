@@ -1,14 +1,15 @@
 ---
 title: 为 Azure Functions 配置监视
 description: 了解如何将函数应用连接到 Application Insights 以进行监视，以及如何配置数据收集。
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d90790900b9fc04f2221b3124d6550d92a47eb9f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: ac24af9350456179e35c826fae340a4421ed094e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472839"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507285"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>如何为 Azure Functions 配置监视
 
@@ -229,7 +230,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 对于将数据发送到 Application Insights 的函数应用，它需要知道 Application Insights 资源的检测密钥。 该密钥必须位于名为 **APPINSIGHTS_INSTRUMENTATIONKEY** 的应用设置中。
 
-[在 Azure 门户中](functions-create-first-azure-function.md)创建函数应用时，请在命令行中使用 [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) 或 [Visual Studio Code](functions-create-first-function-vs-code.md)，默认情况下会启用 Application Insights 集成。 Application Insights 资源的名称与函数应用的相同，并且在同一区域或最接近的区域中创建。
+[在 Azure 门户中](functions-create-first-azure-function.md)创建函数应用时，请在命令行中使用 [Azure Functions Core Tools](./create-first-function-cli-csharp.md) 或 [Visual Studio Code](./create-first-function-vs-code-csharp.md)，默认情况下会启用 Application Insights 集成。 Application Insights 资源的名称与函数应用的相同，并且在同一区域或最接近的区域中创建。
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>添加到现有函数应用 
@@ -249,7 +250,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
     | **新资源名称** | 唯一的应用名称 | 使用与函数应用相同的名称是最方便的，该名称在订阅中必须独一无二。 | 
     | **位置** | 中国北部 2 | 尽可能使用函数应用所在的同一[区域](https://azure.microsoft.com/regions/)，或与该区域接近的区域。 |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="从门户启用 Application Insights":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="创建 Application Insights 资源":::
 
 1. 选择“应用”。 
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 09/18/2020
 ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 054002165522336acad0cc3877703fc295e6364b
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 24299e4def925010bd2f3e4d2e92473245a830f8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94909090"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432590"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>如何在 Azure VPN 网关上配置 BGP
 
@@ -38,7 +38,7 @@ BGP 是通常在 Internet 上使用的，用于在两个或更多网络之间交
 
 ### <a name="prerequisites"></a>先决条件
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="part-1-configure-bgp-on-the-virtual-network-gateway"></a><a name ="config"></a>第 1 部分：在虚拟网络网关上配置 BGP
 

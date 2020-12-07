@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad204acb9a9e7f0aa97ec6ac1a93cca436212ebc
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: 444a3772ea107b16e8897ac40136256492db463f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589417"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432037"
 ---
 # <a name="create-a-blockblobstorage-account"></a>创建 BlockBlobStorage 帐户
 
@@ -25,7 +25,7 @@ BlockBlobStorage 帐户类型允许创建具有高级性能特征的块 Blob。 
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

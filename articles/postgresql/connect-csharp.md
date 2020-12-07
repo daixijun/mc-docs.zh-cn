@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 origin.date: 10/18/2020
 ms.date: 11/09/2020
-ms.openlocfilehash: d5cc1d18ddcbd5976e1e55851f6bfe8f5517a139
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 7aa1220f4121dc903bb0ed0ca2b6dd4bd9d8f194
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327370"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432117"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 .NET (C#) 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -23,15 +23,15 @@ ms.locfileid: "94327370"
 ## <a name="prerequisites"></a>先决条件
 对于本快速入门，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 使用 [Azure 门户](./quickstart-create-server-database-portal.md) <br/> 或 [Azure CLI](./quickstart-create-server-database-azure-cli.md) 创建 Azure Database for PostgreSQL 单一服务器（如果没有）。
 - 请完成以下操作之一以启用连接，具体取决于你使用的是公共访问还是私有访问。
 
   |操作| 连接方法|操作指南|
   |:--------- |:--------- |:--------- |
-  | **配置防火墙规则** | 公用 | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-  | 配置服务终结点 | 公用 | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
-  | 配置专用链接 | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+  | **配置防火墙规则** | 公用 | [门户](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+  | 配置服务终结点 | 公用 | [门户](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+  | 配置专用链接 | Private | [门户](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
 - 安装适用于平台（Windows、Ubuntu Linux 或 macOS）的 [.NET Framework](https://www.microsoft.com/net/download)。 
 - 安装 [Visual Studio](https://www.visualstudio.com/downloads/) 以生成项目。

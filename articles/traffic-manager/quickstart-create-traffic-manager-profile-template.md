@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: bd212b7d9c9d4021e151e738e0d2a03b9c58377b
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 06abfde7f66d1ea1481d1ac51112131e24dc5276
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507747"
 ---
 <!--Verified Successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>快速入门：使用 ARM 模板创建流量管理器配置文件
@@ -31,7 +31,7 @@ ms.locfileid: "94590788"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

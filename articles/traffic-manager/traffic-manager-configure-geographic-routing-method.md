@@ -14,12 +14,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 56194b7ba539259bd31889cbbd2f6f3f4cfcf74b
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 9874eddc0e169c70b86df6951f70df2b9927c650
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590552"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507682"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>教程：使用流量管理器配置地理流量路由方法
 
@@ -32,9 +32,9 @@ ms.locfileid: "94590552"
 > - 使用流量管理器配置文件。
 > - 删除流量管理器配置文件。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
@@ -72,7 +72,7 @@ ms.locfileid: "94590552"
     | 设置                | “值”                                              |
     | --- | --- |
     | 类型                   | 选择终结点类型。 对于生产中使用的地理路由配置文件，我们强烈建议使用包含有多个终结点的子配置文件的嵌套终结点类型。 有关详细信息，请参阅[有关地理流量路由方法的常见问题解答](traffic-manager-FAQs.md)。 |    
-    | 名称                   | 提供一个名称，以标识此终结点。 |
+    | 名称                   | 为该终结点命名，用于标识它。 |
     | 目标资源类型   | 选择目标的资源类型。 |
     | 目标资源        | 从列表中选择资源。 |
 

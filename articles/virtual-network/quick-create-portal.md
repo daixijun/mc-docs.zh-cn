@@ -14,12 +14,12 @@ ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: cf13d1fdd534658ca30d0de17561e920d5c75573
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: ddb75efbee8bc47c907f8036c67efc5eb3b8729a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564638"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508031"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -27,7 +27,7 @@ ms.locfileid: "91564638"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -35,11 +35,11 @@ ms.locfileid: "91564638"
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-1. 在 Azure 门户菜单中，选择“创建资源”  。 在 Azure 市场中，选择“网络” > “虚拟网络” 。
+1. 在 Azure 门户菜单中，选择“创建资源”。 在 Azure 市场中，选择“网络” > “虚拟网络” 。
 
 1. 在“创建虚拟网络”中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     | ------- | ----- |
     | 订阅 | 选择订阅。|
     | 资源组 | 选择“新建”，输入 myResourceGroup，然后选择“确定”。 |
@@ -86,7 +86,7 @@ ms.locfileid: "91564638"
     | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     | 确认密码 | 重新输入密码。 |
     | **入站端口规则** |  |
-    | 公共入站端口 | 选择“允许所选端口”****。 |
+    | 公共入站端口 | 选择“允许所选端口”  。 |
     | 选择入站端口 | 输入 *HTTP (80)* 和 *RDP (3389)* 。 |
     | **节省资金** |  |
     | 已有 Windows 许可证？ | 默认设置为“否”。 |
@@ -146,7 +146,7 @@ ms.locfileid: "91564638"
 
 1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
 
-1. 打开该 RDP 文件。 出现提示时，选择“连接”  。
+1. 打开该 RDP 文件。 出现提示时，选择“连接”。
 
 1. 输入在创建 VM 时指定的用户名和密码。
 
@@ -192,7 +192,7 @@ ms.locfileid: "91564638"
 
 1. 关闭与 *myVm1* 的远程桌面连接。
 
-1. 再次完成[从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤，但这次连接到 *myVm2*。
+1. 再次完成 [从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤，但这次连接到 *myVm2*。
 
 1. 从命令提示符输入 `ping myvm1`。
 

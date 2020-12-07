@@ -6,19 +6,19 @@ ms.author: v-johya
 ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 11/11/2020
-ms.openlocfilehash: 52301bdab621295993883c525b0dc93b8e25c10e
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/01/2020
+ms.openlocfilehash: d5367520019d33be2685f72434a9f84e6500c5c6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638321"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431686"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>快速入门：使用 Azure 门户创建并加密虚拟机
 
 可以通过 Azure 门户创建 Azure 虚拟机 (VM)。 Azure 门户是基于浏览器的用户界面，用于创建 VM 及其相关资源。 本快速入门介绍如何使用 Azure 门户来部署运行 Ubuntu 18.04 LTS 的 Linux 虚拟机 (VM)、如何创建用于存储加密密钥的密钥保管库，以及如何加密 VM。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

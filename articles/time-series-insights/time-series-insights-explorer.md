@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 25d39244d62dd03fb4ee9c838ae00cbe272db266
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d258bf528bee49868c7cdd05007d275b265980dc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472184"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507468"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure 时序见解 Gen1 资源管理器
 
@@ -36,8 +36,8 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 在可以使用 Azure 时序见解资源管理器之前，必须：
 
 - 创建 Azure 时序见解环境。 有关详细信息，请阅读[如何开始使用 Azure 时序见解环境](./time-series-insights-get-started.md)。
-- 提供对环境中帐户的[访问](time-series-insights-data-access.md)。
-- 在环境中添加 [IoT 中心](how-to-ingest-data-iot-hub.md)或[事件中心](how-to-ingest-data-event-hub.md)事件源。
+- 提供对环境中帐户的[访问](./concepts-access-policies.md)。
+- 在环境中添加 [IoT 中心](./how-to-ingest-data-iot-hub.md)或[事件中心](./how-to-ingest-data-event-hub.md)事件源。
 
 ## <a name="explore-and-query-data"></a>浏览和查询数据
 
@@ -55,22 +55,22 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 接下来，会显示一个图表，该图表显示的是所选时间范围内所有事件的计数。 在此有许多控件：
 
-    - **搜索词编辑器面板** ：术语空间是查询环境的位置。 它位于屏幕的左侧：
-      - **度量值** ：此下拉列表显示所有数值列（ **双精度** ）。
-      - **拆分依据** ：此下拉列表显示类别列（ **字符串** ）。
+    - **搜索词编辑器面板**：术语空间是查询环境的位置。 它位于屏幕的左侧：
+      - **度量值**：此下拉列表显示所有数值列（**双精度**）。
+      - **拆分依据**：此下拉列表显示类别列（**字符串**）。
       - 可以启用梯级内插、显示最小值和最大值，以及在“度量值”旁边的控制面板中调整 Y 轴  。 还可以调整显示的是数据的计数、平均值还是总和。
       - 最多可以添加要在同一个 X 轴上查看的五个搜索词。 选择“添加”  添加新的搜索词，或者使用“克隆此搜索词”  按钮添加现有搜索词的副本。
 
         [![搜索词选择、筛选和查询面板](./media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](./media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
 
-      - **谓词** ：使用谓词可以使用下表中列出的操作数集快速筛选事件。 如果通过选择或单击执行搜索，谓词将基于该搜索自动更新。 支持的操作数类型包括：
+      - **谓词**：使用谓词可以使用下表中列出的操作数集快速筛选事件。 如果通过选择或单击执行搜索，谓词将基于该搜索自动更新。 支持的操作数类型包括：
 
          |操作  |支持的类型  |注释  |
          |---------|---------|---------|
-         |**<** , **>** , **<=** , **>=**    |  **双精度** 、 **DateTime** 、 **TimeSpan**       |         |
-         |**=** 、 **!=** 、 **<>**     | **字符串** 、 **布尔** 、 **双精度** 、 **DateTime** 、 **TimeSpan** 、 **NULL**        |         |
-         |**IN**     | **字符串** 、 **布尔** 、 **双精度** 、 **DateTime** 、 **TimeSpan** 、 **NULL**        |  所有操作数应为同一类型或者是 **NULL** 常数。        |
-         |**HAS**     | **字符串**        |  右侧只允许使用常量字符串文本。 不允许空字符串和 **NULL** 。       |
+         |**<**, **>**, **<=**, **>=**    |  **双精度**、**DateTime**、**TimeSpan**       |         |
+         |**=** 、 **!=** 、 **<>**     | **字符串**、**布尔**、**双精度**、**DateTime**、**TimeSpan**、**NULL**        |         |
+         |**IN**     | **字符串**、**布尔**、**双精度**、**DateTime**、**TimeSpan**、**NULL**        |  所有操作数应为同一类型或者是 **NULL** 常数。        |
+         |**HAS**     | **字符串**        |  右侧只允许使用常量字符串文本。 不允许空字符串和 **NULL**。       |
 
       - **示例查询**
 
@@ -110,8 +110,8 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 浏览事件以公开模式和列统计信息之后，选择“统计信息”  选项卡。
 
-    - **模式** ：此功能主动显示所选数据区域中最具统计意义的模式。 无需查看数千个事件来了解最需要花费时间和精力的模式。 你可以使用 Azure 时序见解直接跳转到这些具有重大统计意义的模式继续进行分析。 此功能也有助于对历史数据进行事后调查。
-    - **列统计信息** ：列统计信息提供图表和表格，细分选定时间范围内所选数据系列的每列中的数据。
+    - **模式**：此功能主动显示所选数据区域中最具统计意义的模式。 无需查看数千个事件来了解最需要花费时间和精力的模式。 你可以使用 Azure 时序见解直接跳转到这些具有重大统计意义的模式继续进行分析。 此功能也有助于对历史数据进行事后调查。
+    - **列统计信息**：列统计信息提供图表和表格，细分选定时间范围内所选数据系列的每列中的数据。
 
       [![“统计信息”列图表和选项](./media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](./media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 

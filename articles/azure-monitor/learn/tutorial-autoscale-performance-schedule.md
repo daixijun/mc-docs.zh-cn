@@ -5,16 +5,16 @@ author: Johnnytechn
 services: azure-monitor
 ms.topic: tutorial
 origin.date: 12/11/2017
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: f265897b23d301ae6c81a3b63224515d8a73163b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 146f53b7662d50730292658e9d7b7d390b76f701
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327842"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431988"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 
@@ -28,7 +28,7 @@ ms.locfileid: "94327842"
 > * 触发缩小操作并监视实例数的减少情况
 > * 清理资源
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 

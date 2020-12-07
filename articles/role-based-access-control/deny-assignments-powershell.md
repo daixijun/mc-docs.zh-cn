@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/25/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 0841154fde1128ee41fafa6171544445c7b79e82
-ms.sourcegitcommit: 7429daf26cff014b040f69cdae75bdeaea4f4e93
+ms.openlocfilehash: 54977ea9d3ef89574d341cfd889fae9f42d1a4cd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83991630"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507420"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>使用 Azure PowerShell 列出 Azure 拒绝分配
 

@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: v-junlch
 manager: diviso
-ms.date: 08/05/2020
-ms.openlocfilehash: a0051501ba4363f919c28b6457ca6321ad176464
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.date: 12/01/2020
+ms.openlocfilehash: cb9df1c98d6060a804d41bd14b7d8c0b3fef1613
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "89413994"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507371"
 ---
 ## <a name="business-disaster-recovery"></a>业务灾难恢复
 
@@ -22,8 +22,8 @@ ms.locfileid: "89413994"
 
 通过 Azure 提供的其他高可用性功能（以及同样适用于任何 Azure 时序见解实例的功能）包括：
 
-- **Azure Site Recovery**：Azure 通过 [Azure Site Recovery](/site-recovery/) 提供站点恢复功能。
-- **Azure 备份**：[Azure 备份](/backup/backup-architecture)支持 Azure VM 的本地和云中备份。
+- **Azure Site Recovery**：Azure 通过 [Azure Site Recovery](../articles/site-recovery/index.yml) 提供站点恢复功能。
+- **Azure 备份**：[Azure 备份](../articles/backup/backup-architecture.md)支持 Azure VM 的本地和云中备份。
 
 请务必启用相关的 Azure 功能，以便为设备和用户提供全局跨区域高可用性。
 
@@ -34,9 +34,9 @@ ms.locfileid: "89413994"
 
 某些 Azure IoT 服务也包含内置的业务灾难恢复功能：
 
-- [Azure IoT 中心高可用性灾难恢复](/iot-hub/iot-hub-ha-dr)，包括区域内部冗余
+- [Azure IoT 中心高可用性灾难恢复](../articles/iot-hub/iot-hub-ha-dr.md)，包括区域内部冗余
 - Azure 事件中心策略
-- [Azure 存储冗余](/storage/common/storage-redundancy)
+- [Azure 存储冗余](../articles/storage/common/storage-redundancy.md)
 
 将 Azure 时序见解与其他服务集成有可能会提供更多的灾难恢复机制。 例如，可将发送到事件中心的遥测数据保留在 Azure Blob 存储备份数据库中。
 
@@ -53,10 +53,10 @@ ms.locfileid: "89413994"
 
 若要创建副本环境：
 
-1. 在另一个区域中创建环境。 有关详细信息，请参阅[在 Azure 门户中创建新的 Azure 时序见解环境](/time-series-insights/time-series-insights-get-started)。
+1. 在另一个区域中创建环境。 有关详细信息，请参阅[在 Azure 门户中创建新的 Azure 时序见解环境](../articles/time-series-insights/time-series-insights-get-started.md)。
 1. 为事件源创建另一个专用使用者组。
 1. 将该事件源连接到新环境。 请务必指定第二个专用使用者组。
-1. 请查看 Azure 时序见解 [IoT 中心](/time-series-insights/how-to-ingest-data-iot-hub)和[事件中心](/time-series-insights/time-series-insights-data-access)文档。
+1. 请查看 Azure 时序见解 [IoT 中心](../articles/time-series-insights/how-to-ingest-data-iot-hub.md)和[事件中心](../articles/time-series-insights/concepts-access-policies.md)文档。
 
 发生事件时：
 
@@ -69,6 +69,5 @@ ms.locfileid: "89413994"
 > * 也可能会发生延迟。
 > * 由于需要重新路由操作，还可能会出现短暂的消息处理高峰。
 > 
-> 有关详细信息，请参阅[缓解 Azure 时序见解中的延迟](/time-series-insights/time-series-insights-environment-mitigate-latency)。
-
+> 有关详细信息，请参阅[缓解 Azure 时序见解中的延迟](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md)。
 

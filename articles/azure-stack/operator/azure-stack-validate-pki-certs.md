@@ -6,17 +6,17 @@ services: azure-stack
 documentationcenter: ''
 author: WenJason
 ms.topic: how-to
-origin.date: 03/04/2020
-ms.date: 08/31/2020
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8636a2365559ec1e31ce06fb384921191b9d48a2
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 832d20ba051b50d134967f583e83c6cc486f478a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867813"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508033"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack Hub PKI 证书
 
@@ -64,7 +64,7 @@ ms.locfileid: "88867813"
 1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 **AzsReadinessChecker**：
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. 创建证书目录结构。 在以下示例中，可将 `<C:\Certificates\Deployment>` 更改为所选的新目录路径。

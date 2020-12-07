@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 05/26/2020
 ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 90e298e8e0ed0bd53a5a1bb1ea21944c965b5f7d
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 9406ea1b9f6aa1f45d608a56cba5740b8f39d2ea
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908974"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431645"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MariaDB
 
@@ -31,7 +31,7 @@ Azure Database for MariaDB 是 Microsoft 云中基于 MariaDB 社区版数据库
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 如果选择在本地使用 PowerShell，则本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

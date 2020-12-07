@@ -4,20 +4,20 @@ description: 有关使用 Azure 备份服务备份 SQL Server 数据库的简介
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 10/18/2018
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 789cac9252c0479bf16b15af428cefe0b1fb9c8f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d5e0240feeef6e65f184cb189bdf59e9b3d701dc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432563"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>将 SQL Server 备份到 Azure 作为 DPM 工作负荷
 
 本文将引导你使用 Azure 备份完成 SQL Server 数据库的备份配置步骤。
 
-若要将 SQL Server 数据库备份到 Azure，需要一个 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个试用帐户。 有关详细信息，请参阅[创建 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+若要将 SQL Server 数据库备份到 Azure，需要一个 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个试用帐户。 有关详细信息，请参阅[创建 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 若要将 SQL Server 数据库备份到 Azure 并从 Azure 恢复该数据库：
 

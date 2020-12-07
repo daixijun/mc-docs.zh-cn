@@ -3,15 +3,15 @@ title: 将 Blob 存储事件发送到 Web 终结点 - 模板
 description: 使用 Azure 事件网格和 Azure 资源管理器模板创建 Blob 存储帐户并订阅其事件。 将事件发送到 Webhook。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 718187f11b2f910d5cdabcd1170243c2cb2b870a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c7c2ec9e0b357cb2dcf5a0a613fae7fa62a5b1df
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978161"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432631"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>快速入门：使用 ARM 模板将 Blob 存储事件路由到 Web 终结点
 
@@ -25,7 +25,7 @@ Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="create-a-message-endpoint"></a>创建消息终结点
 

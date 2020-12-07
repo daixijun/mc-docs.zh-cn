@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/01/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 250ccfc26b957cdc4757d1a4357a890dfeb5c647
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 05208e983295ccbcbaaf42b5515cc69cf86a7d42
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937311"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508083"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure 时序见解 API 的身份验证和授权
 
@@ -73,7 +73,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
 1. 通过选择“确定”来保存策略。
 
    > [!TIP]
-   > 对于高级数据访问选项，请阅读[授予数据访问权限](./time-series-insights-data-access.md)。
+   > 对于高级数据访问选项，请阅读[授予数据访问权限](./concepts-access-policies.md)。
 
 ### <a name="client-app-initialization"></a>客户端应用初始化
 
@@ -90,7 +90,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
    1. 随后可在应用程序调用 Azure 时序见解 API 时，将令牌传入 `Authorization` 标头。
 
 > [!IMPORTANT]
-> 如果使用的是 [Active Directory 身份验证库 (ADAL)](/active-directory/azuread-dev/active-directory-authentication-libraries)，请阅读[迁移到 MSAL](/active-directory/develop/msal-net-migration)。
+> 如果使用的是 [Active Directory 身份验证库 (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md)，请阅读[迁移到 MSAL](../active-directory/develop/msal-net-migration.md)。
 
 ## <a name="common-headers-and-parameters"></a>常用标头和参数
 

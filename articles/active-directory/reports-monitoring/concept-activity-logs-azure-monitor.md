@@ -17,12 +17,12 @@ ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a81ec3af6292b6b2f78f9cf812a39c732777fb
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ca9aa5bdb5e9e0ce10c3ac69780422763aeea8cb
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245169"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508975"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor 中的 Azure AD 活动日志
 
@@ -39,8 +39,8 @@ ms.locfileid: "91245169"
 
 可以使用此功能将 Azure AD 活动日志和登录日志路由到 Azure 存储帐户、事件中心、Azure Monitor 日志或自定义解决方案。 
 
-* **审核日志**：可以通过[审核日志活动报表](concept-audit-logs.md)访问在租户中执行的每个任务的历史记录。
-* **登录日志**：可以通过[登录活动报表](concept-sign-ins.md)来确定谁执行了审核日志中报告的任务。
+* **审核日志**：可以通过 [审核日志活动报表](concept-audit-logs.md)访问在租户中执行的每个任务的历史记录。
+* **登录日志**：可以通过 [登录活动报表](concept-sign-ins.md)来确定谁执行了审核日志中报告的任务。
 
 > [!NOTE]
 > 目前不支持 B2C 相关的审核和登录活动日志。
@@ -50,7 +50,7 @@ ms.locfileid: "91245169"
 
 若要使用此功能，需满足以下条件:
 
-* Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 在 Azure 门户中访问 Azure AD 审核日志所需的 Azure AD Free、Basic、Premium 1 或 Premium 2 [许可证](https://www.azure.cn/pricing/details/active-directory/)。 
 * Azure AD 租户。
 * 一个是 Azure AD 租户的全局管理员或安全管理员的用户。 
@@ -142,13 +142,13 @@ ms.locfileid: "91245169"
 
 **问: 如何将 Azure AD 活动日志与 Splunk 实例集成？**
 
-**答**：首先，[将 Azure AD 活动日志路由到事件中心](./tutorial-azure-monitor-stream-logs-to-event-hub.md)，然后按照步骤[将活动日志与 Splunk 集成](./howto-integrate-activity-logs-with-splunk.md)。
+**答**：首先，[将 Azure AD 活动日志路由到事件中心](./tutorial-azure-monitor-stream-logs-to-event-hub.md)，然后按照步骤 [将活动日志与 Splunk 集成](./howto-integrate-activity-logs-with-splunk.md)。
 
 ---
 
 **问: 如何将 Azure AD 活动日志与 Sumo Logic 集成？** 
 
-**答**：首先，[将 Azure AD 活动日志路由到事件中心](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)，然后按照步骤[安装 Azure AD 应用程序并查看 SumoLogic 中的仪表板](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)。
+**答**：首先，[将 Azure AD 活动日志路由到事件中心](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)，然后按照步骤 [安装 Azure AD 应用程序并查看 SumoLogic 中的仪表板](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)。
 
 ---
 

@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: a1bee11ddf10aece5d510560d9cc03085f124927
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: a83f52c04fc63a81480db085bdb95213b8864b37
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590934"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508048"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>为用户 VPN 配置 Azure Active Directory 身份验证
 
@@ -46,7 +46,7 @@ ms.locfileid: "94590934"
 
 * 获取中心区域的 IP 地址范围。 该中心是虚拟 WAN 创建和使用的虚拟网络。 为中心指定的地址范围不能与要连接到的任何现有虚拟网络重叠。 此外，它也不能与本地连接到的地址范围重叠。 如果不熟悉本地网络配置中的 IP 地址范围，则咨询能够提供此类详细信息的人员。
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <a name="wan"></a>
 ## <a name="create-a-virtual-wan"></a>创建虚拟 WAN
@@ -167,7 +167,7 @@ ms.locfileid: "94590934"
 
 5. 连接后，图标将变为绿色并指示“已连接”。 
 
-    ![屏幕截图显示连接处于“已连接”状态，其中包含断开连接选项。](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![屏幕截图显示了处于“已连接”状态的连接以及用于断开连接的选项。](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 <a name="delete"></a>
 #### <a name="to-delete-a-client-profile"></a>删除客户端配置文件

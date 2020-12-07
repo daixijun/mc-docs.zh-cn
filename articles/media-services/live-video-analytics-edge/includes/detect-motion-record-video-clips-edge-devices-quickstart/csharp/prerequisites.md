@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 2aa561e91764a921554177a5f31e2280b65b4d81
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 516a7bbee8f5521d1a0dcb28f53a2bbfb7133a9a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413896"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477326"
 ---
-* 具有活动订阅的 Azure 帐户。 如果没有帐户，可[创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 具有活动订阅的 Azure 帐户。 如果没有帐户，可[创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 包含以下扩展的 [Visual Studio Code](https://code.visualstudio.com/)：
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)

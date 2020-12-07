@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 65b3dc3b2392075bdbf7fcc383a1772d1e571251
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 40181775cc6b1db5a17d8d5e8d2b177873151cd7
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431968"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>教程：将数据加载到 Azure Synapse Analytics SQL 池
 
@@ -35,7 +35,7 @@ ms.locfileid: "93375740"
 > * 在日期维度和销售事实数据表中生成一年的数据
 > * 创建新加载的数据的统计信息
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>准备阶段
 

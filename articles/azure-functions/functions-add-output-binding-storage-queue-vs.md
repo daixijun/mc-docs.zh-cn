@@ -1,15 +1,15 @@
 ---
 title: 使用 Visual Studio 将函数连接到 Azure 存储
 description: 了解如何使用 Visual Studio 添加输出绑定，以将 C# 类库函数连接到 Azure 存储队列。
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: dfdc07107348b8ec46910c912c76c2604479e07a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: aa7bf8bcac36a87bbc1c704564881c2a9ee18c16
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472070"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507871"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>使用 Visual Studio 将函数连接到 Azure 存储
 
@@ -29,7 +29,7 @@ ms.locfileid: "92472070"
 
 ## <a name="download-the-function-app-settings"></a>下载函数应用设置
 
-在[前一篇快速入门文章](functions-create-first-function-vs-code.md)中，你已在 Azure 中创建了一个函数应用，并创建了所需的存储帐户。 此帐户的连接字符串安全存储在 Azure 中的应用设置内。 在本文中，你要将消息写入到同一帐户中的存储队列。 若要在本地运行函数时连接到该存储帐户，必须将应用设置下载到 *local.settings.json* 文件。 
+在[前一篇快速入门文章](./create-first-function-vs-code-csharp.md)中，你已在 Azure 中创建了一个函数应用，并创建了所需的存储帐户。 此帐户的连接字符串安全存储在 Azure 中的应用设置内。 在本文中，你要将消息写入到同一帐户中的存储队列。 若要在本地运行函数时连接到该存储帐户，必须将应用设置下载到 *local.settings.json* 文件。 
 
 1. **在“解决方案资源管理器”** 中，右键单击该项目并选择“发布”。 
 

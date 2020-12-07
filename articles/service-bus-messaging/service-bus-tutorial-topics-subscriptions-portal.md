@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.topic: tutorial
-ms.openlocfilehash: 33fe58ea5721b573fd3ee53458152c5fdbabd931
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 51f05e6ec583c9f233c2b5c6e4623fdbb4def123
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946997"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507560"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新库存
 
@@ -412,7 +412,7 @@ private async Task ReceiveMessages(string subscription)
 > [!div class="nextstepaction"]
 > [通过事件网格响应事件](service-bus-to-event-grid-integration-example.md)
 
-[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[试用帐户]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 <!--Not Avaiable on [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name-->
 [Azure 门户]：https://portal.azure.cn/
 

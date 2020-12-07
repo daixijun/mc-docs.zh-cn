@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 02/06/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4f624872aff6fc3d68991998d7fb569ca8c3ed7e
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 3a4e21859551b929101745f53e269f7662c5d3d1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211587"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508072"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中使用架构验证 XML
 
@@ -24,7 +24,7 @@ ms.locfileid: "92211587"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册 Azure 试用帐户</a>。
+* Azure 订阅。 如果没有订阅，可以<a href="https://www.microsoft.com/china/azure/index.html?fromtype=cn" target="_blank">注册 Azure 试用帐户</a>。
 
 * 一个[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，用于存储架构以及企业集成与企业到企业 (B2B) 解决方案的其他项目。 
 

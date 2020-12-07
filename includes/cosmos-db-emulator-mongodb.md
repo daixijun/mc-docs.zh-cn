@@ -1,20 +1,20 @@
 ---
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 08/03/2020
-ms.testscope: yes|no
-ms.testdate: 08/03/2020Null
+author: rockboyfor
+ms.date: 12/07/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: de733b875061fcdcda66c7b89158f7c6660c6b36
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 7d04baf41b6fca2918db2e93cd323573591622c6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427548"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507529"
 ---
-对于本教程，可以使用 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)，其连接字符串为： 
+对于本教程，可以使用 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)，其连接字符串为：
 
 `mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`
 

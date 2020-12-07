@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 脚本示例 - 通过群集创建高级 Azure Redis 缓存 | Microsoft Docs
-description: Azure CLI 脚本示例 - 通过群集创建高级层 Azure Redis 缓存
-services: cache
-documentationcenter: ''
+title: 通过群集创建高级 Azure Cache for Redis - Azure CLI
+description: 此 Azure CLI 代码示例演示如何创建启用了群集的 6 GB 高级层 Azure Cache for Redis 和两个分片。
 author: yegu-ms
-manager: jhubbard
-editor: ''
+ms.author: v-junlch
 tags: azure-service-management
-ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-origin.date: 08/30/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
-ms.openlocfilehash: bd233e47350340d13ed62111d1848945cde9cf31
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: sample
+ms.date: 11/30/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a3979d691b19c41b909cf2cd30c218d859f27172
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63854974"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507188"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>通过群集创建高级 Azure Redis 缓存
 
@@ -41,7 +34,9 @@ az group create --name contosoGroup --location chinanorth
 
 # Create a Premium P1 (6 GB) Redis Cache with clustering enabled and 2 shards (for a total of 12 GB)
 az redis create --name contosoCache --resource-group contosoGroup --location chinanorth --vm-size P1 --sku Premium --shard-count 2
+
 ```
+
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>脚本说明
@@ -60,4 +55,3 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->

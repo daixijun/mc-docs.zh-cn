@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4566ac2330a6011fa1b8822461c996d38a676001
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 5044ca10a2eae5516ddb2f810e6f0ed2c92e1f05
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947162"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507315"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>使用 Azure 门户创建服务总线命名空间和队列
 本快速入门介绍如何使用 [Azure 门户][Azure portal]创建服务总线命名空间和队列。 本快速入门还介绍了如何获取客户端应用程序向队列发送消息或从队列接收消息所使用的授权凭据。 
@@ -38,7 +38,7 @@ ms.locfileid: "88947162"
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
-[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[试用帐户]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [Azure portal]: https://portal.azure.cn/
 
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: shreyasharmamsft
   ms.author: v-junlch
-  ms.date: 11/02/2020
-  ms.openlocfilehash: f3c4622bfe045ec707f7592c2e07cdb3c23c1e0b
-  ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+  ms.date: 12/01/2020
+  ms.openlocfilehash: b56b5b6d539544af1674d8b2c12e4b000e5cf490
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "94326543"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96507363"
 landingContent:
 - title: 关于 Azure 时序见解
   linkLists:
@@ -52,11 +52,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 预配和管理
-      url: time-series-insights-update-how-to-manage.md
+      url: ./how-to-provision-manage.md
     - text: 如何选择 TSID
       url: how-to-select-tsid.md
     - text: 授予数据访问权限
-      url: time-series-insights-data-access.md
+      url: ./concepts-access-policies.md
     - text: 创建时序模型
       url: how-to-edit-your-model.md
     - text: 查询数据

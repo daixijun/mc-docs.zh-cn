@@ -10,12 +10,12 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 3f944867ecf279c9e0bbc12628fd30c3071e0a80
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: ea3eb6ab9a768b40d4179e99a0fc761a06273b6d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153098"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432516"
 ---
 # <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 若要创建 Azure 文件共享，需要回答有关你将如何使用它的三个问题：
@@ -32,7 +32,7 @@ ms.locfileid: "96153098"
 有关这三个选项的详细信息，请参阅[规划 Azure 文件存储部署](storage-files-planning.md)。
 
 ## <a name="prerequisites"></a>先决条件
-- 本文假设已创建一个 Azure 订阅。 如果还没有订阅，则在开始前创建一个 [1 元人民币的试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 本文假设已创建一个 Azure 订阅。 如果还没有订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果你打算使用 Azure PowerShell，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 - 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 

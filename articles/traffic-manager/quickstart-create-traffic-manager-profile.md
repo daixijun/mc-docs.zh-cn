@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9e023976b1e090784c5fbdacc06b09d178d24879
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 608429d9ce0acfce8d60429d4592ae2369e8a9d4
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507746"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流量管理器配置文件
@@ -29,7 +29,7 @@ ms.locfileid: "92471323"
 
 本快速入门介绍 Web 应用程序的两个实例。 每个实例在不同的 Azure 区域运行。 需根据[终结点优先级](traffic-manager-routing-methods.md#priority-traffic-routing-method)创建流量管理器配置文件。 此配置文件将用户流量定向到运行 Web 应用程序的主站点。 流量管理器持续监视 Web 应用程序。 如果主站点不可用，它会提供目标为备份站点的自动故障转移。
 
-如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -68,7 +68,7 @@ ms.locfileid: "92471323"
 1. 在屏幕的左上方，选择“创建资源”。 然后搜索“流量管理器配置文件”，然后选择“创建” 。
 1. 在“创建流量管理器配置文件”中，输入或选择以下设置： 
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --------| ----- |
     | 名称 | 为流量管理器配置文件输入唯一名称。|
     | 路由方法 | 选择“优先级”。 |
@@ -93,7 +93,7 @@ ms.locfileid: "92471323"
     | 设置 | “值” |
     | ------- | ------|
     | 类型 | 选择“Azure 终结点”。  |
-    | 名称 | 输入 *myPrimaryEndpoint* 。 |
+    | 名称 | 输入 *myPrimaryEndpoint*。 |
     | 目标资源类型 | 选择“应用服务”。  |
     | 目标资源 | 选择“选择应用服务” > “中国东部”。 |
     | 优先度 | 选择“1”。  如果此终结点处于正常状态，则所有流量都会转到此终结点。 |
@@ -106,10 +106,10 @@ ms.locfileid: "92471323"
     | 设置 | “值” |
     | ------- | ------|
     | 类型 | 选择“Azure 终结点”。  |
-    | 名称 | 输入 *myFailoverEndpoint* 。 |
+    | 名称 | 输入 *myFailoverEndpoint*。 |
     | 目标资源类型 | 选择“应用服务”。  |
     | 目标资源 | 选择“选择应用服务” > “中国北部”。 |
-    | 优先度 | 选择 **2** 。 如果主终结点不正常，则所有流量都会转到此故障转移终结点。 |
+    | 优先度 | 选择 **2**。 如果主终结点不正常，则所有流量都会转到此故障转移终结点。 |
 
 1. 选择“确定”  。
 
@@ -139,7 +139,7 @@ ms.locfileid: "92471323"
 1. 若要查看流量管理器故障转移如何进行，请禁用主站点：
     1. 在“流量管理器配置文件”页的“概览”部分，选择“myPrimaryEndpoint”。  
     1. 在 *myPrimaryEndpoint* 中选择“禁用” > “保存”。  
-    1. 关闭 **myPrimaryEndpoint** 。 请注意，状态现在为“禁用”。 
+    1. 关闭 **myPrimaryEndpoint**。 请注意，状态现在为“禁用”。 
 1. 从上一步复制流量管理器配置文件的 DNS 名称即可在新的 Web 浏览器会话中查看网站。
 1. 验证 Web 应用是否仍然可用。
 

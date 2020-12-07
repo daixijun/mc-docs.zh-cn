@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用。
 author: WenJason
 ms.topic: article
-origin.date: 01/23/2020
-ms.date: 02/24/2020
+origin.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 1a88d415476debf81c3729a54b4d9c41bcdcef50
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ada3fd2f1447dc42ca24fdc32c2725a81681591b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507320"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用
 
@@ -24,7 +24,7 @@ ms.locfileid: "77540742"
 - 通过锁定到特定的 API 版本提供应用稳定性。
 - 提供应用与 Azure Stack Hub 和区域性 Azure 数据中心的兼容性。
 
-在 Go SDK 中，配置文件在配置文件路径下可用。 配置文件版本号以 **YYYY-MM-DD** 格式标记。 最新的 Azure Stack Hub API 配置文件版本为 **2019-03-01**，适用于 Azure Stack Hub 版本 1904 或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2019-03-01** 配置文件导入**计算**服务，请使用以下代码：
+在 Go SDK 中，配置文件在配置文件路径下可用。 配置文件版本号以 **YYYY-MM-DD** 格式标记。 最新的 Azure Stack Hub API 配置文件版本为 **2019-03-01**，适用于 Azure Stack Hub 版本 1904 或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2019-03-01** 配置文件导入 **计算** 服务，请使用以下代码：
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -300,5 +300,5 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)

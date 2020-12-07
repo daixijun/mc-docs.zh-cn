@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8923738eb466b53c32c3b606a07aafd7663a021a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: dbd91fa29d6dd94b5483a6c2e12223453c306c77
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648055"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508930"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>快速入门：使用 PowerShell 添加来宾用户
 
 有很多种方法可用于邀请外部合作伙伴通过 Azure Active Directory B2B 协作访问你的应用和服务。 在上个快速入门中，你已了解如何在 Azure Active Directory 管理门户中直接添加来宾用户。 此外还可以使用 PowerShell 添加来宾用户，可以选择一次添加一个，也可以选择批量添加。 在本快速入门中，你将使用 New-AzureADMSInvitation 命令将一个来宾用户添加到 Azure 租户。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>先决条件
 

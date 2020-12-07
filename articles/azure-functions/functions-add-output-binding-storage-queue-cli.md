@@ -1,23 +1,21 @@
 ---
 title: 使用命令行工具将 Azure Functions 连接到 Azure 存储
 description: 了解如何通过将输出绑定添加到命令行项目，将 Azure Functions 连接到 Azure 存储队列。
-ms.date: 11/18/2020
+ms.date: 11/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e8c3a87f24f50961eea6744f485e427a6053def5
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: fbabdee2883d033b33e69c17ead052e270a3c1b6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970683"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507930"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>使用命令行工具将 Azure Functions 连接到 Azure 存储
 
 本文介绍如何将 Azure 存储队列与在前一篇快速入门中创建的函数和存储帐户相集成。 可以使用一个输出绑定来实现这种集成。该绑定可将 HTTP 请求中的数据写入队列中的消息。  除了在前一篇快速入门中提到的几美分费用以外，完成本文不会产生其他费用。 有关绑定的详细信息，请参阅 [Azure Functions 触发器和绑定的概念](functions-triggers-bindings.md)。
 
 ## <a name="configure-your-local-environment"></a>配置本地环境
-
-在开始之前，必须完成文章[快速入门：从命令行创建 Azure Functions 项目][previous-quickstart]。 如果在该文章结束时清理了资源，请再次执行相应的步骤，以在 Azure 中重新创建函数应用和相关资源。
 
 ::: zone pivot="programming-language-csharp"  
 在开始之前，必须完成文章[快速入门：从命令行创建 Azure Functions 项目](create-first-function-cli-csharp.md)。 如果在该文章结束时清理了资源，请再次执行相应的步骤，以在 Azure 中重新创建函数应用和相关资源。  

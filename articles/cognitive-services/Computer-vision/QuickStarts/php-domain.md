@@ -9,21 +9,21 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 05/14/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 719ed5a83a0c21dce1c97770ae973bb6be0def65
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 20ea03d16b9e9ff9951650f870822224be470366
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65598877"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432402"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 PHP 识别特定于域的内容
 
 在本快速入门中，你将通过计算机视觉的 REST API 使用域模型识别远程存储图像中的地标或者名人。 使用[识别域特定内容](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200)方法，可以应用一个特定于域的模型来识别图像中的内容。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

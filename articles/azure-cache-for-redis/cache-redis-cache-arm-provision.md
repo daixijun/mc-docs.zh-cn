@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 11/03/2020
-ms.openlocfilehash: 2a9392887480aeb66808e69e69dd3631598c0762
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 1ba973d08952cbf7d703bb07be64c6a346de6bf9
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326518"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508966"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Redis 缓存
 
@@ -26,7 +26,7 @@ ms.locfileid: "94326518"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* **Azure 订阅**：如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * **存储帐户**：若要创建帐户，请参阅 [创建 Azure 存储帐户](../storage/common/storage-account-create.md?tabs=azure-portal)。 存储帐户用于诊断数据。
 
 ## <a name="review-the-template"></a>查看模板

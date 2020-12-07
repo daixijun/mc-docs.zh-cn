@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c502f7c06cae87432740e8ebcd6833dde6abbb56
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 7b71391380b60cbc387b07bef1a678810dd46ac8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849447"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508963"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>使用 Azure CLI 管理 Web 流量
 
@@ -25,7 +25,7 @@ ms.locfileid: "94849447"
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

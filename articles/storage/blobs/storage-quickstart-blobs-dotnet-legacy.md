@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 213e0a1c1fa1faf410924fab8d24c773b7a46158
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 0a662bc5ca142fc5ff9b8102c8710a0f55efbf6b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753495"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432617"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v11
 
@@ -42,7 +42,7 @@ ms.locfileid: "88753495"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
+* Azure 订阅 - [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * Azure 存储帐户 - [创建存储帐户](/storage/common/storage-quickstart-create-account)
 * 适用于操作系统的最新 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。 确保获取 SDK，而不是运行时。
 

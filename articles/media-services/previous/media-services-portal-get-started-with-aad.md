@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/29/2018
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 9d573b0d7e5380168069380dc6e794ef90d3563b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ac7695b2fd22e4272e1137117499f78f41a65466
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245539"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432295"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure AD 身份验证
 
@@ -32,7 +32,7 @@ ms.locfileid: "91245539"
 
 ## <a name="prerequisites"></a>必备条件
 
-- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)入手。 
+- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)入手。 
 - 一个媒体服务帐户。 有关详细信息，请参阅[利用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 
 将 Azure AD 身份验证与 Azure 媒体服务结合使用时，可以选择下列两个身份验证选项：

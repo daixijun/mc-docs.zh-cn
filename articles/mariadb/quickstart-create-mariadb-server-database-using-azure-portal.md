@@ -8,18 +8,18 @@ ms.custom: mvc
 ms.topic: quickstart
 origin.date: 3/19/2019
 ms.date: 09/14/2020
-ms.openlocfilehash: dc1060d74c98f87762e0ea3feaa7abe8f71b05c0
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 569de41ce337910dab8ecb6c5fa967e2bc4cc68f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512940"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432668"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Database for MariaDB 服务器
 
 Azure Database for MariaDB 是一种托管服务，可用于在云中运行、管理和缩放高可用性的 MariaDB 数据库。 本快速入门介绍了如何使用 Azure 门户在大约五分钟内创建 Azure Database for MariaDB 服务器。  
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -212,7 +212,7 @@ Azure Database for MariaDB 服务在服务器级别创建防火墙。 除非创�
 
 1. 在 Azure 门户中查找资源组。 在左侧菜单中选择“资源组”  ，然后选择资源组的名称（在我们的示例中为 myresourcegroup）。 
 
-2. 在资源组页上，选择“删除”  。 然后，键入确认删除的资源组的名称（在我们的示例中为 **myresourcegroup**）。 选择“删除”  。
+2. 在资源组页上，选择“删除”  。 然后，键入确认删除的资源组的名称（在我们的示例中为 **myresourcegroup**）。 选择“删除”。 
 
 仅删除新建的服务器：
 
@@ -222,7 +222,7 @@ Azure Database for MariaDB 服务在服务器级别创建防火墙。 除非创�
 
    ![Azure Database for MariaDB - 删除服务器](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3. 确认要删除的服务器的名称。 在它下面显示会受删除影响的数据库。 输入确认删除的服务器名称（在我们的示例中为 **mydemoserver**）。 选择“删除”  。
+3. 确认要删除的服务器的名称。 在它下面显示会受删除影响的数据库。 输入确认删除的服务器名称（在我们的示例中为 **mydemoserver**）。 选择“删除”。 
 
 ## <a name="next-steps"></a>后续步骤
 

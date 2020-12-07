@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3a241ff00c57a6b1e0b5f9957b79a8029575fbd4
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 4fb63b881d609fe515b4d1a8c7da9ed813eb2043
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471347"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508093"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>什么是 Azure 时序见解 Gen1？
 
@@ -33,7 +33,7 @@ Azure 时序见解包含四个关键作业：
 - Azure 时序见解通过 Azure 时序见解资源管理器提供现成可用的可视化效果。
 - Azure 时序见解通过两种途径提供查询服务，一种是使用 Azure 时序见解资源管理器，另一种是使用可轻松集成的 API 将时序数据嵌入自定义应用程序中。
 
-如果构建供内部使用或供外部客户使用的应用程序，则可将 Azure 时序见解用作后端。 可以使用它来索引、存储和聚合时序数据。 若要在此之上构建自定义可视化效果和用户体验，请使用[客户端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。 Azure 时序见解还配备了多个[查询 API](how-to-shape-query-json.md) 以启用这些自定义方案。
+如果构建供内部使用或供外部客户使用的应用程序，则可将 Azure 时序见解用作后端。 可以使用它来索引、存储和聚合时序数据。 若要在此之上构建自定义可视化效果和用户体验，请使用[客户端 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。 Azure 时序见解还配备了多个[查询 API](./concepts-json-flattening-escaping-rules.md) 以启用这些自定义方案。
 
 时序数据表示资产或过程是如何随时间变化的。 时序数据按时间戳进行索引，时间是用于组织此类数据的最有意义的轴。 时序数据通常按顺序到达，因此被视为插入，而不是数据库的更新。
 
@@ -65,13 +65,13 @@ Azure 时序见解会捕获每一个新事件并将其存储为一行，所做�
 
 ## <a name="capabilities"></a>功能
 
-- **快速入门** ：Azure 时序见解不需前期数据准备，因此你可以在 IoT 中心或事件中心快速连接到数百万事件。 连接以后，即可可视化传感器数据并与之交互，快速验证 IoT 解决方案。 无需编写代码即可与数据交互，也无需学习新的语言。 Azure 时序见解既为高级用户提供精细的自由文本查询图面，又提供点击浏览体验。
+- **快速入门**：Azure 时序见解不需前期数据准备，因此你可以在 IoT 中心或事件中心快速连接到数百万事件。 连接以后，即可可视化传感器数据并与之交互，快速验证 IoT 解决方案。 无需编写代码即可与数据交互，也无需学习新的语言。 Azure 时序见解既为高级用户提供精细的自由文本查询图面，又提供点击浏览体验。
 
-- **近乎实时的见解** ：Azure 时序见解每天可以引入数百万个传感器事件，只有一分钟的延迟。 可以通过 Azure 时序见解深入分析传感器数据。 可以通过它来发现趋势和异常情况，进行根本原因分析并避免成本高昂的停机。 在实时数据和历史数据之间进行交叉关联，帮助你发现数据中隐藏的趋势。
+- **近乎实时的见解**：Azure 时序见解每天可以引入数百万个传感器事件，只有一分钟的延迟。 可以通过 Azure 时序见解深入分析传感器数据。 可以通过它来发现趋势和异常情况，进行根本原因分析并避免成本高昂的停机。 在实时数据和历史数据之间进行交叉关联，帮助你发现数据中隐藏的趋势。
 
-- **生成自定义解决方案** ：将 Azure 时序见解数据嵌入现有应用程序。 也可以通过 Azure 时序见解 REST API 创建新的自定义解决方案。 创建个性化视图，以便通过这种共享方便他人浏览你的见解。
+- **生成自定义解决方案**：将 Azure 时序见解数据嵌入现有应用程序。 也可以通过 Azure 时序见解 REST API 创建新的自定义解决方案。 创建个性化视图，以便通过这种共享方便他人浏览你的见解。
 
-- **可伸缩性** ：Azure 时序见解旨在支持大规模 IoT。 时序见解每天可以引入 100 万到 1 亿个事件，默认保留时间为 31 天。 可以通过近实时方式可视化和分析实时数据流以及历史数据。
+- **可伸缩性**：Azure 时序见解旨在支持大规模 IoT。 时序见解每天可以引入 100 万到 1 亿个事件，默认保留时间为 31 天。 可以通过近实时方式可视化和分析实时数据流以及历史数据。
 
 ## <a name="get-started"></a>入门
 

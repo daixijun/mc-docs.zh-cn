@@ -6,12 +6,12 @@ ms.topic: conceptual
 origin.date: 09/04/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: b88d525d27c5e5caf10bc8ef9922d5a573837a0c
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: cd2e067d6faa5f03a23389f990ec404c172c075c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170840"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432439"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Azure 应用服务的安全控制
 

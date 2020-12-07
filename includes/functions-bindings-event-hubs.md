@@ -2,14 +2,14 @@
 author: craigshoemaker
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/02/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 8a276310f3ac7cdf88d1d0b51acc1531987457a7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b0a43a92ad6dec6d833e8aa845f60865be78fca6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266047"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507345"
 ---
 ## <a name="add-to-your-functions-app"></a>添加到 Functions 应用
 
@@ -20,13 +20,13 @@ ms.locfileid: "78266047"
 | 语言                                        | 添加方式...                                   | 备注 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | 安装 [NuGet 包]版本 3.x | |
-| C# 脚本、Java、JavaScript、PowerShell | 注册[扩展捆绑包]          | 建议将 [Azure 工具扩展]用于 Visual Studio Code。 |
+| C# 脚本、Java、JavaScript、PowerShell | 注册[扩展捆绑包]          | 建议将 [Azure Tools 扩展]用于 Visual Studio Code。 |
 | C# 脚本（Azure 门户中仅限联机）         | 添加绑定                            | 若要更新现有绑定扩展而不必重新发布函数应用，请参阅[更新扩展]。 |
 
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
 [core tools]: ../articles/azure-functions/functions-run-local.md
 [扩展捆绑包]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
-[更新扩展]: ../articles/azure-functions/install-update-binding-extensions-manual.md
+[更新扩展]: ../articles/azure-functions/functions-bindings-register.md
 [Azure 工具扩展]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

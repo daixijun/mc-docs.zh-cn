@@ -6,13 +6,13 @@ author: Johnnytechn
 origin.date: 05/24/2019
 ms.custom: devx-track-java
 ms.author: v-johya
-ms.date: 11/10/2020
-ms.openlocfilehash: 96e0b9f2a72f98d7aa60849733565ddc340f6105
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/01/2020
+ms.openlocfilehash: 769485afa439554343f9bf7f6fc8fbd656187027
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638094"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432672"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>快速入门：Java Web 项目中的 Application Insights 入门
 
@@ -26,7 +26,7 @@ Application Insights 是面向 Web 开发人员的可扩展分析服务，可帮
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 正常运行的 Java 应用程序。
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>获取 Application Insights 检测密钥

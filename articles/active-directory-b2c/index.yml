@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: msmimart
   ms.author: v-junlch
-  ms.date: 10/23/2020
-  ms.openlocfilehash: 687f693c83c448c4778b1e5d11db4c54fe5cc896
-  ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+  ms.date: 12/02/2020
+  ms.openlocfilehash: 057f7ba89c61da07b97645d64dd91d46d7f5b7b1
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92471169"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96507127"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: 什么是 Azure AD B2C？
       url: overview.md
     - text: 比较外部标识的解决方案
-      url: /active-directory/b2b/compare-with-b2c
+      url: ../active-directory/external-identities/compare-with-b2c.md
     - text: Azure AD B2C 入门
       url: tutorial-create-tenant.md
     - text: 技术和功能概述
@@ -38,13 +38,13 @@ landingContent:
   - linkListType: learn
     links:
     - text: 身份验证和授权
-      url: /active-directory/develop/authentication-vs-authorization
+      url: ../active-directory/develop/authentication-vs-authorization.md
     - text: 令牌
-      url: /active-directory/develop/security-tokens
+      url: ../active-directory/develop/security-tokens.md
     - text: 协议
-      url: /active-directory/develop/v2-app-types
+      url: ../active-directory/develop/v2-app-types.md
     - text: 身份验证库
-      url: /active-directory/develop/msal-overview
+      url: ../active-directory/develop/msal-overview.md
     - text: 构建网站：HTML、CSS、JavaScript
       url: https://docs.microsoft.com/learn/modules/build-simple-website/
 - title: 常见用例
@@ -98,7 +98,7 @@ landingContent:
     - text: 监视
       url: azure-monitor.md
     - text: 适用于管理员的基于角色的访问控制
-      url: /active-directory/users-groups-roles/directory-assign-admin-roles
+      url: ../active-directory/roles/permissions-reference.md
     - text: 用户管理
       url: manage-user-accounts-graph-api.md
     - text: 疑难解答

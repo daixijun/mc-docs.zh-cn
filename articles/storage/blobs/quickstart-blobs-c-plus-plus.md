@@ -8,12 +8,12 @@ ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 059ff208a02447e803897d92079b64d01666982d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a09169769cde17d08d1bd1ba1fc8d78828664b85
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553067"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432602"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>快速入门：适用于 C++ 的 Azure Blob 存储客户端库 v12
 
@@ -37,7 +37,7 @@ ms.locfileid: "94553067"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [Azure 订阅](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)
+- [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [Azure 存储帐户](/storage/common/storage-quickstart-create-account)
 - [C++ 编译器](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)

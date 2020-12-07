@@ -11,12 +11,12 @@ ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 79768eb19ed48dc2328fdf4c01ceef82e33f55cd
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: d1ff5787ec1dd2efab0cfa3e58c19b4f56785ef2
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507197"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "91146232"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
+- **Azure 订阅**：访问 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来创建一个帐户。
 - **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联，且该目录中必须有一个帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 - **Azure PowerShell**。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 

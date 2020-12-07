@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2f7217a4d5cdba2966f304949aec82f7ef5ada15
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: abec6aab8a3ae8f480fb8ebb40494b9a48e59e68
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655318"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507707"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -52,7 +52,7 @@ ms.locfileid: "89655318"
 
 获取 [Azure 帐户](https://www.azure.cn/)。
 
-- 可以从 [试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
+- 可以从 [试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)开始。
 - 了解 [Site Recovery 定价](site-recovery-faq.md#pricing)，并获取[定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。
 - 了解 Site Recovery [支持的区域](https://www.azure.cn/pricing/details/site-recovery/)。
 

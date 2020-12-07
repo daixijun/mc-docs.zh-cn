@@ -4,14 +4,14 @@ description: 快速入门：使用 Azure 事件网格和 PowerShell 发布自定
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/05/2019
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
-ms.openlocfilehash: 25354b62f9b855577a172003372c6d695714105b
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 5e9402d5ad73ad5fd442ed1d1ffbcb89b292552c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228052"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432568"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>快速入门：使用 PowerShell 和事件网格将自定义事件路由到 Web 终结点
 
@@ -23,7 +23,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，请使用 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求运行最新版本的 Azure PowerShell。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 

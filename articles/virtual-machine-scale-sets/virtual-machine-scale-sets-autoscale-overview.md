@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 08/06/2020
+ms.date: 11/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 63531933c99a01f165266a504317772e1cd3da5b
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 27ce94b4dad5a3633d0b5d7dd4ba4b5542816d3e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914228"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507872"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集自动缩放概述
 Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实例数。 这种自动且弹性的行为可以减少监视和优化应用程序性能所需的管理开销。 创建规则，用于定义提供正面客户体验而可接受的性能。 如果满足定义的这些阈值，自动缩放规则会采取措施来调整规模集的容量。 还可以计划事件，以便在固定的时间自动增加或减少规模集的容量。 本文概述所提供的性能指标，以及自动缩放可以执行的操作。
@@ -22,6 +22,9 @@ Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实�
 
 ## <a name="benefits-of-autoscale"></a>自动缩放的好处
 如果应用程序需求提高，规模集中 VM 实例上的负载将会增大。 如果这种负载增大持续稳定，而不只是短暂的需求，那么可以配置自动缩放规则来增加规模集中的 VM 实例数。
+
+> [!NOTE]
+> 对规模集使用自动实例修复时，规模集中的最大实例数可以为 200。 
 
 创建这些 VM 实例并部署应用程序后，规模集会开始通过负载均衡器将流量分配到这些实例和应用程序。 可以控制要监视的指标（例如 CPU 或内存）、应用程序负载必须满足给定阈值的时间，以及要添加到规模集的 VM 实例数。
 

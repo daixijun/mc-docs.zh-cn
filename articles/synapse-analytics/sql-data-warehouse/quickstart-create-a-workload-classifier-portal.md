@@ -12,19 +12,19 @@ ms.date: 06/15/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 122549e9c3bfa24cbdfac60e7df1aba5c547aaa4
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 816a2199a664df4e2fb9579598c0fcdb49212837
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723788"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432651"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Synapse SQL 池工作负载分类器
 
 在本快速入门中，你将创建一个[工作负载分类器](sql-data-warehouse-workload-classification.md)，用于将查询分配到工作负载组。  该分类器将 `ELTLogin` SQL 用户的请求分配到 `DataLoads` 工作负载组。   按照[快速入门：配置工作负载隔离](quickstart-configure-workload-isolation-portal.md)教程创建 `DataLoads` 工作负载组。  本教程将使用 WLM_LABEL 选项创建工作负载分类器，这样有助于对请求进一步进行正确的分类。  该分类器还会将 `HIGH` [工作负载重要性](sql-data-warehouse-workload-importance.md)分配到这些请求。
 
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户

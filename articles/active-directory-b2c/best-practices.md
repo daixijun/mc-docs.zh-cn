@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a32a2df9c76f1f53195baac13a617d675dac9625
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 978cb6c30763c2bbaaf5f2689be0da4dd4fabb2a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937096"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507156"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>适用于 Azure Active Directory B2C 的建议和最佳做法
 
@@ -27,7 +27,7 @@ ms.locfileid: "91937096"
 | 最佳做法 | 说明 |
 |--|--|
 | 选择大多数方案的用户流 | Azure AD B2C 的 Identity Experience Framework 是该服务的核心优势。 策略充分描述了标识体验，例如注册、登录或配置文件编辑。 为了帮助你设置最常见的标识任务，Azure AD B2C 门户中提供了称作“用户流”的预定义可配置策略。 使用用户流，只需按几下鼠标就能快速创建极佳的用户体验。 [了解用户流与自定义策略的使用时机](custom-policy-overview.md#comparing-user-flows-and-custom-policies)。|
-| 应用注册 | 必须在 Azure AD B2C 中注册每个要保护的应用程序（Web、本机）和 API。 如果应用具有 iOS 和 Android 的 Web 版与本机版，则你可以使用相同的客户端 ID 在 Azure AD B2C 中将其注册为一个应用程序。 了解如何[注册 OIDC、SAML、Web 和本机应用](/active-directory-b2c/tutorial-register-applications?tabs=applications)。 详细了解[可在 Azure AD B2C 中使用的应用程序类型](/active-directory-b2c/application-types)。 |
+| 应用注册 | 必须在 Azure AD B2C 中注册每个要保护的应用程序（Web、本机）和 API。 如果应用具有 iOS 和 Android 的 Web 版与本机版，则你可以使用相同的客户端 ID 在 Azure AD B2C 中将其注册为一个应用程序。 了解如何[注册 OIDC、SAML、Web 和本机应用](./tutorial-register-applications.md?tabs=applications)。 详细了解[可在 Azure AD B2C 中使用的应用程序类型](./application-types.md)。 |
 | 转移到月度活跃用户计费模式 | Azure AD B2C 已从月度活跃身份验证计费模式转移到月度活跃用户 (MAU) 计费模式。 大多数客户会发现这种模式更具性价比。 [详细了解月度活跃用户计费](https://azure.microsoft.com/updates/mau-billing/)。 |
 
 ## <a name="planning-and-design"></a>规划和设计
@@ -44,7 +44,7 @@ ms.locfileid: "91937096"
 | 可用性与安全性 | 解决方案必须致力于在应用程序可用性与组织可接受的风险级别之间取得适当的平衡。 |
 | 将本地依赖项转移到云中 | 为了帮助确保解决方案具有复原能力，请考虑将现有的应用程序依赖项转移到云中。 |
 | 将现有应用迁移到 b2clogin.cn | 2020 年 12 月 4 日，适用于所有 Azure AD B2C 租户的 login.partner.microsoftonline.cn 将正式弃用。 [了解详细信息](b2clogin.md)。 |
-| 使用标识保护和条件访问 | 使用这些功能可以更好地控制有风险的身份验证和访问策略。 需要 Azure AD B2C Premium P2。 [了解详细信息](conditional-access-identity-protection-overview.md)。 |
+| 使用标识保护和条件访问 | 使用这些功能可以更好地控制有风险的身份验证和访问策略。 需要 Azure AD B2C Premium P2。  |
 
 ## <a name="implementation"></a>实现
 
@@ -64,7 +64,7 @@ ms.locfileid: "91937096"
 |--|--|
 | 考虑全局流量 | 使用来自不同全局地址的流量源来测试性能和本地化要求。 确保所有 HTMLs、CSS 和依赖项符合性能需求。 |
 | 功能和 UI 测试 | 测试端到端的用户流。 使用 Selenium、VS Web Test 等工具每隔几分钟添加一次综合测试。 |
-| 渗透测试 | 在推出解决方案之前执行渗透测试演练，以验证所有组件（包括任何第三方依赖项）是否安全。 验证是否已使用访问令牌保护了 API，并为应用程序方案使用了适当的身份验证协议。 详细了解[渗透测试](/security/fundamentals/pen-testing)，以及 [Microsoft 云渗透测试统一参与规则](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)。 |
+| 渗透测试 | 在推出解决方案之前执行渗透测试演练，以验证所有组件（包括任何第三方依赖项）是否安全。 验证是否已使用访问令牌保护了 API，并为应用程序方案使用了适当的身份验证协议。 详细了解[渗透测试](../security/fundamentals/pen-testing.md)，以及 [Microsoft 云渗透测试统一参与规则](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)。 |
 | A/B 测试 | 先在外部让少量的随机用户体验你的新功能，然后再将其推出到整个用户群。 在 Azure AD B2C 中启用 JavaScript 后，可与 Optimizely、Clarity 等 A/B 测试工具相集成。 |
 | 负载测试 | Azure AD B2C 可以缩放，但应用程序仅在其所有依赖项均可缩放时才能缩放。 对 API 和 CDN 进行负载测试。 |
 | 限制 |  如果在短时间内从同一个源发送了过多的请求，Azure AD B2C 会限制流量。 执行负载测试时请使用多个流量源，并在应用程序中适当处理 `AADB2C90229` 错误代码。 |
@@ -78,11 +78,10 @@ ms.locfileid: "91937096"
 |--|--|
 | 创建多个环境 | 为了更轻松地实施操作和部署，请创建单独的环境用于开发、测试、预生产和生产。 为每个环境创建 Azure AD B2C 租户。 |
 | 对自定义策略使用版本控制 | 考虑对 Azure AD B2C 自定义策略使用 GitHub、Azure Repos 或其他基于云的版本控制系统。 |
-| 使用 Microsoft Graph API 将 B2C 租户管理自动化 | Microsoft Graph API：<br/>管理 [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true)（自定义策略）<br/>[“键”](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[用户流](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
+| 使用 Microsoft Graph API 将 B2C 租户管理自动化 | Microsoft Graph API：<br/>管理 [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?preserve-view=true&view=graph-rest-beta)（自定义策略）<br/>[“键”](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?preserve-view=true&view=graph-rest-beta)<br/>[用户流](https://docs.microsoft.com/graph/api/resources/identityuserflow?preserve-view=true&view=graph-rest-beta) |
 | 与 Azure DevOps 集成 | CI/CD 管道可在不同环境之间轻松移动代码，并确保在所有时间都能实现生产就绪。   |
 | 与 Azure Monitor 集成 | 审核日志事件仅保留七天。 [与 Azure Monitor 集成](azure-monitor.md)，以保留日志供长期使用，或者将其与第三方安全信息和事件管理 (SIEM) 工具相集成，以获取有关环境的见解。 |
 | 设置有效警报和监视 | 使用 Application Insights 在 Azure AD B2C 中跟踪用户行为。 |
-
 
 ## <a name="support-and-status-updates"></a>支持和状态更新
 

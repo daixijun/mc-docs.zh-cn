@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: fa5ccc68e957fefd9f18cf7393b3a202e4b1b015
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 7f715a597aa2525745c2fcc1c53475935ed3c968
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507801"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>排查入口控制器的常见问题
 
@@ -282,7 +282,7 @@ armAuth:
 #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
 
 ################################################################################
-# Specify if the cluster is RBAC enabled or not
+# Specify if the cluster is Kubernetes RBAC enabled or not
 rbac:
     enabled: false # true/false
 

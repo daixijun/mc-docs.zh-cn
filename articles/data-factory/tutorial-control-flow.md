@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 9/27/2019
 ms.date: 10/19/2020
-ms.openlocfilehash: e3aa101aba0039962b4e02d6f2d83b8b8dc83390
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: c95655f104d38beb26d8366c016ec43f9ba66c6b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121610"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432397"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>数据工厂管道中的分支和链接活动
 
@@ -43,7 +43,7 @@ ms.locfileid: "92121610"
 
 本教程使用 .NET SDK。 可以使用其他机制来与 Azure 数据工厂交互。 有关数据工厂的快速入门，请参阅 [5 分钟快速入门](/data-factory/quickstart-create-data-factory-portal)。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -337,7 +337,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 此 JSON 内容与前一部分中创建的 `EmailRequest` 类相符。
 
-添加 `Office 365 Outlook – Send an email` 操作。 对于“发送电子邮件”操作，请使用传入请求**正文** JSON 架构的属性来自定义如何设置电子邮件的格式。 下面是一个示例：
+添加 `Office 365 Outlook – Send an email` 操作。 对于“发送电子邮件”操作，请使用传入请求 **正文** JSON 架构的属性来自定义如何设置电子邮件的格式。 下面是一个示例：
 
 ![逻辑应用设计器 - 发送电子邮件操作](media/tutorial-control-flow/customize-send-email-action.png)
 
@@ -611,7 +611,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;EndpointSuffix=core.chinacloudapi.cn"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_;EndpointSuffix=core.chinacloudapi.cn"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -754,7 +754,7 @@ Press any key to exit...
 在本教程中，你已执行以下任务：
 
 > [!div class="checklist"]
-> * 创建数据工厂
+> 创建数据工厂
 > * 创建 Azure 存储链接服务
 > * 创建 Azure Blob 数据集
 > * 创建包含复制活动和 Web 活动的管道

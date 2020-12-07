@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cd758d6ee675d2873a9b9013fd48d92996c01390
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f00e65cd238ac945915b497e48c3d9e5a91dbb80
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327404"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507838"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教程：将 Service Fabric 应用程序部署到 Azure 中的群集
 
@@ -37,7 +37,7 @@ ms.locfileid: "94327404"
 
 在开始学习本教程之前：
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)。
 
@@ -78,7 +78,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 在“连接终结点”中，选择“创建新群集”   。  如果要部署到现有群集，请从列表中选择群集终结点。  此时会打开“创建 Service Fabric 群集”对话框。
 
-在“群集”选项卡中，输入 **群集名称** （例如“mytestcluster”），选择订阅，选择群集的区域（例如“中国东部”），输入群集节点的数目（对于测试群集，建议使用三节点），然后输入资源组（例如“mytestclustergroup”）。 单击“下一步”。 
+在“群集”选项卡中，输入 **群集名称**（例如“mytestcluster”），选择订阅，选择群集的区域（例如“中国东部”），输入群集节点的数目（对于测试群集，建议使用三节点），然后输入资源组（例如“mytestclustergroup”）。 单击“下一步”。 
 
 :::image type="content" source="./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png" alt-text="屏幕截图显示了“创建 Service Fabric 群集”对话框的“群集”选项卡。":::
 
@@ -105,7 +105,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 选择“发布”  。
 
-应用程序部署完以后，请打开浏览器并输入群集地址，后跟 **:8080** 。 或者输入另一端口（如果已配置一个）。 示例为 `http://mytestcluster.chinaeast.cloudapp.chinacloudapi.cn:8080`。 会看到应用程序在 Azure 群集中运行。 在投票网页中，尝试添加和删除投票选项，并针对这些选项中的一个或多个进行投票。
+应用程序部署完以后，请打开浏览器并输入群集地址，后跟 **:8080**。 或者输入另一端口（如果已配置一个）。 示例为 `http://mytestcluster.chinaeast.cloudapp.chinacloudapi.cn:8080`。 会看到应用程序在 Azure 群集中运行。 在投票网页中，尝试添加和删除投票选项，并针对这些选项中的一个或多个进行投票。
 
 :::image type="content" source="./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png" alt-text="Service Fabric 投票示例":::
 

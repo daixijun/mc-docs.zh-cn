@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 84f8205dafb53ece6374a4d7344492195f45a0a8
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: cfbc1fae4f6769ec96989388e9b75f9dbd2c7577
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647527"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508862"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.locfileid: "88647527"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 帐户：如果没有 Azure 帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 帐户：如果没有 Azure 帐户，可以[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - **Visual Studio 2015** 或更高版本。 [立即下载 Visual Studio](https://visualstudio.microsoft.com/downloads/)。
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>使用“连接服务”对话框连接到 Azure Active Directory

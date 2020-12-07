@@ -4,15 +4,15 @@ description: 本快速入门介绍如何通过创建预测终结点资源、分�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: 8744e9c1cba542d4ed814bdfa7cb3203b423bdda
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: cb01fbfaaed6e09bd58b2580f02f364f7f8a5242
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472512"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432641"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -22,7 +22,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 ## <a name="prerequisites"></a>先决条件
 
-* 获取 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。
+* 获取 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 完成[上述门户快速入门](get-started-portal-build-app.md)或[下载并导入应用](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json)。
 
 <a name="create-the-endpoint-resource"></a>

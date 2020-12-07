@@ -4,16 +4,16 @@ description: 了解如何在 Azure Stack Hub 中使用管理员门户。
 author: WenJason
 ms.topic: quickstart
 origin.date: 06/07/2019
-ms.date: 07/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 6b29b6743a62dfe5f3649e1493099a2500f5e5f8
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: a7e328c186eafa792ad19aaee2458babdfea032a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307391"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508102"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用管理员门户
 
@@ -31,6 +31,8 @@ Azure Stack Hub 中有两种门户：管理员门户和用户门户。 Azure Sta
 
 > [!TIP]
 > 对于 ASDK 环境，首先需确保可以通过远程桌面连接或虚拟专用网络 (VPN) [连接到开发工具包主机](../asdk/asdk-connect.md)。
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
  ![Azure Stack Hub 管理员门户](media/azure-stack-manage-portals/admin-portal.png)
 

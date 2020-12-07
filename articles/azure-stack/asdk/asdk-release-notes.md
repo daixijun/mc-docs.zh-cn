@@ -3,23 +3,29 @@ title: ASDK 发行说明
 description: Azure Stack 开发工具包 (ASDK) 的改进、修复和已知问题。
 author: WenJason
 ms.topic: article
-origin.date: 08/10/2020
-ms.date: 08/31/2020
+origin.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 3eb4a82abd4396f5fabdf1993e5e9e24ad6c848b
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 5c2adf9666f36cf7c3db05c6489eb304e9755808
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507948"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
 本文介绍了 Azure Stack 开发工具包 (ASDK) 中的更改、修复和已知问题。 如果不确定所运行的版本，请[使用门户进行查看](../operator/azure-stack-updates.md)。
 
-请订阅 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS 源](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
+请订阅 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS 源](https://aka.ms/asdkrss)，随时了解 ASDK 的新增功能。
+
+### <a name="new-features"></a>新增功能
+
+- 有关此版本中已修复问题、更改和新功能的列表，请参阅 [Azure Stack 发行说明](../operator/release-notes.md)中的相关章节。
+
+### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
 ## <a name="build-12005040"></a>内部版本 1.2005.0.40
 

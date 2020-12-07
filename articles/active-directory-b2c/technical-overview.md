@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7c6964f901fda0e6228926b4bbb32886866da367
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 637b4dcd2aedc9e7d27e41cc0c60b02c4e8f1169
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326447"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507268"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C 的技术和功能概述
 
@@ -95,7 +95,7 @@ Azure AD B2C 的核心优势在于它的可扩展策略框架。 策略描述用
 
 * 用于登录的帐户类型，例如使用电子邮件地址和密码登录的社交帐户或本地帐户
 * 要从使用者收集的属性，例如名字、邮政编码，或居住地所在国家/地区
-* Azure 多重身份验证 (MFA)
+* Azure AD 多重身份验证 (MFA)
 * 用户界面的自定义
 * 在用户完成用户流后由应用程序接收的令牌中的声明集
 * 会话管理

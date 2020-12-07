@@ -2,20 +2,20 @@
 title: 排查 Azure Active Directory B2C 中的自定义策略问题
 description: 了解一些方法，用于解决使用 Azure Active Directory B2C 中的自定义策略时出现的错误。
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/04/2020
+ms.topic: troubleshooting
+ms.date: 12/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d7fc28a0cd739c5681580fab42133301a35e98f2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6091d3df9557275dc0c7c2d6975ea4d15aadc026
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028297"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507256"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 自定义策略和标识体验框架故障排除
 
@@ -29,7 +29,7 @@ ms.locfileid: "77028297"
 
 用户偏爱的两个编辑器是 [Visual Studio Code](https://code.visualstudio.com/) 和 [Notepad++](https://notepad-plus-plus.org/)。
 
-XML 架构验证在上传 XML 文件之前会识别错误。 在[初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)的根文件夹中，获取 XML 架构定义文件 *TrustFrameworkPolicy_0.3.0.0.xsd*。 若要了解如何在编辑器中使用 XSD 架构文件进行验证，请在编辑器文档中查找“XML 工具”和“XML 验证”或类似内容。  
+XML 架构验证在上传 XML 文件之前会识别错误。 在 [初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)的根文件夹中，获取 XML 架构定义文件 *TrustFrameworkPolicy_0.3.0.0.xsd*。 若要了解如何在编辑器中使用 XSD 架构文件进行验证，请在编辑器文档中查找“XML 工具”和“XML 验证”或类似内容。  
 
 用户可能会发现检查 XML 规则很有用。 Azure AD B2C 会拒绝检测到的任何 XML 格式错误。 格式不当的 XML 有时会导致出现误导性的错误消息。
 

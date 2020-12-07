@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: df165909cc2ff22e1de742cd797ecf6c1f346663
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 03d882ce0944906ce5a0d49376528d9b7ef2e30c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328600"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507931"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB 表 API 数据
@@ -34,7 +34,7 @@ ms.locfileid: "94328600"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。 你也可以通过 URI `https://localhost:8081` 和密钥 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 使用 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)
+- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你也可以通过 URI `https://localhost:8081` 和密钥 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 使用 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)
 
     <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
@@ -74,7 +74,7 @@ ms.locfileid: "94328600"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
@@ -171,7 +171,7 @@ ms.locfileid: "94328600"
 
 2. 使用右侧的复制按钮，复制主连接字符串。
 
-3. 打开 *C:\git-samples\storage-table-java-getting-started\src\main\resources* 文件夹中的 *config.properties* 。 
+3. 打开 *C:\git-samples\storage-table-java-getting-started\src\main\resources* 文件夹中的 *config.properties*。 
 
 5. 注释掉第 1 行，并取消注释掉第 2 行。 前两行现在应如下所示。
     

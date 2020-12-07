@@ -14,12 +14,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6a5e028462474613ae5fb885f3acda540601e81c
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: ffef02ee4bc0bdde098488149c38786c8eae61ad
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590924"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507680"
 ---
 <!--Verfied Successfully-->
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>教程：在流量管理器中配置优先级流量路由方法
@@ -37,7 +37,7 @@ ms.locfileid: "94590924"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>配置优先级流量路由方法
 1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
@@ -48,7 +48,7 @@ ms.locfileid: "94590924"
 
 1. 在“创建流量管理器配置文件”页中，定义以下设置：
 
-    | 设置         | Value                                              |
+    | 设置         | 值                                              |
     | --- | --- |
     | 名称            | 提供配置文件的名称。 此名称在 trafficmanager.cn 区域中必须是唯一的。 若要访问流量管理器配置文件，请使用 DNS 名称 `<profilename>.trafficmanager.cn`。 |    
     | 路由方法  | 选择“优先级”。  |

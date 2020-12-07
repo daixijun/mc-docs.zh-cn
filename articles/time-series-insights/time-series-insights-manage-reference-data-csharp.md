@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 68eacbd4594b81293ad5ca1e47d819ae92bc8801
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: fc817cac72c8c23c334f5f6a793cc7a842c545a5
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471322"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507187"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>使用 C# 管理 Azure 时序见解第 1 代环境的参考数据
 
@@ -42,7 +42,7 @@ ms.locfileid: "92471322"
 
 在编译和运行示例代码之前，请完成以下步骤：
 
-1. [预配 Gen 1 Azure 时序见解](/time-series-insights/time-series-insights-get-started)环境。
+1. [预配 Gen 1 Azure 时序见解](./time-series-insights-get-started.md)环境。
 
 1. 在环境中[创建参考数据集](time-series-insights-add-reference-data-set.md)。 使用以下参考数据方案：
 

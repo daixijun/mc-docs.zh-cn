@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f61391db8a8198a2387e5970f245fdf0093f46b3
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 5331bbf0dbeb5f31ce3c381cca0b0f853f6126fb
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552459"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432710"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -28,7 +28,7 @@ Azure 存储帐户包含所有 Azure 存储数据对象：Blob、文件、队列
 
 ## <a name="prerequisites"></a>必备条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 

@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 552f5a25ceb04f8c2c063ad38e631569dbe98611
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1e02df5f3ca2c15e819dec5c677b0ed4780c98d4
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655228"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507805"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>快速入门：使用 ARM 模板创建 Service Fabric 群集
@@ -32,7 +32,7 @@ Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>安装 Service Fabric SDK 和 PowerShell 模块
 

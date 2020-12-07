@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ms.author: v-junlch
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: bd2bdc45ffe2e891968a432024e2af401a636f04
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 40ced4cad8f19df18bfe10c87b2c97d8957be88d
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326552"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508907"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>快速入门：在 Node.js 中使用 Azure Cache for Redis
 
@@ -21,7 +21,7 @@ ms.locfileid: "94326552"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅 - [创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [node_redis](https://github.com/mranney/node_redis)，可以使用命令 `npm install redis` 安装。 
 
 有关使用其他 Node.js 客户端的示例，请参阅 [Node.js Redis 客户端](https://redis.io/clients#nodejs)中所列的适用于 Node.js 客户端的各个文档。

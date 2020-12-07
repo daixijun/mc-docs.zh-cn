@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa7103862732d3d7eb2d87bce2cf41d635383750
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 20f4af41189a9e5610b76315f0b2f174f5a314dd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471312"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507470"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>规划 Azure 时序见解 Gen1 环境
 
@@ -86,7 +86,7 @@ Azure 时序见解具有两种模式：
 
 例如，如果你使用单个 S1 SKU，流入数据的速率为每分钟 720 个事件，数据流入高峰的速率为 1,440 个事件（或更少）且持续时间不到 1 小时，则环境中不会出现明显的延迟。 但是，如果速率大于每分钟 1,440 个事件且超过 1 小时，则可能会发生数据延迟，这可在环境中查看并查询。
 
-你可能无法提前知道想要推送多少数据。 在这种情况下，可以在 Azure 门户订阅的 [Azure IoT 中心](../iot-hub/iot-hub-metrics.md)和 [Azure 事件中心](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)查找遥测数据。 这些遥测数据有助于确定如何预配环境。 在 Azure 门户使用相应事件源的“指标”页查看遥测数据  。 如果你了解数据源指标，便可以更有效地规划和预配 Azure 时序见解环境。
+你可能无法提前知道想要推送多少数据。 在这种情况下，可以在 Azure 门户订阅的 [Azure IoT 中心](../iot-hub/monitor-iot-hub.md)和 [Azure 事件中心](https://docs.microsoft.com/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics)查找遥测数据。 这些遥测数据有助于确定如何预配环境。 在 Azure 门户使用相应事件源的“指标”页查看遥测数据  。 如果你了解数据源指标，便可以更有效地规划和预配 Azure 时序见解环境。
 
 ### <a name="calculate-ingress-requirements"></a>计算入口需求
 
@@ -122,7 +122,7 @@ Azure 时序见解具有两种模式：
 
 - 开始[在 Azure 门户中创建新的 Azure 时序见解环境](time-series-insights-get-started.md)。
 
-- 了解如何[向 Azure 时序见解添加事件中心事件源](how-to-ingest-data-event-hub.md)。
+- 了解如何[向 Azure 时序见解添加事件中心事件源](./how-to-ingest-data-event-hub.md)。
 
-- 了解如何[配置 IoT 中心事件源](how-to-ingest-data-iot-hub.md)。
+- 了解如何[配置 IoT 中心事件源](./how-to-ingest-data-iot-hub.md)。
 

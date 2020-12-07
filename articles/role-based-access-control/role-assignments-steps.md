@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: f80f497817ea40cadd298b28f4c49652b89401c9
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5ac99c86e5166735f615e0f7961e652d02c245f4
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472864"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507970"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>角色分配的添加步骤
 
@@ -26,7 +26,7 @@ ms.locfileid: "92472864"
 
 ![角色分配的安全主体](./media/shared/rbac-security-principal.png)
 
-- 用户 - 在 Azure Active Directory 中具有配置文件的人员。 也可以将角色分配到其他租户中的用户。 有关其他组织中的用户的信息，请参阅 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)。
+- 用户 - 在 Azure Active Directory 中具有配置文件的人员。 也可以将角色分配到其他租户中的用户。 有关其他组织中的用户的信息，请参阅 [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md)。
 - 组 - 在 Azure Active Directory 中创建的一组用户。 将某个角色分配到某个组时，该组中的所有用户都拥有该角色。 
 - 服务主体 - 应用程序或服务用来访问特定 Azure 资源的安全标识。 可将服务主体视为应用程序的用户标识（用户名和密码或证书）。
 - 托管标识 - Azure Active Directory 中由 Azure 自动托管的标识。 在开发云应用程序时，通常使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)来管理用于向 Azure 服务进行身份验证的凭据。

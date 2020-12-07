@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14083dd00f060d6aeee80ee455161220815b1bc3
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 83e5dcd0c8a080f747e8a3582cc5034dcd788a40
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501912"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508923"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>教程：使用 PowerShell 批量邀请 Azure AD B2B 协作用户
 
@@ -27,7 +27,7 @@ ms.locfileid: "94501912"
 > * 运行 PowerShell 脚本以发送邀请
 > * 验证是否已将用户添加到目录中
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>先决条件
 

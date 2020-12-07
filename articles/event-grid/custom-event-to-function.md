@@ -4,20 +4,20 @@ description: 快速入门：使用 Azure 事件网格和 Azure CLI 或门户发�
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/05/2019
-ms.date: 10/10/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
-ms.openlocfilehash: c316ef3ebe5dd0042f0b36c5bdf02e4dc087229a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 59bebf1ed40cd530f700e11d5ff7817c09c656dc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127759"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432137"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>快速入门：使用事件网格将自定义事件路由到 Azure 函数
 
 Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持的事件处理程序之一。 在本文中，将使用 Azure 门户创建一个自定义主题，然后订阅该自定义主题，再触发可查看结果的事件。 将事件发送至 Azure 函数。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-azure-function"></a>创建 Azure 函数
 在订阅自定义主题之前，创建一个函数来处理事件。 
@@ -29,7 +29,7 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="选择事件网格触发器":::
 3. 在“新建函数”页上，输入函数名称，然后选择“创建函数”。
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="选择事件网格触发器":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="“新建函数”页":::
 4. 使用“代码 + 测试”页可以查看函数的现有代码并对其进行更新。 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -48,10 +48,10 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
 
 4. 在“创建主题”页上执行以下步骤： 
 
-    1. 为自定义主题提供唯一的**名称**。 主题名称必须唯一，因为它由 DNS 条目表示。 请不要使用图中所示的名称。 而是创建自己的名称 - 它必须介于 3 到 50 个字符之间，并且只包含值 a-z、A-Z、0-9 和“-”。
+    1. 为自定义主题提供唯一的 **名称**。 主题名称必须唯一，因为它由 DNS 条目表示。 请不要使用图中所示的名称。 而是创建自己的名称 - 它必须介于 3 到 50 个字符之间，并且只包含值 a-z、A-Z、0-9 和“-”。
     2. 选择 **Azure 订阅**。
     3. 选择与前面的步骤一致的资源组。
-    4. 选择事件网格主题的**位置**。
+    4. 选择事件网格主题的 **位置**。
     5. 在“事件架构”字段中，保留默认值“事件网格架构”。   
 
        ![“创建主题”页](./media/custom-event-to-function/create-custom-topic.png)
@@ -91,7 +91,7 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
     
         批处理可提高吞吐量。 对于“每批最大事件数”，请设置订阅要在一个批中包含的事件的最大数目。 首选批大小设置批大小的首选上限（以 KB 为单位），但如果单个事件大于此阈值，则可以超出此上限。
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="选择事件网格触发器":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="启用批处理":::
     6. 在“创建事件订阅”页上，选择“创建”。 
 
 ## <a name="send-an-event-to-your-topic"></a>向主题发送事件
@@ -103,12 +103,12 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-1. 运行以下命令以获取主题的**终结点**：复制并粘贴该命令后，更新**主题名称**和**资源组名称**，然后运行该命令。 
+1. 运行以下命令以获取主题的 **终结点**：复制并粘贴该命令后，更新 **主题名称** 和 **资源组名称**，然后运行该命令。 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. 运行以下命令以获取自定义主题的**密钥**：复制并粘贴该命令后，更新**主题名称**和**资源组名称**，然后运行该命令。 
+2. 运行以下命令以获取自定义主题的 **密钥**：复制并粘贴该命令后，更新 **主题名称** 和 **资源组名称**，然后运行该命令。 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
@@ -128,13 +128,13 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
 第二个示例使用 PowerShell，执行的步骤类似。
 
 
-2. 设置以下变量。 复制并粘贴每个命令后，更新**主题名称**和**资源组名称**，然后运行该命令：
+2. 设置以下变量。 复制并粘贴每个命令后，更新 **主题名称** 和 **资源组名称**，然后运行该命令：
 
     ```powershell
     $resourceGroupName = <resource group name>
     $topicName = <topic name>
     ```
-3. 运行以下命令以获取主题的**终结点**和**密钥**：
+3. 运行以下命令以获取主题的 **终结点** 和 **密钥**：
 
     ```powershell
     $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint

@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: 1fab0fdd5d3e2388de0499c3bbcd45b4509cfbde
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 40c066c50e1db4ea61e0f8252506c26380370be8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74797571"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507346"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>通过设置静态结果来使用模拟数据测试逻辑应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "74797571"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册一个 Azure 试用帐户</a>。
+* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://www.microsoft.com/china/azure/index.html?fromtype=cn" target="_blank">注册一个 Azure 试用帐户</a>。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 

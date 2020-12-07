@@ -11,12 +11,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/03/2020
-ms.openlocfilehash: 25e2d903fdac22ad614d3c47c102c9abc25d217c
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 7228b2a75db7831e52d850cc9d924b106b039656
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326522"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508967"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>快速入门：在 Python 中使用 Azure Cache for Redis
 
@@ -24,7 +24,7 @@ ms.locfileid: "94326522"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅 - [创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [Python 2 或 Python 3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>创建用于 Redis 的 Azure 缓存实例

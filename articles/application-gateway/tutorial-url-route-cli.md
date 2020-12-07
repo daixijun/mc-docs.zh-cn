@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a7d735ca73d9f0468f1192ee4652fc9b1c790a04
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: ef66de4216d508a6847ba3f8daae0e72849f5d27
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970735"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508983"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
@@ -32,7 +32,7 @@ ms.locfileid: "95970735"
 
 如果你愿意，可以使用 [Azure PowerShell](tutorial-url-route-powershell.md) 或 [Azure 门户](create-url-route-portal.md)完成本过程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

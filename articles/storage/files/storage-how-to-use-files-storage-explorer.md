@@ -9,19 +9,19 @@ origin.date: 10/18/2018
 ms.date: 07/20/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 755f48c8fadba16bb2b611e3273e4115f050a04f
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 3c9074d2b610bcb38e5c78c3005ce72e01ad3b59
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414708"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432538"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器创建和管理 Azure 文件共享
 本指南介绍通过 Azure 存储资源管理器来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
 
 Azure 存储资源管理器是一个常用的客户端工具，可用于 Windows、macOS 和 Linux。 可以使用存储资源管理器来管理 Azure 文件共享和其他存储资源。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 本快速入门要求安装存储资源管理器。 若要下载并安装它，请转到 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。

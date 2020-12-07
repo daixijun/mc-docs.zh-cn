@@ -9,25 +9,25 @@ ms.topic: tutorial
 origin.date: 9/25/2018
 ms.date: 03/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 90e2749a86e98ebb8e9f7a076ee2700f5751652a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1b7b71f37c67b67184450915881dedd3c867b37a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80115823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431614"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>教程：创建别名记录以引用区域资源记录
 
 别名记录可引用相同类型的其他记录集。 例如，可以使 DNS CNAME 记录集成为相同类型的另一 CNAME 记录集的别名。 如果要使部分记录集成为别名，部分成为有关行为的非别名，请使用此功能。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 为区域中的资源记录创建别名记录。
 > * 测试别名记录。
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 必须具有可用于在 Azure DNS 中托管以供测试的域名。 必须能够完全控制此域。 完全控制包括能够为域设置名称服务器 (NS) 记录。
@@ -59,7 +59,7 @@ ms.locfileid: "80115823"
 ## <a name="test-the-alias-record"></a>测试别名记录
 
 1. 启动最喜欢的 nslookup 工具。 一种方法是浏览到 [https://network-tools.com/nslook](https://network-tools.com/nslook)。
-2. 设置 A 记录的查询类型并查找 test.\<你的域名\>  。 答案为 **10.10.10.10**。
+2. 设置 A 记录的查询类型并查找 test.\<your domain name\>。 答案为 **10.10.10.10**。
 3. 在 Azure 门户中，将 server  A 记录更改为 10.11.11.11  。
 4. 等待几分钟，然后将 nslookup 再次用于 test  记录。 答案为 **10.11.11.11**。
 
@@ -70,7 +70,7 @@ ms.locfileid: "80115823"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建可引用区域中的资源记录的别名记录。 若要详细了解 Azure DNS 和 Web 应用，请继续阅读有关 Web 应用的教程。
+在本教程中，你已创建可引用区域中的资源记录的别名记录。 若要了解 Azure DNS 和 Web 应用，请继续学习适用于 Web 应用的教程。
 
 > [!div class="nextstepaction"]
 > [在自定义域中为 web 应用创建 DNS 记录](./dns-web-sites-custom-domain.md)

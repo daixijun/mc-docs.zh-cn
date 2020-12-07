@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 1f878bbb33d10864f6821977baf2f222fa2b04ca
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7061196228e470f8c8ec9807a9066c6ae06baee8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552978"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432012"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>教程：Azure Data Lake Storage Gen2、Azure Databricks & Spark
 
@@ -28,7 +28,7 @@ ms.locfileid: "94552978"
 > * 将非结构化数据引入存储帐户中
 > * 对 Blob 存储中的数据运行分析
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

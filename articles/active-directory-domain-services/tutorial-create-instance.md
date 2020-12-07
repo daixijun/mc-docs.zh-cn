@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3b10956415cb818da8afa6ba79873ad60b40a6bb
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 6f955371d5ccc3aeaee0b5b3d921643643eb382b
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402425"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508753"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>教程：创建和配置 Azure Active Directory 域服务托管域
 
@@ -29,14 +29,14 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 > * 创建托管域
 > * 启用密码哈希同步
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 需要在 Azure AD 目录中拥有“全局管理员”特权才能启用 Azure AD DS。
@@ -99,7 +99,7 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
     对于本教程，请选择“标准”SKU。
 1. 林是 Active Directory 域服务用来对一个或多个域进行分组的逻辑构造。 默认情况下，托管域作为用户林创建。 此类林可同步 Azure AD 中的所有对象，包括在本地 AD DS 环境中创建的所有用户帐户。
 
-    *资源*林仅同步直接在 Azure AD 中创建的用户和组。 
+    *资源* 林仅同步直接在 Azure AD 中创建的用户和组。 
 
     对于本教程，请选择创建用户林。
 

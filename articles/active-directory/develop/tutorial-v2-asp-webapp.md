@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 27cfcff76423a98ffd3045366dd3769081f89683
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: db65f4d32aa7982739d0eb59389e6417d41e902e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749926"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508979"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>教程：向 ASP.NET Web 应用添加 Microsoft 登录功能
 
@@ -70,7 +70,7 @@ ms.locfileid: "92749926"
 ## <a name="add-authentication-components"></a>添加身份验证组件
 
 1. 在 Visual Studio 中：转到“工具” > “NuGet 包管理器” > “包管理器控制台”  。
-2. 在包管理器控制台窗口中键入以下命令，添加 *OWIN 中间件 NuGet 包* ：
+2. 在包管理器控制台窗口中键入以下命令，添加 *OWIN 中间件 NuGet 包*：
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -88,7 +88,7 @@ ms.locfileid: "92749926"
 > [!TIP]
 > 如果项目的根文件夹中没有 `Startup.cs` 文件，请执行以下操作：
 > 1. 右键单击项目的根文件夹，然后选择“添加” > “新建项” > “OWIN 启动类”。<br/>
-> 2. 将其命名为 **Startup.cs** 。
+> 2. 将其命名为 **Startup.cs**。
 >
 >> 确保选择的类是 OWIN Startup 类，而不是标准 C# 类。 验证是否可以看到命名空间上的 [assembly:OwinStartup(typeof({NameSpace}.Startup))]。
 
@@ -188,7 +188,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 1.  右键单击“控制器”文件夹，并选择“添加” > “控制器”。  
 2.  选择“MVC (.NET 版本)控制器 - 空”。
 3.  选择“添加”  。
-4.  将其命名为 **HomeController** ，然后选择“添加”。
+4.  将其命名为 **HomeController**，然后选择“添加”。
 5.  向该类添加 OWIN 引用：
 
     ```csharp
@@ -230,7 +230,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 在 Visual Studio 中，创建新视图来添加登录按钮并在身份验证后显示用户信息：
 
 1.  右键单击“视图/主页”文件夹，然后选择“添加视图” 。
-2.  将新视图命名为 **Index** 。
+2.  将新视图命名为 **Index**。
 3.  向文件添加以下 HTML，其中包括登录按钮：
 
     ```html
@@ -320,7 +320,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 在 Visual Studio 中创建新视图，以在网页上显示用户的声明：
 
 1.  右键单击“视图/声明”文件夹，然后选择“添加视图” 。
-2.  将新视图命名为 **Index** 。
+2.  将新视图命名为 **Index**。
 3.  将以下 HTML 添加到文件：
 
     ```html
@@ -379,7 +379,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 1. 转到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 1. 选择“新注册”。
 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
-   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 **ASPNET-Tutorial** 。
+   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 **ASPNET-Tutorial**。
    1. 将在步骤 1 中从 Visual Studio 复制的 SSL URL（例如 `https://localhost:44368/`）添加到“回复 URL”中，然后选择“注册”。
 1. 选择“身份验证”菜单，在“隐式授权”下选择“ID 令牌”，然后选择“保存”。
 1. 在根文件夹中的 web.config 文件内的 `configuration\appSettings` 节下添加以下内容：
@@ -415,7 +415,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 ### <a name="view-application-results"></a>查看应用程序结果
 
-登录后，用户将重定向到网站主页。 该主页是在门户的应用程序注册信息中指定的 HTTPS URL。 主页包括欢迎消息“你好，\<user>”、一个注销链接和一个用于查看用户声明的链接。 用户声明链接连接到你之前创建的“声明”控制器。
+登录后，用户将重定向到网站主页。 该主页是在门户的应用程序注册信息中指定的 HTTPS URL。 主页包括一条“你好，\<user>”欢迎消息、一个注销链接和一个用于查看用户声明的链接。 用户声明链接连接到你之前创建的“声明”控制器。
 
 ### <a name="view-the-users-claims"></a>查看用户的声明
 
@@ -425,7 +425,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 浏览到控制器视图后，应当会显示包含用户基本属性的表格：
 
-|properties |“值” |说明 |
+|属性 |“值” |描述 |
 |---|---|---|
 |**名称** |用户全名 | 用户的名字和姓氏
 |**用户名** |user<span>@domain.com</span> | 用于标识用户的用户名|
@@ -463,7 +463,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>选项 1：仅允许某个组织的 Active Directory 实例的用户登录应用程序
 
-此选项经常用于 *LOB 应用程序* ：如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作：
+此选项经常用于 *LOB 应用程序*：如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作：
 
 1. 在 web.config 文件中，将 `Tenant` 参数的值从 `Common` 更改为组织的租户名称，例如 `contoso.partner.onmschina.cn`。
 2. 在 [OWIN Startup 类](#configure-the-authentication-pipeline)中，将 `ValidateIssuer` 参数设置为 `true`。

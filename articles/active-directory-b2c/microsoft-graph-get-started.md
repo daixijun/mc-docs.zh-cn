@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 06/28/2020
+ms.topic: how-to
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: af9cae5e0e9852efe27b3c6d8afa4dd827ba90bc
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 00bbff14d1d61524bb8ceb6e91b77442ad1cddfb
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516495"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507275"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>使用 Microsoft Graph 管理 Azure AD B2C
 
@@ -38,7 +38,7 @@ ms.locfileid: "85516495"
 
 * **自动化** - 对于计划的或连续运行的任务，此方法使用你为其配置了执行管理任务所需权限的服务帐户。 通过以下方式在 Azure AD B2C 中创建“服务帐户”：注册一个应用程序，并让你的应用程序和脚本使用其应用程序（客户端）ID 和 OAuth 2.0 客户端凭据授权通过该应用程序进行身份验证。 在这种情况下，应用程序以自己的身份调用 Microsoft Graph API，而不是如前面的交互方式中所述使用管理员用户的身份。
 
-可以通过创建以下各部分中所示的应用程序注册来启用**自动化**交互方案。
+可以通过创建以下各部分中所示的应用程序注册来启用 **自动化** 交互方案。
 
 尽管 Azure AD B2C 身份验证服务目前不直接支持 OAuth 2.0 客户端凭据授权流，但你可以使用 Azure AD 和 Microsoft 标识平台/令牌终结点为 Azure AD B2C 租户中的应用程序设置客户端凭据流。 Azure AD B2C 租户与 Azure AD 企业租户共享某些功能。
 
@@ -70,7 +70,7 @@ ms.locfileid: "85516495"
 
 ## <a name="enable-user-delete-and-password-update"></a>启用用户删除和密码更新
 
-“读取和写入目录数据”权限**未**包括删除用户或更新用户帐户密码的能力。
+“读取和写入目录数据”权限 **未** 包括删除用户或更新用户帐户密码的能力。
 
 如果你的应用程序或脚本需要删除用户或更新其密码，请将“用户管理员”角色分配给你的应用程序：
 

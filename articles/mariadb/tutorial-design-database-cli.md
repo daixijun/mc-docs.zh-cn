@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 3/18/2020
 ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 675225e33677e6c68d945e47d76983d146b99bae
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 7e19fe1d7043f4444772957ea91865fd037331cd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908981"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431652"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MariaDB
 
@@ -29,7 +29,7 @@ Azure Database for MariaDB 是云中基于 MariaDB 社区版数据库引擎的�
 > * 更新数据
 > * 还原数据
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 可以在自己的计算机上[安装 Azure CLI](/cli/install-azure-cli) 来运行本教程中的代码块。
 

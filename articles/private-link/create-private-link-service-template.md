@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9e782d795a6fd7ced4a14c7c57168ec2dace8677
-ms.sourcegitcommit: 6e88e0e41b35d160a09f7a906ca3b7e837f51803
+ms.openlocfilehash: bdccdc7f8b2e80a36293a186b41f9c1c4c2a2963
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412705"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508016"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建专用链接服务
@@ -33,7 +33,7 @@ ms.locfileid: "89412705"
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+需要一个具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

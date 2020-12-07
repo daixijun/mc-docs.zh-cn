@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 05/26/2020
 ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: e29a159f5343b40c5d6f79aadb53eaea6ac0cfb3
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 915fe775a83242f70b1f4947bd017fdeab7e67b5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908983"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432666"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for MariaDB 服务器
 
@@ -22,7 +22,7 @@ ms.locfileid: "94908983"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

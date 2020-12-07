@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 79b03b49bda26f8b7701be58417eaba1e1d4720c
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 5846f76e58083495a30ff8901b0b8dec5a42af79
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507757"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 管理服务总线资源
 
@@ -174,6 +174,6 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 [purchase options]: https://wd.azure.cn/pricing/pia-waiting-list/
 [member offers]: https://www.azure.cn/support/legal/offer-rate-plans/
-[trial account]: https://www.azure.cn/pricing/1rmb-trial/
+[trial account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!-- Update_Description: update meta properties, wording update, update link -->

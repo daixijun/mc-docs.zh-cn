@@ -16,12 +16,12 @@ ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 93ccc7a3d0f2d29187e53b56cdc21183bd53714c
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 7514e5e79bd3bfca4f6997072fa6b838335d831c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564587"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507919"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -36,7 +36,7 @@ ms.locfileid: "91564587"
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
-- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
@@ -163,7 +163,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 2. 选择要更改子网分配的网络接口。
 3. 在“设置”下选择“IP 配置”。 如果所列任何 IP 配置的任何专用 IP 地址旁边出现“(静态)”，则必须完成以下步骤，将 IP 地址分配方法更改为动态。 必须使用动态分配方法分配所有专用 IP 地址，以更改网络接口的子网分配。 如果使用动态方法分配地址，请转到步骤 5。 如果使用静态分配方法分配了任何 IPv4 地址，请完成以下步骤，将分配方法更改为动态：
     - 从 IP 配置列表中选择要更改 IPv4 地址分配方法的 IP 配置。
-    - 选择“动态”作为专用 IP 地址**分配**方法。 无法使用静态分配方法分配 IPv6 地址。
+    - 选择“动态”作为专用 IP 地址 **分配** 方法。 无法使用静态分配方法分配 IPv6 地址。
     - 选择“保存” 。
 4. 从“子网”下拉列表中选择要将网络接口移到的子网。
 5. 选择“保存” 。 新的动态地址是从新子网的子网地址范围中分配的。 将网络接口分配到新子网之后，可在需要时从新子网地址范围中分配静态 IPv4 地址。 若要详细了解如何添加、更改和删除网络接口的 IP 地址，请参阅[管理 IP 地址](virtual-network-network-interface-addresses.md)。

@@ -6,16 +6,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 12/02/2020
+ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d3a7d96ebbd02449af2ab78231be8947c49dd69b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9763d5f51b749304f846d99435e1ea320c777cd0
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266088"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507239"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中定义自定义属性
 
@@ -51,5 +52,5 @@ ms.locfileid: "78266088"
 1. 选择“应用程序声明”  ，然后选择自定义属性。
 1. 单击“保存”  。
 
-利用使用新创建的自定义属性的用户流创建新用户后，可以在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中查询该对象。 或者，可以对用户流使用[运行用户流](/active-directory-b2c/tutorial-create-user-flows)功能来验证客户体验。 现在可以在注册期间收集的属性的列表中看到“ShoeSize”  ，并在发送回应用程序的令牌中看到它。
+利用使用新创建的自定义属性的用户流创建新用户后，可以在 [Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china) 中查询该对象。 或者，可以对用户流使用[运行用户流](./tutorial-create-user-flows.md)功能来验证客户体验。 现在可以在注册期间收集的属性的列表中看到“ShoeSize”  ，并在发送回应用程序的令牌中看到它。
 

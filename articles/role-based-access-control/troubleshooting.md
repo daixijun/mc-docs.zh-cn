@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 98fdbfa9db179fa6bf75097afed24cb46c5a1fd8
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c6e8441a0195a06a21e4ffce8042562addc8b0f8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849476"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507551"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -151,7 +151,7 @@ CanDelegate        : False
 }
 ```
 
-在删除安全主体的情况下，保留这些角色分配没有问题。 如果需要，可以使用与其他角色分配相似的步骤删除这些角色分配。 有关如何删除角色分配的信息，请参阅 [Azure 门户](role-assignments-portal.md#remove-a-role-assignment)、[Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) 或 [Azure CLI](role-assignments-cli.md#remove-role-assignment)
+在删除安全主体的情况下，保留这些角色分配没有问题。 如果需要，可以使用与其他角色分配相似的步骤删除这些角色分配。 有关如何删除角色分配的信息，请参阅 [Azure 门户](role-assignments-portal.md#remove-a-role-assignment)、[Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) 或 [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 在 PowerShell 中，如果尝试通过对象 ID 和角色定义名称来删除角色分配，而多个角色分配与参数相匹配，则会出现错误消息：“提供的信息未映射到角色分配”。 以下输出显示了错误消息示例：
 

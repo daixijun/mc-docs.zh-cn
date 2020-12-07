@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 2cef8ed249569c0d2a03eab6fd3bca480f4fb726
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 9b92b34130c506e2151ac6deac4abaacfe221c51
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300684"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432304"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
 
@@ -35,7 +35,7 @@ ms.locfileid: "96300684"
 
 ## <a name="overview"></a>概述
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 > 
 > 
 

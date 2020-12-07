@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 332400e40a66fb0e8935f9c7e95e9a966f6c7a45
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 550d5c4b3c7210096f8e8da3472e4314f3ab5212
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507140"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略来本地化应用程序的用户界面
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-你可以使用 Azure Active Directory B2C (Azure AD B2C) 中的语言自定义来容纳不同的语言以满足客户需求。 Microsoft 提供 [36 种语言](/active-directory-b2c/user-flow-language-customization#supported-languages)的翻译，但你也可以为任何语言提供自己的翻译。 即使体验是针对一种语言提供的，也可以自定义页面上的任何文本。 
+你可以使用 Azure Active Directory B2C (Azure AD B2C) 中的语言自定义来容纳不同的语言以满足客户需求。 Microsoft 提供 [36 种语言](./user-flow-language-customization.md#supported-languages)的翻译，但你也可以为任何语言提供自己的翻译。 即使体验是针对一种语言提供的，也可以自定义页面上的任何文本。 
 
 本文将介绍如何在用户旅程的策略中支持多个区域设置或语言。 本地化需要执行三个步骤：设置受支持语言的显式列表，提供特定于语言的字符串和集合，以及编辑页面的[内容定义](contentdefinitions.md)。 
 
@@ -219,7 +219,7 @@ ms.locfileid: "92471189"
 
 粘贴作为 BuildingBlocks 元素的子元素复制的 ContentDefinitions 元素的全部内容。
 
-在以下示例中，英语 (en) 和西班牙语 (es) 自定义字符串已添加到注册或登录页面，并已添加到本地帐户注册页面。 每个 **LocalizedResourcesReference** 的 **LocalizedResourcesReferenceId** 与其区域设置相同，但可将任何字符串用作标识符。 对于每个语言和页面组合，请指向前面创建的相应 **LocalizedResources** 。
+在以下示例中，英语 (en) 和西班牙语 (es) 自定义字符串已添加到注册或登录页面，并已添加到本地帐户注册页面。 每个 **LocalizedResourcesReference** 的 **LocalizedResourcesReferenceId** 与其区域设置相同，但可将任何字符串用作标识符。 对于每个语言和页面组合，请指向前面创建的相应 **LocalizedResources**。
 
 ```xml
 <ContentDefinitions>
@@ -265,5 +265,4 @@ https://<tenant-name>.b2clogin.cn/<tenant-name>.partner.onmschina.cn/B2C_1A_sign
 
 - 在 IEF 参考中详细了解 [localization](localization.md) 元素。
 - 查看 Azure AD B2C 中可用的[本地化字符串 ID](localization-string-ids.md) 的列表。
-
 

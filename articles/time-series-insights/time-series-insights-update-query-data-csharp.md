@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 612256a8bc40e43f2d5b00ad7a630188337f06e0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 49e4f8f915ea6d2b6a223a7725c50cb98bf43e8d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472075"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507297"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>使用 C# 查询 Azure 时序见解第 2 代环境中的数据
 
@@ -48,7 +48,7 @@ ms.locfileid: "92472075"
 
 在编译和运行示例代码之前，请完成以下步骤：
 
-1. [预配 Azure 时序见解 Gen2](/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) 环境。
+1. [预配 Azure 时序见解 Gen2](./how-to-provision-manage.md#create-the-environment) 环境。
 1. 为 Azure Active Directory 配置 Azure 时序见解环境，如[身份验证和授权](time-series-insights-authentication-and-authorization.md)中所述。
 1. 按照 [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) 中指定的方式运行 [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat)，以生成 Azure 时序见解 Gen2 客户端依赖项。
 1. 打开 `TSIPreviewDataPlaneclient.sln` 解决方案，并将 `DataPlaneClientSampleApp` 设置为 Visual Studio 中的默认项目。

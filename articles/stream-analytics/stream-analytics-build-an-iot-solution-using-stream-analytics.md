@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 12/06/2018
-ms.date: 08/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f6c8b66271fb3acd39d7fbdf3f2226119eaf34ac
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: f97770602b2fbfd2c093b798143386d27733111d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715726"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432573"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>使用流分析生成 IoT 解决方案
 
@@ -31,7 +31,7 @@ ms.locfileid: "88715726"
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本解决方案，需要满足以下先决条件：
-* [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 ## <a name="scenario-introduction-hello-toll"></a>方案简介：“你好，收费站！”
 收费站是常见设施。 在世界各地的许多高速公路、桥梁和隧道中都可以看到它们的身影。 每个收费站有多个收费亭。 在人工收费亭中，需要停车来向服务员付费。 在自动收费亭中，位于每个收费亭顶部的传感器会在车辆通过收费亭时扫描挡风玻璃上贴附的 RFID 卡。 我们可以轻松地将车辆通过这些收费站的情况想象成能够执行许多有趣操作的事件流。
@@ -109,7 +109,7 @@ ms.locfileid: "88715726"
 | Expired |车辆的注册状态：0 代表车辆注册仍有效，1 代表车辆注册已过期 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>设置 Azure 流分析的环境
-若要完成本解决方案，需要一个 Azure 订阅。 如果没有 Azure 帐户，可以[请求试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+若要完成本解决方案，需要一个 Azure 订阅。 如果没有 Azure 帐户，可以[请求试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 请务必按照本文末尾的“清理 Azure 帐户”部分中的步骤操作，以便充分利用 Azure 信用额度。
 
@@ -129,13 +129,13 @@ ms.locfileid: "88715726"
 
 6. 在“间隔”中指定若干秒。  此值将在示例 Web 应用中使用，指定将数据发送到事件中心的频率。
 
-7. **选中**表示同意条款和条件的复选框。
+7. **选中** 表示同意条款和条件的复选框。
 
 8. 选择“固定到仪表板”，以便稍后可以轻松找到资源。 
 
 9. 选择“购买”以部署示例模板。 
 
-10. 片刻之后，将会显示一条通知来确认**部署成功**。
+10. 片刻之后，将会显示一条通知来确认 **部署成功**。
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>查看 Azure 流分析 TollApp 资源
 
@@ -298,7 +298,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 将流式处理作业纵向扩展为更多的流单元：
 
-1. **停止**当前作业。
+1. **停止** 当前作业。
 
 2. 在“< > 查询”页中更新查询语法，然后保存更改。 
 
@@ -306,7 +306,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 4. 将“流单元”滑块从 1 滑到 6。  流单元定义作业能够接收的计算能力大小。 选择“保存”  。
 
-5. **启动**流式处理作业，以演示其他缩放操作。 Azure 流分析可在更多的计算资源之间分配工作，并可以使用 PARTITION BY 子句中指定的列将不同资源中的工作分区，从而提高吞吐量。
+5. **启动** 流式处理作业，以演示其他缩放操作。 Azure 流分析可在更多的计算资源之间分配工作，并可以使用 PARTITION BY 子句中指定的列将不同资源中的工作分区，从而提高吞吐量。
 
 ## <a name="monitor-the-job"></a>监视作业
 “监视器”  区域包含正在运行的作业的相关统计信息。 需要完成首次配置，才能使用同一区域中的存储帐户（按本文档其余部分命名收费站）。

@@ -4,15 +4,15 @@ description: 快速入门使用 Azure 事件网格和 Azure CLI 发布自定义�
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/05/2019
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e32a1854d6cbf286f9ad087a3e2538feb651abb5
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 5c561115cea772dfde219aa311a20620426a4c11
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228048"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432195"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入门：使用 Azure CLI 和事件网格将自定义事件路由到 Web 终结点
 
@@ -24,7 +24,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，将使用 
 
 ![在 Azure 事件网格查看器中查看结果](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!--Not available in MC: cloud-shell-->
 如果选择在本地安装并使用 CLI，本文需要运行最新版 Azure CLI（2.0.70 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。

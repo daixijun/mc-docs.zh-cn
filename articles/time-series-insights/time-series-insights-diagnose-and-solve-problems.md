@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 87f1969ad0eb975d2adec145e1e72e177fefc882
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 264337878b827a67ad2dd65977f40c0d2786eeeb
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471320"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508080"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>诊断和解决 Azure 时序见解 Gen1 环境中的问题
 
@@ -31,7 +31,7 @@ ms.locfileid: "92471320"
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>原因 A：事件源数据不是 JSON 格式
 
-Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持的 JSON 形状](./how-to-shape-query-json.md)。
+Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持的 JSON 形状](./concepts-json-flattening-escaping-rules.md)。
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>原因 B：事件源密钥缺少所需的权限
 
@@ -79,7 +79,7 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 容量为 3 的 S1 SKU 环境每分钟只能流入 2,100 个事件（每天 100 万个事件 = 每分钟 700 个事件，3 个单位 = 每分钟 2,100 个事件）。
 
-有关平展逻辑工作原理的深入介绍，请参阅[支持的 JSON 形状](./how-to-shape-query-json.md)。
+有关平展逻辑工作原理的深入介绍，请参阅[支持的 JSON 形状](./concepts-json-flattening-escaping-rules.md)。
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>针对过度限制的建议解决方法
 
@@ -115,7 +115,7 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 ## <a name="problem-the-event-sources-timestamp-property-name-setting-doesnt-work"></a>问题：事件源的时间戳属性名称设置不起作用
 
-确保来自事件源的时间戳属性值（JSON 字符串）的格式为 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_ 。 下面是一个示例： **2008-04-12T12:53Z** 。
+确保来自事件源的时间戳属性值（JSON 字符串）的格式为 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_。 下面是一个示例：**2008-04-12T12:53Z**。
 
 请注意，时间戳属性名称区分大小写。
 

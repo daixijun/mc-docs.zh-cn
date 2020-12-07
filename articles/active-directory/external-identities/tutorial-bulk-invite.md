@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 353a50598cec870b90b11e6336c84fdbbbb82b4a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 92ae78d65371c2518a15e3d3e0601a0151e7148c
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648087"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508887"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>教程：批量邀请 Azure AD B2B 协作用户
 
@@ -27,7 +27,7 @@ ms.locfileid: "88648087"
 > * 将 .csv 文件上传到 Azure AD
 > * 验证是否已将用户添加到目录中
 
-如果没有 Azure Active Directory，请在开始前创建一个[试用版](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure Active Directory，请在开始前创建一个[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="understand-the-csv-template"></a>了解 CSV 模板
 
@@ -72,7 +72,7 @@ ms.locfileid: "88648087"
     ![CSV 文件的示例，其中已输入来宾用户](./media/tutorial-bulk-invite/bulk-invite-csv.png)
 
    > [!NOTE]
-   > 请勿在**自定义的邀请消息**中使用逗号，因为这样会妨碍系统对消息成功进行分析。
+   > 请勿在 **自定义的邀请消息** 中使用逗号，因为这样会妨碍系统对消息成功进行分析。
 
 6. 保存文件。
 7. 在“批量邀请用户”页中，在“上传 csv 文件”下，浏览找到该文件。 选择该 .csv 文件后，对其的验证就会开始。 

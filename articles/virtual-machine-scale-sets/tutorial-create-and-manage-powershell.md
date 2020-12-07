@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 605b40348d103cf745f2b7474e7793ce8e5bbb3c
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 0a497056d5ba18b27207d8a0277771e7a56e5b2d
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914210"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508589"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 
@@ -27,7 +27,7 @@ ms.locfileid: "87914210"
 > * 手动缩放规模集
 > * 执行常见的规模集管理任务
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 

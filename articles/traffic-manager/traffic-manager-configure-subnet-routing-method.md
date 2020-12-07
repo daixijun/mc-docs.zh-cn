@@ -14,12 +14,12 @@ ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9205ee1e70194a6ed15b57011fe1f5c1da39a6a6
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f2616a6a9d8d703fdc5aa6bb836531a73608fab8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395412"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507664"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -27,7 +27,7 @@ ms.locfileid: "91395412"
 
 在本文讨论的方案中，使用子网路由时，流量将路由到内部网站或生产网站，具体取决于用户查询的 IP 地址。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 为了查看流量管理器的运作方式，本教程要求部署以下各项：
@@ -198,7 +198,7 @@ ms.locfileid: "91395412"
     |                 |                              |
     |
 
-    :::image type="content" source="./media/traffic-manager-subnet-routing-method/create-traffic-manager-profile.png" alt-text="创建 VM":::
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/create-traffic-manager-profile.png" alt-text="创建流量管理器配置文件":::
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
@@ -213,13 +213,13 @@ ms.locfileid: "91395412"
     | 类型                    | Azure 终结点                                   |
     | 名称           | myTestWebSiteEndpoint                                        |
     | 目标资源类型           | 公共 IP 地址                          |
-    | 目标资源          | **选择公共 IP 地址**以显示同一订阅下具有公共 IP 地址的资源列表。 在“资源”中，选择名为 *myIISVMChinaEast-ip* 的公共 IP 地址。 这是中国东部的 IIS 服务器 VM 的公共 IP 地址。|
+    | 目标资源          | **选择公共 IP 地址** 以显示同一订阅下具有公共 IP 地址的资源列表。 在“资源”中，选择名为 *myIISVMChinaEast-ip* 的公共 IP 地址。 这是中国东部的 IIS 服务器 VM 的公共 IP 地址。|
     |  子网路由设置    |   添加 myVMChinaEast 测试 VM 的 IP 地址  。 源自此 VM 的任何用户查询都将定向到 myTestWebSiteEndpoint  。    |
 
 4. 重复步骤 2 和 3，为名为 *myIISVMChinaNorth* 的 IIS 服务器 VM 所关联的公共 IP 地址 *myIISVMChinaNorth-ip* 添加名为 *myProductionEndpoint* 的另一个终结点。 对于“子网路由”设置，添加测试 VM myVMChinaNorth 的 IP 地址   。 源自此测试 VM 的任何用户查询都将路由到终结点 myProductionWebsiteEndpoint  。
 5. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”  中，并且其监视状态为“联机”  。
 
-    :::image type="content" source="./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png" alt-text="创建 VM":::
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png" alt-text="添加流量管理器终结点":::
 
     <!--MOONCAKE: should be routing-eastus.png-->
 
@@ -238,11 +238,11 @@ ms.locfileid: "91395412"
 
 可按如下所述确定流量管理器配置文件的 DNS 名称：
 
-1. 在门户的搜索栏中，搜索在前面部分中创建的**流量管理器配置文件**名称。 在显示的结果中，单击流量管理器配置文件。
+1. 在门户的搜索栏中，搜索在前面部分中创建的 **流量管理器配置文件** 名称。 在显示的结果中，单击流量管理器配置文件。
 1. 单击“概览”。 
 2. “流量管理器配置文件”  会显示新建的流量管理器配置文件的 DNS 名称。 在生产部署中，可以使用 DNS CNAME 记录配置一个指向流量管理器域名的虚构域名。
 
-    :::image type="content" source="./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png" alt-text="创建 VM":::
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png" alt-text="流量管理器 DNS 名称":::
 
 ### <a name="view-traffic-manager-in-action"></a>查看正在运行的流量管理器
 在本部分，我们可以查看流量管理器的运作方式。
@@ -254,7 +254,7 @@ ms.locfileid: "91395412"
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。  
 1. 在 VM *myVMChinaEast* 上的 Web 浏览器中，键入流量管理器配置文件的 DNS 名称，以查看网站。 由于 VM myVMChinaEast IP 地址与终结点 myIISVMChinaEast 关联，因此 Web 浏览器启动测试网站服务器 myIISVMChinaEast    。
 
-    :::image type="content" source="./media/traffic-manager-subnet-routing-method/test-traffic-manager.png" alt-text="创建 VM":::
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/test-traffic-manager.png" alt-text="测试流量管理器配置文件":::
 
 2. 接下来，使用步骤 1-5 连接到位于“中国北部”的 VM *myVMChinaNorth*，然后从此 VM 浏览到流量管理器配置文件域名。  由于 VM myVMChinaNorth IP 地址与终结点 myIISVMChinaNorth 关联，因此 Web 浏览器将启动测试网站服务器 myIISVMChinaNorth    。
     

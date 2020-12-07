@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.author: v-junlch
-ms.openlocfilehash: 29241a49443478f6800c014f9e56ba07ee9127e1
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: fc3aba3277a1570a261a22af22f9150ed3995991
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715343"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508754"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>禁用弱密码和密码哈希同步以保护 Azure Active Directory 域服务托管域
 
@@ -29,7 +29,7 @@ ms.locfileid: "88715343"
 若要完成本文，需准备好以下资源：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。

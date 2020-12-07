@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f10c96503f42fe6e22ad7a02e701d4d81c8388d3
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: e95f1af91d052c737e231f13ba9e9d9d6c04a430
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470421"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507105"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>快速入门：使用 PowerShell 部署 Azure Kubernetes 服务群集
@@ -30,7 +30,7 @@ ms.locfileid: "92470421"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 如果选择在本地使用 PowerShell，执行本文操作就需要安装 Az PowerShell 模块，并使用 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell][install-azure-powershell]。
 
@@ -101,7 +101,7 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 .\kubectl get nodes
 ```
 
-以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 **Ready** ：
+以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 **Ready**：
 
 ```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -228,7 +228,7 @@ service/azure-vote-front created
 .\kubectl get service azure-vote-front --watch
 ```
 
-最初， **azure-vote-front** 服务的 **EXTERNAL-IP** 显示为 **pending** 。
+最初，**azure-vote-front** 服务的 **EXTERNAL-IP** 显示为 **pending**。
 
 ```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

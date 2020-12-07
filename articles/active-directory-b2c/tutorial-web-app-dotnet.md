@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 10/23/2020
+ms.date: 12/02/2020
 ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 1b8c4f1c8d899d65bd918b1be107c56d20512135
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c8535d41e919d713c8752ece6557d1983a4dc28c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471129"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507244"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在 Web 应用程序中启用身份验证
 
@@ -29,7 +29,7 @@ ms.locfileid: "92471129"
 > * 将示例配置为使用此应用程序
 > * 使用用户流进行登录
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > 本教程使用 ASP.NET 示例 Web 应用程序。 有关其他示例应用程序（包括 ASP.NET Core、Node.js、Python 等），请参阅 [Azure Active Directory B2C 代码示例](code-samples.md)。
@@ -45,7 +45,7 @@ ms.locfileid: "92471129"
 
 ### <a name="add-a-redirect-uri-reply-url"></a>添加重定向 URI（回复 URL）
 
-要更新 Azure AD B2C 租户中的应用程序，可以使用我们新的统一“应用注册”体验或我们遗留下来的“应用程序（旧版）”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要更新 Azure AD B2C 租户中的应用程序，可以使用我们新的统一“应用注册”体验或我们遗留下来的“应用程序（旧版）”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 
@@ -105,7 +105,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 ## <a name="run-the-sample"></a>运行示例
 
 1. 在解决方案资源管理器中，右键单击 **TaskWebApp** 项目，然后单击“设为启动项目”。
-1. 按 **F5** 。 默认浏览器将启动到本地网站地址 `https://localhost:44316/`。
+1. 按 **F5**。 默认浏览器将启动到本地网站地址 `https://localhost:44316/`。
 
 ### <a name="sign-up-using-an-email-address"></a>使用电子邮件地址注册
 
@@ -119,7 +119,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 现在，应用程序用户可以使用其电子邮件地址登录并使用 Web 应用程序了。
 
-但是， **待办事项列表** 功能会不起作用，直到你完成本系列中的下一个教程 [教程：使用 Azure AD B2C 保护 ASP.NET Web API](tutorial-web-api-dotnet.md)。
+但是，**待办事项列表** 功能会不起作用，直到你完成本系列中的下一个教程 [教程：使用 Azure AD B2C 保护 ASP.NET Web API](tutorial-web-api-dotnet.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

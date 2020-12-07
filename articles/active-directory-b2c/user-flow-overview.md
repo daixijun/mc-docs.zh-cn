@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 12/02/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8e0170195e1ad7d6acbbc122d3ccd184472e7644
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: cb7ef6fec39c929bce4fbd0e9afaa488136fa46a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946537"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507222"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户流
 
@@ -25,7 +25,7 @@ ms.locfileid: "88946537"
 
 - 用于登录的帐户类型，例如社交帐户
 - 从使用者收集的属性，例如名字、邮政编码和鞋码
-- Azure 多重身份验证
+- Azure AD 多重身份验证
 - 用户界面的自定义
 - 应用程序接收的信息（令牌中的声明）
 
@@ -77,7 +77,7 @@ Azure AD B2C 包括多种类型的用户流：
 
 ## <a name="linking-user-flows"></a>链接用户流
 
-使用本地帐户的**注册或登录**用户流在体验的第一个页面上包含“忘记了密码?”链接****。 单击此链接不会自动触发密码重置用户流。
+使用本地帐户的 **注册或登录** 用户流在体验的第一个页面上包含“忘记了密码?”链接。 单击此链接不会自动触发密码重置用户流。
 
 而是将错误代码 `AADB2C90118` 返回给应用程序。 应用程序需要通过运行一个可重置密码的特定用户流来处理此错误代码。 有关示例，请查看演示用户流链接方法的[简单 ASP.NET 示例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)。
 

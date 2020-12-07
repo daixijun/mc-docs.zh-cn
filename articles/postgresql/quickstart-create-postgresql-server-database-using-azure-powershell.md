@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 06/08/2020
 ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cb29007bcfc062d40253aa7a41db77ad96ff744e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fa25d1ea4d8bab3ba42357aa3e05023e9c010d32
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328021"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432542"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for PostgreSQL - 单一服务器
 
@@ -22,7 +22,7 @@ ms.locfileid: "94328021"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
@@ -63,12 +63,12 @@ New-AzResourceGroup -Name myresourcegroup -Location chinanorth2
 | ResourceGroupName          | myresourcegroup  | 提供 Azure 资源组的名称。                                                                                                                                                                                                                                                                                            |
 | SKU                        | GP_Gen5_2        | SKU 的名称。 请遵循简写约定：pricing-tier\_compute-generation\_vCores。 有关 SKU 参数的详细信息，请参阅此表格后面的信息。                                                                                                                                           |
 | BackupRetentionDay         | 7                | 备份保留时间。 单位为天。 范围为 7-35。                                                                                                                                                                                                                                                                       |
-| GeoRedundantBackup         | Enabled          | 是否应为此服务器启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
+| GeoRedundantBackup         | 已启用          | 是否应为此服务器启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
 | 位置                   | chinanorth2      | 服务器的 Azure 区域。                                                                                                                                                                                                                                                                                                         |
-| SslEnforcement             | Enabled          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
+| SslEnforcement             | 已启用          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | 服务器的存储容量（以 MB 为单位）。 有效的 StorageInMb 最小为 5120 MB，以 1024 MB 为增量递增。 有关存储大小限制的详细信息，请参阅 [Azure Database for PostgreSQL 定价层](./concepts-pricing-tiers.md)。                                                                               |
 | 版本                    | 9.6              | PostgreSQL 主版本。                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** 。                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 管理员用户的密码，采用安全字符串格式。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。                                       |
 
 Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下示例所示 。
@@ -161,7 +161,7 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
 
 1. 从工具栏转到“对象”，将鼠标指针悬停在“创建”上，然后选择“服务器”。
 
-1. 在“创建 - 服务器”对话框中的“常规”选项卡上，为服务器输入唯一的友好名称，例如 **mydemoserver** 。
+1. 在“创建 - 服务器”对话框中的“常规”选项卡上，为服务器输入唯一的友好名称，例如 **mydemoserver**。
 
    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="“常规”选项卡":::
 
@@ -171,7 +171,7 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
 
     pgAdmin 参数 |值|说明
     ---|---|---
-    主机名/地址 | 服务器名称 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn** 。 请使用完全限定的域名 ( **\*.postgres.database.chinacloudapi.cn** )，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。
+    主机名/地址 | 服务器名称 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn**。 请使用完全限定的域名 ( **\*.postgres.database.chinacloudapi.cn**)，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。
     端口 | 5432 | 连接到用于 PostgreSQL 的 Azure 数据库服务器时使用的端口。
     维护数据库 | postgres | 系统生成的默认数据库名称。
     用户名 | 服务器管理员登录名 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username\@servername。
@@ -181,7 +181,7 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
 
 1. 选择“保存”。
 
-1. 在左侧的“浏览器”窗格中，展开“服务器”节点 。 选择服务器，例如 **mydemoserver** 。 单击该服务器与它建立连接。
+1. 在左侧的“浏览器”窗格中，展开“服务器”节点 。 选择服务器，例如 **mydemoserver**。 单击该服务器与它建立连接。
 
 1. 展开服务器节点，然后展开其下的“数据库”。 此列表应包括现有 *postgres* 数据库和已创建的任何其他数据库。 可以使用 Azure Database for PostgreSQL 为每个服务器创建多个数据库。
 

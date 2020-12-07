@@ -8,17 +8,17 @@ origin.date: 10/26/2018
 ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: c1139a8d6997ac2d69b41d411af469550197f011
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: bc1f993347215da413305abb654a7a28271dcf33
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153112"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432533"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和管理 Azure 文件共享 
 本指南介绍通过 PowerShell 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准服务器消息块 (SMB) 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a7de1ea3daf09107cc9c1c1a02146928ace30fab
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 522651b1fa98ba798164db7b060563c96bc7024a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128139"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507867"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教程：将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 
@@ -40,8 +40,8 @@ ms.locfileid: "92128139"
 
 在开始学习本教程之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 * 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)创建
 * 创建一个 [Azure DevOps 组织](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)。 这允许你在 Azure DevOps 中创建项目并使用 Azure Pipelines。
@@ -122,9 +122,9 @@ Azure Pipelines 发布管道描述了将应用程序程序包部署到群集的�
 
 在“添加新的 Service Fabric 连接”视图中，选择“基于证书的”或“Azure Active Directory”身份验证。     指定连接名称“mysftestcluster”和群集终结点“tcp://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19000”（或要部署到的群集的终结点）。
 
-对于基于证书的身份验证，添加用来创建群集的服务器证书的**服务器证书指纹**。  在“客户端证书”中，添加客户端证书文件的 base-64 编码。  有关如何获取证书的 base-64 编码表示形式的信息，请参阅有关该字段的帮助弹出项。 还需要添加证书的**密码**。  如果没有单独的客户端证书，可以使用群集或服务器证书。
+对于基于证书的身份验证，添加用来创建群集的服务器证书的 **服务器证书指纹**。  在“客户端证书”中，添加客户端证书文件的 base-64 编码。  有关如何获取证书的 base-64 编码表示形式的信息，请参阅有关该字段的帮助弹出项。 还需要添加证书的 **密码**。  如果没有单独的客户端证书，可以使用群集或服务器证书。
 
-对于 Azure Active Directory 凭据，请添加用来创建群集的服务器证书的**服务器证书指纹**，并在“用户名”  和“密码”  字段中添加要用来连接到群集的凭据。
+对于 Azure Active Directory 凭据，请添加用来创建群集的服务器证书的 **服务器证书指纹**，并在“用户名”  和“密码”  字段中添加要用来连接到群集的凭据。
 
 单击“添加”  以保存群集连接。
 

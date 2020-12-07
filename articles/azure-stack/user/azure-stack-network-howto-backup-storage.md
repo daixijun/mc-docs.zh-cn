@@ -4,16 +4,16 @@ description: 了解如何在 Azure Stack Hub 上备份存储帐户。
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 6b127cec44736a1de82b7919e0a31e5a4c94399e
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 5688e81ef1992fa105e5900352633cc035b2b514
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437550"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508001"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -55,7 +55,7 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
 - 有关设置 Linux 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Linux 服务器 VM](azure-stack-quick-linux-portal.md)。  
 - 有关设置 Windows 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Windows 服务器 VM](azure-stack-quick-windows-portal.md)。  
 
-设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) 和 [Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。
+设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md) 和 [Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。
 
 ## <a name="set-up-backup-for-storage-accounts"></a>为存储帐户设置备份
 
@@ -81,13 +81,13 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. 在中间服务器上创建脚本。 使用**存储帐户**、**SAS 密钥**和**本地目录路径**更新此命令。 稍后需要运行该脚本以增量方式从**源**存储帐户复制数据。
+4. 在中间服务器上创建脚本。 使用 **存储帐户**、**SAS 密钥** 和 **本地目录路径** 更新此命令。 稍后需要运行该脚本以增量方式从 **源** 存储帐户复制数据。
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  输入**存储帐户**、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到**目标**存储帐户
+5.  输入 **存储帐户**、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

@@ -4,21 +4,21 @@ description: 快速入门：使用 Azure 事件网格和 Azure CLI 发布一个�
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/05/2019
-ms.date: 10/10/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d616e3a80a76690d2d9428c867ea3a949a0c3fd7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4c09598c3fd9a070f61f044fb4969bd09dd400bf
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432494"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>快速入门：使用 Azure CLI 和事件网格将自定义事件路由到 Azure 事件中心
 
 Azure 事件网格是针对云的事件处理服务。 Azure 事件中心是受支持的事件处理程序之一。 在本文中，将使用 Azure CLI 创建一个自定义主题，然后订阅该自定义主题，再触发可查看结果的事件。 将事件发送到事件中心。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

@@ -19,12 +19,12 @@ ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: eb0c4386878958e0f170cbcd6d6c80835b666cc6
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 8921fd39ff77f28fa83a427c23c0cbf5557f1146
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590536"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508028"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>快速入门：创建 NAT 网关 - ARM 模板
@@ -39,7 +39,7 @@ ms.locfileid: "94590536"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -440,7 +440,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 
 1. 从左侧窗格中选择“资源组”。
 

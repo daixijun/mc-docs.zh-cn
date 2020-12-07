@@ -8,12 +8,12 @@ ms.topic: tutorial
 origin.date: 03/20/2020
 ms.date: 11/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 470040b4fe0c574118bb791669969c76897e6185
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 83d6e209dd9ba421f504eebfd4eea032f9df0dfa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978148"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432594"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -35,7 +35,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

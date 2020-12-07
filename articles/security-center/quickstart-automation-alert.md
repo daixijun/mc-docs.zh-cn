@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-johya
-ms.date: 11/12/2020
-ms.openlocfilehash: f530864a1a7998297f9de8d6c342bad2fcab7176
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/01/2020
+ms.openlocfilehash: d9d9f78d68029524f56c6f9a23674dfda37159db
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638122"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432431"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>快速入门：使用 ARM 模板创建特定安全警报自动响应
 
@@ -27,7 +27,7 @@ ms.locfileid: "94638122"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 有关使用Azure 安全中心的工作流自动化功能所需的角色和权限列表，请参阅[工作流自动化](workflow-automation.md)。
 

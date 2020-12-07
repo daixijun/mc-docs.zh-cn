@@ -51,5 +51,7 @@
       href: 'https://docs.microsoft.com/windows-server/'
 - name: 资源
   items:
+    - name: 发行说明
+      href: 'https://aka.ms/aks-hci-relnotes/'
     - name: 已知问题
       href: known-issues.md

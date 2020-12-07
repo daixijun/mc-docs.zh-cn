@@ -17,12 +17,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: aa46121d2287a1ad49d9480fbf562c9be94f175e
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 87448c596dc0194a60ccbea0be72bc3f05f09175
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590848"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508004"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教程：使用 Azure 门户通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -38,7 +38,7 @@ ms.locfileid: "94590848"
 
 如果你愿意，可以使用 [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) 或 [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -128,7 +128,7 @@ ms.locfileid: "94590848"
     |目标服务标记| 选择“Internet”|
     |目标端口范围| * |
     |协议|任意|
-    |操作|Deny|
+    |操作|拒绝|
     |优先级|110|
     |名称|Deny-Internet-All|
 
@@ -197,7 +197,7 @@ ms.locfileid: "94590848"
 3. 选择“+添加现有虚拟网络”。
 4. 在“添加网络”下选择以下值，然后选择“添加”： 
 
-    |设置|值|
+    |设置|“值”|
     |----|----|
     |订阅| 选择订阅。|
     |虚拟网络|选择“虚拟网络”下的“myVirtualNetwork” |
@@ -260,7 +260,7 @@ ms.locfileid: "94590848"
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png" alt-text="连接到虚拟机":::
 
 2. 选择“连接”按钮后将创建一个远程桌面协议 (.rdp) 文件，该文件会被下载到你的计算机。  
-3. 打开下载的 rdp 文件。 出现提示时，选择“连接”  。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”  ，然后选择“使用其他帐户”  ，以指定在创建 VM 时输入的凭据。 
+3. 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”  ，然后选择“使用其他帐户”  ，以指定在创建 VM 时输入的凭据。 
 4. 选择“确定”  。
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。 
 6. 在 *myVmPrivate* VM 上，使用 PowerShell 将 Azure 文件共享映射到驱动器 Z。 在运行以下命令之前，请将 `<storage-account-key>` 和 `<storage-account-name>` 替换为在[创建存储帐户](#create-a-storage-account)中提供或检索的值。
@@ -315,7 +315,7 @@ ms.locfileid: "94590848"
 不再需要资源组时，可将资源组及其包含的所有资源一并删除：
 
 1. 在门户顶部的“搜索”框中输入“myResourceGroup”。 当在搜索结果中看到“myResourceGroup”时，将其选中。
-2. 选择“删除资源组”  。
+2. 选择“删除资源组”。
 3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。 
 
 ## <a name="next-steps"></a>后续步骤

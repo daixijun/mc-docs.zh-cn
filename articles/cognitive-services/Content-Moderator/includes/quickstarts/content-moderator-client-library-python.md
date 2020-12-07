@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: v-tawe
 origin.date: 01/27/2020
-ms.openlocfilehash: b865a2fe64a775a8b87aa031336a3c8fbd8d5b24
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: a560fece62b455a4fd41e8be2b60bf32c0bf029e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654964"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96476656"
 ---
 适用于 Python 的内容审查器客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。 内容审查器是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、有风险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。
 
@@ -32,14 +32,14 @@ ms.locfileid: "84654964"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial-full)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [Python 3.x](https://www.python.org/)
 
 ## <a name="setting-up"></a>设置
 
 ### <a name="create-a-content-moderator-azure-resource"></a>创建内容审查器 Azure 资源
 
-Azure 认知服务由你订阅的 Azure 资源表示。 在本地计算机上使用 [Azure 门户](/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](/cognitive-services/cognitive-services-apis-create-account-cli) 创建内容审查器的资源。 也可执行以下操作：
+Azure 认知服务由你订阅的 Azure 资源表示。 在本地计算机上使用 [Azure 门户](/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](/cognitive-services/cognitive-services-apis-create-account-cli) 创建内容审查器的资源。 你还可以：
 
 <!--trial key not available--> 
 * 在 [Azure 门户](https://portal.azure.cn/)上查看资源
@@ -724,7 +724,7 @@ python quickstart-file.py
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

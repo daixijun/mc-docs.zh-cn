@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/04/2020
+ms.date: 12/01/2020
 ms.author: v-tawe
 origin.date: 09/12/2019
-ms.openlocfilehash: 223a1d3c6eb18ae306d6f1528e62f5e95ccef657
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: b346522ac132a21b5ed5f683fe85fca5eac77d58
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432667"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>开发用于 Azure AD 应用的安全应用
 ## <a name="overview"></a>概述
@@ -80,7 +80,7 @@ ms.locfileid: "84439635"
 - 在系统上安装 [Git](https://git-scm.com/)。 Git 用于在本地克隆源代码。
 - [jq](https://stedolan.github.io/jq/)，一个用于以用户友好方式查询 JSON 的 UNIX 工具。
 
-你需要一个 Azure 订阅来部署示例应用的资源。 如果没有 Azure 订阅，则可以[创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)来测试示例应用。
+你需要一个 Azure 订阅来部署示例应用的资源。 如果没有 Azure 订阅，则可以[创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来测试示例应用。
 
 安装这些工具后，便可以在 Azure 上部署应用了。
 
@@ -310,7 +310,7 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
     *搜索网络安全组*
 
-2. 在下一菜单上，选择“添加”。 输入 NSG 的**名称**以及它应位于其中的**资源组**。 此 NSG 将应用于应用程序网关的子网。
+2. 在下一菜单上，选择“添加”。 输入 NSG 的 **名称** 以及它应位于其中的 **资源组**。 此 NSG 将应用于应用程序网关的子网。
 
     ![创建 NSG](./media/secure-web-app/nsg-create-new.png)
 
@@ -555,7 +555,7 @@ Azure 会创建一个默认策略，指定管理员需要通过双重身份验�
 
 
 ## <a name="cost-considerations"></a>成本注意事项
-   如果还没有 Azure 帐户，可以创建一个免费帐户。 转到[试用版帐户页面](https://wd.azure.cn/pricing/1rmb-trial-full)以开始创建，了解可以使用免费 Azure 帐户执行哪些操作，并了解哪些产品可以免费使用 12 个月。
+   如果还没有 Azure 帐户，可以创建一个免费帐户。 转到[试用版帐户页面](https://www.microsoft.com/china/azure/index.html?fromtype=cn)以开始创建，了解可以使用免费 Azure 帐户执行哪些操作，并了解哪些产品可以免费使用 12 个月。
 
    若要为示例应用中的资源部署安全功能，你需要付费购买一些高级功能。 随着应用不断扩展，你需要升级 Azure 提供的免费层和试用版来满足应用程序需求，你的成本可能会增加。 使用 Azure [定价计算器](https://www.azure.cn/pricing/calculator/)来估算成本。
 

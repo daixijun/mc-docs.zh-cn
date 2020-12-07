@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: aa440adda42ec40048d65f3afeeefca5387b1dce
-ms.sourcegitcommit: 3438213523e78f6bf850df72179737946da9e174
+ms.openlocfilehash: eb44fe9e4df68e470bebc7e6c96be925ae3a247f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975115"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508013"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>教程：为 Azure VM 设置灾难恢复
 
@@ -31,7 +31,7 @@ ms.locfileid: "94975115"
 > [!NOTE]
 > 教程提供了最简单的默认设置的说明。 如果要使用自定义的设置来设置 Azure VM 灾难恢复，请查看[这篇文章](azure-to-azure-how-to-enable-replication.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

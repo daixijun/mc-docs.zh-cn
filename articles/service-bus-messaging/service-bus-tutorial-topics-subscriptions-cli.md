@@ -8,12 +8,12 @@ ms.testdate: ''
 ms.topic: quickstart
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: ead1a22ace1a2d7b7f08d8a02829e827d61f7fe3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 4b8361f1fe3fd780f4da73535d757acab5decb45
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106335"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507955"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>使用 Azure CLI 创建一个服务总线主题和该主题的订阅
 在本快速入门中，你将使用 Azure CLI 创建服务总线主题，然后创建该主题的订阅。 
@@ -113,7 +113,7 @@ ms.locfileid: "93106335"
 > [!div class="nextstepaction"]
 > [发布和订阅消息](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[trial account]: https://www.azure.cn/pricing/1rmb-trial/
+[trial account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!--Not Available on [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name-->
 

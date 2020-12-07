@@ -4,12 +4,12 @@ description: 在 Azure 服务发生时，通过短信、电子邮件或 webhook 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 10/20/2020
-ms.openlocfilehash: 17543a026436fea6d996108f07ffcf77b7c054db
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c3ffce0f75002d3a15a047d2318cb15249ebe9ee
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472686"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508973"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>快速入门：使用 ARM 模板创建有关服务通知的活动日志警报
 
@@ -38,7 +38,7 @@ ms.locfileid: "92472686"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 若要从本地计算机运行命令，请安装 Azure CLI 或 Azure PowerShell 模块。 有关详细信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="review-the-template"></a>查看模板

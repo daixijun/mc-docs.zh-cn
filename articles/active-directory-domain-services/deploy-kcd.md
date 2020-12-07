@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: ec17e7c2ec32f105f3ab110c2c2204753d944a74
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 047cf183d53ce600d8e6a0001089c7457fbffbe9
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413300"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508646"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>配置 Azure Active Directory 域服务中的 Kerberos 约束委派 (KCD)
 
@@ -31,7 +31,7 @@ ms.locfileid: "89413300"
 若要完成本文，需准备好以下资源：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。

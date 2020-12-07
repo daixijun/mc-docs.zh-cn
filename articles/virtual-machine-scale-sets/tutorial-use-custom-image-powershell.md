@@ -9,12 +9,12 @@ ms.date: 08/06/2020
 ms.author: v-junlch
 ms.reviewer: akjosh
 ms.custom: akjosh
-ms.openlocfilehash: 87981ad0880710b1765bfc6c0ce47b3bb92c64ba
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 3dd1fdf152b30964c6bc477619dc3c21bbcc5998
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914188"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508567"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>教程：通过 Azure PowerShell 创建和使用虚拟机规模集的自定义映像
 
@@ -27,7 +27,7 @@ ms.locfileid: "87914188"
 > * 从映像创建规模集 
 > * 共享映像库
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -73,7 +73,7 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>创建映像定义 
 
-映像定义为映像创建逻辑分组。 映像定义用于管理在其中创建的映像版本的相关信息。 映像定义名称可以由大写或小写字母、数字、点、短划线和句点构成。 有关可为映像定义指定的值的详细信息，请参阅[映像定义](../virtual-machines/windows/shared-image-galleries.md#image-definitions)。
+映像定义为映像创建一个逻辑分组。 它们用于管理有关映像版本的信息，这些版本是在其中创建的。 映像定义名称可能包含大写或小写字母、数字、点、短划线和句点。 有关可为映像定义指定的值的详细信息，请参阅[映像定义](../virtual-machines/windows/shared-image-galleries.md#image-definitions)。
 
 使用 [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 创建映像定义。 在此示例中，库映像名为 myGalleryImage，它是为专用化映像创建的。 
 

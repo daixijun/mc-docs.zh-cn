@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 06/28/2020
+ms.date: 12/02/2020
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 86fa82b877667caa828222d45ca1604ff291a5e9
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 3bf7edecb110a7e6ba7c73efcc46bde0e812a621
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516468"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507253"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>教程：从桌面应用使用 Azure Active Directory B2C 授予对 Node.js Web API 的访问权限
 
@@ -51,7 +51,7 @@ ms.locfileid: "85516468"
 
 在先决条件教程中，你注册了名为“nativeapp1”的本机客户端应用程序。 以下步骤使用你向上述部分中“webapi1”公开的 API 范围来配置本机应用程序注册。 这允许桌面应用程序从 Azure AD B2C 获取访问令牌，Web API 可以使用该令牌来验证和提供对其资源的作用域访问。 在本教程的后面部分，你将配置并运行桌面应用程序和 Web API 代码示例。
 
-要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](app-registrations-training-guide.md)。
+要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 

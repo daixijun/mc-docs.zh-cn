@@ -14,12 +14,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1466b49e8cba9ac3a79281c6611319e3040c6e32
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: a2150098e83c5f2b40e3f141dec13072bc26b367
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590917"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507663"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>教程：在流量管理器中配置加权流量路由方法
 
@@ -34,9 +34,9 @@ ms.locfileid: "94590917"
 > - 使用流量管理器配置文件。
 > - 删除流量管理器配置文件。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="configure-the-weighted-traffic-routing-method"></a>配置加权流量路由方法
 

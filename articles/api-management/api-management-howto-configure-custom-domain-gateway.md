@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 10/31/2019
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 374c7f4b6c8b6a8866b2eb4fa066d310a8df98a6
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: ba6ef834a9d07f80aae2f84f0993c4dde765e629
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871412"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432503"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名
 
@@ -29,7 +29,7 @@ ms.locfileid: "91871412"
 
 -   一个有效的 Azure 订阅。
 
-    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 -   API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 - 一个自承载网关。 有关详细信息，请参阅[如何预配自承载网关](api-management-howto-provision-self-hosted-gateway.md)

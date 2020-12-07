@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3751f936aac987e84bc71fb519841ac20ca3d971
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 4ab424ce1d2fc991f5b795e09d382ea1bda84195
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413302"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508682"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>配置 Azure Active Directory 域服务以支持 SharePoint Server 的用户配置文件同步
 
@@ -29,7 +29,7 @@ SharePoint Server 包括同步用户配置文件的服务。 此功能允许将�
 需有以下资源和特权才能完成本文：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。
@@ -63,7 +63,7 @@ SharePoint Server 的服务帐户需要足够的特权，才能将更改复制�
 1. 在“开始”屏幕中选择“管理工具”。 其中显示了可用管理工具列表，这些工具是在教程[创建管理 VM][tutorial-create-management-vm] 中安装的。
 1. 若要管理组成员身份，请从管理工具列表中选择“Active Directory 管理中心”。
 1. 在左窗格中，选择托管域，例如 aaddscontoso.com。 显示现有的 OU 和资源的列表。
-1. 选择“用户”OU，然后选择“AAD DC服务帐户”安全组******。
+1. 选择“用户”OU，然后选择“AAD DC服务帐户”安全组 **。
 1. 选择“成员”，然后选择“添加...” 。
 1. 输入 SharePoint 服务帐户的名称，然后选择“确定”。 在以下示例中，SharePoint 服务帐户的名称为“spadmin”：
 

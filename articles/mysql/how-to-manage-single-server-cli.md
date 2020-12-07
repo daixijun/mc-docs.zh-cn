@@ -7,19 +7,19 @@ ms.service: mysql
 ms.topic: how-to
 origin.date: 9/22/2020
 ms.date: 11/09/2020
-ms.openlocfilehash: ed127ea091479485a94949e901cb7a1d34b2d470
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 93c2a3c0f6bf36a3619a724b6ced2a76ae85ecbd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327303"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431905"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure Database for MySQL 单一服务器
 
 本文介绍如何管理 Azure 中部署的单一服务器。 管理任务包括计算和存储缩放、管理员密码重置，以及查看服务器详细信息。
 
 ## <a name="prerequisites"></a>先决条件
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 你将需要使用 [az login](/cli/reference-index#az-login) 命令登录到你的帐户。 请注意 ID 属性，该属性指的是 Azure 帐户的订阅 ID 。
 

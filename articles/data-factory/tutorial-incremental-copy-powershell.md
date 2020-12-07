@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/22/2018
 ms.date: 10/19/2020
-ms.openlocfilehash: e05a70990d6100e9949f8b4cc63b691185ce5611
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: eb463401cefaf89f5c2df7be3ce429fc5ec439d0
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121726"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431918"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>使用 PowerShell 以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
@@ -58,7 +58,7 @@ ms.locfileid: "92121726"
     * 创建 StoredProcedure 活动，用于更新下一次运行的管道的水印值。
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

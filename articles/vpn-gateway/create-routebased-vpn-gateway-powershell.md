@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/11/2019
 ms.date: 04/06/2020
 ms.author: v-jay
-ms.openlocfilehash: 872096a20ee20cc4fc6de053a1c39e17fd4de8b2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 752152f59e3c0cc686d8485f6d694ad38c554594
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634554"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432264"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>使用 PowerShell 创建基于路由的 VPN 网关
 
@@ -21,7 +21,7 @@ ms.locfileid: "80634554"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文中的步骤将创建 VNet、子网、网关子网和基于路由的 VPN 网关（虚拟网络网关）。 完成网关创建后，可以创建连接。 执行这些步骤需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+本文中的步骤将创建 VNet、子网、网关子网和基于路由的 VPN 网关（虚拟网络网关）。 完成网关创建后，可以创建连接。 执行这些步骤需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 3/18/2019
 ms.date: 11/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 6f9429831f4056e9256c7f38ac4dbd722d89a682
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 59fceb5766be91385ce9cede7411711c436cdf57
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328878"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431670"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>快速入门：使用简单的 Azure CLI 命令 az mysql up 创建 Azure Database for MySQL（预览）
 
@@ -28,7 +28,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -68,7 +68,7 @@ resource-group | 系统生成的 | 新的 Azure 资源组。
 sku-name | GP_Gen5_2 | SKU 的名称。 遵循约定“{定价层}\_{计算代系}\_{vCores}”的简写形式。 默认为带 2 个 vCore 的常规用途 Gen5 服务器。 有关各层的详细信息，请参阅[定价页](https://azure.cn/pricing/details/mysql/)。
 backup-retention | 7 | 备份保留时间。 单位为天。
 geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。
-ssl-enforcement | Enabled | 是否应该为此服务器启用 SSL。
+ssl-enforcement | 已启用 | 是否应该为此服务器启用 SSL。
 storage-size | 5120 | 服务器的存储容量（以 MB 为单位）。
 版本 | 5.7 | MySQL 主版本。
 admin-user | 系统生成的 | 管理员的登录用户名。

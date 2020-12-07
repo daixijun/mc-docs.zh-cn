@@ -9,16 +9,16 @@ ms.topic: quickstart
 origin.date: 06/25/2019
 ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5472906b5b6dc122762bc7242bb95f74952b662e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1775bc5d31f434ada5b387d7c64baa8a7fef86b2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328009"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432644"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL 服务器
 
-本快速入门介绍如何使用 [Azure CLI](/cli/get-started-with-azure-cli) 命令在 5 分钟内创建单个 Azure Database for PostgreSQL 服务器。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+本快速入门介绍如何使用 [Azure CLI](/cli/get-started-with-azure-cli) 命令在 5 分钟内创建单个 Azure Database for PostgreSQL 服务器。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!TIP]
 > 请考虑使用更简单的 [az postgres up](/cli/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。

@@ -1,16 +1,16 @@
 ---
 title: 使用 Visual Studio Code 将 Azure Functions 连接到 Azure 存储
 description: 了解如何通过将输出绑定添加到 Visual Studio Code 项目将 Azure Functions 连接到 Azure 存储队列。
-ms.date: 11/18/2020
+ms.date: 11/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: dae5a5f211f618691da10ba7ea94a4a01a5cfbda
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: e68028c929d7b96c6f7e7335ebd621d471d9c9b1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970828"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507790"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>使用 Visual Studio Code 将 Azure Functions 连接到 Azure 存储
 
@@ -52,7 +52,7 @@ ms.locfileid: "95970828"
 
 ## <a name="download-the-function-app-settings"></a>下载函数应用设置
 
-在[前一篇快速入门文章](functions-create-first-function-vs-code.md)中，你已在 Azure 中创建了一个函数应用，并创建了所需的存储帐户。 此帐户的连接字符串安全存储在 Azure 中的应用设置内。 在本文中，你要将消息写入到同一帐户中的存储队列。 若要在本地运行函数时连接到该存储帐户，必须将应用设置下载到 local.settings.json 文件。 
+在[前一篇快速入门文章](./create-first-function-vs-code-csharp.md)中，你已在 Azure 中创建了一个函数应用，并创建了所需的存储帐户。 此帐户的连接字符串安全存储在 Azure 中的应用设置内。 在本文中，你要将消息写入到同一帐户中的存储队列。 若要在本地运行函数时连接到该存储帐户，必须将应用设置下载到 local.settings.json 文件。 
 
 1. 按 F1 键打开命令面板，然后搜索并运行命令 `Azure Functions: Download Remote Settings....`。 
 

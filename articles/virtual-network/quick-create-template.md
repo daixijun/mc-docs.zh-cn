@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d8e347282c8e54b9044a9f3fd6d1660c10dc4605
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: c045ecf81871aee3241a489dea1afcb3e60c586a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571595"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508029"
 ---
 <!--Verified Successfully-->
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>快速入门：创建虚拟网络 - 资源管理器模板
@@ -30,7 +30,7 @@ ms.locfileid: "91571595"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

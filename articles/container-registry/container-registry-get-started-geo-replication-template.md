@@ -11,12 +11,12 @@ ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0ee02703fbdcb7bee8d12e9c253734c2d94c2f91
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: edea85f95427ebd0f111b8a5e629bb8801895619
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104427"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508046"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建异地复制容器注册表
@@ -33,7 +33,7 @@ ms.locfileid: "93104427"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -125,11 +125,11 @@ ms.locfileid: "93104427"
 
 该模板中定义了以下资源：
 
-* **Microsoft.ContainerRegistry/registries** ：创建 Azure 容器注册表
+* **Microsoft.ContainerRegistry/registries**：创建 Azure 容器注册表
     
     <!--Not Available on (https://docs.microsoft.com/azure/templates/microsoft.containerregistry/registries)-->
     
-* **Microsoft.ContainerRegistry/registries/replications** ：创建容器注册表副本
+* **Microsoft.ContainerRegistry/registries/replications**：创建容器注册表副本
 
     <!--Not Available on (https://docs.microsoft.com/azure/templates/microsoft.containerregistry/registries/replications)-->
 
@@ -146,20 +146,20 @@ ms.locfileid: "93104427"
 1. 选择或输入以下值。
 
     * 订阅：选择一个 Azure 订阅。
-    * **资源组** ：选择“新建”，为资源组输入一个独一无二的名称，然后选择“确定”。 
-    * **位置** ：选择资源组的位置。 示例： **中国北部** 。
-    * **Acr 名称** ：接受为注册表生成的名称，或者输入一个名称。 它必须全局唯一。
-    * **已启用 Acr 管理员用户** ：接受默认值。
-    * **位置** ：接受为注册表的主副本生成的位置，或输入一个位置，例如“中国北部”。 
-    * **Acr Sku** ：接受默认值。
-    * **Acr 副本位置** ：使用区域的短名称输入注册表副本的位置。 该位置必须与主注册表的位置不同。 示例：chinanorth。
-    * **我同意上述条款和条件** ：选中。
+    * **资源组**：选择“新建”，为资源组输入一个独一无二的名称，然后选择“确定”。 
+    * **位置**：选择资源组的位置。 示例：**中国北部**。
+    * **Acr 名称**：接受为注册表生成的名称，或者输入一个名称。 它必须全局唯一。
+    * **已启用 Acr 管理员用户**：接受默认值。
+    * **位置**：接受为注册表的主副本生成的位置，或输入一个位置，例如“中国北部”。 
+    * **Acr Sku**：接受默认值。
+    * **Acr 副本位置**：使用区域的短名称输入注册表副本的位置。 该位置必须与主注册表的位置不同。 示例：chinanorth。
+    * **我同意上述条款和条件**：选中。
 
-        :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="部署到 Azure":::
+        :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="模板属性":::
 
  3. 如果接受条款和条件，请选择“购买”。 成功创建注册表后，你会收到通知：
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="门户通知":::
 
  使用 Azure 门户部署模板。 除了 Azure 门户之外，还可以使用 Azure PowerShell、Azure CLI 和 REST API。 若要了解其他部署方法，请参阅[部署模板](../azure-resource-manager/templates/deploy-cli.md)。
 
@@ -173,11 +173,11 @@ ms.locfileid: "93104427"
 
 1. 在“概述”页上，记下注册表的“登录服务器” 。 使用 Docker 标记映像并将其推送到注册表时，请使用此 URI。 有关信息，请参阅[使用 Docker CLI 推送第一个映像](container-registry-get-started-docker-cli.md)。
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="注册表概述":::
 
 1. 在“复制”页上，确认主副本和通过该模板添加的副本的位置。 如果需要，可在此页上添加更多副本。
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="注册表复制":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

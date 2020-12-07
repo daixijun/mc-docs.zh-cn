@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 06/10/2018
 ms.date: 07/27/2020
-ms.openlocfilehash: 1d5b25f02efad7f0a511e176cc808fe3adb6eec5
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: e1999bbd6aa4fa8f39e5fb45f92ce567264f08c3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524041"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431927"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>使用 Azure 门户以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
@@ -63,7 +63,7 @@ ms.locfileid: "90524041"
     * 创建 StoredProcedure 活动，用于更新下一次运行的管道的水印值。
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 * **Azure SQL 数据库**。 将数据库用作源数据存储。 如果 Azure SQL 数据库没有数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)，了解创建步骤。
@@ -158,20 +158,20 @@ END
 
    ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. 在“新建数据工厂”页中，输入 ADFIncCopyTutorialDF 作为**名称**。
+3. 在“新建数据工厂”页中，输入 ADFIncCopyTutorialDF 作为 **名称**。
 
    Azure 数据工厂的名称必须 **全局唯一**。 如果看到红色感叹号和以下错误，请更改数据工厂的名称（例如改为 yournameADFIncCopyTutorialDF），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
 
     数据工厂名“ADFIncCopyTutorialDF”不可用
 4. 选择要在其中创建数据工厂的 Azure **订阅**。
-5. 对于**资源组**，请执行以下步骤之一：
+5. 对于 **资源组**，请执行以下步骤之一：
 
-      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
+      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
       - 选择“新建”，并输入资源组的名称。   
          
         若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
 6. 选择“V2”作为“版本”。
-7. 选择数据工厂的**位置**。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库、Azure SQL 托管实例等）和计算资源（HDInsight 等）可位于其他区域中。
+7. 选择数据工厂的 **位置**。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库、Azure SQL 托管实例等）和计算资源（HDInsight 等）可位于其他区域中。
 8. 单击“创建”。      
 9. 创建完成后，可以看到图中所示的“数据工厂”页。
 
@@ -186,7 +186,7 @@ END
    ![数据工厂 UI 的“入门”页](./media/doc-common-process/get-started-page.png)    
 3. 在“常规”面板的“属性”中，将名称指定为 IncrementalCopyPipeline  。 然后通过单击右上角的“属性”图标来折叠面板。
 
-4. 请添加第一个查找活动，获取旧水印值。 在“活动”工具箱中展开“常规”， 将**查找**活动拖放到管道设计器图面。 将活动的名称更改为 **LookupOldWaterMarkActivity**。
+4. 请添加第一个查找活动，获取旧水印值。 在“活动”工具箱中展开“常规”， 将 **查找** 活动拖放到管道设计器图面。 将活动的名称更改为 **LookupOldWaterMarkActivity**。
 
    ![第一个查找活动 - 名称](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. 切换到“设置”选项卡，针对“源数据集”单击“+ 新建”。 在此步骤中，请创建一个代表 **watermarktable** 中数据的数据集。 此表包含在前一复制操作中使用过的旧水印。
@@ -210,9 +210,9 @@ END
 9. 在“连接”选项卡中，对于“表”，选择“[dbo].[watermarktable]”。 若要预览表中的数据，请单击“预览数据”。
 
     ![水印数据集 - 连接设置](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-10. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到管道编辑器。 在**查找**活动的属性窗口中，确认对于“源数据集”字段，是否已选择 **WatermarkDataset**。
+10. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到管道编辑器。 在 **查找** 活动的属性窗口中，确认对于“源数据集”字段，是否已选择 **WatermarkDataset**。
 
-11. 在“活动”工具箱中展开“常规”， 将另一**查找**活动拖放到管道设计器图面，然后在属性窗口的“常规”选项卡中将名称设置为 **LookupNewWaterMarkActivity**。 此“查找”活动从特定表获取新的水印值，该表包含的源数据可以复制到目标。
+11. 在“活动”工具箱中展开“常规”， 将另一 **查找** 活动拖放到管道设计器图面，然后在属性窗口的“常规”选项卡中将名称设置为 **LookupNewWaterMarkActivity**。 此“查找”活动从特定表获取新的水印值，该表包含的源数据可以复制到目标。
 
 12. 在第二个“复制”活动的属性窗口中切换到“设置”选项卡，然后单击“新建”。 请创建一个数据集，使之指向源表，该表包含新的水印值（LastModifyTime 的最大值）。
 
@@ -220,7 +220,7 @@ END
 14. 在属性窗口的“常规”选项卡中，对于“名称”输入“SourceDataset” 。 为“链接服务”选择“AzureSqlDatabaseLinkedService”。
 15. 对于“表”，请选择“[dbo].[data_source_table]”。 本教程后面需指定一个针对此数据集的查询。 此查询优先于在此步骤中指定的表。
 16. 选择“完成”。
-17. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到管道编辑器。 在**查找**活动的属性窗口中，确认对于“源数据集”字段，是否已选择 **SourceDataset**。
+17. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到管道编辑器。 在 **查找** 活动的属性窗口中，确认对于“源数据集”字段，是否已选择 **SourceDataset**。
 18. 对于“使用查询”字段，请选择“查询”， 然后输入以下查询：仅从 **data_source_table** 中选择 **LastModifytime** 的最大值。 请确保还选中了“仅第一行”。
 
     ```sql
@@ -230,7 +230,7 @@ END
     ![第二个查找活动 - 查询](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
 19. 在“活动”工具箱中，展开“移动和转换”，然后从“活动”工具箱拖放“复制”活动，并将名称设置为“IncrementalCopyActivity”。
 
-20. 通过将附加到“查找”活动的**绿色按钮**拖至“复制”活动，**将两个“查找”活动都连接到“复制”活动**。 看到“复制”活动的边框颜色变为蓝色时，松开鼠标按键。
+20. 通过将附加到“查找”活动的 **绿色按钮** 拖至“复制”活动，**将两个“查找”活动都连接到“复制”活动**。 看到“复制”活动的边框颜色变为蓝色时，松开鼠标按键。
 
     ![将“查找”活动连接到“复制”活动](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. 选择 **“复制”活动**，确认在“属性”窗口看到活动的属性。
@@ -253,17 +253,17 @@ END
 25. 在“设置属性”窗口中，对于“名称”输入“SinkDataset” 。 对于“链接服务”，选择“+新建”。 此步骤创建一个连接（链接服务），用于连接到 **Azure Blob 存储**。
 26. 在“新建链接服务(Azure Blob 存储)”窗口中执行以下步骤：
 
-    1. 输入 **AzureStorageLinkedService** 作为**名称**。
+    1. 输入 **AzureStorageLinkedService** 作为 **名称**。
     2. 对于“存储帐户名称”，请选择自己的 Azure 存储帐户。
     3. 测试连接，然后单击“完成”。
 
 27. 在“设置属性”窗口中，对于“链接服务”，确认选择了“AzureStorageLinkedService”。 然后选择“完成”。
 28. 转到 SinkDataset 的“连接”选项卡，然后执行以下步骤：
-    1. 对于“文件路径”字段，请输入“adftutorial/incrementalcopy”。 **adftutorial** 是 Blob 容器名称，**incrementalcopy** 是文件夹名称。 此代码片段假设 Blob 存储中有一个名为 adftutorial 的 Blob 容器。 创建容器（如果不存在），或者将容器设置为现有容器的名称。 Azure 数据工厂自动创建输出文件夹 **incrementalcopy**（如果不存在）。 对于“文件路径”，也可使用“浏览”按钮导航到 Blob 容器中的某个文件夹。
+    1. 对于“文件路径”字段，请输入“adftutorial/incrementalcopy”。 **adftutorial** 是 Blob 容器名称，**incrementalcopy** 是文件夹名称。 此代码片段假设 Blob 存储中有一个名为 adftutorial 的 Blob 容器。 创建容器（如果不存在），或者将容器设置为现有容器的名称。 Azure 数据工厂自动创建输出文件夹 **incrementalcopy**（如果不存在）。 对于“文件路径”，也可使用“浏览”按钮导航到 Blob 容器中的某个文件夹。 
     2. 对于“文件路径”字段的“文件”部分，选择“添加动态内容 [Alt+P]”，然后在打开的窗口中输入 `@CONCAT('Incremental-', pipeline().RunId, '.txt')`。 然后选择“完成”。 文件名是使用表达式动态生成的。 每次管道运行都有唯一的 ID。 “复制”活动使用运行 ID 生成文件名。
 
-28. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到**管道**编辑器。
-29. 在“活动”工具箱中，展开“常规”，然后将**存储过程**活动从“活动”工具箱拖放到管道设计器图面。 将**复制**活动的绿色（成功）输出**连接**到**存储过程**活动。
+28. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到 **管道** 编辑器。
+29. 在“活动”工具箱中，展开“常规”，然后将 **存储过程** 活动从“活动”工具箱拖放到管道设计器图面。 将 **复制** 活动的绿色（成功）输出 **连接** 到 **存储过程** 活动。
 
 24. 在管道设计器中选择“存储过程活动”，将其名称更改为 **StoredProceduretoWriteWatermarkActivity**。
 
@@ -288,7 +288,7 @@ END
 ## <a name="trigger-a-pipeline-run"></a>触发管道运行
 1. 单击工具栏中的“添加触发器”，然后单击“立即触发”。 
 
-2. 在“管道运行”窗口中选择“完成”。 
+2. 在“管道运行”窗口中选择“完成”。
 
 ## <a name="monitor-the-pipeline-run"></a>监视管道运行
 

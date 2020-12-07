@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 04633deb0d27f5848f4a4d86c57a3967fabe7bfa
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: c9b4a617bf2ea797da45187308fbdfa18970a46b
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946543"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508664"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中自定义用户界面体验
 
@@ -29,7 +29,7 @@ ms.locfileid: "88946543"
 > * 更新用户流以使用文件
 > * 测试自定义 UI
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -64,7 +64,7 @@ ms.locfileid: "88946543"
 
 1. 在菜单中，选择“CORS”。
 2. 对于“允许的源”，请输入 `https://your-tenant-name.b2clogin.cn`。 将 `your-tenant-name` 替换为 Azure AD B2C 租户的名称。 例如，`https://fabrikam.b2clogin.cn`。 输入租户名称时，需要使用全小写字母。
-3. 对于**允许的方法**，请选择 `GET`、`PUT` 和 `OPTIONS`。
+3. 对于 **允许的方法**，请选择 `GET`、`PUT` 和 `OPTIONS`。
 4. 对于“允许的标头”，请输入一个星号 (*)。
 5. 对于“公开的标头”，请输入一个星号 (*)。
 6. 对于“最大期限”，请输入 200。

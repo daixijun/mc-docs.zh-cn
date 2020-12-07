@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 4dabd8acaa4fda53ed035de96fe208939651bd26
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 42f8a8804be0eceed131136849d71f1fbaf87812
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552031"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432486"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
@@ -27,7 +27,7 @@ ms.locfileid: "94552031"
 
 Azure 存储中的异地冗余会将事务从主要区域异步复制到数百英里外的次要区域。 此复制过程可确保次要区域中的数据最终一致。 控制台应用程序使用[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式确定要连接到的终结点，在模拟故障和恢复时在终结点之间自动切换。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 在该系列的第一部分中，你将学习如何：
 

@@ -16,12 +16,12 @@ origin.date: 10/22/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 2abd765c879cdad6eb9ff92ff42e2b1e002d159f
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 90b93bef4480e3341ec20864f05c7904776aea16
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432407"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -29,7 +29,7 @@ ms.locfileid: "96152990"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -50,7 +50,7 @@ ms.locfileid: "96152990"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中输入 myResourceGroupLB 。|
@@ -202,7 +202,7 @@ ms.locfileid: "96152990"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
@@ -223,7 +223,7 @@ ms.locfileid: "96152990"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -242,7 +242,7 @@ ms.locfileid: "96152990"
 
 6. 在“管理”选项卡中，选择或输入：
     
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **Monitoring** |  |
     | 启动诊断 | 选择“关闭” |
@@ -315,7 +315,7 @@ ms.locfileid: "96152990"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入 myResourceGroupLB 。|
@@ -421,7 +421,7 @@ ms.locfileid: "96152990"
     | 时间间隔 | 输入 **15** 作为两次探测尝试之间的 **时间间隔**（以秒为单位）。 |
     | 不正常阈值 | 选择“2”，作为将 VM 视为不正常所要达到的 **不正常阈值** 或连续探测失败次数。|
 
-3. 选择“确定” 。
+3. 选择“确定”  。
 
 ### <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 
@@ -474,7 +474,7 @@ ms.locfileid: "96152990"
    
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
@@ -495,7 +495,7 @@ ms.locfileid: "96152990"
   
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | 选择 myVNet |
@@ -510,7 +510,7 @@ ms.locfileid: "96152990"
 
 6. 在“管理”选项卡中，选择或输入：
     
-    | 设置 | 值 |
+    | 设置 | “值” |
     |---|---|
     | **Monitoring** | |
     | 启动诊断 | 选择“关闭” |

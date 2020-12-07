@@ -6,14 +6,14 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9cfa610f96ac401c99a8ef38b8614551df9cc474
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3037dc3382f701812eb14e27daedefd9b485cc5b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228169"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431586"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>使用 Azure CLI 创建事件网格自定义主题
 
@@ -21,7 +21,7 @@ ms.locfileid: "88228169"
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

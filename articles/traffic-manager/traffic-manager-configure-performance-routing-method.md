@@ -15,12 +15,12 @@ ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 83ee078359362874a0bd48a1daf25b761b2f52c7
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 19c703f19280bd20552cd846417c91d07538b62c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395410"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507670"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>配置性能流量路由方法
 
@@ -28,7 +28,7 @@ ms.locfileid: "91395410"
 
 ## <a name="to-configure-performance-routing-method"></a>配置性能路由方法
 
-1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 2. 在门户的搜索栏中，搜索“流量管理器配置文件”  ，并单击要为其配置路由方法的配置文件名称。
 3. 在“流量管理器配置文件”  边栏选项卡中，检查要包含在配置中的云服务和网站是否都存在。
 4. 在“设置”  部分，单击“配置”  ，并在“配置”  边栏选项卡中完成如下操作：

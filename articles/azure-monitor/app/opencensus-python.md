@@ -5,15 +5,15 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 10/11/2019
-ms.date: 11/10/2020
+ms.date: 12/01/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: eeffd14de7a6f44994e595a7f17ce16da900619f
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8e30af90d33ba6ed12a462c0b53b9f7d4d564d01
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432596"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>为 Python 应用程序设置 Azure Monitor
 
@@ -21,7 +21,7 @@ ms.locfileid: "94637860"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Python 安装。 本文使用 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)，但其他版本在经过轻微的更改后也可能适用。 SDK 仅支持 Python v2.7 和 v3.4-v3.7。
 - 创建 Application Insights [资源](./create-new-resource.md)。 系统将针对你的资源为你分配自己的检测密钥 (ikey)。
 

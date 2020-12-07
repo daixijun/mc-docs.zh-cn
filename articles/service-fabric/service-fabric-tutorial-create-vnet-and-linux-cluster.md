@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 793db57c7b6474844d43b2f72ea1b2dc0975b79c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f24d538771a972a3f0322f684b62c7fef46f138b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327430"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507934"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -24,7 +24,7 @@ ms.locfileid: "94327430"
 
 开始之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 安装 [Service Fabric CLI](service-fabric-cli.md)
 * 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
 * 若要了解群集的关键概念，请阅读 [Azure 群集概述](service-fabric-azure-clusters-overview.md)

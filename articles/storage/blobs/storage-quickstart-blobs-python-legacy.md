@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: ca1d02c4a33ab5d9e3ba526a454578e33856bd22
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 1c9dbe71856d7c9ff461727d5109cd632905c310
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753430"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432608"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>快速入门：使用 Python v2.1 SDK 管理 blob
 
@@ -25,7 +25,7 @@ ms.locfileid: "88753430"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 Azure 存储帐户。 [创建存储帐户](../common/storage-account-create.md)。
 - [Python](https://www.python.org/downloads/)。
 - [用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-sdk-for-python)。

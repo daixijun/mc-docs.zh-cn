@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a51e9668189c9184121d46bfac3137f7e845c2aa
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b30b9211813855655563d7105c3182ef6283f215
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551904"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431789"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>快速入门：适用于 Python 的 Azure 队列存储客户端库 v12
 
@@ -39,7 +39,7 @@ ms.locfileid: "94551904"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
+* Azure 订阅 - [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于你的操作系统的 [Python](https://www.python.org/downloads/) - 2.7、3.5 或更高版本
 

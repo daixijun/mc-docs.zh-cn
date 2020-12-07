@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3236923f8121b73eb51639fbe7ce4bbaabb38d31
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 0b9d56a2546bf2327df4b8eb35b2ea1108f541a2
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471186"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507904"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>使用 C Sharp 查询 Azure 时序见解 Gen1 环境中的数据
 
@@ -52,7 +52,7 @@ ms.locfileid: "92471186"
 
 在编译和运行示例代码之前，请完成以下步骤：
 
-1. [预配 Gen1 Azure 时序见解](/time-series-insights/time-series-insights-get-started)环境。
+1. [预配 Gen1 Azure 时序见解](./time-series-insights-get-started.md)环境。
 1. 为 Azure Active Directory 配置 Azure 时序见解环境，如[身份验证和授权](time-series-insights-authentication-and-authorization.md)中所述。
 1. 安装必需的项目依赖项。
 1. 编辑下面的示例代码，将每个 **#DUMMY#** 替换为相应的环境标识符。

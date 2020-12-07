@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: d9efecda384498e1a0273fd29eef6093596e8b8d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d082a08c090d04ea1a6fc6e6c54cca0a83e3ad1a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552130"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431740"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 JavaScript 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -26,7 +26,7 @@ ms.locfileid: "94552130"
 ## <a name="prerequisites"></a>先决条件
 
 > [!div class="checklist"]
-> * Azure 订阅。 请参阅[获取 Azure 1 元人民币的试用订阅](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+> * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > * 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](data-lake-storage-quickstart-create-account.md)说明创建一个。
 > * 如果在 Node.js 应用程序中使用此包，则需要 Node.js 8.0.0 或更高版本。
 

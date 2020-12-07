@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: dba8b7737c1cb67af61213a7eaf4edae94f7f00f
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 6579541cbbe4d76fd4c6adf5e34cb02f4c09f7ee
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970831"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507614"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>教程：使用新的应用程序网关实例为新的 AKS 群集启用入口控制器加载项（预览版）
 
@@ -30,11 +30,14 @@ ms.locfileid: "95970831"
 > * 在 AKS 群集上部署将 AGIC 用于入口的示例应用程序。
 > * 检查是否可以通过应用程序网关访问应用程序。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - 本教程需要 Azure CLI 版本 2.0.4 或更高版本。 
+ - 本教程需要 Azure CLI 版本 2.0.4 或更高版本。 如果使用的是 Azure CLI，则必须使用以下命令在 CLI 上安装预览扩展（如果尚未安装）：
+    ```azurecli
+    az extension add --name aks-preview
+    ```
 
  - 若要注册 AKS-IngressApplicationGatewayAddon 功能标志，请使用 [az feature register](/cli/feature#az-feature-register) 命令，如以下示例所示： 当该加载项仍处于预览阶段时，对于每个订阅，只需执行此操作一次。
     ```azurecli

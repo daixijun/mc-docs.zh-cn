@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: b667658769769156745358312d551439133da657
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: b67e775e88c92697fddf28c5e7afa34800519d6b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471302"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507906"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>使用事件中心向 Azure 时序见解 Gen1 环境发送事件
 
@@ -27,7 +27,7 @@ ms.locfileid: "92471302"
 
 ## <a name="configure-an-event-hub"></a>配置事件中心
 
-1. 若要了解如何创建事件中心，请阅读[事件中心文档](/event-hubs/)。
+1. 若要了解如何创建事件中心，请阅读[事件中心文档](../event-hubs/index.yml)。
 1. 在搜索框中，搜索“事件中心”。 在返回的列表中选择“事件中心”。
 1. 选择事件中心。
 1. 在创建事件中心时，实际上要创建事件中心命名空间。 如果尚未在命名空间中创建事件中心，请在菜单中的“实体”下创建事件中心。  
@@ -62,9 +62,9 @@ ms.locfileid: "92471302"
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>创建 Azure 时序见解事件源
 
-1. 如果尚未创建事件源，请完成步骤以[创建事件源](how-to-ingest-data-event-hub.md)。
+1. 如果尚未创建事件源，请完成步骤以[创建事件源](./how-to-ingest-data-event-hub.md)。
 
-1. 为 `timeSeriesId` 设置一个值。 若要详细了解 **时序 ID** ，请阅读 [时序模型](./concepts-model-overview.md)。
+1. 为 `timeSeriesId` 设置一个值。 若要详细了解 **时序 ID**，请阅读 [时序模型](./concepts-model-overview.md)。
 
 ### <a name="push-events-to-windmills-sample"></a>将事件推送到 windmills 的示例
 
@@ -97,7 +97,7 @@ ms.locfileid: "92471302"
 
 ### <a name="example-one"></a>示例一
 
-* **输入** ：一个简单的 JSON 对象。
+* **输入**：一个简单的 JSON 对象。
 
     ```JSON
     {
@@ -106,7 +106,7 @@ ms.locfileid: "92471302"
     }
     ```
 
-* **输出** ：一个事件。
+* **输出**：一个事件。
 
     |id|timestamp|
     |--------|---------------|
@@ -114,7 +114,7 @@ ms.locfileid: "92471302"
 
 ### <a name="example-two"></a>示例二
 
-* **输入** ：包含两个 JSON 对象的 JSON 数组。 每个 JSON 对象都转换为事件。
+* **输入**：包含两个 JSON 对象的 JSON 数组。 每个 JSON 对象都转换为事件。
 
     ```JSON
     [
@@ -129,7 +129,7 @@ ms.locfileid: "92471302"
     ]
     ```
 
-* **输出** ：两个事件。
+* **输出**：两个事件。
 
     |id|timestamp|
     |--------|---------------|
@@ -138,7 +138,7 @@ ms.locfileid: "92471302"
 
 ### <a name="example-three"></a>示例三
 
-* **输入** ：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。
+* **输入**：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。
 
     ```JSON
     {
@@ -156,7 +156,7 @@ ms.locfileid: "92471302"
     }
     ```
 
-* **输出** ：两个事件。 “location”属性复制到每个事件。
+* **输出**：两个事件。 “location”属性复制到每个事件。
 
     |location|events.id|events.timestamp|
     |--------|---------------|----------------------|
@@ -165,7 +165,7 @@ ms.locfileid: "92471302"
 
 ### <a name="example-four"></a>示例四
 
-* **输入** ：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。 此输入表明复杂 JSON 对象可以表示全局属性。
+* **输入**：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。 此输入表明复杂 JSON 对象可以表示全局属性。
 
     ```JSON
     {
@@ -197,7 +197,7 @@ ms.locfileid: "92471302"
     }
     ```
 
-* **输出** ：两个事件。
+* **输出**：两个事件。
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
@@ -208,5 +208,5 @@ ms.locfileid: "92471302"
 
 * 在 Azure 时序见解资源管理器中[查看环境](https://insights.timeseries.azure.cn)。
 
-* 阅读有关 [IoT 中心设备消息](/iot-hub/iot-hub-devguide-messages-construct)的详细信息
+* 阅读有关 [IoT 中心设备消息](../iot-hub/iot-hub-devguide-messages-construct.md)的详细信息
 

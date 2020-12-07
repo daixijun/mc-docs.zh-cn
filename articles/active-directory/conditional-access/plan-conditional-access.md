@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431c02f73f750c2ac6c45551c9beff7563269603
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 4829a13613ea6d2e13fe6be18a87f6d556c0e5b8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508908"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>计划条件访问部署
 
@@ -52,7 +52,7 @@ Microsoft 提供了标准的条件策略（称为[安全默认值](../fundamenta
 
 ### <a name="prerequisites"></a>先决条件
 
-* 一个至少启用了 Azure AD Premium 或试用版许可证的有效 Azure AD 租户。 如果需要，可[创建一个](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个至少启用了 Azure AD Premium 或试用版许可证的有效 Azure AD 租户。 如果需要，可[创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个拥有条件访问管理员特权的帐户。
 

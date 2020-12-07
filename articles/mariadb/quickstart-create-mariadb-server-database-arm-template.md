@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 05/14/2020
 ms.date: 09/14/2020
-ms.openlocfilehash: 1d9eae8d14c14ed40583867f9493b2d4fb3a840d
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 410db7c47a7fe43b29bfaa179a2ae69a31c1ef13
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512952"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432440"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>快速入门：使用 ARM 模板创建 Azure Database for MariaDB 服务器
 
@@ -29,16 +29,16 @@ Azure Database for MariaDB 是一种托管服务，可用于在云中运行、�
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure CLI](/cli/)。
 
 ---
@@ -373,7 +373,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 按照以下步骤查看新 Azure Database for MariaDB 服务器的概览：
 
@@ -408,7 +408,7 @@ read -p "Press [ENTER] to continue: "
 
 如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
 

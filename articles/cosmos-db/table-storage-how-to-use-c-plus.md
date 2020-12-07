@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 10/07/2019
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 7e6d1bf2a2a47e41745d805a440b70822cc719f8
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b2934ba499077be4155bca1b4f6921825cc8b82f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552684"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508060"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -102,7 +102,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](https://www.azure.cn/downloads/) 一起安装的 Azure 存储模拟器。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用工具。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 

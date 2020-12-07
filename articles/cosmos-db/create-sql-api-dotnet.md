@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 73378712c3725ec19dc60864c71299b3c873932f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2c03712c61a6303f11fcae232e1908fd7e78eda9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328607"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508057"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Azure Cosmos DB 是 21Vianet 的快速 NoSQL 数据库，具有适合于任何�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [免费创建订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - [免费创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
     
     <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)--> 
     

@@ -2,21 +2,21 @@
 title: include 文件
 description: include 文件
 services: cosmos-db
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 04/05/2019
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 694058516ed33cb5a8ff4caf50445ca4c079de98
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: a608a73844084b63ddbc933759a80e314a4f4ad7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427549"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507671"
 ---
 可以在数据资源管理器中使用查询来检索和筛选数据。
 
@@ -32,7 +32,7 @@ ms.locfileid: "87427549"
 
     :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="将查询更改为 ORDER BY c._ts DESC，然后单击“应用筛选器”":::
 
-如果熟悉 SQL 语法，可以在查询谓词框中输入任何受支持的 [SQL 查询](../articles/cosmos-db/sql-api-sql-query.md)。 还可以使用数据资源管理器创建存储过程、UDF 和触发器以执行服务器端业务逻辑。 
+如果熟悉 SQL 语法，可以在查询谓词框中输入任何受支持的 [SQL 查询](../articles/cosmos-db/sql-query-getting-started.md)。 还可以使用数据资源管理器创建存储过程、UDF 和触发器以执行服务器端业务逻辑。 
 
 数据资源管理器可以通过 Azure 门户轻松访问 API 中提供的所有内置编程数据访问功能。 也可通过门户缩放吞吐量、获取密钥和连接字符串，以及查看 Azure Cosmos DB 帐户的指标和 SLA。
 

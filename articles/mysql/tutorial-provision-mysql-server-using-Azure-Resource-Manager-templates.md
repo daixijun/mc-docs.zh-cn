@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 12/02/2019
 ms.date: 11/23/2020
 ms.custom: mvc
-ms.openlocfilehash: eeec8ce574de1094573089445407a665e97cb45e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e91a9e8c12f6c410952e966c98e02acf7e56393b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977117"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432589"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -36,7 +36,7 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建带有 VNet 服务终结点的 Azure Database for MySQL 服务器
 

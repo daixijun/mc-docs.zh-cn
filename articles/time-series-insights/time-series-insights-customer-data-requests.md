@@ -7,14 +7,14 @@ manager: cshankar
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a9a1f097aa86dea6707829117a04c4d51f47068d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 72046b628e091f1703b22448b4013884a15a148d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472670"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508076"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
@@ -34,7 +34,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-但是，在通过门户删除客户数据之前，应该从 Azure 门户内的时序见解环境中删除用户的访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](time-series-insights-data-access.md)。
+但是，在通过门户删除客户数据之前，应该从 Azure 门户内的时序见解环境中删除用户的访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](./concepts-access-policies.md)。
 
 也可使用 REST API 对访问策略执行删除操作。 有关详细信息，请参阅[访问策略 - 删除](https://docs.microsoft.com/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete)。
 
@@ -46,7 +46,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-如果你是租户管理员，则可在 Azure 门户的时序见解环境中查看数据访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](time-series-insights-data-access.md)。
+如果你是租户管理员，则可在 Azure 门户的时序见解环境中查看数据访问策略。 有关详细信息，请参阅[使用 Azure 门户授予对时序见解环境的数据访问权限](./concepts-access-policies.md)。
 
 也可使用提供的 REST API 中的“按环境列出”操作对访问策略执行导出操作。 有关详细信息，请参阅[访问策略 - 按环境列出](https://docs.microsoft.com/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment)。
 
@@ -68,7 +68,7 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读有关[授予对 Azure 时序见解环境的数据访问权限](./time-series-insights-data-access.md)的更多信息。
+* 阅读有关[授予对 Azure 时序见解环境的数据访问权限](./concepts-access-policies.md)的更多信息。
 
 * 查看 [Azure 时序见解资源管理器](time-series-insights-explorer.md)。
 

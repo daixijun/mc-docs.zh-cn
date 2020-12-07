@@ -3,19 +3,18 @@ title: 配置 Azure Stack Hub 遥测
 titleSuffix: Azure Stack
 description: 了解 Azure Stack Hub 遥测，以及如何使用 PowerShell 配置遥测设置。
 author: WenJason
-ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 1/16/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: c6f6ef42628806a97a50afd7ff1e00f4d8cb432e
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 7cae6b8578495323bd80e851bdc94a878354c4c9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437724"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508091"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack Hub 遥测
 
@@ -93,7 +92,7 @@ Azure 无意收集敏感数据，例如信用卡号、用户名和密码、电�
 > [!IMPORTANT]
 > 这些遥测级别只适用于 Microsoft Azure Stack Hub 组件。 Azure Stack Hub 硬件合作伙伴在硬件生命周期主机中运行的非 Azure 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack Hub 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。
 
-关闭 Windows 和 Azure Stack Hub 遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。
+关闭 Windows 和 Azure Stack Hub 遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization)。
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK：在 Windows 注册表中设置遥测级别
 

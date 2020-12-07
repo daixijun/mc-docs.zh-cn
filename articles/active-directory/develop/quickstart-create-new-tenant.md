@@ -13,12 +13,12 @@ ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8b53529e7d6ad752444764745f25692be96d8413
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: ed4a7eefc66db3e3d282760d64d66c1e9cd2e13e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749968"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508823"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>快速入门：设置租户
 
@@ -30,7 +30,7 @@ Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 36
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="determining-environment-type"></a>确定环境类型
 

@@ -13,12 +13,12 @@ ms.custom: seo-lt-2019
 origin.date: 11/11/2020
 ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 91ae4c8794148072c7bcdc3e9df9a62d32be6bfe
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 799a857dd2055ef74ab09beebab3cce086f7bfab
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680381"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432059"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂，将数据从 Azure Blob 存储复制到 Azure SQL 数据库中的数据库
 
@@ -40,7 +40,7 @@ ms.locfileid: "94680381"
 > * 监视管道和活动运行。
 
 ## <a name="prerequisites"></a>先决条件
-* **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * **Azure 存储帐户**。 可将 Blob 存储用作源数据存储。 如果没有存储帐户，请参阅[创建 Azure 存储帐户](../storage/common/storage-account-create.md)以获取创建步骤。
 * **Azure SQL 数据库**。 将数据库用作接收器数据存储。 如果没有 Azure SQL 数据库中的数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)了解创建步骤。
 
@@ -255,7 +255,7 @@ ms.locfileid: "94680381"
 1. 验证是否每分钟将两个行（对于每个管道运行）插入 **emp** 表中，直至指定的结束时间。
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何执行以下操作：
+此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何：
 
 > [!div class="checklist"]
 > * 创建数据工厂。

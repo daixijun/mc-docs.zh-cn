@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 07/21/2020
 ms.author: v-junlch
-ms.openlocfilehash: 5117b18cc357fecf65e1a7b3f314912085fcfd3a
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: 1d6fb6f78e7d237d67f48f6b9daad10cd5ccafb6
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160361"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508795"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>教程：使用 Azure 门户授予用户对 Azure 资源的访问权限
 
@@ -30,7 +30,7 @@ ms.locfileid: "87160361"
 > * 在资源组范围内为用户授予访问权限
 > * 删除访问权限
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 

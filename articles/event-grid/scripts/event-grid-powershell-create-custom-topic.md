@@ -10,14 +10,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2020
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: d86663b840ff81c4bc735f5c93321183ce73a081
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: d209d806802eebc3a7cb5ab5dbcf0c3f4b1f4f28
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227999"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431848"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>使用 PowerShell 创建事件网格自定义主题
 
@@ -25,7 +25,7 @@ ms.locfileid: "88227999"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

@@ -2,20 +2,20 @@
 title: 什么是 Azure Active Directory B2C？
 description: 了解如何使用 Azure Active Directory B2C 在应用程序中支持外部标识。
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 12/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 79bd0a77d07e188a9b7e7a76d1e253b2cd3a37ed
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e91ca1fd91652b7e60e6d5a6b1bbc47011e69fae
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77028323"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507273"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什么是 Azure Active Directory B2C？
 

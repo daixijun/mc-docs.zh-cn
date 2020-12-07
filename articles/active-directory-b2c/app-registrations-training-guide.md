@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 12/01/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0667c8e68979a26fd6f6eaa2dbf85ef4794fd935
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 0f64bb7287d50af6b3c8422644c4660d439d9aa5
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326405"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507144"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 的新应用注册体验
 
@@ -98,7 +98,7 @@ iOS/macOS 和 Android 平台是公共客户端 。 它们提供了一种简单�
 以下 Azure AD 应用注册功能不适用或不可用于 Azure AD B2C 租户：
 - **角色和管理员** - 当前不可用于 Azure AD B2C。
 - **品牌** - UI/UX 自定义在“公司品牌”体验中配置或作为用户流的一部分进行配置。 了解如何[自定义 Azure Active Directory B2C 中的用户界面](customize-ui-overview.md)。
-- **发布服务器域验证** - 你的应用在 .partner.onmschina.cn 上注册，该域未经过验证。 此外，发布服务器域主要用于授予用户同意，这对于 Azure AD B2C 应用进行用户身份验证并不适用。 [详细了解发布服务器域](/active-directory/develop/howto-configure-publisher-domain)。
+- **发布服务器域验证** - 你的应用在 .partner.onmschina.cn 上注册，该域未经过验证。 此外，发布服务器域主要用于授予用户同意，这对于 Azure AD B2C 应用进行用户身份验证并不适用。 [详细了解发布服务器域](../active-directory/develop/howto-configure-publisher-domain.md)。
 - **令牌配置** - 令牌配置为用户流而不是应用的一部分。
 - **快速入门** 体验目前不适用于 Azure AD B2C 租户。
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

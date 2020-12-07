@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.openlocfilehash: 528c84ac9e500c225b3ed50790a9c0a28f9f9a5f
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 56486839a00befc19bca1bdef1688a8692d5b5c8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918321"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508974"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>教程：创建使用 Microsoft 标识平台进行身份验证的 Blazor Server 应用
 
@@ -31,7 +31,7 @@ Blazor 服务器在 ASP.NET Core 应用中添加了对在服务器上托管 Razo
 ## <a name="prerequisites"></a>先决条件
 
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-- 可在其中注册应用的 Azure AD 租户。 如果你无权访问 Azure AD 租户，可以通过注册到 [Microsoft 365 开发人员计划](https://developer.microsoft.com/microsoft-365/dev-program)或创建 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)来获取一个租户。
+- 可在其中注册应用的 Azure AD 租户。 如果你无权访问 Azure AD 租户，可以通过注册到 [Microsoft 365 开发人员计划](https://developer.microsoft.com/microsoft-365/dev-program)或创建 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来获取一个租户。
 
 ## <a name="register-the-app-in-the-azure-portal"></a>在 Azure 门户中注册应用
 

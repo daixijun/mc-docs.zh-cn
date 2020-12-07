@@ -13,12 +13,12 @@ ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9b65a5217c59a5857a6d0f02466b61897094b0cf
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 7d36946d91321b7f979817240c0e76a8046465cc
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749921"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508637"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>教程：在 Android 应用程序中使用共享设备模式
 
@@ -37,7 +37,7 @@ ms.locfileid: "92749921"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="developer-guide"></a>开发人员指南
 
@@ -220,13 +220,13 @@ private void onSignOutClicked()
 有关如何执行此操作的信息，请参阅[注册应用程序](./tutorial-v2-android.md#register-your-application)。
 
 > [!NOTE]
-> 注册应用时，请使用左侧的快速入门指南，然后选择“Android”  。 这会出现一个页面，要求你为应用提供 **包名称** 和 **签名哈希** 。 这些值对于确保你的应用程序配置正常运行非常重要。 然后，你会收到一个配置对象，可将其用于你要剪切并粘贴到 auth_config.json 文件中的应用。
+> 注册应用时，请使用左侧的快速入门指南，然后选择“Android”  。 这会出现一个页面，要求你为应用提供 **包名称** 和 **签名哈希**。 这些值对于确保你的应用程序配置正常运行非常重要。 然后，你会收到一个配置对象，可将其用于你要剪切并粘贴到 auth_config.json 文件中的应用。
 
 :::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
 
 应选择“为我进行此更改”，然后在 Azure 门户中提供快速入门要求的值。 完成此操作后，我们将生成你需要的所有配置文件。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="“在 Azure 门户中配置项目页面”快速入门":::
 
 ## <a name="set-up-a-tenant"></a>设置租户
 
@@ -242,25 +242,25 @@ private void onSignOutClicked()
 
 启动验证器应用，并导航到主帐户页面。 看到“添加帐户”  页面后，便可将设备置于共享模式了。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="验证器“添加帐户”屏幕":::
 
 使用右侧菜单栏转到“设置”  窗格。 在“工作和学校帐户”下选择“设备注册”。  
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="“验证器设置”屏幕":::
 
 单击此按钮时，系统将要求你授权访问设备联系人。 这是由于设备上的 Android 帐户集成导致的。 选择“允许”  。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="“验证器允许访问”确认屏幕":::
 
 云设备管理员应在“或注册为共享设备”  下输入其组织电子邮件。 然后，单击“注册为共享设备”  按钮并输入其凭据。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="应用中的设备注册屏幕":::
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="显示 Microsoft 登录页面的应用屏幕截图":::
 
 设备现在已处于共享模式。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="显示已启用的共享设备模式的应用屏幕":::
 
  设备上的任何登录和注销都是全局性的，这意味着它们将应用于与设备上的 MSAL 和 Microsoft Authenticator 集成的所有应用。 你现在可以将应用程序部署到使用共享设备模式功能的设备了。
 
@@ -268,13 +268,13 @@ private void onSignOutClicked()
 
 将设备置于共享模式后，它会为你的组织所知，并将在你的组织租户中受到跟踪。 可以通过在 Azure 门户的 Azure Active Directory 边栏选项卡中查看“联接类型”  来查看共享设备。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Azure 门户中显示的“所有设备”窗格":::
 
 ## <a name="running-the-sample-app"></a>运行示例应用
 
 该示例应用程序是一个简单应用，它调用你的组织的图形 API。 首次运行时，系统将提示你表明是否同意，因为对于你的员工帐户而言，该应用程序是新的。
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="“在 Azure 门户中配置 Android 应用页面”快速入门":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="应用程序配置信息屏幕":::
 
 ## <a name="next-steps"></a>后续步骤
 

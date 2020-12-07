@@ -9,12 +9,12 @@ ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 06/09/2020
 ms.date: 11/09/2020
-ms.openlocfilehash: 247c9575e3cd554c3c98ecf57751dd884adc9885
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 8081fd30cb6cae2a31f1aa583bc83746dd467203
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375610"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432652"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Synapse Analytics SQL 池
 
@@ -24,11 +24,11 @@ ms.locfileid: "93375610"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![“部署到 Azure”](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+[![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -156,7 +156,7 @@ ms.locfileid: "93375610"
 
    * 订阅：选择 Azure 订阅。
    * 资源组： 选择“新建”，输入资源组的唯一名称，然后选择“确定”。 新的资源组会促进资源清理。
-   * **区域** ：选择区域。  例如，“中国东部 2”。
+   * **区域**：选择区域。  例如，“中国东部 2”。
    * SQL Server 名称：接受默认名称，或为 SQL Server 名称输入新名称。
    * SQL 管理员登录：输入 SQL Server 的管理员用户名。
    * SQL 管理员密码：输入 SQL Server 的管理员密码。
@@ -165,7 +165,7 @@ ms.locfileid: "93375610"
    * 服务级别目标：接受默认值“DW400c”。
    * 位置：接受资源组的默认位置。
    * 审阅并创建：选中。
-   * **创建** ：选中。
+   * **创建**：选中。
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 

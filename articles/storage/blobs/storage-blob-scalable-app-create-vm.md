@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: fed43757281521efccaca3f6e1359c1bc84b6bd4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 21165434705cc0798d84f6e4131bb132ab9e9b99
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63858803"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432089"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>为可缩放的应用程序创建虚拟机和存储帐户
 
@@ -29,7 +29,7 @@ ms.locfileid: "63858803"
 > * 创建虚拟机
 > * 配置自定义脚本扩展
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

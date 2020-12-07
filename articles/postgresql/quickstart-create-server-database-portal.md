@@ -8,19 +8,19 @@ ms.custom: mvc
 ms.topic: quickstart
 origin.date: 10/18/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: bff7998862a2ecf79b7b11d680369f6549a07b5a
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 044c54ceae361ed1c664a9607fde1c9453aea53e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152938"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431654"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Database for PostgreSQL 服务器
 
 用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 本快速入门介绍如何创建单个 Azure Database for PostgreSQL 服务器并与其连接。
 
 ## <a name="prerequisites"></a>先决条件
-需要一个 Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+需要一个 Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 转到 [Azure 门户](https://portal.azure.cn/)创建 Azure Database for PostgreSQL 单一服务器数据库。 搜索并选择 Azure Database for PostgreSQL 服务器。
@@ -40,7 +40,7 @@ ms.locfileid: "96152938"
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="显示创建单个服务器的基本选项卡的屏幕截图。":::
 
-   |设置|建议的值|说明|
+   |设置|建议的值|描述|
    |:---|:---|:---|
    |订阅|订阅名称|选择所需的 Azure 订阅。|
    |资源组| myresourcegroup| 新的资源组，或订阅中的现有资源组。|

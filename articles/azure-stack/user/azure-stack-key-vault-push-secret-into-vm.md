@@ -3,16 +3,16 @@ title: 使用安全存储在 Azure Stack Hub 中的证书部署 VM
 description: 了解如何在 Azure Stack Hub 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 author: WenJason
 ms.topic: conceptual
-origin.date: 09/01/2020
-ms.date: 10/12/2020
+origin.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 8b9bb234d9436f8cd35a9dbad5bb03cc3cb366ce
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: eee3161cde3941d1ea4a4be606bbdf0d688fc262
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437535"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507909"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>使用安全地存放在 Azure Stack Hub 上的证书部署 VM
 
@@ -40,7 +40,7 @@ ms.locfileid: "91437535"
 ## <a name="prerequisites"></a>必备条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 * [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-key-vault-secret"></a>创建密钥保管库机密
@@ -49,6 +49,8 @@ ms.locfileid: "91437535"
 
 > [!IMPORTANT]
 > 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -88,11 +90,11 @@ $jsonObject = @"
 $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location `
@@ -108,6 +110,70 @@ Set-AzureKeyVaultSecret `
   -Name $secretName `
    -SecretValue $secret
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+```powershell
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
+  -Password $pwd
+
+# Create a key vault and upload the certificate into the key vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
+$certPassword = "<Password used to export the certificate>"
+
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
+```
+
+---
+
+
 
 运行此脚本时，输出会包括机密 URI。 请记下此 URI，因为在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中时必须引用此它。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含 **azuredeploy.json** 和 **azuredeploy.parameters.json** 文件，这些文件需要在以下步骤中使用。
 
@@ -154,14 +220,29 @@ Set-AzureKeyVaultSecret `
 
 使用以下 PowerShell 脚本部署模板：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+```powershell
+# Deploy a Resource Manager template to create a VM and push the secret to it
+New-AzureRMResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+---
+
+
 
 成功部署模板后，会显示以下输出：
 

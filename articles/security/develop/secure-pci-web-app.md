@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/04/2020
+ms.date: 12/01/2020
 origin.date: 08/22/2019
 ms.author: v-tawe
-ms.openlocfilehash: 43a95eb492908089bee23f10d6f906028ace176d
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: f848221398cf53c180823d37b07beba6f84e262a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439676"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432663"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>为 PCI 应用开发安全的基础结构
 
@@ -271,7 +271,7 @@ Azure 服务广泛记录系统和用户活动以及系统运行状况：
 <!-- not available-->
 
 ## <a name="cost-considerations"></a>成本注意事项
-如果还没有 Azure 帐户，可以创建一个免费帐户。 转到[试用版帐户页面](https://wd.azure.cn/pricing/1rmb-trial-full)以开始创建，了解可以使用免费 Azure 帐户执行哪些操作，并了解哪些产品可以免费使用 12 个月。
+如果还没有 Azure 帐户，可以创建一个免费帐户。 转到[试用版帐户页面](https://www.microsoft.com/china/azure/index.html?fromtype=cn)以开始创建，了解可以使用免费 Azure 帐户执行哪些操作，并了解哪些产品可以免费使用 12 个月。
 
 若要为示例应用中的资源部署安全功能，你需要付费购买一些高级功能。 随着应用不断扩展，你需要升级 Azure 提供的免费层和试用版来满足应用程序需求，你的成本可能会增加。 使用 Azure [定价计算器](https://www.azure.cn/pricing/calculator/)来估算成本。
 

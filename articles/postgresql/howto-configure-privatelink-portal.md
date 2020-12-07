@@ -7,18 +7,18 @@ ms.service: postgresql
 ms.topic: how-to
 origin.date: 01/09/2020
 ms.date: 10/29/2020
-ms.openlocfilehash: e5ae9ce6bb9029e38a3f00cb4e59f704ff8e13e3
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: e899cddab37c4f7a1d92d051bd5399dd3102f3e1
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470560"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432104"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>使用门户创建和管理 Azure Database for PostgreSQL（单一服务器）的专用链接
 
 专用终结点是 Azure 中专用链接的构建基块。 它使 Azure 资源（例如虚拟机 (VM)）能够以私密方式来与专用链接资源通信。  本文介绍如何使用 Azure 门户在 Azure 虚拟网络和带有 Azure 专用终结点的 Azure Database for PostgreSQL 单一服务器中创建 VM。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > 专用链接功能仅适用于“常规用途”或“内存优化”定价层中的 Azure Database for PostgreSQL 服务器。 请确保数据库服务器位于其中一个定价层中。
@@ -36,14 +36,14 @@ ms.locfileid: "92470560"
 1. 在屏幕的左上方，选择“创建资源” > “网络” > “虚拟网络”  。
 2. 在“创建虚拟网络”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
-    | 名称 | 输入 *MyVirtualNetwork* 。 |
+    | 名称 | 输入 *MyVirtualNetwork*。 |
     | 地址空间 | 输入 10.1.0.0/16。 |
     | 订阅 | 选择订阅。|
     | 资源组 | 选择“新建”，输入 myResourceGroup，然后选择“确定”。 |
     | 位置 | 选择“中国东部 2”。|
-    | 子网 - 名称 | 输入 *mySubnet* 。 |
+    | 子网 - 名称 | 输入 *mySubnet*。 |
     | 子网 - 地址范围 | 输入 10.1.0.0/24。 |
     |||
 3. 将其余的设置保留默认值，然后选择“创建”。
@@ -54,13 +54,13 @@ ms.locfileid: "92470560"
 
 2. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。  |
     | **实例详细信息** |  |
-    | 虚拟机名称 | 输入 *myVm* 。 |
+    | 虚拟机名称 | 输入 *myVm*。 |
     | 区域 | 选择“中国东部 2”。 |
     | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
     | 映像 | 选择“Windows Server 2019 Datacenter”。 |
@@ -75,19 +75,19 @@ ms.locfileid: "92470560"
     | 已有 Windows 许可证？ | 保留默认值“否”。 |
     |||
 
-1. 在完成时选择“下一步: **磁盘”** 。
+1. 在完成时选择“下一步:**磁盘”** 。
 
 1. 在“创建虚拟机 - 磁盘”中保留默认值，然后选择“下一步: **网络”** 。
 
 1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 虚拟网络 | 保留默认值“MyVirtualNetwork”。  |
     | 地址空间 | 保留默认值“10.1.0.0/24”。|
     | 子网 | 保留默认值“mySubnet (10.1.0.0/24)”。|
     | 公共 IP | 保留默认值“(new) myVm-ip”。 |
-    | 公共入站端口 | 选择“允许所选端口”。 |
+    | 公共入站端口 | 选择“允许所选端口”  。 |
     | 选择入站端口 | 选择“HTTP”和“RDP”。 |
     |||
 
@@ -108,18 +108,18 @@ ms.locfileid: "92470560"
 
 1. 在“Azure Database for PostgreSQL 部署选项”中，选择“单一服务器”并提供以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
     | **服务器详细信息** |  |
-    |服务器名称  | 输入 *myserver* 。 如果此名称已被使用，请创建唯一的名称。|
+    |服务器名称  | 输入 *myserver*。 如果此名称已被使用，请创建唯一的名称。|
     | 管理员用户名| 输入所选的管理员名称。 |
     | 密码 | 输入所选密码。 密码长度必须至少为 8 个字符，且符合定义的要求。 |
     | 位置 | 选择要让 PostgreSQL 服务器驻留在其中的 Azure 区域。 |
     |版本  | 选择所需的 PostgreSQL 服务器的数据库版本。|
-    | 计算 + 存储| 根据工作负荷选择服务器所需的定价层。 |
+    | 计算 + 存储| 根据工作负载选择服务器所需的定价层。 |
     |||
  
 7. 选择“确定” 。 
@@ -138,7 +138,7 @@ ms.locfileid: "92470560"
 
 1. 在“创建专用终结点 - 基本信息”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
@@ -150,7 +150,7 @@ ms.locfileid: "92470560"
 5. 在完成时选择“下一步:资源”。
 6. 在“创建专用终结点 - 资源”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     |连接方法  | 选择“连接到我的目录中的 Azure 资源”。|
     | 订阅| 选择订阅。 |
@@ -161,7 +161,7 @@ ms.locfileid: "92470560"
 7. 在完成时选择“下一步:配置”。
 8. 在“创建专用终结点 - 配置”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     |**网络**| |
     | 虚拟网络| 选择“MyVirtualNetwork”。 |
@@ -180,29 +180,29 @@ ms.locfileid: "92470560"
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="创建的专用链接":::
 
     > [!NOTE] 
-    > 客户 DNS 设置中的 FQDN 未解析为已配置的专用 IP。 你必须为已配置的 FQDN 设置一个 DNS 区域，如[此处](../dns/dns-operations-recordsets-portal.md)所示。
+    > 客户 DNS 设置中的 FQDN 未解析为已配置的专用 IP。 必须为配置的 FQDN 设置一个 DNS 区域，如[此处](../dns/dns-operations-recordsets-portal.md)所示。
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>使用远程桌面 (RDP) 连接到 VM
 
 
 创建 **myVm** 后，按如下所述从 Internet 连接到该 VM： 
 
-1. 在门户的搜索栏中，输入 *myVm* 。
+1. 在门户的搜索栏中，输入 *myVm*。
 
 1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
-1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
+1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
 
 1. 打开 downloaded.rdp 文件。
 
-    1. 出现提示时，选择“连接”  。
+    1. 出现提示时，选择“连接”。
 
     1. 输入在创建 VM 时指定的用户名和密码。
 
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定” 。
+1. 选择“确定”  。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -227,7 +227,7 @@ ms.locfileid: "92470560"
 
 4. 在“新建连接”中，输入或选择以下信息：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ----- |
     | 服务器类型| 选择“PostgreSQL”。|
     | 服务器名称| 选择“mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn” |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: fcce5e01c2babf5e86af07acfcf1ffc69817ad2c
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 9a0865bb3899a7a9942a2440cf242751bc42202b
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918420"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508799"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>快速入门：使用授权代码流在 Node Web 应用中让用户登录并获取访问令牌
 
@@ -32,7 +32,7 @@ ms.locfileid: "95918420"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [免费创建 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)
+* Azure 订阅 - [创建 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) 或其他代码编辑器
 

@@ -12,23 +12,23 @@ ms.date: 05/11/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a5efbf9afea494ee74761d720563c3ce154db5a6
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 744704451d19a27da190d986ce2ada8dbc5a096e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198774"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432534"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>快速入门：通过 Azure PowerShell 暂停和恢复 Synapse SQL 池中的计算
 
 可以使用 Azure PowerShell 暂停和恢复 Synapse SQL 池（数据仓库）计算资源。
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本快速入门假设已有一个可以暂停和恢复的 SQL 池。 如果需要创建一个 SQL 池，可以参考[创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 **mySampleDataWarehouse** 的 SQL 池。
+本快速入门假设已有一个可以暂停和恢复的 SQL 池。 如果需要创建一个 SQL 池，可以参考 [创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 **mySampleDataWarehouse** 的 SQL 池。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -56,9 +56,9 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 按照以下步骤查找 SQL 池的位置信息：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 在 Azure 门户的左侧页中单击“Azure Synapse Analytics (前称为 SQL 数据仓库)”。 
-1. 从“Azure Synapse Analytics (以前称为 SQL DW)”  页中选择 **mySampleDataWarehouse**。 此时将打开 SQL 池。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
+1. 在 Azure 门户的左侧页中单击“Azure Synapse Analytics (前称为 SQL 数据仓库)”。
+1. 从“Azure Synapse Analytics (以前称为 SQL DW)”页中选择 **mySampleDataWarehouse**。 此时将打开 SQL 池。
 
     ![服务器名称和资源组](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 >[!NOTE]
 >数据库暂停时，不对计算资源进行收费。 但是，仍将收取存储费用。
 
-若要暂停数据库，请使用 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet。 以下示例暂停 **sqlpoolservername** 服务器上托管的 SQL 池 **mySampleDataWarehouse**。 该服务器位于名为 myResourceGroup 的 Azure 资源组中  。
+若要暂停数据库，请使用 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet。 以下示例暂停 **sqlpoolservername** 服务器上托管的 SQL 池 **mySampleDataWarehouse**。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 ```Powershell
 Suspend-AzSqlDatabase -ResourceGroupName "myResourceGroup" `
@@ -90,7 +90,7 @@ $resultDatabase
 
 ## <a name="resume-compute"></a>恢复计算
 
-若要启动数据库，请使用 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet。 以下示例启动 **sqlpoolservername** 服务器上托管的 **mySampleDataWarehouse** 数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中  。
+若要启动数据库，请使用 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet。 以下示例启动 **sqlpoolservername** 服务器上托管的 **mySampleDataWarehouse** 数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 ```Powershell
 Resume-AzSqlDatabase -ResourceGroupName "myResourceGroup" `
@@ -127,13 +127,13 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
     ![清理资源](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 要暂停计算，请单击“暂停”  按钮。 暂停 SQL 池后，会看到“启动”按钮。   要恢复计算，请单击“启动”  。
+2. 要暂停计算，请单击“暂停”按钮。 暂停 SQL 池后，会看到“启动”按钮。  要恢复计算，请单击“启动”。
 
-3. 若要删除 SQL 池以免产生计算或存储费用，请单击“删除”。 
+3. 若要删除 SQL 池以免产生计算或存储费用，请单击“删除”。
 
 4. 若要删除创建的 SQL 服务器，请依次单击“sqlpoolservername.database.chinacloudapi.cn”、“删除”。    请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
-5. 要删除资源组，请单击“myResourceGroup”  ，然后单击“删除资源组”  。
+5. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,15 +12,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 origin.date: 06/06/2019
-ms.openlocfilehash: b0274bf8e7ca872ec8053f6b8ee54297ab13b8c9
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: bc8007892de35328949d70913f726a5281feb3ad
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822373"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432518"
 ---
 # <a name="what-is-azure-security-center"></a>什么是 Azure 安全中心？
 
@@ -138,7 +138,7 @@ Azure 安全中心的值的核心在于其建议。 这些建议是针对在工�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要开始使用安全中心，需要订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 若要开始使用安全中心，需要订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 首次在 Azure 门户中访问 Azure 安全中心仪表板后，或通过 API 以编程方式启用安全中心的免费定价层后，安全中心的免费定价层就会在所有当前的 Azure 订阅上启用。 若要利用高级安全管理和威胁检测功能，必须升级到“标准”定价层。 标准层可以免费试用 30 天。 有关详细信息，请参阅[安全中心定价页](https://www.azure.cn/pricing/details/security-center/)。
 

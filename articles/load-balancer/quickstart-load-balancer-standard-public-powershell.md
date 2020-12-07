@@ -17,12 +17,12 @@ origin.date: 08/25/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 0a7600f6d5d05c7cdd1cfdd4d84d2d7aed71f733
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 8028da602d5224747bc8e3e1520f05da9ae5b33c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590713"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431829"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -30,7 +30,7 @@ ms.locfileid: "94590713"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 在本地安装了 Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

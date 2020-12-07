@@ -12,12 +12,12 @@ ms.custom: mvc
 origin.date: 06/29/2018
 ms.author: v-yiso
 ms.date: 11/11/2019
-ms.openlocfilehash: c0b30ae11ca560768a7732c3ce3435deb5b1bbcb
-ms.sourcegitcommit: 30de8a4b2d57b31a8c9d8b568f3b49b42f1dd583
+ms.openlocfilehash: df21043c93ebc6f9444b864ab96d135bd07f28eb
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82886560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508002"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>概述 - 什么是 Azure 逻辑应用？
 
@@ -43,11 +43,11 @@ ms.locfileid: "82886560"
 
 ![逻辑应用设计器 - 示例逻辑应用](./media/logic-apps-overview/azure-logic-apps-overview.png)
 
-可以使用逻辑应用设计器直观地构建逻辑应用。该设计器可通过浏览器在 Azure 门户中获取，也可在 Visual Studio 中获取。 若要获取更多的自定义逻辑应用，可以使用“代码视图”编辑器以 JavaScript 对象表示法 (JSON) 创建或编辑逻辑应用定义。 也可对选定的任务使用 Azure PowerShell 命令和 Azure 资源管理器模板。 逻辑应用部署和运行在 Azure 云中。 
+可以使用逻辑应用设计器直观地生成逻辑应用。该设计器可通过浏览器在 Azure 门户中获取，也可在 Visual Studio 中获取。 若要获取更多的自定义逻辑应用，可以使用“代码视图”编辑器以 JavaScript 对象表示法 (JSON) 创建或编辑逻辑应用定义。 也可对选定的任务使用 Azure PowerShell 命令和 Azure 资源管理器模板。 逻辑应用部署和运行在 Azure 云中。 
 
 ## <a name="why-use-logic-apps"></a>为什么使用逻辑应用？
 
-随着企业逐渐转向数字化，逻辑应用应运而生。它可以提供预生成的 API 作为 Microsoft 托管的连接器，从而可以更轻松快捷地连接旧式、新式和前沿的系统。 因此，你可以专注于应用的业务逻辑和功能， 不需担心应用的生成、托管、缩放、管理、维护和监视。 逻辑应用为你解决这一切。 另外，只需根据使用情况付费，具体取决于使用量[定价模型](../logic-apps/logic-apps-pricing.md)。 
+随着企业逐渐转向数字化，逻辑应用应运而生。它可以提供预生成的 API 作为 Microsoft 托管的连接器，从而可以更轻松快捷地连接旧系统和新式、前沿的系统。 因此，你可以专注于应用的业务逻辑和功能， 不需担心应用的生成、托管、缩放、管理、维护和监视。 逻辑应用为你解决这一切。 另外，只需根据使用情况付费，具体取决于使用量[定价模型](../logic-apps/logic-apps-pricing.md)。 
 
 在许多情况下，无需编写代码。 但如果必须编写一些代码，则可使用 [Azure Functions](../azure-functions/functions-overview.md) 创建代码片段，然后通过逻辑应用按需运行该代码。 另外，如果逻辑应用需要与来自 Azure 服务、自定义应用或其他解决方案的事件交互，则可将 [Azure 事件网格](../event-grid/overview.md)与逻辑应用配合使用，以便进行事件监视、路由和发布。
 
@@ -103,7 +103,7 @@ ms.locfileid: "82886560"
 
 ## <a name="get-started"></a>入门 
 
-逻辑应用是托管在 Microsoft Azure 上的许多服务之一。 因此在开始之前，你需要一个 Azure 订阅。 如果没有订阅，可以<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册 Azure 试用帐户</a>。 
+逻辑应用是托管在 Microsoft Azure 上的许多服务之一。 因此在开始之前，你需要一个 Azure 订阅。 如果没有订阅，可以<a href="https://www.microsoft.com/china/azure/index.html?fromtype=cn" target="_blank">注册 Azure 试用帐户</a>。 
 
 如果有 Azure 订阅，可以尝试此[创建第一个逻辑应用的快速入门](../logic-apps/quickstart-create-first-logic-app-workflow.md)。该逻辑应用通过 RSS 源监视网站上的新内容，在新内容出现时发送电子邮件。
 

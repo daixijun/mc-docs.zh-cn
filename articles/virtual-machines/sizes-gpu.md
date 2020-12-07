@@ -11,12 +11,12 @@ ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 387589bc1969f6571248770c36a6b3ce44e56abf
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3f41149eceafb3a638336fc895866e9c038f328b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507817"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 
@@ -55,7 +55,7 @@ GPU 优化 VM 大小是具有单个、多个或部分 GPU 的专用虚拟机。 
     <!--Not Avaialble on NC and NV VMs only support VM disks that are backed by Standard Disk Storage (HDD).-->
     <!--Not Available on NCv2, ND, NDv2, and NVv2-->
     
-- 如果需要部署的 N 系列 VM 较多，请考虑使用标准预付费套餐订阅或其他购买选项。 如果使用的是 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，则仅可使用有限数量的 Azure 计算核心。
+- 如果需要部署的 N 系列 VM 较多，请考虑使用标准预付费套餐订阅或其他购买选项。 如果使用的是 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，则仅可使用有限数量的 Azure 计算核心。
 
 - 可能需要提高 Azure 订阅中的核心配额（按区域）以及单独针对 NCv3 核心的配额。 若要请求增加配额，可免费 [建立联机客户支持请求](https://support.azure.cn/support/support-azure/) 。 默认限制可能因订阅类别而异。
     

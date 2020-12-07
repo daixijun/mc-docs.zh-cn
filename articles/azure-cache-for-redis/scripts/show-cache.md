@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的详细信息 | Microsoft Docs
-description: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的详细信息
-services: cache
-documentationcenter: ''
+title: 获取 Azure Cache for Redis 的详细信息 - Azure CLI
+description: 此 Azure CLI 代码示例演示如何检索 Azure Cache for Redis 实例的详细信息，包括其预配状态。
 author: yegu-ms
-manager: jhubbard
-editor: ''
+ms.author: v-junlch
 tags: azure-service-management
-ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-origin.date: 08/30/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
-ms.openlocfilehash: d56d89f7b1f5aa3785822163c83c6a999d091afb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: sample
+ms.date: 11/30/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a6aca7ce555c437728733a609711c6bf561687a9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63856887"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507288"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>获取 Azure Redis 缓存的详细信息
 
@@ -54,4 +47,3 @@ az redis show --name contosoCache --resource-group contosoGroup
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->

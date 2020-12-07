@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/17/2020
 ms.author: v-junlch
-ms.openlocfilehash: f0081de567860fa9f7afeecfaddd492ac7b5729b
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: e489c2b80cfae761da95d8da92157e3f47ed6ba2
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647576"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508968"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>教程：使用 Azure 门户配置带有 TLS 终止的应用程序网关
 
@@ -26,7 +26,7 @@ ms.locfileid: "88647576"
 > * 创建用作后端服务器的虚拟机
 > * 测试应用程序网关
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -104,7 +104,7 @@ Export-PfxCertificate `
 
 1. 在“前端”选项卡上，验证“IP 地址类型”是否设置为“公共”  。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
    > [!NOTE]
-   > 对于应用程序网关 v2 SKU，只能选择**公共**前端 IP 配置。 目前尚未为此 v2 SKU 启用专用前端 IP 配置。
+   > 对于应用程序网关 v2 SKU，只能选择 **公共** 前端 IP 配置。 目前尚未为此 v2 SKU 启用专用前端 IP 配置。
 
 2. 为“公共 IP 地址”选择“新建”，输入“myAGPublicIPAddress”作为公共 IP 地址名称，然后选择“确定” 。 
 
@@ -195,7 +195,7 @@ Export-PfxCertificate `
     - **密码**：输入管理员帐户的密码。
 1. 接受其他默认值，然后选择“下一步:**磁盘”** 。  
 2. 接受“磁盘”**选项卡的默认值**，然后选择“下一步:**网络”** 。
-3. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。
+3. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为 **虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。
 
    应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP 连接。
 1. 在“管理”选项卡上，将“启动诊断”设置为“关闭”。 接受其他默认值，然后选择“复查 + 创建”。

@@ -12,12 +12,12 @@ manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 06/10/2018
 ms.date: 09/21/2020
-ms.openlocfilehash: 87eab2eae91c425b4f11a7c64eecb7da874b0c5e
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: acc4a15c68e5fffe7e1fe66ff669d27b19cd0d98
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523982"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432540"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中创建共享自承载集成运行时
 
@@ -56,7 +56,7 @@ ms.locfileid: "90523982"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 - **Azure PowerShell**。 请遵循[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 中的说明。 可使用 PowerShell 运行脚本来创建可与其他数据工厂共享的自承载集成运行时。 
 

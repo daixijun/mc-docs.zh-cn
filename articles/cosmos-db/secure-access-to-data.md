@@ -2,20 +2,21 @@
 title: 了解如何保护对 Azure Cosmos DB 中数据的访问
 description: 了解 Azure Cosmos DB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 01/21/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3280dcb519ee807f24b8947d4ffb1d6550f7d52
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3433455fbd4b94333ca35228f4c1006149be0afa
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508101"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

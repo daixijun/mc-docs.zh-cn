@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/3/2018
-ms.date: 09/14/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: c6feb2159c2c5456d7f3f5bbd1ee81810e53c635
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: a938cfb827c976e4240971f2c1efc7e4136cc619
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822353"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432664"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入门：将 Windows 计算机加入安全中心
 载入 Azure 订阅之后，可以通过预配 Log Analytics 代理为在 Azure 外部（例如，在本地或在其他云中）运行的资源启用安全中心。
@@ -28,7 +28,7 @@ ms.locfileid: "90822353"
 本快速入门演示如何在 Windows 计算机上安装 Log Analytics 代理。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 在开始学习本快速入门之前，你必须位于安全中心的“标准”定价层。 有关升级说明，请参阅[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "90822353"
 9. 在“准备安装”页上检查所做的选择，并选择“安装” 。
 10. 在“配置已成功完成”页上，选择“完成”
 
-完成后，**Log Analytics 代理**会显示在“控制面板”中。 可以在该处检查配置，并验证代理是否已连接。
+完成后，**Log Analytics 代理** 会显示在“控制面板”中。 可以在该处检查配置，并验证代理是否已连接。
 
 有关安装和配置代理的详细信息，请参阅[连接 Windows 计算机](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard)。
 

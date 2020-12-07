@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: quickstart
 origin.date: 10/28/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: c3e8005447f7fa60974674d18fec1ba7ae24b35b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 1514763ef2597d897414435653ea61b548781c8f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977144"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432622"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 PHP 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -25,7 +25,7 @@ ms.locfileid: "94977144"
 ## <a name="prerequisites"></a>先决条件
 对于本快速入门，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 使用 [Azure 门户](./quickstart-create-mysql-server-database-using-azure-portal.md)创建 Azure Database for MySQL 单一服务器 <br/> 或 [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) 创建 Azure Database for PostgreSQL 单一服务器（如果没有）。
 - 请完成以下操作之一以启用连接，具体取决于你使用的是公共访问还是私有访问。
 

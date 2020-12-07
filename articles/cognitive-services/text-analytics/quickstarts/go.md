@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 12/17/2019
-ms.date: 08/03/2020
+ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: d84dce3b81b6d742e7997ab75aec82414dc25036
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 41e4fe6f559eb70f89ff7607f68d139a6142d976
+ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023423"
+ms.lasthandoff: 11/29/2020
+ms.locfileid: "96431176"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Go 调用文本分析认知服务 
 <a name="HOLTop"></a>
 
-本文展示了如何将 [文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 与 Go 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
+本文介绍如何通过 Go 使用[文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)和[识别链接实体](#Entities)。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -443,7 +443,7 @@ func main() {
 
 ## <a name="identify-entities"></a>识别实体
 
-实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 [实体](/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)从文本中提取字词，如“United States”，然后提供此词语的类型和/或维基百科的链接。 “United States”的类型为 `location`，而在维基百科上的链接为 `https://en.wikipedia.org/wiki/United_States`。  以下示例识别英文文档的实体。
+实体 API 使用[实体方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634)识别文本文档中的已知实体。 [实体](../how-tos/text-analytics-how-to-entity-linking.md)从文本中提取字词，如“United States”，然后提供此词语的类型和/或维基百科的链接。 “United States”的类型为 `location`，而在维基百科上的链接为 `https://en.wikipedia.org/wiki/United_States`。  以下示例识别英文文档的实体。
 
 1. 在你喜欢使用的代码编辑器中新建一个 Go 项目。
 1. 添加以下提供的代码。

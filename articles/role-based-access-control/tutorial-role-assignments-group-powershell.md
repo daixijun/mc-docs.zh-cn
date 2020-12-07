@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/25/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: c4cca3b5146693a27016b35d29b247eb302020ce
-ms.sourcegitcommit: 7429daf26cff014b040f69cdae75bdeaea4f4e93
+ms.openlocfilehash: b5b79b75428f3f1ea24e7b2d7b885e984020a28c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83991638"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507967"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>教程：使用 Azure PowerShell 授予组对 Azure 资源的访问权限
 
@@ -31,7 +31,7 @@ ms.locfileid: "83991638"
 > * 列出访问权限
 > * 删除访问权限
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 

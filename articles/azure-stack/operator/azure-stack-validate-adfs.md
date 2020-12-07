@@ -5,18 +5,18 @@ description: 了解如何使用 Azure Stack Hub 就绪性检查器来验证 Azur
 services: azure-stack
 documentationcenter: ''
 author: WenJason
-ms.topic: article
-origin.date: 03/04/2020
-ms.date: 05/18/2020
+ms.topic: how-to
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: inhenkel
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 60faf9fdaae3ee02f3e3d74e2a9a0c9c77ea8a6e
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: ca246c50f3248f87e90b04ad0a6d9d7e1c00bb27
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422593"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508036"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的 AD FS 集成
 
@@ -59,7 +59,7 @@ ms.locfileid: "83422593"
 1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. 在 PowerShell 提示符下，运行以下命令开始验证。 指定 **-CustomADFSFederationMetadataEndpointUri** 的值作为联合元数据的 URI。

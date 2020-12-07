@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/15/2020
 ms.author: v-junlch
 ms.topic: how-to
-ms.openlocfilehash: 4979cde83add4ff2cfff478336dcd63691b3d196
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 123a4f16cf421ec34da6a555470b82acb5266287
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553034"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508609"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 启用 Web 应用程序防火墙
 
@@ -30,7 +30,7 @@ ms.locfileid: "94553034"
 
 如果愿意，可以使用 [Azure 门户](application-gateway-web-application-firewall-portal.md)或 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 完成本文。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

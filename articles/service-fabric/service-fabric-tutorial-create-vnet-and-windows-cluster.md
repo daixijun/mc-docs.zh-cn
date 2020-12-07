@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5e454042f36d5b736daee241e51dcd04b11f3da2
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 3239c34727a0019d7447eed1ff5b69fa023351d7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655057"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508099"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教程：将运行 Windows 的 Service Fabric 群集部署到 Azure 虚拟网络
@@ -51,7 +51,7 @@ ms.locfileid: "89655057"
 
 在开始学习本教程之前：
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 安装 [Service Fabric SDK 和 PowerShell 模块](service-fabric-get-started.md)。
 * 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 * 回顾 [Azure 群集](service-fabric-azure-clusters-overview.md)的关键概念。

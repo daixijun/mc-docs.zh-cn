@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: c3695e9dab87bf3c7f916d59377d93040ea119d1
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 882a699dc82cee5d886254d2b4a57a9ab0a16766
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375725"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432044"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Synapse SQL 池
 
@@ -25,7 +25,7 @@ ms.locfileid: "93375725"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!IMPORTANT]
 > 创建 SQL 池可能会产生新的计费服务。  有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
@@ -125,16 +125,16 @@ New-AzSqlDatabase `
 
 所需的参数有：
 
-* **RequestedServiceObjectiveName** ：请求的 [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-concurrency-limits.md)。
-* **DatabaseName** ：要创建的 SQL 池的名称。
-* **ServerName** ：用于创建过程的服务器名称。
-* **ResourceGroupName** ：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。
-* **Edition** ：必须是“DataWarehouse”才能创建 SQL 池。
+* **RequestedServiceObjectiveName**：请求的 [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-concurrency-limits.md)。
+* **DatabaseName**：要创建的 SQL 池的名称。
+* **ServerName**：用于创建过程的服务器名称。
+* **ResourceGroupName**：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。
+* **Edition**：必须是“DataWarehouse”才能创建 SQL 池。
 
 可选参数有：
 
-* **CollationName** ：在不指定的情况下，默认排序规则是 SQL_Latin1_General_CP1_CI_AS。 在数据库上不能更改排序规则。
-* **MaxSizeBytes** ：数据库的默认最大大小为 240TB。 最大大小限制行存储数据。 列数据的存储不受限制。
+* **CollationName**：在不指定的情况下，默认排序规则是 SQL_Latin1_General_CP1_CI_AS。 在数据库上不能更改排序规则。
+* **MaxSizeBytes**：数据库的默认最大大小为 240TB。 最大大小限制行存储数据。 列数据的存储不受限制。
 
 有关参数选项的详细信息，请参阅 [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
 

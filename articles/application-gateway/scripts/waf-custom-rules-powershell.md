@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b16da8a4d6d091e0714f9dbd68a74da258309fa
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 3599fda12402373875b54f7e6d5ce04d0c5e4e65
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849443"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508950"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>使用 Azure PowerShell 创建 Web 应用程序防火墙 (WAF) 自定义规则
 
@@ -27,7 +27,7 @@ ms.locfileid: "94849443"
 1. 要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 2. 若要创建与 Azure 的连接，请运行 `Connect-AzAccount -Environment AzureChinaCloud`。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

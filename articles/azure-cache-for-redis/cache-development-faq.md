@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 11/03/2020
-ms.openlocfilehash: 6ec196f23b33bdd2bf29cb6a44140addec67b0a9
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 0acdc5618ffe62525d5eae3572ffa995bea09231
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326599"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508914"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Azure Cache for Redis 开发的常见问题解答
 
@@ -39,7 +39,7 @@ ms.locfileid: "94326599"
 
 如果还没有 Azure 帐户，可以：
 
-* [建立 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留帐户并使用免费的 Azure 服务和功能。
+* [建立 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留帐户并使用免费的 Azure 服务和功能。
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 配置选项有什么作用？
 StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有关 StackExchange.Redis 选项的详细详细，请参阅 [StackExchange.Redis 配置](https://stackexchange.github.io/StackExchange.Redis/Configuration)。
@@ -54,7 +54,7 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
 
 * **重试**
   * 对于 ConnectRetry 和 ConnectTimeout，一般指导原则是快速失败并重试。 该指导原则取决于工作负荷，以及客户端发出 Redis 命令和接收响应平均花费的时间。
-  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性** 。
+  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性**。
   * 雪球效应 - 有时可能会遇到这样的问题：不断地重试，但问题不断累积，导致永远无法恢复。 
   
 * **超时值**

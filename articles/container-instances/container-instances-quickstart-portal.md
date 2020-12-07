@@ -7,12 +7,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: 94829d49e5321efe28c5460349291e3a2387e5e2
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 6663d485e13e2498f8b2bd8032f2951009c28d97
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564298"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507975"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure 中部署容器实例
@@ -33,11 +33,11 @@ ms.locfileid: "91564298"
 
 <!--MOONCAKE: CUSTOMIZED ON AZURE PORTAL-->
 
-选择“+ 创建资源”****，在“新建”**** 页的搜索筛选器中键入“容器实例”****。
+选择“+ 创建资源”，在“新建”页的搜索筛选器中键入“容器实例”。
 
 ![开始在 Azure 门户中创建新的容器实例][aci-portal-01]
 
-在市场结果中选择“容器实例”**** 项。
+在市场结果中选择“容器实例”项。
 
 <!--MOONCAKE: CUSTOMIZED ON AZURE PORTAL-->
 
@@ -48,7 +48,7 @@ ms.locfileid: "91564298"
 * 映像源：**快速启动映像**
 * 容器映像：`mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="在 Azure 门户中配置新的容器实例的基本设置":::
 
 对于本快速入门，请使用默认设置来部署公共 Microsoft `aci-helloworld` 映像。 此示例 Linux 映像打包了一个用 Node.js 编写的小型 Web 应用，该应用提供静态 HTML 页面。 还可以将自己的容器映像存储在 Azure 容器注册表、Docker Hub 或其他注册表中。
 
@@ -56,21 +56,21 @@ ms.locfileid: "91564298"
 
 在“网络”页，为容器指定一个“DNS 名称标签”   。 该名称在创建容器实例的 Azure 区域中必须是唯一的。 容器将可通过 `<dns-name-label>.<region>.azurecontainer.console.azure.cn` 公开访问。 如果收到“DNS 名称标签不可用”错误消息，请尝试使用一个不同的 DNS 名称标签。
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="在 Azure 门户中配置新容器实例的网络设置":::
 
 将其他设置保留为默认设置，然后选择“查看 + 创建”  。
 
 完成验证后，将显示容器的设置摘要。 选择“创建”  提交容器部署请求。
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Azure 门户中新的容器实例的设置摘要":::
 
 当部署启动时，会显示一个通知，指出正在进行部署。 部署了容器组后，会显示另一个通知。
 
-通过导航到“资源组” > “myresourcegroup” > “mycontainer”打开容器组的概述    。 记下容器实例的 **FQDN**（完全限定的域名）及其**状态**。
+通过导航到“资源组” > “myresourcegroup” > “mycontainer”打开容器组的概述    。 记下容器实例的 **FQDN**（完全限定的域名）及其 **状态**。
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Azure 门户中的容器组概述":::
 
-在其**状态**为“正在运行”  后，在浏览器中导航到容器的 FQDN。
+在其 **状态** 为“正在运行”  后，在浏览器中导航到容器的 FQDN。
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-07.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
 
@@ -82,17 +82,17 @@ ms.locfileid: "91564298"
 
 若要查看容器的日志，请在“设置”  下选择“容器”  ，然后选择“日志”  。 应当会看到在浏览器中查看应用程序时生成的 HTTP GET 请求。
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Azure 门户中的容器日志":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
 完成容器后，选择 *mycontainer* 容器实例的“概述”，然后选择“删除”。  
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="删除 Azure 门户中的容器实例":::
 
 在出现确认对话框时选择“是”。 
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Azure 门户中容器实例的删除确认":::
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -105,6 +105,6 @@ ms.locfileid: "91564298"
 
 <!-- LINKS - External -->
 
-[azure-free-account]: https://www.azure.cn/pricing/1rmb-trial/
+[azure-free-account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!-- Update_Description: update meta properties, wording update, update link -->

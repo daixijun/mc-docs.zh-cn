@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe593c2de42dd6397e7a3256da85206cae4b4f9c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 81716fd3bf8c66c4ec3877941fb0456a06f7b35f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472232"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507381"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>诊断和排查 Azure 时序见解第 2 代环境的问题
 
@@ -23,7 +23,7 @@ ms.locfileid: "92472232"
 
 ## <a name="problem-i-cant-find-my-environment-in-the-gen2-explorer"></a>问题：在第 2 代资源管理器中找不到环境
 
-如果无权访问时序见解环境，则可能会发生此问题。 用户需要读者级别访问角色才能查看其时序见解环境。 若要验证当前访问级别并授予其他访问权限，请在 
+如果无权访问时序见解环境，则可能会发生此问题。 用户需要读者级别访问角色才能查看其时序见解环境。 若要验证当前访问级别并授予其他访问权限，请在 [Azure 门户](https://portal.azure.cn/)中转到时序见解资源上的“数据访问策略”部分。
 
   [![验证数据访问策略。](./media/preview-troubleshoot/verify-data-access-policies.png)](./media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
@@ -39,21 +39,21 @@ ms.locfileid: "92472232"
 
 - 事件源数据不是 JSON 格式。
 
-    时序见解仅支持 JSON 数据。 有关 JSON 示例，请阅读[支持的 JSON 形状](./how-to-shape-query-json.md)。
+    时序见解仅支持 JSON 数据。 有关 JSON 示例，请阅读[支持的 JSON 形状](./concepts-json-flattening-escaping-rules.md)。
 
 - 事件源密钥缺少所需权限。
 
-  - 对于 IoT 中心，需提供具有“服务连接”  权限的密钥。
+  - 对于 IoT 中心，需提供具有“服务连接”权限的密钥。
 
     [![验证 IoT 中心权限。](./media/preview-troubleshoot/verify-correct-permissions.png)](./media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    - “iothubowner”和“服务”策略均可使用，因为两者都具有“服务连接”权限  。
+    - “iothubowner”和“服务”策略均可使用，因为两者都具有“服务连接”权限。
 
-  - 对于事件中心，需提供具有“侦听”  权限的密钥。
+  - 对于事件中心，需提供具有“侦听”权限的密钥。
   
     [![查看事件中心权限。](./media/preview-troubleshoot/verify-eh-permissions.png)](./media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    - “读取”和“管理”策略均可使用，因为两者都具有“侦听”权限  。
+    - “读取”和“管理”策略均可使用，因为两者都具有“侦听”权限。
 
 - 提供的使用者组并非时序见解所独有。
 
@@ -61,13 +61,13 @@ ms.locfileid: "92472232"
 
 - 在预配时指定的时序 ID 属性不正确、缺失或为 null。
 
-    如果在预配环境时时序 ID 属性配置不正确，则可能会发生此问题。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)。 目前无法更新现有时序见解环境来使用其他时序 ID。
+    如果在预配环境时时序 ID 属性配置不正确，则可能会发生此问题。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./how-to-select-tsid.md)。 目前无法更新现有时序见解环境来使用其他时序 ID。
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>问题：显示了一些数据，但是还有一些数据缺失
 
 可能在发送数据时没有提供时序 ID。
 
-- 如果在发送事件时有效负载中没有时序 ID 字段，则可能会发生此问题。 有关详细信息，请阅读[支持的 JSON 形状](./how-to-shape-query-json.md)。
+- 如果在发送事件时有效负载中没有时序 ID 字段，则可能会发生此问题。 有关详细信息，请阅读[支持的 JSON 形状](./concepts-json-flattening-escaping-rules.md)。
 - 可能因环境受限而发生此问题。
 
     > [!NOTE]
@@ -94,7 +94,7 @@ ms.locfileid: "92472232"
 - Timestamp 属性名称区分大小写。
 - 来自事件源的 Timestamp 属性值（采用 JSON 字符串形式）的格式为 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`。 `"2008-04-12T12:53Z"` 是此类字符串的一个示例。
 
-使用时序见解第 2 代资源管理器是确保捕获 Timestamp 属性名称并让该属性正常工作的最简单方法。 在时序见解第 2 代资源管理器中使用此图表，在提供 Timestamp 属性名称以后选择一个时间段。 右键单击所做的选择，然后选择“浏览事件”选项。  第一个列标头为 Timestamp 属性名称。 它应该有 `($ts)` 位于 `Timestamp` 一词的旁边，而不是：
+使用时序见解第 2 代资源管理器是确保捕获 Timestamp 属性名称并让该属性正常工作的最简单方法。 在时序见解第 2 代资源管理器中使用此图表，在提供 Timestamp 属性名称以后选择一个时间段。 右键单击所做的选择，然后选择“浏览事件”选项。 第一个列标头为 Timestamp 属性名称。 它应该有 `($ts)` 位于 `Timestamp` 一词的旁边，而不是：
 
 - `(abc)`，指示时序见解将数据值作为字符串来读取。
 - **日历** 图标，指示时序见解将数据值作为日期/时间来读取。
@@ -117,11 +117,11 @@ ms.locfileid: "92472232"
 
 - 你可能无权查看和编辑此模型。
 
-   用户需要有参与者级别访问权限才能编辑和查看其时序模型。 若要验证当前访问级别并授予其他访问权限，请在 Azure 门户中转到时序见解资源上的“数据访问策略”部分。 
+   用户需要有参与者级别访问权限才能编辑和查看其时序模型。 若要验证当前访问级别并授予其他访问权限，请在 Azure 门户中转到时序见解资源上的“数据访问策略”部分。
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>问题：第 2 代资源管理器中的所有实例都缺少父级
 
-如果环境未定义时序模型层次结构，则可能会发生此问题。 有关详细信息，请了解如何[使用时序模型](time-series-insights-overview.md)。
+如果环境未定义时序模型层次结构，则可能会发生此问题。 有关详细信息，请了解如何[使用时序模型](./time-series-insights-overview.md)。
 
   [![无父级实例将显示警告。](./media/preview-troubleshoot/unparented-instances.png)](./media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,9 +135,9 @@ ms.locfileid: "92472232"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 阅读有关如何[使用时序模型](time-series-insights-overview.md)的信息。
+- 阅读有关如何[使用时序模型](./time-series-insights-overview.md)的信息。
 
-- 了解[支持的 JSON 形状](./how-to-shape-query-json.md)。
+- 了解[支持的 JSON 形状](./concepts-json-flattening-escaping-rules.md)。
 
-- 查看 Azure 时序见解第 2 代中的[规划和限制](./time-series-insights-update-plan.md)。
+- 查看 Azure 时序见解第 2 代中的[规划和限制](./how-to-plan-your-environment.md)。
 

@@ -6,19 +6,19 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 506feb63e2e05ea6b65767e0624d12f32338a509
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 12/01/2020
+ms.openlocfilehash: d6f31f19cb5fa002f2ec662c0f51977086fb32e3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227998"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431849"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>使用 PowerShell 订阅资源组的事件并筛选出资源
 
 此脚本创建资源组事件的事件网格订阅。 它使用筛选器，只获取资源组中指定资源的事件。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script---stable"></a>示例脚本 - 稳定版
 

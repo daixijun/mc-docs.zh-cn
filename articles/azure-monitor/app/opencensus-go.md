@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: lingliw
 manager: digimobile
 origin.date: 09/15/2018
-ms.date: 6/4/2019
+ms.date: 12/01/2020
 ms.author: v-lingwu
-ms.openlocfilehash: 9f2f33681d0704d8148ca9c7232b1f037e62a6bd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d97207367ca61171a9a42c3b61331d02c16c352e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850401"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432415"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>从 Go（预览版）收集分布式跟踪
 
@@ -24,7 +24,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 - 应该安装 Go，本文使用版本 1.11 [去下载](https://golang.org/dl/)。
 - 按照说明[将本地转发器安装为 Windows 服务](./opencensus-local-forwarder.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -53,7 +53,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 ## <a name="configure-local-forwarder"></a>配置本地转发器
 
-1. 选择“概述”   > “概要”  > 复制应用程序的**检测密钥**。
+1. 选择“概述”   > “概要”  > 复制应用程序的 **检测密钥**。
 
    ![检测密钥的屏幕截图](./media/opencensus-Go/0003-instrumentation-key.png)
 
@@ -74,7 +74,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
     </LocalForwarderConfiguration>
     ```
 
-3. 重启应用程序**本地转发器**服务。
+3. 重启应用程序 **本地转发器** 服务。
 
 ## <a name="opencensus-go-packages"></a>OpenCensus Go 包
 
@@ -186,7 +186,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 3. 运行 Simple Go 应用后，导航到 `http://localhost:50030`。 每次刷新浏览器都将生成文本“hello world”，并附带由本地转发器拾取的相应 span 数据。
 
-4. 若要确认**本地转发器**是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](/azure-monitor/app/app-insights-overview)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
+4. 若要确认 **本地转发器** 是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](/azure-monitor/app/app-insights-overview)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
 
     在下面的日志文件图像中，可以看到在运行第二个脚本（已在其中添加了导出程序）之前，`OpenCensus input BatchesReceived` 为 0。 开始运行更新的脚本以后，`BatchesReceived` 根据我们输入的值的数目递增：
     

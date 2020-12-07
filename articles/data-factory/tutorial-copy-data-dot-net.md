@@ -12,12 +12,12 @@ ms.topic: tutorial
 origin.date: 11/08/2019
 ms.date: 07/27/2020
 ms.author: v-jay
-ms.openlocfilehash: 9796d3acafccaa461c4c5e9d140a30c4fd5b3203
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: 3928c633ad8c0b6131ab291bbbc91f775de3e96e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974283"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432395"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure 数据工厂将数据从 Azure Blob 复制到 Azure SQL 数据库
 
@@ -37,15 +37,15 @@ ms.locfileid: "86974283"
 
 本教程使用 .NET SDK。 可以使用其他机制与 Azure 数据工厂交互；请参阅“快速入门”下的示例。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* *Azure 存储帐户*。 可将 Blob 存储用作*源*数据存储。 如果没有 Azure 存储帐户，请参阅[创建常规用途的存储帐户](../storage/common/storage-account-create.md)。
-* *Azure SQL 数据库*。 将数据库用作*接收器*数据存储。 如果没有 Azure SQL 数据库中的数据库，请参阅[创建 Azure SQL 数据库中的数据库](../azure-sql/database/single-database-create-quickstart.md)。
+* *Azure 存储帐户*。 可将 Blob 存储用作 *源* 数据存储。 如果没有 Azure 存储帐户，请参阅[创建常规用途的存储帐户](../storage/common/storage-account-create.md)。
+* *Azure SQL 数据库*。 将数据库用作 *接收器* 数据存储。 如果没有 Azure SQL 数据库中的数据库，请参阅[创建 Azure SQL 数据库中的数据库](../azure-sql/database/single-database-create-quickstart.md)。
 * *Visual Studio*。 本文中的演练使用 Visual Studio 2019。
 * *[Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools)* 。
-* *Azure Active Directory 应用程序*。 如果没有 Azure Active Directory 应用程序，请参阅[操作方法：使用门户创建 Azure AD 应用程序](../active-directory/develop/howto-create-service-principal-portal.md)的[创建 Azure Active Directory 应用程序](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)部分。 复制可以在后续步骤中使用的以下值：**应用程序(客户端) ID**、**身份验证密钥**和**目录(租户) ID**。 按照同一文章中的以下说明将应用程序分配到“参与者”角色。
+* *Azure Active Directory 应用程序*。 如果没有 Azure Active Directory 应用程序，请参阅[操作方法：使用门户创建 Azure AD 应用程序](../active-directory/develop/howto-create-service-principal-portal.md)的[创建 Azure Active Directory 应用程序](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)部分。 复制可以在后续步骤中使用的以下值：**应用程序(客户端) ID**、**身份验证密钥** 和 **目录(租户) ID**。 按照同一文章中的以下说明将应用程序分配到“参与者”角色。
 
 ### <a name="create-a-blob-and-a-sql-table"></a>创建 blob 和 SQL 表
 
@@ -99,7 +99,7 @@ ms.locfileid: "86974283"
 1. 打开 Visual Studio。
 2. 在“开始”窗口中，选择“创建新项目” 。
 3. 在“创建新项目”窗口的项目类型列表中，选择 C# 版“控制台应用(.NET Framework)”。  然后，选择“下一步”。
-4. 在“配置新项目”窗口中，输入 *ADFv2Tutorial* 作为**项目名称**。 对于“位置”，请浏览到要在其中保存项目的目录，或者创建该目录。 然后选择“创建”。 新项目会显示在 Visual Studio IDE 中。
+4. 在“配置新项目”窗口中，输入 *ADFv2Tutorial* 作为 **项目名称**。 对于“位置”，请浏览到要在其中保存项目的目录，或者创建该目录。 然后选择“创建”。 新项目会显示在 Visual Studio IDE 中。
 
 ## <a name="install-nuget-packages"></a>安装 NuGet 包
 
@@ -219,7 +219,7 @@ while (
 
 ### <a name="create-an-azure-storage-linked-service"></a>创建 Azure 存储链接服务
 
-在 `Main` 方法中添加用于创建 *Azure 存储链接服务*的以下代码。 有关支持的属性和信息，请参阅 [Azure Blob 链接服务属性](connector-azure-blob-storage.md#linked-service-properties)。
+在 `Main` 方法中添加用于创建 *Azure 存储链接服务* 的以下代码。 有关支持的属性和信息，请参阅 [Azure Blob 链接服务属性](connector-azure-blob-storage.md#linked-service-properties)。
 
 ```csharp
 // Create an Azure Storage linked service
@@ -246,7 +246,7 @@ Console.WriteLine(
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>创建 Azure SQL 数据库链接服务
 
-向 `Main` 方法中添加用于创建 *Azure SQL 数据库链接服务*的以下代码。 有关支持的属性和信息，请参阅 [Azure SQL 数据库链接服务属性](connector-azure-sql-database.md#linked-service-properties)。
+向 `Main` 方法中添加用于创建 *Azure SQL 数据库链接服务* 的以下代码。 有关支持的属性和信息，请参阅 [Azure SQL 数据库链接服务属性](connector-azure-sql-database.md#linked-service-properties)。
 
 ```csharp
 // Create an Azure SQL Database linked service
@@ -273,7 +273,7 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>为源 Azure Blob 创建数据集
 
-向 `Main` 方法中添加用于创建 *Azure blob 数据集*的以下代码。 有关支持的属性和信息，请参阅 [Azure Blob 数据集属性](connector-azure-blob-storage.md#dataset-properties)。
+向 `Main` 方法中添加用于创建 *Azure blob 数据集* 的以下代码。 有关支持的属性和信息，请参阅 [Azure Blob 数据集属性](connector-azure-blob-storage.md#dataset-properties)。
 
 在 Azure Blob 中定义表示源数据的数据集。 此 Blob 数据集引用在上一步中创建的 Azure 存储链接服务，并说明以下信息：
 
@@ -311,7 +311,7 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-sink-azure-sql-database"></a>为接收器 Azure SQL 数据库创建数据集
 
-向 `Main` 方法中添加用于创建 *Azure SQL 数据库数据集*的以下代码。 有关支持的属性和信息，请参阅 [Azure SQL 数据库数据集属性](connector-azure-sql-database.md#dataset-properties)。
+向 `Main` 方法中添加用于创建 *Azure SQL 数据库数据集* 的以下代码。 有关支持的属性和信息，请参阅 [Azure SQL 数据库数据集属性](connector-azure-sql-database.md#dataset-properties)。
 
 在 Azure SQL 数据库中定义表示接收器数据的数据集。 此数据集引用在上一步创建的 Azure SQL 数据库链接服务。 它还指定用于保存所复制数据的 SQL 表。
 
@@ -339,7 +339,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>创建管道
 
-向 `Main` 方法中添加用于创建*包含复制活动的管道*的以下代码。 在本教程中，此管道包含一个活动：`CopyActivity`，它接受 Blob 数据集作为源，接受 SQL 数据集作为接收器。 若要了解复制活动详情，请参阅 [Azure 数据工厂中的复制活动](copy-activity-overview.md)。
+向 `Main` 方法中添加用于创建 *包含复制活动的管道* 的以下代码。 在本教程中，此管道包含一个活动：`CopyActivity`，它接受 Blob 数据集作为源，接受 SQL 数据集作为接收器。 若要了解复制活动详情，请参阅 [Azure 数据工厂中的复制活动](copy-activity-overview.md)。
 
 ```csharp
 // Create a pipeline with copy activity

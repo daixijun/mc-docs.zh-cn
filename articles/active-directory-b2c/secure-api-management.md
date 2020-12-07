@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 12/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5317eeb66f65035c4f31a29a9d10c10b8637764d
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 0ed59ba9c0a93ce2b63f500324633721c717d3aa
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946560"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507270"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>使用 Azure AD B2C 保护 Azure API 管理 API
 
@@ -35,7 +35,7 @@ ms.locfileid: "88946560"
 
 使用 Azure AD B2C 保护 Azure API 管理中的 API 时，需要为 APIM 中创建的[入站策略](../api-management/api-management-howto-policies.md)提供多个值。 首先，请记下以前在 Azure AD B2C 租户中创建的应用程序的 ID。 如果使用的是在先决条件中创建的应用程序，请使用 *webbapp1* 的应用程序 ID。
 
-要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 
@@ -165,7 +165,7 @@ https://<tenant-name>.b2clogin.cn/99999999-0000-0000-0000-999999999999/v2.0/
     | `Authorization` | 前面记下的已编码令牌值，带有 `Bearer ` 前缀（请在“Bearer”后面包含空格） |
     | `Ocp-Apim-Subscription-Key` | 前面记下的 APIM 订阅密钥 |
 
-    **GET** 请求 URL 和**标头**应类似于：
+    **GET** 请求 URL 和 **标头** 应类似于：
 
     ![显示 GET 请求 URL 和标头的 Postman UI](./media/secure-apim-with-b2c-token/postman-01-headers.png)
 

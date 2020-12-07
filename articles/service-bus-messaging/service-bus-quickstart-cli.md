@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: eab0132bb09d7b399d132a51021414974440dc92
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 490275a84c8126ceb62657a1812e949319e4578d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946874"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507310"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>使用 Azure CLI 创建服务总线命名空间和队列
 本快速入门介绍如何使用 Azure CLI 创建服务总线命名空间和队列。 本快速入门还介绍了如何获取客户端应用程序向队列发送消息或从队列接收消息所使用的授权凭据。 
@@ -63,6 +63,6 @@ ms.locfileid: "88946874"
 - [PHP](service-bus-php-how-to-use-queues.md)
 - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
-[trial account]: https://www.azure.cn/pricing/1rmb-trial/
+[trial account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!-- Update_Description: update meta properties, wording update, update link -->

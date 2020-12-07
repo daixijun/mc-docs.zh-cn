@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4a060b8a6e1b6ee67852747b739c4ed5e4167347
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 7061daf645dcd0d30ff72c17002dfb4e5cba1de8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471094"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508081"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>什么是 Azure 时序见解第 2 代
 
@@ -86,5 +86,5 @@ Azure 时序见解第 2 代为数据处理、存储（数据和元数据）以�
 了解用例：
 
 > [!div class="nextstepaction"]
-> [Azure 时序见解第 2 代用例](./time-series-insights-update-use-cases.md)
+> [Azure 时序见解第 2 代用例](./overview-use-cases.md)
 

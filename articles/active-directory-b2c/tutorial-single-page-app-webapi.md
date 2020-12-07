@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ea39a6a17d7caff226a7d3564201122a7d97e981
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 4764e3f5f89d3fd8c4a63fb991dc62fac2f52366
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849285"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508698"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 保护 Node.js Web API 并授予从单页应用程序访问该 API 的权限
 
@@ -32,7 +32,7 @@ ms.locfileid: "94849285"
 
 在本教程系列的[第一篇教程](tutorial-single-page-app.md)中，你已下载代码示例并已对其进行修改，以使用 Azure AD B2C 租户中的用户流将用户登录。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

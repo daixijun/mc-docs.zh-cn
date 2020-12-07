@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-junlch
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 2a6488a4053e1e6e22c12c8a901b2f630596057b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7e2c23b37e925fe6726f3aa2a6eec128286fc8ed
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223178"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508777"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>使用 Java 和 Eclipse 创建第一个函数 
 
@@ -19,7 +19,7 @@ ms.locfileid: "88223178"
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](./media/functions-create-java-maven/hello-azure.png) -->
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
@@ -40,27 +40,27 @@ ms.locfileid: "88223178"
 1. 在 Eclipse 中，选择“文件”  菜单，然后选择“新建”-&gt;“Maven 项目”  。 
 1. 接受“新建 Maven 项目”对话框中的默认设置，然后选择“下一步”。  
 1. 找到并选择 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)，然后单击“下一步”。
-1. 请确保填写包括 `resourceGroup`、`appName` 和 `appRegion` 在内的所有字段的值（请使用 **fabrikam-function-20170920120101928** 之外的其他 appName），并最终单击“完成”****。
+1. 请确保填写包括 `resourceGroup`、`appName` 和 `appRegion` 在内的所有字段的值（请使用 **fabrikam-function-20170920120101928** 之外的其他 appName），并最终单击“完成”。
     ![Eclipse Maven 创建 2](./media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven 在新文件夹中创建名为 artifactId__ 的项目文件。 项目中生成的代码是一个简单的回显触发 HTTP 请求正文的 [HTTP 触发](./functions-bindings-http-webhook.md)函数。
+Maven 在新文件夹中创建名为 artifactId 的项目文件。 项目中生成的代码是一个简单的回显触发 HTTP 请求正文的 [HTTP 触发](./functions-bindings-http-webhook.md)函数。
 
 ## <a name="run-functions-locally-in-the-ide"></a>在 IDE 本地运行函数
 
 > [!NOTE]
 > 必须安装 [Azure Functions Core Tools 版本 2](functions-run-local.md#v2)，才能在本地运行和调试函数。
 
-1. 右键单击生成的项目，然后选择“运行方式”和“Maven 生成”。********
-1. 在“编辑配置”对话框中的“目标”和“名称”字段内输入 `package`，然后选择“运行”。**************** 这会生成并打包函数代码。
-1. 生成完成后，使用 `azure-functions:run` 作为目标和名称，如上所述创建另一个“运行”配置。 选择“运行”，在 IDE 中运行函数。****
+1. 右键单击生成的项目，然后选择“运行方式”和“Maven 生成”。
+1. 在“编辑配置”对话框中的“目标”和“名称”字段内输入 `package`，然后选择“运行”。 这会生成并打包函数代码。
+1. 生成完成后，使用 `azure-functions:run` 作为目标和名称，如上所述创建另一个“运行”配置。 选择“运行”，在 IDE 中运行函数。
 
 完成函数测试后，在控制台窗口中终止运行时。 一次只能有一个函数主机处于活动状态并在本地运行。
 
 ### <a name="debug-the-function-in-eclipse"></a>在 Eclipse 中调试函数
 
-在上一步骤的“运行方式”**** 配置设置中，将 `azure-functions:run` 更改为 `azure-functions:run -DenableDebug` 并运行更新的配置，以便在调试模式下启动函数应用。
+在上一步骤的“运行方式”配置设置中，将 `azure-functions:run` 更改为 `azure-functions:run -DenableDebug` 并运行更新的配置，以便在调试模式下启动函数应用。
 
-选择“运行”菜单并打开“调试配置”。******** 选择“远程 Java 应用程序”并创建新配置。**** 为配置命名，并填写设置。 端口应与函数主机打开的调试端口一致，默认为 `5005`。 设置后，单击 `Debug` 开始调试。
+选择“运行”菜单并打开“调试配置”。 选择“远程 Java 应用程序”并创建新配置。 为配置命名，并填写设置。 端口应与函数主机打开的调试端口一致，默认为 `5005`。 设置后，单击 `Debug` 开始调试。
 
 ![在 Eclipse 中调试函数](./media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
@@ -74,7 +74,7 @@ Maven 在新文件夹中创建名为 artifactId__ 的项目文件。 项目中�
 az login
 ```
 
-使用新“运行方式”配置中的 `azure-functions:deploy` Maven 目标，将代码部署到新的函数应用。****
+使用新“运行方式”配置中的 `azure-functions:deploy` Maven 目标，将代码部署到新的函数应用。
 
 部署完成后，将显示可用于访问你的 Azure 函数应用的 URL：
 

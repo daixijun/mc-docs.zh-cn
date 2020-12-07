@@ -9,12 +9,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7949f4eb6b493db07e62df0e159058a79de8244d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a21aaea17d80e27bf99a036a3e7e665f74f146ff
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327689"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507932"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>快速入门：使用 ARM 模板创建恢复服务保管库
@@ -29,7 +29,7 @@ ms.locfileid: "94327689"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有有效的 Azure 订阅，可以在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有有效的 Azure 订阅，可以在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -129,13 +129,13 @@ ms.locfileid: "94327689"
 
     :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="用于创建恢复服务保管库的模板。":::
 
-    - **订阅** ：选择 Azure 订阅。
-    - **资源组** ：选择现有的组，或选择“新建”以添加组。
-    - **位置** ：默认为资源组的位置，选择资源组后将不可用。
-    - **保管库名称** ：提供保管库的名称。
-    - **更改存储类型** ：默认值为 **false** 。 只有在需要更改保管库的存储类型时，才选择“true”。
-    - **保管库存储类型** ：默认值为“GloballyRedundant”。 如果存储类型设置为“true”，请选择“LocallyRedundant” 。
-    - **位置** ：函数 `[resourceGroup().location]` 默认为资源组的位置。 若要更改位置，请输入一个值，例如 chinanorth。
+    - **订阅**：选择 Azure 订阅。
+    - **资源组**：选择现有的组，或选择“新建”以添加组。
+    - **位置**：默认为资源组的位置，选择资源组后将不可用。
+    - **保管库名称**：提供保管库的名称。
+    - **更改存储类型**：默认值为 **false**。 只有在需要更改保管库的存储类型时，才选择“true”。
+    - **保管库存储类型**：默认值为“GloballyRedundant”。 如果存储类型设置为“true”，请选择“LocallyRedundant” 。
+    - **位置**：函数 `[resourceGroup().location]` 默认为资源组的位置。 若要更改位置，请输入一个值，例如 chinanorth。
     - 选中“我同意上述条款和条件”复选框。
 
 1. 若要开始部署保管库，请选择“购买”按钮。 成功部署后，会显示一条通知。

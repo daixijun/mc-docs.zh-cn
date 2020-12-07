@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4015241e72645a4099db3fa430dd0f2997501ce1
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 612992617c5b32008cd669a0a9cec5a57518a309
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849346"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508970"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>重写 Azure 应用程序网关中的 HTTP 请求和响应标头 - Azure PowerShell
 
 本文介绍如何使用 Azure PowerShell 配置[应用程序网关 v2 SKU](./application-gateway-autoscaling-zone-redundant.md) 实例，重写请求和响应中的 HTTP 标头。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>准备阶段
 

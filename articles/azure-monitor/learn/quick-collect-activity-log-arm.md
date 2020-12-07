@@ -6,13 +6,13 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 47b09227207a90b79bb70788ff993ede08763006
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/01/2020
+ms.openlocfilehash: 08e8d6b658819dc7a41609b479c431949bd1dbaa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328753"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432001"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>快速入门：使用 ARM 模板将 Azure 活动日志发送到 Log Analytics 工作区
 
@@ -22,7 +22,7 @@ ms.locfileid: "94328753"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 若要从本地计算机运行命令，请安装 Azure CLI 或 Azure PowerShell 模块。 有关详细信息，请参阅[安装 Azure CLI](/cli/install-azure-cli) 和[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="create-a-log-analytics-workspace"></a>创建 Log Analytics 工作区

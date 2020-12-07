@@ -8,16 +8,16 @@ ms.topic: tutorial
 origin.date: 9/25/2018
 ms.date: 04/27/2020
 ms.author: v-jay
-ms.openlocfilehash: d8fa367d43005f9211aae2ff44e955e25776061b
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 2dbf816cfcfbe2274a7f72bb457b8cad0230e20b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134807"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432547"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>教程：配置表示 Azure 公共 IP 地址的别名记录 
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建网络基础结构。
@@ -26,7 +26,7 @@ ms.locfileid: "82134807"
 > * 测试别名记录。
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 必须具有可用于在 Azure DNS 中托管以供测试的域名。 必须能够完全控制此域。 完全控制包括能够为域设置名称服务器 (NS) 记录。
@@ -92,7 +92,7 @@ ms.locfileid: "82134807"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建表示 Azure 公共 IP 地址的别名记录。 若要详细了解 Azure DNS 和 Web 应用，请继续阅读有关 Web 应用的教程。
+在本教程中，你已创建表示 Azure 公共 IP 地址的别名记录。 若要了解 Azure DNS 和 Web 应用，请继续学习适用于 Web 应用的教程。
 
 > [!div class="nextstepaction"]
 > [在自定义域中为 web 应用创建 DNS 记录](./dns-web-sites-custom-domain.md)

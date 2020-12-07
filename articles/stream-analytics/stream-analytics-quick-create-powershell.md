@@ -3,16 +3,16 @@ title: 快速入门 - 使用 Azure PowerShell 创建流分析作业
 description: 本快速入门演示如何使用 Azure PowerShell 模块来部署并运行 Azure 流分析作业。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: stream-analytics
 origin.date: 12/20/2018
-ms.openlocfilehash: 76c8e990af5d24e410bf9712dc20a7ce4ad857e8
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 4aeaf1d84fe4f7debadd3449f752942c52461c56
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978167"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432574"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建流分析作业
 
@@ -24,7 +24,7 @@ Azure PowerShell 模块用于通过 PowerShell cmdlet 或脚本创建和管理 A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 如果没有 Azure 订阅，请创建[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，请创建[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 本快速入门需要 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可找到在本地计算机上安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 

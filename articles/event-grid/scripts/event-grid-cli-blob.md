@@ -6,14 +6,14 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e9ce04a8ab75c8aefc11c8d7735a13c2767fe5a1
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: ce2d21b8076cbbd4e2c48fdf9e4b50429ece0e5f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228166"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431587"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>使用 Azure CLI 订阅 Blob 存储帐户的事件
 
@@ -21,7 +21,7 @@ ms.locfileid: "88228166"
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: ef5dd0bbb78dc4046aad42f17625154de29a435a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9538adb49de02218dd37c093e36aef7eb0ae6b00
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328829"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507809"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -149,6 +149,6 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
-[create-account]: https://www.azure.cn/pricing/1rmb-trial
+[create-account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 
 <!--Update_Description: update meta properties, wording update -->

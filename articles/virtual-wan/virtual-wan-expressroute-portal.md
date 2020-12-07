@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 5643c6c97c456e87eb2de8ed7eda9f14bc2a59e2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 81d8ca6c580507e7afdb98741250d6d28fb40639
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106118"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508079"
 ---
 <!--Verified Successfully-->
 <!--ExpressRoute Now Available on Azure China-->
@@ -46,7 +46,7 @@ ms.locfileid: "93106118"
 
 * ExpressRoute 线路必须是高级版或标准版线路才能连接到中心网关。
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <a name="openvwan"></a>
 ## <a name="create-a-virtual-wan"></a>创建虚拟 WAN

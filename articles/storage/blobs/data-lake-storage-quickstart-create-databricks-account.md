@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 06/12/2020
 ms.date: 11/16/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 694432c88e2815db99b5c4560549e8b6f109ecc4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 28923cbc2de085b2b6d80a6a2f25378927a73ea8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552982"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432016"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>快速入门：使用 Databricks 分析数据
 
@@ -22,7 +22,7 @@ ms.locfileid: "94552982"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * Azure Data Lake Gen2 存储帐户的名称。 [创建 Azure Data Lake Storage Gen2 存储帐户](data-lake-storage-quickstart-create-account.md)。
 

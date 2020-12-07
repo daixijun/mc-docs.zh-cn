@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 12/02/2019
 ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6836e744ad1bc300087215dae6812adf5d0af90f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7d24900659069640902a4ff1eb72cd2a2ad852bd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977119"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431668"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -34,7 +34,7 @@ Azure Database for MySQL 是 Azure 中基于 MySQL 社区版数据库引擎的�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 可以在你自己的计算机上[安装 Azure CLI](/cli/install-azure-cli) 来运行本教程中的代码块。
 

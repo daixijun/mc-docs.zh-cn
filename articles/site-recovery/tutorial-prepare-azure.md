@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 808a4e8fcb386c14c1101ead795c0d6eac0b20ba
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: c6204b3f605ea6db50cc46f158a6f6f9a2bcd882
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655699"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507166"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>准备 Azure 以实现本地到 Azure 的灾难恢复
 
@@ -39,7 +39,7 @@ ms.locfileid: "89655699"
 - 查看 [VMware](vmware-azure-architecture.md)、[Hyper-V](hyper-v-azure-architecture.md) 和[物理服务器](physical-azure-architecture.md)灾难恢复的体系结构。
 - 阅读有关 [VMware](vmware-azure-common-questions.md) 和 [Hyper-V](hyper-v-azure-common-questions.md) 的常见问题
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 然后登录到 [Azure 门户](https://portal.azure.cn)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 然后登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="verify-account-permissions"></a>验证帐户权限
 
@@ -60,10 +60,10 @@ ms.locfileid: "89655699"
     
     <!--Submenu is correct on **Monitoring + Management**-->
     
-2. 单击“备份和站点恢复(OMS)”****，然后在“备份和站点恢复”页中单击“创建”****。 
+2. 单击“备份和站点恢复(OMS)”，然后在“备份和站点恢复”页中单击“创建”。 
 1. 在“恢复服务保管库” > “名称”中，输入一个友好名称以标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
-2. 在**资源组**中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
-3. 在**位置**中，选择保管库应位于的区域。 我们将使用“中国北部”****。
+2. 在 **资源组** 中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
+3. 在 **位置** 中，选择保管库应位于的区域。 我们将使用“中国北部”。
 4. 若要从仪表板快速访问保管库，请选择“固定到仪表板”   >   “创建”。
 
 <!--MOONCAKE CUSTOMIZATION-->
@@ -82,7 +82,7 @@ ms.locfileid: "89655699"
 4. 指定将在其中创建网络的资源组。 我们将使用现有资源组 contosoRG。
 5. 在“地址范围”中，输入网络的范围。 我们将使用 10.1.0.0/24，而不使用子网。
 6. 在“订阅”中，选择要在其中创建网络的订阅。
-7. 在“位置”中，选择创建了恢复服务保管库的同一个区域。 本教程使用“中国北部”****。 该网络必须位于与保管库相同的区域中。
+7. 在“位置”中，选择创建了恢复服务保管库的同一个区域。 本教程使用“中国北部”。 该网络必须位于与保管库相同的区域中。
     
     <!-- Not Available on basic DDoS protection -->
     

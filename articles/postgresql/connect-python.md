@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 11/28/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: 430516c512dafbbc81b77285ae84bb073ddd473c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: bc2ebe9bad46799577707e30d39163749e28003a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327371"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432110"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 Python 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -27,15 +27,15 @@ ms.locfileid: "94327371"
 ## <a name="prerequisites"></a>先决条件
 对于本快速入门，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 使用 [Azure 门户](./quickstart-create-server-database-portal.md) <br/> 或 [Azure CLI](./quickstart-create-server-database-azure-cli.md) 创建 Azure Database for PostgreSQL 单一服务器（如果没有）。
-- 请完成以下操作之一以启用连接，具体取决于你使用的是公共访问还是专用访问。
+- 请完成以下操作之一以启用连接，具体取决于你使用的是公共访问还是私有访问。
 
   |操作| 连接方法|操作指南|
   |:--------- |:--------- |:--------- |
-  | **配置防火墙规则** | 公用 | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-  | 配置服务终结点 | 公用 | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
-  | 配置专用链接 | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
+  | **配置防火墙规则** | 公用 | [门户](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+  | 配置服务终结点 | 公用 | [门户](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+  | 配置专用链接 | Private | [门户](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
 - [Python](https://www.python.org/downloads/) 2.7.9+ 或 3.4+。
 

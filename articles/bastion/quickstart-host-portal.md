@@ -11,12 +11,12 @@ ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cd42050d210c892b4302f8e33281273502f95a72
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 662414cef0b6462ae0e6cf6302c543a2c0f3c7d7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104495"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508024"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>快速入门：通过专用 IP 地址和浏览器安全地连接到 VM
@@ -26,7 +26,7 @@ ms.locfileid: "93104495"
 <a name="prereq"></a>
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 如果没有，请[免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。 为了能够使用 Bastion 通过浏览器连接到 VM，必须能够登录 Azure 门户。
+* 具有活动订阅的 Azure 帐户。 如果没有，请[免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 为了能够使用 Bastion 通过浏览器连接到 VM，必须能够登录 Azure 门户。
 
 * 虚拟网络中的 Windows 虚拟机。 如果没有 VM，请按照[快速入门：创建 VM](../virtual-machines/windows/quick-create-portal.md) 的说明创建一个。
 
@@ -87,7 +87,7 @@ ms.locfileid: "93104495"
 1. 在“Bastion”页上，填写以下设置字段：
 
     * 名称：为 Bastion 主机命名。
-    * **子网** ：这是将向其中部署 Bastion 资源的虚拟网络地址空间。 必须使用名称 AzureBastionSubnet 创建子网。 使用至少为 /27 或更大（/27、/26、/25 等）的子网。
+    * **子网**：这是将向其中部署 Bastion 资源的虚拟网络地址空间。 必须使用名称 AzureBastionSubnet 创建子网。 使用至少为 /27 或更大（/27、/26、/25 等）的子网。
     * 选择“管理子网配置”。
     
 1. 在“子网”页中，选择“+ 子网” 。
@@ -101,10 +101,10 @@ ms.locfileid: "93104495"
     :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="添加子网":::
     
 1. 单击浏览器上的后退按钮，导航回“Bastion”页，然后继续指定值。
-    * **公共 IP 地址** ：保留“新建”。
-    * **公共 IP 地址名称** ：公共 IP 地址资源的名称。
-    * **分配** ：默认为“静态”。 不能对 Azure Bastion 使用“动态”分配。
-    * **资源组** ：与 VM 相同的资源组。
+    * **公共 IP 地址**：保留“新建”。
+    * **公共 IP 地址名称**：公共 IP 地址资源的名称。
+    * **分配**：默认为“静态”。 不能对 Azure Bastion 使用“动态”分配。
+    * **资源组**：与 VM 相同的资源组。
 
     :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="创建 Bastion 主机":::
 1. 选择“创建”以创建 Bastion 主机。 Azure 会验证设置，然后创建主机。 主机和其资源的创建及部署大约需要 5 分钟。

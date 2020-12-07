@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
-ms.date: 10/09/2020
-ms.openlocfilehash: 2e8ad21ca62c79331b3647ae6c92684b9e395f52
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 12/01/2020
+ms.openlocfilehash: 1571c0d7cf78c982bc285041bf3d934ff41a0bdd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936846"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432640"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 流分析作业
 
@@ -31,7 +31,7 @@ ms.locfileid: "91936846"
 
 若要完成本文，需要做好以下准备：
 
-* 拥有 Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+* 拥有 Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

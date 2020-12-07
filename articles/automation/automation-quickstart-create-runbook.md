@@ -7,18 +7,18 @@ ms.date: 10/19/2020
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 1830c0e4e7945e7dee2efb5c6bd971078da3c104
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: d4ad5b059a116bd493654f0652905d30416f4b12
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943532"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432634"
 ---
 # <a name="create-an-azure-automation-runbook"></a>创建 Azure 自动化 Runbook
 
 Azure 自动化 Runbook 可以通过 Azure 创建。 此方法提供一个基于浏览器的用户界面，用于创建自动化 Runbook。 本快速入门介绍如何创建、编辑、测试和发布自动化 PowerShell Runbook。
 
-如果还没有 Azure 订阅，可以在开始前创建一个 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果还没有 Azure 订阅，可以在开始前创建一个 [Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn?WT.mc_id=A261C142F)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -56,7 +56,7 @@ Azure 自动化 Runbook 可以通过 Azure 创建。 此方法提供一个基于
 
 1. 单击“保存”以保存 Runbook 的草稿副本。
 
-    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图，其中代码示例显示在右窗口。":::
 
 ## <a name="test-the-runbook"></a>测试 Runbook
 
@@ -66,13 +66,13 @@ Azure 自动化 Runbook 可以通过 Azure 创建。 此方法提供一个基于
 
 1. 输入一个值作为“名称”，然后单击“启动”。 此时会启动测试作业并显示作业状态和输出。
 
-    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="“测试”窗格的屏幕截图，其中名称字段已显示示例值。":::
 
 1. 单击右上角的“X”关闭“测试”窗格。 在显示的弹出窗口中选择“确定”。
 
 1. 在“编辑 PowerShell Runbook”页中，单击“发布”将此 Runbook 作为正式版 Runbook 在帐户中发布。
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图，其中已选中“发布”按钮。":::
 
 ## <a name="run-the-runbook"></a>运行 Runbook
 
@@ -80,15 +80,15 @@ Runbook 发布以后，会显示概览页。
 
 1. 在 Runbook 概览页中，单击“启动”打开该 Runbook 的“启动 Runbook”配置页。
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="“启动 Runbook 配置”页面的屏幕截图。":::
 
 1. 将“名称”保留为空，以便使用默认值，然后单击“确定”。  此时会提交 Runbook 作业，并显示“作业”页。
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="作业页面的屏幕截图，其中已选中“输出”按钮。":::
 
 1. 当作业状态为 `Running` 或 `Completed` 时，单击“输出”打开“输出”窗格并查看 Runbook 输出。
 
-   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="“编辑 PowerShell Runbook”页面的屏幕截图。":::
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="显示 runbook 输出的“输出”窗格的屏幕截图。":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

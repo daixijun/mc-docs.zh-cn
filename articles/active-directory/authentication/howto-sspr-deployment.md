@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61514f2ac2290b06096a270c124775b3d85ef1ca
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 33d6d3f65e9e59bbb1940424da51249ee6033d37
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501751"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508737"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>规划 Azure Active Directory 自助式密码重置部署
 
@@ -66,7 +66,7 @@ Azure Active Directory 按用户许可，这意味着，每个用户需要为其
 
 ### <a name="prerequisites"></a>先决条件
 
-* 一个至少启用了试用版许可证的有效 Azure AD 租户。 如果需要，可[创建一个](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个至少启用了试用版许可证的有效 Azure AD 租户。 如果需要，可[创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个具有全局管理员权限的帐户。
 

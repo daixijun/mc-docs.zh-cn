@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 12/01/2020
 origin.date: 01/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: cc5834270d7f4dbce159c4065e60e593a34264ef
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 1c62e78ed62b3ef857ae690fa2e835131cdf54e1
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919282"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477544"
 ---
 适用于 .NET 的内容审查器客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。 内容审查器是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、有风险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。
 
@@ -30,7 +30,7 @@ ms.locfileid: "87919282"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial-full)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [.NET Core](https://dotnet.microsoft.com/download/dotnet-core) 的当前版本。
 
 ## <a name="setting-up"></a>设置

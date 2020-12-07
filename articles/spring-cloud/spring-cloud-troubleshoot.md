@@ -4,15 +4,15 @@ description: Azure Spring Cloud 的故障排除指南
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: a040e6bb7ec1a4f2bef2cf33649ac7ecd6a0eb37
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: fce671586a98a4ad5cb9e233cfbfb1f8d22ee5fc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300909"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507785"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>排查常见的 Azure Spring Cloud 问题
 
@@ -67,7 +67,6 @@ ms.locfileid: "96300909"
 
 
 若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/get-started-portal.md)。
-
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>我的应用程序的 CPU 使用率或内存使用率过高
 

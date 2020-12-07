@@ -4,15 +4,15 @@ description: 了解如何使用托管标识让数据库连接更安全，以及�
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/27/2020
-ms.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-tawe
-ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 5d8713b6d362c821fa88a973240be24119ee546f
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
+ms.openlocfilehash: 06277c902f5e2698e3700fd10a713bf841ebb902
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170668"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507635"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
 
@@ -154,8 +154,8 @@ Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 接下来，使用 SQL 数据库的访问令牌提供实体框架数据库上下文。 在 *Data\MyDatabaseContext.cs* 中，将以下代码添加到空的 `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` 构造函数的大括号中：
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.chinacloudapi.cn/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.chinacloudapi.cn/").Result;
 ```
 
 > [!NOTE]
@@ -242,13 +242,13 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 现在，剩下的操作是将更改发布到 Azure。
 
-**如果你是在学完[教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)** 后转到本教程，请在 Visual Studio 中发布更改。 在“解决方案资源管理器”中，右键单击 “DotNetAppSqlDb”项目，然后选择“发布”。
+**如果你是在学完 [教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用](app-service-web-tutorial-dotnet-sqldatabase.md)** 后转到本教程，请在 Visual Studio 中发布更改。 在“解决方案资源管理器”中，右键单击 “DotNetAppSqlDb”项目，然后选择“发布”。
 
 ![从解决方案资源管理器发布](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 在发布页中单击“发布”。 
 
-**如果你是在学完[教程：在 Azure 应用服务中生成 ASP.NET Core 和 SQL 数据库应用](tutorial-dotnetcore-sqldb-app.md)** 后转到本教程，请运行以下命令使用 Git 发布更改：
+**如果你是在学完 [教程：在 Azure 应用服务中生成 ASP.NET Core 和 SQL 数据库应用](tutorial-dotnetcore-sqldb-app.md)** 后转到本教程，请运行以下命令使用 Git 发布更改：
 
 ```bash
 git commit -am "configure managed identity"

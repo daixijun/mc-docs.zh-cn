@@ -5,16 +5,16 @@ description: 了解 Azure Stack Hub 存储与 Azure 存储之间的差异，以�
 author: WenJason
 ms.topic: conceptual
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 810f4aecfb25c0cc457d5ef1e10314227c9a60f9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 3aa9e3a8467a4d0a393fc34197418e02803a4441
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867748"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508011"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub 存储：差异和注意事项
 
@@ -106,7 +106,7 @@ Azure 存储服务管理 API：
 | 模块 | 支持的版本 | 使用情况 |
 |---|---|---|
 | Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | 管理 Azure Stack Hub 存储帐户中的 blob、队列和表。 |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | 在 Azure Stack Hub 中创建和管理存储帐户。 |
+| Az.Storage | [5.0.4](https://www.powershellgallery.com/packages/Az.Storage/5.0.4) | 在 Azure Stack Hub 中创建和管理存储帐户。 |
 
 有关 Azure Stack Hub 支持的存储客户端库的详细信息，请参阅：[Azure Stack Hub 存储开发工具入门](azure-stack-storage-dev.md)。
 

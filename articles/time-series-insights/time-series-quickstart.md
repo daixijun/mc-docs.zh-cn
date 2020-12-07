@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/20/2020
-ms.openlocfilehash: 3287203d9ae9421d245a561e9e44f5ca2aae35d8
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 4425c5727e0d425363b3a2f418d6e1f355d24bf5
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508898"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>快速入门：浏览 Azure 时序见解 Gen1
 
@@ -31,7 +31,7 @@ Azure 时序见解是一种完全托管的分析、存储和可视化效果服�
 此 Azure 时序见解资源管理器快速入门以导览的形式介绍功能。
 
 > [!IMPORTANT]
-> 如果你还没有创建 Azure 帐户，可以创建一个 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+> 如果你还没有创建 Azure 帐户，可以创建一个 [Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prepare-the-demo-environment"></a>准备演示环境
 
@@ -90,7 +90,7 @@ Azure 时序见解是一种完全托管的分析、存储和可视化效果服�
 现在你已完成本教程，请清除已创建的资源：
 
 1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”  ，找到“Azure 时序见解”资源组。
-1. 通过选择“删除”  来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
+1. 通过选择“删除”来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,19 +13,19 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: f125f5941880715ff18b62ed2b76d7f4ece63e48
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 40c6d230b2fc7c6cbd73e9edb5a51529e0e3ca83
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103684"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507653"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 <a name="top"></a> 使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/marketplace/apps/filter?search=Visual%20Studio)。
 
 <!-- Notice: URL is correct on https://market.azure.cn/marketplace/apps/filter?search=Visual%20Studio-->
 
-不熟悉 Azure？ [创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+不熟悉 Azure？ [创建一个 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > 并非所有订阅都可以部署 Windows 10 映像。 有关详细信息，请参阅[在 Azure 中使用 Windows 客户端实现开发/测试方案](./client-images.md)

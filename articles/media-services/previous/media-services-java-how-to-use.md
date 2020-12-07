@@ -16,12 +16,12 @@ origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d3e9d020c2c6476326ccfe8bfbb321ac1f0ae55
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 571842443f750677f95adaf46585320895578cb5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245584"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432408"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 
@@ -36,7 +36,7 @@ ms.locfileid: "91245584"
 
 以下是完成本教程所要做好的准备：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 当前的 [Azure 媒体服务 Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -57,7 +57,7 @@ ms.locfileid: "91245584"
 ## <a name="how-to-use-azure-media-services-with-java"></a>如何：将 Azure 媒体服务与 Java 配合使用
 
 >[!NOTE]
->创建媒体服务帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
+>创建媒体服务帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
 
 以下代码演示了如何创建资产、如何将媒体文件上传到该资产、如何使用任务运行作业以转换资产，以及如何创建定位符来流式传输视频。
 

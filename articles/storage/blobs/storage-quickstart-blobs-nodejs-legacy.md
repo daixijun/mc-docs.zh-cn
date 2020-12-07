@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 14f12064e139a7e7b40f4b86f14e6d05e76f3262
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 695ceed4eb170a08871b0ef61127299081224c5b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753355"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432429"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>快速入门：在 Node.js 中使用 JavaScript v10 SDK 管理 blob
 
@@ -25,7 +25,7 @@ ms.locfileid: "88753355"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 Azure 存储帐户。 [创建存储帐户](../common/storage-account-create.md)。
 - [Node.js](https://nodejs.org/en/download/)。
 
@@ -112,7 +112,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-在本地运行应用以进行调试时，*dotenv* 模块会加载环境变量。 值在名为 *.env* 的文件中定义，并加载到当前执行上下文中。 在生产环境中，服务器配置会提供这些值，这就是为什么此代码仅当脚本*不*在“生产”环境下运行时运行的原因。
+在本地运行应用以进行调试时，*dotenv* 模块会加载环境变量。 值在名为 *.env* 的文件中定义，并加载到当前执行上下文中。 在生产环境中，服务器配置会提供这些值，这就是为什么此代码仅当脚本 *不* 在“生产”环境下运行时运行的原因。
 
 导入下一批模块，以帮助与文件系统对接。
 

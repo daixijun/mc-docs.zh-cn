@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan
 ms.topic: article
 origin.date: 02/29/2020
 ms.date: 10/29/2020
-ms.openlocfilehash: 923a22a20d1fc75c9fee296994e913fa2e5116bf
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: bce79057b0ccf047d6f090edc7d12d167a4b4b13
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470267"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432567"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>将 Azure 计划程序作业迁移到 Azure 逻辑应用
 
@@ -38,7 +38,7 @@ ms.locfileid: "92470267"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要通过发送 HTTP 请求来触发逻辑应用，请使用 [Postman 桌面应用](https://www.getpostman.com/apps)等工具。
 
@@ -117,7 +117,7 @@ ms.locfileid: "92470267"
 
 | 请求方法 | 代码 | Body | 头文件 |
 |----------------|-----|------|---------|
-| **POST** | <endpoint-URL> | **raw** <p>**JSON(application/json)** <p>在“raw”框中，输入要在请求中发送的有效负载。 <p>**注意** ：此设置会自动配置“标头”值。 | **密钥** ：Content-Type <br>**值** ：application/json |
+| **POST** | <endpoint-URL> | **raw** <p>**JSON(application/json)** <p>在“raw”框中，输入要在请求中发送的有效负载。 <p>**注意**：此设置会自动配置“标头”值。 | **密钥**：Content-Type <br>**值**：application/json |
 |||||
 
 ![发送请求以手动触发逻辑应用](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -142,7 +142,7 @@ ms.locfileid: "92470267"
 
    有关基本步骤，请遵循[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜索框中，输入“定期”作为筛选器。 从触发器列表中选择此触发器： **定期**
+1. 在搜索框中，输入“定期”作为筛选器。 从触发器列表中选择此触发器：**定期**
 
    ![添加“重复”触发器](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -206,20 +206,20 @@ ms.locfileid: "92470267"
 
 <a name="retire-date"></a>
 
-**问** ：Azure 计划程序何时停用？ <br>
-**答** ：Azure 计划程序计划于 2019 年 12 月 31 日彻底停用。
+**问**：Azure 计划程序何时停用？ <br>
+**答**：Azure 计划程序计划于 2019 年 12 月 31 日彻底停用。
 
-**问** ：该服务停用后，对我的作业集合和作业有何影响？ <br>
-**答** ：所有计划程序作业集合和作业将从系统中删除。
+**问**：该服务停用后，对我的作业集合和作业有何影响？ <br>
+**答**：所有计划程序作业集合和作业将从系统中删除。
 
-**问** ：在将我的计划程序作业迁移到逻辑应用之前，是否必须备份或执行任何其他任务？ <br>
-**答** ：最佳做法是始终备份你的工作。 在删除或禁用计划程序作业之前，请检查你创建的逻辑应用是否按预期运行。
+**问**：在将我的计划程序作业迁移到逻辑应用之前，是否必须备份或执行任何其他任务？ <br>
+**答**：最佳做法是始终备份你的工作。 在删除或禁用计划程序作业之前，请检查你创建的逻辑应用是否按预期运行。
 
-**问** ：是否有可以帮助我将作业从计划程序迁移到逻辑应用的工具？ <br>
-**答** ：每个计划程序作业都是唯一的，因此不存在通用的工具。 但是，可以根据需要[编辑此脚本，将 Azure 计划程序作业迁移到 Azure 逻辑应用](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)。
+**问**：是否有可以帮助我将作业从计划程序迁移到逻辑应用的工具？ <br>
+**答**：每个计划程序作业都是唯一的，因此不存在通用的工具。 但是，可以根据需要[编辑此脚本，将 Azure 计划程序作业迁移到 Azure 逻辑应用](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)。
 
-**问** ：迁移计划程序作业时，可从何处获得支持？ <br>
-**答** ：以下是获得支持的一些方法：
+**问**：迁移计划程序作业时，可从何处获得支持？ <br>
+**答**：以下是获得支持的一些方法：
 
 **Azure 门户**
 

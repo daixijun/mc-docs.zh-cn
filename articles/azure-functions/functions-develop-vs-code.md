@@ -3,13 +3,13 @@ title: 使用 Visual Studio 开发 Azure Functions
 description: 了解如何使用 Visual Studio Code 的 Azure Functions 扩展开发和测试 Azure Functions。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/19/2020
-ms.openlocfilehash: fec2f38c716da356aa0ccf6554bc7a28de1b364a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/30/2020
+ms.openlocfilehash: cc2533d68449dce4882dab18077410ccf99cd5a6
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471227"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508585"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio 开发 Azure Functions
 
@@ -27,12 +27,13 @@ Azure Functions 扩展提供以下优势：
 * [C# 脚本](functions-reference-csharp.md)<sup>*</sup>
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
+* [PowerShell](functions-reference-powershell.md)
 
 <sup>*</sup>要求[将 C# 脚本设置为默认的项目语言](#c-script-projects)。
 
 本文中的示例当前仅适用于 JavaScript (Node.js) 和 C# 类库函数。  
 
-本文详细介绍如何使用 Azure Functions 扩展开发函数并将其发布到 Azure。 在阅读本文之前，应[使用 Visual Studio Code 创建第一个函数](functions-create-first-function-vs-code.md)。
+本文详细介绍如何使用 Azure Functions 扩展开发函数并将其发布到 Azure。 在阅读本文之前，应[使用 Visual Studio Code 创建第一个函数](./create-first-function-vs-code-csharp.md)。
 
 > [!IMPORTANT]
 > 不要对单个函数应用混合使用本地开发和门户开发。 从本地项目发布到函数应用时，部署过程会覆盖在门户中开发的任何函数。
@@ -45,7 +46,7 @@ Azure Functions 扩展提供以下优势：
 
 * 一个有效的 Azure 订阅。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 所需的其他资源（例如 Azure 存储帐户）将在[使用 Visual Studio Code 发布](#publish-to-azure)时在订阅中创建。
 
@@ -62,9 +63,9 @@ Azure Functions 扩展提供以下优势：
 
     ![创建函数](./media/functions-develop-vs-code/create-function.png)
 
-1. 选择函数应用项目所在的文件夹，然后 **选择函数项目的语言** 。
+1. 选择函数应用项目所在的文件夹，然后 **选择函数项目的语言**。
 
-1. 如果尚未安装 Core Tools，系统会要求你 **选择要安装的 Core Tools 版本** 。 选择版本 2.x 或更高版本。 
+1. 如果尚未安装 Core Tools，系统会要求你 **选择要安装的 Core Tools 版本**。 选择版本 2.x 或更高版本。 
 
 1. 选择“HTTP 触发器”函数模板，或者可以选择“暂时跳过”以创建不带函数的项目。  以后始终可以[将函数添加到项目](#add-a-function-to-your-project)。
 
@@ -82,9 +83,9 @@ Azure Functions 扩展提供以下优势：
 
 项目模板将以所选语言创建一个项目，并安装所需的依赖项。 对于任何语言，新项目包含以下文件：
 
-* **host.json** ：用于配置 Functions 主机。 在本地和 Azure 中运行函数时，将应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
+* **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行函数时，将应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
-* **local.settings.json** ：维护本地运行函数时使用的设置。 仅当在本地运行函数时，才使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
+* **local.settings.json**：维护本地运行函数时使用的设置。 仅当在本地运行函数时，才使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
 
     >[!IMPORTANT]
     >由于 local.settings.json 文件可能包含机密，因此需要将其从项目源代码管理中排除。
@@ -173,7 +174,7 @@ Visual Studio Code 可让你遵照一组方便的提示将绑定添加到 functi
 
 下面是有关定义新的存储输出绑定的示例提示：
 
-| Prompt | Value | 说明 |
+| Prompt | 值 | 说明 |
 | -------- | ----- | ----------- |
 | **选择绑定方向** | `out` | 该绑定是输出绑定。 |
 | **选择具有方向的绑定** | `Azure Queue Storage` | 该绑定是 Azure 存储队列绑定。 |
@@ -219,7 +220,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 ### <a name="quick-function-app-create"></a>快速函数应用创建
 
-当你选择“+ 在 Azure 中创建新的函数应用...”时，扩展会自动为函数应用所需的 Azure 资源生成值。 这些值基于所选的函数应用名称。 有关使用默认值将项目发布到 Azure 中的新函数应用的示例，请参阅 [Visual Studio Code 快速入门文章](functions-create-first-function-vs-code.md#publish-the-project-to-azure)。
+当你选择“+ 在 Azure 中创建新的函数应用...”时，扩展会自动为函数应用所需的 Azure 资源生成值。 这些值基于所选的函数应用名称。 有关使用默认值将项目发布到 Azure 中的新函数应用的示例，请参阅 [Visual Studio Code 快速入门文章](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure)。
 
 如果要为创建的资源提供显式名称，则必须选择高级创建路径。
 
@@ -231,13 +232,13 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
     ![函数应用设置](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. 如果你未登录，系统会提示“登录到 Azure”。 也可以 **创建一个 Azure 帐户** 。 从浏览器登录后，返回到 Visual Studio Code。
+1. 如果你未登录，系统会提示“登录到 Azure”。 也可以 **创建一个 Azure 帐户**。 从浏览器登录后，返回到 Visual Studio Code。
 
-1. 如果你有多个订阅，请为函数应用 **选择一个订阅** ，然后选择“+ 在 Azure 中创建新的函数应用...” **_“高级”_** 。 使用此“高级”选项可以更好地控制在 Azure 中创建的资源。 
+1. 如果你有多个订阅，请为函数应用 **选择一个订阅**，然后选择“+ 在 Azure 中创建新的函数应用...”**_“高级”_**。 使用此“高级”选项可以更好地控制在 Azure 中创建的资源。 
 
 1. 按提示操作并提供以下信息：
 
-    | Prompt | Value | 说明 |
+    | Prompt | 值 | 说明 |
     | ------ | ----- | ----------- |
     | 选择 Azure 中的函数应用 | 在 Azure 中创建新的函数应用 | 在下一个提示中，键入用于标识新函数应用的全局唯一名称，然后按 Enter。 函数应用名称的有效字符包括 `a-z`、`0-9` 和 `-`。 |
     | 选择 OS | Windows | 函数应用在 Windows 上运行。 |
@@ -261,7 +262,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 为了能够调用 HTTP 触发的函数，需要获取函数在部署到函数应用时的 URL。 此 URL 包含全部所需的[函数密钥](functions-bindings-http-webhook-trigger.md#authorization-keys)。 可以使用扩展获取已部署的函数的这些 URL。
 
-1. 按 F1 打开命令面板，然后搜索并运行命令“Azure Functions: **Copy Function URL** 。
+1. 按 F1 打开命令面板，然后搜索并运行命令“Azure Functions:**Copy Function URL**。
 
 1. 按提示选择 Azure 中的函数应用，然后选择要调用的特定 HTTP 触发器。
 

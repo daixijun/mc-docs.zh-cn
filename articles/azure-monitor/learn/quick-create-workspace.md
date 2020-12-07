@@ -6,13 +6,13 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 58de29168dac58c467ed8680728ac25eafab2552
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/01/2020
+ms.openlocfilehash: cd65d9afc88f6db399947eb599366aa1d272e93b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327841"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431989"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 门户中创建 Log Analytics 工作区
 使用“Log Analytics 工作区”菜单通过 Azure 门户创建 Log Analytics 工作区。 Log Analytics 工作区是适用于 Azure Monitor 日志数据的唯一环境。 每个工作区都有其自己的数据存储库和配置，并且数据源和解决方案均配置为将其数据存储在特定工作区中。 如果打算从以下源收集数据，则需要 Log Analytics 工作区：
@@ -27,7 +27,7 @@ ms.locfileid: "94327841"
 *  [从混合 Linux 计算机收集数据](./quick-collect-linux-computer.md)
 *  [从混合 Windows 计算机收集数据](quick-collect-windows-computer.md)
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure-portal"></a>登录到 Azure 门户
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。 

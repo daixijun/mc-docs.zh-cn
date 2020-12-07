@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 上设置 AKS 引擎的先决条件
 description: 确定在 Azure Stack Hub 上运行 ASK 引擎所需的要求。
 author: WenJason
 ms.topic: article
-origin.date: 09/08/2020
-ms.date: 10/12/2020
+origin.date: 10/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 9b19b3a4ae95671d369c9d518b62a560ac9c8e7f
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 9e32e15b6f995c82ba88e480e0bd94831edd5efc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437761"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507497"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上设置 AKS 引擎的先决条件
 
@@ -47,8 +47,8 @@ ms.locfileid: "91437761"
 | 私钥公钥对 | 若要使用从开发计算机到 Azure Stack Hub 实例中服务器 VM（用于托管 Web 应用）的开放 SSH 连接，需要创建安全外壳 (SSH) 公钥和私钥对。 | 必须 | 有关如何生成密钥的说明，请参阅 [SSH 密钥生成](./azure-stack-dev-start-howto-ssh-public-key.md)。|
 
 
-> [!NOTE]  
-> 还可以使用 [Azure Stack Hub 的 Azure CLI](./azure-stack-version-profiles-azurecli2.md) 或 [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) 创建 AKS 引擎的先决条件。
+> [!Note]  
+> 还可以使用 [Azure Stack Hub 的 Azure CLI](./azure-stack-version-profiles-azurecli2.md) 或 [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md) 创建 AKS 引擎的先决条件。
 
 ## <a name="matching-engine-to-base-image-version"></a>将引擎与基础映像版本相匹配
 

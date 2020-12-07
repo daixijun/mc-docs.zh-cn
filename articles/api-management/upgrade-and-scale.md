@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: f1891f26ea201fd72fea7062a812dc3b040d4895
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 691cfbd7457ef143f21b209c7826b0a8e05d9f7f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978318"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432233"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 
@@ -36,7 +36,7 @@ ms.locfileid: "94978318"
 
 + 拥有一个有效的 Azure 订阅。
 
-    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + 具有 API 管理实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 

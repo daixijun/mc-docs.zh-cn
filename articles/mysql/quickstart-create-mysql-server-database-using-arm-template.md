@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 05/19/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb84c78b9b2d7225ae113be9141853c590a7d5
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.openlocfilehash: dfa1a0dac4a3136415cd314a2f48da74af2e2c85
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431678"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>快速入门：使用 ARM 模板创建 Azure Database for MySQL 服务器
 
@@ -29,16 +29,16 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure CLI](/cli/)。
 
 ---
@@ -310,7 +310,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 3. 输入服务器名称、管理员登录名和管理员登录密码  。
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="部署到 Azure":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="“部署具有 VNet 的 Azure Database for MySQL”窗口，Azure 快速入门模板，Azure 门户":::
 
 4. 根据需要更改其他默认设置：
 
@@ -379,7 +379,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 按照以下步骤查看新 Azure Database for MySQL 服务器的概览：
 
@@ -415,7 +415,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
 

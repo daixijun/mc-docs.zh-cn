@@ -3,24 +3,24 @@ title: 为 Azure Stack Hub 用户启用 Azure CLI
 description: 了解如何启用跨平台命令行接口 (CLI) 来管理和部署 Azure Stack Hub 上的资源。
 author: WenJason
 ms.topic: article
-origin.date: 1/22/2020
-ms.date: 05/18/2020
+origin.date: 5/27/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 7b02b99c47c72e268f4678815b9c9eefe12c9581
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 685b8b0cac2b05d38a77fe8fa392abe22c913e1f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422625"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508054"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>为 Azure Stack Hub 用户启用 Azure CLI
 
 可以向 Azure Stack Hub 的用户提供 CA 根证书，使他们能够在其开发计算机上启用 Azure CLI。 用户需使用该证书通过 CLI 管理资源。
 
- - 如果用户通过 Azure Stack 开发工具包 (ASDK) 外部的工作站使用 CLI，则 **Azure Stack Hub CA 根证书**是必需的。  
+ - 如果用户通过 Azure Stack 开发工具包 (ASDK) 外部的工作站使用 CLI，则 **Azure Stack Hub CA 根证书** 是必需的。  
 
- - **虚拟机 (VM) 别名终结点**提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
+ - **虚拟机 (VM) 别名终结点** 提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
 
 以下部分介绍如何获取这些值。
 
@@ -62,5 +62,5 @@ Azure Stack Hub 操作员应设置可公开访问的终结点来托管 VM 别名
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 部署模板](../user/azure-stack-deploy-template-command-line.md )
-- [使用 PowerShell 连接](azure-stack-powershell-install.md)
+- [使用 PowerShell 连接](powershell-install-az-module.md)
 - [管理用户权限](azure-stack-manage-permissions.md)

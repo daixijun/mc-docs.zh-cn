@@ -3,14 +3,14 @@ title: Azure Functions 的缩放和托管
 description: 了解如何在 Azure Functions 消耗计划和高级计划之间进行选择。
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60b4cd82187773f00d76ee900029c334fd187190
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 0f1837b407d5bc09d6fde3a07c692ed3aad4a627
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471375"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507583"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -175,7 +175,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 不同计划的计费在 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)中有详细介绍。 使用量在 Function App 级别聚合，只会统计函数代码的执行时间。 以下是计费单位：
 
 * 以千兆字节/秒 (GB-s) 计量的资源消耗量。 根据内存大小和函数应用中所有函数的执行时间组合计算得出。 
-* **执行** 。 每次为响应事件触发而执行函数时记为一次。
+* **执行**。 每次为响应事件触发而执行函数时记为一次。
 
 在[帐单常见问题解答](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)中可以找到有关如何了解消费帐单的有用查询和信息。
 
@@ -257,7 +257,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 ## <a name="next-steps"></a>后续步骤
 
-+ [快速入门：使用 Visual Studio Code 创建 Azure Functions 项目](functions-create-first-function-vs-code.md)
++ [快速入门：使用 Visual Studio Code 创建 Azure Functions 项目](./create-first-function-vs-code-csharp.md)
 + [Azure Functions 中的部署技术](functions-deployment-technologies.md) 
 + [Azure Functions 开发人员指南](functions-reference.md)
 

@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 06/28/2020
-ms.custom: mvc
+ms.date: 12/02/2020
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a348d4fa24cae2bc41ac2156c9d377196237c00a
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 953ce7b80ec01ab8ae162a326c348f9c34463c15
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516462"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507243"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 授予对 ASP.NET Web API 的访问权限
 
@@ -30,7 +30,7 @@ ms.locfileid: "85516462"
 > * 授予 Web API 权限
 > * 将示例配置为使用此应用程序
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -40,7 +40,7 @@ ms.locfileid: "85516462"
 
 Web API 资源需要先在租户中注册，然后才能接受并响应通过提供访问令牌的客户端应用程序所提出的受保护资源请求。
 
-要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要在 Azure AD B2C 租户中注册应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 
@@ -63,7 +63,7 @@ Web API 资源需要先在租户中注册，然后才能接受并响应通过提
 6. 对于“包括 Web 应用/Web API”，请选择“是”。 
 7. 对于“回复 URL”，请输入 Azure AD B2C 要将应用程序请求的任何令牌返回到的终结点。 本教程中的示例在本地运行并在 `https://localhost:44332` 上进行侦听。
 8. 对于“应用 ID URI”，请输入 Web API 使用的标识符。 包括域在内的完整标识符 URI 是为你生成的。 例如，`https://contosotenant.partner.onmschina.cn/api`。
-9. 单击**创建**。
+9. 单击 **创建**。
 10. 在属性页上，记录在配置 Web 应用程序时要使用的应用程序 ID。
 
 * * *
@@ -88,7 +88,7 @@ Web API 资源需要先在租户中注册，然后才能接受并响应通过提
 
 示例解决方案中有两个项目：
 
-* **TaskWebApp** - 创建和编辑任务列表。 该示例使用**注册或登录**用户流来注册或登录用户。
+* **TaskWebApp** - 创建和编辑任务列表。 该示例使用 **注册或登录** 用户流来注册或登录用户。
 * **TaskService** - 支持创建、读取、更新和删除任务列表功能。 该 API 受 Azure AD B2C 的保护，由 TaskWebApp 调用。
 
 ### <a name="configure-the-web-application"></a>配置 Web 应用程序

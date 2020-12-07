@@ -12,24 +12,24 @@ ms.date: 05/11/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f6fa9b7c5d889f375711cc974f0c02d2ba141e5c
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 50941cc4b4b833a16b7c72c5164b80cdf7e8c04e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198466"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432648"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 缩放 Synapse SQL 池的计算
 
 可以使用 Azure PowerShell 缩放 Synapse SQL 池（数据仓库）的计算。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-本快速入门假设已有一个可以缩放的 SQL 池。 如果需要创建一个 SQL 池，请参考[创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 **mySampleDataWarehouse** 的 SQL 池。
+本快速入门假设已有一个可以缩放的 SQL 池。 如果需要创建一个 SQL 池，请参考 [创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 **mySampleDataWarehouse** 的 SQL 池。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 

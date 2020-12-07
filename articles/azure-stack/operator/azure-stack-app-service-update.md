@@ -3,17 +3,17 @@ title: 更新 Azure Stack Hub 上的 Azure 应用服务
 description: 了解如何更新 Azure Stack Hub 上的 Azure 应用服务。
 author: WenJason
 ms.topic: article
-origin.date: 05/05/2019
-ms.date: 11/09/2020
+origin.date: 10/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 86ae7c33d7b020d4c75258e200a712237a106dfa
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 10/28/2020
+ms.openlocfilehash: 4791126ca4422e65e1f6249ad99b6c62cbdc1d4d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330695"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507856"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>更新 Azure Stack Hub 上的 Azure 应用服务
 
@@ -41,7 +41,7 @@ ms.locfileid: "93330695"
 
 若要升级 Azure Stack Hub 上的 Azure 应用服务部署，请按照以下步骤操作：
 
-1. 下载 [Azure 应用服务安装程序](https://aka.ms/appsvcupdateQ2installer)。
+1. 下载 [Azure 应用服务安装程序](https://aka.ms/appsvcupdateQ3installer)。
 
 2. 以管理员身份运行 appservice.exe。
 
@@ -95,7 +95,7 @@ ms.locfileid: "93330695"
 * 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
 > [!IMPORTANT]
-> 在运行升级之前，必须已完成[在断开连接的环境中的 Azure Stack Hub 上部署 Azure 应用服务](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002)。 
+> 在运行升级之前，必须已完成[在断开连接的环境中的 Azure Stack Hub 上部署 Azure 应用服务](./azure-stack-app-service-deploy.md?pivots=state-disconnected)。 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
@@ -119,11 +119,11 @@ ms.locfileid: "93330695"
 
 1. 以管理员身份运行 appservice.exe
 
-    ![屏幕截图，显示如何在离线环境中开始升级。][11]
+    ![Azure 应用服务安装程序][6]
 
 2. 单击“高级” > “创建离线包”
 
-    ![屏幕截图，显示如何在应用服务安装程序中创建脱机包。][12]
+    ![Azure 应用服务安装程序高级设置][7]
 
 3. Azure 应用服务安装程序将创建离线升级包并显示其路径。  可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。
 
@@ -136,11 +136,11 @@ ms.locfileid: "93330695"
 
 1. 以管理员身份运行 appservice.exe。
 
-    ![屏幕截图，显示如何开始升级。][11]
+    ![Azure 应用服务安装程序][6]
 
 2. 单击“高级” > “完成离线安装或升级”。
 
-    ![屏幕截图，显示如何在应用服务安装程序中完成离线安装或升级。][12]
+    ![Azure 应用服务安装程序高级设置][7]
 
 3. 浏览到前面创建的离线升级包所在的位置，单击“下一步”。
 
@@ -150,7 +150,7 @@ ms.locfileid: "93330695"
 
 6. 确保 Azure Stack Hub Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack Hub 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将 Azure Stack Hub Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”。
 
-    ![屏幕截图，显示要在安装程序中的何处配置 ARM 终结点。][13]
+    ![Azure Stack Hub 云信息][2]
 
 7. 在下一页上执行以下操作：
 
@@ -168,19 +168,19 @@ ms.locfileid: "93330695"
    
    1. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
 
-      ![屏幕截图，显示要在安装程序中的何处配置 Azure Stack Hub 订阅。][14]
+      ![检测到 Azure 应用服务安装][3]
 8. 在摘要页上执行以下操作：
    1. 验证所做的选择。 若要进行更改，请使用“上一步”按钮访问前面的页面。
    2. 如果配置正确，则选中此复选框。
    3. 若要开始升级，请单击“下一步”。
 
-       ![屏幕截图，显示在安装程序中收集的信息的摘要。][15]
+       ![Azure 应用服务升级摘要][4]
 
 9. 升级进度页：
     1. 跟踪升级进度。 Azure Stack Hub 上的应用服务升级持续时间取决于部署的角色实例数目。
     2. 升级成功完成后，单击“退出”。
 
-        ![屏幕截图，显示升级已成功完成。][16]
+        ![Azure 应用服务升级进度][5]
 ---
 
 ## <a name="next-steps"></a>后续步骤
@@ -191,15 +191,12 @@ ms.locfileid: "93330695"
 * [添加更多容量](azure-stack-app-service-add-worker-roles.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-update/app-service-exe.png
-[2]: ./media/azure-stack-app-service-update/app-service-azure-resource-manager-endpoints.png
-[3]: ./media/azure-stack-app-service-update/app-service-installation-detected.png
-[4]: ./media/azure-stack-app-service-update/app-service-upgrade-summary.png
-[5]: ./media/azure-stack-app-service-update/app-service-upgrade-complete.png
+[1]: ./media/azure-stack-app-service-update/app-service-installer.png
+[2]: ./media/azure-stack-app-service-update/app-service-azure-stack-arm-endpoints.png
+[3]: ./media/azure-stack-app-service-update/app-service-azure-stack-subscription-information.png
+[4]: ./media/azure-stack-app-service-update/app-service-azure-stack-deployment-summary.png
+[5]: ./media/azure-stack-app-service-update/app-service-upgrade-summary-complete.png
 
-[11]: ./media/azure-stack-app-service-update-offline/app-service-exe.png
-[12]: ./media/azure-stack-app-service-update-offline/app-service-exe-advanced.png
-[13]: ./media/azure-stack-app-service-update-offline/app-service-azure-resource-manager-endpoints.png
-[14]: ./media/azure-stack-app-service-update-offline/app-service-installation-detected.png
-[15]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-summary.png
-[16]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-complete.png
+[6]: ./media/azure-stack-app-service-update/app-service-installer-exe.png
+[7]: ./media/azure-stack-app-service-update/app-service-exe-advanced-create-package.png
+[8]: ./media/azure-stack-app-service-update/app-service-exe-advanced-complete-offline.png

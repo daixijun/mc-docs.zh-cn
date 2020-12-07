@@ -9,12 +9,12 @@ origin.date: 07/16/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: c21a30b12a81c895aa23d0bf68252a3569e2e6fe
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 34050241d86e72f16fa4145bd92899bb5762667d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552129"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432495"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure 存储资源管理器管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -23,7 +23,7 @@ ms.locfileid: "94552129"
 ## <a name="prerequisites"></a>先决条件
 
 > [!div class="checklist"]
-> * Azure 订阅。 请参阅[获取 Azure 1 元人民币的试用订阅](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+> * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > * 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](data-lake-storage-quickstart-create-account.md)说明创建一个。
 > * 已在本地计算机上安装了 Azure 存储资源管理器。 若要安装适用于 Windows、Macintosh 或 Linux 的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.custom: contperfq1
-ms.openlocfilehash: 27c426ce18463bf4e76b90a7b90427668b638c8e
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: 56562ab8faca339fd582822bae9a0541e3703c90
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472208"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507971"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>使用 Azure CLI 添加或删除 Azure 角色分配
 
@@ -26,6 +26,7 @@ ms.locfileid: "92472208"
 若要添加或删除角色分配，必须拥有以下权限：
 
 - `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](built-in-roles.md#user-access-administrator)或[所有者](built-in-roles.md#owner)
+- [Azure CLI](/cli)
 
 ## <a name="steps-to-add-a-role-assignment"></a>角色分配的添加步骤
 
@@ -37,7 +38,7 @@ ms.locfileid: "92472208"
 
 **User**
 
-对于 Azure AD 用户，请获取用户主体名称（例如 *patlong\@contoso.com* ）或用户对象 ID。 若要获取对象 ID，可以使用 [az ad user show](/cli/ad/user#az_ad_user_show)。
+对于 Azure AD 用户，请获取用户主体名称（例如 *patlong\@contoso.com*）或用户对象 ID。 若要获取对象 ID，可以使用 [az ad user show](/cli/ad/user#az_ad_user_show)。
 
 ```azurecli
 az ad user show --id "{principalName}" --query "objectId" --output tsv
@@ -182,17 +183,7 @@ az role assignment create --assignee "{assignee}" \
     
 ## <a name="add-role-assignment-examples"></a>添加角色分配示例
 
-### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>为特定 blob 容器资源范围添加角色分配
-
-在名为 blob-container-01 的 blob 容器的资源范围内将[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色分配给对象 ID 为 55555555-5555-5555-5555-555555555555 的服务主体。
-
-```azurecli
-az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
---role "Storage Blob Data Contributor" \
---scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
-```
-
-### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>为存储帐户资源范围中的所有 blob 容器添加角色分配
+#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>为存储帐户资源范围中的所有 blob 容器添加角色分配
 
 在名为 storage12345 的存储帐户的资源范围内将[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色分配给对象 ID 为 55555555-5555-5555-5555-555555555555 的服务主体。
 
@@ -202,7 +193,17 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 ```
 
-### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>为特定虚拟网络资源范围内的某个组添加角色分配
+#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>为特定 blob 容器资源范围添加角色分配
+
+在名为 blob-container-01 的 blob 容器的资源范围内将[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色分配给对象 ID 为 55555555-5555-5555-5555-555555555555 的服务主体。
+
+```azurecli
+az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
+--role "Storage Blob Data Contributor" \
+--scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+```
+
+#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>为特定虚拟网络资源范围内的某个组添加角色分配
 
 将[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给名为 pharma-sales-project-network 的虚拟网络的资源范围内 ID 为 22222222-2222-2222-2222-222222222222 的“Ann Mack 团队”组。
 
@@ -212,7 +213,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>在资源组范围内为某个用户添加角色分配
+#### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>在资源组范围内为某个用户添加角色分配
 
 在 *pharma-sales* 资源组范围内将 [虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给 *patlong\@contoso.com* 用户。
 
@@ -222,7 +223,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>在资源组范围内使用唯一角色 ID 为某个用户添加角色分配
+#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>在资源组范围内使用唯一角色 ID 为某个用户添加角色分配
 
 很多时候角色名称可能会更改，例如：
 
@@ -239,7 +240,7 @@ az role assignment create --assignee "patlong@contoso.com" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>在资源组范围内为所有 blob 容器添加角色分配
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-resource-group-scope"></a>在资源组范围内为所有 blob 容器添加角色分配
 
 在 Example-Storage-rg 资源组范围内将[存储 Blob 数据参与者](built-in-roles.md#storage-blob-data-contributor)角色分配给对象 ID 为 55555555-5555-5555-5555-555555555555 的服务主体。
 
@@ -257,7 +258,7 @@ az role assignment create --assignee "55555555-5555-5555-5555-555555555555" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg"
 ```
 
-### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>在资源组范围内为应用程序添加角色分配
+#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>在资源组范围内为应用程序添加角色分配
 
 在 pharma-sales 资源组范围内将[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给服务主体对象 ID 为 44444444-4444-4444-4444-444444444444 的应用程序。
 
@@ -267,7 +268,7 @@ az role assignment create --assignee "44444444-4444-4444-4444-444444444444" \
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>在资源组范围内为新的服务主体添加角色分配
+#### <a name="add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope"></a>在资源组范围内为新的服务主体添加角色分配
 
 如果创建新的服务主体并立即尝试将角色分配给该服务主体，则在某些情况下该角色分配可能会失败。 例如，如果使用脚本创建新的托管标识，然后尝试将角色分配给该服务主体，则角色分配可能会失败。 此失败的原因可能是复制延迟。 服务主体是在一个区域中创建的；但是，角色分配可能发生在尚未复制服务主体的另一个区域中。 若要解决这种情况，应该在创建角色分配时指定主体类型。
 
@@ -290,7 +291,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 --resource-group "pharma-sales"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>在订阅范围内为用户添加角色分配
+#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>在订阅范围内为用户添加角色分配
 
 在订阅范围内将[读者](built-in-roles.md#reader)角色分配给 annm\@example.com 用户。
 
@@ -300,7 +301,7 @@ az role assignment create --assignee "annm@example.com" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>在订阅范围内为组添加角色分配
+#### <a name="add-role-assignment-for-a-group-at-a-subscription-scope"></a>在订阅范围内为组添加角色分配
 
 在订阅范围内将[读者](built-in-roles.md#reader)角色分配给 ID 为 22222222-2222-2222-2222-222222222222 的“Ann Mack 团队”组。
 
@@ -310,7 +311,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 --subscription "00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>在订阅范围内为所有 blob 容器添加角色分配
+#### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>在订阅范围内为所有 blob 容器添加角色分配
 
 在订阅范围内将[存储 Blob 数据读者](built-in-roles.md#storage-blob-data-reader)角色分配给 alain\@example.com 用户。
 
@@ -320,7 +321,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
-### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>在管理组范围内为用户添加角色分配
+#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>在管理组范围内为用户添加角色分配
 
 在管理组范围内将[账单读者](built-in-roles.md#billing-reader)角色分配给 alain\@example.com 用户。
 
@@ -330,7 +331,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## <a name="remove-role-assignment"></a>删除角色分配
+## <a name="remove-a-role-assignment"></a>删除角色分配
 
 在 Azure RBAC 中，若要删除访问权限，请使用 [az role assignment delete](/cli/role/assignment#az_role_assignment_delete) 删除角色分配。
 
@@ -361,5 +362,5 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 列出 Azure 角色分配](role-assignments-list-cli.md)
-- [使用 Azure CLI 管理 Azure 资源和资源组](../azure-resource-manager/cli-azure-resource-manager.md)
+- [使用 Azure CLI 管理 Azure 资源和资源组](../azure-resource-manager/management/manage-resources-cli.md)
 

@@ -10,12 +10,12 @@ origin.date: 10/20/2020
 ms.date: 11/16/2020
 ms.author: v-jay
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca42333ffaec4126ed4a50d7ebb4d1fd8a9b25f5
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: eb91f3769f92b12bed2135fb9dd2860eeebc260d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590787"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432508"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Azure DNS 区域和记录
 
@@ -29,7 +29,7 @@ Azure DNS 还支持创建专用域。 有关如何创建第一个专用 DNS 区�
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 在本地安装了 Azure PowerShell
 
 ## <a name="create-the-resource-group"></a>创建资源组

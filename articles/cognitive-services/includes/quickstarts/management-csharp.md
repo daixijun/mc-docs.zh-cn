@@ -6,20 +6,20 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 9af3800c180af1a3f9f8aa2f5df80ebc8d2f166a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7bb24e8d69948a959ad0f2973ead3a1d7cef69da
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106479"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477264"
 ---
 [参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [示例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [.NET Core](https://dotnet.microsoft.com/download/dotnet-core) 的当前版本。
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "93106479"
 
 ## <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
-创建新的 .NET Core 应用程序。 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `azure-management-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目： *program.cs* 。 
+创建新的 .NET Core 应用程序。 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 `dotnet new` 命令创建名为 `azure-management-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：*program.cs*。 
 
 ```console
 dotnet new console -n azure-management-quickstart

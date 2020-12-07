@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 origin.date: 01/22/2020
 ms.date: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3461743cea7daa78bca89d715928ef052116f55c
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: d65f9718aba806a18d17193425b20c7bdd778d5b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487065"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507463"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>为 Azure 网络接口添加、更改或删除 IP 地址
 
@@ -37,7 +37,7 @@ ms.locfileid: "84487065"
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
-- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
@@ -49,21 +49,21 @@ ms.locfileid: "84487065"
 
 可将所需的任意数量的[专用](#private)和[公共](#public) [IPv4](#ipv4) 地址添加到网络接口，只要不超过 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文中列出的限制即可。 可将专用 IPv6 地址添加到现有网络接口的一个[辅助 IP 配置](#secondary)（前提是没有现有的辅助 IP 配置）。 每个网络接口最多只能有一个 IPv6 专用地址。 可以选择将公共 IPv6 地址添加到 IPv6 网络接口配置。 有关使用 IPv6 地址的详细信息，请参阅 [IPv6](#ipv6)。
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。** ** 当“网络接口”出现在搜索结果中时，请选择它。****
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。  当“网络接口”出现在搜索结果中时，请选择它。
 2. 从列表中选择要为其添加 IPv4 地址的网络接口。
-3. 在“设置”**** 下选择“IP 配置”****。
-4. 在“IP 配置”**** 下选择“+ 添加”****。
-5. 指定以下内容，然后选择“确定”****：
+3. 在“设置”下选择“IP 配置”。
+4. 在“IP 配置”下选择“+ 添加”。
+5. 指定以下内容，然后选择“确定”：
 
     |设置|必需？|详细信息|
     |---|---|---|
     |名称|是|对于网络接口必须是唯一的|
-    |类型|是|由于要将 IP 配置添加到现有网络接口，并且每个网络接口都必须有一个[主要](#primary) IP 配置，因此，唯一选项是“辅助”。****|
+    |类型|是|由于要将 IP 配置添加到现有网络接口，并且每个网络接口都必须有一个[主要](#primary) IP 配置，因此，唯一选项是“辅助”。|
     |专用 IP 地址分配方法|是|[**动态**](#dynamic)：Azure 为在其中部署网络接口的子网地址范围分配下一可用地址。 [**静态**](#static)：为在其中部署网络接口的子网地址范围分配未使用的地址。|
     |公共 IP 地址|否|**禁用：** 当前没有公共 IP 地址资源关联到 IP 配置。 **启用：** 选择现有的 IPv4 公共 IP 地址，或新建一个。 若要了解如何创建公共 IP 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
 6. 可以遵循[将多个 IP 地址分配到虚拟机操作系统](virtual-network-multiple-ip-addresses-portal.md#os-config)一文中的说明，手动将辅助专用 IP 地址添加到虚拟机操作系统。 在手动向虚拟机操作系统添加 IP 地址之前，请参阅[专用](#private) IP 地址以了解特殊注意事项。 请不要向虚拟机操作系统添加任何公共 IP 地址。
 
-**** 命令
+命令
 
 |工具|命令|
 |---|---|
@@ -75,17 +75,17 @@ ms.locfileid: "84487065"
 
 可能需要更改 IPv4 地址的分配方法、更改静态 IPv4 地址，或者更改分配给网络接口的公共 IP 地址。 如果要更改与虚拟机中的辅助网络接口关联的辅助 IP 配置的专用 IPv4 地址（有关详细信息，请参阅[主要网络接口和辅助网络接口](virtual-network-network-interface-vm.md)），请将该虚拟机置于“已停止”（“已解除分配”）状态，并完成以下步骤：
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。** ** 当“网络接口”出现在搜索结果中时，请选择它。****
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。  当“网络接口”出现在搜索结果中时，请选择它。
 2. 从列表中选择要查看或更改 IP 网络设置的网络接口。
-3. 在“设置”**** 下选择“IP 配置”****。
+3. 在“设置”下选择“IP 配置”。
 4. 从列表中选择想要修改的 IP 配置。
 5. 使用有关[添加 IP 配置](#add-ip-addresses)的步骤 5 中的设置的信息，根据需要更改设置。
-6. 选择“保存” ****。
+6. 选择“保存” 。
 
 >[!NOTE]
 >在 Windows 中，如果主要网络接口有多个 IP 配置，并且主要 IP 配置的专用 IP 地址已更改，则必须手动将主要 IP 地址和辅助 IP 地址重新分配给网络接口（在 Linux 中不需要执行此操作）。 若要手动向操作系统中的网络接口分配 IP 地址，请参阅[将多个 IP 地址分配到虚拟机](virtual-network-multiple-ip-addresses-portal.md#os-config)。 有关在手动向虚拟机操作系统添加 IP 地址的特别注意事项，请参阅[专用](#private) IP 地址。 请不要向虚拟机操作系统添加任何公共 IP 地址。
 
-**** 命令
+命令
 
 |工具|命令|
 |---|---|
@@ -97,12 +97,12 @@ ms.locfileid: "84487065"
 
 可以从网络接口中删除[专用](#private)和[公共](#public) IP 地址，但网络接口必须始终至少有一个分配给它的专用 IPv4 地址。
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。** ** 当“网络接口”出现在搜索结果中时，请选择它。****
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。  当“网络接口”出现在搜索结果中时，请选择它。
 2. 从列表中选择要移除 IP 地址的网络接口。
-3. 在“设置”**** 下选择“IP 配置”****。
-4. 右键单击以选择要删除的[辅助](#secondary) IP 配置（无法删除[主要](#primary)配置），单击“删除”，然后选择“是”确认删除**** ****。 如果该配置关联了公共 IP 地址资源，则该资源将从 IP 配置中分离，但不会被删除。
+3. 在“设置”下选择“IP 配置”。
+4. 右键单击以选择要删除的[辅助](#secondary) IP 配置（无法删除[主要](#primary)配置），单击“删除”，然后选择“是”确认删除 。 如果该配置关联了公共 IP 地址资源，则该资源将从 IP 配置中分离，但不会被删除。
 
-**** 命令
+命令
 
 |工具|命令|
 |---|---|

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 03/19/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 3247b4930e337aefbdfa1c2542d69a7dce1c0b00
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 9c4a63173d794087fe85f1f2b361e761701d9697
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300222"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432292"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 门户按需传送内容入门
 
@@ -34,7 +34,7 @@ ms.locfileid: "96300222"
 ## <a name="prerequisites"></a>必备条件
 以下项目是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 
 本教程包括以下任务：

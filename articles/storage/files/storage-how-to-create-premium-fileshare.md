@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f97a48749a4a84724db939ea4c73e6dde44c1c46
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 49e710cf852059e50968c3d28fe2530b60c36a32
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552525"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432514"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>如何创建 Azure 高级文件共享
 
@@ -24,7 +24,7 @@ ms.locfileid: "94552525"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest)。
 - 如果你打算使用 Azure PowerShell 模块，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0)。
 

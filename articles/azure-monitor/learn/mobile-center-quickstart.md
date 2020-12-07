@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 10/03/2018
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a94bc4ea11a641612dde25310892180eda10dff4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e3f068a07b32a9120785094531a1b37925bd2b29
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327556"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432406"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>开始使用 App Center 和 Application Insights 分析移动应用
 
@@ -27,7 +27,7 @@ ms.locfileid: "94327556"
 - Azure 订阅。
 - iOS、Android、Xamarin、通用 Windows 或 React 本机应用。
  
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="sign-up-with-app-center"></a>使用 App Center 注册
 首先，创建一个帐户并[使用 App Center 注册](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs)。

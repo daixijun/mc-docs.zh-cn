@@ -20,12 +20,12 @@ ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5bf40c92424ead1ddd6e3c593fed3e03c871dc0c
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 51b250f3bccd3660ed13722fccc5ab406cfc7ed3
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564616"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507885"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -40,7 +40,7 @@ ms.locfileid: "91564616"
 * 确认从某个子网对资源的访问
 * 确认已拒绝从某个子网和 Internet 来访问资源
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
@@ -348,7 +348,7 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-在 *myVmPublic* VM 上，尝试将 Azure 文件共享映射到驱动器 Z。在运行下面的命令之前，将 `<storage-account-key>` 和 `<storage-account-name>` 替换为在[创建存储帐户](#create-a-storage-account)中提供或检索的值。
+在 *myVmPublic* VM 上，尝试将 Azure 文件共享映射到驱动器 Z。在运行下面的命令之前，将 `<storage-account-key>` 和 `<storage-account-name>` 替换为在 [创建存储帐户](#create-a-storage-account)中提供或检索的值。
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force

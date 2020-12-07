@@ -6,14 +6,14 @@ ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 origin.date: 01/27/2020
-ms.openlocfilehash: e130a1c625df4586fc470eb45e5febedf406f427
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 23e100c4558695dbd178db845589359be4cf6052
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978166"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431900"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
@@ -32,7 +32,7 @@ ms.locfileid: "94978166"
 > * 创建 Azure 函数
 > * 在用于 Redis 的 Azure 缓存中检查结果
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>创建流分析作业以运行函数 
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: v-junlch
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 5b64c83d4a50f6cb6273724cc3eecc208bd6d5e2
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 3a535fa26e8ce8503b035d3b921721d18bf19d6b
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947041"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508949"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>教程：在 Azure Functions 中使用 Python 和 TensorFlow 应用机器学习模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "88947041"
 
 ## <a name="prerequisites"></a>先决条件 
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/)。 （Python 3.7.4 和 Python 3.6.x 已在 Azure Functions 中进行验证；目前尚不支持 Python 3.8 和更高版本。）
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/)

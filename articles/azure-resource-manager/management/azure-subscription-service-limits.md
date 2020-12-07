@@ -8,12 +8,12 @@ ms.date: 11/30/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0b72b735408431b973b2e23717000a402eb05c80
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: aa036f05c5806f2d93b9ba2c18f3496024e20c17
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300929"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507589"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 
@@ -37,7 +37,7 @@ ms.locfileid: "96300929"
 > 术语“软限制”和“硬限制”通常非正式地用于描述当前可调整的限制（软限制）和最大限制（硬限制）。 如果某个限制不可调整，则不会有软限制，只有硬限制。
 >
 
-[试用订阅](https://www.azure.cn/pricing/1rmb-trial-full)。
+[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 某些限制在区域级别进行管理。
 

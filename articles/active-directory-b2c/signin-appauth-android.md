@@ -7,23 +7,23 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 06/28/2020
+ms.topic: how-to
+ms.date: 12/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 072966fb99652f6ca8ac74b69252a2fb538a42bd
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: b13b30e38e34cd8fb91a6d701b19a51162899abc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516485"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507262"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Android 应用程序登录
 
 Microsoft 标识平台使用开放式标准，例如 OAuth2 和 OpenID Connect。 这些标准允许你利用任何你希望与 Azure Active Directory B2C 集成的库。 为了帮助使用其他库，可以使用演练（例如本演练），演示如何配置第三方库，使其连接到 Microsoft 标识平台。 大部分实施 [RFC6749 OAuth2 规范](https://tools.ietf.org/html/rfc6749)的库都能连接到 Microsoft 标识平台。
 
 > [!WARNING]
-> Microsoft 不提供第三方库的修复程序，且尚未审查这些库。 本示例使用名为 AppAuth 的第三方库，该库经测试可与 Azure AD B2C 的基本方案兼容。 问题和功能请求应重定向到库的开源项目。 有关详细信息，请参阅[此文](/active-directory/develop/reference-v2-libraries)。
+> Microsoft 不提供第三方库的修复程序，且尚未审查这些库。 本示例使用名为 AppAuth 的第三方库，该库经测试可与 Azure AD B2C 的基本方案兼容。 问题和功能请求应重定向到库的开源项目。 有关详细信息，请参阅[此文](../active-directory/develop/reference-v2-libraries.md)。
 >
 >
 

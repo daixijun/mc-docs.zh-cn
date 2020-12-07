@@ -2,18 +2,19 @@
 title: Azure Stack Hub 中的配置文件支持的资源提供程序 API 版本
 description: 了解 Azure Stack Hub 中的配置文件支持的 Azure 资源管理器 API 版本。
 author: WenJason
+ms.custom: contperfq4
 ms.topic: article
-origin.date: 01/07/2020
-ms.date: 05/18/2020
+origin.date: 08/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 9f229d7fc80ca6324433b1048ee1e1d69be47c41
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 8fcec1a2e60ee5088f719f8c21f1c48c76df22d7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422541"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507977"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub 中的配置文件支持的资源提供程序 API 版本
 
@@ -193,5 +194,5 @@ API 配置文件使用三个命名约定：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub PowerShell 环境](azure-stack-powershell-configure-user.md)  

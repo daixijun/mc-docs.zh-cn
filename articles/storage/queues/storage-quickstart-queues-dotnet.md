@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9b470e070aa56fb2ba9a3c20633b2cc6fbc54b3
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 5d0ed2a5e1d97295ca1147f4fc673efaa4df3f59
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552707"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432423"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>快速入门：适用于 .NET 的 Azure 队列存储客户端库 v12
 
@@ -39,7 +39,7 @@ ms.locfileid: "94552707"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)
+* Azure 订阅 - [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于操作系统的最新 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。 确保获取 SDK，而不是运行时。
 

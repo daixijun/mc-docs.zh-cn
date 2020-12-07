@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2d52775a6cde9b1e8e166b6b83f94b33c99ecc0a
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: bb2f3f01137cdfd9636696ff39558c4f454b924e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937267"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507296"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure 时序见解第 2 代用例
 
@@ -52,7 +52,7 @@ Azure 时序见解第 2 代直观且易于使用。 连一行代码也无需编�
 
 与 Azure 时序见解第 2 代中存储的数据进行交互主要有三种方式：
 
-* 第一种也是最简单的入门方法是使用 Azure 时序见解第 2 代资源管理器。 可以使用它在一个位置快速显示所有 IoT 数据。 它提供热度地图等工具，可帮助你发现数据中的异常情况。 它还提供透视视图。 使用它可以在一个仪表板中比较一个或多个 Azure 时序见解第 2 代环境中的多达四个的视图。 通过仪表板，可以查看所有位置的时序数据。 若要规划环境，请参阅 [Azure 时序见解第 2 代规划](./time-series-insights-update-plan.md)。
+* 第一种也是最简单的入门方法是使用 Azure 时序见解第 2 代资源管理器。 可以使用它在一个位置快速显示所有 IoT 数据。 它提供热度地图等工具，可帮助你发现数据中的异常情况。 它还提供透视视图。 使用它可以在一个仪表板中比较一个或多个 Azure 时序见解第 2 代环境中的多达四个的视图。 通过仪表板，可以查看所有位置的时序数据。 若要规划环境，请参阅 [Azure 时序见解第 2 代规划](./how-to-plan-your-environment.md)。
 
 * 第二种开始方法是使用 JavaScript SDK 在 Web 应用程序中快速嵌入功能强大的图表和图。 只需几行代码，即可编写功能强大的查询。 可使用这些查询填充折线图、饼图、条形图、热度地图和数据网格等。 通过使用 SDK，所有这些元素都是现成可用的。 SDK 还提取 Azure 时序见解第 2 代查询 API。 可以使用它们来创建类似 SQL 的谓词，用于查询要在仪表板上显示的数据。 对于混合表示层解决方案，Azure 时序见解第 2 代提供了参数化 URL。 它们提供与 Azure 时序见解第 2 代资源管理器之间的无缝连接点，适用于深入分析数据。
 
@@ -98,6 +98,6 @@ Azure 时序见解第 2 代以两种简单且经济高效的方式在 IoT 数据
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读 [Azure 时序见解第 2 代最佳做法](./time-series-insights-update-plan.md)来规划你的环境。
+* 阅读 [Azure 时序见解第 2 代最佳做法](./how-to-plan-your-environment.md)来规划你的环境。
 * 阅读[示例客户端](https://github.com/Microsoft/tsiclient)文档。
 

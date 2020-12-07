@@ -6,13 +6,13 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 5f0d70e55e2404e8100e661f462bc5c17eab7fce
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 12/01/2020
+ms.openlocfilehash: 95dbf34576dc680634153769ec090cc2ee3c35c0
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228116"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431850"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>使用 PowerShell 订阅 Blob 存储帐户的事件
 
@@ -20,7 +20,7 @@ ms.locfileid: "88228116"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script---stable"></a>示例脚本 - 稳定版
 

@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
 origin.date: 06/19/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fa9148503e7a751a3ef7082f30bb9f725a2d518a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a530f148820ed8d956aedffa7562bbd28c6951fc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552695"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508067"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 表存储表设计指南：可缩放的高性能表
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -1147,7 +1147,7 @@ foreach (var e in entities)
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>时间戳</th>
 <th></th>
 </tr>
 <tr>
@@ -1239,7 +1239,7 @@ foreach (var e in entities)
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>时间戳</th>
 <th></th>
 </tr>
 <tr>
@@ -1298,7 +1298,7 @@ foreach (var e in entities)
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>部门</td>
+<td>系</td>
 <td></td>
 <td></td>
 </tr>

@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: b1007a594553af6c5d2e45cd69384f92eb0d4eaf
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 96f968ae7b5f37a23a045a0e17361e3c01a6ef8e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849318"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507600"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>在使用应用程序网关入口控制器的 AKS 群集中启用多命名空间支持
 
@@ -147,7 +147,7 @@ spec:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

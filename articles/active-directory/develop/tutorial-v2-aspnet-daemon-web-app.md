@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 012853d3a045eabaed0fb580374b60f2501093ca
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 8781b0411c052cdaf2f1e7dcf64eed802a81c69a
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749920"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508946"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>教程：生成使用 Microsoft 标识平台的多租户守护程序
 
@@ -29,7 +29,7 @@ ms.locfileid: "92749920"
 > * 获取用于调用 Microsoft Graph API 的访问令牌
 > * 调用 Microsoft Graph API。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -100,7 +100,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 1. 转到面向开发人员的 Microsoft 标识平台中的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 1. 选择“新注册”。
 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
-   - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **dotnet-web-daemon-v2** 。
+   - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **dotnet-web-daemon-v2**。
    - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。 
    - 在“重定向 URI (可选)”部分的组合框中选择“Web”，然后输入以下重定向 URI： 
        - **https://localhost:44316/**
@@ -123,12 +123,12 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
    1. 选择“添加权限”按钮。
    1. 确保已选择“Microsoft API”选项卡。
    1. 在“常用 Microsoft API”部分，选择“Microsoft Graph”。 
-   1. 在“应用程序权限”部分，确保已选择适当的权限： **User.Read.All** 。
+   1. 在“应用程序权限”部分，确保已选择适当的权限： **User.Read.All**。
    1. 选择“添加权限”按钮。
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>将示例配置为使用 Azure AD 租户
 
-在以下步骤中， **ClientID** 等同于“应用程序 ID”或 **AppId** 。
+在以下步骤中，**ClientID** 等同于“应用程序 ID”或 **AppId**。
 
 在 Visual Studio 中打开解决方案以配置项目。
 
@@ -137,8 +137,8 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 如果使用了安装脚本，将应用以下更改。
 
 1. 打开 **UserSync\Web.Config** 文件。
-1. 找到应用密钥 **ida:ClientId** 。 将现有值替换为 **dotnet-web-daemon-v2** 应用程序的、从 Azure 门户复制的应用程序 ID。
-1. 找到应用密钥 **ida:ClientSecret** 。 将现有值替换为在 Azure 门户中创建 **dotnet-web-daemon-v2** 应用期间保存的密钥。
+1. 找到应用密钥 **ida:ClientId**。 将现有值替换为 **dotnet-web-daemon-v2** 应用程序的、从 Azure 门户复制的应用程序 ID。
+1. 找到应用密钥 **ida:ClientSecret**。 将现有值替换为在 Azure 门户中创建 **dotnet-web-daemon-v2** 应用期间保存的密钥。
 
 ## <a name="run-the-sample"></a>运行示例
 
@@ -163,10 +163,10 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 此示例的相关代码在以下文件中：
 
-- **App_Start\Startup.Auth.cs** 、 **Controllers\AccountController.cs** ：初始登录 具体而言，控制器上的操作具有 **Authorize** 属性，该属性将强制用户登录。 应用程序使用[授权代码流](v2-oauth2-auth-code-flow.md)，以便于用户登录。
-- **Controllers\SyncController.cs** ：将用户列表同步到本地内存中存储。
-- **Controllers\UserController.cs** ：显示本地内存中存储中的用户列表。
-- **Controllers\AccountController.cs** ：使用管理员许可终结点从租户管理员获取权限。
+- **App_Start\Startup.Auth.cs**、**Controllers\AccountController.cs**：初始登录 具体而言，控制器上的操作具有 **Authorize** 属性，该属性将强制用户登录。 应用程序使用[授权代码流](v2-oauth2-auth-code-flow.md)，以便于用户登录。
+- **Controllers\SyncController.cs**：将用户列表同步到本地内存中存储。
+- **Controllers\UserController.cs**：显示本地内存中存储中的用户列表。
+- **Controllers\AccountController.cs**：使用管理员许可终结点从租户管理员获取权限。
 
 ## <a name="re-create-the-sample-app"></a>重新创建示例应用
 
@@ -183,19 +183,19 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
    - Microsoft.Identity.Client
 1. 在 **App_Start** 文件夹中：
    1. 创建名为 **Startup.Auth.cs** 的类。
-   1. 从命名空间名称中删除 **.App_Start** 。
+   1. 从命名空间名称中删除 **.App_Start**。
    1. 将 **Startup** 类的代码替换为示例应用的同一文件中的代码。
-   请务必使用整个类定义。 定义将从 **public class Startup** 更改为 **public partial class Startup** 。
+   请务必使用整个类定义。 定义将从 **public class Startup** 更改为 **public partial class Startup**。
 1. 在 **Startup.Auth.cs** 中，通过添加 Visual Studio IntelliSense 建议的 **using** 语句来解决缺少引用的问题。
 1. 右键单击该项目，然后依次选择“添加”、“类”。 
-1. 在搜索框中输入 **OWIN** 。 “OWIN Startup 类”将作为一个选项显示。 选择该选项，将类命名为 **Startup.cs** 。
-1. 在 **Startup.cs** 中，将 **Startup** 类的代码替换为示例应用的同一文件中的代码。 同样请注意，定义将从 **public class Startup** 更改为 **public partial class Startup** 。
+1. 在搜索框中输入 **OWIN**。 “OWIN Startup 类”将作为一个选项显示。 选择该选项，将类命名为 **Startup.cs**。
+1. 在 **Startup.cs** 中，将 **Startup** 类的代码替换为示例应用的同一文件中的代码。 同样请注意，定义将从 **public class Startup** 更改为 **public partial class Startup**。
 1. 在 **Models** 文件夹中，添加名为 **MsGraphUser.cs** 的新类。 将实现替换为示例中同名文件的内容。
 1. 添加名为 **AccountController** 的“MVC 5 控制器 - 空”新实例。 将实现替换为示例中同名文件的内容。
 1. 添加名为 **UserController** 的“MVC 5 控制器 - 空”新实例。 将实现替换为示例中同名文件的内容。
 1. 添加名为 **SyncController** 的“Web API 2 控制器 - 空”新实例。 将实现替换为示例中同名文件的内容。
-1. 对于用户界面，请在 **Views\Account** 文件夹中，添加名为 **GrantPermissions** 、 **Index** 和 **UserMismatch** 的三个“空(无模型)视图”实例。 在 **Views\User** 文件夹中添加一个名为 **Index** 的实例。 将实现替换为示例中同名文件的内容。
-1. 更新 **Shared\_Layout.cshtml** 和 **Home\Index.cshtml** ，以正确地将各个视图链接到一起。
+1. 对于用户界面，请在 **Views\Account** 文件夹中，添加名为 **GrantPermissions**、**Index** 和 **UserMismatch** 的三个“空(无模型)视图”实例。 在 **Views\User** 文件夹中添加一个名为 **Index** 的实例。 将实现替换为示例中同名文件的内容。
+1. 更新 **Shared\_Layout.cshtml** 和 **Home\Index.cshtml**，以正确地将各个视图链接到一起。
 
 ## <a name="deploy-the-sample-to-azure"></a>将示例部署到 Azure
 
@@ -220,7 +220,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
    1. 在解决方案资源管理器中右键单击该项目，然后选择“发布”。
    1. 在底部栏上选择“导入配置文件”，然后导入先前下载的发布配置文件。
 1. 选择“配置” 。
-1. 在“连接”选项卡上更新目标 URL，使其使用“https”。 例如，使用 `https://dotnet-web-daemon-v2-contoso.chinacloudsites.cn`。 选择“ **下一页** ”。
+1. 在“连接”选项卡上更新目标 URL，使其使用“https”。 例如，使用 `https://dotnet-web-daemon-v2-contoso.chinacloudsites.cn`。 选择“**下一页**”。
 1. 在“设置”选项卡上，确保已清除“启用组织身份验证”。 
 1. 选择“保存”。 在主屏幕上选择“发布”。
 

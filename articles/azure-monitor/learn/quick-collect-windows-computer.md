@@ -11,15 +11,15 @@ origin.date: 08/22/2019
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0257eb9ac664039732bee7d7e25f3d56d7a9847f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 22580907cb67df6ac3349f2995b3b49b7a906f3e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328513"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432462"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Windows 计算机收集数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "94328513"
 
 若要了解支持的配置，请参阅[支持的操作系统](../platform/agents-overview.md#supported-operating-systems)和[网络防火墙配置](../platform/log-analytics-agent.md#network-requirements)。
  
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure-portal"></a>登录到 Azure 门户
 

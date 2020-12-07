@@ -4,16 +4,16 @@ description: 获取 Microsoft Azure Stack Hub 的支持。
 author: WenJason
 ms.topic: article
 origin.date: 02/26/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 6ba3e53ec9562639cd44d56de7cf9c83149e8114
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 4a60c414d68f7985cddf249dbe18866022d1f0f9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330522"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508110"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -33,9 +33,9 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 - **文档** [Azure Stack Hub 操作员文档](index.yml)包含介绍如何提供 Azure Stack Hub 服务的概念、操作指南主题和教程。 这些服务包括虚拟机、SQL 数据库、Web 应用等。
 
-- **了解计费** 。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
+- **了解计费**。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
 
-- **支持选项** 。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](/azure-stack/operator/azure-stack-manage-basics)，用于应对各种企业的需求。
+- **支持选项**。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](./azure-stack-manage-basics.md)，用于应对各种企业的需求。
 
 ### <a name="get-expert-help"></a>获取专家帮助
 
@@ -74,8 +74,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 从 1907 版开始，在“帮助和支持”中提供了两种新方法来收集日志：
 
-- **自动收集** ：如果启用，日志收集将由特定的运行状况警报触发。
-- **立即收集日志** ：可以从过去七天选择 1-4 小时滑动窗口。
+- **自动收集**：如果启用，日志收集将由特定的运行状况警报触发。
+- **立即收集日志**：可以从过去七天选择 1-4 小时滑动窗口。
 
 ![诊断日志收集选项](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -83,7 +83,7 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>旧版 Azure Stack Hub（1905 之前）的帮助和支持
 
-旧版 Azure Stack Hub 也有“帮助 + 支持”链接，此链接重定向到 [Azure Stack Hub 操作员文档](/azure-stack/operator/)。
+旧版 Azure Stack Hub 也有“帮助 + 支持”链接，此链接重定向到 [Azure Stack Hub 操作员文档](./index.yml)。
 
 ![获取支持教程](media/azure-stack-help-and-support/get-support-previous.png)
 

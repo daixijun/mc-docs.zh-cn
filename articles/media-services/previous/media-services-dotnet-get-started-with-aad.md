@@ -15,12 +15,12 @@ origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: eb7e90128a987505b988b1f25bfec7b502c39c8a
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: fb32f2bcf4f05bb4bc1ca48cf374534e956096fa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245586"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432581"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证可通过 .NET 访问 Azure 媒体服务 API
 
@@ -33,7 +33,7 @@ ms.locfileid: "91245586"
 
 ## <a name="prerequisites"></a>必备条件
 
-- 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+- 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 - 一个媒体服务帐户。 有关详细信息，请参阅[利用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 - 最新的 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 程序包。
 - 熟悉主题[使用 Azure AD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)。

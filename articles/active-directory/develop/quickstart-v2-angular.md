@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 11/23/2020
 ms.author: v-junlch
-ms.openlocfilehash: ad370ddcdb4e41ac551bace803a44b38d952b41a
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: cc2de9e079301aa5a8026be9747eb9633dd2e101
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918500"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508821"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>快速入门：在 Angular 单页应用程序中将用户登录并获取访问令牌
 
@@ -25,7 +25,7 @@ ms.locfileid: "95918500"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 [创建一个](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 [创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Node.js](https://nodejs.org/en/download/)。
 * 用于编辑项目文件的 [Visual Studio Code](https://code.visualstudio.com/download)，或用于运行项目的 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
 

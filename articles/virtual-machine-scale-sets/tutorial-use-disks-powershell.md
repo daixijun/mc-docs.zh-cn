@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 11/02/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: bb66dbc999274d94ae82628c75657cd2e0a4f2b6
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: af1662054dfad16a907aa2971fd90a492a81adf9
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326525"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508574"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教程：通过 Azure PowerShell 对虚拟机规模集创建和使用磁盘
 
@@ -27,7 +27,7 @@ ms.locfileid: "94326525"
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -165,7 +165,7 @@ Update-AzVmss `
 
 若要确认磁盘是否已正确地准备好，请通过 RDP 连接到某个 VM 实例。 
 
-首先，使用 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则。 NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort* 。 最后，使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/Get-AzPublicIpAddress) 获取负载均衡器的公共 IP 地址：
+首先，使用 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则。 NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/Get-AzPublicIpAddress) 获取负载均衡器的公共 IP 地址：
 
 
 ```azurepowershell
@@ -179,7 +179,7 @@ Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Pr
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
-若要连接到 VM，请指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据。 以下示例连接到 VM 实例 *1* ：
+若要连接到 VM，请指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据。 以下示例连接到 VM 实例 *1*：
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -271,7 +271,7 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>分离磁盘
-不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [Remove-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmssdatadisk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 命令的输出中。 以下示例从规模集分离 LUN *3* ：
+不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [Remove-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmssdatadisk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 命令的输出中。 以下示例从规模集分离 LUN *3*：
 
 ```azurepowershell
 # Get scale set object

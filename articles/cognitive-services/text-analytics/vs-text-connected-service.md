@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
 origin.date: 07/24/2019
-ms.date: 07/12/2019
+ms.date: 12/01/2020
 ms.author: v-lingwu
-ms.openlocfilehash: 5488a30eed0f36edbd9496534b24129ca0e0c39b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7f4e0b4664d3d16e1ffea75620de92b5837135bc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884508"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432571"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>教程：使用 Visual Studio 中连接服务连接到文本分析服务
 
@@ -26,7 +26,7 @@ ms.locfileid: "74884508"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有订阅，可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Visual Studio 2019（装有“Web 开发”工作负荷）。 [立即下载](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]

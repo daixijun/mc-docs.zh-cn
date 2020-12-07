@@ -3,22 +3,22 @@ title: Azure Stack Hub 中的 VM 更新和管理自动化
 description: 在 Azure 自动化中使用用于 VM 的 Azure Monitor、更新管理、更改跟踪和库存等解决方案来管理 Azure Stack Hub 中部署的 Windows 和 Linux VM。
 author: WenJason
 ms.topic: article
-origin.date: 10/08/2020
-ms.date: 11/09/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: bfb1b216e992b649d2eba46ed39e8ac9f12ee4ed
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 2de6318f7a866ed786f2da23eab1d0d65a517846
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330469"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507880"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub 中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能来管理使用 Azure Stack Hub 部署的 Windows 和 Linux 虚拟机 (VM)：
 
-- **[更新管理](/automation/automation-update-management)** ：借助更新管理解决方案，可以快速评估所有代理计算机上可用更新的状态，并管理为 Windows 和 Linux VM 安装所需更新的过程。
+- **[更新管理](/automation/update-management/overview)** ：借助更新管理解决方案，可以快速评估所有代理计算机上可用更新的状态，并管理为 Windows 和 Linux VM 安装所需更新的过程。
 
 - **[用于 VM 的 Azure Monitor](/azure-monitor/insights/vminsights-overview)** ：用于 VM 的 Azure Monitor 可以大规模监视 Azure 与 Azure Stack Hub VM 和虚拟机规模集。 它分析 Windows VM 和 Linux VM 的性能和运行状况，还监视它们的进程及其对其他资源和外部进程的依赖关系。
 
@@ -86,7 +86,7 @@ ms.locfileid: "93330469"
 
    [![“安装扩展”对话框中包含用于提供 Azure WorkspaceID 和 WorkspaceKey 的文本框。](media//vm-update-management/4-sm.PNG "提供工作区 ID 和密钥")](media//vm-update-management/4-lg.PNG) 
 
-4. 如[更新管理文档](/automation/automation-update-management)中所述，需要为要管理的每个 VM 启用更新管理解决方案。 若要为向工作区报告的所有 VM 启用解决方案，请选择“更新管理”，单击“管理计算机”，然后选择“在所有可用的和未来的计算机上启用”选项  。
+4. 如[更新管理文档](/automation/update-management/overview)中所述，需要为要管理的每个 VM 启用更新管理解决方案。 若要为向工作区报告的所有 VM 启用解决方案，请选择“更新管理”，单击“管理计算机”，然后选择“在所有可用的和未来的计算机上启用”选项  。
 
    [![“管理计算机 - 更新管理”对话框显示了未启用更新管理的计算机。提供了三个启用选项，并且选中并突出显示了“在所有可用的和未来的计算机上启用”。有一个“启用”按钮。](media//vm-update-management/5-sm.PNG "在所有计算机上启用更新管理解决方案")](media//vm-update-management/5-lg.PNG) 
 
@@ -110,6 +110,8 @@ Azure Stack Hub VM 现在可以与 Azure VM 一起包含在计划的更新部署
 
 以下示例介绍如何执行此操作：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -119,6 +121,21 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>启用在 Azure Stack Hub 上运行的用于 VM 的 Azure Monitor
 当 VM 具有“Azure Monitor 更新和配置管理”，并安装“Azure Monitor Dependency Agent”扩展后，它将开始在[用于 VM 的 Azure Monitor](/azure-monitor/insights/vminsights-overview) 解决方案中报告数据 。 

@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: c92040f0bdf37fb9f4125defaeb55293762d6ee2
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 46bf651c38a7643b406a43741f76568a406ab01d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970736"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507613"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>教程：通过 Azure CLI 使用现有的应用程序网关为现有 AKS 群集启用应用程序网关入口控制器加载项（预览版）
 
@@ -29,7 +29,7 @@ ms.locfileid: "95970736"
 > * 在 AKS 群集上部署将 AGIC 用于入口的示例应用程序
 > * 检查是否可以通过应用程序网关访问应用程序
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

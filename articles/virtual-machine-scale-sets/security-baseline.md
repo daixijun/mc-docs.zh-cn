@@ -4,15 +4,15 @@ description: 虚拟机规模集安全基线为实现 Azure 安全基准中指定
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bfeea95d144a04985d9718928d367f05c7d168a5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 920baa52c941b2ffc89a6e877166ecb99af19bbf
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552264"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507200"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>适用于虚拟机规模集的 Azure 安全基线
 
@@ -902,7 +902,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 **指导**：将托管服务标识与 Azure Key Vault 结合使用，以便简化和保护云应用程序的机密管理。
 
-* [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
 
@@ -1040,7 +1040,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 * [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 

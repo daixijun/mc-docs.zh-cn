@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79f6aed9765f2443bfcd62ea9475b02824e7d584
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 93b8baf815e0dee3bdefbb1b2b78d9b64b763979
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472079"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507357"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>在 Azure 门户中创建新的 Azure 时序见解 Gen1 环境
 
@@ -68,9 +68,9 @@ ms.locfileid: "92472079"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [定义数据访问策略](time-series-insights-data-access.md)来保护环境。
+* [定义数据访问策略](./concepts-access-policies.md)来保护环境。
 
-* [将事件中心事件源添加](how-to-ingest-data-event-hub.md)到 Azure 时序见解环境。
+* [将事件中心事件源添加](./how-to-ingest-data-event-hub.md)到 Azure 时序见解环境。
 
 * [发送事件](time-series-insights-send-events.md)到事件源。
 

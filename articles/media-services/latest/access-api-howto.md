@@ -14,12 +14,12 @@ ms.topic: how-to
 origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: d33482b325510ff06c9d671a1b3e586329513a0d
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3c15bf5a4288c84b6a809349a3afd2dfadbda180
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245502"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431651"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>获取访问媒体服务 API 的凭据
 
@@ -38,7 +38,7 @@ ms.locfileid: "91245502"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 1 元试用](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)入手。 
+- 一个 Azure 帐户。 如果没有帐户，请从 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)入手。 
 - 一个媒体服务帐户。 有关详细信息，请参阅[利用 Azure 门户创建 Azure 媒体服务帐户](create-account-howto.md)。
 
 ## <a name="portal"></a>[Portal](#tab/portal/)

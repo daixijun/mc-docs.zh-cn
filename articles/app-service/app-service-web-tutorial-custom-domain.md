@@ -6,15 +6,15 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/25/2020
-ms.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4734fb9fea4a6559ba2d477d43adaa2095ff68b
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: a376a2cb9dcb4878674c00a4f2b62f3f5f8b7861
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170772"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508008"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 
@@ -201,7 +201,7 @@ ms.locfileid: "92170772"
 
 | 记录类型 | 主机 | 值 | 注释 |
 | - | - | - |
-| A | `@` | 在[复制应用的 IP 地址](#info)步骤中复制的 IP 地址 | 域映射本身（`@` 通常表示根域）。 |
+| A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 | 域映射本身（`@` 通常表示根域）。 |
 | TXT | `asuid` | [之前获得的验证 ID](#get-a-domain-verification-id) | 应用服务访问 `asuid.<subdomain>` TXT 记录以验证你对自定义域的所有权。 对于根域，请使用 `asuid`。 |
 
 > [!NOTE]
@@ -209,7 +209,7 @@ ms.locfileid: "92170772"
 >
 > | 记录类型 | 主机 | 值 |
 > | - | - | - |
-> | A | `www` | 在[复制应用的 IP 地址](#info)步骤中复制的 IP 地址 |
+> | A | `www` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
 > | TXT | `asuid.www` | `<app-name>.chinacloudsites.cn` |
 >
 

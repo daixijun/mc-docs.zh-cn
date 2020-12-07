@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 11/26/2019
-ms.date: 11/16/2020
-ms.openlocfilehash: 150d7ed564e1ae4a3c6e9bb02eed38ffba8b19fc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 12/01/2020
+ms.openlocfilehash: 4d36f6384427b774474763876c30ac87c86d677d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978135"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432458"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>使用 Azure 流分析处理实时 IoT 数据流
 
@@ -21,7 +21,7 @@ ms.locfileid: "94978135"
 
 ## <a name="prerequisites"></a>必备条件
 
-* 创建 [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)试用版
+* 创建 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)试用版
 * 可从 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) 下载示例查询和数据文件
 <!--Correct in MC: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted-->
 

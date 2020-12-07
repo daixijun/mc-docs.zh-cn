@@ -10,12 +10,12 @@ origin.date: 07/24/2020
 ms.date: 08/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: ff0f782f282d4f3ad4deeca3d4eaea5bc3eb9281
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 0df7352deec462aa55344a4726092b2df13d1602
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753441"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432613"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -28,7 +28,7 @@ ms.locfileid: "88753441"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 Azure 存储帐户。 [创建存储帐户](../common/storage-account-create.md)。
 - 一个本地 Web 服务器。 本文使用 [Node.js](https://nodejs.org) 打开基本服务器。
 - [Visual Studio Code](https://code.visualstudio.com)。

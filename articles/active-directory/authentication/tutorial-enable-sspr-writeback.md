@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c082ae54e0fab62a99b6194ed75568b3da781e2
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 08bee82d1999a3a7ca1600a5afce49f8a9dc2f54
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046324"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508778"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>教程：启用到本地环境的 Azure Active Directory 自助式密码重置写回
 
@@ -41,7 +41,7 @@ ms.locfileid: "89046324"
 需有以下资源和特权才能完成本教程：
 
 * 一个至少启用了 Azure AD Premium P1 或试用版许可证的有效 Azure AD 租户。
-    * 如果需要，可[创建一个](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果需要，可[创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
     * 有关详细信息，请参阅 [Azure AD SSPR 的许可要求](concept-sspr-licensing.md)。
 * 一个拥有全局管理员特权的帐户。
 * 为自助式密码重置配置的 Azure AD。

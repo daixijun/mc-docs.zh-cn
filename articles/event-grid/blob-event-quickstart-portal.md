@@ -1,22 +1,22 @@
 ---
 title: 快速入门：将 Blob 存储事件发送到 Web 终结点 - 门户
 description: 快速入门：使用 Azure 事件网格和 Azure 门户创建 Blob 存储帐户并订阅其事件。 将事件发送到 Webhook。
-ms.date: 10/10/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
-ms.openlocfilehash: fc58b6c8a4e5eacf668d261a76cbb285bebed518
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 63b826eeab825a42bb1e6df61cf5e42d9c3cce86
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211491"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432635"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入门：利用 Azure 门户将 Blob 存储事件路由到 Web 终结点
 
 Azure 事件网格是针对云的事件处理服务。 在本文中，你将使用 Azure 门户创建 Blob 存储帐户、订阅该 Blob 存储的事件，并触发事件来查看结果。 通常，你会将事件发送到处理事件数据并执行操作的终结点。 但是，为了简化本文，你将事件发送到收集并显示消息的 Web 应用。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 完成后即可看到事件数据已发送到 Web 应用。
 

@@ -9,21 +9,21 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: de53f8e37d90ad63c3967d1ff30b75410485b4bd
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 076c7d862f3934d9e030bee92f2ba752652795fd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471348"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508094"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建 Azure 时序见解 Gen 1 资源
 
 > [!CAUTION]
 > 这是一篇 Gen1 文章。
 
-本文介绍如何使用 [Azure 资源管理器模板](/azure-resource-manager/)、PowerShell 和 Azure 时序见解资源提供程序创建和部署 Azure 时序见解资源。
+本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/index.yml)、PowerShell 和 Azure 时序见解资源提供程序创建和部署 Azure 时序见解资源。
 
 Azure 时序见解支持以下资源：
 
@@ -32,7 +32,7 @@ Azure 时序见解支持以下资源：
    | 环境 | Azure 时序见解环境是从事件中转站读取的、经存储的并可供查询使用的事件的逻辑分组。 有关详细信息，请阅读[规划 Azure 时序见解环境](time-series-insights-environment-planning.md) |
    | 事件源 | 事件源是与事件中转站建立的连接，Azure 时序见解从该中转站读取和引入事件至环境。 目前支持的事件源是 IoT 中心和事件中心。 |
    | 引用数据集 | 引用数据集提供有关环境中事件的元数据。 在引入期间，引用数据集中的元数据将与事件联接。 引用数据集根据其事件键属性定义为资源。 构成引用数据集的实际元数据通过数据平面 API 上传或修改。 |
-   | 访问策略 | 访问策略授予的权限适用于：发出数据查询、操作环境中的引用数据，以及共享已保存的与环境关联的查询和透视。 有关详细信息，请参阅[使用 Azure 门户授予对 Azure 时序见解环境的数据访问权限](time-series-insights-data-access.md) |
+   | 访问策略 | 访问策略授予的权限适用于：发出数据查询、操作环境中的引用数据，以及共享已保存的与环境关联的查询和透视。 有关详细信息，请参阅[使用 Azure 门户授予对 Azure 时序见解环境的数据访问权限](./concepts-access-policies.md) |
 
 资源管理器模板是用于定义资源组中资源的基础结构和配置的 JSON 文件。 以下文档更详细地介绍了模板文件：
 
@@ -219,7 +219,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    - 要运行 [完整](../azure-resource-manager/templates/deployment-modes.md)部署，请将 **Mode** 参数设置为 **Complete** ：
+    - 要运行 [完整](../azure-resource-manager/templates/deployment-modes.md)部署，请将 **Mode** 参数设置为 **Complete**：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

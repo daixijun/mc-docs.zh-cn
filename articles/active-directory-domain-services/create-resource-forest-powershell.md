@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: af2402d59ffd0cf9a77bd13109a15f119b299c9f
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 303b1beeb978bc2ce83a7302c49e82ba92d6b008
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508685"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>使用 Azure PowerShell 创建 Azure Active Directory 域服务资源林以及到本地域的出站林信任
 
@@ -31,7 +31,7 @@ ms.locfileid: "94501711"
 > * 在本地 AD DS 环境中创建单向入站林信任
 > * 测试并验证用于身份验证和资源访问的信任关系
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!IMPORTANT]
 > 托管域资源林目前不支持 Azure HDInsight 或 Azure 文件存储。 默认托管域用户林支持这两个附加服务。
@@ -41,7 +41,7 @@ ms.locfileid: "94501711"
 需有以下资源和特权才能完成本文：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 

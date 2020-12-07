@@ -7,12 +7,12 @@ origin.date: 07/22/2019
 ms.date: 04/13/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 86ff190a37cdcb0fd7a5ec8853f6467c7653db5d
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 0e2c8e99db0035520f5ea272241579117644e484
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507494"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教程：在 Linux Service Fabric 群集上创建容器映像
@@ -34,11 +34,11 @@ ms.locfileid: "82093505"
 <!--Pending to verify > * [Build and Run a Service Fabric Application with Containers](service-fabric-tutorial-package-containers.md)-->
 <!--Pending to verify > * [How failover and scaling are handled in Service Fabric](service-fabric-tutorial-containers-failover.md)-->
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 * 设置 Service Fabric 的 Linux 开发环境。 按照[此处](service-fabric-get-started-linux.md)的说明设置 Linux 环境。
 * 本教程需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
-* 此外，还需要拥有可用的 Azure 订阅。 有关试用版的详细信息，请转到[此处](https://www.azure.cn/pricing/1rmb-trial/)。
+* 此外，还需要拥有可用的 Azure 订阅。 有关试用版的详细信息，请转到[此处](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="get-application-code"></a>获取应用程序代码
 
@@ -56,7 +56,7 @@ cd service-fabric-containers/Linux/container-tutorial/
 
 ## <a name="create-container-images"></a>创建容器映像
 
-在“azure-vote”目录中，运行以下命令，生成前端 Web 组件的映像。 下面的命令使用此目录中的 Dockerfile 生成映像。
+在“azure-vote”目录中，运行以下命令，生成前端 Web 组件的映像  。 下面的命令使用此目录中的 Dockerfile 生成映像。
 
 ```bash
 docker build -t azure-vote-front .
@@ -70,7 +70,7 @@ docker build -t azure-vote-front .
 docker images
 ```
 
-请注意，已下载或创建两个映像。 *azure-vote-front* 映像包含应用程序。 它派生自 Docker 中心的 python 映像。
+请注意，已下载或创建两个映像。 *azure-vote-front* 映像包含应用程序。 它派生自 Docker 中心的 python 映像  。
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -151,7 +151,7 @@ Result
 <acrName>.azurecr.cn
 ```
 
-现在，使用容器注册表的 loginServer 标记 azure-vote-front 映像。 另外，将 `:v1` 添加至映像名称的末端。 此标记代表映像版本。
+现在，使用容器注册表的 loginServer 标记 azure-vote-front 映像  。 另外，将 `:v1` 添加至映像名称的末端。 此标记代表映像版本。
 
 ```bash
 docker tag azure-vote-front <acrName>.azurecr.cn/azure-vote-front:v1
@@ -171,7 +171,7 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 
 ## <a name="push-images-to-registry"></a>将映像推送到注册表
 
-将 azure-vote-front 映像推送到注册表。 
+将 azure-vote-front  映像推送到注册表。 
 
 使用以下示例，将 ACR loginServer 名称替换为环境中的 loginServer。
 

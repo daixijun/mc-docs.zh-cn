@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0822f238e71c63e22557ad08a5483f3f4171fa4c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: cf6ab3484a6f5c0839a26a85afa04d5a15341d19
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655711"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507342"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>快速入门：为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
@@ -27,7 +27,7 @@ ms.locfileid: "89655711"
 
 需要 Azure 订阅和 VM 才能完成此教程。
 
-- 如果没有一个订阅处于活动状态的 Azure 帐户，可以[免费创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有一个订阅处于活动状态的 Azure 帐户，可以[免费创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 建议使用 RAM 至少为 1 GB 的 VM。 [详细了解](../virtual-machines/windows/quick-create-portal.md)如何创建 VM。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure

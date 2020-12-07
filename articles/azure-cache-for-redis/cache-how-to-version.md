@@ -6,18 +6,18 @@ ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.openlocfilehash: bf1858b3c036ba9bf83d884f3958daac4dfc755d
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 2eff10b29498eda9e64b584d389934d2d537655e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849466"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508866"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>设置 Azure Cache for Redis 的 Redis 版本（预览）
 本文介绍如何配置要与缓存实例一起使用的 Redis 软件版本。 Azure Cache for Redis 提供 Redis 的最新主版本和至少一个早期版本。 由于会发布新的 Redis 软件，它将定期更新这些版本。 可在两个可用版本之间进行选择。 请记住，如果缓存当前使用的版本不再受支持，缓存会自动升级到下一版本。
 
 ## <a name="prerequisites"></a>先决条件
-* Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* Azure 订阅 - [创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 ## <a name="create-a-cache"></a>创建缓存
 若要创建缓存，请执行以下步骤：

@@ -3,14 +3,14 @@ title: 创建由 Azure Cosmos DB 触发的函数
 description: 使用 Azure Functions 创建当数据添加到 Azure Cosmos DB 调用的无服务器函数。
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 11/30/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2830e1f2c5c1aece73cad77d872fad1cd77c9acc
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 253d682ac5724a3b740c550bee1c5bd85952654a
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508984"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
@@ -22,7 +22,7 @@ ms.locfileid: "86440526"
 
 为完成此教程：
 
-+ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
++ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
@@ -100,7 +100,7 @@ ms.locfileid: "86440526"
     | ---|---|--- |
     | **数据库 ID** | 任务 |新数据库的名称。 它必须匹配函数绑定中定义的名称。 |
     | **容器 ID** | Items | 新容器的名称。 它必须匹配函数绑定中定义的名称。  |
-    | **[分区键](../cosmos-db/partition-data.md)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能容器而言很重要。 | 
+    | **[分区键](../cosmos-db/partitioning-overview.md)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能容器而言很重要。 | 
     | **吞吐量** |400 RU| 使用默认值。 如果想要减少延迟，以后可以增加吞吐量。 |    
 
 1. 单击“确定”以创建 Items 容器。 创建该容器可能需要很短的时间。

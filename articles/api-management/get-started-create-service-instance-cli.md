@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: ''
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 4aca77b63a852ee42643d51059d15f6d2b2899cd
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 5dbd91c90f8fda1d0478f1a8b76639007e4280bc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871528"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432525"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>快速入门：使用 Azure CLI 创建新的 Azure API 管理服务实例（预览版）
 
@@ -20,7 +20,7 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 本快速入门介绍了在 Azure CLI 中使用 [az apim](/cli/apim) 命令创建新的 API 管理实例的步骤。 `az apim` 命令组中的命令当前为预览版，在将来的版本中可能会更改或删除。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="launch-azure-cli"></a>启动 Azure CLI
 可以使用 Azure CLI 来完成此快速入门。 如果想要在本地使用它，建议使用 2.11.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。

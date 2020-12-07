@@ -10,12 +10,12 @@ ms.author: v-junlch
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0585a8e1197298a692c32d7d4a95c1973b4366a9
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 256cc386eefc3361119df27775f9df0c8f22087e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593715"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508838"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>教程：使用 Azure 多重身份验证保护用户登录事件
 
@@ -40,7 +40,7 @@ ms.locfileid: "89593715"
 需有以下资源和特权才能完成本教程：
 
 * 一个至少启用了 Azure AD Premium P1 或试用版许可证的有效 Azure AD 租户。
-    * 如果需要，可[创建一个](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果需要，可[创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个拥有全局管理员特权的帐户。
 * 你知道其密码的非管理员测试用户，例如 *testuser*。 本教程将使用此帐户测试最终用户的 Azure 多重身份验证体验。
     * 如果需要创建用户，请参阅[快速入门：向 Azure Active Directory 添加新用户](../fundamentals/add-users-azure-active-directory.md)。

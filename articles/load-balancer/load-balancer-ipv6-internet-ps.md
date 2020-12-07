@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 08/31/2020
 ms.author: v-jay
-ms.openlocfilehash: 30ab49a6fe2182b96cf62d862524ce92932669a8
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 2a2f3c6a622e793e5bab33023ebe434a99d1b1d3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045785"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432544"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>开始使用用于 Resource Manager 的 PowerShell 创建具有 IPv6 的面向 Internet 的负载均衡器
 

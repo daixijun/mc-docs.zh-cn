@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f7f829dbc5d002ae1a36d54e7d9ea9cc5a33d94
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: f2eb05976398ab1cf1b0027b9a1c0a9de2176c2a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914167"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507433"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>查看 Azure RBAC 更改的活动日志
 
@@ -48,7 +48,7 @@ ms.locfileid: "87914167"
 | 事件类别 | <ul><li>管理</li></ul> |
 | Operation | <ul><li>创建角色分配</li><li>删除角色分配</li><li>创建或更新自定义角色定义</li><li>删除自定义角色定义</li></ul> |
 
-有关活动日志的更多信息，请参阅[查看活动日志以监视对资源的操作](/azure-resource-manager/resource-group-audit)。
+有关活动日志的更多信息，请参阅[查看活动日志以监视对资源的操作](../azure-resource-manager/management/view-activity-logs.md)。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 日志
 
-[Azure Monitor 日志](../log-analytics/log-analytics-overview.md)是另一种可用于收集并分析所有 Azure 资源的 Azure RBAC 更改的工具。 Azure Monitor 日志具有以下优点：
+[Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)是另一种可用于收集并分析所有 Azure 资源的 Azure RBAC 更改的工具。 Azure Monitor 日志具有以下优点：
 
 - 编写复杂查询和逻辑
 - 与警报、Power BI 和其他工具集成
@@ -133,9 +133,9 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 1. [创建 Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md)。
 
-1. 为工作区[配置 Activity Log Analytics 解决方案](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。
+1. 为工作区[配置 Activity Log Analytics 解决方案](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution)。
 
-1. [查看活动日志](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。 单击“日志”选项可以快速导航到 Activity Log Analytics 解决方案“概述”页面。
+1. [查看活动日志](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution)。 单击“日志”选项可以快速导航到 Activity Log Analytics 解决方案“概述”页面。
 
    ![门户中的 Azure Monitor 日志选项](./media/change-history-report/azure-log-analytics-option.png)
 
@@ -162,6 +162,6 @@ AzureActivity
 ![使用高级分析门户的活动日志 - 屏幕截图](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>后续步骤
-* [在活动日志中查看事件](/azure-resource-manager/resource-group-audit)
-* [使用 Azure 活动日志监视订阅活动](/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [在活动日志中查看事件](../azure-resource-manager/management/view-activity-logs.md)
+* [使用 Azure 活动日志监视订阅活动](../azure-monitor/platform/platform-logs-overview.md)
 

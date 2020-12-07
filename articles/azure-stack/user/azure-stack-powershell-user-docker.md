@@ -3,17 +3,17 @@ title: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 description: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 author: WenJason
 ms.topic: how-to
-origin.date: 8/17/2020
-ms.date: 10/12/2020
+origin.date: 10/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: 6fa9b4552db1dab5d6b2de75d50399115f08ffbf
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: fffc519edf86729f5057bd4bba10c2e5f112d5ec
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437553"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507978"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -40,6 +40,63 @@ ms.locfileid: "91437553"
 2. 记下应用程序 ID、机密、租户 ID 和对象 ID 供以后使用。
 
 ## <a name="run-powershell-in-docker"></a>在 Docker 中运行 PowerShell
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
+在这些说明中，你将运行基于 Linux 的容器映像，该映像包含 PowerShell 和 Azure Stack Hub 所需的模块。
+
+1. 需要使用 Linux 容器运行 Docker。 运行 Docker 时，请切换到 Linux 容器。
+
+1. 从已加入 Azure Stack Hub 所在的域的计算机运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需[在远程计算机上安装 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn)。
+
+
+## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>在 Linux 容器上安装 Azure Stack Hub Az 模块
+
+1. 在命令行中运行以下 Docker 命令，以在 Ubuntu 容器中运行 PowerShell：
+
+    ```bash
+    docker run -it mcr.microsoft.com/azurestack/powershell
+    ```
+
+    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 将冒号之后部分的标记替换为所需 OS 的标记。
+
+    | Linux | Docker 映像 |
+    | --- | --- |
+    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
+    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
+    | CentOS | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
+
+2. 可以将此 shell 用于 cmdlet 了。 通过登录并运行 `Test-AzureStack.ps1` 来测试 shell 连接性。
+
+    首先创建服务主体凭据。 你将需要“机密”和“应用程序 ID” 。 在运行 `Test-AzureStack.ps1` 检查容器时，还需要“对象 ID”。 可能需要向云运营商请求服务主体。
+
+    键入以下 cmdlet 来创建服务主体对象：
+
+    ```powershell  
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    ```
+
+5. 通过从 Azure Stack Hub 实例运行具有以下值的以下脚本来连接到你的环境。
+
+    | 值 | 描述 |
+    | --- | --- |
+    | 环境的名称。 | Azure Stack Hub 环境的名称。 |
+    | 资源管理器终结点 | 资源管理器的 URL。 如果你不知道，请联系你的云运营商。 该 URL 应类似于 `https://management.region.domain.com`。 | 
+    | 目录租户 ID | Azure Stack Hub 租户目录的 ID。 | 
+    | 凭据 | 包含服务主体的对象。 在本例中为 `$pscredential`。  |
+
+    ```powershell
+    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
+    ```
+
+   PowerShell 返回帐户对象。
+
+7. 通过在容器中运行 `Test-AzureStack.ps1` 脚本来测试环境。 指定服务主体“对象 ID”。 如果未指明对象 ID，脚本仍将运行，但它只是测试租户（用户）模块，无法测试需要管理员权限的模块。
+
+    ```powershell  
+    ./Test-AzureStack.ps1 <Object ID>
+    ```
 
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/rm)
 
@@ -105,63 +162,6 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
-
-### <a name="az-modules"></a>[Az 模块](#tab/az)
-
-在这些说明中，你将运行基于 Linux 的容器映像，该映像包含 PowerShell 和 Azure Stack Hub 所需的模块。
-
-1. 需要使用 Linux 容器运行 Docker。 运行 Docker 时，请切换到 Linux 容器。
-
-1. 从已加入 Azure Stack Hub 所在的域的计算机运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需[在远程计算机上安装 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn)。
-
-
-## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>在 Linux 容器上安装 Azure Stack Hub Az 模块
-
-1. 在命令行中运行以下 Docker 命令，以在 Ubuntu 容器中运行 PowerShell：
-
-    ```bash
-    docker run -it mcr.microsoft.com/azurestack/powershell
-    ```
-
-    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 将冒号之后部分的标记替换为所需 OS 的标记。
-
-    | Linux | Docker 映像 |
-    | --- | --- |
-    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
-    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
-    | CentOS | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
-
-2. 可以将此 shell 用于 cmdlet 了。 通过登录并运行 `Test-AzureStack.ps1` 来测试 shell 连接性。
-
-    首先创建服务主体凭据。 你将需要“机密”和“应用程序 ID” 。 在运行 `Test-AzureStack.ps1` 检查容器时，还需要“对象 ID”。 可能需要向云运营商请求服务主体。
-
-    键入以下 cmdlet 来创建服务主体对象：
-
-    ```powershell  
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    ```
-
-5. 通过从 Azure Stack Hub 实例运行具有以下值的以下脚本来连接到你的环境。
-
-    | 值 | 描述 |
-    | --- | --- |
-    | 环境的名称。 | Azure Stack Hub 环境的名称。 |
-    | 资源管理器终结点 | 资源管理器的 URL。 如果你不知道，请联系你的云运营商。 该 URL 应类似于 `https://management.region.domain.com`。 | 
-    | 目录租户 ID | Azure Stack Hub 租户目录的 ID。 | 
-    | 凭据 | 包含服务主体的对象。 在本例中为 `$pscredential`。  |
-
-    ```powershell
-    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
-    ```
-
-   PowerShell 返回帐户对象。
-
-7. 通过在容器中运行 `Test-AzureStack.ps1` 脚本来测试环境。 指定服务主体“对象 ID”。 如果未指明对象 ID，脚本仍将运行，但它只是测试租户（用户）模块，无法测试需要管理员权限的模块。
-
-    ```powershell  
-    ./Test-AzureStack.ps1 <Object ID>
     ```
 
 ---

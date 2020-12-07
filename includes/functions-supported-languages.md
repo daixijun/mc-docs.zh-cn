@@ -6,15 +6,15 @@ author: ggailey777
 manager: cfowler
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 001d5a61e74e80bd365194ab00cf46b8394caa78
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 5956fe0b2287ca2f7cbd87999f3f1ebb19cbf648
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507742"
 ---
 |语言                                 |1.x         |2.x| 3.x |
 |-----------------------------------------|------------|---| --- |
@@ -27,4 +27,6 @@ ms.locfileid: "95970793"
 
 <sup>*</sup> 转译为 JavaScript 后支持。
 
+若要更详细地了解受支持的语言版本，请参阅语言特定的开发人员指南文章。   
+有关语言支持计划更改的信息，请参阅 [Azure 路线图](https://azure.microsoft.com/roadmap/?tag=functions)。
 

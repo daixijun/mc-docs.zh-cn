@@ -13,12 +13,12 @@ ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: e6d2c881c899c96805ef8a2af4c75872af63b802
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: d8f3a39a417ee2bd594dc5c95b5a702f85966dc3
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508957"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>快速入门：配置客户端应用程序以访问 Web API
 
@@ -28,7 +28,7 @@ ms.locfileid: "91245283"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具备有效订阅的 Azure 帐户 - [创建帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 具备有效订阅的 Azure 帐户 - [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 完成[快速入门：注册应用程序](quickstart-register-app.md)
 * 完成[快速入门：配置应用程序以公开 Web API](quickstart-configure-app-expose-web-apis.md)
 
@@ -59,7 +59,7 @@ ms.locfileid: "91245283"
 
 将权限添加到 API 后，应在“配置的权限”下看到所选权限。 下图显示了示例 Employees.Read.All 委托的权限已添加到客户端应用的注册。
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="一个显示 Web API 的线形图，其中右侧有公开的范围，左侧有客户端应用程序，且这些范围选为权限":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Azure 门户中的“配置的权限”窗格，其中显示了新添加的权限":::
 
 你可能还会注意到 Microsoft Graph API 的 User.Read 权限。 在 Azure 门户中注册应用时，会自动添加此权限。
 
@@ -136,11 +136,11 @@ ms.locfileid: "91245283"
 
 通过“为 {你的租户} 授予其他权限”按钮，管理员可向为应用程序配置的权限授予管理员同意。 选择该按钮后，会显示一个对话框，请求确认同意操作。
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="一个显示 Web API 的线形图，其中右侧有公开的范围，左侧有客户端应用程序，且这些范围选为权限":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Azure 门户中的“配置的权限”窗格中突出显示了“授予管理员同意”按钮":::
 
 授予同意后，要求管理员同意的权限显示为“已获得权限”：
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="一个显示 Web API 的线形图，其中右侧有公开的范围，左侧有客户端应用程序，且这些范围选为权限":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="在 Azure 门户中“配置权限”表，其中显示了已为 Files.Read.All 权限授予管理员同意":::
 
 如果你不是管理员，或者没有为应用程序配置任何权限，则将禁用“授予管理员同意”按钮。 如果你获得了权限但尚未配置它们，则“管理员同意”按钮会提示你处理这些权限。 可将它们添加到已配置的权限，或者将其删除。
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 06/09/2020
+ms.date: 12/01/2020
 ms.author: v-tawe
 origin.date: 01/27/2020
-ms.openlocfilehash: 69d117feb05b592d1eb05cfdb23ed2b4a246c4ae
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 151a7930dee835550b27e95595ff98c6c432a821
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654957"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96476667"
 ---
 适用于 Java 的内容审查器客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。 内容审查器是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、有风险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。
 
@@ -28,7 +28,7 @@ ms.locfileid: "84654957"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial-full)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 最新版的 [Java 开发工具包](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
 * Gradle 生成工具<!-- not available-->，或其他依赖项管理器。
 
@@ -56,7 +56,7 @@ mkdir myapp && cd myapp
 gradle init --type basic
 ```
 
-当系统提示你选择一个生成脚本 DSL 时，请选择“Kotlin”。****
+当系统提示你选择一个生成脚本 DSL 时，请选择“Kotlin”。
 
 找到 *build.gradle.kts*，并使用喜好的 IDE 或文本编辑器将其打开。 然后在该文件中复制以下生成配置。 此配置将项目定义一个 Java 应用程序，其入口点为 **ContentModeratorQuickstart** 类。 它会导入内容审查器客户端库以及用于 JSON 序列化的 Gson SDK。
 
@@ -268,7 +268,7 @@ gradle run
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

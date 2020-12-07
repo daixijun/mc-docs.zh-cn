@@ -4,12 +4,12 @@ description: 了解如何通过命令行创建 TypeScript 函数，然后将本�
 ms.date: 11/17/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57e4c8e3f388d19e0d33fd59052155040928eb6d
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c186a60f54e85a8bc0ed07c056c3474fa9dcf796
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970824"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508581"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>快速入门：在 Azure 中通过命令行创建 TypeScript 函数
 
@@ -25,7 +25,7 @@ ms.locfileid: "95970824"
 
 在开始之前，必须满足以下条件：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) 版本 3.x。
 

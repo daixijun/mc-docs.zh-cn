@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/02/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 89614153e47a4fef93be31922adaafa6cb37a2e5
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 11/30/2020
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 4fb024ac6b5b32c83f4fafb204abe854d1e966dc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328860"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507937"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>使用 Azure Spring Cloud 的断路器仪表板
 

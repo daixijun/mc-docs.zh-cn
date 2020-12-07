@@ -3,16 +3,16 @@ title: 允许应用访问 Azure Stack Hub Key Vault 机密
 description: 了解如何运行从 Azure Stack Hub 中的密钥保管库检索密钥和机密的示例应用。
 author: WenJason
 ms.topic: conceptual
-origin.date: 06/15/2020
-ms.date: 07/20/2020
+origin.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 8df064d18491191114d9f918f5c238c0d28742d6
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: be0b239a25b6c5d2f820d62ec90737e98308946f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307435"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507908"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack Hub Key Vault 机密
 
@@ -22,7 +22,7 @@ ms.locfileid: "86307435"
 
 如果已[通过 VPN 建立连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)，可以从 [Azure Stack 开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)或从基于 Windows 的外部客户端安装以下必备组件：
 
-* 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
+* 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/powershell-install-az-module.md)。
 * 下载[使用 Azure Stack Hub 所需的工具](../operator/azure-stack-powershell-download.md)。
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>创建密钥保管库并注册应用
@@ -38,6 +38,93 @@ ms.locfileid: "86307435"
 > 默认情况下，此 PowerShell 脚本会在 Active Directory 中创建一个新的应用。 不过，你也可以注册现有的某个应用程序。
 
 在运行以下脚本之前，请确保为 `aadTenantName` 和 `applicationPassword` 变量提供值。 如果没有为 `applicationPassword` 指定值，此脚本会生成随机密码。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
+```powershell
+$vaultName           = 'myVault'
+$resourceGroupName   = 'myResourceGroup'
+$applicationName     = 'myApp'
+$location            = 'local'
+
+# Password for the application. If not specified, this script generates a random password during app creation.
+$applicationPassword = ''
+
+# Function to generate a random password for the application.
+Function GenerateSymmetricKey()
+{
+    $key = New-Object byte[](32)
+    $rng = [System.Security.Cryptography.RNGCryptoServiceProvider]::Create()
+    $rng.GetBytes($key)
+    return [System.Convert]::ToBase64String($key)
+}
+
+Write-Host 'Please log into your Azure Stack Hub user environment' -foregroundcolor Green
+
+$tenantARM = "https://management.local.azurestack.external"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.partner.onmschina.cn"
+
+# Configure the Azure Stack Hub operator's PowerShell environment.
+Add-AzEnvironment `
+  -Name "AzureStackUser" `
+  -ArmEndpoint $tenantARM
+
+$TenantID = Get-AzsDirectoryTenantId `
+  -AADTenantName $aadTenantName `
+  -EnvironmentName AzureStackUser
+
+# Sign in to the user portal.
+Add-AzAccount `
+  -EnvironmentName "AzureStackUser" `
+  -TenantId $TenantID `
+
+$now = [System.DateTime]::Now
+$oneYearFromNow = $now.AddYears(1)
+
+$applicationPassword = GenerateSymmetricKey
+
+# Create a new Azure AD application.
+$identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().ToString("N"))
+$homePage = "https://contoso.com"
+
+Write-Host "Creating a new AAD Application"
+$ADApp = New-AzADApplication `
+  -DisplayName $applicationName `
+  -HomePage $homePage `
+  -IdentifierUris $identifierUri `
+  -StartDate $now `
+  -EndDate $oneYearFromNow `
+  -Password $applicationPassword
+
+Write-Host "Creating a new AAD service principal"
+$servicePrincipal = New-AzADServicePrincipal `
+  -ApplicationId $ADApp.ApplicationId
+
+# Create a new resource group and a key vault in that resource group.
+New-AzResourceGroup `
+  -Name $resourceGroupName `
+  -Location $location
+
+Write-Host "Creating vault $vaultName"
+$vault = New-AzKeyVault -VaultName $vaultName `
+  -ResourceGroupName $resourceGroupName `
+  -Sku standard `
+  -Location $location
+
+# Specify full privileges to the vault for the application.
+Write-Host "Setting access policy"
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName `
+  -ObjectId $servicePrincipal.Id `
+  -PermissionsToKeys all `
+  -PermissionsToSecrets all
+
+Write-Host "Paste the following settings into the app.config file for the HelloKeyVault project:"
+'<add key="VaultUrl" value="' + $vault.VaultUri + '"/>'
+'<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
+'<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
+Write-Host
+```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
 
 ```powershell
 $vaultName           = 'myVault'
@@ -72,7 +159,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzureRmAccount `
+Add-AzureRMAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 
@@ -86,7 +173,7 @@ $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().
 $homePage = "https://contoso.com"
 
 Write-Host "Creating a new AAD Application"
-$ADApp = New-AzureRmADApplication `
+$ADApp = New-AzureRMADApplication `
   -DisplayName $applicationName `
   -HomePage $homePage `
   -IdentifierUris $identifierUri `
@@ -95,23 +182,23 @@ $ADApp = New-AzureRmADApplication `
   -Password $applicationPassword
 
 Write-Host "Creating a new AAD service principal"
-$servicePrincipal = New-AzureRmADServicePrincipal `
+$servicePrincipal = New-AzureRMADServicePrincipal `
   -ApplicationId $ADApp.ApplicationId
 
 # Create a new resource group and a key vault in that resource group.
-New-AzureRmResourceGroup `
+New-AzureRMResourceGroup `
   -Name $resourceGroupName `
   -Location $location
 
 Write-Host "Creating vault $vaultName"
-$vault = New-AzureRmKeyVault -VaultName $vaultName `
+$vault = New-AzureRMKeyVault -VaultName $vaultName `
   -ResourceGroupName $resourceGroupName `
   -Sku standard `
   -Location $location
 
 # Specify full privileges to the vault for the application.
 Write-Host "Setting access policy"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName `
+Set-AzureRMKeyVaultAccessPolicy -VaultName $vaultName `
   -ObjectId $servicePrincipal.Id `
   -PermissionsToKeys all `
   -PermissionsToSecrets all
@@ -122,6 +209,10 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
 ```
+
+---
+
+
 
 下图显示用于创建密钥保管库的脚本的输出：
 

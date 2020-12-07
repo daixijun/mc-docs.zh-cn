@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: fe078be7e0879aec40f629b1579e84f3a584aab5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3ac2f9937c3f55c3afd3a9909d7e9337e463964d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552569"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432020"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>教程：使用 AzCopy 将本地数据迁移到云存储空间
 
@@ -28,7 +28,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 > * 修改用于测试目的的数据。
 > * 创建一个计划任务或 cron 作业，以标识要上传的新文件。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

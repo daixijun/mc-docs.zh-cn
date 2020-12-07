@@ -12,26 +12,26 @@ ms.date: 05/11/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 820b94593e06730d39955a3732820bdde6a72ab6
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: ba13d6a26d50cd4151516b25a7fd2b78193ff4c9
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198459"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432425"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>快速入门：使用 T-SQL 缩放 Azure Synapse Analytics 中的计算
 
 使用 T-SQL 和 SQL Server Management Studio (SSMS) 缩放 Azure Synapse Analytics（以前称为 SQL DW）中的计算。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 下载并安装最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS)。
 
 ## <a name="create-a-data-warehouse"></a>创建数据仓库
 
-使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。 完成此快速入门，以确保获得防火墙规则并可以从 SQL Server Management Studio 中连接到数据仓库。
+使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库。 完成此快速入门，以确保获得防火墙规则并可以从 SQL Server Management Studio 中连接到数据仓库。
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
@@ -39,7 +39,7 @@ ms.locfileid: "82198459"
 
 1. 打开 SQL Server Management Studio。
 
-2. 在“连接到服务器”对话框中，输入以下信息： 
+2. 在“连接到服务器”对话框中，输入以下信息：
 
    | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -51,9 +51,9 @@ ms.locfileid: "82198459"
 
     ![连接到服务器](./media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-3. 单击“连接”  。 此时会在 SSMS 中打开“对象资源管理器”窗口。
+3. 单击“连接”。 对象资源管理器窗口在 SSMS 中打开。
 
-4. 在“对象资源管理器”中，展开“数据库”  。 然后展开“mySampleDataWarehouse”  ，查看新数据库中的对象。
+4. 在“对象资源管理器”中，展开“数据库”。 然后展开“mySampleDataWarehouse”，查看新数据库中的对象。
 
     ![数据库对象](./media/quickstart-scale-compute-tsql/connected.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "82198459"
 若要查看数据仓库当前数据仓库单位：
 
 1. 在与“mySampleDataWarehouseservername.database.chinacloudapi.cn”  的连接下，展开“系统数据库”  。
-2. 右键单击“master”，并单击“新建查询”。   此时将打开一个新的查询窗口。
+2. 右键单击“master”，并单击“新建查询”。  “新建查询”窗口随即打开。
 3. 运行以下查询，从 sys.database_service_objectives 动态管理视图中选择。
 
     ```sql
@@ -90,7 +90,7 @@ ms.locfileid: "82198459"
 
 更改数据仓库单位：
 
-1. 右键单击“master”，并单击“新建查询”。  
+1. 右键单击“master”，并单击“新建查询”。 
 2. 使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 语句修改的服务目标。 运行以下查询以将服务目标更改为 DW300。
 
     ```Sql
@@ -104,7 +104,7 @@ ms.locfileid: "82198459"
 
 若要轮询服务对象更改状态，请执行以下操作：
 
-1. 右键单击“master”，并单击“新建查询”。  
+1. 右键单击“master”，并单击“新建查询”。 
 2. 运行以下查询来轮询 sys.dm_operation_status DMV。
 
     ```sql
@@ -133,7 +133,7 @@ ms.locfileid: "82198459"
 
 ## <a name="check-data-warehouse-state"></a>检查数据仓库状态
 
-暂停数据仓库后，无法使用 T-SQL 与它建立连接。 若要查看数据仓库的当前状态，可以使用 PowerShell cmdlet。 有关示例，请参阅[检查数据仓库状态 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。
+数据仓库暂停时，无法使用 T-SQL 连接到数据仓库。 若要查看数据仓库的当前状态，可使用 PowerShell cmdlet。 有关示例，请参阅[检查数据仓库状态 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。
 
 ## <a name="check-operation-status"></a>检查操作状态
 

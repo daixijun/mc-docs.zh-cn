@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: v-junlch
 manager: cshankar
-ms.date: 10/20/2020
-ms.openlocfilehash: e1284bb64b3c61e33eb3fed66871adf6d8fe4fb5
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 12/01/2020
+ms.openlocfilehash: ddbaf7bcb2af82a5003b1c855661b77b1485935b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499120"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508082"
 ---
 1. 在 [Azure 门户](https://portal.azure.cn/)中，依次选择“Azure Active Directory” > “应用注册” > “新注册”。
 
@@ -22,7 +22,7 @@ ms.locfileid: "92499120"
 
     你的应用在注册后将在此处列出。
 
-1. 为应用程序提供名称，然后选择“仅此组织目录中的帐户”，以指定可访问 API 的“支持的帐户类型”。 如果要创建[公共客户端应用](/active-directory/develop/msal-client-application-configuration#redirect-uri)，请添加有效的重定向 URI，然后单击“注册”。
+1. 为应用程序提供名称，然后选择“仅此组织目录中的帐户”，以指定可访问 API 的“支持的帐户类型”。 如果要创建[公共客户端应用](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri)，请添加有效的重定向 URI，然后单击“注册”。
 
    [![在 Azure Active Directory 中创建应用程序](./media/time-series-insights-aad-registration/active-directory-registration.png)](./media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 

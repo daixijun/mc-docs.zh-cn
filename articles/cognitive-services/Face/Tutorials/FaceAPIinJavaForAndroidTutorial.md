@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
 origin.date: 07/03/2019
-ms.date: 07/10/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 75539c41fdbc4b3819581ec80074d97dc8b46466
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5aae53157eb65070279c3b33dfeb9d6eb1285a9e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119546"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432433"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教程：创建一个用于检测和定格图像中人脸的 Android 应用
 
@@ -34,7 +34,7 @@ ms.locfileid: "71119546"
 
 完整的示例代码在 GitHub 上的[认知服务人脸 Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) 存储库中提供。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -188,9 +188,9 @@ private final FaceServiceClient faceServiceClient =
 
 ## <a name="upload-image-and-detect-faces"></a>上传图像并检测人脸
 
-应用会通过调用 **faceClient.Face.DetectWithStreamAsync** 方法来检测人脸，该方法会包装[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回**人脸**实例的列表。
+应用会通过调用 **faceClient.Face.DetectWithStreamAsync** 方法来检测人脸，该方法会包装 [检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回 **人脸** 实例的列表。
 
-返回的每张**人脸**均包含一个指示其位置的矩形，以及一系列可选的人脸特性。 在本示例中，只请求了人脸矩形。
+返回的每张 **人脸** 均包含一个指示其位置的矩形，以及一系列可选的人脸特性。 在本示例中，只请求了人脸矩形。
 
 将以下两个方法插入到 **MainActivity** 类中。 请注意，当人脸检测完成后，应用会调用 **drawFaceRectanglesOnBitmap** 方法，以便修改 **ImageView**。 接下来将定义此方法。
 
@@ -280,7 +280,7 @@ private void showError(String message) {
 
 ## <a name="draw-face-rectangles"></a>绘制人脸矩形
 
-将以下帮助程序方法插入到 **MainActivity** 类中。 此方法围绕每个检测到的人脸绘制一个矩形，使用每个**人脸**实例的矩形坐标。
+将以下帮助程序方法插入到 **MainActivity** 类中。 此方法围绕每个检测到的人脸绘制一个矩形，使用每个 **人脸** 实例的矩形坐标。
 
 ```java
 private static Bitmap drawFaceRectanglesOnBitmap(

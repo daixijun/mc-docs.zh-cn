@@ -9,12 +9,12 @@ origin.date: 12/06/2018
 ms.date: 08/24/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 2b105f7f8bb0ca0755587bb158c29ad10b8b642a
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: b717ade930e2c805424eb78d0b9adbbf51259caa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753587"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432000"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>使用 DistCp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 之间复制数据
 
@@ -24,7 +24,7 @@ DistCp 提供了各种命令行参数，强烈建议你阅读本文以优化对 
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 请参阅[获取 Azure 1 元人民币的试用订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 未启用 Data Lake Storage Gen2 功能（分层命名空间）的现有 Azure 存储帐户。
 * 启用 Data Lake Storage Gen2 功能（分层命名空间）的 Azure 存储帐户。 有关如何创建 Azure 存储帐户的说明，请参阅[创建 Azure 存储帐户](../common/storage-account-create.md)
 * 在已启用分层命名空间的存储帐户中创建的容器。

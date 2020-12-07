@@ -8,19 +8,19 @@ ms.topic: quickstart
 origin.date: 05/17/2019
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 51aec07697e16462226e9dcc2110fe0e89935b92
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: ea18fc708c844601b965fe901ec25ed711d83059
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946005"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507588"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建和加密 Windows 虚拟机
 
 Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 本快速入门介绍如何使用 Azure PowerShell 模块创建 Windows 虚拟机 (VM)、创建用于存储加密密钥的密钥保管库以及加密 VM。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

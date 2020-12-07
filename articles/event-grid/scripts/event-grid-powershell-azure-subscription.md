@@ -6,19 +6,19 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 80773756bbec0cdd6f650f427d1dcc4e29c5cba6
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 12/01/2020
+ms.openlocfilehash: e3b97b75a84482b4d877f2068f9dd0ae515d66dc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228165"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431851"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>使用 PowerShell 订阅 Azure 订阅的事件
 
 此脚本创建 Azure 订阅事件的事件网格订阅。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script---stable"></a>示例脚本 - 稳定版
 

@@ -17,12 +17,12 @@ ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40eab9ad4f6834e329ca8190c38d4b9c4b4dce3b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 5eaa25b66eb620034e8f3ce28013b5a832afc1a4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244936"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432323"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 
@@ -34,7 +34,7 @@ ms.locfileid: "91244936"
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 > 
 > 
 
@@ -71,7 +71,7 @@ ms.locfileid: "91244936"
 11. 通过创建按需定位器发布与节目关联的资产。
 
     >[!NOTE]
-    >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。  
+    >创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。  要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。  
 
 12. 在准备好开始流式传输和存档时，启动节目。
 13. （可选）可以向实时编码器发信号，以启动广告。 将广告插入到输出流中。
@@ -95,7 +95,7 @@ ms.locfileid: "91244936"
 ## <a name="prerequisites"></a>必备条件
 以下是完成本教程所需具备的条件。
 
-* 一个 Azure 帐户。 如果没有帐户，可以在几分钟内创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留该帐户，使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
+* 一个 Azure 帐户。 如果没有帐户，可以在几分钟内创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留该帐户，使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[创建帐户](media-services-portal-create-account.md)。
 * Visual Studio 2010 SP1（Professional、Premium、Ultimate 或 Express）或更高版本。
 * 必须使用适用于 .NET 的媒体服务 SDK 版本 3.2.0.0 或更高版本。

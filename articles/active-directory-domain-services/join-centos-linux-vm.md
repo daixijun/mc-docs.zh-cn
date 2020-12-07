@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: d50f9bb7f35a2adb52807fab604098f5828654be
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: c73bcfe82bf1e4fd03a65b3f6aa7497426448bc7
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028559"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508643"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>将 CentOS Linux 虚拟机加入到 Azure Active Directory 域服务托管域
 
@@ -29,7 +29,7 @@ ms.locfileid: "88028559"
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。

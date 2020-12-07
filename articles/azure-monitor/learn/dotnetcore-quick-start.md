@@ -6,14 +6,14 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 06/26/2019
-ms.date: 11/02/2020
+ms.date: 12/01/2020
 ms.custom: mvc
-ms.openlocfilehash: c0ddf4bbc5f21e020bc19f968ec94be33121b691
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: b623f44672292f56ba4d83a12ebe93e897cd7988
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328040"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432048"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 
@@ -33,7 +33,7 @@ ms.locfileid: "94328040"
 
 如果没有 ASP.NET Core Web 应用程序，可以使用分步指南来[创建 ASP.NET Core 应用并添加 Application Insights](../app/asp-net-core.md)。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

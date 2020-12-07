@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7de2a835b3bc655457bf40a6a82378a4cccff524
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c39556f9a43f47f7e3596f1f9a401f52372733d7
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245046"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432128"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 
@@ -42,7 +42,7 @@ ms.locfileid: "91245046"
 ## <a name="prerequisites"></a>先决条件
 以下是开始使用媒体服务和 REST API 进行开发所要满足的先决条件。
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 了解如何使用媒体服务 REST API 进行开发。 有关详细信息，请参阅[媒体服务 REST API 概述](media-services-rest-how-to-use.md)。
 * 可以发送 HTTP 请求和响应的所选应用程序。 本教程使用 [Fiddler](https://www.telerik.com/download/fiddler)。
@@ -69,7 +69,7 @@ ms.locfileid: "91245046"
 使用 Azure 媒体服务时，最常见的场景之一是通过自适应比特率流式处理传送视频。 媒体服务提供动态打包，可按媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）及时传送自适应比特率 MP4 编码内容，而无需存储上述各种流格式的预打包版本。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
 
 若要启动流式处理终结点，请执行以下操作：
 
@@ -88,7 +88,7 @@ ms.locfileid: "91245046"
 
 ## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>使用 REST API 创建新资产并上载视频文件
 
-在媒体服务中，可以将数字文件上传到资产中。 **资产**实体可以包含视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据。）将文件上传到资产后，相关内容即安全地存储在云中供后续处理和流式处理。
+在媒体服务中，可以将数字文件上传到资产中。 **资产** 实体可以包含视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据。）将文件上传到资产后，相关内容即安全地存储在云中供后续处理和流式处理。
 
 创建资产时必须提供的值之一是资产创建选项。 **Options** 属性是一个枚举值，描述可用于创建资产的加密选项。 有效值为以下列表中的某个值，而不是此列表中值的组合：
 
@@ -738,7 +738,7 @@ Date: Mon, 19 Jan 2015 08:28:13 GMT
 创建定位符后，可以创建用来流式处理或下载文件的 URL。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
 
 平滑流式处理的流式处理 URL 采用以下格式：
 

@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 8d7bd8cd29f83924d4680c5813c3a48bdc670875
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 706e3d7d365c09dd2ac440541090fabc51876002
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552758"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508071"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "94552758"
 
 - 一个 Cosmos DB 帐户。 选项包括：
     * 具有 Azure 有效订阅：
-        * [创建 Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial)或使用现有订阅 
+        * [创建 Azure 免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或使用现有订阅 
         * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn)
         * [Azure Cosmos DB 免费层](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：

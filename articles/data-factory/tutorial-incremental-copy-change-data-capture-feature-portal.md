@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: ''
 origin.date: 05/04/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 8767ecb7bdf7f27a26f2f63f6cf800419cc02e66
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 2fc7b930d8c457b4a4b6da8d3a0d2035bc38c6d4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680504"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431965"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>使用变更数据捕获 (CDC)，以增量方式将 Azure SQL 托管实例中的数据加载到 Azure 存储
 
@@ -50,7 +50,7 @@ ms.locfileid: "94680504"
    2. 创建 **If 条件**，来检查是否有变更的记录，如果有，则调用“复制活动”。
    3. 创建 **复制活动**，来将插入/更新/删除的数据从 CDC 表复制到 Azure Blob 存储。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 * **Azure SQL 数据库托管实例**。 将数据库用作 **源** 数据存储。 如果没有 Azure SQL 数据库托管实例，请参阅[创建 Azure SQL 数据库托管实例](../azure-sql/managed-instance/instance-create-quickstart.md)一文获取创建步骤。
@@ -119,7 +119,7 @@ ms.locfileid: "94680504"
 4. 选择要在其中创建数据工厂的 Azure **订阅**。
 5. 对于 **资源组**，请执行以下步骤之一：
 
-   1. 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
+   1. 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
    2. 选择“新建”，并输入资源组的名称。   
          
     若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
@@ -153,7 +153,7 @@ ms.locfileid: "94680504"
 
    1. 输入 **AzureStorageLinkedService** 作为 **名称**。
    2. 对于“存储帐户名称”，请选择自己的 Azure 存储帐户。
-   3. 单击“保存” 。
+   3. 单击“ **保存**”。
 
    ![Azure 存储帐户设置](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
 

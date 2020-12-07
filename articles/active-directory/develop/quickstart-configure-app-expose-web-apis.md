@@ -13,12 +13,12 @@ ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bf250b2424cb46d26908ffda405674b9a0f530ed
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 43ca0f2ee9568f478d8439fb2d3572157febc6e8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245274"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508832"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>快速入门：配置应用程序以公开 Web API
 
@@ -26,7 +26,7 @@ ms.locfileid: "91245274"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具备有效订阅的 Azure 帐户 - [创建帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 具备有效订阅的 Azure 帐户 - [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 完成[快速入门：设置租户](quickstart-create-new-tenant.md)
 
 ## <a name="register-the-web-api"></a>注册 Web API
@@ -95,7 +95,7 @@ ms.locfileid: "91245274"
 
 如果你已成功添加先前部分中所介绍的两个示例范围，则它们将显示在 Web API 的应用注册的“公开 API”窗格中，类似于以下内容：
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Azure 门户中应用注册的“公开 API”窗格":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="“公开 API”窗格的屏幕截图，其中显示了两个公开的范围。":::
 
 如图所示，范围的完整字符串由 Web API 的“应用程序 ID URI”与范围的“范围名称”串联而成 。
 

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 08/06/2020
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 15031877643040e9fac653c62ccf5456853a27f9
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 544667bc2c7da7d8f9356da2c0bb66c440d3a766
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914231"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508607"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 自动缩放虚拟机规模集
 
@@ -28,7 +28,7 @@ ms.locfileid: "87914231"
 > * 对 VM 实例进行压力测试并触发自动缩放规则
 > * 在需求下降时自动横向缩减
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 存在影响 Azure PowerShell 模块版本 6.8.1 或更高版本的已知问题。 本教程只能使用 Azure PowerShell 模块版本 6.0.0 到 6.8.0 运行。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 来创建与 Azure 的连接。
 
@@ -240,7 +240,7 @@ MYRESOURCEGROUP   myScaleSet_6   chinanorth Standard_DS2                   6    
 
 
 ## <a name="clean-up-resources"></a>清理资源
-若要删除规模集和其他资源，请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组及其所有资源。 `-Force` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。 `-AsJob` 参数会使光标返回提示符处，不会等待操作完成。
+若要删除规模集和其他资源，请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组及其所有资源。 `-Force` 参数将确认是否希望删除资源，而不会有额外提示。 `-AsJob` 参数会使光标返回提示符处，无需等待操作完成。
 
 ```azurepowershell
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob

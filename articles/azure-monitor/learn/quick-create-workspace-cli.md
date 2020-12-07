@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 12/01/2020
 origin.date: 03/12/2019
-ms.openlocfilehash: b2af097d372245695d6fe25d3d37f8d16dd97553
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 3ffea3f8967fbf1e84a0ab98877185e108627186
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457223"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431994"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 
@@ -28,7 +28,7 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 * [从混合 Linux 计算机收集数据](./quick-collect-linux-computer.md)
 * [从混合 Windows 计算机收集数据](quick-collect-windows-computer.md)
 
-如果没有 Azure 订阅，请在开始之前创建[试用版](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始之前创建[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

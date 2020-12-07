@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: eb9b6c2b3b0d8173d68b4b8813a599483eabfa2b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: dc682b786aaf424e5205fe1c817d17f3b7a08413
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328866"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507831"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 
@@ -40,7 +40,7 @@ ms.locfileid: "94328866"
 
 在开始学习本教程之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
 * 安装用于 [Mac](service-fabric-get-started-mac.md) 或 [Linux](service-fabric-get-started-linux.md) 的 Service Fabric SDK
 * [安装 Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -154,7 +154,7 @@ ms.locfileid: "94328866"
     }
     ```
 
-11. 运行 *eventhubssastoken.py* 脚本，为创建的 EventHubs 资源生成 SAS URL。 此 SAS URL 由 Service Fabric 群集用来将日志发送到事件中心。 因此， **发送方** 策略用于生成此 URL。 此脚本返回事件中心资源的 SAS URL，该资源用在以下步骤中：
+11. 运行 *eventhubssastoken.py* 脚本，为创建的 EventHubs 资源生成 SAS URL。 此 SAS URL 由 Service Fabric 群集用来将日志发送到事件中心。 因此，**发送方** 策略用于生成此 URL。 此脚本返回事件中心资源的 SAS URL，该资源用在以下步骤中：
 
     ```python
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
@@ -182,10 +182,10 @@ ms.locfileid: "94328866"
     }
     ```
 
-13. 打开 **sfdeploy.parameters.json** 。 更改以下参数，然后保存文件。
-    - **clusterName** 。 只使用小写字母和数字。
-    - **adminUserName** （更改为非空值）
-    - **adminPassword** （更改为非空值）
+13. 打开 **sfdeploy.parameters.json**。 更改以下参数，然后保存文件。
+    - **clusterName**。 只使用小写字母和数字。
+    - **adminUserName**（更改为非空值）
+    - **adminPassword**（更改为非空值）
 
 14. 运行以下命令，创建 Service Fabric 群集
 

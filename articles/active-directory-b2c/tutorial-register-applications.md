@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/04/2020
+ms.date: 12/02/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f859638c344282d2eadebe9725e46328ba27ec3f
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 790fc2865a5eee4fb390677f4ff484ce3add77e8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326434"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507246"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中注册 Web 应用
 
@@ -31,13 +31,13 @@ ms.locfileid: "94326434"
 > 但如果你使用的是本机应用（例如 iOS、Android、移动和桌面），请参阅[如何注册本机客户端应用程序](add-native-application.md)。
 
 ## <a name="prerequisites"></a>先决条件
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/?WT.mc_id=A261C142F)。
 
 如果尚未创建自己的 [Azure AD B2C 租户](tutorial-create-tenant.md)，请立即创建一个。 可以使用现有的 Azure AD B2C 租户。
 
 ## <a name="register-a-web-application"></a>注册 Web 应用程序
 
-要在 Azure AD B2C 租户中注册 Web 应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要在 Azure AD B2C 租户中注册 Web 应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 
@@ -61,7 +61,7 @@ ms.locfileid: "94326434"
 
 #### <a name="applications-legacy"></a>[应用程序(旧版)](#tab/applications-legacy/)
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 在门户工具栏中选择“目录 + 订阅”图标，然后选择包含 Azure AD B2C 租户的目录  。
 1. 在 Azure 门户中，搜索并选择“Azure AD B2C”。
 1. 选择“应用程序(旧版)”，然后选择“添加” 。
@@ -87,7 +87,7 @@ ms.locfileid: "94326434"
 1. 在“Azure AD B2C - 应用注册”页中，选择已创建的应用程序，例如 webapp1。
 1. 在左侧菜单中“管理”下，选择“证书和机密”。 
 1. 选择“新建客户端机密”。
-1. 在“说明”框中输入客户端机密的说明。 例如， *clientsecret1* 。
+1. 在“说明”框中输入客户端机密的说明。 例如，*clientsecret1*。
 1. 在“过期时间”下，选择机密持续生效的时间，然后选择“添加”。
 1. 记下机密的“值”。 在应用程序的代码中将此值用作应用程序机密。
 

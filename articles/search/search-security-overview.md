@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/01/2020
 ms.date: 09/10/2020
 ms.custom: references_regions
-ms.openlocfilehash: bf9108977f2547b792aa9a578ff010a68e16ffa6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 79ec75e51332bc17c6726917bd2797e163503114
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105687"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430995"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure 认知搜索中的安全性 - 概述
 
@@ -83,7 +83,7 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 + 查询密钥（允许对索引的文档集合进行只读访问）
 
-预配服务时会创建 *管理员密钥* 。 有两个管理密钥，分别指定为 *主要* 和 *辅助* 密钥以将它们保持在各自的位置，但事实上是可互换的。 每个服务都有两个管理密钥，以便在转换其中一个时不会丢失服务的访问权限。 可以根据 Azure 安全最佳做法定期[重新生成管理密钥](search-security-api-keys.md#regenerate-admin-keys)，但不能将其添加到管理密钥总数。 每个搜索服务最多有两个管理密钥。
+预配服务时会创建 *管理员密钥*。 有两个管理密钥，分别指定为 *主要* 和 *辅助* 密钥以将它们保持在各自的位置，但事实上是可互换的。 每个服务都有两个管理密钥，以便在转换其中一个时不会丢失服务的访问权限。 可以根据 Azure 安全最佳做法定期[重新生成管理密钥](search-security-api-keys.md#regenerate-admin-keys)，但不能将其添加到管理密钥总数。 每个搜索服务最多有两个管理密钥。
 
 *查询密钥* 根据需要创建，专用于发出查询的客户端应用程序。 最多可以创建 50 个查询密钥。 在应用程序代码中，可以指定搜索 URL 和查询 API 密钥，以便对特定索引的文档集合进行只读访问。 终结点、仅供只读访问的 API 密钥以及目标索引共同定义客户端应用程序连接的作用域和访问级别。
 
@@ -118,7 +118,7 @@ If you require granular, per-user control over search results, you can build sec
 | Approach | Description |
 |----------|-------------|
 |[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
-|[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the [free services](https://www.azure.cn/pricing/1rmb-trial/) in the Azure cloud platform. |
+|[Trial Subscription](https://www.microsoft.com/china/azure/index.html?fromtype=cn) in the Azure cloud platform. |
 
 ## Administrative rights
 

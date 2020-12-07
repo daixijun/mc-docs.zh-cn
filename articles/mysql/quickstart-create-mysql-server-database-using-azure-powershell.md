@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 04/28/2020
 ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: e93ecbb80633945545c1978b19aed4d4d5cdb971
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 6fa57eab458ec0bb4e45bcd18e22bac1f6d6740e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977373"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431675"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for MySQL 服务器
 
@@ -25,7 +25,7 @@ ms.locfileid: "94977373"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

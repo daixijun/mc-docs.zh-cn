@@ -3,12 +3,12 @@ title: 使用 Visual Studio Code 创建 JavaScript 函数 - Azure Functions
 description: 了解如何创建 JavaScript 函数，然后使用 Visual Studio Code 中的 Azure Functions 扩展将本地 Node.js 项目发布到 Azure Functions 中的无服务器托管。
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.openlocfilehash: c8e64ce1d5e4b2b33dee380c73eb8cdae1c88ca5
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: d2b2fca8f7d191a3ebd39cc4b5b85bff952ed643
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970803"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508982"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建 JavaScript 函数
 
@@ -24,7 +24,7 @@ ms.locfileid: "95970803"
 
 在开始之前，请确保已满足下列要求：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + [Node.js](https://nodejs.org/)，活动 LTS 和维护 LTS 版本（建议使用 10.14.1）。 可以使用 `node --version` 命令检查你的版本。  
 

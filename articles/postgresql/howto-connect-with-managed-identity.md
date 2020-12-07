@@ -8,12 +8,12 @@ ms.topic: how-to
 origin.date: 05/19/2020
 ms.date: 11/09/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 682b35e67a5b4335241d9d676ed66cb7d0171157
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c438b9868d38ea72c4b69c5cebe6a1e131001975
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327524"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432100"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>使用托管标识连接到 Azure Database for PostgreSQL
 
@@ -27,7 +27,7 @@ ms.locfileid: "94327524"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源功能的托管标识，请参阅此[概述](../../articles/active-directory/managed-identities-azure-resources/overview.md)。 如果没有 Azure 帐户，请在继续操作前[注册试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 如果不熟悉 Azure 资源功能的托管标识，请参阅此[概述](../../articles/active-directory/managed-identities-azure-resources/overview.md)。 如果没有 Azure 帐户，请在继续操作前[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 要执行所需的资源创建和角色管理，帐户在相应的范围（订阅或资源组）需要“所有者”权限。 如果需要有关角色分配的帮助，请参阅[使用 Azure 基于角色的访问控制 (Azure RBAC) 管理对 Azure 订阅资源的访问](../../articles/role-based-access-control/role-assignments-portal.md)。
 - 需要一个你希望使用托管标识访问数据库的 Azure VM（例如运行 Ubuntu Linux）
 - 需要已配置了 [Azure AD 身份验证](howto-configure-sign-in-aad-authentication.md)的 Azure Database for PostgreSQL 数据库服务器

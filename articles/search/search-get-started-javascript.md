@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 10/26/2020
 ms.date: 11/27/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 64b916babf0b923d8df94097d105888a4f8875a7
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 40507073e9bef39f3f9c23054fd140ebd205299f
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300074"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430914"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>快速入门：使用 JavaScript SDK 创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "96300074"
 
 开始之前，需具备以下工具和服务：
 
-+ 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
++ 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + Azure 认知搜索服务。 [创建服务](search-create-service-portal.md)或[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
 
@@ -602,7 +602,7 @@ console.log(`HotelId: ${documentResult.HotelId}; HotelName: ${documentResult.Hot
 
 在自己的订阅中操作时，最好在项目结束时确定是否仍需要已创建的资源。 持续运行资源可能会产生费用。 可以逐个删除资源，也可以删除资源组以删除整个资源集。
 
-可以使用左侧导航窗格中的“所有资源”或“资源组”链接 ，在门户中查找和管理资源。
+可以使用左侧导航窗格中的“所有资源”或“资源组”链接   ，在门户中查找和管理资源。
 
 如果使用的是免费服务，请记住只能设置三个索引、索引器和数据源。 可以在门户中删除单个项目，以不超出此限制。 
 

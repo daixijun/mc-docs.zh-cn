@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 440cc808757ba4570521dcfe3eac5cc320a3819a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 36f6ccf0257441743a9575b91831bc50cc02d6b1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471177"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507131"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -57,7 +57,7 @@ Azure AD B2C 还支持[自定义策略](custom-policy-overview.md)。 自定义�
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C 中的本地帐户使用什么密码用户流？
 
-本地帐户的 Azure AD B2C 密码用户流以 Azure AD 的策略为基础。 Azure AD B2C 的注册、注册或登录和密码重置用户流使用“强”密码强度，并且不会让任何密码过期。 有关详细信息，请参阅 [Azure Active Directory 中的密码策略和限制](/active-directory/authentication/concept-sspr-policy)。
+本地帐户的 Azure AD B2C 密码用户流以 Azure AD 的策略为基础。 Azure AD B2C 的注册、注册或登录和密码重置用户流使用“强”密码强度，并且不会让任何密码过期。 有关详细信息，请参阅 [Azure Active Directory 中的密码策略和限制](../active-directory/authentication/concept-sspr-policy.md)。
 
 有关帐户锁定和密码的信息，请参阅[管理对 Azure Active Directory B2C 中资源和数据的威胁](threat-management.md)。
 
@@ -101,7 +101,7 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 
 请按照以下步骤删除 Azure AD B2C 租户。
 
-可以使用新的统一“应用注册”体验或遗留下来的“应用程序(旧版)”体验。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+可以使用新的统一“应用注册”体验或遗留下来的“应用程序(旧版)”体验。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations"></a>[应用注册](#tab/app-reg-ga/)
 
@@ -111,7 +111,7 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 1. 删除 Azure AD B2C 租户中的所有 **用户流(策略)** 。
 1. 选择“应用注册”，然后选择“所有应用程序”选项卡。 
 1. 删除已注册的所有应用程序。
-1. 删除 **b2c-extensions-app** 。
+1. 删除 **b2c-extensions-app**。
 1. 在“管理”下，选择“用户” 。
 1. 依次选择每个用户（不包括你当前作为用户登录的订阅管理员用户）。 选择页面底部的“删除”，并在出现提示时选择“是”。
 1. 在左侧菜单中，选择“Azure Active Directory”。

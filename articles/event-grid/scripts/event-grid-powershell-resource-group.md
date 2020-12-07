@@ -6,19 +6,19 @@ ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 6a37cb6963fcee69ed28015a8a863ec57b74278e
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 12/01/2020
+ms.openlocfilehash: 926ef283bc730963e9959ec3bb972adbb4ab8189
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227997"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431847"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>使用 PowerShell 订阅资源组的事件
 
 此脚本创建资源组事件的事件网格订阅。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 预览示例脚本需要事件网格模块。 若要安装，请运行 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 

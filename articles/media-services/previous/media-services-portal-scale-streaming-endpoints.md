@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/19/2019
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 07a95b54814c821f5210eb0fd6102509283824e8
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 3de811302d1134434696f88f2c7fa6a238f6c9bb
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300725"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432291"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户缩放流式处理终结点
 
@@ -29,7 +29,7 @@ ms.locfileid: "96300725"
 ## <a name="overview"></a>概述
 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > 
 > 
 

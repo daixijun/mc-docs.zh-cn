@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a2e23be35bc4b596f05f7afc954e32efa1715775
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: 22511db13c2029f4cb47b4faad93a806e38fe285
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373962"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508943"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>快速入门：生成应用并将其部署到 Azure Spring Cloud
 
@@ -26,7 +26,7 @@ ms.locfileid: "94373962"
 ## <a name="prerequisites"></a>先决条件
 
 * [安装 JDK 8](https://docs.microsoft.com/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
-* [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * （可选）[安装 Azure CLI 版本 2.0.67 或更高版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)，并使用以下命令安装 Azure Spring Cloud 扩展：`az extension add --name spring-cloud`
 * （可选）[安装 Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) 并[登录](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 

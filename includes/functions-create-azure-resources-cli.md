@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: bc7f424b04c9eaf658f5e37d053d1bb22f1e13d0
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: f01c4007ae5e6614cff02805179186d9345a124b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970680"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508580"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>创建函数的支持性 Azure 资源
 
@@ -80,7 +80,4 @@ ms.locfileid: "95970680"
     ---
 
     在上一个示例中，将 `<STORAGE_NAME>` 替换为适合你且在 Azure 存储中唯一的名称。 名称只能包含 3 到 24 个数字和小写字母字符。 `Standard_LRS` 指定 [Functions 支持](../articles/azure-functions/storage-considerations.md#storage-account-requirements)的常规用途帐户。
-    
-
-
 

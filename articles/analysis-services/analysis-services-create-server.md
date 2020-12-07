@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: 01/20/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f8bcd18fe3808d179f039b8aa0850441ae748b0b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 90c31f4915655b454a19b695fd1d587839a521a9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146225"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508025"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -23,7 +23,7 @@ ms.locfileid: "91146225"
 
 ## <a name="prerequisites"></a>先决条件 
 
-* **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
+* **Azure 订阅**：访问 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来创建一个帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户 

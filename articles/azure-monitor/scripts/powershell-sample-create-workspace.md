@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 12/01/2020
 origin.date: 09/07/2017
-ms.openlocfilehash: ba74fa3e0a072ef413a0319566f0bf2365576509
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 4d747354a98ae1032feebfdedc78fd9bf6d682d6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148693"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432601"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>使用 PowerShell 创建 Log Analytics 工作区
 
@@ -20,7 +20,7 @@ ms.locfileid: "89148693"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
 origin.date: 12/19/2019
-ms.date: 02/17/2020
+ms.date: 12/01/2020
 ms.author: v-tawe
-ms.openlocfilehash: 4276da22f88caa877640930cf4496a50f0ab7392
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a2ec8c8e1c51215a5e238ab5d7782ea255beb9db
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80342379"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432399"
 ---
 # <a name="what-are-azure-cognitive-services"></a>什么是 Azure 认知服务？
 
@@ -59,7 +59,7 @@ Azure 认知服务是 API、SDK 和服务，可帮助开发人员生成智能应
 
 ## <a name="use-free-trials"></a>使用免费试用版
 
-[注册试用版](https://www.azure.cn/pricing/1rmb-trial/ "注册帮助")只需要发送一封电子邮件并执行一些简单的步骤。 对于所请求的每个 API，你都会收到一对唯一的密钥。 第二个密钥只是备用密钥。 请不要与任何人分享密钥。 试用版具有每秒或每分钟事务数速率限制和每月使用上限。 事务就是 API 调用。 若要解锁这些限制，你可以升级到付费层。
+[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn "注册帮助")只需要发送一封电子邮件并执行一些简单的步骤。 对于所请求的每个 API，你都会收到一对唯一的密钥。 第二个密钥只是备用密钥。 请不要与任何人分享密钥。 试用版具有每秒或每分钟事务数速率限制和每月使用上限。 事务就是 API 调用。 若要解锁这些限制，你可以升级到付费层。
 
 ## <a name="subscription-management"></a>订阅管理
 

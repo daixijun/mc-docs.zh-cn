@@ -3,14 +3,15 @@ title: 适用于 Functions 2.x 及更高版本的 Azure Cosmos DB 触发器
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/14/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 196d2449ccc73c510b28335e9f5bf0fad7da1975
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 476e8da8f674e64d2baf097d7807b8c6265806a6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440415"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507182"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>适用于 Azure Functions 2.x 及更高版本的 Azure Cosmos DB 触发器
 
@@ -152,9 +153,8 @@ JavaScript 代码如下所示：
 
 ```csharp
     [FunctionName("DocumentUpdates")]
-    public static void Run(
-        [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-    IReadOnlyList<Document> documents,
+    public static void Run([CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+        IReadOnlyList<Document> documents,
         ILogger log)
     {
         ...
@@ -208,7 +208,7 @@ JavaScript 不支持特性。
 
 ## <a name="usage"></a>使用情况
 
-触发器需要第二个集合，该集合用于存储各分区的_租用_。 必须提供受监视的集合和包含租用的集合，触发器才能正常工作。
+触发器需要第二个集合，该集合用于存储各分区的 _租用_。 必须提供受监视的集合和包含租用的集合，触发器才能正常工作。
 
 >[!IMPORTANT]
 > 如果多个函数都配置为对同一集合使用 Cosmos DB 触发器，则每个函数都应使用专用租用集合，否则应该为每个函数指定不同的 `LeaseCollectionPrefix`。 否则，将只触发其中一个函数。 有关前缀的信息，请参阅[“配置”部分](#configuration)。

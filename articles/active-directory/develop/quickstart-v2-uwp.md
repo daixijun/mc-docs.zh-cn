@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/23/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 2fcb3d55c86f246a7e2a90b882a4c90f513bc26d
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 5f02a4e22eec2d45f55a9b265ce0d0cd4f3854b3
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918419"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508786"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -28,7 +28,7 @@ ms.locfileid: "95918419"
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>先决条件
 >
-> * 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+> * 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 >
 > ## <a name="register-and-download-your-quickstart-app"></a>注册并下载快速入门应用

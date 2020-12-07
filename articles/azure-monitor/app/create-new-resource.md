@@ -4,14 +4,14 @@ description: 为新的实时应用程序手动设置 Application Insights 监视
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/02/2019
-ms.date: 11/10/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: b83486baaebc035767f074316ae298d3553c2ceb
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d7513d0b87307e1a983b36dbd36c6954404ca93a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638209"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431758"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -19,7 +19,7 @@ Azure Application Insights 在 Azure 资源中显示有关应用程序的数据�
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 

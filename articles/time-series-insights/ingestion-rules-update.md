@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: lyhughes
-ms.openlocfilehash: ff7104b9a81f890c85df00ff34a12ad6016ef356
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a197bce5728ae8f292d1c2768ae5fe90a9cc43c4
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472691"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507359"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>即将针对新环境进行的 JSON 平展和转义规则更改
 
@@ -44,7 +44,7 @@ Azure 时序见解 Gen2 环境将按照一组特定的命名约定动态创建�
 
 任何新部署都需要匹配新的引入规则。 例如，如果 TS ID 为 `telemetry_tagId`，则需要更新任何 Azure 资源管理器模板或自动部署脚本，将 `telemetry.tagId` 配置为环境 TS ID。 还需要对嵌套的 JSON 中的事件源时间戳进行此更改。
 
-### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>如果有效负载包含嵌套的 JSON 或特殊字符，并且你可以自动创作[时序模型](time-series-insights-update-tsm.md)变量表达式
+### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>如果有效负载包含嵌套的 JSON 或特殊字符，并且你可以自动创作[时序模型](./concepts-model-overview.md)变量表达式
 
 更新执行 [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 的客户端代码，以匹配新的引入规则。 例如，`"value": {"tsx": "$event.series_value.Double"}` 之前的[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)应更新为以下选项之一：
 
@@ -53,7 +53,7 @@ Azure 时序见解 Gen2 环境将按照一组特定的命名约定动态创建�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解 [Azure 时序见解第 2 代存储和引入](./time-series-insights-update-storage-ingress.md)。
+* 了解 [Azure 时序见解第 2 代存储和引入](./concepts-ingestion-overview.md)。
 
 * 了解如何使用[时序查询 API](./concepts-query-overview.md) 查询数据。
 

@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3a988969a458d50a96a5e6cc18a2a374d0de9ae8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1415744f46f25341717e58a0a5010fa37e14ef0f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328637"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508012"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 
@@ -65,7 +65,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 **要求** | **详细信息**
 --- | ---
-**Azure 订阅帐户** | 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+**Azure 订阅帐户** | 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 **Azure 帐户权限** | 使用的 Azure 帐户需以下权限：<br/><br/> - 创建恢复服务保管库<br/><br/> - 在用于方案的资源组和虚拟网络中创建虚拟机<br/><br/> - 向指定的存储帐户进行写入<br/><br/> 请注意：<br/><br/> \- 如果创建帐户，则你是自己的订阅的管理员，可以执行所有操作。<br/><br/> - 如果你使用现有订阅并且不是管理员，则需要请求管理员为你分配“所有者”或“参与者”权限。<br/><br/> - 如需更加细化的权限，请查看[此文](site-recovery-role-based-linked-access-control.md)。
 **Azure Stack VM** | 需要租户订阅中的 Azure Stack VM，该 VM 将部署为 Site Recovery 配置服务器。
 

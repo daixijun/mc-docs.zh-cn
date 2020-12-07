@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 7142930a66c35441c9609b9e69a93606a2ad0035
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: a85310656074c5ff273a7cd9e94a15e9ddefb893
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306229"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432502"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "96306229"
 
 * 一个有效的 Azure 订阅。
 
-    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 证书 - pfx 和 cer 用于 API 主机名，pfx 用于开发人员门户主机名。
 

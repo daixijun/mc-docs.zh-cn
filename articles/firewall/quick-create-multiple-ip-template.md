@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: c62d667387c69587e2941d49262f65adc651fb38
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: efdf56d3df70cb3017b73df84b2da27acb077844
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327280"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508047"
 ---
 <!--Verified successfully on 05/25/2020-->
 <!--Successfully on Mooncake portal-->
@@ -34,7 +34,7 @@ ms.locfileid: "94327280"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

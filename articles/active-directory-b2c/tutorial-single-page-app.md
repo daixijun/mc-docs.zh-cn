@@ -6,23 +6,23 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 11/16/2020
+ms.date: 12/02/2020
 ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9bf078aa1c8679955098a295cd2753f23d022ff2
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 3ca02df486a37ba139b2bf750c6d6e729aad72e7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849286"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507245"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 在单页应用程序中启用身份验证
 
 本教程介绍如何使用 Azure Active Directory B2C (Azure AD B2C) 在单页应用程序 (SPA) 中通过以下任一方法进行用户登录和注册：
-* [OAuth 2.0 授权代码流](/active-directory-b2c/authorization-code-flow)（使用 [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)）
-* [OAuth 2.0 隐式授予流](/active-directory-b2c/implicit-flow-single-page-application)（使用 [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)）
+* [OAuth 2.0 授权代码流](./authorization-code-flow.md)（使用 [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)）
+* [OAuth 2.0 隐式授予流](./implicit-flow-single-page-application.md)（使用 [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)）
 
 本教程是由两个部分组成的教程系列的第一部分，将介绍以下操作：
 
@@ -34,7 +34,7 @@ ms.locfileid: "94849286"
 
 本教程系列中的[下一篇教程](tutorial-single-page-app-webapi.md)将启用代码示例的 Web API 部分。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -51,9 +51,9 @@ ms.locfileid: "94849286"
 
 ## <a name="update-the-application"></a>更新应用程序
 
-在按照先决条件完成的[第二个教程](tutorial-register-spa.md)中，你已在 Azure AD B2C 中注册了单页应用程序。 若要使用本教程中的代码示例实现通信，请将一个回复 URL（也称为重定向 URI）添加到应用程序注册。
+在按照先决条件完成的[第二个教程](./tutorial-register-spa.md)中，你已在 Azure AD B2C 中注册了单页应用程序。 若要使用本教程中的代码示例实现通信，请将一个回复 URL（也称为重定向 URI）添加到应用程序注册。
 
-要更新 Azure AD B2C 租户中的应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](/active-directory-b2c/app-registrations-training-guide)。
+要更新 Azure AD B2C 租户中的应用程序，可以使用新的统一“应用注册”体验或旧版“应用程序(旧版)”体验 。 [详细了解此新体验](./app-registrations-training-guide.md)。
 
 #### <a name="app-registrations-auth-code-flow"></a>[应用注册（身份验证代码流）](#tab/app-reg-auth/)
 

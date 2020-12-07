@@ -8,12 +8,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 83881b75c5bff7a43bfd85cdf012f12d376a7fbf
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 868965f0edb17a96238e831173dd2ac1ac473d33
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024477"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508077"
 ---
 <!--NOT AVAIALBLE on Mooncake-->
 <!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
@@ -23,7 +23,7 @@ ms.locfileid: "96024477"
 
 ## <a name="prerequisites"></a>先决条件
 
-具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > 模板规格当前提供预览版。 若要使用它，必须[注册等待列表](https://aka.ms/templateSpecOnboarding)。

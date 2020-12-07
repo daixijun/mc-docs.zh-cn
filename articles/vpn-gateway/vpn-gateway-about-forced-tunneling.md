@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 10/15/2020
 ms.date: 11/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 2c1c4ac60a1f3136d8ec84fb154465ab66fc2c01
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 64bc1b3f346c1bf899050f830e1fc2b958b0c729
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908891"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431599"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 
@@ -54,7 +54,7 @@ ms.locfileid: "94908891"
 
 在开始配置之前，请确认具有以下各项：
 
-* Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 已配置虚拟网络。 
 * [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 

@@ -18,18 +18,18 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fb5e8774dfa88884abefb69452f399b2d14996f6
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: fc3ec922ea60a1812fdb72ca534db779eb4d9191
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413792"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507097"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>使用 PowerShell 收集订阅中所有 VM 的详细信息
 
 此脚本创建一个 csv，其中包含所提供订阅中 VM 的 VM 名称、资源组名称、区域、VM 大小、虚拟网络、子网、专用 IP 地址、OS 类型和公共 IP 地址。
 
-如果你没有 [Azure 订阅](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果你没有 [Azure 订阅](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，请在开始之前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 

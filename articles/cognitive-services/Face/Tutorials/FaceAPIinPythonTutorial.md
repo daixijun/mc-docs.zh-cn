@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2018
-ms.date: 08/08/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: cb79dd312c24b42e7bc25a48b93f537dbfead88d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 729eab1bfeead3c31d64f1fb173f147eb61d61c9
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119554"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432432"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入门：创建一个用于检测和定格图像中人脸的 Python 脚本
 
 在本快速入门中，你将创建一个 Python 脚本，它通过 Python SDK 使用 Azure 人脸 API 来检测远程图像中的人脸。 此应用程序显示一个选定的图像，然后围绕每个检测到的人脸绘制一个框。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -42,7 +42,7 @@ pip install azure-cognitiveservices-vision-face
 
 创建名为 FaceQuickstart.py 的新 Python 脚本并添加以下代码  。 此代码处理人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
 
-此脚本会通过调用 **FaceClient.face.detect_with_url** 方法来检测人脸，该方法可包装[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回人脸的列表。
+此脚本会通过调用 **FaceClient.face.detect_with_url** 方法来检测人脸，该方法可包装 [检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回人脸的列表。
 
 ```python
 from azure.cognitiveservices.vision.face import FaceClient

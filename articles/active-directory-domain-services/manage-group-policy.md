@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: fa144e4c7844a698867f3dd113d8d582beb013ce
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8960df5aa16c0b279846d2be2014069db0057c10
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471139"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508636"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory 域服务托管域中的组策略
 
@@ -30,7 +30,7 @@ Azure Active Directory 域服务 (Azure AD DS) 中的用户和计算机对象的
 需有以下资源和特权才能完成本文：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。
@@ -55,7 +55,7 @@ Azure Active Directory 域服务 (Azure AD DS) 中的用户和计算机对象的
 1. 在“服务器管理器”窗口的“仪表板”窗格中，选择“添加角色和功能”。
 1. 在“添加角色和功能向导”的“准备工作”页上，选择“下一步”。
 1. 对于“安装类型”，请保留选中“基于角色或基于功能的安装”选项，然后选择“下一步”。
-1. 在“服务器选择”页上，从服务器池中选择当前的 VM（例如 *myvm.aaddscontoso.com* ），然后选择“下一步”。
+1. 在“服务器选择”页上，从服务器池中选择当前的 VM（例如 *myvm.aaddscontoso.com*），然后选择“下一步”。
 1. 在“服务器角色”页上，单击“下一步”。
 1. 在“功能”页上，选择“组策略管理”功能。 
 

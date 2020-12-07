@@ -11,12 +11,12 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2088033fc4fa71289f8ad5d8ce0f314bf4a0529c
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 52b7497b119fe74a77f742cfb5824ccbeaeed074
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153071"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431751"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure CLI 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -27,7 +27,7 @@ ms.locfileid: "96153071"
 ## <a name="prerequisites"></a>先决条件
 
 > [!div class="checklist"]
-> * Azure 订阅。 请参阅[获取 Azure 试用版](https://wd.azure.cn/pricing/1rmb-trial-full)。
+> * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 > * 已启用分层命名空间 (HNS) 的存储帐户。 请按照[此处](data-lake-storage-quickstart-create-account.md)的说明创建一个存储帐户。
 > * Azure CLI 版本 `2.6.0` 或更高版本。
 

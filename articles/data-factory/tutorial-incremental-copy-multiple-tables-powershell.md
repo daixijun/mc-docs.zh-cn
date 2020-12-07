@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 06/10/2020
 ms.date: 11/02/2020
-ms.openlocfilehash: 08abe6a2d22906a087b9aba559ab1dc9e8babe2d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 51be4a66bc17b467f8f162d5d60b2d8d36d6f5b6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104815"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431930"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>使用 PowerShell 以递增方式将数据从 SQL Server 中的多个表加载到 Azure SQL 数据库
 
@@ -43,15 +43,15 @@ ms.locfileid: "93104815"
 ## <a name="overview"></a>概述
 下面是创建此解决方案所要执行的重要步骤： 
 
-1. **选择水印列** 。
+1. **选择水印列**。
 
     为源数据存储中的每个表选择一个列，你可以在其中标识每次运行的新记录或更新记录。 通常，在创建或更新行时，此选定列中的数据（例如 last_modify_time 或 ID）会不断递增。 此列中的最大值用作水印。
 
-2. **准备用于存储水印值的数据存储** 。
+2. **准备用于存储水印值的数据存储**。
 
     本教程在 SQL 数据库中存储水印值。
 
-3. **创建包含以下活动的管道** ：
+3. **创建包含以下活动的管道**：
     
     a. 创建一个 ForEach 活动，循环访问一个列表，其中的源表名称是作为参数传递到管道的。 对于每个源表，它会调用以下活动，为该表执行增量加载。
 
@@ -66,12 +66,12 @@ ms.locfileid: "93104815"
     ![以增量方式加载数据](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* **SQL Server** 。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
-* **Azure SQL 数据库** 。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果没有 SQL 数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)了解创建步骤。 
+* **SQL Server**。 在本教程中，请将 SQL Server 数据库用作源数据存储。 
+* **Azure SQL 数据库**。 使用 Azure SQL 数据库中的数据库作为接收器数据存储。 如果没有 SQL 数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)了解创建步骤。 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>在 SQL Server 数据库中创建源表
 

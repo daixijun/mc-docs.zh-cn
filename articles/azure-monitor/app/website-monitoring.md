@@ -5,14 +5,14 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 07/15/2019
-ms.date: 10/29/2020
+ms.date: 12/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 8a4024428761bd7fd8a161fa7bc2963123cea4db
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 89d61e0c4535b1c723f60de055be8a5a4f2401bd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105547"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432443"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>快速入门：开始使用 Azure Monitor Application Insights 监视你的网站
 
@@ -22,7 +22,7 @@ ms.locfileid: "93105547"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 可以将 Application Insights JavaScript SDK 添加到其中的网站。
 
 ## <a name="enable-application-insights"></a>启用 Application Insights
@@ -140,7 +140,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 > 如果使用了现有资源组，则以下说明不适用。 只需删除单个 Application Insights 资源即可。 请记住，在删除某个资源组时，属于该组的所有底层资源也会一并删除。
 
 1. 在 Azure 门户的左侧菜单中选择“资源组”，然后选择“myResourceGroup”或临时资源组的名称。
-1. 在资源组页上选择“删除”，在文本框中输入 **myResourceGroup** ，然后选择“删除”。
+1. 在资源组页上选择“删除”，在文本框中输入 **myResourceGroup**，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 列出有关 Windows Server 的 Azure Stack Hub 市场常见问题解答。
 author: WenJason
 ms.topic: article
-origin.date: 07/23/2020
-ms.date: 08/31/2020
+origin.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 4ac575b515bd6027c1d4d1f8fc2c84f86c260790
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 7dc8b45af47548f520b2342b65c7bf843cbe63d4
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868097"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507944"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub 市场常见问题解答
 
@@ -48,28 +48,44 @@ Azure Stack Hub 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”�
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
 可以通过运行以下脚本来更改许可证模型属性，以将 BYOL 切换为预付费模型：
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 可以通过运行以下命令来检查 VM 的许可证类型。 如果许可证模型显示 Windows_Server，则按 BYOL 价格收费。 否则，Windows 计量器按预付费模型收费：
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>我有一个旧版映像，而我的用户忘记了选中“我有许可证”框，或者我们使用自己的映像且拥有企业协议权利，该怎么办？
 
 可以运行以下命令将许可模型属性更改为 BYOL 模型：
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>对于使用 Windows Server 的其他 VM （例如 SQL 或 Machine Learning Server），该如何处理？
 

@@ -10,13 +10,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 04/13/2020
-  ms.date: 08/31/2020
-  ms.openlocfilehash: c392cd5f6ba57145d5be59d06874e31430613a6a
-  ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+  ms.date: 12/07/2020
+  ms.openlocfilehash: 6e630c09ec7d32ad7ac765cfce13b101b253edd4
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88868093"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96507550"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -59,9 +59,7 @@ landingContent:
     - text: 从 GitHub 下载 Azure Stack Hub 工具
       url: azure-stack-powershell-download.md
     - text: 安装 Azure Stack PowerShell
-      url: azure-stack-powershell-install.md
-    - text: 使用 Docker 运行 PowerShell
-      url: ../user/azure-stack-powershell-user-docker.md
+      url: powershell-install-az-module.md
     - text: 与 Azure Stack PowerShell 连接
       url: azure-stack-powershell-configure-admin.md
     - text: 下载 Azure Stack 开发工具包 (ASDK)

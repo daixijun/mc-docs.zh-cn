@@ -4,12 +4,12 @@ description: 了解如何使用用于 Visual Studio 2019 的 Azure Functions 工
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 5a684ddb5f40f8581c39a1c8ab30ca6b5d15b569
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 4676cab4fa8f13aefcec5e9a3c6264ea4a8c49cc
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472701"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508571"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -33,7 +33,7 @@ Visual Studio 在开发函数时具有以下优势：
 
 - 所需的其他资源（例如 Azure 存储帐户）将在发布过程中在订阅中创建。
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
 > 在 Visual Studio 2017 中，Azure 开发工作负荷会将 Azure Functions Tools 安装为单独的扩展。 更新 Visual Studio 2017 安装时，请确保使用[最新版](#check-your-tools-version) Azure Functions Tools。 以下部分介绍如何在 Visual Studio 2017 中检查和更新（如果需要）Azure Functions Tools 扩展。 
@@ -71,9 +71,9 @@ Visual Studio 在开发函数时具有以下优势：
 
 创建 Azure Functions 项目后，项目模板会创建 C# 项目，安装 `Microsoft.NET.Sdk.Functions` NuGet 包，并设置目标框架。 新项目包含以下文件：
 
-* **host.json** ：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
+* **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
-* **local.settings.json** ：维护本地运行函数时使用的设置。 在 Azure 中运行时不使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
+* **local.settings.json**：维护本地运行函数时使用的设置。 在 Azure 中运行时不使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
 
     >[!IMPORTANT]
     >由于 local.settings.json 文件可能包含机密，因此必须将其从项目源代码管理中排除。 请确保此文件的“复制到输出目录”设置已设置为“如果较新则复制” 。 
@@ -106,7 +106,7 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
 
 1. 在“解决方案资源管理器”中，右键单击你的项目节点，然后选择“添加” > “新建项”。 
 
-2. 选择“Azure 函数”，输入类的 **名称** ，然后选择“添加”。 
+2. 选择“Azure 函数”，输入类的 **名称**，然后选择“添加”。 
 
 3. 选择你的触发器，设置绑定属性，然后选择“确定”。 以下示例显示了用于创建队列存储触发器函数的设置。 
 

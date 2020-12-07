@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 09/01/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 95455c991f6940b09f31f5814286fb91bfa776a1
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: a67698499a0324b04284ef66bc747702d2907296
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507625"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
@@ -24,10 +24,11 @@ ms.locfileid: "89413850"
 
 还可以使用 [Azure PowerShell](quick-create-powershell.md) 或 [Azure 门户](quick-create-portal.md)完成本快速入门。
 
-## <a name="prerequisites"></a>先决条件
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- [Azure CLI 2.0.4 或更高版本](/cli/install-azure-cli)（如果在本地运行 Azure CLI）。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0.4 或更高版本。 
 
 ## <a name="create-resource-group"></a>创建资源组
 

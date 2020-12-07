@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4b8889ec8bb13d23865ae103fb1df39555bf27f5
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: eb083a8b47863bacd975ed4423079b7f79f0d4ed
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402406"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508714"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>教程：使用高级配置选项创建和配置 Azure Active Directory 域服务托管域
 
@@ -30,14 +30,14 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 > * 将管理用户添加到域管理
 > * 启用密码哈希同步
 
-如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，可以在开始前[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 需有以下资源和特权才能完成本教程：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 需要在 Azure AD 目录中拥有“全局管理员”特权才能启用 Azure AD DS。
@@ -100,7 +100,7 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
     对于本教程，请选择“标准”SKU。
 1. 林是 Active Directory 域服务用来对一个或多个域进行分组的逻辑构造。 默认情况下，托管域作为用户林创建。 此类林可同步 Azure AD 中的所有对象，包括在本地 AD DS 环境中创建的所有用户帐户。
 
-    *资源*林仅同步直接在 Azure AD 中创建的用户和组。 创建资源林时，本地用户的密码哈希从不同步到托管域中。 
+    *资源* 林仅同步直接在 Azure AD 中创建的用户和组。 创建资源林时，本地用户的密码哈希从不同步到托管域中。 
 
     对于本教程，请选择创建用户林。
 
@@ -161,11 +161,11 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 
 Azure AD DS 允许同步 Azure AD 中的所有用户和组，或者仅按范围同步特定的组。 现在可以更改同步范围，或在部署托管域后更改。 有关详细信息，请参阅 [Azure AD 域服务的按范围同步][scoped-sync]。
 
-1. 本教程选择了同步**所有**用户和组。 这是默认的同步选项。
+1. 本教程选择了同步 **所有** 用户和组。 这是默认的同步选项。
 
     ![对 Azure AD 中的用户和组执行完全同步](./media/tutorial-create-instance-advanced/sync-all.png)
 
-1. 选择“查看 + 创建”。
+1. 选择“查看 + 创建”  。
 
 ## <a name="deploy-the-managed-domain"></a>部署托管域
 

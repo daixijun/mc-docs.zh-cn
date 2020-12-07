@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/17/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4bee8e57c73dd77b85add31373638da2ada4d126
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 114317d4bf12193b820b814dc6d58572e83ab682
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211331"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508074"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 管理集成帐户中的项目元数据
 
@@ -22,7 +22,7 @@ ms.locfileid: "92211331"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册 Azure 试用帐户</a>。
+* Azure 订阅。 如果没有订阅，可以<a href="https://www.microsoft.com/china/azure/index.html?fromtype=cn" target="_blank">注册 Azure 试用帐户</a>。
 
 * 一个基本的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，其中包含要添加元数据的项目，例如： 
 
@@ -56,7 +56,7 @@ ms.locfileid: "92211331"
 
 1. 在逻辑应用设计器中，若要在工作流中的触发器或最后一个操作下添加用于获取元数据的步骤，请选择“新建步骤” > “添加操作”。   
 
-1. 在搜索框中，输入“集成帐户”。 在搜索框下，选择“所有”  。 在操作列表中选择此操作： **集成帐户项目查找 - 集成帐户**
+1. 在搜索框中，输入“集成帐户”。 在搜索框下，选择“所有”  。 在操作列表中选择此操作：**集成帐户项目查找 - 集成帐户**
 
    ![选择“集成帐户项目查找”](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 

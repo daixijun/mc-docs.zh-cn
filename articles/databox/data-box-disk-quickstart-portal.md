@@ -10,12 +10,12 @@ origin.date: 09/03/2019
 ms.date: 07/27/2020
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: 1a99151a984fe038b605a2453a51a1d34a611684
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: d47eb5b5bec8446850b206b4377ee2fa6cd5d0a4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914400"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431730"
 ---
 ::: zone target="docs"
 
@@ -25,7 +25,7 @@ ms.locfileid: "87914400"
 
 有关详细的分步部署和跟踪说明，请转到[教程：订购 Azure Data Box Disk](data-box-disk-deploy-ordered.md)。 
 
-如果没有 Azure 订阅，请创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ::: zone-end
 
@@ -69,7 +69,7 @@ ms.locfileid: "87914400"
 此步骤大约需要 5 分钟。
 
 1. 在 Azure 门户中创建新的 Azure Data Box 资源。 
-2. 选择为此服务启用的订阅，然后选择“导入”作为传输类型。 提供数据所在的**来源国家/地区**，以及数据要传输到的 **Azure 目标区域**。
+2. 选择为此服务启用的订阅，然后选择“导入”作为传输类型。 提供数据所在的 **来源国家/地区**，以及数据要传输到的 **Azure 目标区域**。
 3. 选择“Data Box 磁盘”。 解决方案的最大容量为 35 TB；如果数据大小更大，你可以创建多个磁盘订单。  
 4. 输入订单详细信息和发货信息。 如果该服务在你所在的区域中可用，请提供通知电子邮件地址、查看摘要，然后创建订单。
 

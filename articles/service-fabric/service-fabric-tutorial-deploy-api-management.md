@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9410cb05de43711c7f7a1f223353ec7fefb077a8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 03c41491c64347f2285c316759cc3f1b888ea6bc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327601"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507933"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>在 Azure 中将 API 管理与 Service Fabric 集成
 
@@ -33,10 +33,10 @@ ms.locfileid: "94327601"
 
 开始之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 安装 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * 在网络安全组中创建一个安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
-* 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2019](https://www.visualstudio.com) 和 **Azure 开发** 、 **ASP.NET 和 Web 开发** 以及 **.NET Core 跨平台开发** 工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
+* 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2019](https://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发** 以及 **.NET Core 跨平台开发** 工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
 
 ## <a name="network-topology"></a>网络拓扑
 
@@ -143,7 +143,7 @@ az account set --subscription <guid>
 * “name”为 API 提供一个唯一且有描述性的名称，例如“service-fabric-app”  。 它显示在开发人员和发布者门户中。
 * “serviceUrl”引用实现 API 的 HTTP 服务  。 API 管理将请求转发到此地址。 对于 Service Fabric 后端，不使用此 URL 值。 你可以在此处设置任何值。 对于本文，例如“http:\//servicefabric”。
 * “path”附加到 API 管理服务的基础 URL  。 基础 URL 是常见的由 API 管理服务实例托管的所有 API。 API 管理通过其后缀区分 API，因此后缀对给定发布者上的每个 API 必须唯一。
-* “protocols”确定可用于访问 API 的协议  。 对于本文，列出 **http** 和 **https** 。
+* “protocols”确定可用于访问 API 的协议  。 对于本文，列出 **http** 和 **https**。
 * “path”是 API 的后缀  。 对于本文，请使用“myapp”。
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
@@ -153,7 +153,7 @@ az account set --subscription <guid>
 要添加前端 API 操作，请填写以下值：
 
 * “displayName”和“description”描述操作   。 对于本文，请使用“Values”。
-* “method”指定 HTTP 谓词  。  对于本文，请指定 **GET** 。
+* “method”指定 HTTP 谓词  。  对于本文，请指定 **GET**。
 * “urlTemplate”附加到 API 的基础 URL，并标识单个 HTTP 操作  。  对于本文，如果添加了.NET 后端服务，请使用 `/api/values`，如果添加了 Java 后端服务，请使用 `getMessage`。  默认情况下，在此处指定的 URL 路径是发送到后端 Service Fabric 服务的 URL 路径。 如果在此处使用服务所用的相同 URL 路径（例如“/api/values”），则无需进一步修改即可正常执行该操作。 还可以在此处指定一个与后端 Service Fabric 服务使用的 URL 路径不同的 URL 路径，这种情况下，还需要在以后的操作策略中指定路径重写。
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies

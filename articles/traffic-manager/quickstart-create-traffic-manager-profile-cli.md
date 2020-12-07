@@ -16,12 +16,12 @@ ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3a035b7168b07b0f40cd89d84c2f4cc8d084816d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a6309ec177d3e6dcee0c26d4ddcc1eb84dafb265
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472601"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507749"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>快速入门：使用 Azure CLI 创建流量管理器配置文件以实现 Web 应用程序的高可用性
@@ -32,7 +32,7 @@ ms.locfileid: "92472601"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 在本地安装 Azure CLI
 
 <!--Not Available on Azure Cloud Shell-->
@@ -58,7 +58,7 @@ ms.locfileid: "92472601"
 
 使用 [az network traffic-manager profile create](https://docs.azure.cn/cli/network/traffic-manager/profile#az_network_traffic_manager_profile_create) 创建流量管理器配置文件，以根据终结点优先级定向用户流量。
 
-在以下示例中，请将 **<profile_name** > 替换为唯一的流量管理器配置文件名称。
+在以下示例中，请将 **<profile_name**> 替换为唯一的流量管理器配置文件名称。
 
 ```azurecli
 
@@ -76,7 +76,7 @@ az network traffic-manager profile create \
 
 ## <a name="create-web-apps"></a>创建 Web 应用
 
-本快速入门需要两个部署在两个不同的 Azure 区域（中国东部和中国北部）的 Web 应用程序实例。  每个都可以充当流量管理器的主终结点和故障转移终结点。
+本快速入门需要两个部署在两个不同的 Azure 区域（中国东部和中国北部）的 Web 应用程序实例。 每个都可以充当流量管理器的主终结点和故障转移终结点。
 
 ### <a name="create-web-app-service-plans"></a>创建 Web 应用服务计划
 使用 [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) 为要部署在两个不同 Azure 区域中的两个 Web 应用程序实例创建 Web 应用服务计划。
@@ -100,7 +100,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>在应用服务计划中创建 Web 应用
-在应用服务计划中使用 
+在应用服务计划中使用 [az webapp create](https://docs.azure.cn/cli/webapp#az_webapp_create) 在“中国东部”和“中国北部”Azure 区域中创建 Web 应用程序的两个实例。
 
 在以下示例中，请将 **<app1name_chinaeast>** 和 **<app2name_chinanorth>** 替换为唯一的应用名称，将 **<appspname_chinaeast>** 和 **<appspname_chinanorth>** 替换为在上一部分用于创建应用服务计划的名称。
 
@@ -198,13 +198,13 @@ az network traffic-manager profile show \
 
 ```
 
-复制 **RelativeDnsName** 值。 流量管理器配置文件的 DNS 名称为“ *http://<* relativednsname *>.trafficmanager.cn”* 。 
+复制 **RelativeDnsName** 值。 流量管理器配置文件的 DNS 名称为“*http://<* relativednsname *>.trafficmanager.cn”* 。 
 
 ### <a name="view-traffic-manager-in-action"></a>查看正在运行的流量管理器
-1. 在 Web 浏览器中输入流量管理器配置文件的 DNS 名称 ( *http://<* relativednsname *>.trafficmanager.cn* )，以查看 Web 应用的默认网站。
+1. 在 Web 浏览器中输入流量管理器配置文件的 DNS 名称 (*http://<* relativednsname *>.trafficmanager.cn*)，以查看 Web 应用的默认网站。
 
     > [!NOTE]
-    > 在本快速入门方案中，所有请求都路由到主终结点。 它设置为“优先级 1”。 
+    > 在本快速入门方案中，所有请求都路由到主终结点。 它设置为“优先级 1”。
 2. 若要查看流量管理器故障转移如何进行，请使用 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) 禁用主要站点。
 
     ```azurecli
@@ -218,7 +218,7 @@ az network traffic-manager profile show \
 
     ```
 
-3. 复制流量管理器配置文件的 DNS 名称 ( *http://<* relativednsname *>.trafficmanager.cn* )，以在新的 Web 浏览器会话中查看该网站。
+3. 复制流量管理器配置文件的 DNS 名称 (*http://<* relativednsname *>.trafficmanager.cn*)，以在新的 Web 浏览器会话中查看该网站。
 4. 验证 Web 应用是否仍然可用。
 
 ## <a name="clean-up-resources"></a>清理资源

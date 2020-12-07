@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 11/03/2020
-ms.openlocfilehash: a0ec2d5b43116908f77ca447204420366c38b644
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 29dedad1d7efa411cab699bf4ef58c1c4e821146
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508864"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -26,7 +26,7 @@ ms.locfileid: "94326505"
 > * 使用资源管理器模板为应用程序预配 Azure 资源。
 > * 使用 Visual Studio 将应用程序发布到 Azure。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -216,7 +216,7 @@ ms.locfileid: "94326505"
 
 ### <a name="configure-the-layout-view"></a>配置布局视图
 
-1. 在“解决方案资源管理器”中，先展开 **Views** 文件夹，再展开 **Shared** 文件夹，然后双击 **_Layout.cshtml** 。 
+1. 在“解决方案资源管理器”中，先展开 **Views** 文件夹，再展开 **Shared** 文件夹，然后双击 **_Layout.cshtml**。 
 
     ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
 
@@ -250,7 +250,7 @@ ms.locfileid: "94326505"
 
     ![团队控制器](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
 
-1. 将以下两个 `using` 语句添加到 **TeamsController.cs** ：
+1. 将以下两个 `using` 语句添加到 **TeamsController.cs**：
 
     ```csharp
     using System.Configuration;

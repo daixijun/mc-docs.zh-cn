@@ -9,12 +9,12 @@ ms.date: 08/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 2c891f77e8857179deae1d933721a97d2a437e00
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 6adcb21f18bd977f3043ea1491185192f24291ee
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753494"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432615"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>快速入门：使用 Java v8 SDK 管理 blob
 
@@ -25,7 +25,7 @@ ms.locfileid: "88753494"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 Azure 存储帐户。 [创建存储帐户](../common/storage-account-create.md)。
 - 包含 Maven 集成的 IDE。 本指南使用具有“适用于 Java 开发者的 Eclipse IDE”配置的 [Eclipse](https://www.eclipse.org/downloads/)。
 

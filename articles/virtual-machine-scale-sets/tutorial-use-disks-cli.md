@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 11/02/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5b35e7f61ad1342ea7c020cac0904bf998fb84c0
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 559e1f1dfa128da7888e1c8be5267b779a93aa30
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326524"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508572"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>教程：通过 Azure CLI 对虚拟机规模集创建和使用磁盘
 虚拟机规模集使用磁盘来存储 VM 实例的操作系统、应用程序和数据。 创建和管理规模集时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何创建和管理 VM 磁盘。 本教程介绍如何执行下列操作：
@@ -26,7 +26,7 @@ ms.locfileid: "94326524"
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -144,7 +144,7 @@ ssh azureuser@52.226.67.166 -p 50001
 sudo fdisk -l
 ```
 
-以下示例输出显示附加到 VM 实例的有三个磁盘 - */dev/sdc* 、 */dev/sdd* 和 */dev/sde* 。 每个这样的磁盘都是单个分区使用所有的可用空间：
+以下示例输出显示附加到 VM 实例的有三个磁盘 - */dev/sdc*、 */dev/sdd* 和 */dev/sde*。 每个这样的磁盘都是单个分区使用所有的可用空间：
 
 ```bash
 Disk /dev/sdc: 64 GiB, 68719476736 bytes, 134217728 sectors
@@ -259,7 +259,7 @@ az vmss show \
 
 
 ## <a name="detach-a-disk"></a>分离磁盘
-不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [az vmss disk detach](/cli/vmss/disk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [az vmss show](/cli/vmss) 命令的输出中。 以下示例从规模集分离 LUN *2* ：
+不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [az vmss disk detach](/cli/vmss/disk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [az vmss show](/cli/vmss) 命令的输出中。 以下示例从规模集分离 LUN *2*：
 
 ```azurecli
 az vmss disk detach \
@@ -270,7 +270,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>清理资源
-若要删除规模集和磁盘，请使用 [az group delete](/cli/group) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
+若要删除规模集和磁盘，请使用 [az group delete](/cli/group) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，无需等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait --yes

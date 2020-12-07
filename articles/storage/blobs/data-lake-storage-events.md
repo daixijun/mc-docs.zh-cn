@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.author: v-jay
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af3d697caa015336a4be4bc3fa9b59a1bb5c5a82
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3866bf26db64ad75505b3ae2171c4205796a7fe8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552984"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432504"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教程：实现数据湖捕获模式以更新 Databricks Delta 表
 
@@ -34,7 +34,7 @@ ms.locfileid: "94552984"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 创建一个采用分层命名空间的存储帐户 (Azure Data Lake Storage Gen2)。 本教程使用名为 `contosoorders` 的存储帐户。 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](/storage/common/storage-auth-aad-rbac)。
 

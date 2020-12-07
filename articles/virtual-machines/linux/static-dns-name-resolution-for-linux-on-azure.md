@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 06/05/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 6c16ab65b0baffa5ae1bc6c11172302b806f8e7c
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: 91fa0b56a64c76a380ae081f91cc382a893a39ed
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84684035"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432073"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>创建虚拟网络接口卡，以及在 Azure 上使用内部 DNS 进行 VM 名称解析
 
@@ -21,7 +21,7 @@ ms.locfileid: "84684035"
 
 要求如下：
 
-* [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
+* [一个 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>快速命令

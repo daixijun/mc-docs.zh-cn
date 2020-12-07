@@ -3,18 +3,18 @@ title: 在 Azure Stack Hub 上部署 Azure 应用服务的先决条件
 description: 了解在部署 Azure Stack Hub 上的 Azure 应用服务之前需要完成的前提步骤。
 author: WenJason
 ms.topic: article
-origin.date: 05/05/2020
-ms.date: 11/09/2020
+origin.date: 10/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: anwestg
-ms.lastreviewed: 04/13/2019
+ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f4618209374fb07c648a0f3d1b8fbc8205d2a32c
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 09a3d6f93cc225f416df553e93e8e53a10d26521
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330594"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507924"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署应用服务的先决条件
 
@@ -47,7 +47,7 @@ ms.locfileid: "93330594"
 <!-- MultiNode Only --->
 ## <a name="certificates-and-server-configuration-integrated-systems"></a>证书和服务器配置（集成系统）
 
-本部分列出了集成系统部署的先决条件。 
+本部分列出了集成系统部署的先决条件。
 
 ### <a name="certificate-requirements"></a>证书要求
 
@@ -378,7 +378,7 @@ Azure 应用服务使用标识应用程序（服务主体）支持以下操作�
 
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
 1. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
-1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+1. [安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 1. 运行 **Create-AADIdentityApp.ps1** 脚本。 根据提示输入部署 Azure Stack Hub 时使用的 Azure AD 租户 ID。 例如，输入 **myazurestack.partner.onmschina.cn**。
 1. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。 选择“确定” 。
 1. 输入[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
@@ -409,7 +409,7 @@ Azure 应用服务使用标识应用程序（服务主体）支持以下操作�
 
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
 1. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
-1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+1. [安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 1. 运行 **Create-ADFSIdentityApp.ps1** 脚本。
 1. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
 1. 提供[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
@@ -425,31 +425,6 @@ Azure 应用服务使用标识应用程序（服务主体）支持以下操作�
 | CloudAdminCredential | 必须 | Null | Azure Stack Hub 云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
 | CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的 **完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
-
-# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
-
-#### <a name="create-an-adfs-app"></a>创建 ADFS 应用
-
-1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
-1. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
-1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
-1. 运行 **Create-ADFSIdentityApp.ps1** 脚本。
-1. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
-1. 提供[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
-
-```powershell
-    Create-ADFSIdentityApp.ps1
-```
-
-| 参数 | 必需还是可选 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| AdminArmEndpoint | 必须 | Null | Azure 资源管理器管理终结点。 例如 adminmanagement.local.azurestack.external。 |
-| PrivilegedEndpoint | 必须 | Null | 特权终结点。 例如 AzS-ERCS01。 |
-| CloudAdminCredential | 必须 | Null | Azure Stack Hub 云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
-| CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的 **完整路径**。 |
-| CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
-
----
 
 <!--Connected/Disconnected-->
 

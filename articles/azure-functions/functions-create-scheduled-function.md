@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: de2c936e894ecbc4c6d63704b5c095497415afdb
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 510cae4d8aad9c21a026a9d51741d89dba5bad12
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937264"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508978"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
@@ -20,7 +20,7 @@ ms.locfileid: "91937264"
 
 为完成此教程：
 
-+ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
++ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-function-app"></a>创建 Azure Function App
 
@@ -36,15 +36,15 @@ ms.locfileid: "91937264"
 
 1. 在函数应用中，选择“函数”，然后选择“+ 添加” 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="函数应用已成功创建。" border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="在 Azure 门户中添加函数。" border="true":::
 
 1. 选择“计时器触发器”模板。 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="在 Azure 门户中选择计时器触发器。" border="true":::
 
 1. 使用图像下面的表中指定的设置来配置新的触发器，然后选择“创建函数”。
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="屏幕截图显示了已选择“计时器触发器”模板的“新建函数”页。" border="true":::
     
     | 设置 | 建议的值 | 说明 |
     |---|---|---|
@@ -55,11 +55,11 @@ ms.locfileid: "91937264"
 
 1. 在函数中，选择“代码 + 测试”并展开日志。
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="在 Azure 门户中测试计时器触发器。" border="true":::
 
 1. 通过查看写入到日志的跟踪信息来验证执行情况。
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="在 Azure 门户中查看计时器触发器。" border="true":::
 
 现在可以更改函数的计划，使之每小时运行一次，而不是每分钟运行一次。
 
@@ -69,11 +69,11 @@ ms.locfileid: "91937264"
 
 1. 选择“计时器(myTimer)”。
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="在 Azure 门户中更新计时器计划。" border="true":::
 
 1. 将“计划”值更新为 `0 0 */1 * * *`，然后选择“保存”。  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="函数应用已成功创建。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Azure 门户中的函数更新计时器计划。" border="true":::
 
 现在已获得一个每小时运行一次的函数。
 

@@ -15,12 +15,12 @@ ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9e7fb532f8f9123f099d6de543860687e5a19baa
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: c9935a7243a51b866c980bdc347b33fc872497ec
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395384"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507658"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 
@@ -32,17 +32,17 @@ ms.locfileid: "91395384"
 
 ### <a name="to-create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
-1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 2. 单击“创建资源”   > “网络”   >  “全部查看”   > “流量管理器配置文件”   > “创建”  。
 
     <!--MOONCAKE: CORRECT ON **Networking** >  **See All** -->
 
 4. 在“创建流量管理器配置文件”  中，按如下所示完成操作：
-    1. 在**名称**中，提供配置文件的名称。 此名称必须在 trafficmanager.cn 区域中唯一，并会生成 DNS 名称 (`<name>`,trafficmanager.cn)，该名称用于访问流量管理器配置文件。
-    2. 在**路由方法**中，选择“优先级”  路由方法。
-    3. 在**订阅**中，选择要创建此配置文件的订阅
-    4. 在**资源组**中，创建新的资源组，以在其下放置此配置文件。
-    5. 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。
+    1. 在 **名称** 中，提供配置文件的名称。 此名称必须在 trafficmanager.cn 区域中唯一，并会生成 DNS 名称 (`<name>`,trafficmanager.cn)，该名称用于访问流量管理器配置文件。
+    2. 在 **路由方法** 中，选择“优先级”  路由方法。
+    3. 在 **订阅** 中，选择要创建此配置文件的订阅
+    4. 在 **资源组** 中，创建新的资源组，以在其下放置此配置文件。
+    5. 在 **资源组位置** 中，选择资源组的位置。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。
     6. 单击“创建”。 
     7. 流量管理器配置文件的全局部署完成后，它会在相应的资源组中作为资源之一列出。
 

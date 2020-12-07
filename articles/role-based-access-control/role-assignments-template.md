@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 25a56578bb2eb6723a612a3cbb812fdea7a4c619
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 6ee1c751a9ef04e374e24d2ee86a672e36a53202
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849473"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507968"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板添加 Azure 角色分配
 
@@ -380,7 +380,7 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 
 - [Azure 门户](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>后续步骤

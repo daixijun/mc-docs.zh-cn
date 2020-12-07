@@ -13,12 +13,12 @@ ms.date: 11/10/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a1fc7b850f6380c1167e877f6fb6255f40895
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 4649e4e279f7da3701ccbf32a639a31f74c3cc5e
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501950"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508870"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>有关 Azure Active Directory 的常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答:** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果没有付费的 Microsoft 365 或 Azure AD 订阅，则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)或付费的订阅。
+**答:** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果没有付费的 Microsoft 365 或 Azure AD 订阅，则需要激活 [Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或付费的订阅。
 
 有关详细信息，请参阅：
 

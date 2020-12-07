@@ -12,16 +12,16 @@ ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f65c81851375ee5dfb87cdf70f4671de03b286b4
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 1b3ba488c73c858deed6f00d366fd9832a138045
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375644"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432535"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>快速入门：通过 Azure 门户暂停和恢复 Synapse SQL 池中的计算
 
-可以使用 Azure 门户暂停和恢复 Synapse SQL 池（数据仓库）计算资源。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+可以使用 Azure 门户暂停和恢复 Synapse SQL 池（数据仓库）计算资源。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

@@ -9,19 +9,19 @@ ms.topic: tutorial
 origin.date: 9/25/2018
 ms.date: 03/23/2020
 ms.author: v-jay
-ms.openlocfilehash: ad4d7ebf6155b31e12113050a8d9fdf6e82fcf1d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3d04e02764aac01bd118917457fa89f2c62c164f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80418026"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432629"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>教程：使用流量管理器配置支持顶点域名的别名记录 
 
 可以为域名顶点创建别名记录，以引用 Azure 流量管理器配置文件。 例如 contoso.com。 请配置 Azure DNS 以直接从区域中引用流量管理器配置文件，不需使用重定向服务。 
 
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建主机 VM 和网络基础结构。
@@ -30,7 +30,7 @@ ms.locfileid: "80418026"
 > * 测试别名记录。
 
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 必须具有可用于在 Azure DNS 中托管以供测试的域名。 必须能够完全控制此域。 完全控制包括能够为域设置名称服务器 (NS) 记录。
@@ -62,7 +62,7 @@ ms.locfileid: "80418026"
 1. 在 RG-DNS-Alias-TM 资源组中，选择 Web-01-ip 公共 IP 地址   。
 2. 在“设置”下，选择“配置”   。
 3. 在 DNS 名称标签文本框中，输入 web01pip  。
-4. 选择“保存”  。
+4. 选择“保存”。 
 
 使用 DNS 名称标签 web02pip，对 Web-02-ip 公共 IP 地址重复此过程   。
 
@@ -89,7 +89,7 @@ ms.locfileid: "80418026"
 3. 选择“创建”  。
 4. 部署完成后，选择“转到资源”。 
 5. 在“流量管理器配置文件”页的“设置”下，选择“终结点”   。
-6. 选择“添加”   。
+6. 选择 **添加** 。
 7. 对于“类型”，请选择“外部终结点”；对于“名称”，请输入 EP-Web01     。
 8. 在“完全限定的域名(FQDN)或 IP”文本框中，输入之前备注的 Web-01-ip 的 IP 地址   。
 9. 选择其他资源所在的同一“位置”，然后选择“确定”   。
@@ -120,7 +120,7 @@ ms.locfileid: "80418026"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建别名记录，以使用顶点域名来引用流量管理器配置文件。 若要详细了解 Azure DNS 和 Web 应用，请继续阅读有关 Web 应用的教程。
+在本教程中，你已创建别名记录，以使用顶点域名来引用流量管理器配置文件。 若要了解 Azure DNS 和 Web 应用，请继续学习适用于 Web 应用的教程。
 
 > [!div class="nextstepaction"]
 > [在区域顶点托管负载均衡 Web 应用](./dns-alias-appservice.md)

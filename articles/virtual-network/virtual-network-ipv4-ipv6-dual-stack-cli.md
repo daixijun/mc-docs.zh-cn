@@ -16,12 +16,12 @@ ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d789b2b49fee15d4e44630add88334b58fff4cb
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 22000e913c4bc75a12939207e1abe81cf52a2d40
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564545"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507489"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>部署使用基本负载均衡器的 IPv6 双堆栈应用程序 - CLI
 
@@ -29,7 +29,7 @@ ms.locfileid: "91564545"
 
 若要部署使用标准负载均衡器的双堆栈 (IPV4 + IPv6) 应用程序，请参阅[使用 Azure CLI 部署具有标准负载均衡器的 IPv6 双堆栈应用程序](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)。
 
-如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

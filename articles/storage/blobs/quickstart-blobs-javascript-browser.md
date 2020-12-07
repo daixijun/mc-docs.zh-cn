@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f628fdff05ba3b48f6a33103f356abbd21aea73f
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 3b5d3bcd0e5387c6b1e8dac33d02e9a86577dbeb
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753584"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432639"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -29,9 +29,9 @@ Azure Blob 存储已经过优化，可以存储大量的非结构化数据。 Bl
 * [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob)
 * [示例](/storage/common/storage-samples-javascript?toc=%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-* [一个 Azure 帐户和一个有效的订阅](https://wd.azure.cn/pricing/1rmb-trial-full)
+* [一个 Azure 帐户和一个有效的订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [一个 Azure 存储帐户](../common/storage-account-create.md)
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
@@ -69,18 +69,18 @@ Blob 存储提供了三种类型的资源：
 
 必须先配置你的帐户来启用[跨源资源共享](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)（简称 CORS），然后 Web 应用程序才能从客户端访问 Blob 存储。
 
-在 Azure 门户中，选择你的存储帐户。 若要定义新的 CORS 规则，请导航到“设置”部分并选择“CORS”。  对于本快速入门，请创建开放的 CORS 规则：
+在 Azure 门户中，选择你的存储帐户。 若要定义新的 CORS 规则，请导航到“设置”部分并选择“CORS”。 对于本快速入门，请创建开放的 CORS 规则：
 
 ![Azure Blob 存储帐户 CORS 设置](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
 
 下表描述了每项 CORS 设置，并对用于定义规则的值进行了说明。
 
-|设置  |Value  | 说明 |
+|设置  |“值”  | 说明 |
 |---------|---------|---------|
-| **允许的源** | **\*** | 接受一个逗号分隔的列表，其中的域设置为可以接受的域。 将值设置为 `*` 意味着所有域都可以访问存储帐户。 |
-| **允许的方法** | “DELETE”、“GET”、“HEAD”、“MERGE”、“POST”、“OPTIONS”和“PUT”       | 列出允许对存储帐户执行操作的 HTTP 谓词。 对于本快速入门，请选择所有可用的选项。 |
-| **允许的标头** | **\*** | 定义一个列表，其中包含存储帐户允许的请求标头（包括带前缀的标头）。 将值设置为 `*` 意味着所有标头都可以进行访问。 |
-| **公开的标头** | **\*** | 列出帐户允许的响应标头。 将值设置为 `*` 意味着帐户可以发送任何标头。 |
+| **允许的源** | **\** _ | 接受一个逗号分隔的列表，其中的域设置为可以接受的域。 将值设置为 `_` 意味着所有域都可以访问存储帐户。 |
+| **允许的方法** | “DELETE”、“GET”、“HEAD”、“MERGE”、“POST”、“OPTIONS”和“PUT” | 列出允许对存储帐户执行操作的 HTTP 谓词。 对于本快速入门，请选择所有可用的选项。 |
+| **允许的标头** | **\** _ | 定义一个列表，其中包含存储帐户允许的请求标头（包括带前缀的标头）。 将值设置为 `_` 意味着所有标头都可以进行访问。 |
+| **公开的标头** | **\** _ | 列出帐户允许的响应标头。 将值设置为 `_` 意味着帐户可以发送任何标头。 |
 | **最长时间** | **86400** | 浏览器缓存预检 OPTIONS 请求的最长时间（以秒为单位）。 值为 *86400* 意味着缓存可以保留一整天。 |
 
 使用此表中的值填写字段后，单击“保存”按钮。
@@ -90,15 +90,15 @@ Blob 存储提供了三种类型的资源：
 
 ### <a name="create-a-shared-access-signature"></a>创建共享访问签名
 
-在浏览器中运行的代码使用共享访问签名 (SAS) 来向 Azure Blob 存储请求授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-sas-overview.md)。
+在浏览器中运行的代码使用共享访问签名 (SAS) 来向 Azure Blob 存储请求授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权访问存储资源。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-sas-overview.md)。
 
 按照以下步骤获取 Blob 服务 SAS URL：
 
 1. 在 Azure 门户中，选择你的存储帐户。
-2. 导航到“设置”部分，并选择“共享访问签名”。 
+2. 导航到“设置”部分，并选择“共享访问签名”。
 3. 向下滚动，然后单击“生成 SAS 和连接字符串”按钮。
 4. 继续向下滚动，找到“Blob 服务 SAS URL”字段
-5. 单击“Blob 服务 SAS URL”字段最右侧的“复制到剪贴板”按钮。 
+5. 单击“Blob 服务 SAS URL”字段最右侧的“复制到剪贴板”按钮。
 6. 将复制的 URL 保存到某个位置，以便在后续步骤中使用。
 
 ### <a name="add-the-azure-blob-storage-client-library"></a>添加 Azure Blob 存储客户端库
@@ -164,7 +164,7 @@ const { BlobServiceClient } = require("@azure/storage-blob");
 // Now do something interesting with BlobServiceClient
 ```
 
-将该文件作为 index.js 保存到 azure-blobs-js-browser 目录中。 
+将该文件作为 index.js 保存到 azure-blobs-js-browser 目录中。
 
 ### <a name="implement-the-html-page"></a>实现 HTML 页
 
@@ -193,7 +193,7 @@ const { BlobServiceClient } = require("@azure/storage-blob");
 </html>
 ```
 
-将该文件作为 index.html 保存到 azure-blobs-js-browser 文件夹中。 
+将该文件作为 index.html 保存到 azure-blobs-js-browser 文件夹中。
 
 ## <a name="code-examples"></a>代码示例
 
@@ -397,7 +397,7 @@ deleteButton.addEventListener("click", deleteFiles);
 若要在 Visual Studio Code 中设置调试器扩展，请执行以下操作：
 
 1. 选择“运行”>“添加配置”
-2. 根据在前面的[先决条件](#prerequisites)部分中安装的扩展，选择“Microsoft Edge”、“Chrome”或“Firefox”。  
+2. 根据在前面的[先决条件](#prerequisites)部分中安装的扩展，选择“Microsoft Edge”、“Chrome”或“Firefox”。
 
 添加新配置会创建 launch.json 文件并在编辑器中打开该文件。 修改 launch.json 文件，使 `url` 值为 `http://localhost:1234/index.html`，如下所示：
 
@@ -446,7 +446,7 @@ Parcel 会捆绑你的代码，并在 `http://localhost:1234/index.html` 上为�
 #### <a name="step-1---create-a-container"></a>步骤 1 - 创建容器
 
 1. 在 Web 应用中，选择“创建容器”。 状态将指示已创建了一个容器。
-2. 若要在 Azure 门户中进行验证，请选择你的存储帐户。 在“Blob 服务”下，选择“容器”。  验证是否显示了新容器。 （可能需要选择“刷新”。）
+2. 若要在 Azure 门户中进行验证，请选择你的存储帐户。 在“Blob 服务”下，选择“容器”。 验证是否显示了新容器。 （可能需要选择“刷新”。）
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>步骤 2 - 将 Blob 上传到容器
 
@@ -464,7 +464,7 @@ Parcel 会捆绑你的代码，并在 `http://localhost:1234/index.html` 上为�
 #### <a name="step-4---delete-the-container"></a>步骤 4 - 删除容器
 
 1. 在 Web 应用中，选择“删除容器”。 状态将指示容器已删除。
-2. 在 Azure 门户中，选择门户窗格左上角的“\<account-name\> | 容器”链接。
+2. 在 Azure 门户中，选择门户窗格左上角的 \<account-name\> |“容器”链接。
 3. 选择“刷新”。 新容器随即消失。
 4. 关闭 Web 应用。
 
@@ -484,4 +484,4 @@ Parcel 会捆绑你的代码，并在 `http://localhost:1234/index.html` 上为�
 > [Azure for JavaScript 文档](https://docs.microsoft.com/azure/developer/javascript/)
 
 * 若要了解详细信息，请参阅[适用于 JavaScript 的 Azure Blob 存储客户端库](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob)。
-* 若要查看 Blob 存储示例应用，请继续阅读 [Azure Blob 存储客户端库 v12 JavaScript 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)。
+* 若要查看 Blob 存储示例应用，请继续学习 [Azure Blob 存储客户端库 v12 JavaScript 示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)。

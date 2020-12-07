@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 0d1995c0397ae52e7dd1f721b8c80da8cc62ef33
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1935f046fd7e61ce1553d300c9d1dfb95ead3cba
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79546882"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508969"
 ---
 # <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>快速入门：使用 Java 和 Maven/Gradle 创建函数并将其发布到 Azure
 
@@ -38,7 +38,7 @@ ms.locfileid: "79546882"
 - [Gradle](https://gradle.org/) 4.10 和更高版本
 ::: zone-end 
 
-还需要一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+还需要一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 > [!IMPORTANT]

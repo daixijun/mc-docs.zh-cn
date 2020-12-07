@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 04/30/2019
-ms.date: 06/06/2019
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 2dfe68052e882b40b3dbf13f4b95ad16229c61fd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9bc598cbb462a28259bd6a7242a1f92154713124
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66830044"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432177"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>将计算机视觉功能与 REST API 和 JavaScript 配合使用
 
@@ -35,7 +35,7 @@ JavaScript 表单应用程序已编写完毕，但不具有计算机视觉功能
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>订阅计算机视觉 API 并获得订阅密钥
 
-创建示例之前，必须先订阅 Azure 认知服务中随附的计算机视觉 API。 有关订阅和密钥管理的详细信息，请参阅[订阅](https://www.azure.cn/pricing/1rmb-trial/)。 主密钥和辅助密钥均适用于本指南。
+创建示例之前，必须先订阅 Azure 认知服务中随附的计算机视觉 API。 有关订阅和密钥管理的详细信息，请参阅[订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 主密钥和辅助密钥均适用于本指南。
 
 ## <a name="acquire-incomplete-tutorial-project"></a>获取不完整的教程项目
 

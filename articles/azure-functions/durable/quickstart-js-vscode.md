@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3d9db05276b25be72f3010f9f6c99ce4091e9a72
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0c8e4901621a75c52dba3a66162bff23bd7f5980
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223180"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508916"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -35,7 +35,7 @@ ms.locfileid: "88223180"
 
 * 确保已安装 [Node.js](https://nodejs.org/) 版本 10.x 或 12.x。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>创建本地项目 
 
@@ -51,7 +51,7 @@ ms.locfileid: "88223180"
 
     | Prompt | 值 | 说明 |
     | ------ | ----- | ----------- |
-    | 选择函数应用项目的语言 | Javascript | 创建本地 Node.js Functions 项目。 |
+    | 选择函数应用项目的语言 | JavaScript | 创建本地 Node.js Functions 项目。 |
     | 选择版本 | Azure Functions v3 | 仅当尚未安装 Core Tools 时，才会出现此选项。 在本例中，当你首次运行应用时即已安装 Core Tools。 |
     | 为项目的第一个函数选择模板 | 暂时跳过 | |
     | 选择打开项目的方式 | 在当前窗口中打开 | 在所选的文件夹中重新打开 VS Code。 |

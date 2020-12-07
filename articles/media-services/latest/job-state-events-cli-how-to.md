@@ -13,12 +13,12 @@ origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bdb7796990cace75ab3320432e32736cf69903b0
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 29e3af3abe92a378ffb122de50dadfb4ad505f6e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245605"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432455"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>使用 Azure CLI 创建并通过事件网格监视 Azure 媒体服务事件
 
@@ -30,7 +30,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+- 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 在本地安装并使用 CLI，本文要求使用 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 - [创建媒体服务帐户](./create-account-howto.md)。

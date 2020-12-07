@@ -4,14 +4,14 @@ description: 教程：介绍了如何使用 Azure 事件网格和事件中心将
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 origin.date: 3/16/2020
-ms.openlocfilehash: 937b00936c8948d20ed2f55e006e54fcd9041cac
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 6adff14b48bbf142e446c497467f09e191f8f8ed
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977863"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431934"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>教程：将大数据流式传输到数据仓库
 Azure [事件网格](overview.md)是一项智能事件路由服务，可用于对应用和服务的通知（事件）作出响应。 例如，它可以触发 Azure 函数来处理已捕获到 Azure Blob 存储或 Azure Data Lake Storage 的事件中心数据，并将数据迁移到其他数据存储库。 此[事件中心和事件网格集成示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)展示了如何将事件中心与事件网格结合使用，从而将捕获的事件中心数据从 blob 存储无缝迁移到 Azure Synapse Analytics（旧称 SQL 数据仓库）。
@@ -42,7 +42,7 @@ Azure [事件网格](overview.md)是一项智能事件路由服务，可用于�
 
 若要完成本教程，必须满足以下先决条件：
 
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio 2019](https://www.visualstudio.com/vs/)，并包含适用于以下用途的工作负载：.NET 桌面开发、Azure 开发、ASP.NET 和 Web 开发、Node.js 开发和 Python 开发。
 * 将 [EventHubsCaptureEventGridDemo 示例项目](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)下载到计算机上。
 

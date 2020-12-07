@@ -11,12 +11,12 @@ ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 85b3386300f46a7165a7c6fbad91deb72a13b065
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 132e2dbfa0cbe1f291cfc1a29607147cbf401f62
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564295"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507845"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure 中部署容器实例
@@ -31,7 +31,7 @@ ms.locfileid: "91564295"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -172,11 +172,11 @@ ms.locfileid: "91564295"
 
     查看条款和条件。 如果你同意，请选择“我同意上述条款和条件”。
 
-    :::image type="content" source="media/container-instances-quickstart-template/template-properties.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-instances-quickstart-template/template-properties.png" alt-text="模板属性":::
 
  3. 成功创建实例后，你会收到通知：
 
-    :::image type="content" source="media/container-instances-quickstart-template/deployment-notification.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-instances-quickstart-template/deployment-notification.png" alt-text="门户通知":::
 
  使用 Azure 门户部署模板。 除了 Azure 门户之外，还可以使用 Azure PowerShell、Azure CLI 和 REST API。 若要了解其他部署方法，请参阅[部署模板](../azure-resource-manager/templates/deploy-cli.md)。
 
@@ -188,11 +188,11 @@ ms.locfileid: "91564295"
 
 1. 在“概览”页上，记下实例的“状态”及其“IP 地址” 。
 
-    :::image type="content" source="media/container-instances-quickstart-template/aci-overview.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-instances-quickstart-template/aci-overview.png" alt-text="实例概览":::
 
 2. 在其状态为“正在运行”后，在浏览器中导航到 IP 地址。 
 
-    :::image type="content" source="media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png" alt-text="部署到 Azure":::
+    :::image type="content" source="media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png" alt-text="在浏览器中显示的使用 Azure 容器实例部署的应用":::
 
 ### <a name="view-container-logs"></a>查看容器日志
 
@@ -200,7 +200,7 @@ ms.locfileid: "91564295"
 
 若要查看容器的日志，请在“设置”下选择“容器” > “日志”。  应当会看到在浏览器中查看应用程序时生成的 HTTP GET 请求。
 
-:::image type="content" source="media/container-instances-quickstart-template/aci-logs.png" alt-text="部署到 Azure":::
+:::image type="content" source="media/container-instances-quickstart-template/aci-logs.png" alt-text="Azure 门户中的容器日志":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

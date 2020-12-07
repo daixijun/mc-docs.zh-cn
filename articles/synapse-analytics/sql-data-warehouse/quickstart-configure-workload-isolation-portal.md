@@ -12,19 +12,19 @@ ms.date: 06/15/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1fa4f75d27c2ddaca9213d677d9853440635f990
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: b5581101b7b1b43fca4692f6b063a9e83e42df92
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723823"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432653"
 ---
 # <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>快速入门：在 Azure 门户中使用工作负荷组配置 Synapse SQL 池工作负荷隔离
 
 在本快速入门中，你将通过创建用来预留资源的工作负荷组来配置[工作负荷隔离](sql-data-warehouse-workload-isolation.md)。  为实现本教程的目的，我们将创建用于加载数据的名为 `DataLoads` 的工作负荷组。 此工作负荷组将预留 20% 的系统资源。  如果与数据加载对应的隔离度为 20%，则可保证这些数据加载获得的资源能够满足 SLA 要求。  创建工作负荷组后，可[创建工作负荷分类器](quickstart-create-a-workload-classifier-portal.md)，将查询分配到此工作负荷组。
 
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户

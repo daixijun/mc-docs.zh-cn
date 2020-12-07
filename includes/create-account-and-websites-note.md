@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: dfb2dd19b96cbcb67d2490ea711303864c1671d5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5fafce78e58c371e65750a6f3b17324a7b1841a8
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63852379"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96477585"
 ---
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 可以注册 <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">试用版</a>。
+> 要完成本教程，需要一个 Azure 帐户。 可以注册 <a href="https://www.microsoft.com/china/azure/index.html?fromtype=cn" target="_blank">试用版</a>。
 > 
 >

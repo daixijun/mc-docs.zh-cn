@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 82ecd9c8ec200e3118e2dc0f4511ef62329ec5fd
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 53d1b776e3e711019967922f1385ad3a6b54189e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472697"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507372"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>预配和管理 Azure 时序见解第 2 代
 
@@ -31,7 +31,7 @@ ms.locfileid: "92472697"
 
 > [!TIP]
 >
-> * 了解[如何规划环境](./time-series-insights-update-plan.md)。
+> * 了解[如何规划环境](./how-to-plan-your-environment.md)。
 > * 了解如何[添加事件中心源](./how-to-ingest-data-event-hub.md)或如何[添加 IoT 中心源](./how-to-ingest-data-iot-hub.md)。
 
 将了解如何执行以下操作：
@@ -57,11 +57,11 @@ ms.locfileid: "92472697"
 
     > [!NOTE]
     >
-    > * 时序 ID *区分大小写* 且 *不可变* 。 （一经设置，不可更改。）
+    > * 时序 ID *区分大小写* 且 *不可变*。 （一经设置，不可更改。）
     > * 时序 ID 最多可以是 *三个* 键。 可将其视为数据库中的主键，它唯一地表示会向你的环境发送数据的每个设备传感器。 它可以是一个属性，也可以是最多包含三个属性的组合。
-    > * 有关详细信息，请参阅[如何选择时序 ID](time-series-insights-update-how-to-id.md)
+    > * 有关详细信息，请参阅[如何选择时序 ID](./how-to-select-tsid.md)
 
-1. 通过选择存储帐户名称、帐户种类并指定[复制](/storage/common/redundancy-migration?tabs=portal)选项来创建 Azure 存储帐户。 这样做会自动创建一个 Azure 存储帐户。 默认情况下将创建[常规用途 v2](/storage/common/storage-account-overview) 帐户。 该帐户在之前选择的 Azure 时序见解第 2 代环境所在的区域中创建。
+1. 通过选择存储帐户名称、帐户种类并指定[复制](../storage/common/redundancy-migration.md?tabs=portal)选项来创建 Azure 存储帐户。 这样做会自动创建一个 Azure 存储帐户。 默认情况下将创建[常规用途 v2](../storage/common/storage-account-overview.md) 帐户。 该帐户在之前选择的 Azure 时序见解第 2 代环境所在的区域中创建。
 另外，在创建新的 Azure 时序第 2 代环境时，还可以通过 [ARM 模板](./time-series-insights-manage-resources-using-azure-resource-manager-template.md)自带存储 (BYOS)。
 
 1. **（可选）** 如果需要在环境中对最新数据进行更快且不受限制的查询，请为环境启用暖存储。 也可在创建 Azure 时序第 2 代环境后，在左导航窗格中通过“存储配置”选项创建或删除暖存储。
@@ -90,19 +90,19 @@ ms.locfileid: "92472697"
 * Azure 门户第 2 代的“概览”边栏选项卡进行了以下更改：
 
   * 删除了容量，因为它不适用于第 2 代环境。
-  * 添加了“时序 ID”属性  。 它决定了数据的分区方式。
+  * 添加了“时序 ID”属性。 它决定了数据的分区方式。
   * 删除了引用数据集。
   * 列出了 Azure 存储帐户名称。
 
-* 删除了Azure 门户的“配置”边栏选项卡，因为缩放单元不适用于 Azure 时序见解第 2 代环境。 但是，可以使用“存储配置”来配置新引入的暖存储。 
+* 删除了Azure 门户的“配置”边栏选项卡，因为缩放单元不适用于 Azure 时序见解第 2 代环境。 但是，可以使用“存储配置”来配置新引入的暖存储。
 
-* Azure 时序见解第 2 代中删除了 Azure 门户的“参考数据”边栏选项卡，因为参考数据概念已被[时序模型 (TSM)](/time-series-insights/concepts-model-overview) 替代。
+* Azure 时序见解第 2 代中删除了 Azure 门户的“参考数据”边栏选项卡，因为参考数据概念已被[时序模型 (TSM)](./concepts-model-overview.md) 替代。
 
 [![Azure 门户中的 Azure 时序见解第 2 代环境](./media/v2-update-manage/create-and-manage-overview-confirm.png)](./media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读[规划你的环境](./time-series-insights-update-plan.md)，详细了解 Azure 时序见解正式版环境和第 2 代环境。
+* 阅读[规划你的环境](./how-to-plan-your-environment.md)，详细了解 Azure 时序见解正式版环境和第 2 代环境。
 
 * 了解如何[添加事件中心源](./how-to-ingest-data-event-hub.md)。
 

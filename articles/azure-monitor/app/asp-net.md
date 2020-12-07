@@ -4,15 +4,15 @@ description: 为托管在本地或 Azure 中的 ASP.NET 网站配置性能、可
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/08/2019
-ms.date: 11/10/2020
+ms.date: 12/01/2020
 ms.custom: contperfq1
 ms.author: v-johya
-ms.openlocfilehash: a5ee1748e6598edd420eb66166e1cd8d38a2675f
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 6cf5b5523d3a403e76f1e0543b9f37d1ac52dcf1
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638056"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432445"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>为 ASP.NET 网站配置 Application Insights
 
@@ -25,7 +25,7 @@ ms.locfileid: "94638056"
     - ASP.NET 和 Web 开发。
     - Azure 开发
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 创建基于工作区的 Application Insights 资源。
 

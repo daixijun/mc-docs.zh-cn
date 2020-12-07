@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: quickstart
 origin.date: 11/04/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 47f632e231152dbd0e48388a405bf5b243ef6068
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 86ab18a852e4a4d35836819afa8eecfa377e1204
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978124"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432597"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Database for MySQL 服务器
 
@@ -23,7 +23,7 @@ ms.locfileid: "94978124"
 Azure Database for MySQL 是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 MySQL 数据库。 本快速入门介绍如何使用 Azure 门户创建 Azure Database for MySQL 单一服务器， 以及如何连接到该服务器。
 
 ## <a name="prerequisites"></a>先决条件
-需要一个 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+需要一个 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-database-for-mysql-single-server"></a>创建 Azure Database for MySQL 单一服务器
 1. 转到 [Azure 门户](https://portal.azure.cn/)创建 MySQL 单一服务器数据库。 搜索并选择“Azure Database for MySQL”：
@@ -44,7 +44,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
    **设置** | **建议的值** | **说明**
    ---|---|---
-   订阅 | 订阅 | 选择所需的 Azure 订阅。
+   订阅 | 你的订阅 | 选择所需的 Azure 订阅。
    资源组 |  myresourcegroup | 输入新资源组，或订阅中的现有资源组。
    服务器名称 | **mydemoserver** | 输入唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
    数据源 |无  | 选择“无”，从头开始创建新的服务器  。 仅当从现有服务器的异地备份进行还原时，才选择“备份”。

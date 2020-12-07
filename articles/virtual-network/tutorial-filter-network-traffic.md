@@ -15,12 +15,12 @@ ms.workload: infrastructure
 origin.date: 12/13/2018
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 05ec31acc252ed03c2aa89fc5baa15ffc6e41f5c
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.openlocfilehash: 8fd87938e15fd26758ae0b69f3aff293fd768384
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969049"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507158"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教程：使用 Azure 门户通过网络安全组筛选网络流量
 
@@ -34,7 +34,7 @@ ms.locfileid: "85969049"
 
 可以根据需要使用 [Azure CLI](tutorial-filter-network-traffic-cli.md) 或 [PowerShell](tutorial-filter-network-traffic-powershell.md) 完成本教程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -112,7 +112,7 @@ ms.locfileid: "85969049"
 
     | 设置                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 目标             | 选择“应用程序安全组”，然后选择 **myAsgWebServers** 作为**应用程序安全组**。  |
+    | 目标             | 选择“应用程序安全组”，然后选择 **myAsgWebServers** 作为 **应用程序安全组**。  |
     | 目标端口范围 | 输入 80,443                                                                                                    |
     | 协议                | 选择 TCP                                                                                                      |
     | 名称                    | Allow-Web-All                                                                                                   |
@@ -121,7 +121,7 @@ ms.locfileid: "85969049"
 
     | 设置                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
-    | 目标             | 选择“应用程序安全组”，然后选择 **myAsgMgmtServers** 作为**应用程序安全组**。 |
+    | 目标             | 选择“应用程序安全组”，然后选择 **myAsgMgmtServers** 作为 **应用程序安全组**。 |
     | 目标端口范围 | 输入 3389                                                                                                      |
     | 协议                | 选择 TCP                                                                                                      |
     | 优先级                | 输入 110                                                                                                       |
@@ -176,7 +176,7 @@ ms.locfileid: "85969049"
 门户在创建 VM 时，已为每个 VM 创建一个网络接口，并将该网络接口附加到 VM。 请将每个 VM 的网络接口添加到以前创建的应用程序安全组：
 
 1. 在门户顶部的“搜索资源、服务和文档”框中，开始键入“myVmWeb”。 当“myVmWeb”VM 出现在搜索结果中时，请将其选中。
-2. 在“设置”下选择“网络” 。  选择“配置应用程序安全组”，然后选择 **myAsgWebServers** 作为**应用程序安全组**，最后选择“保存”，如下图所示： 
+2. 在“设置”下选择“网络” 。  选择“配置应用程序安全组”，然后选择 **myAsgWebServers** 作为 **应用程序安全组**，最后选择“保存”，如下图所示： 
 
     ![关联到 ASG](./media/tutorial-filter-network-traffic/associate-to-asg.png)
 
@@ -208,7 +208,7 @@ ms.locfileid: "85969049"
 
 8. 完成 IIS 安装后，从 *myVmWeb* VM 断开连接，从而保留 *myVmMgmt* 远程桌面连接。
 9. 从 *myVmMgmt* VM 断开连接。
-10. 在 Azure 门户顶部的“搜索资源、服务和文档”框中，开始在计算机中键入“myVmWeb”。 当“myVmWeb”出现在搜索结果中时，请选择它。 记下 VM 的**公共 IP 地址**。 下图所示地址为 137.135.84.74，但你的地址不同于此：
+10. 在 Azure 门户顶部的“搜索资源、服务和文档”框中，开始在计算机中键入“myVmWeb”。 当“myVmWeb”出现在搜索结果中时，请选择它。 记下 VM 的 **公共 IP 地址**。 下图所示地址为 137.135.84.74，但你的地址不同于此：
 
     ![公共 IP 地址](./media/tutorial-filter-network-traffic/public-ip-address.png)
 

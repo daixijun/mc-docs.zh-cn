@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 04/29/2020
 ms.date: 11/23/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cf77591f6f16bf4f97dbcd34b1d5cc636b2d8285
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 76e6566ed05618531585a1867c40a3345e7f9649
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977378"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431664"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MySQL
 
@@ -34,7 +34,7 @@ Azure Database for MySQL 是 Azure 云中基于 MySQL 社区版数据库引擎�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

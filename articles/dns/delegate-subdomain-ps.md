@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 2/7/2019
 ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 44f9e80ad4cc04bdd991d9b31a338ee07fbf12a4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 247c5a9f28d2ccf040afa0b40a3f62295cca1f1e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63852649"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432605"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>使用 Azure PowerShell 委托 Azure DNS 子域
 
@@ -24,7 +24,7 @@ ms.locfileid: "63852649"
 > [!NOTE]
 > 本文通篇都使用 contoso.com 作为示例。 请将 contoso.com 替换为你自己的域名。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>必备条件
 

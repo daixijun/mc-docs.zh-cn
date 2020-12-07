@@ -71,9 +71,9 @@
     - name: 授予数据访问权限
       href: concepts-access-policies.md
     - name: 连接到事件中心
-      href: how-to-ingest-data-event-hub.md
+      href: ./how-to-ingest-data-event-hub.md
     - name: 连接到 IoT 中心
-      href: how-to-ingest-data-iot-hub.md
+      href: ./how-to-ingest-data-iot-hub.md
     - name: 使用模板管理资源
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Azure 时序见解第 2 代

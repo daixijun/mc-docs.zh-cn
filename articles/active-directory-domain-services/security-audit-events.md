@@ -2,21 +2,21 @@
 title: 为 Azure AD 域服务启用安全审核 | Microsoft Docs
 description: 了解如何在 Azure AD 域服务中启用安全审核来集中事件日志记录，以便进行分析和发出警报
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 524255f670269d94ec68cbd1b38f72cebc4e6ddd
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: cfef4fd0df14c845fdefd4bafd11ef59a07b8013
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413337"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507203"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>为 Azure Active Directory 域服务启用安全审核
 

@@ -3,14 +3,14 @@ title: 在 Azure 门户中创建第一个函数
 description: 了解如何使用 Azure 门户创建第一个可无服务器执行的 Azure Function。
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
-ms.date: 08/11/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 502a5ac0988c86e8f201c845b9f94a6cede9cbcb
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 11/30/2020
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: eb11a1062010916b44bd5df3f464b23ef3b09943
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222585"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508790"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
@@ -21,9 +21,9 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 
 | Visual Studio Code | 终端/命令提示符 | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[C# 入门](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)|&bull;&nbsp;[C# 入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)| [C# 入门](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[C# 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)|&bull;&nbsp;[C# 入门](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-cli-csharp.md?pivots=programming-language-powershell) | [C# 入门](functions-create-your-first-function-visual-studio.md) |
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -39,25 +39,25 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 
 ## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>创建 HTTP 触发器函数
 
-1. 从“Functions”**** 窗口的左侧菜单中选择“Functions”****，然后从顶部菜单中选择“添加”****。 
+1. 从“Functions”窗口的左侧菜单中选择“Functions”，然后从顶部菜单中选择“添加”。 
  
-1. 在“新建函数”**** 窗口中，选择“Http 触发器”****。
+1. 在“新建函数”窗口中，选择“Http 触发器”。
 
     ![选择 HTTP 触发器函数](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. 在“新建函数”**** 窗口中，接受新函数**** 的默认名称，或输入新名称。 
+1. 在“新建函数”窗口中，接受新函数的默认名称，或输入新名称。 
 
-1. 从“授权级别”**** 下拉列表中选择“匿名”****，然后选择“创建函数”****。
+1. 从“授权级别”下拉列表中选择“匿名”，然后选择“创建函数”。
 
     Azure 会创建该 HTTP 触发器函数。 现在，可以通过发送 HTTP 请求来运行新函数了。
 
 ## <a name="test-the-function"></a>测试函数
 
-1. 在新的 HTTP 触发器函数中，从左侧菜单中选择“代码 + 测试”****"，然后从顶部菜单中选择“获取函数 URL”****。
+1. 在新的 HTTP 触发器函数中，从左侧菜单中选择“代码 + 测试”"，然后从顶部菜单中选择“获取函数 URL”。
 
     ![选择“获取函数 URL”](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
 
-1. 在“获取函数 URL”**** 对话框的下拉列表中选择“默认值”****，然后选择“复制到剪贴板”**** 图标。 
+1. 在“获取函数 URL”对话框的下拉列表中选择“默认值”，然后选择“复制到剪贴板”图标。 
 
     ![从 Azure 门户复制函数 URL](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -69,7 +69,7 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 
     请求 URL 包含通过 HTTP 访问函数默认所需的密钥。
 
-1. 运行函数时，会在日志中写入跟踪信息。 若要查看跟踪输出，请返回到门户中的“代码 + 测试”**** 页，并展开页面底部的“日志”**** 箭头。
+1. 运行函数时，会在日志中写入跟踪信息。 若要查看跟踪输出，请返回到门户中的“代码 + 测试”页，并展开页面底部的“日志”箭头。
 
    ![Azure 门户中的“函数日志”查看器。](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -80,5 +80,4 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 ## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
 

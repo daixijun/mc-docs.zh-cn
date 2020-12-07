@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4816001f07ce47d266e4963d1747ff3f5f7467e4
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5f21910a68d7eef6fc3c9ef2bedf3becc5783538
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472692"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507370"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>规划 Azure 时序见解 Gen2 环境
 
@@ -64,7 +64,7 @@ Azure 时序见解采用即用即付业务模型。 若要详细了解费用和�
 > [!IMPORTANT]
 > 时序 ID 以后不能更改。 在进行最终选择和首次使用之前验证每个 ID。
 
-可以选择最多三个键以唯一区分资源。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)和[引入规则](concepts-json-flattening-escaping-rules.md)。
+可以选择最多三个键以唯一区分资源。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./how-to-select-tsid.md)和[引入规则](concepts-json-flattening-escaping-rules.md)。
 
 时间戳属性也十分重要。 可以在添加事件源时指定此属性。 每个事件源都有一个可选的时间戳属性，它用于随时间推移跟踪事件源。 时间戳值区分大小写，并且必须按照每个事件源的单独规范设置格式。
 
@@ -74,7 +74,7 @@ Azure 时序见解采用即用即付业务模型。 若要详细了解费用和�
 
 现在可以配置 Azure 时序见解环境的时序模型。 通过新模型可以轻松查找和分析 IoT 数据。 它可实现时序数据的特选、维护和扩充，并可帮助准备供使用者使用的数据集。 模型使用时序 ID，这些 ID 映射到将唯一资源与变量（称为类型）和层次结构关联的实例。 请阅读[时序模型](./concepts-model-overview.md)概述以了解详情。
 
-模型是动态的，因此可以随时生成。 若要快速开始，请先生成并上传它，然后再将数据推送到 Azure 时序见解。 若要生成模型，请阅读[使用时序模型](/time-series-insights/concepts-model-overview)。
+模型是动态的，因此可以随时生成。 若要快速开始，请先生成并上传它，然后再将数据推送到 Azure 时序见解。 若要生成模型，请阅读[使用时序模型](./concepts-model-overview.md)。
 
 对于许多客户而言，时序模型映射到已实施的现有资产模型或 ERP 系统。 如果没有现有模型，则[提供](https://github.com/Microsoft/tsiclient)了预生成用户体验以快速启动并运行。 若要了解模型可如何帮助你，请查看[示例演示环境](https://insights.timeseries.azure.com/preview/demo)。
 

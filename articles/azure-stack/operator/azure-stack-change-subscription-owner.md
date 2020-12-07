@@ -3,17 +3,17 @@ title: 更改 Azure Stack Hub 用户订阅的计费所有者
 description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
 author: WenJason
 ms.topic: conceptual
-origin.date: 09/17/2019
-ms.date: 06/22/2020
+origin.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: d1e2397c8ff21a136d481e873911a786012d406d
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 2cea553782c0d2e4b57c9b19eb1ce221c73848e1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096300"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508056"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
@@ -25,13 +25,13 @@ Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所�
 
   可以使用 PowerShell cmdlet [Set-AzsUserSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin/set-azsusersubscription) 更改计费所有者。  
 
-- **通过 RBAC 角色添加的所有者** - 可以使用[基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 向其他用户授予**所有者**角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
+- **通过 RBAC 角色添加的所有者** - 可以使用 [基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 向其他用户授予 **所有者** 角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
 
   可以使用 PowerShell 来管理其他所有者。 有关详细信息，请参阅[此文章](/role-based-access-control/role-assignments-powershell)。
 
 ## <a name="change-the-billing-owner"></a>更改计费所有者
 
-运行以下脚本更改用户订阅的计费所有者。 用于运行该脚本的计算机必须连接到 Azure Stack Hub 并运行 Azure Stack Hub PowerShell 模块 1.3.0 或更高版本。 有关详细信息，请参阅[安装 Azure Stack Hub PowerShell](azure-stack-powershell-install.md)。
+运行以下脚本更改用户订阅的计费所有者。 用于运行该脚本的计算机必须连接到 Azure Stack Hub 并运行 Azure Stack Hub PowerShell 模块 1.3.0 或更高版本。 有关详细信息，请参阅[安装 Azure Stack Hub PowerShell](powershell-install-az-module.md)。
 
 >[!NOTE]
 >在多租户 Azure Stack Hub 中，新所有者必须与现有所有者位于同一目录中。 在将订阅所有权提供给另一个目录中的某个用户之前，必须首先[邀请该用户作为来宾加入目录](/active-directory/b2b/add-users-administrator)。
@@ -43,15 +43,17 @@ Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所�
 - **$SubscriptionId**：订阅 ID。
 - **$OwnerUpn**：要添加为新账单所有者的帐户，例如 **user\@example.com**。
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 ```powershell
 # Set up Azure Stack Hub admin environment
-Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
-Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
+Add-AzEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
+Add-AzAccount -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
-$providerSubscriptionId = (Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription").Id
+$providerSubscriptionId = (Get-AzSubscription -SubscriptionName "Default Provider Subscription").Id
 Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
-Set-AzureRmContext -Subscription $providerSubscriptionId
+Set-AzContext -Subscription $providerSubscriptionId
 
 # Change user subscription owner
 $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
@@ -59,7 +61,30 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
+
+### <a name="az-modules"></a>[Az 模块](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

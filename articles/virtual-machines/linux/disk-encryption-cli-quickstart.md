@@ -7,21 +7,21 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 origin.date: 05/17/2019
 ms.topic: quickstart
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9aad2025a6096fe9071b2cd3d0795d1eb88021fe
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: dd5760aec1c89ed6a01512ac618ce9bf795e420d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637845"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431683"
 ---
 <!--Verfied successfully-->
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建和加密 Linux VM
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门演示如何使用 Azure CLI 创建和加密 Linux 虚拟机 (VM)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

@@ -3,14 +3,14 @@ title: 安装 Azure 恢复服务 (MARS) 代理
 description: 了解如何安装用于备份 Windows 计算机的 Azure 恢复服务 (MARS) 代理。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/28/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 0f8385fa4a45755ec08d0c7f8082d23de3767a2c
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 36d7eca0fff3e5a1493b155dae21eb8477aef6fc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871253"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432187"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>安装 Azure 备份 MARS 代理
 
@@ -36,7 +36,7 @@ Azure 备份使用 MARS 代理备份本地计算机和 Azure VM 中的文件、�
 * 了解 [Azure 备份如何使用 MARS 代理备份 Windows 计算机](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)。
 * 了解在辅助 MABS 或 Data Protection Manager 服务器上运行 MARS 代理的[备份体系结构](backup-architecture.md#architecture-back-up-to-dpmmabs)。
 * 查看 MARS 代理[支持的操作以及可备份的内容](backup-support-matrix-mars-agent.md)。
-* 如果需要将服务器或客户端备份到 Azure，请确保有一个 Azure 帐户。 如果你没有帐户，只需花费几分钟就能创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果需要将服务器或客户端备份到 Azure，请确保有一个 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn) 。
 * 验证要备份的计算机的 Internet 访问权限。
 * 确保执行 MARS 代理的安装和配置的用户在要保护的服务器上具有本地管理员特权。
 

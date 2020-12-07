@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: ebc51019dfdbb655f3ed22372ebb2368e9b0e33d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 46907089668a27f50bad0fa4c254640cee54ad46
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472126"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507441"
 ---
 # <a name="data-storage"></a>数据存储
 
@@ -40,14 +40,14 @@ ms.locfileid: "92472126"
 
 ## <a name="data-availability"></a>数据可用性
 
-为了实现最佳查询性能，Azure 时序见解第 2 代会将数据分区并为其编制索引。 为数据编制索引后，就可以从暖存储（如果已启用）和冷存储中查询数据。 所引入的数据量和每个分区的吞吐率会影响可用性。 请查看事件源[吞吐量限制](./concepts-streaming-ingress-throughput-limits.md)和[最佳做法](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)，以获取最佳性能。 你还可以配置一个当环境在处理数据的过程中遇到问题时要发送的延迟[警报](/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts)。
+为了实现最佳查询性能，Azure 时序见解第 2 代会将数据分区并为其编制索引。 为数据编制索引后，就可以从暖存储（如果已启用）和冷存储中查询数据。 所引入的数据量和每个分区的吞吐率会影响可用性。 请查看事件源[吞吐量限制](./concepts-streaming-ingress-throughput-limits.md)和[最佳做法](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)，以获取最佳性能。 你还可以配置一个当环境在处理数据的过程中遇到问题时要发送的延迟[警报](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts)。
 
 > [!IMPORTANT]
 > 最长可能需要等待 60 秒才能看到数据。 如果出现超过 60 秒的明显延迟，请通过 Azure 门户提交支持票证。
 
 ## <a name="warm-store"></a>暖存储
 
-只能通过[时序查询 API](./time-series-insights-update-tsq.md) 和 Azure 时序见解 TSI Explorer 或 [Power BI 连接器](./how-to-connect-power-bi.md)使用暖存储中的数据。 暖存储查询免费且没有配额，但有一个 [30 个并发请求的限制](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits)。
+只能通过[时序查询 API](./concepts-query-overview.md) 和 Azure 时序见解 TSI Explorer 或 [Power BI 连接器](./how-to-connect-power-bi.md)使用暖存储中的数据。 暖存储查询免费且没有配额，但有一个 [30 个并发请求的限制](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits)。
 
 ### <a name="warm-store-behavior"></a>暖存储行为
 
@@ -77,9 +77,9 @@ Azure 时序见解第 2 代在 Azure 存储帐户中为每个事件保留最多�
 
 #### <a name="accessing-cold-store-data"></a>访问冷存储数据
 
-除了从 Azure 时序见解资源管理器和[时序查询 API](./time-series-insights-update-tsq.md) 访问数据外，还可以直接从冷存储中存储的 Parquet 文件访问数据。 例如，可以在 Jupyter 笔记本中读取、转换和清理数据，然后使用它来训练同一 Spark 工作流中的 Azure 机器学习模型。
+除了从 Azure 时序见解资源管理器和[时序查询 API](./concepts-query-overview.md) 访问数据外，还可以直接从冷存储中存储的 Parquet 文件访问数据。 例如，可以在 Jupyter 笔记本中读取、转换和清理数据，然后使用它来训练同一 Spark 工作流中的 Azure 机器学习模型。
 
-若要直接从 Azure 存储帐户访问数据，你需要具有用于存储 Azure 时序见解第 2 代数据的帐户的读取访问权限。 然后，可以根据 Parquet 文件的创建时间读取选定的数据，该文件位于下面的 [Parquet 文件格式](#parquet-file-format-and-folder-structure)部分所述的 `PT=Time` 文件夹中。  
+若要直接从 Azure 存储帐户访问数据，你需要具有用于存储 Azure 时序见解第 2 代数据的帐户的读取访问权限。 然后，可以根据 Parquet 文件的创建时间读取选定的数据，该文件位于下面的 [Parquet 文件格式](#parquet-file-format-and-folder-structure)部分所述的 `PT=Time` 文件夹中。  若要详细了解如何启用对存储帐户的读取访问权限，请参阅[管理对存储帐户资源的访问权限](../storage/blobs/anonymous-read-access-configure.md)。
 
 #### <a name="data-deletion"></a>数据删除
 
@@ -116,14 +116,14 @@ Azure 时序见解第 2 代按如下方式存储数据的副本：
 Azure 时序见解第 2 代事件映射到 Parquet 文件内容，如下所示：
 
 * 每个事件映射到单个行。
-* 每一行包含带有事件时间戳的 **时间戳** 列。 “时间戳”属性永远不会为 null。 如果未在事件源中指定时间戳属性，该属性默认为 **事件排队时间** 。 存储的时间戳始终为 UTC 时间。
+* 每一行包含带有事件时间戳的 **时间戳** 列。 “时间戳”属性永远不会为 null。 如果未在事件源中指定时间戳属性，该属性默认为 **事件排队时间**。 存储的时间戳始终为 UTC 时间。
 * 每一行包含创建 Azure 时序见解第 2 代环境时定义的时序 ID (TSID) 列。 TSID 属性名称包含 `_string` 后缀。
 * 作为遥测数据发送的所有其他属性映射到以 `_bool`（布尔值）、`_datetime`（时间戳）、`_long` (long)、`_double` (double)、`_string`（字符串）或 `dynamic` (dynamic) 结尾的列名称，具体取决于属性类型。  有关详细信息，请阅读[支持的数据类型](./concepts-supported-data-types.md)。
 * 此映射架构适用于文件格式的第一个版本（以 **V=1** 表示，存储在使用相同名称的基文件夹中）。 随着此功能的演变，此映射架构可能会更改，引用名称的数字会递增。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读[数据建模](./time-series-insights-update-tsm.md)。
+* 阅读[数据建模](./concepts-model-overview.md)。
 
-* 规划 [Azure 时序见解第 2 代环境](./time-series-insights-update-plan.md)。
+* 规划 [Azure 时序见解第 2 代环境](./how-to-plan-your-environment.md)。
 
