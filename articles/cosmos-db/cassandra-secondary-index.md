@@ -2,18 +2,19 @@
 title: Azure Cosmos DB Cassandra API 帐户中的索引编制
 description: 了解 Azure Cosmos DB Cassandra API 帐户中的辅助索引编制的工作原理。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 04/04/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c5e0fe0e866cfceb64fc3804c9712457a6addf1c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 28a74fcc98b59c7850cdb207b34586dddff3e588
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328411"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598676"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 中的辅助索引编制
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

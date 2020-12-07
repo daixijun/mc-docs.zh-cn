@@ -9,14 +9,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: troubleshooting
 origin.date: 04/27/2020
-ms.date: 06/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: c43ca6a7b7e1293a91e79db5f5de54e99f310bf0
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: dcfae8d26e356bcaecefbed68cf29c11fc718d43
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098651"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746573"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>排查使用 Azure 负载均衡器时出现的常见 Azure 部署错误
 
@@ -41,4 +41,4 @@ ms.locfileid: "85098651"
 ## <a name="next-steps"></a>后续步骤
 
 * 浏览 Azure 负载均衡器 [SKU 比较表](./skus.md)
-* 了解 [Azure 负载均衡器限制](/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* 了解 [Azure 负载均衡器限制](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

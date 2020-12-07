@@ -2,20 +2,21 @@
 title: 从更改源处理器库迁移到 Azure Cosmos DB .NET V3 SDK
 description: 了解如何使用更改源处理器库将应用程序迁移到 Azure Cosmos DB SDK V3
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 09/17/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f1d96a549ce7a21b145c01cf96ed6c2f8f765cbc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a8eda2da4a6249408f3c4731bc0d57b25e8ddc6f
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328666"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598392"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>从更改源处理器库迁移到 Azure Cosmos DB .NET V3 SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

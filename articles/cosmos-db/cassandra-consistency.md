@@ -2,20 +2,21 @@
 title: Apache Cassandra 和 Azure Cosmos DB 一致性级别
 description: Apache Cassandra 和 Azure Cosmos DB 一致性级别。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 79ac2b0a994b87029444daeeb6ce1d8f946091d4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: b4f1eb378cd02f5de661dcef346142e19db7cb25
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329029"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598684"
 ---
 <!--Verified successfully-->
 # <a name="apache-cassandra-and-azure-cosmos-db-consistency-levels"></a>Apache Cassandra 和 Azure Cosmos DB 一致性级别

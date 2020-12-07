@@ -3,19 +3,20 @@ title: Azure Cosmos DB 中的数据建模
 titleSuffix: Azure Cosmos DB
 description: 了解 NoSQL 数据库中的数据建模，在关系数据库中与在文档数据库中对数据进行建模的区别。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/23/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0a660a757e0c0b086ad9b2f8e95c3d9c2c9091f1
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: e10f4b8faf2c66afbf06853ddb0a3c6280b1c27b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552824"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598640"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -2,22 +2,21 @@
 title: 使用 Key Vault 存储和访问 Azure Cosmos DB 密钥
 description: 使用 Azure Key Vault 来存储和访问 Azure Cosmos DB 连接字符串、密钥、终结点。
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 05/23/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 05892660a712155ff65084a3a5cc097e9e64d75c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: da5d69d895ff63d7c1c29c22b89da471c259d37b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328435"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598558"
 ---
 <!--Verify Successfully-->
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>使用 Azure Key Vault 保护 Azure Cosmos 密钥 
@@ -52,7 +51,7 @@ ms.locfileid: "94328435"
 2. 选择“+生成/导入”。  
 
     * 为“上传选项”选择“手动”。  
-    * 提供机密的 **名称** 。
+    * 提供机密的 **名称**。
     * 在“值”字段中提供 Cosmos DB 帐户的连接字符串。  然后选择“创建”  。
 
     :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="创建机密":::
@@ -86,7 +85,7 @@ ms.locfileid: "94328435"
 
 在本部分，我们将应用程序注册到 Azure Active Directory，并向应用程序授予读取 Key Vault 的权限。 
 
-1. 导航到 Azure 门户，打开在上一部分创建的 **Key Vault** 。  
+1. 导航到 Azure 门户，打开在上一部分创建的 **Key Vault**。  
 
 2. 打开“访问策略”，选择“+新增”，找到已部署的 Web 应用，选择权限，然后选择“确定”。     
 

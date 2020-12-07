@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 origin.date: 03/26/2020
-ms.date: 09/07/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 1819a729309363de7fa3da6817d50df301db933d
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 0a686e6eb016e9a8fdac477dc907db40a0a92be6
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463152"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747203"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -299,7 +299,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="solution"></a>解决方案
 
-若要解决此问题，请[重置 Azure VPN 网关](vpn-gateway-resetgw-classic.md)。 若要确保正在使用新路由，必须在虚拟网络对等互连成功配置之后，再次下载点到站点 VPN 客户端。
+若要解决此问题，请[重置 Azure VPN 网关](./reset-gateway.md)。 若要确保正在使用新路由，必须在虚拟网络对等互连成功配置之后，再次下载点到站点 VPN 客户端。
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>错误：“吊销功能无法检查吊销，因为吊销服务器已脱机。(错误 0x80092013)”
 
@@ -314,7 +314,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="cause"></a>原因
 
-根证书尚未安装。 根证书安装在客户端的**可信证书**存储中。
+根证书尚未安装。 根证书安装在客户端的 **可信证书** 存储中。
 
 ## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>VPN 客户端错误：未进行远程连接，因为尝试的 VPN 隧道失败。 （错误 800） 
 

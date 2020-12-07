@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139bed315a77e5835a01fb0740be32005ebba456
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 60d90823b241813d171331fd601f6b2b3c98a88a
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041607"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509065"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>使用 Azure 门户在 VM 上配置 Azure 资源托管标识
 
@@ -33,7 +33,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 ## <a name="prerequisites"></a>必备条件
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后再继续。
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 
@@ -71,7 +71,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 1. 使用已与包含 VM 的 Azure 订阅关联的帐户登录 [Azure 门户](https://portal.azure.cn)。 
 
-2. 导航到所需的虚拟机，然后选择“标识”。****
+2. 导航到所需的虚拟机，然后选择“标识”。
 
 3. 在“系统分配”  、“状态”  下，选择“关闭”  ，然后单击“保存”  ：
 
@@ -95,11 +95,11 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
 
 1. 使用已与包含 VM 的 Azure 订阅关联的帐户登录 [Azure 门户](https://portal.azure.cn)。
-2. 导航到所需的 VM，依次单击“标识”、“用户分配”和“添加”。**********\+**
+2. 导航到所需的 VM，依次单击“标识”、“用户分配”和“添加”。**\+**
 
    ![显示“标识”页的屏幕截图，其中“用户分配的标识”处于选中状态，并且突出显示了“添加”按钮。](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
-3. 单击要添加到 VM 的用户分配的标识，然后单击“添加”****。
+3. 单击要添加到 VM 的用户分配的标识，然后单击“添加”。
 
     ![向 VM 添加用户分配托管标识](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
@@ -108,7 +108,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 若要从 VM 中删除用户分配的标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。 无需其他 Azure AD 目录角色分配。
 
 1. 使用已与包含 VM 的 Azure 订阅关联的帐户登录 [Azure 门户](https://portal.azure.cn)。
-2. 导航到所需的 VM，然后依次单击“标识”、“用户分配”、要删除的用户分配托管标识，然后单击“删除”（在确认窗格中单击“是”）****************。
+2. 导航到所需的 VM，然后依次单击“标识”、“用户分配”、要删除的用户分配托管标识，然后单击“删除”（在确认窗格中单击“是”）。
 
    ![从 VM 中删除用户分配托管标识](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vm-screenshot.png)
 

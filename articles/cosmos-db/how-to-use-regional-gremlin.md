@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 09/09/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13dff47d1474fdb2fc0cb3013a674da47efee829
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f1cd3c651d6cd8ce75cdd4e71354cd65c6e7f88e
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552765"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598631"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB Graph 帐户的区域终结点
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

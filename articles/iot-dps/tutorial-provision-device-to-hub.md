@@ -4,17 +4,17 @@ description: 本教程介绍如何使用 Azure IoT 中心设备预配服务 (DPS
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 575f9352f29ddfc7b7071dbed1425de6605b7519
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: eeb073bbed30bf94c3cfffc3e00310fae8c14946
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564234"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541089"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>教程：使用 Azure IoT 中心设备预配服务将设备预配到 IoT 中心
 
@@ -85,11 +85,11 @@ IoT 设备可以是真实设备，也可以是模拟设备。 因为 IoT 设备�
 2. 对于 TPM 设备，设备预配服务将回复注册质询，设备需对此进行答复。 
 3. 注册成功后，设备预配服务会向设备发送 IoT 中心 URI、设备 ID 和加密密钥。 
 4. 设备上的 IoT 中心客户端应用程序随后会连接到你的中心。 
-5. 成功连接到中心后，设备应当会出现在 IoT 中心的 **IoT 设备**资源管理器中。 
+5. 成功连接到中心后，设备应当会出现在 IoT 中心的 **IoT 设备** 资源管理器中。 
 
     ![成功连接到门户中的中心](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-有关详细信息，请参阅预配设备客户端示例 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)。 此示例演示了如何使用 TPM、X.509 证书和对称密钥预配模拟设备。 请回头参阅 [TPM](/iot-dps/quick-create-simulated-device)、[X.509](/iot-dps/quick-create-simulated-device-x509) 和[对称密钥](/iot-dps/quick-create-simulated-device-symm-key)证明快速入门，了解有关如何使用示例的分步说明。
+有关详细信息，请参阅预配设备客户端示例 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)。 此示例演示了如何使用 TPM、X.509 证书和对称密钥预配模拟设备。 请回头参阅 [TPM](./quick-create-simulated-device.md)、[X.509](./quick-create-simulated-device-x509.md) 和[对称密钥](./quick-create-simulated-device-symm-key.md)证明快速入门，了解有关如何使用示例的分步说明。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你了解了如何执行以下操作：

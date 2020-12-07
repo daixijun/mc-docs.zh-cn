@@ -7,12 +7,12 @@ ms.author: v-junlch
 author: bmitchell287
 ms.date: 11/02/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b47054a36db79102edb94082d9707a87ed85bf12
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0a64b89b101835fcff1009fa46daf031dd09a0d8
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327512"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509005"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>教程：在 Azure Spring Cloud 中缩放应用程序
 
@@ -26,7 +26,7 @@ ms.locfileid: "94327512"
 
 若要遵循这些过程进行操作，需要：
 
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 部署的 Azure Spring Cloud 服务实例。  按[有关如何通过 Azure CLI 来部署应用的快速入门](spring-cloud-quickstart.md)中的说明开始操作。
 * 至少已在该服务实例中创建一个应用程序。
 
@@ -48,11 +48,11 @@ ms.locfileid: "94327512"
 
 如果修改缩放属性，请记住以下注意事项：
 
-* **CPU** ：每个应用程序实例的最大 CPU 数是 4。 一个应用程序的总 CPU 数是此处设置的值乘以应用程序实例数。
+* **CPU**：每个应用程序实例的最大 CPU 数是 4。 一个应用程序的总 CPU 数是此处设置的值乘以应用程序实例数。
 
-* **内存/GB** ：每个应用程序实例的最大内存容量是 8 GB。 一个应用程序的总内存量是此处设置的值乘以应用程序实例数。
+* **内存/GB**：每个应用程序实例的最大内存容量是 8 GB。 一个应用程序的总内存量是此处设置的值乘以应用程序实例数。
 
-* **应用实例计数** ：在“标准”层中，最多可横向扩展到 20 个实例。 此值更改微服务应用程序的单独运行实例的数目。
+* **应用实例计数**：在“标准”层中，最多可横向扩展到 20 个实例。 此值更改微服务应用程序的单独运行实例的数目。
 
 确保选择“保存”，以应用缩放设置。
 

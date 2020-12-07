@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 04/09/2020
 ms.date: 05/11/2020
 ms.author: v-yiso
-ms.openlocfilehash: ea0c03994a061a17367fe47a1686a810c65b870a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d397d0b5504f013cd815aa5d6e7739214f81e900
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472635"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747130"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中心发送云到设备消息 (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -35,7 +35,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 在本教程末尾，你将运行两个 Python 控制台应用：
 
-* **SimulatedDevice.py** （ [从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)中创建的应用的修改版本），它连接到 IoT 中心并接收云到设备的消息。
+* **SimulatedDevice.py**（[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)中创建的应用的修改版本），它连接到 IoT 中心并接收云到设备的消息。
 
 * SendCloudToDeviceMessage.py  ，它将云到设备消息通过 IoT 中心发送到模拟设备应用。
 
@@ -50,7 +50,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模拟设备应用上接收消息
 在本部分中，将创建一个 Python 控制台应用来模拟设备并从 IoT 中心接收云到设备消息。
 
-1. 在工作目录中的命令提示符下，安装 **适用于 Python 的 Azure IoT 中心设备 SDK** ：
+1. 在工作目录中的命令提示符下，安装 **适用于 Python 的 Azure IoT 中心设备 SDK**：
 
     ```cmd/sh
     pip install azure-iot-device
@@ -254,7 +254,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: iot-hub-devguide.md
 [Azure IoT Developer Center]: http://docs.azure.cn/develop/iot
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: https://www.microsoft.com/china/azure/index.html?fromtype=cn/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn

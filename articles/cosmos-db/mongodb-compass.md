@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 06/05/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 0764daa2a490bdc16afdb71b3b66b900a6558c49
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d19368639fc4c743039d912864eafe37e2823d9c
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552822"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598639"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB Compass 连接到 Azure Cosmos DB 的 API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,9 +32,6 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 
 * 下载并安装 [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * 具有 Cosmos DB [连接字符串](connect-mongodb-account.md)信息
-
-> [!NOTE]
-> 目前，最新版本的 MongoDB Compass 支持 Azure Cosmos DB API for MongoDB 服务器 3.2 版。 3\.6 服务器版本尚不支持 MongoDB Compass。 
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>连接到 Cosmos DB 的 API for MongoDB
 

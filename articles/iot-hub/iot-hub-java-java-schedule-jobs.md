@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/16/2019
 ms.author: v-yiso
 ms.date: 03/09/2020
-ms.openlocfilehash: 4908f254fb1d42c6e151673ab486b936c731b7fb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d033f2065d36063342ff224ff9c0b4a2bcacf3a9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78155067"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747195"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -38,25 +38,25 @@ ms.locfileid: "78155067"
 
 本教程演示如何：
 
-* 创建设备应用，用于实现名为 lockDoor 的直接方法  。 该设备应用还从后端应用接收所需的属性更改。
+* 创建设备应用，用于实现名为 lockDoor 的直接方法。 该设备应用还从后端应用接收所需的属性更改。
 * 创建一个后端应用，用于创建一个作业在多个设备上调用 **lockDoor** 直接方法。 另一个作业将所需的属性更新发送到多个设备。
 
 本教程结束时，将有一个 java 控制台设备应用，以及一个 java 控制台后端应用：
 
-simulated-device：连接到 IoT 中心、实现 lockDoor 直接方法，并处理所需的属性更改   。
+simulated-device：连接到 IoT 中心、实现 lockDoor 直接方法，并处理所需的属性更改 。
 
-schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备上更新设备孪生的必需属性   。
+schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备上更新设备孪生的必需属性 。
 
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文介绍了可用于构建设备和后端应用的 Azure IoT SDK。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * [Java SE 开发工具包 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。 请确保在“长期支持”下选择“Java 8”以获取 JDK 8 的下载。
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 * 确保已在防火墙中打开端口 8883。 本文中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -79,22 +79,22 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 本部分中将创建一个使用作业进行如下操作的 Java 控制台应用：
 
-* 在多台设备上调用 lockDoor 直接方法  。
+* 在多台设备上调用 lockDoor 直接方法。
 * 向多台设备发送必需属性。
 
 创建应用：
 
-1. 在开发计算机上，创建名为 **iot-java-schedule-jobs** 的空文件夹。
+1. 在开发计算机上，创建名为 iot-java-schedule-jobs 的空文件夹。
 
-2. 在 **iot-java-schedule-jobs** 文件夹中，通过命令提示符使用以下命令创建名为 **schedule-jobs** 的 Maven 项目。 请注意，这是一条很长的命令：
+2. 在 iot-java-schedule-jobs 文件夹中，通过命令提示符使用以下命令创建名为 schedule-jobs 的 Maven 项目。 请注意，这是一条很长的命令：
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-3. 在命令提示符下，导航到新的 **schedule-jobs** 文件夹。
+3. 在命令提示符下，导航到新的 schedule-jobs 文件夹。
 
-4. 使用文本编辑器，打开 **schedule-jobs** 文件夹中的 **pom.xml** 文件，并将以下依赖项添加到 **dependencies** 节点。 通过此依赖项可以使用应用中的 **iot-service-client** 包来与 IoT 中心通信：
+4. 使用文本编辑器打开 schedule-jobs 文件夹中的 pom.xml 文件，并在 dependencies 节点中添加以下依赖项  。 通过此依赖项可以使用应用中的 **iot-service-client** 包来与 IoT 中心通信：
 
     ```xml
     <dependency>
@@ -126,9 +126,9 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     </build>
     ```
 
-6. 保存并关闭 pom.xml 文件  。
+6. 保存并关闭 pom.xml 文件。
 
-7. 使用文本编辑器打开 schedule-jobs\src\main\java\com\mycompany\app\App.java  文件。
+7. 使用文本编辑器打开 schedule-jobs\src\main\java\com\mycompany\app\App.java 文件。
 
 8. 在该文件中添加以下 **import** 语句：
 
@@ -148,7 +148,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     import java.util.UUID;
     ```
 
-9. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
+9. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为以前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -159,7 +159,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-10. 向 App 类添加以下方法，以安排作业更新设备孪生中的 Building 和 Floor 必需属性    ：
+10. 向 App 类添加以下方法，以安排作业更新设备孪生中的 Building 和 Floor 必需属性  ：
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -189,7 +189,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     }
     ```
 
-11. 若要安排作业调用 lockDoor 方法，请向 App 类添加以下方法   ：
+11. 若要安排作业调用 lockDoor 方法，请向 App 类添加以下方法 ：
 
     ```java
     private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
@@ -213,7 +213,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     };
     ```
 
-12. 若要监视作业，请向 App 类添加以下方法  ：
+12. 若要监视作业，请向 App 类添加以下方法：
 
     ```java
     private static void monitorJob(JobClient jobClient, String jobId) {
@@ -263,7 +263,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     public static void main( String[] args ) throws Exception
     ```
 
-15. 若要依次运行和监视两个作业，请将 **main** 方法中的代码替换为以下代码：
+15. 若要依次运行和监视两个作业，请将 main 方法中的代码替换为以下代码：
 
     ```java
     // Record the start time
@@ -290,9 +290,9 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. 保存并关闭 **schedule-jobs\src\main\java\com\mycompany\app\App.java** 文件
+16. 保存并关闭 schedule-jobs\src\main\java\com\mycompany\app\App.java 文件
 
-17. 生成 schedule-jobs 应用并更正任何错误  。 在命令提示符下，导航到 **schedule-jobs** 文件夹并运行以下命令：
+17. 生成 schedule-jobs 应用并更正任何错误。 在命令提示符下，导航到 schedule-jobs 文件夹并运行以下命令：
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -302,15 +302,15 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 本部分中将创建一个 Java 控制台应用，处理从 IoT 中心发送的必需属性并实现直接方法调用。
 
-1. 在命令提示符下使用以下命令，在 **iot-java-schedule-jobs** 文件夹中创建一个名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 在命令提示符下使用以下命令，在 iot-java-schedule-jobs 文件夹中创建一个名为 simulated-device  的 Maven 项目。 请注意，这是一条很长的命令：
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-2. 在命令提示符下，导航到 **simulated-device** 文件夹。
+2. 在命令提示符下，导航到 simulated-device 文件夹。
 
-3. 使用文本编辑器，打开 **simulated-device** 文件夹中的 **pom.xml** 文件，并将以下依赖项添加到 **dependencies** 节点。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
+3. 使用文本编辑器，打开 simulated-device 文件夹中的 pom.xml 文件，并在 dependencies 节点中添加以下依赖项  。 通过此依赖项可以使用应用中的 **iot-device-client** 包来与 IoT 中心进行通信：
 
     ```xml
     <dependency>
@@ -323,7 +323,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     > [!NOTE]
     > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
 
-4. 将以下依赖项添加到 **dependencies** 节点。 此依赖项为 Apache [SLF4J](https://www.slf4j.org/) 日志记录外观配置 NOP，设备客户端 SDK 使用它来实现日志记录。 此配置是可选的，但如果省略此配置，则在运行应用时，可能会在控制台中看到一条警告。 有关设备客户端 SDK 中的日志记录的详细信息，请参阅*适用于 Java 的 Azure IoT 设备 SDK 的示例*自述文件中的[日志记录](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)。
+4. 将以下依赖项添加到 dependencies 节点。 此依赖项为 Apache [SLF4J](https://www.slf4j.org/) 日志记录外观配置 NOP，设备客户端 SDK 使用它实现日志记录。 此配置是可选的，但是如果省略此配置，则在运行该应用时，可能会在控制台中看到警告。 有关设备客户端 SDK 中的日志记录的详细信息，请参阅适用于 Java 的 Azure IoT 设备 SDK 示例自述文件中的[日志记录](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)。
 
     ```xml
     <dependency>
@@ -351,9 +351,9 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     </build>
     ```
 
-6. 保存并关闭 pom.xml 文件  。
+6. 保存并关闭 pom.xml 文件。
 
-7. 使用文本编辑器打开 **simulated-device\src\main\java\com\mycompany\app\App.java** 文件。
+7. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。
 
 8. 在该文件中添加以下 **import** 语句：
 
@@ -366,7 +366,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     import java.util.Scanner;
     ```
 
-9. 将以下类级变量添加到 **App** 类。 将 `{yourdeviceconnectionstring}` 替换为先前在[在 IoT 中心注册新设备](#register-a-new-device-in-the-iot-hub)部分中复制的设备连接字符串：
+9. 将以下类级变量添加到 **App** 类。 将 `{yourdeviceconnectionstring}` 替换为以前在[在 IoT 中心内注册新设备](#register-a-new-device-in-the-iot-hub)部分中复制的设备连接字符串：
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -377,7 +377,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
     本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。
 
-9. 若要在控制台中列显设备孪生通知，请向 App 类添加以下嵌套类  ：
+9. 若要在控制台中列显设备孪生通知，请向 App 类添加以下嵌套类：
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -388,7 +388,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
     }
     ```
 
-10. 若要在控制台中列显直接方法通知，请向 App 类添加以下嵌套类  ：
+10. 若要在控制台中列显直接方法通知，请向 App 类添加以下嵌套类：
 
      ```java
      // Handler for direct method notifications from IoT Hub
@@ -399,7 +399,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
      }
      ```
 
-11. 若要处理 IoT 中心的直接方法调用，请向 App 类添加以下嵌套类  ：
+11. 若要处理 IoT 中心的直接方法调用，请向 App 类添加以下嵌套类：
 
      ```java
      // Handler for direct method calls from IoT Hub
@@ -430,7 +430,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
      public static void main( String[] args ) throws IOException, URISyntaxException
      ```
 
-14. 将 **main** 方法中的代码替换为以下代码，以便执行以下操作：
+14. 将 main 方法中的代码替换为以下代码，以便可：
     * 创建用来与 IoT 中心通信的设备客户端。
     * 创建一个 **Device** 对象用于存储设备孪生属性。
 
@@ -448,7 +448,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
       };
       ```
 
-14. 若要启动设备客户端服务，请向 main 方法添加以下代码  ：
+14. 若要启动设备客户端服务，请向 main 方法添加以下代码：
 
      ```java
      try {
@@ -466,7 +466,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
      }
      ```
 
-15. 若要在关闭前等待用户按 Enter 键，请向 main 方法末尾添加以下代码   ：
+15. 若要在关闭前等待用户按 Enter 键，请向 main 方法末尾添加以下代码 ：
 
      ```java
      // Close the app
@@ -478,9 +478,9 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
      scanner.close();
      ```
 
-17. 保存并关闭 **simulated-device\src\main\java\com\mycompany\app\App.java** 文件。
+17. 保存并关闭 simulated-device\src\main\java\com\mycompany\app\App.java 文件。
 
-18. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 **simulated-device** 文件夹并运行以下命令：
+18. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 simulated-device 文件夹并运行以下命令：
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -490,7 +490,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 现在可以运行控制台应用了。
 
-1. 在 **simulated-device** 文件夹中的命令提示符处，运行以下命令以启动设备应用侦听所需属性更改和直接方法调用：
+1. 在 simulated-device 文件夹中的命令提示符处，运行以下命令启动设备应用用于侦听所需属性更改和直接方法调用：
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -498,7 +498,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
    ![设备客户端启动](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-2. 在 `schedule-jobs` 文件夹中的命令提示符处，运行以下命令以运行 schedule-jobs 服务应用，从而运行两个作业  。 第一个作业设置所需的属性值，第二个作业调用直接方法：
+2. 在 `schedule-jobs` 文件夹中的命令提示符处，运行以下命令以运行 schedule-jobs 服务应用，从而运行两个作业。 第一个作业设置所需的属性值，第二个作业调用直接方法：
 
    ```cmd\sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure IoT 中心进行大规模自动设备管理 (CLI) | Microsoft Docs
 description: 使用 Azure IoT 中心的自动配置来管理多个 IoT 设备或模块
-author: ChrisGMsft
+author: robinsh
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/13/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: e3fa35b4ff1c64f4ee3e6d670fd3597e5eff4a2a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fa081d5583ad7897e8e2fc7af21f0f4661cee89e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327888"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747194"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>使用 Azure CLI 进行 IoT 设备和模块的自动管理
 

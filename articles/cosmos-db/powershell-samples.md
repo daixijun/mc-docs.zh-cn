@@ -2,19 +2,20 @@
 title: 适用于 Azure Cosmos DB Core (SQL) API 的 Azure PowerShell 示例
 description: 获取用于在 Azure Cosmos DB Core (SQL) API 中执行常见任务的 Azure PowerShell 示例
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4a09b2ab0ae0bbeaf97638886a583aa53285457d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: eb192df72243d7f7c4a468d3291c8f310e8cf181
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552779"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598648"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>适用于 Azure Cosmos DB Core (SQL) API 的 Azure PowerShell 示例
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

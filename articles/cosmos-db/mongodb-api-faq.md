@@ -2,17 +2,18 @@
 title: 有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 description: 获取有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 origin.date: 04/28/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 832ad4daf8034599cfaf8156dafa43ac85b14aa6
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3f5a3d9f5c1b963b61e99cb9b0acc75b7fc701cc
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552823"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598638"
 ---
 <!--Verified successfully, ONLY CHARACTER CONTENT-->
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答

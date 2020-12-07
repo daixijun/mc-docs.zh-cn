@@ -4,17 +4,17 @@ description: 如何通过 Azure IoT 中心设备预配服务 (DPS) 取消注册�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/05/2018
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8f0930720d686a18af7ce285ca3d1966aa8831c0
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0d2ab66226dea7fdf236102d1d264ed0930bd0df
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564387"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541139"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何从 Azure IoT 中心设备预配服务取消注册设备
 
@@ -57,7 +57,7 @@ ms.locfileid: "91564387"
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>通过使用注册组来禁用 X.509 中间或根 CA 证书
 
-X.509 证书通常排列在证书信任链中。 如果链中任何阶段的证书被盗用，则信任受损。 必须禁用该证书，以防止设备预配服务对包含该证书的任何链中的设备下游进行预配。 若要详细了解 X.509 证书和及如何用其预配服务，请参阅 [X.509 证书](./concepts-security.md#x509-certificates)。 
+X.509 证书通常排列在证书信任链中。 如果链中任何阶段的证书被盗用，则信任受损。 必须禁用该证书，以防止设备预配服务对包含该证书的任何链中的设备下游进行预配。 若要详细了解 X.509 证书和及如何用其预配服务，请参阅 [X.509 证书](./concepts-x509-attestation.md#x509-certificates)。 
 
 注册组是共享 X.509 证书的常见证明机制的设备的项，由同一个中间或根 CA 签名。 登记组项配置了与中间或根 CA 相关联的 X.509 证书。 由证书链中包含该证书的设备共享的任何配置值（如孪生状态和 IoT 中心连接）。 若要禁用该证书，可禁用或删除其注册组。
 
@@ -111,4 +111,4 @@ X.509 证书通常排列在证书信任链中。 如果链中任何阶段的证�
 
 ## <a name="next-steps"></a>后续步骤
 
-取消注册也是更大的取消预配流程的一部分。 取消预配设备包括从预配服务取消注册以及从 IoT 中心取消注册。 若要了解完整流程，请参阅[如何取消预配以前自动预配的设备](how-to-unprovision-devices.md) 
+取消注册也是更大的取消预配流程的一部分。 取消预配设备包括从预配服务取消注册以及从 IoT 中心取消注册。 若要了解完整流程，请参阅[如何取消预配以前自动预配的设备](how-to-unprovision-devices.md)

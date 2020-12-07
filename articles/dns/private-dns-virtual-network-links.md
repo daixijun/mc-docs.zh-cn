@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: article
 origin.date: 9/24/2019
-ms.date: 01/13/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 31f4ae8064e506146f91ddddbe0551b9ef7cb1e1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 345fea04a46d79bee28bdad9a49de541ac437b45
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75777474"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746717"
 ---
 # <a name="what-is-a-virtual-network-link"></a>什么是虚拟网络链接？
 
@@ -24,7 +24,7 @@ ms.locfileid: "75777474"
 
 ## <a name="registration-virtual-network"></a>注册虚拟网络
 
-当你在专用 DNS 区域和虚拟网络之间[创建链接](/dns/private-dns-getstarted-portal#link-the-virtual-network)时，可以选择为虚拟机打开 DNS 记录[自动注册](./private-dns-autoregistration.md)。 如果选择此选项，虚拟网络会成为专用 DNS 区域的注册虚拟网络。 将为在网络中部署的虚拟机自动创建 DNS 记录。 将为已在虚拟网络中部署的虚拟机创建 DNS 记录。 从虚拟网络的角度来看，专用 DNS 区域成为该虚拟网络的注册区域。
+当你在专用 DNS 区域和虚拟网络之间[创建链接](./private-dns-getstarted-portal.md#link-the-virtual-network)时，可以选择为虚拟机打开 DNS 记录[自动注册](./private-dns-autoregistration.md)。 如果选择此选项，虚拟网络会成为专用 DNS 区域的注册虚拟网络。 将为在网络中部署的虚拟机自动创建 DNS 记录。 将为已在虚拟网络中部署的虚拟机创建 DNS 记录。 从虚拟网络的角度来看，专用 DNS 区域成为该虚拟网络的注册区域。
 一个专用 DNS 区域可以具有多个注册虚拟网络，但每个虚拟网络只能有一个与其关联的注册区域。
 
 ## <a name="resolution-virtual-network"></a>解析虚拟网络
@@ -34,7 +34,7 @@ ms.locfileid: "75777474"
 
 ## <a name="limits"></a>限制
 
-若要了解注册网络和解析网络的数量，可以链接到专用 DNS 区域，请参阅 [Azure DNS 限制](/azure-subscription-service-limits#azure-dns-limits)
+若要了解注册网络和解析网络的数量，可以链接到专用 DNS 区域，请参阅 [Azure DNS 限制](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="other-considerations"></a>其他注意事项
 
@@ -50,7 +50,7 @@ ms.locfileid: "75777474"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解如何使用 [Azure 门户](/dns/private-dns-getstarted-portal#link-the-virtual-network)将虚拟网络链接到专用 DNS 区域
+* 了解如何使用 [Azure 门户](./private-dns-getstarted-portal.md#link-the-virtual-network)将虚拟网络链接到专用 DNS 区域
 
 * 了解如何使用 [Azure PowerShell](./private-dns-getstarted-powershell.md) 或 [Azure CLI](./private-dns-getstarted-cli.md) 在 Azure DNS 中创建专用区域。
 

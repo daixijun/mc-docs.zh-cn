@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 09d8673ecd0458e27d233520edba645e4ef373f8
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1e7c29b51a4afb962f1a96dea4d8ebdb0fbd840a
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509047"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -46,7 +46,7 @@ ms.locfileid: "92472195"
 ## <a name="prerequisites"></a>先决条件
 本教程假定用户了解 [有关 Azure 云服务的基本概念](cloud-services-choose-me.md)，例如 *Web 角色* 和 *辅助角色* 这样的术语。  此外，还假定用户知道如何处理 Visual Studio 中的 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web 窗体](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)项目。 示例应用程序使用 MVC，但在本教程的大部分也适用于 Web 窗体。
 
-在没有 Azure 订阅的情况下可以本地运行应用，但若要将应用程序部署到云中，则需要一个 Azure 订阅。 如果没有帐户，可以 [注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
+在没有 Azure 订阅的情况下可以本地运行应用，但若要将应用程序部署到云中，则需要一个 Azure 订阅。 如果没有帐户，可以 [注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 本教程说明使用以下产品之一：
 
@@ -79,7 +79,7 @@ ms.locfileid: "92472195"
 6. 如果使用 Visual Studio 2015 或更高版本，请在 ContosoAdsWeb 项目的应用程序 *Web.config* 文件以及 ContosoAdsCloudService 项目的 *ServiceConfiguration.Local.cscfg* 文件中，更改 SQL Server 连接字符串。 对于每种情况，请将“(localdb)\v11.0”更改为“(localdb)\MSSQLLocalDB”。
 7. 按 Ctrl+F5 运行应用程序。
 
-    在本地运行云服务项目时，Visual Studio 会自动调用 Azure *计算模拟器* 和 Azure *存储模拟器* 。 计算仿真程序使用计算机资源模拟 Web 角色和辅助角色环境。 存储模拟器使用 [SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) 数据库模拟 Azure 云存储。
+    在本地运行云服务项目时，Visual Studio 会自动调用 Azure *计算模拟器* 和 Azure *存储模拟器*。 计算仿真程序使用计算机资源模拟 Web 角色和辅助角色环境。 存储模拟器使用 [SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) 数据库模拟 Azure 云存储。
 
     首次运行云服务项目时，模拟器会花费大约一分钟来启动。 模拟器完成启动后，默认浏览器中会打开应用程序的主页。
 
@@ -125,7 +125,7 @@ Azure 云服务是该应用程序的运行环境。
 5. 选择要在其中部署该应用程序的区域。
 
     此字段指定你的云服务将托管在哪个数据中心。 对于生产应用程序，可以选择离客户最近的区域。 对于本教程，选择最近的区域。
-5. 单击 **创建** 。
+5. 单击 **创建**。
 
     在下图中，使用 URL CSvccontosoads.chinacloudapp.cn 创建了一个云服务。
 
@@ -135,7 +135,7 @@ Azure 云服务是该应用程序的运行环境。
 在云中运行应用程序时，它会使用基于云的数据库。
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，单击“创建资源”>“数据库”>“SQL 数据库”。
-2. 在“数据库名称”框中，输入 *contosoads* 。
+2. 在“数据库名称”框中，输入 *contosoads*。
 3. 在“资源组”中，单击“使用现有资源组”，然后选择用于云服务的资源组。
 4. 在下图中，单击“服务器 - 配置所需设置”和“新建服务器”。
 
@@ -154,7 +154,7 @@ Azure 云服务是该应用程序的运行环境。
 9. 针对新服务器单击“选择”。
 
     ![新建服务器](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. 单击 **创建** 。
+10. 单击 **创建**。
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
@@ -177,7 +177,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
     当云服务和存储帐户位于不同的数据中心（不同区域）时，延迟将增加，并且需要为数据中心外的带宽付费。 数据中心内的带宽是免费的。
 
     Azure 地缘组实际上是一种机制，目的是最小化数据中心内不同资源之间的距离，这样可以降低延迟。 本教程不使用地缘组。 有关详细信息，请参阅 [如何在 Azure 中创建地缘组](https://docs.microsoft.com/previous-versions/azure/reference/gg715317(v=azure.100))。
-7. 单击 **创建** 。
+7. 单击 **创建**。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -340,7 +340,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 7. 在“新建 ASP.NET 项目”对话框中，单击“确定”。
 8. 在“解决方案资源管理器”中，右键单击该解决方案（而不是其中某个项目），并选择“添加 - 新建项目”。
 9. 在“添加新项目”对话框中，选择左窗格中“Visual C#”下面的“Windows”，并单击“类库”模板。  
-10. 将项目命名为 *ContosoAdsCommon* ，并单击“确定”。
+10. 将项目命名为 *ContosoAdsCommon*，并单击“确定”。
 
     需要从 web 和辅助角色项目引用实体框架上下文和数据模型。 替代方法是，在 Web 角色项目中定义与 EF 相关的类，并从辅助角色项目中引用该项目。 但在替代方法中，辅助角色项目会引用不需要的 Web 程序集。
 
@@ -382,7 +382,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 4. 在“ContosoAdsWeb [角色]”属性窗口中，单击“设置”选项卡，并单击“添加设置”。
 
     将“服务配置”保留设置为“所有配置”。
-5. 添加名为 *StorageConnectionString* 的设置。 将“类型”设置为 *ConnectionString* ，并将“值”设置为 *UseDevelopmentStorage=true* 。
+5. 添加名为 *StorageConnectionString* 的设置。 将“类型”设置为 *ConnectionString*，并将“值”设置为 *UseDevelopmentStorage=true*。
 
     ![新连接字符串](./media/cloud-services-dotnet-get-started/scall.png)
 6. 保存所做更改。
@@ -405,7 +405,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 1. 在 ContosoAdsCommon 项目中，删除 *Class1.cs* 文件，并在其原位置添加来自下载项目的 *Ad.cs* 和 *ContosoAdscontext.cs* 文件。
 2. 在 ContosoAdsWeb 项目中，从下载的项目添加以下文件。
 
-   * *Global.asax.cs* 。  
+   * *Global.asax.cs*。  
    * 在“Views\Shared”文件夹中：\_Layout.cshtml。
    * 在“Views\Home”文件夹中：Index.cshtml。
    * 在“Controllers”文件夹中：AdController.cs。
@@ -700,7 +700,7 @@ public override void Run()
 
 循环每次迭代后，如果不找到任何队列消息，该程序休眠一秒钟。 此举防止辅助角色导致过多的 CPU 时间和存储事务成本。 Microsoft 客户顾问团队讲过一个故事，一位开发人员忘记此操作，部署到生产环境，并去度假了。 当他们回来时，其疏忽费用超过了度假费用。
 
-有时队列消息的内容会在处理过程中导致错误。 这称为 *有害消息* ，并且如果只记录了一个错误并重启循环，则可能无休止地尝试处理该消息。  因此，捕获块包括 if 语句检查应用程序尝试处理当前消息的次数，如果已超过 5 次，将从队列中删除该消息。
+有时队列消息的内容会在处理过程中导致错误。 这称为 *有害消息*，并且如果只记录了一个错误并重启循环，则可能无休止地尝试处理该消息。  因此，捕获块包括 if 语句检查应用程序尝试处理当前消息的次数，如果已超过 5 次，将从队列中删除该消息。
 
 `ProcessQueueMessage` 。
 

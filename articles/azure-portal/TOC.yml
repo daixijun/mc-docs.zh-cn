@@ -9,7 +9,7 @@
 - name: 快速入门
   items:
     - name: 在门户中创建 VM
-      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
     - name: 创建仪表板
       items:
         - name: Azure PowerShell
@@ -53,6 +53,9 @@
       href: azure-portal-dashboards-structure.md
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/ext/portal/portal'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价计算器

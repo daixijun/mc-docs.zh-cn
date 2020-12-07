@@ -8,17 +8,17 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 origin.date: 06/22/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-tawe
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a72611203d64f2df42d246285e2fb69c4097e4f
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 74219c632276473f364b200f5776efa0063fe1dd
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590935"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541185"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>快速入门：在通知中心设置推送通知
 
@@ -39,14 +39,14 @@ Azure 通知中心提供了一种易于使用且可扩展的推送引擎。使�
    a. 如果选择“证书”：
    * 选择文件图标，再选择要上传的 .p12 文件。
    * 输入密码。
-   * 选择“沙盒”  模式。 要将推送通知发送给从应用商店购买应用的用户，则选择“生产”模式。
+   * 选择“沙盒”模式。 要将推送通知发送给从应用商店购买应用的用户，则选择“生产”模式。
 
      ![Azure 门户中 APNS 证书配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. 如果选择“令牌”：
 
    * 输入“密钥 ID”、“绑定 ID”、“团队 ID”和“令牌”的值   。
-   * 选择“沙盒”  模式。 要将推送通知发送给从应用商店购买应用的用户，则选择“生产”模式。
+   * 选择“沙盒”模式。 要将推送通知发送给从应用商店购买应用的用户，则选择“生产”模式。
 
      ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 

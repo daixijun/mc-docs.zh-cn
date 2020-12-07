@@ -8,12 +8,12 @@ ms.topic: quickstart
 origin.date: 10/21/2020
 ms.date: 11/16/2020
 ms.author: v-yiso
-ms.openlocfilehash: a2d16f9dbfbd4db5507880ceca3cb8fb18e83981
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 7f8e0d5082602ca6a56dd95dab5ff2e4d2d85a27
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328731"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747082"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>快速入门：创建和修改 ExpressRoute 线路
 
@@ -21,7 +21,7 @@ ms.locfileid: "94328731"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 在开始配置之前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>创建和预配 ExpressRoute 线路
@@ -88,19 +88,19 @@ ms.locfileid: "94328731"
 创建新的 ExpressRoute 线路时，线路将为以下状态：
 
 提供程序状态：未预配<BR>
-线路状态： **已启用**
+线路状态：**已启用**
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="启动预配过程":::
 
 当连接服务提供商正在为你启用线路时，线路将更改为以下状态：
 
-提供程序状态： **预配**<BR>
-线路状态： **已启用**
+提供程序状态：**预配**<BR>
+线路状态：**已启用**
 
 若要使用 ExpressRoute 线路，该线路必须处于以下状态：
 
 提供程序状态：已预配<BR>
-线路状态： **已启用**
+线路状态：**已启用**
 
 ### <a name="periodically-check-the-status-and-the-state-of-the-circuit-key"></a>定期检查线路密钥的状态
 

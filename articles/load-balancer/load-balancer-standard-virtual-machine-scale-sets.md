@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2020
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 13cbb6f43bb03a6dcaf82886cf39bfa9895e863a
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 4d1b7610ba2165cc95d27867447cb0fb579d661e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943459"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747181"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure 负载均衡器和 Azure 虚拟机规模集
 
@@ -49,12 +49,12 @@ ms.locfileid: "91943459"
 ## <a name="load-balancing-rules"></a>负载均衡规则：
   * 在负载均衡器的后端池中使用虚拟机规模集时，会自动创建默认的负载均衡规则。
 ## <a name="outbound-rules"></a>出站规则：
-  *  若要为已被负载均衡规则引用的后端池创建出站规则，需要先在创建入站负载均衡规则时在门户中将“创建隐式出站规则”标记为“否”。 
+  * 若要为已被负载均衡规则引用的后端池创建出站规则，需要先在创建入站负载均衡规则时在门户中将“创建隐式出站规则”标记为“否”。 
 
   :::image type="content" source="./media/vm-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="创建负载均衡规则" border="true":::
 
 可以使用以下方法部署一个包含现有 Azure 负载均衡器的虚拟机规模集。
 
-* [使用 Azure 门户配置包含现有 Azure 负载均衡器的虚拟机规模集](/load-balancer/configure-vm-scale-set-portal)。
-* [使用 Azure PowerShell 配置包含现有 Azure 负载均衡器的虚拟机规模集](/load-balancer/configure-vm-scale-set-powershell)。
-* [使用 Azure CLI 配置包含现有 Azure 负载均衡器的虚拟机规模集](/load-balancer/configure-vm-scale-set-cli)。
+* [使用 Azure 门户配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-portal.md)。
+* [使用 Azure PowerShell 配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-powershell.md)。
+* [使用 Azure CLI 配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-cli.md)。

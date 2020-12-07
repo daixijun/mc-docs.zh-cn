@@ -260,7 +260,7 @@
       items:
         - name: 后继数据库
           href: follower.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 创建群集
           href: troubleshoot-create-cluster.md

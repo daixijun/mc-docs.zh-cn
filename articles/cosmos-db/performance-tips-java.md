@@ -2,21 +2,22 @@
 title: 适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
 description: 了解用于提高 Azure Cosmos DB Sync Java SDK v2 性能的客户端配置选项
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: af806e6361ec74dcedb9704aeaa283df785b02de
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 82d03368fabdd20421680467bce9325272170f8c
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552784"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598426"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

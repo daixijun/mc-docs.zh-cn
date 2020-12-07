@@ -4,16 +4,16 @@ description: Azure 安全控制标识和访问控制
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
 origin.date: 04/14/2020
-ms.openlocfilehash: 984ebf0c7bbc7032924b08d8b2224e68164c0a90
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 079f27b7d3c997aa7b5ca0447504353eab4b759c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637969"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747127"
 ---
 # <a name="security-control-identity-and-access-control"></a>安全控制：标识和访问控制
 
@@ -49,7 +49,7 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 还可以通过使用 Microsoft 服务的 Azure AD Privileged Identity Management 特权角色和 Azure 资源管理器来启用实时/足够访问权限。 
 
-- [详细了解 Privileged Identity Management](/active-directory/privileged-identity-management/)
+- [详细了解 Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 ## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：对所有基于 Azure Active Directory 的访问使用多重身份验证
 
@@ -59,9 +59,9 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 启用 Azure AD MFA，并遵循 Azure 安全中心标识和访问管理建议。
 
-- [如何在 Azure 中启用 MFA](/active-directory/authentication/howto-mfa-getstarted)
+- [如何在 Azure 中启用 MFA](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [如何在 Azure 安全中心监视标识和访问](/security-center/security-center-identity-access)
+- [如何在 Azure 安全中心监视标识和访问](../../security-center/security-center-identity-access.md)
 
 ## <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
@@ -73,7 +73,7 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 - [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [如何在 Azure 中启用 MFA](/active-directory/authentication/howto-mfa-getstarted)
+- [如何在 Azure 中启用 MFA](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 ## <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
 
@@ -83,7 +83,7 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 使用 Azure Active Directory 安全报告在环境中发生可疑活动或不安全的活动时生成日志和警报。 使用 Azure 安全中心监视标识和访问活动。
 
-- [如何在 Azure 安全中心内监视用户的标识和访问活动](/security-center/security-center-identity-access)
+- [如何在 Azure 安全中心内监视用户的标识和访问活动](../../security-center/security-center-identity-access.md)
 
 ## <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8：仅从批准的位置管理 Azure 资源
 
@@ -93,7 +93,7 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 使用条件访问命名位置，仅允许从 IP 地址范围或国家/地区的特定逻辑分组进行访问。
 
-- [如何在 Azure 中配置命名位置](/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [如何在 Azure 中配置命名位置](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 ## <a name="39-use-azure-active-directory"></a>3.9：使用 Azure Active Directory
 
@@ -103,7 +103,7 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 使用 Azure Active Directory 作为集中身份验证和授权系统。 Azure AD 通过对静态数据和传输中数据使用强加密来保护数据。 Azure AD 还会对用户凭据进行加盐、哈希处理和安全存储操作。
 
-- [如何创建和配置 Azure AD 实例](/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [如何创建和配置 Azure AD 实例](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10：定期审查和协调用户访问
 
@@ -113,9 +113,9 @@ Azure AD 没有默认密码。 其他需要密码的 Azure 资源会强制创建
 
 Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure 标识访问评审来有效管理组成员身份、对企业应用程序的访问和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
 
-- [了解 Azure AD 报告](/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../../active-directory/reports-monitoring/index.yml)
 
-- [如何使用 Azure 标识访问评审](/active-directory/governance/access-reviews-overview)
+- [如何使用 Azure 标识访问评审](../../active-directory/governance/access-reviews-overview.md)
 
 ## <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11：监视尝试访问已停用凭据的行为
 
@@ -127,7 +127,7 @@ Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure 
 
 可以通过为 Azure Active Directory 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区，来简化此过程。 你可以在 Log Analytics 工作区中配置所需的警报。
 
-- [如何将 Azure 活动日志集成到 Azure Monitor](/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志集成到 Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ## <a name="next-steps"></a>后续步骤
 

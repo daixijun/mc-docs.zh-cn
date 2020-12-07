@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: cc03e947f52e31fa4103939e58936940eaa2067a
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 42e2a2fff0262c4b4ac7ab27fc564183b3273364
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638115"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747122"
 ---
 # <a name="data-encryption-models"></a>数据加密模型
 
@@ -91,7 +91,7 @@ Azure 中支持的加密模型分为两大类：“客户端加密”和“服�
 
 对于需要加密静态数据并控制加密密钥的情况，客户可以选择使用 Key Vault 中客户托管密钥的服务器端加密。 某些服务可能仅将根密钥加密密钥存储在 Azure Key Vault 中，而将加密的数据加密密钥存储在更靠近数据的内部位置。 在这种情况下，客户可以将自己的密钥带到 Key Vault 中（BYOK - 自带密钥），或者生成新的密钥，以便加密所需资源。 资源提供程序在执行加密和解密操作时，会将所配置的密钥加密密钥用作所有加密操作的根密钥。
 
-密钥加密密钥丢失意味着数据丢失。 因此，不应删除密钥。 每次创建或轮换时都应备份密钥。 应在存储着密钥加密密钥的任何保管库上启用[软删除](/key-vault/key-vault-ovw-soft-delete)。 不应删除密钥，而应将“启用”设置为 false 或设置到期日期。
+密钥加密密钥丢失意味着数据丢失。 因此，不应删除密钥。 每次创建或轮换时都应备份密钥。 应在存储着密钥加密密钥的任何保管库上启用[软删除](../../key-vault/general/soft-delete-overview.md)。 不应删除密钥，而应将“启用”设置为 false 或设置到期日期。
 
 ### <a name="key-access"></a>密钥访问权限
 
@@ -243,4 +243,5 @@ Azure 中支持的加密模型分为两大类：“客户端加密”和“服�
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何[在 Azure 中使用加密](encryption-overview.md)。
+- 了解 Azure 如何使用[双重加密](double-encryption.md)来缓解加密数据所带来的威胁。
 

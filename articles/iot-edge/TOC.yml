@@ -1,5 +1,7 @@
 - name: Azure IoT Edge 文档
   href: index.yml
+- name: Azure IoT Edge 版本
+  href: version-history.md
 - name: 概述
   items:
     - name: 关于 Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: 教程
   items:
-    - name: 1. 设置开发环境
+    - name: 设置开发环境
       items:
         - name: 针对 Linux 设备进行开发
           href: tutorial-develop-for-linux.md
         - name: 针对 Windows 设备进行开发
           href: tutorial-develop-for-windows.md
-    - name: 2. 开发自定义代码模块
+    - name: 开发自定义代码模块
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. 将 Azure 服务部署为模块
+    - name: 将 Azure 服务部署为模块
       items:
         - name: 使用 Azure Functions 筛选数据
           href: tutorial-deploy-function.md
@@ -169,16 +171,20 @@
           href: how-to-access-built-in-metrics.md
     - name: 使用 IoT Edge 设备作为网关
       items:
-        - name: 配置透明网关
-          href: how-to-create-transparent-gateway.md
-        - name: 对下游设备进行身份验证
-          href: how-to-authenticate-downstream-device.md
-        - name: 连接下游设备
-          href: how-to-connect-downstream-device.md
-        - name: Modbus 协议网关
-          href: deploy-modbus-gateway.md
+        - name: IoT 设备的网关
+          items:
+            - name: 配置透明网关
+              href: how-to-create-transparent-gateway.md
+            - name: 对下游设备进行身份验证
+              href: how-to-authenticate-downstream-device.md
+            - name: 连接下游设备
+              href: how-to-connect-downstream-device.md
+            - name: Modbus 协议网关
+              href: deploy-modbus-gateway.md
     - name: 配置代理支持
       href: how-to-configure-proxy-support.md
+    - name: 通过 IoT Edge 发布和订阅
+      href: how-to-publish-subscribe.md
     - name: IoT Edge 上的 Azure Blob 存储
       items:
         - name: 了解边缘上的 Blob 存储

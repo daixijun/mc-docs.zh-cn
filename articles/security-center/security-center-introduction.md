@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: bb657ec9eb3554296f7f59340482e29f724db260
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 417168636af6697c4a74264e2d726179699dfcdb
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638289"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747182"
 ---
 # <a name="what-is-azure-security-center"></a>什么是 Azure 安全中心？
 
@@ -52,7 +52,7 @@ Azure 安全中心解决了三个最紧急的安全性挑战：
 
 从代理和 Azure 收集的事件在安全分析引擎中相关联，以为你提供量身定制的建议（强化任务），你应该遵循这些建议以确保工作负荷安全，并发出安全警报。 应尽快调查此类警报以确保没有针对工作负荷发生的恶意攻击。
 
-当启用安全中心时，内置到安全中心的安全策略将作为内置的计划反映在 Azure Policy 中，位于“安全中心”类别下。 内置的计划自动分配给安全中心注册的所有订阅（免费或标准定价层）。 内置的计划仅包含审核策略。 有关 Azure Policy 中的安全中心策略的详细信息，请参阅[使用安全策略](tutorial-security-policy.md)。
+当启用安全中心时，内置到安全中心的安全策略将作为内置的计划反映在 Azure Policy 中，位于“安全中心”类别下。 内置计划会自动分配到安全中心注册的所有订阅（无论是否已启用 Azure Defender）。 内置的计划仅包含审核策略。 有关 Azure Policy 中的安全中心策略的详细信息，请参阅[使用安全策略](tutorial-security-policy.md)。
 
 ## <a name="strengthen-security-posture"></a>加强安全态势
 
@@ -133,9 +133,9 @@ Azure 安全中心的值的核心在于其建议。 这些建议是针对在工�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要开始使用安全中心，需要订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 若要开始使用安全中心，需要订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-- 首次在 Azure 门户中访问 Azure 安全中心仪表板后，或通过 API 以编程方式启用安全中心的免费定价层后，安全中心的免费定价层就会在所有当前的 Azure 订阅上启用。 若要利用高级安全管理和威胁检测功能，必须升级到“标准”定价层。 标准层可以免费试用 30 天。 有关详细信息，请参阅[安全中心定价页](https://www.azure.cn/pricing/details/security-center/)。
+- 首次在 Azure 门户中访问 Azure 安全中心仪表板后，或通过 API 以编程方式启用安全中心的免费定价层后，安全中心的免费定价层就会在所有当前的 Azure 订阅上启用。 若要利用高级安全管理和威胁检测功能，必须启用 Azure Defender。 Azure Defender 可以免费试用 30 天。 有关详细信息，请参阅[安全中心定价页](https://www.azure.cn/pricing/details/security-center/)。
 
-- 如果已准备好立即启用安全中心标准版，请参阅[快速入门：将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)以详细了解相关步骤。
+- 如果已准备好立即启用 Azure Defender，[快速入门：设置 Azure 安全中心](security-center-get-started.md)将指导你完成所有步骤。
 

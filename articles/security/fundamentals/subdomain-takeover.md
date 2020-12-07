@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 626d5f6445a361b0a163941e499fe86899be51ec
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 1d8d9b17fcd6e9d6084fd2171743c87ffc394f4c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638067"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747056"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>阻止无关联的 DNS 项并避免子域接管
 
@@ -27,7 +27,7 @@ ms.locfileid: "94638067"
 
 ## <a name="what-is-subdomain-takeover"></a>什么是子域接管？
 
-子域接管是定期创建和删除大量资源的组织会遇到的一种常见严重威胁。 当你有 [DNS 记录](/dns/dns-zones-records#dns-records)指向已取消预配的 Azure 资源时，可能会发生子域接管。 这类 DNS 记录也称为“无关联的 DNS”项。 CNAME 记录特别容易受到此威胁的攻击。 子域接管使恶意操作者能够将专用于某组织的域的流量重定向到一个执行恶意活动的站点。
+子域接管是定期创建和删除大量资源的组织会遇到的一种常见严重威胁。 当你有 [DNS 记录](../../dns/dns-zones-records.md#dns-records)指向已取消预配的 Azure 资源时，可能会发生子域接管。 这类 DNS 记录也称为“无关联的 DNS”项。 CNAME 记录特别容易受到此威胁的攻击。 子域接管使恶意操作者能够将专用于某组织的域的流量重定向到一个执行恶意活动的站点。
 
 出现子域接管的常见情况：
 

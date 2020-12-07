@@ -11,13 +11,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 05/07/2020
-  ms.date: 11/02/2020
-  ms.openlocfilehash: 317f076eb1d6b73d21bc1f46187b0ac37463f34f
-  ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+  ms.date: 12/07/2020
+  ms.openlocfilehash: 196bf6b1e435a8db4a23e951d2406ff2d8676adb
+  ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92628185"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746576"
 landingContent:
 - title: 关于负载均衡器
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 在负载均衡器中配置负载均衡和出站规则 (Azure CLI)
-      url: configure-load-balancer-outbound-cli.md
+      url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
     - text: 创建使用 IPv6 的面向 Internet 的负载均衡器 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: 配置分布模式
@@ -77,13 +77,13 @@ landingContent:
     links:
     - text: 在多个 IP 配置上进行负载均衡
       url: load-balancer-multiple-ip.md
-- title: 故障排除
+- title: 疑难解答
   linkLists:
   - linkListType: concept
     links:
     - text: 通过指标、警报和资源运行状况进行标准负载均衡器诊断
       url: load-balancer-standard-diagnostics.md
-    - text: 对 Azure 负载均衡器进行故障排除
+    - text: 排查 Azure 负载均衡器问题
       url: load-balancer-troubleshoot.md
     - text: 常见的 Azure 负载均衡器错误
       url: load-balancer-common-deployment-errors.md

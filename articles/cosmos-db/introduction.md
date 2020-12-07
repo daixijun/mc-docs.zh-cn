@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: overview
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: ea4867f405cf403c35e58921b4322c7c5a8688f0
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 27881cf2930aab3ca87e04e5e25c66f70635d4a2
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551747"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598694"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -57,7 +57,7 @@ Azure Cosmos DB 是一种用于新式应用开发的完全托管的 NoSQL 数据
 - Azure Cosmos DB 提供了全面的 [SLA](https://www.azure.cn/support/sla/cosmos-db) 套件，包括中国各地业界领先的可用性。
 - 通过自动数据复制轻松地将数据分布到任何 Azure 区域。 使用强一致性时，多区域写入或 RPO 0 无需停机。
 - 通过自行管理的密钥体验企业级静态加密。
-- 基于角色的访问控制可确保数据安全，并提供精细的控制。
+- Azure 基于角色的访问控制可确保数据安全，并提供精细的控制。
 
 ### <a name="fully-managed-and-cost-effective"></a>完全托管和经济高效
 

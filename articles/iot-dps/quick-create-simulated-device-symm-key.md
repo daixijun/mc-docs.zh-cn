@@ -4,18 +4,18 @@ description: 本快速入门将使用 C 设备 SDK 创建一个将对称密钥�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 01/14/2020
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d7955a174b308ddc9c80864d40011d90f007dbb8
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0da47b6f56945b773403fe3791ed819e74152981
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564606"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541110"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>快速入门：使用对称密钥预配模拟设备
 
@@ -51,7 +51,7 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
-    在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
+    在进行 `CMake` 安装 **之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
     旧版本的 CMake 生成系统无法生成本文中使用的解决方案文件。 请确保使用较新版本的 CMake。
 

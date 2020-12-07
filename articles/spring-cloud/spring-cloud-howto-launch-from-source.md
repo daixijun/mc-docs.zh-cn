@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: v-junlch
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 16c9e63f077781da72d3d7d142e35b5a93e07f82
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 813fd06b705c964c110a53ad6c66b4e407f93aa6
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328900"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509090"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>如何从源代码启动 Spring Cloud 应用程序
 
@@ -36,7 +36,7 @@ Azure Spring Cloud 在 Azure 上启用了基于 Spring Cloud 的微服务应用�
 2. [安装 JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [安装 Maven 3.0 或更高版本](https://maven.apache.org/download.cgi)
 4. [安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)
-5. [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+5. [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 
 ## <a name="install-the-azure-cli-extension"></a>安装 Azure CLI 扩展

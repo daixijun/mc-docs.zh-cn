@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 46a25b2962484ef0fb39b153e607ef2d65763ab3
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: 2d29a8a2c355c9460aac8df83bf8793aff8a33ab
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595144"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541180"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C# IoT Edge 模块
 
@@ -34,7 +34,7 @@ ms.locfileid: "94595144"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>解决方案适用范围
+## <a name="prerequisites"></a>先决条件
 
 本教程演示如何使用 **Visual Studio Code** 在 **C#** 中开发模块，以及如何将其部署到 **Linux 设备**。 如果要开发适用于 Windows 设备的模块，请转到[开发适用于 Windows 设备的 C# IoT Edge 模块](tutorial-csharp-module-windows.md)。
 
@@ -47,8 +47,6 @@ ms.locfileid: "94595144"
 
 >[!NOTE]
 >公共预览版中提供对 Linux ARM64 设备的支持。 有关详细信息，请参阅[在 Visual Studio Code（预览版）中开发和调试 ARM64 IoT Edge 模块](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
-
-## <a name="prerequisites"></a>先决条件
 
 在开始本教程之前，你应该已经完成了上一个教程[开发适用于 Linux 设备的 IoT Edge 模块](tutorial-develop-for-linux.md)，设置了开发环境。 完成该教程后，应已准备好以下必备组件：
 
@@ -81,7 +79,7 @@ ms.locfileid: "94595144"
    | ----- | ----- |
    | 选择文件夹 | 在适用于 VS Code 的开发计算机上选择用于创建解决方案文件的位置。 |
    | 提供解决方案名称 | 输入解决方案的描述性名称，或者接受默认的 **EdgeSolution**。 |
-   | 选择模块模板 | 选择“C# 模块”。  |
+   | 选择模块模板 | 选择“C# 模块”。 |
    | 提供模块名称 | 将模块命名为 **CSharpModule**。 |
    | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概述”页中检索登录服务器。 <br><br>最终的映像存储库看起来类似于 \<registry name\>.azurecr.cn/csharpmodule。 |
 

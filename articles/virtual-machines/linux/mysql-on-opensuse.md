@@ -8,15 +8,15 @@ ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 origin.date: 07/11/2018
-ms.openlocfilehash: 7a601680f094405b999783d4acf6af9963b14dc8
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: a7d3d5de1b9b09c4cb30a4c0defed4296c61e902
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057559"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747039"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "90057559"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>创建运行 OpenSUSE Linux 的虚拟机
 
@@ -119,7 +119,7 @@ mysql_secure_installation
 现在，可以登录并输入 MySQL 提示符。
 
 ```bash  
-mysql -u root -p
+sudo mysql -u root -p
 ```
 它可切换到 MySQL 提示符，你可以在其中发出用于与数据库交互的 SQL 语句。
 

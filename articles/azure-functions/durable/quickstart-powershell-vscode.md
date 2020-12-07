@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 5d2dcce9c944ade16438f45db877ac2edf772a55
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0bcfc39d37b7a828d1673c5fffaca8b1044141ff
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414110"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509049"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>在 PowerShell 中创建你的第一个持久函数
 
@@ -32,7 +32,7 @@ ms.locfileid: "89414110"
 
 * Durable Functions 需要一个 Azure 存储帐户。 需要一个 Azure 订阅。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>创建本地项目 
 
@@ -213,7 +213,7 @@ Visual Studio Code 会根据需要安装 Azure Functions Core Tools。 它还会
         > [!NOTE]
         > Azure Functions VS Code 扩展可能尚不支持 PowerShell 7。 如果无法使用 PowerShell 7，请暂时选择 PowerShell 6.x，然后在创建函数应用后[手动更新版本](#update-function-app-ps7)。
 
-    + **选择新资源的位置**：为了获得更好的性能，请选择你附近的[区域](https://azure.microsoft.com/regions/)。 
+    + **选择新资源的位置**：为了获得更好的性能，请选择你附近的 [区域](https://azure.microsoft.com/regions/)。 
     
 1.  完成后，将使用基于函数应用名称的名称在订阅中创建以下 Azure 资源：
     

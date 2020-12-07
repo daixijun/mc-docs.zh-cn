@@ -2,20 +2,21 @@
 title: 适用于 Azure Cosmos DB 表 API 的 Azure CLI 示例
 description: 适用于 Azure Cosmos DB 表 API 的 Azure CLI 示例
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3a97a1523fc8b59c0203b6244530d438b6566507
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c652d1b098ae3353297137c5893f22460a3be995
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328325"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598664"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>适用于 Azure Cosmos DB 表 API 的 Azure CLI 示例
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]

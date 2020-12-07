@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b0c43df985804ff2cdeab6712e0001a846f49dd7
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: bef300e5f398d838dd082fa907ea1972836df800
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937078"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509076"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>快速入门：通过 Azure PowerShell 使用 Azure 应用程序网关定向 Web 流量
 
@@ -26,7 +26,7 @@ ms.locfileid: "91937078"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Azure PowerShell 1.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)（如果在本地运行 Azure PowerShell）。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

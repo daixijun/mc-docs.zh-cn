@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 origin.date: 07/15/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 18f6ae1814f0ab80df336dc1529184ae942f3fef
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1cf60b159f288e54cd0953215fa0c279709ec202
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552805"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598529"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>解决 Azure Cosmos DB 的 API for MongoDB 中的常见问题
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

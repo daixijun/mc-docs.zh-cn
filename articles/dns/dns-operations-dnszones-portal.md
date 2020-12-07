@@ -4,28 +4,27 @@ description: 可以使用 Azure 门户管理 DNS 区域。 本文介绍如何在
 services: dns
 documentationcenter: na
 author: WenJason
-manager: digimobile
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/18/2017
-ms.date: 02/17/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: a8ca95a89ac89e11c389b045f00e81995ade5c41
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3019de95ca928ce0c565be543372b414f1d6e673
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428750"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746689"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 门户中管理 DNS 区域
 
 > [!div class="op_single_selector"]
 > * [门户](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure 经典 CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure 经典 CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 本文介绍如何使用 Azure 门户管理 DNS 区域。 也可使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure [PowerShell](dns-operations-dnszones.md) 管理 DNS 区域。

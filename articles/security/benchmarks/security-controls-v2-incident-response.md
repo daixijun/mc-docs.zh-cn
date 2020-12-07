@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 事件响应
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 53d773e68d11a52d90f3843607c68ccf55400ef0
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 7f69a01cc6d5d721197f0b8e12ff0aa93d116a49
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128763"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747095"
 ---
 # <a name="security-control-v2-incident-response"></a>安全控制 V2：事件响应
 
@@ -26,13 +26,13 @@ ms.locfileid: "92128763"
 
 确保组织具有响应安全事件的流程，已为 Azure 更新了这些流程，并定期执行这些流程以确保准备就绪。
 
-- [在企业环境中实现安全性](https://aka.ms/AzSec4)
+- [在企业环境中实现安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [事件响应参考指南](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**责任** ：客户
+**责任**：客户
 
-**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -50,9 +50,9 @@ ms.locfileid: "92128763"
 
 - [如何设置 Azure 安全中心安全联系人](../../security-center/security-center-provide-security-contact-details.md)
 
-**责任** ：客户
+**责任**：客户
 
-**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -74,9 +74,9 @@ Azure 安全中心可跨许多 Azure 资产提供高质量的警报。
 
 - [如何配置导出](../../security-center/continuous-export.md)
 
-**责任** ：客户
+**责任**：客户
 
-**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -108,9 +108,9 @@ Azure 安全中心可跨许多 Azure 资产提供高质量的警报。
 
 - [Linux 计算机的磁盘快照](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-**责任** ：客户
+**责任**：客户
 
-**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -132,9 +132,9 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [Azure 安全中心中的安全警报](../../security-center/security-center-alerts-overview.md)
 
-- [使用标记整理 Azure 资源](/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../../azure-resource-manager/management/tag-resources.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -156,7 +156,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [在 Azure 安全中心设置自动威胁响应](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -165,5 +165,4 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 - [事件准备](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [威胁情报](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-
 

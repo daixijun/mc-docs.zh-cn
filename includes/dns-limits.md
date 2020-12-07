@@ -2,15 +2,15 @@
 author: WenJason
 ms.service: azure-resource-manager
 ms.topic: include
-origin.date: 2/14/2020
-ms.date: 09/14/2020
+origin.date: 11/05/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: ba52cfa3f6f42721fca2e25fd6c41c51c63918f2
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: d26b175033e8147acc3d1e53c6614cae2ac46dc9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512858"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747267"
 ---
 **公共 DNS 区域**
 
@@ -34,7 +34,7 @@ ms.locfileid: "89512858"
 | 在启用了自动注册的情况下，每个专用 DNS 区域的虚拟网络链接数 |100|
 | 在启用了自动注册的情况下，虚拟网络可以链接到的专用 DNS 区域数 |1|
 | 虚拟网络可以链接的专用 DNS 区域数 |1000|
-| 虚拟机每秒可发送到 Azure DNS 解析程序的 DNS 查询数 |500 <sup>1</sup> |
+| 虚拟机每秒可发送到 Azure DNS 解析程序的 DNS 查询数 |1000 <sup>1</sup> |
 | 每个虚拟机排队（等待响应）的最大 DNS 查询数 |200 <sup>1</sup> |
 
 <sup>1</sup>这些限制适用于每个单独的虚拟机，而不适用于虚拟网络级别。 将删除超出这些限制的 DNS 查询。

@@ -5,18 +5,18 @@ ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ca9a49210c03bf07d7dca28ecf788e5da1988869
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 04becac819efd741432b5415cc3c2600dd81b832
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970742"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509042"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>在高级计划中创建函数应用 - Azure CLI
 
 此 Azure Functions 示例脚本将创建一个函数应用，作为函数的容器。 所创建的函数应用使用[可缩放的高级计划](../functions-premium-plan.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

@@ -7,15 +7,15 @@ ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 09/20/2018
-ms.openlocfilehash: 175ffe0755b2456da375ced5fdaa5515af91e13a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 84294cee26cb1c054cd68ba757eda4a6452eafed
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127649"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746544"
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概述
 
@@ -46,15 +46,15 @@ Azure 支持各种加密模型，包括使用服务托管密钥、Key Vault 中�
 
 三个服务器端加密模型提供不同的密钥管理特性，可根据要求进行选择：
 
-- **服务托管密钥** ：可带来低开销的控制和便利。
+- **服务托管密钥**：可带来低开销的控制和便利。
 
-- **客户管理的密钥** ：可用于控制密钥，包括支持“创建自己的密钥”(BYOK) 或生成新密钥。
+- **客户管理的密钥**：可用于控制密钥，包括支持“创建自己的密钥”(BYOK) 或生成新密钥。
 
-- **客户所控硬件上的服务托管密钥** ：可用于管理不受 Microsoft 控制的专有存储库中的密钥。 此特性称为自留密钥 (HYOK)。 但是，配置相当复杂，并且大多数 Azure 服务都不支持此模式。
+- **客户所控硬件上的服务托管密钥**：可用于管理不受 Microsoft 控制的专有存储库中的密钥。 此特性称为自留密钥 (HYOK)。 但是，配置相当复杂，并且大多数 Azure 服务都不支持此模式。
 
 ### <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
-可使用 [Azure 磁盘加密](/security/fundamentals/azure-disk-encryption-vms-vmss)保护 Windows 和 Linux 虚拟机，它采用 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 技术和 Linux DM-Crypt通过全卷加密来保护操作系统磁盘和数据磁盘。
+可使用 [Azure 磁盘加密](./azure-disk-encryption-vms-vmss.md)保护 Windows 和 Linux 虚拟机，它采用 [Windows BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) 技术和 Linux DM-Crypt通过全卷加密来保护操作系统磁盘和数据磁盘。
 
 [Azure Key Vault 订阅](../../key-vault/general/overview.md)中的加密密钥和机密会得到保护。 使用 Azure 备份服务，可备份和还原使用密钥加密密钥 (KEK) 配置的加密虚拟机 (VM)。
 
@@ -121,9 +121,9 @@ Microsoft 让客户能够使用传输层安全性 (TLS) 协议来保护在云服
 
 当通过 Azure 门户与 Azure 存储交互时，所有事务都通过 HTTPS 发生。 也可根据 HTTPS 使用存储 REST API 与 Azure 存储交互。 在调用 REST API 来访问存储帐户中的对象时，可通过启用存储帐户所需的安全传输来强制使用 HTTPS。
 
-使用共享访问签名 ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)) 除了能委派对 Azure 存储对象的访问权限，还能包含一个选项，指定在使用共享访问签名时只能使用 HTTPS 协议。 通过此方法，可确保只能使用正确的协议发送有 SAS 令牌的链接。
+使用共享访问签名 ([SAS](../../storage/common/storage-sas-overview.md)) 除了能委派对 Azure 存储对象的访问权限，还能包含一个选项，指定在使用共享访问签名时只能使用 HTTPS 协议。 通过此方法，可确保只能使用正确的协议发送有 SAS 令牌的链接。
 
-用于访问 Azure 文件共享的 [SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption) 支持加密，并且可以在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用。 它允许跨区域访问，甚至在桌面上访问。
+用于访问 Azure 文件共享的 [SMB 3.0](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption) 支持加密，并且可以在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用。 它允许跨区域访问，甚至在桌面上访问。
 
 在将数据发送到 Azure 存储实例前，客户端加密会对数据加密，所以在通过网络传输时数据是加密的。
 
@@ -139,7 +139,7 @@ Microsoft 让客户能够使用传输层安全性 (TLS) 协议来保护在云服
 
 ### <a name="rdp-sessions"></a>RDP 会话
 
-可以使用 Windows 客户端计算机或者安装了 RDP 客户端的 Mac 上的[远程桌面协议 (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) 连接并登录 VM。 在 RDP 会话中通过网络传输的数据可以受到 TLS 的保护。
+可以使用 Windows 客户端计算机或者安装了 RDP 客户端的 Mac 上的[远程桌面协议 (RDP)](https://docs.microsoft.com/windows/win32/termserv/remote-desktop-protocol) 连接并登录 VM。 在 RDP 会话中通过网络传输的数据可以受到 TLS 的保护。
 
 还可使用远程桌面连接到 Azure 中的 Linux VM。
 
@@ -159,7 +159,7 @@ Microsoft 让客户能够使用传输层安全性 (TLS) 协议来保护在云服
 
 ### <a name="point-to-site-vpns"></a>点到站点 VPN
 
-点到站点 VPN 允许单个客户端计算机访问 Azure 虚拟网络。 [安全套接字隧道协议 (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) 可用于创建 VPN 隧道。 它可遍历防火墙（隧道显示为 HTTPS 连接）。 你可使用自己的内部公钥基础结构 (PKI) 根证书颁发机构 (CA) 实现点到站点的连接。
+点到站点 VPN 允许单个客户端计算机访问 Azure 虚拟网络。 [安全套接字隧道协议 (SSTP)](https://docs.microsoft.com/previous-versions/technet-magazine/cc162322(v=msdn.10)) 可用于创建 VPN 隧道。 它可遍历防火墙（隧道显示为 HTTPS 连接）。 你可使用自己的内部公钥基础结构 (PKI) 根证书颁发机构 (CA) 实现点到站点的连接。
 
 可以使用具有证书身份验证或 PowerShell 的 Azure 门户，将点到站点 VPN 连接配置到虚拟网络。
 
@@ -193,7 +193,9 @@ Key Vault 可帮助组织减少对配置、修补以及维护硬件安全模块 
 
 ## <a name="next-steps"></a>后续步骤
 
+- [Azure 安全概述](./overview.md)
 - [Azure 网络安全概述](network-overview.md)
+- [Azure 数据库安全性概述](../../azure-sql/database/security-overview.md)
 - [Azure 虚拟机安全概述](virtual-machines-overview.md)
 - [静态数据加密](encryption-atrest.md)
 - [数据安全与加密最佳做法](data-encryption-best-practices.md)

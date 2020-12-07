@@ -2,19 +2,20 @@
 title: 适用于 Azure Cosmos DB 的 Azure PowerShell 示例 - Gremlin API
 description: 获取用于在 Azure Cosmos DB Gremlin API 中执行常见任务的 Azure PowerShell 示例
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 28c938874055f81d82654a8522c5a9342a99addc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 27406ce0eaa3af0d344118901f6e6fe2b2e09131
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328888"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598649"
 ---
 <!--Verified successfully-->
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例 - Gremlin API
@@ -44,5 +45,4 @@ ms.locfileid: "94328888"
 |[锁定资源以防止将其删除](scripts/powershell/gremlin/lock.md)| 通过资源锁防止资源遭到删除。 |
 |||
 
-<!-- Update_Description: new article about powershell samples gremlin -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

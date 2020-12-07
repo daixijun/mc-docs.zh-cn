@@ -11,20 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2019
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 7a60986b6b1fbde7424ec92ca092f5705d631ca9
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: a8e843cbf797df1af5cf5fbe9e4c8b56b11d32ea
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943472"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747186"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>通过指标、警报和资源运行状况进行标准负载均衡器诊断
 
 Azure 标准负载均衡器公开了以下诊断功能：
 
-* **多维指标和警报**：通过 [Azure Monitor](/azure-monitor/overview) 针对标准负载均衡器配置提供多维诊断功能。 可以监视、管理和排查标准负载均衡器资源问题。
+* **多维指标和警报**：通过 [Azure Monitor](../azure-monitor/overview.md) 针对标准负载均衡器配置提供多维诊断功能。 可以监视、管理和排查标准负载均衡器资源问题。
 
 * **资源运行状况**：负载均衡器的资源运行状况状态显示在“监视器”下的“资源运行状况”页面中。 此自动检查会通知你负载均衡器资源当前的可用性。
 
@@ -49,7 +49,7 @@ Azure 负载均衡器通过 Azure 门户中的 Azure 指标来提供多维指标
 
   >[!NOTE]
   >通过 NVA 或防火墙使用来自内部负载均衡器的分发流量时，Syn 数据包、字节计数器和数据包计数器指标不可用，并将显示为零。 
-  
+
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>在 Azure 门户中查看负载均衡器指标
 
 Azure 门户通过“指标”页公开负载均衡器指标，可在特定资源的负载均衡器资源页以及 Azure Monitor 页中访问该页。 
@@ -71,7 +71,7 @@ Azure 门户通过“指标”页公开负载均衡器指标，可在特定资�
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>通过 API 以编程方式检索多维指标
 
-有关如何检索多维指标定义和值的 API 指导，请参阅 [Azure 监视 REST API 演练](/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)。 这些指标只能通过“所有指标”选项写入存储帐户。 
+有关如何检索多维指标定义和值的 API 指导，请参阅 [Azure 监视 REST API 演练](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api)。 这些指标只能通过“所有指标”选项写入存储帐户。 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>配置针对多维指标的警报 ###
 
@@ -132,9 +132,9 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 在大多数情况下，可以使用“平均值”作为聚合。 
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>如何检查出站连接统计信息？ 
-“SNAT 连接”指标描述适用于[出站流](/load-balancer/load-balancer-outbound-connections)的成功和失败连接的数量。
+“SNAT 连接”指标描述适用于[出站流](./load-balancer-outbound-connections.md)的成功和失败连接的数量。
 
-如果失败连接数量大于零，则表示 SNAT 端口已耗尽。 必须进一步调查，确定失败的可能原因。 SNAT 端口耗尽的表现形式是无法建立[出站流](/load-balancer/load-balancer-outbound-connections)。 请查看有关出站连接的文章，以了解相关的场景和运行机制，并了解如何缓解并尽量避免 SNAT 端口耗尽的情况。 
+如果失败连接数量大于零，则表示 SNAT 端口已耗尽。 必须进一步调查，确定失败的可能原因。 SNAT 端口耗尽的表现形式是无法建立[出站流](./load-balancer-outbound-connections.md)。 请查看有关出站连接的文章，以了解相关的场景和运行机制，并了解如何缓解并尽量避免 SNAT 端口耗尽的情况。 
 
 若要获取 SNAT 连接统计信息，请执行以下操作：
 1. 选择“SNAT 连接”作为指标类型，并选择“总和”作为聚合。   
@@ -148,7 +148,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>如何检查 SNAT 端口用量和分配？
 “使用的 SNAT 端口数”指标跟踪使用的 SNAT 端口数来维护出站流。 它指示在 Internet 源与负载均衡器后面的没有公共 IP 地址的后端 VM 或虚拟机规模集之间建立了多少个唯一流。 通过将你使用的 SNAT 端口数与“分配的 SNAT 端口数”指标进行比较，可以确定服务是否因为遇到了 SNAT 耗尽问题或者面临着这种风险而导致出站流失败。 
 
-如果指标指出了[出站流](/load-balancer/load-balancer-outbound-connections)失败的风险，请参考相应的文章并采取缓解措施，以确保服务正常运行。
+如果指标指出了[出站流](./load-balancer-outbound-connections.md)失败的风险，请参考相应的文章并采取缓解措施，以确保服务正常运行。
 
 若要查看 SNAT 端口用量和分配：
 1. 将图形的时间聚合设置为 1 分钟，以确保显示所需的数据。
@@ -169,7 +169,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 图：  每个后端实例的 TCP SNAT 端口用量
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>如何检查服务的入站/出站连接尝试？
-“SYN 数据包”指标描述收到或发送的、与特定前端关联的 TCP SYN 数据包数量（适用于[出站流](/load-balancer/load-balancer-outbound-connections)）。 可以使用此指标了解对服务发起的 TCP 连接尝试。
+“SYN 数据包”指标描述收到或发送的、与特定前端关联的 TCP SYN 数据包数量（适用于[出站流](./load-balancer-outbound-connections.md)）。 可以使用此指标了解对服务发起的 TCP 连接尝试。
 
 在大多数情况下，可以使用“总计”作为聚合。 
 
@@ -212,7 +212,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>资源运行状况
 
-可以通过“Monitor”>“服务运行状况”下面的现有“资源运行状况”公开标准负载均衡器资源的运行状况。********
+可以通过“Monitor”>“服务运行状况”下面的现有“资源运行状况”公开标准负载均衡器资源的运行状况。
 
 若要查看公共标准负载均衡器资源的运行状况，请执行以下步骤：
 1. 选择“Monitor” > “服务运行状况”。
@@ -221,7 +221,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
    *图：Azure Monitor 中的“服务运行状况”链接*
 
-2. 选择“资源运行状况”，然后确保正确选择“订阅 ID”和“资源类型 = 负载均衡器”。************
+2. 选择“资源运行状况”，然后确保正确选择“订阅 ID”和“资源类型 = 负载均衡器”。
 
    ![资源运行状况](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
@@ -232,8 +232,8 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
     ![负载均衡器运行状况](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
    *图：负载均衡器资源运行状况视图*
- 
-[RHC 文档](/service-health/resource-health-overview)中提供了一般的资源运行状况状态说明。 下表列出了 Azure 负载均衡器的特定状态： 
+
+[RHC 文档](../service-health/resource-health-overview.md)中提供了一般的资源运行状况状态说明。 下表列出了 Azure 负载均衡器的特定状态： 
 
 | 资源运行状况 | 说明 |
 | --- | --- |
@@ -244,7 +244,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[标准负载均衡器](load-balancer-standard-overview.md)。
-- 详细了解[负载均衡器出站连接](/load-balancer/load-balancer-outbound-connections)。
-- 了解有关 [Azure Monitor](/azure-monitor/overview) 的信息。
+- 详细了解[标准负载均衡器](./load-balancer-overview.md)。
+- 详细了解[负载均衡器出站连接](./load-balancer-outbound-connections.md)。
+- 了解有关 [Azure Monitor](../azure-monitor/overview.md) 的信息。
 - 了解有关 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 的信息，以及[如何通过 REST API 检索指标](https://docs.microsoft.com/rest/api/monitor/metrics/list)。

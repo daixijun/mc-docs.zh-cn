@@ -2,21 +2,21 @@
 title: 适用于 Azure Cosmos DB Gremlin API 的 Azure CLI 示例
 description: 适用于 Azure Cosmos DB Gremlin API 的 Azure CLI 示例
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20ee75351129f487c66100d985fb61059b92b0d6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3b74b6b03f0b5c50a29b3301e827e74653428fb5
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328327"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598666"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>适用于 Azure Cosmos DB Gremlin API 的 Azure CLI 示例
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

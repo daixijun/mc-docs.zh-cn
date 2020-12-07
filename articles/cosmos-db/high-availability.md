@@ -3,26 +3,26 @@ title: Azure Cosmos DB 中的高可用性
 description: 本文介绍 Azure Cosmos DB 如何提供高可用性
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 10/13/2020
+origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5f57a4456282b558d0226d48b4bcd43280211d46
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 21237e672737d91b8b77e7d53f22a88e40a4ca56
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328359"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598645"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB 如何提供高可用性？
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 主要通过两种方式提供高可用性。 第一种方式是 Azure Cosmos DB 跨 Cosmos 帐户中配置的区域复制数据。 第二种方式是 Azure Cosmos DB 在一个区域内维护 4 个数据副本。
 
-Azure Cosmos DB 是一个多区域分布式数据库服务，也是 Azure 中的基础服务。 默认情况下，在 [Azure 中国可用的所有区域](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,)中都可用。 可将任意数量的 Azure 区域与 Azure Cosmos 帐户相关联，并且数据会自动且透明地得到复制。 可随时向 Azure Cosmos 帐户添加或从中删除区域。 Cosmos DB 在提供给客户的 Azure 中国云环境中均可使用：
+Azure Cosmos DB 是一个多区域分布式数据库服务，也是 Azure 中的基础服务。 默认情况下，在 [Azure 中国可用的所有区域](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2)中都可用。 可将任意数量的 Azure 区域与 Azure Cosmos 帐户相关联，并且数据会自动且透明地得到复制。 可随时向 Azure Cosmos 帐户添加或从中删除区域。 Cosmos DB 在提供给客户的 Azure 中国云环境中均可使用：
 
 <!--MOONCAKE CUSTOMIZE-->
 

@@ -2,22 +2,22 @@
 title: 启用静态双重加密 - Azure CLI - 托管磁盘
 description: 使用 Azure CLI 为托管磁盘数据启用静态双重加密。
 author: Johnnytechn
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.topic: how-to
 ms.author: v-johya
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8351f1850ad7454fee46d661b1089ed98ffdf6e7
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: e4201b8339fb322925307e2ca4c4aafebf7e0f7e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638286"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746939"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>使用 Azure CLI 为托管磁盘启用静态双重加密
 
-Azure 磁盘存储支持对托管磁盘的静态双重加密。 有关静态双重加密的概念信息以及其他托管磁盘加密类型，请参阅磁盘加密文章的[静态双重加密](disk-encryption.md#double-encryption-at-rest)部分。
+Azure 磁盘存储支持对托管磁盘的静态双重加密。 有关静态双重加密的概念信息以及其他托管磁盘加密类型，请参阅磁盘加密文章的[静态双重加密](../disk-encryption.md#double-encryption-at-rest)部分。
 
 ## <a name="prerequisites"></a>先决条件
 

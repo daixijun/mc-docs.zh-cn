@@ -3,16 +3,16 @@ title: 适用于 Kubernetes 的 Azure Defender - 优点和功能
 description: 了解适用于 Kubernetes 的 Azure Defender 的优点和功能。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/13/2020
+ms.date: 12/04/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 818f44871aada1ee5c81a87af22c53de33225e55
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 6a7f38f174014385f66beb9374f571f35da70ee8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638262"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747163"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>适用于 Kubernetes 的 Azure Defender 简介
 
@@ -44,14 +44,10 @@ Azure 安全中心和 AKS 构成了最佳的云原生 Kubernetes 安全产品和
 
 - **主机级别（由适用于服务器的 Azure Defender 提供）** - Azure Defender 利用安全中心在其他 VM 上使用的同一 Log Analytics 代理监视你的 Linux AKS 节点中是否存在可疑活动，例如 web shell 检测和与已知的可疑 IP 地址进行连接。 该代理还会监视特定于容器的分析，例如创建特权容器、以可疑方式访问 API 服务器以及在 Docker 容器内部运行安全外壳 (SSH) 服务器。
 
-    有关 AKS 主机级别的警报列表，请参阅[警报参考表](alerts-reference.md#alerts-containerhost)。
-
     >[!IMPORTANT]
     > 如果你选择不在主机上安装代理，则只能收到一部分威胁防护权益和安全警报。 你仍会收到与网络分析以及与恶意服务器通信相关的警报。
 
 - **AKS 群集级别（由适用于 Kubernetes 的 Azure Defender 提供）** - 在群集级别，威胁防护基于对 Kubernetes 审核日志的分析。 要启用此无代理监视，请启用 Azure Defender。 为了在此级别生成警报，安全中心将使用 AKS 检索到的日志来监视 AKS 管理的服务。 此级别的事件示例包括公开 Kubernetes 仪表板、创建高特权角色，以及创建敏感的装入点。
-
-    有关 AKS 群集级别的警报列表，请参阅[警报参考表](alerts-reference.md#alerts-akscluster)。
 
     >[!NOTE]
     > 安全中心针对在订阅设置中启用“Kubernetes”选项后发生的 Azure Kubernetes 服务操作和部署生成安全警报。 
@@ -115,5 +111,4 @@ AKS 是一项托管服务，由于 Log Analytics 代理是 Microsoft 托管的�
 
 - [启用 Azure Defender](security-center-pricing.md)
 - [将警报流式传输到 SIEM、SOAR 或 IT 服务管理解决方案](export-to-siem.md)
-- [警报的引用表](alerts-reference.md)
 

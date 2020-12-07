@@ -10,12 +10,12 @@ origin.date: 07/24/2019
 ms.date: 03/09/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: a236186b06b20dcd569029e1c88d3a6677c0278b
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 9b28ca1f0ea26e05ddab1d5c50e04534b5eac46c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463190"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746742"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>教程：为 IoT 中心执行手动故障转移
 
@@ -34,7 +34,7 @@ ms.locfileid: "89463190"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 确保已在防火墙中打开端口 8883。 本教程中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
@@ -74,7 +74,7 @@ ms.locfileid: "89463190"
 
    ![显示 IoT 中心属性窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. 在“手动故障转移”窗格上，可以看到**当前位置**和**故障转移位置**。 当前位置始终指示中心当前处于活动状态的位置。 故障转移位置是标准的 [Azure 异地配对区域](../best-practices-availability-paired-regions.md)，与当前位置配对。 不能更改位置值。 在本教程中，当前位置为 `West US 2`，故障转移位置为 `West Central US`。
+1. 在“手动故障转移”窗格上，可以看到 **当前位置** 和 **故障转移位置**。 当前位置始终指示中心当前处于活动状态的位置。 故障转移位置是标准的 [Azure 异地配对区域](../best-practices-availability-paired-regions.md)，与当前位置配对。 不能更改位置值。 在本教程中，当前位置为 `West US 2`，故障转移位置为 `West Central US`。
 
    ![显示“手动故障转移”窗格的屏幕截图](./media/tutorial-manual-failover/trigger-failover-02.png)
 

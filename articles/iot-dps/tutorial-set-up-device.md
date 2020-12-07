@@ -4,18 +4,18 @@ description: 本教程介绍如何在设备制造过程中通过 IoT 中心设�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 07413ed936b137a7732d6e0b27c3cd194dcaaa49
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: def26eb5bb4becef8dd9e05282be7e2bfa3588b5
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564566"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541190"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>教程：使用 Azure IoT 中心设备预配服务设置设备以进行预配
 
@@ -49,7 +49,7 @@ ms.locfileid: "91564566"
 
 1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
-    在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
+    在进行 `CMake` 安装 **之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
 2. 找到[最新版](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
 
@@ -151,7 +151,7 @@ ms.locfileid: "91564566"
 
     ![从门户边栏选项卡中提取设备预配服务终结点信息](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-1. 在计算机上的 Visual Studio *解决方案资源管理器*中，导航到 **Provision\_Samples** 文件夹。 选择名为 **prov\_dev\_client\_sample** 的示例项目，打开 **prov\_dev\_client\_sample.c** 源文件。
+1. 在计算机上的 Visual Studio *解决方案资源管理器* 中，导航到 **Provision\_Samples** 文件夹。 选择名为 **prov\_dev\_client\_sample** 的示例项目，打开 **prov\_dev\_client\_sample.c** 源文件。
 
 1. 将步骤 1 中获得的“ID 范围”值分配  给 `id_scope` 变量（删除左侧的 /`[` 和右侧的 /`]` 方括号）： 
 

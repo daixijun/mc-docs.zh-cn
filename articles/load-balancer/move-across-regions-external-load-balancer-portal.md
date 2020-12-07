@@ -5,21 +5,20 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 09/17/2019
-ms.date: 07/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 4b2a95f85fb3c1ba41c20a6d03dc1d4b22a0804e
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 15ff69f1ec6ea7a868f7ecd81937358f4f7925af
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440535"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747224"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将外部负载均衡器移到另一个区域
 
 在多种情况下，可能需要将某个外部负载均衡器从一个区域移到另一个区域。 例如，你可能想要创建另一个采用相同配置的外部负载均衡器进行测试。 你还可能想要在灾难恢复规划过程中将外部负载均衡器移到另一个区域。
 
-从字面意义讲，不能将 Azure 外部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板来导出外部负载均衡器的现有配置和公共 IP 地址。 然后，可将资源暂存在另一区域，方法是：将负载均衡器和公共 IP 导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。 有关资源管理器和模板的详细信息，请参阅[将资源组导出到模板](/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)。
-
+从字面意义讲，不能将 Azure 外部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板来导出外部负载均衡器的现有配置和公共 IP 地址。 然后，可将资源暂存在另一区域，方法是：将负载均衡器和公共 IP 导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。 有关资源管理器和模板的详细信息，请参阅[将资源组导出到模板](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -33,7 +32,7 @@ ms.locfileid: "86440535"
 
 - 请验证 Azure 订阅是否允许在目标区域中创建外部负载均衡器。 请联系支持部门，启用所需配额。
 
-- 确保订阅提供足够的资源，以支持添加负载均衡器。 请参阅 [Azure 订阅和服务限制、配额和约束](/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)。
+- 确保订阅提供足够的资源，以支持添加负载均衡器。 请参阅 [Azure 订阅和服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)。
 
 ## <a name="prepare-and-move"></a>准备并移动
 以下过程说明如何使用资源管理器模板准备好要移动的外部负载均衡器，并使用 Azure 门户将外部负载均衡器配置移到目标区域。 必须先导出外部负载均衡器的公共 IP 配置。
@@ -64,7 +63,7 @@ ms.locfileid: "86440535"
 
     在编辑器中选择“保存”。 
 
-9.  选择“模板” > “编辑模板”，在在线编辑器中打开 template.json 文件。
+9. 选择“模板” > “编辑模板”，在在线编辑器中打开 template.json 文件。
 
 10. 若要编辑要将公共 IP 移到的目标区域，请更改 **resources** 下的 **location** 属性：
 
@@ -91,9 +90,9 @@ ms.locfileid: "86440535"
                }
              ]
     ```
-  
+
     若要获取区域位置代码，请参阅 [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。 区域代码是不带空格的区域名称。 例如，中国东部 2 区域的代码是 **chinaeast2**。
-    
+
 12. 还可以根据要求和需求更改模板中的其他参数：
 
     * **SKU**。 可以在配置中将公共 IP 的 SKU 从 standard 更改为 basic 或者从 basic 更改为 standard，只需在 template.json 文件中更改 **sku** 下的 **name** 属性即可：
@@ -111,9 +110,9 @@ ms.locfileid: "86440535"
             },
         ```
 
-        有关基本和标准 SKU 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
+        有关基本和标准 SKU 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)。
 
-    * **公共 IP 分配方法**和**空闲超时**。 可以通过将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或者从 **Static** 更改为 **Dynamic**，来更改公共 IP 分配方法。 可以通过将 **idleTimeoutInMinutes** 属性更改为所需值来更改空闲超时值。 默认为 **4**。
+    * **公共 IP 分配方法** 和 **空闲超时**。 可以通过将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或者从 **Static** 更改为 **Dynamic**，来更改公共 IP 分配方法。 可以通过将 **idleTimeoutInMinutes** 属性更改为所需值来更改空闲超时值。 默认为 **4**。
 
         ```json
           "resources": [
@@ -137,9 +136,8 @@ ms.locfileid: "86440535"
 
         ```
 
-        有关分配方法和空闲超时值的信息，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
+        有关分配方法和空闲超时值的信息，请参阅[创建、更改或删除公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)。
 
- 
 13. 在在线编辑器中选择“保存”。 
 
 14. 选择“基本信息” > “订阅”，以选择要将目标公共 IP 部署到的订阅。
@@ -179,7 +177,7 @@ ms.locfileid: "86440535"
 
     ```
 
-6.  若要编辑在前面步骤中移动的目标公共 IP 的值，必须先获取资源 ID，然后将其粘贴到 parameters.json 文件中。 若要获取 ID：
+6. 若要编辑在前面步骤中移动的目标公共 IP 的值，必须先获取资源 ID，然后将其粘贴到 parameters.json 文件中。 若要获取 ID：
 
     1. 在另一个浏览器标签页或窗口中，登录到 [Azure 门户](https://portal.azure.cn)并选择“资源组”。 
     2. 找到包含前面步骤中移动的公共 IP 的目标资源组。 选择它。
@@ -202,8 +200,7 @@ ms.locfileid: "86440535"
         ```
     6. 在在线编辑器中选择“保存”。 
 
-
-7.  如果为该负载均衡器配置了出站 NAT 和出站规则，则此文件中会显示第三个条目，该条目对应于出站公共 IP 的外部 ID。 在**目标区域**中重复上述步骤以获取出站公共 IP 的 ID。 将该 ID 粘贴到 parameters.json 文件中：
+7. 如果为该负载均衡器配置了出站 NAT 和出站规则，则此文件中会显示第三个条目，该条目对应于出站公共 IP 的外部 ID。 在 **目标区域** 中重复上述步骤以获取出站公共 IP 的 ID。 将该 ID 粘贴到 parameters.json 文件中：
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -224,8 +221,8 @@ ms.locfileid: "86440535"
         },
     ```
 
-8.  选择“模板” > “编辑模板”，在在线编辑器中打开 template.json 文件。
-9.  若要编辑外部负载均衡器配置将要移到的目标区域，请更改 parameters.json 文件中 **resources** 下的 **location** 属性：
+8. 选择“模板” > “编辑模板”，在在线编辑器中打开 template.json 文件。
+9. 若要编辑外部负载均衡器配置将要移到的目标区域，请更改 parameters.json 文件中 **resources** 下的 **location** 属性：
 
     ```json
         "resources": [
@@ -258,7 +255,7 @@ ms.locfileid: "86440535"
                 "tier": "Regional"
             },
         ```
-      有关基本和标准 SKU 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](/load-balancer/load-balancer-standard-overview)。
+        有关基本和标准 SKU 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](./load-balancer-overview.md)。
 
     * **负载均衡规则**。 可以通过在 template.json 文件的 **loadBalancingRules** 节中添加或删除条目，在配置中添加或删除负载均衡规则：
 
@@ -290,7 +287,7 @@ ms.locfileid: "86440535"
                     }
                 ]
         ```
-       有关负载均衡规则的信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
+        有关负载均衡规则的信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
 
     * **探测**。 可以通过在 template.json 文件的 **probes** 节中添加或删除条目，在配置中添加或删除负载均衡器的探测：
 
@@ -310,7 +307,7 @@ ms.locfileid: "86440535"
                     }
                 ],
         ```
-       有关详细信息，请参阅[负载均衡器运行状况探测](/load-balancer/load-balancer-custom-probe-overview)。
+        有关详细信息，请参阅[负载均衡器运行状况探测](/load-balancer/load-balancer-custom-probe-overview)。
 
     * **入站 NAT 规则**。 可以通过在 template.json 文件的 **inboundNatRules** 节中添加或删除条目，来添加或删除负载均衡器的入站 NAT 规则：
 
@@ -386,7 +383,7 @@ ms.locfileid: "86440535"
                 ]
         ```
 
-         有关详细信息，请参阅[负载均衡器出站规则](/load-balancer/load-balancer-outbound-rules-overview)。
+        有关详细信息，请参阅[负载均衡器出站规则](./load-balancer-outbound-connections.md#outboundrules)。
 
 12. 在在线编辑器中选择“保存”。 
 
@@ -414,6 +411,5 @@ ms.locfileid: "86440535"
 
 在本教程中，你已将一个 Azure 外部负载均衡器从一个区域移到了另一个区域，并清理了源资源。 若要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅：
 
-
-- [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
-- [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
+- [将资源移到新资源组或订阅中](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [将 Azure VM 移到另一区域](../site-recovery/azure-to-azure-tutorial-migrate.md)

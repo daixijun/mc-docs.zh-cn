@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/02/2019
 ms.author: v-yiso
 ms.date: 02/17/2020
-ms.openlocfilehash: ae2466ac09e0898832d1c4c7bf799047bd15e1fb
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 16615cff9352cee5137fbacd5fa069c4ee1897b3
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472630"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746804"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure 资源管理器模板创建 IoT 中心 (PowerShell)
 
@@ -28,7 +28,7 @@ ms.locfileid: "92472630"
 
 了解如何使用 Azure 资源管理器模板创建 IoT 中心和使用者组。 Resource Manager 模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 有关开发资源管理器模板的详细信息，请参阅 [Azure 资源管理器文档](/azure-resource-manager/)。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -155,7 +155,7 @@ New-AzResourceGroupDeployment `
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 <!-- Links -->
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: https://www.microsoft.com/china/azure/index.html?fromtype=cn/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://status.azure.com/status
 [lnk-powershell-install]: ../powershell-install-configure.md

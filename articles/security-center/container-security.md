@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 02/11/2020
-ms.openlocfilehash: e952040ccc024ec08e77ade23c9c00d4645491e4
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d371f388a53e2d12f97f5b2b4f85d01ed347d832
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638037"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747106"
 ---
 # <a name="container-security-in-security-center"></a>安全中心的容器安全性
 
@@ -79,11 +79,11 @@ AKS 提供安全控制，并且可用于了解群集的安全状况。 安全中
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>使用 Kubernetes 准入控制实现工作负载保护最佳做法
 
-安装 **适用于 Kubernetes 的 Azure 策略加载项**，获取一系列有助于保护 Kubernetes 容器工作载的建议。
+安装适用于 Kubernetes 的 Azure Policy 加载项，获取一系列有助于保护 Kubernetes 容器工作负载的建议。 还可以根据[启用扩展的自动预配](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)中的说明，自动部署此加载项。 将加载项的自动预配设置为“启用”时，默认情况下会在所有现有和未来的群集（满足加载项安装要求）中启用该扩展。
 
 该加载项扩展了 [Open Policy Agent](https://www.openpolicyagent.org/) 的开源 [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) 许可控制器 Webhook。 Kubernetes 准入控制器是强制实施群集使用方式的插件。 此加载项注册为 Kubernetes 准入控制的 web 挂钩，并使你能够以集中一致的方式在群集上应用大规模强制性操作和安全措施。 
 
-在 AKS 群集上安装了加载项后，将按照预先定义的一组最佳做法监视对 Kubernetes API 服务器的每个请求，然后再将其保存到群集。 然后，可以配置为强制实施最佳做法，并规定将其用于未来的工作负载。 
+通过 AKS 群集上的加载项，将按照预先定义的一组最佳做法监视对 Kubernetes API 服务器的每个请求，然后再将其保存到群集。 然后，可以配置为强制实施最佳做法，并规定将其用于未来的工作负载。 
 
 例如，可以规定不应创建特权容器，并且阻止以后的任何请求。
 

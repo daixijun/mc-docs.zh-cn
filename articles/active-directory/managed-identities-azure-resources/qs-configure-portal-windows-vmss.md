@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eac75d0baca3f7d9716289636737d4e970188b
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: b12d784c3980ba0465906ac4015e01ff5c736fd9
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041490"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509068"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>使用 Azure 门户在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -31,7 +31,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 在本文中，将了解如何使用 PowerShell 在虚拟机规模集上执行以下 Azure 资源的托管服务标识操作：
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
+- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后再继续。
 - 若要执行本文中的管理操作，帐户需要以下 Azure 角色分配：
 
     > [!NOTE]

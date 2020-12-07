@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/17/2018
-ms.date: 01/13/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 4fdada8f245eb450a95c947b5ae5782ba143c7e8
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 2f6ad567da2386547602cbec4c0ad41f62c2bbd0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590770"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746819"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 指标和警报
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 本文介绍了 Azure DNS 服务的指标和警报。
@@ -63,7 +63,7 @@ Azure DNS 的“记录集容量使用率”指标显示 DNS 区域的记录集�
 图：Azure DNS 记录集容量使用率指标 
 
 ## <a name="alerts-in-azure-dns"></a>Azure DNS 中的警报
-Azure Monitor 提供针对可用指标值进行报警的功能。 新警报配置体验中提供 DNS 指标。 如 [Azure Monitor 警报文档](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)中所述，可以选择 DNS 区域作为资源，选择“指标”信号类型，并配置警报逻辑和其他参数（例如“周期”和“频率”）   。 满足警报条件时，可以进一步定义[操作组](../azure-monitor/platform/action-groups.md)，借此警报将通过所选操作传送。 有关如何配置 Azure Monitor 指标报警的详细信息，请参阅[使用 Azure Monitor 创建、查看和管理警报](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 
+Azure Monitor 提供针对可用指标值进行报警的功能。 新警报配置体验中提供 DNS 指标。 如 [Azure Monitor 警报文档](../azure-monitor/platform/alerts-metric.md)中所述，可以选择 DNS 区域作为资源，选择“指标”信号类型，并配置警报逻辑和其他参数（例如“周期”和“频率”）   。 满足警报条件时，可以进一步定义[操作组](../azure-monitor/platform/action-groups.md)，借此警报将通过所选操作传送。 有关如何配置 Azure Monitor 指标报警的详细信息，请参阅[使用 Azure Monitor 创建、查看和管理警报](../azure-monitor/platform/alerts-metric.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [Azure DNS](dns-overview.md)。

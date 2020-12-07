@@ -2,21 +2,20 @@
 title: Azure Cosmos DB 资源模型
 description: 本文介绍 Azure Cosmos DB 资源模型，其中包括 Azure Cosmos 帐户、数据库、容器和项。 还会介绍 Azure Cosmos 帐户中的这些元素的层次结构。
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: df1f6b0919e25d74c3eb658914f6e2a0cea19040
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: bba3ef6d71cd95ded4077396850770db0f6ba0b3
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329179"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598553"
 ---
 <!--Verified successfully on the Rename and enhanced articles-->
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 资源模型
@@ -168,5 +167,4 @@ Azure Cosmos 项支持以下操作。 可以使用任一 Azure Cosmos API 来执
 * [如何在 Azure Cosmos 帐户中添加和删除 Azure 区域](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 
-<!-- Update_Description: new article about account databases containers items -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

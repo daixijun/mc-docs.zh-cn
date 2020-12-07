@@ -1,4 +1,4 @@
-- name: Azure Synapse（SQL 数据仓库）
+- name: Azure Synapse（前身为 SQL DW）
   href: index.yml
 - name: 概述
   items:
@@ -10,7 +10,7 @@
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: 备忘单
       href: cheat-sheet.md
-    - name: 最佳实践
+    - name: 最佳做法
       href: sql-data-warehouse-best-practices.md
     - name: 容量限制
       href: sql-data-warehouse-service-capacity-limits.md
@@ -122,7 +122,7 @@
       items:
         - name: 概述
           href: design-elt-data-loading.md
-        - name: 最佳实践
+        - name: 最佳做法
           href: guidance-for-loading-data.md
         - name: 列存储压缩
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
@@ -130,7 +130,7 @@
       items:
         - name: 概述
           href: sql-data-warehouse-overview-develop.md
-        - name: 最佳实践
+        - name: 最佳做法
           href: sql-data-warehouse-best-practices-development.md
         - name: JSON
           items:

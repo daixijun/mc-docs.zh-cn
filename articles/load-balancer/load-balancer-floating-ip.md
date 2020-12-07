@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2020
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 65fb8e34fb6b8828b4b3fc47b778582936e0fc63
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 8e8e46e8b9c1c627e303baba6c5f2b5f7e39745d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629786"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746561"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure 负载均衡器浮动 IP 配置
 
@@ -46,4 +46,4 @@ ms.locfileid: "92629786"
 - 详细了解 [Azure 负载均衡器](load-balancer-overview.md)。
 - 了解[运行状况探测](load-balancer-custom-probe-overview.md)。
 - 了解有关[标准负载均衡器诊断](load-balancer-standard-diagnostics.md)的信息。
-- 详细了解[网络安全组](../virtual-network/security-overview.md)。
+- 详细了解[网络安全组](../virtual-network/network-security-groups-overview.md)。

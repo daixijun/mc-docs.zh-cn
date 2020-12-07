@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 10/28/2018
-ms.openlocfilehash: 5173d538121809e65494113f2895926d96d01099
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: c920dabfbf69029f571137a9ba76090b5fa9510c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638080"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746648"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 安全中心的权限
 
@@ -57,7 +57,7 @@ Azure 安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../rol
 >
 
 ## <a name="next-steps"></a>后续步骤
-本文介绍安全中心如何使用 RBAC 将权限分配给用户，并辨别每个角色允许的操作。 现在，已熟悉监视订阅安全状态所需的角色分配，请编辑安全策略，并应用建议，了解如何：
+本文介绍安全中心如何使用 Azure RBAC 将权限分配给用户，并辨别每个角色允许的操作。 现在，已熟悉监视订阅安全状态所需的角色分配，请编辑安全策略，并应用建议，了解如何：
 
 - [在安全中心设置安全策略](tutorial-security-policy.md)
 - [管理安全中心的安全建议](security-center-recommendations.md)

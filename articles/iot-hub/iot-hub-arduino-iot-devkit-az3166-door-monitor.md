@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/19/2018
 ms.date: 05/11/2020
 ms.author: liydu
-ms.openlocfilehash: 5d3ca628b6e3512177fd6a838a49bf1a77598f14
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 16b6be10821b5dc613f3a8c19a24ff5749cc6360
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937327"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747198"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>门监视器 - 使用 Azure Functions 和 SendGrid 在门打开时发送电子邮件           
 
@@ -41,7 +41,7 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 一个有效的 Azure 订阅。 如果没有订阅，可以通过以下方法之一进行注册：
 
-* 激活 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 激活 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 声明你的 [Azure 信用额度](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)（如果你是 MSDN 或 Visual Studio 订阅者）。
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>在 Azure 中部署 SendGrid 服务
@@ -123,7 +123,7 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 ### <a name="start-vs-code"></a>启动 VS Code
 
-- 确保 DevKit **未**连接到计算机。
+- 确保 DevKit **未** 连接到计算机。
 - 启动 VS Code。
 - 将 DevKit 连接到计算机。
 

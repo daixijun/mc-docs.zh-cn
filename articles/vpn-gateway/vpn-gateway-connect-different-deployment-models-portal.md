@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 09/24/2019
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: b99bc2029035e8967250f005d00db5c8361b3073
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 51e76c1d948367d40de6d614403021955e809d16
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970837"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746860"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -87,7 +87,7 @@ SKU = VpnGw1 <br>
 
 ### <a name="1-create-a-classic-vnet"></a>1.<a name="classicvnet"></a>创建经典 VNet
 
-如果没有经典 VNet 并且是运行这些步骤进行练习，则可以参阅[此文](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)以及上文中的[示例](#values)设置值创建 VNet。
+如果没有经典 VNet 并且是运行这些步骤进行练习，则可以参阅[此文](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)以及上文中的[示例](#values)设置值创建 VNet。
 
 如果已经有带 VPN 网关的 VNet，请验证该网关是否为动态网关。 如果它是静态，必须首先删除 VPN 网关在执行前[配置本地站点](#local)。
 

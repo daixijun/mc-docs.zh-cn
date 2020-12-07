@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: v-junlch
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e25f2298632327b9a702ddf9efe1f8070926b5ab
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 59781160f54255b448e883f8532d48b71739a446
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326555"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509001"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>如何使用 Azure 经典 CLI 创建和管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Azure 经典 CLI 是从任何平台管理 Azure 基础结构的好办法。 本�
 ## <a name="prerequisites"></a>先决条件
 要使用 Azure 经典 CLI 创建和管理 Azure Redis 缓存实例，必须完成以下步骤。
 
-* 必须具有 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 必须具有 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [安装 Azure 经典 CLI](/cli/install-classic-cli)。
 * 将 Azure CLI 安装与个人 Azure 帐户或者工作或学校 Azure 帐户关联，然后使用 `azure login` 命令从经典 CLI 登录。
 * 在运行以下任何命令之前，通过运行 `azure config mode arm` 命令将经典 CLI 切换到资源管理器模式下。 有关更多详细信息，请参阅[使用 Azure 经典 CLI 管理 Azure 资源和资源组](../azure-resource-manager/management/manage-resources-cli.md)。

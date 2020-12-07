@@ -8,16 +8,16 @@ metadata:
   ms.service: security
   ms.subservice: fundamentals
   ms.topic: landing-page
-  author: TerryLanfear
-  ms.author: v-tawe
+  author: Johnnytechn
+  ms.author: v-johya
   manager: rkarlin
-  ms.date: 07/01/2020
-  ms.openlocfilehash: d01185084aa64f46c4a33cc76939c29c2950dfbe
-  ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+  ms.date: 12/03/2020
+  ms.openlocfilehash: b564fa3c0f46765d69b61623c7c710695e50de4f
+  ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/02/2020
-  ms.locfileid: "85845937"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96747120"
 landingContent:
 - title: 关于 Azure 安全性
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Azure 安全中心
-      url: ../../security-center/security-center-intro.md
+      url: ../../security-center/security-center-introduction.md
   - linkListType: concept
     links:
     - text: 监视和管理
@@ -73,7 +73,9 @@ landingContent:
     links:
     - text: 静态加密
       url: encryption-atrest.md
-    - text: 网络安全性
+    - text: 数据保护
+      url: ../../azure-sql/database/security-overview.md
+    - text: 网络安全
       url: network-overview.md
     - text: 虚拟机安全性
       url: virtual-machines-overview.md

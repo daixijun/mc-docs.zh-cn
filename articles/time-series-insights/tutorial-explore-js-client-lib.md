@@ -10,12 +10,12 @@ origin.date: 07/29/2019
 ms.date: 09/02/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 607cd1b075eb721905a496ef762894005c67794a
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 64a7d035982a52fe060c8611b0d1c202303998db
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402347"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509023"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教程：探索 Azure 时序见解 JavaScript 客户端库
 
@@ -35,7 +35,7 @@ ms.locfileid: "91402347"
 > * 时序见解示例应用源文件在 [GitHub 示例存储库](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)中提供。
 > * 请阅读[时序见解客户端参考文档](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。
 
-如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -110,8 +110,8 @@ ms.locfileid: "91402347"
 
 1. 使用 ADAL 进行身份验证时，必须在 Azure Active Directory (Azure AD) 中注册客户端应用。 注册单页应用是为了使用 [OAuth 2.0 隐式授权流](/active-directory/develop/v1-oauth2-implicit-grant-flow)。
 2. 应用程序必须在运行时指定一些注册属性。 这些属性包括客户端 GUID (`clientId`) 和重定向 URI (`postLogoutRedirectUri`)。
-3. 稍后，应用会从 Azure AD 请求*访问令牌*。 将会针对特定的服务或 API 标识符 (https:\//api.timeseries.azure.com) 颁发拥有一组有限权限的访问令牌。 令牌权限是代表登录用户颁发的。 服务或 API 的标识符是包含在应用的 Azure AD 注册中的另一个属性。
-4. ADAL 向应用返回访问令牌后，在访问时序见解服务 API 时，系统会将该令牌作为*持有者令牌*传递。
+3. 稍后，应用会从 Azure AD 请求 *访问令牌*。 将会针对特定的服务或 API 标识符 (https:\//api.timeseries.azure.com) 颁发拥有一组有限权限的访问令牌。 令牌权限是代表登录用户颁发的。 服务或 API 的标识符是包含在应用的 Azure AD 注册中的另一个属性。
+4. ADAL 向应用返回访问令牌后，在访问时序见解服务 API 时，系统会将该令牌作为 *持有者令牌* 传递。
 
 ```javascript
 // START: AUTHENTICATION RELATED CODE USING ADAL.JS
@@ -261,7 +261,7 @@ ms.locfileid: "91402347"
 
 * **折线图**
 * **饼图**
-* ****
+* <bpt id="p1">**</bpt>bar chart<ept id="p1">**</ept>
 * **heatmap**
 * **层次结构控件**
 * **可访问网格**

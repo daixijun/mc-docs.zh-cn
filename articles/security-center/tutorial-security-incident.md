@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/30/2018
-ms.date: 11/12/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 6298bef2693abbd22c3c81430e40fc84bad07183
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 59d29c6f4d8ff69fd81d4d03db13db39af83ec96
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637800"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747241"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>教程：会审、调查和响应安全警报
 安全中心使用高级分析和威胁情报来持续分析混合云工作负载，在云资源中出现潜在恶意活动时发出警报。 你还可以将其他安全产品和服务中的警报集成到安全中心。 发出警报后，需采取快速行动进行调查和修正潜在安全问题。 
@@ -32,7 +32,7 @@ ms.locfileid: "94637800"
 > * 调查安全警报以确定根本原因
 > * 响应安全警报并缓解该根本原因
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本教程中介绍的功能，需要启用 Azure Defender。 可以免费试用 Azure Defender。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。 可通过快速入门内容“[安全中心入门](security-center-get-started.md)”了解如何升级。
@@ -122,6 +122,5 @@ ms.locfileid: "94637800"
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了响应安全警报时需使用的安全中心功能。 如需查看相关材料，请参阅：
 
-- [安全警报 - 参考指南](alerts-reference.md)
 - [Azure Defender 简介](azure-defender.md)
 

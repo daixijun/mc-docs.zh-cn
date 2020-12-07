@@ -5,17 +5,17 @@ services: firewall
 ms.service: firewall
 origin.date: 08/29/2019
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: 3fd50a146b22d90ac8df6df540f863ecf9c32588
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 47c99e359196a4db87cec819a7d12d07ab6eedda
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970726"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746593"
 ---
 <!--Verify Successsfully-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
@@ -55,7 +55,6 @@ ms.locfileid: "95970726"
 - 本文需要 Azure CLI 版本 2.0.4 或更高版本。
 
 <!--Not Available on Azure Cloud Shell-->
-
 
 ## <a name="set-up-the-network"></a>设置网络
 
@@ -295,6 +294,6 @@ az group delete \
 
 ## <a name="next-steps"></a>后续步骤
 
-* [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+* [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

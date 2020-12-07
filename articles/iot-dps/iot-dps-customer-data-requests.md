@@ -4,16 +4,16 @@ description: 对于在 Azure 设备预配服务 (DPS) 中管理的个人设备�
 author: dominicbetts
 ms.author: v-tawe
 origin.date: 05/16/2018
-ms.date: 03/02/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3965519e1b664a5b8e03bb9079a86329093048ab
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 9cd84d86bed395297019b31ce2e48ce7bc7e6090
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021060"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541115"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 

@@ -12,12 +12,12 @@ origin.date: 02/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 06/08/2019
-ms.openlocfilehash: c9921cc51c4a22d6040709b141b74a3e65f41a76
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 02743c9b51b5c9950cf2183ec44ac0f74020f56f
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471982"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747192"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -48,7 +48,7 @@ ms.locfileid: "92471982"
 ![所需条件](./media/iot-hub-raspberry-pi-kit-c-get-started/0-starter-kit.png)
 
 * Raspberry Pi 2 或 Raspberry Pi 3 电路板。
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需几分钟时间就能[创建一个免费的 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需几分钟时间就能[创建一个免费的 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 监视器、USB 键盘和连接到 Pi 的鼠标。
 * 运行 Windows 或 Linux 的 Mac 或 PC。
 * Internet 连接。

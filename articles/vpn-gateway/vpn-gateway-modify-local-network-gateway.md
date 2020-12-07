@@ -7,14 +7,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
 origin.date: 06/19/2017
-ms.date: 09/07/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: ec41904773d44c65f022a2771aa0db35a26f7ffa
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: f5abc7b430c832317078b7be5a01f60dda243c9a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463027"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747214"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>使用 PowerShell 修改本地网络网关设置
 

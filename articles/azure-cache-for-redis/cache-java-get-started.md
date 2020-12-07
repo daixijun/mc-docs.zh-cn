@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ms.author: v-junlch
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 230ea534f176d7fe5580007667ea9a72c748d4f1
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: fd364268238e10c863e9fca91c53d786f7e1b3e0
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326583"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508987"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>快速入门：在 Java 中使用 Azure Cache for Redis
 
@@ -21,7 +21,7 @@ ms.locfileid: "94326583"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅 - [创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>创建 Azure Redis 缓存

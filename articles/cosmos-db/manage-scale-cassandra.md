@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 中 Cassandra API 的弹性缩放
 description: 了解可用于缩放 Azure Cosmos DB Cassandra API 帐户的选项及其优点/缺点
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 593a7e9faaf7534408fe8cb4e3b56c95c3a681ff
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a85658b39008b3ea62e3780044ce14928e0320e1
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552890"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598688"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>弹性缩放 Azure Cosmos DB Cassandra API 帐户
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

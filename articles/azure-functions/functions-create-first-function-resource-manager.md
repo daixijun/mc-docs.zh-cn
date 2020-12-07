@@ -5,12 +5,12 @@ ms.date: 11/18/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 9b94b6128de9bf601f12ca11d230754be21b63e7
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c48910a32191a0721b778213dac60b88a76c3c51
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849499"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509029"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>快速入门：使用 ARM 模板创建和部署 Azure Functions 资源
 
@@ -28,7 +28,7 @@ ms.locfileid: "94849499"
 
 ### <a name="azure-account"></a>Azure 帐户 
 
-在开始之前，必须拥有一个包含有效订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+在开始之前，必须拥有一个包含有效订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="create-a-local-functions-project"></a>创建本地函数项目
 

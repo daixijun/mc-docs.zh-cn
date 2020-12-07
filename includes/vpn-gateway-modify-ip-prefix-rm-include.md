@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 02/14/2019
-ms.date: 03/04/2019
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: ecce9746d94148b708cc0ad78640fef75418779e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bc4c5b417360b6f575cc04612e481ed08a3410de
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "69578657"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747213"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>修改本地网关 IP 地址前缀 - 无网关连接
 
@@ -71,7 +71,7 @@ ms.locfileid: "69578657"
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
    -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
    ```
-3. 创建连接。 在此示例中，我们配置 IPsec 连接类型。 重新创建连接时，请使用针对配置指定的连接类型。 有关其他连接类型，请参阅 [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) 页面。
+3. 创建连接。 在此示例中，我们配置 IPsec 连接类型。 重新创建连接时，请使用针对配置指定的连接类型。 有关其他连接类型，请参阅 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection) 页面。
    
    设置 VirtualNetworkGateway 的变量。
 

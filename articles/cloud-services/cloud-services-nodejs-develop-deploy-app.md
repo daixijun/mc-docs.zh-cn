@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: v-junlch
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 57a05b0f7bac6e0fb43bc7deabdd45e8cc7d2980
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 94bf88f8b4bdbbd19f47635bee085f222cf91c54
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721120"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509009"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -89,7 +89,7 @@ http.createServer(function (req, res) {
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
+> 要完成本教程，需要一个 Azure 帐户。 可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="download-the-azure-publishing-settings"></a>下载 Azure 发布设置
 要将应用程序部署到 Azure，必须先为 Azure 订阅下载发布设置。

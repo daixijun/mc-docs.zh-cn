@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/22/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: ee37c446858c2b11347f7b19b66abe3fecf2ac7b
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/04/2020
+ms.openlocfilehash: 0cf19db185de3c6e2bb9f7a43f63de85e3581bb0
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975169"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598653"
 ---
 # <a name="filling-time-gaps-and-imputing-missing-values"></a>填充时间间隙和插补缺失值 
 
@@ -182,7 +182,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 
 ## <a name="next-steps"></a>后续步骤 
 
-- [FIRST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
-- [LAST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json)
+- [FIRST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=%2fazure-sql-edge%2ftoc.json)
+- [LAST_VALUE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=%2fazure-sql-edge%2ftoc.json)
 - [DATE_BUCKET (Transact-SQL)](date-bucket-tsql.md)
 - [聚合函数 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/aggregate-functions-transact-sql)

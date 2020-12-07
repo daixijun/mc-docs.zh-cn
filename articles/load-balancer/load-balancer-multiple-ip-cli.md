@@ -8,18 +8,18 @@ author: WenJason
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/25/2018
-ms.date: 06/08/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: ec8a0e757a0994bfe3e0ecdaab669b41cb318794
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: cd69646e8cdcf6f78c5136774dbf8a755cdfb3e8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275468"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746546"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多个 IP 配置上进行负载均衡
 
@@ -32,7 +32,7 @@ ms.locfileid: "84275468"
 若要实现本文中所述的方案，请完成以下步骤：
 
 1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)，然后登录到 Azure 帐户。
-2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-group)并将其命名为 *contosofabrikam*，如下所示：
+2. 如下所述 [创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-group)并将其命名为 *contosofabrikam*，如下所示：
 
     ```azurecli
     az group create contosofabrikam chinaeast
@@ -89,7 +89,7 @@ ms.locfileid: "84275468"
     az network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. 为第一个虚拟机 VM1 [创建公共 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address)*myPublicIp* 和[存储帐户](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)*mystorageaccont1*，如下所示：
+10. 为第一个虚拟机 VM1 [创建公共 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address)*myPublicIp* 和 [存储帐户](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)*mystorageaccont1*，如下所示：
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location chinaeast --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -97,7 +97,7 @@ ms.locfileid: "84275468"
     az storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：
+11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic)，添加另一个 IP 配置 *VM1-ipconfig2*，并 [创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

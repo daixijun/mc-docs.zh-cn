@@ -2,19 +2,20 @@
 title: 迁移应用程序以使用 Azure Cosmos DB .NET SDK 3.0 (com.azure.cosmos)
 description: 了解如何将现有 .NET 应用程序从 v2 SDK 升级到适用于 Core (SQL) API 的较新 .NET SDK v3（com.azure.cosmos 包）。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1077c83db66254f022d9157185945d3661560332
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 470d31f640beeadd53fd9b3e163d4fdba3cab299
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552827"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598643"
 ---
 <!--Verified successfully for only charactors only-->
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>迁移应用程序以使用 Azure Cosmos DB .NET SDK v3
@@ -648,5 +649,4 @@ private static async Task DeleteItemAsync(DocumentClient client)
 * 使用 v3 SDK [生成控制台应用](sql-api-get-started.md)以管理 Azure Cosmos DB SQL API 数据
 * 详细了解 [v3 SDK 的用途](sql-api-dotnet-v3sdk-samples.md)
 
-<!-- Update_Description: new article about migrate dotnet v3 -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

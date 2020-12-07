@@ -2,19 +2,20 @@
 title: 使用模板部署 Web 应用 - Azure Cosmos DB
 description: 了解如何使用 Azure 资源管理器模板部署 Azure Cosmos 帐户、Azure 应用服务 Web 应用以及示例 Web 应用程序。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 06/19/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 79cbcf028535a919fd78585d139edc6844d3a40c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 111f462d86ec6d432b2289a3129016c60d60dae7
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328918"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598704"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板从 GitHub 部署 Azure Cosmos DB、Azure 应用服务与 Web 应用
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -2,19 +2,20 @@
 title: 用于 MongoDB 的 Azure Cosmos DB API 的 Azure PowerShell 示例
 description: 获取 Azure PowerShell 示例以在用于 MongoDB 的 Azure Cosmos DB API 中执行常见任务
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d06f14cef4ddfc99d93833896dbf665028c46a3c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 41a3c1cce1f448d4392ba365e7fcbf3dede9b2cd
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328885"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598647"
 ---
 <!--Verified successfully-->
 # <a name="azure-powershell-samples-for-azure-cosmos-db-api-for-mongodb"></a>用于 MongoDB 的 Azure Cosmos DB API 的 Azure PowerShell 示例
@@ -44,5 +45,4 @@ ms.locfileid: "94328885"
 |[锁定资源以防止将其删除](scripts/powershell/mongodb/lock.md)| 通过资源锁防止资源遭到删除。 |
 |||
 
-<!-- Update_Description: new article about powershell samples mongodb -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

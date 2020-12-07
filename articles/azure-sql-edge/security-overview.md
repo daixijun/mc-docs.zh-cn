@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/22/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: 2a32e1d009ef9623300a87082d619cb5416da8fe
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/04/2020
+ms.openlocfilehash: bcab4ca3d1487bb4183fef969362917d032894ea
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975165"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598628"
 ---
 # <a name="securing-azure-sql-edge"></a>保护 Azure SQL Edge
 

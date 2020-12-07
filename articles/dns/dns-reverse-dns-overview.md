@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 02/17/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: ac82c94b54e957ac0df7c143121d1989a093c131
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5603f82d3825cf81bc2aa5e1d3fbf4f7992c8f35
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428868"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747006"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>反向 DNS 和 Azure 支持概述
 
@@ -39,7 +39,7 @@ ms.locfileid: "77428868"
 如果组织被分配了 IP 地址块，则还有权管理相应的 ARPA 区域。 与 Azure 使用的 IP 地址块对应的 ARPA 区域由 Azure 托管和管理。 ISP 可以代你托管自己的 IP 地址的 ARPA 区域，或者允许在所选的 DNS 服务（例如 Azure DNS）中托管 ARPA 区域。
 
 > [!NOTE]
-> 正向 DNS 查找和反向 DNS 查找是在独立的并行 DNS 层次结构中实现的。 “www.contoso.com”的反向查找**不是**托管在区域“contoso.com”中，而是托管在相应 IP 地址块的 ARPA 区域中。 独立区域用于 IPv4 和 IPv6 地址块。
+> 正向 DNS 查找和反向 DNS 查找是在独立的并行 DNS 层次结构中实现的。 “www.contoso.com”的反向查找 **不是** 托管在区域“contoso.com”中，而是托管在相应 IP 地址块的 ARPA 区域中。 独立区域用于 IPv4 和 IPv6 地址块。
 
 ### <a name="ipv4"></a>IPv4
 
@@ -90,7 +90,7 @@ IP 地址“192.0.2.129”的反向查找查询名为“129.2.0.192.in-addr.arpa
 
 IPv6 反向查找区域的名称应采用以下格式：`<IPv6 network prefix in reverse order>.ip6.arpa`
 
-例如， 为 IP 前缀为 2001:db8:1000:abdc::/64 的主机创建反向区域以托管其记录时，将通过隔离该地址的网络前缀 (2001:db8:abdc::) 来创建区域名称。 接下来，如果使用了[零压缩](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx)缩短 IPv6 地址前缀 (2001:0db8:abdc:0000::)，则展开 IPv6 网络前缀将其删除。 反转顺序并使用句点作为前缀中每个十六进制数之间的分隔符，构建反向网络前缀 (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`)，然后添加后缀 `.ip6.arpa`。
+例如， 为 IP 前缀为 2001:db8:1000:abdc::/64 的主机创建反向区域以托管其记录时，将通过隔离该地址的网络前缀 (2001:db8:abdc::) 来创建区域名称。 接下来，如果使用了[零压缩](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10))缩短 IPv6 地址前缀 (2001:0db8:abdc:0000::)，则展开 IPv6 网络前缀将其删除。 反转顺序并使用句点作为前缀中每个十六进制数之间的分隔符，构建反向网络前缀 (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`)，然后添加后缀 `.ip6.arpa`。
 
 
 |网络前缀  |展开的反向网络前缀 |标准后缀 |反向区域名称  |
@@ -115,4 +115,3 @@ IPv6 反向查找区域的名称应采用以下格式：`<IPv6 network prefix in
 了解如何[在 Azure DNS 中为 ISP 分配的 IP 范围托管反向查找区域](dns-reverse-dns-for-azure-services.md)。
 <br>
 了解如何[管理 Azure 服务的反向 DNS 记录](dns-reverse-dns-for-azure-services.md)。
-

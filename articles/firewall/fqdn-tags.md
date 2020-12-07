@@ -6,16 +6,16 @@ ms.service: firewall
 ms.topic: article
 origin.date: 06/30/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f9b24e1f9a910585bf4822f4107da8fa05c93be9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0935389e5f382c50190d5f253a005432b04fd664
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327279"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746715"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 标记概述
 
@@ -44,7 +44,7 @@ FQDN 标记表示与已知的 Azure 服务关联的一组完全限定的域名 (
 <!--Not Available on |WindowsVirtualDesktop (WVD)|Allows outbound Windows Virtual Desktop platform traffic. This tag doesn't cover deployment-specific Storage and Service Bus endpoints created by WVD. Additionally, DNS and KMS network rules are required. For more information about integrating Azure Firewall with WVD, see [Use Azure Firewall to protect Window Virtual Desktop deployments](protect-windows-virtual-desktop.md)-->
 
 > [!NOTE]
-> 在应用程序规则中选择 FQDN 标记时，“协议:端口”字段必须设置为 **https** 。
+> 在应用程序规则中选择 FQDN 标记时，“协议:端口”字段必须设置为 **https**。
 
 ## <a name="next-steps"></a>后续步骤
 

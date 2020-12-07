@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5f3d2b0bb3be12d6bed276feedc7107d606ce035
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: abee3d329b31fafbd3791328ed0c849f6fe85524
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327635"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598686"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

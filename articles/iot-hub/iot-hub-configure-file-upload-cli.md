@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: 002607ca85d4bdf2d808ad15af0d35a12d831fc2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 71a3913fdc41e4954bc3f2be7f4efcd99390f4d1
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327560"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746937"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
@@ -23,7 +23,7 @@ ms.locfileid: "94327560"
 
 要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。 若尚无帐户，只需几分钟即可创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
+* 有效的 Azure 帐户。 若尚无帐户，只需几分钟即可创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/) 。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 * Azure IoT 中心。 如果没有 IoT 中心，可以使用 [`az iot hub create` 命令](https://docs.azure.cn/zh-cn/cli/iot/hub#az-iot-hub-create)创建一个，或[使用门户创建 IoT 中心](iot-hub-create-through-portal.md)。
@@ -88,7 +88,7 @@ az storage account show-connection-string --name {your storage account name} --r
 
 **存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
-接收已上传文件的通知：启用或禁用文件上传通知。
+接收已上传文件的通知：启用或禁用文件上传通知。 
 
 **SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
 

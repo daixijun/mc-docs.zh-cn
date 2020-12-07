@@ -2,20 +2,21 @@
 title: 读取 Azure Cosmos DB 更改源
 description: 本文介绍可用于读取和访问 Azure Cosmos DB 中的更改源的各种选项。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: dacce1a79adf913e9b1fcc9f397f52180e9bffb4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b915419132346a2832a4b8cfcd07612acd8965f0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552774"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747248"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>读取 Azure Cosmos DB 更改源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

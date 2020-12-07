@@ -2,19 +2,20 @@
 title: 适用于 Azure Cosmos DB 表 API 的 Azure PowerShell 示例
 description: 获取用于在 Azure Cosmos DB 表 API 中执行常见任务的 Azure PowerShell 示例
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0a8b74afbfeb575232a4490856fd4ee85556beac
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 22c3c75dcf34d6f43c18f19195ff995cfdd006f8
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328883"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598703"
 ---
 <!--Verified successfully-->
 # <a name="azure-powershell-samples-for-azure-cosmos-db-table-api"></a>适用于 Azure Cosmos DB 表 API 的 Azure PowerShell 示例
@@ -44,5 +45,4 @@ ms.locfileid: "94328883"
 |[锁定资源以防止将其删除](scripts/powershell/table/lock.md)| 通过资源锁防止资源遭到删除。 |
 |||
 
-<!-- Update_Description: new article about powershell samples table -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

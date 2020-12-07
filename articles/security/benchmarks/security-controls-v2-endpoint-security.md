@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 终结点安全性
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 545ff8b5e5cf6847f70d20c8345be43c7f8b2728
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c3aefc18f0d83c1e110d5e5382b46262de19504d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128715"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747099"
 ---
 # <a name="security-control-v2-endpoint-security"></a>安全控制 V2：终结点安全性
 
@@ -34,7 +34,7 @@ Microsoft Defender 高级威胁防护在企业终结点安全平台中提供了 
 
 - [适用于非 Windows Server 的 Microsoft Defender ATP 服务](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -60,9 +60,9 @@ Azure 安全中心可以自动识别针对虚拟机的多种常用反恶意软�
 
 - [如何为云服务和虚拟机配置 Microsoft Antimalware](../fundamentals/antimalware.md)
 
-- [支持的终结点保护解决方案](/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [支持的终结点保护解决方案](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -86,7 +86,7 @@ Azure 安全中心可以自动识别针对虚拟机的多种常用反恶意软�
 
 - [如何为 Azure 云服务和虚拟机部署 Microsoft Antimalware](../fundamentals/antimalware.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

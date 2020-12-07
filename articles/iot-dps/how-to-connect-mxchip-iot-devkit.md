@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 的自动预�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 06/25/2019
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 7427981b29379eda832a8a64a51b79de3dcbd23c
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 9490117e3cc3d954968c445c8491688aaa64bd1d
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564402"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541165"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心
 
@@ -31,13 +31,13 @@ ms.locfileid: "91564402"
 
 若要完成本教程中的步骤，请先执行以下任务：
 
-* 按照[将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)的“准备开发环境”部分中的步骤配置 DevKit 的 Wi-Fi 并准备开发环境。
+* 按照[将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment)的“准备开发环境”部分中的步骤配置 DevKit 的 Wi-Fi 并准备开发环境。
 * 参考[更新 DevKit 固件](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)教程升级到最新固件（1.3.0 或以上）。
-* 按照[使用 Azure 门户设置 IoT 中心设备预配服务](/iot-dps/quick-setup-auto-provision)中的步骤，创建 IoT 中心并将其链接到设备预配服务实例。
+* 按照[使用 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)中的步骤，创建 IoT 中心并将其链接到设备预配服务实例。
 
 ## <a name="open-sample-project"></a>打开示例项目
 
-1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
+1. 确保 IoT DevKit **未连接** 到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
 1. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:  Open Examples...”。然后选择“IoT DevKit”作为开发板。 
 
@@ -59,7 +59,7 @@ ms.locfileid: "91564402"
 1. 在 VS Code 中，单击状态栏以选择 DevKit 的 COM 端口。
   ![选择 COM 端口](media/how-to-connect-mxchip-iot-devkit/select-com.png)
 
-1. 在 DevKit 上，按住**按钮 A** 不放，按下再松开**重置**按钮，然后松开**按钮 A**。DevKit 将进入配置模式。
+1. 在 DevKit 上，按住 **按钮 A** 不放，按下再松开 **重置** 按钮，然后松开 **按钮 A**。DevKit 将进入配置模式。
 
 1. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:**配置设备设置...”>“配置唯一设备字符串 (UDS)”** 。
   ![配置 UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
@@ -75,7 +75,7 @@ ms.locfileid: "91564402"
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>更新全局设备终结点和 ID 范围
 
-在设备代码中，需要指定[设备预配终结点](/iot-dps/concepts-service#device-provisioning-endpoint)和 ID 范围以确保租户隔离。
+在设备代码中，需要指定[设备预配终结点](./concepts-service.md#device-provisioning-endpoint)和 ID 范围以确保租户隔离。
 
 1. 在 Azure 门户中，选择设备预配服务的“概述”窗格，记下“全局设备终结点”和“ID 范围”的值    。
   ![设备预配服务全局终结点和 ID 范围](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -91,7 +91,7 @@ ms.locfileid: "91564402"
 
 ## <a name="generate-x509-certificate"></a>生成 X.509 证书
 
-此示例使用的[证明机制](/iot-dps/concepts-device#attestation-mechanism)是 X.509 证书。 需要使用实用程序来生成它。
+此示例使用的[证明机制](./concepts-service.md#attestation-mechanism)是 X.509 证书。 需要使用实用程序来生成它。
 
 1. 在 VS Code 中，单击 `F1`，键入并选择“打开新终端”以打开终端窗口  。
 
@@ -142,4 +142,3 @@ ms.locfileid: "91564402"
 > * 验证设备是否已注册。
 
 了解如何[创建和预配模拟设备](./quick-create-simulated-device.md)。
-

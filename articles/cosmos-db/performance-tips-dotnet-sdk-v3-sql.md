@@ -2,20 +2,21 @@
 title: 适用于 .NET SDK v3 的 Azure Cosmos DB 性能提示
 description: 了解有助于提高 Azure Cosmos DB .NET v3 SDK 性能的客户端配置选项。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3fc162c40b98a57ccb3dbdd00fe649bde0cfe453
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f33d06b7527065d671640e200ffb6dbe1ca10027
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552787"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598494"
 ---
 <!--Verified successfully-->
 <!-- ONLY CHARACTOR CONTENT-->

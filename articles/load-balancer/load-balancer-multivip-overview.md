@@ -11,20 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/07/2019
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: a14478ab407506dca0ae6f814fa9cf9aad7270d2
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 5be901ab6077661db4ab88a8eb36c58ecc337814
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628213"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747187"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
 
 使用 Azure 负载均衡器可对多个端口和/或多个 IP 地址上的服务进行负载均衡。 可以使用公共和内部负载均衡器定义来对一组 VM 之间的流量进行负载均衡。
 
-本文介绍此功能的基础知识、重要概念和约束。 如果只想要公开一个 IP 地址上的服务，可以查看[公共](load-balancer-get-started-internet-portal.md)或[内部](load-balancer-get-started-ilb-arm-portal.md)负载均衡器配置的简要说明。 添加多个前端是对单个前端配置的递增。 使用本文中的概念，随时可以扩展简化的配置。
+本文介绍此功能的基础知识、重要概念和约束。 如果只想要公开一个 IP 地址上的服务，可以查看[公共](./quickstart-load-balancer-standard-public-portal.md)或[内部](./quickstart-load-balancer-standard-internal-portal.md)负载均衡器配置的简要说明。 添加多个前端是对单个前端配置的递增。 使用本文中的概念，随时可以扩展简化的配置。
 
 定义 Azure 负载均衡器时，前端和后端池配置与规则相连接。 规则引用的运行状况探测用于确定如何将新流量发送到后端池中的节点。 前端（也称为 VIP）由负载均衡规则中的 IP 地址（公共或内部）、传输协议（UDP 或 TCP）和端口号组成的 3 元组定义。 后端池是引用负载均衡器后端池的虚拟机 IP 配置（NIC 资源的一部分）的集合。
 

@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 6d7f9a4e78c83ccac400c8f1975fb31f2b92adf0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: bbf2e6adedddbbf9c906fc5ae9511eeb6c20a654
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472674"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747142"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>使用 New-AzIotHub cmdlet 创建 IoT 中心
 
@@ -26,7 +26,7 @@ ms.locfileid: "92472674"
 
 可以使用 Azure PowerShell cmdlet 创建和管理 Azure IoT 中心。 本教程介绍如何使用 PowerShell 创建 IoT 中心。
 
-若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
+若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/) 。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -108,7 +108,7 @@ Remove-AzResourceGroup -Name MyIoTRG1
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
 
 <!-- Links -->
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: https://www.microsoft.com/china/azure/index.html?fromtype=cn/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource

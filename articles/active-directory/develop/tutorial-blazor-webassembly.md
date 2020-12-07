@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.openlocfilehash: 2bad6c05929a246953bd0aed7dc2d529c34e7f1b
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 1cfea65ef095a62e154ed80525fb978c13b7c808
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918307"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508999"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>教程：从 Blazor WebAssembly 应用让用户登录并调用受保护的 API
 
@@ -31,7 +31,7 @@ Blazor WebAssembly (WASM) 是一种单页应用框架，可通过 .NET 构建交
 ## <a name="prerequisites"></a>先决条件
 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* 可在其中注册应用的 Azure AD 租户。 如果你无权访问 Azure AD 租户，可以通过注册到 [Microsoft 365 开发人员计划](https://developer.microsoft.com/microsoft-365/dev-program)或创建 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)来获取一个租户。
+* 可在其中注册应用的 Azure AD 租户。 如果你无权访问 Azure AD 租户，可以通过注册到 [Microsoft 365 开发人员计划](https://developer.microsoft.com/microsoft-365/dev-program)或创建 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)来获取一个租户。
 
 ## <a name="register-the-app-in-the-azure-portal"></a>在 Azure 门户中注册应用
 

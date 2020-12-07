@@ -8,15 +8,15 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 11/06/2019
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.reviewer: akjosh
-ms.openlocfilehash: e54e105ff7073ae08d641401da93d1f106556770
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 1044e3abb4d1d33ac7c3864ea951fcbbe8021e15
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637948"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747109"
 ---
 <!--Verified the Shared Image Gallery exist-->
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>使用门户创建共享映像库
@@ -25,7 +25,7 @@ ms.locfileid: "94637948"
 
 使用共享映像库，你可以在 Azure AD 租户内在同一区域或跨区域与组织中的其他用户共享自定义 VM 映像。 选择要共享哪些映像，要在哪些区域中共享，以及希望与谁共享它们。 你可以创建多个库，以便可以按逻辑方式对共享映像进行分组。 
 
-库是顶级资源，它提供完全基于角色的访问控制 (RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
+库是顶级资源，它提供完整的 Azure 基于角色的访问控制 (Azure RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
 
 共享映像库功能具有多种资源类型。 我们将在本文中使用或生成这些资源类型：
 
@@ -82,4 +82,4 @@ ms.locfileid: "94637948"
 
 有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](../troubleshooting-shared-images.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+

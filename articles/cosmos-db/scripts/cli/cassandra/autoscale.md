@@ -6,24 +6,26 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: f37a9bf43d9079e4e695dd35f7526e318bbabbf3
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5bfa9447cf6c2d2c337461650be59bb89c70afcf
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328886"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598625"
 ---
 <!--Verify successfully-->
 # <a name="create-an-azure-cosmos-cassandra-api-account-keyspace-and-table-with-autoscale-using-azure-cli"></a>使用 Azure CLI 创建 Azure Cosmos Cassandra API 帐户、密钥空间和表（具有自动缩放功能）
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+- 本文需要 Azure CLI 版本 2.9.1 或更高版本。 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -34,10 +36,8 @@ ms.locfileid: "94328886"
 #
 # Create a Cassandra keyspace and table with autoscale
 
-# Generate a unique 10 character alphanumeric string to ensure unique resource names
-uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
-
 # Variables for Cassandra API resources
+uniqueId=$RANDOM
 resourceGroupName="Group-$uniqueId"
 location='chinanorth2'
 accountName="cosmos-$uniqueId" #needs to be lower case
@@ -116,9 +116,8 @@ az group delete --name $resourceGroupName
 | [az cosmosdb cassandra table create](https://docs.azure.cn/cli/cosmosdb/cassandra/table#az_cosmosdb_cassandra_table_create) | 创建 Azure Cosmos Cassandra 表。 |
 | [az group delete](https://docs.azure.cn/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
-<!--CORRECT ON [az cosmosdb cassandra keyspace create]-->
-<!--CORRECT ON [az cosmosdb cassandra table create]-->
 
+<!--CORRECT ON [az cosmosdb cassandra table create]-->
 
 ## <a name="next-steps"></a>后续步骤
 

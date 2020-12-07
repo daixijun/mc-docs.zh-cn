@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/13/2020
-ms.author: v-tawe
+ms.date: 12/04/2020
+ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: 71a70342af57c7a2af02eb123183484d6c853339
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 54cab598bedd4d2b11ecb1dbaeafa21d6938d148
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402579"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746987"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes 服务与安全中心的集成
 
@@ -45,8 +45,6 @@ Azure Kubernetes 服务 (AKS) 是 Microsoft 的托管服务，用于开发、部
     * Kubernetes 审核日志
 
     有关详细信息，请参阅[针对 Azure 容器的威胁防护](threat-protection.md)
-
-    有关可能出现警报的列表，请参阅警报引用表中的以下部分：[AKS 群集级别警报](alerts-reference.md#alerts-akscluster)和[容器主机级别警报](alerts-reference.md#alerts-containerhost)。  
 
 ![详细了解 Azure 安全中心与 Azure Kubernetes 服务 (AKS)](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 

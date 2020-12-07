@@ -4,17 +4,18 @@ description: 本文档提供从 MongoDB 迁移到 Azure Cosmos DB MongoDB API �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
+origin.date: 03/20/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cf646cd539ea3da67e9085900e4df15dabde336d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ca2e8ae24ea61f8f3b1e5e42118b95066a1f8ad7
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552815"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598495"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB MongoDB API 时的迁移后优化步骤
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -54,7 +55,7 @@ ms.locfileid: "94552815"
 <a name="multiple-regionally-distribute-your-data"></a>
 ## <a name="globally-distribute-your-data"></a>全局分发数据
 
-Azure Cosmos DB 在中国的所有 [Azure 中国区域](https://status.azure.com/status/)提供。 为 Azure Cosmos DB 帐户选择默认的一致性级别后，可以关联一个或多个 Azure 区域（具体取决于多区域分发需求）。 为了实现高可用性和业务连续性，我们始终建议至少在 2 个区域中运行 Azure Cosmos DB。 可以查看有关 [Azure Cosmos DB 中多区域部署的优化成本](optimize-cost-regions.md)的提示。
+Azure Cosmos DB 在中国的所有 [Azure 中国区域](https://azure.microsoft.com/regions/#services)提供。 为 Azure Cosmos DB 帐户选择默认的一致性级别后，可以关联一个或多个 Azure 区域（具体取决于多区域分发需求）。 为了实现高可用性和业务连续性，我们始终建议至少在 2 个区域中运行 Azure Cosmos DB。 可以查看有关 [Azure Cosmos DB 中多区域部署的优化成本](optimize-cost-regions.md)的提示。
 
 <!--CORRECT ON https://status.azure.com/status/-->
 

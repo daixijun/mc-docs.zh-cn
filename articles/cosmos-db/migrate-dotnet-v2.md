@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/15/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 20791acf75b40ea8c1812c23d328b5139b1a30d4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b683e3535be9ec3cf2ed3a3a21c80a2345494d7f
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978391"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598641"
 ---
 <!--Verified successfully for charactors only-->
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v2"></a>迁移应用程序以使用 Azure Cosmos DB .NET SDK v2

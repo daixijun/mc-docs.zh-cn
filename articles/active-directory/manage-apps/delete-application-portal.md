@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/23/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0cd82d33bdf8f745fd9d86068a7ee89987b4d6e0
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 6f3fe4f4201b16dd02f6e9be8fcb766a020b508d
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245613"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509054"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>快速入门：从 Azure Active Directory (Azure AD) 租户中删除应用程序
 
@@ -25,7 +25,7 @@ ms.locfileid: "91245613"
 
 若要从 Azure AD 租户中删除应用程序，需具备：
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 以下角色之一：全局管理员、云应用程序管理员、应用程序管理员或服务主体的所有者。
 - 可选：完成[查看应用](view-applications-portal.md)。
 - 可选：完成[配置应用](add-application-portal-configure.md)。

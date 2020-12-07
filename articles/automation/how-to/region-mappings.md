@@ -1,22 +1,17 @@
 ---
 title: 链接的 Log Analytics 工作区支持的区域
 description: 本文介绍支持的自动化帐户与 Log Analytics 工作区之间的区域映射。
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 09/03/2020
-ms.date: 09/28/2020
 ms.topic: conceptual
-manager: digimobile
 ms.custom: references_regions
-ms.openlocfilehash: 63f58cb52015a438f44af62b5a864adc4eb414db
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: cb7cb40082b00230e041c27f1f6db196649d4322
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246727"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747199"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>链接的 Log Analytics 工作区支持的区域
 
@@ -61,4 +56,4 @@ ms.locfileid: "91246727"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 在[更新管理概述](../update-management/update-mgmt-overview.md)中详细了解更新管理。
+* 在[更新管理概述](../update-management/overview.md)中详细了解更新管理。

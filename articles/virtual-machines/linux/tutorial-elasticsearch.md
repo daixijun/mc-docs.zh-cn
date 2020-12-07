@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 10/11/2017
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 80b628104a633ac18128bd7f19c148554d248558
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 077de5ba90daea3f319f1d9394bf23d0acc4df67
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637759"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747108"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>在 Azure VM 上安装 Elastic Stack
 
@@ -38,11 +38,11 @@ ms.locfileid: "94637759"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用“[az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create)”命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用“[az group create](/cli/group)”命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。 
+使用 [az vm create](/cli/vm) 命令创建 VM。 
 
 下面的示例创建一个名为 *myVM* 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。  
 
@@ -82,7 +82,7 @@ az vm create \
 
 ## <a name="ssh-into-your-vm"></a>通过 SSH 连接到 VM
 
-如果还不知道 VM 的公共 IP 地址，请运行 [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) 命令：
+如果还不知道 VM 的公共 IP 地址，请运行 [az network public-ip list](/cli/network/public-ip) 命令：
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
@@ -212,7 +212,7 @@ sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 编辑 `/etc/kibana/kibana.yml` 并更改 Kibana 侦听的 IP 地址，以便通过 Web 浏览器对其进行访问。
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 使用以下命令启动 Kibana：
@@ -245,4 +245,3 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 > * 通过 Logstash 将示例数据发送到 Elasticsearch 
 > * 在 Kibana 控制台中打开端口并处理数据
 
-<!-- Update_Description: update meta properties -->

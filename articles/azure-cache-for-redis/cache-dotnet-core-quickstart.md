@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: fc5710ee02ac8af7883eb8bb093a8a519f83bc61
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 18aa8fe310d44c6764c70bb9fa09ae438aedb5b5
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326601"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509019"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>快速入门：在 .NET Core 中使用 Azure Cache for Redis
 
@@ -21,7 +21,7 @@ ms.locfileid: "94326601"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅 - [创建订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-a-cache"></a>创建缓存

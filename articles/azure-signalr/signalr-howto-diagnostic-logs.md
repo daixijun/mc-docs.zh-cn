@@ -5,14 +5,14 @@ author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 12/17/2019
-ms.date: 10/19/2020
+ms.date: 12/03/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8e4352dfefe48ae110966b1f52cd238c92ed4766
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 835331a220860f6ae29b7b43f6086b950e5344e1
+ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170796"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96544728"
 ---
 <!-- Log Analytics not supported -->
 
@@ -160,7 +160,7 @@ Reason | 说明
 
 #### <a name="throttling"></a>限制
 
-如果发现无法在 SignalR 客户端与 Azure SignalR 服务之间建立连接，请检查资源日志。 如果在资源日志中遇到 `Connection count reaches limit`，则表示与 SignalR 服务建立的连接过多，从而达到了连接计数限制。 考虑纵向扩展 SignalR 服务。 如果在资源日志中遇到 `Message count reaches limit`，则表示使用的是免费层，并且已用完了消息配额。 若要发送更多消息，请考虑将 SignalR 服务更改为标准层。 有关详细信息，请参阅 [Azure SignalR 服务定价](https://www.azure.cn/pricing/details/signalr-service/)。
+如果发现无法在 SignalR 客户端与 Azure SignalR 服务之间建立连接，请检查资源日志。 如果在资源日志中遇到 `Connection count reaches limit`，则表示与 SignalR 服务建立的连接过多，从而达到了连接计数限制。 考虑纵向扩展 SignalR 服务。 如果在资源日志中遇到 `Message count reaches limit`，则表示使用的是免费层，并且已用完了消息配额。 若要发送更多消息，请考虑将 SignalR 服务更改为标准层。 有关详细信息，请参阅 [Azure SignalR 服务定价](https://www.azure.cn/pricing/details/signalr-service/)。
 
 ### <a name="get-help"></a>获取帮助
 

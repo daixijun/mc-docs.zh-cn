@@ -3,15 +3,15 @@ title: 教程：将 Java 函数与 Azure Cosmos DB 和事件中心配合使用
 description: 本教程介绍如何使用事件中心的事件，通过以 Java 编写的函数在 Azure Cosmos DB 中进行更新。
 author: KarlErickson
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.custom: devx-track-java
-ms.openlocfilehash: 3e0648433916a55f0e49eb275b29f44fbce36bff
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 481e6563e9514765c08b2a4d3c2bf727d50503d2
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472587"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509044"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>教程：使用事件中心触发器和 Azure Cosmos DB 输出绑定在 Java 中创建函数
 
@@ -24,7 +24,7 @@ ms.locfileid: "92472587"
 > * 创建和测试与这些资源交互的 Java 函数。
 > * 将函数部署到 Azure，并使用 Application Insights 进行监视。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -177,7 +177,7 @@ COSMOS_DB_CONNECTION_STRING=$( \
         --resource-group $RESOURCE_GROUP \
         --name $COSMOS_DB_ACCOUNT \
         --type connection-strings \
-        --query connectionStrings[0].connectionString \
+        --query 'connectionStrings[0].connectionString' \
         --output tsv)
 echo $COSMOS_DB_CONNECTION_STRING
 ```
@@ -410,7 +410,7 @@ mvn azure-functions:run
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-你可以转到 [Azure 门户](https://portal.azure.cn)，导航到 Azure Cosmos DB 帐户。 选择“数据资源管理器”  ，展开“TelemetryInfo”  ，然后选择“项”  在数据到达时查看数据。
+你可以转到 [Azure 门户](https://portal.azure.cn)，导航到 Azure Cosmos DB 帐户。 选择“数据资源管理器”，展开“TelemetryInfo”，然后选择“项”在数据到达时查看数据。
 
 ![Cosmos DB 数据资源管理器](./media/functions-event-hub-cosmos-db/data-explorer.png)
 

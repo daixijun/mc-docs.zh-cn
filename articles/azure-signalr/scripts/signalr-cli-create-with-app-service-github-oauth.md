@@ -1,20 +1,20 @@
 ---
-title: Azure CLI 脚本示例 - 创建使用 SignalR 服务和 GitHub 身份验证的 Web 应用
+title: 创建使用 SignalR 服务和 GitHub 身份验证的 Web 应用
 description: Azure CLI 脚本示例 - 创建使用 SignalR 服务和 GitHub 身份验证的 Web 应用
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 04/22/2018
-ms.date: 11/25/2019
+ms.date: 12/03/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: b69071b347dad5c294fad44d64f6f07acda18d64
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d4d6bbd8fde2b19bd4a5278a4d1b92fa4fdcf695
+ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75600577"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96544727"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>创建使用 SignalR 服务和 GitHub 身份验证的 Web 应用
 

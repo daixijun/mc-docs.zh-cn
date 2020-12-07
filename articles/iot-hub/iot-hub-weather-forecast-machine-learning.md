@@ -11,12 +11,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 02/10/2020
 ms.date: 03/09/2020
 ms.author: v-yiso
-ms.openlocfilehash: ea04304e328432008254a70a0c169c72fa144e16
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1b79f4ebf63a18dbdb18dcf07d063352c1a831d0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472646"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746816"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>在 Azure 机器学习工作室（经典版）中使用 IoT 中心的传感器数据进行天气预测
 
@@ -119,14 +119,14 @@ ms.locfileid: "92472646"
 
 1. 选择“部署 WEB 服务”以将模型部署为 Web 服务。
 
-1. 在模型的仪表板上，下载“Excel 2010 或更早版本的工作簿”  用于“请求/响应”  。
+1. 在模型的仪表板上，下载“Excel 2010 或更早版本的工作簿”用于“请求/响应”。
 
    > [!Note]
-   > 即使在计算机上运行更高版本的 Excel，也请确保下载 **Excel 2010 或更低版本的工作簿** 。
+   > 即使在计算机上运行更高版本的 Excel，也请确保下载 **Excel 2010 或更低版本的工作簿**。
 
    ![为请求响应终结点下载 Excel](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
-1. 打开 Excel 工作簿，记下“WEB 服务 URL”  和“访问密钥”  。
+1. 打开 Excel 工作簿，记下“WEB 服务 URL”和“访问密钥”。
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -137,13 +137,13 @@ ms.locfileid: "92472646"
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源”。 在“搜索”框中键入“流分析作业”，然后从“结果”下拉列表中选择“流分析作业”。 当“流分析作业”窗格打开时，选择“创建”。
 1. 为作业输入以下信息。
 
-   **作业名称** ：作业的名称。 该名称必须全局唯一。
+   **作业名称**：作业的名称。 该名称必须全局唯一。
 
-   **订阅** ：选择你的订阅（如果它不同于默认订阅）。
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
 
-   **资源组** ：使用 IoT 中心所用的同一资源组。
+   **资源组**：使用 IoT 中心所用的同一资源组。
 
-   **位置** ：与资源组使用同一位置。
+   **位置**：与资源组使用同一位置。
 
    将所有其他字段保留为默认值。
 
@@ -157,15 +157,15 @@ ms.locfileid: "92472646"
 1. 在“作业拓扑”下选择“输入”。
 1. 在“输入”窗格中，选择“添加流输入”，然后从下拉列表中选择“IoT 中心”。 在“新建输入”窗格上，选择“从订阅选择 IoT 中心”，然后输入以下信息：
 
-   **输入别名** ：输入的唯一别名。
+   **输入别名**：输入的唯一别名。
 
-   **订阅** ：选择你的订阅（如果它不同于默认订阅）。
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
 
-   **IoT 中心** ：从订阅选择 IoT 中心。
+   **IoT 中心**：从订阅选择 IoT 中心。
 
-   **共享访问策略名称** ：选择“service”。 （也可以使用“iothubowner”。）
+   **共享访问策略名称**：选择“service”。 （也可以使用“iothubowner”。）
 
-   **使用者组** ：选择你创建的使用者组。
+   **使用者组**：选择你创建的使用者组。
 
    将所有其他字段保留为默认值。
 
@@ -178,15 +178,15 @@ ms.locfileid: "92472646"
 1. 在“作业拓扑”下选择“输出”。
 1. 在“输出”窗格中，选择“添加”，然后从下拉列表中选择“Blob 存储/Data Lake Storage”。 在“新建输出”窗格上，选择“从订阅选择存储”，然后输入以下信息：
 
-   **输出别名** ：输出的唯一别名。
+   **输出别名**：输出的唯一别名。
 
-   **订阅** ：选择你的订阅（如果它不同于默认订阅）。
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
 
-   **存储帐户** ：Blob 存储的存储帐户。 可以创建一个存储帐户或使用现有存储帐户。
+   **存储帐户**：Blob 存储的存储帐户。 可以创建一个存储帐户或使用现有存储帐户。
 
-   **容器** ：保存 Blob 的容器。 可以创建一个容器或使用现有容器。
+   **容器**：保存 Blob 的容器。 可以创建一个容器或使用现有容器。
 
-    。
+   **事件序列化格式**：选择“CSV”。
 
    ![向 Azure 中的流分析作业添加输出](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
@@ -197,11 +197,11 @@ ms.locfileid: "92472646"
 1. 在“作业拓扑”下选择“Functions”。 
 1. 在“Functions”窗格中，选择“添加”，然后从下拉列表中选择“Azure 机器学习工作室”。 （请确保选择“Azure 机器学习工作室”，而不是“Azure 机器学习服务”。）在“新建函数”窗格上，选择“手动提供 Azure 机器学习函数设置”并输入以下信息：
 
-   **函数别名** ：输入 `machinelearning`。
+   **函数别名**：输入 `machinelearning`。
 
-   **URL** ：输入从 Excel 工作簿记下的 WEB 服务 URL。
+   **URL**：输入从 Excel 工作簿记下的 WEB 服务 URL。
 
-   **密钥** ：输入从 Excel 工作簿记下的访问密钥。
+   **密钥**：输入从 Excel 工作簿记下的访问密钥。
 
    ![向 Azure 中的流分析作业添加函数](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
@@ -216,7 +216,7 @@ ms.locfileid: "92472646"
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[Scored Probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```

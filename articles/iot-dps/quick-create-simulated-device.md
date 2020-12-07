@@ -4,7 +4,7 @@ description: 本快速入门使用单独注册。 本快速入门使用适用于
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -13,12 +13,12 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: 26d880eb7ec7db5529a8acaa0ee43385f6c8a064
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 76988650b1486439265f781e2625acf7c1b0b24e
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564575"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541113"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入门：使用 Azure IoT C SDK 预配模拟的 TPM 设备
 
@@ -52,7 +52,7 @@ Azure IoT 设备预配服务支持两类注册：
 
 1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
-    在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
+    在进行 `CMake` 安装 **之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
 2. 找到[最新版](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
 
@@ -136,7 +136,7 @@ Azure IoT 设备预配服务支持两类注册：
 1. 选择“管理注册”选项卡，然后选择顶部的“添加个人注册”按钮 。 
 
 1. 在“添加注册”面板中，输入以下信息：
-   - 选择“TPM”作为标识证明*机制*。
+   - 选择“TPM”作为标识证明 *机制*。
    - 使用你之前记下的值输入 TPM 设备的“注册 ID”和“认可密钥” 。
    - 选择与预配服务链接的 IoT 中心。
    - （可选）可以提供以下信息：

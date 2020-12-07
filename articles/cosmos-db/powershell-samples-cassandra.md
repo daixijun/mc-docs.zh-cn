@@ -2,19 +2,20 @@
 title: 适用于 Azure Cosmos DB Cassandra API 的 Azure PowerShell 示例
 description: 获取用于在 Azure Cosmos DB Cassandra API 中执行常见任务的 Azure PowerShell 示例
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 58db0a01f1e61c965b95caed41fdd7eb0c27680f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 29abeaa2a12a8408ec4498c772f186986cb5ffe9
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328889"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598650"
 ---
 <!--Verified successfully-->
 # <a name="azure-powershell-samples-for-azure-cosmos-db-cassandra-api"></a>适用于 Azure Cosmos DB Cassandra API 的 Azure PowerShell 示例
@@ -44,5 +45,4 @@ ms.locfileid: "94328889"
 |[锁定资源以防止将其删除](scripts/powershell/cassandra/lock.md)| 通过资源锁防止资源遭到删除。 |
 |||
 
-<!-- Update_Description: new article about powershell samples cassandra -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

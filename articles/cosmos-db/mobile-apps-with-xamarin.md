@@ -2,21 +2,22 @@
 title: 教程 - 使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序
 description: 教程 - 介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达多个区域的云数据库。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f544ae51a7ba5366ff302d022866715a6ebe5eb7
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 88814f925f97c69a990e5644cbf53d5926312f4d
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552826"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598646"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>教程：使用 Xamarin 和 Azure Cosmos DB 构建移动应用程序
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,7 +55,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="适用于移动应用的 Azure Cosmos DB 快速入门":::
 
-如果已有一个 Xamarin 应用，则可以添加 [Azure Cosmos DB NuGet 包](sql-api-sdk-dotnet-core.md)。 Azure Cosmos DB 支持 Xamarin.IOS、Xamarin.Android 和 Xamarin Forms 共享库。
+如果已有一个 Xamarin 应用，则可以添加 [Azure Cosmos DB NuGet 包](sql-api-sdk-dotnet-core.md)。 Azure Cosmos DB 支持 Xamarin.iOS、Xamarin.Android 和 Xamarin Forms 共享库。
 
 ### <a name="work-with-data"></a>处理数据
 数据记录以无架构 JSON 文档的形式存储在 Azure Cosmos DB 的异构集合中。 可在同一个集合中存储具有不同结构的文档：

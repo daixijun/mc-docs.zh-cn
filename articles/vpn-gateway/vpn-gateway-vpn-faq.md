@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 03/05/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 3fba6e7f5d5e79f73ccd82ab23182097fb95507a
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 6ebe72726447f13b457c73180d3c6b41f161a798
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970832"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747209"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 

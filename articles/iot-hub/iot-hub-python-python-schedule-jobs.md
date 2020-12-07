@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 03/17/2020
 ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 046500483e340b9da078d14da1c5c28109dac6d2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4310c89fa98e3828de11e9ca4b0df9f95d0e15b6
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634632"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747191"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -50,7 +50,7 @@ simDevice.py，它使用设备标识连接到 IoT 中心并接收 lockDoor 直�
 scheduleJobService.py，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性  。
 
 > [!NOTE]
-> Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。
+> Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的 **服务客户端 SDK** 功能列表。
 >
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
@@ -163,7 +163,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 
 3. 从策略列表上方的顶部菜单中选择“添加”  。
 
-4. 在“添加共享访问策略”窗格中，为策略输入一个说明性名称，例如 serviceAndRegistryReadWrite  。  在**权限**下，选择“服务连接”  和“注册表写入”  （选择“注册表写入”  时，会自动选择“注册表读取”  ）。 然后选择“创建”  。
+4. 在“添加共享访问策略”窗格中，为策略输入一个说明性名称，例如 serviceAndRegistryReadWrite  。  在 **权限** 下，选择“服务连接”  和“注册表写入”  （选择“注册表写入”  时，会自动选择“注册表读取”  ）。 然后选择“创建”  。
 
     ![显示如何添加新的共享访问策略](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
@@ -346,7 +346,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 [lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/quickstart-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: https://www.microsoft.com/china/azure/index.html?fromtype=cn/
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/

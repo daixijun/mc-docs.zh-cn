@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 07/02/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 0f5d8f7a1b77bef790e2c82b710944f19efe2dc5
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 07be5d39932f14ceb1ba45653c8dffa302402457
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945274"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508994"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>快速入门：使用 Visual Studio 在 Azure 中创建第一个函数
 
@@ -23,7 +23,7 @@ ms.locfileid: "85945274"
 
 ![安装包含“Azure 开发”工作负载的 Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-如果没有 [Azure 订阅](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，请在开始之前创建[试用版](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 [Azure 订阅](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，请在开始之前创建[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-function-app-project"></a>创建函数应用项目
 

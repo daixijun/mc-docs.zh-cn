@@ -7,21 +7,21 @@ manager: digimobile
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-origin.date: 06/18/2020
-ms.date: 08/03/2020
+origin.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1921701ac2671a6b7173791deb9252d0c3a93d28
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 03eb1ef2f09e0c4f95f59a01d443acede182c0d3
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426253"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746862"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>快速入门：使用 COPY 语句批量加载数据
 
-在本快速入门中，你将使用简单灵活的 [COPY 语句](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)将数据批量加载到 SQL 池中，以实现高吞吐量数据引入。 COPY 语句是推荐使用的加载实用工具，因为它提供以下功能，可以无缝且灵活地加载数据：
+在本快速入门中，你将使用简单灵活的 [COPY 语句](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)将数据批量加载到专用 SQL 池中，以实现高吞吐量数据引入。 COPY 语句是推荐使用的加载实用工具，因为它提供以下功能，可以无缝且灵活地加载数据：
 
 - 允许权限较低的用户进行加载，不需要对数据仓库有严格的控制权限
 - 只使用一个 T-SQL 语句，不需要创建任何其他数据库对象
@@ -35,7 +35,7 @@ ms.locfileid: "87426253"
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假设你已有一个 SQL 池。 如果尚未创建 SQL 池，请使用[创建和连接 - 门户](create-data-warehouse-portal.md)快速入门。
+本快速入门假设你已有一个专用 SQL 池。 如果尚未创建专用 SQL 池，请使用[创建和连接 - 门户](create-data-warehouse-portal.md)快速入门。
 
 ## <a name="set-up-the-required-permissions"></a>设置所需权限
 

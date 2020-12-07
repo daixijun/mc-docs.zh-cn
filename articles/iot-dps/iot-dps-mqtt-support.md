@@ -6,17 +6,17 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 origin.date: 10/16/2019
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.author: v-tawe
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9b4bf36788eec45835d6ae6f5d3f2b80b18e0f47
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: de5171a8465900dd9b308f41c5924c1a6db777bb
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564624"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541108"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>使用 MQTT 协议与 DPS 通信
 
@@ -30,13 +30,13 @@ DPS 不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指
 所有通过 DPS 进行的设备通信都必须使用 TLS/SSL 来保护。 因此，DPS 不支持通过端口 1883 进行的不安全的连接。
 
  > [!NOTE] 
- > DPS 目前不支持通过 MQTT 协议使用 TPM [证明机制](/iot-dps/concepts-device#attestation-mechanism)的设备。
+ > DPS 目前不支持通过 MQTT 协议使用 TPM [证明机制](./concepts-service.md#attestation-mechanism)的设备。
 
 ## <a name="connecting-to-dps"></a>连接到 DPS
 
 设备可以通过以下任意选项使用 MQTT 协议连接到 DPS。
 
-* [Azure IoT 预配 SDK](/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks) 中的库。
+* [Azure IoT 预配 SDK](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks) 中的库。
 * 直接通过 MQTT 协议。
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>直接使用 MQTT 协议（作为设备）
@@ -45,7 +45,7 @@ DPS 不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指
 
 * 对于 **ClientId** 字段，使用 **registrationId**。
 
-* 对于 **Username** 字段，使用 `{idScope}/registrations/{registration_id}/api-version=2019-03-31`，其中 `{idScope}` 是 DPS 的 [idScope](/iot-dps/concepts-device#id-scope)。
+* 对于 **Username** 字段，使用 `{idScope}/registrations/{registration_id}/api-version=2019-03-31`，其中 `{idScope}` 是 DPS 的 [idScope](./concepts-service.md#id-scope)。
 
 * “密码”  字段使用 SAS 令牌。 对于 HTTPS 和 AMQP 协议，SAS 令牌的格式是相同的：
 
@@ -69,9 +69,9 @@ DPS 不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指
 
 ## <a name="registering-a-device"></a>注册设备
 
-若要通过 DPS 注册某个设备，该设备应使用 `$dps/registrations/res/#` 作为**主题筛选器**进行订阅。 主题筛选器中的多级通配符 `#` 仅用于允许设备接收主题名称中的其他属性。 DPS 不允许使用 `#` 或 `?` 通配符筛选子主题。 由于 DPS 不是一般用途的发布-订阅消息传送中转站，因此它仅支持存档的主题名称和主题筛选器。
+若要通过 DPS 注册某个设备，该设备应使用 `$dps/registrations/res/#` 作为 **主题筛选器** 进行订阅。 主题筛选器中的多级通配符 `#` 仅用于允许设备接收主题名称中的其他属性。 DPS 不允许使用 `#` 或 `?` 通配符筛选子主题。 由于 DPS 不是一般用途的发布-订阅消息传送中转站，因此它仅支持存档的主题名称和主题筛选器。
 
-设备应使用 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` 作为**主题名称**向 DPS 发布 register 消息。 有效负载应包含 JSON 格式的[设备注册](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration)对象。
+设备应使用 `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` 作为 **主题名称** 向 DPS 发布 register 消息。 有效负载应包含 JSON 格式的[设备注册](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration)对象。
 如果成功，设备将在 `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` 主题名称中收到响应，其中，x 是以秒为单位的 retry-after 值。 响应的有效负载将包含 JSON 格式的 [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) 对象。
 
 ## <a name="polling-for-registration-operation-status"></a>轮询注册操作状态

@@ -1,6 +1,6 @@
 ---
 title: 快速入门：向 Azure IoT 中心发送遥测数据 (C) | Microsoft Docs
-description: 在本快速入门中，我们将运行两个示例 C 应用程序用于向 IoT 中心发送模拟遥测数据并读取 IoT 中心的遥测数据，以便在云中进行处理。
+description: 在本快速入门中，你将运行两个示例 C 应用程序，向 IoT 中心发送模拟遥测数据并读取 IoT 中心的遥测数据，以在云中进行处理。
 author: wesmc7777
 manager: philmea
 ms.service: iot-hub
@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 04/10/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: c2a578e96fa12bcf38427b15ffaa5ad97945aeb2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 333ea08124efc1b65332832272a3456e3116e4aa
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343103"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746766"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (C)
 
@@ -24,26 +24,20 @@ ms.locfileid: "80343103"
 
 IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引入云中进行存储或处理。 本快速入门会将模拟设备应用程序的遥测数据通过 IoT 中心发送到后端应用程序进行处理。
 
-本快速入门使用[适用于 C 的 Azure IoT 设备 SDK](iot-hub-device-sdk-c-intro.md) 中的 C 示例应用程序向 IoT 中心发送遥测数据。 Azure IoT 设备 SDK 以 [ANSI C (C99)](https://wikipedia.org/wiki/C99) 编写，具有可移植性和广泛的平台兼容性。 在运行示例代码之前，需要创建一个 IoT 中心并将模拟设备注册到该中心。
+本快速入门使用 [适用于 C 的 Azure IoT 设备 SDK](iot-hub-device-sdk-c-intro.md) 中的 C 示例应用程序向 IoT 中心发送遥测数据。 Azure IoT 设备 SDK 采用 [ANSI C (C99)](https://wikipedia.org/wiki/C99) 编写，具有可移植性和广泛的平台兼容性。 运行示例代码之前，需要创建 IoT 中心并向该中心注册模拟设备。
 
 虽然本文面向 Windows，但在 Linux 上也可以完成本快速入门。
 
-
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 * 安装 [Visual Studio 2019](https://www.visualstudio.com/vs/) 并启用[“使用 C++ 的桌面开发”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作负荷。
-* 安装最新版本的 [Git](https://git-scm.com/download/)。
+* [安装最新版本的 Git](https://git-scm.com/download/)。
 
 * 确保已在防火墙中打开端口 8883。 本快速入门中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
-
-* 运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IoT 扩展会将特定于 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 的命令添加到 Azure CLI。
-
-   ```azurecli
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -53,23 +47,23 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 对于以下环境，可以通过安装这些包和库来使用 SDK：
 
-* **Linux**：apt-get 包适用于使用以下 CPU 体系结构的 Ubuntu 16.04 和 18.04：amd64、arm64、armhf 和 i386。 有关详细信息，请参阅[在 Ubuntu 上使用 apt-get 创建 C 设备客户端项目](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)。
+* **Linux**：apt-get 包适用于使用以下 CPU 体系结构的 Ubuntu 16.04 和 18.04：amd64、arm64、armhf 和 i386。 有关详细信息，请参阅[使用 apt-get 在 Ubuntu 上创建 C 设备客户端项目](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)。
 
 * **mbed**：对于在 mbed 平台上创建设备应用程序的开发人员，我们发布了可帮助在几分钟内学会使用 Azure IoT 中心的库和示例。 有关详细信息，请参阅[使用 mbed 库](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)。
 
 * **Arduino**：如果在 Arduino 上进行开发，则可以利用 Arduino IDE 库管理器提供的 Azure IoT 库。 有关详细信息，请参阅[适用于 Arduino 的 Azure IoT 中心库](https://github.com/azure/azure-iot-arduino)。
 
-* **iOS**：IoT 中心设备 SDK 能够以 CocoaPods 的形式提供，用于 Mac 和 iOS 设备开发。 有关详细信息，请参阅[适用于 Microsoft Azure IoT 的 iOS 示例](https://cocoapods.org/pods/AzureIoTHubClient)。
+* **iOS**：IoT 中心设备 SDK 能够以 CocoaPods 的形式提供，用于 Mac 和 iOS 设备开发。 有关详细信息，请参阅 [Microsoft Azure IoT 的 iOS 示例](https://cocoapods.org/pods/AzureIoTHubClient)。
 
-但在本快速入门中，你将准备一个用于从 GitHub 克隆和生成 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的开发环境。 GitHub 上的 SDK 包含本快速入门中使用的示例代码。 
+但在本快速入门中，你将准备一个用于从 GitHub 克隆和生成 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的开发环境。 GitHub 上的 SDK 包括在本快速入门中使用的示例代码。 
 
 1. 下载 [CMake 生成系统](https://cmake.org/download/)。
 
-    在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
+    在进行 `CMake` 安装 **之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
-2. 查找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
+2. 找到[最新版](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
 
-3. 打开命令提示符或 Git Bash shell。 运行以下命令以克隆最新版本的 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步中找到的标记作为 `-b` 参数的值：
+3. 打开命令提示符或 Git Bash shell。 运行以下命令，克隆最新版 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步找到的标记作为 `-b` 参数的值：
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -116,7 +110,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 ## <a name="register-a-device"></a>注册设备
 
-必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本部分，我们将结合 [IoT 扩展](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)使用 Azure CLI 来注册模拟设备。
+必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本部分中，你将使用具有 [IoT 扩展](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)的 Azure CLI 注册模拟设备。
 
 1. 运行以下命令以创建设备标识。 
 
@@ -128,7 +122,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
     ```
 
-2. 运行以下命令，获取刚注册设备的_设备连接字符串_：
+2. 运行以下命令，获取刚注册设备的 _设备连接字符串_：
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
@@ -144,7 +138,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 ## <a name="send-simulated-telemetry"></a>发送模拟遥测数据
 
-模拟设备应用程序将连接到 IoT 中心上特定于设备的终结点，并发送模拟遥测数据形式的字符串。
+模拟设备应用程序会连接到 IoT 中心上特定于设备的终结点，并发送一个字符串作为模拟遥测数据。
 
 1. 使用文本编辑器打开 iothub_convenience_sample.c 源文件，并查看用于发送遥测数据的示例代码。 该文件位于克隆 Azure IoT C SDK 的工作目录下的以下位置：
 
@@ -159,7 +153,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
     static const char* connectionString = "[device connection string]";
     ```
 
-    将 `connectionString` 常量的值替换为之前记下的设备连接字符串。 然后保存对 **iothub_convenience_sample.c** 所做的更改。
+    将 `connectionString` 常量的值替换为之前记下的设备连接字符串。 然后将更改保存到 iothub_convenience_sample.c  。
 
 3. 在本地终端窗口中，导航到在 Azure IoT C SDK 中创建的 CMake 目录中的 iothub_convenience_sample 项目目录  。 在工作目录中输入以下命令：
 
@@ -186,9 +180,9 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 
 
-在本部分，我们将结合 [IoT 扩展](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)使用 Azure CLI 来监视模拟设备发送的设备消息。
+在本部分中，你将使用具有 [IoT 扩展](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)的 Azure CLI 监视模拟设备发送的设备消息。
 
-1. 使用 Azure CLI 运行以下命令，以建立连接并读取 IoT 中心发送的消息：
+1. 通过 Azure CLI 运行以下命令以建立连接并从 IoT 中心读取消息：
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
@@ -208,7 +202,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 本快速入门设置了 IoT 中心、注册了设备、使用 C 应用程序将模拟遥测数据发送到了中心，并使用 Azure CLI 读取了中心的遥测数据。
 
-若要详细了解如何使用 Azure IoT 中心 C SDK 进行开发，请继续学习以下操作方法指南：
+要详细了解如何使用 Azure IoT 中心 C SDK 进行开发，请继续学习以下的操作指南：
 
 > [!div class="nextstepaction"]
 > [使用 Azure IoT 中心 C SDK 进行开发](iot-hub-devguide-develop-for-constrained-devices.md)

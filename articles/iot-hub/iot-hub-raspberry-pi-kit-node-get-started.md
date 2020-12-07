@@ -12,12 +12,12 @@ origin.date: 03/13/2020
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 04/06/2020
-ms.openlocfilehash: 40f6a140a213074f67e50909187c55f07b8fe9d2
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 09ecf85fecadecf22ad60ffa74d5d9b516e376ca
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394763"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746824"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -47,7 +47,7 @@ ms.locfileid: "91394763"
 ![需要什么](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * 一个 Raspberry Pi 2 或 Raspberry Pi 3 电路板。
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 连接到 Pi 的监视器、USB 键盘和鼠标。
 * 运行 Windows 或 Linux 的 Mac 或电脑。
 * Internet 连接。
@@ -213,7 +213,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
 
    此文件中有两个可以配置的项。 第一个是 `interval`，它定义发送到云的消息之间的时间间隔（以毫秒为单位）。 第二个是 `simulatedData`，它是一个布尔值，指示是否使用模拟的传感器数据。
 
-   如果**没有传感器**，请将 `simulatedData` 值设置为 `true`，使示例应用程序创建和使用模拟的传感器数据。
+   如果 **没有传感器**，请将 `simulatedData` 值设置为 `true`，使示例应用程序创建和使用模拟的传感器数据。
 
    注意：*默认情况下，本教程中使用的 i2c 地址为 0x77。根据配置，它也可能是 0x76：如果遇到 i2c 错误，请尝试将该值更改为 118，然后看看效果是否更好。若要查看传感器使用的地址，请在 raspberry pi 上的 shell 中运行 `sudo i2cdetect -y 1`*
 

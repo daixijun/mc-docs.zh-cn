@@ -3,14 +3,14 @@ title: 设计 Azure Policy as Code 工作流
 description: 了解如何设计工作流以将 Azure Policy 定义部署为代码并自动验证资源。
 ms.author: v-tawe
 origin.date: 10/20/2020
-ms.date: 11/06/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66196a6a7750ee42f9eb207786c2d4df41a81ffa
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6fc1052896bd65f7feede3470b812796d426e042
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327744"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541195"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>设计 Azure Policy as Code 工作流
 
@@ -40,8 +40,6 @@ Azure Policy as Code 是这些思路的组合。 实质上，是将策略定义�
 
 - Policy 定义：[将标记添加到资源](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - 计划定义：[计费标记](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-此外，请查看[导出 Azure Policy 资源](../how-to/export-resources.md)，以将现有定义和分配信息导入源代码管理环境 [GitHub](https://www.github.com) 中。
 
 ## <a name="workflow-overview"></a>工作流概述
 
@@ -75,6 +73,8 @@ Azure Policy as Code 的建议一般工作流如下图所示：
 ```
 
 添加新策略或更新现有策略时，工作流应在 Azure 中自动更新策略定义。 新的或更新的策略定义的测试将在后面的步骤中进行。
+
+此外，请查看[导出 Azure Policy 资源](../how-to/export-resources.md)，以将现有定义和分配信息导入源代码管理环境 [GitHub](https://www.github.com) 中。
 
 ### <a name="create-and-update-initiative-definitions"></a>创建和更新计划定义
 

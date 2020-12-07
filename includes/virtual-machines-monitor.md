@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e03b6cd83c9066bd99d1fb40f40fd31a42a0be83
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 7c4e4d78cfaae39e1cdb6a3914894a0a5db12317
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301116"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96599924"
 ---
 ----
 title: include 文件 description: include 文件 author: rockboyfor ms.service: virtual-machines ms.topic: include origin.date:09/30/2019 ms.date:07/06/2020 ms.author: v-yeche
@@ -72,7 +72,7 @@ title: include 文件 description: include 文件 author: rockboyfor ms.service:
 
 若要查看 Azure VM 和虚拟机规模集支持的应用程序或服务，确定在 VM 中运行的来宾 OS 或工作负载的问题，以便了解它是影响应用程序的可用性或性能，还是应用程序本身出现了问题，请启用 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md)。
 
-<!--Not Available on both [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and-->
+<!--Not Available on both [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md)-->
 
 用于 VM 的 Azure Monitor 分析 Windows 和 Linux VM 的性能与运行状况，包括不同的进程以及与它发现的其他资源和外部进程之间的相互依赖关系，可以大规模监视 Azure 虚拟机 (VM)。 它包含多个趋势性能图表，用于调查问题和评估 VM 的容量。 依赖项映射显示受监视的和不受监视的计算机、进程和这些计算机之间的失败网络连接和有效网络连接，并显示趋势图表，其中包含标准的网络连接指标。 通过组合使用 Application Insights，可以监视应用程序并捕获遥测数据（例如 HTTP 请求、异常等），这样就可以将 VM 和应用程序之间的问题关联起来。 请配置 [Azure Monitor 警报](../articles/azure-monitor/platform/alerts-overview.md)，这样，当系统从用于 VM 的 Azure Monitor 收集的监视数据中检测到重要情况时，就会提醒你。
 

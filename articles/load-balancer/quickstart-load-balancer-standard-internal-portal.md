@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/30/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 66f4bdc2c24fa5e2ba3c5d62cfa96b52e316f219
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 8432b3c13b84670cac579c5d029b6278fb5e81f5
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590501"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747259"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -29,7 +29,7 @@ ms.locfileid: "94590501"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -67,7 +67,7 @@ ms.locfileid: "94590501"
     | 名称             | 输入“myVNet”                                    |
     | 区域           | 选择“中国东部 2”  |
 
-3. 选择“IP 地址”选项卡，或选择页面底部的“下一步:IP 地址”按钮。
+3. 选择“IP 地址”选项卡  ，或选择页面底部的“下一步:  IP 地址”按钮。
 
 4. 在“IP 地址”  选项卡上，输入以下信息：
 
@@ -96,7 +96,7 @@ ms.locfileid: "94590501"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | “值”                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择在上一步中创建的 myResourceGroupLB。|
@@ -191,7 +191,7 @@ ms.locfileid: "94590501"
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
 >[!NOTE]
->后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](/virtual-network/nat-overview)**
+>后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>创建后端服务器
 
@@ -207,14 +207,14 @@ ms.locfileid: "94590501"
 这些 VM 将添加到先前创建的负载均衡器的后端池中。
 
 1. 在门户的左上方，选择“创建资源” > “计算” > “虚拟机”  。 
-   
+
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myVM1” |
     | 区域 | 选择“中国东部 2”  |
@@ -226,10 +226,10 @@ ms.locfileid: "94590501"
     | 确认密码 | 重新输入密码 |
 
 3. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:** 网络”。
-  
+
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -237,15 +237,15 @@ ms.locfileid: "94590501"
     | 公共 IP | 选择“无” |
     | NIC 网络安全组 | 选择“高级”|
     | 配置网络安全组 | 选择“新建”。 </br> 在“创建网络安全组”中，在“名称”中输入“myNSG”  。 </br> 选择“确定” |
-    | **负载均衡**  |
+    | **负载均衡** |
     | 是否将此虚拟机置于现有负载均衡解决方案之后？ | 选择“是” |
     | **负载均衡设置** |
     | 负载均衡选项 | 选择“Azure 负载均衡” |
-    | 选择负载均衡器 | 选择“myLoadBalancer”  |
+    | 选择负载均衡器 | 选择“myLoadBalancer” |
     | 选择后端池 | 选择“myBackendPool” |
-   
-5. 选择“查看 + 创建”。 
-  
+
+5. 选择“查看 + 创建”  。 
+
 6. 检查设置，然后选择“创建”。
 
 7. 按照第 1 到第 8 步，使用以下值创建一个 VM，所有其他设置与 myVM1 相同：
@@ -254,7 +254,6 @@ ms.locfileid: "94590501"
     | ------- | ----- |
     | 名称 |  **myVM2** |
     | 网络安全组 | 选择现有的“myNSG”|
-
 
 # <a name="basic-sku"></a>[**基本 SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
@@ -277,13 +276,13 @@ ms.locfileid: "94590501"
 
 2. 在“创建虚拟网络”  的“基本信息”选项卡中输入或选择以下信息  ：
 
-    | **设置**          | **值**                                                           |
+    | **设置** | **值** |
     |------------------|-----------------------------------------------------------------|
-    | **项目详细信息**  |                                                                 |
+    | **项目详细信息** |                                                                 |
     | 订阅     | 选择 Azure 订阅                                  |
-    | 资源组   | 选择“myResourceGroupLB” |
+    | 资源组   | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |                                                                 |
-    | 名称             | 输入“myVNet”                                    |
+    | 名称             | 输入“myVNet” |
     | 区域           | 选择“中国东部 2”  |
 
 3. 选择“IP 地址”选项卡  ，或选择页面底部的“下一步:  IP 地址”按钮。
@@ -305,7 +304,17 @@ ms.locfileid: "94590501"
 
 7. 选择“保存” 。
 
-8. 选择“查看 + 创建”  选项卡，或选择“查看 + 创建”  按钮。
+8. 选择“安全”选项卡。
+
+9. 在“BastionHost”下，选择“启用” 。 输入此信息：
+
+    | 设置            | 值                      |
+    |--------------------|----------------------------|
+    | Bastion 名称 | 输入“myBastionHost” |
+    | AzureBastionSubnet 地址空间 | 输入“10.1.1.0/24” |
+    | 公共 IP 地址 | 选择“新建”。 <br /> 对于“名称”，请输入“myBastionIP” 。 <br /> 选择“确定”。 |
+
+8. 选择“查看 + 创建”选项卡，或选择“查看 + 创建”按钮。
 
 9. 选择“创建”。
 
@@ -315,11 +324,11 @@ ms.locfileid: "94590501"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
-    | ---                     | ---                                                |
+    | 设置                 | “值”                                              |
+    | --- | --- |
     | 订阅               | 选择订阅。    |    
-    | 资源组         | 选择在上一步中创建的 myResourceGroupLB。|
-    | 名称                   | 输入“myLoadBalancer”                                   |
+    | 资源组         | 选择在上一步中创建的 CreateIntLBQS-rg。|
+    | 名称                   | 输入“myLoadBalancer” |
     | 区域         | 选择“中国东部 2”。                                        |
     | 类型          | 选择“内部”。                                        |
     | SKU           | 选择“基本” |
@@ -352,7 +361,7 @@ ms.locfileid: "94590501"
 2. 在“设置”下，依次选择“后端池”、“添加”。
 
 3. 在“添加后端池”页上，输入或选择：
-    
+
     | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入“myBackendPool”。 |
@@ -372,7 +381,7 @@ ms.locfileid: "94590501"
 1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择“myLoadBalancer”。  
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
-    
+
     | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
@@ -400,7 +409,7 @@ ms.locfileid: "94590501"
 2. 在“设置”下，依次选择“负载均衡规则”、“添加”。
 
 3. 使用以下值配置负载均衡规则：
-    
+
     | 设置 | 值 |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
@@ -412,7 +421,7 @@ ms.locfileid: "94590501"
     | 后端池 | 选择“myBackendPool”。|
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
- 
+
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
 ## <a name="create-backend-servers"></a>创建后端服务器
@@ -432,14 +441,14 @@ ms.locfileid: "94590501"
 这些 VM 将添加到先前创建的负载均衡器的后端池中。
 
 1. 在门户的左上方，选择“创建资源” > “计算” > “虚拟机”  。 
-   
+
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myVM1” |
     | 区域 | 选择“中国东部 2”  |
@@ -453,10 +462,10 @@ ms.locfileid: "94590501"
     | 确认密码 | 重新输入密码 |
 
 3. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:** 网络”。
-  
+
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | 选择 myVNet |
@@ -464,11 +473,11 @@ ms.locfileid: "94590501"
     | 公共 IP | 选择“无” |
     | NIC 网络安全组 | 选择“高级”|
     | 配置网络安全组 | 选择“新建”。 </br> 在“创建网络安全组”中，在“名称”中输入“myNSG”  。 </br> 选择“确定” |
-    | **负载均衡**  |
+    | **负载均衡** |
     | 是否将此虚拟机置于现有负载均衡解决方案之后？ | 请选择“否” |
 
-5. 选择“查看 + 创建”。 
-  
+5. 选择“查看 + 创建”  。 
+
 6. 检查设置，然后选择“创建”。
 
 7. 按照第 1 到第 8 步，使用以下值创建一个 VM，所有其他设置与 myVM1 相同：
@@ -503,14 +512,14 @@ ms.locfileid: "94590501"
 在本部分中，你将创建一个名为“myTestVM”的 VM。  此 VM 将用于测试负载均衡器配置。
 
 1. 在门户的左上方，选择“创建资源” > “计算” > “虚拟机”  。 
-   
+
 2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
 
-    | 设置 | 值                                          |
+    | 设置 | “值”                                          |
     |-----------------------|----------------------------------|
     | **项目详细信息** |  |
     | 订阅 | 选择 Azure 订阅 |
-    | 资源组 | 选择“myResourceGroupLB” |
+    | 资源组 | 选择“CreateIntLBQS-rg” |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入“myTestVM” |
     | 区域 | 选择“中国东部 2”  |
@@ -523,10 +532,10 @@ ms.locfileid: "94590501"
     | 确认密码 | 重新输入密码 |
 
 3. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:** 网络”。
-  
+
 4. 在“网络”选项卡中，选择或输入：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     |-|-|
     | **网络接口** |  |
     | 虚拟网络 | myVNet |
@@ -534,16 +543,16 @@ ms.locfileid: "94590501"
     | 公共 IP | 选择“无”。 |
     | NIC 网络安全组 | 选择“高级”|
     | 配置网络安全组 | 选择在上一步中创建的 MyNSG。|
-       
-5. 选择“查看 + 创建”。 
-  
+
+5. 选择“查看 + 创建”  。 
+
 6. 检查设置，然后选择“创建”。
 
 ## <a name="install-iis"></a>安装 IIS
 
-1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“myResourceGroupLB”资源组中的“myVM1”。
+1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“CreateIntLBQS-rg”资源组中的“myVM1”   。
 
-2. 在“概览”页上，选择“连接”。
+2. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 
 4. 输入在 VM 创建过程中输入的用户名和密码。
 
@@ -558,20 +567,19 @@ ms.locfileid: "94590501"
     * 添加显示 VM 名称的新 iisstart.htm 文件：
 
    ```powershell
-    
+
     # install IIS server role
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
+
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-    
+
     # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-8. 关闭与 **myVM1** 之间的 RDP 会话。
+8. 关闭与 myVM1 之间的 Bastion 会话。
 
 9. 重复步骤 1 到 6，在 **myVM2** 上安装 IIS 和更新后的 iisstart.htm 文件。
-
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
@@ -579,9 +587,9 @@ ms.locfileid: "94590501"
 
 2. 在 myLoadBalancer 的“概览”中，记下或复制专用 IP 地址旁边的地址  。
 
-3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“myResourceGroupLB”资源组中的“myTestVM”   。
+3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“CreateIntLBQS-rg”资源组中的“myTestVM”   。
 
-4. 在“概览”页上，选择“连接”。
+4. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 
 6. 输入在 VM 创建过程中输入的用户名和密码。
 
@@ -590,12 +598,12 @@ ms.locfileid: "94590501"
 8. 将上一步骤的 IP 地址输入到浏览器的地址栏。 IIS Web 服务器的默认页会显示在浏览器上。
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="屏幕截图显示了按预期显示默认页的浏览器窗口。" border="true":::
-   
+
 若要查看两个 VM 中的负载均衡器分配流量，可以自定义每个 VM 的 IIS Web 服务器的默认页面，然后从客户端计算机强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含资源的资源组“myResourceGroupSLB”，然后选择“删除”。
+若不再需要资源组、负载均衡器以及所有相关资源，请将其删除。 为此，请选择包含资源的资源组“CreateIntLBQS-rg”，然后选择“删除” 。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -607,4 +615,4 @@ ms.locfileid: "94590501"
 
 若要详细了解 Azure 负载均衡器，请继续学习
 > [!div class="nextstepaction"]
-> [什么是 Azure 负载均衡器？](load-balancer-overview.md) 
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)

@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 中的自定�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/14/2019
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 70063aef422f4b33ae97f2c5feba9c3bb1c882c0
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 913853e600f1e94db7627f118978813d24ed1a96
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590899"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541136"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -592,4 +592,4 @@ ms.locfileid: "94590899"
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解有关重新预配的详细信息，请参阅 [IoT 中心设备重新预配概念](concepts-device-reprovision.md) 
-* 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
+* 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md)

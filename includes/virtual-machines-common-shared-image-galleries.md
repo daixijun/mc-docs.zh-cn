@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: eee47f31d2e8acbdab64eb3f7a57b5818a9c0fb4
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e32a2626a880d6fb21b0adef297c2ab2e7254c0e
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300482"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598680"
 ---
 共享映像库是一种可以帮助你围绕映像构建结构和组织的服务。 共享映像库提供：
 
@@ -107,10 +107,13 @@ ms.locfileid: "96300482"
 下表列出了 Azure 中国世纪互联中的源区域。
 
 <!--Not Available on  All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.azure.cn/global-infrastructure/australia/contact/-->
+<!--MOONCAKE: CUSTOMZIE ONLY VALID FOR China East 2 and China North 2 -->
 
-| 源区域        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| 中国东部            | 中国东部 2      | 中国北部        | 中国北部 2      |
+| 源区域        |                   |
+| --------------------- | ----------------- |
+| 中国东部 2          | 中国北部 2     |
+
+<!--MOONCAKE: CUSTOMZIE ONLY VALID FOR China East 2 and China North 2 -->
 
 ## <a name="limits"></a>限制 
 

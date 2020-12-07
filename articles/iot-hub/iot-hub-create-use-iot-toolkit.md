@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 01/04/2019
 ms.date: 05/11/2019
 ms.author: v-yiso
-ms.openlocfilehash: f7688ef26e6ee98ba833657c6872c91092136589
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: 09a9f6bf5b2d258a6a231f79ad117370dd5d5955
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507673"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747146"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure IoT 工具创建 IoT 中心
 
@@ -25,7 +25,7 @@ ms.locfileid: "82507673"
 
 若要完成本文，需要以下各项：
 
-- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 

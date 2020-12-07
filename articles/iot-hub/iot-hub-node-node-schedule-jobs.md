@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 08/16/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 5ccea43f4a210f16611a6457db1eccc7e3c11219
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: bed1db9ba39cc328c8d631766b3e9d9c3c2cf1f2
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186922"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747134"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>计划和广播作业 (Node.js)
 
@@ -54,7 +54,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 
 * Node.js 版本 10.0.x 或更高版本。 [准备开发环境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 
 * 确保已在防火墙中打开端口 8883。 本文中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
@@ -69,7 +69,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 本部分将创建一个 Node.js 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法。
 
-1. 新建名为 **simDevice**的空文件夹。  在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
+1. 新建名为 **simDevice** 的空文件夹。  在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
    ```console
    npm init
@@ -92,7 +92,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. 添加 **connectionString** 变量，并使用它创建一个**客户端**实例。 将 `{yourDeviceConnectionString}` 占位符值替换为之前复制的设备连接字符串。
+5. 添加 **connectionString** 变量，并使用它创建一个 **客户端** 实例。 将 `{yourDeviceConnectionString}` 占位符值替换为之前复制的设备连接字符串。
 
     ```javascript
     var connectionString = '{yourDeviceConnectionString}';
@@ -143,7 +143,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在此部分中，会创建一个 Node.js 控制台应用，它使用直接方法对设备启动远程 **lockDoor** 并更新设备孪生的属性。
 
-1. 新建名为 **scheduleJobService**的空文件夹。  在 **scheduleJobService** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
+1. 新建名为 **scheduleJobService** 的空文件夹。  在 **scheduleJobService** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
    
     ```console
     npm init

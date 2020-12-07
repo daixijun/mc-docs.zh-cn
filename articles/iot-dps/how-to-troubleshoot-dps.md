@@ -7,18 +7,18 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 origin.date: 09/09/2019
-ms.date: 03/02/2020
+ms.date: 12/03/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6eed4d5e23d5525cd0b9d9477505c1ea5b00d0fc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 578571d84b78b6683ebd40bb0018c9bedcc120b6
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494108"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541127"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中心设备预配服务进行故障排除
 
-由于存在许多可能的故障点（例如证明失败、注册失败等），IoT 设备的连接问题有时很难排查。本文介绍如何通过 [Azure Monitor](/azure-monitor/overview) 检测和排查设备连接问题。
+由于存在许多可能的故障点（例如证明失败、注册失败等），IoT 设备的连接问题有时很难排查。本文介绍如何通过 [Azure Monitor](../azure-monitor/overview.md) 检测和排查设备连接问题。
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>使用 Azure Monitor 查看指标并设置警报
 
@@ -82,5 +82,5 @@ ms.locfileid: "77494108"
 | 401 | 授权令牌无法验证；例如，它已过期或无法应用到请求的 URI。 此错误代码也会在 TPM 证明流中返回给设备。 | 401 未授权|
 | 404 | 设备预配服务实例或资源（例如注册）不存在。 |404 未找到 |
 | 412 | 根据 RFC7232 规范，请求中的 ETag 与现有资源中的 ETag 不匹配。 | 412 先决条件失败 |
-| 429 | 服务限制了操作。 对于具体的服务限制，请参阅 [IoT 中心设备预配服务限制](/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)。 | 429 请求过多 |
+| 429 | 服务限制了操作。 对于具体的服务限制，请参阅 [IoT 中心设备预配服务限制](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)。 | 429 请求过多 |
 | 500 | 发生了内部错误。 | 500 内部服务器错误|

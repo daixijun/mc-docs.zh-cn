@@ -7,14 +7,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 origin.date: 09/28/2020
-ms.date: 10/19/2020
+ms.date: 12/03/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8acd27bd4f951692a7ebe512074f232986b332de
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 0825c526c5dc7f9f20b0b3331d368b01ea4164b0
+ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170784"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96544721"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>快速入门：使用 SignalR 服务创建聊天室
 
@@ -33,13 +33,13 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 * 安装 [.NET Core SDK](https://www.microsoft.com/net/download/windows)。
 * 下载或克隆 [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 存储库。 
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="create-an-azure-signalr-resource"></a>创建 Azure SignalR 资源
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
 
@@ -53,7 +53,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
     dotnet new mvc
     ```
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="add-secret-manager-to-the-project"></a>向项目添加机密管理器
 
@@ -117,7 +117,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
     }
     ```
 
-    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString* 。
+    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString*。
 
 5. 在 Startup.cs 中，更新 `Configure` 方法并将其替换为以下代码。
 
@@ -347,7 +347,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
     }
     ```
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="build-and-run-the-app-locally"></a>在本地生成并运行应用
 
@@ -382,7 +382,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
     ![Azure SignalR 群组聊天示例](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -403,7 +403,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
 片刻之后，将会删除该资源组及其所有资源。
 
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)
+遇到问题？ 尝试使用[故障排除指南](signalr-howto-troubleshoot-guide.md)或[通知我们](https://aka.ms/asrs/qsnetcore)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -411,5 +411,3 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
 
 > [!div class="nextstepaction"]
 > [Azure SignalR 服务身份验证](./signalr-concept-authenticate-oauth.md)
-
-[存在问题？请告诉我们。](https://aka.ms/asrs/qsnetcore)

@@ -1,4 +1,4 @@
-- name: 键
+- name: 密钥
   href: index.yml
 - name: 概述
   items:
@@ -40,7 +40,7 @@
       displayName: ARM
     - name: Azure Policy 内置策略定义
       displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+      href: ../policy-reference.md?toc=/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: 资源
   items:
     - name: 定价

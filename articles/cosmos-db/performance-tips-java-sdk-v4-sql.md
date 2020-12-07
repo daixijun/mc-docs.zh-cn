@@ -2,21 +2,22 @@
 title: Azure Cosmos DB Java SDK v4 性能提示
 description: 了解用于提高 Java SDK v4 的 Azure Cosmos 数据库性能的客户端配置选项
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-java
-ms.openlocfilehash: 4687594faac947b29b3808189e3f5820c9838fe7
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: 921ae395f1d85c1f2d06fb2129f89b53ec39d68d
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190318"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598428"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
@@ -45,7 +46,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Java SDK 的默认连接模式是直接连接模式。 可以使用 directMode() 或 gatewayMode() 方法在客户端生成器中配置连接模式，如下所示。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。    否则，以参数（directMode() 的是 DirectConnectionConfig，gatewayMode() 的是 GatewayConnectionConfig）的形式传递配置设置类实例。 若要详细了解不同的连接性选项，请参阅[连接性模式](sql-sdk-connection-modes.md)一文。
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a name="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 

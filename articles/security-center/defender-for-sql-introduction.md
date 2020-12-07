@@ -3,17 +3,17 @@ title: 适用于 SQL 的 Azure Defender - 优点和功能
 description: 了解适用于 SQL 的 Azure Defender 的优点和功能。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 68ca4a627f33b1de350be595d3a6835caa9f7fb7
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: ff2c273c7916f3b22a2f2d31b3424594f524aebc
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638303"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747157"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>适用于 SQL 的 Azure Defender 简介
 
@@ -25,8 +25,8 @@ ms.locfileid: "94638303"
 |----|:----|
 |发布状态：|**适用于 Azure SQL 数据库服务器的 Azure Defender** - 正式发布 (GA)<br>**适用于计算机上的 SQL 服务器的 Azure Defender** - 预览|
 |定价：|适用于 SQL 的 Azure Defender 包含的两个计划按[定价页](security-center-pricing.md)中的定价计费|
-|受保护的 SQL 版本：|Azure SQL Database <br>Azure SQL 托管实例<br>Azure Synapse Analytics（以前称为 SQL DW）<br>SQL Server（所有受支持的版本）|
-|云：|![是](./media/icons/yes-icon.png) 商业云<br>![是](./media/icons/yes-icon.png) US Gov<br>![否](./media/icons/no-icon.png) China Gov，其他 Gov|
+|受保护的 SQL 版本：|Azure 虚拟机上的 SQL - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 和 [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>Azure SQL [单一数据库](../azure-sql/database/single-database-overview.md)和[弹性池](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics（以前称为 SQL DW）专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
+|云：|![是](./media/icons/yes-icon.png) 中国云|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>适用于 SQL 的 Azure Defender 保护了哪些项目？
@@ -36,7 +36,7 @@ ms.locfileid: "94638303"
 - 适用于 Azure SQL 数据库服务器的 Azure Defender 保护：
   - [Azure SQL 数据库](../azure-sql/database/sql-database-paas-overview.md)
   - [Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Azure Synapse 中的专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - 适用于计算机上的 SQL 服务器的 Azure Defender（预览版）会扩展对 Azure 原生 SQL Server 的保护以完全支持混合环境，并保护在 Azure、其他云环境甚至本地计算机上托管的 SQL server（所有受支持的版本）
 
@@ -69,5 +69,4 @@ ms.locfileid: "94638303"
 如需相关材料，请参阅以下文章： 
 
 - [如何启用适用于 SQL 数据库服务器的 Azure Defender](../azure-sql/database/azure-defender-for-sql.md)
-- [适用于 SQL 的 Azure Defender 警报列表](alerts-reference.md#alerts-sql-db-and-warehouse)
 

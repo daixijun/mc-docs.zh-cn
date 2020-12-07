@@ -6,12 +6,12 @@ ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/02/2020
-ms.openlocfilehash: 308e2dad31638189ad4d57884a52695674aea01c
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: afad719875229e87f5874b9269f8675f9bd6a548
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326690"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509097"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>教程：使用托管标识从 Azure Spring Cloud 应用调用 Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions 和应用服务都内置了对 Azure Active Directory (Azure AD)
 
 ## <a name="prerequisites"></a>先决条件
 
-* [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [安装 Azure CLI 2.0.67 或更高版本](/cli/install-azure-cli)
 * [安装 Maven 3.0 或更高版本](https://maven.apache.org/download.cgi)
 * [安装 Azure Functions Core Tools 版本 3.0.2009 或更高版本](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)

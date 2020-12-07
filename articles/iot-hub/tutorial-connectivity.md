@@ -10,18 +10,18 @@ origin.date: 02/22/2019
 ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: f9203caad382ff58f2841b7a3fb6f572df5a99f8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0ff678fa844334b7e5fb4bbaaa583915cb91a004
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327720"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747116"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试与 IoT 中心的连接
 
 本教程使用 Azure IoT 中心门户工具和 Azure CLI 命令来测试设备连接性。 本教程还使用简单的可以在台式机上运行的设备模拟器。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 在本教程中，你将了解如何执行以下操作：
 > [!div class="checklist"]
@@ -69,7 +69,7 @@ node --version
 
 ![“IoT 设备”工具](media/tutorial-connectivity/iot-devices-tool.png)
 
-若要注册新设备，请单击“+ 添加”，将“设备 ID”设置为 **MyTestDevice** ，然后单击“保存”：  
+若要注册新设备，请单击“+ 添加”，将“设备 ID”设置为 **MyTestDevice**，然后单击“保存”：  
 
 ![添加新设备](media/tutorial-connectivity/add-device.png)
 

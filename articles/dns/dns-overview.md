@@ -5,14 +5,14 @@ author: WenJason
 ms.service: dns
 ms.topic: overview
 origin.date: 3/21/2019
-ms.date: 09/14/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 9b7f5c92a6691c9d66424e3f1d7938d06ab7ed41
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 65d24482a581aa8598f709446cf9828b3e4d0209
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512844"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746669"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 
@@ -30,11 +30,11 @@ Azure DNS 中的 DNS 域托管在 DNS 名称服务器的 Azure 全球网络上�
 
  Azure DNS 基于 Azure 资源管理器，后者提供以下功能：
 
-* [Azure 基于角色的访问控制 (Azure RBAC)](https://docs.azure.cn/azure-resource-manager/resource-group-overview)：控制谁有权访问针对组织的特定操作。
+* [Azure 基于角色的访问控制 (Azure RBAC)](../azure-resource-manager/management/overview.md)：控制谁有权访问针对组织的特定操作。
 
-* [活动日志](https://docs.azure.cn/azure-resource-manager/resource-group-overview)：监视你的组织中的用户对资源进行了怎样的修改，或者在进行故障排除时查找错误。
+* [活动日志](../azure-resource-manager/management/overview.md)：监视你的组织中的用户对资源进行了怎样的修改，或者在进行故障排除时查找错误。
 
-* [资源锁定](https://docs.azure.cn/azure-resource-manager/resource-group-lock-resources)：锁定订阅、资源组或资源。 锁定可以防止组织中的其他用户意外删除或修改重要资源。
+* [资源锁定](../azure-resource-manager/management/lock-resources.md)：锁定订阅、资源组或资源。 锁定可以防止组织中的其他用户意外删除或修改重要资源。
 
 有关详细信息，请参阅[如何保护 DNS 区域和记录](dns-protect-zones-recordsets.md)。 
 
@@ -68,7 +68,6 @@ Azure DNS 支持别名记录集。 可以使用别名记录集来引用 Azure �
 
 * 若要了解 DNS 区域和记录，请参阅 [DNS 区域和记录概述](dns-zones-records.md)。
 
-* 若要了解如何在 Azure DNS 中创建区域，请参阅[创建 DNS 区域](./dns-getstarted-create-dnszone-portal.md)。
+* 若要了解如何在 Azure DNS 中创建区域，请参阅[创建 DNS 区域](./dns-getstarted-portal.md)。
 
 * 有关 Azure DNS 的常见问题，请参阅 [Azure DNS 常见问题](dns-faq.md)。
-

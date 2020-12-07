@@ -4,18 +4,18 @@ description: 快速入门 - 使用 C# 服务 SDK 将 TPM 设备注册到 Azure I
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 09/28/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: c26f8b64d7553c6361b08f8d61dbc39cc93ff467
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: b5a2f9b40319bd4612f96d6b945137597c6aecae
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590583"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541102"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>快速入门：使用 C# 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
 

@@ -14,12 +14,12 @@ ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 229c595bfc2f1901a2346d1a9d937d58b78fc8e7
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 442f4d6457b19f3a4121cda60bacd7e534d5015c
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509002"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>为 Azure Active Directory 中的组命名策略
 
@@ -29,7 +29,7 @@ ms.locfileid: "94326782"
 * 有助于对通讯簿中的组进行分类。
 * 阻止组名和别名中使用特定字词。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>在 Azure 门户中配置组命名策略
 

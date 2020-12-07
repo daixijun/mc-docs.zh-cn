@@ -2,28 +2,29 @@
 title: 创建具有虚拟网络服务终结点的 Azure Cosmos 帐户
 description: 创建具有虚拟网络服务终结点的 Azure Cosmos 帐户
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 32d67fea62c8c2f3e6b402910467a6c0f29f7ea1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: af15cf1398d3e5c218822a478ac8779309a50cf3
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328086"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598576"
 ---
 <!--Verify successfully-->
 # <a name="create-an-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建具有虚拟网络服务终结点的 Azure Cosmos 帐户
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，此命令需要运行 Azure CLI 2.9.1 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+- 本文需要 Azure CLI 版本 2.9.1 或更高版本。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -42,14 +43,12 @@ ms.locfileid: "94328086"
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
 #
 
-# Generate a unique 10 character alphanumeric string to ensure unique resource names
-uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
-
 # Sign in the Azure China Cloud
 az cloud set -n AzureChinaCloud
 az login
 
 # Resource group and Cosmos account variables
+uniqueId=$RANDOM
 resourceGroupName="Group-$uniqueId"
 location='chinanorth2'
 accountName="cosmos-$uniqueId" #needs to be lower case
@@ -102,7 +101,7 @@ az group delete --name $resourceGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az network vnet create](https://docs.azure.cn/cli/network/vnet#az_network_vnet_create) | 创建 Azure 虚拟网络。 |

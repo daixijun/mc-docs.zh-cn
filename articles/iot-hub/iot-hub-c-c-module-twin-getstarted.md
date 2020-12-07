@@ -9,12 +9,12 @@ ms.topic: conceptual
 orgin.date: 06/25/2018
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: f8d49ef3460d7b8c94dd794a0abce8e7ffc8f117
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 62cca3fb72e95854ad0c3c2f2468fe0d6fb49d6b
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186936"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746973"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>IoT 中心模块标识和模块孪生 (C) 入门
 
@@ -33,7 +33,7 @@ ms.locfileid: "84186936"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 
 * 最新 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)。
 

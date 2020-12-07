@@ -13,12 +13,12 @@ origin.date: 08/20/2019
 ms.date: 09/30/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6336361d67c5845fb49cfb6a35cbcf7d2e30ab0d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a515ee6932804823f8976d60cb1f9f7fe3cea6e4
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472637"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747138"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>使用门户和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -41,7 +41,7 @@ ms.locfileid: "92472637"
 ## <a name="prerequisites"></a>先决条件
 
 * Visual Studio。
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，只需几分钟即可完成。
 
 ## <a name="create-a-hub"></a>创建中心
 
@@ -87,7 +87,7 @@ ms.locfileid: "92472637"
 
 1. 在 Visual Studio 中，打开“工具” > “NuGet 包管理器” > “管理解决方案的 NuGet 包”。  
 
-1. 选择“浏览”，然后选择“包括预发行版” 。 搜索 *Microsoft.Azure.Devices.Client* 。 选择最新版本并安装。
+1. 选择“浏览”，然后选择“包括预发行版” 。 搜索 *Microsoft.Azure.Devices.Client*。 选择最新版本并安装。
 
     ![安装 Azure IoT 中心 .NET 服务 SDK 预览版](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "92472637"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 导航到 IoT 中心并选择“IoT 设备”。 打开 **myFirstDevice** ，可以看到 **myFirstModule** 已成功创建。
+1. 导航到 IoT 中心并选择“IoT 设备”。 打开 **myFirstDevice**，可以看到 **myFirstModule** 已成功创建。
 
 1. 在“模块标识”下选择“myFirstModule”。  在“模块标识详细信息”中复制“连接字符串(主密钥)”。 
 

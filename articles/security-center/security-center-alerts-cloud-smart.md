@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: v-johya
 origin.date: 07/02/2019
-ms.openlocfilehash: 82b9bfe750cd3d83b7335b8639296b3eeba1c3c8
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: c9d8a2528bd4a8df33047ca58e972599f4af41b1
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637995"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746911"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure 安全中心中的云智能警报关联（事件）
 
@@ -37,8 +37,6 @@ Fusion 分析将安全域知识与 AI 相结合，用于分析警报，发现新
 
 在调查事件期间，分析员经常需要额外的上下文，以便得出有关威胁的性质以及如何缓解威胁的裁定。 例如，即使检测到网络异常，但不了解网络上发生的其他情况或者目标资源相关情况，很难知道接下来要采取什么操作。 为了提供帮助，安全事件可以包括工件、相关事件和信息。 可用于安全事件的其他信息因检测到的威胁类型和环境配置而异。 
 
-> [!TIP]
-> 有关可通过合成分析生成的安全事件警报的列表，请参阅[警报的引用表](alerts-reference.md#alerts-fusion)。
 
 :::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="检测到的安全事件报告的屏幕截图":::
 

@@ -5,15 +5,15 @@ services: data-factory
 author: memildin
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/13/2020
+ms.date: 12/04/2020
 ms.author: v-johya
 ms.custom: include file
-ms.openlocfilehash: 85fed70980b1b3f25c7466ac26ca8667f825d5a1
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8a5060185e31461dc4c3e8b1ed6e884e43abe97f
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638271"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747168"
 ---
 ```json
 {
@@ -67,7 +67,7 @@ ms.locfileid: "94638271"
 |**EndTimeUtc**|DateTime|警报中包含的最后一个事件或活动的时间。  字段应为符合 ISO8601 格式的字符串，包括 UTC 时区信息。|
 |**实体**|IEnumerable (IEntity)|与警报相关的实体的列表。 此列表可以包含不同类型的实体。 实体类型可以是实体部分中定义的任何类型。 还可以发送不在下面列表中的实体，但是不能保证对其进行处理（警报不会在验证新类型的实体时失败）。|
 |**ExtendedProperties**|Dictionary (String,String)|提供程序可能（可选）在此处包含自定义字段。|
-|**意向**|枚举|警报背后的终止链相关意向。 有关支持的值的列表以及 Azure 安全中心支持的终止链意向的说明，请参阅[意向](../articles/security-center/alerts-reference.md#intentions)。<br/>此字段可能包含多个值（用逗号分隔）。|
+|**意向**|枚举|警报背后的终止链相关意向。<br/>此字段可能包含多个值（用逗号分隔）。|
 |**IsIncident**|Bool|此字段确定警报是否为事件（多个警报的复合分组）或单个警报。 该字段的默认值为“false”（表示它是单个警报）。|
 |**ProcessingEndTime**|DateTime|最终用户在保存警报的原始产品中可以访问警报的时间。|
 |ProductName|String|发布此警报的产品的名称（Azure 安全中心、Azure ATP、Microsoft Defender ATP 和 MCAS 等）。|

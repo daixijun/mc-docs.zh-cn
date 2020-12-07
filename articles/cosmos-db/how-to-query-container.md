@@ -2,19 +2,20 @@
 title: 在 Azure Cosmos DB 中查询容器
 description: 了解如何使用分区中查询和跨分区查询来查询 Azure Cosmos DB 中的容器
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 03/18/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: f1aa9168a06045a3b0c6b8f59025e2192a255b41
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fe7185874aa5ee1ba959b29678a8d4adc823d4b3
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328316"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598710"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -61,9 +62,9 @@ Azure Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项。 并�
 
 可以通过调整以下参数来管理并行查询执行：
 
-- **MaxConcurrency** ：设置容器分区的最大并发网络连接数。 如果将此属性设置为 `-1`，则由 SDK 管理并行度。 如果  `MaxConcurrency` 设置为 `0`，则与容器的分区之间存在单个网络连接。
+- **MaxConcurrency**：设置容器分区的最大并发网络连接数。 如果将此属性设置为 `-1`，则由 SDK 管理并行度。 如果  `MaxConcurrency` 设置为 `0`，则与容器的分区之间存在单个网络连接。
 
-- **MaxBufferedItemCount** ：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
+- **MaxBufferedItemCount**：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
 由于 Azure Cosmos DB 能够并行执行跨分区查询，因此，随着系统增加[物理分区](partitioning-overview.md#physical-partitions)，查询延迟通常增加得不多。 但是，随着物理分区总数的增加，RU 开销会明显增大。
 

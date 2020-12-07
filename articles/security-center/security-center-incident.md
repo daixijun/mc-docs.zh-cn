@@ -6,15 +6,15 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: v-johya
 origin.date: 03/15/2020
-ms.openlocfilehash: 4357541764dd1483f511858b6d3b890757b1f59a
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 2861e784c433f88e902a35e1d4e6ee06a79129b1
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638175"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746651"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>在 Azure 安全中心管理安全事件
 
@@ -26,7 +26,7 @@ ms.locfileid: "94638175"
 
 ## <a name="what-is-a-security-incident"></a>什么是安全事件？
 
-在安全中心，安全事件是对资源的所有警报汇总，与 [网络攻击链](alerts-reference.md#intentions) 模式保持一致。 事件显示在[安全警报](security-center-managing-and-responding-alerts.md)页中。 选择事件以查看相关警报并获取详细信息。
+在安全中心，安全事件是对资源的所有警报汇总，与 网络攻击链 模式保持一致。 事件显示在[安全警报](security-center-managing-and-responding-alerts.md)页中。 选择事件以查看相关警报并获取详细信息。
 
 ## <a name="managing-security-incidents"></a>管理安全事件
 

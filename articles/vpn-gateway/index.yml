@@ -10,13 +10,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/28/2019
-  ms.date: 11/23/2020
-  ms.openlocfilehash: 36b979462a0375cac3dde89756b999a83dcf0902
-  ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+  ms.date: 12/07/2020
+  ms.openlocfilehash: 56c9f99e030d341f66f0cf9505c6df7452dee8f3
+  ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/19/2020
-  ms.locfileid: "94908946"
+  ms.lasthandoff: 12/06/2020
+  ms.locfileid: "96746630"
 landingContent:
 - title: 关于 VPN 网关
   linkLists:
@@ -79,7 +79,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 安全控件
-      url: vpn-gateway-security-controls.md
+      url: ./security-baseline.md
   - linkListType: how-to-guide
     links:
     - text: 监视和警报

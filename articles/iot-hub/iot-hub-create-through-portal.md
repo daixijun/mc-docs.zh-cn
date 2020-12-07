@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/06/2018
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 982b1738ca608cc9f1bd9829de93cbe9defac4da
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 73908f1f351c56ab7ba51b6af39de25ebd1d9ab1
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327434"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747151"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
@@ -21,7 +21,7 @@ ms.locfileid: "94327434"
 
 本文介绍如何使用 [Azure 门户](https://portal.azure.cn)创建和管理 IoT 中心。
 
-需要一个 Azure 订阅才能完成此教程中的步骤。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+需要一个 Azure 订阅才能完成此教程中的步骤。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 

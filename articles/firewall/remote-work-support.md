@@ -2,18 +2,20 @@
 title: Azure 防火墙远程工作支持
 description: 本文介绍 Azure 防火墙如何支持远程工作人员需求。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: conceptual
 origin.date: 05/04/2020
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 12/07/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a81902d5ce7741fe0e477078d6a21fc7200c701a
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: 85b918c9f525ca7a098dffbd5ffcfa4554f6ac74
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683901"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746586"
 ---
 <!--Verified successfully-->
 # <a name="azure-firewall-remote-work-support"></a>Azure 防火墙远程工作支持
@@ -32,5 +34,4 @@ Azure 防火墙是一种基于云的托管网络安全服务，可保护 Azure �
 
 <!--Not Available on [Windows Virtual Desktop](/virtual-desktop/)-->
 
-<!-- Update_Description: new article about remote work support -->
-<!--NEW.date: 04/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

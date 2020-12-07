@@ -6,14 +6,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 06/29/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.service: dms
-ms.openlocfilehash: a3715e94083bde0ae85d50ac089bb83acab0d0c6
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 500eb08d559dfe57a8c604810fef0251f42e5a21
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045810"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746844"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 数据库迁移服务的实例
 
@@ -30,7 +30,7 @@ ms.locfileid: "89045810"
 Azure 数据库迁移服务 ARM 模板需要以下各项： 
 
 - 最新版本的 [Azure CLI](/cli/install-azure-cli) 和/或 [PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。 
-- Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+- Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -38,82 +38,82 @@ Azure 数据库迁移服务 ARM 模板需要以下各项：
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the new migration service."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location where the resources will be deployed."
-            }
-        },
-        "vnetName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the new virtual network."
-            }
-        },
-        "subnetName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the new subnet associated with the virtual network."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the new migration service."
+      }
     },
-    "variables": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location where the resources will be deployed."
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2020-04-01",
-            "name": "[parameters('vnetName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "10.0.0.0/16"
-                    ]
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "apiVersion": "2020-04-01",
-            "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
-            "dependsOn": [
-                "[parameters('vnetName')]"
-            ],
-            "properties": {
-                "addressPrefix": "10.0.0.0/24"
-            }
-        },
-        {
-            "type": "Microsoft.DataMigration/services",
-            "apiVersion": "2018-07-15-preview",
-            "name": "[parameters('serviceName')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "tier": "Standard",
-                "size": "1 vCores",
-                "name": "Standard_1vCores"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
-            ],
-            "properties": {
-                "virtualSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
-            }
-        }
-    ],
-    "outputs": {
+    "vnetName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the new virtual network."
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the new subnet associated with the virtual network."
+      }
     }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2020-06-01",
+      "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
+      "dependsOn": [
+        "[parameters('vnetName')]"
+      ],
+      "properties": {
+        "addressPrefix": "10.0.0.0/24"
+      }
+    },
+    {
+      "type": "Microsoft.DataMigration/services",
+      "apiVersion": "2018-07-15-preview",
+      "name": "[parameters('serviceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "tier": "Standard",
+        "size": "1 vCores",
+        "name": "Standard_1vCores"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+      ],
+      "properties": {
+        "virtualSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+      }
+    }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -189,7 +189,7 @@ Write-Host "Press [ENTER] to continue..."
 有关引导你完成模板创建过程的分步教程，请参阅：
 
 > [!div class="nextstepaction"]
-> [教程：创建和部署你的第一个 ARM 模板](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [教程：创建和部署你的第一个 ARM 模板](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 有关部署 Azure 数据库迁移服务的其他方式，请参阅： 
 - [Azure 门户](quickstart-create-data-migration-service-portal.md)

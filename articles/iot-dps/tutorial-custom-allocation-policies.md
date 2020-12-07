@@ -4,17 +4,17 @@ description: 有关通过 Azure IoT 中心设备预配服务 (DPS) 使用自定�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 09/23/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 605d4575f8094b68bcb2547050e5f941dc4ec50c
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: f34441cb88b672df10de43bfa81f7ed9819a3d73
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300436"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541193"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>教程：通过设备预配服务 (DPS) 使用自定义分配策略
 

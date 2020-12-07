@@ -6,15 +6,15 @@ titleSuffix: Azure VPN Gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
-origin.date: 02/11/2020
-ms.date: 09/07/2020
+origin.date: 09/03/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 0e4159035749eac710be98d5aa26c4180afc7953
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 47805a386290a669fb9c99159dffe57d40f0d40a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463047"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747217"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -72,8 +72,8 @@ ms.locfileid: "89463047"
 2. 配置新网关并创建 VPN 隧道。 有关说明，请参阅[指定 SKU 和 VPN 类型](vpn-gateway-howto-site-to-site-classic-portal.md#sku)。 请确保将“路由类型”指定为“动态”。
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>如果没有站点到站点虚拟网络：
-1. 使用以下说明创建站点到站点虚拟网络：[创建具有站点到站点 VPN 连接的虚拟网络](vpn-gateway-site-to-site-create.md)。  
-2. 按照以下说明配置动态路由网关：[配置 VPN 网关](vpn-gateway-configure-vpn-gateway-mp.md)。 请务必为网关类型选择“动态路由”  。
+1. 使用以下说明创建站点到站点虚拟网络：[创建具有站点到站点 VPN 连接的虚拟网络](./vpn-gateway-howto-site-to-site-classic-portal.md)。  
+2. 按照以下说明配置动态路由网关：[配置 VPN 网关](./vpn-gateway-howto-site-to-site-classic-portal.md)。 请务必为网关类型选择“动态路由”  。
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2.导出网络配置文件
 

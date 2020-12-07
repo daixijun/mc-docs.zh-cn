@@ -3,20 +3,21 @@ title: 快速入门 - 使用 Azure 资源管理器模板创建 Azure Cosmos DB �
 description: 快速入门 - 展示了如何使用 Azure 资源管理器模板创建 Azure Cosmos 数据库和容器
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 origin.date: 06/01/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 1f17a07163c31953d73bed54b414f265cf76c3df
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 03943abc34d1b35cd4865a762e4bc7b16c8bb30e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552781"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747252"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Cosmos DB 和容器

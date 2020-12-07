@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
 origin.date: 10/13/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 7512190272f8989cce04c9ab849b22d6113a7f43
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: af6fb56e0604e76f6b47aff4cb69619fcd53bb9c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908932"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747207"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教程：使用 PowerShell 创建和管理 VPN 网关
 
@@ -161,11 +161,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-有关详细信息，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md)。
+有关详细信息，请参阅[重置 VPN 网关](./reset-gateway.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果要转到[下一个教程](vpn-gateway-tutorial-vpnconnection-powershell.md)，你将需要保留这些资源，因为它们是先决条件。
+如果要转到[下一个教程](./vpn-gateway-create-site-to-site-rm-powershell.md)，你将需要保留这些资源，因为它们是先决条件。
 
 但是，如果网关是某个原型、测试或概念证明部署的一部分，则可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令来删除资源组、VPN 网关和所有相关资源。
 

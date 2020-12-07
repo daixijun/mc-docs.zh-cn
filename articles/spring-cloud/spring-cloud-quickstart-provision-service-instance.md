@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 09b243addebbd5600fb5c3961f7327ea4c20b641
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: d4f7c9e506af800ba449d6340ad1255d50b703f9
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373976"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509077"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>快速入门：预配 Azure Spring Cloud 服务
 
@@ -20,7 +20,7 @@ ms.locfileid: "94373976"
 ## <a name="prerequisites"></a>先决条件
 
 * [安装 JDK 8](https://docs.microsoft.com/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
-* [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * （可选）[安装 Azure CLI 版本 2.0.67 或更高版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)，并使用以下命令安装 Azure Spring Cloud 扩展：`az extension add --name spring-cloud`
 * （可选）[安装 Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) 并[登录](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
@@ -45,7 +45,7 @@ ms.locfileid: "94373976"
 5. 在 Azure Spring Cloud“创建”页中填写表单。  遵循以下指南：
     - 订阅：选择要在其中收取此资源费用的订阅。
     - 资源组：最佳做法是为新资源创建新的资源组。 请注意，后面的步骤会将其用作 \<resource group name\>。
-    - **服务详细信息/名称** ：指定 \<service instance name\>。  该名称必须为 4 到 32 个字符，只能包含小写字母、数字及连字符。  服务名称的第一个字符必须是字母，最后一个字符必须是字母或数字。
+    - **服务详细信息/名称**：指定 \<service instance name\>。  该名称必须为 4 到 32 个字符，只能包含小写字母、数字及连字符。  服务名称的第一个字符必须是字母，最后一个字符必须是字母或数字。
     - 位置：选择服务实例的位置。
 
     ![ASC 门户启动](./media/spring-cloud-quickstart-launch-app-portal/portal-start.png)

@@ -1,15 +1,17 @@
 ---
 title: 导出 Azure Policy 资源
 description: 了解如何将 Azure Policy 资源（例如策略定义和策略分配）导出到 GitHub。
-ms.date: 10/29/2020
+origin.date: 10/29/2020
+ms.date: 12/02/2020
+ms.author: v-tawe
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d1b0204c4c27df25b17a8ecf553edf7962ea64de
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 68e8d5224b12c3243acfc66e4676b4c320a5104a
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300901"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541169"
 ---
 # <a name="export-azure-policy-resources"></a>导出 Azure Policy 资源
 
@@ -63,9 +65,9 @@ ms.locfileid: "96300901"
 
 Azure Policy 定义、计划和分配都可以使用 [Azure CLI](/cli/install-azure-cli) 导出为 JSON。 上述每条命令都使用一个 name 参数来指定要为哪个对象获取 JSON。 name 属性通常是 GUID，而不是对象的 displayName。
 
-- 定义 - [az policy definition show](/cli/policy/definition#az-policy-definition-show)
-- 计划 - [az policy set-definition show](/cli/policy/set-definition#az-policy-set-definition-show)
-- 分配 - [az policy assignment show](/cli/policy/assignment#az-policy-assignment-show)
+- 定义 - [az policy definition show](/cli/policy/definition#az_policy_definition_show)
+- 计划 - [az policy set-definition show](/cli/policy/set-definition#az_policy_set_definition_show)
+- 分配 - [az policy assignment show](/cli/policy/assignment#az_policy_assignment_show)
 
 下面是一个示例，说明如何使用 name“VirtualMachineStorage”获取策略定义的 JSON：
 

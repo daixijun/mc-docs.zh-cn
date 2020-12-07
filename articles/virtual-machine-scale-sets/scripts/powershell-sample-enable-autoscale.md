@@ -8,17 +8,17 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 08/07/2020
 ms.custom: avverma
-ms.openlocfilehash: 487df94adf674dbd0075e6a1c9fb98b2eb969c45
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 978bf9a14cd5b6c6e2bebd8bb348939eac325155
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914387"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509045"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 自动缩放虚拟机规模集
 此脚本创建运行 Windows Server 2016 的虚拟机规模集，当 CPU 负载发生变化时，它会使用基于主机的指标自动缩放。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

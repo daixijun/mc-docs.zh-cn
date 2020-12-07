@@ -2,20 +2,21 @@
 title: 从 CouchBase 迁移到 Azure Cosmos DB SQL API
 description: 有关从 CouchBase 迁移到 Azure Cosmos DB SQL API 的分步指南
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 02/11/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 author: rockboyfor
 ms.custom: devx-track-java
-ms.openlocfilehash: ac31cf80bc5301e9bee97e6e7da9fe4be2fdce4e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0ca710354a02c0603cbe7ea7bf93a54a09d9cea2
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327658"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598586"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>从 CouchBase 迁移到 Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +42,7 @@ Azure Cosmos DB 是可缩放的多区域分布式完全托管型数据库。 它
 
 * 在 Azure Cosmos DB 中，顶级层次结构无需表示集合，因为集合名称已存在。 此功能大幅简化了 JSON 结构。 以下示例展示了 Couchbase 与 Azure Cosmos DB 之间的数据模型差别：
 
-    **Couchbase** ：文档 ID = "99FF4444"
+    **Couchbase**：文档 ID = "99FF4444"
 
     ```json
     {
@@ -71,7 +72,7 @@ Azure Cosmos DB 是可缩放的多区域分布式完全托管型数据库。 它
     }
     ```
 
-    **Azure Cosmos DB** ：引用文档中的“ID”，如下所示
+    **Azure Cosmos DB**：引用文档中的“ID”，如下所示
 
     ```json
     {
@@ -166,7 +167,7 @@ Azure Cosmos DB 提供以下 SDK 来支持不同的 Java 框架：
 
 ### <a name="insert-and-update-operations"></a>插入和更新操作
 
-其中， *_repo* 是存储库的对象， *doc* 是 POJO 类的对象。 可以使用 `.save` 执行插入或更新插入（如果找到了具有指定 ID 的文档）。 以下代码片段演示如何插入或更新 doc 对象：
+其中， *_repo* 是存储库的对象，*doc* 是 POJO 类的对象。 可以使用 `.save` 执行插入或更新插入（如果找到了具有指定 ID 的文档）。 以下代码片段演示如何插入或更新 doc 对象：
 
 ```_repo.save(doc);```
 
@@ -317,7 +318,7 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
 1. 考虑使用“/ID”作为主键，以确保可以直接在特定的分区中执行查找操作。 创建一个集合，并指定“/ID”作为分区键。
 
-1. 完全关闭索引功能。 由于执行的是查找操作，因此不会带来任何索引开销。 若要禁用索引功能，请登录到 Azure 门户并转到“Azure Cosmos DB 帐户”。 打开“数据资源管理器”，选择你的 **数据库** 和 **容器** 。 打开“规模和设置”选项卡，然后选择“索引策略”。  索引策略目前如下所示：
+1. 完全关闭索引功能。 由于执行的是查找操作，因此不会带来任何索引开销。 若要禁用索引功能，请登录到 Azure 门户并转到“Azure Cosmos DB 帐户”。 打开“数据资源管理器”，选择你的 **数据库** 和 **容器**。 打开“规模和设置”选项卡，然后选择“索引策略”。  索引策略目前如下所示：
 
     ```json
     {

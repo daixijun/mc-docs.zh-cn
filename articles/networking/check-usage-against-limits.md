@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2018
 ms.date: 03/02/2020
-ms.openlocfilehash: db540f2c2e195559bfc2368c16222c5c358ae7da
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 76efbad4dbeca9c29aa73c67d1359d0294bee4bd
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300911"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598698"
 ---
 # <a name="check-resource-usage-against-limits"></a>根据限制检查资源使用情况
 
-本文介绍如何查看已在订阅中部署的每种网络资源类型的数量，以及[订阅限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)是什么。 根据限制查看资源使用情况的功能有助于跟踪当前使用情况，并为将来使用做出计划。 可以使用 [Azure 门户](#azure-portal)、[PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 跟踪使用情况。
+本文介绍如何查看已在订阅中部署的每种网络资源类型的数量，以及[订阅限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fnetworking%2ftoc.json#networking-limits)是什么。 根据限制查看资源使用情况的功能有助于跟踪当前使用情况，并为将来使用做出计划。 可以使用 [Azure 门户](#azure-portal)、[PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 跟踪使用情况。
 
 ## <a name="azure-portal"></a>Azure 门户
 
@@ -41,7 +41,7 @@ ms.locfileid: "96300911"
 
        ![查看使用情况数据](./media/check-usage-against-limits/view-usage.png)
 
-     可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”  ，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
+     可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”  ，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
 
 ## <a name="powershell"></a>PowerShell
 

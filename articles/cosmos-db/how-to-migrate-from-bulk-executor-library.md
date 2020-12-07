@@ -2,20 +2,21 @@
 title: 从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持
 description: 了解如何将应用程序从使用批量执行工具库迁移到使用 Azure Cosmos DB SDK V3 中的批量操作支持
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 04/24/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 87e2e2fdbfaa16f4b5cc2637b8511e895257baa1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c62c1f9d4150638b7f79db3fb23eb6c41b204de1
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328667"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598479"
 ---
 <!--Verified with cosmos db SDK V3-->
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持

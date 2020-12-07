@@ -2,19 +2,20 @@
 title: Azure Cosmos DB PDF 查询速查表
 description: 可打印的 PDF 备忘单，借助该备忘录可使用 Azure Cosmos DB SQL、MongoDB、Graph 和表 API 来查询数据
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/28/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: bd4aa5098d58a38afcd714ea726e804e854b251d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ae856494ee795cd3d03eacc12c9e537acacd95b9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552777"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747250"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查询备忘单
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

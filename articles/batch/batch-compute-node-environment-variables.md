@@ -4,16 +4,16 @@ description: Azure Batch Analytics 的任务运行时环境变量指南和参考
 ms.topic: conceptual
 origin.date: 09/12/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 04/27/2019
 ms.author: v-yeche
-ms.openlocfilehash: e4d725b6193132337736ee5eca2756c0a94f595c
-ms.sourcegitcommit: c4b0a0ddd52ceca82cfdbdbdf07aad00d0f3ed03
+ms.openlocfilehash: bc8cc03daac91a93e35eff27dea8b76df566123a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714510"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747249"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 
@@ -23,21 +23,21 @@ ms.locfileid: "88714510"
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
-这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](./error-handling.md#connect-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+这些环境变量仅在 **任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](./error-handling.md#connect-to-compute-nodes)到计算节点并列出环境变量，将 *看不到* 这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
 
 要获取环境变量的当前值，请在 Windows 计算节点上启动 `cmd.exe`，或在 Linux 节点上启动 `/bin/sh`：
 
 `cmd /c set <ENV_VARIABLE_NAME>`
 
-`/bin/sh printenv <ENV_VARIABLE_NAME>`
+`/bin/sh -c "printenv <ENV_VARIABLE_NAME>"`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>环境变量的命令行扩展
 
-任务在计算节点上执行的命令行在 shell 下无法运行。 因此这些命令行无法以本机方式利用 shell 功能，例如环境变量扩展（包括 `PATH`）。 若要利用此类功能，必须在命令行中**调用 shell**。 例如，在 Windows 计算节点上启动 `cmd.exe` 或在 Linux 节点上启动 `/bin/sh`：
+任务在计算节点上执行的命令行在 shell 下无法运行。 因此这些命令行无法以本机方式利用 shell 功能，例如环境变量扩展（包括 `PATH`）。 若要利用此类功能，必须在命令行中 **调用 shell**。 例如，在 Windows 计算节点上启动 `cmd.exe` 或在 Linux 节点上启动 `/bin/sh`：
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+`/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## <a name="environment-variables"></a>环境变量
 

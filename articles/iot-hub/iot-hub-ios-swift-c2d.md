@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/19/2018
 ms.date: 03/09/2020
 ms.author: v-yiso
-ms.openlocfilehash: abd2d951537d0cb19d8129e9e57aff0dc1bc046a
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 24863238def8b2b41afd78c919c489a64fab968e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186620"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746990"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -32,7 +32,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 在本文结束时，运行两个 Swift iOS 项目：
 
-* **sample-device**：在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)中创建的同一应用，可连接到 IoT 中心并接收云到设备的消息。
+* **sample-device**：在 [将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)中创建的同一应用，可连接到 IoT 中心并接收云到设备的消息。
 
 * **sample-service**：通过 IoT 中心将云到设备的消息发送到模拟设备应用，然后接收中心的传送确认。
 
@@ -40,7 +40,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 > IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程中的代码（通常是连接到 Azure IoT 中心）的逐步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
 
 ## <a name="prerequisites"></a>必备条件
-- 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+- 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 - Azure 中的活动 IoT 中心。 
 - [Azure 示例](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)中的代码示例。
 - 最新版本的 [XCode](https://developer.apple.com/xcode/)，运行最新版本的 iOS SDK。 本快速入门已使用 XCode 9.3 和 iOS 11.3 测试过。
@@ -131,7 +131,7 @@ pod install
 
 3. 展开“AzureIoTServiceSample”项目，然后展开同名的文件夹。   
 4. 打开 **ViewController.swift**，以便在 XCode 中进行编辑。 
-4. 搜索 **connectionString** 变量，并使用先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的服务连接字符串更新其值。
+4. 搜索 **connectionString** 变量，并使用先前在 [获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的服务连接字符串更新其值。
 6. 保存所做更改。 
 7. 在 Xcode 中，将模拟器设置更改为其他 iOS 设备，而不是用来运行 IoT 设备的 iOS 设备。 XCode 无法运行相同类型的多个模拟器。 
 

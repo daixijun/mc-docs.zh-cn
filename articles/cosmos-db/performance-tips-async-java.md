@@ -2,21 +2,22 @@
 title: 适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 description: 了解用于提高 Azure Cosmos DB Async Java SDK v2 性能的客户端配置选项
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-java
-ms.openlocfilehash: 7ce4735e322a9cf9626d6b058dc6977ca0dd9e62
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: 60457d9f4ec703b3fe3dd1c861975663a5ec09f9
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552788"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598469"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -161,7 +162,6 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (\_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
     <a name="tune-page-size"></a>
-
 * **调整查询/读取源的页面大小以获得更好的性能**
 
     使用读取源功能（例如 readDocuments）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
@@ -253,10 +253,10 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
 
 * **从索引中排除未使用的路径以加快写入速度**
 
-    Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中排除文档的整个部分（也称为子树）。
+    Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引中排除整个文档部分（也称为子树）。
 
     <a name="asyncjava2-indexing"></a>
-    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-indexing"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -268,7 +268,7 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
 
 <a name="measure-rus"></a>
 ## <a name="throughput"></a>吞吐量
@@ -284,7 +284,7 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     若要测量任何操作（创建、更新或删除）的开销，请检查 [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 标头来测量这些操作占用的请求单位数。 也可以在 ResourceResponse\<T> 或 FeedResponse\<T> 中找到等效的 RequestCharge 属性。
 
     <a name="asyncjava2-requestcharge"></a>
-    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,

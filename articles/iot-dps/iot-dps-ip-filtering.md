@@ -7,13 +7,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 origin.date: 03/12/2020
-ms.date: 08/27/2020
-ms.openlocfilehash: 046905d23cb754712a304f53947daece62bfb4fb
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.date: 12/03/2020
+ms.openlocfilehash: a1b020002c96b00bc760e400d9b3d87b3b334f59
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951216"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541120"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>使用 Azure IoT DPS IP 连接筛选器
 
@@ -23,7 +23,7 @@ ms.locfileid: "88951216"
 
 在两个具体用例中，可以阻止从特定 IP 地址到 DPS 终结点的连接：
 
-* DPS 只能从指定范围的 IP 地址接收流量并拒绝任何其他流量。 例如，将 DPS 与 [Azure Express Route](https://docs.azure.cn/expressroute/expressroute-faqs#supported-services) 配合使用，以在 DPS 与设备之间创建专用连接。
+* DPS 只能从指定范围的 IP 地址接收流量并拒绝任何其他流量。 例如，将 DPS 与 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) 配合使用，以在 DPS 与设备之间创建专用连接。
 
 * 需要拒绝来自 DPS 管理员已标识为可疑地址的 IP 地址的流量。
 
@@ -49,7 +49,7 @@ ms.locfileid: "88951216"
 
 ![在选择“添加 IP 筛选器规则”后](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* 提供 IP 筛选器规则的**名称**。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
+* 提供 IP 筛选器规则的 **名称**。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
 
 * 提供单个 IPv4 地址或者以 CIDR 表示法提供一个 IP 地址块。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。
 
@@ -137,7 +137,7 @@ Azure CLI 或 Azure PowerShell 当前不支持更新 DPS IP 筛选器规则，�
 | 属性                | 说明 |
 | ------------------------ | ----------- |
 | **FilterName**           | 提供 IP 筛选器规则的名称。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 仅接受 ASCII 7 位字母数字字符和 {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}。 |
-| **操作**               | 接收的值为 **Accept** 或 **Reject** （充当 IP 筛选器规则的操作）。 |
+| **操作**               | 接收的值为 **Accept** 或  **Reject** （充当 IP 筛选器规则的操作）。 |
 | **ipMask**               | 提供单个 IPv4 地址或者以 CIDR 表示法提供一个 IP 地址块。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。 |
 
 

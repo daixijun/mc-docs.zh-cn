@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7c9c0dfe09ea4e7d9735dda109069ff72124057c
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.openlocfilehash: f0596d88a477cfb22124929fe2ce203a787639a3
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563793"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509015"
 ---
 # <a name="create-a-function-in-azure-thats-triggered-by-blob-storage"></a>在 Azure 中创建由 Blob 存储触发的函数
 
@@ -18,7 +18,7 @@ ms.locfileid: "84563793"
 
 ## <a name="prerequisites"></a>先决条件
 
-+ Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
++ Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-function-app"></a>创建 Azure Function App
 

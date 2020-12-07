@@ -11,21 +11,20 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: v-johya
 origin.date: 03/15/2020
-ms.openlocfilehash: 45e0de112304f63c732a9596c6dcbcc07294e7f7
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 443b5cadd62d9c1898400f89c7bfb3a25ed7e510
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638084"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746650"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>在 Azure 安全中心管理和响应安全警报
 
 本主题介绍如何查看和处理收到的警报，以保护资源。 
 
-* 若要了解不同类型的警报，请参阅[安全警报类型](alerts-reference.md)。
 * 有关安全中心如何生成警报的概述，请参阅 [Azure 安全中心如何检测和应对威胁](security-center-alerts-overview.md)。
 
 > [!NOTE]

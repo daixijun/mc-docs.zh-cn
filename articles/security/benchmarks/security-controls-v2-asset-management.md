@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 资产管理
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 46493a909ee06a841a28c2734deb82f02cf4a368
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: bdfbbb3aafa7e734d800b2a011a7a193a3e595fc
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637964"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747102"
 ---
 # <a name="security-control-v2-asset-management"></a>安全控制 V2：资产管理
 
@@ -38,7 +38,7 @@ ms.locfileid: "94637964"
 
 **责任**：客户
 
-客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [基础结构和终结点安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -80,7 +80,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [配置和管理 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [如何使用 Azure Policy 拒绝特定的资源类型](/governance/policy/samples/not-allowed-resource-types)
+- [如何使用 Azure Policy 拒绝特定的资源类型](../../governance/policy/samples/index.md)
 
 - [如何使用 Azure Resource Graph 浏览器创建查询](../../governance/resource-graph/first-query-portal.md)
 
@@ -161,5 +161,4 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 - [状况管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [安全合规性管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-
 

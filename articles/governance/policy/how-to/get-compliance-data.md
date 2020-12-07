@@ -3,14 +3,14 @@ title: 获取策略符合性数据
 description: Azure Policy 的评估和效果确定了符合性。 了解如何获取 Azure 资源的符合性详细信息。
 ms.author: v-tawe
 origin.date: 10/05/2020
-ms.date: 11/06/2020
+ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: ed85e2184cfb899f958ec4ea160cca980af1a30d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6febe8778ef75178d7a5ef4d074e942413c0cd49
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328824"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541174"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>获取 Azure 资源的符合性数据
 

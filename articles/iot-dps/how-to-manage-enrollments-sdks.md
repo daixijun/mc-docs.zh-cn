@@ -4,17 +4,17 @@ description: 如何使用服务 SDK 管理 IoT 中心设备预配服务 (DPS) �
 author: robinsh
 ms.author: v-tawe
 origin.date: 04/04/2018
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 13544021a24cac2e0271b5cf1b6f9686fde50865
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 706cda6e87c3fa29822ddd5a21740a56fcf104a7
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564386"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541137"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 设备预配服务 SDK 管理设备注册
 “设备注册”将创建单台设备或一组设备在某一时刻向设备预配服务进行注册的记录  。 注册记录包含注册过程中设备所需的初始配置及所需的 IoT 中心。 这篇文章演示如何使用 Azure IoT 预配服务 SDK 以编程方式管理预配服务的设备注册。  SDK 可从 GitHub 上与 Azure IoT SDK 相同的存储库中获取。
@@ -22,12 +22,12 @@ ms.locfileid: "91564386"
 ## <a name="prerequisites"></a>先决条件
 * 从设备预配服务实例获取连接字符串。
 * 为所使用的[证明机制](concepts-service.md#attestation-mechanism)获取设备安全项目：
-    * [**受信任的平台模块 (TPM)** ](/iot-dps/concepts-security#trusted-platform-module)：
+    * [**受信任的平台模块 (TPM)**](./concepts-tpm-attestation.md)：
         * 单个注册：来自物理设备或 TPM 模拟器的注册 ID 和 TPM 认可密钥。
         * 注册组不适用于 TPM 证明。
-    * [**X.509**](/iot-dps/concepts-security)：
-        * 个人注册：来自物理设备或 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 仿真器的[叶证书](/iot-dps/concepts-security)。
-        * 注册组：[CA/根证书](/iot-dps/concepts-security#root-certificate)或[中间证书](/iot-dps/concepts-security#intermediate-certificate)，用于在物理设备上生成设备证书。  它还可以通过 SDK DICE 仿真器生成。
+    * [**X.509**](./concepts-service.md#attestation-mechanism)：
+        * 个人注册：来自物理设备或 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 仿真器的[叶证书](./concepts-service.md#attestation-mechanism)。
+        * 注册组：[CA/根证书](./concepts-x509-attestation.md#root-certificate)或[中间证书](./concepts-x509-attestation.md#intermediate-certificate)，用于在物理设备上生成设备证书。  它还可以通过 SDK DICE 仿真器生成。
 * 具体的 API 调用可能会因语言的不同而有所不同。 有关详细信息，请查看 GitHub 上提供的示例：
    * [Java 预配服务客户端示例](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js 预配服务客户端示例](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -36,7 +36,7 @@ ms.locfileid: "91564386"
 ## <a name="create-a-device-enrollment"></a>创建设备注册
 可通过两种方法向预配服务注册设备：
 
-* 注册组是共享 X.509 证书的常见证明机制的一组设备的条目，由[根证书](/iot-dps/concepts-security#root-certificate)或[中间证书](/iot-dps/concepts-security#intermediate-certificate)签名。 建议对共享所需初始配置的大量设备，或者全部转到同一租户的设备使用注册组。 请注意，只能注册使用 X.509 证明机制作为“注册组”的设备  。 
+* 注册组是共享 X.509 证书的常见证明机制的一组设备的条目，由[根证书](./concepts-x509-attestation.md#root-certificate)或[中间证书](./concepts-x509-attestation.md#intermediate-certificate)签名。 建议对共享所需初始配置的大量设备，或者全部转到同一租户的设备使用注册组。 请注意，只能注册使用 X.509 证明机制作为“注册组”的设备  。 
 
     可按以下工作流使用 SDK 创建注册组：
 

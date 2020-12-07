@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: v-junlch
 ms.topic: how-to
 ms.date: 11/18/2020
-ms.openlocfilehash: d1bc8415c95dbdeb891df0a490317cdebdfe709c
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: b07e289681e7bf54880dac6ecb6cca4979bff819
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849517"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509025"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>使用 Java 和 Gradle 创建函数并将其发布到 Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "94849517"
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 版本 2.6.666 或更高版本
 - [Gradle](https://gradle.org/) 4.10 和更高版本
 
-还需要一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+还需要一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!IMPORTANT]
 > JAVA_HOME 环境变量必须设置为 JDK 的安装位置，以完成本快速入门。

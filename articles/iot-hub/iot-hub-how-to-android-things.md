@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 01/30/2019
 ms.date: 04/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9b9819273c28d1e4a5e97e00b3019ac844c86e35
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5f067fda7e38991642f22cf26af47432045e0450
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343399"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747263"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>使用 Azure IoT SDK 针对 Android Things 平台进行开发
 [Azure IoT 中心 SDK](/iot-hub/iot-hub-devguide-sdks) 为 Windows、Linux、OSX、MBED 等流行平台，以及 Android 和 iOS 等移动平台提供第一层支持。  作为我们在 IoT 部署中实现更多选择和灵活性的承诺的一部分，Java SDK 还支持 [Android Things](https://developer.android.com/things/) 平台。  使用 [Azure IoT 中心](/iot-hub/about-iot-hub)作为可扩展到数百万个同时连接的设备的中央消息中心时，开发人员可以在设备端利用 Android Things 操作系统的好处。 
@@ -25,7 +25,7 @@ ms.locfileid: "80343399"
 * 最新版本的 [Android Studio](https://developer.android.com/studio/)
 * 最新版本的 [Git](https://git-scm.com/)
 
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -75,7 +75,7 @@ ms.locfileid: "80343399"
 
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 
-可通过 IoT 中心查看接收的数据。 IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端**事件**终结点。 扩展会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
+可通过 IoT 中心查看接收的数据。 IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端 **事件** 终结点。 扩展会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
 
 在 Azure Cloud Shell 中运行以下命令，并将 `YourIoTHubName` 替换为 IoT 中心的名称：
 

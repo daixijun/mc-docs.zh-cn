@@ -2,19 +2,20 @@
 title: 利用资源管理器模板创建和管理 Azure Cosmos DB
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB for Core (SQL) API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 6811157bc8d3be1ce007a7679861a44facaef76d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 7c7893d6f6a80d27850a7cb74da7d42faf7632b7
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329353"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598644"
 ---
 <!--Verified successfully from rename article-->
 <!--Verified successfully on 2020-06-01 preview-->

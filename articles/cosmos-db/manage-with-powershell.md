@@ -2,20 +2,21 @@
 title: 使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源
 description: 使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: c053255f4a18e794ac3b42818dc9a51625ff989c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 743e5b2d8649d9570b577bf5c74008a478361bb2
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552527"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598466"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB Core (SQL) API 资源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

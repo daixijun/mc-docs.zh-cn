@@ -9,17 +9,17 @@ ms.subservice: imaging
 ms.date: 08/07/2020
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 4d255dc6c47b095e66eacd1eda07769723980024
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 467d3effe57b1aba913ec6cebcb2fd61c8cb807b
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914390"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509089"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>使用 Azure PowerShell 从自定义 VM 映像创建虚拟机规模集
 此脚本创建使用自定义 VM 映像作为 VM 实例源的虚拟机规模集。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

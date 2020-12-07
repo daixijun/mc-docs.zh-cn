@@ -2,21 +2,21 @@
 title: 适用于 Azure Cosmos DB Cassandra API 的 Azure CLI 示例
 description: 适用于 Azure Cosmos DB Cassandra API 的 Azure CLI 示例
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa9689a97450d37c6022a2514431af68973b83d6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e53b30e6e976cb11bba9d1c89da7f058ecf776bd
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328328"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598667"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>适用于 Azure Cosmos DB Cassandra API 的 Azure CLI 示例
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

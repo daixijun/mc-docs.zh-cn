@@ -2,20 +2,21 @@
 title: 适用于 .NET SDK v2 的 Azure Cosmos DB 性能提示
 description: 了解用于提高 Azure Cosmos DB .NET v2 SDK 性能的客户端配置选项。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8a4a5dedf9901d0194b780335f64f2ff6d60e0c5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: b97cc26955b9fa77101eebf9715619d0c4121df2
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552783"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598425"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>适用于 Azure Cosmos DB 和 .NET SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -196,7 +197,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount` 属性不应仅用于分页目的。 它的主要用途是通过减少单个页面中返回的最大项数来提高查询性能。  
 
-也可以使用提供的 Azure Cosmos DB SDK 设置页面大小。 `FeedOptions` 中的 [MaxItemCount](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) 属性允许你设置要在枚举操作中返回的最大项数。 当 `maxItemCount` 设置为 -1 时，SDK 会根据文档大小自动查找最佳值。 例如：
+也可以使用提供的 Azure Cosmos DB SDK 设置页面大小。 `FeedOptions` 中的 [MaxItemCount](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?preserve-view=true) 属性允许你设置要在枚举操作中返回的最大项数。 当 `maxItemCount` 设置为 -1 时，SDK 会根据文档大小自动查找最佳值。 例如：
 
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

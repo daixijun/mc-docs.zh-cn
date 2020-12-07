@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c48fa91969a50343ca7bd5cf39c034a960bfb6
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: d5ef789043d3c7888961da3d6305a1faf9c9b8d4
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501837"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509043"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>教程：配置 Log Analytics 向导
 
@@ -32,7 +32,7 @@ ms.locfileid: "94501837"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 至少包含一个 P1 许可管理员的 Azure 订阅。如果没有 Azure 订阅，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 至少包含一个 P1 许可管理员的 Azure 订阅。如果没有 Azure 订阅，可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - Azure AD 租户。
 

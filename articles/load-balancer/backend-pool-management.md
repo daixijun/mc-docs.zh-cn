@@ -5,16 +5,16 @@ description: 开始了解如何配置和管理 Azure 负载均衡器的后端池
 services: load-balancer
 author: WenJason
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: how-to
 origin.date: 07/07/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 9fcec0ce47ad8727e3bc6d3a53064ebe60a9180c
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: c2bdeeb0ae7c3471e538f30d03159ebcb470002e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045855"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746580"
 ---
 # <a name="backend-pool-management"></a>后端池管理
 后端池是负载均衡器的一个关键组成部分。 后端池定义将在给定负载均衡规则下提供流量的资源的组。
@@ -46,14 +46,14 @@ ms.locfileid: "89045855"
 
 ### <a name="powershell"></a>PowerShell
 创建新的后端池：
- 
+ 
 ```azurepowershell
 $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 创建新的网络接口并将它添加到后端池：
@@ -82,7 +82,7 @@ $backendPoolName = "myBackendPool"
 
 $lb =
 Get-AzLoadBalancer -ResourceGroupName $res
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
 创建新的虚拟机，并附加网络接口以将它放入后端池中：
@@ -106,7 +106,7 @@ Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
 $vmConfig = 
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
- 
+
 # Create a virtual machine using the configuration
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
@@ -116,7 +116,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmCon
 
 ```azurecli
 az network lb address-pool create \
---resourceGroup myResourceGroup \
+--resource-group myResourceGroup \
 --lb-name myLB \
 --name myBackendPool 
 ```
@@ -274,18 +274,18 @@ $vnetName = "myVnet"
 $location = "chinaeast2"
 $nicName = "myNic"
 
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 使用现有虚拟网络中的新 IP 更新后端池：
- 
+
 ```azurepowershell
-$virtualNetwork = 
-Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
- 
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
- 
-$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+
+$backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
 Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
@@ -293,7 +293,7 @@ Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 检索负载均衡器的后端池信息，确认此后端地址已添加到后端池：
 
 ```azurepowershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 创建网络接口并将它添加到后端池。 将 IP 地址设置为后端地址之一：
 
@@ -646,7 +646,7 @@ JSON 请求正文：
 创建虚拟机和附加的网络接口。 将网络接口的 IP 地址设置为后端地址之一：
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {

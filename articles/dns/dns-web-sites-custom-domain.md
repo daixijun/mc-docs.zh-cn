@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: tutorial
 origin.date: 10/20/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: de99a33f620f7a52f98ee2557a6ff79b3673a5aa
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 41946496687e4d415779167b2df59189b52da34e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590836"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746665"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教程：为 Web 应用在自定义域中创建 DNS 记录 
 
@@ -41,7 +41,7 @@ ms.locfileid: "94590836"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "94590836"
 
 * 在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
 
-   1. 若要创建 DNS 区域，请按照[创建 DNS 区域](dns-getstarted-create-dnszone.md)中的步骤执行操作。
+   1. 若要创建 DNS 区域，请按照[创建 DNS 区域](./dns-getstarted-powershell.md)中的步骤执行操作。
    2. 若要将区域委派给 Azure DNS，请按照 [DNS 域委派](dns-delegate-domain-azure-dns.md)中的步骤执行操作。
 
 在创建区域并将它委派给 Azure DNS 之后，可以为自定义域创建记录。

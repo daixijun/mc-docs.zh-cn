@@ -1,6 +1,6 @@
 ---
 title: 教程 - 使用 CLI 管理虚拟机
-description: 本教程介绍如何使用 Azure CLI 通过应用 RBAC、策略、锁和标记来管理 Azure 虚拟机。
+description: 本教程介绍如何使用 Azure CLI 通过应用 Azure RBAC、策略、锁和标记来管理 Azure 虚拟机。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: Johnnytechn
@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: be6dd74209d67639c288638a0c8c83a69c4b2cf6
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2b885ec30b9012ca3c2581670bd9a00dcddb8909
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057686"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746704"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "China East"
 
 目前，资源组为空。
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
 你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
 
@@ -55,7 +55,7 @@ az group create --name myResourceGroup --location "China East"
 
 通常情况下，与其向单个用户分配角色，不如使用其用户需要执行类似操作的 Azure Active Directory 组， 然后向该组分配相应的角色。 就本文来说，请使用现有的组来管理虚拟机，或者使用门户来[创建 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-创建新组或找到现有组以后，请使用 [az role assignment create](https://docs.azure.cn/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。
+创建新组或找到现有组以后，请使用 [az role assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。
 
 ```azurecli
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -63,13 +63,13 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-如果收到一条错误，指出**主体 \<guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
+如果收到一条错误，指出 **主体 \<guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
-通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
+通常情况下，请对 *网络参与者* 和 *存储帐户参与者* 重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../governance/policy/overview.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
+[Azure Policy](../../governance/policy/overview.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
 
 ```azurecli
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -81,7 +81,7 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 * 限制虚拟机的 SKU。
 * 审核不使用托管磁盘的虚拟机。
 
-在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [az policy assignment create](https://docs.azure.cn/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
+在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
 
 ```azurecli
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -143,7 +143,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。  
 
-若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/cli/resource/lock?view=azure-cli-latest#az-resource-lock-create) 命令：
+若要锁定虚拟机和网络安全组，请使用 [az lock create](/cli/resource/lock?view=azure-cli-latest#az-resource-lock-create) 命令：
 
 ```azurecli
 # Add CanNotDelete lock to the VM
@@ -175,7 +175,7 @@ az group delete --name myResourceGroup
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-若要将标记应用于虚拟机，请使用 [az resource tag](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令。 资源上的任何现有标记都不会保留。
+若要将标记应用于虚拟机，请使用 [az resource tag](/cli/resource?view=azure-cli-latest#az-resource-list) 命令。 资源上的任何现有标记都不会保留。
 
 ```azurecli
 az resource tag -n myVM \
@@ -186,7 +186,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>按标记查找资源
 
-若要通过标记名称和值查找资源，请使用 [az resource list](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令：
+若要通过标记名称和值查找资源，请使用 [az resource list](/cli/resource?view=azure-cli-latest#az-resource-list) 命令：
 
 ```azurecli
 az resource list --tag Environment=Test --query [].name
@@ -217,7 +217,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 退出 SSH 会话，返回 VM，然后删除资源，如下所示：
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 退出 SSH 会话，返回 VM，然后删除资源，如下所示：
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -226,7 +226,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已创建自定义 VM 映像。 你已了解如何执行以下操作：
+在本教程中，已创建自定义 VM 映像。 你已了解如何：
 
 > [!div class="checklist"]
 > * 为用户分配角色
@@ -234,6 +234,5 @@ az group delete --name myResourceGroup
 > * 使用锁保护重要资源
 > * 标记用于计费和管理的资源
 
-<!--Not Available on > [Manage virtual machines](tutorial-config-management.md)-->
+<!--Not Available on tutorial-config-management.md-->
 
-<!-- Update_Description: update meta properties, wording update, update link -->

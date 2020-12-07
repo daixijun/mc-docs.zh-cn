@@ -3,19 +3,20 @@ title: 排查使用 Azure Cosmos DB API for MongoDB 时遇到的查询问题
 description: 了解如何识别、诊断和排查 Azure Cosmos DB API for MongoDB 查询问题。
 ms.service: cosmos-db
 ms.topic: troubleshooting
+ms.subservice: cosmosdb-mongo
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
-ms.testscope: yes|no
-ms.testdate: 11/09/2020null
+ms.date: 12/07/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c42c307097a0a88eba71db4f33b73ac6b0a690ac
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f589034e15267f7a8a1f7d9a7218c14b645cb65b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329429"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598537"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>排查使用 Azure Cosmos DB API for MongoDB 时遇到的查询问题
@@ -353,5 +354,4 @@ db.coll.aggregate( [
 * [查询性能故障排除 (SQL API)](troubleshoot-query-performance.md)
 * [管理 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制](mongodb-indexing.md)
 
-<!-- Update_Description: new article about mongodb troubleshoot query -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

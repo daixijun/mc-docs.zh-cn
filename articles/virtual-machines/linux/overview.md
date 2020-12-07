@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 05e0e269344d03f8eb0edc9c5e3878fc7c9f503a
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 359d351c9853a6ab0e85650c06150fa9c20bdb2e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057664"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747118"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure 中的 Linux 虚拟机
 
@@ -58,8 +58,9 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种可缩放按需分配计算资源�
 | Azure 门户 |创建 VM 时，可从列表中选择位置。 |
 | Azure PowerShell |使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令。 |
 | REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions)操作。 |
-| Azure CLI |使用 [az account list-locations](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-list-locations) 操作。 |
+| Azure CLI |使用 [az account list-locations](/cli/account?view=azure-cli-latest) 操作。 |
 
+<!--Not availalbe in MC: ### Singapore data residency-->
 ## <a name="availability"></a>可用性
 Azure 宣布了行业领先的单实例虚拟机服务级别协议：可用性达到 99.9%（前提是为所有磁盘使用高级存储部署 VM）。  为了使部署符合标准 99.95% 的 VM 服务级别协议，仍需要在可用性集中部署两个或更多个运行工作负荷的 VM。 可用性集可确保 VM 分布在 Azure 数据中心内的多个容错域，并使用不同的维护时段部署到主机。 完整 [Azure SLA](https://www.azure.cn/support/legal/sla/) 说明了 Azure 作为整体的保证可用性。
 
@@ -79,23 +80,20 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../managed-disks-overview.md)。
 
 ## <a name="distributions"></a>分发 
-Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 市场中找到 CentOS、SUSE Linux Enterprise、Debian、Ubuntu、CoreOS 和 FreeBSD 等分发版。 Azure 积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 发行版](endorsed-distros.md)列表添加更多成员。
-
-<!-- Not Available on Red Hat Enterprise and RancherOS -->
+Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 市场中找到可用的分发版。 Azure 积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 发行版](endorsed-distros.md)列表添加更多成员。
 
 如果首选的 Linux 分发版目前不在库中，可以通过[在 Azure 中创建和上传 Linux VHD](create-upload-generic.md) 来“自带 Linux”VM。
 
-Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴的详细信息，请参阅以下链接：
+Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴产品/服务的详细信息，请参阅以下链接：
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md)
 * SUSE - [Azure 市场 - SUSE Linux Enterprise Server](https://market.azure.cn/marketplace/apps/SUSE.SLES?tab=Overview)
-* Red Hat - [Azure 市场 - Red Hat Enterprise Linux](https://market.azure.cn/marketplace/apps?search=redhat)
-* Canonical - [Azure 市场 - Ubuntu Server 16.04 LTS](https://market.azure.cn/marketplace/partners/canonical/ubuntuserver1604lts/)
-* Debian - [Azure 市场 - Debian 8 "Jessie"](https://market.azure.cn/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure 市场 - FreeBSD](https://market.azure.cn/marketplace/apps?search=FreeBSD)
-* CoreOS - [Azure 市场 - CoreOS （稳定）](https://market.azure.cn/marketplace/partners/coreos/coreosstable/)
+* Red Hat - [Azure 市场 - Red Hat Enterprise Linux](https://market.azure.cn/marketplace/apps/filter?search=redhat)
+* Canonical - [Azure 市场 - Ubuntu Server](https://market.azure.cn/marketplace/apps/Canonical.UbuntuServer)
+* Debian - [Azure 市场 - Debian](https://market.azure.cn/marketplace/apps/filter?search=debian)
+* FreeBSD - [Azure 市场 - FreeBSD](https://market.azure.cn/marketplace/apps/filter?search=FreeBSD)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
-* Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/marketplace/apps?search=jenkins)
+* Jenkins - [Azure 市场 - CloudBees Jenkins Platform](https://market.azure.cn/marketplace/apps/filter?search=jenkins)
 
 
 <!--MOONCAKE CUSTOMIZE * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://market.azure.cn/marketplace/apps?search=redhat)-->
@@ -114,7 +112,7 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 <!--Not Available on  Chef -->
 
 * [Azure 模板](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](../extensions/vmaccess.md)
+* [Azure `VMaccess`](../extensions/vmaccess.md)
 
 Azure 在支持它的大多数 Linux 发行版中支持 [cloud-init](https://cloud-init.io/)。  我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。
 
@@ -136,7 +134,7 @@ Azure 在支持它的大多数 Linux 发行版中支持 [cloud-init](https://clo
 
 创建第一个 VM！
 
-- [Portal](quick-create-portal.md)
+- [门户](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
 

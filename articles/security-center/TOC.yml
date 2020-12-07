@@ -31,8 +31,6 @@
           href: overview-page.md
         - name: 安全建议
           href: recommendations-reference.md
-        - name: 安全警报和意向攻击链
-          href: alerts-reference.md
         - name: Microsoft 如何保护客户数据
           href: security-center-data-security.md
         - name: 权限
@@ -60,7 +58,7 @@
       href: security-center-powershell-onboarding.md
     - name: 为管理组启用安全中心
       href: onboard-management-group.md
-    - name: 配置数据收集
+    - name: 配置自动预配
       href: security-center-enable-data-collection.md
     - name: 设置电子邮件通知
       href: security-center-provide-security-contact-details.md
@@ -96,7 +94,6 @@
           href: security-center-using-recommendations.md
         - name: 安全基线
           href: security-baseline.md
-        - name: 跨租户管理
         - name: 集成安全解决方案和数据源
           href: security-center-partner-integration.md
     - name: 使用安全建议来提高安全性
@@ -120,8 +117,6 @@
       items:
         - name: Azure Defender 警报概述
           href: security-center-alerts-overview.md
-        - name: 警报参考列表
-          href: alerts-reference.md
         - name: 警报架构
           href: alerts-schemas.md
         - name: 安全事件概述
@@ -188,8 +183,6 @@
       items:
         - name: 一般问题
           href: faq-general.md
-        - name: 计费问题
-          href: faq-billing.md
         - name: 权限问题
           href: faq-permissions.md
         - name: 数据收集和代理问题

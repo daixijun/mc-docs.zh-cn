@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/15/2019
 ms.author: v-yiso
 ms.date: 05/11/2020
-ms.openlocfilehash: a9ffe3ed4f3babe15be87601da94ea732a7a9eb1
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 85355a2fa27da0a47f166940656815e95e9fef4e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472245"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746805"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -159,7 +159,7 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 无法直接连接到 [IoT 中心](#iot-hub) 的设备可以通过现场网关进行连接，而现场网关通常与设备一起部署在本地。 有关详细信息，请参阅[什么是 Azure IoT 中心？](about-iot-hub.md)
 
 ## <a name="free-account"></a>免费帐户
-可以创建[免费的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)，以便使用 IoT 中心服务（及其他 Azure 服务）完成 IoT 中心教程和试验。
+可以创建[免费的 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，以便使用 IoT 中心服务（及其他 Azure 服务）完成 IoT 中心教程和试验。
 
 ## <a name="gateway"></a>网关
 网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 另请参阅[现场网关](#field-gateway)、[云网关](#cloud-gateway)和[自定义网关](#custom-gateway)。
@@ -245,7 +245,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 可以从解决方案后端使用[服务 REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
 
 ## <a name="shared-access-signature"></a>共享访问签名
-共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件： _共享访问策略_ 和 _共享访问签名_ （通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
+共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件：_共享访问策略_ 和 _共享访问签名_（通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
 
 ## <a name="shared-access-policy"></a>共享访问策略
 共享访问策略定义向具有有效的 [主要密钥或次要密钥](#primary-and-secondary-keys) （与该策略相关联）的任何人授予的权限。 用户可以在 [门户](#azure-portal)中管理中心的共享访问策略和密钥。
@@ -254,7 +254,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 为方便起见，许多 IoT 中心教程使用模拟设备，以便在本地计算机上运行示例。 相反， [物理设备](#physical-device) 是真实的设备，如连接到 IoT 中心的 Raspberry Pi。
 
 ## <a name="solution"></a>解决方案
-_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_ 也可能是包括诸如设备、 [设备应用](#device-app)、IoT 中心、其他 Azure 服务和 [后端应用](#back-end-app)等元素的 IoT 解决方案。
+_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_ 也可能是包括诸如设备、[设备应用](#device-app)、IoT 中心、其他 Azure 服务和 [后端应用](#back-end-app)等元素的 IoT 解决方案。
 
 ## <a name="subscription"></a>订阅
 Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使用的 Azure 服务均与单个订阅关联。 许多配额也在订阅级别应用。

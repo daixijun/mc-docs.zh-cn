@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b8c7ae9617341a0238a94c26fdf1c8059238566b
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 55b3bd1f5b147db787cc68e16d12b8094ca8cffb
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849289"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509008"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>在门户中使用应用程序网关配置端到端 TLS
 
@@ -23,7 +23,7 @@ ms.locfileid: "94849289"
 > [!NOTE]
 > 应用程序网关 v2 SKU 需要受信任的根证书才能启用端到端配置。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>开始之前
 

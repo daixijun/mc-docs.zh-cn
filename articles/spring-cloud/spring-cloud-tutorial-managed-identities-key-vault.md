@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 4126825bef1dac4ad9499c9d232cd1679d718918
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: bf0f7c6151c1a635104a51aa1131f67af4cccd31
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849426"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509095"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>教程：使用托管标识将密钥保管库连接到 Azure Spring Cloud 应用
 
@@ -22,7 +22,7 @@ Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥
 
 ## <a name="prerequisites"></a>先决条件
 
-* [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [安装 Azure CLI 2.0.67 或更高版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * [安装 Maven 3.0 或更高版本](https://maven.apache.org/download.cgi)
 

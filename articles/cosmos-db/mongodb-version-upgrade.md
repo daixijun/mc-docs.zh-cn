@@ -4,17 +4,18 @@ description: 如何无缝升级现有 Azure Cosmos DB API for MongoDB 帐户的 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes|no
-ms.testdate: 11/09/2020null
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 97e38b89a93a549eaaf81dd983e0072f381080d2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 60ac0c60ee84cc8fd8522511f52d1a60752ce501
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329426"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598536"
 ---
 <!--Pending on PM Review for verification-->
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>升级 Azure Cosmos DB API for MongoDB 帐户的 MongoDB 有线协议版本
@@ -92,5 +93,4 @@ ms.locfileid: "94329426"
 - 了解 [MongoDB 版本 3.6 支持和不支持的功能](mongodb-feature-support-36.md)。
 - 有关详细信息，请查看 [Mongo 3.6 版本功能](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 
-<!-- Update_Description: new article about mongodb version upgrade -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

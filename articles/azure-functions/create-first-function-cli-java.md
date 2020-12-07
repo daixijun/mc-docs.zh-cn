@@ -1,17 +1,17 @@
 ---
 title: 通过命令行创建 Java 函数 - Azure Functions
 description: 了解如何通过命令行创建 Java 函数，然后将本地项目发布到 Azure Functions 中的无服务器托管。
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 3869df126b201c6beae8c3469e817850fd4c5de9
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 9c5e480e59d64987e04a2f9acead0c221b729538
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970823"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509050"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>快速入门：在 Azure 中通过命令行创建 Java 函数
 
@@ -28,13 +28,13 @@ ms.locfileid: "95970823"
 
 在开始之前，必须满足以下条件：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) 版本 3.x。
 
 + [Azure CLI](/cli/install-azure-cli) 2.4 或更高版本。
 
-+ [Java 开发人员工具包](https://aka.ms/azure-jdks)版本 8 或 11。 `JAVA_HOME` 环境变量必须设置为正确版本的 JDK 的安装位置。     
++ [Java 开发人员工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8 或 11。 `JAVA_HOME` 环境变量必须设置为正确版本的 JDK 的安装位置。     
 
 + [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 
@@ -42,7 +42,7 @@ ms.locfileid: "95970823"
 
 + 在终端或命令窗口中，运行 `func --version` 以检查 Azure Functions Core Tools 的版本是否为 3.x。
 
-+ 运行 `az --version` 检查 Azure CLI 的版本是否为 2.4 或以上。
++ 运行 `az --version` 以检查 Azure CLI 版本是否为 2.4 或更高版本。
 
 + 运行 `az login` 登录到 Azure 并验证活动订阅。
 

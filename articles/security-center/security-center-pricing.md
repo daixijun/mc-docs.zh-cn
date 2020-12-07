@@ -12,17 +12,17 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2019
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: e3a59bf7490e6d590460b125c1a6e10b38a8b0ca
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d09237dee0673c3600111349ffd4cbf808093aa2
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638078"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746645"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure 安全中心定价
-Azure 安全中心为 Azure、本地和其他云中运行的工作负载提供统一的安全管理和高级威胁防护功能。 它可以提供针对混合云工作负载的可见性和可控性、可减小在威胁下的曝光面的积极防御功能以及有助于随时响应快速演变的网络攻击的智能检测功能。
+Azure 安全中心为 Azure、本地和其他云中运行的工作负载提供统一的安全管理和高级威胁防护功能。 它可以提供针对混合云工作负载的可见性和可控性、可减小在威胁下的曝光面的积极防御功能以及有助于随时响应快速演变的网络风险的智能检测功能。
 
 
 ## <a name="free-option-vs-azure-defender-enabled"></a>“免费选项”和“启用 Azure Defender”
@@ -36,16 +36,14 @@ Azure 安全中心为 Azure、本地和其他云中运行的工作负载提供�
     - **Microsoft Defender for Endpoint** - 适用于服务器的 Azure Defender 包括 [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender)，以实现全面的终结点检测和响应 (EDR)。
     - **虚拟机和容器注册表的漏洞扫描** - 轻松将扫描程序部署到所有虚拟机，这是业界最先进的漏洞管理解决方案。 直接在安全中心内查看、调查和修复扫描到的漏洞。 
     - **混合安全性** - 在所有本地和云工作负荷上获得统一的安全视图。 应用安全策略并持续评估混合云工作负载的安全性，确保符合安全标准。 收集、搜索并分析来自多个源（包括防火墙和其他合作伙伴解决方案）的安全数据。
-    - **威胁防护警报** - 高级行为分析和 Microsoft Intelligent Security Graph 针对不断演变的网络攻击提供防护边界。 利用内置行为分析和机器学习来识别攻击和零时差攻击。 监视网络、计算机和云服务是否出现有即将来袭的攻击和攻破后活动。 使用交互工具和上下文威胁智能简化调查。
-    - **访问和应用程序控件** - 通过应用适合特定工作负载且由机器学习提供支持的建议来创建允许和拒绝列表，阻止恶意软件和其他不需要的应用程序。 实时减小网络受攻击面，控制对 Azure VM 上的管理端口的访问。 这会显著减小在暴力和其他网络攻击下的曝光面。
-    - **容器安全功能** - 获得在容器化环境中进行漏洞管理和实时威胁保护的好处。 启用 **适用于容器注册表的 Azure Defender** 时，等待全部功能启用完毕可能需要最多 12 个小时。 根据推送到已连接注册表的唯一容器映像的数量收费。 一个映像经过一次扫描后，不会再对其收取相关费用，除非再次对其进行了修改和推送。 
+    - **威胁防护警报** - 高级行为分析和 Microsoft Intelligent Security Graph 针对不断演变的网络攻击提供防护边界。 内置行为分析和机器学习可识别攻击和零时差攻击。 监视网络、计算机和云服务是否出现有即将来袭的攻击和攻破后活动。 使用交互工具和上下文威胁智能简化调查。
+    - **访问和应用程序控件** (AAC) - 通过应用适合特定工作负载且由机器学习提供支持的建议来创建允许和拒绝列表，阻止恶意软件和其他不需要的应用程序。 实时减小网络受攻击面，控制对 Azure VM 上的管理端口的访问。 AAC 显著降低了遭受暴力攻击和其他网络攻击的风险。
+    - **容器安全功能** - 获得在容器化环境中进行漏洞管理和实时威胁保护的好处。 启用适用于容器注册表的 Azure Defender 时，等待全部功能启用完毕可能需要最多 12 个小时。 根据推送到已连接注册表的唯一容器映像的数量收费。 一个映像经过一次扫描后，不会再对其收取相关费用，除非再次对其进行了修改和推送。 
 
 ## <a name="try-azure-defender-free-for-30-days"></a>免费试用 Azure Defender 30 天
-
 Azure Defender 前 30 天免费。 30 天后，如果选择继续使用服务，我们会自动开始收取使用费用。
 
 ## <a name="enable-azure-defender"></a>启用 Azure Defender
-
 可以使用 Azure Defender 保护整个 Azure 订阅，且该保护将由订阅中的所有资源继承。
 
 启用 Azure Defender：
@@ -67,8 +65,58 @@ Azure Defender 前 30 天免费。 30 天后，如果选择继续使用服务，
 > 只能在资源级别为 **Azure Database for MariaDB/MySQL/PostgreSQL** 启用威胁防护。
 
 
+## <a name="faq---pricing-and-billing"></a>常见问题解答 - 定价和计费 
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>如何跟踪哪个组织用户在 Azure 安全中心启用了 Azure Defender 更改
+Azure 订阅可能具有多个管理员，这些管理员有权更改定价设置。 若要找到做出更改的用户，请使用 Azure 活动日志。
+
+如果“事件发起者”列中未列出用户信息，请了解事件以获取相关详细信息。
+
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure 事件日志显示了定价更改事件":::
+
+
+### <a name="what-are-the-plans-offered-by-security-center"></a>安全中心提供了哪些计划？ 
+安全中心有两个产品/服务： 
+
+- Azure 安全中心免费版 
+- Azure Defender  
+
+### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>如何为订阅启用 Azure Defender？ 
+可以使用以下任一方法启用订阅的 Azure Defender： 
+
+|方法  |说明  |
+|---------|---------|
+|Azure 门户的 Azure 安全中心页面|[启用 Azure Defender](#enable-azure-defender)|
+|REST API|[定价 API](https://docs.microsoft.com/rest/api/securitycenter/pricings)|
+|Azure CLI|[az security 定价](/cli/security/pricing)|
+|PowerShell|[Set-AzSecurityPricing](https://docs.microsoft.com/powershell/module/az.security/set-azsecuritypricing)|
+|Azure Policy|[捆绑定价](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
+|||
+
+### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>能否在我的订阅中为服务器子集上的服务器启用 Azure Defender？
+不是。 在订阅上启用[适用于服务器的 Azure Defender](defender-for-servers-introduction.md) 时，Azure Defender 会保护订阅中的所有服务器。 
+
+替代方法如下：在 Log Analytics 工作区级别为服务器启用 Azure Defender。 如果执行此操作，将仅保护向该工作区报告的服务器并对其计费。 但某些功能将不可用。 其中包括实时 VM 访问、网络检测、法规合规性、自适应网络强化、自适应应用程序控制等。 
+
+
+### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>我的订阅已为服务器启用了 Azure Defender，是否需要为未运行的服务器付费？ 
+不是。 在订阅上启用[适用于服务器的 Azure Defender](defender-for-servers-introduction.md) 时，仅针对正在运行的服务器按小时计费。 无需为关闭的任何服务器付费。 
+
+> [!TIP]
+> 这也适用于安全中心所保护的其他资源类型。 
+
+### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>是否需要为未安装 Log Analytics 代理的计算机付费？
+是的。 在订阅上启用[适用于服务器的 Azure Defender](defender-for-servers-introduction.md) 时，即使未安装 Log Analytics 代理，该订阅中的计算机也会受到一系列保护。
+
+### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>如果 Log Analytics 代理向多个工作区报告，是否需要重复付费？ 
+是的。 如果已将 Log Analytics 代理配置为将数据发送到两个或多个不同的 Log Analytics 工作区（多宿主），则需要为每个安装了“安全”或“反恶意软件”解决方案的工作区付费。 
+
+### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>如果 Log Analytics 代理向多个工作区报告，是否所有工作区上均提供 500-MB 的免费数据引入？
+是的。 如果已将 Log Analytics 代理配置为将数据发送到两个或多个不同的 Log Analytics 工作区（多宿主），则将获得 500-MB 的免费数据引入。 它是按每个节点、每个报告的工作空间、每一天来计算的，并且适用于安装了“安全”或“反恶意软件”解决方案的所有工作空间。 你将需要为超出 500 MB 的引入数据付费。
+
+
 ## <a name="next-steps"></a>后续步骤
-本文介绍了安全中心定价。 如需查看相关材料，请参阅：
+本文介绍了安全中心的定价选项。 如需查看相关材料，请参阅：
 
 - [如何优化 Azure 工作负载成本](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [根据所选货币和所在区域的定价详细信息](https://www.azure.cn/pricing/details/security-center/)

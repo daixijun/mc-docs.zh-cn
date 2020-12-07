@@ -4,16 +4,16 @@ description: 介绍将 X.509 证书证明用于设备预配服务 (DPS) 和 IoT 
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 09/14/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 54413b3d2981edb758a71b8d42b915482903fe26
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 89395b727de68ecafdceb4f04be0a1e335aeccf8
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590737"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541151"
 ---
 # <a name="x509-certificate-attestation"></a>X.509 证书证明
 
@@ -27,7 +27,7 @@ X.509 证书可以存储在硬件安全模块 HSM 中。
 
 ## <a name="x509-certificates"></a>X.509 证书
 
-将 X.509 证书用作一种证明机制是扩大生产规模和简化设备设置的极佳途径。 X.509 证书通常是信任证书链中一系列证书中的一个，证书链中的每个证书均通过下一个更高级别证书的私钥进行签名，位于链顶端的证书是自签名的根证书。 此安排会建立一个委托的信任链，该信任链始于受信任根证书颁发机构 (CA) 生成的根证书，期间是每个中间 CA，终结于设备上安装的最终实体“叶”证书。 有关详细信息，请参阅[使用 X.509 CA 证书进行设备身份验证](/iot-hub/iot-hub-x509ca-overview)。 
+将 X.509 证书用作一种证明机制是扩大生产规模和简化设备设置的极佳途径。 X.509 证书通常是信任证书链中一系列证书中的一个，证书链中的每个证书均通过下一个更高级别证书的私钥进行签名，位于链顶端的证书是自签名的根证书。 此安排会建立一个委托的信任链，该信任链始于受信任根证书颁发机构 (CA) 生成的根证书，期间是每个中间 CA，终结于设备上安装的最终实体“叶”证书。 有关详细信息，请参阅[使用 X.509 CA 证书进行设备身份验证](../iot-hub/iot-hub-x509ca-overview.md)。 
 
 证书链通常代表与设备关联一些逻辑或物理层次结构。 例如，制造商可以：
 - 颁发自签名根 CA 证书
@@ -35,11 +35,11 @@ X.509 证书可以存储在硬件安全模块 HSM 中。
 - 使用每个工厂的证书为工厂中的每条生产线生成唯一的中间 CA 证书
 - 并最终使用生产线证书为在生产线上制造的每台设备生成唯一的设备（最终实体）证书。 
 
-若要了解详细信息，请参阅[概念性理解 IoT 行业中的 X.509 CA 证书](/iot-hub/iot-hub-x509ca-concept)。 
+若要了解详细信息，请参阅[概念性理解 IoT 行业中的 X.509 CA 证书](../iot-hub/iot-hub-x509ca-concept.md)。 
 
 ### <a name="root-certificate"></a>根证书
 
-根证书是表示证书颁发机构 (CA) 的自签名的 X.509 证书。 它是证书链的终点或信任定位点。 根证书可由组织自行颁发或从根证书颁发机构购买。 若要了解详细信息，请参阅[获取 X.509 CA 证书](/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates)。 根证书也可称为根 CA 证书。
+根证书是表示证书颁发机构 (CA) 的自签名的 X.509 证书。 它是证书链的终点或信任定位点。 根证书可由组织自行颁发或从根证书颁发机构购买。 若要了解详细信息，请参阅[获取 X.509 CA 证书](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates)。 根证书也可称为根 CA 证书。
 
 ### <a name="intermediate-certificate"></a>中间证书
 
@@ -57,7 +57,7 @@ X.509 证书可以存储在硬件安全模块 HSM 中。
 
 与[单个注册](./concepts-service.md#individual-enrollment)条目配合使用的页证书有一个要求：必须将“所有者名称”设置为“单个注册”条目的注册 ID。 与[注册组](./concepts-service.md#enrollment-group)条目配合使用的叶证书应该将“使用者名称”设置为所需的设备 ID，该 ID 将显示在注册组中经过身份验证的设备的“注册记录”中 。
 
-有关详细信息，请参阅[对使用 X.509 CA 证书签名的设备进行身份验证](/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)。
+有关详细信息，请参阅[对使用 X.509 CA 证书签名的设备进行身份验证](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates)。
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>使用 X.509 证书控制设备对设置服务的访问权限
 

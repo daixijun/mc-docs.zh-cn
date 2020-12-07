@@ -2,20 +2,21 @@
 title: 将 Azure Cosmos DB 帐户移到另一个区域
 description: 了解如何将 Azure Cosmos DB 帐户移到另一个区域。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 09/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: fab71241c5210bb2a6842cebadbd22c51a3859bc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8cad9c466f6df84d6ef935443060bed02d537a0a
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328665"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598419"
 ---
 <!--Verified Successfully-->
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>将 Azure Cosmos DB 帐户移到另一个区域

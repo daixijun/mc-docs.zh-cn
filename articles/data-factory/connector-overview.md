@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 08/31/2020
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: craigg
-ms.openlocfilehash: ff7d21eb5fc8ff3da9c50e79c5a9248c5fa761ca
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: e3dca608feabba661966ea6afdc22787eeff4f5d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523795"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747227"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure 数据工厂连接器概述
 

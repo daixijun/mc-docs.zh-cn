@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 日志记录和威胁检测
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a992a5a7aaff246aefe0ff7813fd5e0071d715f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 882ad39fc7e2181a0136fe8b0b6c11bee62dc8d7
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128738"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747093"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>安全控制 V2：日志记录和威胁检测
 
@@ -28,11 +28,10 @@ ms.locfileid: "92128738"
 
 使用 Azure 安全中心内置的威胁检测功能，该功能基于监视 Azure 服务遥测和分析服务日志。 数据是使用 Log Analytics 代理收集的，该代理从系统中读取各种与安全相关的配置和事件日志，然后将数据复制到工作区进行分析。 
 
-- [Azure 安全中心的威胁防护](../../security-center/threat-protection.md)
+- [Azure 安全中心的威胁防护](../../security-center/azure-defender.md)
 
-- [Azure 安全中心安全警报参考指南](../../security-center/alerts-reference.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -65,9 +64,9 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [Azure AD 中的审核活动报告](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Azure 安全中心的威胁防护](../../security-center/threat-protection.md)
+- [Azure 安全中心的威胁防护](../../security-center/azure-defender.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -97,7 +96,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [使用网络观察程序进行监视](../../network-watcher/network-watcher-monitoring-overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -125,9 +124,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [了解 Azure 安全中心数据收集](../../security-center/security-center-enable-data-collection.md)
 
-- [启用和配置反恶意软件监视](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
-
-**责任** ：共享
+**责任**：共享
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -153,7 +150,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [如何使用 Azure Monitor 收集平台日志和指标](../../azure-monitor/platform/diagnostic-settings.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -179,7 +176,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [Azure 安全中心警报和建议导出](../../security-center/continuous-export.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -207,7 +204,7 @@ Azure 中资源生成的所有日志都提供了时间戳，且默认指定时�
 
 - [如何对 Azure 服务禁用入站 UDP](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**责任** ：共享
+**责任**：共享
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -216,5 +213,4 @@ Azure 中资源生成的所有日志都提供了时间戳，且默认指定时�
 - [应用程序安全性和 DevOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [基础结构和终结点安全性](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-
 

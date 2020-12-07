@@ -2,17 +2,19 @@
 title: 使用大分区键创建 Azure Cosmos 容器
 description: 了解如何使用 Azure 门户和不同的 SDK 通过大分区键在 Azure Cosmos DB 中创建容器。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
+origin.date: 09/28/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5914d91de45808d63a3cf0fafa001ae4996a4184
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 420ebd63054e22a1b7f20212515074d4aae203b3
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551741"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598690"
 ---
 # <a name="create-containers-with-large-partition-key"></a>使用大分区键创建容器
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

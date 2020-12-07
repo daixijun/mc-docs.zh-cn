@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/16/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 07aa6489859d9dec5d6df1554d4144be0c5f137b
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.date: 11/30/2020
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: aef68d018108faaefc5aa481f89f46160d1f8feb
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849358"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509100"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>快速入门：设置 Azure Spring Cloud Config Server
 
@@ -23,7 +23,7 @@ Azure Spring Cloud Config Server 是分布式系统的集中式配置服务。 �
 ## <a name="prerequisites"></a>先决条件
 
 * [安装 JDK 8](https://docs.microsoft.com/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
-* [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
+* [注册 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * （可选）[安装 Azure CLI 版本 2.0.67 或更高版本](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)，并使用以下命令安装 Azure Spring Cloud 扩展：`az extension add --name spring-cloud`
 * （可选）[安装 Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) 并[登录](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
@@ -37,9 +37,19 @@ Azure Spring Cloud Config Server 是分布式系统的集中式配置服务。 �
 
 2. 在“默认存储库”部分，将“URI”设置为“https://github.com/Azure-Samples/piggymetrics-config” 。
 
-3. 选择“应用”以保存所做的更改。
+3. 单击 **“验证”** 。
 
-    ![ASC 门户的屏幕截图](./media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![导航到配置服务器](./media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. 完成验证后，请单击“应用”以保存更改。
+
+    ![正在验证配置服务器](./media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. 更新配置可能需要几分钟。
+ 
+    ![正在更新配置服务器](./media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. 配置完成后，会收到通知。
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
@@ -50,7 +60,6 @@ Azure Spring Cloud Config Server 是分布式系统的集中式配置服务。 �
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud Config Server 的故障排除

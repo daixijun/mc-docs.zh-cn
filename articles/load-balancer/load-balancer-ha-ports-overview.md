@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2019
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 8108f2b63e9dfe4fe338f5bab426c5d92d98b8b3
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 605cc006c84849d75527ced6a1647dc21346161d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628212"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746564"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性端口概述
 
@@ -55,7 +55,7 @@ HA 端口负载均衡规则可帮助你实现关键方案，例如虚拟网络�
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>对大量端口进行负载均衡
 
-对于需要负载均衡大量端口的应用程序，也可以使用 HA 端口。 可以通过将内部[标准负载均衡器](load-balancer-standard-overview.md)与 HA 端口配合使用来简化这些方案。 单个负载均衡规则可替换多个单独的负载均衡规则（每个端口一个）。
+对于需要负载均衡大量端口的应用程序，也可以使用 HA 端口。 可以通过将内部[标准负载均衡器](./load-balancer-overview.md)与 HA 端口配合使用来简化这些方案。 单个负载均衡规则可替换多个单独的负载均衡规则（每个端口一个）。
 
 ## <a name="region-availability"></a>上市区域
 
@@ -97,8 +97,6 @@ HA 端口功能在所有 Azure 区域中均可用。
 - 现有 IP 片段将由 HA 端口负载均衡规则转发到与第一个数据包相同的目标。  不支持对 UDP 或 TCP 数据包进行 IP 分段。
 - 只有使用方式如上方的示意图所示并且使用了 HA 端口负载均衡规则时，才会通过后端实例和单一 NIC（以及单 IP 配置）来支持流对称（主要是针对 NVA 方案）。 任何其他方案中都不提供此功能。 这意味着，两个或多个负载均衡器资源和及其各自的规则都独立做出决策，永远不会进行协调。 请参阅[网络虚拟设备](#nva)的说明和示意图。 如果使用了多个 NIC 或者将 NVA 置于公共负载均衡器与内部负载均衡器之间，则流对称功能不可用。  通过对发往设备 IP 的传入流执行来源 NAT 操作以允许回复到达同一 NVA，也许能够解决此问题。  但是，强烈建议使用单一 NIC，并使用上方示意图中所示的参考体系结构。
 
-
 ## <a name="next-steps"></a>后续步骤
 
-- [了解如何通过门户为 ILB 配置 HA 端口](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule)，也可通过 [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer)、[CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule) 或[模板](quickstart-load-balancer-standard-internal-template.md)来这样做。
-- [了解标准负载均衡器](load-balancer-standard-overview.md)
+- [了解标准负载均衡器](load-balancer-overview.md)

@@ -11,12 +11,12 @@ origin.date: 08/07/2019
 ms.date: 09/02/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31ded750e2e63621fdcdd7f9906d7557b505bc78
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: cabed8d50427fc9d87bd2000464cb6b20347bc84
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186835"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747143"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>IoT 中心模块标识和模块孪生 (.NET) 入门
 
@@ -38,7 +38,7 @@ ms.locfileid: "84186835"
 
 * Visual Studio。
 
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 
 ## <a name="create-a-hub"></a>创建中心
 

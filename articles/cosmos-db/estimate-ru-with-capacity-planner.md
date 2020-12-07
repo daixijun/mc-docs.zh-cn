@@ -2,18 +2,20 @@
 title: 使用 Azure Cosmos DB Capacity Planner 估算成本
 description: 可以使用 Azure Cosmos DB Capacity Planner 估算你的工作负荷所需的吞吐量（RU/秒）和成本。 本文介绍了如何使用新版本的 Capacity Planner 来估算所需的吞吐量和成本。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
+origin.date: 07/30/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 06/22/2020
 ms.author: v-yeche
-ms.openlocfilehash: b9e8e323df5be924bfb974ec28c51712d891140e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 35bf00668bb40da02e2043ace63caff086054b12
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328319"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598659"
 ---
 <!--Verified successfully-->
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>使用 Azure Cosmos DB Capacity Planner 估算 RU/秒

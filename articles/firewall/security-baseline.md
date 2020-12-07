@@ -5,17 +5,17 @@ ms.service: firewall
 ms.topic: conceptual
 origin.date: 08/05/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5c96d03d91086387d436806cfc02363fd93e16f0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 633dedd1d26dd853ffe870e3c2acefb88a96ecda
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327284"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746714"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-firewall"></a>适用于 Azure 防火墙的 Azure 安全基线
@@ -24,7 +24,7 @@ ms.locfileid: "94327284"
 
 ## <a name="network-security"></a>网络安全性
 
-[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](https://docs.azure.cn/security/benchmarks/security-control-network-security)。
+[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2：监视并记录虚拟网络、子网和网络接口的配置与流量
 
@@ -44,7 +44,7 @@ ms.locfileid: "94327284"
 
 - [基于 Azure 防火墙威胁智能的筛选](threat-intel.md)
 
-- [了解 Azure 安全中心集成的威胁情报](https://docs.azure.cn/security-center/security-center-alerts-service-layer)
+- [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -80,7 +80,7 @@ Azure 防火墙服务标记可用在“网络规则目标”字段中，并可�
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [用于网络的 Azure Policy 示例](/governance/policy/samples/#network)
+- [用于网络的 Azure Policy 示例](../governance/policy/samples/built-in-policies.md#network)
 
 <!--Not Available on - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)-->
 
@@ -92,9 +92,9 @@ Azure 防火墙服务标记可用在“网络规则目标”字段中，并可�
 
 **指南**：使用 Azure 活动日志监视资源配置，并检测 Azure 防火墙资源的更改。 在 Azure Monitor 中创建当关键资源发生更改时触发的警报。
 
-- [监视 Azure 防火墙日志和指标](https://docs.azure.cn/firewall/tutorial-diagnostics)
+- [监视 Azure 防火墙日志和指标](./firewall-diagnostics.md)
 
-- [如何查看和检索 Azure 活动日志事件](https://docs.azure.cn/azure-monitor/platform/activity-log-view)
+- [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md) 
 
@@ -104,7 +104,7 @@ Azure 防火墙服务标记可用在“网络规则目标”字段中，并可�
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](https://docs.azure.cn/security/benchmarks/security-control-logging-monitoring)。
+[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -226,7 +226,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](https://docs.azure.cn/security/benchmarks/security-control-identity-access-control)。
+[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -246,7 +246,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 还可以通过使用 Azure 服务的 Azure AD Privileged Identity Management 特权角色和 Azure 资源管理器来启用实时/足够访问权限。
 
-- [详细了解 Privileged Identity Management](https://docs.azure.cn/active-directory/privileged-identity-management)
+- [详细了解 Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -290,7 +290,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 **指导**：使用 Azure Active Directory 安全报告在环境中发生可疑活动或不安全的活动时生成日志和警报。 使用 Azure 安全中心监视标识和访问活动。 
 
-<!--Not Available on - [How to identify Azure AD users flagged for risky activity](/active-directory/reports-monitoring/concept-user-at-risk) -->
+<!--Not Available on - [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md) -->
 
 - [如何在 Azure 安全中心内监视用户的标识和访问活动](../security-center/security-center-identity-access.md)
 
@@ -322,7 +322,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 **指南**：Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure 标识访问评审来有效管理组成员身份、对企业应用程序的访问和角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
 
-- [了解 Azure AD 报告](/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml)
 
 - [如何使用 Azure 标识访问评审](../active-directory/governance/access-reviews-overview.md)
 
@@ -336,7 +336,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 你可以为 Azure Active Directory 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区以简化上述过程。 可在 Log Analytics 工作区中配置所需的警报。 
 
-- [如何将 Azure 活动日志集成到 Azure Monitor](https://docs.azure.cn/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志集成到 Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -345,7 +345,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 <!--Not Available on ### 3.12: Alert on account sign-in behavior deviation-->
 
 
-<!--Not Available on - [How to view Azure AD risky sign-ins](/active-directory/reports-monitoring/concept-risky-sign-ins)-->
+<!--Not Available on - [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)-->
 
 <!--Not Available on - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)-->
 
@@ -353,13 +353,13 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="data-protection"></a>数据保护
 
-[有关详细信息，请参阅 *Azure 安全基线：* 数据保护](https://docs.azure.cn/security/benchmarks/security-control-data-protection)。
+[有关详细信息，请参阅 *Azure 安全基线：* 数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
 **指南**：使用标记可帮助跟踪存储或处理敏感信息的 Azure 防火墙和相关资源。 
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -371,9 +371,9 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 <!--Not Available on - [How to create additional Azure subscriptions](/billing/billing-create-subscription)-->
 
-- [如何创建管理组](../governance/management-groups/create.md)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -429,7 +429,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 - [了解 Azure 中的静态加密](../security/fundamentals/encryption-atrest.md)
 
-- [如何配置客户管理的加密密钥](../storage/common/storage-encryption-keys-portal.md)
+- [如何配置客户管理的加密密钥](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -447,13 +447,13 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="inventory-and-asset-management"></a>库存和资产管理
 
-[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](https://docs.azure.cn/security/benchmarks/security-control-inventory-asset-management)。
+[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="62-maintain-asset-metadata"></a>6.2：维护资产元数据
 
 **指南**：将标记应用到提供元数据的 Azure 防火墙和相关资源，以便按逻辑将其组织到分类中。 
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -463,11 +463,11 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 **指南**：使用标记、管理组和单独订阅（如果适用）来组织和跟踪 Azure 防火墙和相关资源。 定期核对清单，确保及时地从订阅中删除未经授权的资源。
 
-<!--Not Available on - [How to create additional Azure subscriptions](/billing/billing-create-subscription)-->
+<!--Not Available on - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
-- [如何创建管理组](../governance/management-groups/create.md)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -509,7 +509,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [如何使用 Azure Policy 拒绝特定的资源类型](https://docs.azure.cn/governance/policy/samples/not-allowed-resource-types)
+- [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -541,7 +541,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="secure-configuration"></a>安全配置
 
-[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](https://docs.azure.cn/security/benchmarks/security-control-secure-configuration)。
+[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -619,7 +619,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="data-recovery"></a>数据恢复
 
-[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](https://docs.azure.cn/security/benchmarks/security-control-data-recovery)。
+[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -675,11 +675,11 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="incident-response"></a>事件响应
 
-[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](/security/benchmarks/security-control-incident-response)。
+[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。 
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。 
 
 - [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -699,7 +699,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md) 
 
-- [使用标记整理 Azure 资源](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -751,7 +751,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](https://docs.azure.cn/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
@@ -767,7 +767,7 @@ Azure Monitor 日志可用于对应用程序进行常规实时监视或查看趋
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](https://docs.azure.cn/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](https://docs.azure.cn/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

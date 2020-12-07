@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/11/2019
 ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: f41bc08caabfe7fb3ff269022153d6f175d06884
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 7df61d87853807351cf6917d8f9cdd04028ee1d5
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471223"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747004"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -23,7 +23,7 @@ ms.locfileid: "92471223"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 帐户。 如果没有，可以[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 有效的 Azure 帐户。 如果没有，可以[创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 有效的 Azure Cosmos DB SQL API 帐户。 如果尚未创建此帐户，请参阅[创建数据库帐户](../cosmos-db/create-sql-api-java.md#create-a-database-account)中的演练。
 
@@ -203,9 +203,9 @@ ms.locfileid: "92471223"
 
 1. 依次选择“+ 新建步骤”、“内置”，然后找到并选择“条件”。   单击“选择值”，此时会弹出一个框，其中显示了“动态内容”-- 可选择的字段。 如下所示填写字段，以便仅对“设备已连接”和“设备已断开连接”事件执行此操作：
 
-   * 选择值： **eventType** - 从单击此字段时显示的动态内容中的字段内选择此值。
+   * 选择值：**eventType** - 从单击此字段时显示的动态内容中的字段内选择此值。
    * 将“等于”更改为“结尾为”。
-   * 选择值： **nected** 。
+   * 选择值：**nected**。
 
      ![填写条件](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
@@ -217,13 +217,13 @@ ms.locfileid: "92471223"
 
    ![搜索 CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. 在“连接名称”中填写 **cosmosdb-connection** ，在表中选择该条目，然后选择“创建”。  此时会显示“执行存储过程”面板。 为以下字段输入值：
+4. 在“连接名称”中填写 **cosmosdb-connection**，在表中选择该条目，然后选择“创建”。  此时会显示“执行存储过程”面板。 为以下字段输入值：
 
-   **数据库 ID** ：ToDoList
+   **数据库 ID**：ToDoList
 
-   **集合 ID** ：Items
+   **集合 ID**：Items
 
-   **存储过程 ID** ：LatestDeviceConnectionState
+   **存储过程 ID**：LatestDeviceConnectionState
 
 5. 选择“添加新参数”。 在显示的下拉列表中，选中“分区键”和“存储过程的参数”旁边的框，然后单击屏幕上的其他任何位置；此时将为分区键值添加一个字段，并为存储过程的参数添加一个字段。 
 

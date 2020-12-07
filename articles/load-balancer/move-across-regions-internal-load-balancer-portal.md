@@ -5,21 +5,20 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: article
 origin.date: 09/18/2019
-ms.date: 02/24/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 69397cfa09119b614cf438685919c627032fd1ec
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 17f3fe1c9ea90c23b357b434c9252f8b9b7de14d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540982"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746547"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>使用 Azure 门户将 Azure 内部负载均衡器移到另一个区域
 
 在多种情况下，可能需要将现有的内部负载均衡器从一个区域移到另一个区域。 例如，你可能想要创建另一个采用相同配置的内部负载均衡器进行测试。 你还可能想要在灾难恢复规划过程中将内部负载均衡器移到另一个区域。
 
-无法将 Azure 内部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板导出内部负载均衡器的现有配置和虚拟网络。  然后，可将资源暂存在另一区域，方法是：将负载均衡器和虚拟网络导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。  有关资源管理器和模板的详细信息，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)。
-
+无法将 Azure 内部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板导出内部负载均衡器的现有配置和虚拟网络。  然后，可将资源暂存在另一区域，方法是：将负载均衡器和虚拟网络导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。  有关资源管理器和模板的详细信息，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -33,12 +32,10 @@ ms.locfileid: "77540982"
 
 - 请验证 Azure 订阅是否允许在所用的目标区域中创建内部负载均衡器。 请联系支持部门，启用所需配额。
 
-- 确保订阅提供足够的资源，以便为此过程添加公共负载均衡器。  请参阅 [Azure 订阅和服务限制、配额和约束](/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
-
+- 确保订阅提供足够的资源，以便为此过程添加公共负载均衡器。  请参阅 [Azure 订阅和服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 ## <a name="prepare-and-move"></a>准备并移动
 以下步骤说明如何使用资源管理器模板准备好要移动的内部负载均衡器，并使用 Azure 门户将内部负载均衡器配置移到目标区域。  在此过程中，必须包括内部负载均衡器的虚拟网络配置，并且必须在移动内部负载均衡器之前完成此配置。
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -256,7 +253,7 @@ ms.locfileid: "77540982"
                 },
     ```
 
-9.  若要获取区域位置代码，请参阅 [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  区域的代码是不带空格的区域名称，**中国东部 2** = **chinaeast2**。
+9. 若要获取区域位置代码，请参阅 [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)。  区域的代码是不带空格的区域名称，**中国东部 2** = **chinaeast2**。
 
 10. 也可选择更改模板中的其他参数，这些参数是可选的，具体取决于你的要求：
 
@@ -274,7 +271,7 @@ ms.locfileid: "77540982"
                 "tier": "Regional"
             },
         ```
-      若要详细了解基本和标准 sku 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](/load-balancer/load-balancer-standard-overview)
+        若要详细了解基本和标准 sku 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](./load-balancer-overview.md)
 
     * **负载均衡规则** - 可以通过在 **template.json** 文件的 **loadBalancingRules** 节中添加或删除条目，在配置中添加或删除负载均衡规则：
 
@@ -306,7 +303,7 @@ ms.locfileid: "77540982"
                     }
                 ]
         ```
-       有关负载均衡规则的详细信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
+        有关负载均衡规则的详细信息，请参阅[什么是 Azure 负载均衡器？](./load-balancer-overview.md)。
 
     * **探测** - 可以通过在 **template.json** 文件的 **probes** 节中添加或删除条目，在配置中添加或删除负载均衡器的探测：
 
@@ -326,7 +323,7 @@ ms.locfileid: "77540982"
                     }
                 ],
         ```
-       有关 Azure 负载均衡器运行状况探测的详细信息，请参阅[负载均衡器运行状况探测](/load-balancer/load-balancer-custom-probe-overview)
+        有关 Azure 负载均衡器运行状况探测的详细信息，请参阅[负载均衡器运行状况探测](./load-balancer-custom-probe-overview.md)
 
     * **入站 NAT 规则** - 可以通过在 **template.json** 文件的 **inboundNatRules** 节中添加或删除条目，来添加或删除负载均衡器的入站 NAT 规则：
 
@@ -374,7 +371,7 @@ ms.locfileid: "77540982"
             }
         }
         ```
-        有关入站 NAT 规则的详细信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
+        有关入站 NAT 规则的详细信息，请参阅[什么是 Azure 负载均衡器？](./load-balancer-overview.md)。
 
 12. 在在线编辑器中单击“保存”。 
 
@@ -402,6 +399,5 @@ ms.locfileid: "77540982"
 
 在本教程中，你已将一个 Azure 内部负载均衡器从一个区域移到了另一个区域，并清理了源资源。  若要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅：
 
-
-- [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
-- [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
+- [将资源移到新资源组或订阅中](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [将 Azure VM 移到另一区域](../site-recovery/azure-to-azure-tutorial-migrate.md)

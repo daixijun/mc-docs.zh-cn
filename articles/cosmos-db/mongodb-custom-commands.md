@@ -2,20 +2,21 @@
 title: 用于管理 Azure Cosmos DB's API for MongoDB 中的数据的 MongoDB 扩展命令
 description: 本文介绍如何使用 MongoDB 扩展命令来管理 Azure Cosmos DB's API for MongoDB 中存储的数据。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 05/28/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: fb3c5ba509ddd2fa2d15d0020d8ff2cfde656841
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8cd2f428fad72a5e799c68312d79d53e708b16f5
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552818"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598636"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 扩展命令管理 Azure Cosmos DB's API for MongoDB 中存储的数据 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

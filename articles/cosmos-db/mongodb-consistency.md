@@ -2,20 +2,21 @@
 title: 映射 Azure Cosmos DB API for MongoDB 的一致性级别
 description: 映射 Azure Cosmos DB API for MongoDB 的一致性级别。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 297f2af6d82b924a1fe365929d40371253851e6c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2cad0f0d83a4dab16e4c002eee80aa03f791838a
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329013"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598637"
 ---
 <!--Verfied successfully for partial content-->
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Azure Cosmos DB 和 API for MongoDB 的一致性级别
@@ -54,5 +55,4 @@ ms.locfileid: "94329013"
 * [一致性级别概述](consistency-levels.md)
 * 高可用性
 
-<!-- Update_Description: new article about mongodb consistency -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

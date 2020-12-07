@@ -4,12 +4,12 @@ description: 了解如何创建 C# 函数，然后使用 Visual Studio Code 中�
 ms.topic: quickstart
 ms.date: 11/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bc7757bc5c96d13ddf9523f828a1ff0cfd81a912
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 240355fa27946c7d9bc3e5b1fe597be1f5c448a3
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970686"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508993"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建 C# 函数
 
@@ -25,7 +25,7 @@ ms.locfileid: "95970686"
 
 在开始之前，请确保已满足下列要求：
 
-+ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
++ 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + [Node.js](https://nodejs.org/)，在 Windows 上使用 npm 时所必需的。 仅限[活动 LTS 和维护 LTS 版本](https://nodejs.org/about/releases/)。 可以使用 `node --version` 命令检查你的版本。
     对于 macOS 和 Linux 上的本地开发而言，这不是必需的。

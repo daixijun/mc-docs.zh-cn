@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 08/05/2019
-ms.openlocfilehash: 16294f33409fbe7b1451fe119619c8b818efbc1e
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: a43f2a8d336989a3c2f995c7c5b0033d08677499
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394761"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747197"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 
@@ -52,7 +52,7 @@ ms.locfileid: "91394761"
 
 ## <a name="what-you-learn"></a>学习内容
 
-* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 如何使用 Raspberry Pi 联机模拟器。
 * 如何将传感器数据发送到 IoT 中心。
 

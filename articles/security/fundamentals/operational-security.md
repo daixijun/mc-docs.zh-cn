@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 7faabcf7d1055c771ee39592bf1d9dfaae171cda
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 00dd824d29b72f03e79ee847e51d0bd1ea3325a3
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638220"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746870"
 ---
 # <a name="azure-operational-security"></a>Azure 操作安全性
 ## <a name="introduction"></a>简介
@@ -43,7 +43,7 @@ Azure 操作安全性是指可供用户用来在 Azure 中保护其数据、应�
 本白皮书概述了 Microsoft 在 Azure 云平台中的 Azure 操作安全性方法，并介绍了以下服务：
 1.  [Azure Monitor](../../azure-monitor/index.yml)
 
-2.  [Azure 安全中心](../../security-center/security-center-intro.md)
+2.  [Azure 安全中心](../../security-center/security-center-introduction.md)
 
 3.  [Azure Monitor](../../azure-monitor/overview.md)
 
@@ -100,15 +100,15 @@ Azure Monitor 服务使用以下方法安全地管理你基于云的数据：
 Azure 备份中的受保护数据存储在位于特定地理区域的备份保管库。 数据在同一区域内复制，并且根据保管库类型，可能还会复制到其他区域以进一步实现复原。
 
 ### <a name="management-solutions"></a>管理解决方案
-[Azure Monitor](../../security-center/security-center-intro.md) 是 Microsoft 的基于云的 IT 管理解决方案，可帮助你管理和保护本地和云基础结构。
+[Azure Monitor](../../security-center/security-center-introduction.md) 是 Microsoft 的基于云的 IT 管理解决方案，可帮助你管理和保护本地和云基础结构。
 
 
-[管理解决方案](../../monitoring/monitoring-solutions.md)是预先打包的逻辑集，可以实现使用一个或多个 Azure Monitor 服务的特定管理方案。 Microsoft 与合作伙伴提供不同的解决方案，你可轻松将其添加到 Azure 订阅，提高在 Azure Monitor 方面所做投资的价值。 合作伙伴可以创建自己的解决方案来支持自己的应用程序和服务，并通过 Azure 市场或快速入门模板将它们提供给用户。
+[管理解决方案](../../azure-monitor/insights/solutions.md)是预先打包的逻辑集，可以实现使用一个或多个 Azure Monitor 服务的特定管理方案。 Microsoft 与合作伙伴提供不同的解决方案，你可轻松将其添加到 Azure 订阅，提高在 Azure Monitor 方面所做投资的价值。 合作伙伴可以创建自己的解决方案来支持自己的应用程序和服务，并通过 Azure 市场或快速入门模板将它们提供给用户。
 
 
 ![管理解决方案](./media/operational-security/azure-operational-security-fig4.png)
 
-[更新管理解决方案](../../automation/update-management/update-mgmt-overview.md)就是使用多个服务提供更多功能的解决方案的一个好例子。 此解决方案使用适用于 Windows 和 Linux 的 [Azure Monitor 日志](../../log-analytics/log-analytics-queries.md)代理来收集有关每个代理上所需的更新的信息。 它将这些数据写入 Azure Monitor 日志存储库，你可使用随附的仪表板来分析这些数据。
+[更新管理解决方案](../../automation/update-management/overview.md)就是使用多个服务提供更多功能的解决方案的一个好例子。 此解决方案使用适用于 Windows 和 Linux 的 [Azure Monitor 日志](../../azure-monitor/log-query/log-query-overview.md)代理来收集有关每个代理上所需的更新的信息。 它将这些数据写入 Azure Monitor 日志存储库，你可使用随附的仪表板来分析这些数据。
 
 创建部署时，可以使用 [Azure 自动化](../../automation/automation-intro.md)中的 runbook 来安装所需的更新。 可在管理门户中管理整个过程，无需担心如何获取基础详细信息。
 
@@ -199,7 +199,7 @@ Azure Monitor 提供有关特定类型资源的信息的导航。 它对来自 A
 
 ### <a name="metrics"></a>指标
 
-在 Azure 监视器中可以使用遥测来查看 Azure 上的工作负荷的性能与运行状况。 最重要的 Azure 遥测数据类型是大多数 Azure 资源发出的指标（也称为性能计数器）。 Azure Monitor 提供多种方式来配置和使用这些[指标](../../monitoring/monitoring-data-collection.md)，以便进行监视与故障排除。 指标是重要的遥测来源，允许执行以下任务：
+在 Azure 监视器中可以使用遥测来查看 Azure 上的工作负荷的性能与运行状况。 最重要的 Azure 遥测数据类型是大多数 Azure 资源发出的指标（也称为性能计数器）。 Azure Monitor 提供多种方式来配置和使用这些[指标](../../azure-monitor/platform/data-platform.md)，以便进行监视与故障排除。 指标是重要的遥测来源，允许执行以下任务：
 
 -   通过在门户图表上绘制资源（例如 VM、网站或逻辑应用）的指标并将该图表固定到仪表板，来 **跟踪资源的性能**。
 
@@ -281,7 +281,7 @@ Azure AD 还包含整套标识管理功能，例如多重身份验证、设备�
 
 -   利用安全报告和监视来监视应用程序使用情况并防止企业受到严重威胁。
 
-Azure Active Directory (Azure AD) 包括针对目录的安全报表、活动报表和审核报表。 [Azure Active Directory 审核报告](../../active-directory/active-directory-reporting-azure-portal.md)可帮助客户识别其 Azure Active Directory 中发生的特权操作。 特权操作包括提升更改（例如，创建角色或密码重置）、更改策略配置（例如密码策略）或更改目录配置（例如，对域联合身份验证设置的更改）。
+Azure Active Directory (Azure AD) 包括针对目录的安全报表、活动报表和审核报表。 [Azure Active Directory 审核报告](../../active-directory/reports-monitoring/overview-reports.md)可帮助客户识别其 Azure Active Directory 中发生的特权操作。 特权操作包括提升更改（例如，创建角色或密码重置）、更改策略配置（例如密码策略）或更改目录配置（例如，对域联合身份验证设置的更改）。
 
 报告提供了事件名称的审核记录、操作执行者、更改影响的目标资源，以及日期和时间 (UTC)。 客户可以根据[查看审核日志](../../active-directory/reports-monitoring/overview-reports.md)中所述，通过 [Azure 门户](https://portal.azure.cn/)检索其 Azure Active Directory 的审核事件列表。 下面是包含的报表列表：
 
@@ -306,7 +306,7 @@ Azure AD 审核报告中的事件将保留 180 天。
 > [!Note]
 > 有关保留报告的详细信息，请参阅 [Azure Active Directory Report Retention Policies](../../active-directory/reports-monitoring/reference-reports-data-retention.md)（Azure Active Directory 报告保留策略）。
 
-对于想要更长时间存储其[审核事件](../../active-directory/active-directory-reporting-activity-audit-logs.md)的客户，可以使用报告 API 定期将审核事件提取到独立的数据存储中。
+对于想要更长时间存储其[审核事件](../../active-directory/reports-monitoring/concept-audit-logs.md)的客户，可以使用报告 API 定期将审核事件提取到独立的数据存储中。
 
 ## <a name="summary"></a>总结
 
@@ -342,5 +342,4 @@ Microsoft 在设计其服务和软件时始终关注安全性，确保其云基�
 使用 Microsoft 安全数据和分析来执行更智能和有效的威胁检测。
 
 - [Azure 安全中心规划和操作](../../security-center/security-center-planning-and-operations-guide.md) 提供一系列步骤和任务，用户可以按照这些步骤和任务，根据组织的安全要求和云管理模型优化安全中心的使用。
-
 

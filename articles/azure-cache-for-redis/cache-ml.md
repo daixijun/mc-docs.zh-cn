@@ -6,12 +6,12 @@ ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 7799d28bde3c297bc61bdfda9fa4e63d75ab1ae2
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 0e58c446c414e0586d9d5b0f8a9af966b0ee25d2
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326554"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509000"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>使用 Azure Cache for Redis 将机器学习模型部署到 Azure Functions 
 
@@ -24,7 +24,7 @@ Azure Cache for Redis 具有极高的性能和可伸缩性 - 在与 Azure 机器
 >
 
 ## <a name="prerequisites"></a>先决条件
-* Azure 订阅 - [创建一个](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - [创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](../machine-learning/how-to-manage-workspace.md)一文。
 * [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 * 工作区中注册的已训练的机器学习模型。 如果没有模型，请使用[图像分类教程：训练模型](../machine-learning/tutorial-train-models-with-aml.md)来训练和注册模型。
@@ -51,7 +51,7 @@ Azure Cache for Redis 具有极高的性能和可伸缩性 - 在与 Azure 机器
    
    | 设置      | 建议的值  | 说明 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn* 。 | 
+   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn*。 | 
    | **订阅** | 单击下拉箭头并选择你的订阅。 | 要在其下创建此新的 Azure Cache for Redis 实例的订阅。 | 
    | **资源组** | 单击下拉箭头并选择一个资源组，或者选择“新建”并输入新的资源组名称。 | 要在其中创建缓存和其他资源的资源组的名称。 将所有应用资源放入一个资源组可以轻松地统一管理或删除这些资源。 | 
    | **位置** | 单击下拉箭头并选择一个位置。 | 选择与要使用该缓存的其他服务靠近的[区域](https://azure.microsoft.com/regions/)。 |

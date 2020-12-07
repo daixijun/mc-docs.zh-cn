@@ -3,16 +3,16 @@ title: 用于存储的 Azure Defender - 优点和功能
 description: 了解适用于服务器的 Azure Defender 的优点和功能。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/13/2020
+ms.date: 12/04/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2dc0cc988f5b43338ee76d28ad48b136a0d7761d
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d50a38c6591e3812ef55f07258365bfa686513a1
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638263"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747158"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>适用于服务器的 Azure Defender 简介
 
@@ -64,13 +64,9 @@ ms.locfileid: "94638263"
 
   无文件攻击检测功能会生成详细的安全警报，其中包含相关描述和其他进程元数据，例如网络活动数据。 这可以加快警报会审、关联和下游响应时间。 此方法是对基于事件的 EDR 解决方案的补充，并扩大了检测范围。
 
-  有关无文件攻击检测警报的详细信息，请参阅[警报参考表](alerts-reference.md#alerts-windows)。
-
 - **Linux auditd 警报和 Log Analytics 代理集成（仅 Linux）** - auditd 系统包含一个负责监视系统调用的内核级子系统。 该子系统会按照指定的规则集筛选这些调用，并将针对这些调用生成的消息写入到套接字。 安全中心在 Log Analytics 代理中集成了 auditd 包的功能。 通过这种集成，无需满足任何先决条件，就能在所有受支持的 Linux 发行版中收集 auditd 事件。
 
     可以使用适用于 Linux 的 Log Analytics 代理收集、扩充 auditd 记录并将其聚合到事件中。 安全中心会持续添加新分析功能，这些功能可以使用 Linux 信号来检测云和本地 Linux 计算机上的恶意行为。 类似于 Windows 中的功能，这些分析功能可以检测各种可疑进程、可疑登录企图、内核模块加载操作和其他活动。 这些活动可能表示计算机正在受到攻击或已遭入侵。  
-
-    有关 Linux 警报的列表，请参阅[警报参考表](alerts-reference.md#alerts-linux)。
 
 
 ## <a name="simulating-alerts"></a>模拟警报

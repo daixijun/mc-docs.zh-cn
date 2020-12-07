@@ -1,21 +1,21 @@
 ---
 title: 教程：将 Azure Functions 部署为模块 - Azure IoT Edge
-description: 在本教程中，你将一个 Azure 函数开发为 IoT Edge模块，然后将其部署到边缘设备。
+description: 在本教程中，将 Azure Functions 开发为 IoT Edge 模块，然后将其部署到边缘设备。
 author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/29/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ca2a53d9ada296e63f5d0edfaba0406a9c073e2b
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: 396adb9104f11921aa5b73ef918316c9fa55063a
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595135"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541178"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 

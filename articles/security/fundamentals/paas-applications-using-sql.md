@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 09/28/2018
-ms.openlocfilehash: 49e18799ad0a1356bea77adccd1d81de5b774a9f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 447eaf7b5ff26452659405fa87c0104f83c94cc8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127620"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747238"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>在 Azure 中保护 PaaS 数据库的最佳做法
 
@@ -41,7 +41,7 @@ Azure SQL 数据库和 Azure Synapse Analytics 为基于 Internet 的应用程�
 
 - Azure Active Directory 身份验证使用 Azure Active Directory 管理的标识，支持托管域和集成域。 若要使用 Azure Active Directory 身份验证，必须创建名为“Azure AD 管理员”的另一个服务器管理员，用于管理 Azure AD 用户和组。 此管理员还能执行普通服务器管理员可以执行的所有操作。
 
-[Azure Active Directory 身份验证](../../active-directory/develop/authentication-scenarios.md)是使用 Azure Active Directory (AD) 中的标识连接到 Azure SQL 数据库和 Azure Synapse Analytics 的一种机制。 Azure AD 为 SQL Server 身份验证提供一种替代方法，使你可以阻止用户标识在数据库服务器之间激增。 使用 Azure AD 身份验证可在一个中心位置集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。  
+[Azure Active Directory 身份验证](../../active-directory/develop/authentication-vs-authorization.md)是使用 Azure Active Directory (AD) 中的标识连接到 Azure SQL 数据库和 Azure Synapse Analytics 的一种机制。 Azure AD 为 SQL Server 身份验证提供一种替代方法，使你可以阻止用户标识在数据库服务器之间激增。 使用 Azure AD 身份验证可在一个中心位置集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>与 SQL 身份验证相比使用 Azure AD 的好处
 
@@ -51,7 +51,7 @@ Azure SQL 数据库和 Azure Synapse Analytics 为基于 Internet 的应用程�
 - 使用包含的数据库用户在数据库级别对标识进行身份验证。
 - 支持对连接到 SQL 数据库的应用程序进行基于令牌的身份验证。
 - 支持使用 Active Directory 联合身份验证服务 (ADFS) 或本机用户/密码身份验证对本地 Azure AD 进行域联合。
-- 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括[多重身份验证 (MFA)](/active-directory/authentication/multi-factor-authentication)。 MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 Azure Synapse Analytics 的通用身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。
+- 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括[多重身份验证 (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md)。 MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 Azure Synapse Analytics 的通用身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。
 
 若要了解有关 Azure AD 身份验证的详细信息，请参阅：
 

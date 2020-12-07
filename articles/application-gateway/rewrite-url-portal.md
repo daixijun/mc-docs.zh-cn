@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: d27ca3c2196d4cf41f5b1ee1979f00c1f662df0d
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 7bd7809b674c698e33054b95ad36480c88cae56c
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501896"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509022"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>使用 Azure 应用程序网关重写 URL - Azure 门户（预览版）
 
@@ -21,7 +21,7 @@ ms.locfileid: "94501896"
 >[!NOTE]
 > URL 重写功能为预览版，仅适用于 Standard_v2 和 WAF_v2 SKU 版应用程序网关。 不建议在生产环境中使用。 若要了解关于预览的详细信息，请参阅[此处的使用条款](https://www.azure.cn/support/legal/)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="before-you-begin"></a>准备阶段
 

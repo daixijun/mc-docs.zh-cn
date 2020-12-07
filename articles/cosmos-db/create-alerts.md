@@ -7,16 +7,16 @@ ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 07/16/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d908b0083ce2c6a53cf25bafa593aa4a07d32fc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6b7ad2df9d089193f3f68460b84dba389ee9f1d4
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327668"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598439"
 ---
 <!--Verify Successfully-->
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>使用 Azure Monitor 为 Azure Cosmos DB 创建警报

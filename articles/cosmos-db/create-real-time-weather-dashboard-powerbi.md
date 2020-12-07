@@ -2,20 +2,21 @@
 title: 使用 Azure Cosmos DB、Azure Analysis Services 和 Power BI 创建实时仪表板
 description: 了解如何使用 Azure Cosmos DB 和 Azure Analysis Services 在 Power BI 中创建实时天气仪表板。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 09/04/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 843ca86037d46cf280ad32c999349a3c1b7da48e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 41c53ad965036e12f6a5107112f234132518057b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327642"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598706"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>使用 Azure Cosmos DB 和 Power BI 创建实时仪表板
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -109,7 +110,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="添加 Cosmos DB 数据源":::
 
-    提供 **帐户 URI** 、 **数据库名称** 和 **容器名称** 以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
+    提供 **帐户 URI**、**数据库名称** 和 **容器名称** 以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="预览 Azure Cosmos DB 数据":::
 

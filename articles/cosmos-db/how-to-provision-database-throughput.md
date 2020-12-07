@@ -2,20 +2,21 @@
 title: 在 Azure Cosmos DB SQL API 中预配数据库吞吐量
 description: 了解如何使用 Azure 门户、CLI、PowerShell 和各种其他的 SDK 在 Azure Cosmos DB SQL API 中预配数据库级别的吞吐量。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/15/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 79ee0ceb0b39ffc4d28d4557fbe09927eccd1a0a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1cdd7917c0fa8b8feb68737989551c3d2450c3e1
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328656"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598412"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>在 Azure Cosmos DB 的数据库中预配标准（手动）吞吐量 - SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

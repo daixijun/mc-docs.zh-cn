@@ -5,18 +5,18 @@ author: v-tcassi
 manager: philmea
 ms.author: v-tawe
 origin.date: 09/14/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: b6df0636d499be4643c666eb809667fec8a59904
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: 75541f6073391f8ccaa9c5fc78279a3ac555164d
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595269"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541187"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>检索 IoT Edge 部署中的日志
 

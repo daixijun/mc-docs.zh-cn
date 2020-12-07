@@ -12,23 +12,23 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/24/2018
-ms.date: 10/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 44c7ecbaca2045d6449ec441026fb1319e3e52da
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: e7d2dbb886810204d26db0cc4b32163f062be132
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943425"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746562"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure 负载均衡器的 IPv6 概述
 
 
 >[!NOTE] 
->此内容已由[适用于 Azure VNet 的 IPv6 概述](/virtual-network/ipv6-overview)取代。 Azure 建议新的 IPv6 部署使用适用于 Azure 虚拟网络的新 IPv6 功能。
+>此内容已由[适用于 Azure VNet 的 IPv6 概述](../virtual-network/ipv6-overview.md)取代。 Azure 建议新的 IPv6 部署使用适用于 Azure 虚拟网络的新 IPv6 功能。
 
 >[!NOTE]
->Azure 负载均衡器支持两种不同的类型：“基本”和“标准”。 本文介绍基本负载均衡器。 有关标准负载均衡器的详细信息，请参阅[标准负载均衡器概述](load-balancer-standard-overview.md)。
+>Azure 负载均衡器支持两种不同的类型：“基本”和“标准”。 本文介绍基本负载均衡器。 有关标准负载均衡器的详细信息，请参阅[标准负载均衡器概述](./load-balancer-overview.md)。
 
 面向 Internet 的基本 SKU 负载均衡器可以使用 IPv6 地址进行部署。 除了 IPv4 连接以外，这还可以实现以下功能：
 
@@ -78,8 +78,8 @@ ms.locfileid: "91943425"
 * Azure VM 无法通过 IPv6 连接到其他 VM、其他 Azure 服务或本地设备， 只能通过 IPv6 来与 Azure 负载均衡器通信。 但是，它们可以使用 IPv4 来与其他这些资源通信。
 * 双堆栈 (IPv4+IPv6) 部署支持 IPv4 的网络安全组 (NSG) 保护。 NSG 不适用于 IPv6 终结点。
 * VM 上的 IPv6 终结点不会直接在 Internet 上公开， 而是位于负载均衡器的后面。 通过 IPv6 只能访问负载均衡器规则中指定的端口。
-* **当前不支持**更改 IPv6 的 IdleTimeout 参数。 该参数默认为 4 分钟。
-* **当前不支持**更改 IPv6 的 loadDistributionMethod 参数。
+* **当前不支持** 更改 IPv6 的 IdleTimeout 参数。 该参数默认为 4 分钟。
+* **当前不支持** 更改 IPv6 的 loadDistributionMethod 参数。
 * 基本负载均衡器的 IPv6 已锁定为动态 SKU。  标准负载均衡器的 IPv6 已锁定为静态 SKU。
 * 不支持 NAT64（将 IPv6 转换为 IPv4）。
 * 当前不支持将引用 IPv6 子网的辅助 NIC 附加到后端池  。
@@ -87,6 +87,8 @@ ms.locfileid: "91943425"
 ## <a name="next-steps"></a>后续步骤
 
 了解如何部署使用 IPv6 的负载均衡器。
+
+<!--Not Suitable for http://go.microsoft.com/fwlink/?linkid=828357-->
 
 * [使用模板部署具有 IPv6 的负载均衡器](load-balancer-ipv6-internet-template.md)
 * [使用 Azure PowerShell 部署具有 IPv6 的负载均衡器](load-balancer-ipv6-internet-ps.md)

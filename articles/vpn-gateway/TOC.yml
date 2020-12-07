@@ -41,6 +41,10 @@
       href: point-to-site-about.md
     - name: 关于点到站点 VPN 路由
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: 后端连接互操作性
       items:
         - name: 前言和测试设置
@@ -159,8 +163,6 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: 从 SSTP 转移到 OpenVPN 协议或 IKEv2
               href: ikev2-openvpn-from-sstp.md
-        - name: 为 P2S 转换到公共 CA 网关证书
-          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: 配置 Always On VPN 设备隧道
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: 配置 Always On VPN 用户隧道
@@ -261,7 +263,7 @@
         - name: 配置多个 S2S 连接
           href: vpn-gateway-multi-site.md
         - name: 配置 VPN 网关
-          href: vpn-gateway-configure-vpn-gateway-mp.md
+          href: ./vpn-gateway-howto-site-to-site-classic-portal.md
         - name: 从经典部署模型迁移到资源管理器部署模型
           href: vpn-gateway-classic-resource-manager-migration.md
 - name: 参考
@@ -273,7 +275,7 @@
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/network/virtualnetworkgateways'
     - name: REST（经典）
-      href: 'https://msdn.microsoft.com/library/jj154113'
+      href: 'https://docs.microsoft.com/previous-versions/azure/reference/jj154113(v=azure.100)'
     - name: Azure CLI
       href: /cli/network/vnet-gateway
 - name: 资源

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/25/2017
 ms.date: 03/09/2020
 ms.author: v-yiso
-ms.openlocfilehash: 4ec5c953ae1368a8919e9f20df8c930a716f3d3e
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: fbdaedc366e7308a0d1e755522592e927446cfe0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186618"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747136"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>设备管理入门 (Node.js)
 
@@ -22,12 +22,12 @@ ms.locfileid: "84186618"
 
 本教程演示如何：
 
-* 使用 [Azure 门户](https://portal.azure.cn)创建 IoT 中心，并在 IoT 中心创建设备标识。
+* 使用 [Azure 门户](https://portal.azure.cn)创建 IoT 中心，以及如何在 IoT 中心创建设备标识。
 
 * 创建包含重新启动该设备的直接方法的模拟设备应用。 直接方法是从云中调用的。
 * 创建一个 Node.js 控制台应用，其通过 IoT 中心直接重启模拟设备应用。
 
-本教程结束时，会创建两个 Node.js 控制台应用：
+在本教程结束时，会创建两个 Node.js 控制台应用：
 
 * **dmpatterns_getstarted_device.js**，它使用先前创建的设备标识连接到 IoT 中心，接收重新启动直接方法，模拟物理重新启动，并报告上次重新启动的时间。
 
@@ -37,7 +37,7 @@ ms.locfileid: "84186618"
 
 * Node.js 版本 10.0.x 或更高版本。 [准备开发环境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 * 确保已在防火墙中打开端口 8883。 本文中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -53,7 +53,7 @@ ms.locfileid: "84186618"
 本部分的操作：
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法
-* 触发模拟的设备重启
+* 触发模拟设备重新启动
 * 通过报告的属性，设备孪生查询可标识设备及设备上次重新启动的时间
 
 1. 创建名为 **manageddevice** 的空文件夹。  在 **manageddevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
@@ -79,7 +79,7 @@ ms.locfileid: "84186618"
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. 添加 **connectionString** 变量，并使用它创建一个**客户端**实例。  将 `{yourdeviceconnectionstring}` 占位符值替换为先前在[在 IoT 中心注册新设备](#register-a-new-device-in-the-iot-hub)中复制的设备连接字符串。  
+5. 添加 **connectionString** 变量，并使用它创建一个 **客户端** 实例。  将 `{yourdeviceconnectionstring}` 占位符值替换为以前在[在 IoT 中心内注册新设备](#register-a-new-device-in-the-iot-hub)中复制的设备连接字符串。  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -150,7 +150,7 @@ ms.locfileid: "84186618"
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
-本部分中会创建一个 Node.js 控制台应用，该应用使用直接方法在设备上初始化远程重启。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
+此部分将创建一个 Node.js 控制台应用，此应用直接对设备进行远程重启。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
 
 1. 创建一个名为 **triggerrebootondevice** 的空文件夹。  在 **triggerrebootondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
@@ -174,7 +174,7 @@ ms.locfileid: "84186618"
     var Client = require('azure-iothub').Client;
     ```
 
-5. 添加以下变量声明，并将 `{iothubconnectionstring}` 占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
+5. 添加以下变量声明，并将 `{iothubconnectionstring}` 占位符值替换为以前复制（[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)）的 IoT 中心连接字符串：
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -235,7 +235,7 @@ ms.locfileid: "84186618"
 
 ## <a name="run-the-apps"></a>运行应用
 
-现已准备好运行应用。
+现在可以运行应用了。
 
 1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。
 
@@ -243,19 +243,19 @@ ms.locfileid: "84186618"
     node dmpatterns_getstarted_device.js
     ```
 
-2. 在 **triggerrebootondevice** 文件夹的命令提示符处运行以下命令，以便触发远程重启并查询设备孪生了解上次重启时间。
+2. 在 **triggerrebootondevice** 文件夹的命令提示符处，运行以下命令以触发远程重新启动并查询设备孪生以查找上次重新启动时间。
 
     ```cmd/sh
     node dmpatterns_getstarted_service.js
     ```
 
-3. 可以在控制台中看到设备对重新启动直接方法的响应和重新启动状态。
+3. 可在控制台查看对重新启动直接方法和重新启动状态的设备响应。
 
-   下面显示了设备对服务发送的重新启动直接方法的响应：
+   下面显示了对服务发送的重新启动直接方法的设备响应：
 
    ![manageddevice 应用输出](./media/iot-hub-node-node-device-management-get-started/device.png)
 
-   下面显示了触发重新启动并轮询设备孪生的上次重新启动时间的服务：
+   下面显示服务触发重新启动并轮询设备孪生以获取上次重新启动时间：
 
    ![triggerrebootondevice 应用输出](./media/iot-hub-node-node-device-management-get-started/service.png)
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

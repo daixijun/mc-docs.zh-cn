@@ -4,15 +4,15 @@ description: Azure 安全基准 V2 网络安全
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: security-benchmark
-ms.openlocfilehash: 589aa67676beebe112f877f2b8627b3d7837c2e0
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 36820b98fd00c6e7c3c5de698d212af5c790cc63
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128736"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747092"
 ---
 # <a name="security-control-v2-network-security"></a>安全控制 V2：网络安全
 
@@ -34,7 +34,7 @@ ms.locfileid: "92128736"
 
 - [如何部署和配置 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -60,7 +60,7 @@ ms.locfileid: "92128736"
 
 - [虚拟网络对等](../../virtual-network/virtual-network-peering-overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -82,7 +82,7 @@ ms.locfileid: "92128736"
 
 - [了解虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -106,9 +106,9 @@ ms.locfileid: "92128736"
 -   通过在 Azure 虚拟网络上启用 DDoS 标准保护，保护资产免受 DDoS 攻击。 
 -   使用 Azure 安全中心来检测与上述内容相关的配置错误风险。 
 
-- [Azure 防火墙文档](/firewall/)
+- [Azure 防火墙文档](../../firewall/index.yml)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -130,7 +130,7 @@ ms.locfileid: "92128736"
 
 - [Microsoft Defender ATP EDR 功能](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -154,9 +154,9 @@ ms.locfileid: "92128736"
 
 - [了解并使用服务标记](../../virtual-network/service-tags-overview.md)
 
-- [了解并使用应用程序安全组](/virtual-network/security-overview#application-security-groups)
+- [了解并使用应用程序安全组](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -182,7 +182,7 @@ ms.locfileid: "92128736"
 
 - [阻止无关联的 DNS 项并避免子域接管](../fundamentals/subdomain-takeover.md)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -191,5 +191,4 @@ ms.locfileid: "92128736"
 - [状况管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
 - [应用程序安全性和 DevOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
 

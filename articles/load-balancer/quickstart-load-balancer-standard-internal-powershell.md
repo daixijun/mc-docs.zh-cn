@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/27/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 6865e57e207846abc79bd1998f05477aa78cf177
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: c8ca33538982329305c08502f7b8e35d9f0e50f8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590511"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747257"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -30,7 +30,7 @@ ms.locfileid: "94590511"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 在本地安装了 Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -43,12 +43,12 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组：
 
-* 命名为“myResourceGroupLB”。
+* 命名为“CreateIntLBQS-rg”。
 * 在“chinaeast2”位置。
 
 ```azurepowershell
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 
 New-AzResourceGroup -Name $rg -Location $loc
@@ -64,36 +64,84 @@ New-AzResourceGroup -Name $rg -Location $loc
 
 需要先创建支持的虚拟网络资源，然后才能部署 VM 和测试负载均衡器。
 
-### <a name="create-a-virtual-network"></a>创建虚拟网络
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>创建虚拟网络和 Azure Bastion 主机
 
 使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络：
 
 * 命名为“myVNet”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 子网命名为“myBackendSubnet”。
 * 虚拟网络为“10.0.0.0/16”。
 * 子网为“10.0.0.0/24”。
+* 子网命名为“AzureBastionSubnet”。
+* 子网为“10.0.1.0/24”。
 
 ```azurepowershell
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
-
+$bsub = 'AzureBastionSubnet'
+$bpfx = '10.0.1.0/24'
 
 ## Create backend subnet config ##
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
+## Create Azure Bastion subnet 
+$bassubConfig =
+New-AzVirtualNetworkSubnetConfig -Name $bsub -AddressPrefix $bpfx
 
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubConfig
 ```
 
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>创建 Azure Bastion 主机的公共 IP 地址
+
+使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 为堡垒主机创建公共 IP 地址：
+
+* 命名为“myPublicIPBastion”
+* 在“CreateIntLBQS-rg”资源组中。
+* 在“chinaeast2”位置。
+* 分配方法为“静态”。
+* 标准 SKU。
+
+```powershell
+## Variables for the command ##
+$rg = 'CreateIntLBQS-rg'
+$loc = 'chinaeast2'
+$ipn = 'myPublicIPBastion'
+$all = 'static'
+$sku = 'standard'
+
+$publicip = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -AllocationMethod $all -Sku $sku
+```
+
+### <a name="create-azure-bastion-host"></a>创建 Azure Bastion 主机
+
+使用 [New-AzBastion](https://docs.microsoft.com/powershell/module/az.network/new-azbastion) 创建堡垒主机：
+
+* 命名为“myBastion”。
+* 在“CreateIntLBQS-rg”资源组中。
+* 在虚拟网络“myVNet”中。
+* 与公共 IP 地址 myPublicIPBastion 关联。
+
+```powershell
+## Variables for the commands ##
+$rg = 'CreateIntLBQS-rg'
+$nmn = 'myBastion'
+
+## Command to create bastion host. $vnet and $publicip are from the previous steps ##
+New-AzBastion -ResourceGroupName $rg -Name $nmn -PublicIpAddress $publicip -VirtualNetwork $vnet
+
+```
+
+部署 Azure Bastion 主机需要几分钟时间。
 
 ### <a name="create-network-security-group"></a>创建网络安全组
 创建网络安全组，以定义虚拟网络的入站连接。
@@ -134,13 +182,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 使用 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) 创建网络安全组：
 
 * 命名为“myNSG”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 安全规则在之前的步骤中创建，存储在变量中。
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nmn = 'myNSG'
 
@@ -168,7 +216,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -Sec
 ```azurepowershell
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -247,8 +295,7 @@ $rule =
 New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
->后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](/virtual-network/nat-overview)**
-
+>后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 </br> 有关提供出站连接的详细信息，请参阅： </br> **[Azure 中的出站连接](load-balancer-outbound-connections.md)**</br> 用于提供连接的选项： </br> **[仅出站的负载均衡器配置](egress-only.md)** </br> **[什么是虚拟网络 NAT？](../virtual-network/nat-overview.md)**
 
 ### <a name="create-load-balancer-resource"></a>创建负载均衡器资源
 
@@ -256,12 +303,12 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 * 命名为“myLoadBalancer”
 * 在 **chinaeast2** 中。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 
 ```azurepowershell
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $sku = 'Standard'
 
@@ -278,7 +325,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 #### <a name="vm-1"></a>VM 1
 
 * 命名为“myNicVM1”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
@@ -287,7 +334,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -314,7 +361,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### <a name="vm-2"></a>VM 2
 
 * 命名为“myNicVM2”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
@@ -323,7 +370,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -349,7 +396,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -363,18 +410,17 @@ $cred = Get-Credential
 * [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)
 * [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)
 
-
 #### <a name="vm1"></a>VM1
 
 * 命名为“myVM1”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM1”。
 * 附加到负载均衡器“myLoadBalancer”。
 * 在“chinaeast2”位置。
 
 ```azurepowershell
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -392,18 +438,17 @@ New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -Comp
 New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 ```
 
-
 #### <a name="vm2"></a>VM2
 
 * 命名为“myVM2”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM2”。
 * 附加到负载均衡器“myLoadBalancer”。
 * 在“chinaeast2”位置。
 
 ```azurepowershell
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -430,34 +475,84 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 需要先创建支持的虚拟网络资源，然后才能部署 VM 和测试负载均衡器。
 
-### <a name="create-a-virtual-network"></a>创建虚拟网络
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>创建虚拟网络和 Azure Bastion 主机
 
 使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络：
 
 * 命名为“myVNet”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 子网命名为“myBackendSubnet”。
 * 虚拟网络为“10.0.0.0/16”。
 * 子网为“10.0.0.0/24”。
+* 子网命名为“AzureBastionSubnet”。
+* 子网为“10.0.1.0/24”。
 
 ```azurepowershell
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
-
+$bsub = 'AzureBastionSubnet'
+$bpfx = '10.0.1.0/24'
 
 ## Create backend subnet config ##
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
+## Create Azure Bastion subnet 
+$bassubConfig =
+New-AzVirtualNetworkSubnetConfig -Name $bsub -AddressPrefix $bpfx
+
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubConfig
 ```
+
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>创建 Azure Bastion 主机的公共 IP 地址
+
+使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 为堡垒主机创建公共 IP 地址：
+
+* 命名为“myPublicIPBastion”
+* 在“CreateIntLBQS-rg”资源组中。
+* 在“chinaeast2”位置。
+* 分配方法为“静态”。
+* 标准 SKU。
+
+```powershell
+## Variables for the command ##
+$rg = 'CreateIntLBQS-rg'
+$loc = 'chinaeast2'
+$ipn = 'myPublicIPBastion'
+$all = 'static'
+$sku = 'standard'
+
+$publicip = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -AllocationMethod $all -Sku $sku
+```
+
+### <a name="create-azure-bastion-host"></a>创建 Azure Bastion 主机
+
+使用 [New-AzBastion](https://docs.microsoft.com/powershell/module/az.network/new-azbastion) 创建堡垒主机：
+
+* 命名为“myBastion”。
+* 在“CreateIntLBQS-rg”资源组中。
+* 在虚拟网络“myVNet”中。
+* 与公共 IP 地址 myPublicIPBastion 关联。
+
+```powershell
+## Variables for the commands ##
+$rg = 'CreateIntLBQS-rg'
+$nmn = 'myBastion'
+
+## Command to create bastion host. $vnet and $publicip are from the previous steps ##
+New-AzBastion -ResourceGroupName $rg -Name $nmn -PublicIpAddress $publicip -VirtualNetwork $vnet
+
+```
+
+部署 Azure Bastion 主机需要几分钟时间。
 
 ### <a name="create-network-security-group"></a>创建网络安全组
 创建网络安全组，以定义虚拟网络的入站连接。
@@ -498,13 +593,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 使用 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) 创建网络安全组：
 
 * 命名为“myNSG”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 安全规则在之前的步骤中创建，存储在变量中。
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nmn = 'myNSG'
 
@@ -532,7 +627,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg -Location $loc -Name $nmn -Sec
 ```azurepowershell
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -616,12 +711,12 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 * 命名为“myLoadBalancer”
 * 在 **chinaeast2** 中。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 
 ```azurepowershell
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $sku = 'Basic'
 
@@ -638,7 +733,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 #### <a name="vm-1"></a>VM 1
 
 * 命名为“myNicVM1”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
@@ -647,7 +742,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -674,7 +769,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### <a name="vm-2"></a>VM 2
 
 * 命名为“myNicVM2”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
@@ -683,7 +778,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -712,12 +807,12 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建虚拟机的可用性集：
 
 * 命名为“myAvSet”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置。
 
 ```azurepowershell
 ## Variables used for the command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $avs = 'myAvSet'
 $loc = 'chinaeast2'
 
@@ -726,7 +821,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
-使用 [New-AzureRmNetworkInterface](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -740,11 +835,10 @@ $cred = Get-Credential
 * [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)
 * [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)
 
-
 #### <a name="vm1"></a>VM1
 
 * 命名为“myVM1”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM1”。
 * 附加到负载均衡器“myLoadBalancer”。
 * 在“chinaeast2”位置。
@@ -752,7 +846,7 @@ $cred = Get-Credential
 
 ```azurepowershell
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -775,7 +869,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 #### <a name="vm2"></a>VM2
 
 * 命名为“myVM2”。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM2”。
 * 附加到负载均衡器“myLoadBalancer”。
 * 在“chinaeast2”位置。
@@ -783,7 +877,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ```azurepowershell
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -816,7 +910,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ```azurepowershell
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM1'
 $loc = 'chinaeast2'
@@ -831,7 +925,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM2'
 $loc = 'chinaeast2'
@@ -851,7 +945,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 #### <a name="mytestvm"></a>myTestVM
 
 * 命名为 myNicTestVM。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 在“chinaeast2”位置中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
@@ -859,7 +953,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'chinaeast2'
 $nic1 = 'myNicTestVM'
 $vnt = 'myVNet'
@@ -880,7 +974,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -Networ
 
 ### <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) 设置 VM 的管理员用户名和密码：
 
 ```azurepowershell
 $cred = Get-Credential
@@ -894,17 +988,16 @@ $cred = Get-Credential
 * [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)
 * [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)
 
-
 #### <a name="mytestvm"></a>myTestVM
 
 * 命名为 myTestVM。
-* 在资源组“myResourceGroupLB”中。
+* 在“CreateIntLBQS-rg”资源组中。
 * 附加到网络接口“myNicTestVM”。
 * 在“chinaeast2”位置。
 
 ```azurepowershell
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myTestVM'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -912,7 +1005,6 @@ $off = 'WindowsServer'
 $sku = '2019-Datacenter'
 $ver = 'latest'
 $loc = 'chinaeast2'
-
 
 ## Create a virtual machine configuration. $cred and $nicTestVM are variables with configuration from the previous steps. ##
 
@@ -931,9 +1023,9 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 2. 在 myLoadBalancer 的“概览”中，记下或复制专用 IP 地址旁边的地址  。
 
-3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“myResourceGroupLB”资源组中的“myTestVM”   。
+3. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中，选择“CreateIntLBQS-rg”资源组中的“myTestVM”   。
 
-4. 在“概览”页上，选择“连接”，然后选择“RDP”  。
+4. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 
 6. 输入在 VM 创建过程中输入的用户名和密码。
 
@@ -942,7 +1034,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 8. 将上一步骤的 IP 地址输入到浏览器的地址栏。 IIS Web 服务器的默认页会显示在浏览器上。
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="创建标准的内部负载均衡器" border="true":::
-   
+
 要查看所有三个 VM 中的负载均衡器分配流量，可以自定义每个 VM 的 IIS Web 服务器的默认页面，然后从客户端计算机强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -951,7 +1043,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 ```azurepowershell
 ## Variable for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 
 Remove-AzResourceGroup -Name $rg
 ```
@@ -968,5 +1060,3 @@ Remove-AzResourceGroup -Name $rg
 若要详细了解 Azure 负载均衡器，请继续学习
 > [!div class="nextstepaction"]
 > [什么是 Azure 负载均衡器？](load-balancer-overview.md)
-
-

@@ -2,19 +2,20 @@
 title: 使用 Azure Functions 计时器按计划缩放 Azure Cosmos DB
 description: 了解如何使用 PowerShell 和 Azure Functions 在 Azure Cosmos DB 中缩放吞吐量更改。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 01/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 67bd238a5d73b39c28a8560a56bc9c6d337ef1f2
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 9b13132683383a56b287231ec12092c30012d316
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552770"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747243"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>使用 Azure Functions 计时器触发器缩放 Azure Cosmos DB 吞吐量
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

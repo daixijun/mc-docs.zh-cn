@@ -2,20 +2,20 @@
 title: 将 Azure 防火墙与 Azure 标准负载均衡器相集成
 description: 可将 Azure 防火墙集成到使用 Azure 标准负载均衡器（公共或内部）的虚拟网络中。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: how-to
-origin.date: 02/28/2020
-ms.date: 08/03/2020
+origin.date: 09/25/2020
+author: rockboyfor
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a6cba98221620303839d60e2318407c2bc26ff21
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: 314c39ffd6c1634cb42b8463aa791da3e3312c6f
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455587"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746664"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>将 Azure 防火墙与 Azure 标准负载均衡器相集成
 
@@ -68,6 +68,9 @@ ms.locfileid: "87455587"
 
 因此，可以像部署公共负载均衡器方案一样部署此方案，但无需防火墙公共 IP 地址主机路由。
 
+>[!NOTE]
+>后端池中的虚拟机将不含具有此配置的出站 Internet 连接。 <br /> 有关提供出站连接的详细信息，请参阅： <br /> **[Azure 中的出站连接](../load-balancer/load-balancer-outbound-connections.md)**<br /> 用于提供连接的选项： <br /> **[仅出站的负载均衡器配置](../load-balancer/egress-only.md)** <br /> [**什么是虚拟网络 NAT？**](../virtual-network/nat-overview.md)
+
 ## <a name="additional-security"></a>其他安全性
 
 若要进一步增强负载均衡方案的安全性，可以使用网络安全组 (NSG)。
@@ -76,7 +79,7 @@ ms.locfileid: "87455587"
 
 ![网络安全组](media/integrate-lb/nsg-01.png)
 
-有关 NSG 的详细信息，请参阅[安全组](../virtual-network/security-overview.md)。
+有关 NSG 的详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

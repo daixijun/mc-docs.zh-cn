@@ -121,7 +121,7 @@
 - name: 资源
   items:
     - name: 创作模板
-      href: /azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+      href: /azure-resource-manager/resource-group-authoring-templates?toc=%2fnetworking%2ftoc.json
     - name: 社区模板
       href: 'https://azure.microsoft.com/resources/templates/'
     - name: 网络博客

@@ -2,21 +2,21 @@
 title: 适用于 Azure Cosmos DB API for MongoDB 的 Azure CLI 示例
 description: 适用于 Azure Cosmos DB API for MongoDB 的 Azure CLI 示例
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e95b726edce5a694926ddfcd99c29a05a938ecc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1a894cdf4aefbbad9543914507194ea2c08f5a9d
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328324"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598665"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-api-for-mongodb"></a>适用于 Azure Cosmos DB API for MongoDB 的 Azure CLI 示例
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

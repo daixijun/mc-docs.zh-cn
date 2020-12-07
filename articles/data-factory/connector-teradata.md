@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 08/06/2020
-ms.date: 09/21/2020
+origin.date: 11/26/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 63a666ede7b10cf872ac5067f5005a9707633fcf
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a49e1e0bee9222141863ffccfdfffd867beb7732
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523654"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747244"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Teradata Vantage 复制数据
 
@@ -37,7 +37,7 @@ ms.locfileid: "90523654"
 具体而言，此 Teradata 连接器支持：
 
 - Teradata **版本 14.10、15.0、15.10、16.0、16.10 和 16.20**。
-- 使用**基本**或 **Windows** 身份验证复制数据。
+- 使用 **基本** 或 **Windows** 身份验证复制数据。
 - 从 Teradata 源进行并行复制。 有关详细信息，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。
 
 ## <a name="prerequisites"></a>先决条件
@@ -68,9 +68,9 @@ Teradata 链接服务支持以下属性：
 
 | 属性 | 说明 | 默认值 |
 |:--- |:--- |:--- |
-| UseDataEncryption | 指定是否对 Teradata 数据库的所有通信进行加密。 允许的值为 0 或 1。<br><br/>- **0（已禁用，为默认值）** ：仅加密身份验证信息。<br/>- **1（已启用）** ：对驱动程序和数据库之间传递的所有数据进行加密。 | 否 |
-| CharacterSet | 要用于会话的字符集。 例如，`CharacterSet=UTF16`。<br><br/>此值可以是用户定义的字符集，也可以是以下预定义的字符集之一： <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS（Windows、兼容 DOS、KANJISJIS_0S）<br/>- EUC（兼容 Unix、KANJIEC_0U）<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | 默认值为 `ASCII`。 |
-| MaxRespSize |SQL 请求的响应缓冲区的最大大小，以千字节 (KB) 为单位。 例如，`MaxRespSize=‭10485760‬`。<br/><br/>对于 Teradata 数据库版本 16.00 或更高版本，最大值为 7361536。 对于使用较早版本的连接，最大值为 1048576。 | 默认值为 `65536`。 |
+| UseDataEncryption | 指定是否对 Teradata 数据库的所有通信进行加密。 允许的值为 0 或 1。<br><br/>- **0（已禁用，为默认值）** ：仅加密身份验证信息。<br/>- **1（已启用）** ：对驱动程序和数据库之间传递的所有数据进行加密。 | `0` |
+| CharacterSet | 要用于会话的字符集。 例如，`CharacterSet=UTF16`。<br><br/>此值可以是用户定义的字符集，也可以是以下预定义的字符集之一： <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS（Windows、兼容 DOS、KANJISJIS_0S）<br/>- EUC（兼容 Unix、KANJIEC_0U）<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | `ASCII` |
+| MaxRespSize |SQL 请求的响应缓冲区的最大大小，以千字节 (KB) 为单位。 例如，`MaxRespSize=‭10485760‬`。<br/><br/>对于 Teradata 数据库版本 16.00 或更高版本，最大值为 7361536。 对于使用较早版本的连接，最大值为 1048576。 | `65536` |
 
 **示例：使用基本身份验证**
 
@@ -144,7 +144,7 @@ Teradata 链接服务支持以下属性：
 
 从 Teradata 复制数据时，支持以下属性：
 
-| 属性 | 说明 | 必需 |
+| 属性 | 描述 | 必选 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为 `TeradataTable`。 | 是 |
 | database | Teradata 实例的名称。 | 否（如果指定了活动源中的“query”） |
@@ -198,14 +198,14 @@ Teradata 链接服务支持以下属性：
 
 从 Teradata 复制数据时，复制活动的 **source** 节支持以下属性：
 
-| 属性 | 说明 | 必需 |
+| 属性 | 描述 | 必选 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为 `TeradataSource`。 | 是 |
-| 查询 | 使用自定义 SQL 查询读取数据。 例如 `"SELECT * FROM MyTable"`。<br>启用分区加载时，需要在查询中挂接任何相应的内置分区参数。 有关示例，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。 | 否（如果指定了数据集中的表） |
+| query | 使用自定义 SQL 查询读取数据。 例如 `"SELECT * FROM MyTable"`。<br>启用分区加载时，需要在查询中挂接任何相应的内置分区参数。 有关示例，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。 | 否（如果指定了数据集中的表） |
 | partitionOptions | 指定用于从 Teradata 加载数据的数据分区选项。 <br>允许的值为：**None**（默认值）、**Hash** 和 **DynamicRange**。<br>启用分区选项（即，该选项不为 `None`）时，用于从 Teradata 并行加载数据的并行度由复制活动上的 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 设置控制。 | 否 |
 | partitionSettings | 指定数据分区的设置组。 <br>当分区选项不是 `None` 时适用。 | 否 |
 | partitionColumnName | 指定用于并行复制的，由范围分区或哈希分区使用的源列的名称。 如果未指定，系统会自动检测表的主索引并将其用作分区列。 <br>当分区选项是 `Hash` 或 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfHashPartitionCondition` 或 `?AdfRangePartitionColumnName`。 请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分中的示例。 | 否 |
-| partitionUpperBound | 要从中复制数据的分区列的最大值。 <br>当分区选项为 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfRangePartitionUpbound`。 有关示例，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。 | 否 |
+| partitionUpperBound | 要从中复制数据的分区列的最大值。 <br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfRangePartitionUpbound`。 有关示例，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。 | 否 |
 | partitionLowerBound | 要从中复制数据的分区列的最小值。 <br>当分区选项是 `DynamicRange` 时适用。 如果使用查询来检索源数据，请在 WHERE 子句中挂接 `?AdfRangePartitionLowbound`。 有关示例，请参阅[从 Teradata 进行并行复制](#parallel-copy-from-teradata)部分。 | 否 |
 
 > [!NOTE]
@@ -258,7 +258,7 @@ Teradata 链接服务支持以下属性：
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 从大型表进行完整加载。                                   | **分区选项**：哈希。 <br><br/>在执行期间，数据工厂将自动检测主索引列，对其应用哈希，然后按分区复制数据。 |
 | 使用自定义查询加载大量数据。                 | **分区选项**：哈希。<br>**查询**：`SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`。<br>**分区列**：指定用于应用哈希分区的列。 如果未指定，数据工厂将自动检测 Teradata 数据集中指定的表的 PK 列。<br><br>在执行期间，数据工厂会将 `?AdfHashPartitionCondition` 替换为哈希分区逻辑，并发送到 Teradata。 |
-| 使用自定义查询加载大量数据，某个整数列包含均匀分布的范围分区值。 | **分区选项**：动态范围分区。<br>**查询**：`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`。<br>**分区列**：指定用于对数据进行分区的列。 可以针对整数数据类型的列进行分区。<br>**分区上限**和**分区下限**：指定是否要对分区列进行筛选，以便仅检索介于下限和上限之间的数据。<br><br>在执行期间，数据工厂会将 `?AdfRangePartitionColumnName`、`?AdfRangePartitionUpbound` 和 `?AdfRangePartitionLowbound` 替换为每个分区的实际列名和值范围，并将其发送到 Teradata。 <br>例如，如果为分区列“ID”设置了下限 1、上限 80，并将并行复制设置为 4，则数据工厂会按 4 个分区检索数据。 其 ID 分别介于 [1, 20]、[21, 40]、[41, 60] 和 [61, 80] 之间。 |
+| 使用自定义查询加载大量数据，某个整数列包含均匀分布的范围分区值。 | **分区选项**：动态范围分区。<br>**查询**：`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`。<br>**分区列**：指定用于对数据进行分区的列。 可以针对整数数据类型的列进行分区。<br>**分区上限** 和 **分区下限**：指定是否要对分区列进行筛选，以便仅检索介于下限和上限之间的数据。<br><br>在执行期间，数据工厂会将 `?AdfRangePartitionColumnName`、`?AdfRangePartitionUpbound` 和 `?AdfRangePartitionLowbound` 替换为每个分区的实际列名和值范围，并将其发送到 Teradata。 <br>例如，如果为分区列“ID”设置了下限 1、上限 80，并将并行复制设置为 4，则数据工厂会按 4 个分区检索数据。 其 ID 分别介于 [1, 20]、[21, 40]、[41, 60] 和 [61, 80] 之间。 |
 
 **示例：使用哈希分区进行查询**
 

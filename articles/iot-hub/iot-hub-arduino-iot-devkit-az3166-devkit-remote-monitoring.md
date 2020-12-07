@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 02/02/2018
 ms.date: 06/08/2020
 ms.author: v-yiso
-ms.openlocfilehash: 56b0e433d844ef162e7160d3c73f516870c2da2c
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: bb5a28deb9fa5e39e840eccaf367e0064404e37a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394781"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747200"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>将 MXChip IoT DevKit 连接到 Azure IoT 远程监视解决方案加速器
 
@@ -32,7 +32,7 @@ ms.locfileid: "91394781"
 
 一个有效的 Azure 订阅。 如果没有订阅，可以通过以下两种方法之一进行注册：
 
-* 激活 [1 天 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 激活 [1 天 Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>创建 Azure IoT 远程监视解决方案加速器

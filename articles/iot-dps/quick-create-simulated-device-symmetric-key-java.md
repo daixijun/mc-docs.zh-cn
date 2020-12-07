@@ -4,18 +4,18 @@ description: 本快速入门将使用 Java 设备 SDK 创建一个将对称密�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 01/30/2020
-ms.date: 09/30/2020
+ms.date: 12/03/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: a049fef22912faa09b4174f636c354ebe60ee6fc
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 4b7ad90d4960fae7937dd42ee5e970a51a4224e9
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300948"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541109"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>快速入门：使用对称密钥向 IoT 中心预配模拟设备
 

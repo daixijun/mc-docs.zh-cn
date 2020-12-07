@@ -2,20 +2,21 @@
 title: 作为键/值存储的 Azure Cosmos DB 的请求单位费用
 description: 了解 Azure Cosmos DB 在用作键/值存储时执行简单写入和读取操作的请求单位费用。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 08/23/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 588575bec2dcedd7c504f5d889f7facb47e96ecc
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 2a1fc10dc105073335eeb07ca01b4a34fb91d5a6
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551740"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598691"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>作为键值存储的 Azure Cosmos DB - 费用概述
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

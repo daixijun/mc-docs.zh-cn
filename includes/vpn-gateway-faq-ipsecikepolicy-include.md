@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 12/05/2019
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 8d1068301a83643fb422b36beae559299040291e
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 9affabb4021d291c9be95fa375f1c713fd58047e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970834"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747210"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有 Azure VPN 网关 SKU 都支持自定义 IPsec/IKE 策略？
 除基本 SKU 外，所有 Azure SKU 都支持自定义 IPsec/IKE 策略。
@@ -108,7 +108,7 @@ SA 生存期是本地规范，不需匹配。
 不是。 只能通过 Azure VPN 网关在 S2S VPN 和 VNet 到 VNet 连接上使用 IPsec/IKE 策略。
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>如何创建 IKEv1 或 IKEv2 协议类型的连接？
-除基本的 SKU、标准 SKU 和其他[旧版 SKU](/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku) 以外，可以在所有 RouteBased VPN 类型 SKU 上创建 IKEv1 连接。 创建连接时，可以指定 IKEv1 或 IKEv2 连接协议类型。 如果未指定连接协议类型，IKEv2 将用作默认选项（如果适用）。 有关详细信息，请参阅 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 文档。 有关 SKU 类型和 IKEv1/IKEv2 支持，请参阅[将网关连接到基于策略的 VPN 设备](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。
+除基本的 SKU、标准 SKU 和其他[旧版 SKU](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#gwsku) 以外，可以在所有 RouteBased VPN 类型 SKU 上创建 IKEv1 连接。 创建连接时，可以指定 IKEv1 或 IKEv2 连接协议类型。 如果未指定连接协议类型，IKEv2 将用作默认选项（如果适用）。 有关详细信息，请参阅 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) 文档。 有关 SKU 类型和 IKEv1/IKEv2 支持，请参阅[将网关连接到基于策略的 VPN 设备](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>是否允许在 IKEv1 和 IKEv2 连接之间传输？
 是的。 支持在 IKEv1 连接和 IKEv2 连接之间传输。
