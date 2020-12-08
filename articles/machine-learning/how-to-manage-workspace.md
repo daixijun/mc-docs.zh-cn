@@ -1,7 +1,7 @@
 ---
 title: 在门户中创建工作区
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 门户中创建、查看和删除 Azure 机器学习工作区。
+description: 了解如何通过 Azure 门户或 SDK for Python 创建、查看和删除 Azure 机器学习工作区。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,106 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 1335b3db5ae7bfd8190c8af4e9db9c9f0b3a98da
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6f41e5a43a1309394e042495dc1db66aa94135e3
+ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105797"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95970854"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>在 Azure 门户中创建并管理 Azure 机器学习工作区
+# <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
 
+本文介绍如何通过 Azure 门户或 [SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) 创建、查看和删除用于 [Azure 机器学习](overview-what-is-azure-ml.md)的 [Azure 机器学习工作区](concept-workspace.md)
 
-本文将介绍如何在 Azure 门户中针对 [Azure 机器学习](overview-what-is-azure-ml.md)创建、查看和删除 [Azure 机器学习工作区](concept-workspace.md)。  门户是开始使用工作区的最简单方法，但随着需求的变化或自动化要求的增加，还可以[使用 CLI](reference-azure-machine-learning-cli.md)、[使用 Python 代码](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)或[使用 VS Code 扩展](tutorial-setup-vscode-extension.md)创建和删除工作区。
+随着需求的变化或自动化要求的增加，还可以[使用 CLI](reference-azure-machine-learning-cli.md) 或[通过 VS Code 扩展](tutorial-setup-vscode-extension.md)创建和删除工作区。
+
+## <a name="prerequisites"></a>必备条件
+
+* Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
+* 如果使用 Python SDK，请[安装 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
-必须有 Azure 订阅，才能创建工作区。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+# <a name="python"></a>[Python](#tab/python)
+
+* **默认规范。** 默认情况下，系统会自动创建依赖资源和资源组。 以下代码创建一个名为 `myworkspace` 的工作区，并在 `eastus2` 中创建一个名为 `myresourcegroup` 的资源组。
+    
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.create(name='myworkspace',
+                   subscription_id='<azure-subscription-id>',
+                   resource_group='myresourcegroup',
+                   create_resource_group=True,
+                   location='eastus2'
+                   )
+    ```
+    如果需要将一个现有的 Azure 资源组用于该工作区，请将 `create_resource_group` 设置为 False。
+
+* <a name="create-multi-tenant"></a>多个租户。  如果有多个帐户，请添加要使用的 Azure Active Directory 的租户 ID。  在 [Azure 门户](https://portal.azure.cn)的“Azure Active Directory 外部标识”下找到你的租户 ID。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* **[主权云](reference-machine-learning-cloud-parity.md)** 。 如果你在主权云中操作，则需要使用额外的代码向 Azure 进行身份验证。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* 使用现有的 Azure 资源。  你还可以创建一个工作区，该工作区使用带有 Azure 资源 ID 格式的现有 Azure 资源。 请在 Azure 门户中或通过 SDK 查找特定的 Azure 资源 ID。 此示例假设资源组、存储帐户、密钥保管库、App Insights 和容器注册表已存在。
+
+   ```python
+   import os
+   from azureml.core import Workspace
+   from azureml.core.authentication import ServicePrincipalAuthentication
+
+   service_principal_password = os.environ.get("AZUREML_PASSWORD")
+
+   service_principal_auth = ServicePrincipalAuthentication(
+      tenant_id="<tenant-id>",
+      username="<application-id>",
+      password=service_principal_password)
+
+                        auth=service_principal_auth,
+                             subscription_id='<azure-subscription-id>',
+                             resource_group='myresourcegroup',
+                             create_resource_group=False,
+                             location='eastus2',
+                             friendly_name='My workspace',
+                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
+                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
+                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
+                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
+                             exist_ok=False)
+   ```
+
+有关详细信息，请查看[工作区 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)。
+
+如果在访问订阅时遇到问题，请参阅[为 Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)以及 [Azure 机器学习中的身份验证](https://aka.ms/aml-notebook-auth)笔记本。
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 使用 Azure 订阅的凭据登录到 [Azure 门户](https://portal.azure.cn/)。 
 
@@ -47,6 +132,8 @@ ms.locfileid: "93105797"
    资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
    区域 | 选择离你的用户和数据资源最近的 Azure 区域来创建工作区。
 
+    ![配置工作区](./media/how-to-manage-workspace/create-workspace-form.png)
+
 1. 完成工作区配置后，选择“查看 + 创建”。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
 
 1. 查看设置并进行任何其他更改或更正。 如果对设置感到满意，请选择“创建”。
@@ -57,17 +144,176 @@ ms.locfileid: "93105797"
    完成创建后，会显示部署成功消息。 
  
  1. 若要查看新工作区，请选择“转到资源”。
+ 
+---
+
+### <a name="networking"></a>网络  
+
+
+# <a name="python"></a>[Python](#tab/python)
+
+Azure 机器学习 Python SDK 提供 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) 类，此类可与 [Workspace.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) 配合使用来创建具有专用终结点的工作区。 此类需要现有虚拟网络。
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. 默认的网络配置是使用可在公共 Internet 上访问的公共终结点。 若要将对工作区的访问权限限制到已创建的 Azure 虚拟网络，可以改为选择“专用终结点”（预览版）作为“连接方法”，然后使用“+ 添加”来配置终结点。   
+
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="选择专用终结点":::  
+
+1. 在“创建专用终结点”表单上，设置要使用的位置、名称和虚拟网络。 如果要将此终结点与某个专用 DNS 区域配合使用，请选择“与专用 DNS 区域集成”，然后使用“专用 DNS 区域”字段选择该区域。 选择“确定”以创建终结点。   
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="创建专用终结点":::   
+
+1. 完成网络配置后，可以选择“查看 + 创建”，或转到可选的“高级”配置。
+
+---
+
+> [!IMPORTANT]  
+> 将专用终结点与 Azure 机器学习工作区配合使用的功能目前为公共预览版。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。     
+> 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+### <a name="multiple-workspaces-with-private-endpoint"></a>多个具有专用终结点的工作区
+
+创建专用终结点时，会创建一个名为“privatelink.api.azureml.ms”的新专用 DNS 区域。 其中包含指向虚拟网络的链接。 如果在同一资源组中创建具有专用终结点的多个工作区，则仅可将第一个专用终结点的虚拟网络添加到 DNS 区域。 若要添加其他工作区/专用终结点使用的虚拟网络的条目，请执行以下步骤：
+
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择包含工作区的资源组。 然后选择名为“privatelink.api.azureml.ms”的专用 DNS 区域资源
+2. 在“设置”中，选择“虚拟网络链接”。 
+3. 选择 __添加__ 。 在“添加虚拟网络链接”页中提供唯一的“链接名称”，然后选择要添加的“虚拟网络”。 选择“确定”以添加网络链接。
+
+有关详细信息，请参阅 [Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
+
+### <a name="vulnerability-scanning"></a>漏洞扫描
+
+Azure 安全中心跨混合云工作负荷提供统一的安全管理和高级威胁防护。 你应该允许 Azure 安全中心扫描你的资源并遵循其建议。 有关详细信息，请参阅 [Azure Kubernetes 服务与安全中心的集成](../security-center/defender-for-kubernetes-introduction.md)。
+
+### <a name="advanced"></a>高级
+
+默认情况下，工作区的元数据存储在 Microsoft 维护的 Azure Cosmos DB 实例中。 该数据是使用 Microsoft 管理的密钥加密的。
+
+若要限制 Microsoft 在你的工作区中收集的数据，请在门户中选择“高业务影响工作区”，或在 Python 中设置 `hbi_workspace=true `。 有关此设置的详细信息，请参阅[静态加密](concept-data-encryption.md#encryption-at-rest)。
+
+> [!IMPORTANT]  
+> 只能在创建工作区时选择高业务影响。 在创建工作区后，不能更改此设置。   
+
+#### <a name="use-your-own-key"></a>使用自己的密钥
+
+你可以提供自己的密钥来加密数据。 这样做会创建在 Azure 订阅中存储元数据的 Azure Cosmos DB 实例。
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+通过以下步骤提供你自己的密钥：
+
+> [!IMPORTANT]  
+> 在执行这些步骤之前，必须先执行以下操作：   
+>
+> 1. 授予机器学习应用（在“标识和访问管理”中）对订阅的参与者权限。  
+> 1. 按照[配置客户管理的密钥](../cosmos-db/how-to-setup-cmk.md)中的步骤完成以下操作：
+>     * 注册 Azure Cosmos DB 提供程序
+>     * 创建和配置 Azure Key Vault
+>     * 生成密钥
+>   
+>     你无需手动创建 Azure Cosmos DB 实例，系统会在创建工作区期间为你创建一个实例。 将使用一个基于 `<your-workspace-resource-name>_<GUID>` 模式的名称在单独的资源组中创建此 Azure Cosmos DB 实例。   
+>   
+> 在创建工作区后，不能更改此设置。 如果删除工作区使用的 Azure Cosmos DB，则还必须删除正在使用它的工作区。
+
+# <a name="python"></a>[Python](#tab/python)
+
+使用 `cmk_keyvault` 和 `resource_cmk_uri` 指定客户管理的密钥。
+
+```python
+from azureml.core import Workspace
+   ws = Workspace.create(name='myworkspace',
+               subscription_id='<azure-subscription-id>',
+               resource_group='myresourcegroup',
+               create_resource_group=True,
+               location='eastus2'
+               cmk_keyvault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/<keyvault-name>', 
+               resource_cmk_uri='<key-identifier>'
+               )
+
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. 选择“客户管理的密钥”，然后选择“单击以选择密钥”。
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="客户管理的密钥":::
+
+1. 在“从 Azure Key Vault 选择密钥”表单中选择现有的 Azure Key Vault、一个它所包含的密钥以及密钥版本。 此密钥用于加密 Azure Cosmos DB 中存储的数据。 最后使用“选择”按钮来使用此密钥。
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="选择密钥":::
+
+---
 
 ### <a name="download-a-configuration-file"></a>下载配置文件
 
-1. 如果要创建[计算实例](tutorial-1st-experiment-sdk-setup.md#azure)，请跳过此步骤。
+如果要创建[计算实例](tutorial-1st-experiment-sdk-setup.md#azure)，请跳过此步骤。  该计算实例已为你创建此文件的副本。
 
-1. 如果计划使用引用此工作区的本地环境中的代码，请从工作区的“概述”部分中选择“下载 config.json”。  
+# <a name="python"></a>[Python](#tab/python)
+
+如果你计划在本地环境使用引用此工作区 (`ws`) 的代码，请编写配置文件：
+
+```python
+ws.write_config()
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+如果计划使用引用此工作区的本地环境中的代码，请从工作区的“概述”部分中选择“下载 config.json”。  
 
    ![下载 config.json](./media/how-to-manage-workspace/configure.png)
-   
-   使用 Python 脚本或 Jupyter Notebook 将此文件放入到目录结构中。 它可以位于同一目录（名为 *.azureml* 的子目录）中，也可以位于父目录中。 创建计算实例时，此文件会添加到 VM 上的正确目录中。
+
+---
+
+使用 Python 脚本或 Jupyter Notebook 将此文件放入到目录结构中。 它可以位于同一目录（名为 *.azureml* 的子目录）中，也可以位于父目录中。 创建计算实例时，此文件会添加到 VM 上的正确目录中。
+
+## <a name="connect-to-a-workspace"></a>连接到工作区
+
+在 Python 代码中，创建一个用于连接到工作区的工作区对象。  此代码将读取配置文件的内容以查找工作区。  如果你尚未进行身份验证，系统会提示你登录。
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+* <a name="connect-multi-tenant"></a>多个租户。  如果有多个帐户，请添加要使用的 Azure Active Directory 的租户 ID。  在 [Azure 门户](https://portal.azure.cn)的“Azure Active Directory 外部标识”下找到你的租户 ID。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
+* **[主权云](reference-machine-learning-cloud-parity.md)** 。 如果你在主权云中操作，则需要使用额外的代码向 Azure 进行身份验证。
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
+如果在访问订阅时遇到问题，请参阅[为 Azure 机器学习资源和工作流设置身份验证](how-to-setup-authentication.md)以及 [Azure 机器学习中的身份验证](https://aka.ms/aml-notebook-auth)笔记本。
+
 ## <a name="find-a-workspace"></a><a name="view"></a>查找工作区
+
+查看你可以使用的所有工作区的列表。
+
+# <a name="python"></a>[Python](#tab/python)
+
+在 [Azure 门户的“订阅”页](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中查找你的订阅。  复制 ID 并在下面的代码中使用它，以便查看可用于该订阅的所有工作区。
+
+```python
+from azureml.core import Workspace
+
+Workspace.list('<subscription-id>')
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -81,11 +327,30 @@ ms.locfileid: "93105797"
 
 1. 选择工作区即可显示其属性。
 
+---
+
+
 ## <a name="delete-a-workspace"></a>创建工作区
+
+不再需要工作区时，请删除它。  
+
+# <a name="python"></a>[Python](#tab/python)
+
+删除工作区 `ws`：
+
+```python
+ws.delete(delete_dependent_resources=False, no_wait=False)
+```
+
+默认操作是不删除与工作区关联的资源，即容器注册表、存储帐户、密钥保管库和应用程序见解。  如果将 `delete_dependent_resources` 设置为 True，则也会删除这些资源。
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 [Azure 门户](https://portal.azure.cn/)中，选择要删除的工作区顶部的“删除”。
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="删除工作区":::
+
+---
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -108,9 +373,12 @@ Azure 机器学习工作区使用 Azure 容器注册表 (ACR) 执行某些操作
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
+## <a name="examples"></a>示例
+
+创建工作区的示例：
+* 使用 Azure 门户[创建工作区和计算实例](tutorial-1st-experiment-sdk-setup.md)
+* 使用 Python SDK [在自己的环境中创建工作区](tutorial-1st-experiment-sdk-setup-local.md)
+
 ## <a name="next-steps"></a>后续步骤
 
-学习整个教程，了解如何通过 Azure 机器学习使用工作区来生成、定型和部署模型。
-
-> [!div class="nextstepaction"]
-> [教程：训练模型](tutorial-train-models-with-aml.md)
+有了工作区后，请了解如何[训练和部署模型](tutorial-train-models-with-aml.md)。

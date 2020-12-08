@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 08/03/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 2cf3073cc0a1b23d24ae47f889838cad129c6cca
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+origin.date: 10/28/2020
+ms.date: 11/23/2020
+ms.openlocfilehash: 5c120c78c4d496a576eec03577cb52d135c02937
+ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523647"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95970728"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP ECC 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,6 +48,13 @@ ms.locfileid: "90523647"
 
 - 使用基本身份验证复制数据。
 
+7\.0 或更高版本指 SAP NetWeaver 版本，而不是 SAP ECC 版本。 例如，SAP ECC 6.0 EHP 7 的 NetWeaver 版本一般 >=7.4。 如果你不确定自己的环境，请在 SAP 系统中执行以下步骤来确认版本：
+
+1. 使用 SAP GUI 连接到 SAP 系统。 
+2. 转到“系统” -> “状态” 。 
+3. 检查 SAP_BASIS 的版本，确保它等于或大于 701。  
+      ![检查 SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+
 >[!TIP]
 >若要通过 SAP 表或视图从 SAP ECC 复制数据，请使用速度更快且可伸缩性更强的 [SAP 表](connector-sap-table.md)连接器。
 
@@ -71,7 +78,7 @@ ms.locfileid: "90523647"
 
 SAP ECC 链接服务支持以下属性：
 
-| properties | 说明 | 必选 |
+| 属性 | 描述 | 必选 |
 |:--- |:--- |:--- |
 | `type` | `type` 属性必须设置为 `SapEcc`。 | 是 |
 | `url` | SAP ECC OData 服务的 URL。 | 是 |
@@ -110,7 +117,7 @@ SAP ECC 链接服务支持以下属性：
 
 支持以下属性：
 
-| properties | 说明 | 必选 |
+| 属性 | 描述 | 必选 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 实体的路径。 | 是 |
 
@@ -143,12 +150,12 @@ SAP ECC 链接服务支持以下属性：
 
 复制活动的 `source` 节支持以下属性：
 
-| properties | 说明 | 必选 |
+| 属性 | 描述 | 必选 |
 |:--- |:--- |:--- |
 | `type` | 复制活动的 `source` 节的 `type` 属性必须设置为 `SapEccSource`。 | 是 |
 | `query` | 用于筛选数据的 OData 查询选项。 例如：<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 连接器会从以下组合 URL 复制数据：<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>有关详细信息，请参阅 [OData URL 组件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 | `sapDataColumnDelimiter` | 单个字符，将用作传递给 SAP RFC 的分隔符，以用于拆分输出数据。 | 否 |
-| `httpRequestTimeout` | 用于获取响应的 HTTP 请求的超时 （TimeSpan 值）  。 该值是获取响应而不是读取响应数据的超时。 如果未指定，默认值为 00:30:00（30 分钟）。 | 否 |
+| `httpRequestTimeout` | 用于获取响应的 HTTP 请求的超时 （TimeSpan 值）  。 该值是获取响应而不是读取响应数据的超时。 如果未指定，默认值为“00:30:00”（30 分钟）。 | 否 |
 
 ### <a name="example"></a>示例
 

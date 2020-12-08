@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/01/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: cf73a6eb07bde3dcbc7fb2125f087004cbb4c14c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 529481ec0a41ec4ea17161a393987dc203e2b025
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328702"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598675"
 ---
 <!--Verify sucessfully-->
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
@@ -27,9 +27,7 @@ ms.locfileid: "94328702"
 ## <a name="prerequisites"></a>先决条件
 * [预配一个 Azure Cosmos DB Cassandra API 帐户。](create-cassandra-dotnet.md#create-a-database-account)
 
-* 预配所选的 Spark 环境 [[[Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | 其他]。
-
-    <!--Not Available on [Azure Databricks](/azure-databricks/quickstart-create-databricks-workspace-portal)-->
+* 预配所选的 Spark 环境 [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | 其他]。
 
 ## <a name="dependencies-for-connectivity"></a>连接的依赖项
 * **Cassandra 的 Spark 连接器：** Spark 连接器用于连接到 Azure Cosmos DB Cassandra API。  请识别并使用 [Maven 中心]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)内与 Spark 环境的 Spark 和 Scala 版本兼容的连接器版本。
@@ -72,14 +70,15 @@ export SSL_VALIDATE=false
 cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmos.azure.cn 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
-<!--Not Available on ### 1.  Azure Databricks-->
-<!--Not Available on [Work with Azure Cosmos DB Cassandra API from Azure databricks](cassandra-spark-databricks.md)-->
-
-### <a name="1-azure-hdinsight-spark"></a>1.Azure HDInsight-Spark
-以下文章介绍了 HDinsight-Spark 服务、预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<br />
+### <a name="1--azure-databricks"></a>Azure Databricks
+以下文章介绍了 Azure Databricks 群集预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<BR>
+[在 Azure Databricks 中使用 Azure Cosmos DB Cassandra API](cassandra-spark-databricks.md)
+  
+### <a name="2--azure-hdinsight-spark"></a>Azure HDInsight-Spark
+以下文章介绍了 HDinsight-Spark 服务、预配、连接到 Azure Cosmos DB Cassandra API 时所需的群集配置，以及用于演示 DDL 操作、DML 操作等的几个示例 Notebook。<BR>
 [在 HDInsight-Spark 中使用 Azure Cosmos DB Cassandra API](cassandra-spark-hdinsight.md)
-
-### <a name="2-spark-environment-in-general"></a>2.常规 Spark 环境
+ 
+### <a name="3--spark-environment-in-general"></a>常规 Spark 环境
 前面的部分与基于 Azure Spark 的 PaaS 服务相关，本部分介绍任何常规 Spark 环境。  下面详细介绍了连接器依赖项、导入和 Spark 会话配置。 “后续步骤”部分提供了 DDL 操作、DML 操作等的代码示例。  
 
 #### <a name="connector-dependencies"></a>连接器依赖项：
