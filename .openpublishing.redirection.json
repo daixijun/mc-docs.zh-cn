@@ -29395,11 +29395,21 @@
             "redirect_url": "/security-center/security-center-pricing#faq---pricing-and-billing",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/operator/azure-stack-diagnostic-log-collection-overview.md", 
-            "redirect_url": "/azure-stack/operator/diagnostic-log-collection", 
-            "redirect_document_id": false
-        },
+		{ 
+			"source_path": "articles/azure-stack/operator/azure-stack-diagnostic-log-collection-overview.md", 
+			"redirect_url": "/azure-stack/operator/diagnostic-log-collection", 
+			"redirect_document_id": false
+		},
+		{ 
+			"source_path": "articles/application-insights/", 
+			"redirect_url": "/azure-monitor/overview", 
+			"redirect_document_id": false
+		},
+		{ 
+			"source_path": "articles/cognitive-services/Computer-vision/QuickStarts/python-print-text.md", 
+			"redirect_url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/REST/python-print-text.md", 
+			"redirect_document_id": false
+		},
         {
             "source_path": "articles/media-services/latest/cli-create-transform.md",
             "redirect_url": "/media-services/latest/how-to-create-transform",
