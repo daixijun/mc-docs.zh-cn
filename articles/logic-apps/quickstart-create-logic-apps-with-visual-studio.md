@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: yes
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: c98228f629d2ba84a2ce14c08a8b7bca950a078a
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 174be0b40d8cbc071c82207c6b34679fc66f84a5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432679"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建自动化任务、流程和工作流 - Visual Studio
 
@@ -32,7 +32,7 @@ ms.locfileid: "86414677"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 下载并安装以下工具（如果没有）：
 
@@ -83,11 +83,11 @@ ms.locfileid: "86414677"
     > [!NOTE]
     > 资源组名称只能包含字母、数字、句点 (`.`)、下划线 (`_`)、连字符 (`-`) 和括号（`(`、`)`），但不能以句点 (`.`) 结尾。
     >
-    > 如果“云”或“Azure 资源组”未显示，请确保安装 Azure SDK for Visual Studio。 
+    > 如果“云”或“Azure 资源组”未显示，请确保安装 Azure SDK for Visual Studio。
 
     如果使用 Visual Studio 2019，请执行以下步骤：
 
-    1. 在“创建新项目”框中，选择适用于 Visual C# 或 Visual Basic 的“Azure 资源组”项目。  选择“**下一步**”。
+    1. 在“创建新项目”框中，选择适用于 Visual C# 或 Visual Basic 的“Azure 资源组”项目。 选择“**下一步**”。
 
     1. 提供要使用的 Azure 资源组的名称和其他项目信息。 选择“创建” 。
 
@@ -101,7 +101,7 @@ ms.locfileid: "86414677"
 
 ## <a name="create-blank-logic-app"></a>创建空白逻辑应用
 
-在创建 Azure 资源组项目后，使用**空白逻辑应用**模板创建你的逻辑应用。
+在创建 Azure 资源组项目后，使用 **空白逻辑应用** 模板创建你的逻辑应用。
 
 1. 在解决方案资源管理器中，打开 **LogicApp.json** 文件的快捷菜单。 选择“使用逻辑应用设计器打开”。 （键盘：Ctrl + L）
 
@@ -121,7 +121,7 @@ ms.locfileid: "86414677"
     | 用户帐户 | Fabrikam <br /> sophia-owen@fabrikam.com | 登录 Visual Studio 时使用的帐户 |
     | **订阅** | 标准预付费套餐 <br /> (sophia-owen@fabrikam.com) | Azure 订阅的名称以及关联的帐户 |
     | **资源组** | MyLogicApp-RG <br /> （中国北部） | 用于存储和部署逻辑应用资源的 Azure 资源组和位置 |
-    | **位置** | **与资源组相同** | 用于部署逻辑应用的位置类型和特定位置。 位置类型可以是 Azure 区域，也可以是现有的集成服务环境 (ISE)。 <p>对于本快速入门，请将“位置类型”设置为“区域”，并将“**位置**”设置为“**与资源组相同**”。 <p>**注意**：创建资源组项目后，可以[更改位置类型和位置](manage-logic-apps-with-visual-studio.md#change-location)，但不同的位置类型会以不同的方式影响逻辑应用。 |
+    | **位置** | **与资源组相同** | 用于部署逻辑应用的位置类型和特定位置。 位置类型可以是 Azure 区域，也可以是现有的集成服务环境 (ISE)。 <p>对于本快速入门，请将“位置类型”设置为“区域”，并将“**位置**”设置为“**与资源组相同**”。 <p>**注意**：创建资源组项目后，可以 [更改位置类型和位置](manage-logic-apps-with-visual-studio.md#change-location)，但不同的位置类型会以不同的方式影响逻辑应用。 |
     ||||
 
     <!--Not Available on or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md)-->
@@ -184,7 +184,7 @@ ms.locfileid: "86414677"
 
 1. 在“解决方案资源管理器”中，打开 `<logic-app-name>.json` 文件。
 
-1. 在“视图”菜单中，选择“其他窗口” > “JSON 大纲”。  
+1. 在“视图”菜单中，选择“其他窗口” > “JSON 大纲”。
 
 1. 若要将资源添加到模板文件，请在“JSON 大纲”窗口顶部选择“添加资源”。 或者在“JSON 大纲”窗口中，打开“资源”快捷菜单，并选择“添加新资源” 。
 

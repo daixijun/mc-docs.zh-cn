@@ -8,12 +8,12 @@ origin.date: 11/06/2018
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bc3eba926d7f6ab0ef753692839816c754cb4663
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 2bfdf5bd70d75cef969d1a3df5a93cdab5f65443
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790512"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507610"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>使用 Desired State Configuration 配置 VM
 
@@ -23,7 +23,7 @@ ms.locfileid: "87790512"
 
 若要完成本快速入门，你需要：
 
-* Azure 订阅。 如果没有 Azure 订阅，请[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* Azure 订阅。 如果没有 Azure 订阅，请[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](./manage-runas-account.md)。
 * 运行 CentOS 或 Oracle Linux 的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Linux 虚拟机](../virtual-machines/linux/quick-create-portal.md)
 

@@ -5,16 +5,16 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 09/01/2019
-ms.date: 11/23/2020
+origin.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: craigg
-ms.openlocfilehash: 11f31ce3f08cbc90f53c07acaa2f462211d16d9b
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: afaf4b08e39f035df75ef0c44c345fe04e494feb
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680537"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747269"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>排查 Azure 数据工厂问题
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -920,7 +920,16 @@ ms.locfileid: "94680537"
 ## <a name="general"></a>常规
 
 ### <a name="activity-stuck-issue"></a>活动停滞问题
+
 如果观察到活动运行的时间比正常运行的时间长得多，并且几乎没有任何进展，则可能是停滞。 你可以尝试取消它，然后重试，看是否有帮助。 如果是复制活动，则可以参阅[排查复制活动的性能问题](copy-activity-performance-troubleshooting.md)一文，了解性能监视和故障排除。
+
+### <a name="payload-is-too-large"></a>有效负载太大
+
+**错误消息：** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**原因：** 每个活动运行的有效负载包括活动配置、关联的数据集和链接服务配置（如果有），以及为每个活动类型生成的系统属性的一小部分。 此类负载大小限制为 896KB，如[数据工厂限制](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)部分所述。
+
+**建议：** 达到此限制，很可能是因为从上游活动输出或外部传入了一个或多个大参数值，尤其是在控制流中跨活动传递实际数据时。 请检查是否可以减小大参数值，或调整管道逻辑以避免跨活动传递此类值，而改为在活动内处理此类值。
 
 ## <a name="next-steps"></a>后续步骤
 

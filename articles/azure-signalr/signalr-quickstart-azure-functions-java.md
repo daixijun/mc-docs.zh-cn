@@ -9,12 +9,12 @@ origin.date: 03/04/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: devx-track-java
-ms.openlocfilehash: f45adbb1316e98d39644a1ff374e74eaa61f3eb1
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: ab1ca6465e657b2ba2652660a80fb5edf122daf8
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170797"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431029"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>快速入门：通过 Java 使用 Azure Functions 和 SignalR 服务创建聊天室
 
@@ -23,7 +23,7 @@ Azure SignalR 服务可让你轻松地向应用程序添加实时功能，而 Az
 ## <a name="prerequisites"></a>先决条件
 
 - 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/)
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)。 用于在本地运行 Azure Functions 应用。
 
    > [!NOTE]
@@ -60,7 +60,7 @@ Azure SignalR 服务可让你轻松地向应用程序添加实时功能，而 Az
 
     ![搜索 SignalR 服务实例](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. 选择“密钥”**** 以查看 SignalR 服务实例的连接字符串。
+1. 选择“密钥”以查看 SignalR 服务实例的连接字符串。
 
 1. 选择并复制主连接字符串。
 

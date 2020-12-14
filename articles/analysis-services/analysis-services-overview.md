@@ -11,12 +11,12 @@ ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 5442bed6f90795bbd27a30d67e672a39f2e92453
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 9c20657d49f4a301ca3ce6530c23c1b95e185b1a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507917"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -165,7 +165,7 @@ Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/analy
 
 通过数据库角色向查询数据的非管理最终用户授予访问权限。 数据库角色作为数据库中的单独对象创建，并且仅适用于创建该角色的数据库。 数据库角色按（数据库）“管理员”、“读取”与“读取和处理”权限来定义。 使用 SSMS 或 PowerShell 添加用户和组帐户。
 
-### <a name="row-level-security"></a>行级别安全性
+### <a name="row-level-security"></a>行级安全性
 
 所有兼容级别的表格模型都支持行级安全性。 行级安全性的定义方式如下：在模型中使用 DAX 表达式，这些表达式可在表中定义行，以及在用户可查询的相关表的许多方向定义任何行。 为“读取”与“读取和处理”权限定义使用 DAX 表达式的行筛选器。 
 
@@ -243,7 +243,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [注册 Azure 1 元人民币的试用订阅](https://www.azure.cn/pricing/1rmb-trial-full)   
+> [注册 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)   
 
 > [!div class="nextstepaction"]
 > [快速入门：创建服务器 - 门户](analysis-services-create-server.md)   

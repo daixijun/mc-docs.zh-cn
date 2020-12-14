@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: e3c7e1bff6a0ca3113404f06ba905717f9aeab23
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 61dba6686cb5de28cb688f6382036cdd61d21022
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414621"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432364"
 ---
 <!--Verified AS2 Encode/Decode successfully-->
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中交换 AS2 消息以实现 B2B 企业集成
@@ -26,14 +26,14 @@ ms.locfileid: "86414621"
 
 若要在 Azure 逻辑应用中使用 AS2 消息，可以使用 AS2 连接器，它提供用于管理 AS2 通信的触发器和操作。 例如，若要在传输消息时确保安全性和可靠性，可以使用以下操作：
 
-* [**AS2 编码**操作](#encode)：可以通过消息处置通知 (MDN) 提供加密、数字签名和确认功能，这有助于为不可否认性提供支持。 例如，此操作会应用 AS2/HTTP 标头并执行以下任务（在配置好以后）：
+* [**AS2 编码** 操作](#encode)：可以通过消息处置通知 (MDN) 提供加密、数字签名和确认功能，这有助于为不可否认性提供支持。 例如，此操作会应用 AS2/HTTP 标头并执行以下任务（在配置好以后）：
 
     * 对传出消息进行签名。
     * 加密传出消息。
     * 压缩消息。
     * 在 MIME 标头中传输文件名。
 
-* [**AS2 解码**操作](#decode)：可以通过消息处置通知 (MDN) 提供解密、数字签名和确认功能。 例如，该操作执行以下任务：
+* [**AS2 解码** 操作](#decode)：可以通过消息处置通知 (MDN) 提供解密、数字签名和确认功能。 例如，该操作执行以下任务：
 
     * 处理 AS2/HTTP 标头。
     * 协调收到的 MDN 和原始的出站消息。
@@ -55,7 +55,7 @@ ms.locfileid: "86414621"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要从其使用 AS2 连接器的逻辑应用，以及用于启动逻辑应用工作流的触发器。 AS2 连接器只提供操作，不提供触发器。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

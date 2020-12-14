@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: eecf7be4bb50f2432ec0aa506285fd6e476b7222
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 05b6345589f8e6861825e39168a6f7b9bc08c560
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328842"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507175"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -32,7 +32,7 @@ ms.locfileid: "94328842"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. 如果没有 Azure 订阅，请[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+1. 如果没有 Azure 订阅，请[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 2. 安装 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上运行容器。
 3. 安装 [Service Fabric 运行时版本 6.2 或更高版本](service-fabric-get-started.md)以及 [Service Fabric SDK 版本 3.1](service-fabric-get-started.md) 或更高版本。
 4. 安装 [Visual Studio 2019 版本 16.1](https://www.visualstudio.com/) 或更高版本，其中包含 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
@@ -123,7 +123,7 @@ Write-Host "Server name is $servername"
 ```
 
 >[!NOTE]
->可以使用选择的任何 SQL Server 进行本地调试，只要可通过主机访问。 但是， **localdb** 不支持 `container -> host` 通信。 如果想要在生成 Web 应用程序的发布版本时使用其他 SQL 数据库，可将另一个连接字符串添加到 web.release.config 文件。
+>可以使用选择的任何 SQL Server 进行本地调试，只要可通过主机访问。 但是，**localdb** 不支持 `container -> host` 通信。 如果想要在生成 Web 应用程序的发布版本时使用其他 SQL 数据库，可将另一个连接字符串添加到 web.release.config 文件。
 
 ## <a name="run-the-containerized-application-locally"></a>本地运行已容器化的应用程序
 
@@ -149,7 +149,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 在群集（一组已连接网络的虚拟机或物理计算机）上运行 Service Fabric 应用程序。  需在 Azure 中创建一个 Service Fabric 群集，然后才能将应用程序部署到 Azure。
 
-方法：
+可以：
 
 * 通过 Visual Studio 创建一个测试群集。 可以通过此选项使用首选的配置直接从 Visual Studio 创建安全的群集。
 * [模板创建安全的群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
@@ -286,7 +286,7 @@ Remove-AzResourceGroup -Name $clusterresourcegroupname
 [link-azure-portal]: https://portal.azure.cn
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
 [link-azure-pricing-calculator]: https://www.azure.cn/pricing/calculator/
-[link-azure-subscription]: https://www.azure.cn/pricing/1rmb-trial/
+[link-azure-subscription]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [link-vsts-account]: https://www.visualstudio.com/team-services/pricing/
 [link-azure-sql]: /sql-database/
 

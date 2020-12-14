@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/20/2019
 ms.date: 03/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9821743fa56c5d3c91c39c7fb2309a08be5fca99
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ee78194b8104c5f3946aa2880bbd1e2d465bd1ae
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80109751"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432372"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用变量来存储和管理值
 
@@ -33,7 +33,7 @@ ms.locfileid: "80109751"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有订阅，请[注册一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要在其中创建变量的逻辑应用
 
@@ -99,7 +99,7 @@ ms.locfileid: "80109751"
 ```
 
 > [!NOTE]
-> 尽管**初始化变量**操作具有已结构化为数组的 `variables` 部分，但该操作一次只能创建一个变量。 每个新变量都需要单独的**初始化变量**操作。
+> 尽管 **初始化变量** 操作具有已结构化为数组的 `variables` 部分，但该操作一次只能创建一个变量。 每个新变量都需要单独的 **初始化变量** 操作。
 
 下面是其他一些变量类型示例：
 

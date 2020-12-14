@@ -4,18 +4,18 @@ description: 了解如何使用 Fortinet FortiGate 连接同一 Azure Stack Hub 
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 820b510b18c35b7b7e97d4266c84eb0548adbd79
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: f414e11055d36b3f95a4b400afb9d0fecbcc2dd1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330551"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507465"
 ---
-# <a name="vnet-peering-with-fortigate"></a>VNET 与 FortiGate 对等互连
+# <a name="vnet-to-vnet-connectivity-with-fortigate"></a>使用 Fortigate 的 VNet 到 VNet 连接
 
 本文介绍如何在同一环境中的两个虚拟网络之间创建连接。 在设置连接过程中，读者可以了解 Azure Stack Hub 中 VPN 网关的工作方式。 使用 Fortinet FortiGate 在同一 Azure Stack Hub 环境中连接两个 VNET。 此过程在资源组中部署两个具有 FortiGate NVA 的 VNET，每个 VNET 位于单独的资源组中，并且都有一个网络虚拟设备。 此外，其中详细说明了在这两个 VNET 之间设置 IPSec VPN 所要做出的更改。 请对每个 VNET 部署重复本文中的步骤。
 
@@ -76,7 +76,7 @@ ms.locfileid: "93330551"
 
 1.  打开 Azure Stack Hub 用户门户。
 
-2.  选择“创建资源”，然后搜索 `FortiGate`。
+2.  选择“创建资源”，然后搜索 `FortiGate`。 
 
     ![搜索结果列表显示“FortiGate NGFW - 单 VM 部署”。](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
@@ -177,7 +177,7 @@ ms.locfileid: "93330551"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第一步（“VPN 设置”）。 已选择以下值：为“模板类型”选择了“站点到站点”，为“远程设备类型”选择了“FortiGate”，并且为“NAT 配置”选择了“此站点位于 NAT 后”。](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
@@ -190,7 +190,7 @@ ms.locfileid: "93330551"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第二步（“身份验证”），并且所选值已突出显示。](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 对于“本地接口”，请选择“port2”。
 

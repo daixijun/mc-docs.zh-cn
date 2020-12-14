@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 457424eb2cc60ffdadf61bb9675e30cd0c54d7dc
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 956a3b2bd9625fcb3d42ad0d541227eca415cedd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552016"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432614"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>快速入门：使用 Java v12 SDK 管理 blob
 
@@ -29,7 +29,7 @@ ms.locfileid: "94552016"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 Azure 存储帐户。 [创建存储帐户](../common/storage-account-create.md)。
 - [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/) 8 或更高版本。
 - [Apache Maven](https://maven.apache.org/download.cgi)。

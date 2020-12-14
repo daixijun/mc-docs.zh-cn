@@ -3,17 +3,17 @@ title: Azure Stack Hub 操作员访问工作站
 description: 了解如何下载和配置 Azure Stack Hub 操作员访问工作站。
 author: WenJason
 ms.topic: article
-origin.date: 09/24/2020
-ms.date: 11/09/2020
+origin.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 1fe91356e043cb368afa669717e4c9ddf11fb7fd
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: 26a5770b7cbb5f9ec1a5d9327fd14071b09f68b7
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330512"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507176"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 
@@ -49,7 +49,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
+$expectedHash = '459D8BA232E4315372FCE7CDD705057D051C1BD60772FC36E0136C741C27A273'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -129,6 +129,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+若要从 AzureStackStampInformation.json 文件检索 ERCS VM 的 IP 地址，请执行以下代码：
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 若要使用 DeploymentData.json 在 HLH 上创建 OAW VM：
 
 ```powershell
@@ -145,6 +155,7 @@ New-OAW 可以使用两个参数集。 可选参数显示在括号中。
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -173,6 +184,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -205,6 +217,7 @@ New-OAW
 | VirtualProcessorCount      | 可选 | 要分配给虚拟机的虚拟处理器数量。 默认值为 8。        |
 | VirtualMachineDiffDiskPath | 可选 | 管理 VM 处于活动状态期间用于存储临时差异磁盘文件的路径。 默认值为此脚本的相同父文件夹下的 DiffDisks 子目录。 |
 | AzureStackCertificatePath  | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的路径。 |
+| AzSStampInfoFilePath       | 可选 | AzureStackStampInformation.json 文件的路径，脚本可以从该文件中检索 ERCS VM 的 IP。 |
 | CertificatePassword        | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的密码。 |
 | ERCSVMIP                   | 可选 | 要添加到虚拟机的受信任主机列表的 Azure Stack Hub ERCS VM 的 IP。 如果设置了 -SkipNetworkConfiguration，则不会生效。 |
 | SkipNetworkConfiguration   | 可选 | 跳过虚拟机的网络配置，使用户可以在以后配置。 |

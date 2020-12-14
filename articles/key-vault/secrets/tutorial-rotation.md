@@ -12,12 +12,12 @@ origin.date: 01/26/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8cfff026a8ce8eee10c7349972630ec210b144e3
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: df71f83da82221e71d51dd1a3802b6680a497b83
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300953"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430829"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>自动轮换使用一组身份验证凭据的资源的机密
 
@@ -37,7 +37,7 @@ ms.locfileid: "96300953"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure Key Vault
 * SQL Server
 

@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: e95f77b1552c56daf78de3eed6760bae1a3cc6da
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 8345557d89a3b61b2208087d91b3c4135eb34775
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564158"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432387"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>从 Azure 逻辑应用通过 HTTP 或 HTTPS 调用服务终结点
 
@@ -37,7 +37,7 @@ ms.locfileid: "91564158"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要调用的目标终结点的 URL
 
@@ -61,7 +61,7 @@ ms.locfileid: "91564158"
 
 1. 提供要包含在目标终结点调用中的 [HTTP 触发器参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)的值。 设置重复周期，以确定触发器检查目标终结点的频率。
 
-    :::image type="content" source="./media/connectors-native-http/http-trigger-parameters.png" alt-text="选择 HTTP 触发器":::
+    :::image type="content" source="./media/connectors-native-http/http-trigger-parameters.png" alt-text="输入 HTTP 触发器参数":::
 
     如果选择的身份验证类型不是“None”，则身份验证设置将根据你的选择而有所不同。 有关 HTTP 可用的身份验证类型的详细信息，请参阅以下主题：
 
@@ -90,13 +90,13 @@ ms.locfileid: "91564158"
 
 1. 在“选择操作”下，选择“内置”。  在搜索框中，输入 `http` 作为筛选器。 在“操作”列表中，选择“HTTP”操作。 
 
-    :::image type="content" source="./media/connectors-native-http/select-http-action.png" alt-text="选择 HTTP 触发器":::
+    :::image type="content" source="./media/connectors-native-http/select-http-action.png" alt-text="选择“HTTP”操作":::
 
     此示例将操作重命名为“HTTP action”，使步骤的名称更具描述性。
 
 1. 提供要包含在目标终结点调用中的 [HTTP 操作参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)的值。
 
-    :::image type="content" source="./media/connectors-native-http/http-action-parameters.png" alt-text="选择 HTTP 触发器":::
+    :::image type="content" source="./media/connectors-native-http/http-action-parameters.png" alt-text="输入 HTTP 操作参数":::
 
     如果选择的身份验证类型不是“None”，则身份验证设置将根据你的选择而有所不同。 有关 HTTP 可用的身份验证类型的详细信息，请参阅以下主题：
 
@@ -120,7 +120,7 @@ ms.locfileid: "91564158"
 
 | 状态代码 | 说明 |
 |-------------|-------------|
-| 200 | OK |
+| 200 | 确定 |
 | 202 | 已接受 |
 | 400 | 错误的请求 |
 | 401 | 未授权 |
@@ -149,7 +149,7 @@ ms.locfileid: "91564158"
 
 例如，假设你有一个逻辑应用，它使用该站点的 API（支持 `multipart/form-data` 类型）向网站发送对 Excel 文件的 HTTP POST 请求。 下面是此操作的可能外观：
 
-:::image type="content" source="./media/connectors-native-http/http-action-multipart.png" alt-text="选择 HTTP 触发器":::
+:::image type="content" source="./media/connectors-native-http/http-action-multipart.png" alt-text="多部分表单数据":::
 
 以下是在基础工作流定义中显示 HTTP 操作的 JSON 定义的同一示例：
 
@@ -181,7 +181,7 @@ ms.locfileid: "91564158"
 
 例如，假设你有一个逻辑应用，它向支持 `application/x-www-form-urlencoded` 类型的网站发送 HTTP POST 请求。 下面是此操作的可能外观：
 
-:::image type="content" source="./media/connectors-native-http/http-action-urlencoded.png" alt-text="选择 HTTP 触发器":::
+:::image type="content" source="./media/connectors-native-http/http-action-urlencoded.png" alt-text="显示“content-type”标头设置为“application/x-www-form-urlencoded”的 HTTP 请求的屏幕截图":::
 
 <a name="asynchronous-pattern"></a>
 
@@ -189,7 +189,7 @@ ms.locfileid: "91564158"
 
 默认情况下，Azure 逻辑应用中所有基于 HTTP 的操作都遵循标准[异步操作模式](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)。 该模式指定在 HTTP 操作调用某个终结点、服务、系统或 API 或向其发送请求后，接收方立即返回[“202 已接受”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3)响应。 此代码确认接收方已接受请求，但尚未完成处理。 响应可以包括一个指定了 URL 和刷新 ID 的 `location` 标头，调用方可以使用该标头来轮询或检查异步请求的状态，直到接收方停止处理并返回[“200 正常”](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1)成功响应或其他非 202 响应。 但是，调用方不必等待请求完成处理即可继续运行下一操作。 有关详细信息，请参阅[异步微服务集成强制实施微服务自治](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)。
 
-* 在逻辑应用设计器中，HTTP 操作（而不是触发器）有一个默认启用的**异步模式**设置。 此设置指定调用方不等待处理完成即可继续执行下一操作，但需继续检查状态直到处理停止。 如果禁用，则此设置指定调用方需等待处理完成才能继续执行下一操作。
+* 在逻辑应用设计器中，HTTP 操作（而不是触发器）有一个默认启用的 **异步模式** 设置。 此设置指定调用方不等待处理完成即可继续执行下一操作，但需继续检查状态直到处理停止。 如果禁用，则此设置指定调用方需等待处理完成才能继续执行下一操作。
 
     若要查找此设置，请执行以下步骤：
 

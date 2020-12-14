@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中使用 Azure 资源管理器模板
 description: 了解如何在 Azure Stack Hub 中使用 Azure 资源管理器模板预配资源。
 author: WenJason
 ms.topic: article
-origin.date: 1/22/2020
-ms.date: 05/18/2020
+origin.date: 5/27/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 2df31609f0d3752000e0a6e2792f30bd06bae1cd
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 3de8c90328d7e38b8ca0d27e7969c8b304cd1e20
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422370"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508010"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用 Azure 资源管理器模板
 
@@ -67,7 +67,7 @@ ms.locfileid: "83422370"
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview)。
+若要取消正在运行的模板部署，请使用 [Stop-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.resources/stop-Azresourcegroupdeployment) PowerShell [cmdlet](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

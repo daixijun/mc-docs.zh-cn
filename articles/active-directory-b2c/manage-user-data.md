@@ -6,17 +6,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e54cb963d46aefe1f5dcf80282fef5d26d69a969
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a62dd781e52acaad39f7e5ba1803e2c1cc0aca3a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78265971"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507106"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理用户数据
 
@@ -52,7 +52,7 @@ Azure AD B2C 用户数据仅限于：
 
 在下面的导出数据流示例中，由应用程序执行的所述步骤也能由目录中的后端进程或具有管理员角色的用户执行：
 
-1. 用户登录到应用程序。 如果需要，Azure AD B2C 将使用 Azure 多重身份验证强制执行身份验证。
+1. 用户登录到应用程序。 如果需要，Azure AD B2C 会使用 Azure AD 多重身份验证强制执行身份验证。
 2. 应用程序使用用户凭据来调用 Microsoft Graph API 操作，以检索用户属性。 Microsoft Graph API 以 JSON 格式提供属性数据。 可以将 ID 令牌内容设置为包括用户的所有个人数据，具体取决于架构。
 3. 应用程序检索用户审核活动。 Microsoft Graph API 向应用程序提供事件数据。
 4. 应用程序聚合数据，并使其可供用户使用。
@@ -60,8 +60,4 @@ Azure AD B2C 用户数据仅限于：
 ## <a name="next-steps"></a>后续步骤
 
 如需了解用户如何访问应用程序，请参阅[管理用户访问权限](manage-user-access.md)。
-
-<!-- Update_Description: wording update -->
-
-
 

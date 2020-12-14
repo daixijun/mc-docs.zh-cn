@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2fcfac77bcf528dbb1ba7d13853fb48255fb99d5
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 5c2d893ef4c6aea321d76dc0ec25321ba827b89e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590861"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432091"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>快速入门：如何通过 PHP 使用服务总线主题和订阅
 
@@ -29,7 +29,7 @@ ms.locfileid: "94590861"
 - 删除主题和订阅
 
 ## <a name="prerequisites"></a>先决条件
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或者注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 2. 按照 [快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线 **命名空间** 并获取 **连接字符串**。
 
     > [!NOTE]

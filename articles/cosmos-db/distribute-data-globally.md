@@ -5,16 +5,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 667dd78231a0dcee99be8ea0b9a5d3051e5b0f69
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 5c1f7cb42b74f3fc701388821c31182323df5321
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328913"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598700"
 ---
 # <a name="distribute-your-data-multiple-regionally-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 将数据分布在多个区域
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +24,7 @@ ms.locfileid: "94328913"
 
 <!-- Notice: 全球 to 多个区域分布 -->
 
-Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延迟、吞吐量弹性缩放和妥善定义的语义，以实现数据一致性和高可用性。 简单而言，如果应用程序需要在中国任何位置都能提供快速响应、始终联机并需要无限且可弹性缩放的吞吐量和存储，则应在 Azure Cosmos DB 上生成应用程序。
+Azure Cosmos DB 是一个多区域分布式数据库系统，允许你从数据库的本地副本读取和写入数据。 Azure Cosmos DB 以透明方式将数据复制到与 Cosmos 帐户关联的所有中国区域。 Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延迟、吞吐量弹性缩放和妥善定义的语义，以实现数据一致性和高可用性。 简单而言，如果应用程序需要在中国任何位置都能提供快速响应、始终联机并需要无限且可弹性缩放的吞吐量和存储，则应在 Azure Cosmos DB 上生成应用程序。
 
 可将数据库配置为多区域分布，并使其可在任何 Azure 中国区域中使用。 为了降低延迟，请将数据放置在更靠近用户的位置。 根据应用程序的多区域覆盖范围和用户所在的位置选择所需的区域数目。 Cosmos DB 以透明方式将数据复制到与 Cosmos 帐户关联的所有区域。 它提供多区域分布式 Azure Cosmos 数据库和容器的单个系统映像，使应用程序能够在本地读取和写入。 
 

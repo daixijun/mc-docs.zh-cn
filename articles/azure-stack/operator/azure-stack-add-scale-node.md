@@ -2,25 +2,24 @@
 title: 在 Azure Stack Hub 中添加缩放单元节点
 description: 了解如何将缩放单元节点添加到 Azure Stack Hub 中的缩放单元。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
-origin.date: 09/09/2020
-ms.date: 10/12/2020
+origin.date: 11/05/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: 079680ad3543fcc882d0564855acc9f525e1c236
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: b15aab85f381562f67c852b4fc9977b9627640c2
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437745"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507900"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
-Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现有缩放单元的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
+你可以通过添加更多的物理计算机来提高现有缩放单元的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
 
-若要添加某个缩放单元节点，请在 Azure Stack Hub 中操作并运行硬件设备制造商 (OEM) 提供的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
+若要添加某个缩放单元节点，请登录到 Azure Stack Hub 中并运行硬件设备制造商 (OEM) 提供的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
 
 以下流程图显示添加缩放单元节点的一般过程：
 
@@ -62,6 +61,21 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
    ![添加节点详细信息](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+使用 **Add-AzsScaleUnitNode** cmdlet 添加一个节点。  
+
+在使用下述某个示例 PowerShell 脚本之前，请将 name_of_new_node、name_of_scale_unit_cluster、BMCIP_address_of_new_node 值替换为你的 Azure Stack Hub 环境的值。
+
+  > [!Note]  
+  > 为节点命名时，必须确保名称的长度不到 15 个字符。 另外，不能使用包含空格或下述任何字符的名称：`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
+
+**添加节点：**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 使用 **New-AzsScaleUnitNodeObject** cmdlet 添加一个节点。  
@@ -77,21 +91,6 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-使用 **Add-AzsScaleUnitNode** cmdlet 添加一个节点。  
-
-在使用下述某个示例 PowerShell 脚本之前，请将 name_of_new_node、name_of_scale_unit_cluster、BMCIP_address_of_new_node 值替换为你的 Azure Stack Hub 环境的值。
-
-  > [!Note]  
-  > 为节点命名时，必须确保名称的长度不到 15 个字符。 另外，不能使用包含空格或下述任何字符的名称：`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
-
-**添加节点：**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

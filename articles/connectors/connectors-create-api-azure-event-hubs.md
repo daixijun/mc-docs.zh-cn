@@ -9,12 +9,12 @@ origin.date: 04/23/2019
 ms.date: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 82f21b48c29d03bcb595da6b8fc9ad5f5bc367e4
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: c40216a0295b883a62169a27f0e6110c1c68ba04
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211642"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431897"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中心和 Azure 逻辑应用监视、接收和发送事件
 
@@ -22,7 +22,7 @@ ms.locfileid: "92211642"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * [Azure 事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)
 
@@ -52,7 +52,7 @@ ms.locfileid: "92211642"
         ![复制事件中心命名空间连接字符串](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
         > [!TIP]
-        > 若要确认连接字符串是与事件中心命名空间关联，还是与特定的事件中心关联，请确保该连接字符串不具有 `EntityPath` 参数。 如果找到了该参数，则说明连接字符串适用于特定的事件中心“实体”，不是适用于逻辑应用的正确字符串。
+        > 若要确认连接字符串是与事件中心命名空间关联，还是与特定的事件中心关联，请确保该连接字符串不具有 `EntityPath` 参数。 如果找到了该参数，则说明连接字符串适用于特定的事件中心“实体”，不是适用于逻辑应用的正确字符串。
 
 1. 现在继续[添加事件中心触发器](#add-trigger)或[添加事件中心操作](#add-action)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "92211642"
 
 1. 在 Azure 门户或 Visual Studio 中创建一个空白的逻辑应用，以便打开逻辑应用设计器。 此示例使用 Azure 门户。
 
-1. 在搜索框中，输入“事件中心”作为筛选器。 从触发器列表中选择此触发器： **当事件在事件中心可用时 - 事件中心**
+1. 在搜索框中，输入“事件中心”作为筛选器。 从触发器列表中选择此触发器：**当事件在事件中心可用时 - 事件中心**
 
    ![选择触发器](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "92211642"
     选择出现的加号 ( **+** )，然后选择“添加操作”。 
 
 1. 在搜索框中，输入“事件中心”作为筛选器。
-在操作列表中选择此操作： **发送事件 - 事件中心**
+在操作列表中选择此操作：**发送事件 - 事件中心**
 
     ![选择“发送事件”操作](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 

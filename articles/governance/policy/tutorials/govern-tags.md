@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/05/2020
 ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: a006853a94ee90f25013fdaf60ef5f47de9e14fb
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 4c83478b213453a66ca9a94d78f7d305fd61c9bc
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328257"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431101"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>教程：通过 Azure Policy 管理标记治理
 
@@ -31,7 +31,7 @@ Azure Policy 的[修改](../concepts/effects.md#modify)效果旨在帮助管理�
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个 Azure 订阅才能完成此教程。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+需要一个 Azure 订阅才能完成此教程。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="identify-requirements"></a>确定要求
 

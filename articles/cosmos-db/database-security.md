@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/21/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: dfd0f51ee25e4475b328128cec36f18cefe8dd27
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ea6fe8d8fb03c7d9282cb2f2223e2438707ebd40
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328916"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598702"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 安全性 - 概述
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "94328916"
 |网络安全性|使用 IP 防火墙是用于保护数据库的第一个保护层。 Azure Cosmos DB 支持使用基于 IP 的策略驱动访问控制来提供入站防火墙支持。 基于 IP 的访问控制类似于传统数据库系统使用的防火墙规则，但已经过扩展，确保只能通过获批准的一组计算机或云服务访问 Azure Cosmos 数据库帐户。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](how-to-configure-firewall.md)一文。<br /><br />使用 Azure Cosmos DB 可以启用特定的 IP 地址 (168.61.48.0)、IP 范围 (168.61.48.0/8) 以及 IP 和范围的组合。 <br /><br />从此允许列表外部的计算机发出的所有请求会被 Azure Cosmos DB 阻止。 从获批准计算机和云服务发出的请求必须完成身份验证过程才能获得资源的访问控制权。<br /><br /> 可以使用[虚拟网络服务标记](../virtual-network/service-tags-overview.md)实现网络隔离，并保护 Azure Cosmos DB 资源不受常规 Internet 影响。 创建安全规则时，请使用服务标记代替特定 IP 地址。 通过在规则的相应源或目标字段中指定服务标记名（例如，AzureCosmosDB），可以允许或拒绝相应服务的流量。|
 |授权|Azure Cosmos DB 使用基于哈希的消息身份验证代码 (HMAC) 进行授权。 <br /><br />每个请求使用机密帐户密钥进行哈希处理，后续的 base-64 编码哈希将连同每个调用发送到 Azure Cosmos DB。 要验证请求，Azure Cosmos DB 服务需使用正确的机密密钥和属性生成哈希值，然后将该值与请求中的值进行比较。 如果两个值匹配，则成功为操作授权并处理请求，否则，会发生授权失败并拒绝请求。<br /><br />可以使用[主密钥](#primary-keys)或[资源令牌](secure-access-to-data.md#resource-tokens)对文档等资源进行精细访问。<br /><br />可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
 |用户和权限|使用帐户的主密钥可为每个数据库创建用户资源和权限资源。 资源令牌与数据库中的权限相关联，确定用户是否对数据库中的应用程序资源拥有访问权限（读写、只读或无访问权限）。 应用程序资源包括容器、文档、附件、存储过程、触发器和 UDF。 然后，在身份验证期间，使用资源令牌来允许或拒绝访问资源。<br /><br />可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
-|Active Directory 集成 (RBAC)| 还可以在 Azure 门户中通过“访问控制(标识和访问管理)”来提供或限制对 Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问权限。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可使用内置角色或自定义角色。 有关详细信息，请参阅 [Active Directory 集成](role-based-access-control.md)一文。|
+|Active Directory 集成 (Azure RBAC)| 还可以在 Azure 门户中通过“访问控制(标识和访问管理)”来提供或限制对 Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问权限。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可使用内置角色或自定义角色。 有关详细信息，请参阅 [Active Directory 集成](role-based-access-control.md)一文。|
 |多区域复制|Azure Cosmos DB 提供统包式多区域分发。只需单击一下按钮，就能将数据复制到 Azure 的任何一个跨中国的数据中心。 多区域复制可以实现多区域缩放，以较低的延迟访问中国的数据。<br /><br />从安全角度来看，多区域复制可确保数据受到保护，防范区域性故障。<br /><br />若要了解详细信息，请参阅[在多个区域分配数据](distribute-data-globally.md)。|
 |区域性故障转移|如果已将数据复制到多个数据中心，当区域数据中心脱机时，Azure Cosmos DB 会自动切换操作。 可以使用数据复制到的区域创建故障转移区域的优先级列表。 <br /><br />可以在 [Azure Cosmos DB 中的区域性故障转移](high-availability.md)中了解详细信息。|
 |本地复制|即使是在单个数据中心内，Azure Cosmos DB 也会自动复制数据来实现高可用性，并允许选择[一致性级别](consistency-levels.md)。 此复制可保证为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的[可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。|

@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8e5cd3da800766108f6de61481110ca60e1d2c4e
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 6615056cef2e817109bc97a4ef1eee2d913485f6
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063306"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430858"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -24,7 +24,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 若要完成本教程，请确保做好以下准备：
 
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅][]。
 - [Visual Studio 2019](https://www.visualstudio.com/vs)。
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
@@ -73,7 +73,7 @@ New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name 
 - [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
 
-[创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[试用版订阅]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
 [New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png

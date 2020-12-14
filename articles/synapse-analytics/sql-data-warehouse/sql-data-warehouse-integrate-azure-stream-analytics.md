@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 9/25/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f731c0885c822ebaef42e5cd1724b9d3478083e7
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 74ad2b32e6cb0046318d1effb6825d1a9e6b8488
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375704"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746865"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>将 Azure 流分析与 Azure Synapse Analytics 配合使用
 
@@ -33,7 +33,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
     2. 配置并启动事件生成器应用程序
     3. 预配流分析作业
     4. 指定作业输入和查询
-* 数据仓库的 Azure Synapse SQL 池 - 若要创建新的数据仓库，请按照[有关创建新数据仓库的快速入门](create-data-warehouse-portal.md)中的步骤进行操作。
+* 数据仓库的专用 Synapse SQL 池 - 若要创建新的数据仓库，请按照[有关创建新数据仓库的快速入门](create-data-warehouse-portal.md)中的步骤进行操作。
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>将流输出指定为指向数据仓库
 

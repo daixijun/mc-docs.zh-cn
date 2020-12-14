@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 02/06/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5e5daea5dc07fcdcc6b08adb9718174980a15edd
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 91f047a2aeb935da2c53ecd7b779ad7bede8bf2b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211335"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432545"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用带有 Enterprise Integration Pack 的 Azure 逻辑应用中的映射转换 XML
 
@@ -26,7 +26,7 @@ ms.locfileid: "92211335"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，用于存储映射以及企业集成与企业到企业 (B2B) 解决方案的其他项目。
 

@@ -10,12 +10,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84928e04b7be0e145a9fd42b5c8e26b6ba0ebcdc
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: b13a0744b11c098d01919f4d99b101aff65e079d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153059"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431735"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>教程：在 .NET 中使用 Azure 存储队列
 
@@ -40,7 +40,7 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
 
 - 获取跨平台 [Visual Studio Code](https://code.visualstudio.com/download) 编辑器的免费副本。
 - 下载并安装 [.NET Core SDK](https://dotnet.microsoft.com/download) 3.1 版或更高版本。
-- 如果你当前没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 如果你当前没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 

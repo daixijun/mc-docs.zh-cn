@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中排查站点到站点 VPN 连接问题
 description: 配置本地网络与 Azure Stack Hub 虚拟网络之间的站点到站点 VPN 连接后可以执行的故障排除步骤。
 author: WenJason
 ms.author: v-jay
-origin.date: 10/01/2020
-ms.date: 11/09/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: c6071eec321302adc1b69bc4d6761a9fd2e25a84
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6be9a6258c163a00d41c15d96c32f6f61747b004
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330473"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507443"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -47,6 +47,8 @@ IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 �
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>“未连接”状态 - 间歇性断开连接
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 - 比较本地 VPN 设备与 AzSH 虚拟网络 VPN 的共享密钥，确保密钥匹配。 若要查看 AzSH VPN 连接的共享密钥，请使用以下方法之一：
 
   - **Azure Stack Hub 租户门户**：转到创建的 VPN 网关站点到站点连接。 在“设置”部分中，选择“共享密钥”。
@@ -55,11 +57,27 @@ IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 �
 
   - **Azure PowerShell**：使用以下 PowerShell 命令：
 
-      ```powershell
-      Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>“已连接”状态 - 流量未流动
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+- 比较本地 VPN 设备与 AzSH 虚拟网络 VPN 的共享密钥，确保密钥匹配。 若要查看 AzSH VPN 连接的共享密钥，请使用以下方法之一：
+
+  - **Azure Stack Hub 租户门户**：转到创建的 VPN 网关站点到站点连接。 在“设置”部分中，选择“共享密钥”。
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 连接":::
+
+  - **Azure PowerShell**：使用以下 PowerShell 命令：
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>“已连接”状态 - 流量未流动
 
 - 检查并删除网关子网中的用户定义的路由 (UDR) 和网络安全组 (NSG)，然后测试结果。 如果问题得到解决，请验证 NSG 或 UDR 应用的设置。
 

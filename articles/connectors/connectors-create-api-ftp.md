@@ -9,12 +9,12 @@ origin.date: 12/15/2019
 ms.date: 04/30/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 739898556f6a0a59b401df646e91f84f2c412a81
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 3eee5547c438acaf483bab3d4433310b79461e46
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392276"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431895"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用创建、监视和管理 FTP 文件
 
@@ -31,13 +31,13 @@ ms.locfileid: "83392276"
 
 * FTP 连接器仅支持显式 FTP over TLS/SSL (FTPS)，与隐式 FTPS 不兼容。
 
-* 默认情况下，FTP 操作可以读取或写入 *50 MB 或更小*的文件。 若要处理大于 50 MB 的文件，FTP 操作支持[消息分块](../logic-apps/logic-apps-handle-large-messages.md)。 **获取文件内容**操作隐式使用分块。
+* 默认情况下，FTP 操作可以读取或写入 *50 MB 或更小* 的文件。 若要处理大于 50 MB 的文件，FTP 操作支持[消息分块](../logic-apps/logic-apps-handle-large-messages.md)。 **获取文件内容** 操作隐式使用分块。
 
 * FTP 触发器不支持分块。 请求文件内容时，触发器仅选择 50 MB 或更小的文件。 若要获取大于 50 MB 的文件，请遵循以下模式：
 
     * 使用返回文件属性的 FTP 触发器，如“添加或修改文件时(仅属性)”。
 
-    * 跟随触发器执行 FTP **获取文件内容**操作，该操作读取完整文件并隐式使用分块。
+    * 跟随触发器执行 FTP **获取文件内容** 操作，该操作读取完整文件并隐式使用分块。
 
 * 如果你有本地 FTP 服务器，请考虑使用 [Azure 应用服务混合连接](../app-service/app-service-hybrid-connections.md)，这允许你在不使用本地数据网关的情况下访问本地数据源。
 
@@ -58,7 +58,7 @@ FTP 触发器的工作原理是轮询 FTP 文件系统并查找自上次轮询�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * FTP 主机服务器地址和帐户凭据
 

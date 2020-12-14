@@ -1,22 +1,22 @@
 ---
 title: Azure Active Directory B2C 中的语言自定义
-description: 了解如何在用户流中自定义语言体验。
+description: 了解如何在 Azure Active Directory B2C 中自定义用户流中的语言体验。
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 12/02/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a4f7cb35038807d4433040a5ca61511a8e4f0301
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c33799c1b446b077b695e073aaa97abefeefc96f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937049"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507235"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的语言自定义
 
@@ -200,7 +200,7 @@ Chrome 和 Firefox 都会请求其设置的语言。 如果支持该语言，将
 
 ## <a name="supported-languages"></a>支持的语言
 
-Azure AD B2C 包括对以下语言的支持。 用户流语言由 Azure AD B2C 提供。 多重身份验证 (MFA) 通知语言由 [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md) 提供。
+Azure AD B2C 包括对以下语言的支持。 用户流语言由 Azure AD B2C 提供。 多重身份验证 (MFA) 通知语言由 [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md) 提供。
 
 | 语言              | 语言代码 | 用户流         | MFA 通知  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

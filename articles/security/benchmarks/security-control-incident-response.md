@@ -1,19 +1,19 @@
 ---
 title: Azure 安全控制 - 事件响应
 description: Azure 安全控制 - 事件响应
-author: msmbaldwin
+author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/09/2020
-ms.author: v-tawe
+ms.date: 12/03/2020
+ms.author: v-johya
 ms.custom: security-benchmark
 origin.date: 04/14/2020
-ms.openlocfilehash: 793a6c89b478348f2311c0b8c7890a2032e76b30
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: f81bb59dce463e7330398fa83a70b4390d4ef39d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200087"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747126"
 ---
 # <a name="security-control-incident-response"></a>安全控制：事件响应
 
@@ -43,9 +43,9 @@ ms.locfileid: "84200087"
 
 此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。  你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
-- [Azure 安全中心中的安全警报](https://docs.azure.cn/security-center/security-center-alerts-overview)
+- [Azure 安全中心中的安全警报](../../security-center/security-center-alerts-overview.md)
 
-- [使用标记整理 Azure 资源](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../../azure-resource-manager/management/tag-resources.md)
 
 ## <a name="103-test-security-response-procedures"></a>10.3：测试安全响应过程
 
@@ -65,9 +65,27 @@ ms.locfileid: "84200087"
 
 如果 Microsoft 安全响应中心 (MSRC) 发现非法或未经授权的一方访问了你的数据，Microsoft 将使用安全事件联系人信息来与你取得联系。 事后审查事件，确保问题得到解决。
 
-- [如何设置 Azure 安全中心安全联系人](https://docs.azure.cn/security-center/security-center-provide-security-contact-details)
+- [如何设置 Azure 安全中心安全联系人](../../security-center/security-center-provide-security-contact-details.md)
 
-<!-- not available -->
+## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5：将安全警报整合到事件响应系统中
+
+| Azure ID | CIS ID | 责任方 |
+|--|--|--|
+| 10.5 | 19.6 | 客户 |
+
+使用连续导出功能导出 Azure 安全中心警报和建议，以帮助确定 Azure 资源的风险。 使用连续导出可以手动导出或者持续导出警报和建议。 
+
+- [如何配置连续导出](../../security-center/continuous-export.md)
+
+## <a name="106-automate-the-response-to-security-alerts"></a>10.6：自动响应安全警报
+
+| Azure ID | CIS ID | 责任方 |
+|--|--|--|
+| 10.6 | 19 | 客户 |
+
+使用 Azure 安全中心内的工作流自动化功能，通过“逻辑应用”针对安全警报和建议自动触发响应，以保护 Azure 资源。
+
+- [如何配置工作流自动化和逻辑应用](../../security-center/workflow-automation.md)
 
 
 ## <a name="next-steps"></a>后续步骤

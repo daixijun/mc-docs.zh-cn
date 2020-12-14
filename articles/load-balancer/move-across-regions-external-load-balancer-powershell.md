@@ -3,23 +3,22 @@ title: 使用 Azure PowerShell 将 Azure 外部负载均衡器移到另一个 Az
 description: 使用 Azure 资源管理器模板，通过 Azure PowerShell 将 Azure 外部负载均衡器从一个 Azure 区域移到另一个 Azure 区域。
 author: WenJason
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 origin.date: 09/17/2019
-ms.date: 02/24/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 123fb92f57abc5967cf8d9cb4364f60129d66ae8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3d9ef14f122798c16ae7bb56d8bad04ace944c58
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540984"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746550"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 将外部负载均衡器移到另一个 Azure 区域
 
 在多种情况下，可能需要将现有的外部负载均衡器从一个区域移到另一个区域。 例如，你可能想要创建另一个采用相同配置的外部负载均衡器进行测试。 你还可能想要在灾难恢复规划过程中将外部负载均衡器移到另一个区域。
 
-无法将 Azure 外部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板来导出外部负载均衡器的现有配置和公共 IP。  然后，可将资源暂存在另一区域，方法是：将负载均衡器和公共 IP 导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。  有关资源管理器和模板的详细信息，请参阅[将资源组导出到模板](/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
-
+无法将 Azure 外部负载均衡器从一个区域移到另一个区域。 但是，可以使用 Azure 资源管理器模板来导出外部负载均衡器的现有配置和公共 IP。  然后，可将资源暂存在另一区域，方法是：将负载均衡器和公共 IP 导出到某个模板，根据目标区域修改参数，然后将该模板部署到新区域。  有关资源管理器和模板的详细信息，请参阅[将资源组导出到模板](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -28,24 +27,22 @@ ms.locfileid: "77540984"
 - 无法在区域之间移动 Azure 外部负载均衡器。  必须将新的负载均衡器关联到目标区域中的资源。
 
 - 若要导出外部负载均衡器配置并部署模板，以便在另一区域创建外部负载均衡器，需有“网络参与者”角色或更高级别的角色。
-   
+
 - 确定源网络布局和当前正在使用的所有资源。 此布局包括但不限于负载均衡器、网络安全组、公共 IP 和虚拟网络。
 
 - 请验证 Azure 订阅是否允许在所用的目标区域中创建外部负载均衡器。 请联系支持部门，启用所需配额。
 
-- 确保订阅提供足够的资源，以便为此过程添加公共负载均衡器。  请参阅 [Azure 订阅和服务限制、配额和约束](/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
-
+- 确保订阅提供足够的资源，以便为此过程添加公共负载均衡器。  请参阅 [Azure 订阅和服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 ## <a name="prepare-and-move"></a>准备并移动
 以下步骤说明如何使用资源管理器模板准备好要移动的外部负载均衡器，并使用 Azure PowerShell 将外部负载均衡器配置移到目标区域。  在此过程中，必须包括外部负载均衡器的公共 IP 配置，并且必须在移动外部负载均衡器之前完成此配置。
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="export-the-public-ip-template-and-deploy-from-azure-powershell"></a>从 Azure PowerShell 导出公共 IP 模板并进行部署
 
-1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，然后按屏幕说明操作：
-    
+1. 使用 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，并按屏幕说明操作：
+
     ```azurepowershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
@@ -56,19 +53,19 @@ ms.locfileid: "77540984"
 
     ```
 3. 将源公共 IP 导出到执行 [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 命令时所在的目录中的某个 .json 文件：
-   
+
    ```azurepowershell
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过名为 **\<resource-group-name>.json** 的命令导出的文件，在所选编辑器中将其打开：
-   
+4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过命令导出的名为 \<resource-group-name>.json 的文件，在所选编辑器中将其打开：
+
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
 
 5. 若要编辑公共 IP 名称的参数，请将源公共 IP 名称的属性 **defaultValue** 更改为目标公共 IP 的名称，确保对名称使用引号：
-    
+
     ```json
         {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -107,17 +104,17 @@ ms.locfileid: "77540984"
                }
              ]             
     ```
-  
+
 7. 若要获取区域位置代码，可以通过运行以下命令来使用 Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)：
 
     ```azurepowershell
 
     Get-AzLocation | format-table
-    
+
     ```
 8. 也可选择更改模板中的其他参数，这些参数是可选的，具体取决于你的要求：
 
-    * **Sku** - 可以在配置中将公共 IP 的 sku 从“标准”更改为“基本”或从“基本”更改为“标准”，只需在 **\<resource-group-name>.json** 文件中更改 **sku** > **name** 属性即可：
+    * Sku - 可以在配置中将公共 IP 的 sku 从“标准”更改为“基本”或从“基本”更改为“标准”，只需在 \<resource-group-name>.json 文件中更改 sku >  name 属性即可：
 
          ```json
             "resources": [
@@ -132,9 +129,9 @@ ms.locfileid: "77540984"
                     },
          ```
 
-         若要详细了解基本的和标准的 sku 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
+         若要详细了解基本的和标准的 sku 公共 IP 的区别，请参阅[创建、更改或删除公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)。
 
-    * **公共 IP 分配方法**和**空闲超时** - 可以在模板中更改这两个选项，只需将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或从 **Static** 更改为 **Dynamic** 即可。 若要更改空闲超时，可以将 **idleTimeoutInMinutes** 属性更改为所需时间。  默认为 **4**：
+    * **公共 IP 分配方法** 和 **空闲超时** - 可以在模板中更改这两个选项，只需将 **publicIPAllocationMethod** 属性从 **Dynamic** 更改为 **Static** 或从 **Static** 更改为 **Dynamic** 即可。 若要更改空闲超时，可以将 **idleTimeoutInMinutes** 属性更改为所需时间。  默认为 **4**：
 
          ```json
          "resources": [
@@ -159,26 +156,25 @@ ms.locfileid: "77540984"
                 }            
          ```
 
-        若要详细了解分配方法和空闲超时值，请参阅[创建、更改或删除公共 IP 地址](/virtual-network/virtual-network-public-ip-address)。
+        若要详细了解分配方法和空闲超时值，请参阅[创建、更改或删除公共 IP 地址](../virtual-network/virtual-network-public-ip-address.md)。
 
-
-9. 保存 **\<resource-group-name>.json** 文件。
+9. 保存 \<resource-group-name>.json 文件。
 
 10. 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0) 在目标区域创建资源组，以便部署目标公共 IP。
-    
+
     ```azurepowershell
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) 将编辑的 **\<resource-group-name>.json** 文件部署到在上一步创建的资源组：
+11. 使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) 将编辑的 \<resource-group-name>.json 文件部署到在上一步创建的资源组：
 
     ```azurepowershell
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
-    
+
     ```
 
 12. 若要验证是否已在目标区域创建这些资源，请使用 [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 和 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)：
-    
+
     ```azurepowershell
 
     Get-AzResourceGroup -Name <target-resource-group-name>
@@ -193,8 +189,8 @@ ms.locfileid: "77540984"
 
 ### <a name="export-the-external-load-balancer-template-and-deploy-from-azure-powershell"></a>从 Azure PowerShell 导出外部负载均衡器模板并进行部署
 
-1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，然后按屏幕说明操作：
-    
+1. 使用 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 命令登录到 Azure 订阅，并按屏幕说明操作：
+
     ```azurepowershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
@@ -206,12 +202,12 @@ ms.locfileid: "77540984"
 
     ```
 3. 将源外部负载均衡器配置导出到执行 [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 命令时所在的目录中的某个 .json 文件：
-   
+
    ```azurepowershell
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过名为 **\<resource-group-name>.json** 的命令导出的文件，在所选编辑器中将其打开：
-   
+4. 已下载的文件将根据从其导出了资源的资源组来命名。  找到通过命令导出的名为 \<resource-group-name>.json 的文件，在所选编辑器中将其打开：
+
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
    ```
@@ -233,7 +229,7 @@ ms.locfileid: "77540984"
 
     ```
 
-6.  若要编辑上面已移动的目标公共 IP 的值，必须先获取资源 ID，然后将其复制并粘贴到 **\<resource-group-name>.json** 文件中。  若要获取该 ID，请使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)：
+6. 若要编辑上面已移动的目标公共 IP 的值，必须先获取资源 ID，然后将其复制并粘贴到 \<resource-group-name>.json 文件中。  若要获取该 ID，请使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)：
 
     ```azurepowershell
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -245,7 +241,7 @@ ms.locfileid: "77540984"
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  在 **\<resource-group-name>.json** 文件中，粘贴变量中的 **Resource ID**，并用它替换公共 IP 外部 ID 的第二个参数中的 **defaultValue**（请务必将路径括在引号中）：
+7. 在 \<resource-group-name>.json 文件中，粘贴变量中的资源 ID，并用它替换公共 IP 外部 ID 的第二个参数中的 defaultValue（请务必将路径括在引号中）  ：
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -262,7 +258,7 @@ ms.locfileid: "77540984"
 
     ```
 
-8.  如果为该负载均衡器配置了出站 NAT 和出站规则，则此文件中会显示第三个条目，该条目对应于出站公共 IP 的外部 ID。  在**目标区域**中重复上述步骤以获取出站公共 IP 的 ID，并将该条目粘贴到 **\<resource-group-name>.json** 文件中：
+8. 如果为该负载均衡器配置了出站 NAT 和出站规则，则此文件中会显示第三个条目，该条目对应于出站公共 IP 的外部 ID。  在目标区域中重复上述步骤以获取出站公共 IP 的 ID，并将该条目粘贴到 \<resource-group-name>.json 文件中 ：
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -283,7 +279,7 @@ ms.locfileid: "77540984"
         },
     ```
 
-10. 若要编辑外部负载均衡器配置将要移到的目标区域，请更改 **\<resource-group-name>.json** 文件中 **resources** 下的 **location** 属性：
+10. 若要编辑外部负载均衡器配置将要移到的目标区域，请更改 \<resource-group-name>.json 文件中“资源”下的 location 属性  ：
 
     ```json
         "resources": [
@@ -303,11 +299,11 @@ ms.locfileid: "77540984"
     ```azurepowershell
 
     Get-AzLocation | format-table
-    
+
     ```
 12. 也可选择更改模板中的其他参数，这些参数是可选的，具体取决于你的要求：
-    
-    * **SKU** - 可以在配置中将外部负载均衡器的 SKU 从 standard 更改为 basic 或者从 basic 更改为 standard，只需在 **\<resource-group-name>.json** 文件中更改 **sku** > **name** 属性即可：
+
+    * **SKU** - 可以通过在 \<resource-group-name>.json 文件中更改 sku > name 属性，在配置中将外部负载均衡器的 SKU 从“标准”更改为“基本”或者从“基本”更改为“标准”  ：
 
         ```json
         "resources": [
@@ -321,9 +317,9 @@ ms.locfileid: "77540984"
                 "tier": "Regional"
             },
         ```
-      若要详细了解基本和标准 sku 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](/load-balancer/load-balancer-standard-overview)
+        若要详细了解基本和标准 sku 负载均衡器之间的区别，请参阅 [Azure 标准负载均衡器概述](./load-balancer-overview.md)
 
-    * **负载均衡规则** - 可以通过在 **\<resource-group-name>.json** 文件的 **loadBalancingRules** 节中添加或删除条目，在配置中添加或删除负载均衡规则：
+    * **负载均衡规则** - 可以通过在 \<resource-group-name>.json 文件的“loadBalancingRules”部分中添加或删除条目，在配置中添加或删除负载均衡规则 ：
 
         ```json
         "loadBalancingRules": [
@@ -353,9 +349,9 @@ ms.locfileid: "77540984"
                     }
                 ]
         ```
-       有关负载均衡规则的详细信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
+        有关负载均衡规则的详细信息，请参阅[什么是 Azure 负载均衡器？](./load-balancer-overview.md)。
 
-    * **探测** - 可以通过在 **\<resource-group-name>.json** 文件的 **probes** 节中添加或删除条目，在配置中添加或删除负载均衡器的探测：
+    * **探测** - 可以通过在 \<resource-group-name>.json 文件的“探测”部分中添加或删除条目，在配置中添加或删除负载均衡器的探测 ：
 
         ```json
         "probes": [
@@ -373,9 +369,9 @@ ms.locfileid: "77540984"
                     }
                 ],
         ```
-       有关 Azure 负载均衡器运行状况探测的详细信息，请参阅[负载均衡器运行状况探测](/load-balancer/load-balancer-custom-probe-overview)
+        有关 Azure 负载均衡器运行状况探测的详细信息，请参阅[负载均衡器运行状况探测](./load-balancer-custom-probe-overview.md)
 
-    * **入站 NAT 规则** - 可以通过在 **\<resource-group-name>.json** 文件的 **inboundNatRules** 节中添加或删除条目，来添加或删除负载均衡器的入站 NAT 规则：
+    * **入站 NAT 规则** - 可以通过在 \<resource-group-name>.json 文件的“inboundNatRules”部分中添加或删除条目，添加或删除负载均衡器的入站 NAT 规则 ：
 
         ```json
         "inboundNatRules": [
@@ -397,7 +393,7 @@ ms.locfileid: "77540984"
                     }
                 ]
         ```
-        若要完成某个入站 NAT 规则的添加或删除，该规则必须作为 **type** 属性出现在 **\<resource-group-name>.json** 文件的末尾，或者已被删除：
+        若要完成某个入站 NAT 规则的添加或删除，该规则必须作为 type 属性出现在 \<resource-group-name>.json 文件的末尾，或者已被删除 ：
 
         ```json
         {
@@ -421,9 +417,9 @@ ms.locfileid: "77540984"
             }
         }
         ```
-        有关入站 NAT 规则的详细信息，请参阅[什么是 Azure 负载均衡器？](/load-balancer/load-balancer-overview)。
+        有关入站 NAT 规则的详细信息，请参阅[什么是 Azure 负载均衡器？](./load-balancer-overview.md)。
 
-    * **出站规则** - 可以通过编辑 **\<resource-group-name>.json** 文件中的 **outboundRules** 属性，在配置中添加或删除出站规则：
+    * **出站规则** - 可以通过编辑 \<resource-group-name>.json 文件中的 outboundRules 属性，在配置中添加或删除出站规则 ：
 
         ```json
         "outboundRules": [
@@ -449,25 +445,25 @@ ms.locfileid: "77540984"
                 ]
         ```
 
-         有关出站规则的详细信息，请参阅[负载均衡器出站规则](/load-balancer/load-balancer-outbound-rules-overview)
+        有关出站规则的详细信息，请参阅[负载均衡器出站规则](./load-balancer-outbound-connections.md#outboundrules)
 
-13. 保存 **\<resource-group-name>.json** 文件。
-    
+13. 保存 \<resource-group-name>.json 文件。
+
 10. 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0) 在目标区域为要部署的目标外部负载均衡器创建资源组。 在此过程中，也可以重复使用上述现有资源组：
-    
+
     ```azurepowershell
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. 使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) 将编辑的 **\<resource-group-name>.json** 文件部署到在上一步创建的资源组：
+11. 使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) 将编辑的 \<resource-group-name>.json 文件部署到在上一步创建的资源组：
 
     ```azurepowershell
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
-    
+
     ```
 
 12. 若要验证是否已在目标区域创建这些资源，请使用 [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 和 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0)：
-    
+
     ```azurepowershell
 
     Get-AzResourceGroup -Name <target-resource-group-name>
@@ -500,12 +496,11 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ```
 
-``` azurepowershell
+```azurepowershell
 
 Remove-AzLoadBalancer -name <load-balancer> -ResourceGroupName <resource-group-name>
 
 Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-name>
-
 
 ```
 
@@ -513,6 +508,5 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 
 在本教程中，我们将 Azure 网络安全组从一个区域移到了另一个区域，并清理了源资源。  若要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅：
 
-
-- [将资源移到新资源组或订阅中](/azure-resource-manager/resource-group-move-resources)
-- [将 Azure VM 移到另一区域](/site-recovery/azure-to-azure-tutorial-migrate)
+- [将资源移到新资源组或订阅中](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [将 Azure VM 移到另一区域](../site-recovery/azure-to-azure-tutorial-migrate.md)

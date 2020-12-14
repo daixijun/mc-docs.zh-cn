@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: dbf91596808d9dd1889093f7dd813f678c5e7f61
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0eb43e73d636149dec619e729fe8dfcce27eb3b9
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328636"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432248"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 
@@ -28,7 +28,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 完成本快速入门教程需要：
 
-1. 如果还没有订阅，请在开始前创建一个[试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+1. 如果没有订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 2. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt)
 

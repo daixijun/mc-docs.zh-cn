@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-origin.date: 10/21/2020
-ms.date: 11/16/2020
+origin.date: 11/06/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: c86818db62486146a60d8079673b15135f5b2e1b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 2ac1d8459128316e6f8faba90fa62d3c5059762d
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552814"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598652"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>管理 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -214,7 +214,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,
@@ -338,6 +338,51 @@ Azure Cosmos DB 的用于 MongoDB 的 API 版本 3.6 支持使用 `currentOp()` 
 
 > [!NOTE]
 > 可以[跟踪索引进度](#track-index-progress)。
+
+## <a name="reindex-command"></a>ReIndex 命令
+
+`reIndex` 命令会重新创建集合上的所有索引。 在大多数情况下，这是不必要的。 但在某些罕见情况下，查询性能可能会在运行 `reIndex` 命令后提高。
+
+可以使用以下语法运行 `reIndex` 命令：
+
+`db.runCommand({ reIndex: <collection> })`
+
+可以使用以下语法来检查是否需要运行 `reIndex` 命令：
+
+`db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
+
+示例输出：
+
+```
+{
+        "database" : "myDB",
+        "collection" : "myCollection",
+        "provisionedThroughput" : 400,
+        "indexes" : [
+                {
+                        "v" : 1,
+                        "key" : {
+                                "_id" : 1
+                        },
+                        "name" : "_id_",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                },
+                {
+                        "v" : 1,
+                        "key" : {
+                                "b.$**" : 1
+                        },
+                        "name" : "b.$**_1",
+                        "ns" : "myDB.myCollection",
+                        "requiresReIndex" : true
+                }
+        ],
+        "ok" : 1
+}
+```
+
+如果 `reIndex` 是必需的，则 requiresReIndex 将为 true。 如果 `reIndex` 不是必需的，则会忽略此属性。
 
 ## <a name="migrate-collections-with-indexes"></a>迁移带索引的集合
 

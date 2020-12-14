@@ -4,16 +4,16 @@ description: 查看发行说明以了解 Azure Stack Hub SQL 资源提供程序 
 author: WenJason
 ms.topic: article
 origin.date: 09/22/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 7f20430b8b58ba566d43119cc7eec1b7d9249958
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 96ae45ec87121d4d8e4a7e7e012b2e98c8622699
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507962"
 ---
 # <a name="sql-resource-provider-11930-release-notes"></a>SQL 资源提供程序 1.1.93.0 发行说明
 
@@ -24,7 +24,7 @@ ms.locfileid: "93330726"
 
 > |支持的 Azure Stack Hub 版本|SQL 资源提供程序版本|
 > |-----|-----|
-> |版本 2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
+> |版本 2008、2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 origin.date: 04/19/2020
 ms.date: 10/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: bfb43ed3c4b392d18716eeb6fb6a21e20d707dde
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 634a9092e659d1447339bad116b4d2ead955633c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943489"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432416"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>教程：创建 PowerShell 工作流 Runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "91943489"
 
 要完成本教程，需要：
 
-* Azure 订阅。 如果没有订阅，可注册[试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* Azure 订阅。 如果还没有 Azure 订阅，可注册一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [自动化帐户](../index.yml) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 由于需要停止并启动此虚拟机，因此它不应当是生产 VM。
 
@@ -114,13 +114,13 @@ ms.locfileid: "91943489"
 
 7. 在 Runbook 状态显示为“已完成”后，单击“输出”。 此时会打开“输出”页，可以在其中看到 `Hello World` 消息。
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“作业摘要”部分。":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“输出”按钮。":::
 
 8. 关闭“输出”页。
 
 9. 单击“所有日志”打开 Runbook 作业的“流”窗格。 在输出流中应该只会看到 `Hello World`。 请注意，“流”窗格可以显示 Runbook 作业的其他流，例如，详细流和错误流（如果 Runbook 向其写入内容）。
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“作业摘要”部分。":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“所有日志”按钮。":::
 
 10. 关闭“流”窗格和“作业”窗格以返回到 MyFirstRunbook 页。
 

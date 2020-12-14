@@ -1,21 +1,21 @@
 ---
-title: 通过 VNET 对等互连连接两个 Azure Stack Hub
-description: 了解如何通过 VNET 对等互连连接两个 Azure Stack Hub。
+title: 连接两个 Azure Stack Hub VNET
+description: 了解如何连接两个 Azure Stack Hub。
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 585560c2220c7dbbc98be6806d7fa6e0d8641c50
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 4358980352bf0c0829fb827e12edc1835f43cc69
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437542"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507442"
 ---
-# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VM 所在的 Azure Stack Hub 中的 VNET 对等互连
+# <a name="vnet-to-vnet-connectivity-with-rras"></a>使用 RRAS 的 VNet 到 VNet 连接
 
 可以在同一 Azure Stack Hub 环境中将两个 Azure Stack Hub VNet 互相连接。 目前无法使用内置[虚拟网关](./azure-stack-network-differences.md)连接 Azure Stack Hub VNet。 必须使用 NVA 设备在两个 Azure Stack Hub VNet 之间创建 VPN 隧道。 在本文的模板引用中，部署了两个安装了 RRAS 的 Windows Server 2016 VM。 这两个 RRAS 服务器经过配置，可以在两个 VNET 之间实现 S2SVPN IKEv2 隧道。 创建适当的 NSG 和 UDR 规则以允许在指定为“内部”  的每个 VNET 上的子网之间进行路由。 
 
@@ -24,7 +24,7 @@ ms.locfileid: "91437542"
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) GitHub 存储库中找到这些模板。 该模板位于 **S2SVPNTunnel** 文件夹中。
 
-![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器、一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器，此外还有一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>要求
 

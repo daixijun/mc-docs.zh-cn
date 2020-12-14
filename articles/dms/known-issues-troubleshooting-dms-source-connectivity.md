@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 02/20/2020
-ms.date: 06/22/2020
-ms.openlocfilehash: 0f4a138d491d6853f8b418965f1634d62f55a1a1
-ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
+ms.date: 12/07/2020
+ms.openlocfilehash: 67990838ad2f3902b3294f53b7ea3f9fc6584518
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91990786"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746820"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>排查连接到源数据库时出现的 DMS 错误
 
@@ -31,9 +31,9 @@ ms.locfileid: "91990786"
 | 错误         | 原因和故障排除详细信息 |
 | ------------- | ------------- |
 | SQL 连接失败。 建立与 SQL Server 的连接时，出现网络相关或特定于实例的错误。 找不到或无法访问服务器。 验证实例名称是否正确，以及 SQL Server 是否已配置为允许远程连接。<br> | 如果服务找不到源服务器，则会发生此错误。 若要解决该问题，请参阅[使用动态端口或命名实例连接到源 SQL Server 时出错](/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance)。 |
-| **错误 53** - SQL 连接失败。 （同样适用于错误代码 1、2、5、53、233、258、1225、11001）<br><br> | 如果服务无法连接到源服务器，则会发生此错误。 若要解决该问题，请参考以下资源，然后重试。 <br><br>  [有关排查连接问题的交互式用户指南](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [将 SQL Server 迁移到 Azure SQL 数据库的先决条件](/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [将 SQL Server 迁移到 Azure SQL 托管实例的先决条件](/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **错误 53** - SQL 连接失败。 （同样适用于错误代码 1、2、5、53、233、258、1225、11001）<br><br> | 如果服务无法连接到源服务器，则会发生此错误。 若要解决该问题，请参考以下资源，然后重试。 <br><br>  [有关排查连接问题的交互式用户指南](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [将 SQL Server 迁移到 Azure SQL 数据库的先决条件](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) <br><br> [将 SQL Server 迁移到 Azure SQL 托管实例的先决条件](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) |
 | **错误 18456** - 登录失败。<br> | 如果服务无法使用提供的 T-SQL 凭据连接到源数据库，则会发生此错误。 若要解决该问题，请检查输入的凭据。 还可以参考 [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 或此表下面的注释中列出的故障排除文档，然后重试。 |
-| 提供了格式不当的 AccountName 值“{0}”。 AccountName 的所需格式为“域名\用户名”<br> | 如果用户选择了 Windows 身份验证但提供了格式无效的用户名，则会发生此错误。 若要解决该问题，请为 Windows 身份验证提供正确格式的用户名，或选择“SQL 身份验证”。  |
+| 提供了格式不当的 AccountName 值“{0}”。 AccountName 的所需格式为“域名\用户名”<br> | 如果用户选择了 Windows 身份验证但提供了格式无效的用户名，则会发生此错误。 若要解决该问题，请为 Windows 身份验证提供正确格式的用户名，或选择“SQL 身份验证”。 |
 
 ## <a name="aws-rds-mysql"></a>AWS RDS MySQL
 

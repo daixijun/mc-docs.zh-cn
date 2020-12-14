@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 origin.date: 07/21/2020
-ms.date: 11/16/2020
-ms.openlocfilehash: 4c99cea9abf3e1cfe7373ecb6dcc751cb4513b86
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.date: 12/07/2020
+ms.openlocfilehash: 7e2ee862fe5e25b2ff53de279719f4643f66313d
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590722"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747089"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>教程：通过 Azure 门户使用 DMS 以联机方式将 Azure DB for PostgreSQL 单一服务器迁移/升级到 Azure DB for PostgreSQL 单一服务器
 
-可以使用 Azure 数据库迁移服务，将数据库从 [Azure Database for PostgreSQL 单一服务器](/postgresql/overview#azure-database-for-postgresql---single-server)实例迁移到相同或不同版本的 Azure Database for PostgreSQL 单一服务器实例，而只需最短的停机时间。 本教程介绍如何在 Azure 数据库迁移服务中使用联机迁移活动，将“DVD Rental”示例数据库从 Azure Database for PostgreSQL v10 迁移到 Azure Database for PostgreSQL 单一服务器。
+可以使用 Azure 数据库迁移服务，将数据库从 [Azure Database for PostgreSQL 单一服务器](../postgresql/overview.md#azure-database-for-postgresql)实例迁移到相同或不同版本的 Azure Database for PostgreSQL 单一服务器实例，而只需最短的停机时间。 本教程介绍如何在 Azure 数据库迁移服务中使用联机迁移活动，将“DVD Rental”示例数据库从 Azure Database for PostgreSQL v10 迁移到 Azure Database for PostgreSQL 单一服务器。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -47,25 +47,25 @@ ms.locfileid: "94590722"
 
 要完成本教程，需要：
 
-* 请检查 [Azure 数据库迁移服务支持的迁移方案的状态](/dms/resource-scenario-status)，以了解支持的迁移和版本组合。 
-* 现有的 [Azure Database for PostgreSQL](/postgresql/) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 
+* 请检查 [Azure 数据库迁移服务支持的迁移方案的状态](./resource-scenario-status.md)，以了解支持的迁移和版本组合。 
+* 现有的 [Azure Database for PostgreSQL](../postgresql/index.yml) 版本 10 和更高版本的实例，以及“DVD Rental”数据库。 
 
     另请注意，目标 Azure Database for PostgreSQL 版本必须等于或晚于本地 PostgreSQL 版本。 例如，PostgreSQL 10 可以迁移到 Azure Database for PostgreSQL 10 或 11，但不能迁移到 Azure Database for PostgreSQL 9.6。
 
-* [创建一个 Azure Database for PostgreSQL 服务器](/postgresql/quickstart-create-server-database-portal)，作为要将数据迁移到的目标数据库服务器。
-* 使用 Azure 资源管理器部署模型为 Azure 数据库迁移服务创建 Azure 虚拟网络。 有关创建虚拟网络的详细信息，请参阅[虚拟网络文档](/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
+* [创建一个 Azure Database for PostgreSQL 服务器](../postgresql/quickstart-create-server-database-portal.md)，作为要将数据迁移到的目标数据库服务器。
+* 使用 Azure 资源管理器部署模型为 Azure 数据库迁移服务创建 Azure 虚拟网络。 有关创建虚拟网络的详细信息，请参阅[虚拟网络文档](../virtual-network/index.yml)，尤其是提供了分步详细信息的快速入门文章。
 
-* 确保虚拟网络的网络安全组 (NSG) 规则未阻止到 Azure 数据库迁移服务的以下入站通信端口：443、53、9354、445、12000。 有关虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-network-vnet-plan-design-arm)一文。
-* 为 Azure Database for PostgreSQL 源创建服务器级[防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问源数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
-* 为 Azure Database for PostgreSQL 目标创建服务器级[防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
-* 在 Azure DB for PostgreSQL 源中[启用逻辑复制](/postgresql/concepts-logical)。 
+* 确保虚拟网络的网络安全组 (NSG) 规则未阻止到 Azure 数据库迁移服务的以下入站通信端口：443、53、9354、445、12000。 有关虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/virtual-network-vnet-plan-design-arm.md)一文。
+* 为 Azure Database for PostgreSQL 源创建服务器级[防火墙规则](../azure-sql/database/firewall-configure.md)，以允许 Azure 数据库迁移服务访问源数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
+* 为 Azure Database for PostgreSQL 目标创建服务器级[防火墙规则](../azure-sql/database/firewall-configure.md)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的虚拟网络子网范围。
+* 在 Azure DB for PostgreSQL 源中[启用逻辑复制](../postgresql/concepts-logical.md)。 
 * 在用作源的 Azure Database for PostgreSQL 实例中设置以下服务器参数：
 
   * max_replication_slots = [槽数]，建议设置为“十个槽”
   * max_wal_senders =[并发任务数] - max_wal_senders 参数设置可以运行的并发任务数，建议设置为“10 个任务” 
 
 > [!NOTE]
-> 以上服务器参数是静态的，需要重新启动 Azure Database for PostgreSQL 实例才能生效。 有关切换服务器参数的详细信息，请参阅[配置 Azure Database for PostgreSQL 服务器参数](/postgresql/howto-configure-server-parameters-using-portal)。
+> 以上服务器参数是静态的，需要重新启动 Azure Database for PostgreSQL 实例才能生效。 有关切换服务器参数的详细信息，请参阅[配置 Azure Database for PostgreSQL 服务器参数](../postgresql/howto-configure-server-parameters-using-portal.md)。
 
 > [!IMPORTANT]
 > 现有数据库中的所有表都需要主键，以确保可以将更改同步到目标数据库。
@@ -90,7 +90,7 @@ ms.locfileid: "94590722"
 
 2. 在目标环境中创建一个空数据库，即 Azure Database for PostgreSQL。
 
-    有关如何连接和创建数据库的详细信息，请参阅[在 Azure 门户中创建 Azure Database for PostgreSQL 服务器](/postgresql/quickstart-create-server-database-portal)一文。
+    有关如何连接和创建数据库的详细信息，请参阅[在 Azure 门户中创建 Azure Database for PostgreSQL 服务器](../postgresql/quickstart-create-server-database-portal.md)一文。
 
 3. 通过还原架构转储文件，将架构导入已创建的目标数据库。
 
@@ -173,7 +173,7 @@ ms.locfileid: "94590722"
 
     ![Azure 市场](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-marketplace.png)
 
-2. 在“Azure 数据库迁移服务”屏幕上，选择“创建” 。
+2. 在“Azure 数据库迁移服务”屏幕上，选择“创建”   。
 
     ![创建 Azure 数据库迁移服务实例](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create1.png)
   
@@ -183,7 +183,7 @@ ms.locfileid: "94590722"
 
     虚拟网络为 Azure 数据库迁移服务提供对源 PostgreSQL 服务器和目标 Azure Database for PostgreSQL 实例的访问权限。
 
-    有关如何在 Azure 门户中创建虚拟网络的详细信息，请参阅[使用 Azure 门户创建虚拟网络](/virtual-network/quick-create-portal)一文。
+    有关如何在 Azure 门户中创建虚拟网络的详细信息，请参阅[使用 Azure 门户创建虚拟网络](../virtual-network/quick-create-portal.md)一文。
 
 5. 选择定价层。
 
@@ -299,5 +299,5 @@ ms.locfileid: "94590722"
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解联机迁移到 Azure Database for PostgreSQL 时的已知问题和限制，请参阅 [Azure Database for PostgreSQL 联机迁移的已知问题和解决方法](known-issues-azure-postgresql-online.md)一文。
-* 若要了解 Azure 数据库迁移服务，请参阅[什么是 Azure 数据库迁移服务？](/dms/dms-overview)一文。
-* 有关 Azure Database for PostgreSQL 的信息，请参阅[什么是 Azure Database for PostgreSQL？](/postgresql/overview)一文。
+* 若要了解 Azure 数据库迁移服务，请参阅[什么是 Azure 数据库迁移服务？](./dms-overview.md)一文。
+* 有关 Azure Database for PostgreSQL 的信息，请参阅[什么是 Azure Database for PostgreSQL？](../postgresql/overview.md)一文。

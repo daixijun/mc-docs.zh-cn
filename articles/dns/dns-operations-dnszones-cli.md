@@ -4,22 +4,21 @@ description: 可以使用 Azure CLI 管理 DNS 区域。 本文介绍如何在 A
 services: dns
 documentationcenter: na
 author: WenJason
-manager: digimobile
-ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2017
-ms.date: 01/13/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 79d1dc919837de27aabe715173c439818ad0c113
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 45238a419e2585d90a14fe89d521041a00c7a82b
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75777450"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746682"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>如何使用 Azure CLI 管理 Azure DNS 中的 DNS 区域
 
@@ -43,7 +42,7 @@ ms.locfileid: "75777450"
 
 在开始配置之前，请确保具备以下各项。
 
-* Azure 订阅。 如果还没有 Azure 订阅，可在开始前创建一个 [1 元人民币的帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* Azure 订阅。 如果还没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 安装最新版本的 Azure CLI（在 Windows、Linux 或 MAC 中可用）。 有关详细信息，请参阅[安装 Azure CLI](/cli/install-az-cli2)。
 
@@ -195,7 +194,6 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何在 DNS 区域中[管理记录集和记录](dns-getstarted-create-recordset-cli.md)。
+了解如何在 DNS 区域中[管理记录集和记录](./dns-getstarted-cli.md)。
 
 了解如何[将域委派给 Azure DNS](dns-domain-delegation.md)。
-

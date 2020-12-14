@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 存储中使用数据传输工具
 description: 了解 Azure Stack Hub 存储数据传输工具。
 author: WenJason
 ms.topic: conceptual
-origin.date: 04/20/2020
-ms.date: 08/31/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 5c5eacaec989996f0321d7488102a935afc4d23d
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 235f402be4ac97e6147aa9a221047d9a3c9278af
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867769"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507325"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>在 Azure Stack Hub 存储中使用数据传输工具
 
@@ -108,9 +108,83 @@ Azure PowerShell 是一个模块，它提供的 cmdlet 用于管理 Azure 和 Az
 
 ### <a name="install-and-configure-powershell-for-azure-stack-hub"></a>安装和配置适用于 Azure Stack Hub 的 PowerShell
 
-需要安装与 Azure Stack Hub 兼容的 Azure PowerShell 模块才能使用 Azure Stack Hub。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md) 和[配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
+需要安装与 Azure Stack Hub 兼容的 Azure PowerShell 模块才能使用 Azure Stack Hub。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md) 和[配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的 PowerShell 示例脚本 
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
+此示例假定你已成功[安装了适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。 此脚本会帮助你完成配置，然后要求你提供 Azure Stack Hub 租户凭据，以便将你的帐户添加到本地 PowerShell 环境。 然后，该脚本会设置默认的 Azure 订阅、在 Azure 中创建新的存储帐户、在此新的存储帐户中创建新容器，并将现有图像文件 (Blob) 上传到该容器。 在脚本列出该容器中的所有 Blob 后，它会在本地计算机中创建新的目标目录，并下载图像文件。
+
+1. 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/powershell-install-az-module.md)。
+2. 下载[使用 Azure Stack Hub 所需的工具](../operator/azure-stack-powershell-download.md)。
+3. 打开 **Windows PowerShell ISE**，选择“以管理员身份运行”，  然后单击“文件”   >   “新建”以创建新的脚本文件。
+4. 复制下面的脚本并将其粘贴到新的脚本文件。
+5. 根据配置设置更新脚本变量。
+   > [!NOTE]
+   > 此脚本必须在 **AzureStack_Tools** 的根目录中运行。
+
+```powershell  
+# begin
+
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack Hub environment name
+$ARMEndPoint = "https://management.local.azurestack.external" 
+$GraphAudience = "https://graph.chinacloudapi.cn/" 
+$AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn" 
+
+$SubscriptionName = "basic" # Update with the name of your subscription.
+$ResourceGroupName = "myTestRG" # Give a name to your new resource group.
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
+$Location = "Local" # Choose "Local" as an example.
+$ContainerName = "photo" # Give a name to your new container.
+$ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
+
+# Import the Connect PowerShell module"
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Configure the PowerShell environment
+# Register an Az environment that targets your Azure Stack Hub instance
+Add-AzEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+
+# Login
+$TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
+Add-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+
+# Set a default Azure subscription.
+Select-AzSubscription -SubscriptionName $SubscriptionName
+
+# Create a new Resource Group 
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+
+# Create a new storage account.
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+
+# Set a default storage account.
+Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+
+# Create a new container.
+New-AzureStorageContainer -Name $ContainerName -Permission Off
+
+# Upload a blob into a container.
+Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+
+# List all blobs in a container.
+Get-AzureStorageBlob -Container $ContainerName
+
+# Download blobs from the container:
+# Get a reference to a list of all blobs in a container.
+$blobs = Get-AzureStorageBlob -Container $ContainerName
+
+# Create the destination directory.
+New-Item -Path $DestinationFolder -ItemType Directory -Force  
+
+# Download blobs into the local destination directory.
+$blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
+
+# end
+```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
 此示例假定你已成功[安装了适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。 此脚本会帮助你完成配置，然后要求你提供 Azure Stack Hub 租户凭据，以便将你的帐户添加到本地 PowerShell 环境。 然后，该脚本会设置默认的 Azure 订阅、在 Azure 中创建新的存储帐户、在此新的存储帐户中创建新容器，并将现有图像文件 (Blob) 上传到该容器。 在脚本列出该容器中的所有 Blob 后，它会在本地计算机中创建新的目标目录，并下载图像文件。
 
@@ -144,32 +218,32 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Configure the PowerShell environment
 # Register an AzureRM environment that targets your Azure Stack Hub instance
-Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+Add-AzureRMEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRMAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Select-AzureRMSubscription -SubscriptionName $SubscriptionName
 
 # Create a new Resource Group 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a new storage account.
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+New-AzureRMStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
 
 # Set a default storage account.
-Set-AzureRmCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+Set-AzureRMCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
-New-AzureStorageContainer -Name $ContainerName -Permission Off
+New-AzureRMStorageContainer -Name $ContainerName -Permission Off
 
 # Upload a blob into a container.
-Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+Set-AzureRMStorageBlobContent -Container $ContainerName -File $ImageToUpload
 
 # List all blobs in a container.
-Get-AzureStorageBlob -Container $ContainerName
+Get-AzureRMStorageBlob -Container $ContainerName
 
 # Download blobs from the container:
 # Get a reference to a list of all blobs in a container.
@@ -184,25 +258,29 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 # end
 ```
 
+---
+
+
+
 ### <a name="powershell-known-issues"></a>PowerShell 已知问题
 
 目前兼容的 Azure Stack Hub 的 Azure PowerShell 模块版本为 1.2.11，用于用户操作。 它不同于最新版本的 Azure PowerShell。 这种差异以下述方式影响存储服务操作：
 
-在版本 1.2.11 中，`Get-AzureRmStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
+在版本 1.2.11 中，`Get-AzStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
 
 ```powershell
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.4, and later versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Value[0]
 
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.3.2, and previous versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Key1
 ```
 
-   有关详细信息，请参阅 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey)。
+有关详细信息，请参阅 [Get-AzureRMStorageAccountKey](https://docs.microsoft.com/powershell/module/Az.storage/Get-AzStorageAccountKey)。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -210,7 +288,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 Azure CLI 经过优化，可用于从命令行管理 Azure 资源，以及生成可以针对 Azure 资源管理器运行的自动化脚本。 它提供 Azure Stack Hub 门户所提供的许多功能，包括各种数据访问功能。
 
-Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 执行多个可利用 Azure Stack Hub 存储帐户中资源的任务，请参阅[将 Azure CLI 与 Azure 存储配合使用](/storage/storage-azure-cli)
+Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 执行多个可利用 Azure Stack Hub 存储帐户中的资源的任务，请参阅[将 Azure CLI 与 Azure 存储配合使用](/storage/storage-azure-cli)。
 
 ### <a name="azure-cli-sample-script-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的 Azure CLI 示例脚本
 

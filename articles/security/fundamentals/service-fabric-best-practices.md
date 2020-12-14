@@ -1,19 +1,19 @@
 ---
 title: Azure Service Fabric 安全性最佳做法
 description: 本文提供有关 Azure Service Fabric 安全性的一套最佳做法。
-author: unifycloud
-ms.author: v-tawe
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 12/03/2020
 origin.date: 01/16/2019
-ms.openlocfilehash: 7ddec649f6caa9fb163ba6e62ed3c7a9d1cd5bd1
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 562f5254bd22dffda529d8a992f00a6d44331c91
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439559"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747090"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署应用程序的过程快速、轻松且经济高效。 将云应用程序部署到生产环境前，请先查看有必要遵照和建议的最佳做法列表，了解最好应如何在应用程序中实现群集安全性。
@@ -61,7 +61,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 -   节点到节点安全性：此方案可保护群集中 VM 与计算机之间的通信。 这种安全性可确保只有已获授权加入群集的计算机，才能在群集中托管应用程序和服务。
 在此方案中，Azure 上运行的群集或 Windows 上运行的独立群集可以使用[证书安全性](../../service-fabric/service-fabric-windows-cluster-x509-security.md)或 [Windows 安全性](../../service-fabric/service-fabric-windows-cluster-windows-security.md)（适用于 Windows Server 计算机）。
 -   客户端到节点安全性：此方案可保护 Service Fabric 客户端与群集中各个节点之间的通信。
--   基于角色的访问控制 (RBAC)：此方案对每个访问群集的管理员和用户客户端角色使用独立标识（证书、Azure AD 等）。 这些角色标识是在创建群集时指定。
+-   Service Fabric 基于角色的访问控制 (Service Fabric RBAC)：此方案对每个访问群集的管理员和用户客户端角色使用独立标识（证书、Azure AD 等）。 这些角色标识是在创建群集时指定。
 
 >[!NOTE]
 >**适用于 Azure 群集的安全建议：** 使用 Azure AD 安全性对客户端进行身份验证，并使用证书实现节点到节点安全性。
@@ -84,7 +84,7 @@ Service Fabric 是分布式系统平台，可借助它轻松打包、部署和�
 ## <a name="use-x509-certificates"></a>使用 X.509 证书
 始终使用 X.509 证书或 Windows 安全性保护群集。 安全性仅在群集创建时进行配置。 无法在群集创建后启用安全性。
 
-若要指定[群集证书](../../service-fabric/service-fabric-windows-cluster-x509-security.md)，请将 **ClusterCredentialType** 属性的值设置为 X509。 若要为外部连接指定服务器证书，请将 **ServerCredentialType** 属性的值设置为 X509。
+若要指定 [群集证书](../../service-fabric/service-fabric-windows-cluster-x509-security.md)，请将 **ClusterCredentialType** 属性的值设置为 X509。 若要为外部连接指定服务器证书，请将 **ServerCredentialType** 属性的值设置为 X509。
 
 此外，还请遵照以下做法：
 -   使用正确配置的 Windows Server 证书服务为生产群集创建证书。 也可以从核准证书颁发机构 (CA) 获取证书。
@@ -173,12 +173,13 @@ Service Fabric 使用 X.509 证书保护群集，并提供应用程序安全功�
 创建应用程序以代表群集后，请将用户分配到 Service Fabric 支持的角色，即只读和管理员。可使用 Azure 门户来分配这些角色。
 
 >[!NOTE]
-> 若要详细了解如何在 Service Fabric 使用角色，请参阅[适用于 Service Fabric 客户端的基于角色的访问控制](../../service-fabric/service-fabric-cluster-security-roles.md)。
+> 若要详细了解如何在 Service Fabric 中使用角色，请参阅[适用于 Service Fabric 客户端的 Service Fabric 基于角色的访问控制](../../service-fabric/service-fabric-cluster-security-roles.md)。
 
 对于连接到 [Service Fabric 群集](../../service-fabric/service-fabric-cluster-creation-via-arm.md)的客户端，Azure Service Fabric 支持两种类型的访问控制：基于管理员和用户的访问控制。 群集管理员可以使用访问控制，限制各组用户执行特定的群集操作。 访问控制可提高群集安全性。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Service Fabric 安全性清单](service-fabric-checklist.md)
+- [Service Fabric 安全性清单](../../service-fabric/service-fabric-best-practices-security.md)
 - 设置 Service Fabric [开发环境](../../service-fabric/service-fabric-get-started.md)。
 - 了解 [Service Fabric 支持选项](../../service-fabric/service-fabric-support.md)。
+

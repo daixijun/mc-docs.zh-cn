@@ -11,12 +11,12 @@ ms.reviewer: v-masebo
 origin.date: 07/29/2019
 ms.date: 10/12/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 103bb29e56318cdadd15ea0fe2903efb7b799c6e
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 83f100e48193023f7b1b0a98f0a45ac1b00f2392
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872307"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432427"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 > - 使用 BCP 大容量加载数据
 > - 使用 SSMS 查询数据
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!TIP]
 > 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
@@ -104,7 +104,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 
 1. 部署完成后，请从 Azure 门户菜单中选择“SQL 数据库”，或在任何页面上搜索并选择“SQL 数据库”。  
 
-1. 在“SQL 数据库”页上选择“yourDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的**服务器名称**（例如 `contosodatabaseserver01.database.chinacloudapi.cn`），并提供了其他配置的选项。
+1. 在“SQL 数据库”页上选择“yourDatabase”。 此时会打开数据库的概览页，其中显示了完全限定的 **服务器名称**（例如 `contosodatabaseserver01.database.chinacloudapi.cn`），并提供了其他配置的选项。
 
    ![服务器名称](./media/design-first-database-tutorial/server-name.png)
 

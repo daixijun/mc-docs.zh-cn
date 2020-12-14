@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8012d604108b0712fe7785fe2fb7209431059477
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: 92bdeda83c62cb407eb3f84bcc387515cb0eab7a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589413"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432675"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建和部署逻辑应用工作流
 
@@ -46,7 +46,7 @@ ms.locfileid: "94589413"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -76,7 +76,7 @@ ms.locfileid: "94589413"
 
 <a name="deploy-azure-portal"></a>
 
-#### <a name="portal"></a>[Portal](#tab/azure-portal)
+#### <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 选择以下图像以通过 Azure 帐户登录到 Azure 门户，并从中打开快速入门模板：
 
@@ -84,7 +84,7 @@ ms.locfileid: "94589413"
 
 1. 在门户中的“使用模板创建逻辑应用”页面上，输入或选择这些值：
 
-    | 属性 | 值 | 描述 |
+    | 属性 | “值” | 描述 |
     |----------|-------|-------------|
     | **订阅** | <*Azure-subscription-name*> | 要使用的 Azure 订阅的名称 |
     | **资源组** | <*Azure-resource-group-name*> | 新的或现有的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -206,7 +206,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
     }
     ```
 
-    | 属性 | 值 | 说明 |
+    | 属性 | “值” | 说明 |
     |----------|-------|-------------|
     | `location`| <*Azure-region*> | 用于部署的 Azure 区域。 本示例使用 `China North`。 |
     | `templateLink` : `uri` | <*quickstart-template-URL*> | 用于部署的快速入门模板的 URL 位置： <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
@@ -246,7 +246,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 若要查看逻辑应用，可以使用 Azure 门户、运行使用 Azure CLI 或 Azure PowerShell 创建的脚本，或者使用逻辑应用 REST API。
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 Azure 门户搜索框中，输入逻辑应用的名称，在此示例中为 `Check-Azure-Status-LA`。 从结果列表中，选择逻辑应用。
 
@@ -304,7 +304,7 @@ GET https://management.chinacloudapi.cn/subscriptions/xxxxXXXXxxxxXXXXX/resource
 
 如果打算继续使用后续的快速入门和教程，则可能需要保留这些资源。 当不再需要逻辑应用时，可以通过使用 Azure 门户、Azure CLI、Azure PowerShell 或资源管理 REST API 删除资源组。
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 Azure 门户中，找到并选择要删除的资源组，在此示例中为 `Check-Azure-Status-RG`。
 

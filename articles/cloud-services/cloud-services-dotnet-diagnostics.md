@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: e585ba3dfb1eba10ad8c60d99fd5372c9a98bd6f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ce141dd06954fbec20c96895a74cc4f137182300
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471843"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96509036"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 云服务中启用 Azure 诊断
 有关 Azure 诊断的背景信息，请参阅 [Azure 诊断概述](../azure-monitor/platform/diagnostics-extension-overview.md)。
@@ -25,10 +25,10 @@ ms.locfileid: "92471843"
 本演练介绍如何实现使用 .NET EventSource 类发出遥测数据的 Azure 辅助角色。 Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。 创建辅助角色时，Visual Studio 将在适用于 .NET 2.4 和更低版本的 Azure SDK 中，自动启用 Diagnostics 1.0 作为解决方案的一部分。 以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
 
 ### <a name="prerequisites"></a>先决条件
-本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果没有 Azure 订阅，可以注册 [1 元试用版][1rmb-trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
+本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果没有 Azure 订阅，可以注册[试用帐户][trial account]。 请确保[安装并配置 Azure PowerShell 0.8.7 或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
 ### <a name="step-1-create-a-worker-role"></a>步骤 1：创建辅助角色
-1. 启动 **Visual Studio** 。
+1. 启动 **Visual Studio**。
 2. 从面向 .NET Framework 4.5 的“云”模板创建一个“Azure 云服务”项目   。  将该项目命名为“WadExample”。
 3. 选择“辅助角色”并单击“确定”  。 随后会创建该项目。
 4. 在“解决方案资源管理器”中，双击 WorkerRole1 属性文件   。
@@ -200,6 +200,6 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: https://docs.microsoft.com/previous-versions/azure/gg433048(v=azure.100)
-[1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[trial account]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://docs.microsoft.com/powershell/azure/
 

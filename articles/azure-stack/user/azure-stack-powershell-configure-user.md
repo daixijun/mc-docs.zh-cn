@@ -1,19 +1,19 @@
 ---
 title: 以用户身份使用 PowerShell 连接到 Azure Stack Hub
-description: 了解如何使用 PowerShell 连接到 Azure Stack Hub。
+description: 了解如何使用 PowerShell 连接到 Azure Stack Hub 以使用交互式提示或编写脚本。
 author: WenJason
 ms.topic: article
-origin.date: 8/4/2020
-ms.date: 08/31/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 29c6d07c4865776332be49792493637ccdecc372
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 51ccfb750e39945bf51b64fdd86f99562e8ddf5a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867704"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507979"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack Hub
 
@@ -29,7 +29,7 @@ ms.locfileid: "88867704"
 
 如果已[通过 VPN 建立连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)，请通过[开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)或基于 Windows 的外部客户端配置这些先决条件：
 
-* 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
+* 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/powershell-install-az-module.md)。
 * 下载[使用 Azure Stack Hub 所需的工具](../operator/azure-stack-powershell-download.md)。
 
 确保将以下脚本变量替换为 Azure Stack Hub 配置中的值：
@@ -41,39 +41,85 @@ ms.locfileid: "88867704"
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>使用 Azure AD 连接到 Azure Stack Hub
 
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
 ```powershell  
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
-    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+    Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+ 
+```powershell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    # Set your tenant name
+    $AuthEndpoint = (Get-AzureRMEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
+    Add-AzureRMAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+```
+
+---
+
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>使用 AD FS 连接到 Azure Stack Hub
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
+  ```powershell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
+  Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+
+  # Sign in to your environment
+  Login-AzAccount -EnvironmentName "AzureStackUser"
+  ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+ 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
+  Login-AzureRMAccount -EnvironmentName "AzureStackUser"
   ```
+
+---
+
 
 ## <a name="register-resource-providers"></a>注册资源提供程序
 
 不会自动为没有通过门户部署任何资源的新用户订阅自动注册资源提供程序。 可以通过运行以下脚本显式注册资源提供程序：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az3)
+
 ```powershell  
-foreach($s in (Get-AzureRmSubscription)) {
-        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+foreach($s in (Get-AzSubscription)) {
+        Select-AzSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
-Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
+Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
     }
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm3)
+ 
+```powershell  
+foreach($s in (Get-AzureRMSubscription)) {
+        Select-AzureRMSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+        Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
+Get-AzureRMResourceProvider -ListAvailable | Register-AzureRMResourceProvider
+    }
+```
+
+---
+
 
 [!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
@@ -81,9 +127,19 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 
 完成所有设置后，请通过使用 PowerShell 在 Azure Stack Hub 中创建资源来测试连接。 作为测试，为应用程序创建资源组并添加 VM。 运行以下命令创建名为“MyResourceGroup”的资源组：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az4)
 ```powershell  
-New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm4)
+ 
+```powershell  
+New-AzureRMResourceGroup -Name "MyResourceGroup" -Location "Local"
+```
+
+---
+
 
 ## <a name="next-steps"></a>后续步骤
 

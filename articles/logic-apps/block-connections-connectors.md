@@ -10,12 +10,12 @@ ms.date: 07/20/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5673ccc0743e936f84e400fb7404408de7e47be8
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 3d1177a62e65087be5ccbb84f0522497aabb1aee
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414762"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431705"
 ---
 <!--Verified successfully-->
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>阻止 Azure 逻辑应用中的连接器创建的连接
@@ -26,7 +26,7 @@ ms.locfileid: "86414762"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，请在开始前[创建一个试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要阻止的连接器的引用 ID。 有关详细信息，请参阅[查找连接器引用 ID](#connector-reference-ID)。
 

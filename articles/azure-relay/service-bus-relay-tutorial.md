@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: cc7dd1ee85819c6533c19c7c53bd8c35af3c5b41
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 835d666f5f0eb1ffe7fd1caaa857f800b39e89ea
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146598"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431761"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>教程：使用 Azure WCF 中继向外部客户端公开本地 WCF REST 服务
 
@@ -43,7 +43,7 @@ ms.locfileid: "91146598"
 
 若要完成本教程，需要满足以下先决条件：
 
-* Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio 2015 或更高版本](https://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2019。
 * 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://www.azure.cn/downloads/)安装它。
 

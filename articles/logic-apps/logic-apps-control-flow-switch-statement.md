@@ -11,12 +11,12 @@ origin.date: 10/08/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.date: 11/12/2018
-ms.openlocfilehash: 12e4699ae35caab32c479589f69293e3db3fc4ef
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: 4d6b50ff1544c899086a0e91235ad9962b307097
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029695"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432373"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>基于 Azure 逻辑应用中的特定值创建运行工作流操作的 Switch 语句
 
@@ -30,7 +30,7 @@ ms.locfileid: "88029695"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要执行本文中的示例，请使用 Outlook.com 或 Office 365 Outlook 帐户[创建此示例逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "88029695"
 
 1. 对于此示例，请在示例工作流的末尾添加 switch 语句。 完成最后一步后，选择“新建步骤”。
 
-   如果想要在步骤之间添加 switch 语句，请将指针移到要添加 switch 语句的箭头上。 选择出现的**加号** ( **+** )，然后选择“添加操作”。
+   如果想要在步骤之间添加 switch 语句，请将指针移到要添加 switch 语句的箭头上。 选择出现的 **加号** ( **+** )，然后选择“添加操作”。
 
 1. 在搜索框中，输入“switch”作为筛选器。 选择此操作：**Switch - 控件**
 
@@ -70,8 +70,8 @@ ms.locfileid: "88029695"
 
    | Case # | **SelectedOption** | 操作 |
    |--------|--------------------|--------|
-   | Case 1 | **批准** | 添加 Outlook **发送电子邮件**操作，用于仅在审批者选择了“批准”时才发送有关该 RSS 项的详细信息。 |
-   | Case 2 | **拒绝** | 添加 Outlook **发送电子邮件**操作，用于通知其他审批者该 RSS 项已被拒绝。 |
+   | Case 1 | **批准** | 添加 Outlook **发送电子邮件** 操作，用于仅在审批者选择了“批准”时才发送有关该 RSS 项的详细信息。 |
+   | Case 2 | **拒绝** | 添加 Outlook **发送电子邮件** 操作，用于通知其他审批者该 RSS 项已被拒绝。 |
    | 默认 | 无 | 无需执行任何操作。 在此示例中，**Default** case 为空，因为 **SelectedOption** 只有两个选项。 |
    |||
 

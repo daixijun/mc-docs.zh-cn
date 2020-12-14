@@ -11,12 +11,12 @@ ms.date: 08/24/2020
 ms.testscope: no
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2b7e2326bef4f5fc352034137f708c9f641fb50f
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 8bff2454133562ad4396878fed4c7402c5be7a97
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946873"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431841"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>快速入门：使用 ARM 模板创建服务总线命名空间和队列
 
@@ -30,7 +30,7 @@ ms.locfileid: "88946873"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -152,7 +152,7 @@ ms.locfileid: "88946873"
 ## <a name="clean-up-resources"></a>清理资源
 
 1. 在 Azure 门户中，导航到资源组的“资源组”页。
-2. 从工具栏选择**删除资源组**。 
+2. 从工具栏选择 **删除资源组**。 
 3. 键入资源组的名称，然后选择“删除”。 
 
     :::image type="content" source="./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png" alt-text="资源组 - 删除":::

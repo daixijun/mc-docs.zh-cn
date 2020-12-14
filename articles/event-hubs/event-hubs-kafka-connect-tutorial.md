@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 06/23/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 35a5d0c75a0b90b1c385b9ac52e44050f6305ec0
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 732e362122385a97c6f1247184285254c481f634
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375748"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431150"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>在 Azure 事件中心集成 Apache Kafka Connect 支持（预览版）
 随着业务需求的引入增加，对各种外部源和接收器的引入需求也增加。 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) 提供的框架可以通过 Kafka 群集连接到任何外部系统（例如 MySQL、HDFS）和文件系统并与之进行数据的导入/导出。 本教程详细介绍如何将 Kafka Connect 框架与事件中心配合使用。
@@ -32,7 +32,7 @@ ms.locfileid: "93375748"
 ## <a name="prerequisites"></a>先决条件
 若要完成本演练，请确保具备以下先决条件：
 
-- Azure 订阅。 如果没有订阅，请[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka 发行版（版本为 1.1.1，Scala 版本为 2.11），通过 [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1) 提供

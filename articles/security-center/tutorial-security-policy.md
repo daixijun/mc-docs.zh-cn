@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/04/2019
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 377e49dec0d5eb02b148f6c2103003d54db45c85
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: f9544f90399a04e72a9cd0625a959687aeb108a0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637807"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747240"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -87,7 +87,7 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 你可以在 Azure Policy 门户中通过 REST API 或 Windows PowerShell 编辑安全策略。
 
-安全中心使用基于角色的访问控制 (RBAC)，后者提供可分配到 Azure 用户、组和服务的内置角色。 用户打开安全中心时，只能看到与他们可访问的资源相关的信息。 这意味着，已为用户分配了资源订阅的所有者、参与者或读取者角色。   还有两个特定的安全中心角色：
+安全中心使用 Azure 基于角色的访问控制 (Azure RBAC)，后者提供可分配到 Azure 用户、组和服务的内置角色。 用户打开安全中心时，只能看到与他们可访问的资源相关的信息。 这意味着，已为用户分配了资源订阅的所有者、参与者或读取者角色。   还有两个特定的安全中心角色：
 
 - **安全读取者**：有权查看安全中心项，例如建议、警报、策略和运行状况。 无法执行更改。
 - **安全管理员**：与安全读取者具有相同的查看权限。 还可以更新安全策略并消除警报。

@@ -5,12 +5,12 @@ ms.topic: tutorial
 origin.date: 06/23/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 428e1eda07a4b6b1092b1e913201bfab81d363e8
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: ec9b674deb0b63c188d91f9767aa4ce85fcf68ea
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375749"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431148"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>教程：使用 Stream analytics 处理用于事件中心的 Apache Kafka 事件 
 本文介绍如何将数据流式传输到事件中心，并使用 Azure 流分析对其进行处理。 其中包括以下步骤： 
@@ -26,11 +26,11 @@ ms.locfileid: "93375749"
 
 若要完成本快速入门，请确保符合以下先决条件：
 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 * [下载](https://maven.apache.org/download.cgi)并[安装](https://maven.apache.org/install.html) Maven 二进制存档。
 * [Git](https://www.git-scm.com/)
-* **Azure 存储帐户** 。 如果没有帐户，[先创建一个帐户](../storage/common/storage-account-create.md)，然后再继续进行操作。 本演练中的流分析作业将输出数据存储在 Azure Blob 存储中。 
+* **Azure 存储帐户**。 如果没有帐户，[先创建一个帐户](../storage/common/storage-account-create.md)，然后再继续进行操作。 本演练中的流分析作业将输出数据存储在 Azure Blob 存储中。 
 
 
 ## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
@@ -92,7 +92,7 @@ ms.locfileid: "93375749"
 2. 在“Azure 市场”菜单中选择“Analytics”，然后选择“流分析作业”。 
 3. 在“新建流分析”页上执行以下操作： 
     1. 输入作业的名称。 
-    2. 选择 **订阅** 。
+    2. 选择 **订阅**。
     3. 为资源组选择“新建”，并输入名称。 也可以使用现有资源组。 
     4. 选择作业的位置。
     5. 选择“创建”来创建作业。 
@@ -109,7 +109,7 @@ ms.locfileid: "93375749"
 4. 在“事件中心输入”配置页上，执行以下操作： 
 
     1. 指定输入的别名。 
-    2. 选择 **Azure 订阅** 。
+    2. 选择 **Azure 订阅**。
     3. 选择之前创建的事件中心命名空间。 
     4. 选择事件中心的测试。 
     5. 选择“保存”。 
@@ -122,7 +122,7 @@ ms.locfileid: "93375749"
 2. 选择工具栏上的“+ 添加”，并选择“Blob 存储”
 3. 在“Blob 存储输出设置”页上执行以下操作： 
     1. 指定输出的别名。 
-    2. 选择 **Azure 订阅** 。 
+    2. 选择 **Azure 订阅**。 
     3. 选择 Azure 存储帐户。 
     4. 输入存储流分析查询的输出数据的容器的名称。
     5. 选择“保存”。

@@ -3,17 +3,17 @@ title: 使用 Key Vault 中存储的密码部署 Azure Stack Hub VM
 description: 了解如何使用 Azure Stack Hub 密钥保管库中存储的密码部署 VM。
 author: WenJason
 ms.topic: conceptual
-origin.date: 1/22/2020
-ms.date: 05/18/2020
+origin.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 13767d04e9012a04886ddf7b61e05e56acb0d7ae
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: fa21bc2079171f657d5c9de82995ab1bced16ea8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422063"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507910"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>使用 Key Vault 中存储的密码部署 Azure Stack Hub VM
 
@@ -29,7 +29,7 @@ ms.locfileid: "83422063"
 ## <a name="prerequisites"></a>必备条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 * [配置 PowerShell 环境。](azure-stack-powershell-configure-user.md)
 
 以下步骤说明通过检索 Key Vault 中存储的密码创建 VM 所需的过程：
@@ -45,6 +45,8 @@ ms.locfileid: "83422063"
 
 以下脚本创建密钥保管库，并将密码作为机密存储在密钥保管库中。 创建密钥保管库时，请使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
 
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
 ```powershell
 
 $vaultName = "contosovault"
@@ -52,11 +54,11 @@ $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "MySecret"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
@@ -70,6 +72,35 @@ Set-AzureKeyVaultSecret `
   -SecretValue $secretValue
 
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+```powershell
+
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "MySecret"
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location
+  -EnabledForTemplateDeployment
+
+$secretValue = ConvertTo-SecureString -String '<Password for your virtual machine>' -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+  -SecretValue $secretValue
+
+```
+---
 
 运行前面的脚本时，输出会包括机密 URI（统一资源标识符）。 请记下此 URI。 在[使用密钥保管库中的密码部署 Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 模板中，需要引用此 URI。 将 [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 文件夹下载到开发计算机上。 此文件夹包含 `azuredeploy.json` 和 `azuredeploy.parameters.json` 文件，在后续步骤中将需要这些文件。
 
@@ -110,13 +141,27 @@ Set-AzureKeyVaultSecret `
 
 现在，使用以下 PowerShell 脚本部署模板：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
 ```powershell  
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+```powershell  
+New-AzureRMResourceGroupDeployment `
+  -Name KVPwdDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+
+---
+
 
 成功部署模板后，会生成以下输出：
 

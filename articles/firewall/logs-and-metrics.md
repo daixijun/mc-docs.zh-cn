@@ -4,18 +4,18 @@ description: 可以使用防火墙日志来监视 Azure 防火墙。 此外，�
 services: firewall
 ms.service: firewall
 ms.topic: article
-origin.date: 08/25/2020
+origin.date: 09/10/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3be42a04aca42b1dc44426e7d7b863e6c6f15bfd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: ef16d247e7a58b05387e9c44141156f729d19e34
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246795"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746808"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure 防火墙日志和指标
 
@@ -78,6 +78,48 @@ ms.locfileid: "91246795"
 
     ```
 
+* **DNS 代理日志**
+
+    仅当为每个 Azure 防火墙启用了 DNS 代理日志时，才会将此日志保存到存储帐户、流式传输到事件中心和/或发送到 Azure Monitor 日志。 此日志跟踪发送到使用 DNS 代理配置的 DNS 服务器的 DNS 消息。 如以下示例中所示，数据以 JSON 格式记录：
+
+    ```
+    Category: DNS proxy logs.
+    Time: log timestamp.
+    Properties: currently contains the full message.
+    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+    ```
+
+    成功：
+    ```json
+    {
+      "category": "AzureFirewallDnsProxy",
+      "time": "2020-09-02T19:12:33.751Z",
+      "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+      "operationName": "AzureFirewallDnsProxyLog",
+      "properties": {
+          "msg": "DNS Request: 11.5.0.7:48197 - 15676 AAA IN md-l1l1pg5lcmkq.blob.core.chinacloudapi.cn. udp 55 false 512 NOERROR - 0 2.000301956s"
+      }
+    }
+    ```
+
+    失败：
+
+    ```json
+    {
+      "category": "AzureFirewallDnsProxy",
+      "time": "2020-09-02T19:12:33.751Z",
+      "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+      "operationName": "AzureFirewallDnsProxyLog",
+      "properties": {
+          "msg": " Error: 2 time.windows.com.reddog.microsoft.com. A: read udp 10.0.1.5:49126->168.63.129.160:53: i/o timeout"
+      }
+    }
+    ```
+
+    消息格式：
+
+    `[client's IP address]:[client's port] - [query ID] [type of the request] [class of the request] [name of the request] [protocol used] [request size in bytes] [EDNS0 DO (DNSSEC OK) bit set in the query] [EDNS0 buffer size advertised in the query] [response CODE] [response flags] [response size] [response duration]`
+
 可通过三种方式存储日志：
 
 * **存储帐户**：如果日志存储时间较长并且希望能根据需要随时查看，则最好使用存储帐户。
@@ -138,7 +180,7 @@ Azure Monitor 中的指标是数字值，用于描述系统某些方面在特定
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](tutorial-diagnostics.md)。
+- 若要了解如何监视 Azure 防火墙日志和指标，请参阅[教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)。
 
 - 若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 

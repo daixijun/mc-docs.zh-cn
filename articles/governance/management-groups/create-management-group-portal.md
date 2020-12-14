@@ -1,16 +1,16 @@
 ---
-title: 快速入门：使用门户创建管理组
+title: 使用门户创建管理组
 description: 本快速入门使用 Azure 门户创建管理组，将资源整理到资源层次结构中。
 origin.date: 08/31/2020
 ms.date: 09/15/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 611e430dc8ad1c9c48272844ce595c4af8c007e3
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: d86e349cbf3ee85721e853af2caa96eae472dc64
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456300"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431119"
 ---
 # <a name="quickstart-create-a-management-group"></a>快速入门：创建管理组
 
@@ -20,21 +20,21 @@ ms.locfileid: "90456300"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
-- 如果未启用[层次结构保护](./how-to/protect-resource-hierarchy.md#setting---require-authorization)，则租户中的任何 Azure AD 用户即使未分配有管理组写入权限，也可创建管理组。 这个新的管理组将成为根管理组的子级或[默认管理组](./how-to/protect-resource-hierarchy.md#setting---default-management-group)，并将为创建者分配“所有者”角色。 管理组服务允许此功能，因此不需要在根级别分配角色。 创建根管理组时，用户没有访问权限。 为避免在查找 Azure AD 全局管理员以开始使用管理组方面遇到阻碍，我们允许在根级别创建初始管理组。
+- 如果未启用[层次结构保护](./how-to/protect-resource-hierarchy.md#setting---require-authorization)，则租户中的任何 Azure AD 用户即使未分配有管理组写入权限，也可创建管理组。 这个新的管理组成为根管理组或[默认管理组](./how-to/protect-resource-hierarchy.md#setting---default-management-group)的子级，并且创建者分配有“所有者”角色。 管理组服务支持此功能，因此不需要在根级别分配角色。 创建根管理组时，用户没有访问权限。 为避免在查找 Azure AD 全局管理员以开始使用管理组方面遇到阻碍，我们允许在根级别创建初始管理组。
 
 ### <a name="create-in-portal"></a>在门户中创建
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 选择“所有服务” > “管理 + 治理” 。
+1. 选择“所有服务” > “管理组”
 
-1. 选择“管理组”。
+1. 连接管理组
 
-1. 选择“+ 添加管理组”。****
+1. 选择“添加管理组”。
 
-   :::image type="content" source="./media/main.png" alt-text="显示子管理组和订阅的“管理组”页面的屏幕截图。" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="显示子管理组和订阅的“管理组”页的屏幕截图。" border="false":::
 
 1. 选择“新建”，然后填写管理组 ID 字段。
 
@@ -43,15 +43,15 @@ ms.locfileid: "90456300"
 
    :::image type="content" source="./media/create_context_menu.png" alt-text="用于创建新管理组的“添加管理组”选项的屏幕截图。":::
 
-1. 选择“保存” 。
+1. 选择“保存”。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 若要删除创建的管理组，请执行以下步骤：
 
-1. 选择“所有服务” > “管理 + 治理” 。
+1. 选择“所有服务” > “管理组”
 
-1. 选择“管理组”。
+1. 连接管理组
 
 1. 找到前面创建的管理组，选择它，然后选择名称旁边的“详细信息”。
    然后选择“删除”并确认提示。
@@ -60,7 +60,7 @@ ms.locfileid: "90456300"
 
 在本快速入门中，你创建了一个管理组来整理资源层次结构。 管理组可以包含订阅或其他管理组。
 
-要详细了解管理组以及如何管理资源层次结构，请继续执行以下操作：
+若要详细了解管理组以及如何管理资源层次结构，请继续学习：
 
 > [!div class="nextstepaction"]
-> [使用管理组管理资源](./manage.md)
+> 使用管理组管理资源

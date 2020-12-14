@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/12/2018
 ms.date: 07/13/2020
-ms.openlocfilehash: 7bd450b64f3c4fc8f40f2ff49aed69c7172f92e2
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 4a942fd45edab2d5195b129e12a8c0d9e9bba8fa
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432621"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "86227850"
 
 确保具有以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有 Azure 订阅，可注册一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio](https://www.visualstudio.com/downloads/)。 必须安装 C++ 语言组件才能生成和运行此示例。
 * [Visual Studio Linux 开发](https://docs.microsoft.com/cpp/linux/?view=vs-2019)。 如果基于 Linux 开发，还必须安装 Visual Studio Linux 扩展。
 

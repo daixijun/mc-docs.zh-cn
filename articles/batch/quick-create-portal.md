@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8d3181a6fb7202873dac15206d3f3a3b3af53e0b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 340217875404570d0f41e4006a2ad412b4f9b68a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146263"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746725"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入门：在 Azure 门户中运行第一个 Batch 作业
 
@@ -23,105 +23,105 @@ ms.locfileid: "91146263"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 
 请按以下步骤创建一个用于测试的示例 Batch 帐户。 创建池和作业需要 Batch 帐户。 如此处所示，可以将 Azure 存储帐户与 Batch 帐户相关联。 虽然本快速入门不需要，但存储帐户可以用于为大多数现实世界的工作负荷部署应用程序和存储输入和输出数据。
 
-<!--MOONCAKE CUSOTMIZE: CORRECT ON **Virtual Machines**->
+<!--MOONCAKE CUSOTMIZE: CORRECT ON **Virtual Machines**-->
 
-1. In the Azure portal, Select **Create a resource** > **Virtual Machines** > **Batch Service**. 
+1. 在 Azure 门户中，选择“创建资源” > “虚拟机” > “Batch 服务”。 
 
-   :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Screenshot of Batch Service in the Azure Marketplace.":::
+   :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Azure 市场中的 Batch 服务的屏幕截图。":::
 
-1. In the **Resource group** field, select **Create new** and enter a name for your resource group.
+1. 在“资源组”字段中，选择“新建”，然后输入资源组的名称 。
 
-1. Enter a value for **Account name**. This name must be unique within the Azure **Location** selected. It can contain only lowercase letters and numbers, and it must be between 3-24 characters.
+1. 为“帐户名称”输入值。 该名称在所选的 Azure “位置”中必须是唯一的。 它只能包含小写字母和数字，且必须介于 3 到 24 个字符之间。
 
-1. Under **Storage account**, select an existing storage account or create a new one.
+1. 在“存储帐户”下，选择一个现有存储帐户，或创建一个新的存储帐户。
 
-1. Do not change any other settings. Select **Review + create**, then select **Create** to create the Batch account.
+1. 不要更改任何其他设置。 选择“查看 + 创建”，然后选择“创建”，创建 Batch 帐户 。
 
-When the **Deployment succeeded** message appears, go to the Batch account that you created.
+出现“部署成功”消息后，转到你创建的 Batch 帐户。
 
-## Create a pool of compute nodes
+## <a name="create-a-pool-of-compute-nodes"></a>创建计算节点池
 
-Now that you have a Batch account, create a sample pool of Windows compute nodes for test purposes. The pool for this quick example consists of two nodes running a Windows Server 2019 image from the Azure Marketplace.
+有了 Batch 帐户以后，请创建一个示例池，其中包含用于测试的 Windows 计算节点。 此快速示例的池包含 2 个运行 Windows Server 2019 映像的节点，该映像来自 Azure 市场。
 
-1. In the Batch account, select **Pools** > **Add**.
+1. 在 Batch 帐户中，选择“池” > “添加”。
 
-1. Enter a **Pool ID** called *mypool*.
+1. 输入名为“mypool”的 **池 ID**。
 
-1. In **Operating System**, select the following settings (you can explore other options).
+1. 在“操作系统”中选择以下设置（可以浏览其他选项）。
 
-    |Setting  |Value  |
+    |设置  |值  |
     |---------|---------|
-    |**Image Type**|Marketplace|
-    |**Publisher** |microsoftwindowsserver|
-    |**Offer** |windowsserver|
+    |**映像类型**|市场|
+    |**发布者** |microsoftwindowsserver|
+    |**产品/服务** |windowsserver|
     |**Sku** |2019-datacenter-core-smalldisk|
 
-1. Scroll down to enter **Node Size** and **Scale** settings. The suggested node size offers a good balance of performance versus cost for this quick example.
+1. 向下滚动，以便输入“节点大小”和“规模”设置。  就此快速示例来说，建议的节点大小在性能和成本之间达成了很好的平衡。
 
-    |Setting  |Value  |
+    |设置  |Value  |
     |---------|---------|
-    |**Node pricing tier** |Standard A1|
-    |**Target dedicated nodes** |2|
+    |**节点定价层** |标准 A1|
+    |**目标专用节点** |2|
 
-1. Keep the defaults for remaining settings, and select **OK** to create the pool.
+1. 让其余设置保留默认值，然后选择“确定”以创建该池。
 
-Batch creates the pool immediately, but it takes a few minutes to allocate and start the compute nodes. During this time, the pool's **Allocation state** is **Resizing**. You can go ahead and create a job and tasks while the pool is resizing.
+Batch 会立即创建池，但分配和启动计算节点则需要数分钟。 在此期间，池的“分配状态”为“调整大小”。 当池在调整大小时，可以继续操作，创建作业和任务。
 
-After a few minutes, the allocation state changes to **Steady**, and the nodes start. To check the state of the nodes, select the pool and then select **Nodes**. When a node's state is **Idle**, it is ready to run tasks.
+数分钟后，分配状态更改为“稳定”，节点启动。 若要检查节点的状态，请选择该池，然后选择“节点”。 节点在状态为“空闲”时可以运行任务。
 
-## Create a job
+## <a name="create-a-job"></a>创建作业
 
-Now that you have a pool, create a job to run on it. A Batch job is a logical group for one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks.
+有了池之后，请创建可在其中运行的作业。 Batch 作业是适用于一个或多个任务的逻辑组。 作业包含任务的公用设置，例如优先级以及运行任务的池。 作业一开始没有任务。
 
-1. In the Batch account view, select **Jobs** > **Add**.
+1. 在 Batch 帐户视图中，选择“作业” > “添加”。
 
-1. Enter a **Job ID** called *myjob*. In **Pool**, select *mypool*. Keep the defaults for the remaining settings, and select **OK**.
+1. 输入名为“myjob”的 **作业 ID**。 在“池”中，选择“mypool”。 其余设置保留默认值，然后选择“确定”。
 
-## Create tasks
+## <a name="create-tasks"></a>创建任务
 
-Now, select the job to open the **Tasks** page. This is where you'll create sample tasks to run in the job. Typically, you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a command line to display the Batch environment variables on a compute node, and then waits 90 seconds.
+现在，选择该作业以打开“任务”页。 这就是你要创建在作业中运行的示例任务的位置。 通常创建多个可在计算节点上运行的任务，由 Batch 进行排队和分发。 此示例创建两个相同的任务。 每个任务都运行一个命令行，用于显示计算节点上的 Batch 环境变量，然后等待 90 秒。
 
-When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+使用 Batch 时，可以在命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
 
-To create the first task:
+若要创建第一个任务，请执行以下操作：
 
-1. Select **Add**.
+1. 选择“添加”  。
 
-1. Enter a **Task ID** called *mytask*.
+1. 输入名为“mytask”的 **任务 ID**。
 
-1. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and select **Submit**.
+1. 在“命令行”中输入 `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`。 其余设置保留默认值，然后选择“提交”。
 
-After you create a task, Batch queues it to run on the pool. When a node is available to run it, the task runs.
+创建任务后，Batch 会让其排队在池中运行。 可以使用节点来运行该任务后，任务就会运行。
 
-To create a second task, repeat the steps above. Enter a different **Task ID**, but specify an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
+若要创建第二个任务，请重复上述步骤。 输入另一 **任务 ID**，但请指定相同的命令行。 如果第一个任务仍在运行，Batch 会在池中的另一节点上启动第二个任务。
 
-## View task output
+## <a name="view-task-output"></a>查看任务输出
 
-The example tasks you created will complete in a couple of minutes. To view the output of a completed task, select the task, then select **Files on node**. Select the file `stdout.txt` to view the standard output of the task. The contents are similar to the following:
+你创建的示例任务将在几分钟内完成。 若要查看已完成任务的输出，请选择任务，然后选择“节点上的文件”。 选择 `stdout.txt` 文件以查看任务的标准输出。 内容如下所示：
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot of the output from a completed task.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="已完成任务的输出的屏幕截图。":::
 
-The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs and tasks, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines.
+内容显示在节点上设置的 Azure Batch 环境变量。 创建自己的 Batch 作业和任务时，可以在任务命令行中引用这些环境变量，并在命令行运行的应用和脚本中引用它们。
 
-## Clean up resources
+## <a name="clean-up-resources"></a>清理资源
 
-If you want to continue with Batch tutorials and samples, use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
+若要继续学习 Batch 教程和示例，请使用在本快速入门中创建的 Batch 帐户和关联的存储帐户。 Batch 帐户本身不收费。
 
-You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. In the account view, select **Pools** and the name of the pool. Then select **Delete**.  When you delete the pool, all task output on the nodes is deleted.
+只要有节点在运行，就会对池收费，即使没有计划作业。 不再需要池时，请将其删除。 在帐户视图中，选择“池”和池的名称。 然后选择“删除”。  删除池时会删除节点上的所有任务输出。
 
-When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and select **Delete resource group**.
+若不再需要资源组、Batch 帐户以及所有相关资源，请将其删除。 为此，请选择 Batch 帐户所在的资源组，然后选择“删除资源组”。
 
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+本快速入门创建了 Batch 帐户、Batch 池和 Batch 作业。 作业运行示例任务，你查看了在其中一个节点上产生的输出。 了解 Batch 服务的重要概念以后，即可使用更逼真的工作负荷进行更大规模的 Batch 试用。 若要详细了解 Azure Batch，请继续学习 Azure Batch 教程。
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
+> [Azure Batch 教程](./tutorial-parallel-dotnet.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

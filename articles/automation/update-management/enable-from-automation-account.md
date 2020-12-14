@@ -6,12 +6,12 @@ origin.date: 11/09/2020
 ms.date: 11/23/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 56ea1e9a111862ffc82bd31da1a9006a11bbaa31
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 2d396057916ca09a572c2571b43756ffb87c588d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680631"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432671"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>从自动化帐户启用更新管理
 
@@ -22,7 +22,7 @@ ms.locfileid: "94680631"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有帐户，可注册一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* Azure 订阅。 如果还没有 Azure 订阅，可注册一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 用于管理计算机的[自动化帐户](../index.yml)。
 * [Azure 虚拟机](../../virtual-machines/windows/quick-create-portal.md)。 非 Azure VM 或服务器需要安装用于 Windows 或 Linux 的 [Log Analytics 代理](../../azure-monitor/platform/log-analytics-agent.md)，在其中启用了向链接到自动化帐户更新管理的工作区报告的功能。 
 

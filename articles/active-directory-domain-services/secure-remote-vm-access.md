@@ -1,25 +1,25 @@
 ---
 title: 在 Azure AD 域服务中保护远程 VM 访问 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 域服务托管域中通过对远程桌面服务部署使用网络策略服务器 (NPS) 和 Azure 多重身份验证来保护对 VM 的远程访问。
+description: 了解如何在 Azure Active Directory 域服务托管域中通过对远程桌面服务部署使用网络策略服务器 (NPS) 和 Azure AD 多重身份验证来保护对 VM 的远程访问。
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: d9284d2160191394661adab8c9bab3448bc86dfb
-ms.sourcegitcommit: fe9ccd3bffde0dd2b528b98a24c6b3a8cbe370bc
+ms.openlocfilehash: 6637be90c647dc5b55cef963fca254aa58be3d1d
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86472531"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508722"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>在 Azure Active Directory 域服务中保护对虚拟机的远程访问
 
-若要保护对 Azure Active Directory 域服务 (Azure AD DS) 托管域中运行的虚拟机 (VM) 的远程访问，可以使用远程桌面服务 (RDS) 和网络策略服务器 (NPS)。 Azure AD DS 在用户请求通过 RDS 环境进行访问时对用户进行身份验证。 为了提高安全性，你可以集成 Azure 多重身份验证，以便在发生登录事件期间提供额外的身份验证提示。 Azure 多重身份验证使用 NPS 的一个扩展来提供此功能。
+若要保护对 Azure Active Directory 域服务 (Azure AD DS) 托管域中运行的虚拟机 (VM) 的远程访问，可以使用远程桌面服务 (RDS) 和网络策略服务器 (NPS)。 Azure AD DS 在用户请求通过 RDS 环境进行访问时对用户进行身份验证。 为了提高安全性，你可以集成 Azure AD 多重身份验证，以便在发生登录事件期间提供额外的身份验证提示。 Azure AD 多重身份验证使用 NPS 的一个扩展来提供此功能。
 
 > [!IMPORTANT]
 > 若要安全地连接到 Azure AD DS 托管域中的 VM，建议使用 Azure Bastion，这是在虚拟网络中预配的一项完全由平台托管的 PaaS 服务。 堡垒主机直接在 Azure 门户中通过 SSL 提供与 VM 的安全无缝远程桌面协议 (RDP) 连接。 通过堡垒主机进行连接时，VM 不需要公共 IP 地址，你无需使用网络安全组在 TCP 端口 3389 上公开对 RDP 的访问。
@@ -28,7 +28,7 @@ ms.locfileid: "86472531"
 >
 > 有关详细信息，请参阅[什么是 Azure Bastion？][bastion-overview]。
 
-本文介绍了如何在 Azure AD DS 中配置 RDS，以及如何选择使用 Azure 多重身份验证 NPS 扩展。
+本文介绍了如何在 Azure AD DS 中配置 RDS，以及如何选择使用 Azure AD 多重身份验证 NPS 扩展。
 
 ![远程桌面服务 (RDS) 概述](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "86472531"
 若要完成本文，需准备好以下资源：
 
 * 一个有效的 Azure 订阅。
-    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
+    * 如果你没有 Azure 订阅，请[创建一个帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 与订阅关联的 Azure Active Directory 租户，可以与本地目录或仅限云的目录同步。
     * 如果需要，请[创建一个 Azure Active Directory 租户][create-azure-ad-tenant]或[将 Azure 订阅关联到你的帐户][associate-azure-ad-tenant]。
 * 在 Azure AD 租户中启用并配置 Azure Active Directory 域服务托管域。
@@ -70,7 +70,7 @@ RD 环境部署包含许多步骤。 可以使用现有的 RD 部署指南，不
 
 若要详细了解如何提高部署复原能力，请参阅[远程桌面服务 - 高可用性][rds-high-availability]。
 
-若要详细了解如何保护用户登录，请参阅[工作原理：Azure 多重身份验证][concepts-mfa]。
+若要详细了解如何保护用户登录，请参阅[工作原理：Azure AD 多重身份验证][concepts-mfa]。
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

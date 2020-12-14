@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/06/2019
 md.date: 03/23/2020
 ms.author: v-tawe
-ms.openlocfilehash: a50c32e5f082d4a2c3b889795c049ba8f8fa51cb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7abbc21563cc046084733b7d493bead4a133c671
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79084431"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431217"
 ---
 # <a name="create-an-android-app"></a>创建 Android 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "79084431"
 
 * [Android 开发人员工具](https://developer.android.com/sdk/index.html)，其中包含 Android Studio 集成开发环境和最新的 Android 平台。
 * Azure 移动 Android SDK。
-* [有效的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]

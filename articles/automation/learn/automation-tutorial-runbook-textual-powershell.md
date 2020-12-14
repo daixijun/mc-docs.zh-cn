@@ -7,12 +7,12 @@ ms.subservice: process-automation
 origin.date: 04/19/2020
 ms.date: 08/10/2020
 ms.topic: tutorial
-ms.openlocfilehash: a154bcd0b5a97e6cd897439f86dfe193688fbc9d
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 88d573ef5c11e1d1ea3942229eae399343644534
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788353"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432419"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>教程：创建 PowerShell Runbook
 
@@ -28,7 +28,7 @@ ms.locfileid: "87788353"
 
 要完成本教程，需要以下各项：
 
-* Azure 订阅。 如果没有订阅，可注册[试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* Azure 订阅。 如果还没有 Azure 订阅，可注册一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [自动化帐户](../automation-quickstart-create-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 由于需要停止并启动此虚拟机，因此它不应当是生产 VM。
 * 如果需要，请[导入 Azure 模块](../shared-resources/modules.md)或[更新模块](../automation-update-azure-modules.md)，具体取决于所用的 cmdlet。

@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 01/19/2020
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: c7ddd5912ed7d13d43b376a79481657d74dc6044
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 4000854613cc942f09ff54333c2261958cb0ebff
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105690"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431112"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
 
@@ -24,7 +24,7 @@ Azure 数据资源管理器指标提供关于 Azure 数据资源管理器群集�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有，可以创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有，可以创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 一个[群集和数据库](create-cluster-database-portal.md)。
 
 ## <a name="use-metrics-to-monitor-your-azure-data-explorer-resources"></a>使用指标来监视 Azure 数据资源管理器资源
@@ -42,7 +42,7 @@ Azure 数据资源管理器指标提供关于 Azure 数据资源管理器群集�
 
 ![“指标”窗格](media/using-metrics/metrics-pane.png)
 
-1. 若要创建指标图表，请选择 **指标** 名称和每个指标的相关 **聚合** 。 有关不同指标的详细信息，请参阅[支持的 Azure 数据资源管理器指标](#supported-azure-data-explorer-metrics)。
+1. 若要创建指标图表，请选择 **指标** 名称和每个指标的相关 **聚合**。 有关不同指标的详细信息，请参阅[支持的 Azure 数据资源管理器指标](#supported-azure-data-explorer-metrics)。
 1. 选择“添加指标”可以查看在同一图表中绘制的多个指标。 
 1. 选择“+ 新建图表”可在一个视图中查看多个图表。 
 1. 使用时间选取器更改时间范围（默认：过去 24 小时）。
@@ -102,7 +102,7 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 | 发现延迟 | 秒 | Avg、Max、Min | 从数据排队开始到被数据连接发现为止的时间。 此时间未包括在 Kusto 总体引入持续时间或 KustoEventAge（引入延迟）中  | 数据库、表、数据连接类型、数据连接名称 |
 | 处理的事件数（适用于事件中心/IoT 中心） | 计数 | Max、Min、Sum | 从事件中心读取的以及由群集处理的事件总数 事件划分为群集引擎拒绝的事件和接受的事件。 | EventStatus |
 | 引入延迟 | 秒 | Avg、Max、Min | 引入数据的延迟，根据从群集中收到数据，到数据可供查询的时间来测得。 引入延迟周期决于引入方案。 | 无 |
-| 引入结果 | 计数 | 计数 | 失败和成功的引入操作总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（ **值** > **状态** ）。| IngestionResultDetails |
+| 引入结果 | 计数 | 计数 | 失败和成功的引入操作总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（**值** > **状态**）。| IngestionResultDetails |
 | 引入量 (MB) | 计数 | Max、Sum | 引入到群集中的数据在压缩前的总大小 (MB)。 | 数据库 |
 | 阶段延迟 | 秒 | Avg、Max、Min | 某个特定组件处理这批数据的持续时间。 一批数据的所有组成部分的总阶段延迟等于这批数据的引入延迟。 | 数据库、数据连接类型、数据连接名称|
 
@@ -112,7 +112,7 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 
 |**指标** | **单位** | **聚合** | **度量值说明** | **Dimensions** |
 |---|---|---|---|---|
-流引入数据速率 |    Count   | RateRequestsPerSecond | 引入群集的数据总量。 | 无 |
+流引入数据速率 |    计数   | RateRequestsPerSecond | 引入群集的数据总量。 | 无 |
 流引入持续时间   | 毫秒  | Avg、Max、Min | 所有流引入请求的总持续时间。 | 无 |
 流引入请求速率   | 计数 | Count、Avg、Max、Min、Sum | 流引入请求总数。 | 无 |
 流引入结果 | 计数 | Avg   | 流引入请求总数，按结果类型列出。 | 结果 |

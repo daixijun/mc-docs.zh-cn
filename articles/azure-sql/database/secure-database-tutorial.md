@@ -11,12 +11,12 @@ ms.reviewer: ''
 origin.date: 09/21/2019
 ms.date: 10/12/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: e5ac8eab864a8e56781be73311e1ad01bfbd7162
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: d9a18c5d51c1c18983b71a33695d07e67ae893c5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872476"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431661"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>教程：保护 Azure SQL 数据库中的数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ Azure SQL 数据库支持通过以下方式保护数据：
 - [服务器](logical-servers.md)和单一数据库
   - 通过 [Azure 门户](single-database-create-quickstart.md)、[CLI](az-cli-script-samples-content-guide.md) 或 [PowerShell](powershell-script-content-guide.md) 创建它们
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -289,7 +289,7 @@ Azure Defender for SQL 功能可检测出现的可能威胁，并提供有关异
        - **Log Analytics**，可以自动存储事件，这些事件用于查询或者在将来用于分析
 
            > [!NOTE]
-           > 需要使用 **Log Analytics 工作区**来支持高级功能，例如分析、自定义警报规则，以及 Excel 或 Power BI 导出。 在没有工作区的情况下，只能使用查询编辑器。
+           > 需要使用 **Log Analytics 工作区** 来支持高级功能，例如分析、自定义警报规则，以及 Excel 或 Power BI 导出。 在没有工作区的情况下，只能使用查询编辑器。
 
        - **事件中心**，可以路由需要在其他应用程序中使用的事件
 

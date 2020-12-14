@@ -3,15 +3,15 @@ title: Azure 自动化更新管理概述
 description: 本文概述了为 Windows 和 Linux 计算机实现更新的更新管理功能。
 services: automation
 ms.subservice: update-management
-origin.date: 10/26/2020
-ms.date: 11/23/2020
+origin.date: 11/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a0480b6d89cf3174767b09fb2fba1ca90fd88293
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: ddec7d7c46a597349722a7fee9c2af703c7c7f31
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680673"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746839"
 ---
 # <a name="update-management-overview"></a>更新管理概述
 
@@ -72,10 +72,10 @@ ms.locfileid: "94680673"
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2（RTM 和 SP1 Standard）| 更新管理仅支持对此操作系统进行评估和修补。 Windows Server 2008 R2 不支持[混合 Runbook 辅助角色](../automation-windows-hrw-install.md)。 |
-|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理需要具有访问更新存储库的权限。 基于分类的修补需要借助 `yum` 来返回 CentOS 的 RTM 版本中没有的安全数据。 有关 CentOS 上基于分类的修补的详细信息，请参阅 [Linux 上的更新分类](view-update-assessments.md#linux)。          |
-|Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
+|CentOS 6 和 7 (x64)      | Linux 代理需要具有访问更新存储库的权限。 基于分类的修补需要借助 `yum` 来返回 CentOS 的 RTM 版本中没有的安全数据。 有关 CentOS 上基于分类的修补的详细信息，请参阅 [Linux 上的更新分类](view-update-assessments.md#linux)。          |
+|Red Hat Enterprise 6 和 7 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
 |SUSE Linux Enterprise Server 12 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
-|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x86/x64)      |Linux 代理需要具有访问更新存储库的权限。         |
+|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x64)      |Linux 代理需要具有访问更新存储库的权限。         |
 
 > [!NOTE]
 > Azure 虚拟机规模集可通过更新管理进行管理。 更新管理适用于实例本身，而非基础映像。 你需要以增量方法计划更新，这样所有 VM 实例才不会同时更新。
@@ -124,7 +124,7 @@ Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Micro
 
 启用更新管理后，任何直接连接到 Log Analytics 工作区的 Windows 计算机都会自动配置为混合 Runbook 辅助角色，为支持更新管理的 Runbook 提供支持。
 
-更新管理托管的每个 Windows 计算机都会作为自动化帐户的一个“系统混合辅助角色组”列在“混合辅助角色组”窗格中。 这些组使用 `Hostname FQDN_GUID` 命名约定。 不能在帐户中通过 Runbook 将这些组作为目标进行操作。 如果尝试，则尝试会失败。 这些组仅用于为更新管理提供支持。 若要详细了解如何查看配置为混合 Runbook 辅助角色的 Windows 计算机的列表，请参阅[查看混合 Runbook 辅助角色](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)。
+更新管理托管的每个 Windows 计算机都会作为自动化帐户的一个“系统混合辅助角色组”列在“混合辅助角色组”窗格中。 这些组使用 `Hostname FQDN_GUID` 命名约定。 不能在帐户中通过 Runbook 将这些组作为目标进行操作。 如果尝试，则尝试会失败。 这些组仅用于为更新管理提供支持。 若要详细了解如何查看配置为混合 Runbook 辅助角色的 Windows 计算机的列表，请参阅[查看混合 Runbook 辅助角色](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers)。
 
 如果为更新管理和混合 Runbook 辅助角色组成员身份使用同一帐户，则可以将 Windows 计算机添加到自动化帐户中的混合 Runbook 辅助角色组来为自动化 Runbook 提供支持。 此功能是在 7.2.12024.0 版本的混合 Runbook 辅助角色中添加的。
 
@@ -215,7 +215,7 @@ sudo yum -q --security check-update
 
 - 使用 Azure [资源管理器模板](enable-from-template.md)将更新管理部署到订阅中新的或现有的自动化帐户和 Azure Monitor Log Analytics 工作区。 它不会配置应管理的计算机范围，而是在使用模板后在单独的步骤中执行此操作。
 
-- 从[自动化帐户](enable-from-automation-account.md)为一个或多个 Azure 和非 Azure 计算机（包括启用了 Arc 的服务器）启用。
+- 从[自动化帐户](enable-from-automation-account.md)为一个或多个 Azure 和非 Azure 计算机启用。
 
 - 从 Azure 门户中的“虚拟机”页为[所选 Azure VM](enable-from-vm.md) 启用。 此方案适用于 Linux 和 Windows VM。
 

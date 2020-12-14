@@ -8,19 +8,19 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 origin.date: 08/23/2019
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 6041beadd522832bb0cf835801c6fae2945709a6
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: b5a12b999371587347f3254c496f57d46ac59da6
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153108"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746744"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的源代码管理集成
 
-本教程概述了如何将 SQL Server Data tools (SSDT) 数据库项目与源代码管理集成。  源代码管理集成是使用 Azure Synapse Analytics 中的专用 SQL 池资源构建持续集成和部署管道的第一步。
+本教程概述了如何将 SQL Server Data Tools (SSDT) 数据库项目与源代码管理集成。  源代码管理集成是使用 Azure Synapse Analytics 中的专用 SQL 池资源构建持续集成和部署管道的第一步。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -39,11 +39,13 @@ ms.locfileid: "96153108"
    ![管理连接](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "管理连接")
 
 3. 通过依次选择“管理连接”、“连接到项目”连接到你的项目 。
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "连接")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "连接")
 
 
 4. 找到你在步骤 1 中创建的项目，选择“连接”。
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "连接")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "连接")
 
 
 3. 将项目中的 Azure DevOps 存储库克隆到本地计算机。
@@ -86,7 +88,7 @@ ms.locfileid: "96153108"
 
    ![验证](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "验证更改")
 
-4. （**可选**）使用“架构比较”并使用 SSDT 更新对目标数据仓库的更改，以确保 Azure Repo 存储库和本地存储库中的对象定义反映数据仓库。
+4. （可选）使用“架构比较”并使用 SSDT 更新对目标专用 SQL 池的更改，以确保 Azure Repo 存储库和本地存储库中的对象定义反映专用 SQL 池。
 
 ## <a name="next-steps"></a>后续步骤
 

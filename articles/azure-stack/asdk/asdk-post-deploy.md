@@ -3,17 +3,17 @@ title: ASDK 的部署后配置
 description: 了解安装 Azure Stack 开发工具包 (ASDK) 后要进行的建议配置更改。
 author: WenJason
 ms.topic: article
-origin.date: 07/31/2019
-ms.date: 08/31/2020
+origin.date: 11/14/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: misainat
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: f2d4e795dfcb1b8360779154bad8d042a0aecbb6
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: ffcf0ecf7fcb5bdffacfb32d771720699155abf1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867790"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507950"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 
@@ -29,15 +29,32 @@ ms.locfileid: "88867790"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 可通过 PowerShell 库获得的 **AzureRM.BootStrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
+使用 API 版本配置文件来指定与 Azure Stack 兼容的 Az 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Az PowerShell 模块。 可通过 PowerShell 库获得的 Az.BootStrapper 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
 
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
 > [!IMPORTANT]
-> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。
+> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。
 
-- 已从 ASDK 主计算机**建立 Internet 连接**：运行以下 PowerShell 脚本，以在 ASDK 安装中安装以下模块：
+- 已从 ASDK 主计算机 **建立 Internet 连接**：运行以下 PowerShell 脚本，以在 ASDK 安装中安装以下模块：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
+  ```powershell  
+  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+
+  # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet
+  Install-Module -Name Az.BootStrapper
+
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+  Use-AzProfile -Profile 2019-03-01-hybrid -Force
+  Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+  ```
+
+如果安装成功，输出中会显示 Az 和 AzureStack 模块。
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
   ```powershell  
   Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
@@ -51,9 +68,38 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
   Install-Module -Name AzureStack -RequiredVersion 1.8.2
   ```
 
-  如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
+如果安装成功，输出中会显示 AureRM 和 AzureStack 模块。
+
+---
 
 - **未从 ASDK 主计算机建立 Internet 连接**：在离线场景中，必须先使用以下 PowerShell 命令，将 PowerShell 模块下载到已建立 Internet 连接的计算机：
+
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
+  ```powershell
+  $Path = "<Path that is used to save the packages>"
+
+  Save-Package `
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $Path -Force -RequiredVersion 2.3.0
+  
+  Save-Package `
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+  ```
+
+  接下来，将下载的包复制到 ASDK 计算机，将该位置注册为默认存储库，并从此存储库安装 Az 和 AzureStack 模块：
+
+  ```powershell  
+  $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+  $RepoName = "MyNuGetSource"
+
+  Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+  Install-Module Az -Repository $RepoName
+
+  Install-Module AzureStack -Repository $RepoName
+  ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -67,37 +113,72 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   接下来，将下载的包复制到 ASDK 计算机，将该位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
 
-    ```powershell  
-    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-    $RepoName = "MyNuGetSource"
+  ```powershell  
+  $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+  $RepoName = "MyNuGetSource"
 
-    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+  Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-    Install-Module AzureRM -Repository $RepoName
+  Install-Module AzureRM -Repository $RepoName
 
-    Install-Module AzureStack -Repository $RepoName
-    ```
+  Install-Module AzureStack -Repository $RepoName
+  ```
+
+---
 
 ## <a name="download-the-azure-stack-tools"></a>下载 Azure Stack 工具
 
-[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。 若要获取这些工具，请克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
+[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。 可通过 Az PowerShell 模块或 AzureRM 模块来使用这些工具。
 
-  ```powershell
-  # Change directory to the root directory.
-  cd \
+### <a name="az-modules"></a>[Az 模块](#tab/az3)
 
-  # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  Invoke-WebRequest `
-    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-    -OutFile master.zip
+若要获取这些工具，请从 `az` 分支克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
 
-  # Expand the downloaded files.
-  Expand-Archive -Path master.zip -DestinationPath . -Force
+```powershell
+# Change directory to the root directory.
+cd \
 
-  # Change to the tools directory.
-  cd AzureStack-Tools-master
-  ```
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
+
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+cd AzureStack-Tools-az
+
+```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm3)
+
+若要获取这些工具，请从 `master` 分支克隆 GitHub 存储库，或通过在提升的 PowerShell 提示符下运行以下脚本来下载 AzureStack-Tools 文件夹：
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  -OutFile master.zip
+
+# Expand the downloaded files.
+expand-archive master.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+cd AzureStack-Tools-master
+
+```
+若要详细了解如何使用适用于 Azure Stack Hub 的 AzureRM 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块](../operator/azure-stack-powershell-install.md)
+
+---
 
 ## <a name="validate-the-asdk-installation"></a>验证 ASDK 安装
 

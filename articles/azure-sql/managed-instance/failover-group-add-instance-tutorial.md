@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: sashan, sstein
 origin.date: 08/27/2019
 ms.date: 10/29/2020
-ms.openlocfilehash: c25d10c33910dd71e91d849e26b866856640fb31
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: f288222d227836c1e1dcb4b2ceb81a28243c5eec
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470278"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432606"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>教程：将 SQL 托管实例添加到故障转移组
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,13 +41,13 @@ ms.locfileid: "92470278"
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 若要完成本教程，请确保做好以下准备： 
 
-- 一个 Azure 订阅。如果你没有 Azure 订阅，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
+- 一个 Azure 订阅。如果还没有 Azure 订阅，请[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 若要完成本教程，请确保准备好以下各项：
 
-- Azure 订阅。 如果你没有帐户，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 
 ---
@@ -381,7 +381,7 @@ ms.locfileid: "92470278"
 
 本教程部分使用以下 PowerShell cmdlet：
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |
@@ -423,7 +423,7 @@ ms.locfileid: "92470278"
 
    下表显示了辅助虚拟网络所需的值：
 
-    | **字段** | Value |
+    | **字段** | 值 |
     | --- | --- |
     | **名称** |  辅助托管实例要使用的虚拟网络的名称，例如 `vnet-sql-mi-secondary`。 |
     | **地址空间** | 虚拟网络的地址空间，例如 `10.128.0.0/16`。 | 
@@ -458,7 +458,7 @@ ms.locfileid: "92470278"
 
    下表显示了辅助托管实例所需的值：
  
-    | **字段** | Value |
+    | **字段** | 值 |
     | --- | --- |
     | **订阅** |  主托管实例所在的订阅。 |
     | **资源组**| 主托管实例所在的资源组。 |
@@ -707,7 +707,7 @@ ms.locfileid: "92470278"
 
 本教程部分使用以下 PowerShell cmdlet：
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |
@@ -754,7 +754,7 @@ ms.locfileid: "92470278"
 
    下表显示了主托管实例的网关所需的值：
  
-    | **字段** | Value |
+    | **字段** | 值 |
     | --- | --- |
     | **订阅** |  主托管实例所在的订阅。 |
     | **名称** | 虚拟网络网关的名称，例如 `primary-mi-gateway`。 | 
@@ -835,7 +835,7 @@ ms.locfileid: "92470278"
 
    下表显示了辅助托管实例的网关所需的值：
 
-   | **字段** | Value |
+   | **字段** | 值 |
    | --- | --- |
    | **订阅** |  辅助托管实例所在的订阅。 |
    | **名称** | 虚拟网络网关的名称，例如 `secondary-mi-gateway`。 | 
@@ -927,7 +927,7 @@ ms.locfileid: "92470278"
     1. 选中“建立双向连接”旁边的复选框。 
     1. 保留默认的主连接名称，或将其重命名为所选的值。 
     1. 提供连接的“共享密钥(PSK)”，例如 `mi1m2psk`。 
-    1. 选择“确定”保存设置  。 
+    1. 选择“确定”保存设置。 
 
     ![创建网关连接](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
@@ -1778,7 +1778,7 @@ Write-host "Failover group name is" $failoverGroupName
 
 此脚本使用以下命令。 表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |

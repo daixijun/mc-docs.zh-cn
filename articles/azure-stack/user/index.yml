@@ -9,13 +9,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 03/19/2020
-  ms.date: 10/12/2020
-  ms.openlocfilehash: 6cbea38afe36d37f0ad98f9328392a15a3a691b4
-  ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+  ms.date: 12/07/2020
+  ms.openlocfilehash: c936f89f6c312a1812f051a519c6655f30dbbdfc
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/29/2020
-  ms.locfileid: "91437651"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96508118"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 安装 Azure Stack Hub PowerShell
-      url: ../operator/azure-stack-powershell-install.md
+      url: ../operator/powershell-install-az-module.md
     - text: 为 Azure Stack Hub 安装 CLI
       url: azure-stack-version-profiles-azurecli2.md
   - linkListType: sample
@@ -73,6 +73,8 @@ landingContent:
       url: deploy-foundational-patterns.md
     - text: 托管用代码编写的应用
       url: azure-stack-dev-start-deploy-app.md
+    - text: 部署 GPU IoT 模块
+      url: gpu-deploy-sample-module.md
 - title: Azure Stack Hub 上的平台即服务 (PaaS)
   linkLists:
   - linkListType: how-to-guide

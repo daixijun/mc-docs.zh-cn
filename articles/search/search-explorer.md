@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 origin.date: 09/25/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 943cbb75a4c2821d84c675de7487f1d1805db10f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2441b143b4ff34ad59b89ad6fc8b759210dedcdd
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300488"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431000"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>快速入门：在门户中使用“搜索浏览器”来运行查询
 
@@ -26,7 +26,7 @@ ms.locfileid: "96300488"
 
 在开始之前，必须满足以下条件：
 
-+ 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
++ 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + Azure 认知搜索服务。 [创建服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
 

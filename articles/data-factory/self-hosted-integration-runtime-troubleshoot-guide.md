@@ -5,15 +5,15 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 10/29/2020
-ms.date: 11/23/2020
+origin.date: 11/17/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: c331deb90a2afe985c2ad283790cd7238eb9fbc5
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 712795a2ea5e683eeda03a1800906930f9d7912e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680489"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746760"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -22,6 +22,21 @@ ms.locfileid: "94680489"
 本文探讨 Azure 数据工厂中的自承载集成运行时的常用故障排除方法。
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>自承载 IR 一般性故障或错误
+
+### <a name="out-of-memory-issue"></a>内存不足问题
+
+#### <a name="symptoms"></a>症状
+
+尝试使用链接的 IR 或自承载 IR 运行查找活动时发生“OutOfMemoryException”问题。
+
+#### <a name="cause"></a>原因
+
+如果 IR 计算机目前的内存使用率很高，则新活动可能会遇到 OOM (OutOfMemory) 问题。 该问题可能是由大规模的并发活动执行导致的，该错误是设计使然。
+
+#### <a name="resolution"></a>解决方法
+
+请检查 IR 节点上的资源使用情况和并发活动执行情况。 调整活动运行的内部和触发器时间，以避免在同一 IR 节点上同时执行太多操作。
+
 
 ### <a name="tlsssl-certificate-issue"></a>TLS/SSL 证书问题
 
@@ -379,6 +394,57 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 意外改动了某些系统文件或注册表
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>IR 服务帐户无法获取证书访问权限
+
+#### <a name="symptoms"></a>症状
+
+通过 Microsoft Integration Runtime 配置管理器安装自承载 IR 时，会生成一个包含受信任 CA 的证书。 无法应用该证书来加密两个节点之间的通信。 
+
+错误信息如下所示： 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![未能向 IR 服务帐户授予证书访问权限](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>原因
+
+证书在使用尚不受支持的 KSP（密钥存储提供程序）。 到目前为止，SHIR 仅支持 CSP（加密服务提供程序）证书。
+
+#### <a name="resolution"></a>解决方法
+
+对于这种情况，建议使用 CSP 证书。
+
+解决方案 1：使用以下命令来导入证书：
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![使用 certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+解决方案 2：证书转换：
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass: *\<EnterPassword>*
+
+openssl pkcs12 -export -in .\xxxx_new.pem -out xxxx_new.pfx
+
+转换前后：
+
+![证书变更之前](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![证书变更之后](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+### <a name="self-hosted-integration-runtime-version-5x"></a>自承载集成运行时版本 5.x
+若要升级为 Azure 数据工厂自承载集成运行时版本 5.x，必须使用 .NET Framework 运行时 4.7.2 或更高版本。 在下载页中，会出现最新的 4.x 版本和最新的两个 5.x 版本的下载链接。 
+
+
+对于 ADF V2 客户：
+- 如果自动更新已打开，并且你已将 .Net Framework 运行时升级到 4.7.2 或更高版本，则自承载集成运行时会自动升级到最新的 5.x 版本。
+- 如果自动更新已打开，并且你未将 .Net Framework 运行时升级到 4.7.2 或更高版本，则自承载集成运行时不会自动升级到最新的 5.x 版本。 自承载集成运行时会保留当前的 4.x 版本。 你可以在门户和自承载集成运行时客户端中看到有关 .Net Framework 运行时升级的警告。
+- 如果自动更新已关闭，并且你已将 .Net Framework 运行时升级到 4.7.2 或更高版本，则可以手动下载最新的 5.x，并将其安装在计算机上。
+- 如果自动更新已关闭，并且你尚未将 .Net Framework 运行时升级到 4.7.2 或更高版本， 则当你尝试手动安装 SHIR 5.x 并注册密钥时，你需要先升级 .Net Framework 运行时。
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>自承载 IR 连接问题
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>自承载集成运行时无法连接到云服务
@@ -443,7 +509,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
 > [!NOTE] 
 > 代理注意事项：
-> * 检查是否需要将代理服务器放在“安全接收方”列表中。 如果需要，请确保[这些域](/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network)在“安全接收方”列表中。
+> * 检查是否需要将代理服务器放在“安全接收方”列表中。 如果需要，请确保[这些域](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network)在“安全接收方”列表中。
 > * 检查 TLS/SSL 证书“chinae2.frontend.datamovement.azure.cn/”在代理服务器上是否受信任。
 > * 如果在代理上使用 Active Directory 身份验证，请将服务帐户更改为可作为“Integration Runtime 服务”访问该代理的用户帐户。
 
@@ -650,7 +716,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - ADF 服务服务器证书的根 CA 在安装了 SHIR 的计算机上不受信任。 
 - 你在环境中使用了代理，并且代理替换了 ADF 服务的服务器证书，而安装了 SHIR 的计算机不信任被替换的服务器证书。
 
-#### <a name="solution"></a>解决方案
+#### <a name="resolution"></a>解决方法
 
 - 对于原因 1，请确保 ADF 服务器证书及其证书链在安装了 SHIR 的计算机上受信任。
 - 对于原因 2，请在 SHIR 计算机上信任被替换的根 CA，或者将代理配置为不替换 ADF 服务器证书。
@@ -668,6 +734,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 #### <a name="cause"></a>原因
 
 不能跨租户共享自承载 IR。
+
 
 
 ## <a name="next-steps"></a>后续步骤

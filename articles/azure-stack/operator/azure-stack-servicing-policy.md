@@ -3,19 +3,18 @@ title: Azure Stack Hub 服务策略
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
 origin.date: 09/25/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 2079c4768b1fe1bae3173dac37843f3dc4182138
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: fb4a6706a348566d61a26746276005ee3dcd35bc
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507922"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -49,9 +48,9 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack Hub 2008 更新](/azure-stack/operator/release-notes?view=azs-2008)
 - [Azure Stack Hub 2005 更新](/azure-stack/operator/release-notes?view=azs-2005)
 - [Azure Stack Hub 2002 更新](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack Hub 1910 更新](/azure-stack/operator/release-notes?view=azs-1910)
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -65,12 +64,8 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 - [Azure Stack Hub 2005 修补程序](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
 - [Azure Stack Hub 2002 修补程序](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910 修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
-
-> [!IMPORTANT]  
-> 随着 [2002 版](release-notes.md?view=azs-2002) Azure Stack Hub 的推出，为了支持世界各地应对新冠病毒肺炎的客户以及可能对其 Azure Stack Hub 系统做出重要决策的客户，Microsoft 暂时扩展支持策略以包含三个以前的更新版本 (N-3)。 在 2005 版本中，我们将此扩展继续延长 45 天（至 2020 年 9 月 25 日）。 因此，将支持新发布的 2005 更新以及以前的三个更新版本（2002、1910 和 1908 或 N-3）之一。 45 天后（2020 年 9 月 25 日后），我们将恢复标准支持策略，这意味着支持的版本将为 2005、2002 和 1910 或 N-2。
 
 为了使 Azure Stack Hub 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
 

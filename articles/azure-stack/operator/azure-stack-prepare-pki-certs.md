@@ -4,24 +4,26 @@ titleSuffix: Azure Stack Hub
 description: 了解如何为 Azure Stack Hub 部署或为轮换机密准备 PKI 证书。
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 03/04/2020
-ms.date: 10/12/2020
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 16a53498d1b74bb24f5859126ac42446630928f6
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 831cbdf1f65bdf37b06b58820e485a569ce76569
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437680"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508068"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备用于部署或轮换的 Azure Stack Hub PKI 证书
 
+> [!NOTE]
+> 本文仅适用于准备外部证书，这些证书用于保护外部基础结构和服务上的终结点。 内部证书在[证书轮换过程](azure-stack-rotate-secrets.md)中单独进行管理。
+
 必须使用符合 Azure Stack Hub 的证书要求的属性来导入和导出[从证书颁发机构 (CA) 获取](azure-stack-get-pki-certs.md)的证书文件。
 
-在本文中，你将了解如何导入、打包和验证证书，以便为 Azure Stack Hub 部署或机密轮换做准备。 
+本文介绍如何导入、打包和验证外部证书，以便为 Azure Stack Hub 部署或机密轮换做准备。 
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -40,7 +42,7 @@ ms.locfileid: "91437680"
 1. 在 PowerShell 提示符（5.1 或更高版本）下，通过运行以下 cmdlet 来安装 Azure Stack 就绪性检查器模块：
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 2. 指定证书文件的路径。 例如：
 
@@ -135,13 +137,13 @@ ms.locfileid: "91437680"
    > [!WARNING]
    > 如果已以任何方式导入、导出或更改直接由 CA 提供的文件，请勿复制该文件。
 
-1. 右键单击证书并选择“安装证书”**** 或“安装PFX”****，具体取决于从 CA 传送证书的方式。
+1. 右键单击证书并选择“安装证书”或“安装PFX”，具体取决于从 CA 传送证书的方式。
 
-1. 在**证书导入向导**中，选择“本地计算机”**** 作为导入位置。 选择“下一步”  。 在下一个屏幕上，再次选择“下一步”。
+1. 在 **证书导入向导** 中，选择“本地计算机”作为导入位置。 选择“下一步”  。 在下一个屏幕上，再次选择“下一步”。
 
     ![证书的本地计算机导入位置](./media/prepare-pki-certs/1.png)
 
-1. 选择“将所有证书放在以下存储中”****，然后选择“企业信任”**** 作为位置。 选择“确定”**** 以关闭“证书存储选择”对话框，然后选择“下一步”****。
+1. 选择“将所有证书放在以下存储中”，然后选择“企业信任”作为位置。 选择“确定”以关闭“证书存储选择”对话框，然后选择“下一步”。
 
    ![配置用于证书导入的证书存储](./media/prepare-pki-certs/3.png)
 
@@ -149,7 +151,7 @@ ms.locfileid: "91437680"
 
    ![将密钥标记为可导出](./media/prepare-pki-certs/2.png)
 
-1. 选择“完成”以完成导入。****
+1. 选择“完成”以完成导入。
 
 > [!NOTE]
 > 导入 Azure Stack Hub 的证书后，证书的私钥将作为 PKCS 12 文件 (PFX) 存储在群集存储上。
@@ -164,7 +166,7 @@ ms.locfileid: "91437680"
 
     ![在 Microsoft 管理控制台中添加证书管理单元](./media/prepare-pki-certs/mmc-2.png)
 
-3. 选择“计算机帐户”，然后选择“下一步”********。 选择“本地计算机”，然后选择“完成”。******** 选择“确定”以关闭“添加/删除管理单元”页。****
+3. 选择“计算机帐户”，然后选择“下一步”。 选择“本地计算机”，然后选择“完成”。 选择“确定”以关闭“添加/删除管理单元”页。
 
     ![选择与“在 Microsoft 管理控制台中添加证书管理单元”相对应的帐户](./media/prepare-pki-certs/mmc-3.png)
 
@@ -179,21 +181,21 @@ ms.locfileid: "91437680"
 
 7. 在“导出文件格式”部分执行以下操作：
     
-   - 选择“包括证书路径中的所有证书(如果可能)”。****  
-   - 选择“导出所有扩展属性”。****  
-   - 选择“启用证书隐私”。****  
+   - 选择“包括证书路径中的所有证书(如果可能)”。  
+   - 选择“导出所有扩展属性”。  
+   - 选择“启用证书隐私”。  
    - 选择“**下一页**”。  
     
      ![包含选定选项的证书导出向导](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
-8. 选择“密码”**** 并为证书提供密码。 创建满足以下密码复杂性要求的密码：
+8. 选择“密码”并为证书提供密码。 创建满足以下密码复杂性要求的密码：
 
     * 最小长度为 8 个字符。
     * 至少包含以下字符中的三种字符：大写字母、小写字母、0-9 中的数字、特殊字符、不是大写也不是小写的字母字符。
 
     记下此密码。 需将它用作部署参数。
 
-9. 选择“下一步”  。
+9. 选择“**下一步**”。
 
 10. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一步**”。
 

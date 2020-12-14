@@ -2,14 +2,18 @@
 title: Azure Batch 中的作业和任务
 description: 从开发的角度来了解作业和任务及其在 Azure Batch 工作流中的运用。
 ms.topic: conceptual
-ms.date: 06/28/2020
-origin.date: 05/12/2020
-ms.openlocfilehash: a570670eb7556a1371882eb94dc55503f7c6971c
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+origin.date: 11/23/2020
+author: rockboyfor
+ms.date: 12/07/2020
+ms.testscope: no
+ms.testdate: 12/07/202
+ms.author: v-yeche
+ms.openlocfilehash: 743a35ba0cb01eee6cf53f24765ecfff9ee3abdc
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85706602"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746892"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Azure Batch 中的作业和任务
 
@@ -19,15 +23,17 @@ ms.locfileid: "85706602"
 
 作业是任务的集合。 作业控制其任务对池中计算节点执行计算的方式。
 
-作业指定要在其上运行工作的[池](nodes-and-pools.md#pools)。 可以为每个作业创建新池，或将池用于多个作业。 可以针对与作业计划关联的每个作业创建池，或者针对与作业计划关联的所有作业创建池。
+作业指定要在其上运行工作的[池](nodes-and-pools.md#pools)。 可以为每个作业创建新池，或将池用于多个作业。 可以针对与[作业计划](#scheduled-jobs)关联的每个作业创建池，或者针对与作业计划关联的所有作业创建池。
 
 ### <a name="job-priority"></a>作业优先级
 
-可以向创建的作业分配可选的作业优先级。 Batch 服务使用作业的优先级值来确定帐户中的作业计划顺序（不要与 [计划的作业](#scheduled-jobs)相混淆）。 优先级值的范围为 -1000 到 1000，-1000 表示最低优先级，1000 表示最高优先级。 若要更新作业的优先级，请调用[更新作业的属性](https://docs.microsoft.com/rest/api/batchservice/job/update)操作 (Batch REST) 或修改 [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) 属性 (Batch .NET)。
+可以向创建的作业分配可选的作业优先级。 Batch 服务使用作业的优先级值来确定每个池内的计划顺序（针对作业中的所有任务）。
 
-在同一个帐户内，高优先级作业的计划优先顺序高于低优先级作业。 一个帐户中具有较高优先级值的作业，其计划优先级并不高于不同帐户中较低优先级值的另一个作业。 已经运行的低优先级作业中的任务不会预先清空。
+若要更新作业的优先级，请调用[更新作业的属性](https://docs.microsoft.com/rest/api/batchservice/job/update)操作 (Batch REST) 或修改 [CloudJob.Priority](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET)。 优先级值范围为 -1000（最低优先级）到 1000（最高优先级）。
 
-不同池的作业计划是独立的。 在不同的池之间，即使作业的优先级较高，如果其关联的池缺少空闲的节点，则不保证此作业优先计划。 在同一个池中，相同优先级的作业有相同的计划机会。
+在同一个池内，高优先级作业的计划优先顺序高于低优先级作业。 运行中的低优先级作业中的任务不会被高优先级作业中的任务抢占。 相同优先级的作业有相同的计划机会，并且不会定义任务执行顺序。
+
+在一个池中运行的具有高优先级值的作业不会影响在不同的池中或不同 Batch 帐户中运行的作业的计划。 作业优先级不适用于在提交作业时创建的[自动池](nodes-and-pools.md#autopools)。
 
 ### <a name="job-constraints"></a>作业约束
 
@@ -40,9 +46,9 @@ ms.locfileid: "85706602"
 
 客户端应用程序可将任务添加到作业，用户也可以指定 [作业管理器任务](#job-manager-task)。 作业管理器任务包含必要的信息用于为池中某个计算节点上运行的包含作业管理器任务的作业创建所需的任务。 作业管理器任务专门由 Batch 来处理；创建作业和重新启动失败的作业后，会立即将任务排队。 [作业计划](#scheduled-jobs)创建的作业需要作业管理器任务，因为它是在实例化作业之前定义任务的唯一方式。
 
-默认情况下，当作业内的所有任务都完成时，作业仍保持活动状态。 可以更改此行为，使作业在其中的所有任务完成时自动终止。 将作业的 onAllTasksComplete 属性（在 Batch .NET 中为 [OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob)）设置为 terminatejob，可在作业的所有任务处于已完成状态时自动终止该作业。
+默认情况下，当作业内的所有任务都完成时，作业仍保持活动状态。 可以更改此行为，使作业在其中的所有任务完成时自动终止。 将作业的 onAllTasksComplete 属性（在 Batch .NET 中为 [OnAllTasksComplete](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob)）设置为 `terminatejob`*`，可在作业的所有任务处于已完成状态时自动终止该作业。
 
-Batch 服务将没有任务的作业视为其所有任务都已完成。 因此，此选项往往与 [作业管理器任务](#job-manager-task)配合使用。 如果想要使用自动作业终止而不通过作业管理器终止，首先应该将新作业的 **onAllTasksComplete** 属性设置为 *noaction*，然后只有在完成将任务添加到作业之后才将它设置为 *terminatejob*。
+Batch 服务将没有任务的作业视为其所有任务都已完成。 因此，此选项往往与 [作业管理器任务](#job-manager-task)配合使用。 如果想要使用自动作业终止而不通过作业管理器终止，首先应将新作业的 onAllTasksComplete 属性设置为 `noaction`，然后仅在完成将任务添加到作业的操作之后才将它设置为 `terminatejob`*`。
 
 ### <a name="scheduled-jobs"></a>计划的作业
 
@@ -54,7 +60,7 @@ Batch 服务将没有任务的作业视为其所有任务都已完成。 因此�
 
 创建任务时，可以指定：
 
-- 任务的**命令行**。 这是可在计算节点上运行应用程序或脚本的命令行。
+- 任务的 **命令行**。 这是可在计算节点上运行应用程序或脚本的命令行。
 
     请务必注意，命令行不是在 shell 下运行的。 因此无法以本机方式利用 shell 功能，例如[环境变量](#environment-settings-for-tasks)扩展（包括 `PATH`）。 若要利用此类功能，必须在命令行中调用 shell，例如，在 Windows 节点上启动 `cmd.exe`，或者在 Linux 上启动 `/bin/sh`：
 
@@ -67,7 +73,7 @@ Batch 服务将没有任务的作业视为其所有任务都已完成。 因此�
 - 应用程序所需的 **环境变量** 。 有关详细信息，请参阅[任务的环境设置](#environment-settings-for-tasks)。
 - 执行任务所依据的 **约束** 。 例如，约束包括允许运行任务的最长时间、重试失败任务的次数上限，以及文件保留在任务工作目录中的最长时间。
 - **Application packages** 。 [应用程序包](batch-application-packages.md) 提供任务运行的应用程序的简化部署和版本控制。 在共享池的环境中，任务级应用程序包特别有用：不同的作业在一个池上运行，完成某个作业时不删除该池。 如果作业中的任务少于池中的节点，任务应用程序包可以减少数据传输，因为应用程序只部署到运行任务的节点。
-- Docker 中心的**容器映像**引用，或者专用注册表和其他设置，用于创建 Docker 容器，其中的任务运行在节点上。 如果池使用容器配置进行设置，则仅指定此信息。
+- Docker 中心的 **容器映像** 引用，或者专用注册表和其他设置，用于创建 Docker 容器，其中的任务运行在节点上。 如果池使用容器配置进行设置，则仅指定此信息。
 
 > [!NOTE]
 > 最长任务生存期（从添加到作业时算起到任务完成时结束）为 180 天。 已完成的任务保存 7 天；最长生存期内未完成的任务的数据不可访问。
@@ -154,14 +160,16 @@ Batch 提供作业准备任务用于前期作业执行设置，还提供作业�
 
 ### <a name="environment-settings-for-tasks"></a>任务的环境设置
 
-批处理服务执行的每个任务都可以访问在计算节点上设置的环境变量。 这包括 Batch 服务（[服务定义型](/batch/batch-compute-node-environment-variables)）定义的环境变量，以及用户可以针对其任务定义的自定义环境变量。 任务执行的应用程序和脚本可以在执行期间访问这些环境变量。
+批处理服务执行的每个任务都可以访问在计算节点上设置的环境变量。 这包括 Batch 服务（[服务定义型](./batch-compute-node-environment-variables.md)）定义的环境变量，以及用户可以针对其任务定义的自定义环境变量。 任务执行的应用程序和脚本可以在执行期间访问这些环境变量。
 
-可以通过填充这些实体的 *环境设置* 属性，在任务或作业级别设置自定义环境变量。 有关更多详细信息，请参阅[将任务添加到作业](https://docs.microsoft.com/rest/api/batchservice/task/add?)] 操作 (Batch REST API)，或 Batch .NET 中的 [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) 和 [CloudJob.CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) 属性。
+可以通过填充这些实体的 *环境设置* 属性，在任务或作业级别设置自定义环境变量。 有关更多详细信息，请参阅[将任务添加到作业](https://docs.microsoft.com/rest/api/batchservice/task/add?)] 操作 (Batch REST API)，或 Batch .NET 中的 [CloudTask.EnvironmentSettings](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask) 和 [CloudJob.CommonEnvironmentSettings](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob) 属性。
 
-客户端应用程序或服务可使用[获取有关任务的信息](https://docs.microsoft.com/rest/api/batchservice/task/get)操作 (Batch REST) 或通过访问 [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) 属性 (Batch .NET)，来获取任务的环境变量（服务定义型和自定义环境变量）。 在计算节点上执行的进程可以在节点上访问这些和其他环境变量，例如，通过使用熟悉的 `%VARIABLE_NAME%` (Windows) 或 `$VARIABLE_NAME` (Linux) 语法。
+客户端应用程序或服务可使用[获取有关任务的信息](https://docs.microsoft.com/rest/api/batchservice/task/get)操作 (Batch REST) 或通过访问 [CloudTask.EnvironmentSettings](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask) 属性 (Batch .NET)，来获取任务的环境变量（服务定义型和自定义环境变量）。 在计算节点上执行的进程可以在节点上访问这些和其他环境变量，例如，通过使用熟悉的 `%VARIABLE_NAME%` (Windows) 或 `$VARIABLE_NAME` (Linux) 语法。
 
 可以在[计算节点环境变量](batch-compute-node-environment-variables.md)中找到包含所有服务定义型环境变量的完整列表。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[文件和目录](files-and-directories.md)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

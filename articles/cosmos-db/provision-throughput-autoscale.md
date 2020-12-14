@@ -5,27 +5,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: ada59d52c51be8341d69ac692cbd2a18424c27c2
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 0a2e851e2ce41c02c0a226aadb6fa679c1b10833
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552776"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598521"
 ---
 <!--Verified successfully-->
 <!--Latest content-->
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>创建具有自动缩放吞吐量的 Azure Cosmos 容器和数据库
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB 使你可以在数据库和容器上设置标准（手动）或自动缩放预配吞吐量。 本文介绍自动缩放预配吞吐量的好处和用例。 
+在 Azure Cosmos DB 中，可以在数据库和容器上配置标准的（手动的）或自动缩放的预配吞吐量。 通过自动缩放 Azure Cosmos DB 中预配的吞吐量，可以立即自动缩放数据库或容器的吞吐量 (RU/s)。 吞吐量会根据使用情况进行缩放，而不会影响工作负荷的可用性、延迟、吞吐量或性能。
 
-自动缩放预配吞吐量非常适合于具有可变或不可预测流量模式，并且在高性能和规模方面需要 SLA 的任务关键型工作负载。 
-
-借助自动缩放，Azure Cosmos DB 会基于使用情况自动并即时地缩放数据库或容器的吞吐量 (RU/s)，而不影响工作负载的可用性、延迟、吞吐量或性能。 
+自动缩放预配吞吐量非常适合于具有可变或不可预测流量模式，并且在高性能和规模方面需要 SLA 的任务关键型工作负载。 本文介绍自动缩放预配吞吐量的好处和用例。
 
 <a name="autoscale-benefits"></a>
 ## <a name="benefits-of-autoscale"></a>自动缩放的好处

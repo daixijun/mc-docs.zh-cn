@@ -9,12 +9,12 @@ origin.date: 08/25/2018
 ms.date: 04/30/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: e2d792c005505c4809aac17790686554a31e1fea
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: f30020659465cfed078fead704828ee4fb945276
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392232"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431863"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>使用 Azure 逻辑应用从 SMTP 帐户发送电子邮件
 
@@ -22,7 +22,7 @@ ms.locfileid: "83392232"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * SMTP 帐户和用户凭据
 
@@ -35,7 +35,7 @@ ms.locfileid: "83392232"
 
     例如，可以使用“创建记录时”Salesforce 触发器来启动逻辑应用。 
     每当在 Salesforce 中创建新记录（例如潜在顾客）时，此触发器都会激发。 
-    在此触发器后，可以跟随执行 SMTP **发送电子邮件**操作。 这样一来，当创建了新记录时，逻辑应用都会从你的 SMTP 帐户发送一封关于新记录的电子邮件。
+    在此触发器后，可以跟随执行 SMTP **发送电子邮件** 操作。 这样一来，当创建了新记录时，逻辑应用都会从你的 SMTP 帐户发送一封关于新记录的电子邮件。
 
 ## <a name="connect-to-smtp"></a>连接到 SMTP
 

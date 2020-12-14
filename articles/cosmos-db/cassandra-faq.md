@@ -2,19 +2,20 @@
 title: 有关用于 Azure Cosmos DB 的 Cassandra API 的常见问题解答
 description: 获取有关 Azure Cosmos DB 的 Cassandra API 的常见问题的解答
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 66595af9818d976497ec65329a54f3a0c1d11fd2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c13c09f90063a030c06a481c15ca56eb4aaf4708
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328430"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598502"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -177,7 +178,7 @@ Cassandra API 借助 Azure Cosmos DB 的多区域分布式平台。 为了确保
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>是否可以在本地将新的 Cassandra API SDK 用于模拟器？
 
-是，系统支持该操作。 可以在[使用 Azure Cosmos 模拟器进行本地开发和测试](local-emulator.md#cassandra-api) 文章中找到有关如何启用此操作的详细信息。
+是，系统支持该操作。 可以在[使用 Azure Cosmos DB 模拟器进行本地开发和测试](local-emulator.md#cassandra-api)一文中找到有关如何启用此操作的详细信息。
 
 ### <a name="how-can-i-migrate-data-from-apache-cassandra-clusters-to-azure-cosmos-db"></a>如何将数据从 Apache Cassandra 群集迁移到 Azure Cosmos DB？
 

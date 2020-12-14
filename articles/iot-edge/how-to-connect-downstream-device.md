@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 10/15/2020
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: ba55bc1c79991d481a67be16e2cf5a7261481d81
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: f27b377c8c4bb844599c592440143335e0135580
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595192"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541189"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 
@@ -169,11 +169,15 @@ var options = {
 3. 在 iotedge_downstream_device_sample.c 文件中，更新 **connectionString** 和 **edge_ca_cert_path** 变量。
 4. 参阅 SDK 文档，获取有关如何在设备上运行该示例的说明。
 
+
 适用于 C 的 Azure IoT 设备 SDK 提供一个用于在设置客户端时注册 CA 证书的选项。 此操作不会在任何位置安装证书，而是使用内存中证书的字符串格式。 建立连接时，将向底层 TLS 堆栈提供已保存的证书。
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
+
+>[!NOTE]
+> 如果使用[托管的](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries)包或库，则在设置客户端时，注册 CA 证书的方法可能会更改。 例如，[基于 Arduino IDE 的库](https://github.com/azure/azure-iot-arduino)需要将 CA 证书添加到全局 [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 文件中定义的证书数组，而不是使用 `IoTHubDeviceClient_LL_SetOption` 操作。  
 
 在 Windows 主机上，如果你不使用 OpenSSL 或其他 TLS 库，则 SDK 默认使用 Schannel。 要使 Schannel 正常工作，应在 Windows 证书存储中安装 IoT Edge 根 CA 证书，而不要使用 `IoTHubDeviceClient_SetOption` 操作进行设置。
 

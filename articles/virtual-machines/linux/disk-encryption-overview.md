@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: ed93f7f0827969f2a802da3d7d69fa15e60f0478
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 1ec5e9439caf602bcd4740c9c710b95515b51782
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637953"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747119"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>适用于 Linux VM 的 Azure 磁盘加密 
 
@@ -34,7 +34,7 @@ Azure 磁盘加密有助于保护数据，使组织能够信守在安全性与�
 
 ### <a name="supported-vms"></a>支持的 VM
 
-Linux VM 具有[各种大小](sizes.md)。 Azure 磁盘加密不适用于[基本的 A 系列 VM](https://www.azure.cn/pricing/details/virtual-machines/)，也不适用于不符合以下最低内存要求的虚拟机：
+Linux VM 具有[各种大小](../sizes.md)。 Azure 磁盘加密不适用于[基本的 A 系列 VM](https://www.azure.cn/pricing/details/virtual-machines/series/)，也不适用于不符合以下最低内存要求的虚拟机：
 
 <!--MOONCAKE: CORRECT ON [Basic, A-series VMs](https://www.azure.cn/pricing/details/virtual-machines/)-->
 
@@ -51,6 +51,8 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 Azure 磁盘加密在[第 2 代 VM](generation-2.md#generation-1-vs-generation-2-capabilities) 上不可用。 有关更多例外，请参阅 [Azure 磁盘加密：不支持的方案](disk-encryption-linux.md#unsupported-scenarios)。
 <!--Not Available on Lsv2-series VM in china -->
 
+Azure 磁盘加密对于没有临时磁盘（Dv4、Dsv4、Ev4 和 Esv4）的 VM 映像不可用。  请参阅[无本地临时磁盘的 Azure VM 规格](../azure-vms-no-temp-disk.md)。
+
 ### <a name="supported-operating-systems"></a>支持的操作系统
 
 [Azure 认可的 Linux 发行版](endorsed-distros.md)的子集支持 Azure 磁盘加密，而 Linux 发行版本身就是所有 Linux 服务器可能的发行版的子集。
@@ -66,6 +68,7 @@ Azure 磁盘加密在[第 2 代 VM](generation-2.md#generation-1-vs-generation-2
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS 和数据磁盘 |
 | Canonical | Ubuntu 14.04.5</br>[其 Azure 优化内核更新到 4.15 或更高版本](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS 和数据磁盘 |
 | Canonical | Ubuntu 14.04.5</br>[其 Azure 优化内核更新到 4.15 或更高版本](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 和数据磁盘 |
+| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS 和数据磁盘 |

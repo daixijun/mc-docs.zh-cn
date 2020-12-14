@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviwer: sstein
 origin.date: 03/13/2019
 ms.date: 10/29/2020
-ms.openlocfilehash: c1ae24fdd03b1276809ccd06009d2f07e5904cd2
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 7ecb6d3095a7819fc5ea94984f1aff66d24aae77
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470233"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431628"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>使用 PowerShell 创建弹性作业代理（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "92470233"
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>安装最新的弹性作业 cmdlet
 
-如果还没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果还没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 安装 **Az.Sql** 模块以获取最新弹性作业 cmdlet。 以管理访问权限在 PowerShell 中运行以下命令。
 
@@ -206,7 +206,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 [目标组](job-automation-overview.md#target-group)定义可以在其上执行作业步骤的数据库集（包含一个或多个数据库）。
 
-以下代码片段创建两个目标组： *serverGroup* 和 *serverGroupExcludingDb2* 。 *serverGroup* 的目标是执行时存在于服务器上的所有数据库， *serverGroupExcludingDb2* 的目标是服务器上的所有数据库， *targetDb2* 除外：
+以下代码片段创建两个目标组：*serverGroup* 和 *serverGroupExcludingDb2*。 *serverGroup* 的目标是执行时存在于服务器上的所有数据库，*serverGroupExcludingDb2* 的目标是服务器上的所有数据库，*targetDb2* 除外：
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -222,7 +222,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>创建作业和步骤
 
-此示例为要运行的作业定义作业和两个作业步骤。 第一个作业步骤 ( *step1* ) 在目标组 *ServerGroup* 的每个数据库中创建新表 ( *Step1Table* )。 第二个作业步骤 ( *step2* ) 在除 *TargetDb2* 之外的每个数据库中创建新表 ( *Step2Table* )，因为之前定义的目标组已指定将其排除。
+此示例为要运行的作业定义作业和两个作业步骤。 第一个作业步骤 (*step1*) 在目标组 *ServerGroup* 的每个数据库中创建新表 (*Step1Table*)。 第二个作业步骤 (*step2*) 在除 *TargetDb2* 之外的每个数据库中创建新表 (*Step2Table*)，因为之前定义的目标组已指定将其排除。
 
 ```powershell
 Write-Output "Creating a new job..."

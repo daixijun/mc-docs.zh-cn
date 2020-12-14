@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: a4ef91fc6814075f6a2580c0c25c75ac0f84a1dc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3b601a3b41a05319554df3562b25a1096fa793c9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63857442"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96476661"
 ---
 #### <a name="prerequisites"></a>必备条件
-* Azure 帐户；可以创建[免费帐户](https://azure.microsoft.com/free)
+* 一个 Azure 帐户；可以创建[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 一个 [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 帐户 
 
 可以在逻辑应用中使用 OneDrive 帐户之前，请先授权该逻辑应用可以连接到 OneDrive 帐户。  可以在 Azure 门户中的逻辑应用内轻松地执行此操作。 

@@ -2,19 +2,18 @@
 title: Azure Stack Hub 服务、计划、套餐和订阅概述
 description: Azure Stack Hub 服务、计划、套餐和订阅的概述。
 author: WenJason
-ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 12/18/2019
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c73d7dda7933b1a33fbeb341f697534d2bf58f8c
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: acaebe9348609bdaf923fd00bc0dc42aa99fb75a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437620"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508015"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub 服务、计划、套餐和订阅概述
 
@@ -107,6 +106,8 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 作为 Azure Stack Hub 操作员，你可以查看有关租户订阅的信息，但无法访问这些订阅的内容，除非你是由该订阅的租户管理员通过 RBAC 显式添加的。 这使租户可以在 Azure Stack Hub 操作员和租户空间之间实施权力和职责分离。 
 
 这种情况的例外情况是，订阅所有者无法向操作员提供访问订阅的权限，这要求管理员获取订阅的所有权，如[更改 Azure Stack Hub 用户订阅的账单所有者](azure-stack-change-subscription-owner.md)中所述。
+
+如果 Azure Stack Hub 实例已断开连接，而你有两个不同的域，其中域 1 中的用户创建域 2 中的用户使用的订阅，则某些订阅可能会出现在管理门户中，但不会出现在用户门户中。 若要解决此问题，请让域 1 中的用户为域 2 中的订阅设置正确的 RBAC。
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 

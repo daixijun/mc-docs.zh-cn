@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 origin.date: 08/02/2020
 ms.date: 09/10/2020
-ms.openlocfilehash: d5f408d3282a7facaaa18171f3a41e8dd9468a22
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 7cf1f33e95e5f6bc474aa2076bd5d108958e2b89
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021598"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430927"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>使用 REST 和 Postman 创建知识库
 
@@ -24,7 +24,7 @@ ms.locfileid: "90021598"
 
 创建知识存储后，可以了解如何使用[存储资源管理器](knowledge-store-view-storage-explorer.md)或 [Power BI](knowledge-store-connect-power-bi.md) 来访问该知识存储。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!TIP]
 > 针对本文，建议阅读 [Postman 桌面应用](https://www.getpostman.com/)。 此外，本文中的[源代码](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)包含涵盖所有请求的 Postman 集合。 

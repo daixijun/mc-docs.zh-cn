@@ -11,25 +11,25 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 03/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: 54c3786d030c90f509f56fe160b5e8e60ad70b08
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 53e1f33d2d3df2cb9d4ab204d8a77ba16c2a68c0
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414616"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432661"
 ---
 <!--Verified successfully-->
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 对 Azure 逻辑应用中的平面文件进行编码或解码
 
-在企业对企业 (B2B) 方案中将 XML 内容发送给业务合作伙伴之前，你可能希望先对该内容进行编码。 通过构建逻辑应用，你可以使用**平面文件**连接器对平面文件进行编码和解码。 逻辑应用可以从各种源（例如请求触发器、其他应用，或其他[由 Azure 逻辑应用支持的连接器](../connectors/apis-list.md)）获取此 XML 内容。 有关详细信息，请参阅[什么是 Azure 逻辑应用？](logic-apps-overview.md)
+在企业对企业 (B2B) 方案中将 XML 内容发送给业务合作伙伴之前，你可能希望先对该内容进行编码。 通过构建逻辑应用，你可以使用 **平面文件** 连接器对平面文件进行编码和解码。 逻辑应用可以从各种源（例如请求触发器、其他应用，或其他[由 Azure 逻辑应用支持的连接器](../connectors/apis-list.md)）获取此 XML 内容。 有关详细信息，请参阅[什么是 Azure 逻辑应用？](logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-* 你要在其中使用**平面文件**连接器的逻辑应用，以及用于启动逻辑应用工作流的触发器。 **平面文件**连接器只提供操作，不提供触发器。 可以使用触发器或其他操作将 XML 内容送入逻辑应用进行编码或解码。 如果不熟悉逻辑应用，请查看[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 你要在其中使用 **平面文件** 连接器的逻辑应用，以及用于启动逻辑应用工作流的触发器。 **平面文件** 连接器只提供操作，不提供触发器。 可以使用触发器或其他操作将 XML 内容送入逻辑应用进行编码或解码。 如果不熟悉逻辑应用，请查看[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-* 一个[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，该帐户与你的 Azure 订阅相关联，并[已关联到逻辑应用](logic-apps-enterprise-integration-accounts.md#link-account)（你计划在其中使用**平面文件**连接器）。 逻辑应用和集成帐户必须位于同一位置或 Azure 区域。
+* 一个 [集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，该帐户与你的 Azure 订阅相关联，并 [已关联到逻辑应用](logic-apps-enterprise-integration-accounts.md#link-account)（你计划在其中使用 **平面文件** 连接器）。 逻辑应用和集成帐户必须位于同一位置或 Azure 区域。
 
 * 已上传到集成帐户的平面文件[架构](logic-apps-enterprise-integration-schemas.md)，用于对 XML 内容进行编码或解码
 

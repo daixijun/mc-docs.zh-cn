@@ -4,16 +4,17 @@ description: 了解如何将 Azure Stack Hub AD FS 标识提供者与数据中�
 author: WenJason
 ms.topic: article
 origin.date: 04/10/2019
-ms.date: 06/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: aa37162a1b7218fd1a54d5ac57d27ad3eb07566d
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.custom: conteperfq4
+ms.openlocfilehash: aa0be0e12a3b200ea8a70ef567114974585c427d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096462"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508105"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -87,13 +88,23 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. 连接到特权终结点后，运行以下命令： 
+2. 现在你已与特权终结点建立了会话，请运行以下命令： 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
    出现提示时，请指定用于 Graph 服务的用户帐户（例如 graphservice）的凭据。 Register-DirectoryService cmdlet 的输入必须是林名称/林中的根域，而不是林中的任何其他域。
@@ -105,8 +116,8 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
    |参数|说明|
    |---------|---------|
-   |`-SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
-   |`-Force`|绕过所有验证检查。|
+   |`SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
+   |`ValidateParameters`|绕过所有验证检查。|
 
 #### <a name="graph-protocols-and-ports"></a>Graph 协议和端口
 

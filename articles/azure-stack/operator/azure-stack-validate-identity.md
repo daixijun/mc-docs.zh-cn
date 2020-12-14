@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器来验证 Azure 标识。
 author: WenJason
 ms.topic: how-to
-origin.date: 06/25/2020
-ms.date: 08/31/2020
+origin.date: 10/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: jerskine
-ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: 9a8a4669de1a1e4190e15301fb030fb6034894f7
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: b2bafdbfeea217e80773603304dd7a06b5d91963
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867815"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508034"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
@@ -32,71 +32,6 @@ ms.locfileid: "88867815"
 从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 Azure Stack Hub 就绪性检查器工具 (AzsReadinessChecker)。
 
 ## <a name="install-and-configure"></a>安装和配置
-
-### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
-
-## <a name="prerequisites"></a>必备条件
-
-需要以下先决条件：
-
-#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell 模块
-
-将需要安装 Az PowerShell 模块。 有关说明，请参阅[安装 PowerShell AzureRM 模块](azure-stack-powershell-install.md)。
-
-#### <a name="the-computer-on-which-the-tool-runs"></a>运行该工具的计算机
-
-- Windows 10 或 Windows Server 2016，已建立 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：********  
-  ```powershell
-  $PSVersionTable.PSVersion
-  ```
-- [为 Azure Stack Hub 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版本的 [Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
-
-#### <a name="azure-ad-environment"></a>Azure AD 环境
-
-- 标识将用于 Azure Stack Hub 的 Azure AD 帐户并确保它是 Azure AD 全局管理员。
-- 标识你的 Azure AD 租户名称。 该租户名称必须是 Azure AD 的主域名。 例如 **contoso.partner.onmschina.cn**。
-- 标识要使用的 Azure 环境。 支持的环境名称参数值为 **AzureChinaCloud**。
-
-## <a name="steps-to-validate-azure-identity"></a>验证 Azure 标识的步骤
-
-1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 命令提示符，然后运行以下命令来安装 **AzsReadinessChecker**：  
-
-   ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
-   ```
-
-2. 从 PowerShell 提示符下，运行以下命令将 `$serviceAdminCredential` 设置为你的 Azure AD 租户的服务管理员。  将 `serviceadmin\@contoso.partner.onmschina.cn` 替换为你的帐户和租户名称：
-
-   ```powershell
-   $serviceAdminCredential = Get-Credential serviceadmin@contoso.partner.onmschina.cn -Message "Enter credentials for service administrator of Azure Active Directory tenant"
-   ```
-
-3. 从 PowerShell 提示符下，运行以下命令来启动对 Azure AD 的验证：
-
-   - 为 **AzureEnvironment** 指定环境名称值。 支持的环境名称参数值为 AzureChinaCloud。
-   - 将 `contoso.partner.onmschina.cn` 替换为你的 Azure Active Directory 租户名称。
-
-   ```powershell
-   Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.partner.onmschina.cn
-   ```
-
-4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”****。 成功的验证如以下示例所示：
-
-   ```powershell
-   Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
-   Starting Azure Identity Validation
-
-   Checking Installation Requirements: OK
-
-   Finished Azure Identity Validation
-
-   Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-   Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-   Invoke-AzsAzureIdentityValidation Completed
-   ```
-
 
 ### <a name="az-powershell"></a>[Az PowerShell](#tab/az)
 
@@ -135,7 +70,7 @@ ms.locfileid: "88867815"
    Invoke-AzsAzureIdentityValidation -AADDirectoryTenantName contoso.partner.onmschina.cn
    ```
 
-4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”****。 成功的验证如以下示例所示：
+4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如以下示例所示：
 
    ```powershell
    Invoke-AzsAzureIdentityValidation v1.2005.1269 started.
@@ -150,6 +85,70 @@ ms.locfileid: "88867815"
    Invoke-AzsAzureIdentityValidation Completed
    ```
 
+
+### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
+
+## <a name="prerequisites"></a>必备条件
+
+需要以下先决条件：
+
+#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell 模块
+
+将需要安装 Az PowerShell 模块。 有关说明，请参阅[安装 PowerShell AzureRM 模块](powershell-install-az-module.md)。
+
+#### <a name="the-computer-on-which-the-tool-runs"></a>运行该工具的计算机
+
+- Windows 10 或 Windows Server 2016，已建立 Internet 连接。
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+  ```powershell
+  $PSVersionTable.PSVersion
+  ```
+- [为 Azure Stack Hub 配置的 PowerShell](powershell-install-az-module.md)。
+- 最新版本的 [Microsoft Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
+
+#### <a name="azure-ad-environment"></a>Azure AD 环境
+
+- 标识将用于 Azure Stack Hub 的 Azure AD 帐户并确保它是 Azure AD 全局管理员。
+- 标识你的 Azure AD 租户名称。 该租户名称必须是 Azure AD 的主域名。 例如 **contoso.partner.onmschina.cn**。
+- 标识要使用的 Azure 环境。 环境名称参数支持的值是“AzureChinaCloud”，具体取决于所使用的 Azure 订阅。
+
+## <a name="steps-to-validate-azure-identity"></a>验证 Azure 标识的步骤
+
+1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 命令提示符，然后运行以下命令来安装 **AzsReadinessChecker**：  
+
+   ```powershell
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
+   ```
+
+2. 从 PowerShell 提示符下，运行以下命令将 `$serviceAdminCredential` 设置为你的 Azure AD 租户的服务管理员。  将 `serviceadmin\@contoso.partner.onmschina.cn` 替换为你的帐户和租户名称：
+
+   ```powershell
+   $serviceAdminCredential = Get-Credential serviceadmin@contoso.partner.onmschina.cn -Message "Enter credentials for service administrator of Azure Active Directory tenant"
+   ```
+
+3. 从 PowerShell 提示符下，运行以下命令来启动对 Azure AD 的验证：
+
+   - 为 **AzureEnvironment** 指定环境名称值。 环境名称参数支持的值是“AzureChinaCloud”，具体取决于所使用的 Azure 订阅。
+   - 将 `contoso.partner.onmschina.cn` 替换为 Azure AD 租户名称。
+
+   ```powershell
+   Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.partner.onmschina.cn
+   ```
+
+4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如以下示例所示：
+
+   ```powershell
+   Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+   Starting Azure Identity Validation
+
+   Checking Installation Requirements: OK
+
+   Finished Azure Identity Validation
+
+   Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+   Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+   Invoke-AzsAzureIdentityValidation Completed
+   ```
 --- 
 
 

@@ -2,19 +2,18 @@
 title: 在 Azure Stack Hub 中创建和发布市场项
 description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: WenJason
-ms.service: azure-stack
 ms.topic: article
-origin.date: 08/18/2020
-ms.date: 10/12/2020
+origin.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 585b3eccd3fc45ced743f29acca4e408c018af37
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: f9c620c9794ed77958404caec4d4363b342fda2c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437731"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507765"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -47,7 +46,7 @@ ms.locfileid: "91437731"
 
    ![部署模板结构的屏幕截图](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. 将 Manifest.json 模板中突出显示的以下值（带编号的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md)时提供的值。
+4. 将 Manifest.json 模板中突出显示的以下值（带编号的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md#add-a-platform-image)时提供的值。
 
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
@@ -152,6 +151,8 @@ ms.locfileid: "91437731"
 
 ## <a name="publish-a-marketplace-item"></a>发布市场项
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack Hub 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
 
 2. 若要将库包导入 Azure Stack Hub 中，首先请远程连接 (RDP) 到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack Hub。
@@ -160,8 +161,8 @@ ms.locfileid: "91437731"
 
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. 运行以下脚本，将资源导入库中：
@@ -184,22 +185,65 @@ ms.locfileid: "91437731"
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-7. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
+7. 可以使用 Remove-AzGalleryItem cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
-   >
-   >
+> [!Note]  
+> 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack Hub 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
+
+2. 若要将库包导入 Azure Stack Hub 中，首先请远程连接 (RDP) 到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack Hub。
+
+3. 添加上下文：
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. 运行以下脚本，将资源导入库中：
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.chinacloudapi.cn/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便能够发布到市场。
+
+   完成库包并使用 **Add-AzsGalleryItem** 将其上传之后，自定义 VM 现在应会显示在市场中以及“创建资源”视图中。 请注意，“市场管理”中不显示自定义库包。
+
+   [![已上传自定义市场项](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "已上传自定义市场项")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. 成功将项发布到市场后，可以删除存储帐户中的内容。
+
+   现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. 可以使用 Remove-AzGalleryItem cmdlet 删除市场项。 例如：
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>参考：市场项 manifest.json
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
 | 发布者 |X |String |[A-Za-z0-9]+ | |
@@ -207,7 +251,7 @@ ms.locfileid: "91437731"
 
 ### <a name="metadata"></a>Metadata
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
 | PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
@@ -236,7 +280,7 @@ ms.locfileid: "91437731"
 
 每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
@@ -245,7 +289,7 @@ ms.locfileid: "91437731"
 
 除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 25 个字符。 | |
 | Value |X |String |最多 30 个字符。 | |

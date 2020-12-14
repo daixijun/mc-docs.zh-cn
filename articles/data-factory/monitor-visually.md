@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 06/30/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 4a613afa1bc79e7376872f5bf6b17d236544fc94
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 12/07/2020
+ms.openlocfilehash: fe504c553a659af120cdfe93f645572ae2abb2c3
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680410"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747233"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>以可视化方式监视 Azure 数据工厂
 
@@ -63,7 +63,7 @@ ms.locfileid: "94680410"
 
 此列表视图显示了与每个管道运行对应的活动运行。 将鼠标悬停在该特定活动运行上可获取特定于运行的信息，如 JSON 输入、JSON 输出和详细的特定于活动的监视体验。
 
-![用于监视活动运行的列表视图](media/monitor-visually/activity-runs.png)
+![存在有关 SalesAnalyticsMLPipeline 的信息，后跟活动运行的列表。](media/monitor-visually/activity-runs.png)
 
 | **列名** | **说明** |
 | --- | --- |
@@ -80,7 +80,7 @@ ms.locfileid: "94680410"
 
 如果某个活动失败，可通过单击错误列中的图标来查看详细的错误消息。 
 
-![用于监视活动运行的列表视图](media/monitor-visually/activity-run-error.png)
+![将出现一条包含错误详细信息的通知，其中包括错误代码、失败类型和错误详细信息。](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>提升要监视的用户属性
 

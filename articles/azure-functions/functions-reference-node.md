@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f6a6093552ee7eced033f3fee9d0fd6922ded980
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 946333d964d3de71fbf28b0ca91d6da5ddd3301d
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849354"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507768"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -558,21 +558,42 @@ module.exports = function(context) {
 
 ## <a name="environment-variables"></a>环境变量
 
-在 Functions 中，服务连接字符串等[应用设置](functions-app-settings.md)在执行过程中将公开为环境变量。 可以使用 `process.env` 访问这些设置，如此处 `context.log()` 的第二和第三个调用中所示，其中记录了 `AzureWebJobsStorage` 和 `WEBSITE_SITE_NAME` 环境变量：
+在本地环境和云环境中，向函数应用添加你自己的环境变量，如操作机密（连接字符串、密钥和终结点）或环境设置（例如分析变量）。 在函数代码中使用 `process.env` 访问这些设置。
+
+### <a name="in-local-development-environment"></a>在本地开发环境中
+
+在本地运行时，函数项目包括一个 [`local.settings.json` 文件](/azure-functions/functions-run-local)，你可以在其中将环境变量存储到 `Values` 对象中。 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.translator.azure.cn/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>在 Azure 云环境中
+
+在 Azure 中运行时，函数应用允许你使用[应用程序设置](functions-app-settings.md)（例如服务连接字符串），并在执行期间将这些设置作为环境变量公开。 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>在代码中访问环境变量
+
+使用 `process.env` 将应用程序设置作为环境变量访问，如此处对 `context.log()` 的第二次和第三次调用所示，其中记录了 `AzureWebJobsStorage` 和 `WEBSITE_SITE_NAME` 环境变量：
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-在本地运行时，可从 [local.settings.json](functions-run-local.md#local-settings-file) 项目文件读取应用设置。
 
 ## <a name="configure-function-entry-point"></a>配置函数入口点
 

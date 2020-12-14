@@ -9,13 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.author: v-tawe
 origin.date: 10/07/2020
-ms.date: 11/13/2020
-ms.openlocfilehash: b045f58231da932fa466317d62399dde21b5d016
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.date: 12/03/2020
+ms.openlocfilehash: 1a1c8dd835fa315967f85274feb8168e5f4256cf
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595285"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541094"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>安装或卸载 Azure IoT Edge 运行时
 
@@ -52,7 +52,7 @@ ms.locfileid: "94595285"
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch**：
+   * **Raspberry Pi OS Stretch**：
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list

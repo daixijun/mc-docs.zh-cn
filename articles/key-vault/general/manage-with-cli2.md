@@ -11,12 +11,12 @@ origin.date: 08/12/2019
 ms.date: 11/27/2020
 ms.author: v-tawe
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3480dd0bc2022fc23ca2e65b45bfe5093d96670e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 955788be2f1b919b344c2dc08fece8c8008bf1b9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300803"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431171"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -40,13 +40,13 @@ ms.locfileid: "96300803"
 >
 
 有关 Azure Key Vault 的概述，请参阅[什么是 Azure Key Vault？](overview.md)
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要使用本文中的 Azure CLI 命令，必须准备好以下各项：
 
-* Azure 订阅。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，可注册一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 命令行接口版本 2.0 或更高版本。 若要安装最新版本，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 * 配置为使用本文中所创建的密钥或密码的应用程序。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=45343)获取示例应用程序。 有关说明，请参阅随附的自述文件。
 

@@ -6,19 +6,19 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: article
 origin.date: 04/22/2020
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 7d7a6bcb20b952f49936543269493850878083c2
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 72b3807e1d01d6329ebc6299de9129217dc78e6a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943457"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746565"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>负载均衡器常见问题解答
 
 ## <a name="what-types-of-load-balancer-exist"></a>存在哪些类型的负载均衡器？
-内部负载均衡器（用于均衡 VNET 中的流量）和外部负载均衡器（用于均衡进出 Internet 连接的终结点的流量）。 有关详细信息，请参阅[负载均衡器类型](components.md#frontend-ip-configuration)。 
+内部负载均衡器（用于均衡 VNET 中的流量）和外部负载均衡器（用于均衡进出 Internet 连接的终结点的流量）。 有关详细信息，请参阅[负载均衡器类型](components.md#frontend-ip-configurations)。 
 
 对于这两种类型，Azure 提供了基本 SKU 和标准 SKU，它们具有不同的功能、性能、安全性和运行状况跟踪功能。 [SKU 比较](skus.md)一文中介绍了这些差异。
 
@@ -35,7 +35,7 @@ ms.locfileid: "91943457"
 NAT 规则用于指定要将流量路由到其中的后端资源。 例如，将特定负载均衡器端口配置为将 RDP 流量发送到特定 VM。 负载均衡规则用于指定要将流量路由到其中的后端资源池，从而在每个实例之间均衡负载。 例如，负载均衡器规则可以跨 Web 服务器池在负载均衡器的端口 80 上路由 TCP 数据包。
 
 ## <a name="what-is-ip-1686312916"></a>IP 168.63.129.16 是什么？
-标记为 Azure 基础结构负载均衡器的主机的虚拟 IP 地址，从其进行 Azure 运行状况探测。 配置后端实例时，这些实例必须允许来自此 IP 地址的流量才能成功响应运行状况探测。 此规则不与负载均衡器前端的访问交互。 如果不使用 Azure 负载均衡器，则可重写此规则。 可在[此处](/virtual-network/service-tags-overview#available-service-tags)详细了解服务标记。
+标记为 Azure 基础结构负载均衡器的主机的虚拟 IP 地址，从其进行 Azure 运行状况探测。 配置后端实例时，这些实例必须允许来自此 IP 地址的流量才能成功响应运行状况探测。 此规则不与负载均衡器前端的访问交互。 如果不使用 Azure 负载均衡器，则可重写此规则。 可在[此处](../virtual-network/service-tags-overview.md#available-service-tags)详细了解服务标记。
 
 ## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>是否可以将全局 VNET 对等互连用于基本负载均衡器？
 否。 基本负载均衡器不支持全局 VNET 对等互连。 可改用标准负载均衡器。 有关无缝升级，请参阅[从“基本”升级到“标准”](upgrade-basic-standard.md)一文。
@@ -51,6 +51,7 @@ NAT 规则用于指定要将流量路由到其中的后端资源。 例如，将
 通过上述方案进行出站连接时不一定要连接到与 VM 位于同一区域的存储。 如果不想这样做，请按上述说明使用网络安全组 (NSG)。 若要连接到其他区域的存储，则需要使用出站连接。 请注意，当从同一区域中的虚拟机连接到存储时，存储诊断日志中的源 IP 地址将是内部提供程序地址，而不是虚拟机的公共 IP 地址。 如果要将对存储帐户的访问限制至同一区域中一个或多个虚拟网络子网中的 VM，请在配置存储帐户防火墙时使用[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)，而不是公共 IP 地址。 配置了服务终结点后，将在存储诊断日志中看到虚拟网络专用 IP 地址，而不是内部提供程序地址。
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>与出站连接有关的最佳做法是什么？
-标准负载均衡器和标准公共 IP 为出站连接引入了功能和不同的行为。 它们不同于基本 SKU。 如果在使用标准 SKU 时需要出站连接，则必须使用标准公共 IP 地址或标准公共负载均衡器显式定义它。 这包括在使用内部标准负载均衡器时创建出站连接。 建议始终使用标准公共负载均衡器上的出站规则。 这意味着使用内部标准负载均衡器时，如果需要出站连接，则需要采取步骤为后端池中的 VM 创建出站连接。 在出站连接的上下文中，单独的 VM、可用性集中的所有 VM、VMSS 中的所有实例都是一个组。 这意味着，如果可用性集中的单个 VM 与标准 SKU 关联，则该可用性集中的所有 VM 实例现在都遵循相同的规则，就好像这些 VM 实例与标准 SKU 相关联一样，即使单个实例与标准 SKU 没有直接关联。 如果独立 VM 有连接到负载均衡器的多个网络接口卡，也会出现此行为。 如果将一个 NIC 添加为独立 NIC，也会有相同的行为。 请仔细查看整个文档以了解整体概念，查看[标准负载均衡器](load-balancer-standard-overview.md)了解 SKU 之间的差异，并查看[出站规则](load-balancer-outbound-connections.md#outboundrules)。
+标准负载均衡器和标准公共 IP 为出站连接引入了功能和不同的行为。 它们不同于基本 SKU。 如果在使用标准 SKU 时需要出站连接，则必须使用标准公共 IP 地址或标准公共负载均衡器显式定义它。 这包括在使用内部标准负载均衡器时创建出站连接。 建议始终使用标准公共负载均衡器上的出站规则。 这意味着使用内部标准负载均衡器时，如果需要出站连接，则需要采取步骤为后端池中的 VM 创建出站连接。 在出站连接的上下文中，单个独立的 VM、可用性集中的所有 VM、VMSS 中的所有实例都表现得像一个组。 这意味着，如果可用性集中的单个 VM 与标准 SKU 关联，则该可用性集中的所有 VM 实例现在都遵循相同的规则，就好像这些 VM 实例与标准 SKU 相关联一样，即使单个实例与标准 SKU 没有直接关联。 如果独立 VM 有连接到负载均衡器的多个网络接口卡，也会出现此行为。 如果将一个 NIC 添加为独立 NIC，也会有相同的行为。 请仔细查看整个文档以了解整体概念，查看[标准负载均衡器](./load-balancer-overview.md)了解 SKU 之间的差异，并查看[出站规则](load-balancer-outbound-connections.md#outboundrules)。
 使用出站规则可以对出站连接的所有方面进行细化管理控制。
  
+<!--If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.-->

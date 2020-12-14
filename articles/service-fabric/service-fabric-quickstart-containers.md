@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b7622d99a18d0be98f0deaaf8b59b56da23a965e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: cf748ec150636ef472ab9e15d4c7a1c1b259e46e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328635"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432244"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric
@@ -36,7 +36,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)）。
+* 一个 Azure 订阅（可以创建[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)）。
 * 一台运行以下软件的开发计算机：
     * Visual Studio 2019 或 Windows 2019。
     * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
@@ -83,7 +83,7 @@ Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的�
 
 服务清单继续为 nanoserver (`mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`) 只指定一个映像。
 
-另外，请在 *ApplicationManifest.xml* 文件中，将 **PasswordEncrypted** 更改为 **false** 。 对于位于 Docker 中心的公共容器映像，帐户和密码是空的，因此，我们禁用了加密，因为加密空密码会导致生成错误。
+另外，请在 *ApplicationManifest.xml* 文件中，将 **PasswordEncrypted** 更改为 **false**。 对于位于 Docker 中心的公共容器映像，帐户和密码是空的，因此，我们禁用了加密，因为加密空密码会导致生成错误。
 
 ```xml
 <RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
@@ -97,7 +97,7 @@ Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的�
 
 在运行以下脚本之前，请在 PowerShell 中运行 `Connect-AzAccount -Environment AzureChinaCloud` 来与 Azure 建立连接。
 
-将以下脚本复制到剪贴板，并打开 **Windows PowerShell ISE** 。  将内容粘贴到空的 Untitled1.ps1 窗口。 然后，为脚本中的变量提供值：`subscriptionId`、`certpwd`、`certfolder`、`adminuser`、`adminpwd` 等等。  运行该脚本之前，为 `certfolder` 指定的目录必须存在。
+将以下脚本复制到剪贴板，并打开 **Windows PowerShell ISE**。  将内容粘贴到空的 Untitled1.ps1 窗口。 然后，为脚本中的变量提供值：`subscriptionId`、`certpwd`、`certfolder`、`adminuser`、`adminpwd` 等等。  运行该脚本之前，为 `certfolder` 指定的目录必须存在。
 
 ```powershell
 #Provide the subscription Id

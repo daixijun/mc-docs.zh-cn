@@ -4,15 +4,15 @@ description: 了解如何查看 Azure Spring Cloud 中的指标
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: bece63e9370b2b5d1b7a6b363aeec09102dc706a
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: 1b45f9a9e49dbf01eef653ab371b64a516ed3aaa
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373978"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507692"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>了解用于 Azure Spring Cloud 的指标
 
@@ -109,6 +109,31 @@ Azure Spring Cloud 提供以下五个图表，其中的指标每分钟更新一�
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | 计数 | 此 JMV 启动后的总 GC 计数，包括新代和旧代 GC。 |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | 毫秒 | 此 JMV 启动后消耗的总 GC 时间，包括新代和旧代 GC。 |
 
+### <a name="performance-net"></a>性能 (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| 名称 | Spring Actuator 指标名称 | 计价单位 | 详细信息 |
+>|------|-----------------------------|------|---------|
+>| CPU 使用率       | cpu-usage      | 毫秒 | 进程使用 CPU 的时间。 |
+>| 工作集     | working-set    | 兆字节    | 进程所使用的工作集数量。 |
+>| GC 堆大小    | gc-heap-size   | 兆字节    | 垃圾回收器报告的堆总大小。 |
+>| 第 0 代 GC 计数  | gen-0-gc-count | 计数        | 每秒第 0 代垃圾回收数。 |
+>| 第 1 代 GC 计数  | gen-1-gc-count | 计数        | 每秒第 1 代垃圾回收数。 |
+>| 第 2 代 GC 计数  | gen-2-gc-count | 计数        | 每秒第 2 代垃圾回收数。 |
+>| Gen 0 heap size（第 0 代堆大小） | gen-0-size     | 字节        | 第 0 代堆大小。 |
+>| Gen 1 heap size（第 1 代堆大小） | gen-1-size     | 字节        | 第 1 代堆大小。 |
+>| Gen 2 heap size（第 2 代堆大小） | gen-2-size     | 字节        | 第 2 代堆大小。 |
+>| LOH 堆大小   | loh-size       | 字节        | 大型对象堆堆大小。 |
+>| 分配速率 | alloc-rate     | 字节        | 每秒分配的字节数。 |
+>| 程序集计数  | assembly-count | 计数        | 已加载的程序集数。 |
+>| 异常计数 | exception-count | 计数       | 每秒异常数。 |
+>| 线程池线程计数      | threadpool-thread-count              | 计数 | 线程池线程数。 |
+>| 监视器锁争用计数 | monitor-lock-contention-count        | 计数 | 尝试获取监视器锁时每秒发生争用的次数。 |
+>| 线程池队列长度      | threadpool-queue-length              | 计数 | 线程池工作项队列长度。 |
+>| 线程池已完成项计数 | threadpool-completed-items-count | 计数 | 线程池已完成工作项计数。 |
+>| 活动计时器计数               | active-timer-count               | 计数 | 当前处于活动状态的计时器数。 活动计时器是注册为在将来某个时间点计时且尚未取消的计时器。 |
+
+有关详细信息，请参阅 [dotnet 计数器](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters)。
 
 ### <a name="request"></a>请求
 >[!div class="mx-tdCol2BreakAll"]
@@ -119,6 +144,17 @@ Azure Spring Cloud 提供以下五个图表，其中的指标每分钟更新一�
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | 计数 | Tomcat Web 服务器处理的请求总数 |
 >| tomcat.global.request.max | tomcat.global.request.max | 毫秒 | Tomcat Web 服务器用于处理请求的最长时间 |
 
+### <a name="request-net"></a>请求 (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| 名称 | Spring Actuator 指标名称 | 计价单位 | 详细信息 |
+>|------|-----------------------------|------|---------|
+>| 每秒请求数 | requests-per-second | 计数 | 请求速率。 |
+>| 请求总数 | total-requests | 计数 | 总请求数。 |
+>| 当前请求数 | current-requests | 计数 | 当前请求的数目。 |
+>| 失败的请求 | failed-requests | 计数 | 失败的请求数。 |
+
+有关详细信息，请参阅 [dotnet 计数器](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters)。
 
 ### <a name="session"></a>会话
 >[!div class="mx-tdCol2BreakAll"]

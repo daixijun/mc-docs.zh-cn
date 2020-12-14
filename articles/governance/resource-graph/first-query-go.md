@@ -5,12 +5,12 @@ origin.date: 10/14/2020
 ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 32cc3ad47f9d321ce695f1c4e947a6defe1ff05d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 47382d64c4c1fa558d706c4cc3ad647cf44a809f
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431091"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>快速入门：使用 Go 运行你的第一个 Resource Graph 查询
 
@@ -20,7 +20,7 @@ ms.locfileid: "94327490"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="add-the-resource-graph-package"></a>添加 Resource Graph 包
 

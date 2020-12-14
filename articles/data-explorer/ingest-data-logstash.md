@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: ebbac7f18a3ded598b940903b0889dc97a1daa12
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ae860f74d633c5dbe78443433f67d6c721135524
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104056"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431175"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>将数据从 Logstash 引入 Azure 数据资源管理器
 
@@ -21,7 +21,7 @@ ms.locfileid: "93104056"
 
 ## <a name="prerequisites"></a>必备条件
 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 数据资源管理器[测试群集和数据库](create-cluster-database-portal.md)
 * Logstash 版本 6+ [安装说明](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
@@ -111,7 +111,7 @@ output {
 | --- | --- |
 | **路径** | Logstash 插件会将事件写入临时文件，然后将其发送到 Azure 数据资源管理器。 此参数包含要将文件写入到的路径，以及一个用于轮转文件的时间表达式，该表达式可触发上传到 Azure 数据资源管理器服务的操作。|
 | **ingest_url** | 用于进行引入相关通信的 Kusto 终结点。|
-| **app_id** 、 **app_key** 和 **app_tenant**| 连接到 Azure 数据资源管理器所需的凭据。 请务必使用具有引入特权的应用程序。 |
+| **app_id**、**app_key** 和 **app_tenant**| 连接到 Azure 数据资源管理器所需的凭据。 请务必使用具有引入特权的应用程序。 |
 | **database**| 要将事件放入到的数据库的名称。 |
 | **table** | 要将事件放入到的目标表的名称。 |
 | **mapping** | mapping（映射）用于将传入事件的 json 字符串映射为正确的行格式（定义哪些属性要进入哪个列）。 |

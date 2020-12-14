@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: af6598b4044b96a19f01410c199ca48cdcb10368
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: a2520beb5a511d99a7cad625979e89a866dcaf1f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024550"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431870"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL 数据库的工作流
 
@@ -29,7 +29,7 @@ ms.locfileid: "96024550"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个 [SQL Server 数据库](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database)、[Azure SQL 数据库](../azure-sql/database/single-database-create-quickstart.md)或 [Azure SQL 托管实例](../azure-sql/managed-instance/instance-create-quickstart.md)。
 

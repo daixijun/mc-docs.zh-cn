@@ -11,12 +11,12 @@ origin.date: 08/04/2020
 ms.date: 09/02/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: b10325a8534a958c6dd74c43bf0cd2cce7ba65cf
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: d8d60c752349cf3dc24880fb3c4f70942813cb1c
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316339"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431126"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>快速入门：使用 ARM 模板创建通知中心
 
@@ -32,7 +32,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，允许你�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -115,7 +115,7 @@ az notification-hub namespace show --resource-group ContosoNotificationsGroup --
 
 ---
 The output looks similar to: null
-':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::: null'
+':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::': null
 ---
 
 ## <a name="clean-up-resources"></a>清理资源

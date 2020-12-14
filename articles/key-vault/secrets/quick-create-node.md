@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 72eb0090fbc5a0391d57ea85b0120942040e74c7
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: aa1bbdf4f97d521a45751cb6b16e26c129394426
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300318"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431169"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>快速入门：适用于 JavaScript 的 Azure Key Vault 客户端库 (v4)
 
@@ -24,7 +24,7 @@ ms.locfileid: "96300318"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅 - [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 适用于操作系统的当前 [Node.js](https://nodejs.org)。
 - [Azure CLI](/cli/install-azure-cli)
 
@@ -173,7 +173,7 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="sample-code"></a>示例代码
+## <a name="sample-code"></a>代码示例
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");

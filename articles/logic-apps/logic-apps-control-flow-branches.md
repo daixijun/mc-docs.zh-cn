@@ -9,12 +9,12 @@ ms.author: v-yiso
 origin.date: 10/10/2018
 ms.reviewer: klam, LADocs
 ms.date: 02/04/2019
-ms.openlocfilehash: d9b81e2c0759ec343905441d0a5822c4988f912d
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: 2094753a27cf52587ffd481b2c0db2e572c4bac7
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029700"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431773"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>创建或联接 Azure 逻辑应用中的工作流的并行分支
 
@@ -25,7 +25,7 @@ ms.locfileid: "88029700"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 

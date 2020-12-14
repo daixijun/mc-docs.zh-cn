@@ -6,12 +6,12 @@ ms.date: 09/15/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 98af7f43df218e5e4c879b65322aa1ef1daec9eb
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: 98b6e0c97c5f991b117f19d5c2f3ee5b959665ca
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456301"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431118"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建管理组
 
@@ -21,7 +21,7 @@ ms.locfileid: "90456301"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 - 在开始之前，请确保安装 Azure PowerShell 的最新版本。 有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

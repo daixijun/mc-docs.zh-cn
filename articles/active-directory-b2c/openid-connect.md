@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 751e864d16899609e27cec2a8a6d6dc72be00748
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: baf56a86ed32132b7ac287afd44804f58b3dad45
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471148"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507272"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -124,7 +124,7 @@ https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/b2c_1_sign_in/d
 
 - 确保用户/组织已注册应用程序。
 - 确保用户拥有正确的授权/权限。
-- 确保执行了一定强度的身份验证，例如 Azure 多重身份验证。
+- 确保执行了一定强度的身份验证，例如 Azure AD 多重身份验证。
 
 验证 ID 令牌后，可以开始与用户的会话。 在应用程序中，可以使用 ID 令牌中的声明来获取用户的相关信息。 此信息的用途包括显示、记录和授权。
 

@@ -4,20 +4,20 @@ description: 了解如何在 Azure Stack Hub 中访问 Kubernetes 仪表板
 author: WenJason
 ms.topic: article
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 5af77cf4fe55ba81bf25994e7d4d9a2eac16219c
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: b132ce494acb0fe944b3af9e277e5f045186d0bd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867802"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507759"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>在 Azure Stack Hub 中访问 Kubernetes 仪表板 
 
-> [!Note]   
+> [!NOTE]   
 > 仅使用 Kubernetes Azure Stack 市场项将部署群集作为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
 Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此仪表板，可以查看应用程序的基本运行状况状态和指标，创建并部署服务，以及编辑现有应用程序。 本文介绍如何在 Azure Stack Hub 中设置 Kubernetes 仪表板。
@@ -30,7 +30,7 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 * SSH 客户端
 
-    需要使用 SSH 客户端安全地连接到群集中的主节点。 需要在部署 Kubernetes 群集时使用的私钥。
+    需要使用 SSH 客户端安全地连接到群集中的主节点。 如果使用的是 Windows，则可以使用 [Putty](https://www.ssh.com/ssh/putty/download)。 需要在部署 Kubernetes 群集时使用的私钥。
 
 * FTP (PSCP)
 
@@ -53,7 +53,7 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 2. 在门户中打开主节点。 复制公共 IP 地址。 单击“连接”，在“使用 VM 本地帐户登录”框中输入用户名 。 即创建群集时设置的用户名。 使用公共 IP 地址，而不是“连接”边栏选项卡中列出的专用 IP 地址。
 
-3.  打开 SSH 客户端以连接到主节点。 使用主节点的公共 IP 地址、用户名，并添加创建群集时所用的私钥。
+3.  打开 SSH 客户端以连接到主节点。 如果在 Windows 上操作，可以使用 [Putty](https://www.ssh.com/ssh/putty/download) 创建连接。 使用主节点的公共 IP 地址、用户名，并添加创建群集时所用的私钥。
 
 4.  连接终端后，键入 `kubectl` 以打开 Kubernetes 命令行客户端。
 

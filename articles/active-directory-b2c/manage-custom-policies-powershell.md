@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6c7fe3037f4d9dc20a4edddd6246fb06a43cd406
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 28ee5bce1516d95ba9a1908d8c7fa479aa4dddd3
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326441"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507111"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure AD B2C 自定义策略
 
@@ -190,6 +190,8 @@ Message: Validation failed: 1 validation error(s) found in policy "B2C_1A_SIGNUP
 'http://schemas.microsoft.com/online/cpim/schemas/2013/06'.
 ...
 ```
+
+若要了解如何排查自定义策略问题，请参阅[排查 Azure AD B2C 自定义策略和 Identity Experience Framework 问题](./troubleshoot-custom-policies.md)。
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: jrasnik
 origin.date: 12/19/2018
 ms.date: 07/13/2020
-ms.openlocfilehash: 15a3a909d554cf3782e6265433d1db06695e4826
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 750c8a98162118cdeca8cb416ae6181436c98aca
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228038"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432585"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL 数据库中扩展事件的环形缓冲区目标代码
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,10 +44,10 @@ ms.locfileid: "86228038"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 可以注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 可在其中创建表的任何数据库。
   
-  * 或者，也可以在几分钟内[创建一个 **AdventureWorksLT** 演示数据库](single-database-create-quickstart.md)。
+  * 或者，也可以在几分钟内 [创建一个 **AdventureWorksLT** 演示数据库](single-database-create-quickstart.md)。
 * SQL Server Management Studio (ssms.exe)，最好是每月最新更新版。
   可从以下位置下载最新的 ssms.exe：
   

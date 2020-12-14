@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 05/06/2019
-ms.openlocfilehash: accf5b5d6eda2b78f234bc0e8adb1f42723d6ded
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 7132373cc4e328ab4bf14202420f53dc6992e3e9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638217"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746944"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 操作安全性最佳做法
 本文提供了用于保护 Azure 中的数据、应用程序和其他资产的一系列操作最佳做法。
@@ -50,7 +50,7 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 在 Azure 注册门户中，你可以确保管理员联系信息包含用来进行安全操作通知的详细信息。 联系人详细信息为电子邮件地址和电话号码。
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>将 Azure 订阅组织到管理组中
-如果你的组织有多个订阅，则可能需要一种方法来高效地管理这些订阅的访问权限、策略和符合性。 [Azure 管理组](/governance/management-groups/create)提供了高于订阅的一个作用域级别。 可将订阅组织到名为“管理组”的容器中，并将治理条件应用到管理组。 管理组中的所有订阅都将自动继承应用于管理组的条件。
+如果你的组织有多个订阅，则可能需要一种方法来高效地管理这些订阅的访问权限、策略和符合性。 [Azure 管理组](../../governance/management-groups/create-management-group-portal.md)提供的范围级别高于订阅。 可将订阅组织到名为“管理组”的容器中，并将治理条件应用到管理组。 管理组中的所有订阅都将自动继承应用于管理组的条件。
 
 可以在目录中构建管理组和订阅的灵活结构。 为每个目录指定了一个称为根管理组的顶级管理组。 此根管理组内置在层次结构中，包含其所有下级管理组和订阅。 该根管理组允许在目录级别应用全局策略和 Azure 角色分配。
 
@@ -71,9 +71,9 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 典型的候选项包括：
 
 - 具有明确业务影响的法规要求（例如，与数据主权相关的限制）
-- 对操作几乎没有潜在负面影响的要求，例如，其审核效果或 RBAC 权限分配已经过仔细审查的策略
+- 对操作几乎没有潜在负面影响的要求，例如，其审核效果或 Azure RBAC 权限分配已经过仔细审查的策略
 
-**最佳做法**：在根管理组上应用所有企业范围的更改（策略、RBAC 模型等）之前，请仔细规划并测试它们。   
+**最佳做法**：在根管理组上应用所有企业范围的更改（策略、Azure RBAC 模型等）之前，请仔细规划并测试它们。   
 **详细信息**：根管理组中的更改可能会影响 Azure 上的每个资源。 尽管它们提供了一种强大的方法来确保整个企业中的一致性，但错误或不正确的使用可能会对生产操作产生负面影响。 请在测试实验室或生产试点中测试对根管理组的所有更改。
 
 <!-- blueprints not available -->
@@ -86,7 +86,7 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 [Azure 存储分析](../../storage/common/storage-analytics.md)执行日志记录并为 Azure 存储帐户提供指标数据。 建议使用此数据跟踪请求、分析使用情况趋势以及诊断存储帐户的问题。
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>防范、检测和应对威胁
-[Azure 安全中心](../../security-center/security-center-intro.md)增强了对 Azure 资源安全的可见性和可控性，可帮助你预防、检测和响应威胁。 它提供对 Azure 订阅的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于各种安全解决方案。
+[Azure 安全中心](../../security-center/security-center-introduction.md)增强了对 Azure 资源安全的可见性和可控性，可帮助你预防、检测和响应威胁。 它提供对 Azure 订阅的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于各种安全解决方案。
 
 安全中心的免费层仅为 Azure 资源提供有限的安全性。 标准层将这些功能扩展到本地和其他云中。 借助安全中心标准层，可以查找和修复安全漏洞、应用访问控制和应用程序控制来阻止恶意活动、使用分析和智能功能检测威胁，以及在受到攻击时迅速做出响应。 可以尝试安全中心标准版，头 60 天免费。 建议[将 Azure 订阅升级到安全中心标准层](../../security-center/security-center-get-started.md)。
 
@@ -132,7 +132,7 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 <!-- DDoS not available -->
 
 ## <a name="enable-azure-policy"></a>启用 Azure Policy
-[Azure Policy](/governance/policy/overview) 是 Azure 中的一项服务，用于创建、分配和管理策略。 这些策略将在整个资源中强制实施规则和效果，使这些资源符合公司标准和服务级别协议。 Azure Policy 通过评估资源是否符合指定策略来满足此需求。
+[Azure Policy](../../governance/policy/overview.md) 是 Azure 中的一项服务，用于创建、分配和管理策略。 这些策略将在整个资源中强制实施规则和效果，使这些资源符合公司标准和服务级别协议。 Azure Policy 通过评估资源是否符合指定策略来满足此需求。
 
 启用 Azure Policy 来进行监视并强制实施组织的书面策略。 这样就可以集中管理混合云工作负荷中的安全策略，确保符合公司或法规安全要求。 了解如何[创建和管理策略以强制实施合规性](../../governance/policy/tutorials/create-and-manage.md)。 有关策略元素的概述，请参阅 [Azure Policy 定义结构](../../governance/policy/concepts/definition-structure.md)。
 
@@ -156,6 +156,6 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 有关通过 Azure 设计、部署和管理云解决方案时可以使用的更多安全最佳做法，请参阅 [Azure 安全最佳做法和模式](best-practices-and-patterns.md)。
 
 以下资源提供了有关 Azure 安全性及相关 Microsoft 服务的更多常规信息：
-* [Azure 安全团队博客](https://blogs.msdn.microsoft.com/azuresecurity/) - 随时掌握 Azure 安全性的最新信息
+* [Azure 安全团队博客](https://docs.microsoft.com/archive/blogs/azuresecurity/) - 随时掌握 Azure 安全性的最新信息
 * [Microsoft 安全响应中心](https://technet.microsoft.com/library/dn440717.aspx) - 可在其中报告 Microsoft 安全漏洞（包括 Azure 问题）或将其通过电子邮件发送到 secure@microsoft.com
 

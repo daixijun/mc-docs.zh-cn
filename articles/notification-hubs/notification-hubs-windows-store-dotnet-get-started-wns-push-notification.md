@@ -16,12 +16,12 @@ ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97068149818b0bf0729384a4d8b643bab36863a9
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: accf481dacf47ac98263d98acd155f9e7180926a
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590538"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430873"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知
 
@@ -42,7 +42,7 @@ ms.locfileid: "94590538"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Microsoft Visual Studio 2017 或更高版本。 本教程中的示例使用 [Visual Studio 2019](https://www.visualstudio.com/products)。
 - [已安装 UWP 应用开发工具](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 有效的 Windows 应用商店帐户

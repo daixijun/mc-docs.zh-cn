@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 md.date: 03/23/2020
 ms.author: v-tawe
-ms.openlocfilehash: 593a939bfd1e62430236e7655639899b64585f63
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d76e711d306c5bd398dec103ec8a78d130b06e74
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79084416"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431125"
 ---
 # <a name="create-an-ios-app"></a>创建 iOS 应用
 
@@ -22,7 +22,7 @@ ms.locfileid: "79084416"
 
 本教程说明如何将云后端服务 [Azure 应用服务移动应用](app-service-mobile-value-prop.md)添加到 iOS 应用。 第一步是在 Azure 上创建一个新的移动后端。 然后，下载一个简单的“待办事项列表”  iOS 示例应用以在 Azure 中存储数据。
 
-若要完成本教程，需要一台 Mac 和 [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
+若要完成本教程，需要一台 Mac 和[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
 

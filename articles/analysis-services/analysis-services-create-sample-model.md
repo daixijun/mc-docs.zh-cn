@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 915c5b604cfb516633718d6ddcefb07a879d62ec
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 8ba6790e24562f9824fab9e41430c6316bc143ca
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470155"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431620"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教程：从门户添加示例模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "92470155"
 > * 将已完成的示例表格数据模型添加到服务器 
 > * 使用 SSMS 连接到模型
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,11 +47,11 @@ ms.locfileid: "92470155"
 
 2. 在“新建模型” > “选择数据源”中，确认已选中“示例数据”，然后单击“添加”。   
 
-    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-data.png" alt-text="创建示例模型":::
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-data.png" alt-text="选择“新建模型”":::
 
 3. 在“概述”中，确认是否添加了 `adventureworks` 示例模型。
 
-    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-verify.png" alt-text="创建示例模型":::
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-verify.png" alt-text="选择“示例数据”":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -65,11 +65,11 @@ ms.locfileid: "92470155"
 
 2. 在“连接到服务器”中，粘贴服务器名称，然后在“身份验证”中选择“Active Directory - 支持 MFA 的通用身份验证”，输入你的用户名，然后单击“连接”。
 
-    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png" alt-text="创建示例模型":::
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png" alt-text="登录":::
 
 3. 在“对象资源管理器”中，右键单击 `adventureworks` 示例数据库，然后单击“删除”。 
 
-    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png" alt-text="创建示例模型":::
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png" alt-text="删除示例数据库":::
 
 ## <a name="next-steps"></a>后续步骤 
 

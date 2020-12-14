@@ -9,12 +9,12 @@ ms.author: v-tawe
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 4d4cb53d73fe5856bdf5f9da4c665b44511d248d
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: b88273ba64ce4f7e5fe68029b565a18c1e327420
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306455"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508069"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "96306455"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - <a href="https://git-scm.com/" target="_blank">安装 Git</a>
 - [Node.js 和 npm](https://nodejs.org)。 运行命令 `node --version` 验证是否已安装 Node.js。
 - [Visual Studio Code](https://code.visualstudio.com/)。
@@ -182,7 +182,7 @@ export HTTP_PROXY=http://username:password@proxy:8080
 ::: zone pivot="platform-linux"  
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 帐户，请[立即注册](https://wd.azure.cn/pricing/1rmb-trial/)一个包含 1,500 元 Azure 额度的试用帐户，以试用任何服务组合。
+如果没有 Azure 帐户，请[立即注册](https://www.microsoft.com/china/azure/index.html?fromtype=cn)试用版订阅。
 
 需要连同 [Node.js 和 npm](https://nodejs.org/en/download)（Node.js 包管理器）一起安装 [Visual Studio Code](https://code.visualstudio.com/)。
 

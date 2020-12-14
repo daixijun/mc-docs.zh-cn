@@ -10,12 +10,12 @@ ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: b51c70dffeab1ad9a7b6a3e5723569832a45780c
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 96957752800923a67b2c9b4800bbaeae1964d98f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937201"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431993"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务
 
@@ -41,7 +41,7 @@ ms.locfileid: "91937201"
 
 若要完成本教程，需要满足以下先决条件：
 
-* Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio 2015 或更高版本](https://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2019。
 * 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://www.azure.cn/downloads/)安装它。
 
@@ -279,7 +279,7 @@ ms.locfileid: "91937201"
     ```
 
 1. 在“解决方案资源管理器”中展开“控制器”，然后双击“HomeController.cs”在 Visual Studio 中打开该文件。
-1. 在 *HomeController.cs*中，将现有命名空间定义替换为以下代码：
+1. 在 *HomeController.cs* 中，将现有命名空间定义替换为以下代码：
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -360,7 +360,7 @@ ms.locfileid: "91937201"
 
 下一步是将本地产品服务器与 ASP.NET 应用程序挂钩。
 
-1. 如果尚未打开在[创建 ASP.NET 应用程序](#create-an-aspnet-application)部分中创建的 **ProductsPortal** 项目，请在 Visual Studio 中重新打开该项目。
+1. 如果尚未打开在 [创建 ASP.NET 应用程序](#create-an-aspnet-application)部分中创建的 **ProductsPortal** 项目，请在 Visual Studio 中重新打开该项目。
 1. 采用与[创建本地服务器](#create-an-on-premises-server)部分类似的步骤，将 NuGet 包添加到项目引用中。 在“解决方案资源管理器”中，右键单击“ProductsPortal”项目并选择“管理 NuGet 包”。
 1. 搜索“WindowsAzure.ServiceBus”，然后选择“WindowsAzure.ServiceBus”项。 然后完成安装过程并关闭此对话框。
 1. 在“解决方案资源管理器”中，右键单击“ProductsPortal”项目并选择“添加” > “现有项”。

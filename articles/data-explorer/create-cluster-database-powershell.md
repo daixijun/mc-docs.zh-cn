@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: d659f53094cd007225ba171c9c4af17725819ebb
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: ffc2febd6878c3645a635e4d88e0f2da26fadfb5
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300382"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430854"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 
@@ -32,7 +32,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 [!INCLUDE [updated-for-az](includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)] -->
 

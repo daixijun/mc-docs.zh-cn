@@ -10,12 +10,12 @@ ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: e3ec80199bdc90fa3f2b93afee74766cab8c98b7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1363fb984aa5471518f4de0672c496ca91374871
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104826"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432558"
 ---
 <!--Verified successfully-->
 <!--RELEASE DIRECTLY-->
@@ -27,7 +27,7 @@ ms.locfileid: "93104826"
 
 ## <a name="prerequisites"></a>先决条件
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 

@@ -1,21 +1,20 @@
 ---
 title: 自动缩放 Azure Batch 池中的计算节点
 description: 对云池启用自动缩放功能可以动态调整池中计算节点的数目。
-ms.service: batch
 ms.topic: how-to
-origin.date: 10/08/2020
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 74741c82bed2a474ecc64f45cebd0e416fca6f8d
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: 2f49377243a5a105834baf66be56d6aa897ce7a0
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589422"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747225"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动公式
 
@@ -140,6 +139,9 @@ $NodeDeallocationOption = taskcompletion;
 
 > [!TIP]
 > 这些只读的服务定义变量是对象，它们提供了各种方法来访问与其关联的数据。 有关详细信息，请参阅本文稍后的[获取样本数据](#obtain-sample-data)。
+
+> [!NOTE]
+> 根据在某个时间点运行的任务数进行缩放时使用 `$RunningTasks`，根据排队等待运行的任务数进行缩放时使用 `$ActiveTasks`。
 
 ## <a name="types"></a>类型
 
@@ -386,7 +388,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> 可以根据需要在公式字符串中包含注释和分行符。
+> 可以根据需要在公式字符串中包含注释和分行符。 还要注意，缺少分号可能导致计算错误。
 
 ## <a name="automatic-scaling-interval"></a>自动缩放间隔
 

@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 01/14/2020
 ms.date: 09/02/2020
 ms.author: v-tawe
-ms.openlocfilehash: 568b6f77f8952131041fc772b70229a456834ff1
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 2268fe7586d46f64fb29742b1e9aed18207ae012
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316427"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430972"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>使用 PowerShell 创建 Azure 通知中心
 
@@ -30,7 +30,7 @@ ms.locfileid: "89316427"
 
 ## <a name="prerequisites"></a>必备条件
 
-* **Azure 订阅** - 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="sample-script"></a>示例脚本
 

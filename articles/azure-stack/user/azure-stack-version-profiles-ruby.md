@@ -4,16 +4,16 @@ description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Ru
 author: WenJason
 ms.topic: article
 origin.date: 09/03/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 8791b3f0004ebefdc99d7a2816666919d3b23c1d
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 80f89b3b2ae194dbd295435c7adbc248d2838003
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437629"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507313"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -23,9 +23,9 @@ ms.locfileid: "91437629"
 
 API 配置文件是资源提供程序和服务版本的组合。 可以使用 API 配置文件来组合不同的资源类型。
 
-- 若要使用所有服务的最新版本，请使用 Azure SDK 汇总 gem 的**最新**配置文件。
+- 若要使用所有服务的最新版本，请使用 Azure SDK 汇总 gem 的 **最新** 配置文件。
 - 若要使用与 Azure Stack Hub 兼容的服务，请使用 Azure SDK 汇总 gem 的 **V2019_03_01_Hybrid** 或 **V2018_03_01** 配置文件。
-- 若要使用某个服务的最新 **api-version**，请使用特定 gem 的**最新**配置文件。 例如，若要单独使用计算服务的最新 **api-version**，请使用**计算** gem 的**最新**配置文件。
+- 若要使用某个服务的最新 **api-version**，请使用特定 gem 的 **最新** 配置文件。 例如，若要单独使用计算服务的最新 **api-version**，请使用 **计算** gem 的 **最新** 配置文件。
 - 若要使用某个服务的特定 **api-version**，请使用在 gem 中定义的特定 API 版本。
 
 > [!NOTE]
@@ -35,7 +35,7 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 
 - 遵照官方说明安装 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 - 遵照官方说明安装 [Ruby](https://www.ruby-lang.org/en/documentation/installation/)。
-  - 在安装时选择“将 Ruby 添加到 PATH 变量”。****
+  - 在安装时选择“将 Ruby 添加到 PATH 变量”。
   - 在 Ruby 安装过程中出现提示时，安装开发工具包。
   - 接下来，使用以下命令安装捆绑程序： 
 
@@ -71,7 +71,7 @@ Azure 资源管理器 Ruby SDK 为预览版，在即将推出的版本中可能�
 
 ## <a name="use-the-azure_sdk-gem"></a>使用 azure_sdk gem
 
-**azure_sdk** gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的 **最新** 配置文件支持所有服务的最新版本。 它包括为 Azure Stack Hub 生成的版本控制配置文件  **V2017_03_09** 和 **V2019_03_01_Hybrid**。
+**azure_sdk** gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的 **最新** 配置文件支持所有服务的最新版本。 它包括为 Azure Stack Hub 生成的进行了版本控制的配置文件 V2017_03_09 和 V2019_03_01_Hybrid。
 
 可使用以下命令安装 azure_sdk 汇总 gem：  
 
@@ -307,5 +307,5 @@ end
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  

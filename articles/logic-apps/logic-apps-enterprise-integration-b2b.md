@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4663b512529624e87091b252837e09e12639ae8a
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: ced2232f2a21ba59cff93bdf0bc72044ec667e8b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414620"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431771"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用与 Enterprise Integration Pack 接收和确认 B2B AS2 消息
 
@@ -26,7 +26,7 @@ ms.locfileid: "86414620"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果你没有订阅，可[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 准备一个空白逻辑应用，以便可以使用后接以下操作的[请求](../connectors/connectors-native-reqres.md)触发器创建 B2B 工作流：
 

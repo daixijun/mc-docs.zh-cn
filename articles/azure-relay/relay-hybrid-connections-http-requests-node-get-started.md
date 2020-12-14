@@ -9,12 +9,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 8212cd66ce4cf1e32a79a60d7be1416a30b09cd8
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e2d9ba3fac5c8cf0e7510a05a691f475f267865c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937387"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432500"
 ---
 <!--Verified successfully-->
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>开始在 Node 中使用中继混合连接 HTTP 请求
@@ -33,7 +33,7 @@ ms.locfileid: "91937387"
 
 ## <a name="prerequisites"></a>必备条件
 - [Node.js](https://nodejs.org/en/)。
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始之前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>使用 Azure 门户创建命名空间
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

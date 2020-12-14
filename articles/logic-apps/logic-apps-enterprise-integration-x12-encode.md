@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/27/2017
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 25e1dc1d47ecf542ef70e75a02b4a68b8def89c8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 308c1579ab5e0313cef4471af8b57f1bec1dea32
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243570"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432625"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中编码 X12 消息
 
@@ -25,7 +25,7 @@ ms.locfileid: "80243570"
 
 下面是需要准备好的项：
 
-* Azure 帐户；可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 一个 Azure 帐户；可以创建[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 已定义的、与 Azure 订阅关联的[集成帐户](logic-apps-enterprise-integration-create-integration-account.md)。 必须拥有集成帐户，才能使用编码 X12 消息连接器。
 * 已在集成帐户中至少定义了两个[合作伙伴](logic-apps-enterprise-integration-partners.md)
 * 已在集成帐户中定义了 [X12 协议](logic-apps-enterprise-integration-x12.md)

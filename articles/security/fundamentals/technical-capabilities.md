@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: a6f5413010b319b68953e46919dca27cf761426d
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 0821ecad5f057908d0c54cc6fc2e5379672be0f8
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638108"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747094"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全技术功能
 本文介绍了 Azure 中的安全服务，这些服务可帮助保护云中的数据、资源和应用程序，并满足业务的安全需求。
@@ -48,7 +48,7 @@ Azure 提供了可帮助满足安全、隐私和合规需求的服务。 下图�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft 标识和访问管理解决方案支持更多的验证级别（如多重身份验证和条件访问策略），可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问。 通过高级安全报告、审核和警报来监视可疑活动，有助于减少潜在的安全问题。 [Azure Active Directory Premium](../../active-directory/active-directory-whatis.md) 可为数千种云应用提供单一登录，并提供对你在本地运行的 Web 应用的访问。
+Microsoft 标识和访问管理解决方案支持更多的验证级别（如多重身份验证和条件访问策略），可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问。 通过高级安全报告、审核和警报来监视可疑活动，有助于减少潜在的安全问题。 [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) 可为数千种云应用提供单一登录，并提供对你在本地运行的 Web 应用的访问。
 
 Azure Active Directory (Azure AD) 在安全方面的益处包括以下能力：
 
@@ -89,13 +89,13 @@ Azure AD 将本地 Active Directory 扩展到云，让用户不仅能够使用�
 
 #### <a name="multi-factor-authentication"></a>多重身份验证
 
-[Azure 多重身份验证 (MFA)](../../active-directory/authentication/multi-factor-authentication.md) 是需要使用多种验证方法的身份验证方法，为用户登录和事务又增加了一层至关重要的安全保障。 [MFA 可帮助保护](../../active-directory/authentication/concept-mfa-howitworks.md)对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码和第三方 OAuth 令牌）来提供强身份验证。
+[Azure AD 多重身份验证 (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) 是需要使用多种验证方法的身份验证方法，为用户登录和事务又增加了一层至关重要的安全保障。 [MFA 可帮助保护](../../active-directory/authentication/concept-mfa-howitworks.md)对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码和第三方 OAuth 令牌）来提供强身份验证。
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全监控、警报和基于机器学习的报告
 
 安全监控、警报和基于机器学习的报告（它们识别不一致的访问模式）可以帮助保护业务。 可以使用 Azure Active Directory 的访问和使用情况报告来监控你所在组织的目录的完整性和安全性。 使用此信息，目录管理员可以更好地确定哪里可能存在安全风险，以便制定相应的计划来降低风险。
 
-在 Azure 门户或 [Azure Active Directory 门户](https://aad.portal.azure.cn/)中，[报告](../../active-directory/active-directory-reporting-azure-portal.md)按以下方式分类：
+在 Azure 门户或 [Azure Active Directory 门户](https://aad.portal.azure.cn/)中，[报告](../../active-directory/reports-monitoring/overview-reports.md)按以下方式分类：
 
 - 异常报告 - 包含我们发现存在异常情况的登录事件。 我们的目标是让用户知道这类活动并使用户能够就事件是否可疑做出决定。
 
@@ -145,9 +145,9 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 
 ![受保护的资源访问](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-使用 RBAC，可以在团队中实现职责分离，仅向用户授予执行作业所需的访问权限。 而不是向每个人提供对 Azure 订阅或资源的无限权限，可以仅允许某些操作。 例如，使用 RBAC 允许一个员工管理订阅中的虚拟机，而允许另一个员工管理同一订阅中的 SQL 数据库。
+使用 Azure RBAC，可以在团队中实现职责分离，仅向用户授予他们执行作业所需的访问权限。 而不是向每个人提供对 Azure 订阅或资源的无限权限，可以仅允许某些操作。 例如，使用 Azure RBAC 允许一个员工管理订阅中的虚拟机，而另一个员工可以管理同一订阅中的 SQL 数据库。
 
-![Azure 中受保护的资源访问 (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![使用 Azure RBAC 实现受保护的资源访问](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>数据安全与加密
 
@@ -172,30 +172,13 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 
 可以通过专用高速 WAN 链路（例如 [ExpressRoute](https://www.azure.cn/home/features/expressroute/)）移动较大的数据集。 如果选择使用 ExpressRoute，则还可以使用 [SSL/TLS](https://support.microsoft.com/kb/257591) 或其他协议，在应用程序级别加密数据，以提供额外的保护。
 
-如果通过 Azure 门户与 Azure 存储交互，则所有事务都将通过 HTTPS 发生。 也可以使用基于 HTTPS 的[存储 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 来与 [Azure 存储](https://www.azure.cn/home/features/storage/)和 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)交互。
+如果通过 Azure 门户与 Azure 存储交互，则所有事务都将通过 HTTPS 发生。 也可以使用基于 HTTPS 的[存储 REST API](https://docs.microsoft.com/rest/api/storageservices/) 来与 [Azure 存储](https://www.azure.cn/home/features/storage/)和 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)交互。
 
-无法保护传输中数据的组织更容易遭受[中间人攻击](https://technet.microsoft.com/library/gg195821.aspx)、[窃听](https://technet.microsoft.com/library/gg195641.aspx)和会话劫持。 这些攻击可能是获取机密数据访问权限的第一步。
+无法保护传输中数据的组织更容易遭受[中间人攻击](https://docs.microsoft.com/previous-versions/office/skype-server-2010/gg195821(v=ocs.14))、[窃听](https://docs.microsoft.com/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))和会话劫持。 这些攻击可能是获取机密数据访问权限的第一步。
 
 有关 Azure VPN 选项的详细信息，请阅读[规划和设计 VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)一文。
 
-### <a name="enforce-file-level-data-encryption"></a>实施文件级数据加密
-
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) 使用加密、标识和授权策略帮助保护文件与电子邮件。 Azure RMS 可跨多个设备工作 — 手机、平板电脑和台式电脑保护组织内部和外部的数据。 因为 Azure RMS 添加了数据所属的保护级别，所以即使数据离开组织边界，此功能仍然可行。
-
-使用 Azure RMS 保护文件时，意味着使用行业标准加密并配合 [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) 的完全支持。 使用 Azure RMS 进行数据保护时，即使文件被复制到不受 IT 控制的存储（例如云存储服务），也可保证该文件持续受到保护。 同样的情况将出现在通过电子邮件共享的文件，文件以电子邮件的附件形式受到保护，并提供如何打开受保护附件的说明。
-规划 Azure RMS 采用时，建议执行以下操作：
-
-- 安装 [RMS 共享应用](https://technet.microsoft.com/library/dn339006.aspx)。 此应用通过安装 Office 外挂程序来与 Office 应用程序集成，使用户可以轻松地直接保护文件。
-
-- 配置应用程序和服务以支持 Azure RMS
-
-- 创建可反映业务要求的[自定义模板](https://technet.microsoft.com/library/dn642472.aspx)。 例如：最高机密数据的模板应在所有最高机密相关的电子邮件中应用。
-
-[数据分类](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)和文件保护能力不佳的组织可能更容易遭到数据泄漏。 没有适当的文件保护，组织将无法获取业务见解、监控滥用，以及防止文件被恶意访问。
-
-> [!Note]
-> 有关 Azure RMS 的详细信息，请阅读 [Getting Started with Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx)（Azure Rights Management 入门）一文。
-
+<!--Not available in MC: Azure Information Protection-->
 ## <a name="secure-your-application"></a>保护应用程序
 Azure 负责保护运行应用程序的基础结构和平台，而你负责保护应用程序本身。 换而言之，需要以安全方式开发、部署和管理应用程序代码和内容。 无此安全性，应用程序代码或内容仍然容易受到威胁。
 
@@ -254,7 +237,7 @@ Azure 应用服务所使用的反恶意软件解决方案与 Azure 云服务和�
 ## <a name="secure-your-network"></a>保护网络
 Azure 包括可靠的网络基础结构以支持应用程序和服务连接需求。 Azure 中的资源之间、本地资源与 Azure 托管的资源之间以及 Internet 与 Azure 之间都可能存在网络连接。
 
-利用 [Azure 网络基础结构](../../virtual-machines/windows/infrastructure-example.md)，可以安全地将 Azure 资源通过[虚拟网络 (VNet)](../../virtual-network/virtual-networks-overview.md) 相互连接。 VNet 是自己的网络在云中的表示形式。 VNet 是对专用于订阅的 Azure 云网络进行的逻辑隔离。 可将 VNet 连接到本地网络。
+利用 [Azure 网络基础结构](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/infrastructure-example)，可以安全地将 Azure 资源通过[虚拟网络 (VNet)](../../virtual-network/virtual-networks-overview.md) 相互连接。 VNet 是自己的网络在云中的表示形式。 VNet 是对专用于订阅的 Azure 云网络进行的逻辑隔离。 可将 VNet 连接到本地网络。
 
 ![保护网络（保护）](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
@@ -324,7 +307,7 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 ### <a name="azure-security-center"></a>Azure 安全中心
 
-[Azure 安全中心](../../security-center/security-center-intro.md)有助于预防、检测和响应威胁，同时增加 Azure 资源的可见性和安全可控性。 它提供 Azure 订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
+[Azure 安全中心](../../security-center/security-center-introduction.md)有助于预防、检测和响应威胁，同时增加 Azure 资源的可见性和安全可控性。 它提供 Azure 订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
 
 安全中心将分析 Azure 资源的安全状态，以识别潜在的安全漏洞。 会有一列建议对所需控件的整个配置过程提供指导。
 
@@ -411,7 +394,7 @@ Azure 操作安全性建立在一个框架上，该框架融合了通过 Microso
 
 - 可以定义各资源之间的依赖关系，使其按正确的顺序进行部署。
 
-- 可以将访问控制应用到资源组中的所有服务，因为基于角色的访问控制 (RBAC) 已在本机集成到管理平台。
+- 可以将访问控制应用到资源组中的所有服务，因为 Azure 基于角色的访问控制 (Azure RBAC) 已在本机集成到管理平台。
 
 - 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 

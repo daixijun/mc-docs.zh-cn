@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 06/23/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 4301b54e738364f5aa6b05b65d7ac021c6a90faf
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 45ee3fda19208dfcc85cc58445043ac6e94f2c71
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375745"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431142"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>将 Apache Spark 应用程序与 Azure 事件中心连接
 本教程详细介绍如何将 Spark 应用程序连接到事件中心进行实时流式处理。 此集成允许在不更改协议客户端或运行自己的 Kafka 或 Zookeeper 群集的情况下进行流式处理。 本教程需要 Apache Spark v2.4+ 和 Apache Kafka v2.0+。
@@ -29,7 +29,7 @@ ms.locfileid: "93375745"
 ## <a name="prerequisites"></a>先决条件
 
 开始本教程前，请确保具备：
--   Azure 订阅。 如果没有订阅，请[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+-   Azure 订阅。 如果没有，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 -   [Apache Spark v2.4](https://spark.apache.org/downloads.html)
 -   [Apache Kafka v2.0]( https://kafka.apache.org/20/documentation.html)
 -   [Git](https://www.git-scm.com/downloads)
@@ -75,7 +75,7 @@ val df_write = df.writeStream
 ```
 
 ## <a name="write-to-event-hubs-for-kafka"></a>写入到用于 Kafka 的事件中心
-也可向事件中心写入数据，所用方式与向 Kafka 写入数据一样。 请勿忘记更新配置，也就是使用事件中心命名空间的信息更改 **BOOTSTRAP_SERVERS** 和 **EH_SASL** 。  如需完整的示例代码，请查看 GitHub 上的 sparkProducer.scala 文件。 
+也可向事件中心写入数据，所用方式与向 Kafka 写入数据一样。 请勿忘记更新配置，也就是使用事件中心命名空间的信息更改 **BOOTSTRAP_SERVERS** 和 **EH_SASL**。  如需完整的示例代码，请查看 GitHub 上的 sparkProducer.scala 文件。 
 
 ```scala
 df = /**Dataframe**/

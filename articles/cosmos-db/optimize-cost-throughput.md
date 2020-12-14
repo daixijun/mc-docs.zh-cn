@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 02/07/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6549ce8a5c7b0039b4f5e7de50de3472daf0fb48
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d466a3a2497e394fd7c76ff369b8238b4a2a961b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552797"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598477"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -140,7 +140,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 若要确定新工作负荷的预配吞吐量，可使用以下步骤： 
 
-1. 使用容量规划器执行初始的粗略评估，并借助 Azure 门户中的 Azure Cosmos Explorer 调整估算值。 
+1. 使用容量规划器执行初始的粗略评估，并借助 Azure 门户中的 Azure Cosmos DB 资源管理器调整估算值。 
 
 2. 建议使用超过预期的吞吐量创建容器，然后根据需要进行缩减。 
 

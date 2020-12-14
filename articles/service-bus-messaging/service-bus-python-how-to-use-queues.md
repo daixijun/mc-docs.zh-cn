@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 39b7151dd9b73679235e58f4c22436eec6188cd2
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 8b31e3199cc89906135876c1ca38ff60c815fe47
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127665"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431842"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>快速入门：通过 Python 使用 Azure 服务总线队列
 
@@ -27,7 +27,7 @@ ms.locfileid: "92127665"
 有关 Python Azure 服务总线库的详细信息，请参阅[适用于 Python 的服务总线库](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 可以激活 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 遵循以下文章中的步骤创建的服务总线命名空间：[快速入门：使用 Azure 门户创建服务总线主题和订阅](service-bus-quickstart-topics-subscriptions-portal.md)。 复制“共享访问策略”屏幕中的主连接字符串，以便稍后在本文中使用。 
 - 装有 [Python Azure 服务总线][Python Azure Service Bus package]包的 Python 3.4x 或更高版本。 有关详细信息，请参阅 [Python 安装指南](https://docs.microsoft.com/azure/developer/python/azure-sdk-install)。 
 

@@ -2,20 +2,21 @@
 title: 使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 description: 了解如何使用 Azure Cosmos DB Core API 为某个真实示例建模和分区
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/23/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 46914948d1fa0a221017a9e53251d0c14aa4e2c2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 36ca656e43642692e3a9f04fe6d4a00c71ac67de
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328674"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598608"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,6 +24,8 @@ ms.locfileid: "94328674"
 本文基于多个 Azure Cosmos DB 概念，例如[数据建模](modeling-data.md)、[分区](partitioning-overview.md)和[预配吞吐量](request-units.md)，演示如何完成一个真实数据设计练习。
 
 如果你平时主要使用关系数据库，可能在设计数据模型方面已经形成了自己的习惯和直觉。 由于具体的约束，加上 Azure Cosmos DB 的独特优势，其中的大部分最佳做法不能产生很好的效果，甚至可能会生成欠佳的解决方案。 本文旨在引导你完成 Azure Cosmos DB 中的真实用例建模的整个过程，包括项的建模，以及实体共置和容器分区。
+
+[下载或查看社区生成的源代码](https://github.com/jwidmer/AzureCosmosDbBlogExample)，其中阐释了本文中的概念。 此代码示例由社区参与者贡献，Azure Cosmos DB 团队不对其维护提供支持。
 
 ## <a name="the-scenario"></a>方案
 
@@ -371,8 +374,8 @@ function updateUsernames(userId, username) {
 
 - 提取与 `userId` 匹配的所有项（可能是帖子、评论或点赞）
 - 对于其中的每个项
-  - 替换 `userUsername`
-  - 替换项
+    - 替换 `userUsername`
+    - 替换项
 
 > [!IMPORTANT]
 > 此操作的开销较大，因为需要针对 `posts` 容器的每个分区执行此存储过程。 假设大多数用户在注册期间选择了适当的用户名，并且以后永远不会更改此用户名，因此，极少运行这种更新。

@@ -2,19 +2,20 @@
 title: 防止删除或更改 Azure Cosmos DB 资源
 description: 使用 Azure 资源锁定来防止删除或更改 Azure Cosmos DB 资源。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cffbebccfdd338dc5e6100df9fa718ca250f4ccd
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a92dc9a7ec2d8e75007f056d9f484d11402098e4
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552772"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747246"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>防止删除或更改 Azure Cosmos DB 资源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,9 +29,9 @@ ms.locfileid: "94552772"
 
 在父范围应用锁时，该范围内所有资源都会继承相同的锁。 即使是之后添加的资源也会从父作用域继承该锁。 继承中限制性最强的锁优先执行。
 
-与基于角色的访问控制不同，可以使用管理锁来对所有用户和角色应用限制。 若要了解 Azure Cosmos DB 的 RBAC，请参阅 [Azure Cosmos DB 中基于角色的访问控制](role-based-access-control.md)。
+与 Azure 基于角色的访问控制不同，你可以使用管理锁来对所有用户和角色应用限制。 若要了解适用于 Azure Cosmos DB 的 Azure RBAC，请参阅 [Azure Cosmos DB 中的 Azure 基于角色的访问控制](role-based-access-control.md)。
 
-Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到 https://management.chinacloudapi.cn的操作。 这类锁不会限制资源如何执行各自的函数。 资源更改将受到限制，但资源操作不受限制。 例如，Azure Cosmos 容器上的 ReadOnly 锁定会阻止你删除或修改容器。 它不会阻止你在容器中创建、更新或删除数据。 会允许数据事务，因为这些操作不会发送到 https://management.chinacloudapi.cn。
+资源管理器锁仅适用于管理平面内发生的操作，包括发送到 https://management.chinacloudapi.cn 的操作。 这类锁不会限制资源如何执行各自的函数。 资源更改将受到限制，但资源操作不受限制。 例如，Azure Cosmos 容器上的 ReadOnly 锁定会阻止你删除或修改容器。 它不会阻止你在容器中创建、更新或删除数据。 会允许数据事务，因为这些操作不会发送到 https://management.chinacloudapi.cn。
 
 ## <a name="manage-locks"></a>管理锁定
 

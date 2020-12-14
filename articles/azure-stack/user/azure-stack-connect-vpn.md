@@ -3,17 +3,17 @@ title: 使用 VPN 将 Azure Stack Hub 连接到 Azure
 description: 如何使用 VPN 将 Azure Stack Hub 中的虚拟网络连接到 Azure 中的虚拟网络。
 author: WenJason
 ms.topic: conceptual
-origin.date: 07/23/2020
-ms.date: 08/31/2020
+origin.date: 11/20/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: TBD
-ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 4a5b401b75769574b94253a10e10110184832974
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: e7c6e75f4a4c6b375e8722eb5aaaaf4622cd77b1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867954"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507883"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack Hub 连接到 Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "88867954"
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
 * 直接连接到 Internet 的 Azure Stack Hub 集成系统（多节点）部署。 必须能够从公共 Internet 直接连接到外部公共 IP 地址范围。
-* 有效的 Azure 订阅。 如果没有 Azure 订阅，可[在此处创建一个 1 元试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 有效的 Azure 订阅。 如果你没有 Azure 订阅，可以创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="vpn-connection-diagram"></a>VPN 连接关系图
 
@@ -52,11 +52,11 @@ ms.locfileid: "88867954"
 
 1. 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在用户门户中，选择“+ 创建资源”。
-3. 转到**市场**，然后选择“网络”。
+3. 转到 **市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 使用网络配置表中的信息来识别 Azure 的“名称”、“地址空间”、“子网名称”和“子网地址范围”的值。   
 6. 对于“资源组”，可以创建新的资源组，也可以选择“使用现有项”（如果已有了一个）。 
-7. 选择 VNet 的**位置**。  如果使用示例值，请选择“中国东部”，或使用另一个位置。
+7. 选择 VNet 的 **位置**。  如果使用示例值，请选择“中国东部”，或使用另一个位置。
 8. 选择“固定到仪表板”。
 9. 选择“创建” 。
 
@@ -76,8 +76,7 @@ ms.locfileid: "88867954"
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
 1. 在 Azure 门户中，选择“+ 创建资源”。
-
-2. 转到**市场**，然后选择“网络”。
+2. 转到 **市场**，然后选择“网络”。
 3. 从网络资源列表中选择“虚拟网络网关”。
 4. 在“名称”字段中，键入 **Azure-GW**。
 5. 若要选择虚拟网络，请选择“虚拟网络”。 然后从列表中选择“AzureVnet”。
@@ -89,7 +88,7 @@ ms.locfileid: "88867954"
 
 1. 在 Azure 门户中，选择“+ 创建资源”。
 
-2. 转到**市场**，然后选择“网络”。
+2. 转到 **市场**，然后选择“网络”。
 3. 从资源列表中选择“本地网络网关”。
 4. 在“名称”字段中，键入 **Azs-GW**。
 5. 在“IP 地址”字段中，键入前面在网络配置表中列出的 Azure Stack Hub 虚拟网关的公共 IP 地址。
@@ -99,7 +98,7 @@ ms.locfileid: "88867954"
 ## <a name="create-the-connection"></a>创建连接
 
 1. 在用户门户中，选择“+ 创建资源”。
-2. 转到**市场**，然后选择“网络”。
+2. 转到 **市场**，然后选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本”设置部分，选择“站点到站点(IPSec)”作为“连接类型”。  
 5. 选择“订阅”、“资源组”和“位置”，然后选择“确定”。   
@@ -117,6 +116,8 @@ ms.locfileid: "88867954"
 
 由于[版本 1910 和更高版本](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)中已更改 IPSec 策略的 Azure Stack Hub 默认参数，因此需要自定义 IPSec 策略才能使 Azure 与 Azure Stack Hub 匹配。
 
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
 1. 创建自定义策略：
 
    ```powershell
@@ -131,6 +132,25 @@ ms.locfileid: "88867954"
    $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
    Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
    ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+1. 创建自定义策略：
+
+   ```powershell
+   $IPSecPolicy = New-AzureRMIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
+   ```
+
+2. 将策略应用于连接：
+
+   ```powershell
+   $Connection = Get-AzureRMVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
+
+---
 
 ## <a name="create-a-vm"></a>创建 VM
 
@@ -167,7 +187,7 @@ ms.locfileid: "88867954"
 
     ![创建新虚拟网络](media/azure-stack-connect-vpn/image3.png)
 
-3. 转到**市场**，然后选择“网络”。
+3. 转到 **市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 对于“名称”、“地址空间”、“子网名称”和“子网地址范围”，请使用网络配置表中的值。   
 6. “订阅”中显示了前面创建的订阅。
@@ -191,7 +211,7 @@ ms.locfileid: "88867954"
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
 1. 在 Azure Stack Hub 门户中，选择“+ 创建资源”。
-2. 转到**市场**，然后选择“网络”。
+2. 转到 **市场**，然后选择“网络”。
 3. 从网络资源列表中选择“虚拟网络网关”。
 4. 在“名称”中，键入 **Azs-GW**。
 5. 选择“虚拟网络”项以选择虚拟网络。 从列表中选择“Azs-VNet”。
@@ -213,7 +233,7 @@ ms.locfileid: "88867954"
 
 1. 登录到 Azure Stack Hub 门户。
 2. 在用户门户中，选择“+ 创建资源”。
-3. 转到**市场**，然后选择“网络”。
+3. 转到 **市场**，然后选择“网络”。
 4. 从资源列表中选择“本地网络网关”。
 5. 在“名称”字段中，键入 **Azure-GW**。
 6. 在“IP 地址”字段中，键入 Azure **Azure-GW-PiP** 中的虚拟网关公共 IP 地址。 此地址已显示在前面的网络配置表中。
@@ -224,7 +244,7 @@ ms.locfileid: "88867954"
 ### <a name="create-the-connection"></a>创建连接
 
 1. 在用户门户中，选择“+ 创建资源”。
-2. 转到**市场**，然后选择“网络”。
+2. 转到 **市场**，然后选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本”设置部分，针对“连接类型”选择“站点到站点(IPSec)”。  
 5. 选择“订阅”、“资源组”和“位置”，然后选择“确定”。   

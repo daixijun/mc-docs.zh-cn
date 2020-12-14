@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 7de60df206ab9b3f6174acbd95dac9914e642e22
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 10d226728662274b8450441a258389d2b663d907
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564535"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431884"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Excel Online 数据
 
@@ -41,7 +41,7 @@ ms.locfileid: "91564535"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 用于你的工作帐户或个人 Microsoft 帐户的一个[工作或学校帐户](https://www.office.com/)
 

@@ -10,12 +10,12 @@ ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 3fa657c6bbfcf04eb164f40c643e69db07460832
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: a34623dd2a84f0d1dabab38f20dd59bf6e11fd39
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437679"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507405"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建附加计划
 
@@ -48,7 +48,7 @@ ms.locfileid: "91437679"
 
 6. 查看随套餐提供的附加计划的列表，验证新附加计划是否已列出。
 
-    ![此屏幕截图显示了要在 Azure Stack 管理员门户中查看的附加计划列表。](media/create-add-on-plan/add-on4.png "创建附加计划")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![此屏幕截图显示了要在 Azure Stack 管理员门户中查看的附加计划列表。](media/create-add-on-plan/add-on4.png)](media/create-add-on-plan/add-on4lg.png#lightbox)
 
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>创建附加计划（1901 及更低版本）
 

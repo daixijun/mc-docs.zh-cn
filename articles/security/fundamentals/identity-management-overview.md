@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 09/19/2018
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: e2423b9de530ec4c664e3025c0d683199cd02223
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 672e431181b12463551533c2797d2a82a8f9bae7
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128141"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746875"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 标识管理安全概述
 
- 标识管理是对[安全主体](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)进行身份验证和授权的过程。 它还包括控制有关这些主体（标识）的信息。 安全主体（标识）可能包括服务、应用程序、用户和组等等。Microsoft 标识和访问管理解决方案可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问。 此类保护支持附加的验证级别，比如多重身份验证和条件访问策略。 通过高级安全报告、审核和警报来监视可疑活动，以便减少潜在的安全问题。 [Azure Active Directory Premium](/active-directory/active-directory-editions) 向数千个云软件即服务 (SaaS) 应用提供单一登录 (SSO)，并且可以用来访问在本地运行的 Web 应用。
+ 标识管理是对[安全主体](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)进行身份验证和授权的过程。 它还包括控制有关这些主体（标识）的信息。 安全主体（标识）可能包括服务、应用程序、用户和组等等。Microsoft 标识和访问管理解决方案可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问。 此类保护支持附加的验证级别，比如多重身份验证和条件访问策略。 通过高级安全报告、审核和警报来监视可疑活动，以便减少潜在的安全问题。 [Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) 向数千个云软件即服务 (SaaS) 应用提供单一登录 (SSO)，并且可以用来访问在本地运行的 Web 应用。
  
 利用 Azure Active Directory (Azure AD) 的安全优势，可以实现以下目的：
 
@@ -54,27 +54,27 @@ ms.locfileid: "92128141"
 <!--Not available in MC: Reverse proxy-->
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
-Azure 多重身份验证是需要使用多个验证方法的身份验证方法，为用户登录和事务额外提供一层重要的安全保障。 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码以及第三方 OAuth 令牌）来提供强身份验证。
+Azure AD 多重身份验证是需要使用多种验证方法的身份验证方法，为用户登录和事务又增加了一层至关重要的安全保障。 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码以及第三方 OAuth 令牌）来提供强身份验证。
 
 了解详细信息：
 
-* [多重身份验证](https://docs.azure.cn/zh-cn/active-directory/authentication/)
-* [什么是 Azure 多重身份验证？](/active-directory/authentication/multi-factor-authentication)
-* [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [多重身份验证](https://docs.azure.cn/active-directory/authentication/)
+* [什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC
 
 Azure RBAC 是在 Azure 资源管理器基础上构建的授权系统，针对 Azure 中的资源提供精细的访问权限管理。 可以通过 Azure RBAC 精确控制用户具有的访问权限级别。 例如，可以限制一位用户仅管理虚拟网络，限制另一位用户管理资源组中的所有资源。 Azure 包含多个可用的内置角色。 下面列出了四个基本的内置角色。 前三个角色适用于所有资源类型。
 
-- [所有者](/role-based-access-control/built-in-roles#owner) - 拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 
-- [参与者](/role-based-access-control/built-in-roles#contributor) - 可以创建和管理所有类型的 Azure 资源，但无法将访问权限授予其他用户。
-- [读取者](/role-based-access-control/built-in-roles#reader) - 可以查看现有的 Azure 资源。
-- [用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator) - 可以管理用户对 Azure 资源的访问。
+- [所有者](../../role-based-access-control/built-in-roles.md#owner) - 拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 
+- [参与者](../../role-based-access-control/built-in-roles.md#contributor) - 可以创建和管理所有类型的 Azure 资源，但无法将访问权限授予其他用户。
+- [读取者](../../role-based-access-control/built-in-roles.md#reader) - 可以查看现有的 Azure 资源。
+- [用户访问管理员](../../role-based-access-control/built-in-roles.md#user-access-administrator) - 可以管理用户对 Azure 资源的访问。
 
 了解详细信息：
 
-* [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](/role-based-access-control/overview)
-* [Azure 内置角色](/role-based-access-control/built-in-roles)
+* [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](../../role-based-access-control/overview.md)
+* [Azure 内置角色](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全监控、警报和基于机器学习的报告
 
@@ -82,17 +82,17 @@ Azure RBAC 是在 Azure 资源管理器基础上构建的授权系统，针对 A
 
 在 Azure 门户中，报告分为以下类别：
 
-* **异常报告** ：包含我们发现存在异常的登录事件。 我们的目标是让你知道这类活动，并让你能够确定事件是否可疑。
-* **集成式应用程序报告** ：就组织如何使用云应用程序提供见解。 Azure AD 提供与数千个云应用程序的集成。
-* **错误报告** ：指示在为外部应用程序预配帐户时可能发生的错误。
-* **用户特定的报告** ：显示特定用户的设备登录活动数据。
-* **活动日志** ：包含过去 24 小时、过去 7 天或过去 30 天内的所有已审核事件的记录，以及组活动更改记录、密码重置和注册活动记录。
+* **异常报告**：包含我们发现存在异常的登录事件。 我们的目标是让你知道这类活动，并让你能够确定事件是否可疑。
+* **集成式应用程序报告**：就组织如何使用云应用程序提供见解。 Azure AD 提供与数千个云应用程序的集成。
+* **错误报告**：指示在为外部应用程序预配帐户时可能发生的错误。
+* **用户特定的报告**：显示特定用户的设备登录活动数据。
+* **活动日志**：包含过去 24 小时、过去 7 天或过去 30 天内的所有已审核事件的记录，以及组活动更改记录、密码重置和注册活动记录。
 
 了解详细信息：
 
-* [查看访问和使用情况报告](/active-directory/active-directory-view-access-usage-reports)
-* [Azure Active Directory 报告入门](/active-directory/active-directory-reporting-getting-started)
-* [Azure Active Directory 报告指南](/active-directory/active-directory-reporting-guide)
+* [查看访问和使用情况报告](../../active-directory/reports-monitoring/overview-reports.md)
+* [Azure Active Directory 报告入门](../../active-directory/reports-monitoring/overview-reports.md)
+* [Azure Active Directory 报告指南](../../active-directory/reports-monitoring/overview-reports.md)
 
 ## <a name="consumer-identity-and-access-management"></a>消费者标识和访问管理
 

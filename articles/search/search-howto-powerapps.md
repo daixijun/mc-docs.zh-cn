@@ -10,12 +10,12 @@ ms.devlang: rest-api
 ms.topic: tutorial
 origin.date: 08/21/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: fbad71b88c690df58d5e6d2c89490efb15eb439f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 7bb0b1c608bd5d4e42a10ffd53820c2624c007a9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300537"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430894"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>教程：从 Power Apps 查询认知搜索索引
 
@@ -28,7 +28,7 @@ ms.locfileid: "96300537"
 > * 设置查询请求
 > * 在画布应用中将结果可视化
 
-如果你没有 Azure 订阅，请在开始之前建立一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

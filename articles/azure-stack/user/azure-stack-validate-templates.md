@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中使用模板验证工具
 description: 使用模板验证工具检查部署到 Azure Stack Hub 的模板。
 author: WenJason
 ms.topic: article
-origin.date: 10/01/2020
-ms.date: 11/09/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: e95c73eb7ddfbe7fdd038c267e65bf946b59b2cf
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 2eaeee31f1bb49ccfa6ceb583966c34f9a5ea889
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330634"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507326"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用模板验证工具
 
@@ -23,47 +23,88 @@ ms.locfileid: "93330634"
 
 若要验证模板，必须先生成云功能文件，然后运行验证工具。 通过 Azure Stack Hub 工具使用以下 PowerShell 模块：
 
-- 在 **CloudCapabilities** 文件夹中：**AzureRM.CloudCapabilities.psm1** 会创建云功能 JSON 文件，该文件表示 Azure Stack Hub 云中的服务和版本。
-- 在 **TemplateValidator** 文件夹中：**AzureRM.TemplateValidator.psm1** 使用云功能 JSON 文件来测试要在 Azure Stack Hub 中部署的模板。
+- 在 **CloudCapabilities** 文件夹中：Az.CloudCapabilities.psm1 会创建云功能 JSON 文件，该文件表示 Azure Stack Hub 云中的服务和版本。
+- 在 **TemplateValidator** 文件夹中：Az.TemplateValidator.psm1 使用云功能 JSON 文件来测试要在 Azure Stack Hub 中部署的模板。
 
 ## <a name="build-the-cloud-capabilities-file"></a>生成云功能文件
 
-使用模板验证程序之前，先运行 **AzureRM.CloudCapabilities** PowerShell 模块以生成 JSON 文件。
+使用模板验证程序之前，先运行 Az.CloudCapabilities PowerShell 模块以生成 JSON 文件。
 
 > [!NOTE]
 > 如果更新集成系统，或添加任何新服务或虚拟扩展，应重新运行该模块。
 
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
 1. 请确保已连接到 Azure Stack Hub。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
-2. 导入 **AzureRM.CloudCapabilities** PowerShell 模块：
+2. 导入 Az.CloudCapabilities PowerShell 模块：
 
     ```powershell
-    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
 
 3. 使用 **Get-CloudCapabilities** cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 **AzureCloudCapabilities.json**。 使用你的实际 Azure 位置：
 
+```powershell
+Get-AzCloudCapability -Location <your location> -Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+1. 请确保已连接到 Azure Stack Hub。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
+2. 导入 Az.CloudCapabilities PowerShell 模块：
+
     ```powershell
-    Get-AzureRMCloudCapability -Location <your location> -Verbose
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
+
+3. 使用 **Get-CloudCapabilities** cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 **AzureCloudCapabilities.json**。 使用你的实际 Azure 位置：
+
+```powershell
+Get-AzureRMCloudCapability -Location <your location> -Verbose
+```
+
+---
 
 ## <a name="validate-templates"></a>验证模板
 
-按照这些步骤，使用 **AzureRM.TemplateValidator** PowerShell 模块验证模板。 可以使用自己的模板，或使用 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。
+按照这些步骤，使用 Az.TemplateValidator PowerShell 模块验证模板。 可以使用自己的模板，或使用 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。
 
-1. 导入 **AzureRM.TemplateValidator.psm1** PowerShell 模块：
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
+1. 导入 Az.TemplateValidator.psm1 PowerShell 模块：
 
     ```powershell
-    cd "c:\AzureStack-Tools-master\TemplateValidator"
-    Import-Module .\AzureRM.TemplateValidator.psm1
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
 
 2. 运行模板验证程序：
 
+```powershell
+Test-AzTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+1. 导入 Az.TemplateValidator.psm1 PowerShell 模块：
+
     ```powershell
-    Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
-    -CapabilitiesPath <path to cloudcapabilities.json> `
-    -Verbose
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
+
+2. 运行模板验证程序：
+
+```powershell
+Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+---
 
 模板验证警告或错误会显示在 PowerShell 控制台中并写入到源目录中的一个 HTML 文件中。 以下屏幕截图是验证报告的一个示例：
 
@@ -73,7 +114,7 @@ ms.locfileid: "93330634"
 
 模板验证程序 cmdlet 支持以下参数。
 
-| 参数 | 说明 | 必须 |
+| 参数 | 描述 | 必须 |
 | ----- | -----| ----- |
 | `TemplatePath` | 指定要在其中递归查找 Azure 资源管理器模板的路径。 | 是 |
 | `TemplatePattern` | 指定要匹配的模板文件的名称。 | 否 |
@@ -85,7 +126,18 @@ ms.locfileid: "93330634"
 
 ### <a name="examples"></a>示例
 
-此示例验证下载到本地存储的所有 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此示例还根据 ASDK 功能验证虚拟机 (VM) 大小和扩展：
+此示例验证下载到本地存储的所有 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此示例还根据 ASDK 功能验证虚拟机 (VM) 大小和扩展。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az3)
+
+```powershell
+test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
+-Report TemplateReport.html
+```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm3)
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -94,6 +146,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
+---
 
 ## <a name="next-steps"></a>后续步骤
 

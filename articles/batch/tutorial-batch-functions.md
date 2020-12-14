@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 08/30/2019
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8482411495bfd8b61100fceed730bf1616211e32
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 212324e544ffe4b3fd32b39acb3d2ec61e58e2db
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146792"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432555"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>教程：使用 Azure Functions 触发批处理作业
 
@@ -24,7 +24,7 @@ ms.locfileid: "91146792"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure Batch 帐户和关联的 Azure 存储帐户。 有关如何创建和链接帐户的详细信息，请参阅[创建批处理帐户](quick-create-portal.md#create-a-batch-account)。
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
 * [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)

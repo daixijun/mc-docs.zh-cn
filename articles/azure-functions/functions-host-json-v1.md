@@ -2,13 +2,13 @@
 title: Azure Functions 1.x 的 host.json 参考
 description: 使用 v1 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: d0e16365cadba828990e1d0fa7d9e1b9843bf6c2
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/30/2020
+ms.openlocfilehash: dc113521460902bef8b2b79ae7c328698958d6f5
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472582"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507407"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -93,7 +93,8 @@ ms.locfileid: "92472582"
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -162,7 +163,7 @@ ms.locfileid: "92472582"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_ ，表示没有超时。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_，表示没有超时。
 
 ```json
 {
@@ -286,6 +287,7 @@ ms.locfileid: "92472582"
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |属性  |默认 | 说明 |
@@ -301,7 +303,8 @@ ms.locfileid: "92472582"
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -310,7 +313,8 @@ ms.locfileid: "92472582"
 |---------|---------|---------| 
 |maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
 |prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
-|autoRenewTimeout|00:05:00|自动续订消息锁的最长持续时间。| 
+|autoRenewTimeout|00:05:00|自动续订消息锁的最长持续时间。|
+|autoComplete|是|如果为 true，则触发器会在成功执行操作后自动完成消息处理。 如果为 false，则函数负责在返回之前完成消息。|
 
 ## <a name="singleton"></a>singleton
 
@@ -328,7 +332,7 @@ ms.locfileid: "92472582"
 }
 ```
 
-|属性  |默认 | 说明 |
+|properties  |默认 | 说明 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|占用函数级锁的时间段。 锁自动续订。| 
 |listenerLockPeriod|00:01:00|占用侦听器锁的时间段。| 

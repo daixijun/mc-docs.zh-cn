@@ -5,12 +5,12 @@ origin.date: 10/14/2020
 ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 6d939f8a8f9df0ec7a7047c6450846f73a5af17e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 0bb42d6c2463e6a5563e4848efa8acf9d5ff4230
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327698"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431084"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>快速入门：使用 Ruby 运行你的第一个 Resource Graph 查询
 
@@ -20,7 +20,7 @@ ms.locfileid: "94327698"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 - Azure 服务主体，包括 clientId 和 clientSecret 。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->

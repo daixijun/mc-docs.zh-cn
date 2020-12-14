@@ -6,12 +6,12 @@ ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 73f35e3fae20cafc405bd5113aaa573ac11a1311
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ce132042caa3fcf27b482d7b6226823084384bf0
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328801"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431092"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>快速入门：使用 .NET Core 运行你的第一个 Resource Graph 查询
 
@@ -21,7 +21,7 @@ ms.locfileid: "94328801"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 - Azure 服务主体，包括 clientId 和 clientSecret 。 如果你没有与 Resource Graph 一起使用的服务主体，或想要创建一个新的服务主体，请参阅[用于 .NET 身份验证的 Azure 管理库](https://docs.microsoft.com/dotnet/azure/sdk/authentication#mgmt-auth)。
   跳到安装 .NET Core 包的步骤，我们将在接下来的步骤中执行此安装。
 

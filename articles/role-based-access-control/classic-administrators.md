@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 364dfa72635ad084e10600fb2eb5636486187321
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 28332dd6e282662787712231076cf737e10ee14e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326479"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507429"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 经典订阅管理员
 
@@ -58,7 +58,7 @@ Microsoft 建议使用 Azure 基于角色的访问控制 (Azure RBAC) 来管理�
 
 - 来宾用户必须存在于你的目录中。 这意味着你邀请了用户加入目录，并且该用户接受了邀请。
 
-要详细了解如何将来宾用户添加到目录，请参阅[在 Azure 门户中添加 Azure Active Directory B2B 协作用户](../active-directory/b2b/add-users-administrator.md)。
+要详细了解如何将来宾用户添加到目录，请参阅[在 Azure 门户中添加 Azure Active Directory B2B 协作用户](../active-directory/external-identities/add-users-administrator.md)。
 
 ### <a name="differences-for-guest-users"></a>来宾用户的差异
 
@@ -99,25 +99,25 @@ Microsoft 建议使用 Azure 基于角色的访问控制 (Azure RBAC) 来管理�
 
 只有帐户管理员可以更改订阅的服务管理员。 默认情况下，当你注册 Azure 订阅时，服务管理员即是帐户管理员。 具有帐户管理员角色的用户无权访问 Azure 门户。 具有服务管理员角色的用户拥有 Azure 门户的完全访问权限。 如果帐户管理员和服务管理员是同一个用户，而你将服务管理员更改为其他用户，则帐户管理员会失去 Azure 门户的访问权限。 但是，帐户管理员可始终使用帐户中心将服务管理员重新更改为自己。
 
-请按照这些步骤在“帐户中心”更改服务管理员。
-
-### <a name="account-center"></a>帐户中心
+请按照这些步骤在 Azure 门户中更改服务管理员。
 
 1. 请查看[服务管理员变更限制](#limitations-for-changing-the-service-administrator)，确保自己的方案受支持。
 
-1. 以帐户管理员身份登录到[帐户中心](https://account.windowsazure.cn/subscriptions)。
+1. 以帐户管理员身份登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 单击某个订阅。
+1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
-1. 在右侧单击“编辑订阅详细信息”。
+1. 在左侧导航栏中，单击“属性”。
 
-    ![显示帐户中心中“编辑订阅”按钮的屏幕截图](./media/classic-administrators/editsub.png)
+1. 单击“服务管理员”。
 
-1. 在“服务管理员”  框中，输入新服务管理员的电子邮件地址。
+    ![此屏幕截图显示了 Azure 门户中的订阅属性](./media/classic-administrators/service-admin.png)
 
-    ![屏幕截图：用于更改服务管理员电子邮件的框](./media/classic-administrators/change-service-admin.png)
+1. 在“编辑服务管理员”页中，输入新服务管理员的电子邮件地址。
 
-1. 单击勾选标记以保存更改。
+    ![显示“编辑服务管理员”页的屏幕截图](./media/classic-administrators/service-admin-edit.png)
+
+1. 单击 **“确定”** 保存更改。
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>服务管理员变更限制
 
@@ -142,7 +142,7 @@ Microsoft 建议使用 Azure 基于角色的访问控制 (Azure RBAC) 来管理�
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
-1. 单击“属性”。
+1. 在左侧导航栏中，单击“属性”。
 
     订阅的帐户管理员会显示在“帐户管理员”框中。
 

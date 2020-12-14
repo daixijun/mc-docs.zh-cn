@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 09/25/2020
 ms.date: 11/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: e2839d60d751eda65944e3417d4dcd41e0f2da37
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: ccbfa5200f0eb57683fe415aa98c0097ece5da09
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300055"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430939"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>教程：使用 Python 和 AI 从 Azure Blob 生成可搜索的内容
 
@@ -31,7 +31,7 @@ ms.locfileid: "96300055"
 > * 执行管道以开始转换和分析，以及创建和加载索引。
 > * 使用全文搜索和丰富的查询语法浏览结果。
 
-如果你没有 Azure 订阅，请在开始之前建立一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
-origin.date: 09/02/2020
-ms.date: 11/23/2020
+origin.date: 11/18/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: b7d82a2d42700c48ccf8952f09b98bd8cc8b4d66
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 98704bcb519f2387aa916abc9f1200fd81585046
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "95970773"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746996"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 
@@ -62,7 +62,7 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
 
 ## <a name="before-beginning"></a><a name="before"></a>开始之前
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
@@ -225,7 +225,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   若要指定两个 RADIUS 服务器（预览版），请使用以下语法。 根据需要修改 -VpnClientProtocol 值
+   若要指定两个 RADIUS 服务器，请使用以下语法。 根据需要修改 -VpnClientProtocol 值
 
     ```azurepowershell
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
@@ -293,4 +293,4 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。  �
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/zh-cn/?product=featured)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。

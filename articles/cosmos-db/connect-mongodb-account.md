@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 35daf5d975292d0325f87405fac90f4b2f70ee16
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d4000d63bb96c42d23e16150f598333ac38f001e
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328468"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432511"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>将 MongoDB 应用程序连接到 Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "94328468"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 Azure 帐户。 如果没有 Azure 帐户，请立即创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- 一个 Azure 帐户。 如果没有 Azure 帐户，请立即创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Cosmos 帐户。 有关说明，请参见[使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 .NET SDK 生成 Web 应用](create-mongodb-dotnet.md)。
 
 ## <a name="get-the-mongodb-connection-string-by-using-the-quick-start"></a><a name="get-the-mongodb-connection-string-by-using-the-quick-start"></a>使用快速启动方法获取 MongoDB 连接字符串
@@ -38,7 +38,7 @@ ms.locfileid: "94328468"
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
 2. 在 Azure Cosmos DB 边栏选项卡中，选择 API  。
 3. 在“帐户”边栏选项卡左侧窗格中，单击“快速启动”  。
-4. 选择平台（ **.NET** 、 **Node.js** 、 **MongoDB Shell** 、 **Java** 、 **Python** ）。 如果未列出驱动程序或工具，别担心，我们持续记录了更多连接代码片段。 请在下面留言，告知想知道的内容。 若要了解如何创建自己的连接，请阅读[获取该帐户的连接字符串信息](#get-the-mongodb-connection-string-to-customize)。
+4. 选择平台（ **.NET**、**Node.js**、**MongoDB Shell**、**Java**、**Python**）。 如果未列出驱动程序或工具，别担心，我们持续记录了更多连接代码片段。 请在下面留言，告知想知道的内容。 若要了解如何创建自己的连接，请阅读[获取该帐户的连接字符串信息](#get-the-mongodb-connection-string-to-customize)。
 5. 将代码片段复制粘贴到 MongoDB 应用。
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="“快速启动”边栏选项卡":::

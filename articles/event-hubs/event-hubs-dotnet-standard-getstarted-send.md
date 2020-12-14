@@ -6,12 +6,12 @@ origin.date: 09/25/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce00a930c842d4bfe329bc750d86316eb03484e4
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 7cc54f669269080df6e259d5ec52a442a9818dd3
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375659"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431014"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>向 Azure 事件中心发送事件及从 Azure 事件中心接收事件 - .NET (Azure.Messaging.EventHubs) 
 本快速入门介绍如何使用 Azure.Messaging.EventHubs .NET 库向事件中心发送事件以及从事件中心接收事件。 
@@ -26,9 +26,9 @@ ms.locfileid: "93375659"
 
 若要完成本快速入门，需要具备以下先决条件：
 
-- **Azure 订阅** 。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果没有现有 Azure 帐户，可以注册 [1 元试用版](https://wd.azure.cn/pricing/1rmb-trial/)或[创建帐户](https://wd.azure.cn/pricing/pia/)。
+- **Azure 订阅**。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果你没有现有的 Azure 帐户，可以注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或[创建帐户](https://wd.azure.cn/pricing/pia/)。
 - Microsoft Visual Studio 2019。 Azure 事件中心客户端库利用 C# 8.0 中引入的新功能。  你仍可使用以前的 C# 语言版本的库，但新语法将不可用。 若要使用完整语法，建议使用 [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 或更高版本进行编译，并将[语言版本](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) 设置为 `latest`。 如果使用 Visual Studio，Visual Studio 2019 以前的版本与生成 C# 8.0 项目时所需的工具将不兼容。 可在[此处](https://visualstudio.microsoft.com/vs/)下载 Visual Studio 2019（包括免费的 Community Edition）。
-- 创建事件中心命名空间和事件中心。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取 **事件中心命名空间的连接字符串** ： [获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 稍后将在本快速入门中使用连接字符串。
+- 创建事件中心命名空间和事件中心。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取 **事件中心命名空间的连接字符串**：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 稍后将在本快速入门中使用连接字符串。
 
 ## <a name="send-events"></a>发送事件 
 本部分介绍如何创建一个向事件中心发送事件的 .NET Core 控制台应用程序。 
@@ -36,12 +36,12 @@ ms.locfileid: "93375659"
 ### <a name="create-a-console-application"></a>创建控制台应用程序
 
 1. 启动 Visual Studio 2019。 
-1. 选择“创建新项目”。 
+1. 选择“创建新项目”。  
 1. 在“创建新项目”对话框中执行以下步骤：如果看不到此对话框，请在菜单中选择“文件”，然后依次选择“新建”、“项目”。   
     1. 选择“C#”作为编程语言。
     1. 选择“控制台”作为应用程序类型。 
     1. 从结果列表中选择“控制台应用(.NET Core)”。 
-    1. 然后，选择“下一步”。 
+    1. 然后，选择“下一步”  。 
 
         ![“新建项目”对话框](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
 1. 输入 EventHubsSender 作为项目名称，输入 EventHubsQuickStart 作为解决方案名称，然后选择“确定”以创建项目。 

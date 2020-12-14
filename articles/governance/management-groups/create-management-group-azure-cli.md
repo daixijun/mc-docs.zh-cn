@@ -6,12 +6,12 @@ ms.date: 09/15/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb1aa0e6c6ef24d5508b5dc9172e9a3a6baf6b09
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: a685018466a38de7a817f60664d12bd42b717971
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456299"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431120"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建管理组
 
@@ -21,7 +21,7 @@ ms.locfileid: "90456299"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 - 本快速入门需要运行 Azure CLI 版本 2.0.76 或更高版本，以便在本地安装并使用 CLI。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 

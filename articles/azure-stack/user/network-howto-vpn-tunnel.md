@@ -3,19 +3,19 @@ title: 在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道
 description: 了解如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道。
 author: WenJason
 ms.topic: how-to
-origin.date: 08/24/2020
-ms.date: 10/12/2020
+origin.date: 11/13/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4dd9afe4952a1e3688a175ab03159fa98a0b60b3
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 7b495d84345f6478e63792bec4c3555c51fbbab0
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437730"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507475"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道
 
 本文介绍如何使用 Azure Stack Hub 资源管理器模板部署解决方案。 该解决方案使用关联的虚拟网络创建多个资源组，并演示如何连接这些系统。
 
@@ -23,11 +23,11 @@ ms.locfileid: "91437730"
 
 ## <a name="scenarios"></a>方案
 
-![该图演示了五种 VPN 方案：单个订阅中的两个资源组之间的 VPN；两个组之间的 VPN，每个组都在其自己的订阅中；单独的堆栈实例中的两个组之间的 VPN；组和本地资源之间的 VPN；多个 VPN 隧道。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![该图演示了五种 VPN 方案：单个订阅中的两个资源组之间的 VPN；两个组之间的 VPN，每个组都在其自己的订阅中；单独的堆栈实例中的两个组之间的 VPN；组和本地资源之间的 VPN；多个 VPN 隧道。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>创建多个 VPN 隧道
 
-![此图显示两个资源组，每个组都位于其自己的订阅和堆栈实例中，通过 VPN 进行连接；这两个组中的一个通过 VPN 连接到本地资源。](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![此图显示两个资源组，每个组都位于其自己的订阅和堆栈实例中，通过 VPN 进行连接；这两个组中的一个通过 VPN 连接到本地资源。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  部署三层式应用程序：Web 层、应用层和数据库层。
 
@@ -43,7 +43,7 @@ ms.locfileid: "91437730"
 
 此过程包括多个步骤。 对于此解决方案，你将使用 Azure Stack Hub 门户。 但是，也可以使用 PowerShell、Azure CLI 或其他基础结构即代码工具链来捕获输出并将其用作输入。
 
-![此图显示了在两个基础结构之间部署 VPN 隧道的五个步骤。 前两个步骤基于模板创建两个基础结构。 接下来的两个步骤基于模板创建两个 VPN 隧道，最后一个步骤是连接这些隧道。](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![此图显示了在两个基础结构之间部署 VPN 隧道的五个步骤。 前两个步骤基于模板创建两个基础结构。 接下来的两个步骤基于模板创建两个 VPN 隧道，最后一个步骤是连接这些隧道。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>演练
 
@@ -55,11 +55,11 @@ ms.locfileid: "91437730"
 
     ![“仪表板 > 新建”对话框显示了各种选项。 突出显示了“模板部署”按钮。](./media/azure-stack-network-howto-vpn-tunnel/image3.png)
 
-3. 将 **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** 存储库中 azuredeploy.json 的内容复制并粘贴到模板窗口中。 此时会显示包含在模板中的资源。选择“保存”。****
+3. 将 **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** 存储库中 azuredeploy.json 的内容复制并粘贴到模板窗口中。 此时会显示包含在模板中的资源。选择“保存”。
 
     ![“仪表板 > 新建 > 部署解决方案模板 > 编辑模板”对话框中有一个可以将 azuredeploy.json 文件粘贴到的窗口。](./media/azure-stack-network-howto-vpn-tunnel/image4.png)
 
-4. 输入**资源组**名称并检查参数。
+4. 输入 **资源组** 名称并检查参数。
 
     > [!Note]  
     > WebTier 地址空间将是 **10.10.0.0/16**，可以看到资源组位置是 **PPE1**
@@ -99,7 +99,7 @@ ms.locfileid: "91437730"
 
 3. 粘贴 **azuredeploy.tunnel.ike.json** 的内容。
 
-4. 选择“编辑参数”。****
+4. 选择“编辑参数”。
 
 ![“仪表板 > 新建 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “使用现有项”按钮处于选中状态，文本为“WebTier”。 其他四个突出显示的文本框包含模板参数。](./media/azure-stack-network-howto-vpn-tunnel/image11.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "91437730"
 
 3. 粘贴 **azuredeploy.tunnel.ike.json** 的内容。
 
-4. 选择“编辑参数”。****
+4. 选择“编辑参数”。
 
 ![“仪表板 > 新建 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “使用现有项”按钮处于选中状态，文本为“AppTier”。 其他四个突出显示的文本框包含模板参数。](./media/azure-stack-network-howto-vpn-tunnel/image12.png)
 
@@ -166,7 +166,7 @@ ms.locfileid: "91437730"
 
 3. 粘贴 **azuredeploy.tunnel.ike.json** 的内容。
 
-4. 选择“编辑参数”。****
+4. 选择“编辑参数”。
 
     ![“仪表板 > 新建 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “使用现有项”按钮处于选中状态，文本为“AppTier”。 其他三个突出显示的文本框包含模板参数。](./media/azure-stack-network-howto-vpn-tunnel/image20.png)
 
@@ -178,9 +178,9 @@ ms.locfileid: "91437730"
 
 2. 转到 RRAS VM (AppTier)。
 
-3. 依次选择“扩展”、“运行自定义脚本扩展”。********
+3. 依次选择“扩展”、“运行自定义脚本扩展”。
 
-4. 导航到 **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** 存储库中的 scripts 目录。 选择“Get-VPNS2SInterfaceStatus.ps1”。****
+4. 导航到 **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** 存储库中的 scripts 目录。 选择“Get-VPNS2SInterfaceStatus.ps1”。
 
     ![对话框为“仪表板 > 资源组 > AppTier > AppTier-RRAS - 扩展 > CustomScriptExtension”。 “详细状态”的值为“预配成功”。 详细信息位于覆盖在对话框上的记事本窗口中。](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
 

@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: b5b4aa891732df5044548ac8cfd36f493c66f457
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: cbe0285c370e99eb540e0a8aa313326b845396b2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024482"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431980"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>在 Azure 逻辑应用中接收和响应入站 HTTPS 请求
 
@@ -39,7 +39,7 @@ ms.locfileid: "96024482"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有订阅，可以[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用？](../logic-apps/logic-apps-overview.md)
 
@@ -51,7 +51,7 @@ ms.locfileid: "96024482"
 
 逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#request-limits)内使入站请求保持打开状态。 假设逻辑应用包含[响应操作](#add-response)，如果逻辑应用在此时间之后未向调用方发回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 状态返回给调用方。 如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 状态。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
+1. 登录 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
 1. 逻辑应用设计器打开后，在搜索框中，输入 `http request` 作为筛选器。 从触发器列表中选择“当收到 HTTP 请求时”触发器。
 
@@ -211,8 +211,8 @@ ms.locfileid: "96024482"
 
 | JSON 属性名称 | 数据类型 | 说明 |
 |--------------------|-----------|-------------|
-| `headers` | Object | 描述请求中的标头的 JSON 对象 |
-| `body` | Object | 描述请求中的正文内容的 JSON 对象 |
+| `headers` | 对象 | 描述请求中的标头的 JSON 对象 |
+| `body` | 对象 | 描述请求中的正文内容的 JSON 对象 |
 ||||
 
 <a name="add-response"></a>
@@ -264,7 +264,7 @@ ms.locfileid: "96024482"
 
     下面是有关可在“响应”操作中设置的属性的详细信息。
 
-    | 属性名称 | JSON 属性名称 | 必须 | 说明 |
+    | 属性名称 | JSON 属性名称 | 必选 | 说明 |
     |---------------|--------------------|----------|-------------|
     | **状态代码** | `statusCode` | 是 | 要在响应中返回的状态代码 |
     | **标头** | `headers` | 否 | 一个 JSON 对象，描述要包含在响应中的一个或多个标头 |

@@ -5,14 +5,14 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.author: v-junlch
 author: bmitchell287
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 4873f609c508183088de7be222db98b5afdbc449
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: f3246f301de63b279dd847d583e721bd95b0be0f
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849357"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508617"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>为服务设置 Spring Cloud 配置服务器实例
 
@@ -23,7 +23,7 @@ ms.locfileid: "94849357"
 Spring Cloud Config 为分布式系统中的外部化配置提供服务器和客户端支持。 使用配置服务器实例可在一个中心位置管理所有环境中应用程序的外部属性。 有关详细信息，请参阅 [Spring Cloud 配置服务器引用](https://spring.io/projects/spring-cloud-config)。
 
 ## <a name="prerequisites"></a>先决条件
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 * 一个已预配的处于运行状态的 Azure Spring Cloud 服务。 若要设置并启动 Azure Spring Cloud 服务，请参阅[快速入门：使用 Azure CLI 启动 Java Spring 应用程序](spring-cloud-quickstart.md)。
 
 ## <a name="restriction"></a>限制
@@ -133,13 +133,25 @@ Azure Spring Cloud 支持使用 Azure DevOps、GitHub、GitLab 和 Bitbucket 来
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 
-1. 转到 Azure Spring Cloud 的“概览”页。
+2. 转到 Azure Spring Cloud 的“概览”页。
 
-1. 选择要配置的服务。
+3. 在左侧导航窗格中选择“Config Server”。
 
-1. 在服务页的左窗格中的“设置”下，选择“配置服务器”选项卡 。
+4. 在“默认存储库”部分，将“URI”设置为“https://github.com/Azure-Samples/piggymetrics-config” 。
 
-![配置服务器窗口](./media/spring-cloud-tutorial-config-server/portal-config-server.png)
+5. 单击 **“验证”** 。
+
+    ![导航到配置服务器](./media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+6. 完成验证后，请单击“应用”以保存更改。
+
+    ![正在验证配置服务器](./media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+7. 更新配置可能需要几分钟。
+ 
+    ![正在更新配置服务器](./media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+8. 配置完成后，会收到通知。
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>将存储库信息直接输入到 Azure 门户
 

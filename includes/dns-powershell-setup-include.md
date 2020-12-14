@@ -9,12 +9,12 @@ origin.date: 03/21/2018
 ms.date: 02/17/2020
 ms.author: v-jay
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 841d7bda82fb26471396a0f0f09c63c50917e64e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4a33552a4f7e47e9b25ea9d6e4953b9668aaebd8
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428748"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96478234"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>设置适用于 Azure DNS 的 Azure PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "77428748"
 
 在开始配置之前，请确认你具备以下项。
 
-* Azure 订阅。 如果还没有 Azure 订阅，可在开始前创建一个 [1 元人民币的试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+* Azure 订阅。 如果还没有 Azure 订阅，可在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 * 需安装最新版本的 Azure 资源管理器 PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 此外，若要使用专用区域（公共预览版），需确保具有以下 PowerShell 模块和版本。 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 03/01/2020
-ms.openlocfilehash: 1f89d71caf3016e2a9f51b2c31fa55c9b1d6e562
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: b7570ab4283532e9b67b3d30de7d6f3992d94d70
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637810"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746639"
 ---
 # <a name="feature-coverage-for-machines"></a>适用于计算机的功能覆盖范围
 
@@ -31,21 +31,18 @@ ms.locfileid: "94637810"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender for Endpoint 集成]()|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
-|[虚拟机行为分析（和安全警报）](alerts-reference.md)|✔|✔|✔|是|
-|[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|是|
+|虚拟机行为分析和安全警报|✔|✔|✔|是|
+|无文件安全警报|✔|✔|✔|是|
 |[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
-|[本机漏洞评估]()|✔|-|-|是|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
-|[自适应网络强化]()|✔|-|-|是|
 |[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|是|
 |针对 Docker 托管的 IaaS 容器的建议和威胁防护|-|-|-|是|
 |缺少 OS 修补程序评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
-|第三方漏洞评估|✔|-|-|否|
+|第三方漏洞评估|✔|-|✔|否|
 |[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 
@@ -53,21 +50,18 @@ ms.locfileid: "94637810"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**已启用 Azure Arc 的计算机**|**需要 Azure Defender**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender for Endpoint 集成]()|-|-|-|是|
 |[虚拟机行为分析（和安全警报）](./azure-defender.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|是|
-|[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|是|
+|无文件安全警报|-|-|-|是|
 |[恰时 VM 访问](security-center-just-in-time.md)|✔|-|-|是|
-|[本机漏洞评估]()|✔|-|-|是|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|是|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|是|
-|[自适应网络强化]()|✔|-|-|是|
 |[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|是|
 |针对 Docker 托管的 IaaS 容器的建议和威胁防护|✔|✔|✔|是|
 |缺少 OS 修补程序评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |安全配置错误评估|✔|✔|✔|Azure：否<br><br>已启用 Arc：是|
 |[终结点保护评估](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|否|
 |磁盘加密评估|✔</br>（适用于[支持的场景](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)）|✔|-|否|
-|第三方漏洞评估|✔|-|-|否|
+|第三方漏洞评估|✔|-|✔|否|
 |[网络安全评估](security-center-network-recommendations.md)|✔|✔|-|否|
 
 --- 

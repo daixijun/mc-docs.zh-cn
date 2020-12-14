@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Stack Hub 验证工具验证系统状态�
 author: WenJason
 ms.topic: article
 origin.date: 01/10/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4916c930863d104c4d7efc45bdaeab1acd82c539
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: fa79e438b168f2ac55b82f11016237935a282328
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867843"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508085"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack Hub 系统状态
 
@@ -124,14 +124,14 @@ Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态�
 
 - 在云方案测试期间，会部署一个租户 VM。 可以使用 **DoNotDeployTenantVm** 来禁用此 VM 部署。
 
-- 如[用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，需要提供 **ServiceAdminCredential** 参数才能运行云方案测试。
+- 如 [用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，需要提供 **ServiceAdminCredential** 参数才能运行云方案测试。
 
-- 如[用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential**。
+- 如 [用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential**。
 
 - **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时，**Test-AzureStack** 将返回 **$true**，否则返回 **$false**。
 - **TimeoutSeconds** 可用于设置每个组完成的特定时间。
 
-- 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://go.microsoft.com/fwlink/?LinkID=113216)。  
+- 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_commonparameters)。  
 
 ## <a name="use-case-examples"></a>用例
 

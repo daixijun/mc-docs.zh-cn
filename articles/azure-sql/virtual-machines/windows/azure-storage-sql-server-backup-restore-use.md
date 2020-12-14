@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 origin.date: 01/31/2017
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 12f7d3958c4d795a5471b5a98341d7e0bb69bd0a
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 88f9ac2b8c9bd984ee9843b9dd047a10365c7493
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946217"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432194"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 * **无限制的存储**：通过启用直接备份到 Azure Blob，可以访问几乎无限的存储。 或者，还可以选择备份到 Azure 虚拟机磁盘，所受的限制取决于计算机的大小。 只能将有限数量的磁盘附加到用于备份的 Azure 虚拟机。 对特大实例的限制为 16 个磁盘；对较小实例的磁盘限制数更少。
 * **备份可用性**：存储在 Azure Blob 中的备份可随时从任何位置使用，并可供轻松访问以还原到 SQL Server 实例，而无需进行数据库附加/分离，或者无需下载和附加 VHD。
 * **成本**：只需要为使用的服务付费。 作为场外和备份存档方式可能更加划算。 有关详细信息，请参阅 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/ "定价计算器")和 [Azure 定价文章](https://www.azure.cn/pricing/overview/ "定价文章")。
-* **存储快照**：如果数据库文件存储在 Azure Blob 中并且使用的是 SQL Server 2016，则可以使用[文件快照备份](https://msdn.microsoft.com/library/mt169363.aspx)来执行几乎实时的备份和极其快速的还原。
+* **存储快照**：如果数据库文件存储在 Azure Blob 中并且使用的是 SQL Server 2016，则可以使用 [文件快照备份](https://msdn.microsoft.com/library/mt169363.aspx)来执行几乎实时的备份和极其快速的还原。
 
 有关更多详细信息，请参阅[使用 Azure Blob 存储执行 SQL Server 备份和还原](https://go.microsoft.com/fwlink/?LinkId=271617)。
 
@@ -68,7 +68,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](https://ms
 > 
 
 ## <a name="next-steps"></a>后续步骤
-1. 创建 Azure 帐户（如果还没有帐户）。 如果你正在评估 Azure，请考虑使用[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+1. 创建 Azure 帐户（如果还没有帐户）。 如果正在评估 Azure，请考虑使用[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 2. 接着，完成以下教程之一，这些教程会引导创建存储帐户以及执行还原。
 
     * **SQL Server 2014**：[教程：SQL Server 2014 备份和还原到 Azure Blob 存储](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx)。

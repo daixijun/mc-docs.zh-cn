@@ -9,12 +9,12 @@ origin.date: 08/18/2016
 ms.date: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: c6f77d778100aa58b0a113352e884bd4a8ea21cc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 621d894fecfbe167a0ad70f47ddd5e880c76f462
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78304675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431879"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Outlook.com 中的电子邮件、日历和联系人
 
@@ -35,7 +35,7 @@ ms.locfileid: "78304675"
 
 * 一个 [Outlook.com 帐户](https://outlook.live.com/owa/)
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * 你要在其中访问 Outlook.com 帐户的逻辑应用。 若要通过 Outlook.com 触发器启动工作流，你需要有一个[空白逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要向工作流中添加 Outlook.com 操作，逻辑应用需要已有一个触发器。
 
@@ -55,7 +55,7 @@ ms.locfileid: "78304675"
 
 1. 在设计器工具栏上，选择“保存”  ，这将保存你的逻辑应用。
 
-若要响应触发器，请添加另一操作。 例如，你可以添加 Twilio **发送消息**操作，该操作将在电子邮件到达时发送一个文本。
+若要响应触发器，请添加另一操作。 例如，你可以添加 Twilio **发送消息** 操作，该操作将在电子邮件到达时发送一个文本。
 
 ## <a name="add-an-action"></a>添加操作
 

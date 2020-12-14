@@ -8,12 +8,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 9f5d309ab344372512c03e3684811d545373fd5e
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 8607bfcc771ab3b0cd31886b07f161305a523e97
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807764"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432632"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板
 
@@ -21,7 +21,7 @@ ms.locfileid: "88807764"
 
 若要完成本快速入门，需要使用装有 [Azure 资源管理器工具扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)的 [Visual Studio Code](https://code.visualstudio.com/)。 此外，需要安装 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 或 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0)并完成身份验证。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-an-arm-template"></a>创建 ARM 模板
 

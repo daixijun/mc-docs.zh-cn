@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 03/16/2020
-ms.openlocfilehash: c67494dcad59e00eb40b261b5a2e1a437ed6b996
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: dfcf1aaeb65124c54f53937b49668c3fcfc3f927
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638176"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746903"
 ---
 # <a name="monitor-identity-and-access"></a>监视标识和访问
 
@@ -31,7 +31,7 @@ ms.locfileid: "94638176"
 
 Azure 安全中心具有两个专用的安全控件，用于确保满足组织的标识和安全要求： 
 
- - **管理访问和权限** - 建议采用[最小特权访问模式](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)，并确保仅向用户授予完成其工作所需的访问权限。 此控件还包括有关实现[基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 来控制对资源的访问的建议。
+ - **管理访问和权限** - 建议采用 [最小特权访问模式](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models)，并确保仅向用户授予完成其工作所需的访问权限。 此控件还包括有关实现 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 来控制对资源的访问的建议。
  
  - **启用 MFA** - 启用 [MFA](https://www.microsoft.com/security/business/identity/mfa) 后，帐户将更加安全，用户仍可通过单一登录对几乎所有应用程序进行身份验证。
 
@@ -53,7 +53,7 @@ Azure 安全中心具有两个专用的安全控件，用于确保满足组织�
 
 - 标识建议不适用于拥有超过 600 个帐户的订阅。 在这种情况下，这些建议将在“不可用的评估”下列出。
 - 标识建议不适用于云解决方案提供商 (CSP) 合作伙伴的管理代理。
-- 标识建议不标识使用 Privileged Identity Management (PIM) 系统管理的帐户。 如果使用的是 PIM 工具，则在“管理访问和权限”控件中可能会看到错误结果。
+- 标识建议不标识使用 Privileged Identity Management (PIM) 系统管理的帐户。 如果使用的是 PIM 工具，则可能会在“管理访问和权限”控件中看到不准确的结果。
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>多重身份验证 (MFA) 和 Azure Active Directory 
 

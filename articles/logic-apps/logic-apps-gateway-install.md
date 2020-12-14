@@ -10,12 +10,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 12/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37223fb739eb9571855169afdd83c8fbc1338d07
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 09a48c0d4b21a369e137d80812fdc2d48b000312
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414611"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432047"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -32,7 +32,7 @@ ms.locfileid: "86414611"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果你没有一个带有订阅的 Azure 帐户，请[注册试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有包含订阅的 Azure 帐户，请[注册一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
     * Azure 帐户必须属于单个 [Azure Active Directory (Azure AD) 租户或目录](../active-directory/fundamentals/active-directory-whatis.md#terminology)。 必须使用同一 Azure 帐户在本地计算机上安装和管理网关。
 
@@ -127,7 +127,7 @@ ms.locfileid: "86414611"
 
     *为何要更改网关安装的区域？* 
 
-    例如，为了降低延迟，可将网关的区域更改为逻辑应用所在的同一区域。 或者，可以选择最靠近本地数据源的区域。 *Azure 中的网关资源*和逻辑应用可以有不同的位置。
+    例如，为了降低延迟，可将网关的区域更改为逻辑应用所在的同一区域。 或者，可以选择最靠近本地数据源的区域。 *Azure 中的网关资源* 和逻辑应用可以有不同的位置。
 
     1. 在当前区域的旁边，选择“更改区域”。 
 

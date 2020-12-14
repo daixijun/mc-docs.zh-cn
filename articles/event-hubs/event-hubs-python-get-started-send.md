@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 02/11/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 0fecbcbb47e1aea42a81910612e36221ac18dbf6
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: cde0157c0f6998fdb9fac327ddf42b2e57842ea2
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375681"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430954"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>使用 Python（azure-eventhub 版本 5）向/从事件中心发送/接收事件
 本快速入门介绍如何使用 **azure-eventhub 版本 5** Python 包向事件中心发送事件以及从事件中心接收事件。
@@ -20,7 +20,7 @@ ms.locfileid: "93375681"
 
 若要完成本快速入门，需要具备以下先决条件：
 
-- **Azure 订阅** 。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果没有现有 Azure 帐户，可以注册 [1 元试用版](https://wd.azure.cn/pricing/1rmb-trial/)或[创建帐户](https://wd.azure.cn/pricing/pia/)。
+- **Azure 订阅**。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果你没有现有的 Azure 帐户，可以注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或[创建帐户](https://wd.azure.cn/pricing/pia/)。
 - Python 2.7、3.5 或更高版本，装有 PIP 且已更新。
 - 事件中心的 Python 包。 
 
@@ -35,7 +35,7 @@ ms.locfileid: "93375681"
     ```cmd
     pip install azure-eventhub-checkpointstoreblob-aio
     ```
-- **创建事件中心命名空间和事件中心** 。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取事件中心命名空间的连接字符串：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 稍后将在本快速入门中使用连接字符串。
+- **创建事件中心命名空间和事件中心**。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取事件中心命名空间的连接字符串：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 稍后将在本快速入门中使用连接字符串。
 
 ## <a name="send-events"></a>发送事件
 在本部分，你将创建一个 Python 脚本，用于将事件发送到前面创建的事件中心。

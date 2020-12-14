@@ -3,8 +3,8 @@ title: Azure 网络安全的概念和要求 | Azure Docs
 description: 本文提供了关于核心网络安全概念和要求的基本说明，以及 Azure 在每个方面提供的内容的相关信息。
 services: security
 documentationcenter: na
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+manager: barbkess
 editor: TomSh
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/29/2018
-ms.date: 03/02/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 19715195e03d99762bfcaa6c02e3312bc7493e59
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.date: 12/03/2020
+ms.author: v-johya
+ms.openlocfilehash: a0762387de85524aac7dd55867b37e00ef91c1ff
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439506"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746952"
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 
@@ -63,23 +63,26 @@ Azure 支持多种类型的网络访问控制，例如：
 
 任何安全部署都需要某种程度的网络访问控制。 网络访问控制的目的是将虚拟机通信限制为必要的系统。 将阻止其他通信尝试。
 
+> [!NOTE]
+> 要了解存储防火墙，请参阅 [Azure 存储安全概述](../../storage/blobs/security-recommendations.md)一文
+
 #### <a name="network-security-rules-nsgs"></a>网络安全规则 (NSG)
 
 如果需要基本的网络级别访问控制（基于 IP 地址和 TCP 或 UDP 协议），可使用网络安全组 (NSG)。 NSG 是基本的静态数据包筛选防火墙，你可使用它来基于 [5 元组](https://www.techopedia.com/definition/28190/5-tuple)控制访问。 NSG 包含的功能可以简化管理，并减少配置错误的可能性：
 
-* **扩充式安全规则**简化了 NSG 规则定义，并允许创建复杂规则，而无需创建多个简单规则来实现相同的结果。
-* **服务标记**是 Microsoft 创建的标签，表示一组 IP 地址。 这些标记会动态更新，以包含符合在标签中定义包含项的条件的 IP 范围。 例如，如果你要创建一个应用到东部区域的所有 Azure 存储的规则，可以使用 Storage.ChinaEast
-* **应用程序安全组**可用于将资源部署到应用程序组，并通过创建使用这些应用程序组的规则来控制对这些资源的访问。 例如，如果 Web 服务器已部署到“Webservers”应用程序组，则你可以创建一个规则，以便将允许来自 Internet 的 443 流量的 NSG 应用到“Webservers”应用程序组中的所有系统。
+* **扩充式安全规则** 简化了 NSG 规则定义，并允许创建复杂规则，而无需创建多个简单规则来实现相同的结果。
+* **服务标记** 是 Microsoft 创建的标签，表示一组 IP 地址。 这些标记会动态更新，以包含符合在标签中定义包含项的条件的 IP 范围。 例如，如果你要创建一个应用到东部区域的所有 Azure 存储的规则，可以使用 Storage.ChinaEast
+* **应用程序安全组** 可用于将资源部署到应用程序组，并通过创建使用这些应用程序组的规则来控制对这些资源的访问。 例如，如果 Web 服务器已部署到“Webservers”应用程序组，则你可以创建一个规则，以便将允许来自 Internet 的 443 流量的 NSG 应用到“Webservers”应用程序组中的所有系统。
 
 NSG 不提供应用程序层检查或经过身份验证的访问控制。
 
 了解详细信息：
 
-* [网络安全组](../../virtual-network/security-overview.md)
+* [网络安全组](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC 实时 VM 访问
 
-Azure 安全中心可以管理 VM 上的 NSG，并将对 VM 的访问权限锁定到具有相应基于角色的访问控制 [RBAC](/role-based-access-control/overview) 权限的用户请求访问为止。 如果成功为该用户授权，则 ASC 会对 NSG 进行修改，以允许在指定的时间访问选定的端口。 该时间过后，NSG 将还原到其以前的受保护状态。
+[Azure 安全中心](../../security-center/security-center-introduction.md)可以管理 VM 上的 NSG，并将对 VM 的访问权限锁定到具有相应 Azure 基于角色的访问控制 [Azure RBAC](../../role-based-access-control/overview.md) 权限的用户请求访问为止。 如果成功为该用户授权，则 ASC 会对 NSG 进行修改，以允许在指定的时间访问选定的端口。 该时间过后，NSG 将还原到其以前的受保护状态。
 
 了解详细信息：
 
@@ -87,11 +90,11 @@ Azure 安全中心可以管理 VM 上的 NSG，并将对 VM 的访问权限锁�
 
 #### <a name="service-endpoints"></a>服务终结点
 
-服务终结点是对流量实施控制的另一种方式。 可以限制为只能在 VNet 中通过直接连接来与支持的服务通信。 从 VNet 发往指定 Azure 服务的流量保留在 Microsoft Azure 主干网络中。  
+服务终结点是对流量实施控制的另一种方式。 可以限制为只能在 VNet 中通过直接连接来与支持的服务通信。 从 VNet 发往指定 Azure 服务的流量保留在 Azure 主干网络中。  
 
 了解详细信息：
 
-* [服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)
+* [服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### <a name="route-control-and-forced-tunneling"></a>路由控制和强制隧道
 
@@ -125,7 +128,7 @@ Azure 网络支持在虚拟网络上为流量自定义路由行为。 由此可�
 * 防 Bot 保护
 * 应用程序访问控制
 
-可以使用 Azure 合作伙伴解决方案来访问这些增强的网络安全功能。 通过访问 [Azure 市场](https://market.azure.cn/zh-cn)并搜索“安全”和“网络安全”，可以找到最新的 Azure 合作伙伴网络安全解决方案。
+可以使用 Azure 合作伙伴解决方案来访问这些增强的网络安全功能。 通过访问 [Azure 市场](https://market.azure.cn/)并搜索“安全”和“网络安全”，可以找到最新的 Azure 合作伙伴网络安全解决方案。
 
 ## <a name="azure-firewall"></a>Azure 防火墙
 
@@ -138,7 +141,7 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 
 了解详细信息：
 
-* [Azure 防火墙概述](/firewall/overview)
+* [Azure 防火墙概述](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>安全远程访问和跨界连接
 
@@ -157,7 +160,7 @@ Azure 网络支持以下安全远程访问方案：
 
 点到站点 VPN 连接允许你在用户和虚拟网络之间设置专用的安全连接。 建立 VPN 连接后，用户可通过 VPN 链接将 RDP 或 SSH 连接到虚拟网络上的任何虚拟机。 （假设用户可以进行身份验证并获得授权。）点到站点 VPN 支持以下项：
 
-* 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 SSL 所用的 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
+* 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 TLS/SSL 所用的 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
 
 * IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
@@ -197,7 +200,7 @@ Azure 网络支持以下安全远程访问方案：
 
 一个选择是通过 Internet 以“环回”方式将一个虚拟网络上的服务连接到另一个虚拟网络上的服务。 该连接将在一个虚拟网络上开始，通过 Internet，再回到目标虚拟网络。 此选项会导致连接存在任何基于 Internet 的通信所固有的安全问题。
 
-创建两个虚拟网络之间相互连接的站点到站点 VPN 可能是最佳选择。 此方法与上述的跨界站点到站点 VPN 连接使用相同的 [IPSec 隧道模式](https://technet.microsoft.com/library/cc786385.aspx)协议。
+创建两个虚拟网络之间相互连接的站点到站点 VPN 可能是最佳选择。 此方法与上述的跨界站点到站点 VPN 连接使用相同的 [IPSec 隧道模式](https://docs.microsoft.com//previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))协议。
 
 此方法的优点是通过 Azure 网络结构建立 VPN 连接，而不是通过 Internet 进行连接。 与通过 Internet 连接的站点到站点 VPN 相比，这提供了额外的安全层。
 
@@ -227,12 +230,12 @@ Azure 网络支持以下安全远程访问方案：
 Azure 应用程序网关为基于 Web 的服务提供了基于 HTTP 的负载均衡。 应用程序网关支持：
 
 * 基于 Cookie 的会话关联。 此功能可确保建立到负载均衡器后面的某个服务器的连接在客户端和服务器之间保持不变。 此操作确保了事务的稳定性。
-* SSL 卸载。 当客户端与负载均衡器连接时，会话使用 HTTPS (SSL) 协议进行加密。 但是，为了提高性能，可以使用 HTTP（未加密）协议在负载均衡器和该负载均衡器后面的 Web 服务器之间进行连接。 这称为“SSL 卸载”，因为负载均衡器后面的 Web 服务器不会遇到涉及加密的处理器开销。 因此 Web 服务器可更快地为请求提供服务。
+* TLS 卸载。 当客户端与负载均衡器连接时，会话使用 HTTPS (TLS) 协议进行加密。 但是，为了提高性能，可以使用 HTTP（未加密）协议在负载均衡器和该负载均衡器后面的 Web 服务器之间进行连接。 这称为“TLS 卸载”，因为负载均衡器后面的 Web 服务器不会遇到涉及加密的处理器开销。 因此 Web 服务器可更快地为请求提供服务。
 * 基于 URL 的内容路由。 此功能可使负载均衡器决定在哪里转接基于目标 URL 的连接。 它提供的弹性大于基于 IP 地址做出负载均衡决策的解决方案。
 
 了解详细信息：
 
-* [应用程序网关概述](/application-gateway/application-gateway-introduction)
+* [应用程序网关概述](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>网络级别负载均衡
 
@@ -247,8 +250,8 @@ Azure 应用程序网关为基于 Web 的服务提供了基于 HTTP 的负载均
 
 了解详细信息：
 
-* [多个虚拟机或服务之间的面向 Internet 的负载均衡器](/load-balancer/load-balancer-internet-overview)
-* [内部负载均衡器概述](/load-balancer/load-balancer-internal-overview)
+* [多个虚拟机或服务之间的面向 Internet 的负载均衡器](../../load-balancer/load-balancer-overview.md)
+* [内部负载均衡器概述](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>全局负载均衡
 
@@ -309,14 +312,7 @@ Azure 以 Azure DNS 的形式提供一个高可用性且高性能的外部 DNS �
 
 
 
-## <a name="azure-front-door"></a>Azure Front Door
-
-使用 Azure Front Door 服务，你可以定义、管理和监视 Web 流量的全局路由。 它可以优化流量的路由以实现最佳性能和高可用性。 Azure Front Door 允许编写自定义 Web 应用程序防火墙 (WAF) 规则进行访问控制，以基于客户端 IP 地址、国家/地区代码和 http 参数来防范 HTTP/HTTPS 工作负荷遭到恶意利用。 此外，使用 Front Door 还可以创建速率限制规则来对付恶意的机器人流量，它包括 SSL 卸载和每 HTTP/HTTPS 请求以及应用程序层处理。
-
-Front Door 是第 7 层反向代理，它仅允许 Web 流量通过后端服务器，默认会阻止其他类型的流量。
-
-
-
+<!--Not avaiable in MC: ## Azure Front Door-->
 ## <a name="azure-traffic-manager"></a>Azure 流量管理器
 
 Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在全球 Azure 区域内以最佳方式向服务分发流量，同时提供高可用性和响应性。 流量管理器根据流量路由方法和终结点的运行状况，使用 DNS 将客户端请求定向到最合适的服务终结点。 终结点可以是托管在 Azure 内部或外部的任何面向 Internet 的服务。 流量管理器对终结点进行监视，并且不会将流量定向到不可用的任何终结点。
@@ -352,6 +348,9 @@ Azure 安全中心帮助你预防、检测和响应威胁，同时提高 Azure �
 * 监视网络安全配置的状态。
 * 在终结点和网络级别发出基于网络的威胁警报。
 
+了解详细信息：
+
+* [Azure 安全中心简介](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>虚拟网络 TAP
 
@@ -365,7 +364,8 @@ Azure 安全中心帮助你预防、检测和响应威胁，同时提高 Azure �
 * 事件日志。 这些日志提供有关应用了哪些 NSG 规则的信息。
 * 计数器日志。 通过这些日志，可知道所应用每个 NSG 规则拒绝或允许流量的次数。
 
-还可以使用功能强大的数据可视化工具 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/) 来查看和分析这些日志。
+还可以使用功能强大的数据可视化工具 [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) 来查看和分析这些日志。
 了解详细信息：
 
 * [网络安全组 (NSG) 的 Azure Monitor 日志](../../virtual-network/virtual-network-nsg-manage-log.md)
+

@@ -9,12 +9,12 @@ origin.date: 08/24/2018
 ms.date: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 4550943bfa8fe301a8344594cb673655f909e6dd
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 494bb6286bbbd8d8085ea0afa5722bedefa70541
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414578"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431871"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用监视、创建和管理 Salesforce 资源
 
@@ -27,13 +27,13 @@ ms.locfileid: "86414578"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * 一个 [Salesforce 帐户](https://salesforce.com/)
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
-* 要在其中访问 Salesforce 帐户的逻辑应用。 若要从 Salesforce 触发器开始，请[创建空白的逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Salesforce 操作，请使用其他触发器（例如**定期**触发器）启动逻辑应用。
+* 要在其中访问 Salesforce 帐户的逻辑应用。 若要从 Salesforce 触发器开始，请[创建空白的逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Salesforce 操作，请使用其他触发器（例如 **定期** 触发器）启动逻辑应用。
 
 ## <a name="connect-to-salesforce"></a>连接到 Salesforce
 

@@ -6,14 +6,14 @@ author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: c4fb0ad4c8fcc0c81b1cddd21031a19deeee8c89
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8e80994886c2ced7193b2df9fc6a623916c54998
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638031"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747166"
 ---
 # <a name="continuously-export-security-center-data"></a>连续导出安全中心数据
 
@@ -61,7 +61,11 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 1. 从安全中心的侧栏中，选择“定价和设置”。
 1. 选择要为其配置数据导出的特定订阅。
 1. 从该订阅的设置页的侧栏中，选择“连续导出”。
-    [![Azure 安全中心的导出选项](./media/continuous-export/continuous-export-options-page.png)](./media/continuous-export/continuous-export-options-page.png#lightbox) 在此处可以看到导出选项。 每个可用的导出目标有一个选项卡。 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Azure 安全中心内的导出选项":::
+
+    可以在这里看到导出选项。 每个可用的导出目标有一个选项卡。 
+
 1. 选择要导出的数据类型，并从每种类型的筛选器中进行选择（例如，仅导出严重程度高的警报）。
 1. （可选）如果你的选择包含以下四个建议中的一个，你可以将漏洞评估结果与它们包括在一起：
     - 应修正关于 SQL 数据库的漏洞评估结果
@@ -163,7 +167,7 @@ API 提供了 Azure 门户中没有的其他功能，例如：
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>在 Azure Monitor 中查看导出的警报和建议
 
-在某些情况下，可以选择在 [Azure Monitor](../azure-monitor/platform/alerts-overview.md) 中查看导出的安全警报和/或建议。 
+还可以选择在 [Azure Monitor](../azure-monitor/platform/alerts-overview.md) 中查看导出的安全警报和/或建议。 
 
 Azure Monitor 为各种 Azure 警报（包括诊断日志、指标警报以及基于 Log Analytics 工作区查询的自定义警报）提供统一的警报体验。
 

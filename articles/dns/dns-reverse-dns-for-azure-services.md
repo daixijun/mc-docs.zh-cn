@@ -1,24 +1,23 @@
 ---
-title: Azure 服务的反向 DNS | Microsoft Docs
-description: 了解如何为 Azure 中托管的服务配置反向 DNS 查找
+title: Azure 服务的反向 DNS | Azure DNS
+description: 利用此学习路径，开始为 Azure 中托管的服务配置反向 DNS 查找。
 services: dns
 documentationcenter: na
 author: WenJason
-manager: digimobile
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 08/26/2019
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: f59cc81059e4483257200d6e3141f63d58f6e55b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0bf71fe627d2c1838a47795d69db72dcdfcd655e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "69993584"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747015"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 
@@ -249,11 +248,10 @@ FQDN 以正向顺序指定，且必须以点号结尾（例如“app1.contoso.co
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>是否可以从 Azure 计算服务将电子邮件发送到外部域？
 
-直接从 Azure 部署发送电子邮件的技术能力取决于订阅类型。 无论是哪种订阅类型，Azure 都建议使用受信任的邮件中继服务来发送出站邮件。 有关更多详细信息，请参阅 [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/)（增强 Azure 发送电子邮件的安全性 - 2017 年 11 月更新）。
+直接从 Azure 部署发送电子邮件的技术能力取决于订阅类型。 无论是哪种订阅类型，Azure 都建议使用受信任的邮件中继服务来发送出站邮件。 有关更多详细信息，请参阅 [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)（增强 Azure 发送电子邮件的安全性 - 2017 年 11 月更新）。
 
 ## <a name="next-steps"></a>后续步骤
 
 有关反向 DNS 的详细信息，请参阅[反向 DNS 查找](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)。
 <br>
 了解如何[在 Azure DNS 中为 ISP 分配的 IP 范围托管反向查找区域](dns-reverse-dns-for-azure-services.md)。
-

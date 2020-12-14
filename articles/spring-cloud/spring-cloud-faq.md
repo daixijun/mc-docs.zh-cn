@@ -4,15 +4,15 @@ description: 本文解答有关 Azure Spring Cloud 的常见问题。
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: dc9baf7540a34aaceca370e83ab43214bdc3eba6
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 198db9f094dc5545778c11f923352496e8d8e64a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849424"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507683"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud 常见问题解答
 
@@ -85,6 +85,21 @@ Azure Spring Cloud 支持将 Spring Cloud 应用程序日志和指标导出到 A
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>是否可以从应用程序内部查看、添加或移动永久性卷？
 
 是的。
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Azure Spring Cloud 实例有多少出站公共 IP 地址？
+
+出站公共 IP 地址数可能因层级和其他因素而异。 
+
+| Azure Spring Cloud 实例类型 | 默认的出站公共 IP 地址数 |
+| -------------------------------- | ---------------------------------------------- |
+| 基本层实例             | 1                                              |
+| 标准层实例          | 2                                              |
+| VNet 注入实例         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>是否可以增加出站公共 IP 地址的数量？
+
+是，你可以提交[支持票证](https://www.azure.cn/support/faq/)以请求更多出站公共 IP 地址。
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>删除/移动 Azure Spring Cloud 服务实例时，是否也会删除/移动其扩展资源？
 

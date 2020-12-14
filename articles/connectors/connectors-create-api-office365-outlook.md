@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 173c57d91acf530af5578b376d7951f1b5203dfa
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: a2317cddf7eae22c68136938620e08f0c0a73093
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431883"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Office 365 Outlook 中的电子邮件、联系人和日历
 
@@ -32,7 +32,7 @@ ms.locfileid: "91564541"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * [工作或学校帐户](https://www.office.com/)
 
@@ -54,13 +54,13 @@ ms.locfileid: "91564541"
     
     此示例选择供触发器检查的日历，例如：
 
-    :::image type="content" source="./media/connectors-create-api-office365-outlook/select-calendar.png" alt-text="选择用于启动逻辑应用的触发器":::
+    :::image type="content" source="./media/connectors-create-api-office365-outlook/select-calendar.png" alt-text="配置触发器的属性":::
 
 1. 在触发器中，设置“频率”  和“间隔”  值。 若要添加其他可用的触发器属性（例如“时区”  ），请从“添加新参数”  列表中选择那些属性。
 
     例如，如果希望触发器每 15 分钟检查一次日历，请将“频率”  设置为“分钟”  ，将“间隔”  设置为 `15`。 
 
-    :::image type="content" source="./media/connectors-create-api-office365-outlook/calendar-settings.png" alt-text="选择用于启动逻辑应用的触发器":::
+    :::image type="content" source="./media/connectors-create-api-office365-outlook/calendar-settings.png" alt-text="为触发器设置频率和间隔":::
 
 1. 在设计器工具栏上选择“保存”。 
 
@@ -78,7 +78,7 @@ ms.locfileid: "91564541"
 
 1. 在搜索框中，输入 `office 365 outlook` 作为筛选器。 此示例选择“创建联系人”  。
 
-    :::image type="content" source="./media/connectors-create-api-office365-outlook/office365-actions.png" alt-text="选择用于启动逻辑应用的触发器"::: 
+    :::image type="content" source="./media/connectors-create-api-office365-outlook/office365-actions.png" alt-text="选择要在逻辑应用中运行的操作"::: 
 
 1. 如果系统提示你登录，请提供你的工作或学校凭据，以便逻辑应用可以连接到你的帐户。 或者，如果连接已存在，请提供操作属性的信息。
 
@@ -86,7 +86,7 @@ ms.locfileid: "91564541"
     
     此示例选择可供操作在其中创建新联系人的联系人文件夹，例如：
 
-    :::image type="content" source="./media/connectors-create-api-office365-outlook/select-contacts-folder.png" alt-text="选择用于启动逻辑应用的触发器":::
+    :::image type="content" source="./media/connectors-create-api-office365-outlook/select-contacts-folder.png" alt-text="配置操作的属性":::
 
     若要添加其他可用的操作属性，请从“添加新参数”列表中选择那些属性。 
 

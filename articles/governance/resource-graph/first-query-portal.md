@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/14/2020
 ms.date: 11/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3b004018b0f63142ddf7c7a42bb1ecbaab25adbd
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 43ba9293c6c25f84948ceb431ab556040c61233d
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328803"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431094"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入门：使用 Azure Resource Graph Explorer 运行第一个 Resource Graph 查询
 
@@ -20,13 +20,13 @@ ms.locfileid: "94328803"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="run-your-first-resource-graph-query"></a>运行首个 Resource Graph 查询
 
 打开 [Azure 门户](https://portal.azure.cn)，遵循以下步骤找到并使用 Resource Graph Explorer 运行第一个 Resource Graph 查询：
 
-1. 在左侧窗格中，选择“所有服务”。 搜索并选择 **Resource Graph Explorer** 。
+1. 在左侧窗格中，选择“所有服务”。 搜索并选择 **Resource Graph Explorer**。
 
 1. 在窗口中的“查询 1”部分输入查询 `Resources | project name, type | limit 5`，然后选择“运行查询”。 
 

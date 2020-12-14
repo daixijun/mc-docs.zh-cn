@@ -8,12 +8,12 @@ ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 362717e0994ccab7344423f2a470b1e5fb153a72
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: f86ba30653040e4a15f1f031a3e6e78f9a98c216
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170566"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508075"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>快速入门：在 Azure 中创建 ASP.NET Core Web 应用
 
@@ -25,7 +25,7 @@ ms.locfileid: "92170566"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 本快速入门将应用部署到 Windows 上的应用服务。 若要部署 Linux 上的应用服务，请参阅[在应用服务中创建 .NET Core Web 应用](./quickstart-dotnetcore.md)。
 - 安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>。
 
@@ -72,7 +72,7 @@ ms.locfileid: "92170566"
 
    ![选取发布目标](./media/quickstart-dotnetcore/pick-publish-target-vs2019.png)
 
-1. 在“应用服务:新建”对话框中为应用提供全局唯一的**名称**，可以接受默认名称，也可以输入新名称。 有效字符为：`a-z`、`A-Z`、`0-9` 和 `-`。 此**名称**用作 Web 应用的 URL 前缀，采用 `http://<app_name>.chinacloudsites.cn` 格式。
+1. 在“应用服务:新建”对话框中为应用提供全局唯一的 **名称**，可以接受默认名称，也可以输入新名称。 有效字符为：`a-z`、`A-Z`、`0-9` 和 `-`。 此 **名称** 用作 Web 应用的 URL 前缀，采用 `http://<app_name>.chinacloudsites.cn` 格式。
 
 1. 对于“订阅”，请接受列出的订阅，或从下拉列表中选择一个新订阅。
 
@@ -110,7 +110,7 @@ ms.locfileid: "92170566"
 
 遵循以下步骤更新并重新部署 Web 应用：
 
-1. 在**解决方案资源管理器**中你的项目下，打开“页” > “Index.cshtml”。
+1. 在 **解决方案资源管理器** 中你的项目下，打开“页” > “Index.cshtml”。
 
 1. 将整个 `<div>` 标记替换为以下代码：
 
@@ -304,9 +304,9 @@ git push azure master
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理已创建的应用。
 
-在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
+在左侧菜单中单击 **应用程序服务**，然后单击 Azure 应用的名称。
 
-:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="“应用程序服务”页面的屏幕截图，显示已选择一个示例 Web 应用。":::
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="“应用程序服务”的屏幕截图，显示已选择一个示例 Azure 应用。":::
 
 这里我们可以看到应用的“概述”页。 并可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 
 

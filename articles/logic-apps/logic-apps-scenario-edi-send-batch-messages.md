@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/19/2018
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9c3d958b2f2d0eb6b2909f48a1d6ed8f18488648
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: df680038c0e254c3fbb6cb19cfc35e434028bc6f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211501"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432559"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>在 Azure 逻辑应用中的贸易合作伙伴之间以批或组的形式交换 EDI 消息
 
@@ -35,7 +35,7 @@ ms.locfileid: "92211501"
 
 若要按照此示例进行操作，需要以下这些项：
 
-* Azure 订阅。 如果没有订阅，可以从 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)着手。 或者，[注册标准预付费套餐订阅](https://www.azure.cn/pricing/overview/)。
+* Azure 订阅。 如果没有订阅，可以[从试用版订阅着手](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 或者，[注册标准预付费套餐订阅](https://www.azure.cn/pricing/overview/)。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
@@ -176,7 +176,7 @@ ms.locfileid: "92211501"
 
     | properties | 说明 | 
     |----------|-------------| 
-    | **批名称** | 接收方逻辑应用定义的批名称，在本示例中为“TestBatch” <p>**重要说明** ：批名称在运行时将接受验证，必须与接收方逻辑应用指定的名称相匹配。 更改批名称会导致批发送方失败。 | 
+    | **批名称** | 接收方逻辑应用定义的批名称，在本示例中为“TestBatch” <p>**重要说明**：批名称在运行时将接受验证，必须与接收方逻辑应用指定的名称相匹配。 更改批名称会导致批发送方失败。 | 
     | **消息内容** | 要发送的消息内容，在本示例中为“正文”标记  | 
     ||| 
 

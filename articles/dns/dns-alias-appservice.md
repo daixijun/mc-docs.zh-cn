@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/10/2019
 ms.date: 03/23/2020
 ms.author: v-jay
-ms.openlocfilehash: 966f5ed32999eca0e55184cdcb5ab14192d321fe
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1e4b57fac07c0b6fc45038866c3f65cd72defeaf
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80115838"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432603"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>在区域顶点托管负载均衡的 Azure Web 应用
 
@@ -25,7 +25,7 @@ DNS 协议可防止分配区域顶点的 A 或 AAAA 记录之外的任何内容�
 
 本文介绍如何为域顶点创建别名记录，以及为 Web 应用配置流量管理器配置文件终结点。
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -90,8 +90,8 @@ DNS 协议可防止分配区域顶点的 A 或 AAAA 记录之外的任何内容�
 
    |类型  |名称  |目标  |位置  |自定义标头设置|
    |---------|---------|---------|---------|---------|
-   |外部终结点     |End-01|为 App-01 记下的 IP 地址|中国东部|主机：\<为 App-01 记下的 URL\><br>示例：**host:app-01.chinacloudsites.cn**|
-   |外部终结点     |End-02|为 App-02 记下的 IP 地址|中国北部|主机：\<为 App-02 记下的 URL\><br>示例：**host:app-02.chinacloudsites.cn**
+   |外部终结点     |End-01|为 App-01 记下的 IP 地址|中国东部|主机：\<the URL you recorded for App-01\><br>示例：**host:app-01.chinacloudsites.cn**|
+   |外部终结点     |End-02|为 App-02 记下的 IP 地址|中国北部|主机：\<the URL you recorded for App-02\><br>示例：**host:app-02.chinacloudsites.cn**
 
 ## <a name="create-dns-zone"></a>创建 DNS 区域
 

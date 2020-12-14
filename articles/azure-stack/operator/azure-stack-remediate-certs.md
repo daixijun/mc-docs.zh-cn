@@ -4,22 +4,33 @@ titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器解决 Azure Stack Hub PKI 证书的常见问题。
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 03/04/2020
-ms.date: 10/12/2020
+origin.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: ca6283d0445a3ca6b66a3529bb7a1378c95e5075
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: f41b5aedbedbf24665ed08992a5891fb150ac7b9
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437699"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508037"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack Hub PKI 证书的常见问题
 
 可以通过本文中的信息来了解并解决 Azure Stack Hub PKI 证书的常见问题。 使用 Azure Stack Hub 就绪性检查器工具[验证 Azure Stack Hub PKI 证书](azure-stack-validate-pki-certs.md)时，可以发现问题。 该工具先检查证书是否满足 Azure Stack Hub 部署和 Azure Stack Hub 机密轮换的 PKI 要求，然后将结果记录到 [report.json 文件](azure-stack-validation-report.md)。  
+
+## <a name="http-crl---warning"></a>HTTP CRL - 警告
+
+**问题** - 证书未包含 CDP 扩展中的 HTTP CRL。
+
+**修复** - 这是一个非阻塞性问题。 根据 [Azure Stack Hub 公钥基础结构 (PKI) 证书要求](/azure-stack/operator/azure-stack-pki-certs)，Azure Stack 需要 HTTP CRL 来进行吊销检查。  在证书上未检测到 HTTP CRL。  为了确保证书吊销检查正常进行，证书颁发机构应颁发一个包含 CDP 扩展中的 HTTP CRL 的证书。
+
+## <a name="http-crl---fail"></a>HTTP CRL - 失败
+
+**问题** - 无法连接到 CDP 扩展中的 HTTP CRL。
+
+**修复** - 这是一个阻塞性问题。 根据[发布 Azure Stack Hub 端口和 URL（出站）](/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)，Azure Stack 需要连接到 HTTP CRL 进行吊销检查。
 
 ## <a name="pfx-encryption"></a>PFX 加密
 
@@ -31,7 +42,7 @@ ms.locfileid: "91437699"
 
 **警告** - 密码仅保护证书中的私密信息。  
 
-**修复** - 使用与“启用证书隐私”相对应的可选设置来导出 PFX 文件。   
+**修复** - 使用与“启用证书隐私”相对应的可选设置来导出 PFX 文件。  
 
 **问题** - PFX 文件无效。  
 
@@ -53,7 +64,7 @@ ms.locfileid: "91437699"
 
 **问题** - 证书链不完整。  
 
-**修复** - 证书应包含完整的证书链。 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 
+**修复** - 证书应包含完整的证书链。 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。
 
 ## <a name="dns-names"></a>DNS 名称
 
@@ -77,37 +88,37 @@ ms.locfileid: "91437699"
 
 **问题** - 证书链的顺序不正确。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
+**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
 
 ## <a name="other-certificates"></a>其他证书
 
 **问题** - PFX 包包含的证书不是分支证书，或者不是证书链的一部分。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
+**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 
 **AzsReadinessChecker** 工具包含名为 **Repair-AzsPfxCertificate** 的帮助程序 cmdlet，它可以通过导入和导出 PFX 文件来修复常见的打包问题，这些问题包括：
 
-- **PFX 加密**不是 TripleDES-SHA1。
-- **私钥**缺少本地计算机属性。
--  证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
+- **PFX 加密** 不是 TripleDES-SHA1。
+- **私钥** 缺少本地计算机属性。
+- 证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
 - **其他证书**
 
 如果需要生成新的 CSR 并重新颁发证书，则 **Repair-AzsPfxCertificate** 无用。
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 在运行此工具的计算机上，必须满足以下先决条件：
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要  版本和次要  版本：
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要版本和次要版本：
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
-- 配置[适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+- 配置[适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 - 下载最新版本的 [Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>导入和导出现有的 PFX 文件
@@ -115,13 +126,13 @@ ms.locfileid: "91437699"
 1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 Azure Stack Hub 就绪性检查器：
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
-2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 请将 `PFXpassword` 替换为实际密码：
+2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 出现提示时，输入密码：
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. 在 PowerShell 提示符下，运行以下命令来导出新的 PFX 文件：

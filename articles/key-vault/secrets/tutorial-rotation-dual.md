@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 06/22/2020
 ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5225110644b1ef40be1a53714b718b3644122847
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: aa1e4546c8aaea76604fefed74f933365c8b8ece
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128384"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430833"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>自动轮换使用两组身份验证凭据的资源的机密
 
@@ -37,7 +37,7 @@ ms.locfileid: "92128384"
 1. 函数应用将新的再生成的密钥添加到 Azure Key Vault 中，作为密钥的新版本。
 
 ## <a name="prerequisites"></a>先决条件
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure Key Vault
 * 两个 Azure 存储帐户
 

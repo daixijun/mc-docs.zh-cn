@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 95e96d0b2e281aed88b8473c387c16f4f2b8273f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b73ca1bc7c75a9af817119f55469e6634051f430
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300902"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431143"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入门：使用适用于 IoT 中心设备预配服务的 Java 设备 SDK 创建和预配模拟的 X.509 设备
 
@@ -27,7 +27,7 @@ ms.locfileid: "96300902"
 
 - 熟悉[预配](about-iot-dps.md#provisioning-process)概念。
 - 完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)。
-- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Java SE 开发工具包 8](https://aka.ms/azure-jdks)。
 - [Maven](https://maven.apache.org/install.html)。
 - [Git](https://git-scm.com/download/)。

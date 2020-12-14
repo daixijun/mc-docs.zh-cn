@@ -4,17 +4,17 @@ description: 了解如何以操作员身份使用 Azure Stack Hub 中的特权�
 author: WenJason
 ms.topic: article
 origin.date: 04/28/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: bf546e77f563cfd10f7c67694cd010e726581438
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: ed7689cad7732fb9437e9248c36d48ee0f8ad3ac
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508065"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的特权终结点
 
@@ -30,6 +30,8 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 > [!NOTE]
 > 在 Azure Stack 开发工具包 (ASDK) 中，可以在开发工具包主机上，直接从 PowerShell 会话运行 PEP 中可用的某些命令。 但是，可能需要使用 PEP 来测试某些操作（例如日志收集），因为这是在集成系统环境中执行某些操作的唯一可行方法。
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ## <a name="access-the-privileged-endpoint"></a>访问特权终结点
 
@@ -123,7 +125,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
     Get-Command <cmdlet_name> -Syntax
 ```
 
-或者，可以使用 [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet 将所有 PEP cmdlet 导入到本地计算机上的当前会话中。 PEP 的 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。 还可以运行 [Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help) 模块来查看 cmdlet 说明。
+或者，可以使用 [Import-PSSession](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) cmdlet 将所有 PEP cmdlet 导入到本地计算机上的当前会话中。 PEP 的 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。 还可以运行 [Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help) 模块来查看 cmdlet 说明。
 
 若要在本地计算机上导入 PEP 会话，请执行以下步骤：
 
@@ -205,7 +207,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
  ```powershell  
       Get-SupportSessionToken
   ```
- cmdlet 返回支持会话请求令牌，这是一个非常长的字母数字字符串。 然后，操作员通过所选媒介（例如聊天、电子邮件等）将请求令牌传递给 Azure 支持工程师。 Azure 支持工程师使用请求令牌生成支持会话授权令牌（如果有效），并将其发送回 Azure Stack Hub 操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
+ cmdlet 返回支持会话请求令牌，这是一个非常长的字母数字字符串。 然后，操作员通过所选媒介（例如聊天、电子邮件）将请求令牌传递给 Azure 支持工程师。 Azure 支持工程师使用请求令牌生成支持会话授权令牌（如果有效），并将其发送回 Azure Stack Hub 操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
 
  ```powershell  
       unlock-supportsession

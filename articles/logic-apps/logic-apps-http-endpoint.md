@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 11/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8363b380528ce5eac03cb2b7cfa0db9637f52fb4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5ec0eb1ea581784ecf974ad7e17920f9f899c446
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328119"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432551"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTPS 终结点调用、触发或嵌套逻辑应用
 
@@ -34,7 +34,7 @@ ms.locfileid: "94328119"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 你要在其中使用触发器来创建可调用终结点的逻辑应用。 可以从一个空白的逻辑应用着手，也可以从可在其中替换当前触发器的现有逻辑应用着手。 本示例以空白的逻辑应用着手。 如果你不熟悉逻辑应用，请参阅[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

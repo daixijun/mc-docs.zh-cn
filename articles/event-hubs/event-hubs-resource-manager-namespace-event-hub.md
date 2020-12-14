@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7444aea352f14419d024087cf2c5c07cf105dd0b
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 58c741ee6dba3e3d04843c9f72c6cd58b62c0ecb
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063292"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430849"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建事件中心
 
@@ -25,7 +25,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

@@ -4,16 +4,16 @@ description: 了解如何使用 PowerShell 配置 Azure Stack 遥测设置。
 author: WenJason
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 698f1eb5409d8c2a83cc6d0056e4a36e0d405eb7
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 1db21ec862b61a10857c7b6f5a4b0a3570d327c6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867757"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507947"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -50,7 +50,7 @@ Azure 无意收集敏感信息，例如信用卡号、用户名和密码、电�
 ## <a name="manage-telemetry-collection"></a>管理遥测数据的收集
 我们不建议在组织中关闭遥测，因为遥测可以提供推动产品功能和稳定性改进的数据。 但我们认识到，在某些情况下有必要关闭遥测。
 
-在这些情况下，可以使用部署前的注册表设置或使用部署后的遥测终结点，配置发送给 Azure 的遥测级别。
+在这些情况下，可以使用部署前的注册表设置或部署后的遥测终结点来配置发送给 Azure 的遥测级别。
 
 ### <a name="set-telemetry-level-in-the-windows-registry"></a>在 Windows 注册表中设置遥测级别
 在部署 Azure Stack 之前，可以使用 Windows 注册表编辑器在物理主计算机上手动设置遥测级别。 如果管理策略（例如组策略）已存在，它会覆盖此注册表设置。
@@ -90,7 +90,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > 默认遥测级别值为 2（增强）。
 
-关闭 Windows 和 Azure Stack 遥测会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。
+关闭 Windows 和 Azure Stack 遥测会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization)。
 
 > [!IMPORTANT]
 > 这些遥测级别只适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Azure 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。

@@ -6,12 +6,12 @@ origin.date: 10/14/2020
 ms.date: 11/06/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 73923ac935b4cf025ae9d46d79bdcf72a838a796
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1925f8db877cab1454b4fbd60ad817256f744420
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328802"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431097"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入门：使用 Azure CLI 运行你的第一个 Resource Graph 查询
 
@@ -21,7 +21,7 @@ ms.locfileid: "94328802"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="add-the-resource-graph-extension"></a>添加 Resource Graph 扩展
 
@@ -36,7 +36,7 @@ ms.locfileid: "94328802"
    az extension add --name resource-graph
    ```
 
-1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **1.0.0** ）：
+1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **1.0.0**）：
 
    ```azurecli
    # Check the extension list (note that you may have other extensions installed)

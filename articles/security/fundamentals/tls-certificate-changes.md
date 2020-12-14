@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 60acf985120f2c6e89bddee616ac7066292cd0f0
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 86e2608afcd8e209f4d086b6efc2b564e72f63af
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638276"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747088"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 证书更改  
 
@@ -22,12 +22,16 @@ Microsoft 在将 Azure 服务更新为使用来自一组不同的根证书颁发
 
 ## <a name="when-will-this-change-happen"></a>此更改将在何时进行？
 
-- [Azure Active Directory](/active-directory) (Azure AD) 服务在 2020 年 7 月 7 日开始此过渡。
-- 所有新创建的 Azure TLS/SSL 终结点都包含链接到新根 CA 的已更新证书。
-- 现有 Azure 终结点将自 2020 年 8 月 13 日开始分阶段进行过渡。
-- [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub)和 [DPS](/iot-dps/) 将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)。
-- [Azure 存储](/storage)将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)。
-- [Azure Cache for Redis](/azure-cache-for-redis) 将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](../../azure-cache-for-redis/cache-whats-new.md)。
+从 2020 年 8 月 13 日起，现有 Azure 终结点已开始分阶段转换。 所有新创建的 Azure TLS/SSL 终结点都包含链接到新根 CA 的已更新证书。
+
+特定于服务的详细信息：
+
+- [Azure Active Directory](../../active-directory/index.yml) (Azure AD) 服务在 2020 年 7 月 7 日开始此过渡。
+- [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub)和 [DPS](../../iot-dps/index.yml) 将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)。
+- [Azure 存储](../../storage/index.yml)将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)。
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) 将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](../../azure-cache-for-redis/cache-whats-new.md)。
+- Azure 实例元数据服务将继续使用 Baltimore CyberTrust 根 CA，但其中间 CA 将会更改。 [单击此处了解详细信息](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html)。
+
 > [!IMPORTANT]
 > 进行此更改之后，客户可能需要更新其应用程序，以防止在尝试连接到 Azure 服务时出现连接故障。
 

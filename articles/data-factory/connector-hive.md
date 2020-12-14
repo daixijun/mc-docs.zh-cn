@@ -9,17 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/04/2019
-ms.date: 07/27/2020
+origin.date: 11/17/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 4b7ab4638bdf27b60670c25003ef4fa2cb6001ec
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: daa666d44880de8b00d27c77f9cf9b5e9e7859ab
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974324"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747172"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>使用 Azure 数据工厂从 Hive 复制数据 
+# <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>使用 Azure 数据工厂从 Hive 复制和转换数据 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 Hive 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
@@ -127,7 +127,7 @@ Hive 链接的服务支持以下属性：
 
 ### <a name="hivesource-as-source"></a>HiveSource 作为源
 
-要从 Hive 复制数据，请将复制活动中的源类型设置为 **HiveSource**。 复制活动**source**部分支持以下属性：
+要从 Hive 复制数据，请将复制活动中的源类型设置为 **HiveSource**。 复制活动 **source** 部分支持以下属性：
 
 | 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |

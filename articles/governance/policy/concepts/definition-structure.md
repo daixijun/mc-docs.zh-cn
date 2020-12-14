@@ -2,19 +2,19 @@
 title: 策略定义结构的详细信息
 description: 介绍如何使用策略定义为组织中的 Azure 资源建立约定。
 ms.author: v-tawe
-origin.date: 10/05/2020
-ms.date: 11/06/2020
+origin.date: 10/22/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21b6c4e389d0a9a679565042ef8d9289b98cc81f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8b29b270160c537bdacbc5458622dabe56ffbc5c
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328514"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541197"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
-Azure Policy 可为资源建立多种约定。 策略定义描述资源符合性[条件](#conditions)，以及在符合某个条件时要采取的效果。 条件会将资源属性[字段](#fields)与所需值进行比较。 资源属性字段是通过[别名](#aliases)进行访问的。 资源属性字段可为单值字段，也可为包含多值的[数组](#understanding-the--alias)。 数组上的条件评估会有所不同。
+Azure Policy 可为资源建立多种约定。 策略定义描述资源符合性[条件](#conditions)，以及在符合某个条件时要采取的效果。 条件将资源属性[字段](#fields)或[值](#value)与所需值进行比较。 资源属性字段是通过[别名](#aliases)进行访问的。 如果资源属性字段为数组，则可使用特殊的[数组别名](#understanding-the--alias)从所有数组成员中选择值，并将条件应用于每个值。
 如需了解更多，请参见[条件](#conditions)。
 
 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 也可要求资源使用特定的标记。 策略分配由子资源继承。 如果将策略分配应用到资源组，则会将其应用到该资源组中的所有资源。
@@ -271,7 +271,7 @@ strongType 的非资源类型允许值包括：
 },
 ```
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>条件
 
 条件用于评估 **field** 或 **value** 访问器是否符合特定标准。 支持的条件有：
 
@@ -303,7 +303,7 @@ strongType 的非资源类型允许值包括：
 
 当使用 match 和 notMatch 条件时，请提供 `#` 来匹配数字、`?` 来匹配字母、`.` 来匹配所有字符，以及提供任何其他字符来匹配该实际字符。 尽管 match 和 notMatch 区分大小写，但用于评估 stringValue 的所有其他条件都不区分大小写 。 “matchInsensitively”和“notMatchInsensitively”中提供了不区分大小写的替代方案 。
 
-在 \[\*\] 别名数组字段值中，数组中的每个元素都会使用元素间的逻辑 and 进行单独计算。 有关详细信息，请参阅[评估 \[\*\] 别名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
+在 \[\*\] 别名数组字段值中，数组中的每个元素都会使用元素间的逻辑 and 进行单独计算。 有关详细信息，请参阅[引用数组资源属性](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)。
 
 ### <a name="fields"></a>字段
 
@@ -475,6 +475,8 @@ Count 表达式的结构如下：
   可在此属性中使用[逻辑运算符](#logical-operators)来创建复杂的评估要求。
 - **\<condition\>** （必需）：该值将与满足 **count.where** 条件表达式的项数进行比较。 应使用数字[条件](../concepts/definition-structure.md#conditions)。
 
+有关如何在 Azure Policy 中使用数组属性的更多详细信息，包括关于 count 表达式计算方式的详细说明，请参阅[引用数组资源属性](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)。
+
 #### <a name="count-examples"></a>计数示例
 
 示例 1：检查数组是否为空
@@ -554,6 +556,21 @@ Count 表达式的结构如下：
                     "equals": "3389"
                 }
             ]
+        }
+    },
+    "greater": 0
+}
+```
+
+示例 6：使用 `where` 条件中的 `field()` 函数访问当前计算所得的数组成员的文本值。 此条件确认不存在具有偶数优先级值的安全规则。
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
+          "equals": 0
         }
     },
     "greater": 0
@@ -736,30 +753,20 @@ Azure Policy 支持以下类型的效果：
 
 “正常”别名会将该字段表示为单个值。 当整个值集必须与定义完全一致，不能多也不能少时，此字段适用于精确匹配的比较场景。
 
-\[\*\] 别名可以比较数组中每个元素的值，以及每个元素的特定属性。 此方法可以比较“如果没有”、“如果任何”和“如果所有”方案的元素属性。 对于更复杂的方案，请使用 [count](#count) 条件表达式。 使用 ipRules\[\*\]，一个示例会验证每个操作是否为“拒绝”，但不用担心存在多少个规则或 IP 值是什么。
-此示例规则会检查 ipRules\[\*\].value 是否符合 10.0.4.1，并在没有找到至少一个匹配项时才应用 effectType：
+\[\*\] 别名表示从数组资源属性的元素中所选的值的集合。 例如：
 
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "10.0.4.1"
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+| Alias | 选定值 |
+|:---|:---|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `ipRules` 数组的元素。 |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `ipRules` 数组的每个元素中的 `action` 属性的值。 |
 
-有关详细信息，请参阅[评估 [\*] 别名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
+在[字段](#fields)条件中使用数组别名时，可以将每个单独的数组元素与目标值进行比较。 与 [count](#count) 表达式结合使用时，可以执行以下操作：
+
+- 检查数组的大小
+- 检查是否所有或任意数组元素均满足复杂条件，或者是否没有数组元素满足复杂条件
+- 检查是否恰好有 n 个数组元素满足复杂条件
+
+有关详细信息和示例，请参阅[引用数组资源属性](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)。
 
 ## <a name="next-steps"></a>后续步骤
 

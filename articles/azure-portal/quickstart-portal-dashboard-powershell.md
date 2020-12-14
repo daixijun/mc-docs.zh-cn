@@ -8,12 +8,12 @@ ms.custom: devx-track-azurepowershell
 ms.author: v-tawe
 origin.date: 07/24/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: 93d495c4d7cced9a9247a3fe9f55f250b56f7674
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 5272d2b85d3ae4f9af4fefceeeb0b7fe10a49f8f
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170651"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431114"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>快速入门：使用 PowerShell 创建 Azure 门户仪表板
 
@@ -22,7 +22,7 @@ Azure 门户中的仪表板可以集中且有组织地呈现你的云资源。 �
 
 ## <a name="requirements"></a>要求
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 如果选择在本地使用 PowerShell，则本文要求安装 Az PowerShell 模块，并使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 连接到 Azure 帐户。 有关安装 Az PowerShell 模块的详细信息，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 

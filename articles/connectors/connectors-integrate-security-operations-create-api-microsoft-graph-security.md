@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 11/30/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: ad81679ef8ba46613ddab985c228f3b0d28f7c2d
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 8e7f05191fd733b6a942f8206e61763082134518
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024465"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432389"
 ---
 <!--Not Available the Microsoft Graph Security on Mooncake-->
 # <a name="improve-threat-protection-by-integrating-security-operations-with-azure-graph-security--azure-logic-apps"></a>通过将安全操作与 Azure Graph 安全性和 Azure 逻辑应用集成，提升威胁防护能力
@@ -34,13 +34,13 @@ ms.locfileid: "96024465"
 
 若要详细了解 Azure Graph 安全性，请参阅 [Microsoft Graph 安全性 API 概述](https://docs.microsoft.com/graph/security-concept-overview)。 如果你不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用？](../logic-apps/logic-apps-overview.md)。 若要了解 Azure Flow 或 PowerApps，请参阅[什么是 Flow？](https://flow.microsoft.com/)或[什么是 PowerApps？](https://powerapps.microsoft.com/)
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * 根据 [ Graph 安全性身份验证要求](https://docs.microsoft.com/graph/security-authorization)，必须已明确授予 Azure Active Directory (AD) 租户管理员同意，才能使用 Microsoft Graph 安全性连接器。 若要授予此同意，必须提供 Azure Graph 安全性连接器的应用程序 ID 和名称（也可以在 [Azure 门户](https://portal.azure.cn)中查找）：
 
-    | 属性 | Value |
+    | Property | Value |
     |----------|-------|
     | **应用程序名称** | `MicrosoftGraphSecurityConnector` |
     | **应用程序 ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -64,7 +64,7 @@ ms.locfileid: "96024465"
 
 1. 对于空白逻辑应用，请先添加触发器和所需的其他任何操作，再添加 Azure Graph安全性操作。
 
-    -或-
+    - 或 -
 
     对于现有逻辑应用，请在要添加 Azure Graph安全性操作的最后一个步骤下，选择“新建步骤”。
 
@@ -93,11 +93,11 @@ ms.locfileid: "96024465"
 
 1. 在触发器中，提供要监视的警报的相关信息。 有关更多属性，请打开“添加新参数”列表，并选择一个参数将该属性添加到触发器。
 
-   | 属性 | 属性 (JSON) | 必选 | 类型 | 说明 |
+   | Property | 属性 (JSON) | 必选 | 类型 | 说明 |
    |----------|-----------------|----------|------|-------------|
    | **时间间隔** | `interval` | 是 | Integer | 一个正整数，描述工作流基于频率运行的频繁度。 下面是最小和最大间隔： <p><p>- 月：1-16 个月 <br />- 天：1-500 天 <br />- 小时：1-12,000 小时 <br />- 分钟：1-72,000 分钟 <br />- 秒：1-9,999,999 秒 <p>例如，如果间隔为 6，频率为“月”，则重复周期为每 6 个月。 |
    | **频率** | `frequency` | 是 | String | 定期计划的时间单位：“秒”、“分钟”、“小时”、“天”、“周”或“月”      |
-   | **时区** | `timeZone` | 否 | 字符串 | 仅当指定启动时间时才适用，因为此触发器不接受 [UTC 时差](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/UTC_offset)。 选择要应用的时区。 |
+   | **时区** | `timeZone` | 否 | String | 仅当指定启动时间时才适用，因为此触发器不接受 [UTC 时差](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/UTC_offset)。 选择要应用的时区。 |
    | **开始时间** | `startTime` | 否 | String | 采用以下格式提供启动日期和时间： <p><p>如果选择了时区，则格式为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果未选择时区，则格式为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2 点，则指定“2017-09-18T14:00:00”并选择时区（如“太平洋标准时间”）。 或者指定“2017-09-18T14:00:00Z”且不选择时区。 <p>**注意：** 此开始时间在未来最长为 49 年，并且必须遵循 [UTC 日期时间格式](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/Coordinated_Universal_Time)的 [ISO 8601 日期时间规范](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/ISO_8601#Combined_date_and_time_representations)，但没有 [UTC 偏移](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/UTC_offset)。 如果未选择时区，必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/Nautical_time)。 <p>对于简单计划，开始时间指首次运行时间；对于复杂计划，触发器的激发时间不会早于开始时间。 [*可通过哪些方式使用开始日期和时间？*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 

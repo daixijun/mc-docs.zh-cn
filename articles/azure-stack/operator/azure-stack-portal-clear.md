@@ -4,16 +4,16 @@ description: 了解如何按 Azure Stack Hub 用户的请求清除门户用户�
 author: WenJason
 ms.topic: conceptual
 origin.date: 05/06/2020
-ms.date: 06/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 90c85a82754b5424fcae368b262217bf670c1d3d
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 5c0e4b3191800e953d34a9fa9e1cc727e62f48de
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096283"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507716"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>从 Azure Stack Hub 中清除门户用户数据
 
@@ -28,7 +28,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 ## <a name="requirements"></a>要求
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+- [安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 - 从 GitHub [下载最新的 Azure Stack Hub 工具](azure-stack-powershell-download.md)。
 - 用户帐户必须仍存在于目录中。
 - 用于访问管理员资源管理器终结点的 Azure Stack Hub 管理员凭据。
@@ -44,7 +44,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 对于此过程，请使用能够与 Azure Stack Hub 的管理员资源管理器终结点通信的计算机。
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-master 目录中的根文件夹，然后导入所需的 PowerShell 模块****：
+1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-az 目录中的根文件夹，然后导入所需的 PowerShell 模块：
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -85,7 +85,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 ### <a name="user-retrieves-the-user-object-id"></a>用户检索用户对象 ID
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-master 目录中的根文件夹，然后导入所需的 PowerShell 模块****。
+1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-az 目录中的根文件夹，然后导入所需的 PowerShell 模块。
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -115,7 +115,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 以 Azure Stack Hub 操作员的身份收到用户对象 ID 后，运行以下命令删除门户用户数据：
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-master 目录中的根文件夹，然后导入所需的 PowerShell 模块****。
+1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），转到 AzureStack-Tools-az 目录中的根文件夹，然后导入所需的 PowerShell 模块。
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1

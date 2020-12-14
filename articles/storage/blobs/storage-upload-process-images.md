@@ -9,12 +9,12 @@ origin.date: 06/24/2020
 ms.date: 07/20/2020
 ms.author: v-jay
 ms.reviewer: dineshm
-ms.openlocfilehash: f9d183a70d99688369091509965aead5057edd4c
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 3810560fda529388e59676a5b40e211c2a3dcb3d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414572"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432674"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 
@@ -43,13 +43,13 @@ ms.locfileid: "86414572"
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个 Azure 订阅才能完成此教程。 请在开始之前先创建 [1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+需要一个 Azure 订阅才能完成此教程。 在开始之前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 若要在本地安装和使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用“[az group create](/cli/group)”命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。  
+使用 [az group create](/cli/group) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。  
 
 以下示例创建名为 `myResourceGroup` 的资源组。
 

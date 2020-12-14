@@ -8,18 +8,18 @@ ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 995dd852f5588e6b1bf56e81909c132de9bba29f
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 1933b34203a7080440c0abd4a65a1ea9e94f7dff
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437722"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432154"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用
 
 Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack Hub 和 Azure）用作目标。 使用 API 配置文件为混合云创建解决方案。
 
-本文中的说明要求 Azure 订阅。 如果没有该订阅，可以获取 [1 元人民币的试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+本文中的说明要求 Azure 订阅。 如果没有 Azure 订阅，可以获取一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="python-and-api-version-profiles"></a>Python 与 API 版本配置文件
 
@@ -103,7 +103,7 @@ Python SDK 支持以下 API 配置文件：
     ```
 
 > [!NOTE]  
-> 如果通过 Python SDK 使用 **virtualenv** 进行开发（如下面的[运行 Python 示例](#run-the-python-sample)部分所述），则必须向虚拟环境证书存储添加上述证书。 路径看起来可能类似于：`..\mytestenv\Lib\site-packages\certifi\cacert.pem`。
+> 如果通过 Python SDK 使用 **virtualenv** 进行开发（如下面的 [运行 Python 示例](#run-the-python-sample)部分所述），则必须向虚拟环境证书存储添加上述证书。 路径看起来可能类似于：`..\mytestenv\Lib\site-packages\certifi\cacert.pem`。
 
 ## <a name="python-samples-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的 Python 示例
 

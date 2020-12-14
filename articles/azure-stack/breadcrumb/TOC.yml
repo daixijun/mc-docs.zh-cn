@@ -26,3 +26,9 @@
         - name: 中心用户
           tocHref: /azure-stack/user/
           topicHref: /azure-stack/user/index
+        - name: AKS HCI
+          tocHref: /azure-stack/aks-hci/
+          topicHref: /azure-stack/aks-hci/index
+        - name: HCI
+          tocHref: /azure-stack/hci/
+          topicHref: /azure-stack/hci/index

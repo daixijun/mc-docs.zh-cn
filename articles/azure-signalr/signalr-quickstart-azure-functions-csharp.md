@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 origin.date: 03/04/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: ebadb1063c90636603ad99cb6f2c84f1e1a070dc
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 039800b789a27286ed00285eb43da8b1e85bfc4e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170798"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431166"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>快速入门：使用 C\# 通过 Azure Functions 和 SignalR 服务创建聊天室
 
@@ -22,11 +22,11 @@ ms.locfileid: "92170798"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2019，可以下载并使用**免费**的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+如果尚未安装 Visual Studio 2019，可以下载并使用 **免费** 的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 
 也可以使用 [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing)、[.NET Core SDK](https://dotnet.microsoft.com/download) 以及你喜欢的代码编辑器在命令行（macOS、Windows 或 Linux）上运行本教程。
 
-如果没有 Azure 订阅，可以在开始前[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [存在问题？请告诉我们。](https://aka.ms/asrs/qscsharp)
 
@@ -52,7 +52,7 @@ ms.locfileid: "92170798"
 
     ![搜索 SignalR 服务实例](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-1. 选择“密钥”**** 以查看 SignalR 服务实例的连接字符串。
+1. 选择“密钥”以查看 SignalR 服务实例的连接字符串。
 
 1. 选择并复制主连接字符串。
 

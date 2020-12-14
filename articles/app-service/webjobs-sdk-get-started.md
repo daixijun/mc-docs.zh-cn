@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/18/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: c500deacbb36c50137f5f53dfd5346aa9967e84d
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 985fe4e0338bac7bda59dd39905e528c67e5215e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170712"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507791"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -25,7 +25,7 @@ ms.locfileid: "92170712"
 
 * [安装 Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/)其中包含 Azure 开发工作负荷。 如果已安装 Visual Studio，但未配置该工作负荷，请选择“工具”>“获取工具和功能”添加该工作负荷。
 
-* 必须有一个 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)才能将 WebJobs SDK 项目发布到 Azure。
+* 必须有一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)才能将 WebJobs SDK 项目发布到 Azure。
 
 ## <a name="create-a-project"></a>创建一个项目
 
@@ -33,7 +33,7 @@ ms.locfileid: "92170712"
 
 2. 选择“控制台应用(.NET Core)”。
 
-3. 将项目命名为 *WebJobsSDKSample* ，然后选择“创建”。
+3. 将项目命名为 *WebJobsSDKSample*，然后选择“创建”。
 
    ![“新建项目”对话框](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "92170712"
 
 ## <a name="create-a-function"></a>创建函数
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“类”，将新的 C# 类文件命名为 *Functions.cs* ，然后选择“添加”。   
+1. 右键单击项目，选择“添加” > “新建项...”，选择“类”，将新的 C# 类文件命名为 *Functions.cs*，然后选择“添加”。   
 
 1. 在 Functions.cs 中，使用以下代码替换生成的模板：
     
@@ -219,7 +219,7 @@ ms.locfileid: "92170712"
 
 WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串。 在本地运行时，它会在本地配置文件或环境变量中查找此值。
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“JavaScript JSON 配置文件”，将新文件命名为 *appsettings.json* ，然后选择“添加”。    
+1. 右键单击项目，选择“添加” > “新建项...”，选择“JavaScript JSON 配置文件”，将新文件命名为 *appsettings.json*，然后选择“添加”。    
 
 1. 在新文件中添加 `AzureWebJobsStorage` 字段，如以下示例所示：
 
@@ -273,7 +273,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
    ![突出显示“添加消息”图标的屏幕截图。](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. 在“添加消息”对话框中，输入 *Hello World!*  作为 **消息正文** ，然后选择“确定”。 现在，队列中会出现一条消息。
+1. 在“添加消息”对话框中，输入 *Hello World!*  作为 **消息正文**，然后选择“确定”。 现在，队列中会出现一条消息。
 
    ![创建队列](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -342,7 +342,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
 1. 将 *{instrumentation key}* 替换为所用 Application Insights 资源中的检测密钥。
 
-1. 选择“保存” 。
+1. 选择“保存”。
 
 1. 向项目添加 Application Insights 连接，以便在本地运行。 在“appsettings.json”文件中，添加 `APPINSIGHTS_INSTRUMENTATIONKEY` 字段，如下例所示：
 

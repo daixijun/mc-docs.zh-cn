@@ -11,13 +11,13 @@ ms.reviewer: sawinark
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 04/15/2019
-ms.date: 11/23/2020
-ms.openlocfilehash: 92d6b367ffc0232c2863ce05865908b4d3031a7a
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 12/07/2020
+ms.openlocfilehash: 0a7bff79e8df0e8bc265deeb40d127bd4d945824
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680474"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747255"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>排查 SSIS Integration Runtime 中的包执行问题
 
@@ -122,7 +122,7 @@ ms.locfileid: "94680474"
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>错误消息：“Microsoft OLE DB Provider for Analysis Services。 ‘Hresult:0x80004005 说明:’COM 错误:COM 错误: mscorlib；某个调用的目标引发了异常”
 
-一种潜在原因是为 Azure Analysis Services 身份验证配置了已启用 Azure 多重身份验证的用户名或密码。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
+一种潜在原因是为 Azure Analysis Services 身份验证配置了已启用 Azure AD 多重身份验证的用户名或密码。 SSIS Integration Runtime 不支持这种身份验证。 尝试使用服务主体进行 Azure Analysis Services 身份验证：
 
 1. 请根据[使用服务主体进行自动化](../analysis-services/analysis-services-service-principal.md)中所述准备服务主体。
 2. 在连接管理器中，配置“使用特定的用户名和密码”：将“AppID”设为用户名，将“clientSecret”设为密码。  

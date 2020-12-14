@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 origin.date: 10/14/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 22b3c591c746f5a33d2ae6649db745e9f06aee28
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: bfeda4ddfe3ffa7fb747f6a0f7908d16df0c8020
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300496"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431001"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>快速入门：在门户中创建 Azure 认知搜索服务
 
@@ -36,13 +36,13 @@ Azure 认知搜索是用于在自定义应用中插入搜索体验的独立资�
 
 ## <a name="subscribe-free-or-paid"></a>订阅（免费或付费）
 
-[打开试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)并使用免费额度试用付费 Azure 服务。
+[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)并使用免费额度试用付费 Azure 服务。
 
 或者，通过 [Azure 预付购买模式](https://wd.azure.cn/pricing/pia/)注册付费版 Azure 服务。
 
 ## <a name="find-azure-cognitive-search"></a>查找 Azure 认知搜索
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
 
 1. 单击左上角的加号（“+ 创建资源”）。
 

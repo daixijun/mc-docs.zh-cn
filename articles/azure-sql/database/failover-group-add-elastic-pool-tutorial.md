@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 08/27/2019
 ms.date: 07/13/2020
-ms.openlocfilehash: 8d7aef52d9a5343c0c14b0eacee7a1e0240284c3
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: e1727ba45ab24b2e744b69ae6bb25ce190a93f8d
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227457"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432398"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>教程：将 Azure SQL 数据库弹性池添加到故障转移组
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "86227457"
 
 若要完成本教程，请确保做好以下准备：
 
-- Azure 订阅。 如果你没有帐户，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
 
 ## <a name="1---create-a-single-database"></a>1 - 创建单一数据库
 
@@ -134,7 +134,7 @@ ms.locfileid: "86227457"
 
 1. 在 [Azure 门户](https://portal.azure.cn)的左侧菜单中选择“所有服务”，然后选择“SQL 弹性池”。
 1. 选择在上一部分中创建的弹性池，例如 `myElasticPool`。
-1. 在“概述”窗格上，选择**服务器名称**下的服务器名称以打开服务器的设置。
+1. 在“概述”窗格上，选择 **服务器名称** 下的服务器名称以打开服务器的设置。
   
     ![打开弹性池的服务器](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
@@ -255,7 +255,7 @@ ms.locfileid: "86227457"
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。 
 1. 选择在上一部分中创建的弹性池，例如 `myElasticPool`。
-1. 在**服务器名称**下选择服务器的名称以打开服务器的设置。
+1. 在 **服务器名称** 下选择服务器的名称以打开服务器的设置。
 
     ![打开弹性池的服务器](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 

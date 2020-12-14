@@ -4,15 +4,15 @@ description: 安全中心安全基线为实现 Azure 安全基准中指定的安
 author: Johnnytechn
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 46849c3205787825cbdc8bc6703e60a949234f2b
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 385684388bbbc9dac2fc9919494781cdac238b67
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403848"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746921"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azure 安全中心安全基线
 
@@ -20,7 +20,7 @@ ms.locfileid: "91403848"
 
 ## <a name="network-security"></a>网络安全性
 
-[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](/security/benchmarks/security-control-network-security)。
+[有关详细信息，请参阅 *Azure 安全基线：* 网络安全](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1：保护虚拟网络中的 Azure 资源
 
@@ -68,7 +68,7 @@ ms.locfileid: "91403848"
 
 - [使用 Log Analytics 代理的防火墙要求](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
 
-- [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags) 
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md) 
 
 - [如何创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md) 
 
@@ -82,7 +82,7 @@ ms.locfileid: "91403848"
 
 **指南**：使用 Azure 活动日志监视资源配置并检测对与 Azure 安全中心相关的网络资源所做的更改。 在 Azure Monitor 中创建警报，以便在关键资源发生更改时通知你。
 
-- [如何查看和检索 Azure 活动日志事件](/azure-monitor/platform/activity-log-view) 
+- [如何查看和检索 Azure 活动日志事件](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [如何在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -92,7 +92,7 @@ ms.locfileid: "91403848"
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](/security/benchmarks/security-control-logging-monitoring)。
+[有关详细信息，请参阅 *Azure 安全基线：* 日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="22-configure-central-security-log-management"></a>2.2：配置中心安全日志管理
 
@@ -102,7 +102,7 @@ ms.locfileid: "91403848"
 
 也可以将由安全中心生成的数据发送到第三方 SIEM。
 
-- [导出安全警报和建议](continuous-export.md)
+- [连续导出安全中心数据](continuous-export.md)
 
 - [Azure 安全中心中的数据收集](security-center-enable-data-collection.md)
 
@@ -175,7 +175,7 @@ ms.locfileid: "91403848"
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](/security/benchmarks/security-control-identity-access-control)。
+[有关详细信息，请参阅 *Azure 安全基线：* 标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -272,7 +272,7 @@ ms.locfileid: "91403848"
 
 **指南**：Azure Active Directory 提供日志来帮助发现过时的帐户。 此外，请使用 Azure AD 标识和访问评审来有效管理组成员身份、对企业应用程序的访问以及角色分配。 可定期评审与 Azure 安全中心相关的用户访问权限，确保相应人员继续拥有访问权限。 
 
-- [了解 Azure AD 报告](/active-directory/reports-monitoring/) 
+- [了解 Azure AD 报告](../active-directory/reports-monitoring/index.yml) 
 
 - [如何使用 Azure AD 标识和访问评审](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ ms.locfileid: "91403848"
 
 可以通过为 Azure AD 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区，来简化此过程。 你可以在 Log Analytics 工作区中配置所需的警报。  
 
-- [如何将 Azure 活动日志与 Azure Monitor 集成](/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志与 Azure Monitor 集成](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -297,7 +297,7 @@ ms.locfileid: "91403848"
 
 **指南**：使用标记来辅助跟踪 Azure 资源，例如 Log Analytics 工作区，该工作区存储来自 Azure 安全中心的敏感安全信息。
 
-- [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -309,13 +309,13 @@ ms.locfileid: "91403848"
 
 默认情况下，Azure 安全中心数据存储在安全中心后端服务中。 如果组织还要求将这些数据存储在自己的资源中，则可以配置 Log Analytics 工作区来存储安全中心数据、警报和建议。 使用自己的工作区时，可以根据数据环境来源配置不同的工作区，从而实现进一步分离。
 
-- [导出安全警报和建议](continuous-export.md)
+- [连续导出安全中心数据](continuous-export.md)
 
 - [Azure 安全中心中的数据收集](security-center-enable-data-collection.md)
 
-- [如何创建管理组](../governance/management-groups/create.md) 
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md) 
 
-- [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -349,7 +349,16 @@ ms.locfileid: "91403848"
 
 **责任**：客户
 
-<!--Not available in MC: ### 4.8: Encrypt sensitive information at rest-->
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8：静态加密敏感信息
+
+**指导**：Azure 安全中心使用配置的 Log Analytics 工作区存储其生成的数据、警报和建议。 为已为安全中心数据集合配置的工作区配置客户管理的密钥 (CMK)。 CMK 支持使用由你创建和拥有的 Azure Key Vault 密钥对已保存或发送到工作区的所有数据进行加密。 
+
+- [Azure Monitor 客户管理的密钥](../azure-monitor/platform/customer-managed-keys.md)
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9：记录对关键 Azure 资源的更改并对此类更改发出警报
 
 **指南**：当对与 Azure 安全中心相关的关键 Azure 资源进行更改时，可以使用 Azure Monitor 创建警报。 这些更改可能包括修改与安全中心有关的配置的任何操作，例如禁用警报或建议，或更新或删除数据存储。
@@ -362,7 +371,7 @@ ms.locfileid: "91403848"
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-[有关详细信息，请参阅 *Azure 安全基线：* 漏洞管理](/security/benchmarks/security-control-vulnerability-management)。
+[有关详细信息，请参阅 *Azure 安全基线：* 漏洞管理](../security/benchmarks/security-control-vulnerability-management.md)。
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5：使用风险评级过程来确定已发现漏洞的修正措施的优先级
 
@@ -376,7 +385,7 @@ ms.locfileid: "91403848"
 
 ## <a name="inventory-and-asset-management"></a>库存和资产管理
 
-[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](/security/benchmarks/security-control-inventory-asset-management)。
+[有关详细信息，请参阅 *Azure 安全基线：* 清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1：使用自动化资产发现解决方案
 
@@ -396,7 +405,7 @@ ms.locfileid: "91403848"
 
 **指南**：使用标记来辅助跟踪 Azure 资源，例如 Log Analytics 工作区，该工作区存储来自 Azure 安全中心的敏感安全信息。
 
-- [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -411,9 +420,9 @@ ms.locfileid: "91403848"
 - 不允许的资源类型
 - 允许的资源类型
 
-- [如何创建管理组](../governance/management-groups/create.md)
+- [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -460,7 +469,7 @@ ms.locfileid: "91403848"
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [如何使用 Azure Policy 拒绝特定的资源类型](/governance/policy/samples/not-allowed-resource-types)
+- [如何使用 Azure Policy 拒绝特定的资源类型](../governance/policy/samples/index.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -478,7 +487,7 @@ ms.locfileid: "91403848"
 
 ## <a name="secure-configuration"></a>安全配置
 
-[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](/security/benchmarks/security-control-secure-configuration)。
+[有关详细信息，请参阅 *Azure 安全基线：* 安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -529,6 +538,16 @@ ms.locfileid: "91403848"
 
 **责任**：客户
 
+### <a name="711-manage-azure-secrets-securely"></a>7.11：安全管理 Azure 机密
+
+**指导**：Azure 安全中心使用配置的 Log Analytics 工作区存储其生成的数据、警报和建议。 为已为安全中心数据集合配置的工作区配置客户管理的密钥 (CMK)。 CMK 支持使用由你创建和拥有的 Azure Key Vault 密钥对已保存或发送到工作区的所有数据进行加密。 
+
+- [Azure Monitor 客户管理的密钥](../azure-monitor/platform/customer-managed-keys.md)
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除意外的凭据透露
 
 **指南**：实施凭据扫描程序来识别代码中的凭据。 凭据扫描程序还会建议将发现的凭据转移到更安全的位置，例如 Azure Key Vault。
@@ -541,7 +560,7 @@ ms.locfileid: "91403848"
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-[有关详细信息，请参阅 *Azure 安全基线：* 恶意软件防护](/security/benchmarks/security-control-malware-defense)。
+[有关详细信息，请参阅 *Azure 安全基线：* 恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2：预先扫描要上传到非计算 Azure 资源的文件
 
@@ -553,7 +572,7 @@ ms.locfileid: "91403848"
 
 ## <a name="data-recovery"></a>数据恢复
 
-[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](/security/benchmarks/security-control-data-recovery)。
+[有关详细信息，请参阅 *Azure 安全基线：* 数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份 
 
@@ -583,7 +602,7 @@ ms.locfileid: "91403848"
 
 **指南**：确保能够使用 Azure 资源管理器支持的模板文件定期执行还原操作。 测试对备份的客户管理的密钥进行还原。
 
-- [使用 Azure 资源管理器模板管理 Log Analytics 工作区](../azure-monitor/platform/template-workspace-configuration.md)
+- [使用 Azure 资源管理器模板管理 Log Analytics 工作区](../azure-monitor/samples/resource-manager-workspace.md)
 
 - [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -593,13 +612,13 @@ ms.locfileid: "91403848"
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4：确保保护备份和客户管理的密钥
 
-**指南**：使用 Azure DevOps 安全地存储和管理你的代码，例如自定义 Azure Policy 定义和 Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。 使用基于角色的访问控制保护客户管理的密钥。
+**指南**：使用 Azure DevOps 安全地存储和管理你的代码，例如自定义 Azure Policy 定义和 Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。 使用 Azure 基于角色的访问控制保护客户管理的密钥。
 
 此外，在 Key Vault 中启用软删除和清除保护，以防止意外删除或恶意删除密钥。  如果将 Azure 存储用于存储 Azure 资源管理器模板备份，请启用软删除以在 blob 或 blob 快照被删除时保存和恢复数据。 
 
-- [如何在密钥保管库中启用软删除和清除保护](/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [如何在密钥保管库中启用软删除和清除保护](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) 
 
-- [Azure 存储 Blob 的软删除](/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Azure 存储 Blob 的软删除](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：不适用
 
@@ -607,7 +626,7 @@ ms.locfileid: "91403848"
 
 ## <a name="incident-response"></a>事件响应
 
-[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](/security/benchmarks/security-control-incident-response)。
+[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
@@ -631,7 +650,7 @@ ms.locfileid: "91403848"
 
 - [Azure 安全中心中的安全警报](security-center-alerts-overview.md) 
 
-- [使用标记整理 Azure 资源](/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -679,7 +698,7 @@ ms.locfileid: "91403848"
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+[有关详细信息，请参阅 *Azure 安全基线：* 渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
@@ -695,6 +714,6 @@ ms.locfileid: "91403848"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 

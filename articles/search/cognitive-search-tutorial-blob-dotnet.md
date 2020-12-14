@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 10/05/2020
 ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 931bc5eca58d5651ed22a7e3b6f74a261741d83e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 9bb68c3c8be161571c20368dd2e5945107b2f571
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300053"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430935"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>教程：AI 使用 .NET SDK 从 Azure Blob 生成可搜索内容
 
@@ -29,7 +29,7 @@ ms.locfileid: "96300053"
 > * 执行管道调用转换，以及创建和加载搜索索引。
 > * 使用全文搜索和丰富的查询语法浏览结果。
 
-如果你没有 Azure 订阅，请在开始之前建立一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="overview"></a>概述
 

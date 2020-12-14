@@ -5,16 +5,16 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8d288b9ccfe961d7bb1ea790e46079e077cf5642
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 596a61073497a8d1ea3a45061ed153179d79d3c7
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063349"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430959"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>使用 Python 在 Azure 存储中捕获事件中心数据并读取该数据（azure-eventhub 版本 5）
 
-可以配置事件中心，以便在 Azure 存储帐户或 Azure Data Lake Storage Gen 1 或 Gen 2 中捕获发送到事件中心的数据。 本文介绍如何编写 Python 代码，以将事件发送到事件中心，并从 **Azure Blob 存储**读取捕获的数据。 有关此功能的详细信息，请参阅[事件中心捕获功能概述](event-hubs-capture-overview.md)。
+可以配置事件中心，以便在 Azure 存储帐户或 Azure Data Lake Storage Gen 1 或 Gen 2 中捕获发送到事件中心的数据。 本文介绍如何编写 Python 代码，以将事件发送到事件中心，并从 **Azure Blob 存储** 读取捕获的数据。 有关此功能的详细信息，请参阅[事件中心捕获功能概述](event-hubs-capture-overview.md)。
 
 本快速入门使用 [Azure Python SDK](https://docs.azure.cn/develop/python/) 来演示捕获功能。 *sender.py* 以 JSON 格式将模拟的环境遥测数据发送到事件中心。 事件中心配置为使用捕获功能将此数据成批地写入到 Blob 存储。 *capturereader.py* 应用读取这些 Blob，并为每个设备创建一个追加文件。 然后该应用将数据写入 CSV 文件。
 
@@ -30,7 +30,7 @@ ms.locfileid: "90063349"
 ## <a name="prerequisites"></a>先决条件
 
 - Python 2.7、3.5 或更高版本，已安装 PIP 并已更新。  
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 有效的事件中心命名空间和事件中心。
 [创建事件中心命名空间，并在该命名空间中创建事件中心](event-hubs-create.md)。 请记下事件中心命名空间的名称、事件中心的名称，以及命名空间的主访问密钥。 若要获取访问密钥，请参阅[获取事件中心连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 默认密钥名称为 *RootManageSharedAccessKey*。 对于本快速入门，只需获取主密钥。 不需要连接字符串。  
 - Azure 存储帐户、存储帐户中的 Blob 容器，以及存储帐户的连接字符串。 如果没有这些项，请执行以下操作：  
@@ -45,7 +45,7 @@ ms.locfileid: "90063349"
 在本部分，你将创建一个向事件中心发送 200 个事件（10 个设备 * 20 个事件）的 Python 脚本。 这些事件是以 JSON 格式发送的示例环境读数。 
 
 1. 打开常用的 Python 编辑器，如 [Visual Studio Code][Visual Studio Code]。
-2. 创建名为 *sender.py*的脚本。 
+2. 创建名为 *sender.py* 的脚本。 
 3. 将以下代码粘贴到 *sender.py* 中。 
    
     ```python
@@ -82,7 +82,7 @@ ms.locfileid: "90063349"
     * 将 `EVENT HUBS NAMESPACE CONNECTION STRING` 替换为事件中心命名空间的连接字符串。  
     * 将 `EVENT HUB NAME` 替换为事件中心的名称。  
 5. 运行脚本以将事件发送到事件中心。  
-6. 在 Azure 门户中，可以验证事件中心是否已收到消息。 在“指标”部分切换到“消息”视图。  刷新页面以更新图表。 可能需要等待几秒，页面才会显示已收到消息。 
+6. 在 Azure 门户中，可以验证事件中心是否已收到消息。 在“指标”部分切换到“消息”视图。 刷新页面以更新图表。 可能需要等待几秒，页面才会显示已收到消息。 
 
     [![验证事件中心是否已收到消息](./media/get-started-capture-python-v2/messages-portal.png)](./media/get-started-capture-python-v2/messages-portal.png#lightbox)
 

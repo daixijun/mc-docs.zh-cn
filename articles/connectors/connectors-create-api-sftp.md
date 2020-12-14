@@ -11,12 +11,12 @@ ms.date: 11/30/2020
 ms.author: v-yeche
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 469828439aa7adbcc4c978f2161c44ee8b19d3d1
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 99abe87df5be1328c698604d6773d28b26b10d22
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024598"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431865"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>在 Azure 逻辑应用中监视、创建和管理 SFTP 文件
 
@@ -38,7 +38,7 @@ SFTP 连接器仅处理 *50 MB 或更小* 的文件，不支持 [消息分块](.
 
 ## <a name="prerequisites"></a>必备条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * SFTP 服务器地址和帐户凭据，可让逻辑应用访问 SFTP 帐户。 若要使用[安全外壳 (SSH)](https://www.ssh.com/ssh/protocol/) 协议，还需要有权访问 SSH 私钥和 SSH 私钥密码。
 
@@ -50,7 +50,7 @@ SFTP 连接器仅处理 *50 MB 或更小* 的文件，不支持 [消息分块](.
     > 如果使用 SSH 私钥，请确保从 SSH 私钥文件中复制密钥，并将其粘贴到连接详细信息。不要手动输入或编辑密钥，否则可能导致连接失败。  
     > 有关详细信息，请参阅本文中的后续步骤。
 
-_ 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基础知识
+有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基础知识
 
 * 要在其中访问 SFTP 帐户的逻辑应用。 若要从 SFTP 触发器开始，请[创建一个空白逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 SFTP 操作，请使用另一个触发器（例如“重复”触发器）启动逻辑应用。 
 

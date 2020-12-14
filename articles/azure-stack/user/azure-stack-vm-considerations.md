@@ -3,17 +3,17 @@ title: Azure Stack Hub VM 功能
 description: 了解使用 Azure Stack Hub 中的 VM 时的不同功能和注意事项。
 author: WenJason
 ms.topic: article
-origin.date: 5/27/2020
-ms.date: 08/31/2020
+origin.date: 11/22/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: ce7d001ea6260099fbe0714ea87905123a0de2c6
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: e7f89bb4f5a65a54ebd88a2704773f8c90045d0e
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867756"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507309"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -45,6 +45,7 @@ Azure Stack Hub 施加了一些资源限制，以避免资源（服务器本地�
 - VM 的网络出口有带宽上限。 Azure Stack Hub 中的上限与 Azure 中的上限相同。
 - 对于存储资源，Azure Stack Hub 实施存储 IOPS（每秒输入/输出操作次数）限制，以避免租户因使用存储而造成资源过度消耗。
 - 对于 VM 磁盘，Azure Stack Hub 上的磁盘 IOPS 取决于 VM 大小而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，第二个数据磁盘的 IOPS 限制都是 2300 IOPS。
+- 附加到 VM 的临时磁盘不是永久性的，可能会在执行控制平面操作（如重设大小或停止-解除分配）时丢失。
 
 下表列出了 Azure Stack Hub 支持的 VM 及其配置：
 
@@ -71,15 +72,27 @@ VM 大小及其关联的资源数量在 Azure Stack Hub 与 Azure 之间是一�
 
 Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
 
-使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表：
+使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location local | `
-  Get-AzureRmVMExtensionImageType | `
-  Get-AzureRmVMExtensionImage | `
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 如果在 VM 部署上预配某个扩展时耗时过长，请让预配超时，而不要尝试通过停止该进程来解除 VM 的分配或将 VM 删除。
 
@@ -91,13 +104,28 @@ Azure Stack Hub 中的 VM 功能支持以下 API 版本：
 
 可以使用以下 PowerShell 脚本来获取 Azure Stack Hub 环境中可用的 VM 功能的 API 版本：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
 ```powershell
-Get-AzureRmResourceProvider | `
+Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 如果云运营商将 Azure Stack Hub 环境更新为较新版本，则支持的资源类型和 API 版本列表可能有所不同。
 

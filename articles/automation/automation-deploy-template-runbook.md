@@ -7,12 +7,12 @@ origin.date: 09/22/2020
 ms.date: 10/19/2020
 ms.topic: conceptual
 keywords: powershell, runbook, json, azure 自动化
-ms.openlocfilehash: 60b6eac1136563b7e80daafecaec3003199c63cf
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 9ddf5636feca3d92fb90376487d0c6c9f9f2fcd1
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432216"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>在 PowerShell Runbook 中部署 Azure 资源管理器模板
 
@@ -22,7 +22,7 @@ ms.locfileid: "91943492"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，可[注册一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [自动化帐户](./manage-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * 要在其中存储资源管理器模板的 [Azure 存储帐户](../storage/common/storage-account-create.md)。
 * 安装在本地计算机上的 Azure PowerShell。 若要详细了解如何获得 Azure PowerShell，请参阅[安装 Azure Powershell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。

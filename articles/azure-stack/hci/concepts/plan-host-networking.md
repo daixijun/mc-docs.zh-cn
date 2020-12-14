@@ -3,16 +3,16 @@ title: 为 Azure Stack HCI 规划主机网络
 description: 了解如何为 Azure Stack HCI 群集规划主机网络
 author: WenJason
 ms.topic: how-to
-origin.date: 10/13/2020
-ms.date: 11/09/2020
+origin.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 39a59e863b062a8f6831130ae01d383a3eb7079c
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: cbef0e23e3dcb53b25553207a4880cce7be4f255
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330805"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508021"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>为 Azure Stack HCI 规划主机网络
 
@@ -20,72 +20,9 @@ ms.locfileid: "93330805"
 
 本主题讨论非拉伸和拉伸 Azure Stack HCI 群集环境中的主机网络规划注意事项和要求。
 
-## <a name="traffic-types-supported"></a>支持的流量类型
-
-Azure Stack HCI 使用服务器消息块 (SMB)。 Azure Stack HCI 上的 SMB 支持以下流量类型：
-
-- 存储总线层 (SBL) - 由存储空间直通使用；最高优先级流量
-- 群集共享卷 (CSV)
-- 实时迁移 (LM)
-- 存储副本 (SR) - 用于拉伸群集
-- 文件共享 (FS) - FS 传统和横向扩展文件服务器 (SOFS)
-- 群集检测信号 (HB)
-- 群集通信（节点加入、群集更新、注册表更新）
-
-SMB 流量可以流经以下协议：
-
-- 传输控制协议 (TCP) - 在站点之间使用
-- 远程直接内存访问 (RDMA)
-
-## <a name="traffic-bandwidth-allocation"></a>流量带宽分配
-
-下表显示了各种流量类型的带宽分配，其中：
-
-- 所有单位均为 Gbps
-- 值适用于拉伸和非拉伸群集
-- SMB 流量获取总带宽分配的 50%
-- 存储总线层/群集共享卷 (SBL/CSV) 流量获取剩余 50% 分配的 70%
-- 实时迁移 (LM) 流量获取剩余 50% 分配的 15%
-- 存储副本 (SR) 流量获取剩余 50% 分配的 14%
-- 检测信号 (HB) 流量获取剩余 50% 分配的 1%
-- *= 应使用压缩而不是 RDMA，前提是 LM 流量的带宽分配 < 5 Gbps
-
-|NIC 速度|组合带宽|SMB 50% 预留|SBL/CSV %|SBL/CSV 带宽|LM %|LM 带宽|SR % |SR 带宽|HB %|HB 带宽|
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10|20|10|70%|7|14%*|1.4*|14%|1.4|2%|0.2|
-|25|50|25|70%|17.5|15%*|3.75*|14%|3.5|1%|0.25|
-|40|80| 40|70%|28|15%|6|14%|5.6|1%|0.4|
-|50|100|50|70%|35|15%|7.5|14%|7|1%|0.5|
-|100|200|100|70%|70|15%|15|14%|14|1%|1|
-|200|400|200|70%|140|15%|30|14%|28|1%|2|
-
-## <a name="rdma-considerations"></a>RDMA 注意事项
-
-远程直接内存访问 (RDMA) 是从一台计算机的内存直接访问另一台计算机的内存，而不涉及任何一台计算机的操作系统。 这样可允许高吞吐量、低延迟的网络，同时最大限度地降低 CPU 使用率，这在群集中尤其有用。
-
-所有主机 RDMA 流量都利用 SMB 直通。 SMB 直通是通过 RDMA 发送的 SMB 3.0 流量，并通过端口 445 进行多路复用。 RDMA 流量必须至少使用两个启用了基于优先级的流控制 (PFC) 的流量类 (TC)，才能与市场上大多数当前和未来的物理交换机兼容。
-
-Internet 广域 RDMA 协议 (iWARP) 通过 TCP 运行 RDMA，而通过聚合以太网的 RDMA (RoCE) 可避免使用 TCP，但需要支持它的 NIC 和物理交换机。 有关通过 RoCE 的 RDMA 的聚合网络要求，请参阅 [Windows Server 2016 和 2019 RDMA 部署指南](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx)。
-
-对于同一子网上的站点中的群集节点之间的所有东/西流量，默认启用 RDMA。 对于不同子网上站点之间的北/南拉伸群集流量，禁用且不支持 RDMA。
-
-下面是 Azure Stack HCI 的 RDMA 要求：
-
-- 子网之间以及站点之间的所有流量（拉伸群集）必须使用 WinSock TCP。 任何中间网络跃点都不在 Azure Stack HCI 的视图和控制范围内。
-- 不支持子网之间以及站点之间的 RDMA（拉伸群集）。 使用上行链路和多个网络设备意味着有多个故障点，在这种情况下，可能会变得不稳定和不受支持。
-- 对于拉伸群集的存储副本流量，无需额外的虚拟 NIC。 但出于故障排除目的，将跨站点流量和跨子网流量与东-西 RDMA 流量分隔开来可能会很有用。 如果无法以原生方式为每个流跨站点或跨子网禁用 SMB 直通，请执行以下操作：
-    - 应为存储副本预配一个或多个附加 vNIC
-    - 存储副本 vNIC 必须使用 PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) cmdlet 禁用 RDMA，因为就其定义来看，它可以跨站点和跨子网
-    - 为了满足上述站点/子网要求，原生 RDMA 适配器需要 vSwitch 和 vNIC 来支持存储副本
-    - 站点内 RDMA 带宽要求需要了解每种流量类型的带宽百分比，如“流量带宽分配”部分所述。 这将确保可为东/西（节点到节点）流量应用适当的带宽预留和限制
-- 实时迁移和存储副本流量必须受 SMB 带宽限制，否则就可能占用所有带宽，从而影响高优先级的存储流量。 有关详细信息，请参阅 [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) 和 [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell cmdlet。
-
-> [!NOTE]
-> 使用 `Set-SmbBandwidthLimit` cmdlet 时，需要将位转换为字节。
-
 ## <a name="node-interconnect-requirements"></a>节点互连要求
 
-本部分讨论了站点中服务器节点之间的特定网络要求，即互连。 可以使用和支持有交换机或无交换机节点互连：
+本部分讨论了站点中服务器之间的特定网络要求，即互连。 可以使用和支持有交换机或无交换机节点互连：
 
 - **有交换机：** 最常用的方案是，服务器节点通过那些使用网络交换机的以太网彼此连接。 必须正确配置交换机以处理带宽和网络类型。 如果使用的 RDMA 实现了 RoCE 协议，则网络设备和交换机配置很重要。
 - **无交换机：** 服务器节点还可以使用直接以太网连接进行互连，不使用交换机。 在这种情况下，每个服务器节点必须与同一站点中的所有其他群集节点直接连接。
@@ -114,6 +51,52 @@ Internet 广域 RDMA 协议 (iWARP) 通过 TCP 运行 RDMA，而通过聚合以�
 - 对于同步复制，站点之间的网络需要有足够的带宽来包含 I/O 写入工作负荷，往返延迟平均为 5 毫秒或更低。 异步复制没有延迟建议。
 - 如果在站点之间使用单个连接，请使用 PowerShell 设置存储副本的 SMB 带宽限制。 有关详细信息，请参阅 [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit)。
 - 如果在站点之间使用多个连接，请在连接之间分隔流量。 例如，将存储副本流量与使用 PowerShell 的 Hyper-V 实时迁移流量分别置于不同的网络上。 有关详细信息，请参阅 [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint)。
+
+## <a name="rdma-considerations"></a>RDMA 注意事项
+
+远程直接内存访问 (RDMA) 是从一台计算机的内存直接访问另一台计算机的内存，而不涉及任何一台计算机的操作系统。 这样可允许高吞吐量、低延迟的网络，同时最大限度地降低 CPU 使用率，这在群集中尤其有用。
+
+所有主机 RDMA 流量都利用 SMB 直通。 SMB 直通是通过 RDMA 发送的 SMB 3.0 流量，并通过端口 445 进行多路复用。 RDMA 流量必须至少使用两个启用了基于优先级的流控制 (PFC) 的流量类 (TC)，才能与市场上大多数当前和未来的物理交换机兼容。
+
+Internet 广域 RDMA 协议 (iWARP) 通过 TCP 运行 RDMA，而通过聚合以太网的 RDMA (RoCE) 可避免使用 TCP，但需要支持它的 NIC 和物理交换机。 有关通过 RoCE 的 RDMA 的聚合网络要求，请参阅 [Windows Server 2016 和 2019 RDMA 部署指南](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx)。
+
+对于同一子网上的站点中的群集节点之间的所有东/西流量，默认启用 RDMA。 对于不同子网上站点之间的北/南拉伸群集流量，禁用且不支持 RDMA。
+
+下面是 Azure Stack HCI 的 RDMA 要求：
+
+- 子网之间以及站点之间的所有流量（拉伸群集）必须使用 WinSock TCP。 任何中间网络跃点都不在 Azure Stack HCI 的视图和控制范围内。
+- 不支持子网之间以及站点之间的 RDMA（拉伸群集）。 使用上行链路和多个网络设备意味着有多个故障点，在这种情况下，可能会变得不稳定和不受支持。
+- 对于拉伸群集的存储副本流量，无需额外的虚拟 NIC。 但出于故障排除目的，将跨站点流量和跨子网流量与东-西 RDMA 流量分隔开来可能会很有用。 如果无法以原生方式为每个流跨站点或跨子网禁用 SMB 直通，请执行以下操作：
+    - 应为存储副本预配一个或多个附加 vNIC
+    - 存储副本 vNIC 必须使用 PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) cmdlet 禁用 RDMA，因为就其定义来看，它可以跨站点和跨子网
+    - 为了满足上述站点/子网要求，原生 RDMA 适配器需要 vSwitch 和 vNIC 来支持存储副本
+    - 站点内 RDMA 带宽要求需要了解每种流量类型的带宽百分比，如“流量带宽分配”部分所述。 这将确保可为东/西（节点到节点）流量应用适当的带宽预留和限制
+- 实时迁移和存储副本流量必须受 SMB 带宽限制，否则就可能占用所有带宽，从而影响高优先级的存储流量。 有关详细信息，请参阅 [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) 和 [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell cmdlet。
+
+> [!NOTE]
+> 使用 `Set-SmbBandwidthLimit` cmdlet 时，需要将位转换为字节。
+
+## <a name="traffic-bandwidth-allocation"></a>流量带宽分配
+
+下表显示了各种流量类型的带宽分配，其中：
+
+- 所有单位均为 Gbps
+- 值适用于拉伸和非拉伸群集
+- SMB 流量获取总带宽分配的 50%
+- 存储总线层/群集共享卷 (SBL/CSV) 流量获取剩余 50% 分配的 70%
+- 实时迁移 (LM) 流量获取剩余 50% 分配的 15%
+- 存储副本 (SR) 流量获取剩余 50% 分配的 14%
+- 检测信号 (HB) 流量获取剩余 50% 分配的 1%
+- *= 应使用压缩而不是 RDMA，前提是 LM 流量的带宽分配 < 5 Gbps
+
+|NIC 速度|组合带宽|SMB 50% 预留|SBL/CSV %|SBL/CSV 带宽|LM %|LM 带宽|SR % |SR 带宽|HB %|HB 带宽|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|10|20|10|70%|7|14%*|1.4*|14%|1.4|2%|0.2|
+|25|50|25|70%|17.5|15%*|3.75*|14%|3.5|1%|0.25|
+|40|80| 40|70%|28|15%|6|14%|5.6|1%|0.4|
+|50|100|50|70%|35|15%|7.5|14%|7|1%|0.5|
+|100|200|100|70%|70|15%|15|14%|14|1%|1|
+|200|400|200|70%|140|15%|30|14%|28|1%|2|
 
 ## <a name="network-port-requirements"></a>网络端口要求
 
@@ -201,6 +184,24 @@ LLDP 使组织可定义并编码自己的自定义 TLV。 这些称为组织特�
 
 > [!NOTE]
 > 所列可选功能的其中一些将来可能需要。
+
+## <a name="traffic-types-supported"></a>支持的流量类型
+
+Azure Stack HCI 使用服务器消息块 (SMB)。 Azure Stack HCI 上的 SMB 支持以下流量类型：
+
+- 存储总线层 (SBL) - 由存储空间直通使用；最高优先级流量
+- 群集共享卷 (CSV)
+- 实时迁移 (LM)
+- 存储副本 (SR) - 用于拉伸群集
+- 文件共享 (FS) - FS 传统和横向扩展文件服务器 (SOFS)
+- 群集检测信号 (HB)
+- 群集通信（节点加入、群集更新、注册表更新）
+
+SMB 流量可以流经以下协议：
+
+- 传输控制协议 (TCP) - 在站点之间使用
+- 远程直接内存访问 (RDMA)
+
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 68fb308560bb47da1df756c4416d2e917d7aad38
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1589f9f39e35adf9271da52c297d823c9336995f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552358"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431809"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>快速入门：适用于 JavaScript 的 Azure 队列存储客户端库 v12
 
@@ -39,7 +39,7 @@ ms.locfileid: "94552358"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个 1 元人民币的试用订阅](https://azure.microsoft.com/free/)
+* Azure 订阅 - [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * Azure 存储帐户 - [创建存储帐户](../common/storage-account-create.md)
 * 适用于操作系统的当前 [Node.js](https://nodejs.org/en/download/)。
 

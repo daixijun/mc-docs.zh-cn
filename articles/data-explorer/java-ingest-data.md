@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/22/2020
 ms.date: 10/30/2020
-ms.openlocfilehash: f2ae706a538d4d47fcde6031f24514698538f375
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b82cd03b5a99c75cdfc7bf463007cd602819a2b3
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977015"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431184"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-java-sdk"></a>使用 Azure 数据资源管理器 Java SDK 引入数据 
 
@@ -30,7 +30,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="prerequisites"></a>先决条件
 
-* [试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 * JDK 版本 1.8 或更高版本。
 * [Maven](https://maven.apache.org/download.cgi)。

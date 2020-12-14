@@ -1,21 +1,21 @@
 ---
 title: 针对虚拟网络对等互连配置 VPN 网关传输
-description: 针对虚拟网络对等互连配置 VPN 网关传输。
+description: 为虚拟网络对等互连配置网关传输，以便将两个 Azure 虚拟网络无缝连接成一个以增强连接性。
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: WenJason
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
-origin.date: 03/25/2018
-ms.date: 07/06/2020
+origin.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 0714a5be46dd6ed42698e67edcb8af8aca0c6d29
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 39786ad79e04d1701db2bef55ecfaf609f820718
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845862"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747219"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>针对虚拟网络对等互连配置 VPN 网关传输
 
@@ -65,7 +65,7 @@ ms.locfileid: "85845862"
 |Spoke-Classic|资源管理器|[网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||经典|[经典网络参与者](../role-based-access-control/built-in-roles.md#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-详细了解[内置角色](../role-based-access-control/built-in-roles.md#network-contributor)以及将特定的权限分配到[自定义角色](../active-directory/role-based-access-control-custom-roles.md)（仅限资源管理器）。
+详细了解[内置角色](../role-based-access-control/built-in-roles.md#network-contributor)以及将特定的权限分配到[自定义角色](../role-based-access-control/custom-roles.md)（仅限资源管理器）。
 
 ## <a name="resource-manager-to-resource-manager-peering-with-gateway-transit"></a>通过网关传输进行的资源管理器到资源管理器对等互连
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: 84266980f3151697c9639f7ebabe1b70d0eeab07
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 3bcb75948cf6a3d63c8ec7a456ac5bf5a8e09f0e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822360"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746646"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>在 Azure 安全中心修正建议
 
@@ -39,7 +39,14 @@ ms.locfileid: "90822360"
 
 ## <a name="quick-fix-remediation"></a>“快速修复”修正<a name="one-click"></a>
 
-快速修复使你能够针对多个资源快速修正某个建议。 它仅可用于特定的建议。 快速修复可简化修正，使你能够快速增加你的安全分数，提高环境的安全性。
+快速修复可简化修正，使你能够快速增加安全分数，提高环境的安全性。
+
+快速修复使你能够针对多个资源快速修正某个建议。 
+
+> [!TIP]
+> 快速修复仅可用于特定的建议。 若要查找具有快速修复选项的建议，请使用建议列表顶部的专用筛选器：
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="使用建议列表上方的筛选器查找具有快速修复选项的建议":::
 
 若要实现“快速修复”修正，请执行以下操作：
 

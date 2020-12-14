@@ -1,21 +1,20 @@
 ---
-title: 使用 Windows Admin Center 管理 VM - Azure Stack HCI
+title: 使用 Windows Admin Center 管理 VM
 description: 了解如何使用 Windows Admin Center 在 Azure Stack HCI 上的群集中创建和管理虚拟机。
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 07/21/2020
-ms.date: 10/12/2020
+origin.date: 11/06/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8622d2ee37200f1b8e22b5192b8929013ac7439e
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: ba0433623db6390b11aecf0e22f23e90ced9c09f
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437682"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507991"
 ---
-# <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>使用 Windows Admin Center 管理 Azure Stack HCI 上的 VM
+# <a name="manage-vms-with-windows-admin-center"></a>使用 Windows Admin Center 管理 VM
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
@@ -23,25 +22,25 @@ ms.locfileid: "91437682"
 
 ## <a name="create-a-new-vm"></a>创建新 VM
 
-可以使用 Windows Admin Center 轻松创建新的虚拟机。
+可以使用 Windows Admin Center 轻松创建新的 VM。
 
 :::image type="content" source="media/manage-vm/new-vm.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/new-vm.png":::
 
-1. 在 Windows Admin Center 主页中的“所有连接”下，选择要在其上创建虚拟机的服务器或群集。
+1. 在 Windows Admin Center 主屏幕中的“所有连接”下，选择创建 VM 时要基于的服务器或群集。
 1. 在“工具”下，向下滚动并选择“虚拟机”。
-1. 在“虚拟机”下，选择“清单”选项卡，然后选择“新建”。
+1. 在“虚拟机”下，选择“清单”选项卡，然后依次选择“添加”和“新建” 。
 1. 在“新建虚拟机”下，为 VM 输入一个名称。
 1. 选择“第 2 代(建议)”。
-1. 从下拉列表中选择一个预先分配的文件路径，或者单击“浏览”以选择要将 VM 配置和虚拟硬盘 (VHD) 文件保存到其中的文件夹。 可以通过输入“\\server\share”作为路径浏览到网络上任何可用的 SMB 共享。
+1. 在“主机”下，选择你希望 VM 驻留其上的服务器。
+1. 在“路径”下，从下拉列表中选择一个预先分配的文件路径，或者单击“浏览”以选择要将 VM 配置和虚拟硬盘 (VHD) 文件保存到其中的文件夹。  可以通过输入“\\server\share”作为路径浏览到网络上任何可用的 SMB 共享。
 
-1. 在“虚拟处理器”下，选择虚拟处理器数量以及是否要启用嵌套虚拟化。
+1. 在“虚拟处理器”下，选择虚拟处理器数量以及是否要为 VM 启用嵌套虚拟化。
 1. 在“内存”下，选择启动内存量（建议最少为 4 GB），并选择适合分配给 VM 的动态内存的最小和最大范围。
 1. 在“网络”下，从下拉列表中选择一个网络适配器。
-1. 在“存储”下，单击“添加”，并选择是要创建新的虚拟硬盘还是使用现有的虚拟硬盘。 如果使用现有的虚拟硬盘，请单击“浏览”并选择相应的文件路径。  
+1. 在“存储”下，单击“添加”，并选择是要创建新的空虚拟硬盘还是使用现有的虚拟硬盘。 如果使用现有的虚拟硬盘，请单击“浏览”并选择相应的文件路径。  
 1. 在“操作系统”下，执行以下操作之一：
-   - 如果要在以后为 VM 安装操作系统，请选择“以后安装操作系统”。
+   - 如果要在创建 VM 后为 VM 安装操作系统，请选择“以后安装操作系统”。
    - 选择“从映像文件(*.iso)安装操作系统”，单击“浏览”，然后选择要使用的相应 .iso 映像文件。
-   - 选择“从基于网络的安装服务器安装操作系统”（如果要在以后使用此方法在 VM 上安装 OS）。 请确保以前选择了一个网络适配器，否则它不工作。
 1. 完成后，单击“创建”以创建 VM。
 1. 若要启动 VM，请在“虚拟机”列表中，将鼠标指针悬停在新的 VM 上，在左侧启用它的复选框，然后选择“启动”。
 1. 在“状态”下，验证 VM 状态是否为“正在运行”。
@@ -50,7 +49,7 @@ ms.locfileid: "91437682"
 
 你可以轻松查看服务器上或群集中的所有 VM。
 
-:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-inventory.png":::
+:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="虚拟机屏幕" lightbox="media/manage-vm/vm-inventory.png":::
 
 1. 在 Windows Admin Center 中的“工具”下，向下滚动并选择“虚拟机”。
 1. 右侧的“清单”选项卡列出了当前服务器上或群集上可用的所有 VM，并提供了用于管理各个 VM 的命令。 方法：
@@ -63,11 +62,11 @@ ms.locfileid: "91437682"
     - 使用 Azure Site Recovery 复制 VM。
     - 对于可在多个 VM 上运行的操作，例如“启动”、“关机”、“保存”、“暂停”、“删除”或“重置”，可以选择多个 VM 并运行一次操作。
 
-## <a name="view-vm-metrics"></a>查看 VM 指标
+## <a name="view-vm-details"></a>查看 VM 详细信息
 
 你可以从特定 VM 的专用页面查看详细信息和性能图表。
 
-:::image type="content" source="media/manage-vm/vm-details.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-details.png":::
+:::image type="content" source="media/manage-vm/vm-details.png" alt-text="虚拟机详细信息屏幕" lightbox="media/manage-vm/vm-details.png":::
 
 1. 在“工具”下，向下滚动并选择“虚拟机”。
 1. 单击右侧的“清单”选项卡，然后选择 VM。 在后续页面上，可以执行以下操作：
@@ -76,7 +75,7 @@ ms.locfileid: "91437682"
    - 查看、创建、应用、重命名和删除检查点。
    - 查看虚拟硬盘 (.vhd) 文件、网络适配器和主机服务器的详细信息。
    - 查看 VM 的状态。
-   - 保存 VM、删除已保存的状态或创建检查点。
+   - 保存 VM，删除已保存的状态，导出或克隆 VM。
    - 更改 VM 的设置。
    - 通过 Hyper-V 主机使用 VMConnect 连接到 VM 控制台。
    - 使用 Azure Site Recovery 复制 VM。
@@ -85,7 +84,7 @@ ms.locfileid: "91437682"
 
 你可以查看群集中所有 VM 的资源使用情况和性能指标。
 
-:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/host-metrics.png":::
+:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="主机指标屏幕" lightbox="media/manage-vm/host-metrics.png":::
 
 1. 在“工具”下，向下滚动并选择“虚拟机”。
 1. 右侧的“摘要”选项卡为所选服务器或群集提供 Hyper-V 主机资源和性能的整体视图，其中包括以下各项：
@@ -109,19 +108,19 @@ ms.locfileid: "91437682"
     - 若要更改默认的 VM 启动/停止操作，请从下拉框中选择适当的设置。
     - 若要更改暂停或启动 VM 的时间间隔，请在显示的字段中输入适当的值
 
-        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-general.png":::
+        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="VM 常规设置屏幕" lightbox="media/manage-vm/vm-settings-general.png":::
 
 1. 选择“内存”以更改 VM 启动内存、动态内存范围、内存缓冲区百分比和内存权重。
 
-    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-memory.png":::
+    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="更改 VM 内存设置屏幕" lightbox="media/manage-vm/vm-settings-memory.png":::
 
 1. 选择“处理器”以更改虚拟处理器的数量、启用嵌套虚拟化，或启用同步多线程处理 (SMT)。
 
-    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-processor.png":::
+    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="更改 VM 处理器设置屏幕" lightbox="media/manage-vm/vm-settings-processor.png":::
 
-1. 若要添加新的虚拟磁盘，请选择“磁盘”，然后选择是创建空的虚拟磁盘还是使用现有的虚拟磁盘或 ISO (.iso) 映像文件。 单击“浏览”并选择虚拟磁盘或映像文件的路径。
+1. 若要更改现有磁盘的大小，请修改“大小(GB)”中的值。 若要添加新的虚拟磁盘，请选择“磁盘”，然后选择是创建空的虚拟磁盘还是使用现有的虚拟磁盘或 ISO (.iso) 映像文件。 单击“浏览”并选择虚拟磁盘或映像文件的路径。
 
-    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-disk.png":::
+    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="更改 VM 磁盘设置屏幕" lightbox="media/manage-vm/vm-settings-disk.png":::
 
 1. 若要添加、删除或更改网络适配器设置，请选择“网络”并执行以下操作：
     - 指定要使用的虚拟交换机，以及是否要启用虚拟 LAN 标识（还必须指定 VLAN 标识符）
@@ -130,21 +129,26 @@ ms.locfileid: "91437682"
         - 启用 MAC 地址欺骗
         - 启用带宽管理并指定最大/最小范围
 
-        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-network.png":::
+        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="更改 VM 网络设置屏幕" lightbox="media/manage-vm/vm-settings-network.png":::
 
 1. 选择“引导顺序”以添加引导设备或更改 VM 引导顺序。
 
-    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-boot.png":::
+    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="更改 VM 引导顺序屏幕" lightbox="media/manage-vm/vm-settings-boot.png":::
 
-1. 选择“检查点”以启用 VM 检查点，选择检查点类型，以及选择检查点位置。
+1. 选择“检查点”以启用 VM 检查点，选择检查点类型，并指定检查点文件位置。
 
     > [!NOTE]
     > 建议使用“生产”检查点设置，并使用来宾操作系统中的备份技术创建数据一致的检查点。 “标准”设置使用 VHD 快照创建包含应用程序和服务状态的检查点。
 
-     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-checkpoint.png":::
+     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="更改 VM 检查点屏幕" lightbox="media/manage-vm/vm-settings-checkpoint.png":::
+
+1. 选择“相关性规则”，为 VM 创建相关性规则。 有关创建相关性规则的详细信息，请参阅[为 VM 创建服务器和站点相关性规则](vm-affinity.md)。
+
+    :::image type="content" source="media/manage-vm/vm-affinity.png" alt-text="VM 相关性规则屏幕" lightbox="media/manage-vm/vm-affinity.png":::
 
 1. 若要更改 VM 安全设置，请选择“安全性”并执行以下操作：
     - 选择“启用安全引导”以防止在引导时运行未经授权的代码（建议）。 同时，从下拉框中选择一个 Microsoft 模板或开源模板
+    - 对于“模板”，请选择要使用的安全模板
 
     - 在“加密支持”下，你可以执行以下操作：
 
@@ -157,34 +161,67 @@ ms.locfileid: "91437682"
 
     - 在“安全策略”下选择“启用屏蔽”，为 VM 提供更多保护选项。
 
-        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-settings-security.png":::
+        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="更改 VM 安全设置" lightbox="media/manage-vm/vm-settings-security.png":::
 
-## <a name="move-a-vm-to-another-server-in-the-cluster"></a>将 VM 移动到群集中的另一台服务器
+## <a name="move-a-vm-to-another-server-or-cluster"></a>将 VM 移动到其他服务器或群集
 
-你可以轻松地将虚拟机移动到群集中的另一台服务器，如下所述：
-
-:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-more-move.png":::
+你可以轻松地将虚拟机移动到其他服务器或其他群集，如下所述：
 
 1. 在“工具”下，向下滚动并选择“虚拟机”。
-1. 选择右侧的“清单”选项卡。 从列表中选择一个虚拟机，然后选择“更多”>“移动”。
+1. 在“清单”选项卡下，从列表中选择一个 VM，然后选择“管理”>“移动”。
 1. 从列表中选择一台服务器，然后选择“移动”。
-1. 在“移动虚拟机”下，选择“故障转移群集”，然后输入要将 VM 移动到其中的群集名称和群集节点。
-1. 成功移动后，你会在“主机服务器”下的列表中看到已更新的名称。
+1. 如果要同时移动 VM 及其存储，请选择是将它移动到其他群集还是移动到同一群集中的其他服务器。
+
+    :::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="移动 VM 屏幕" lightbox="media/manage-vm/vm-more-move.png":::
+
+1. 如果只想移动 VM 的存储，请选择是将其移动到同一路径，还是为配置、检查点或智能分页选择不同的路径。
+
+    :::image type="content" source="media/manage-vm/vm-move-storage.png" alt-text="“移动 VM 存储”屏幕" lightbox="media/manage-vm/vm-move-storage.png":::
+
+## <a name="join-a-vm-to-a-domain"></a>将 VM 加入域
+
+可以轻松地将 VM 加入到域中，如下所述：
+
+:::image type="content" source="media/manage-vm/vm-domain-join.png" alt-text="“移动 VM 域加入”屏幕" lightbox="media/manage-vm/vm-domain-join.png":::
+
+1. 在“工具”下，向下滚动并选择“虚拟机”。
+1. 在“清单”选项卡下，从列表中选择一个 VM，然后选择“管理”>“域加入”。
+1. 输入要加入到的域的名称，以及域用户名和密码。
+1. 输入 VM 用户名和密码。
+1. 完成后，单击“加入”。
+
+## <a name="clone-a-vm"></a>克隆 VM
+
+可以轻松地克隆 VM，如下所述：
+
+1. 在“工具”下，向下滚动并选择“虚拟机”。
+1. 选择右侧的“清单”选项卡。 从列表中选择一个 VM，然后选择“管理”>“克隆”。
+1. 指定克隆的 VM 的名称和路径。
+1. 在 VM 上运行 Sysprep（如果尚未这样做）。
+
+:::image type="content" source="media/manage-vm/vm-clone.png" alt-text="“克隆 VM”屏幕" lightbox="media/manage-vm/vm-clone.png":::
 
 ## <a name="import-or-export-a-vm"></a>导入或导出 VM
 
 你可以轻松地导入或导出 VM。 下面的过程介绍了导入流程。
 
-:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-more-import.png":::
+:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="导入 VM 屏幕" lightbox="media/manage-vm/vm-more-import.png":::
 
 1. 在“工具”下，向下滚动并选择“虚拟机”。
-1. 选择右侧的“清单”选项卡。 从列表中选择一个群集化虚拟机，然后选择“更多”>“导入”。
+1. 在“清单”选项卡上，选择“添加”>“导入”。
 1. 输入包含 VM 的文件夹名称，或单击“浏览”并选择一个文件夹。
 1. 选择要导入的 VM。
 1. 如果需要，请为 VM 创建唯一 ID。
 1. 完成后，选择“导入”。
 
-导出 VM 的流程非常相似。 只需改为选择“更多”>“导出”即可。
+导出 VM 的流程类似：
+
+1. 在“工具”下，向下滚动并选择“虚拟机”。
+1. 在“清单”选项卡上的列表中选择要导出的 VM。
+1. 选择“管理”>“导出”。
+1. 输入要将 VM 导出到的路径。
+
+:::image type="content" source="media/manage-vm/vm-export.png" alt-text="“导出 VM”屏幕" lightbox="media/manage-vm/vm-export.png":::
 
 ## <a name="view-vm-event-logs"></a>查看 VM 事件日志
 
@@ -199,7 +236,7 @@ ms.locfileid: "91437682"
 你还可以使用远程桌面协议 (RDP) 连接通过 Hyper-V 主机管理 VM，而不使用 Windows Admin Center。
 
 1. 在“工具”下，向下滚动并选择“虚拟机”。
-1. 选择右侧的“清单”选项卡。 从列表中选择一个虚拟机，并选择“更多”>“连接”或“更多”>“下载 RDP 文件”选项。 这两个选项都使用 VMConnect 工具通过 Hyper-V 主机连接到来宾 VM，并要求你为 Hyper-V 主机输入管理员用户名和密码凭据。
+1. 在“清单”选项卡上，从列表中选择一个虚拟机，并选择“连接”>“连接”或“连接”>“下载 RDP 文件”选项。 这两个选项都使用 VMConnect 工具通过 Hyper-V 主机连接到来宾 VM，并要求你为 Hyper-V 主机输入管理员用户名和密码凭据。
 
     - “连接”选项在 Web 浏览器中使用远程桌面连接到 VM。
 
@@ -209,7 +246,7 @@ ms.locfileid: "91437682"
 
 你可以使用 Windows Admin Center 配置 Azure Site Recovery 并将本地 VM 复制到 Azure。 这是一项可选的增值服务。 若要开始，请参阅[使用 Azure Site Recovery 保护 VM](azure-site-recovery.md)。
 
-:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="新建 VM 屏幕" lightbox="media/manage-vm/vm-more-azure.png":::
+:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="设置 Azure Site Recovery 屏幕" lightbox="media/manage-vm/vm-more-azure.png":::
 
 ## <a name="next-steps"></a>后续步骤
 

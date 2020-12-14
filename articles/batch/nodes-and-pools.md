@@ -2,18 +2,18 @@
 title: Azure Batch 中的节点和池
 description: 从开发的角度来了解计算节点和池及其在 Azure Batch 工作流中的运用。
 ms.topic: conceptual
-origin.date: 11/10/2020
+origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 06/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1a41fa1cb63a519938b4adca44edd5e8367fe4af
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 3ffcda12fb29c5d2241a1ef170b5ce9b4fb51a12
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978126"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746597"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch 中的节点和池
 
@@ -45,7 +45,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 池只能由创建它的 Batch 帐户使用。 Batch 帐户可以创建多个池，以满足将运行的应用程序的资源要求。
 
-可以手动创建池；或者在你指定要完成的工作时，由 Batch 服务自动创建池。 在创建池时，可以指定以下属性：
+可以手动创建池；或者在你指定要完成的工作时，[由 Batch 服务自动创建池](#autopools)。 在创建池时，可以指定以下属性：
 
 - [节点操作系统和版本](#operating-system-and-version)
 - [节点类型和目标节点数](#node-type-and-target)
@@ -198,6 +198,10 @@ Batch 中提供了两种类型的池配置。
 在另一种极端情况下，如果最高优先级是让作业立即启动，则你可以预先创建池，并使其节点在提交作业之前可用。 在此情况下，任务可以立即启动，但节点可能会保持空闲状态以等待分配任务。
 
 通常会使用一种组合方法来处理可变但持续存在的负载。 可以有一个池来容纳提交的多个作业，并且可以根据作业负载扩展或缩减节点数目。 可以根据当前负载被动执行此操作，或者在负载可预测时主动执行此操作。 有关详细信息，请参阅[自动缩放策略](#automatic-scaling-policy)。
+
+## <a name="autopools"></a>自动池
+
+[自动池](https://docs.microsoft.com/rest/api/batchservice/job/add#autopoolspecification)是在提交作业时由 Batch 服务创建的池，而不是在创建将在池中运行的作业之前创建的。 Batch 服务将根据指定的特征管理自动池的生存期。 大多数情况下，这些池也设置为在其作业完成后自动删除。
 
 ## <a name="security-with-certificates"></a>证书的安全性
 

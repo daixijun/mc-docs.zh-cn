@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 10/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2e6bdf52057050fdeceeeac8435964fbee5e4268
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 3a7b81d573e2635b08077ebfb64bf6b1d3fce631
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414675"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432171"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>教程：使用 Azure 逻辑应用、Azure Functions 和 Azure 存储来自动执行处理电子邮件的任务
 
@@ -42,7 +42,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 逻辑应用支持的电子邮件提供商（例如 Office 365 Outlook 或 Outlook.com）提供的电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](https://docs.microsoft.com/connectors/)。
 
@@ -64,7 +64,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 在创建存储容器之前，请先在 Azure 门户中的“基本信息”选项卡上使用以下设置[创建一个存储帐户](../storage/common/storage-account-create.md)：
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 描述 |
     |---------|-------|-------------|
     | **订阅** | <*Azure-subscription-name*> | Azure 订阅的名称 |  
     | **资源组** | <Azure-resource-group> | 用于组织和管理相关资源的 [Azure 资源组](../azure-resource-manager/management/overview.md)的名称。 此示例使用“LA-Tutorial-RG”。 <p>**注意：** 资源组存在于特定的区域内。 本教程中的项目可能不在所有区域提供，请尽可能尝试使用同一区域。 |
@@ -78,7 +78,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     在“高级”选项卡上选择以下设置：
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 说明 |
     |---------|-------|-------------|
     | 需要安全传输 | 已禁用 | 此设置指定从连接进行请求所需的安全性。 请参阅[需要安全传输](../storage/common/storage-require-secure-transfer.md)。 |
     ||||
@@ -89,7 +89,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 在 Azure 部署存储帐户后，请查找存储帐户并获取存储帐户的访问密钥：
 
-    1. 在存储帐户菜单中的“设置”下，选择“访问密钥”。 
+    1. 在存储帐户菜单中的“设置”下，选择“访问密钥”。
 
     1. 复制存储帐户名称和“密钥 1”，然后将这些值保存到某个安全位置。
 
@@ -103,7 +103,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
         ![添加 Blob 存储容器](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
-    1. “容器”页打开后，在工具栏上选择“容器”。 
+    1. “容器”页打开后，在工具栏上选择“容器”。
 
     1. 在“新建容器”下，输入 `attachments` 作为容器名称。 在“公共访问级别”下依次选择“容器(对容器和 Blob 进行匿名读取访问)” > “确定”  。
 
@@ -150,7 +150,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 请先使用以下设置[创建函数应用](../azure-functions/functions-create-function-app-portal.md)，然后即可创建函数：
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 说明 |
     | ------- | ----- | ----------- |
     | **应用名称** | <*function-app-name*> | 函数应用的名称，该名称在 Azure 中必须是全局唯一的。 此示例已在使用“CleanTextFunctionApp”，所以请提供不同的名称，如“MyCleanTextFunctionApp-<your-name>” |
     | **订阅** | <*your-Azure-subscription-name*> | 以前使用过的同一 Azure 订阅 |
@@ -177,13 +177,13 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     ![创建新的函数](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-1. 在“选择下面的模板或转到快速入门”下，选择“HTTP 触发器”函数模板。 
+1. 在“选择下面的模板或转到快速入门”下，选择“HTTP 触发器”函数模板。
 
     ![选择“HTTP 触发器”模板](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
     Azure 将使用 HTTP 触发的函数的语言特定模板创建一个函数。
 
-1. 在“新建函数”窗格中的“名称”下，输入 `RemoveHTMLFunction`。  将“授权级别”设置保留为“函数”，然后选择“创建”  。
+1. 在“新建函数”窗格中的“名称”下，输入 `RemoveHTMLFunction`。 将“授权级别”设置保留为“函数”，然后选择“创建”  。
 
     ![为函数命名](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
@@ -247,7 +247,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     ![提供逻辑应用信息](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 描述 |
     | ------- | ----- | ----------- |
     | **订阅** | <*your-Azure-subscription-name*> | 以前使用过的同一 Azure 订阅 |
     | **资源组** | LA-Tutorial-RG | 以前使用过的同一 Azure 资源组 |
@@ -260,7 +260,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     ![在 Azure 通知列表中，选择“转到资源”](./media/tutorial-process-email-attachments-workflow/go-to-new-logic-app-resource.png)
 
-1. 逻辑应用设计器此时将打开并显示一个页面，其中包含简介视频以及针对常用逻辑应用模式的模板。  在“模板”下选择“空白逻辑应用”。
+1. 逻辑应用设计器此时将打开并显示一个页面，其中包含简介视频以及针对常用逻辑应用模式的模板。 在“模板”下选择“空白逻辑应用”。
 
     ![选择空白逻辑应用模板](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
@@ -286,7 +286,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
         ![指定用于检查邮件的文件夹、时间间隔和频率](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-        | 设置 | Value | 说明 |
+        | 设置 | “值” | 说明 |
         | ------- | ----- | ----------- |
         | **文件夹** | Inbox | 要检查的电子邮件文件夹 |
         | **带有附件** | 是 | 仅获取带有附件的电子邮件。 <p>**注意：** 此触发器不删除帐户中的任何电子邮件，仅检查新邮件，并且仅处理与主题筛选器匹配的电子邮件。 |
@@ -295,11 +295,11 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
         | **频率** | Minute | 两次检查的间隔的时间单位 |
         ||||
 
-    1. 在“添加新参数”列表中，选择“主题筛选器”。 
+    1. 在“添加新参数”列表中，选择“主题筛选器”。
 
     1. 操作中显示“主题筛选器”框之后，请按以下列表中所示指定主题：
 
-        | 设置 | Value | 说明 |
+        | 设置 | “值” | 说明 |
         | ------- | ----- | ----------- |
         | **主题筛选器** | `Business Analyst 2 #423501` | 要在电子邮件主题中查找的文本 |
         ||||
@@ -374,7 +374,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 向自己发送一封满足以下条件的电子邮件：
 
-    * 电子邮件主题的文本是在触发器的**主题筛选器**中指定的：`Business Analyst 2 #423501`
+    * 电子邮件主题的文本是在触发器的 **主题筛选器** 中指定的：`Business Analyst 2 #423501`
 
     * 电子邮件有一个附件。 现在，请直接创建一个空的文本文件，然后将该文件附加到电子邮件。
 
@@ -424,7 +424,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
         此外，将光标置于“请求正文”框中时，会显示动态内容列表，以便可以选择前述操作中可用的属性值。
 
-    1. 在动态内容列表中的“收到新电子邮件时”下，选择“正文”属性。  请记得在此属性的后面添加右大括号：`}`
+    1. 在动态内容列表中的“收到新电子邮件时”下，选择“正文”属性。 请记得在此属性的后面添加右大括号：`}`
 
         ![指定要传递到函数的请求正文](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
@@ -448,7 +448,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
    ![创建到存储帐户的连接](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | 设置 | Value | 说明 | 
+   | 设置 | “值” | 说明 | 
    | ------- | ----- | ----------- | 
    | **连接名称** | AttachmentStorageConnection | 连接的描述性名称 | 
    | **存储帐户** | attachmentstorageacct | 以前创建的用于保存附件的存储帐户的名称 | 
@@ -460,11 +460,11 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     ![提供适用于电子邮件正文的 Blob 信息](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 说明 |
     | ------- | ----- | ----------- |
     | **文件夹路径** | /attachments | 以前创建的容器的路径和名称。 对于此示例，请单击文件夹图标，然后选择“/attachments”容器。 |
-    | **Blob 名称** | “发件人”字段 | 对于此示例，请使用发件人的姓名作为 Blob 名称。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“发件人”字段。  |
-    | **Blob 内容** | “内容”字段 | 对于此示例，请使用不包含 HTML 的电子邮件正文作为 Blob 内容。 单击此框内部以显示动态内容列表，然后在“调用 RemoveHTMLFunction 来清理电子邮件正文”操作下面选择“正文”。  |
+    | **Blob 名称** | “发件人”字段 | 对于此示例，请使用发件人的姓名作为 Blob 名称。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“发件人”字段。 |
+    | **Blob 内容** | “内容”字段 | 对于此示例，请使用不包含 HTML 的电子邮件正文作为 Blob 内容。 单击此框内部以显示动态内容列表，然后在“调用 RemoveHTMLFunction 来清理电子邮件正文”操作下面选择“正文”。 |
     ||||
 
     完成后，此操作如以下示例所示：
@@ -481,7 +481,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 向自己发送一封满足以下条件的电子邮件：
 
-    * 电子邮件主题的文本是在触发器的**主题筛选器**中指定的：`Business Analyst 2 #423501`
+    * 电子邮件主题的文本是在触发器的 **主题筛选器** 中指定的：`Business Analyst 2 #423501`
 
     * 电子邮件至少有一个附件。 现在，请直接创建一个空的文本文件，然后将该文件附加到电子邮件。
 
@@ -509,7 +509,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 若要处理电子邮件中的每个附件，请将 **For each** 循环添加到逻辑应用的工作流。
 
-1. 在“创建用于电子邮件正文的 Blob”形状下，选择“添加操作”。 
+1. 在“创建用于电子邮件正文的 Blob”形状下，选择“添加操作”。
 
     ![添加“for each”循环](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
@@ -519,7 +519,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 1. 重命名循环并提供以下说明：`For each email attachment`
 
-1. 现在指定供循环处理的数据。 单击“从先前的步骤中选择一个输出”框的内部以打开动态内容列表，然后选择“附件”。 
+1. 现在指定供循环处理的数据。 单击“从先前的步骤中选择一个输出”框的内部以打开动态内容列表，然后选择“附件”。
 
     ![选择“附件”](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
@@ -545,11 +545,11 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     ![提供 Blob 信息](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-    | 设置 | Value | 说明 |
+    | 设置 | “值” | 说明 |
     | ------- | ----- | ----------- |
     | **文件夹路径** | /attachments | 以前创建的容器的路径和名称。 对于此示例，请单击文件夹图标，然后选择“/attachments”容器。 |
-    | **Blob 名称** | “名称”字段 | 对于此示例，请使用附件的名称作为 Blob 名称。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“名称”字段。  |
-    | **Blob 内容** | “内容”字段 | 对于此示例，请使用“内容”字段作为 Blob 内容。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“内容”字段。  |
+    | **Blob 名称** | “名称”字段 | 对于此示例，请使用附件的名称作为 Blob 名称。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“名称”字段。 |
+    | **Blob 内容** | “内容”字段 | 对于此示例，请使用“内容”字段作为 Blob 内容。 单击此框内部以显示动态内容列表，然后在“收到新电子邮件时”操作下面选择“内容”字段。 |
     ||||
 
     完成后，此操作如以下示例所示：
@@ -610,11 +610,11 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
     如果在动态内容列表中找不到所需的字段，请选择“收到新电子邮件时”旁边的“查看更多” 。
 
-    | 设置 | Value | 注释 |
+    | 设置 | “值” | 注释 |
     | ------- | ----- | ----- |
     | **To** | <*recipient-email-address*> | 为进行测试，可以使用自己的电子邮件地址。 |
-    | **主题** | ```ASAP - Review applicant for position:``` **主题** | 要包括的电子邮件主题。 单击此框的内部，输入示例文本，然后在动态内容列表中，选择“收到新电子邮件时”下面的“主题”字段。  |
-    | **正文** | ```Please review new applicant:``` <p>```Applicant name:``` **发件人** <p>```Application file location:``` **路径** <p>```Application email content:``` **正文** | 电子邮件的正文内容。 单击此框的内部，输入示例文本，然后从动态内容列表中选择以下字段： <p>-“收到新电子邮件时”下的“发件人”字段  <br />-“创建用于电子邮件正文的 Blob”下的“路径”字段  <br />-“调用 RemoveHTMLFunction 来清除电子邮件正文”下的“正文”字段  |
+    | **主题** | ```ASAP - Review applicant for position:``` **主题** | 要包括的电子邮件主题。 单击此框的内部，输入示例文本，然后在动态内容列表中，选择“收到新电子邮件时”下面的“主题”字段。 |
+    | **正文** | ```Please review new applicant:``` <p>```Applicant name:``` **发件人** <p>```Application file location:``` **路径** <p>```Application email content:``` **正文** | 电子邮件的正文内容。 单击此框的内部，输入示例文本，然后从动态内容列表中选择以下字段： <p>-“收到新电子邮件时”下的“发件人”字段 <br />-“创建用于电子邮件正文的 Blob”下的“路径”字段 <br />-“调用 RemoveHTMLFunction 来清除电子邮件正文”下的“正文”字段 |
     ||||
 
     > [!NOTE]

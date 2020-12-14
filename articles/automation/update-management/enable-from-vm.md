@@ -3,15 +3,15 @@ title: 从 Azure VM 启用 Azure 自动化更新管理
 description: 本文介绍如何从 Azure VM 启用更新管理。
 services: automation
 origin.date: 11/04/2020
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 0a0e4a5a722ec5924282d090f0e6187348e67437
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: c65b11f9d7db9e2648fb818158e65ad02e0cb1de
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680623"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746697"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>从 Azure VM 启用“更新管理”
 
@@ -22,7 +22,7 @@ ms.locfileid: "94680623"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有帐户，请注册一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+* Azure 订阅。 如果还没有订阅，请注册一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 用于管理计算机的[自动化帐户](../index.yml)。
 * [虚拟机](../../virtual-machines/windows/quick-create-portal.md)。
 
@@ -38,9 +38,9 @@ ms.locfileid: "94680623"
 
 3. 在 VM 页的“操作”下选择“更新管理”。
 
-4. 必须拥有 `Microsoft.OperationalInsights/workspaces/read` 权限才能确定是否为工作区启用了 VM。 若要了解所需的其他权限，请参阅[启用计算机所需的权限](../automation-role-based-access-control.md#feature-setup-permissions)。 若要了解如何一次启用多台计算机，请参阅[从自动化帐户启用更新管理](update-mgmt-enable-automation-account.md)。
+4. 必须拥有 `Microsoft.OperationalInsights/workspaces/read` 权限才能确定是否为工作区启用了 VM。 若要了解所需的其他权限，请参阅[启用计算机所需的权限](../automation-role-based-access-control.md#feature-setup-permissions)。 若要了解如何一次启用多台计算机，请参阅[从自动化帐户启用更新管理](./enable-from-automation-account.md)。
 
-5. 选择 Log Analytics 工作区和自动化帐户，然后单击“启用”以启用更新管理。 启用更新管理后，可能需要大约 15 分钟才能查看 VM 的更新评估。
+5. 在“启用更新管理”页上，选择 Log Analytics 工作区和自动化帐户，然后单击“启用”以启用更新管理。 启用更新管理后，可能需要大约 15 分钟才能查看 VM 的更新评估。
 
     ![启用更新管理](media/enable-from-vm/enable-update-management.png)
 

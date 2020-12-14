@@ -8,13 +8,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 10/28/2020
-  ms.date: 11/09/2020
-  ms.openlocfilehash: 37ff3bfc4cb266117ee36020b447f933fd6d3817
-  ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+  ms.date: 12/07/2020
+  ms.openlocfilehash: 79c13153f2812fb94e1822fdc8d789f02649d7b6
+  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93330641"
+  ms.lasthandoff: 12/02/2020
+  ms.locfileid: "96507403"
 landingContent:
 - title: 关于 Azure Stack HCI
   linkLists:
@@ -138,6 +138,8 @@ landingContent:
       url: concepts/network-controller-overview.md
     - text: 规划网络控制器
       url: concepts/network-controller.md
+    - text: 数据中心防火墙概述
+      url: concepts/datacenter-firewall-overview.md
     - text: 软件负载均衡器概述
       url: concepts/software-load-balancer.md
     - text: RAS 网关概述

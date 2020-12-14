@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 10/05/2020
 ms.date: 11/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: fbddcad9abbae721d05101c1728a6d911a6d569c
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3d484fb1454229aab68b675b6e1e4fe959cfb09f
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327591"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431012"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>创建策略分配以识别不合规资源。
 
@@ -21,7 +21,7 @@ ms.locfileid: "94327591"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 

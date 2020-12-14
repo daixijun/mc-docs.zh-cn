@@ -1,6 +1,6 @@
 ---
-title: Azure 静态数据加密 | Azure Docs
-description: 本文概述了 Azure 静态数据加密、其整体功能和一般注意事项。
+title: Azure 静态数据加密 - Azure 安全性
+description: 本文概述了 Azure 静态数据加密、整体功能和一般注意事项。
 services: security
 documentationcenter: na
 author: Johnnytechn
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 04/07/2020
-ms.openlocfilehash: 4bd4a7a3386f1f92d1c038820da5aacf9a4b4e94
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 590d4cfa20a502035d5a8407386dcc5a5fe93480
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128268"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746882"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 静态数据加密
 
@@ -116,22 +116,22 @@ Microsoft 云服务用于下述所有三个云模型：IaaS、PaaS、SaaS。 下
 
 ### <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
-任何使用 Azure 基础结构即服务 (IaaS) 功能的客户都可以通过 Azure 磁盘加密为其 IaaS VM 和磁盘实施静态加密。 有关 Azure 磁盘加密的详细信息，请参阅 [Azure 磁盘加密文档](../azure-security-disk-encryption-overview.md)。
+任何使用 Azure 基础结构即服务 (IaaS) 功能的客户都可以通过 Azure 磁盘加密为其 IaaS VM 和磁盘实施静态加密。 有关 Azure 磁盘加密的详细信息，请参阅 [Azure 磁盘加密文档](./azure-disk-encryption-vms-vmss.md)。
 
 #### <a name="azure-storage"></a>Azure 存储
 
 所有 Azure 存储服务（Blob 存储、队列存储、表存储和 Azure 文件存储）均支持静态服务器端加密，其中某些服务额外支持客户管理的密钥和客户端加密。
 
-- 服务器端：默认情况下，所有 Azure 存储服务都使用服务托管的密钥来启用服务器端加密（对应用程序而言是透明的）。 有关详细信息，请参阅[静态数据的 Azure 存储服务加密](../../storage/common/storage-service-encryption.md)。 Azure Blob 存储和 Azure 文件也支持 Azure Key Vault 中客户托管的 RSA 2048 位密钥。 有关详细信息，请参阅 [Azure Key Vault 中使用客户托管密钥的存储服务加密](../../storage/common/storage-encryption-keys-portal.md)。
+- 服务器端：默认情况下，所有 Azure 存储服务都使用服务托管的密钥来启用服务器端加密（对应用程序而言是透明的）。 有关详细信息，请参阅[静态数据的 Azure 存储服务加密](../../storage/common/storage-service-encryption.md)。 Azure Blob 存储和 Azure 文件也支持 Azure Key Vault 中客户托管的 RSA 2048 位密钥。 有关详细信息，请参阅 [Azure Key Vault 中使用客户托管密钥的存储服务加密](../../storage/common/customer-managed-keys-configure-key-vault.md)。
 - 客户端：Azure Blob、表和队列支持客户端加密。 使用客户端加密时，客户会加密数据并将数据作为加密的 blob 上传。 密钥管理由客户执行。 有关详细信息，请参阅 [Azure 存储的客户端加密和 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)。
 
 #### <a name="azure-sql-database"></a>Azure SQL 数据库
 
 Azure SQL 数据库目前支持将静态加密用于 Microsoft 托管的服务器端和客户端加密方案。
 
-对服务器加密的支持目前通过名为“透明数据加密”的 SQL 功能来提供。 在 Azure SQL 数据库客户启用 TDE 后，系统会自动为其创建和管理密钥。 可以在数据库和服务器级别启用静态加密。 从 2017 年 6 月开始，会在新创建的数据库上默认启用[透明数据加密 (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)。 Azure SQL 数据库支持 Azure Key Vault 中客户管理的 RSA 2048 位密钥。 有关详细信息，请参阅[使用 Azure SQL 数据库和数据仓库的“创建自己的密钥”支持进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current)。
+对服务器加密的支持目前通过名为“透明数据加密”的 SQL 功能来提供。 在 Azure SQL 数据库客户启用 TDE 后，系统会自动为其创建和管理密钥。 可以在数据库和服务器级别启用静态加密。 从 2017 年 6 月开始，会在新创建的数据库上默认启用[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)。 Azure SQL 数据库支持 Azure Key Vault 中客户管理的 RSA 2048 位密钥。 有关详细信息，请参阅[使用 Azure SQL 数据库和数据仓库的“创建自己的密钥”支持进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql)。
 
-可以通过 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 功能启用对 Azure SQL 数据库数据的客户端加密。 Always Encrypted 使用由客户端创建和存储的密钥。 客户可以将主密钥存储在 Windows 证书存储、Azure Key Vault 或本地硬件安全模块中。 使用 SQL Server Management Studio 时，SQL 用户可以选择想要使用什么密钥来加密哪个列。
+可以通过 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能启用对 Azure SQL 数据库数据的客户端加密。 Always Encrypted 使用由客户端创建和存储的密钥。 客户可以将主密钥存储在 Windows 证书存储、Azure Key Vault 或本地硬件安全模块中。 使用 SQL Server Management Studio 时，SQL 用户可以选择想要使用什么密钥来加密哪个列。
 
 ## <a name="conclusion"></a>结论
 
@@ -141,4 +141,5 @@ Azure SQL 数据库目前支持将静态加密用于 Microsoft 托管的服务�
 
 - 若要详细了解服务管理的密钥和客户管理的密钥，请参阅[数据加密模型](encryption-models.md)。
 - 了解 Azure 如何使用[双重加密](double-encryption.md)来缓解加密数据所带来的威胁。
+- 了解 Microsoft 在硬件和固件构建、集成、操作化和修复管道中为确保主机的[平台完整性和安全性](platform.md)所做的工作。
 

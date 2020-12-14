@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 05/06/2020
 ms.date: 06/02/2020
 ms.author: v-tawe
-ms.openlocfilehash: 811b798137a9b2eac1a77e96800d1fe854721744
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 08c33078f8de5270e38fd141d3f10eb68288d2e7
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300918"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430980"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>教程：使用托管标识将 Key Vault 连接到 .NET Azure Web 应用
 
@@ -27,7 +27,7 @@ ms.locfileid: "96300918"
 
 若要完成本快速入门教程，需先执行以下操作：
 
-* Azure 订阅 - [创建试用订阅](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅 - [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [.NET Core 3.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
 * [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
@@ -122,7 +122,7 @@ JSON 输出会将该密码显示为 `null`。 如果收到 `'Conflict'. Details:
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-创建应用服务计划后，Azure CLI 会显示类似于以下示例的信息：
+创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息：
 
 <pre>
 { 

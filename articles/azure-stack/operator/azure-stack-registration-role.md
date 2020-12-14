@@ -5,16 +5,16 @@ description: 了解如何创建自定义角色，以避免使用全局管理员�
 author: WenJason
 ms.topic: how-to
 origin.date: 08/05/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ede223bcf989dd9ce12f2613d0862824fa1719c9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: fe05c3a1626caa1394da0457af63af19bb6b8fc8
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868032"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507945"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack Hub 注册创建自定义角色
 
@@ -67,13 +67,13 @@ ms.locfileid: "88868032"
 3. 在 PowerShell 中，连接到 Azure 以使用 Azure 资源管理器。 出现提示时，请使用[所有者](/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator)等拥有足够权限的帐户进行身份验证。
 
     ```azurepowershell
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount -EnvironmentName AzureChinaCloud
     ```
 
-4. 若要创建自定义角色，请使用 **New-AzureRmRoleDefinition** 并指定 JSON 模板文件。
+4. 若要创建自定义角色，请使用 New-AzRoleDefinition 来指定 JSON 模板文件。
 
     ``` azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
 ## <a name="assign-a-user-to-registration-role"></a>将用户分配到注册角色

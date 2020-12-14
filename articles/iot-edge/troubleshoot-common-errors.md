@@ -4,20 +4,20 @@ description: 本文介绍了部署 IoT Edge 解决方案时遇到的问题的常
 author: kgremban
 manager: philmea
 ms.author: v-tawe
-origin.date: 04/27/2020
-ms.date: 06/02/2020
+origin.date: 11/10/2020
+ms.date: 12/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3d194a50920d777cdfbf8039a4f817cdacb20062
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: dd3a20567817fc66dc7cdc8c0385c5e27e73bf57
+ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275707"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96541181"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
@@ -332,6 +332,25 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 每个设备仅使用一种类型的部署机制，即自动部署或单设备部署。 如果你有针对某个设备的多个自动部署，则可以更改优先级或目标说明，以确保正确的部署应用于给定的设备。 还可以更新设备孪生，使其不再与自动部署的目标描述匹配。
 
 有关详细信息，请参阅[了解单个设备或大规模的 IoT Edge 自动部署](module-deployment-monitoring.md)。
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>网关后面的 IoT Edge 无法执行 HTTP 请求和启动 edgeAgent 模块
+
+**观察到的行为：**
+
+使用有效的配置文件时，IoT Edge 守护程序处于活动状态，但它无法启动 edgeAgent 模块。 命令 `iotedge list` 返回一个空列表。 IoT Edge 守护程序日志报告 `Could not perform HTTP request`。
+
+**根本原因：**
+
+网关后面的 IoT Edge 设备将从父 IoT Edge 设备（在 config.yaml 文件的 `parent_hostname` 字段中指定）获取其模块映像。 `Could not perform HTTP request` 错误表示子设备无法通过 HTTP 到访问父设备。
+
+**解决方法：**
+
+请确保父 IoT Edge 设备可以接收来自子 IoT Edge 设备的传入请求。 在端口 443 和 6617 上打开网络流量，以获取来自子设备的请求。
+
+:::moniker-end
 
 ## <a name="next-steps"></a>后续步骤
 

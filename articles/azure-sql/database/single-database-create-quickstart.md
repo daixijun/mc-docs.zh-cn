@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ''
 origin.date: 09/03/2020
 ms.date: 10/12/2020
-ms.openlocfilehash: 37cf8555cea93f4948fa53998b19d3d194927bc4
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 866af92ca8661ecbdba1fdbb16f6c381d441734a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872460"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432531"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>快速入门：创建 Azure SQL 数据库单一数据库
 
@@ -27,7 +27,7 @@ ms.locfileid: "91872460"
 
 ## <a name="prerequisite"></a>先决条件
 
-- 一个有效的 Azure 订阅。 如果没有订阅，请[创建 1 元试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。 
+- 一个有效的 Azure 订阅。 如果没有，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="create-a-single-database"></a>创建单一数据库
 
@@ -272,7 +272,7 @@ az sql db create \
 
 用完这些资源后，可以删除创建的资源组，这也会删除该资源组中的服务器和单一数据库。
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[门户](#tab/azure-portal)
 
 若要使用 Azure 门户删除 **myResourceGroup** 及其包含的所有资源：
 

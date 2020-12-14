@@ -4,18 +4,18 @@ description: Azure 防火墙具有 NAT 规则、网络规则和应用程序规�
 services: firewall
 ms.service: firewall
 ms.topic: article
-origin.date: 04/10/2020
+origin.date: 11/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 898130163dad38495a217e385c1eb19a2ce4f552
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: b92d7f00aad6f9462e30166216b226f200e03b95
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246794"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747074"
 ---
 # <a name="configure-azure-firewall-rules"></a>配置 Azure 防火墙规则
 在 Azure 防火墙上可以配置 NAT 规则、网络规则和应用程序规则。 处理规则集合时，会根据规则类型按优先级顺序（由低编号到高编号，从 100 到 65,000）进行。 规则集合名称只能包含字母、数字、下划线、句点或连字符。 该名称必须以字母或数字开头，并且以字母、数字或下划线结尾。 名称最大长度为 80 个字符。
@@ -30,6 +30,12 @@ ms.locfileid: "91246794"
 ### <a name="network-rules-and-applications-rules"></a>网络规则和应用程序规则
 
 如果配置了网络规则和应用程序规则，则会在应用程序规则之前先按优先级顺序应用网络规则。 规则将终止。 因此，如果在网络规则中找到了匹配项，则不会处理其他规则。  如果没有网络规则匹配项，并且，如果协议是 HTTP、HTTPS 或 MSSQL，则应用程序规则会按优先级顺序评估数据包。 如果仍未找到匹配项，则会根据[基础结构规则集合](infrastructure-fqdns.md)评估数据包。 如果仍然没有匹配项，则默认情况下会拒绝该数据包。
+
+#### <a name="network-rule-protocol"></a>网络规则协议
+
+可以为 TCP、UDP、ICMP 或“任意”IP 协议配置网络规则。    “任意”IP 协议包括 [Internet 数字分配机构 (IANA) 协议编号](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)文档中定义的所有 IP 协议。 如果显式配置了目标端口，则会将规则转换为 TCP+UDP 规则。
+
+在 2020 年 11 月 9 日之前，“任意”意味着 TCP、UDP 或 ICMP。    因此，你可能在该日期之前配置了协议为“任意”、目标端口为“*”的规则。 如果实际上不打算像当前定义一样允许任意 IP 协议，请修改规则以显式配置所需的协议（TCP、UDP 或 ICMP）。
 
 ## <a name="inbound-connectivity"></a>入站连接
 

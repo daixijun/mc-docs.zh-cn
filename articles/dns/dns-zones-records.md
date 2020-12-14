@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 09/14/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: e0c7780b723638f18d7b6e342dc9bb117dc2fe98
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 86d42206074893acfc1893bad92bfea5ec18dcb6
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512859"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747268"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 
@@ -25,7 +25,7 @@ ms.locfileid: "89512859"
 
 域名系统是域的层次结构。 该层次结构从名为“ **.** ”的“根”域开始。  根域的下面是顶级域，例如“com”、“net”、“org”、“uk”或“jp”。  再往下是二级域，例如“org.uk”或“co.jp”。 DNS 层次结构中的域遍布全球，由世界各地的 DNS 名称服务器托管。
 
-域名注册机构是一个组织，可以通过该组织购买域名，例如“contoso.com”。  购买域名便有权控制该名下的 DNS 层次结构，例如可将名称“www.contoso.com”定向到公司网站。 注册机构会代表用户在域自身的名称服务器中托管域，或者允许用户指定可选名称服务器。
+域名注册机构是一个组织，可以通过该组织购买域名，例如 `contoso.com`。  购买域名便有权控制该名下的 DNS 层次结构，例如可将名称 `www.contoso.com` 定向到公司网站。 注册机构会代表用户在域自身的名称服务器中托管域，或者允许用户指定可选名称服务器。
 
 Azure DNS 提供全球分布的高可用性名称服务器基础结构，可将其用于托管域。 通过在 Azure DNS 中托管域，用户可以使用与其他 Azure 服务相同的凭据、API、工具、计费和支持来管理 DNS 记录。
 
@@ -144,5 +144,5 @@ Etag 是在 Azure DNS REST API 级别使用 HTTP 标头指定的。  下表给�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要开始使用 Azure DNS，请了解如何[创建 DNS 区域](dns-getstarted-create-dnszone-portal.md)和[创建 DNS 记录](dns-getstarted-create-recordset-portal.md)。
+* 若要开始使用 Azure DNS，请了解如何[创建 DNS 区域](./dns-getstarted-portal.md)和[创建 DNS 记录](./dns-getstarted-portal.md)。
 * 若要迁移现有 DNS 区域，请了解如何[导入和导出 DNS 区域文件](dns-import-export.md)。

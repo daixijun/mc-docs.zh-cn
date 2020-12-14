@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ea77f1785e70d582e87a1e021958b9999b17bf13
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 31814f194a569efc14b1ae6cee795563b30c316c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470060"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431627"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>测试 Azure 托管应用程序的门户接口
 
@@ -23,7 +23,7 @@ ms.locfileid: "92470060"
 
 * 一个 **createUiDefinition.json** 文件。 如果没有此文件，请复制[示例文件](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)。
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="use-sandbox"></a>使用沙盒
 
@@ -33,21 +33,21 @@ ms.locfileid: "92470060"
 
 1. 将空定义替换为 createUiDefinition.json 文件的内容。 选择“预览”  。
 
-    :::image type="content" source="./media/test-createuidefinition/select-preview.png" alt-text="显示沙盒":::
+    :::image type="content" source="./media/test-createuidefinition/select-preview.png" alt-text="选择“预览”":::
 
 1. 此时会显示已创建的窗体。 可以单步执行用户体验，并填写值。
 
-    :::image type="content" source="./media/test-createuidefinition/show-ui-form.png" alt-text="显示沙盒":::
+    :::image type="content" source="./media/test-createuidefinition/show-ui-form.png" alt-text="显示窗体":::
 
 ### <a name="troubleshooting"></a>故障排除
 
 如果在选择“预览”  后窗体未显示，则可能存在语法错误。 在右侧滚动条上查找红色指示器，然后导航到它。
 
-:::image type="content" source="./media/test-createuidefinition/show-syntax-error.png" alt-text="显示沙盒":::
+:::image type="content" source="./media/test-createuidefinition/show-syntax-error.png" alt-text="显示语法错误":::
 
 如果窗体未显示，但看到一个带泪滴的云图标，则表明窗体出现错误，例如缺少属性。 在浏览器中打开“Web 开发人员工具”。 “控制台”显示有关界面的重要消息。 
 
-:::image type="content" source="./media/test-createuidefinition/show-error.png" alt-text="显示沙盒":::
+:::image type="content" source="./media/test-createuidefinition/show-error.png" alt-text="显示错误":::
 
 ## <a name="use-test-script"></a>使用测试脚本
 
@@ -95,7 +95,7 @@ ms.locfileid: "92470060"
 
 提供字段值。 完成后，会看到这些值已传递到模板（可以在浏览器的开发人员工具控制台中找到）。
 
-:::image type="content" source="./media/test-createuidefinition/show-json.png" alt-text="显示沙盒":::
+:::image type="content" source="./media/test-createuidefinition/show-json.png" alt-text="显示值":::
 
 你可以使用这些值作为参数文件来测试部署模板。
 

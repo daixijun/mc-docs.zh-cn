@@ -4,16 +4,16 @@ description: 以开发人员的身份使用 Visual Studio Code 中的 Azure 帐�
 author: WenJason
 ms.topic: conceptual
 origin.date: 09/21/2020
-ms.date: 10/12/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: 355bf814dc3f09736a4e1eea1ed00fcd4ea4aaf4
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 5f6cb28b57991d5d0c398716485b7ff9223f9df6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437707"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507915"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 
@@ -35,7 +35,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
 1. 运行 GitHub 上的“Azure Stack Hub 工具”中的“标识”脚本。 
 
-    - 在运行该脚本之前，需要安装 PowerShell 并根据自己的环境配置 PowerShell。 有关说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+    - 在运行该脚本之前，需要安装 PowerShell 并根据自己的环境配置 PowerShell。 有关说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 
     - 有关“标识”脚本的说明和脚本内容，请参阅 **[AzureStack-Tools/Identity](https://aka.ms/aa6z611)** 。
 
@@ -98,9 +98,9 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
       "azure.cloud": "AzurePPE"
       ```
 
-10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择“Azure:登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。****
+10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择“Azure:登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。
 
-11. 选择“AzurePPE”。**** 浏览器中会加载身份验证页。 登录到你的终结点。
+11. 选择“AzurePPE”。 浏览器中会加载身份验证页。 登录到你的终结点。
 
 12. 若要测试是否已成功登录到你的 Azure Stack Hub 订阅，请按 **Ctrl+Shift+ P** 并选择“Azure:选择订阅”，然后查看你的订阅是否可用。
 
@@ -112,7 +112,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 | Azure：登录到 Azure 云 | 登录到某个主权云中的 Azure 订阅。 |
 | Azure：注销 | 从 Azure 订阅注销 |
 | Azure：选择订阅 | 选择要使用的订阅集。 该扩展只显示筛选的订阅中的资源。 |
-| Azure：创建帐户 | 如果你没有 Azure 帐户，可以立即[注册](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account)一个帐户，并获得 \$200 的免费信用额度。 |
+| Azure：创建帐户 | 如果没有 Azure 帐户，可以[注册](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 |
 | Azure：在 Shell 中打开 Bash | 在 Shell 中打开运行 Bash 的新终端。 |
 | Azure：在 Shell 中打开 PowerShell | 在 Shell 中打开运行 PowerShell 的新终端。 |
 | Azure：上传到 Shell | 将文件上传到 Shell 存储帐户。 |

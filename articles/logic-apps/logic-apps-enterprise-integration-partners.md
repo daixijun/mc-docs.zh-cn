@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/22/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 800e512d62087becfe4cbb3f82bb36959975cb8d
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: b5601bc18ef38315a89f1da54959ce8efd029af2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211329"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431621"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>向 Azure 逻辑应用的集成帐户添加贸易合作伙伴
 
@@ -30,7 +30,7 @@ ms.locfileid: "92211329"
 
 ## <a name="prerequisites"></a>必备条件
 
-* Azure 订阅。 如果还没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 用于存储合作伙伴、协议和其他 B2B 项目的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 此集成帐户必须与 Azure 订阅相关联。
 

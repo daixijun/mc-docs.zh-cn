@@ -10,24 +10,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/27/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 640e9e8e8d15e022e7c99405652b0cb5d0beb9c3
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: f4e1173db818823db1f51e69d67cc90014a40816
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590957"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746560"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>使用见解监视和配置 Azure 负载均衡器
 
-通过 [Azure 网络监控器](/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)，为负载均衡器提供函数依赖关系可视化和预配置的指标仪表板。 这些视觉对象有助于你制定明智的设计决策，并快速定位、诊断和解决任何故障。
+通过用于网络的 Azure Monitor，可以获得适用于负载均衡器的函数依赖关系可视化和预配置的指标仪表板。 这些视觉对象有助于你制定明智的设计决策，并快速定位、诊断和解决任何故障。
 
 >[!NOTE] 
 >请注意，此功能为预览版，函数依赖关系视图和预配置的仪表板以后可能会改变以优化体验
 
 >[!IMPORTANT]
->需要标准负载均衡器才能在预配置的指标仪表板中查看来自负载均衡器命名空间的指标。 你仍然可以从 VM、虚拟机规模集和连接监视器命名空间中看到指标，但是，对于任何生产工作负载，我们建议[升级到标准](/load-balancer/upgrade-basic-standard)，以充分利用可靠的负载均衡器指标集。
+>需要标准负载均衡器才能在预配置的指标仪表板中查看来自负载均衡器命名空间的指标。 你仍然可以从 VM、虚拟机规模集和连接监视器命名空间中看到指标，但是，对于任何生产工作负载，我们建议[升级到标准](./upgrade-basic-standard.md)，以充分利用可靠的负载均衡器指标集。
 
 ## <a name="functional-dependency-view"></a>函数依赖关系视图
 
@@ -41,7 +41,7 @@ ms.locfileid: "94590957"
 
 ## <a name="metrics-dashboard"></a>指标仪表板
 
-在负载均衡器的“见解”边栏选项卡中，可以选择“更多详细指标”，查看预配置的 [Azure Monitor 工作簿](/azure-monitor/platform/workbooks-overview)，其中包含与负载均衡器特定方面相关的指标视觉对象。 该仪表板显示负载均衡器状态，并在页面顶部显示相关文档的链接。
+在负载均衡器的“见解”边栏选项卡中，可以选择“更多详细指标”，查看预配置的 [Azure Monitor 工作簿](../azure-monitor/platform/workbooks-overview.md)，其中包含与负载均衡器特定方面相关的指标视觉对象。 该仪表板显示负载均衡器状态，并在页面顶部显示相关文档的链接。
 
 首先会显示“概述”选项卡。可以在可用选项卡中导航，每个选项卡均包含与负载均衡器特定方面相关的视觉对象。 每个选项卡底部的仪表板中都提供针对每个选项的明确指导。
 
@@ -69,16 +69,18 @@ ms.locfileid: "94590957"
 ### <a name="flow-distribution"></a>流分发
 “流量分配”选项卡可帮助你直观了解和管理后端实例正在接收和产生的流量数量。 它显示入站和出站流量的流创建速率和流计数，以及每个 VM 和虚拟机规模集实例正在接收的网络流量。 
 
-这些视图可为你提供有关负载均衡器配置或流量模式是否导致流量不平衡的反馈。 例如，是否已配置会话关联，以及某个客户端发出的请求数量是否不成比例。 它还会告知你的计算机大小是否已达到[每个 VM 流量限制](/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations)。
+这些视图可为你提供有关负载均衡器配置或流量模式是否导致流量不平衡的反馈。 例如，是否已配置会话关联，以及某个客户端发出的请求数量是否不成比例。 它还会告知你的计算机大小是否已达到[每个 VM 流量限制](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations)。
 
 ### <a name="connection-monitors"></a>连接监视器
-“连接监视器”选项卡会在全局地图上显示已配置的所有[连接监视器](/network-watcher/connection-monitor)的往返延迟。 这些视觉对象为具有严格延迟要求的服务提供有用的信息。 为了满足自己的要求，你可能需要添加其他区域部署。
+“连接监视器”选项卡会在全局地图上显示已配置的所有[连接监视器](../network-watcher/connection-monitor.md)的往返延迟。 这些视觉对象为具有严格延迟要求的服务提供有用的信息。 为了满足自己的要求，你可能需要添加其他区域部署。
+
+<!--or  move to a [cross-regional load balancing](./cross-region-overview.md) model-->
 
 ### <a name="metric-definitions"></a>指标定义
-“指标定义”选项卡包含[“多维指标标准”文章](/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)中显示的所有信息。
+“指标定义”选项卡包含[“多维指标标准”文章](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)中显示的所有信息。
 
 ## <a name="next-steps"></a>后续步骤
 * 查看仪表板，如果有任何需要改进的地方，请使用下面的链接提供反馈
-* [查看指标文档，以确保你了解如何计算每个指标](/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [为负载均衡器创建连接监视器](/network-watcher/connection-monitor)
-* [创建自己的工作簿](/azure-monitor/platform/workbooks-overview)，你可以通过在详细指标仪表板中单击“编辑”按钮来汲取灵感
+* [查看指标文档，以确保你了解如何计算每个指标](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [为负载均衡器创建连接监视器](../network-watcher/connection-monitor.md)
+* [创建自己的工作簿](../azure-monitor/platform/workbooks-overview.md)，你可以通过在详细指标仪表板中单击“编辑”按钮来汲取灵感

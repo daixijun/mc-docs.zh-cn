@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: dcd39f76ee93b8bed0c754619ce3497811bd65e3
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0667c8b9d36ad0af88576f87f34bd5804b0272fd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564443"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431966"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP Webhook 创建和运行基于事件的自动化工作流
 
@@ -38,7 +38,7 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 * 如果逻辑应用运行在等待响应时已取消
 * 在逻辑应用超时之前
 
-例如, Office 365 Outlook 连接器的[**发送审批电子邮件**](connectors-create-api-office365-outlook.md)操作就是遵循此模式的 Webhook 操作示例。 可以使用 Webhook 操作将此模式扩展到任何服务中。
+例如, Office 365 Outlook 连接器的 [**发送审批电子邮件**](connectors-create-api-office365-outlook.md)操作就是遵循此模式的 Webhook 操作示例。 可以使用 Webhook 操作将此模式扩展到任何服务中。
 
 有关详细信息，请参阅以下主题：
 
@@ -51,7 +51,7 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 适当支持[逻辑应用中 Webhook 触发器](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)或[逻辑应用中 Webhook 操作](../logic-apps/logic-apps-create-api-app.md#webhook-actions) Webhook 订阅和取消订阅模式的已部署终结点或 API 的 URL
 
@@ -75,9 +75,9 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
     在此示例中，触发器包括执行订阅和取消订阅操作时要使用的方法、URI 和消息正文。
 
-    :::image type="content" source="./media/connectors-native-webhook/http-webhook-trigger-parameters.png" alt-text="选择 HTTP Webhook 触发器":::
+    :::image type="content" source="./media/connectors-native-webhook/http-webhook-trigger-parameters.png" alt-text="输入 HTTP Webhook 触发器参数":::
 
-    | 属性 | 必须 | 说明 |
+    | 属性 | 必选 | 说明 |
     |----------|----------|-------------|
     | **订阅 - 方法** | 是 | 订阅目标终结点时使用的方法 |
     | **订阅 - URI** | 是 | 用于订阅目标终结点的 URL |
@@ -89,7 +89,7 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
 1. 若要添加其他触发器属性，请打开“添加新参数”列表。
 
-    :::image type="content" source="./media/connectors-native-webhook/http-webhook-trigger-add-properties.png" alt-text="选择 HTTP Webhook 触发器":::
+    :::image type="content" source="./media/connectors-native-webhook/http-webhook-trigger-add-properties.png" alt-text="添加更多触发器属性":::
 
     例如，如果需要使用身份验证，可以添加“订阅 - 身份验证”和“取消订阅 - 身份验证”属性 。 有关 HTTP Webhook 可用的身份验证类型的详细信息，请参阅[向出站调用添加身份验证](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
@@ -113,7 +113,7 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
 1. 在设计器上的搜索框中，输入 `http webhook` 作为筛选器。 在“操作”列表中选择“HTTP Webhook”操作。 
 
-    :::image type="content" source="./media/connectors-native-webhook/select-http-webhook-action.png" alt-text="选择 HTTP Webhook 触发器":::
+    :::image type="content" source="./media/connectors-native-webhook/select-http-webhook-action.png" alt-text="选择 HTTP Webhook 操作":::
 
     此示例将操作重命名为“HTTP Webhook action”，使步骤的名称更具描述性。
 
@@ -121,9 +121,9 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
     在此示例中，操作包括执行订阅和取消订阅操作时要使用的方法、URI 和消息正文。
 
-    :::image type="content" source="./media/connectors-native-webhook/http-webhook-action-parameters.png" alt-text="选择 HTTP Webhook 触发器":::
+    :::image type="content" source="./media/connectors-native-webhook/http-webhook-action-parameters.png" alt-text="输入 HTTP Webhook 操作参数":::
 
-    | 属性 | 必须 | 说明 |
+    | 属性 | 必选 | 说明 |
     |----------|----------|-------------|
     | **订阅 - 方法** | 是 | 订阅目标终结点时使用的方法 |
     | **订阅 - URI** | 是 | 用于订阅目标终结点的 URL |
@@ -135,7 +135,7 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
 1. 若要添加其他操作属性，请打开“添加新参数”列表。
 
-    :::image type="content" source="./media/connectors-native-webhook/http-webhook-action-add-properties.png" alt-text="选择 HTTP Webhook 触发器":::
+    :::image type="content" source="./media/connectors-native-webhook/http-webhook-action-add-properties.png" alt-text="添加更多操作属性":::
 
     例如，如果需要使用身份验证，可以添加“订阅 - 身份验证”和“取消订阅 - 身份验证”属性 。 有关 HTTP Webhook 可用的身份验证类型的详细信息，请参阅[向出站调用添加身份验证](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)。
 
@@ -149,14 +149,14 @@ Webhook 操作也基于事件，它会通过将一个回调 URL 注册到指定�
 
 | 属性名称 | 类型 | 说明 |
 |---------------|------|-------------|
-| headers | object | 请求中的标头 |
-| body | object | JSON 对象 | 包含请求中正文内容的对象 |
+| headers | 对象 | 请求中的标头 |
+| body | 对象 | JSON 对象 | 包含请求中正文内容的对象 |
 | 状态代码 | int | 请求中的状态代码 |
 |||
 
 | 状态代码 | 说明 |
 |-------------|-------------|
-| 200 | OK |
+| 200 | 确定 |
 | 202 | 已接受 |
 | 400 | 错误的请求 |
 | 401 | 未授权 |

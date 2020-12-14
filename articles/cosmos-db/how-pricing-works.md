@@ -9,12 +9,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6ebbe694370b4242bb4788023f38c05e184b97b2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 35999a7e40cda7ddf46e3ba913d3f646659f59db
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328357"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508020"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ Azure Cosmos DB 免费为开发人员提供众多选项。 这些选项包括：
 
 <!--MOONCAKE CUSTOMIZE: Azure trial account-->
 
-* **Azure 试用帐户**：Azure 提供了一个 [免费层](https://www.azure.cn/pricing/1rmb-trial/)，它在前 30 天为你提供了价值人民币 1500 元的 Azure 额度。
+* **Azure 试用帐户**：Azure 提供了一个[免费层](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，它在头 120 天为你提供价值 3500 元的 Azure 额度。
 
 <!--Not Available on For more information [Azure trial account](../billing/billing-avoid-charges-free-account.md)-->
 <!--Not Available on * **Try Azure Cosmos DB for free**-->

@@ -19,12 +19,12 @@ ms.date: 11/13/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 96d3d94fd163fc45b3eef0da0e32ec20bbb185fe
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: f2c725fd63795b9aec387da4ddf7781bcbf6fe2c
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590830"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431203"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>教程：使用通知中心和必应空间数据发送基于位置的推送通知
 
@@ -40,7 +40,7 @@ ms.locfileid: "94590830"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或更高版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409))。
 * 最新版本的 [Azure SDK](https://azure.microsoft.com/downloads/)。
 * [必应地图开发人员中心帐户](https://www.bingmapsportal.com/)（可以免费创建一个帐户并将此帐户与 Microsoft 帐户相关联）。

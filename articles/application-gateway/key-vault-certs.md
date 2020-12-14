@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: cfe0f6f824c58954b3afffd1ca5fa37c50c5bd4d
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: b816fd476a3ca9b5e957a2139bc4c79a266fdfbe
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501618"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507800"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>使用 Key Vault 证书进行 TLS 终止
 
@@ -71,7 +71,9 @@ Key Vault 集成提供了两种用于 TLS 终止的模型：
 
 1. **配置应用程序网关**
 
-   在完成前面的两个步骤以后，即可设置或修改现有的应用程序网关，以便使用用户分配的托管标识。 你还可以配置 HTTP 侦听器的 TLS/SSL 证书，使之指向 Key Vault 证书或机密 ID 的完整 URI。
+   在完成前面的两个步骤以后，即可设置或修改现有的应用程序网关，以便使用用户分配的托管标识。 有关详细信息，请参阅 [Set-AzApplicationGatewayIdentity](https://docs.microsoft.com/powershell/module/az.network/set-azapplicationgatewayidentity)。
+
+   你还可以配置 HTTP 侦听器的 TLS/SSL 证书，使之指向 Key Vault 证书或机密 ID 的完整 URI。
 
    ![密钥保管库证书](./media/key-vault-certs/ag-kv.png)
 

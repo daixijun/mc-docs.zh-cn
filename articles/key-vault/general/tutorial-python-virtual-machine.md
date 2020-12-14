@@ -10,12 +10,12 @@ origin.date: 07/20/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: fc457a3db3420bd7f366dc1b996c424927353207
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 429e0e79f62847e3efe323128ea33f5fde63aa44
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300915"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430810"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>教程：将 Azure Key Vault 与通过 Python 编写的虚拟机配合使用
 
@@ -33,7 +33,7 @@ Azure Key Vault 可帮助你保护密钥、机密和证书，例如 API 密钥�
 
 在开始之前，请阅读 [Key Vault 的基本概念](basic-concepts.md)。 
 
-如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请创建[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -1,6 +1,6 @@
 ---
 title: 调整具有 GPT 分区的 OS 磁盘的大小 | Azure
-description: 本文介绍如何调整具有 GPT 分区的 OS 磁盘的大小。
+description: 本文提供了有关如何调整 Linux 中具有 GUID 分区表 (GPT) 分区的 OS 磁盘大小的说明。
 services: virtual-machines-linux
 documentationcenter: ''
 author: Johnnytechn
@@ -11,20 +11,20 @@ ms.service: security
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.devlang: azurecli
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: ad78bfd22729f3f8ac3af2a0be5da66d356c2a83
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 9ce995e21d895d4817e229f6398ef73986f0a468
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638216"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747110"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>调整具有 GPT 分区的 OS 磁盘的大小
 
 > [!NOTE]
-> 此方案仅适用于具有 GUID 分区表 (GPT) 分区的 OS 磁盘。
+> 本文仅适用于具有 GUID 分区表 (GPT) 分区的 OS 磁盘。
 
 本文介绍如何在 Linux 中增加具有 GPT 分区的 OS 磁盘的大小。 
 
@@ -78,11 +78,11 @@ Number  Start   End     Size    File system  Name                  Flags
 
 ### <a name="ubuntu"></a>Ubuntu
 
-在 Ubuntu 16.x 和 18.x 中增加 OS 磁盘的大小：
+在 Ubuntu 16.x 和 18.x 中增加 OS 磁盘的大小： 
 
 1. 停止 VM。
 1. 从门户增加 OS 磁盘的大小。
-1. 重新启动 VM，然后以根用户身份登录到 VM。
+1. 重启 VM，然后以根用户身份登录到 VM。
 1. 验证 OS 磁盘现在是否显示增加后的文件系统大小。
 
 如以下示例中所示，已通过门户将 OS 磁盘的大小调整为 100 GB。 / 上装载的 /dev/sda1 文件系统现在显示为 97 GB 。
@@ -110,9 +110,9 @@ user@myvm:~#
 1. 从门户增加 OS 磁盘的大小。
 1. 重启 VM。
 
-重新启动 VM 后，请执行以下步骤：
+重启 VM 后，完成以下步骤：
 
-1. 通过使用以下命令，以根用户身份访问 VM：
+1. 使用以下命令，以根用户身份访问 VM：
 
    ```
    # sudo -i
@@ -124,7 +124,7 @@ user@myvm:~#
    # zypper install growpart
    ```
 
-1. 使用 `lsblk` 命令查找安装在文件系统根目录 ("/") 上的分区。 在这种情况下，我们看到设备 sda 的分区 4 安装在 / 上：
+1. 使用 `lsblk` 命令查找安装在文件系统根目录 ("/") 上的分区。 在这种情况下，我们看到设备 sda 的分区 4 安装在  / 上：
 
    ```
    # lsblk
@@ -138,7 +138,7 @@ user@myvm:~#
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. 通过使用上一步中找到的分区号，使用 `growpart` 命令调整所需分区的大小。
+1. 通过使用上一步中确定的分区号，使用 `growpart` 命令调整所需分区的大小。
 
    ```
    # growpart /dev/sda 4
@@ -177,7 +177,7 @@ user@myvm:~#
 
 1. 根据文件系统类型，使用相应的命令调整文件系统的大小。
    
-   对于 xfs，使用以下命令：
+   对于 xfs，请使用以下命令：
    
    ```
    #xfs_growfs /
@@ -200,7 +200,7 @@ user@myvm:~#
    data blocks changed from 7470331 to 12188923
    ```
    
-   对于 ext4，使用以下命令：
+   对于 ext4，请使用以下命令：
    
    ```
    #resize2fs /dev/sda4
@@ -231,95 +231,142 @@ user@myvm:~#
    
    在前面的示例中，可以看到 OS 磁盘的文件系统大小已增加。
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-with-lvm"></a>带有 LVM 的 RHEL
 
-在带有 LVM 的 RHEL 7.x 中增加 OS 磁盘的大小：
+1. 使用以下命令，以根用户身份访问 VM：
 
-1. 停止 VM。
-1. 从门户增加 OS 磁盘的大小。
-1. 启动 VM。
-
-重新启动 VM 后，请执行以下步骤：
-
-1. 通过使用以下命令，以根用户身份访问 VM：
- 
-   ```
-   #sudo su
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. 安装 gptfdisk 包，增加 OS 磁盘大小需要此包。
+1. 使用 `lsblk` 命令确定在文件系统的根目录(/) 上装载的逻辑卷 (LV)。 在本例中，我们会看到在  / 上装载了 rootvg-rootlv。 如果需要其他文件系统，请替换本文中的 LV 和装入点。
 
-   ```
-   #yum install gdisk -y
-   ```
-
-1. 若要查看磁盘上可用的最大扇区，请运行以下命令：
-
-   ```
-   #sgdisk -e /dev/sda
-   ```
-
-1. 使用以下命令，在不删除分区的情况下调整其大小。 Parted 命令具有一个名为“resizepart”的选项，用于在不删除分区的情况下调整其大小 。 Resizepart 后面的数字 4 表示调整第四个分区的大小。
-
-   ```
-   #parted -s /dev/sda "resizepart 4 -1" quit
-   ```
-    
-1. 运行以下命令，以验证分区大小是否已增加：
-
-   ```
-   #lsblk
+   ```shell
+   [root@dd-rhel7vm ~]# lsblk -f
+   NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
+   fd0
+   sda
+   ├─sda1                vfat                C13D-C339                              /boot/efi
+   ├─sda2                xfs                 8cc4c23c-fa7b-4a4d-bba8-4108b7ac0135   /boot
+   ├─sda3
+   └─sda4                LVM2_member         zx0Lio-2YsN-ukmz-BvAY-LCKb-kRU0-ReRBzh
+      ├─rootvg-tmplv      xfs                 174c3c3a-9e65-409a-af59-5204a5c00550   /tmp
+      ├─rootvg-usrlv      xfs                 a48dbaac-75d4-4cf6-a5e6-dcd3ffed9af1   /usr
+      ├─rootvg-optlv      xfs                 85fe8660-9acb-48b8-98aa-bf16f14b9587   /opt
+      ├─rootvg-homelv     xfs                 b22432b1-c905-492b-a27f-199c1a6497e7   /home
+      ├─rootvg-varlv      xfs                 24ad0b4e-1b6b-45e7-9605-8aca02d20d22   /var
+      └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-   下面的输出显示已将 /dev/sda4 分区的大小调整为 99 GB。
+1. 检查 LVM 卷组 (VG) 中是否有包含根分区的可用空间。 如果有可用空间，请跳到步骤 12。
 
-   ```
-   [user@myvm ~]# lsblk
-   NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0                 2:0    1    4K  0 disk
-   sda                 8:0    0  100G  0 disk
-   ├─sda1              8:1    0  500M  0 part /boot/efi
-   ├─sda2              8:2    0  500M  0 part /boot
-   ├─sda3              8:3    0    2M  0 part
-   └─sda4              8:4    0   99G  0 part
-   ├─rootvg-tmplv    253:0    0    2G  0 lvm  /tmp
-   ├─rootvg-usrlv    253:1    0   10G  0 lvm  /usr
-   ├─rootvg-optlv    253:2    0    2G  0 lvm  /opt
-   ├─rootvg-homelv   253:3    0    1G  0 lvm  /home
-   ├─rootvg-varlv    253:4    0    8G  0 lvm  /var
-   └─rootvg-rootlv   253:5    0    2G  0 lvm  /
-   sdb                 8:16   0   50G  0 disk
-   └─sdb1              8:17   0   50G  0 part /mnt/resource
+   ```bash
+   [root@dd-rhel7vm ~]# vgdisplay rootvg
+   --- Volume group ---
+   VG Name               rootvg
+   System ID
+   Format                lvm2
+   Metadata Areas        1
+   Metadata Sequence No  7
+   VG Access             read/write
+   VG Status             resizable
+   MAX LV                0
+   Cur LV                6
+   Open LV               6
+   Max PV                0
+   Cur PV                1
+   Act PV                1
+   VG Size               <63.02 GiB
+   PE Size               4.00 MiB
+   Total PE              16132
+   Alloc PE / Size       6400 / 25.00 GiB
+   Free  PE / Size       9732 / <38.02 GiB
+   VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-1. 使用以下命令调整物理卷 (PV) 大小：
+   在此示例中，Free  PE / Size 一行显示卷组中有 38.02 GB 的可用空间。 在将空间添加到卷组之前，无需调整磁盘大小。
 
-   ```
-   #pvresize /dev/sda4
+1. 在带有 LVM 的 RHEL 7.x 中增加 OS 磁盘的大小：
+
+   1. 停止 VM。
+   1. 从门户增加 OS 磁盘的大小。
+   1. 启动 VM。
+
+1. 重启 VM 后，安装 cloud-utils-growpart 包以获取 `growpart` 命令，需要使用它来增加 OS 磁盘的大小。
+
+      大多数 Azure 市场映像上都预安装了此包。
+
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
+
+1. 通过使用 `pvscan` 命令，确定名为 rootvg 的卷组中哪个磁盘和分区包含 LVM 物理卷 (PV)。 请注意括号（“[”和“]”）之间列出的大小和可用空间。 
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+     PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-   下面的输出显示已将 PV 的大小调整为 99.02 GB。
+1. 使用 `lsblk` 验证分区大小。 
 
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  63G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
-   [user@myvm ~]# pvresize /dev/sda4
+
+1. 使用 `growpart`、设备名称和分区号扩展包含此 PV 的分区。 这样做将扩展指定分区以使用设备上的所有可用连续空间。
+
+   ```bash
+   [root@dd-rhel7vm ~]# growpart /dev/sda 4
+   CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
+   ```
+
+1. 再次使用 `lsblk` 命令验证分区是否已调整到预期大小。 请注意，在此示例中，sda4 已从 63 GB 更改为 95 GB。
+
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  95G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
+   ```
+
+1. 扩展 PV 以使用新扩展的分区的其余部分：
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvresize /dev/sda4
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-
-   [user@myvm ~]# pvs
-   PV         VG     Fmt  Attr PSize   PFree
-   /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. 在下面的示例中，通过以下命令将 /dev/mapper/rootvg-rootlv 的大小从 2 GB 调整到了 12 GB（增加了 10 GB）。 此命令还将调整文件系统的大小。
+1. 验证 PV 的新大小是否为预期大小，并将其与原始 [size / free] 值进行比较：
 
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+   PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
-   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+
+1. 将所需逻辑卷 (LV) 扩展到所需量。 这个量不一定要是卷组中的所有可用空间。 在下面的示例中，将 /dev/mapper/rootvg-rootlv 的大小从 2 GB 调整到了 12 GB（增加了 10 GB）。 此命令还将调整文件系统的大小。
+
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    ```
 
    示例输出：
 
-   ```
-   [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -333,24 +380,149 @@ user@myvm:~#
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 524288 to 3145728
    ```
-         
-1. 使用以下命令验证是否已增加 /dev/mapper/rootvg-rootlv 的文件系统大小：
 
-   ```
-   #df -Th /
+1. `lvresize` 命令将为 LV 中的文件系统自动调用相应的重设大小命令。 使用以下命令，检查装载在  / 上的 /dev/mapper/rootvg-rootlv 的文件系统大小是否已增加：
+
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    ```
 
    示例输出：
 
-   ```
-   [user@myvm ~]# df -Th /
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-   [user@myvm ~]#
+   [root@dd-rhel7vm ~]#
    ```
 
 > [!NOTE]
-> 若要使用相同的过程来调整任何其他逻辑卷的大小，请更改步骤 7 中的 lv 名称。
+> 若要使用相同的过程来调整任何其他逻辑卷的大小，请更改步骤 12 中的 LV 名称。
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>增加 OS 磁盘大小前，请始终拍摄 VM 的快照。
+
+在 RHEL RAW 中增加 OS 磁盘的大小：
+
+1. 停止 VM。
+1. 从门户增加 OS 磁盘的大小。
+1. 启动 VM。
+
+重启 VM 后，完成以下步骤：
+
+1. 使用以下命令，以根用户身份访问 VM：
+ 
+   ```
+   sudo su
+   ```
+
+1. 安装 gptfdisk 包，增加 OS 磁盘大小需要此包：
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  若要查看磁盘上的所有可用扇区，请运行以下命令：
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. 你将看到表明分区类型的详细信息。 请确保它是 GPT。 标识根分区。 请勿更改或删除启动分区（BIOS 启动分区）或系统分区（EFI 系统分区）。
+
+1. 使用此命令首次启动分区： 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. 你将看到一条消息，提示你输入下一个命令：`Command: ? for help`。 选择“w”键：
+
+   ```
+   w
+   ```
+
+1. 你将收到以下消息：`Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N)`。 选择“Y”键： 
+
+   ```
+   Y
+   ```
+
+1. 应该会看到一条消息，指出已完成最终检查并提示你进行确认。 选择“Y”键：
+
+   ```
+   Y
+   ```
+
+1. 使用 `partprobe` 命令检查是否一切正常：
+
+   ```
+   partprobe
+   ```
+
+1. 你已完成前面的步骤，确保在末尾放置了次要 GPT 标头。 接下来，再次使用 `gdisk` 工具开始重设大小的过程。 使用以下命令：
+
+   ```
+   gdisk /dev/sda
+   ```
+1. 在命令菜单中，选择“p”键以查看分区列表。 标识根分区。 （在这些步骤中，将 sda2 视为根分区。）标识根分区。 （在这些步骤中，将 sda3 视为启动分区。） 
+
+   ```
+   p
+   ```
+    ![屏幕截图显示了根分区和启动分区。](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. 选择“d”键以删除分区。 然后选择分配给启动分区的分区号。 （在此示例中，它是 3。）
+   ```
+   d
+   3
+   ```
+1. 选择“d”键以删除分区。 然后选择分配给启动分区的分区号。 （在此示例中，它是 2。）
+   ```
+   d
+   2
+   ```
+    ![屏幕截图显示了删除根分区和启动分区的步骤。](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. 若要重新创建更大的根分区，请选择“n”键，然后输入先前删除的分区号作为根分区（在此示例中即为 2）。  为第一个扇区选择 `Default Value`。 为最后一个扇区选择 `Last sector value -  boot size sector`（在本例中为 `4096`，对应于 2-MB 启动）。 为十六进制代码选择 `8300`。
+   ```
+   n
+   2
+   (Enter default)
+   (Calculated value of Last sector value - 4096)
+   8300
+   ```
+1. 若要重新创建启动分区，请选择“n”键，然后输入之前删除的分区号作为启动分区（在此示例中即为 3）。  为第一个扇区和最后一个扇区选择 `Default Value`。 为十六进制代码选择 `EF02`。
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. 使用 `w` 命令写入更改，然后选择 `Y` 以确认更改：
+   ```
+   w
+   Y
+   ```
+1. 运行 `partprobe` 命令来检查磁盘稳定性：
+   ```
+   partprobe
+   ```
+1. 重启 VM。 应增加根分区大小。
+   ```
+   reboot
+   ```
+
+   ![屏幕截图显示了重新创建启动分区的步骤。](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. 在分区上运行 `xfs_growfs` 命令，以调整其大小：
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![屏幕截图显示了运行 xfs_growfs 的结果。](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>后续步骤
 

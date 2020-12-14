@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 12/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 74bfb75972d7179cc8cec4022799c200e36c25e8
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: fe157dd1caeca161915f7bcfdec7c2f96099d4d4
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432680"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个工作流 - Azure 门户
 
@@ -24,7 +24,7 @@ ms.locfileid: "86414697"
 
 ![高级示例逻辑应用工作流](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-对于此方案，你需要一个 Azure 订阅或[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，并需要一个由 Azure 逻辑应用支持的服务（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 如需其他受支持的电子邮件服务，请[在这里查看连接器列表](https://docs.microsoft.com/connectors/)。 在此示例中，逻辑应用使用 Office 365 Outlook 帐户。 如果使用其他电子邮件服务，则总体常规步骤相同，但用户界面可能略有不同。
+对于此方案，你需要一个 Azure 订阅或[注册一个 Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，并需要一个由 Azure 逻辑应用支持的服务（例如 Office 365 Outlook、Outlook.com 或 Gmail）提供的电子邮件帐户。 如需其他受支持的电子邮件服务，请[在这里查看连接器列表](https://docs.microsoft.com/connectors/)。 在此示例中，逻辑应用使用 Office 365 Outlook 帐户。 如果使用其他电子邮件服务，则总体常规步骤相同，但用户界面可能略有不同。
 
 <!--Not Available on Gmail connector-->
 
@@ -42,11 +42,11 @@ ms.locfileid: "86414697"
 
     ![添加新逻辑应用](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. 在“逻辑应用”窗格上，提供有关逻辑应用的详细信息，如下所示。 完成后，选择“创建”。
+1. 在“逻辑应用”窗格上，提供有关逻辑应用的详细信息，如下所示。 完成后，选择“创建”  。
 
     ![提供有关新逻辑应用的详细信息](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-    | 属性 | Value | 说明 |
+    | 属性 | “值” | 描述 |
     |----------|-------|-------------|
     | **名称** | <*logic-app-name*> | 逻辑应用名称，只能包含字母、数字、连字符 (`-`)、下划线 (`_`)、括号（`(`、`)`）和句点 (`.`)。 此示例使用“My-First-Logic-App”。 <p><p>**注意**：逻辑应用的名称必须在区域之间是唯一的。 |
     | **订阅** | <*Azure-subscription-name*> | Azure 订阅名称 |
@@ -81,7 +81,7 @@ ms.locfileid: "86414697"
 
     ![使用 RSS 源、频率和间隔设置触发器](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-    | 属性 | Value | 说明 |
+    | 属性 | “值” | 说明 |
     |----------|-------|-------------|
     | **RSS 源 URL** | <*RSS-feed-URL*> | 要监视的 RSS 源的链接。 本示例使用 `http://feeds.reuters.com/reuters/topNews`。 |
     | **时间间隔** | 1 | 在两次检查之间需等待的时间间隔数 |
@@ -148,7 +148,7 @@ ms.locfileid: "86414697"
 
         ![完成的添加源标题的电子邮件主题示例](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-        如果“For each”循环显示在设计器上，则你为数组选择了一个令牌，例如 **categories-Item** 令牌。 对于这些类型的令牌，设计器会自动围绕引用该令牌的操作添加此循环。 这样一来，逻辑应用会对每个数组项执行同一操作。 若要删除循环，请选择循环的标题栏上的省略号 ( **...** )，然后选择“删除”。 
+        如果“For each”循环显示在设计器上，则你为数组选择了一个令牌，例如 **categories-Item** 令牌。 对于这些类型的令牌，设计器会自动围绕引用该令牌的操作添加此循环。 这样一来，逻辑应用会对每个数组项执行同一操作。 若要删除循环，请选择循环的标题栏上的省略号 (**...**)，然后选择“删除”。
 
     1. 在“正文”框中选择此文本，然后选择这些令牌作为电子邮件正文。 若要在编辑框中添加空行，请按 Shift + Enter。
 

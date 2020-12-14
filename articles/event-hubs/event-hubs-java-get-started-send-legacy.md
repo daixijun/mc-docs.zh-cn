@@ -6,19 +6,19 @@ origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: devx-track-java
-ms.openlocfilehash: 1d3aa9591cc61a7861cec0618f6eda48e42fc880
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 90fdff631f7022d5f88cabf889cc0e32e268ac0e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064618"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430864"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>使用 Java 向/从 Azure 事件中心 (azure-eventhubs) 发送/接收事件
 
 本快速入门介绍如何使用 **azure-eventhubs** Java 包向事件中心发送事件以及从事件中心接收事件。
 
 > [!WARNING]
-> 本快速入门使用旧的 **azure-eventhubs** 和 **azure-eventhubs-eph** 包。 有关使用最新 **azure-messaging-eventhubs** 包的快速入门，请参阅[使用 azure-messaging-eventhubs 发送和接收事件](event-hubs-java-get-started-send.md)。 若要将应用程序从使用旧包迁移到使用新包，请参阅[从 azure-eventhubs 迁移到 azure-messaging-eventhubs 的指南](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)。 
+> 本快速入门使用旧的 **azure-eventhubs** 和 **azure-eventhubs-eph** 包。 有关使用最新 **azure-messaging-eventhubs** 包的快速入门，请参阅 [使用 azure-messaging-eventhubs 发送和接收事件](event-hubs-java-get-started-send.md)。 若要将应用程序从使用旧包迁移到使用新包，请参阅[从 azure-eventhubs 迁移到 azure-messaging-eventhubs 的指南](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)。 
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -27,7 +27,7 @@ ms.locfileid: "90064618"
 
 若要完成本快速入门，需要具备以下先决条件：
 
-- Microsoft Azure 订阅。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果你没有现有的 Azure 帐户，可以注册[试用版](https://wd.azure.cn/pricing/1rmb-trial/)或[创建购买帐户](https://wd.azure.cn/pricing/pia-waiting-list/)。
+- Microsoft Azure 订阅。 若要使用 Azure 服务（包括 Azure 事件中心），需要一个订阅。  如果你没有现有的 Azure 帐户，可以注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)或[创建购买帐户](https://wd.azure.cn/pricing/pia-waiting-list/)。
 - Java 开发环境。 本快速入门使用 [Eclipse](https://www.eclipse.org/)。
 - 创建事件中心命名空间和事件中心。 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[此文](event-hubs-create.md)中的步骤操作。 然后，按照以下文章中的说明获取事件中心访问密钥的值：[获取连接字符串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 你将在本快速入门中稍后编写的代码中使用访问密钥。 默认密钥名称为：RootManageSharedAccessKey。
 

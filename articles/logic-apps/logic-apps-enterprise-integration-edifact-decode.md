@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: ca4b0023c2a685dc619be1e2cd1c90d77005de10
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 1444a1698f518d1ad661429e65b6d877dd90c00b
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414618"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432344"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 为 Azure 逻辑应用解码 EDIFACT 消息
 
@@ -26,7 +26,7 @@ ms.locfileid: "86414618"
 
 下面是需要准备好的项：
 
-* Azure 帐户；可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 一个 Azure 帐户；可以创建[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 已定义的、与 Azure 订阅关联的[集成帐户](logic-apps-enterprise-integration-create-integration-account.md)。 必须拥有集成帐户，才能使用解码 EDIFACT 消息连接器。 
 * 已在集成帐户中至少定义了两个[合作伙伴](logic-apps-enterprise-integration-partners.md)
 * 已在集成帐户中定义了 [EDIFACT 协议](logic-apps-enterprise-integration-edifact.md)

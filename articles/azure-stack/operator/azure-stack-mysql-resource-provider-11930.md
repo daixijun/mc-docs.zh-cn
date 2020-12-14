@@ -4,16 +4,16 @@ description: 查看发行说明以了解 Azure Stack Hub MySQL 资源提供程�
 author: WenJason
 ms.topic: article
 origin.date: 09/22/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 50210a0c827d992f8419ff86f77681d9e53c9811
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: eba755e670b68c88b573378ec187997fd11d8626
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330808"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508062"
 ---
 # <a name="mysql-resource-provider-11930-release-notes"></a>MySQL 资源提供程序 1.1.93.0 发行说明
 
@@ -24,7 +24,7 @@ ms.locfileid: "93330808"
 
 > |支持的 Azure Stack Hub 版本|MySQL 资源提供程序版本|
 > |-----|-----|
-> |版本 2005|[MySQL RP 版本 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
+> |版本 2008、2005|[MySQL RP 版本 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]

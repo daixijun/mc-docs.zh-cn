@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: ''
 origin.date: 05/29/2020
 ms.date: 08/17/2020
-ms.openlocfilehash: e82c8b90479f8db369ec8bb7875ab0e00708a9ab
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 3843841f06b3162e04c26765dd42faaec4665b02
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222831"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431600"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库中的数据库或 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "88222831"
 
 若要完成本快速入门，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+- 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 数据库。 可以根据下述快速入门之一，创建数据库，然后对其进行配置：
 
   | 操作 | SQL 数据库 | SQL 托管实例 | Azure VM 上的 SQL Server |

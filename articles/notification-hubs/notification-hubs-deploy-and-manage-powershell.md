@@ -17,12 +17,12 @@ ms.date: 09/02/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 65392237eb3b28b2f99d1f27dc9bf434cabc432f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 342b1988bf33c8b62c4b1abaeead0a5c693da370
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430999"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 部署和管理通知中心
 
@@ -39,7 +39,7 @@ ms.locfileid: "96300850"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 Azure 是基于订阅的平台。 有关如何获取订阅的详细信息，请参阅[购买选项]或 [1 元人民币的试用订阅]。
+- Azure 订阅。 Azure 是基于订阅的平台。 有关如何获取订阅的详细信息，请参阅[购买选项]或[试用版订阅]。
 - 配备 Azure PowerShell 的计算机。 有关说明，请参阅[安装和配置 Azure PowerShell]。
 - 大致了解 PowerShell 脚本、NuGet 包和 .NET Framework。
 
@@ -159,7 +159,7 @@ else
 
 [购买选项]: https://wd.azure.cn/pricing/pia-waiting-list/?form-type=identityauth
 [Member Offers]: https://www.azure.cn/pricing/
-[1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[试用版订阅]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [安装和配置 Azure PowerShell]: /powershell-install-configure
 [通知中心的 .NET API]: https://docs.azure.cndotnet/api/overview/notification-hubs
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

@@ -10,12 +10,12 @@ ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 617497a3bf22f7785f39a9e79f8f036701072982
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 4f9becde6beea5892312da244177ba6b153aad4a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104812"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432577"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>使用 Azure CLI 创建 Azure Bastion 主机
@@ -26,7 +26,7 @@ ms.locfileid: "93104812"
 
 ## <a name="prerequisites"></a>先决条件
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 <!--Not Available on [!INCLUDE [cloudshell cli](../../includes/vpn-gateway-cloud-shell-cli.md)-->
 

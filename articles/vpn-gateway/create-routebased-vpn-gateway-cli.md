@@ -1,27 +1,31 @@
 ---
 title: 创建基于路由的 Azure VPN 网关：CLI
-description: 快速了解如何使用 CLI 创建 VPN 网关
+description: 使用 Azure CLI 快速创建基于路由的 Azure VPN 网关，以便通过 VPN 连接到本地网络或连接虚拟网络。
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
-ms.topic: article
-origin.date: 10/04/2018
-ms.date: 04/06/2019
+ms.topic: how-to
+origin.date: 09/02/2020
+ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: d1ff3778611890711a2a3de3606ff6a128ab196e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 291dbcac1df9697edf87c47fd6a22806c091ff95
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80634585"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746691"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 创建基于路由的 VPN 网关
 
 本文可帮助你使用 Azure CLI 快速创建基于路由的 Azure VPN 网关。 创建与本地网络的 VPN 连接时使用 VPN 网关。 还可以使用 VPN 网关连接 VNet。
 
-本文中的步骤将创建 VNet、子网、网关子网和基于路由的 VPN 网关（虚拟网络网关）。 创建虚拟网络网关可能需要 45 分钟或更长时间。 完成网关创建后，可以创建连接。 执行这些步骤需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+本文中的步骤将创建 VNet、子网、网关子网和基于路由的 VPN 网关（虚拟网络网关）。 创建虚拟网络网关可能需要 45 分钟或更长时间。 完成网关创建后，可以创建连接。 执行这些步骤需要 Azure 订阅。
 
-本文要求运行 Azure CLI 2.0.4 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0.4 或更高版本。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -34,7 +38,7 @@ az group create --name TestRG1 --location chinanorth
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>创建虚拟网络
 
-使用 [az network vnet create](/cli/network/vnet) 命令创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络   ：
+使用 [az network vnet create](/cli/network/vnet) 命令创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络：
 
 ```azurecli 
 az network vnet create \
@@ -55,7 +59,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>请求公共 IP 地址
@@ -66,7 +70,7 @@ VPN 网关必须具有动态分配的公共 IP 地址。 将向为虚拟网络�
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>创建 VPN 网关

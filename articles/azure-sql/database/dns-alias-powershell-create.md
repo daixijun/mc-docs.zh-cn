@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 origin.date: 05/14/2019
 ms.date: 07/13/2020
-ms.openlocfilehash: b3f3e684016232ee1326b4614186754f3e4289b0
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: f8af0e0609152bc1a3b0aca7be667ec5c8ba6c60
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228170"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431624"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "86228170"
 
 如果想要运行演示这篇文章中提供的 PowerShell 脚本，适用以下先决条件：
 
-- Azure 订阅和帐户。如需 1 元试用版，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅和帐户。如需试用版订阅，请参阅 [Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - 两台服务器
 
 ## <a name="example"></a>示例

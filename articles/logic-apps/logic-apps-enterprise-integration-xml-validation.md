@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 10/21/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8e8d3bd352969c0dc50a39b0c49001f02a4575c8
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: ebddbdfd1797ef7372a994b46a5616343fd5b246
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211326"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432548"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中验证用于 B2B 企业集成的 XML
 
@@ -22,7 +22,7 @@ ms.locfileid: "92211326"
 
 ## <a name="prerequisites"></a>必备条件
 
-* Azure 订阅。 如果你没有订阅，可[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要在其中使用 XML 验证操作的空白或现有逻辑应用。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

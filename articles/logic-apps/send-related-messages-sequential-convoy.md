@@ -10,12 +10,12 @@ ms.date: 07/20/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 841de186dbd85bcaddf23556c6824f6049d7851c
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 619e0be24a55222e93fc9abb8e6c2bbd1d4ad56f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414758"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432145"
 ---
 <!--Verified successfully-->
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>通过 Azure 服务总线在 Azure 逻辑应用中使用顺序保护按顺序发送相关消息
@@ -40,7 +40,7 @@ ms.locfileid: "86414758"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 服务总线命名空间和[服务总线队列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)，后者是将在逻辑应用中使用的消息传送实体。 这些项和你的逻辑应用需使用同一 Azure 订阅。 在创建队列时，请确保选择“启用会话”。 如果没有这些项，请了解[如何创建服务总线命名空间和队列](../service-bus-messaging/service-bus-create-namespace-portal.md)。
 
@@ -69,7 +69,7 @@ ms.locfileid: "86414758"
         ![复制服务总线命名空间连接字符串](./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png)
 
     > [!TIP]
-    > 若要确认连接字符串是与服务总线命名空间关联还是与消息传送实体（例如队列）关联，请在该连接字符串中搜索 `EntityPath`  参数。 如果找到了该参数，则表示连接字符串适用于特定的实体，不是适用于逻辑应用的正确字符串。
+    > 若要确认连接字符串是与服务总线命名空间关联还是与消息传送实体（例如队列）关联，请在该连接字符串中搜索 `EntityPath` 参数。 如果找到了该参数，则表示连接字符串适用于特定的实体，不是适用于逻辑应用的正确字符串。
 
 ## <a name="create-logic-app"></a>创建逻辑应用
 
@@ -130,9 +130,9 @@ ms.locfileid: "86414758"
 | 名称 | 说明 |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | 此服务总线触发器会根据指定的重复周期检查指定的服务总线队列中是否有任何消息。 如果队列中存在消息，则触发器将触发，这将创建并运行一个工作流实例。 <p><p>“扫视锁定”这一术语是指触发器发送从队列中检索消息的请求。 如果有消息存在，则触发器会检索并锁定该消息，防止在锁定期限到期之前对该消息进行其他处理。 有关详细信息，请参阅[初始化会话](#initialize-session)。 |
-| **`Init isDone`** | 此[**初始化变量**操作](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable)创建一个设置为 `false` 的布尔变量，并指示何时满足以下条件： <p><p>- 会话中没有剩余可供读取的消息。 <br />- 不再需要续订会话锁，就能完成当前工作流实例。 <p><p>有关详细信息，请参阅[初始化会话](#initialize-session)。 |
-| **`Try`** | 此**作用域**操作包含处理消息时要运行的操作。 如果 `Try` 作用域中出现问题，则后续的 `Catch` **作用域**操作会处理该问题。 有关详细信息，请参阅[“Try”作用域](#try-scope)。 |
-| **`Catch`**| 此**作用域**操作包含在上述 `Try` 作用域中出现问题时将运行的操作。 有关详细信息，请参阅[“Catch”作用域](#catch-scope)。 |
+| **`Init isDone`** | 此 [**初始化变量** 操作](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable)创建一个设置为 `false` 的布尔变量，并指示何时满足以下条件： <p><p>- 会话中没有剩余可供读取的消息。 <br />- 不再需要续订会话锁，就能完成当前工作流实例。 <p><p>有关详细信息，请参阅[初始化会话](#initialize-session)。 |
+| **`Try`** | 此 **作用域** 操作包含处理消息时要运行的操作。 如果 `Try` 作用域中出现问题，则后续的 `Catch` **作用域** 操作会处理该问题。 有关详细信息，请参阅[“Try”作用域](#try-scope)。 |
+| **`Catch`**| 此 **作用域** 操作包含在上述 `Try` 作用域中出现问题时将运行的操作。 有关详细信息，请参阅[“Catch”作用域](#catch-scope)。 |
 |||
 
 <a name="try-scope"></a>
@@ -194,29 +194,32 @@ ms.locfileid: "86414758"
 
 ## <a name="complete-the-template"></a>完成模板
 
-若要为“使用服务总线会话按顺序传送相关消息”模板中的触发器和操作提供值，请执行以下步骤。 在保存逻辑应用之前，必须提供所有必需的值，这些值标有星号 ( **\*** )。
+若要为“使用服务总线会话按顺序传送相关消息”模板中的触发器和操作提供值，请执行以下步骤。 在保存逻辑应用之前，必须提供所有必需的值，这些值标有星号 (* *\** _)。
 
 <a name="initialize-session"></a>
 
 ### <a name="initialize-the-session"></a>初始化会话
 
-* 对于“队列中收到消息时(扫视锁定)”触发器，请提供此信息，以便模板可以使用“会话 ID”属性来初始化会话，例如：
+_ 对于“队列中收到消息时(扫视锁定)”触发器，请提供此信息，以便模板可以使用“会话 ID”属性来初始化会话，例如：
 
-    ![服务总线触发器“队列中收到消息时(扫视锁定)”的详细信息](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
+    ![Service Bus trigger details for "When a message is received in a queue (peek-lock)"](./media/send-related-messages-sequential-convoy/service-bus-check-message-peek-lock-trigger.png)
 
     > [!NOTE]
-    > 轮询间隔一开始设置为三分钟，这样逻辑应用的运行频率就不会超出预期，因此不会产生意外的账单费用。 理想情况下，可将时间间隔和频率设置为 30 秒，这样逻辑应用就会在消息到达时立即触发。
+    > Initially, the polling interval is set to three minutes so that the logic app doesn't 
+    > run more frequently than you expect and result in unanticipated billing charges. Ideally, 
+    > set the interval and frequency to 30 seconds so that the logic app triggers immediately 
+    > when a message arrives.
 
     | 属性 | 此方案所需 | Value | 说明 |
     |----------|----------------------------|-------|-------------|
     | **队列名称** | 是 | <queue-name> | 之前创建的服务总线队列的名称。 此示例使用“Fabrikam-Service-Bus-Queue”。 |
     | **队列类型** | 是 | **主页** | 你的主服务总线队列 |
-    | **会话 ID** | 是 | **下一个可用** | 此选项会根据服务总线队列中消息的会话 ID 为每个触发器运行获取一个会话。 此会话也被锁定，以防止其他逻辑应用或其他客户端处理与此会话相关的消息。 工作流的后续操作将处理与该会话关联的所有消息，如本文稍后所述。 <p><p>下面是有关其他**会话 ID** 选项的详细信息： <p>- **无**：默认选项，会导致没有会话，不能用于实现顺序保护模式。 <p>- **输入自定义值**：如果你知道要使用的会话 ID，并且始终要为该会话 ID 运行触发器，请使用此选项。 <p>**注意**：服务总线连接器一次可以将 Azure 服务总线的有限数量的唯一会话保存到连接器缓存。 如果会话计数超过此限制，则将从缓存中删除旧会话。 有关详细信息，请参阅[使用 Azure 逻辑应用和 Azure 服务总线在云中交换消息](../connectors/connectors-create-api-servicebus.md#connector-reference)。 |
+    | **会话 ID** | 是 | **下一个可用** | 此选项会根据服务总线队列中消息的会话 ID 为每个触发器运行获取一个会话。 此会话也被锁定，以防止其他逻辑应用或其他客户端处理与此会话相关的消息。 工作流的后续操作将处理与该会话关联的所有消息，如本文稍后所述。 <p><p>下面是有关其他 **会话 ID** 选项的详细信息： <p>- **无**：默认选项，会导致没有会话，不能用于实现顺序保护模式。 <p>- **输入自定义值**：如果你知道要使用的会话 ID，并且始终要为该会话 ID 运行触发器，请使用此选项。 <p>**注意**：服务总线连接器一次可以将 Azure 服务总线的有限数量的唯一会话保存到连接器缓存。 如果会话计数超过此限制，则将从缓存中删除旧会话。 有关详细信息，请参阅[使用 Azure 逻辑应用和 Azure 服务总线在云中交换消息](../connectors/connectors-create-api-servicebus.md#connector-reference)。 |
     | **时间间隔** | 是 | <时间间隔数> | 在重复检查是否存在消息之前，在两个重复周期之间间隔的时间单位数。 |
     | **频率** | 是 | “秒”、“分钟”、“小时”、“天”、“周”或“月”      | 在检查是否存在消息时要使用的重复周期的时间单位。 <p>**提示**：若要添加“时区”或“开始时间”，请从“添加新参数”列表中选择这些属性。   |
     |||||
 
-    如需更多的触发器信息，请参阅[服务总线 - 队列中收到消息时(扫视锁定)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock))。 触发器会输出一条 [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage)。
+    For more trigger information, see [Service Bus - When a message is received in a queue (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). The trigger outputs a [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
 
 初始化会话以后，工作流会使用“初始化变量”操作创建一个最初设置为 `false` 的布尔变量，并指示何时满足以下条件： 
 
@@ -299,7 +302,7 @@ ms.locfileid: "86414758"
 
     * 如果 `isDone` 未设置为 `true`，则表明工作流仍在处理消息，因此工作流会续订队列中的会话锁，并再次检查循环条件。
 
-        你需要在服务总线操作[**续订队列中的会话锁**](#renew-lock-on-session)中提供你的服务总线队列的名称。
+        你需要在服务总线操作 [**续订队列中的会话锁**](#renew-lock-on-session)中提供你的服务总线队列的名称。
 
     * 如果 `isDone` 设置为 `true`，则工作流不会续订队列中的会话锁，而是退出循环。
 

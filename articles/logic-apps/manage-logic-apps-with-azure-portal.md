@@ -12,12 +12,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2ddc6b1ebc8b53d7bd704e0a06357377b0028109
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: e4cef5613b8a9792b19d1aad605a6319b8eeef5a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414720"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432362"
 ---
 <!--Verified successfully on 05/08/2020-->
 # <a name="manage-logic-apps-in-the-azure-portal"></a>在 Azure 门户中管理逻辑应用
@@ -26,7 +26,7 @@ ms.locfileid: "86414720"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个现有的逻辑应用。 若要了解如何在 Azure 门户中创建逻辑应用，请参阅[快速入门：使用 Azure 逻辑应用创建第一个工作流 - Azure 门户](quickstart-create-first-logic-app-workflow.md)。
 

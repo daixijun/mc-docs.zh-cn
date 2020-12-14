@@ -1,33 +1,33 @@
 ---
-title: 自定义策略中的 Azure MFA 技术配置文件
+title: 自定义策略中的 Azure AD MFA 技术配置文件
 titleSuffix: Azure AD B2C
-description: Azure AD B2C 中的 Azure 多重身份验证 (MFA) 技术配置文件的自定义策略参考。
+description: Azure AD B2C 中的 Azure AD 多重身份验证 (MFA) 技术配置文件的自定义策略参考。
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 21433de11712ef9db600b617dc5595ca2edea2f2
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 3addbd5e4e1db7403dbc07d3c5a3263fb1bf1f4b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297699"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507274"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>在 Azure AD B2C 自定义策略中定义 Azure MFA 技术配置文件
+# <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>在 Azure AD B2C 自定义策略中定义 Azure AD MFA 技术配置文件
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) 使用 Azure 多重身份验证 (MFA) 为验证电话号码提供支持。 使用此技术配置文件生成代码并将其发送到一定的手机号，然后验证该代码。 Azure MFA 技术配置文件也可能返回错误消息。  在用户旅程继续执行之前，验证技术配置文件将验证用户提供的数据。 使用验证技术配置文件时，将在自断言页面上显示错误消息。
+Azure Active Directory B2C (Azure AD B2C) 使用 Azure AD 多重身份验证 (MFA) 为验证电话号码提供支持。 使用此技术配置文件生成代码并将其发送到一定的手机号，然后验证该代码。 Azure AD MFA 技术配置文件也可能返回错误消息。  在用户旅程继续执行之前，验证技术配置文件将验证用户提供的数据。 使用验证技术配置文件时，将在自断言页面上显示错误消息。
 
 此技术配置文件：
 
 - 不提供与用户交互的接口， 而是从[自断言](self-asserted-technical-profile.md)技术配置文件或充当[验证技术配置文件](validation-technical-profile.md)的[显示控件](display-controls.md)中调用用户界面。
-- 使用 Azure MFA 服务生成代码并将其发送到某个手机号，然后验证该代码。  
+- 使用 Azure AD MFA 服务生成代码并将其发送到某个手机号，然后验证该代码。  
 - 通过文本消息验证电话号码。
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -40,7 +40,7 @@ Azure Active Directory B2C (Azure AD B2C) 使用 Azure 多重身份验证 (MFA) 
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-以下示例演示了 Azure MFA 的技术配置文件：
+以下示例演示了 Azure AD MFA 技术配置文件：
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -55,7 +55,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 ### <a name="input-claims"></a>输入声明
 
-InputClaims 元素包含要发送到 Azure MFA 的声明的列表  。 还可将声明名称映射到 MFA 技术配置文件中定义的名称。
+InputClaims 元素包含要发送到 Azure AD MFA 的声明的列表。 还可将声明名称映射到 MFA 技术配置文件中定义的名称。
 
 | ClaimReferenceId | 必选 | 说明 |
 | --------- | -------- | ----------- |
@@ -64,11 +64,11 @@ InputClaims 元素包含要发送到 Azure MFA 的声明的列表  。 还可将
 | companyName | 否 |短信中的公司名称。 如果未提供，则使用应用程序的名称。 |
 | 区域设置 | 否 | 短信的区域设置。 如果未提供，则使用用户的浏览器区域设置。 |
 
-InputClaimsTransformations 元素可能包含一系列 InputClaimsTransformation 元素，这些元素用于修改输入声明，或者生成新的声明并将其发送到 Azure MFA 服务。  
+InputClaimsTransformations 元素可能包含一系列 InputClaimsTransformation 元素，后者用于修改输入声明，或者生成新的输入声明并将其发送到 Azure AD MFA 服务。 
 
 ### <a name="output-claims"></a>输出声明
 
-Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输出声明  。 但是，只要设置了 `DefaultValue` 属性，就可以包含 Azure MFA 标识提供者不会返回的声明。
+Azure AD MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输出声明。 但是，只要设置了 `DefaultValue` 属性，就可以包含 Azure AD MFA 标识提供者不会返回的声明。
 
 **OutputClaimsTransformations** 元素可能包含用于修改输出声明或生成新输出声明的 **OutputClaimsTransformation** 元素集合。
 
@@ -80,7 +80,7 @@ Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输
 
 #### <a name="ui-elements"></a>UI 元素
 
-以下元数据可用于配置在发送短信失败时显示的错误消息。 元数据应该在[自断言](self-asserted-technical-profile.md)技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#azure-mfa-error-messages)。
+以下元数据可用于配置在发送短信失败时显示的错误消息。 元数据应该在[自断言](self-asserted-technical-profile.md)技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#azure-ad-mfa-error-messages)。
 
 | Attribute | 必选 | 说明 |
 | --------- | -------- | ----------- |
@@ -91,7 +91,7 @@ Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输
 
 ### <a name="example-send-an-sms"></a>示例：发送短信
 
-以下示例显示了一个 Azure MFA 技术配置文件（用于通过短信发送代码）。
+以下示例显示了一个用于通过短信发送代码的 Azure AD MFA 技术配置文件。
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -117,18 +117,18 @@ Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输
 
 ### <a name="input-claims"></a>输入声明
 
-InputClaims 元素包含要发送到 Azure MFA 的声明的列表  。 还可将声明名称映射到 MFA 技术配置文件中定义的名称。
+InputClaims 元素包含要发送到 Azure AD MFA 的声明的列表。 还可将声明名称映射到 MFA 技术配置文件中定义的名称。
 
 | ClaimReferenceId | 必选 | 说明 |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| 是 | 与之前用于发送代码的手机号相同。 它也用来定位电话验证会话。 |
 | verificationCode  | 是 | 待验证用户提供的验证码 |
 
-InputClaimsTransformations 元素可能包含一系列 InputClaimsTransformation 元素，这些元素用于修改输入声明，或者生成新的声明并调用 Azure MFA 服务。  
+InputClaimsTransformations 元素可能包含一系列 InputClaimsTransformation 元素，后者用于修改输入声明，或者生成新的输入声明并调用 Azure AD MFA 服务。 
 
 ### <a name="output-claims"></a>输出声明
 
-Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输出声明  。 但是，只要设置了 `DefaultValue` 属性，就可以包含 Azure MFA 标识提供者不会返回的声明。
+Azure AD MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输出声明。 但是，只要设置了 `DefaultValue` 属性，就可以包含 Azure AD MFA 标识提供者不会返回的声明。
 
 **OutputClaimsTransformations** 元素可能包含用于修改输出声明或生成新输出声明的 **OutputClaimsTransformation** 元素集合。
 
@@ -140,7 +140,7 @@ Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输
 
 #### <a name="ui-elements"></a>UI 元素
 
-以下元数据可用于配置在代码验证失败时显示的错误消息。 元数据应该在[自断言](self-asserted-technical-profile.md)技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#azure-mfa-error-messages)。
+以下元数据可用于配置在代码验证失败时显示的错误消息。 元数据应该在[自断言](self-asserted-technical-profile.md)技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#azure-ad-mfa-error-messages)。
 
 | Attribute | 必选 | 说明 |
 | --------- | -------- | ----------- |
@@ -151,7 +151,7 @@ Azure MFA 协议提供程序未返回任何 OutputClaims，因此无需指定输
 
 ### <a name="example-verify-a-code"></a>示例：验证代码
 
-以下示例显示了用来验证代码的 Azure MFA 技术配置文件。
+以下示例显示了用来验证代码的 Azure AD MFA 技术配置文件。
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">

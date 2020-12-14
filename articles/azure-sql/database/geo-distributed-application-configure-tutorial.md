@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 origin.date: 03/12/2019
 ms.date: 09/14/2020
-ms.openlocfilehash: 4f4037ff4a5cd8ad36999f423102d9292827ddf0
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: b3b1f0f5be297e0e5d2223c096cbc8fcfc4986bc
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014198"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432430"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>教程：实现地理分散的数据库（Azure SQL 数据库）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "90014198"
 > - 运行 Java 应用程序以在 SQL 数据库中查询数据库
 > - 测试故障转移
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

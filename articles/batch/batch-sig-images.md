@@ -2,19 +2,19 @@
 title: 使用共享映像库创建自定义映像池
 description: 自定义映像池是配置计算节点以运行 Batch 工作负载的高效方法。
 ms.topic: conceptual
-origin.date: 09/15/2020
+origin.date: 11/18/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 60c93bc817b23b52b7a16bb4d102cd8c9c1bfebc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9ba32a5ed343493073fbf13b416ecdbda9a022ae
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977729"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746722"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>使用共享映像库创建自定义映像池
 
@@ -63,7 +63,7 @@ ms.locfileid: "94977729"
 - 已上传到云的通用本地 VHD
 
 > [!NOTE]
-> 目前，Batch 仅支持通用共享映像。 此时无法通过专用共享映像创建自定义映像池。
+> Batch 仅支持通用共享映像；专用共享映像无法用于创建池。
 
 以下步骤展示了如何准备 VM、创建快照，然后基于该快照创建映像。
 
@@ -78,6 +78,7 @@ ms.locfileid: "94977729"
 - 不要在 VM 上安装自定义脚本扩展等 Azure 扩展。 如果映像包含预装的扩展，在部署 Batch 池时 Azure 可能会遇到问题。
 - 使用附加的数据磁盘时，需要从 VM 中装载和格式化磁盘，才能使用它们。
 - 确保所提供的基础 OS 映像使用默认临时驱动器。 Batch 节点代理目前需要使用默认的临时驱动器。
+- 确保 OS 磁盘未加密。
 - VM 开始运行后，请通过 RDP（适用于 Windows）或 SSH（适用于 Linux）进行连接。 安装所需的任何软件，或复制所需的数据。  
 
 ### <a name="create-a-vm-snapshot"></a>创建 VM 快照
@@ -223,7 +224,7 @@ client.pool.add(new_pool)
 
 如果打算使用共享映像创建包含数百或数千 VM 或更多 VM 的池，请按以下指南操作。
 
-- **共享映像库副本数目。** 对于实例数多达 600 的每个池，我们建议至少保留一个副本。 例如，如果创建的池包含 3000 个 VM，则应保留至少 5 个映像副本。 我们始终建议保留比最低要求更多的副本，以便获得更好的性能。
+- **共享映像库副本数目。** 对于实例数多达 300 的每个池，我们建议至少保留一个副本。 例如，如果创建的池包含 3000 个 VM，则应保留至少 10 个映像副本。 我们始终建议保留比最低要求更多的副本，以便获得更好的性能。
 
 - **调整超时。** 如果池包含固定数目的节点（如果池不会自动缩放），请根据池大小增大池的 `resizeTimeout` 属性的值。 对于每 1000 个 VM，建议的调整超时值至少为 15 分钟。 例如，如果池包含 2000 个 VM，建议将重设大小超时设置为至少 30 分钟。
 

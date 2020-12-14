@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/22/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9decd6917e46a7be6ce3ed194e6c76ab3e059ec2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0876fcffbacf17fbaad58eaa63c1f39453c29ca1
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243451"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432434"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>在 Azure 逻辑应用中交换 RosettaNet 消息以实现 B2B 企业集成
 
@@ -54,7 +54,7 @@ ms.locfileid: "80243451"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 用于存储协议和其他 B2B 项目的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 此集成帐户必须与 Azure 订阅相关联。
 

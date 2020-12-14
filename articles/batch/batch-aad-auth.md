@@ -4,17 +4,17 @@ description: Batch 支持 Azure AD 在 Batch 服务中进行身份验证。 了�
 ms.topic: how-to
 origin.date: 10/20/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: has-adal-ref
-ms.openlocfilehash: 67f5ad5b0aa1c5827143a564b7dd009ff1897ffc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 52e014da361eeebd9378a288b261d790f1cb7be9
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977597"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747254"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -153,7 +153,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 - Microsoft.Batch/batchAccounts/read（适用于任何读取操作）
 - Microsoft.Batch/batchAccounts/listKeys/action（适用于任何操作）
 
-自定义角色适用于通过 Azure AD 进行身份验证的用户，而不是批处理帐户凭据（共享密钥）。 请注意，批处理帐户凭据为批处理帐户提供完全权限。 另请注意，使用自动池的作业需要池级别权限。
+自定义角色适用于通过 Azure AD 进行身份验证的用户，而不是批处理帐户凭据（共享密钥）。 请注意，批处理帐户凭据为批处理帐户提供完全权限。 另请注意，使用 [autopool](nodes-and-pools.md#autopools) 的作业需要池级别权限。
 
 > [!NOTE]
 > 需要在“操作”字段中指定某些角色分配，而其他角色分配需要在 DataAction 字段中指定。 有关详细信息，请参阅 [Azure 资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftbatch)。
@@ -277,13 +277,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 构造使用委派作为参数的 **BatchTokenCredentials** 对象。 使用这些凭据打开 **BatchClient** 对象。 可以使用该 BatchClient 对象针对 Batch 服务执行后续操作：
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```
@@ -345,13 +345,13 @@ public static async Task<string> GetAuthenticationTokenAsync()
 构造使用委派作为参数的 **BatchTokenCredentials** 对象。 使用这些凭据打开 **BatchClient** 对象。 然后，使用该 **BatchClient** 对象针对 Batch 服务执行后续操作：
 
 ```csharp
-public static async Task PerformBatchOperations()
+public static void PerformBatchOperations()
 {
     Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
 
-    using (var client = await BatchClient.OpenAsync(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+    using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
     {
-        await client.JobOperations.ListJobs().ToListAsync();
+        client.JobOperations.ListJobs();
     }
 }
 ```

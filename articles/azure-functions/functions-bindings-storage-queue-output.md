@@ -3,15 +3,15 @@ title: 适用于 Azure Functions 的 Azure 队列存储输出绑定
 description: 了解如何在 Azure Functions 中创建 Azure 队列存储消息。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/28/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, cc996988-fb4f-47
-ms.openlocfilehash: 2815f77f22d7f710616662b49912ee0c258ed08e
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ab58eb7b21c501db8ddf805c9db1c3dde9cf5c57
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937499"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507333"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>适用于 Azure Functions 的 Azure 队列存储输出绑定
 
@@ -41,9 +41,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[C# 脚本](#tab/csharp-script)
 
-以下示例演示 function.json 文件中的一个 HTTP 触发器绑定以及使用该绑定的 [C# 脚本 (.csx)](functions-reference-csharp.md) 代码**。 该函数针对收到的每个 HTTP 请求创建一个包含 CustomQueueMessage 对象有效负载的队列项****。
+以下示例演示 function.json 文件中的一个 HTTP 触发器绑定以及使用该绑定的 [C# 脚本 (.csx)](functions-reference-csharp.md) 代码。 该函数针对收到的每个 HTTP 请求创建一个包含 CustomQueueMessage 对象有效负载的队列项。
 
-function.json** 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -100,11 +100,29 @@ public static void Run(
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+ 以下示例演示一个 Java 函数，该函数在受到 HTTP 请求触发时创建一个队列消息。
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+在 [Java 函数运行时库](https://docs.microsoft.com/zh-cn/java/api/overview/azure/functions/runtime?view=azure-java-stable)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 `T` 是 POJO 的任何本机 Java 类型。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-以下示例演示 function.json 文件中的一个 HTTP 触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)**。 该函数针对收到的每个 HTTP 请求创建一个队列项。
+以下示例演示 function.json 文件中的一个 HTTP 触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数针对收到的每个 HTTP 请求创建一个队列项。
 
-function.json** 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -151,23 +169,78 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
- 以下示例演示一个 Java 函数，该函数在受到 HTTP 请求触发时创建一个队列消息。
+以下代码示例演示了如何从 HTTP 触发的函数输出队列消息。 `type` 是 `queue` 的配置节定义了输出绑定。
 
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
 ```
 
-在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 `T` 是 POJO 的任何本机 Java 类型。
+利用此绑定配置，PowerShell 函数可以使用 `Push-OutputBinding` 创建队列消息。 在此示例中，将通过查询字符串或正文参数创建消息。
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
+若要同时发送多条消息，请定义消息数组，并使用 `Push-OutputBinding` 向队列输出绑定发送消息。
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
 
 ---
 
@@ -207,10 +280,6 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 C# 脚本不支持特性。
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript 不支持特性。
-
 # <a name="java"></a>[Java](#tab/java)
 
 使用 `QueueOutput` 注释可以将一条消息编写为函数的输出。 以下示例演示一个用于创建队列消息的 HTTP 触发的函数。
@@ -242,11 +311,20 @@ public class HttpTriggerQueueOutput {
 
 与 `QueueOutput` 注释关联的参数类型化为 [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) 实例。
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支持特性。
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell 不支持特性。
+
+
 ---
 
 ## <a name="configuration"></a>配置
 
-下表解释了在 function.json** 文件和 `Queue` 特性中设置的绑定配置属性。
+下表解释了在 function.json  文件和 `Queue` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -254,7 +332,7 @@ public class HttpTriggerQueueOutput {
 |**direction** | 不适用 | 必须设置为 `out`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 表示函数代码中的队列的变量的名称。 设置为 `$return` 可引用函数返回值。|
 |**queueName** |**QueueName** | 队列的名称。 |
-|连接**** | **Connection** |包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，Functions 运行时将会查找名为“MyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。|
+|连接 | **Connection** |包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，Functions 运行时将会查找名为“MyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -292,10 +370,6 @@ public class HttpTriggerQueueOutput {
 * `ICollector<T>` 或 `IAsyncCollector<T>`
 * [CloudQueue](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-可通过 `context.bindings.<NAME>` 使用输出队列项，其中，`<NAME>` 与 *function.json* 中定义的名称相匹配。 可对队列项有效负载使用字符串或 JSON 可序列化对象。
-
 # <a name="java"></a>[Java](#tab/java)
 
 可通过两个选项使用 [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) 注释从函数输出队列消息：
@@ -303,6 +377,15 @@ public class HttpTriggerQueueOutput {
 - **返回值**：通过将注释应用于函数本身，函数的返回值将持久保存为队列消息。
 
 - **命令性**：若要显式设置消息值，请将注释应用于 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) 类型的特定参数，其中 `T` 是 POJO 或任何本机 Java 类型。 使用此配置时，向 `setValue` 方法传递某值会将该值持久保存为队列消息。
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+可通过 `context.bindings.<NAME>` 使用输出队列项，其中，`<NAME>` 与 *function.json* 中定义的名称相匹配。 可对队列项有效负载使用字符串或 JSON 可序列化对象。
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+通过 `Push-OutputBinding` 可以输出到队列消息，你在其中传递的参数与 function.json 文件中绑定的 `name` 参数指定的名称匹配。
+
 
 ---
 

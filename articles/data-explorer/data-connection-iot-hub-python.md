@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 8d8dc5553258a7adad2b4a9b69eb8c1dfcef5772
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: aa259809d743e1037de9c65c4146813a2f0dc49b
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299990"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431187"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>使用 Python 为 Azure 数据资源管理器创建 IoT 中心数据连接（预览版）
 
@@ -28,7 +28,7 @@ ms.locfileid: "96299990"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Python 3.4+](https://www.python.org/downloads/)。
 * [一个群集和数据库](create-cluster-database-python.md)。
 * [表和列映射](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)。

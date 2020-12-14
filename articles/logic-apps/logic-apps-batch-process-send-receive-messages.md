@@ -11,12 +11,12 @@ ms.date: 08/26/2019
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: cae2002bebbc7e716f2703e7b2452f8d7bca748c
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 182c7097c2d06cdc3d33787feda5a2fbb99ddb9c
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414626"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431785"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中发送、接收和批处理消息
 
@@ -34,7 +34,7 @@ ms.locfileid: "86414626"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以从 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)着手。
+* Azure 订阅。 如果没有订阅，可以[从试用版订阅着手](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 或者，[注册标准预付费套餐订阅](https://wd.azure.cn/pricing/pia-waiting-list/)。
 
 * 具有任何 [Azure 逻辑应用支持的电子邮件提供商](../connectors/apis-list.md)的电子邮件帐户
@@ -53,7 +53,7 @@ ms.locfileid: "86414626"
 
 1. 在 [Azure 门户](https://portal.azure.cn)或 Visual Studio 中，创建具有以下名称的一个逻辑应用：“BatchReceiver” 
 
-2. 在逻辑应用设计器中，添加**批**触发器，这会启动逻辑应用工作流。 
+2. 在逻辑应用设计器中，添加 **批** 触发器，这会启动逻辑应用工作流。 
     在搜索框中，输入“批”作为筛选器。 
     选择此触发器：**批处理消息**
 

@@ -2,20 +2,21 @@
 title: 管理 Azure Cosmos DB 中的索引策略
 description: 了解如何管理索引策略、在索引中包括或排除属性、如何使用不同的 Azure Cosmos DB SDK 定义索引
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-origin.date: 08/04/2020
+origin.date: 11/02/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 40f069a6c643341791fc329cc78bb250ab06c461
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9344c575fe48a4f3549c6df14f012e4149874464
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328668"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598393"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,7 +51,7 @@ ms.locfileid: "94328668"
     }
 ```
 
-此索引策略等同于下面的手动将 ```kind```、```dataType``` 和 ```precision``` 设置为默认值的策略。 这些属性不再需要显式设置，可以从索引策略中完全省略它们（如上例所示）。
+此索引策略等同于下面的手动将 ```kind```、```dataType``` 和 ```precision``` 设置为默认值的策略。 这些属性不再需要显式设置，应在索引策略中完全省略它们（如上例所示）。
 
 ```json
     {
@@ -104,7 +105,7 @@ ms.locfileid: "94328668"
     }
 ```
 
-此索引策略等同于下面的手动将 ```kind```、```dataType``` 和 ```precision``` 设置为默认值的策略。 这些属性不再需要显式设置，可以从索引策略中完全省略它们（如上例所示）。
+此索引策略等同于下面的手动将 ```kind```、```dataType``` 和 ```precision``` 设置为默认值的策略。 这些属性不再需要显式设置，应在索引策略中完全省略它们（如上例所示）。
 
 ```json
     {
@@ -146,7 +147,7 @@ ms.locfileid: "94328668"
 ```
 
 > [!NOTE]
-> 通常情况下，建议使用 **选择退出** 索引策略来让 Azure Cosmos DB 主动为可能会添加到模型的任何新属性编制索引。
+> 通常情况下，建议使用“选择退出”索引策略来让 Azure Cosmos DB 主动为可能会添加到数据模型的任何新属性编制索引。
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>仅在特定属性路径上使用空间索引
 
@@ -180,7 +181,7 @@ ms.locfileid: "94328668"
 
 ## <a name="composite-indexing-policy-examples"></a>组合索引策略示例
 
-除了包含或排除各属性的路径，还可以指定一个组合索引。 如果要执行具有针对多个属性的 `ORDER BY` 子句的查询，需要使用这些属性上的[组合索引](index-policy.md#composite-indexes)。 此外，对于具有筛选器且对不同属性使用 ORDER BY 子句的查询，组合索引将具有性能优势。
+除了包含或排除各属性的路径，还可以指定一个组合索引。 如果要执行具有针对多个属性的 `ORDER BY` 子句的查询，需要使用这些属性上的[组合索引](index-policy.md#composite-indexes)。 此外，对于具有多个筛选器或同时具有筛选器和 ORDER BY 子句的查询，组合索引会有性能优势。
 
 > [!NOTE]
 > 组合路径具有隐式 `/?`，因为仅索引该路径上的标量值。 组合路径中不支持使用 `/*` 通配符。 不应在组合路径中指定 `/?` 或 `/*`。
@@ -317,7 +318,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>排除所有属性路径，但使索引保持活动状态
 
-当[生存时间 (TTL) 功能](time-to-live.md)处于活动状态但不需要第二索引时（使用 Azure Cosmos DB 作为纯键-值存储），可以使用此策略。
+当[生存时间 (TTL) 功能](time-to-live.md)处于活动状态但不需要额外的索引（来使用 Azure Cosmos DB 作为纯键-值存储）时，可以使用此策略。
 
 ```json
     {

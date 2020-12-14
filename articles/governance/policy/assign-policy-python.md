@@ -4,12 +4,12 @@ description: 本快速入门介绍如何使用 Python 创建 Azure Policy 分配
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 2fc9843784440f287cb6f72caa7ed8407423016a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: df44d904bf8f1928b71bf96565bbd07e9a5cef1e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327586"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431003"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>快速入门：使用 Python 创建策略分配以识别不合规的资源
 
@@ -19,7 +19,7 @@ Python 库用于从命令行或脚本管理 Azure 资源。 本指南介绍如�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
@@ -104,7 +104,7 @@ print(policyAssignment)
 分配创建：
 
 - 作用域 - 此作用域确定保存策略分配的位置。 分配详细信息中设置的作用域必须存在于此作用域内。
-- 名称 - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_ 。
+- 名称 - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_。
 - 策略分配 - 在上一步中创建的 Python PolicyAssignment 对象。
 
 你现已准备好识别不合规的资源，了解环境的符合性状态。

@@ -6,12 +6,12 @@ ms.author: v-tawe
 ms.topic: tutorial
 origin.date: 06/20/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: 8652b0a89485e0be137f53fd78b758eb4789ee85
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: f36878da9d38cc247efbbb9300f2fb15c47d5071
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170728"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507709"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>教程：使用 Azure Monitor 排查应用服务应用的问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "92170728"
 
 若要完成本教程，你需要：
 
-- [Azure 订阅](https://wd.azure.cn/pricing/1rmb-trial/)
+- [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [Azure CLI](/cli/install-azure-cli)
 - [Git](https://git-scm.com/)
 

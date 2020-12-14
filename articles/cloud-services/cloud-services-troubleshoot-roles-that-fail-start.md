@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/20/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: beacd047853112754cb38a9e14c6529921b08357
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a82a3401721ef4c9948b70f881723d133a680ce0
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471587"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508049"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>对无法启动的云服务角色进行故障排除
 以下是一些与无法启动的 Azure 云服务角色相关的常见问题和解决方案。
@@ -27,12 +27,12 @@ ms.locfileid: "92471587"
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>缺少 DLL 或依赖项
-DLL 或程序集缺失可能导致出现不响应的角色以及在“ **正在初始化** ”、“ **忙** ”和“ **正在停止** ”状态之间循环的角色。
+DLL 或程序集缺失可能导致出现不响应的角色以及在“**正在初始化**”、“**忙**”和“**正在停止**”状态之间循环的角色。
 
 DLL 或程序集缺失的症状可能为：
 
-* 角色实例的状态在“ **正在初始化** ”、“ **忙** ”、“ **正在停止** ”之间循环。
-* 角色实例已转为“ **就绪** ”状态，但在导航到 Web 应用程序时未显示相应页面。
+* 角色实例的状态在“**正在初始化**”、“**忙**”、“**正在停止**”之间循环。
+* 角色实例已转为“**就绪**”状态，但在导航到 Web 应用程序时未显示相应页面。
 
 若要调查这些问题，可采用几种推荐的方法。
 
@@ -47,7 +47,7 @@ DLL 或程序集缺失的症状可能为：
 若要在不使用远程桌面的情况下查看更完整的错误，请执行以下操作：
 
 1. 在 Microsoft Visual Studio 中打开解决方案。
-2. 在“ **解决方案资源管理器** ”中，找到 web.config 文件并打开。
+2. 在“**解决方案资源管理器**”中，找到 web.config 文件并打开。
 3. 在 web.config 文件中，找到 system.web 部分并添加以下行：
 
     ```xml
@@ -87,7 +87,6 @@ DLL 或程序集缺失的症状可能为：
 为了在使用此诊断方法时获得最佳结果，应使用包含 Windows 的干净安装的计算机或虚拟机。 若要以最佳效果模拟 Azure 环境，请使用 Windows Server 2008 R2 x64。
 
 1. 安装独立版本的 [Azure SDK](https://www.azure.cn/downloads)
-
 2. 在开发计算机上生成云服务项目。
 3. 在 Windows 资源管理器中，导航到云服务项目的 bin\debug 文件夹。
 4. 将 .csx 文件夹和 .cscfg 文件复制到用来调试问题的计算机。
@@ -101,13 +100,13 @@ DLL 或程序集缺失的症状可能为：
 请按照以下步骤操作来部署启用了 IntelliTrace 的服务：
 
 1. 确认已安装 Azure SDK 1.3 或更高版本。
-2. 使用 Visual Studio 部署解决方案。 在部署期间，请选中“ **为 .NET 4 角色启用 IntelliTrace** ”复选框。
-3. 实例启动后，打开“ **服务器资源管理器** ”。
+2. 使用 Visual Studio 部署解决方案。 在部署期间，请选中“**为 .NET 4 角色启用 IntelliTrace**”复选框。
+3. 实例启动后，打开“**服务器资源管理器**”。
 4. 展开“Azure\\Cloud Services”节点并查找部署。
 5. 展开部署，直至看到角色实例。 右键单击其中一个实例。
-6. 选择“ **查看 IntelliTrace 日志** ”。 此时会打开“ **IntelliTrace 摘要** ”。
-7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“ **异常数据** ”。
-8. 展开“ **异常数据** ”并查找类似如下内容的 **System.IO.FileNotFoundException** 错误：
+6. 选择“**查看 IntelliTrace 日志**”。 此时会打开“**IntelliTrace 摘要**”。
+7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“**异常数据**”。
+8. 展开“**异常数据**”并查找类似如下内容的 **System.IO.FileNotFoundException** 错误：
 
 ![异常数据、缺少文件或程序集](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
@@ -115,12 +114,12 @@ DLL 或程序集缺失的症状可能为：
 若要纠正丢失 DLL 和程序集错误，请按照以下步骤进行操作：
 
 1. 在 Visual Studio 中打开解决方案。
-2. 在“ **解决方案资源管理器** ”中，打开 **References** 文件夹。
+2. 在“**解决方案资源管理器**”中，打开 **References** 文件夹。
 3. 单击错误中标识的程序集。
-4. 在“ **属性** ”窗格中，找到“ **复制本地属性** ”并将值设置为 **True** 。
+4. 在“**属性**”窗格中，找到“**复制本地属性**”并将值设置为 **True**。
 5. 重新部署云服务。
 
-确认所有错误均已更正后，可以在不选中“ **为 .NET 4 角色启用 IntelliTrace** ”复选框的情况下部署服务。
+确认所有错误均已更正后，可以在不选中“**为 .NET 4 角色启用 IntelliTrace**”复选框的情况下部署服务。
 
 ## <a name="next-steps"></a>后续步骤
 查看更多针对云服务的 [故障排除文章](../index.md?product=cloud-services&tag=top-support-issue) 。

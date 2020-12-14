@@ -5,16 +5,16 @@ description: 了解如何更新 Azure Stack Hub SQL 资源提供程序。
 author: WenJason
 ms.topic: article
 origin.date: 8/19/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 16d57fa0304e6876b24ed601330723c1bfd16cbf
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 1c58433c43a49ec0b5fa19d93fad45f2670ab31a
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330546"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507786"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -25,7 +25,7 @@ ms.locfileid: "93330546"
 
 |支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2008、2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
   |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |

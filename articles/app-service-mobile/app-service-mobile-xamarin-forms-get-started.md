@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 md.date: 03/23/2020
 ms.author: v-tawe
-ms.openlocfilehash: a4bec29723d126140b1f2b57f550091247f6ce99
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: dbbe4bd5169d414e8e3a7748f12a2c3c8cf45cbc
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79084501"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431215"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -28,7 +28,7 @@ ms.locfileid: "79084501"
 
 要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 用于 Xamarin 的 Visual Studio Tools，包含在 Visual Studio 2017 或更高版本或 Visual Studio for Mac 中。 有关说明，请参阅 [Xamarin 安装页][Install Xamarin]。
 

@@ -88,7 +88,7 @@
               href: azure-stack-validate-adfs.md
             - name: 验证图形集成
               href: azure-stack-validate-graph.md
-        - name: PKI 要求和过程
+        - name: 外部 PKI 证书
           items:
             - name: PKI 证书要求
               href: azure-stack-pki-certs.md
@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: 设置管理环境
           items:
-            - name: 安装 PowerShell AzureRM
-              href: azure-stack-powershell-install.md
             - name: 安装 PowerShell Az
               href: powershell-install-az-module.md
+            - name: 安装 PowerShell AzureRM
+              href: azure-stack-powershell-install.md
             - name: 将 PowerShell AzureRM 迁移到 Az
               href: migrate-azurerm-az.md
             - name: 下载工具
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: 发行说明
               items:
+                - name: '2020 年第 3 季度发行说明 [2020 年 9 月]'
+                  href: app-service-release-notes-2020-Q3.md
                 - name: '2020 Q2 发行说明 [May2020]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Update 8 发行说明 [Jan2020]'
@@ -340,7 +342,7 @@
                 - name: 备份和还原
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: 收集日志
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: 运行状况和警报
                   href: azure-stack-monitor-health.md
                 - name: 管理
@@ -486,11 +488,9 @@
             - name: 查找你的云 ID
               href: azure-stack-find-cloud-id.md
             - name: 诊断日志收集
-              items:
-                - name: 概述
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Azure Stack Hub 验证
           href: azure-stack-diagnostic-test.md
         - name: 故障排除

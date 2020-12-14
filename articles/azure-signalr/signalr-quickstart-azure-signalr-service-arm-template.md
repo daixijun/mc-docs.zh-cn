@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 10/02/2020
 ms.date: 11/20/2020
-ms.openlocfilehash: 2e096a7da823cdb5dfb56f0dee770457eeccd19a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: eeed659259b9a73b86b04e6818c4bc9a1e982efc
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300652"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431180"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>快速入门：使用 ARM 模板部署 Azure SignalR 服务
 
@@ -27,18 +27,18 @@ ms.locfileid: "96300652"
 
 ## <a name="prerequisites"></a>先决条件
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
-具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-* 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 若要在本地运行代码，请安装：
     * Bash shell（例如 [Git for Windows](https://gitforwindows.org) 中包含的 Git Bash）。
     * [Azure CLI](/cli/install-azure-cli)。
@@ -352,7 +352,7 @@ read -p "Press [ENTER] to continue: "
 
 如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
 

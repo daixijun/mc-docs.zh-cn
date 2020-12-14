@@ -5,17 +5,17 @@ ms.service: security
 ms.topic: conceptual
 origin.date: 03/16/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f56338b372fd113cf74527f2e534b7ec0b006ef4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8a1ec9501ada87a46314b8fa7f72d294b43d720c
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552421"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747271"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB 的 Azure 安全基线
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -30,7 +30,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 有关详细信息，请参阅[安全控制：网络安全性](../security/benchmarks/security-control-network-security.md)。
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
 
 **指导**：可以使用 Azure 专用链接通过专用终结点连接到 Azure Cosmos 帐户。 虚拟网络与服务之间的流量将通过 Azure 主干网络，因此不会从公共 Internet 泄露。 还可以通过为网络安全组 (NSG) 配置一组严格的出站规则并将该 NSG 与子网相关联，降低数据外泄的风险。
 
@@ -76,9 +76,22 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 **责任**：客户
 
-<!--Not Available on ### 1.4: Deny communications with known malicious IP addresses-->
-<!--Not Available on https://docs.azure.cn/cosmos-db/cosmos-db-advanced-threat-protection-->
-<!--Not Available on  https://docs.azure.cn/virtual-network/manage-ddos-protection-->
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4：拒绝与已知恶意的 IP 地址进行通信
+
+**指导**：使用适用于 Azure Cosmos DB 的高级威胁防护 (ATP)。 适用于 Azure Cosmos DB 的 ATP 提供一个附加的安全智能层，用于检测是否有人试图以异常且可能有害的方式访问或恶意利用 Azure Cosmos。 使用此保护层可以应对威胁并将其与中心安全监视系统相集成。
+
+<!--Not Available on Enable DDoS Protection Standard on the Virtual Networks associated with your Azure Cosmos DB instances to guard against DDoS attacks.-->
+
+根据 Azure 安全中心集成的威胁情报进行判断，拒绝与已知恶意的或未使用过的 Internet IP 地址通信。
+
+<!--Not Available on How to configure Azure Cosmos DB Advanced Threat Protection: https://docs.azure.cn/cosmos-db/cosmos-db-advanced-threat-protection-->
+<!--Not Available on How to configure DDoS protection: https://docs.azure.cn/virtual-network/manage-ddos-protection-->
+
+了解 Azure 安全中心集成的威胁情报： https://docs.azure.cn/security-center/security-center-alerts-service-layer
+
+**Azure 安全中心监视**：是
+
+**责任**：客户
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5：记录网络数据包和流日志
 
@@ -113,9 +126,24 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 **责任**：客户
 
-<!--Not Available on ### 1.9: Maintain standard security configurations for network devices-->
-<!--Not Available on  https://docs.azure.cn/governance/policy/tutorials/create-and-manage-->
+### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9：维护网络设备的标准安全配置
+
+**指导**：使用 Azure Policy 为网络资源定义并实施标准安全配置。 在“Microsoft.DocumentDB”和“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure Cosmos DB 实例的网络配置。 还可以为 Azure Cosmos DB 利用内置策略定义，例如：
+
+- 为 Cosmos DB 帐户部署高级威胁防护
+
+- Cosmos DB 应使用虚拟网络服务终结点
+
+还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure 基于角色的访问控制 (Azure RBAC) 和策略）来简化大规模的 Azure 部署。 可以轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
+
+如何配置和管理 Azure Policy： https://docs.azure.cn/governance/policy/tutorials/create-and-manage
+
 <!--Not Available on https://docs.azure.cn/governance/blueprints/create-blueprint-portal-->
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
 ### <a name="110-document-traffic-configuration-rules"></a>1.10：阐述流量配置规则
 
 **指导**：对与 Azure Cosmos DB 部署关联的网络资源使用标记，以便按逻辑将这些资源组织到分类中。
@@ -167,7 +195,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -214,7 +242,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -226,15 +254,15 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
-**指导**：可以使用 Azure 门户中的“标识和访问控制(IAM)”窗格配置基于角色的访问控制 (RBAC)，并维护有关 Azure Cosmos DB 资源的库存。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
+**指导**：可以使用 Azure 门户中的“标识和访问控制(IAM)”窗格配置 Azure 基于角色的访问控制 (Azure RBAC)，并维护有关 Azure Cosmos DB 资源的库存。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
 
-Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC。 在 Azure Active Directory (AD) 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。
+Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 Azure RBAC。 在 Azure Active Directory (AD) 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。
 
 还可以使用 Azure AD PowerShell 模块执行即席查询，以发现属于管理组的成员的帐户。 
 
 此外，可以使用 Azure Active Directory 和帐户特定的主密钥来控制 Azure Cosmos DB 中的某些操作。  使用“disableKeyBasedMetadataWriteAccess”帐户设置控制密钥访问。
 
-了解 Azure Cosmos DB 中基于角色的访问控制： https://docs.azure.cn/cosmos-db/role-based-access-control
+了解 Azure Cosmos DB 中 Azure 基于角色的访问控制： https://docs.azure.cn/cosmos-db/role-based-access-control
 
 使用 Azure Cosmos DB 操作（Microsoft DocumentDB 命名空间）生成自己的自定义角色： https://docs.azure.cn/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
@@ -397,9 +425,23 @@ Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC
 
 **责任**：客户
 
-<!--Not Available on ### 4.3: Monitor and block unauthorized transfer of sensitive information-->
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3：监视和阻止未经授权的敏感信息传输
+
+**指导**：可以为 Azure Cosmos DB 部署高级威胁防护以检测异常活动，此类活动表明数据库遭到了异常的访问或利用尝试并且可能会造成损害。 它可以触发以下警报：
+
+- 来自异常位置的访问
+
+- 异常数据提取
+
+此外，在使用虚拟机访问 Azure Cosmos DB 实例时，请使用专用链接、防火墙、网络安全组和服务标记来降低数据外泄的可能性。 Azure 管理 Azure Cosmos DB 的底层基础结构，并实施了严格的控制措施来防止客户数据丢失或泄露。
+
 <!--Not Available on  https://docs.azure.cn/cosmos-db/cosmos-db-advanced-threat-protection-->
-<!--Not Available on  https://docs.azure.cn/security/fundamentals/protection-customer-data-->
+
+了解 Azure 中的客户数据保护： https://docs.azure.cn/security/fundamentals/protection-customer-data
+
+**Azure 安全中心监视**：是
+
+**责任**：共享
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4：加密传输中的所有敏感信息
 
@@ -427,9 +469,9 @@ Cosmos DB 安全性概述： https://docs.azure.cn/cosmos-db/database-security
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基于角色的访问控制 (RBAC)。 在 Azure Active Directory 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
+**指导**：Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 Azure 基于角色的访问控制 (Azure RBAC)。 在 Azure Active Directory 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
 
-如何在 Azure Cosmos DB 中实施 RBAC： https://docs.azure.cn/cosmos-db/role-based-access-control
+如何在 Azure Cosmos DB 中实施 Azure RBAC： https://docs.azure.cn/cosmos-db/role-based-access-control
 
 **Azure 安全中心监视**：不适用
 
@@ -768,7 +810,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 **指导**：对于在 Azure 应用服务上运行的用于访问 Azure Cosmos DB 实例的 Azure 虚拟机或 Web 应用程序，请将托管服务标识与 Azure Key Vault 结合使用，以简化和保护 Azure Cosmos DB 机密管理。 确保启用 Key Vault 软删除。
 
-<!--Not Avaialble on  https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
+如何与 Azure 托管标识集成： https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 如何创建 Key Vault： https://docs.azure.cn/key-vault/general/quick-create-portal
 
@@ -788,7 +830,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 如何配置托管标识： https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-<!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
+如何与 Azure 托管标识集成： https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Azure 安全中心监视**：是
 
@@ -906,7 +948,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 你还可以利用 NIST 的计算机安全事件处理指南来帮助创建自己的事件响应计划： https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 

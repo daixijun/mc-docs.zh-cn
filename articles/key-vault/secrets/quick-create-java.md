@@ -9,12 +9,12 @@ ms.date: 09/15/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9fef2b2fdf43bc5d13dddbae14d4c0020422f8be
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 029a1395accae58c45062758195691aa08840349
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300322"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430828"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>快速入门：适用于 Java 的 Azure Key Vault 客户端库
 
@@ -38,7 +38,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅 - [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/) 8 或更高版本
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)

@@ -6,12 +6,12 @@ ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ed5b41dda34b0d0e43289e185b1821d2505684c0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 25b030a86edcb3293fce8f9412576584b83acc72
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329368"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431117"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>快速入门：使用 .NET Core 创建管理组
 
@@ -21,7 +21,7 @@ ms.locfileid: "94329368"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始之前创建一个[试用](https://wd.azure.cn/pricing/1rmb-trial/)
+- 如果没有 Azure 订阅，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
   帐户。
 

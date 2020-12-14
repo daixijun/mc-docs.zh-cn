@@ -5,12 +5,12 @@ origin.date: 08/31/2020
 ms.date: 09/15/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 93d72add2182f7932bde371389dd687d463acd1b
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: 65afe48f05814393dd39d9fdf2799b545dc7e3ce
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456298"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431115"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>快速入门：使用 REST API 创建管理组
 
@@ -20,7 +20,7 @@ ms.locfileid: "90456298"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 - 安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 REST API。 你也可以使用 REST 文档中的“试用”功能，或者使用 PowerShell 的 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod) 或 [Postman](https://www.postman.com) 等工具。
 

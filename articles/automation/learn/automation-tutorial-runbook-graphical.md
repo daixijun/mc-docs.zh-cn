@@ -7,12 +7,12 @@ ms.subservice: process-automation
 origin.date: 09/15/2020
 ms.date: 10/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 08734629ec0e1a02f99e34b45db6925701dac737
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: e0b427353c6ffbad90c0b00d2e4cfbcf05125de6
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943490"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432420"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>教程：创建图形 Runbook
 
@@ -30,7 +30,7 @@ ms.locfileid: "91943490"
 
 要完成本教程，需要以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，可在开始之前创建一个 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+* Azure 订阅。 如果还没有 Azure 订阅，可在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 * [自动化帐户](../index.yml) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 由于需要停止并启动此虚拟机，因此它不应当是生产 VM。
 * 如果需要，请[导入 Azure 模块](../shared-resources/modules.md)或[更新模块](../automation-update-azure-modules.md)，具体取决于所用的 cmdlet。
@@ -237,9 +237,9 @@ ms.locfileid: "91943490"
 
 5. 选择“ResourceGroupNameParameterSetName”作为参数集。 “ResourceGroupName”和“Name”字段旁边出现了感叹号，表示它们是必需的参数。 请注意，这两个字段都需要字符串值。
 
-6. 选择“名称”。 为“数据源”字段选择“PowerShell 表达式”。 对于用于启动此 Runbook 的 VM，请键入带双引号的计算机名称。 单击“确定”。
+6. 选择“名称”。 为“数据源”字段选择“PowerShell 表达式”。 对于用于启动此 Runbook 的 VM，请键入带双引号的计算机名称。 单击 **“确定”** 。
 
-7. 选择“ResourceGroupName”。 对“数据源”字段使用值“PowerShell 表达式”，并键入带双引号的资源组名称 。 单击“确定”。
+7. 选择“ResourceGroupName”。 对“数据源”字段使用值“PowerShell 表达式”，并键入带双引号的资源组名称 。 单击 **“确定”** 。
 
 8. 单击“测试”窗格，以便测试 Runbook。
 
@@ -300,11 +300,11 @@ Runbook 当前会启动资源组中为 `Start-AzVM` cmdlet 指定的 VM。 如�
 
 6. **GetVirtualMachineInResourceGroupNameParamSet** 参数集。 “ResourceGroupName”和“Name”字段旁边出现了感叹号，表示它们指定了必需的参数。 请注意，这两个字段都需要字符串值。
 
-7. 在“Name”的“数据源”下选择“Runbook 输入”，然后选择“VMName”   。 单击“确定”。
+7. 在“Name”的“数据源”下选择“Runbook 输入”，然后选择“VMName”   。 单击 **“确定”** 。
 
-8. 在“ResourceGroupName”的“数据源”下选择“Runbook 输入”，然后选择“ResourceGroupName”   。 单击“确定”。
+8. 在“ResourceGroupName”的“数据源”下选择“Runbook 输入”，然后选择“ResourceGroupName”   。 单击 **“确定”** 。
 
-9. 在“Status”的“数据源”下选择“常量值”，然后选择“True”   。 单击“确定”。
+9. 在“Status”的“数据源”下选择“常量值”，然后选择“True”   。 单击 **“确定”** 。
 
 10. 创建从 `Specify Subscription Id` 到 `Get-AzVM` 的链接。
 

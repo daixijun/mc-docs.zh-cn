@@ -19,12 +19,12 @@ ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 602a4aa986ff5acdda2625962edbfc0080253e8d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 56f3313f01937e59af09242f903393211bf4fbc1
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431032"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 
@@ -33,7 +33,7 @@ ms.locfileid: "96300860"
 ## <a name="overview"></a>概述
 
 > [!IMPORTANT]
-> 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，请通过 [Azure 1 元人民币的试用订阅](https://www.azure.cn/pricing/1rmb-trial/)只需几分钟创建一个试用帐户。
+> 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，请通过[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)花几分钟创建一个试用帐户。
 
 本指南介绍如何借助 Azure 通知中心，直接从 [Node.js](https://nodejs.org) 应用程序发送推送通知。
 

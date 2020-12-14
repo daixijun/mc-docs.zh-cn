@@ -8,6 +8,8 @@
       href: known-issues.md
     - name: 发行说明
       href: release-notes.md
+    - name: 常见问题解答
+      href: faq.md
 - name: 入门
   items:
     - name: 在 Windows 管理中心使用 Azure Stack HCI
@@ -72,6 +74,10 @@
           href: manage/update-cluster.md
         - name: 监视群集
           href: manage/monitor-cluster.md
+        - name: 使用数据中心防火墙
+          href: manage/use-datacenter-firewall.md
+        - name: 使用 DISKSPD 测试工作负荷
+          href: manage/diskspd-overview.md
         - name: 添加或删除服务器
           href: manage/add-cluster.md
         - name: 使服务器脱机以进行维护
@@ -132,6 +138,8 @@
           href: concepts/network-controller-overview.md
         - name: 规划网络控制器
           href: concepts/network-controller.md
+        - name: 数据中心防火墙概述
+          href: concepts/datacenter-firewall-overview.md
         - name: 软件负载均衡器概述
           href: concepts/software-load-balancer.md
         - name: RAS 网关概述
@@ -152,6 +160,14 @@
       href: /cli/ext/stack-hci/stack-hci
     - name: Azure 注册 PowerShell 命令
       href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+    - name: 适用于 ARM Azure Stack HCI 服务 API 的 Go 包
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
+    - name: Azure Stack HCI Java 服务类和接口
+      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01'
+    - name: Azure Stack HCI 管理服务 Python 包
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python'
+    - name: Azure Stack HCI JavaScript 包
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest'
     - name: Hyper-V PowerShell 命令
       href: 'https://docs.microsoft.com/powershell/module/hyper-v'
     - name: 存储 PowerShell 命令

@@ -12,12 +12,12 @@ origin.date: 05/13/2020
 ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f61f0083c3e25b4174174e798328afd3b2d2b260
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 3e6f6d0c48830d87e5fe0342f0b224cf382102db
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127850"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431163"
 ---
 # <a name="speech-to-text-rest-api"></a>语音转文本 REST API
 
@@ -304,6 +304,6 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>后续步骤
 
-- [获取语音试用订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [自定义声学模型](how-to-customize-acoustic-models.md)
 - [自定义语言模型](how-to-customize-language-model.md)

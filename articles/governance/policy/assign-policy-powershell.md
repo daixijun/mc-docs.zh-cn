@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 08/17/2020
 ms.date: 09/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: a21871314bf779486acfdd691958e05f3a366623
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 881f1e22f1133a5143ba8a665ce5f10c40bddf0e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523621"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431008"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建策略分配以识别不符合的资源
 
@@ -21,7 +21,7 @@ Azure PowerShell 模块用于从命令行或脚本管理 Azure 资源。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 - 在开始之前，请确保安装 Azure PowerShell 的最新版本。 有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
@@ -38,7 +38,7 @@ Azure PowerShell 模块用于从命令行或脚本管理 Azure 资源。
 
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 
-本快速入门将为_不带托管磁盘的审核 VM_ 定义创建策略分配。 此策略定义可识别不使用托管磁盘的虚拟机。
+本快速入门将为 _不带托管磁盘的审核 VM_ 定义创建策略分配。 此策略定义可识别不使用托管磁盘的虚拟机。
 
 运行以下命令创建新的策略分配：
 

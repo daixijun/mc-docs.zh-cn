@@ -4,16 +4,16 @@ description: 了解如何将 MySQL 资源提供程序适配器和 MySQL 数据�
 author: WenJason
 ms.topic: article
 origin.date: 9/22/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: caoyang
 ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: c7e313851e290d4940ef952ac1332a7be6945d79
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 2c79412d5b74a98c5a82a065baabce06c0f4df60
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508061"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 MySQL 资源提供程序
 
@@ -36,7 +36,7 @@ ms.locfileid: "93330526"
 
   |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2005|[MySQL RP 版本 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2008、2005|[MySQL RP 版本 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
   |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |

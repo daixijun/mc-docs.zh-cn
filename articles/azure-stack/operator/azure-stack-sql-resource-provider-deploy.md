@@ -5,16 +5,16 @@ description: 了解如何在 Azure Stack Hub 上部署 SQL Server 资源提供�
 author: WenJason
 ms.topic: article
 origin.date: 10/02/2019
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.lastreviewed: 03/18/2019
 ms.author: v-jay
 ms.reviewer: xiao
-ms.openlocfilehash: b3b9feb7b24617ce5b4086ffc3bd20b8a9335a3a
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: ef678b476eeff5f4f844cf16b1d1a2912c802424
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330496"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507961"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
@@ -38,7 +38,7 @@ ms.locfileid: "93330496"
 
   |支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2008、2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
   |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -111,7 +111,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新** 窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 
 
 > [!IMPORTANT]
-> 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。 或者，可以使用 clear-azurermcontext 在运行更新脚本之前清除缓存。
+> 强烈建议在运行更新脚本之前，使用 Clear-AzureRmContext -Scope CurrentUser 和 Clear-AzureRmContext -Scope Process 清除缓存。
 
 运行 DeploySqlProvider.ps1 脚本，以完成以下任务：
 

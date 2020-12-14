@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 11/09/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 3f242d915496ff26b0401b33402f93a4015f7f34
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: c3829ef12198f55c3512bc0aa04f1a30a7519fb8
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680499"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432499"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>将数据从 SQL Server 数据库复制到 Azure Blob 存储
 
@@ -41,7 +41,7 @@ ms.locfileid: "94680499"
 
 ## <a name="prerequisites"></a>先决条件
 ### <a name="azure-subscription"></a>Azure 订阅
-如果还没有 Azure 订阅，请在开始前[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果还没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="azure-roles"></a>Azure 角色
 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须分配有“参与者”或“所有者”角色，或者必须是 Azure 订阅的管理员。
@@ -111,7 +111,7 @@ ms.locfileid: "94680499"
 在此步骤中，请先创建数据工厂，然后启动数据工厂 UI，在该数据工厂中创建一个管道。
 
 1. 打开 **Microsoft Edge** 或 **Google Chrome** Web 浏览器。 目前，仅 Microsoft Edge 和 Google Chrome Web 浏览器支持数据工厂 UI。
-1. 在左侧菜单中，选择“创建资源”   > “数据 + 分析”   > “数据工厂”  ：
+1. 在左侧菜单中，选择“创建资源” > “数据 + 分析” > “数据工厂”：
 
    ![在“新建”窗格中选择“数据工厂”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -193,7 +193,7 @@ ms.locfileid: "94680499"
 
     b. 在“表名称”下，选择 **[dbo].[emp]** 。
     
-    c. 选择“确定”。
+    c. 选择“确定”  。
 
 1. 转到包含 SQLServerToBlobPipeline 的选项卡，或在树状视图中选择“SQLServerToBlobPipeline”。 
 
@@ -209,7 +209,7 @@ ms.locfileid: "94680499"
 
 1. 在“新建链接服务(Azure Blob 存储)”对话框中，输入 **AzureStorageLinkedService** 作为名称，从“存储帐户名称”列表中选择你的存储帐户。  测试连接，然后选择“创建”以部署该链接服务。
 
-1. 创建链接服务后，将返回到“设置属性”页。 选择“确定”。
+1. 创建链接服务后，将返回到“设置属性”页。 选择“确定”  。
 
 1. 打开接收器数据集。 在“连接”选项卡中执行以下步骤：
 
@@ -250,7 +250,7 @@ ms.locfileid: "94680499"
 
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何执行以下操作：
+此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何：
 
 > [!div class="checklist"]
 > * 创建数据工厂。

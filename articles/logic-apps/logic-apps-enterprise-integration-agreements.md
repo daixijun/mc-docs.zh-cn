@@ -11,17 +11,17 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: b59b267873bd07ae3bad93e568c320152929d568
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: a2562447677ac4b8473aa8dc7b9fd056aa8bf93a
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414622"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432367"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建并管理贸易合作伙伴协议
 
 [贸易合作伙伴](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-** 协议 (agreement) 通过定义在交换企业对企业 (B2B) 消息时使用的特定的行业标准协议 (protocol)，帮助组织和企业彼此无缝通信。 协议有一些常见的好处，例如：
+协议 (agreement) 通过定义在交换企业对企业 (B2B) 消息时使用的特定的行业标准协议 (protocol)，帮助组织和企业彼此无缝通信。 协议有一些常见的好处，例如：
 
 * 使组织能够以熟知的格式交换信息。
 * 可提高进行 B2B 交易的效率。
@@ -33,7 +33,7 @@ ms.locfileid: "86414622"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 用于存储协议和其他 B2B 项目的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 此集成帐户必须与 Azure 订阅相关联。
 

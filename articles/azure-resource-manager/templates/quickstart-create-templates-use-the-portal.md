@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 831d94ec9d2d2228e7a4d81e0ab9d44978a628e1
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 09740867a310c231e04664b5e9332b7c6f979f12
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024536"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432620"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 ARM 模板
@@ -24,7 +24,7 @@ ms.locfileid: "96024536"
 
 完成本教程后，部署 Azure 存储帐户。 可以通过同一过程来部署其他 Azure 资源。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="generate-a-template-using-the-portal"></a>使用门户生成模板
 
@@ -95,7 +95,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 1. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
 1. 对模板进行以下三处更改：
 
-    ![Azure 资源管理器模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
+    ![Azure Resource Manager 模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
     - 删除“storageAccountName”参数，如上一屏幕截图所示。
     - 添加一个名为“storageAccountName”的变量，如上一屏幕截图所示：
@@ -169,10 +169,10 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
         }
         ```
 
-1. 选择“保存”。
+1. 选择“保存” 。
 1. 输入以下值：
 
-    |名称|值|
+    |名称|Value|
     |----|----|
     |**资源组**|选择在上一部分中创建的资源组名称。 |
     |**区域**|选择资源组的位置。 例如，**中国北部**。 |
@@ -185,7 +185,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
     |**允许 Blob 公共访问**| 对于本快速入门，请选择“false”。 |
 
 1. 选择“查看 + 创建”。
-1. 选择“创建”。
+1. 选择“创建” 。
 1. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
 
     ![Azure 资源管理器模板部署通知](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

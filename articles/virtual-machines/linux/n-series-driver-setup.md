@@ -6,14 +6,14 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/11/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: 2147fc876d2ebe47bd686c61857d588baf4209d5
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: c4a25d0a15006d84897271e75c923a484a65f3df
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638025"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746706"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -100,10 +100,13 @@ sudo reboot
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
   
    sudo reboot
-   ``` 
-    <!--MOONCAKE: GLOBAL missing ```-->
+   ```
+   
+       <!--MOONCAKE: GLOBAL missing ```-->
 
-2. 安装最新的[适用于 Hyper-V 和 Azure 的 Linux 集成服务](https://www.microsoft.com/download/details.aspx?id=55106)。
+2. 安装最新的[适用于 Hyper-V 和 Azure 的 Linux 集成服务](https://www.microsoft.com/download/details.aspx?id=55106)。 通过验证 lspci 的结果来检查是否需要 LIS。 如果所有 GPU 设备都按预期列出，则不需要安装 .LIS。
+
+如果计划使用 CentOS 7.8（或更高版本），请跳过此步骤，因为这些版本不再需要 LIS。
 
    ```bash
    wget https://aka.ms/lis
@@ -155,12 +158,12 @@ sudo reboot
 
 ## <a name="rdma-network-connectivity"></a>RDMA 网络连接
 
-可以在同一可用性集或虚拟机 (VM) 规模集的单个放置组中部署的支持 RDMA 的 N 系列 VM（例如 NC24r）上启用 RDMA 网络连接。 对于使用 Intel MPI 5.x 或更高版本运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 其他要求如下：
+可以在支持 RDMA 的 N 系列 VM（例如 NC24r）上启用 RDMA 网络连接，这些 VM 部署在同一可用性集中或虚拟机 (VM) 规模集的单个放置组中。 对于使用 Intel MPI 5.x 或更高版本运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 其他要求如下：
 
 ### <a name="distributions"></a>分发
 
 在 N 系列 VM 上，在支持 RDMA 连接的 Azure 市场中，从以下映像之一部署支持 RDMA 的 N 系列 VM：
-
+  
 * **Ubuntu 16.04 LTS** - 在 VM 上配置 RDMA 驱动程序，并注册 Intel 下载 Intel MPI：
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
@@ -190,6 +193,7 @@ sudo reboot
 
 * 可以使用 `nvidia-smi` 设置持久性模式，以便在需要查询卡时该命令的输出更快。 若要设置持久性模式，请执行 `nvidia-smi -pm 1`。 请注意，如果重启 VM，此模式设置将消失。 你可以始终将该模式设置编写为在启动时执行。
 * 如果已将 NVIDIA CUDA 驱动程序更新到最新版本，并且发现 RDMA 连接不再工作，请[重新安装 RDMA 驱动程序](#rdma-network-connectivity)以重新建立该连接。 
+* 如果 LIS 不支持特定的 CentOS/RHEL OS 版本（或内核），则会引发“内核版本不受支持”错误。 请报告此错误以及 OS 和内核版本。
 
 ## <a name="next-steps"></a>后续步骤
 

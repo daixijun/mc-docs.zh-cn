@@ -3,17 +3,17 @@ title: 管理 Azure Stack Hub 中的存储容量
 description: 了解如何在 Azure Stack Hub 中监视和管理存储容量与可用性。
 author: WenJason
 ms.topic: conceptual
-origin.date: 10/09/2020
-ms.date: 11/09/2020
+origin.date: 10/16/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 0a660098e54fc4fb44ae467cfe7067630eec99c2
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 7f4dc275bbc092551afe80bbc9b728da58e656b6
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330628"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507960"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 

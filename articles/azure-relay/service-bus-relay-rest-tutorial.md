@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 998b515ac797c56bffdfa4749249ad935110248a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5ad20a6abb09438766d98fd1bb959706dfa534a2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146522"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431969"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>教程：Azure WCF 中继 REST 教程
 
@@ -38,7 +38,7 @@ ms.locfileid: "91146522"
 
 若要完成本教程，需要具备以下先决条件：
 
-* Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Visual Studio 2015 或更高版本](https://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2019。
 * 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://www.azure.cn/downloads/)安装它。
 
@@ -60,7 +60,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
 1. 以管理员身份启动 Microsoft Visual Studio。 为此，请右键单击 Visual Studio 程序图标，并选择“以管理员身份运行”。
 1. 在 Visual Studio 中选择“创建新项目”。
 1. 在“创建新项目”中，选择适用于 C# 的“控制台应用(.NET Framework)”，然后选择“下一步”。
-1. 将项目命名为 *ImageListener*。 使用默认的**位置**，然后选择“创建”。
+1. 将项目命名为 *ImageListener*。 使用默认的 **位置**，然后选择“创建”。
 
     对于 C# 项目，Visual Studio 会创建 *Program.cs* 文件。 此类包含一个空的 `Main()` 方法，需要此方法才能正确生成控制台应用程序项目。
 
@@ -212,7 +212,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 为确保正在运行的服务可以找到该图像文件，请在“解决方案资源管理器”中右键单击该图像文件，并选择“属性”。 在“属性”中，将“复制到输出目录”设置为“如果较新则复制”。
 
-1. 使用[使用接口创建协定](#to-create-a-contract-with-an-interface)中的过程，将对 *System.Drawing.dll* 程序集的引用添加到项目中。
+1. 使用 [使用接口创建协定](#to-create-a-contract-with-an-interface)中的过程，将对 *System.Drawing.dll* 程序集的引用添加到项目中。
 
 1. 添加以下关联的 `using` 语句：
 

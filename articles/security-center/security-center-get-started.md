@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/3/2018
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: af397a366853bbf203d0e1cfefab69e788aa14ea
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 1b3cbef25b951f73aab9f1352e176060b7cf8dd2
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638178"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746652"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>快速入门：设置 Azure 安全中心
 
@@ -29,7 +29,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和威胁�
 本文介绍如何升级到 Azure Defende 以提高安全性，以及如何在计算机上安装 Log Analytics 代理来监视安全漏洞和威胁。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 若要在订阅中启用 Azure Defende，必须拥有“订阅所有者”、“订阅参与者”或“安全管理员”角色。
 

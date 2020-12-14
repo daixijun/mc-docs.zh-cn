@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 521329d9827c9fd50dda6e93ca112645aeb4c62c
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: f70932c36b390731a1708db1fd15c88c7b154ac5
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414580"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431877"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 RSS 源
 
@@ -31,13 +31,13 @@ RSS（极具特色的网站摘要），也称为“真正简单的整合”，�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * RSS 源的 URL
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
-* 要在其中访问 RSS 源的逻辑应用。 若要从 RSS 触发器开始，请[创建空白的逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 RSS 操作，请使用其他触发器（例如**定期**触发器）启动逻辑应用。
+* 要在其中访问 RSS 源的逻辑应用。 若要从 RSS 触发器开始，请[创建空白的逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 RSS 操作，请使用其他触发器（例如 **定期** 触发器）启动逻辑应用。
 
 ## <a name="connect-to-an-rss-feed"></a>连接到 RSS 源
 

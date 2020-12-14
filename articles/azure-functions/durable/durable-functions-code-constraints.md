@@ -3,14 +3,14 @@ title: 持久性业务流程协调程序代码约束 - Azure Functions
 description: 适用于 Azure Durable Functions 的业务流程函数重播和代码约束。
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 89d18ba9aaabc5ab58d21e73b999aed5d8c44843
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 26d5ecaaf81a7b62b8da9a1de689ab5c906df148
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507579"
 ---
 # <a name="orchestrator-function-code-constraints"></a>业务流程协调程序函数代码约束
 
@@ -30,8 +30,8 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 | API 类别 | Reason | 解决方法 |
 | ------------ | ------ | ---------- |
-| 日期和时间  | 返回当前日期或时间的 API 是非确定性的，因为每次重播时它们返回的值都不相同。 | 使用 .NET 中的 `CurrentUtcDateTime` API 或 JavaScript 中的 `currentUtcDateTime` API，可以安全地进行重播。 |
-| GUID 和 UUID  | 返回随机 GUID 或 UUID 的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 使用 .NET 中的 `NewGuid` 或 JavaScript 中的 `newGuid` 安全地生成随机 GUID。 |
+| 日期和时间  | 返回当前日期或时间的 API 是非确定性的，因为每次重播时它们返回的值都不相同。 | 在 .NET 中使用 [CurrentUtcDateTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) 属性，或者在 JavaScript 中使用 `currentUtcDateTime` API，它们都是可以安全地用于重播的。 |
+| GUID 和 UUID  | 返回随机 GUID 或 UUID 的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 在 .NET 中使用 [NewGuid](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) 或者在 JavaScript 中使用 `newGuid` 安全地生成随机 GUID。 |
 | 随机数 | 返回随机数的 API 是非确定性的，因为每次重播时它们生成的值都不相同。 | 使用活动函数将随机数返回给业务流程。 就重播来说，活动函数的返回值始终是安全的。 |
 | 绑定 | 输入和输出绑定通常会执行 I/O 操作，是非确定性的。 即使是[业务流程客户端](durable-functions-bindings.md#orchestration-client)和[实体客户端](durable-functions-bindings.md#entity-client)绑定，也不得由业务流程协调程序函数直接使用。 | 在客户端或活动函数中使用输入和输出绑定。 |
 | 网络 | 网络调用涉及外部系统，是非确定性的。 | 使用活动函数进行网络调用。 如果需要从业务流程协调程序函数进行 HTTP 调用，则也可使用[持久性 HTTP API](durable-functions-http-features.md#consuming-http-apis)。 |

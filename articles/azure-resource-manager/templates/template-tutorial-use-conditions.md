@@ -8,12 +8,12 @@ ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c442100a0ad3d50ddf42fd5f91d5e6137557455c
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 61bdd8bb030a0fa159c91d97300b31d13f966624
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024608"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431715"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-arm-templates"></a>教程：在 ARM 模板中使用条件
@@ -41,9 +41,9 @@ ms.locfileid: "96024608"
 * [模板函数：If](./template-functions-logical.md#if)。
 * [ARM 模板的比较函数](./template-functions-comparison.md)
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要完成本文，需要做好以下准备：
 

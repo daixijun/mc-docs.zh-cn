@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 11/07/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: a7bbda6aee25d06bc5caf99e191f2b2d204096b1
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 4c2e3b9838587fe1af61a28031aaa09cec8b20a0
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300677"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431199"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>在 Azure 数据资源管理器中使用后继数据库来附加数据库
 
@@ -29,7 +29,7 @@ ms.locfileid: "96300677"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+1. 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 1. 为先导和后继数据库[创建群集和数据库](create-cluster-database-portal.md)。
 1. 使用[引入概述](./ingest-data-overview.md)中所述的多种方法之一将[数据引入](ingest-sample-data.md)先导数据库。
 

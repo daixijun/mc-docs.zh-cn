@@ -4,18 +4,18 @@ description: 了解如何在 Azure Cosmos DB 中通过使用 Apache TinkerPop �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-origin.date: 07/10/2020
+origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: f4dbf7ba79122084c586e587cb872a3142d5d65d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 1d2db7e63dcdefd9606f6831767d138f0b6e2b72
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327639"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598687"
 ---
 <!--Verify sucessfully-->
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Gremlin API 简介
@@ -30,6 +30,9 @@ ms.locfileid: "94327639"
 本文提供 Azure Cosmos DB Gremlin API 概述，并说明如何使用它们存储具有数十亿顶点和边缘的大量图形。 可在毫秒级延迟的情况下查询图形，并轻松改进图结构。 Azure Cosmos DB 的 Gremlin API 是基于 [Apache TinkerPop](https://tinkerpop.apache.org)（一种图形计算框架）构建的。 Azure Cosmos DB 中的 Gremlin API 使用 Gremlin 查询语言。
 
 Azure Cosmos DB 的 Gremlin API 将强大的图形数据库算法与高度可扩展的托管基础结构相结合，为缺乏灵活性和关系型方法的大多数常见数据问题提供独特、灵活的解决方案。
+
+> [!NOTE]
+> [无服务器容量模式](serverless.md)现在在 Azure Cosmos DB 的 Gremlin API 上可用。
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Azure Cosmos DB 的 Gremlin API 的功能
 
@@ -119,19 +122,19 @@ Azure Cosmos DB 是一个完全托管的图形数据库，提供多区域分发�
 
 此图形使用以下顶点类型（在 Gremlin 中也称为“标签”）：
 
-* **人员** ：图形中包含三名人员：Robin、Thomas 和 Ben
-* **兴趣** ：在此示例中，人员的兴趣为足球比赛
-* **设备** ：人员使用的设备
-* **操作系统** ：设备在其上运行的操作系统
-* **位置** ：访问设备的位置
+* **人员**：图形中包含三名人员：Robin、Thomas 和 Ben
+* **兴趣**：在此示例中，人员的兴趣为足球比赛
+* **设备**：人员使用的设备
+* **操作系统**：设备在其上运行的操作系统
+* **位置**：访问设备的位置
 
 我们通过以下边缘类型表示这些实体之间的关系：
 
-* **认识** ：例如，“Thomas 认识 Robin”
-* **感兴趣的内容** ：在图形中表示人员的兴趣，例如，“Ben 对足球感兴趣”
-* **RunsOS** ：运行 Windows OS 的笔记本电脑
-* **使用** ：表示人员使用哪种设备。 例如，Robin uses a Motorola phone with serial number 77
-* **位置** ：表示从中访问设备的位置
+* **认识**：例如，“Thomas 认识 Robin”
+* **感兴趣的内容**：在图形中表示人员的兴趣，例如，“Ben 对足球感兴趣”
+* **RunsOS**：运行 Windows OS 的笔记本电脑
+* **使用**：表示人员使用哪种设备。 例如，Robin uses a Motorola phone with serial number 77
+* **位置**：表示从中访问设备的位置
 
 Gremlin 控制台是 Apache TinkerPop 提供的交互式终端，此终端用于与图形数据进行交互。 若要了解详细信息，请参阅[如何使用 Gremlin 控制台](create-graph-gremlin-console.md)中的快速入门文档。 也可以所选的平台（Java、Node.js、Python 或 .NET）中使用 Gremlin 驱动程序执行这些操作。 下面的示例演示如何使用 Gremlin 控制台对此图形数据运行查询。
 

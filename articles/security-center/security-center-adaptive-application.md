@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/23/2019
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: f7fa6dcb4a9c077daa20cac851fa954e541a62c0
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 130928fb62f03c154841d75b95f4c3da159c97c4
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638002"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746928"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>使用自适应应用程序控制来减少计算机的攻击面
 
@@ -136,7 +136,7 @@ ms.locfileid: "94638002"
 
       ![添加自定义规则](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. 如果要定义已知的安全路径，请将“规则类型”更改为“路径”。 可以在路径中包含通配符。
+   1. 如果要定义已知的安全路径，请将“规则类型”更改为“路径”，然后输入单个路径。 可以在路径中包含通配符。
    
       > [!TIP]
       > 在路径中使用通配符可能有用的一些方案：

@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/18/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: f7dd77b3fc4044ea404326a334de6df2ff06c99a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c38e680f8262b5e2e16b8a8e3840dae749e37b99
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328323"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598663"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,7 +24,7 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 <!--Correct on Microsoft and 21Vianet-->
 
-为帮助客户在中国受监管行业和市场中履行自己的合规义务，Azure 在广度（产品总数）和深度（评估范围内面向客户的服务数量）方面提供了业内最大的合规性产品组合。 合规性产品基于各种类型的保证，包括独立的第三方审核企业生成的正式认证、证明、验证、授权和评估，以及 Azure 生成的合同修正、自我评估和客户指南文档。
+为帮助客户在中国受监管行业和市场中履行自己的合规义务，Azure 在广度（产品总数）和深度（评估范围内面向客户的服务数量）方面提供了业内最大的合规性产品组合。 Azure 合规性产品基于各种类型的保证，包括独立的第三方审核企业生成的正式认证、证明、验证、授权和评估，以及 Azure 生成的合同修正、自我评估和客户指南文档。
 
 <!--Notice: make by Azure-->
 <!--Not Available on Azure compliance offerings are grouped into four segments - multiple-region applicable, US Government, industry specific, and region or country specific.-->

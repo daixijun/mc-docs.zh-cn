@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 06/23/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7e18e62f7dc747d5837a4d40e77d0264fbec228c
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 4907905ef35fd1ecd732c2100abaeddf6b7bb03a
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375747"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431149"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>将 Apache Flink 与适用于 Apache Kafka 的 Azure 事件中心配合使用
 本教程演示如何在不更改你的协议客户端或运行你自己的群集的情况下，将 Apache Flink 连接到事件中心。 如需详细了解事件中心对 Apache Kafka 使用者协议的支持，请参阅 [Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)。
@@ -31,7 +31,7 @@ ms.locfileid: "93375747"
 若要完成本教程，请确保具备以下先决条件：
 
 * 通读[用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)一文。 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。
     * 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。

@@ -16,12 +16,12 @@ origin.date: 03/18/2019
 ms.date: 11/30/2019
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a4865d2afcdc897b5d622bebdcf0f0bc4bd50fc3
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b5c5a197f53c1ea913cccc80a1233b7cdd7cb9c2
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300277"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432442"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
 
@@ -33,7 +33,7 @@ ms.locfileid: "96300277"
 
 ## <a name="prerequisites"></a>必备条件
 
-- 必须先具有有效的 Azure 帐户，然后才能创建第一个函数。 如果还没有 Azure 帐户，[可以使用 1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- 必须先具有有效的 Azure 帐户，然后才能创建第一个函数。 如果还没有 Azure 帐户，[可以使用试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 若要创建针对 Azure 媒体服务 (AMS) 帐户执行操作或者侦听媒体服务发送的事件的 Azure Functions，应该根据[此文](media-services-portal-create-account.md)中所述创建一个 AMS 帐户。
     
 ## <a name="create-a-function-app"></a>创建函数应用

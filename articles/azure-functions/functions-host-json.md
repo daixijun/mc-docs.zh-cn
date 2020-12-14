@@ -2,13 +2,13 @@
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 42c56360eeda1bbf1043132237ab2f2ebe83a9d5
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.date: 11/30/2020
+ms.openlocfilehash: 7762d5eea007a126c257aa18ad46f296c15fc7ea
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849375"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507578"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -161,6 +161,8 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 | snapshotConfiguration | 不适用 | 请参阅 [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration)。 |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights.samplingSettings
+
+有关这些设置的详细信息，请参阅 [Application Insights 中的采样](../azure-monitor/app/sampling.md)。 
 
 |属性 | 默认 | 说明 |
 | --------- | --------- | --------- | 

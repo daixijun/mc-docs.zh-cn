@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 创建 IoT 中心 | Microsoft Docs
-description: 如何使用 Azure CLI 创建 Azure IoT 中心。
+description: 了解如何使用 Azure CLI 命令创建资源组，然后在该资源组中创建 IoT 中心。 并了解如何删除中心。
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/23/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: c26e5379da2a6db7b4002e4ea4577f09a4a30970
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f41c3c25124721c4288b93b234b7e1db928084b6
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937321"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747144"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 
@@ -21,22 +21,9 @@ ms.locfileid: "91937321"
 
 本文介绍如何使用 Azure CLI 创建 IoT 中心。
 
-## <a name="prerequisites"></a>必备条件
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
-
-
-## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
-
-登录到 Azure 帐户，并选择订阅。
-
-1. 在命令提示符中，运行 [login 命令][lnk-login-command]：
-    
-    ```azurecli
-    az login
-    ```
-
-    按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -66,10 +53,7 @@ ms.locfileid: "91937321"
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 
-> [!NOTE]
-> 上一命令在计费的 S1 定价层中创建 IoT 中心。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-iot-pricing]。
->
->
+上一命令在计费的 S1 定价层中创建 IoT 中心。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-iot-pricing]。
 
 ## <a name="remove-an-iot-hub"></a>删除 IoT 中心
 
@@ -96,7 +80,7 @@ az group delete --name {your resource group name}
 * [使用 Azure 门户管理 IoT 中心](iot-hub-create-through-portal.md)
 
 <!-- Links -->
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
+[lnk-free-trial]: https://www.microsoft.com/china/azure/index.html?fromtype=cn/
 [lnk-CLI-install]: https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest
 [lnk-login-command]: https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest
 [lnk-az-account-command]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest

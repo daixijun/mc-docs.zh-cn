@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66e1cf4e47fe52103397d48f2b2f3d47bf16ade5
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 99a8618daeb3e36f971438f87227ee4c7b538e05
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414678"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432709"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>快速入门：使用 Visual Studio Code 创建和管理逻辑应用工作流定义
 
@@ -30,7 +30,7 @@ ms.locfileid: "86414678"
 
 在开始之前，请确保做好以下各项准备：
 
-* 如果没有 Azure 帐户和订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 帐户和订阅，请[注册一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 有关[逻辑应用工作流定义](../logic-apps/logic-apps-workflow-definition-language.md)及其使用 JSON 描述的结构的基本知识
 

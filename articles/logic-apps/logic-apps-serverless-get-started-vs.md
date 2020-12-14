@@ -9,12 +9,12 @@ origin.date: 06/20/2019
 author: rockboyfor
 ms.date: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: a4f91701c168791747ca1d61cecd2e7c19ab77ec
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: b4b56fef5f2b3ed5c23bc1a303c28799a53c17bd
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328848"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432218"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>在 Visual Studio 中使用 Azure 逻辑应用和 Azure Functions 生成第一个无服务器应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "94328848"
 
 若要在 Visual Studio 中生成无服务器应用，需要准备好以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 以下工具。 如果还没有这些工具，请下载并安装它们。
 

@@ -9,18 +9,33 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: v-tawe
 ms.reviewer: sstein
-origin.date: 09/22/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: 741fa329e466f0ef70c4be066fe3d7419c67d0c0
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+origin.date: 11/24/2020
+ms.date: 12/04/2020
+ms.openlocfilehash: 8fb0d3b5f0418bc4b696be0575f2db455d3ae4f7
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975170"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598543"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 发行说明 
 
 本文介绍每个新的 Azure SQL Edge 内部版本中的新增功能或已更改的内容。
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge - 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>SQL 引擎内部版本号 - 15.0.2000.1553
+
+### <a name="whats-new"></a>新增功能
+
+- 允许在计算列中定义 Datebucket 表达式
+
+### <a name="fixes"></a>修复项
+
+- 保留策略修补程序，用于删除启用了保留策略且具有无限超时的表
+- 在 DacFx 部署中支持流式传输和保留策略功能 
+- DacFx 部署修补程序，可启用从 SAS URL 中的嵌套文件夹进行部署的功能 
+- 预测修补程序，用于支持错误消息中的长列名
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
 

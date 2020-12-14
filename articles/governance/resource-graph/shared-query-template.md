@@ -6,12 +6,12 @@ ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: b92c22b7226a6011af11a4543b9d3ca2b00e8ad6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: eeb94ae2c9fbdfa4c465e2fa5ca4c9b3f044c27e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328505"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431076"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建共享查询
 
@@ -25,7 +25,7 @@ ms.locfileid: "94328505"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="review-the-template"></a>查看模板
 

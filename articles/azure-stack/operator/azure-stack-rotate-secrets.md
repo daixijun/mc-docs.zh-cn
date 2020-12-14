@@ -5,93 +5,37 @@ description: 了解如何在 Azure Stack Hub 中轮换机密。
 author: WenJason
 ms.topic: how-to
 origin.date: 06/29/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.reviewer: ppacent
 ms.author: v-jay
 ms.lastreviewed: 08/15/2020
-ms.openlocfilehash: 835740d256ca779ff4e8d60126866b6d301741df
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 7545a744950dc79a6ec7026124b7fa86119a1d7c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330493"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507562"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
-这些说明仅适用于 Azure Stack Hub 集成系统 1803 和更高版本。请勿在低于 1803 的版本上尝试使用机密轮换
-
-本文提供了用于机密轮换的指南和 PowerShell 脚本，以帮助维护与 Azure Stack Hub 基础结构资源和服务之间的安全通信。 
+本文提供了用于执行机密轮换的指南，以帮助维护与 Azure Stack Hub 基础结构资源和服务的安全通信。
 
 ## <a name="overview"></a>概述
 
 Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安全通信。 为维护 Azure Stack Hub 基础结构的完整性，操作员需要能够轮换机密，轮换频率应与其组织的安全要求一致。
 
-### <a name="internal-vs-external-secrets"></a>内部与外部机密
-
-从 1811 版开始，内部证书和外部证书的机密轮换是分开的。
-
-- **内部机密**：由 Azure Stack Hub 基础结构使用的证书、密码、安全字符串和密钥，无需 Azure Stack Hub 操作员的介入。
-
-- **外部机密**：对外服务的基础结构服务证书，由 Azure Stack Hub 操作员提供。 外部机密包括以下服务的证书：
-
-    - 管理员门户
-    - 公共门户
-    - 管理员 Azure 资源管理器
-    - 全局 Azure 资源管理器
-    - 管理员 Key Vault
-    - 密钥保管库
-    - 管理扩展主机
-    - ACS（包括 Blob、表和队列存储）
-    - ADFS*
-    - Graph*
-    
-    \*仅当环境的标识提供者是 Active Directory 联合身份验证服务 (AD FS) 时才适用。
-
-> [!Important]
-> 所有其他安全密钥和字符串都是由管理员手动更新的。 这包括用户和管理员帐户密码、[网络交换机密码和权限](azure-stack-customer-defined.md)，以及基板管理控制器 (BMC) 凭据（[将在本文后面部分介绍](#update-the-bmc-credential)）。 
->
->此外，本文未介绍增值资源提供程序的机密轮换。 若要轮换这些机密，请改为参阅以下文章：
->
-> - [轮换 Azure Stack Hub 上应用服务的机密和证书](app-service-rotate-certificates.md)
-> - [MySQL 资源提供程序 - 轮换机密](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
-> - [SQL 资源提供程序 - 轮换机密](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
-
-### <a name="expiration-alerts"></a>机密过期的警报
-
-机密过期后的 30 天内，管理员门户中会生成以下警报：
+当机密处于 30 天的有效期内时，会在管理员门户中生成以下警报。 完成机密轮换可解决以下警报：
 
 - 挂起的服务帐户密码过期
 - 挂起的内部证书过期
 - 挂起的外部证书过期
 
-完成以下部分的机密轮换步骤会解决这些警报。
-
 > [!Note]
 > 在 1811 之前版本的 Azure Stack Hub 环境中，可能会看到内部证书挂起或机密过期的警报。 这些警报并不正确，应将其忽略，且不运行内部机密轮换。 不正确的内部机密过期警报是已知问题，已在 1811 中得到解决。 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
 
-### <a name="external-certificates-from-a-new-certificate-authority"></a>新的证书颁发机构颁发的外部证书
-
-在以下上下文中，Azure Stack Hub 支持使用新证书颁发机构 (CA) 颁发的外部证书进行机密轮换：
-
-|已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack Hub 版本|
-|-----|-----|-----|-----|
-|从自签名|到企业|支持|1903 和更高版本|
-|从自签名|到自签名|不支持||
-|从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
-|从企业|到企业|。 从 1803-1903：只要客户使用与在部署时使用的相同的企业 CA，就可以支持|1803 和更高版本|
-|从企业|到自签名|不支持||
-|从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
-|从公共<sup>*</sup>|到企业|支持|1903 和更高版本|
-|从公共<sup>*</sup>|到自签名|不支持||
-|从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
-
-<sup>*</sup>指示公共证书颁发机构属于 Windows 受信任根计划。 可在以下文章中找到完整列表：[参与者列表 - Microsoft 受信任根计划](/security/trusted-root/participants-list)。
-
 ## <a name="prerequisites"></a>先决条件
 
-对于内部和外部机密的轮换：
-
-1. 强烈建议你首先将 Azure Stack Hub 实例更新到最新版本。
+1. 强烈建议你首先将 Azure Stack Hub 实例更新到[最新版本](release-notes.md)。
 
     >[!IMPORTANT]
     > 对于 1811 之前的版本：
@@ -102,15 +46,60 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 3. 在机密轮换期间，操作员可能会注意到警报在打开后又自动关闭。 此行为是预期行为，可以忽略警报。 操作员可以使用 [Test-AzureStack PowerShell cmdlet](azure-stack-diagnostic-test.md) 来验证这些警报的有效性。 对于使用 System Center Operations Manager 监视 Azure Stack Hub 系统的操作人员来说，将系统置于维护模式将阻止这些警报到达其 ITSM 系统，但如果 Azure Stack Hub 系统无法访问，则将继续发出警报。
 
-若要轮换外部机密，请完成以下附加先决条件：
+## <a name="rotate-external-secrets"></a>轮换外部机密
+
+> [!Important]
+> 以下项的外部机密轮换：
+> - 非证书机密（如安全密钥和字符串）：必须由管理员手动完成。 这包括用户和管理员帐户密码，以及[网络交换机密码](azure-stack-customer-defined.md)。
+> - 增值资源提供程序 (RP) 机密：在单独的指南中介绍：
+>    - [Azure Stack Hub 上的应用服务](app-service-rotate-certificates.md)
+>    - [Azure Stack Hub 上的 IoT 中心](iot-hub-rp-rotate-secrets.md)
+>    - [Azure Stack Hub 上的 MySQL](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
+>    - [Azure Stack Hub 上的 SQL](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
+> - 基板管理控制器 (BMC) 凭据：也是一个手动过程，[在本文后面部分介绍](#update-the-bmc-credential)。 
+
+本部分介绍用于保护对外服务的证书的轮换。 这些证书由 Azure Stack Hub 操作员提供，用于以下服务：
+
+- 管理员门户
+- 公共门户
+- 管理员 Azure 资源管理器
+- 全局 Azure 资源管理器
+- 管理员 Key Vault
+- 密钥保管库
+- 管理扩展主机
+- ACS（包括 Blob、表和队列存储）
+- ADFS<sup>*</sup>
+- Graph<sup>*</sup>
+
+<sup>*</sup>使用 Active Directory 联合身份验证服务 (AD FS) 时适用。
+
+### <a name="preparation"></a>准备工作
+
+在轮换外部机密之前：
 
 1. 在轮换机密之前使用 `-group SecretRotationReadiness` 参数运行 **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell cmdlet，以确认所有测试输出正常。
 2. 准备新的替换性的外部证书集：
-    - 新集必须与 [Azure Stack Hub PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规范匹配。 
-    - 可以使用[生成证书签名请求](azure-stack-get-pki-certs.md)中概述的步骤，生成需提交到证书颁发机构 (CA) 的证书签名请求 (CSR)，然后使用[准备 PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤来准备这些证书，以便在 Azure Stack Hub 环境中使用。 
-    - 请务必使用[验证 PKI 证书](azure-stack-validate-pki-certs.md)中概述的步骤来验证准备的证书
-    - 请确保密码中没有特殊字符，例如 `*` 或 `)`。
-    - 请确保 PFX 加密为 **TripleDES-SHA1**。 如果遇到问题，请参阅[修复 Azure Stack Hub PKI 证书的常见问题](azure-stack-remediate-certs.md#pfx-encryption)。
+   - 新集必须与 [Azure Stack Hub PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规范匹配。 
+   - 使用[生成证书签名请求](azure-stack-get-pki-certs.md)中概述的步骤，生成需提交到证书颁发机构 (CA) 的证书签名请求 (CSR)，然后使用[准备 PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤来准备这些证书，以便在 Azure Stack Hub 环境中使用。 在以下上下文中，Azure Stack Hub 支持对新证书颁发机构 (CA) 颁发的外部证书进行机密轮换：
+
+     |从 CA 轮换|轮换到 CA|Azure Stack Hub 版本支持|
+     |-----|-----|-----|-----|
+     |自签名|企业| 1903 及更高版本|
+     |自签名|自签名|不支持|
+     |自签名|公共<sup>*</sup>|1803 及更高版本|
+     |Enterprise|Enterprise|1803 及更高版本；如果企业 CA 与部署时使用的相同，则为 1803-1903|
+     |企业|自签名|不支持|
+     |企业|公共<sup>*</sup>|1803 及更高版本|
+     |公共<sup>*</sup>|企业|1903 及更高版本|
+     |公共<sup>*</sup>|自签名|不支持|
+     |公共<sup>*</sup>|公共<sup>*</sup>|1803 及更高版本|
+
+     <sup>*</sup>[Windows 受信任根计划](https://docs.microsoft.com/security/trusted-root/participants-list)的一部分。
+
+   - 请务必使用[验证 PKI 证书](azure-stack-validate-pki-certs.md)中概述的步骤来验证准备的证书
+   - 请确保密码中没有特殊字符，例如 `*` 或 `)`。
+   - 请确保 PFX 加密为 **TripleDES-SHA1**。 如果遇到问题，请参阅[修复 Azure Stack Hub PKI 证书的常见问题](azure-stack-remediate-certs.md#pfx-encryption)。
+
 3. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 将备份副本保存在安全的备份位置。
 4. 创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
 5. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到你的文件共享，你将在其中创建目录来放置外部证书。
@@ -172,7 +161,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
     ```
 
-## <a name="rotate-external-secrets"></a>轮换外部机密
+### <a name="rotation"></a>旋转
 
 完成以下步骤来轮换外部机密：
 
@@ -205,7 +194,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
         - `-PathAccessCredential`：针对共享的凭据的 PSCredential 对象。
         - `-CertificatePassword`：创建的所有 pfx 证书文件使用的密码安全字符串。
 
-2. 外部机密轮换需要大约一小时。 成功完成后，控制台会显示 `ActionPlanInstanceID ... CurrentStatus: Completed`，后跟 `DONE`。 从共享（在先决条件部分创建）中删除证书，将其存储在安全的备份位置。
+2. 外部机密轮换需要大约一小时。 成功完成后，控制台会显示“`ActionPlanInstanceID ... CurrentStatus: Completed`”消息，后跟“`DONE`”。 从共享（在“准备”部分创建）中删除证书，将其存储在安全的备份位置。
 
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，结合 `-ReRun` 参数重新运行 `Start-SecretRotation`。
@@ -218,25 +207,35 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 ## <a name="rotate-internal-secrets"></a>轮换内部机密
 
-仅当你怀疑某个机密已泄露或收到机密过期的警报时，才需要轮换内部机密。 在 1811 之前的版本中，你可能会看到内部证书挂起或机密过期的警报。 这些警报不准确，应该将其忽略，这是 1811 中已解决的已知问题。 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
+内部机密包括由 Azure Stack Hub 基础结构使用的证书、密码、安全字符串和密钥，无需 Azure Stack Hub 操作员的介入。 仅当你怀疑某个机密已泄露或收到机密过期的警报时，才需要轮换内部机密。 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
 
-请参考[轮换外部机密](#rotate-external-secrets)的步骤 2 中的 PowerShell 脚本。 此脚本提供了一个示例。你可以通过进行一些更改来运行以下步骤，以便改编该示例，使其适合内部机密轮换：
+在 1811 之前的部署中，你可能会看到内部证书挂起或机密过期的警报。 这些警报不准确，应该将其忽略，这是 1811 中已解决的已知问题。
 
-1. 在“运行机密轮换”部分，将 `-Internal` 参数添加到 [Start-SecretRotation cmdlet](../reference/pep-2002/start-secretrotation.md)，例如：
+完成以下步骤来轮换内部机密：
+
+1. 运行下面的 PowerShell 脚本。 请注意，对于内部机密轮换，“运行机密轮换”部分仅对 [Start-SecretRotation cmdlet](../reference/pep-2002/start-secretrotation.md) 使用 `-Internal` 参数：
 
     ```powershell
+    # Create a PEP Session
+    winrm s winrm/config/client '@{TrustedHosts= "<IP_address_of_ERCS>"}'
+    $PEPCreds = Get-Credential
+    $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
     # Run Secret Rotation
-    ...
+    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
+    $CertShareCreds = Get-Credential
+    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }
-    ...
+    Remove-PSSession -Session $PEPSession
     ```
 
     > [!Note]
     > 1811 之前的版本不需要 `-Internal` 标志。 
 
-3. 成功完成后，控制台会显示 `ActionPlanInstanceID ... CurrentStatus: Completed`，后跟 `DONE`
+
+2. 成功完成后，控制台会显示“`ActionPlanInstanceID ... CurrentStatus: Completed`”消息，后跟“`DONE`”。
 
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 `-Internal` 和 `-ReRun` 参数重新运行 `Start-SecretRotation`。  

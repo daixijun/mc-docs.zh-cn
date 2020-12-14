@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7bcce0727c4d2c12f2fc9b1553e829a36a3aae58
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 514a46923bba7afb48e37fd1af62f0627c32a7b0
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552795"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507343"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化开发和测试成本
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -39,9 +39,9 @@ ms.locfileid: "94552795"
 
 ## <a name="azure-trial-account"></a>Azure 试用帐户
 
-Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)中，该帐户提供 Azure 信用额度和资源，可以免费使用特定的一段时间。 特别对于 Azure Cosmos DB，该试用帐户提供 5 GB 的存储和 400 RU 的全年预配吞吐量。 任何开发人员都可以通过此体验轻松地测试 Azure Cosmos DB 的功能，或者将其与其他 Azure 服务集成，没有任何费用。 使用 Azure 试用帐户可获得 1500 元信用额度，该额度可以在前 30 天使用。 在选择升级之前，即使开始使用服务也不会收费。 若要开始操作，请访问 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)页。
+Azure Cosmos DB 包含在 [Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)中，该订阅提供 Azure 额度和资源，可以免费使用特定的一段时间。 特别对于 Azure Cosmos DB，该试用帐户提供 5 GB 的存储和 400 RU 的全年预配吞吐量。 任何开发人员都可以通过此体验轻松地测试 Azure Cosmos DB 的功能，或者将其与其他 Azure 服务集成，没有任何费用。 使用 Azure 试用帐户可获得 3500 元额度，该额度可以在头 120 天使用。 在选择升级之前，即使开始使用服务也不会收费。 若要开始，请访问 [Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)页。
 
-<!--MOONCAKE CORRECT ON: CNY 1500-->
+<!--MOONCAKE CORRECT ON: CNY 3500-->
 
 ## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB 无服务器
 

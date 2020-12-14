@@ -3,18 +3,17 @@ title: Azure Site Recovery 故障回复工具用户指南
 description: 了解如何使用 Azure Site Recovery 故障回复工具来保护虚拟机 (VM)。
 author: WenJason
 ms.author: v-jay
-ms.service: azure-stack
-origin.date: 9/18/2020
-ms.date: 10/12/2020
+origin.date: 11/19/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 0f19a8b765d141b72d99e22e0aa37ea1f80334b7
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 302dd128f3ff378d90d7be55754b60ca5ff22906
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451211"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507821"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Azure Site Recovery 故障回复工具
 
@@ -22,13 +21,16 @@ ms.locfileid: "91451211"
 
 发生中断时，Azure Stack Hub 操作员会经历故障转移过程；在 Azure Stack Hub 启动并再次运行后，它们会经历故障回复过程。 故障转移过程在[此 Site Recovery 文章](/site-recovery/azure-stack-site-recovery)中进行了介绍，但故障回复过程涉及几个手动步骤：
 
-- 停止在 Azure 中运行的 VM。
-- 下载 VHD。
-- 将 VHD 上传到 Azure Stack Hub。
-- 重新创建 VM。
-- 最后，启动在 Azure Stack Hub 上运行的 VM。 
+1. 停止在 Azure 中运行的 VM。
+2. 下载 VHD。
+3. 将 VHD 上传到 Azure Stack Hub。
+4. 重新创建 VM。
+5. 最后，启动在 Azure Stack Hub 上运行的 VM。 
 
 由于此过程容易出错且耗时，因此我们构建了脚本来帮助加速和自动化此过程。
+
+> [!Note]  
+> Azure Site Recovery 工具需要 Azure Stack Hub Az 模块。 如果你是运行 Azure Stack Hub AzureRM 模块，则需要升级工作站或通过 Az 模块在隔离的环境中使用 Azure Site Recovery 故障回复工具。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell Az 模块](powershell-install-az-module.md)。
 
 ## <a name="failback-procedure"></a>故障回复过程
 

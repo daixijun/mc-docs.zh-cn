@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 08/20/2020
 ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 4dfdbb49154be44fc3a58983e6444549130988e1
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 6f439b33f4204988e6f2a9223e30bf5748b470c0
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977076"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598598"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
@@ -27,7 +27,7 @@ ms.locfileid: "94977076"
 
 以下功能是语音服务的一部分。 请使用下表中的链接详细了解每项功能的常见用例或浏览 API 参考信息。
 
-| 服务 | 功能 | 说明 | SDK 中 IsInRole 中的声明 | REST |
+| 服务 | Feature | 说明 | SDK 中 IsInRole 中的声明 | REST |
 |---------|---------|-------------|-----|------|
 | [语音转文本](speech-to-text.md) | 实时语音转文本 | 语音转文本可将音频流或本地文件实时转录或翻译为文本，应用程序、工具或设备可以使用或显示这些文本。 结合[语言理解 (LUIS)](https://docs.azure.cn/cognitive-services/luis/) 使用语音转文本可以从听录的语音中派生用户意向，以及处理语音命令。 | [是](https://docs.azure.cn/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.azure.cn/cognitive-services/speech-service/rest-apis) |
 | | [批量语音转文本](batch-transcription.md) | 批量语音转文本支持对 Azure Blob 存储中存储的大量语音音频数据进行异步语音到文本转录。 除了将语音音频转换为文本，批量语音转文本还允许进行分割聚类和情感分析。 | 否 | [是](https://chinaeast2.cris.azure.cn/swagger/ui/index) |
@@ -40,7 +40,7 @@ ms.locfileid: "94977076"
 
 ## <a name="try-the-speech-service-for-free"></a>免费试用语音服务
 
-若要完成以下步骤，需要一个 Azure 帐户。 如果你没有 Azure 帐户，可以在[此处](https://wd.azure.cn/pricing/1rmb-trial/)注册试用版。
+若要完成以下步骤，需要一个 Azure 帐户。 如果没有 Azure 帐户，可以在[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)中注册试用版。
 
 
 ### <a name="create-the-azure-resource"></a>创建 Azure 资源
@@ -104,7 +104,7 @@ ms.locfileid: "94977076"
 - [教程：使用适用于 C# 的语音 SDK 和 LUIS 从语音中识别意向](how-to-recognize-intents-from-speech-csharp.md)
 
 <!-- - [Tutorial: Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md) -->
-<!-- - [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) -->
+<!-- - [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) -->
 
 ## <a name="get-sample-code"></a>获取示例代码
 

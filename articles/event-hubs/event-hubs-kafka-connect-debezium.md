@@ -6,12 +6,12 @@ author: abhirockzz
 ms.author: v-tawe
 origin.date: 08/11/2020
 ms.date: 11/05/2020
-ms.openlocfilehash: 16a3769929c5905cce5135a958fbc61c87da4262
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 162e92971380342e0a4b2675dad8e432959ec6f1
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375750"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431182"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>将 Azure 事件中心（预览版）上的 Apache Kafka Connect 支持与 Debezium 集成进行变更数据捕获
 
@@ -31,7 +31,7 @@ ms.locfileid: "93375750"
 ## <a name="pre-requisites"></a>先决条件
 若要完成本演练，你将需要：
 
-- Azure 订阅。 如果没有订阅，请[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial//)。
+- Azure 订阅。 如果没有，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Linux/MacOS
 - Kafka 发行版（版本为 1.1.1，Scala 版本为 2.11），通过 [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1) 提供
 - 通读[用于 Apache Kafka 的事件中心](./event-hubs-for-kafka-ecosystem-overview.md)简介文章

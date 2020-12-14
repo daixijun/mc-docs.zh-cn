@@ -6,16 +6,16 @@ ms.topic: include
 origin.date: 02/20/2020
 ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: 76ed73ffeed9250b5a2b1e2d89340ba26d0f9ce4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e8ffa4f3914e5e6b4ef247ac04647b6a22d6f47c
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979179"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96476507"
 ---
 本快速入门介绍如何使用适用于 Android 的语音设备 SDK 来生成支持语音的产品。
 
-本指南需要一个包含语音服务资源的 [Azure 认知服务](../get-started.md)帐户。 如果没有帐户，可以使用[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
+本指南需要[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)以获取订阅密钥。
 
 示例应用程序的源代码随附在语音设备 SDK 中， 也可在 [GitHub 上获取](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)。
 

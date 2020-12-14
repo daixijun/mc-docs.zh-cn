@@ -1,19 +1,19 @@
 ---
 title: 使用 Visual Studio Code 部署到 Azure Stack Hub
-description: 作为用户，我希望在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构来准备与我的 Azure Stack Hub 版本兼容的模板。
+description: 在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构来准备与我的 Azure Stack Hub 版本兼容的模板。
 author: WenJason
 ms.topic: article
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: c7de8a6b1875a98801f4df16a9785250709dd58c
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: d5891da2d8cca4360582217a34ceeb59d53b560c
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868069"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507452"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>使用 Visual Studio Code 部署到 Azure Stack Hub
 
@@ -38,7 +38,7 @@ Azure Stack Hub 部署架构通过 Visual Studio Code 中的 Azure 资源管理�
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - 有权访问 Azure Stack Hub
-- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md)
+- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md)
 
 ## <a name="install-resource-manager-tools-extension"></a>安装资源管理器工具扩展
 

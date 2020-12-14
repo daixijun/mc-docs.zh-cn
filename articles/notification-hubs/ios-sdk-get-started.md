@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 245ec2769127173965e604c29613da035bf03e99
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: e7740a837581ff90f9fe79f30a47231c29cb2aaf
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590575"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430968"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 应用发送推送通知
 
@@ -30,7 +30,7 @@ ms.locfileid: "94590575"
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://wd.azure.cn/pricing/1rmb-trial/)。
+要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 还需要以下项：
 
@@ -237,7 +237,7 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 在左侧菜单上选择“所有服务”，然后在“移动”部分中选择“通知中心”。 选择服务名称旁边的星形图标，以便将服务添加到左侧菜单上的“收藏夹”部分。 将“通知中心”添加到“收藏夹”之后，选中它 。
+2. 在左侧菜单上选择“所有服务”  ，然后在“移动”部分中选择“通知中心”。   选择服务名称旁边的星形图标，以便将服务添加到左侧菜单上的“收藏夹”部分。 将“通知中心”添加到“收藏夹”之后，选中它 。
 
    :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure 门户":::
 

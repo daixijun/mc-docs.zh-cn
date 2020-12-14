@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: b3cf991888d09c57e7218ff1f0674004979de905
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a6aba51921f7a96de0ad7f38b35b340bee6e8682
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327956"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431734"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -66,7 +66,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 <!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
-如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)，可用于任何 Azure 服务。
+如果不熟悉 Azure，可以注册 [Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，这样可以得到 30 天试用期和额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)，可用于任何 Azure 服务。
 
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 

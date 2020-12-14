@@ -6,12 +6,12 @@ origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1693089eeef815adadebc61e751bae17b4b9a256
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2976b2ceb3772eda8330586a79f1c2cf19d38fd9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300124"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430946"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>快速入门：使用 Azure CLI 创建事件中心
 
@@ -20,7 +20,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 在本快速入门中，请使用 Azure CLI 创建事件中心。
 
 ## <a name="prerequisites"></a>先决条件
-若要完成本快速入门，需要一个 Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
+若要完成本快速入门，需要一个 Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅][]。
 
 
 如果选择在本地安装并使用 Azure CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
@@ -80,6 +80,6 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 - [C（仅发送）](event-hubs-c-getstarted-send.md)
 - [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
-[创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[试用版订阅]: https://www.microsoft.com/china/azure/index.html?fromtype=cn
 [Install the Azure CLI]: /cli/install-azure-cli
 [az group create]: /cli/group#az_group_create

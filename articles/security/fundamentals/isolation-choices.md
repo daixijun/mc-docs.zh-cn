@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 71eaed19520fd3f55000104ef44988ff9a8386e2
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 376c01ddf283aca66a84157a41e6a176c67e23f4
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128835"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747242"
 ---
 # <a name="isolation-in-the-azure"></a>Azure 中的隔离
 
@@ -38,7 +38,7 @@ ms.locfileid: "92128835"
 
 ### <a name="azure-tenancy"></a>Azure 租户
 
-Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 中的“客户/账单”关系和唯一的[租户](../../active-directory/develop/quickstart-create-new-tenant.md)。 Azure 中的租户级别隔离是使用 Azure Active Directory 及其提供的[基于角色的控制](../../role-based-access-control/overview.md)实现的。 每个 Azure 订阅都会与一个 Azure Active Directory (AD) 目录关联。
+Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 中的“客户/账单”关系和唯一的[租户](../../active-directory/develop/quickstart-create-new-tenant.md)。 Azure 中的租户级别隔离是使用 Azure Active Directory 及其提供的 [Azure 基于角色的访问控制](../../role-based-access-control/overview.md)实现的。 每个 Azure 订阅都会与一个 Azure Active Directory (AD) 目录关联。
 
 该目录中的用户、组和应用程序可以管理 Azure 订阅中的资源。 可以使用 Azure 门户、Azure 命令行工具及 Azure 管理 API 来分配这些访问权限。 从逻辑上讲，Azure AD 租户是使用安全边界隔离的，这样，任何客户都不能访问或入侵联合租户，而无论其行为是恶意的还是偶然的。 在“裸机”服务器上运行的 Azure AD 是在分隔的网络段中隔离的，主机级别数据包筛选和 Windows 防火墙在该网络段中阻止不需要的连接和流量。
 
@@ -52,7 +52,7 @@ Azure 租户（Azure 订阅）是指 [Azure Active Directory](../../active-direc
 
 - 限制了对危及 Azure AD 服务的服务器的物理访问，以及对 Azure 后端系统的直接访问。
 
-- Azure AD 用户无权访问物理资产或位置，因此他们不可能绕过下述逻辑 RBAC 策略检查。
+- Azure AD 用户无权访问物理资产或位置，因此他们不可能绕过下述逻辑 Azure RBAC 策略检查。
 
 为了满足诊断和维护需求，需要使用采用实时特权提升系统的操作模型。 Azure AD Privileged Identity Management (PIM) 引入了有资格管理员的概念。[有资格管理员](../../active-directory/privileged-identity-management/pim-configure.md)应是不时（但不是每天）需要特权访问的用户。 该角色处于非活动状态，直到用户需要访问权限，然后他们完成激活过程，并在预定的时间内成为活动管理员。
 
@@ -70,9 +70,9 @@ Azure Active Directory 在其自己受保护的容器中托管每个租户，使
 
 Azure RBAC 有三种适用于所有资源类型的基本角色：
 
-- **所有者**对所有资源具有完全访问权限，包括将访问权限委派给其他用户的权限。
+- **所有者** 对所有资源具有完全访问权限，包括将访问权限委派给其他用户的权限。
 
-- **参与者**可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。
+- **参与者** 可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。
 
 - **读者** 可以查看现有的 Azure 资源。
 
@@ -80,17 +80,17 @@ Azure RBAC 有三种适用于所有资源类型的基本角色：
 
 可以通过 Azure 中的其他 Azure 角色对特定的 Azure 资源进行管理。 例如，虚拟机参与者角色允许用户创建和管理虚拟机。 但不会向用户授予对虚拟机连接的 Azure 虚拟网络或子网的访问权限。
 
-[RBAC 内置角色](../../role-based-access-control/built-in-roles.md)列出了 Azure 中可用的角色。 它指定每个内置角色向用户授予的操作和范围。 若要定义自己的角色以便进一步控制，请参阅如何生成 [Azure RBAC 中的自定义角色](../../role-based-access-control/custom-roles.md)。
+[Azure 内置角色](../../role-based-access-control/built-in-roles.md)列出了 Azure 中可用的角色。 它指定每个内置角色向用户授予的操作和范围。 若要定义自己的角色以便进一步控制，请参阅如何生成 [Azure RBAC 中的自定义角色](../../role-based-access-control/custom-roles.md)。
 
 Azure Active Directory 的其他部分功能包括:
 
 - 使用 Azure AD 即可对 SaaS 应用程序启用 SSO，不管这些应用程序在何处托管。 某些应用程序会与 Azure AD 联合起来进行身份验证，其他应用程序则使用密码 SSO。 联合应用程序还可以支持用户预配和[密码存储](https://www.techopedia.com/definition/31415/password-vault)。
 
-- 对 [Azure 存储](https://www.azure.cn/home/features/storage/)中的数据进行访问可以通过身份验证来控制。 每个存储帐户都有一个主密钥（[存储帐户密钥](../../storage/common/storage-create-storage-account.md)，简称 SAK）和一个辅助密钥（共享访问签名，简称 SAS）。
+- 对 [Azure 存储](https://www.azure.cn/home/features/storage/)中的数据进行访问可以通过身份验证来控制。 每个存储帐户都有一个主密钥（[存储帐户密钥](../../storage/common/storage-account-create.md)，简称 SAK）和一个辅助密钥（共享访问签名，简称 SAS）。
 
-- Azure AD 通过联合身份验证（使用 [Active Directory 联合身份验证服务](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)）、同步以及本地目录复制方式提供标识即服务。
+- Azure AD 通过联合身份验证（使用 [Active Directory 联合身份验证服务](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)）、同步以及本地目录复制方式提供标识即服务。
 
-- [Azure 多重身份验证](../../active-directory/authentication/multi-factor-authentication.md)是多重身份验证服务，它要求用户使用移动应用、手机或短信验证登录。 它可以与 Azure AD 配合使用，帮助通过 Azure 多重身份验证服务器来保护本地资源；它还用于使用 SDK 的自定义应用程序和目录。
+- [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)是多重身份验证服务，它要求用户使用移动应用、手机或短信验证登录。 它可以与 Azure AD 配合使用，帮助通过 Azure 多重身份验证服务器来保护本地资源；它还用于使用 SDK 的自定义应用程序和目录。
 
 - [Azure AD 域服务](https://www.azure.cn/home/features/active-directory-ds/)可让用户将 Azure 虚拟机加入一个 Active Directory 域，且无需部署域控制器。 用户可以使用其公司的 Active Directory 凭据登录到这些虚拟机中，并使用组策略管理已加入域的虚拟机，以便在所有 Azure 虚拟机上强制实施安全基准措施。
 
@@ -119,7 +119,7 @@ Azure 提供各种基于云的计算服务，包括大量计算实例和服务�
 
 ### <a name="dedicated-hosts"></a>专用主机
 
-除了前面部分所述的独立主机以外，Azure 还提供了专用主机。 Azure 中的专用主机是一项服务，它提供能够承载一个或多个虚拟机的物理服务器，专用于单个 Azure 订阅。 专用主机在物理服务器级别提供硬件隔离。 不会在你的主机上放置任何其他 VM。 专用主机部署在相同的数据中心，与其他非隔离主机共享相同的网络和底层存储基础结构。 有关详细信息，请参阅 [Azure 专用主机](/virtual-machines/windows/dedicated-hosts)的详细概述。
+除了前面部分所述的独立主机以外，Azure 还提供了专用主机。 Azure 中的专用主机是一项服务，它提供能够承载一个或多个虚拟机的物理服务器，专用于单个 Azure 订阅。 专用主机在物理服务器级别提供硬件隔离。 不会在你的主机上放置任何其他 VM。 专用主机部署在相同的数据中心，与其他非隔离主机共享相同的网络和底层存储基础结构。 有关详细信息，请参阅 [Azure 专用主机](../../virtual-machines/dedicated-hosts.md)的详细概述。
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>根 VM 和来宾 VM 之间的 Hyper-V 和根 OS 隔离
 
@@ -190,11 +190,11 @@ Azure 将基于 VM 的计算与存储分隔开，这属于其基本设计。 这
 
 ### <a name="isolation-using-storage-access-control"></a>使用存储访问控制的隔离
 
-**Azure 存储中的访问控制**具有简单的访问控制模型。 每个 Azure 订阅都可以创建一个或多个存储帐户。 每个存储帐户都具有一个密钥，用于控制对该存储帐户中所有数据的访问权限。
+**Azure 存储中的访问控制** 具有简单的访问控制模型。 每个 Azure 订阅都可以创建一个或多个存储帐户。 每个存储帐户都具有一个密钥，用于控制对该存储帐户中所有数据的访问权限。
 
 ![使用存储访问控制的隔离](./media/isolation-choices/azure-isolation-fig9.png)
 
-可以通过 [SAS（共享访问签名）](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)令牌来控制**对 Azure 存储数据（包括表）的访问权限**，该令牌可授予限定的访问权限。 SAS 是根据查询模板 (URL) 创建的，且使用 [SAK（存储帐户密钥）](https://msdn.microsoft.com/library/azure/ee460785.aspx)进行签名。 可以将该[签名 URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 提供给另一个进程（即委托进程），后者随后可以填充查询的详细信息并发出存储服务请求。 使用 SAS，可以向客户端授予基于时间的访问权限，无需泄露存储帐户的密钥。
+可以通过 [SAS（共享访问签名）](../../storage/common/storage-sas-overview.md)令牌来控制 **对 Azure 存储数据（包括表）的访问权限**，该令牌可授予限定的访问权限。 SAS 是根据查询模板 (URL) 创建的，且使用 [SAK（存储帐户密钥）](https://docs.microsoft.com/previous-versions/azure/reference/ee460785(v=azure.100))进行签名。 可以将该[签名 URL](../../storage/common/storage-sas-overview.md) 提供给另一个进程（即委托进程），后者随后可以填充查询的详细信息并发出存储服务请求。 使用 SAS，可以向客户端授予基于时间的访问权限，无需泄露存储帐户的密钥。
 
 使用 SAS，意味着可以授权客户端在指定时间段内，以一组指定权限有限访问存储帐户中的对象。 可以授予这些有限的权限，而不必共享帐户访问密钥。
 
@@ -225,13 +225,13 @@ Azure 提供了以下加密类型来保护数据：
 
 - [存储服务加密](../../storage/blobs/security-recommendations.md)可以请求存储服务在将数据写入 Azure 存储时自动加密数据。
 - [客户端加密](../../storage/blobs/security-recommendations.md) 也提供静态加密功能。
-- [Azure 磁盘加密](../azure-security-disk-encryption-overview.md) 允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。
+- [Azure 磁盘加密](./azure-disk-encryption-vms-vmss.md) 允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘。
 
 #### <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
-适用于虚拟机 (VM) 的 [Azure 磁盘加密](../azure-security-disk-encryption-overview.md)通过使用 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 中控制的密钥和策略加密 VM 磁盘（包括引导磁盘和数据磁盘），帮助解决企业的安全和符合性要求。
+适用于虚拟机 (VM) 的 [Azure 磁盘加密](./azure-disk-encryption-vms-vmss.md)通过使用 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 中控制的密钥和策略加密 VM 磁盘（包括引导磁盘和数据磁盘），帮助解决企业的安全和符合性要求。
 
-适用于 Windows 的磁盘加密解决方案基于 [Microsoft BitLocker 驱动器加密](https://technet.microsoft.com/library/cc732774.aspx)，而 Linux 解决方案则基于 dm-crypt。
+适用于 Windows 的磁盘加密解决方案基于 [Microsoft BitLocker 驱动器加密](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11))，而 Linux 解决方案则基于 dm-crypt。
 
 在 Azure 中启用了 IaaS VM 时，该解决方案支持以下 IaaS VM 方案：
 
@@ -243,7 +243,7 @@ Azure 提供了以下加密类型来保护数据：
 - 在运行 Windows 客户端 OS 的 IaaS VM 上启用加密
 - 在包含安装路径的卷上启用加密
 - 在使用 mdadm 配置了磁盘条带化 (RAID) 的 Linux VM 上启用加密
-- 使用 [LVM（逻辑卷管理器）](https://msdn.microsoft.com/library/windows/desktop/bb540532)对 Linux VM 上的数据磁盘启用加密
+- 使用 [LVM（逻辑卷管理器）](https://docs.microsoft.com/windows/win32/fileio/about-volume-management)对 Linux VM 上的数据磁盘启用加密
 - 在使用存储空间配置的 Windows VM 上启用加密
 - 支持所有 Azure 公共区域
 

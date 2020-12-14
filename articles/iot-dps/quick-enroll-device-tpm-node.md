@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: be648370e9d88c80664411cc0f2d4360c26dc18f
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: a97e30c9db797c579dae67c5c00a2de500a50205
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564570"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431138"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>快速入门：使用 Node.js 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
 
@@ -26,7 +26,7 @@ ms.locfileid: "91564570"
 ## <a name="prerequisites"></a>先决条件
 
 - 完成[使用 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)。
-- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Node.js v4.0+](https://nodejs.org)。 本快速入门将在下面安装 [Node.js 服务 SDK](https://github.com/Azure/azure-iot-sdk-node)。
 - 认可密钥（可选）。 按照[创建和预配模拟设备](quick-create-simulated-device.md)中的步骤操作，直到获得该密钥。 请勿使用 Azure 门户创建单个注册。
 

@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 08/01/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8b12d9baa456bc9da46dfe5e894515d9cfb0dace
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 737c1ad0ae41844d5da167e23cf1647b42746969
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243448"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432243"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 的 B2B 企业集成解决方案
 
@@ -37,7 +37,7 @@ ms.locfileid: "80243448"
 
 在使用 EIP 开始构建 B2B 逻辑应用工作流之前，需要准备好以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 包含要使用的项目的[集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 

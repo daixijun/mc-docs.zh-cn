@@ -4,16 +4,16 @@ description: 使用 Azure Stack Hub 创建 Linux 服务器 VM。
 author: WenJason
 ms.topic: quickstart
 origin.date: 10/06/2020
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 72a9ddec1b1c451fd70431ca0c19145f6e941ad6
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 87a814b53937e58141a5616469052626a14642d5
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330683"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507464"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Linux 服务器 VM
 
@@ -86,6 +86,9 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
    ![身份验证](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. 为“VM 大小”选择“D1_v2”。 
+
+> [!Note]  
+> 若要创建支持 GPU 的 VM，请选择 GPU VM NC_v3 或 NC4as_T4_v3 作为 VM 大小。
 
    ![创建 Linux 服务器 - 大小](media/azure-stack-quick-linux-portal/image4a.png)
 

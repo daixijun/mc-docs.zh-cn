@@ -9,12 +9,12 @@ origin.date: 12/14/2019
 ms.date: 11/20/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d25f1c6b62343adbf83addd0d2b41320ce65437
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: 3efd3758b84fb89a599ce04ee581ccfd6931f93c
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975178"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431165"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>快速入门：通过 JavaScript 使用 Azure Functions 和 SignalR 服务创建聊天室
 
@@ -23,7 +23,7 @@ Azure SignalR 服务可让你轻松地向应用程序添加实时功能，而 Az
 ## <a name="prerequisites"></a>先决条件
 
 - 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/)
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+- 具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) 版本 2 或更高版本。 用于在本地运行 Azure Functions 应用。
 - [Node.js](https://nodejs.org/en/download/) 版本 10.x
 

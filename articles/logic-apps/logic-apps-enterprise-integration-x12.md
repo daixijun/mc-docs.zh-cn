@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.testscope: yes|no
 ms.testdate: 07/20/2020Null
 ms.author: v-yeche
-ms.openlocfilehash: 4cb6f3f832277178de10b52949cebc880d89332d
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: b83e31621998ed217581a527e16570572b8ac672
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414614"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432479"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中交换 X12 消息以实现 B2B 企业集成
 
@@ -24,7 +24,7 @@ ms.locfileid: "86414614"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果还没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果还没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 要从中使用 X12 连接器的逻辑应用，以及用于启动逻辑应用工作流的触发器。 X12 连接器仅提供操作，而不提供触发器。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

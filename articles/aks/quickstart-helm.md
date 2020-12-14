@@ -9,12 +9,12 @@ ms.date: 08/10/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 498f4387b6ce2a97d210e3a69a9832c957f0fdd6
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 9f0223e439254bfe1b11c9a86491d20965d8cead
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021258"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432529"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>快速入门：使用 Helm 在 Azure Kubernetes 服务 (AKS) 上进行开发
 
@@ -24,7 +24,7 @@ ms.locfileid: "90021258"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果你没有 Azure 订阅，可以创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果你没有 Azure 订阅，可以创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [已安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * [已安装 Helm v3][helm-install]。
 

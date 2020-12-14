@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 06/19/2019
 ms.date: 07/13/2020
-ms.openlocfilehash: ec24fa045802ee2c1326e57aa419542aa9ae72d3
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: fb48abdd40e69f56b9fee554ede4b41700f98b62
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228160"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432636"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>教程：将 Azure SQL 数据库添加到自动故障转移组
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,20 +36,20 @@ ms.locfileid: "86228160"
 
 若要完成本教程，请确保做好以下准备：
 
-- Azure 订阅。 如果你没有帐户，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 若要完成本教程，请确保准备好以下各项：
 
-- Azure 订阅。 如果你没有帐户，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 若要完成本教程，请确保准备好以下各项：
 
-- Azure 订阅。 如果你没有帐户，请[创建一个 1 元试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+- Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
 - 最新版本的 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
 ---
@@ -69,7 +69,7 @@ ms.locfileid: "86228160"
 
 1. 在 [Azure 门户](https://portal.azure.cn)的左侧菜单上选择“所有服务”。 
 1. 在搜索框中键入 `sql servers`。 
-1. 在**服务器名称**下选择服务器的名称以打开服务器的设置。
+1. 在 **服务器名称** 下选择服务器的名称以打开服务器的设置。
 
    ![打开服务器上的数据库](./media/failover-group-add-single-database-tutorial/open-sql-db-server.png)
 
@@ -91,7 +91,7 @@ ms.locfileid: "86228160"
 
      ![为故障转移组创建辅助服务器](./media/failover-group-add-single-database-tutorial/create-secondary-failover-server.png)
 
-   - **组中的数据库**：选择辅助服务器后，此选项将解除锁定。 使用该选项来**选择要添加的数据库**：请选择在第 1 部分创建的数据库。 将数据库添加到故障转移组的操作会自动启动异地复制过程。
+   - **组中的数据库**：选择辅助服务器后，此选项将解除锁定。 使用该选项来 **选择要添加的数据库**：请选择在第 1 部分创建的数据库。 将数据库添加到故障转移组的操作会自动启动异地复制过程。
 
    ![将 SQL 数据库添加到故障转移组](./media/failover-group-add-single-database-tutorial/add-sqldb-to-failover-group.png)
 
@@ -519,7 +519,7 @@ Write-host "Failover group name is" $failoverGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建在 Azure SQL 数据库中托管单一数据库和弹性池的服务器。 |

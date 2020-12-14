@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 08/05/2020
 ms.date: 11/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a4950cef30f014d7c521c70912d5a04cae53f428
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: ac41488a1dbe341470cbacd0d3b6316ba52795ba
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300075"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430911"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>快速入门：使用 Microsoft.Azure.Search v10 客户端库创建搜索索引
 
@@ -37,7 +37,7 @@ ms.locfileid: "96300075"
 
 在开始之前，必须满足以下条件：
 
-+ 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
++ 具有活动订阅的 Azure 帐户。 [试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 + Azure 认知搜索服务。 [创建服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
 

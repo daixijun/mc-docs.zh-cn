@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/23/2020
 ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: c5bc247b6a21e91418b7cc4d542a10928f6ff6a6
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 874b45cd0484ea2187056da84f8fa6d15e2e97e9
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127849"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431162"
 ---
 # <a name="text-to-speech-rest-api"></a>文本转语音 REST API
 
@@ -224,6 +224,6 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="next-steps"></a>后续步骤
 
-- [获取语音试用订阅](https://www.azure.cn/pricing/1rmb-trial/)
+- [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [用于长格式音频的异步合成](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [自定义语音入门](how-to-custom-voice.md)

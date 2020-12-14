@@ -4,18 +4,18 @@ description: 了解如何导出要用于 Java、Python 和 Node.js 应用的 Azu
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2020
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 2f637516ff3a1d4b0d5983bb9043d56aa4754a38
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b16fe5ff7c0b5bf9bbba80bcdf07d3a079fbe81b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551748"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598693"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>导出要用于 Java、Python 和 Node.js 应用的 Azure Cosmos DB 模拟器证书
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

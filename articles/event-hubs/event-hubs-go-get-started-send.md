@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 08/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9605b266525d434a6c295bd42583ee671351c0aa
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 274cf4bd29abbf8f1e101d0eac6c668f68a98210
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431011"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>快速入门：使用 Go 将事件发送到事件中心或从其接收事件
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -286,4 +286,4 @@ if err != nil {
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。

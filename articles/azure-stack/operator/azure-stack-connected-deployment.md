@@ -4,16 +4,16 @@ description: 确定部署规划决策，以便对 Azure Stack Hub 集成系统�
 author: WenJason
 ms.topic: article
 origin.date: 03/04/2020
-ms.date: 03/23/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: df6046f86a4bd482b8025f829a90be4d64ef127d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e8bf1bfd4035fe140d4a64d3492ebc0b38962898
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79547072"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507827"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 集成系统的 Azure 联网部署规划决策
 在决定[如何将 Azure Stack Hub 集成到混合云环境](azure-stack-connection-models.md)后，即可完成 Azure Stack Hub 部署决策。
@@ -35,13 +35,18 @@ ms.locfileid: "79547072"
     - 为所有需要与 Azure AD 和图形 API 交互的 Azure Stack Hub 服务预配和委托应用和服务主体。
     - 充当服务管理员帐户。 此帐户是默认提供商订阅（可以稍后更改）的所有者。 可以使用此帐户登录到 Azure Stack Hub 管理员门户，并且可以使用它在 Azure Stack Hub 中创建套餐和计划、设置配额，以及执行其他管理功能。
 
+> [!IMPORTANT]
+> - 全局管理员帐户不是运行 Azure Stack Hub 所必需的，可以在部署后禁用。
+> - 按照[此处记录的最佳做法](/security/fundamentals/identity-management-best-practices)保护全局管理员帐户。
+
+
 2. **计费帐户**（连接型部署和断开连接型部署都需要）。 此 Azure 帐户用来在 Azure Stack Hub 集成系统和 Azure 商务后端之间建立计费关系。 这是将对其收取 Azure Stack Hub 费用的帐户。 此帐户还将用于提供市场中的项目和其他混合方案。
 
 ### <a name="ad-fs-identity-store"></a>AD FS 标识存储
 如果需要将自己的标识存储（例如公司 Active Directory）用于服务管理员帐户，请选择此选项。  
 
 ## <a name="choose-a-billing-model"></a>选择计费模型
-可以选择“预付费”或“容量”计费模型。   “预付费”计费模型部署必须能够通过到 Azure 的连接报告使用情况，每 30 天至少报告一次。 因此，“预付费”计费模型仅适用于连接型部署。  
+可以选择“预付费”或“容量”计费模型。 “预付费”计费模型部署必须能够通过到 Azure 的连接报告使用情况，每 30 天至少报告一次。 因此，“预付费”计费模型仅适用于连接型部署。  
 
 ### <a name="pay-in-advance"></a>提前支付
 使用“预付费”计费模型时，你会收到 Azure 额度，其金额等于你添加到帐户的资金额。 如果这是决定要用的模型，则需一个 Azure 订阅，以及与该订阅相关联的帐户 ID（例如，serviceadmin@contoso.partner.onmschina.cn）。 支持 EA、CSP、CSL 订阅。 使用情况报告在 [Azure Stack Hub 注册](azure-stack-registration.md)期间配置。
@@ -53,8 +58,8 @@ ms.locfileid: "79547072"
 
 |方案|域和订阅选项|
 |-----|-----|
-|你是**直接 CSP 合作伙伴**或**间接 CSP 提供商**，并将操作 Azure Stack Hub|使用 CSL（通用服务层）订阅。<br>     或<br>在合作伙伴中心创建带描述性名称的 Azure AD 租户。 例如，&lt;你的组织>CSPAdmin，带有关联的 Azure CSP 订阅。|
-|你是**间接 CSP 经销商**，并将操作 Azure Stack Hub|要求间接 CSP 提供商使用合作伙伴中心为你的组织创建一个 Azure AD 租户，带有关联的 Azure CSP 订阅。|
+|你是 **直接 CSP 合作伙伴** 或 **间接 CSP 提供商**，并将操作 Azure Stack Hub|使用 CSL（通用服务层）订阅。<br>     或<br>在合作伙伴中心创建带描述性名称的 Azure AD 租户。 例如，&lt;你的组织>CSPAdmin，带有关联的 Azure CSP 订阅。|
+|你是 **间接 CSP 经销商**，并将操作 Azure Stack Hub|要求间接 CSP 提供商使用合作伙伴中心为你的组织创建一个 Azure AD 租户，带有关联的 Azure CSP 订阅。|
 
 ### <a name="capacity-based-billing"></a>基于容量的计费
 如果决定使用容量计费模型，则必须根据系统的容量购买 Azure Stack Hub 容量计划 SKU。 需要知道 Azure Stack Hub 中的物理核心数才能确保购买的数量是正确的。

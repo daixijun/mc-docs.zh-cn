@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3600c19ff1ec72217fb56050b38e302874ab44ec
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 94b46c4b30214f32925334acf2b4ee2b0975d976
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947104"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431837"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建服务总线命名空间
 
@@ -30,7 +30,7 @@ ms.locfileid: "88947104"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 

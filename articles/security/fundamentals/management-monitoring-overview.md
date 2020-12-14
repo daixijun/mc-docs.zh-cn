@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 10/28/2019
-ms.openlocfilehash: cbc440c4dabced85ca75d80bfe33fbe5d0a1543d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: e436ef83fcbd14026be94c368882757bb0ae894a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128006"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747239"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全管理和监视概述
 本文概述了 Azure 提供的安全功能和服务，以帮助管理和监视 Azure 云服务和虚拟机。
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
-基于角色的访问控制 (RBAC) 为 Azure 资源提供详细的访问管理。 使用 RBAC，可以仅授予用户执行其作业所需的访问权限。 RBAC 还有助于确保用户离开组织后无法访问云中的资源。
+Azure 基于角色的访问控制 (Azure RBAC) 为 Azure 资源提供详细的访问管理。 使用 Azure RBAC，可以仅授予用户执行其作业所需的访问权限。 Azure RBAC 还有助于确保用户离开组织后无法访问云中的资源。
 
 了解详细信息：
 
-* [有关 RBAC 的 Active Directory 团队博客](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [有关 Azure RBAC 的 Active Directory 团队博客](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>反恶意软件
@@ -48,20 +48,20 @@ ms.locfileid: "92128006"
 
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [适用于 Azure 云服务和虚拟机的 Microsoft 反恶意软件](antimalware.md)
-* [如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务](/virtual-machines/windows/classic/install-trend)
+* [如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务](../../virtual-machines/extensions/trend.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)（用于保护 Azure 虚拟机的新反恶意软件选项）
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
-Azure 多重身份验证是一种需要使用多种验证方法的身份验证方法。 它为用户登录和事务添加了关键的附加安全层。
+Azure AD 多重身份验证是一种需要使用多种验证方法的身份验证方法。 它为用户登录和事务添加了关键的附加安全层。
 
 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码）和第三方 OATH 令牌来提供强大的身份验证。
 
 了解详细信息：
 
 * [多重身份验证](/active-directory/authentication)
-* [什么是 Azure 多重身份验证？](/active-directory/authentication/multi-factor-authentication)
-* [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -125,8 +125,8 @@ Azure 安全中心可帮助防范、检测和应对威胁。 通过安全中心�
 
 了解详细信息：
 
-* [Azure 安全中心简介](../../security-center/security-center-intro.md)
-* [提高 Azure 安全中心中的安全评分](../../security-center/security-center-secure-score.md)
+* [Azure 安全中心简介](../../security-center/security-center-introduction.md)
+* [提高 Azure 安全中心中的安全评分](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

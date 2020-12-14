@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 82d37c8c5b80a212a2cd910fcdac1bb7bd11a4a3
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 246378afa27f331a00ad467eb77efbeb0bf757c5
+ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471124"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96508645"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>有关 Azure Active Directory (AD) 域服务的常见问题 (FAQ)
 
@@ -136,7 +136,7 @@ Azure AD 域服务托管域上的默认密码生存期为 90 天。 此密码生
 ## <a name="billing-and-availability"></a>计费和可用性
 
 * [Azure AD 域服务是付费服务吗？](#is-azure-ad-domain-services-a-paid-service)
-* [该服务是否有试用版？](#is-there-a-1rmb-trial-for-the-service)
+* [该服务是否有试用帐户？](#is-there-a-trial-account-for-the-service)
 * [我能否暂停 Azure AD 域服务托管域？](#can-i-pause-an-azure-ad-domain-services-managed-domain)
 * [对于 DR 事件，是否可以将 Azure AD 域服务故障转移到另一个区域？](#can-i-pause-an-azure-ad-domain-services-managed-domain)
 * [是否可以从企业移动性套件 (EMS) 获取 Azure AD 域服务？是否需要 Azure AD Premium 才能使用 Azure AD 域服务？](#can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event)
@@ -145,8 +145,8 @@ Azure AD 域服务托管域上的默认密码生存期为 90 天。 此密码生
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD 域服务是付费服务吗？
 是的。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/active-directory-ds/)。
 
-### <a name="is-there-a-trial-for-the-service"></a>该服务是否有试用版？
-Azure 的试用版中包含 Azure AD 域服务。 你可以注册 [Azure 一元试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+### <a name="is-there-a-trial-account-for-the-service"></a>该服务是否有试用帐户？
+Azure 的试用版中包含 Azure AD 域服务。 可以注册 [Azure 试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>我能否暂停 Azure AD 域服务托管域？
 否。 一旦启用 Azure AD 域服务托管域，即可在选定的虚拟网络中使用该服务，直到删除托管域为止。 无法暂停该服务。 删除托管域前，会按小时对服务计费。

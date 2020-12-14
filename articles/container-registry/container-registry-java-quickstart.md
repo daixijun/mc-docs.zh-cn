@@ -7,12 +7,12 @@ origin.date: 02/26/2020
 author: rockboyfor
 ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5d9b5190facdc37c2a61194275f5c580b7f7295f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 218a5c703883b0a7ef536bec6951b6f8977ecf2f
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104405"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432424"
 ---
 <!--No exception in Prerequistes on Azure China Cloud-->
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>快速入门：生成 Java 容器映像并将其推送到 Azure 容器注册表
@@ -21,7 +21,7 @@ ms.locfileid: "93104405"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅；如果没有 Azure 订阅，可激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅；如果还没有 Azure 订阅，可激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Azure 命令行接口 (CLI)](https://docs.azure.cn/cli/overview)。
 * 一个受支持的 Java 开发工具包 (JDK)。 有关在 Azure 上进行开发时可供使用的 JDK 的详细信息，请参阅 <https://docs.azure.cn/java/java-supported-jdk-runtime>。
 * Apache 的 [Maven](http://maven.apache.org) 生成工具（版本 3 或以上）。
@@ -57,7 +57,7 @@ ms.locfileid: "93104405"
     curl http://localhost:8080
     ```
 
-应当会看到显示了以下消息： **Hello Docker World**
+应当会看到显示了以下消息：**Hello Docker World**
 
 ## <a name="create-an-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 容器注册表
 

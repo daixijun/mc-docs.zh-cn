@@ -19,12 +19,12 @@ ms.date: 09/02/2020
 ms.author: v-tawe
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c2edc46a8a83c02c2cda1c62d3f89dcabc234f3d
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 490eda08794e0609b6855911a5d68319c2b130b0
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317492"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431128"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>教程：使用通知中心向 Windows Phone 应用发送推送通知
 
@@ -46,7 +46,7 @@ ms.locfileid: "89317492"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
 
 完成本教程是学习有关 Windows Phone 8 应用的所有其他通知中心教程的先决条件。
@@ -146,7 +146,7 @@ ms.locfileid: "89317492"
     1. 对于“平台”，请选择“Windows Phone”  。 
     2. 对于“通知类型”，请选择“Toast”。  
     3. 选择“发送” 
-    4. 请在窗口底部的列表中查看**结果**。
+    4. 请在窗口底部的列表中查看 **结果**。
 
         ![“测试性发送”窗口](./media/notification-hubs-windows-phone-get-started/test-send-window.png)
 4. 在 Windows Phone 模拟器或 Windows Phone 中，确认看到通知消息。

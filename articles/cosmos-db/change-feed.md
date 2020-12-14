@@ -5,23 +5,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/08/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e5006b6dea99f8823b9cf4b2b9d566bb3c0c63d0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: cfdacf5d4f04af77a73dd2bb7288e2c166d572d6
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328334"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598668"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos 容器中发生的任何更改。 然后，它会按照所更改文档的修改顺序输出这些文档的排序列表。 这些更改将会持久保留且能以异步和增量方式进行处理。可将输出分配到一个或多个使用者供并行处理。
+Azure Cosmos DB 中的更改源是一种持久记录，按发生顺序记录对容器所做的更改。 Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos 容器中发生的任何更改。 然后，它会按照所更改文档的修改顺序输出这些文档的排序列表。 持久保存的更改能够以异步和增量方式进行处理，而且输出可以分发到一个或多个使用者进行并行处理。
 
 详细了解[更改源设计模式](change-feed-design-patterns.md)。
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos 容器�
 
 ### <a name="consistency-level"></a>一致性级别
 
-在最终一致性级别使用更改源时，可能会在后续更改源读取操作之间发生重复的事件（一个读取操作的最后一个事件显示为下一个读取操作的第一个事件）。
+在“最终”一致性级别使用更改源时，后续更改源读取操作之间可能存在重复事件（一个读取操作的最后一个事件显示为下一个操作的第一个事件）。
 
 ### <a name="change-feed-in-multi-region-azure-cosmos-accounts"></a>多区域 Azure Cosmos 帐户中的更改流
 
@@ -97,7 +97,7 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 
 在 MongoDB API 中，更改源功能显示为更改流；在 Cassandra API 中，它是以包含谓词的查询提供的。 若要详细了解 MongoDB API 的实现细节，请参阅 [Azure Cosmos DB API for MongoDB 中的更改流](mongodb-change-streams.md)。
 
-本机 Apache Cassandra 提供变更数据捕获 (CDC)。CDC 是一种机制，用于标记要存档的特定表，并在达到 CDC 日志的可配置磁盘空间时拒绝写入这些表。 Azure Cosmos DB API for Cassandra 中的更改源功能增强了通过 CQL 使用谓词查询更改的功能。 若要详细了解实现细节，请参阅 [Azure Cosmos DB API for Cassandra 中的更改源](cassandra-change-feed.md)。
+本机 Apache Cassandra 提供变更数据捕获 (CDC)。CDC 是一种机制，用于标记要存档的特定表，并在达到 CDC 日志的可配置磁盘空间大小时拒绝写入这些表。 Azure Cosmos DB API for Cassandra 中的更改源功能增强了通过 CQL 使用谓词查询更改的功能。 若要详细了解实现细节，请参阅 [Azure Cosmos DB API for Cassandra 中的更改源](cassandra-change-feed.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

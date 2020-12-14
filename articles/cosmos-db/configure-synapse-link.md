@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: references_regions
-ms.openlocfilehash: 0df9c1e59b1df275a96df7707edc33435ff1fdf4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c5114a14d3d43eabe77ed0936cac84b50656920f
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328630"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598662"
 ---
 <!--Verified successfully-->
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>配置和使用 Azure Synapse Link for Azure Cosmos DB（预览版）
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) 是一种云原生混合事务和分析处理 (HTAP) 功能，可用于对 Azure Cosmos DB 中的操作数据运行准实时分析。 Synapse Link 在 Azure Cosmos DB 和 Azure Synapse Analytics 之间建立紧密的无缝集成。
 
@@ -74,7 +74,9 @@ Azure Synapse Link 可用于 Azure Cosmos DB SQL API 容器或 Azure Cosmos DB A
 
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)或 [Azure Cosmos 资源管理器](https://cosmos.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+
+    <!--Not Avaialble on [Azure Cosmos explorer](https://cosmos.azure.com/)-->
 
 1. 导航到你的 Azure Cosmos DB 帐户，打开“数据资源管理器”选项卡。
 
@@ -198,7 +200,7 @@ except exceptions.CosmosResourceExistsError:
     * 打开“规模和设置”窗口。
     * 在“设置”下，找到“分析存储生存时间”。
     * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值 
-    * 单击“保存”以保存更改。
+    * 单击“保存”  以保存更改。
 
 #### <a name="net-sdk"></a>.NET SDK
 

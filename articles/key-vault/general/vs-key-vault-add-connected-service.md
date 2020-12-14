@@ -10,12 +10,12 @@ ms.topic: how-to
 origin.date: 08/07/2019
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1bfe6f28981cca1d9ee605b7aaef209dd2aea5db
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2d777f5ffa1a9f17a1e906e0eecd1b5c566e3ac7
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300958"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430812"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务将 Key Vault 添加到 Web 应用程序
 
@@ -25,7 +25,7 @@ ms.locfileid: "96300958"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **一个 Azure 订阅**。 如果没有订阅，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- **一个 Azure 订阅**。 如果没有订阅，请注册[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Visual Studio 2019 版本 16.3 或更高版本 [立即下载](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 

@@ -3,17 +3,17 @@ title: Azure Stack Hub 中的缩放单元节点操作
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
 author: WenJason
 ms.topic: how-to
-origin.date: 04/30/2020
-ms.date: 08/31/2020
+origin.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 815eb67542c979f223ad854bd42da5051f976f2f
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: c7c37b6cf2f171e320185194fc494c89aa121a9b
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867862"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507921"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -63,12 +63,16 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 在应用以下步骤之前，请确保当前没有正在进行的操作。 更新终结点，使之与环境匹配。
 
-1. 打开 PowerShell 并添加 Azure Stack Hub 环境。 这需要在计算机上[安装 Azure Stack Hub PowerShell](./azure-stack-powershell-install.md)。
 
-   ```powershell
-   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzureRmAccount -Environment AzureStack
-   ```
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
+1. 打开 PowerShell 并添加 Azure Stack Hub 环境。 这需要在计算机上[安装 Azure Stack Hub PowerShell](./powershell-install-az-module.md)。
+
+    ```powershell
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzAccount -Environment AzureStack
+    ```
 
 2. 运行以下命令以重启 Fabric 资源提供程序角色。
 
@@ -84,6 +88,32 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 4. 如果节点操作状态仍显示为“正在添加”，则继续创建支持事件。
 
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+1. 打开 PowerShell 并添加 Azure Stack Hub 环境。 这需要在计算机上[安装 Azure Stack Hub PowerShell](./powershell-install-az-module.md)。
+
+    ```powershell
+    Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzureRMAccount -Environment AzureStack
+    ```
+
+2. 运行以下命令以重启 Fabric 资源提供程序角色。
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. 验证受影响的缩放单元节点的操作状态是否已更改为“正在运行”。 可以使用管理员门户或以下 PowerShell 命令：
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. 如果节点操作状态仍显示为“正在添加”，则继续创建支持事件。
+
+---
+
+
 
 ## <a name="scale-unit-node-actions"></a>缩放单元节点操作
 
@@ -96,7 +126,7 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 节点的工作状态确定了哪些选项可用。
 
-需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 
 ## <a name="stop"></a>停止
 
@@ -202,6 +232,6 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装 Azure Stack PowerShell](./azure-stack-powershell-install.md)
-- [了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+- [安装 Azure Stack PowerShell](./powershell-install-az-module.md)
+- [了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
 - [监视“添加节点”操作](./azure-stack-add-scale-node.md#monitor-add-node-operations)

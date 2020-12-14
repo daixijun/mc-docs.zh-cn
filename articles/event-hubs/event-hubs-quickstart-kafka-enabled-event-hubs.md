@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6dc73a522eaf64b0175f6869177f52209c2afce5
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 11a2c2b2e8e6ac36a850ddff41fc5fae1d8bb245
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375596"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430945"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>快速入门：使用 Kafka 协议通过事件中心进行数据流式传输
 此快速入门介绍如何在不更改协议客户端或运行自己的群集的情况下将数据流式传输到事件中心。 你将了解如何只需更改应用程序配置，即可使用生产者和使用者与事件中心通信。 
@@ -23,7 +23,7 @@ ms.locfileid: "93375596"
 若要完成本快速入门，请确保符合以下先决条件：
 
 * 通读[用于 Apache Kafka 的事件中心](event-hubs-for-kafka-ecosystem-overview.md)一文。
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)。
 * [下载](https://maven.apache.org/download.cgi)并[安装](https://maven.apache.org/install.html) Maven 二进制存档。
 * [Git](https://www.git-scm.com/)

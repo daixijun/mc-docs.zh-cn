@@ -6,12 +6,12 @@ origin.date: 10/29/2019
 ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: fdcaedbd1ff02ea778faf78758f4daec926f3c9b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b42c68795cf064e51a15f06ba547302dc5c84819
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543870"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431721"
 ---
 <!--Verified successfully on 12/16/2019-->
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板
@@ -37,7 +37,7 @@ Azure DevOps 提供开发人员服务，以支持团队规划工作、协作开�
 > * 更新模板并重新部署
 > * 清理资源
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -230,7 +230,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
     进行以下更改：
 
-    * **deploymentScope**：从以下选项中选择部署范围：`Management Group`、`Subscription` 和 `Resource Group`。 在本教程中使用**资源组**。 若要详细了解范围，请参阅[部署范围](deploy-rest.md#deployment-scope)。
+    * **deploymentScope**：从以下选项中选择部署范围：`Management Group`、`Subscription` 和 `Resource Group`。 在本教程中使用 **资源组**。 若要详细了解范围，请参阅[部署范围](deploy-rest.md#deployment-scope)。
     * **ConnectedServiceName**：指定前面创建的服务连接名称。
     * **SubscriptionName**：指定目标订阅 ID。
     * **操作**：“创建或更新资源组”操作执行 2 项操作 - 1.  如果提供了新的资源组名称，则创建资源组；2. 部署指定的模板。

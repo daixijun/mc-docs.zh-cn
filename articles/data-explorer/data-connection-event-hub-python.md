@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: f678c201604de572659f31786ee736ec14136b3c
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 29ddad92dcd8d14ae21afb6eb77980bcd777869e
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300627"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431191"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建事件中心数据连接
 
@@ -28,7 +28,7 @@ ms.locfileid: "96300627"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Python 3.4+](https://www.python.org/downloads/)。
 * [一个群集和数据库](create-cluster-database-python.md)。
 * [表和列映射](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)。

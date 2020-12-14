@@ -10,12 +10,12 @@ author: rockboyfor
 ms.date: 11/30/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: faa37c105cba64d3ac520b343107b8a8b51bbf44
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 22a67135a26431b0a32de52ce5d3bffd9e0188b3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024469"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431896"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 
@@ -42,7 +42,7 @@ ms.locfileid: "96024469"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * [Azure 存储帐户和存储容器](../storage/blobs/storage-quickstart-blobs-portal.md)
 

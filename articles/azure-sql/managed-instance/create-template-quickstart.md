@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 06/22/2020
 ms.date: 07/13/2020
-ms.openlocfilehash: 01b7681daaa6de4967fb79c5fbc42e8e119d8bfa
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 6934e866b27fbdf920150cfb1aa3c7ae8640be58
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227532"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432541"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure SQL 托管实例
 
@@ -31,7 +31,7 @@ ms.locfileid: "86227532"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请[创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
+如果没有 Azure 订阅，请[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 

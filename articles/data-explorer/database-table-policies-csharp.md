@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/24/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 4813a347a3090f65020c3ea89c91d379cc56aa31
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 83216465f1eadad8f2c4c78e64d0399df2f54d64
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103561"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431152"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>使用 C# 为 Azure 数据资源管理器创建数据库和表策略
 
@@ -27,7 +27,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 ## <a name="prerequisites"></a>必备条件
 
 * Visual Studio 2019。 如果没有 Visual Studio 2019，可以下载并使用 *免费的* [Visual Studio Community 2019](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保选择“Azure 开发”。 
-* Azure 订阅。 可以根据需要在开始之前创建[试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 可以根据需要在开始之前创建[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [一个测试群集和数据库](create-cluster-database-csharp.md)。
 * [测试表](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)。
 

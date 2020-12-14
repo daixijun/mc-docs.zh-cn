@@ -2,21 +2,22 @@
 title: 如何使用系统分配的托管标识访问 Azure Cosmos DB 数据
 description: 了解如何配置 Azure Active Directory (Azure AD) 系统分配的托管标识（托管服务标识），以访问 Azure Cosmos DB 中的密钥。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 03/20/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5261d9c78a9a115dac9d32b2d89dfc2311ed4661
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: c578bb3c7343a0564c5b7d0bc3c426d89d31481b
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552199"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598404"
 ---
 <!--Verified successfully on Portal section-->
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>使用系统分配的托管标识访问 Azure Cosmos DB 数据
@@ -81,7 +82,7 @@ ms.locfileid: "94552199"
 
 ### <a name="assign-the-role-using-azure-cli"></a>使用 Azure CLI 分配角色
 
-若要使用 Azure CLI 分配角色，请使用以下命令：
+若要使用 Azure CLI 分配角色，请运行以下命令：
 
 <!--Not Available on Azure Cloud Shell-->
 

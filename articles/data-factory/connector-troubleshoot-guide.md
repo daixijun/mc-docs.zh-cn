@@ -5,17 +5,17 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 09/10/2020
-ms.date: 09/21/2020
+origin.date: 11/25/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 22bb20079c7d58aad574adfc45bd07734b0e89b7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a70b9300b21fff4149e982735f671dfdbee3297a
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523641"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747270"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>排查 Azure 数据工厂连接器问题
 
@@ -53,7 +53,7 @@ ms.locfileid: "90523641"
 
 ### <a name="error-message-request-size-is-too-large"></a>错误消息：请求过大
 
-- **症状**：将数据复制到使用默认写入批大小的 Azure Cosmos DB 时，遇到错误“请求过大”。**
+- **症状**：将数据复制到使用默认写入批大小的 Azure Cosmos DB 时，遇到错误“请求过大”。
 
 - **原因：** Cosmos DB 将单个请求的大小限制为 2 MB。 公式为请求大小 = 单个文档大小 * 写入批大小。 如果文档过大，默认行为会导致请求过大。 可以优化写入批大小。
 
@@ -396,7 +396,7 @@ ms.locfileid: "90523641"
 
 - 消息：`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **原因：** 在活动中设置“firstRowAsHeader”时，第一行将用作列名。 此错误表示第一行包含空值。 例如：'ColumnA,, ColumnB'.
+- **原因：** 在活动中设置“firstRowAsHeader”时，第一行将用作列名。 此错误表示第一行包含空值。 例如：“ColumnA, ColumnB”。
 
 - **建议**：检查第一行，如果存在空值，请修复值。
 
@@ -601,6 +601,29 @@ ms.locfileid: "90523641"
 
 - **建议**：删除有效负载中的“CompressionType”。
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>来自 REST 连接器的意外网络响应
+
+- **症状**：终结点有时从 REST 连接器收到意外响应 (400/401/403/500)。
+
+- **原因：** 构造 HTTP 请求时，REST 源连接器将来自链接服务/数据集/复制源的 URL 和 HTTP 方法/标头/正文用作参数。 此问题很可能是由一个或多个指定参数中的某些错误引起的。
+
+- **解决方法**： 
+    - 在 cmd 窗口中使用“curl”检查参数是否是问题的原因（Accept 和 User-Agent 标头应始终包括在内 ）：
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      如果命令返回相同的意外响应，请使用“curl”修复以上参数，直到返回预期的响应。 
+
+      也可以使用“curl --help”来更高级地使用命令。
+
+    - 如果只有 ADF REST 连接器返回意外响应，请联系 Azure 支持人员，以进一步进行故障排除。
+    
+    - 请注意，“curl”可能不适合重现 SSL 证书验证问题。 在某些情况下，“curl”命令已成功执行，但没有遇到任何 SSL 证书验证问题。 但是，当在浏览器中执行相同的 URL 时，客户端实际上不会首先返回任何 SSL 证书来建立与服务器的信任。
+
+      对于上述情况，建议使用 Postman 和 Fiddler 之类的工具 。
 
 
 ## <a name="general-copy-activity-error"></a>常规复制活动错误

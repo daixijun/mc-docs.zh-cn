@@ -9,16 +9,16 @@ manager: digimobile
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
-ms.topic: article
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.topic: how-to
 origin.date: 02/20/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: a82f26a5221c300d38e27d9f304dc85e00f5691e
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 12/07/2020
+ms.openlocfilehash: cedd1026042acf55cc7b064c3792656a5dcb1b7e
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440426"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746821"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>使用 Azure PowerShell 将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -39,14 +39,14 @@ ms.locfileid: "86440426"
 * [SQL Server 2016 或更高版本](https://www.microsoft.com/sql-server/sql-server-downloads)（任意版本）
 * 启用 TCP / IP 协议，使用 SQL Server Express 安装的情况下会默认禁用该协议。 遵循[启用或禁用服务器网络协议](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)一文启用 TCP/IP 协议。
 * 配置[针对数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-* Azure SQL 数据库实例。 可以按照[在 Azure 门户中创建 Azure SQL 数据库中的数据库](/sql-database/sql-database-get-started-portal)一文中的详细说明来创建 Azure SQL 数据库实例。
+* Azure SQL 数据库实例。 可以按照[在 Azure 门户中创建 Azure SQL 数据库中的数据库](../azure-sql/database/single-database-create-quickstart.md)一文中的详细说明来创建 Azure SQL 数据库实例。
 * [数据迁移助手](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 或更高版本。
-* 使用 Azure 资源管理器部署模型创建一个 Azure 虚拟网络，该虚拟网络使用 [ExpressRoute](/expressroute/expressroute-introduction) 或 [VPN](/vpn-gateway/vpn-gateway-about-vpngateways) 使 Azure 数据库迁移服务与本地源服务器建立站点到站点连接。
+* 使用 Azure 资源管理器部署模型创建一个 Azure 虚拟网络，该虚拟网络使用 [ExpressRoute](../expressroute/expressroute-introduction.md) 或 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) 使 Azure 数据库迁移服务与本地源服务器建立站点到站点连接。
 * 已使用[执行 SQL Server 迁移评估](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)一文中所述的数据迁移助手完成对本地数据库和架构迁移的评估
 * 使用 [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1) 从 PowerShell 库下载并安装 Az.DataMigration 模块；请务必使用“以管理员身份运行”来打开 PowerShell 命令窗口。
 * 确保用于连接到源 SQL Server 实例的凭据具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 权限。
 * 确保用于连接到目标 Azure SQL DB 实例的凭据具有目标 Azure SQL 数据库的 CONTROL DATABASE 权限。
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+* Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
@@ -152,7 +152,7 @@ $project = New-AzDataMigrationProject -ResourceGroupName myResourceGroup `
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>创建源和目标的凭据参数
 
-可以将连接安全凭据作为 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 对象创建。
+可以将连接安全凭据作为 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 对象创建。
 
 以下示例显示了如何为源和目标连接创建 PSCredential 对象，将密码作为字符串变量 $sourcePassword 和 $targetPassword 提供。
 
@@ -196,8 +196,8 @@ $selectedDbs = New-AzDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks20
 * TaskName。 要创建的任务的名称。 
 * *SourceConnection*。 表示源 SQL Server 连接的 AzDmsConnInfo 对象。
 * *TargetConnection*。 表示目标 Azure SQL 数据库连接的 AzDmsConnInfo 对象。
-* SourceCred。 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 对象，用于连接到源服务器。
-* TargetCred。 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 对象，用于连接到目标服务器。
+* SourceCred。 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 对象，用于连接到源服务器。
+* TargetCred。 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 对象，用于连接到目标服务器。
 * SelectedDatabase。 表示源和目标数据库映射的 AzDataMigrationSelectedDB 对象。
 * *SchemaValidation*。 （可选，开关参数）迁移后，在源和目标之间执行架构信息比较。
 * *DataIntegrityValidation*。 （可选，开关参数）迁移后，在源和目标之间执行基于校验和的数据完整性验证。

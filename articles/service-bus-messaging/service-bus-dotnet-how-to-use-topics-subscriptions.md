@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: be9152d804050f330281bcb61d46cbbf7863aa06
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: f0a4dc4a9a7ff72e2e19b71633ef83de78fc37ec
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162126"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432711"
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
@@ -27,12 +27,12 @@ ms.locfileid: "87162126"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活你的 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 2. 按照[快速入门：使用 Azure 门户创建服务总线主题和主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
-    1. 创建一个服务总线**命名空间**。
-    2. 获取**连接字符串**。
-    3. 在此命名空间中创建一个**主题**。
-    4. 在此命名空间中创建对此主题的**一个订阅**。
+    1. 创建一个服务总线 **命名空间**。
+    2. 获取 **连接字符串**。
+    3. 在此命名空间中创建一个 **主题**。
+    4. 在此命名空间中创建对此主题的 **一个订阅**。
 3. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 4. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
@@ -42,7 +42,7 @@ ms.locfileid: "87162126"
 
 ### <a name="create-a-console-application"></a>创建控制台应用程序
 
-启动 Visual Studio 并创建新的**控制台应用 (.NET Core)** 项目。
+启动 Visual Studio 并创建新的 **控制台应用 (.NET Core)** 项目。
 
 ### <a name="add-the-service-bus-nuget-package"></a>添加服务总线 NuGet 包
 

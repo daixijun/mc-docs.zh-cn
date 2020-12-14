@@ -1,16 +1,17 @@
 ---
 title: Azure Functions 的 Azure Blob 存储输入绑定
-description: 了解如何向 Azure Functions 提供 Azure Blob 存储数据。
+description: 了解如何向某个 Azure 函数提供 Azure Blob 存储输入绑定数据。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: 34aa1cf72ca49da787aaaf9fd962644c925b5636
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 38a3cb5791b7f91f04d1dd69f0fcb9c58f45ebd1
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494594"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507701"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储输入绑定
 
@@ -251,7 +252,8 @@ JavaScript 不支持特性。
 |name  | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
 |**路径** |**BlobPath** | Blob 的路径。 |
 |连接  |**Connection**| 包含要用于此绑定的[存储连接字符串](../storage/common/storage-configure-connection-string.md)的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，则 Functions 运行时会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[仅限 Blob 的存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
-|不适用 | **Access** | 表示是要读取还是写入。 |
+|**dataType**| 不适用 | 对于动态类型化语言，指定基础数据类型。 可能的值为 `string`、`binary` 或 `stream`。  |
+|不适用 | **访问** | 表示是要读取还是写入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -267,7 +269,7 @@ JavaScript 不支持特性。
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-使用 `context.bindings.<NAME>` 访问 blob 数据，其中 `<NAME>` 与 function.json  中定义的值匹配。
+使用 `context.bindings.<NAME>` 访问 blob 数据，其中 `<NAME>` 与 function.json 中定义的值匹配。
 
 # <a name="java"></a>[Java](#tab/java)
 

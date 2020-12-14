@@ -11,12 +11,12 @@ origin.date: 01/05/2019
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.date: 11/11/2019
-ms.openlocfilehash: 5f00129ab18b51eb548d3c3deaf6a3ea91d80145
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: b31b06e9e6fa52f38857747ae281a57b2d687d43
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029698"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96431777"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 
@@ -29,7 +29,7 @@ ms.locfileid: "88029698"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
@@ -127,7 +127,7 @@ ms.locfileid: "88029698"
 
 默认情况下，“Foreach”循环中的周期并行运行。 若要按顺序运行每个周期，请设置循环的“顺序”选项。 如果期望得出可预测结果的循环中具有嵌套循环或变量时，“Foreach”循环必须按顺序运行。 
 
-1. 在循环的右上角，选择**省略号** ( **...** ) >“设置”。
+1. 在循环的右上角，选择 **省略号** ( **...** ) >“设置”。
 
    ![在 Foreach 循环中，选择“...”>“设置”](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -205,7 +205,7 @@ ms.locfileid: "88029698"
 
    ![添加“Until”循环](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. 通过选择 **Limit** 变量和**等于**运算符构建循环的退出条件。 输入 **10** 作为比较值。
+1. 通过选择 **Limit** 变量和 **等于** 运算符构建循环的退出条件。 输入 **10** 作为比较值。
 
    ![构建用于停止循环的退出条件](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/13/2019
 ms.date: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: a4d663a978f2b7369eb38eef8934506151b396a1
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: a830f796ae00a3b6d8716a726c36475a4e76aef3
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414723"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432308"
 ---
 <!--NOT SUITABLE FOR AZURE CHINA CLOUD-->
 <!--DROPBOX NOT EXISTS-->
@@ -30,7 +30,7 @@ ms.locfileid: "86414723"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 将逻辑应用连接到本地系统（例如文件系统服务器）之前，需要[安装并设置本地数据网关](../logic-apps/logic-apps-gateway-install.md)。 这样，便可以指定在从逻辑应用创建文件系统连接时要使用网关安装。
 

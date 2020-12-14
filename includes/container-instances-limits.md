@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.testscope: no
 ms.testdate: 03/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2f1c48022fc0a9a6519f916c2505fa9488873b41
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: fb340bce53a8ed28249adad93540fd9912616edd
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919356"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96476881"
 ---
 | 资源 | 限制 |
 | --- | :--- |
@@ -32,8 +32,8 @@ ms.locfileid: "87919356"
 
 <!--ONLY AVAILABLE ON V100 TO MATCH NCv3-->
 
-<sup>1</sup>要请求提高上限，请创建一个 [Azure 支持请求][azure-support]。 从包括 [Azure免费帐户](https://www.azure.cn/pricing/1rmb-trial-full)的免费订阅到“标准预付费套餐”订阅。<br />
-<sup>2</sup> [标准预付费套餐](https://www.azure.cn/pricing/1rmb-trial-full)订阅的默认限制。 其他类别类型的上限可能有所不同。<br/>
+<sup>1</sup>要请求提高上限，请创建一个 [Azure 支持请求][azure-support]。 从包括[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)的免费订阅到“标准预付费套餐”订阅。<br />
+<sup>2</sup> [标准预付费套餐](https://www.microsoft.com/china/azure/index.html?fromtype=cn)订阅的默认限制。 其他类别类型的上限可能有所不同。<br/>
 
 <!-- LINKS - External -->
 

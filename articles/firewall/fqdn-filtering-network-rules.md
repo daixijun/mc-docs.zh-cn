@@ -6,16 +6,16 @@ ms.service: firewall
 ms.topic: article
 origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2a25543b199235b17b110ee3c87a4bcd7300c30f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 284f2a01328f85f1339c9160aae726faad9fc2ac
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977565"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746591"
 ---
 <!--Verified successfully-->
 # <a name="use-fqdn-filtering-in-network-rules"></a>在网络规则中使用 FQDN 筛选

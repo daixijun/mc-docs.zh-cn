@@ -4,21 +4,21 @@ description: 了解如何监视 Azure Cosmos DB 的性能和可用性。
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 08/24/2020
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/07/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: subject-monitoring
-ms.openlocfilehash: e560d097aaca8778d88ced55e92e948ad5f17d37
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 5d4c7f03709aa7be0c597897791406150e0841dd
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552804"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598514"
 ---
-# <a name="monitoring-azure-cosmos-db"></a>监视 Azure Cosmos DB
+# <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 当你的关键应用程序和业务流程依赖于 Azure 资源时，你需要监视这些资源的可用性、性能和操作。 本文介绍 Azure Cosmos 数据库生成的监视数据，以及如何使用 Azure Monitor 的功能在此数据的基础上进行分析和发出警报。
@@ -37,13 +37,17 @@ ms.locfileid: "94552804"
 
 :::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Azure 门户中提供的监视选项" border="false":::
 
-使用 Azure Cosmos DB 时，可以在客户端上收集有关请求费用、活动 ID、异常/堆栈跟踪信息、HTTP 状态/子状态代码、诊断字符串的详细信息，以调试可能发生的任何问题。 如果需要与 Azure Cosmos DB 支持团队联系，也需要这些信息。  
+使用 Azure Cosmos DB 时，可以在客户端上收集有关请求费用、活动 ID、异常/堆栈跟踪信息、HTTP 状态/子状态代码、诊断字符串的详细信息，以调试可能发生的任何问题。 如果需要与 Azure Cosmos DB 支持团队联系，也需要这些信息。 
+
+## <a name="monitor-overview"></a>Monitor 概述
+
+Azure 门户中每个 Azure Cosmos DB 帐户的“概述”页面包含资源使用情况的简要视图，例如请求总数、导致特定 HTTP 状态代码的请求，以及每小时计费。 这些信息非常有用，但此页面只提供少量的监视数据。 创建资源后，其中的某些数据会自动收集，并可供分析。 你可以使用某些配置启用其他数据收集类型。
 
 ## <a name="what-is-azure-monitor"></a>说明是 Azure Monitor？
 
 Azure Cosmos DB 使用 [Azure Monitor](../azure-monitor/overview.md) 创建监视数据，后者是 Azure 中的一项完整堆栈监视服务，它提供了一组完整的功能来监视 Azure 资源以及其他云中和本地的资源。
 
-如果你尚不熟悉如何监视 Azure 服务，请从[使用 Azure Monitor 监视 Azure 资源](../azure-monitor/insights/monitor-azure-resource.md)一文开始，其中介绍了以下内容：
+如果你尚不熟悉如何监视 Azure 服务，请从[使用 Azure Monitor 监视 Azure 资源](../azure-monitor/insights/monitor-azure-resource.md)一文着手，其中介绍了以下概念：
 
 * 说明是 Azure Monitor？
 * 与监视相关的成本
@@ -55,13 +59,13 @@ Azure Cosmos DB 使用 [Azure Monitor](../azure-monitor/overview.md) 创建监�
 
 ## <a name="azure-monitor-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure Monitor
 
-适用于 Azure Cosmos DB 的 Azure Monitor 基于 [Azure Monitor 的工作簿功能](../azure-monitor/platform/workbooks-overview.md)，并使用为以下部分中所述的 Cosmos DB 收集的相同监视数据。 使用 Azure Monitor 以统一的交互式体验查看所有 Azure Cosmos DB 资源的总体性能、故障、容量和操作运行状况，并利用 Azure Monitor 的其他功能进行详细分析和发出警报。 若要了解详细信息，请参阅文章[探究适用于 Azure Cosmos DB 的 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md)。
+适用于 Azure Cosmos DB 的 Azure Monitor 基于 [Azure Monitor 的工作簿功能](../azure-monitor/platform/workbooks-overview.md)，并使用以下部分中所述的为 Azure Cosmos DB 收集的相同监视数据。 使用 Azure Monitor 以统一的交互式体验查看所有 Azure Cosmos DB 资源的总体性能、故障、容量和操作运行状况，并利用 Azure Monitor 的其他功能进行详细分析和发出警报。 若要了解详细信息，请参阅文章[探究适用于 Azure Cosmos DB 的 Azure Monitor](../azure-monitor/insights/cosmosdb-insights-overview.md)。
 
 > [!NOTE]
-> 创建容器时，请确保不创建名称相同但大小写不同的两个容器。 这是因为 Azure 平台的某些部分不区分大小写，这可能会在具有此类名称的容器上导致遥测和操作混乱/冲突。
+> 创建容器时，请确保不创建名称相同但大小写不同的两个容器。 这是因为 Azure 平台的某些部分不区分大小写，这可能会对具有此类名称的容器导致遥测和操作混乱/冲突。
 
 <a name="monitoring-from-azure-cosmos-db"></a>
-## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a>监视从 Azure Cosmos DB 门户收集的数据
+## <a name="monitoring-data"></a>监视数据 
 
 Azure Cosmos DB 会收集与[来自 Azure 资源的监视数据](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)中所述的其他 Azure 资源相同类型的监视数据。 有关 Azure Cosmos DB 创建的日志和指标的详细参考，请参阅 [Azure Cosmos DB 监视数据参考](monitor-cosmos-db-reference.md)。
 
@@ -69,18 +73,35 @@ Azure 门户中每个 Azure Cosmos 数据库的“概述”页都提供数据库
 
 :::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="概述页":::
 
+## <a name="collection-and-routing"></a>收集和路由
+
+平台指标和活动日志会自动收集和存储，但你可以使用诊断设置将其路由到其他位置。  
+
+在创建诊断设置并将其路由到一个或多个位置之前，不会收集和存储资源日志。
+
+若要了解使用 Azure 门户创建诊断设置的详细过程以及一些诊断查询示例，请参阅[创建诊断设置以收集 Azure 中的平台日志和指标](cosmosdb-monitor-resource-logs.md)。 创建诊断设置时，请指定要收集的日志类别。
+
+以下部分将讨论可以收集的指标和日志。
+
 <a name="analyze-metric-data"></a>
-## <a name="analyzing-metric-data"></a>分析指标数据
+## <a name="analyzing-metrics"></a>分析指标
 
-Azure Cosmos DB 提供了一个自定义体验来用于处理指标。
+Azure Cosmos DB 提供了一个自定义体验来用于处理指标。 可以从“Azure Monitor”菜单中打开“指标”，使用指标资源管理器根据来自其他 Azure 服务的指标分析 Azure Cosmos DB 的指标 。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)。 你还可以查看如何为你的 Azure Cosmos DB 资源监视[请求单位用量](monitor-request-unit-usage.md)。
 
-可以从“Azure Monitor”菜单中打开“指标”，使用指标资源管理器根据来自其他 Azure 服务的指标分析 Azure Cosmos DB 的指标 。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)。 Azure Cosmos DB 的所有指标都位于命名空间“Cosmos DB 标准指标”中。 在将筛选器添加到图表时，可对这些指标使用以下维度：
+<!--Not Available on [server-side latency](monitor-server-side-latency.md)-->
+<!--Not Available on [normalized request unit usage](monitor-normalized-request-units.md)-->
+
+有关为 Azure Cosmos DB 收集的平台指标的列表，请参阅[监视 Azure Cosmos DB 数据参考指标] (monitor-cosmos-db-reference.md#metrics)一文。
+
+Azure Cosmos DB 的所有指标都位于命名空间“Cosmos DB 标准指标”中。 在将筛选器添加到图表时，可对这些指标使用以下维度：
 
 * CollectionName
 * DatabaseName
 * OperationType
 * 区域
 * StatusCode
+
+若要参考，可以查看 [Azure Monitor 中所有受支持的资源指标](https://docs.azure.cn/azure-monitor/platform/metrics-supported)列表。
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>查看 Azure Cosmos DB 的操作级别指标
 
@@ -111,25 +132,27 @@ Azure Cosmos DB 提供了一个自定义体验来用于处理指标。
 :::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="添加“应用拆分”筛选器":::
 
 <a name="analyze-log-data"></a>
-## <a name="analyzing-log-data"></a>分析日志数据
+## <a name="analyzing-logs"></a>分析日志
 
-Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有的属性集。 Azure Cosmos DB 将数据存储在以下表中。
+Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有的属性集。
+
+Azure Monitor 中的所有资源日志都具有后跟服务特定字段的相同字段。 [Azure Monitor 资源日志架构](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema)概述了常见架构。 有关为 Azure Cosmos DB 收集的资源日志类型的列表，请参阅[监视 Azure Cosmos DB 数据参考] (monitor-cosmos-db-reference.md#resource-logs)。  
+
+[活动日志](https://docs.azure.cn/azure-monitor/platform/activity-log)是 Azure 中的一种平台日志，可用于深入了解订阅级别事件。 你可以单独查看它或将它路由到 Azure Monitor 日志，然后便可以在其中使用 Log Analytics 执行复杂得多的查询。  
+
+Azure Cosmos DB 将数据存储在以下表中。
 
 | 表 | 说明 |
 |:---|:---|
 | AzureDiagnostics | 由多个服务用来存储资源日志的公用表。 可以使用 `MICROSOFT.DOCUMENTDB` 识别来自 Azure Cosmos DB 的资源日志。   |
 | AzureActivity    | 用于存储活动日志中所有记录的公用表。
 
+### <a name="sample-kusto-queries"></a>示例 Kusto 查询
+
 > [!IMPORTANT]
-> 在 Azure Cosmos DB 菜单中选择“日志”时，Log Analytics 随即打开，其查询范围设置为当前 Azure Cosmos 数据库。 这意味着日志查询只包含来自该资源的数据。 如果希望运行的查询包含其他数据库或其他 Azure 服务的数据，请从“Azure Monitor”菜单中选择“日志”。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../azure-monitor/log-query/scope.md)。
+> 从 Azure Cosmos DB 菜单中选择“日志”时，Log Analytics 随即打开，其查询范围设置为当前 Azure Cosmos DB 帐户。 这意味着日志查询只包含来自该资源的数据。 如果你希望运行的查询包含来自其他帐户或其他 Azure 服务的数据，请从“Azure Monitor”菜单中选择“日志”。 有关详细信息，请参阅 [Azure Monitor Log Analytics 中的日志查询范围和时间范围](../azure-monitor/log-query/scope.md)。
 
-### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Monitor 中的 Azure Cosmos DB Log Analytics 查询
-
-可在“日志搜索”搜索栏中输入下面这些查询，以帮助监视 Azure Cosmos 容器。 这些查询使用[新语言](../azure-monitor/log-query/log-query-overview.md)。
-
-<!--CORRECT ON [new language](../azure-monitor/log-query/log-query-overview.md)-->
-
-下面是一些可用于帮助监视 Azure Cosmos 数据库的查询。
+可在“日志搜索”搜索栏中输入下面这些查询，以便监视 Azure Cosmos 资源。 这些查询使用[新语言](../azure-monitor/log-query/log-query-overview.md)。
 
 * 若要查询指定时间段内来自 Azure Cosmos DB 的所有诊断日志，请执行以下操作：
 
@@ -155,6 +178,18 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
     | where Caller == "test@company.com" and ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+
+## <a name="alerts"></a>警报
+
+在监视数据中发现重要情况时，Azure Monitor 警报会主动通知你。 有了警报，你就可以在客户注意到你的系统中的问题之前确定和解决它们。 可以在[指标](https://docs.azure.cn/azure-monitor/platform/alerts-metric-overview)、[日志](https://docs.azure.cn/azure-monitor/platform/alerts-unified-log)和[活动日志](https://docs.azure.cn/azure-monitor/platform/activity-log-alerts)上设置警报。 不同类型的警报各有优缺点
+
+例如，下表列出了资源的几个警报规则。 可以从 Azure 门户中找到警报规则的详细列表。 若要了解详细信息，请参阅[如何配置警报](create-alerts.md)一文。  
+
+| 警报类型 | 条件 | 描述  |
+|:---|:---|:---|
+|请求单位的速率限制（指标警报） |维度名称：StatusCode，运算符：等于，维度值：429  | 如果容器或数据库已超出预配的吞吐量限制，则会发出警报。 |
+|已故障转移区域 |运算符：大于，聚合类型：计数，阈值：1 | 单个区域发生故障转移时。 如果未启用自动故障转移，则此警报非常有用。 |
+| 轮换密钥（活动日志警报）| 事件级别：信息，状态：已启动| 当轮换帐户密钥时发出警报。 你可以用新密钥更新你的应用程序。 |
 
 <a name="monitor-cosmosdb-programmatically"></a>
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>以编程方式监视 Azure Cosmos DB

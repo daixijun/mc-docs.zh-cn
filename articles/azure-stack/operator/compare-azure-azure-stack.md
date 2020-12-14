@@ -5,16 +5,16 @@ description: 了解全球 Azure、Azure Stack Hub 与 Azure Stack HCI 之间的�
 author: WenJason
 ms.topic: overview
 origin.date: 07/10/2019
-ms.date: 08/31/2020
+ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 468b63571c43662cb460b0ad3b33073b5e8078de
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 278ced3a83fccb10392b07fb20ac4fdafae8eadd
+ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868096"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96507941"
 ---
 # <a name="differences-between-azure-azure-stack-hub-and-azure-stack-hci"></a>Azure、Azure Stack Hub 与 Azure Stack HCI 之间的差异
 
@@ -22,13 +22,13 @@ Microsoft 在一个 Azure 生态系统中提供 Azure 和 Azure Stack Hub 系列
 
 本文介绍 Azure、Azure Stack Hub 和 Azure Stack HCI 的功能差异。 它提供了常见的方案建议，帮助你在为组织交付基于 Microsoft 云的服务时做出最佳选择。
 
-![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family.svg)
+![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="azure"></a>Azure
 
 Azure 包括一系列不断扩增的云服务，可帮助组织解决业务难题。 它允许你自由使用偏好的工具和框架，在大规模全球网络中构建、管理和部署应用。
 
-Azure 提供 100 多个可在 4 个区域使用的服务。 有关 Azure 服务的最新列表，请参阅[*各区域可用的产品*](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 Azure 中提供的服务按类别列出，同时会指出是否已推出正式版，或者以预览版提供。
+Azure 提供 100 多个可在 4 个区域使用的服务。 有关 Azure 服务的最新列表，请参阅 [*各区域可用的产品*](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 Azure 中提供的服务按类别列出，同时会指出是否已推出正式版，或者以预览版提供。
 
 有关全球 Azure 服务的详细信息，请参阅 [Azure 入门](https://docs.azure.cn/#pivot=get-started&panel=get-started1)。
 
@@ -82,6 +82,8 @@ Azure Stack HCI 使用 OEM 合作伙伴提供的经 Microsoft 验证的硬件来
 - 低成本存储
 - 云中的高可用性和灾难恢复
 - 虚拟化企业应用，如 SQL Server
+
+请访问 [Azure Stack HCI 网站](/azure-stack/hci/)，以查看 Azure 合作伙伴目前提供的 70 多种 Azure Stack HCI 解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 

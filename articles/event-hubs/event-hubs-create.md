@@ -5,12 +5,12 @@ ms.topic: quickstart
 origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: bb3da0f4bbdb71787a2109d08c3f94bc43d26b7d
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 3c1b3b03f0635f0b675ca331175866e3db67b2d6
+ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063362"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96430966"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
@@ -21,7 +21,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 若要完成本快速入门，请确保具备以下项：
 
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -33,8 +33,8 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
    ![资源组 -“添加”按钮](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
 1. 对于“订阅”，请选择要在其中创建资源组的 Azure 订阅的名称。 
-1. 键入**资源组的唯一名称**。 系统会立即检查该名称是否在当前选定的 Azure 订阅中可用。
-1. 选择资源组所在的**区域**。
+1. 键入 **资源组的唯一名称**。 系统会立即检查该名称是否在当前选定的 Azure 订阅中可用。
+1. 选择资源组所在的 **区域**。
 1. 选择“查看 + 创建”  。
 
    ![资源组 - 创建](./media/event-hubs-quickstart-portal/resource-groups2.png)
@@ -45,18 +45,18 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 事件中心命名空间提供唯一的范围容器，可以通过其完全限定的域名进行引用，而在该容器中，可以创建一个或多个事件中心。 若要使用门户在资源组中创建命名空间，请执行以下操作：
 
 1. 在 Azure 门户中，单击屏幕左上角的“创建资源”。 
-1. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择**星号 (`*`)**。 确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。   
+1. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择 **星号 (`*`)**。 确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。  
     
    ![搜索事件中心](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
-1. 选择左侧导航菜单中“收藏夹”下的“事件中心”，然后选择工具栏上的“添加”。   
+1. 选择左侧导航菜单中“收藏夹”下的“事件中心”，然后选择工具栏上的“添加”。  
 
    ![“添加”按钮](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 1. 在“创建命名空间”页上执行以下步骤  ：  
-   1. 选择要在其中创建命名空间的**订阅**。  
+   1. 选择要在其中创建命名空间的 **订阅**。  
    1. 选择在上一步创建的  资源组。   
-   1. 输入命名空间的**名称**。 系统会立即检查该名称是否可用。  
-   1. 选择命名空间所在的**位置**。      
-   1. 选择**定价层**（基本或标准）。    
+   1. 输入命名空间的 **名称**。 系统会立即检查该名称是否可用。  
+   1. 选择命名空间所在的 **位置**。      
+   1. 选择 **定价层**（基本或标准）。    
    1. 按原样保留“吞吐量单位”  设置。 若要了解吞吐量单位，请参阅[事件中心的可伸缩性](event-hubs-scalability.md#throughput-units)。  
    1. 在页面底部选择“查看 + 创建”  。
       

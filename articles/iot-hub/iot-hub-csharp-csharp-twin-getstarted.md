@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/26/2019
 ms.author: v-yiso
 ms.date: 03/09/2020
-ms.openlocfilehash: 332691706218ed34c470ecde4a72167628ca1cf4
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 5b1517cf6c4c40d6e0751c0d4c0a9c0a6d907e02
+ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463139"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96747137"
 ---
 # <a name="get-started-with-device-twins-net"></a>设备孪生入门 (.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "89463139"
 ## <a name="prerequisites"></a>先决条件
 
 * Visual Studio。
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。）
 * 确保已在防火墙中打开端口 8883。 本文中的设备示例使用 MQTT 协议，该协议通过端口 8883 进行通信。 在某些公司和教育网络环境中，此端口可能被阻止。 有关解决此问题的更多信息和方法，请参阅[连接到 IoT 中心(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -231,13 +231,13 @@ ms.locfileid: "89463139"
 
 1. 在“通用属性” > “启动项目”中，选择“多启动项目”。 对于“ReportConnectivity”，选择“启动”作为“操作”。 选择“确定”保存更改。  
 
-1. 右键单击 ReportConnectivity 项目并选择“调试”，然后选择“启动新实例”来运行此应用  。 应该显示应用正在获取孪生信息，然后将连接性作为报告属性发送。
+1. 右键单击 ReportConnectivity 项目并选择“调试”，然后选择“启动新实例”来运行此应用  。 随后应会看到该应用获取孪生信息，然后发送连接信息作为**_报告属性_* _。
 
     ![运行设备应用以报告连接性](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 
    设备报告了其连接信息之后，该信息应显示在两个查询中。
 
-1. 右键单击“AddTagsAndQuery”项目，然后选择“调试” > “启动新实例”以再次运行查询。 这一次 myDeviceId 应显示在两个查询结果中。
+1. 右键单击 _ *AddTagsAndQuery** 项目并选择“调试” > “启动新实例”，以再次运行查询。  这一次 myDeviceId 应显示在两个查询结果中。
 
     ![设备连接性报告成功](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 

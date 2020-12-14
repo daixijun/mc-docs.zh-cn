@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 中的数据库事务和乐观并发控制
 description: 本文介绍 Azure Cosmos DB 中的数据库事务和乐观并发控制
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 12/04/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 55a8ae4725484d48ee58ba265b7aa71e74ea781b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6c28436ef486e5596b616ea8816d165a3595161d
+ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328914"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96598701"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>事务和乐观并发控制
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -66,6 +67,7 @@ Azure Cosmos DB 的通信协议层对项的并发更新受 OCC 限制。 Azure C
 - [使用 Azure Cosmos 数据库、容器和项](account-databases-containers-items.md)
 - [一致性级别](consistency-levels.md)
 - [冲突类型和解决策略](conflict-resolution-policies.md)
+- [使用 TransactionalBatch](transactional-batch.md)
 - [存储过程、触发器和用户定义的函数](stored-procedures-triggers-udfs.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->
