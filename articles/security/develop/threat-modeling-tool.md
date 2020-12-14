@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool 概述 - Azure
 description: 概述 Microsoft Threat Modeling Tool，其中包含有关如何开始使用该工具的信息（包括威胁建模过程）。
-author: jegeib
-ms.author: v-tawe
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 12/03/2020
 oriign.date: 02/16/2017
-ms.openlocfilehash: 9e1434138a827d4a3748da3254c2ba49b6ae06f5
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 4580701354c4bf79bdc0e9e1341081e2321ae7ab
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200075"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105313"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 威胁建模工具
 
@@ -36,7 +36,7 @@ ms.locfileid: "84200075"
 
 ## <a name="next-steps"></a>后续步骤
 
-下表包含可帮助你开始使用此威胁建模工具的重要链接：
+下表包含可帮助你开始使用此威胁建模工具的重要链接：另请参阅：[系统要求](threat-modeling-tool-releases.md)
 
 | 步骤  | 说明                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ ms.locfileid: "84200075"
 | **2** | [阅读入门指南](threat-modeling-tool-getting-started.md)    |
 | **3** | [熟悉功能](threat-modeling-tool-feature-overview.md)   |
 | **4** | [了解有关已发生威胁的类别](threat-modeling-tool-threats.md)   |
-<!-- not available-->
+| **5** | [查找已发生威胁的缓解措施](threat-modeling-tool-mitigations.md) |
 
 ## <a name="resources"></a>资源
 
@@ -57,3 +57,4 @@ ms.locfileid: "84200075"
 
 * [威胁管理器](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Simone Curzi 安全博客](https://simoneonsecurity.com/)
+

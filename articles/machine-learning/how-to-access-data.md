@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 8592482ff73ebd4cdb398f71136e606e0aa10ee3
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: cb455bd44d8857aa64390ee8dc6d9d9746b9d527
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978269"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105332"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>连接到 Azure 上的存储服务
 
@@ -31,7 +31,7 @@ ms.locfileid: "94978269"
 ## <a name="prerequisites"></a>先决条件
 
 需要：
-- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 一个使用[支持的存储类型](#matrix)的 Azure 存储帐户。
 
@@ -69,6 +69,7 @@ ms.locfileid: "94978269"
 [Azure&nbsp;SQL&nbsp;数据库](../azure-sql/database/sql-database-paas-overview.md)| SQL 身份验证 <br>服务主体| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;PostgreSQL](/postgresql/overview) | SQL 身份验证| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](/mysql/overview) | SQL 身份验证|  | ✓* | ✓* |✓*|
+[Databricks&nbsp;文件系统](/databricks/data/databricks-file-system)| 无身份验证 | | ✓** | ✓ ** |✓** |
 
 \* 仅管道 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py) 支持 MySQL<br />
 \*\* 仅管道 [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py) 支持 Databricks
@@ -137,7 +138,7 @@ ms.locfileid: "94978269"
 
 ### <a name="azure-blob-container"></a>Azure blob 容器
 
-若要将 Azure blob 容器注册为数据存储，请使用 [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)。
+若要将 Azure blob 容器注册为数据存储，请使用 [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)。
 
 以下代码会创建 `blob_datastore_name` 数据存储并将其注册到 `ws` 工作区。 此数据存储使用提供的帐户访问密钥访问 `my-account-name` 存储帐户上的 `my-container-name` Blob 容器。 请查看[存储访问和权限](#storage-access-and-permissions)部分，以获取有关虚拟网络方案以及在何处查找所需身份验证凭据的指南。 
 

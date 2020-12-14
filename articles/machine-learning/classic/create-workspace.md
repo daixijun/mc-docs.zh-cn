@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 937ae63e0d042cd2023e8eabdd2c33223698384d
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8b0a5eba78a42617d3c1366544ae9d870002c25a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978051"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104507"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>创建并共享机器学习工作室（经典）工作区
 
@@ -119,7 +119,7 @@ ms.locfileid: "94978051"
 
    ![Internet 选项](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. 在“常规”选项卡下，单击“删除�” 
+2. 在“常规”选项卡下，单击“删除...”
 
    ![“常规”选项卡](media/troubleshooting-creating-ml-workspace/screen5.png)
 

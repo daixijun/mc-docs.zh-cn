@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/28/2020
-ms.date: 09/02/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 06dc4aa7aedd06db5c24914e7c2ac073ba407603
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 137d5f0679de1194e786a2dbf1bb0139d2cd3da2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317595"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004154"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>语音识别服务静态数据的加密
 
@@ -27,14 +27,14 @@ ms.locfileid: "89317595"
 
 ## <a name="about-encryption-key-management"></a>关于加密密钥管理
 
-使用自定义语音识别和语音识别服务可能会将以下数据存储在云中：  
+使用自定义语音识别和自定义语音时，语音识别服务可能会将以下数据存储在云中：  
 
 * 语音识别跟踪数据 - 仅当你为自定义终结点启用了跟踪时才存储
 * 已上传的训练和测试数据
 
 默认情况下，你的数据存储在 Microsoft 的存储中，你的订阅使用 Microsoft 托管的加密密钥。 你还可以选择准备你自己的存储帐户。 对应用商店的访问是由托管标识管理的，语音识别服务无法直接访问你自己的数据，例如语音识别跟踪数据、自定义训练数据和自定义模型。
 
-有关托管标识的详细信息，请参阅[什么是托管标识](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)。
+有关托管标识的详细信息，请参阅[什么是托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 <!-- 
 ## Bring your own storage (BYOS) for customization and logging
@@ -54,4 +54,4 @@ The Speech service doesn't currently support Customer Lockbox. However, customer
 
 <!-- * [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk) -->
 
-* [什么是托管标识](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)。
+* [什么是托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
