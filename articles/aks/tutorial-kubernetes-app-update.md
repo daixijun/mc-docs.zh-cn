@@ -5,17 +5,17 @@ services: container-service
 ms.topic: tutorial
 origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: c9d565d11ea5bf8ccb612806167589b68ae3c88b
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 029233f135beeb6ebf0a741dd794d84b1ff15fe2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470194"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004164"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序
 
@@ -81,7 +81,7 @@ docker-compose up --build -d
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用 [docker tag][docker-tag] 标记映像。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称或公共注册表主机名，并将映像版本更新为 *:v2* ，如下所示：
+使用 [docker tag][docker-tag] 标记映像。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称或公共注册表主机名，并将映像版本更新为 *:v2*，如下所示：
 
 ```console
 docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
@@ -150,7 +150,7 @@ kubectl get service azure-vote-front
 
 现在，请打开本地 Web 浏览器并访问服务的 IP 地址：
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="一个屏幕截图，显示使用本地 Web 浏览器和本地主机打开的已更新容器映像 Azure 投票应用的示例。":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="一个屏幕截图，显示在本地 Web 浏览器中打开的已更新应用程序 Azure 投票应用的示例。":::
 
 ## <a name="next-steps"></a>后续步骤
 

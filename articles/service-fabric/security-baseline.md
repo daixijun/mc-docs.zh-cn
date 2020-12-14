@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d923c369f0cf681f65c2c5ebb5021914b9d95e8e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 443e8f4286e88520743008b053aa106c5628b382
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551900"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105350"
 ---
 <!--All Links Verified Successfully-->
 
@@ -81,9 +81,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 <!--Not Available on * [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)-->
 
-* [了解 Azure 安全中心集成的威胁情报](../security-center/threat-protection.md)
-
-<!--Pending on [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)-->
+* [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -151,7 +149,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 还可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、RBAC 控制措施和策略），来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅和环境，并通过版本控制来微调控制措施和管理。
 
-* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -317,9 +315,9 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 此外，可以使用 Azure 安全中心标识和访问管理建议。
 
-* [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
 
-* [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 * [如何使用 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
@@ -531,9 +529,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [了解 Azure 中的静态加密](../security/fundamentals/encryption-atrest.md)
 
-* [如何配置客户管理的加密密钥](../storage/common/storage-encryption-keys-portal.md)
-
-<!--Pending on [How to configure customer-managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md)-->
+* [如何配置客户管理的加密密钥](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [为 Windows 中的 Azure Service Fabric 群集节点启用磁盘加密](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -585,7 +581,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [Service Fabric 群集节点的修补程序管理](./service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
 
-<!--Not Available on * [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)-->
+* [Azure 虚拟机规模集的自动 OS 映像升级](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
 
 * [如何使用最新的规模集模型对 VM 进行更新](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
@@ -601,7 +597,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [Service Fabric 群集节点的修补程序管理](./service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration)
 
-<!--Not Available on * [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)-->
+* [Azure 虚拟机规模集的自动 OS 映像升级](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
 
 * [如何为 Service Fabric 群集配置 OS 修补计划](./service-fabric-patch-orchestration-application.md)
 
@@ -637,7 +633,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-* [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
 
 * [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -755,7 +751,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 **指导**：使用特定于操作系统的配置或第三方资源来限制用户在 Azure 计算资源中执行脚本的能力。
 
-* [例如，如何在 Windows 环境中控制 PowerShell 脚本执行](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [例如，如何在 Windows 环境中控制 PowerShell 脚本执行](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6&preserve-view=true)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -781,7 +777,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 **指导**：在“Microsoft.ServiceFabric”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Service Fabric 群集的网络配置。
 
-* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -821,9 +817,9 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 **指导**：如果使用自定义的 Azure Policy 定义，请使用 Azure DevOps 或 Azure Repos 安全地存储和管理代码。
 
-* [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -865,7 +861,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 **指导**：在“Microsoft.ServiceFabric”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Service Fabric 群集的配置。
 
-* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -977,7 +973,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [了解 Azure Service Fabric 中的定期备份配置](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 
-* [如何在 Azure 中备份密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [如何在 Azure 中备份密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -991,7 +987,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [在 Azure Service Fabric 中还原备份](./service-fabric-backup-restore-service-trigger-restore.md)
 
-* [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -1005,7 +1001,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [Azure 存储静态加密](../storage/common/storage-service-encryption.md)
 
-<!--Not Available on * [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)-->
+* [如何在 Key Vault 中启用“软删除”](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：目前不可用
 

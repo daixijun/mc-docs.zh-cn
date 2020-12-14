@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d3a656cbe22bfd310f3996a442dec4af356dea
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 0d0fb67e1a54eb57f45b8f53b72c36b02fcb6070
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918474"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004089"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南简要介绍了如何开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序，目标受众为 Active Directory/Microsoft 365 全局管理员。
 
 ## <a name="overview"></a>概述
-通过构建与 Azure AD 集成的应用程序，可让组织的用户使用 Microsoft 365 进行单一登录。 在 Azure AD 中拥有应用程序可让用户控制应用程序的身份验证策略。 若要详细了解条件访问以及如何使用多重身份验证 (MFA) 保护应用，请参阅[配置访问规则](../conditional-access/app-based-mfa.md)。
+通过构建与 Azure AD 集成的应用程序，可让组织的用户使用 Microsoft 365 进行单一登录。 在 Azure AD 中拥有应用程序可让用户控制应用程序的身份验证策略。 若要详细了解条件访问以及如何使用多重身份验证 (MFA) 保护应用，请参阅[配置访问规则](../authentication/tutorial-enable-azure-mfa.md)。
 
 注册应用程序以使用 Azure Active Directory。 注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
 
-目录的任何成员（不是来宾）都可以注册应用程序，也称为 *创建应用程序对象*。 如果你无法注册应用程序，则意味着你的目录的全局管理员已限制了此功能，你可能需要与他们联系以[获得适当的权限](/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles)，然后才能注册该应用程序。 若要详细了解如何限制用户的权限，请参阅[在 Azure Active Directory 中委托应用注册权限](/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications)。
+目录的任何成员（不是来宾）都可以注册应用程序，也称为 *创建应用程序对象*。 如果你无法注册应用程序，则意味着你的目录的全局管理员已限制了此功能，你可能需要与他们联系以[获得适当的权限](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles)，然后才能注册该应用程序。 若要详细了解如何限制用户的权限，请参阅[在 Azure Active Directory 中委托应用注册权限](../roles/delegate-app-roles.md#restrict-who-can-create-applications)。
 
 注册应用程序后，可让任何用户执行以下操作：
 
@@ -55,14 +55,14 @@ ms.locfileid: "95918474"
 * 抑制默认的用户同意体验
 
 ## <a name="configure-access-rules"></a>配置访问规则
-在 SaaS 应用中配置基于应用程序的访问规则。 例如，这可能要求 MFA，或只允许受信任网络上的用户访问。 [配置访问规则](../conditional-access/app-based-mfa.md)文档中提供了相关详细信息。
+在 SaaS 应用中配置基于应用程序的访问规则。 例如，这可能要求 MFA，或只允许受信任网络上的用户访问。 [配置访问规则](../authentication/tutorial-enable-azure-mfa.md)文档中提供了相关详细信息。
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>将应用程序配置为要求用户分配，并分配用户
 默认情况下，用户无需分配即可访问应用程序。 不过，如果应用程序公开角色或者希望应用程序显示在用户的“我的应用”上，则应该要求用户分配。
 
 如果是 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 的订阅者，我们强烈建议使用组。 将组分配到应用程序可让你将持续进行的访问管理委派给组所有者。 可以创建组，或使用组管理功能请求组织中负责人创建组。
 
-[将用户和组分配到应用程序](methods-for-assigning-users-and-groups.md)  
+[将用户和组分配到应用程序](./assign-user-or-group-access-portal.md)  
 
 
 ## <a name="suppress-user-consent"></a>抑制用户同意
@@ -70,7 +70,7 @@ ms.locfileid: "95918474"
 
 对于信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
-有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)（将应用程序与 Azure Active Directory 集成）。
+有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md)（将应用程序与 Azure Active Directory 集成）。
 
 
 

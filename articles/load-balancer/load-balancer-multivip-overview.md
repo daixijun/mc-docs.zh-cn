@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/07/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 5be901ab6077661db4ab88a8eb36c58ecc337814
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 61dedd6fa3a703a9d04cb198a0e9c96bb6e357c8
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747187"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105291"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
 

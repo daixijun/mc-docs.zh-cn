@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.service: security
 ms.topic: article
-ms.date: 10/12/2020
-ms.openlocfilehash: 3bfec1648bc3bfaa2641685fd010620f8e8098a8
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.date: 12/03/2020
+ms.openlocfilehash: 657564f5d4e438890134fbcbf9cc12d2ff51ddcb
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128768"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105190"
 ---
 # <a name="threat-modeling-tool-update-release-73007142---07142020"></a>Threat Modeling Tool 更新版 7.3.00714.2 - 2020/07/14
 
@@ -30,7 +30,7 @@ Microsoft Threat Modeling Tool (TMT) 的版本 7.3.00714.2 已于 2020 年 7 月
 
 ## <a name="documentation-and-feedback"></a>文档和反馈
 
-- Threat Modeling Tool 的文档位于 [docs.microsoft.com](/security/azure-security-threat-modeling-tool)，其中包含[有关如何使用该工具](/security/azure-security-threat-modeling-tool-getting-started)的信息。
+- Threat Modeling Tool 的文档位于 [docs.azure.cn](./threat-modeling-tool.md)，其中包含[有关如何使用该工具](./threat-modeling-tool-getting-started.md)的信息。
 
 ## <a name="next-steps"></a>后续步骤
 

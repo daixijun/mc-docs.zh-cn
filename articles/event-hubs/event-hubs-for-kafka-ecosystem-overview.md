@@ -5,12 +5,12 @@ ms.topic: article
 ms.author: v-tawe
 origin.date: 09/25/2020
 ms.date: 11/05/2020
-ms.openlocfilehash: acae544bfda51f8dbdabb2f495b2b527e99f7fc3
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: b9d52b70eeebfb80401a9b60a988d84c5c20f76a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375757"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004111"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>使用 Apache Kafka 应用程序中的 Azure 事件中心
 事件中心提供与 Apache Kafka® 生成者和使用者 API 兼容的终结点，大多数现有 Apache Kafka 客户端应用程序可以使用这些 API 作为运行你自己的 Apache Kafka 群集的替代方法。 事件中心 1.0 及更高版本支持 Apache Kafka 的生成者和使用者 API 客户端。
@@ -48,9 +48,9 @@ ms.locfileid: "93375757"
 
 Coming from building applications using Apache Kafka, it will also useful to understand that Azure Event Hubs is part of a fleet of services which also includes [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), and [Azure Event Grid](../event-grid/overview.md). 
 
-While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka does not implement, for instance, the [competing-consumer](/azure/architecture/patterns/competing-consumers) queue pattern, does not have support for  [publish-subscribe](/azure/architecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
+While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka does not implement, for instance, the [competing-consumer](https://docs.microsoft.com/azurearchitecture/patterns/competing-consumers) queue pattern, does not have support for  [publish-subscribe](https://docs.microsoft.com/azurearchitecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
 
-To understand the differences between patterns and which pattern is best covered by which service, please review the [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
+To understand the differences between patterns and which pattern is best covered by which service, please review the [Asynchronous messaging options in Azure](https://docs.microsoft.com/azurearchitecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
 
 If you need specific features of Apache Kafka that are not available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas.md), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
 -->

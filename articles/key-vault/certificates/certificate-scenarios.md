@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 origin.date: 06/13/2020
-ms.date: 11/27/2020
+ms.date: 12/11/2020
 ms.author: v-tawe
-ms.openlocfilehash: ed8b8a9dc054303a33c2babf0fe2b3bfdbda10c4
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 7378397dbace52e96fd9ade12f67bb79789f2508
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300295"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105335"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -51,7 +51,7 @@ ms.locfileid: "96300295"
     -   提供程序  
     -   凭据 - CA 帐户凭据。 每个 CA 都有其自身的特定数据。  
 
-    若要详细了解如何通过 CA 提供者来创建帐户，请参阅 [Key Vault 博客](https://aka.ms/kvcertsblog)上的相关文章。  
+    <!-- For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault).   -->
 
 **步骤 3.1** - 设置用于接收通知的 [证书联系人](https://docs.microsoft.com/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts)。 这是 Key Vault 用户的联系人。 Key Vault 不强制执行此步骤。  
 
@@ -114,7 +114,6 @@ AKV 支持 2 种基于 PEM 的格式。 可以合并单个 PKCS#8 编码的证�
 
 -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
-我们目前不支持 PEM 格式的 EC 密钥。
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>使用不与 Key Vault 配合使用的 CA 创建证书  
  此方法允许使用除 Key Vault 的合作提供者之外的其他 CA，也就是说，组织可以使用自选的 CA。  

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: nibaccam
 origin.date: 07/31/2020
 ms.date: 08/27/2020
-ms.openlocfilehash: 3c13e426708bff9d9bb4134f10ae1eb6fd7ddfdb
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 41022f0789c709b265f7f0133f15622f7e51beab
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977923"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105277"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>创建 Azure 机器学习数据集
 
@@ -40,7 +40,7 @@ ms.locfileid: "94977923"
 
 若要创建和使用数据集，需要做好以下准备：
 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有订阅，请在开始之前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)。
 

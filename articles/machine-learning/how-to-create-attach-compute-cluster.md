@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: bc564e8baa48a81e5d3a4a199b779d8c72ad340c
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 63fc0c69de0816fc914e7069768ae4152aa3a86d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977503"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105284"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>创建 Azure 机器学习计算群集
 
@@ -102,18 +102,17 @@ cpu_cluster.wait_for_completion(show_output=True)
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 
-```azurecli
+```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-有关详细信息，请参阅 [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)。
+有关详细信息，请参阅 [az ml computetarget create amlcompute](/cli/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true)。
 
 # <a name="studio"></a>[工作室](#tab/azure-studio)
 
 有关在工作室中创建计算群集的信息，请参阅[在 Azure 机器学习工作室中创建计算目标](how-to-create-attach-compute-studio.md#amlcompute)。
 
 ---
-
 
 ## <a name="set-up-managed-identity"></a><a id="managed-identity"></a> 设置托管标识
 
@@ -206,4 +205,4 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 使用计算群集执行以下操作：
 
 * [提交训练运行](how-to-set-up-training-targets.md) 
-* [运行批量推理](how-to-use-parallel-run-step.md)。
+* [运行批量推理](./tutorial-pipeline-batch-scoring-classification.md)。

@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 origin.date: 08/07/2019
-ms.date: 11/09/2020
-ms.openlocfilehash: a30d0f68c2222563b812b82f84ebd88d957fee77
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/14/2020
+ms.openlocfilehash: 57177f9fa836cc293028a53a0582c0214b178a08
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328713"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850732"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放单个 PostgreSQL 服务器
 此示例 CLI 脚本在查询指标后为单个 Azure Database for PostgreSQL 服务器缩放计算和存储。 计算可以增加或减少。 存储只能增加。 
@@ -22,7 +22,9 @@ ms.locfileid: "94328713"
 > [!IMPORTANT] 
 > 存储只能增加，不能减少。
 
-本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 ## <a name="sample-script"></a>示例脚本
 使用你的订阅 ID 更新脚本。

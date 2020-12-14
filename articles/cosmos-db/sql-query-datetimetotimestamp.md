@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimeToTimestamp
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeToTimestamp。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 8ccd74e7f29fcef014ed2fe143e96543910dd67e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 5a02df86de22c60c4854ce6751bdf4a9d2355400
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552645"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850854"
 ---
 <!--Verified Successfully-->
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DateTimeToTimestamp (Azure Cosmos DB)
@@ -32,7 +33,7 @@ DateTimeToTimestamp (<DateTime>)
 ## <a name="arguments"></a>参数
 
 *DateTime*  
-   `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值，其中：
+  `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值，其中：
 
   |格式|描述|
   |-|-|
@@ -46,7 +47,7 @@ DateTimeToTimestamp (<DateTime>)
   |.fffffff|七位数的小数秒|
   |Z|UTC（协调世界时）指示符||
 
- <!--Not Available on [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]-->
+  <!--Not Available on [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]-->
 
 ## <a name="return-types"></a>返回类型
 

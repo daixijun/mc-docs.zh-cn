@@ -8,15 +8,16 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+origin.date: 01/10/2020
+ms.date: 12/21/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4cecd81c4621ba5a68ff02143a3b578d8abbe02b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 74c79c18725b8b7aecb591dac514f12694da5644
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978000"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105255"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器将数据移入和移出 Azure Blob 存储
 Azure 存储资源管理器是 Microsoft 免费提供的应用，可用于在 Windows、macOS 和 Linux 上处理 Azure 存储数据。 本主题介绍如何使用它从 Azure Blob 存储上传和下载数据。 该工具可以从 [Microsoft Azure 存储资源管理器](https://storageexplorer.com/)下载。
@@ -34,7 +35,7 @@ Azure 存储资源管理器是 Microsoft 免费提供的应用，可用于在 Wi
 ## <a name="prerequisites"></a>必备条件
 本文档假定已有 Azure 订阅、存储帐户，以及该帐户对应的存储密钥。 上传/下载数据之前，必须知道 Azure 存储帐户名和帐户密钥。 
 
-* 若要设置 Azure 订阅，请参阅[免费试用一个月版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 若要设置 Azure 订阅，请参阅[免费试用一个月版](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 若要查看存储帐户创建说明并了解如何获取帐户和密钥信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-account-create.md)。 记下存储帐户的访问密钥，因为在使用 Azure 存储资源管理器工具连接到帐户时需要此密钥。
 * Azure Storage Explorer 工具可以从 [Microsoft Azure 存储资源管理器](https://storageexplorer.com/)下载。 在安装过程中接受默认值。
 

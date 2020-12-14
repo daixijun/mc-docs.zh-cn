@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: v-yiso
 origin.date: 07/09/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 50a41209e93efdcedb27352bf9d4b07c99569b22
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 917dff36b45bb787137999943a6e684daaa45ef9
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977984"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105042"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>使用 Azure 机器学习 Visual Studio Code 扩展（预览版）训练和部署图像分类 TensorFlow 模型
 
@@ -35,7 +35,7 @@ ms.locfileid: "94977984"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 安装 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)，一种轻量型跨平台代码编辑器。
 - Azure 机器学习工作室 Visual Studio Code 扩展。 有关安装说明，请参阅 [Azure 机器学习 Visual Studio Code 扩展安装教程](./tutorial-setup-vscode-extension.md)
 
@@ -278,7 +278,7 @@ ms.locfileid: "94977984"
 
 `MNIST-rc` 运行配置添加到“TeamWkspc-com”计算节点下，`MNIST-env` 环境配置添加到“环境”节点下。
 
-## <a name="train-the-model"></a>训练模型
+## <a name="train-the-model"></a>定型模型
 
 在训练过程中创建 TensorFlow 模型的方式是这样的：针对要分类的每个相应的数字处理在该模型中嵌入的训练数据和学习模式。 
 

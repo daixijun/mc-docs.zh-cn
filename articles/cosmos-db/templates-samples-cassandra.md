@@ -2,19 +2,20 @@
 title: 用于 Azure Cosmos DB Cassandra API 的资源管理器模板
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB Cassandra API。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/17/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8315aaadd6510290dc56f74ae43b8a3c24a40cac
-ms.sourcegitcommit: ae6fee4690c71f18e223ea023156dba71236978a
+ms.openlocfilehash: 21d77a2e0c7640bff655202055193f7dba168fd9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94588276"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850450"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Cassandra API 资源
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -458,5 +459,4 @@ ms.locfileid: "94588276"
 * [Azure Cosmos DB 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [排查常见 Azure 资源管理器部署错误](../azure-resource-manager/templates/common-deployment-errors.md)
 
-<!-- Update_Description: new article about templates samples cassandra -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

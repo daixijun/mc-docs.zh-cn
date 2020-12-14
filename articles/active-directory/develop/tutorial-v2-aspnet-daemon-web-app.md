@@ -9,19 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 8781b0411c052cdaf2f1e7dcf64eed802a81c69a
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 2d9ce526a03b9b7d318c05a7ebdfff5770034dfc
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508946"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003766"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>教程：生成使用 Microsoft 标识平台的多租户守护程序
 
-在本教程中，你将了解如何使用 Microsoft 标识平台在长时间运行的非交互式过程中访问 Microsoft 企业客户的数据。 示例守护程序使用 [OAuth2 客户端凭据授予](v2-oauth2-client-creds-grant-flow.md)获取访问令牌。 然后，该守护程序使用该令牌调用 [Microsoft Graph](https://graph.microsoft.io) 并访问组织数据。
+在本教程中，你将下载并运行 ASP.NET 守护程序 Web 应用，该应用演示了如何使用 OAuth 2.0 客户端凭据授权获取用于调用 Microsoft Graph API 的访问令牌。
+
+在本教程中：
 
 > [!div class="checklist"]
 > * 将守护程序应用与 Microsoft 标识平台集成
@@ -99,7 +101,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 1. 转到面向开发人员的 Microsoft 标识平台中的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 1. 选择“新注册”。
-1. “注册应用程序”页出现后，请输入应用程序的注册信息：
+1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
    - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **dotnet-web-daemon-v2**。
    - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。 
    - 在“重定向 URI (可选)”部分的组合框中选择“Web”，然后输入以下重定向 URI： 

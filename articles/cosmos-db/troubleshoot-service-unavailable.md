@@ -2,20 +2,21 @@
 title: 排查“Azure Cosmos DB 服务不可用”异常
 description: 了解如何诊断和修复“Azure Cosmos DB 服务不可用”异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 6d911afa63fa5d95a2d8b7f5d48051c5e8140b56
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f2828a336d249e73723d11c7abff70fd70731397
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552275"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850789"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>诊断和排查“Azure Cosmos DB 服务不可用”异常

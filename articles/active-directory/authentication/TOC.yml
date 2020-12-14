@@ -9,7 +9,7 @@
   items:
     - name: 启用自助式密码重置
       href: tutorial-enable-sspr.md
-    - name: 启用 Azure 多重身份验证
+    - name: 启用 Azure AD 多重身份验证
       href: tutorial-enable-azure-mfa.md
     - name: 启用向本地进行密码写回
       href: tutorial-enable-sspr-writeback.md
@@ -40,11 +40,13 @@
       items:
         - name: 部署指南
           href: howto-sspr-deployment.md
+        - name: 用户自定义选项
+          href: howto-sspr-customization.md
         - name: 预注册身份验证数据
           href: howto-sspr-authenticationdata.md
         - name: 用于 Windows 客户端的 SSPR
           href: howto-sspr-windows.md
-    - name: Azure 多重身份验证
+    - name: Azure AD 多重身份验证
       items:
         - name: 部署指南
           href: howto-mfa-getstarted.md
@@ -58,6 +60,12 @@
           items:
             - name: Windows Server 2016 AD FS 适配器
               href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+        - name: RADIUS 集成
+          items:
+            - name: 使用现有网络策略服务器
+              href: howto-mfa-nps-extension.md
+            - name: NPS 扩展的高级配置
+              href: howto-mfa-nps-extension-advanced.md
     - name: 基于证书的身份验证
       items:
         - name: 开始使用证书身份验证
@@ -83,12 +91,14 @@
           href: active-directory-passwords-faq.md
         - name: MFA 常见问题解答
           href: multi-factor-authentication-faq.md
+        - name: NPS 扩展
+          href: howto-mfa-nps-extension-errors.md
 - name: 参考
   items:
     - name: Azure PowerShell cmdlet
       href: 'https://docs.microsoft.com/powershell/azure/overview'
     - name: 服务限制和局限性
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md
 - name: 资源
   items:
     - name: Azure 反馈论坛

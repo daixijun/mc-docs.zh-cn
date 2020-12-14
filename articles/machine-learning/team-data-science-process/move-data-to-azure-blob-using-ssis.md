@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b53bf21df75ae8a1e8eb783d2030719fd6714b1b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2239995c6f2081aaf9a4392d8d50305f16c08c1c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978305"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105319"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>使用 SSIS 连接器将数据移入或移出 Azure Blob 存储
 [用于 Azure 的 SQL Server Integration Services 功能包](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis)提供了可用于连接到 Azure，在 Azure 和本地数据源之间传输数据以及处理存储在 Azure 中的数据的组件。
@@ -37,7 +37,7 @@ ms.locfileid: "94978305"
 ## <a name="prerequisites"></a>先决条件
 若要执行本文所述任务，必须设置 Azure 订阅和 Azure 存储帐户。 若要上传或下载数据，需要 Azure 存储的帐户名和帐户密钥。
 
-* 若要设置 **Azure 订阅**，请参阅 [免费试用一个月](https://www.azure.cn/pricing/1rmb-trial/)。
+* 若要设置 **Azure 订阅**，请参阅 [免费试用一个月](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 若要查看存储帐户创建说明并了解如何获取帐户和密钥信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-account-create.md)。
 
 若要使用 **SSIS 连接器**，则必须下载：

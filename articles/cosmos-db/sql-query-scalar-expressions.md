@@ -2,17 +2,18 @@
 title: Azure Cosmos DB SQL 查询中的标量表达式
 description: 了解 Azure Cosmos DB 的标量表达式 SQL 语法。 本文还介绍了如何使用运算符将标量表达式组合成复杂表达式。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/17/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3101faa45da55c9e31db5ddc54a4d1c1f1aa0dde
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 379dc13918383eaaf0b961f5507c9a9354ad1cca
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551926"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850641"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 查询中的标量表达式
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

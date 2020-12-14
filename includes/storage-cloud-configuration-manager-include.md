@@ -3,16 +3,16 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 667286ff8da44832114ce3511edab1327877b433
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: cdad77aedcfea22b268c76eba4b73bf5bf682203
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552552"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850354"
 ---
-[适用于 .NET 的 Microsoft Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) 提供用于分析配置文件中连接字符串的类。 [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) 类会分析配置设置。 它分析在桌面、移动设备、Azure 虚拟机或 Azure 云服务中运行的客户端应用程序的设置。
+[适用于 .NET 的 Microsoft Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) 提供用于分析配置文件中连接字符串的类。 [CloudConfigurationManager](https://docs.microsoft.com/previous-versions/azure/reference/mt634650(v=azure.100)) 类会分析配置设置。 它分析在桌面、移动设备、Azure 虚拟机或 Azure 云服务中运行的客户端应用程序的设置。
 
 若要引用 `CloudConfigurationManager` 包，请添加以下 `using` 指令：
 

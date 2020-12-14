@@ -2,15 +2,15 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-origin.date: 04/15/2020
-ms.date: 04/20/2020
+origin.date: 10/01/2020
+ms.date: 12/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: 85afebd7242bee180d0c5ac0628bcce69b981dd2
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.openlocfilehash: 4d7c29fadf3fabc1d739a75de86831c6c043fc88
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595256"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105688"
 ---
 * 支持除独立定价计划以外的全部定价计划的多租户系统。
 * 部署到 VNet 中且支持独立定价计划应用的应用服务环境。
@@ -19,7 +19,7 @@ VNet 集成功能用于多租户应用。 如果应用在[应用服务环境][AS
 
 VNet 集成允许应用访问 VNet 中的资源，但不允许通过 VNet 对应用进行入站专用访问。 专用站点访问指的是仅可从专用网络（例如 Azure 虚拟网络）对应用进行访问。 VNet 集成仅用来从应用对 VNet 进行出站调用。 VNet 集成功能可以用于同一区域中的 VNet，也可用于其他区域中的 VNet，这两种情况下的行为有所不同。 VNet 集成功能有两种变体：
 
-<!-- * Regional VNet Integration - When connecting to Resource Manager VNets in the same region, you must have a dedicated subnet in the VNet you are integrating with. -->
+<!-- **Regional VNet Integration**: When you connect to Azure Resource Manager virtual networks in the same region, you must have a dedicated subnet in the VNet you're integrating with.-->
 
 * **需要网关的 VNet 集成**：连接到其他区域中的 VNet 或同一区域中的经典虚拟网络时，需要在目标 VNet 中预配 Azure 虚拟网关。
 

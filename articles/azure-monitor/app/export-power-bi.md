@@ -4,13 +4,13 @@ description: 可以在 Power BI 中显示分析查询。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
-ms.openlocfilehash: 38b56f4aa6522c87e05b3b95ff2f230ca765afaf
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/07/2020
+ms.openlocfilehash: 189253b7f42b10af6f704c6d880aab03ec0b1701
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638064"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104472"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>从 Application Insights 向 Power BI 馈送数据
 [Power BI](https://www.powerbi.com/) 是一套商业工具，可帮助分析数据及分享见解。 每个设备上都提供了丰富的仪表板。 可以结合许多源的数据，包括来自 [Azure Application Insights](./app-insights-overview.md) 的数据。
@@ -33,7 +33,7 @@ ms.locfileid: "94638064"
 安装 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)。
 
 ### <a name="export-an-analytics-query"></a>导出 Analytics 查询
-1. [打开 Analytics 并编写查询](../log-query/get-started-portal.md)。
+1. [打开 Analytics 并编写查询](../log-query/log-analytics-tutorial.md)。
 2. 测试并优化查询，直到对结果满意。 导出之前，请确保查询在 Analytics 中正常运行。
 3. 在“导出”菜单中，选择“Power BI (M)”。  保存文本文件。
    
@@ -148,6 +148,5 @@ ms.locfileid: "94638064"
 
 ## <a name="next-steps"></a>后续步骤
 * [Power BI - 学习](https://www.powerbi.com/learning/)
-* [Analytics 教程](../log-query/get-started-portal.md)
-
+* [Analytics 教程](../log-query/log-analytics-tutorial.md)
 

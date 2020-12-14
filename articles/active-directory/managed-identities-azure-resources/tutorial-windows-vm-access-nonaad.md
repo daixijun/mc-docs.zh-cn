@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae0261f8e037906b4d8a92505beb6b5d04cbe40
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: cb675392a6b2e36f1fe67bd2ddfe3b107a7c67bc
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509056"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004220"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Key Vault 
 
@@ -37,10 +37,10 @@ ms.locfileid: "96509056"
 ## <a name="prerequisites"></a>先决条件
 
 - 具备托管标识相关知识。 如果不熟悉 Azure 资源功能的托管标识，请参阅此[概述](overview.md)。 
-- 一个 Azure 帐户，[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- 一个 Azure 帐户，[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 - 在相应范围（订阅或资源组）内具有“所有者”权限，以执行所需的资源创建和角色管理步骤。 如果需要有关角色分配的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](../../role-based-access-control/role-assignments-portal.md)。
 - 还需要启用了系统分配的托管标识的 Windows 虚拟机。
-  - 如需为本教程创建虚拟机，则可以按照标题为[创建启用了系统分配的标识的虚拟机](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)的文章进行操作
+  - 如需为本教程创建虚拟机，则可以按照标题为[创建启用了系统分配的标识的虚拟机](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)的文章进行操作
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库  
 

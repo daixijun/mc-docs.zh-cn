@@ -4,14 +4,14 @@ description: 使用 Azure 资源管理器模板在 PowerShell 中自动创建和
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/17/2019
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 388776b5cba4fd6ae3751f157fcb67f8da989f6a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d550e79721cffa4dffd8ac67d2eaad8cd49b5b96
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105329"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104758"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 资源
 
@@ -473,9 +473,7 @@ Azure 应严格按顺序设置资源。 若要确保某一设置在下一设置�
 其他自动化文章：
 
 * [创建 Application Insights 资源](./create-new-resource.md#creating-a-resource-automatically) - 不使用模板的快速方法。
-* [设置警报](powershell-alerts.md)
-* [创建 Web 测试](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [创建 Web 测试](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [将 Azure 诊断发送到 Application Insights](powershell-azure-diagnostics.md)
 * [创建版本注释](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
 

@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.service: security
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 origin.date: 02/25/2020
-ms.openlocfilehash: 3965d719fe77772f98e3ca0497a262c5417698ec
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 08b3f4359f393b909dd3044c7f0283442d76d8cf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128030"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105193"
 ---
 # <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Threat Modeling Tool 更新版 7.3.00206.1 - 2020/02/11
 
@@ -45,7 +45,7 @@ System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'L
 
 ## <a name="documentation-and-feedback"></a>文档和反馈
 
-- Threat Modeling Tool 的文档位于 [docs.azure.cn](https://docs.azure.cn/security/azure-security-threat-modeling-tool)，其中包含[有关如何使用该工具](https://docs.azure.cn/security/azure-security-threat-modeling-tool-getting-started)的信息。
+- Threat Modeling Tool 的文档位于 [docs.azure.cn](./threat-modeling-tool.md)，其中包含[有关如何使用该工具](./threat-modeling-tool-getting-started.md)的信息。
 
 ## <a name="next-steps"></a>后续步骤
 

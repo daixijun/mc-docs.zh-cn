@@ -5,24 +5,22 @@ ms.service: service-bus-messaging
 ms.topic: conceptual
 origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34e7aabbc2dad59f7af41a261f402df4a2d85a9f
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: a0feb7055ff19d9ff4eb1c079ff26daf469e7c62
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590496"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105309"
 ---
 <!--Verified Successfully-->
 # <a name="azure-security-baseline-for-service-bus"></a>服务总线的 Azure 安全基线
 
-服务总线的 Azure 安全基线包含可帮助你改善部署安全状况的建议。 此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
-
-<!--Pending on [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md)-->
+服务总线的 Azure 安全基线包含可帮助你改善部署安全状况的建议。 此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview-v1.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 若要了解服务总线如何完全映射到 Azure 安全基准，请参阅[完整的服务总线安全基线映射文件](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)。
 
@@ -64,7 +62,7 @@ ms.locfileid: "94590496"
 
 <!--Not Available on - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)-->
 
-<!--Not Available on - [Azure Security Center Integrated Threat Intelligence](/security-center/azure-defender.md)-->
+<!--Not Available on - [Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)-->
 
 ### <a name="15-record-network-packets"></a>1.5：记录网络数据包
 
@@ -229,9 +227,9 @@ ms.locfileid: "94590496"
 
 - [适用于 Azure 服务总线的内置角色](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true) 
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 **Azure 安全中心监视**：是
 
@@ -404,7 +402,7 @@ ms.locfileid: "94590496"
 
 **指导**：为开发、测试和生产实施单独的订阅和管理组。 服务总线命名空间应由配置了专用终结点的虚拟网络分隔并相应地进行标记。
 
-<!--Not Available on - [How to create additional Azure subscriptions](/cost-management-billing/manage/create-subscription.md)-->
+<!--Not Available on - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
@@ -498,7 +496,7 @@ Azure 管理 Azure 服务总线的底层基础结构，并实施了严格的控�
 
 - [如何使用 Azure Resource Graph 创建查询](../governance/resource-graph/first-query-portal.md)
 
-- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
 
 - [了解 Azure RBAC](../role-based-access-control/overview.md)
 
@@ -518,7 +516,7 @@ Azure 管理 Azure 服务总线的底层基础结构，并实施了严格的控�
 
 **指导**：使用标记、管理组和单独的订阅（如果适用）来组织和跟踪 Azure 服务总线命名空间和相关的资源。 定期核对清单，确保及时地从订阅中删除未经授权的资源。
 
-<!--Not Available on - [How to create additional Azure subscriptions](/cost-management-billing/manage/create-subscription.md)-->
+<!--Not Available on - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)-->
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
@@ -596,7 +594,7 @@ Azure 管理 Azure 服务总线的底层基础结构，并实施了严格的控�
 
 - [适用于服务总线的 Azure 内置策略](./policy-reference.md)
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -644,7 +642,7 @@ Azure 管理 Azure 服务总线的底层基础结构，并实施了严格的控�
 
 - [为服务总线配置客户管理的密钥](configure-customer-managed-key.md)
 
-- [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure 安全中心监视**：是
 
@@ -722,7 +720,7 @@ Azure 管理 Azure 服务总线的底层基础结构，并实施了严格的控�
 
 - [如何配置客户管理的密钥以加密静态 Azure 服务总线数据](configure-customer-managed-key.md)
 
-- [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [如何在 Azure 中还原密钥保管库密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure 安全中心监视**：不适用
 

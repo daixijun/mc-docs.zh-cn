@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: c622b5c17f38c8c764d630660f87870a3fc73065
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ff98bd92f153b24607113012223f240f0cff592d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978260"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104832"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -32,7 +32,7 @@ ms.locfileid: "94978260"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
 ## <a name="create-notebooks"></a><a name="create"></a> 创建笔记本
@@ -182,7 +182,7 @@ ms.locfileid: "94978260"
 
 1. 选择笔记本工具栏中的“+”。 
 2. 为计算命名，并在“虚拟机大小”中选择一个大小。 
-3. 选择“创建”。
+3. 选择“创建” 。
 4. 计算实例会自动连接到笔记本，现在就可以运行单元格了。
 
 只有本人可以查看和使用自己创建的计算实例。  用户文件与 VM 分开存储，并在工作区中的所有计算实例之间共享。

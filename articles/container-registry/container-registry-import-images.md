@@ -3,16 +3,16 @@ title: 导入容器映像
 description: 使用 Azure API 将容器映像导入到 Azure 容器注册表中，无需运行 Docker 命令。
 ms.services: container-registry
 ms.topic: article
+origin.date: 09/18/2020
 author: rockboyfor
-ms.date: 11/02/2020
-origin.date: 02/06/2019
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6c751ff42424e8d179ced86179f821b800e10a4a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0daeb4bfc98e5017eb2140f5716d2f789ff7ef98
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104407"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004056"
 ---
 <!--Verify sucessfully except the different subscription-->
 # <a name="import-container-images-to-a-container-registry"></a>向容器注册表导入容器映像
@@ -151,7 +151,7 @@ az acr import \
   --source sourceregistry.azurecr.cn/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>从不同 AD 租户中的 Azure 容器注册表导入
@@ -164,7 +164,7 @@ az acr import \
   --source sourceregistry.azurecr.cn/sourcerrepo:tag \
   --image targetimage:tag \
   --username <SP_App_ID> \
-  –-password <SP_Passwd>
+  --password <SP_Passwd>
 ```
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>从非 Azure 专用容器注册表导入

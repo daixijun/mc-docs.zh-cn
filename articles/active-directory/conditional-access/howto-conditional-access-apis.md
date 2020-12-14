@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3518e084c7f4a797d7b38c58c886fd669dd93a
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 343fe56fb921e96dbf578f7693672a2f349af497
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749995"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003784"
 ---
 # <a name="conditional-access-programmatic-access"></a>条件访问：以编程方式访问
 
@@ -78,7 +78,7 @@ Microsoft Graph 提供了一个统一的可编程性模型，组织可使用该�
 
 ### <a name="emergency-access-accounts"></a>紧急访问帐户
 
-多个管理员可能会创建条件访问策略，并且可能会忘记将[紧急访问帐户](../users-groups-roles/directory-emergency-access.md)添加为这些策略的排除项。 此示例可确保更新所有策略，以包括指定的紧急访问帐户。
+多个管理员可能会创建条件访问策略，并且可能会忘记将[紧急访问帐户](../roles/security-emergency-access.md)添加为这些策略的排除项。 此示例可确保更新所有策略，以包括指定的紧急访问帐户。
 
 - [使用 Microsoft Graph API 调用来管理向条件访问策略分配紧急访问帐户的操作](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

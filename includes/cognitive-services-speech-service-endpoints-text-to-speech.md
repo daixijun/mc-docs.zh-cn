@@ -3,14 +3,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 03/30/2020
+ms.date: 12/10/2020
 ms.author: wolfma
-ms.openlocfilehash: c0ce524f9c89b69426870146cf4967215f9f169f
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 539facb7ddd8507f842c2310bfc02e9c7798fd6a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317501"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004098"
 ---
 ### <a name="standard-and-neural-voices"></a>标准语音和神经语音
 

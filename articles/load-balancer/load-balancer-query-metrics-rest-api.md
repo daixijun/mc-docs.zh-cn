@@ -9,14 +9,14 @@ ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: how-to
 origin.date: 11/19/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 06d3de9d4ded81663640fe86f0ab64031676c6a5
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: c6140213ecf8dce623db563002980baaf21e7484
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747183"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105288"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>使用 REST API 获取负载均衡器使用情况指标
 

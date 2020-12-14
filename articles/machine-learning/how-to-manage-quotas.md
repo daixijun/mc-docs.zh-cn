@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a5117059b109ffdbbc135f1b56626cfde938745f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2f7178247257f1a6547c9bc92d91595251cc2fd6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977455"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104684"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>管理和增大 Azure 机器学习资源的配额
 
@@ -154,7 +154,7 @@ Azure 存储的限制是每个订阅在每个区域中的存储帐户数不能�
 请求增大配额时，请选择所需的服务。 例如，选择 Azure 机器学习、容器实例或存储。 对于 Azure 机器学习计算，可以在按照上述步骤查看配额时选择“请求配额”按钮。
 
 > [!NOTE]
-> [试用订阅](https://www.azure.cn/pricing/1rmb-trial/)没有资格提高限制或配额。 如果使用的是[试用订阅](https://www.azure.cn/pricing/1rmb-trial/)，可将其升级到[即用即付](https://wd.azure.cn/zh-cn/pricing/pia-waiting-list/?form-type=identityauth)订阅。 
+> [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)没有资格提高限制或配额。 如果使用的是[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，可将其升级到[即用即付](https://wd.azure.cn/zh-cn/pricing/pia-waiting-list/?form-type=identityauth)订阅。 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>专用终结点和专用 DNS 配额增加
 
 可以在订阅中创建的专用终结点和专用 DNS 区域的数目存在限制。

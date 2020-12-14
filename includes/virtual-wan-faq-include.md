@@ -6,17 +6,17 @@ ms.service: virtual-wan
 ms.topic: include
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 702a073352f770496c8ad16a37378567eb0660b4
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 6c1b99a16886cc3db33144232bea5d08dbf736df
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026013"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105710"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure 虚拟 WAN 是否已正式发布 (GA)？
 
@@ -278,4 +278,8 @@ ER 到 ER 之间的传输始终通过 Global Reach 进行。 虚拟中心网关�
 
 请参阅[基本和标准虚拟 WAN](../articles/virtual-wan/virtual-wan-about.md#basicstandard)。 如需了解定价，请参阅[定价](https://www.azure.cn/pricing/details/virtual-wan/)页面。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+### <a name="does-virtual-wan-store-customer-data"></a>虚拟 WAN 是否会存储客户数据？ 
+
+不是。 虚拟 WAN 不存储任何客户数据。
+
+<!-- Update_Description: update meta properties, wording update -->

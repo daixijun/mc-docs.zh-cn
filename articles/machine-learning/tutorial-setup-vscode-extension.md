@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: v-yiso
 origin.date: 07/09/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 6593f71f68b36213290339a401d5bb59b2953189
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 36b7696958483029ba4345f46359499b6b50b6df
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021617"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105259"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>设置 Azure 机器学习 Visual Studio Code 扩展
 
@@ -30,14 +30,14 @@ ms.locfileid: "90021617"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Visual Studio Code。 如果尚未安装它，请[安装它](https://code.visualstudio.com/docs/setup/setup-overview)。
 - [Python 3](https://www.python.org/downloads/)
 
 ## <a name="install-the-extension"></a>安装扩展
 
 1. 打开 Visual Studio Code。
-1. 从**活动栏**选择“扩展”图标，打开“扩展”视图。
+1. 从 **活动栏** 选择“扩展”图标，打开“扩展”视图。
 1. 在“扩展”视图中，搜索“Azure 机器学习”。
 1. 选择“安装”。
 
@@ -47,7 +47,7 @@ ms.locfileid: "90021617"
 > [!NOTE]
 > 也可[直接下载安装程序](https://aka.ms/vscodetoolsforai)，以便通过 Visual Studio Marketplace 安装 Azure 机器学习扩展。 
 
-本教程中的其余步骤已使用扩展的**版本 0.6.8** 进行了测试。
+本教程中的其余步骤已使用扩展的 **版本 0.6.8** 进行了测试。
 
 ## <a name="sign-in-to-your-azure-account"></a>登录 Azure 帐户
 

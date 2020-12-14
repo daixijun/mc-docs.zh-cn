@@ -1,20 +1,21 @@
 ---
 title: 使用 Azure 存储在云中上传图像数据 | Microsoft Docs
-description: 将 Azure blob 存储与 Web 应用配合使用来存储应用数据
+description: 结合使用 Azure Blob 存储和 Web 应用将应用数据存储到存储帐户。 本教程会创建一个 Web 应用，用于存储和显示 Azure 存储中的图像。
 author: WenJason
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 origin.date: 06/24/2020
-ms.date: 07/20/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: dineshm
-ms.openlocfilehash: 3810560fda529388e59676a5b40e211c2a3dcb3d
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 412b448804de3ad93b9a06759645157ee1d986d9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432674"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850767"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 
@@ -160,7 +161,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，将从[公共 GitHub 示例存储库](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)部署 Web 应用。 使用 [az webapp deployment source config](/cli/webapp/deployment/source) 命令配置 Web 应用的 GitHub 部署。
 
-示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 此 Web 应用使用 [Azure.Storage](/dotnet/api/overview/storage?view=azure-dotnet)、[Azure.Storage.Blobs](https://docs.microsoft.com/dotnet/api/azure.storage.blobs) 和 [Azure.Storage.Blobs.Models](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models) 命名空间与 Azure 存储服务交互。
+示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 此 Web 应用使用 [Azure.Storage](https://docs.microsoft.com/dotnet/api/azure.storage)、[Azure.Storage.Blobs](https://docs.microsoft.com/dotnet/api/azure.storage.blobs) 和 [Azure.Storage.Blobs.Models](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models) 命名空间与 Azure 存储服务交互。
 
 ```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \

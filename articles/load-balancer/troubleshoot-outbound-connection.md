@@ -5,22 +5,22 @@ services: load-balancer
 author: WenJason
 ms.service: load-balancer
 ms.topic: troubleshooting
-origin.date: 05/7/2020
-ms.date: 11/02/2020
+origin.date: 05/07/2020
+ms.date: 12/14/2020
 ms.author: errobin
-ms.openlocfilehash: 16fd3cde45368198f1f2483c134d625328fbdc43
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: ad8364ad74fa4847d40675f39234ffe2f9c2a02a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628187"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105084"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 排查出站连接故障
 
 本文旨在为 Azure 负载均衡器的出站连接可能出现的常见问题提供解决方法。 客户遇到的大多数出站连接问题是由于 SNAT 端口耗尽和连接超时导致数据包丢失。 本文提供了用于缓解上述每个问题的步骤。
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>应对 SNAT (PAT) 端口耗尽问题
-用于 [PAT](load-balancer-outbound-connections.md) 的[临时端口](load-balancer-outbound-connections.md)是可用尽的资源，如[无公共 IP 地址的独立 VM](load-balancer-outbound-connections.md) 和[无公共 IP 地址的负载均衡 VM](load-balancer-outbound-connections.md) 中所述。 可以根据[此](/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation)指南来监视临时端口的使用情况，并将其与当前分配进行比较，以确定 SNAT 耗尽的风险或确认 SNAT 是否耗尽。
+用于 [PAT](load-balancer-outbound-connections.md) 的[临时端口](load-balancer-outbound-connections.md)是可用尽的资源，如[无公共 IP 地址的独立 VM](load-balancer-outbound-connections.md) 和[无公共 IP 地址的负载均衡 VM](load-balancer-outbound-connections.md) 中所述。 可以根据[此](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation)指南来监视临时端口的使用情况，并将其与当前分配进行比较，以确定 SNAT 耗尽的风险或确认 SNAT 是否耗尽。
 
 如果知道正在启动与同一目标 IP 地址和端口的多个出站 TCP 或 UDP 连接，观察失败的出站连接，或者支持人员通知已耗尽 SNAT 端口（[PAT](load-balancer-outbound-connections.md) 使用的预先分配[临时端口](load-balancer-outbound-connections.md#preallocatedports)），则有几个常见缓解选项可供选择。 查看这些选项，确定可用且最适合自己的方案的选项。 一个或多个选项可能有助于管理此方案。
 
@@ -64,7 +64,7 @@ ms.locfileid: "92628187"
 如果横向扩展到后端池较大的下一层，并且需要重新分配已分配端口，则部分出站连接可能会超时。  如果仅使用部分 SNAT 端口，则在后端池较大的下一层中横向扩展无意义。  每次移动到后端池的下一层时，半数现有端口将重新分配。  如果不希望发生此行为，则需要将部署规划为层大小。  或者确保应用程序可以根据需要进行检测和重试。  TCP keepalive 可以帮助检测 SNAT 端口何时由于被重新分配而不再工作。
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>保持 keepalive 重置出站空闲超时
-出站连接有 4 分钟的空闲超时。 此超时可通过[出站规则](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)进行调整。 还可以使用传输（例如，TCP Keepalives）或应用程序层 Keepalives 刷新空闲流，并在必要时重置此空闲超时。  
+出站连接有 4 分钟的空闲超时。 此超时可通过[出站规则](outbound-rules.md)进行调整。 还可以使用传输（例如，TCP Keepalives）或应用程序层 Keepalives 刷新空闲流，并在必要时重置此空闲超时。  
 
 使用 TCP keepalive 时，在连接的一端启用它们就足够了。 例如，若要重置流的空闲计时器，在服务器端启用它们就足够了，没有必要在两端都启动 TCP keepalive。  应用程序层（包括数据库客户端-服务器配置）也存在类似的概念。  检查服务器端对于特定于应用程序的 keepalive 存在哪些选项。
 

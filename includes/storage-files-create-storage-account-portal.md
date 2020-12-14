@@ -6,32 +6,32 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 03/28/2018
-ms.date: 07/20/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: df0e3f926bf5c8a772083387363a292744dd0563
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: b3b5fca54d41c4198d4a4669f6df41616b4a8228
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414981"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96851921"
 ---
 存储帐户是一个共享的存储池，可以在其中部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个共享。 一个共享可以存储无数个文件，直至达到存储帐户的容量限制为止。
 
 创建存储帐户：
 
 1. 在左侧菜单中，选择 **+** 来创建资源。
-2. 在搜索框中，输入“存储帐户”，选择“存储帐户 - Blob、文件、表、队列”，然后选择“创建”。  
+1. 在搜索框中，输入“存储帐户”，选择“存储帐户 - Blob、文件、表、队列”，然后选择“创建”。  
     ![资源搜索对话框中显示的存储帐户条目的屏幕截图](../articles/storage/files/media/storage-how-to-use-files-portal/create-storage-account-1.png)
 
-3. 在“名称”中，输入 *mystorageacct* 并后接一些随机数字，直到出现绿色对号，指明该名称是唯一的。 存储帐户名称必须全部为小写，且全局唯一。 记下存储帐户名称。 稍后将使用它。 
-4. 在“部署模型”中，保留默认值“资源管理器”。  若要详细了解 Azure 资源管理器与经典部署模型之间的差别，请参阅[了解部署模型和资源状态](../articles/azure-resource-manager/management/deployment-models.md)。
+1. 在“名称”中，输入 *mystorageacct* 并后接一些随机数字，直到出现绿色对号，指明该名称是唯一的。 存储帐户名称必须全部为小写，且全局唯一。 记下存储帐户名称。 稍后将使用它。 
+1. 在“部署模型”中，保留默认值“资源管理器”。  若要详细了解 Azure 资源管理器与经典部署模型之间的差别，请参阅[了解部署模型和资源状态](../articles/azure-resource-manager/management/deployment-models.md)。
 1. 在“性能”中，保留默认值“标准”。 
     
     > [!NOTE]
     > 本快速入门将创建一个标准文件共享，但如果你想要使用高级文件共享，请改为选择“高级”。
 
-5. 在“帐户类型”中，选择“StorageV2”。  若要详细了解不同类型的存储帐户，请参阅[了解 Azure 存储帐户](../articles/storage/common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json)。
+1. 在“帐户类型”中，选择“StorageV2”。  若要详细了解不同类型的存储帐户，请参阅[了解 Azure 存储帐户](../articles/storage/common/storage-account-overview.md?toc=%252fstorage%252ffiles%252ftoc.json)。
 
     > [!NOTE]
     > 本快速入门将创建一个常规用途 v2 帐户。 如果要使用高级文件共享，请改为选择“FileStorage”。

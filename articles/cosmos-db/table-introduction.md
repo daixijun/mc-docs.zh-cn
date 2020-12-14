@@ -4,18 +4,18 @@ description: 了解如何通过 Azure Tables API 使用 Azure Cosmos DB 以低�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-origin.date: 07/26/2019
+origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 51281c465f484704439f5281c04ac36c5d815e43
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3b9f772c02387de048c5a0c050f25036ec6ab55c
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552465"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850613"
 ---
 <!--Verify sucessfully-->
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 简介：表 API
@@ -30,6 +30,9 @@ ms.locfileid: "94552465"
 * 自动编制辅助索引。
 
 为 Azure 表存储编写的应用程序无需更改代码便可使用表 API 迁移到 Azure Cosmos DB，并可充分利用高级功能。 表 API 包含可用于 .NET、Java、Python 和 Node.js 的客户端 SDK。
+
+> [!NOTE]
+> [无服务器容量模式](serverless.md)现在在 Azure Cosmos DB 的表 API 上可用。
 
 > [!IMPORTANT]
 > .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 目前处于维护模式，不久将被弃用。 请升级到新的 .NET Standard 库 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) 来继续获取表 API 支持的最新功能。

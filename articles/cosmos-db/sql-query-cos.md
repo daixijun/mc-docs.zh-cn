@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 COS
 description: 了解 Azure Cosmos DB 中的 Cosine (COS) SQL 系统函数如何在指定表达式中返回指定角度（以弧度为单位）的三角余弦
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/03/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 3b55e291926abe523226b7c4a24689467e065013
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 0ef13f22619ce0b308cd3d5ce898d0bc1ff655be
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551775"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850844"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,13 +38,13 @@ COS(<numeric_expr>)
 
 ## <a name="examples"></a>示例
 
-  以下示例计算指定角度的 `COS`。  
+以下示例计算指定角度的 `COS`。  
 
 ```sql
 SELECT COS(14.78) AS cos  
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```json
 [{"cos": -0.59946542619465426}]  

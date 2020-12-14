@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 origin.date: 12/03/2018
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13575c19d451fb2f0c40eae650e8dd580622b680
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 4249b655001bc6a4c9b75c7783ff65894b45cb82
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551715"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850606"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>教程：使用 Gremlin 查询 Azure Cosmos DB Gremlin API

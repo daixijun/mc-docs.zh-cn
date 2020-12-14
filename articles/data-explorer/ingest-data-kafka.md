@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: 315017ff756d7bc5076cb0c19a13695aaf7ad655
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 3e425c7dc1a15d389764f688de70b284efc99598
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300946"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003676"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-data-explorer"></a>将数据从 Apache Kafka 引入到 Azure 数据资源管理器中
  
@@ -359,7 +359,7 @@ az kusto database delete -n <database name> --cluster-name <cluster name> -g <re
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- * Learn more about [Big data architecture](/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer). -->
+<!-- * Learn more about [Big data architecture](https://docs.microsoft.com/azurearchitecture/solution-ideas/articles/big-data-azure-data-explorer). -->
 * 了解[如何将 JSON 格式的示例数据引入 Azure 数据资源管理器](./ingest-json-formats.md?tabs=kusto-query-language)。
 * 对于其他 Kafka 实验室：
    * [在分布式模式下从 Confluent Cloud Kafka 进行引入的动手实验室](https://github.com/Azure/azure-kusto-labs/blob/master/kafka-integration/confluent-cloud/README.md)

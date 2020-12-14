@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的 FROM 子句
 description: 了解 Azure Cosmos DB 的 FROM 子句的 SQL 语法和示例。 本文还演示了如何使用 FROM 子句设置结果的范围并获取子项。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/08/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66bfd836b673253e37996e283884613af3a8d4d6
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 23c0828d0857699091cdac1ac57fa41a3786ebf3
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552446"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850724"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 FROM 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,7 +54,7 @@ FROM <from_specification>
 
     指定数据源，可以带别名，也可以不带别名。 如果未指定别名，则会使用以下规则从 `<container_expression>` 推断别名：  
 
-    -  如果表达式为 container_name，那么 container_name 将用作别名。  
+    - 如果表达式为 container_name，那么 container_name 将用作别名。  
 
     -  如果表达式是 `<container_expression>`，则会将 property_name 用作别名。 如果表达式为 container_name，那么 container_name 将用作别名。  
 

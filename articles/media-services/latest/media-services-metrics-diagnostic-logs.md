@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/02/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: a79eb2ec8c1fa3daad3c19187a036709a5ebcb7c
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e5d1d88d169d818fa38d70c4fff3dce4d9ba02e1
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300735"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004218"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>使用 Azure Monitor 监视媒体服务指标和诊断日志
 
@@ -68,8 +68,8 @@ ms.locfileid: "96300735"
 |请求|请求|提供由流式处理终结点提供服务的 HTTP 请求总数。|
 |流出量|流出量|每个流式处理终结点每分钟流出的字节总数。|
 |SuccessE2ELatency|成功端到端延迟|从流式处理终结点收到请求，到发送最后一个响应字节的持续时间。|
-|CPU 使用率| 高级流式处理终结点的 CPU 使用率。 此数据不可用于标准流式处理终结点。 |
-|出口带宽 | 出口带宽（位/秒）。|
+|CPU 使用率| | 高级流式处理终结点的 CPU 使用率。 此数据不可用于标准流式处理终结点。 |
+|出口带宽 | | 出口带宽（位/秒）。|
 
 ### <a name="metrics-are-useful"></a>指标很有用
 

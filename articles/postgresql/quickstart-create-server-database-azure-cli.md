@@ -7,38 +7,35 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 06/25/2019
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1775bc5d31f434ada5b387d7c64baa8a7fef86b2
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 3c56f684ee7ea2f6957b52a8aa4d26e1bb7ca34b
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432644"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850860"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL 服务器
 
 本快速入门介绍如何使用 [Azure CLI](/cli/get-started-with-azure-cli) 命令在 5 分钟内创建单个 Azure Database for PostgreSQL 服务器。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-> [!TIP]
-> 请考虑使用更简单的 [az postgres up](/cli/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>先决条件
-本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
-需要使用 [az login](/cli/reference-index#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。 
+    > [!TIP]
+    > 请考虑使用更简单的 [az postgres up](/cli/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
 
-```azurecli
-az login
-```
+- 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。
 
-使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。 记下 az login 输出中的 id 值，以用作命令中 subscription 参数的值  。 
+    - 记下 az login 输出中的 id 值，以用作命令中 subscription 参数的值  。 
 
-```azurecli
-az account set --subscription <subscription id>
-```
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
+    - 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 
@@ -152,7 +149,3 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
 > [使用导出和导入功能迁移数据库](./howto-migrate-using-export-and-import.md)
-> 
-> [使用 PostgreSQL 部署 Django Web 应用](../app-service/tutorial-python-postgresql-app.md)
->
-> [使用 Node.JS 应用进行连接](./connect-nodejs.md)

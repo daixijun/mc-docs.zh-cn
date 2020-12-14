@@ -41,6 +41,10 @@
           href: manage-assets-quickstart.md
         - name: 使用门户加密内容
           href: encrypt-content-quickstart.md
+    - name: 使用 ARM 模板
+      items:
+        - name: 通过 ARM 创建帐户
+          href: quickstart-arm-template-account.md
 - name: 教程
   items:
     - name: .NET
@@ -110,6 +114,8 @@
           href: autogen-bitrate-ladder.md
         - name: 内容感知型编码
           href: content-aware-encoding.md
+        - name: 媒体保留单位
+          href: concept-media-reserved-units.md
     - name: 分析内容（视频索引器）
       items:
         - name: 概述
@@ -238,7 +244,11 @@
     - name: 创建转换和作业
       items:
         - name: 创建转换
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
+        - name: 使用 REST 创建 copyAllBitrateNonInterleaved 转换
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: 复制未使用 REST 编码的视频
+          href: how-to-create-copy-video-audio-transform.md
         - name: 创建作业
           href: cli-create-jobs.md
         - name: 使用本地文件和 .NET 创建作业输入

@@ -9,7 +9,7 @@
   items:
     - name: 使用客户端 SDK
       items:
-        - name: 'C#'
+        - name: C#
           items:
             - name: 分析图像内容
               href: image-moderation-quickstart-dotnet.md
@@ -25,7 +25,7 @@
       href: image-moderation-api.md
     - name: 文本审查
       href: text-moderation-api.md
-- name: 操作方法指南
+- name: 操作指南
   items:
     - name: 审查内容
       items:
@@ -47,8 +47,6 @@
               href: image-lists-quickstart-dotnet.md
             - name: 针对自定义字词检查文本
               href: term-lists-quickstart-dotnet.md
-    - name: 导出或删除帐户数据
-      href: ./export-delete-data.md
 - name: 参考
   items:
     - name: 内容审查器 API
@@ -75,7 +73,7 @@
           href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples'
         - name: Node.js SDK 示例
           href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples'
-        - name: '以 C# 编写的 REST API 示例'
+        - name: 以 C# 编写的 REST API 示例
           href: samples-rest.md
         - name: 其他 Azure 示例
           href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator'
@@ -89,7 +87,7 @@
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
     - name: 语言支持
       href: language-support.md
-    - name: 堆栈溢出
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: 区域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2'

@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7a72cb973d5d8b47ff93169d1673a9bf7e451069
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ecba0235d6d98f9626229029b363cf5b38bc760c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978353"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104574"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>将 GitHub Actions 与 Azure 机器学习配合使用
 
@@ -26,7 +26,7 @@ ms.locfileid: "94978353"
 
 ## <a name="prerequisites"></a>先决条件 
 
-- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 一个 GitHub 帐户。 如果没有该帐户，请注册[免费版](https://github.com/join)。  
 
 ## <a name="workflow-file-overview"></a>工作流文件概述

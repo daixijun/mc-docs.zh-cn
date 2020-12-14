@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/30/2019
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 9c1430e234ef85f29e98a9c9c09177913c7318c1
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: edcd7f074db7a3d7876f64b69807e1c59d06284c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977089"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004076"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>在语音 SDK 中使用编解码器压缩的音频输入
 
@@ -75,4 +75,4 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [了解如何识别语音](quickstarts/speech-to-text-from-microphone.md)
+> [了解如何识别语音](./get-started-speech-to-text.md)

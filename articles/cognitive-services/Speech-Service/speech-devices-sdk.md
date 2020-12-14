@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/11/2020
-ms.date: 10/16/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 839768a86373fbfde166bd624e71a2c3022b915f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4179ce5e11d14acc6d787aadb18efa4b3f48518c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128107"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004155"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>什么是语音设备 SDK？
 

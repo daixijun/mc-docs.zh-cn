@@ -2,19 +2,20 @@
 title: 适用于 Azure Cosmos DB 表 API 的资源管理器模板
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB 表 API。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: how-to
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: fd89a93c6101c2a02cd1354c8cc31af25b8493e9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ece626500c28e317e676ac7d106e52d6df91df5e
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329147"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850838"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB 表 API 资源
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -374,5 +375,4 @@ ms.locfileid: "94329147"
 * [Azure Cosmos DB 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [排查常见 Azure 资源管理器部署错误](../azure-resource-manager/templates/common-deployment-errors.md)
 
-<!-- Update_Description: new article about templates samples table -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

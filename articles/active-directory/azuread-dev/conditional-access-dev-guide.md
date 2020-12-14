@@ -6,26 +6,26 @@ author: rwike77
 manager: CelesteDG
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
-ms.date: 11/23/2020
+ms.date: 12/08/2020
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 640c588f6ce4fedd48e37b6764b9853ac2690b52
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: eae5419bab600ff777e6dd4e98baeceed5376aaf
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918477"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003799"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Azure Active Directory 条件访问功能开发人员指南
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 > [!NOTE]
-> 有关本文的 Microsoft 标识平台版本，请参阅 [Azure Active Directory 条件访问开发人员指南](/active-directory/develop/v2-conditional-access-dev-guide)。
+> 有关本文的 Microsoft 标识平台版本，请参阅 [Azure Active Directory 条件访问开发人员指南](../develop/v2-conditional-access-dev-guide.md)。
 
 保护应用安全和保护服务的方法有多种，Azure Active Directory (Azure AD) 中的条件访问功能便是其中之一。 通过条件访问功能，可以让开发人员和企业客户以多种方式保护服务的安全，其中包括：
 

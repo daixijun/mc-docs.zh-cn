@@ -7,15 +7,15 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 02/19/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7093a90f0f069987ded0fe45345bae2fc4d3125b
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: ce80c294ca2584c459efc7803b57ad7b8b9c629d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866740"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105031"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>导入 Azure 应用配置存储区
 
@@ -23,7 +23,11 @@ ms.locfileid: "88866740"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 Azure CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 若要安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。
+
+<!--If using Azure local Shell, the latest version is already installed.-->
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -38,14 +42,14 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 ## <a name="script-explanation"></a>脚本说明
 
-此脚本使用以下命令导入应用程序配置存储区。 表中的每条命令均链接到特定于命令的文档。
+此脚本使用以下命令导入应用程序配置存储区。 表中的每条命令链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
-| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | 导入应用程序配置存储区资源。 |
+| [az appconfig kv import](/cli/appconfig/kv#az-appconfig-kv-import) | 导入应用程序配置存储区资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/azure)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可在 [Azure 应用程序配置 CLI 示例](../cli-samples.md)中找到其他应用程序配置 CLI 脚本示例。

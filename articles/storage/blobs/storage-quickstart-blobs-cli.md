@@ -8,15 +8,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 origin.date: 08/17/2020
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 455fe1743a37d00bea7b640c13ee0995a8be5195
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 0f53d204bacaa72cd040559d49af44769ed8a715
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026486"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850739"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>快速入门：使用 Azure CLI 创建、下载和列出 blob
 
@@ -28,21 +28,15 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-本快速入门需要运行 Azure CLI 2.0.46 或更高版本。 运行 `az --version` 即可确定你的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-若要登录到 Azure CLI，请在浏览器窗口中运行 `az login` 并进行身份验证：
-
-```azurecli
-az login
-```
-
-有关使用 Azure CLI 进行身份验证的详细信息，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli)。
+- 本文需要 Azure CLI 版本 2.0.46 或更高版本。 
 
 ## <a name="authorize-access-to-blob-storage"></a>授予对 Blob 存储的访问权限
 
 可以使用 Azure AD 凭据或存储帐户访问密钥通过 Azure CLI 授予对 Blob 存储的访问权限。 建议使用 Azure AD 凭据。 本文介绍如何使用 Azure AD 授权 Blob 存储操作。
 
-与针对 Blob 存储的数据操作相对应的 Azure CLI 命令支持 `--auth-mode` 参数，该参数用于指定如何授权给定操作。 将 `--auth-mode` 参数设置为 `login`，使用 Azure AD 凭据进行授权。 有关详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+与针对 Blob 存储的数据操作相对应的 Azure CLI 命令支持 `--auth-mode` 参数，该参数用于指定如何授权给定操作。 将 `--auth-mode` 参数设置为 `login`，使用 Azure AD 凭据进行授权。 有关详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 仅 Blob 存储数据操作支持 `--auth-mode` 参数。 管理操作（例如创建资源组或存储帐户）会自动将 Azure AD 凭据用于授权。
 
@@ -96,7 +90,7 @@ az storage container create \
 > [!IMPORTANT]
 > Azure 角色分配可能需要几分钟时间来进行传播。
 
-你还可以使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md?toc=/storage/blobs/toc.json)。
+你还可以使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="upload-a-blob"></a>上传 blob
 
@@ -170,4 +164,4 @@ az group delete \
 在此快速入门中，你了解了如何在本地文件系统和 Azure Blob 存储中的容器之间传输文件。 若要详细了解如何使用 Azure CLI 操作 Blob 存储，请浏览“适用于 Blob 存储的 Azure CLI 示例”。
 
 > [!div class="nextstepaction"]
-> [适用于 Blob 存储的 Azure CLI 示例](/storage/blobs/storage-samples-blobs-cli?toc=%2fstorage%2fblobs%2ftoc.json)
+> [适用于 Blob 存储的 Azure CLI 示例](./storage-samples-blobs-cli.md?toc=%2fstorage%2fblobs%2ftoc.json)

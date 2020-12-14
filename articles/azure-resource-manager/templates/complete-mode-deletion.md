@@ -2,18 +2,18 @@
 title: 完整模式删除
 description: 显示资源类型如何在 Azure 资源管理器模板中进行完全模式删除。
 ms.topic: conceptual
-origin.date: 10/06/2020
+origin.date: 10/21/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 33e0134b6d3cee9e3be89d65edae6cb327c5f9f5
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: cd774e4fc62f7e20e20ac12aba3a6cf259eb890a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915107"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004208"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -23,7 +23,7 @@ ms.locfileid: "94915107"
 
 标记为 **No** 的资源类型不在模板中时不会自动删除；但是，如果删除了父资源，则会删除它们。 有关此行为的完整描述，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
 
-如果部署到[模板中的多个资源组](cross-scope-deployment.md)，则可以删除部署操作中指定的资源组中的资源。 辅助资源组中的资源不会被删除。
+如果部署到[模板中的多个资源组](./deploy-to-resource-group.md)，则可以删除部署操作中指定的资源组中的资源。 辅助资源组中的资源不会被删除。
 
 资源按资源提供程序命名空间列出。 若要将资源提供程序命名空间与其 Azure 服务名称匹配，请参阅 [Azure 服务的资源提供程序](../management/azure-services-resource-providers.md)。
 
@@ -692,6 +692,7 @@ ms.locfileid: "94915107"
 > | namespaces / eventhubs / authorizationrules | 否 |
 > | namespaces / eventhubs / consumergroups | 否 |
 > | namespaces / networkrulesets | 否 |
+> | namespaces / privateEndpointConnections | 否 |
 
 <!-- Not Available on ## Microsoft.Experimentation-->
 <!-- Not Available on ## Microsoft.Falcon-->

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 3d22e6b9e4e6fa79f3249fd0fb33c7fd07edb0b3
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 2c4e63b14f1bab81a2eaf535be4b4149026365f5
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918473"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004136"
 ---
 # <a name="manage-app-consent-policies"></a>管理应用同意策略
 
@@ -31,7 +31,7 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 
 ## <a name="pre-requisites"></a>先决条件
 
-1. 请确保使用 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块。 如果同时安装了 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 模块和 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块，则此步骤非常重要。
+1. 请确保使用 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块。 如果同时安装了 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) 模块和 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块，则此步骤非常重要。
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -147,7 +147,7 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 
 * [配置用户同意设置](configure-user-consent.md)
 * [向应用程序授予租户范围的管理许可](grant-admin-consent.md)
-* [Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+* [Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 获取帮助或查找问题的答案：
 * [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

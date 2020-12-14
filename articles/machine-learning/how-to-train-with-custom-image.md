@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1dbfc2db4b30df5bf23fc6000b88f270694f6491
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9c883b13bd6b97a3ac762a2b107c743519f95047
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978146"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104565"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>使用自定义 Docker 映像训练模型
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>配置训练作业
 
-对于本教程，请使用 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py) 上的训练脚本 train.py。 实际上，你可以原样接受任何自定义的训练脚本并使用 Azure 机器学习运行它。
+对于本教程，请使用 [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py) 上的训练脚本 train.py。 实际上，你可以原样接受任何自定义的训练脚本并使用 Azure 机器学习运行它。
 
 创建 `ScriptRunConfig` 资源，以将作业配置为在所需的[计算目标](how-to-set-up-training-targets.md)上运行。
 

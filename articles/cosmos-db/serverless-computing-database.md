@@ -2,19 +2,20 @@
 title: 使用 Azure Cosmos DB 和 Azure Functions 进行无服务器数据库计算
 description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用，以创建事件驱动型无服务器计算应用。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 07/17/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: d95b782461edf05afbfe366b0a047edc6e2eed11
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 998225560805309f0540d3fbaefed4c967f66ce3
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552833"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850852"
 ---
 <!--Verify sucessfully-->
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的无服务器数据库计算

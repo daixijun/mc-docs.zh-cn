@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 RIGHT
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RIGHT。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/03/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 734f9a533c182d292cdc0524b19957c7056e01e9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: fb21ce2542f70439162ecd7c7208a2d71e8add58
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551935"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850648"
 ---
 # <a name="right-azure-cosmos-db"></a>RIGHT (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,13 +41,13 @@ RIGHT(<str_expr>, <num_expr>)
 
 ## <a name="examples"></a>示例
 
-  以下示例根据不同的长度值返回“abc”的右侧部分。  
+以下示例根据不同的长度值返回“abc”的右侧部分。  
 
 ```sql
 SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2 
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```json
 [{"r1": "c", "r2": "bc"}]  

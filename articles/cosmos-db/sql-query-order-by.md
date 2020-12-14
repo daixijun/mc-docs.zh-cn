@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的 ORDER BY 子句
 description: 了解 Azure Cosmos DB 的 SQL ORDER BY 子句。 将 SQL 用作 Azure Cosmos DB JSON 查询语言。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 06/06/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1fefe559c9adef71de20aa73a04117b64f56d302
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: c49db08a7a7e2559d9e22dfff4b140f20f719fad
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552766"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850690"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 ORDER BY 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

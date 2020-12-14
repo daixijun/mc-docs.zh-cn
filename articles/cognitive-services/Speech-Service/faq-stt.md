@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/20/2020
-ms.date: 10/16/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 19b159d92f953a91e2405a3812f6635de5ec164a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: dcc666a784a20e6e78d4b8db11b22063e27a2e89
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127880"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004192"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>语音转文本常见问题解答
 
-如果在本常见问题解答中找不到你的问题的解答，请检查[其他支持选项](support.md)。
+如果在本常见问题解答中找不到你的问题的解答，请检查[其他支持选项](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)。
 
 ## <a name="general"></a>常规
 
@@ -30,7 +30,7 @@ ms.locfileid: "92127880"
 
 **问：如果想要使用基线模型，从何处开始？**
 
-**答**：首先，获取[订阅密钥](overview.md#try-the-speech-service-for-free)。 如果想要对预先部署的基线模型进行 REST 调用，请参阅 [REST API](rest-apis.md)。 如果想要使用 WebSocket，请[下载 SDK](speech-sdk.md)。
+**答**：首先，获取 [订阅密钥](overview.md#try-the-speech-service-for-free)。 如果想要对预先部署的基线模型进行 REST 调用，请参阅 [REST API](./overview.md#reference-docs)。 如果想要使用 WebSocket，请[下载 SDK](speech-sdk.md)。
 
 **问：是否始终需要生成自定义语音识别模型？**
 
@@ -76,7 +76,7 @@ ms.locfileid: "92127880"
 
 **问：我的请求是否受到限制？**
 
-**答**：请参阅[语音服务配额和限制](speech-services-quotas-and-limits.md)。
+**答**：请参阅 [语音服务配额和限制](speech-services-quotas-and-limits.md)。
 
 **问：双声道音频如何收费？**
 

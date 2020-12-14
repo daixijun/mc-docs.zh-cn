@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: d1b219be6142d71aa5fc7b64d944eafa7e49f372
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: a0cb67ce3669107ea97cb59a3d7def8173c82d5c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749928"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004197"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>教程：从 Angular 单页应用程序将用户登录并调用 Microsoft Graph API
 
-本教程将指导你生成 Angular 单页应用程序 (SPA)，以通过工作或学校帐户实现用户登录，并代表用户调用 Microsoft Graph API。
+在本教程中，你将构建一个 Angular 单页应用程序 (SPA)，它使用户登录并调用 Microsoft Graph API。
 
 本教程的内容：
 
@@ -124,7 +124,7 @@ ng generate component page-name                  # To add a new page (such as a 
     |---------|---------|
     |Enter_the_Application_Id_Here|在应用程序注册的“概览”页中，这是你的“应用程序(客户端) ID”值。  |
     |Enter_the_Cloud_Instance_Id_Here|这是 Azure 云的实例。 对于主要云或全球 Azure 云，请输入 **https://login.partner.microsoftonline.cn** 。 对于国家/地区云（例如中国云），请参阅[国家/地区云](./authentication-national-cloud.md)。|
-    |Enter_the_Tenant_Info_Here| 设置为以下选项之一：如果应用程序支持此组织目录中的帐户，请将此值替换为目录（租户）ID 或租户名称（例如 contoso.microsoft.com）。 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations** 。 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为“common” |
+    |Enter_the_Tenant_Info_Here| 设置为以下选项之一：如果应用程序支持此组织目录中的帐户，请将此值替换为目录（租户）ID 或租户名称（例如 contoso.microsoft.com）。 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations**。  |
     |Enter_the_Redirect_Uri_Here|替换为 **http://localhost:4200** 。|
 
     有关可用的可配置选项的详细信息，请阅读[初始化客户端应用程序](msal-js-initializing-client-applications.md)。

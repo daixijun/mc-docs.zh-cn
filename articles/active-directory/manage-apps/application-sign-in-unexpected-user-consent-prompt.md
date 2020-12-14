@@ -3,26 +3,25 @@ title: 登录到应用程序时出现的意外许可提示 | Microsoft Docs
 description: 如何对用户遇到的与 Azure AD 集成的应用程序出现意外许可提示这一情形进行故障排除
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-origin.date: 07/11/2017
-ms.date: 07/04/2019
+ms.topic: troubleshooting
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d5304f5e8ba6892c7a7e7a50e355ac4e8c80b9f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: edc6ca286df1e30ec9b228949f29f38c56d0d063
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67568603"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004047"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>登录到应用程序时出现的意外许可提示
 
@@ -40,7 +39,7 @@ ms.locfileid: "67568603"
 
 * 最初对应用程序进行许可的用户是管理员，但他们未代表整个组织进行许可。
 
-* 最初授予许可后，应用程序使用[增量许可和动态许可](/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent)请求其他权限。 这通常会在以下情况下使用：应用程序的可选功能需要超出基线功能所需权限以外的附加权限。
+* 最初授予许可后，应用程序使用[增量许可和动态许可](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)请求其他权限。 这通常会在以下情况下使用：应用程序的可选功能需要超出基线功能所需权限以外的附加权限。
 
 * 已在最初授予许可后将其吊销。
 
@@ -48,9 +47,7 @@ ms.locfileid: "67568603"
 
 ## <a name="next-steps"></a>后续步骤
 
--   [Azure Active Directory（v1.0 终结点）中的应用、权限和许可](/active-directory/develop/active-directory-integrating-applications)
+-   [Azure Active Directory（v1.0 终结点）中的应用、权限和许可](../develop/quickstart-register-app.md)
 
--   [Azure Active Directory（v2.0 终结点）中的范围、权限和许可](/active-directory/develop/active-directory-v2-scopes)
-
-<!-- Update_Description: wording update -->
+-   [Azure Active Directory（v2.0 终结点）中的范围、权限和许可](../develop/v2-permissions-and-consent.md)
 

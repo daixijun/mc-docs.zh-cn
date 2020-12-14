@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/20/2020
-ms.date: 09/02/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5254c4d2e2fbf48c5535e8d034af97ab87f13957
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 75142353b71942939498d4ce8c54a5c9483a7acd
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127878"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004191"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文本转语音常见问题
 
-如果在本常见问题解答中找不到你的问题的解答，请检查[其他支持选项](support.md)。
+如果在本常见问题解答中找不到你的问题的解答，请检查[其他支持选项](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)。
 
 ## <a name="general"></a>常规
 
@@ -34,7 +34,7 @@ ms.locfileid: "92127878"
 
 **问：如果想使用自定义的语音模型，API 是否与用于标准语音的 API 相同？**
 
-**答**：创建和部署自定义语音模型时，你会获得模型的唯一终结点。 若要使用语音在应用中说话，必须在 HTTP 请求中指定该终结点。 在 REST API 中为文本转语音服务提供的相同功能可用于自定义终结点。 了解如何[创建和使用自定义终结点](https://docs.azure.cn/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint)。
+**答**：创建和部署自定义语音模型时，你会获得模型的唯一终结点。 若要使用语音在应用中说话，必须在 HTTP 请求中指定该终结点。 在 REST API 中为文本转语音服务提供的相同功能可用于自定义终结点。 了解如何[创建和使用自定义终结点](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint)。
 
 **问：要自行创建自定义语音模型，是否需要准备训练数据？**
 
@@ -42,7 +42,7 @@ ms.locfileid: "92127878"
 
 创建自定义的语音模型需要一组语音数据。 其中包括一系列语音录制音频文件，以及每个音频文件的听录文本文件。 数字语音的结果主要依赖于定型数据的质量。 若要生成优质文本转语音的语音，必须确保录音是在安静的房间使用高品质立式麦克风完成的。 一致的音量、语速和语调，甚至语言表达方式的一致性对于生成优质数字语音来说至关重要。 强烈建议在录制室中录制语音。
 
-当前我们不提供在线录音支持或任何录音室建议。 有关格式要求，请参阅[如何准备录音和脚本](https://docs.azure.cn/cognitive-services/speech-service/how-to-custom-voice-create-voice)。
+当前我们不提供在线录音支持或任何录音室建议。 有关格式要求，请参阅[如何准备录音和脚本](./how-to-custom-voice-create-voice.md)。
 
 **问：应该使用哪些脚本来录制用于自定义语音训练的语音数据？**
 
@@ -60,7 +60,7 @@ ms.locfileid: "92127878"
 
 **问：我的请求是否受到限制？**
 
-**答**：请参阅[语音服务配额和限制](speech-services-quotas-and-limits.md)。
+**答**：请参阅 [语音服务配额和限制](speech-services-quotas-and-limits.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

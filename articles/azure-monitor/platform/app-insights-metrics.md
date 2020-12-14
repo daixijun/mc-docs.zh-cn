@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 origin.date: 07/03/2019
 ms.topic: reference
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.subservice: application-insights
-ms.openlocfilehash: 3ea75bfdee564ea889ec7c8e022b5d8aa20ca5f7
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 195dae84d891d79236189b27cb87e68db0ed4b00
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457356"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105251"
 ---
 # <a name="application-insights-log-based-metrics"></a>基于 Application Insights 日志的指标
 
@@ -39,7 +39,7 @@ ms.locfileid: "89457356"
 - 所选的“拆分图表”维度将转换为额外的 summarize 属性。  例如，如果你按位置拆分图表，并使用 5 分钟时间粒度绘制图表，则 *summarize* 子句将由 *... by bin(timestamp, 5 m), location* 汇总。
 
 > [!NOTE]
-> 如果你不熟悉 Kusto 查询语言，请先复制 Kusto 语句并将其粘贴到 Log Analytics 查询窗格，而无需进行任何修改。 单击“运行”查看基本图表。  对查询语言的语法有一定的了解后，可以开始进行少量的修改，并查看更改造成的影响。 探索自己的数据是开始实现 [Log Analytics](../log-query/get-started-portal.md) 和 [Azure Monitor](../overview.md) 的全部功能的好办法。
+> 如果你不熟悉 Kusto 查询语言，请先复制 Kusto 语句并将其粘贴到 Log Analytics 查询窗格，而无需进行任何修改。 单击“运行”查看基本图表。  对查询语言的语法有一定的了解后，可以开始进行少量的修改，并查看更改造成的影响。 探索自己的数据是开始实现 [Log Analytics](../log-query/log-analytics-tutorial.md) 和 [Azure Monitor](../overview.md) 的全部功能的好办法。
 
 ## <a name="availability-metrics"></a>可用性指标
 
@@ -225,7 +225,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>失败的请求数 (请求/失败)
 
-标记为失败的受跟踪服务器请求计数。  默认情况下，Application Insights SDK 会自动将返回 HTTP 响应代码 5xx 或 4xx 的每个服务器请求标记为失败的请求。 可以通过在[自定义遥测初始化表达式](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)中修改请求遥测项的 *success* 属性来自定义此逻辑。
+标记为失败的受跟踪服务器请求计数。  默认情况下，Application Insights SDK 会自动将返回 HTTP 响应代码 5xx 或 4xx 的每个服务器请求标记为失败的请求。 可以通过在 [自定义遥测初始化表达式](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)中修改请求遥测项的 *success* 属性来自定义此逻辑。
 
 |度量单位|支持的聚合|预先聚合的维度|注释|
 |---|---|---|---|
@@ -493,5 +493,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
-
 

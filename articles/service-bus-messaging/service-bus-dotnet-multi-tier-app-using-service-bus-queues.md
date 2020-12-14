@@ -5,16 +5,16 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: e18d53994e661cb844e9b8a2f85ca03e55da2534
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 2ab9c300bc29898f97e077797be713957df42a60
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946639"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104320"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -197,7 +197,7 @@ ms.locfileid: "88946639"
 
 1. 在“解决方案资源管理器”  中，右键单击“FrontendWebRole”  （右键单击项目而不是角色）。 单击“添加”  ，并单击“类”  。
 2. 将类命名为 **QueueConnector.cs**。 单击“添加”  以创建类。
-3. 现在，将添加可封装连接信息并初始化服务总线队列连接的代码。 将 QueueConnector.cs 的全部内容替换为下面的代码，并输入 `your Service Bus namespace`（命名空间名称）和 `yourKey`（之前从 Azure 门户中获取的**主要密钥**）的值。
+3. 现在，将添加可封装连接信息并初始化服务总线队列连接的代码。 将 QueueConnector.cs 的全部内容替换为下面的代码，并输入 `your Service Bus namespace`（命名空间名称）和 `yourKey`（之前从 Azure 门户中获取的 **主要密钥**）的值。
  
     ```csharp
     using System;

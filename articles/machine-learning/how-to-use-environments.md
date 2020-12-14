@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 origin.date: 07/23/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: b535db057ae4b41dc5f755062463c7f5b2182cfc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 750f94bc2f593c936a7d1a38f62cfdd4111d0bf4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977058"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105272"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>在 Azure 机器学习中创建和使用软件环境
 
@@ -94,9 +94,9 @@ for env in envs:
 myenv = Environment.from_conda_specification(name = "myenv",
                                              file_path = "path-to-conda-specification-file")
 
-#From a pip requirements file
-myenv = Environment.from_pip_requirements(name = "myenv"
-                                          file_path = "path-to-pip-requirements-file")
+# From a pip requirements file
+myenv = Environment.from_pip_requirements(name = "myenv",
+                                          file_path = "path-to-pip-requirements-file")                                          
 ```
 
 ### <a name="enable-docker"></a>启用 Docker

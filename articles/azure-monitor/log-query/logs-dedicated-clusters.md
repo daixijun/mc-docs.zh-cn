@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/06/2020
-ms.openlocfilehash: 57587566449b41a123c8930986743a9169347095
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 3296e50dbba8a0778dfc9ff96f36615925fd2f74
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329041"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105300"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 日志专用群集
 
@@ -19,7 +19,7 @@ Azure Monitor 日志专用群集是一种部署选项，可用于更好地为大
 
 除了支持大容量，使用专用群集还有其他好处：
 
-- **速率限制** - 客户只在专用群集上才会拥有更高的[引入速率限制](../service-limits.md#data-ingestion-volume-rate)。
+- **速率限制** - 客户只在专用群集上才会拥有更高的 [引入速率限制](../service-limits.md#data-ingestion-volume-rate)。
 - **功能** - 某些企业功能只在专用群集上可用，特别是客户管理的密钥 (CMK) 和密码箱支持。 
 - **一致性** - 客户有自己的专用资源，因此不受运行在同一共享基础结构上的其他客户的影响。
 - **成本效率** - 使用专用群集可能更具成本效益，因为分配的产能预留层考虑了所有群集引入并应用于其所有工作区，即使其中一些工作区很小并且没有资格享受产能预留折扣。

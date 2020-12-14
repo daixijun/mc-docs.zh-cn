@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 中的用户定义函数 (UDF)
 description: 了解 Azure Cosmos DB 中的用户定义函数。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 04/09/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: f95a9f0160ed4c92d417f2ebb4e9f7cfe313bcd0
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ae042b2aa87d00656f88d1ca292205825285a149
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552392"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850461"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB 中的用户定义函数 (UDF)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,38 +57,38 @@ UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
 现在，请在查询投影中使用此 UDF。 从查询内部调用 UDF 时，必须使用区分大小写的前缀 `udf.` 来限定 UDF。
 
 ```sql
-    SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
-    FROM Families
+SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
+FROM Families
 ```
 
 结果有：
 
 ```json
-    [
-      {
-        "$1": true
-      },
-      {
-        "$1": false
-      }
-    ]
+[
+  {
+    "$1": true
+  },
+  {
+    "$1": false
+  }
+]
 ```
 
 可以在筛选器中使用以 `udf.` 前缀限定的 UDF，如以下示例所示：
 
 ```sql
-    SELECT Families.id, Families.address.city
-    FROM Families
-    WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+SELECT Families.id, Families.address.city
+FROM Families
+WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 ```
 
 结果有：
 
 ```json
-    [{
-        "id": "AndersenFamily",
-        "city": "Seattle"
-    }]
+[{
+    "id": "AndersenFamily",
+    "city": "Seattle"
+}]
 ```
 
 从本质上来说，UDF 是可以在投影和筛选器中使用的有效标量表达式。

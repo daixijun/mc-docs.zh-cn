@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/27/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: f4e1173db818823db1f51e69d67cc90014a40816
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 11a131c4165765b9ed3e396ec9cb87e544500d28
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746560"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104683"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>使用见解监视和配置 Azure 负载均衡器
 
@@ -74,7 +74,7 @@ ms.locfileid: "96746560"
 ### <a name="connection-monitors"></a>连接监视器
 “连接监视器”选项卡会在全局地图上显示已配置的所有[连接监视器](../network-watcher/connection-monitor.md)的往返延迟。 这些视觉对象为具有严格延迟要求的服务提供有用的信息。 为了满足自己的要求，你可能需要添加其他区域部署。
 
-<!--or  move to a [cross-regional load balancing](./cross-region-overview.md) model-->
+<!--or  move to a [cross-regional load balancing](./cross-region-overview.md)-->
 
 ### <a name="metric-definitions"></a>指标定义
 “指标定义”选项卡包含[“多维指标标准”文章](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)中显示的所有信息。

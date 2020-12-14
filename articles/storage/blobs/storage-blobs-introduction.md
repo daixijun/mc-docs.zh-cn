@@ -7,15 +7,15 @@ author: WenJason
 ms.service: storage
 ms.topic: overview
 origin.date: 06/24/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 0c6ab71953b265f03adf3aa0545661d2c52cb6e8
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a046cda4bf98bfa6bfea1008742ddff78d74f0d9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552038"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850750"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 存储简介
 
@@ -74,5 +74,5 @@ Azure 存储支持三种类型的 Blob：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [创建存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)
+- [创建存储帐户](../common/storage-account-create.md?toc=%2fstorage%2fblobs%2ftoc.json)
 - [Blob 存储的可伸缩性和性能目标](scalability-targets.md)

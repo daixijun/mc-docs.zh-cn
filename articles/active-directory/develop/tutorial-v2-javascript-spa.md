@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: d82e6933d57becda9cb3b771ca20e3f6e8f4bd25
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 466d6a0cecdd361b587bb5b256e1a02aea1870b6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749919"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003769"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>教程：让用户登录并从 JavaScript 单页应用程序 (SPA) 调用 Microsoft 图形 API
 
-在本教程中，我们使用 JavaScript 生成一个单页应用程序 (SPA)，以便用户可使用学校和工作帐户登录，然后获取访问令牌以调用 Microsoft Graph API。
+在本教程中，你将生成一个 JavaScript 单页应用程序 (SPA)，让用户使用隐式流登录并调用 Microsoft Graph。 生成的 SPA 使用适用于 JavaScript v1.0 的 Microsoft 身份验证库 (MSAL)。
 
 本教程的内容：
 
@@ -271,7 +271,7 @@ ms.locfileid: "92749919"
 1. “注册应用程序”页显示后，请输入应用程序的名称。
 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
 1. 在“重定向 URI”部分的下拉列表中选择“Web”平台，然后将值设置为基于 Web 服务器的应用程序 URL。 
-1. 选择“注册”  。
+1. 选择“注册”。
 1. 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
 1. 本快速入门要求启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)。 在已注册的应用程序的左窗格中，选择“身份验证”。
 1. 在“高级设置”部分的“隐式授权”下，选中“ID 令牌”和“访问令牌”复选框   。 由于此应用必须将用户登录并调用 API，因此需要 ID 令牌和访问令牌。
@@ -321,8 +321,8 @@ ms.locfileid: "92749919"
  - \<Enter_the_Application_Id_Here> 是所注册应用程序的应用程序（客户端）ID。
  - \<Enter_the_Cloud_Instance_Id_Here> 是 Azure 云的实例。 对于主要或全球 Azure 云，只需输入 *https://login.partner.microsoftonline.cn* 。 对于 **国家** 云（例如“中国”云），请参阅 [国家云](./authentication-national-cloud.md)。
  - \<Enter_the_Tenant_info_here> 设置为以下选项之一：
-   - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如， *contoso.microsoft.com* ）。
-   - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations** 。
+   - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如，*contoso.microsoft.com*）。
+   - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations**。
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft 身份验证库 (MSAL) 登录用户
 
@@ -416,7 +416,7 @@ ms.locfileid: "92749919"
 - 应用程序正在请求访问资源，这需要用户的许可。
 - 需要双重身份验证。
 
-调用 *acquireTokenPopup* 会打开一个弹出窗口（或者， *acquireTokenRedirect* 会将用户重定向到 Microsoft 标识平台终结点）。 在该窗口中，为了进行交互，用户需要确认其凭据、为所需的资源提供许可，或者完成双重身份验证。
+调用 *acquireTokenPopup* 会打开一个弹出窗口（或者，*acquireTokenRedirect* 会将用户重定向到 Microsoft 标识平台终结点）。 在该窗口中，为了进行交互，用户需要确认其凭据、为所需的资源提供许可，或者完成双重身份验证。
 
 #### <a name="get-a-user-token-silently"></a>以无提示方式获取用户令牌
 
@@ -478,7 +478,7 @@ ms.locfileid: "92749919"
    npm install
    npm start
    ```
-1. 在浏览器中输入 **http://localhost:3000** 或 **http://localhost:{port}** ，其中， *port* 是 Web 服务器正在侦听的端口。 应会显示 index.html 文件的内容和“登录”按钮。
+1. 在浏览器中输入 **http://localhost:3000** 或 **http://localhost:{port}** ，其中，*port* 是 Web 服务器正在侦听的端口。 应会显示 index.html 文件的内容和“登录”按钮。
 
 在浏览器加载 index.html 文件后，选择“登录”。 系统将提示你使用 Microsoft 标识平台终结点进行登录：
 
@@ -511,5 +511,4 @@ Microsoft Graph API 需要 *user.read* 作用域来读取用户的个人资料�
 
 > [!div class="nextstepaction"]
 > [方案：单页应用程序](scenario-spa-overview.md)
-
 

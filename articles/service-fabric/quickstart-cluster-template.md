@@ -6,16 +6,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 12/12/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1e02df5f3ca2c15e819dec5c677b0ed4780c98d4
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 2d71eb05ade4826a1522b1b826a64a1edfa7620f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507805"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105192"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>快速入门：使用 ARM 模板创建 Service Fabric 群集
@@ -58,7 +58,7 @@ Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打�
 > [!NOTE]
 > 例如，当我们尝试在 Azure 中安装[部署 5 节点安全群集](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)时。
 > 在成功下载相应的模板文件后，我们应当替换以下配置来满足 Azure 中国环境：
-> * 替换 [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
+> * 替换 [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
 >     * 将 `WestUS` 替换为 `chinaeast`。
 > * 替换 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) 中的 storageAccountEndPoint。
 >     * 将 `"storageAccountEndPoint": "https://core.windows.net/"` 替换为 `"storageAccountEndPoint": "https://core.chinacloudapi.cn/"`。

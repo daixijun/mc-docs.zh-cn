@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 中的分页
 description: 了解分页概念和继续标记
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f19a6fcd0870627ac4181f791e6ea48aa420c805
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ddd44beb067e1293b12f141d295594e3b01b9ffd
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552302"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850682"
 ---
 <!--Verified successfully-->
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分页
@@ -62,7 +63,7 @@ ms.locfileid: "94552302"
 
 在 Azure Cosmos DB 的 REST API 中，可以使用 `x-ms-continuation` 标头管理继续标记。 与使用 .NET 或 Java SDK 进行查询一样，如果 `x-ms-continuation` 响应标头不为空，则表示查询还有其他结果。
 
-只要使用相同的 SDK 版本，继续标记就永远不会过期。 可以选择[限制继续标记的大小](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)。 不管容器中的数据量或物理分区数量如何，查询都会返回一个继续标记。
+只要使用相同的 SDK 版本，继续标记就永远不会过期。 可以选择[限制继续标记的大小](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)。 不管容器中的数据量或物理分区数量如何，查询都会返回一个继续标记。
 
 <!--CORRECT ON https://docs.azure.cn/dotnet/api/-->
 

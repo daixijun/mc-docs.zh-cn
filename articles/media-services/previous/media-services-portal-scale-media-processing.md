@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 5a0105afafce2e94651b8f05e5adb49ca927687f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 5a5c3ca99a102ab7e9dcd9c428647e0476124239
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245059"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004055"
 ---
 # <a name="change-the-reserved-unit-type"></a>更改预留单位类型
 
@@ -30,7 +30,7 @@ ms.locfileid: "91245059"
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [门户](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+> * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 

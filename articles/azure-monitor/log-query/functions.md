@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: c928718e4a594457e6cf952aa62cf595c6918c40
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 12/07/2020
+ms.openlocfilehash: 6a3039f078a677bce21c8ffba7052702dc1d5c95
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148541"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105325"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用函数
 
@@ -56,11 +56,11 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="next-steps"></a>后续步骤
 参阅有关编写 Azure Monitor 日志查询的其他课：
 
-- [字符串操作](string-operations.md)
-- [时间和日期操作](datetime-operations.md)
-- [聚合函数](aggregations.md)
-- [高级聚合](advanced-aggregations.md)
-- [JSON 和数据结构](json-data-structures.md)
-- [联接](joins.md)
-- [图表](charts.md)
+- [字符串操作](/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)
+- [时间和日期操作](/data-explorer/kusto/query/samples?&pivots=azuremonitor#date-and-time-operations)
+- [聚合函数](/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)
+- [高级聚合](/data-explorer/write-queries#advanced-aggregations)
+- [JSON 和数据结构](/data-explorer/kusto/query/samples?&pivots=azuremonitor#json-and-data-structures)
+- [联接](/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)
+- [图表](/data-explorer/kusto/query/samples?&pivots=azuremonitor#charts)
 

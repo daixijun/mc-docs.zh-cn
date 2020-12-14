@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建空间对象。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 02/20/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: f58807a9a56bb465c925fc1c56604a9cb3e791ef
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 18d351357cc631c32dfd426fb8b1395c3eca5459
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552630"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850722"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->

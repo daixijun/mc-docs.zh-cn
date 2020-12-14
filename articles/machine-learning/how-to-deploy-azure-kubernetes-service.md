@@ -10,13 +10,14 @@ ms.custom: how-to, contperfq1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: 54614f66a9161f03f58f9879b88aba1694a88daa
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+origin.date: 09/01/2020
+ms.date: 12/21/2020
+ms.openlocfilehash: fbf27dfb9baa6baef632f3017c9211d131c24c33
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978177"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105276"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>将模型部署到 Azure Kubernetes 服务群集
 

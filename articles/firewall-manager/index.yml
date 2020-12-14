@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 10/10/2019
-  ms.openlocfilehash: 43cb2eb575ae092e3bfb99fb01bc01a587dd6b37
-  ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+  ms.openlocfilehash: 04e3d2429cc2db634fb16ead09f3893c6e12beb3
+  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/24/2020
-  ms.locfileid: "87162838"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97104862"
 landingContent:
 - title: 了解 Azure 防火墙管理器
   linkLists:

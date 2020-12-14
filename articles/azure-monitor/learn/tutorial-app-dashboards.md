@@ -5,15 +5,15 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 07/3/2019
 ms.custom: mvc, contperfq1
-ms.openlocfilehash: 65c2750d6b8cb3053877711a7bad0ec6b07768be
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8388106658787a3a5e37a544d7521e46682ad92d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327844"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104982"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 创建自定义 KPI 仪表板
 
@@ -133,7 +133,7 @@ Azure Application Insights 日志提供了丰富的查询语言，使你能够�
 ## <a name="share-dashboard"></a>共享仪表板
 
 1. 在仪表板的顶部，选择“共享”以发布更改。
-2. 你可以定义具有仪表板访问权限的特定用户（可选）。 有关详细信息，请参阅[通过使用基于角色的访问控制来共享 Azure 仪表板](../../azure-portal/azure-portal-dashboard-share-access.md)。
+2. 你可以定义具有仪表板访问权限的特定用户（可选）。 有关详细信息，请参阅[使用 Azure 基于角色的访问控制共享 Azure 仪表板](../../azure-portal/azure-portal-dashboard-share-access.md)。
 3. 选择“发布”。
 
 ## <a name="next-steps"></a>后续步骤

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/11/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8a7c744b704a153e588dcf362c0341d5337a2c4d
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b7a6344fa1f35272526335147398920243851837
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977080"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004075"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>训练和部署自定义语音识别模型
 
@@ -34,7 +34,7 @@ ms.locfileid: "94977080"
 
 ## <a name="train-and-evaluate-a-model"></a>训练和评估模型
 
-训练模型的第一步是上传训练数据。 请参阅[准备和测试数据](how-to-custom-speech-test-data.md)以获取分步说明，了解如何准备人为标记的听录和相关的文本（言语和发音）。 上传训练数据以后，请按以下说明开始训练模型：
+训练模型的第一步是上传训练数据。 请参阅[准备和测试数据](./how-to-custom-speech-test-and-train.md)以获取分步说明，了解如何准备人为标记的听录和相关的文本（言语和发音）。 上传训练数据以后，请按以下说明开始训练模型：
 
 1. 登录到[自定义语音识别门户](https://speech.azure.cn/customspeech)。
 2. 导航到“语音转文本”>“自定义语音识别”> [项目名称] >“训练”。
@@ -78,6 +78,6 @@ ms.locfileid: "94977080"
 
 ## <a name="additional-resources"></a>其他资源
 
-- [准备和测试数据](how-to-custom-speech-test-data.md)
+- [准备和测试数据](./how-to-custom-speech-test-and-train.md)
 - [检查数据](how-to-custom-speech-inspect-data.md)
 - [评估数据](how-to-custom-speech-evaluate-data.md)

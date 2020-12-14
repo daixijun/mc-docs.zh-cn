@@ -6,13 +6,13 @@ ms.service: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: 10d322ea032772d3d4efe89c49bad10e348baa07
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: b993445c487363dd6a01259d0e781e3239651f0c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231121"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104475"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>分阶段地向目标受众推出功能
 

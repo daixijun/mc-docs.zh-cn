@@ -9,12 +9,12 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 00bbf8cef576cb9f1adf8b6404f3879da6ece2c1
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 5a2f8b117d0c928107affc2a0fb17e0e46722416
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152929"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004198"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -53,7 +53,7 @@ Install-Module AzTable
 运行 `Add-AzAccount` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
 ```powershell
-Add-AzAccount
+Add-AzAccount -Environment AzureChinaCloud
 ```
 
 ## <a name="retrieve-list-of-locations"></a>检索位置列表

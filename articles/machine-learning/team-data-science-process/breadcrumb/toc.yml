@@ -73,7 +73,3 @@
             - name: HDInsight
               tocHref: /azure/hdinsight/spark/
               topicHref: /azure/hdinsight/index
-              items:
-                - name: ML Services
-                  tocHref: /azure/hdinsight/r-server/
-                  topicHref: /azure/hdinsight/r-server/index

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ad2816eaaee9aed308fb39bbf8698d5f57bee33
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 62d31e0e2b5622fcf5ddd1010c2df0372a87a0e3
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245066"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004110"
 ---
 # <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>使用媒体服务 .NET SDK 配置内容密钥授权策略
 

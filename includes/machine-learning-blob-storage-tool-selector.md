@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cgronlun
-ms.openlocfilehash: ee653f8beeac4897da2b41a9bbbf8aa218a11e16
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 83ea93d803477b1e31c9a7c0d0576a785ff4e07a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598605"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105254"
 ---
 <!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
 -->
@@ -18,8 +18,8 @@ ms.locfileid: "75598605"
 > [!div class="op_single_selector" title1="Blob 存储工具"]
 > * [概述](../articles/machine-learning/team-data-science-process/move-azure-blob.md)
 > * [Azure 存储资源管理器](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)
-> * [AzCopy](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy.md)
-> * [Python](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-python.md)
+> * [AzCopy](../articles/storage/common/storage-use-azcopy-v10.md)
+> * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
 > * [SSIS](../articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-ssis.md)
 > 
 > 

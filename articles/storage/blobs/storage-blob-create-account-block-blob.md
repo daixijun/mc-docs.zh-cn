@@ -6,22 +6,22 @@ services: storage
 ms.service: storage
 ms.topic: how-to
 origin.date: 10/30/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 444a3772ea107b16e8897ac40136256492db463f
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 388788dc703641effcac4a19946e0e855b5b4b31
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432037"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850383"
 ---
 # <a name="create-a-blockblobstorage-account"></a>创建 BlockBlobStorage 帐户
 
 BlockBlobStorage 帐户类型允许创建具有高级性能特征的块 Blob。 此类存储帐户针对事务处理速率高或需要极快速访问的工作负载进行了优化。 本文介绍如何使用 Azure 门户、Azure CLI 或 Azure PowerShell 创建 BlockBlobStorage 帐户。
 
-有关 BlockBlobStorage 帐户的详细信息，请参阅 [Azure 存储帐户概述](/storage/common/storage-account-overview)。
+有关 BlockBlobStorage 帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -182,6 +182,6 @@ az login
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](/storage/common/storage-account-overview)。
+- 有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
-- 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](/azure-resource-manager/resource-group-overview)。
+- 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/management/overview.md)。

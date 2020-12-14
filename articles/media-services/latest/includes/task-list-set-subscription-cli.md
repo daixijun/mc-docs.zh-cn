@@ -3,19 +3,19 @@ author: WenJason
 ms.service: media-services
 ms.topic: include
 origin.date: 08/17/2020
-ms.date: 09/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.custom: CLI
-ms.openlocfilehash: c0a3e300a9fb002d0ea9417e94247d9545fa7133
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: aadc2d9cc9cab077d1527a9612b9c4b4cb043809
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414091"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004493"
 ---
 <!-- List and set subscriptions -->
 
-1. 使用 [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list) 命令获取订阅列表。
+1. 使用 [az account list](/cli/account#az-account-list) 命令获取订阅列表。
 
     ```
     az account list --output table

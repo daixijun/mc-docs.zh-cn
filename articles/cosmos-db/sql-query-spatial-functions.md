@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的空间函数
 description: 了解 Azure Cosmos DB 中的空间 SQL 系统函数。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 09/13/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 071012e0d2b222bdd9f27cb8a2fceecd7665a36a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 41917b21952d0875a74b20ced7ecaec040b843f5
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552443"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850631"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>空间函数 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -2,24 +2,24 @@
 title: include 文件
 description: include 文件
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: include
 origin.date: 07/09/2020
-ms.date: 11/23/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a4e4236ac670c0ede9f247bc0ca7d9c0138cba9a
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 1a984c18156d187bb4a5efbd3343906e99590b5a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025840"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105702"
 ---
 <!--Verified successfully-->
 从浏览器导航到 Azure 门户并使用 Azure 帐户登录。
 
-1. 导航到“虚拟 WAN”页。 在门户中，单击“+创建资源”。 在搜索框中键入“虚拟 WAN”，然后选择“Enter” 。
+1. 在门户中，选择“+ 创建资源”。 在搜索框中键入“虚拟 WAN”，然后选择“Enter” 。
 1. 从结果中选择“虚拟 WAN”。 在“虚拟 WAN”页上，选择“创建”以打开“创建 WAN”页。
 1. 在“创建 WAN”页的“基本信息”选项卡上，填写以下字段 ：
 

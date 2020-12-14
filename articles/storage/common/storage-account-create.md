@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 09/24/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5331bbf0dbeb5f31ce3c381cca0b0f853f6126fb
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: b63f84f7cd4655009de8dc1728518bf786c1074f
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432710"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850736"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 

@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: 6b1bca0c937bd23b7e5ceb6862c4591da81a6ee8
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: 07583a8154ed32cfc1dcaa97dde16a4685a158d1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231119"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104648"
 ---
 # <a name="test-the-azure-app-configuration-rest-api-using-postman"></a>使用 Postman 测试 Azure 应用程序配置 REST API
 

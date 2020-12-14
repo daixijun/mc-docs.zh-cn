@@ -7,20 +7,20 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 origin.date: 05/18/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 52b7497b119fe74a77f742cfb5824ccbeaeed074
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: f17cd1bba31a5396fd000c28168c635101baa054
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431751"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850815"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure CLI 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
-本文介绍如何使用 [Azure 命令行接口 (CLI)](/cli/?view=azure-cli-latest) 在具有分层命名空间的存储帐户中创建和管理目录、文件和权限。 
+本文介绍如何使用 [Azure 命令行接口 (CLI)](/cli/) 在具有分层命名空间的存储帐户中创建和管理目录、文件和权限。 
 
 [示例](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [提高反馈](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -28,7 +28,7 @@ ms.locfileid: "96431751"
 
 > [!div class="checklist"]
 > * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
-> * 已启用分层命名空间 (HNS) 的存储帐户。 请按照[此处](data-lake-storage-quickstart-create-account.md)的说明创建一个存储帐户。
+> * 已启用分层命名空间 (HNS) 的存储帐户。 请按照[此处](../common/storage-account-create.md)的说明创建一个存储帐户。
 > * Azure CLI 版本 `2.6.0` 或更高版本。
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>确保安装正确版本的 Azure CLI
@@ -54,7 +54,7 @@ ms.locfileid: "96431751"
 
    否则，请在浏览器中打开 [https://aka.ms/deviceloginchina](https://aka.ms/deviceloginchina)，然后输入终端中显示的授权代码。 然后，在浏览器中使用帐户凭据登录。
 
-   若要详细了解不同的身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
+   若要详细了解不同的身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md)。
 
 2. 如果你的标识与多个订阅相关联，请将你的活动订阅设置为将托管静态网站的存储帐户的订阅。
 
@@ -65,7 +65,7 @@ ms.locfileid: "96431751"
    将 `<subscription-id>` 占位符值替换为你的订阅 ID。
 
 > [!NOTE]
-> 本文中提供的示例演示 Azure Active Directory (AD) 授权。 若要详细了解身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
+> 本文中提供的示例演示 Azure Active Directory (AD) 授权。 若要详细了解身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md)。
 
 ## <a name="create-a-container"></a>创建容器
 
@@ -222,7 +222,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 可以获取、设置和更新目录和文件的访问权限。
 
 > [!NOTE]
-> 如果使用 Azure Active Directory (Azure AD) 来授权命令，请确保已为安全主体分配了[存储 Blob 数据所有者角色](/role-based-access-control/built-in-roles#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改这些权限的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)。
+> 如果使用 Azure Active Directory (Azure AD) 来授权命令，请确保已为安全主体分配了[存储 Blob 数据所有者角色](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)。 若要详细了解如何应用 ACL 权限以及更改这些权限的影响，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)。
 
 ### <a name="get-an-acl"></a>获取 ACL
 
@@ -308,6 +308,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
+
 ```
 
 ### <a name="set-an-acl-recursively"></a>以递归方式设置 ACL
@@ -319,5 +320,3 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 * [示例](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [提供反馈](https://github.com/Azure/azure-cli-extensions/issues)
 * [已知问题](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

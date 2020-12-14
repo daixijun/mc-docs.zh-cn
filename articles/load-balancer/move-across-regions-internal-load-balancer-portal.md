@@ -5,14 +5,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: article
 origin.date: 09/18/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 17f3fe1c9ea90c23b357b434c9252f8b9b7de14d
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 0528adbcf73f8821b4a92ac4862f5aefbeb5c298
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746547"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105104"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>使用 Azure 门户将 Azure 内部负载均衡器移到另一个区域
 

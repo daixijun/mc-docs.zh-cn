@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 12/14/2020
 ms.author: avgupta
-ms.openlocfilehash: 64fece751ef81a35c14c5b07bd2bf4e71752d7a0
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 11bf0ec8244bc50a56a33c4db1b28987d3e77fa1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96300192"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104483"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>利用内容类型在应用程序配置中存储 JSON 密钥值
 
@@ -68,6 +68,8 @@ ms.locfileid: "96300192"
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - 本教程需要 Azure CLI 2.10.0 或更高版本。 
+
+<!--Not Available on If using Azure local Shell, the latest version is already installed.-->
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 

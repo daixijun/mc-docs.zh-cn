@@ -4,14 +4,14 @@ description: 使用 Application Insights 有效监视 Web 角色和辅助角色
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/05/2018
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 8c601fb90a55ce36d4df08ed1a1b5a96a9e4dcef
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: f07849a49c890038dcb6d9062ab9396a9c925718
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638190"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104653"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
 [Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
@@ -195,7 +195,7 @@ ms.locfileid: "94638190"
 
 ![Azure 诊断数据](./media/cloudservices/23-wad.png)
 
-若要在 Azure 诊断发送的各种跟踪日志中进行搜索，请使用[搜索](./diagnostic-search.md)或 [Analytics 查询](../log-query/get-started-portal.md)。 例如，假设某个未经处理的异常导致角色崩溃和回收。 该信息会在应用程序通道的 Windows 事件日志中显示。 可使用搜索来查看 Windows 事件日志错误，并获取异常的完整堆栈跟踪。 这样有助于找到问题的根本原因。
+若要在 Azure 诊断发送的各种跟踪日志中进行搜索，请使用[搜索](./diagnostic-search.md)或 [Analytics 查询](../log-query/log-analytics-tutorial.md)。 例如，假设某个未经处理的异常导致角色崩溃和回收。 该信息会在应用程序通道的 Windows 事件日志中显示。 可使用搜索来查看 Windows 事件日志错误，并获取异常的完整堆栈跟踪。 这样有助于找到问题的根本原因。
 
 ![Azure 诊断搜索](./media/cloudservices/25-wad.png)
 

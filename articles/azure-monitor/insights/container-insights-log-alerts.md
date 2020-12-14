@@ -2,14 +2,14 @@
 title: 用于容器的 Azure Monitor 中的日志警报 | Microsoft Docs
 description: 本文介绍如何从用于容器的 Azure Monitor 中创建内存和 CPU 使用率的自定义日志警报。
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 5b670325e635e38033eb77145a16fda4abf600a2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ff826ca9016343d5609a56035c54b7f81f54b1ea
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329087"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104877"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>如何从用于容器的 Azure Monitor 中创建日志警报
 
@@ -211,11 +211,11 @@ KubeNodeInventory
 以下查询基于所有阶段返回 Pod 阶段计数：“失败”、“挂起”、“未知”、“正在运行”或“成功”。      
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -225,13 +225,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,

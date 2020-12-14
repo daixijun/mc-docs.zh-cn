@@ -4,20 +4,20 @@ description: 搜索和筛选由 Web 应用发送的原始遥测数据。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 07/30/2019
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: de65b3681d6b38b98cd95cce4a7e3954816421bf
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d93f4ee75f500f2ca6c5f0ceda5ef310eb47e5a4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105667"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104470"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 
 搜索是 [Application Insights](./app-insights-overview.md) 中的一项功能，可用于查找和浏览单个遥测项，例如页面视图、异常或 Web 请求。 此外，可以查看编写的日志跟踪和事件。
 
-（若要对数据进行更复杂的查询，请使用 [Analytics](../log-query/get-started-portal.md)。）
+（若要对数据进行更复杂的查询，请使用 [Analytics](../log-query/log-analytics-tutorial.md)。）
 
 ## <a name="where-do-you-see-search"></a>哪里可以看到“搜索”？
 
@@ -84,7 +84,7 @@ ms.locfileid: "93105667"
 ## <a name="search-the-data"></a>搜索数据
 
 > [!NOTE]
-> 若要编写更复杂的查询，请在“搜索”边栏选项卡的顶部打开 [**日志（分析）**](../log-query/get-started-portal.md)。
+> 若要编写更复杂的查询，请在“搜索”边栏选项卡的顶部打开 [**日志（分析）**](../log-query/log-analytics-tutorial.md)。
 >
 
 可以搜索任何属性值中的关键词。 如果已编写包含属性值的[自定义事件](./api-custom-events-metrics.md)，可使用此功能。
@@ -98,7 +98,7 @@ ms.locfileid: "93105667"
 | String |  未找到 | 已找到 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
-|United States|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"China"`
+|United States|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
 
 下面是可以使用的搜索表达式：
 
@@ -148,9 +148,8 @@ ms.locfileid: "93105667"
 
 ## <a name="next-steps"></a><a name="add"></a>后续步骤
 
-* [在 Analytics 中编写复杂查询](../log-query/get-started-portal.md)
+* [在 Analytics 中编写复杂查询](../log-query/log-analytics-tutorial.md)
 * [向 Application Insights 发送日志和自定义的遥测数据](./asp-net-trace-logs.md)
 * [设置可用性和响应能力测试](./monitor-web-app-availability.md)
 * [故障排除](../faq.md)
-
 

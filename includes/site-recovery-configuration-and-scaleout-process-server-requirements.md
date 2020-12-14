@@ -2,22 +2,22 @@
 title: include 文件
 description: include 文件
 services: site-recovery
-author: rockboyfor
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
 origin.date: 07/08/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 50131c58a7b1d2e442e51da5056658275cc71d38
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: d683456d3013f9120badcb108f49776c57511dae
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919374"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105644"
 ---
 **配置和进程服务器要求**
 
@@ -39,8 +39,8 @@ RAM | 16 GB
 操作系统 | Windows Server 2012 R2 <br /> Windows Server 2016
 操作系统区域设置 | 英语 (en-*)
 Windows Server 角色 | 请勿启用以下角色： <br /> - Active Directory 域服务 <br />- Internet Information Services <br /> - Hyper-V 
-组策略 | 请勿启用以下组策略： <br /> - 阻止访问命令提示符。 <br /> - 阻止访问注册表编辑工具。 <br /> - 信任文件附件的逻辑。 <br /> - 打开脚本执行。 <br /> [了解详细信息](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - 无预先存在的默认网站 <br /> - 端口 443 上没有预先存在的网站/应用程序侦听 <br />- 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br /> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置 
+组策略 | 请勿启用以下组策略： <br /> - 阻止访问命令提示符。 <br /> - 阻止访问注册表编辑工具。 <br /> - 信任文件附件的逻辑。 <br /> - 打开脚本执行。 <br /> [了解详细信息](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | - 无预先存在的默认网站 <br /> - 端口 443 上没有预先存在的网站/应用程序侦听 <br />- 启用[匿名身份验证](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br /> - 启用 [FastCGI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 设置 
 FIPS（联邦信息处理标准） | 不要启用 FIPS 模式
 |
 
@@ -60,7 +60,7 @@ https:\//login.chinacloudapi.cn | 用于复制管理操作和协调
 time.nist.gov | 用于检查系统时间与全球时间之间的时间同步
 time.windows.com | 用于检查系统时间与全球时间之间的时间同步
 | <ul> <li> https:\//management.chinacloudapi.cn </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//microsoftgraph.chinacloudapi.cn </li><li> https:\//login.chinacloudapi.cn </li><li> *.services.visualstudio.com（可选） </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF 安装程序需要访问这些附加 URL。 它们由 Azure Active Directory 用于访问控制和标识管理。
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | 完成 MySQL 下载。 <br /> 在某些区域中，下载可能会被重定向到 CDN URL。 如果需要，请确保 CDN URL 也列入允许列表。
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | 完成 MySQL 下载。 <br /> 在某些区域中，下载可能会被重定向到 CDN URL。 确保也允许使用 CDN URL（如有必要）。
 |
 
 <!--Not Available on Private link-->

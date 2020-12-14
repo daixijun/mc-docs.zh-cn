@@ -3,14 +3,14 @@ title: 事件中心作为 Azure 事件网格事件的事件处理程序
 description: 介绍如何将时间中心用作 Azure 事件网格事件的事件处理程序。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: ebf5d7be6c8f09544cfebbc0bc8ecf67f5f816e4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: a4cf5999d23879e346fad18b25a45cd9e1c40651
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977841"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105341"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>事件中心作为 Azure 事件网格事件的事件处理程序
 事件处理程序是发送事件的位置。 处理程序将执行操作来处理事件。 几个 Azure 服务已自动配置为处理事件，Azure 事件中心是其中之一。 
@@ -25,17 +25,8 @@ ms.locfileid: "94977841"
 | [快速入门：使用 Azure CLI 将自定义事件路由到 Azure 事件中心](custom-event-to-eventhub.md) | 将自定义事件发送到事件中心以供应用程序处理。 |
 | [资源管理器模板：创建事件网格自定义主题，并将事件发送到事件中心](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 用于创建自定义主题的订阅的资源管理器模板。 它将事件发送到 Azure 事件中心。 |
 
-## <a name="message-properties"></a>消息属性
-如果使用事件中心作为事件网格事件的事件处理程序，则会在消息标头中收到以下属性： 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| 属性名称 | 说明 |
-| ------------- | ----------- | 
-| aeg-subscription-name | 事件订阅的名称。 |
-| aeg-delivery-count | <p>针对该事件进行尝试的次数。</p> <p>示例：“1”</p> |
-| aeg-event-type | <p>事件的类型。</p><p> 示例：“Microsoft.Storage.blobCreated”</p> | 
-| aeg-metadata-version | <p>事件的元数据版本。</p> <p>示例：“1”。</p><p> 对于“事件网格事件架构”，此属性表示元数据版本；对于“云事件架构”，此属性表示规范版本。 </p>|
-| aeg-data-version | <p>事件的数据版本。</p><p>示例：“1”。</p><p>对于“事件网格事件架构”，此属性表示数据版本；对于“云事件架构”，此属性不适用。</p> |
-| aeg-output-event-id | 事件网格事件的 ID。 |
 
 ## <a name="rest-examples-for-put"></a>REST 示例（适用于 PUT）
 

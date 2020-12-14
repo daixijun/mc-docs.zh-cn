@@ -4,15 +4,15 @@ description: 了解如何使用备份和恢复服务在 Azure VM 上执行文件
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 01/31/2019
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4daac90774093901de7e92a2900c79249a450c42
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e536f2e9ce1a533c629dbf513406bfe91bb03605
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978221"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104510"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>将文件还原到 Azure 中的虚拟机
 
@@ -120,7 +120,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 将恢复脚本复制到 VM 后，即可连接恢复点并还原文件。
 
 >[!NOTE]
-> 在继续之前，请查看[此处](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script)，了解是否可以在 VM 上运行脚本。
+> 在继续之前，请查看[此处](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)，了解是否可以在 VM 上运行脚本。
 
 1. 使用 SSH 连接到 VM。 将 publicIpAddress 替换为 VM 的公共 IP 地址，如下所示：
 

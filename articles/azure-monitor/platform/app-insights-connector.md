@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 02/13/2019
-ms.openlocfilehash: 041e8626eee1205991dc7c0a3b3b46457b831f0b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f7ad2d53409a8248bffe244a718d934d0011e255
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328446"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104521"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -57,7 +57,7 @@ ms.locfileid: "94328446"
 
 ## <a name="configuration"></a>Configuration
 
-1. 从 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.AppInsights?tab=Overview)或者使用[从解决方案库中添加 Log Analytics 解决方案](../insights/solutions.md)中所述的过程，启用 Azure Web 应用分析解决方案。
+1. 从 [Azure 市场](https://market.azure.cn/marketplace/apps)或者使用[从解决方案库中添加 Log Analytics 解决方案](../insights/solutions.md)中所述的过程，启用 Azure Web 应用分析解决方案。
 2. 浏览到 [Azure 门户](https://portal.azure.cn)。 选择“所有服务”以打开 Application Insights。 然后，搜索 Application Insights。 
 3. 在“订阅”下，选择包含 Application Insights 资源的订阅，然后在“名称”下选择一个或多个应用程序。
 4. 单击“ **保存**”。

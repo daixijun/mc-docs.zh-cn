@@ -6,15 +6,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 origin.date: 1/22/2020
-ms.date: 03/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: dineshm
-ms.openlocfilehash: cecf21e8ee55a7923235a8b289e7b77423d89d9a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 881470cd9dc1abdc134bca46ef026b21f742bca5
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80290446"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850808"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -78,14 +78,24 @@ ms.locfileid: "80290446"
 1. 在编辑器中打开 *index.html*，将以下文本粘贴到文件中，然后进行保存：
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. 创建默认错误文件，将其命名为 *404.html*。
 1. 在编辑器中打开 404.html，将以下文本粘贴到该文件中，然后保存  ：
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. 在“资源管理器”面板的 *mywebsite* 文件夹下双击，选择“部署到静态网站...”，以便部署网站。   系统会提示你登录到 Azure，以便检索订阅的列表。

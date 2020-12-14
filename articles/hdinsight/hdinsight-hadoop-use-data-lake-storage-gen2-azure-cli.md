@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
-ms.openlocfilehash: 67a0ef644d32c50d743ecd4b3e0fbc853e4a0217
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 141d31687274fda37f5a015b58e3a378bd18d6f3
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472802"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104948"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>通过 Azure CLI 创建使用 Data Lake Storage Gen2 的群集
 
@@ -22,7 +22,7 @@ ms.locfileid: "92472802"
 ## <a name="prerequisites"></a>先决条件
 
 - 如果不熟悉 Azure Data Lake Storage Gen2，请查阅[概述部分](hdinsight-hadoop-use-data-lake-storage-gen2.md)。 
-- 如果没有 Azure 帐户，请[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial)，然后继续操作。
+- 如果没有 Azure 帐户，请[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后继续操作。
 - 若要运行 CLI 脚本示例，请执行以下操作：
 
     - 如果喜欢使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.0.13 或更高版本）。 借助 Azure CLI，使用与要在其下部署用户分配的托管标识的 Azure 订阅关联的帐户通过 `az login` 登录到 Azure。 

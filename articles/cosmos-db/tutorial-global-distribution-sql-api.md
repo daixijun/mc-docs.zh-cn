@@ -2,21 +2,22 @@
 title: 教程 - SQL API 的 Azure Cosmos DB 多区域分发教程
 description: 教程 - 了解如何将 SQL API 与 .NET、Java、Python 和各种其他 SDK 配合使用来设置 Azure Cosmos DB 多区域分发
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1d4ebf53c5e8960e087761f39ad97cc383a6f0b1
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 0c77f01a6eab6c3d60a908a2c3e195d48b36bb13
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551718"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850610"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>教程：使用 SQL API 设置 Azure Cosmos DB 多区域分发
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

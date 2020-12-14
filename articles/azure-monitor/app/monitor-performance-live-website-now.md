@@ -4,15 +4,15 @@ description: 在不重新部署网站的情况下监视网站性能。 使用托
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/26/2019
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-dotnet
 ms.author: v-johya
-ms.openlocfilehash: 4292f05b7c096482898f81ed506b1a90facf659a
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 7dcca167d8af8c0ee89e83588d10035ed33ba7e0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638186"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104763"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
@@ -97,7 +97,7 @@ ms.locfileid: "94638186"
 
 - 确认 applicationInsights.config 文件在目标应用目录中并且包含 ikey。
 
-- 如果怀疑缺失数据，可在 [Analytics](../log-query/get-started-portal.md) 中运行查询，列出目前正在发送遥测数据的所有云角色。
+- 如果怀疑缺失数据，可在 [Analytics](../log-query/log-analytics-tutorial.md) 中运行查询，列出目前正在发送遥测数据的所有云角色。
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -343,5 +343,4 @@ Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https:/
 [qna]: ../faq.md
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md
-
 

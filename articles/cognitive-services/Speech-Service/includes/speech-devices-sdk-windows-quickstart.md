@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 02/20/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6e1c7b00818f15d62c1237de159d71b0f757db69
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 0a002a549ceadd27000463244ee40d43c7a839fd
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979008"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004578"
 ---
 本快速入门介绍如何使用适用于 Windows 的语音设备 SDK 来生成支持语音的产品。
 
 该应用程序是使用语音 SDK 程序包和 Eclipse Java IDE (v4) 在 64 位 Windows 上构建的。 它在 64 位 Java 8 运行时环境 (JRE) 中运行。
 
-本指南需要一个包含语音服务资源的 [Azure 认知服务](../get-started.md)帐户。
+本指南需要一个包含语音服务资源的 [Azure 认知服务](../overview.md#try-the-speech-service-for-free)帐户。
 
 [示例应用程序](https://aka.ms/sdsdk-download-JRE)的源代码随附在语音设备 SDK 中， 也可在 [GitHub 上获取](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "94979008"
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * 仅限 [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* 语音服务的 Azure 订阅密钥。 [免费获得一个](../get-started.md)。
+* 语音服务的 Azure 订阅密钥。 [免费获得一个](../overview.md#try-the-speech-service-for-free)。
 * 下载用于 Java 的[语音设备 SDK](https://aka.ms/sdsdk-download-JRE) 的最新版本，并将 .zip 提取到工作目录。
    > [!NOTE]
    > 本快速入门假设应用已解压缩到 C:\SDSDK\JRE-Sample-Release

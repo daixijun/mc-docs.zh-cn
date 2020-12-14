@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 9c3059f85106f62fcced0da470ab6408551c8d91
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 35e6a21cc477f66c04b9b028b47fca11e03a5bca
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746579"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104711"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure 负载均衡器算法
 

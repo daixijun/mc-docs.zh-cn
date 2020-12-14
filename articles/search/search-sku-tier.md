@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 10/14/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 4a2e72b6841e458dde31e387d138050ee40ff780
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b5ca1c06194764402202a596b6c695c8143519c6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300381"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004200"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>选择 Azure 认知搜索的定价层
 
@@ -73,7 +73,7 @@ ms.locfileid: "96300381"
   + 增量扩充（需要 [Azure 存储](https://www.azure.cn/pricing/details/storage/)，适用于 AI 扩充）
   + 客户管理的密钥和双加密（需要 [Azure Key Vault](https://www.azure.cn/pricing/details/key-vault/)）
 
-<!--   + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/)) -->
+<!--   + private endpoints for a no-internet access model (requires [Azure Private Link](https://www.azure.cn/pricing/details/private-link/)) -->
 
 ### <a name="service-costs"></a>服务成本
 

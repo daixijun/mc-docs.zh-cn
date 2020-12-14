@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 06/25/2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 08a92cc46d1a226f9036acfc56b9106c2f423fca
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: f72f0887efca7b26421e4c93a97af120fb2172ab
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432645"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850792"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL - 单个服务器
 
@@ -203,15 +203,20 @@ SELECT * FROM inventory;
    - **定价层**：还原服务器时不能更改此值。 此值与源服务器相同。 
 3. 单击“确定”  ，[将服务器还原到删除该表之前的时间点](./howto-restore-server-portal.md)。 将服务器还原到不同的时间点会基于原始服务器到指定时间点为止的内容创建一个新的副本服务器，前提是该时间点在[定价层](./concepts-pricing-tiers.md)的保留期内。
 
+## <a name="clean-up-resources"></a>清理资源
+
+在前面的步骤中，你已在服务器组中创建了 Azure 资源。 如果你认为以后不需要这些资源，请删除该服务器组。 在服务器组的“概述”页中，按“删除”按钮   。 弹出页面上出现提示时，请确认服务器组的名称，然后单击最后一个“删除”按钮  。
+
 ## <a name="next-steps"></a>后续步骤
 本教程介绍如何使用 Azure 门户和其他实用工具完成以下操作：
 > [!div class="checklist"]
 > * 创建 Azure Database for PostgreSQL 服务器
 > * 配置服务器防火墙
-> * 使用 [psql  ](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
+> * 使用 psql 实用工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
 > * 还原数据
 
-接下来，若要了解如何使用 Azure CLI 执行类似任务，请查看此教程：[使用 Azure CLI 设计第一个 Azure Database for PostgreSQL](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+> [使用 Azure CLI 设计第一个 Azure Database for PostgreSQL](tutorial-design-database-using-azure-cli.md)

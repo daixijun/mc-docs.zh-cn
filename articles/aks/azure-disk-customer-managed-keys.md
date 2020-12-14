@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 31ba6a87cb2e62b96563888cb83c3ec1dbb70479
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 25e6abb98585f3f101dc176a325897c6f8c484a7
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469988"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004134"
 ---
 <!--Verified successfully-->
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>对 Azure Kubernetes Service (AKS) 中的 Azure 磁盘使用自带密钥 (BYOK)
@@ -31,12 +31,9 @@ Azure 存储对静态存储帐户中的所有数据进行加密。 默认情况�
 
 ## <a name="create-an-azure-key-vault-instance"></a>创建 Azure Key Vault 实例
 
-使用 Azure Key Vault 实例来存储密钥。
+使用 Azure Key Vault 实例来存储密钥。  可以通过 Azure 门户[使用 Azure Key Vault 配置客户管理的密钥][byok-azure-portal]
 
-<!--Not Available on  You can optionally use the Azure portal to Configure customer-managed keys with Azure Key Vault-->
-<!--Not Available on  [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]-->
-
-创建一个新的 *资源组* ，然后创建一个新的 *密钥保管库* 实例，并启用软删除和清除保护。  确保对每个命令使用同一区域和资源组名称。
+创建一个新的 *资源组*，然后创建一个新的 *密钥保管库* 实例，并启用软删除和清除保护。  确保对每个命令使用同一区域和资源组名称。
 
 ```azurecli
 # Optionally retrieve Azure region short names for use on upcoming commands
@@ -163,11 +160,9 @@ kubectl apply -f byok-azure-disk.yaml
 [az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-
-<!--Not Available on [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md-->
-
-[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
-[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
+[byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions
 

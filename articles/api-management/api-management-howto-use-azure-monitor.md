@@ -7,14 +7,14 @@ ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: c338fd0b026fd2c93a2a707327001cf04afc6bfd
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: af0ddca42c3203f7e09a3adf211ce24d574eb663
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977224"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105260"
 ---
 # <a name="tutorial-monitor-published-apis"></a>教程：监视已发布的 API
 
@@ -94,7 +94,7 @@ API 管理每分钟发出一次[指标](../azure-monitor/platform/data-platform-
 1. 现在，在没有 API 密钥的情况下调用会议 API 来测试警报规则。 例如：
 
     ```bash
-    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    curl GET https://apim-hello-world.azure-api.cn/conference/speakers HTTP/1.1 
     ```
 
     警报将基于评估时长触发，电子邮件将发送到 admin@contoso.com。 
@@ -150,7 +150,7 @@ API 管理每分钟发出一次[指标](../azure-monitor/platform/data-platform-
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="“监视”菜单中“日志”项的屏幕截图":::
 
-运行查询以查看数据。 可以运行提供的多个[示例查询](../azure-monitor/log-query/saved-queries.md)，也可以运行自己的查询。 例如，以下查询检索 GatewayLogs 表中最近 24 小时的数据：
+运行查询以查看数据。 可以运行提供的多个[示例查询](../azure-monitor/log-query/example-queries.md)，也可以运行自己的查询。 例如，以下查询检索 GatewayLogs 表中最近 24 小时的数据：
 
 ```kusto
 ApiManagementGatewayLogs
@@ -159,7 +159,7 @@ ApiManagementGatewayLogs
 
 有关使用资源日志进行 API 管理的详细信息，请参阅：
 
-* [Azure Monitor Log Analytics 入门](../azure-monitor/log-query/get-started-portal.md)，或试用 [Log Analytics 演示环境](https://portal.loganalytics.io/demo)。
+* [Azure Monitor Log Analytics 入门](../azure-monitor/log-query/log-analytics-tutorial.md)，或试用 [Log Analytics 演示环境](https://portal.loganalytics.io/demo)。
 
 * [Azure Monitor 中的日志查询概述](../azure-monitor/log-query/log-query-overview.md)。
 
@@ -178,7 +178,7 @@ ApiManagementGatewayLogs
     "location": "China North",
     "properties": {
         "method": "GET",
-        "url": "https://apim-hello-world.azure-api.net/conference/speakers",
+        "url": "https://apim-hello-world.azure-api.cn/conference/speakers",
         "backendResponseCode": 200,
         "responseCode": 200,
         "responseSize": 41583,

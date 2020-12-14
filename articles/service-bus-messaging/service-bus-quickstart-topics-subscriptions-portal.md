@@ -4,16 +4,16 @@ description: 快速入门 - 本快速入门将介绍如何使用 Azure 门户创
 ms.topic: quickstart
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f526b65c32633864f09d1bbb4f04588b58babbfb
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 9a0ac5ffb8439df590a478d5541296775812f436
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590863"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105237"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>使用 Azure 门户创建一个服务总线主题和多个对该主题的订阅
 在本快速入门中，将使用 Azure 门户创建服务总线主题，然后创建对该主题的订阅。 
@@ -39,7 +39,7 @@ ms.locfileid: "94590863"
 
 - [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - [Java](service-bus-java-how-to-use-topics-subscriptions.md)
-- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 - [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

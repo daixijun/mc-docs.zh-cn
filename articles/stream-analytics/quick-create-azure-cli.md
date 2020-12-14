@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
-ms.date: 12/01/2020
-ms.openlocfilehash: 9791f38b30def1cb180b365db799d399f1a4701b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/11/2020
+ms.openlocfilehash: 954fc6421fab2e007ca323f67a35b0196bcb62f1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432642"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105304"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 流分析作业
 
@@ -23,7 +23,7 @@ ms.locfileid: "96432642"
 
 ## <a name="before-you-begin"></a>开始之前
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -186,7 +186,7 @@ az stream-analytics job create \
 接下来运行 `az stream-analytics input create` cmdlet。 确保用存储作业输入定义 JSON 文件的路径替换 `datasource` 变量的值，用存储序列化 JSON 文件的路径替换 `serialization` 变量的值。
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -222,7 +222,7 @@ az stream-analytics input create
 接下来运行 `az stream-analytics output` cmdlet。 确保用存储作业输出定义 JSON 文件的路径替换 `datasource` 变量的值，用存储序列化 JSON 文件的路径替换 `serialization` 变量的值。
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -237,7 +237,7 @@ az stream-analytics output create
 运行 `az stream-analytics transformation create` cmdlet。
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -261,7 +261,7 @@ az stream-analytics transformation create
 以下 cmdlet 在运行以后会返回 `True` 作为输出（如果作业启动）。 在存储容器中，创建的输出文件夹包含已转换的数据。
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime
@@ -271,7 +271,7 @@ az stream-analytics job start
 
 若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以跳过删除它的操作，暂时只需停止该作业。 如果不打算继续使用该作业，请运行以下 cmdlet，删除本快速入门创建的所有资源：
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

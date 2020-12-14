@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91671520858c8a9f0c350be74dcfbfe6b350f6d
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 7a9615c8e82504c60797f450b487c3bcb8263fd8
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94502234"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004064"
 ---
 # <a name="ssh"></a>SSH  
 
@@ -52,9 +52,8 @@ SSH 与 Azure AD
 
 ## <a name="implement-ssh-with-azure-ad"></a>通过 Azure AD 实现 SSH 
 
-* [OAuth 2.0 设备代码流 - Microsoft 标识平台](/active-directory/develop/v2-oauth2-device-code)
+* [OAuth 2.0 设备代码流 - Microsoft 标识平台](../develop/v2-oauth2-device-code.md)
 
 * [与 Azure Active Directory (akamai.com) 集成](https://learn.akamai.com/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
 
- 
 

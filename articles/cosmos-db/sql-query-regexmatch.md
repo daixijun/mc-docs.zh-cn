@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 RegexMatch
 description: 了解 Azure Cosmos DB 中的 RegexMatch SQL 系统函数
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: d74620c4460c7355b2315930584064eaf7196d2a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b862d4160c95c3d04a4e00d6e100dbcd7f3f3274
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552867"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850664"
 ---
 <!--Pending for PM verification-->
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)

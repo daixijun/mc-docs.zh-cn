@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f473982a2a2175d747868e53e2e5c6c0e9b95a2
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: a02aeb6fc2d53c9f2b2da37c27ea8ea8343892ad
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749932"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004139"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>教程：从 Android 应用程序登录用户并调用 Microsoft Graph API
 
-在本教程中，你将了解如何使用面向 Android 的 Microsoft 身份验证库 (MSAL) 将 Android 应用与 Microsoft 标识平台集成。 你将了解如何登录和注销用户、获取访问令牌，以及向 Microsoft Graph API 发出请求。
+在本教程中，你将生成一个与 Microsoft 标识平台集成的 Android 应用，用户可登录该应用并获取访问令牌以调用 Microsoft Graph API。
 
 完成本教程后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。
+
+在本教程中： 
 
 > [!div class="checklist"]
 > * 在 Android Studio 中创建 Android 应用项目
@@ -67,7 +69,7 @@ MSAL 将自动续订令牌，在设备上的其他应用之间提供单一登录
 4. 保存包名称。 以后需将它输入 Azure 门户中。
 5. 将语言从“Kotlin”  更改为“Java”  。
 6. 将“最低 API 级别”  设置为 **API 19** 或更高，然后单击“完成”。 
-7. 在项目视图的下拉列表中选择“项目”  ，以便显示源和非源的项目文件，然后打开 **app/build.gradle** ，将 `targetSdkVersion` 设置为 `28`。
+7. 在项目视图的下拉列表中选择“项目”  ，以便显示源和非源的项目文件，然后打开 **app/build.gradle**，将 `targetSdkVersion` 设置为 `28`。
 
 ## <a name="integrate-with-microsoft-authentication-library"></a>与 Microsoft 身份验证库集成
 
@@ -83,12 +85,12 @@ MSAL 将自动续订令牌，在设备上的其他应用之间提供单一登录
    > [!Note]
    > 安装 KeyTool.exe，使其作为 Java 开发工具包 (JDK) 的一部分。 还必须安装 OpenSSL 工具才能执行 KeyTool 命令。 有关详细信息，请参阅[有关如何生成密钥的 Android 文档](https://developer.android.com/studio/publish/app-signing#generate-key)。
 
-7. 生成由 KeyTool 生成的 **签名哈希** 。
+7. 生成由 KeyTool 生成的 **签名哈希**。
 8. 单击 `Configure` 并保存出现在“Android 配置”页中的“MSAL 配置”   ，以便在稍后配置应用时输入它。  单击“完成”  。
 
 ### <a name="configure-your-application"></a>配置应用程序
 
-1. 在 Android Studio 的项目窗格中，导航到 **app\src\main\res** 。
+1. 在 Android Studio 的项目窗格中，导航到 **app\src\main\res**。
 2. 右键单击“res”  ，选择“新建”   >   “目录”。 输入 `raw` 作为新目录名称，然后单击“确定”。 
 3. 在 **app** > **src** > **main** > **res** > **raw** 中，新建名为 `auth_config_single_account.json` 的 JSON 文件，然后粘贴以前保存的 MSAL 配置。
 
@@ -584,7 +586,7 @@ private void performOperationOnSignOut() {
 
 ## <a name="next-steps"></a>后续步骤
 
-在我们由多个部分组成的场景系列中，详细了解如何构建可调用受保护的 Web API 的移动应用。
+在我们的多部分场景系列中，详细了解如何构建可调用受保护 Web API 的移动应用。
 
 > [!div class="nextstepaction"]
 > [方案：用于调用 Web API 的移动应用程序](scenario-mobile-overview.md)

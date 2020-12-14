@@ -4,15 +4,15 @@ description: 如何使受控制的遥测数据的卷。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/17/2020
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a041d174fd7383760fb40ba2bf86c357b583a917
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 148ddf750799b1e70b750b6b15af61cae43ca463
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638126"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104334"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -27,7 +27,7 @@ ms.locfileid: "94638126"
 * 固定速率采样可在最新版本的适用于 ASP.NET、ASP.NET Core、Java（代理和 SDK）和 Python 的 Application Insights SDK 中使用。
 * 引入采样适用于 Application Insights 服务终结点。 仅当没有其他采样生效时，才能应用引入采样。 如果 SDK 为遥测数据采样，则会禁用引入采样。
 * 对于 Web 应用程序，如果记录自定义事件，并需要确保事件集一同保留或一同丢弃，则事件必须具有相同的 `OperationId` 值。
-* 如果要编写分析查询，应[考虑采样](../log-query/aggregations.md)。 特别是，应使用 `summarize sum(itemCount)`，而不是仅对记录进行计数。
+* 如果要编写分析查询，应[考虑采样](/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)。 特别是，应使用 `summarize sum(itemCount)`，而不是仅对记录进行计数。
 * 某些遥测类型（包括性能指标和自定义指标）始终会保留，而不管是否启用采样。
 
 下表汇总了适用于每个 SDK 和应用程序类型的采样类型：

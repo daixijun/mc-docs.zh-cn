@@ -10,14 +10,14 @@ metadata:
   ms.service: speech-service
   ms.topic: landing-page
   origin.date: 04/13/2020
-  ms.date: 11/20/2020
+  ms.date: 12/10/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 77afd7d699f7ef792e632d4c9541c1f428936a89
-  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+  ms.openlocfilehash: ea620a12b2a9fd6b790dbc78c39c6d794c79cf14
+  ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94978214"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97004070"
 landingContent:
 - title: 关于语音翻译
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: 什么是语音翻译？
       url: speech-translation.md
     - text: 语音翻译基础知识
-      url: speech-translation-basics.md
+      url: ./get-started-speech-translation.md
     - text: 使用语音 CLI 无需代码即可翻译语音
       url: spx-overview.md
   - linkListType: quickstart

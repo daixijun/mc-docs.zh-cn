@@ -9,18 +9,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/19/2020
+ms.date: 12/14/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: jroth
-manager: digimobile
+manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e086408da425ea2d530fe9a292f47835989d1a8e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8c1e1d92a80bd05dc2bf5154ee6efa91647edb25
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76270023"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004093"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>为 Azure 上的 Stretch Database 启用透明数据加密 (TDE) (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ TDE 使用称为数据库加密密钥的对称密钥来加密整个数据库的�
 
 <!--Anchors-->
 
-[透明数据加密 (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[透明数据加密 (TDE)]: https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption
 
 <!--Image references-->
 

@@ -7,17 +7,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 05/08/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1be6f17d8d58b04bf719dc4fa81bbcd79cf70d3c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 0c7336453c5f88565feee82397799042c2e4213e
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432396"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850853"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -63,7 +63,7 @@ ms.locfileid: "96432396"
 <a name="create-an-azure-cosmos-account"></a>
 ## <a name="step-1-create-an-azure-cosmos-account"></a>步骤 1：创建 Azure Cosmos 帐户
 
-让我们首先创建一个 Azure Cosmos 帐户。 如果你已有一个 Azure Cosmos DB SQL API 帐户，或者使用的是 Azure Cosmos DB 仿真器，请跳到[步骤 2：创建新的 ASP.NET MVC 应用程序](#create-a-new-mvc-application)。
+让我们首先创建一个 Azure Cosmos 帐户。 如果你已有一个 Azure Cosmos DB SQL API 帐户，或者使用的是 Azure Cosmos DB 仿真程序，请跳到[步骤 2：创建新的 ASP.NET MVC 应用程序](#create-a-new-mvc-application)。
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -239,26 +239,26 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 在“添加 MVC 视图”中进行以下更改：
 
-   * 在“视图名称”框中键入“删除”。
-   * 在“模板”框中，选择“删除” 。
-   * 在“模型类”框中，选择“项(todo.Models)”。 
-   * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
-   * 选择 **添加** 。
+    * 在“视图名称”框中键入“删除”。
+    * 在“模板”框中，选择“删除” 。
+    * 在“模型类”框中，选择“项(todo.Models)”。 
+    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
+    * 选择 **添加** 。
 
 1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
 
-   ```csharp
-   @model todo.Models.Item
+    ```csharp
+    @model todo.Models.Item
 
-   @{
+    @{
        ViewBag.Title = "Delete";
        Layout = "~/Views/Shared/_Layout.cshtml";
-   }
+    }
 
-   <h2>Delete a To-Do Item</h2>
+    <h2>Delete a To-Do Item</h2>
 
-   <h3>Are you sure you want to delete this?</h3>
-   <div>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
        <hr />
        <dl class="dl-horizontal">
            <dt>
@@ -294,8 +294,8 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
                @Html.ActionLink("Back to List", "Index")
            </div>
        }
-   </div>
-   ```
+    </div>
+    ```
 
 <a name="AddItemIndexView"></a>
 #### <a name="add-a-view-to-get-an-item-details"></a>添加用于获取项详细信息的视图
@@ -368,12 +368,12 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
 
     ```csharp
-   @model todo.Models.Item
+    @model todo.Models.Item
 
-   <h2>Edit a To-Do Item</h2>
+    <h2>Edit a To-Do Item</h2>
 
-   @using (Html.BeginForm())
-   {
+    @using (Html.BeginForm())
+    {
        @Html.AntiForgeryToken()
 
        <div class="form-horizontal">
@@ -414,13 +414,13 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
                </div>
            </div>
        </div>
-   }
+    }
 
-   <div>
+    <div>
        @Html.ActionLink("Back to List", "Index")
-   </div>
+    </div>
 
-   <script src="~/bundles/jqueryval"></script>
+    <script src="~/bundles/jqueryval"></script>
     ```
 
 <a name="AddEditIndexView"></a>
@@ -441,16 +441,16 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
 
     ```csharp
-   @model IEnumerable<todo.Models.Item>
+    @model IEnumerable<todo.Models.Item>
 
-   @{
+    @{
        ViewBag.Title = "List of To-Do Items";
        Layout = "~/Views/Shared/_Layout.cshtml";
-   }
+    }
 
-   <h2>List of To-Do Items</h2>
+    <h2>List of To-Do Items</h2>
 
-   <table class="table">
+    <table class="table">
        <tr>
            <th>
                @Html.DisplayNameFor(model => model.Name)
@@ -464,7 +464,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
            <th></th>
        </tr>
 
-   @foreach (var item in Model) {
+    @foreach (var item in Model) {
        <tr>
            <td>
                @Html.DisplayFor(modelItem => item.Name)
@@ -481,13 +481,13 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
            </td>
        </tr>
-   }
+    }
 
-   </table>
+    </table>
 
-   <p>
+    <p>
        @Html.ActionLink("Create New", "Create")
-   </p>
+    </p>
     ```
 
 完成这些步骤后，请在 Visual Studio 中关闭所有 cshtml 文档。

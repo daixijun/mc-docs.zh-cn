@@ -8,12 +8,12 @@ ms.author: v-johya
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/27/2020
-ms.openlocfilehash: eb8b2b99640838f0acf9b1cf88096ec268cc3436
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 9e38b14d617a69d13df131f0c764ff49361fc004
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306545"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104626"
 ---
 # <a name="cognitive-services-development-options"></a>认知服务开发选项
 
@@ -112,11 +112,12 @@ Power Automate 是 [Power Platform](https://docs.microsoft.com/power-platform/) 
 
 | 构成要素 | 服务 | 自定义 UI | 快速入门 |
 |--------|---------|------------------|------------|
-| 决策 | 内容审查器 | https://contentmoderator.cognitive.microsoft.com/dashboard | [快速入门](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | 决策 | 指标顾问 | https://metricsadvisor.chinacloudsites.cn/  | [快速入门](./metrics-advisor/quickstarts/web-portal.md) |
 | 语言 | 语言理解 (LUIS) | https://luis.azure.cn/ | |
 | 语音 | 自定义语音识别 | https://speech.microsoft.cn/ | [快速入门](./speech-service/how-to-custom-speech.md) |
 | 语音 | 自定义语音 | https://speech.microsoft.cn/ | [快速入门](./speech-service/how-to-custom-voice.md) |  
+
+<!--Not available in MC: Review Tool-->
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>使用 DevOps 和 GitHub Actions 进行持续集成和交付
 

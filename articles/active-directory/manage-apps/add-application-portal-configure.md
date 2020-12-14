@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
-ms.openlocfilehash: f42eaa5a111180f9dab59daef98075e54d91b033
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 21402b6c360ddd1e908f5291df207f4b234147a4
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509048"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004052"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>快速入门：在 Azure Active Directory (Azure AD) 租户中配置应用程序的属性
 
@@ -40,7 +40,7 @@ ms.locfileid: "96509048"
 
 1. 在 Azure AD 门户中，选择“企业应用程序”。 然后找到并选择要配置的应用程序。
 2. 在“管理”部分中，选择“属性”以打开“属性”窗格进行编辑  。
-3. 请花点时间了解可用选项。 可用选项将取决于应用与 Azure AD 集成的方式。 另请注意，默认情况下，通过“Azure Active Directory”>“应用注册”添加的应用是基于 OIDC 的应用。 而通过“Azure Active Directory”>“企业应用程序”添加的应用可能会使用多种单一登录标准中的任何一种。 所有应用都将具有用于配置何时显示和使用应用的字段。 这些字段是：
+3. 请花点时间了解可用选项。 可用选项将取决于应用与 Azure AD 集成的方式。 例如，使用基于 SAML 的单一登录的应用将具有“用户访问 URL”等字段，而使用基于 OIDC 的单一登录的应用则没有这些字段。 另请注意，默认情况下，通过“Azure Active Directory”>“应用注册”添加的应用是基于 OIDC 的应用。 而通过“Azure Active Directory”>“企业应用程序”添加的应用可能会使用多种单一登录标准中的任何一种。 所有应用都将具有用于配置何时显示和使用应用的字段。 这些字段是：
     - “是否启用以供用户登录?”决定分配到应用程序的用户能否登录。
     - “是否需要进行用户分配?”决定了未分配到应用程序的用户能否登录。
     - “是否对用户可见?”决定分配到应用的用户能否在[我的应用](https://account.activedirectory.windowsazure.cn/r#/applications)和 Microsoft 365 应用启动器中看到该应用。 （请参阅 Microsoft 365 网站左上角的华夫饼菜单。）

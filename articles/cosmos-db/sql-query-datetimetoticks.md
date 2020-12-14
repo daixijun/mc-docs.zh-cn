@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimeToTicks
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeToTicks。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 414faf4718dfe4cb68c676f45184848bf346236e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 2d9bfa5401a2a16b37c238cd877b19d8121ab4a7
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552752"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850855"
 ---
 <!--Verified Successfully-->
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
@@ -32,7 +33,7 @@ DateTimeToTicks (<DateTime>)
 ## <a name="arguments"></a>参数
 
 *DateTime*  
-   `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
+  `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
 
 ## <a name="return-types"></a>返回类型
 

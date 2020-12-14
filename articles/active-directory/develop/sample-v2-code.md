@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8c267085cebe6975c74743901dedafae81be52d9
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: f9381e08a0262526041af4899dba637e0279eb68
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918418"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003892"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 标识平台代码示例（v2.0 终结点）
 
@@ -59,10 +59,12 @@ ms.locfileid: "95918418"
 | ![此图显示了 ASP.NET Framework 徽标](./media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | 请参阅[适用于开发人员的 AD FS 到 Azure AD 应用程序迁移手册](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad)了解如何将与 Active Directory 联合身份验证服务 (AD FS) 集成的应用程序安全可靠地迁移到 Azure Active Directory (Azure AD) | |
 | ![此图显示了 ASP.NET Framework 徽标](./media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 快速入门](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![此图显示了 Java 徽标](./media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![此图显示了 Java 徽标](./media/sample-v2-code/logo_java.png)  | [ms-identity-b2c-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
 | ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)  | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md)让用户登录教程                   | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md)让用户登录并调用 Graph 教程 |
 | ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)  | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md)让用户通过 B2C 登录教程                    |  |
 | ![此图显示了 Ruby 徽标](./media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>桌面和移动公共客户端应用
 

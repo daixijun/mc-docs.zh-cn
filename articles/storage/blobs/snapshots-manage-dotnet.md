@@ -7,20 +7,20 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 08/27/2020
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c473fed54eb070d50d95278e037f73eefc2be040
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 48ffd70d20f86048161933de37eeedacc5360c89
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026599"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850773"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>在 .NET 中创建和管理 blob 快照
 
-快照是在某一时间点拍摄的只读版本的 Blob。 本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage?view=azure-dotnet)创建和管理 blob 快照。
+快照是在某一时间点拍摄的只读版本的 Blob。 本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage)创建和管理 blob 快照。
 
 有关 Azure 存储中 blob 快照的详细信息，请参阅 [Blob 快照](snapshots-overview.md)。
 
@@ -163,4 +163,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>后续步骤
 
 - [blob 快照](snapshots-overview.md)
-- [blob 的软删除](storage-blob-soft-delete.md)
+- [blob 的软删除](./soft-delete-blob-overview.md)

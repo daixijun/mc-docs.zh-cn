@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 origin.date: 12/04/2019
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: ad579588bf2b43924a86c6d1313d655d7532e33d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7a326513738ac1ead5ef96423b5154d5e446a009
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552025"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850771"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>快速入门：使用 Azure 存储资源管理器创建 blob
 
@@ -79,7 +79,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 
 
 ## <a name="manage-snapshots"></a>管理快照
 
-Azure 存储资源管理器提供拍摄和管理 Blob [快照](storage-blob-snapshots.md)的功能。 若要拍摄 Blob 的快照，请右键单击 Blob，然后选择“创建快照”。 若要查看 Blob 的快照，请右键单击 Blob，然后选择“管理快照”。 此时会在当前选项卡中显示 Blob 的快照列表。
+Azure 存储资源管理器提供拍摄和管理 Blob [快照](./snapshots-overview.md)的功能。 若要拍摄 Blob 的快照，请右键单击 Blob，然后选择“创建快照”。 若要查看 Blob 的快照，请右键单击 Blob，然后选择“管理快照”。 此时会在当前选项卡中显示 Blob 的快照列表。
 
 ![显示 Microsoft Azure 存储资源管理器中的 Blob 列表的屏幕截图。](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -100,4 +100,4 @@ Azure 存储资源管理器提供拍摄和管理 Blob [快照](storage-blob-snap
 本快速入门介绍了如何使用 **Azure 存储资源管理器** 在本地磁盘和 Azure Blob 存储之间转移文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)
+> [Blob 存储操作说明](./storage-quickstart-blobs-powershell.md)

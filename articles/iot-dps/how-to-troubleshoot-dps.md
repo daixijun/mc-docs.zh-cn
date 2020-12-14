@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 09/09/2019
 ms.date: 12/03/2020
 ms.author: v-tawe
-ms.openlocfilehash: 578571d84b78b6683ebd40bb0018c9bedcc120b6
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: dbe3c086fd9bafbf2a91ad75e0acd519cc715d83
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541127"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004094"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中心设备预配服务进行故障排除
 
@@ -64,7 +64,7 @@ ms.locfileid: "96541127"
     | DeviceOperations | 与设备连接事件相关的日志 |
     | ServiceOperations | 与使用服务 SDK（例如，创建或更新注册组）相关的事件日志|
 
-6. 启用“发送到 Log Analytics”  （[请参见定价](https://azure.microsoft.com/pricing/details/log-analytics/)）。 
+6. 启用“发送到 Log Analytics”  （[请参见定价](https://www.azure.cn/pricing/details/log-analytics/)）。 
 
 7. 转到 Azure 门户中“设备预配服务”资源下的“日志”  选项卡。
 

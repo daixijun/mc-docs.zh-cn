@@ -9,16 +9,18 @@ author: msmbaldwin
 ms.author: v-tawe
 manager: rkarlin
 origin.date: 09/18/2019
-ms.date: 11/27/2020
+ms.date: 12/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cc4d777621a53b8dacfa6e3245de5d9e41f026e0
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: fe29641153c4105aad2972124c3653129244b888
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300327"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105295"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>使用 Key Vault 和 Azure CLI 管理存储帐户密钥
+> [!IMPORTANT]
+> 我们建议使用 Azure 存储与 Azure Active Directory (Azure AD) 的集成，这是 Microsoft 推出的基于云的标识和访问管理服务。 Azure AD 集成适用于 [Azure Blob 和队列](../../storage/common/storage-auth-aad.md)，提供对 Azure 存储的基于 OAuth2 令牌的访问（类似于 Azure Key Vault）。 Azure AD 允许使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 在 Azure 上运行时，可以使用 [Azure AD 托管标识](../../active-directory/managed-identities-azure-resources/index.yml)。 托管标识消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。 仅在无法实施 Azure AD 身份验证的情况下使用以下解决方案。
 
 Azure 存储帐户使用由帐户名和密钥构成的凭据。 密钥是自动生成的，充当密码而不是加密密钥。 Key Vault 通过在存储帐户中定期重新生成存储帐户密钥来管理存储帐户密钥，并提供共享访问签名令牌，以便对存储帐户中的资源进行委托访问。
 
@@ -30,12 +32,6 @@ Azure 存储帐户使用由帐户名和密钥构成的凭据。 密钥是自动�
 - 只有 Key Vault 能够管理存储帐户密钥。 不要自行管理密钥，并避免干扰 Key Vault 进程。
 - 只有单个 Key Vault 对象能够管理存储帐户密钥。 不要允许从多个对象进行密钥管理。
 - 只使用 Key Vault 重新生成密钥。 不要手动重新生成存储帐户密钥。
-
-我们建议使用 Azure 存储与 Azure Active Directory (Azure AD) 的集成，这是 Microsoft 推出的基于云的标识和访问管理服务。 Azure AD 集成适用于 [Azure Blob 和队列](../../storage/common/storage-auth-aad.md)，提供对 Azure 存储的基于 OAuth2 令牌的访问（类似于 Azure Key Vault）。
-
-Azure AD 允许使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 在 Azure 上运行时，可以使用 [Azure AD 托管标识](../../active-directory/managed-identities-azure-resources/index.yml)。 托管标识消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。
-
-Azure AD 使用同样受 Key Vault 支持的 Azure 基于角色的访问控制 (Azure RBAC) 来管理授权。
 
 ## <a name="service-principal-application-id"></a>服务主体应用程序 ID
 
@@ -150,4 +146,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - 详细了解[密钥、机密和证书](https://docs.microsoft.com/rest/api/keyvault/)。
 - 查看 [Azure Key Vault 团队博客](https://blogs.technet.microsoft.com/kv/)中的文章。
-- 参阅 [az keyvault storage](https://docs.azure.cn/cli/keyvault/storage) 参考文档。
+- 参阅 [az keyvault storage](/cli/keyvault/storage) 参考文档。

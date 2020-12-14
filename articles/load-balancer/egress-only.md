@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/07/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 49ec79195a05a410f348f05d54aa50d99322414b
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 6ae1501c2c32a46436990589880ff9a6e061e286
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746581"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104701"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>仅出站的负载均衡器配置
 

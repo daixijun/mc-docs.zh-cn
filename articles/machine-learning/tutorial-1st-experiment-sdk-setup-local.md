@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9b62392ee9655b9bb7a9810c4650ad1b4b87ed72
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 652ce6dca2f688a97204fe5c6e322622b4e8ab3e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977053"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105266"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>教程：在你的开发环境中开始使用 Azure 机器学习（第 1 部分，共 4 部分）
 
@@ -36,7 +36,7 @@ ms.locfileid: "94977053"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 尝试 [Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 尝试 [Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 熟悉 Python 和[机器学习概念](concept-azure-machine-learning-architecture.md)。 例如，环境、训练，以及评分。
 - 本地开发环境，如 Visual Studio Code、Jupyter 或 PyCharm。
 - Python（版本 3.5 至 3.7）。

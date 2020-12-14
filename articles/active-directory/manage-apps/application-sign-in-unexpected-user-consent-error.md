@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c4a9dc676ecbaa8433955a90ceb326c2118551
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 5454c77ed60f046df6d1459db3aacba5a20d3efd
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749784"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004050"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 
-本文介绍对应用程序进行许可期间可能发生的错误。 如果要对不包含任何错误消息的意外许可提示进行故障排除，请参阅 [Azure AD 的身份验证方案](/active-directory/develop/active-directory-authentication-scenarios)。
+本文介绍对应用程序进行许可期间可能发生的错误。 如果要对不包含任何错误消息的意外许可提示进行故障排除，请参阅 [Azure AD 的身份验证方案](../develop/authentication-vs-authorization.md)。
 
 与 Azure Active Directory 集成的许多应用程序需要获取访问其他资源的权限才能正常工作。 当这些资源也与 Azure Active Directory 集成时，通常使用通用许可框架来请求访问它们的权限。 这会显示许可提示，此情形通常发生在首次使用应用程序时，但也可能发生在后续使用应用程序时。
 
@@ -90,9 +90,7 @@ ms.locfileid: "92749784"
 
 ## <a name="next-steps"></a>后续步骤 
 
-[Azure Active Directory（v1 终结点）中的应用、权限和许可](/active-directory/develop/active-directory-integrating-applications)<br>
+[Azure Active Directory（v1 终结点）中的应用、权限和许可](../develop/quickstart-register-app.md)<br>
 
-[Azure Active Directory（v2.0 终结点）中的范围、权限和许可](/active-directory/develop/active-directory-v2-scopes)
-
-
+[Azure Active Directory（v2.0 终结点）中的范围、权限和许可](../develop/v2-permissions-and-consent.md)
 

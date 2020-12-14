@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.author: v-jay
 origin.date: 09/14/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: fc2d7752d9ca35e2bf2b553c2140ab09c2f3aa64
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ba52abc5c13051efd940cc8295f270d4745b8b2
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746963"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105090"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建内部负载均衡器，以对 VM 进行负载均衡
 

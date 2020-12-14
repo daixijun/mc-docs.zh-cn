@@ -4,17 +4,17 @@ description: 查找 Azure Blob 存储 API 参考、自述文件和客户端库�
 author: WenJason
 ms.author: v-jay
 origin.date: 09/10/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: fb10cb5f0902a0866f45b96ddb6d62ba6c39837b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 9efaf99dd26463b4cbf83f5c522deee7eeca0c65
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552071"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850777"
 ---
 # <a name="azure-blob-storage-reference"></a>Azure Blob 存储参考
 
@@ -26,8 +26,8 @@ ms.locfileid: "94552071"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 .NET 的 Azure Blob 存储客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/storage.blobs-readme) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v12](/storage/blobs/storage-quickstart-blobs-dotnet) |
-| 11.x | [Microsoft.Azure.Storage.Blob 命名空间](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v11](/storage/blobs/storage-quickstart-blobs-dotnet-legacy) |
+| 12.x | [适用于 .NET 的 Azure Blob 存储客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/storage.blobs-readme) | [包 (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v12](./storage-quickstart-blobs-dotnet.md) |
+| 11.x | [Microsoft.Azure.Storage.Blob 命名空间](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [快速入门：适用于 .NET 的 Azure Blob 存储客户端库 v11](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>存储管理
 
@@ -51,8 +51,8 @@ ms.locfileid: "94552071"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure 存储 - Blob](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [快速入门：使用 Java v12 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-java) |
-| 8.x | [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) | [包 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [快速入门：使用 Java v8 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [Azure 存储 - Blob](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme) | [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [快速入门：使用 Java v12 SDK 管理 blob](./storage-quickstart-blobs-java.md) |
+| 8.x | [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) | [包 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [快速入门：使用 Java v8 SDK 管理 blob](./storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>存储管理
 
@@ -68,8 +68,8 @@ ms.locfileid: "94552071"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 Python 的 Azure 存储客户端库 v12](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview) | [包 (PyPI)](https://pypi.org/project/azure-storage-blob/) | [快速入门：使用 Python v12 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [包 (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [快速入门：使用 Python v2.1 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 12.x | [适用于 Python 的 Azure 存储客户端库 v12](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview) | [包 (PyPI)](https://pypi.org/project/azure-storage-blob/) | [快速入门：使用 Python v12 SDK 管理 blob](./storage-quickstart-blobs-python.md) |
+| 2.x | [适用于 Python 的 Azure 存储客户端库 v2](https://docs.microsoft.com/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [包 (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [快速入门：使用 Python v2.1 SDK 管理 blob](./storage-quickstart-blobs-python-legacy.md) |
 
 ## <a name="javascript-client-libraries"></a>JavaScript 客户端库
 
@@ -77,8 +77,8 @@ ms.locfileid: "94552071"
 
 |  版本  | 参考文档 | 程序包 | 快速入门 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [适用于 JavaScript 的 Azure 存储 Blob 客户端库](https://docs.microsoft.com/javascript/api/overview/azure/storage-blob-readme) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [快速入门：在 Node.js 中使用 JavaScript v12 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [快速入门：在浏览器中使用 JavaScript v12 SDK 管理 Blob](/storage/blobs/quickstart-blobs-javascript-browser) |
-| 10.x | [@azure/storage-blob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/?view=azure-node-legacy&preserve-view=true) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [快速入门：在 Node.js 中使用 JavaScript v10 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [快速入门：在浏览器中使用 JavaScript v10 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
+| 12.x | [适用于 JavaScript 的 Azure 存储 Blob 客户端库](https://docs.microsoft.com/javascript/api/overview/azure/storage-blob-readme) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [快速入门：在 Node.js 中使用 JavaScript v12 SDK 管理 blob](/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [快速入门：在浏览器中使用 JavaScript v12 SDK 管理 Blob](./quickstart-blobs-javascript-browser.md) |
+| 10.x | [@azure/storage-blob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/?view=azure-node-legacy&preserve-view=true) | [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [快速入门：在 Node.js 中使用 JavaScript v10 SDK 管理 blob](./storage-quickstart-blobs-nodejs-legacy.md) <br/> [快速入门：在浏览器中使用 JavaScript v10 SDK 管理 blob](./storage-quickstart-blobs-javascript-client-libraries-legacy.md)|
 
 ## <a name="rest-apis"></a>REST API
 

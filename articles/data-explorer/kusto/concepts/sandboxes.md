@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
 ms.date: 10/29/2020
-ms.openlocfilehash: 48e083093c7999bf9cf383586e5363c79f23e605
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8a4fe0a344be7737b5254b4ebab457dafd114e27
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103612"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003655"
 ---
 # <a name="sandboxes"></a>沙盒
 
@@ -31,7 +31,7 @@ Kusto 的数据引擎服务可为需要安全隔离的特定流运行沙盒。
   * 将来应该会支持并行运行这两项功能。
 * 用于运行沙盒的所需包（映像）将部署到数据引擎的每个节点，并需要专用的 SSD 空间来运行
   * 估计大小为 20GB，也就是 D14_v2 VM 的 SSD 容量的大约 2.5%，或 L16_v1 VM 的 SSD 容量的 0.7%。
-  * 这会影响群集的数据容量，并可能会影响群集的[成本](https://azure.microsoft.com/pricing/details/data-explorer)。
+  * 这会影响群集的数据容量，并可能会影响群集的[成本](https://www.azure.cn/pricing/details/data-explorer)。
 
 ## <a name="runtime"></a>运行时
 

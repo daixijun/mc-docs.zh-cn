@@ -3,20 +3,21 @@ title: 使用 Azure Cosmos DB 中的指标进行监视和调试
 description: 使用 Azure Cosmos DB 中的指标调试常见问题和监视数据库。
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 07/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53ea1c4cf8fe19e299302dac8a5796e67912f4f9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: c8ce528e4bd6113188a4e61946975236fdcc0bc2
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552269"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850864"
 ---
 <!--Verify sucessfully-->
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的指标进行监视和调试

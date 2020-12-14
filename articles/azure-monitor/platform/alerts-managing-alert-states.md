@@ -5,17 +5,17 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/30/2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 405bbc607fa27d36b977c2d35e6e160f2180d721
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/08/2020
+ms.openlocfilehash: 62a571a1116302fffcf7ef360e46fa6579ce77d1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327721"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104453"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>管理警报和智能组状态
 
-Azure Monitor 中的警报现在具有[警报状态和监视条件](./alerts-overview.md)，与此类似，智能组具有[智能组状态](./alerts-smartgroups-overview.md?toc=%252fazure-monitor%252ftoc.json)。 现在，在与相应警报或智能组相关联的历史记录中捕获对状态的更改。 本文将指导完成更改状态（包括警报和智能组）的过程。
+Azure Monitor 中的警报现在具有[警报状态和监视条件](./alerts-overview.md)，与此类似，智能组具有[智能组状态](./alerts-smartgroups-overview.md?toc=%2fazure-monitor%2ftoc.json)。 现在，在与相应警报或智能组相关联的历史记录中捕获对状态的更改。 本文将指导完成更改状态（包括警报和智能组）的过程。
 
 ## <a name="change-the-state-of-an-alert"></a>更改警报状态
 

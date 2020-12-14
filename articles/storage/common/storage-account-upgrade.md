@@ -7,15 +7,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 02/25/2019
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4487913b36f775a689fcc4bc5ef6150187fd5a98
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7cec56353c6993d03510c6223077fddc5591c32b
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551758"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850348"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升级到常规用途 v2 存储帐户
 
@@ -46,7 +46,7 @@ ms.locfileid: "94551758"
 接下来，调用以下命令来升级帐户（请使用自己的资源组名称、存储帐户名称和所需帐户访问层级来代替相应项）。
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

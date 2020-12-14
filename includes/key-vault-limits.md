@@ -3,26 +3,26 @@ author: rothja
 ms.service: key-vault
 ms.topic: include
 origin.date: 04/21/2020
-ms.date: 11/27/2020
+ms.date: 12/11/2020
 ms.author: v-tawe
-ms.openlocfilehash: 64a9529dd8d2779b709aa96c18eda9fe831ab93e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 5d5ebad3c058b6e3394483acbce5d0c592f33071
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300932"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105647"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>密钥事务数（每个区域的每个保管库在 10 秒内允许的事务数上限<sup>1</sup>）：
 
 |密钥类型|软件密钥<br>CREATE 密钥|Software-key<br>所有其他事务|
 |:---|---:|---:|---:|---:|
-|RSA 2,048 位|10|2,000|
-|RSA 3,072 位|10|500|
+|RSA 2,048 位|10 个|2,000|
+|RSA 3,072 位|10 个|500|
 |RSA 4,096 位|10 个|250|
-|ECC P-256|10|2,000|
-|ECC P-384|10|2,000|
-|ECC P-521|10|2,000|
-|ECC SECP256K1|10|2,000|
+|ECC P-256|10 个|2,000|
+|ECC P-384|10 个|2,000|
+|ECC P-521|10 个|2,000|
+|ECC SECP256K1|10 个|2,000|
 
 <!-- HSM not support, use Software for example -->
 

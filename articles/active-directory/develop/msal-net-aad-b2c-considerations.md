@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 207d86889aedfdba79e7bb5408c6960d8e51a26f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 6ab6dc92b76a09249e6cf5cbd680b650d40c9638
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647741"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004068"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 通过社交标识将用户登录
 
-可以在 [Azure Active Directory B2C (Azure AD B2C)](/active-directory-b2c/active-directory-b2c-overview) 中使用 MSAL.NET 通过社交标识将用户登录。 Azure AD B2C 是围绕策略这一概念构建的。 在 MSAL.NET 中，指定策略相当于提供颁发机构。
+可以在 [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) 中使用 MSAL.NET 通过社交标识将用户登录。 Azure AD B2C 是围绕策略这一概念构建的。 在 MSAL.NET 中，指定策略相当于提供颁发机构。
 
 - 实例化公共客户端应用程序时，需要将策略指定为颁发机构的一部分。
 - 需要应用策略时，请调用一个接受 `authority` 参数的 `AcquireTokenInteractive` 的重写。
@@ -159,7 +159,7 @@ ROPC 流仅适用于本地帐户，在本地帐户中用户已使用电子邮件
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Azure AD B2C 的已知问题
 
-MSAL.NET 支持[令牌缓存](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)。 令牌缓存密钥基于标识提供者 (IdP) 返回的声明。
+MSAL.NET 支持[令牌缓存](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)。 令牌缓存密钥基于标识提供者 (IdP) 返回的声明。
 
 目前，MSAL.NET 需要两个声明来生成令牌缓存密钥：
 

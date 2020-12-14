@@ -5,20 +5,20 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 4/27/2018
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2cbc6ce27cf8a0821792bdb1fc24c4540441ff65
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: c2e970f5951f5a663d480562429ba21db941759e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327730"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104465"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理日志警报
 
 ## <a name="overview"></a>概述
 
-通过日志警报，用户可以使用 [Log Analytics](../log-query/get-started-portal.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
+通过日志警报，用户可以使用 [Log Analytics](../log-query/log-analytics-tutorial.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
 
 本文说明如何使用 Azure Monitor 创建和管理日志警报。 警报规则由三个组件定义：
 - 目标：要监视的特定 Azure 资源。
@@ -28,7 +28,7 @@ ms.locfileid: "94327730"
 也可以使用 Azure 资源管理器模板创建日志预警规则，该方法在[单独的文章](alerts-log-create-templates.md)中进行了介绍。
 
 > [!NOTE]
-> 可以将 [Log Analytics 工作区](../log-query/get-started-portal.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
+> 可以将 [Log Analytics 工作区](../log-query/log-analytics-tutorial.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>使用 Azure 门户创建日志警报规则
 
@@ -36,7 +36,7 @@ ms.locfileid: "94327730"
 
 1. 转到想要对其发出警报的资源。
 1. 在“监视器”下，选择“日志” 。
-1. 查询可以指示问题的日志数据。 可以使用[警报查询示例主题](../log-query/saved-queries.md)来了解可发现的内容或[开始编写你自己的查询](../log-query/get-started-portal.md)。 此外，[了解如何创建优化的警报查询](alerts-log-query.md)。
+1. 查询可以指示问题的日志数据。 可以使用[警报查询示例主题](../log-query/example-queries.md)来了解可发现的内容或[开始编写你自己的查询](../log-query/log-analytics-tutorial.md)。 此外，[了解如何创建优化的警报查询](alerts-log-query.md)。
 1. 按“+ 新建预警规则”按钮启动警报创建流。
 
     ![Log Analytics - 设置警报](./media/alerts-log/AlertsAnalyticsCreate.png)
@@ -145,7 +145,7 @@ ms.locfileid: "94327730"
 ### <a name="log-alert-for-all-other-resource-types"></a>所有其他资源类型的日志警报
 
 > [!NOTE]
-> 当前不对 API 版本 `2020-05-01-preview` 和以资源为中心的日志警报收取额外费用。  预览版功能的定价将在以后公布，在开始计费之前将提供相关通知。 如果你选择在通知期后继续使用新 API 版本和以资源为中心的日志警报，则将按照适用的费率缴费。
+> 当前不对 API 版本 `2020-05-01-preview` 和以资源为中心的日志警报收取额外费用。  未来将公布预览版中的功能的定价以及开始计费之前提供的通知。 如果你选择在通知期后继续使用新 API 版本和以资源为中心的日志警报，则将按照适用的费率缴费。
 
 1. 从“条件”选项卡开始：
 
@@ -328,5 +328,4 @@ az group deployment create \
 * 使用 [Azure 资源管理器模板](./alerts-log-create-templates.md)创建日志警报。
 * 了解[用于日志警报的 Webhook 操作](./alerts-log-webhook.md)。
 * 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。
-
 

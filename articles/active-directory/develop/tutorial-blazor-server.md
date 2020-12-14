@@ -7,21 +7,21 @@ ms.author: v-junlch
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 11/23/2020
-ms.openlocfilehash: 56486839a00befc19bca1bdef1688a8692d5b5c8
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 12/07/2020
+ms.openlocfilehash: 1c3db2a93d74fa51a2fd27d30e5087bf12047c4c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508974"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003965"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>教程：创建使用 Microsoft 标识平台进行身份验证的 Blazor Server 应用
 
-Blazor 服务器在 ASP.NET Core 应用中添加了对在服务器上托管 Razor 组件的支持。 在本教程中，你将了解如何使用 Microsoft 标识平台并在 Azure Active Directory (Azure AD) 中注册应用，在 Blazor Server 应用中实施身份验证以及通过 Microsoft Graph 检索数据。
+在本教程中，你将使用 Microsoft 标识平台并在 Azure Active Directory (Azure AD) 中注册应用，从而构建 Blazor Server 应用，用户可登录该应用并通过 Microsoft Graph 检索数据。
 
 我们还提供了关于 [Blazor WASM](tutorial-blazor-webassembly.md) 的教程。
 
-在本教程中，你将了解如何执行以下操作：
+在本教程中：
 
 > [!div class="checklist"]
 > * 创建配置为使用 Azure Active Directory (Azure AD) 进行身份验证的新 Blazor Server 应用。

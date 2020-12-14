@@ -7,14 +7,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 07/07/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: c2bdeeb0ae7c3471e538f30d03159ebcb470002e
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 98e60764aabd6bc329036027eed6d1cf6dc8c504
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746580"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104703"
 ---
 # <a name="backend-pool-management"></a>后端池管理
 后端池是负载均衡器的一个关键组成部分。 后端池定义将在给定负载均衡规则下提供流量的资源的组。

@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 03/11/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: aca85c87d3367280e1056c3f74160daa49ca8e3b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 4529b404d16d4402de1fca7525d63ad816d19fe1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977981"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105257"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>教程：生成用于批量评分的 Azure 机器学习管道
 
@@ -38,7 +38,7 @@ ms.locfileid: "94977981"
 > * 生成、运行并发布管道
 > * 为管道启用 REST 终结点
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[试用帐户](https://www.azure.cn/pricing/1rmb-trial)功能。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)功能。
 
 ## <a name="prerequisites"></a>先决条件
 

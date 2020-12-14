@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 12/09/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b7389754df8b5cd9b12a4bc2bba7b8e00a8109fe
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: d6438bda0091df19299c419b7259838ac32f2bc2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046298"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003840"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -31,7 +31,7 @@ ms.locfileid: "89046298"
 本主题：
 
 - 提供的步骤介绍如何为 Office 365 企业版、商业版和教育版中租户的用户配置并使用基于证书的身份验证。 此功能在 Office 365 中国中以预览版提供。
-- 假设已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
+- 假设已配置[公钥基础结构 (PKI)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) 和 [AD FS](../hybrid/how-to-connect-fed-whatis.md)。
 
 ## <a name="requirements"></a>要求
 
@@ -158,7 +158,7 @@ ms.locfileid: "89046298"
 
 如果需要更即时的吊销（例如，如果用户丢失了设备），可以使用户的授权令牌失效。 若要使授权令牌失效，请使用 Windows PowerShell 为此特定用户设置 **StsRefreshTokenValidFrom** 字段。 必须为要撤销其访问权限的每个用户更新 **StsRefreshTokenValidFrom** 字段。
 
-若要确保撤销仍然有效，必须将 CRL 的**生效日期**设置为晚于 **StsRefreshTokenValidFrom** 所设置的值，并确保相关的证书在 CRL 中。
+若要确保撤销仍然有效，必须将 CRL 的 **生效日期** 设置为晚于 **StsRefreshTokenValidFrom** 所设置的值，并确保相关的证书在 CRL 中。
 
 以下步骤概述了通过设置 **StsRefreshTokenValidFrom** 字段更新授权令牌并使其失效的过程。
 
@@ -190,7 +190,7 @@ ms.locfileid: "89046298"
 
 ### <a name="testing-your-certificate"></a>测试证书
 
-作为第一个配置测试，应尝试使用**设备上的浏览器**登录 [Outlook Web Access](https://outlook.office365.com) 或 [SharePoint Online](https://microsoft.sharepoint.com)。
+作为第一个配置测试，应尝试使用 **设备上的浏览器** 登录 [Outlook Web Access](https://outlook.office365.com) 或 [SharePoint Online](https://microsoft.sharepoint.com)。
 
 如果登录成功，则可确定：
 

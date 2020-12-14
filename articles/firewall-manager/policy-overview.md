@@ -4,15 +4,15 @@ description: 了解 Azure 防火墙管理器策略
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 85b8e6ccbb2e306cf7df8048a51e0e7312246ef9
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 2c4ff58f42b2432a66787d68787b227edc29d259
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162789"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104611"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure 防火墙管理器策略概述
 
@@ -47,8 +47,8 @@ NAT 规则集合不是继承的，因为它们与给定的防火墙相关。
 Azure 防火墙支持传统规则和策略。 下表对策略和规则做了比较：
 
 
-|         |策略  |规则  |
-|---------|---------|---------|
+| 主题 | 策略  | 规则 |
+| ------- | ------- | ----- |
 |包含     |NAT、网络、应用程序规则、自定义 DNS 和 DNS 代理设置、IP 组和威胁情报设置（包括允许列表）|NAT、网络、应用程序规则、自定义 DNS 和 DNS 代理设置、IP 组和威胁情报设置（包括允许列表）|
 |保护     |虚拟中心和虚拟网络|仅虚拟网络|
 |门户体验     |使用防火墙管理器的集中式管理|独立的防火墙体验|
@@ -58,7 +58,7 @@ Azure 防火墙支持传统规则和策略。 下表对策略和规则做了比�
 
 ## <a name="pricing"></a>定价
 
-策略根据防火墙关联计费。 存在零个或一个防火墙关联的策略是免费的。 存在多个防火墙关联的策略按固定费率计费。 有关详细信息，请参阅 [Azure 防火墙管理器定价](https://azure.microsoft.com/pricing/details/firewall-manager/)。
+策略根据防火墙关联计费。 存在零个或一个防火墙关联的策略是免费的。 存在多个防火墙关联的策略按固定费率计费。 有关详细信息，请参阅 [Azure 防火墙管理器定价](https://www.azure.cn/pricing/details/firewall-manager/)。
 
 ## <a name="next-steps"></a>后续步骤
 

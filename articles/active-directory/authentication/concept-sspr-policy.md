@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/09/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 93805bad93a805fad6603a83b4a0013da584dd8b
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: fb9742fea1adb88609ee470e8f194a015758a53b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750004"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003825"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和账户限制
 
@@ -56,7 +56,7 @@ ms.locfileid: "92750004"
 | 密码限制 |<ul><li>至少 8 个字符，最多包含 256 个字符。</li><li>需满足以下 4 项中的 3 项：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
 | 密码过期期限（最长密码期限） |<ul><li>默认值：“90”天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul> |
 | 密码到期通知（何时通知用户密码到期） |<ul><li>默认值：“14”天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul> |
-| 密码过期（让密码永不过期） |<ul><li>默认值： **false** （指示密码有到期日期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul> |
+| 密码过期（让密码永不过期） |<ul><li>默认值：**false**（指示密码有到期日期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul> |
 | 密码更改历史记录 | 用户更改密码时，上一个密码 *不能* 再次使用。 |
 | 密码重置历史记录 | 用户重置忘记的密码时，上一个密码 *可以* 再次使用。 |
 
@@ -91,7 +91,7 @@ ms.locfileid: "92750004"
   * 特权身份验证管理员
 
 * 如果在试用订阅中已过 30 天；或
-* 已为 Azure AD 租户配置了自定义域，如 *contoso.com* ；或
+* 已为 Azure AD 租户配置了自定义域，如 *contoso.com*；或
 * Azure AD Connect 正在从本地目录同步标识
 
 可以使用 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet 为管理员帐户禁用 SSPR。 `-SelfServePasswordResetEnabled $False` 参数为管理员禁用 SSPR。
@@ -179,5 +179,5 @@ ms.locfileid: "92750004"
 
 若要开始进行 SSPR，请参阅[教程：使用户能够使用 Azure Active Directory 自助式密码重置来解锁其帐户或重置密码](tutorial-enable-sspr.md)。
 
-如果你或用户遇到 SSPR 问题，请参阅[排查自助式密码重置问题](active-directory-passwords-troubleshoot.md)
+如果你或用户遇到 SSPR 问题，请参阅[排查自助式密码重置问题](./troubleshoot-sspr.md)
 

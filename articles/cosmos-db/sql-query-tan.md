@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 TAN
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 TAN。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 16724db58e483b33a85674d80c7db994a3f52276
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 120f892f5f961e5c36a9137a8eed5dc6791ad157
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552866"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850485"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

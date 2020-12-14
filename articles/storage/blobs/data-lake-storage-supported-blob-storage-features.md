@@ -5,16 +5,16 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 10/28/2020
-ms.date: 11/30/2020
+origin.date: 11/12/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 1e3f22d820fbcce1241d15a1498ff52f913f30f9
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 914efee3f18d19c48834bcf6a982266358dee9a7
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153051"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850806"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中可用的 Blob 存储功能
 
@@ -44,7 +44,7 @@ Blob 存储功能（例如[诊断日志记录](../common/storage-analytics-loggi
 |快照|预览|预览|[blob 快照](snapshots-overview.md)|
 |静态网站|预览|预览|[Azure 存储中的静态网站托管](storage-blob-static-website.md)|
 |不可变存储|预览|预览|[使用不可变的存储来存储业务关键型 Blob 数据](storage-blob-immutable-storage.md)|
-|Blob 软删除|尚不支持|尚不支持|[blob 的软删除](storage-blob-soft-delete.md)|
+|Blob 软删除|尚不支持|尚不支持|[blob 的软删除](./soft-delete-blob-overview.md)|
 |帐户故障转移|尚不支持|尚不支持|[灾难恢复和帐户故障转移](../common/storage-disaster-recovery-guidance.md?toc=%2fstorage%2fblobs%2ftoc.json)|
 |Blob 容器 ACL|不支持<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|不支持|请参阅此表下方的相关说明。|
 |客户提供的密钥|尚不支持|尚不支持|[在对 Blob 存储的请求中提供加密密钥](encryption-customer-provided-keys.md)|

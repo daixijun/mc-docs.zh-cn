@@ -1,17 +1,17 @@
 ---
 title: 用于代理的资源管理器模板示例
-description: 用于在 Azure Monitor 中部署和配置 Log Analytics 代理和诊断扩展的 Azure 资源管理器模板示例。
+description: 用于在 Azure Monitor 中部署和配置虚拟机代理的 Azure 资源管理器模板示例。
 ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/15/2020
-ms.openlocfilehash: 95f634d2723fdb2f46718a3106f5a069098dbf4c
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 12/07/2020
+ms.openlocfilehash: 1b72a9407c002520c5dd6a5c594fed07e21674e1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440567"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104508"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>用于 Azure Monitor 代理的资源管理器模板示例
 本文包含用于在 Azure Monitor 中为虚拟机部署和配置 [Log Analytics 代理](../platform/log-analytics-agent.md)和[诊断扩展](../platform/diagnostics-extension-overview.md)的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -19,10 +19,14 @@ ms.locfileid: "86440567"
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="windows-log-analytics-agent"></a>Windows Log Analytics 代理
+<!--Not available in MC: ## Azure Monitor agent -->
+## <a name="log-analytics-agent"></a>Log Analytics 代理
+本部分中的示例在 Azure 中的 Windows 和 Linux 虚拟机上安装 Log Analytics 代理，并将其连接到 Log Analytics 工作区。
+
+###  <a name="windows"></a>Windows
 以下示例将在 Azure 虚拟机上安装 Log Analytics 代理。 这可以通过启用[适用于 Windows 的 Log Analytics 虚拟机扩展](../../virtual-machines/extensions/oms-windows.md)来完成。
 
-### <a name="template-file"></a>模板文件
+#### <a name="template-file"></a>模板文件
 
 ```json
 {
@@ -90,7 +94,7 @@ ms.locfileid: "86440567"
 
 ```
 
-### <a name="parameter-file"></a>参数文件
+#### <a name="parameter-file"></a>参数文件
 
 ```json
 {
@@ -114,10 +118,10 @@ ms.locfileid: "86440567"
 ```
 
 
-## <a name="linux-log-analytics-agent"></a>Linux Log Analytics 代理
+### <a name="linux"></a>Linux
 以下示例将在 Linux Azure 虚拟机上安装 Log Analytics 代理。 这可以通过启用[适用于 Windows 的 Log Analytics 虚拟机扩展](../../virtual-machines/extensions/oms-linux.md)来完成。
 
-### <a name="template-file"></a>模板文件
+#### <a name="template-file"></a>模板文件
 
 ```json
 {
@@ -184,7 +188,7 @@ ms.locfileid: "86440567"
 }
 ```
 
-### <a name="parameter-file"></a>参数文件
+#### <a name="parameter-file"></a>参数文件
 
 ```json
 {
@@ -209,10 +213,13 @@ ms.locfileid: "86440567"
 
 
 
-## <a name="windows-diagnostic-extension"></a>Windows 诊断扩展
+## <a name="diagnostic-extension"></a>诊断扩展
+本节中的示例在 Azure 中的 Windows 和 Linux 虚拟机上安装诊断扩展，并对其进行配置以实现数据收集。
+
+### <a name="windows"></a>Windows
 以下示例将在 Azure 虚拟机上启用和配置诊断扩展。 有关该配置的详细信息，请参阅 [Windows 诊断扩展架构](../platform/diagnostics-extension-schema-windows.md)。
 
-### <a name="template-file"></a>模板文件
+#### <a name="template-file"></a>模板文件
 
 ```json
 {
@@ -345,7 +352,7 @@ ms.locfileid: "86440567"
 }
 ```
 
-### <a name="parameter-file"></a>参数文件
+#### <a name="parameter-file"></a>参数文件
 
 ```json
 {
@@ -374,10 +381,10 @@ ms.locfileid: "86440567"
 }
 ```
 
-## <a name="linux-diagnostic-setting"></a>Linux 诊断设置
+### <a name="linux"></a>Linux
 以下示例将在 Linux Azure 虚拟机上启用和配置诊断扩展。 有关该配置的详细信息，请参阅 [Windows 诊断扩展架构](../../virtual-machines/extensions/diagnostics-linux.md)。
 
-### <a name="template-file"></a>模板文件
+#### <a name="template-file"></a>模板文件
 
 ```json
 {
@@ -565,7 +572,7 @@ ms.locfileid: "86440567"
 }
 ```
 
-### <a name="parameter-file"></a>参数文件
+#### <a name="parameter-file"></a>参数文件
 
 ```json
 {

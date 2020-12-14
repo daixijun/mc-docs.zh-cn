@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: MicrosoftGuyJFlo
   ms.author: v-junlch
-  ms.date: 10/26/2020
+  ms.date: 12/09/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: e4b6f59fb2ef575aeca2542d17beb72afc56729b
-  ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+  ms.openlocfilehash: 5a972e1fe2ff97bdf986e601031ea34a9cf34bfa
+  ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92750005"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97003803"
 landingContent:
 - title: 关于身份验证
   linkLists:
@@ -45,13 +45,19 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: 从 Windows 登录屏幕启用密码重置
       url: howto-sspr-windows.md
-- title: 启用 Azure 多重身份验证
+- title: 启用 Azure AD 多重身份验证
   linkLists:
   - linkListType: concept
     links:
-    - text: Azure 多重身份验证的工作原理
+    - text: Azure AD 多重身份验证的工作原理
       url: concept-mfa-howitworks.md
+  - linkListType: tutorial
+    links:
+    - text: 启用 Azure AD 多重身份验证
+      url: tutorial-enable-azure-mfa.md
   - linkListType: deploy
     links:
-    - text: Azure 多重身份验证部署指南
+    - text: Azure AD 多重身份验证部署指南
       url: howto-mfa-getstarted.md
+    - text: 使用 NPS 扩展集成本地应用程序
+      url: howto-mfa-nps-extension.md

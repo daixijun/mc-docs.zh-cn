@@ -51,15 +51,17 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fstorage%2ffiles%2ftoc.json
                 - name: 监视、诊断和故障排除
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 性能和规模
+      items:
+        - name: 可伸缩性和性能目标
+          href: storage-files-scale-targets.md
     - name: 防止意外删除数据
       href: storage-files-prevent-file-share-deletion.md
     - name: 静态加密
       href: ../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 使用客户管理的密钥进行静态加密
-      href: ../common/customer-managed-keys-overview.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 可伸缩性和性能目标
-      href: storage-files-scale-targets.md
-    - name: 常见问题
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 常见问题解答
       href: storage-files-faq.md
 - name: 操作指南
   items:
@@ -67,8 +69,6 @@
       items:
         - name: 创建 SMB 文件共享
           href: storage-how-to-create-file-share.md
-        - name: 启用大型文件共享
-          href: storage-files-how-to-create-large-file-share.md
         - name: 创建高级文件共享
           href: storage-how-to-create-premium-fileshare.md
     - name: 部署

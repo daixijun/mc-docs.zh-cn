@@ -4,16 +4,16 @@ description: 使用 Azure 门户从订阅中的资源导出 Azure 资源管理�
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6f32f058e37fdadb75010cb217cfba0876b75998
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 574bca34df13f7168c3cd5f60a867034c9186761
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470507"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003869"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>在 Azure 门户中将单资源和多资源导出到模板
 
@@ -27,9 +27,9 @@ ms.locfileid: "92470507"
 
 可以通过两种方式来导出模板：
 
-* **从资源组或资源导出** 。 此选项基于现有的资源生成新模板。 导出的模板是资源组当前状态的“快照”。 可以导出整个资源组，或该资源组中的特定资源。
+* **从资源组或资源导出**。 此选项基于现有的资源生成新模板。 导出的模板是资源组当前状态的“快照”。 可以导出整个资源组，或该资源组中的特定资源。
 
-* **在部署之前导出或从历史记录导出** 。 此选项检索用于部署的确切模板副本。
+* **在部署之前导出或从历史记录导出**。 此选项检索用于部署的确切模板副本。
 
 根据所选的选项，导出的模板具有不同的质量。
 
@@ -56,7 +56,7 @@ ms.locfileid: "92470507"
 
 导出模板功能不支持导出 Azure 数据工厂资源。 若要了解如何导出数据工厂资源，请参阅[在 Azure 数据工厂中复制或克隆数据工厂](../../data-factory/copy-clone-data-factory.md)。
 
-若要导出通过经典部署模型创建的资源，必须[将其迁移到资源管理器部署模型](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
+若要导出通过经典部署模型创建的资源，必须[将其迁移到资源管理器部署模型](../../virtual-machines/migration-classic-resource-manager-overview.md)。
 
 如果在导出模板时收到警告，指示未导出某个资源类型，则仍然可以发现该资源的属性。 若要了解用于查看资源属性的不同选项，请参阅[发现资源属性](view-resources.md)。 还可以查看该资源类型的 [Azure REST API](https://docs.microsoft.com/rest/api/azure/)。
 
@@ -68,7 +68,7 @@ ms.locfileid: "92470507"
 
 1. 选择包含所要导出的资源的资源组。
 
-1. 通过选中相应的复选框选择一个或多个资源。  若要全选，请选中 **名称** 左侧的复选框。 “导出模板”  菜单项只有在你选择了至少一个资源之后才会启用。
+1. 通过选中相应的复选框选择一个或多个资源。  若要全选，请选中 **名称** 左侧的复选框。 “导出模板”菜单项只有在你选择了至少一个资源之后才会启用。
 
     :::image type="content" source="./media/export-template-portal/select-all-resources.png" alt-text="导出所有资源":::
 
@@ -77,9 +77,9 @@ ms.locfileid: "92470507"
 
 1. 此时将显示导出的模板，并且该模板可供下载和部署。
 
-    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="显示模板":::
 
-     “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
+    “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
 
 ## <a name="export-template-from-a-resource"></a>从资源导出模板
 
@@ -89,11 +89,11 @@ ms.locfileid: "92470507"
 
 1. 选择要导出的资源以打开资源。
 
-1. 在左窗格中选择该资源对应的“导出模板”。 
+1. 在左窗格中选择该资源对应的“导出模板”。
 
-    :::image type="content" source="./media/export-template-portal/export-single-resource.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/export-single-resource.png" alt-text="导出资源":::
 
-1. 此时将显示导出的模板，并且该模板可供下载和部署。 模板只包含单个资源。  “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
+1. 此时将显示导出的模板，并且该模板可供下载和部署。 模板只包含单个资源。 “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
 
 ## <a name="export-template-before-deployment"></a>在部署之前导出模板
 
@@ -101,9 +101,9 @@ ms.locfileid: "92470507"
 
 1. 填写新服务的值。
 
-1. 在通过验证之后、开始部署之前，请选择“下载自动化模板”。 
+1. 在通过验证之后、开始部署之前，请选择“下载自动化模板”。
 
-    :::image type="content" source="./media/export-template-portal/download-before-deployment.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/download-before-deployment.png" alt-text="下载模板":::
 
 1. 此时将显示该模板，并且该模板可供下载和部署。
 
@@ -113,17 +113,17 @@ ms.locfileid: "92470507"
 
 1. 选择要导出的资源组。
 
-1. 选择“部署”  下的链接。
+1. 选择“部署”下的链接。
 
-    :::image type="content" source="./media/export-template-portal/select-deployment-history.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/select-deployment-history.png" alt-text="选择部署历史记录":::
 
 1. 从部署历史记录中选择一个部署。
 
-    :::image type="content" source="./media/export-template-portal/select-details.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/select-details.png" alt-text="选择部署":::
 
 1. 选择“模板”。 随后，用于此部署的模板将会显示，并可供下载。
 
-    :::image type="content" source="./media/export-template-portal/show-template-from-history.png" alt-text="导出所有资源":::
+    :::image type="content" source="./media/export-template-portal/show-template-from-history.png" alt-text="选择模板":::
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -132,5 +132,4 @@ ms.locfileid: "92470507"
 - 若要了解如何开发模板，请参阅[分步教程](../index.yml)。
 
 <!--Not Available on [template reference](https://docs.microsoft.com/azure/templates/)-->
-
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 05/01/2020
-ms.date: 06/22/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: b27c5aff0056d749113fcefd3655c18d35837711
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: 74c47059331048f105570f3692665bd5de36eb5c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85706585"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004074"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>如何配置麦克风阵列
 
-本文介绍如何配置[麦克风阵列](https://docs.azure.cn/cognitive-services/speech-service/speech-devices-sdk-microphone)。 它包括设置工作角度，以及如何选择用于语音设备 SDK 的麦克风。
+本文介绍如何配置[麦克风阵列](./speech-devices-sdk-microphone.md)。 它包括设置工作角度，以及如何选择用于语音设备 SDK 的麦克风。
 
-语音设备 SDK 最适合与根据[我们的指南](https://docs.azure.cn/cognitive-services/speech-service/speech-devices-sdk-microphone)设计的麦克风阵列配合使用。 麦克风阵列配置可以由操作系统提供，也可以通过以下方法之一提供。
+语音设备 SDK 最适合与根据[我们的指南](./speech-devices-sdk-microphone.md)设计的麦克风阵列配合使用。 麦克风阵列配置可以由操作系统提供，也可以通过以下方法之一提供。
 
 语音设备 SDK 最初通过选择一组固定配置中的配置来支持麦克风阵列。
 
@@ -50,7 +50,7 @@ private static String SelectedGeometry = "Circular6+1"; // "Circular6+1", "Circu
 语音设备 SDK 中的 Microsoft 音频堆栈仅支持以 16 KHz 整数倍数的采样率进行下采样。 此外，还支持以下格式：32 位 IEEE little endian 浮点数、32 位 little endian 有符号整数、24 位 little endian 有符号整数、16 位 little endian 有符号整数和 8 位有符号整数。
 
 ## <a name="android"></a>Android
-目前，语音设备 SDK 仅支持 [Roobo v1](speech-devices-sdk-android-quickstart.md)。 行为与以前的版本相同，但 `MicArrayGeometryConfigFile` 属性现可用于指定包含波束赋形范围的 JSON 文件。
+目前，语音设备 SDK 仅支持 [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android)。 行为与以前的版本相同，但 `MicArrayGeometryConfigFile` 属性现可用于指定包含波束赋形范围的 JSON 文件。
 
 ## <a name="microphone-array-configuration-json"></a>麦克风阵列配置 JSON
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 9738df89b93689723278abeb8ef568e9c3ae2235
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.date: 12/08/2020
+ms.openlocfilehash: 25016936672d687e73de41f649028e29953db541
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457267"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104397"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>将 Azure Monitor 日志数据导入到 Power BI 中
 
@@ -28,8 +28,8 @@ ms.locfileid: "89457267"
 ## <a name="export-query"></a>导出查询
 首先创建一个[日志查询](../log-query/log-query-overview.md)，该查询返回要填充 Power BI 数据集的数据。  随后将该查询导出为 Power BI Desktop 可以使用的 [Power Query (M) 语言](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)。
 
-1. [在 Log Analytics 中创建日志查询](../log-query/get-started-portal.md)以提取数据集的数据。
-2. 选择“导出” > “导出到 Power BI (M 查询)” 。  这会将查询导出到名为 **PowerBIQuery.txt** 的文本文件中。 
+1. [在 Log Analytics 中创建日志查询](../log-query/log-analytics-tutorial.md)以提取数据集的数据。
+2. 选择“导出” > “Power BI 查询(M)”。  这会将查询导出到名为 **PowerBIQuery.txt** 的文本文件中。 
 
     ![导出日志搜索](./media/powerbi/export-analytics.png)
 
@@ -68,7 +68,7 @@ Power BI Desktop 是一个桌面应用程序，用于创建可发布到 Power BI
 1. 单击要在其中上传报表的工作区并选择“数据集”菜单。 
 1. 选择你的新数据集旁边的上下文菜单，然后选择“设置”。 
 1. 在“数据源凭据”下，应显示一条消息，提示凭据无效。  这是因为你尚未提供在刷新数据时要使用的数据集的凭据。  
-1. 单击“编辑凭据”并指定有权访问 Azure Monitor 中的 Log Analytics 工作区的凭据。 如果需要双因素身份验证，请选择“OAuth2”作为使用凭据登录时要提示的**身份验证方法**。
+1. 单击“编辑凭据”并指定有权访问 Azure Monitor 中的 Log Analytics 工作区的凭据。 如果需要双因素身份验证，请选择“OAuth2”作为使用凭据登录时要提示的 **身份验证方法**。
 
     ![Power BI 计划](./media/powerbi/powerbi-schedule.png)
 

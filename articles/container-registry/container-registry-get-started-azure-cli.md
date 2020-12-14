@@ -3,17 +3,18 @@ title: 快速入门 - 创建注册表 - Azure CLI
 description: 快速了解如何使用 Azure CLI 创建专用 Docker 容器注册表。
 ms.topic: quickstart
 origin.date: 06/12/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 12/09/2019
 ms.author: v-yeche
-ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 2a600e83685cf124f9edc4bd1a27e7e5f00b82ea
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
+ms.openlocfilehash: 65e4668434ffd54f925eeac2656c17927087bbfe
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863146"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004114"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建专用容器注册表
 
@@ -73,10 +74,16 @@ az acr create --resource-group myResourceGroup \
 
 ## <a name="log-in-to-registry"></a>登录到注册表
 
-在推送和拉取容器映像之前，必须登录到注册表。 为此，请使用 [az acr login][az-acr-login] 命令。
+在推送和拉取容器映像之前，必须登录到注册表。 为此，请使用 [az acr login][az-acr-login] 命令。 使用 Azure CLI 登录时仅指定注册表名称。 不要使用登录服务器名称，其中包括类似 `azurecr.cn` 的域后缀。 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+例如：
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 该命令在完成后会返回消息 `Login Succeeded`。
@@ -146,11 +153,11 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - internal -->
 
-[az-acr-create]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-create
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

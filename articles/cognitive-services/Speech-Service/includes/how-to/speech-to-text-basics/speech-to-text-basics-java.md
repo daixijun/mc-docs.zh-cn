@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/11/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: 4bc154dd7c59b33a3b23b7db32bc482a364f72a8
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b49cf5db921af56963a8946d68d8f1401a89f4dc
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301156"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004531"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 

@@ -4,17 +4,17 @@ description: 配置一个 GitHub 操作，用于自动执行生成容器映像�
 ms.topic: article
 origin.date: 08/20/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.custom: github-actions-azure
-ms.openlocfilehash: 50303bba6816a8e33e98e6a9f5a1858767c25a74
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 920268b0f3b3154bec6b03387827b403aeef45db
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106278"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004127"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>配置 GitHub 操作以创建容器实例
 
@@ -43,7 +43,7 @@ ms.locfileid: "93106278"
 
     <!--Not Available on the Azure local Shell or-->
     
-* **Azure 容器注册表** - 如果没有 Azure 容器注册表，请使用 [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)、 [Azure 门户](../container-registry/container-registry-get-started-portal.md)或其他方法在基本层中创建一个容器注册表。 记下用于部署的资源组，因为在 GitHub 工作流中需要使用它。
+* **Azure 容器注册表** - 如果没有 Azure 容器注册表，请使用 [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)、[Azure 门户](../container-registry/container-registry-get-started-portal.md)或其他方法在基本层中创建一个容器注册表。 记下用于部署的资源组，因为在 GitHub 工作流中需要使用它。
 
 ## <a name="set-up-repo"></a>设置存储库
 
@@ -129,7 +129,7 @@ az role assignment create \
     |Secret  |Value  |
     |---------|---------|
     |`AZURE_CREDENTIALS`     | 创建服务主体步骤后显示的整个 JSON 输出 |
-    |`REGISTRY_LOGIN_SERVER`   | 注册表的登录服务器名称（全小写）。 示例： *myregistry.azurecr.cn* |
+    |`REGISTRY_LOGIN_SERVER`   | 注册表的登录服务器名称（全小写）。 示例：*myregistry.azurecr.cn* |
     |`REGISTRY_USERNAME`     |  创建服务主体后显示的 JSON 输出中的 `clientId`       |
     |`REGISTRY_PASSWORD`     |  创建服务主体后显示的 JSON 输出中的 `clientSecret` |
     | `RESOURCE_GROUP` | 用来限定服务主体作用域的资源组名称 |
@@ -223,7 +223,7 @@ Azure CLI 创建的工作流类似于可以[使用 GitHub 手动创建](#configu
 
 ### <a name="additional-prerequisite"></a>其他先决条件
 
-对于此方案，除了满足 [先决条件](#prerequisites)并完成 [存储库设置](#set-up-repo)以外，还需要安装 Azure CLI 的 **“部署到 Azure”扩展** 。
+对于此方案，除了满足 [先决条件](#prerequisites)并完成 [存储库设置](#set-up-repo)以外，还需要安装 Azure CLI 的 **“部署到 Azure”扩展**。
 
 请运行 [az extension add][az-extension-add] 命令来安装该扩展：
 
@@ -278,7 +278,7 @@ Your app is deployed at:  http://acr-build-helloworld-node.chinaeast2.azureconta
 
 ### <a name="validate-workflow"></a>验证工作流
 
-工作流使用 GitHub 存储库的基名称（在本例中为 *acr-build-helloworld-node* ）部署 Azure 容器实例。 工作流成功完成后，运行 [az container show][az-container-show] 命令获取有关名为 *acr-build-helloworld-node* 的容器实例的信息。 替换为你的资源组名称： 
+工作流使用 GitHub 存储库的基名称（在本例中为 *acr-build-helloworld-node*）部署 Azure 容器实例。 工作流成功完成后，运行 [az container show][az-container-show] 命令获取有关名为 *acr-build-helloworld-node* 的容器实例的信息。 替换为你的资源组名称： 
 
 ```azurecli
 az container show \
@@ -337,4 +337,5 @@ az group delete \
 [az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [az-container-app-up]: https://docs.microsoft.com/cli/azure/ext/deploy-to-azure/container/app#ext_deploy_to_azure_az_container_app_up
 
+<!--CORRECT ON [az-container-app-up]: https://docs.microsoft.com/cli/azure/ext/deploy-to-azure/container/app#ext_deploy_to_azure_az_container_app_up-->
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 4b17c2d36514713a8379164ae8c24ebe7fd79842
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: cfc6bee75a0db04315eb7ea0942e01f08ca10ab5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162800"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104853"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>教程：使用 Azure 防火墙管理器保护中心虚拟网络
 
@@ -65,7 +65,7 @@ ms.locfileid: "87162800"
 >[!NOTE]
 >即使 UDR 指向作为默认网关的 Azure 防火墙，也会直接路由直接对等互连 VNet 之间的流量。 若要在此方案中将子网到子网流量发送到防火墙，UDR 必须在这两个子网上显式地包含目标子网网络前缀。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-firewall-policy"></a>创建防火墙策略
 
@@ -116,7 +116,7 @@ ms.locfileid: "87162800"
 6. 对于“订阅”，请选择自己的订阅。
 7. 对于“资源组”，请选择“FW-Hybrid-Test”。
 8. 对于“位置”，请选择“美国东部”。
-9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
+9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
 10. 对于“地址范围”，请键入 **10.5.0.0/26**。 
 11. 接受其他默认设置，然后选择“创建”。
 

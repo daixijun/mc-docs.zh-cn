@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 08/14/2020
 ms.date: 09/07/2020
-ms.openlocfilehash: 60c1900a405176ed0ff50a93b9fda57684e3f89e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7e6faf198c511ebd226274d5efac01b5292a6aea
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976957"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105263"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教程：使用自动化机器学习预测出租车费
 
@@ -32,14 +32,16 @@ ms.locfileid: "94976957"
 > * 定型自动化机器学习回归模型
 > * 计算模型准确度
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)的 Azure 机器学习。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)的 Azure 机器学习。
 
 ## <a name="prerequisites"></a>先决条件
 
 * 如果还没有 Azure 机器学习工作区或 Notebook 虚拟机，请完成[设置教程](tutorial-1st-experiment-sdk-setup.md)。
 * 完成设置教程后，使用同一笔记本服务器打开 tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb 笔记本。
 
-如果你想要在自己的[本地环境](how-to-configure-environment.md#local)中运行此教程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上找到它。 运行 `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` 以获取所需的包。
+如果你想要在自己的[本地环境](how-to-configure-environment.md#local)中运行此教程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上找到它。 若要获取所需的包， 
+* [安装完整的 `automl` 客户端](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)。
+* 运行 `pip install azureml-opendatasets azureml-widgets` 以获取所需的包。
 
 ## <a name="download-and-prepare-data"></a>下载并准备数据
 

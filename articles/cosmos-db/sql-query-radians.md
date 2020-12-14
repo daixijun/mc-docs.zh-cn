@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 RADIANS
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RADIANS。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 09/13/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 67a49dec13b20b10cccb09ed20e299a134d5aab3
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a2da37cf69e83341d7b3b9ad9edece877a6dd98d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552870"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850673"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

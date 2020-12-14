@@ -59,6 +59,10 @@
           href: virtual-wan-ipsec.md
         - name: 多个 ISP 链接 - Azure 路径选择
           href: path-selection-multiple-links.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
 - name: 操作指南
   items:
     - name: 升级虚拟 WAN SKU

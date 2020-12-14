@@ -57,6 +57,8 @@
           href: container-registry-geo-replication.md
         - name: 注册最佳做法
           href: container-registry-best-practices.md
+        - name: 管理公共映像
+          href: buffer-gate-public-content.md
     - name: 操作指南
       expanded: false
       items:
@@ -116,6 +118,7 @@
                   href: container-registry-repository-scoped-permissions.md
             - name: Azure 基于角色的访问控制
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: 内容信任
               href: container-registry-content-trust.md
         - name: 注册表和其他 Azure 服务
@@ -145,7 +148,7 @@
               href: container-registry-troubleshoot-performance.md
             - name: 检测常见问题
               href: container-registry-check-health.md
-            - name: 常见问题
+            - name: 常见问题解答
               href: container-registry-faq.md
 - name: 任务
   expanded: true

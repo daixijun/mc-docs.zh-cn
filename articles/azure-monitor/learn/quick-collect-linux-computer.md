@@ -11,15 +11,15 @@ origin.date: 12/24/2019
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 12/01/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: f314dcad64e908027a24e4868d91f2dda7805da4
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e2944e4bbeddda7c2be0c982a05a1b742a036cb0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431999"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104744"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入门：使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
@@ -80,19 +80,8 @@ ms.locfileid: "96431999"
 
 例如： `https://user01:password@proxy01.contoso.com:30443`
 
-1. 若要配置 Linux 计算机以连接至 Log Analytics 工作区，请运行以下命令，并提供先前复制的工作区 ID 和主密钥。 以下命令将下载代理、验证其校验和并将其安装好。 
-    
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
-    ```
-
-    代理服务器要求进行身份验证时，以下命令包括 `-p` 代理参数和示例语法：
-
-   ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
-    ```
-
-2. 若要将 Linux 计算机配置为连接到 Azure 中国云中的 Log Analytics 工作区，请运行以下命令，并提供前面复制的工作区 ID 和主密钥。 以下命令将下载代理、验证其校验和并将其安装好。 
+<!--Not available in MC-->
+1. 若要将 Linux 计算机配置为连接到 Azure 中国云中的 Log Analytics 工作区，请运行以下命令，并提供前面复制的工作区 ID 和主密钥。 以下命令将下载代理、验证其校验和并将其安装好。 
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.cn
@@ -104,7 +93,7 @@ ms.locfileid: "96431999"
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.cn
     ```
 
-3. 运行以下命令重启代理： 
+2. 运行以下命令重启代理： 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
@@ -167,6 +156,5 @@ Azure Monitor 可以从你为长期分析和报告指定的 Linux syslog 和性�
 若要了解如何查看和分析数据，请继续本教程。
 
 > [!div class="nextstepaction"]
-> [在 Log Analytics 中查看或分析数据](../log-query/get-started-portal.md)
-
+> [在 Log Analytics 中查看或分析数据](../log-query/log-analytics-tutorial.md)
 

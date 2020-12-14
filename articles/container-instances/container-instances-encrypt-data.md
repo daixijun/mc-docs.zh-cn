@@ -3,17 +3,17 @@ title: 加密部署数据
 description: 了解为容器实例资源保存的数据的加密，以及如何使用客户管理的密钥来加密数据
 ms.topic: article
 origin.date: 01/17/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 5587277df9ed4b4276080e53b352c2f49668ce98
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 448bd2d3b7905da393232398f9f31380b3816fdc
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96300900"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004129"
 ---
 <!--Verified successfully-->
 # <a name="encrypt-deployment-data"></a>加密部署数据
@@ -65,7 +65,7 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 ### <a name="create-a-key-vault-resource"></a>创建 Key Vault 资源
 
-使用 [Azure 门户](../key-vault/secrets/quick-create-portal.md#create-a-vault)、[CLI](../key-vault/secrets/quick-create-cli.md) 或 [PowerShell](../key-vault/secrets/quick-create-powershell.md) 创建一个 Azure Key Vault。 
+使用 [Azure 门户](../key-vault/general/quick-create-portal.md)、[Azure CLI](../key-vault/general/quick-create-cli.md) 或 [Azure PowerShell](../key-vault/general/quick-create-powershell.md) 创建 Azure Key Vault。
 
 对于 Key Vault 的属性，请使用以下指导原则： 
 * 姓名：必须提供唯一的名称。 

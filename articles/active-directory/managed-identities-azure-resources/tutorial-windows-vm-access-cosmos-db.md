@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca4d4c063ddcbe34701e25026786bb7f43b7daf3
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 8b5387de54c1e1331bf60e1e25c1e988f516e313
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749805"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004223"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Cosmos DB
 
@@ -56,7 +56,7 @@ ms.locfileid: "92749805"
 
 1. 单击 Azure 门户左上角的“+/创建新服务”按钮。 
 2. 单击“数据库”，然后单击“Azure Cosmos DB”，新的“新建帐户”面板便会显示。  
-3. 输入 Cosmos DB 帐户的 **ID** ，供以后使用。  
+3. 输入 Cosmos DB 帐户的 **ID**，供以后使用。  
 4. **API** 应设置为“SQL”。 本教程中介绍的方法可以与其他可用的 API 类型配合使用，但本教程中的步骤是针对 SQL API 的。
 5. 确保“订阅”和“资源组”与上一步中创建 VM 时指定的名称匹配。    选择提供 Cosmos DB 的“位置”。 
 6. 单击“创建”。 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> 请记住，如果无法执行操作，则可能没有相应的权限。 若要对密钥进行写入访问，需要使用 RBAC 角色（如 DocumentDB 帐户参与者）或创建自定义角色。 有关详细信息，请查看 [Azure Cosmos DB 中基于角色的访问控制](../../cosmos-db/role-based-access-control.md)
+> 请记住，如果无法执行操作，则可能没有相应的权限。 若要对密钥进行写入访问，需要使用 Azure 角色（如 DocumentDB 帐户参与者）或创建自定义角色。 有关详细信息，请查看 [Azure Cosmos DB 中基于角色的访问控制](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>访问数据
 
@@ -130,7 +130,7 @@ Invoke-WebRequest -Uri 'https://management.chinacloudapi.cn/subscriptions/<SUBSC
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-有了 Cosmos DB 帐户的访问密钥以后，即可将其传递给 Cosmos DB SDK 并通过调用来访问该帐户。  如需快速示例，可将该访问密钥传递给 Azure CLI。  在 Azure 门户中，可以从 Cosmos DB 帐户边栏选项卡上的“概览”选项卡获取 `<COSMOS DB CONNECTION URL>`。   将 `<ACCESS KEY>` 替换为在上面获取的值：
+有了 Cosmos DB 帐户的访问密钥以后，即可将其传递给 Cosmos DB SDK 并通过调用来访问该帐户。  如需快速示例，可将该访问密钥传递给 Azure CLI。  在 Azure 门户中，可以从 Cosmos DB 帐户边栏选项卡上的“概览”选项卡获取 `<COSMOS DB CONNECTION URL>`。  将 `<ACCESS KEY>` 替换为在上面获取的值：
 
 ```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7c95fb764fab3a1ded6f0d431bb3671fdcff9703
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: bb24e722731aadab13883b45e61d5fc07d624792
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978145"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104558"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure 机器学习中的数据集进行训练
 
@@ -104,7 +104,7 @@ from azureml.core import ScriptRunConfig
 src = ScriptRunConfig(source_directory=script_folder,
                       script='train_titanic.py',
                       # pass dataset as an input with friendly name 'titanic'
-                      arguments=['--input-dataset', titanic_ds],
+                      arguments=['--input-data', titanic_ds.as_named_input('titanic')],
                       compute_target=compute_target,
                       environment=myenv)
                              

@@ -3,14 +3,14 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/26/2020
-ms.date: 04/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 674831496fd0216d076e289a2232e020181bb047
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 5ce75ee1fc0f40f24b3c0261c1ea6876924d8f4f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301142"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004158"
 ---
 | 编程语言 | 平台                                                                           | SDK 参考              |
 |----------------------|------------------------------------------------------------------------------------|----------------------------|

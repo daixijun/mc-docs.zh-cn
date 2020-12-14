@@ -2,20 +2,21 @@
 title: Azure Cosmos DB SQL SDK 连接模式
 description: 了解 Azure Cosmos DB SQL SDK 上提供的不同的连接模式。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/16/2020
-ms.testscope: yes|no
-ms.testdate: 11/09/2020null
+ms.date: 12/14/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: a3d7547fccef63b9a9fc30c5ae465ad6156c4ee0
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: fc7cf910a7a8e131bad7be16f9b01ebd67d7dadb
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552390"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850448"
 ---
 <!--Verified successfully from released content-->
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 连接模式

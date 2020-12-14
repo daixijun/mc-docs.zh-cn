@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 326b3d7f146f48f1690e2beab33fc81a2d5cdd36
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 02c7fba8a8f7fed5623dae65c2312c14fccfad12
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977573"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004072"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>语音 SDK 的音频输入流 API 简介
 
@@ -78,4 +78,4 @@ ms.locfileid: "94977573"
 ## <a name="next-steps"></a>后续步骤
 
 - [创建一个 Azure 试用帐户](https://www.azure.cn/home/features/cognitive-services/)
-- [了解如何在 C# 中识别语音](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [了解如何在 C# 中识别语音](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

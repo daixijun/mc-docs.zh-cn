@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 TRIM
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 TRIM。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 2ecaefeb687398b8b687d19c02d2c370cb5e6d65
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 83eb5cda9f7b0b8ae16051c896821076a50e2ab7
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552394"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850476"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,13 +38,13 @@ TRIM(<str_expr>)
 
 ## <a name="examples"></a>示例
 
-  以下示例演示如何在查询中使用 `TRIM`。  
+以下示例演示如何在查询中使用 `TRIM`。  
 
 ```sql
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```json
 [{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  

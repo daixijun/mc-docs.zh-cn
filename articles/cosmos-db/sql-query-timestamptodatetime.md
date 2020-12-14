@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 TimestampToDateTime
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 TimestampToDateTime。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: d3f95c3c7877f3f6e83ca2e8061637df85721960
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: c0113b09861e87cc2e669dd33ba248f5762ebe12
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552400"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850479"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)

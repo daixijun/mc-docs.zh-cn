@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 UPPER
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 UPPER。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: efef2770bba8d5e66efc366a8dbf2eeab60a9d15
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: fabd49ec3d40dff8dacc83d9f88fbbf28c2e5cd2
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552865"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850451"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,11 +36,11 @@ UPPER(<str_expr>)
 
 ## <a name="return-types"></a>返回类型
 
-  返回一个字符串表达式。  
+返回一个字符串表达式。  
 
 ## <a name="examples"></a>示例
 
-  以下示例演示如何在查询中使用 `UPPER`  
+以下示例演示如何在查询中使用 `UPPER`  
 
 ```sql
 SELECT UPPER("Abc") AS upper  

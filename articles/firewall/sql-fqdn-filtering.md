@@ -6,16 +6,16 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 06/18/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2d7c1ab19284b3ddc23800f6102f63799bfe8274
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: ab012d3b0f97393dc26508fb836d7037a8f54e61
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746707"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105119"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>使用 SQL FQDN 配置 Azure 防火墙应用程序规则
 
@@ -35,6 +35,8 @@ ms.locfileid: "96746707"
 1. [使用 Azure CLI 部署 Azure 防火墙](deploy-cli.md)。
 2. 如果筛选发往 Azure SQL 数据库、Azure Synapse Analytics 或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)。
 
+    <!--Pending for the target article's update on the broken tag-->
+    
     > [!NOTE]
     > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。
 
@@ -56,6 +58,8 @@ ms.locfileid: "96746707"
 ## <a name="configure-using-the-azure-portal"></a>使用 Azure 门户进行配置
 1. [使用 Azure CLI 部署 Azure 防火墙](deploy-cli.md)。
 2. 如果筛选发往 Azure SQL 数据库、Azure Synapse Analytics 或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)。  
+
+    <!--Pending for the target article's update on the broken tag-->
 
     > [!NOTE]
     > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。

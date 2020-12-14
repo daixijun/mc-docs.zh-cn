@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 11/21/2019
-ms.openlocfilehash: 319539e9cc9c694da6b0ead752d0907d8fb4b1bd
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8aec56e9b561f7273eb7742a78ff27df0b6fa7fc
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328771"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104330"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -61,7 +61,7 @@ Log Analytics 代理 Linux 故障排除工具是一个脚本，旨在帮助查�
 我们了解到，清理代理并重新安装可以解决大多数问题。 事实上，这可能是支持部门提出的第一个建议，让支持团队使代理处于未损坏的状态。 运行排除故障程序、收集日志、尝试清理并重新安装将有助于更快地解决问题。
 
 1. 下载清除脚本：
-- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+- `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
 2. 运行清除脚本（使用 sudo 权限）：
 - `$ sudo sh purge_omsagent.sh`
 

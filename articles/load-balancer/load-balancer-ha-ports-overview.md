@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 605cc006c84849d75527ced6a1647dc21346161d
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 6876ca54e6c58f7c604f1b08e74ff689e7a1d2da
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746564"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104685"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性端口概述
 

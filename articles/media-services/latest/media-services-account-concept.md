@@ -2,22 +2,21 @@
 title: 管理 Azure 媒体服务 v3 帐户 | Microsoft Docs
 description: 若要开始管理、加密、编码和流式处理 Azure 中的媒体内容，需要创建媒体服务帐户。 本文介绍如何管理 Azure 媒体服务 v3 帐户。
 services: media-services
-documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-origin.date: 08/31/2020
-ms.date: 09/28/2020
+origin.date: 11/05/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 94a099b67e6ecf7638199d2ee20f2e12b5363635
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: fcd7141a819883c626863a550cd52e7885a9ba50
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245567"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004189"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>管理 Azure 媒体服务 v3 帐户
 
@@ -40,7 +39,7 @@ ms.locfileid: "91245567"
 > [!IMPORTANT]
 > 在移动成功完成之前，请勿启动流式处理终结点。
 
-### <a name="troubleshoot"></a>故障排除 
+### <a name="troubleshoot"></a>故障排除
 
 如果媒体服务帐户或关联的 Azure 存储帐户在资源组移动后变为“已断开连接”状态，请尝试轮换存储帐户密钥。 如果轮换存储帐户密钥不能解决媒体服务帐户的“已断开连接”状态，请通过媒体服务帐户中的“支持 + 疑难解答”菜单来提交新的支持请求。  
 

@@ -7,22 +7,22 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 09/14/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: d6e42648c98ffb413bde4e2a10f22f414ed2e2f4
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: a852b168a97d7861455cdb1fd8bff58ebe77fb35
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96166866"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850374"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>使用 Azure AD 凭据运行 PowerShell 命令以访问 blob 数据
 
 Azure 存储为 PowerShell 提供扩展，使用户可使用 Azure Active Directory (Azure AD) 凭据登录并运行脚本命令。 使用 Azure AD 凭据登录 PowerShell 时，会返回 OAuth 2.0 访问令牌。 PowerShell 会自动使用该令牌针对 Blob 存储进行后续数据操作授权。 对于支持的操作，无需再通过命令传递帐户密钥或 SAS 令牌。
 
-可通过 Azure 基于角色的访问控制 (Azure RBAC) 向 Azure AD 安全主体分配对 blob 数据的权限。 有关 Azure 存储中 Azure 角色的详细信息，请参阅[通过 Azure RBAC 管理 Azure 存储数据访问权限](../common/storage-auth-aad-rbac.md)。
+可通过 Azure 基于角色的访问控制 (Azure RBAC) 向 Azure AD 安全主体分配对 blob 数据的权限。 有关 Azure 存储中 Azure 角色的详细信息，请参阅[通过 Azure RBAC 管理 Azure 存储数据访问权限](../common/storage-auth-aad-rbac-portal.md)。
 
 ## <a name="supported-operations"></a>支持的操作
 
@@ -69,7 +69,7 @@ Azure 存储扩展支持针对 blob 数据的操作。 可调用的操作取决�
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 创建容器之前，请向自己分配[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)角色。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅[使用 Azure 门户分配用于访问 blob 和队列数据的 Azure 角色](../common/storage-auth-aad-rbac.md)。
+1. 创建容器之前，请向自己分配[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)角色。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关分配 Azure 角色的详细信息，请参阅[使用 Azure 门户分配用于访问 blob 和队列数据的 Azure 角色](../common/storage-auth-aad-rbac-portal.md)。
 
     > [!IMPORTANT]
     > 传播 Azure 角色分配可能需要花费几分钟时间。

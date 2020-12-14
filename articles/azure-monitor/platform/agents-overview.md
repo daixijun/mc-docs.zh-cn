@@ -7,13 +7,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 0d2325750f5c6ce6f4ec82b11c76fe8001edbbef
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/08/2020
+ms.openlocfilehash: 5d56b38a3940169875dd377d7de9d2a5c25f6388
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328770"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104392"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 代理概述
 
@@ -39,7 +39,7 @@ ms.locfileid: "94328770"
 | **代理要求**  | 无 | 无 | 无 | 需要 Log Analytics 代理 |
 | **收集的数据** | 事件日志<br>性能 | 事件日志<br>ETW 事件<br>性能<br>基于文件的日志<br>IIS 日志<br>.NET 应用日志<br>故障转储<br>代理诊断日志 | 事件日志<br>性能<br>基于文件的日志<br>IIS 日志<br>见解和解决方案<br>其他服务 | 过程依赖项<br>网络连接指标 |
 | **数据发送目标** | Azure Monitor 日志<br>Azure Monitor 指标 | Azure 存储<br>Azure Monitor 指标<br>事件中心 | Azure Monitor 日志 | Azure Monitor 日志<br>（通过 Log Analytics 代理） |
-| **支持的**<br>**服务和**<br>**功能** | Log Analytics<br>指标资源管理器 | 指标资源管理器 | 用于 VM 的 Azure Monitor<br>Log Analytics<br>Azure 自动化<br>Azure 安全中心 | 用于 VM 的 Azure Monitor<br>服务映射 |
+| **支持的**<br>**功能**<br>**支持** | Log Analytics<br>指标资源管理器 | 指标资源管理器 | 用于 VM 的 Azure Monitor<br>Log Analytics<br>Azure 自动化<br>Azure 安全中心 | 用于 VM 的 Azure Monitor<br>服务映射 |
 
 ### <a name="linux-agents"></a>Linux 代理
 
@@ -67,8 +67,8 @@ ms.locfileid: "94328770"
 
 * 从 Azure 内部或外部的虚拟机或物理计算机收集日志和性能数据。 
 * 将数据发送到 Log Analytics 工作区，以利用 [Azure Monitor 日志](data-platform-logs.md)支持的功能，例如[日志查询](../log-query/log-query-overview.md)。
-* 使用 [Azure 安全中心](../../security-center/security-center-intro.md)管理虚拟机安全性。
-* 使用 [Azure 自动化更新管理](../../automation/update-management/update-mgmt-overview.md)或 [Azure 自动化状态配置](../../automation/automation-dsc-overview.md)提供对 Azure VM 的全面管理
+* 使用 [Azure 安全中心](../../security-center/security-center-introduction.md)管理虚拟机安全性。
+* 使用 [Azure 自动化更新管理](../../automation/update-management/overview.md)或 [Azure 自动化状态配置](../../automation/automation-dsc-overview.md)提供对 Azure VM 的全面管理
 * 使用不同的[解决方案](../monitor-reference.md#insights-and-core-solutions)监视特定服务或者应用程序。
 
 Log Analytics 代理的限制包括：

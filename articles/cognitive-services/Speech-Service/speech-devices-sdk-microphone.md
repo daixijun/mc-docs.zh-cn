@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/16/2019
-ms.date: 08/03/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1ceb3764c4392bef5d59d4cd5adf279581f1fb25
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: 9871ab84d41008d3950850d1577855a3e01edba0
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516114"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004157"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>语音设备 SDK 麦克风阵列建议
 

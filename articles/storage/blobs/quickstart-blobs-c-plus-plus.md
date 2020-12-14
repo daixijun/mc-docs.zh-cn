@@ -4,16 +4,16 @@ description: 本快速入门介绍如何使用适用于 C++ 的 Azure Blob 存�
 author: WenJason
 ms.author: v-jay
 origin.date: 10/21/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a09169769cde17d08d1bd1ba1fc8d78828664b85
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 49c240b6286ccdc45041816c70a92ad01b1221d4
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432602"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850751"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>快速入门：适用于 C++ 的 Azure Blob 存储客户端库 v12
 
@@ -31,14 +31,14 @@ ms.locfileid: "96432602"
 
 - [API 参考文档](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [库源代码](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [示例](/storage/common/storage-samples-c-plus-plus?toc=%2fstorage%2fblobs%2ftoc.json)
+- [示例](../common/storage-samples-c-plus-plus.md?toc=%2fstorage%2fblobs%2ftoc.json)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 - [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
-- [Azure 存储帐户](/storage/common/storage-quickstart-create-account)
+- [Azure 存储帐户](../common/storage-account-create.md)
 - [C++ 编译器](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
 - [Vcpkg - C 和 C++ 包管理器](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)

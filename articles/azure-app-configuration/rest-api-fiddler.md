@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: eb90217b46ce21d1d38a4768e33826a5e5b58d2e
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: 064a73824b9aa4faeab948e3e62597d7bd4466bf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231120"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104660"
 ---
 # <a name="test-the-azure-app-configuration-rest-api-using-fiddler"></a>使用 Fiddler 测试 Azure 应用配置 REST API
 

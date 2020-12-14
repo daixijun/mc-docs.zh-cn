@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: 9b5608381f89e9dbe1360b9678d5acbd1b7f31ff
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e8566d92b369757b9e435869c5745b3cdaa8e09c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977024"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104571"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>评估自动化机器学习试验结果
 
@@ -30,7 +30,7 @@ ms.locfileid: "94977024"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 使用 SDK 或 Azure 机器学习工作室为自动化机器学习运行创建试验。
 

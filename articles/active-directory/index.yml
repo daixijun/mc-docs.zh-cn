@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: v-junlch
   manager: daveba
-  ms.date: 11/10/2020
-  ms.openlocfilehash: 7eed829cf6d51a94292bee8b075ccfbb3f653554
-  ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+  ms.date: 12/09/2020
+  ms.openlocfilehash: b870f04ba3f8ac10e3887db263be77ed722fdd34
+  ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94501973"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97004053"
 highlightedContent:
   items:
   - title: 什么是 Azure AD？
@@ -55,7 +55,7 @@ conceptualContent:
       text: 启用自助式密码重置
     - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: tutorial
-      text: 启用 Azure 多重身份验证
+      text: 启用 Azure AD 多重身份验证
     footerLink:
       url: ./authentication/index.yml
       text: 查看详细信息
@@ -64,7 +64,7 @@ conceptualContent:
     - url: ./conditional-access/overview.md
       itemType: overview
       text: 什么是条件访问？
-    - url: ./conditional-access/app-based-mfa.md
+    - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: quickstart
       text: 要求对特定应用执行 MFA
     - url: ./conditional-access/location-condition.md
@@ -103,7 +103,7 @@ conceptualContent:
     - url: ./external-identities/compare-with-b2c.md
       itemType: overview
       text: 比较适用于外部用户的解决方案
-    - url: ../active-directory-b2c/active-directory-b2c-overview.md
+    - url: ../active-directory-b2c/overview.md
       itemType: overview
       text: 将应用扩展到消费者 (B2C)
     - url: ./external-identities/what-is-b2b.md

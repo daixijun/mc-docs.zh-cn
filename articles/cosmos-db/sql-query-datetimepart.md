@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimePart
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimePart。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 08/14/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 69ccc70c0374e0c93d9e47aafc349d87ac7346f5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f3103173b7202d96aaef428b35242653c2726b9d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552753"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850857"
 ---
 <!--Verified Successfully-->
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
@@ -32,7 +33,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 ## <a name="arguments"></a>参数
 
 *DateTimePart*  
-   DateTimePart 将为其返回值的日期部分。 此表列出了所有有效的 DateTimePart 参数：
+  DateTimePart 将为其返回值的日期部分。 此表列出了所有有效的 DateTimePart 参数：
 
 | DateTimePart | 缩写        |
 | ------------ | -------------------- |
@@ -47,7 +48,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 | Nanosecond   | "nanosecond", "ns"   |
 
 *DateTime*  
-   `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
+  `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
 
 ## <a name="return-types"></a>返回类型
 

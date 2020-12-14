@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL 文档
+- name: Azure Database for PostgreSQL 文档
   href: index.yml
 - name: 概述
   items:
@@ -19,6 +19,9 @@
         - name: 通过 DMS 实现停机时间最短的迁移
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
+    - name: 版本控制策略
+      href: concepts-version-policy.md
+      displayName: 'version, postgresql'
 - name: 单台服务器
   expanded: true
   items:
@@ -99,8 +102,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Azure Policy 内置策略定义
-          href: policy-samples.md
     - name: 概念
       items:
         - name: 服务器
@@ -129,6 +130,11 @@
             - name: Azure AD 身份验证
               href: concepts-aad-authentication.md
               displayName: 'security, aad, active directory'
+            - name: Azure Policy 的安全控件
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
+            - name: 安全基线
+              href: security-baseline.md
         - name: 网络
           items:
             - name: 防火墙规则
@@ -341,6 +347,8 @@
           items:
             - name: Azure 门户
               href: howto-move-regions-portal.md
+        - name: 主版本升级
+          href: how-to-upgrade-using-dump-and-restore.md
 - name: 参考
   items:
     - name: Azure CLI
@@ -349,6 +357,9 @@
       href: 'https://docs.microsoft.com/rest/api/postgresql'
     - name: 资源管理器模板
       href: 'https://docs.microsoft.com/azure/templates/microsoft.dbforpostgresql/allversions'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价

@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimeAdd
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeAdd。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/09/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: fe9289ebb0f146fbaafddd49802dd072985106cf
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8d7298a9c77e00fb1f52a6f81e5c2d5f28a4a91a
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551768"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850841"
 ---
 <!--Verified successfully-->
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)

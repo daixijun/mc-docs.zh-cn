@@ -10,12 +10,12 @@ author: likebupt
 ms.author: v-yiso
 ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: cb10a7f5a1d2808e4152ff2809d2b9ab5077f59d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 10003b27110e49f18fd8e2eb5b87e714bd761076
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106302"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104541"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>用于 Azure 机器学习设计器的管道和数据集示例
 
@@ -23,7 +23,7 @@ ms.locfileid: "93106302"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * Azure 机器学习工作区 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
@@ -117,8 +117,8 @@ ms.locfileid: "93106302"
 
 | 数据集名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 数据集说明 |
 |-------------|:--------------------|
-| 成年人口收入二元分类数据集 | 1994 年人口普查数据库的子集（其中在职人士年龄大于 16，调整后的收入指数大于 100）。<br/>**使用情况** ：使用人口统计信息对人员分类，预测某人的年收入是否超过 5 万。<br/> **相关研究** ：Kohavi, R.、Becker, B.（1996 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院|
-|汽车价格数据（原始）|有关汽车品牌和型号的信息，包括价格、汽缸数和 MPG 等特性以及保险风险评分。<br/> 风险评分最初与自动定价关联。 然后，针对精算师所熟知符号化过程中的实际风险进行调整。 值为 +3 表明汽车存在风险，值为 -3 表明汽车可能安全。<br/>**使用情况** ：按特性、使用回归或多元分类预测风险评分。<br/>**相关研究** ：Schlimmer, J.C. （1987 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。 |
+| 成年人口收入二元分类数据集 | 1994 年人口普查数据库的子集（其中在职人士年龄大于 16，调整后的收入指数大于 100）。<br/>**使用情况**：使用人口统计信息对人员分类，预测某人的年收入是否超过 5 万。<br/> **相关研究**：Kohavi, R.、Becker, B.（1996 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院|
+|汽车价格数据（原始）|有关汽车品牌和型号的信息，包括价格、汽缸数和 MPG 等特性以及保险风险评分。<br/> 风险评分最初与自动定价关联。 然后，针对精算师所熟知符号化过程中的实际风险进行调整。 值为 +3 表明汽车存在风险，值为 -3 表明汽车可能安全。<br/>**使用情况**：按特性、使用回归或多元分类预测风险评分。<br/>**相关研究**：Schlimmer, J.C. （1987 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。 |
 | 共享的 CRM 亲和力标签 |来自 KDD Cup 2009 客户关系预测挑战赛的标签 ([orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels))。|
 |共享的 CRM 流失情况标签|来自 KDD Cup 2009 客户关系预测挑战赛的标签 ([orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels))。|
 |共享的 CRM 数据集 | 此数据来自 KDD Cup 2009 客户关系预测挑战赛 ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip))。 <br/>数据集包含法国电信公司 Orange 的 50K 个客户。 每个客户都有 230 个匿名特征，其中 190 个是数字的，其余 40 个是分类的。 特征非常稀疏。 |
@@ -129,9 +129,9 @@ ms.locfileid: "93106302"
 |电影评分|该数据集是电影迷你推文数据集的扩展版本。 数据集中具有 170K 个电影评分，从 Twitter 上结构良好的推文中提取。 每个实例表示一篇推文，是一个元组：用户 ID、IMDB 电影 ID、评分、时间戳、收藏此推文的数目和转发此推文的数目。 数据集由 A. Said、S. Dooms、B. Loni 和 D. Tikk 提供，用于 Recommender Systems Challenge 2014。|
 |天气数据集|美国国家海洋和大气局每小时发布的陆基天气观测（[从 201304 到 201310 的合并数据](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)）。<br/>该天气数据包括从机场气象站获取的观测结果，涵盖的时间段为 2013 年 4 月到 10 月。 在上传到设计器之前，数据集的处理如下所述：    <br/> -    气象站 ID 已映射到相应的机场 ID    <br/> -    与 70 个最繁忙的机场无关的气象站已筛选掉    <br/> -    Date 列已拆分为单独的 Year、Month 和 Day 列    <br/> - 已选择以下各列：AirportID、Year、Month、Day、Time、TimeZone、SkyCondition、Visibility、WeatherType、DryBulbFarenheit、DryBulbCelsius、WetBulbFarenheit、WetBulbCelsius、DewPointFarenheit、DewPointCelsius、RelativeHumidity、WindSpeed、WindDirection、ValueForWindCharacter、StationPressure、PressureTendency、PressureChange、SeaLevelPressure、RecordType、HourlyPrecip、Altimeter|
 |维基百科 SP 500 数据集|数据来自维基百科 (https://www.wikipedia.org/) ，基于每个标准普尔 500 强公司的文章，存储为 XML 数据。    <br/>在上传到设计器之前，数据集的处理如下所述：    <br/> - 提取每个具体公司的文本内容    <br/> -    去除 wiki 格式设置    <br/> -    去除非字母数字字符    <br/> -    将所有文本都转换为小写    <br/> -    添加了已知的公司类别    <br/>请注意，可能找不到某些公司的文章，因此记录数小于 500。|
-|餐馆特色数据| 一组关于餐馆及其特色的元数据，如食物种类、就餐样式和位置。 <br/>**使用情况** ：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。<br/> **相关研究** ：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。|
-|餐馆评分| 包含用户对餐馆的评分，分数范围从 0 到 2。<br/>**使用情况** ：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。 <br/>**相关研究** ：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。|
-|餐馆客户数据| 一组关于客户的元数据，其中包括人口统计信息和偏好。 <br/>**使用情况** ：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。 <br/> **相关研究** ：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml) Irvine, CA：欧文分校的信息与计算机科学学院。|
+|餐馆特色数据| 一组关于餐馆及其特色的元数据，如食物种类、就餐样式和位置。 <br/>**使用情况**：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。<br/> **相关研究**：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。|
+|餐馆评分| 包含用户对餐馆的评分，分数范围从 0 到 2。<br/>**使用情况**：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。 <br/>**相关研究**：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml)。 加州大学欧文分校的信息与计算机科学学院。|
+|餐馆客户数据| 一组关于客户的元数据，其中包括人口统计信息和偏好。 <br/>**使用情况**：将此数据集与其他两个餐馆数据集结合使用，以便训练和测试推荐器系统。 <br/> **相关研究**：Bache, K. 和 Lichman, M.（2013 年）。 [UCI 机器学习存储库](https://archive.ics.uci.edu/ml) Irvine, CA：欧文分校的信息与计算机科学学院。|
 
 ## <a name="clean-up-resources"></a>清理资源
 

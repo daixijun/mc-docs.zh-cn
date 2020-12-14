@@ -6,16 +6,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 10/02/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10b29fbfb5cd2fc992930e93a802048cfe8127fc
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: dd4836de8552c89dcbef70f4e359512e17092511
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152983"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850356"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 

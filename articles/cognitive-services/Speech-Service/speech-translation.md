@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 09/01/2020
-ms.date: 10/16/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 语音翻译
-ms.openlocfilehash: b683a57fa3f38da6d580d177e0cef48d0f8cd445
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 2c2580124a010673e6be8dbe43adeb3331119ff0
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128100"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003565"
 ---
 # <a name="what-is-speech-translation"></a>什么是语音翻译？
 
@@ -55,7 +55,7 @@ GitHub 上提供了语音 SDK 的示例代码。 这些示例涵盖了常见方�
 
 ## <a name="reference-docs"></a>参考文档
 
-* [语音 SDK](speech-sdk-reference.md)
+* [语音 SDK](./speech-sdk.md)
 * [语音设备 SDK](speech-devices-sdk.md)
 * [REST API：语音转文本](rest-speech-to-text.md)
 * [REST API：文本转语音](rest-text-to-speech.md)

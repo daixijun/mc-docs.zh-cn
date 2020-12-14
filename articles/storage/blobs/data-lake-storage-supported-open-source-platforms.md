@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 02/26/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 24b825959640fe772c2bd5c735f3a1eb31d26441
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 18aaa1535794b19cef6e31f3877b9eef6aded8f9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552105"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850752"
 ---
 # <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>支持 Azure Data Lake Storage Gen2 的开源平台
 
@@ -29,7 +29,7 @@ ms.locfileid: "94552105"
 
 | 平台 |  支持的版本 | 更多信息 |
 | --- | --- | --- |
-| [HDInsight](/hdinsight/) | 3.6+ | [HDInsight 提供了哪些 Apache Hadoop 组件和版本？](/hdinsight/hdinsight-component-versioning?toc=%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2F2Fazure%2Fbread%2Ftoc.json)
+| [HDInsight](/hdinsight/) | 3.6+ | [HDInsight 提供了哪些 Apache Hadoop 组件和版本？](../../hdinsight/hdinsight-component-versioning.md?bc=%2fbread%2ftoc.json&toc=%2fhdinsight%2fstorm%2fTOC.json)
 | [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop 版本存档](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x 发行说明](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | Azure Databricks | 5.1+ | [Databricks 运行时版本](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |

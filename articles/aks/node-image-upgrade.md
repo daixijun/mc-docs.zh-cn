@@ -3,18 +3,18 @@ title: 升级 Azure Kubernetes 服务 (AKS) 节点映像
 description: 了解如何升级 AKS 群集节点和节点池上的映像。
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 08/17/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: aca8bc1f20af937ee9a8005622af8ee0ac473473
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 6120e1531257e5901105e824efce10d3125e5037
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024474"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004095"
 ---
 <!--Verified successfully-->
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Azure Kubernetes 服务 (AKS) 节点映像升级
@@ -114,7 +114,9 @@ az aks nodepool show \
 [upgrade-cluster]: upgrade-cluster.md
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
+
+<!--Not Available on [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-->
+
 [az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 

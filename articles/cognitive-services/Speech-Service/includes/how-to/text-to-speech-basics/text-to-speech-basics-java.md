@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/25/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: 9026bfdab8ddcf611d0154cfe0d830a877417005
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 163b71daa63991c6807ed5f7f2e8a4cb0f7a9156
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301128"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004360"
 ---
 本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
 

@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 的 SQL JOIN 查询
 description: 了解如何联接 Azure Cosmos DB 中的多个表以查询数据
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/17/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: ecefa842b5a6ef31dd1363ea7130f5ad91aca5e4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7314e52738a839b6e0388ddc90c9df937eaef4dd
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552517"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850707"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联接
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

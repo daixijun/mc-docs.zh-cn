@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e621fb92af228941dc572f5df2a02b1d3cf81fe8
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b40edf5eddb22e3558358f081d0e2e7f23edc9cb
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553059"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850765"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>使用存储在 Azure Key Vault 中的客户管理的密钥配置加密
 
@@ -56,7 +56,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-若要了解如何使用 PowerShell 在现有密钥保管库上启用清除保护，请参阅[如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-cli.md)。
+若要了解如何使用 PowerShell 在现有密钥保管库上启用清除保护，请参阅[如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-powershell.md)。
 
 接下来，向存储帐户分配系统分配的托管标识。 将使用此托管标识授予存储帐户访问 Key Vault 的权限。 有关系统分配的托管标识的详细信息，请参阅[什么是 Azure 资源托管标识？](../../active-directory/managed-identities-azure-resources/overview.md)。
 

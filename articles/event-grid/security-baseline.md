@@ -4,15 +4,15 @@ description: 事件网格安全基线为实现 Azure 安全基准中指定的安
 author: Johnnytechn
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8334e212bf770449864c8039c8735d5b3c184ccd
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9bfacfe7cd0b7e6fadfba09fbe586d970e284347
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978081"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104617"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>事件网格的 Azure 安全基线
 
@@ -405,8 +405,6 @@ ms.locfileid: "94978081"
 
 **指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure RBAC 来控制对 Azure 资源的访问。
 
-- [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 - [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
@@ -521,8 +519,6 @@ ms.locfileid: "94978081"
  
  
  
-- [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
 - [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
@@ -680,18 +676,6 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 格式导出模
 
 **责任**：不适用
 
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5：安全存储 Azure 资源的配置
-
-**指导**：如果对事件网格或相关资源使用自定义 Azure Policy 定义，请使用 Azure Repos 安全地存储和管理代码。
-
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-
-- [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
-
-**Azure 安全中心监视**：不适用
-
-**责任**：客户
-
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
 **指导**：不适用；此项指导适用于计算资源。
@@ -748,7 +732,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 格式导出模
 
 - [如何使用 Azure 资源的托管标识](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 - [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
 

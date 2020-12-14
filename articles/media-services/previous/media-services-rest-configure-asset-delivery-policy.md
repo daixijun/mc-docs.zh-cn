@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4930034efe846d831e8a08b8a2e17ab30e00a39
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e3dfcc1be0a47f84a3c5e816ba09ceb126999969
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244863"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004217"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 
@@ -37,7 +37,7 @@ ms.locfileid: "91244863"
 本主题介绍为何以及如何创建和配置资产传送策略。
 
 > [!NOTE]
-> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。  
+> 创建 AMS 帐户后，会将一个处于“已停止”状态的 **默认** 流式处理终结点添加到帐户。  若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。  
 >
 > 此外，要使用动态打包和动态加密，资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
@@ -261,7 +261,7 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 获取上一步创建的内容密钥的 PlayReady 传送方法的传送 URL。 客户端使用返回的 URL 来请求 PlayReady 许可证，以播放受保护内容。 有关详细信息，请参阅[获取传送 URL](#get_delivery_url)。
 
 ### <a name="create-asset-delivery-policy"></a>创建资产传送策略
-以下 HTTP 请求将创建 **AssetDeliveryPolicy**，该策略配置为将动态通用加密 (**DynamicCommonEncryption**) 应用到**平滑流式处理**协议（在本示例中，已阻止流式处理其他协议）。 
+以下 HTTP 请求将创建 **AssetDeliveryPolicy**，该策略配置为将动态通用加密 (**DynamicCommonEncryption**) 应用到 **平滑流式处理** 协议（在本示例中，已阻止流式处理其他协议）。 
 
 有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅[定义 AssetDeliveryPolicy 时使用的类型](#types)部分。   
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 wacn.date: 08/12/2019
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 13d42db1dbf708eea9f3d304d957eb1a0f993d96
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2655764c5c2bfa452827331907bc8ee8f992536e
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300804"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003553"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 日志记录
 
@@ -27,7 +27,7 @@ ms.locfileid: "96300804"
 * 请使用标准的 Azure 访问控制方法限制可访问日志的人员，以此保护日志。
 * 删除不想继续保留在存储帐户中的日志。
 
-有关 Key Vault的概述信息，请参阅[什么是 Azure Key Vault？](overview.md)。 有关 Key Vault 可用位置的信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/key-vault/)。 有关[将 Azure Monitor 用于 Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md) 的信息。
+有关 Key Vault的概述信息，请参阅[什么是 Azure Key Vault？](overview.md)。 有关 Key Vault 可用位置的信息，请参阅[定价页](https://www.azure.cn/pricing/details/key-vault/)。 有关[将 Azure Monitor 用于 Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md) 的信息。
 
 ## <a name="interpret-your-key-vault-logs"></a>解释 Key Vault 日志
 

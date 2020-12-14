@@ -3,15 +3,15 @@ title: 智能检测 - 性能异常 | Azure Docs
 description: Application Insights 执行应用遥测的智能分析，并在有潜在问题时发出警告。 此功能不需要任何设置。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.reviewer: antonfr
 ms.author: v-johya
-ms.openlocfilehash: ba029f8aa3443f2a8880d2a4fbf12026f1718480
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 02f3892d15bc5af05526445535c633cad37fc78e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103649"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104750"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
@@ -41,9 +41,9 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 
 ![下面是“服务器响应时间延长”检测的示例](./media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
-1. **会审** 。 通知会显示有多少用户或多少操作受到影响。 这可以帮助你对问题分配优先级。
-2. **范围** 。 该问题是影响所有流量，还是只影响某些页面？ 它是否只出现在特定的浏览器或位置中？ 可以从通知中获取此信息。
-3. **诊断** 。 通常，通知的诊断信息会提示问题的性质。 例如，如果请求率较高时响应速度变慢，则表示服务器或依赖项过载。 
+1. **会审**。 通知会显示有多少用户或多少操作受到影响。 这可以帮助你对问题分配优先级。
+2. **范围**。 该问题是影响所有流量，还是只影响某些页面？ 它是否只出现在特定的浏览器或位置中？ 可以从通知中获取此信息。
+3. **诊断**。 通常，通知的诊断信息会提示问题的性质。 例如，如果请求率较高时响应速度变慢，则表示服务器或依赖项过载。 
 
     否则，可在 Application Insights 中打开“性能”边栏选项卡， 在其中可以找到[探查器](profiler.md)数据。 如果引发了异常，还可以尝试[快照调试器](./snapshot-debugger.md)。
 
@@ -177,12 +177,11 @@ Application Insights 可以找到只会影响一部分用户，或者只会在�
 
 * [探查器](profiler.md) 
 * [快照调试器](./snapshot-debugger.md)
-* [分析](../log-query/get-started-portal.md)
+* [分析](../log-query/log-analytics-tutorial.md)
 * [分析智能诊断](../log-query/log-query-overview.md)
 
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
 * [手动配置的指标警报](../platform/alerts-log.md)
 * [可用性 Web 测试](./monitor-web-app-availability.md)
-
 

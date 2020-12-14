@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 10/28/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 1514763ef2597d897414435653ea61b548781c8f
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: f692ebb5dafd5ceddf3d756404caf7f5054c820a
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432622"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850764"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 PHP 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -35,7 +35,7 @@ ms.locfileid: "96432622"
     | 配置服务终结点 | 公用 | [门户](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
     | 配置专用链接 | Private | [门户](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
-- [创建数据库和非管理员用户](/howto-create-users?tabs=single-server)
+- [创建数据库和非管理员用户](/mysql/howto-create-users?tabs=single-server)
 - 安装操作系统的最新 PHP 版本
     - [macOS 上的 PHP](https://secure.php.net/manual/install.macosx.php)
     - [Linux 上的 PHP](https://secure.php.net/manual/install.unix.php)

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集
+title: 快速入门：Apache Spark 具有 Azure CLI 的群集 - Azure HDInsight
 description: 本快速入门展示了如何使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 origin.date: 02/03/2020
 ms.date: 08/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: c47f55d164e0e1594056864d52069711076dc7bd
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: fa63ab103e649562b4429243e42941d5ebfdfda0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917283"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104842"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -21,11 +21,9 @@ ms.locfileid: "87917283"
 
 如果将多个群集一起使用，则需创建一个虚拟网络；如果使用的是 Spark 群集，则还需使用 Hive Warehouse Connector。 有关详细信息，请参阅[为 Azure HDInsight 规划虚拟网络](../hdinsight-plan-virtual-network-deployment.md)和[将 Apache Spark 和 Apache Hive 与 Hive Warehouse Connector 集成](../interactive-query/apache-hive-warehouse-connector.md)。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>创建 Apache Spark 群集
 

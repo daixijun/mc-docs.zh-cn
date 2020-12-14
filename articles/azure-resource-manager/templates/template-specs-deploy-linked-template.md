@@ -2,20 +2,20 @@
 title: 将模板规格部署为链接模板
 description: 了解如何在链接的部署中部署现有模板规格。
 ms.topic: conceptual
-origin.date: 08/31/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 67da52a344bf446f4f98513b290b90c7085ad41b
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: b5dadd4c9dd7948f9b29a3ea84a1c35374752d89
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507276"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003572"
 ---
-<!--Not Available on MOONCAKE-->
+<!--Pending for PM review-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>教程：将模板规格部署为链接模板（预览版）
 
@@ -26,7 +26,7 @@ ms.locfileid: "96507276"
 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用它，必须[注册预览版](https://aka.ms/templateSpecOnboarding)。
+> 模板规格当前提供预览版。 若要使用，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="create-a-template-spec"></a>创建模板规格
 
@@ -169,7 +169,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -181,8 +184,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---
@@ -191,5 +194,4 @@ az deployment group create \
 
 若要了解有关创建包含关联模板的模板规格的信息，请参阅[创建关联模板的模板规格](template-specs-create-linked.md)。
 
-<!-- Update_Description: new article about template specs deploy linked template -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

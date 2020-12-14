@@ -1,18 +1,18 @@
 ---
-author: rockboyfor
 ms.service: service-bus
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 096025e99fa16c3e91b165ffd7f5dee4d55b5eec
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 46e5cd74717f23d018ca757e37729a4a6a836336
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "88946990"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105663"
 ---
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
 有关说明，请参阅[在 Azure 上创建 Ruby 应用程序](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)。

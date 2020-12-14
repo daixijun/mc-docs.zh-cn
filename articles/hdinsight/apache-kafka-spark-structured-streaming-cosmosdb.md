@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/18/2019
 ms.author: v-yiso
 ms.date: 12/23/2019
-ms.openlocfilehash: 0560939385369caa6091b1ac8fb59a3604a2e038
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: e01b13d4a29c6614e8d8ed67f782fbcdd8889d80
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394532"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104613"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -62,10 +62,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
    * Spark on HDInsight 3.6 群集。
 
-   * 包含 HDInsight 群集的 Azure 虚拟网络。
-
-       > [!NOTE]
-       > 通过模板创建的虚拟网络使用 10.0.0.0/16 地址空间。
+   * 包含 HDInsight 群集的 Azure 虚拟网络。 通过模板创建的虚拟网络使用 10.0.0.0/16 地址空间。
 
    * Azure Cosmos DB SQL API 数据库。
 

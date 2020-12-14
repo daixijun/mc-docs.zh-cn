@@ -4,16 +4,16 @@ description: 说明如何在部署 Azure 资源管理器模板时解决无效模
 ms.topic: troubleshooting
 origin.date: 05/22/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7e743e092be9961fa565701ae941c99e57808273
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 231b3823392e34a27085594d1aa581c10e72686b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807697"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004058"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解决无效模板错误
 
@@ -135,7 +135,7 @@ part of the allowed values
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>解决方案 4 - 太多目标资源组
 
-你可能在之前的部署中看到此错误，原因是你被限制为一个部署使用 5 个目标资源组。 在 2020 年 5 月，此限额被上调到了 800 个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](cross-scope-deployment.md)。
+你可能在之前的部署中看到此错误，原因是你被限制为一个部署使用 5 个目标资源组。 在 2020 年 5 月，此限额被上调到了 800 个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](./deploy-to-resource-group.md)。
 
 <a name="circular-dependency"></a>
 

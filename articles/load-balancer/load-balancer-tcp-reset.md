@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/07/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 97b2e57c00da21b31a2d2ca30971349e6529ea15
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 834e98ad9ba0d59648d301727a999342c49d8f30
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747076"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105199"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>负载均衡器 TCP 重置和空闲超时
 

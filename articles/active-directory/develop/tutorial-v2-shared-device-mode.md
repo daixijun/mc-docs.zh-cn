@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7d36946d91321b7f979817240c0e76a8046465cc
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 1b417295c4800aa23e962c1eb1314f879e0fd5f0
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508637"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003768"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>教程：在 Android 应用程序中使用共享设备模式
 
-本教程指导开发人员和租户管理员如何为 Android 应用设置共享设备模式并提供相关支持。
+在本教程中，Android 开发人员和 Azure Active Directory (Azure AD) 租户管理员了解为 Android 应用启用共享设备模式所需的代码、验证器应用和租户设置。
 
 本教程的内容：
 

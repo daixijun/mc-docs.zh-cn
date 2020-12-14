@@ -1,33 +1,37 @@
 ---
 title: 快速入门：使用 Azure 防火墙管理器保护虚拟中心安全 - 资源管理器模板
-description: 了解如何使用 Azure 防火墙管理器保护虚拟中心安全。
+description: 本快速入门介绍了如何使用 Azure 防火墙管理器保护虚拟中心安全。
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 224cda707d6a3864b8c045db75bbfd190857237b
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: d68f39b6b94fbfb236b642f809547050145605ec
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162788"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105043"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>快速入门：使用 Azure 防火墙管理器保护虚拟中心安全 - 资源管理器模板
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>快速入门：使用 Azure 防火墙管理器保护虚拟中心安全 - ARM 模板
 
-本快速入门将通过 Azure 防火墙管理器并使用资源管理器模板来保护虚拟中心的安全。 部署的防火墙具有允许连接到 `www.microsoft.com` 的应用程序规则。 部署了两个 Windows Server 2019 虚拟机以测试防火墙。 一个跳转服务器用于连接到工作负载服务器。 从工作负载服务器，只能连接到 `www.microsoft.com`。
+在本快速入门中，使用 Azure 资源管理器模板（ARM 模板），通过 Azure 防火墙管理器来保护虚拟中心的安全。 部署的防火墙具有允许连接到 `www.microsoft.com` 的应用程序规则。 部署了两个 Windows Server 2019 虚拟机以测试防火墙。 一个跳转服务器用于连接到工作负载服务器。 从工作负载服务器，只能连接到 `www.microsoft.com`。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 有关 Azure 防火墙管理器的详细信息，请参阅[什么是 Azure 防火墙管理器？](overview.md)。
 
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
+
+[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="create-a-secured-virtual-hub"></a>创建安全虚拟中心
+## <a name="review-the-template"></a>查看模板
 
 此模板使用 Azure 防火墙管理器以及支持该场景所需的资源创建了一个安全虚拟中心。
 
@@ -529,9 +533,9 @@ ms.locfileid: "87162788"
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-the-template"></a>部署模板
 
-将资源管理器模板部署到 Azure：
+将 ARM 模板部署到 Azure：
 
 1. 选择“部署到 Azure”，登录到 Azure 并打开模板。 此模板会创建 Azure 防火墙、虚拟 WAN 和虚拟中心、网络基础结构和两个虚拟机。
 
@@ -553,8 +557,8 @@ ms.locfileid: "87162788"
 1. 在 Azure 门户中，查看“Workload-Srv”虚拟机的网络设置并记下专用 IP 地址。
 2. 将远程桌面连接到“Jump-Srv”虚拟机，然后登录。 在这里，打开与“Workload-Srv”专用 IP 地址建立的远程桌面连接。
 
-3. 打开 Internet Explorer 并浏览到 `www.microsoft.com`。
-4. 出现 Internet Explorer 安全警报时，请选择“确定” > “关闭”。 
+3. 打开 Internet Explorer 并浏览到 `www.microsoft.com` 。
+4. 出现 Internet Explorer 安全警报时，请选择“确定” > “关闭”。  
 
    应会看到 Microsoft 主页。
 

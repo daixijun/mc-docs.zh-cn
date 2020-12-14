@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的 SELECT 子句
 description: 了解 Azure Cosmos DB 的 SQL SELECT 子句。 将 SQL 用作 Azure Cosmos DB JSON 查询语言。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/08/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 70980f2f904a978ba0e7e98283166a250a152b00
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 430f6fb20f34ed91cfb1d64a350289fe3ea699ad
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551923"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850638"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 SELECT 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

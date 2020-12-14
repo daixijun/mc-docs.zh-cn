@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 5/6/2019
-ms.date: 10/19/2020
-ms.openlocfilehash: 9e45cbb194b24394a451f8666a9ae22411f9312e
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 12/14/2020
+ms.openlocfilehash: b1a80b2c7cbf9a3b3ff4b04e8440168bf32d64dd
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041825"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850420"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 Go 语言连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -229,7 +229,7 @@ func main() {
 ```
 
 ## <a name="update-data"></a>更新数据
-使用以下代码进行连接，并使用 UPDATE SQL 语句更新数据****。
+使用以下代码进行连接，并使用 UPDATE SQL 语句更新数据。
 
 代码导入三个包：[sql 包](https://golang.org/pkg/database/sql/)、[pq 包](https://godoc.org/github.com/lib/pq)（充当与 Postgres 服务器通信所需的驱动程序）以及 [fmt 包](https://golang.org/pkg/fmt/)（适用于在命令行中列显的输入和输出）。
 
@@ -332,6 +332,16 @@ func main() {
     checkError(err)
     fmt.Println("Deleted 1 row of data")
 }
+```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本快速入门中使用的所有资源，请使用以下命令删除该资源组：
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤

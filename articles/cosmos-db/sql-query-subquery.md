@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 的 SQL 子查询
 description: 了解 Azure Cosmos DB 中的 SQL 子查询及其常见用例以及不同类型的子查询
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4888859883ec27ef174ad3362d7aa8f08deda6d5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 9363bdd8cbc1ad2bd51ce311163477d0b5b81754
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552415"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850493"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 子查询示例
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

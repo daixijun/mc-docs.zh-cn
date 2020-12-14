@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.service: security
 ms.topic: article
-ms.date: 10/12/2020
-ms.openlocfilehash: 8f2f71e63b1d5646620bcdb5b0bf25fe7dc72155
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.date: 12/03/2020
+ms.openlocfilehash: b34df80df7a2608a1df5226b8b00132f94038894
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128767"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104347"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Threat Modeling Tool 更新版 7.3.00729.1 - 2020/07/29
 
@@ -48,7 +48,7 @@ The threat model file '$PATH\TMT7.application' could not be deserialized. File i
 
 ## <a name="documentation-and-feedback"></a>文档和反馈
 
-- Threat Modeling Tool 的文档位于 [docs.microsoft.com](/security/azure-security-threat-modeling-tool)，其中包含[有关如何使用该工具](/security/azure-security-threat-modeling-tool-getting-started)的信息。
+- Threat Modeling Tool 的文档位于 [docs.azure.cn](./threat-modeling-tool.md)，其中包含[有关如何使用该工具](./threat-modeling-tool-getting-started.md)的信息。
 
 ## <a name="next-steps"></a>后续步骤
 

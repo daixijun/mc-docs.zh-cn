@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: d4239d5cb547a75d0c6bf9721ed4a1c1e1157076
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/07/2020
+ms.openlocfilehash: c51398e2de1908b30260477d56419a34ac735620
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638219"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105013"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor 监视哪些内容？
 本文介绍了由 Azure Monitor 监视的不同应用程序和服务。 
@@ -118,7 +118,6 @@ ms.locfileid: "94638219"
 |托管应用程序  | 否 | 否 | 否 |  |
 |地图  | 否 | 否 | 否 |  |
 |媒体服务 | 是 | 是 | 否 |  |
-|Microsoft Flow | 否 | 否 | 否 |  |
 |Microsoft 托管桌面 | 否 | 否 | 否 |  |
 |Microsoft PowerApps | 否 | 否 | 否 |  |
 |Microsoft 社交参与 | 否 | 否 | 否 |  |
@@ -129,6 +128,7 @@ ms.locfileid: "94638219"
 |通知中心 | 是 | 否 | 否 |  |
 |开放数据集 | 否 | 否 | 否 |  |
 |策略 | 否 | 否 | 否 |  |
+|Power Automate | 否 | 否 | 否 |  |
 |Power BI Embedded | 是 | 是 | 否 |  |
 |专用链接 | 否 | 否 | 否 |  |
 |项目假脱机通信平台 | 否 | 否 | 否 |  |
@@ -165,7 +165,7 @@ ms.locfileid: "94638219"
 
 | 产品/服务 | 说明 |
 |:---|:---|
-| [Azure 自动化](../automation/index.yml) |[更新管理](../automation/update-management/update-mgmt-overview.md)。 |
+| [Azure 自动化](../automation/index.yml) |[更新管理](../automation/update-management/overview.md)。 |
 | [Azure 安全中心](../security-center/index.yml) | 收集和分析安全事件并执行威胁分析。 请参阅 [Azure 安全中心中的数据收集](../security-center/security-center-enable-data-collection.md) |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | 创建诊断设置以将日志发送到 Azure Monitor。 请参阅[将日志数据发送到 Intune 中的存储、事件中心或日志分析（预览版）](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)。  |
 | 网络  | [网络性能监视器](insights/network-performance-monitor.md) - 监视与服务和应用程序终结点的网络连接和其性能。<br>[流量分析](../network-watcher/traffic-analytics.md) - 可以分析网络观察程序网络安全组 (NSG) 流日志，帮助洞察 Azure 云中的流量流。 |

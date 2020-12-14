@@ -4,17 +4,17 @@ description: 本教程演示如何使用 Azure CLI 创建、配置和查询你�
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 06/25/2019
-ms.date: 02/10/2020
-ms.openlocfilehash: 294da816012fa074069631dca8483958efc9a45e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 12/14/2020
+ms.openlocfilehash: 41edf9efdc38935e5913f132f5716c7269050782
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068170"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850803"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL - 单个服务器 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -29,16 +29,19 @@ ms.locfileid: "77068170"
 
 可以在自己的计算机上[安装 Azure CLI]( /cli/install-azure-cli) 以运行本教程中的命令。
 
+## <a name="prerequisites"></a>先决条件
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。
-```cli
+```azurecli
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 使用 [az group create](/cli/group) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
-```cli
+```azurecli
 az group create --name myresourcegroup --location chinaeast2
 ```
 
@@ -46,7 +49,7 @@ az group create --name myresourcegroup --location chinaeast2
 使用 [az postgres server create](/cli/postgres/server) 命令创建 [Azure Database for PostgreSQL 服务器](overview.md)。 服务器包含作为组进行管理的一组数据库。 
 
 下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建名为 `mydemoserver` 的服务器。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。 它是一台常规用途第 5 代服务器，具有 2 个 vCore。
-```cli
+```azurecli
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
@@ -85,7 +88,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 administratorLogin  和 fullyQualifiedDomainName  。
+结果采用 JSON 格式。 记下 administratorLogin 和 fullyQualifiedDomainName。
 ```json
 {
   "administratorLogin": "myadmin",
@@ -124,7 +127,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”  的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
    ```
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -189,7 +192,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>将数据库还原到以前的时间点
-假设意外删除了某个表。 这是不能轻易还原的内容。 使用 Azure Database for PostgreSQL 可以返回到服务器有其备份的任何时间点（由所配置的备份保留期确定），并可将此时间点还原到新服务器。 可以使用此新服务器恢复已删除的数据。 
+假设你意外删除了某个表。 这是不能轻易还原的内容。 使用 Azure Database for PostgreSQL 可以返回到服务器有其备份的任何时间点（由所配置的备份保留期确定），并可将此时间点还原到新服务器。 可以使用此新服务器恢复已删除的数据。 
 
 以下命令将示例服务器还原到添加此表之前的时间点：
 ```cli
@@ -209,16 +212,21 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 该命令是同步的，且会在服务器还原后返回。 还原完成后，找到创建的新服务器。 验证数据是否按预期还原。
 
+## <a name="clean-up-resources"></a>清理资源
+
+在前面的步骤中，你已在服务器组中创建了 Azure 资源。 如果你认为以后不需要这些资源，请删除该服务器组。 在服务器组的“概述”页中，按“删除”按钮   。 弹出页面上出现提示时，请确认服务器组的名称，然后单击最后一个“删除”按钮  。
+
 
 ## <a name="next-steps"></a>后续步骤
 本教程介绍如何使用 Azure CLI（命令行接口）以及其他实用工具完成以下任务：
 > [!div class="checklist"]
 > * 创建 Azure Database for PostgreSQL 服务器
 > * 配置服务器防火墙
-> * 使用 [psql  ](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
+> * 使用 psql 实用工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
 > * 还原数据
 
-接下来，了解如何使用 Azure 门户执行类似任务，请查看此教程：[使用 Azure 门户设计第一个 Azure Database for PostgreSQL](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [使用 Azure 门户设计第一个 Azure Database for PostgreSQL](tutorial-design-database-using-azure-portal.md)

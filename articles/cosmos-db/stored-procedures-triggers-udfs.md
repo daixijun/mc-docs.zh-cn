@@ -2,18 +2,19 @@
 title: 在 Azure Cosmos DB 中使用存储过程、触发器和 UDF
 description: 本文介绍 Azure Cosmos DB 中存储过程、触发器和用户定义的函数的概念。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 04/09/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 61196a53a8d71416ed3195333e4ecf3582c1cdc9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ffa96620c987410be2b7fc62f342c8650450ef68
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552487"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850761"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

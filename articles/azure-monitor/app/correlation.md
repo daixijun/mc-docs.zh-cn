@@ -4,16 +4,16 @@ description: Application Insights 遥测关联
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/07/2019
-ms.date: 11/10/2020
 ms.author: v-johya
+ms.date: 12/07/2020
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 9f604bcb67a6f9c9eb7ff87f953b069f1f2ba4fc
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: b5238fc71e38cbf7c27139732ea857ae85b6417b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638208"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104892"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -148,7 +148,7 @@ Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.co
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> 若要查看启用关联所需的所有配置，请参阅 [JavaScript 关联文档](/azure-monitor/app/javascript#enable-correlation)。
+> 若要查看启用关联所需的所有配置，请参阅 [JavaScript 关联文档](./javascript.md#enable-correlation)。
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python 中的遥测关联
 

@@ -3,19 +3,19 @@ title: 使用用于存储的 Azure Monitor 监视 Azure 存储服务 | Microsoft
 description: 本文介绍了用于存储的 Azure Monitor 功能，可便于存储管理员快速了解自己 Azure 存储帐户存在的性能和利用率问题。
 ms.subservice: ''
 ms.topic: conceptual
-author: mrbullwinkle
+author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: dad7f32bcda9630dd765ff3a7399ad2db3fa09b2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: bd04a73fec3ca6e20d893473e972430243891280
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329062"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104403"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>使用用于存储的 Azure Monitor 监视存储服务
 
-用于存储的 Azure Monitor 通过提供 Azure 存储服务性能、容量和可用性的统一视图，提供对 Azure 存储帐户的全面监视。 可以通过两种方式来观察存储容量和性能：直接在存储帐户中查看，或在 Azure Monitor 中跨存储帐户组查看。 
+用于存储的 Azure Monitor 通过提供 Azure 存储服务性能、容量和可用性的统一视图，提供对 Azure 存储帐户的全面监视。
 
 本文有助于了解用于存储的 Azure Monitor 提供的体验，此体验不仅可便于大规模获得关于存储帐户的运行状况和性能的可操作见解，还可便于关注热点和诊断延迟、限制和可用性问题。
 
@@ -36,9 +36,6 @@ ms.locfileid: "94329062"
 >[!NOTE]
 >访问此功能不需任何费用。系统只会对你配置或启用的 Azure Monitor 基本功能收费，如 [Azure Monitor 定价详细信息](https://www.azure.cn/pricing/details/monitor/)页中所述。
 
->[!NOTE]
->用于存储的 Azure Monitor 不支持[常规用途 v1 帐户](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts)。
->
 
 ## <a name="view-from-azure-monitor"></a>在 Azure Monitor 中查看
 
@@ -82,48 +79,6 @@ ms.locfileid: "94329062"
 工作簿中使用蓝色值报告容量指标的列有条件颜色编码或热度地图。 最深的颜色具有最高值，较浅的颜色基于最低值。
 
 选择工作簿中任何一列下的值都会向下钻取到相应存储帐户的“容量”工作簿。 下面的[详细存储工作簿](#detailed-storage-workbooks)部分介绍了关于向下钻取报告的更多详情。 
-
-## <a name="view-from-a-storage-account"></a>在存储帐户中查看
-
-若要直接从存储帐户访问用于 VM 的 Azure Monitor，请执行以下操作：
-
-1. 在 Azure 门户中，选择“存储帐户”。
-
-2. 从列表中选择一个存储帐户。 在“监视”部分中，选择“见解”。
-
-    ![显示存储帐户“概述”工作簿页面的屏幕截图。](./media/storage-insights-overview/storage-account-direct-overview-01.png)
-
-此存储帐户的“概述”工作簿中显示了多个存储性能指标，有助于你快速进行评估：
-
-* 存储服务的运行状况：可便于立即确定是否有超出你控制范围的问题正在影响部署区域中的存储服务，“摘要”列下对此进行了说明。
-
-* 交互式性能图：显示与存储容量、可用性、事务和延迟相关的最基本详细信息。  
-
-* 指标和状态磁贴：突出显示了服务可用性、对存储服务执行的事务总数、E2E 延迟以及服务器延迟。
-
-选择“故障”、“性能”、“可用性”和“容量”按钮中的任何一个都会打开相应的工作簿。 
-
-![所选存储帐户的“概述”页](./media/storage-insights-overview/storage-account-capacity-01.png)
-
-## <a name="detailed-storage-workbooks"></a>详细存储工作簿
-
-无论是从多个存储帐户的“概述”工作簿中选择“可用性”、“E2 延迟”、“服务延迟”和“事务错误类型/错误”列中的值，还是从特定存储帐户的“概述” 工作簿中选择“故障”、“性能”“可用性”和“容量”按钮中的任何一个，都会获得一组针对相应类别量身定制的交互式存储相关信息。  
-
-* 单击“可用性”打开“可用性”工作簿。 其中显示了 Azure 存储服务的当前运行状况状态，并包含显示按存储帐户中定义的数据服务进行分类的每个对象的运行状况状态的表（包含表示所选时间范围的趋势线），以及帐户中每个数据服务的可用性趋势图。  
-
-    ![“可用性”报告示例](./media/storage-insights-overview/storage-account-availability-01.png)
-
-* 单击“E2E 延迟”和“服务器延迟”打开“性能”工作簿。 其中包括显示 E2E 延迟和服务器延迟的汇总状态磁贴、E2E 延迟与服务器延迟的性能图，以及按存储帐户中定义的数据服务进行分类的 API 对成功调用的延迟进行细分的表。
-
-    ![“性能”报告示例](./media/storage-insights-overview/storage-account-performance-01.png)
-
-* 选择网格中列出的任何错误类别都会打开“故障”工作簿。 此报告显示其他所有客户端错误的指标磁贴（已描述的错误和成功请求除外）、客户端限制错误、特定于 ClientOtherError 属性的事务“响应类型”维度指标的性能图，以及“事务数(按 API 名称)”和“事务数(按响应类型)”这两个表。
-
-   ![“故障”报告示例](./media/storage-insights-overview/storage-account-failures-01.png)
-
-* 单击“容量”打开“容量”工作簿。 它在磁贴和图表中显示帐户中的每个存储数据对象使用的存储总量，以及帐户中存储了多少个数据对象。  
-
-    ![所选存储帐户的“容量”页](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
 ## <a name="pin-and-export"></a>固定和导出
 

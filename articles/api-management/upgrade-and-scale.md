@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 12/01/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: 691cfbd7457ef143f21b209c7826b0a8e05d9f7f
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 6152eead2614cd1fe3fb1a988fbcd848ec86359f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432233"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104409"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 

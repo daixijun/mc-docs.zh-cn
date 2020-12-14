@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 origin.date: 09/17/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 37a34955c8727887a44eacaf58d20f5856d6bc20
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: bb664e48129054d1ed984eaae88aabbf3b614c33
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552100"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850754"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>创建和管理加密范围（预览）
 
@@ -248,7 +248,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 若要使用 Azure CLI 创建具有默认加密范围的容器，请调用 [az storage container create](/cli/storage/container#az-storage-container-create) 命令，并指定 `--default-encryption-scope` 参数的范围。 若要强制容器中的所有 blob 使用容器的默认范围，请将 `--prevent-encryption-scope-override` 参数设置为 `true`。
 
-下面的示例使用 Azure AD 帐户授权操作创建容器。 还可以使用帐户访问密钥。 有关详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
+下面的示例使用 Azure AD 帐户授权操作创建容器。 还可以使用帐户访问密钥。 有关详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md)。
 
 ```azurecli
 az storage container create \

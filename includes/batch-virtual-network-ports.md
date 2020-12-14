@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 origin.date: 06/16/2020
-ms.date: 08/10/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 22a2abb6dfb55b9d228d235bcc689be59f6233fe
-ms.sourcegitcommit: c4b0a0ddd52ceca82cfdbdbdf07aad00d0f3ed03
+ms.openlocfilehash: c5c668de0a893451066e6af1f216ec99d48dd495
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "94978125"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105201"
 ---
 ### <a name="general-requirements"></a>一般要求
 
@@ -75,7 +75,7 @@ ms.locfileid: "94978125"
 
 | 源 IP 地址 | 源服务标记 | 源端口 | 目标 | 目标端口 | 协议 | 操作 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 空值 | `BatchNodeManagement` [服务标记](../articles/virtual-network/security-overview.md#service-tags)（如果使用区域变体，则在与 Batch 帐户相同的区域中） | * | Any | 29876-29877 | TCP | 允许 |
+| 空值 | `BatchNodeManagement` [服务标记](../articles/virtual-network/network-security-groups-overview.md#service-tags)（如果使用区域变体，则在与 Batch 帐户相同的区域中） | * | Any | 29876-29877 | TCP | 允许 |
 | 用户源 IP，用于远程访问 Linux 多实例任务的计算节点和/或计算节点子网（如果需要）。 | 空值 | * | Any | 3389 (Windows)、22 (Linux) | TCP | 允许 |
 
 > [!WARNING]
@@ -85,7 +85,7 @@ ms.locfileid: "94978125"
 
 | 源 | 源端口 | 目标 | 目标服务标记 | 目标端口 | 协议 | 操作 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Any | * | [服务标记](../articles/virtual-network/security-overview.md#service-tags) | `Storage`（如果使用区域变体，则在与 Batch 帐户相同的区域中） | 443 | TCP | 允许 |
+| Any | * | [服务标记](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage`（如果使用区域变体，则在与 Batch 帐户相同的区域中） | 443 | TCP | 允许 |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>“云服务”配置中的池
 

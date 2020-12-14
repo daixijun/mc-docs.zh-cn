@@ -6,15 +6,15 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 3/5/2020
+ms.date: 12/14/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: b8b7a464e3fa180571f6df510186affc4218ae47
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: f8cdf94c2686ee551ecbe20a50bfd4139ad8122f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866603"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105209"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>教程：在 Java Spring 应用中使用动态配置
 

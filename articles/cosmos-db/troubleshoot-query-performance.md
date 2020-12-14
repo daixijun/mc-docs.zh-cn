@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: e06ccf4d92c235e8276c33f8614fb2aef7f018f8
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: c4122e94f008ee7e6f9a0f601ebe6e6f8bc38d16
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552294"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850795"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

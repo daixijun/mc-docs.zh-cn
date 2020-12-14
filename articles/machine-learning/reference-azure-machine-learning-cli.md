@@ -6,16 +6,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.reviewer: jmartens
-ms.author: jordane
+ms.author: v-yiso
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a0442efb1395fda87df2e006c2a3fd96d0dd43
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: dd340ec50838f25fca982ae8c2dc99b530ad3004
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978252"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104542"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>安装和使用 Azure 机器学习的 CLI 扩展
 
@@ -32,7 +32,7 @@ CLI 不能取代 Azure 机器学习 SDK。 它是一个经过优化的补充工�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 若要使用 CLI，必须拥有 Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+* 若要使用 CLI，必须拥有 Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要在 **本地环境** 中使用本文档所述的 CLI 命令，需要安装 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 

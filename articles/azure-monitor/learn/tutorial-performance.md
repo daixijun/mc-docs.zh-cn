@@ -6,14 +6,14 @@ ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 08/13/2019
-ms.date: 08/28/2020
+ms.date: 12/07/2020
 ms.custom: mvc
-ms.openlocfilehash: e92c42402bff985fa95a1dcb96e551e0055d9d7f
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: e97c4d9ca540e3a7612951cc204b83a6ca4699e5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148678"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104885"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 查找和诊断性能问题
 
@@ -104,7 +104,4 @@ Application Insights 不仅可以识别要优化的服务器进程，还可以�
 
     ![日志查询](./media/tutorial-performance/10-page-view-logs.png)
 
-3.  智能诊断是日志的一项功能，用于标识数据中的唯一模式。 单击折线图中的智能诊断点时，将运行相同查询但排除导致异常的记录。 查询的注释部分显示了这些记录的详细信息，因此可以识别出导致持续时间过长的页面视图的属性。
-
-    ![带智能诊断功能的日志](./media/tutorial-performance/11-page-view-logs-dsmart.png)
 

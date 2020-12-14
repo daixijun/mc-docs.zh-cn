@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 7c1c5ef8cf50ff3dbd31828bb5fb89351c2fad8b
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 58994fa804741b2f800e121667eb94c41639b1a8
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501974"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003606"
 ---
 # <a name="configure-permission-classifications"></a>配置权限分类
 
@@ -41,7 +41,7 @@ ms.locfileid: "94501974"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-可使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 对权限进行分类。 权限分类是在发布权限的 API 的 ServicePrincipal 对象上配置的。
+可使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 对权限进行分类。 权限分类是在发布权限的 API 的 ServicePrincipal 对象上配置的。
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>列出 API 的当前权限分类
 
@@ -115,8 +115,9 @@ ms.locfileid: "94501974"
 
 若要了解详细信息，请访问以下链接：
 
+* [配置用户同意设置](configure-user-consent.md)
 * [向应用程序授予租户范围的管理许可](grant-admin-consent.md)
-* [Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+* [Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 获取帮助或查找问题的答案：
 * [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

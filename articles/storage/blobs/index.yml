@@ -12,13 +12,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/20/2019
-  ms.date: 11/30/2020
-  ms.openlocfilehash: 593a6e570cd7237e69ef24f6541c9fb757c45347
-  ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+  ms.date: 12/14/2020
+  ms.openlocfilehash: 6428f3a043173c453cdf688604e8a1ba4a530890
+  ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96153115"
+  ms.lasthandoff: 12/08/2020
+  ms.locfileid: "96850368"
 landingContent:
 - title: 关于 Blob 存储
   linkLists:
@@ -85,7 +85,7 @@ landingContent:
     - text: 与 Azure HDInsight 群集配合使用
       url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fstorage%2fblobs%2ftoc.json
     - text: 与 Power BI 配合使用
-      url: data-lake-storage-use-power-bi.md
+      url: https://docs.microsoft.com/power-query/connectors/datalakestorage
 - title: 开发应用程序
   linkLists:
   - linkListType: quickstart

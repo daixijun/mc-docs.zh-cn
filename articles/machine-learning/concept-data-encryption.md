@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 87152bd923ff3e50067cc4ac83b0f3193fe75473
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5100f8ecde4c2f47d41fe63d9d07adc853cddf13
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970855"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104357"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>使用 Azure 机器学习进行数据加密
 
@@ -129,6 +129,12 @@ Azure 存储中存储的每个计算节点的 OS 磁盘，已通过 Azure 机器
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks 可在 Azure 机器学习管道中使用。 默认情况下，Azure Databricks 使用的 Databricks 文件系统 (DBFS) 使用 Microsoft 托管密钥进行加密。 若要将 Azure Databricks 配置为使用客户管理的密钥，请参阅[在默认（根）DBFS 上配置客户管理的密钥](https://docs.microsoft.com/azure/databricks/security/customer-managed-keys-dbfs)。
+
+### <a name="microsoft-generated-data"></a>Microsoft 生成的数据
+
+使用自动化机器学习等服务时，Microsoft 可能会生成经过预处理的暂用数据用于训练多个模型。 此数据存储在工作区中的数据存储内，使你可以适当地强制实施访问控制和加密。
+
+你可能还想要加密[从已部署的终结点记录到 Azure Application Insights 实例的诊断信息](how-to-enable-app-insights.md)。
 
 ## <a name="encryption-in-transit"></a>传输中加密
 

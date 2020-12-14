@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c62c79cd6d14e585238030c9c00bca8245ea8377
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e91d69081097b758f5b18ff0128354ea9d3a61b7
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244730"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003838"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>自助式密码重置常见问题解答
 
@@ -192,7 +192,7 @@ ms.locfileid: "91244730"
 
 * **问：我的用户应当到何处去更改其密码？**
 
-  > **答:** 用户可以在能够看到其个人资料图片或图标的任何位置（例如在其[访问面板](https://account.activedirectory.windowsazure.cn/r#/applications)体验的右上角）更改其密码。 用户可以从[访问面板个人资料页](https://account.activedirectory.windowsazure.cn/r#/profile)更改其密码。 如果用户的密码已过期，还可以在 Azure AD 登录页上自动要求他们更改其密码。 最后，如果用户希望更改其密码，可以直接浏览到 [Azure AD 密码更改门户](https://account.activedirectory.windowsazure.cn/ChangePassword.aspx)。
+  > **答:** 用户可以在能够看到其个人资料图片或图标的任何位置（例如在其 [访问面板](https://account.activedirectory.windowsazure.cn/r#/applications)体验的右上角）更改其密码。 用户可以从[访问面板个人资料页](https://account.activedirectory.windowsazure.cn/r#/profile)更改其密码。 如果用户的密码已过期，还可以在 Azure AD 登录页上自动要求他们更改其密码。 最后，如果用户希望更改其密码，可以直接浏览到 [Azure AD 密码更改门户](https://account.activedirectory.windowsazure.cn/ChangePassword.aspx)。
   >
   >
 * **问：当用户的本地密码过期时，他们是否可以在 Office 门户中收到通知？**
@@ -243,7 +243,7 @@ ms.locfileid: "91244730"
 
 * **问：密码写回如何在后台工作？**
 
-  > **答:** 请参阅[密码写回的工作原理](./tutorial-enable-sspr-writeback.md)一文，了解有关启用密码写回时发生的情况以及数据如何通过系统流回本地环境的说明。
+  > **答:** 请参阅 [密码写回的工作原理](./tutorial-enable-sspr-writeback.md)一文，了解有关启用密码写回时发生的情况以及数据如何通过系统流回本地环境的说明。
   >
   >
 * **问：密码写回需要多长时间才工作？是否和使用密码哈希同步一样也存在同步延迟？**
@@ -289,5 +289,5 @@ ms.locfileid: "91244730"
 * [什么是密码写回？我为什么关心它？](./tutorial-enable-sspr-writeback.md)
 * [如何报告 SSPR 中的活动？](howto-sspr-reporting.md)
 * [SSPR 中的所有选项有哪些？它们有哪些含义？](concept-sspr-howitworks.md)
-* [我认为有些功能被破坏。如何对 SSPR 进行故障排除？](active-directory-passwords-troubleshoot.md)
+* [我认为有些功能被破坏。如何对 SSPR 进行故障排除？](./troubleshoot-sspr.md)
 

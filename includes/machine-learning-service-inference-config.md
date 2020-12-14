@@ -4,45 +4,22 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: c3d39c2cdf52464306786eb3e5fded41a5eb1ce8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5d9edcf4dbfce90542bf99861fd5f26c82fdbac5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78849891"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104544"
 ---
 `inferenceconfig.json` 文档中的条目映射到 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 类的参数。 下表描述了 JSON 文档中的实体与方法参数之间的映射：
 
 | JSON 实体 | 方法参数 | 说明 |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | 包含要为映像运行的代码的本地文件路径。 |
-| `runtime` | `runtime` | 可选。 用于映像的运行时。 支持的运行时为 `spark-py` 和 `python`。 如果设置 `environment`，则会忽略此项。 |
-| `condaFile` | `conda_file` | 可选。 包含要用于映像的 Conda 环境定义的本地文件路径。  如果设置 `environment`，则会忽略此项。 |
-| `extraDockerFileSteps` | `extra_docker_file_steps` | 可选。 包含设置映像时要运行的附加 Docker 步骤的本地文件路径。  如果设置 `environment`，则会忽略此项。|
-| `sourceDirectory` | `source_directory` | 可选。 包含用于创建映像的所有文件的文件夹路径，因此可以轻松地访问此文件夹或子文件夹中的任何文件。 可以从本地计算机上传整个文件夹，作为 Webservice 的依赖项。 注意：entry_script、conda_file 和 extra_docker_file_steps 路径是 source_directory 路径的相对路径。 |
-| `enableGpu` | `enable_gpu` | 可选。 是否在映像中启用 GPU 支持。 GPU 映像必须在 Azure 服务上运行，如 Azure 容器实例。 例如，Azure 机器学习计算、Azure 虚拟机和 Azure Kubernetes 服务。 默认值为 False。 如果设置 `environment`，则会忽略此项。|
-| `baseImage` | `base_image` | 可选。 要用作基础映像的自定义映像。 如果未提供基础映像，则该映像将基于提供的运行时参数。 如果设置 `environment`，则会忽略此项。 |
-| `baseImageRegistry` | `base_image_registry` | 可选。 包含基础映像的映像注册表。 如果设置 `environment`，则会忽略此项。|
-| `cudaVersion` | `cuda_version` | 可选。 要为需要 GPU 支持的映像安装的 CUDA 版本。 必须在 Azure 服务上使用 GPU 映像。 例如，Azure 容器实例、Azure 机器学习计算、Azure 虚拟机和 Azure Kubernetes 服务。 支持的版本为 9.0、9.1 和 10.0。 如果设置 `enable_gpu`，则默认为 9.1。 如果设置 `environment`，则会忽略此项。 |
-| `description` | `description` | 映像的说明。 如果设置 `environment`，则会忽略此项。  |
+| `sourceDirectory` | `source_directory` | 可选。 包含用于创建图像的所有文件的文件夹路径，这样就可以方便地访问此文件夹或子文件夹中的任何文件。 可从本地计算机上传整个文件夹，作为 WebService 的依赖项。 注意：entry_script、conda_file 和 extra_docker_file_steps 路径是 source_directory 路径的相对路径。 |
 | `environment` | `environment` | 可选。  Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)。|
 
-以下 JSON 是用于 CLI 的推理配置示例：
-
-```json
-{
-    "entryScript": "score.py",
-    "runtime": "python",
-    "condaFile": "myenv.yml",
-    "extraDockerfileSteps": null,
-    "sourceDirectory": null,
-    "enableGpu": false,
-    "baseImage": null,
-    "baseImageRegistry": null
-}
-```
-
-可以在推理配置文件中包含 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)的完整规范。 如果工作区中不存在此环境，Azure 机器学习会创建它。 否则，Azure 机器学习会更新环境（如有必要）。 以下 JSON 是一个示例：
+可以在推理配置文件中包含 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)的完整规范。 如果工作区中不存在此环境，Azure 机器学习将创建它。 否则，Azure 机器学习将更新环境（如必要）。 以下 JSON 是一个示例：
 
 ```json
 {
@@ -72,7 +49,7 @@ ms.locfileid: "78849891"
                         "pip": [
                             "azureml-defaults",
                             "azureml-telemetry",
-                            "scikit-learn",
+                            "scikit-learn==0.22.1",
                             "inference-schema[numpy-support]"
                         ]
                     }
@@ -88,7 +65,7 @@ ms.locfileid: "78849891"
 }
 ```
 
-还可以在单独的 CLI 参数中使用现有 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)，并从推理配置文件中删除“环境”密钥。 将 -e 用于环境名称，将 --ev 用于环境版本。 如果未指定 --ev，则会使用最新版本。 下面是推理配置文件的示例：
+你还可以在单独的 CLI 参数中使用现有的 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)，并从推理配置文件中删除环境键。 使用 -e 代表环境名称，而使用 --ev 代表环境版本。 如果你未指定 --ev，系统将使用最新版本。 下面是该推理配置文件的一个示例：
 
 ```json
 {
@@ -97,9 +74,9 @@ ms.locfileid: "78849891"
 }
 ```
 
-以下命令演示如何使用以前的推理配置文件（名为 myInferenceConfig.json）来部署模型。 
+以下命令演示了如何使用以前的推理配置文件（名为 myInferenceConfig.json）来部署模型。 
 
-它还使用最新版本的现有 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)（名为 AzureML-Minimal）。
+它还使用现有 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)（名为 AzureML-Minimal）的最新版本。
 
 ```azurecli
 az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json

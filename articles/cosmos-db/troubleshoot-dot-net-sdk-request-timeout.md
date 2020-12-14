@@ -2,21 +2,22 @@
 title: 排查 .NET SDK 的 Azure Cosmos DB HTTP 408 或请求超时问题
 description: 了解如何诊断和修复 .NET SDK 请求超时异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9e3f361f4dce1ad58a91ab476fc48c190b714861
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 933d2b7b5a959770e3f6a5ce24601e1e9a874c4f
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552652"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850832"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>诊断和排查 Azure Cosmos DB .NET SDK 请求超时异常

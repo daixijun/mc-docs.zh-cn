@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: db65f4d32aa7982739d0eb59389e6417d41e902e
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: e735a1f207c17f3b2163f780fddd8879c135305b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508979"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004183"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>教程：向 ASP.NET Web 应用添加 Microsoft 登录功能
 
-本指南演示如何使用基于传统 Web 浏览器的应用程序和 OpenID Connect，通过 ASP.NET MVC 解决方案实现 Microsoft 登录。
+在本教程中，将构建一个 ASP.NET MVC Web 应用，该应用通过使用 .NET (OWIN) 中间件的开放式 Web 接口和 Microsoft 标识平台来登录用户。
 
 完成本指南后，你的应用程序将能够接受来自与 Microsoft 标识平台集成的任何公司或组织的工作和学校帐户的登录，并且这些帐户将能够登录到你的应用。
 
@@ -187,7 +187,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 1.  右键单击“控制器”文件夹，并选择“添加” > “控制器”。  
 2.  选择“MVC (.NET 版本)控制器 - 空”。
-3.  选择“添加”  。
+3.  选择“添加”   。
 4.  将其命名为 **HomeController**，然后选择“添加”。
 5.  向该类添加 OWIN 引用：
 
@@ -279,7 +279,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 1.  右键单击“控制器”文件夹，并选择“添加” > “控制器”。  
 2.  选择“MVC {version} 控制器 - 空”。
-3.  选择“添加”  。
+3.  选择“添加”   。
 4.  将其命名为“ClaimsController”。
 5.  将控制器类的代码替换为以下代码。 这会将 `[Authorize]` 属性添加到该类：
 
@@ -378,7 +378,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
 1. 转到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 1. 选择“新注册”。
-1. “注册应用程序”页出现后，请输入应用程序的注册信息：
+1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 **ASPNET-Tutorial**。
    1. 将在步骤 1 中从 Visual Studio 复制的 SSL URL（例如 `https://localhost:44368/`）添加到“回复 URL”中，然后选择“注册”。
 1. 选择“身份验证”菜单，在“隐式授权”下选择“ID 令牌”，然后选择“保存”。
@@ -425,7 +425,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 浏览到控制器视图后，应当会显示包含用户基本属性的表格：
 
-|属性 |“值” |描述 |
+|properties |值 |说明 |
 |---|---|---|
 |**名称** |用户全名 | 用户的名字和姓氏
 |**用户名** |user<span>@domain.com</span> | 用于标识用户的用户名|

@@ -4,17 +4,17 @@ description: 了解如何在 Azure 中使用队列存储服务。 示例用 C++ 
 author: WenJason
 ms.author: v-jay
 origin.date: 07/16/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 311b8f257d538bc2f4f8128f1e64d9c6caee4762
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 972d5f48468afdfaaf5d6fff729937d0c5a18efd
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152999"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850802"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何通过 C++ 使用队列存储
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 06/12/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 0dccb0210b8468dc21bb70beb12c28901b011b58
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 85c49c28c770b20099855442c351cd4be2a17100
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977066"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003729"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>语音服务：Docs 中的新增内容
 
@@ -38,16 +38,16 @@ ms.locfileid: "94977066"
 
 * [关于语音 SDK 音频输入流 API](how-to-use-audio-input-streams.md) - 更新了每秒允许的样本数。
 * [语音转文本的自动语言检测](how-to-automatic-language-detection.md) - 向文档添加了 Objective-C 说明。
-* [选择语音识别模式](how-to-choose-recognition-mode.md) - 向文档添加了 JavaScript 说明。
+* [选择语音识别模式](./get-started-speech-to-text.md) - 向文档添加了 JavaScript 说明。
 * [为语音 SDK 配置 RHEL/CentOS 7](how-to-configure-rhel-centos-7.md) - 改进了安装说明。
-* [语音转文本的短语列表](how-to-phrase-lists.md) - 向文档添加了 JavaScript 说明。
-* [快速入门：Python 中用于长格式音频的异步合成（预览版）](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)- 更新为支持公共神经语音和相关参数。
-* [快速入门：识别音频文件中的语音](quickstarts/speech-to-text-from-file.md) - 向文档添加了 JavaScript 说明。
-* [快速入门：识别来自麦克风的语音](quickstarts/speech-to-text-from-microphone.md ) - 向文档添加了 Go 和 JavaScript 说明。
+* [语音转文本的短语列表](./get-started-speech-to-text.md) - 向文档添加了 JavaScript 说明。
+* [快速入门：Python 中用于长格式音频的异步合成（预览版）](./long-audio-api.md)- 更新为支持公共神经语音和相关参数。
+* [快速入门：识别音频文件中的语音](./get-started-speech-to-text.md) - 向文档添加了 JavaScript 说明。
+* [快速入门：识别来自麦克风的语音](./get-started-speech-to-text.md) - 向文档添加了 Go 和 JavaScript 说明。
 * [快速入门：识别存储在 Blob 存储中的语音](quickstarts/from-blob.md) - 向文档添加了 JavaScript 说明。
 * [快速入门：使用语言理解 (LUIS) 识别语音、意向和实体](quickstarts/intent-recognition.md)
 * [快速入门：安装开发环境](quickstarts/setup-platform.md) - 向文档添加了 JavaScript 说明。
-* [快速入门：将语音合成到音频文件](quickstarts/text-to-speech-audio-file.md) - 向文档添加了 JavaScript 说明。
-* [快速入门：将语音合成到扬声器](quickstarts/text-to-speech.md) - 向文档添加了 JavaScript 说明。
+* [快速入门：将语音合成到音频文件](./get-started-text-to-speech.md) - 向文档添加了 JavaScript 说明。
+* [快速入门：将语音合成到扬声器](./get-started-text-to-speech.md) - 向文档添加了 JavaScript 说明。
 * [指定语音转文本的源语言](how-to-specify-source-language.md) - 向文档添加了 JavaScript 和 Objective-C 说明。
 <!-- * [What is a keyword?](custom-keyword-overview.md) - Updated get started content and links. -->

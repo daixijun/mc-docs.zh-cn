@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/16/2020
-ms.openlocfilehash: 3f7361fbc0c564e53558e98787e5646b3365dea6
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 12/04/2020
+ms.openlocfilehash: 06fad3ae3d638614c76c14b2eb7642682713a714
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977412"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105032"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -561,6 +561,5 @@ Azure PowerShell 1.0：
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
-[stream.analytics.scale.jobs]\: stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]\: https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference [stream.analytics.rest.api.reference]\: https://docs.microsoft.com/rest/api/streamanalytics/
+[stream.analytics.rest.api.reference]: https://docs.microsoft.com/rest/api/streamanalytics/
 

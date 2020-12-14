@@ -2,17 +2,17 @@
 title: 教程 - 多步骤 ACR 任务
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时，在云中自动触发多步骤工作流来生成、运行和推送容器映像。
 ms.topic: tutorial
-origin.date: 05/09/2019
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: be87fe8e2814628a248762646ab027aba03cf9cd
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 5784c85b62de05a6983bc74e4db8a0dae86bbf01
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024456"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004036"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 
@@ -32,11 +32,11 @@ ms.locfileid: "96024456"
 
 本教程假设你已完成[前面教程](container-registry-tutorial-quick-task.md)中的任务。 如果尚未完成，请先完成前面教程[先决条件](container-registry-tutorial-quick-task.md#prerequisites)部分中的步骤，再继续操作。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-若要在本地使用 Azure CLI，必须安装 Azure CLI **2.0.62** 或更高版本，并使用 [az login][az-login] 登录。 运行 `az --version` 即可查找版本。 如果需要安装或升级 CLI，请参阅[安装 Azure CLI][azure-cli]。
-
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-multi-step-task"></a>创建多步骤任务
 
@@ -47,7 +47,7 @@ ms.locfileid: "96024456"
 在 [YAML 文件](container-registry-tasks-reference-yaml.md)中定义多步骤任务的步骤。 本教程的第一个示例多步骤任务在 `taskmulti.yaml` 文件中定义，该文件位于克隆的 GitHub 存储库的根目录：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Build target image
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
@@ -98,7 +98,7 @@ az acr task create \
   "agentConfiguration": {
     "cpu": 2
   },
-  "creationDate": "2019-05-03T03:14:31.763887+00:00",
+  "creationDate": "2020-11-20T03:14:31.763887+00:00",
   "credentials": null,
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tasks/taskmulti",
   "location": "chinanorth",
@@ -159,45 +159,41 @@ az acr task run --registry $ACR_NAME --name example1
 默认情况下，执行此命令时，`az acr task run` 命令会将日志流式传输到控制台。 输出显示每个任务步骤的运行进度。 以下输出经过简化，只显示关键步骤。
 
 ```output
-Queued a run with ID: cf19
+Queued a run with ID: cab
 Waiting for an agent...
-2019/05/03 03:03:31 Downloading source code...
-2019/05/03 03:03:33 Finished downloading source code
-2019/05/03 03:03:33 Using acb_vol_cfe6bd55-3076-4215-8091-6a81aec3d1b1 as the home volume
-2019/05/03 03:03:33 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/05/03 03:03:34 Successfully set up Docker network: acb_default_network
-2019/05/03 03:03:34 Setting up Docker configuration...
-2019/05/03 03:03:34 Successfully set up Docker configuration
-2019/05/03 03:03:34 Logging in to registry: myregistry.azurecr.cn
-2019/05/03 03:03:35 Successfully logged into myregistry.azurecr.cn
-2019/05/03 03:03:35 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:35 Scanning for dependencies...
-2019/05/03 03:03:36 Successfully scanned dependencies
-2019/05/03 03:03:36 Launching container with name: acb_step_0
+2020/11/20 00:03:31 Downloading source code...
+2020/11/20 00:03:33 Finished downloading source code
+2020/11/20 00:03:33 Using acb_vol_cfe6bd55-3076-4215-8091-6a81aec3d1b1 as the home volume
+2020/11/20 00:03:33 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 00:03:34 Successfully set up Docker network: acb_default_network
+2020/11/20 00:03:34 Setting up Docker configuration...
+2020/11/20 00:03:34 Successfully set up Docker configuration
+2020/11/20 00:03:34 Logging in to registry: myregistry.azurecr.cn
+2020/11/20 00:03:35 Successfully logged into myregistry.azurecr.cn
+2020/11/20 00:03:35 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:35 Scanning for dependencies...
+2020/11/20 00:03:36 Successfully scanned dependencies
+2020/11/20 00:03:36 Launching container with name: acb_step_0
 Sending build context to Docker daemon  24.06kB
-
 [...]
-
 Successfully built f669bfd170af
 Successfully tagged myregistry.azurecr.cn/hello-world:cf19
-2019/05/03 03:03:43 Successfully executed container: acb_step_0
-2019/05/03 03:03:43 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:43 Launching container with name: acb_step_1
+2020/11/20 00:03:43 Successfully executed container: acb_step_0
+2020/11/20 00:03:43 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:43 Launching container with name: acb_step_1
 279b1cb6e092b64c8517c5506fcb45494cd5a0bd10a6beca3ba97f25c5d940cd
-2019/05/03 03:03:44 Successfully executed container: acb_step_1
-2019/05/03 03:03:44 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
-2019/05/03 03:03:44 Pushing image: myregistry.azurecr.cn/hello-world:cf19, attempt 1
-
+2020/11/20 00:03:44 Successfully executed container: acb_step_1
+2020/11/20 00:03:44 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
+2020/11/20 00:03:44 Pushing image: myregistry.azurecr.cn/hello-world:cf19, attempt 1
 [...]
-
-2019/05/03 03:03:46 Successfully pushed image: myregistry.azurecr.cn/hello-world:cf19
-2019/05/03 03:03:46 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 7.425169)
-2019/05/03 03:03:46 Populating digests for step ID: acb_step_0...
-2019/05/03 03:03:47 Successfully populated digests for step ID: acb_step_0
-2019/05/03 03:03:47 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 0.827129)
-2019/05/03 03:03:47 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 2.112113)
-2019/05/03 03:03:47 The following dependencies were found:
-2019/05/03 03:03:47
+2020/11/20 00:03:46 Successfully pushed image: myregistry.azurecr.cn/hello-world:cf19
+2020/11/20 00:03:46 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 7.425169)
+2020/11/20 00:03:46 Populating digests for step ID: acb_step_0...
+2020/11/20 00:03:47 Successfully populated digests for step ID: acb_step_0
+2020/11/20 00:03:47 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 0.827129)
+2020/11/20 00:03:47 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 2.112113)
+2020/11/20 00:03:47 The following dependencies were found:
+2020/11/20 00:03:47
 - image:
     registry: myregistry.azurecr.cn
     repository: hello-world
@@ -206,12 +202,12 @@ Successfully tagged myregistry.azurecr.cn/hello-world:cf19
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 1a3065388a0238e52865db1c8f3e97492a43444c
 
-Run ID: cf19 was successful after 18s
+Run ID: cab was successful after 18s
 ```
 
 ## <a name="trigger-a-build-with-a-commit"></a>使用命令触发生成
@@ -250,11 +246,11 @@ az acr task logs --registry $ACR_NAME
 
 ```output
 Showing logs of the last created run.
-Run ID: cf1d
+Run ID: cad
 
 [...]
 
-Run ID: cf1d was successful after 37s
+Run ID: cad was successful after 37s
 ```
 
 ## <a name="list-builds"></a>生成列表
@@ -268,13 +264,11 @@ az acr task list-runs --registry $ACR_NAME --output table
 该命令产生的输出应如下所示。 将显示 ACR 任务已执行的运行，并在最近执行的任务的 TRIGGER 列中显示“Git Commit”：
 
 ```output
-RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
---------  ---------  ----------  ---------  ---------  --------------------  ----------
-cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
-cf1c      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:39
-cf1b      example1   linux       Succeeded  Manual     2019-05-03T03:10:30Z  00:00:31
-cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:00:31
-cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
+RUN ID    TASK            PLATFORM    STATUS     TRIGGER    STARTED               DURATION
+--------  --------------  ---------- ---------   ---------  --------------------  ----------
+cad       example1        linux       Succeeded  Commit     2020-11-20T00:22:15Z  00:00:35
+cac       taskhelloworld  linux       Succeeded  Commit     2020-11-20T00:22:15Z  00:00:22
+cab       example1        linux       Succeeded  Manual     2020-11-20T00:18:36Z  00:00:47
 ```
 
 ## <a name="create-a-multi-registry-multi-step-task"></a>创建多注册表多步骤任务
@@ -290,7 +284,7 @@ cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:
 本教程的第二个示例多步骤任务在 `taskmulti-multiregistry.yaml` 文件中定义，该文件位于克隆的 GitHub 存储库的根目录：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Build target images
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
@@ -333,9 +327,9 @@ az acr task create \
 
 若要将映像推送到 `regDate` 值标识的注册表，请使用 [az acr task credential add][az-acr-task-credential-add] 命令将该注册表的登录凭据添加到任务。
 
-对于此示例，我们建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的 [服务主体](container-registry-auth-service-principal.md)。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
+对于此示例，建议创建一个有权访问该注册表且范围为 *AcrPush* 角色的 [服务主体](container-registry-auth-service-principal.md)，以便能够推送映像。 若要创建服务主体，请参阅此 [Azure CLI 脚本](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh)。
 
-在以下 `az acr task credential add`命令中传递服务主体应用程序 ID 和密码：
+在以下 `az acr task credential add` 命令中传递服务主体应用程序 ID 和密码。 请确保用第二个注册表的名称更新登录服务器名称 mycontainerregistrydate：
 
 ```azurecli
 az acr task credential add --name example2 \
@@ -362,69 +356,61 @@ az acr task run --registry $ACR_NAME --name example2
 ```output
 Queued a run with ID: cf1g
 Waiting for an agent...
-2019/05/03 04:33:39 Downloading source code...
-2019/05/03 04:33:41 Finished downloading source code
-2019/05/03 04:33:42 Using acb_vol_4569b017-29fe-42bd-83b2-25c45a8ac807 as the home volume
-2019/05/03 04:33:42 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/05/03 04:33:43 Successfully set up Docker network: acb_default_network
-2019/05/03 04:33:43 Setting up Docker configuration...
-2019/05/03 04:33:44 Successfully set up Docker configuration
-2019/05/03 04:33:44 Logging in to registry: mycontainerregistry.azurecr.cn
-2019/05/03 04:33:45 Successfully logged into mycontainerregistry.azurecr.cn
-2019/05/03 04:33:45 Logging in to registry: mycontainerregistrydate.azurecr.cn
-2019/05/03 04:33:47 Successfully logged into mycontainerregistrydate.azurecr.cn
-2019/05/03 04:33:47 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:47 Scanning for dependencies...
-2019/05/03 04:33:47 Successfully scanned dependencies
-2019/05/03 04:33:47 Launching container with name: acb_step_0
+2020/11/20 04:33:39 Downloading source code...
+2020/11/20 04:33:41 Finished downloading source code
+2020/11/20 04:33:42 Using acb_vol_4569b017-29fe-42bd-83b2-25c45a8ac807 as the home volume
+2020/11/20 04:33:42 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 04:33:43 Successfully set up Docker network: acb_default_network
+2020/11/20 04:33:43 Setting up Docker configuration...
+2020/11/20 04:33:44 Successfully set up Docker configuration
+2020/11/20 04:33:44 Logging in to registry: mycontainerregistry.azurecr.cn
+2020/11/20 04:33:45 Successfully logged into mycontainerregistry.azurecr.cn
+2020/11/20 04:33:45 Logging in to registry: mycontainerregistrydate.azurecr.cn
+2020/11/20 04:33:47 Successfully logged into mycontainerregistrydate.azurecr.cn
+2020/11/20 04:33:47 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:47 Scanning for dependencies...
+2020/11/20 04:33:47 Successfully scanned dependencies
+2020/11/20 04:33:47 Launching container with name: acb_step_0
 Sending build context to Docker daemon  25.09kB
-
 [...]
-
 Successfully tagged mycontainerregistry.azurecr.cn/hello-world:cf1g
-2019/05/03 04:33:55 Successfully executed container: acb_step_0
-2019/05/03 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:55 Scanning for dependencies...
-2019/05/03 04:33:56 Successfully scanned dependencies
-2019/05/03 04:33:56 Launching container with name: acb_step_1
+2020/11/20 04:33:55 Successfully executed container: acb_step_0
+2020/11/20 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:55 Scanning for dependencies...
+2020/11/20 04:33:56 Successfully scanned dependencies
+2020/11/20 04:33:56 Launching container with name: acb_step_1
 Sending build context to Docker daemon  25.09kB
-
 [...]
-
 Successfully tagged mycontainerregistrydate.azurecr.cn/hello-world:20190503-043342z
-2019/05/03 04:33:57 Successfully executed container: acb_step_1
-2019/05/03 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:57 Launching container with name: acb_step_2
+2020/11/20 04:33:57 Successfully executed container: acb_step_1
+2020/11/20 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:57 Launching container with name: acb_step_2
 721437ff674051b6be63cbcd2fa8eb085eacbf38d7d632f1a079320133182101
-2019/05/03 04:33:58 Successfully executed container: acb_step_2
-2019/05/03 04:33:58 Executing step ID: acb_step_3. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:33:58 Launching container with name: acb_step_3
+2020/11/20 04:33:58 Successfully executed container: acb_step_2
+2020/11/20 04:33:58 Executing step ID: acb_step_3. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:33:58 Launching container with name: acb_step_3
 test
-2019/05/03 04:34:09 Successfully executed container: acb_step_3
-2019/05/03 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:34:09 Pushing image: mycontainerregistry.azurecr.cn/hello-world:cf1g, attempt 1
+2020/11/20 04:34:09 Successfully executed container: acb_step_3
+2020/11/20 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
+2020/11/20 04:34:09 Pushing image: mycontainerregistry.azurecr.cn/hello-world:cf1g, attempt 1
 The push refers to repository [mycontainerregistry.azurecr.cn/hello-world]
-
 [...]
-
-2019/05/03 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.cn/hello-world:cf1g
-2019/05/03 04:34:12 Pushing image: mycontainerregistrydate.azurecr.cn/hello-world:20190503-043342z, attempt 1
+2020/11/20 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.cn/hello-world:cf1g
+2020/11/20 04:34:12 Pushing image: mycontainerregistrydate.azurecr.cn/hello-world:20190503-043342z, attempt 1
 The push refers to repository [mycontainerregistrydate.azurecr.cn/hello-world]
-
 [...]
-
-2019/05/03 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.cn/hello-world:20190503-043342z
-2019/05/03 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
-2019/05/03 04:34:19 Populating digests for step ID: acb_step_0...
-2019/05/03 04:34:21 Successfully populated digests for step ID: acb_step_0
-2019/05/03 04:34:21 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.009281)
-2019/05/03 04:34:21 Populating digests for step ID: acb_step_1...
-2019/05/03 04:34:23 Successfully populated digests for step ID: acb_step_1
-2019/05/03 04:34:23 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 0.795440)
-2019/05/03 04:34:23 Step ID: acb_step_3 marked as successful (elapsed time in seconds: 11.446775)
-2019/05/03 04:34:23 Step ID: acb_step_4 marked as successful (elapsed time in seconds: 9.734973)
-2019/05/03 04:34:23 The following dependencies were found:
-2019/05/03 04:34:23
+2020/11/20 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.cn/hello-world:20190503-043342z
+2020/11/20 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
+2020/11/20 04:34:19 Populating digests for step ID: acb_step_0...
+2020/11/20 04:34:21 Successfully populated digests for step ID: acb_step_0
+2020/11/20 04:34:21 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.009281)
+2020/11/20 04:34:21 Populating digests for step ID: acb_step_1...
+2020/11/20 04:34:23 Successfully populated digests for step ID: acb_step_1
+2020/11/20 04:34:23 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 0.795440)
+2020/11/20 04:34:23 Step ID: acb_step_3 marked as successful (elapsed time in seconds: 11.446775)
+2020/11/20 04:34:23 Step ID: acb_step_4 marked as successful (elapsed time in seconds: 9.734973)
+2020/11/20 04:34:23 The following dependencies were found:
+2020/11/20 04:34:23
 - image:
     registry: mycontainerregistry.azurecr.cn
     repository: hello-world
@@ -433,7 +419,7 @@ The push refers to repository [mycontainerregistrydate.azurecr.cn/hello-world]
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 9d9023473c46a5e2c315681b11eb4552ef0faccc
@@ -445,7 +431,7 @@ The push refers to repository [mycontainerregistrydate.azurecr.cn/hello-world]
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
-    tag: 9-alpine
+    tag: 15-alpine
     digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
     git-head-revision: 9d9023473c46a5e2c315681b11eb4552ef0faccc

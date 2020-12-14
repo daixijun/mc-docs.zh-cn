@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: 8a1ebe9bd496843b099f1fb9786808ec27d5708d
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: 0c5632008eeb5da077e8b1e4064232fed85e833f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104677"
 ---
 # <a name="authentication"></a>身份验证
 
@@ -23,4 +23,4 @@ ms.locfileid: "96231138"
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-[Azure Active Directory (Azure AD) 身份验证](/active-directory/authentication/overview-authentication)利用从 Azure Active Directory 获取的持有者令牌对请求进行身份验证。 若要详细了解如何授权使用此身份验证方法的请求，可参阅 [Azure AD 授权](./rest-api-authorization-azure-ad.md)部分。
+[Azure Active Directory (Azure AD) 身份验证](../active-directory/authentication/overview-authentication.md)利用从 Azure Active Directory 获取的持有者令牌对请求进行身份验证。 若要详细了解如何授权使用此身份验证方法的请求，可参阅 [Azure AD 授权](./rest-api-authorization-azure-ad.md)部分。

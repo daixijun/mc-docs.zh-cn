@@ -4,15 +4,15 @@ description: API 管理的 Azure 安全基线
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 817f6e07feb0975f11eeeacb8fa47d335392d1cc
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 508329605a6c82fc2f4767f730cfe668ca1dd87e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306417"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104408"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API 管理的 Azure 安全基线
 
@@ -26,7 +26,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络上使用网络安全组或 Azure 防火墙来保护资源
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
 
 **指南**：可以将 Azure API 管理部署到 Azure 虚拟网络 (Vnet) 内部，以便它可以访问该网络中的后端服务。 可以将开发人员门户和 API 管理网关配置为可以从 Internet（外部）访问或只能在 Vnet（内部）内访问。
 - 外部：可以通过外部负载均衡器从公共 Internet 访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
@@ -265,7 +265,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -293,7 +293,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 * [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 
-* [了解 Log Analytics 工作区](../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何与 Azure Application Insights 集成](./api-management-howto-app-insights.md)
 
@@ -341,7 +341,7 @@ API 管理的 Azure 安全基线包含可帮助你改善部署安全状态的建
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -492,7 +492,7 @@ Azure API 管理订阅是保护对 API 的访问的一种方法，但会附带�
 
 * [如何在 Azure API 管理中管理用户帐户](./api-management-howto-create-or-invite-developers.md)
 
-* [如何获取 API 管理用户的列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuse)
+* [如何获取 API 管理用户的列表](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [如何创建和使用组来管理 Azure API 管理中的开发人员帐户](./api-management-howto-create-groups.md)
 
@@ -580,7 +580,7 @@ Microsoft 管理 Azure API 管理的底层基础结构，并实施了严格的�
 
 **指南**：通过 Azure 资源管理器经 TLS 进行管理平面调用。 需要有效 JSON web 令牌 (JWT)。 可以使用 TLS 和受支持的身份验证机制之一（例如客户端证书或 JWT）保护数据平面调用。
 
-* [了解 Azure API 管理中的数据保护](./api-management-security-controls.md#data-protection)
+* [了解 Azure API 管理中的数据保护](#data-protection)
 
 * [在 Azure API 管理中管理 TLS 设置](./api-management-howto-manage-protocols-ciphers.md)
 
@@ -616,7 +616,7 @@ Microsoft 管理 Azure API 管理的底层基础结构，并实施了严格的�
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7：使用基于主机的数据丢失防护来强制实施访问控制
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 Microsoft 管理 Azure API 管理的底层基础结构，并实施了严格的控制来防止客户数据丢失或泄露。
 
@@ -630,7 +630,7 @@ Microsoft 管理 Azure API 管理的底层基础结构，并实施了严格的�
 
 **指南**：敏感数据（例如证书、密钥以及使用机密命名的值）使用服务托管的、基于服务实例的密钥进行加密。 所有加密密钥均基于服务实例，并由服务管理。
 
-* [了解 Azure API 管理中的静态数据保护/加密](./api-management-security-controls.md#data-protection)
+* [了解 Azure API 管理中的静态数据保护/加密](#data-protection)
 
 **Azure 安全中心监视**：不适用
 
@@ -658,7 +658,7 @@ Microsoft 管理 Azure API 管理的底层基础结构，并实施了严格的�
 
 Microsoft 对基础平台进行了扫描和修补。 查看可用的安全控制，以减少与服务配置相关的漏洞。
 
-* [了解 Azure API 管理可用的安全控制](./api-management-security-controls.md)
+* [了解 Azure API 管理可用的安全控制]()
 
 **Azure 安全中心监视**：目前不可用
 
@@ -666,7 +666,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看可用的安全控制
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -674,7 +674,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看可用的安全控制
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3：部署第三方自动软件修补管理解决方案
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -682,7 +682,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看可用的安全控制
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4：比较连续进行的漏洞扫描
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -694,7 +694,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看可用的安全控制
 
 Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的安全控制，以减少与服务配置相关的漏洞。
 
-* [了解 Azure API 管理可用的安全控制](./api-management-security-controls.md)
+* [了解 Azure API 管理可用的安全控制]()
 
 **Azure 安全中心监视**：目前不可用
 
@@ -748,7 +748,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4：维护已批准的 Azure 资源和软件标题的清单
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -772,7 +772,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -780,7 +780,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7：删除未批准的 Azure 资源和软件应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -788,7 +788,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -810,7 +810,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="610-implement-approved-application-list"></a>6.10：实施已批准的应用程序列表
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -830,7 +830,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12：限制用户在计算资源中执行脚本的功能
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -862,7 +862,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2：建立安全的操作系统配置
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -882,7 +882,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4：维护安全的操作系统配置
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -890,7 +890,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -910,7 +910,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8：为操作系统部署系统配置管理工具
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -922,8 +922,6 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 此外，使用 Azure Policy 为 Azure API 管理服务定义和实施标准安全配置。 在“Microsoft.ApiManagement”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure API 管理实例的配置。 使用 Azure Policy [拒绝] 和 [不存在时部署] 在 Azure 资源中强制实施安全设置。
 
-* [了解 Azure API 管理 DevOps 资源工具包](./api-management-security-controls.md#configuration-management)
-
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 * [了解 Azure Policy 效果](../governance/policy/concepts/effects.md)
@@ -934,7 +932,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10：为操作系统实施自动配置监视
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -978,7 +976,7 @@ Microsoft 对基础平台进行了扫描和修补。 客户查看他们可用的
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 在支持 Azure 服务（例如 Azure API 管理）的底层主机上已启用 Microsoft 反恶意软件，但是，该软件不会针对客户内容运行。
 
@@ -1092,7 +1090,7 @@ API 管理的服务备份和还原功能为实现灾难恢复策略提供必要�
 
 **指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 * [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 

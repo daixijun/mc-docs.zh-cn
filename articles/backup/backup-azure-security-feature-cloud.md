@@ -4,14 +4,14 @@ description: 了解如何在 Azure 备份中使用安全功能，使备份更加
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 89fb4ba146c2f81d2fe2d0f9950ffc1da393da7e
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 46a8e630d4a3898fdf3369687557accb233291b3
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871118"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105048"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure 备份的软删除
 
@@ -90,11 +90,11 @@ SoftDeleteFeatureState : Disabled
 
 5. 选择“删除备份数据”，永久删除备份数据。
 
-   ![选择“删除备份数据”](/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![选择“删除备份数据”](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. 键入备份项的名称以确认你要删除恢复点。
 
-   ![键入备份项的名称](/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![键入备份项的名称](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. 若要删除项的备份数据，请选择“删除”。 一条通知消息将让你获悉备份数据已删除。
 

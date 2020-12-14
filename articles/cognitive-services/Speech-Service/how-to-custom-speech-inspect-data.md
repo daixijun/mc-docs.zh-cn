@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 09/23/2020
-ms.date: 10/16/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7acf09d3eaaf255b523d8719e1e6e053e171ff49
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 5f67051b53a07415f6411629671986852b9c8edf
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128128"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004079"
 ---
 # <a name="inspect-custom-speech-data"></a>检查自定义语音识别数据
 
 > [!NOTE]
-> 此页假定你已阅读[准备自定义语音识别的测试数据](how-to-custom-speech-test-data.md)，并已上传用于检查的数据集。
+> 此页假定你已阅读[准备自定义语音识别的测试数据](./how-to-custom-speech-test-and-train.md)，并已上传用于检查的数据集。
 
 自定义语音识别提供的工具可以将音频数据与相应的识别结果进行比较，因此可以通过视觉方式检查模型的质量。 在[自定义语音识别门户](https://speech.azure.cn/customspeech)中，你可以播放上传的音频，确定提供的识别结果是否正确。 此工具可帮助检查 Microsoft 的基线语音转文本模型的质量，检查经过训练的自定义模型，或者比较两个模型的听录内容。
 
@@ -36,7 +36,7 @@ ms.locfileid: "92128128"
 3. 单击“添加测试”。
 4. 选择“检查质量(仅音频数据)”。 为测试提供名称和说明，然后选择你的音频数据集。
 5. 选择最多两个要测试的模型。
-6. 单击 **创建** 。
+6. 单击 **创建**。
 
 成功创建测试后，你可以查看模型对指定的音频数据集的转录方式，或将两个模型中的结果并行进行比较。
 
@@ -105,4 +105,4 @@ ms.locfileid: "92128128"
 
 ## <a name="additional-resources"></a>其他资源
 
-- [准备自定义语音识别的测试数据](how-to-custom-speech-test-data.md)
+- [准备自定义语音识别的测试数据](./how-to-custom-speech-test-and-train.md)

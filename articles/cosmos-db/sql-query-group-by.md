@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的 GROUP BY 子句
 description: 了解 Azure Cosmos DB 的 GROUP BY 子句。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7f1c08e616eeccfb602278b0f9c78d5adcbb7169
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: e5b3eb001b4fcb15399a4817005fc99eb1c77979
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552688"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850716"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 GROUP BY 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

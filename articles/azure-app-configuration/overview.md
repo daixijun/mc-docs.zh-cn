@@ -1,17 +1,17 @@
 ---
 title: 什么是 Azure 应用程序配置？
-description: Azure 应用配置服务的概述。
+description: 阅读 Azure 应用程序配置服务的概述。 了解为什么要使用应用程序配置，并了解如何使用它。
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/19/2020
-ms.openlocfilehash: 84edb5160659d7a6b9089dad3bc7fcce7419e75b
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.date: 12/14/2020
+ms.openlocfilehash: 796a7dcac23893b8a2a30a9e565622ee64277926
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866726"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104979"
 ---
 # <a name="what-is-azure-app-configuration"></a>什么是 Azure 应用程序配置？
 

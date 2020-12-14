@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 190e70294438aabe4982fe3e62dcab72493b927b
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 301ea3d250d3a476e1c8ef308e629f50e6323520
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118027"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105285"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Ubuntu Data Science Virtual Machine
 
@@ -25,13 +25,13 @@ ms.locfileid: "92118027"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
+[![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPUdeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
-* 若要从本地环境**** 使用本文档中的 CLI 命令，需要使用 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="review-the-template"></a>查看模板
 

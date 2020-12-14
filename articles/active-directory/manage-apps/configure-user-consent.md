@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 15c80e4c0d6d926db91f8dad209f58a769ac1d7f
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 3c517c3217e24c5a922ff28bb600dea43e54bdc6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501871"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004090"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>配置最终用户如何对应用程序表示同意
 
@@ -57,7 +57,7 @@ ms.locfileid: "94501871"
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-可以使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)，以选择由哪个应用同意策略来管理用户对应用程序的同意。
+可以使用最新的 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)，以选择由哪个应用同意策略来管理用户对应用程序的同意。
 
 #### <a name="disable-user-consent"></a>禁用用户同意
 
@@ -110,9 +110,9 @@ Set-AzureADMSAuthorizationPolicy `
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>使用 PowerShell 禁用或重新启用基于风险的升级同意
 
-可使用 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)，以禁用在 Microsoft 检测到风险时需要获得管理员同意的升级，或重新启用此功能（如果之前已禁用）。
+可使用 Azure AD PowerShell 预览版模块 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)，以禁用在 Microsoft 检测到风险时需要获得管理员同意的升级，或重新启用此功能（如果之前已禁用）。
 
-1. 请确保使用 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块。 如果同时安装了 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 模块和 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块，则此步骤非常重要。
+1. 请确保使用 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块。 如果同时安装了 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) 模块和 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块，则此步骤非常重要。
 
     ```powershell
     Remove-Module AzureAD
@@ -176,7 +176,7 @@ Set-AzureADMSAuthorizationPolicy `
 * [配置用户同意设置](configure-user-consent.md)
 * [管理应用同意策略](manage-app-consent-policies.md)
 * [向应用程序授予租户范围的管理许可](grant-admin-consent.md)
-* [Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+* [Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 获取帮助或查找问题的答案：
 * [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

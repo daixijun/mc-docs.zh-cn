@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 06/09/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 904040277f16c15adfe0aa8e842dd24cebf55687
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 5cab996a4fdef0468cc714742ea4e9823c6ee13b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300028"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004080"
 ---
 # <a name="cicd-for-custom-speech"></a>自定义语音识别的 CI/CD
 

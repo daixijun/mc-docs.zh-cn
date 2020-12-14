@@ -10,7 +10,7 @@
       href: require-tou.md
 - name: 教程
   items:
-    - name: 需要 Azure 多重身份验证
+    - name: 需要 Azure AD 多重身份验证
       href: ../authentication/tutorial-enable-azure-mfa.md
 - name: 概念
   expanded: false
@@ -80,7 +80,7 @@
           href: troubleshoot-conditional-access.md
         - name: 使用 What If 工具排查问题
           href: troubleshoot-conditional-access-what-if.md
-        - name: 常见问题
+        - name: 常见问题解答
           href: faqs.md
     - name: 迁移经典策略
       href: policy-migration-mfa.md

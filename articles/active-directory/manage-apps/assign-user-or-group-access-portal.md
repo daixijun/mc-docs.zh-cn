@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: d32d7f06c73d8fd9a1d59471d38493bf1cf086c9
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c571319a7ffb507a7b722b28289fd59307dac0a1
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245309"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003877"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>在 Azure Active Directory 中管理应用的用户分配
 
@@ -54,7 +54,7 @@ ms.locfileid: "91245309"
 1. 以提升的权限打开 Windows PowerShell 命令提示符。
    > [!NOTE]
    > 需要安装 AzureAD 模块（使用命令 `Install-Module -Name AzureAD`）。 出现安装 NuGet 模块或新的 Azure Active Directory V2 PowerShell 模块的提示时，请键入 Y，然后按 ENTER。
-1. 运行 `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud` 并使用全局管理员用户帐户登录。
+2. 运行 `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud` 并使用全局管理员用户帐户登录。
 3. 使用以下脚本将用户和角色分配到应用程序：
 
     ```powershell
@@ -136,5 +136,5 @@ ms.locfileid: "91245309"
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [删除企业应用的用户分配](remove-user-or-group-access-portal.md)
 - [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
-- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+- [Change the name or logo of an enterprise app](./add-application-portal-configure.md)
 

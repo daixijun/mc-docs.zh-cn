@@ -3,16 +3,16 @@ title: 配置 Azure 应用程序配置的托管标识
 description: 了解托管标识在 Azure 应用程序配置中的工作原理以及如何配置托管标识
 author: barbkess
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 12/14/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1a60a5b0d9344339240a042ceb9c09bdd7b782b6
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 8fd6446185582057a9c10abb43cc086e961f7380
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190311"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104983"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>如何将托管标识用于 Azure 应用程序配置
 
@@ -30,6 +30,8 @@ ms.locfileid: "96190311"
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
 若要使用 Azure CLI 设置托管标识，请对现有配置存储区使用 [az appconfig identity assign] 命令。 运行本部分中的示例有三个选项：
+
+<!--Cloud Shell-->
 
 - 如果想要使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.1 或更高版本）。
 
@@ -61,6 +63,8 @@ ms.locfileid: "96190311"
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
 若要使用 Azure CLI 设置托管标识，请对现有配置存储区使用 [az appconfig identity assign] 命令。 运行本部分中的示例有三个选项：
+
+<!--Cloud Shell-->
 
 - 如果喜欢使用本地 CLI 控制台，请[安装最新版 Azure CLI](/cli/install-azure-cli)（2.0.31 或更高版本）。
 
@@ -95,12 +99,12 @@ ms.locfileid: "96190311"
 
 ## <a name="removing-an-identity"></a>删除标识
 
-可通过使用 Azure CLI 中的 [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) 命令禁用此功能来删除系统分配的标识。 可以单独删除用户分配的标识。 以这种方式删除系统分配的标识也会将它从 AAD 中删除。 删除应用资源时，也将自动从 AAD 中删除系统分配的标识。
+可通过使用 Azure CLI 中的 [az appconfig identity remove](https://docs.azure.cn/cli/appconfig/identity#az_appconfig_identity_remove) 命令禁用此功能来删除系统分配的标识。 可以单独删除用户分配的标识。 以这种方式删除系统分配的标识也会将它从 AAD 中删除。 删除应用资源时，也将自动从 AAD 中删除系统分配的标识。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [使用 Azure 应用配置创建 ASP.NET Core 应用](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: https://docs.azure.cn/cli/appconfig/identity#az_appconfig_identity_assign
+[az login]: https://docs.azure.cn/cli/reference-index#az_login

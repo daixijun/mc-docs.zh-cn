@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 11/19/2019
-ms.date: 08/24/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: b05584d4801e463d0dba1e23c010a06099175eb6
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 74056151c9c6d00b881761868e9249f87cce5a15
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432488"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850412"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>教程：使用 Azure HDInsight 提取、转换和加载数据
 
@@ -33,13 +33,13 @@ ms.locfileid: "96432488"
 
 * **一个针对 HDInsight 配置的 Azure Data Lake Storage Gen2 存储帐户**
 
-    请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)。
+    请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)。
 
 * **HDInsight 上基于 Linux 的 Hadoop 群集**
 
-    请参阅[快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive](/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)。
+    请参阅[快速入门：通过 Azure 门户在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)。
 
-* **Azure SQL 数据库**：使用 Azure SQL 数据库作为目标数据存储。 如果 Azure SQL 数据库中没有数据库，请参阅[通过 Azure 门户在 Azure SQL 数据库中创建数据库](../../sql-database/sql-database-get-started.md)。
+* **Azure SQL 数据库**：使用 Azure SQL 数据库作为目标数据存储。 如果 Azure SQL 数据库中没有数据库，请参阅[通过 Azure 门户在 Azure SQL 数据库中创建数据库](../../azure-sql/database/single-database-create-quickstart.md)。
 
 * **Azure CLI**：如果尚未安装 Azure CLI，请参阅 [安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
@@ -345,4 +345,4 @@ ms.locfileid: "96432488"
 若要了解使用 HDInsight 中的数据的更多方式，请参阅以下文章：
 
 > [!div class="nextstepaction"]
-> [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fstorage%2fblobs%2ftoc.json)
+> [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fstorage%2fblobs%2ftoc.json)

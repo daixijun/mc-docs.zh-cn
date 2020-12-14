@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: ab741104e67d48a0e9e33be0dde4f6def154f991
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: d1dba0712345c15041ebeaaaec363ce8798522d7
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501706"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003692"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>如何：为租户中的特定应用自定义在令牌中发出的声明（预览版）
 
@@ -239,6 +239,9 @@ ms.locfileid: "94501706"
 
 若要控制要发出的声明以及数据的来源，请使用声明映射策略的属性。 如果未设置策略，则系统将颁发包括核心声明集、基本声明集以及应用程序已选择接收的任何[可选声明](active-directory-optional-claims.md)的令牌。
 
+> [!NOTE]
+> 核心声明集中的声明存在于每个令牌中（与此属性的设置无关）。
+
 ### <a name="include-basic-claim-set"></a>包括基本声明集
 
 **字符串：** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ ms.locfileid: "94501706"
 - 如果设置为 True，则会在受策略影响的令牌中发出基本声明集中的所有声明。
 - 如果设置为 False，基本声明集中的声明不包含在令牌中，除非在相同策略的声明架构属性中单独添加它们。
 
-> [!NOTE]
-> 核心声明集中的声明存在于每个令牌中（与此属性的设置无关）。
+
 
 ### <a name="claims-schema"></a>声明架构
 
@@ -439,8 +441,7 @@ https://login.partner.microsoftonline.cn/{tenant}/v2.0/.well-known/openid-config
 
 在 Azure AD 中，在可以为特定服务主体自定义令牌中发出的声明时，可以实现许多方案。 在此部分中，我们会演练几个常见方案，它们可帮助你理解如何使用声明映射策略类型。
 
-> [!NOTE]
-> 创建声明映射策略时，还可以根据令牌中的目录架构扩展属性发出声明。 使用与扩展属性对应的 ExtensionID，而不是 `ClaimsSchema` 元素中的 ID。  有关扩展属性的更多信息，请参阅[使用目录架构扩展属性](active-directory-schema-extensions.md)。
+创建声明映射策略时，还可以根据令牌中的目录架构扩展属性发出声明。 使用与扩展属性对应的 ExtensionID，而不是 `ClaimsSchema` 元素中的 ID。  有关扩展属性的更多信息，请参阅[使用目录架构扩展属性](active-directory-schema-extensions.md)。
 
 #### <a name="prerequisites"></a>先决条件
 

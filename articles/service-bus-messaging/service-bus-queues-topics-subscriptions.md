@@ -4,16 +4,16 @@ description: 本文概述了 Azure 服务总线消息实体（队列、主题和
 ms.topic: article
 origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 16520d01b8b327d54debace3934cc21f72801d36
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5e04ea1754fd32ce684ea985770b791c0d4f6fff
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977963"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105232"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
 Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久发布/订阅消息。 这些中转消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点。 例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。
@@ -28,7 +28,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 使用队列在消息创建方与使用方之间中继可在各组件之间提供固有的松散耦合。 由于创建方和使用方互不相识，因此，可升级使用方，而不会对创建方产生任何影响。
 
 ### <a name="create-queues"></a>创建队列
-可以使用 [Azure 门户](service-bus-quickstart-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-quickstart-cli.md) 或[资源管理器模板](service-bus-resource-manager-namespace-queue.md)创建队列。 然后，使用以 [C#](service-bus-dotnet-get-started-with-queues.md)、[Java](service-bus-java-how-to-use-queues.md)、[Python](service-bus-python-how-to-use-queues.md)、[JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md)、[PHP](service-bus-php-how-to-use-queues.md) 和 [Ruby](service-bus-ruby-how-to-use-queues.md) 编写的客户端发送和接收消息。 
+可以使用 [Azure 门户](service-bus-quickstart-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-quickstart-cli.md) 或[资源管理器模板](service-bus-resource-manager-namespace-queue.md)创建队列。 然后，使用以 [C#](service-bus-dotnet-get-started-with-queues.md)、[Java](service-bus-java-how-to-use-queues.md)、[Python](service-bus-python-how-to-use-queues.md)、[JavaScript](service-bus-nodejs-how-to-use-queues.md)、[PHP](service-bus-php-how-to-use-queues.md) 和 [Ruby](service-bus-ruby-how-to-use-queues.md) 编写的客户端发送和接收消息。 
 
 ### <a name="receive-modes"></a>接收模式
 可以指定服务总线接收消息所用的两种不同模式：ReceiveAndDelete  或 PeekLock  。 在 [ReceiveAndDelete](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.receivemode) 模式下，当服务总线收到来自使用者的请求时，它会将该消息标记为“正在使用”，并将其返回给使用者应用程序。 此模式是最简单的模型。 它最适合应用程序允许在出现故障时不处理消息的方案。 为了理解此方案，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“正在使用”，应用程序会在重新启动后开始使用消息。 它会丢失在发生故障前使用的消息。
@@ -51,7 +51,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 队列的消息发送功能直接映射到主题，而其消息接收功能映射到订阅。 此外，此功能意味着订阅支持本部分中前面有关队列所述的相同模式：竞争使用者、临时分离、负荷量和负载均衡。
 
 ### <a name="create-topics-and-subscriptions"></a>创建主题和订阅
-创建主题与创建队列类似，如前一部分中所述。 可以使用 [Azure 门户](service-bus-quickstart-topics-subscriptions-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-tutorial-topics-subscriptions-cli.md) 或[资源管理器模板](service-bus-resource-manager-namespace-topic.md)创建主题和订阅。 然后，使用以 [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)、[Java](service-bus-java-how-to-use-topics-subscriptions.md)、[Python](service-bus-python-how-to-use-topics-subscriptions.md)、[JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)、[PHP](service-bus-php-how-to-use-topics-subscriptions.md) 和 [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md) 编写的客户端将消息发送到主题并从订阅接收消息。 
+创建主题与创建队列类似，如前一部分中所述。 可以使用 [Azure 门户](service-bus-quickstart-topics-subscriptions-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-tutorial-topics-subscriptions-cli.md) 或[资源管理器模板](service-bus-resource-manager-namespace-topic.md)创建主题和订阅。 然后，使用以 [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)、[Java](service-bus-java-how-to-use-topics-subscriptions.md)、[Python](service-bus-python-how-to-use-topics-subscriptions.md)、[JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)、[PHP](service-bus-php-how-to-use-topics-subscriptions.md) 和 [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md) 编写的客户端将消息发送到主题并从订阅接收消息。 
 
 ### <a name="rules-and-actions"></a>规则和操作
 在许多情况下，必须以不同方式处理具有特定特征的消息。 若要启用此处理，可配置订阅以找到具有所需属性的消息，并对这些属性执行某些修改。 虽然服务总线订阅可以看到发送到主题的所有消息，但你仅可以将这些消息的一个子集复制到虚拟订阅队列。 可使用订阅筛选器完成此筛选。 此类修改称为筛选器操作  。 创建订阅后，你可以提供对消息属性进行操作的筛选表达式。 这些属性可以是系统属性（例如“标签”），也可以是自定义应用程序属性（例如“StoreName” 。）SQL 筛选器表达式在此示例中为可选。 如果没有 SQL 筛选器表达式，会对该订阅的所有消息执行在订阅上定义的任何筛选器操作。

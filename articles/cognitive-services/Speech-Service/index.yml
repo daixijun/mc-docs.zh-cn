@@ -12,14 +12,14 @@ metadata:
   ms.service: speech-service
   ms.topic: hub-page
   origin.date: 03/24/2020
-  ms.date: 11/20/2020
+  ms.date: 12/10/2020
   ms.author: v-tawe
-  ms.openlocfilehash: d4c13607ff1e03d2625141de8699bd7685149da4
-  ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+  ms.openlocfilehash: cd7b051257417c4c1eac0aa56c7b77f47153759e
+  ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94978212"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97004144"
 highlightedContent:
   items:
   - title: 什么是语音服务？
@@ -127,7 +127,7 @@ tools:
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: https://aka.ms/csspeech/javaref
-  - title: JavaScript
+  - title: Javascript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
     url: https://aka.ms/csspeech/javascriptref
   - title: Objective-C 和 Swift

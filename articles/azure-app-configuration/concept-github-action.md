@@ -2,16 +2,16 @@
 title: 将 GitHub 存储库同步到应用程序配置
 description: 使用 GitHub Actions 在更新 GitHub 存储库后自动更新应用程序配置实例。
 author: lisaguthrie
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: b7ee8f9cc76c93f2afbada40ba150489b1076cb8
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: f952c6f48463eb5047ddb55df5dc6412cc0919ba
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866681"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105220"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>将 GitHub 存储库同步到应用程序配置
 
@@ -211,7 +211,7 @@ jobs:
 ## <a name="use-azure-key-vault-with-github-action"></a>结合使用 Azure Key Vault 与 GitHub 操作
 如果结合使用 Azure Key Vault 与 AppConfiguration，开发人员应使用两个单独的文件，它们通常是 appsettings.json 和 secretreferences.json。 secretreferences.json 包含密钥保管库机密的 URL。
 
-{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}" }
+{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.cn/secrets/mySecret"}" }
 
 然后，可以将 GitHub 操作配置为，对 appsettings.json 执行严格同步，随后对 secretreferences.json 执行非严格同步。 下面的示例在任何一个文件更新时触发同步：
 

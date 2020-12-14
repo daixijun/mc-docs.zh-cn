@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 08/17/2017
-ms.openlocfilehash: 6ea6cebf3d2ada0893dc2e06f1a0c2b630a96804
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: fed86de2cb97c3ba0d6690a9845726b5fdb3e1cd
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637970"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105197"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威胁建模工具入门
 
 Microsoft Threat Modeling Tool 2018 在 2018 年 9 月作为 GA 发布，是免费的[单击下载](https://aka.ms/threatmodelingtool)版本。 交付机制中的更改使我们能够在客户每次打开该工具时向他们推送最新的改进和 bug 修复，使其更易于维护和使用。
 本文将指导你开始使用 Microsoft SDL 威胁建模方法的过程，并演示如何使用该工具来开发优秀的威胁模型，以作为安全进程的主干。
 
-本文基于 SDL 威胁建模方法的现有认知。 若要快速查看，请参阅[威胁建模 Web 应用程序](https://msdn.microsoft.com/library/ms978516.aspx)。
+本文基于 SDL 威胁建模方法的现有认知。 若要快速查看，请参阅[威胁建模 Web 应用程序](https://docs.microsoft.com/previous-versions/msp-n-p/ff648006(v=pandp.10))。
 
 简而言之，此方法涉及创建关系图、识别威胁、缓解问题和验证每个缓解操作。 下面是一个重点介绍此过程的关系图：
 

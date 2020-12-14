@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: Johnnytechn
   ms.author: v-johya
-  ms.date: 11/18/2020
-  ms.openlocfilehash: dbd299039515c6e589b9da6ab21d6ac7ba2d4b2f
-  ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+  ms.date: 12/11/2020
+  ms.openlocfilehash: 4284f99f25fdcefe91181efa6660ac70a1648513
+  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/29/2020
-  ms.locfileid: "96306213"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97104944"
 landingContent:
 - title: 关于 API 管理
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
     - text: 8. 发布 API 的多个版本
       url: api-management-get-started-publish-versions.md
     - text: 9. 自定义开发人员门户页面的样式
-      url: api-management-customize-styles.md
+      url: api-management-howto-developer-portal-customize.md
 - title: 示例
   linkLists:
   - linkListType: sample

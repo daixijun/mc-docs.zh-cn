@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 09/06/2019
-ms.date: 03/02/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 00b710faefbd7f99170221a260665db702f1af34
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 75b36f30fd4f89651e4f0df8a8a97e23d261047c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211617"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004078"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>如何创建人为标记的听录
 
@@ -165,7 +165,7 @@ ms.locfileid: "92211617"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [准备和测试数据](how-to-custom-speech-test-data.md)
+- [准备和测试数据](./how-to-custom-speech-test-and-train.md)
 - [检查数据](how-to-custom-speech-inspect-data.md)
 - [评估数据](how-to-custom-speech-evaluate-data.md)
 - [训练模型](how-to-custom-speech-train-model.md)

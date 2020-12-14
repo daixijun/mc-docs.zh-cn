@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 7333516294c55d9967819f05ebb813e8caa9f594
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 220f871c579e4a032e7de00aeaae3d87e88ee90c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977534"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104500"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>将训练数据从各种数据源导入 Azure 机器学习工作室（经典）
 
@@ -55,7 +55,7 @@ ms.locfileid: "94977534"
 * SQL 数据库表
 * OData 值
 * SVMLight 数据 (.svmlight)（有关格式的信息，请参阅 [SVMLight 定义](http://svmlight.joachims.org/)）
-* 属性关系文件格式 (ARFF) 数据 (.arff)（有关格式的信息，请参阅 [ARFF 定义](https://weka.wikispaces.com/ARFF)）
+* 属性关系文件格式 (ARFF) 数据 (.arff)（有关格式的信息，请参阅 [ARFF 定义](https://www.cs.waikato.ac.nz/ml/weka/arff.html)）
 * Zip 文件 (.zip)
 * R 对象或工作区文件 (.RData)
 

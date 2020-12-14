@@ -8,14 +8,14 @@ ms.author: v-tawe
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 10/07/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: e6bba193d342451ab967166a523563a3b66afe16
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 11/27/2020
+ms.date: 12/10/2020
+ms.openlocfilehash: 4fd6a0646ba73dffc5f1feeb76a64d4900268b7d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300068"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003622"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中为复杂数据类型建模
 
@@ -63,8 +63,6 @@ Azure 认知搜索原生支持复杂类型和集合。 使用这些类型几乎�
   ]
 }
 ```
-
-<a name="indexing-complex-types></a>
 
 ## <a name="indexing-complex-types"></a>为复杂类型编制索引
 

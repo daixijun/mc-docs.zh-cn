@@ -2,23 +2,25 @@
 title: 排查使用 Java v4 SDK 时出现的“Azure Cosmos DB 服务不可用”异常
 description: 了解如何诊断和修复使用 Java v4 SDK 时出现的“Azure Cosmos DB 服务不可用”异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 10/28/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 1ec10ced10d5cd642b51e7b6570360ca16293d0a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d41797ff83aeb09740ff9186391d0f96e79e3aa4
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552273"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850790"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-service-unavailable-exceptions"></a>诊断和排查“Azure Cosmos DB Java v4 SDK 服务不可用”异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 Java v4 SDK 无法连接到 Azure Cosmos DB。
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤
@@ -43,5 +45,4 @@ Exception in thread "main" ServiceUnavailableException{userAgent=azsdk-java-cosm
 * [诊断和排查](troubleshoot-java-sdk-v4-sql.md)使用 Azure Cosmos DB Java v4 SDK 时遇到的问题。
 * 了解 [Java v4 SDK](performance-tips-java-sdk-v4-sql.md) 的性能准则。
 
-<!-- Update_Description: new article about troubleshoot service unavailable java sdk v4 sql -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.subservice: alerts
 author: Johnnytechn
 origin.date: 01/28/2018
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.author: v-johya
-ms.openlocfilehash: 88ca5ed0a971fc84ad6cb6c32e362174e6ef47bd
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fa887df9f7c3e70e184d874b1a213cb5f5ea90f2
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328449"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104524"
 ---
 # <a name="smart-groups"></a>智能组
 
@@ -36,7 +36,7 @@ ms.locfileid: "94328449"
 | 已确认 | 管理员已审查智能组，并已开始进行处理。 |
 | 已关闭 | 问题已解决。 关闭某个智能组后，可通过将其更改为另一种状态来重新打开它。 |
 
-[了解如何更改智能组的状态。](./alerts-managing-alert-states.md?toc=%252fazure-monitor%252ftoc.json)
+[了解如何更改智能组的状态。](./alerts-managing-alert-states.md?toc=%2fazure-monitor%2ftoc.json)
 
 > [!NOTE]
 >  更改智能组状态不会更改各个成员警报的状态。
@@ -61,6 +61,6 @@ ms.locfileid: "94328449"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [管理智能组](./alerts-managing-smart-groups.md?toc=%252fazure-monitor%252ftoc.json)
-- [更改警报和智能组状态](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [管理智能组](./alerts-managing-smart-groups.md?toc=%2fazure-monitor%2ftoc.json)
+- [更改警报和智能组状态](./alerts-managing-alert-states.md?toc=%2fazure-monitor%2ftoc.json)
 

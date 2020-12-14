@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: bc43d9a81820225a03a4d172e754373291b965b2
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e3e2ec0cb60f8d3d97768249bb300d104c255f66
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977513"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105283"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>使用 Azure 中的 Ubuntu Data Science Virtual Machine 完成数据科学任务
 
@@ -26,7 +26,7 @@ ms.locfileid: "94977513"
 
 必须具备以下先决条件，才能使用 Linux DSVM：
 
-* **Azure 订阅**。 若要获取 Azure 订阅，请参阅[立即创建免费的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* **Azure 订阅**。 若要获取 Azure 订阅，请参阅[立即创建免费的 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)。 有关预配虚拟机的信息，请参阅[预配 Ubuntu Data Science Virtual Machine](./release-notes.md)。
 * 计算机上安装了 [X2Go](https://wiki.x2go.org/doku.php) 且 XFCE 会话处于打开状态。 有关详细信息，请参阅[安装和配置 X2Go 客户端](dsvm-ubuntu-intro.md#x2go)。
 * 为获得更流畅的滚动体验，请在 DSVM 的 Firefox Web 浏览器中切换 `about:config` 中的 `gfx.xrender.enabled` 标记。 [了解详细信息](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 此外，考虑将 `mousewheel.enable_pixel_scrolling` 设置为 `False`。 [了解详细信息](https://support.mozilla.org/questions/981140)。
@@ -38,7 +38,7 @@ ms.locfileid: "94977513"
 > [!NOTE]
 > 本演练是使用 D2 v2 大小的 Linux DSVM（Ubuntu 18.04 版本）创建的。 可以使用这种大小的 DSVM 来完成本演练中演示的过程。
 
-如果需要更多存储空间，可以创建额外的磁盘，然后将它们附加到 DSVM。 这些磁盘使用 Azure 持久存储，这样即使是在服务器被重新调整大小或关闭的情况下，其数据仍会被保留。 若要添加磁盘并将其附加到 DSVM，请执行[将磁盘添加到 Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 中的步骤。 添加磁盘的步骤会使用已安装在 DSVM 上的 Azure CLI。 可以完全从 DSVM 中执行这些步骤。 另一个增加存储的选项是使用 [Azure 文件](../../storage/files/storage-how-to-use-files-linux.md)。
+如果需要更多存储空间，可以创建额外的磁盘，然后将它们附加到 DSVM。 这些磁盘使用 Azure 持久存储，这样即使是在服务器被重新调整大小或关闭的情况下，其数据仍会被保留。 若要添加磁盘并将其附加到 DSVM，请执行[将磁盘添加到 Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 中的步骤。 添加磁盘的步骤会使用已安装在 DSVM 上的 Azure CLI。 可以完全从 DSVM 中执行这些步骤。 另一个增加存储的选项是使用 [Azure 文件](../../storage/files/storage-how-to-use-files-linux.md)。
 
 若要下载数据，打开终端窗口，然后运行以下命令：
 

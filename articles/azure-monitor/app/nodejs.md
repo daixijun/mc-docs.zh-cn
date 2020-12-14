@@ -4,14 +4,14 @@ description: 使用 Application Insights 监视 Node.js 服务的性能并诊断
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 12/01/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: de79bafaa30a447afea0cae74cce5f96b98b741a
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 9c7eff7e742bbe4ab38618c4d26f2207de70bc08
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432413"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104759"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
@@ -421,11 +421,10 @@ client.config.PROPERTYNAME = VALUE;
 ## <a name="next-steps"></a>后续步骤
 
 * [在门户中监视遥测](./overview-dashboard.md)
-* [通过遥测编写分析查询](../log-query/get-started-portal.md)
+* [通过遥测编写分析查询](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.cn/
 [FAQ]: ../faq.md
-
 

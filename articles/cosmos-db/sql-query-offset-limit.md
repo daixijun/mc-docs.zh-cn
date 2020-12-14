@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 中的 OFFSET LIMIT 子句
 description: 了解在 Azure Cosmos DB 中进行查询时如何使用 OFFSET LIMIT 子句跳过某些特定值和采用某些特定值
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d8b0c0da7393f3bd585e339a1d60853b148585ed
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6f8b5d12469f77b7252bc07266d714068dc6a76e
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551696"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850694"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 OFFSET LIMIT 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

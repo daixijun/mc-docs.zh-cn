@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1a9e58d96dd9ad8f53f5fddd56cfce6b4bd986c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: ced692878cdfae8285791f3b074821812dff087c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118209"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104535"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命周期建模阶段
 
@@ -41,8 +41,8 @@ ms.locfileid: "92118209"
 ## <a name="how-to-do-it"></a>如何执行
 在此阶段中解决了三个主要任务：
 
-  * **特征工程** ：从原始数据创建数据特征，以实现模型定型。
-  * **模型定型** ：通过比较模型的成功指标，找出最能准确回答问题的模型。
+  * **特征工程**：从原始数据创建数据特征，以实现模型定型。
+  * **模型定型**：通过比较模型的成功指标，找出最能准确回答问题的模型。
   * 确定模型是否适用于生产。
 
 ### <a name="feature-engineering"></a>特性工程
@@ -63,18 +63,16 @@ ms.locfileid: "92118209"
    * 比较备用方法的成功指标，确定可回答问题的“最佳”解决方案。
 
 > [!NOTE]
-> **避免泄漏** ：若添加定型数据集外部数据，则会导致数据泄漏，因为此类数据允许模型或机器学习算法做出不切实际的良好预测。 泄露是数据科学家获得好到不真实的预测结果时会紧张的常见原因。 很难检测到这些依赖项。 为避免泄漏，通常需要在生成分析数据集、创建模型和评估结果准确性之间进行循环。 
+> **避免泄漏**：若添加定型数据集外部数据，则会导致数据泄漏，因为此类数据允许模型或机器学习算法做出不切实际的良好预测。 泄露是数据科学家获得好到不真实的预测结果时会紧张的常见原因。 很难检测到这些依赖项。 为避免泄漏，通常需要在生成分析数据集、创建模型和评估结果准确性之间进行循环。 
 > 
 > 
-
-我们提供包含 TDSP 的[自动化建模和报告工具](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling)，该工具能够运行多个算法和参数扫描以生成基准模型。 它还会生成基准建模报表，该报表汇总每个模型的性能和参数组合，包括变量重要性。 此过程可以进一步促进功能设计，因为它也是可以迭代的。 
 
 ## <a name="artifacts"></a>项目
 在此阶段中生成的项目包括：
 
    * [功能集](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md)：“数据定义”报表的“功能集”部分介绍了为建模开发的功能 。 它包括指向代码以生成功能的指针，以及说明如何生成功能的描述。
    * [模型报表](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md)：对于尝试过的每个模型，都会根据模板生成一个标准报表，用于详细介绍每次试验。
-   * **检查点决策** ：评估模型的性能是否足以用于生产。 要提出的一些关键问题有：
+   * **检查点决策**：评估模型的性能是否足以用于生产。 要提出的一些关键问题有：
      * 在给定测试数据的情况下，模型是否能充分地回答问题？ 
      * 是否应尝试备用方法？ 是否应收集其他数据、进行更多的功能设计或使用其他算法进行试验？
 

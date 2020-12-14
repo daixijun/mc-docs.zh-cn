@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 RAND
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RAND。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 09/16/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: e7c82491874e34b5e4d0c0b2b70f725f399ad42f
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 67dbcf59eb89721bca1ef74d01b048a2b9bcbb37
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552868"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850665"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

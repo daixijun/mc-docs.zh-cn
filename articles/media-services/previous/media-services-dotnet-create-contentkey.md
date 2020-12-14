@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6be0e38dce2a6734661b1dfffd0f751d4cedbd94
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f3ce777b57b9c917c9b28c00f214fb5406a8915c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245062"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004108"
 ---
 # <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
 
@@ -33,11 +33,11 @@ ms.locfileid: "91245062"
 > 
 > 
 
-媒体服务允许创建资产和传送加密的资产。 **ContentKey** 提供对**资产**的安全访问。 
+媒体服务允许创建资产和传送加密的资产。 **ContentKey** 提供对 **资产** 的安全访问。 
 
 创建新资产时（例如，[上传文件](media-services-dotnet-upload-files.md)之前），可以指定以下加密选项：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
-将资产传送到客户端时，可以使用以下两个加密选项之一[将资产配置为动态加密](media-services-dotnet-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
+将资产传送到客户端时，可以使用以下两个加密选项之一 [将资产配置为动态加密](media-services-dotnet-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
 加密的资产必须与 **ContentKey** 关联。 本文介绍如何创建内容密钥。
 

@@ -2,19 +2,20 @@
 title: 用于 Azure Cosmos DB API for MongoDB 的资源管理器模板
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB API for MongoDB。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 1227c89d61dfdef14547f365928a8bcf37d3daab
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2ce1aeb7ebea7db7fa0da596b3f44a16c9d3b4d6
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329149"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850839"
 ---
 <!--Verified successfully-->
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB MongoDB API 资源
@@ -524,5 +525,4 @@ ms.locfileid: "94329149"
 * [Azure Cosmos DB 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [排查常见 Azure 资源管理器部署错误](../azure-resource-manager/templates/common-deployment-errors.md)
 
-<!-- Update_Description: new article about templates samples mongodb -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

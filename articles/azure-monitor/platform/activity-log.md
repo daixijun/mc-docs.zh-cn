@@ -4,15 +4,15 @@ description: 查看 Azure 活动日志，并将其发送到 Azure Monitor 日志
 author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.subservice: logs
-ms.openlocfilehash: 4c33e1267e6596aa539879732736343324bea02f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 22311b39906d8900daaf97d2b44204f425803321
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328778"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104980"
 ---
 # <a name="azure-activity-log"></a>Azure 活动日志
 活动日志是 Azure 中的一种[平台日志](platform-logs-overview.md)，可用于深入了解订阅级别事件。 这包括何时修改了资源或何时启动了虚拟机等信息。 可以在 Azure 门户中查看活动日志，或在 PowerShell 和 CLI 中检索条目。 若要获得其他功能，应当创建诊断设置，以便将活动日志发送到 [Azure Monitor 日志](data-platform-logs.md)，发送到 Azure 事件中心以转发到 Azure 外部，或发送到 Azure 存储进行存档。 本文详细介绍了如何查看活动日志，以及如何将其发送到不同的目标。
@@ -50,7 +50,7 @@ ms.locfileid: "94328778"
 
 [创建诊断设置](diagnostic-settings.md)，以便将活动日志发送到 Log Analytics 工作区。 可以将任一订阅中的活动日志发送到最多五个工作区。 
 
-Log Analytics 工作区中的活动日志数据存储在名为 AzureActivity 的表中，可以在 [Log Analytics](../log-query/get-started-portal.md) 中使用[日志查询](../log-query/log-query-overview.md)来检索该表。 此表的结构因[日志条目类别](activity-log-schema.md)而异。 有关表属性的说明，请参阅 [Azure Monitor 数据参考](https://docs.microsoft.com/azure-monitor/reference/tables/azureactivity)。
+Log Analytics 工作区中的活动日志数据存储在名为 AzureActivity 的表中，可以在 [Log Analytics](../log-query/log-analytics-tutorial.md) 中使用[日志查询](../log-query/log-query-overview.md)来检索该表。 此表的结构因[日志条目类别](activity-log-schema.md)而异。 有关表属性的说明，请参阅 [Azure Monitor 数据参考](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity)。
 <!--Not available in MC: /azure-monitor/reference/tables/azureactivity-->
 
 例如，若要查看每个类别的活动日志记录计数，请使用以下查询。
@@ -318,7 +318,7 @@ Azure Log Analytics 监视解决方案不久就会被弃用，并将替换为一
             "allowedValues": [
               "chinaeast2"
             ],
-            "defaultValue": "australia central",
+            "defaultValue": "chinaeast2",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }

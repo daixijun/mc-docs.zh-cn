@@ -3,15 +3,15 @@ title: 智能检测 - Application Insights 中的失败异常 | Azure Docs
 description: 将针对到 Web 应用的失败请求速率的异常变化向用户发出警报，并提供诊断分析。 无需进行配置。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.reviewer: yalavi
-ms.openlocfilehash: dcef8dfa5b8f1602957f26c02669a8fd18272c17
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8ec45cbcee55fc6f2b14d6750e59098d43db8224
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106362"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105303"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智能检测 - 失败异常
 如果 Web 应用的失败请求速率出现异常上升，那么 [Application Insights](./app-insights-overview.md) 会近乎实时地自动通知你。 它会对 HTTP 请求速率或报告为失败的依赖项调用的异常上升进行检测。 对于请求而言，失败的请求通常是响应代码为 400 或更高的请求。 为了帮助会审和诊断问题，通知详情中会提供失败及相关应用程序数据的特征分析。 还提供指向 Application Insights 门户的链接，以供进一步诊断。 该功能不需要任何设置或配置，因为它使用机器学习算法来预测正常的失败率。
@@ -358,11 +358,10 @@ ms.locfileid: "93106362"
 
 * [指标资源管理器](../platform/metrics-charts.md)
 * [搜索资源管理器](./diagnostic-search.md)
-* [分析 - 功能强大的查询语言](../log-query/get-started-portal.md)
+* [分析 - 功能强大的查询语言](../log-query/log-analytics-tutorial.md)
 
 智能检测是自动执行的。 但是或许你想要设置更多的警报？
 
 * [手动配置的指标警报](../platform/alerts-log.md)
 * [可用性 Web 测试](./monitor-web-app-availability.md)
-
 

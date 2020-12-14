@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 12/01/2020
 ms.author: v-tawe
 origin.date: 01/27/2020
-ms.openlocfilehash: a560fece62b455a4fd41e8be2b60bf32c0bf029e
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: bd37b3d6d98a430aafb44aaaa694d1ed09637ebb
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96476656"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105653"
 ---
 适用于 Python 的内容审查器客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。 内容审查器是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、有风险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。
 
@@ -634,83 +634,7 @@ print("\nDelete the image list {}".format(list_id))
 client.list_management_image_lists.delete(list_id=list_id)
 ```
 
-## <a name="create-a-review"></a>创建评审
-
-可使用内容审查器 Python 客户端库将内容馈送到[评审工具](https://contentmoderator.cognitive.microsoft.com)，使审查人员可以评审该内容。 若要详细了解评审工具，请参阅[评审工具概念指南](../../review-tool-user-guide/human-in-the-loop.md)。
-
-以下代码使用 [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) 类创建评审、检索评审 ID，并在通过评审工具的 Web 门户收到人工输入后检查评审详细信息。
-
-### <a name="get-review-credentials"></a>获取审阅凭据
-
-首先登录到评审工具并检索团队名称。 然后将此名称分配到代码中的相应变量。 或者，可以设置一个回调终结点用于接收有关评审活动的更新。
-
-```python
-# The name of the team to assign the job to.
-# This must be the team name you used to create your Content Moderator account. You can
-# retrieve your team name from the Review tool web site. Your team name is the Id
-# associated with your subscription.
-team_name = "<insert your team name here>"
-
-# An image to review
-image_url = "https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png"
-
-# Where you want to receive the approval/refuse event. This is the only way to get this information.
-call_back_endpoint = "https://requestb.in/qmsakwqm"
-```
-
-### <a name="create-an-image-review"></a>创建图像评审
-
-添加以下代码，以创建并发布给定图像 URL 的评审。 该代码将保存对审阅 ID 的引用。 
-```python
-# Create review
-print("Create review for {}.\n".format(image_url))
-review_item = {
-    "type": "Image",             # Possible values include: 'Image', 'Text'
-    "content": image_url,        # How to download the image
-    "content_id": uuid.uuid4(),  # Random id
-    "callback_endpoint": call_back_endpoint,
-    "metadata": [{
-        "key": "sc",
-        "value": True  # will be sent to Azure as "str" cast.
-    }]
-}
-
-reviews = client.reviews.create_reviews(
-    url_content_type="application/json",
-    team_name=team_name,
-    create_review_body=[review_item]  # As many review item as you need
-)
-
-# Get review ID
-review_id = reviews[0]  # Ordered list of string of review ID
-```
-
-### <a name="get-review-details"></a>获取评论详细信息
-
-使用以下代码检查给定评审的详细信息。 创建评审后，可以自行转到评审工具并与内容交互。 有关如何执行此操作的信息，请参阅[评审操作方法指南](/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images)。 完成后，可以再次运行此代码，以检索评审过程的结果。
-
-```python
-print("\nGet review details")
-review_details = client.reviews.get_review(
-    team_name=team_name, review_id=review_id)
-pprint(review_details.as_dict())
-```
-
-如果在此方案中使用了回调终结点，应会收到采用以下格式的事件：
-
-```console
-{'callback_endpoint': 'https://requestb.in/qmsakwqm',
- 'content': '',
- 'content_id': '3ebe16cb-31ed-4292-8b71-1dfe9b0e821f',
- 'created_by': 'cspythonsdk',
- 'metadata': [{'key': 'sc', 'value': 'True'}],
- 'review_id': '201901i14682e2afe624fee95ebb248643139e7',
- 'reviewer_result_tags': [{'key': 'a', 'value': 'True'},
-                          {'key': 'r', 'value': 'True'}],
- 'status': 'Complete',
- 'sub_team': 'public',
- 'type': 'Image'}
-```
+<!--Not available in MC: Review Tool-->
 
 ## <a name="run-the-application"></a>运行应用程序
 

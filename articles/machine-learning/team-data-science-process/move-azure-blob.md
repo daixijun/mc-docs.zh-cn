@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 636038e2972b828b18a5f6f9643ab38e6cb838fd
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5a7a26a306405e97af22b28255be1554148e4256
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978248"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105317"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>将数据移入和移出 Azure Blob 存储
 
@@ -51,6 +51,6 @@ ms.locfileid: "94978248"
 ## <a name="prerequisites"></a>先决条件
 本文假定已有 Azure 订阅、存储帐户，以及该帐户对应的存储密钥。 上传/下载数据之前，必须知道 Azure 存储帐户名和帐户密钥。
 
-* 若要设置 Azure 订阅，请参阅[免费试用一个月版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 若要设置 Azure 订阅，请参阅[免费试用一个月版](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 * 若要查看存储帐户创建说明并了解如何获取帐户和密钥信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-account-create.md)。
 

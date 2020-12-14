@@ -1,21 +1,21 @@
 ---
 title: 创建和部署模板规格
 description: 了解如何通过 ARM 模板创建模板规格。 然后，将模板规格部署到订阅中的资源组。
-origin.date: 11/10/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 868965f0edb17a96238e831173dd2ac1ac473d33
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: d74a5705cd474960cefbb6e6d04ab0f428828089
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508077"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003588"
 ---
-<!--NOT AVAIALBLE on Mooncake-->
+<!--Pending for PM Review-->
 <!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>快速入门：创建和部署模板规格（预览）
 
@@ -26,9 +26,7 @@ ms.locfileid: "96508077"
 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用它，必须[注册等待列表](https://aka.ms/templateSpecOnboarding)。
->
-> 从等待列表获得批准后，你将获得有关安装预览版 PowerShell 模块和预览版 CLI 模块的说明。
+> 模板规格当前提供预览版。 若要使用，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="create-template-spec"></a>创建模板规格
 
@@ -248,7 +246,6 @@ ms.locfileid: "96508077"
                   },
                   "variables": {
                     "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
-
                     "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
                   },
                   "resources": [
@@ -265,7 +262,7 @@ ms.locfileid: "96508077"
                     }
                   ],
                   "outputs": {
-
+                    "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
                     "storageAccountName": {
                       "type": "string",
                       "value": "[[variables('storageAccountName')]"

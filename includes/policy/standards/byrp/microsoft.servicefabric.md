@@ -1,19 +1,19 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-origin.date: 07/22/2020
+origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 08/31/2020null
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: a82ef81b89df87aa5a21813bd4c304312891a573
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 047339062efefb57738659d7de1799ef70cb3baf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046512"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104413"
 ---
 <!--Verified successfully-->
 ## <a name="azure-security-benchmark"></a>Azure 安全基准
@@ -37,5 +37,4 @@ ms.locfileid: "89046512"
 |---|---|---|---|---|
 |访问控制 |AC-2 (7) |帐户管理 \| 基于角色的方案 |[Service Fabric 群集应仅使用 Azure Active Directory 进行客户端身份验证](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
 
-<!-- Update_Description: new article about microsoft.servicefabric -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties -->

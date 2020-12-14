@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 45ba7765dc12ac1c9eeb830c56e20b6524ca3d71
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: bfcccc75af08e9d8369f5b0d2ff694893f33ae11
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508892"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104604"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>快速入门：适用于 Python 的 Azure Key Vault 证书客户端库
 
@@ -45,7 +45,7 @@ ms.locfileid: "96508892"
 
     如果 CLI 可以打开默认浏览器，它将这样做并加载 Azure 登录页。
 
-    否则，请在 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 处打开浏览器页，然后输入终端中显示的授权代码。
+    否则，请在 [https://login.partner.microsoftonline.cn/common/oauth2/deviceauth](https://login.partner.microsoftonline.cn/common/oauth2/deviceauth) 处打开浏览器页，然后输入终端中显示的授权代码。
 
 2. 在浏览器中使用帐户凭据登录。
 

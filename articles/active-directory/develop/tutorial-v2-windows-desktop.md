@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 907f7369b950c972d12652d44369f345179cb93b
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: ef4021c768acf4d607348ef4489c3d8e1cb1f681
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749913"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003765"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>教程：从 Windows 桌面应用调用 Microsoft Graph API
 
-本指南演示了本机 Windows 桌面 .NET (XAML) 应用程序如何使用访问令牌来调用 Microsoft Graph API。 该应用还可以访问其他 API，这些 API 需要来自 Microsoft 标识平台的访问令牌。
+在本教程中，将生成一个本机 Windows 桌面 .NET (XAML) 应用，用户可登录该应用并获取访问令牌来调用 Microsoft 图形 API。 
 
 应用程序将使用任何使用 Azure Active Directory 的公司或组织提供的工作和学校帐户。
 

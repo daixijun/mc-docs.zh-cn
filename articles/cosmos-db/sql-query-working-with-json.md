@@ -2,19 +2,20 @@
 title: 使用 Azure Cosmos DB 中的 JSON
 description: 了解如何查询和访问嵌套的 JSON 属性并在 Azure Cosmos DB 中使用特殊字符
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 09/19/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9fd8963593f289c251564dab6ef893670afdde5e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 824b80ae5b8c4e39805820a8b8ae44f9b0036ca0
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552864"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850468"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的 JSON
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,18 +55,18 @@ ms.locfileid: "94552864"
 以下示例投影两个嵌套属性：`f.address.state` 和 `f.address.city`。
 
 ```sql
-    SELECT f.address.state, f.address.city
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT f.address.state, f.address.city
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 结果有：
 
 ```json
-    [{
-      "state": "WA",
-      "city": "Seattle"
-    }]
+[{
+  "state": "WA",
+  "city": "Seattle"
+}]
 ```
 
 ## <a name="working-with-arrays"></a>使用数组
@@ -221,44 +222,44 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 投影也支持 JSON 表达式，如以下示例所示：
 
 ```sql
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 结果有：
 
 ```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle",
-        "name": "AndersenFamily"
-      }
-    }]
+[{
+  "$1": {
+    "state": "WA",
+    "city": "Seattle",
+    "name": "AndersenFamily"
+  }
+}]
 ```
 
 在上述示例中，`SELECT` 子句需要创建一个 JSON 对象；由于该示例未提供键，因此子句使用了隐式参数变量名称 `$1`。 以下查询返回两个隐式参数变量：`$1` 和 `$2`。
 
 ```sql
-    SELECT { "state": f.address.state, "city": f.address.city },
-           { "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT { "state": f.address.state, "city": f.address.city },
+       { "name": f.id }
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 结果有：
 
 ```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle"
-      },
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
+[{
+  "$1": {
+    "state": "WA",
+    "city": "Seattle"
+  },
+  "$2": {
+    "name": "AndersenFamily"
+  }
+}]
 ```
 
 ## <a name="aliasing"></a>别名
@@ -270,25 +271,25 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 如以下示例所示，将第二个值投影为 `NameInfo` 时，用于别名的 `AS` 关键字是可选的：
 
 ```sql
-    SELECT
-           { "state": f.address.state, "city": f.address.city } AS AddressInfo,
-           { "name": f.id } NameInfo
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT
+       { "state": f.address.state, "city": f.address.city } AS AddressInfo,
+       { "name": f.id } NameInfo
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 结果有：
 
 ```json
-    [{
-      "AddressInfo": {
-        "state": "WA",
-        "city": "Seattle"
-      },
-      "NameInfo": {
-        "name": "AndersenFamily"
-      }
-    }]
+[{
+  "AddressInfo": {
+    "state": "WA",
+    "city": "Seattle"
+  },
+  "NameInfo": {
+    "name": "AndersenFamily"
+  }
+}]
 ```
 
 ### <a name="aliasing-with-reserved-keywords-or-special-characters"></a>带有保留关键字或特殊字符的别名
@@ -298,11 +299,11 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 下面是一个示例：
 
 ```sql
-    SELECT
-           {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           {"JSON expression with a special character!": { "name": f.id }}
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT
+       {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
+       {"JSON expression with a special character!": { "name": f.id }}
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 ## <a name="next-steps"></a>后续步骤

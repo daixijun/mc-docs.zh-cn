@@ -58,9 +58,9 @@
       href: load-balancer-ha-ports-overview.md
     - name: 多个前端
       href: load-balancer-multivip-overview.md
-    - name: 出站代理
+    - name: 用于出站连接到 Internet 的 SNAT
       href: load-balancer-outbound-connections.md
-    - name: 出站规则
+    - name: 配置出站规则
       href: outbound-rules.md
     - name: 在空闲超时的情况下重置 TCP
       href: load-balancer-tcp-reset.md
@@ -97,11 +97,11 @@
     - name: 使用 IPv6 创建公共负载均衡器
       items:
         - name: Azure CLI
-          href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
-          href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
-        - name: Azure 资源管理器模板
-          href: /virtual-network/ipv6-configure-standard-load-balancer-template-json
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+        - name: Azure Resource Manager 模板
+          href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
           displayName: ARM
     - name: 配置 TCP 重置和空闲超时
       href: load-balancer-tcp-idle-timeout.md

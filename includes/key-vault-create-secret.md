@@ -3,14 +3,14 @@ author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
 origin.date: 07/20/2020
-ms.date: 09/16/2020
+ms.date: 12/11/2020
 ms.author: v-tawe
-ms.openlocfilehash: 137f4af3d71fbf6ef2fb83727bd37a520ce5ea6c
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: b808b6d414b4f70e482becd1a3fa59ebd1809820
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300916"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105651"
 ---
 让我们创建一个名为 mySecret 的机密，其值为 Success!。 机密可以是密码、SQL 连接字符串，或者需要安全保存的、可供应用程序使用的其他任何信息。 
 

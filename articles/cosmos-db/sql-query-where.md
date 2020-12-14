@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 中的 WHERE 子句
 description: 了解 Azure Cosmos DB 的 SQL WHERE 子句
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 03/06/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f3cfd2043b1ff555338eecb14b783c0e63a06071
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6ef2584d99af21dfaef7e8630eb402e3d54cc436
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552391"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850449"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 WHERE 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,30 +42,30 @@ WHERE <filter_condition>
 
 ## <a name="remarks"></a>备注
 
-  指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有布尔值 `true` 会满足条件，其他任何值（undefined、null、false、数字、数组或对象）都不会满足条件。
+指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有布尔值 `true` 会满足条件，其他任何值（undefined、null、false、数字、数组或对象）都不会满足条件。
 
-  如果将分区键作为等式筛选器的一部分包含在 `WHERE` 子句中，则查询将仅自动筛选出相关分区。
+如果将分区键作为等式筛选器的一部分包含在 `WHERE` 子句中，则查询将仅自动筛选出相关分区。
 
 ## <a name="examples"></a>示例
 
 以下查询请求包含值为 `AndersenFamily` 的 `id` 属性的项。 它会排除任何不带 `id` 属性或值与 `AndersenFamily` 不匹配的项。
 
 ```sql
-    SELECT f.address
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
+SELECT f.address
+FROM Families f
+WHERE f.id = "AndersenFamily"
 ```
 
 结果有：
 
 ```json
-    [{
-      "address": {
-        "state": "WA",
-        "county": "King",
-        "city": "Seattle"
-      }
-    }]
+[{
+  "address": {
+    "state": "WA",
+    "county": "King",
+    "city": "Seattle"
+  }
+}]
 ```
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>WHERE 子句中的标量表达式
@@ -84,29 +85,29 @@ WHERE <filter_condition>
 以下查询使用二元运算符：
 
 ```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade % 2 = 1     -- matching grades == 5, 1
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade % 2 = 1     -- matching grades == 5, 1
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade ^ 4 = 1    -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade ^ 4 = 1    -- matching grades == 5
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade >= 5    -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE c.grade >= 5    -- matching grades == 5
 ```
 
 还可以在查询中使用一元运算符 +、-、~ 和 NOT，如以下示例所示：
 
 ```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE NOT(c.grade = 5)  -- matching grades == 1
+SELECT *
+FROM Families.children[0] c
+WHERE NOT(c.grade = 5)  -- matching grades == 1
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE (-c.grade = -5)  -- matching grades == 5
+SELECT *
+FROM Families.children[0] c
+WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
 还可以在查询中使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含值等于 `true` 的 `isRegistered` 属性的 JSON 项。 任何其他值（例如`false`、`null`、`Undefined`、`<number>`、`<string>`、`<object>` 或 `<array>`）会从结果中排除该项。 此外，还可以使用 `IS_DEFINED` 类型检查函数根据是否存在给定 JSON 属性进行查询。 例如，`SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` 返回没有 `isRegistered` 值的所有 JSON 项。

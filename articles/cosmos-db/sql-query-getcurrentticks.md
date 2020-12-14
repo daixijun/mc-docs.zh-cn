@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 GetCurrentTicks
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 GetCurrentTicks。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 08/14/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: f82f2c46928570c52cfaf93a995240671d0bcd54
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f531b69d0ff9ed5cba220f30010e38f4cd096ba0
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552620"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850720"
 ---
 <!--Verified Successfully-->
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)

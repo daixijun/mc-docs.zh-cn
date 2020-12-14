@@ -7,20 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
 ms.topic: overview
 ms.workload: identity
-ms.date: 11/05/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac9c4e78c3023ba4de4cd594e445b9fc411b7a4a
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 86c1d17f155406d5282789f1e425869c104b8628
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327122"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004179"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助注册？
 
@@ -35,9 +34,9 @@ ms.locfileid: "94327122"
 
 ## <a name="terms-and-definitions"></a>术语和定义
 
-* **自助注册** ：这是用户注册云服务并让系统根据其电子邮件域在 Azure AD 中自动为其创建标识的方法。
-* **非托管 Azure AD 目录** ：在其中创建标识的目录。 非托管目录是没有全局管理员的目录。
-* **电子邮件验证的用户** ：Azure AD 中的一种用户帐户类型。 在注册自助服务产品后自动创建标识的用户称为电子邮件验证的用户。 电子邮件验证的用户是目录的常规成员，带有 creationmethod=EmailVerified 标记。
+* **自助注册**：这是用户注册云服务并让系统根据其电子邮件域在 Azure AD 中自动为其创建标识的方法。
+* **非托管 Azure AD 目录**：在其中创建标识的目录。 非托管目录是没有全局管理员的目录。
+* **电子邮件验证的用户**：Azure AD 中的一种用户帐户类型。 在注册自助服务产品后自动创建标识的用户称为电子邮件验证的用户。 电子邮件验证的用户是目录的常规成员，带有 creationmethod=EmailVerified 标记。
 
 ## <a name="how-do-i-control-self-service-settings"></a>如何控制自助服务设置？
 
@@ -72,6 +71,12 @@ AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是可应用于托管或非�
 以下流程图解释了这些参数的不同组合，以及目录和自助注册的最终状态。
 
 ![自助注册控件的流程图](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+
+可以通过以下 powershell cmdlet Get-MsolCompanyInformation 检索此设置的详细信息。 有关详细信息，请参阅 [Get-MsolCompanyInformation](https://docs.microsoft.com/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
 
 有关示例和如何使用这些参数的详细信息，请参阅 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
 

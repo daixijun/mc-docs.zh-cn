@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的 SQL 常量
 description: 了解如何使用 Azure Cosmos DB 中的 SQL 查询常量来表示特定数据值
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/31/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: c46a94c9a24baa37f37b1738941cb48902aad825
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 011ec9bd9d03af0d7e6039dde6fc3d978694bcb7
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551780"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850551"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 查询常量  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

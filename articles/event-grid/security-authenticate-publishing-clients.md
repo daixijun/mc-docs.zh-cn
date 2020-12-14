@@ -4,14 +4,14 @@ description: 本文介绍对将事件发布到事件网格自定义主题的客�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d0204e115c3fc2373ca8c8e6eefc1008ad422e8e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f25120e812d0d644a5a9806f65a11b28469567a1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978083"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104623"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>对发布客户端进行身份验证（Azure 事件网格）
 本文提供有关使用访问密钥或共享访问签名 (SAS) 令牌对将事件发布到 Azure 事件网格主题或域的客户端进行身份验证的信息。 我们建议使用 SAS 令牌，但密钥身份验证提供简单的编程，并与多个现有 Webhook 发布服务器兼容。  
@@ -86,7 +86,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### <a name="using-aeg-sas-token-header"></a>使用 aeg-sas-token 标头
-以下是将 SAS 令牌作为 `aeg-sas-toke` 标头的值传递的示例。 
+以下是将 SAS 令牌作为 `aeg-sas-token` 标头的值传递的示例。 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.cn%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

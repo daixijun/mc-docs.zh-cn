@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41191422c52fc74441678c85cc8a683fb46eab89
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: a8bc8cfb671fb6f8428745e11e0f3ad52f623da4
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003753"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>在 Azure Active Directory 中查看自定义角色分配
 
@@ -39,7 +39,7 @@ ms.locfileid: "94327020"
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 查看角色分配
 
-此部分介绍如何查看组织范围的角色分配。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。 若要使用 PowerShell 查看单应用程序范围的分配，可以使用[通过 PowerShell 分配自定义角色](../users-groups-roles/roles-assign-powershell.md)中的 cmdlet。
+此部分介绍如何查看组织范围的角色分配。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。 若要使用 PowerShell 查看单应用程序范围的分配，可以使用[通过 PowerShell 分配自定义角色](./custom-assign-powershell.md)中的 cmdlet。
 
 ### <a name="prepare-powershell"></a>准备 PowerShell
 
@@ -78,7 +78,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="view-role-assignments-using-microsoft-graph-api"></a>使用 Microsoft Graph API 查看角色分配
 
-此部分介绍如何查看组织范围的角色分配。  若要使用 Graph API 查看单应用程序范围的分配，可以使用[通过 Graph API 分配自定义角色](../users-groups-roles/roles-assign-graph.md)中的操作。
+此部分介绍如何查看组织范围的角色分配。  若要使用 Graph API 查看单应用程序范围的分配，可以使用[通过 Graph API 分配自定义角色](./custom-assign-graph.md)中的操作。
 
 用于为给定角色定义获取角色分配的 HTTP 请求。
 

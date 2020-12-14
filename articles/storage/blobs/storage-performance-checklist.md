@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3f302d7f9999494fea276c356d587eb2bb4ab7a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7e9906a49a2ac5c45b8b062a9842cda53c8e6da6
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552018"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850740"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 存储的性能与可伸缩性查检表
 
@@ -60,7 +60,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 如果应用程序接近或超过任何可伸缩性目标，则可能会出现事务处理延迟或限制越来越严重的现象。 当 Azure 存储对应用程序进行限制时，该服务将开始返回 503（服务器繁忙）或 500（操作超时）错误代码。 保持在可伸缩性目标限制范围内，以避免这些错误，是增强应用程序性能的重要组成部分。
 
-有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](/storage/queues/scalability-targets#scale-targets-for-queue-storage)。
+有关队列服务可伸缩性目标的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](../queues/scalability-targets.md#scale-targets-for-queue-storage)。
 
 ### <a name="maximum-number-of-storage-accounts"></a>最大存储帐户数
 
@@ -196,7 +196,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 对于其他编程语言，请参阅文档以确定如何设置连接限制。  
 
-有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)。  
+有关详细信息，请参阅博客文章 [Web 服务：并发连接](https://docs.microsoft.com/archive/blogs/darrenj/web-services-concurrent-connections)。  
 
 ### <a name="increase-minimum-number-of-threads"></a>增大最小线程数
 
@@ -214,7 +214,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 ## <a name="client-libraries-and-tools"></a>客户端库和工具
 
-为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。 有关详细信息，请参阅 [Azure 存储参考文档](/storage/#reference)。
+为获得最佳性能，请始终使用 Microsoft 提供的最新客户端库和工具。 Azure 存储客户端库适用于各种语言。 Azure 存储还支持 PowerShell 和 Azure CLI。 Microsoft 正在积极开发这些客户端库和工具，并注重其性能，使用最新服务版本对其进行更新，确保这些工具可以在内部协调好许多经过证实的做法。
 
 ## <a name="handle-service-errors"></a>处理服务错误
 
@@ -244,7 +244,7 @@ Azure 存储提供多种解决方案用于在存储帐户内部、在存储帐�
 
 ### <a name="use-azcopy"></a>使用 AzCopy
 
-AzCopy 命令行实用工具是向/从以及跨存储帐户批量传输 Blob 的简单高效选项。 AzCopy 已针对此方案进行优化，可以实现较高的传输速率。 AzCopy 版本 10 使用 `Put Block From URL` 操作跨存储帐户复制 Blob 数据。 有关详细信息，请参阅[使用 AzCopy v10 将数据复制或移到 Azure 存储](/storage/common/storage-use-azcopy-v10)。  
+AzCopy 命令行实用工具是向/从以及跨存储帐户批量传输 Blob 的简单高效选项。 AzCopy 已针对此方案进行优化，可以实现较高的传输速率。 AzCopy 版本 10 使用 `Put Block From URL` 操作跨存储帐户复制 Blob 数据。 有关详细信息，请参阅[使用 AzCopy v10 将数据复制或移到 Azure 存储](../common/storage-use-azcopy-v10.md)。  
 
 ### <a name="use-azure-data-box"></a>使用 Azure Data Box
 
@@ -269,7 +269,7 @@ Blob 服务支持 HEAD 请求，这些请求可以包含 Blob 属性或元数据
 若要快速上传单个大型 Blob，客户端应用程序可以并行上传其块或页，但需要考虑各个 Blob 的可伸缩性目标并综合考虑存储帐户的情况。 Azure 存储客户端库支持并行上传。 例如，可使用以下属性来指定 .NET 或 Java 中允许的并发请求数。 其他受支持语言的客户端库提供类似的选项。
 
 - 对于 .NET，请设置 [BlobRequestOptions.ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount) 属性。
-- 对于 Java/Android，请调用 [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount) 方法。
+- 对于 Java/Android，请调用 [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount)](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount) 方法。
 
 ### <a name="upload-many-blobs-quickly"></a>快速上传多个 Blob
 

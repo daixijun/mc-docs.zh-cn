@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 09/20/2018
-ms.openlocfilehash: 84294cee26cb1c054cd68ba757eda4a6452eafed
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 9a4a134c2efc9470f3e2b7f7edf2422686ef551e
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746544"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003607"
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概述
 
@@ -103,8 +103,8 @@ CLE 具有内置函数，可通过函数使用对称或非对称密钥、证书�
 [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) 由 Microsoft 提供，是全球分布式多模型数据库。 存储在非易失性存储（固态硬盘）中的 Cosmos DB 中的用户数据默认加密。 无法将其打开或关闭。 静态加密是使用许多安全技术实现的，其中包括安全的密钥存储系统、加密的网络以及加密 API。 加密密钥由 Microsoft 管理，并根据 Microsoft 的内部指南进行轮换。
 
 <!-- Data Lake not available-->
-## <a name="encryption-of-data-in-transit"></a>传输中的数据加密
 
+## <a name="encryption-of-data-in-transit"></a>传输中的数据加密
 Azure 提供了许多机制，用于在迁移数据时保持数据的私密性。
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Azure 中的数据链路层加密

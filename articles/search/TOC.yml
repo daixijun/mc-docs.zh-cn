@@ -32,10 +32,10 @@
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
-    - name: JavaScript
+    - name: Javascript
       href: search-get-started-javascript.md
     - name: REST
-      href: search-get-started-postman.md
+      href: search-get-started-rest.md
     - name: PowerShell
       href: search-get-started-powershell.md
     - name: Python
@@ -79,13 +79,13 @@
 - name: 示例
   items:
     - name: C# 示例
-      href: 'https://docs.microsoft.com/samples/browse/?languages=csharp&products=azure-cognitive-search'
+      href: samples-dotnet.md
     - name: Java 示例
-      href: 'https://docs.microsoft.com/samples/browse/?languages=java&products=azure-cognitive-search'
+      href: samples-java.md
     - name: JavaScript 示例
-      href: 'https://docs.microsoft.com/samples/browse/?languages=javascript&products=azure-cognitive-search'
+      href: samples-javascript.md
     - name: Python 示例
-      href: 'https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cognitive-search'
+      href: samples-python.md
     - name: REST 示例
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search'
 - name: 概念
@@ -111,6 +111,8 @@
       items:
         - name: 安全概述
           href: search-security-overview.md
+        - name: 安全基线
+          href: security-baseline.md
 - name: 操作指南
   items:
     - name: 创建索引和构造
@@ -331,6 +333,8 @@
           items:
             - name: API 访问密钥
               href: search-security-api-keys.md
+            - name: 创建专用终结点
+              href: service-create-private-endpoint.md
         - name: 基于标识的访问
           items:
             - name: 安全筛选器
@@ -497,7 +501,7 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: 开发人员课程 (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: 常见问题
+    - name: 常见问题解答
       href: search-faq-frequently-asked-questions.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/search/'

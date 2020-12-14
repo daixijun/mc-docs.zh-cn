@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的 INDEX_OF
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 INDEX_OF。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 09/13/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 844bd740f37dfa632a0f1848ff1f5daea5181811
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a26cb736cf5226324e47ed6a9027949f14a67097
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552614"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850717"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

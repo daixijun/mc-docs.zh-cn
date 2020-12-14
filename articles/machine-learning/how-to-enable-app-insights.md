@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3a2c77568c1584ab98bb8a46a0506657b5e5cb67
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 9070e488a0a8272a1bf530e32a79a04971693b69
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118424"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104585"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>监视机器学习 Web 服务终结点以及从中收集数据
 
@@ -34,7 +34,7 @@ ms.locfileid: "92118424"
  
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)
+* 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 * 已安装 Azure 机器学习工作区、一个包含脚本的本地目录以及用于 Python 的 Azure 机器学习 SDK。 若要了解详细信息，请参阅[如何配置开发环境](how-to-configure-environment.md)。
 

@@ -5,14 +5,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 09/17/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 3d9ef14f122798c16ae7bb56d8bad04ace944c58
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: cd048a3ab4248c1eda307526ce33638f427a1f53
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746550"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105105"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>使用 Azure PowerShell 将外部负载均衡器移到另一个 Azure 区域
 

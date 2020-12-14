@@ -11,12 +11,12 @@ ms.author: v-yiso
 origin.date: 02/10/2020
 ms.date: 10/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 81129faa90fa1333e403ee49ef3549191c3913fa
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f170ee6cee4986f8b53da0c8be7bf62900f196f3
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977059"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105265"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>教程：在 Jupyter Notebook 中开始使用 Azure 机器学习
 
@@ -30,7 +30,7 @@ ms.locfileid: "94977059"
 > * 创建一个基于云的计算实例，其中已安装并预配置了 Azure 机器学习 Python SDK。
 
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-workspace"></a>创建工作区
 

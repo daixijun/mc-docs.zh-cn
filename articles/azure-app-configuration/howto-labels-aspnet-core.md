@@ -6,14 +6,14 @@ ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 3/12/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 01f641a95d978c6b7ebaf5d144cb27c3c5285b76
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 056e732f607a70d71fdb3babd71626b21913df8d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866656"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104477"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>使用标签为不同的环境启用配置
 
@@ -36,7 +36,7 @@ ms.locfileid: "88866656"
 
 默认情况下，Azure 应用配置仅加载没有标签的配置值。 如果你为配置值定义了标签，则需要指定在连接到应用配置时要使用的标签。
 
-在上一部分中，你为开发环境创建了一个不同的配置值。 使用 `HostingEnvironment.EnvironmentName` 变量来动态确定应用当前在哪个环境中运行。 若要了解详细信息，请参阅[在 ASP.NET Core 中使用多个环境](/aspnet/core/fundamentals/environments)。
+在上一部分中，你为开发环境创建了一个不同的配置值。 使用 `HostingEnvironment.EnvironmentName` 变量来动态确定应用当前在哪个环境中运行。 若要了解详细信息，请参阅[在 ASP.NET Core 中使用多个环境](https://docs.microsoft.com/aspnet/core/fundamentals/environments)。
 
 通过将环境名称传递给 `Select` 方法，加载其标签与当前环境对应的配置值：
 
@@ -88,4 +88,4 @@ dotnet run
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core 中的配置](/aspnet/core/fundamentals/configuration/)
+> [ASP.NET Core 中的配置](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/)

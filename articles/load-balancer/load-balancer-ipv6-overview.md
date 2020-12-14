@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/24/2018
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: e7d2dbb886810204d26db0cc4b32163f062be132
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 51f469451e58ba0765b8d92cbf32476e28fcbda5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746562"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105296"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure 负载均衡器的 IPv6 概述
 
@@ -88,7 +88,7 @@ ms.locfileid: "96746562"
 
 了解如何部署使用 IPv6 的负载均衡器。
 
-<!--Not Suitable for http://go.microsoft.com/fwlink/?linkid=828357-->
+<!--Not Suitable for https://go.microsoft.com/fwlink/?linkid=828357-->
 
 * [使用模板部署具有 IPv6 的负载均衡器](load-balancer-ipv6-internet-template.md)
 * [使用 Azure PowerShell 部署具有 IPv6 的负载均衡器](load-balancer-ipv6-internet-ps.md)

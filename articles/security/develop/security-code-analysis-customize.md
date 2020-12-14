@@ -5,7 +5,7 @@ description: 本文介绍如何在 Microsoft 安全代码分析扩展中自定�
 author: Johnnytechn
 manager: sukhans
 ms.author: v-johya
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 093e70395233d21b74f38dcf2c21c168be5b58a6
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4def7c4a083e680b02edb17fe5d20d16784e9145
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127985"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105318"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>配置和自定义生成任务
 

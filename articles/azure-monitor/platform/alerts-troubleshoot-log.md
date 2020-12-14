@@ -5,19 +5,19 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 11/02/2020
-ms.openlocfilehash: fa379eec94d04ec2dc56c56c937565da75b1ecbe
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/08/2020
+ms.openlocfilehash: 95bf08b72d0670da32b236b6f39ba1c9a2e3257a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328448"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104520"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>在 Azure Monitor 中排查日志警报问题  
 
 本文介绍如何解决 Azure Monitor 中日志警报的常见问题。 它还提供了有关日志警报功能和配置的常见问题的解决方法。
 
-通过日志警报，用户可以使用 [Log Analytics](../log-query/get-started-portal.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
+通过日志警报，用户可以使用 [Log Analytics](../log-query/log-analytics-tutorial.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
 
 > [!NOTE]
 > 本文不考虑 Azure 门户中显示警报规则已触发以及不是通过关联的操作组执行通知的情况。 对于这类情况，请参阅[此处](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)，了解故障排除的详细信息。
@@ -36,7 +36,7 @@ Azure Monitor 处理来自世界各地的数 TB 的客户日志，这可能导�
 
 查询时间范围是在规则条件定义中设置的。 此字段在工作区和 Application Insights 中称为“期间”，在所有其他资源类型中则称为“替代查询时间范围” 。 与日志分析一样，时间范围将查询数据限制在指定的时间段内。 即使在查询中使用了 ago 命令，时间范围也将适用。 
 
-例如，即使文本包含 ago (1d)，查询也会扫描 60 分钟（如果时间范围为 60 分钟）。 时间范围和查询时间筛选需要匹配。 在这个例子中，将“期间” / “替代查询时间范围”更改为一天，将可以正常工作 。
+例如，即使文本包含 ago(1d)，查询也会扫描 60 分钟（当时间范围为 60 分钟时）。 时间范围和查询时间筛选需要匹配。 在这个例子中，将“期间” / “替代查询时间范围”更改为一天，将可以正常工作 。
 
 ![时间段](./media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 

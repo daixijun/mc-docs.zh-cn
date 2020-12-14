@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/06/2020
-ms.openlocfilehash: c9897c5b515dac29992f76f5e7f3b196bc9a1752
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: cc854963eda3f4d8b32b27285a081062674a473b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329432"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104391"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>监视 Azure Monitor 中 Log Analytics 工作区的运行状况
 若要维持 Azure Monitor 中 Log Analytics 工作区的性能和可用性，你需要能够主动检测出现的任何问题。 本文介绍如何使用[操作](https://docs.microsoft.com/azure-monitor/reference/tables/operation)表中的数据监视 Log Analytics 工作区的运行状况。 此表存在于每个 Log Analytics 工作区中，并且包含工作区中发生的错误和警告。 你应定期查看这些数据，并创建警报，以便在工作区中发生任何重要事件时主动收到通知。
@@ -60,8 +60,8 @@ _LogOperation 函数返回下表中的列。
 | 元数据 | 错误 | 检测到配置错误。 | |
 | 数据收集 | 错误   | 数据已删除，因为请求的创建时间早于设置的天数。 | [使用 Azure Monitor 日志管理使用情况和成本](manage-cost-storage.md#alert-when-daily-cap-reached)
 | 数据收集 | 信息    | 检测到收集计算机配置。| |
-| 数据收集 | 信息    | 数据收集由于新的一天而开始。 | [使用 Azure Monitor 日志管理使用情况和成本](/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
-| 数据收集 | 警告 | 由于达到每日限制，数据收集已停止。| [使用 Azure Monitor 日志管理使用情况和成本](/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| 数据收集 | 信息    | 数据收集由于新的一天而开始。 | [使用 Azure Monitor 日志管理使用情况和成本](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| 数据收集 | 警告 | 由于达到每日限制，数据收集已停止。| [使用 Azure Monitor 日志管理使用情况和成本](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | 数据处理 | 错误   | JSON 格式无效。 | [使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor](data-collector-api.md#request-body) | 
 | 数据处理 | 警告 | 值已剪裁为允许的最大大小。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) |
 | 数据处理 | 警告 | 由于达到大小限制，字段值已被剪裁。 | [Azure Monitor 服务限制](../service-limits.md#log-analytics-workspaces) | 

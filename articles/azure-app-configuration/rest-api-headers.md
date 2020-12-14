@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: b93c02c8794562f5d27c83f5a275419f124e4ed4
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: a7ac9b5e4f72721d6452edfbc04f35446bfe4ea1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231131"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104656"
 ---
 # <a name="headers"></a>标头
 
@@ -21,7 +21,7 @@ ms.locfileid: "96231131"
 
 下表介绍了 Azure 应用配置中使用的常见请求标头。
 
-| 标头 | 描述 | 示例 |
+| 标头 | 说明 | 示例 |
 |--|--|--|
 | **授权** | 用于对服务请求进行[身份验证](./rest-api-authentication-index.md)。 请参阅[第 14.8 节](https://tools.ietf.org/html/rfc2616#section-14.8) | `Authorization: HMAC-SHA256 Credential=<Credential>&SignedHeaders=Host;x-ms-date;x-ms-content-sha256&Signature=<Signature>` |
 | **接受** | 向服务器通知客户端将在 HTTP 响应中接受哪一媒体类型。 请参阅[第 14.1 节](https://tools.ietf.org/html/rfc2616#section-14.1) | `Accept: application/vnd.microsoft.appconfig.kv+json;` |
@@ -41,7 +41,7 @@ ms.locfileid: "96231131"
 
 服务器可能会将以下 HTTP 标头包含在其响应中。
 
-| 标头 | 描述 | 示例 |
+| 标头 | 说明 | 示例 |
 |--|--|--|
 | **Content-Type** | 包含 HTTP 响应正文中内容的媒体类型。 请参阅[第 14.17 节](https://tools.ietf.org/html/rfc2616#section-14.17) | `Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8;` |
 | **ETag** | 一个不透明的标记，表示给定资源的状态。 可用于条件运算。 请参阅[第 14.19 节](https://tools.ietf.org/html/rfc2616#section-14.19) | `ETag: "4f6dd610dd5e4deebc7fbaef685fb903"` |

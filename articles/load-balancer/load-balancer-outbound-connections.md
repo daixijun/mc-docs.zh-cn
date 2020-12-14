@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
 origin.date: 10/13/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: c33d0d84fb425a2b6144e6b1f9ae78aa47feebcc
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: d3f73115dba08e85e75330f77a35b513616e4c84
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747184"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105289"
 ---
 # <a name="using-snat-for-outbound-connections"></a>使用 SNAT 进行出站连接
 

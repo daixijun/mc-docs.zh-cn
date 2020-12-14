@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 8e8e46e8b9c1c627e303baba6c5f2b5f7e39745d
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: cd67b401b669179a1542f799baa3bb65bed96aa1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746561"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104686"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure 负载均衡器浮动 IP 配置
 

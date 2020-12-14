@@ -4,17 +4,17 @@ description: 本快速入门介绍了如何在浏览器中使用适用于 JavaSc
 author: WenJason
 ms.author: v-jay
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 12/14/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3b5d3bcd0e5387c6b1e8dac33d02e9a86577dbeb
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.custom: devx-track-js
+ms.openlocfilehash: 5074b7a733817a345c990e2c2aa9e504bf1c1a02
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432639"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850409"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -27,7 +27,7 @@ Azure Blob 存储已经过优化，可以存储大量的非结构化数据。 Bl
 * [API 参考文档](https://docs.microsoft.com/javascript/api/@azure/storage-blob)
 * [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [包 (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [示例](/storage/common/storage-samples-javascript?toc=%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [示例](../common/storage-samples-javascript.md?toc=%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -75,7 +75,7 @@ Blob 存储提供了三种类型的资源：
 
 下表描述了每项 CORS 设置，并对用于定义规则的值进行了说明。
 
-|设置  |“值”  | 说明 |
+|设置  |值  | 说明 |
 |---------|---------|---------|
 | **允许的源** | **\** _ | 接受一个逗号分隔的列表，其中的域设置为可以接受的域。 将值设置为 `_` 意味着所有域都可以访问存储帐户。 |
 | **允许的方法** | “DELETE”、“GET”、“HEAD”、“MERGE”、“POST”、“OPTIONS”和“PUT” | 列出允许对存储帐户执行操作的 HTTP 谓词。 对于本快速入门，请选择所有可用的选项。 |

@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/16/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 34050241d86e72f16fa4145bd92899bb5762667d
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: b47e039b74052e93ca9b74570a387b7758df582d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432495"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850811"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 Azure 存储资源管理器管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -24,7 +24,7 @@ ms.locfileid: "96432495"
 
 > [!div class="checklist"]
 > * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
-> * 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](data-lake-storage-quickstart-create-account.md)说明创建一个。
+> * 一个已启用分层命名空间 (HNS) 的存储帐户。 按[这些](../common/storage-account-create.md)说明创建一个。
 > * 已在本地计算机上安装了 Azure 存储资源管理器。 若要安装适用于 Windows、Macintosh 或 Linux 的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
 
 ## <a name="sign-in-to-storage-explorer"></a>登录到存储资源管理器
@@ -112,4 +112,4 @@ ms.locfileid: "96432495"
 了解 Data Lake Storage Gen2 中的访问控制列表。
 
 > [!div class="nextstepaction"]
-> [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)
+> [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)

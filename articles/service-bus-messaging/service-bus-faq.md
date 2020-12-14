@@ -4,16 +4,16 @@ description: 本文提供了一些有关 Azure 服务总线的常见问题解答
 ms.topic: article
 origin.date: 09/16/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: cd753c13cb81a39fa5e727e97b55aaadfc9ffb48
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: fe7294456758b20fdf7cf4c107c3c576a41a5a63
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590877"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104809"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure 服务总线 - 常见问题解答 (FAQ)
 
@@ -58,16 +58,9 @@ Azure 服务总线存储客户数据。 服务总线会自动将此数据存储�
 
 在 AMQP 通过端口 5671 使用时，通常还需要使用 HTTPS 端口进行出站通信，因为客户端 SDK 执行的一些管理操作和从 Azure Active Directory（使用时）获取令牌的操作都是通过 HTTPS 运行的。 
 
-正式的 Azure SDK 通常使用 AMQP 协议通过服务总线发送和接收消息。 与 HTTP API 一样，AMQP-over-WebSockets 协议选项通过端口 TCP 443 运行，但在功能上与普通 AMQP 相同。 由于额外的握手往返，此选项的初始连接延迟较高，并且作为共享 HTTPS 端口的折衷方案，此选项的开销略高。 如果选择此模式，TCP 端口 443 足以进行通信。 以下选项允许选择普通 AMQP 或 AMQP WebSockets 模式：
+正式的 Azure SDK 通常使用 AMQP 协议通过服务总线发送和接收消息。 
 
-| 语言 | 选项   |
-| -------- | ----- |
-| .NET     | 具有 [TransportType.Amqp](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.transporttype) 或 [TransportType.AmqpWebSockets](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.transporttype) 的 [ServiceBusConnection.TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) 属性 |
-| Java     | 具有 [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.primitives.transporttype) 或 [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.primitives.transporttype) 的 [com.microsoft.azure.servicebus.ClientSettings](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings) |
-| 节点  | [ServiceBusClientOptions](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) 具有 `webSocket` 构造函数参数。 |
-| Python | 具有 [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) 或 [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) 的 [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) |
-
-<!--Not Available on https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype-->
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
 .NET Framework 的较旧 WindowsAzure.ServiceBus 包可选择使用旧的“服务总线消息传送协议”(SBMP)，也称为“NetMessaging”。 此协议使用 TCP 端口 9350-9354。 此包的默认模式用于自动检测这些端口是否可用于通信，如果不可用，将通过端口 443 切换到具有 TLS 的 WebSockets。 可以通过在 [`ServiceBusEnvironment.SystemConnectivity`](https://docs.azure.cn/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) 设置上设置 `Https` [ConnectivityMode](https://docs.azure.cn/dotnet/api/microsoft.servicebus.connectivitymode) 来替代此设置并强制执行此模式，这将全局应用于应用程序。
 

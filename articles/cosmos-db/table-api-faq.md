@@ -2,19 +2,20 @@
 title: 有关 Azure Cosmos DB 中的表 API 的常见问题解答
 description: 获取有关 Azure Cosmos DB 中的表 API 的常见问题解答
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d2e23bf43e6fa912c6bfd7c339629f36c52ab07a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6c07e9b688822cc806ca24a4f656c980ec844125
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552468"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850616"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中的表 API 的常见问题解答
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]

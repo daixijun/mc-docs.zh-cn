@@ -4,16 +4,16 @@ description: 使用 Azure Blob 存储（对象存储）将非结构化数据存�
 author: WenJason
 ms.author: v-jay
 origin.date: 11/20/2018
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 77be1ba52299e287b12c8749ca771a76182be698
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 0efd1c8aee5c349ddf7ff4b071baad6c75598fed
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026645"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850744"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
@@ -96,7 +96,7 @@ ms.locfileid: "91026645"
 ## <a name="asynchronous-operations"></a>异步操作
 
 > [!NOTE]
-> 执行对服务的请求的所有方法都是异步操作。 在代码示例中，会发现这些方法都有完成处理程序。 请求完成**后**，将运行完成处理程序内的代码。 正在发出请求**时**，将运行完成处理程序后的代码。
+> 执行对服务的请求的所有方法都是异步操作。 在代码示例中，会发现这些方法都有完成处理程序。 请求完成 **后**，将运行完成处理程序内的代码。 正在发出请求 **时**，将运行完成处理程序后的代码。
 
 ## <a name="create-a-container"></a>创建容器
 
@@ -132,13 +132,13 @@ Azure 存储空间中的每个 Blob 都必须驻留在一个容器中。 以下�
 
 ## <a name="set-container-permissions"></a>设置容器权限
 
-默认情况下，容器的权限配置为**专用**访问权限。 但是，容器提供了几个不同的容器访问权限选项：
+默认情况下，容器的权限配置为 **专用** 访问权限。 但是，容器提供了几个不同的容器访问权限选项：
 
 - **专用**：仅帐户所有者可以读取容器和 Blob 数据。
 - **Blob**：可以通过匿名请求读取此容器中的 Blob 数据，但容器数据不可用。 客户端无法通过匿名请求枚举容器中的 Blob。
 - **容器**：可以通过匿名请求读取容器和 Blob 数据。 客户端可以通过匿名请求枚举容器中的 Blob，但无法枚举存储帐户中的容器。
 
-以下示例演示如何创建一个具有**容器**访问权限的容器，这会允许 Internet 上的所有用户对其进行公共只读访问：
+以下示例演示如何创建一个具有 **容器** 访问权限的容器，这会允许 Internet 上的所有用户对其进行公共只读访问：
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -209,7 +209,7 @@ Azure 存储空间中的每个 Blob 都必须驻留在一个容器中。 以下�
 }
 ```
 
-可以通过查看 [Azure 存储资源管理器](https://storageexplorer.com)并验证容器 containerpublic** 是否包含该 Blob sampleblob** 来确认此操作是否正常工作。 在此示例中，我们使用了公共容器，因此还可以通过转到 blob URI 来验证此应用程序是否正常工作：
+可以通过查看 [Azure 存储资源管理器](https://storageexplorer.com)并验证容器 containerpublic 是否包含该 Blob sampleblob 来确认此操作是否正常工作。 在此示例中，我们使用了公共容器，因此还可以通过转到 blob URI 来验证此应用程序是否正常工作：
 
 ```http
     https://nameofyourstorageaccount.blob.core.chinacloudapi.cn/containerpublic/sampleblob
@@ -223,7 +223,7 @@ Azure 存储空间中的每个 Blob 都必须驻留在一个容器中。 以下�
 
 - **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它将从开头列出 blob。 可以列出任意数目的 blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
 - **prefix** - 可以指定要用于 blob 列出的前缀。 将仅列出以该前缀开头的 blob。
-- **useFlatBlobListing** - 如[命名和引用容器和 blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 部分中所述，虽然 Blob 服务是平面存储方案，但可通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 此功能即将支持。 目前，此值应为 **YES**。
+- **useFlatBlobListing** - 如 [命名和引用容器和 blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 部分中所述，虽然 Blob 服务是平面存储方案，但可通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 此功能即将支持。 目前，此值应为 **YES**。
 - **blobListingDetails** - 可指定在列出 blob 时要包含哪些项
   - _AZSBlobListingDetailsNone_：仅列出已提交的 blob，并且不返回 blob 元数据。
   - _AZSBlobListingDetailsSnapshots_：列出提交的 blob 和 blob 快照。
@@ -392,7 +392,7 @@ Azure 存储空间中的每个 Blob 都必须驻留在一个容器中。 以下�
 
 - [适用于 iOS 的 Azure 存储客户端库](https://github.com/azure/azure-storage-ios)
 - [Azure 存储 iOS 参考文档](https://azure.github.io/azure-storage-ios/)
-- [Azure 存储空间服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 存储空间服务 REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [Azure 存储团队博客](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
 如果对此库有任何疑问，可随时会问题发布到我们的 [MSDN Azure 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs&filter=alltypes&sort=lastpostdesc)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。

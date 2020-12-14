@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
 origin.date: 09/25/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: dd4a631c030704b05d1b960174625b9977fde06a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 12/10/2020
+ms.openlocfilehash: 75a576b5d35b613bf889fc845c78e8d3749c9b3a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300847"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004125"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>教程：为电话号码创建自定义分析器
 
@@ -60,9 +60,9 @@ ms.locfileid: "96300847"
 
 1. 将 `<YOUR-ADMIN-API-KEY>` 替换为搜索服务的主要密钥或辅助密钥。
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman 请求 URL 和标头" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman 请求 URL 和标头" border="false":::
 
-如果不熟悉 Postman，请参阅[使用 Postman 探索 Azure 认知搜索 REST API](search-get-started-postman.md)。
+如果不熟悉 Postman，请参阅[探索 Azure 认知搜索 REST API](search-get-started-rest.md)。
 
 ## <a name="3---create-an-initial-index"></a>3 - 创建初始索引
 

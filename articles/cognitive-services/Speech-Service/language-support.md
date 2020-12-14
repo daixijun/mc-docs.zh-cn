@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/26/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: effcd38ab5916b074a7de70ca6ceac120f81a92c
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2918b86219150686fc118dfb45c447d16b7f7b55
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978213"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004143"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>语音服务的语言和语音支持
 
@@ -25,7 +25,7 @@ ms.locfileid: "94978213"
 
 ## <a name="speech-to-text"></a>语音转文本
 
-Microsoft 语音 SDK 和 REST API 都支持以下语言（区域设置）。
+Microsoft 语音 SDK 和 REST API 都支持以下语言（区域设置）。 
 
 为了提高准确性，已为一部分语言提供了自定义功能，你可通过上传音频和人工标记的脚本或相关文本（语句）进行自定义。 若要了解有关自定义的详细信息，请参阅[自定义语音识别入门](how-to-custom-speech.md)。
 
@@ -101,11 +101,11 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 
 | 语言                                   | 区域设置 (BCP-47)        | 性别 | 语音名称             | 风格支持                                               |
 | ------------------------------------------ | ---------------------- | ------ | ---------------------- | ----------------------------------------------------------- |
-| 粤语（繁体中文，香港） | `zh-HK`                | 女 | `zh-HK-HiuGaaiNeural`  | 常规                                                     |
+| 粤语（繁体中文，香港） | `zh-HK`                | Female | `zh-HK-HiuGaaiNeural`  | 常规                                                     |
 | 英语（澳大利亚）                        | `en-AU`                | Female | `en-AU-NatashaNeural`  | 常规                                                     |
 | 英语（加拿大）                           | `en-CA`                | Female | `en-CA-ClaraNeural`    | 常规                                                     |
-| 英语(英国)                   | `en-GB`                | 女 | `en-GB-LibbyNeural`    | 常规                                                     |
-| 英语(英国)                   | `en-GB`                | 女 | `en-GB-MiaNeural`      | 常规                                                     |
+| 英语(英国)                   | `en-GB`                | Female | `en-GB-LibbyNeural`    | 常规                                                     |
+| 英语(英国)                   | `en-GB`                | Female | `en-GB-MiaNeural`      | 常规                                                     |
 | 英语(英国)                   | `en-GB` <sup>新建</sup> | 男   | `En-GB-RyanNeural`     | 常规                                                     |
 | 英语（美国）                    | `en-US`                | 女 | `en-US-AriaNeural`     | 常规，提供了多种语音风格                    |
 | 英语（美国）                    | `en-US`                | 男   | `en-US-GuyNeural`      | 常规                                                     |
@@ -171,7 +171,7 @@ Microsoft 语音 SDK 和 REST API 支持以下语音，其中的每种语音都�
 | 西班牙语（墨西哥）                           | `es-MX`         | Female | `es-MX-HildaRUS`     |
 | 西班牙语（墨西哥）                           | `es-MX`         | 男   | `es-MX-Raul`         |
 | 西班牙语(西班牙)                            | `es-ES`         | Female | `es-ES-HelenaRUS`    |
-| 西班牙语(西班牙)                            | `es-ES`         | Female | `es-ES-Laura`        |
+| 西班牙语(西班牙)                            | `es-ES`         | 女 | `es-ES-Laura`        |
 | 西班牙语(西班牙)                            | `es-ES`         | 男   | `es-ES-Pablo`        |
 
 

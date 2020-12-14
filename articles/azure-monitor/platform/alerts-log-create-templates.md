@@ -4,18 +4,18 @@ description: 了解如何使用资源管理器模板创建日志警报
 author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: 89b360fdec928139c16ccb19b89a99606bc46c1a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a1dcaafdcc0b1391a78b0208a7c0e23c45dab53c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329219"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104443"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建日志警报
 
-通过日志警报，用户可以使用 [Log Analytics](../log-query/get-started-portal.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发运行一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
+通过日志警报，用户可以使用 [Log Analytics](../log-query/log-analytics-tutorial.md) 查询按每个设置的频率评估资源日志，并根据结果触发警报。 规则可以使用[操作组](./action-groups.md)触发运行一个或多个操作。 [详细了解日志警报的功能和术语](alerts-unified-log.md)。
 
 本文介绍如何在 Azure Monitor 中使用 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)配置[日志警报](alerts-unified-log.md)。 使用资源管理器模板可以通过编程方式在多个环境中设置一致且可重现的警报。 日志警报是在 `Microsoft.Insights/scheduledQueryRules` 资源提供程序中创建的。 请参阅[计划查询规则 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 的 API 参考。
 
@@ -26,7 +26,7 @@ ms.locfileid: "94329219"
 4. 使用任意部署方法部署模板。
 
 > [!NOTE]
-> 可以将 [Log Analytics 工作区](../log-query/get-started-portal.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
+> 可以将 [Log Analytics 工作区](../log-query/log-analytics-tutorial.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
 
 > [!NOTE]
 > 过去使用旧式 [Log Analytics 警报 API](api-alerts.md) 以及 [Log Analytics 保存的搜索和警报](../insights/solutions.md)的旧式模板管理 Log Analytics 的日志警报。

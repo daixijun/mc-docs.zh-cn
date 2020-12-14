@@ -5,20 +5,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6c5eb9b9f476f293bf87aa42a37f7b99668df96c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 07b6c58d1d36c77ba5220febc0b3493f1bf17aee
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552482"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850807"
 ---
 <!--Verified successfully-->
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link for Azure Cosmos DB：准实时分析用例
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 适用于 Azure Cosmos DB 的 [Azure Synapse Link](synapse-link.md) 是一种云原生混合事务和分析处理 (HTAP) 功能，可用于对操作数据运行准实时分析。 Synapse Link 在 Azure Cosmos DB 和 Azure Synapse Analytics 之间建立紧密的无缝集成。
 

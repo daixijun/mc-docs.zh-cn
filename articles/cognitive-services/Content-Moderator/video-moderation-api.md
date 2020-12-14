@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to
 origin.date: 10/31/2018
-ms.date: 11/23/2020
+ms.date: 12/11/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9660887da9f34a0cdbb0d633352ce6d4d29838c9
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 219cde96fa2c93a677a01913da2544ff54033302
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306493"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104322"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>在 C# 中分析令人反感的视频内容
 
@@ -429,12 +429,6 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-了解如何从你的审查输出生成[视频评论](video-reviews-quickstart-dotnet.md)。
-
-将[脚本审查](video-transcript-moderation-review-tutorial-dotnet.md)添加到你的视频评论中。
-
-了解有关如何生成[完整视频和脚本审查解决方案](video-transcript-moderation-review-tutorial-dotnet.md)的详细教程。
 
 为适用于 .NET 的此内容审查器快速入门以及其他内容审查器快速入门[下载 Visual Studio 解决方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)。
 

@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2019
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 4eb4ea20c73d0c7da57aed0ed78e982850cf89cf
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 436ea5c3ce903a00174e7216694e6ff22f649b22
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746571"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104693"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 

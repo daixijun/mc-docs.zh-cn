@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: ada652d6b0468afed2d2ecdee5e08a1e85796dfb
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 01a202ca4754d0d5af5c907ad6e8ef9513f6db78
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200512"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004224"
 ---
-每个应用程序（即每个检测密钥）的指标和事件数都有一些限制。 限制取决于选择的[定价计划](https://azure.microsoft.com/pricing/details/application-insights/)。
+每个应用程序（即每个检测密钥）的指标和事件数都有一些限制。 限制取决于选择的[定价计划](https://www.azure.cn/pricing/details/application-insights/)。
 
 | 资源 | 默认限制 | 注意
 | --- | --- | --- |

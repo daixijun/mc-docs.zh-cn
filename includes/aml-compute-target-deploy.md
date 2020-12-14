@@ -8,31 +8,28 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 06/25/2020
-ms.openlocfilehash: fc20aee94e9612b856fde7dfd55e4a50170d9f35
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 11/02/2020
+ms.openlocfilehash: c1b5faf5651368b41d9580e0bde3b141ee2f26ce
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946975"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104365"
 ---
-用于托管模型的计算目标将影响部署的终结点的成本和可用性。 使用下表选择合适的计算目标。
+用于托管模型的计算目标将影响部署的终结点的成本和可用性。 使用此表选择合适的计算目标。
 
 | 计算目标 | 用途 | GPU 支持 | FPGA 支持 | 说明 |
 | ----- | ----- | ----- | ----- | ----- |
 | [本地&nbsp;web&nbsp;服务](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | 测试/调试 | &nbsp; | &nbsp; | 用于有限的测试和故障排除。 硬件加速依赖于本地系统中库的使用情况。
-| [Azure 机器学习计算实例&nbsp;web&nbsp;服务](../articles/machine-learning/how-to-deploy-local-container-notebook-vm.md) | 测试/调试 | &nbsp; | &nbsp; | 用于有限的测试和故障排除。
-| [Azure Kubernetes 服务 (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | 实时推理 |  [是](../articles/machine-learning/how-to-deploy-inferencing-gpus.md)（Web 服务部署） | [是](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |用于大规模生产部署。 提供所部署服务的快速响应时间和自动缩放。 不支持通过 Azure 机器学习 SDK 进行群集自动缩放。 若要更改 AKS 群集中的节点，请在 Azure 门户中使用 AKS 群集的 UI。 AKS 是可用于设计器的唯一选项。 |
-| [Azure 容器实例](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | 测试或开发 | &nbsp;  | &nbsp; | 用于需要小于 48 GB RAM 的基于 CPU 的小规模工作负载。 |
+| [Azure Kubernetes 服务 (AKS)](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md) | 实时推理 |  [是](../articles/machine-learning/how-to-deploy-inferencing-gpus.md)（Web 服务部署） | 是   |用于大规模生产部署。 提供所部署服务的快速响应时间和自动缩放。 不支持通过 Azure 机器学习 SDK 进行群集自动缩放。 若要更改 AKS 群集中的节点，请在 Azure 门户中使用 AKS 群集的 UI。 <br/><br/> 在设计器中受支持。 |
+| [Azure 容器实例](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | 测试或开发 | &nbsp;  | &nbsp; | 用于需要小于 48 GB RAM 的基于 CPU 的小规模工作负载。 <br/><br/> 在设计器中受支持。 |
 | [Azure 机器学习计算群集](../articles/machine-learning/how-to-use-parallel-run-step.md) | 批处理&nbsp;推理 | [是](../articles/machine-learning/how-to-use-parallel-run-step.md)（机器学习管道） | &nbsp;  | 对无服务器计算运行批量评分。 支持普通 VM 和低优先级 VM。 |
-| [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | （预览）实时推理 | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | （预览）IoT&nbsp;模块 |  &nbsp; | &nbsp; | 在 IoT 设备上部署和提供 ML 模型。 |
 
 > [!NOTE]
-> 尽管计算目标（例如本地、Azure 机器学习计算实例和 Azure 机器学习计算群集）支持用于训练和试验的 GPU，但在__部署为 Web 服务__时，使用 GPU 进行推理仅在 Azure Kubernetes 服务中受支持。
+> 尽管计算目标（例如本地、Azure 机器学习计算和 Azure 机器学习计算群集）支持使用 GPU 进行定型和试验，但在部署为 Web 服务时，仅 AKS 支持使用 GPU 进行推理。
 >
-> 只有在 Azure 机器学习计算上，才能__在通过机器学习管道评分时__使用 GPU 进行推理。
+> 只有在 Azure 机器学习计算上，才能 __在通过机器学习管道评分时__ 使用 GPU 进行推理。
 
 > [!NOTE]
-> * Azure 容器实例 (ACI) 仅适用于小于 1 GB 的小模型。 
-> * 我们建议为较大模型的开发测试使用单节点 Azure Kubernetes 服务 (AKS) 群集。
+> * 容器实例仅适用于小于 1 GB 的小模型。
+> * 使用单节点 AKS 群集对大型模型进行开发/测试。

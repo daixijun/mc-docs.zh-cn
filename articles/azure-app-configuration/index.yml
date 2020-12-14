@@ -8,13 +8,13 @@ metadata:
   ms.author: lcozzens
   ms.service: azure-app-configuration
   ms.topic: landing-page
-  ms.date: 02/03/2020
-  ms.openlocfilehash: a0b03ee0fa2050119fb5360748b5bfdb6ece1f92
-  ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+  ms.date: 12/14/2020
+  ms.openlocfilehash: edf5dbdafe078a9ba195376bc090a29d20990d0f
+  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96190304"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97105183"
 landingContent:
 - title: 关于 Azure 应用配置
   linkLists:
@@ -24,18 +24,6 @@ landingContent:
       url: overview.md
     - text: 常见问题
       url: faq.md
-  - linkListType: video
-    links:
-    - text: Azure 应用配置入门
-      url: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-    - text: 特色管理
-      url: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
-    - text: 轻松执行集中式配置
-      url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
-    - text: Cloud Native Show 上的 Azure 应用配置
-      url: https://www.youtube.com/watch?v=DJqmA5PcfzE
-    - text: 推出新功能
-      url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
   - linkListType: whats-new
     links:
     - text: 遵循我们的公告

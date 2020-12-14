@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: f9f57322c989f04928875fe22ef7fc5ab71f9c5a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 14e923d04a71efe494dcb38feaaca2d688c20adc
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599395"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104543"
 ---
 `deploymentconfig.json` 文档中的条目对应于 [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py) 的参数。 下表描述了 JSON 文档中的实体与方法参数之间的映射：
 
@@ -37,7 +37,7 @@ ms.locfileid: "75599395"
 | `keys` | 不可用 | 包含密钥的配置元素。 |
 | &emsp;&emsp;`primaryKey` | `primary_key` | 要用于此 Web 服务的主要身份验证密钥 |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | 要用于此 Web 服务的辅助身份验证密钥 |
-| `gpuCores` | `gpu_cores` | 要分配给此 Web 服务的 GPU 核心数。 默认值为 1。 仅支持整数值。 |
+| `gpuCores` | `gpu_cores` | 为此 Webservice 分配的 GPU 内核（每个容器的副本）数。 默认值为 1。 仅支持整数值。 |
 | `livenessProbeRequirements` | 不可用 | 包含运行情况探测要求的配置元素。 |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | 执行运行情况探测的频率（秒）。 默认值为 10 秒。 最小值为 1。 |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | 启动容器后，启动运行情况探测前的秒数。 默认值为 310 |

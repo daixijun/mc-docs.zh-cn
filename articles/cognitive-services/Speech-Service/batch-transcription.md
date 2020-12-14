@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/03/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92956d641fa49b29890eb69a1dddbdc48c0bb789
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: cdcacce5b4ecef7c51c297ba9393952923cbdc72
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977165"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004195"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批量听录
 
@@ -47,7 +47,7 @@ ms.locfileid: "94977165"
 >[!NOTE]
 > 若要使用批量听录，需要具备语音服务的标准订阅 (S0)。 免费订阅密钥 (F0) 不可用。 有关详细信息，请参阅[定价和限制](https://www.azure.cn/pricing/details/cognitive-services/)。
 
-如果计划自定义模型，请按照[声音自定义](how-to-customize-acoustic-models.md)和[语言自定义](how-to-customize-language-model.md)中的步骤操作。 若要在批量听录中使用所创建的模型，需要提供其模型位置。 可以在检查模型的详细信息（`self` 属性）时检索模型位置。 批量听录服务不需要已部署的自定义终结点。
+如果计划自定义模型，请按照[声音自定义](./how-to-custom-speech-train-model.md)和[语言自定义](./how-to-custom-speech-train-model.md)中的步骤操作。 若要在批量听录中使用所创建的模型，需要提供其模型位置。 可以在检查模型的详细信息（`self` 属性）时检索模型位置。 批量听录服务不需要已部署的自定义终结点。
 
 >[!NOTE]
 > 作为 REST API 的一部分，批量听录具有一组[配额和限制](speech-services-quotas-and-limits.md#batch-transcription)，建议你查看它们。 为了充分利用批处理听录功能来有效地听录大量音频文件，建议你始终根据每个请求发送多个文件，或指向包含要听录的音频文件的 Blob 存储容器。 该服务会以并发方式听录文件，减少周转时间。 可以直截了当地在单个请求中使用多个文件 - 请参阅[配置](#configuration)部分。 
@@ -183,7 +183,7 @@ ms.locfileid: "94977165"
 
 ### <a name="storage"></a>存储
 
-批量听录可以从公共可见 Internet URI 中读取音频，并且可以使用具有 [Azure Blob 存储](https://docs.azure.cn/storage/blobs/storage-blobs-overview)的 SAS URI 来读取音频或写入听录。
+批量听录可以从公共可见 Internet URI 中读取音频，并且可以使用具有 [Azure Blob 存储](../../storage/blobs/storage-blobs-overview.md)的 SAS URI 来读取音频或写入听录。
 
 ## <a name="batch-transcription-result"></a>批量听录结果
 

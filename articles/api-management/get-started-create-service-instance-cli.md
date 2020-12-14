@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.service: api-management
 ms.topic: quickstart
 ms.custom: ''
-ms.date: 12/01/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: 5dbd91c90f8fda1d0478f1a8b76639007e4280bc
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e6781f7fbddbb622ff269cc2da9c1d2e59df9418
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432525"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104679"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>快速入门：使用 Azure CLI 创建新的 Azure API 管理服务实例（预览版）
 
@@ -73,7 +73,7 @@ myapim       myResourceGroup   China East                                       
 ```console
 NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR                       PUBLIC IP     PRIVATE IP    STATUS    TIER       UNITS
 -----------  ----------------  ----------  ---------------------------------  ------------  ------------  --------  ---------  -------
-myapim       myResourceGroup   China East  https://myapim.azure-api.net       203.0.113.1                 Online    Developer  1
+myapim       myResourceGroup   China East  https://myapim.azure-api.cn       203.0.113.1                 Online    Developer  1
 ```
 
 当 API 管理服务实例处于联机状态时，便可以使用它了。 从[导入并发布第一个 API](import-and-publish.md) 教程开始。

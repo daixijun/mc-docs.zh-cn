@@ -5,16 +5,16 @@ manager: gaggupta
 ms.topic: how-to
 origin.date: 05/25/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 20e82a960f8b62c58f97cc3cb67116d062ffd310
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 3b171d9f90ca9698cd15875bf8f68c70c86677a0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977674"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105305"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>将邻近放置组中运行的 Azure 虚拟机复制到另一个区域
 
@@ -50,7 +50,10 @@ ms.locfileid: "94977674"
 
 ### <a name="azure-to-azure"></a>Azure 到 Azure
 
-1. [登录](./azure-to-azure-powershell.md#sign-in-to-your-microsoft-azure-subscription)到 Azure 帐户并设置订阅。
+1. [登录](./azure-to-azure-powershell.md#sign-in-to-your-azure-subscription)到 Azure 帐户并设置订阅。
+
+    <!--CORRECCT ON THE TAG: #sign-in-to-your-azure-subscription-->
+
 2. 按[此处](./azure-to-azure-powershell.md#get-details-of-the-virtual-machine-to-be-replicated)所述获取你计划复制的虚拟机的详细信息。
 3. [创建](./azure-to-azure-powershell.md#create-a-recovery-services-vault)恢复服务保管库并[设置](./azure-to-azure-powershell.md#set-the-vault-context)保管库上下文。
 4. 准备保管库以开始复制虚拟机。 这涉及到为主区域和恢复区域创建 [service fabric 对象](./azure-to-azure-powershell.md#create-a-site-recovery-fabric-object-to-represent-the-primary-source-region)。
@@ -66,17 +69,20 @@ ms.locfileid: "94977674"
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "chinanorth2"
 
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+#Make sure to replace the variables $OSdiskName with OS disk name.
 
 #OS Disk
-$OSdisk = Get-AzDisk -DiskName $OSdiskName -ResourceGroupName $OSdiskResourceGroup
+$OSdisk = Get-AzDisk -DiskName $OSdiskName -ResourceGroupName "A2AdemoRG"
 $OSdiskId = $OSdisk.Id
 $RecoveryOSDiskAccountType = $OSdisk.Sku.Name
 $RecoveryReplicaDiskAccountType = $OSdisk.Sku.Name
 
 $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $ChinaEastCacheStorageAccount.Id -DiskId $OSdiskId -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
+#Make sure to replace the variables $datadiskName with data disk name.
+
 #Data disk
-$datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName $datadiskResourceGroup
+$datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName "A2AdemoRG"
 $datadiskId1 = $datadisk[0].Id
 $RecoveryReplicaDiskAccountType = $datadisk[0].Sku.Name
 $RecoveryTargetDiskAccountType = $datadisk[0].Sku.Name
@@ -94,7 +100,7 @@ $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -A
 ```
 
 <!--CORRECT ON $CeToCnPCMapping-->
-<!--Not Available on Zone to Zone replication on MC-->
+<!--Not Available on enabling zone to zone replication with PPG-->
 
 成功启动复制操作后，虚拟机数据将复制到恢复区域。
 

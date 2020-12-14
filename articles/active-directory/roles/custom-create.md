@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c2a678a09c98c8710d64db8929be49dee09eca
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: e60c834d83f51a70ce13fea79e17082ac58d707a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918514"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003754"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>在 Azure Active Directory 中创建和分配自定义角色
 
@@ -154,7 +154,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://microsoftgraph.chinacloudapi.cn/beta/roleManagement/directory/roleAssignments
     ```
 
-    Body
+    正文
 
     ``` HTTP
    {
@@ -183,5 +183,5 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 - 欢迎在 [Azure AD 管理角色论坛](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)上与我们分享知识。
 - 有关角色以及管理员角色分配的详细信息，请参阅[分配管理员角色](permissions-reference.md)。
-- 有关默认用户权限，请参阅[默认来宾和成员用户权限的比较](/active-directory/fundamentals/users-default-permissions)。
+- 有关默认用户权限，请参阅[默认来宾和成员用户权限的比较](../fundamentals/users-default-permissions.md)。
 

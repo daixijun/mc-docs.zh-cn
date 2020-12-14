@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: bfec0fba2e830534aee372ba714d6de7403fd80f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 6a1dffd6b6ae644bc28d478e986632d796c59a6d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245057"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003976"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
 

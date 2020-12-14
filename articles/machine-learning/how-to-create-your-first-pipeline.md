@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: faa07c105554686916d138d906690ce214102fd5
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: de197c01dc4fa1d1e6125f21108f0d361f0ec555
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977927"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105279"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure 机器学习 SDK 创建和运行机器学习管道
 
@@ -30,7 +30,7 @@ Azure 机器学习[工作区](how-to-manage-workspace.md)的成员可以看到�
 
 ML 管道在计算目标上执行（请参阅 [Azure 机器学习中的计算目标是什么](/machine-learning/concept-compute-target)）。 管道可以在支持的 [Azure 存储文档](/storage/)位置读取和写入数据。
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

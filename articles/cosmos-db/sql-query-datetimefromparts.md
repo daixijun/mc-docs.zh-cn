@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimeFromParts
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeFromParts。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/09/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 9037169bd3119e82db74a09b871336e6eefdc31b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3b68d22259c65e4939951043627f85b9d3f6c860
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552755"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850859"
 ---
 <!--Verified successfully-->
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)

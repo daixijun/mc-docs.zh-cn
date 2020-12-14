@@ -2,19 +2,20 @@
 title: Azure Cosmos DB Core (SQL API) 的 Azure 资源管理器模板
 description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: aa00aa89bcfa8372456d70124f6ab4f8b6e50049
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5d6dfa5e9cf5b45b44b7dcf86fb0654a7c8af76f
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329148"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850837"
 ---
 <!--Verified successfully-->
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure 资源管理器模板
@@ -35,5 +36,4 @@ ms.locfileid: "94329148"
 
 <!--Not Available on [Azure Resource Manager reference for Azure Cosmos DB](https://docs.microsoft.com/azure/templates/microsoft.documentdb/allversions)-->
 
-<!-- Update_Description: new article about templates samples sql -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -2,20 +2,21 @@
 title: 排除 Azure Cosmos DB 服务请求超时异常的故障
 description: 了解如何诊断和修复 Azure Cosmos DB 服务请求超时异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b903ebb8f77d14123d99a5e49600231f94060831
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 50e3678632c29950b08a7597ea6720401e18e9d9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552278"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850791"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-timeout-exceptions"></a>诊断和排查 Azure Cosmos DB 请求超时异常
@@ -46,5 +47,7 @@ Azure Cosmos DB 在物理分区之间均匀分配预配的总吞吐量。 存在
 ## <a name="next-steps"></a>后续步骤
 * [诊断和排查](troubleshoot-dot-net-sdk.md)在使用 Azure Cosmos DB .NET SDK 时遇到的问题。
 * 了解 [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 和 [.NET v2](performance-tips.md) 的性能准则。
+* [诊断和排查](troubleshoot-java-sdk-v4-sql.md)使用 Azure Cosmos DB Java v4 SDK 时遇到的问题。
+* 了解 [Java v4 SDK](performance-tips-java-sdk-v4-sql.md) 的性能准则。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

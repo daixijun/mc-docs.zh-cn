@@ -4,15 +4,15 @@ description: 使用 Azure 事件网格订阅应用配置事件，无需复杂的
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
-ms.date: 02/20/2020
+ms.date: 12/14/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: a5eb6e238011f7df15c1230b1d154c9cde7352be
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: fc53e05b894ad9e4430ec44eba4b3f89c618806b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190292"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105225"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>响应 Azure 应用配置事件
 
@@ -70,6 +70,7 @@ Azure 应用配置事件包含响应数据更改所需的全部信息。 你可�
 
 ```
 
+<!--For more information, see [Azure App Configuration events schema](../event-grid/event-schema-app-configuration.md)-->
 
 ## <a name="practices-for-consuming-events"></a>使用事件的做法
 处理应用配置事件的应用程序应当遵循以下建议的做法：

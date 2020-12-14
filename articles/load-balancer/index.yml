@@ -11,13 +11,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 05/07/2020
-  ms.date: 12/07/2020
-  ms.openlocfilehash: 196bf6b1e435a8db4a23e951d2406ff2d8676adb
-  ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+  ms.date: 12/14/2020
+  ms.openlocfilehash: ed1355868c4c29a6a654a6fcdd2396c59b861833
+  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/06/2020
-  ms.locfileid: "96746576"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97104697"
 landingContent:
 - title: 关于负载均衡器
   linkLists:
@@ -83,7 +83,7 @@ landingContent:
     links:
     - text: 通过指标、警报和资源运行状况进行标准负载均衡器诊断
       url: load-balancer-standard-diagnostics.md
-    - text: 排查 Azure 负载均衡器问题
+    - text: 对 Azure 负载均衡器进行故障排除
       url: load-balancer-troubleshoot.md
     - text: 常见的 Azure 负载均衡器错误
       url: load-balancer-common-deployment-errors.md

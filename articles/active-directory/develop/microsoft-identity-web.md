@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/23/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: d72faf18585b4137eb2394a603214778ea1cc83b
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: c1f5bcab0fc299024cc9b205abb2d50334f2f430
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754782"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004025"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft 标识 Web 身份验证库
 
@@ -82,7 +82,7 @@ Microsoft 标识 Web 是 GitHub 上承载的一个开源项目：<a href="https:
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | 在 Web 应用中[将用户登录](scenario-web-app-sign-user-app-configuration.md)             | <li>工作或学校帐户<li>社交标识（使用 Azure AD B2C） | <li>工作或学校帐户<li>社交标识（使用 Azure AD B2C）     |
 | [保护 Web API](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>工作或学校帐户<li>社交标识（使用 Azure AD B2C） | <li>工作或学校帐户<li>社交标识（使用 Azure AD B2C）     |
-| 多租户应用中的颁发者验证                                                   | 否                                                                   | 是，适用于[所有云](authentication-national-cloud.md)和 [Azure AD B2C](/active-directory-b2c) |
+| 多租户应用中的颁发者验证                                                   | 否                                                                   | 是，适用于[所有云](authentication-national-cloud.md)和 [Azure AD B2C](../../active-directory-b2c/index.yml) |
 | Web 应用/API [调用 Microsoft Graph][scenario-api-call-graph]                             | 否                                                                   | 是                                                                                                     |
 | Web 应用/API [调用 Web API][scenario-api-call-api]                                       | 否                                                                   | 是                                                                                                     |
 | 支持证书凭据                                                         | 否                                                                   | 是，包括 Azure Key Vault                                                                          |

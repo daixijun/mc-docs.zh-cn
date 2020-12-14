@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/11/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 722aa1a098644ce8a5268d052440e6e069247307
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d154c6df32481d89889ee4f0c335e750597b92ad
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977083"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004082"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>评估并提升自定义语音识别准确度
 
@@ -139,5 +139,5 @@ The following table shows voice recognition scenarios and lists source materials
 
 ## <a name="additional-resources"></a>其他资源
 
-* [准备和测试数据](how-to-custom-speech-test-data.md)
+* [准备和测试数据](./how-to-custom-speech-test-and-train.md)
 * [检查数据](how-to-custom-speech-inspect-data.md)

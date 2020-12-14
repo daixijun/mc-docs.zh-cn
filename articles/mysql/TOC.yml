@@ -107,8 +107,6 @@
           href: sample-scripts-azure-cli.md
         - name: Java 连接池
           href: sample-scripts-java-connection-pooling.md
-        - name: Azure Policy 内置策略定义
-          href: ./policy-reference.md
     - name: 概念
       items:
         - name: 服务器
@@ -139,6 +137,11 @@
               href: concepts-firewall-rules.md
             - name: Azure AD 身份验证
               href: concepts-azure-ad-authentication.md
+            - name: Azure Policy 的安全控件
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
+            - name: 安全基线
+              href: security-baseline.md
         - name: 计划内维护
           href: concepts-planned-maintenance-notification.md
         - name: 业务连续性
@@ -261,6 +264,10 @@
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
               displayName: 'server parameters, powershell'
+        - name: 主版本升级
+          items:
+            - name: 主版本升级
+              href: how-to-major-version-upgrade.md
         - name: 自动增长存储
           items:
             - name: Azure 门户
@@ -373,6 +380,9 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions'
     - name: 管理存储过程
       href: reference-stored-procedures.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: 1f38682cd063d74af750502ecfb0ee9a16158e06
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c9c3fd2f59915b15c466508e829159e9e7142592
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977994"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105262"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>教程：使用 Azure 机器学习中的自动化 ML 创建分类模型
 
@@ -36,7 +36,7 @@ ms.locfileid: "94977994"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 下载 [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 数据文件。 **y** 列指示客户是否认购了定期存款产品，该列稍后在本教程中将标识为预测目标列。 
 
@@ -81,7 +81,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
     1. 在“数据存储和文件选择”窗体上，选择在创建工作区期间自动设置的默认数据存储“workspaceblobstore(Azure Blob 存储)”。 你可以在此数据存储中上传数据文件，使其可用于你的工作区。
 
-    1. 选择“浏览”  。
+    1. 选择“浏览”。
     
     1. 选择本地计算机上的 bankmarketing_train.csv 文件。 这是作为[必备组件](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)下载的文件。
 

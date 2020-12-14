@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 的 SQL 关键字
 description: 了解 Azure Cosmos DB 的 SQL 关键字。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d7147e7478654873cf780be505d4c17e8444c3bf
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: fe93d8496159e2f48d24475fe0567947e7cfceb5
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551950"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850706"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB 中的关键字
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

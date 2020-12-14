@@ -5,17 +5,17 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: dineshm
 origin.date: 03/05/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a9fa1d4fcf4e967b9c36f06ea4ee7acacf5d9440
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6ea66fdd5962087b9884453c7bcaafad63965e0a
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552050"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850352"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>快速入门：使用 Azure CLI 将存储事件路由到 Web 终结点
 
@@ -29,9 +29,9 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，请使用 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-本文要求运行最新版本的 Azure CLI（2.0.70 或更高版本）。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-必须先使用 `az login` 登录。
+- 本文需要 Azure CLI 版本 2.0.70 或更高版本。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

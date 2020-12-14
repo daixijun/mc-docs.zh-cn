@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 08/13/2020
 ms.date: 09/14/2020
 ms.author: v-yiso
-ms.openlocfilehash: 1da1a5eb2ab01ae20becd57c7bad0381371f2704
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: eeb0c9143582d47ab6872d5a7ab94ca6d737a195
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552427"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104360"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>适用于 Azure HDInsight 的 Apache 组件和版本
 
@@ -36,7 +36,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop 和 YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Pig             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1（在 ESP Interactive Query 上为 2.1.0） |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |

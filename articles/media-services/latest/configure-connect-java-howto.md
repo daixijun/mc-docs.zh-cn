@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 08/31/2020
-ms.date: 11/30/2020
+origin.date: 11/17/2020
+ms.date: 12/14/2020
 ms.custom: devx-track-java
 ms.author: v-jay
-ms.openlocfilehash: 5fc067cb45eef26b046f36d728f314d31bfe9cb5
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 56dc088c438ee1eb699573366af9119579bef138
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300836"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003941"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>连接到媒体服务 v3 API - Java
 
@@ -63,25 +63,9 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 1. 在 Visual Studio Code 中，打开项目所在的文件夹
 1. 找到并打开 `pom.xml`
-1. 添加所需的依赖项
+1. 添加所需的依赖项。
 
-    ```xml
-   <dependency>
-     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-     <artifactId>azure-mgmt-media</artifactId>
-     <version>1.0.0-beta-3</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.rest</groupId>
-     <artifactId>client-runtime</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>azure-client-authentication</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-    ```
+   请参阅[视频编码](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESCustomPreset/pom.xml)示例中的 `pom.xml`。
 
 ## <a name="connect-to-the-java-client"></a>连接到 Java 客户端
 

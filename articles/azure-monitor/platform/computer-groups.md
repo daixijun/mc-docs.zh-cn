@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 12/08/2020
 origin.date: 02/05/2019
-ms.openlocfilehash: 46ae37b76969dd67d9c41f9dad4aafe5b069a6b8
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 9f636033234487a0edc568c47efade50b20a8c05
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457228"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104739"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的计算机组
 使用 Azure Monitor 中的计算机组可为一组特定的计算机设定[日志查询](../log-query/log-query-overview.md)的范围。  每个组使用定义的查询或通过从不同源导入组填充计算机。  当日志查询中包括组时，结果仅限于与组中的计算机匹配的记录。
@@ -98,13 +98,13 @@ Heartbeat | where Computer contains "srv" | distinct Computer
 通过将计算机组的别名视为函数，可在查询中使用从日志查询创建的计算机组，通常使用以下语法：
 
 ```kusto
-Table | where Computer in (ComputerGroup)`
+Table | where Computer in (ComputerGroup)
 ```
 
 例如，可以使用以下语法仅返回名为 mycomputergroup 的计算机组中的计算机的 UpdateSummary 记录。
 
 ```kusto
-UpdateSummary | where Computer in (mycomputergroup)`
+UpdateSummary | where Computer in (mycomputergroup)
 ```
 
 导入的计算机组及其包含的计算机存储在 ComputerGroup 表中  。  例如，以下查询会从 Active Directory 返回域计算机组中的计算机列表。 

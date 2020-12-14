@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: aa1bbdf4f97d521a45751cb6b16e26c129394426
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: a828dd2fa8c88a599405655c000138c2dba58334
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431169"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104708"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>快速入门：适用于 JavaScript 的 Azure Key Vault 客户端库 (v4)
 
@@ -44,7 +44,7 @@ ms.locfileid: "96431169"
 
     如果 CLI 可以打开默认浏览器，它将这样做并加载 Azure 登录页。
 
-    否则，请在 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 处打开浏览器页，然后输入终端中显示的授权代码。
+    否则，请在 [https://login.partner.microsoftonline.cn/common/oauth2/deviceauth](https://login.partner.microsoftonline.cn/common/oauth2/deviceauth) 处打开浏览器页，然后输入终端中显示的授权代码。
 
 2. 在浏览器中使用帐户凭据登录。
 

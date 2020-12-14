@@ -2,17 +2,18 @@
 title: 使用 Azure Cosmos DB 查询地理空间数据
 description: 使用 Azure Cosmos DB 查询空间数据
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 02/20/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7ef0e4a48040b885d5dd0b9856c34cbed6010d76
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 91064f3e4a1e95e8281f1998431a84ed83cb31ab
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552690"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850723"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->

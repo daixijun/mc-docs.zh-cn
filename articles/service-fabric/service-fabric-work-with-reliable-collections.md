@@ -4,16 +4,16 @@ description: 了解有关在 Azure Service Fabric 应用程序中使用可靠集
 ms.topic: conceptual
 origin.date: 03/10/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5c2bf5619411b8cc5a34ec8254c67bb9c1413067
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 130cbebcdbe43055f077f6b8baf5ed174be8d103
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655586"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105051"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠集合
 Service Fabric 通过可靠集合向 .NET 开发人员提供有状态的编程模型。 具体而言，Service Fabric 提供可靠字典和可靠队列类。 在使用这些类时，状态是分区的（实现伸缩性）、复制的（实现可用性），并在分区内进行事务处理（实现 ACID 语义）。 让我们看一下可靠字典对象的典型用法，并看一看它究竟在做些什么。
@@ -40,6 +40,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 
@@ -223,11 +224,11 @@ public struct ItemId
 另外，也可以执行通称为两阶段升级的功能。 通过两阶段升级，可以将服务从 V1 升级到 V2：V2 包含知道如何处理新架构更改的代码，但此代码不会执行。 当 V2 代码读取 V1 数据时，它在其上操作并写入 V1 数据。 然后，在跨所有升级域的升级都完成之后，就可以通知运行中的 V2 实例，升级已完成。 （通知方式之一是推出配置升级；这就是两阶段升级。）现在，V2 实例可以读取 V1 数据，将它转换成 V2 数据、操作它，并写出为 V2 数据。 当其他实例读取 V2 数据时，不需要转换它，只要操作并写出 V2 数据即可。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解如何创建向前兼容的数据约定，请参阅[向前兼容的数据协定](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts?view=azure-dotnet)
+若要了解如何创建向前兼容的数据约定，请参阅[向前兼容的数据协定](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-若要了解版本控制数据协定的最佳做法，请参阅[数据协定版本控制](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/data-contract-versioning?view=azure-dotnet)
+若要了解版本控制数据协定的最佳做法，请参阅[数据协定版本控制](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-若要了解如何实现版本容错的数据协定，请参阅[版本容错的序列化回调](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks?view=azure-dotnet)
+若要了解如何实现版本容错的数据协定，请参阅[版本容错的序列化回调](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
 若要了解如何提供可跨多个版本互操作的数据结构，请参阅 [IExtensibleDataObject](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
 

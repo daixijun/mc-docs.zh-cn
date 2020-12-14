@@ -2,20 +2,21 @@
 title: Azure Cosmos DB 查询语言中的 DateTimeDiff
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 DateTimeDiff。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 07/09/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 6985f88c44acc09e1417499bc4ce527cf068f531
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 92ff186819f2b75fe80dedd6e7008860003675dc
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551767"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850840"
 ---
 <!--Verified successfully-->
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
@@ -32,7 +33,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 ## <a name="arguments"></a>参数
 
 *DateTimePart*  
-   DateTimeAdd 向其添加整数的日期部分。 此表列出了所有有效的 DateTimePart 参数：
+  DateTimeAdd 向其添加整数的日期部分。 此表列出了所有有效的 DateTimePart 参数：
 
 | DateTimePart | 缩写        |
 | ------------ | -------------------- |
@@ -47,7 +48,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 | Nanosecond   | "nanosecond", "ns"   |
 
 *StartDate*  
-    `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值，其中：
+  `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值，其中：
 
   |格式|描述|
   |-|-|
@@ -64,7 +65,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   <!--Not Available on [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)-->
 
 EndDate  
-   `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
+  `YYYY-MM-DDThh:mm:ss.fffffffZ` 格式的 UTC 日期和时间 ISO 8601 字符串值
 
 ## <a name="return-types"></a>返回类型
 

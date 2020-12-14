@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 09/04/2019
-ms.date: 11/27/2020
+ms.date: 12/11/2020
 ms.author: v-tawe
-ms.openlocfilehash: d9c6b67465c21a611fb7b8e520d05e12844f314f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 85f662647eccc3e86031687204d5104de88c4e59
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300298"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104415"
 ---
 # <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 
@@ -133,7 +133,7 @@ Key Vault 证书对象包含与所选证书颁发者提供者进行通信的配�
 
     -   提供用于在密钥保管库中创建提供程序的颁发者对象的配置  
 
-有关从证书门户创建颁发者对象的详细信息，请参阅 [Key Vault 证书博客](https://aka.ms/kvcertsblog)  
+<!-- For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault)   -->
 
 Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对象。 在创建颁发者对象以后，即可在一个或多个证书的策略中引用其名称。 在创建和续订证书的过程中从 CA 提供者请求 x509 证书时，引用颁发者对象可以指示 Key Vault 按颁发者对象中的规定使用配置。  
 

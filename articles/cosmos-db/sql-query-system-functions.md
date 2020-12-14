@@ -2,18 +2,19 @@
 title: Azure Cosmos DB 查询语言中的系统函数
 description: 了解 Azure Cosmos DB 中内置的和用户定义的 SQL 系统函数。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/15/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 87c876847bebc2bfdab7788835661d9a7db781c4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 2eb9e4af67151fcacd4dd64218a80253e5d069cf
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552408"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850489"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>系统函数 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

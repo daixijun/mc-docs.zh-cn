@@ -10,6 +10,8 @@
       href: subscription-requirements.md
     - name: 不能使用 PIM 进行管理的角色
       href: pim-roles.md
+    - name: 保护特权访问
+      href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: MFA 和 PIM
       href: pim-how-to-require-mfa.md
     - name: 仪表板概述

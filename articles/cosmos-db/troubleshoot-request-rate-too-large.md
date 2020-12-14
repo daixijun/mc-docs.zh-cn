@@ -2,20 +2,21 @@
 title: 对 Azure Cosmos DB 请求速率过大异常进行故障排除
 description: 了解如何诊断和修复请求速率过大异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: ce81e83d6af3564f19c879dc814d1a7aa5105d71
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ba0465443bcd185a9d63368858b44f394e7aa309
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552291"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850794"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>诊断 Azure Cosmos DB 请求速率过大异常并对其进行故障排除
@@ -39,5 +40,7 @@ ms.locfileid: "94552291"
 ## <a name="next-steps"></a>后续步骤
 * [诊断和排查](troubleshoot-dot-net-sdk.md)使用 Azure Cosmos DB .NET SDK 时遇到的问题。
 * 了解 [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 和 [.NET v2](performance-tips.md) 的性能准则。
+* [诊断和排查](troubleshoot-java-sdk-v4-sql.md)使用 Azure Cosmos DB Java v4 SDK 时遇到的问题。
+* 了解 [Java v4 SDK](performance-tips-java-sdk-v4-sql.md) 的性能准则。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,14 +4,14 @@ description: Application Insights 代理的概述。 无需重新部署网站即
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 origin.date: 09/16/2019
-ms.openlocfilehash: 7b4b6aa744ed5c7040396c801b1caf12f689344f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 95ae606c7a0f25012dafefc541eab440df287741
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105657"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104402"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>为本地服务器部署 Azure Monitor Application Insights 代理
 
@@ -55,20 +55,20 @@ Application Insights 代理位于此处： https://www.powershellgallery.com/pac
 
 - Application Insights 代理是否支持代理安装？
 
-  *是* 。 可以通过多种方式下载 Application Insights 代理。 如果计算机可以访问 Internet，则可以使用 `-Proxy` 参数登录到 PowerShell 库。
+  *是*。 可以通过多种方式下载 Application Insights 代理。 如果计算机可以访问 Internet，则可以使用 `-Proxy` 参数登录到 PowerShell 库。
 还可以手动下载此模块，并将其安装到计算机上或直接使用它。
 上述每个选项都在[详细说明](status-monitor-v2-detailed-instructions.md)中进行了说明。
 
 - 状态监视器 v2 是否支持 ASP.NET Core 应用程序？
 
-  *不* 。 有关启用对 ASP.NET Core 应用程序的监视的说明，请参阅[适用于 ASP.NET Core 应用程序的 Application Insights](./asp-net-core.md)。 无需为 ASP.NET Core 应用程序安装 StatusMonitor。 即使 ASP.NET Core 应用程序托管在 IIS 中，也是如此。
+  *不*。 有关启用对 ASP.NET Core 应用程序的监视的说明，请参阅[适用于 ASP.NET Core 应用程序的 Application Insights](./asp-net-core.md)。 无需为 ASP.NET Core 应用程序安装 StatusMonitor。 即使 ASP.NET Core 应用程序托管在 IIS 中，也是如此。
 
 - 如何验证启用是否成功？
 
   - [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet 可用于验证启用是否成功。
   - 我们建议你使用[实时指标](./live-stream.md)来快速确定应用是否正在发送遥测数据。
 
-  - 还可以使用 [Log Analytics](../log-query/get-started-portal.md) 列出当前正在发送遥测数据的所有云角色：
+  - 还可以使用 [Log Analytics](../log-query/log-analytics-tutorial.md) 列出当前正在发送遥测数据的所有云角色：
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -87,5 +87,4 @@ Application Insights 代理位于此处： https://www.powershellgallery.com/pac
 * [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
 * [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 * [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
-
 

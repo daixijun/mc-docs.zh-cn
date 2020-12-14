@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/27/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: c8ca33538982329305c08502f7b8e35d9f0e50f8
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 1c136d070fbcae8dd13f330533b63d42f5240774
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747257"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105098"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建内部负载均衡器以对 VM 进行负载均衡
 

@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5ffcf44f5a987ba3a55a525a6603798d1423ca14
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 276d5c55c94175389d4a83d57707754c3b1cc207
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508276"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850834"
 ---
 <!--Verified successfully the snipcode-->
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>使用 .NET SDK 在 Azure Cosmos DB 中执行事务性批处理操作
@@ -121,5 +121,4 @@ SDK 会将响应公开，以便你验证结果并根据需要提取每个内部�
 
 * 访问[示例](sql-api-dotnet-v3sdk-samples.md)来了解使用 Cosmos DB .NET SDK 的更多方式
 
-<!-- Update_Description: new article about transactional batch -->
-<!--NEW.date: 12/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

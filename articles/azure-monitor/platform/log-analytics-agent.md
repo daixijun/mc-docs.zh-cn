@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 origin.date: 12/24/2019
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: ed4f846f176c796415ac2d62275830e045461e23
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 0b6c042a3727a1f1bab77e707f8f6a61b9958d44
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328834"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104968"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 代理概述
 Azure Log Analytics 代理从任何云、本地计算机中的 Windows 和 Linux 虚拟机收集遥测数据，并将其收集的数据发送到 Azure Monitor 中的 Log Analytics 工作区。 Log Analytics 代理还支持 Azure Monitor 中的见解和其他服务，例如用于 VM 的 Azure Monitor、[Azure 安全中心](../../security-center/index.yml)和 [Azure 自动化](../../automation/automation-intro.md)。 本文提供了该代理的详细概述、系统和网络要求以及部署方法。
@@ -53,7 +53,7 @@ Log Analytics 代理不收取任何费用，但引入的数据可能产生费用
 Log Analytics 代理将数据发送到 Azure Monitor 中的 Log Analytics 工作区。 Windows 代理可以是多宿主代理，这样便可以将数据发送到多个工作区。 Linux 代理只能发送到一个目标（一个工作区或一个管理组）。
 
 ## <a name="other-services"></a>其他服务
-Linux 和 Windows 的代理不只是用于连接到 Azure Monitor。 其他服务（如 Azure 安全中心）依赖于该代理及其连接的 Log Analytics 工作区。 该代理还支持使用 Azure 自动化来托管混合 Runbook 辅助角色和其他服务（如[更新管理](../../automation/update-management/update-mgmt-overview.md)和 [Azure 安全中心](../../security-center/security-center-intro.md)）。 有关混合 Runbook 辅助角色的详细信息，请参阅 [Azure 自动化混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)。  
+Linux 和 Windows 的代理不只是用于连接到 Azure Monitor。 其他服务（如 Azure 安全中心）依赖于该代理及其连接的 Log Analytics 工作区。 该代理还支持使用 Azure 自动化来托管混合 Runbook 辅助角色和其他服务（如[更新管理](../../automation/update-management/overview.md)和 [Azure 安全中心](../../security-center/security-center-introduction.md)）。 有关混合 Runbook 辅助角色的详细信息，请参阅 [Azure 自动化混合 Runbook 辅助角色](../../automation/automation-hybrid-runbook-worker.md)。  
 <!-- Not available in MC: automation/change-tracking.md -->
 
 ## <a name="workspace-and-management-group-limitations"></a>工作区和管理组的限制

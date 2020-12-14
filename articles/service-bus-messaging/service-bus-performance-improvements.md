@@ -4,17 +4,17 @@ description: 介绍如何使用服务总线在交换中转消息时优化性能�
 ms.topic: article
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5b1277c95e74d4388c542b41729705ff0ce98db
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 65d8c4ab0abe714e2034c59ea6d46a2a20b2cc2f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977966"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105355"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 

@@ -4,14 +4,14 @@ description: Application Insights 执行应用遥测的自动深入分析，并�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 02/07/2019
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: d3bc3efb9d95ba260b6f5e0dd93167e495ff8528
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9af88a38eca679b816bd988697fc10dc6fec3087
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104676"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104751"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智能检测
  当 Web 应用程序中存在潜在性能问题和故障异常时，智能检测会自动向你发出警告。 它会对应用发送至 [Application Insights](./app-insights-overview.md) 的遥测数据执行主动分析。 如果失败率中存在骤升或者客户端或服务器性能中存在异常模式，将收到警报。 此功能不需要任何配置。 它会在应用程序发送足够的遥测时运行。
@@ -21,7 +21,7 @@ ms.locfileid: "93104676"
 ## <a name="review-your-smart-detections"></a>查看智能检测
 可通过以下两种方式发现检测：
 
-* **收到来自 Application Insights 的电子邮件** 。 下面是一个典型示例：
+* **收到来自 Application Insights 的电子邮件**。 下面是一个典型示例：
   
     ![电子邮件警报](./media/proactive-diagnostics/03.png)
   
@@ -55,11 +55,10 @@ ms.locfileid: "93104676"
 
 * [指标资源管理器](../platform/metrics-charts.md)
 * [搜索资源管理器](./diagnostic-search.md)
-* [分析 - 功能强大的查询语言](../log-query/get-started-portal.md)
+* [分析 - 功能强大的查询语言](../log-query/log-analytics-tutorial.md)
 
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
 * [手动配置的指标警报](../platform/alerts-log.md)
-* [可用性 Web 测试](./monitor-web-app-availability.md) 
-
+* [可用性 Web 测试](./monitor-web-app-availability.md)
 

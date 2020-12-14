@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4a4fbd332e0c1c98007086b4a3b673516b72bb
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 75d91776a31f4cf11bcd376acf1da43951da02ae
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501798"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004135"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>向应用程序授予租户范围的管理员许可
 
@@ -30,7 +30,7 @@ ms.locfileid: "94501798"
 授予租户范围的管理员许可需要以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录。
 
 > [!IMPORTANT]
-> 为应用程序授予租户范围的管理员许可后，除非已配置为需要用户分配，否则所有用户都可以登录到该应用。 若要限制哪些用户可登录到某个应用程序，需要提供用户分配，然后将用户或组分配到该应用程序。 有关详细信息，请参阅[分配用户和组的方法](methods-for-assigning-users-and-groups.md)。
+> 为应用程序授予租户范围的管理员许可后，除非已配置为需要用户分配，否则所有用户都可以登录到该应用。 若要限制哪些用户可登录到某个应用程序，需要提供用户分配，然后将用户或组分配到该应用程序。 有关详细信息，请参阅[分配用户和组的方法](./assign-user-or-group-access-portal.md)。
 >
 > 若要为 Microsoft Graph API 应用程序权限提供管理员许可，需要“全局管理员”角色。
 
@@ -95,7 +95,9 @@ https://login.partner.microsoftonline.cn/{tenant-id}/adminconsent?client_id={cli
 
 ## <a name="next-steps"></a>后续步骤
 
-[Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+[配置最终用户如何对应用程序表示同意](configure-user-consent.md)
+
+[Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
 

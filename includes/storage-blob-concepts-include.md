@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 11/05/2019
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 71a0d00c7d9f61133a30c49dccf0e01f4de440a2
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a495d6f438a471786dd35131e4c74567dfffff2f
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552037"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850749"
 ---
-Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据。 非结构化数据是不遵循特定数据模型或定义（如文本或二进制数据）的数据。
+Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据。 非结构化数据是不遵循特定数据模型或定义的数据（如文本或二进制数据）。
 
 ## <a name="about-blob-storage"></a>关于 Blob 存储
 
@@ -31,10 +31,10 @@ Blob 存储用于：
 
 用户或客户端应用程序通过 HTTP/HTTPS 可以从世界任何地方访问 Blob 存储中的对象。 Blob 存储中的对象可以通过 [Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage)、[Azure CLI](/cli/storage) 或 Azure 存储客户端库访问。 提供了不同语言的客户端库，包括：
 
-* [.NET](https://docs.azure.cn/dotnet/api/overview/storage/)
-* [Java](https://docs.azure.cn/java/api/overview/storage/managementapi)
+* [.NET](/dotnet/api/overview/storage?view=azure-dotnet)
+* [Java](/java/api/overview/storage/managementapi)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
-* [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
+* [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)
 * [Go](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)
 * [Ruby](https://azure.github.io/azure-storage-ruby)
@@ -48,4 +48,4 @@ Blob 存储支持 Azure Data Lake storage Gen2，即 Azure 适用于云的企业
 * 强一致性
 * 灾难恢复功能
 
-有关 Data Lake Storage Gen2 的详细信息，请参阅 [Azure Data Lake Storage Gen2 简介](../articles/storage/data-lake-storage/introduction.md)。
+有关 Data Lake Storage Gen2 的详细信息，请参阅 [Azure Data Lake Storage Gen2 简介](../articles/storage/blobs/data-lake-storage-introduction.md)。

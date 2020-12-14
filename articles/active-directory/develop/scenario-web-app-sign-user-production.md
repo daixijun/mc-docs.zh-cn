@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 19f84d4fb33b5e7f306c0f76f52a52f208bc4395
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 7a35ca4a66d1fcf8689706425823163609ee6913
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918324"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004091"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>用于登录用户的 Web 应用：移到生产环境
 
@@ -50,7 +50,7 @@ Microsoft.Identity.Web NuGet 包处理最常见的 SameSite 问题。
 - 你的组织
 - 多个组织
 - 工作或学校帐户
-- [Azure AD B2C](/active-directory-b2c/active-directory-b2c-overview)
+- [Azure AD B2C](../../active-directory-b2c/overview.md)
 - 国家云
 
 ## <a name="sample-code-java-web-app"></a>示例代码：Java Web 应用

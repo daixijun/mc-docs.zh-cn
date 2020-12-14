@@ -5,21 +5,21 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: 14fe875b124ad933948d8de2460d33a8d8f5f70a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d2b3fadf4ac659b0fc04c6585ffd54c25327e70a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327777"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104450"
 ---
 # <a name="optimizing-log-alert-queries"></a>优化日志警报查询
 本文介绍如何编写和转换[日志警报](alerts-unified-log.md)查询，以获得最佳性能。 经过优化的查询可降低延迟并加载频繁运行的警报。
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>如何开始编写警报日志查询
 
-警报查询开始于[查询 Log Analytics 中指示问题的日志数据](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal)。 可以使用[警报查询示例主题](../log-query/saved-queries.md)来了解可发现的内容。 还可以[开始编写你自己的查询](../log-query/get-started-portal.md)。 
+警报查询开始于[查询 Log Analytics 中指示问题的日志数据](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal)。 可以使用[警报查询示例主题](../log-query/example-queries.md)来了解可发现的内容。 还可以[开始编写你自己的查询](../log-query/log-analytics-tutorial.md)。 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>指示问题而非警报的查询
 

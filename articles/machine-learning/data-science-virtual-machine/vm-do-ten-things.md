@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: cece37bb74de9264cde4c6419787610c1ca2a0a8
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b42d0824abb84e9cdb75c1c4c4044a868e8c302b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978196"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105336"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>使用 Windows Data Science Virtual Machine 的数据科学
 
@@ -42,7 +42,7 @@ DSVM 与 Azure 服务紧密协同工作。 它可以读取并处理已存储在 
 
 ## <a name="prerequisites"></a>先决条件
 
-* 需要一个 Azure 订阅。 可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial)。
+* 需要一个 Azure 订阅。 可以注册 [试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 有关在 Azure 门户上配置 Data Science Virtual Machine 的说明，请参阅[创建虚拟机](https://portal.azure.cn/#create/microsoft-dsvm.dsvm-windowsserver-2016)。
 
 

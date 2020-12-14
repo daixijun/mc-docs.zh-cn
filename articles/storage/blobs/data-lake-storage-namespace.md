@@ -5,20 +5,20 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 02/11/2020
-ms.date: 03/09/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 5c65f95b726a6039c2ef1f36111921a6ea36288b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5cd683a1071d2bc84fd0c0f094cbb608fb279967
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78412578"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850747"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 分层命名空间
 
-一种关键机制，允许 Azure Data Lake Storage Gen2 以对象存储规模和价格提供文件系统性能，是**分层命名空间**的新增内容。 此机制支持按照整理计算机上文件系统的相同方式，将帐户内的对象/文件集合整理成一个包含目录和嵌套子目录的层次结构。 启用分层命名空间后，存储帐户便可通过分析引擎和框架所熟悉的文件系统语义，提供可扩展和具有成本效益的对象存储。
+一种关键机制，允许 Azure Data Lake Storage Gen2 以对象存储规模和价格提供文件系统性能，是 **分层命名空间** 的新增内容。 此机制支持按照整理计算机上文件系统的相同方式，将帐户内的对象/文件集合整理成一个包含目录和嵌套子目录的层次结构。 启用分层命名空间后，存储帐户便可通过分析引擎和框架所熟悉的文件系统语义，提供可扩展和具有成本效益的对象存储。
 
 ## <a name="the-benefits-of-a-hierarchical-namespace"></a>分层命名空间的优点
 
@@ -48,4 +48,4 @@ ms.locfileid: "78412578"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [创建存储帐户](./data-lake-storage-quickstart-create-account.md)
+- [创建存储帐户](../common/storage-account-create.md)

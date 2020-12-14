@@ -3,18 +3,18 @@ title: 升级 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何升级 Azure Kubernetes 服务 (AKS) 群集以获取最新的功能和安全更新。
 services: container-service
 ms.topic: article
-origin.date: 10/21/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: de70940d5c104593dac0aff4b41f00b349521bad
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: f9eec45fc7b4722ec515230bd06bd1043175d1ce
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024438"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004131"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 
@@ -64,6 +64,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 ## <a name="upgrade-an-aks-cluster"></a>升级 AKS 群集
 
 如果有一系列适用于 AKS 群集的版本，则可使用 [az aks upgrade][az-aks-upgrade] 命令进行升级。 在升级过程中，AKS 会将一个新的缓冲区节点添加到运行指定 Kubernetes 版本的群集。 然后，它会[隔离并排空][kubernetes-drain]旧节点之一，以最大程度地减少对正在运行的应用程序的干扰（如果你使用的是最大浪涌，它会同时[隔离并排空][kubernetes-drain]与指定的缓冲区节点数相同的节点数）。 旧节点在完全排空时，会被重置映像以接收新版本，并且会成为下一个要升级的节点的缓冲区节点。 此过程会重复进行，直至群集中的所有节点都已升级完毕。 在此过程结束时，将删除上一个排空节点，从而维持现有的代理节点计数。
+
+<!--Not Available on [max surge](#customize-node-surge-upgrade)-->
 
 ```azurecli
 az aks upgrade \

@@ -9,14 +9,14 @@ origin.date: 05/01/2019
 ms.date: 02/24/2020
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 0cafeef330bfb3568909e0f9a795a4a1c14f3ce5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 94f27c1b465250efae894636f2d0e61c22a32423
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494468"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004492"
 ---
-## <a name="access-the-media-services-api"></a>访问媒体服务 API
+### <a name="access-the-media-services-api"></a>访问媒体服务 API
 
 若要连接到 Azure 媒体服务 API，请使用 Azure AD 服务主体身份验证。 以下命令创建 Azure AD 应用程序并将服务主体附加到帐户。 应使用返回的值配置应用程序。
 

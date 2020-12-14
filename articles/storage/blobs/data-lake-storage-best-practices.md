@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: sachins
-ms.openlocfilehash: d7ac1411b12a017f7632d303a26e7dda2b532573
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: baf892b39c6e5f649d0e57e31584b3a492a3db58
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552147"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850816"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -22,7 +22,7 @@ ms.locfileid: "94552147"
 
 ## <a name="security-considerations"></a>安全注意事项
 
-Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组和服务主体提供 POSIX 访问控制。 可以对现有文件和目录设置这些访问控制。 也可使用访问控制来创建可自动应用于新文件或目录的默认权限。 有关 Data Lake Storage Gen2 ACL 的更多详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](storage-data-lake-storage-access-control.md)。
+Azure Data Lake Storage Gen2 为 Azure Active Directory (Azure AD) 用户、组和服务主体提供 POSIX 访问控制。 可以对现有文件和目录设置这些访问控制。 也可使用访问控制来创建可自动应用于新文件或目录的默认权限。 有关 Data Lake Storage Gen2 ACL 的更多详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)。
 
 ### <a name="use-security-groups-versus-individual-users"></a>安全组和单个用户的使用比较
 
@@ -42,7 +42,7 @@ Azure Active Directory 服务主体通常可供 Azure Databricks 之类的服务
 
 Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以在 Azure 门户的存储帐户上启用防火墙，方法是单击“防火墙和虚拟网络”>“允许来自所有网络的访问”。
 
-若要从 Azure Databricks 访问你的存储帐户，请将 Azure Databricks 部署到你的虚拟网络，然后将该虚拟网络添加到防火墙。 请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
+若要从 Azure Databricks 访问你的存储帐户，请将 Azure Databricks 部署到你的虚拟网络，然后将该虚拟网络添加到防火墙。 请参阅[配置 Azure 存储防火墙和虚拟网络](../common/storage-network-security.md)。
 
 ## <a name="resiliency-considerations"></a>复原注意事项
 
