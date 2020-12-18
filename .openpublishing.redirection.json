@@ -29414,6 +29414,81 @@
             "source_path": "articles/media-services/latest/cli-create-transform.md",
             "redirect_url": "/media-services/latest/how-to-create-transform",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/templates/cross-scope-deployment.md",
+            "redirect_url": "/azure-resource-manager/templates/deploy-to-resource-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/policy-samples.md",
+            "redirect_url": "/logic-apps/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
+            "redirect_url": "/network-watcher/connection-monitor-create-using-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
+            "redirect_url": "/network-watcher/connection-monitor-create-using-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/connection-monitor-preview.md",
+            "redirect_url": "/network-watcher/connection-monitor-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-messaging-security-controls.md",
+            "redirect_url": "/service-bus-messaging/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md",
+            "redirect_url": "/service-bus-messaging/service-bus-nodejs-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md",
+            "redirect_url": "/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-security-controls.md",
+            "redirect_url": "/service-fabric/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/portal-create-fqdn.md",
+            "redirect_url": "/virtual-machines/create-fqdn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/security-recommendations.md",
+            "redirect_url": "/virtual-machines/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/tag.md",
+            "redirect_url": "/virtual-machines/tag-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/tutorial-azure-security.md",
+            "redirect_url": "/virtual-machines/tutorial-azure-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-controls.md",
+            "redirect_url": "/virtual-machines/windows/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-community-tools.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-community-tools",
+            "redirect_document_id": false
         }
 
 
