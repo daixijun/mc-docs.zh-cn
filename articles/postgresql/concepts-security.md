@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 11/22/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 739452f35e58b147aa6838287971ddb1a90d3ed4
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 12/14/2020
+ms.openlocfilehash: a83ed81120939a65c8d7f8af7ddcb008c5274742
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470018"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850431"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的安全性
 
@@ -37,6 +37,10 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对服务器的访�
 
 ### <a name="virtual-network-firewall-rules"></a>虚拟网络防火墙规则
 虚拟网络服务终结点将虚拟网络连接扩展到 Azure 主干网。 使用虚拟网络规则，Azure Database for PostgreSQL 服务器就会允许从虚拟网络中的所选子网进行连接。 有关详细信息，请参阅[虚拟网络服务终结点概述](concepts-data-access-and-security-vnet.md)。
+
+### <a name="private-ip"></a>专用 IP
+使用专用链接可以通过专用终结点连接到 Azure 中的 Azure Database for PostgreSQL 单一服务器。 Azure 专用链接实质上是将 Azure 服务引入专用虚拟网络 (VNet) 中。 就像 VNet 中的任何其他资源一样，可以使用专用 IP 地址访问 PaaS 资源。 有关详细信息，请参阅[专用链接概述](concepts-data-access-and-security-private-link.md)
+
 
 ## <a name="access-management"></a>访问管理
 

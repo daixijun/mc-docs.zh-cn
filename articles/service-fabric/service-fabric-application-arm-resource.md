@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 资源管理器模板，将应用程序和
 ms.topic: conceptual
 origin.date: 12/06/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2fd76b475c3520998f2104e07f3c5d657fcad879
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bdca65726eb0fb3a4a344dca0cf3af35178d4851
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655387"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104410"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -23,7 +23,7 @@ ms.locfileid: "89655387"
 
 在适当情况下，将应用程序作为资源管理器资源进行管理可改进：
 * 审核线索：资源管理器审核所有操作，并记录详细的活动日志  ，有助于跟踪对这些应用程序和群集做出的任何更改。
-* 基于角色的访问控制 (RBAC)：可通过同一个资源管理器模板，管理对群集及其上部署的应用程序的访问。
+* Azure 基于角色的访问控制 (Azure RBAC)：可通过同一个资源管理器模板，管理对群集及其上部署的应用程序的访问。
 * Azure 资源管理器（通过 Azure 门户）成为管理群集和关键应用程序部署的一站式平台。
 
 下面的代码片段展示了可以通过模板管理的各种资源：

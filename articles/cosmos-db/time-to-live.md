@@ -2,20 +2,21 @@
 title: 利用生存时间使 Azure Cosmos DB 中的数据过期
 description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 09/02/2020
+origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: c8214c830b3c0b367c1899565990b11c70c93d8e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 736fc6104bfcf1df48b7fafb540f7bd076e3d57d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552678"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850835"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +38,7 @@ ms.locfileid: "94552678"
 
     - 如果存在且值设置为“-1”（无限期），则默认情况下，项不会过期。
 
-    - 如果存在且值设置为某个数字（“n”），则项将在上次修改“n”秒后过期。  
+    - 如果存在且值设置为某个非零数字（“n”），则项将在上次修改“n”秒后过期。  
 
 2. **项的生存时间**（使用 `ttl` 设置）：
 
@@ -47,11 +48,11 @@ ms.locfileid: "94552678"
 
 ## <a name="time-to-live-configurations"></a>生存时间配置
 
-* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。    如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。 
+- 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。    如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。
 
-* 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。 
+- 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。
 
-* 如果某个容器的 TTL 设置为 -1，则此容器中生存时间设置为 n 的项将在 n 秒后过期，剩余的项不会过期。
+- 如果某个容器的 TTL 设置为 -1，则此容器中生存时间设置为 n 的项将在 n 秒后过期，剩余的项不会过期。
 
 ## <a name="examples"></a>示例
 
@@ -91,6 +92,6 @@ ms.locfileid: "94552678"
 
 通过以下文章了解如何配置生存时间：
 
-* [如何配置生存时间](how-to-time-to-live.md)
+- [如何配置生存时间](how-to-time-to-live.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

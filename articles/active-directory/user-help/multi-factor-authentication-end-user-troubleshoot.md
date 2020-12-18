@@ -9,16 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/24/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 46b257a7003cca9ccc1446e3af88a8485e44a036
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: b1deeab6dfc7cf7cb4afa352cbcff708d519face
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245162"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004045"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>双因素验证以及工作或学校帐户的常见问题
 
@@ -72,6 +72,7 @@ Azure Active Directory (Azure AD) 组织可以为你的帐户启用双重验证�
 
 尝试此操作 | 指导信息
 --------- | ------------
+使用 Microsoft 验证器应用或验证码 | 你在登录过程中收到“你已达到验证呼叫限制”或“你已达到文本验证码限制”错误消息。 <br/><br/>Microsoft 可能会限制同一用户在短时间内尝试重复身份验证的次数。 此限制不适用于 Microsoft Authenticator 或验证码。 如果你已达到这些限制，则可以使用 Authenticator 应用、验证码或在几分钟后尝试再次登录。
 重启移动设备 | 有时，设备只是需要刷新一下。 重启设备时，将结束所有后台进程和服务。 重启还会关闭设备的核心组件。 重启设备时，将刷新任何服务或组件。
 验证安全信息是否正确无误 | 确保你的安全验证方法信息是准确的，特别是你的电话号码。 如果你输入了错误的电话号码，那么所有警报都会发送到这一错误号码。 幸运的是，这名用户无法使用警报执行任何操作，但这也不能帮助你登录帐户。 若要确保你的信息正确无误，请参阅[管理双因素验证方法设置](multi-factor-authentication-end-user-manage-settings.md)一文中的说明。
 验证是否已启用通知 | 请确保移动设备启用了通知。 确保允许以下通知模式： <br/><br/> &bull; 电话呼叫 <br/> &bull; 身份验证应用 <br/> &bull; 短信应用 <br/><br/> 请确保这些模式创建在你的设备上可见的警报。

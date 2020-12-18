@@ -2,18 +2,18 @@
 title: 在专用容器注册表中管理公共内容
 description: Azure 容器注册表中的一些做法和工作流，用于管理对来自 Docker Hub 的公共映像和其他公共内容的依赖
 ms.topic: article
-origin.date: 10/29/2020
+origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 11/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: c8b7e1de012a7f9698fd0095072400e634b75064
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 58e3715705f3dc1c02cbdfb499530cfc01d2a837
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024566"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003951"
 ---
 <!--Verified successfully-->
 # <a name="manage-public-content-with-azure-container-registry"></a>通过 Azure 容器注册表管理公共内容
@@ -30,6 +30,8 @@ ms.locfileid: "96024566"
 
 首先，如果你当前在构建或部署工作流时从 Docker Hub 拉取公共映像，建议你[使用 Docker Hub 帐户进行身份验证](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests)，而不是发出匿名拉取请求。
 
+频繁发出匿名拉取请求时，你可能会看到 Docker 错误，类似于 `ERROR: toomanyrequests: Too Many Requests.` 或 `You have reached your pull rate limit.`。请对 Docker Hub 进行身份验证以避免这些错误。
+
 > [!NOTE]
 > 自 2020 年 11 月 2 日起，[下载速率限制](https://docs.docker.com/docker-hub/download-rate-limit)应用于 Docker 免费计划帐户对 Docker Hub 发出的匿名请求和经身份验证的请求，并且分别按 IP 地址和 Docker ID 强制实施。 
 >
@@ -45,7 +47,7 @@ ms.locfileid: "96024566"
 
 ### <a name="authenticate-from-azure-services"></a>从 Azure 服务进行身份验证
 
-多个 Azure 服务（包括应用服务和 Azure 容器实例）支持从公共注册表（例如 Docker Hub）拉取映像来进行容器部署。 如果需要从 Docker Hub 部署映像，建议你配置设置来使用 Docker Hub 帐户进行身份验证。 示例：
+多个 Azure 服务（包括应用服务和 Azure 容器实例）支持从公共注册表（例如 Docker Hub）拉取映像来进行容器部署。 如果需要从 Docker Hub 部署映像，建议你配置设置来使用 Docker Hub 帐户进行身份验证。 示例:
 
 **应用服务**
 
@@ -73,7 +75,7 @@ ms.locfileid: "96024566"
 
 `az acr import` 不需要本地 Docker 安装。 你可以使用 Azure CLI 的本地安装运行它，也可以直接在 Azure 本地 Shell 中运行它。 它支持任何 OS 类型的映像、多体系结构映像或 OCI 项目（例如 Helm 图表）。
 
-示例：
+例如：
 
 ```azurecli
 az acr import \

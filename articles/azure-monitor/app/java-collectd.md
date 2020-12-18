@@ -4,17 +4,19 @@ description: 通过 Application Insights 的 CollectD 插件监视 Java 网站�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 336a7c5cf1772783f11ec5a37e0e1b4d2c0837a0
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 4f3b99816d3b4f407763f64d345d9656bb96f592
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638045"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104460"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 性能指标
+# <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd：Application Insights 中的 Linux 性能指标 [已弃用]
 
+> [!IMPORTANT]
+> 若要监视 Java 应用程序，建议的方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
 
 若要浏览 [Application Insights](./app-insights-overview.md) 中 Linux 系统性能指标，请安装 [collectd](https://collectd.org/) 及其 Application Insights 插件。 此开放源解决方案收集了各种系统和网络统计信息。
 
@@ -128,7 +130,6 @@ Application Insights 写入插件与某些读取插件不兼容。 Application I
 [apiexceptions]: ./api-custom-events-metrics.md#track-exception
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md

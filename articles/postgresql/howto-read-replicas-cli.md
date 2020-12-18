@@ -5,15 +5,15 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
-origin.date: 07/10/2020
-ms.date: 11/09/2020
+origin.date: 11/05/2020
+ms.date: 12/14/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e4fb8769b0b4923cac75deddc85ce0ee6384c6d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8dfb1d6cf46b679a81b5ca5d77c186a5d0b15347
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328527"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850821"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>通过 Azure CLI、REST API 创建和管理只读副本
 
@@ -28,14 +28,16 @@ ms.locfileid: "94328527"
 * **副本** - 比“关闭”详细。 这是运行[只读副本](concepts-read-replicas.md)所需的最低日志记录级别。 此设置是大多数服务器上的默认设置。
 * **逻辑** - 比“副本”详细。 这是运行逻辑解码所需的最低日志记录级别。 使用此设置时，只读副本也可以运行。
 
-更改此参数后，需要重启服务器。 在内部，此参数设置 Postgres 参数 `wal_level`、`max_replication_slots` 和 `max_wal_senders`。
+
+> [!NOTE]
+> 为持久的大量写入密集型主工作负荷部署只读副本时，复制滞后时间可能会持续增长，并且可能永远无法赶上主工作负荷。 这还可能会增加主服务器上的存储使用量，因为 WAL 文件在副本收到它们之前不会被删除。
 
 ## <a name="azure-cli"></a>Azure CLI
 可以使用 Azure CLI 创建和管理只读副本。
 
 ### <a name="prerequisites"></a>先决条件
 
-- [安装 Azure CLI 2.0](/cli/install-azure-cli?view=azure-cli-latest)
+- [安装 Azure CLI 2.0](/cli/install-azure-cli)
 - 将用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)。
 
 

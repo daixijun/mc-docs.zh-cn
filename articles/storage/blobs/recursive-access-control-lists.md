@@ -5,17 +5,17 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-origin.date: 11/03/2020
-ms.date: 11/30/2020
+origin.date: 11/17/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 08f465636a6c0bdf5afc6ffedfe259b56e797e59
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fb9d3b84dd90acad0b0c5d83cd3261535083fefe
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432086"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850778"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -31,11 +31,11 @@ ACL 继承已可用于在父目录下创建的新子项。 你现在还可以以
 
 - 执行递归 ACL 过程所需的正确权限。 正确的权限包括下列任一项： 
 
-  - 一个预配的 Azure Active Directory (AD) [安全主体](/role-based-access-control/overview#security-principal)，它在目标容器父资源组或订阅范围中分配有[存储 Blob 数据所有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)角色。   
+  - 一个预配的 Azure Active Directory (AD) [安全主体](../../role-based-access-control/overview.md#security-principal)，它在目标容器父资源组或订阅范围中分配有[存储 Blob 数据所有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)角色。   
 
   - 你计划向其应用递归 ACL 过程的目标容器或目录的所有者用户。 这包括目标容器或目录中的所有子项。 
 
-- 了解 ACL 如何应用于目录和文件。 请参阅 [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)。 
+- 了解 ACL 如何应用于目录和文件。 请参阅 [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)。 
 
 请参阅本文的“设置项目”部分，查看 PowerShell、.NET SDK 和 Python SDK 的安装指南。
 
@@ -202,7 +202,7 @@ $ctx = $storageAccount.Context
 
    否则，请在浏览器中打开 [https://aka.ms/deviceloginchina](https://aka.ms/deviceloginchina)，然后输入终端中显示的授权代码。 然后，在浏览器中使用帐户凭据登录。
 
-   若要详细了解不同的身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
+   若要详细了解不同的身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md)。
 
 2. 如果你的标识与多个订阅相关联，请将你的活动订阅设置为将托管静态网站的存储帐户的订阅。
 
@@ -213,7 +213,7 @@ $ctx = $storageAccount.Context
    将 `<subscription-id>` 占位符值替换为你的订阅 ID。
 
 > [!NOTE]
-> 本文中提供的示例演示 Azure Active Directory (AD) 授权。 若要详细了解身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../common/authorize-data-operations-cli.md)。
+> 本文中提供的示例演示 Azure Active Directory (AD) 授权。 若要详细了解身份验证方法，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](./authorize-data-operations-cli.md)。
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -387,9 +387,11 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>以递归方式设置 ACL
 
-设置 ACL 时，你将替换整个 ACL，包括其所有条目。 如果要更改安全主体的权限级别，或将新的安全主体添加到 ACL 而不影响其他现有项，则应改为更新 ACL。 若要更新 ACL 而不是替换它，请参阅本文的[以递归方式更新 ACL](#update-an-acl-recursively) 部分。   
+设置 ACL 时，你将替换整个 ACL，包括其所有条目。 如果要更改安全主体的权限级别，或将新的安全主体添加到 ACL 而不影响其他现有项，则应改为更新 ACL。 若要更新 ACL 而不是替换它，请参阅本文的[以递归方式更新 ACL](#update-an-acl-recursively) 部分。  
 
-本部分包含有关如何设置 ACL 的示例 
+如果选择设置 ACL，则必须为责任用户添加一个条目，为责任组添加一个条目，为所有其他用户添加一个条目。 若要详细了解责任用户、责任组和所有其他用户，请参阅[用户和标识](data-lake-storage-access-control.md#users-and-identities)。 
+
+本部分包含有关如何设置 ACL 的示例。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -1126,7 +1128,7 @@ def continue_on_failure():
 
 - Azure CLI：[示例](https://github.com/Azure/azure-cli/blob/2a55a5350696a3a93a13f364f2104ec8bc82cdd3/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 
-- NET：[自述文件](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0) | [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
+- NET：[自述文件](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%2fSc2aDVW3De4A%2fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0) | [示例](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
 
 - Python:[自述文件](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0) | [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)
 
@@ -1140,7 +1142,7 @@ def continue_on_failure():
 
 #### <a name="handling-permission-errors-403"></a>处理权限错误 (403)
 
-如果在运行递归 ACL 过程时遇到访问控制异常，则表明 AD [安全主体](/role-based-access-control/overview#security-principal)可能没有足够的权限将 ACL 应用于目录层次结构中的一个或多个子项。 发生权限错误时，此过程会停止，系统会提供一个继续标记。 请修复权限问题，然后使用继续标记来处理剩余的数据集。 已成功处理的目录和文件不需要再次处理。 你还可以选择重启递归 ACL 过程。 可以将 ACL 重新应用于项，而不会造成负面影响。 
+如果在运行递归 ACL 过程时遇到访问控制异常，则表明 AD [安全主体](../../role-based-access-control/overview.md#security-principal)可能没有足够的权限将 ACL 应用于目录层次结构中的一个或多个子项。 发生权限错误时，此过程会停止，系统会提供一个继续标记。 请修复权限问题，然后使用继续标记来处理剩余的数据集。 已成功处理的目录和文件不需要再次处理。 你还可以选择重启递归 ACL 过程。 可以将 ACL 重新应用于项，而不会造成负面影响。 
 
 #### <a name="credentials"></a>凭据 
 
@@ -1152,11 +1154,9 @@ def continue_on_failure():
 
 #### <a name="acl-limits"></a>ACL 限制
 
-可应用于目录或文件的 ACL 的最大数目为 32 个访问 ACL 和 32 个默认 ACL。 有关详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)。
+可应用于目录或文件的 ACL 的最大数目为 32 个访问 ACL 和 32 个默认 ACL。 有关详细信息，请参阅 [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)。
 
 ## <a name="see-also"></a>另请参阅
 
-- [Azure Data Lake Storage Gen2 中的访问控制](/storage/blobs/data-lake-storage-access-control)
+- [Azure Data Lake Storage Gen2 中的访问控制](./data-lake-storage-access-control.md)
 - [已知问题](data-lake-storage-known-issues.md)
-
-

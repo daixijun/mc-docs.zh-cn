@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 466c706e0ee070c60c7951cba6e8c543ea7ce529
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d896464828bff7c3221e97595899b818e923b19a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978024"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105274"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure 机器学习（预览版）跟踪试验运行并部署 ML 模型
 
@@ -206,7 +206,6 @@ MLflow 记录的指标和项目保存在工作区中。 若要随时查看它们
 
 ```python
 run.get_metrics()
-ws.get_details()
 ```
 
 ## <a name="manage-models"></a>管理模型 
@@ -365,3 +364,4 @@ webservice.wait_for_deployment()
 ## <a name="next-steps"></a>后续步骤
 * [管理模型](concept-model-management-and-deployment.md)。
 * 监视生产模型中的[数据偏移](./how-to-enable-data-collection.md)。
+* [使用 MLflow 跟踪 Azure Databricks 运行](how-to-use-mlflow-azure-databricks.md)。

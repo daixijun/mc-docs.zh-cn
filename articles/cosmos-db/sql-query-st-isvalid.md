@@ -2,23 +2,24 @@
 title: Azure Cosmos DB 查询语言中的 ST_ISVALID
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_ISVALID。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 09/13/2019
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 95af5e1fad2a1f651595ee858e7a3baa85af3bfc
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: da281d24047059f454a5f4498e87bd4f139e19c3
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551993"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850528"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 返回一个布尔值，指示指定的 GeoJSON 点、多边形或 LineString 表达式是否有效。  
+ 返回一个布尔值，该值指示指定的 GeoJSON 点、多边形、多多边形或 LineString 表达式是否有效。  
 
 ## <a name="syntax"></a>语法
 

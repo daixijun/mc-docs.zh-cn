@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d8fffa9f2b5214d28b687bd17c39ea604d4287
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 8c5e9b9494a8eb87b9f68627b2024269fa7bb962
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749820"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003702"
 ---
 # <a name="conditional-access-conditions"></a>条件访问：Conditions
 
@@ -170,7 +170,7 @@ Azure AD 条件访问支持以下设备平台：
 - 创建分配给 Exchange ActiveSync 客户端的策略时，Exchange Online 应为唯一分配给该策略的云应用程序。 
 - 组织可以使用“设备平台”条件将此策略的范围缩小为特定的平台。
 
-如果分配给策略的访问控制使用“需要已批准的客户端应用”，则会将用户定向到相应的位置让他们安装并使用 Outlook 移动客户端。 如果需要 **多重身份验证** ，受影响的用户将被阻止，因为基本身份验证不支持多重身份验证。
+如果分配给策略的访问控制使用“需要已批准的客户端应用”，则会将用户定向到相应的位置让他们安装并使用 Outlook 移动客户端。 如果需要 **多重身份验证**，受影响的用户将被阻止，因为基本身份验证不支持多重身份验证。
 
 有关详细信息，请参阅以下文章：
 
@@ -186,7 +186,7 @@ Azure AD 条件访问支持以下设备平台：
 设备状态条件可用于在组织的条件访问策略中，排除已加入混合 Azure AD 的设备和/或标记为符合 Microsoft Intune 合规策略的设备。
 
 例如，访问“Azure 管理”云应用的“所有用户”，包括“所有设备状态”，排除“已加入混合 Azure AD 的设备”和“标记为合规的设备”，“访问控制”为“阻止”。    
-   - 此示例将创建一个仅允许从已加入混合 Azure AD 的设备和/或标记为合规的设备访问 Azure 管理的策略。
+   - 此示例将创建一个仅允许从已加入混合 Azure AD 的设备或标记为合规的设备访问 Azure 管理的策略。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -4,16 +4,16 @@ description: 汇总了使用 Azure Site Recovery 将 VMware VM 和物理服务�
 ms.topic: conceptual
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9792bdb2f9da0c18d470cdb0409a82a9eb0b505c
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: e169e401f360968bf61a5dd316be2872d8ec205e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915112"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105345"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>将 VMware VM 和物理服务器灾难恢复到 Azure 时的支持矩阵
 
@@ -109,7 +109,8 @@ Oracle Linux | 6.4、6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3�
 <!--MOONCAKE: CUSTOMIZE FOR PM CONFIRMATION-->
 
 > [!Note]
-> 对于每个 Windows 版本，Azure Site Recovery 仅支持[长期服务渠道 (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 生成。  目前不支持[半年渠道](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel)版本。
+>- 对于每个 Windows 版本，Azure Site Recovery 仅支持[长期服务渠道 (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 生成。  目前不支持[半年渠道](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel)版本。
+>- 请确保对于 Linux 版本，Azure Site Recovery 不支持自定义 OS 映像。 仅支持属于次要分发版本/更新的原版内核。
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 内核版本
 

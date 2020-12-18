@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b48266d3d6ce424dae4b0233eb6f893205c9ff5
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 17f6da824e8edb6a4e3780ac1968f09db5e853b5
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593691"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003785"
 ---
 # <a name="custom-controls-preview"></a>自定义控件（预览版）
 
@@ -51,7 +51,7 @@ ms.locfileid: "89593691"
 
 ## <a name="known-limitations"></a>已知的限制
 
-在 Intune 设备注册过程中或者在将设备加入 Azure AD 时，不能将自定义控件与 Identity Protection 的需要 Azure 多重身份验证的自动化以及要求多重身份验证声明的 Azure AD 自助式密码重置 (SSPR) 配合使用来提升 Privileged Identity Manager (PIM) 中角色的权限。
+在 Intune 设备注册过程中或者在将设备加入 Azure AD 时，不能将自定义控件与 Identity Protection 的需要 Azure AD 多重身份验证的自动化以及要求多重身份验证声明的 Azure AD 自助式密码重置 (SSPR) 配合使用来提升 Privileged Identity Manager (PIM) 中角色的权限。
 
 ## <a name="next-steps"></a>后续步骤
 

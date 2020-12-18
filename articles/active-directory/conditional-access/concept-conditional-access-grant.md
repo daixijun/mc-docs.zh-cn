@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed3a108c566779fdd34ec42a00ef881e3de510ed
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 3e5baac79267b4072ef60e06829751f384fbf0ce
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501738"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003792"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -34,7 +34,7 @@ ms.locfileid: "94501738"
 
 在授予访问权限时，管理员可以选择强制实施一项或多项控制。 这些控制包括以下选项： 
 
-- [需要多重身份验证（Azure 多重身份验证）](../authentication/concept-mfa-howitworks.md)
+- [需要多重身份验证（Azure AD 多重身份验证）](../authentication/concept-mfa-howitworks.md)
 - [“需要已批准的客户端应用”](app-based-conditional-access.md)
 - [要求更改密码](#require-password-change)
 
@@ -47,14 +47,14 @@ ms.locfileid: "94501738"
 
 ### <a name="require-multi-factor-authentication"></a>需要多重身份验证
 
-选中此复选框会要求用户执行 Azure 多重身份验证。 在[规划基于云的 Azure 多重身份验证部署](../authentication/howto-mfa-getstarted.md)一文中可以找到有关部署 Azure 多重身份验证的详细信息。
+选中此复选框会要求用户执行 Azure AD 多重身份验证。 在[规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)一文中可以找到有关部署 Azure AD 多重身份验证的详细信息。
 
 
 ### <a name="require-approved-client-app"></a>需要批准的客户端应用
 
 组织可以要求只能尝试从已批准的客户端应用访问选定的云应用。 这些已批准的客户端应用支持 [Intune 应用保护策略](https://docs.microsoft.com/intune/app-protection-policy)，而不受任何移动设备管理 (MDM) 解决方案影响。
 
-为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是 Microsoft Authenticator 或适用于 Android 设备的 Microsoft 公司门户。 如果用户尝试进行身份验证时设备上未安装代理应用，则会将用户重定向到相应的 app/play store 来安装所需的代理应用。
+为了利用此授权控制，条件访问要求在 Azure Active Directory 中注册设备，这需要使用代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是 Microsoft Authenticator 或适用于 Android 设备的 Microsoft 公司门户。 如果用户尝试进行身份验证时设备上未安装代理应用，则会将用户重定向到相应的应用商店来安装所需的代理应用。
 
 此设置适用于以下 iOS 和 Android 应用：
 
@@ -92,7 +92,7 @@ ms.locfileid: "94501738"
 - 批准的客户端应用支持 Intune 移动应用管理功能。
 - “需要批准的客户端应用”要求：
    - 仅支持 iOS 和 Android 作为设备平台条件。
-   - 注册设备需要代理应用。 在 iOS 上，代理应用是 Microsoft Authenticator；在 Android 上，代理应用是 Intune 公司门户应用。
+   - 注册设备需要代理应用。 代理应用可以是适用于 iOS 的 Microsoft Authenticator，也可以是 Microsoft Authenticator 或适用于 Android 设备的 Microsoft 公司门户。
 - 条件访问无法将 InPrivate 模式下的 Microsoft Edge 视为已批准的客户端应用。
 
 请参阅文章[如何：使用条件访问要求使用批准的设备应用访问云应用](app-based-conditional-access.md)，以获取配置示例。

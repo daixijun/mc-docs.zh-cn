@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 6780b454e9600211d52601356e42aa1810d794e8
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b3a4697188e8c2f9a533f1299bbefbd0eaf530c4
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552522"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850772"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "94552522"
    
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
     
-2. 在“添加 Azure 帐户”中选择值“`Azure China`”，然后单击“登录”。
+2. 在“添加 Azure 帐户”中选择值“`Azure China`”，然后选择“登录” 。
     
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
     
@@ -82,6 +82,9 @@ ms.locfileid: "94552522"
     1. 选择“连接”来连接 Azure Cosmos DB 帐户。
 
         :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="“连接到 Cosmos DB”窗口的屏幕截图，其中显示 API 下拉菜单、“连接字符串”框和“帐户标签”框。":::
+
+    > [!NOTE]
+    > 如果 Azure 存储资源管理器显示 Azure Cosmos DB 连接字符串的格式无效，请确保连接字符串的末尾有一个分号 (`;`)。 有效 Azure Cosmos DB 连接字符串的示例如下：`AccountEndpoint=https://accountname.documents.azure.cn:443;AccountKey=accountkey==;`
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>使用本地模拟器连接到 Azure Cosmos DB
 

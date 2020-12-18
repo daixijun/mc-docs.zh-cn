@@ -6,14 +6,14 @@ author: Johnnytechn
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.author: v-johya
-ms.openlocfilehash: b0d5b5da7fd94ed9dd88b1b58ad695de2f0e6f0a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 646b158c62aa70d17b8f1f36e1a26397a2fe424a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328703"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104726"
 ---
 # <a name="access-control"></a>访问控制
 
@@ -34,7 +34,7 @@ ms.locfileid: "94328703"
 “工作簿参与者”向对象添加“workbooks/write”权限以保存共享的工作簿。
 用户无需特殊的权限即可保存仅供自己查看的专用工作簿。
 
-对于自定义的基于角色的访问控制：
+对于自定义角色：
 
 添加 `microsoft.insights/workbooks/write` 以保存共享的工作簿。 有关更多详细信息，请参阅[工作簿参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)角色。
 

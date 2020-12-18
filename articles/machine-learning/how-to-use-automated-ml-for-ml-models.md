@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: dd903d14d1ebb26be0d9142c0f5b097be9fe586c
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 97bb5af31f4a3c271a99509405c6ef71f685e49c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977441"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104567"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "94977441"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。 
 
@@ -137,7 +137,7 @@ ms.locfileid: "94977441"
     阻止的算法| 选择要从训练作业中排除的算法。 <br><br> 允许算法只适用于 [SDK 试验](how-to-configure-auto-train.md#supported-models)。 <br> 请参阅[每种任务类型支持的模型](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py)。
     退出条件| 如果满足其中的任一条件，则会停止训练作业。 <br> *训练作业时间(小时)* ：允许训练作业运行多长时间。 <br> *指标评分阈值*：所有管道的最低指标评分。 这可以确保在你具有一个要实现的已定义目标指标时，无需花费不必要的时间来完成训练作业。
     验证| 选择要在训练作业中使用的交叉验证选项之一。 <br> [详细了解交叉验证](how-to-configure-cross-validation-data-splits.md#prerequisites)。<br> <br>预测只支持 k-折交叉验证。
-    并发| *最大并发迭代数*：要在训练作业中测试的最大管道（迭代）数。 作业运行的迭代数不会超过指定的数目。
+    并发| *最大并发迭代数*：要在训练作业中测试的最大管道（迭代）数。 作业运行的迭代数不会超过指定的数目。 详细了解自动化 ML 如何[在群集上执行多个子运行](how-to-configure-auto-train.md#multiple-child-runs-on-clusters)。
 
 1. （可选）查看特征化设置：如果选择在“其他配置设置”窗体中启用“自动特征化”，则会应用默认的特征化技术 。 在“查看特征化设置”中，可以更改这些默认设置并相应地进行自定义。 了解如何[自定义特征化](#customize-featurization)。 
 

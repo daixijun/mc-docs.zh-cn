@@ -1,26 +1,26 @@
 ---
-title: 适用于你的组织的 Azure 多重身份验证 - Azure Active Directory
-description: 了解你的组织可以基于其许可模式使用的 Azure 多重身份验证功能
+title: 适用于你的组织的 Azure AD 多重身份验证 - Azure Active Directory
+description: 了解你的组织可以基于其许可模式使用的 Azure AD 多重身份验证功能
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
-author: iainfoulds
+author: daveba
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e6ae04fcefb43c056fb1e4f4d2ca8752713a72
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d6ad19f402f71ef73a3ef266a5f98cc676745a2f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937019"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004232"
 ---
-# <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>适用于你的组织的 Azure 多重身份验证概述
+# <a name="overview-of-azure-ad-multi-factor-authentication-for-your-organization"></a>适用于你的组织的 Azure AD 多重身份验证概述
 
-可以通过多种方式基于你的组织拥有的许可证为 Azure Active Directory (AD) 用户启用 Azure 多重身份验证。 
+可以通过多种方式基于你的组织拥有的许可证为 Azure Active Directory (AD) 用户启用 Azure AD 多重身份验证。 
 
 ![调查信号并根据需要强制实施 MFA](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "91937019"
 
 使用 Microsoft 365 的客户可以使用两个选项：
 
-* 针对所有用户的所有登录事件启用或禁用 Azure 多重身份验证。 无法做到仅为一部分用户或者仅在特定的情况下启用多重身份验证。 管理是通过 Office 365 门户进行的。 
+* 针对所有用户的所有登录事件启用或禁用 Azure AD 多重身份验证。 无法做到仅为一部分用户或者仅在特定的情况下启用多重身份验证。 管理是通过 Office 365 门户进行的。 
 * 若要改进用户体验，请升级到 Azure AD Premium P1 或 P2 并使用条件访问。 有关详细信息，请参阅使用多重身份验证保护 Microsoft 365 资源。
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
@@ -62,7 +62,7 @@ ms.locfileid: "91937019"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要开始，请参阅有关[使用 Azure 多重身份验证保护用户登录事件](../authentication/tutorial-enable-azure-mfa.md)的教程。
+若要开始，请参阅相关教程以[使用 Azure AD 多重身份验证保护用户登录事件](../authentication/tutorial-enable-azure-mfa.md)。
 
-有关许可的详细信息，请参阅 [Azure 多重身份验证的功能和许可证](../authentication/concept-mfa-licensing.md)。
+有关许可的详细信息，请参阅 [Azure AD 多重身份验证的功能和许可证](../authentication/concept-mfa-licensing.md)。
 

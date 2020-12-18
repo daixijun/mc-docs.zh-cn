@@ -3,15 +3,15 @@ title: Visual Studio CodeLens 中的 Application Insights 遥测 | Azure Docs
 description: 借助 Visual Studio 中的 CodeLens，快速访问 Application Insights 请求和异常遥测。
 ms.topic: conceptual
 origin.date: 03/17/2017
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: vs-azure
-ms.openlocfilehash: 690a169479d31dfe753c1ac8b1bbf4eadb0c4417
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c969198a785ff50ae16354564dc02423679d4714
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103602"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105165"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens 中的 Application Insights 遥测
 使用有关运行时异常和请求响应时间的遥测，可以批注 Web 应用代码中的方法。 如果在应用程序中安装 [Azure Application Insights](./app-insights-overview.md)，遥测会在 Visual Studio [CodeLens](https://docs.microsoft.com/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) 中显示，即每个函数顶端的备注，通常在此处查看有用的信息，例如引用函数的位置数量或最后编辑函数的人员。
@@ -32,7 +32,7 @@ ms.locfileid: "93103602"
 > 
 
 ## <a name="exceptions-in-codelens"></a>CodeLens 中的异常
-![TBD](./media/visual-studio-codelens/codelens-exceptions.png)
+![屏幕截图显示了 CodeLens 中显示的 47 个异常。](./media/visual-studio-codelens/codelens-exceptions.png)
 
 异常 CodeLens 指示器会在处理方法提供的请求时，显示过去 24 小时内应用程序中发生的十五大最频繁发生的异常的数量。
 
@@ -54,7 +54,7 @@ ms.locfileid: "93103602"
 > 
 
 ## <a name="requests-in-codelens"></a>CodeLens 中的请求
-![TBD](./media/visual-studio-codelens/codelens-requests.png)
+![屏幕截图显示了 684 个请求的详细信息，包括 7% 的失败。](./media/visual-studio-codelens/codelens-requests.png)
 
 请求 CodeLens 指示器显示过去 24 小时内某个方法提供的 HTTP 请求的数量，以及失败请求的百分比。
 

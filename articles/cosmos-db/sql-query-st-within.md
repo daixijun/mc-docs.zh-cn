@@ -2,23 +2,24 @@
 title: Azure Cosmos DB 查询语言中的 ST_WITHIN
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_WITHIN。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 09/13/2019
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: c41d09c9d13ce3b523008a3cf78b893e9ee4bcde
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 28eedbe7a7ee526da3b10c8c6d5544ef534ff14f
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551984"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850526"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否位于第二个参数中的 GeoJSON（点、多边形或 LineString）内。  
+ 返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（Point、Polygon、MultiPolygon 或 LineString）是否位于第二个参数中的 GeoJSON（Point、Polygon、MultiPolygon 或 LineString）内。  
 
 ## <a name="syntax"></a>语法
 

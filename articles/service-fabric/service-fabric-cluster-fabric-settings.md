@@ -4,16 +4,16 @@ description: 本文介绍可以自定义的结构设置和结构升级策略。
 ms.topic: reference
 origin.date: 08/30/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6d7e3d7dfaca171a8f04460152e523fdaf8d48b7
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4475765c007c5f066b8080828383d25f0f6df873
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655265"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105349"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -149,10 +149,11 @@ ms.locfileid: "89655265"
 |IsEnabled|bool，默认值为 FALSE|静态|启用/禁用 DnsService。 默认已禁用 DnsService，需要设置此配置来启用它。 |
 |PartitionPrefix|string，默认值为“--”|静态|控制对分区服务的 DNS 查询中的分区前缀字符串值。 值： <ul><li>应符合 RFC，因为它将是 DNS 查询的一部分。</li><li>不能包含句点“.”，因为句点会干扰 DNS 后缀行为。</li><li>长度不能超过 5 个字符。</li><li>不能为空字符串。</li><li>如果重写 PartitionPrefix 设置，则必须重写 PartitionSuffix，反之亦然。</li></ul>有关详细信息，请参阅 [Service Fabric DNS 服务](service-fabric-dnsservice.md)。|
 |PartitionSuffix|string，默认值为“”|静态|控制对分区服务的 DNS 查询中的分区后缀字符串值。值： <ul><li>应符合 RFC，因为它将是 DNS 查询的一部分。</li><li>不能包含句点“.”，因为句点会干扰 DNS 后缀行为。</li><li>长度不能超过 5 个字符。</li><li>如果重写 PartitionPrefix 设置，则必须重写 PartitionSuffix，反之亦然。</li></ul>有关详细信息，请参阅 [Service Fabric DNS 服务](service-fabric-dnsservice.md)。 |
+|RetryTransientFabricErrors|Bool，默认值为 true|静态|此设置控制从 DnsService 调用 Service Fabric API 时的重试功能。 启用后，如果发生暂时性错误，则最多重试 3 次。|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int，默认值为 0|静态|EventStore 服务的 MinReplicaSetSize |
 |PlacementConstraints|string，默认值为“”|静态|    EventStore 服务的 PlacementConstraints |
@@ -160,7 +161,7 @@ ms.locfileid: "89655265"
 
 ## <a name="fabricclient"></a>FabricClient
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |以秒为单位的时间，默认值为 2 |动态|指定以秒为单位的时间范围。 每次客户端尝试打开网关连接时的连接超时间隔。|
 |HealthOperationTimeout |以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间范围。 报告消息发送至运行状况管理器的超时时间。 |
@@ -171,27 +172,27 @@ ms.locfileid: "89655265"
 |NodeAddresses |string，默认值为“” |静态|不同节点上的地址（连接字符串）的集合，可用于与命名服务通信。 最初，客户端随机选择一个地址进行连接。 如果提供了多个连接字符串且因通信或超时错误导致连接失败，客户端按顺序切换为使用下一个地址。 请参阅命名服务地址重试部分，了解有关重试语义的详细信息。 |
 |PartitionLocationCacheLimit |Int，默认值为 100000 |静态|为服务解析所缓存的分区数（设置为 0，表示无限制）。 |
 |RetryBackoffInterval |以秒为单位的时间，默认值为 3 |动态|指定以秒为单位的时间跨度。 重试操作之前的回退时间间隔。 |
-|ServiceChangePollInterval |以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间跨度。 服务的连续轮询之间的间隔从客户端更改为用于注册服务更改通知回调的网关。 |
+|ServiceChangePollInterval |以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间范围。 服务的连续轮询之间的间隔从客户端更改为用于注册服务更改通知回调的网关。 |
 
 ## <a name="fabrichost"></a>FabricHost
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Int，默认值为 10 |动态|这是系统在放弃前重试失败的激活的最大计数。 |
-|ActivationMaxRetryInterval |以秒为单位的时间，默认值为 300 |动态|指定以秒为单位的时间跨度。 激活的最大重试时间间隔。 每次连续失败后，重试时间间隔的计算结果为 Min（ActivationMaxRetryInterval；连续失败计数 * ActivationRetryBackoffInterval）（即取括号中的最小值）。 |
-|ActivationRetryBackoffInterval |以秒为单位的时间，默认值为 5 |动态|指定以秒为单位的时间跨度。 每次激活失败的回退时间间隔；每次连续激活失败后，系统将重试激活最多 MaxActivationFailureCount 次。 每次尝试的重试间隔是连续激活失败与激活退让间隔的积。 |
+|ActivationMaxRetryInterval |以秒为单位的时间，默认值为 300 |动态|指定以秒为单位的时间范围。 激活的最大重试时间间隔。 每次连续失败后，重试时间间隔的计算结果为 Min（ActivationMaxRetryInterval；连续失败计数 * ActivationRetryBackoffInterval）（即取括号中的最小值）。 |
+|ActivationRetryBackoffInterval |以秒为单位的时间，默认值为 5 |动态|指定以秒为单位的时间范围。 每次激活失败的回退时间间隔；每次连续激活失败后，系统将重试激活最多 MaxActivationFailureCount 次。 每次尝试的重试间隔是连续激活失败与激活退让间隔的积。 |
 |EnableRestartManagement |Bool，默认值为 false |动态|这会启用服务器重启。 |
 |EnableServiceFabricAutomaticUpdates |Bool，默认值为 false |动态|这会通过 Windows 更新启用 Fabric 自动更新。 |
 |EnableServiceFabricBaseUpgrade |Bool，默认值为 false |动态|这会启用服务器的基本更新。 |
 |FailureReportingExpeditedReportingIntervalEnabled | Bool，默认值为 true | 静态 | 当 FabricHost 处于“故障报告”模式下时，可提高 DCA 中的上传速率。 |
 |FailureReportingTimeout | 时间跨度，默认值是 Common::TimeSpan::FromSeconds(60) | 静态 |指定以秒为单位的时间范围。 当 FabricHost 遇到早期启动故障时 DCA 故障报告的超时。 | 
 |RunDCAOnStartupFailure | Bool，默认值为 true | 静态 |确定在 FabricHost 中遇到启动问题时是否启动 DCA 来上传日志。 | 
-|StartTimeout |以秒为单位的时间，默认值为 300 |动态|指定以秒为单位的时间跨度。 fabricactivationmanager 启动的超时时间。 |
+|StartTimeout |以秒为单位的时间，默认值为 300 |动态|指定以秒为单位的时间范围。 fabricactivationmanager 启动的超时时间。 |
 |StopTimeout |以秒为单位的时间，默认值为 300 |动态|指定以秒为单位的时间范围。 托管服务激活、停用和升级的超时时间。 |
 
 ## <a name="fabricnode"></a>FabricNode
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ClientAuthX509FindType |string，默认值为“FindByThumbprint” |动态|指示如何在由 ClientAuthX509StoreName（FindByThumbprint；FindBySubjectName）支持的值指定的存储中搜索证书：。 |
 |ClientAuthX509FindValue |string，默认值为“” | 动态|用于查找默认管理员角色 FabricClient 的证书的搜索筛选器值。 |
@@ -215,33 +216,33 @@ ms.locfileid: "89655265"
 
 ## <a name="failovermanager"></a>FailoverManager
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AllowNodeStateRemovedForSeedNode|布尔值，默认为 FALSE |动态|指示是否允许删除种子节点的状态的标志 |
-|BuildReplicaTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(3600)|动态|指定以秒为单位的时间跨度。 生成监控状态副本的时间限制。超出该时间范围后会启动警告运行状况报告 |
+|BuildReplicaTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(3600)|动态|指定以秒为单位的时间范围。 生成监控状态副本的时间限制。超出该时间范围后会启动警告运行状况报告 |
 |ClusterPauseThreshold|int，默认值为 1|动态|如果系统中的节点数低于此值，则会停止放置、负载均衡和故障转移。 |
-|CreateInstanceTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(300)|动态|指定以秒为单位的时间跨度。 创建无状态实例的时间限制。超出该时间范围后会启动警告运行状况报告 |
+|CreateInstanceTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(300)|动态|指定以秒为单位的时间范围。 创建无状态实例的时间限制。超出该时间范围后会启动警告运行状况报告 |
 |ExpectedClusterSize|int，默认值为 1|动态|最初启动群集时；FM 会等待该数值个数的节点自行报告，然后开始放置其他服务（包括命名等系统服务）。 增加此值会增加群集启动所需的时间；但可防止早期节点重载，而且随着更多的节点进入联机状态，需要执行额外的移动操作。 此值通常应设置为初始群集大小的一小部分。 |
 |ExpectedNodeDeactivationDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|动态|指定以秒为单位的时间跨度。 这是节点完成停用的预期工期。 |
-|ExpectedNodeFabricUpgradeDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|动态|指定以秒为单位的时间跨度。 这是 Windows Fabric 升级过程中升级节点的预期持续时间。 |
+|ExpectedNodeFabricUpgradeDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|动态|指定以秒为单位的时间范围。 这是 Windows Fabric 升级过程中升级节点的预期持续时间。 |
 |ExpectedReplicaUpgradeDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|动态|指定以秒为单位的时间范围。 这是在应用程序升级过程中节点上要升级的所有副本的预期持续时间。 |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool，默认值为 TRUE|动态|如果设置为 true，则允许在升级过程中移动目标副本集大小为 1 的副本。 |
 |MinReplicaSetSize|int，默认值为 3|不允许|这是 FM 的最小副本集大小。 如果活动 FM 副本数低于此值，FM 会拒绝对群集进行更改，直到至少恢复最小数目的副本 |
 |PlacementConstraints|string，默认值为“”|不允许|故障转移管理器副本的任何放置约束 |
 |PlacementTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(600)|动态|指定以秒为单位的时间跨度。 达到目标副本计数的时间限制。超出该时间范围后会启动警告运行状况报告 |
-|QuorumLossWaitDuration |以秒为单位的时间，默认值为 MaxValue |动态|指定以秒为单位的时间跨度。 这是允许分区处于仲裁丢失状态的最长持续时间。 如果分区在此持续时间后仍然处于仲裁丢失状态，则通过将不可用副本视为已丢失，使分区从仲裁丢失状态中恢复。 请注意，这可能会导致数据丢失。 |
+|QuorumLossWaitDuration |以秒为单位的时间，默认值为 MaxValue |动态|指定以秒为单位的时间范围。 这是允许分区处于仲裁丢失状态的最长持续时间。 如果分区在此持续时间后仍然处于仲裁丢失状态，则通过将不可用副本视为已丢失，使分区从仲裁丢失状态中恢复。 请注意，这可能会导致数据丢失。 |
 |ReconfigurationTimeLimit|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(300)|动态|指定以秒为单位的时间跨度。 重新配置的时间限制。超出该时间范围后会启动警告运行状况报告 |
-|ReplicaRestartWaitDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|不允许|指定以秒为单位的时间跨度。 这是 FMService 的 ReplicaRestartWaitDuration |
+|ReplicaRestartWaitDuration|时间范围，默认值为 Common::TimeSpan::FromSeconds(60.0 \* 30)|不允许|指定以秒为单位的时间范围。 这是 FMService 的 ReplicaRestartWaitDuration |
 | SeedNodeQuorumAdditionalBufferNodes | int，默认值为 0 | 动态 | 需启用的种子节点的缓冲区（及种子节点的仲裁）。故障转移管理器 (FM) 应允许最大数量的种子节点 (totalNumSeedNodes - (seedNodeQuorum + SeedNodeQuorumAdditionalBufferNodes)) 处于关闭状态。 |
-|StandByReplicaKeepDuration|时间范围，默认为 Common::TimeSpan::FromSeconds(3600.0 \* 24 \* 7)|不允许|指定以秒为单位的时间跨度。 这是 FMService 的 StandByReplicaKeepDuration |
+|StandByReplicaKeepDuration|时间范围，默认为 Common::TimeSpan::FromSeconds(3600.0 \* 24 \* 7)|不允许|指定以秒为单位的时间范围。 这是 FMService 的 StandByReplicaKeepDuration |
 |TargetReplicaSetSize|int，默认值为 7|不允许|这是 Windows Fabric 将维护的 FM 副本目标数量。 数字越大，FM 数据的可靠性越高；但会稍微降低其性能。 |
 |UserMaxStandByReplicaCount |Int，默认值为 1 |动态|系统为用户服务保留的默认最大备用副本数。 |
 |UserReplicaRestartWaitDuration |以秒为单位的时间，默认值为 60.0 \* 30 |动态|指定以秒为单位的时间跨度。 当持久化副本不可用时，Windows Fabric 在创建新的替换副本（需要状态的副本）前，会等待该副本恢复正常，等待时间即为此持续时间。 |
-|UserStandByReplicaKeepDuration |以秒为单位的时间，默认值为 3600.0 \* 24 \* 7 |动态|指定以秒为单位的时间跨度。 持久化副本从不可用状态恢复时，可能已被替换为另一副本。 此定时器决定 FM 在放弃备用副本之前保留其多长时间。 |
+|UserStandByReplicaKeepDuration |以秒为单位的时间，默认值为 3600.0 \* 24 \* 7 |动态|指定以秒为单位的时间范围。 持久化副本从不可用状态恢复时，可能已被替换为另一副本。 此定时器决定 FM 在放弃备用副本之前保留其多长时间。 |
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int，默认值为 604800 |静态| 这是处于终态的操作的大致保留时长。 这也取决于 StoredActionCleanupIntervalInSeconds，因为仅在此间隔时间内执行清理工作。 604800 秒是 7 天。 |
 |DataLossCheckPollIntervalInSeconds|int，默认值为 5|静态|这是系统在等待发生数据丢失时执行的检查之间的时间间隔。 每次内部迭代检查数据丢失数的次数是 DataLossCheckWaitDurationInSeconds/this。 |
@@ -251,21 +252,21 @@ ms.locfileid: "89655265"
 |QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 QuorumLossWaitDuration。 |
 |ReplicaDropWaitDurationInSeconds|int，默认值为 600|静态|调用数据丢失 api 时使用此参数。 该参数控制内部调用删除副本后系统等待副本删除的时间。 |
 |ReplicaRestartWaitDuration |以秒为单位的时间，默认值为 60 分钟|静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 ReplicaRestartWaitDuration。 |
-|StandByReplicaKeepDuration| 以秒为单位的时间，默认值为 (60*24*7) 分钟 |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 StandByReplicaKeepDuration。 |
+|StandByReplicaKeepDuration| 以秒为单位的时间，默认值为 (60 *24* 7) 分钟 |静态|指定以秒为单位的时间范围。 FaultAnalysisService 的 StandByReplicaKeepDuration。 |
 |StoredActionCleanupIntervalInSeconds | Int，默认值为 3600 |静态|这是清理存储的频率。 仅会删除处于终态和至少在 CompletedActionKeepDurationInSeconds 以前完成的操作。 |
 |StoredChaosEventCleanupIntervalInSeconds | Int，默认值为 3600 |静态|这是审核存储（以进行清理）的频率，如果事件数量超过 30000，则开始执行清理。 |
 |TargetReplicaSetSize |Int，默认值为 0 |静态|NOT_PLATFORM_UNIX_START，FaultAnalysisService 的 TargetReplicaSetSize。 |
 
 ## <a name="federation"></a>联合
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |LeaseDuration |以秒为单位的时间，默认值为 30 |动态|节点与其邻居之间的租约持续时间。 |
 |LeaseDurationAcrossFaultDomain |以秒为单位的时间，默认值为 30 |动态|所有容错域中的节点与其邻居之间的租约持续时间。 |
 
 ## <a name="filestoreservice"></a>FileStoreService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AcceptChunkUpload|Bool，默认值为 TRUE|动态|用于确定文件存储服务在复制应用程序包期间是否接受基于区块的文件上传的配置。 |
 |AnonymousAccessEnabled | Bool，默认值为 true |静态|启用/禁用对 FileStoreService 共享的匿名访问。 |
@@ -276,7 +277,7 @@ ms.locfileid: "89655265"
 |CommonName2Ntlmx509StoreLocation|string，默认值为“LocalMachine”| 静态|使用 NTLM 身份验证时，用于在 CommonName2NtlmPasswordSecret 上生成 HMAC 的 X509 证书的存储位置 |
 |CommonName2Ntlmx509StoreName|string，默认值为“MY”|静态| 使用 NTLM 身份验证时，用于在 CommonName2NtlmPasswordSecret 上生成 HMAC 的 X509 证书的存储名称 |
 |CommonNameNtlmPasswordSecret|SecureString，默认值为 Common::SecureString("")| 静态|密码，用于在使用 NTLM 身份验证时用作种子以生成相同密码 |
-|DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |时间范围，默认值为 Common::TimeSpan::FromMinutes(5)|动态|指定以秒为单位的时间跨度。 当磁盘空间即将耗尽时，检查磁盘空间来报告运行状况事件之间的时间间隔。 |
+|DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |时间范围，默认值为 Common::TimeSpan::FromMinutes(5)|动态|指定以秒为单位的时间范围。 当磁盘空间即将耗尽时，检查磁盘空间来报告运行状况事件之间的时间间隔。 |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan，默认值为 Common::TimeSpan::FromMinutes(15)|动态|指定以秒为单位的时间范围。 当磁盘空间充足时，检查磁盘空间来报告运行状况事件之间的时间间隔。 |
 |EnableImageStoreHealthReporting |bool，默认值为 TRUE    |静态|用于确定文件存储服务是否应报告其运行状况的配置。 |
 |FreeDiskSpaceNotificationSizeInKB|int64，默认值为 25\*1024 |动态|可用磁盘空间的大小，低于此大小可能会出现运行状况警告。 此配置的最小值和 FreeDiskSpaceNotificationThresholdPercentage 配置用于确定是否发送运行状况警告。 |
@@ -284,7 +285,7 @@ ms.locfileid: "89655265"
 |GenerateV1CommonNameAccount| bool，默认值为 TRUE|静态|指定是否要使用用户名 V1 生成算法生成帐户。 从 Service Fabric 6.1 版开始，始终创建具有 v2 生成的帐户。 从/到不支持 V2 生成的版本升级需要 V1 帐户（6.1 版以前）。|
 |MaxCopyOperationThreads | Uint，默认值为 0 |动态| 辅助节点可从主节点复制的最大并行文件数。 '0' == 核心数。 |
 |MaxFileOperationThreads | Uint，默认值为 100 |静态| 可在主节点中执行 FileOperations（复制/移动）操作的最大并行线程数。 '0' == 核心数。 |
-|MaxRequestProcessingThreads | Uint，默认值为 200 |静态|可在主节点中处理请求的最大并行线程数。 '0' == 核心数。 |
+|MaxRequestProcessingThreads | Uint，默认值为 200 |静态|可在主节点中处理请求的最大并行线程数。 ‘0’== 内核数。 |
 |MaxSecondaryFileCopyFailureThreshold | Uint，默认值为 25|动态|放弃前，辅助节点上的最大文件副本重试次数。 |
 |MaxStoreOperations | Uint，默认值为 4096 |静态|主节点上可允许的最大并行存储事务操作数。 ‘0’== 内核数。 |
 |NamingOperationTimeout |以秒为单位的时间，默认值为 60 |动态|指定以秒为单位的时间范围。 执行命名操作时的超时时间。 |
@@ -308,14 +309,14 @@ ms.locfileid: "89655265"
 
 ## <a name="healthmanager"></a>HealthManager
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool，默认值为 false |静态|群集运行状况评估策略：启用按应用程序类型的运行状况评估。 |
 |MaxSuggestedNumberOfEntityHealthReports|Int，默认值为 100 |动态|在引发关于监视程序运行状况报告逻辑的担忧之前，实体可具有的运行状况报告数量上限。 每个运行状况实体都应具有相对较少的运行状况报告。 如果报告计数超过此数字，监视程序的实现可能会出现问题。 计算实体时，报告数太多的实体通过“警告”运行状况报告进行标记。 |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool，默认值为 false |静态|群集运行状况评估策略：警告视为错误。 |
 |MaxPercentUnhealthyApplications | Int，默认值为 0 |静态|群集运行状况评估策略：为确保群集运行正常，可允许的最高运行不正常应用程序百分比。 |
@@ -323,14 +324,14 @@ ms.locfileid: "89655265"
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|int，默认值为 10|静态|群集升级运行状况评估策略：为确保群集运行正常，可允许的最高增量不正常节点百分比 |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int，默认值为 15|静态|群集升级运行状况评估策略：为确保群集运行正常，升级域中可允许的最高增量不正常节点百分比 |
 
 ## <a name="hosting"></a>Hosting
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |整数，默认值为 10 |动态|系统在放弃之前重试失败激活的次数 |
 |ActivationMaxRetryInterval |以秒为单位的时间，默认值为 300 |动态|在每次连续激活失败时，系统将重试激活最多 ActivationMaxFailureCount 次。 ActivationMaxRetryInterval 指定每次激活失败之后、重试之前等待的时间间隔 |
@@ -385,7 +386,7 @@ ms.locfileid: "89655265"
 
 ## <a name="httpgateway"></a>HttpGateway
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ActiveListeners |Uint，默认值为 50 |静态| 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
 |HttpGatewayHealthReportSendInterval |以秒为单位的时间，默认值为 30 |静态|指定以秒为单位的时间范围。 Http 网关将累积的运行状况报告发送至运行状况管理器的时间间隔。 |
@@ -395,7 +396,7 @@ ms.locfileid: "89655265"
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |已启用 |Bool，默认值为 false |静态|ImageStoreService 的已启用标志。 默认值：false |
 |MinReplicaSetSize | Int，默认值为 3 |静态|ImageStoreService 的 MinReplicaSetSize。 |
@@ -407,7 +408,7 @@ ms.locfileid: "89655265"
 
 ## <a name="ktllogger"></a>KtlLogger
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int，默认值为 1 |动态|该标志指示是否应自动且动态地配置内存设置。 如果设置为 0，则根据系统条件直接使用内存配置设置而不进行任何更改。 如果设置为 1，则自动配置内存设置，并可根据系统条件进行更改。 |
 |MaximumDestagingWriteOutstandingInKB | Int，默认值为 0 |动态|共享日志可位于专用日志之前的 KB 数。 使用 0 表示没有限制。
@@ -419,100 +420,100 @@ ms.locfileid: "89655265"
 |WriteBufferMemoryPoolMinimumInKB |Int，默认值为 8388608 |动态|最初为写入缓冲区内存池分配的 KB 数。 设置为 0 表示没有限制，默认值应与以下 SharedLogSizeInMB 值保持一致。 |
 
 ## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |IsEnabled|bool，默认值为 FALSE|静态|用于控制群集中托管标识令牌服务的状态的标志；必须具有此标志才能使用 Service Fabric 应用程序的托管标识功能。|
 
 ## <a name="management"></a>管理
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AutomaticUnprovisionInterval|时间范围，默认值为 Common::TimeSpan::FromMinutes(5)|动态|指定以秒为单位的时间范围。 在自动应用程序类型清理期间，允许取消注册应用程序类型的清理时间间隔。|
 |AzureStorageMaxConnections | Int，默认值为 5000 |动态|最大并发 Azure 存储连接数。 |
 |AzureStorageMaxWorkerThreads | Int，默认值为 25 |动态|最大并行工作线程数。 |
 |AzureStorageOperationTimeout | 以秒为单位的时间，默认值为 6000 |动态|指定以秒为单位的时间范围。 完成 xstore 操作的超时时间。 |
-|CleanupApplicationPackageOnProvisionSuccess|bool，默认值为 FALSE |动态|成功预配时启用或禁用应用程序包的自动清理。 |
-|CleanupUnusedApplicationTypes|布尔值，默认为 FALSE |动态|如果启用，此配置允许自动取消注册未使用的应用程序类型版本，这会跳过最近三个未使用的版本，然后释放图像存储所占用的磁盘空间。 将在成功预配结束时对该特定应用类型触发自动清理；对于所有应用程序类型，自动清理也将每天定期运行一次。 要跳过的未使用的版本数量可通过参数“MaxUnusedAppTypeVersionsToKeep”进行配置。 |
+|CleanupApplicationPackageOnProvisionSuccess|布尔值，默认为 true |动态|成功预配时启用或禁用应用程序包的自动清理。
+|CleanupUnusedApplicationTypes|布尔值，默认为 FALSE |动态|如果启用，此配置允许自动取消注册未使用的应用程序类型版本，这会跳过最近三个未使用的版本，然后释放图像存储所占用的磁盘空间。 将在成功预配结束时对该特定应用类型触发自动清理；对于所有应用程序类型，自动清理也将每天定期运行一次。 要跳过的未使用的版本数量可通过参数“MaxUnusedAppTypeVersionsToKeep”进行配置。 <br/> 最佳做法是使用 `true`。
 |DisableChecksumValidation | Bool，默认值为 false |静态| 通过此配置可在应用程序预配过程中启用或禁用校验和验证。 |
 |DisableServerSideCopy | Bool，默认值为 false |静态|此配置可以在应用程序预配过程中启用或禁用 ImageStore 上应用程序包的服务器端副本。 |
 |ImageCachingEnabled | Bool，默认值为 true |静态|通过此配置可启用或禁用缓存。 |
 |ImageStoreConnectionString |SecureString |静态|ImageStore 的根的连接字符串。 |
 |ImageStoreMinimumTransferBPS | Int，默认值为 1024 |动态|群集和 ImageStore 之间的最小传输速率。 此值用于确定访问外部 ImageStore 时的超时时间。 仅当群集和 ImageStore 之间的延迟较高时可更改此值，以允许群集获得更多的时间从外部 ImageStore 进行下载。 |
-|MaxUnusedAppTypeVersionsToKeep | Int，默认值为 3 |动态|此配置会定义要跳过清理操作的未使用的应用程序类型版本数。 仅在启用参数 CleanupUnusedApplicationTypes 后，此参数才适用。 |
+|MaxUnusedAppTypeVersionsToKeep | Int，默认值为 3 |动态|此配置会定义要跳过清理操作的未使用的应用程序类型版本数。 仅在启用参数 CleanupUnusedApplicationTypes 后，此参数才适用。 <br/>一般的最佳做法是使用默认值 (`3`)。小于 1 的值无效。|
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
-| **Parameter** | **允许的值** |**升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap，默认值为 None|动态|为群集中的指标确定一组 MetricActivityThresholds。 如果 maxNodeLoad 大于 MetricActivityThresholds，则均衡会起作用。 定义碎片整理指标的负载量，等于或低于此值 Service Fabric 将认为该节点为空 |
 
 ## <a name="metricbalancingthresholds"></a>MetricBalancingThresholds
-| **Parameter** | **允许的值** |**升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|为群集中的指标确定一组 MetricBalancingThresholds。 如果 maxNodeLoad/minNodeLoad 大于 MetricBalancingThresholds，则均衡会起作用。 如果至少一个 FD 或 UD 上的 maxNodeLoad/minNodeLoad 小于 MetricBalancingThresholds，则碎片整理会起作用。 |
 
 ## <a name="metricloadstickinessforswap"></a>MetricLoadStickinessForSwap
-| **Parameter** | **允许的值** |**升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|确定在交换后继续使用副本的负载部分。它采用介于 0（负载不继续使用副本）到 1（负载要继续使用副本）之间的值 |
 
 ## <a name="namingservice"></a>NamingService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |GatewayServiceDescriptionCacheLimit |Int，默认值为 0 |静态|命名网关处的 LRU 服务说明缓存中可维持的最大条目数（设置为 0 表示无限制）。 |
 |MaxClientConnections |Int，默认值为 1000 |动态|每个网关允许的最大客户端连接数。 |
-|MaxFileOperationTimeout |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间跨度。 文件存储服务操作的最大超时时间。 会拒绝指定更长超时时间的请求。 |
+|MaxFileOperationTimeout |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间范围。 文件存储服务操作的最大超时时间。 将拒绝指定更长超时时间的请求。 |
 |MaxIndexedEmptyPartitions |Int，默认值为 1000 |动态|将在通知缓存中保持被索引状态以同步重新连接的客户端的最大空分区数。 将按查找版本的升序顺序，从索引中删除超出此数目的所有空分区。 重新连接的客户端仍然可以同步并接收错过的空分区更新，但是同步协议会更昂贵。 |
 |MaxMessageSize |Int，默认值为 4\*1024\*1024 |静态|使用命名时客户端节点通信的最大消息大小。 DOS 攻击缓解，默认值为 4MB。 |
 |MaxNamingServiceHealthReports | Int，默认值为 10 |动态|命名存储服务一次所报告的运行不正常的最大慢速操作数量。 如果设置为 0，则将发送所有慢速操作。 |
-|MaxOperationTimeout |以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间跨度。 所允许的客户端操作的最大超时时间。 将拒绝指定更长超时时间的请求。 |
+|MaxOperationTimeout |以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间范围。 所允许的客户端操作的最大超时时间。 将拒绝指定更长超时时间的请求。 |
 |MaxOutstandingNotificationsPerClient |Int，默认值为 1000 |动态|网关强行关闭客户端注册前的最大未完成通知数。 |
 |MinReplicaSetSize | Int，默认值为 3 |不允许| 完成更新所需写入的最少命名服务副本数。 如果系统中的活动副本数少于此数量，则可靠性系统将拒绝对命名服务存储执行的更新操作，直到副本还原为止。 此值不应超过 TargetReplicaSetSize 的值。 |
 |PartitionCount |Int，默认值为 3 |不允许|要创建的命名服务存储的分区数。 每个分区都拥有与其索引相对应的一个分区键，因此存在分区键 [0; PartitionCount]。 增加命名服务分区数可减少由任何备份副本集保持的数据的平均量，从而增加命名服务可以执行的规模；其代价是增加资源的利用（因为必须维护 PartitionCount*ReplicaSetSize 服务副本）。|
 |PlacementConstraints | string，默认值为“” |不允许| 命名服务的放置约束。 |
-|QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |不允许| 指定以秒为单位的时间跨度。 命名服务进入仲裁丢失状态时，此计时器将启动。 指定时间到期后，FM 将不可用副本视为丢失，并尝试恢复仲裁。 请注意，这可能导致数据丢失。 |
+|QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |不允许| 指定以秒为单位的时间范围。 命名服务进入仲裁丢失状态时，此计时器将启动。 指定时间到期后，FM 将不可用副本视为丢失，并尝试恢复仲裁。 请注意，这可能导致数据丢失。 |
 |RepairInterval | 以秒为单位的时间，默认值为 5 |静态| 指定以秒为单位的时间范围。 针对授权所有者和名称所有者之间命名不一致情况的修复操作的时间间隔。 |
 |ReplicaRestartWaitDuration | 以秒为单位的时间，默认值为 (60.0 * 30)|不允许| 指定以秒为单位的时间范围。 命名服务副本不可用时，此定时器将启动。 当它到期时，FM 将开始替换已经关闭的副本（暂不将其视为丢失）。 |
 |ServiceDescriptionCacheLimit | Int，默认值为 0 |静态| 命名存储服务处的 LRU 服务说明缓存中可维持的最大条目数（设置为 0 表示无限制）。 |
-|ServiceNotificationTimeout |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间跨度。 将服务通知传送到客户端时使用的超时时间。 |
+|ServiceNotificationTimeout |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间范围。 将服务通知传送到客户端时使用的超时时间。 |
 |StandByReplicaKeepDuration | 以秒为单位的时间，默认值为 3600.0 * 2 |不允许| 指定以秒为单位的时间范围。 命名服务副本从不可用状态恢复时，可能已被替换为另一副本。 此定时器决定 FM 在放弃备用副本之前保留其多长时间。 |
 |TargetReplicaSetSize |Int，默认值为 7 |不允许|命名服务存储的每个分区的副本集数量。 增加副本集的数量会增加命名服务存储中信息的可靠性水平；减少此更改将导致信息由于节点故障而丢失；其代价是增加 Windows Fabric 上的负载以及对命名数据执行更新所花费的时间。|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
-| **Parameter** | **允许的值** |**升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|每个指标名称的节点容量百分比；用作缓冲区，以便在故障转移的情况下在节点上保留一些可用空间。 |
 
 ## <a name="nodecapacities"></a>NodeCapacities
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeCapacityCollectionMap |静态|不同指标的节点容量集合。 |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeFaultDomainIdCollection |静态|描述节点所属的容错域。 通过用于描述数据中心中节点所在位置的 URI 定义容错域。  容错域 URI 的格式是 fd:/fd/，后跟 URI 路径段。|
 |UpgradeDomainId |string，默认值为“” |静态|描述节点所属的升级域。 |
 
 ## <a name="nodeproperties"></a>NodeProperties
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodePropertyCollectionMap |静态|节点属性的字符串键值对的集合。 |
 
 ## <a name="paas"></a>Paas
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ClusterId |string，默认值为“” |不允许|由 Fabric 用于配置保护的 X509 证书存储。 |
 
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-|计数器 |String | 动态 |要收集的性能计数器的逗号分隔列表。 |
+|计数器 |字符串 | 动态 |要收集的性能计数器的逗号分隔列表。 |
 |IsEnabled |Bool，默认值为 true | 动态 |标志指示是否启用本地节点上的性能计数器集合。 |
 |MaxCounterBinaryFileSizeInMB |Int，默认值为 1 | 动态 |每个性能计数器二进制文件的最大大小（以 MB 为单位）。 |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int，默认值为 10 | 动态 |在其之后创建新的性能计数器二进制文件的最大间隔（以秒为单位）。 |
@@ -520,17 +521,18 @@ ms.locfileid: "89655265"
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AffinityConstraintPriority | Int，默认值为 0 | 动态|确定相关性约束的优先级：0：硬；1：软；负值：忽略。 |
 |ApplicationCapacityConstraintPriority | Int，默认值为 0 | 动态|确定容量约束的优先级：0：硬；1：软；负值：忽略。 |
 |AutoDetectAvailableResources|bool，默认值为 TRUE|静态|此配置会触发对节点上可用资源（CPU 和内存）的自动检测，将此配置设置为 true 时，如果用户已指定错误的节点容量或者根本未定义它们，我们会读取实际容量并更正它们，将此配置设置为 false 时 - 我们会跟踪用户已指定错误的节点容量这一警告；但不会纠正它们；这意味着用户希望将容量指定为 > 节点实际拥有的容量，或者如果未指定容量；它会认为是不限的容量 |
-|BalancingDelayAfterNewNode | 以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间跨度。 添加新节点后，不在此时间段内启动平衡活动。 |
-|BalancingDelayAfterNodeDown | 以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间跨度。 发生节点关闭事件后，不在此时间段内启动平衡活动。 |
+|BalancingDelayAfterNewNode | 以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间范围。 添加新节点后，不在此时间段内启动平衡活动。 |
+|BalancingDelayAfterNodeDown | 以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间范围。 发生节点关闭事件后，不在此时间段内启动平衡活动。 |
+|BlockNodeInUpgradeConstraintPriority | Int，默认值为 0 |动态|确定容量约束的优先级：0：硬；1：软；负值：忽略  |
 |CapacityConstraintPriority | Int，默认值为 0 | 动态|确定容量约束的优先级：0：硬；1：软；负值：忽略。 |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int，默认值为 20 | 动态|定义在进行诊断并发出运行状况警告之前，删除 ResourceBalancer 发出的移动的连续次数。 负值：在此情况下没有发出任何警告。 |
-|ConstraintFixPartialDelayAfterNewNode | 以秒为单位的时间，默认值为 120 |动态| 指定以秒为单位的时间跨度。 添加新节点后，不在此时间段内修复 FaultDomain 和 UpgradeDomain 约束冲突。 |
-|ConstraintFixPartialDelayAfterNodeDown | 以秒为单位的时间，默认值为 120 |动态| 指定以秒为单位的时间跨度。 发生节点关闭事件后，不在此时间段内修复 FaultDomain 和 UpgradeDomain 约束冲突。 |
+|ConstraintFixPartialDelayAfterNewNode | 以秒为单位的时间，默认值为 120 |动态| 指定以秒为单位的时间范围。 添加新节点后，不在此时间段内修复 FaultDomain 和 UpgradeDomain 约束冲突。 |
+|ConstraintFixPartialDelayAfterNodeDown | 以秒为单位的时间，默认值为 120 |动态| 指定以秒为单位的时间范围。 发生节点关闭事件后，不在此时间段内修复 FaultDomain 和 UpgradeDomain 约束冲突。 |
 |ConstraintViolationHealthReportLimit | Int，默认值为 50 |动态| 定义在进行诊断并发出运行状况报告之前，违反约束的副本持续处于未解决状态的次数。 |
 |DetailedConstraintViolationHealthReportLimit | Int，默认值为 200 |动态| 定义在进行诊断并发出详细运行状况报告之前，违反约束的副本持续未固定的次数。 |
 |DetailedDiagnosticsInfoListLimit | Int，默认值为 15 |动态| 定义诊断中每个约束在截断前要包含的诊断条目数（附带详细信息）。|
@@ -549,9 +551,9 @@ ms.locfileid: "89655265"
 |InBuildThrottlingEnabled | Bool，默认值为 false |动态| 决定是否启用内置限制。 |
 |InBuildThrottlingGlobalMaxValue | Int，默认值为 0 |动态|全局范围内所允许的最大内置副本数。 |
 |InterruptBalancingForAllFailoverUnitUpdates | Bool，默认值为 false | 动态|决定是否有任何类型的故障转移单元更新应中断快速或慢速平衡运行。 如果指定为“false”，则会在 FailoverUnit 出现以下情况时中断均衡运行：被创建/删除、缺少副本、更改了主副本位置或更改了副本数量。 在其他情况下不会中断均衡运行，包括 FailoverUnit 具有额外副本、更改了任何副本标志、仅更改了分区版本或任何其他情况。 |
-|MinConstraintCheckInterval | 以秒为单位的时间，默认值为 1 |动态| 指定以秒为单位的时间跨度。 定义在两个连续的约束检查循环之前必须经过的最短时间。 |
-|MinLoadBalancingInterval | 以秒为单位的时间，默认值为 5 |动态| 指定以秒为单位的时间跨度。 定义在两个连续平衡循环之前必须经过的最短时间。 |
-|MinPlacementInterval | 以秒为单位的时间，默认值为 1 |动态| 指定以秒为单位的时间跨度。 定义在两个连续的放置循环之前必须经过的最短时间。 |
+|MinConstraintCheckInterval | 以秒为单位的时间，默认值为 1 |动态| 指定以秒为单位的时间范围。 定义在两个连续的约束检查循环之前必须经过的最短时间。 |
+|MinLoadBalancingInterval | 以秒为单位的时间，默认值为 5 |动态| 指定以秒为单位的时间范围。 定义在两个连续平衡循环之前必须经过的最短时间。 |
+|MinPlacementInterval | 以秒为单位的时间，默认值为 1 |动态| 指定以秒为单位的时间范围。 定义在两个连续的放置循环之前必须经过的最短时间。 |
 |MoveExistingReplicaForPlacement | Bool，默认值为 true |动态|该设置决定放置过程中是否移动现有副本。 |
 |MovementPerPartitionThrottleCountingInterval | 以秒为单位的时间，默认值为 600 |静态| 指定以秒为单位的时间范围。 指示刚过去的用于跟踪每个分区的副本移动的时间间隔的长度（与 MovementPerPartitionThrottleThreshold 配合使用）。 |
 |MovementPerPartitionThrottleThreshold | Uint，默认值为 50 |动态| 如果分区副本的均衡相关移动数量在刚过去的、由 MovementPerPartitionThrottleCountingInterval 指示的间隔时间中已达到或超过 MovementPerFailoverUnitThrottleThreshold，则该分区不会发生均衡相关的移动。 |
@@ -560,7 +562,7 @@ ms.locfileid: "89655265"
 |PlaceChildWithoutParent | Bool，默认值为 true | 动态|该设置决定如果没启用父副本，是否可以放置子服务副本。 |
 |PlacementConstraintPriority | Int，默认值为 0 | 动态|确定放置约束的优先级：0：硬；1：软；负值：忽略。 |
 |PlacementConstraintValidationCacheSize | Int，默认值为 10000 |动态| 限制用于快速验证和缓存放置约束表达式的表格的大小。 |
-|PlacementSearchTimeout | 以秒为单位的时间，默认值为 0.5 |动态| 指定以秒为单位的时间跨度。 这是放置服务时，返回结果之前可搜索的最长时间。 |
+|PlacementSearchTimeout | 以秒为单位的时间，默认值为 0.5 |动态| 指定以秒为单位的时间范围。 这是放置服务时，返回结果之前可搜索的最长时间。 |
 |PLBRefreshGap | 以秒为单位的时间，默认值为 1 |动态| 指定以秒为单位的时间范围。 定义 PLB 再次刷新状态之前必须经过的最短时间。 |
 |PreferredLocationConstraintPriority | Int，默认值为 2| 动态|确定首选位置约束的优先级：0：硬；1：软；2：最佳；负值：忽略 |
 |PreferredPrimaryDomainsConstraintPriority| Int，默认值为 1 | 动态| 确定首选主域约束的优先级：0：硬；1：软；负值：忽略 |
@@ -585,20 +587,20 @@ ms.locfileid: "89655265"
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ApplicationUpgradeMaxReplicaCloseDuration | 以秒为单位的时间，默认值为 900 |动态|指定以秒为单位的时间范围。 在应用程序升级过程中，如果服务主机具有进入关闭状态的副本，系统在终止这类服务主机前所等待的时间。|
 |FabricUpgradeMaxReplicaCloseDuration | 以秒为单位的时间，默认值为 900 |动态| 指定以秒为单位的时间范围。 在结构升级过程中，如果服务主机具有进入关闭状态的副本，系统在终止这类服务主机前所等待的时间。 |
-|GracefulReplicaShutdownMaxDuration|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态|指定以秒为单位的时间范围。 如果服务主机具有进入关闭状态的副本，则该配置决定系统在终止这类服务主机前所等待的时间。 如果此值设置为 0，则不会指示关闭副本。|
+|GracefulReplicaShutdownMaxDuration|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态|指定以秒为单位的时间跨度。 如果服务主机具有进入关闭状态的副本，则该配置决定系统在终止这类服务主机前所等待的时间。 如果此值设置为 0，则不会指示关闭副本。|
 |NodeDeactivationMaxReplicaCloseDuration | 以秒为单位的时间，默认值为 900 |动态|指定以秒为单位的时间范围。 在节点停用过程中，如果服务主机具有进入关闭状态的副本，系统在终止这类服务主机前所等待的时间。 |
-|PeriodicApiSlowTraceInterval | 以秒为单位的时间，默认值为 5 分钟 |动态| 指定以秒为单位的时间跨度。 PeriodicApiSlowTraceInterval 定义 API 监视器追溯慢速 API 调用的时间间隔。 |
+|PeriodicApiSlowTraceInterval | 以秒为单位的时间，默认值为 5 分钟 |动态| 指定以秒为单位的时间范围。 PeriodicApiSlowTraceInterval 定义 API 监视器追溯慢速 API 调用的时间间隔。 |
 |ReplicaChangeRoleFailureRestartThreshold|int，默认值为 10|动态| 整数。 指定在主升级过程中 API 故障的次数，超过此次数后应用自动缓解措施（副本重启）。 |
 |ReplicaChangeRoleFailureWarningReportThreshold|int，默认值为 2147483647|动态| 整数。 指定在主升级过程中 API 故障的次数，超过此次数后引发警告运行状况报告。|
-|ServiceApiHealthDuration | 以秒为单位的时间，默认值为 30 分钟 |动态| 指定以秒为单位的时间跨度。 ServiceApiHealthDuration 定义在等待多少时间后 API 仍未运行的话就报告其运行不正常。 |
-|ServiceReconfigurationApiHealthDuration | 以秒为单位的时间，默认值为 30 |动态| 指定以秒为单位的时间跨度。 ServiceReconfigurationApiHealthDuration 定义在报告运行不正常之前，等待服务 API 运行的时间。 这适用于影响可用性的 API 调用。|
+|ServiceApiHealthDuration | 以秒为单位的时间，默认值为 30 分钟 |动态| 指定以秒为单位的时间范围。 ServiceApiHealthDuration 定义在等待多少时间后 API 仍未运行的话就报告其运行不正常。 |
+|ServiceReconfigurationApiHealthDuration | 以秒为单位的时间，默认值为 30 |动态| 指定以秒为单位的时间范围。 ServiceReconfigurationApiHealthDuration 定义在报告运行不正常之前，等待服务 API 运行的时间。 这适用于影响可用性的 API 调用。|
 
 ## <a name="replication"></a>复制
-| **Parameter** | **允许的值** | **升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan，默认值为 Common::TimeSpan::FromMilliseconds(15)|静态|指定以秒为单位的时间范围。 确定接收到操作后到发送回确认之前，复制器等待的时间。 在该时间段期间接收的其他操作将通过一条消息发送回其确认 -> 减少网络流量，同时可能降低复制器的吞吐量。|
 |MaxCopyQueueSize|uint，默认值为 1024|静态|这是用于定义队列初始大小的最大值，该队列用于维护复制操作。 请注意，它必须是 2 的幂。 如果在运行时该队列增长到此大小，将限制主复制器和辅助复制器之间的操作。|
@@ -615,13 +617,13 @@ ms.locfileid: "89655265"
 |RetryInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(5)|静态|指定以秒为单位的时间范围。 丢失或拒绝操作时，此计时器确定复制器重试发送该操作的频率。|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
-| **Parameter** | **允许的值** | **升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |IsEnabled|bool，默认值为 FALSE |静态|控制是否在群集中启用该服务。 |
 
 ## <a name="runas"></a>RunAs
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |RunAsAccountName |string，默认值为“” |动态|指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |动态|指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。|
@@ -629,7 +631,7 @@ ms.locfileid: "89655265"
 
 ## <a name="runas_dca"></a>RunAs_DCA
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |RunAsAccountName |string，默认值为“” |动态|指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |动态|指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
@@ -637,7 +639,7 @@ ms.locfileid: "89655265"
 
 ## <a name="runas_fabric"></a>RunAs_Fabric
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |RunAsAccountName |string，默认值为“” |动态|指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |动态|指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
@@ -645,14 +647,14 @@ ms.locfileid: "89655265"
 
 ## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |RunAsAccountName |string，默认值为“” |动态|指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |动态|指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
 |RunAsPassword|string，默认值为“” |动态|指示 RunAs 帐户密码。 仅需用于“DomainUser”帐户类型。 |
 
 ## <a name="security"></a>安全性
-| **Parameter** | **允许的值** |**升级策略**| **指导或简短说明** |
+| **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |AADCertEndpointFormat|string，默认值为“”|静态|AAD 证书终结点格式，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https:\//portal.partner.microsoftonline.cn/{0}/federationmetadata/2007-06/federationmetadata.xml” |
 |AADClientApplication|string，默认值为“”|静态|表示 Fabric 客户端的本机客户端应用程序名称或 ID |
@@ -702,7 +704,7 @@ ms.locfileid: "89655265"
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ActivateNode |string，默认值为“Admin” |动态| 用于激活节点的安全性配置。 |
 |CancelTestCommand |string，默认值为“Admin” |动态| 取消特定的 TestCommand（如果处于运行中）。 |
@@ -801,11 +803,11 @@ ms.locfileid: "89655265"
 |UpgradeApplication |string，默认值为“Admin” |动态| 用于启动或中断应用程序升级的安全性配置。 |
 |UpgradeComposeDeployment|string，默认值为“Admin”| 动态|升级组合部署 |
 |UpgradeFabric |string，默认值为“Admin” |动态| 用于启动群集升级的安全性配置。 |
-|上载 |string，默认值为“Admin” | 动态|用于映像存储客户端上传操作的安全性配置。 |
+|上传 |string，默认值为“Admin” | 动态|用于映像存储客户端上传操作的安全性配置。 |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|客户端证书的 X509 颁发者证书存储；名称 = clientIssuerCN；值 = 逗号分隔的存储列表 |
 
@@ -817,7 +819,7 @@ ms.locfileid: "89655265"
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|群集证书的 X509 颁发者证书存储；名称 = clusterIssuerCN；值 = 逗号分隔的存储列表 |
 
@@ -829,7 +831,7 @@ ms.locfileid: "89655265"
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|服务器证书的 X509 颁发者证书存储；名称 = serverIssuerCN；值 = 逗号分隔的存储列表 |
 
@@ -841,32 +843,32 @@ ms.locfileid: "89655265"
 
 ## <a name="setup"></a>设置
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string，默认值为“”| 静态 |设置容器网络时要使用的网络名称。|
 |ContainerNetworkSetup|bool，Linux 的默认值为 FALSE，Windows 的默认值为 TRUE| 静态 |是否设置容器网络。|
-|FabricDataRoot |String | 不允许 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
-|FabricLogRoot |String | 不允许 |Service Fabric 日志根目录。 这是放置 SF 日志和跟踪信息的位置。 |
+|FabricDataRoot |字符串 | 不允许 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
+|FabricLogRoot |字符串 | 不允许 |Service Fabric 日志根目录。 这是放置 SF 日志和跟踪信息的位置。 |
 |NodesToBeRemoved|string，默认值为“”| 动态 |应在配置升级过程中删除的节点。 （仅适用于独立部署）|
-|ServiceRunAsAccountName |String | 不允许 |运行 Fabric 主机服务的帐户名称。 |
+|ServiceRunAsAccountName |字符串 | 不允许 |运行 Fabric 主机服务的帐户名称。 |
 |SkipContainerNetworkResetOnReboot|bool，默认值为 FALSE|NotAllowed|是否在重启时跳过容器网络重置。|
 |SkipFirewallConfiguration |Bool，默认值为 false | 不允许 |指定是否需要由系统设置防火墙设置。 仅当使用 Windows 防火墙时适用。 如果使用第三方防火墙，则必须打开端口以供系统和应用程序使用 |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |提供程序 |string，默认值为“DSTS” |静态|要启用的令牌验证提供程序的逗号分隔列表（有效的提供程序是：DSTS、AAD）。 目前只能在任何时候启用单个提供程序。 |
 
 ## <a name="traceetw"></a>Trace/Etw
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |Level |Int，默认值为 4 | 动态 |跟踪 etw 级别可以采用值 1、2、3、4。 必须使跟踪级别保持在 4 才可受到支持 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | 时间以秒为单位，默认值为 0.015 | 静态 | 指定以秒为单位的时间范围。 确定接收到操作后到发送回确认之前，复制器等待的时间。 在该时间段期间接收的其他操作将通过一条消息发送回其确认 -> 减少网络流量，同时可能降低复制器的吞吐量。 |
 |MaxCopyQueueSize |Uint，默认值为 16384 | 静态 |这是用于定义队列初始大小的最大值，该队列用于维护复制操作。 请注意，它必须是 2 的幂。 如果在运行时该队列增长到此大小，将限制主复制器和辅助复制器之间的操作。 |
@@ -878,7 +880,7 @@ ms.locfileid: "89655265"
 |ReplicatorAddress |string，默认值为“localhost:0” | 静态 | 采用字符串形式 -'IP:Port' 的终结点，Windows Fabric 复制器将其用于与其他副本建立连接以发送/接收操作。 |
 
 ## <a name="transport"></a>传输
-| **Parameter** | **允许的值** |**升级策略** |**指导或简短说明** |
+| **参数** | **允许的值** |**升级策略** |**指导或简短说明** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|时间跨度，默认值是 Common::TimeSpan::FromSeconds(60)|静态|指定以秒为单位的时间范围。 正在传入和正在接收的端（包括安全模式下的安全协商）上连接设置的超时时间 |
 |FrameHeaderErrorCheckingEnabled|bool，默认值为 TRUE|静态|有关对非安全模式下的帧标头执行错误检查的默认设置；组件设置会重写此值。 |
@@ -888,7 +890,7 @@ ms.locfileid: "89655265"
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool，默认值为 true |静态| 基于目标状态文件的自动轮训和升级操作。 |
 |AutoupgradeInstallEnabled|布尔值，默认为 FALSE|静态|基于目标状态文件自动轮询、预配和安装代码升级操作。|
@@ -897,13 +899,13 @@ ms.locfileid: "89655265"
 |PlacementConstraints | string，默认值为“” |静态| UpgradeOrchestrationService 的 PlacementConstraints。 |
 |QuorumLossWaitDuration | 以秒为单位的时间，默认值为 MaxValue |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 QuorumLossWaitDuration。 |
 |ReplicaRestartWaitDuration | 以秒为单位的时间，默认值为 60 分钟|静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 ReplicaRestartWaitDuration。 |
-|StandByReplicaKeepDuration | 以秒为单位的时间，默认值为 60*24*7 分钟 |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 StandByReplicaKeepDuration。 |
+|StandByReplicaKeepDuration | 以秒为单位的时间，默认值为 60 *24* 7 分钟 |静态| 指定以秒为单位的时间范围。 UpgradeOrchestrationService 的 StandByReplicaKeepDuration。 |
 |TargetReplicaSetSize |Int，默认值为 0 |静态 |UpgradeOrchestrationService 的 TargetReplicaSetSize。 |
 |UpgradeApprovalRequired | Bool，默认值为 false | 静态|此设置可让升级代码需要管理员批准才能继续操作。 |
 
 ## <a name="upgradeservice"></a>UpgradeService
 
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |BaseUrl | string，默认值为“” |静态|UpgradeService 的 BaseUrl。 |
 |ClusterId | string，默认值为“” |静态|UpgradeService 的 ClusterId。 |
@@ -921,7 +923,7 @@ ms.locfileid: "89655265"
 |X509StoreName | string，默认值为“My”|动态|UpgradeService 的 X509StoreName。 |
 
 ## <a name="userservicemetriccapacities"></a>UserServiceMetricCapacities
-| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup| UserServiceMetricCapacitiesMap，默认值为“无” | 静态 | 用户服务资源管理限制的集合。由于它会影响 AutoDetection 逻辑，因此必须是静态的 |
 

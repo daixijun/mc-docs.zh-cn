@@ -1,18 +1,18 @@
 ---
 title: 通过 Azure 应用程序配置导入或导出数据
-description: 了解如何在 Azure 应用程序配置中导入或导出数据
+description: 了解如何在 Azure 应用配置中导入或导出配置数据。 在应用配置存储和代码项目之间交换数据。
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: f93903c23084614f349351e4c9408a37597fe42f
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: e0d5dd19ee9a719bab0980638970ed3dbf9a546a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190287"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104992"
 ---
 # <a name="import-or-export-configuration-data"></a>导入或导出配置数据
 

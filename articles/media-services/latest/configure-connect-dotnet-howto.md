@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-origin.date: 08/31/2020
-ms.date: 09/28/2020
+origin.date: 11/17/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 3a288f0964d69a3b16b6f5ae1555b4436ba06a98
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 853af430ea91c14a41c1bb46ce60b7848ddb901a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245500"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003948"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>连接到媒体服务 v3 API - .NET
 
@@ -44,7 +44,7 @@ ms.locfileid: "91245500"
 
 本主题中的示例应用面向 `netcoreapp2.0`。 代码使用从 C# 7.1 开始提供的“async main”。 有关更多详细信息，请参阅[此博客](https://docs.microsoft.com/archive/blogs/benwilli/async-main-is-available-but-hidden)。
 
-## <a name="add-required-nuget-packages"></a>添加所需的 NuGet 包
+## <a name="add-required-nuget-packagesassemblies"></a>添加所需的 NuGet 包/程序集
 
 1. 在 Visual Studio 中，选择“工具” > “NuGet 包管理器” > “NuGet 管理器控制台”。  
 2. 在“包管理器控制台”窗口中，使用 `Install-Package` 命令添加以下 NuGet 包。 例如，`Install-Package Microsoft.Azure.Management.Media`。
@@ -52,10 +52,14 @@ ms.locfileid: "91245500"
 |程序包|说明|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure 媒体服务 SDK。 <br/>为确保使用最新的 Azure 媒体服务包，请选中 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)。|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|适用于 Azure SDK for NET 的 ADAL 身份验证库|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|读取环境变量和本地 JSON 文件中的配置值|
-|`Microsoft.Extensions.Configuration.Json`|读取环境变量和本地 JSON 文件中的配置值
-|`WindowsAzure.Storage`|存储 SDK|
+
+### <a name="other-required-assemblies"></a>其他必需的程序集
+
+- Azure.Storage.Blobs
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## <a name="create-and-configure-the-app-settings-file"></a>创建并配置应用设置文件
 
@@ -137,9 +141,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
@@ -246,5 +250,5 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>另请参阅
 
-* [.NET 参考](/dotnet/api/overview/mediaservices/management?view=azure-dotnet)
+* [.NET 参考](/dotnet/api/overview/mediaservices/management?view=azure-dotnet&preserve-view=true)
 * 有关更多代码示例，请参阅 [.NET SDK 示例](https://github.com/Azure-Samples/media-services-v3-dotnet)存储库。

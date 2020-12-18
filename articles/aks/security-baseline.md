@@ -5,17 +5,17 @@ ms.service: container-service
 ms.topic: conceptual
 origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc6d36173970bb3966b639763e8f87b8105fcf4d
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 7b4173284ce3a4b15f535599dbc49968d94c9e98
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024514"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004169"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>适用于 Azure Kubernetes 服务的 Azure 安全基线
@@ -24,7 +24,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](https://docs.azure.cn/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 ## <a name="network-security"></a>网络安全性
 
@@ -90,7 +90,7 @@ Azure Kubernetes 服务的 Azure 安全基线包含有助于你改进部署安�
 
 - [在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量](use-network-policies.md)
 
-<!--Not Available on  [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)-->
+<!--Not Available on  [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -311,7 +311,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 **指导**：将 Azure Kubernetes 服务 (AKS) 实例载入 Azure Monitor 并为群集配置诊断设置。 
 
-使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 Azure Monitor 日志在 Azure 门户中或通过 CLI 启用和管理，并与基于 Azure 角色的访问控制 (Azure RBAC) 和未启用 RBAC 的 AKS 群集一起使用。
+使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 Azure Monitor 日志通过 Azure 门户或 CLI 启用和管理，并与 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)、Azure RBAC 和未启用 RBAC 的 AKS 群集一起使用。
 
 查看由 AKS 主组件（kube-apiserver 和 kube-controllermanager）生成的日志，以便对应用程序和服务进行故障排除。 启用数据并将其载入 Azure Sentinel 或第三方 SIEM，以进行集中的日志管理和监视。
 
@@ -329,7 +329,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 **指导**：将 Azure Kubernetes 服务 (AKS) 与安全中心一起使用，可以更深入地了解 AKS 节点。 查看安全中心在主机和群集级别检测到的威胁和恶意活动警报。 安全中心实现对 AKS 群集中发生的原始安全事件的持续分析，例如网络数据、进程创建和 Kubernetes 审核日志。 确定此活动是否为预期行为，或者应用程序是否行为异常。 使用 Azure Monitor 中的指标和日志来证实发现结果。 
 
-<!--Not Available on  [Understand Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md)-->
+- [了解 Azure Kubernetes 服务与安全中心的集成](../security-center/defender-for-kubernetes-introduction.md)
 
 - [如何启用 Azure 安全中心标准层](../security-center/security-center-get-started.md)
 
@@ -343,9 +343,9 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [适用于 Azure 云服务和虚拟机的 Microsoft 反恶意软件](../security/fundamentals/antimalware.md)
 
-- [安全警报参考指南](../security-center/alerts-reference.md)
+<!--Not Available on - [Security alerts reference guide](../security-center/alerts-reference.md)-->
 
-- [容器的警报 - Azure Kubernetes 服务群集](../security-center/alerts-reference.md#alerts-akscluster)
+<!--Not Available on  - [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)-->
 
 **Azure 安全中心监视**：是
 
@@ -413,7 +413,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3：使用专用管理帐户
 
-**指导**：将 Azure Kubernetes 服务 (AKS) 群集的用户身份验证与 Azure Active Directory (Azure AD) 集成。 可以使用 Azure AD 身份验证令牌登录到 AKS 群集。 配置 Kubernetes 基于角色的访问控制 (RBAC)，以便对 Kubernetes 配置 (kubeconfig) 信息和权限、命名空间和群集资源进行管理访问。 
+**指导**：将 Azure Kubernetes 服务 (AKS) 群集的用户身份验证与 Azure Active Directory (Azure AD) 集成。 可以使用 Azure AD 身份验证令牌登录到 AKS 群集。 配置 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)，以便对 Kubernetes 配置 (kubeconfig) 信息和权限、命名空间和群集资源进行管理访问。 
 
 围绕专用管理帐户的使用创建策略和过程。 实现安全中心标识和访问管理建议。
 
@@ -855,7 +855,7 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 <!--Not Available on ### 6.7: Remove unapproved Azure resources and software applications-->
 <!--Not Available  on [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)-->
 <!--Not Available on [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)-->
-<!--Not Available  on  [Understand Azure Change Tracking](../automation/change-tracking.md)-->
+<!--Not Available  on  [Understand Azure Change Tracking](../automation/change-tracking/overview.md)-->
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
@@ -1172,9 +1172,9 @@ security-hardened-vm-host-image.md
 
 **指导**：AKS 代表你管理代理节点的生命周期和操作 - 不支持修改与该代理节点关联的 IaaS 资源。 但是，对于 Linux 节点，你可以使用守护程序集来安装自定义软件，例如反恶意软件解决方案。
 
-- [安全警报参考指南](../security-center/alerts-reference.md)
+<!--Not Available on - [Security alerts reference guide](../security-center/alerts-reference.md)-->
 
-- [容器的警报 - Azure Kubernetes 服务群集](../security-center/alerts-reference.md#alerts-akscluster)
+<!--Not Available on - [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)-->
 
 - [AKS 共担责任和守护程序集](support-policies.md#shared-responsibility)
 
@@ -1189,9 +1189,9 @@ security-hardened-vm-host-image.md
 
 **指导**：AKS 代表你管理代理节点的生命周期和操作 - 不支持修改与该代理节点关联的 IaaS 资源。 但是，对于 Linux 节点，你可以使用守护程序集来安装自定义软件，例如反恶意软件解决方案。
 
-- [安全警报参考指南](../security-center/alerts-reference.md)
+<!--Not Available on  - [Security alerts reference guide](../security-center/alerts-reference.md)-->
 
-- [容器的警报 - Azure Kubernetes 服务群集](../security-center/alerts-reference.md#alerts-akscluster)
+<!--Not Available on  - [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)-->
 
 - [AKS 共担责任和守护程序集](support-policies.md#shared-responsibility)
 

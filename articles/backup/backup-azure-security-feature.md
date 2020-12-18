@@ -5,14 +5,14 @@ ms.reviewer: utraghuv
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 06/08/2017
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 6cbebe5a76ab225a26fa351e8a23841ee1b3800c
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: eb2480980909e5b42bde3eca09347bfee668e979
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871117"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105047"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 
@@ -51,10 +51,10 @@ ms.locfileid: "91871117"
     ![恢复服务保管库属性的屏幕截图](./media/backup-azure-security-feature/security-settings-update.png)
 
     选择此更新链接会打开“安全设置”窗格，其中提供功能摘要，并允许启用它们。
-5. 从下拉列表“是否已配置 Azure 多重身份验证?”中选择一个值，确认是否已启用 [Azure 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
+5. 从下拉列表“是否已配置 Azure AD 多重身份验证?”中选择一个值，确认是否已启用 [Azure AD 多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)。 如果已启用，则在登录到 Azure 门户时，系统会要求从另一设备（例如移动电话）进行身份验证。
 
-   在备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
-6. 若要保存安全设置，请依次选择“启用”、“保存” 。 只有从上一步的“是否已配置 Azure 多重身份验证?”列表中选择值后，才可选择“启用”。  
+   在备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure AD 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
+6. 若要保存安全设置，请依次选择“启用”、“保存” 。 只有从上一步的“是否已配置 Azure AD 多重身份验证?”列表中选择值后，才可选择“启用”。 
 
     ![安全设置的屏幕截图](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -62,12 +62,12 @@ ms.locfileid: "91871117"
 
 如果执行“停止备份并删除备份数据”操作，备份会将已删除的备份数据另外再保留 14 天，而不会立即删除数据。 若要在 14 天的期限内还原该数据，请根据所用软件执行以下步骤：
 
-对于 **Azure 恢复服务代理**用户：
+对于 **Azure 恢复服务代理** 用户：
 
 1. 如果发生备份的计算机仍可用，则重新保护已删除的数据源，并在 Azure 恢复服务中使用[将数据恢复到同一计算机](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)功能，从所有旧的恢复点恢复。
 2. 如果该计算机不可用，则使用[恢复到备用计算机](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)功能，使用另一台 Azure 恢复服务计算机获取此数据。
 
-对于 **Azure 备份服务器**用户：
+对于 **Azure 备份服务器** 用户：
 
 1. 如果发生备份的服务器仍可用，则重新保护已删除的数据源，并使用恢复数据功能从所有旧的恢复点恢复。
 2. 如果该服务器不可用，则使用[从另一 Azure 备份服务器恢复数据](backup-azure-alternate-dpm-server.md)功能，通过另一 Azure 备份服务器实例获取此数据。
@@ -100,10 +100,10 @@ ms.locfileid: "91871117"
 
 为确保始终存在大量可用的有效恢复点，已添加以下检查：
 
-- 对于日保留期，应设置最少**七**天的保留期。
-- 对于周保留期，应设置最少**四**周的保留期。
-- 对于月保留期，应设置最少**三**个月的保留期。
-- 对于年保留期，应设置最少**一**年的保留期。
+- 对于日保留期，应设置最少 **七** 天的保留期。
+- 对于周保留期，应设置最少 **四** 周的保留期。
+- 对于月保留期，应设置最少 **三** 个月的保留期。
+- 对于年保留期，应设置最少 **一** 年的保留期。
 
 ## <a name="notifications-for-critical-operations"></a>关键操作的通知
 
@@ -126,4 +126,3 @@ ms.locfileid: "91871117"
 - [下载最新的 Azure 备份服务器](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3)，保护工作负荷并防止备份数据受到攻击。
 - [下载适用于 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下载适用于 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，保护工作负荷和备份数据免受攻击。
 
-<!-- Update_Description: wording update -->

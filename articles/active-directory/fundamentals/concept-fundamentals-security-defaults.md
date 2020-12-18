@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c8d18931c778c663f5fffb00a715691f7ccacb93
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c1b4fa878b98a94b7335f9c821667ba5010bc75f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003883"
 ---
 # <a name="what-are-security-defaults"></a>什么是安全默认值？
 
 随着常见的与标识相关的攻击（如密码喷射、重放和网络钓鱼）越来越普遍，可能会使安全管理变得更困难。 利用安全默认值，可以更轻松地通过预配置的安全设置来保护组织免受这些攻击：
 
-- 要求所有用户注册 Azure 多重身份验证。
+- 要求所有用户注册 Azure AD 多重身份验证。
 - 要求管理员执行多重身份验证。
 - 阻止旧身份验证协议。
 - 要求用户在必要时执行多重身份验证。
@@ -52,13 +52,13 @@ Microsoft 正在向所有用户提供安全默认值。 目标是确保所有组
 
 ### <a name="unified-multi-factor-authentication-registration"></a>统一的多重身份验证注册
 
-租户中的所有用户都必须以 Azure 多重身份验证的形式注册多重身份验证 (MFA)。 用户可以在 14 天内使用 Microsoft Authenticator 应用注册 Azure 多重身份验证。 14 天后，在完成注册之前用户将无法登录。 用户的 14 天周期从启用安全默认值后首次成功进行交互式登录算起。
+租户中的所有用户都必须以 Azure AD 多重身份验证的形式注册多重身份验证 (MFA)。 用户可以在 14 天内使用 Microsoft Authenticator 应用注册 Azure AD 多重身份验证。 14 天后，在完成注册之前用户将无法登录。 用户的 14 天周期从启用安全默认值后首次成功进行交互式登录算起。
 
 ### <a name="protecting-administrators"></a>保护管理员
 
 具有特权访问权限的用户可以增加对你环境的访问权限。 鉴于这些帐户具有的权利，应当特别小心地对待它们。 增强对特权帐户保护的一种常用方法是，要求在登录时进行更强的帐户验证。 在 Azure AD 中，可以通过要求进行多重身份验证来实现更强的帐户验证。
 
-完成 Azure 多重身份验证注册后，以下 9 个 Azure AD 管理员角色在每次登录时都需要执行额外的身份验证：
+完成 Azure AD 多重身份验证注册后，以下 9 个 Azure AD 管理员角色在每次登录时都需要执行额外的身份验证：
 
 - 全局管理员
 - SharePoint 管理员
@@ -120,7 +120,7 @@ Microsoft 正在向所有用户提供安全默认值。 目标是确保所有组
 
 ### <a name="authentication-methods"></a>身份验证方法
 
-这些免费的安全默认值允许仅通过使用通知的 Microsoft Authenticator 应用注册和使用 Azure 多重身份验证。 条件访问允许使用管理员选择启用的任何身份验证方法。
+这些免费的安全默认值允许仅通过使用通知的 Microsoft Authenticator 应用注册和使用 Azure AD 多重身份验证。 条件访问允许使用管理员选择启用的任何身份验证方法。
 
 | 方法 | 安全默认值 | 条件性访问 |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Microsoft 正在向所有用户提供安全默认值。 目标是确保所有组
 | 移动应用或硬件标志提供的验证码 | X** | X |
 | 向手机发送短信 |   | X |
 | 拨打电话 |   | X |
-| 应用密码 |   | X*** |
+| 应用密码 |   | X**_ |
 
-- ** 用户可以使用来自 Microsoft Authenticator 应用的验证码，但只能使用通知选项进行注册。
-- *** 仅当管理员启用了应用密码时，应用密码才可在旧身份验证场景中的每用户 MFA 中使用。
+- _* 用户可以使用来自 Microsoft Authenticator 应用的验证码，但只能使用通知选项进行注册。
+- **_ 仅当管理员启用了应用密码时，应用密码才可在旧身份验证场景中的每用户 MFA 中使用。
 
 ### <a name="disabled-mfa-status"></a>禁用的 MFA 状态
 
-如果贵组织以前是基于每用户的 Azure 多重身份验证的用户，则你在查看多重身份验证状态页时，若没有看到处于“启用”或“已执行”状态的用户，请不必担心。 “禁用”是使用安全默认值或基于条件访问的 Azure 多重身份验证用户的适当状态。
+如果贵组织以前是基于每用户的 Azure AD 多重身份验证的用户，则你在查看多重身份验证状态页时，若没有看到处于“启用”或“已强制实施”状态的用户，请不必担心。 “已禁用”是使用安全默认值或基于条件访问的 Azure AD 多重身份验证的用户的相应状态。
 
 ### <a name="conditional-access"></a>条件性访问
 

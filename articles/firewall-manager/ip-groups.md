@@ -1,18 +1,18 @@
 ---
 title: Azure 防火墙策略中的 IP 组
-description: 通过 IP 组，你可以对 Azure 防火墙规则的 IP 地址进行分组和管理。
+description: 通过 IP 组，你可以对 Azure 防火墙策略规则的 IP 地址进行分组和管理。
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: abe3a929a4ec29ec862cacfb5b45973cd79317bb
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: ee5288a271966f45557e9488234d49ae517d5c6c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162836"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104958"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Azure 防火墙策略中的 IP 组
 
@@ -37,7 +37,7 @@ ms.locfileid: "87162836"
 
 ## <a name="create-an-ip-group"></a>创建 IP 组
 
-可以使用 Azure 门户、Azure CLI 或 REST API 创建 IP 组。 有关详细信息，请参阅[创建 IP 组](../firewall/create-ip-group.md)。
+可以使用 Azure 门户、Azure CLI 或 REST API 创建 IP 组。 
 
 ## <a name="browse-ip-groups"></a>浏览 IP 组
 1. 在 Azure 门户搜索栏中，键入“IP 组”并选择它。 你可以看到 IP 组的列表，或者可以选择“添加”来创建新的 IP 组。
@@ -66,43 +66,7 @@ ms.locfileid: "87162836"
 
 ## <a name="ip-address-limits"></a>IP 地址限制
 
-IP 组数量不超过 50 个时，每个防火墙实例最多可以有 5000 个单独的 IP 地址。 IP 组数量为 51 到 100 个时，每个防火墙实例可以有 500 个单独的 IP 地址。
-
-### <a name="examples"></a>示例
-
-#### <a name="example-1-supported"></a>示例 1：支持
-
-|IP 组  |IP 地址数量  |表示法  |规则  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**总计 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>示例2：支持
-
-|IP 组  |IP 地址数量  |表示法  |规则  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**总计 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>示例 3：不支持
-
-|IP 组  |IP 地址数量  |表示法  |规则  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**总计 8192**|||
-
-#### <a name="example-4-supported"></a>示例 4：不支持
-
-|IP 组  |IP 地址数量  |表示法  |规则  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule2|
-|     |**总计 8192**|         |         |
-
+每个防火墙最多可以有 100 个 IP 组，每个 IP 组最多可包含 5000 个单独的 IP 地址或 IP 前缀。
 
 ## <a name="related-azure-powershell-cmdlets"></a>相关的 Azure PowerShell cmdlet
 

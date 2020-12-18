@@ -7,12 +7,12 @@ ms.topic: article
 origin.date: 03/09/2020
 ms.date: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 999a6f56a0dfb54564783bfd50050c462729c2f0
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c66fc74dcd99f306d782b794269ffe25a162b2a1
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021246"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004167"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>将静态公共 IP 地址和 DNS 标签用于 Azure Kubernetes 服务 (AKS) 负载均衡器
 
@@ -24,7 +24,7 @@ ms.locfileid: "90021246"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 本文介绍如何将标准 SKU IP 与 标准 SKU 负载均衡器结合使用。  有关详细信息，请参阅 [Azure 中的 IP 地址类型和分配方法][ip-sku]。
 
@@ -74,7 +74,10 @@ az role assignment create \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-<!--Not Available on [Use managed identities](use-managed-identity.md)-->
+或者，可以使用系统分配的托管标识来获得权限，而不是使用服务主体。 有关详细信息，请参阅[使用托管标识](use-managed-identity.md)。
+
+> [!IMPORTANT]
+> 如果自定义了出站 IP，请确保群集标识对出站公共 IP 和此入站公共 IP 均具有相应权限。
 
 若要使用静态公共 IP 地址创建 *LoadBalancer* 服务，请将 `loadBalancerIP` 属性和静态公共 IP 地址的值添加到 YAML 清单。 创建名为 `load-balancer-service.yaml` 的文件，并将其复制到以下 YAML 中。 提供在前面的步骤中创建的你自己的公共 IP 地址。 以下示例还将注释设置为名为 *myResourceGroup* 的资源组。 提供自己的资源组名称。
 
@@ -163,20 +166,20 @@ Events:
 <!-- LINKS - External -->
 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[azure-dns-zone]: https://www.azure.cn/home/features/dns/
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
 [external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
 
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-list
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_list
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku
 
 <!-- Update_Description: update meta properties, wording update, update link -->

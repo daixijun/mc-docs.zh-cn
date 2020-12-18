@@ -4,15 +4,15 @@ description: 将功能标志添加到 Spring Boot 应用并使用 Azure 应用�
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/18/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: dd8edf2c3cb7d845f995da54cefee118ece1b767
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: d71adc6ca0533d4d224799fe9e7c044921b2131b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437402"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104919"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>快速入门：将功能标志添加到 Spring Boot 应用
 
@@ -20,9 +20,9 @@ ms.locfileid: "96437402"
 
 Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架。 这些库 **不** 依赖于任何 Azure 库。 它们可以通过其 Spring Boot 配置提供程序无缝集成到应用程序配置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 支持的 [Java 开发工具包 SDK](https://docs.microsoft.com/java/azure/jdk) 版本 8。
 * [Apache Maven](https://maven.apache.org/download.cgi) 版本 3.0 或更高版本。
 
@@ -30,7 +30,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。 
+7. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。  
 
     > [!div class="mx-imgBorder"]
     > ![启用名为 Beta 的功能标志](media/add-beta-feature-flag.png)
@@ -46,17 +46,17 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 1. 指定以下选项：
 
    * 使用 **Java** 生成一个 **Maven** 项目。
-   * 指定一个其值大于或等于 2.0 的 Spring Boot 版本。
-   * 指定应用程序的“组”和“项目”名称。   本文使用 `com.example` 和 `demo`。
+   * 指定一个其值大于或等于 2.0 的 Spring Boot  版本。
+   * 指定应用程序的“组”和“项目”名称。    本文使用 `com.example` 和 `demo`。
    * 添加 **Spring Web** 依赖项。
 
-1. 指定上述选项后，选择“生成项目”。 出现提示时，将项目下载到本地计算机。
+1. 指定上述选项后，选择“生成项目”  。 出现提示时，将项目下载到本地计算机。
 
 ## <a name="add-feature-management"></a>添加功能管理
 
 1. 在本地系统中提取文件后，即可对 Spring Boot 应用程序进行编辑。 在应用的根目录中找到 *pom.xml*。
 
-1. 在文本编辑器中打开 pom.xml 文件，将以下内容添加到 `<dependencies>` 列表中：
+1. 在文本编辑器中打开 pom.xml  文件，将以下内容添加到 `<dependencies>` 列表中：
 
     **Spring Cloud 1.1.x**
 
@@ -131,7 +131,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
     }
     ```
 
-1. 在应用的包目录中创建名为 MessageProperties.java 的新 Java 文件。
+1. 在应用的包目录中创建名为 MessageProperties.java 的新 Java 文件  。
 
     ```java
     package com.example.demo;
@@ -154,7 +154,7 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
     }
     ```
 
-1. 在应用的包目录中创建新的名为 HelloController.java 的 Java 文件。
+1. 在应用的包目录中创建新的名为 HelloController.java 的 Java 文件  。
 
     ```java
     package com.example.demo;
@@ -288,9 +288,9 @@ Spring Boot 功能管理库使用全面的功能标志支持扩展了该框架�
 
     ![屏幕截图显示一个浏览器窗口，其中显示了“欢迎”消息。](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. 在应用程序配置门户中选择“功能管理器”，并将“Beta”密钥的状态更改为“打开”：  
+1. 在应用程序配置门户中选择“功能管理器”，并将“Beta”密钥的状态更改为“打开”：   
 
-    | 键 | 状态 |
+    | 密钥 | 状态 |
     |---|---|
     | Beta | 启用 |
 

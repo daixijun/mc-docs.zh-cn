@@ -3,18 +3,18 @@ title: Azure Cosmos DB 中基于消耗量的无服务器产品/服务
 description: 详细了解 Azure Cosmos DB 基于消耗量的无服务器产品/服务。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 08/19/2020
+origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: edd71734d9787cc93e6e50a2cf6ec10d24c5d47f
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6185bac69e27e10606b98e30c7e117607eb2aea2
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552648"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850849"
 ---
 <!--Waiting for PM comments on release-->
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 无服务器（预览版）
@@ -37,8 +37,7 @@ Azure Cosmos DB 无服务器让你以一种基于消耗的方式使用 Azure Cos
 
 Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 
-- 低流量：因为在这类情况下预配容量不是必需的，并且可能会导致成本高昂
-- 中等突发性：因为无服务器容器每秒最多可提供 5,000 个请求单位
+- **低流量、间歇性流量和不可预测的流量**：因为在这类情况下预配容量不是必需的，并且可能会导致成本高昂
 - 中等性能：因为无服务器容器具有[特定性能特征](#performance)
 
 出于这些原因，对于以下类型的工作负荷，应考虑使用 Azure Cosmos DB 无服务器：
@@ -55,9 +54,6 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 
 无服务器是一种新的 Azure Cosmos 帐户类型，这意味着在创建新帐户时，必须在预配吞吐量与无服务器之间进行选择 。 必须创建新的无服务器帐户，才能开始使用无服务器。 在预览版期间，创建新的无服务器帐户的唯一受支持方法是[使用 Azure 门户](create-cosmosdb-resources-portal.md)。 当前不支持从/向无服务器模式迁移现有帐户。
 
-> [!NOTE]
-> 目前只有 Azure Cosmos DB 核心 (SQL) API 支持无服务器。
-
 任何在无服务器帐户中创建的容器都是无服务器容器。 无服务器容器公开的功能与在预配吞吐量模式下创建的容器相同，因此可以通过完全相同的方式读取、写入和查询数据。 不过，无服务器帐户和容器还具有特定特征：
 
 > [!IMPORTANT]
@@ -69,7 +65,6 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
     - 创建无服务器容器时，不能传递任何吞吐量，否则会返回错误。
     - 不能读取或更新无服务器容器的吞吐量，否则会返回错误。
     - 不能在无服务器帐户中创建共享吞吐量数据库，否则会返回错误。
-- 无服务器容器可以提供的最大突发吞吐量为每秒 5,000 个请求单位。
 - 无服务器容器最多可存储 50 GB 的数据和索引。
 
 ## <a name="monitoring-your-consumption"></a>监视消耗量

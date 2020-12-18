@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/27/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14b9a401e8e8c28c49761cbdb64eacb3c06946ff
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 6a4d7185ca4d39b59cf9dfd3e139c892402fc7c4
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046414"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003593"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>委托对 Privileged Identity Management 的访问权限
 
-为了委托对 Privileged Identity Management (PIM) 的访问权限，全局管理员可以将其他用户分配到“特权角色管理员”角色。 默认情况下，安全管理员和安全信息读取者拥有 Privileged Identity Management 的只读访问权限。 要授予对 Privileged Identity Management 的访问权限，第一位用户可以将其他用户分配到“特权角色管理员”角色****。 “特权角色管理员”角色仅在管理 Azure AD 角色时是必需的。 若要管理 Azure 资源的设置，特权角色管理员权限不是必需的。
+为了委托对 Privileged Identity Management (PIM) 的访问权限，全局管理员可以将其他用户分配到“特权角色管理员”角色。 默认情况下，安全管理员和安全信息读取者拥有 Privileged Identity Management 的只读访问权限。 要授予对 Privileged Identity Management 的访问权限，第一位用户可以将其他用户分配到“特权角色管理员”角色。 “特权角色管理员”角色仅在管理 Azure AD 角色时是必需的。 若要管理 Azure 资源的设置，特权角色管理员权限不是必需的。
 
 > [!NOTE]
-> 管理 Privileged Identity Management 需要 Azure 多重身份验证。 由于 Microsoft 帐户无法注册 Azure 多重身份验证，因此使用 Microsoft 帐户登录的用户无法访问 Privileged Identity Management。
+> 管理 Privileged Identity Management 需要 Azure AD 多重身份验证。 由于 Microsoft 帐户无法注册 Azure AD 多重身份验证，因此使用 Microsoft 帐户登录的用户无法访问 Privileged Identity Management。
 
 请确保特权角色管理员角色中始终至少有两位用户，以防其中一位用户被锁定或帐户被删除。
 
@@ -42,7 +42,7 @@ ms.locfileid: "89046414"
 
     ![Privileged Identity Management Azure AD 角色 - 角色](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
-1. 选择“特权角色管理员”角色，打开成员页****。
+1. 选择“特权角色管理员”角色，打开成员页。
 
     ![特权角色管理员 - 成员](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
@@ -52,15 +52,15 @@ ms.locfileid: "89046414"
 
     ![特权角色管理员 - 选择成员](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 
-1. 选择一个成员，然后单击“选择”****。
+1. 选择一个成员，然后单击“选择”。
 
-1. 选择“确定”，使该成员有资格获得“特权角色管理员”角色********。
+1. 选择“确定”，使该成员有资格获得“特权角色管理员”角色。
 
-    向 Privileged Identity Management 中的某位用户分配新角色时，系统会自动将其配置为“有资格”激活该角色****。
+    向 Privileged Identity Management 中的某位用户分配新角色时，系统会自动将其配置为“有资格”激活该角色。
 
 1. 要使该成员成为永久成员，请在“特权角色管理员”成员列表中选择该用户。
 
-1. 选择“更多”，然后选择“永久保留”，使其成为永久成员********。
+1. 选择“更多”，然后选择“永久保留”，使其成为永久成员。
 
     ![特权角色管理员 - 成为永久成员](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
 
@@ -78,13 +78,13 @@ ms.locfileid: "89046414"
 
 1. 选择“角色”。
 
-1. 选择“特权角色管理员”角色，打开成员页****。
+1. 选择“特权角色管理员”角色，打开成员页。
 
-1. 选中要删除的用户旁边的复选框，然后选择“删除成员”****。
+1. 选中要删除的用户旁边的复选框，然后选择“删除成员”。
 
     ![特权角色管理员 - 删除成员](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
 
-1. 如果要求确认是否要从角色中删除成员，请选择“是”****。
+1. 如果要求确认是否要从角色中删除成员，请选择“是”。
 
 ## <a name="next-steps"></a>后续步骤
 

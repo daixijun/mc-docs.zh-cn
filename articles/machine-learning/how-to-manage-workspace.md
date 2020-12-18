@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6f41e5a43a1309394e042495dc1db66aa94135e3
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9ea5d2a9b10a8b3508ec520f0cd0232d496f63ee
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970854"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104855"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
 
@@ -27,6 +27,9 @@ ms.locfileid: "95970854"
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
 * 如果使用 Python SDK，请[安装 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
+## <a name="limitations"></a>限制
+
+* 创建新工作区时，你可以允许工作区自动创建所需的 Azure 服务，也可以提供现有服务。 提供现有服务时，这些服务必须与工作区位于同一 Azure 订阅中。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
@@ -131,8 +134,12 @@ ms.locfileid: "95970854"
    订阅 |选择要使用的 Azure 订阅。
    资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
    区域 | 选择离你的用户和数据资源最近的 Azure 区域来创建工作区。
+   | 存储帐户 | 工作区的默认存储帐户。 默认情况下，会创建一个新的存储帐户。 |
+   | 密钥保管库 | 工作区使用的 Azure Key Vault。 默认情况下，会创建一个新的存储帐户。 |
+   | Application Insights | 工作区的 Application Insights 实例。 默认情况下，会创建一个新的存储帐户。 |
+   | 容器注册表 | 工作区的 Azure 容器注册表。 默认情况下，一开始不会为工作区创建新的 Azure 容器注册表， 而是在训练或部署过程中当你创建 Docker 映像时根据需要创建。 |
 
-    ![配置工作区](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="配置工作区。":::
 
 1. 完成工作区配置后，选择“查看 + 创建”。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 origin.date: 10/30/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: e6ec2ba7c855f3bbb8366cc75af456677da06b47
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8548311b8b134e3128f8f73db068cac582d43627
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552164"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105120"
 ---
 # <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>为 Active Directory 与企业安全性套餐的集成配置 HDInsight 群集
 
@@ -63,7 +63,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> 只有租户管理员有权启用 Azure AD DS。 如果群集存储是 Azure Data Lake Storage Gen1 或 Gen2，则必须只对需要使用基本 Kerberos 身份验证访问群集的用户禁用 Azure 多重身份验证。
+> 只有租户管理员有权启用 Azure AD DS。 如果群集存储是 Azure Data Lake Storage Gen1 或 Gen2，则必须只对需要使用基本 Kerberos 身份验证访问群集的用户禁用 Azure AD 多重身份验证。
 >
 > 可以使用[受信任 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 或[条件访问](../../active-directory/conditional-access/overview.md)仅在特定用户访问 HDInsight 群集的虚拟网络 IP 范围时对其禁用多重身份验证。 如果使用条件访问，请确保在 HDInsight 虚拟网络上启用了 Active Directory 服务终结点。
 >
@@ -95,7 +95,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 ![HDInsight 托管标识操作者角色分配](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
-## <a name="network-considerations"></a>网络注意事项
+### <a name="network-configuration"></a>网络配置
 
 > [!NOTE]  
 > Azure AD DS 必须部署在基于 Azure 资源管理器的虚拟网络中。 Azure AD DS 不支持经典虚拟网络。 有关详细信息，请参阅[使用 Azure 门户启用 Azure Active Directory 域服务](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network)。

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/11/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: d11d6b980580ed4cb36a4bcc7033cae796fd344b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8c583c85c93827fa77e6be5c170a9eab91c1f85e
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978397"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004196"
 ---
 # <a name="what-is-custom-speech"></a>什么是自定义语音识别？
 
@@ -76,7 +76,7 @@ ms.locfileid: "94978397"
 
 ### <a name="expiration-timeline"></a>过期时间线
 
-为了添加新功能和提高性能而对基础模型进行更改可能会导致对旧模型的向后兼容性问题，还会导致给定模型在使用特定测试数据集时的准确度发生改变。 若要管理模型和终结点的维护工作，请参阅以下模型和终结点的过期时间线。
+随着新模型和新功能的推出，旧的、不太准确的模型会停用，请查看以下模型和终结点到期的时间线：
 
 基础模型 
 
@@ -95,7 +95,11 @@ ms.locfileid: "94978397"
 * 模型训练详细信息
 * 部署摘要
 * 部署详细信息
- 
+
+还可以通过 [`GetModel`](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/GetModel) 和 [`GetBaseModel`](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) 自定义语音 API 在 JSON 响应中的 `deprecationDates` 属性下检查到期日期。
+
+请注意，可以通过自定义语音识别门户的“部署”部分或通过自定义语音识别 API 更改终结点使用的模型，在不停机的情况下升级自定义语音识别终结点上的模型。
+
 ## <a name="next-steps"></a>后续步骤
 
 * [准备和测试数据](how-to-custom-speech-test-data.md)

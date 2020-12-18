@@ -4,15 +4,15 @@ description: 备份的 Azure 安全基线
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: af7e4b248e27e736c9d9156f4ea572cb5a89da24
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c96a31e496391441d9a851c8106141fdd28fd490
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977600"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105137"
 ---
 # <a name="azure-security-baseline-for-backup"></a>备份的 Azure 安全基线
 
@@ -294,11 +294,11 @@ ms.locfileid: "94977600"
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：对所有基于 Azure Active Directory 的访问使用多重身份验证
 
-**指导**：在 Azure 备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
+**指导**：在 Azure 备份中执行关键操作时，必须输入 Azure 门户中提供的安全 PIN。 启用 Azure AD 多重身份验证相当于增加了一个安全层。 只有获得授权、具有有效 Azure 凭据且通过第二台设备进行身份验证的用户能够访问 Azure 门户。
 
 - [Azure 备份中的多重身份验证](./backup-azure-security-feature.md)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：是
 
@@ -306,17 +306,17 @@ ms.locfileid: "94977600"
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
-**指导**：使用配置了 Azure 多重身份验证 (MFA) 的特权访问工作站 (PAW) 来登录和配置启用了 Azure 备份的资源。
+**指导**：使用配置了 Azure AD 多重身份验证 (MFA) 的特权访问工作站 (PAW) 来登录和配置启用了 Azure 备份的资源。
 
 - [特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
 
 **指导**：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 生成日志和警报。
 
@@ -552,6 +552,8 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5：使用风险评级过程来确定已发现漏洞的修正措施的优先级
 
 **指导**：目前不适用；Azure 安全中心尚不支持 Azure 备份的安全配置。
+
+- [Azure 安全中心支持的 PaaS 服务列表](../security-center/features-paas.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -905,7 +907,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -921,7 +923,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
 此外，请明确标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
 

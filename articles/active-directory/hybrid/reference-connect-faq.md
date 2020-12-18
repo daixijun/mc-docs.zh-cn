@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/24/2020
+ms.date: 12/07/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e9c3ddf450ad098c494c45fed9e0e992914371
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f0012e186361af5f3408b9b4cc79250ef517d507
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245179"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003610"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -253,7 +253,7 @@ Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况�
 ## <a name="operational-best-practice"></a>操作方面的最佳做法    
 下面是在 Windows Server Active Directory 和 Azure Active Directory 之间同步时应实施的一些最佳做法。
 
-**为所有已同步的帐户应用多重身份验证** Azure 多重身份验证有助于保护对数据和应用程序的访问，同时满足用户对简单性的需求。 它通过要求第二种形式的身份验证提供额外的安全性，并通过一系列简单的身份验证方法提供增强式身份验证。 根据管理员制定的配置决策，用户可能会受到 MFA 的质疑，也可能不会受到 MFA 的质疑。 有关 MFA 的详细信息，可参阅此文： https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**为所有已同步的帐户应用多重身份验证** Azure AD 多重身份验证有助于保护对数据和应用程序的访问，同时满足用户对简单性的需求。 它通过要求第二种形式的身份验证提供额外的安全性，并通过一系列简单的身份验证方法提供增强式身份验证。 根据管理员制定的配置决策，用户可能会受到 MFA 的质疑，也可能不会受到 MFA 的质疑。 有关 MFA 的详细信息，可参阅此文： https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **遵循 Azure AD Connect 服务器安全指导原则** Azure AD Connect 服务器包含关键标识数据，应将其视为第 0 层组件，如 [Active Directory 管理层模型](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)中所述。 另请参阅我们的 [AADConnect 服务器安全指南](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)。
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: b77a64730c3670a598395bc359d548c1a5c8d5fd
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 0e8d395afb1db7311c604cae2ddbed420586d410
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918409"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003884"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的守护程序应用 - 代码配置
 
@@ -36,9 +36,9 @@ ms.locfileid: "95918409"
 
 守护程序应用程序使用应用程序权限，而不是委托的权限。 因此，它们支持的帐户类型不能是任何组织目录中的帐户。 你需要选择“我的组织中的帐户”  或“任何组织中的帐户”  。
 
-因此，在应用程序配置中指定的颁发机构应该是租户的（指定租户 ID 或者与组织相关联的域名）。
+在应用程序配置中指定的颁发机构应该是租户的（指定租户 ID 或者与组织相关联的域名）。
 
-如果你是 ISV 并且希望提供多租户工具，则可以使用 `organizations`。 但请记住，你还需向客户说明如何授予管理员同意。 有关详细信息，请参阅[请求整个租户的许可](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。 此外，目前 MSAL 中有一个限制：仅当客户端凭据是应用程序机密（而不是证书）时才允许使用 `organizations`。
+即使在需要提供多租户工具的情况下，也应在此流中使用租户 ID 或域名，而 **不是** `common` 或 `organizations`，因为该服务无法可靠推断出应使用哪个租户。
 
 ## <a name="configure-and-instantiate-the-application"></a>配置并实例化应用程序
 

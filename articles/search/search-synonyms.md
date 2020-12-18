@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 08/26/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 23c937cca9442331f678f1e19b1d65ab5e87ad98
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 12/10/2020
+ms.openlocfilehash: 4f010a6effc21034d3dfa92e4b192fc149b12452
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021561"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003847"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure 认知搜索中的同义词
 
@@ -24,7 +24,7 @@ ms.locfileid: "90021561"
 
 ## <a name="create-synonyms"></a>创建同义词
 
-我们不提供创建同义词的门户支持，但你可以使用 REST API 或 .NET SDK。 若要开始使用 REST，建议[使用 Postman](search-get-started-postman.md)，并使用此 API 来表述请求：[创建同义词映射](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 如果是 C# 开发人员，一开始可以[使用 C# 在 Azure 认知搜索中添加同义词](search-synonyms-tutorial-sdk.md)。
+我们不提供创建同义词的门户支持，但你可以使用 REST API 或 .NET SDK。 若要开始使用 REST，建议使用 [Postman 或 Visual Studio Code](search-get-started-rest.md)，并使用此 API 来表述请求：[创建同义词映射](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 如果是 C# 开发人员，一开始可以[使用 C# 在 Azure 认知搜索中添加同义词](search-synonyms-tutorial-sdk.md)。
 
 另外，如果使用[客户托管密钥](search-security-manage-encryption-keys.md)进行服务端静态加密，则可对同义词映射的内容应用该保护。
 

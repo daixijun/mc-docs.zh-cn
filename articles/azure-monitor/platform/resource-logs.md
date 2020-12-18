@@ -4,15 +4,15 @@ description: 了解如何将 Azure 资源日志流式传输到 Azure Monitor 中
 author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.subservice: logs
-ms.openlocfilehash: b47c74926a7a0b763ba624255c907d5eca5c5726
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: a6a55d0622d700249a4743c245228ec94b3767b4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327877"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104379"
 ---
 # <a name="azure-resource-logs"></a>Azure 资源日志
 Azure 资源日志是[平台日志](platform-logs-overview.md)，可以通过它深入了解已在 Azure 资源中执行的操作。 资源日志的内容因 Azure 服务和资源类型而异。 默认不会收集资源日志。 必须为每个 Azure 资源创建诊断设置，以便将其资源日志发送到 Log Analytics 工作区与 [Azure Monitor 日志](data-platform-logs.md)一起使用，发送到 Azure 事件中心以转发到 Azure 外部，或者发送到 Azure 存储进行存档。
@@ -54,11 +54,11 @@ AzureDiagnostics 表的外观如下所示：
 | ... |
 
 ### <a name="resource-specific"></a>特定于资源
-在此模式下，将会根据在诊断设置中选择的每个类别，在所选工作区中创建各个表。 建议使用此方法，因为它可以大幅简化日志查询中数据的处理、更好地发现架构及其结构、改善引入延迟和查询时间方面的性能、可以授予针对特定表的 RBAC 权限，等等。 所有 Azure 服务最终都会迁移到特定于资源的模式。 
+在此模式下，将会根据在诊断设置中选择的每个类别，在所选工作区中创建各个表。 建议使用此方法，因为它可以大幅简化日志查询中数据的处理、更好地发现架构及其结构、改善引入延迟和查询时间方面的性能、可以授予针对特定表的 Azure RBAC 权限，等等。 所有 Azure 服务最终都会迁移到特定于资源的模式。 
 
 以上示例会创建三个表：
  
-- 如下所示的表 *Service1AuditLogs* ：
+- 如下所示的表 *Service1AuditLogs*：
 
     | 资源提供程序 | Category | A | B | C |
     | -- | -- | -- | -- | -- |
@@ -66,7 +66,7 @@ AzureDiagnostics 表的外观如下所示：
     | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
-- 如下所示的表 *Service1ErrorLogs* ：  
+- 如下所示的表 *Service1ErrorLogs*：  
 
     | 资源提供程序 | Category | D | E | F |
     | -- | -- | -- | -- | -- | 
@@ -74,7 +74,7 @@ AzureDiagnostics 表的外观如下所示：
     | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
-- 如下所示的表 *Service2AuditLogs* ：  
+- 如下所示的表 *Service2AuditLogs*：  
 
     | 资源提供程序 | Category | G | H | I |
     | -- | -- | -- | -- | -- |

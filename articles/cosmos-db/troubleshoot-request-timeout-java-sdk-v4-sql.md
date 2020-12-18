@@ -2,27 +2,33 @@
 title: 排查 Java v4 SDK 的 Azure Cosmos DB HTTP 408 或请求超时问题
 description: 了解如何诊断和修复 Java v4 SDK 的 Java SDK 请求超时异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 10/28/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7b50d8dffccceb02e7903c34b72714b0dd8b7ebf
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 88e488124f9064aa7d6b3f6b3c5b1598629c693a
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552274"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850793"
 ---
 <!--Verified successfully for the characters only-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>诊断和排查 Azure Cosmos DB Java v4 SDK 请求超时异常
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 如果 SDK 在超时限制发生之前未能完成请求，则会出现 HTTP 408 错误。
 
 ## <a name="troubleshooting-steps"></a><a name="troubleshooting-steps"></a>疑难解答步骤
 下面的列表包含请求超时异常的已知原因和解决方案。
+
+### <a name="existing-issues"></a>现有问题
+如果看到请求被卡住的时间更长或超时更频繁，请将 Java v4 SDK 升级到最新版本。 注意：强烈建议使用 4.7.0 及更高版本。 请查看 [Java v4 SDK 发行说明](sql-api-sdk-java-v4.md)，了解更多详细信息。
 
 ### <a name="high-cpu-utilization"></a>CPU 利用率较高
 最常见的情况是 CPU 利用率较高。 为实现最佳延迟，CPU 利用率应大约为 40%。 将时间间隔设为 10 秒来监视最大 CPU 利用率（而不是平均利用率）。 对于可能会为单个查询执行多个连接的跨分区查询，更常见的情况是出现 CPU 峰值。
@@ -98,5 +104,4 @@ Azure Cosmos DB 在物理分区之间均匀分配预配的总吞吐量。 存在
 * [诊断和排查](troubleshoot-java-sdk-v4-sql.md)使用 Azure Cosmos DB Java v4 SDK 时遇到的问题。
 * 了解 [Java v4](performance-tips-java-sdk-v4-sql.md) 的性能准则。
 
-<!-- Update_Description: new article about troubleshoot request timeout java sdk v4 sql -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

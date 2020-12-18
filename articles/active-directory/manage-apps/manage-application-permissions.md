@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49c4f2724c25a825b6171d702b23af6ba57f770
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: a7285bafea0aeea64a0fdda3dacfb4238b9b69c2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593826"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004215"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>对 Azure Active Directory 中拥有过度特权的或可疑的应用程序采取措施
 
@@ -29,7 +29,7 @@ ms.locfileid: "89593826"
 
 若要执行以下操作，必须以全局管理员、应用程序管理员或云应用程序管理员的身份登录到 Azure 门户。
 
-若要限制对应用程序的访问，你需要要求用户分配，然后将用户或组分配到应用程序。  有关详细信息，请参阅[分配用户和组的方法](methods-for-assigning-users-and-groups.md)。
+若要限制对应用程序的访问，你需要要求用户分配，然后将用户或组分配到应用程序。  有关详细信息，请参阅[分配用户和组的方法](./assign-user-or-group-access-portal.md)。
 
 可以访问 Azure AD 门户，获取上下文 PowerShell 脚本来执行这些操作。
  
@@ -59,7 +59,7 @@ ms.locfileid: "89593826"
 使用 PowerShell 脚本将撤消授予此应用程序的所有权限。
 
 > [!NOTE]
-> 撤消当前所授予的权限不会阻止用户再次同意该应用程序。 
+> 撤消当前所授予的权限不会阻止用户再次同意该应用程序。 如果要阻止用户同意，请阅读[配置用户同意应用程序的方式](configure-user-consent.md)。
 
 （可选）可以禁用应用程序以阻止用户访问应用，并阻止此应用程序访问数据。
 
@@ -169,4 +169,6 @@ ms.locfileid: "89593826"
             Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
         }
 ```
+## <a name="next-steps"></a>后续步骤
+- [配置用户同意](configure-user-consent.md)
 

@@ -9,17 +9,31 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/17/2020
-ms.date: 11/20/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 53f22029f688124053674e11a8c658ec4d1ad9f1
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a962f8ea46d430a1570162443dd42eadfdca3a9f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300767"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004161"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
+
+## <a name="text-to-speech-2020-october-release"></a>文本转语音 2020 年 10 月发行版
+
+**新功能**
+- Jenny 支持新的 `newscast` 样式。 请参阅[如何在 SSML 中使用说话风格](speech-synthesis-markup.md#adjust-speaking-styles)。
+- 神经语音已升级为 HiFiNet vocoder，具有更高的音频保真度和更快的合成速度。 这使那些方案依赖于高保真音频或长时间交互（包括视频配音、有声书籍或在线教育材料）的客户受益。 [在我们的技术社区博客上详细了解该内容并收听语音样本](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- [自定义语音](https://speech.azure.cn/customvoice) & [音频内容创建工作室](https://speech.azure.cn/audiocontentcreation)本地化为 17 个区域设置。 用户可以轻松地将 UI 切换为本地语言，以获得更好的体验。   
+- 音频内容创建：为 XiaoxiaoNeural 添加了样式度控件；优化了自定义中断功能，使之包括 50 毫秒的增量中断。 
+
+**一般性的 TTS 语音质量改进**
+- 提高了以下语言单词级别发音的准确度：`pl-PL`（错误率降低：51%）和 `fi-FI`（错误速率降低：58%）
+- 改进了字典方案的 `ja-JP` 单个字词阅读功能。 将发音错误减小了 80%。
+- `zh-CN-XiaoxiaoNeural`：改进了情绪/客户服务/新闻广播/快乐/愤怒风格的语音质量。
+- `zh-CN`：改进了 Erhua 发音和轻声，优化了空间韵律，从而大大提高了清晰度。 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>语音 SDK 1.14.0：2020 年 10 月版本
 
@@ -58,7 +72,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **示例**
 - ObjectiveC：在[此处](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples)添加了关键字识别的示例。
-- C#/JavaScript：在[此处 (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) 和[此处 (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription) 添加了对话听录的快速入门。
+<!-- - **C#/JavaScript**: Added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription). -->
 <!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
 - Xamarin：在[此处](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin)更新了最新 Visual Studio 模板的快速入门。
 

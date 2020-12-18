@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/05/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: 92dae715a4bdd65624cc3d9b30418c6d55ed0ac7
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 12/10/2020
+ms.openlocfilehash: d40c5faacbac850c5dd4bb4e282d70ed58f39eed
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300560"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004185"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>在 Azure 认知搜索中创建简单的查询
 
@@ -28,7 +28,7 @@ ms.locfileid: "96300560"
 
 下面的示例使用“纽约工作岗位”搜索索引，它包含基于[纽约市开放数据](https://nycopendata.socrata.com/)计划提供的数据集得出的岗位。 此数据不应认为是最新或完整数据。 该索引位于 Microsoft 提供的一项沙盒服务上，也就是说无需 Azure 订阅或 Azure 认知搜索即可试用这些查询。
 
-要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[快速入门：使用 Postman 探索 Azure 认知搜索 REST API](search-get-started-postman.md)。
+要在 GET 上发出 HTTP 请求，需具备 Postman 或其等效工具。 有关详细信息，请参阅[快速入门：探索 Azure 认知搜索 REST API](search-get-started-rest.md)。
 
 ### <a name="set-the-request-header"></a>设置请求标头
 
@@ -120,7 +120,7 @@ https://azs-playground.search.azure.cn/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-A
 
 ## <a name="example-3-filter-queries"></a>示例 3：筛选器查询
 
-[筛选器语法](https://docs.azure.cn/search/search-query-odata-filter)是可以配合 **search** 使用或单独使用的 OData 表达式。 如果筛选表达式能够完全限定所需的文档，则不带 search 参数的单独筛选器很有用。 不使用查询字符串也就不会执行词法或语言分析、评分（所有评分为 1）和排名。 请注意，搜索字符串为空。
+[筛选器语法](./search-query-odata-filter.md)是可以配合 **search** 使用或单独使用的 OData 表达式。 如果筛选表达式能够完全限定所需的文档，则不带 search 参数的单独筛选器很有用。 不使用查询字符串也就不会执行词法或语言分析、评分（所有评分为 1）和排名。 请注意，搜索字符串为空。
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30

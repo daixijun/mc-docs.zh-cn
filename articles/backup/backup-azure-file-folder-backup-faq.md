@@ -3,14 +3,14 @@ title: Microsoft Azure 恢复服务 (MARS) 代理 - 常见问题解答
 description: 解决与使用 Azure 备份对文件和文件夹进行备份相关的常见问题。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: d15f3444657121e70463176eba4fc0c2060fa403
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 2242a92f56e769ffa1213053d8c5352c9bb9ebdf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871467"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105141"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>常见问题解答 - Microsoft Azure 恢复服务 (MARS) 代理
 
@@ -73,6 +73,10 @@ ms.locfileid: "91871467"
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>是否需要管理员权限才能安装和配置 MARS 代理？
 
 是的，使用 MARS 控制台安装 MARS 代理和配置备份要求用户是受保护服务器上的本地管理员。
+
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>将保管库订阅转移到另一个 Azure AD 目录对 MARS 代理备份有什么影响？
+
+更改 Azure AD 目录不会对 MARS 代理备份产生影响。 
 
 ## <a name="manage-backups"></a>管理备份
 

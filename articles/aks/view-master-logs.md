@@ -3,17 +3,18 @@ title: 查看 Azure Kubernetes 服务 (AKS) 控制器日志
 description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 services: container-service
 ms.topic: article
+origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1fff9d2287786991f03e824e68e6334ea1cc27c8
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 8d6a449258db649f03081bf147631d46c07702c1
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024542"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004116"
 ---
 <!--Verified successfully till Nov 2019-->
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
@@ -22,7 +23,7 @@ ms.locfileid: "96024542"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于支持 RBAC 和不支持 RBAC 的 AKS 群集。
+本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于支持 Kubernetes RBAC、Azure RBAC 和非 RBAC 的 AKS 群集。
 
 ## <a name="enable-resource-logs"></a>启用资源日志
 

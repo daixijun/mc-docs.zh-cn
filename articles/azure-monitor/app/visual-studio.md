@@ -3,15 +3,15 @@ title: 在 Visual Studio 中使用 Azure Application Insights 进行调试
 description: 调试期间和生产环境中的 Web 应用性能分析和诊断。
 ms.topic: conceptual
 origin.date: 08/22/2019
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: vs-azure
-ms.openlocfilehash: 063110a32ee158e22234669f78e2e59f5347a5cc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b707ec5ff50b72a667169792a4424aedd861ad6e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105557"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105162"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 调试应用程序
 在 Visual Studio（2015 和更高版本）中，可以使用来自 [Azure Application Insights](./app-insights-overview.md) 的遥测，在调试和生产环境中分析 ASP.NET Web 应用中的性能和诊断问题。
@@ -56,12 +56,12 @@ Application Insights 的“搜索”窗口显示已记录的事件。 （如果�
 
 单击异常可获得堆栈跟踪。 如果应用的代码在 Visual Studio 中打开，可从堆栈跟踪单击浏览到相关代码行。
 
-![异常堆栈跟踪](./media/visual-studio/17.png)
+![屏幕截图显示了堆栈跟踪中的“About”对象。](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>查看代码中的请求和异常摘要
 在每个处理程序方法上方的 Code Lens 行中，会看到过去 24 小时内由 Application Insights 记录的请求和异常的计数。
 
-![异常堆栈跟踪](./media/visual-studio/21.png)
+![屏幕截图显示了上下文对话框中的异常。](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > Code Lens 显示 Application Insights 数据的前提是，已[将应用配置为将遥测发送到 Application Insights 门户](./asp-net.md)。

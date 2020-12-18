@@ -2,18 +2,19 @@
 title: 教程 - 计划 ACR 任务
 description: 本教程介绍如何通过设置一个或多个计时器触发器按定义的计划运行 Azure 容器注册表任务
 ms.topic: article
-origin.date: 06/27/2019
-ms.date: 04/06/2020
+origin.date: 11/24/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 13b83cbe0eee202681fb6623daf5fcd0be557887
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: f18a0b341dd2e1fd3e4987a87a359d1b31eec29d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093513"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004037"
 ---
 <!--Verify Successfully-->
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>按定义的计划运行 ACR 任务
+# <a name="tutorial-run-an-acr-task-on-a-defined-schedule"></a>教程：按定义的计划运行 ACR 任务
 
 本教程介绍如何按计划运行 [ACR 任务](container-registry-tasks-overview.md)。 通过设置一个或多个计时器触发器来计划任务。  计时器触发器可以单独使用，也可以与其他任务触发器结合使用。
 
@@ -28,9 +29,7 @@ ms.locfileid: "82093513"
 * 运行容器工作负荷来执行计划性维护操作。 例如，运行容器化应用以从注册表中删除不需要的映像。
 * 在工作日针对要在现场监视的生产映像运行一组测试。
 
-可以使用本地安装的 Azure CLI 来运行本文中的示例。 若要在本地使用 Azure CLI，需要安装 2.0.68 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
-
-<!--Not Avaialble on Azure local Shell or-->
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="about-scheduling-a-task"></a>关于计划任务
 
@@ -41,19 +40,29 @@ ms.locfileid: "82093513"
     * 可在创建任务时指定多个计时器触发器，也可以在以后添加。
     * （可选）为触发器命名以便于管理，否则 ACR 任务将提供默认的触发器名称。
     * 如果多个计时器计划在某个时间发生重叠，ACR 任务将在每个计时器的计划时间触发任务。
-* **其他任务触发器** - 在计时器触发的任务中，还可以基于[源代码提交](container-registry-tutorial-build-task.md)或[基础映像更新](container-registry-tutorial-base-image-update.md)启用触发器。 与其他 ACR 任务一样，也可以[手动触发][az-acr-task-run]计划任务。
+* **其他任务触发器** - 在计时器触发的任务中，还可以基于 [源代码提交](container-registry-tutorial-build-task.md)或 [基础映像更新](container-registry-tutorial-base-image-update.md)启用触发器。 与其他 ACR 任务一样，也可以[手动运行][az-acr-task-run]计划任务。
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>创建具有计时器触发器的任务
 
+### <a name="task-command"></a>任务命令
+
+首先，使用适用于环境的值填充以下 shell 环境变量。 此步骤并非必须执行的步骤，但它能让在此教程中执行多个 Azure CLI 命令更容易。 如果未填充环境变量，则每当示例命令中出现一个值，都必须手动替换该值。
+
+<!--Not Avialable on https://shell.azure.com-->
+
+```console
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+```
+
 使用 [az acr task create][az-acr-task-create] 命令创建任务时，可以选择性地添加计时器触发器。 添加 `--schedule` 参数并为计时器传递 cron 表达式。
 
-举个简单的例子，以下命令将会触发每天 21:00（UTC 时间）从 Docker Hub 运行 `hello-world` 映像的任务。 该任务无需源代码上下文即可运行。
+举个简单的例子，以下任务会触发每天 21:00（UTC 时间）从 Azure 容器注册表运行 `hello-world` 映像的操作。 该任务无需源代码上下文即可运行。
 
 ```azurecli
 az acr task create \
-  --name mytask \
-  --registry myregistry \
-  --cmd hello-world \
+  --name timertask \
+  --registry $ACR_NAME \
+  --cmd mcr.microsoft.com/hello-world \
   --schedule "0 21 * * *" \
   --context /dev/null
 ```
@@ -61,30 +70,32 @@ az acr task create \
 运行 [az acr task show][az-acr-task-show] 命令查看该计时器触发器是否已配置。 默认情况下，还启用了基础映像更新触发器。
 
 ```azurecli
-az acr task show --name mytask --registry registry --output table
+az acr task show --name timertask --registry $ACR_NAME --output table
 ```
 
 ```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
-mytask    linux       Enabled                           BASE_IMAGE, TIMER
+timertask linux       Enabled                           BASE_IMAGE, TIMER
 ```
+
+## <a name="trigger-the-task"></a>触发任务
 
 使用 [az acr task run][az-acr-task-run] 手动触发任务，以确保正确设置该任务：
 
 ```azurecli
-az acr task run --name mytask --registry myregistry
+az acr task run --name timertask --registry $ACR_NAME
 ```
 
-如果容器成功运行，输出将如下所示：
+如果容器成功运行，输出将如下所示。 该输出经过简化，只显示关键步骤
 
 ```output
 Queued a run with ID: cf2a
 Waiting for an agent...
-2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
-2019/06/28 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
+2020/11/20 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
+2020/11/20 21:03:36 Creating Docker network: acb_default_network, driver: 'bridge'
 [...]
-2019/06/28 21:03:38 Launching container with name: acb_step_0
+2020/11/20 21:03:38 Launching container with name: acb_step_0
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -94,7 +105,7 @@ This message shows that your installation appears to be working correctly.
 在计划的时间之后，运行 [az acr task list-runs][az-acr-task-list-runs] 命令验证计时器是否按预期触发了任务：
 
 ```azurecli
-az acr task list-runs --name mytask --registry myregistry --output table
+az acr task list-runs --name timertask --registry $ACR_NAME --output table
 ```
 
 如果计时器成功，输出将如下所示：
@@ -102,9 +113,8 @@ az acr task list-runs --name mytask --registry myregistry --output table
 ```output
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  -------- ----------  ---------  ---------  --------------------  ----------
-[...]
-cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
-cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
+ca15      timertask  linux       Succeeded  Timer      2020-11-20T21:00:23Z  00:00:06
+ca14      timertask  linux       Succeeded  Manual     2020-11-20T20:53:35Z  00:00:06
 ```
 
 ## <a name="manage-timer-triggers"></a>管理计时器触发器
@@ -113,12 +123,12 @@ cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00
 
 ### <a name="add-or-update-a-timer-trigger"></a>添加或更新计时器触发器
 
-创建任务后，可以选择性地使用 [az acr task timer add][az-acr-task-timer-add] 命令添加计时器触发器。 以下示例将名为 *timer2* 的计时器触发器添加到前面创建的 *mytask*。 此计时器每日 10:30（UTC 时间）触发任务。
+创建任务后，可以选择性地使用 [az acr task timer add][az-acr-task-timer-add] 命令添加计时器触发器。 以下示例将名为 timer2 的计时器触发器添加到前面创建的 timertask。 此计时器每日 10:30（UTC 时间）触发任务。
 
 ```azurecli
 az acr task timer add \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 10 * * *"
 ```
@@ -127,8 +137,8 @@ az acr task timer add \
 
 ```azurecli
 az acr task timer update \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2 \
   --schedule "30 11 * * *"
 ```
@@ -138,7 +148,7 @@ az acr task timer update \
 [az acr task timer list][az-acr-task-timer-list] 命令可显示针对任务设置的计时器触发器：
 
 ```azurecli
-az acr task timer list --name mytask --registry myregistry
+az acr task timer list --name timertask --registry $ACR_NAME
 ```
 
 示例输出：
@@ -160,12 +170,12 @@ az acr task timer list --name mytask --registry myregistry
 
 ### <a name="remove-a-timer-trigger"></a>删除计时器触发器
 
-使用 [az acr task timer remove][az-acr-task-timer-remove] 命令从任务中删除计时器触发器。 以下示例从 *mytask* 中删除 *timer2* 触发器：
+使用 [az acr task timer remove][az-acr-task-timer-remove] 命令从任务中删除计时器触发器。 以下示例从 timertask 中删除 timer2 触发器：
 
 ```azurecli
 az acr task timer remove \
-  --name mytask \
-  --registry myregistry \
+  --name timertask \
+  --registry $ACR_NAME \
   --timer-name timer2
 ```
 
@@ -217,7 +227,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 本教程介绍了如何创建由计时器自动触发的 Azure 容器注册表任务。 
 
-<!--Pending on [Automatically purge images from an Azure container registry](container-registry-auto-purge.md)-->
+有关使用计划任务清理注册表中的存储库的示例，请参阅[从 Azure 容器注册表中自动清除映像](container-registry-auto-purge.md)。
 
 有关由源代码提交或基础映像更新触发的任务的示例，请参阅 [ACR 任务系列教程](container-registry-tutorial-quick-task.md)中的其他文章。
 
@@ -227,16 +237,16 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 <!-- LINKS - Internal -->
 
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-show]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-show
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-acr-task-timer]: https://docs.azure.cn/cli/acr/task/timer?view=azure-cli-latest
-[az-acr-task-timer-add]: https://docs.azure.cn/cli/acr/task/timer?view=azure-cli-latest#az-acr-task-timer-add
-[az-acr-task-timer-remove]: https://docs.azure.cn/cli/acr/task/timer?view=azure-cli-latest#az-acr-task-timer-remove
-[az-acr-task-timer-list]: https://docs.azure.cn/cli/acr/task/timer?view=azure-cli-latest#az-acr-task-timer-list
-[az-acr-task-timer-update]: https://docs.azure.cn/cli/acr/task/timer?view=azure-cli-latest#az-acr-task-timer-update
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az_acr_task_show
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-acr-task-timer]: https://docs.azure.cn/cli/acr/task/timer
+[az-acr-task-timer-add]: https://docs.azure.cn/cli/acr/task/timer#az_acr_task_timer_add
+[az-acr-task-timer-remove]: https://docs.azure.cn/cli/acr/task/timer#az_acr_task_timer_remove
+[az-acr-task-timer-list]: https://docs.azure.cn/cli/acr/task/timer#az_acr_task_timer_list
+[az-acr-task-timer-update]: https://docs.azure.cn/cli/acr/task/timer#az_acr_task_timer_update
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task]: https://docs.azure.cn/cli/acr/task
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 
 <!-- Update_Description: update meta properties, wording update, update link -->

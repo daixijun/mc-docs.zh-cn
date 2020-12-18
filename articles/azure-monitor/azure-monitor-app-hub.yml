@@ -8,13 +8,13 @@ metadata:
   ms.service: application-insights
   ms.topic: hub-page
   manager: carmonm
-  ms.date: 11/02/2020
-  ms.openlocfilehash: dec8234f7af929c06b8b943d533baf7a00cfa3a9
-  ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+  ms.date: 12/07/2020
+  ms.openlocfilehash: 8b7154a8e0da4d72bce6b02c2c9fe72ddcefbafd
+  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/15/2020
-  ms.locfileid: "94638196"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97105301"
 highlightedContent:
   items:
   - title: 什么是 Application Insights？
@@ -71,7 +71,7 @@ conceptualContent:
     - url: ../azure-functions/functions-monitoring.md
       itemType: how-to-guide
       text: Azure Functions
-    - url: ./app/kubernetes.md
+    - url: ./app/kubernetes-codeless.md
       itemType: how-to-guide
       text: Kubernetes 应用程序
     - url: ./app/cloudservices.md
@@ -198,6 +198,12 @@ conceptualContent:
     - url: ./app/snapshot-debugger.md
       itemType: overview
       text: Snapshot Debugger 概述
+    - url: ./app/snapshot-debugger-appservice.md
+      itemType: how-to-guide
+      text: 为 Azure 应用服务启用 Snapshot Debugger
+    - url: ./app/snapshot-debugger-vm.md
+      itemType: how-to-guide
+      text: 为其他环境启用 Snapshot Debugger
   - title: 智能检测
     links:
     - url: ./app/proactive-diagnostics.md
@@ -341,6 +347,9 @@ conceptualContent:
     - url: ./app/code-sample-export-sql-stream-analytics.md
       itemType: how-to-guide
       text: 导出数据模型
+    - url: ./platform/logicapp-flow-connector.md
+      itemType: how-to-guide
+      text: Flow 集成
   - title: 可视化和分析
     links:
     - url: ./app/overview-dashboard.md
@@ -371,6 +380,9 @@ conceptualContent:
     - url: ./app/usage-troubleshoot.md
       itemType: how-to-guide
       text: 使用情况故障排除
+    - url: ./app/snapshot-debugger-troubleshoot.md
+      itemType: how-to-guide
+      text: Snapshot Debugger 故障排除
     - url: ./app/profiler-troubleshooting.md
       itemType: how-to-guide
       text: 探查器故障排除
@@ -391,7 +403,7 @@ conceptualContent:
     - url: ./app/azure-functions-supported-features.md
       itemType: reference
       text: Azure Functions 集成
-    - url: https://docs.azure.cn/dotnet/api/overview/insights?view=azure-dotnet
+    - url: /dotnet/api/overview//insights?view=azure-dotnet
       itemType: reference
       text: .NET SDK
     - url: https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable

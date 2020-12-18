@@ -5,18 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: overview
 origin.date: 10/19/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 9c20657d49f4a301ca3ce6530c23c1b95e185b1a
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 8e74b777e230f6e6a374458d0359a9d393d8209b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507917"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004163"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -243,7 +243,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [注册 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)   
+> [注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)   
 
 > [!div class="nextstepaction"]
 > [快速入门：创建服务器 - 门户](analysis-services-create-server.md)   

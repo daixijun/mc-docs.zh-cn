@@ -3,14 +3,14 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 09/30/2019
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: ffff108bd2d2f0c87195e5eb82d6a250f1ab47ca
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 61a0dee005299ead1a15a2e677304224c8a57b88
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88246249"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850743"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
 有两种方法可以对要访问存储服务的应用程序进行身份验证：
@@ -22,7 +22,7 @@ ms.locfileid: "88246249"
 共享密钥身份验证意味着应用程序将使用帐户名和帐户密钥访问存储服务。 为了快速说明如何使用此库，我们会在此入门指南中使用共享密钥身份验证。
 
 > [!WARNING] 
-> **请仅将共享密钥身份验证用于测试用途！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载应用的每个人。 这**不**是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
+> **请仅将共享密钥身份验证用于测试用途！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载应用的每个人。 这 **不** 是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
 > 
 > 
 
@@ -50,5 +50,4 @@ ms.locfileid: "88246249"
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.chinacloudapi.cn"`
 
-可以看到，使用 SAS 时，不会在应用程序中公开帐户密钥。 可查阅[共享访问签名：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)，了解有关 SAS 和使用 SAS 的最佳做法的详细信息。
-
+可以看到，使用 SAS 时，不会在应用程序中公开帐户密钥。 可查阅[共享访问签名：了解 SAS 模型](../articles/storage/common/storage-sas-overview.md)，了解有关 SAS 和使用 SAS 的最佳做法的详细信息。

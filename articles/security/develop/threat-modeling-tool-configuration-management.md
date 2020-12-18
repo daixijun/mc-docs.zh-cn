@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 12/03/2020
 ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: e51d143850d5d73ed36d0a1c1b803053ed23a3c5
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: d80aafdf0e75c732f03f8ae05158a38414cf6a3e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128146"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105356"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架：配置管理 | 缓解措施 
 | 产品/服务 | 项目 |
@@ -89,7 +89,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [ASP.NET 调试概览](https://msdn.microsoft.com/library/ms227556.aspx)、[ASP.NET 跟踪概览](https://msdn.microsoft.com/library/bb386420.aspx)、[如何：启用 ASP.NET 应用程序跟踪](https://msdn.microsoft.com/library/0x5wc973.aspx)、[如何：启用 ASP.NET 应用程序调试](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **参考**              | [ASP.NET 调试概览](https://docs.microsoft.com/previous-versions/ms227556(v=vs.140))、[ASP.NET 跟踪概览](https://docs.microsoft.com/previous-versions/bb386420(v=vs.140))、[如何：启用 ASP.NET 应用程序跟踪](https://docs.microsoft.com/previous-versions/0x5wc973(v=vs.140))、[如何：启用 ASP.NET 应用程序调试](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **步骤** | 为页面启用跟踪后，请求该页面的每个浏览器也会获取包含有关内部服务器状态和工作流的数据的跟踪信息。 该信息可能是安全敏感信息。 为页面启用调试后，服务器上发生的错误会导致向浏览器提供完整的堆栈跟踪数据。 该数据可能会透露有关服务器工作流的安全敏感信息。 |
 
 ## <a name="access-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>仅从受信任源访问第三方 JavaScript
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [OWASP 点击劫持防御速查表](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)、[IE 内部 - 使用 X-Frame-Options 阻击点击劫持](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **参考**              | [OWASP 点击劫持防御速查表](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)、[IE 内部 - 使用 X-Frame-Options 阻击点击劫持](https://docs.microsoft.com/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) |
 | **步骤** | <p>点击劫持也称“UI 伪装攻击”，是指攻击者使用多个透明或不透明的层，在用户想要点击顶层页面时，诱使用户点击另一个页面上的按钮或链接。</p><p>这种分层是通过编写使用 iframe 的恶意页面，加载受害者的页面来实现的。 因此，攻击者正是“劫持”了用户原本要在其页面上的点击，将他们路由到很有可能是由其他应用程序和/或域拥有的另一个页面。 若要阻止点击劫持攻击，请设置适当的 X-Frame-Options HTTP 响应标头，指示浏览器不要允许来自其他域的框架设计</p>|
 
 ### <a name="example"></a>示例
@@ -290,7 +290,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | SQL Azure、OnPrem |
 | **属性**              | 不适用，SQL 版本 - V12 |
-| **参考**              | [如何配置 Azure SQL 数据库防火墙](/sql-database/sql-database-firewall-configure)、[为数据库引擎访问配置 Windows 防火墙](https://msdn.microsoft.com/library/ms175043) |
+| **参考**              | [如何配置 Azure SQL 数据库防火墙](../../azure-sql/database/firewall-configure.md)、[为数据库引擎访问配置 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **步骤** | 防火墙系统有助于阻止对计算机资源进行未经授权的访问。 要通过防火墙访问 SQL Server 数据库引擎的实例，必须将运行 SQL Server 的计算机上的防火墙配置为允许这种访问 |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>确保已在 ASP.NET Web API 中启用 CORS 的情况下只允许受信任的来源
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | MVC 5 |
 | **属性**              | 空值  |
-| **参考**              | [在 ASP.NET Web API 2 中启用跨域请求](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)、[ASP.NET Web API - ASP.NET Web API 2 中的 CORS 支持](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **参考**              | [在 ASP.NET Web API 2 中启用跨域请求](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)、[ASP.NET Web API - ASP.NET Web API 2 中的 CORS 支持](https://docs.microsoft.com/archive/msdn-magazine/2013/december/asp-net-web-api-cors-support-in-asp-net-web-api-2) |
 | **步骤** | <p>浏览器安全性将阻止网页向另一个域发出 AJAX 请求。 这种限制称为同域策略，可阻止恶意站点读取另一个站点中的敏感数据。 但是，有时可能需要安全公开可由其他站点使用的 API。 跨域资源共享 (CORS) 是一项 W3C 标准，可让服务器放宽同域策略。</p><p>使用 CORS，服务器可以显式允许某些跨域请求，同时拒绝另一些跨域请求。 与 JSONP 等早期技术相比，CORS 更安全且更灵活。</p>|
 
 ### <a name="example"></a>示例
@@ -489,7 +489,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 部署 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [如何：使用 DPAPI 加密 ASP.NET 2.0 中的配置部分](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保护的配置提供程序](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 保护应用程序机密](https://docs.azure.cn/key-vault/general/vs-secure-secret-appsettings) |
+| **参考**              | [如何：使用 DPAPI 加密 ASP.NET 2.0 中的配置部分](https://docs.microsoft.com/previous-versions/msp-n-p/ff647398(v=pandp.10))、[指定受保护的配置提供程序](https://docs.microsoft.com/previous-versions/68ze1hb2(v=vs.140))、[使用 Azure Key Vault 保护应用程序机密](https://docs.microsoft.com/azure/architecture/multitenant-identity/web-api) |
 | **步骤** | Web.config、appsettings.json 等配置文件通常用于保存敏感信息，包括用户名、密码、数据库连接字符串和加密密钥。 如果不保护此类信息，攻击者或恶意用户可能会利用应用程序的漏洞来获取敏感信息，例如帐户用户名和密码、数据库名称和服务器名称。 请根据部署类型 (azure/on-prem)，使用 DPAPI 或 Azure Key Vault 等服务来加密配置文件的敏感部分。 |
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>确保使用强凭据保护所有管理界面
@@ -566,7 +566,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 网关选项 - Azure IoT 中心 |
-| **参考**              | [IoT 中心设备管理概述](/iot-hub/iot-hub-device-management-overview)、[如何更新设备固件](../../iot-hub/tutorial-firmware-update.md) |
+| **参考**              | [IoT 中心设备管理概述](../../iot-hub/iot-hub-device-management-overview.md)、[如何更新设备固件](../../iot-hub/tutorial-firmware-update.md) |
 | **步骤** | LWM2M 是开放移动联盟为 IoT 设备管理提供的协议。 借助 Azure IoT 设备管理可以使用设备作业来与物理设备交互。 请确保云网关实施相应的过程，定期使用 Azure IoT 中心设备管理将设备和其他配置数据保持最新状态。 |
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>确保根据组织的策略在设备上配置终结点安全控制
@@ -588,7 +588,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 部署 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [Azure 存储安全指南 - 管理存储帐户密钥](/storage/blobs/security-recommendations#_managing-your-storage-account-keys) |
+| **参考**              | [Azure 存储安全指南 - 管理存储帐户密钥](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **步骤** | <p>密钥存储：建议将 Azure 存储访问密钥以机密的形式存储在 Azure Key Vault 中，并让应用程序从 Key Vault 中检索密钥。 提出这种建议的原因如下：</p><ul><li>应用程序永远都不需要将存储密钥硬编码于配置文件中，这就消除了某人不需特定权限即可访问密钥的情况。</li><li>可以使用 Azure Active Directory 来控制对密钥的访问。 这意味着，帐户所有者可向需要从 Azure Key Vault 检索密钥的少数应用程序授予访问权限。 如果未获得专门的授权，其他应用程序将无法访问密钥</li><li>密钥重新生成：出于安全原因，建议制定一个过程来重新生成 Azure 存储访问密钥。 《Azure 存储安全指南》参考文章中介绍了为何以及如何规划密钥重新生成的详细信息</li></ul>|
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>确保已在 Azure 存储中启用 CORS 的情况下只允许受信任的来源
@@ -599,7 +599,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [Azure 存储服务的 CORS 支持](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
+| **参考**              | [Azure 存储服务的 CORS 支持](https://docs.microsoft.com/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services) |
 | **步骤** | Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户，可以指定可访问该存储帐户中的资源的域。 默认情况下，对所有服务禁用了 CORS。 可以使用 REST API 或存储客户端库调用某个方法来设置服务策略，以启用 CORS。 |
 
 ## <a name="enable-wcfs-service-throttling-feature"></a><a id="throttling"></a>启用 WCF 的服务限制功能
@@ -610,7 +610,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | .NET Framework 3 |
 | **属性**              | 空值  |
-| **参考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[巩固王国](https://vulncat.fortify.com) |
+| **参考**              | [MSDN](https://docs.microsoft.com/previous-versions/msp-n-p/ff648500(v=pandp.10))、[巩固王国](https://vulncat.fortify.com) |
 | **步骤** | <p>不对系统资源的使用施加限制可能会导致资源耗尽，最终出现拒绝服务。</p><ul><li>**解释：** Windows Communication Foundation (WCF) 提供限制服务请求的功能。 允许过多的客户端请求可能会使系统泛洪并耗尽其资源。 另一方面，只允许向服务发出少量的请求可能会防碍合法用户使用该服务。 应该单独针对每个服务进行优化和配置，以允许适当数量的资源。</li><li>**建议：** 启用 WCF 的服务限制功能，并设置适合应用程序的限制。</li></ul>|
 
 ### <a name="example"></a>示例
@@ -633,7 +633,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | .NET Framework 3 |
 | **属性**              | 空值  |
-| **参考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[巩固王国](https://vulncat.fortify.com) |
+| **参考**              | [MSDN](https://docs.microsoft.com/previous-versions/msp-n-p/ff648500(v=pandp.10))、[巩固王国](https://vulncat.fortify.com) |
 | **步骤** | 元数据可帮助攻击者了解系统并规划攻击形式。 WCF 服务可能会配置为公开元数据。 元数据提供详细的服务说明信息，不应在生产环境中广播。 ServiceMetaData 类的 `HttpGetEnabled` / `HttpsGetEnabled` 属性定义服务是否要公开元数据 | 
 
 ### <a name="example"></a>示例

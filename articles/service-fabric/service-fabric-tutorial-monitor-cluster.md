@@ -9,12 +9,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 23019661802d32b527801e6e529cfe2b823c28b2
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ef38edfe779f379f98308c3c078307aaff00885c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507832"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105230"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教程：在 Azure 中监视 Service Fabric 群集
 
@@ -42,7 +42,7 @@ ms.locfileid: "96507832"
 
 在开始学习本教程之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* 如果没有 Azure 订阅，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * 创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * 为群集设置[诊断集合](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)
@@ -302,7 +302,7 @@ Service Fabric 引入了一种具有运行状况实体的[运行状况模型](se
 Service Fabric 为每个支持的[实体类型](service-fabric-health-introduction.md#health-entities-and-hierarchy)提供运行状况查询。 可以通过 API（使用 [FabricClient.HealthManager](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.healthmanager) 上的方法）、PowerShell cmdlet 和 REST 访问它们。 这些查询返回有关实体的完整运行状况信息：聚合运行状况、实体运行状况事件、子运行状况（在适用时）、不正常评估（实体不正常时）以及子集运行状况统计信息（在适用时）。
 
 ### <a name="get-cluster-health"></a>获取群集运行状况
-[Get-ServiceFabricClusterHealth cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth) 返回群集实体的运行状况，并包含应用程序和节点（群集的子项）的运行状况。  首先使用 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。
+[Get-ServiceFabricClusterHealth cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth) 返回群集实体的运行状况，并包含应用程序和节点（群集的子项）的运行状况。  首先使用 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricpshttps://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0&preserve-view=true) cmdlet 连接到群集。
 
 群集的状态是 11 个节点、系统应用程序和 fabric:/Voting 按所述进行配置。
 

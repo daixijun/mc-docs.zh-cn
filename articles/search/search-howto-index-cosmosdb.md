@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 07/11/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: b89b2c442c76d855f8cd795b1dcc6f218d57a7d9
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 12/10/2020
+ms.openlocfilehash: e1d719ea2e9d6915c6c08fe41d17a6216738d8dd
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300713"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003620"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>如何使用 Azure 认知搜索中的索引器为 Cosmos DB 数据编制索引 
 
@@ -139,7 +139,7 @@ Azure 认知搜索中的 Cosmos DB 索引器可以抓取通过不同协议访问
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - 汇编请求的输入
 
-对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Postman](search-get-started-postman.md) 将 HTTP 请求发送到 Azure 认知搜索。
+对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Postman 或 Visual Studio Code](search-get-started-rest.md) 将 HTTP 请求发送到 Azure 认知搜索。
 
 将以下四个值复制到记事本中，以便将其粘贴到请求：
 

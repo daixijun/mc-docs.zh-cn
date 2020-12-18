@@ -5,14 +5,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3988b9584b68e14c6e8e26d84f4d95fef4638f35
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 6f5f045ff74410b02dce0368082007a6b9346f2e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437399"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104931"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>快速入门：将功能标志添加到 ASP.NET Core 应用
 
@@ -20,9 +20,9 @@ ms.locfileid: "96437399"
 
 .NET Core 功能管理库使用全面的功能标志支持扩展了该框架。 这些库在 .NET Core 配置系统的基础上构建。 它们可以通过其 .NET Core 配置提供程序无缝集成到应用程序配置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)。
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
@@ -34,7 +34,7 @@ ms.locfileid: "96437399"
     > [!div class="mx-imgBorder"]
     > ![启用名为 Beta 的功能标志](media/add-beta-feature-flag.png)
 
-    暂时将“标签”留空。 选择“应用”以保存新功能标志。
+    暂时将“标签”留空。 选择“应用”  以保存新功能标志。
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
 
@@ -60,7 +60,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. 在 .csproj 文件所在的同一目录中运行以下命令。 该命令使用机密管理器存储名为 `ConnectionStrings:AppConfig` 的机密，该机密存储应用程序配置存储区的连接字符串。 将 `<your_connection_string>` 占位符替换为应用程序配置存储区的连接字符串。 可以在 Azure 门户的“访问密钥”下找到该连接字符串。
+1. 在 .csproj 文件所在的同一目录中运行以下命令。 该命令使用机密管理器存储名为 `ConnectionStrings:AppConfig` 的机密，该机密存储应用程序配置存储区的连接字符串。 将 `<your_connection_string>` 占位符替换为应用程序配置存储区的连接字符串。 可以在 Azure 门户的“访问密钥”  下找到该连接字符串。
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
@@ -68,9 +68,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     机密管理器仅用于本地测试 web 应用程序。 将应用部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/web)后，可以使用应用服务中的“连接字符串”应用程序设置，而无需使用机密管理器来存储连接字符串。
 
-    使用 .NET Core 配置 API 访问此机密。 在所有支持的平台上，冒号 (`:`) 可以在配置 API 的配置名称中使用。 有关详细信息，请参阅[配置键和值](/aspnet/core/fundamentals/configuration#configuration-keys-and-values)。
+    使用 .NET Core 配置 API 访问此机密。 在所有支持的平台上，冒号 (`:`) 可以在配置 API 的配置名称中使用。 有关详细信息，请参阅[配置键和值](https://docs.microsoft.com/aspnet/core/fundamentals/configuration#configuration-keys-and-values)。
 
-1. 在 Program.cs 中更新 `CreateWebHostBuilder` 方法，以便通过调用 `AddAzureAppConfiguration` 方法使用应用程序配置。
+1. 在 Program.cs 中更新 `CreateWebHostBuilder` 方法，以便通过调用 `AddAzureAppConfiguration` 方法使用应用程序配置  。
 
     > [!IMPORTANT]
     > `CreateHostBuilder` 替换 .NET Core 3.x 中的 `CreateWebHostBuilder`。 根据环境选择正确的语法。
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    进行上述更改后，[应用程序配置的配置提供程序](https://go.microsoft.com/fwlink/?linkid=2074664)就已注册到 .NET Core 配置 API。
+    进行上述更改后，[应用程序配置的配置提供程序](https://docs.microsoft.com/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)就已注册到 .NET Core 配置 API。
 
 1. 在 Startup.cs 中，添加对 .NET Core 功能管理器的引用：
 
@@ -209,15 +209,15 @@ dotnet new mvc --no-https --output TestFeatureFlags
     dotnet run
     ```
 
-1. 启动浏览器窗口并转到 `http://localhost:5000`，即本地托管的 Web 应用的默认 URL。 如果要在 Azure Cloud Shell 中操作，请依次选择“Web 预览”按钮和“配置” 。 出现提示时，选择“端口 5000”。
+1. 启动浏览器窗口并转到 `http://localhost:5000`，即本地托管的 Web 应用的默认 URL。
 
-    ![找到“Web 预览”按钮](./media/quickstarts/cloud-shell-web-preview.png)
+    <!--Cloud Shell-->
 
     浏览器应显示类似于下图的页面。
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="更改前的本地快速入门应用" border="true":::
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 选择“所有资源”，然后选择在快速入门中创建的应用程序配置存储区实例。
+1. 登录 [Azure 门户](https://portal.azure.cn)。 选择“所有资源”，然后选择在快速入门中创建的应用程序配置存储区实例  。
 
 1. 选择“功能管理器”。 
 
@@ -235,9 +235,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建一个新的应用程序配置存储区，并已使用它来通过[功能管理库](https://go.microsoft.com/fwlink/?linkid=2074664)管理 ASP.NET Core Web 应用中的功能。
+在本快速入门中，你已创建一个新的应用程序配置存储区，并已使用它来通过[功能管理库](https://docs.microsoft.com/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)管理 ASP.NET Core Web 应用中的功能。
 
-- 详细了解[功能管理](./concept-feature-management.md)。
-- [管理功能标志](./manage-feature-flags.md)。
-- [在 ASP.NET Core 应用中使用功能标志](./use-feature-flags-dotnet-core.md)。
-- [在 ASP.NET Core 应用中使用动态配置](./enable-dynamic-configuration-aspnet-core.md)
+* 详细了解[功能管理](./concept-feature-management.md)。
+* [管理功能标志](./manage-feature-flags.md)。
+* [在 ASP.NET Core 应用中使用功能标志](./use-feature-flags-dotnet-core.md)。
+* [在 ASP.NET Core 应用中使用动态配置](./enable-dynamic-configuration-aspnet-core.md)

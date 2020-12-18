@@ -1,6 +1,7 @@
 ---
-title: Azure HDInsight 的客户管理的密钥磁盘加密
-description: 本文介绍如何使用 Azure Key Vault 中你自己的加密密钥来加密 Azure HDInsight 群集中托管磁盘上存储的数据。
+title: 静态数据的双重加密
+titleSuffix: Azure HDInsight
+description: 本文介绍可用于 Azure HDInsight 群集上静态数据的两个加密层。
 author: hrasheed-msft
 ms.author: v-yiso
 ms.reviewer: hrasheed
@@ -8,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 08/10/2020
 ms.date: 06/08/2020
-ms.openlocfilehash: f9696af9150465ac3e4459632eee3b71b629c650
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3052007740897d79b130f2a99444ef9ec74e3ed5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552836"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105122"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight 静态数据双重加密
 
@@ -71,7 +72,7 @@ HDInsight 支持两个不同层中多种类型的加密：
 
 ### <a name="create-azure-key-vault"></a>创建 Azure Key Vault
 
-创建密钥保管库。 有关具体步骤，请参阅[创建 Azure Key Vault](../key-vault/secrets/quick-create-portal.md)。
+创建密钥保管库。 有关具体步骤，请参阅[创建 Azure Key Vault](../key-vault/general/quick-create-portal.md)。
 
 HDInsight 仅支持 Azure Key Vault。 如果拥有自己的密钥保管库，则可以将密钥导入 Azure Key Vault。 请记住，密钥保管库必须启用“软删除”。 有关导入现有密钥的详细信息，请访问[关于密钥、机密和证书](../key-vault/general/about-keys-secrets-certificates.md)。
 

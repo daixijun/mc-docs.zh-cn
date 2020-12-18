@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.subservice: ''
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 15e13e381e99f9a3e80440e4c965072c7bfc8ce0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 48e50570178425c4d3d5366daa377aba042db859
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328931"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104400"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -49,6 +49,16 @@ AppDynamics Application Performance Management (APM) 可让应用程序所有者
 可针对 Azure Monitor 警报创建 JIRA 票证。
 
 [用于 Azure Monitor 的 Atlassian 文档](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>BMC Helix
+
+![BMC Helix 徽标](./media/partners/BMCHelix.png)
+
+BMC Helix 是一种自主的企业服务和运营 SaaS 平台。 它集成了 360 度智能，使企业能够主动和预先地发现、监视、服务、修正、优化并为 IT 和业务线提供全渠道体验。
+此外，通过与 ITSM 和 IT 运营管理 (ITOM) 顺利集成，BMC Helix 允许 IT 和业务用户消除 IT 孤岛，做出数据驱动的业务决策，并提供行业领先的客户体验。
+客户可以选择公有云、私有云或混合云的云部署方式来部署 BMC Helix 平台。 此外，客户还可以选择利用行业领先提供商的 AI/ML 解决方案。
+
+[了解更多关于 BMC Helix 的信息](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmetric
 
@@ -164,6 +174,8 @@ Moogsoft 在 Azure 资产中运行并与整个混合构造的监视和自动化�
  - 可以提前主动检测影响应用程序的事件 
  - 动态协调相应的资源，使资源能够适应场合 
  - 减少补救以及对客户体验造成负面影响的平均时间。 
+
+[Moogsoft 文档](https://www.moogsoft.com/partners/microsoft-azure)
 
 ## <a name="newrelic"></a>NewRelic
 
@@ -291,6 +303,7 @@ Sumo Logic 是一项安全的云本机计算机数据分析服务，可实时、
 Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优化性能、成本和符合性。 Turbonomic 可持续优化资产，帮助组织在 Azure 资产方面获得弹性，确保应用程序可以持续获得所需的资源来履行 SLA，同时，对于 IaaS 和 PaaS 层，不需要进一步配置计算、存储和网络资源。 组织可以模拟迁移、合理缩放工作负荷以及淘汰数据中心资源，以便在预算范围内按时可靠迁移到 Azure，同时确保性能和符合性不受影响。 Turbonomic 由 API 驱动，作为 Azure 中和本地的无代理 VM 运行。
 
 [Turbonomic 简介](https://turbonomic.com/)
+
 
 ## <a name="next-steps"></a>后续步骤
 

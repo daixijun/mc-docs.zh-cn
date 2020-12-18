@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/27/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81035b96e081b9e7893ab2a669a75502959de1
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: f93a4b1a0406ba80b4dc3bccc571bba219572f32
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046312"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003696"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>使用 What If 工具对条件访问进行故障排除
 
@@ -76,5 +76,5 @@ What If 工具只需要一名用户即可开始使用。
 ## <a name="next-steps"></a>后续步骤
 
 * [什么是条件访问？](overview.md)
-* [工作原理：Azure 多重身份验证](../authentication/concept-mfa-howitworks.md)一文
+* [工作原理：Azure AD 多重身份验证](../authentication/concept-mfa-howitworks.md)
 

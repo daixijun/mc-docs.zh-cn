@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 12/08/2020
 origin.date: 03/04/2019
-ms.openlocfilehash: 1fc8b5837e411630f8028b307653661f439365d8
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 057e8738342e3070a06f308ceb944b40a03358dd
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457452"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104326"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 数据安全
 本文档旨在提供特定于 Azure Log Analytics 的信息（Azure Monitor 的功能），用于补充有关 [Azure 信任中心](https://www.microsoft.com/en-us/trust-center?rtc=1)的信息。  
@@ -28,11 +28,12 @@ Log Analytics 服务使用以下方法安全地管理你基于云的数据：
 * 合规性
 * 安全标准认证
 
-如有任何有关以下任何信息（包括 [Azure 支持选项](https://www.azure.cn/support/contact/)的安全政策）的疑问、建议或问题，请与我们联系。
+还可以使用 Azure Monitor 和 Log Analytics 中内置的附加安全功能。 这些功能需要更多的管理员管理工作。 
+* 客户管理的（安全）密钥 对于以下任何信息（包括 [Azure 支持选项](https://www.azure.cn/support/contact/)的安全策略），如果你有疑问、建议或问题，请与我们联系。
 
 ## <a name="sending-data-securely-using-tls-12"></a>使用 TLS 1.2 安全地发送数据 
 
-为了确保传输到 Log Analytics 的数据的安全性，我们强烈建议你将代理配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们**不建议使用**，并且行业即将放弃对这些旧协议的支持。 
+为了确保传输到 Log Analytics 的数据的安全性，我们强烈建议你将代理配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们 **不建议使用**，并且行业即将放弃对这些旧协议的支持。 
 
 [PCI 安全标准委员会](https://www.pcisecuritystandards.org/)规定 [2018 年 6 月 30 日](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)是停用旧版 TLS/SSL 并升级到更安全协议的截止时间。 在 Azure 放弃旧版支持后，如果代理无法通过最低版本 TLS 1.2 进行通信，则你无法将数据发送到 Log Analytics。 
 
@@ -167,11 +168,15 @@ Windows 或管理服务器代理缓存的数据受操作系统的凭据存储的
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服务接收并处理数据
 Log Analytics 服务通过使用 Azure 身份验证对证书和数据完整性进行验证，来确保传入数据来自受信任的源。 然后，将未处理的原始数据存储在区域中的 Azure 事件中心，并最终存储静态数据。 存储的数据类型取决于导入的并用于收集数据的解决方案的类型。 然后，Log Analytics 服务处理原始数据并将其引入数据库。
 
-存储在数据库中的已收集数据的保留期取决于所选的定价计划。 对于“免费”层，收集的数据可以使用 7 天**。 对于*付费*层，收集的数据默认情况下可以使用 31 天，但可以延长到 730 天。 数据在 Azure 存储中采用静态加密存储，以确保数据机密性，并且数据通过本地冗余存储 (LRS) 在本地区域内进行复制。 过去两周的数据也存储在基于 SSD 的缓存中，此缓存未加密。
+存储在数据库中的已收集数据的保留期取决于所选的定价计划。 对于“免费”层，收集的数据可以使用 7 天。 对于 *付费* 层，收集的数据默认情况下可以使用 31 天，但可以延长到 730 天。 数据在 Azure 存储中采用静态加密存储，以确保数据机密性，并且数据通过本地冗余存储 (LRS) 在本地区域内进行复制。 过去两周的数据也存储在基于 SSD 的缓存中，此缓存未加密。
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 访问数据
 若要访问 Log Analytics 工作区，请使用组织帐户或先前设置的 Microsoft 帐户登录到 Azure 门户。 门户与 Log Analytics 服务之间的所有流量通过安全 HTTPS 通道发送。 使用门户时，会在用户客户端（Web 浏览器）上生成会话 ID，会将数据存储在本地缓存中，直到该会话终止。 终止后，会删除该缓存。 不会自动删除不包含个人身份信息的客户端 Cookie。 会话 Cookie 标记为 HTTPOnly，并且受到保护。 在预先确定的空闲期过后，会终止 Azure 门户会话。
 
+
+## <a name="additional-security-features"></a>附加安全功能
+可以使用这些附加安全功能来进一步保护 Azure Monitor/Log Analytics 环境。 这些功能需要更多的管理员管理工作。 
+- [客户管理的（安全）密钥](customer-managed-keys.md) - 可以使用客户管理的密钥来加密发送到 Log Analytics 工作区的数据。 它需要使用 Azure Key Vault。 
 ## <a name="next-steps"></a>后续步骤
 * 遵循 [Azure VM 快速入门](../learn/quick-collect-azurevm.md)，了解如何使用 Log Analytics 收集 Azure VM 的数据。  
 

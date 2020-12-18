@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: ae3ba48f7047f7c61c57e050fd746839b96ab024
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/08/2020
+ms.openlocfilehash: 27560e00f99de57f267df60cc7bedd13bc9f1469
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638279"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104741"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>使用 Azure 数据资源管理器（预览版）查询 Azure Monitor 中的数据
 通过 Azure 数据资源管理器代理群集，可以在 Azure Monitor 中的 Azure 数据资源管理器、Log Analytics 工作区和经典 Application Insights 应用程序之间执行跨产品查询。 可以将 Azure Monitor 中的 Log Analytics 工作区或经典 Application Insights 应用映射为代理群集。 然后，可以使用 Azure 数据资源管理器工具查询代理群集，并在跨群集查询中引用该群集。 本文介绍如何连接到代理群集、将代理群集添加到 Azure 数据资源管理器 Web UI，然后从 Azure 数据资源管理器针对 Log Analytics 工作区或经典 Application Insights 应用运行查询。
@@ -85,13 +85,13 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-使用 [`join` 运算符](/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)（而不是 union）可能需要[提示](/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints)才能针对 Azure 数据资源管理器本机群集（而不是针对代理）运行查询。 
+使用 [`join` 运算符](/data-explorer/kusto/query/joinoperator?pivots=azuremonitor)（而不是 union）可能需要[提示](/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints)才能针对 Azure 数据资源管理器本机群集（而不是针对代理）运行查询。 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>将一个租户的 Azure 数据资源管理器群集中的数据与另一个租户的 Azure Monitor 资源联接
 
 Azure 数据资源管理器代理 proxy 不支持跨租户查询。 你已登录到单个租户，以跨两个资源运行查询。
 
-如果 Azure 数据资源管理器资源位于租户“A”中，而 Log Analytics 工作区位于租户“B”中，请使用以下方法：
+如果 Azure 数据资源管理器资源位于租户“A”中，Log Analytics 工作区位于租户“B”中，那么请使用下述两种方法之一：
 
 - 通过 Azure 数据资源管理器，可以为不同租户中的主体添加角色。 在 Azure 数据资源管理器群集上将用户 ID 作为授权用户添加到租户“B”中。 验证 Azure 数据资源管理器群集上的[“TrustedExternalTenant”](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)属性是否包含租户“B”。 在租户“B”中完全运行交叉查询。
 

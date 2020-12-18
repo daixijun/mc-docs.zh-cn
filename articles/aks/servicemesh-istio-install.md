@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中安装和使
 ms.topic: article
 origin.date: 10/02/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: a867e8b4d7f5e9e623b2c4105ddadd06ad3f694f
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 02eebd1e4ca0e24e50f69eeae1031ae06e730700
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470204"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004170"
 ---
 <!--CORRECT ON client-operating-system-->
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
@@ -39,7 +39,7 @@ ms.locfileid: "92470204"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.16` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。
+本文中详述的步骤假设你已创建 AKS 群集（已启用 Kubernetes RBAC 的 Kubernetes `1.16` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。
 
 确保你已阅读 [Istio 性能和可伸缩性](https://istio.io/docs/concepts/performance-and-scalability/)文档，以了解在 AKS 群集中运行 Istio 时的其他资源要求。 核心和内存要求将因特定工作负荷而异。 选择适当数量的节点和 VM 大小以适合你的设置。
 

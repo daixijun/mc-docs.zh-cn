@@ -5,18 +5,20 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 75e27c658a72822feea716ef2bc8e8fe07514af8
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 9a4ff2f39350cff5bf280934abd22e90894d6af3
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866674"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105215"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>为 Azure 应用配置使用专用终结点
 
-你可以为 Azure 应用配置使用[专用终结点](../private-link/private-endpoint-overview.md)，以允许虚拟网络 (VNet) 上的客户端通过[专用链接](../private-link/private-link-overview.md)安全地访问数据。 专用终结点为你的应用配置存储使用 VNET 地址空间中的 IP 地址。 VNet 上的客户端与应用配置存储之间的网络流量使用 Microsoft 主干网络上的专用链接穿过 VNet，避免暴露给公共 Internet。
+你可以为 Azure 应用程序配置使用[专用终结点](../private-link/private-endpoint-overview.md)，以允许虚拟网络 (VNet) 上的客户端通过专用链接安全地访问数据。 专用终结点为你的应用配置存储使用 VNET 地址空间中的 IP 地址。 VNet 上的客户端与应用配置存储之间的网络流量使用 Azure 主干网络上的专用链接穿过 VNet，避免暴露给公共 Internet。
+
+<!--Pemdomg pm [private link](../private-link/private-link-overview.md)-->
 
 为应用配置存储使用专用终结点可以实现以下目的：
 - 通过将防火墙配置为阻止公共终结点上到应用配置的所有连接来保护你的应用程序配置详细信息。
@@ -27,7 +29,7 @@ ms.locfileid: "88866674"
 
 专用终结点是用于[虚拟网络](../virtual-network/virtual-networks-overview.md) (VNet) 中的 Azure 服务的特殊网络接口。 为应用配置存储创建专用终结点时，它会在 VNet 上的客户端与配置存储之间提供安全连接。 从 VNet 的 IP 地址范围为专用终结点分配 IP 地址。 专用终结点与配置存储之间的连接使用安全的专用链接。
 
-VNet 中的应用程序可以**使用通过其他方式连接时所用的相同连接字符串和授权机制**通过专用终结点连接到配置存储。 专用终结点可以与应用配置存储支持的所有协议一起使用。
+VNet 中的应用程序可以 **使用通过其他方式连接时所用的相同连接字符串和授权机制** 通过专用终结点连接到配置存储。 专用终结点可以与应用配置存储支持的所有协议一起使用。
 
 虽然应用配置不支持服务终结点，但你可以在使用[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)的子网中创建专用终结点。 子网中的客户端可以使用专用终结点安全地连接到应用配置存储，而使用服务终结点来访问其他位置。  
 
@@ -59,17 +61,16 @@ Azure 依赖于 DNS 解析通过专用链接对从 VNet 到配置存储的连接
 
 ## <a name="pricing"></a>定价
 
-启用专用终结点需要[标准层](https://azure.microsoft.com/pricing/details/app-configuration/)应用配置存储。  若要了解专用链接定价详细信息，请参阅 [Azure 专用链接定价](https://azure.microsoft.com/pricing/details/private-link)。
+启用专用终结点需要[标准层](https://www.azure.cn/pricing/details/app-configuration/)应用配置存储。  若要了解专用链接定价详细信息，请参阅 [Azure 专用链接定价](https://www.azure.cn/pricing/details/private-link)。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何为应用配置存储创建专用终结点，请参阅以下文章：
 
-- [使用 Azure 门户中的“专用链接中心”创建专用终结点](../private-link/create-private-endpoint-portal.md)
-- [使用 Azure CLI 创建专用终结点](../private-link/create-private-endpoint-cli.md)
-- [使用 Azure PowerShell 创建专用终结点](../private-link/create-private-endpoint-powershell.md)
+<!-- [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)-->
+<!-- [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)-->
+<!-- [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)-->
 
 了解如何配置具有专用终结点的 DNS 服务器：
 
-- [Azure 虚拟网络中资源的名称解析](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [专用终结点的 DNS 配置](/private-link/private-endpoint-overview#dns-configuration)
+[Azure 虚拟网络中资源的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+<!-- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)-->

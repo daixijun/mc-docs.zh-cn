@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 5e0db3a37d67f08b1ad02933e4b0312a94eeedc4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5804e74ff946daf66bce2a6ff48134fd1b6bda99
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977494"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105278"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -33,7 +33,7 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
 - 如果群集中需要部署的是标准负载均衡器 (SLB)，而不是基本负载均衡器 (BLB)，请在 AKS 门户/CLI/SDK 中创建群集，然后将该群集附加到 AML 工作区 。
 
-- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](/aks/limit-egress-traffic)。 出口流量一文还指导如何通过公共 IP（几个完全限定域名的 IP 除外）锁定来自群集的出口流量。 启用公共 IP 有两种方法：
+- 如果你的 Azure Policy 限制创建公共 IP 地址，则无法创建 AKS 群集。 AKS 需要一个公共 IP 用于[出口流量](/aks/limit-egress-traffic)。 出口流量一文还指导如何通过公共 IP（几个完全限定的域名的 IP 除外）锁定来自群集的出口流量。 启用公共 IP 有两种方法：
     - 群集可以使用在默认情况下与 BLB 或 SLB 一起创建的公共 IP，或者
     - 可以在没有公共 IP 的情况下创建群集，然后为公共 IP 配置一个带有用户定义路由的防火墙。 有关详细信息，请参阅[使用用户定义的路由自定义群集出口](/aks/egress-outboundtype)。
     
@@ -43,7 +43,9 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
     授权 IP 范围仅适用于标准负载均衡器。
 
-- 如果要使用专用 AKS 群集（使用 Azure 专用链接），则必须先创建群集，然后再将其附加到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](/aks/private-clusters)。
+- 附加 AKS 群集时，它必须与 Azure 机器学习工作区位于同一 Azure 订阅中。
+
+- 如果要使用专用 AKS 群集（使用 Azure 专用链接），则必须先创建群集，然后再将其附加到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](../aks/private-clusters.md)。
 
 - AKS 群集的计算名称在 Azure ML 工作区中必须是唯一的。
     - 名称是必须提供的，且长度必须介于 3 到 24 个字符之间。

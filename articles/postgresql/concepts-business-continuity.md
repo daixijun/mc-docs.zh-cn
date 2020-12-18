@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 08/07/2020
-ms.date: 11/09/2020
-ms.openlocfilehash: d892974982dbaebdeb4fafcff30ddb44b2460130
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/14/2020
+ms.openlocfilehash: cbc4c44fdf714644e86ab10a305ba5182241686c
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328906"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850380"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>有关使用 Azure Database for PostgreSQL - 单一服务器确保业务连续性的概述
 
@@ -22,9 +22,14 @@ ms.locfileid: "94328906"
 
 制定业务连续性计划时，需了解应用程序在破坏性事件发生后完全恢复前的最大可接受时间，即恢复时间目标 (RTO)。 此外，还需要了解从破坏性事件恢复时，应用程序可忍受丢失的最近数据更新（时间间隔）最大数量，即恢复点目标 (RPO)。
 
-Azure Database for PostgreSQL 提供了业务连续性功能，这些功能包括能够启动异地还原的异地冗余备份，以及将只读副本部署到不同区域中的功能。 每种功能在恢复时间和可能丢失数据方面都有不同的特性。 启用[异地还原](concepts-backup.md)功能时，可以使用从另一个区域复制的备份数据创建新的服务器。 还原和恢复所需的总时间取决于数据库的大小和要恢复的日志数量。 建立服务器的总时间从几分钟到几小时不等。 使用[只读副本](concepts-read-replicas.md)，来自主数据库的事务日志会以异步方式流式传输到副本。 主数据库和副本之间的延迟取决于站点之间的延迟以及要传输的数据量。 在主站点发生故障时，升级副本可缩短 RTO 并减少数据丢失。 
+Azure Database for PostgreSQL 提供了业务连续性功能，这些功能包括能够启动异地还原的异地冗余备份，以及将只读副本部署到不同区域中的功能。 每种功能在恢复时间和可能丢失数据方面都有不同的特性。 启用[异地还原](concepts-backup.md)功能时，可以使用从另一个区域复制的备份数据创建新的服务器。 还原和恢复所需的总时间取决于数据库的大小和要恢复的日志数量。 建立服务器的总时间从几分钟到几小时不等。 使用[只读副本](concepts-read-replicas.md)，来自主数据库的事务日志会以异步方式流式传输到副本。 如果由于地区级或区域级故障导致主数据库中断，则故障转移到副本可提供较短的 RTO，并会减少数据丢失的情况。
 
-下表比较了典型方案中的 RTO 和 RPO：
+> [!NOTE]
+> 主数据库和副本之间的延迟取决于站点之间的延迟以及要传输的数据量，最重要的是取决于主服务器的写入工作负载。 大量写入工作负载可能会产生明显的延迟。 
+>
+> 由于用于只读副本的复制技术具有异步特性，因此不应将它们视为高可用性 (HA) 解决方案，更高的延迟可能意味着 RTO 和 RPO 更高。 仅针对在工作负载高峰和非高峰时间延迟仍然较小的工作负载，只读副本才可以用作 HA 的替代方案。 否则，只读副本将用于真正的读取缩放，以应对频繁读取的工作负载和（灾难恢复）DR 场景。
+
+下表比较了典型工作负载中的 RTO 和 RPO：
 
 | **功能** | **基本** | **常规用途** | **内存优化** |
 | :------------: | :-------: | :-----------------: | :------------------: |
@@ -32,7 +37,7 @@ Azure Database for PostgreSQL 提供了业务连续性功能，这些功能包�
 | 从异地复制的备份执行异地还原 | 不支持 | RTO - 可变 <br/>RPO < 1 小时 | RTO - 可变 <br/>RPO < 1 小时 |
 | 只读副本 | RTO - 几分钟* <br/>RPO < 5 分钟* | RTO - 几分钟* <br/>RPO < 5 分钟*| RTO - 几分钟* <br/>RPO < 5 分钟*|
 
-\* 在某些情况下，RTO 和 RPO 可能会更高，具体取决于各种因素（包括主数据库工作负载和区域之间的延迟）。 
+ \* 在某些情况下，RTO 和 RPO 可能会更高，具体取决于各种因素（包括站点间的延迟，以及重要的主数据库写入工作负载）。 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>在发生用户或应用程序错误之后恢复服务器
 
@@ -57,7 +62,7 @@ Azure 数据中心会罕见地发生中断。 发生中断时，可能仅导致�
 > 只有当为服务器预配了异地冗余备份存储时，异地还原才是可行的。 如果要从现有服务器的本地冗余切换到异地冗余备份，必须使用现有服务器的 pg_dump 进行转储，然后将其还原到配置了异地冗余的新建服务器中。
 
 ## <a name="cross-region-read-replicas"></a>跨区域只读副本
-可以使用跨区域只读副本来增强业务连续性和灾难恢复规划。 只读副本使用 PostgreSQL 的物理复制技术进行异步更新。 从[只读副本概念文章](concepts-read-replicas.md)详细了解有关只读副本、可用区域以及如何进行故障转移的信息。 
+可以使用跨区域只读副本来增强业务连续性和灾难恢复规划。 只读副本使用 PostgreSQL 的物理复制技术进行异步更新，可能与主数据库之间存在延迟。 从[只读副本概念文章](concepts-read-replicas.md)详细了解有关只读副本、可用区域以及如何进行故障转移的信息。 
 
 ## <a name="faq"></a>常见问题解答
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Azure Database for PostgreSQL 将客户数据存储在何处？

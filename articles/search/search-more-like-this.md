@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: 67c722742417d0700e294e944a8a53319960864e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 12/10/2020
+ms.openlocfilehash: 79639fb35defeb7e8b600730759efb76c435cef3
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021409"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003613"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>Azure 认知搜索中的 moreLikeThis（预览版）
 
@@ -73,4 +73,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 可以使用任何 Web 测试工具来试验此功能。  建议使用 Postman 完成此练习。
 
 > [!div class="nextstepaction"]
-> [使用 Postman 探索 Azure 认知搜索 REST API](search-get-started-postman.md)
+> [探索 Azure 认知搜索 REST API](search-get-started-rest.md)

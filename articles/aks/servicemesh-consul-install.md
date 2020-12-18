@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中安装和使
 ms.topic: article
 origin.date: 10/09/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 89ad07efdf49a4de03d6f263cfafca0de5c1307b
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: b05add8cb78abb7d757a12b8660100e950a6216b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470212"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004173"
 ---
 <!--CORRECT ON client-operating-system-->
 
@@ -38,7 +38,7 @@ ms.locfileid: "92470212"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.13` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。 确保群集在 Linux 节点池中至少有 3 个节点。
+本文中详述的步骤假设你已创建 AKS 群集（已启用 Kubernetes RBAC 的 Kubernetes `1.13` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。 确保群集在 Linux 节点池中至少有 3 个节点。
 
 需要使用 [Helm][helm] 按照这些说明安装 Consul。 建议在群集中正确安装和配置最新的稳定版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。 所有 Consul Pod 也必须按计划在 Linux 节点上运行。
 

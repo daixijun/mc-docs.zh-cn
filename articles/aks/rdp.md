@@ -5,16 +5,17 @@ description: 了解如何与 Azure Kubernetes 服务 (AKS) 群集 Windows Server
 services: container-service
 ms.topic: article
 origin.date: 06/04/2019
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: d68582ea5a5d0ae715385b8bea0e3bcd4a7c29eb
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 69483ab27a415578c931660d4f2b02677ac29313
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021262"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004175"
 ---
 <!--Verified successfully-->
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>使用 RDP 连接到 Azure Kubernetes 服务 (AKS) 群集 Windows Server 节点以进行维护或故障排除
@@ -25,9 +26,9 @@ ms.locfileid: "90021262"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假设你已有一个 AKS 群集，其中包含 Windows Server 节点。 如果需要 AKS 群集，请参阅有关[使用 Azure CLI 创建包含 Windows 容器的 AKS 群集][aks-windows-cli]的文章。 你需要用于想要进行故障排除的 Windows Server 节点的 Windows 管理员用户名和密码。 你还需要一个 RDP 客户端，例如 [Microsoft 远程桌面][rdp-mac]。
+本文假设你已有一个 AKS 群集，其中包含 Windows Server 节点。 如果需要 AKS 群集，请参阅有关[使用 Azure CLI 创建包含 Windows 容器的 AKS 群集][aks-windows-cli]的文章。 你需要用于想要进行故障排除的 Windows Server 节点的 Windows 管理员用户名和密码。 如果不知道用户名和密码，则可以按照[在 Windows VM 中重置远程桌面服务或其管理员密码](../virtual-machines/troubleshooting/reset-rdp.md)中所述的步骤进行重置。 你还需要一个 RDP 客户端，例如 [Microsoft 远程桌面][rdp-mac]。
 
-还需安装并配置 Azure CLI 2.0.61 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>将虚拟机部署到与群集相同的子网
 
@@ -127,15 +128,15 @@ aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67
 
 使用 [Microsoft 远程桌面][rdp-mac]等 RDP 客户端连接到之前创建的虚拟机的公共 IP 地址。
 
-![使用 RDP 客户端连接到虚拟机的图像](media/rdp/vm-rdp.png)
+:::image type="content" source="media/rdp/vm-rdp.png" alt-text="使用 RDP 客户端连接到虚拟机的图像":::
 
 连接到虚拟机后，使用虚拟机内部的 RDP 客户端连接到要进行故障排除的 Windows Server 节点的内部 IP 地址。
 
-![使用 RDP 客户端连接到 Windows Server 节点的图像](media/rdp/node-rdp.png)
+:::image type="content" source="media/rdp/node-rdp.png" alt-text="使用 RDP 客户端连接到 Windows Server 节点的图像":::
 
 现在，你已连接到 Windows Server 节点。
 
-![Windows Server 节点中的 CMD 窗口的图像](media/rdp/node-session.png)
+:::image type="content" source="media/rdp/node-session.png" alt-text="Windows Server 节点中的 CMD 窗口的图像":::
 
 现在，可以在 CMD 窗口中运行任何故障排除命令。 由于 Windows Server 节点使用 Windows Server Core，因此通过 RDP 连接到 Windows Server 节点时，没有完整的 GUI 或其他 GUI 工具。
 
@@ -171,13 +172,12 @@ az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --n
 <!-- INTERNAL LINKS -->
 
 [aks-windows-cli]: windows-container-cli.md
-[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-vm-delete]: https://docs.azure.cn/cli/vm#az-vm-delete
+[az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-vm-delete]: https://docs.azure.cn/cli/vm#az_vm_delete
 [azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [ssh-steps]: ssh.md
 [view-master-logs]: view-master-logs.md
 
-<!-- Update_Description: new article about rdp -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

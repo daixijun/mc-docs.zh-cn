@@ -2,19 +2,19 @@
 title: 标记资源、资源组和订阅以便对其进行逻辑组织
 description: 演示如何应用标记来组织 Azure 资源进行计费和管理。
 ms.topic: conceptual
-origin.date: 07/27/2020
+origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 29bb5f6252fc32985e54e76274963ccc08be6ef6
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e624153af27ad756c7a9eb0d99b721d65b416802
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937272"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004207"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>使用标记对 Azure 资源和管理层次结构进行组织
 
@@ -245,107 +245,200 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="apply-tags"></a>应用标记
 
-将标记添加到资源组或资源时，可以覆盖现有的标记，或将新标记追加到现有标记之后。
+Azure CLI 提供了两个命令用于应用标记 - [az tag create](https://docs.azure.cn/cli/tag#az_tag_create) 和 [az tag update](https://docs.azure.cn/cli/tag#az_tag_update)。 必须具有 Azure CLI 2.10.0 或更高版本。 可以使用 `az version` 检查自己的版本。 若要更新或安装 CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
-若要覆盖资源的标记，请使用：
+az tag create 替换资源、资源组或订阅中的所有标记。 调用该命令时，请传入要标记的实体的资源 ID。
 
-```azurecli
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-若将标记追加到资源的现有标记之后，请使用：
+以下示例将一组标记应用到存储帐户：
 
 ```azurecli
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-若要覆盖资源组的现有标记，请使用：
+该命令完成后，会发现该资源带有两个标记。
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+如果再次运行该命令（但这一次使用不同的标记），则会发现以前的标记已删除。
 
 ```azurecli
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-若要将标记追加到资源组的现有标记之后，请使用：
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+若要将标记添加到已经有标记的资源，请使用 az tag update。 将 --operation 参数设置为 Merge 。
 
 ```azurecli
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-目前，Azure CLI 没有用于将标记应用于订阅的命令。 但是，可以使用 CLI 来部署将标记应用于订阅的 ARM 模板。 请参阅[将标记应用于资源组或订阅](#apply-tags-to-resource-groups-or-subscriptions)。
+你会发现，已将两个新标记添加到了两个现有标记中。
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+每个标记名称只能有一个值。 如果为标记提供新值，则即使使用合并操作，也会替换旧值。 以下示例将 Status 标记从 Normal 更改为 Green。
+
+```azurecli
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+将 --operation 参数设置为 Replace 时，会将现有标记替换为新的标记集 。
+
+```azurecli
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+资源中只会保留新标记。
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+相同的命令也适用于资源组或订阅。 传入要标记的资源组或订阅的标识符。
+
+若要将一组新标记添加到资源组，请使用：
+
+```azurecli
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+若要更新资源组的标记，请使用：
+
+```azurecli
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+若要将一组新标记添加到订阅，请使用：
+
+```azurecli
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+若要更新订阅的标记，请使用：
+
+```azurecli
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### <a name="list-tags"></a>列出标记
 
-若要查看资源的现有标记，请使用：
+若要获取资源、资源组或订阅的标记，请使用 [az tag list](https://docs.azure.cn/cli/tag#az_tag_list) 命令并传入实体的资源 ID。
+
+若要查看资源的标记，请使用：
 
 ```azurecli
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-若要查看资源组的现有标记，请使用：
+若要查看资源组的标记，请使用：
 
 ```azurecli
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-该脚本返回以下格式：
+若要查看订阅的标记，请使用：
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### <a name="list-by-tag"></a>按标记列出
 
-若要获取具有特定标记和值的所有资源，请使用 `az resource list`：
+若要获取具有特定标记名称和值的资源，请使用：
 
 ```azurecli
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-若要获取具有特定标记的资源组，请使用 `az group list`：
+若要获取具有特定标记名称和任意标记值的资源，请使用：
 
 ```azurecli
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+若要获取具有特定标记名称和值的资源组，请使用：
+
+```azurecli
+az group list --tag Dept=Finance
+```
+
+### <a name="remove-tags"></a>删除标记
+
+若要删除特定的标记，请使用 az tag update 并将 --operation 设置为 Delete  。 传入要删除的标记。
+
+```azurecli
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+指定的标记随即被删除。
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+若要删除所有标记，请使用 [az tag delete](https://docs.azure.cn/cli/tag#az_tag_delete) 命令。
+
+```azurecli
+az tag delete --resource-id $resource
 ```
 
 ### <a name="handling-spaces"></a>处理空格
 
-如果标记名称或值包含空格，则必须执行几个额外的步骤。 
-
-Azure CLI 中的 `--tags` 参数可以接受包含字符串数组的字符串。 下面的示例将覆盖一个资源组中的标记，该资源组中的标记包含空格和连字符： 
+如果标记名称或值包含空格，请将它们括在双引号中。
 
 ```azurecli
-TAGS=("Cost Center=Finance-1222" "Location=China North")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-使用 `--tags` 参数创建或更新资源组或资源时，可以使用相同的语法。
-
-若要使用 `--set` 参数更新标记，必须以字符串的形式传递键和值。 下面的示例将单个标记追加到资源组：
-
-```azurecli
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-在此示例中，标记值使用单引号进行标记，因为该值包含连字符。
-
-你可能还需要将标记应用于多个资源。 下面的示例在标记可能包含空格时将资源组中的所有标记应用于其资源：
-
-```azurecli
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="China North"
 ```
 
 ## <a name="templates"></a>模板

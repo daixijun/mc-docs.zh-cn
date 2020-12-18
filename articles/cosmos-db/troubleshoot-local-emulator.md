@@ -1,33 +1,33 @@
 ---
-title: 排查使用 Azure Cosmos 模拟器时出现的问题
-description: 了解如何排查使用 Azure Cosmos 模拟器时出现的服务不可用、证书、加密和版本控制问题。
+title: 排查使用 Azure Cosmos DB 模拟器时出现的问题
+description: 了解如何排查使用 Azure Cosmos DB 模拟器时出现的服务不可用、证书、加密和版本控制问题。
 ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 09/17/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
 ms.custom: contperfq1
-ms.openlocfilehash: b3708167fd67fbd6c1db77989261d6130400b909
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ce918a76e36dd5a6a0f4013e8ad63d4e9f7081d5
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552090"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850797"
 ---
 <!--Verified successfully for troubleshoot-->
-# <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>排查使用 Azure Cosmos 模拟器时出现的问题
+# <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>排查使用 Azure Cosmos DB 模拟器时出现的问题
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-为方便开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 本文中的提示有助于解决在安装或使用 Azure Cosmos 模拟器时遇到的问题。 
+为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 本文中的提示有助于解决在安装或使用 Azure Cosmos DB 模拟器时遇到的问题。 
 
-如果安装了新版本的模拟器并遇到错误，请务必重置数据。 可在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，然后单击“重置数据...”来重置数据。 如果仍无法消除错误，可卸载该模拟器和所有旧版模拟器（如有），删除“C:\Program files\Azure Cosmos DB Emulatorr”目录，并卸载模拟器。 有关说明，请参阅[卸载本地模拟器](local-emulator.md#uninstall)。 如果重置数据没有用，也可导航到 `%LOCALAPPDATA%\CosmosDBEmulator` 位置并删除该文件夹。
+如果安装了新版本的模拟器并遇到错误，请务必重置数据。 重置数据的方法如下：在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，然后单击“重置数据...”。 如果仍无法消除错误，可卸载该模拟器和所有旧版模拟器（如有），删除“C:\Program files\Azure Cosmos DB Emulatorr”目录，并卸载模拟器。 有关说明，请参阅[卸载本地模拟器](local-emulator.md#uninstall)。 如果重置数据没有用，也可导航到 `%LOCALAPPDATA%\CosmosDBEmulator` 位置并删除该文件夹。
 
 ## <a name="troubleshoot-corrupted-windows-performance-counters"></a>排查损坏的 Windows 性能计数器
 
-* 如果 Azure Cosmos 模拟器崩溃，请从 `%LOCALAPPDATA%\CrashDumps` 文件夹收集转储文件，对其进行压缩，然后从 [Azure 门户](https://portal.azure.cn)打开支持票证。
+* 如果 Azure Cosmos DB 模拟器崩溃，请从 `%LOCALAPPDATA%\CrashDumps` 文件夹收集转储文件，对其进行压缩，然后从 [Azure 门户](https://portal.azure.cn)打开支持工单。
 
 * 如果 `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe` 中出现崩溃，这可能表示性能计数器处于损坏状态。 通常，从管理员命令提示符处运行以下命令即可解决此问题：
 
@@ -58,7 +58,7 @@ ms.locfileid: "94552090"
     cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"
     ```
 
-1. 关闭模拟器，监视系统任务栏，确保该程序已关闭。 该过程可能需要一分钟时间。 你也可在 Azure Cosmos 模拟器用户界面中选择“退出”。
+1. 关闭模拟器，监视系统任务栏，确保该程序已关闭。 该过程可能需要一分钟时间。 你也可在 Azure Cosmos DB 模拟器用户界面中选择“退出”。
 
     ```bash
     Microsoft.Azure.Cosmos.Emulator.exe /shutdown
@@ -92,7 +92,7 @@ ms.locfileid: "94552090"
 
 本文介绍了如何调试本地模拟器的问题。 你现在可以继续学习下面的文章：
 
-* [导出供 Java、Python 和 Node.js 应用使用的 Azure Cosmos 模拟器证书](local-emulator-export-ssl-certificates.md)
+* [导出要用于 Java、Python 和 Node.js 应用的 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 * [使用命令行参数和 PowerShell 命令控制模拟器](emulator-command-line-parameters.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

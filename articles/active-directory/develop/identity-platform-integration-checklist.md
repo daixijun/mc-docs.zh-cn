@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 95d77f7713ad7de4b53072f41a65ccede7c89747
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 0a790a1c0a5f1ad046c948a5089d633c7b628dc2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647473"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003677"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft 标识平台最佳做法和建议
 
@@ -32,7 +32,7 @@ ms.locfileid: "88647473"
 
 ## <a name="basics"></a>基础知识
 
-![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 阅读并理解 [Microsoft 平台策略](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)。 确保应用程序符合旨在保护用户和平台的所述条款。
+![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 阅读并理解 [Microsoft 平台策略](https://docs.microsoft.com/legal/microsoft-identity-platform/terms-of-use)。 确保应用程序符合旨在保护用户和平台的所述条款。
 
 ## <a name="ownership"></a>所有权
 
@@ -68,7 +68,7 @@ ms.locfileid: "88647473"
 
 ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 使用新式身份验证解决方案（OAuth 2.0、[OpenID Connect](v2-protocols-oidc.md)）确保用户安全登录。
 
-![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 不要直接对 OAuth 2.0 和 Open ID 等协议进行编程。 请改用 [Microsoft 身份验证库 (MSAL)](msal-overview.md)。 MSAL 库将安全协议安全地包装在一个易用的库中，并且你可以获得对[条件访问](/active-directory/conditional-access/overview)方案的内置支持，以及内置的令牌缓存支持。 有关详细信息，请参阅 Microsoft 支持的[客户端库](reference-v2-libraries.md#microsoft-supported-client-libraries)和[中间件库](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)列表，以及[兼容的第三方客户端库](reference-v2-libraries.md#compatible-client-libraries)列表。<br/><br/>如果必须为身份验证协议手动编写代码，应遵循 [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx) 等方法。 请认真对待每个协议的标准规范中的安全注意事项。
+![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 不要直接对 OAuth 2.0 和 Open ID 等协议进行编程。 请改用 [Microsoft 身份验证库 (MSAL)](msal-overview.md)。 MSAL 库将安全协议安全地包装在一个易用的库中，你可以获得对[条件访问](../conditional-access/overview.md)方案的内置支持，以及内置的令牌缓存支持。 有关详细信息，请参阅 Microsoft 支持的[客户端库](reference-v2-libraries.md#microsoft-supported-client-libraries)和[中间件库](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)列表，以及[兼容的第三方客户端库](reference-v2-libraries.md#compatible-client-libraries)列表。<br/><br/>如果必须为身份验证协议手动编写代码，应遵循 [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx) 等方法。 请认真对待每个协议的标准规范中的安全注意事项。
 
 ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) 将现有应用从 [Azure Active Directory 身份验证库 (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) 迁移到 [Microsoft 身份验证库](msal-overview.md)。 MSAL 是 Microsoft 的最新标识平台解决方案，比 ADAL 更普及。 它适用于 .NET、JavaScript、Android、iOS 和 macOS，并为 Python 和 Java 推出了公共预览版。 详细了解如何迁移 [ADAL.NET](msal-net-migration.md)、[ADAL.js](msal-compare-msal-js-and-adal-js.md) 以及 [ADAL.NET 和 iOS 中介](msal-net-migration-ios-broker.md)应用。
 

@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
 origin.date: 09/13/2019
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 1b1b2d7065eee9ff0a44a158d6e031c3b65e92c7
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: d29a69af7aed4f7c6aea263bf1a8c8c329c151c8
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152935"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850785"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>在 Windows 中排查 Azure 文件存储问题 (SMB)
 
@@ -153,7 +153,7 @@ TcpTestSucceeded : True
 浏览到Azure文件共享所在的存储帐户，单击“访问控制(IAM)”，确保你的用户帐户有权访问该存储帐户。 若要了解详细信息，请参阅[如何使用 Azure 基于角色的访问控制 (Azure RBAC) 来保护存储帐户](../blobs/security-recommendations.md#data-protection)。
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>无法删除 Azure 文件共享中的文件或目录
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>无法修改、移动/重命名或删除文件或目录
 文件共享的主要目的之一是，多个用户和应用程序可以同时与该共享中的文件和目录进行交互。 为了帮助进行此交互，文件共享提供了几种对文件和目录访问进行协调的方式。
 
 通过 SMB 从已装载的 Azure 文件共享打开文件时，应用程序/操作系统会请求文件句柄，该句柄是对文件的引用。 除了别的之外，你的应用程序会在请求文件句柄时指定文件共享模式，该模式指定你对文件的访问的独占性级别（由 Azure 文件存储强制实施）： 

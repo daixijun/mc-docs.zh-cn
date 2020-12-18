@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f7a1e9c9f21ddcbbf41924cb316c56f107fc57f
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: e0602417ae86a19d2662a622c3032d9d86795f8f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327077"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004086"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -664,10 +664,11 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | **操作** | **说明** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | 读取 Azure Active Directory 中 auditLogs 上的所有属性（包括特权属性）。 |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | 读取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 属性。 |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/devices/delete | 删除 Azure Active Directory 中的设备。 |
 | microsoft.directory/devices/disable | 禁用 Azure Active Directory 中的设备。 |
 | microsoft.directory/devices/enable | 启用 Azure Active Directory 中的设备。 |
+| microsoft.directory/devices/extensionAttributes/update | 更新 Azure Active Directory 中 devices.extensionAttributes 属性的所有值。 |
 | microsoft.directory/signInReports/allProperties/read | 读取 Azure Active Directory 中 signInReports 上的所有属性（包括特权属性）。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 读取和配置 Azure 服务运行状况。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 读取和配置 Microsoft 365 服务运行状况。 |
@@ -688,6 +689,7 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.directory/applications/allProperties/allTasks | 创建和删除应用程序，然后读取和更新 Azure Active Directory 中的所有属性。 |
 | microsoft.directory/appRoleAssignments/allProperties/allTasks | 创建和删除 appRoleAssignments，然后读取和更新 Azure Active Directory 中的所有属性。 |
 | microsoft.directory/auditLogs/allProperties/read | 读取 Azure Active Directory 中 auditLogs 上的所有属性（包括特权属性）。 |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/contacts/allProperties/allTasks | 创建和删除联系人，然后读取和更新 Azure Active Directory 中的所有属性。 |
 | microsoft.directory/contracts/allProperties/allTasks | 创建和删除协定，然后读取和更新 Azure Active Directory 中的所有属性。 |
 | microsoft.directory/devices/allProperties/allTasks | 创建和删除设备，然后读取和更新 Azure Active Directory 中的所有属性。 |
@@ -964,6 +966,7 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.directory/applications/basic/read    | 读取 Azure Active Directory 中应用程序的基本属性。 |
 | microsoft.directory/applications/owners/read    | 读取 Azure Active Directory 中的 applications.owners 属性。 |
 | microsoft.directory/applications/policies/read    | 读取 Azure Active Directory 中的 applications.policies 属性。 |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/contacts/basic/read    | 读取 Azure Active Directory 中联系人的基本属性。 |
 | microsoft.directory/contacts/memberOf/read    | 读取 Azure Active Directory 中的 contacts.memberOf 属性。 |
 | microsoft.directory/contracts/basic/read    | 读取 Azure Active Directory 中协定的基本属性。 |
@@ -1144,13 +1147,16 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 
 | **操作** | **说明** |
 | --- | --- |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/contacts/basic/update | 更新 Azure Active Directory 中联系人的基本属性。 |
 | microsoft.directory/contacts/create | 在 Azure Active Directory 中创建联系人。 |
 | microsoft.directory/contacts/delete | 删除 Azure Active Directory 中的联系人。 |
 | microsoft.directory/devices/basic/update | 更新 Azure Active Directory 中设备的基本属性。 |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | 读取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 属性。 |
 | microsoft.directory/devices/create | 在 Azure Active Directory 中创建设备。 |
 | microsoft.directory/devices/delete | 删除 Azure Active Directory 中的设备。 |
+| microsoft.directory/devices/disable | 禁用 Azure Active Directory 中的设备。 |
+| microsoft.directory/devices/enable | 启用 Azure Active Directory 中的设备。 |
+| microsoft.directory/devices/extensionAttributes/update | 更新 Azure Active Directory 中 devices.extensionAttributes 属性的所有值。 |
 | microsoft.directory/devices/registeredOwners/update | 更新 Azure Active Directory 中的 devices.registeredOwners 属性。 |
 | microsoft.directory/devices/registeredUsers/update | 更新 Azure Active Directory 中的 devices.registeredUsers 属性。 |
 | microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 属性。 |
@@ -1306,7 +1312,7 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 
 ### <a name="power-platform-administrator-permissions"></a>Power Platform 管理员权限
 
-可以创建和管理 Microsoft Dynamics 365、PowerApps 和 Microsoft Flow 的所有方面。 
+可以创建和管理 Microsoft Dynamics 365、PowerApps 和 Power Automate 的所有方面。
 
 > [!NOTE]
 > 此角色拥有 Azure Active Directory 外部的其他权限。 有关详细信息，请参阅上面的角色说明。
@@ -1317,7 +1323,7 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.azure.serviceHealth/allEntities/allTasks | 读取和配置 Azure 服务运行状况。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 为目录级服务创建和管理 Azure 支持票证。 |
 | microsoft.dynamics365/allEntities/allTasks | 管理 Dynamics 365 的各个方面。 |
-| microsoft.flow/allEntities/allTasks | 管理 Microsoft Flow 的所有方面。 |
+| microsoft.flow/allEntities/allTasks | 管理 Power Automate 的所有方面。 |
 | microsoft.powerApps/allEntities/allTasks | 管理 PowerApps 的各个方面。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 读取 microsoft.office365.webPortal 中所有资源的基本属性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 读取和配置 Microsoft 365 服务运行状况。 |
@@ -1447,9 +1453,9 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 读取和配置 Azure 服务运行状况。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 为目录级服务创建和管理 Azure 支持票证。 |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 属性。 |
 | microsoft.directory/auditLogs/allProperties/read | 读取 Azure Active Directory 中 auditLogs 上的所有属性（包括特权属性）。 |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | 读取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 属性。 |
 | microsoft.directory/identityProtection/allProperties/read | 读取 microsoft.aad.identityProtection 中的所有资源。 |
 | microsoft.directory/identityProtection/allProperties/update | 更新 microsoft.aad.identityProtection 中的所有资源。 |
 | microsoft.directory/policies/basic/update | 更新 Azure Active Directory 中策略的基本属性。 |
@@ -1499,7 +1505,7 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | **操作** | **说明** |
 | --- | --- |
 | microsoft.directory/auditLogs/allProperties/read | 读取 Azure Active Directory 中 auditLogs 上的所有属性（包括特权属性）。 |
-| microsoft.directory/devices/bitLockerRecoveryKeys/read | 读取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 属性。 |
+| microsoft.directory/bitlockerKeys/key/read | 读取 Azure Active Directory 中的 bitlocker 密钥对象和属性（包括恢复密钥）。 |
 | microsoft.directory/policies/conditionalAccess/basic/read | 读取 Azure Active Directory 中的 policies.conditionalAccess 属性。 |
 | microsoft.directory/signInReports/allProperties/read | 读取 Azure Active Directory 中 signInReports 上的所有属性（包括特权属性）。 |
 | microsoft.aad.identityProtection/allEntities/read | 读取 microsoft.aad.identityProtection 中的所有资源。 |
@@ -1707,9 +1713,9 @@ CRM 服务管理员 | Dynamics 365 管理员 | 44367163-eba1-44c3-98af-f5787879f
 客户密码箱访问审批者 | 客户密码箱访问审批者 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 桌面分析管理员 | 桌面分析管理员 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 设备管理员 | 设备管理员 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-设备联接 | 不推荐使用 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-设备管理器 | 不推荐使用 | 2b499bcd-da44-4968-8aec-78e1674fa64d
-设备用户 | 不推荐使用 | d405c6df-0af8-4e3b-95e4-4d06e542189e
+设备联接 | 已放弃 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+设备管理器 | 已放弃 | 2b499bcd-da44-4968-8aec-78e1674fa64d
+设备用户 | 已放弃 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 目录读者 | 目录读者 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 目录同步帐户 | 不显示，因为不应使用它 | d29b2b05-8046-44ba-8758-1e26182fcf32
 目录编写人员 | 目录编写人员 | 9360feb5-f418-4baa-8175-e2a00bac4301
@@ -1757,7 +1763,7 @@ Teams 设备管理员 | Teams 设备管理员 | 3d762c5a-1b6c-493f-843e-55a3b429
 Teams 服务管理员 | Teams 服务管理员 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 用户 | 未显示，因为无法使用它 | a0b1b346-4d3e-4e8b-98f8-753987be4970
 用户帐户管理员 | 用户管理员 | fe930be7-5e62-47db-91af-98c3a49a38b1
-工作区设备联接 | 不推荐使用 | c34f683f-4d5a-4403-affd-6615e00e3a7f
+工作区设备联接 | 已放弃 | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>已弃用的角色
 
@@ -1779,9 +1785,9 @@ API 名称 | Azure 门户中的名称 | 说明
 -------- | ------------------- | -------------
 公司管理员 | 全局管理员角色 | [为便于阅读，名称已更改](permissions-reference.md#role-template-ids)
 CRM 服务管理员 | Dynamics 365 管理员 | [反映当前产品品牌](permissions-reference.md#role-template-ids)
-设备联接 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
-设备管理器 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
-设备用户 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备联接 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备管理器 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+设备用户 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
 目录同步帐户 | 未显示，因为不应使用它 | [目录同步帐户文档](permissions-reference.md#directory-synchronization-accounts)
 目录编写人员 | 未显示，因为不应使用它 | [目录写入者文档](permissions-reference.md#directory-writers)
 来宾用户 | 未显示，因为无法使用它  | NA
@@ -1790,7 +1796,7 @@ Lync 服务管理员 | Skype for Business 管理员 | [反映当前产品品牌]
 合作伙伴层 2 支持 | 未显示，因为不应使用它 | [合作伙伴二线支持人员文档](permissions-reference.md#partner-tier2-support)
 受限来宾用户 | 未显示，因为无法使用它 | NA
 用户 | 未显示，因为无法使用它 | NA
-工作区设备联接 | 不推荐使用 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
+工作区设备联接 | 已放弃 | [已弃用角色的文档](permissions-reference.md#deprecated-roles)
 
 ## <a name="next-steps"></a>后续步骤
 

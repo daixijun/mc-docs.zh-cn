@@ -2,18 +2,18 @@
 title: 将资源部署到租户
 description: 介绍如何在 Azure 资源管理器模板中的租户范围内部署资源。
 ms.topic: conceptual
-origin.date: 10/22/2020
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6c7eb239c505da445bc839b0164866c5f385d9b6
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: c67decca67aabcf5a6753f67d28cc8e3bdf501af
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024473"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003731"
 ---
 <!--Verified successfully-->
 # <a name="tenant-deployments-with-arm-templates"></a>使用 ARM 模板进行租户部署
@@ -134,14 +134,22 @@ New-AzTenantDeployment `
 
 <!--Not Available on * [Deploy ARM templates from local Shell](deploy-cloud-shell.md)-->
 
+## <a name="deployment-location-and-name"></a>部署位置和名称
+
+对于租户级别的部署，必须提供部署位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。 [订阅](deploy-to-subscription.md)和[管理组](deploy-to-management-group.md)部署也需要位置。 对于[资源组](deploy-to-resource-group.md)部署，资源组的位置用于存储部署数据。
+
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+
+每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 例如，如果在 chinaeast 中创建名为“deployment1”的租户部署，则以后不能创建另一个名为“deployment1”但位置为“chinanorth”的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
+
 ## <a name="deployment-scopes"></a>部署范围
 
-部署到管理组时，可以将资源部署到：
+部署到租户时，可以将资源部署到：
 
 * 租户
 * 租户中的管理组
 * subscriptions
-* 资源组（通过两个嵌套部署）
+* 资源组
 * [扩展资源](scope-extension-resources.md)可应用于资源
 
 部署模板的用户必须有权访问指定的作用域。
@@ -232,38 +240,65 @@ New-AzTenantDeployment `
 }
 ```
 
-## <a name="deployment-location-and-name"></a>部署位置和名称
+### <a name="scope-to-resource-group"></a>将范围限定于资源组
 
-对于租户级别的部署，必须提供部署位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
+还可以将租户中的资源组作为目标。 部署模板的用户必须有权访问指定的作用域。
 
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
-
-每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
-
-## <a name="create-management-group"></a>创建管理组
-
-[以下模板](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg)用于创建管理组。
+若要以租户中的资源组为目标，请使用嵌套部署。 设置 `subscriptionId` 和 `resourceGroup` 属性。 不要为嵌套部署设置位置，因为它部署在资源组的位置。
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
   "resources": [
     {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedRGDeploy",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroup": "demoResourceGroup",
       "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              resource-group-resources
+            }
+          ]
+        }
       }
     }
   ]
 }
+```
+
+## <a name="create-management-group"></a>创建管理组
+
+以下模板用于创建管理组。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "mgName": {
+        "type": "string",
+        "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Management/managementGroups",
+        "apiVersion": "2020-02-01",
+        "name": "[parameters('mgName')]",
+        "properties": {
+        }
+      }
+    ]
+  }
+
 ```
 
 ## <a name="assign-role"></a>分配角色
@@ -290,14 +325,13 @@ New-AzTenantDeployment `
     }
   },
   "variables": {
-    // This creates an idempotent guid for the role assignment
     "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
   },
   "resources": [
     {
       "name": "[variables('roleAssignmentName')]",
       "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
+      "apiVersion": "2020-03-01-preview",
       "properties": {
         "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
         "principalId": "[parameters('principalId')]",

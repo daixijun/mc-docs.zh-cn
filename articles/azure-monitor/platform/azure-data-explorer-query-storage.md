@@ -6,13 +6,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.reviewer: bwren
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: e2611ffc0d5dd2e6b94374a180fd766ef115545d
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/07/2020
+ms.openlocfilehash: 4f47a75c428caafe8053561dd0f0bace6e9e074a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638280"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104736"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>使用 Azure 数据资源管理器查询从 Azure Monitor 中导出的数据（预览版）
 将数据从 Azure Monitor 导出到 Azure 存储帐户可以实现低成本保留，并能够将日志重新分配到不同的区域。 使用 Azure 数据资源管理器可查询从 Log Analytics 工作区导出的数据。 配置后，从你的工作区发送到 Azure 存储帐户的受支持的表将可用作 Azure 数据资源管理器的数据源。
@@ -56,12 +56,12 @@ ms.locfileid: "94638280"
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -121,7 +121,8 @@ Write-Host -ForegroundColor Green $createMapping
 [![示例输出](./media/azure-data-explorer-query-storage/external-table-create-command-output.png)](./media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->复制、粘贴，然后在 Azure 数据资源管理器客户端工具中运行脚本的输出，以创建表和映射。
+>* 复制、粘贴，然后在 Azure 数据资源管理器客户端工具中运行脚本的输出，以创建表和映射。
+>* 若要使用容器内的所有数据，请更改脚本并将 URL 更改为“https://your.blob.core.chinacloudapi.cn/containername;SecKey”
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器查询导出的数据 
 

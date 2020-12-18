@@ -4,22 +4,24 @@ description: 使用 Application Insights 监视 Java 网站的扩展性能和使
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/10/2019
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: devx-track-java
-ms.openlocfilehash: 3fe628c563955545e499247ca74c6c585b33cba7
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 3efb5439c5b631db46b0e81bfb382e299795ee15
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638201"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104458"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>监视 Java Web 应用中的依赖项、捕获的异常和方法执行时间
 
+> [!IMPORTANT]
+> 监视 Java 应用程序的建议方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
 
-如果已[使用 Application Insights 检测了 Java Web 应用][java]，则无需更改任何代码，就能使用 Java 代理来获取更深入的见解：
+如果已[使用 Application Insights SDK 检测了 Java Web 应用][java]，则无需更改任何代码，就能使用 Java 代理来获取更深入的见解：
 
-* **依赖项：** 有关应用程序对其他组件的调用数据，包括：
+* **依赖项：** 有关应用程序对其他组件的调用的数据，包括：
   * 捕获通过 Apache HttpClient、OkHttp 和 `java.net.HttpURLConnection` 进行的 **传出 HTTP 调用**。
   * 捕获通过 Jedis 客户端进行的 **Redis 调用**。
   * **JDBC 查询** - 对于 MySQL 和 PostgreSQL，如果调用花费的时间长于 10 秒，代理将报告查询计划。
@@ -29,7 +31,7 @@ ms.locfileid: "94638201"
   * **Log4j2**
   * **Logback**
 
-* **更好的操作命名：** （用于在门户中对请求进行聚合）
+* **更好的操作命名：**（用于在门户中对请求进行聚合）
   * **Spring** - 基于 `@RequestMapping`。
   * **JAX-RS** - 基于 `@Path`。 
 
@@ -93,7 +95,7 @@ ms.locfileid: "94638201"
 有关 Java 代理的最新版本，请在[此处](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )查看版本。 
 
-代理必须打包为项目中的资源，以便它最终位于 D:/home/site/wwwroot/ 目录中。 可以通过转到“开发工具”   > “高级工具”   > “调试控制台”  并查看站点目录的内容，确认你的代理处于正确的应用服务目录中。    
+代理必须打包为项目中的资源，以便它最终位于 D:/home/site/wwwroot/ 目录中。 可以通过转到“开发工具” > “高级工具” > “调试控制台”并查看站点目录的内容，确认你的代理处于正确的应用服务目录中。    
 
 * 保存设置并重启应用。 （这些步骤仅适用于 Windows 上运行的应用程序服务。）
 
@@ -117,7 +119,7 @@ ms.locfileid: "94638201"
 
 理想情况下，所有服务都已更新为支持 W3C 协议的较新版 SDK 时，就会出现这种情况。 强烈建议尽快迁移到提供 W3C 支持的新版 SDK。
 
-请确保[传入](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps)和传出（代理）配置完全相同  。
+请确保[传入](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps)和传出（代理）配置完全相同。
 
 ## <a name="view-the-data"></a>查看数据
 在 Application Insights 资源中，聚合的远程依赖项和方法执行时间显示在[“性能”磁贴下][metrics]。
@@ -136,7 +138,6 @@ ms.locfileid: "94638201"
 [apiexceptions]: ./api-custom-events-metrics.md#track-exception
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md

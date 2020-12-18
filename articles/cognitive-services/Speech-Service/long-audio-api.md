@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/11/2020
-ms.date: 09/02/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
-ms.openlocfilehash: 04d1567684216cbee465a77f94033d762670221a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: ca81702ca3b6ca0b8f889e112532d851ba2e4b5a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128324"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004142"
 ---
 # <a name="long-audio-api-preview"></a>长音频 API（预览）
 
@@ -28,7 +28,7 @@ ms.locfileid: "92128324"
 * 无需部署语音终结点，因为它可以在非实时批处理模式下合成语音。
 
 > [!NOTE]
-> 长音频 API 现在支持[公共神经网络语音](https://docs.azure.cn/cognitive-services/speech-service/language-support#neural-voices)。
+> 长音频 API 现在支持[公共神经语音](./language-support.md#neural-voices)和[自定义神经语音](./how-to-custom-voice.md#custom-neural-voices)。
 
 ## <a name="workflow"></a>工作流
 
@@ -45,7 +45,7 @@ ms.locfileid: "92128324"
 * 为纯文本 (.txt) 或 SSML 文本 (.txt)
 * 编码为[包含字节顺序标记 (BOM) 的 UTF-8](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * 为单个文件，而不是 zip
-* 包含 400 多个字符（对于纯文本），或包含 400 个[可计费字符](https://docs.azure.cn/cognitive-services/speech-service/text-to-speech#pricing-note)（对于 SSML 文本），并小于 10,000 个段落
+* 包含 400 多个字符（对于纯文本），或包含 400 个[可计费字符](./text-to-speech.md#pricing-note)（对于 SSML 文本），并小于 10,000 个段落
   * 对于纯文本，通过点击 Enter/Return 来分隔每个段落 - 请查看[纯文本输入示例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * 对于 SSML 文本，每个 SSML 部分都被视为一个段落。 SSML 部分将分隔为不同的段落 - 请查看 [SSML 文本输入示例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -115,7 +115,7 @@ Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xx
 在纯文本或 SSML 文本中准备输入文本文件，然后将以下代码添加到 `voice_synthesis_client.py`：
 
 > [!NOTE]
-> “concatenateResult”是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 你还可以通过设置该参数，将音频连接成 1 个输出。 默认情况下，音频输出设置为 riff-16khz-16bit-mono-pcm。 有关支持的音频输出的详细信息，请参阅[音频输出格式](https://docs.azure.cn/cognitive-services/speech-service/long-audio-api#audio-output-formats)。
+> “concatenateResult”是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 你还可以通过设置该参数，将音频连接成 1 个输出。 默认情况下，音频输出设置为 riff-16khz-16bit-mono-pcm。 有关支持的音频输出的详细信息，请参阅[音频输出格式](#audio-output-formats)。
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')

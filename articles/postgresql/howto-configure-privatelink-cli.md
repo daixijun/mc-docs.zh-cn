@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
 origin.date: 01/09/2020
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6f65d7c48c76e3916165e85a8c2150f8f443375f
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 03253877b6d48e5ad97ef4ccfcef1014d42b2cfe
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470588"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850823"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>使用 CLI 创建和管理 Azure Database for PostgreSQL（单一服务器）的专用链接
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>禁用子网专用终结点策略 
-Azure 会将资源部署到虚拟网络中的子网，因此，你需要创建或更新子网，以禁用专用终结点网络策略。 使用 [az network vnet subnet update](/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
+Azure 会将资源部署到虚拟网络中的子网，因此，你需要创建或更新子网，以禁用专用终结点网络策略。 使用 [az network vnet subnet update](/cli/network/vnet/subnet#az-network-vnet-subnet-update) 更新名为 *mySubnet* 的子网配置：
 
 ```azurecli
 az network vnet subnet update \
@@ -66,10 +66,11 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  记下 VM 的公共 IP 地址。 在下一步中，此地址将用于从 Internet 连接到 VM。
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>创建 Azure Database for PostgreSQL（单一服务器） 
-使用 az postgres server create 命令创建 Azure Database for PostgreSQL。 请记住，PostgreSQL 服务器名称必须在 Azure 中是唯一的，因此请将括号中的占位符值替换为你自己的唯一值： 
+使用 az postgres server create 命令创建 Azure Database for PostgreSQL。 请记住，PostgreSQL 服务器名称必须在 Azure 中是唯一的，因此请将占位符值替换为你上面使用的唯一值： 
 
 ```azurecli
 # Create a server in the resource group 
@@ -98,6 +99,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>配置专用 DNS 区域 
 为 PostgreSQL 服务器域创建专用 DNS 区域，并创建一个与虚拟网络关联的链接。 
+
 ```azurecli
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.chinacloudapi.cn" 
@@ -125,28 +127,28 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > 在某些情况下，Azure Database for PostgreSQL 和 VNet 子网位于不同的订阅中。 在这些情况下，必须确保以下配置：
-> - 请确保两个订阅都注册了 Microsoft.DBforPostgreSQL 资源提供程序。 有关详细信息，请参阅[资源管理器注册][resource-manager-portal]
+> - 请确保两个订阅都注册了 Microsoft.DBforPostgreSQL 资源提供程序。 有关详细信息，请参阅[资源提供程序](../azure-resource-manager/management/resource-providers-and-types.md)。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-从 Internet 连接到 VM *myVm* ，如下所示：
+从 Internet 连接到 VM *myVm*，如下所示：
 
-1. 在门户的搜索栏中，输入 *myVm* 。
+1. 在门户的搜索栏中，输入 *myVm*。
 
 1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
-1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp* ) 文件，并将其下载到计算机。
+1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
 
 1. 打开 downloaded.rdp 文件。
 
-    1. 出现提示时，选择“连接”  。
+    1. 出现提示时，选择“连接”。
 
     1. 输入在创建 VM 时指定的用户名和密码。
 
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定” 。
+1. 选择“确定”。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -158,27 +160,28 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 2. 输入  `nslookup mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn`。 
 
-    将收到类似于下面的消息：
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn
-    Address:  10.1.3.4
-    ```
+   将收到类似于下面的消息：
 
-3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 在以下示例中，我使用了 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) 来执行该操作。
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn
+   Address:  10.1.3.4
+   ```
+
+3. 使用任何可用的客户端测试 PostgreSQL 服务器的专用链接连接。 以下示例使用 [Azure 数据工作室](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true)来执行该操作。
 
 4. 在“新建连接”中，输入或选择以下信息：
 
-    | 设置 | Value |
-    | ------- | ----- |
-    | 服务器类型| 选择“PostgreSQL”。|
-    | 服务器名称| 选择“mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn” |
-    | 用户名 | 以 username@servername 形式输入用户名，这是在 PostgreSQL 服务器创建过程中提供的。 |
-    |密码 |输入创建 PostgreSQL 服务器期间提供的密码。 |
-    |SSL|选择“必需”。|
-    ||
+   | 设置 | 值 |
+   | ------- | ----- |
+   | 服务器类型| 选择“PostgreSQL”。|
+   | 服务器名称| 选择“mydemopostgresserver.privatelink.postgres.database.chinacloudapi.cn” |
+   | 用户名 | 以 username@servername 形式输入用户名，这是在 PostgreSQL 服务器创建过程中提供的。 |
+   |密码 |输入创建 PostgreSQL 服务器期间提供的密码。 |
+   |SSL|选择“必需”。|
+   ||
 
 5. 选择“连接”。
 

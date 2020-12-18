@@ -1,7 +1,7 @@
 ---
 title: 什么是工作区
 titleSuffix: Azure Machine Learning
-description: 工作区是 Azure 机器学习的顶级资源。 它保留所有训练运行的历史记录，包括日志、指标、输出和脚本快照。 使用此信息可以确定哪个训练运行产生最佳模型
+description: 工作区是 Azure 机器学习的顶级资源。 它保留所有训练运行的历史记录，包括日志、指标、输出和脚本快照。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: v-yiso
 author: sdgilley
 origin.date: 09/22/2020
 ms.date: 10/26/2020
-ms.openlocfilehash: 72906de711e25d35bb36f703fc3e2f4a6194eeb5
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d87b66cea590c80591e42c794f05f74cc26dc922
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978155"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105286"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什么是 Azure 机器学习工作区？
 

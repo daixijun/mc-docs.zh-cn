@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/09/2020
 ms.author: v-junlch
 author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33d6d3f65e9e59bbb1940424da51249ee6033d37
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 670b7dedec3b6d0e8c634dccaddc423d92347c9e
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508737"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003813"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>规划 Azure Active Directory 自助式密码重置部署
 
@@ -111,7 +111,7 @@ Azure Active Directory 按用户许可，这意味着，每个用户需要为其
 
 Microsoft 建议组织为 SSPR 和多重身份验证启用组合注册体验。 启用此组合注册体验后，用户只需选择其注册信息一次即可启用这两项功能。
 
-组合注册体验不需要组织同时启用 SSPR 和 Azure 多重身份验证。 组合注册为组织提供更好的用户体验。
+组合注册体验不需要组织同时启用 SSPR 和 Azure AD 多重身份验证。 组合注册为组织提供更好的用户体验。
 
 ## <a name="plan-the-deployment-project"></a>规划部署项目
 
@@ -168,7 +168,7 @@ Microsoft 建议组织为 SSPR 和多重身份验证启用组合注册体验。 
 
 ### <a name="authentication-methods"></a>身份验证方法
 
-启用 SSPR 后，仅当用户在管理员启用的身份验证方法中提供了数据时，他们才能重置其密码。 方法包括电话呼叫、Authenticator 应用通知、安全性问题等。 
+启用 SSPR 后，仅当用户在管理员启用的身份验证方法中提供了数据时，他们才能重置其密码。 方法包括电话呼叫、Authenticator 应用通知、安全性问题等。
 
 我们建议使用以下身份验证方法设置：
 
@@ -317,11 +317,11 @@ Azure AD 可以通过审核和报告提供有关 SSPR 性能的附加信息。
 
 ### <a name="authentication-methods--usage-and-insights"></a>身份验证方法 - 使用情况和见解
 
-使用[使用情况和见解](./howto-authentication-methods-usage-insights.md)可以了解针对 Azure MFA 和 SSPR 等功能的身份验证方法在组织中的运作方式。 此报告功能可让组织了解注册的方法，以及这些方法的用法。
+可以通过[使用情况和见解](./howto-authentication-methods-usage-insights.md)了解针对 Azure AD MFA 和 SSPR 等功能的身份验证方法在组织中的使用方式。 此报告功能可让组织了解注册的方法，以及这些方法的用法。
 
 ### <a name="troubleshoot"></a>故障排除
 
-* 参阅[排查自助式密码重置问题](./active-directory-passwords-troubleshoot.md) 
+* 参阅[排查自助式密码重置问题](./troubleshoot-sspr.md) 
 
 * 遵循[密码管理常见问题解答](./active-directory-passwords-faq.md) 
 

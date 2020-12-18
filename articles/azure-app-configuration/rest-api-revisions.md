@@ -5,26 +5,25 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: 17c825879d4614652033d09eed1c4061b68190b3
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: a59d804dce4a71f5cda955c72f6153515f54f523
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231113"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105186"
 ---
 # <a name="key-value-revisions"></a>键/值修订版
 
-api-version：1.0
-
-“键/值修订版”定义了键/值资源的历史表示形式。 对于免费层存储，修订版会在 7 天后过期；对于标准层存储，则在 30 天后过期。 修订版支持以下操作：
-
-- 列出
+“键/值修订版”定义了键/值资源的历史表示形式。 对于免费层存储，修订版会在 7 天后过期；对于标准层存储，则在 30 天后过期。 修订版支持 `List` 操作。
 
 对于所有操作，``key`` 为可选参数。 如果省略，则暗指任何键。
+
 对于所有操作，``label`` 为可选参数。 如果省略，则暗指任何标签。
 
-## <a name="prerequisites"></a>必备条件
+本文适用于 API 版本 1.0。
+
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>分页
 
-如果返回的项数超过响应限制，则会对结果进行分页。 按照可选 ``Link`` 响应标头进行操作并使用 ``rel="next"`` 进行导航。  也可让内容以 ``@nextLink`` 属性的形式提供下一个链接。
+如果返回的项数超过响应限制，则会对结果进行分页。 按照可选 ``Link`` 响应标头进行操作并使用 ``rel="next"`` 进行导航。 或者，内容以 ``@nextLink`` 属性的形式提供下一个链接。
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>列出修订版的子集
 
-使用 `Range` 请求标头。 响应会包含 `Content-Range` 标头。 如果服务器不能满足所请求的范围，则会以“HTTP `416` (RangeNotSatisfiable)”进行响应
+使用 `Range` 请求标头。 响应包含一个 `Content-Range` 标头。 如果服务器不能满足所请求的范围，则会以“HTTP `416` (`RangeNotSatisfiable`)”进行响应。
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,6 +134,8 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>保留字符
 
+保留字符为：
+
 `*`, `\`, `,`
 
 如果保留字符是值的一部分，则必须使用 `\{Reserved Character}` 对其进行转义。 非保留字符也可以进行转义。
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>示例
 
-- 全部
+- 所有：
 
     ```http
     GET /revisions
     ```
 
-- 其中的键名称以“abc”开头的项
+- 其中的键名称以“abc”开头的项：
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- 其中的键名称为“abc”或“xyz”且标签包含“prod”的项
+- 其中的键名称为“abc”或“xyz”且标签包含“prod”的项：
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -180,7 +181,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>请求特定字段
 
-使用可选的 `$select` 查询字符串参数，并提供所请求字段的逗号分隔列表。 如果省略 `$select` 参数，则响应会包含默认集。
+使用可选的 `$select` 查询字符串参数，并提供逗号分隔的所请求字段列表。 如果省略 `$select` 参数，则响应会包含默认集。
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
@@ -188,7 +189,7 @@ GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/
 
 ## <a name="time-based-access"></a>基于时间的访问
 
-获得结果在过去的表现形式。 请参阅 [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1) 部分
+获得结果在过去的表现形式。 有关详细信息，请参阅[用于对资源状态进行基于时间的访问的 HTTP 框架 - Memento](https://tools.ietf.org/html/rfc7089#section-2.1) 的 2.1.1 部分。
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

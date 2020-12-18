@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 12/02/2019
 ms.date: 08/31/2020
-ms.openlocfilehash: 5a13b5a4383305ec0951441c7f4396a86769965b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 634a153805205c5f8a24d3723d03d4eea33d5a72
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552598"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105111"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 群集管理最佳做法
 
@@ -50,7 +50,7 @@ ms.locfileid: "94552598"
 
 | 错误 | 详细信息 |
 |---|---|
-| 没有配额 | 可以在每个区域的订阅上创建配额数的配额。 有关详细信息，请参阅[容量规划：配额](./hdinsight-capacity-planning.md)。 |
+| 没有配额 | 可在每个区域的订阅上创建的内核数是有配额的。 有关详细信息，请参阅[容量规划：配额](./hdinsight-capacity-planning.md)。 |
 | 没有更多的可用 IP 地址 | 每个 VNet 都有有限数量的 IP 地址。 创建 HDInsight 群集时，每个节点（包括 zookeeper 和网关节点）将使用其中一些分配的 IP 地址。 如果所有 IP 地址都在使用中，则会遇到此错误。  |
 | 网络安全组 (NSG) 规则不允许与 HDInsight 资源提供程序通信 | 如果使用 NSG 或用户定义的路由 (UDR) 来控制流向 HDInsight 群集的入站流量，则必须确保群集能够与关键的 Azure 运行状况和管理服务通信。 有关详细信息，请参阅 [Azure HDInsight 的网络安全组 (NSG) 服务标记](./hdinsight-service-tags.md) |
 | 重新使用群集名称 | 使用之前已用过的群集名称时，需要等待 X 分钟，然后再重新创建群集。 否则会看到一条消息，指出该资源已存在。 |
@@ -62,7 +62,8 @@ ms.locfileid: "94552598"
 | 自动缩放 | [自动缩放 Azure HDInsight 群集](./hdinsight-autoscale-clusters.md) |
 | 手动缩放 | [缩放 Azure HDInsight 群集](./hdinsight-scaling-best-practices.md) |
 | 使用 Ambari 进行监视| [在 Azure HDInsight 中监视群集性能](./hdinsight-key-scenarios-to-monitor.md) |
-| 服务问题、计划内维护、运行状况和安全公告 | [订阅特定于订阅的服务运行状况警报](/service-health/alerts-activity-log-service-notifications-portal) |
+| 服务问题、计划内维护、运行状况和安全公告 | [订阅特定于订阅的服务运行状况警报](../service-health/alerts-activity-log-service-notifications-portal.md) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>如何检查已删除的 HDInsight 群集？
 

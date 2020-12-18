@@ -6,16 +6,16 @@ documentationcenter: .net
 ms.topic: conceptual
 origin.date: 02/01/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 499a6b13216cc9b5de982c70c9eed81a799bb4dd
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6d6ad19d1d50c6d372f1269679b2b3732682d1a4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328679"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105231"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure 上 Service Fabric 群集的概述
 Service Fabric 群集是一组通过网络连接在一起的虚拟机或物理计算机，微服务会在其中部署和管理。 群集中的计算机或 VM 称为群集节点。 群集可以扩展到数千个节点。 如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡服务分区副本和实例。 应用程序总体性能提高，访问内存的争用减少。 如果没有高效使用群集中的节点，可以减少群集中节点的数量。 Service Fabric 会再次在减少的节点间重新平衡分区副本和实例以更加充分利用每个节点上的硬件。
@@ -34,7 +34,7 @@ Azure 上的 Service Fabric 群集是一种 Azure 资源，它使用其他 Azure
 ![Service Fabric 群集][Image]
 
 ### <a name="virtual-machine"></a>虚拟机
-作为群集一部分的[虚拟机](../virtual-machines/index.yml)称为节点，但从技术上讲，群集节点是指 Service Fabric 运行时进程。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如[放置属性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每个计算机或 VM 都有一个自动启动服务 *FabricHost.exe* ，此服务在引导时开始运行，并启动两个可执行文件 *Fabric.exe* 和 *FabricGateway.exe* ，这两个可执行文件便构成了节点。 生产部署是每个物理或虚拟机一个节点。 在测试方案中，可以通过运行 *Fabric.exe* 和 *FabricGateway.exe* 的多个实例，在单台计算机或 VM 上托管多个节点。
+作为群集一部分的[虚拟机](../virtual-machines/index.yml)称为节点，但从技术上讲，群集节点是指 Service Fabric 运行时进程。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如[放置属性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每个计算机或 VM 都有一个自动启动服务 *FabricHost.exe*，此服务在引导时开始运行，并启动两个可执行文件 *Fabric.exe* 和 *FabricGateway.exe*，这两个可执行文件便构成了节点。 生产部署是每个物理或虚拟机一个节点。 在测试方案中，可以通过运行 *Fabric.exe* 和 *FabricGateway.exe* 的多个实例，在单台计算机或 VM 上托管多个节点。
 
 每个 VM 均与虚拟网络接口卡 (NIC) 相关联，并且每个 NIC 均分配有一个专用 IP 地址。  VM 通过 NIC 分配给虚拟网络和本地均衡器。
 
@@ -53,7 +53,7 @@ Azure 上的 Service Fabric 群集是一种 Azure 资源，它使用其他 Azure
 ### <a name="azure-load-balancer"></a>Azure 负载均衡器
 VM 实例在 [Azure 负载均衡器](../load-balancer/load-balancer-overview.md)后面联接，该负载均衡器与[公共 IP 地址](../virtual-network/public-ip-addresses.md)和 DNS 标签相关联。  使用 *&lt;clustername&gt;* 预配群集时，DNS 名称 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 便是与规模集前面的负载均衡器相关联的 DNS 标签。
 
-群集中的 VM 只有[专用 IP 地址](../virtual-network/private-ip-addresses.md)。  管理流量和服务流量通过面向公众的负载均衡器进行路由。  网络流量通过 NAT 规则（客户端连接到特定节点/实例）或负载均衡规则（流量进入 VM 轮循机制）路由到这些计算机。  负载均衡器具有关联的公共 IP，其 DNS 名称的格式为： *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 。  公共 IP 是资源组中的另一个 Azure 资源。  如果在群集中定义多个节点类型，则会为每个节点类型/规模集创建一个负载均衡器。 或者，可以为多个节点类型设置单个负载均衡器。  主节点类型具有 DNS 标签 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* ，其他节点类型具有 DNS 标签 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 。
+群集中的 VM 只有[专用 IP 地址](../virtual-network/private-ip-addresses.md)。  管理流量和服务流量通过面向公众的负载均衡器进行路由。  网络流量通过 NAT 规则（客户端连接到特定节点/实例）或负载均衡规则（流量进入 VM 轮循机制）路由到这些计算机。  负载均衡器具有关联的公共 IP，其 DNS 名称的格式为： *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*。  公共 IP 是资源组中的另一个 Azure 资源。  如果在群集中定义多个节点类型，则会为每个节点类型/规模集创建一个负载均衡器。 或者，可以为多个节点类型设置单个负载均衡器。  主节点类型具有 DNS 标签 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*，其他节点类型具有 DNS 标签 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*。
 
 ### <a name="storage-accounts"></a>存储帐户
 每个群集节点类型均受 [Azure 存储帐户](../storage/common/storage-introduction.md)和托管磁盘的支持。
@@ -74,11 +74,11 @@ Service Fabric 群集是你拥有的资源。  你应保护群集，防止未经
 有关详细信息，请阅读[客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>基于角色的访问控制
-基于角色的访问控制 (RBAC) 允许对 Azure 资源分配细粒度的访问控制。  你可以为订阅、资源组和资源分配不同的访问规则。  除非在较低级别被覆盖，否则将沿资源层次结构继承 RBAC 规则。  可以使用 RBAC 规则在 AAD 上分配任何用户或用户组，以便指定的用户和组可以修改你的群集。  有关详细信息，请阅读 [Azure RBAC 概述](../role-based-access-control/overview.md)。
+Azure 基于角色的访问控制 (Azure RBAC) 允许对 Azure 资源分配精细的访问控制。  你可以为订阅、资源组和资源分配不同的访问规则。  除非在较低级别被覆盖，否则将按资源层次结构继承 Azure RBAC 规则。  可以使用 Azure RBAC 规则在 AAD 上分配任何用户或用户组，以便指定的用户和组可以修改你的群集。  有关详细信息，请阅读 [Azure RBAC 概述](../role-based-access-control/overview.md)。
 
 Service Fabric 还支持使用访问控制限制对不同用户组的某些群集操作的访问。 这就使得群集更加安全。 连接到群集的客户端支持两种访问控制类型：管理员角色和用户角色。  
 
-有关详细信息，请阅读 [Service Fabric 基于角色的访问控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac)。
+有关详细信息，请阅读 [Service Fabric 基于角色的访问控制](service-fabric-cluster-security.md#service-fabric-role-based-access-control)。
 
 ### <a name="network-security-groups"></a>网络安全组 
 网络安全组 (NSG) 控制子网、VM 或 特定 NIC 的入站和出站流量。  默认情况下，在将多个 VM 放在同一虚拟网络上时，它们可以通过任意端口相互通信。  如果要限制计算机之间的通信，可以将 NSG 定义为对网络进行分段或将 VM 彼此隔离。  如果群集中有多个节点类型，则可以将 NSG 应用于子网，以防止属于不同节点类型的计算机相互通信。  

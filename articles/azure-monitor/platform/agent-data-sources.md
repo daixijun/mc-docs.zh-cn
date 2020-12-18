@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 11/28/2018
-ms.openlocfilehash: 534c187451b5813a1f62751f93e4d3b1eaac96e3
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ea3346a9a3b466e256a1d691525c5acd52cd2eb4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328775"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104973"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 代理数据源
 Azure Monitor 通过 [Log Analytics](log-analytics-agent.md) 代理从虚拟机中收集的数据由你在 [Log Analytics 工作区](data-platform-logs.md)上配置的数据源定义。   每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。
@@ -21,6 +21,9 @@ Azure Monitor 通过 [Log Analytics](log-analytics-agent.md) 代理从虚拟机�
 > 本文介绍 [Log Analytics 代理](log-analytics-agent.md)（Azure Monitor 使用的代理之一）的数据源。 其他代理收集的数据不同，且配置也不同。 有关可用代理及其可收集的数据的列表，请参阅 [Azure Monitor 代理概述](agents-overview.md)。
 
 ![日志数据收集](./media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> 本文中所述的数据源仅适用于运行 Log Analytics 代理的虚拟机。 
 
 ## <a name="summary-of-data-sources"></a>数据源概要介绍
 下表列出了 Log Analytics 代理当前提供的代理数据源。  每个数据源都链接到一篇单独的文章，提供该数据源的详细信息。   它还提供了有关收集方法和收集频率的信息。 

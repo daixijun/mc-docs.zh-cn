@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 31be05b6a6021bd0a24e3ce9abaead048717abfc
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: fb9f0201cff291e0dd910697407949972015cfee
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024582"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004100"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -69,7 +69,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_chi
 还需要在 Linux 节点上计划入口控制器。 Windows Server 节点不应运行入口控制器。 使用 `--set nodeSelector` 参数指定节点选择器，以告知 Kubernetes 计划程序在基于 Linux 的节点上运行 NGINX 入口控制器。
 
 > [!TIP]
-> 以下示例为名为 *ingress-basic* 的入口资源创建 Kubernetes 命名空间。 根据需要为你自己的环境指定一个命名空间。 如果 AKS 群集未启用 RBAC，请将 `--set rbac.create=false` 添加到 Helm 命令中。
+> 以下示例为名为 *ingress-basic* 的入口资源创建 Kubernetes 命名空间。 根据需要为你自己的环境指定一个命名空间。 如果 AKS 群集未启用 Kubernetes RBAC，请将 `--set rbac.create=false` 添加到 Helm 命令中。
 
 > [!TIP]
 > 若要为对群集中容器的请求启用[客户端源 IP 保留][client-source-ip]，请将 `--set controller.service.externalTrafficPolicy=Local` 添加到 Helm install 命令中。 客户端源 IP 存储在 X-Forwarded-For 下的请求头中。 使用启用了“客户端源 IP 保留”的入口控制器时，TLS 直通将不起作用。
@@ -92,8 +92,8 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.image.registry=usgcr.azk8s.cn \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.image.registry=usgcr.azk8s.cn \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-amd64 \
     --set controller.service.loadBalancerIP="STATIC_IP" \
@@ -128,7 +128,7 @@ NGINX 入口控制器支持 TLS 终止。 可通过多种方法为 HTTPS 检索�
 > [!NOTE]
 > 本文为 Let's Encrypt 使用 `staging` 环境。 在生产部署中，请在安装 Helm 图表时使用资源定义中的 `letsencrypt-prod` 和 `https://acme-v02.api.letsencrypt.org/directory`。
 
-若要在启用了 RBAC 的群集中安装 cert-manager 控制器，请使用以下 `helm install` 命令：
+若要在启用了 Kubernetes RBAC 的群集中安装 cert-manager 控制器，请使用以下 `helm install` 命令：
 
 ```console
 # Label the cert-manager namespace to disable resource validation

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/06/2020
-ms.openlocfilehash: cfc792b493f6255575e7b619c69f7279bba322d7
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 752601142ef047b3c35884e96ba16e54efc76557
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329400"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104963"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Azure Monitor 日志中的标准列
 Azure Monitor 日志中的数据[作为一组记录存储在 Log Analytics 工作区或 Application Insights 应用程序](./data-platform-logs.md)中，每条记录都具有特定的数据类型，该数据类型包含一组惟一的列。 许多数据类型都具有在多种类型中通用的标准列。 本文介绍这些列，并提供如何在查询中使用它们的示例。
@@ -80,7 +80,7 @@ search *
 ## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 列包含与记录关联的资源的唯一标识符。 这为你提供了一个标准列，用于将查询范围限定为仅来自特定资源的记录，或者跨多个表联接相关数据。
 
-对于 Azure 资源， **_ResourceId** 的值是 [Azure 资源 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)。 该列目前仅限于 Azure 资源，但它将扩展到 Azure 之外的资源，例如本地计算机。
+对于 Azure 资源， **_ResourceId** 的值是 [Azure 资源 ID URL](../../azure-resource-manager/templates/template-functions-resource.md)。 该列仅限于 Azure 资源或在引入期间指示资源 ID 的自定义日志。
 
 > [!NOTE]
 > 某些数据类型已具有包含 Azure 资源 ID 或至少包含其一部分（例如订阅 ID）的字段。 虽然为了实现向后兼容而保留了这些字段，但是建议使用 _ResourceId 来执行交叉关联，因为它将更为一致。
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-以下查询分析 **_ResourceId** 并聚合每个 Azure 订阅的计费数据量。
+以下查询分析 _ResourceId，并聚合每个 Azure 资源组的计费数据量。
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 请谨慎使用这些 `union withsource = tt *` 查询，因为跨数据类型执行扫描的开销很大。
+
+使用 \_SubscriptionId 列总是比通过分析 \_ResourceId 列来提取它更有效。
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+\_SubscriptionId 列包含与该记录关联的资源的订阅 ID。 这为你提供了一个标准列，用于将查询范围限定为来自特定订阅的记录，或者用于比较不同的订阅。
+
+对于 Azure 资源，__SubscriptionId 的值是 [Azure 资源 ID URL](../../azure-resource-manager/templates/template-functions-resource.md) 的订阅部分。 该列仅限于 Azure 资源或在引入期间指示资源 ID 的自定义日志。
+
+> [!NOTE]
+> 某些数据类型已有包含 Azure 订阅 ID 的字段。 虽然为了实现后向兼容性而保留了这些字段，但是建议使用 \_SubscriptionId 列来执行交叉关联，因为它将更为一致。
+### <a name="examples"></a>示例
+下面的查询检查特定订阅的计算机的性能数据。 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+以下查询分析 **_ResourceId** 并聚合每个 Azure 订阅的计费数据量。
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+请谨慎使用这些 `union withsource = tt *` 查询，因为跨数据类型执行扫描的开销很大。
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 **\_IsBillable** 列指定是否对引入的数据进行计费。 **\_IsBillable** 等于 `false` 的数据是免费收集的，系统不会向你的 Azure 帐户收费。
@@ -168,8 +198,7 @@ union withsource = tt *
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 若要查看每个资源组引入的可计费事件大小，请使用以下查询：
@@ -178,7 +207,7 @@ union withsource=table *
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 
@@ -211,5 +240,5 @@ union withsource = tt *
 
 - 详细了解如何[存储 Azure Monitor 日志数据](../log-query/log-query-overview.md)。
 - 获取有关[编写日志查询](../log-query/get-started-queries.md)的课程。
-- 获取有关[在日志查询中联接表](../log-query/joins.md)的课程。
+- 获取有关[在日志查询中联接表](/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)的课程。
 

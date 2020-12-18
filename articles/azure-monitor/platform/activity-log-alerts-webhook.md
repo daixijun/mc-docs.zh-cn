@@ -3,15 +3,15 @@ title: 了解活动日志警报中使用的 Webhook 架构
 description: 了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 origin.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: e7256674e028fb2b7e1d3b345f96037c6909dbf8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3baace0a02a167eec8df9f2cd016707878943979
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328716"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105204"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -271,7 +271,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 | resourceGroupName |受影响资源的资源组的名称。 |
 | properties |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 |
 | event |包含有关事件的元数据的元素。 |
-| authorization |事件的基于角色的访问控制属性。 这些属性通常包括“action”、“role”和“scope”。 |
+| authorization |事件的 Azure 基于角色的访问控制属性。 这些属性通常包括“action”、“role”和“scope”。 |
 | category |事件的类别。 支持的值包括“Administrative”、“Alert”、“Security”、“ServiceHealth”和“Recommendation”。 |
 | caller |执行操作的用户的电子邮件地址（基于可用性的 UPN 声明或 SPN 声明）。 对于某些系统调用可以为 null。 |
 | correlationId |通常是字符串格式的 GUID。 具有属于同一较大操作的 correlationId 的事件，通常共享 correlationId。 |

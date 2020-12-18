@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 origin.date: 11/19/2017
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: 7066d30cd3e7fcbacb409715b80860fbdacede02
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 0e4e82bf256b6d76638091ec474d17c20fe06381
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976967"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105227"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -72,18 +72,7 @@ ms.locfileid: "94976967"
 * [服务部署](https://docs.microsoft.com/powershell/module/wds)和[服务管理](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet。
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>如何向管理员组添加用户？
-下面是向管理员组添加用户的方法：
-
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 转到具有要更新的 API 管理实例的资源组。
-3. 在 API 管理中，将“API 管理服务参与者”角色分配给该用户。
-
-现在，新添加的参与者可以使用 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/)。 下面是以管理员身份登录的方法：
-
-1. 使用 `Connect-AzAccount` cmdlet 登录。
-2. 使用 `Set-AzContext -SubscriptionID <subscriptionGUID>` 将上下文设置为具有该服务的订阅。
-3. 使用 `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` 获取单一登录 URL。
-4. 使用 URL 访问管理门户。
+管理员组是不可变的系统组。 Azure 订阅管理员是此组的成员。 无法向此组添加用户。 有关详细信息，请参阅[如何创建和使用组以管理 Azure API 管理中的开发人员帐户](./api-management-howto-create-groups.md)。
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>想要添加的策略为何在策略编辑器中不可用？
 如果要添加的策略在策略管理器中显示为变暗或有阴影，请确保你处于该策略的正确范围内。 每个策略声明都设计为在特定范围和策略部分中使用。 若要查看策略部分和策略范围，请参阅 [API 管理策略](./api-management-policies.md)中的策略的用法部分。

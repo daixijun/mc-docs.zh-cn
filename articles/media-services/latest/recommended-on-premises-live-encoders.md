@@ -6,16 +6,16 @@ keywords: 编码;编码器;媒体
 author: WenJason
 manager: digimobile
 ms.author: v-jay
-origin.date: 08/31/2020
-ms.date: 09/28/2020
+origin.date: 11/10/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 702cd7a7a9a8ec3e3454aacf640791552e92a04e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 9dc4299d62de2a73f660375ab1311a607d923cc9
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244964"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004188"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>经过验证的本地实时传送视频流编码器
 
@@ -51,6 +51,7 @@ ms.locfileid: "91244964"
 > 使用 RTMPS 协议时，编码器必须支持 TLS 1.2。
 
 - Adobe Flash 媒体实时编码器 3.2
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live（以前称为 Imagine Communication SelenioFlex Live）
 - [Blackmagic ATEM Mini 和 ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live（2.14.15 及更高版本）
@@ -79,11 +80,11 @@ ms.locfileid: "91244964"
 > 使用 HTTPS 协议时，编码器必须支持 TLS 1.2。
 
 - Ateme TITAN Live
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live（以前称为 Imagine Communication SelenioFlex Live）
 - Cisco 数字媒体编码器 2200
 - Elemental Live（由于 TLS 1.2 要求，版本为 2.14.15 及更高）
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine Communications Selenio MCP3
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
 
 > [!TIP]

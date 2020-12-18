@@ -5,30 +5,30 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 5/31/2019
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: f08e037ed87ae5c3fc396c8154e78eec2a64c7d4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9fc872fbe8296969f6ac0c0d088718654e8eb723
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328438"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104518"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 
 ## <a name="overview"></a>概述
 
-日志警报是 [Azure 警报](./alerts-overview.md)中支持的警报类型之一。 使用日志警报，用户可以通过 [Log Analytics](../log-query/get-started-portal.md) 查询按每个设置的频率评估资源日志并基于结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。
+日志警报是 [Azure 警报](./alerts-overview.md)中支持的警报类型之一。 使用日志警报，用户可以通过 [Log Analytics](../log-query/log-analytics-tutorial.md) 查询按每个设置的频率评估资源日志并基于结果触发警报。 规则可以使用[操作组](./action-groups.md)触发一个或多个操作。
 
 > [!NOTE]
-> 可以将 [Log Analytics 工作区](../log-query/get-started-portal.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
+> 可以将 [Log Analytics 工作区](../log-query/log-analytics-tutorial.md)中的日志数据发送到 Azure Monitor 指标存储。 指标警报具有[不同的行为](alerts-metric-overview.md)，该行为可能更可取，具体取决于你要使用的数据。 要了解如何将日志路由到指标，请参阅[日志的指标警报](alerts-metric-logs.md)。
 
 > [!NOTE]
 > 当前不对 API 版本 `2020-05-01-preview` 和以资源为中心的日志警报收取额外费用。  未来将公布预览版中的功能的定价以及开始计费之前提供的通知。 如果你选择在通知期过后继续使用新 API 版本和以资源为中心的日志警报，需要按适用的费率付费。
 
 ## <a name="prerequisites"></a>先决条件
 
-日志警报运行对 Log Analytics 数据的查询。 首先，你应开始[收集日志数据](resource-logs.md)，并查询日志数据以查找问题。 可以使用 Log Analytics 中的[警报查询示例主题](../log-query/saved-queries.md)来了解可发现的内容或[开始编写你自己的查询](../log-query/get-started-portal.md)。
+日志警报运行对 Log Analytics 数据的查询。 首先，你应开始[收集日志数据](resource-logs.md)，并查询日志数据以查找问题。 可以使用 Log Analytics 中的[警报查询示例主题](../log-query/example-queries.md)来了解可发现的内容或[开始编写你自己的查询](../log-query/log-analytics-tutorial.md)。
 
 [Azure 监视参与者](./roles-permissions-security.md)是创建、修改和更新日志警报所需的常见角色。 还需要具有对资源日志的访问和查询执行权限。 对资源日志具有部分访问权限可能会导致查询失败或返回部分结果。 [详细了解如何在 Azure 中配置日志警报](./alerts-log.md)。
 
@@ -45,7 +45,7 @@ ms.locfileid: "94328438"
 以下各节介绍了可用于设置上述逻辑的不同参数。
 
 ### <a name="log-query"></a>日志查询
-用来评估规则的 [Log Analytics](../log-query/get-started-portal.md) 查询。 此查询返回的结果用来确定是否将触发某个警报。 查询的范围可以是：
+用来评估规则的 [Log Analytics](../log-query/log-analytics-tutorial.md) 查询。 此查询返回的结果用来确定是否将触发某个警报。 查询的范围可以是：
 
 - 特定资源，例如虚拟机。
 - 大规模资源，例如订阅或资源组。
@@ -177,7 +177,7 @@ requests
 
 ## <a name="state-and-resolving-alerts"></a>状态和解决警报
 
-日志警报是无状态的。 每次满足条件时，都会触发警报，即使之前已触发过。 触发的警报不会解决。 你还可以对操作进行“静音”，以防它们在警报规则触发后的一段时间内触发。
+日志警报是无状态的。 每次满足条件时，都会触发警报，即使之前已触发过。 触发的警报不会解决。 你可以[将警报标记为关闭](alerts-managing-alert-states.md)。 你还可以对操作进行“静音”，以防它们在警报规则触发后的一段时间内触发。
 
 在工作区和 Application Insights 中，它称为“抑制警报”。 在所有其他资源类型中，它称为“将操作‘静音’”。 
 
@@ -210,5 +210,4 @@ requests
 * 了解 [Azure 日志警报中的 Webhook](alerts-log-webhook.md)。
 * 了解 [Azure 警报](./alerts-overview.md)。
 * 详细了解 [Log Analytics](../log-query/log-query-overview.md)。
-
 

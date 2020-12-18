@@ -4,14 +4,14 @@ description: 用于容器的 Azure Monitor 收集指标和日志数据，本文�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/15/2019
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 52730801282460ccdc3a48295edfc070b479f442
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e0b81b2ae58b953de1f5c2613c00f0452d1e0b2f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328781"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104879"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何从用于容器的 Azure Monitor 查询日志
 
@@ -19,7 +19,7 @@ ms.locfileid: "94328781"
 
 ## <a name="container-records"></a>容器记录
 
-下表提供了适用于容器的 Azure Monitor 收集的记录的详细信息。 
+下表提供了适用于容器的 Azure Monitor 收集的记录的详细信息。 有关列说明的列表，请参阅 [ContainerInventory](https://docs.microsoft.com/azure/azure-monitor/reference/tables/containerinventory) 和 [ContainerLog](https://docs.microsoft.com/azure/azure-monitor/reference/tables/containerlog) 表的参考资料。
 
 | 数据 | 数据源 | 数据类型 | 字段 |
 |------|-------------|-----------|--------|

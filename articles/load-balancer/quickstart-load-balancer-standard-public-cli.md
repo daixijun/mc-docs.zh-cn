@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/23/2020
-ms.date: 12/07/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 0c48b82da6608b8fb9d44e65b8c3810d442f8bc4
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: ecb7739d3966d9723fdd71ad76f7a9d1a2887325
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747258"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105094"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -83,9 +83,9 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 ```
 ### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
 
-使用 [az network public-ip create](https://docs.azure.cn/cli//network/public-ip#az-network-public-ip-create) 为堡垒主机创建公共 IP：
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 为堡垒主机创建公共 IP：
 
-* 创建名为“myBastionIP”的标准区域冗余公共 IP 地址。
+* 创建名为“myBastionIP”的标准公共 IP 地址。
 * 在“CreatePubLBQS-rg”中。
 
 ```azurecli
@@ -368,7 +368,7 @@ az network bastion create \
 * 在“CreatePubLBQS-rg”资源组中。
 * 与负载均衡器 myLoadBalancer 关联。
 
-```azurecli-interactive
+```azurecli
   array=(myNicVM1 myNicVM2 myNicVM3)
   for vmnic in "${array[@]}"
   do
@@ -495,49 +495,21 @@ az network bastion create \
 
 使用 [az network nic ip-config address-pool add](https://docs.azure.cn/cli/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add) 将虚拟机添加到出站池：
 
-#### <a name="vm1"></a>VM1
 * 在后端地址池“myBackEndPoolOutbound”中。
 * 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM1 和 ipconfig1 关联 。
 * 与负载均衡器 myLoadBalancer 关联。
 
 ```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPoolOutbound \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### <a name="vm2"></a>VM2
-* 在后端地址池“myBackEndPoolOutbound”中。
-* 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM2 和 ipconfig1 关联 。
-* 与负载均衡器 myLoadBalancer 关联。
-
-```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPoolOutbound \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### <a name="vm3"></a>VM3
-* 在后端地址池“myBackEndPoolOutbound”中。
-* 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM3 和 ipconfig1 关联 。
-* 与负载均衡器 myLoadBalancer 关联。
-
-```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPoolOutbound \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM3 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
+  array=(myNicVM1 myNicVM2 myNicVM3)
+  for vmnic in "${array[@]}"
+  do
+    az network nic ip-config address-pool add \
+     --address-pool myBackendPoolOutbound \
+     --ip-config-name ipconfig1 \
+     --nic-name $vmnic \
+     --resource-group CreatePubLBQS-rg \
+     --lb-name myLoadBalancer
+  done
 ```
 
 # <a name="basic-sku"></a>[**基本 SKU**](#tab/option-1-create-load-balancer-basic)
@@ -545,13 +517,13 @@ az network bastion create \
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
-## <a name="configure-virtual-network"></a>配置虚拟网络
+## <a name="configure-virtual-network---basic"></a>配置虚拟网络 - 基本
 
 需要先创建支持的虚拟网络资源，然后才能部署 VM 和测试负载均衡器。
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az_network_vnet_createt) 创建虚拟网络：
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az_network_vnet_create) 创建虚拟网络：
 
 * 命名为“myVNet”。
 * 地址前缀为 10.1.0.0/16。
@@ -569,6 +541,57 @@ az network bastion create \
     --subnet-name myBackendSubnet \
     --subnet-prefixes 10.1.0.0/24
 ```
+
+### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
+
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) 为堡垒主机创建公共 IP：
+
+* 创建名为“myBastionIP”的标准公共 IP 地址。
+* 在“CreatePubLBQS-rg”中。
+
+```azurecli
+az network public-ip create \
+    --resource-group CreatePubLBQS-rg \
+    --name myBastionIP \
+    --sku Standard
+```
+### <a name="create-a-bastion-subnet"></a>创建堡垒子网
+
+使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet#az_network_vnet_subnet_create) 创建堡垒子网：
+
+* 命名为 AzureBastionSubnet。
+* 地址前缀为 10.1.1.0/24。
+* 在虚拟网络“myVNet”中。
+* 在“CreatePubLBQS-rg”资源组中。
+
+```azurecli
+az network vnet subnet create \
+    --resource-group CreatePubLBQS-rg \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.1.1.0/24
+```
+
+### <a name="create-bastion-host"></a>创建堡垒主机
+
+使用 [az network bastion create](https://docs.microsoft.com/cli/azure/network/bastion#az_network_bastion_create) 创建堡垒主机：
+
+* 命名为 myBastionHost。
+* 在“CreatePubLBQS-rg”中。
+* 与公共 IP myBastionIP 相关联。
+* 与虚拟网络 myVNet 相关联。
+* 在“chinaeast2”位置。
+
+```azurecli
+az network bastion create \
+    --resource-group CreatePubLBQS-rg \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location chinaeast2
+```
+
+部署 Azure Bastion 主机需要几分钟时间。
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
 
@@ -615,116 +638,35 @@ az network bastion create \
     --priority 200
 ```
 
+## <a name="create-backend-servers---basic"></a>创建后端服务器 - 基本
+
+在本节中，创建以下项：
+
+* 虚拟机的三个网络接口。
+* 虚拟机的可用性集
+* 三个要用作负载均衡器后端服务器的虚拟机。
+
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>为虚拟机创建网络接口
 
 使用 [az network nic create](https://docs.azure.cn/cli/network/nic#az_network_nic_create) 创建三个网络接口：
 
-#### <a name="vm1"></a>VM1
-
-* 命名为“myNicVM1”。
+* 名为 myNicVM1、myNicVM2 和 myNicVM3  。
 * 在“CreatePubLBQS-rg”资源组中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
 
 ```azurecli
-
-  az network nic create \
-    --resource-group CreatePubLBQS-rg \
-    --name myNicVM1 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-#### <a name="vm2"></a>VM2
-
-* 命名为“myNicVM2”。
-* 在“CreatePubLBQS-rg”资源组中。
-* 在虚拟网络“myVNet”中。
-* 在子网“myBackendSubnet”中。
-* 在网络安全组“myNSG”中。
-
-```azurecli
-  az network nic create \
-    --resource-group CreatePubLBQS-rg \
-    --name myNicVM2 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-#### <a name="vm3"></a>VM3
-
-* 命名为“myNicVM3”。
-* 在“CreatePubLBQS-rg”资源组中。
-* 在虚拟网络“myVNet”中。
-* 在子网“myBackendSubnet”中。
-* 在网络安全组“myNSG”中。
-
-```azurecli
-  az network nic create \
-    --resource-group CreatePubLBQS-rg \
-    --name myNicVM3 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG
-```
-
-## <a name="create-backend-servers"></a>创建后端服务器
-
-在本节中，创建以下项：
-
-* 用于服务器配置的名为 cloud-init.txt 的云配置文件。 
-* 虚拟机的可用性集
-* 三个要用作负载均衡器后端服务器的虚拟机。
-
-若要验证负载均衡器是否已成功创建，请在虚拟机上安装 NGINX。
-
-### <a name="create-cloud-init-configuration-file"></a>创建 cloud-init 配置文件
-
-使用 cloud-init 配置文件在 Linux 虚拟机上安装 NGINX 并运行“Hello World”Node.js 应用。 
-
-在当前 shell 中，创建一个名为 cloud-init.txt 的文件。 复制以下配置并将其粘贴到 shell 中。 请确保正确复制整个 cloud-init 文件，尤其是第一行：
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
+  array=(myNicVM1 myNicVM2 myNicVM3)
+  for vmnic in "${array[@]}"
+  do
+    az network nic create \
+        --resource-group CreatePubLBQS-rg \
+        --name $vmnic \
+        --vnet-name myVNet \
+        --subnet myBackEndSubnet \
+        --network-security-group myNSG
+  done
 ```
 ### <a name="create-availability-set-for-virtual-machines"></a>创建虚拟机的可用性集
 
@@ -746,41 +688,36 @@ runcmd:
 
 使用 [az vm create](https://docs.azure.cn/cli/vm#az_vm_create) 创建虚拟机：
 
-#### <a name="vm1"></a>VM1
+### <a name="vm1"></a>VM1
 * 命名为“myVM1”。
 * 在“CreatePubLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM1”。
-* 虚拟机映像 UbuntuLTS。
-* 你在上述步骤中创建的配置文件 cloud-init.txt。
-* 在“myAvSet”可用性集中。
+* 虚拟机映像 win2019datacenter。
 
 ```azurecli
   az vm create \
     --resource-group CreatePubLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
-    --image UbuntuLTS \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
+    --image win2019datacenter \
+    --admin-username azureuser \
     --availability-set myAvSet \
-    --no-wait 
+    --no-wait
 ```
 #### <a name="vm2"></a>VM2
 * 命名为“myVM2”。
 * 在“CreatePubLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM2”。
-* 虚拟机映像 UbuntuLTS。
-* 你在上述步骤中创建的配置文件 cloud-init.txt。
+* 虚拟机映像 win2019datacenter。
 
 ```azurecli
   az vm create \
     --resource-group CreatePubLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
-    --image UbuntuLTS \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet  \
+    --image win2019datacenter \
+    --admin-username azureuser \
+    --availability-set myAvSet \
     --no-wait
 ```
 
@@ -788,23 +725,21 @@ runcmd:
 * 命名为“myVM3”。
 * 在“CreatePubLBQS-rg”资源组中。
 * 附加到网络接口“myNicVM3”。
-* 虚拟机映像 UbuntuLTS。
-* 你在上述步骤中创建的配置文件 cloud-init.txt。
+* 虚拟机映像 win2019datacenter。
 
 ```azurecli
    az vm create \
     --resource-group CreatePubLBQS-rg \
     --name myVM3 \
     --nics myNicVM3 \
-    --image UbuntuLTS \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet  \
+    --image win2019datacenter \
+    --admin-username azureuser \
+    --availability-set myAvSet \
     --no-wait
 ```
 可能需要花费几分钟时间才能部署 VM。
 
-## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
+## <a name="create-a-public-ip-address---basic"></a>创建公共 IP 地址 - 基本
 
 若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
 
@@ -905,51 +840,43 @@ runcmd:
 
 使用 [az network nic ip-config address-pool add](https://docs.azure.cn/cli/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add) 将虚拟机添加到后端池：
 
-#### <a name="vm1"></a>VM1
 * 在后端地址池“myBackEndPool”中。
 * 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM1 和 ipconfig1 关联 。
 * 与负载均衡器 myLoadBalancer 关联。
 
 ```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM1 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
+  array=(myNicVM1 myNicVM2 myNicVM3)
+  for vmnic in "${array[@]}"
+  do
+    az network nic ip-config address-pool add \
+     --address-pool myBackendPool \
+     --ip-config-name ipconfig1 \
+     --nic-name $vmnic \
+     --resource-group CreatePubLBQS-rg \
+     --lb-name myLoadBalancer
+  done
 ```
 
-#### <a name="vm2"></a>VM2
-* 在后端地址池“myBackEndPool”中。
-* 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM2 和 ipconfig1 关联 。
-* 与负载均衡器 myLoadBalancer 关联。
-
-```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM2 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
-```
-
-#### <a name="vm3"></a>VM3
-* 在后端地址池“myBackEndPool”中。
-* 在“CreatePubLBQS-rg”资源组中。
-* 与网络接口 myNicVM3 和 ipconfig1 关联 。
-* 与负载均衡器 myLoadBalancer 关联。
-
-```azurecli
-  az network nic ip-config address-pool add \
-   --address-pool myBackendPool \
-   --ip-config-name ipconfig1 \
-   --nic-name myNicVM3 \
-   --resource-group CreatePubLBQS-rg \
-   --lb-name myLoadBalancer
-```
 ---
+
+## <a name="install-iis"></a>安装 IIS
+
+使用 [az vm extension set](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) 将 IIS 安装在虚拟机上，并将默认网站设置为计算机名。
+
+```azurecli
+  array=(myVM1 myVM2 myVM3)
+    for vm in "${array[@]}"
+    do
+     az vm extension set \
+       --publisher Microsoft.Compute \
+       --version 1.8 \
+       --name CustomScriptExtension \
+       --vm-name $vm \
+       --resource-group CreatePubLBQS-rg \
+       --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+  done
+
+```
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
 
@@ -961,7 +888,7 @@ runcmd:
   az network public-ip show \
     --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
-    --query [ipAddress] \
+    --query ipAddress \
     --output tsv
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="测试负载均衡器" border="true":::
@@ -976,6 +903,7 @@ runcmd:
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 在本快速入门中
 
 * 你创建了一个标准或公共负载均衡器
@@ -983,6 +911,6 @@ runcmd:
 * 配置了负载均衡器流量规则和运行状况探测。
 * 测试了负载均衡器。
 
-若要详细了解 Azure 负载均衡器，请继续学习
+若要详细了解 Azure 负载均衡器，请继续学习：
 > [!div class="nextstepaction"]
 > [什么是 Azure 负载均衡器？](load-balancer-overview.md)

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: e868579812941327ac2b96c7e5d50b0251862f83
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 00ac2781e03ea43cf0f72e91b89af573b4c975c0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328924"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105157"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>将 Log Analytics 工作区移到其他订阅或资源组
 
@@ -29,15 +29,27 @@ ms.locfileid: "94328924"
 ```
 
 ## <a name="workspace-move-considerations"></a>工作区移动注意事项
-将使用 Log Analytics 工作区移动操作来移动工作区中安装的托管解决方案。 在移动后，连接的代理将保持连接状态并继续向工作区发送数据。 由于移动操作要求工作区中没有任何链接的服务，因此必须删除依赖于该链接的解决方案才能移动工作区。
+- 将使用 Log Analytics 工作区移动操作来移动工作区中安装的托管解决方案。 
+- 通过工作区移动操作重新生成工作区密钥（主密钥和辅助密钥）。 如果在密钥保管库中保留工作区密钥的副本，请使用工作区移动后生成的新密钥对其进行更新。 
+- 在移动后，连接的代理将保持连接状态并继续向工作区发送数据。 
+- 由于移动操作要求工作区中没有任何链接的服务，因此必须删除依赖于该链接的解决方案才能移动工作区。 在取消链接自动化帐户之前必须先删除的解决方案：
+  - 更新管理
+  - 更改跟踪
+  - 在非工作时间启动/停止 VM
+  - Azure 安全中心
 
-在取消链接自动化帐户之前必须先删除的解决方案：
-
-- 更新管理
-- 更改跟踪
-- 在非工作时间启动/停止 VM
-- Azure 安全中心
-
+>[!IMPORTANT]
+> **重新创建警报**
+> - 所有警报必须在移动后重新创建，因为权限基于工作区的 Azure 资源 ID，而该 ID 在工作区移动期间会更改。
+>
+> **更新资源路径**
+> - 工作区移动之后，必须查看并更新指向工作区的任何 Azure 资源或外部资源，使之指向新的资源目标路径。
+> 
+>   *示例：*
+>   - [Azure Monitor 警报规则](alerts-resource-move.md)
+>   - 第三方应用程序
+>   - 自定义脚本
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>在 Azure 门户中删除解决方案
 在 Azure 门户中使用以下过程删除解决方案：

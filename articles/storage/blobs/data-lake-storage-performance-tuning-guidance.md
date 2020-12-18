@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 593d1fe9395af8f7db773b23ffc2e0c7eb7b446f
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1c1d180559d06fd432f9f391df9bb1323f405a13
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552120"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850756"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 
@@ -58,7 +58,7 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 
 通常，HDInsight 和 Azure Data Lake Analytics 等分析引擎的每个文件都存在开销。 如果将数据存储为多个小文件，这可能会对性能产生负面影响。 通常可将数据组织到较大文件中，以获得更佳性能（大小为 256MB 到 100GB）。 某些引擎和应用程序可能会在高效处理大于 100GB 的文件方面遇到问题。
 
-有时，数据管道对原始数据（含有多个小文件）的控制有限。 建议执行“烹调”过程来生成更大的文件，以供下游应用程序使用。
+有时，数据管道对原始数据（含有多个小文件）的控制有限。 通常，建议系统采用某种进程，将小文件聚合为较大的文件，以供下游应用程序使用。
 
 ### <a name="organizing-time-series-data-in-folders"></a>将时序数据组织到文件夹中
 

@@ -1,20 +1,21 @@
 ---
 title: include 文件
+description: 虚拟机共享映像库
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e32a2626a880d6fb21b0adef297c2ab2e7254c0e
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: ccf28d95b0c2b852d6f90631b82eaf431f86a5eb
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598680"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003968"
 ---
 共享映像库是一种可以帮助你围绕映像构建结构和组织的服务。 共享映像库提供：
 
@@ -76,9 +77,7 @@ ms.locfileid: "96598680"
 - 标记 - 可以在创建映像定义时添加标记。 有关标记的详细信息，请参阅[使用标记来组织资源](../articles/azure-resource-manager/management/tag-resources.md)。
 - 最小和最大 vCPU 与内存建议量 - 如果映像附带 vCPU 和内存建议量，则你可以将该信息附加到映像定义。
 - 不允许的磁盘类型 - 可以提供有关 VM 所需存储的信息。 例如，如果映像不适合标准 HDD 磁盘，请将其添加到禁止列表。
-- 市场映像的购买计划信息 `-PurchasePlanPublisher`、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 若要详细了解购买计划信息，请参阅[在 Azure 市场中查找映像](https://docs.azure.cn/virtual-machines/windows/cli-ps-findimage)和[在创建映像时提供 Azure 市场购买计划信息](../articles/virtual-machines/marketplace-images.md)。
-
-    <!--Not Available on [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md)-->
+- 市场映像的购买计划信息 `-PurchasePlanPublisher`、`-PurchasePlanName` 和 `-PurchasePlanProduct`。 若要详细了解购买计划信息，请参阅[在 Azure 市场中查找映像](../articles/virtual-machines/windows/cli-ps-findimage.md)和[在创建映像时提供 Azure 市场购买计划信息](../articles/virtual-machines/marketplace-images.md)。
 
 ## <a name="image-versions"></a>映像版本
 
@@ -124,7 +123,7 @@ ms.locfileid: "96598680"
 - 每个区域的每个订阅限制为 10 个映像版本副本
 - 附加到映像的任何磁盘的大小必须小于或等于 1 TB
 
-有关详细信息，请参阅[根据限制检查资源使用情况](https://docs.azure.cn/networking/check-usage-against-limits)，以获取有关如何检查当前使用情况的示例。
+有关详细信息，请参阅[根据限制检查资源使用情况](../articles/networking/check-usage-against-limits.md)，以获取有关如何检查当前使用情况的示例。
 
 ## <a name="scaling"></a>扩展
 使用共享映像库可以指定要让 Azure 保留的映像副本数。 这有助于实现多 VM 部署方案，因为可将 VM 部署分散到不同的副本，减少单个副本过载导致实例创建过程受到限制的可能性。
@@ -239,11 +238,11 @@ ms.locfileid: "96598680"
 1. 选择要列出其中的所有资源的所有订阅。
 1. 查找类型为“共享映像库”的资源。
 
-    若要列出不同订阅中你有权访问的所有共享映像库资源，请在 Azure CLI 中使用以下命令：
+若要列出不同订阅中你有权访问的所有共享映像库资源，请在 Azure CLI 中使用以下命令：
 
-    ```azurecli
-    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-    ```
+```azurecli
+az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+```
 
 有关详细信息，请参阅使用 [Azure CLI](../articles/virtual-machines/update-image-resources-cli.md) 或 [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md) 管理库资源。
 
@@ -257,8 +256,8 @@ ms.locfileid: "96598680"
 
  应用场景 3：如果本地文件系统中包含 VHD，则需要将 VHD 上传到托管映像，然后可以从该映像创建映像定义和映像版本。
 
-- 如果 VHD 适用于 Windows VM，请参阅[上传 VHD](https://docs.azure.cn/virtual-machines/windows/upload-generalized-managed)。
-- 如果 VHD 适用于 Linux VM，请参阅[上传 VHD](https://docs.azure.cn/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- 如果 VHD 适用于 Windows VM，请参阅[上传 VHD](../articles/virtual-machines/windows/upload-generalized-managed.md)。
+- 如果 VHD 适用于 Linux VM，请参阅[上传 VHD](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>是否可以从专用化磁盘创建映像版本？
 

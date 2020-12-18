@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 075bd43869102d23a2db07056176e23c8135c153
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ff8d25dc5a2284fa5c645ef7a606e1aafc49be0c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978192"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105331"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
@@ -123,10 +123,14 @@ az role definition create --role-definition data_scientist_role.json
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-有关自定义角色的详细信息，请参阅 [Azure 自定义角色](/role-based-access-control/custom-roles)。 有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)。
+有关自定义角色的详细信息，请参阅 [Azure 自定义角色](../role-based-access-control/custom-roles.md)。 
+
+### <a name="azure-machine-learning-operations"></a>Azure 机器学习操作
+
+有关可用于自定义角色的操作（Actions 和 NotActions）的详细信息，请参阅[资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)。 还可以使用以下 Azure CLI 命令来列出操作：
 
 ```azurecli
-az provider operation show �n Microsoft.MachineLearningServices
+az provider operation show -n Microsoft.MachineLearningServices
 ```
 
 ## <a name="list-custom-roles"></a>列出自定义角色
@@ -194,7 +198,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 | 删除试验 | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
 | 获取运行以及相关的数据和元数据，获取指定运行的指定指标的所有值的列表，列出运行的项目 | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
 | 在试验中新建运行，删除运行，还原已删除的运行，记录当前运行下的指标，为运行设置标签，删除运行上的标签，记录运行所使用的参数（键值对），记录运行的一批指标、参数和标签，更新运行状态 | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
-| 按名称获取已注册的模型，获取注册表中所有已注册模型的列表，搜索每个请求阶段的已注册模型、最新版模型，获取已注册模型的版本，搜索模型版本，获取其中存储了模型版本的项目的 URI，按试验 ID 搜索运行 | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| 按名称获取已注册的模型，获取注册表中所有已注册模型的列表，搜索每个请求阶段的已注册模型、最新版模型，获取已注册模型的版本，搜索模型版本，获取 URI（其中存储了模型版本的项目），按试验 ID 搜索运行 | `Microsoft.MachineLearningServices/workspaces/models/read` |
 | 创建新的已注册模型，更新已注册模型的名称/说明，重命名现有的已注册模型，创建新版本的模型，更新模型版本的说明，将已注册模型转换到其中一个阶段 | `Microsoft.MachineLearningServices/workspaces/models/write` |
 | 删除已注册模型及其所有版本，删除已注册模型的特定版本 | `Microsoft.MachineLearningServices/workspaces/models/delete` |
 

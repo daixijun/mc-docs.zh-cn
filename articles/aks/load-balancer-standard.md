@@ -4,18 +4,18 @@ titleSuffix: Azure Kubernetes Service
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU 公共负载均衡器来公开服务。
 services: container-service
 ms.topic: article
-origin.date: 06/14/2020
-ms.date: 11/30/2020
+origin.date: 11/14/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 07/09/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 686be0beaa951530aa791b0f60e1ea3a623297b1
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 04ca461d40b100a19bffe9bbb57d46e1dddc7876
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024418"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004083"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -92,6 +92,9 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 * 自定义分配给群集的每个节点的出站端口数
 * 为空闲连接配置超时设置
 
+> [!IMPORTANT]
+> 在给定时间只能使用一个出站 IP 选项（托管 IP、自带 IP 或 IP 前缀）。
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>缩放受管理出站公共 IP 的数量
 
 除了入站连接以外，Azure 负载均衡器还提供从虚拟网络的出站连接。 使用出站规则可以更方便地配置公共标准负载均衡器的出站网络地址转换。
@@ -125,10 +128,11 @@ az aks update \
 
 AKS 创建的公共 IP 被视为受 AKS 管理的资源。 这意味着该公共 IP 的生命周期由 AKS 管理，并且用户不需要直接对公共 IP 资源执行操作。 或者，你可以在群集创建时分配自己的自定义公共 IP 或公共 IP 前缀。 还可以在现有群集的负载均衡器属性上更新自定义 IP。
 
-> [!NOTE]
-> 自定义公共 IP 地址必须由用户创建和拥有。 由 AKS 创建的托管公共 IP 地址不能重新用于自带的自定义 IP，因为它可能会导致管理冲突。
+使用自己的公共 IP 或前缀的要求：
 
-在执行此操作前，请确保满足配置出站 IP 或出站 IP 前缀所需的[先决条件和限制](../virtual-network/public-ip-address-prefix.md#constraints)。
+- 自定义公共 IP 地址必须由用户创建和拥有。 由 AKS 创建的托管公共 IP 地址不能重新用于自带的自定义 IP，因为它可能会导致管理冲突。
+- 必须确保 AKS 群集标识（服务主体或托管标识）有权访问出站 IP。 依据[必需的公共 IP 权限列表](kubernetes-service-principal.md#networking)。
+- 确保满足配置出站 IP 或出站 IP 前缀所需的[先决条件和限制](../virtual-network/public-ip-address-prefix.md#constraints)。
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>使用自己的出站公共 IP 更新群集
 

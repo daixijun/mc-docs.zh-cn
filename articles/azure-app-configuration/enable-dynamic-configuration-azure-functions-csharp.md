@@ -1,5 +1,5 @@
 ---
-title: 关于在 Azure Functions 应用中使用 Azure 应用程序配置动态配置的教程 | Microsoft Docs
+title: 关于在 Azure Functions 应用中使用 Azure 应用配置动态配置的教程 | Azure Docs
 description: 本教程介绍如何动态更新 Azure Functions 应用的配置数据
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/17/2019
+ms.date: 12/14/2020
 ms.author: zhenlwa
 ms.custom: devx-track-csharp, azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: b7a398271f0b0b5d1374cfd3493812a903350246
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 2352c31dcff34664ff0a92e7cc2da4b652f4d1c1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866616"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105214"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>教程：在 Azure Functions 应用中使用动态配置
 
@@ -34,7 +34,7 @@ ms.locfileid: "88866616"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - 包含 Azure 开发工作负载的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) 
 - [Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 - 完成快速入门[使用 Azure 应用程序配置创建 Azure Functions 应用](./quickstart-azure-functions-csharp.md)

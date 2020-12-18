@@ -1,27 +1,27 @@
 ---
-title: Azure 服务总线 SQLFilter 语法参考 | Azure
-description: 本文提供了有关 SQLFilter 语法的详细信息。 SqlFilter 支持 SQL-92 标准的子集。
+title: Azure 服务总线订阅规则 SQL 筛选器语法 | Azure
+description: 本文提供了有关 SQL 筛选器语法的详细信息。 SQL 筛选器支持 SQL-92 标准的子集。
 ms.topic: article
-origin.date: 06/23/2020
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f3b01be74ba2d98854f759716463496691f9241c
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: b15f71b568093f0ec92ecaaff465bbc684dd0df0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590868"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105244"
 ---
-# <a name="sqlfilter-syntax"></a>SQLFilter 语法
+# <a name="subscription-rule-sql-filter-syntax"></a>订阅规则 SQL 筛选器语法
 
-SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+SQL 筛选器是服务总线主题订阅的某个可用筛选器类型。 它是一个依赖于 SQL-92 标准子集的文本表达式。 筛选表达式与 [Azure 资源管理器模板](service-bus-resource-manager-namespace-topic-with-rule.md)中服务总线 `Rule` 的“sqlFilter”属性的 `sqlExpression` 元素一起使用，或者与 Azure CLI `az servicebus topic subscription rule create` 命令的 [`--filter-sql-expression`](https://docs.azure.cn/cli/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) 参数以及几个允许管理订阅规则的 SDK 函数一起使用。
 
- 本主题列出有关 SqlFilter 语法的详细信息。  
+服务总线高级版还通过 JMS 2.0 API 支持 [JMS SQL 消息选择器语法](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html)。
 
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -58,7 +58,7 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ## <a name="remarks"></a>备注
 
-访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 运算符求值期间会对未知值进行特殊处理。  
+尝试访问不存在的系统属性属于错误，而尝试访问不存在的用户属性不属于错误。 相反，不存在的用户属性在内部作为未知值进行求值。 运算符求值期间会对未知值进行特殊处理。  
 
 ## <a name="property_name"></a>property_name  
 
@@ -96,7 +96,7 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ```  
 
-`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 不建议使用带引号的标识符，因为很容易将其与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
+`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 不建议使用带引号的标识符，因为很容易将其与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>` 的示例：  
 
 ```  
 "Contoso & Northwind"  
@@ -197,7 +197,7 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 ### <a name="remarks"></a>备注
 
-`newid()` 函数返回 `System.Guid.NewGuid()` 方法生成的 **System.Guid**。  
+`newid()` 函数返回 `System.Guid.NewGuid()` 方法生成的 `System.Guid`。  
 
 `property(name)` 函数返回 `name` 所引用的属性的值。 `name` 值可以是返回字符串值的任何有效表达式。  
 
@@ -219,17 +219,17 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 - 尝试对不存在的系统属性求值会引发 [FilterException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
 
-- 不存在的属性在内部作为 **未知** 进行求值。  
+- 不存在的属性在内部作为未知进行求值。  
 
   算术运算符中的未知求值：  
 
-- 对于二元运算符，如果操作数的左侧和/或右侧的求值结果为 **未知**，则结果为 **未知**。  
+- 对于二元运算符，如果操作数的左侧或右侧的求值结果为未知，则结果为未知 。  
 
 - 对于一元运算符，如果操作数的求值结果为 **未知**，则结果为 **未知**。  
 
   二进制比较运算符中的未知求值：  
 
-- 如果操作数的左侧和/或右侧的求值结果为 **未知**，则结果为 **未知**。  
+- 如果操作数的左侧或右侧的求值结果为未知，则结果为未知 。  
 
   `[NOT] LIKE`中的未知求值：  
 
@@ -273,10 +273,63 @@ SqlFilter 对象是 [SqlFilter 类](https://docs.azure.cn/dotnet/api/microsoft.s
 
 - 在进行数据类型提升和隐式转换时，算术运算符（例如 `+`、`-`、`*`、`/` 和 `%`）与 C# 运算符绑定遵循相同的语义。
 
+## <a name="examples"></a>示例
+
+### <a name="set-rule-action-for-a-sql-filter"></a>为 SQL 筛选器设置规则操作
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>基于系统属性的 SQL 筛选器
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>使用 OR 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>使用 IN 和 NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+有关 C# 示例，请参阅 [GitHub 上的主题筛选器示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters)。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLFilter 类 (.NET Framework)](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [SQLRuleAction 类](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SqlFilter 类 (Java)](https://docs.azure.cn/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](https://docs.microsoft.com/javascript/api/@azure/service-bus/sqlrulefilter)
+- [az servicebus topic subscription rule](https://docs.azure.cn/cli/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule)
+- [New-AzServiceBusRule](https://docs.microsoft.com/powershell/module/az.servicebus/new-azservicebusrule)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

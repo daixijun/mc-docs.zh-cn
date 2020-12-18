@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: include
 origin.date: 09/03/2018
-ms.date: 04/22/2019
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bbc4ab6318dffefe13694db01ff084d8c22444db
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1a0fb95de19a7881203a78383e2bd47b953798cd
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71092533"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105661"
 ---
 有关物理服务器复制的配置/进程服务器要求 
 
@@ -32,8 +32,8 @@ RAM | 16 GB
 操作系统 | Windows Server 2012 R2 <br> Windows Server 2016
 操作系统区域设置 | 美国英语
 Windows Server 角色 | 请勿启用以下角色： <br> - Active Directory 域服务 <br>- Internet Information Services <br> - Hyper-V 
-组策略 | 请勿启用以下组策略： <br> - 阻止访问命令提示符。 <br> - 阻止访问注册表编辑工具。 <br> - 信任文件附件的逻辑。 <br> - 打开脚本执行。 <br> [了解详细信息](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在的网站/应用程序侦听 <br>- 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置。
+组策略 | 请勿启用以下组策略： <br> - 阻止访问命令提示符。 <br> - 阻止访问注册表编辑工具。 <br> - 信任文件附件的逻辑。 <br> - 打开脚本执行。 <br> [了解详细信息](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10)
+IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在的网站/应用程序侦听 <br>- 启用[匿名身份验证](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - 启用 [FastCGI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 设置。
 IP 地址类型 | 静态 
 | 
 访问设置  | 
@@ -55,4 +55,4 @@ CPU  | **内存** | 缓存磁盘  | **数据更改率** | 复制的计算机
 12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 到 150 台计算机
 16 个 vCPU<br/><br/> 2 个插槽 * 8 个核心 \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 台计算机
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, update link -->

@@ -4,17 +4,17 @@ description: 本教程介绍如何使用 ASP.NET Core 前端和 Reliable Service
 ms.topic: tutorial
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9746a3711b6b7bfb28f4f88b37b930e89013db1e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 0664d50d54be5efc40f8fe2d93b775477144be6e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507936"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105191"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建并部署应用程序
 
@@ -42,7 +42,7 @@ ms.locfileid: "96507936"
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* 如果没有 Azure 订阅，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [安装 Visual Studio 2019](https://www.visualstudio.com/) 版本 16.2 或更高版本，其中包含 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
     
     <!--Correct on version 16.2 for VS2019-->

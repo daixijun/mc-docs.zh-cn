@@ -2,18 +2,18 @@
 title: 将资源部署到资源组
 description: 介绍如何在 Azure 资源管理器模板中部署资源。 它介绍如何将多个资源组作为目标。
 ms.topic: conceptual
-origin.date: 10/26/2020
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 11/23/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 1dee82dc006937ce23c6eefaa016e7536488ebdc
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: bedd05aad8812b6a310751f308e637c23090cb2c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970788"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003743"
 ---
 <!--Verified successfully form rename and merge files.-->
 # <a name="resource-group-deployments-with-arm-templates"></a>使用 ARM 模板进行资源组部署
@@ -22,7 +22,9 @@ ms.locfileid: "95970788"
 
 ## <a name="supported-resources"></a>支持的资源
 
-可以将大多数资源部署到资源组。 有关可用资源的列表，请参阅 [ARM 模板参考](https://docs.azure.cn/templates)。
+可以将大多数资源部署到资源组。
+
+<!--Not Available on [ARM template reference](https://docs.microsoft.com/azure/templates)-->
 
 ## <a name="schema"></a>架构
 
@@ -92,6 +94,8 @@ New-AzResourceGroupDeployment `
 
 * 操作中的目标资源组
 * 同一订阅或其他订阅中的其他资源组
+* 租户中的任何订阅
+* 资源组的租户
 * [扩展资源](scope-extension-resources.md)可应用于资源
 
 部署模板的用户必须有权访问指定的作用域。
@@ -112,6 +116,8 @@ New-AzResourceGroupDeployment `
     "outputs": {}
 }
 ```
+
+有关示例模板，请参阅[部署到目标资源组](#deploy-to-target-resource-group)。
 
 ### <a name="scope-to-resource-group-in-same-subscription"></a>将范围限定于同一订阅中的资源组
 
@@ -141,6 +147,8 @@ New-AzResourceGroupDeployment `
 }
 ```
 
+有关示例模板，请参阅[部署到多个资源组](#deploy-to-multiple-resource-groups)。
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>将范围限定于不同订阅中的资源组
 
 若要将资源部署到不同订阅中的资源组，请添加嵌套部署并包括 `subscriptionId` 和 `resourceGroup` 属性。 在以下示例中，嵌套部署以名为 `demoResourceGroup` 的资源组为目标。
@@ -168,7 +176,154 @@ New-AzResourceGroupDeployment `
 }
 ```
 
-## <a name="cross-resource-groups"></a>跨资源组
+有关示例模板，请参阅[部署到多个资源组](#deploy-to-multiple-resource-groups)。
+
+### <a name="scope-to-subscription"></a>订阅的范围
+
+若要将资源部署到订阅，请添加嵌套部署并包含 `subscriptionId` 属性。 订阅可以针对目标资源组，也可针对租户中的任何其他订阅。 此外，请为嵌套部署设置 `location` 属性。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "location": "chinaeast",
+            "subscriptionId": "0000000-0000-0000-0000-000000000000",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    subscription-resources
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+有关示例模板，请参阅[创建资源组](#create-resource-group)。
+
+### <a name="scope-to-tenant"></a>将范围设定为租户
+
+可通过将 `scope` 设置为 `/`，在租户中创建资源。 部署模板的用户必须具有[在租户中进行部署所需的访问权限](deploy-to-tenant.md#required-access)。
+
+可使用设置了 `scope` 和 `location` 的嵌套部署。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "location": "chinaeast",
+            "scope": "/",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    tenant-resources
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+或者，可将某些资源类型（如管理组）的范围设置为 `/`。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('mgName')]",
+            "scope": "/",
+            "location": "chinaeast",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
+
+## <a name="deploy-to-target-resource-group"></a>部署到目标资源组
+
+若要在目标资源组部署资源，请在模板的“资源”部分定义这些资源。 以下模板会在部署操作中指定的资源组中创建一个存储帐户。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS",
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "object",
+      "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+    }
+  }
+}
+```
+
+## <a name="deploy-to-multiple-resource-groups"></a>部署到多个资源组
 
 可以在单个 ARM 模板中部署到多个资源组。 若要将与父模板不同的资源组作为目标，请使用[嵌套或链接模板](linked-templates.md)。 在部署资源类型中，为要将嵌套模板部署到的订阅 ID 和资源组指定值。 资源组可以存在于不同的订阅中。
 
@@ -282,10 +437,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location chinaeast
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location chinaeast
 
 New-AzResourceGroupDeployment `
@@ -338,9 +493,78 @@ az deployment group create \
 
 ---
 
+## <a name="create-resource-group"></a>创建资源组
+
+可从资源组部署中切换到订阅级别并创建一个资源组。 以下模板会向目标资源组部署一个存储帐户，并在指定的订阅中创建一个新的资源组。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "chinanorth",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
+
 ## <a name="next-steps"></a>后续步骤
 
 * 若要通过示例来了解如何为 Azure 安全中心部署工作区设置，请参阅 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)。
 
-<!-- Update_Description: new article about deploy to resource group -->
-<!--NEW.date: 11/23/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

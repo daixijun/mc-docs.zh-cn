@@ -4,14 +4,14 @@ description: 提供有关在使用 Azure 备份服务备份 Azure VM 时的支�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 4bfbafc3712d59e70a7429d772e6cd12bbfcc3ec
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 4435487f4e1fe2b02e27d7dd64c4c2d33cc526e6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977181"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104380"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 
@@ -52,7 +52,7 @@ ms.locfileid: "94977181"
 自动时钟调整 | 不支持。<br/><br/> 备份 VM 时，Azure 备份不会根据夏令时自动调整。<br/><br/>  请根据需要手动修改策略。
 [混合备份的安全功能](./backup-azure-security-feature.md) |不支持禁用安全功能。
 备份其计算机时间已发生更改的 VM | 不支持。<br/><br/> 如果为该 VM 启用备份后，计算机时间变为将来的日期时间，那么即使还原时间更改，也无法保证成功备份。
-[虚拟机规模集](../virtual-machine-scale-sets/overview.md)中的 Azure VM | [业务流程模式](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes)设置为 3 的 VM 支持备份和还原。 <br><br>不支持可用性集。
+[虚拟机规模集](../virtual-machine-scale-sets/overview.md)中的 Azure VM |不支持可用性集。
 
 ## <a name="operating-system-support-windows"></a>操作系统支持 (Windows)
 
@@ -104,14 +104,14 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 --- | ---
 **创建新 VM** | 从还原点快速创建并正常运行一个基本的 VM。<br/><br/> 可以指定 VM 的名称，选择要将此 VM 放入到的资源组和虚拟网络 (VNet)，以及为已还原的 VM 指定存储帐户。 新 VM 必须在源 VM 所在的区域创建。
 **还原磁盘** | 还原某个 VM 磁盘，然后使用它来创建新的 VM。<br/><br/> Azure 备份提供一个模板来帮助你自定义和创建 VM。 <br/><br> 还原作业会生成一个模板，可以下载该模板，并使用它来指定自定义的 VM 设置和创建 VM。<br/><br/> 磁盘将复制到指定的资源组。<br/><br/> 或者，可将磁盘附加到现有 VM，或使用 PowerShell 创建新的 VM。<br/><br/> 若要自定义 VM、添加在备份时不存在的配置设置，或添加必须使用模板或 PowerShell 配置的设置，则此选项非常有用。
-**替换现有项** | 可以还原某个磁盘，并使用它来替换现有 VM 上的磁盘。<br/><br/> 当前 VM 必须存在。 如果已将其删除，则无法使用此选项。<br/><br/> Azure 备份会在替换磁盘之前获取现有 VM 的快照，并将其存储在指定的暂存位置。 连接到该 VM 的现有磁盘将替换为所选的还原点。<br/><br/> 快照将复制到保管库，并根据保留策略进行保留。 <br/><br/> 替换磁盘操作完成后，原始磁盘会保留在资源组中。 如果不需要原始磁盘，可选择手动删除它们。 <br/><br/>支持替换未加密的托管 VM 的现有磁盘。 不支持对非托管磁盘、[通用化 VM](../virtual-machines/windows/capture-image-resource.md) 或[使用自定义映像创建的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM 使用该选项。<br/><br/> 如果还原点中的磁盘数多于或少于当前 VM 中的磁盘数，则还原点中的磁盘数只反映 VM 配置。<br><br> 对于包含链接资源的 VM（例如[用户分配的托管标识](../active-directory/managed-identities-azure-resources/overview.md)和 [Key Vault](../key-vault/general/overview.md)），还支持替换现有磁盘。
+**替换现有项** | 可以还原某个磁盘，并使用它来替换现有 VM 上的磁盘。<br/><br/> 当前 VM 必须存在。 如果已将其删除，则无法使用此选项。<br/><br/> Azure 备份会在替换磁盘之前获取现有 VM 的快照，并将其存储在指定的暂存位置。 连接到该 VM 的现有磁盘将替换为所选的还原点。<br/><br/> 快照将复制到保管库，并根据保留策略进行保留。 <br/><br/> 替换磁盘操作完成后，原始磁盘会保留在资源组中。 如果不需要原始磁盘，可选择手动删除它们。 <br/><br/>对于未加密的托管 VM 和[使用自定义映像创建](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)的 VM，支持替换现有磁盘。 非托管磁盘和[通用化 VM](../virtual-machines/windows/capture-image-resource.md) 不支持此操作。<br/><br/> 如果还原点中的磁盘数多于或少于当前 VM 中的磁盘数，则还原点中的磁盘数只反映 VM 配置。<br><br> 对于包含链接资源的 VM（例如[用户分配的托管标识](../active-directory/managed-identities-azure-resources/overview.md)和 [Key Vault](../key-vault/general/overview.md)），还支持替换现有磁盘。
 <!--Not available in MC: Cross Region restore-->
 
 ## <a name="support-for-file-level-restore"></a>文件级还原支持
 
 **还原** | **支持**
 --- | ---
-跨操作系统还原文件 | 可以在与备份的 VM 使用相同（或兼容）OS 的任何计算机上还原文件。 请参阅[兼容 OS 表](backup-azure-restore-files-from-vm.md#system-requirements)。
+跨操作系统还原文件 | 可以在与备份的 VM 使用相同（或兼容）OS 的任何计算机上还原文件。 请参阅[兼容 OS 表](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)。
 还原已加密 VM 中的文件 | 不支持。
 还原网络受限的存储帐户中的文件 | 不支持。
 使用 Windows 存储空间还原 VM 上的文件 | 不支持在同一 VM 上还原。<br/><br/> 应在兼容的 VM 上还原文件。
@@ -142,7 +142,7 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 VM 大小 |至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小。<br/><br/> [了解详细信息。](../virtual-machines/sizes.md)
 备份[可用性集](../virtual-machines/availability.md#availability-sets)中的 VM | 。<br/><br/> 无法使用快速创建 VM 的选项来还原可用性集中的 VM。 还原 VM 时，请还原磁盘并用它来部署 VM，或者还原磁盘并用它来替换现有磁盘。
 备份使用[混合使用权益 (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 部署的 VM | 。
-备份[规模集](../virtual-machine-scale-sets/overview.md)中部署的 VM |。 对于容错域，[业务流程模式](../virtual-machine-scale-sets/orchestration-modes.md)应设置为 2。 不支持可用性集。
+备份[规模集](../virtual-machine-scale-sets/overview.md)中部署的 VM |。 不支持可用性集。
 备份从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)部署的 VM<br/><br/> （由 Microsoft 或第三方发布） |。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。 我们不会还原作为 VM 备份的 Azure 市场 VM，因为这需要购买信息。 它们仅作为磁盘还原。
 备份从自定义映像部署的 VM（第三方） |。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。
 备份已迁移到 Azure 的 VM| 。<br/><br/> 若要备份 VM，必须在迁移的计算机上安装 VM 代理。

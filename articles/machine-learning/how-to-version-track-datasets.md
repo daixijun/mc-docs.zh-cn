@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 origin.date: 11/04/2019
 ms.date: 03/16/2020
 ms.custom: ''
-ms.openlocfilehash: 58f46b88dab4e74cef355429d7b15f5128c276f6
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 3e7f15151ba681923f3c8560ecda787bdefc4e60
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978013"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105271"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>在试验中对数据集进行版本控制和跟踪
 
@@ -154,7 +154,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datas-in-your-experiments"></a>跟踪试验中的数据
+## <a name="track-data-in-your-experiments"></a>跟踪试验中的数据
 
 Azure 机器学习在整个试验过程中跟踪数据作为输入和输出数据集。  
 

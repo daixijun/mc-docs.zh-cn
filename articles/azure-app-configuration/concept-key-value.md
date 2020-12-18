@@ -1,17 +1,17 @@
 ---
 title: 了解 Azure 应用程序配置键值存储
-description: 了解如何在 Azure 应用程序配置中存储配置数据。
+description: 了解 Azure 应用程序配置中的键值存储，这一功能可将配置数据存储为键值。 键值是应用程序设置的表示形式。
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: 5349edaeffaeb0f8c4b197b435134b187c90bcd8
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.date: 12/14/2020
+ms.openlocfilehash: 5182a3ea2cfe05fb3083a128ea2988cfa9ef3d7d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866680"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105217"
 ---
 # <a name="keys-and-values"></a>键和值
 
@@ -30,7 +30,7 @@ Azure 应用配置将配置数据存储为键值。 键值是开发人员使用�
 
 在应用程序框架内使用配置数据可以规定键值的特定命名方案。 例如，Java 的 Spring Cloud 框架定义了 `Environment` 资源，这些资源为 Spring 应用程序提供设置。  这些资源通过包括应用程序名称和配置文件在内的变量进行了参数化 。 Spring Cloud 相关配置数据的键通常以这两个元素开头，由一个分隔符分开。
 
-存储在应用配置中的密钥是区分大小写的、基于 unicode 的字符串。 “app1”和“App1”键在应用程序配置存储区中是有所区分的****。 在应用程序中使用配置设置时，请记住这一点，因为有些框架处理配置键时不区分大小写。 不建议使用大小写来区分键。
+存储在应用配置中的密钥是区分大小写的、基于 unicode 的字符串。 “app1”和“App1”键在应用程序配置存储区中是有所区分的。 在应用程序中使用配置设置时，请记住这一点，因为有些框架处理配置键时不区分大小写。 不建议使用大小写来区分键。
 
 可以在键名称中使用任何 unicode 字符，除了 `%`。 键名称不能为 `.` 或 `..`。 键值的组合大小限制为 10 KB。 此限制包括键中的所有字符、其值以及所有相关的可选属性。 在此限制范围内，可以为密钥设置许多层次结构级别。
 
@@ -42,7 +42,9 @@ Azure 应用配置将配置数据存储为键值。 键值是开发人员使用�
 * 更易于管理。 密钥名称层次结构表示配置数据的逻辑组。
 * 更易于使用。 更简单的方法是编写一个查询，该查询在层次结构中模式匹配密钥并仅检索部分配置数据。 此外，许多较新的编程框架对分层配置数据具有本机支持，因此应用程序可以使用特定的配置集。
 
-可以通过多种方式按层次结构组织应用配置中的密钥。 将此类键视为 [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)。 每个分层键是由一个或多个组件组成的资源“路径”，由分隔符联接在一起**。 根据应用程序、编程语言或框架的需要选择要用作分隔符的字符。 在应用配置中为不同的键使用多个分隔符。
+可以通过多种方式按层次结构组织应用配置中的密钥。 将此类键视为 URI。 每个分层键是由一个或多个组件组成的资源“路径”，由分隔符联接在一起。 根据应用程序、编程语言或框架的需要选择要用作分隔符的字符。 在应用配置中为不同的键使用多个分隔符。
+
+<!--Not Available on [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)-->
 
 ### <a name="label-keys"></a>标签键
 
@@ -70,8 +72,8 @@ Azure 应用配置将配置数据存储为键值。 键值是开发人员使用�
 | 键 | 说明 |
 |---|---|
 | 省略 `key` 或 `key=*` | 匹配所有密钥 |
-| `key=abc` | 完全匹配键名称 abc**** |
-| `key=abc*` | 匹配以 abc 开头的密钥名称**** |
+| `key=abc` | 完全匹配键名称 abc |
+| `key=abc*` | 匹配以 abc 开头的密钥名称 |
 | `key=abc,xyz` | 匹配密钥名称 abc 或 xyz 。 限制为 5 个 CSV |
 
 还可以包含以下标签模式：
@@ -80,8 +82,8 @@ Azure 应用配置将配置数据存储为键值。 键值是开发人员使用�
 |---|---|
 | 省略 `label` 或 `label=*` | 匹配任何标签，包括 `\0` |
 | `label=%00` | 匹配 `\0` 标签 |
-| `label=1.0.0` | 完全匹配标签 1.0.0**** |
-| `label=1.0.*` | 匹配以 1.0. 开头的标签**** |
+| `label=1.0.0` | 完全匹配标签 1.0.0 |
+| `label=1.0.*` | 匹配以 1.0. 开头的标签 |
 | `label=%00,1.0.0` | 匹配标签 `\0` 或 **1.0.0**，限制为五个 CSV |
 
 > [!NOTE]

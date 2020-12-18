@@ -4,16 +4,16 @@ description: Service Fabric 群集会在 Windows Server 或 Linux 上运行，�
 ms.topic: conceptual
 origin.date: 02/01/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 01/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 71324d00a1679fae59fea1929d49e49a6d1e3474
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d9448cf738fba4227a249a5dd5b8f442bb474214
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327438"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105188"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 独立群集概述
 
@@ -48,10 +48,10 @@ Service Fabric 群集是你拥有的资源。  你应保护群集，防止未经
 
 有关详细信息，请阅读[客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
+### <a name="service-fabric-role-based-access-control"></a>Service Fabric 基于角色的访问控制
 Service Fabric 还支持使用访问控制限制对不同用户组的某些群集操作的访问。 这就使得群集更加安全。 连接到群集的客户端支持两种访问控制类型：管理员角色和用户角色。  
 
-有关详细信息，请阅读[基于角色的访问控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac)。
+有关详细信息，请参阅 [Service Fabric 基于角色的访问控制](service-fabric-cluster-security.md#service-fabric-role-based-access-control)。
 
 ## <a name="scaling"></a>扩展
 

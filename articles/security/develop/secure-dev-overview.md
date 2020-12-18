@@ -1,10 +1,10 @@
 ---
-title: 世纪互联 Azure 上的安全开发最佳做法
+title: Azure 上的安全开发最佳做法
 description: 帮助你开发更安全的代码以及在云中部署更安全的应用程序的最佳做法。
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
-ms.author: v-tawe
-ms.date: 06/04/2020
+ms.author: v-johya
+ms.date: 12/03/2020
 origin.date: 06/11/2019
 ms.topic: article
 ms.service: security
@@ -14,12 +14,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: fb39efaa7480ac5b5d91ad11741c3d520bec3335
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: bce7c13e2d4e3bbfbc11efe0385a4c30cd6ff8bf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439681"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104309"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure 上的安全开发最佳做法
 此系列文章介绍了在为云开发应用程序时要考虑的安全活动和控制措施。 其中还说明了 Microsoft 安全开发生命周期 (SDL) 的各个阶段及生命周期各阶段中要考虑的安全问题和概念。 目标是帮助你定义可在生命周期的每个阶段中使用的活动和 Azure 服务，以便设计、开发和部署更安全的应用程序。
@@ -34,13 +34,11 @@ ms.locfileid: "84439681"
 
 ## <a name="security-development-lifecycle"></a>安全开发生命周期
 
-要遵循安全软件开发的最佳做法，就必须将安全性集成到软件开发生命周期的每个阶段（从需求分析到维护），而无论项目方法如何
-<!-- not available -->
-。 随着引入关注的数据泄露和运营方面的安全缺陷被利用等情况的发生，越来越多的开发人员理解了解决安全性问题是需要贯穿整个开发过程的。
+要遵循安全软件开发的最佳做法，就必须将安全性集成到软件开发生命周期的每个阶段（从需求分析到维护），而无论项目方法如何（waterfall、agile 或 DevOps）。 随着引入关注的数据泄露和运营方面的安全缺陷被利用等情况的发生，越来越多的开发人员理解了解决安全性问题是需要贯穿整个开发过程的。
 
 在开发生命周期中，解决问题的时间越晚，那么解决问题要耗费的成本也就越高。 安全性问题也不例外。 如果在软件开发早期阶段漠视安全问题，那么后面的每个阶段可能会继承前面的阶段中存在的漏洞。 最终产品将会积累很多安全问题，还可能会发生数据泄露。 将安全性融入开发生命周期的每个阶段，会有助于及早发现问题，并且有助于降低开发成本。
 
-我们按照 Microsoft [安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 的各个阶段来介绍活动和 Azure 服务，你可以利用它们在生命周期的各个阶段中完成安全软件开发实践。
+我们按照 Microsoft [安全开发生命周期 (SDL)](https://docs.microsoft.com/previous-versions/windows/desktop/cc307891(v=msdn.10)) 的各个阶段来介绍活动和 Azure 服务，你可以利用它们在生命周期的各个阶段中完成安全软件开发实践。
 
 SDL 各阶段包括：
 
@@ -66,16 +64,17 @@ SDL 各阶段包括：
 
 以下资源可用于了解有关开发安全应用程序的详细信息，以及帮助保护 Azure 上的应用程序：
 
-[Microsoft 安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – SDL 是源于 Microsoft 的一种软件开发过程，可帮助开发人员构建更加安全的软件。 它有助于在满足安全性合规要求的同时降低开发成本。
+[Microsoft 安全开发生命周期 (SDL)](https://docs.microsoft.com/previous-versions/windows/desktop/cc307891(v=msdn.10))
+- SDL 是源于 Microsoft 的一种软件开发过程，可帮助开发人员构建更加安全的软件。 它有助于在满足安全性合规要求的同时降低开发成本。
 
-[开放式 Web 应用程序安全性项目 (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP 是一个在线社区，它提供 Web 应用程序安全性领域的免费文章、方法、文档、工具和技术。
-
-<!-- not available-->
-
-[Microsoft 标识平台](/active-directory/develop/) – Microsoft 标识平台是由 Azure AD 标识服务和开发人员平台演变而来。 它是一个全功能平台，包含身份验证服务、开源库、应用程序注册和配置、完整的开发人员文档、代理示例，以及其他开发人员内容。 Microsoft 标识平台支持 OAuth 2.0 和 OpenID Connect 这样的行业标准协议。
+[开放式 Web 应用程序安全性项目 (OWASP)](https://www.owasp.org/index.php/Main_Page) - OWASP 是一个在线社区，它提供 Web 应用程序安全性领域的免费文章、方法、文档、工具和技术。
 
 <!-- not available-->
 
+[Microsoft 标识平台](../../active-directory/develop/index.yml) - Microsoft 标识平台是由 Azure AD 标识服务和开发人员平台演变而来。 它是一个全功能平台，包含身份验证服务、开源库、应用程序注册和配置、完整的开发人员文档、代理示例，以及其他开发人员内容。 Microsoft 标识平台支持 OAuth 2.0 和 OpenID Connect 这样的行业标准协议。
+
+[Azure 解决方案的安全性最佳做法](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/)
+- 通过 Azure 设计、部署和管理云解决方案时可以使用的一组安全性最佳做法。 本文旨在为 IT 专业人员提供资源。 这可能包括构建和部署安全的 Azure 解决方案的设计人员、架构师、开发者和测试人员。
 
 [Azure 安全性与合规性蓝图](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) - Azure 安全性与合规性蓝图资源有助于构建和推出符合严格法规和标准的云助力应用程序。
 
@@ -85,3 +84,4 @@ SDL 各阶段包括：
 - [设计安全的应用程序](secure-design.md)
 - [开发安全的应用程序](secure-develop.md)
 - [部署安全的应用程序](secure-deploy.md)
+

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4260cd8cf8b358d813edc7d8431776102e887099
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8c6d621fb4620659ce708dd010bd221619cc812a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978311"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104573"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>使用 TLS 保护通过 Azure 机器学习部署的 Web 服务
 
@@ -86,6 +86,9 @@ TLS 和 SSL 均依赖数字证书，这有助于加密和身份验证。 有关�
 - 如果附加现有群集，请使用 **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 。 这两个方法都返回包含 enable_ssl 方法的配置对象。
 
 enable_ssl 方法可以使用 Microsoft 提供的证书或你购买的证书。
+
+> [!WARNING]
+> 如果使用内部负载均衡器配置了 AKS 群集，则不支持使用 Microsoft 提供的证书。 使用 Microsoft 提供的证书需要 Azure 中的公共 IP 资源，为内部负载均衡器配置时，AKS 无法使用此资源。
 
   * 使用 Microsoft 的证书时，必须使用 leaf_domain_label 参数。 此参数生成服务的 DNS 名称。 例如，使用值“contoso”将创建域名“contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com”，其中 \<azureregion> 是包含该服务的区域。 或者，可使用 overwrite_existing_domain 参数覆盖现有的 leaf_domain_label 。
 
@@ -159,7 +162,8 @@ aci_config = AciWebservice.deploy_configuration(
 
   > [!WARNING]
   > 如果使用了 leaf_domain_label 通过 Microsoft 的证书创建服务，请不要手动更新群集的 DNS 值。 应自动设置该值。
-
+  >
+  > 如果使用内部负载均衡器配置了 AKS 群集，则不支持使用 Microsoft 提供的证书（方法是设置 leaf_domain_label）。 使用 Microsoft 提供的证书需要 Azure 中的公共 IP 资源，为内部负载均衡器配置时，AKS 无法使用此资源。
   在左侧窗格中“设置”下的“配置”选项卡上更新 AKS 群集公共 IP 地址 DNS 。 （参看下图。）公共 IP 地址是在包含 AKS 代理节点和其他网络资源的资源组下创建的资源类型。
 
   [![Azure 机器学习：使用 TLS 保护 Web 服务](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

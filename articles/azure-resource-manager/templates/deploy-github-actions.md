@@ -4,17 +4,17 @@ description: 介绍如何使用 GitHub Actions 部署资源管理器模板。
 ms.topic: conceptual
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.custom: github-actions-azure
-ms.openlocfilehash: 7565e4fe8ac83b89c3d3a1fdeb92bc38b584fdde
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 13694e88b3a5893cff72267d66a97f840c4b0f15
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508078"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004205"
 ---
 <!--Verified successfully on 2020/07/13 by harris-->
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>使用 GitHub Actions 部署 Azure 资源管理器模板
@@ -116,7 +116,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -130,7 +130,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
 
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
@@ -162,6 +162,6 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [创建第一个 ARM 模板](https://docs.azure.cn/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [创建第一个 ARM 模板](./template-tutorial-create-first-template.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

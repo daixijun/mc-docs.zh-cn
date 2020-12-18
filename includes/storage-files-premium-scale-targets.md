@@ -3,14 +3,14 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 08/10/2020
-ms.date: 08/24/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: e2ae94c2fdde963846c10735d31076e23ebeda75
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 24ac2a14bccde998f9146dad404492a08ecc4819
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753306"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850345"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>其他高级文件共享级别限制
 
@@ -27,8 +27,10 @@ ms.locfileid: "88753306"
 |区域  |标准文件  |高级文件  |
 |---------|---------|---------|
 |大小     |1 TiB         |4 TiB         |
-|每个文件的最大 IOPS      |1,000         |5,000         |
+|每个文件的最大 IOPS      |1,000         |最大 8,000*         |
 |并发句柄数     |2,000         |2,000         |
 |流出量     |查看标准文件吞吐量值         |300 MiB/秒         |
 |流入量     |查看标准文件吞吐量值         |200 MiB/秒         |
 |吞吐量     |最多 60 MiB/秒         |查看高级文件流入量/流出量值         |
+
+\* <sup> 适用于读取和写入 IO（通常较小的 IO 大小 <=64K）。除读取和写入之外的元数据操作数可能更低。</sup>

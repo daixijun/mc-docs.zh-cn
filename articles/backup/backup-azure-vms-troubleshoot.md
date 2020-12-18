@@ -5,14 +5,14 @@ ms.reviewer: srinathv
 author: Johnnytechn
 ms.topic: troubleshooting
 origin.date: 08/30/2019
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 756b8a9493b5f1c3406b530139a00d7f6b3907d4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c34685a9cd182182e7903edc8025759f039fe22a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978223"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105140"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>排查 Azure 虚拟机上的备份失败问题
 
@@ -160,7 +160,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 发生此错误是因为在还原操作过程中选择的 VM 大小不受支持。 <br>
 
-若要解决此问题，请在还原操作过程中使用[还原磁盘](./backup-azure-arm-restore-vms.md#restore-disks)选项。 使用这些磁盘通过 [Powershell cmdlets](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 从[可用的受支持 VM 大小](./backup-support-matrix-iaas.md#vm-compute-support)列表中创建 VM。
+若要解决此问题，请在还原操作过程中使用[还原磁盘](./backup-azure-arm-restore-vms.md#restore-disks)选项。 使用这些磁盘通过 [PowerShell cmdlet](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 根据[可用的受支持 VM 大小](./backup-support-matrix-iaas.md#vm-compute-support)列表创建 VM。
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported - 由于没有市场购买请求，创建 VM 失败
 
@@ -247,7 +247,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 这将确保通过主机而不是来宾来拍摄快照。 请重试备份操作。
 
-**步骤 2**：尝试将备份计划更改到 VM 的负载较小（CPU/IOP 等较小）的某个时间
+**步骤 2**：尝试将备份计划更改到 VM 的负载较小（如 CPU 或 IOPS 较小）的某个时间
 
 **步骤 3**：尝试 [增大 VM 的大小](/virtual-machines/windows/resize-vm)并重试操作
 
@@ -324,8 +324,8 @@ VM 代理是 Azure 恢复服务扩展的先决条件。 安装 Azure 虚拟机�
 
 如果还原后发现磁盘处于脱机状态，请执行以下操作：
 
-* 验证执行脚本的计算机是否满足 OS 要求。 [了解详细信息](./backup-azure-restore-files-from-vm.md#system-requirements)。  
-* 确保不会还原到同一个源，[了解详细信息](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine)。
+* 验证执行脚本的计算机是否满足 OS 要求。 [了解详细信息](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)。  
+* 确保不会还原到同一个源，[了解详细信息](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)。
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - 还原失败，因为找不到 VM 的快照
 

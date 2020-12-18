@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: e5a5b3af9858fd209566d49019cfd27b28f8731f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 27fec691ecb13c54edafe7d61759f28bc3c46658
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978186"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105282"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -130,26 +130,24 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 1. 使用 AUC 作为主要指标加权的分类实验，其中实验超时分钟数设置为 30 分钟，且包含 2 折交叉验证。
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. 下面是设置为 60 分钟后结束的回归试验示例，其中包含 5 折交叉验证。
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>退出条件
+
+可以在 AutoMLConfig 中定义几个选项来结束试验。
+
+|条件| description
+|----|----
+无条件 | 如果未定义任何退出参数，则试验将继续，直到主要指标不再需要执行其他步骤。
+在一段时间后| 在设置中使用 `experiment_timeout_minutes` 来定义试验应继续运行多长时间（以分钟为单位）。 <br><br> 若要避免试验超时失败，最少需要 15 分钟，如果行数乘以列数的大小超过 10,000,000，则最少需要 60 分钟。
+达到某个分数| 使用 `experiment_exit_score` 将在达到指定的主要指标分数后完成试验。
+
 ## <a name="run-experiment"></a>运行试验
 
 对于自动化 ML，可以创建 `Experiment` 对象，这是 `Workspace` 中用于运行实验的命名对象。
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >首先在新的计算机上安装依赖项。  最长可能需要在 10 分钟后才会显示输出。
 >将 `show_output` 设置为 `True` 可在控制台上显示输出。
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>群集上的多个子运行
 
-### <a name="exit-criteria"></a>退出条件
+自动化 ML 试验子运行可以在已经运行另一个试验的群集上执行。 但是，计时取决于群集具有的节点数，以及这些节点是否可用于运行不同的试验。
 
-有几个选项可供定义来结束实验。
+群集中的每个节点充当单个可以完成一次训练运行的虚拟机 (VM)；对于自动化 ML，这意味着一个子运行。 如果所有节点都处于忙状态，则新的试验将排队。 但是，如果有空闲节点，新的试验将在可用节点/VM 中并行运行自动化 ML 子运行。
 
-|条件| description
-|----|----
-无条件 | 如果未定义任何退出参数，则试验将继续，直到主要指标不再需要执行其他步骤。
-在一段时间后| 在设置中使用 `experiment_timeout_minutes` 来定义试验应继续运行多长时间（以分钟为单位）。 <br><br> 若要避免试验超时失败，最少需要 15 分钟，如果行数乘以列数的大小超过 10,000,000，则最少需要 60 分钟。
-达到某个分数| 使用 `experiment_exit_score` 将在达到指定的主要指标分数后完成试验。
+为了管理子运行及其执行时间，建议你为每个试验创建一个专用群集，使试验的 `max_concurrent_iterations` 数与群集中的节点数匹配。 这样就可以同时使用群集的所有节点以及所需数量的并发子运行/迭代。
+
+在 `AutoMLConfig` 对象中配置 `max_concurrent_iterations`。 如果未进行配置，则默认情况下每个试验仅允许一个并发子运行/迭代。  
 
 ## <a name="explore-models-and-metrics"></a>探索模型和指标
 

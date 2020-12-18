@@ -4,16 +4,16 @@ description: 有关 Azure Service Fabric 群集资源管理器服务的概述和
 ms.topic: conceptual
 origin.date: 08/18/2017
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: d03580d114b68efe631c0e1526ecd331bd9af445
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6b1c450f2009e98d5c75f63a13905a925044166f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328545"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105348"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>群集 Resource Manager 体系结构概述
 Service Fabric 群集资源管理器是在群集中运行的中心服务。 它管理群集中服务所需的状态，对资源消耗和任何放置规则而言尤其如此。 
@@ -46,7 +46,7 @@ Service Fabric 群集资源管理器是在群集中运行的中心服务。 它�
 
 <center>
 
-![此图显示了群集资源管理器服务如何聚合来自本地代理的所有信息，并根据当前配置做出反应。][Image1]
+![此图显示了群集资源管理器服务聚合来自本地代理的所有信息，并根据当前配置做出反应。][Image1]
 
 </center>
 

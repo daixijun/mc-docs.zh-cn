@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90856fddacd2ead723eba3b5bf75654b5ba7cb
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: ee570f8b26722e69d1cfa4ebe4f2acc575094488
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501680"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003605"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中分配 Azure AD 角色
 
@@ -79,7 +79,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 对于某些角色，所授予权限的范围可以限制为单个管理单元、服务主体或应用程序。 若要分配范围为一个管理单元的角色，则可参考此过程。 有关支持管理单元范围的角色列表，请参阅[分配范围限定为一个管理单元的角色](../roles/admin-units-assign-roles.md)。 此功能目前正在向 Azure AD 组织推出。
 
-1. 使用特权角色管理员权限登录到 [Azure Active Directory 管理中心](https://portal.azure.cn)。
+1. 使用特权角色管理员权限登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 选择“Azure Active Directory” > “角色和管理员”。 。
 
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 用户符合角色的条件后，请告诉他们，可以按照[在 Privileged Identity Management 中激活 Azure AD 角色](pim-how-to-activate-role.md)中的说明来激活该角色。
 
-    符合条件的管理员在激活期间需要注册 Azure 多重身份验证。 如果用户无法注册 MFA 或使用 Microsoft 帐户（例如 @outlook.com），则需要将其设置为永久充当其角色。
+    符合条件的管理员在激活期间需要注册 Azure AD 多重身份验证。 如果用户无法注册 MFA 或使用 Microsoft 帐户（例如 @outlook.com），则需要将其设置为永久充当其角色。
 
 ## <a name="make-a-role-assignment-permanent"></a>将角色分配设为永久
 

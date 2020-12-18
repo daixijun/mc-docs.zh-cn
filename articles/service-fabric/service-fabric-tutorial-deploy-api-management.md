@@ -4,17 +4,17 @@ description: 了解如何快速开始使用 Azure API 管理以及在 Service Fa
 ms.topic: conceptual
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 03c41491c64347f2285c316759cc3f1b888ea6bc
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 825f5d4961da572c44da03cf1a6b1461b4af7104
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507933"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105233"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>在 Azure 中将 API 管理与 Service Fabric 集成
 
@@ -33,7 +33,7 @@ ms.locfileid: "96507933"
 
 开始之前：
 
-* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* 如果没有 Azure 订阅，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 安装 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * 在网络安全组中创建一个安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 * 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2019](https://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发** 以及 **.NET Core 跨平台开发** 工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。

@@ -1,20 +1,20 @@
 ---
-title: 使用 ID 代理（预览版）进行凭据管理 - Azure HDInsight
+title: Azure HDInsight ID 代理 (HIB)
 description: 了解 Azure HDInsight ID 代理如何简化已加入域的 Apache Hadoop 群集的身份验证。
 ms.service: hdinsight
 author: hrasheed-msft
-ms.author: hrasheed
+ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 1cd2d8e575c311fac88e02384f3dcf9bfb2784ea
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.date: 11/03/2020
+ms.openlocfilehash: 56d36fe8ddea2d3d306d472d90ed1137e8535eb9
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552179"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104844"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 代理（预览版）
+# <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID 代理 (HIB)
 
 本文介绍了如何设置和使用 Azure HDInsight ID 代理功能。 可以使用此功能获得对 Apache Ambari 的新式 OAuth 身份验证，同时执行多重身份验证，而无需在 Azure Active Directory 域服务 (Azure AD DS) 中使用旧密码哈希。
 
@@ -137,6 +137,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 若要使用 Beeline 和 Livy，还可以按照[此处](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples)提供的示例代码来设置客户端，以使用 OAuth 并连接到群集。
+
+## <a name="faq"></a>常见问题解答
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>AAD 中的 HDInsight 创建了什么应用？
+对于每个群集，会在 AAD 中注册第三方应用程序，并将群集 URI 作为 identifierUri（如 `https://clustername.azurehdinsight.cn`）。
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>为什么在使用支持 HIB 的群集之前，用户会看到要求提供许可的提示？
+在 AAD 中，所有第三方应用程序都需要先获得用户许可才能对用户进行身份验证或访问数据。
+
+### <a name="can-the-consent-be-approved-programatically"></a>可否以编程方式提供许可？
+Microsoft Graph API 允许自动提供许可，请参阅 [API 文档](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0)了解相关信息。自动提供许可的顺序为：
+
+* 注册应用并向应用授予 Application.ReadWrite.All 权限，以访问 Microsoft Graph
+* 创建群集后，基于标识符 URI 查询群集应用
+* 注册应用的许可
+
+删除群集后，HDInsight 会删除该应用，无需清除任何许可。
+
+ 
+
 
 ## <a name="next-steps"></a>后续步骤
 

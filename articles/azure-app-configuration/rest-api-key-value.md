@@ -5,19 +5,19 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
-ms.openlocfilehash: 8a9949aeb78ea0d62437d9ac94b25ff7f24f9686
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: af37394e72b0ae62388ba1a7cd37994049875904
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231145"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104654"
 ---
-# <a name="key-values"></a>键值
-
-api-version：1.0
+# <a name="key-values"></a>键-值
 
 键值是由 `key` + `label` 的唯一组合标识的资源。 `label` 是可选项。 若要显式引用不带标签的键值，请使用“\0”（编码为 ``%00`` 的 URL）。 请查看每个操作的详细信息。
+
+本文适用于 API 版本 1.0。
 
 ## <a name="operations"></a>操作
 
@@ -48,7 +48,7 @@ api-version：1.0
 ## <a name="get-key-value"></a>获取键值
 
 必需：``{key}``、``{api-version}``  
-可选：``label`` - 如果省略，则表示要获取的是不带标签的键值
+可选：``label``（如果省略，则表示不带标签的键值。）
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -87,7 +87,7 @@ HTTP/1.1 404 Not Found
 
 ## <a name="get-conditionally"></a>获取（有条件）
 
-若要改善客户端缓存，请使用 `If-Match` 或 `If-None-Match` 请求标头。 `etag` 参数是键表示形式的一部分。 请参阅[第 14.24 节和第 14.26 节](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。
+若要改善客户端缓存，请使用 `If-Match` 或 `If-None-Match` 请求标头。 `etag` 参数是键表示形式的一部分。 有关详细信息，请参阅[第 14.24 和 14.26节](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。
 
 仅在当前表示形式与指定的 `etag` 不匹配时，以下请求才检索键值：
 
@@ -111,10 +111,7 @@ HTTP/1.1 200 OK
 
 ## <a name="list-key-values"></a>列出键值
 
-有关更多选项，请参阅 **筛选**
-
-可选： ``key`` - 如果未指定，则表示键可以是任何键。
-可选： ``label`` - 如果未指定，则表示标签可以是任何标签。
+可选：``key``（如果未指定，则表示任意键。）可选：``label``（如果未指定，则表示任意标签。）
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -127,10 +124,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+有关其他选项，请参阅本文后面的“筛选”一节。
+
 ## <a name="pagination"></a>分页
 
 如果返回的项数超过响应限制，则会对结果进行分页。 遵循可选的 `Link` 响应标头的要求，并使用 `rel="next"` 进行导航。
-或者，内容以 `@nextLink` 属性的形式提供下一个链接。 链接的 uri 包含 `api-version` 参数。
+也可让内容以 `@nextLink` 属性的形式提供下一个链接。 链接的 URI 包含 `api-version` 参数。
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -155,7 +154,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="filtering"></a>筛选
 
-支持将 `key` 和 `label` 组合起来用于筛选。
+支持组合使用 `key` 和 `label` 筛选。
 使用可选的 `key` 和 `label` 查询字符串参数。
 
 ```http
@@ -185,7 +184,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 如果保留字符是值的一部分，则必须使用 `\{Reserved Character}` 对其进行转义。 非保留字符也可以进行转义。
 
-筛选器验证*_
+***筛选器验证** _
 
 如果出现筛选器验证错误，则响应为“HTTP `400`”，其错误详细信息如下：
 
@@ -234,7 +233,7 @@ GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 
 ## <a name="time-based-access"></a>基于时间的访问
 
-获得结果在过去的表现形式。 请参阅第 [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1) 节。 如上文所述，分页仍受支持。
+获得结果在过去的表现形式。 有关详细信息，请参阅第 [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1) 节。 如本文前面所述，仍支持分页。
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -261,7 +260,7 @@ Link: <{relative uri}>; rel="original"
 ## <a name="set-key"></a>设置键
 
 - 必需：``{key}``
-- 可选：``label`` - 如果未指定，或者 label = %00，则表示 KV 是不带标签的 KV。
+- 可选：``label``（如果未指定，或者 label=%00，则表示不带标签的键值。）
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -323,9 +322,9 @@ Content-Type: application/problem+json; charset="utf-8"
 ## <a name="set-key-conditionally"></a>设置键（有条件）
 
 若要防止出现争用情况，请使用 `If-Match` 或 `If-None-Match` 请求标头。 `etag` 参数是键表示形式的一部分。
-如果省略 `If-Match` 或 `If-None-Match`，则该操作将是无条件的。
+如果省略 `If-Match` 或 `If-None-Match`，则该操作是无条件的。
 
-仅在当前表示形式与指定的 `etag` 匹配时，才会更新以下响应
+仅在当前表示形式与指定的 `etag` 匹配时，才会更新以下响应：
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-仅在当前表示形式与指定的 `etag` 不匹配时，才会更新以下响应
+仅在当前表示形式与指定的 `etag` 不匹配时，才会更新以下响应：
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -374,7 +373,7 @@ HTTP/1.1 412 PreconditionFailed
 ## <a name="delete"></a>删除
 
 - 必需：`{key}`、`{api-version}`
-- 可选：`{label}` - 如果未指定，或者 label = %00，则表示 KV 是不带标签的 KV。
+- 可选：`{label}`（如果未指定，或者 label=%00，则表示不带标签的键值。）
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -396,4 +395,4 @@ HTTP/1.1 204 No Content
 
 ## <a name="delete-key-conditionally"></a>删除键（有条件）
 
-类似于 **设置键（有条件）**
+这与本文前面的“设置密钥（有条件）”一节类似。

@@ -3,24 +3,34 @@ title: 使用 GitHub Actions 生成和测试容器并将其部署到 Azure Kuber
 description: 了解如何使用 GitHub Actions 将容器部署到 Kubernetes
 services: container-service
 ms.topic: article
-origin.date: 11/04/2019
+origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: e5efa3cc5f35b94df943eeb8ef09459305e80066
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: github-actions-azure
+ms.openlocfilehash: ab29bbc18c64cfbcba8dee1764a46abd7b93d0b4
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936991"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004204"
 ---
 <!--CONFIRME WITH DONG LIU SUCCESSFULLY-->
 <!--NEW FEATURES HAS BEEN RELEASED ON AZURE CHINA CLOUD-->
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>用于将容器部署到 Kubernetes 服务的 GitHub Actions
 
-可以通过 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) 灵活地生成自动化软件开发生命周期工作流。 Kubernetes 操作 [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) 促进到 Azure Kubernetes 服务群集的部署。 此操作设置目标 AKS 群集上下文，该上下文可供其他操作（例如 [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master)、[azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) 等）使用，也可运行任何 kubectl 命令。
+可以通过 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) 灵活地生成自动化软件开发生命周期工作流。 可以使用多个 Kubernetes 操作通过 GitHub Actions 将 Azure 容器注册表中的容器部署到 Azure Kubernetes 服务。 
+
+## <a name="prerequisites"></a>先决条件 
+
+- 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- 一个 GitHub 帐户。 如果没有该帐户，请注册[免费版](https://github.com/join)。  
+- 正常工作的 Kubernetes 群集
+    - [教程：准备用于 Azure Kubernetes 服务的应用程序](tutorial-kubernetes-prepare-app.md)
+
+## <a name="workflow-file-overview"></a>工作流文件概述
 
 工作流通过存储库的 `/.github/workflows/` 路径中的 YAML (.yml) 文件定义。 此定义包含组成工作流的各种步骤和参数。
 
@@ -36,7 +46,7 @@ ms.locfileid: "91936991"
 
 ## <a name="create-a-service-principal"></a>创建服务主体
 
-可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建[服务主体](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。
+可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac) 命令创建[服务主体](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。
 
 <!--Not Avaialble on [Azure Cloud Shell](https://shell.azure.com/)-->
 
@@ -74,11 +84,43 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 4. 在定义后，会看到如下所示的机密。
 
-    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="屏幕截图显示了存储库的“添加新机密”链接。":::
+    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="屏幕截图显示了存储库的现有机密。":::
 
 ## <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>生成容器映像并将其部署到 Azure Kubernetes 服务群集
 
-容器映像的生成和推送使用 `Azure/docker-login@v1` 操作完成。 若要将容器映像部署到 AKS，需使用 `Azure/k8s-deploy@v1` 操作。 该操作有五个参数：
+容器映像的生成和推送使用 `Azure/docker-login@v1` 操作完成。 
+
+```yml
+env:
+  REGISTRY_NAME: {registry-name}
+  CLUSTER_NAME: {cluster-name}
+  CLUSTER_RESOURCE_GROUP: {resource-group-name}
+  NAMESPACE: {namespace-name}
+  APP_NAME: {app-name}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    # Connect to Azure Container registry (ACR)
+    - uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.REGISTRY_NAME }}.azurecr.cn
+        username: ${{ secrets.REGISTRY_USERNAME }} 
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    # Container build and push to a Azure Container registry (ACR)
+    - run: |
+        docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.cn/${{ env.APP_NAME }}:${{ github.sha }}
+        docker push ${{ env.REGISTRY_NAME }}.azurecr.cn/${{ env.APP_NAME }}:${{ github.sha }}
+
+```
+
+### <a name="deploy-to-azure-kubernetes-service-cluster"></a>部署到 Azure Kubernetes 服务群集
+
+若要将容器映像部署到 AKS，需使用 `Azure/k8s-deploy@v1` 操作。 该操作有五个参数：
 
 | **参数** | **解释** |
 |---------|---------|
@@ -88,12 +130,38 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 | **imagepullsecrets** | （可选）已在群集中设置的 docker 注册表机密的名称。 这些机密名称的每一个都在输入清单文件中的工作负载的 imagePullSecrets 字段下添加 |
 | **kubectl-version** | （可选）安装 kubectl 二进制文件的特定版本 |
 
-### <a name="deploy-to-azure-kubernetes-service-cluster"></a>部署到 Azure Kubernetes 服务群集
-
-用于生成容器映像并将其部署到 Azure Kubernetes 服务群集的端到端工作流。
+在部署到 AKS 之前，需要设置目标 Kubernetes 命名空间并创建映像拉取机密。 请参阅[将映像从 Azure 容器注册表拉取到 Kubernetes 群集](../container-registry/container-registry-auth-kubernetes.md)，以详细了解拉取映像的工作原理。 
 
 ```yaml
+  # Create namespace if doesn't exist
+  - run: |
+      kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+
+  # Create image pull secret for ACR
+  - uses: azure/k8s-create-secret@v1
+    with:
+      container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.cn
+      container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+      container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+      secret-name: ${{ env.SECRET }}
+      namespace: ${{ env.NAMESPACE }}
+      force: true
+```
+
+使用 `k8s-deploy` 操作完成部署。 将环境变量替换为应用程序的值。 
+
+```yaml
+
 on: [push]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  REGISTRY_NAME: {registry-name}
+  CLUSTER_NAME: {cluster-name}
+  CLUSTER_RESOURCE_GROUP: {resource-group-name}
+  NAMESPACE: {namespace-name}
+  SECRET: {secret-name}
+  APP_NAME: {app-name}
 
 jobs:
   build:
@@ -101,57 +169,68 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - uses: Azure/docker-login@v1
+    # Connect to Azure Container registry (ACR)
+    - uses: azure/docker-login@v1
       with:
-        login-server: contoso.azurecr.cn
-        username: ${{ secrets.REGISTRY_USERNAME }}
+        login-server: ${{ env.REGISTRY_NAME }}.azurecr.cn
+        username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
+    # Container build and push to a Azure Container registry (ACR)
     - run: |
-        docker build . -t contoso.azurecr.cn/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.cn/k8sdemo:${{ github.sha }}
+        docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.cn/${{ env.APP_NAME }}:${{ github.sha }}
+        docker push ${{ env.REGISTRY_NAME }}.azurecr.cn/${{ env.APP_NAME }}:${{ github.sha }}
 
-    # Set the target AKS cluster.
-    - uses: Azure/aks-set-context@v1
+    # Set the target Azure Kubernetes Service (AKS) cluster. 
+    - uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: contoso
-        resource-group: contoso-rg
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
 
-    - uses: Azure/k8s-create-secret@v1
+    # Create namespace if doesn't exist
+    - run: |
+        kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+
+    # Create image pull secret for ACR
+    - uses: azure/k8s-create-secret@v1
       with:
-        container-registry-url: contoso.azurecr.cn
+        container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.cn
         container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-        secret-name: demo-k8s-secret
+        secret-name: ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
+        force: true
 
-    - uses: Azure/k8s-deploy@v1
+    # Deploy app to AKS
+    - uses: azure/k8s-deploy@v1
       with:
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
         images: |
-          demo.azurecr.cn/k8sdemo:${{ github.sha }}
+          ${{ env.REGISTRY_NAME }}.azurecr.cn/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |
-          demo-k8s-secret
+          ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="clean-up-resources"></a>清理资源
 
-你可以在 GitHub 上的不同存储库中找到我们的 Actions 集，其中的每一个都包含文档和示例，介绍如何将 GitHub 用于 CI/CD 并将应用部署到 Azure。
+不再需要 Kubernetes 群集、容器注册表和存储库时，请通过删除资源组和 GitHub 存储库来清理部署的资源。 
 
-- [setup-kubectl](https://github.com/Azure/setup-kubectl)
+<!--Not Available on ## Next steps-->
+<!--Not Available on > [Learn about Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here)-->
 
-- [k8s-set-context](https://github.com/Azure/k8s-set-context)
+### <a name="more-kubernetes-github-actions"></a>更多 Kubernetes GitHub Actions
 
-- [aks-set-context](https://github.com/Azure/aks-set-context)
-
-- [k8s-create-secret](https://github.com/Azure/k8s-create-secret)
-
-- [k8s-deploy](https://github.com/Azure/k8s-deploy)
-
-- [webapps-container-deploy](https://github.com/Azure/webapps-container-deploy)
-
-- [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples)
+* [Kubectl 工具安装程序](https://github.com/Azure/setup-kubectl) (`azure/setup-kubectl`)：在运行器上安装 kubectl 的特定版本。
+* [Kubernetes 设置上下文](https://github.com/Azure/k8s-set-context) (`azure/k8s-set-context`)：设置将由其他操作使用的目标 Kubernetes 群集上下文，或运行任何 kubectl 命令。
+* [AKS 设置上下文](https://github.com/Azure/aks-set-context) (`azure/aks-set-context`)：设置目标 Azure Kubernetes 服务群集上下文。
+* [Kubernetes 创建机密](https://github.com/Azure/k8s-create-secret) (`azure/k8s-create-secret`)：在 Kubernetes 群集中创建通用机密或 docker 注册表机密。
+* [Kubernetes 部署](https://github.com/Azure/k8s-deploy) (`azure/k8s-deploy`)：烘焙清单并将清单部署到 Kubernetes 群集。
+* [设置 Helm](https://github.com/Azure/setup-helm) (`azure/setup-helm`)：在运行器上安装 Helm 二进制文件的特定版本。
+* [Kubernetes 烘培](https://github.com/Azure/k8s-bake) (`azure/k8s-bake`)：烘焙清单文件，用于通过 helm2、kustomize 或 kompose 进行部署。
+* [Kubernetes lint](https://github.com/azure/k8s-lint) (`azure/k8s-lint`)：验证/lint 清单文件。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

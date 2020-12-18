@@ -4,7 +4,7 @@ description: 使用客户端日志记录等功能和其他第三方工具来确�
 ms.service: cosmos-db
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
@@ -13,12 +13,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 2533b9e53ad6a7ef84d9c2e62c727a3205efb118
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 7f859df5f1ed2801d15165fe880976cef66c8571
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551903"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850799"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>排查将 Azure Cosmos DB Async Java SDK v2 于 SQL API 帐户配合使用时出现的问题
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -193,9 +193,9 @@ createObservable
 ### <a name="request-rate-too-large"></a>请求速率过大
 此故障是服务器端故障。 它表明预配的吞吐量已用完。 请稍后重试。 如果经常遇到此故障，请考虑增加集合吞吐量。
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>连接到 Azure Cosmos DB 仿真器时出现故障
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>连接到 Azure Cosmos DB 模拟器时出现故障
 
-Azure Cosmos DB 仿真器 HTTPS 证书是自签名证书。 若要将 SDK 与仿真器配合使用，请将仿真器证书导入 Java TrustStore。 有关详细信息，请参阅[导出 Azure Cosmos DB 仿真器证书](local-emulator-export-ssl-certificates.md)。
+Azure Cosmos DB 模拟器 HTTPS 证书是自签名证书。 若要将 SDK 与仿真器配合使用，请将仿真器证书导入 Java TrustStore。 有关详细信息，请参阅[导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)。
 
 ### <a name="dependency-conflict-issues"></a>依赖项冲突问题
 

@@ -3,16 +3,16 @@ title: Azure Monitor 中的 Log Analytics 工作区数据导出功能（预览�
 description: 使用 Log Analytics 数据导出功能，可以在收集 Log Analytics 工作区中所选表的数据时，将数据持续导出到 Azure 存储帐户或 Azure 事件中心。
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
-ms.openlocfilehash: 5c32ae4e3604d01936ca8cc1739e6fd553fb16a1
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 12/07/2020
+ms.openlocfilehash: cae2137552143d6f7febb74b8b9c02c310c82f52
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977275"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104731"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor 中的 Log Analytics 工作区数据导出功能（预览版）
 使用 Azure Monitor 中的 Log Analytics 工作区数据导出功能，可以在收集 Log Analytics 工作区中所选表的数据时，将数据持续导出到 Azure 存储帐户或 Azure 事件中心。 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -38,10 +38,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区导出数
 - 当前只能使用 CLI 或 REST 请求执行配置， 无法使用 Azure 门户或 PowerShell。
 - CLI 和 REST 中的 ```--export-all-tables``` 选项不受支持，将被删除。 你应在导出规则中显式提供表的列表。
 - 受支持的表当前仅限于下面[受支持的表](#supported-tables)部分中指定的那些。 如果数据导出规则包含不受支持的表，操作不会失败，但不会导出该表的任何数据。 如果数据导出规则包含不存在的表，操作会失败并出现错误 ```Table <tableName> does not exist in the workspace.```
-- Log Analytics 工作区可以位于除以下区域外的任何区域：
-  - 瑞士北部
-  - 瑞士西部
-  - Azure 政府区域
+- Log Analytics 工作区可以位于任何区域。
 - 目标存储帐户或事件中心必须与 Log Analytics 工作区位于同一区域。
 - 对于存储帐户，要导出的表的名称不能超过 60 个字符，而对于事件中心，不能超过 47 个字符。 名称较长的表将不会被导出。
 
@@ -77,8 +74,9 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区导出数
 ### <a name="event-hub"></a>事件中心
 数据到达 Azure Monitor 时，将准实时地发送到事件中心。 将为导出的每个数据类型创建一个事件中心，其名称为 am- 后跟表的名称。 例如，表 SecurityEvent 将发送到名为 am-SecurityEvent 的事件中心中 。 如果要将导出的数据传递到特定事件中心，或者有一个表的名称超过了 47 个字符的限制，则可提供自己的事件中心名称并将定义的表的所有数据导出到该事件中心。
 
-导出的数据量通常会随时间的推移而增加，需要扩大事件中心的规模，以适应更高的传输速率并避免出现限制情况和数据延迟。 应使用事件中心的自动膨胀功能来自动进行纵向扩展和增加吞吐量单位数，以满足使用量需求。 有关详细信息，请参阅[自动增加 Azure 事件中心吞吐量单位](../../event-hubs/event-hubs-auto-inflate.md)。
-
+注意事项：
+1. “基本”事件中心 SKU 支持的事件大小[限制](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers)更低，工作区中的某些日志可能会超过该限制而被删除。 建议使用“标准”或“专用”事件中心作为导出目标。
+2. 导出的数据量通常会随时间的推移而增加，需要扩大事件中心的规模，以适应更高的传输速率并避免出现限制情况和数据延迟。 应使用事件中心的自动膨胀功能来自动进行纵向扩展和增加吞吐量单位数，以满足使用量需求。 有关详细信息，请参阅[自动增加 Azure 事件中心吞吐量单位](../../event-hubs/event-hubs-auto-inflate.md)。
 
 ## <a name="prerequisites"></a>先决条件
 以下是在配置 Log Analytics 数据导出之前必须完成的先决条件。
@@ -116,7 +114,15 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ### <a name="create-or-update-data-export-rule"></a>创建或更新数据导出规则
 数据导出规则定义要为一组表导出到单个目标的数据。 可为每个目标创建一个规则。
 
+
+# <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 使用以下 CLI 命令查看工作区中的表。 它可帮助复制所需的表并将其包含在数据导出规则中。
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -132,6 +138,8 @@ az monitor log-analytics workspace data-export create --resource-group resourceG
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 使用以下请求通过 REST API 创建数据导出规则。 该请求应使用持有者令牌授权和内容类型 application/json。
 
@@ -189,28 +197,49 @@ PUT https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
         ],
         "enable": true
     }
+  }
 }
 ```
+---
 
 ## <a name="view-data-export-configuration"></a>查看数据导出配置
+
+# <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 使用以下命令通过 CLI 查看数据导出规则的配置。
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 使用以下请求通过 REST API 查看数据导出规则的配置。 该请求应使用持有者令牌授权。
 
 ```rest
 GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="disable-an-export-rule"></a>禁用导出规则
+
+# <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 如果在特定时间段（例如执行测试时）不需要保留数据，可以禁用导出规则来停止导出。 使用以下命令通过 CLI 禁用数据导出规则。
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# <a name="rest"></a>[REST](#tab/rest)
 
 使用以下请求通过 REST API 禁用数据导出规则。 该请求应使用持有者令牌授权。
 
@@ -232,32 +261,53 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## <a name="delete-an-export-rule"></a>删除导出规则
+
+# <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 使用以下命令通过 CLI 删除数据导出规则。
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 使用以下请求通过 REST API 删除数据导出规则。 该请求应使用持有者令牌授权。
 
 ```rest
 DELETE https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>查看工作区中的所有数据导出规则
+
+# <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 使用以下命令通过 CLI 查看工作区中的所有数据导出规则。
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# <a name="rest"></a>[REST](#tab/rest)
+
 使用以下请求通过 REST API 查看工作区中的所有数据导出规则。 该请求应使用持有者令牌授权。
 
 ```rest
 GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## <a name="unsupported-tables"></a>不受支持的表
 如果数据导出规则包含不受支持的表，配置不会失败，但不会导出该表的任何数据。 如果该表在之后得到支持，则将在那时导出其数据。
@@ -270,7 +320,7 @@ GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
 
 
 | 表 | 限制 |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -324,7 +374,6 @@ GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -342,7 +391,6 @@ GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
 | DnsInventory | |
 | Dynamics365Activity | |
 | 事件 | 部分支持。 此表中的某些数据是通过存储帐户引入的。 当前不导出此数据。 |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
@@ -436,7 +484,6 @@ GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | 部分支持。 某些数据是通过不支持导出的内部服务引入的。 当前不导出此数据。 |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

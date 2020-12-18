@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/18/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 39a2596ba5ce701a0a1c5c169edd871f1dfda493
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 12/10/2020
+ms.openlocfilehash: b7cbddff3a5407f6f4efe49bfa31ed858873a53a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021572"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004199"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中重新生成索引
 
@@ -92,7 +92,7 @@ ms.locfileid: "90021572"
 
 在加载第一个文档时就可以开始查询索引。 如果你知道文档的 ID，那么[查找文档 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 将返回特定的文档。 对于更大型的测试，应该等待索引完全加载，然后使用查询来验证你想看到的上下文。
 
-可以使用[搜索资源管理器](search-explorer.md)或 [Postman](search-get-started-postman.md) 之类的 Web 测试工具来检查更新的内容。
+可以使用[搜索浏览器](search-explorer.md)或 [Postman 或 Visual Studio Code](search-get-started-rest.md) 之类的 Web 测试工具来检查更新的内容。
 
 如果添加或重命名了字段，请使用 [$select](search-query-odata-select.md) 返回该字段：`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

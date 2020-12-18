@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 origin.date: 10/22/2019
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: bd21a0d589aebf6a6b09c1ad2738e3eeb82821c0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 4d9244bf6d87f22891459c5e387f65c36abcb844
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327776"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104730"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>管理对 Azure Monitor 中的日志数据和工作区的访问
 
@@ -24,7 +24,7 @@ Azure Monitor 将[日志](data-platform-logs.md)数据存储在 Log Analytics �
 * 需要使用 Azure 基于角色的访问控制 (Azure RBAC)（也称为[资源上下文](design-logs-deployment.md#access-mode)）访问特定资源中的日志数据的用户
 * 使用 Azure RBAC 对需要访问工作区中特定表中的日志数据的用户授予访问权限。
 
-要了解有关 RBAC 和访问策略的日志概念，请阅读[设计 Azure Monitor 日志部署](design-logs-deployment.md)
+若要了解有关 Azure RBAC 和访问策略的日志概念，请参阅[设计 Azure Monitor 日志部署](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>配置访问控制模式
 
@@ -197,7 +197,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 
 `/read` 权限通常是从含有 _\*/read 或_ _\*_ 权限的角色授予的，例如内置的 [读取者](../../role-based-access-control/built-in-roles.md#reader)和 [参与者](../../role-based-access-control/built-in-roles.md#contributor)角色。 包含特定操作的自定义角色或专用内置角色可能没有此权限。
 
-若要针对不同的表创建不同的访问控制，请参阅下面的[定义按表进行的访问控制](#table-level-rbac)。
+若要针对不同的表创建不同的访问控制，请参阅下面的[定义按表进行的访问控制](#table-level-azure-rbac)。
 
 ## <a name="custom-role-examples"></a>自定义角色示例
 
@@ -240,9 +240,9 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 
     * 为用户授予对其资源的以下权限：分配给“读取者”角色的 `*/read`，或 `Microsoft.Insights/logs/*/read`。 
 
-## <a name="table-level-rbac"></a>表级 RBAC
+## <a name="table-level-azure-rbac"></a>表级别 Azure RBAC
 
-使用 **表级 RBAC** 可以针对 Log Analytics 工作区中的数据定义更精细的控制，此外还能分配其他权限。 使用此控制措施可以定义仅供特定一组用户访问的特定数据类型。
+使用表级 Azure RBAC 可以针对 Log Analytics 工作区中的数据定义更精细的控制，此外还能分配其他权限。 使用此控制措施可以定义仅供特定一组用户访问的特定数据类型。
 
 使用 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)实现表访问控制，以授予对工作区中特定[表](./data-platform-logs.md)的访问权限。 无论用户的[访问模式](design-logs-deployment.md#access-mode)是什么，这些角色都会应用到使用工作区上下文或者资源上下文[访问控制模式](design-logs-deployment.md#access-control-mode)的工作区。
 
@@ -286,7 +286,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 
 ### <a name="custom-logs"></a>自定义日志
 
- 自定义日志是基于自定义日志和 HTTP 数据收集器 API 等数据源创建的。 识别日志类型的最简单方法是查看[日志架构中的自定义日志](../log-query/get-started-portal.md#understand-the-schema)下所列的表。
+ 自定义日志是基于自定义日志和 HTTP 数据收集器 API 等数据源创建的。 识别日志类型的最简单方法是查看[日志架构中的自定义日志](../log-query/log-analytics-tutorial.md#table-schema)下所列的表。
 
  无法授予对单个自定义日志的访问权限，但可以授予对所有自定义日志的访问权限。 若要创建一个有权访问所有自定义日志的角色，请使用以下操作创建自定义角色：
 

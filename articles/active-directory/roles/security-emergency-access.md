@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: v-junlch
-ms.date: 11/04/2020
+ms.date: 12/08/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed33274447873c7342735ac4807eb51eeb32144
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 930d4b97c49fc85b5fd80a5442be0801a012630f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327064"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004088"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理紧急访问帐户
 
@@ -33,7 +33,7 @@ ms.locfileid: "94327064"
 在以下情况下，组织可能需要使用紧急访问帐户：
 
 - 用户帐户进行了联合，且由于手机网络中断或标识提供程序服务中断，联合身份验证当前不可用。 例如，如果在你的环境中的标识提供者主机停运，则当 Azure AD 重定向到其标识提供者时，用户可能无法登录。
-- 管理员通过 Azure 多重身份验证注册，而其每个设备或服务都不可用。 用户可能无法完成多重身份验证以激活角色。 例如，手机网络中断让用户无法应答电话呼叫或接收短信，而这是他们为其设备注册的仅有的两种身份验证机制。
+- 管理员通过 Azure AD 多重身份验证注册，而其单个设备或此服务都不可用。 用户可能无法完成多重身份验证以激活角色。 例如，手机网络中断让用户无法应答电话呼叫或接收短信，而这是他们为其设备注册的仅有的两种身份验证机制。
 - 具有最新全局管理访问权限的人员离开了组织。 Azure AD 将阻止删除最后一个全局管理员帐户，但它不会阻止从本地删除或禁用该帐户。 这两种情况都可能使组织无法恢复帐户。
 - 出现自然灾害等不可预见的紧急情况，导致手机或其他网络不可用。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "94327064"
 配置这些帐户时，必须满足以下要求：
 
 - 紧急访问帐户不应与组织中的任何单个用户相关联。 确保帐户未关联到任何员工提供的移动电话、会随单个员工流动的硬件令牌或其他特定于员工的凭据。 此预防措施介绍需要凭据而无法找到某个拥有凭据的员工时的情况。 请务必确保将任何已注册设备保存在与 Azure AD 有多种通信方式的已知安全位置。
-- 紧急访问帐户使用的身份验证机制应该不同于其他管理帐户（包括其他紧急访问帐户）使用的机制。  例如，如果管理员通过本地 MFA 正常登录，则 Azure MFA 是不同的机制。  但是，如果 Azure MFA 是管理帐户的主要身份验证部分，请考虑对这些帐户使用不同的方法，例如，通过自定义控件结合第三方 MFA 提供程序使用条件访问。
+- 紧急访问帐户使用的身份验证机制应该不同于其他管理帐户（包括其他紧急访问帐户）使用的机制。  例如，如果管理员可通过本地 MFA 正常登录，则 Azure AD MFA 是不同的机制。  但是，如果 Azure AD MFA 是管理帐户的主要身份验证部分，请考虑对这些帐户使用不同的方法，例如，通过自定义控件结合第三方 MFA 提供程序使用条件访问。
 - 设备或凭据不得过期，或者由于使用次数不多而划归到自动清理的范围内。  
 - 应将全局管理员角色分配设为紧急访问帐户的永久角色。 
 

@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 11/24/2018
-ms.openlocfilehash: 271d888185496684dc8e7c30a843135de5814e3b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3508cce4b7d020568177a79f7245bdca07eba697
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327714"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105143"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。
@@ -46,7 +46,7 @@ ms.locfileid: "94327714"
 - 深度集成到 Azure 中。 可视化效果可以固定到多个 Azure 页面的仪表板，包括指标资源管理器、Log Analytics 和 Application Insights。
 - 支持指标和日志。
 - 合并来自多个源的数据，包括来自[指标资源管理器](platform/metrics-charts.md)、[日志查询](log-query/log-query-overview.md)以及 Application Insights 中的[映射](app/app-map.md)和可用性的输出。
-- 包含个人或共享仪表板的选项。 与 Azure [基于角色的身份验证 (RBAC)](../role-based-access-control/overview.md) 集成。
+- 包含个人或共享仪表板的选项。 与 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 集成。
 - 自动刷新。 指标刷新的时间范围至少为 5 分钟。 日志每小时刷新一次，同时可根据需要使用手动刷新选项，方法是单击给定可视化效果上的“刷新”图标或刷新整个仪表板。
 - 带有时间戳和自定义参数的参数化指标仪表板。
 - 灵活的布局选项。

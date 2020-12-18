@@ -1,19 +1,19 @@
 ---
-title: 使用功能筛选器为一部分用户启用某个功能
+title: 使用功能筛选器启用条件功能标志
 titleSuffix: Azure App Configuration
-description: 了解如何使用功能筛选器为一部分用户启用某个功能
+description: 了解如何使用功能筛选器启用条件功能标志
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: 6687651de97d9f02867dcf8f1189f6ed9437982a
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: 3c4ca25cc69a0121a065848d6035c49aecc31775
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190297"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104993"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>使用功能筛选器启用条件功能标志
 
@@ -27,7 +27,7 @@ ms.locfileid: "96190297"
 - `TimeWindowFilter` 在指定时间段内启用功能标志。
 - `TargetingFilter` 为指定的用户和组启用功能标志。
 
-还可以创建自己的功能筛选器来实现 [Microsoft.FeatureManagement.IFeatureFilter 接口](/dotnet/api/microsoft.featuremanagement.ifeaturefilter)。
+还可以创建自己的功能筛选器来实现 [Microsoft.FeatureManagement.IFeatureFilter 接口](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturefilter)。
 
 ## <a name="registering-a-feature-filter"></a>注册功能筛选器
 

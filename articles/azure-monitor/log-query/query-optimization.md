@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 9f0b9272a0f1837dac606bfd358f07db4e475250
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: c22b1aee34495902fc03d59c3794e55c03858850
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327508"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105016"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>优化 Azure Monitor 中的日志查询
 Azure Monitor 日志使用 [Azure 数据资源管理器 (ADX)](/data-explorer/) 来存储日志数据，并运行查询来分析这些数据。 它为你创建、管理和维护 ADX 群集，并针对你的日志分析工作负荷优化它们。 运行查询时，将对其进行优化，并将其路由到存储着工作区数据的相应 ADX 群集。 Azure Monitor 日志和 Azure 数据资源管理器都使用许多自动查询优化机制。 虽然自动优化已提供了显著的性能提升，但在某些情况下，你还可以显著提高查询性能。 本文介绍了性能注意事项和解决相关问题的几种方法。
@@ -463,7 +463,7 @@ Azure Monitor 日志使用 Azure 数据资源管理器的大型群集来运行�
 - 使用序列化和窗口函数，例如 [serialize 运算符](https://docs.microsoft.com/azure/kusto/query/serializeoperator)、[next()](https://docs.microsoft.com/azure/kusto/query/nextfunction)、[prev()](https://docs.microsoft.com/azure/kusto/query/prevfunction) 和 [row](https://docs.microsoft.com/azure/kusto/query/rowcumsumfunction) 函数。 在这些情况下，有时候可能会使用时序和用户分析功能。 如果在非查询末尾的位置使用了以下运算符，则可能会导致序列化低效：[range](https://docs.microsoft.com/azure/kusto/query/rangeoperator)、[sort](https://docs.microsoft.com/azure/kusto/query/sortoperator)、[order](https://docs.microsoft.com/azure/kusto/query/orderoperator)、[top](https://docs.microsoft.com/azure/kusto/query/topoperator)、[top-hitters](https://docs.microsoft.com/azure/kusto/query/tophittersoperator)、[getschema](https://docs.microsoft.com/azure/kusto/query/getschemaoperator)。
 -    使用 [dcount()](https://docs.microsoft.com/azure/kusto/query/dcount-aggfunction) 聚合函数会强制系统将非重复值存储在中心副本中。 当数据规模较大时，请考虑使用 dcount 函数可选参数来降低精度。
 -    在许多情况下，[join](https://docs.microsoft.com/azure/kusto/query/joinoperator?pivots=azuremonitor) 运算符会降低整体并行度。 当性能有问题时，看是否可以使用 shuffle join 作为替代方法。
--    在资源范围查询中，预执行 RBAC 检查在存在海量 Azure 角色分配的情况下可能会延迟。 这可能会导致检查时间延长，并且会导致并行度降低。 例如，查询在有数千个资源的订阅上执行，每个资源在资源级别（而不是在订阅或资源组上）有许多角色分配。
+-    在资源范围查询中，预执行 Kubernetes RBAC 或 Azure RBAC 在存在海量 Azure 角色分配的情况下可能会延迟。 这可能会导致检查时间延长，并且会导致并行度降低。 例如，查询在有数千个资源的订阅上执行，每个资源在资源级别（而不是在订阅或资源组上）有许多角色分配。
 -    如果查询处理的是小块数据，那么它的并行度将很低，因为系统不会将它分布到许多计算节点上。
 
 

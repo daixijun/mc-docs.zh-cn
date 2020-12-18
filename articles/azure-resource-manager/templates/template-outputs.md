@@ -2,19 +2,22 @@
 title: 模板中的输出
 description: 介绍如何在 Azure 资源管理器模板中定义输出值。
 ms.topic: conceptual
-origin.date: 02/25/2020
-ms.date: 03/23/2020
+origin.date: 11/24/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1a5df2d26565649fb7c01b8de3396c39365c843f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9b971ac2355f04d2c7107059ef34f1decc7d949f
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543729"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003585"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的输出
 
 本文介绍如何在 Azure 资源管理器模板中定义输出值。 需要从部署的资源返回值时，可以使用输出。
+
+每个输出值的格式必须与[数据类型](template-syntax.md#data-types)中的一种匹配。
 
 ## <a name="define-output-values"></a>定义输出值
 
@@ -100,7 +103,7 @@ ms.locfileid: "79543729"
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment show \
+az deployment group show \
   -g <resource-group-name> \
   -n <deployment-name> \
   --query properties.outputs.resourceID.value

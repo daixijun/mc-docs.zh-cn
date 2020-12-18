@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 11/30/2020
-ms.testscope: yes|no
-ms.testdate: 08/10/2020null
+ms.date: 12/14/2020
+ms.testscope: no
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: adf0751829089c2c243d14b6e7dab7733834dc16
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: dacbbb9aa8b4db5f2522a3e83a07334f5f1c801b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024471"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004117"
 ---
 <!--Not Available on Mooncake till 11/24/2020-->
 <!--REASON:BadRequestError: No registered resource provider found for location 'chinaeast2' and API version '2020-11-01' for type 'managedClusters'.-->
@@ -23,7 +23,7 @@ ms.locfileid: "96024471"
 <!--Not Available on [Azure Policy for AKS](use-pod-security-on-azure-policy.md)-->
 
 > [!WARNING]
-> **本文档中所述的功能“Pod 安全策略（预览版）”已设置为弃用，在 2021 年 2 月 1 日之后将不再提供，** 以支持适用于 AKS 的 Azure Policy。
+> 本文档中所述的功能“Pod 安全策略（预览版）”已设置为弃用，在 2021 年 5 月 31 日之后将不再提供，以支持适用于 AKS 的 Azure Policy。 弃用日期已在原来日期（2020 年 10 月 15 日）的基础上延长。
 >
 > 弃用 Pod 安全策略（预览版）之后，必须在使用已弃用功能的任何现有群集上禁用该功能，以执行将来的群集升级并保留在 Azure 支持范围内。
 >

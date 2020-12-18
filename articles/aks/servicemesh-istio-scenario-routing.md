@@ -5,17 +5,17 @@ description: 了解如何使用 Istio 在 Azure Kubernetes 服务 (AKS) 群集�
 ms.topic: article
 origin.date: 10/09/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 3f97ba7eeef7da69440e3784e0d8738fa030327f
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 73a6b119e92785ba6003bc352c8a1d008b385a31
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024491"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004172"
 ---
 <!--CORRECT ON client-operating-system-->
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>借助 Istio 在 Azure Kubernetes 服务 (AKS) 中使用智能路由和 Canary 发布
@@ -37,7 +37,7 @@ ms.locfileid: "96024491"
 > [!NOTE]
 > 此方案已针对 Istio 版本 `1.3.2` 进行了测试。
 
-本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.13` 及更高版本）并已与该群集建立 `kubectl` 连接。 此外，还需在群集内安装 Istio。
+本文中详述的步骤假设你已创建 AKS 群集（已启用 Kubernetes RBAC 的 Kubernetes `1.13` 及更高版本）并已与该群集建立 `kubectl` 连接。 此外，还需在群集内安装 Istio。
 
 如果获取关于这些项目的帮助，请参阅 [AKS 快速入门][aks-quickstart]和[在 AKS 中安装 Istio][istio-install] 的指导。
 
@@ -336,6 +336,8 @@ istioctl authn tls-check <pod-name[.namespace]> [<service>]
 [!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-powershell.md)]
 
 ::: zone-end
+
+<!--CORRECT ON client-operating-system-->
 
 下面的示例输出显示，对上面的各个查询都强制执行相互 TLS。 输出还显示了实施相互 TLS 的策略和目标规则：
 

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/06/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 5b536305eabf9da40f86d3d32fcb97b27118a811
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 2c53c3adac89c19b07067963089b1b6c5f140baf
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552728"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850386"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>将 Azure Key Vault 中的客户管理的密钥用于导入/导出服务
 
@@ -34,7 +34,7 @@ Azure 导入/导出使用加密密钥保护用于锁定驱动器的 BitLocker �
     - [创建适用于文件的导入作业](storage-import-export-data-to-files.md)。
     - [创建适用于 blob 的导出作业](storage-import-export-data-from-blobs.md)
 
-2. 你有一个现有的 Azure Key Vault，其中包含可用于保护 BitLocker 密钥的密钥。 若要了解如何使用 Azure 门户创建 Key Vault，请参阅[快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密](../../key-vault/secrets/quick-create-portal.md)。
+2. 你有一个现有的 Azure Key Vault，其中包含可用于保护 BitLocker 密钥的密钥。 若要了解如何使用 Azure 门户创建 Key Vault，请参阅[快速入门：使用 Azure 门户创建 Azure Key Vault](../../key-vault/general/quick-create-portal.md)。
 
     - 在现有 Key Vault 上设置了“软删除”和“不清除”。 默认情况下未启用这些属性。 若要启用这些属性，请参阅以下文章之一中标题为“启用软删除”和“启用清除保护”的部分： 
 

@@ -5,14 +5,14 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 00c43e76cd7798248b61492a88259e1f90d842f4
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c8e21c543a49a680d2a64b93a63335aced55b675
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976964"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105045"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -90,11 +90,11 @@ Azure 备份以 `AzureBackupRG_<geo>_<number>` 格式创建一个单独的资源
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>可使用支持写入加速器 (WA) 的磁盘备份 VM 吗？
 
-无法在已启用 WA 的磁盘上拍摄快照。 但是，Azure 备份服务可以从备份中排除已启用 WA 的磁盘。
+快照只能在已启用 WA 的数据磁盘上拍摄，而不能在 OS 磁盘上拍摄。 因此只能保护已启用 WA 的数据磁盘。
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>我有一个安装了写入加速器 (WA) 磁盘和 SAP HANA 的 VM。 我该如何备份？
 
-Azure 备份无法备份已启用 WA 的磁盘，但可以将其从备份中排除。 但是，备份不会提供数据库一致性，因为未备份已启用 WA 的磁盘上的信息。 如果需要备份操作系统磁盘和备份未启用 WA 的磁盘，则可以使用此配置备份磁盘。
+Azure 备份可以备份已启用 WA 的数据磁盘。 但是，备份不会提供数据库一致性。
 
 Azure 备份为 SAP HANA 数据库提供了流式备份解决方案，其 RPO 为 15 分钟。 其通过 SAP 进行了 Backint 认证，利用 SAP HANA 的本机 API 提供本机备份支持。 了解[有关在 Azure VM 中备份 SAP HANA 数据库](./sap-hana-db-about.md)的详细信息。
 
@@ -113,10 +113,6 @@ Azure 虚拟机备份策略支持的最短保持期为 7 天，最长为 9999 �
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>能否备份或还原附加到 VM 的选择性磁盘？
 
 Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。 有关详细信息，请参阅 [Azure VM 的选择性磁盘备份和还原](selective-disk-backup-restore.md)。
-
-### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>如果在备份过程中发生租户更改，是否保留托管标识？
-
-如果发生[租户更改](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection)，则需要禁用并重新启用[托管标识](/active-directory/managed-identities-azure-resources/overview)才能重新运行备份。
 
 ## <a name="restore"></a>还原
 

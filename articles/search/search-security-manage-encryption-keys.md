@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/02/2020
-ms.date: 11/27/2020
+ms.date: 12/10/2020
 ms.custom: references_regions
-ms.openlocfilehash: 984fd8989deca7d0ac930ec13724f88748a74a52
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 9ef244989898fd62a927cc328502518bbfeae7df
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300556"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004182"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>在 Azure 认知搜索中配置客户管理的密钥以用于数据加密
 
@@ -40,13 +40,13 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 本方案中使用了以下工具和服务。
 
 + [可计费层](search-sku-tier.md#tiers)（任何区域中的“基本”层或更高层）上的 [Azure 认知搜索](search-create-service-portal.md)。
-+ Azure 认知搜索所在订阅中的 [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault)。 密钥保管库必须启用“软删除”和“清除保护”。 
++ [Azure Key Vault](../key-vault/general/overview.md)，你可以使用 [Azure 门户](../key-vault//general/quick-create-portal.md)、[Azure CLI](../key-vault//general/quick-create-cli.md) 或 [Azure PowerShell](../key-vault//general/quick-create-powershell.md) 来创建密钥保管库。 与 Azure 认知搜索位于同一订阅中。 密钥保管库必须启用“软删除”和“清除保护”。 
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)。 如果没有，请[设置新租户](../active-directory/develop/quickstart-create-new-tenant.md)。
 
 你应该有一个可创建加密的对象的搜索应用程序。 你需要将密钥保管库密钥和 Active Directory 注册信息引用到此代码中。 此代码可以是某个工作应用，也可以是原型代码，例如 [C# 代码示例 DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)。
 
 > [!TIP]
-> 可以使用 [Postman](search-get-started-postman.md) 或 [Azure PowerShell](./search-get-started-powershell.md) 来调用 REST API，以便创建包含加密密钥参数的索引和同义词映射。 目前，门户尚不支持将键添加到索引或同义词映射。
+> 可以使用 [Postman 或 Visual Studio Code](search-get-started-rest.md) 或 [Azure PowerShell](./search-get-started-powershell.md) 来调用 REST API，以便创建包含加密密钥参数的索引和同义词映射。 目前，门户尚不支持将键添加到索引或同义词映射。
 
 ## <a name="1---enable-key-recovery"></a>1 - 启用密钥恢复
 

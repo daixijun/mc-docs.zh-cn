@@ -2,23 +2,24 @@
 title: Azure Cosmos DB 查询语言中的 ST_INTERSECTS
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ST_INTERSECTS。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 09/13/2019
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: aef5c79464609bc13cbaf1736f05e7a73104c922
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: dc5d61c83ba89eecf177e27cdae7ee3e2f712852
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551995"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850535"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否与第二个参数中的 GeoJSON（点、多边形或 LineString）相交。  
+ 返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（Point、Polygon、MultiPolygon 或 LineString）是否与第二个参数中的 GeoJSON（Point、Polygon、MultiPolygon 或 LineString）相交。  
 
 ## <a name="syntax"></a>语法
 

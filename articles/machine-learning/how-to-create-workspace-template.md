@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: v-yiso
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: af8d9b1acd853f54fb2fb6ea07205b3a7a2fbc89
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2c7cd3917edcac4cf65f7d87b770e6286164df4f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970847"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105280"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>使用 Azure 资源管理器模板创建 Azure 机器学习的工作区
 
@@ -28,7 +28,7 @@ ms.locfileid: "95970847"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
@@ -38,6 +38,10 @@ ms.locfileid: "95970847"
     * __虚拟网络后的工作区的 Azure 容器注册表__
 
     有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
+
+## <a name="limitations"></a>限制
+
+* 创建新工作区时，你可以允许工作区自动创建所需的 Azure 服务，也可以提供现有服务。 提供现有服务时，这些服务必须与工作区位于同一 Azure 订阅中。
 
 ## <a name="workspace-resource-manager-template"></a>工作区资源管理器模板
 
@@ -264,7 +268,7 @@ New-AzResourceGroupDeployment `
     > [!IMPORTANT]
     > 创建工作区后，无法更改机密数据、加密、密钥保管库 ID 或密钥标识符的设置。 要更改这些值，必须使用新值创建新工作区。
 
-  有关详细信息，请参阅[静态加密](concept-enterprise-security.md#encryption-at-rest)。
+  有关详细信息，请参阅[静态加密](concept-data-encryption.md#encryption-at-rest)。
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>将工作区部署到虚拟网络后面
 

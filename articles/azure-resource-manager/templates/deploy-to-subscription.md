@@ -2,18 +2,18 @@
 title: 将资源部署到订阅
 description: 介绍了如何在 Azure 资源管理器模板中创建资源组。 它还展示了如何在 Azure 订阅范围内部署资源。
 ms.topic: conceptual
-origin.date: 10/26/2020
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: fc793360d765facd243193bd024bbd9f23c38342
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: fb3451d39555f6f43364b72bd6de129de142e51b
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024475"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003738"
 ---
 <!--Verify Successfully-->
 # <a name="subscription-deployments-with-arm-templates"></a>使用 ARM 模板进行订阅部署
@@ -141,19 +141,29 @@ New-AzSubscriptionDeployment `
 
 <!--Not Available on * [Deploy ARM templates from local Shell](deploy-cloud-shell.md)-->
 
+## <a name="deployment-location-and-name"></a>部署位置和名称
+
+对于订阅级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。 [管理组](deploy-to-management-group.md)和[租户](deploy-to-tenant.md)部署也需要位置。 对于[资源组](deploy-to-resource-group.md)部署，资源组的位置用于存储部署数据。
+
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+
+每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 例如，如果在 chinaeast 中创建名为“deployment1”的订阅部署，则以后不能创建另一个名为“deployment1”但位置为“chinanorth”的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
+
 ## <a name="deployment-scopes"></a>部署范围
 
 部署到订阅时，可以将资源部署到：
 
 * 操作中的目标订阅
-* 订阅中的资源组
+* 租户中的任何订阅
+* 该订阅或其他订阅中的资源组
+* 订阅的租户
 * [扩展资源](scope-extension-resources.md)可应用于资源
 
-无法部署到与目标订阅不同的订阅。 部署模板的用户必须有权访问指定的作用域。
+部署模板的用户必须有权访问指定的作用域。
 
 本部分演示如何指定不同范围。 可以在单个模板中组合这些不同范围。
 
-### <a name="scope-to-subscription"></a>订阅的范围
+### <a name="scope-to-target-subscription"></a>将范围限制为目标订阅
 
 若要将资源部署到目标订阅，请将这些资源添加到模板的资源部分。
 
@@ -169,6 +179,33 @@ New-AzSubscriptionDeployment `
 ```
 
 有关部署到订阅的示例，请参阅[创建资源组](#create-resource-groups)和[分配策略定义](#assign-policy-definition)。
+
+### <a name="scope-to-other-subscription"></a>将范围限制为其他订阅
+
+若要将资源部署到与操作中的订阅不同的订阅，请添加嵌套部署。 将 `subscriptionId` 属性设置为要部署到的订阅的 ID。 为嵌套部署设置 `location` 属性。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "location": "chinanorth",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    subscription-resources
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ### <a name="scope-to-resource-group"></a>将范围限定于资源组
 
@@ -198,13 +235,65 @@ New-AzSubscriptionDeployment `
 
 有关部署到资源组的示例，请参阅[创建资源组和资源](#create-resource-group-and-resources)。
 
-## <a name="deployment-location-and-name"></a>部署位置和名称
+### <a name="scope-to-tenant"></a>将范围设定为租户
 
-对于订阅级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
+可以通过将 `scope` 设置为 `/`，在租户中创建资源。 部署模板的用户必须具有[在租户中进行部署所需的访问权限](deploy-to-tenant.md#required-access)。
 
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+可以使用设置了 `scope` 和 `location` 的嵌套部署。
 
-每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "location": "chinaeast",
+            "scope": "/",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    tenant-resources
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+或者，可以将某些资源类型（如管理组）的 scope 设置为 `/`。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('mgName')]",
+            "scope": "/",
+            "location": "chinaeast",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="resource-groups"></a>资源组
 

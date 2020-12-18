@@ -4,16 +4,16 @@ description: 提供常见的 Azure 订阅和服务限制、配额和约束的列
 ms.topic: conceptual
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: aa036f05c5806f2d93b9ba2c18f3496024e20c17
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: d0b7bc2ab5fc415d35ad63195327f9209dcf978a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507589"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004226"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 
@@ -84,6 +84,10 @@ ms.locfileid: "96507589"
 ## <a name="automation-limits"></a>自动化限制
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure 应用配置
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Azure Redis 缓存限制
 
@@ -273,6 +277,14 @@ ms.locfileid: "96507589"
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
 
+### <a name="virtual-network-gateway-limits"></a>虚拟网络网关限制
+
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>NAT 网关限制
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
+
 ### <a name="virtual-wan-limits"></a>虚拟 WAN 限制
 
 [!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]
@@ -381,7 +393,7 @@ ms.locfileid: "96507589"
 
 #### <a name="disk-encryption-sets"></a>磁盘加密集
 
-每个区域、每个订阅有 50 个磁盘加密集的限制。 有关更多信息，请参阅 [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) 或 [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) 虚拟机的加密文档。 如果需要增加配额，请与 Azure 支持部门联系。
+每个区域、每个订阅有 50 个磁盘加密集的限制。 有关更多信息，请参阅 [Linux](../../virtual-machines/disk-encryption.md#restrictions) 或 [Windows](../../virtual-machines/disk-encryption.md#restrictions) 虚拟机的加密文档。 如果需要增加配额，请与 Azure 支持部门联系。
 
 ### <a name="managed-virtual-machine-disks"></a>托管虚拟机磁盘
 

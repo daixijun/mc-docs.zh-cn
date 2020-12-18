@@ -1,30 +1,33 @@
 ---
-title: 如何在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
-description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器。
+title: 备份和还原 - Azure CLI - Azure Database for PostgreSQL - 单一服务器
+description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL 单一服务器中设置备份配置和还原服务器。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 10/25/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: d0c73991667c18243d415adc911899a2c46fcb1e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 12/14/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b8f0284792557af71207ae81a2ccf8b01297ded3
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74020863"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850822"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
 
 Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功能。 通过此功能，用户可将服务器及其所有数据库还原到新服务器上的某个较早时间点。
 
-## <a name="prerequisites"></a>必备条件
-若要完成本操作指南，需要：
-- [Azure Database for PostgreSQL 服务器和数据库](quickstart-create-server-database-azure-cli.md)
+## <a name="prerequisites"></a>先决条件
+若要完成本操作说明指南：
 
-> [!IMPORTANT]
-> 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。
+- 需要 [Azure Database for PostgreSQL 服务器和数据库](quickstart-create-server-database-azure-cli.md)。
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 ## <a name="set-backup-configuration"></a>设置备份配置
 
@@ -42,7 +45,7 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 可以如下所述更改服务器的备份保留期：
 
-```cli
+```azurecli
 az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
@@ -59,7 +62,7 @@ az postgres server update --name mydemoserver --resource-group myresourcegroup -
 
 若要还原服务器，请在 Azure CLI 命令提示符下输入以下命令：
 
-```cli
+```azurecli
 az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
@@ -91,14 +94,14 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 若要异地还原服务器，请在 Azure CLI 命令提示符下输入以下命令：
 
-```cli
+```azurecli
 az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location chinaeast --sku-name GP_Gen4_8 
 ```
-此命令在“中国东部”创建一个名为“mydemoserver-georestored”  且将属于 *myresourcegroup* 的新服务器。 它是一台常规用途第 4 代服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
+此命令在“中国东部”创建一个名为“mydemoserver-georestored”且将属于 *myresourcegroup* 的新服务器。 它是一台常规用途第 4 代服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
 
 如果希望在与现有服务器不同的资源组中创建新服务器，则需要如下例所示在 `--source-server` 参数中限定服务器名称：
 
-```cli
+```azurecli
 az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location chinaeast --sku-name GP_Gen4_8
 ```
 

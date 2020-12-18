@@ -4,14 +4,14 @@ description: 为开发、测试和生产戳记直接遥测不同的资源。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/15/2017
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: v-johya
-ms.openlocfilehash: cd62a494755432f8dcebf2725064a8c5228467b0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: fa96b4153769025dc7c4da3a01450f500b1a61ee
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104237"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104332"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>应该部署多少个 Application Insights 资源
 
@@ -29,7 +29,7 @@ ms.locfileid: "93104237"
 
 -   对于一起部署的应用程序组件。 通常由单个团队开发，由同一组 DevOps/ITOps 用户管理。
 -   如果有必要在默认情况下聚合所有关键绩效指标 (KPI)（如响应持续时间、仪表板中的故障率等）（可以选择按指标资源管理器体验中的角色名称划分）。
--   如果不需要在应用程序组件之间以不同的方式管理基于角色的访问控制 (RBAC)。
+-   如果不需要在应用程序组件之间以不同方式管理 Azure 基于角色的访问控制 (Azure RBAC)。
 -   如果不需要组件之间不同的指标警报条件。
 -   如果不需要在组件之间以不同的方式管理连续导出。
 -   如果不需要在组件之间以不同的方式管理帐单/配额。

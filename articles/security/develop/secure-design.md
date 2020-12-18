@@ -4,7 +4,7 @@ description: 本文讨论了在 Web 应用程序项目的要求和设计阶段�
 author: Johnnytechn
 manager: barbkess
 ms.author: v-johya
-ms.date: 11/13/2020
+ms.date: 12/03/2020
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/11/2019
-ms.openlocfilehash: 2826e0c91f34153bd1e371edc127202a7b0caab0
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 129acafd7f66585150eb27d3020b350bd5c659a5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638113"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104307"
 ---
 # <a name="design-secure-applications-on-azure"></a>在 Azure 上设计安全的应用程序
-本文介绍了在为云设计应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 的要求和设计阶段需要考虑的培训资源以及安全问题和概念。 目标是帮助你定义可用于设计更安全应用程序的活动和 Azure 服务。
+本文介绍了在为云设计应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://docs.microsoft.com/previous-versions/windows/desktop/cc307891(v=msdn.10)) 的要求和设计阶段需要考虑的培训资源以及安全问题和概念。 目标是帮助你定义可用于设计更安全应用程序的活动和 Azure 服务。
 
 本文介绍了以下 SDL 阶段：
 
@@ -35,11 +35,11 @@ ms.locfileid: "94638113"
 
 在培训阶段使用以下资源自行熟悉可供开发人员使用的 Azure 服务以及 Azure 上的安全最佳做法：
 
-  - [Azure 开发人员指南](/guides/developer/azure-developer-guide)介绍了如何开始使用 Azure。 本指南展示了你可使用哪些服务来运行应用程序、存储你的数据、引入智能、构建 IoT 应用，以及以更高效、更安全的方式部署解决方案。
+  - [Azure 开发人员指南](https://azure.microsoft.com/campaigns/developer-guide/)介绍了如何开始使用 Azure。 本指南展示了你可使用哪些服务来运行应用程序、存储你的数据、引入智能、构建 IoT 应用，以及以更高效、更安全的方式部署解决方案。
 
   - [Azure 开发人员入门指南](../../guides/developer/azure-developer-guide.md)为希望使用 Azure 平台进行开发的开发人员提供了基本信息。
 
-  - [SDK 和工具](https://docs.azure.cn/?pivot=sdkstools&product=featured)介绍了 Azure 上提供的工具。
+  - [SDK 和工具](../../index.md?pivot=sdkstools)介绍了 Azure 上提供的工具。
 
 
   - [在推送到生产环境前要考虑的前 5 个安全事项](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)介绍了如何在 Azure 上帮助保护你的 Web 应用程序，并保护你的应用免受最常见和最危险的 Web 应用程序攻击。
@@ -65,6 +65,7 @@ ms.locfileid: "94638113"
 
   - 我的应用程序是否包含敏感数据？
 
+  - 我的应用程序是收集还是存储要求我遵守行业标准和合规性计划（如 [联邦金融机构检查委员会 [FFIEC]](https://docs.microsoft.com/previous-versions/azure/security/blueprints/ffiec-analytics-overview) 或 [支付卡行业数据安全标准 [PCI DSS]](https://docs.microsoft.com/previous-versions/azure/security/blueprints/pcidss-analytics-overview)）的数据？
 
   - 我的应用程序是否收集或包含敏感的个人或客户数据，这些数据是否可以用来（单独使用或与其他信息一起使用）识别、联系或定位个人？
 
@@ -124,7 +125,7 @@ ms.locfileid: "94638113"
 请确保使用框架及其提供的所有安全功能的最新版本。 Microsoft 为使用任何平台或语言的所有开发人员提供了一套全面的、用于交付云应用程序的[开发工具](https://azure.microsoft.com/product-categories/developer-tools/)。 你可以从各种 [SDK](https://www.azure.cn/downloads/) 中进行选择，以便使用所选语言进行编码。
 你可以利用功能齐全的集成开发环境 (IDE) 和具有高级调试功能和内置 Azure 支持的编辑器。
 
-Microsoft 提供了各种[语言、框架和工具](https://docs.azure.cn/?pivot=sdkstools&panel=sdkstools-all&product=featured)，你可以使用它们在 Azure 上开发应用程序。 一个示例是[面向 .NET 和 .NET Core 开发人员的 Azure](https://docs.azure.cn/dotnet/)。 对于我们提供的每种语言和框架，你可以通过快速入门、教程和 API 参考来快速入门。
+Microsoft 提供了各种[语言、框架和工具](../../index.md?panel=sdkstools-all&pivot=sdkstools)，你可以使用它们在 Azure 上开发应用程序。 一个示例是[面向 .NET 和 .NET Core 开发人员的 Azure](https://docs.azure.cn/dotnet/)。 对于我们提供的每种语言和框架，你可以通过快速入门、教程和 API 参考来快速入门。
 
 Azure 提供了各种可用来托管网站和 Web 应用程序的服务。 这些服务允许你使用自己喜欢的语言进行开发，无论该语言是 .NET、NET Core、Java、Ruby、Node.js、PHP 还是 Python。
 [Azure 应用服务 Web 应用](../../app-service/overview.md)（Web 应用）是其中的服务之一。
@@ -152,12 +153,11 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 | 威胁 | 安全属性 | 潜在的 Azure 平台缓解措施 |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 欺骗               | 身份验证        | [要求使用 HTTPS 连接](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)。 |
-| 篡改              | 完整性             | 验证 SSL/TLS 证书。 使用 SSL/TLS 的应用程序必须全面验证它们连接到的实体的 X.509 证书。 使用 Azure Key Vault 证书来[管理 x509 证书](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates)。 |
-| 否认性            | 不可否认性       | 启用 Azure 监视和诊断|
+| 欺骗               | 身份验证        | [要求使用 HTTPS 连接](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1)。 |
+| 篡改              | 完整性             | 验证 SSL/TLS 证书。 使用 SSL/TLS 的应用程序必须全面验证它们连接到的实体的 X.509 证书。 使用 Azure Key Vault 证书来[管理 x509 证书](../../key-vault/general/about-keys-secrets-certificates.md)。 |
+| 否认性            | 不可否认性       | 启用 Azure [监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。|
 | 信息泄露 | 机密性       | 加密[静态](../fundamentals/encryption-atrest.md)和[传输中的](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)敏感数据。 |
-<!--DDoS not available -->
-| 权限提升 | 授权         | 使用 Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)。|
+| 权限提升 | 授权         | 使用 Azure Active Directory <span class="underline"></span>[Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)。|
 
 ### <a name="reduce-your-attack-surface"></a>减少受攻击面
 
@@ -208,20 +208,27 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 使用平台提供的身份验证和授权机制，而不要使用自定义代码。 这是因为开发自定义身份验证代码可能容易出错。 商业代码（例如 Microsoft 编写的代码）通常会接受广泛的安全性评审。 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 是用于标识和访问管理的 Azure 解决方案。 这些 Azure AD 工具和服务可帮助进行安全的开发：
 
-- [Microsoft 标识平台](/active-directory/develop/)是一套组件，开发人员可使用这些组件来构建可让用户安全登录的应用。 该平台可以为需要构建单租户业务线 (LOB) 应用的开发人员和寻求开发多租户应用的开发人员提供帮助。 使用 Microsoft 标识平台构建的应用不仅可以进行最基本的登录，还可以调用 Microsoft API 和自定义 API。 Microsoft 标识平台支持 OAuth 2.0 和 OpenID Connect 这样的行业标准协议。
+- [Microsoft 标识平台](../../active-directory/develop/index.yml)是一套组件，开发人员可使用这些组件来构建可让用户安全登录的应用。 该平台可以为需要构建单租户业务线 (LOB) 应用的开发人员和寻求开发多租户应用的开发人员提供帮助。 使用 Microsoft 标识平台构建的应用不仅可以进行最基本的登录，还可以调用 Microsoft API 和自定义 API。 Microsoft 标识平台支持 OAuth 2.0 和 OpenID Connect 这样的行业标准协议。
+
+- [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) 是一项标识管理服务，可用来自定义和控制客户在使用应用程序时的注册、登录和管理配置文件的方式。 这包括面向 iOS、Android 和 .NET 等系统开发的应用程序。 使用 Azure AD B2C，可以在执行这些操作的同时保护客户标识。
 
 #### <a name="apply-the-principle-of-least-privilege"></a>应用最低权限原则
 
 最低权限概念的意思是给用户提供完成工作所需的精确的访问和控制权限，不提供任何额外的权限。
 
-软件开发人员是否需要域管理员权限？ 管理助理是否需要访问其个人电脑上的管理控制措施？ 评估对软件的访问没有什么不同。 如果在应用程序中使用[基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 为用户提供不同的能力和授权，则不会让每个人都可以访问所有内容。 通过将访问权限限定为每个角色必需的权限，可以限制出现安全问题的风险。
+软件开发人员是否需要域管理员权限？ 管理助理是否需要访问其个人电脑上的管理控制措施？ 评估对软件的访问没有什么不同。 如果在应用程序中使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 为用户提供不同的能力和授权，则不会让每个人都可以访问所有内容。 通过将访问权限限定为每个角色必需的权限，可以限制出现安全问题的风险。
 
 确保你的应用程序在其整个访问模式中强制实施[最低权限](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications)。
 
 > [!NOTE]
 > 最低权限规则需要应用于软件和创建软件的人员。 如果为软件开发人员提供过多的访问权限，他们可能会给 IT 安全带来巨大的风险。 如果开发人员有恶意或被授予了过多的访问权限，后果可能很严重。 建议在整个开发生命周期中对开发人员应用最低权限规则。
 
-<!-- not available-->
+#### <a name="implement-just-in-time-access"></a>实施实时访问
+
+实施实时 (JIT) 访问以进一步降低权限的暴露时间。 使用 [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity)，以进行以下操作：
+
+- 向用户授予所需的仅 JIT 权限。
+- 分配时限更短的角色，确信权限会自动撤消。
 
 ### <a name="require-re-authentication-for-important-transactions"></a>要求对重要事务反复进行身份验证
 
@@ -234,7 +241,7 @@ Azure 提供了可用来托管网站和 Web 应用程序的其他服务。 大�
 
 丢失密钥和凭据是一个常见问题。 唯一比丢失密钥和凭据更遭糕的事情是让未经授权的一方获取这些密钥和凭据的访问权限。 攻击者可以利用自动和手动技术来查找存储在代码存储库（例如 GitHub）中的密钥和机密。 请勿在这些公用代码存储库中或任何其他服务器上放置密钥和机密。
 
-请始终将密钥、证书、机密和连接字符串放置在密钥管理解决方案中。 可以使用集中式解决方案，将密钥和机密存储在硬件安全模块 (HSM) 中。 Azure 在云中提供了包含 [Azure Key Vault](../../key-vault/general/overview.md) 的 HSM。
+请始终将密钥、证书、机密和连接字符串放置在密钥管理解决方案中。
 
 Key Vault 是一个机密存储：一个用于存储应用程序机密的集中式云服务。 Key Vault 可以保护机密数据，其方法是：将应用程序机密保存在单个集中位置，并提供安全的访问、权限控制和访问日志记录。
 

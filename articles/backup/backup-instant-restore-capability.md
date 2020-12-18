@@ -5,14 +5,14 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 11/17/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 9f8af1a74e2460bfceaa8397de088ed879805a7f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2ea841930a52547b41d8dc24f69850d85e86fb53
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977272"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105139"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
@@ -118,4 +118,9 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>我不需要即时还原功能。 是否可以禁用它？
 
 为所有人启用了即时还原功能，不能禁用它。 可以将快照保留期缩短到最少一天。
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>在传输过程中重启 VM 是否安全（传输过程可能需要数小时）？ 重启 VM 是否会中断传输或减慢传输速度？
+
+安全，并且对数据传输速度绝对不会有任何影响。
+
 

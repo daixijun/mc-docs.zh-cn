@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/16/2020
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 6e2844bc6382f26d8b5cc684fd608cf3599d3db1
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d2ab74ba14cda87c8979f8e428e6257a537485df
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552149"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850817"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制列表 (ACL)
 
@@ -24,7 +24,7 @@ Azure Data Lake Storage Gen2 实现了一个访问控制模型，该模型支持
 
 ## <a name="about-acls"></a>关于 ACL
 
-可将[安全主体](/role-based-access-control/overview#security-principal)关联到对文件和目录的访问权限级别。 这些关联在访问控制列表 (ACL) 中捕获。 存储帐户中的每个文件和目录都有一个访问控制列表。 当安全主体尝试对文件或目录执行操作时，ACL 检查将确定安全主体（用户、组、服务主体或托管标识）是否具有执行该操作所需的正确权限级别。
+可将[安全主体](../../role-based-access-control/overview.md#security-principal)关联到对文件和目录的访问权限级别。 这些关联在访问控制列表 (ACL) 中捕获。 存储帐户中的每个文件和目录都有一个访问控制列表。 当安全主体尝试对文件或目录执行操作时，ACL 检查将确定安全主体（用户、组、服务主体或托管标识）是否具有执行该操作所需的正确权限级别。
 
 > [!NOTE]
 > ACL 仅应用于同一个租户中的安全主体，不应用于使用共享密钥或共享访问签名 (SAS) 令牌身份验证的用户。 那是因为没有与调用方关联的标识，因此不能执行基于安全主体权限的授权。  
@@ -93,7 +93,8 @@ Azure Data Lake Storage Gen2 实现了一个访问控制模型，该模型支持
 
 此表显示的列代表虚构目录层次结构的每个级别。 容器的根目录 (`\`)、名为 **Oregon** 的子目录、Oregon 目录的名为 **Portland** 的子目录以及 Portland 目录中名为 **Data.txt** 的文本文件分别对应一个列。 
 
-> [!重要信息] 此表假设你 **仅** 使用 ACL，而不使用任何 Azure RBAC 角色分配。 若要查看组合使用 Azure RBAC 和 ACL 的类似表，请参阅[权限表：组合使用 Azure RBAC 和 ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)。
+> [!IMPORTANT]
+> 此表假设你仅在使用 ACL，没有使用任何 Azure 角色分配。 若要查看组合使用 Azure RBAC 和 ACL 的类似表，请参阅[权限表：组合使用 Azure RBAC 和 ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)。
 
 |    操作             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -271,7 +272,7 @@ def set_default_acls_for_new_child(parent, child):
 
 若要了解系统如何将 Azure RBAC 和 ACL 一起评估，以便针对存储帐户资源做出授权决策，请参阅[如何评估权限](data-lake-storage-access-control-model.md#how-permissions-are-evaluated)。
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>对 Azure RBAC 角色分配和 ACL 条目的限制有哪些？
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Azure 角色限制和 ACL 条目存在哪些限制？
 
 下表提供了在使用 Azure RBAC 管理“粗粒度”权限（应用于存储帐户或容器的权限）以及使用 ACL 管理“细粒度”权限（应用于文件和目录的权限）时要考虑的限制的汇总视图。 使用安全组进行 ACL 分配。 通过使用组，你不太可能超出每个订阅的角色分配的最大数量，以及每个文件或目录的 ACL 条目的最大数量。 
 

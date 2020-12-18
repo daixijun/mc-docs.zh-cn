@@ -1,30 +1,24 @@
 ---
-title: 将适用于 iOS 和 macOS 的 MSAL 配置为使用不同的标识提供者
+title: 配置标识提供者 (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何在适用于 iOS 和 macOS 的 MSAL 中使用不同的颁发机构，例如 B2C、主权云和来宾用户。
 services: active-directory
-documentationcenter: ''
-author: tylermsft
+author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/28/2019
-ms.date: 11/26/2019
+ms.date: 12/07/2020
 ms.author: v-junlch
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b130e6571ce98b093d9fe2aef695101b6b8ded1b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4e04c81384f6b311f3ad488086a2a9447cc155d5
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74655251"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003678"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>如何：将适用于 iOS 和 macOS 的 MSAL 配置为使用不同的标识提供者
 
@@ -256,4 +250,3 @@ do{
 
 详细了解[身份验证流和应用程序方案](authentication-flows-app-scenarios.md)
 
-<!-- Update_Description: link update -->

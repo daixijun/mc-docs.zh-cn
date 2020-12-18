@@ -4,16 +4,16 @@ titleSuffix: Azure App Configuration
 description: 了解如何使用 Azure 资源管理器模板（ARM 模板）创建 Azure 应用程序配置存储。
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 10/16/2020
+ms.date: 12/14/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 02b513c1322e8b232be624725dcacb4d43471dfb
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 81f980bb4216f241f105f35f46a9e8717d74a899
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190276"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104910"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 应用程序配置存储
 
@@ -27,11 +27,11 @@ ms.locfileid: "96190276"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -157,9 +157,9 @@ ms.locfileid: "96190276"
 
 你也可以使用以下 PowerShell cmdlet 部署模板。 键值将位于 PowerShell 控制台的输出中。
 
-```azurepowershell-interactive
+```powershell
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-$location = Read-Host -Prompt "Enter the location"
+$location = Read-Host -Prompt "Enter the location (i.e. chinanorth)"
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
@@ -182,7 +182,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 如果不再需要本教程中所述的资源组、应用程序配置存储和所有相关资源，请将其删除。 如果将来还打算使用该应用程序配置存储，可以跳过删除它的步骤。 如果不打算继续使用该存储，请运行以下 cmdlet，删除本快速入门中创建的所有资源：
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."

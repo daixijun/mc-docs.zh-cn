@@ -4,17 +4,17 @@ description: 本文概述如何使用 Azure 资源管理器管理 Azure Service 
 ms.topic: conceptual
 origin.date: 10/21/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: e9fce462850f9c55cd1a8d7430934f44edfe0b4f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 97136aaf8ff120dd1542d96deb759bdbf2e9155c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655689"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104771"
 ---
 <!--Verfiy sucessfully-->
 # <a name="service-fabric-application-resource-model"></a>Service Fabric 应用程序资源模型
@@ -61,7 +61,7 @@ ms.locfileid: "89655689"
 可以通过将公共访问级别设置为“专用”来保护群集中的资源。 可以通过多种方式授予访问权限：
 
 * 使用 [Azure Active Directory](../storage/common/storage-auth-aad-app.md) 授予对 Blob 和队列的访问权限。
-* [在 Azure 门户中使用 RBAC](../storage/common/storage-auth-aad-rbac-portal.md) 授予对 Azure Blob 和队列数据的访问权限。
+* [在 Azure 门户中使用 Azure RBAC](../storage/common/storage-auth-aad-rbac-portal.md) 授予对 Azure Blob 和队列数据的访问权限。
 * 使用[共享访问签名](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature)委派访问权限。
 
 以下屏幕截图中的示例使用对 Blob 的匿名读取访问。
@@ -144,6 +144,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>使用资源管理器升级 Service Fabric 应用程序
 
+> [!IMPORTANT]
+> 必须从相应 ApplicationManifest.xml 文件的“DefaultServices”部分删除通过 ARM JSON 定义部署的任何服务。
+
 你可能会出于以下某一原因升级已部署到 Service Fabric 群集的应用程序：
 
 * 一个新服务将添加到应用程序。 当服务添加到应用程序时，一个服务定义必须添加到 service-manifest 和 application-manifest 文件中。 若要反映应用程序的新版本，还必须在 [UserApp.parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json) 中将应用程序类型版本从 1.0.0 更改为 1.0.1：
@@ -172,13 +175,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 若要删除使用资源管理器中的应用程序资源模型部署的应用程序，请执行以下操作：
 
-1. 使用 [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet 获取应用程序的资源 ID：
+1. 使用 [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0&preserve-view=true) cmdlet 获取应用程序的资源 ID：
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. 使用 [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet 删除应用程序资源：
+1. 使用 [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0&preserve-view=true) cmdlet 删除应用程序资源：
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

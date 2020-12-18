@@ -4,14 +4,14 @@ description: Azure Monitor 指标警报的常见问题和可能的解决方案�
 author: Johnnytechn
 ms.author: v-johya
 ms.topic: troubleshooting
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: ae9879982e9c54d3e315beecfc646a7f9f088fc4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6e3e798406fadaf148670b69b75251face670d3b
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328443"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104519"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>排查 Azure Monitor 指标警报的问题 
 
@@ -204,6 +204,8 @@ ms.locfileid: "94328443"
 - 指标警报规则名称不能包含以下字符：* # & + : < > ? @ % { } \ / 
 - 指标预警规则名称不能以空格或句点结尾
 
+> [!NOTE] 
+> 如果警报规则名称包含不是字母或数字的字符（例如：空格、标点符号或符号），则在某些客户端检索这些字符时，可能会对这些字符进行 URL 编码。
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>在具有多个条件的指标警报规则中使用维度时的限制
 

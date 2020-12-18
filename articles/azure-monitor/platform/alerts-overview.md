@@ -3,14 +3,15 @@ title: Azure 中的警报和通知监视概述
 description: Azure 中的警报概述。 警报、经典警报和警报界面。
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.author: v-johya
+ms.date: 12/08/2020
 origin.date: 01/28/2018
-ms.openlocfilehash: c1592554a547cefc5fb9a7f85d7ba6743231b77f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e4bac6da5d3a259496d48a70b757ccc9dd5b4fb7
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328455"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104529"
 ---
 # <a name="overview-of-alerts-in-azure"></a>Azure 中的警报概述 
 
@@ -85,7 +86,7 @@ ms.locfileid: "94328455"
 
 *警报状态* 不同于且独立于 *监视条件*。 警报状态是由用户设置的。 监视条件是由系统设置的。 当触发警报时，警报的监视条件设置为“已触发”，当导致警报触发的基础条件解除后，监视条件会设置为“已解决” 。 
 
-在用户更改警报状态之前，警报状态不会改变。 了解[如何更改警报和智能组的状态](./alerts-managing-alert-states.md?toc=%252fazure-monitor%252ftoc.json)。
+在用户更改警报状态之前，警报状态不会改变。 了解[如何更改警报和智能组的状态](./alerts-managing-alert-states.md?toc=%2fazure-monitor%2ftoc.json)。
 
 ## <a name="alerts-experience"></a>警报体验 
 默认的“警报”页提供特定时间范围内创建的警报的摘要。 该页显示每种严重性的警报总数，列中会标识处于每种状态的、具有每种严重性的警报总数。 选择任一严重性可打开按该严重性筛选的“[所有警报](#all-alerts-page)”页。
@@ -171,7 +172,7 @@ ms.locfileid: "94328455"
 | 历史记录 | 列出警报执行的每个操作，以及对警报进行的任何更改。 目前仅限状态更改。 |
 | 诊断 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量。 包括同一智能组中在过去 30 天内创建的其他警报，无论警报列表页面中的时间筛选器是什么。 选择某个警报以查看其详细信息。 |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警报实例的基于角色的访问控制 (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>适用于警报实例的 Azure 基于角色的访问控制 (Azure RBAC)
 
 使用和管理警报实例需要用户具有[监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)或[监视读取者](../../role-based-access-control/built-in-roles.md#monitoring-reader)的 Azure 内置角色。 在任何 Azure 资源管理器范围（从订阅级别到资源级别的粒度分配）内都支持这些角色。 例如，如果用户只具有虚拟机 `ContosoVM1` 的“监视参与者”访问权限，则该用户只能使用和管理 `ContosoVM1` 上生成的警报。
 
@@ -202,13 +203,13 @@ ms.locfileid: "94328455"
 
 ## <a name="smart-groups"></a>智能组
 
-智能组是根据机器学习算法对警报进行的聚合。这些算法有助于降低警报噪音，对故障排除也有帮助。 [详细了解智能组](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)和[如何管理智能组](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)。
+智能组是根据机器学习算法对警报进行的聚合。这些算法有助于降低警报噪音，对故障排除也有帮助。 [详细了解智能组](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)和[如何管理智能组](./alerts-managing-smart-groups.md?toc=%2fazure-monitor%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解智能组](./alerts-smartgroups-overview.md?toc=%252fazure-monitor%252ftoc.json)
+- [详细了解智能组](./alerts-smartgroups-overview.md?toc=%2fazure-monitor%2ftoc.json)
 - [了解操作组](./action-groups.md)
-- [在 Azure 中管理警报实例](./alerts-managing-alert-instances.md?toc=%252fazure-monitor%252ftoc.json)
-- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%252fazure-monitor%252ftoc.json)（管理智能组）
+- [在 Azure 中管理警报实例](./alerts-managing-alert-instances.md?toc=%2fazure-monitor%2ftoc.json)
+- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure-monitor%2ftoc.json)（管理智能组）
 - [详细了解 Azure 警报定价](https://www.azure.cn/pricing/details/monitor/)
 

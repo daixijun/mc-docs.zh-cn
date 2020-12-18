@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
-ms.openlocfilehash: 8d2f4a31cd536d1ee64d8568be8940346d7efa72
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: a53906ce8573c7f6bfe250a9c4d50fb208067ffc
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162798"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104840"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>什么是安全虚拟中心？
 
@@ -20,9 +20,9 @@ ms.locfileid: "87162798"
 
 安全虚拟中心是一个 [Azure 虚拟 WAN 中心](../virtual-wan/virtual-wan-about.md#resources)，其中包含通过 Azure 防火墙管理器配置的关联的安全和路由策略。 使用安全虚拟中心，可通过本机安全服务轻松创建中心辐射型可传递体系结构，实现流量管理和保护。 
 
-可以使用安全虚拟中心作为无本地连接的托管中心 VNet。 它取代了之前 Azure 防火墙部署所需的中心 VNet。 由于安全虚拟中心提供自动路由，因此无需配置自己的 UDR（用户定义的路由）即可通过防火墙路由流量。
+可以使用安全虚拟中心来筛选虚拟网络 (V2V) 之间的流量、虚拟网络与分支机构 (B2V) 之间的流量以及流向 Internet (B2I/V2I) 的流量。 安全虚拟中心提供自动路由。 因此，无需配置自己的 UDR（用户定义的路由）即可通过防火墙路由流量。
 
-还可以将安全虚拟中心用作完整虚拟 WAN 体系结构的一部分。 此体系结构提供到 Azure 以及通过 Azure 的安全、经过优化的自动分支连接。 你可以选择用于保护和管理网络流量的服务，包括 Azure 防火墙和其他第三方安全即服务 (SECaaS) 提供程序。
+你可以选择用于保护和管理网络流量的所需安全提供程序，包括 Azure 防火墙和/或第三方安全即服务 (SECaaS) 提供程序。 目前，安全中心不支持分支到分支 (B2B) 的筛选和跨多个中心进行的筛选。 有关详细信息，请参阅[什么是 Azure 防火墙管理器？](overview.md#known-issues)。 
 
 ## <a name="create-a-secured-virtual-hub"></a>创建安全虚拟中心
 

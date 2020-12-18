@@ -1,18 +1,18 @@
 ---
 title: 适用于 Azure Monitor 的 Azure 安全基线
 description: Azure Monitor 安全基线为实现 Azure 安全基准中指定的安全建议提供过程指南和资源。
-author: msmbaldwin
+author: Johnnytechn
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9a96467b0bf8be3f804dccf7fdd82fe1730d2458
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: dcded11286f77ca83ca407bb90c3af28e36224f9
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638284"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105147"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>适用于 Azure Monitor 的 Azure 安全基线
 
@@ -148,7 +148,7 @@ Azure Monitor 属于 Azure 核心服务，并且 Azure Monitor 服务不能单�
 
 或者，可以启用数据并将其加入 Azure Sentinel 或第三方 SIEM。
 
-- [Log Analytics 查询入门](log-query/get-started-portal.md)
+- [Log Analytics 查询入门](./log-query/log-analytics-tutorial.md)
 
 - [如何在 Azure Monitor 中执行自定义查询](log-query/get-started-queries.md)
 
@@ -304,7 +304,7 @@ Azure Monitor 属于 Azure 核心服务，并且 Azure Monitor 服务不能单�
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2：隔离存储或处理敏感信息的系统
 
-**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需的 Azure Monitor 和相关资源的访问级别。 可以通过 Azure Active Directory 基于角色的访问控制来控制对 Azure Monitor 的访问。
+**指导**：使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需的 Azure Monitor 和相关资源的访问级别。 可以通过 Azure 基于角色的访问控制来控制对 Azure Monitor 的访问。
 
 - [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
 
@@ -339,7 +339,7 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
 
-**指导**：使用 Azure 基于角色的访问控制 (RBAC) 来管理对 Azure Monitor 的访问。
+**指导**：使用 Azure 基于角色的访问控制 (Azure RBAC) 来管理对 Azure Monitor 的访问。
 
 - [Azure Monitor 中的角色、权限和安全性](platform/roles-permissions-security.md)
 
@@ -661,7 +661,7 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4：确保保护备份和客户管理的密钥
 
-**指南**：使用 Azure DevOps 安全地存储和管理代码，如自定义 Azure 策略、Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。   使用基于角色的访问控制保护客户管理的密钥。 
+**指南**：使用 Azure DevOps 安全地存储和管理代码，如自定义 Azure 策略、Azure 资源管理器模板。 若要保护在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。   使用 Azure 基于角色的访问控制保护客户管理的密钥。 
 
 此外，在 Key Vault 中启用软删除和清除保护，以防止意外删除或恶意删除密钥。 如果将 Azure 存储用于存储 Azure 资源管理器模板备份，请启用软删除以在 blob 或 blob 快照被删除时保存和恢复数据。 
 
@@ -683,7 +683,7 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -697,9 +697,9 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。  你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。  你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 

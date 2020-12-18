@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 08/09/2019
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e477198f7b989ba783b7d159138d619f17551e19
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: de5ca6d2ecc867f9845e961f3aea4b022ac1e2e2
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148555"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104880"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "89148555"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
+使用 [az aks disable-addons](/cli/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -38,7 +38,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 * [使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->模板需要部署在群集所在的资源组中。 如果在使用此模板时省略任何其他属性或加载项，则可能导致从群集中删除这些属性或加载项。 例如，*enableRBAC*（用于群集中实施的 RBAC 策略），或 *aksResourceTagValues*（如果为 AKS 群集指定了标记）。  
+>模板需要部署在群集所在的资源组中。 如果在使用此模板时省略任何其他属性或加载项，则可能导致从群集中删除这些属性或加载项。 例如，enableRBAC（用于群集中实施的 Kubernetes RBAC 策略），或 aksResourceTagValues（如果为 AKS 群集指定了标记）。  
 >
 
 如果选择使用 Azure CLI，首先需要在本地安装和使用 CLI。 必须运行 Azure CLI 2.0.27 版或更高版本。 若要确定版本，请运行 `az --version`。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli)。

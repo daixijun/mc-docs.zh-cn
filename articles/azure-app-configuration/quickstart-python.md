@@ -1,40 +1,40 @@
 ---
-title: 将 Azure 应用配置与 Python 应用结合使用的快速入门 | Microsoft Docs
+title: 将 Azure 应用配置与 Python 应用结合使用的快速入门 | Azure Docs
 description: 在本快速入门中，使用 Azure 应用程序配置创建 Python 应用，集中存储和管理与代码分离的应用程序设置。
 services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.date: 9/17/2020
+ms.date: 12/14/2020
 ms.author: drewbat
-ms.openlocfilehash: 3a327c29c135ffbd2cbeb8968a59c50273a09848
-ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
+ms.openlocfilehash: 93c3f28f9890df55265d340680c53b8a71fcedef
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598337"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104912"
 ---
 # <a name="quickstart-create-a-python-app-with-azure-app-configuration"></a>快速入门：使用 Azure 应用程序配置创建 Python 应用
 
 在本快速入门中，你将使用[适用于 Python 的应用程序配置客户端库](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration)通过 Azure 应用程序配置来集中存储和管理应用程序设置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-- Python 2.7、3.5 或更高版本 - 有关在 Windows 上设置 Python 的信息，请参阅 [Windows 上的 Python 文档]( https://docs.microsoft.com/windows/python/)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+- Python 2.7、3.5 或更高版本 - 有关在 Windows 上设置 Python 的信息，请参阅 [Windows 上的 Python 文档](https://docs.microsoft.com/windows/python/)
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. 选择“配置资源管理器” > “创建” > “键-值”来添加以下键值对  ：
+7. 选择“配置资源管理器” > “创建” > “键-值”来添加以下键值对    ：
 
-    | 键 | Value |
+    | 密钥 | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 应用配置的数据 |
 
-    暂时将“标签”和“内容类型”保留为空 。
+    暂时将“标签”和“内容类型”保留为空   。
 
 8. 选择“应用”。
 
@@ -196,7 +196,7 @@ ms.locfileid: "96598337"
     print("Key: " + deleted_config_setting.key + ", Value: " + deleted_config_setting.value)
 ```
 
-## <a name="run-the-app"></a>运行应用程序
+## <a name="run-the-app"></a>运行应用
 
 在本快速入门中，你创建了一个 Python 应用，它使用 Azure 应用程序配置客户端库来检索通过 Azure 门户创建的配置设置、添加新设置、检索现有设置列表、锁定和解锁设置、更新设置和最终删除设置。
 
@@ -256,7 +256,7 @@ except Exception as ex:
 python app-configuration-quickstart.py
 ```
 
-应会看到以下输出：
+应该会看到以下输出：
 
 ```output
 Azure App Configuration - Python Quickstart

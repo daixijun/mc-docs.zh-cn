@@ -3,19 +3,19 @@ title: 了解 Azure Cosmos DB 帐单
 description: 本文通过一些示例介绍如何了解 Azure Cosmos DB 帐单。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 08/19/2020
+origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6dcad7ed154890e2f42ca8871df60ce54194e7f7
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 71ba079e9006c51913e5fd9544e45e78f45df92d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552891"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850446"
 ---
 <!--VERIFIED SUCCESSFULLY-->
 <!--UPDATE CAREFULLY-->
@@ -89,6 +89,8 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
 * 此时需支付： 0.051 元 x 222 = 11.322 元/小时。 
 
+<!--CORRECT ON 500 x CNY0.612/hour + 244 x CNY11.322/hour = CNY3068.57/month-->
+
 * 假设一个月为 744 小时（24 小时 * 31 天），如果 500 小时的预配吞吐量为 1,200 RU/秒，其余 244 小时的预配吞吐量为 22,200 RU/秒，则月度帐单将显示：500 x 0.612 元/小时 + 244 x 11.322 元/小时 = 3068.57 元/月。
 
     <!--Not Available on :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Dedicated throughput bill example":::-->
@@ -109,9 +111,9 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对数据库�
 
     <!--Not Available on :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Shared throughput bill example":::-->
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>采用异地复制和多区域写入的计费示例  
+## <a name="billing-examples-with-geo-replication"></a>异地复制的计费示例  
 
-可随时向 Azure Cosmos 数据库帐户添加/删除中国 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户（按小时配置）中的所有数据库和容器中配置的总预配吞吐量（RU /秒）为 T，而与数据库帐户关联的 Azure 区域数为 N，则对于 Azure Cosmos 数据库帐户而言，在给定时间内（小时）总预配吞吐量分别为：(a) 配置了单个写入区域时，总吞吐量 = T x N RU/秒；(b) 配置了所有能够处理写入的区域时，总吞吐量 = T x (N + 1) RU/每秒。 预配吞吐量（单个写入区域）每 100 RU/秒的费用为 0.051 元/小时。对于多个可写区域（多区域写入配置），预配吞吐量每 100 RU/秒的费用为 0.102 元/小时（请查看[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)）。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
+可随时向 Azure Cosmos 数据库帐户添加/删除中国 Azure 区域。 对于为不同 Azure Cosmos 数据库和容器配置的吞吐量，可在与 Azure Cosmos 数据库帐户关联的每个 Azure 区域中保留这些吞吐量。 如果在 Azure Cosmos 数据库帐户（按小时预配）中的所有数据库和容器上配置的预配吞吐量（RU/秒）之和为 T，并且与数据库帐户关联的 Azure 区域数为 N，则 Azure Cosmos 数据库帐户在某个给定小时的总预配吞吐量等于 T x N RU/秒。预配吞吐量（单个写入区域）每 100 RU/秒的成本为 0.051 元/小时，多个可写区域（多区域写入配置）的预配吞吐量每 100 RU/秒的成本为 0.102 元/小时（请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)）。 无论是单个写入区域还是多个写入区域，Azure Cosmos DB 都支持从任何区域读取数据。
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>计费示例：多区域 Azure Cosmos 帐户，单个区域写入
 

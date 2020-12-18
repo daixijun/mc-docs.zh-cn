@@ -4,14 +4,14 @@ description: 描述如何验证 HTTP 终结点，以及随后如何接收和反�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 01/01/2019
-ms.date: 10/10/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: db70ee2cfe5c48580621382fa3bb74d2fdbf0422
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: f7d0b799b5b01d8948b6d13316a8d58df5246382
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128311"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105322"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>将事件接收到 HTTP 终结点
 
@@ -142,9 +142,11 @@ module.exports = function (context, req) {
 }]
 ```
 
-单击“运行”时，输出应为“200 确定”且正文中显示 `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}`：
+单击“运行”时，输出应为“200 确定”且正文中显示 `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}`：
 
-![验证响应](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="验证请求":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="验证输出":::
 
 ## <a name="handle-blob-storage-events"></a>处理 Blob 存储事件
 
@@ -396,6 +398,8 @@ module.exports = function (context, req) {
 ```
 
 还可实时测试此功能，方式是[在门户中通过 CURL 发送自定义事件](./custom-event-quickstart-portal.md)，或者使用任何可通过 POST 发送到终结点（如 [Postman](https://www.getpostman.com/)）的服务或应用程序[发布到自定义主题](./post-to-custom-topic.md)。 使用终结点集作为函数 URL，创建自定义主题和事件订阅。
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

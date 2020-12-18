@@ -1,46 +1,50 @@
 ---
-title: 将 Azure 应用配置与 .NET Core 结合使用的快速入门| Microsoft Docs
-description: 将 Azure 应用配置与 .NET Core 应用结合使用的快速入门
+title: 将 Azure 应用程序配置与 .NET Core 结合使用的快速入门 | Azure Docs
+description: 在本快速入门中，使用 Azure 应用程序配置创建 .NET Core 应用，集中存储和管理与代码分离的应用程序设置。
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 01e9b3f9f32392e5050a0a1296a166ff38fcd335
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: c8570e059740ae02168c3c2626294b326098b458
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437389"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104926"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入门：使用应用程序配置创建 .NET Core 应用
 
 在本快速入门中，会将 Azure 应用程序配置合并到 .NET Core 控制台应用中，以集中存储和管理与代码分离的应用程序设置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)。
+
+<!--Cloud Shell-->
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“配置资源管理器” > “创建” > “键-值”来添加以下键值对  ：
+7. 选择“配置资源管理器” > “创建” > “键-值”来添加以下键值对    ：
 
-    | 键 | Value |
+    | 密钥 | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 应用配置的数据 |
 
-    暂时将“标签”和“内容类型”保留为空 。
+    暂时将“标签”和“内容类型”保留为空   。
 
-7. 选择“应用”。
+8. 选择“应用”。 
 
 ## <a name="create-a-net-core-console-app"></a>创建 .NET Core 控制台应用
 
 你使用 [.NET Core 命令行接口 (CLI)](https://docs.microsoft.com/dotnet/core/tools/) 创建新的 .NET Core 控制台应用项目。 通过 Visual Studio 使用 .NET Core CLI 的优点是，它可用于 Windows、macOS 和 Linux 平台。  
+
+<!--Cloud Shell-->
 
 1. 为项目新建一个文件夹。
 
@@ -86,7 +90,7 @@ ms.locfileid: "96437389"
 
 ## <a name="build-and-run-the-app-locally"></a>在本地生成并运行应用
 
-1. 设置名为“ConnectionString”的环境变量，并将其设置为应用程序配置存储区的访问密钥。 在命令行中运行以下命令：
+1. 设置名为“ConnectionString”的环境变量，并将其设置为应用程序配置存储区的访问密钥  。 在命令行中运行以下命令：
 
     ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"

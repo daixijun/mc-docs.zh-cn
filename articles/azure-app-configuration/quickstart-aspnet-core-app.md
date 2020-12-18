@@ -1,5 +1,5 @@
 ---
-title: 将 Azure 应用配置与 ASP.NET Core 结合使用的快速入门| Microsoft Docs
+title: 将 Azure 应用程序配置与 ASP.NET Core 结合使用的快速入门 | Azure Docs
 description: 使用 Azure 应用程序配置创建 ASP.NET Core 应用，集中存储和管理 ASP.NET Core 应用程序的应用程序设置。
 services: azure-app-configuration
 author: lisaguthrie
@@ -7,23 +7,25 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5b7d722afd8005c953f962912905ee5a57bad67c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 664720b1546835b8407aad020a08d756c41b342a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437391"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104934"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入门：使用 Azure 应用配置创建 ASP.NET Core 应用
 
-本快速入门将使用 Azure 应用程序配置来集中存储和管理 ASP.NET Core 应用的应用程序设置。 ASP.NET Core 使用由应用指定的一个或多个数据源的设置，生成基于键值的单个配置对象。 这些数据源称为配置提供程序。 由于应用程序配置的 .NET Core 客户端作为配置提供程序实现，因此服务就像是另一个数据源。
+本快速入门将使用 Azure 应用程序配置来集中存储和管理 ASP.NET Core 应用的应用程序设置。 ASP.NET Core 使用由应用指定的一个或多个数据源的设置，生成基于键值的单个配置对象。 这些数据源称为配置提供程序  。 由于应用程序配置的 .NET Core 客户端作为配置提供程序实现，因此服务就像是另一个数据源。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-- [.NET Core SDK](https://dotnet.microsoft.com/download)
+* Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
+
+<!--Cloud Shell-->
 
 ## <a name="create-an-app-configuration-store"></a>创建应用配置存储区
 
@@ -31,18 +33,20 @@ ms.locfileid: "96437391"
 
 7. 选择“操作” > “配置资源管理器” > “创建” > “键-值”来添加以下键值对   ：
 
-    | 键                                | Value                               |
+    | 密钥                                | 值                               |
     |------------------------------------|-------------------------------------|
     | `TestApp:Settings:BackgroundColor` | #FFF                              |
     | `TestApp:Settings:FontColor`       | #000                              |
     | `TestApp:Settings:FontSize`        | *24*                                |
-    | `TestApp:Settings:Message`         | *Azure 应用程序配置的数据* |
+    | `TestApp:Settings:Message`         | *Azure 应用配置的数据* |
 
     暂时将“标签”和“内容类型”保留为空 。 选择“应用”。
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
 
-使用 [.NET Core 命令行接口 (CLI)](https://docs.microsoft.com/dotnet/core/tools/) 创建新的 ASP.NET Core MVC 项目。 
+使用 [.NET Core 命令行接口 (CLI)](https://docs.microsoft.com/dotnet/core/tools) 创建新的 ASP.NET Core MVC 项目。 
+
+<!--Cloud Shell-->
 
 在新的 TestAppConfig 文件夹中，运行以下命令，创建 ASP.NET Core MVC 项目：
 
@@ -60,7 +64,7 @@ dotnet new mvc --no-https --output TestAppConfig
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. 在 .csproj 文件所在的同一目录中运行以下命令。 该命令使用机密管理器存储名为 `ConnectionStrings:AppConfig` 的机密，该机密存储应用程序配置存储区的连接字符串。 将 `<your_connection_string>` 占位符替换为应用程序配置存储区的连接字符串。 可以在 Azure 门户的“访问密钥”下找到该连接字符串。
+1. 在 .csproj 文件所在的同一目录中运行以下命令。 该命令使用机密管理器存储名为 `ConnectionStrings:AppConfig` 的机密，该机密存储应用程序配置存储区的连接字符串。 将 `<your_connection_string>` 占位符替换为应用程序配置存储区的连接字符串。 可以在 Azure 门户的“访问密钥”  下找到该连接字符串。
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
@@ -148,7 +152,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
 ## <a name="build-and-run-the-app-locally"></a>在本地生成并运行应用
 
-1. 若要使用 .NET Core CLI 生成应用，请导航到项目的根目录。 在 命令行界面中运行以下命令：
+1. 若要使用 .NET Core CLI 生成应用，请导航到项目的根目录。 在命令行界面中运行以下命令：
 
     ```dotnetcli
     dotnet build
@@ -160,7 +164,9 @@ dotnet new mvc --no-https --output TestAppConfig
     dotnet run
     ```
 
-1. 如果要在本地计算机上操作，请使用浏览器导航到 `http://localhost:5000`。 此地址是在本地托管的 Web 应用的默认 URL。 如果要在 Azure Cloud Shell 中操作，请依次选择“Web 预览”按钮和“配置” 。
+1. 如果要在本地计算机上操作，请使用浏览器导航到 `http://localhost:5000`。 此地址是在本地托管的 Web 应用的默认 URL。
+
+    <!--Not Available on If you're working in the Azure Cloud Shell, select the **Web Preview** button followed by **Configure**.-->
 
     ![找到“Web 预览”按钮](./media/quickstarts/cloud-shell-web-preview.png)
 

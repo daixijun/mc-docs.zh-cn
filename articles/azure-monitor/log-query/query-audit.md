@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/06/2020
-ms.openlocfilehash: 08828c1b20d9e655c8de341321dd90047720684a
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 1bbfffa38ee4dcfb1d7a35148fd48ffa14d793af
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329371"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105024"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 日志中的审核查询（预览版）
 日志查询审核日志提供有关在 Azure Monitor 中运行的日志查询的遥测。 其中包括诸如运行查询的时间、运行查询的人、使用的工具、查询文本，以及描述查询执行的性能统计信息等。
@@ -66,7 +66,7 @@ ms.locfileid: "94329371"
 
 - 只有在用户上下文中执行查询时才会记录查询。 不会记录 Azure 中的服务到服务。 此排除包含的两个主要查询集是计费计算和自动警报执行。 对于警报，只有计划的警报查询本身不会被记录；警报创建屏幕中警报的初始执行是在用户上下文中执行的，并且可以用于审核目的。 
 - 性能统计信息不可用于来自 Azure 数据资源管理器代理的查询。 仍将填充这些查询的所有其他数据。
-- 字符串上的 h 提示[模糊字符串字面量](/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals)将不会影响查询审核日志。 查询将完全按照提交的方式进行捕获，而不会混淆字符串。 应确保只有具有合规性权限的用户才能使用 Log Analytics 工作区中提供的各种 RBAC 模式来查看此数据。
+- 字符串上的 h 提示[模糊字符串字面量](/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals)将不会影响查询审核日志。 查询将完全按照提交的方式进行捕获，而不会混淆字符串。 应确保只有具有合规性权限的用户才能使用 Log Analytics 工作区中提供的各种 Kubernetes RBAC 或 Azure RBAC 模式来查看此数据。
 - 对于包含来自多个工作区的数据的查询，只能在用户有权访问的工作区中捕获查询。
 
 ## <a name="costs"></a>成本  

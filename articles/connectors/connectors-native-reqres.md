@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-origin.date: 08/27/2020
+origin.date: 11/19/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: cbe0285c370e99eb540e0a8aa313326b845396b2
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 4d4c6c168630352d6d2af5af848878be4741aad2
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431980"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004061"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>在 Azure 逻辑应用中接收和响应入站 HTTPS 请求
 
@@ -197,9 +197,9 @@ ms.locfileid: "96431980"
     > [!NOTE]
     > 若要在调用请求触发器时在 URI 中包含哈希符号或井号（“#”），请改用此编码版本：`%25%23`
 
-1. 若要触发逻辑应用，请将 HTTP POST 发送到生成的 URL。
+1. 若要测试逻辑应用，请将 HTTP 请求发送到生成的 URL。
 
-    例如，可以使用 [Postman](https://www.getpostman.com/) 等工具来发送 HTTP POST。 有关触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅以下主题：[请求触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)和[通过 Azure 逻辑应用中的 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
+    例如，可以使用 [Postman](https://www.getpostman.com/) 之类的工具来发送 HTTP 请求。 有关触发器的基础 JSON 定义以及如何调用此触发器的详细信息，请参阅以下主题：[请求触发器类型](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)和[通过 Azure 逻辑应用中的 HTTP 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
 
 有关逻辑应用入站调用（例如传输层安全性 (TLS) [以前称为安全套接字层 (SSL)] 和 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的安全性、授权和加密的详细信息，以及使用 Azure API 管理来公开逻辑应用，或限制发起入站调用的 IP 地址的详细信息，请参阅[保护访问和数据 - 对基于请求的触发器的入站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)。
 

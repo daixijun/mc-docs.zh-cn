@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 858d6b6d176fb9c1a0423a607d503edee2a6c50b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e1ac7a0da10e5d22a30ab6a0817d7f5f6deb5944
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432335"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004202"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建并查询 Synapse SQL 池
 
@@ -25,7 +25,7 @@ ms.locfileid: "96432335"
 
 ## <a name="prerequisites"></a>先决条件
 
-1. 如果没有 Azure 订阅，可在开始前创建一个 [1 元试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
+1. 如果没有 Azure 订阅，请在开始前创建一个[试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
    > [!NOTE]
    > 在 Azure Synapse 中创建 SQL 池可能会产生新的可计费服务。 有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
@@ -142,7 +142,7 @@ Azure Synapse 服务将在服务器级别创建防火墙。 此防火墙会阻�
 
    ![连接到服务器](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. 选择“连接”。 此时会在 SSMS 中打开“对象资源管理器”窗口。
+3. 选择“连接”。 对象资源管理器窗口在 SSMS 中打开。
 
 4. 在“对象资源管理器”中，展开“数据库”。 然后展开“mySampleDatabase”，查看新数据库中的对象。
 

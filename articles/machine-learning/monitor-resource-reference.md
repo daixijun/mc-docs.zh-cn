@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: d3fbd9f4148163d409a821641f45e7c009973470
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 767a0ce40de77905f435a125476fbfd29c6f7f5e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977877"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104539"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>监视 Azure 机器学习数据引用
 
@@ -79,7 +79,7 @@ Azure 机器学习具有以下与指标关联的维度。
 
 | 维度 | 说明 |
 | ---- | ---- |
-| 群集名称 | 计算实例的名称。 可用于所有配额指标。 |
+| 群集名称 | 计算群集资源的名称。 可用于所有配额指标。 |
 | VM 系列名称 | 群集使用的 VM 系列的名称。 可用于配额使用率百分比。 |
 | VM 优先级 | VM 的优先级。 可用于配额使用率百分比。
 | CreatedTime | 仅适用于 CpuUtilization 和 GpuUtilization。 |

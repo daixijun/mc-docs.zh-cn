@@ -7,23 +7,23 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/10/2020
-ms.date: 11/27/2020
+origin.date: 11/24/2020
+ms.date: 12/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 11dfc60300ab56f27137be2a8b7900b03412cc75
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 244d6bf4039ae6832fba7f7f0a2a73daac1c9777
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300719"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004184"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>向客户端应用添加自动完成和建议
 
-“边键入边搜索”是提高用户发起的查询的工作效率的一种常用技术。 在 Azure 认知搜索中，此体验是通过“自动完成”支持的。自动完成可根据部分输入来完成某个字词或短语（使用“microsoft”来补全“micro”）。 另一种形式是“建议”：匹配文档的简短列表（返回具有某个 ID 的书名，以便可以链接到详细信息页）。 自动完成和建议都是根据索引中的匹配项预测的。 服务不会提供返回零个结果的查询。
+“边键入边搜索”是提高用户发起的查询的工作效率的一种常用技术。 在 Azure 认知搜索中，此体验是通过“自动完成”支持的。自动完成可根据部分输入来完成某个字词或短语（使用“microsoft”来补全“micro”）。 另一种用户体验是“建议”或匹配文档的简短列表（返回具有某个 ID 的书名，以便可以链接到该书的详细信息页）。 自动完成和建议都是根据索引中的匹配项预测的。 服务不会提供返回零个结果的查询。
 
 若要在 Azure 认知搜索中实现这些体验，需要：
 
-+ 在后端上有一个建议器。
++ 在索引架构中嵌入的建议器定义。
 + 一个在请求中指定[自动完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)或[建议](https://docs.microsoft.com/rest/api/searchservice/suggestions) API 的查询。
 + 一个用于在客户端应用中处理“边键入边搜索”交互的 UI 控件。 对于此目的，我们建议使用现有的 JavaScript 库。
 

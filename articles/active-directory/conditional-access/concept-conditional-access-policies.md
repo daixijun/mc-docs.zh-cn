@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3419f7f082af2c618d1fa3c582617655f286a265
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: c6ee08713709bf4b4aa6a5874274125268a49e26
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749818"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003701"
 ---
 # <a name="building-a-conditional-access-policy"></a>生成条件访问策略
 
@@ -98,7 +98,7 @@ ms.locfileid: "92749818"
 
 授予控制可以触发一项或多项控制的实施。 
 
-- 要求进行多重身份验证（Azure 多重身份验证）
+- 需要多重身份验证（Azure AD 多重身份验证）
 - 要求将设备标记为合规 (Intune)
 - 要求使用加入混合 Azure AD 的设备
 - 需要批准的客户端应用
@@ -130,10 +130,10 @@ ms.locfileid: "92749818"
 
 条件访问策略必须至少包含以下内容才能实施：
 
-- 策略的 **名称** 。
+- 策略的 **名称**。
 - **分配**
-   - 要应用策略的 **用户和/或组** 。
-   - 要应用策略的 **云应用或操作** 。
+   - 要应用策略的 **用户和/或组**。
+   - 要应用策略的 **云应用或操作**。
 - 访问控制 
    - **授予** 或 **阻止** 控制
 
@@ -143,11 +143,11 @@ ms.locfileid: "92749818"
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建条件访问策略](/active-directory/authentication/tutorial-enable-azure-mfa?toc=/active-directory/conditional-access/toc.json&bc=/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
+[创建条件访问策略](../authentication/tutorial-enable-azure-mfa.md)
 
 [使用条件访问 What If 工具模拟登录行为](troubleshoot-conditional-access-what-if.md)
 
-[规划基于云的 Azure 多重身份验证部署](../authentication/howto-mfa-getstarted.md)
+[规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)
 
 [使用 Intune 管理设备合规性](https://docs.microsoft.com/intune/device-compliance-get-started)
 

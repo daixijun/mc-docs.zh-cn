@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c23c51b5d4fd82fcb5d42bc39489982da5478b15
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: e97b221a98547dbe86e7fd47798cd607abf94194
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162795"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104312"
 ---
 # <a name="what-are-security-partner-providers"></a>什么是安全合作伙伴提供程序？
 
@@ -44,7 +44,7 @@ Azure 防火墙管理器中的安全合作伙伴提供程序可让你使用熟�
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>安全虚拟中心中筛选 Internet 流量的最佳做法
 
-Internet 流量通常包括 Web 流量。 但它也包括传到 Office 365 (O365) 等 SaaS 应用程序以及 Azure 公共 PaaS 服务（例如 Azure 存储和 Azure Sql 等）的流量。 以下是处理传到这些服务的流量的最佳做法建议：
+Internet 流量通常包括 Web 流量。 但它也包括传到 Microsoft 365 等 SaaS 应用程序以及 Azure 公共 PaaS 服务（例如 Azure 存储和 Azure Sql 等）的流量。 以下是处理传到这些服务的流量的最佳做法建议：
 
 ### <a name="handling-azure-paas-traffic"></a>处理 Azure PaaS 流量
  
@@ -54,15 +54,15 @@ Internet 流量通常包括 Web 流量。 但它也包括传到 Office 365 (O365
 
 ![适用于 Azure 防火墙管理器的所有方案](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>处理 Office 365 (O365) 流量
+## <a name="handling-microsoft-365-traffic"></a>处理 Microsoft 365 流量
 
-在全球分布的分支位置方案中，你应该直接在分支处重定向 Office 365 流量，然后再将剩余的 Internet 流量发送到 Azure 安全中心。
+在全球分布的分支位置方案中，你应该直接在分支处重定向 Microsoft 365 流量，然后再将剩余的 Internet 流量发送到 Azure 安全中心。
 
-对于 Office 365 而言，网络延迟和性能对于成功的用户体验至关重要。 若要围绕最佳性能和用户体验实现这些目标，客户必须首先实现 Office 365 直接和本地转义，然后再考虑通过 Azure 路由剩余的 Internet 流量。
+对于 Microsoft 365 而言，网络延迟和性能对于成功的用户体验至关重要。 若要围绕最佳性能和用户体验实现这些目标，客户必须首先实现 Microsoft 365 直接和本地转义，然后再考虑通过 Azure 路由剩余的 Internet 流量。
 
-[Office 365 网络连接原则](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles)要求将关键的 Office 365 网络连接从用户分支或移动设备进行本地路由，并通过 Internet 直接路由到最近的 Microsoft 网络接入点。
+[Microsoft 365 网络连接原则](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles)要求将关键的 Microsoft 365 网络连接从用户分支或移动设备进行本地路由，并通过 Internet 直接路由到最近的 Microsoft 网络接入点。
 
-此外，Office 365 连接经过了加密以保护隐私，并且使用有效的专用协议来保障性能。 这使得将这些连接受制于传统的网络级别安全解决方案不切实际并且会造成影响。 出于这些原因，我们强烈建议客户首先直接从分支发送 Office 365 流量，然后再通过 Azure 发送剩余流量。 Microsoft 与多个 SD-WAN 解决方案提供商建立了合作伙伴关系，这些提供商与 Azure 和 Office 365 集成，让客户能够轻松启用 Office 365 直接和本地 Internet 突破。 有关详细信息，请参阅[如何通过虚拟 WAN 设置 O365 策略？](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+此外，Microsoft 365 连接经过了加密以保护隐私，并且使用有效的专用协议来保障性能。 这使得将这些连接受制于传统的网络级别安全解决方案不切实际并且会造成影响。 出于这些原因，我们强烈建议客户首先直接从分支发送 Microsoft 365 流量，然后再通过 Azure 发送剩余流量。 Microsoft 与多个 SD-WAN 解决方案提供商建立了合作伙伴关系，这些提供商与 Azure 和 Microsoft 365 集成，让客户能够轻松启用 Microsoft 365 直接和本地 Internet 突破。 请参阅[什么是 Azure 虚拟 WAN？](../virtual-wan/virtual-wan-about.md)了解详情
 
 ## <a name="next-steps"></a>后续步骤
 

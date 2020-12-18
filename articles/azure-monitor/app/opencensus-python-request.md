@@ -4,14 +4,14 @@ description: 使用 OpenCensus Python 监视 Python 应用的请求调用。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 88ce86a60fc07e5bd21c235a2280a20b3b624e8b
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 939bdc8e07d459376447614686258b03a5c90e46
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637784"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104753"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>使用 OpenCensus Python 跟踪传入请求
 
@@ -115,6 +115,61 @@ ms.locfileid: "94637784"
         }
     }
     config = Configurator(settings=settings)
+    ```
+
+## <a name="tracking-fastapi-applications"></a>跟踪 FastAPI 应用程序
+
+OpenCensus 没有 FastAPI 的扩展。 若要编写自己的 FastAPI 中间件，请完成以下步骤：
+
+1. 需要以下依赖项： 
+    - [fastapi](https://pypi.org/project/fastapi/)
+    - [uvicorn](https://pypi.org/project/uvicorn/)
+
+2. 添加 [FastAPI 中间件](https://fastapi.tiangolo.com/tutorial/middleware/)。 确保设置了 span 类型服务器：`span.span_kind = SpanKind.SERVER`。
+
+3. 运行应用程序。 应自动跟踪对 FastAPI 应用程序的调用，遥测应直接记录到 Azure Monitor。
+
+    ```python 
+    # Opencensus imports
+    from opencensus.ext.azure.trace_exporter import AzureExporter
+    from opencensus.trace.samplers import ProbabilitySampler
+    from opencensus.trace.tracer import Tracer
+    from opencensus.trace.span import SpanKind
+    from opencensus.trace.attributes_helper import COMMON_ATTRIBUTES
+    # FastAPI imports
+    from fastapi import FastAPI, Request
+    # uvicorn
+    import uvicorn
+
+    app = FastAPI()
+
+    HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
+    HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+
+    # fastapi middleware for opencensus
+    @app.middleware("http")
+    async def middlewareOpencensus(request: Request, call_next):
+        tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+        with tracer.span("main") as span:
+            span.span_kind = SpanKind.SERVER
+
+            response = await call_next(request)
+
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_STATUS_CODE,
+                attribute_value=response.status_code)
+            tracer.add_attribute_to_current_span(
+                attribute_key=HTTP_URL,
+                attribute_value=str(request.url))
+
+        return response
+
+    @app.get("/")
+    async def root():
+        return "Hello World!"
+
+    if __name__ == '__main__':
+        uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
     ```
 
 ## <a name="next-steps"></a>后续步骤

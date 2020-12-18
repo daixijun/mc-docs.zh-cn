@@ -7,19 +7,25 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/10/2020
-ms.date: 11/27/2020
+origin.date: 11/24/2020
+ms.date: 12/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a1304868a71aae3bbc40376fd37c902b6d7b4821
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: fa3b22f14c8f550421614084db885b296b036da6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300045"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004186"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>创建建议器，以在查询中启用“自动完成”和“建议结果”功能
 
-在 Azure 认知搜索中，“键入时搜索”是通过添加到[搜索索引](search-what-is-an-index.md)的建议器构造启用的。 建议器支持两种体验：“自动完成”和“建议”，前者将整个字词查询的一部分输入补充完整，后者引导用户对某个特定匹配项执行单击操作 。 “自动完成”生成查询。 “建议”生成匹配的文档。
+在 Azure 认知搜索中，“键入时搜索”是通过建议器启用的。 建议器是包含字段集合的内部数据结构。 这些字段经过额外的词汇切分，生成前缀序列以支持部分词汇的匹配。
+
+例如，如果建议器包括“City”字段，则会为“Seattle”一词生成“sea”、“seat”、“seatt”和“seattl”的前缀组合。 前缀存储在倒排索引中，建议器字段集合中指定的每个字段都有一个倒排索引。
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>认知搜索中的“提前键入”体验
+
+建议器支持两种体验：“自动完成”和“建议”，前者将整个字词查询的一部分输入补充完整，后者引导用户对某个特定匹配项执行单击操作 。 “自动完成”生成查询。 “建议”生成匹配的文档。
 
 取自[在 C# 中创建第一个应用](tutorial-csharp-type-ahead-and-suggestions.md)的以下屏幕截图演示了这两种体验。 自动完成可预测潜在字词，并使用“in”来补充“tw”。 建议是极其精简的搜索结果，其中的字段（例如酒店名称）表示索引中匹配的酒店搜索文档。 对于建议，可以呈现任何提供描述性信息的字段。
 
@@ -33,17 +39,15 @@ ms.locfileid: "96300045"
 
 对于字符串字段，可按字段启用“键入时搜索”支持。 若要获得屏幕截图中所示的类似体验，可以在同一搜索解决方案中实现这两种自动提示行为。 这两个请求针对特定索引的文档集合，在用户提供至少包含三个字符的输入字符串后，将返回响应。
 
-## <a name="what-is-a-suggester"></a>什么是建议器？
-
-建议器是一种内部数据结构，它通过存储用于匹配部分查询的前缀来支持“键入时搜索”行为。 与标记化字词一样，前缀存储在倒排索引中，建议器字段集合中指定的每个字段都有一个倒排索引。
-
 ## <a name="how-to-create-a-suggester"></a>如何创建建议器
 
 若要创建建议器，请将一个建议器添加到[索引定义](https://docs.microsoft.com/rest/api/searchservice/create-index)。 建议器会获取名称以及启用了“预先输入”体验的字段的集合。 然后，[设置每个属性](#property-reference)。 创建建议器的最佳时间是还要定义使用建议器的字段时。
 
-+ 仅使用字符串字段
++ 仅使用字符串字段。
 
-+ 使用字段上默认的标准 Lucene 分析器 (`"analyzer": null`) 或[语言分析器](index-add-language-analyzers.md)（例如 `"analyzer": "en.Microsoft"`）
++ 如果字符串字段属于复杂类型（例如，Address 中的 City 字段），则在该字段中包括父级：`"Address/City"`（REST、C# 和 Python）或 `["Address"]["City"]` (JavaScript)。
+
++ 使用字段上默认的标准 Lucene 分析器 (`"analyzer": null`) 或[语言分析器](index-add-language-analyzers.md)（例如 `"analyzer": "en.Microsoft"`）。
 
 如果尝试使用预先存在的字段创建建议器，API 将不允许这样做。 在编制索引期间，如果两个或更多个字符的组合中的部分字词连同完整字词一起标记化，则会生成前缀。 如果现有字段已标记化，而你想要将其添加到建议器，则必须重新生成索引。 有关详细信息，请参阅[如何重新生成 Azure 认知搜索索引](search-howto-reindex.md)。
 
@@ -118,7 +122,7 @@ ms.locfileid: "96300045"
 
 ## <a name="create-using-net"></a>使用 .NET 进行创建
 
-在 C# 中，定义一个 [SearchSuggester 对象](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchsuggester)。 `Suggesters` 是 SearchIndex 对象上的集合，但它只能采用一个项。 
+在 C# 中，定义一个 [SearchSuggester 对象](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchsuggester)。 `Suggesters` 是 SearchIndex 对象上的集合，但它只能采用一个项。 将建议器添加到索引定义。
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient indexClient)
@@ -126,12 +130,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
     FieldBuilder fieldBuilder = new FieldBuilder();
     var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
     var definition = new SearchIndex(indexName, searchFields);
 
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
     definition.Suggesters.Add(suggester);
 
     indexClient.CreateOrUpdateIndex(definition);

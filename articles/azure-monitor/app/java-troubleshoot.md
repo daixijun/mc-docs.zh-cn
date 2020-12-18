@@ -4,16 +4,20 @@ description: 故障排除指南 - 使用 Application Insights 监视实时 Java 
 ms.topic: conceptual
 ms.author: v-johya
 origin.date: 03/14/2019
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5caf3183d16995a780e80fd2c69d0cad2441c594
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: ffcd3b11acb1e1c6dd784668925fbf9ea0ba6175
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638197"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104634"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>用于 Java 的 Application Insights 的故障排除与常见问题解答
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>用于 Java SDK 的 Application Insights 的故障排除与问答
+
+> [!IMPORTANT]
+> 监视 Java 应用程序的建议方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
+
 使用 [Java 中的 Azure Application Insights][java] 时有疑问或遇到问题？ 请参考下面的提示。
 
 ## <a name="build-errors"></a>生成错误

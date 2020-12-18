@@ -1,6 +1,6 @@
 ---
-title: Azure 应用程序配置最佳做法 | Microsoft Docs
-description: 了解如何在使用 Azure 应用程序配置时达到最好效果
+title: Azure 应用配置最佳做法 | Azure Docs
+description: 了解使用 Azure 应用配置时的最佳做法。 涉及的主题包括键分组、键-值组合、应用配置启动，等等。
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -9,15 +9,15 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5289dd9a377e1ef51ef0feb1b60d91742c70c2c7
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 7925d292bfc75654b23756c4837c9ac301d5a7cd
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190291"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104990"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 应用程序配置最佳做法
 
@@ -77,7 +77,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 对应用程序配置的请求过多可能会导致限制或超额费用。 若要减少发出的请求数，方法如下：
 
-* 提高刷新超时，尤其是在配置值不经常更改的情况下。 使用 [`SetCacheExpiration` 方法](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration)指定新的刷新超时。
+* 提高刷新超时，尤其是在配置值不经常更改的情况下。 使用 [`SetCacheExpiration` 方法](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration)指定新的刷新超时。
 
 * 集中监视一个 sentinel 键，而不是监视独立的多个键。 仅当 sentinel 键更改时才刷新所有配置。 有关示例，请参阅[在 ASP.NET Core 应用中使用动态配置](enable-dynamic-configuration-aspnet-core.md)。
 

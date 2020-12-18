@@ -3,18 +3,18 @@ title: 在 Azure Cosmos 容器和数据库上预配吞吐量
 description: 了解如何为 Azure Cosmos 容器和数据库设置预配的吞吐量。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 10/14/2020
+origin.date: 11/10/2020
 author: rockboyfor
 ms.date: 11/16/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 156377b8415e42fedf09ee05c08fa69fb83d0468
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ef337219267367fd20fe691cddbf262e225abd31
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552650"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850848"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中的预配吞吐量简介
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -68,7 +68,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 如果逻辑分区上的工作负荷消耗的吞吐量超过了分配给特定逻辑分区的吞吐量，操作将受到速率限制。 出现速率限制时，可以增大整个数据库的吞吐量，或重试操作。 有关分区的详细信息，请参阅[逻辑分区](partitioning-overview.md)。
 
-共享吞吐量数据库中的容器共享分配给该数据库的吞吐量（RU/秒）。 你最多可以有四个容器，在数据库上的最低吞吐量为 400 RU/秒。 如果使用标准（手动）预配吞吐量，那么前四个容器后面的每个新容器至少需要 100 RU/秒的吞吐量。 例如，如果你有一个包含八个容器的共享吞吐量数据库，则数据库上的最小吞吐量将为 800 RU/秒。 如果使用自动缩放预配吞吐量，那么一个数据库中最多可以有 25 个容器，其吞吐量可自动缩放到的最大值是 4000 RU/秒（在 400 - 4000 RU/秒之间缩放）。
+共享吞吐量数据库中的容器共享分配给该数据库的吞吐量（RU/秒）。 使用标准（手动）预配吞吐量，数据库中最多可以有 25 个最小吞吐量为 400 RU/秒的容器。 如果使用自动缩放预配吞吐量，那么一个数据库中最多可以有 25 个容器，其吞吐量可自动缩放到的最大值是 4000 RU/秒（在 400 - 4000 RU/秒之间缩放）。
 
 > [!NOTE]
 > 在 2020 年 2 月，我们引入了一项更改（允许在共享吞吐量数据库中最多拥有 25 个容器），因此可以更好地实现跨容器的吞吐量共享。 有了头 25 个容器之后，仅当容器[预配了专用吞吐量](#set-throughput-on-a-database-and-a-container)（与数据库的共享吞吐量分离）时，才能向数据库添加更多容器。<br />
@@ -110,12 +110,13 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * .NET SDK 上的 [ThroughputResponse.MinThroughput](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?preserve-view=true)。
 * Java SDK 上的 [ThroughputResponse.getMinThroughput()](https://docs.microsoft.com/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true)。
 
+<!--CORRECT ON https://docs.microsoft.com/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput-->
+
 实际的最小 RU/s 可能因帐户配置而异。 但一般情况下，它为最大值：
 
 * 400 RU/s 
-* 当前存储空间 (GB) * 10 RU/s
+* 当前存储以 GB * 10 RU/s 为单位（除非容器或数据库包含超过 1 TB 的数据，请参阅我们的[“高存储/低吞吐量”计划](#high-storage-low-throughput-program)）
 * 数据库或容器上预配的最高 RU/s / 100
-* 容器计数 * 100 RU/s（仅限共享吞吐量数据库）
 
 ### <a name="changing-the-provisioned-throughput"></a>更改预配吞吐量
 
@@ -124,7 +125,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 * .NET SDK 上的 [Container.ReplaceThroughputAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?preserve-view=true)。
 * Java SDK 上的 [CosmosContainer.replaceThroughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true)。
 
-如果你 **减小预配吞吐量**，则最多可以将其减小到[最小值](#current-provisioned-throughput)。
+如果你 **减小预配吞吐量**，则最多可以将其减小到 [最小值](#current-provisioned-throughput)。
 
 如果你 **增大预配吞吐量**，则在大多数情况下，操作是即时的。 但是在某些情况下，由于系统任务的原因，该操作可能需要较长的时间来预配所需的资源。 在这种情况下，如果尝试在此操作正在进行时修改预配的吞吐量，则会生成一个 HTTP 423 响应，并会出现一条错误消息，指出另一个缩放操作正在进行。
 
@@ -143,7 +144,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 如上面的[当前的预配的吞吐量](#current-provisioned-throughput)部分所述，可以在容器或数据库上预配的最小吞吐量取决于许多因素。 其中一个因素是当前存储的数据量，因为 Azure Cosmos DB 强制实施每 GB 存储 10 RU/秒的最小吞吐量。
 
-如果需要存储大量数据，但吞吐量要求相对较低，则这可能是个问题。 为了更好地适应这些方案，Azure Cosmos DB 引入了一个 **“高存储/低吞吐量”计划**，将合格帐户上每 GB 的 RU/秒约束从 10 降到 1。
+如果需要存储大量数据，但吞吐量要求相对较低，则这可能是个问题。 为了更好地适应这些方案，Azure Cosmos DB 引入了一个“高存储/低吞吐量”计划，该计划降低了合格帐户上的每 GB RU/s 约束。
 
 目前，你若要获得资格，你的帐户中至少需要有 1 个包含 1 TB 以上数据的容器或共享吞吐量数据库。 若要加入此计划并评估你是否完全符合资格，只需填写[此调查](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)即可。 然后，Azure Cosmos DB 团队会跟进处理你的加入事宜。
 
@@ -152,8 +153,8 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 |**参数** |**对数据库预配标准（手动）吞吐量** |**对容器预配标准（手动）吞吐量**|**对数据库预配自动缩放吞吐量** | **对容器预配自动缩放吞吐量**|
 |---------|---------|---------|---------|---------|
-|入口点（最小 RU/秒） |400 RU/秒。 前四个容器后面的每个附加容器至少需要 100 RU/秒的吞吐量</li> |400| 在 400 - 4000 RU/秒之间自动缩放。 最多可以包含 25 个容器，每个容器没有最小的 RU/秒吞吐量</li> | 在 400 - 4000 RU/秒之间自动缩放。|
-|每个容器的最小 RU/秒吞吐量|100|400|--|在 400 - 4000 RU/秒之间自动缩放|
+|入口点（最小 RU/秒） |400 RU/秒。 最多可以有 25 个容器，每个容器没有最小的 RU/秒吞吐量。</li> |400| 在 400 - 4000 RU/秒之间自动缩放。 最多可以有 25 个容器，每个容器没有最小的 RU/秒吞吐量。</li> | 在 400 - 4000 RU/秒之间自动缩放。|
+|每个容器的最小 RU/秒吞吐量|--|400|--|在 400 - 4000 RU/秒之间自动缩放|
 |最大 RU 数|对于数据库无限。|对于容器无限。|对于数据库无限。|对于容器无限。
 |分配或提供给特定容器的 RU 数|无保证。 为给定容器分配的 RU 数取决于多种属性。 属性可以是为共享吞吐量的容器选择的分区键、工作负荷的分布，以及容器的数量。 |对容器配置的所有 RU 专门保留给该容器使用。|无保证。 为给定容器分配的 RU 数取决于多种属性。 属性可以是为共享吞吐量的容器选择的分区键、工作负荷的分布，以及容器的数量。 |对容器配置的所有 RU 专门保留给该容器使用。|
 |容器的最大存储|不受限制。|无限制|无限制|无限制|

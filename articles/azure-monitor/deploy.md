@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 15b64143132298aad17c97aa6aa4fc9c0e59c5aa
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: d5f36f3b97b91885e29a4863471834b250e546a7
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328832"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105152"
 ---
 # <a name="deploy-azure-monitor"></a>部署 Azure Monitor
 启用 Azure Monitor 来监视所有 Azure 资源时，既要配置 Azure Monitor 组件，也要配置 Azure 资源，这样才能生成供 Azure Monitor 收集的监视数据。 本文描述如何通过所需的不同步骤来完全实现使用常用配置的 Azure Monitor，以便监视 Azure 订阅中的所有资源。 本文为每个步骤提供了基本说明，其中包含介绍详细配置要求的其他文档的链接。
@@ -84,9 +84,10 @@ Azure 中的资源会自动生成[资源日志](platform/platform-logs-overview.
 Azure Monitor 使用 [Application Insights](app/app-insights-overview.md) 来监视自定义应用程序，你必须为要监视的每个应用程序配置 Application Insights。 配置过程因所监视的应用程序的类型和要执行的监视类型而异。 Application Insights 收集的数据存储在 Azure Monitor 指标、Azure Monitor 日志和 Azure blob 存储中，具体取决于功能。 性能数据同时存储在 Azure Monitor 指标和 Azure Monitor 日志中，无需其他配置。
 
 ### <a name="create-an-application-resource"></a>创建应用程序资源
-必须在 Application Insights 中为要监视的每个应用程序创建一个资源。 Application Insights 收集的日志数据存储在基于工作区的应用程序的 Azure Monitor 日志中。 经典应用程序日志数据的存储与 Log Analytics 工作区是分开的，如[数据结构](platform/data-platform-logs.md#structure-of-data)中所述。
+必须在 Application Insights 中为要监视的每个应用程序创建一个资源。 Application Insights 收集的日志数据存储在基于工作区的应用程序的 Azure Monitor 日志中。 经典应用程序日志数据的存储与 Log Analytics 工作区是分开的，如[数据结构](platform/data-platform-logs.md#data-structure)中所述。
 
-<!--Can not select whether to use classic or workspace-based (preview)-->
+ 创建应用程序时，必须选择是使用经典应用程序还是基于工作区的应用程序。 请参阅[创建 Application Insights 资源](app/create-new-resource.md)，以创建经典应用程序。 请参阅[基于工作区的 Application Insights 资源（预览版）](app/create-workspace-resource.md)，以创建基于工作区的应用程序。
+
 ### <a name="configure-codeless-or-code-based-monitoring"></a>配置无代码监视或基于代码的监视
 若要为应用程序启用监视功能，你必须决定是使用无代码监视还是基于代码的监视。 配置过程取决于此决定以及要监视的应用程序的类型。
 

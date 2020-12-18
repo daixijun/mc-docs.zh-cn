@@ -1,5 +1,5 @@
 ---
-title: 有关在 .NET Core 应用中使用功能标志的教程 | Microsoft Docs
+title: 有关在 .NET Core 应用中使用功能标志的教程 | Azure Docs
 description: 本教程介绍如何在 .NET Core 应用中实施功能标志。
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 12b079e9e574cb69c4608b88740572ee4bf30569
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 6da24817666121b6a6d765fc0492e1f90d1497f6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190269"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105164"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用功能标志
 

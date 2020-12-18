@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: e824b271d2b060c787c0c3c07039c72b8a1dc1fb
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 9f77a128ed8f9668ef97a6c106dbc658abef3d3d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470425"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004044"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 中的已授权 IP 地址范围保护对 API 服务器的访问
 
@@ -37,20 +37,20 @@ API 服务器授权的 IP 范围功能具有以下限制：
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>API 服务器已授权 IP 范围的概述
 
-Kubernetes API 服务器用于公开基础 Kubernetes API。 此组件为管理工具（如 `kubectl` 或 Kubernetes 仪表板）提供交互。 AKS 提供单租户群集控制平面和专用 API 服务器。 默认将为 API 服务器分配一个公共 IP 地址，你应使用基于角色的访问控制 (RBAC) 来控制访问。
+Kubernetes API 服务器用于公开基础 Kubernetes API。 此组件为管理工具（如 `kubectl` 或 Kubernetes 仪表板）提供交互。 AKS 提供单租户群集控制平面和专用 API 服务器。 默认将为 API 服务器分配一个公共 IP 地址，你应使用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC) 或 Azure RBAC 来控制访问。
 
-若要保护对其他可公开访问的 AKS 控制平面/API 服务器的访问，可以启用并使用已授权 IP 范围。 这些已授权 IP 范围仅允许定义的 IP 地址范围与 API 服务器通信。 从不属于这些授权 IP 范围的 IP 地址向 API 服务器发出的请求被阻止。 请继续使用 RBAC 来授权用户及其请求的操作。
+若要保护对其他可公开访问的 AKS 控制平面/API 服务器的访问，可以启用并使用已授权 IP 范围。 这些已授权 IP 范围仅允许定义的 IP 地址范围与 API 服务器通信。 从不属于这些授权 IP 范围的 IP 地址向 API 服务器发出的请求被阻止。 请继续使用 Kubernetes RBAC 或 Azure RBAC 来授权用户及其请求的操作。
 
 有关 API 服务器和其他群集组件的详细信息，请参阅 [AKS 的 Kubernetes 核心概念][concepts-clusters-workloads]。
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>创建启用 API 服务器已授权 IP 范围的 AKS 群集
 
-使用 [az aks create][az-aks-create] 创建群集，并指定 `--api-server-authorized-ip-ranges` 参数提供已授权 IP 地址范围的列表。 这些 IP 地址范围通常是本地网络或公共 IP 使用的地址范围。 指定 CIDR 范围时，请先指定该范围内的第一个 IP 地址。 例如， *137.117.106.90/29* 是有效范围，但请确保指定该范围内的第一个 IP 地址，如 *137.117.106.88/29* 。
+使用 [az aks create][az-aks-create] 创建群集，并指定 `--api-server-authorized-ip-ranges` 参数提供已授权 IP 地址范围的列表。 这些 IP 地址范围通常是本地网络或公共 IP 使用的地址范围。 指定 CIDR 范围时，请先指定该范围内的第一个 IP 地址。 例如，*137.117.106.90/29* 是有效范围，但请确保指定该范围内的第一个 IP 地址，如 *137.117.106.88/29*。
 
 > [!IMPORTANT]
 > 群集默认使用可用于配置出站网关的[标准 SKU 负载均衡器][standard-sku-lb]。 在创建群集期间启用 API 服务器已授权 IP 范围时，除了允许指定的范围以外，默认还允许群集的公共 IP。 对于 `--api-server-authorized-ip-ranges`，如果指定 *""* 或不指定任何值，API 服务器授权的 IP 范围被禁用。 请注意，如果使用的是 PowerShell，请使用 `--api-server-authorized-ip-ranges=""`（带等于号）来避免任何解析问题。
 
-以下示例在名为 *myResourceGroup* 的资源组中，创建名为 *myAKSCluster* 、已启用 API 服务器已授权 IP 范围的单节点群集。 允许的 IP 地址范围为 *73.140.245.0/24* ：
+以下示例在名为 *myResourceGroup* 的资源组中，创建名为 *myAKSCluster*、已启用 API 服务器已授权 IP 范围的单节点群集。 允许的 IP 地址范围为 *73.140.245.0/24*：
 
 ```azurecli
 az aks create \
@@ -115,7 +115,7 @@ az aks create \
 
 要在现有群集上更新 API 服务器授权的 IP 范围，请使用 [ az aks update][az-aks-update]命令并使用 `--api-server-authorized-ip-ranges`、--load-balancer-outbound-ip-prefixes *、`--load-balancer-outbound-ips` 或 --load-balancer-outbound-ip-prefixes* 参数。
 
-以下示例更新名为 *myResourceGroup* 的资源组中名为 *myAKSCluster* 的群集上的 API 服务器已授权 IP 范围。 要授权的 IP 地址范围为 *73.140.245.0/24* ：
+以下示例更新名为 *myResourceGroup* 的资源组中名为 *myAKSCluster* 的群集上的 API 服务器已授权 IP 范围。 要授权的 IP 地址范围为 *73.140.245.0/24*：
 
 ```azurecli
 az aks update \
@@ -179,7 +179,7 @@ Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 
 <!-- LINKS - internal -->
 
-[az-aks-update]: https://docs.microsoft.com/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_update
+[az-aks-update]: https://docs.azure.cn/cli/ext/aks-preview/aks#ext_aks_preview_az_aks_update
 [az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
 [az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md

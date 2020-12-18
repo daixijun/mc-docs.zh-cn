@@ -2,17 +2,18 @@
 title: Azure Cosmos DB 中的聚合函数
 description: 了解 SQL 聚合函数语法以及 Azure Cosmos DB 支持的聚合函数类型。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 03/16/2020
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 07720e3206c23c08b62edf106a6ffe8fd457f7f5
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 96ee043c9db591ee537ca670dd436abc4df153e9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552835"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850580"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Azure Cosmos DB 中的聚合函数
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,6 +21,8 @@ ms.locfileid: "94552835"
 聚合函数对 `SELECT` 子句中的一组值执行计算，并返回单个值。 例如，以下查询返回 `Families` 容器中的项计数。
 
 ## <a name="examples"></a>示例
+
+使用 `COUNT()` 时，可以使用任何有效的标量表达式（如 `1`）作为输入。
 
 ```sql
     SELECT COUNT(1)

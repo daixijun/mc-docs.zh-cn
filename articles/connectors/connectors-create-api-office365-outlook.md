@@ -1,42 +1,39 @@
 ---
-title: 连接到 Office 365 Outlook
+title: 与 Office 365 Outlook 集成
 description: 使用 Azure 逻辑应用自动执行用于管理 Office 365 Outlook 中的电子邮件、联系人和日历的任务和工作流
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-origin.date: 07/27/2020
+origin.date: 11/13/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: a2317cddf7eae22c68136938620e08f0c0a73093
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 8a94070dda7d4a78a0c770bc8b1de68e808ca410
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431883"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003664"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Office 365 Outlook 中的电子邮件、联系人和日历
 
 使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 [Office 365 Outlook 连接器](https://docs.microsoft.com/connectors/office365connector/)，可以通过构建逻辑应用来创建用于管理工作或学校帐户的自动化任务和工作流。 例如，可以自动执行以下任务：
 
-* 获取、发送和回复电子邮件。 
+* 获取、发送和回复电子邮件。
 * 在日历上安排会议。
-* 添加和编辑联系人。 
+* 添加和编辑联系人。
 
-可以使用任何触发器来启动工作流，例如，当新电子邮件到达时、当日历项更新时或其他服务（例如 Salesforce）中发生某个事件时。 可以使用对触发器事件做出响应的操作，例如，发送电子邮件或创建新的日历事件。 
-
-> [!NOTE]
-> 若要为 @outlook.com 或 @hotmail.com 帐户自动执行任务，请使用 [Outlook.com 连接器](../connectors/connectors-create-api-outlook.md)。
+可以使用任何触发器来启动工作流，例如，当新电子邮件到达时、当日历项更新时或其他服务（例如 Salesforce）中发生某个事件时。 可以使用对触发器事件做出响应的操作，例如，发送电子邮件或创建新的日历事件。
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
+* 一个使用[工作或学校帐户](https://www.office.com/)登录的 Outlook 帐户。 如果你具有 @outlook.com 或 @hotmail.com 帐户，请改用 [Outlook.com 连接器](../connectors/connectors-create-api-outlook.md)。 若要使用其他用户帐户（例如服务帐户）连接到 Outlook，请参阅[使用其他帐户进行连接](#connect-using-other-accounts)。
 
-* [工作或学校帐户](https://www.office.com/)
+* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册试用版 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-* 要在其中访问工作或学校帐户的逻辑应用。 若要通过 Office 365 Outlook 触发器启动工作流，需要有一个[空白逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要向工作流中添加 Office 365 Outlook 操作，逻辑应用需要已有一个触发器。
+* 你要在其中访问 Outlook 帐户的逻辑应用。 若要通过 Office 365 Outlook 触发器启动工作流，需要有一个[空白逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要向工作流中添加 Office 365 Outlook 操作，逻辑应用需要已有一个触发器。
 
 ## <a name="add-a-trigger"></a>添加触发器
 
@@ -48,7 +45,7 @@ ms.locfileid: "96431883"
 
     :::image type="content" source="./media/connectors-create-api-office365-outlook/office365-trigger.png" alt-text="选择用于启动逻辑应用的触发器":::
 
-1. 如果系统提示你登录，请提供你的工作或学校凭据，以便逻辑应用可以连接到你的帐户。 或者，如果连接已存在，请提供触发器属性的信息。
+1. 如果你没有连接到 Outlook 帐户的活动连接，系统将提示你登录并创建该连接。 若要使用其他用户帐户（例如服务帐户）连接到 Outlook，请参阅[使用其他帐户进行连接](#connect-using-other-accounts)。 否则，请提供触发器属性的相关信息。
 
     <!--Not Available on [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)-->
     
@@ -80,7 +77,7 @@ ms.locfileid: "96431883"
 
     :::image type="content" source="./media/connectors-create-api-office365-outlook/office365-actions.png" alt-text="选择要在逻辑应用中运行的操作"::: 
 
-1. 如果系统提示你登录，请提供你的工作或学校凭据，以便逻辑应用可以连接到你的帐户。 或者，如果连接已存在，请提供操作属性的信息。
+1. 如果你没有连接到 Outlook 帐户的活动连接，系统将提示你登录并创建该连接。 若要使用其他用户帐户（例如服务帐户）连接到 Outlook，请参阅[使用其他帐户进行连接](#connect-using-other-accounts)。 否则，请提供操作属性的相关信息。
 
     <!--Not Available on [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)-->
     
@@ -91,6 +88,30 @@ ms.locfileid: "96431883"
     若要添加其他可用的操作属性，请从“添加新参数”列表中选择那些属性。 
 
 1. 在设计器工具栏上选择“保存”。 
+
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>使用其他帐户进行连接
+
+如果尝试使用与当前登录到 Azure 的帐户不同的帐户连接到 Outlook，则可能会出现单一登录 (SSO) 错误。 当使用一个帐户登录 Azure 门户，但使用其他帐户来创建连接时，会发生此问题。 逻辑应用设计器需要使用已登录到 Azure 的帐户。 若要解决此问题，可采用以下选项：
+
+<!--Not Available on [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md)-->
+
+* 将另一个帐户设置为逻辑应用的资源组参与者。
+
+    1. 在逻辑应用的资源组菜单中，选择“访问控制(IAM)”。 使用参与者角色设置其他帐户。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
+
+    1. 如果使用工作或学校帐户登录到 Azure 门户，请注销并使用其他帐户重新登录。 现可使用另一个帐户创建到 Outlook 的连接。
+
+* 设置另一个帐户，使工作或学校帐户具有“发送方式”权限。
+
+    如果你具有管理员权限，请在服务帐户的邮箱上设置你的工作或学校帐户，该帐户具有“发送方式”或“代表发送”权限 。 有关详细信息，请参阅[向其他用户授予邮箱权限 - 管理帮助](https://docs.microsoft.com/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user)。 然后，可使用工作或学校帐户创建连接。 现在，在可指定发送方的触发器或操作中，可使用服务帐户的电子邮件地址。
+
+    例如，“发送电子邮件”操作有一个名为“发件人(发送方式)”的可选参数，你可将它添加到操作，并使用你的服务帐户的电子邮件地址作为发件人 。 若要添加此参数，请执行以下步骤：
+
+    1. 在“发送电子邮件”操作中，打开“添加参数”列表，然后选择“发件人(发送方式)”参数  。
+
+    1. 在操作中显示该参数后，输入服务帐户的电子邮件地址。
 
 ## <a name="connector-reference"></a>连接器参考
 

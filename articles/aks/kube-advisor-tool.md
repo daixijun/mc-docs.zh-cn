@@ -3,19 +3,19 @@ title: 检查部署的最佳做法
 titleSuffix: Azure Kubernetes Service
 description: 了解如何使用 kube-advisor 检查 Azure Kubernetes 服务上部署的最佳做法实现情况
 services: container-service
-author: rockboyfor
 ms.topic: troubleshooting
 origin.date: 11/05/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: b9cb8076781bf5a1a69a539187681da83fa20c3f
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: d952038a7156a7ebd02ba5891eee5628402ded7d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842677"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004121"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>检查 Kubernetes 群集中的最佳做法
 
@@ -32,7 +32,7 @@ Kube-advisor 工具可以报告 Windows 应用程序和 Linux 应用程序的 Po
 
 ## <a name="running-kube-advisor"></a>运行 kube-advisor
 
-若要在针对[基于角色的访问控制 (RBAC)](./azure-ad-integration-cli.md) 配置的群集上运行此工具，请使用以下命令。 第一个命令可创建 Kubernetes 服务帐户。 第二个命令使用该服务帐户在 pod 中运行该工具，并配置 pod 以在退出后删除。 
+若要在针对 [Kubernetes 基于角色的访问控制 (Kubernetes RBAC)](./azure-ad-integration-cli.md) 配置的群集上运行此工具，请使用以下命令。 第一个命令可创建 Kubernetes 服务帐户。 第二个命令使用该服务帐户在 pod 中运行该工具，并配置 pod 以在退出后删除。 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -40,7 +40,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
-如果不使用 RBAC，可以按如下所示运行命令：
+如果不使用 Kubernetes RBAC，可以按如下所示运行命令：
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
@@ -62,13 +62,13 @@ Kubernetes 支持定义 [pod 资源请求和限制规范][kube-cpumem]。 请求
 
 ## <a name="cleaning-up"></a>清理
 
-如果群集已启用 RBAC，可以使用以下命令在运行工具后清理 `ClusterRoleBinding`：
+如果群集已启用 Kubernetes RBAC，可以使用以下命令在运行工具后清理 `ClusterRoleBinding`：
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-如果针对未启用 RBAC 的群集运行该工具，则不需要进行任何清理。
+如果针对未启用 Kubernetes RBAC 的群集运行该工具，则不需要进行任何清理。
 
 ## <a name="next-steps"></a>后续步骤
 

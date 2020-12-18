@@ -5,25 +5,23 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 10/30/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 11/16/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8f5e351293a4eabff381d61e6917a774041836a6
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f7b7050190f79990a41995e857dbd5e2617a6dd6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977081"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004004"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>适用于 Azure 资源管理器的 Azure 安全基线
 
-此安全基线将 Azure 安全基准 1.0 版中的指南应用到 Azure 资源管理器。 Azure 安全基准提供有关如何在 Azure 上保护云解决方案的建议。
+此安全基线将 [Azure 安全基准 1.0 版](../../security/benchmarks/overview-v1.md)中的指南应用到 Azure 资源管理器。 Azure 安全基准提供有关如何在 Azure 上保护云解决方案的建议。
 内容按“安全控制”分组，这些控制按适用于 Azure 资源管理器的 Azure 安全基准和相关指南定义。 已排除了不适用于 Azure 资源管理器的控制。
-
-<!--Not Available on [Azure Security Benchmark version 1.0](../../security/benchmarks/overview-v1.md)-->
 
  若要了解 Azure 资源管理器如何完全映射到 Azure 安全基准，请参阅[完整的 Azure 资源管理器安全基线映射文件](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)。
 
@@ -98,9 +96,9 @@ ms.locfileid: "94977081"
 
 **指导**：借助 Azure 基于角色的访问控制 (RBAC)，可以通过角色分配管理对 Azure 资源的访问。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Azure 安全中心监视**：是
 
@@ -118,7 +116,7 @@ ms.locfileid: "94977081"
 
 还可以通过使用 Azure AD Privileged Identity Management 和 Azure 资源管理器来启用即时访问权限。 
 
-- [详细了解 Privileged Identity Management](https://docs.azure.cn/active-directory/privileged-identity-management/)
+- [详细了解 Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 - [如何使用 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -164,7 +162,7 @@ ms.locfileid: "94977081"
 
 **指导**：使用 Azure Active Directory 安全报告和监视来检测环境中何时发生可疑活动或不安全的活动。 使用 Azure 安全中心监视标识和访问活动。
 
-<!--Not Available on - [How to identify Azure AD users flagged for risky activity](https://docs.azure.cn/active-directory/reports-monitoring/concept-user-at-risk)-->
+<!--Not Available on - [How to identify Azure AD users flagged for risky activity](../../active-directory/identity-protection/overview-identity-protection.md)-->
 
 - [如何在 Azure 安全中心内监视用户的标识和访问活动](../../security-center/security-center-identity-access.md)
 
@@ -196,7 +194,7 @@ ms.locfileid: "94977081"
 
 **指南**：Azure AD 提供日志来帮助发现过时的帐户。 此外，请使用 Azure AD 标识和访问评审来有效管理组成员身份、对企业应用程序的访问以及角色分配。 可以定期评审用户的访问权限，确保只有适当的用户才持续拥有访问权限。 
 
-- [了解 Azure AD 报告](https://docs.azure.cn/active-directory/reports-monitoring/)
+- [了解 Azure AD 报告](../../active-directory/reports-monitoring/index.yml)
 
 - [如何使用 Azure AD 标识和访问评审](../../active-directory/governance/access-reviews-overview.md)
 
@@ -210,7 +208,7 @@ ms.locfileid: "94977081"
 
 可以通过为 Azure AD 用户帐户创建诊断设置，并将审核日志和登录日志发送到 Log Analytics 工作区，来简化此过程。 你可以在 Log Analytics 工作区中配置所需的警报。
 
-- [如何将 Azure 活动日志与 Azure Monitor 集成](https://docs.azure.cn/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [如何将 Azure 活动日志与 Azure Monitor 集成](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -230,7 +228,7 @@ ms.locfileid: "94977081"
 
 **指导**：使用标记可以帮助跟踪存储或处理敏感信息的 Azure 资源。
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](./tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -278,7 +276,7 @@ ms.locfileid: "94977081"
 
 - [如何使用 Azure Resource Graph 创建查询](../../governance/resource-graph/first-query-portal.md)
 
-- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [了解 Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -300,11 +298,11 @@ ms.locfileid: "94977081"
 
 下面提供了更多相关的详细信息：
 
-<!--Not Available on - [How to create additional Azure subscriptions](https://docs.azure.cn/billing/billing-create-subscription)-->
+<!--Not Available on - [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)-->
 
-- [如何创建管理组](https://docs.azure.cn/governance/management-groups/create)
+- [如何创建管理组](../../governance/management-groups/create-management-group-portal.md)
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [如何创建和使用标记](./tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -379,7 +377,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 还可以使用来自 Azure 安全中心的建议作为 Azure 资源的安全配置基线。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [教程：创建和管理策略以强制实施符合性](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -413,7 +411,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 **指导**：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 若要访问在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [关于 Azure DevOps 中的权限和组](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
@@ -475,7 +473,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 **指导**：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 若要访问在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [关于 Azure DevOps 中的权限和组](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
@@ -551,8 +549,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 安全基准](https://docs.azure.cn/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](https://docs.azure.cn/security/benchmarks/security-baselines-overview)
+- 请参阅 [Azure 安全基准](../../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../../security/benchmarks/security-baselines-overview.md)
 
-<!-- Update_Description: new article about security baseline -->
-<!--NEW.date: 11/23/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

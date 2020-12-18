@@ -7,14 +7,14 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 994596bc17a6a634c9c8bb1c1df76f92478a0349
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0b35c951482952c7ab13f261f97d675dd53f966e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103949"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105299"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure 认知服务容器常见问题解答 (FAQ)
 
@@ -115,12 +115,10 @@ ms.locfileid: "93103949"
 
 **答:** 类似于认知服务云，客户按消耗量付费。 容器需配置为向 Azure 发送计量数据，因此会相应地收取事务费。 跨托管服务和本地服务使用的资源将按分层定价计入到单个配额，并且会同时计入到这两个服务的用量。 有关更多详细信息，请参阅相应产品/服务的定价页。
 
-* [异常检测器][AD - 容器 - 计费]
-* [计算机视觉][cv-containers-billing]
+* 计算机视觉
 * [人脸][fa-containers-billing]
-* [表单识别器][FR - 容器 - 计费]
 * [语言理解 (LUIS)][lu-containers-billing]
-* [语音服务 API][SP - 容器 - 计费]
+* 语音服务 API]
 * [文本分析][ta-containers-billing]
 
 > [!IMPORTANT]
@@ -142,12 +140,10 @@ ms.locfileid: "93103949"
 
 **答:** 认知服务容器是基于 x64 的容器，可运行任何兼容的 Linux 节点、VM，以及支持 x64 Linux Docker 容器的边缘设备。 这些设备都需要 CPU 处理器。 下面提供了每个容器产品/服务的最低和推荐配置：
 
-* [异常检测器][AD - 容器 - 建议]
-* [计算机视觉][cv-containers-recommendations]
+* 计算机视觉
 * [人脸][fa-containers-recommendations]
-* [表单识别器][FR - 容器 - 建议]
 * [语言理解 (LUIS)][lu-containers-recommendations]
-* [语音服务 API][SP - 容器 - 建议]
+* 语音服务 API
 * [文本分析][ta-containers-recommendations]
  
 **问：Windows 当前是否支持这些容器？**

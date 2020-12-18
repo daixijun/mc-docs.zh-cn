@@ -4,13 +4,13 @@ description: 了解 Azure 资源日志支持的服务和事件架构。
 ms.subservice: logs
 author: Johnnytechn
 ms.topic: reference
-ms.date: 11/02/2020
-ms.openlocfilehash: 7d078714d4652e168b3cdc359f8c1c00c19137e7
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 1d53482855f3ef6b0b6594cfe696f8f2be347132
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327881"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104378"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 资源日志的通用架构和特定于服务的架构
 
@@ -29,7 +29,7 @@ ms.locfileid: "94327881"
 | time | 必须 | 事件时间戳 (UTC)。 |
 | ResourceId | 必须 | 发出事件的资源的资源 ID。 对于租户服务，其形式为 /tenants/tenant-id/providers/provider-name。 |
 | tenantId | 对于租户日志而言是必需的 | 此事件关联到的 Active Directory 租户的租户 ID。 此属性仅用于租户级日志，它不会出现在资源级日志中。 |
-| operationName | 必须 | 此事件表示的操作的名称。 如果事件表示 RBAC 操作，则这是 RBAC 操作名称（例如，Microsoft.Storage/storageAccounts/blobServices/blobs/Read）。 通常以资源管理器操作的形式建模，即使它们不是实际记录的资源管理器操作 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | 必须 | 此事件表示的操作的名称。 如果事件表示 Azure RBAC 操作，则这是 Azure RBAC 操作名称（例如，Microsoft.Storage/storageAccounts/blobServices/blobs/Read）。 通常以资源管理器操作的形式建模，即使它们不是实际记录的资源管理器操作 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | 可选 | 如果 operationName 是使用 API（例如 `http://myservice.windowschinacloudapi.cn/object?api-version=2016-06-01`）执行的，则为与该操作关联的 api-version。 如果没有与此操作相对应的 API，则该版本表示该操作的版本，以防与操作相关联的属性在将来发生更改。 |
 | category | 必须 | 事件的日志类别。 类别是可以在特定资源上启用或禁用日志的粒度。 在事件的属性 blob 内显示的属性在特定日志类别和资源类型中相同。 典型的日志类别是“Audit”、“Operational”、“Execution”和“Request”。 |
 | resultType | 可选 | 事件的状态。 典型值包括“Started”、“In Progress”、“Succeeded”、“Failed”、“Active”和“Resolved”。 |
@@ -66,6 +66,7 @@ ms.locfileid: "94327881"
 | 事件中心 |[Azure 事件中心日志](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | 架构不可用。 |
 | Azure 防火墙 | 架构不可用。 |
+| IoT 中心 | [IoT 中心操作](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | 密钥保管库 |[Azure 密钥保管库日志记录](../../key-vault/general/logging.md) |
 | Kubernetes 服务 |[Azure Kubernetes 日志记录](../../aks/view-master-logs.md#log-event-schema) |
 | 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
@@ -75,6 +76,7 @@ ms.locfileid: "94327881"
 | 搜索 |[允许并使用搜索流量分析](../../search/search-traffic-analytics.md) |
 | 服务总线 |[Azure 服务总线日志](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL 数据库 | [Azure SQL 数据库日志记录](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| 流分析 |[作业日志](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | 虚拟网络 | 架构不可用。 |
 | 虚拟网络网关 | 架构不可用。 |
 

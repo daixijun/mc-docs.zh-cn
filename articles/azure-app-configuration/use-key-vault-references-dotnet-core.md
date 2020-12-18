@@ -1,5 +1,5 @@
 ---
-title: 关于在 ASP.NET Core 应用中使用 Azure 应用程序配置 Key Vault 引用的教程 | Microsoft Docs
+title: 关于在 ASP.NET Core 应用中使用 Azure 应用程序配置 Key Vault 引用的教程 | Azure Docs
 description: 本教程介绍如何在 ASP.NET Core 应用中使用 Azure 应用程序配置的 Key Vault 引用
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/08/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2195145c11b6d97c6dbdd08bf99fc85a97707007
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 8f5302759f4bab6bc799c7866cbba17e986b29f7
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866731"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104908"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用 Key Vault 引用
 
@@ -94,7 +94,7 @@ ms.locfileid: "88866731"
 
 ## <a name="connect-to-key-vault"></a>连接到 Key Vault
 
-1. 在本教程中，我们将使用一个服务主体向 Key Vault 进行身份验证。 若要创建该服务主体，请使用 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令：
+1. 在本教程中，我们将使用一个服务主体向 Key Vault 进行身份验证。 若要创建该服务主体，请使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令：
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
@@ -122,7 +122,7 @@ ms.locfileid: "88866731"
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. 添加环境变量以存储 *clientId*、*clientSecret*和 *tenantId* 的值。
+1. 添加环境变量以存储 *clientId*、*clientSecret* 和 *tenantId* 的值。
 
     #### <a name="windows-command-prompt"></a>[Windows 命令提示符](#tab/cmd)
 

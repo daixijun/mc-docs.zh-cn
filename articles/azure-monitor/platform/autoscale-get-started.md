@@ -4,15 +4,15 @@ description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 07/07/2017
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.author: v-johya
 ms.subservice: autoscale
-ms.openlocfilehash: cb5d4cda014bd090c8209b9b2c7b6e1ae924ef10
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ab86e8465b94ba2bc1dd0e59380dedf44c16162f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328445"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104981"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Azure 门户中为资源指定自动缩放设置。
@@ -127,11 +127,14 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/
 
 #### <a name="security"></a>安全性 
 
-大型企业的开发团队通常需要遵守已公开 API 的安全性要求。 若要保护运行状况检查终结点，应先使用 [IP 限制](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)、[客户端证书](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)或虚拟网络等功能来限制对应用程序的访问。 可以要求传入请求的 `User-Agent` 与 `ReadyForRequest/1.0` 匹配，以保护运行状况检查终结点。 由于先前的安全功能已对该请求进行了保护，因此无法冒名顶替用户代理。
+大型企业的开发团队通常需要遵守已公开 API 的安全性要求。 若要保护运行状况检查终结点，应先使用 [IP 限制](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)、[客户端证书](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)或虚拟网络等功能来限制对应用程序的访问。 可以要求传入请求的 `User-Agent` 与 `ReadyForRequest/1.0` 匹配，以保护运行状况检查终结点。 由于先前的安全功能已对该请求进行了保护，因此无法冒名顶替用户代理。
 
 ### <a name="behavior"></a>行为
 
-提供运行状况检查路径后，应用服务将在所有实例上 ping 通该路径。 如果进行 5 次 ping 后未收到表示成功的响应代码，则将该实例视为“运行不正常”。 负载均衡器轮换将排除运行不正常的实例。 此外，纵向或横向扩展时，应用服务将对运行状况检查路径执行 ping 操作，确保新实例可用于请求。
+提供运行状况检查路径后，应用服务将在所有实例上 ping 通该路径。 如果进行 5 次 ping 后未收到表示成功的响应代码，则将该实例视为“运行不正常”。 负载均衡器轮换将排除运行不正常的实例。 可以通过 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` 应用设置来配置所需的 ping 失败次数。 该应用设置可以设置为 2 到 10 之间的任何整数。 例如，如果设置为 `2`，则在两次失败的 ping 操作后，将从负载均衡器中删除实例。 此外，纵向扩展或横向扩展时，应用服务会在将新实例添加到负载均衡器之前，对运行状况检查路径执行 ping 操作，确保新实例可用于请求。
+
+> [!NOTE]
+> 请记住，必须将应用服务计划横向扩展到两个或更多实例，才能进行负载均衡器排除。 如果只有 1 个实例，那么即使它不正常，也不会从负载均衡器中删除。 
 
 其余正常运行的实例的负载可能会增大。 为避免其余实例不堪重负，排除的实例不得过半。 例如，如果应用服务计划横向扩展到 4 个实例，且其中 3 个运行不正常，则负载均衡器轮换最多排除 2 个。 其他 2 个实例（1 个运行正常的实例和 1 个运行不正常的实例）将继续接收请求。 在所有实例均不正常的最坏情况下，不排除任何实例。如果要替代此行为，可以将 `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` 应用设置设置为介于 `0` 和 `100` 之间的值。 将此值设置为较高值意味着将删除更多运行不正常的实例（默认值为 50）。
 
@@ -140,6 +143,20 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/
 ### <a name="monitoring"></a>监视
 
 提供应用程序的运行状况检查路径后，可以使用 Azure Monitor 监视站点的运行状况。 在门户的“运行状况检查”边栏选项卡中，单击顶部工具栏中的“指标” 。 此操作将打开新的边栏选项卡，可以在其中查看站点的历史运行状况以及新建预警规则。 有关监视站点的更多信息，请[参阅 Azure Monitor 指南](../../app-service/web-sites-monitor.md)。
+
+## <a name="moving-autoscale-to-a-different-region"></a>将自动缩放移动到其他区域
+本部分介绍如何将 Azure 自动缩放移动到同一订阅和资源组下的另一个区域。 可以使用 REST API 来移动自动缩放设置。
+### <a name="prerequisite"></a>先决条件
+1. 确保订阅和资源组可用，并且源区域和目标区域中的详细信息完全相同。
+1. 确保[要移动到的 Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)支持 Azure 自动缩放。
+
+### <a name="move"></a>移动
+使用 [REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) 在新环境中创建自动缩放设置。 在目标区域中创建的自动缩放设置是源区域中的自动缩放设置的副本。
+
+无法移动所创建的与源区域中的自动缩放设置关联的[诊断设置](./diagnostic-settings.md)。 自动缩放设置创建完毕后，你需要在目标区域中重新创建诊断设置。 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>详细了解如何在 Azure 区域间移动资源
+要详细了解如何在区域之间移动资源，以及如何在 Azure 中进行灾难恢复，请参阅[将资源移动到新资源组或订阅](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## <a name="next-steps"></a>后续步骤
 - [创建活动日志警报以监视订阅上的所有自动缩放引擎操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

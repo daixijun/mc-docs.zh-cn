@@ -6,18 +6,18 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/30/2020
-ms.date: 11/16/2020
+origin.date: 11/20/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2863f35538c215f7c0c4d05c334aa42ab9ae706
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: b3dee3766fddf71796fd57b4b0c15c39706f8f3d
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552973"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850776"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>为容器或 blob 创建服务 SAS
 
@@ -145,7 +145,7 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
 下面的代码示例在 blob 上创建 SAS。 如果提供现有存储访问策略的名称，则该策略与 SAS 关联。 如果未提供存储访问策略，则代码会在 Blob 上创建一个临时 SAS。
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 服务 SAS 将使用帐户访问密钥进行签名。 使用 [StorageSharedKeyCredential](https://docs.microsoft.com/dotnet/api/azure.storage.storagesharedkeycredential) 类创建用于为 SAS 签名的凭据。 接下来，新建 [BlobSasBuilder](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder) 对象，并调用 [ToSasQueryParameters](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 以获取 SAS 令牌字符串。
 
@@ -182,7 +182,7 @@ private static string GetBlobSasUri(BlobContainerClient container,
 }
 ```
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 若要为 blob 创建服务 SAS，请调用 [CloudBlob.GetSharedAccessSignature](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 方法。
 
@@ -265,6 +265,59 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 ```
 
 ---
+
+## <a name="create-a-service-sas-for-a-directory"></a>为目录创建服务 SAS
+
+在启用了分层命名空间的存储帐户中，可以为目录创建服务 SAS。 若要创建服务 SAS，请确保已安装 12.5.0 或更高版本的 [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) 包。
+
+下面的示例演示如何使用适用于 .NET 的 v12 客户端库为目录创建服务 SAS：
+
+```csharp
+private static Uri GetServiceSasUriForDirectory(DataLakeDirectoryClient directoryClient,
+                                          string storedPolicyName = null)
+{
+    if (directoryClient.CanGenerateSasUri)
+    {
+        // Create a SAS token that's valid for one hour.
+        DataLakeSasBuilder sasBuilder = new DataLakeSasBuilder()
+        {
+            // Specify the file system name, the path, and indicate that
+            // the client object points to a directory.
+            FileSystemName = directoryClient.FileSystemName,
+            Resource = "d",
+            IsDirectory = true,
+            Path = directoryClient.Path,
+        };
+
+        // If no stored access policy is specified, create the policy
+        // by specifying expiry and permissions.
+        if (storedPolicyName == null)
+        {
+            sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
+            sasBuilder.SetPermissions(DataLakeSasPermissions.Read |
+                DataLakeSasPermissions.Write |
+                DataLakeSasPermissions.List);
+        }
+        else
+        {
+            sasBuilder.Identifier = storedPolicyName;
+        }
+
+        // Get the SAS URI for the specified directory.
+        Uri sasUri = directoryClient.GenerateSasUri(sasBuilder);
+        Console.WriteLine("SAS URI for ADLS directory is: {0}", sasUri);
+        Console.WriteLine();
+
+        return sasUri;
+    }
+    else
+    {
+        Console.WriteLine(@"DataLakeDirectoryClient must be authorized with Shared Key 
+                          credentials to create a service SAS.");
+        return null;
+    }
+}
+```
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

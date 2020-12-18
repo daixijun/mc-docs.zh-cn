@@ -1,18 +1,18 @@
 ---
 title: Azure 防火墙威胁情报配置
-description: 可以为防火墙启用基于威胁智能的筛选，以提醒和拒绝来自/到达已知恶意 IP 地址和域的流量。
+description: 了解如何为 Azure 防火墙策略配置基于威胁情报的筛选，以针对来自和发往已知恶意 IP 地址和域的流量发出警报并将其拒绝。
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 0380113bd40b8c273b15bc028ae6a49b5684a7cb
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: f14f2088842dca0ba0a341efa3e675575d9ea746
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162797"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104314"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Azure 防火墙威胁情报配置
 

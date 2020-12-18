@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 12/07/2020
 origin.date: 09/20/2019
-ms.openlocfilehash: d19c220432ce6f59b4b25547c128116365f903c5
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 108f5225345690d33cdb5dd3aa5f9558fca40358
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327295"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105052"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>设计 Azure Monitor 日志部署
 
@@ -56,7 +56,7 @@ Log Analytics 工作区可提供：
 <!-- Not available in MC: System Center Operations Manager -->
 ## <a name="access-control-overview"></a>访问控制概述
 
-使用基于角色的访问控制 (RBAC)，可以仅向用户和组授予其在工作区中处理监视数据所需的访问级别。 这样，便可以使用单个工作区来存储对所有资源启用的收集数据，从而符合 IT 组织的操作模型。 例如，可向负责管理 Azure 虚拟机 (VM) 上托管的基础结构服务的团队授予访问权限，因此，他们只能访问这些 VM 生成的日志。 此方案遵循我们的新资源上下文日志模型。 此模型的基础适用于 Azure 资源发出的每条日志记录，自动与此资源相关联。 日志将根据资源转发到与范围和 RBAC 相符的中心工作区。
+使用 Azure 基于角色的访问控制 (Azure RBAC)，可以仅向用户和组授予其在工作区中处理监视数据所需的访问级别。 这样，便可以使用单个工作区来存储对所有资源启用的收集数据，从而符合 IT 组织的操作模型。 例如，可向负责管理 Azure 虚拟机 (VM) 上托管的基础结构服务的团队授予访问权限，因此，他们只能访问这些 VM 生成的日志。 此方案遵循我们的新资源上下文日志模型。 此模型的基础适用于 Azure 资源发出的每条日志记录，自动与此资源相关联。 日志将根据资源转发到与范围和 Azure RBAC 相符的中心工作区。
 
 用户有权访问的数据由下表中列出的因素组合决定。 后续部分会描述每种因素。
 
@@ -65,7 +65,7 @@ Log Analytics 工作区可提供：
 | [访问模式](#access-mode) | 用户访问工作区的方法。  定义可用数据的范围，以及应用的访问控制模式。 |
 | [访问控制模式](#access-control-mode) | 工作区中的设置，用于定义是要在工作区级别还是资源级别应用权限。 |
 | [权限](manage-access.md) | 应用到工作区或资源的个人用户或用户组的权限。 定义用户有权访问哪些数据。 |
-| [表级 RBAC](manage-access.md#table-level-rbac) | 应用到所有用户（无论他们使用的是访问模式还是访问控制模式）的可选精细权限。 定义用户可以访问哪些数据类型。 |
+| [表级别 Azure RBAC](manage-access.md#table-level-azure-rbac) | 应用到所有用户（无论他们使用的是访问模式还是访问控制模式）的可选精细权限。 定义用户可以访问哪些数据类型。 |
 
 ## <a name="access-mode"></a>访问模式
 
@@ -77,7 +77,7 @@ Log Analytics 工作区可提供：
 
     ![工作区中的 Log Analytics 上下文](./media/design-logs-deployment/query-from-workspace.png)
 
-* **资源上下文**：访问特定资源、资源组或订阅的工作区时（例如，在 Azure 门户上的资源菜单中选择“日志”时），只能查看所有表中你有权访问的资源的日志。 在此模式下，只能查询与该资源关联的数据。 此模式还支持粒度 RBAC。
+* **资源上下文**：访问特定资源、资源组或订阅的工作区时（例如，在 Azure 门户上的资源菜单中选择“日志”时），只能查看所有表中你有权访问的资源的日志。 在此模式下，只能查询与该资源关联的数据。 此模式还支持精细 Azure RBAC。
 
     ![资源中的 Log Analytics 上下文](./media/design-logs-deployment/query-from-resource.png)
 
@@ -99,22 +99,22 @@ Azure Monitor 根据执行日志搜索时所在的上下文自动确定正确的
 |:---|:---|:---|
 | 每种模式适合哪类用户？ | 集中管理。 需要配置数据收集的管理员，以及需要访问各种资源的用户。 此外，需要访问 Azure 外部资源的日志的用户目前也需要使用此模式。 | 应用程序团队。 受监视 Azure 资源的管理员。 |
 | 用户需要哪些权限才能查看日志？ | 对工作区的权限。 请参阅 [使用工作区权限管理访问权限](manage-access.md#manage-access-using-workspace-permissions)中的 **工作区权限**。 | 对资源的读取访问权限。 请参阅 [使用 Azure 权限管理访问权限](manage-access.md#manage-access-using-azure-permissions)中的 **资源权限**。 权限可以继承（例如，从包含资源组继承），也可以直接分配给资源。 系统会自动分配对资源日志的权限。 |
-| 权限范围是什么？ | 工作区。 有权访问工作区的用户可以通过他们有权访问的表查询该工作区中的所有日志。 请参阅[表访问控制](manage-access.md#table-level-rbac) | Azure 资源。 用户可以通过任何工作区查询他们有权访问的资源、资源组或订阅的日志，但无法查询其他资源的日志。 |
+| 权限范围是什么？ | 工作区。 有权访问工作区的用户可以通过他们有权访问的表查询该工作区中的所有日志。 请参阅[表访问控制](manage-access.md#table-level-azure-rbac) | Azure 资源。 用户可以通过任何工作区查询他们有权访问的资源、资源组或订阅的日志，但无法查询其他资源的日志。 |
 | 用户如何访问日志？ | <ul><li>从“Azure Monitor”菜单启动“日志”。 </li></ul> <ul><li>从“Log Analytics 工作区”启动“日志”。 </li></ul> <ul><li>从 Azure Monitor [工作簿](../visualizations.md#workbooks)。</li></ul> | <ul><li>从 Azure 资源的菜单启动“日志”</li></ul> <ul><li>从“Azure Monitor”菜单启动“日志”。 </li></ul> <ul><li>从“Log Analytics 工作区”启动“日志”。 </li></ul> <ul><li>从 Azure Monitor [工作簿](../visualizations.md#workbooks)。</li></ul> |
 
 ## <a name="access-control-mode"></a>访问控制模式
 
 访问控制模式是每个工作区中的一项设置，定义如何确定该工作区的权限。
 
-* **需要工作区权限**：此控制模式不允许精细的 RBAC。 用户若要访问工作区，必须获得对该工作区或特定表的权限。
+* **需要工作区权限**：此控制模式不允许精细 Azure RBAC。 用户若要访问工作区，必须获得对该工作区或特定表的权限。
 
     如果用户遵循工作区上下文模式访问工作区，将可以访问他们有权访问的任何表中的所有数据。 如果用户遵循资源上下文模式访问工作区，则只能访问他们有权访问的任何表中该资源的数据。
 
     这是在 2019 年 3 月之前创建的所有工作区的默认设置。
 
-* **使用资源或工作区权限**：此控制模式允许精细的 RBAC。 可以通过分配 Azure `read` 权限，仅向用户授予与他们可查看的资源相关联的数据的访问权限。 
+* **使用资源或工作区权限**：此控制模式允许精细 Azure RBAC。 可以通过分配 Azure `read` 权限，仅向用户授予与他们可查看的资源相关联的数据的访问权限。 
 
-    当用户以工作区上下文模式访问工作区时，将应用工作区权限。 当用户以资源上下文模式访问工作区时，只会验证资源权限，而会忽略工作区权限。 要为用户启用 RBAC，可将其从工作区权限中删除，并允许识别其资源权限。
+    当用户以工作区上下文模式访问工作区时，将应用工作区权限。 当用户以资源上下文模式访问工作区时，只会验证资源权限，而会忽略工作区权限。 要为用户启用 Azure RBAC，可将其从工作区权限中删除，并允许识别其资源权限。
 
     这是在 2019 年 3 月之后创建的所有工作区的默认设置。
 

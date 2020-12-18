@@ -2,19 +2,19 @@
 title: 概念 - 在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 description: 了解 Azure Kubernetes 服务 (AKS) 中的缩放，包括水平 Pod 自动缩放程序、群集自动缩放程序和 Azure 容器实例连接器。
 services: container-service
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 02/28/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 88853973d8040ab8b5ffc65c65470645296e5d5c
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: da7d05e9e42162ff33454da09d32881c19ee9b41
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842555"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004137"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序缩放选项
 
@@ -56,7 +56,7 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 
 ## <a name="cluster-autoscaler"></a>群集自动缩放程序
 
-Kubernetes 有一个可响应不断变化的 Pod 需求的群集自动缩放程序，可根据节点池中请求的计算资源调整节点数。 默认情况下，群集自动缩放程序每隔 10 秒检查一次指标 API 服务器，以了解节点计数所需的任何更改。 如果群集自动缩放程序确定需要进行更改，则 AKS 群集中的节点数会相应增加或减少。 群集自动缩放程序适用于运行 Kubernetes 1.10.x 或更高版本的支持 RBAC 的 AKS 群集。
+Kubernetes 有一个可响应不断变化的 Pod 需求的群集自动缩放程序，可根据节点池中请求的计算资源调整节点数。 默认情况下，群集自动缩放程序每隔 10 秒检查一次指标 API 服务器，以了解节点计数所需的任何更改。 如果群集自动缩放程序确定需要进行更改，则 AKS 群集中的节点数会相应增加或减少。 群集自动缩放程序适用于运行 Kubernetes 1.10.x 或更高版本的支持 Kubernetes RBAC 的 AKS 群集。
 
 :::image type="content" source="media/concepts-scale/cluster-autoscaler.png" alt-text="Kubernetes 群集自动缩放程序":::
 

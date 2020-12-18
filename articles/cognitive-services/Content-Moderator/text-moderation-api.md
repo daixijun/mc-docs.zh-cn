@@ -9,20 +9,21 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 01/10/2019
-ms.date: 11/23/2020
+ms.date: 12/11/2020
 ms.author: v-johya
-ms.openlocfilehash: 0e0de20b74407f90f083ec29dd8ea4681452fc4d
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 656d6b71a788224c45ff5c9059e6f6645648055e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306287"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104724"
 ---
 # <a name="learn-text-moderation-concepts"></a>了解文本审查概念
 
 使用内容审查器的文本审查模型来分析文本内容。
 
-可以根据策略和阈值阻止、批准或审阅内容（请参阅[审阅、工作流和作业](./review-api.md)，了解如何设置人工审阅）。 使用文本审查模型来增强对合作伙伴、员工和消费者生成文本内容所在环境的人工审查。 这些环境包括聊天室、讨论区、聊天机器人、电子商务目录和文档。
+<!--Not available in MC: Review Tool-->
+可根据策略和阈值阻止、批准或评审内容。 使用文本审查模型来增强对合作伙伴、员工和消费者生成文本内容所在环境的人工审查。 这些环境包括聊天室、讨论区、聊天机器人、电子商务目录和文档。
 
 服务响应包含以下信息：
 
@@ -162,5 +163,5 @@ ms.locfileid: "96306287"
 
 ## <a name="next-steps"></a>后续步骤
 
-使用[文本审查 API 控制台](try-text-api.md)测试这些 API。 另请参阅[审阅、工作流和作业](./review-api.md)，了解如何设置人工审阅。
+使用[文本审查 API 控制台](try-text-api.md)测试这些 API。 
 

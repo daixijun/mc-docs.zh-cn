@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 11/05/2019
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.author: v-johya
 ms.subservice: ''
-ms.openlocfilehash: 7d8539187d9928db3b98d9fe1eafe5e93675c133
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: c5e823e6c528d84308be21b035e6ea7f3d8f20b6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638013"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104967"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>使用 Azure Monitor 日志管理使用情况和成本    
 
@@ -52,7 +52,7 @@ Log Analytics 专用群集是收集到单个托管 Azure 数据资源管理器�
 
 群集产能预留级别将使用 `Sku` 下的 `Capacity` 参数以编程方式通过 Azure 资源管理器进行配置。 `Capacity` 指定 GB 为单位，并且值可以为 1000 GB/天或更大，增量为 100 GB/天。 详细信息请参阅 [Azure Monitor 客户管理的密钥](customer-managed-keys.md#create-cluster)。 如果群集需要的预留超过 2000 GB/天，请通过 [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) 联系我们。
 
-对于群集上的使用情况，有两种计费模式。 [配置群集时](customer-managed-keys.md#cmk-management)，可通过 `billingType` 参数指定这些计费模式。 这两种模式是： 
+对于群集上的使用情况，有两种计费模式。 [配置群集时](customer-managed-keys.md#customer-managed-key-operations)，可通过 `billingType` 参数指定这些计费模式。 这两种模式是： 
 
 1. **群集**：在此情况下（其为默认情况），引入数据的计费在群集级别完成。 将聚合与群集关联的每个工作区中的引入数据数量，以计算群集的每日账单。 请注意，在跨群集中所有工作区的聚合数据聚合之前，将在工作区级别应用基于 [Azure 安全中心](../../security-center/index.yml)的按节点分配。 
 
@@ -125,7 +125,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 ## <a name="log-analytics-and-security-center"></a>Log Analytics 和安全中心
 
-[Azure 安全中心](/security-center/)计费与 Log Analytics 计费密切相关。 当未在工作区上运行更新管理解决方案或启用解决方案目标设定时，安全中心会针对一组[安全数据类型](https://docs.microsoft.com/azure-monitor/reference/tables/tables-category#security)（WindowsEvent、SecurityAlert、SecurityBaseline、SecurityBaselineSummary、SecurityDetection、SecurityEvent、WindowsFirewall、MaliciousIPCommunication、LinuxAuditLog、SysmonEvent、ProtectionStatus）以及 Update 和 UpdateSummary 数据类型提供 500 MB/节点/天的分配。 如果工作区位于旧版按节点定价层中，则将合并安全中心和 Log Analytics 分配，并将其共同应用于所有可计费的引入数据。  
+[Azure 安全中心](../../security-center/index.yml)计费与 Log Analytics 计费密切相关。 当未在工作区上运行更新管理解决方案或启用解决方案目标设定时，安全中心会针对一组[安全数据类型](https://docs.microsoft.com/azure-monitor/reference/tables/tables-category#security)（WindowsEvent、SecurityAlert、SecurityBaseline、SecurityBaselineSummary、SecurityDetection、SecurityEvent、WindowsFirewall、MaliciousIPCommunication、LinuxAuditLog、SysmonEvent、ProtectionStatus）以及 Update 和 UpdateSummary 数据类型提供 500 MB/节点/天的分配。 如果工作区位于旧版按节点定价层中，则将合并安全中心和 Log Analytics 分配，并将其共同应用于所有可计费的引入数据。  
 
 ## <a name="change-the-data-retention-period"></a>更改数据保留期
 
@@ -207,10 +207,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 每个工作区在一天的不同小时均应用其每日上限。 重置时间显示在“每日上限”页中（见下文）。 无法配置此重置时间。 
 
-达到每日限制后，在当天的剩余时间会停止收集应计费数据类型。 应用每日上限时的固有延迟意味着应用上限不会精确到指定的每日上限级别。 选定 Log Analytics 工作区的页面顶部会显示警告横幅，同时会将一个操作事件发送到“LogManagement”类别下的“操作”表。 在“每日限制设置时间”定义的重置时间过后，数据收集将会恢复。 我们建议基于此操作事件定义一个警报规则，并将其配置为在达到每日数据限制时发出通知。 
+达到每日限制后，在当天的剩余时间会停止收集应计费数据类型。 应用每日上限时的固有延迟意味着应用上限不会精确到指定的每日上限级别。 选定 Log Analytics 工作区的页面顶部会显示警告横幅，同时会将一个操作事件发送到“LogManagement”类别下的“操作”表。 在“每日限制设置时间”定义的重置时间过后，数据收集将会恢复。 我们建议基于此操作事件定义一个预警规则，并将其配置为在达到每日数据限制时发出通知（请参阅[下文](#alert-when-daily-cap-reached)）。 
 
 > [!NOTE]
-> 每日上限无法以精确到指定的每日上限的级别停止数据收集，且可能出现某些多余的数据，尤其是在工作区接收大量数据的情况下。  
+> 每日上限无法以精确到指定的每日上限的级别停止数据收集，且可能出现某些多余的数据，尤其是在工作区接收大量数据的情况下。 请参阅[下文](#view-the-effect-of-the-daily-cap)，了解有助于研究每日上限行为的查询。 
 
 > [!WARNING]
 > 除了在 2017 年 6 月 19 日之前安装了 Azure 安全中心的工作区之外，每日上限不会停止从 Azure 安全中心收集数据。 
@@ -230,6 +230,20 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
     ![Log Analytics 配置数据限制](./media/manage-cost-storage/set-daily-volume-cap-01.png)
     
 可以通过 ARM 配置每日上限，方法是在 `WorkspaceCapping` 下设置 `dailyQuotaGb` 参数，如[工作区 - 创建或更新](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping)中所述。 
+
+### <a name="view-the-effect-of-the-daily-cap"></a>查看每日上限的效果
+
+要查看每日上限的效果，请务必考虑每日上限中未包含的安全数据类型，以及工作区的重置时间。 每日上限重置时间在“每日上限”页上可见。  可使用以下查询跟踪在每日上限重置之间受每日上限限制的数据量。 在此示例中，工作区的重置时间为 14:00。  需要为工作区更新此时间。
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
 
 ### <a name="alert-when-daily-cap-reached"></a>达到每日上限时发出警报
 
@@ -398,17 +412,16 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-对于 Azure 中托管的节点的数据，可以按 Azure 订阅获取引入的数据的大小，并将订阅 ID `_ResourceId` 属性作为以下内容获取：
+对于 Azure 中托管的节点的数据，可以按 Azure 订阅获取引入的数据的大小，请按如下所示来使用 `_SubscriptionId` 属性：
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
-| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
-同样，若要按资源组获取数据量，内容应为：
+若要按资源组获取数据量，可以分析 `_ResourceId`：
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -460,11 +473,12 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 
 | 高数据量来源 | 如何减少数据量 |
 | -------------------------- | ------------------------- |
+| 容器见解         | [配置容器见解](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost)，仅收集你需要的数据。 |
 | 安全性事件            | 选择[通用或最低安全性事件](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> 更改安全审核策略，只收集所需事件。 具体而言，请查看是否需要收集以下对象的事件： <br> - [审核筛选平台](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [审核注册表](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [审核文件系统](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [审核内核对象](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [审核句柄操作](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 审核可移动存储 |
 | 性能计数器       | 更改[性能计数器配置](data-sources-performance-counters.md)如下： <br> - 降低收集频率 <br> - 减少性能计数器数 |
 | 事件日志                 | 更改[事件日志配置](data-sources-windows-events.md)如下： <br> - 减少收集的事件日志数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”级别事件 |
 | Syslog                     | 更改 [syslog 配置](data-sources-syslog.md)如下： <br> - 减少收集的设施数 <br> - 仅收集必需的事件级别。 例如，不收集“信息”和“调试”级别事件  |
-| AzureDiagnostics           | 更改资源日志集合，以便： <br> - 减少向 Log Analytics 发送日志的资源数目 <br> - 仅收集必需的日志 |
+| AzureDiagnostics           | 更改[资源日志集合](./diagnostic-settings.md#create-in-azure-portal)，以便： <br> - 减少向 Log Analytics 发送日志的资源数目 <br> - 仅收集必需的日志 |
 | 不需解决方案的计算机中的解决方案数据 | 使用[解决方案目标](../insights/solution-targeting.md)，只从必需的计算机组收集数据。 |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>获取按节点定价层中的计费节点
@@ -609,7 +623,7 @@ union *
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>使用 Log Analytics 的数据传输费用
 
-向 Log Analytics 发送数据可能会产生数据带宽费用。 如 [Azure 带宽定价页](https://www.azure.cn/pricing/details/bandwidth/)中所述，位于两个区域内的 Azure 服务之间的数据传输按出站数据传输以正常费率计费。 入站数据传输是免费的。 但是，与 Log Analytics 数据引入的成本相比，这项费用微不足道（几个百分点）。 因此，控制 Log Analytics 的成本需要专注于[引入的数据量](#understanding-ingested-data-volume)。 
+向 Log Analytics 发送数据可能会产生数据带宽费用，但是这仅限于安装了 Log Analytics 代理的虚拟机，且在使用诊断设置时不适用。 如 [Azure 带宽定价页](https://www.azure.cn/pricing/details/bandwidth/)中所述，位于两个区域内的 Azure 服务之间的数据传输按出站数据传输以正常费率计费。 入站数据传输是免费的。 但是，与 Log Analytics 数据引入的成本相比，这项费用微不足道（几个百分点）。 因此，控制 Log Analytics 的成本需要专注于[引入的数据量](#understanding-ingested-data-volume)。 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>排查 Log Analytics 不再收集数据的原因

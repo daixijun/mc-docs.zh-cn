@@ -1,6 +1,6 @@
 ---
 title: 通过 Azure Active Directory 进行 OAUTH 2.0 身份验证
-description: 实现此身份验证模式的体系结构指南
+description: 有关如何实现使用 Azure Active Directory 进行 OAUTH 2.0 身份验证的体系结构指南。
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a3c4a73115c90cabda0733a4aa11399990d5b4
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 6ff1f0f4550c7c2aa945f0e47b88d85f9ef70792
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754776"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004066"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>通过 Azure Active Directory 进行 OAuth 2.0 身份验证
 
@@ -34,19 +34,18 @@ OAuth 2.0 直接与 OpenID Connect (OIDC) 相关。 由于 OIDC 是建立在 OAu
 
 ## <a name="components-of-system"></a>系统组件
 
-* **用户** ：从 Web 应用程序（应用）请求服务。 用户通常是拥有数据且有权允许客户端访问数据或资源的资源所有者。 
+* **用户**：从 Web 应用程序（应用）请求服务。 用户通常是拥有数据且有权允许客户端访问数据或资源的资源所有者。 
 
-* **Web 浏览器** ：用户与之交互的 Web 浏览器是 OAuth 客户端。 
+* **Web 浏览器**：用户与之交互的 Web 浏览器是 OAuth 客户端。 
 
-* **Web 应用** ：Web 应用或资源服务器是资源或数据所在的位置。 它信任授权服务器，以安全地对 OAuth 客户端进行验证和授权。 
+* **Web 应用**：Web 应用或资源服务器是资源或数据所在的位置。 它信任授权服务器，以安全地对 OAuth 客户端进行验证和授权。 
 
-* **Azure AD** ：Azure AD 是授权服务器，也称为标识提供者 (IdP)。 它安全地处理与用户信息、用户访问权限和信任关系相关的任何内容。 它负责颁发可授予和撤销对资源的访问权限的令牌。
+* **Azure AD**：Azure AD 是授权服务器，也称为标识提供者 (IdP)。 它安全地处理与用户信息、用户访问权限和信任关系相关的任何内容。 它负责颁发可授予和撤销对资源的访问权限的令牌。
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>通过 Azure AD 实现 OAuth 2.0
 
-* [Microsoft 标识平台上的 OAuth 2.0 和 OpenID Connect 协议](/active-directory/develop/active-directory-v2-protocols) 
+* [Microsoft 标识平台上的 OAuth 2.0 和 OpenID Connect 协议](../develop/active-directory-v2-protocols.md) 
 
-* [应用程序类型和 OAuth2](/active-directory/develop/v2-app-types) 
+* [应用程序类型和 OAuth2](../develop/v2-app-types.md) 
 
- 
 

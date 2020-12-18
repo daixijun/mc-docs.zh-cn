@@ -2,19 +2,20 @@
 title: 使用 Azure Cosmos DB 为地理空间数据编制索引
 description: 使用 Azure Cosmos DB 为空间数据编制索引
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 05/03/2020
+origin.date: 11/03/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 72d373b24e52050a4dbfebf9474019284d800597
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: bd0ab0629651135ee8a8f3fa95d46eaae1c6345a
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551822"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850725"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->
@@ -25,14 +26,12 @@ ms.locfileid: "94551822"
 
 简单来说，测地坐标的几何图形会投影在 2D 平面上，并使用 **四叉树** 以渐进方式划分成单元格。 这些单元格会根据 **Hilbert 空间填充曲线** 内的单元格位置映射到 1D，并保留点的位置。 此外，当位置数据进行索引编制后，会经历称为 **分割** 的过程，也就是说，在某个位置上相交的所有单元格都会被识别为键并存储在 Azure Cosmos DB 索引中。 在查询时，点和多边形等参数也会经过分割，以提取相关的格子 ID 范围，并用于从索引检索数据。
 
-如果指定的索引策略包含“/*”（所有路径）的空间索引，则会为容器中找到的所有数据编制索引，以实现高效的空间查询。
+如果指定的索引策略包含 `/*`（所有路径）的空间索引，则会为容器中找到的所有数据编制索引，以实现高效的空间查询。
 
 > [!NOTE]
-> Azure Cosmos DB 支持为 Point、LineString、Polygon 和 MultiPolygon 编制索引
->
->
+> Azure Cosmos DB 支持为 Point、LineString、Polygon 和 MultiPolygon 编制索引。 如果你为其中任一类型编制索引，我们将自动为其他所有类型编制索引。 换句话说，如果你为 Polygons 编制索引，则我们还将为 Point、Linestring 和 MultiPolygon 编制索引。 为新的空间类型编制索引不会影响写入 RU 费用或索引大小，除非你具有该类型的有效 GeoJSON 数据。
 
-## <a name="modifying-geospatial-data-type"></a>修改地理空间数据类型
+## <a name="modifying-geospatial-configuration"></a>修改地理空间配置
 
 在容器中，“地理空间配置”指定如何为空间数据编制索引。 为每个容器指定一个地理空间配置：“地理”或“几何”。
 

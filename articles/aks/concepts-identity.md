@@ -1,28 +1,28 @@
 ---
 title: 概念 - Azure Kubernetes 服务 (AKS) 中的访问和标识
-description: 了解 Azure Kubernetes 服务 (AKS) 中的访问和标识，包括 Azure Active Directory 集成、Kubernetes 基于角色的访问控制 (RBAC) 以及角色和绑定。
+description: 了解 Azure Kubernetes 服务 (AKS) 中的访问和标识，包括 Azure Active Directory 集成、Kubernetes 基于角色的访问控制 (Kubernetes RBAC) 以及角色和绑定。
 services: container-service
 ms.topic: conceptual
 origin.date: 07/07/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: db90a004bf613b45f6528af11044de00845ba6d7
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 295d10eee88442dc4060e41bd42f9bad95e4c107
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024415"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004041"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的访问和标识选项
 
-可通过不同的方式来对 Kubernetes 群集进行身份验证、控制访问权限/授权和实施保护。 使用 Kubernetes 基于角色的访问控制 (RBAC)，可以仅向用户、组和服务帐户授予对所需资源的访问权限。 借助 Azure Kubernetes 服务 (AKS)，可以通过使用 Azure Active Directory 和 Azure RBAC 进一步增强安全性和权限结构。 这些方法有助于保护群集访问，并仅向开发者和操作员提供所需的最低权限。
+可通过不同的方式来对 Kubernetes 群集进行身份验证、控制访问权限/授权和实施保护。 使用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)，可以仅向用户、组和服务帐户授予对所需资源的访问权限。 借助 Azure Kubernetes 服务 (AKS)，可以通过使用 Azure Active Directory 和 Azure RBAC 进一步增强安全性和权限结构。 这些方法有助于保护群集访问，并仅向开发者和操作员提供所需的最低权限。
 
 本文介绍了可帮助在 AKS 中进行身份验证和分配权限的核心概念：
 
-- [Kubernetes 基于角色的访问控制 (RBAC)](#kubernetes-role-based-access-control-rbac)
+- [Kubernetes 基于角色的访问控制 (Kubernetes RBAC)](#kubernetes-role-based-access-control-kubernetes-rbac)
     - [角色和 ClusterRole](#roles-and-clusterroles)
     - [RoleBinding 和 ClusterRoleBinding](#rolebindings-and-clusterrolebindings) 
     - [Kubernetes 服务帐户](#kubernetes-service-accounts)
@@ -32,12 +32,12 @@ ms.locfileid: "96024415"
     
     <!--Not Available on - [Azure RBAC for Kubernetes Authorization (Preview)](#azure-rbac-for-kubernetes-authorization-preview)-->
     
-<a name="kubernetes-role-based-access-controls-rbac"></a>
-## <a name="kubernetes-role-based-access-control-rbac"></a><a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes 基于角色的访问控制 (RBAC)
+<a name="kubernetes-role-based-access-controls-kubernetes-rbac"></a>
+## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a><a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes 基于角色的访问控制 (Kubernetes RBAC)
 
-为了精确地筛选用户可执行的操作，Kubernetes 采用基于角色的访问控制 (RBAC)。 使用此控制机制，可以向用户或用户组分配执行各种操作的权限，例如创建或修改资源，或者查看正在运行的应用程序工作负载的日志。 可将这些权限的范围限制为单个命名空间，也可以授予面向整个 AKS 群集的权限。 使用 Kubernetes RBAC，可通过创建“角色”来定义权限，然后通过“角色绑定”将这些角色分配给用户 。
+为了精确地筛选用户可执行的操作，Kubernetes 采用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)。 使用此控制机制，可以向用户或用户组分配执行各种操作的权限，例如创建或修改资源，或者查看正在运行的应用程序工作负载的日志。 可将这些权限的范围限制为单个命名空间，也可以授予面向整个 AKS 群集的权限。 使用 Kubernetes RBAC，可通过创建“角色”来定义权限，然后通过“角色绑定”将这些角色分配给用户 。
 
-有关详细信息，请参阅[使用 RBAC 授权][kubernetes-rbac]。
+有关详细信息，请参阅[使用 Kubernetes RBAC 授权][kubernetes-rbac]。
 
 ### <a name="roles-and-clusterroles"></a>角色和 ClusterRole
 
@@ -49,7 +49,7 @@ ClusterRole 的工作原理与授予对资源的权限相同，但前者可应�
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBinding 和 ClusterRoleBinding
 
-定义了角色来授予针对资源的权限后，可通过 RoleBinding 来分配这些 Kubernetes RBAC 权限。 若 AKS 群集[与 Azure Active Directory 集成](#azure-active-directory-integration)，向 Azure AD 用户授予在群集中执行操作的权限的过程就称为“绑定”，请参阅如何[使用基于角色的访问控制和 Azure Active Directory 标识来控制对群集资源的访问](azure-ad-rbac.md)。
+定义了角色来授予针对资源的权限后，可通过 RoleBinding 来分配这些 Kubernetes RBAC 权限。 若 AKS 群集[与 Azure Active Directory 集成](#azure-active-directory-integration)，向 Azure AD 用户授予在群集中执行操作的权限的过程就称为“绑定”，请参阅如何[使用 Kubernetes 基于角色的访问控制和 Azure Active Directory 标识来控制对群集资源的访问](azure-ad-rbac.md)。
 
 角色绑定用于针对给定命名空间分配角色。 此方法可以从逻辑上分离各 AKS 群集，使用户只能访问向其分配的命名空间中的应用程序资源。 若需要针对整个群集或给定命名空间外的群集资源来绑定角色，可以改用“ClusterRoleBinding”。
 
@@ -94,7 +94,7 @@ Kubernetes 中的一个主要用户类型是“服务帐户”。 服务帐户�
 10. 授权后，API 服务器会将响应返回到 kubectl。
 11. Kubectl 向用户提供反馈。
 
-<!--Not Available on [here](managed-aad.md)-->
+[在此处](managed-aad.md)了解如何将 AKS 与 AAD 集成。
 
 ## <a name="azure-role-based-access-control-azure-rbac"></a>Azure 基于角色的访问控制 (Azure RBAC)
 
@@ -108,7 +108,7 @@ Azure RBAC 是在 [Azure 资源管理器](../azure-resource-manager/management/o
 
 完全操作 AKS 群集需要两个级别的访问权限： 
 1. [访问 Azure 订阅中的 AKS 资源](#azure-rbac-to-authorize-access-to-the-aks-resource)。 借助此过程，可以使用 AKS API 来控制群集缩放或升级，还可以拉取 kubeconfig。
-2. 访问 Kubernetes API。 此访问权限由 [Kubernetes RBAC](#kubernetes-role-based-access-control-rbac) 控制（传统上）。
+2. 访问 Kubernetes API。 此访问权限由 [Kubernetes RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) 控制（传统上）。
 
     <!--Note Available on [integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)-->
 
@@ -163,15 +163,7 @@ AKS 提供以下四个内置角色。 它们类似于 [Kubernetes 内置角色](
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-
-<!--CORRECT ON azure-ad-integration-cli.md-->
-<!--Not Available on  managed-aad.md on MOONCAKE-->
-
-[aks-aad]: azure-ad-integration-cli.md
-
-<!--Not Available on  managed-aad.md on MOONCAKE-->
-<!--CORRECT ON azure-ad-integration-cli.md -->
-
+[aks-aad]: managed-aad.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

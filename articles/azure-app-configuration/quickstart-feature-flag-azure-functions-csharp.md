@@ -6,14 +6,14 @@ author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 8/26/2020
+ms.date: 12/14/2020
 ms.author: alkemper
-ms.openlocfilehash: dda8e73e69ba15d76f93e28d046e18b0742da5a1
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: c52128ee6d68e4b5537bad53f4d5a07fdeeba080
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437405"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104932"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>快速入门：向 Azure Functions 应用添加功能标志
 
@@ -21,9 +21,9 @@ ms.locfileid: "96437405"
 
 .NET 功能管理库使用功能标志支持扩展该框架。 这些库在 .NET 配置系统的基础上构建。 它们通过其 .NET 配置提供程序与应用程序配置集成。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)
 - 包含 **Azure 开发** 工作负载的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
 - [Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
@@ -31,14 +31,14 @@ ms.locfileid: "96437405"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。 
+7. 选择“功能管理器” > “+添加”以添加名为 `Beta` 的功能标志。  
 
     > [!div class="mx-imgBorder"]
     > ![启用名为 Beta 的功能标志](media/add-beta-feature-flag.png)
 
     暂时不定义 `label` 和 `Description`。
 
-8. 选择“应用”以保存新功能标志。
+8. 选择“应用”  以保存新功能标志。
 
 ## <a name="create-a-functions-app"></a>创建 Functions 应用
 
@@ -46,7 +46,7 @@ ms.locfileid: "96437405"
 
 ## <a name="connect-to-an-app-configuration-store"></a>连接到应用程序配置存储区
 
-1. 右键单击项目，然后选择“管理 NuGet 包”。 在“浏览”选项卡中，搜索以下 NuGet 包并将其添加到项目中。 查看 `Microsoft.Extensions.DependencyInjection`，验证你是否在使用最新的稳定版本。 
+1. 右键单击项目，然后选择“管理 NuGet 包”  。 在“浏览”选项卡中，搜索以下 NuGet 包并将其添加到项目中  。 查看 `Microsoft.Extensions.DependencyInjection`，验证你是否在使用最新的稳定版本。 
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -129,17 +129,17 @@ ms.locfileid: "96437405"
 
     ![在 VS 中的函数调试快速入门](./media/quickstarts/function-visual-studio-debugging.png)
 
-1. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏中。 下图显示了指出功能标志 `Beta` 已被禁用的响应。 
+1. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏。 下图显示了指出功能标志 `Beta` 已被禁用的响应。 
 
     ![已禁用快速入门函数功能标志](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 选择“所有资源”，然后选择你创建的应用程序配置存储区实例。
+1. 登录 [Azure 门户](https://portal.azure.cn)。 选择“所有资源”，然后选择你创建的应用程序配置存储区实例。
 
-1. 选择“功能管理器”，将“Beta”密钥的状态更改为“启用”。  
+1. 选择“功能管理器”，将“Beta”密钥的状态更改为“启用”。   
 
 1. 回到命令提示符，按 `Ctrl-C` 取消正在运行的进程。  按 F5 重启应用程序。 
 
-1. 按照步骤 3 中相同的流程，从 Azure Functions 运行时输出复制函数的 URL。 将 HTTP 请求的 URL 粘贴到浏览器的地址栏中。 浏览器响应应该已更改，它现指示功能标志 `Beta` 已打开，如下图所示。
+1. 按照步骤 3 中相同的流程，从 Azure Functions 运行时输出复制函数的 URL。 将 HTTP 请求的 URL 粘贴到浏览器的地址栏。 浏览器响应应该已更改，它现指示功能标志 `Beta` 已打开，如下图所示。
  
     ![已启用快速入门函数功能标志](./media/quickstarts/functions-launch-ff-enabled.png)
 

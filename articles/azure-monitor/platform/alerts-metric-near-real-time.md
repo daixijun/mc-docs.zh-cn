@@ -6,14 +6,14 @@ ms.author: v-johya
 services: monitoring
 ms.topic: conceptual
 origin.date: 3/5/2020
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 ms.subservice: alerts
-ms.openlocfilehash: cd0ba99061aa52d98c92fca2d26ecc7378c4e520
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9da570e4e0dcaf227373418180b59f2c6f1c13c6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328456"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104525"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 

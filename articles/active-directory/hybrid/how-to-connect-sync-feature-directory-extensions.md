@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 12/07/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59d5feb2129454db302861fa75b6b470e1abac1f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c46d4c50c33f385f75a7d268a10aed0682aa18b4
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245240"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004123"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
 通过目录扩展，可以使用本地 Active Directory 中的属性扩展 Azure AD 中的架构。 此功能允许使用继续在本地管理的属性来构建 LOB 应用。 可通过[扩展](https://docs.microsoft.com/graph/extensibility-overview)使用这些属性。 
@@ -70,9 +70,11 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 >
 > 有关详细信息，请参阅 [Microsoft Graph: Use query parameters](https://docs.microsoft.com/graph/query-parameters#select-parameter)（Microsoft Graph：使用查询参数）。
 
+>[!NOTE]
+> 不支持将属性值从 AADConnect 同步到不是由 AADConnect 创建的扩展属性。 这样做可能会产生性能问题和意外结果。 仅支持同步如上所示创建的扩展属性。
+
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。
 
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: wording update -->

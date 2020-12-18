@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 63c015409057d8f76e48874e80baf363141ae152
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d0dabbaad9651ed9695765e1cf2b946d3d14a671
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978254"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105270"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure 机器学习的强化学习（预览版）
 
@@ -52,7 +52,7 @@ ms.locfileid: "94978254"
     - 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
     - 安装 [Azure 机器学习 RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)：`pip install --upgrade azureml-contrib-reinforcementlearning`
     - 创建[工作区配置文件](how-to-configure-environment.md#workspace)。
-    - 运行虚拟网络[设置笔记本](https://aka.ms/azure-rl-env-setup)，打开用于分布式强化学习的网络端口。
+    - 运行虚拟网络，打开用于分布式强化学习的网络端口。
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>如何训练 Pong 游戏代理
@@ -117,7 +117,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="specify-a-virtual-network"></a>指定虚拟网络
 
-对于使用多个计算目标的 RL 作业，必须指定一个虚拟网络，其中带有开放端口，这些端口使工作器节点和头节点可以相互通信。 虚拟网络可以位于任意资源组中，但应该与工作区位于同一区域。 有关设置虚拟网络的详细信息，请参阅可在“先决条件”部分中找到的[工作区设置笔记本](https://aka.ms/azure-rl-env-setup)。 在这里，请指定资源组中的虚拟网络的名称。
+对于使用多个计算目标的 RL 作业，必须指定一个虚拟网络，其中带有开放端口，这些端口使工作器节点和头节点可以相互通信。 虚拟网络可以位于任意资源组中，但应该与工作区位于同一区域。 有关设置虚拟网络的详细信息，请参阅可在“先决条件”部分中找到的工作区设置笔记本。 在这里，请指定资源组中的虚拟网络的名称。
 
 ```python
 vnet = 'your_vnet'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>创建强化学习估算器
 
-本部分介绍如何使用 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) 将训练作业提交到 Azure 机器学习。
+本部分介绍如何使用 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) 将训练作业提交到 Azure 机器学习。
 
 Azure 机器学习使用估算器类来封装运行配置信息。 这样，你便可以轻松指定如何配置脚本执行。 
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 18a6688ce51ed721174d00bb4705bacb68a6ab20
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 46703f40e10d073fe73377dbddf3c35cc5985375
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162794"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104362"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>什么是 Azure 防火墙管理器体系结构选项？
 
@@ -44,6 +44,7 @@ Azure 防火墙管理器可为两种网络体系结构类型提供安全管理�
 |**多个安全提供程序支持**|支持手动配置到第三方防火墙的强制隧道|自动支持两个安全提供程序：用于专用流量筛选的 Azure 防火墙和用于 Internet 筛选的第三方|
 |**应用程序网关上的 Web 应用程序防火墙** |在虚拟网络中受支持|目前在分支网络中受支持|
 |**网络虚拟设备**|在虚拟网络中受支持|目前在分支网络中受支持|
+|**Azure DDoS 防护标准支持**|是|否|
 
 ## <a name="next-steps"></a>后续步骤
 

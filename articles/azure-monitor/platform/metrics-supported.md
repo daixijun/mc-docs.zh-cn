@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 ms.topic: reference
 origin.date: 12/18/2019
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.subservice: metrics
-ms.openlocfilehash: cfce6ab8f3e2bfa636042f8b25624a20f4ed3272
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 7aea23e70f2311884e153c274453313fe88a6878
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457301"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104441"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 
@@ -953,10 +953,10 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |d2c.endpoints.latency.serviceBusQueues|是|路由：服务总线队列的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入服务总线队列终结点之间的平均延迟（毫秒）|无维度|
 |d2c.endpoints.latency.serviceBusTopics|是|路由：服务总线主题的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入服务总线主题终结点之间的平均延迟（毫秒）|无维度|
 |d2c.endpoints.latency.storage|是|路由：存储的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入存储终结点之间的平均延迟（毫秒）。|无维度|
-|d2c.telemetry.egress.dropped|是|路由：遥测消息删除次数 |计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无维度|
+|d2c.telemetry.egress.dropped|是|路由：遥测消息删除次数 |计数|总计|由于终结点消亡，IoT 中心路由删除消息的次数。 此值不会统计已传送到回退路由的消息，因为已删除的消息不会传送到回退路由。|无维度|
 |d2c.telemetry.egress.fallback|是|路由：消息传送到回退路由的次数|计数|总计|IoT 中心路由将消息传送到与回退路由关联的终结点的次数。|无维度|
 |d2c.telemetry.egress.invalid|是|路由：遥测消息不兼容|计数|总计|消息由于与终结点不兼容而无法由 IoT 中心路由传送的次数。 此值不包括重试次数。|无维度|
-|d2c.telemetry.egress.orphaned|是|路由：遥测消息孤立次数 |计数|总计|消息由于与任何路由规则（包括回退规则）都不匹配而被 IoT 中心路由孤立的次数。 |无维度|
+|d2c.telemetry.egress.orphaned|是|路由：遥测消息孤立次数 |计数|总计|消息由于与任何路由规则（包括回退规则）都不匹配而被 IoT 中心路由孤立的次数。 |无维度|
 |d2c.telemetry.egress.success|是|路由：遥测消息传送次数|计数|总计|使用 IoT 中心路由将消息成功传送到所有终结点的次数。 如果某条消息已路由到多个终结点，则每成功传送一次，此值就会加 1。 如果某条消息多次路由到同一终结点，则每成功传送一次，此值就会加 1。|无维度|
 |d2c.telemetry.ingress.allProtocol|是|遥测消息发送尝试次数|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|无维度|
 |d2c.telemetry.ingress.sendThrottle|是|限制错误数|计数|总计|由于设备吞吐量限制而导致的限制错误数|无维度|
@@ -1440,7 +1440,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |已启动的运行数|是|已启动的运行数|计数|总计|为此工作区运行的运行数。 运行在所需资源上开始运行时，将更新计数。|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |启动运行数|是|启动运行数|计数|总计|为此工作区启动的运行数。 在请求创建运行和运行信息（如运行 ID）已填充后，将更新计数|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |核心总数|是|核心总数|计数|平均值|核心总数|Scenario, ClusterName|
-|节点总数|是|节点总数|计数|平均值|节点总数。 此总数包括一些活动节点、空闲节点、不可用的节点、占用的节点和正在退出的节点|Scenario, ClusterName|
+|节点总数|是|节点总数|计数|平均值|节点总数。 此总数包括一些活动节点、空闲节点、不可用节点、已占用节点和正在退出的节点|Scenario, ClusterName|
 |不可用的核心数|是|不可用的核心数|计数|平均值|不可用的核心数|Scenario, ClusterName|
 |不可用的节点数|是|不可用的节点数|计数|平均值|不可用的节点数。 不可用的节点是由于存在某种不可解决的问题而无法正常运行的节点。 Azure 将回收这些节点。|Scenario, ClusterName|
 |警告|是|警告|计数|总计|此工作区中的运行警告数。 运行遇到警告时，将更新计数。|方案|
@@ -2254,13 +2254,13 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|否|自适应缓存命中百分比|百分比|最大值|度量工作负荷使用自适应缓存的效果。 将此指标与缓存命中百分比指标一起使用，以确定是要扩展以增加容量还是重新运行工作负荷以生成缓存|无维度|
 |AdaptiveCacheUsedPercent|否|自适应缓存使用百分比|百分比|最大值|度量工作负荷使用自适应缓存的效果。 将此指标与缓存已用百分比指标一起使用，以确定是要扩展以增加容量还是重新运行工作负荷以生成缓存|无维度|
-|连接|是|连接|计数|总计|SQL 池的总登录数|结果|
-|ConnectionsBlockedByFirewall|否|防火墙阻止的连接数|计数|总计|防火墙规则阻止的连接计数。 重新访问 SQL 池的访问控制策略，并在计数较高时监视这些连接|无维度|
-|DWULimit|否|DWU 限制|计数|最大值|SQL 池的服务级别目标|无维度|
-|DWUUsed|否|已用的 DWU|计数|最大值|整个 SQL 池中使用情况的高级表示形式。 按“DWU 限制”*“DWU 百分比”来度量|无维度|
-|DWUUsedPercent|否|DWU 使用百分比|百分比|最大值|整个 SQL 池中使用情况的高级表示形式。 通过选择 CPU 百分比与数据 IO 百分比这二者中的最大值来度量|无维度|
+|连接|是|连接|计数|总计|专用 SQL 池的登录总计数|结果|
+|ConnectionsBlockedByFirewall|否|防火墙阻止的连接数|计数|总计|防火墙规则阻止的连接计数。 重新访问专用 SQL 池的访问控制策略，并在计数较高时监视这些连接|无维度|
+|DWULimit|否|DWU 限制|计数|最大值|专用 SQL 池的服务级别目标|无维度|
+|DWUUsed|否|已用的 DWU|计数|最大值|整个专用 SQL 池中使用情况的高级表示形式。 按“DWU 限制”*“DWU 百分比”来度量|无维度|
+|DWUUsedPercent|否|DWU 使用百分比|百分比|最大值|整个专用 SQL 池中使用情况的高级表示形式。 通过选择 CPU 百分比与数据 IO 百分比这二者中的最大值来度量|无维度|
 |LocalTempDBUsedPercent|否|本地 tempdb 已用百分比|百分比|最大值|所有计算节点上的本地 tempdb 利用率 - 每五分钟发出一次值|无维度|
-|MemoryUsedPercent|否|已用内存百分比|百分比|最大值|SQL 池中所有节点的内存使用率|无维度|
+|MemoryUsedPercent|否|已用内存百分比|百分比|最大值|专用 SQL 池中所有节点的内存使用率|无维度|
 |wlg_effective_min_resource_percent|是|有效最小资源百分比|百分比|最小值|在考虑了服务级别和工作负荷组设置的情况下，允许的有效最小资源百分比设置。 在较低的服务级别可将有效 min_percentage_resource 调整为更高|IsUserDefined, WorkloadGroup|
 |WLGActiveQueries|否|工作负荷组活动查询|计数|总计|工作负荷组中的活动查询。 如果使用此指标时不进行筛选和拆分，会显示系统上运行的所有活动查询|IsUserDefined, WorkloadGroup|
 |WLGActiveQueriesTimeouts|否|工作负荷组查询超时|计数|总计|已超时的工作负荷组查询。只有在查询开始执行查询后，此指标才报告查询超时（不包括由于锁定或资源等待而导致的等待时间）|IsUserDefined, WorkloadGroup|
@@ -2392,7 +2392,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites（不包括 Functions） 
 
 > [!NOTE]
-> **文件系统使用情况**是一个向全球推出的新指标，除非我们已将你加入专用预览版的允许列表，否则你不会获得数据。
+> **文件系统使用情况** 是一个向全球推出的新指标，除非我们已将你加入专用预览版的允许列表，否则你不会获得数据。
 
 > [!IMPORTANT]
 > “平均响应时间”将弃用，以避免与指标聚合混淆。 使用“响应时间”作为替代。
@@ -2439,7 +2439,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
 
 > [!NOTE]
-> **文件系统使用情况**是一个向全球推出的新指标，除非我们已将你加入专用预览版的允许列表，否则你不会获得数据。
+> **文件系统使用情况** 是一个向全球推出的新指标，除非我们已将你加入专用预览版的允许列表，否则你不会获得数据。
 
 |指标|是否可通过诊断设置导出？|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|---|

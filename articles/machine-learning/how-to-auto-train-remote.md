@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/04/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: 50b85c866fdd08015feccf913c1bfe059ae210b9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 999eddb3f977dbf263272aab5924d7339e7cc5f9
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978191"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105329"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>在云中使用自动化机器学习对模型进行训练
 
@@ -220,7 +220,7 @@ RunDetails(remote_run).show()
 remote_run.get_portal_url()
 ```
 
-工作区中提供了相同的信息。  若要了解有关这些结果的详细信息，请参阅[了解自动化机器学习结果](how-to-understand-automated-ml.md)。
+工作区中提供了相同的信息。  要详细了解这些结果，请参阅[自动化机器学习结果](how-to-understand-automated-ml.md)。
 
 ## <a name="example"></a>示例
 

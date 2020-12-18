@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 origin.date: 09/29/2020
-ms.date: 11/27/2020
+ms.date: 12/11/2020
 ms.author: v-tawe
-ms.openlocfilehash: a8330eebfcafc5b9714cab3ce07999bcc48dcb8b
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 961d8a897e44a11f6cc154dad41d9cf5ded1dc41
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300998"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104414"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Azure Key Vault 的常见错误代码
 
@@ -31,6 +31,7 @@ Azure 密钥保管库上的操作可能返回下表中列出的错误代码
 | RegionNotSupported |  此资源不支持指定的 azure 区域。 |
 | SkuNotSupported |  此资源不支持指定的 SKU 类型。 |
 | ResourceNotFound |  未找到指定的 azure 资源。 |
+| ResourceGroupNotFound | 未找到指定的 azure 资源组。 |
 | CertificateExpired |  检查证书的到期日期和有效期。 |
 
 

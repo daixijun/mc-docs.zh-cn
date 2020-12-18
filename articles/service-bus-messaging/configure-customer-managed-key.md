@@ -4,16 +4,16 @@ description: 本文介绍了如何配置自己的密钥以用于加密 Azure 服
 ms.topic: conceptual
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 582e5a7f2c0e041dabdfc220cb415c0bc573f02b
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 245042b0e5d2b7e71d4c816fd7600efffc8af0fd
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128031"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104293"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 门户配置客户管理的密钥以用于加密 Azure 服务总线静态数据
 Azure 服务总线高级层提供了通过 Azure 存储服务加密 (Azure SSE) 对静态数据进行加密的功能。 服务总线高级层依赖于 Azure 存储来存储数据，默认情况下，通过 Azure 存储来存储的所有数据都是使用 Azure 管理的密钥进行加密的。 
@@ -30,7 +30,7 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 
 可以使用 Azure Key Vault 管理密钥并审核密钥使用情况。 可以创建自己的密钥并将其存储在 Key Vault 中，或者使用 Azure Key Vault API 来生成密钥。 有关 Azure 密钥保管库的详细信息，请参阅[什么是 Azure 密钥保管库？](../key-vault/general/overview.md)
 
-本文介绍了如何使用 Azure 门户配置包含客户管理的密钥的密钥保管库。 若要了解如何使用 Azure 门户创建 Key Vault，请参阅[快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密](../key-vault/secrets/quick-create-portal.md)。
+本文介绍了如何使用 Azure 门户配置包含客户管理的密钥的密钥保管库。 若要了解如何使用 Azure 门户创建 Key Vault，请参阅[快速入门：使用 Azure 门户创建 Azure Key Vault](../key-vault/general/quick-create-portal.md)。
 
 > [!IMPORTANT]
 > 为 Azure 服务总线使用客户管理的密钥需要为密钥保管库配置两个必需的属性。 它们具有以下特点：“软删除”和“不清除”。 在 Azure 门户中创建新的 Key Vault 时，默认会启用这些属性。 但是，如果需要针对现有的 Key Vault 启用这些属性，必须使用 PowerShell 或 Azure CLI。
@@ -62,15 +62,15 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 1. 遵循以下步骤创建密钥：
     1. 若要创建新密钥，请从“设置”  下的“密钥”  菜单中选择“生成/导入”  。
 
-        :::image type="content" source="./media/configure-customer-managed-key/select-generate-import.png" alt-text="启用客户管理的密钥":::
+        :::image type="content" source="./media/configure-customer-managed-key/select-generate-import.png" alt-text="选择“生成/导入”按钮":::
 
     1. 将“选项”  设置为“生成”  并提供密钥名称。
 
-        :::image type="content" source="./media/configure-customer-managed-key/create-key.png" alt-text="启用客户管理的密钥"::: 
+        :::image type="content" source="./media/configure-customer-managed-key/create-key.png" alt-text="创建密钥"::: 
 
     1. 现在，可以从下拉列表中选择要与服务总线命名空间关联的用于加密的密钥。 
 
-        :::image type="content" source="./media/configure-customer-managed-key/select-key-from-key-vault.png" alt-text="启用客户管理的密钥":::
+        :::image type="content" source="./media/configure-customer-managed-key/select-key-from-key-vault.png" alt-text="从密钥保管库中选择密钥":::
         > [!NOTE]
         > 最多可以添加 3 个密钥来实现冗余。 如果某个密钥已过期或不可访问，则会使用其他密钥进行加密。
 
@@ -104,10 +104,10 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 撤销加密密钥后，已加密的命名空间中的服务总线服务将无法正常运行。 如果启用了对密钥的访问或者还原了已删除的密钥，则服务总线服务将选取密钥，使你能够从已加密的服务总线命名空间访问数据。
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>使用资源管理器模板启用加密
-本部分介绍了如何使用 **Azure 资源管理器模板**执行以下任务。 
+本部分介绍了如何使用 **Azure 资源管理器模板** 执行以下任务。 
 
-1. 创建具有**托管服务标识**的**高级**服务总线命名空间。
-2. 创建**密钥保管库**并向服务标识授予对密钥保管库的访问权限。 
+1. 创建具有 **托管服务标识** 的 **高级** 服务总线命名空间。
+2. 创建 **密钥保管库** 并向服务标识授予对密钥保管库的访问权限。 
 3. 使用密钥保管库信息（密钥/值）更新服务总线命名空间。 
 
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>创建具有托管服务标识的高级服务总线命名空间
@@ -192,7 +192,7 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 
 ### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>向服务总线命名空间标识授予对密钥保管库的访问权限
 
-1. 运行以下命令，以便在启用**清除保护**和**软删除**的情况下创建密钥保管库。 
+1. 运行以下命令，以便在启用 **清除保护** 和 **软删除** 的情况下创建密钥保管库。 
 
     ```powershell
     New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
@@ -200,7 +200,7 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 
     （或者）
 
-    运行以下命令来更新**现有的密钥保管库**。 在运行该命令之前，请指定资源组和密钥保管库名称的值。 
+    运行以下命令来更新 **现有的密钥保管库**。 在运行该命令之前，请指定资源组和密钥保管库名称的值。 
 
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force

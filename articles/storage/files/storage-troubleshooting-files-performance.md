@@ -4,16 +4,16 @@ description: 排查 Azure 文件共享的已知性能问题。 遇到这些问�
 author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
-origin.date: 09/15/2020
-ms.date: 11/30/2020
+origin.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: fe17633073b91e4bd712276aabc30ba98ee0ff58
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: f607b930f1198565e9b953b9b45fe13ac859fdf1
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152937"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850787"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>排查 Azure 文件共享性能问题
 
@@ -84,7 +84,7 @@ ms.locfileid: "96152937"
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>客户端无法实现网络支持的最大吞吐量
 
 ### <a name="cause"></a>原因
-可能原因之一是缺少 SMB 多通道支持。 目前，Azure 文件存储仅支持单个通道，因此从客户端 VM 到服务器只有一个连接。 此单一连接限定为客户端 VM 上的单一核心，因此，可从 VM 实现的最大吞吐量受限于单个核心。
+一个可能原因是缺少用于标准文件共享的 SMB 多通道支持。 目前，Azure 文件存储仅支持单个通道，因此从客户端 VM 到服务器只有一个连接。 此单一连接限定为客户端 VM 上的单一核心，因此，可从 VM 实现的最大吞吐量受限于单个核心。
 
 ### <a name="workaround"></a>解决方法
 

@@ -6,17 +6,17 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 08/07/2020
-ms.date: 08/31/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: de28581ea5e749bbb23af63e846f5ccf95bada07
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 92b151c8fb8aae76a48d7b966ca5106050676fb6
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026564"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105069"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 不需出站连接
-[Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](/load-balancer/skus#skus)。
+[Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](./skus.md#skus)。
 
 本文介绍了一个 PowerShell 脚本，该脚本会创建一个其配置与基本负载均衡器相同的标准负载均衡器，并会将流量从基本负载均衡器迁移到标准负载均衡器。
 
@@ -24,14 +24,14 @@ ms.locfileid: "91026564"
 
 我们提供了一个用于执行以下操作的 Azure PowerShell 脚本：
 
-* 在指定的位置中创建标准内部 SKU 负载均衡器。 请注意，标准内部负载均衡器不会提供任何[出站连接](/load-balancer/load-balancer-outbound-connections)。
+* 在指定的位置中创建标准内部 SKU 负载均衡器。 请注意，标准内部负载均衡器不会提供任何[出站连接](./load-balancer-outbound-connections.md)。
 * 将基本 SKU 负载均衡器的配置无缝复制到新建的标准负载均衡器。
 * 将专用 IP 从基本负载均衡器无缝移到新建的标准负载均衡器。
 * 将 VM 从基本负载均衡器的后端池无缝移到标准负载均衡器的后端池
 
 ### <a name="caveatslimitations"></a>注意事项/限制
 
-* 脚本只支持不需要出站连接的内部负载均衡器升级。 如果需要用于某些 VM 的[出站连接](/load-balancer/load-balancer-outbound-connections)，请参阅此[页面](upgrade-InternalBasic-To-PublicStandard.md)，了解相关说明。 
+* 脚本只支持不需要出站连接的内部负载均衡器升级。 如果需要用于某些 VM 的[出站连接](./load-balancer-outbound-connections.md)，请参阅此[页面](upgrade-InternalBasic-To-PublicStandard.md)，了解相关说明。 
 * 基本负载均衡器需要与后端 VM 和 NIC 位于同一资源组中。
 * 如果标准负载均衡器是在不同的区域中创建的，则无法将旧区域中的 VM 关联到新建的标准负载均衡器。 若要克服此限制，请确保在新区域中创建新的 VM。
 * 如果负载均衡器没有任何前端 IP 配置或后端池，则运行脚本时可能会遇到错误。 确保负载均衡器不是空的。
@@ -45,7 +45,6 @@ ms.locfileid: "91026564"
 3. 对于“分配”，请选择“静态”
 
 4. 对于基本负载均衡器的所有前端 IP 配置，请重复执行步骤 3。
-
 
 ## <a name="download-the-script"></a>下载脚本
 
@@ -62,7 +61,7 @@ ms.locfileid: "91026564"
 ### <a name="install-using-the-install-script-method"></a>使用 Install-Script 方法安装
 
 只有尚未在计算机上安装 Azure Az 模块时才能使用此选项。 如果已安装，则以下命令将显示错误。 可以卸载 Azure Az 模块，或者另一个选项手动下载并运行该脚本。
-  
+
 使用以下命令运行该脚本：
 
 `Install-Script -Name AzureILBUpgrade`
@@ -81,10 +80,10 @@ ms.locfileid: "91026564"
 
 1. 检查所需的参数：
 
-   * **rgName: [字符串]:必需** – 这是现有基本负载均衡器和新的标准负载均衡器的资源组。 若要查找此字符串值，请导航到 Azure 门户，选择你的基本负载均衡器源，然后单击该负载均衡器的“概览”。 资源组位于该页上。
-   * **oldLBName: [String]:必需** – 这是要升级的现有基本负载均衡器的名称。 
-   * **newlocation: [String]:必需** – 这是要在其中创建标准负载均衡器的位置。 建议将所选基本负载均衡器的相同位置继承到标准负载均衡器，以方便与其他现有资源相关联。
-   * **newLBName: [String]:必需** – 这是要创建的标准负载均衡器的名称。
+   * **rgName: [字符串]:必需** - 这是现有基本负载均衡器和新的标准负载均衡器的资源组。 若要查找此字符串值，请导航到 Azure 门户，选择你的基本负载均衡器源，然后单击该负载均衡器的“概览”。 资源组位于该页上。
+   * **oldLBName: [String]:必需** - 这是要升级的现有基本负载均衡器的名称。 
+   * **newlocation: [String]:必需** - 这是要在其中创建标准负载均衡器的位置。 建议将所选基本负载均衡器的相同位置继承到标准负载均衡器，以方便与其他现有资源相关联。
+   * **newLBName: [String]:必需** - 这是要创建的标准负载均衡器的名称。
 1. 使用相应的参数运行脚本。 完成该脚本可能需要 5 到 7 分钟时间。
 
     **示例**
@@ -104,7 +103,7 @@ ms.locfileid: "91026564"
 是的，它会迁移流量。 如果想要亲自迁移流量，请使用[此脚本](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0)（它不会为你移动虚拟机）。
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>使用此脚本时我遇到了一些问题。 如何求助？
-  
+
 可以向 slbupgradesupport@microsoft.com 发送电子邮件、向 Azure 支持部门提交支持案例，或同时采取这两种措施。
 
 ## <a name="next-steps"></a>后续步骤

@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: af6d0f284b40f8c034847d9c1cee388bcc6a278b
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 71ee35f863ec77866757fcec6f4a7144454afe32
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749988"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003686"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的应用程序对象和服务主体对象
 
 本文介绍 Azure Active Directory 中的应用程序注册、应用程序对象和服务主体：它们是什么、它们的使用方式以及它们彼此之间的关系。 还展示了多租户示例方案，用于说明应用程序的应用程序对象和对应的服务主体对象之间的关系。
 
 ## <a name="application-registration"></a>应用程序注册
-为了将标识和访问管理功能委托给 Azure AD，应用程序必须使用 Azure AD [租户](developer-glossary.md#tenant)进行注册。 将应用程序注册到 Azure AD 时，需要创建应用程序的标识配置，使其能够与 Azure AD 集成。 在 [Azure 门户][AZURE-Portal]中注册应用时，可以选择单租户（只能在自己的租户中访问）或多租户（可在其他租户中访问），也可以选择设置重定向 URI （将访问令牌发送到的位置）。
+为了将标识和访问管理功能委托给 Azure AD，应用程序必须使用 Azure AD [租户](developer-glossary.md#tenant)进行注册。 将应用程序注册到 Azure AD 时，需要创建应用程序的标识配置，使其能够与 Azure AD 集成。 在 [Azure 门户][AZURE-Portal]中注册应用时，可以选择单租户（只能在自己的租户中访问）或多租户（可在其他租户中访问），也可以选择设置重定向 URI（将访问令牌发送到的位置）。
 
 :::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Azure 门户的“注册应用程序”窗格的屏幕截图":::
 
@@ -61,7 +61,7 @@ Microsoft Graph [ServicePrincipal 实体][MS-Graph-Sp-Entity]定义服务主体�
 
 应用程序对象是应用程序的全局表示形式，可供所有租户使用，而服务主体是本地表示形式，在特定租户中使用 。
 
-应用程序对象用作模板，常见属性和默认属性从其中 *派生* ，以便在创建相应服务主体对象时使用。 因此，应用程序对象与软件应用程序存在 1 对 1 关系，而与其对应的服务主体对象存在 1 对多关系。
+应用程序对象用作模板，常见属性和默认属性从其中 *派生*，以便在创建相应服务主体对象时使用。 因此，应用程序对象与软件应用程序存在 1 对 1 关系，而与其对应的服务主体对象存在 1 对多关系。
 
 必须在将使用应用程序的每个租户中创建服务主体，让它能够建立用于登录和/或访问受租户保护的资源的标识。 单租户应用程序只有一个服务主体（在其宿主租户中），在应用程序注册期间创建并被允许使用。 多租户 Web 应用程序/API 还会在租户中的某个用户已同意使用它的每个租户中创建服务主体。
 

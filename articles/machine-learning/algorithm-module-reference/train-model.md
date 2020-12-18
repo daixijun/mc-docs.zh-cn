@@ -10,12 +10,12 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/11/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 70bdfa6389f91555c2d845193422739c92b0d695
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 362c478386a91c9066b1d0642e495a4a5ce10768
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118573"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104358"
 ---
 # <a name="train-model-module"></a>“定型模型”模块
 
@@ -32,7 +32,7 @@ ms.locfileid: "92118573"
     + **分类** 模型，基于神经网络、决策树，以及决策林和其他算法。
     + **回归** 模型，这可能包括标准线性回归，也可能使用其他算法（包括神经网络和 Bayesian 回归）。  
 
-2. 提供一个带标记且其数据与算法兼容的数据集。 将数据和模型都连接到 **训练模型** 。
+2. 提供一个带标记且其数据与算法兼容的数据集。 将数据和模型都连接到 **训练模型**。
 
     训练产生的是特定的二元格式 iLearner，它封装了从数据中获知的统计模式。 你无法直接修改或读取此格式；但是，其他模块可以使用此训练后的模型。 
     
@@ -41,8 +41,6 @@ ms.locfileid: "92118573"
 3. 在训练完成后，使用训练后的模型与[评分模型](./score-model.md)之一来基于新数据进行预测。
 
 ## <a name="how-to-use-train-model"></a>如何使用训练模型 
-  
-1.  在 Azure 机器学习中，配置一个分类模型或回归模型。
     
 2. 将“训练模型”模块添加到管道。  可以在“机器学习”类别下找到此模块。 展开“训练”，然后将“训练模型”模块拖到你的管道中。
   
@@ -64,6 +62,9 @@ ms.locfileid: "92118573"
     > 如果使用列选择器时遇到问题，请参阅[选择数据集中的列](./select-columns-in-dataset.md)一文中的提示。 该文章介绍了使用 **WITH RULES** 和 **BY NAME** 选项的一些常见方案和提示。
   
 5.  提交管道。 如果有大量数据，则可能需要一段时间。
+
+    > [!IMPORTANT] 
+    > 如果有是每一行的 ID 的 ID 列，则训练模型可能会遇到错误，例如“列: "{column_name}" 中的唯一值的数目大于允许的数目。” 这是因为 ID 列达到了唯一值的阈值，可能会导致内存不足。 在训练期间，ID 列通常无意义。 可以使用[编辑元数据](edit-metadata.md)将该列标记为“清除特征”，这样就不会在训练期间使用它了。 请参阅[设计器错误代码](././designer-error-codes.md)获取更多错误详细信息。
 
 ## <a name="results"></a>结果
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 08/20/2020
-ms.openlocfilehash: 2d5b0acce6a1ee09aac7eb2ca0a3694335957d32
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: a020162aae926aaa68487b1763ad0321b0032843
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978190"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105330"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自动训练时序预测模型
 
@@ -138,7 +138,7 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 
 与回归问题类似，你要定义标准训练参数，例如任务类型、迭代次数、训练数据和交叉验证次数。 对于预测任务，还必须设置对试验有影响的其他参数。 
 
-下表汇总了这些额外的参数。 有关语法设计模式，请查看[参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)。
+下表汇总了这些额外的参数。 有关语法设计模式，请参阅 [ForecastingParameter 类参考文档](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py)。
 
 | 参数&nbsp;名称 | 说明 | 必须 |
 |-------|-------|-------|
@@ -149,11 +149,11 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 |`target_lags`|要根据数据频率滞后目标值的行数。 此滞后表示为一个列表或整数。 默认情况下，在独立变量和依赖变量之间的关系不匹配或关联时，应使用滞后。 ||
 |`feature_lags`| 当设置了 `target_lags` 并且 `feature_lags` 设置为 `auto` 时，要滞后的功能将由自动化 ML 自动确定。 启用功能滞后有助于提高准确性。 默认情况下会禁用功能滞后。 ||
 |`target_rolling_window_size`|要用于生成预测值的 *n* 个历史时间段，该值小于或等于训练集大小。 如果省略，则 *n* 为完整训练集大小。 如果训练模型时只想考虑一定量的历史记录，请指定此参数。 详细了解[目标滚动窗口聚合](#target-rolling-window-aggregation)。||
-|`short_series_handling`| 启用“短时序处理”，以避免在训练期间由于数据不足而失败。 默认情况下，“短时序处理”设置为 True。|
+|`short_series_handling_config`| 启用“短时序处理”，以避免在训练期间由于数据不足而失败。 在默认情况下，“短时序处理”设置为 `auto`。 详细了解[短时序处理](#short-series-handling)。|
 
 
 以下代码 
-* 利用 `ForecastingParameters` 类为试验训练定义预测参数
+* 利用 [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) 类来为试验训练定义预测参数
 * 将 `time_column_name` 设置为数据集中的 `day_datetime` 字段。 
 * 将 `time_series_id_column_names` 参数定义为 `"store"`。 这可确保为数据创建 **两个单独的时序组**，一个用于商店 A，一个用于商店 B。
 * 将 `forecast_horizon` 设置为 50 以针对整个测试集进行预测。 
@@ -164,13 +164,12 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
-forecasting_parameters = ForecastingParameters(
-    time_column_name='day_datetime', 
-    forecast_horizon=50,
-    time_series_id_column_names=["store"],
-    target_lags='auto',
-    target_rolling_window_size=10
-)
+forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                               forecast_horizon=50,
+                                               time_series_id_column_names=["store"],
+                                               target_lags='auto',
+                                               target_rolling_window_size=10)
+                                              
 ```
 
 然后，将这些 `forecasting_parameters` 传入到标准 `AutoMLConfig` 对象中，同时还会传入 `forecasting` 任务类型、主要指标、退出标准和训练数据。 
@@ -190,7 +189,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              n_cross_validations=5,
                              enable_ensembling=False,
                              verbosity=logging.INFO,
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 
 ### <a name="featurization-steps"></a>特征化步骤
@@ -260,7 +259,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 automl_config = AutoMLConfig(task='forecasting',
                              enable_dnn=True,
                              ...
-                             **time_series_settings)
+                             **forecasting_parameters)
 ```
 > [!Warning]
 > 为使用 SDK 创建的试验启用 DNN 时，系统会禁用[最佳模型说明](how-to-machine-learning-interpretability-automl.md)。
@@ -281,6 +280,35 @@ automl_config = AutoMLConfig(task='forecasting',
 
 
 请查看使用[目标滚动窗口聚合特征](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)的 Python 代码示例。
+
+### <a name="short-series-handling"></a>短时序处理
+
+如果没有足够的数据点来执行模型开发的训练和验证阶段，自动化 ML 就会将一个时序视为短时序。 数据点的数量因各个试验而异，并且依赖于 max_horizon、交叉验证拆分数以及模型回看的长度，该长度是构建时序功能所需的最长历史记录。 有关精确的计算，请参阅 [short_series_handling_config 参考文档](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)。
+
+默认情况下，自动化 ML 通过在 `ForecastingParameters` 对象中使用 `short_series_handling_config` 参数来提供“短时序处理”。 
+
+若要启用“短序列处理”，还必须定义 `freq` 参数。 若要更改默认行为 `short_series_handling_config = auto`，请更新 `ForecastingParameter` 对象中的 `short_series_handling_config` 参数。  
+
+```python
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
+                                            forecast_horizon=50,
+                                            short_series_handling_config='auto',
+                                            freq = 50
+                                            target_lags='auto')
+```
+下表总结了可用于 `short_series_handling_config` 的设置。
+ 
+|设置|说明
+|---|---
+|`auto`| 下面是“短时序处理”的默认行为 <li> 如果所有时序都短，则填充数据。 <br> <li> 如果并非所有时序都短，则删除短时序。 
+|`pad`| 如果 `short_series_handling_config = pad`，则自动化 ML 会为找到的每个短时序添加虚拟值。 下面列出了列类型以及用于填充这些列的内容： <li>对象列，其中包含 NAN <li> 数值列，其中包含 0 <li> 布尔/逻辑列，其中包含 False <li> 目标列填充平均值为零且标准偏差为 1 的随机值。 
+|`drop`| 如果 `short_series_handling_config = drop`，则自动化 ML 会删除短时序，并且该短时序不会用于训练或预测。 对这些时序的预测将会返回 NAN。
+|`None`| 不会填充或删除任何时序
+
+>[!WARNING]
+>填充可能会影响生成的模型的准确性，因为我们引入人工数据只是为了使训练成功而不会发生失败。 <br> <br> 如果许多时序中都是短时序，你可能还会在可说明性结果中看到一些影响
 
 ## <a name="run-the-experiment"></a>运行试验 
 

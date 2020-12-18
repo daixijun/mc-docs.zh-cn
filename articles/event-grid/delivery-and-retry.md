@@ -3,21 +3,24 @@ title: Azure 事件网格传送和重试
 description: 介绍 Azure 事件网格如何传送事件以及如何处理未送达的消息。
 ms.topic: conceptual
 origin.date: 02/27/2020
-ms.date: 11/18/2020
+ms.date: 12/11/2020
 author: Johnnytechn
 ms.author: v-johya
-ms.openlocfilehash: 3f84bb1adf5b851615dc178030aa2238f1be854b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f955419af3177154cc371c2fa943f58c717cc7ee
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977850"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105343"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>事件网格消息传送和重试
 
 本文介绍了未确认送达时 Azure 事件网格如何处理事件。
 
 事件网格提供持久传送。 它会将每个订阅的每条消息至少发送一次。 事件会立即发送到每个订阅的已注册终结点。 如果终结点未确认收到事件，事件网格会重试传送事件。
+
+> [!NOTE]
+> 事件网格不保证事件传送的顺序，因此订阅者可能会收到不按顺序的事件。 
 
 ## <a name="batched-event-delivery"></a>批量事件传送
 

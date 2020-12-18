@@ -5,23 +5,28 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 06/22/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: a1c2780cb90b28cb5c343f5662efd19c7273b6c9
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 11/05/2020
+ms.date: 12/14/2020
+ms.openlocfilehash: baeb216a1bece4b7bf20436a2b664487182d39e8
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041725"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850439"
 ---
 # <a name="logical-decoding"></a>逻辑解码
  
-使用 [PostgreSQL 中的逻辑解码](https://www.postgresql.org/docs/current/logicaldecoding.html)可将数据更改流式传输到外部使用者。 逻辑解码广泛用于事件流和变更数据捕获方案。
-
-逻辑解码使用一个输出插件将 Postgres 的预写日志 (WAL) 转换为可读格式。 Azure Database for PostgreSQL 提供以下输出插件：[wal2json](https://github.com/eulerto/wal2json)、[test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) 和 pgoutput。 pgoutput 由 Postgres 10 及更高版本中的 Postgres 提供。
-
 > [!NOTE]
 > Azure Database for PostgreSQL - 单一服务器上的逻辑解码目前为公共预览版。
+
+使用 [PostgreSQL 中的逻辑解码](https://www.postgresql.org/docs/current/logicaldecoding.html)可将数据更改流式传输到外部使用者。 逻辑解码广泛用于事件流和变更数据捕获方案。
+
+逻辑解码使用一个输出插件将 Postgres 的预写日志 (WAL) 转换为可读格式。 Azure Database for PostgreSQL 提供以下输出插件：[wal2json](https://github.com/eulerto/wal2json)、[test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) 和 pgoutput。 pgoutput 由 PostgreSQL 10 及更高版本中的 PostgreSQL 提供。
+
+有关 Postgres 逻辑解码工作原理的概述，请[访问我们的博客](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421)。 
+
+> [!NOTE]
+> Azure Database for PostgreSQL 单一服务器不支持使用 PostgreSQL 发布/订阅的逻辑复制。
 
 
 ## <a name="set-up-your-server"></a>设置服务器 
@@ -33,19 +38,19 @@ ms.locfileid: "92041725"
 * **副本** - 比“关闭”详细。 这是运行[只读副本](concepts-read-replicas.md)所需的最低日志记录级别。 此设置是大多数服务器上的默认设置。
 * **逻辑** - 比“副本”详细。 这是运行逻辑解码所需的最低日志记录级别。 使用此设置时，只读副本也可以运行。
 
-更改此参数后，需要重启服务器。 在内部，此参数设置 Postgres 参数 `wal_level`、`max_replication_slots` 和 `max_wal_senders`。
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
 
 1. 将 azure.replication_support 设置为 `logical`。
-   ```
+   ```azurecli
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. 重启服务器以应用更改。
-   ```
+   ```azurecli
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. 如果运行的是 Postgres 9.5 或 9.6，并使用公共网络访问，请添加防火墙规则以包括你将从中运行逻辑复制的客户端的公共 IP 地址。 防火墙规则名称必须包括“_replrule”。 例如，“test_replrule”。 若要在服务器上创建新的防火墙规则，请运行 [az postgres server firewall-rule create](/cli/postgres/server/firewall-rule) 命令。 
 
 ### <a name="using-azure-portal"></a>使用 Azure 门户
 
@@ -55,8 +60,11 @@ ms.locfileid: "92041725"
 
 2. 通过选择“是”，重启服务器以应用更改。
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - 复制 - Azure 复制支持":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - 复制 - 确认重启":::
 
+3. 如果运行的是 Postgres 9.5 或 9.6，并使用公共网络访问，请添加防火墙规则以包括你将从中运行逻辑复制的客户端的公共 IP 地址。 防火墙规则名称必须包括“_replrule”。 例如，“test_replrule”。 然后单击“保存”  。
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL - 复制 - 添加防火墙规则":::
 
 ## <a name="start-logical-decoding"></a>开始逻辑解码
 

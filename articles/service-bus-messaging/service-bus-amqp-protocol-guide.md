@@ -4,32 +4,32 @@ description: Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: de0260e1781a63ffc10b454bd15584a7bb956380
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 8a438a1de0641e6c7526510f0da0fbaa61da8874
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590888"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105311"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
-高级消息队列协议 1.0 是一种标准化组帧和传输协议，能够以异步、安全且可靠的方式在两方之间传输消息。 它是 Azure 服务总线消息传送和 Azure 事件中心的主要协议。 这两种服务还支持 HTTPS。 同时支持的专用 SBMP 协议即将淘汰并由 AMQP 取代。
+高级消息队列协议 1.0 是一种标准化组帧和传输协议，能够以异步、安全且可靠的方式在两方之间传输消息。 它是 Azure 服务总线消息传送和 Azure 事件中心的主要协议。  
 
-AMQP 1.0 是中间件供应商（例如 Microsoft 和 Red Hat）与许多消息传送中间件用户（例如代表金融服务行业的 JP Morgan Chase）广泛合作的成果。 OASIS 是 AMQP 协议和扩展规范的技术标准化论坛，它已获 ISO/IEC 19494 国际标准的官方批准。
+AMQP 1.0 是中间件供应商（例如 Microsoft 和 Red Hat）与许多消息传送中间件用户（例如代表金融服务行业的 JP Morgan Chase）广泛合作的成果。 OASIS 是 AMQP 协议和扩展规范的技术标准化论坛，它已获 ISO/IEC 19494.2014 国际标准的官方批准。
 
 <!--CORRECT ON Microsoft and Red Hat-->
 
 ## <a name="goals"></a>目标
 
-本文简要说明 AMQP 1.0 消息传送规范的核心概念以及当前正由 OASIS AMQP 技术委员定案的一小部分草稿扩展规范，并说明 Azure 服务总线如何根据这些规范进行实现和构建。
+本文总结了 AMQP 1.0 消息传递规范的核心概念以及由 [OASIS AMQP 技术委员会](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)制定的扩展规范，并说明了 Azure 服务总线如何根据这些规范进行实现和构建。
 
 目的是要让在任何平台上使用任何现有 AMQP 1.0 客户端堆栈的开发人员通过 AMQP 1.0 与 Azure 服务总线交互。
 
-常见的通用型 AMQP 1.0 堆栈（例如 Apache Proton 或 AMQP.NET Lite）已实现所有核心 AMQP 1.0 协议。 这些基本手势有时以更高级别的 API 包装；Apache Proton 甚至提供两个 API：命令式 Messenger API 和反应式 Reactor API。
+常见的通用型 AMQP 1.0 堆栈（例如 [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) 或 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite)）会实现所有核心 AMQP 1.0 协议元素（如会话或链接）。 这些基本元素有时以更高级别的 API 进行包装；Apache Proton 甚至提供两个 API：命令式 Messenger API 和反应式 Reactor API。
 
 在以下介绍中，我们假设 AMQP 连接、会话和链接的管理以及帧传输和流量控制的处理都由相应的堆栈（例如 Apache Proton-C）处理，而不需要应用程序开发人员特别注意。 抽象假设存在一些 API 基元（例如连接能力）以及创建某种形式的 sender 和 receiver 抽象对象的能力，并分别具有 `send()` 和 `receive()` 的某种形式的操作   。
 
@@ -49,7 +49,7 @@ AMQP 1.0 协议被设计为可扩展，允许进一步规范以增强其功能�
 
 本部分说明 AMQP 1.0 与 Azure 服务总线的基本使用方式，其中包括创建连接、会话和链接，以及与服务总线实体（例如队列、主题和订阅）相互传输消息。
 
-了解 AMQP 工作原理的最权威来源是 AMQP 1.0 规范，但此规范是为了精确引导实现而编写，而非用于传授协议知识。 本部分着重于尽可能介绍描述服务总线如何使用 AMQP 1.0 的术语。 
+若要了解 AMQP 工作原理，可参阅最权威的 [AMQP 1.0 规范](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)，但此规范是为了精确引导实现而编写的，不是为了传授协议知识。 本部分着重于尽可能介绍描述服务总线如何使用 AMQP 1.0 的术语。 
 
 <!--Not Available on For a more comprehensive introduction to AMQP, as well as a broader discussion of AMQP 1.0, you can review [this video course][this video course]-->
 
@@ -76,7 +76,7 @@ Azure 服务总线随时都需要使用 TLS。 它支持通过 TCP 端口 5671 �
 
 这种基于时段的模型大致类似于 TCP 基于时段的流量控制概念，但属于套接字内的会话级别。 协议提出了一个概念：允许多个并发会话，因此高优先级流量的速度可能快于受限制的正常流量，就像高速公路上有一个快速车道一样。
 
-Azure 服务总线目前只对每个连接使用一个会话。 服务总线标准版和事件中心的服务总线帧大小上限为 262,144 字节 (256 KB)。 服务总线高级版则为 1,048,576 (1 MB)。 服务总线不强加任何特定会话级别限制时段，但是在链接级别流量控制中定期重置时段（请参阅[下一部分](#links)）。
+Azure 服务总线目前只对每个连接使用一个会话。 服务总线标准版的服务总线帧大小上限为 262,144 字节 (256 KB)。 服务总线高级版和事件中心的该上限为 1,048,576 (1 MB)。 服务总线不强加任何特定会话级别限制时段，但是在链接级别流量控制中定期重置时段（请参阅[下一部分](#links)）。
 
 连接、通道和会话是暂时性的。 如果基础连接失效，则必须重新创建连接、TLS 隧道、SASL 授权上下文和会话。
 
@@ -86,13 +86,13 @@ Azure 服务总线目前只对每个连接使用一个会话。 服务总线标�
 
 ![目标端口列表][4]
 
-如果防火墙阻止了这些端口，则 .NET 客户端将失败，并返回 SocketException（“试图以访问权限所禁止的方式访问套接字”）。 可以通过在连接字符串中设置 `EnableAmqpLinkRedirect=false` 来禁用该功能，这将强制客户端通过端口 5671 与远程服务进行通信。
+如果防火墙阻止了这些端口，则 .NET 客户端将失败，并返回 SocketException（“试图以访问权限所禁止的方式访问套接字”）。 可以通过在连接字符串中设置 `EnableAmqpLinkRedirect=false` 来禁用该功能，这将强制客户端通过端口 5671 与远程服务通信。
 
 ### <a name="links"></a>链接
 
 AMQP 通过链接传输消息。 链接是在能以单个方向传输消息的会话中创建的通信路径；传输状态协商通过链接在已连接方之间双向进行。
 
-![屏幕截图，显示在两个容器之间进行链接连接的会话。][2]
+![此屏幕截图显示了在两个容器之间进行链接连接的会话。][2]
 
 任一容器可以在现有的会话中随时创建链接，这使 AMQP 不同于其他许多协议（包括 HTTP 和 MQTT），其中启动传输和传输路径是创建套接字连接之一方的独占权限。
 

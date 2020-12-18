@@ -1,5 +1,5 @@
 ---
-title: 教程：使用 Azure 应用配置管理功能标志
+title: 教程 - 使用 Azure 应用配置管理功能标志
 titleSuffix: Azure App Configuration
 description: 本教程介绍如何使用 Azure 应用程序配置将功能标志与应用程序分开管理。
 services: azure-app-configuration
@@ -12,15 +12,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e3e8012d44ceaba3f3dcde80b468f53868c974b8
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: 2956a14a9fd6e3ee3aed6893340cddaa7b6ac80c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190271"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104340"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>教程：在 Azure 应用程序配置中管理功能标志
 

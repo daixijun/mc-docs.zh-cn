@@ -1,5 +1,5 @@
 ---
-title: 教程：在 Java Spring Boot 应用中使用 Azure 应用程序配置 Key Vault 引用 | Microsoft Docs
+title: 关于在 Java Spring Boot 应用中使用 Azure 应用程序配置 Key Vault 引用的教程 | Azure Docs
 description: 本教程介绍如何在 Java Spring Boot 应用中使用 Azure 应用程序配置的 Key Vault 引用
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 9eca5fcecc1534ebf27e658124b5abcba54656a1
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 1b3abdfff00455213d015bfd13f06bd949d5482a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866650"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104904"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>教程：在 Java Spring 应用中使用 Key Vault 引用
 
@@ -43,7 +43,7 @@ ms.locfileid: "88866650"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 受支持的 [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk)，版本为 8。
 * [Apache Maven](https://maven.apache.org/download.cgi) 版本 3.0 或更高版本。
 
@@ -94,7 +94,7 @@ ms.locfileid: "88866650"
 
 ## <a name="connect-to-key-vault"></a>连接到 Key Vault
 
-1. 在本教程中，我们将使用一个服务主体向 Key Vault 进行身份验证。 若要创建该服务主体，请使用 Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令：
+1. 在本教程中，我们将使用一个服务主体向 Key Vault 进行身份验证。 若要创建该服务主体，请使用 Azure CLI [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac) 命令：
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
@@ -108,11 +108,11 @@ ms.locfileid: "88866650"
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
     "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net/"
+    "activeDirectoryEndpointUrl": "https://login.partner.microsoftonline.cn",
+    "resourceManagerEndpointUrl": "https://management.chinacloudapi.cn/",
+    "sqlManagementEndpointUrl": "https://management.core.chinacloudapi.cn:8443/",
+    "galleryEndpointUrl": "https://gallery.chinacloudapi.cn/",
+    "managementEndpointUrl": "https://management.core.chinacloudapi.cn/"
     }
     ```
 

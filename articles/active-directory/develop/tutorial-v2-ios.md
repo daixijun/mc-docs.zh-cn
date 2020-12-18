@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9b5f3b01183169923ac1a456a9ca7e1883a14cf5
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 656d2cc448a6cef080ebe680bced048d6b99e708
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749915"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003961"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>教程：从 iOS 或 macOS 应用登录用户并调用 Microsoft Graph
 
-本教程介绍如何将 iOS 或 macOS 应用与 Microsoft 标识平台集成。 应用会将用户登录，获取用于调用 Microsoft Graph API 的访问令牌，并针对 Microsoft Graph API 发出请求。
+在本教程中，你将生成一个与 Microsoft 标识平台集成的 iOS 或 macOS 应用，用于使用户登录并获取用于调用 Microsoft Graph API 的访问令牌。
 
 完成本指南后，该应用程序将接受任何公司或组织中使用 Azure Active Directory 的工作或学校帐户进行登录。 本教程适用于 iOS 和 macOS 应用。 这两个平台之间的某些步骤有所不同。
 
@@ -45,7 +45,7 @@ ms.locfileid: "92749915"
 
 本教程中的应用可以将用户登录并代表用户从 Microsoft Graph 获取数据。 将通过一个受保护 API（在本例中为 Microsoft Graph API）访问该数据，该 API 要求授权并且受 Microsoft 标识平台保护。
 
-更具体地说：
+更具体说来：
 
 * 你的应用将通过浏览器或 Microsoft Authenticator 使用户登录。
 * 最终用户将接受应用程序请求的权限。
@@ -53,7 +53,7 @@ ms.locfileid: "92749915"
 * 该访问令牌将包括在对 Web API 的 HTTP 请求中。
 * 处理 Microsoft Graph 响应。
 
-该示例使用 Microsoft 身份验证库 (MSAL) 来实现身份验证。 MSAL 会自动续订令牌并管理帐户。
+此示例使用 Microsoft 身份验证库 (MSAL) 来实现身份验证。 MSAL 会自动续订令牌并管理帐户。
 
 若要下载在此教程中构建的应用的完整版本，可在 GitHub 中找到这两个版本：
 
@@ -144,7 +144,7 @@ import MSAL
 // Update the below to your client ID you received in the portal. The below is for running the demo only
 let kClientID = "Your_Application_Id_Here"
 let kGraphEndpoint = "https://microsoftgraph.chinacloudapi.cn/" // the Microsoft Graph endpoint
-let kAuthority = "https://login.partner.microsoftonline.cn/common" // this authority allows a work or school account in any organization¡¯s Azure AD tenant to sign in
+let kAuthority = "https://login.partner.microsoftonline.cn/common" // this authority allows a work or school account in any organization's Azure AD tenant to sign in
 
 let kScopes: [String] = ["https://microsoftgraph.chinacloudapi.cn/user.read"] // request permission to read the profile of the signed-in user
 
@@ -424,7 +424,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ```
 
-**如果使用的是 Xcode 11** ，则应改为将 MSAL 回叫放入 `SceneDelegate.swift` 中。
+**如果使用的是 Xcode 11**，则应改为将 MSAL 回叫放入 `SceneDelegate.swift` 中。
 如果支持兼容旧版 iOS 的 UISceneDelegate 和 UIApplicationDelegate，则需将 MSAL 回叫置于这两个文件中。
 
 ```swift
@@ -854,7 +854,7 @@ func acquireTokenInteractively() {
 
 ## <a name="next-steps"></a>后续步骤
 
-在我们由多个部分组成的场景系列中，详细了解如何构建可调用受保护的 Web API 的移动应用。
+在我们的多部分场景系列中，详细了解如何构建可调用受保护 Web API 的移动应用。
 
 > [!div class="nextstepaction"]
 > [方案：用于调用 Web API 的移动应用程序](scenario-mobile-overview.md)

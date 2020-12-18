@@ -2,19 +2,20 @@
 title: Azure Cosmos DB 中的 SQL 查询入门
 description: 了解如何使用 SQL 查询从 Azure Cosmos DB 查询数据。 可以将示例数据上传到 Azure Cosmos DB 中的容器并对其进行查询。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 07/24/2020
+origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9149fd51b39a4973d5e9f1f9f7c4327b571eb051
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: dd7445ab2ae32b8b36513b054b8b9e816a753477
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552618"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850718"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 查询入门
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,26 +24,37 @@ ms.locfileid: "94552618"
 
 **点读取** - 可以对单个项 ID 和分区键进行键/值查找。 项 ID 和分区键的组合是键，项本身是值。 对于 1 KB 大小的文档，点读取通常花费 1 个[请求单位](request-units.md)，且延迟不超过 10 毫秒。 点读取返回单个项。
 
+以下是一些如何使用各个 SDK 进行点读取的示例：
+
+<!--CORRECT TILL ON 12/07/2020 ON https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__-->
+
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
 **SQL 查询** - 可以使用结构化查询语言 (SQL) 作为 JSON 查询语言来编写查询，以查询数据。 查询始终至少花费 2.3 个请求单位，并且与点读取相比，查询的延迟通常更高且变化更大。 查询可以返回许多项。
 
 Azure Cosmos DB 上的大部分读取密集型工作负荷使用点读取和 SQL 查询的组合。 如果只需读取单个项，则点读取比查询成本更低且速度更快。 点读取不需要使用查询引擎来访问数据，并且可以直接读取数据。 当然，不可能所有工作负荷都仅使用点读取来读取数据，因此支持 SQL 作为查询语言和[架构不可知索引编制](index-overview.md)方式提供了一种更灵活的数据访问方法。
 
-以下是一些如何使用各个 SDK 进行点读取的示例：
+以下是一些如何使用各个 SDK 进行 SQL 查询的示例：
 
-- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
-- [Java SDK](https://docs.azure.cn/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
-- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [.NET SDK](https://docs.azure.cn/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Java SDK](https://docs.azure.cn/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Node.js SDK](https://docs.azure.cn/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Python SDK](https://docs.azure.cn/cosmos-db/sql-api-python-samples#item-examples)
 
 本文档的其余部分说明如何开始在 Azure Cosmos DB 中编写 SQL 查询。 可以通过 SDK 或 Azure 门户运行 SQL 查询。
 
 ## <a name="upload-sample-data"></a>上传示例数据
 
-在 Cosmos DB SQL API 帐户中，创建名为 `Families` 的容器。 在容器中创建两个简单的 JSON 项。 可以使用此数据集运行 Azure Cosmos DB 查询文档中的大多数示例查询。
+在 Cosmos DB SQL API 帐户中，创建名为 `Families` 的容器。 创建后，使用数据结构浏览器来查找它并打开。 在 `Families` 容器中，你会在容器名称下面看到 `Items` 选项。 打开此选项，你会在屏幕中心的菜单栏中看到一个按钮，创建“新建项”。 你将使用此功能创建下面的 JSON 项。
 
 ### <a name="create-json-items"></a>创建 JSON 项
 
-以下代码创建两个有关家庭的简单 JSON 项。 Andersen 和 Wakefield 家庭的简单 JSON 项包括父母、孩子及其宠物、地址和注册信息。 第一个项包含字符串、数字、布尔、数组和嵌套属性。
+以下 2 个 JSON 项是关于 Andersen 和 Wakefield 系列的文档。 它们包括家长、孩子及其宠物、地址和注册信息。 
+
+第一个项包含字符串、数字、布尔、数组和嵌套属性：
 
 ```json
 {
@@ -66,7 +78,7 @@ Azure Cosmos DB 上的大部分读取密集型工作负荷使用点读取和 SQL
 }
 ```
 
-第二个项使用 `givenName` 和 `familyName`，而不是使用 `firstName` 和 `lastName`。
+第二个项使用 `givenName` 和 `familyName`，而不是使用 `firstName` 和 `lastName`：
 
 ```json
 {

@@ -7,13 +7,13 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 2/25/2020
-ms.openlocfilehash: 372683e2ddd0a33910dd1f23bb08392c3e2bd882
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.date: 12/14/2020
+ms.openlocfilehash: 8cbec5ca3a39256e19497975e607c302a22e2fdf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96300190"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104994"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>使用托管标识来访问应用程序配置
 
@@ -40,6 +40,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)。
 
+<!--Not Available on * [Azure local Shell configured](../cloud-shell/quickstart.md)-->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -102,7 +103,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 1. 如果希望只访问直接存储在应用程序配置中的值，请通过替换 `config.AddAzureAppConfiguration()` 方法来更新 `CreateWebHostBuilder` 方法。
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` 替换 .NET Core 3.0 中的 `CreateWebHostBuilder`。  根据环境选择正确的语法。
+    > `CreateHostBuilder` 替换 .NET Core 3.0 中的 `CreateWebHostBuilder`。 根据环境选择正确的语法。
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -195,6 +196,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
 
 ## <a name="deploy-from-local-git"></a>从本地 Git 进行部署
 
+<!--Cloud Shell-->
 
 ### <a name="configure-a-deployment-user"></a>配置部署用户
 
@@ -209,7 +211,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-若要使用 Kudu 生成服务器为应用启用本地 Git 部署，请运行 `az webapp deployment source config-local-git`。
+若要使用 Kudu 生成服务器为应用启用本地 Git 部署，请在本地 Shell 中运行 [`az webapp deployment source config-local-git`](https://docs.azure.cn/cli/webapp/deployment/source#az_webapp_deployment_source_config_local_git)。
 
 ```azurecli
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

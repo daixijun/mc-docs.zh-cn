@@ -1,24 +1,24 @@
 ---
-title: 管理 Azure 多重身份验证的身份验证方法 - Azure Active Directory
-description: 了解如何配置 Azure 多重身份验证的 Azure Active Directory 用户设置
+title: 管理 Azure AD 多重身份验证的身份验证方法 - Azure Active Directory
+description: 了解如何配置 Azure AD 多重身份验证的 Azure Active Directory 用户设置
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 229e4101bd5a796db428d84f34a060555b8263ac
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 2379ad53338c95b4e8288d194bd773067a5b4a0c
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918469"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003821"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>管理 Azure 多重身份验证的用户身份验证方法
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>管理 Azure AD 多重身份验证的用户身份验证方法
 
 为了便于管理 Azure 多重身份验证的用户，可以要求用户重置其密码、重新注册 MFA，或撤消现有的 MFA 会话。 对于已定义应用密码的用户，还可以选择删除这些密码，使这些应用程序中的旧身份验证失败。 如果需要向用户提供帮助或想要重置其安全状态，可能需要执行这些操作。
 
@@ -54,7 +54,7 @@ ms.locfileid: "95918469"
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何配置单个用户设置。 若要配置整体 Azure 多重身份验证服务设置，请参阅[配置 Azure 多重身份验证设置](howto-mfa-mfasettings.md)。
+本文介绍了如何配置单个用户设置。 若要配置整体 Azure AD 多重身份验证服务设置，请参阅[配置 Azure AD 多重身份验证设置](howto-mfa-mfasettings.md)。
 
-如果用户需要帮助，请参阅 [Azure 多重身份验证的用户指南](../user-help/multi-factor-authentication-end-user-first-time.md)。
+如果用户需要帮助，请参阅 [Azure AD 多重身份验证的用户指南](../user-help/multi-factor-authentication-end-user-first-time.md)。
 

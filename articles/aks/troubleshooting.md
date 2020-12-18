@@ -5,16 +5,16 @@ services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d4d71be2a84e9e52121aeb18e486f58efc915861
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 19a73032221b82e7738171b91ce9383ab62bc59d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024487"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004165"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -93,13 +93,13 @@ AKS 具有 HA 控制平面，可以根据内核数进行垂直缩放，以确保
 
 这些超时可能与被阻止节点之间的内部流量有关。 验证此流量是否未被阻止，例如通过群集节点子网上的[网络安全组](concepts-security.md#azure-network-security-groups)来这样做。
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>我想尝试在现有群集上启用基于角色的访问控制 (RBAC)。 该如何操作？
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>我想尝试在现有群集上启用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)。 该如何操作？
 
-目前不支持在现有群集上启用基于角色的访问控制 (RBAC)，必须在创建新群集时对其进行设置。 在使用 CLI、门户或 `2020-03-01` 之后的 API 版本时，默认会启用 RBAC。
+目前不支持在现有群集上启用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)，必须在创建新群集时对其进行设置。 在使用 CLI、门户或 `2020-03-01` 之后的 API 版本时，默认会启用 Kubernetes RBAC。
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我创建了启用了 RBAC 的群集，现在，我在 Kubernetes 仪表板上看到了很多警告。 仪表板以前在没有任何警告的情况下工作。 我该怎么办？
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我创建了启用了 Kubernetes RBAC 的群集，现在，我在 Kubernetes 仪表板上看到了很多警告。 仪表板以前在没有任何警告的情况下工作。 我该怎么办？
 
-出现警告的原因是群集启用了 RBAC，并且现在默认限制对仪表板的访问。 一般来说，此方法比较棒，因为仪表板默认公开给群集的所有用户可能会导致安全威胁。 如果仍想要启用仪表板，请遵循此[博客文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)中的步骤进行操作。
+出现警告的原因是群集启用了 Kubernetes RBAC，并且现在默认限制对仪表板的访问。 一般来说，此方法比较棒，因为仪表板默认公开给群集的所有用户可能会导致安全威胁。 如果仍想要启用仪表板，请遵循此[博客文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)中的步骤进行操作。
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>无法使用 Kubectl 日志获取日志或无法连接到 API 服务器。 我收到“来自服务器的错误：拨号后端时出错: 拨打 tcp...”。 我该怎么办？
 
@@ -212,7 +212,7 @@ Kubernetes 资源查看器要求 `--api-server-authorized-ip-ranges` 包含对�
 
 确认你的设置不与必需或可选的建议出站端口/网络规则和 FQDN/应用程序规则相冲突。
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>我收到“429 - 请求过多”错误 
+## <a name="im-receiving-429---too-many-requests-errors"></a>我收到“429 - 请求过多”错误
 
 当 Azure 上的 Kubernetes 群集（AKS 或非 AKS）频繁执行纵向扩展/缩减操作或使用群集自动缩放程序 (CA) 时，这些操作可能导致大量 HTTP 调用，这些 HTTP 调用会超过所分配的订阅配额，从而导致失败。 错误将如下所示
 

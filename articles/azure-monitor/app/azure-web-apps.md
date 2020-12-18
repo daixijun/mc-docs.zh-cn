@@ -4,15 +4,15 @@ description: Azure 应用服务的应用程序性能监视。 对加载和响应
 ms.topic: conceptual
 origin.date: 04/26/2019
 author: Johnnytechn
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.author: v-johya
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 3eea0aa74122fd8a4c468a3a9e3c672b04df4e44
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 339313054b9a596a948b211b167b5ae1bd1e10ba
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637879"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104658"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -39,7 +39,7 @@ ms.locfileid: "94637879"
 
 ## <a name="enable-agent-based-monitoring"></a>启用基于代理的监视
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 > [!NOTE]
 > 不支持 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression 的组合。 有关详细信息，请参阅[故障排除部分](#troubleshooting)中的说明。
@@ -62,7 +62,7 @@ ms.locfileid: "94637879"
  
  下面是针对每个路由收集的数据的摘要：
         
-| 数据 | .NET 基本集合 | .NET 建议集合 |
+| 数据 | ASP.NET 基本集合 | ASP.NET 建议集合 |
 | --- | --- | --- |
 | 添加 CPU、内存和 I/O 使用情况趋势 |是 |是 |
 | 收集使用情况趋势，并启用从可用性结果到事务的关联 | 是 |是 |
@@ -76,11 +76,11 @@ ms.locfileid: "94637879"
 
     * 有关受支持自适应采样遥测处理器设置的列表，可以参阅[代码](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs)和[相关的文档](./sampling.md)。
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-支持以下 .NET Core 版本：ASP.NET Core 2.1、ASP.NET Core 2.2、ASP.NET Core 3.0、ASP.NET Core 3.1
+支持以下 ASP.NET Core 版本：ASP.NET Core 2.1、ASP.NET Core 2.2、ASP.NET Core 3.0、ASP.NET Core 3.1
 
-基于代理/扩展的监视目前 **不支持** 将 .NET Core 提供的完整框架、独立部署和基于 Linux 的应用程序作为目标。 （在上述所有方案中，都可通过代码进行[手动检测](./asp-net-core.md)。）
+基于代理/扩展的监视目前不支持将 ASP.NET Core 提供的完整框架、独立部署和基于 Linux 的应用程序作为目标。 （在上述所有方案中，都可通过代码进行[手动检测](./asp-net-core.md)。）
 
 1. 在应用服务的 Azure 控制面板中，选择“Application Insights”。
 
@@ -93,7 +93,7 @@ ms.locfileid: "94637879"
 
      ![检测 Web 应用](./media/azure-web-apps/create-resource-01.png)
 
-2. 指定要使用哪些资源后，可以选择 Application Insights 根据平台为应用程序收集数据的方式。 对于 ASP.NET Core 2.1、2.2、3.0 和 3.1，.NET Core 提供“建议的集合”或“已禁用”。 
+2. 指定要使用哪些资源后，可以选择 Application Insights 根据平台为应用程序收集数据的方式。 对于 ASP.NET Core 2.1、2.2、3.0 和 3.1，ASP.NET Core 提供“建议的集合”或“已禁用”。 
 
     ![根据平台选择选项](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -103,7 +103,8 @@ ms.locfileid: "94637879"
 
 # <a name="java"></a>[Java](#tab/java)
 
-基于 Java 应用服务的 Web 应用程序当前不支持基于自动代理/扩展的监视。 若要针对 Java 应用程序启用监视，需[手动检测应用程序](./java-get-started.md)。
+遵循 [Application Insights Java 3.0 代理](./java-in-process-agent.md)的准则，在不更改代码的情况下为 Java 应用启用自动检测。
+应用服务尚不支持自动集成。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -113,7 +114,7 @@ ms.locfileid: "94637879"
 
 ## <a name="enable-client-side-monitoring"></a>启用客户端监视
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="aspnet"></a>[ASP.NET](#tab/net)
 
 可以选择为 ASP.NET 启用客户端监视。 若要启用客户端监视：
 
@@ -128,9 +129,9 @@ ms.locfileid: "94637879"
 
 若要禁用客户端监视，请从“应用程序设置”中删除关联的键值对，或将值设置为 false。
 
-# <a name="net-core"></a>[.NET Core](#tab/netcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-对于使用“建议的集合”的 .NET Core 应用，**默认已启用** 客户端监视，无论是否存在应用设置“APPINSIGHTS_JAVASCRIPT_ENABLED”。
+对于使用“建议的集合”的 ASP.NET Core 应用，默认已启用客户端监视，无论是否存在应用设置“APPINSIGHTS_JAVASCRIPT_ENABLED” 。
 
 如果出于某种原因想要禁用客户端监视：
 
@@ -350,10 +351,11 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ## <a name="troubleshooting"></a>故障排除
 
-下面是我们针对 Azure 应用服务中运行的基于 .NET 和 .NET Core 的应用程序的基于扩展/代理的监视提供的分步故障排除指南。
+下面是我们针对 Azure 应用服务中运行的基于 ASP.NET 和 ASP.NET Core 的应用程序的基于扩展/代理的监视提供的分步故障排除指南。
 
 > [!NOTE]
-> 仅支持通过基于手动 SDK 的检测在 Azure 应用服务中使用 Java 应用程序，因此，以下步骤不适用于这些方案。
+> 监视 Java 应用程序的建议方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
+
 
 1. 通过 `ApplicationInsightsAgent` 检查应用程序是否受监视。
     * 检查 `ApplicationInsightsAgent_EXTENSION_VERSION` 应用设置是否设置为值“~2”。
@@ -373,16 +375,31 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
     * 确认 `AppAlreadyInstrumented`、`AppContainsDiagnosticSourceAssembly` 和 `AppContainsAspNetTelemetryCorrelationAssembly` 没有任何对应的条目。
         * 如果存在其中的任何条目，请从应用程序中删除以下包：`Microsoft.ApplicationInsights`、`System.Diagnostics.DiagnosticSource` 和 `Microsoft.AspNet.TelemetryCorrelation`。
+        * 仅适用于 ASP.NET Core 应用：在应用程序引用任何 Application Insights 包时（例如，如果你先前已使用 [ASP.NET Core SDK](./asp-net-core.md) 检测（或尝试检测）应用），则启用应用服务集成可能不会生效，并且数据可能不会显示在 Application Insights 中。 若要解决此问题，请在门户中打开“与 Application Insights SDK 互操作”，你将开始在 Application Insights 中看到数据 
+        > [!IMPORTANT]
+        > 此功能处于预览阶段 
+
+        ![启用现有应用设置](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        即使 Application Insights SDK 被最初使用或尝试使用，现在仍将使用无代码方法发送数据。
+
+        > [!IMPORTANT]
+        > 如果应用程序使用 Application Insights SDK 发送任何遥测，则将禁用此类遥测 - 也就是说，自定义遥测（如果有，例如任何 Track*() 方法）和任何自定义设置（如采样）都将被禁用。 
+
+
+### <a name="php-and-wordpress-are-not-supported"></a>不支持 PHP 和 WordPress
+
+不支持 PHP 和 WordPress 站点。 目前没有官方支持的 SDK/代理可用于在服务器端监视这些工作负荷。 但是，可以通过将客户端 javascript 添加到网页，使用 [JavaScript SDK](./javascript.md) 在 PHP 或 WordPress 站点上手动检测客户端事务。
 
 下表更详细地解释了这些值的含义、其根本原因和建议的修复方法：
 
 |问题值|说明|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 此值表示扩展已检测到 SDK 的某个功能已在应用程序中存在，因此将会回退。 原因可能是引用了 `System.Diagnostics.DiagnosticSource`、`Microsoft.AspNet.TelemetryCorrelation` 或 `Microsoft.ApplicationInsights`  | 删除引用。 某中的某些引用是从特定的 Visual Studio 模板默认添加的，而旧版 Visual Studio 可能会添加对 `Microsoft.ApplicationInsights` 的引用。
-|`AppAlreadyInstrumented:true` | 如果应用程序面向 .NET Core 2.1 或 2.2 并引用 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 元包，则它会引入 Application Insights，因此扩展将会回退。 | [建议](https://github.com/aspnet/Announcements/issues/287) .NET Core 2.1、2.2 客户改用 Microsoft.AspNetCore.App 元包。|
+|`AppAlreadyInstrumented:true` | 如果应用程序面向 ASP.NET Core 2.1 或 2.2，此值表示扩展已检测到 SDK 的某个功能已在应用程序中存在，因此将会回退 | [建议](https://github.com/aspnet/Announcements/issues/287) .NET Core 2.1、2.2 客户改用 Microsoft.AspNetCore.App 元包。 此外，在门户中打开“与 Application Insights SDK 互操作”（请参阅上面的说明）。|
 |`AppAlreadyInstrumented:true` | 出现此值的原因还可能是前一部署的应用文件夹中存在上述 dll。 | 清除应用文件夹，以确保删除这些 dll。 检查本地应用的 bin 目录和应用服务的 wwwroot 目录。 （检查应用服务 Web 应用的 wwwroot 目录：高级工具(Kudu) > 调试控制台 > CMD > home\site\wwwroot）。
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 此值表示扩展已检测到对应用程序中的 `Microsoft.AspNet.TelemetryCorrelation` 的引用，因此将会回退。 | 删除引用。
-|`AppContainsDiagnosticSourceAssembly**:true`|此值表示扩展已检测到对应用程序中的 `System.Diagnostics.DiagnosticSource` 的引用，因此将会回退。| 删除引用。
+|`AppContainsDiagnosticSourceAssembly**:true`|此值表示扩展已检测到对应用程序中的 `System.Diagnostics.DiagnosticSource` 的引用，因此将会回退。| 对于 ASP.NET，删除引用。 
 |`IKeyExists:false`|此值表示 AppSetting 中不存在检测密钥 `APPINSIGHTS_INSTRUMENTATIONKEY`。 可能的原因：可能意外删除了这些值，忘记了在自动化脚本中设置这些值，等等。 | 确保该设置在应用服务的应用程序设置中存在。
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支持 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
@@ -398,13 +415,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>用 Web 应用部署的默认网站不支持自动客户端监视
 
-使用 `ASP.NET` 或 `.NET Core` 运行时在 Azure 应用服务中创建 Web 应用时，该应用会部署单个静态 HTML 页面作为入门网站。 该静态网页还会在 IIS 中加载 .NET 托管 Web 部件。 这使得能够测试无代码服务器端监视，但不支持自动客户端监视。
+使用 `ASP.NET` 或 `ASP.NET Core` 运行时在 Azure 应用服务中创建 Web 应用时，该应用会部署单个静态 HTML 页面作为入门网站。 该静态网页还会在 IIS 中加载 ASP.NET 托管 Web 部件。 这使得能够测试无代码服务器端监视，但不支持自动客户端监视。
 
 如果你希望在 Azure 应用服务 Web 应用中测试 ASP.NET 或 ASP.NET Core 的无代码服务器和客户端监视，建议遵循[创建 ASP.NET Core Web 应用](../../app-service/quickstart-dotnetcore.md)和[创建 ASP.NET Framework Web 应用](../../app-service/quickstart-dotnet-framework.md)官方指南，然后按照当前文章中的说明来启用监视。
-
-### <a name="php-and-wordpress-are-not-supported"></a>不支持 PHP 和 WordPress
-
-不支持 PHP 和 WordPress 站点。 目前没有官方支持的 SDK/代理可用于在服务器端监视这些工作负荷。 但是，可以通过将客户端 javascript 添加到网页，使用 [JavaScript SDK](./javascript.md) 在 PHP 或 WordPress 站点上手动检测客户端事务。
 
 ### <a name="connection-string-and-instrumentation-key"></a>连接字符串和检测密钥
 
@@ -422,5 +435,4 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 * [接收警报通知](../platform/alerts-overview.md) 。
 * 若要从访问网页的浏览器获取客户端遥测数据，请使用[适用于 JavaScript 应用和网页的 Application Insights](javascript.md)。
 * [设置可用性 Web 测试](monitor-web-app-availability.md)，以便在站点关闭时发出警报。
-
 

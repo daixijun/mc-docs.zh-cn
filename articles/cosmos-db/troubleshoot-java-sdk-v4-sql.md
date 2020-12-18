@@ -4,7 +4,7 @@ description: 使用客户端日志记录等功能和其他第三方工具来确�
 ms.service: cosmos-db
 origin.date: 06/11/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
@@ -12,12 +12,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d23ba96576b02bc3e12c7c896dfcb8aec07e28be
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1e8b21b4a6a093667eadf9fa080f542b71412933
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552092"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850798"
 ---
 <!--Verified successfully, ONLY CHARACTORS CONTENT-->
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>排查将 Azure Cosmos DB Java SDK v4 与 SQL API 帐户配合使用时出现的问题
@@ -176,9 +176,9 @@ container.createItem(family)
 
     在性能测试期间，应该增加负载，直到系统对小部分请求进行限制为止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔退让。 遵循退让可确保最大程度地减少等待重试的时间。
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>连接到 Azure Cosmos DB 仿真器时出现故障
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>连接到 Azure Cosmos DB 模拟器时出现故障
 
-Azure Cosmos DB 仿真器 HTTPS 证书是自签名证书。 若要将 SDK 与仿真器配合使用，请将仿真器证书导入 Java TrustStore。 有关详细信息，请参阅[导出 Azure Cosmos DB 仿真器证书](local-emulator-export-ssl-certificates.md)。
+Azure Cosmos DB 模拟器 HTTPS 证书是自签名证书。 若要将 SDK 与仿真器配合使用，请将仿真器证书导入 Java TrustStore。 有关详细信息，请参阅[导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)。
 
 ### <a name="dependency-conflict-issues"></a>依赖项冲突问题
 
@@ -234,12 +234,12 @@ Azure Cosmos DB Java SDK v4 使用 SLF4j 作为日志外观，支持记录到常
 ```
 # this is a sample log4j configuration
 
-# Set root logger level to DEBUG and its only appender to A1.
+# Set root logger level to INFO and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.azure.cosmos=DEBUG
-#log4j.category.io.netty=INFO
-#log4j.category.io.projectreactor=INFO
+log4j.category.com.azure.cosmos=INFO
+#log4j.category.io.netty=OFF
+#log4j.category.io.projectreactor=OFF
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

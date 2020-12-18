@@ -7,15 +7,15 @@ ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5c2755cf71570564a6b74ddfe611974a3b8ad111
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: e5fcac3155808b47ef1a761d81a3d241fdc30940
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866617"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105210"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>使用 Azure CLI 将 Azure 应用程序配置事件路由到 Web 终结点
 
@@ -23,16 +23,18 @@ ms.locfileid: "88866617"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
-如果选择在本地安装并使用 CLI，本文需要运行最新版的 Azure CLI（2.0.70 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+为了在本地安装并使用 CLI，本文要求运行最新版的 Azure CLI（2.0.70 或更高版本）。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 事件网格主题是 Azure 资源，必须放置在 Azure 资源组中。 该资源组是在其中部署和管理 Azure 资源的逻辑集合。
 
-使用“[az group create](/cli/azure/group)”命令创建资源组。 
+使用“[az group create](https://docs.azure.cn/cli/group#az-group-create)”命令创建资源组。 
 
 以下示例在 *chinaeast2* 位置创建名为 `<resource_group_name>` 的资源组。  将 `<resource_group_name>` 替换为资源组的唯一名称。
 

@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/26/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 11/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0a91dd95e6d7b9612abb2a8f52a4da072e37feb2
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 4677d5752d2e333a9eb4811401e07046f542f63a
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025380"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004120"
 ---
 <!--Verified successfully on 11/24/2020-->
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 托管的 Azure Active Directory 集成
@@ -23,14 +23,14 @@ AKS 托管的 Azure AD 集成设计用来简化 Azure AD 集成体验，用户�
 
 ## <a name="azure-ad-authentication-overview"></a>Azure AD 身份验证概述
 
-群集管理员可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。 使用 OpenID Connect 向 AKS 群集提供 Azure AD 身份验证。 OpenID Connect 是构建在 OAuth 2.0 协议顶层的标识层。 有关 OpenID Connect 的详细信息，请参阅 [Open ID Connect 文档][open-id-connect]。
+群集管理员可以根据用户的标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)。 使用 OpenID Connect 向 AKS 群集提供 Azure AD 身份验证。 OpenID Connect 是构建在 OAuth 2.0 协议顶层的标识层。 有关 OpenID Connect 的详细信息，请参阅 [Open ID Connect 文档][open-id-connect]。
 
 若要详细了解 Azure AD 集成流程，请参阅 [Azure Active Directory 集成概念文档](concepts-identity.md#azure-active-directory-integration)。
 
 ## <a name="limitations"></a>限制 
 
 * 无法禁用 AKS 托管的 Azure AD 集成
-* AKS 托管的 Azure AD 集成不支持未启用 RBAC 的群集
+* AKS 托管的 Azure AD 集成不支持未启用 Kubernetes RBAC 的群集
 * 不支持更改与 AKS 托管的 Azure AD 集成关联的 Azure AD 租户
 
 ## <a name="prerequisites"></a>必备条件
@@ -140,7 +140,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>在现有群集上启用 AKS 托管的 Azure AD 集成
 
-你可以在现有的启用了 RBAC 的群集上启用 AKS 托管的 Azure AD 集成。 确保将管理员组设置为在群集上保留访问权限。
+你可以在现有的启用了 Kubernetes RBAC 的群集上启用 AKS 托管的 Azure AD 集成。 确保将管理员组设置为在群集上保留访问权限。
 
 ```azurecli
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
@@ -163,6 +163,7 @@ az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-gr
 
 按照[此处][access-cluster]的步骤操作，再次下载用户凭据以访问群集。
 
+<a name="upgrading-to-aks-managed-azure-ad-integration"></a>
 ## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>升级到 AKS 托管的 Azure AD 集成
 
 如果你的群集使用旧式 Azure AD 集成，则可以升级到 AKS 托管的 Azure AD 集成。

@@ -1,20 +1,20 @@
 ---
 title: 优化性能：Storm、HDInsight 和 Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Storm 性能优化指南
+description: 了解在 Azure HDInsight 群集和 Azure Data Lake Storage Gen2 上优化 Azure Storm 拓扑性能的准则。
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 01/06/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 17ab2de199f1c21bd84984cf0c065fe594544545
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 5e06cdca58ff720337afb367c439562d1c95fe0c
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432487"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850780"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>优化性能：Storm、HDInsight 和 Azure Data Lake Storage Gen2
 
@@ -23,9 +23,9 @@ ms.locfileid: "96432487"
 ## <a name="prerequisites"></a>先决条件
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
-* Azure Data Lake Storage Gen2 帐户。 有关如何创建帐户的说明，请参阅[快速入门：创建用于分析的存储帐户](data-lake-storage-quickstart-create-account.md)。
-* 具有 Data Lake Storage Gen2 帐户访问权限的 Azure HDInsight 群集。 请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)。 请确保对该群集启用远程桌面。
-* **在 Data Lake Storage Gen2 中运行 Storm 群集**。 有关详细信息，请参阅 [Storm on HDInsight](/hdinsight/hdinsight-storm-overview)。
+* Azure Data Lake Storage Gen2 帐户。 有关如何创建帐户的说明，请参阅[快速入门：创建用于分析的存储帐户](../common/storage-account-create.md)。
+* 具有 Data Lake Storage Gen2 帐户访问权限的 Azure HDInsight 群集。 请参阅[配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)。 请确保对该群集启用远程桌面。
+* **在 Data Lake Storage Gen2 中运行 Storm 群集**。 有关详细信息，请参阅 [Storm on HDInsight](../../hdinsight/storm/apache-storm-overview.md)。
 * Data Lake Storage Gen2 的性能优化指南。  有关一般的性能概念，请参阅 [Data Lake Storage Gen2 性能优化指南](data-lake-storage-performance-tuning-guidance.md)。   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>优化拓扑的并行度

@@ -4,17 +4,17 @@ description: 了解控制 Azure Kubernetes Service (AKS) 中的出口流量所�
 services: container-service
 ms.topic: article
 origin.date: 11/09/2020
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 880946d7dfb3819283937a2557559bc03796cfb2
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 15af8dce5e0c6ec7134a75d5e48791e8fbc20cef
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024435"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004122"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量
 
@@ -73,7 +73,6 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 | **`acs-mirror.azureedge.net`**   | **`HTTPS:443`** | 此地址用于下载和安装所需二进制文件（如 kubenet 和 Azure CNI）所需的存储库。 |
 
 <!--FOLLOW GLOABLE DOCUMENT UPDATE CAREFULLY-->
-
 <!--FOLLOW CHINA 21Vianet DOCUMENT UPDATE CAREFULLY-->
 
 ### <a name="azure-china-21vianet-required-network-rules"></a><a name="azure-china-21vianet-required-network-rules"></a>Azure 中国世纪互联的必需网络规则
@@ -82,7 +81,7 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 
 | 目标终结点                                                             | 协议 | 端口    | 用途  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.Region:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1.1-9.4      | 用于节点与控制平面之间的隧道安全通信。 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.Region:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 用于节点与控制平面之间的隧道安全通信。 |
 | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:9000` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:9000` <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 用于节点与控制平面之间的隧道安全通信。 |
 | **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:22` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:22` <br/> *Or* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 用于节点与控制平面之间的隧道安全通信。 |
 | `*:123` 或 `ntp.ubuntu.com:123`（如果使用 Azure 防火墙网络规则）   | UDP      | 123     | 在 Linux 节点上进行网络时间协议 (NTP) 时间同步时需要。                 |
@@ -114,7 +113,7 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 
 | 目标终结点                                                             | 协议 | 端口    | 用途  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1.1-9.4      | 用于节点与控制平面之间的隧道安全通信。 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 用于节点与控制平面之间的隧道安全通信。 |
 | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:9000` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:9000` <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 用于节点与控制平面之间的隧道安全通信。 |
 | `*:123` 或 `ntp.ubuntu.com:123`（如果使用 Azure 防火墙网络规则）   | UDP      | 123     | 在 Linux 节点上进行网络时间协议 (NTP) 时间同步时需要。                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 如果使用的是自定义 DNS 服务器，必须确保群集节点可以访问这些服务器。 |
@@ -142,7 +141,7 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 
 | 目标 FQDN                                                               | 端口          | 用途      |
 |--------------------------------------------------------------------------------|---------------|----------|
-| **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | 此地址允许 Linux 群集节点下载必需的安全修补程序和更新。 |
+| **`security.ubuntu.com`、`azure.archive.ubuntu.com`、`changelogs.ubuntu.com`** | **`HTTP:80`** | 此地址允许 Linux 群集节点下载必需的安全修补程序和更新。 |
 
 如果选择阻止/不允许这些 FQDN，则仅当进行[节点映像升级](node-image-upgrade.md)或[群集升级](upgrade-cluster.md)时，节点才会接收 OS 更新。
 
@@ -216,7 +215,6 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 | `gcr.azk8s.cn` | **`HTTPS:443`** | 此地址用于请求 helm/tiller 映像 |
 | `storage.googleapis.com` | **`HTTPS:443`** | 此地址用于请求 helm/tiller 映像 |
 
-
 ### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>必需的 FQDN/应用程序规则 
@@ -225,9 +223,11 @@ _ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 
 | FQDN                                          | 端口      | 用途      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.cn`** | **`HTTPS:443`** | 此地址用于正确操作 Azure Policy。 （AKS 中目前为预览版） |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 此地址用于从 GitHub 请求内置策略，以确保正确操作 Azure Policy。 （AKS 中目前为预览版） |
-| **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy 加载项，用于向应用程序见解终结点发送遥测数据。 |
+| **`data.policy.core.chinacloudapi.cn`** | **`HTTPS:443`** | 此地址用于拉取 Kubernetes 策略，并向策略服务报告群集合规性状态。 |
+| **`store.policy.core.chinacloudapi.cn`** | **`HTTPS:443`** | 此地址用于拉取内置策略的 Gatekeeper 项目。 |
+| **`gov-prod-policy-data.trafficmanager.cn`** | **`HTTPS:443`** | 此地址用于正确操作 Azure Policy。  |
+| **`raw.githubusercontent.com`** | **`HTTPS:443`** | 此地址用于从 GitHub 请求内置策略，以确保正确操作 Azure Policy。 |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`** | Azure Policy 加载项，用于向应用程序见解终结点发送遥测数据。 |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a><a name="restrict-egress-traffic-using-azure-firewall"></a>使用 Azure 防火墙限制出口流量
 

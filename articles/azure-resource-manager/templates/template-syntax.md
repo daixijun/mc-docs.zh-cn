@@ -2,18 +2,18 @@
 title: 模板结构和语法
 description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
 ms.topic: conceptual
-origin.date: 06/22/2020
+origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5521b7d97f9b9923ea983131aa5d1267459aa21f
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 68adc8e4e3c7697a28c6f8b870d441d8770dd1e8
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807823"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003571"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>了解 ARM 模板的结构和语法
 
@@ -50,6 +50,62 @@ ms.locfileid: "88807823"
 | [outputs](#outputs) |否 |部署后返回的值。 |
 
 每个元素均有可设置的属性。 本文稍后将更详细地介绍模板的各个节。
+
+## <a name="data-types"></a>数据类型
+
+在 ARM 模板中，可以使用以下数据类型：
+
+* string
+* securestring
+* int
+* 布尔
+* object
+* secureObject
+* array
+
+以下模板显示了数据类型的格式。 每种类型都有一个格式正确的默认值。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+安全字符串使用与字符串相同的格式，安全对象使用与对象相同的格式。 将参数设置为安全字符串或安全对象时，参数的值不会保存到部署历史记录中，也不会记入日志。 但是，如果将该安全值设置为不应为安全值的属性，则该值不会受到保护。 例如，如果将安全字符串设置为标记，则该值将以纯文本的形式存储。 使用安全字符串作为密码和机密。
+
+对于作为内联参数传递的整数，值的范围可能受限于用于部署的 SDK 或命令行工具。 例如，使用 PowerShell 部署模板时，整数类型的范围可能为 -2147483648 到 2147483647。 为了避免此限制，请在[参数文件](parameter-files.md)中指定大的整数值。 资源类型会针对整数属性应用其自己的限制。
+
+在模板中指定布尔值和整数值时，请勿对值使用引号。 使用双引号将字符串值引起来。
+
+使用大括号将对象括起来。 使用中括号将数组括起来。
 
 ## <a name="parameters"></a><a name="parameters"></a>参数
 
@@ -88,21 +144,9 @@ ms.locfileid: "88807823"
 
 有关如何使用参数的示例，请参阅 [Azure 资源管理器模板中的参数](template-parameters.md)。
 
-### <a name="data-types"></a><a name="data-types"></a>数据类型
-
-对于作为内联参数传递的整数，值的范围可能受限于用于部署的 SDK 或命令行工具。 例如，使用 PowerShell 部署模板时，整数类型的范围可能为 -2147483648 到 2147483647。 为了避免此限制，请在[参数文件](parameter-files.md)中指定大的整数值。 资源类型会针对整数属性应用其自己的限制。
-
-在模板中指定布尔值和整数值时，请勿对值使用引号。 使用双引号将字符串值引起来。
-
-使用大括号将对象括起来。 使用中括号将数组括起来。
-
-将参数设置为安全字符串或安全对象时，参数的值不会保存到部署历史记录中，也不会记入日志。 但是，如果将该安全值设置为不应为安全值的属性，则该值不会受到保护。 例如，如果将安全字符串设置为标记，则该值将以纯文本的形式存储。 使用安全字符串作为密码和机密。
-
-如需通过示例了解如何设置数据类型的格式，请参阅[参数类型格式](parameter-files.md#parameter-type-formats)。
-
 ## <a name="variables"></a><a name="variables"></a>变量
 
-在 variables 节中构造可在整个模板中使用的值。 不需要定义变量，但使用变量可以减少复杂的表达式，从而简化模板。
+在 variables 节中构造可在整个模板中使用的值。 不需要定义变量，但使用变量可以减少复杂的表达式，从而简化模板。 每个变量的格式都与其中一种[数据类型](#data-types)匹配。
 
 以下示例演示了可用于定义变量的选项：
 

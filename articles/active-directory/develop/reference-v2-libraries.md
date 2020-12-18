@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8afc2701fe95c263f39869a1e7891295398d7aed
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: b54aded3ea773245dfdef925032d2e3cc3883a12
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937474"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003789"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 标识平台身份验证库
 
@@ -52,7 +52,8 @@ Microsoft 标识平台终结点使用两种类型的库：
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![Javascript](./media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [引用](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [概念文档](msal-overview.md)| [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](./media/sample-v2-code/logo_angular.png) | MSAL Angular | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Angular SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [引用](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [概念文档](msal-overview.md) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
-| ![.NET framework](./media/sample-v2-code/logo_NET.png) ![UWP](./media/sample-v2-code/logo_windows.png) ![Xamarin](./media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](https://docs.microsoft.com/windows/apps/desktop/) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[概念文档](msal-overview.md) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET framework](./media/sample-v2-code/logo_NET.png) ![UWP](./media/sample-v2-code/logo_windows.png) ![Xamarin](./media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](https://docs.microsoft.com/windows/apps/desktop/) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview&preserve-view=true) |[概念文档](msal-overview.md) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Core 图标](./media/sample-v2-code/logo_NETCore.png) | Microsoft 标识 Web  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Web) |[GitHub](https://github.com/AzureAD/microsoft-identity-web) | [示例](https://github.com/AzureAD/microsoft-identity-web/wiki/Web-App-Samples) | [Microsoft.Identity.Web](https://docs.microsoft.com/dotnet/api/microsoft.identity.web?view=azure-dotnet-preview&preserve-view=true) |[概念文档](https://github.com/AzureAD/microsoft-identity-web/wiki) | [路线图](https://github.com/AzureAD/microsoft-identity-web/wiki#roadmap)
 | ![Python](./media/sample-v2-code/logo_python.png) | MSAL Python | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
 | ![Java](./media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [引用](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS 和 macOS | MSAL iOS 和 macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)、[macOS 应用](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [引用](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [概念文档](msal-overview.md) | |
@@ -64,7 +65,7 @@ Microsoft 标识平台终结点使用两种类型的库：
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| ![.NET](./media/sample-v2-code/logo_NET.png) ![.NET Core](./media/sample-v2-code/logo_NETcore.png) | ASP.NET 安全性 |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC 应用](quickstart-v2-aspnet-webapp.md) |[ASP.NET API 参考](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
+| ![.NET](./media/sample-v2-code/logo_NET.png) ![.NET Core](./media/sample-v2-code/logo_NETcore.png) | ASP.NET 安全性 |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC 应用](quickstart-v2-aspnet-webapp.md) |[ASP.NET API 参考](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0&preserve-view=true) |
 | ![.NET](./media/sample-v2-code/logo_NET.png)| 适用于 .NET 的 IdentityModel 扩展| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC 应用](quickstart-v2-aspnet-webapp.md) | 参考 |
 | ![Node.js](./media/sample-v2-code/logo_nodejs.png) | Azure AD Passport |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web 应用](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
@@ -143,4 +144,4 @@ Microsoft 标识平台终结点使用两种类型的库：
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 
-<!-- Update_Description: link update -->
+

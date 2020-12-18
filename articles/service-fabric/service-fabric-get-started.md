@@ -4,17 +4,17 @@ description: 安装运行时、SDK 和工具并创建本地开发群集。 完�
 ms.topic: conceptual
 origin.date: 06/16/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 7fa49927375a0471827a4e77657ada76e5d1bdba
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 579efeb970bc6aefdb49b787485cdb7f4d8e417e
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977367"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105189"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 
@@ -68,8 +68,8 @@ Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负�
 
 当前版本包括：
 
-* Service Fabric SDK and Tools 4.1.458
-* Service Fabric 运行时 7.1.458
+* Service Fabric SDK and Tools 4.2.434
+* Service Fabric 运行时 7.2.434
 
 有关支持版本的列表，请参阅 [Service Fabric 版本](service-fabric-versions.md)
 

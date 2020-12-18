@@ -1,5 +1,5 @@
 ---
-title: 教程：在 .NET Core 应用中使用动态配置
+title: 教程 - 在 .NET Core 应用中使用动态配置
 titleSuffix: Azure App Configuration
 description: 本教程介绍如何动态更新 .NET Core 应用的配置数据
 services: azure-app-configuration
@@ -13,14 +13,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 12/14/2020
 ms.author: abarora
-ms.openlocfilehash: 56376005dada29efc324a177f5aa028dbc7ccd69
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: f3be81b8202f969a4aca80750f389037ce2606d5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866619"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105213"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>教程：在 .NET Core 应用中使用动态配置
 

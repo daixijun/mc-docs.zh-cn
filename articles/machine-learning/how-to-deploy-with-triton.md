@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: e6c6a2f21bab1bf1970755c1f54d631a9e03cdd6
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d889c5073b5ef063991e6e0446398591909cf0e5
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977238"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104587"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>利用 Triton 推理服务器实现的高性能服务（预览） 
 
@@ -51,6 +51,17 @@ Triton 是针对推理进行了优化的框架。 它提供更好的 GPU 利用�
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="正常的非 triton 部署体系结构图":::
 
+### <a name="setting-the-number-of-workers"></a>设置辅助角色数
+
+若要在部署中设置辅助角色数，请设置环境变量 `WORKER_COUNT`。 假设有一个名为 `env` 的 [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 对象，可以执行以下操作：
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+这会告知 Azure ML 启动指定数目的辅助角色。
+
+
 **使用 Triton 的推理配置部署**
 
 * 已启用多个 [Gunicorn](https://gunicorn.org/) 辅助角色来并发处理传入请求。
@@ -66,7 +77,11 @@ Triton 是针对推理进行了优化的框架。 它提供更好的 GPU 利用�
 1. 验证是否可以将请求发送到部署了 Triton 的模型。
 1. 将特定于 Triton 的代码合并到 AML 部署中。
 
-## <a name="optional-define-a-model-config-file"></a>（可选）定义模型配置文件
+## <a name="verify-that-triton-can-serve-your-model"></a>验证 Triton 是否可以为模型提供服务
+
+首先，请按照以下步骤验证 Triton 推理服务器是否可以为模型提供服务。
+
+### <a name="optional-define-a-model-config-file"></a>（可选）定义模型配置文件
 
 模型配置文件告知 Triton 预期输入是多少以及这些输入将是什么维度。 有关创建配置文件的详细信息，请参阅 NVIDIA 文档中的[模型配置](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html)。
 
@@ -75,7 +90,7 @@ Triton 是针对推理进行了优化的框架。 它提供更好的 GPU 利用�
 > 
 > 有关此选项的详细信息，请参阅 NVIDIA 文档中的[生成的模型配置](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration)。
 
-## <a name="directory-structure"></a>目录结构
+### <a name="use-the-correct-directory-structure"></a>使用正确的目录结构
 
 向 Azure 机器学习注册模型时，可以注册单独的文件或目录结构。 若要使用 Triton，模型注册必须针对包含名为 `triton` 的目录的目录结构。 此目录的一般结构为：
 
@@ -93,7 +108,7 @@ models
 > [!IMPORTANT]
 > 此目录结构是一个 Triton 模型存储库，你的模型使用 Triton 时需要这个结构。 有关详细信息，请参阅 NVIDIA 文档中的 [Triton 模型存储库](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html)。
 
-## <a name="test-with-triton-and-docker"></a>用 Triton 和 Docker 进行测试
+### <a name="test-with-triton-and-docker"></a>用 Triton 和 Docker 进行测试
 
 若要测试模型以确保它能够与 Triton 协同运行，可以使用 Docker。 以下命令将 Triton 容器拉取到本地计算机，然后启动 Triton 服务器：
 
@@ -146,7 +161,7 @@ models
 
 有关使用 Docker 运行 Triton 的详细信息，请参阅[在有 GPU 的系统上运行 Triton](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) 和[在没有 GPU 的系统上运行 Triton](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu)。
 
-## <a name="register-your-model"></a> 注册模型
+### <a name="register-your-model"></a> 注册模型
 
 现在，你已验证你的模型可使用 Triton，请将其注册到 Azure 机器学习。 模型注册过程会将模型文件存储在 Azure 机器学习工作区中，并在使用 Python SDK 和 Azure CLI 进行部署时使用。
 
@@ -176,9 +191,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>添加预处理和后处理
+## <a name="verify-you-can-call-into-your-model"></a>验证是否可以调用模型
 
-验证 Web 服务正常工作后，可以通过定义入口脚本来添加预处理和后处理代码。 此文件的名称为 `score.py`。 有关入口脚本的详细信息，请参阅[定义入口脚本](how-to-deploy-and-where.md#define-an-entry-script)。
+验证 Triton 能够为模型提供服务之后，可以通过定义入口脚本来添加预处理和后处理代码。 此文件的名称为 `score.py`。 有关入口脚本的详细信息，请参阅[定义入口脚本](how-to-deploy-and-where.md#define-an-entry-script)。
 
 这两个主要步骤旨在初始化 `init()` 方法中的 Triton HTTP 客户端，并在 `run()` 函数中调用该客户端。
 
@@ -283,7 +298,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-部署完成后将显示评分 URI。 对于此本地部署，则为 `http://localhost:6789/score`。 如果部署到云，则可以使用 [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI 命令来获取评分 URI。
+部署完成后将显示评分 URI。 对于此本地部署，则为 `http://localhost:6789/score`。 如果部署到云，则可以使用 [az ml service show](/cli/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI 命令来获取评分 URI。
 
 有关如何创建将推理请求发送到评分 URI 的客户端的信息，请参阅[使用部署为 Web 服务的模型](how-to-consume-web-service.md)。
 

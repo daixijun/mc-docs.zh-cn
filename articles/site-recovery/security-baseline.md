@@ -5,17 +5,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/26/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e544be6f39e8a741973a6a88fc9427bb441cef29
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: bd29c97c1a8192cae28cc9b32c02d08e7665b685
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329168"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105256"
 ---
 <!--Verified Successfullt-->
 # <a name="azure-security-baseline-for-site-recovery"></a>Site Recovery 的 Azure 安全基线
@@ -49,7 +49,7 @@ ms.locfileid: "94329168"
 
 可使用 Azure PowerShell 或 Azure CLI，基于资源的标记查找资源或对其执行操作。 
 
-- [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags) 
+- [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md) 
 
 - [如何创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md) 
 
@@ -207,7 +207,7 @@ ms.locfileid: "94329168"
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5：对所有基于 Azure Active Directory 的访问使用多重身份验证
 
 **指导**：启用 Azure AD、多重身份验证，并遵循安全中心的标识和访问建议。 
-- [计划 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [监视标识和访问](../security-center/security-center-identity-access.md)
 
@@ -221,7 +221,7 @@ ms.locfileid: "94329168"
 
 - [特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [规划基于云的 Azure 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
+- [规划基于云的 Azure AD 多重身份验证部署](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -476,7 +476,7 @@ Site Recovery 支持数据的静态加密。 对于 Azure IaaS 工作负荷，�
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-<!--Not Available on [How to deny a specific resource type with Azure Policy](https://docs.azure.cn/governance/samples)-->
+- [如何使用 Azure Policy 拒绝特定的资源类型](https://docs.azure.cn/governance/policy/samples)
 
 **Azure 安全中心监视**：不适用
 
@@ -559,7 +559,7 @@ Site Recovery 支持数据的静态加密。 对于 Azure IaaS 工作负荷，�
 
 **指导**：客户应当管理与 Azure Key Vault 集成的 Site Recovery 机密，同时为启用了 Azure 磁盘加密的虚拟机启用灾难恢复。 
 
-- [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [如何创建 Key Vault](../key-vault/general/quick-create-portal.md)
 
 - [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
 
@@ -571,9 +571,21 @@ Site Recovery 支持数据的静态加密。 对于 Azure IaaS 工作负荷，�
 
 **责任**：客户
 
-<!--Not Available on [How to integrate with Azure Managed Identities](/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)-->
+### <a name="712-manage-identities-securely-and-automatically"></a>7.12：安全自动管理标识
 
-<!--Not Available on [How to enable System Managed Identity on Recovery Services Vault](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)-->
+**指导**：Site Recovery 仅在客户可以在恢复服务保管库上启用系统托管的标识时才支持系统托管的标识。 这种方法同样适用于灾难恢复产品/服务中用于定义访问边界的资源。 
+
+使用托管标识在 Azure AD 中为 Azure 服务提供自动托管标识。 
+
+使用托管标识可以向支持 Azure AD 身份验证的任何服务（包括 Key Vault）进行身份验证，无需在代码中放入任何凭据。
+
+- [如何与 Azure 托管标识集成](https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+
+- [如何在恢复服务保管库上启用系统托管标识](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除意外的凭据透露
 
@@ -635,7 +647,7 @@ Site Recovery 服务元数据使用的所有存储资源，其配置的类型为
 
 **指导**：将存储服务加密 (SSE) 与 Azure 的基于基础结构即服务 (IaaS) 的虚拟机配合使用，对数据进行静态加密。 在 Key Vault 中启用“软删除”，以防止意外删除或恶意删除密钥。
 
-- [如何在密钥保管库中启用软删除](/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [如何在密钥保管库中启用软删除](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure 安全中心监视**：是
 
@@ -671,7 +683,7 @@ Site Recovery 服务元数据使用的所有存储资源，其配置的类型为
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md) 
 
-- [使用标记整理 Azure 资源](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -737,10 +749,7 @@ Site Recovery 服务元数据使用的所有存储资源，其配置的类型为
 
 ## <a name="next-steps"></a>后续步骤
 
-- 参阅 [Azure 安全基准 V2 概述](https://docs.azure.cn/security/fundamentals/overview)
+- 参阅 [Azure 安全基准 V2 概述](https://docs.azure.cn/security/benchmarks/overview)
+- 详细了解 [Azure 安全基线](https://docs.azure.cn/security/benchmarks/security-baselines-overview)
 
-<!--MOONCAKE CORRECT ON [Azure Security Benchmark V2 overview](https://docs.azure.cn/security/fundamentals/overview)-->
-<!--Not Available on Learn more about [Azure security baselines](https://docs.azure.cn/security/security-baselines-overview)-->
-
-<!-- Update_Description: new article about security baseline -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

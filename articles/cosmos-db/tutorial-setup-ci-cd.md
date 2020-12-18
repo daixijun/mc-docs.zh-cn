@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 01/28/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98497696126338b42b27c49d26729882c9ff2ce9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 086484eed17285495d61d4f2aa4e74394481caaf
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551729"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850609"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>在 Azure DevOps 中通过 Azure Cosmos DB 模拟器生成任务设置 CI/CD 管道
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

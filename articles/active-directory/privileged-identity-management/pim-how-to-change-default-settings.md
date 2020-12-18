@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a8052500cb08c22ac734c7762b9726cc133313
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 0f8a2ac406e9be5ff6ee623cc1ab3c4df0132d24
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501870"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003597"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure AD 角色设置
 
@@ -81,7 +81,7 @@ gt
 
 ## <a name="require-multi-factor-authentication"></a>需要多重身份验证
 
-Privileged Identity Management 提供了两种不同的可选 Azure 多重身份验证强制执行方案。
+Privileged Identity Management 提供了两种不同的可选 Azure AD 多重身份验证强制执行方案。
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>要求在活动分配时进行多重身份验证
 
@@ -91,7 +91,7 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>要求在激活时进行多重身份验证
 
-可以要求符合角色条件的用户证明他们正在使用 Azure 多重身份验证，然后他们才能激活。 多重身份验证能够以合理的确定性确保用户是其本人。 强制执行此选项可以在用户帐户可能已遭入侵的情况下保护关键资源。
+可以要求符合角色条件的用户通过 Azure AD 多重身份验证来证明其身份，然后才允许其激活。 多重身份验证能够以合理的确定性确保用户是其本人。 强制执行此选项可以在用户帐户可能已遭入侵的情况下保护关键资源。
 
 若要在激活前要求进行多重身份验证，请在“编辑角色设置”的“分配”选项卡中选中“在激活时要求进行多重身份验证”框。
 
@@ -167,8 +167,8 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 使用“多重身份验证”开关指定是否要求用户在激活其角色之前，先使用 MFA 验证其身份。 他们只需在每个会话中验证其身份一次，而无需在每次激活角色时都执行身份验证。 启用 MFA 时，请记住两点提示：
 
-- 使用 Microsoft 帐户作为电子邮件地址（通常是 @outlook.com，但不一定）的用户无法注册 Azure 多重身份验证。 如果想要将角色分配给使用 Microsoft 帐户的用户，应将其设置为永久管理员，或者为该角色禁用多重身份验证。
-- 无法对 Azure AD 和 Microsoft 365 的高特权角色禁用 Azure 多重身份验证。 此安全功能有助于保护以下角色：  
+- 使用 Microsoft 帐户作为电子邮件地址（通常是 @outlook.com，但不一定）的用户无法注册 Azure AD 多重身份验证。 如果想要将角色分配给使用 Microsoft 帐户的用户，应将其设置为永久管理员，或者为该角色禁用多重身份验证。
+- 无法对 Azure AD 和 Microsoft 365 的高特权角色禁用 Azure AD 多重身份验证。 此安全功能有助于保护以下角色：  
   
   - Azure 信息保护管理员
   - 计费管理员

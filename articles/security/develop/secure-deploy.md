@@ -1,10 +1,10 @@
 ---
-title: 在世纪互联 Azure 上部署安全应用程序
+title: 在 Azure 上部署安全应用程序
 description: 本文讨论在 Web 应用程序项目的发布和响应阶段要考虑的最佳做法。
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
-ms.author: v-tawe
-ms.date: 06/04/2020
+ms.author: v-johya
+ms.date: 12/03/2020
 origin.date: 06/12/2019
 ms.topic: article
 ms.service: security
@@ -14,15 +14,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 63dea162b905bacd64bfea1b825300f0c4b077e4
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 4811d63bac55e9d5a0d28f180b6470ae7bb107d9
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439684"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105067"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>在 Azure 上部署安全应用程序
-本文介绍了在为云部署应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 的发布和响应阶段要考虑的安全问题和概念。 目标是帮助你定义可用于部署更安全应用程序的活动和 Azure 服务。
+本文介绍了在为云部署应用程序时需要考虑的安全活动和控制措施。 介绍了在 Microsoft [安全开发生命周期 (SDL)](https://docs.microsoft.com/previous-versions/windows/desktop/cc307891(v=msdn.10)) 的发布和响应阶段要考虑的安全问题和概念。 目标是帮助你定义可用于部署更安全应用程序的活动和 Azure 服务。
 
 本文涵盖以下 SDL 阶段：
 
@@ -76,9 +76,9 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 #### <a name="azure-security-center"></a>Azure 安全中心
 
-[Azure 安全中心](../../security-center/security-center-intro.md)有助于预防、检测和响应威胁，同时增加 Azure 资源（包括 Web 应用程序）在安全方面的可见性和可控性。 Azure 安全中心可帮助检测可能被忽略的威胁。 它可以与各种安全解决方案协同工作。
+[Azure 安全中心](../../security-center/security-center-introduction.md)有助于预防、检测和响应威胁，同时增加 Azure 资源（包括 Web 应用程序）在安全方面的可见性和可控性。 Azure 安全中心可帮助检测可能被忽略的威胁。 它可以与各种安全解决方案协同工作。
 
-安全中心的免费层仅为 Azure 资源提供有限的安全性。 安全中心标准层将这些功能扩展到本地资源和其他云。
+安全中心的免费层仅为 Azure 资源提供有限的安全性。 [安全中心标准层](../../security-center/security-center-get-started.md)将这些功能扩展到本地资源和其他云。
 安全中心标准层可帮助你：
 
   - 查找并修复安全漏洞。
@@ -91,3 +91,4 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 - [设计安全的应用程序](secure-design.md)
 - [开发安全的应用程序](secure-develop.md)
+

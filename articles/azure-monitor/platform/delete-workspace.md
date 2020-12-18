@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 3b82af3868ffa2f7272e4a431dc92a0e99c193b7
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 951bdd0fdf96e912b1d6c7f91b9cd257073cfc5c
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328893"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105200"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>删除和恢复 Azure Log Analytics 工作区
 
@@ -41,14 +41,16 @@ ms.locfileid: "94328893"
 > [!NOTE] 
 > 已安装的解决方案和链接服务（例如 Azure 自动化帐户）在删除时将从工作区中永久删除，并且无法恢复。 应在恢复操作后进行重新配置，使工作区恢复到其以前配置的状态。
 
-可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0)、[REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 或 [Azure 门户](https://portal.azure.cn)删除工作区。
+可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true)、[REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) 或 [Azure 门户](https://portal.azure.cn)删除工作区。
 
 ### <a name="azure-portal"></a>Azure 门户
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。 
 2. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”。
 3. 在 Log Analytics 工作区的列表中，选择一个工作区，然后从中间窗格的顶端单击“删除”。
-4. 确认页面随即出现，显示过去一周内工作区的数据引入。 键入要确认的工作区的名称，然后单击“删除”。
+4. 确认页面随即出现，显示过去一周内工作区的数据引入。 
+5. 如果要永久删除工作区，使其以后无法恢复，请选择“永久删除工作区”复选框。
+6. 键入要确认的工作区的名称，然后单击“删除”。
 
    ![确认删除工作区](./media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>永久删除工作区
 软删除方法可能不适用于开发和测试等情况，在这些情况下需要使用相同的设置和工作区名称重复部署。 在这些情况下，可以永久删除工作区并“替换”软删除期。 永久删除工作区操作将释放工作区名称，你可以使用相同的名称创建新的工作区。
 
-
 > [!IMPORTANT]
 > 请谨慎使用永久删除工作区操作，因为这是不可逆的，并且无法恢复工作区及其数据。
 
-添加“-ForceDelete”标记可永久删除工作区。 “-ForceDelete”选项当前在 Az.OperationalInsights 2.3.0 或更高版本中可用。 
+若要使用 Azure 门户永久删除工作区，请选择“永久删除工作区”复选框，然后再单击“删除”按钮 。
+
+若要使用 PowerShell 永久删除工作区，请添加“-ForceDelete”标记以永久删除工作区。 “-ForceDelete”选项当前在 Az.OperationalInsights 2.3.0 或更高版本中可用。 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete

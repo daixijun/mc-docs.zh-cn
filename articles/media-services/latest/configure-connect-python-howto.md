@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-origin.date: 08/31/2020
-ms.date: 11/30/2020
+origin.date: 11/18/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: devx-track-python
-ms.openlocfilehash: 6c55d19dedcf47af5ae26b2fc86c436bac9d2cb8
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: fcbdecb2c4106e05cbcc9e6441c1375b112b6820
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300835"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004112"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>连接到媒体服务 v3 API - Python
 
@@ -45,11 +45,13 @@ ms.locfileid: "96300835"
 * `azure-mgmt-resource` 模块，其中包括用于 Active Directory 的 Azure 模块。
 * `azure-mgmt-media` 模块，其中包括媒体服务实体。
 
+    确保获取[适用于 Python 的媒体服务 SDK 的最新版本](https://pypi.org/project/azure-mgmt-media/)。
+
 打开命令行工具并使用以下命令安装这些模块。
 
 ```
 pip3 install azure-mgmt-resource
-pip3 install azure-mgmt-media==1.1.1
+pip3 install azure-mgmt-media==3.0.0
 ```
 
 ## <a name="connect-to-the-python-client"></a>连接到 Python 客户端

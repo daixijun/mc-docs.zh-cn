@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/24/2020
+ms.date: 12/08/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f1c13005712ef713fe94b694a6b2883f72f64bb
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 33c518f20cf7c00d848042f90ee5fd9f705ecd8e
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918513"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003750"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 存储报告数据多长时间？
 
@@ -62,7 +62,7 @@ ms.locfileid: "95918513"
 | :--                    | :--           | :--                 | :--                 |
 | 审核日志             | 7 天        | 30 天             | 30 天             |
 | 登录               | 7 天        | 30 天             | 30 天             |
-| Azure MFA 使用情况        | 30 天       | 30 天             | 30 天             |
+| Azure AD MFA 使用情况        | 30 天       | 30 天             | 30 天             |
 
 通过使用 Azure Monitor 将审核和登录活动数据路由到 Azure 存储帐户，可以使这些活动数据的保留时间长于上述默认保留期限。 有关详细信息，请参阅[将 Azure AD 日志存档到 Azure 存储帐户](quickstart-azure-monitor-route-logs-to-storage-account.md)。
 

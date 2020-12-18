@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d7cb69c8fc8038aace6def96639c01ad6126c97
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: eabf31b2fc0692ce9784cc9abc240b35affbbfcc
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593616"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004214"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 访问评审管理来宾访问权限
 
@@ -41,7 +41,12 @@ ms.locfileid: "89593616"
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>创建和执行来宾的访问评审
 
-首先，作为全局管理员或用户管理员，请转到[“Identity Governance”页](https://portal.azure.cn/#blade/Microsoft_AAD_ERM/DashboardBlade/)，确保访问评审已为你的组织准备就绪。
+首先，必须分配有以下角色之一：
+- 全局管理员
+- 用户管理员
+- （预览）要评审的组的 M365 或 AAD 安全组所有者
+
+然后，请转到[“Identity Governance”页](https://portal.azure.cn/#blade/Microsoft_AAD_ERM/DashboardBlade/)，确保访问评审已为你的组织准备就绪。
 
 Azure AD 支持采用多种方案评审来宾用户。
 
@@ -120,11 +125,4 @@ Azure AD 支持采用多种方案评审来宾用户。
 ## <a name="next-steps"></a>后续步骤
 
 [创建组或应用程序的访问评审](create-access-review.md)
-
-
-
-
-
-
-
 

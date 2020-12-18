@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: cbce909fdaf78103c595fee5557c40d78b1c3e5f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e9cc735f84f4c38099d2dc02c890aa20d9fdd80a
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977477"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104572"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -89,7 +89,7 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 1. 在数据存储设置中，对于“允许 Azure 机器学习服务使用工作区托管标识来访问存储”，选择“是” 。
 
 
-这些步骤使用 Azure 基于资源的访问控制 (Azure RBAC) 将工作区托管标识作为“读取者”添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，并确保数据不会离开虚拟网络。
+这些步骤使用 Azure 基于角色的访问控制 (Azure RBAC) 将工作区托管标识作为“读取者”添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，并确保数据不会离开虚拟网络。
 
 > [!NOTE]
 > 这些更改可能需要长达 10 分钟才能生效。

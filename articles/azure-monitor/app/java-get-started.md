@@ -6,19 +6,19 @@ author: Johnnytechn
 origin.date: 05/24/2019
 ms.custom: devx-track-java
 ms.author: v-johya
-ms.date: 12/01/2020
-ms.openlocfilehash: 769485afa439554343f9bf7f6fc8fbd656187027
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/07/2020
+ms.openlocfilehash: b72324650d80c7610be815a2d52e380c119ab8b2
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432672"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104449"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>快速入门：Java Web 项目中的 Application Insights 入门
 
 
-> [!IMPORTANT]
-> 监视 Java 应用程序的建议方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
+> [!CAUTION]
+> 自 2020 年 11 月起，对于监视 Java 应用程序，我们建议使用 Azure Monitor Application Insights 3.0 代理进行自动检测。 有关如何入门的详细信息，请参阅 [Application Insights Java 3.0 代理](./java-in-process-agent.md)。
 
 在本快速入门中，你将使用 Application Insights SDK 检测请求、跟踪依赖项、收集性能计数器、诊断性能问题和异常，并编写代码以跟踪用户对应用执行的操作。
 
@@ -303,8 +303,7 @@ Application Insights 可以定期测试网站，检查网站是否正常运行�
 * [将监视功能添加到网页](javascript.md)，监视器页面加载时间、AJAX 调用、浏览器异常。
 * 编写[自定义遥测](./api-custom-events-metrics.md)来跟踪浏览器或服务器中的使用情况。
 * 使用[分析](../log-query/log-query-overview.md)从应用通过遥测执行功能强大的查询
-* 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
-<!--Correct on links: https://docs.azure.cn/java/-->
+* 有关详细信息，请访问[面向 Java 开发人员的 Azure](/java)。
 
 <!--Link references-->
 

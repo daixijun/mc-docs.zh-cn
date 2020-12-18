@@ -4,17 +4,17 @@ description: 快速了解如何通过 Azure 门户创建专用 Azure 容器注�
 ms.topic: quickstart
 origin.date: 08/04/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/14/2020
 ms.testscope: yes
 ms.testdate: 04/06/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: eb738b98279c3a4249a5f29246dbc6217252bd13
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: abd16df0d48ab7b22ffdd870f7a64a26b5f95e2d
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024535"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004118"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>快速入门：通过 Azure 门户创建 Azure 容器注册表
 
@@ -34,12 +34,12 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 选择“创建资源”，在“新建”页的搜索筛选器中键入“容器注册表”，然后按回车键。
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="在 Azure 门户中创建容器注册表":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="在门户中导航到容器注册表":::
 
 在搜索结果中选择“容器注册表”项。
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-chenye-click-item.png" alt-text="在 Azure 门户中创建容器注册表":::
-
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-chenye-click-item.png" alt-text="在 Azure 门户中选择容器注册表对象":::
+ 
 选择“创建” 。 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-chenye-click-create.png" alt-text="在 Azure 门户中创建容器注册表":::
@@ -62,9 +62,7 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 ## <a name="log-in-to-registry"></a>登录到注册表
 
-必须登录到注册表实例才可推送和拉取容器映像。 在本地计算机上[登录到 Azure CLI][get-started-with-azure-cli]，然后运行 [az acr login][az-acr-login] 命令。 （使用 Azure CLI 登录时仅指定注册表名称。 不要包含“azurecr.cn”域后缀。）
-
-<!--CORRECT ON azurecr.cn-->
+必须登录到注册表实例才可推送和拉取容器映像。 在本地计算机上[登录到 Azure CLI][get-started-with-azure-cli]，然后运行 [az acr login][az-acr-login] 命令。 使用 Azure CLI 登录时仅指定注册表名称。 不要使用登录服务器名称，其中包括类似 `azurecr.cn` 的域后缀。
 
 ```azurecli
 az acr login --name <registry-name>

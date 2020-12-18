@@ -2,32 +2,31 @@
 title: 将 Apache Spark 连接到 Azure Cosmos DB
 description: 了解可将 Apache Spark 连接到 Azure Cosmos DB 的 Azure Cosmos DB Spark 连接器。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
+origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0b40e123ce53731f9150f78f95d04428c193e4ec
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 19aab61c3b09045c20a33fc5571627e55baa1ce3
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552761"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850847"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 可以使用 Cosmos DB Spark 连接器针对 Azure Cosmos DB 中存储的数据运行 [Spark](https://spark.apache.org/) 作业。 Cosmos 可用于批处理和流式处理，并可充当服务层来降低访问延迟。
 
-可以结合 [Azure HDInsight](https://www.azure.cn/home/features/hdinsight/)（在 Azure 上提供托管的 Spark 群集）使用连接器。 下表显示了支持的 Spark 版本。
-
-<!--Not Available on [Azure Databricks](https://www.azure.cn/home/features/databricks/)-->
+可以将连接器用于 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 或 [Azure HDInsight](https://www.azure.cn/home/features/hdinsight/)，它们在 Azure 上提供 Spark 托管群集。 下表显示了支持的 Spark 版本。
 
 | 组件 | 版本 |
 |---------|-------|
 | Apache Spark | 2.4.x、2.3.x、2.2.x 和 2.1.x |
 | Scala | 2.11 |
-
-<!--Not Available on | Azure Databricks runtime version | > 3.4 |-->
+| Azure Databricks 运行时版本 | > 3.4 |
 
 > [!WARNING]
 > 此连接器支持 Azure Cosmos DB 的核心 (SQL) API。
@@ -38,9 +37,7 @@ ms.locfileid: "94552761"
 ## <a name="quickstart"></a>快速入门
 
 * 遵循 [Java SDK 入门](./create-sql-api-java.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
-    
-<!--Not Available on * Follow the steps at [Azure Databricks getting started](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)-->
-
+* 按照 [Azure Databricks 入门](https://docs.azure.cn/databricks/scenarios/quickstart-create-databricks-workspace-portal)中的步骤设置 Azure Databricks 工作区和群集。
 * 现在可以创建新的 Notebook，并导入 Cosmos DB 连接器库。 有关如何设置工作区的详细信息，请跳转到[使用 Cosmos DB 连接器](#bk_working_with_connector)。
 * 以下部分提供了有关如何使用连接器读取和写入数据的代码片段。
 
@@ -235,7 +232,13 @@ df
 | 2.2.0 | 2.11 | [azure-cosmosdb-spark_2.2.0_2.11_1.1.1](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-cosmosdb-spark_2.2.0_2.11%7C1.1.1%7Cjar)
 | 2.1.0 | 2.11 | [azure-cosmosdb-spark_2.1.0_2.11_1.2.2](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.2/jar)
 
-<!--Not Available on ### Using Databricks notebooks-->
+### <a name="using-databricks-notebooks"></a>使用 Databricks 笔记本
+
+按照“Azure Databricks 指南”>[使用 Azure Cosmos DB Spark 连接器](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)中的指南操作，使用 Databricks 工作区创建库
+
+> [!NOTE]
+> “使用 Azure Cosmos DB Spark 连接器”页当前不是最新的。 可以从 maven 通过 [azure-cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) 下载 uber jar 并安装这一个 jar/库，而无需将六个不同的 jar 下载到六个不同的库。
+> 
 
 ### <a name="using-spark-cli"></a>使用 spark-cli
 
@@ -279,9 +282,7 @@ mvn clean package
     <!--Not Available on * **Twitter Source with Apache Spark and Azure Cosmos DB Change Feed**: -->
 
 * **使用 Apache Spark 查询 Cosmos DB 图形**：[ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
-    
-    <!--Not Available on * **Connecting Azure Databricks to Azure Cosmos DB** using `azure-cosmosdb-spark`-->
-    
+* 使用 `azure-cosmosdb-spark` [将 Azure Databricks 连接到 Azure Cosmos DB](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)。  此处还有一个[按时航班性能笔记本](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks)的 Azure Databricks 版本的链接。
 * **[使用 Azure Cosmos DB 和 HDInsight (Apache Spark) 的 Lambda 体系结构](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)** ：可以使用 Cosmos DB 和 Spark 减少维护大数据管道所造成的操作开销。
 
 ## <a name="more-information"></a>更多信息

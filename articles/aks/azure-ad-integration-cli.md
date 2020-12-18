@@ -5,34 +5,34 @@ services: container-service
 ms.topic: article
 origin.date: 07/20/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 489536cf0f263f8fc10bf4747306d4b958891877
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 98e00e853e5c34d24037294264063f0f9d109dcf
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021556"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004043"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成（旧版）
 
-可将 Azure Kubernetes Service (AKS) 配置为使用 Azure Active Directory (AD) 进行用户身份验证。 在此配置中，可以使用 Azure AD 身份验证令牌登录到 AKS 群集。 群集操作员还可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。
+可将 Azure Kubernetes Service (AKS) 配置为使用 Azure Active Directory (AD) 进行用户身份验证。 在此配置中，可以使用 Azure AD 身份验证令牌登录到 AKS 群集。 群集操作员还可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)。
 
-本文介绍如何创建所需的 Azure AD 组件，然后部署支持 Azure AD 的群集并在 AKS 群集中创建一个基本的 RBAC 角色。
+本文介绍如何创建所需的 Azure AD 组件，然后部署支持 Azure AD 的群集，并在 AKS 群集中创建一个基本的 Kubernetes 角色。
 
 有关本文中使用的完整示例脚本，请参阅 [Azure CLI 示例 - AKS 与 Azure AD 集成][complete-script]。
 
-
-<!--MOONCAKE: Not Available on [AKS-managed Azure AD][managed-aad]-->
+> [!Important]
+> AKS 提供全新的改进 [AKS 管理 Azure AD][managed-aad] 体验，让你无需管理服务器或客户端应用程序。 请遵照[此处][managed-aad-migrate]的说明进行迁移。
 
 ## <a name="the-following-limitations-apply"></a>以下限制适用：
 
-- Azure AD 只能在支持 RBAC 的群集上启用。
+- Azure AD 只能在支持 Kubernetes RBAC 的群集上启用。
 - Azure AD 传统集成只能在创建群集期间启用。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a><a name="before-you-begin"></a>准备工作
 
 需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
@@ -57,7 +57,7 @@ aksname="myakscluster"
 
 若要与 AKS 集成，请创建并使用充当标识请求终结点的 Azure AD 应用程序。 所需的第一个 Azure AD 应用程序获取用户的 Azure AD 组成员身份。
 
-使用 [az ad app create][az-ad-app-create] 命令创建服务器应用程序组件，然后使用 [az ad app update][az-ad-app-update] 命令更新组成员身份声明。 以下示例使用[开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
+使用 [az ad app create][az-ad-app-create] 命令创建服务器应用程序组件，然后使用 [az ad app update][az-ad-app-update] 命令更新组成员身份声明。 以下示例使用 [开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
 
 ```azurecli
 # Create the Azure AD application
@@ -169,9 +169,9 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 ```
 
-## <a name="create-rbac-binding"></a>创建 RBAC 绑定
+## <a name="create-kubernetes-rbac-binding"></a>创建 Kubernetes RBAC 绑定
 
-在对 AKS 群集使用 Azure Active Directory 帐户之前，需要创建角色绑定或群集角色绑定。 “角色”定义要授予的权限，“绑定”将这些权限应用于目标用户 。 这些分配可应用于特定命名空间或整个群集。 有关详细信息，请参阅[使用 RBAC 授权][rbac-authorization]。
+在对 AKS 群集使用 Azure Active Directory 帐户之前，需要创建角色绑定或群集角色绑定。 “角色”定义要授予的权限，“绑定”将这些权限应用于目标用户 。 这些分配可应用于特定命名空间或整个群集。 请参阅[使用 Kubernetes RBAC 授权][rbac-authorization]了解详细信息。
 
 使用 [az ad signed-in-user show][az-ad-signed-in-user-show] 命令获取用户当前登录用户的用户主体名称 (UPN)。 在下一步骤中，将为 Azure AD 集成启用此用户帐户。
 
@@ -180,7 +180,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> 如果为其授予 RBAC 绑定的用户在同一个 Azure AD 租户中，请根据 *userPrincipalName* 分配权限。 如果该用户位于不同的 Azure AD 租户中，请查询并改用 *objectId* 属性。
+> 如果你为其授予 Kubernetes RBAC 绑定的用户在同一个 Azure AD 租户中，请根据 userPrincipalName 分配权限。 如果该用户位于不同的 Azure AD 租户中，请查询并改用 *objectId* 属性。
 
 创建名为 `basic-azure-ad-binding.yaml` 的 YAML 清单并粘贴以下内容。 在最后一行中，请将 userPrincipalName_or_objectId 替换为前一命令的 UPN 或对象 ID 输出：
 
@@ -258,7 +258,7 @@ error: You must be logged in to the server (Unauthorized)
 
 有关包含本文中所示命令的完整脚本，请参阅 [AKS 中的 Azure AD 集成脚本示例存储库][complete-script]。
 
-若要使用 Azure AD 用户和组来控制对群集资源的访问，请参阅[在 AKS 中使用基于角色的访问控制和 Azure AD 标识来控制对群集资源的访问][azure-ad-rbac]。
+请参阅[在 AKS 中使用 Kubernetes 基于角色的访问控制和 Azure AD 标识来控制对群集资源的访问][azure-ad-rbac]，了解如何使用 Azure AD 用户和组来控制对群集资源的访问。
 
 有关如何保护 Kubernetes 群集的详细信息，请参阅 [AKS 的访问和标识选项][rbac-authorization]。
 
@@ -273,28 +273,27 @@ error: You must be logged in to the server (Unauthorized)
 
 <!-- LINKS - internal -->
 
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
-[az-ad-user-show]: https://docs.azure.cn/cli/ad/user#az-ad-user-show
-[az-ad-app-create]: https://docs.azure.cn/cli/ad/app#az-ad-app-create
-[az-ad-app-update]: https://docs.azure.cn/cli/ad/app#az-ad-app-update
-[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create
-[az-ad-app-permission-add]: https://docs.azure.cn/cli/ad/app/permission#az-ad-app-permission-add
-[az-ad-app-permission-grant]: https://docs.azure.cn/cli/ad/app/permission#az-ad-app-permission-grant
-[az-ad-app-permission-admin-consent]: https://docs.azure.cn/cli/ad/app/permission#az-ad-app-permission-admin-consent
-[az-ad-app-show]: https://docs.azure.cn/cli/ad/app#az-ad-app-show
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-account-show]: https://docs.azure.cn/cli/account#az-account-show
-[az-ad-signed-in-user-show]: https://docs.azure.cn/cli/ad/signed-in-user#az-ad-signed-in-user-show
+[az-ad-user-show]: https://docs.azure.cn/cli/ad/user#az_ad_user_show
+[az-ad-app-create]: https://docs.azure.cn/cli/ad/app#az_ad_app_create
+[az-ad-app-update]: https://docs.azure.cn/cli/ad/app#az_ad_app_update
+[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create
+[az-ad-app-permission-add]: https://docs.azure.cn/cli/ad/app/permission#az_ad_app_permission_add
+[az-ad-app-permission-grant]: https://docs.azure.cn/cli/ad/app/permission#az_ad_app_permission_grant
+[az-ad-app-permission-admin-consent]: https://docs.azure.cn/cli/ad/app/permission#az_ad_app_permission_admin_consent
+[az-ad-app-show]: https://docs.azure.cn/cli/ad/app#az_ad_app_show
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-account-show]: https://docs.azure.cn/cli/account#az_account_show
+[az-ad-signed-in-user-show]: https://docs.azure.cn/cli/ad/signed-in-user#az_ad_signed_in_user_show
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential#az_ad_sp_credential_reset
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-
-<!--Not Available on [managed-aad]: managed-aad.md-->
-<!--Not Available on [managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration-->
+[managed-aad]: managed-aad.md
+[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
 
 <!-- Update_Description: update meta properties, wording update, update link -->

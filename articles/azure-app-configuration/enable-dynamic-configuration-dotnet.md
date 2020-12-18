@@ -1,5 +1,5 @@
 ---
-title: .NET Framework 教程：Azure 应用程序配置中的动态配置
+title: .NET Framework 教程 - Azure 应用配置中的动态配置
 description: 本教程介绍如何使用 Azure 应用程序配置动态更新 .NET Framework 应用的配置数据。
 services: azure-app-configuration
 author: lisaguthrie
@@ -7,14 +7,14 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 18a8f1cb23736da53ad613b6f9cbaf57fc96e7bd
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 943df5c9c521217672c881c310dd9b66af28fe7f
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866615"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105212"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>教程：在 .NET Framework 应用中使用动态配置
 
@@ -31,7 +31,7 @@ ms.locfileid: "88866615"
 > * 在应用程序中注入最新配置。
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 或更高版本](https://dotnet.microsoft.com/download)
 
@@ -39,7 +39,7 @@ ms.locfileid: "88866615"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“配置资源管理器” > “+ 创建” > “键-值”来添加以下键值对    ：
+7. 选择“配置资源管理器” > “+ 创建” > “键-值”来添加以下键值对    ：
 
     | 密钥 | 值 |
     |---|---|
@@ -47,15 +47,15 @@ ms.locfileid: "88866615"
 
     暂时将“标签”和“内容类型”保留为空   。
 
-7. 选择“应用”。 
+8. 选择“应用”。 
 
 ## <a name="create-a-net-framework-console-app"></a>创建 .NET Framework 控制台应用
 
 1. 启动 Visual Studio，并选择“文件” > “新建” > “项目”    。
 
-1. 在**创建新项目**中，针对“控制台”  项目类型进行筛选，然后单击“控制台应用(.NET Framework)”  。 单击“下一步”。 
+1. 在 **创建新项目** 中，针对“控制台”  项目类型进行筛选，然后单击“控制台应用(.NET Framework)”  。 单击“下一步”。 
 
-1. 在**配置新项目**中，输入项目名称。 在“框架”  下，选择“.NET Framework 4.7.1”  或更高版本。 单击“创建”。 
+1. 在 **配置新项目** 中，输入项目名称。 在“框架”  下，选择“.NET Framework 4.7.1”  或更高版本。 单击“创建”。 
 
 ## <a name="reload-data-from-app-configuration"></a>从应用配置重载数据
 1. 右键单击项目，然后选择“管理 NuGet 包”  。 在“浏览”选项卡上，搜索“Microsoft.Extensions.Configuration.AzureAppConfiguration”NuGet 包，并将其添加到你的项目中   。 如果找不到，请选择“包含预发行版”复选框  。

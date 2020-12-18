@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 09/25/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: 6a57c7d6316b14b9e3a3d6b5a71c721ac4ff39a5
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 12/10/2020
+ms.openlocfilehash: dafd10db3070cec50d44209d2520f296930952f5
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300540"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003619"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>如何使用 Azure 认知搜索中的 Blob 索引器为 JSON Blob 编制索引
 
@@ -109,7 +109,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档（分析模式为 
 
 可以查看本部分末尾的 [REST 示例代码](#rest-example)，其中演示了如何创建所有三个对象。 本部分还包含有关 [JSON 分析模式](#parsing-modes)、[单一 Blob](#parsing-single-blobs)、[JSON 数组](#parsing-arrays)和[嵌套数组](#nested-json-arrays)的详细信息。
 
-对于基于代码的 JSON 索引编制，请使用 [Postman](search-get-started-postman.md) 和 REST API 创建这些对象：
+对于基于代码的 JSON 索引编制，请使用 [Postman 或 Visual Studio Code](search-get-started-rest.md) 和 REST API 创建这些对象：
 
 + [索引](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [数据源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -127,7 +127,7 @@ Azure Blob 存储中的 JSON Blob 通常是单个 JSON 文档或 JSON“数组�
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - 汇编请求的输入
 
-对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Postman](search-get-started-postman.md) 将 HTTP 请求发送到 Azure 认知搜索。
+对于每个请求，必须提供 Azure 认知搜索的服务名称和管理密钥（在 POST 标头中），以及 Blob 存储的存储帐户名称和密钥。 可以使用 [Web API 测试工具](search-get-started-rest.md)将 HTTP 请求发送到 Azure 认知搜索。
 
 将以下四个值复制到记事本中，以便将其粘贴到请求：
 

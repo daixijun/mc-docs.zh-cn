@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 972d13c1a546105196f871ea788d6525279598bc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 03ba35038c29b63e0e184bd897a40991790aa1d1
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327292"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104395"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>在 Linux 计算机上安装 Log Analytics 代理
 本文详细介绍如何使用以下方法在 Linux 计算机上安装 Log Analytics 代理：
@@ -30,13 +30,17 @@ ms.locfileid: "94327292"
 
 >[!NOTE]
 >仅 x86_x64 平台（64 位）支持 OpenSSL 1.1.0，任何平台均不支持早于 1.x 版本的 OpenSSL。
->
+
+>[!NOTE]
+>不支持在容器中运行 Log Analytics Linux 代理。 如果需要监视容器，请利用针对 Docker 主机的[容器监视解决方案](../insights/containers.md)，或利用针对 Kubernetes 的[用于容器的 Azure Monitor](../insights/container-insights-overview.md)。
+
 从 2018 年 8 月之后发布的版本开始，我们对支持模型进行了以下更改：  
 
 * 仅支持服务器版本，不支持客户端版本。  
 * 将支持重点放在任何 [Azure Linux 认可的发行版](../../virtual-machines/linux/endorsed-distros.md)。 请注意，新的发行版/版本被 Azure Linux 认可和其受 Log Analytics Linux 代理支持，这两者之间可能存在一些延迟。
 * 列出的每个主版本支持所有的次版本。
-* 超出制造商终止支持日期的版本不受支持。  
+* 超出制造商终止支持日期的版本不受支持。
+* 仅支持 VM 映像；不支持容器，即使是从正式发行版发布者的映像派生的容器。
 * 不支持新版本的 AMI。  
 * 默认仅支持运行 SSL 1.x 的版本。
 
@@ -124,7 +128,7 @@ docker-cimprov | 1.0.0 | OMI 的 Docker 提供程序。 仅当检测到 Docker �
 
 ## <a name="install-the-agent-using-wrapper-script"></a>使用包装器脚本来安装代理
 
-以下步骤使用适用于 Linux 计算机的包装器脚本为 Azure 和 Azure 中国云中的 Log Analytics 配置代理的安装，这些计算机可直接通信或通过代理服务器通信，以下载托管在 GitHub 上的代理并安装该代理。  
+以下步骤使用 Linux 计算机的包装器脚本为 Azure 中国云中的 Log Analytics 配置代理的安装，这些计算机可直接通信或通过代理服务器通信，以下载托管在 GitHub 上的代理并安装该代理。  
 
 如果 Linux 计算机需要通过代理服务器与 Log Analytics 通信，可以通过包含 `-p [protocol://][user:password@]proxyhost[:port]` 在命令行中指定此配置。 *protocol* 属性接受 `http` 或 `https`，*proxyhost* 属性接受代理服务器的完全限定域名或 IP 地址。 
 

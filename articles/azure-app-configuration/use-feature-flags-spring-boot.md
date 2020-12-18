@@ -1,5 +1,5 @@
 ---
-title: 有关在 Spring Boot 应用中使用功能标志的教程 - Azure 应用程序配置 | Microsoft Docs
+title: 有关在 Spring Boot 应用中使用功能标志的教程 - Azure 应用程序配置 | Azure Docs
 description: 本教程介绍如何在 Spring Boot 应用中实施功能标志。
 services: azure-app-configuration
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 12/14/2020
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 30a37b2976f7be2176817140117708095ab02296
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 7113ab299c4c00d4e3ada895c847042b719c9ff0
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866735"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104903"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>教程：在 Spring Boot 应用中使用功能标志
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 本教程已介绍如何使用 `spring-cloud-azure-feature-management-web` 库在 Spring Boot 应用程序中实施功能标志。 有关 Spring Boot 和应用程序配置中的功能管理支持的详细信息，请参阅以下资源：
 
-* [Spring Boot 功能标记示例代码](/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Spring Boot 功能标记示例代码](./quickstart-feature-flag-spring-boot.md)
 * [管理功能标志](./manage-feature-flags.md)

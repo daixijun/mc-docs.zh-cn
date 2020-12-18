@@ -6,14 +6,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 01/23/2020
-ms.date: 07/20/2020
+ms.date: 12/14/2020
 ms.author: v-jay
-ms.openlocfilehash: 9680776283331028cbfda2856c98ce3f0c20a57d
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 702edb9f58deddd9272e76e7ff53ec75673b78c8
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045757"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105072"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 需要出站连接
 [Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](/load-balancer/skus#skus)。 由于标准内部负载均衡器不提供出站连接，因此我们提供了一个解决方案，改为创建标准公共负载均衡器。
@@ -56,7 +56,7 @@ ms.locfileid: "89045757"
 ### <a name="install-using-the-install-script-method"></a>使用 Install-Script 方法安装
 
 只有尚未在计算机上安装 Azure Az 模块时才能使用此选项。 如果已安装，则以下命令将显示错误。 可以卸载 Azure Az 模块，或者另一个选项手动下载并运行该脚本。
-  
+
 使用以下命令运行该脚本：
 
 `Install-Script -Name AzurePublicLBUpgrade`
@@ -75,11 +75,11 @@ ms.locfileid: "89045757"
 
 1. 检查所需的参数：
 
-   * **oldRgName: [String]:必需** – 这是要升级的现有基本负载均衡器的资源组。 若要查找此字符串值，请导航到 Azure 门户，选择你的基本负载均衡器源，然后单击该负载均衡器的“概览”。 资源组位于该页上。
-   * **oldLBName: [String]:必需** – 这是要升级的现有基本负载均衡器的名称。 
-   * **newrgName: [String]:必需** – 这是要在其中创建标准负载均衡器的资源组。 它可以是新资源组，也可以是现有资源组。 如果选择现有资源组，请注意，负载均衡器的名称在资源组中必须是唯一的。 
-   * **newlocation: [String]:必需** – 这是要在其中创建标准负载均衡器的位置。 建议将所选基本负载均衡器的相同位置继承到标准负载均衡器，以便与其他现有资源更好地相关联。
-   * **newLBName: [String]:必需** – 这是要创建的标准负载均衡器的名称。
+   * **oldRgName: [String]:必需** - 这是要升级的现有基本负载均衡器的资源组。 若要查找此字符串值，请导航到 Azure 门户，选择你的基本负载均衡器源，然后单击该负载均衡器的“概览”。 资源组位于该页上。
+   * **oldLBName: [String]:必需** - 这是要升级的现有基本负载均衡器的名称。 
+   * **newrgName: [String]:必需** - 这是要在其中创建标准负载均衡器的资源组。 它可以是新资源组，也可以是现有资源组。 如果选择现有资源组，请注意，负载均衡器的名称在资源组中必须是唯一的。 
+   * **newlocation: [String]:必需** - 这是要在其中创建标准负载均衡器的位置。 建议将所选基本负载均衡器的相同位置继承到标准负载均衡器，以便与其他现有资源更好地相关联。
+   * **newLBName: [String]:必需** - 这是要创建的标准负载均衡器的名称。
 1. 使用相应的参数运行脚本。 完成该脚本可能需要 5 到 7 分钟时间。
 
     **示例**
@@ -93,16 +93,16 @@ ms.locfileid: "89045757"
 首先，请仔细检查脚本是否已成功创建一个新的标准公共负载均衡器，其上的配置完全是从基本公共负载均衡器迁移的。 可以从 Azure 门户验证此结果。
 
 确保通过标准负载均衡器发送少量的流量作为手动测试。
-  
+
 以下几种方案说明了如何配置将 VM 添加到新建标准公共负载均衡器的后端池，我们提供了每种方案的建议：
 
 * **将现有 VM 从旧基本公共负载均衡器的后端池移到新建标准公共负载均衡器的后端池**。
     1. 若要执行本快速入门中的任务，请登录 [Azure 门户](https://portal.azure.cn)。
- 
+
     1. 在左侧菜单中选择“所有资源”，然后从资源列表中选择“新建的标准负载均衡器”。 
-   
+
     1. 在“设置”下，选择“后端池”。 
-   
+
     1. 选择与基本负载均衡器的后端池匹配的后端池，然后选择以下值： 
       - **虚拟机**：单击下拉控件，从基本负载均衡器的匹配后端池中选择 VM。
     1. 选择“保存” 。
@@ -110,16 +110,16 @@ ms.locfileid: "89045757"
     >对于使用公共 IP 的 VM，在不保证 IP 地址相同的情况下，需要先创建标准 IP 地址。 将 VM 与基本 IP 取消关联，并将 VM 关联到新建的标准 IP 地址。 然后，即可按照说明将 VM 添加到标准负载均衡器的后端池。 
 
 * **创建要添加到新建标准公共负载均衡器的后端池的新 VM**。
-    * 在[此处](/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
+    * 在[此处](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines)可以找到有关如何创建 VM 并将关联到标准负载均衡器的详细说明。
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>为出站连接创建出站规则
 
-按照[说明](/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
+按照[说明](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration)创建出站规则，以便执行以下操作：
 * 从头开始定义出站 NAT。
 * 缩放和优化现有出站 NAT 的行为。
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>为 VM 创建 NSG 规则，避免与 Internet 通信
-若要避免 Internet 流量到达 VM，可以在 VM 的网络接口上创建 [NSG 规则](/virtual-network/manage-network-security-group)。
+若要避免 Internet 流量到达 VM，可以在 VM 的网络接口上创建 [NSG 规则](../virtual-network/manage-network-security-group.md)。
 
 ## <a name="common-questions"></a>常见问题
 
@@ -132,7 +132,7 @@ ms.locfileid: "89045757"
 否。 该 Azure PowerShell 脚本只会迁移配置。 实际的流量迁移由你负责和控制。
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>使用此脚本时我遇到了一些问题。 如何求助？
-  
+
 可以向 slbupgradesupport@microsoft.com 发送电子邮件、向 Azure 支持部门提交支持案例，或同时采取这两种措施。
 
 ## <a name="next-steps"></a>后续步骤

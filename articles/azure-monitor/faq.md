@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 常见问题解答 | Microsoft Docs
+title: Azure Monitor 常见问题解答 | Azure Docs
 description: 有关 Azure Monitor 常见问题的解答。
 services: azure-monitor
 ms.subservice: ''
@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 11/02/2020
-ms.openlocfilehash: 36ad797768fe7881f061b05047f4365852adc09a
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 12/07/2020
+ms.openlocfilehash: 1efef4be1d10bb9b848580c05a8dd01075c7d321
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637857"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104528"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 常见问题解答
 
@@ -32,7 +32,7 @@ ms.locfileid: "94637857"
 自动启用的 Azure Monitor 功能（如收集指标和活动日志）免费提供。 存在与其他功能（例如日志查询和警报）相关的费用。 有关详细定价信息，请参阅 [Azure Monitor 定价页](https://www.azure.cn/pricing/details/monitor/)。
 
 ### <a name="how-do-i-enable-azure-monitor"></a>如何启用 Azure Monitor？
-在你创建新的 Azure 订阅时就会启用 Azure Monitor，并自动收集[活动日志](./platform/platform-logs-overview.md)和平台[指标](platform/data-platform-metrics.md)。 创建[诊断设置](platform/diagnostic-settings.md)可收集有关 Azure 资源操作的更多详细信息，添加[监视解决方案](insights/solutions.md)和[见解](insights/insights-overview.md)可为特定服务收集的收集数据提供额外的分析。 
+在你创建新的 Azure 订阅时就会启用 Azure Monitor，并自动收集[活动日志](./platform/platform-logs-overview.md)和平台[指标](platform/data-platform-metrics.md)。 创建[诊断设置](platform/diagnostic-settings.md)可收集有关 Azure 资源操作的更多详细信息，添加[监视解决方案](insights/solutions.md)和[见解](./monitor-reference.md)可为特定服务收集的收集数据提供额外的分析。 
 
 ### <a name="how-do-i-access-azure-monitor"></a>如何访问 Azure Monitor？
 可通过 Azure 门户中的“监视”菜单访问各项 Azure Monitor 功能和数据。 通过不同 Azure 服务的菜单的“监视”部分，可访问相同的工具，其中数据经过筛选，指向特定的资源。 也可通过 CLI、PowerShell 和 REST API 针对各种场景来访问 Azure Monitor 数据。
@@ -63,7 +63,7 @@ Azure Monitor 将来自各种来源的数据收集到[日志](platform/data-plat
 ## <a name="solutions-and-insights"></a>解决方案和见解
 
 ### <a name="what-is-an-insight-in-azure-monitor"></a>Azure Monitor 中的见解是指什么？
-见解为特定 Azure 服务提供自定义监视体验。 它们与 Azure Monitor 中的其他功能使用相同的指标和日志，但可能会收集额外的数据，并在 Azure 门户中提供独一无二的体验。 请参阅 [Azure Monitor 中的见解](insights/insights-overview.md)。
+见解为特定 Azure 服务提供自定义监视体验。 它们与 Azure Monitor 中的其他功能使用相同的指标和日志，但可能会收集额外的数据，并在 Azure 门户中提供独一无二的体验。 请参阅 [Azure Monitor 中的见解](./monitor-reference.md)。
 
 要查看 Azure 门户中的见解，请参阅“监视”菜单的“见解”部分或服务菜单的“监视”部分  。
 
@@ -75,7 +75,7 @@ Azure Monitor 将来自各种来源的数据收集到[日志](platform/data-plat
 ## <a name="logs"></a>日志
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Azure Monitor 日志与 Azure 数据资源管理器之间有何区别？
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure Monitor 日志是基于 Azure 数据资源管理器构建的，使用相同的 Kusto 查询语言 (KQL)，但有一些细微差别。 请参阅 [Azure Monitor 日志查询语言差异](log-query/data-explorer-difference.md)。
+Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure Monitor 日志是基于 Azure 数据资源管理器构建的，使用相同的 Kusto 查询语言 (KQL)，但有一些细微差别。 请参阅 [Azure Monitor 日志查询语言差异](/data-explorer/kusto/query/)。
 
 ### <a name="how-do-i-retrieve-log-data"></a>如何检索日志数据？
 可使用以 Kusto 查询语言 (KQL) 编写的日志查询从 Log Analytics 工作区检索所有数据。 你可编写自己的查询，也可使用包含特定应用程序或服务的日志查询的解决方案和见解。 请参阅 [Azure Monitor 中的日志查询概述](log-query/log-query-overview.md)。
@@ -222,6 +222,7 @@ WireData
 * [Node.js 应用](app/nodejs.md)
 * [Azure 上的 Web 应用](app/azure-web-apps.md)
 * [Azure 上的云服务](app/cloudservices.md)
+* [在 Docker 中运行的应用服务器](./azure-monitor-app-hub.yml)
 * [单页 Web 应用](app/javascript.md)
 * [SharePoint](app/sharepoint.md)
 * [Windows 桌面应用](app/windows-desktop.md)
@@ -398,7 +399,7 @@ WireData
 
 当前不支持将现有 Application Insights 资源从一个区域移动到另一个区域。 你收集的历史数据无法迁移到新区域。 唯一的部分解决方法是：
 
-1. 在新区域中创建全新的 Application Insights 资源（[经典](app/create-new-resource.md)）。
+1. 在新区域中创建全新的 Application Insights 资源（[经典](app/create-new-resource.md)或[基于工作区](./app/create-workspace-resource.md)）。
 2. 重新创建特定于新资源中原始资源的所有唯一自定义项。
 3. 修改应用程序以使用新区域资源的[检测密钥](app/create-new-resource.md#copy-the-instrumentation-key)或[连接字符串](app/sdk-connection-string.md)。  
 4. 测试以确认所有内容是否都按预期处理新的 Application Insights 资源。 
@@ -409,11 +410,14 @@ WireData
 - 重新创建自定义仪表板和工作簿。 
 - 重新创建或更新任何自定义日志/指标警报的范围。 
 - 重新创建可用性警报。
-- 重新创建用户用于访问新资源所需的任何基于角色的访问控制 (RBAC) 自定义设置。 
+- 重新创建用户访问新资源所需的任何 Azure 基于角色的访问控制 (Azure RBAC) 自定义设置。 
 - 复制涉及引入采样、数据保留、每日上限和自定义指标启用的设置。 可通过“使用情况和预估成本”窗格控制这些设置。
-- 依赖 API 密钥（如[版本注释](/azure/azure-monitor/app/annotations)、[实时指标安全控制通道](app/live-stream.md#secure-the-control-channel)等）的任何集成。你将需要生成新的 API 密钥并更新关联的集成。 
+- 依赖 API 密钥（例如版本注释、[实时指标安全控制通道](app/live-stream.md#secure-the-control-channel)等）的任何集成。你将需要生成新的 API 密钥并更新关联的集成。 
 - 需要重新配置经典资源中的连续导出。
 - 需要重新配置基于工作区资源中的诊断设置。
+
+> [!NOTE]
+> 如果在新区域中创建的资源要用于替换经典资源，我们建议探索[创建基于工作区的新资源](app/create-workspace-resource.md)或[将现有资源迁移至基于工作区的资源](app/convert-classic-resource.md)的好处。 
 
 ### <a name="automation"></a>自动化
 
@@ -539,11 +543,54 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 在这种情况下，由于反向代理层出现问题，可能会将 502 或 503 响应返回到客户端，该响应不会被 Application Insights 直接捕获。 可能需要将日志从反向代理转发到 Log Analytics，并创建自定义规则来检查 502/503 响应，这样有助于检测该层中的问题 若要详细了解 502 和 503 错误的常见原因，请参阅 Azure 应用服务[故障排除文章中的“502 错误的网关”和“503 服务不可用”](../app-service/troubleshoot-http-502-http-503.md)。     
 
+
+## <a name="opentelemetry"></a>OpenTelemetry
+
+### <a name="what-is-opentelemetry"></a>什么是 OpenTelemetry
+
+一种新的可观测性开源标准。 更多信息请访问 [https://opentelemetry.io/](https://opentelemetry.io/)。
+
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Microsoft/Azure Monitor 为什么要对 OpenTelemetry 进行投资？
+
+我们基于以下三个原因认为它可以更好地为客户服务：
+   1. 实现对更多客户方案的支持。
+   2. 工具无需担心供应商锁定。
+   3. 提高客户透明度和参与度。
+
+它还符合 Microsoft 的[拥抱开源](https://opensource.microsoft.com/)策略。
+
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>OpenTelemetry 可以给我带来哪些附加价值？
+
+除上述原因外，OpenTelemetry 在大规模部署方面更为高效，并提供跨语言的一致设计/配置。
+
+### <a name="how-can-i-test-out-opentelemetry"></a>如何测试 OpenTelemetry？
+
+在 [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) 注册，加入我们的 Azure Monitor Application Insights 早期采用者社区。
+
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>在 OpenTelemetry 中，GA 意味着什么？
+
+OpenTelemetry 社区在[此处](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)定义了正式发布 (GA)。 但是，OpenTelemetry 的 GA 并不意味着与现有 Application Insights SDK 具有功能奇偶一致性。 Azure Monitor 将继续向需要[预聚合指标](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)、[实时指标](app/live-stream.md)、[自适应采样](app/sampling.md#adaptive-sampling)、[探查器](app/profiler-overview.md)和[快照调试程序](app/snapshot-debugger.md)功能的客户推荐我们当前的 Application Insights SDK，直到 OpenTelemetry SDK 达到功能成熟。
+
+### <a name="can-i-use-preview-builds-in-production-environments"></a>我是否可以在生产环境中使用预览版？
+
+不建议这样做。 有关详细信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)。
+
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>OpenTelemetry SDK 和自动检测之间有何区别？
+
+OpenTelemetry 规范定义了 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)。 简而言之，SDK 是一种特定于语言的包，可跨应用程序的各个组件收集遥测数据并将数据通过导出程序发送到 Azure Monitor。
+
+自动检测（有时称为字节码注入、无代码或基于代理）的概念指在不更改代码的情况下检测应用程序的功能。 例如，查看 [OpenTelemetry Java 自动检测自述文件](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md)了解详细信息。
+
+### <a name="whats-the-opentelemetry-collector"></a>什么是 OpenTelemetry Collector？
+
+相应 [GitHub 自述文件](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector)中介绍了 OpenTelemetry Collector。 目前，Microsoft 不使用 OpenTelemetry Collector，而是依赖发送到 Azure Monitor Application Insights 的直接导出程序。
+
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>OpenCensus 和 OpenTelemetry 之间有何区别？
+
+[OpenCensus](https://opencensus.io/) 是 [OpenTelemetry](https://opentelemetry.io/) 的前身。 Microsoft 帮助整合 [OpenTracing](https://opentracing.io/) 和 OpenCensus 用于创建 OpenTelemetry，OpenTelemetry 是全球唯一的可观测性标准。 Azure Monitor 当前[生产推荐的 Python SDK](app/opencensus-python.md) 基于 OpenCensus，但最终所有 Azure Monitor SDK 都将基于 OpenTelemetry。
+
+
 ## <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
-
-### <a name="health-feature-is-in-private-preview"></a>运行状况功能现为个人预览版
-
-我们计划进行一系列的更改，目的是增添功能并处理你的反馈。 运行状况功能将在 2020 年6 月底转为个人预览版；有关其他信息，请查看下列 [Azure 更新公告](https://azure.microsoft.com/updates/ci-health-limited-preview/)。
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>节点视图下的“其他进程”表示什么？
 
@@ -630,13 +677,13 @@ ContainerInventory 表包含已停止和正在运行的容器的信息。 此表
 
 如果收到“缺少 Microsoft.OperationsManagement 的订阅注册”错误，可通过在定义工作区的订阅中注册资源提供程序 Microsoft.OperationsManagement 来解决它 。 可以在[此处](../azure-resource-manager/templates/error-register-resource-provider.md)找到介绍如何执行此操作的文档。
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>是否支持已启用 RBAC 的 AKS 群集？
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>是否支持启用了 Kubernetes RBAC 的 AKS 群集？
 
-容器监视解决方案不支持 RBAC，但用于容器的 Azure Monitor 支持 RBAC。 在显示这些群集的数据的边栏选项卡上，解决方案详细信息页可能不会显示正确的信息。
+容器监视解决方案不支持 Kubernetes RBAC，但用于容器的 Azure Monitor 支持 Kubernetes RBAC。 在显示这些群集的数据的边栏选项卡上，解决方案详细信息页可能不会显示正确的信息。
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>如何通过 Helm 为 kube-system 命名空间中的容器启用日志收集？
 
-默认情况下，kube-system 命名空间中的容器的日志收集被禁用。 可以通过在 omsagent 上设置一个环境变量来启用日志收集。 有关详细信息，请参阅 GitHub 上的[用于容器的 Azure Monitor](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) 页面。 
+默认情况下，kube-system 命名空间中的容器的日志收集被禁用。 可以通过在 omsagent 上设置一个环境变量来启用日志收集。 有关详细信息，请参阅 GitHub 上的[用于容器的 Azure Monitor](https://aka.ms/azuremonitor-containers-helm-chart) 页面。 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>如何将 omsagent 更新为最新发布的版本？
 

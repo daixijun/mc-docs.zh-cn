@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 09/01/2020
-ms.date: 10/16/2020
+ms.date: 12/10/2020
 ms.author: v-tawe
 ms.custom: cog-serv-seo-aug-2020
 keywords: 文本转语音
-ms.openlocfilehash: 75ed2d49bb95c46bf1d5c10cccf92a1b23c2a23d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 359d0523bac2fa7704e07fb25d6f2482b4bb2940
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128383"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003569"
 ---
 # <a name="what-is-text-to-speech"></a>什么是文本转语音？
 
@@ -32,9 +32,9 @@ ms.locfileid: "92128383"
 
 ## <a name="core-features"></a>核心功能
 
-* 语音合成 - 使用[语音 SDK](quickstarts/text-to-speech-audio-file.md) 或 [REST API](rest-text-to-speech.md) 通过标准语音和神经语音将文本转换为语音。
+* 语音合成 - 使用[语音 SDK](./get-started-text-to-speech.md) 或 [REST API](rest-text-to-speech.md) 通过标准语音、神经语音或自定义语音将文本转换为语音。
 
-* 长音频的异步合成 - 使用[长音频 API](long-audio-api.md) 异步合成 10 分钟以上的文本转语音文件（例如有声书籍或讲座）。 不同于使用语音 SDK 或语音转文本 REST API 执行的合成，响应不会实时返回。 预期会异步发送请求，以轮询的方式获取响应，并会下载合成音频（在服务提供该音频的情况下）。 仅支持神经语音。
+* 长音频的异步合成 - 使用[长音频 API](long-audio-api.md) 异步合成 10 分钟以上的文本转语音文件（例如有声书籍或讲座）。 不同于使用语音 SDK 或语音转文本 REST API 执行的合成，响应不会实时返回。 预期会异步发送请求，以轮询的方式获取响应，并会下载合成音频（在服务提供该音频的情况下）。 仅支持自定义神经语音。
 
 * 标准语音 - 使用统计参数合成和/或串联合成技术创建。 这些语音的辨识度很高，且听起来非常自然。 你可以轻松地让应用程序使用多种语音选项以 10 种以上的语言讲述。 这些声音提供较高的发音准确度，支持缩写、缩略词扩展、日期/时间解释、多音字等。 有关标准语音的完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
 
@@ -53,7 +53,9 @@ GitHub 上提供了文本转语音的示例代码。 这些示例涵盖了最流
 - [文本转语音示例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [文本转语音示例 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-<!-- ## Customization  -->
+## <a name="customization"></a>自定义
+
+除了标准语音和神经语音外，还可以创建和微调产品或品牌独有的自定义语音。 只需准备好几个音频文件和关联的听录内容即可完全入门。 有关详细信息，请参阅[自定义语音入门](how-to-custom-voice.md)
 
 ## <a name="pricing-note"></a>定价说明
 

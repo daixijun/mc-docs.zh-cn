@@ -5,15 +5,15 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 449bc53769d06f757eebd3fb40f94356db173abe
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 12/07/2020
+ms.openlocfilehash: 0d91ef56c34640da4e4c2bd606f7999129af7060
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328182"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104407"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Azure 网络监视器预览版
+# <a name="azure-monitor-for-networks"></a>用于网络的 Azure Monitor
 Azure 网络监视器为已部署的所有网络资源提供[运行状况](../../service-health/resource-health-checks-resource-types.md)和[指标](../platform/metrics-supported.md)的全面视图，并且无需任何配置。 它还提供对网络监视功能的访问，如[连接监视器](../../network-watcher/connection-monitor-preview.md)、[网络安全组的流日志记录 (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) 和[流量分析](../../network-watcher/traffic-analytics.md)。 它还提供其他网络[诊断](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics)功能。
 
 Azure 网络监视器是围绕以下关键监视组件构建的：
@@ -26,14 +26,14 @@ Azure 网络监视器是围绕以下关键监视组件构建的：
 
 Azure 网络监视器的“概览”页面提供了一种轻松的方法来可视化网络资源的清单以及资源运行状况和警报。 它分为四个主要功能区域：搜索和筛选、资源运行状况和指标、警报以及依赖项视图。
 
-![显示“概述”页面的屏幕截图。](./media/network-insights-overview/overview.png)
+[![显示“概述”页面的屏幕截图](./media/network-insights-overview/overview.png)](./media/network-insights-overview/overview.png)#lightbox）
 
 ### <a name="search-and-filtering"></a>搜索和筛选
 可以使用“订阅”、“资源组”和“类型”等筛选器来自定义资源运行状况和警报视图  。
 
 可使用搜索框搜索资源及其关联资源。 例如，公共 IP 与应用程序网关相关联。 搜索公共 IP DNS 名称将同时返回公共 IP 和关联的应用程序网关：
 
-![屏幕截图显示 Azure 网络监视器搜索结果。](./media/network-insights-overview/search.png)
+[![屏幕截图显示 Azure 网络监视器搜索结果。](./media/network-insights-overview/search.png)](./media/network-insights-overview/search.png#lightbox)
 
 
 ### <a name="resource-health-and-metrics"></a>资源运行状况和指标
@@ -57,7 +57,7 @@ Azure 网络监视器的“概览”页面提供了一种轻松的方法来可�
 
 应用程序网关的“依赖项”视图提供了前端 IP 如何连接到侦听器、规则和后端池的简化视图。 连接线条采用颜色编码，并根据后端池运行状况提供其他详细信息。 该视图还提供了应用程序网关指标和所有相关后端池（如虚拟机规模集和 VM 实例）的指标的详细视图。
 
-![屏幕截图显示 Azure 网络监视器中的“依赖项”视图。](./media/network-insights-overview/dependency-view.png)
+[![屏幕截图显示 Azure 网络监视器中的“依赖项”视图。](./media/network-insights-overview/dependency-view.png)](./media/network-insights-overview/dependency-view.png#lightbox)
 
 通过依赖项图可轻松导航到配置设置。 右键单击后端池可访问其他信息。 例如，如果后端池是 VM，则可以直接访问 VM Insights 和 Azure 网络观察程序连接疑难解答，以确定连接问题：
 
@@ -73,17 +73,17 @@ Azure 网络监视器的“概览”页面提供了一种轻松的方法来可�
 
 ## <a name="connectivity"></a><a name="connectivity"></a>连接
 
-“连接”选项卡提供了一种简单的方法来为选定的一组订阅直观显示通过连接监视器和[连接监视器（预览版）](../../network-watcher/connection-monitor-preview.md)配置的所有测试。
+“连接”选项卡提供了一种简单的方法来为选定的一组订阅直观显示通过连接监视器和[连接监视器（经典版）](../../network-watcher/connection-monitor-overview.md)配置的所有测试。
 
 ![屏幕截图显示 Azure 网络监视器中的“连接”选项卡。](./media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
 测试按“源”和“目标”磁贴进行分组，并显示每个测试的可访问性状态 。 可访问设置可根据失败的检查 (%) 和 RTT (ms) 提供对可访问性条件的配置的轻松访问。 设置值后，每个测试的状态根据选择条件进行更新。
 
-![屏幕截图显示 Azure 网络监视器中的连接测试。](./media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+[![屏幕截图显示 Azure 网络监视器中的连接测试。](./media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](./media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 可以选择任意源或目标磁贴来打开指标视图：
 
-![屏幕截图显示 Azure 网络监视器中的连接指标。](./media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+[![屏幕截图显示 Azure 网络监视器中的连接指标。](./media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](./media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 可以选择网格视图中的任意项。 选择“可访问性”列中的图标，以转到“连接监视器”门户页，并查看逐跳拓扑和已识别的影响连接的问题。 选择“警报”列中的值以转到警报。 选择“检查失败百分比”和“往返时间(ms)”列中的关系图，以转到所选的连接监视器的指标页 。
@@ -93,11 +93,11 @@ Azure 网络监视器的“概览”页面提供了一种轻松的方法来可�
 ## <a name="traffic"></a><a name="traffic"></a>交通
 通过“流量”选项卡，可以访问为 [NSG 流日志](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)配置的所有 NSG，和按位置分组的所选订阅集的[流量分析](../../network-watcher/traffic-analytics.md)。 利用此选项卡上提供的搜索功能，可以标识为搜索的 IP 地址配置的 NSG。 可以在环境中搜索任意 IP 地址。 平铺区域视图将显示所有 NSG 和 NSG 流日志，以及流量分析配置状态。
 
-![屏幕截图显示 Azure 网络监视器中的“流量”选项卡。](./media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+[![屏幕截图显示 Azure 网络监视器中的“流量”选项卡。](./media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](./media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 如果选择任何区域磁贴，会显示一个网格视图。 网格通过易于阅读和配置的视图显示 NSG 流日志和流量分析：  
 
-![屏幕截图显示 Azure 网络监视器中的流量区域视图。](./media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+[![屏幕截图显示 Azure 网络监视器中的流量区域视图。](./media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](./media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 可以选择网格视图中的任意项。 选择“流日志配置状态”列中的图标，以编辑 NSG 流日志和流量分析配置。 选择“警报”列中的值，以转到为所选 NSG 配置的流量警报。 同样，可以通过选择“流量分析工作区”来转到流量分析视图。  
 
@@ -119,11 +119,11 @@ Azure 网络监视器的“概览”页面提供了一种轻松的方法来可�
 若要了解如何对通过 Azure 网络监视器识别的与网络相关的任何问题进行故障排除，请参阅发生故障的资源的相关故障排除文档。 
 
 下面是一些常用服务的相关故障排除文章的链接。 更多有关这些服务的故障排除文章，请参阅相关服务的目录的“故障排除”部分中的其他文章。
-* [Azure 虚拟网络](/virtual-network/virtual-network-troubleshoot-peering-issues)
-* [Azure 应用程序网关](/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
-* [Azure VPN 网关](/vpn-gateway/vpn-gateway-troubleshoot)
-* [Azure ExpressRoute](/expressroute/expressroute-troubleshooting-expressroute-overview) 
-* [Azure 负载均衡器](/load-balancer/load-balancer-troubleshoot) 
+* [Azure 虚拟网络](../../virtual-network/virtual-network-troubleshoot-peering-issues.md)
+* [Azure 应用程序网关](../../application-gateway/create-gateway-internal-load-balancer-app-service-environment.md)
+* [Azure VPN 网关](../../vpn-gateway/vpn-gateway-troubleshoot.md)
+* [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
+* [Azure 负载均衡器](../../load-balancer/load-balancer-troubleshoot.md) 
 
 ### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>为什么我看不到所选择的所有订阅的资源？
 

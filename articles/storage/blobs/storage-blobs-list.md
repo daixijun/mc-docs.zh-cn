@@ -5,23 +5,23 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 09/22/2020
-ms.date: 11/16/2020
+origin.date: 11/16/2020
+ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11b610b4ea1f989ef0d19b88aaccb6dc23f45153
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f99fa7915488783bb4f2345bb82945ef6b6d28b1
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552036"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850746"
 ---
 # <a name="list-blobs-with-net"></a>使用 .NET 列出 blob
 
 通过代码列出 Blob 时，可以指定多个选项来管理如何从 Azure 存储返回结果。 可以指定要在每个结果集中返回的结果数，然后检索后续结果集。 可以指定前缀以返回名称以该字符或字符串开头的 blob。 而且，可以在平面列表结构中列出 blob，也可以分层列出 blob。 分层列表返回 blob，就像它们被组织到文件夹中一样。
 
-本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage/client)列出 blob。  
+本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage)列出 blob。  
 
 ## <a name="understand-blob-listing-options"></a>了解 Blob 列出选项
 
@@ -52,11 +52,7 @@ ms.locfileid: "94552036"
 
 ### <a name="manage-how-many-results-are-returned"></a>管理要返回的结果数
 
-默认情况下，列表操作一次最多返回 5000 个结果，但你可以指定你所希望的每个列表操作返回的结果数。 本文演示的示例说明了如何执行此操作。
-
-如果列表操作返回的 blob 超过 5000 个，或者可用的 blob 数超过指定的数量，Azure 存储会返回继续标记，并显示 blob 列表。 继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
-
-在代码中检查继续标记的值，以确定它是否为 null。 如果继续标记为 null，则表示结果集是完整的。 如果继续标记不为 null，则再次调用列出操作，并传入继续标记以检索下一组结果，直到继续标记为 null。
+默认情况下，列表操作一次最多返回 5000 个结果，但你可以指定你所希望的每个列表操作返回的结果数。 本文演示的示例说明了如何在页面中返回结果。
 
 ### <a name="filter-results-with-a-prefix"></a>使用前缀筛选结果
 
@@ -64,7 +60,7 @@ ms.locfileid: "94552036"
 
 ### <a name="return-metadata"></a>返回元数据
 
-可以返回包含结果的 blob 元数据。 
+可以返回包含结果的 blob 元数据。
 
 - 如果使用的是 .NET v12 SDK，请为 [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) 枚举指定 Metadata  值。
 
@@ -89,35 +85,25 @@ Azure 存储中的 Blob 以平面范式进行组织，而不是以分层范式�
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 ```csharp
-private static void ListBlobsFlatListing(BlobContainerClient container, int? segmentSize)
+private static async Task ListBlobsFlatListing(BlobContainerClient blobContainerClient, 
+                                               int? segmentSize)
 {
-    string continuationToken = null;
-
     try
     {
-        // Call the listing operation and enumerate the result segment.
-        // When the continuation token is empty, the last segment has been returned
-        // and execution can exit the loop.
-        do
+        // Call the listing operation and return pages of the specified size.
+        var resultSegment = blobContainerClient.GetBlobsAsync()
+            .AsPages(default, segmentSize);
+
+        // Enumerate the blobs returned for each page.
+        await foreach (Azure.Page<BlobItem> blobPage in resultSegment)
         {
-            var resultSegment = container.GetBlobs(prefix:"TestFolder")
-                .AsPages(continuationToken, segmentSize);
-
-            foreach (Azure.Page<BlobItem> blobPage in resultSegment)
+            foreach (BlobItem blobItem in blobPage.Values)
             {
-                foreach (BlobItem blobItem in blobPage.Values)
-                {
-                    Console.WriteLine("Blob name: {0}", blobItem.Name);
-                }
-
-                // Get the continuation token and loop until it is empty.
-                continuationToken = blobPage.ContinuationToken;
-
-                Console.WriteLine();
+                Console.WriteLine("Blob name: {0}", blobItem.Name);
             }
 
-        } while (continuationToken != "");
-
+            Console.WriteLine();
+        }
     }
     catch (RequestFailedException e)
     {
@@ -129,6 +115,10 @@ private static void ListBlobsFlatListing(BlobContainerClient container, int? seg
 ```
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+如果列表操作返回的 blob 超过 5000 个，或者可用的 blob 数超过指定的数量，Azure 存储会返回继续标记，并显示 blob 列表。 继续标记是一个不透明值，可用于从 Azure 存储中检索下一组结果。
+
+在代码中检查继续标记的值，以确定它是否为 null。 如果继续标记为 null，则表示结果集是完整的。 如果继续标记不为 null，则再次调用列出操作，并传入继续标记以检索下一组结果，直到继续标记为 null。
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -197,57 +187,47 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 以下示例使用分层列表列出指定容器中的 Blob（其中指定了可选的段大小），并将 Blob 名称写入控制台窗口。
 
 ```csharp
-private static void ListBlobsHierarchicalListing(BlobContainerClient container, 
-           string? prefix, int? segmentSize)
-       {
-           string continuationToken = null;
-           
-           try
-           {
-               // Call the listing operation and enumerate the result segment.
-               // When the continuation token is empty, the last segment has been returned and
-               // execution can exit the loop.
-               do
-               {
-                   var resultSegment = container.GetBlobsByHierarchy(prefix:prefix, delimiter:"/")
-                       .AsPages(continuationToken, segmentSize);
+private static async Task ListBlobsHierarchicalListing(BlobContainerClient container, 
+                                                       string? prefix, 
+                                                       int? segmentSize)
+{
+    try
+    {
+        // Call the listing operation and return pages of the specified size.
+        var resultSegment = container.GetBlobsByHierarchyAsync(prefix:prefix, delimiter:"/")
+            .AsPages(default, segmentSize);
 
-                   foreach (Azure.Page<BlobHierarchyItem> blobPage in resultSegment)
-                   {
-                       // A hierarchical listing may return both virtual directories and blobs.
-                       foreach (BlobHierarchyItem blobhierarchyItem in blobPage.Values)
-                       {
-                           if (blobhierarchyItem.IsPrefix)
-                           {
-                               // Write out the prefix of the virtual directory.
-                               Console.WriteLine("Virtual directory prefix: {0}", blobhierarchyItem.Prefix);
+        // Enumerate the blobs returned for each page.
+        await foreach (Azure.Page<BlobHierarchyItem> blobPage in resultSegment)
+        {
+            // A hierarchical listing may return both virtual directories and blobs.
+            foreach (BlobHierarchyItem blobhierarchyItem in blobPage.Values)
+            {
+                if (blobhierarchyItem.IsPrefix)
+                {
+                    // Write out the prefix of the virtual directory.
+                    Console.WriteLine("Virtual directory prefix: {0}", blobhierarchyItem.Prefix);
 
-                               // Call recursively with the prefix to traverse the virtual directory.
-                               ListBlobsHierarchicalListing(container, blobhierarchyItem.Prefix, null);
-                           }
-                           else
-                           {
-                               // Write out the name of the blob.
-                               Console.WriteLine("Blob name: {0}", blobhierarchyItem.Blob.Name);
-                           }
-                       }
+                    // Call recursively with the prefix to traverse the virtual directory.
+                    await ListBlobsHierarchicalListing(container, blobhierarchyItem.Prefix, null);
+                }
+                else
+                {
+                    // Write out the name of the blob.
+                    Console.WriteLine("Blob name: {0}", blobhierarchyItem.Blob.Name);
+                }
+            }
 
-                       Console.WriteLine();
-
-                       // Get the continuation token and loop until it is empty.
-                       continuationToken = blobPage.ContinuationToken;
-                   }
-
-
-               } while (continuationToken != "");
-           }
-           catch (RequestFailedException e)
-           {
-               Console.WriteLine(e.Message);
-               Console.ReadLine();
-               throw;
-           }
-       }
+            Console.WriteLine();
+        }
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
 ```
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)

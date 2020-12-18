@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 520f8d5a32529cf14174383eaef25da25374b83f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5c9e579cb60094c60d92d580ce8c46cf9adb58f3
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978198"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104364"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>什么是 Azure 机器学习中的计算目标? 
 
@@ -120,6 +120,12 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 
 虽然 Azure 机器学习支持这些 VM 系列，但它们可能并非在所有 Azure 区域中均可用。 若要检查 VM 系列是否可用，请参阅[可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)。
 
+> [!NOTE]
+> Azure 机器学习不支持 Azure 计算支持的所有 VM 大小。 若要列出可用的 VM 大小，请使用以下某种方法：
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
+
 ### <a name="compute-isolation"></a>计算隔离
 
 Azure 机器学习计算提供已隔离到特定硬件类型并专用于单个客户的 VM 大小。 独立 VM 大小最适合为满足合规性和监管要求等原因而需要与其他客户的工作负载高度隔离的工作负载。 使用独立大小可保证你的 VM 将是该特定服务器实例上唯一运行的 VM。
@@ -132,6 +138,9 @@ Azure 机器学习计算提供已隔离到特定硬件类型并专用于单个�
 * Standard_NC24rs_v3*
 
 *支持 RDMA
+
+若要了解有关隔离的详细信息，请参阅 [Azure 公有云中的隔离](../security/fundamentals/isolation-choices.md)。
+
 ## <a name="unmanaged-compute"></a>非托管计算
 
 非托管计算目标不是由 Azure 机器学习托管的。 请在 Azure 机器学习外部创建此类型的计算目标，然后将其附加到工作区。 对于非托管计算资源，可能需要执行额外的步骤才能保持或提高机器学习工作负荷的性能。

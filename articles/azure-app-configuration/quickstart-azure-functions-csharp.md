@@ -1,27 +1,27 @@
 ---
-title: 将 Azure 应用配置与 Azure Functions 结合使用的快速入门 | Microsoft Docs
-description: 将 Azure 应用程序配置与 Azure Functions 集合使用的快速入门。
+title: 将 Azure 应用配置与 Azure Functions 结合使用的快速入门 | Azure Docs
+description: 在本快速入门中，使用 Azure 应用程序配置和 C# 创建 Azure Functions 应用。 创建并连接到应用程序配置存储。 在本地测试函数。
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 1/9/2019
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4d1128c03a6257e06db90fa40949cfc724e4c544
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: ac3a2d4d49618ebe7aabbeaeff9cb71c9234a6bf
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437406"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104935"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>快速入门：使用 Azure 应用程序配置创建 Azure Functions 应用
 
 在本快速入门中，你会将 Azure 应用程序配置服务合并到 Azure Functions 应用中，以集中存储和管理与代码分离的所有应用程序设置。
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅 - [创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- Azure 订阅 - [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 - 包含 **Azure 开发** 工作负载的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
 - [Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
@@ -29,15 +29,15 @@ ms.locfileid: "96437406"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“配置资源管理器” > “+ 创建” > “键-值”来添加以下键值对  ：
+7. 选择“配置资源管理器” > “+ 创建” > “键-值”来添加以下键值对    ：
 
-    | 键 | Value |
+    | 密钥 | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 应用配置的数据 |
 
-    暂时将“标签”和“内容类型”保留为空 。
+    暂时将“标签”和“内容类型”保留为空   。
 
-7. 选择“应用”。
+8. 选择“应用”。
 
 ## <a name="create-a-functions-app"></a>创建 Functions 应用
 
@@ -45,7 +45,7 @@ ms.locfileid: "96437406"
 
 ## <a name="connect-to-an-app-configuration-store"></a>连接到应用程序配置存储区
 
-1. 右键单击项目，然后选择“管理 NuGet 包”。 在“浏览”选项卡中，搜索 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 包并将其添加到项目中。 如果找不到，请选择“包含预发行版”复选框。
+1. 右键单击项目，然后选择“管理 NuGet 包”  。 在“浏览”选项卡中，搜索 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 包并将其添加到项目中。 如果找不到，请选择“包含预发行版”复选框。
 
 2. 打开 Function1.cs，添加 .NET Core 配置和“应用程序配置”配置提供程序的命名空间。
 
@@ -110,7 +110,7 @@ ms.locfileid: "96437406"
 
     ![在 VS 中的函数调试快速入门](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏中。 下图显示了浏览器中函数返回的本地 GET 请求的响应。
+4. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏。 下图显示了浏览器中函数返回的本地 GET 请求的响应。
 
     ![本地函数启动快速入门](./media/quickstarts/dotnet-core-function-launch-local.png)
 

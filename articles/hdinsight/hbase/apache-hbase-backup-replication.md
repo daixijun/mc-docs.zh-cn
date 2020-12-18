@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/19/2019
 ms.author: v-yiso
 ms.date: 01/13/2020
-ms.openlocfilehash: a9b9c4ba121afd79c09ecb5ad95976bc4f2081a4
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 15a97f86103ebaf075412b6e32289e069ffb7fc4
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552430"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104946"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>在 HDInsight 上为 Apache HBase 和 Apache Phoenix 设置备份与复制
 
@@ -224,6 +224,12 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -
 
 ```console
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.chinacloudapi.cn=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+如果目标群集是 ADLS Gen 2 群集，请更改前面的命令，以调整 ADLS Gen 2 使用的配置：
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.chinacloudapi.cn=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.chinacloudapi.cn=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.chinacloudapi.cn=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.chinacloudapi.cn=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.chinacloudapi.cn/hbase'
 ```
 
 导出快照后，通过 SSH 连接到目标群集的头节点，然后根据前面所述使用 `restore_snapshot` 命令还原快照。

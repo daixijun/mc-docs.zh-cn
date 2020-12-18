@@ -2,20 +2,21 @@
 title: 排查 Azure Cosmos DB 的“未找到”异常
 description: 了解如何诊断和修复“未找到”异常。
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9b013ea7e6e3678b7968fb4c59eacb8388fb622b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: e24cceb54db5a82741076bbd67959cc50ea56c57
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552089"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850796"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>诊断和排查 Azure Cosmos DB 的“未找到”异常
@@ -28,6 +29,11 @@ HTTP 状态代码 404 表示资源不再存在。
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>对应该存在或确实存在的项返回了“未找到”异常
 以下是在该项应该或确实存在的情况下返回状态代码 404 的可能原因。
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>读取会话不可用于输入会话令牌
+
+#### <a name="solution"></a>解决方案：
+1. 将当前 SDK 更新到已发布的最新版本。 此特定错误的最常见原因问题已在最新版 SDK 中得到解决。
 
 ### <a name="race-condition"></a>争用条件
 有多个 SDK 客户端实例且读取在写入之前发生。
@@ -46,7 +52,7 @@ HTTP 状态代码 404 表示资源不再存在。
 项被插入 Azure Cosmos DB，并且项 ID 中带有[无效字符](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks)。
 
 #### <a name="solution"></a>解决方案：
-将 ID 更改为不包含特殊字符的其他值。 如果不能更改 ID，则可以对 ID 进行 Base64 编码以将特殊字符转义。
+将 ID 更改为不包含特殊字符的其他值。 如果不能更改 ID，则可以对 ID 进行 Base64 编码以将特殊字符转义。 Base64 仍然会生成一个包含无效字符“/”的名称，该字符需要替换。
 
 对于已经插入容器中的项，可以使用 RID 值来替换其 ID，而不使用基于名称的引用。
 ```c#
@@ -68,7 +74,7 @@ while (invalidItemsIterator.HasMoreResults)
         // Choose a new ID that doesn't contain special characters.
         // If that isn't possible, then Base64 encode the ID to escape the special characters.
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
-        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
+        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes).Replace('/', '!');
 
         // Update the item with the new ID value by using the RID-based container reference.
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(
@@ -112,5 +118,7 @@ while (invalidItemsIterator.HasMoreResults)
 ## <a name="next-steps"></a>后续步骤
 * [诊断和排查](troubleshoot-dot-net-sdk.md)在使用 Azure Cosmos DB .NET SDK 时遇到的问题。
 * 了解 [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) 和 [.NET v2](performance-tips.md) 的性能准则。
+* [诊断和排查](troubleshoot-java-sdk-v4-sql.md)使用 Azure Cosmos DB Java v4 SDK 时遇到的问题。
+* 了解 [Java v4 SDK](performance-tips-java-sdk-v4-sql.md) 的性能准则。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

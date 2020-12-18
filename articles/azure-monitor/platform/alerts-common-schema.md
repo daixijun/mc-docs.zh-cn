@@ -3,15 +3,15 @@ title: Azure Monitor 警报的通用警报架构
 description: 了解通用警报架构、应该使用它的原因以及启用它的方法
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 11/02/2020
+ms.date: 12/08/2020
 origin.date: 03/14/2019
 author: Johnnytechn
-ms.openlocfilehash: b0be620cd0ab8f85822f688d1a75bdf473780cd1
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5fa3bbb9fc9e18087fe2ffa6a2dd560ee3ee0149
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327820"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104393"
 ---
 # <a name="common-alert-schema"></a>常见警报架构
 
@@ -21,9 +21,9 @@ ms.locfileid: "94327820"
 
 通用警报架构将目前 Azure 中的警报通知的使用体验进行了标准化。 从历史上看，目前 Azure 中的三种警报类型（指标、日志、活动日志）一直有其自己的电子邮件模板、Webhook 架构等。现在，使用通用警报架构时可以收到架构一致的警报通知。
 
-任何警报实例都会描述 **受影响的资源** 和 **警报原因** 。这些实例在以下部分的通用架构中进行介绍：
-* **概要** ：一组通用于所有警报类型的 **标准化字段** ，描述对 **什么资源** 发出警报，此外还有其他通用警报元数据（例如，严重性或说明）。 
-* **警报上下文** ：一组用于描述 **警报原因** 的字段，此外还有 **因警报类型** 而异的字段。 例如，指标警报在警报上下文中会有指标名称和指标值之类的字段，而活动日志警报会包含生成警报的事件的相关信息。 
+任何警报实例都会描述 **受影响的资源** 和 **警报原因**。这些实例在以下部分的通用架构中进行介绍：
+* **概要**：一组通用于所有警报类型的 **标准化字段**，描述对 **什么资源** 发出警报，此外还有其他通用警报元数据（例如，严重性或说明）。 
+* **警报上下文**：一组用于描述 **警报原因** 的字段，此外还有 **因警报类型** 而异的字段。 例如，指标警报在警报上下文中会有指标名称和指标值之类的字段，而活动日志警报会包含生成警报的事件的相关信息。 
 
 我们从客户处听到的典型集成方案涉及将警报实例基于某个中心（例如资源组）路由到相关团队，然后该负责团队就开始处理它。 有了通用警报架构以后，可以使用重要字段，将上下文字段保留原样，方便相关团队进一步进行调查，这样就可以跨警报类型实现路由逻辑的标准化。
 
@@ -120,4 +120,5 @@ ms.locfileid: "94327820"
 ## <a name="next-steps"></a>后续步骤
 
 - [Webhook/逻辑应用/Azure Functions/自动化 Runbook 的通用警报架构定义。](./alerts-common-schema-definitions.md)
+- [了解如何创建一个逻辑应用，以利用常见警报架构来处理所有警报。](./alerts-common-schema-integrations.md)
 

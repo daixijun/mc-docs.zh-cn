@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 origin.date: 12/07/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 12/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 81c8e29161233494b4dd186a48de1996b25266a7
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 6e966b0d57ceecf4e014e74d956075fc8c9146fa
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020859"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004039"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>群集操作员和开发人员的最佳做法，用于在 Azure Kubernetes 服务 (AKS) 中生成并管理应用程序
 
@@ -33,7 +33,7 @@ ms.locfileid: "90020859"
 * [有关高级计划程序功能的最佳做法](operator-best-practices-advanced-scheduler.md)
     * 包括使用排斥 (taint) 和容许 (toleration)、节点选择器和关联，以及 pod 间关联与反关联。
 * [身份验证和授权的最佳做法](operator-best-practices-identity.md)
-    * 包括与 Azure Active Directory 集成、使用基于角色的访问控制 (RBAC)，以及 Pod 标识。
+    * 包括与 Azure Active Directory 集成、使用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)、使用 Azure RBAC，以及 Pod 标识。
 
 **安全性**
 
@@ -80,4 +80,4 @@ ms.locfileid: "90020859"
 
 如果需要完成 AKS 入门，请按某个快速入门的说明操作，通过 [Azure CLI](kubernetes-walkthrough.md) 或 [Azure 门户](kubernetes-walkthrough-portal.md)来部署 Azure Kubernetes 服务 (AKS) 群集。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

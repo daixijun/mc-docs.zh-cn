@@ -8,14 +8,14 @@ ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 40fcd4c7183b3f8df65f09f26b4777cfee8633e1
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: e718cf0110ae5a66d474f91746200c5b66aee6a6
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470389"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003567"
 ---
-<!--Not Available on MOONCAKE-->
+<!--Pending for PM Review-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
@@ -26,7 +26,7 @@ Microsoft.Resources/templateSpecs 是模板规格的资源类型。 它包含一
 若要部署模板规格，请使用标准 Azure 工具（如 PowerShell）、Azure CLI、Azure 门户、REST 和其他受支持的 SDK 和客户端。 请使用针对模板使用的相同命令。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用它，必须[注册等待列表](https://aka.ms/templateSpecOnboarding)。
+> 模板规格当前提供预览版。 若要使用，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="why-use-template-specs"></a>为什么使用模板规格？
 
@@ -77,7 +77,7 @@ Microsoft.Resources/templateSpecs 是模板规格的资源类型。 它包含一
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location chinanorth2 -TemplateFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0a -ResourceGroupName templateSpecsRg -Location chinanorth2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -85,7 +85,7 @@ New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpe
 ```azurecli
 az ts create \
   --name storageSpec \
-  --version "1.0" \
+  --version "1.0a" \
   --resource-group templateSpecRG \
   --location "chinanorth2" \
   --template-file "./mainTemplate.json"
@@ -123,7 +123,7 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 az ts show \
     --name storageSpec \
     --resource-group templateSpecRG \
-    --version "1.0"
+    --version "1.0a"
 ```
 
 ---
@@ -138,14 +138,14 @@ az ts show \
 
 /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Resources/templateSpecs/{template-spec-name}/versions/{template-spec-version}
 
-请注意，资源 ID 包括模板规格的版本号。
+请注意，资源 ID 包括模板规格的版本名称。
 
 例如，可以使用以下命令部署模板规格。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -155,7 +155,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \
@@ -164,12 +164,12 @@ az deployment group create \
 
 ---
 
-实际上，通常需要运行 `Get-AzTemplateSpec` 来获取要部署的模板规格的 ID。
+实际上，通常需要运行 `Get-AzTemplateSpec` 或 `az ts show` 来获取要部署的模板规格的 ID。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0a).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -179,7 +179,7 @@ New-AzResourceGroupDeployment `
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0a" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
@@ -258,35 +258,34 @@ az deployment group create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/webapp.json"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/database.json"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/webapp.json"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/database.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
-
 ```
 
 在上一个示例中执行用于创建模板规格的 PowerShell 或 CLI 命令时，该命令会查找三个文件 - 主模板、Web 应用模板 (`webapp.json`) 和数据库模板 (`database.json`) - 并将它们打包到模板规格中。
@@ -303,35 +302,35 @@ az deployment group create \
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "networkingDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "storageDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "networkingDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0a')]"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "storageDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0a')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -339,7 +338,7 @@ az deployment group create \
 
 ## <a name="versioning"></a>版本控制
 
-创建模板规格时，需要为其提供版本号。 循环访问模板代码时，可以更新现有版本（获取修补程序）或发布新版本。 版本是文本字符串。 可以选择遵循任意版本控制系统，包括语义化版本控制。 模板规格的用户可以提供部署模板规格时要使用的版本号。
+创建模板规格时，需要为其提供版本名称。 循环访问模板代码时，可以更新现有版本（获取修补程序）或发布新版本。 版本是文本字符串。 可以选择遵循任意版本控制系统，包括语义化版本控制。 模板规格的用户可提供部署模板规格时要使用的版本名称。
 
 ## <a name="next-steps"></a>后续步骤
 

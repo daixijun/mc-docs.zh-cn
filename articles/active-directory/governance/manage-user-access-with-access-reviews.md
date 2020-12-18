@@ -3,7 +3,7 @@ title: 使用访问评审管理用户访问权限 - Azure AD
 description: 了解如何使用 Azure Active Directory 访问评审管理（以组成员身份）用户访问权限或对应用程序的分配
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/11/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27432f5dc2a07426b96bcf9383e778962b78ffc6
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 9756f29682ba3f9ec0630a65bd0183d7d56a6c67
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211451"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97004063"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 访问评审管理用户访问权限
 
 使用 Azure Active Directory (Azure AD) 可以轻松确保用户有适当的访问权限。 为此，可让用户本人或决策人参与访问评审，鉴定（或“证明”）用户的访问权限。 审阅者可基于 Azure AD 的建议，针对每个用户就继续访问的需求提供意见。 访问评审完成后，即可进行更改，并删除不再需要访问权限的用户的访问权限。
 
 > [!NOTE]
-> 如果希望评审具有管理角色（如全局管理员）的用户成员身份，请参阅[在 Azure AD Privileged Identity Management 中启动访问评审](../privileged-identity-management/pim-how-to-start-security-review.md)。
+> 如果仅评审来宾用户的访问权限，而无需评审所有用户的访问权限，请参阅[使用访问评审管理来宾用户访问权限](manage-guest-access-with-access-reviews.md)。 如果希望评审具有管理角色（如全局管理员）的用户成员身份，请参阅[在 Azure AD Privileged Identity Management 中启动访问评审](../privileged-identity-management/pim-how-to-start-security-review.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - Azure AD Premium P2
 
@@ -44,7 +44,7 @@ ms.locfileid: "92211451"
 
 2. 决定是由每个用户评审自己的访问权限，还是由一个或多个用户评审每个人的访问权限。
 
-3. 以全局管理员或用户管理员身份，转到[“标识监管”页](https://portal.azure.cn/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+3. 在以下某个角色中：全局管理员、用户管理员或（预览）要查看的组的 M365 或 AAD 安全组所有者，请转到[标识管理页](https://portal.azure.cn/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
 4. 创建访问评审。 有关详细信息，请参阅[创建组或应用程序的访问评审](create-access-review.md)。
 

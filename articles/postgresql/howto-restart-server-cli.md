@@ -1,18 +1,19 @@
 ---
-title: 使用 Azure CLI 重启 Azure Database for PostgreSQL - 单一服务器
+title: 重启服务器 - Azure CLI - Azure Database for PostgreSQL - 单一服务器
 description: 本文介绍了如何使用 Azure CLI 重启 Azure Database for PostgreSQL - 单一服务器
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 081699a93d7a05af2542b3cb2f906dd8752b886e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 12/14/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ffa10ad8611dc7174baba54ded37b55ef097f1d9
+ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65732003"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96850850"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>使用 Azure CLI 重启 Azure Database for PostgreSQL - 单一服务器
 本主题介绍如何重启 Azure Database for PostgreSQL 服务器。 出于维护原因，可能需要重启服务器，这会在服务器执行操作时导致短暂中断。
@@ -22,12 +23,12 @@ ms.locfileid: "65732003"
 完成重启所需的时间取决于 PostgreSQL 恢复过程。 若要减少重启时间，建议在重启之前尽量减少服务器上发生的活动量。
 
 ## <a name="prerequisites"></a>必备条件
-若要完成本操作指南，需要：
-- [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)
+若要完成本操作说明指南：
+- 创建 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)。
 
-> [!IMPORTANT]
-> 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 ## <a name="restart-the-server"></a>重启服务器
 

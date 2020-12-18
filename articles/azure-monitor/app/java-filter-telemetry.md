@@ -5,16 +5,19 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 3/14/2019
-ms.date: 11/10/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1794977cbc4801226d25365e49eeec06d582c5f5
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 0f65f44269d82271fc2b8c5b76901bb961a1955d
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638200"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97104439"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 应用中筛选遥测
+
+> [!IMPORTANT]
+> 监视 Java 应用程序的建议方法是在不更改代码的情况下使用自动检测。 请按照 [Application Insights Java 3.0 代理](./java-in-process-agent.md)指南进行操作。
 
 可通过筛选器选择 [Java Web 应用发送到 Application Insights](java-get-started.md) 的遥测。 可使用现成的筛选器，也可编写自己的自定义筛选器。
 
@@ -261,9 +264,9 @@ public TelemetryProcessor successFilter() {
 你将需要在 `application.properties` 中创建自己的筛选器参数，并利用 Spring Boot 的外部化配置框架将这些参数传递到自定义筛选器。 
 
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
-我的筛选器不能正常工作  。
+我的筛选器不能正常工作。
 
 * 请检查提供的参数值是否有效。 例如，持续时间应为整数。 无效值将导致筛选器被忽略。 如果自定义筛选器从构造函数或 set 方法中引发异常，它会被忽略。
 

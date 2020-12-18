@@ -1,18 +1,18 @@
 ---
 title: Azure 应用程序配置常见问题解答
-description: 有关 Azure 应用程序配置的常见问题
+description: 阅读有关 Azure 应用配置的常见问题 (FAQ) 的解答，例如它与 Azure Key Vault 有何不同。
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 12/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: d5311b1800ce96c9d42415107522d6ce30ab9cc5
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: d7bbd933e8c0b2619a45e3155e929cfcc63eab36
+ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190295"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97105207"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 应用程序配置常见问题解答
 
@@ -49,7 +49,7 @@ ms.locfileid: "96190295"
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>应用程序配置与 Azure 应用服务有什么不同？
 
-通过 Azure 应用服务，可以为每个应用服务实例定义应用设置。 这些设置作为环境变量传递给应用程序代码。 如果需要，可以将设置与特定部署槽关联。 有关详细信息，请参阅[配置应用设置](/app-service/configure-common#configure-app-settings)。
+通过 Azure 应用服务，可以为每个应用服务实例定义应用设置。 这些设置作为环境变量传递给应用程序代码。 如果需要，可以将设置与特定部署槽关联。 有关详细信息，请参阅[配置应用设置](../app-service/configure-common.md#configure-app-settings)。
 
 而通过 Azure 应用程序配置，你能够定义可在多个应用之间共享的设置。 这包括在应用服务中运行的应用以及其他平台。 应用程序代码通过面向 .NET 和 Java 的配置提供程序、通过 Azure SDK 或直接通过 REST API 访问这些设置。
 

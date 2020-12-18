@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 12/07/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 92dc5fb6cb705a571a8344bcada2c876af0c00ca
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: d635fb0fe24b7829eb5f463060f7258f7d0d8047
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501712"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003687"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>如何：向应用提供可选声明
 
@@ -66,7 +66,7 @@ ms.locfileid: "94501712"
 | `email`                    | 此用户的可寻址电子邮件（如果此用户有）。  | JWT、SAML | MSA、Azure AD | 如果用户是租户中的来宾，则默认包含此值。  对于托管用户（租户内部的用户），它必须通过此可选声明进行请求，或者仅在 v2.0 上使用 OpenID 范围进行请求。| 
 | `acct`                | 租户中的用户帐户状态 | JWT、SAML | | 如果用户是租户的成员，则该值为 `0`。 如果他们是来宾，则该值为 `1`。 |
 | `groups`| 组声明的可选格式 |JWT、SAML| |与[应用程序清单](reference-app-manifest.md)中的 GroupMembershipClaims 设置（也是必需的）结合使用。 
-| `upn`                      | UserPrincipalName | JWT、SAML  |           | 尽管会自动包含此声明，但可以将它指定为可选声明，以附加额外的属性，在来宾用例中修改此声明的行为。  |
+| `upn`                      | UserPrincipalName | JWT、SAML  |           | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于唯一标识用户信息（例如，用作数据库密钥）。 应改用用户对象 ID (`oid`) 作为数据库密钥。 不应向使用备用登录 ID 登录的用户显示其用户主体名称 (UPN)。 应改用以下 ID 令牌声明向用户显示登录状态：`preferred_username` 或 `unique_name` 适用于 v1 令牌，`preferred_username` 适用于 v2 令牌。 尽管会自动包含此声明，但可以将它指定为可选声明，以附加额外的属性，在来宾用例中修改此声明的行为。  |
 | `idtyp`                    | 令牌类型   | JWT 访问令牌 | 特别之处：仅在仅限应用的访问令牌中 |  当令牌为仅限应用的令牌时，值为 `app`。 这是 API 确定令牌是应用令牌还是应用+用户令牌最准确的方法。|
 
 ## <a name="v20-specific-optional-claims-set"></a>特定于 v2.0 的可选声明集
@@ -88,7 +88,7 @@ ms.locfileid: "94501712"
 
 ### <a name="additional-properties-of-optional-claims"></a>可选声明的附加属性
 
-可以配置某些可选声明来更改声明的返回方式。 这些附加属性主要用于帮助迁移具有不同数据预期的本地应用程序（例如，`include_externally_authenticated_upn_without_hash` 可帮助迁移无法处理 UPN 中的井号标记 (`#`) 的客户端）
+可以配置某些可选声明来更改声明的返回方式。 这些附加属性主要用于帮助迁移具有不同数据预期的本地应用程序。 例如，`include_externally_authenticated_upn_without_hash` 有助于无法处理 UPN 中的哈希标记 (`#`) 的客户端。
 
 **表 4：用于配置可选声明的值**
 
@@ -114,7 +114,7 @@ ms.locfileid: "94501712"
 }
 ```
 
-此 OptionalClaims 对象会导致返回到客户端的 ID 令牌包含一个 upn 声明及其他主租户和资源租户信息。 仅当用户是租户中的来宾（使用不同的 IDP 进行身份验证）时，才会更改令牌中的 `upn` 声明。
+此 OptionalClaims 对象会导致返回到客户端的 ID 令牌包含一个 `upn` 声明及其他主租户和资源租户信息。 仅当用户是租户中的来宾（使用不同的 IDP 进行身份验证）时，才会更改令牌中的 `upn` 声明。
 
 ## <a name="configuring-optional-claims"></a>配置可选声明
 
@@ -136,6 +136,9 @@ ms.locfileid: "94501712"
 1. 选择要配置的令牌类型。
 1. 选择要添加的可选声明。
 1. 选择 **添加** 。
+
+> [!NOTE]
+> “标记配置”边栏选项卡的 UI 选项目前不适用于 Azure AD B2C 租户中注册的应用。 对于在 B2C 租户中注册的应用程序，可以通过修改应用程序清单来配置可选声明。 
 
 **通过应用程序清单配置可选声明：**
 
@@ -175,6 +178,7 @@ ms.locfileid: "94501712"
 
 2. 完成后，选择“保存”。 现在，指定的可选声明将包含在应用程序的令牌中。
 
+
 ### <a name="optionalclaims-type"></a>OptionalClaims 类型
 
 声明应用程序请求的可选声明。 应用程序可以配置为要在它能够从安全令牌服务收到的每种令牌（共三种，即 ID 令牌、访问令牌和 SAML 2 令牌）中返回可选声明。 应用程序可以配置为要在每种令牌类型中返回一组不同的可选声明。 Application 实体的 OptionalClaims 属性是一个 OptionalClaims 对象。
@@ -189,7 +193,7 @@ ms.locfileid: "94501712"
 
 ### <a name="optionalclaim-type"></a>OptionalClaim 类型
 
-包含与应用程序或服务主体关联的可选声明。 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 类型的 IdToken、accessToken 和 saml2Token 属性是一个 OptionalClaim 集合。
+包含与应用程序或服务主体关联的可选声明。 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims) 类型的 IdToken、accessToken 和 saml2Token 属性是一个 OptionalClaim 集合。
 如果特定的声明支持这样做，则还可以使用 AdditionalProperties 字段修改 OptionalClaim 的行为。
 
 **表 6：OptionalClaim 类型属性**
@@ -198,12 +202,12 @@ ms.locfileid: "94501712"
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 可选声明的名称。                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 声明的源（目录对象）。 扩展属性提供预定义声明和用户定义的声明。 如果源值为 null，则声明是预定义的可选声明。 如果源值为 user，则 name 属性中的值是来自用户对象的扩展属性。 |
-| `essential`            | Edm.Boolean             | 如果值为 true，则必须使用客户端指定的声明，以确保为最终用户请求的特定任务提供顺利的授权体验。 默认值是 False。                                                                                                                 |
+| `essential`            | Edm.Boolean             | 如果值为 true，则必须使用客户端指定的声明，以确保为最终用户请求的特定任务提供顺利的授权体验。 默认值为 false。                                                                                                                 |
 | `additionalProperties` | 集合 (Edm.String) | 声明的附加属性。 如果此集合中存在某个属性，该属性将修改 name 属性中指定的可选声明的行为。                                                                                                                                                   |
 
 ## <a name="configuring-directory-extension-optional-claims"></a>配置目录扩展可选声明
 
-除了标准的可选声明集外，还可以将令牌配置为包括扩展。 有关详细信息，请参阅 [Microsoft Graph extensionProperty 文档](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0)。
+除了标准的可选声明集外，还可以将令牌配置为包括扩展。 有关详细信息，请参阅 [Microsoft Graph extensionProperty 文档](https://docs.microsoft.com/graph/api/resources/extensionproperty)。
 
 可选声明不支持架构和开放扩展，仅支持 AAD-Graph 样式的目录扩展。 使用此功能可以附加应用可以使用的附加用户信息 - 例如，用户设置的附加标识符或重要配置选项。 参阅此页面底部的示例。
 
@@ -228,24 +232,24 @@ ms.locfileid: "94501712"
 
 **通过 UI 配置组可选声明：**
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)
-1. 通过身份验证后，在页面右上角选择 Azure AD 租户
-1. 在左侧菜单中，选择“Azure Active Directory”
-1. 在“管理”部分下，选择“应用注册” 
-1. 在列表中选择要为其配置可选声明的应用程序
-1. 在“管理”部分下，选择“令牌配置” 
-1. 选择“添加组声明”
+1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
+1. 从左侧菜单中选择“Azure Active Directory”。
+1. 在“管理”部分下选择“应用注册” 。
+1. 在列表中选择要为其配置可选声明的应用程序。
+1. 在“管理”部分下，选择“令牌配置” 。
+1. 选择“添加组声明”。
 1. 选择要返回的组类型（“安全组”或“目录角色”、“所有组”和/或“分配给应用程序的组”）。 “分配给应用程序的组”选项仅包括分配给应用程序的组。 “所有组”选项包括“SecurityGroup”、“DirectoryRole”和“DistributionList”，但不包括“分配给应用程序的组”    。 
-1. 可选：选择特定的令牌类型属性，将组声明值修改为包含本地组特性，或将声明类型更改为角色
-1. 选择“保存”
+1. 可选：选择特定的令牌类型属性，将组声明值修改为包含本地组特性，或将声明类型更改为角色。
+1. 选择“保存”。
 
 **通过应用程序清单配置组可选声明：**
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)
-1. 通过身份验证后，在页面右上角选择 Azure AD 租户
-1. 在左侧菜单中，选择“Azure Active Directory”
-1. 在列表中选择要为其配置可选声明的应用程序
-1. 在“管理”部分下，选择“清单” 
+1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
+1. 从左侧菜单中选择“Azure Active Directory”。
+1. 在列表中选择要为其配置可选声明的应用程序。
+1. 在“管理”部分下，选择“清单” 。
 1. 使用清单编辑器添加以下条目：
 
    有效值为：
@@ -272,7 +276,7 @@ ms.locfileid: "94501712"
    - SAML 令牌的 Saml2Token。
 
    > [!NOTE]
-   > Saml2Token 类型将应用到 SAML1.1 和 SAML2.0 格式令牌
+   > Saml2Token 类型将应用到 SAML1.1 和 SAML2.0 格式令牌。
 
    对于每个相关的令牌类型，请修改组声明以在清单中使用 OptionalClaims 节。 OptionalClaims 架构如下所示：
 
@@ -297,7 +301,7 @@ ms.locfileid: "94501712"
    某些应用程序需要角色声明中有关用户的组信息。  要将声明类型从组声明更改为角色声明，请将“emit_as_roles”添加到附加属性。  组值将在角色声明中发出。
 
    > [!NOTE]
-   > 如果使用“emit_as_roles”，则分配了用户的任何已配置应用程序角色不会显示在角色声明中
+   > 如果使用“emit_as_roles”，则分配了用户的任何已配置应用程序角色不会显示在角色声明中。
 
 **示例：**
 
@@ -360,20 +364,19 @@ ms.locfileid: "94501712"
 
 - 可以使用“令牌配置”UI（请参阅下面的示例）
 - 可以使用“清单”（请参阅下面的示例）。 请先阅读[了解 Azure AD 应用程序清单文档](./reference-app-manifest.md)中的清单简介。
-- 也可以编写使用 [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) 的应用程序来更新应用程序。 Microsoft Graph API 参考指南中的 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) 类型可帮助你配置可选声明。
+- 也可以编写使用 [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) 的应用程序来更新应用程序。 Microsoft Graph API 参考指南中的 [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims) 类型可帮助你配置可选声明。
 
 **示例：**
 
 以下示例使用“令牌配置”UI 和“清单”将可选声明添加到用于应用程序的访问令牌、ID 令牌和 SAML 令牌 。 不同的可选声明将添加到应用程序可以接收的每种令牌：
 
 - ID 令牌现在会包含联合用户的完整格式 UPN (`<upn>_<homedomain>#EXT#@<resourcedomain>`)。
-- 其他客户端请求此应用程序的访问令牌现在将包含 auth_time 声明
+- 其他客户端请求此应用程序的访问令牌现在将包含 auth_time 声明。
 - SAML 令牌现在会包含 skypeId 目录架构扩展（在本例中，此应用的应用 ID 为 ab603c56068041afb2f6832e2a17e237）。 SAML 令牌会将 Skype ID 公开为 `extension_skypeId`。
 
 **UI 配置：**
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)
-
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
 
 1. 从左侧菜单中选择“Azure Active Directory”。

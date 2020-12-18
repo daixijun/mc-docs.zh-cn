@@ -1,7 +1,7 @@
 ---
 title: 在 .NET 中使用 Azure.Search.Documents (v11)
 titleSuffix: Azure Cognitive Search
-description: 了解如何使用 C# 和 .NET SDK 的版本 10 为 .NET 应用程序创建和管理搜索对象。 代码片段演示了如何连接到服务、创建索引，以及如何查询。
+description: 了解如何使用 C# 和 Azure.Search.Documents (v11) 客户端库在 .NET 应用程序中创建和管理搜索对象。 代码片段演示了如何连接到服务、创建索引，以及如何查询。
 manager: nitinme
 author: HeidiSteen
 ms.author: v-tawe
@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 10/27/2020
-ms.date: 11/27/2020
+ms.date: 12/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c542923f87f5d0dae146437676651a0633d2caa0
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a0354c53baa3e5827d55782e94d23a572847ce74
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300818"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97003623"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>如何在 C# .NET 应用程序中使用 Azure.Search.Documents
 
@@ -231,6 +231,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
     Console.WriteLine();
 }
 ```
+
+另一种方法是直接向索引添加字段。 以下示例只显示了几个字段。
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
 
 ### <a name="field-definitions"></a>字段定义
 
