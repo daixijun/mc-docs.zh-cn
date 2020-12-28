@@ -29489,6 +29489,206 @@
             "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-community-tools.md",
             "redirect_url": "/virtual-machines/migration-classic-resource-manager-community-tools",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/availability.md",
+            "redirect_url": "/virtual-machines/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+            "redirect_url": "/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/backup-recovery.md",
+            "redirect_url": "/virtual-machines/backup-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/configure-lvm.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-lvm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/configure-raid.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-raid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/constrained-vcpu.md",
+            "redirect_url": "/virtual-machines/constrained-vcpu",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dedicated-hosts-portal.md",
+            "redirect_url": "/virtual-machines/dedicated-hosts-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dedicated-hosts.md",
+            "redirect_url": "/virtual-machines/dedicated-hosts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/disk-bursting.md",
+            "redirect_url": "/virtual-machines/disk-bursting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/disk-encryption.md",
+            "redirect_url": "/virtual-machines/disk-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/disks-types.md",
+            "redirect_url": "/virtual-machines/disks-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/disks-use-storage-explorer-managed-disks.md",
+            "redirect_url": "/virtual-machines/disks-use-storage-explorer-managed-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/ephemeral-os-disks.md",
+            "redirect_url": "/virtual-machines/ephemeral-os-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/faq-for-disks.md",
+            "redirect_url": "/virtual-machines/faq-for-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/how-to-enable-write-accelerator.md",
+            "redirect_url": "/virtual-machines/how-to-enable-write-accelerator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
+            "redirect_url": "/virtual-machines/infrastructure-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/isolation.md",
+            "redirect_url": "/virtual-machines/isolation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/manage-availability.md",
+            "redirect_url": "/virtual-machines/manage-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/managed-disks-overview.md",
+            "redirect_url": "/virtual-machines/managed-disks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-cli.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-deep-dive.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-deep-dive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-errors.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-faq.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-overview.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-plan.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-plan",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/mitigate-se.md",
+            "redirect_url": "/virtual-machines/mitigate-se",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/network-overview.md",
+            "redirect_url": "/virtual-machines/network-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/portal-create-fqdn.md",
+            "redirect_url": "/virtual-machines/create-fqdn",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/premium-storage-performance.md",
+            "redirect_url": "/virtual-machines/premium-storage-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/regions.md",
+            "redirect_url": "/virtual-machines/regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/security-policy.md",
+            "redirect_url": "/virtual-machines/security-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/security-recommendations.md",
+            "redirect_url": "/virtual-machines/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/sizes.md",
+            "redirect_url": "/virtual-machines/sizes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/states-lifecycle.md",
+            "redirect_url": "/virtual-machines/states-lifecycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshooting-shared-images.md",
+            "redirect_url": "/virtual-machines/troubleshooting-shared-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/tutorial-azure-security.md",
+            "redirect_url": "/virtual-machines/tutorial-azure-security",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/tutorial-lemp-stack.md",
+            "redirect_url": "/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/using-managed-disks-template-deployments.md",
+            "redirect_url": "/virtual-machines/using-managed-disks-template-deployments",
+            "redirect_document_id": false
         }
 
 
