@@ -29689,7 +29689,13 @@
             "source_path": "articles/virtual-machines/linux/using-managed-disks-template-deployments.md",
             "redirect_url": "/virtual-machines/using-managed-disks-template-deployments",
             "redirect_document_id": false
-        }
+        },
+    {
+      "source_path": "articles/azure-sql/database/security-controls.md",
+      "redirect_url": "/azure-sql/database/security-baseline",
+      "redirect_document_id": false
+    }
+
 
 
 
