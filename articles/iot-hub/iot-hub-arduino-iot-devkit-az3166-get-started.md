@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 06/25/2019
 ms.author: v-yiso
 ms.date: 07/20/2020
-ms.openlocfilehash: e2ec22b81e113b480281000a69299f29ecfd83de
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 819db2c62ac057821d820ae31f5d08841ef2d809
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747204"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830125"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -39,6 +39,8 @@ ms.locfileid: "96747204"
 * 一块 MXChip IoT DevKit 开发板和一根 Micro-USB 数据线。 [立即获取](https://aka.ms/iot-devkit-purchase)。
 * 一台运行 Windows 10、macOS 10.10+ 或 Ubuntu 18.04+ 的计算机。
 * 一个有效的 Azure 订阅。 [激活 30 天免费试用版 Microsoft Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
   
 ## <a name="prepare-your-hardware"></a>准备硬件
 
@@ -92,7 +94,7 @@ ms.locfileid: "96747204"
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
     记下如下所示的设备连接字符串：

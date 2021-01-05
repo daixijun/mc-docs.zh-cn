@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/31/2020
 ms.author: v-johya
-ms.openlocfilehash: 6cd30670ecda534d3d6dffebce5860be0ab608cc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: fd5817c987b6430c62a306a069e7514e03484e0a
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106583"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857107"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>文本分析 API v3 中支持的实体类别
 
@@ -30,10 +30,6 @@ ms.locfileid: "93106583"
 #### <a name="pii"></a>[PII](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
-
-#### <a name="health"></a>[健康产业](#tab/health)
-
-[!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
 **_
 

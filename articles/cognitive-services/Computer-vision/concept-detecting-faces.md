@@ -9,22 +9,22 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 04/17/2019
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 8245b74d79656230d5933cab785292f316d36ddd
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: ffb5efe1cd58dab8945e05906d2caa5ca56869a5
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306368"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856827"
 ---
 # <a name="face-detection-with-computer-vision"></a>使用计算机视觉进行人脸检测
 
 计算机视觉可检测图像中的人脸，并为每个检测到的人脸生成年龄、性别和人脸边框。 
 
 > [!NOTE]
-> Azure [人脸](/cognitive-services/face/)服务也提供此功能。 有关人脸分析（包括人脸识别和姿势检测）的详细信息，请参阅此替代方案。 
+> Azure [人脸](../face/index.yml)服务也提供此功能。 有关人脸分析（包括人脸识别和姿势检测）的详细信息，请参阅此替代方案。 
 
 ## <a name="face-detection-examples"></a>人脸检测示例
 
@@ -116,6 +116,5 @@ ms.locfileid: "96306368"
 
 人脸检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Faces` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"faces"` 部分内容的字符串。
 
-* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+* [快速入门：计算机视觉 REST API 或客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 

@@ -4,20 +4,20 @@ description: 将用于通过透明数据加密保护数据库加密密钥的证�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: sstein, jovanpop
 origin.date: 07/21/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: b7764db71a8b1eb0efe9808e6a9cadff0a5f0fa2
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: afd2d10eb4f3ab8d08161ac94d5757cc54d43b84
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223269"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830199"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -161,7 +161,7 @@ Update-Module -Name Az.Sql
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-首先需要使用 .pfx 文件[设置 Azure 密钥保管库](/key-vault/key-vault-manage-with-cli2)。
+首先需要使用 .pfx 文件[设置 Azure 密钥保管库](../../key-vault/general/manage-with-cli2.md)。
 
 1. 在 PowerShell 中开始准备步骤：
 

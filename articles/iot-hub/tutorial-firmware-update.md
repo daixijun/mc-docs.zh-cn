@@ -13,12 +13,12 @@ origin.date: 06/28/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 7329bcbfab911ebe70615899712d298a414921ea
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: c58f0a47b9f021a90185f817d619331cf7d91ad6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747105"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830084"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
@@ -36,10 +36,9 @@ ms.locfileid: "96747105"
 > * 模拟设备上的固件更新过程。
 > * 在固件更新进行过程中从设备接收状态更新。
 
-
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 本快速入门中运行的两个示例应用程序是使用 Node.js 编写的。 开发计算机上需要有 Node.js v10.x.x 或更高版本。
 

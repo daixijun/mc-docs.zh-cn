@@ -1,18 +1,16 @@
 ---
 title: 查看和筛选 Azure 资源信息
 description: 筛选信息并使用不同的视图来更好地了解你的 Azure 资源。
-author: mgblythe
-ms.service: azure-portal
 ms.topic: how-to
 ms.author: v-tawe
 origin.date: 09/11/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: 86073d7805b5584def531f01a6d95a4857eece37
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/30/2020
+ms.openlocfilehash: d350bc815fa0834c8cd1db66a0f802186dcf55e3
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975148"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820358"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>查看和筛选 Azure 资源信息
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 origin.date: 10/10/2019
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 65fb164e19f9182d7d7bbb2c06a973b6a4cbb780
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ca249f5f2802c8fd67e6c0f4880962b960305c6f
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472476"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856951"
 ---
 # <a name="prebuilt-models"></a>预生成的模型
 
@@ -56,12 +56,12 @@ LUIS 为其每个预生成域提供预生成意向及其话语。 可以仅添�
 
 LUIS 包括一组预生成实体，用于识别常见类型的信息，如日期、时间、数字、度量和货币。 预构建实体支持因 LUIS 应用的区域性而异。 有关 LUIS 支持的预构建实体的完整列表，包括区域性支持，请参阅[预构建实体参考](./luis-reference-prebuilt-entities.md)。
 
-当预构建实体包含在应用程序中时，其预测将包含在发布的应用程序中。 预构建实体的行为是预先训练的， **不能** 修改的。 
+当预构建实体包含在应用程序中时，其预测将包含在发布的应用程序中。 预构建实体的行为是预先训练的，**不能** 修改的。 
 
 > [!NOTE]
 > **builtin.datetime** 已弃用。 它由 [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md) 取代，后者提供日期和时间范围的识别，并改进了对模糊日期和时间的识别。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何向你的应用[添加预生成的实体](luis-prebuilt-entities.md)。
+了解如何向你的应用[添加预生成的实体](./howto-add-prebuilt-models.md)。
 

@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 06/11/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 42088a50aa617c6186db36f151520e80ba717236
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: 41e4fe5ff6ce2d8d7a845d1bc72c1d7e21e97dee
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231348"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856680"
 ---
 <!--Security Center now is available on Azure China -->
 # <a name="tutorial-use-azure-security-center-to-monitor-virtual-machines"></a>教程：使用 Azure 安全中心监视虚拟机
@@ -68,9 +68,7 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 ## <a name="view-vm-configuration-health"></a>查看 VM 配置运行状况
 
-打开数据收集并设置安全策略后，安全中心将开始提供警报和建议。 部署 VM 时，将安装数据收集代理。 然后，安全中心内将填充新 VM 的数据。 
-
-<!--Not Available on For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/asset-inventory.md)-->
+打开数据收集并设置安全策略后，安全中心将开始提供警报和建议。 部署 VM 时，将安装数据收集代理。 然后，安全中心内将填充新 VM 的数据。 有关 VM 配置运行状况的详细信息，请参阅[在安全中心保护 VM](../security-center/asset-inventory.md)。 
 
 收集数据时，每个 VM 和相关 Azure 资源的资源运行状况会聚合。 这些信息会显示在易于阅读的图表中。 
 
@@ -124,5 +122,4 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 <!--Not Avaialble on [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](https://docs.azure.cn/developer/jenkins/pipeline-with-github-and-docker)-->
 
-<!-- Update_Description: new article about tutorial azure security -->
-<!--NEW.date: 11/30/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

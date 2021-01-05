@@ -1,17 +1,17 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/03/2020
-ms.date: 10/16/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: 98ad8eef82505955f52de143672b18761337cd9a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 30bbb43743740234bf91c226534100f21510314d
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978423"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820502"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>从一些样本代码入手
 

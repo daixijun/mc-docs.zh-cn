@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: v-johya
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 origin.date: 09/27/2019
-ms.openlocfilehash: 86e6a13d6a1a8b6f32fa139f73369ae0c6dc3678
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 378949d7f4a65cf72f148048d8e7d260a9c08124
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472390"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857045"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 应用的预构建的域参考
-此参考提供有关[预构建的域](luis-how-to-use-prebuilt-domains.md)的信息，这些参考是 LUIS 提供的意向和实体的预构建集合。
+此参考提供有关[预构建的域](./howto-add-prebuilt-models.md)的信息，这些参考是 LUIS 提供的意向和实体的预构建集合。
 
 相比之下，[自定义域](luis-how-to-start-new-app.md)从无意向和模型开始。 可将任何预构建的域意向和实体添加到自定义模型中。
 
@@ -41,12 +41,7 @@ ms.locfileid: "92472390"
 | 天气        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Web    | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 
-预生成域在以下语言区域 **不受支持** ：
-
-* 加拿大法语
-* Hindi
-* 墨西哥西班牙语
-
+<!--Not available in MC-->
 ## <a name="next-steps"></a>后续步骤
 
 了解[简单实体](reference-entity-simple.md)。

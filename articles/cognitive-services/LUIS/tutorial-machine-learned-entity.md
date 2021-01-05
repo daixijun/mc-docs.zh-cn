@@ -4,15 +4,15 @@ description: 使用机器学习实体从言语中提取结构化数据。 若要
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: 505e986960b467faa2b5c8b3888af4eba1d0f9a9
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: bdaf8060689d986ed1193bfdc0e12e7b1ecee60c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306488"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856817"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>教程：在语言理解 (LUIS) 中使用机器学习实体从用户言语中提取结构化数据
 
@@ -299,7 +299,7 @@ ms.locfileid: "96306488"
 
 ## <a name="related-information"></a>相关信息
 
-* [教程 - 意向](luis-quickstart-intents-only.md)
+* [教程 - 意向](./tutorial-intents-only.md)
 * [概念 - 实体](luis-concept-entity-types.md)概念信息
 * [概念 - 功能](luis-concept-feature.md)概念信息
 * [如何训练](luis-how-to-train.md)
@@ -311,5 +311,5 @@ ms.locfileid: "96306488"
 在本教程中，应用使用机器学习实体来查找用户言语的意向，并从该言语中提取详细信息。 使用机器学习实体可以分解实体的详细信息。
 
 > [!div class="nextstepaction"]
-> [添加预生成的 keyphrase 实体](luis-quickstart-intent-and-key-phrase.md)
+> [添加预生成的 keyphrase 实体](./luis-reference-prebuilt-keyphrase.md)
 

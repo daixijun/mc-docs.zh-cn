@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 origin.date: 05/18/2020
-ms.openlocfilehash: 3d20cd324d6d51087219cd2c2e68bc859f1a9baa
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 63941bc1fed11deebd4de686fa6ccbed52a5fccd
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472427"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857059"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 门户中创建新的 LUIS 应用
 可通过多种方法创建 LUIS 应用。 可以在 LUIS 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](developer-reference-resource.md) 进行创建。
@@ -27,7 +27,7 @@ ms.locfileid: "92472427"
 可以通过以下几种方式在门户中创建新应用：
 
 * 从一个空应用开始，创建意向、表述和实体。
-* 从一个空应用开始，添加[预生成的域](luis-how-to-use-prebuilt-domains.md)。
+* 从一个空应用开始，添加[预生成的域](./howto-add-prebuilt-models.md)。
 * 从已包含意向、言语和实体的 `.lu` 或 `.json` 文件导入 LUIS 应用。
 
 ## <a name="using-the-authoring-apis"></a>使用创作 API
@@ -78,5 +78,5 @@ ms.locfileid: "92472427"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果应用设计包含意向检测，请[创建新意向](luis-how-to-add-intents.md)并添加示例言语。 如果应用设计仅是数据提取，则将示例言语添加到“None”意向，然后[创建实体](luis-how-to-add-example-utterances.md)，并使用这些实体标记示例言语。
+如果应用设计包含意向检测，请[创建新意向](luis-how-to-add-intents.md)并添加示例言语。 如果应用设计仅是数据提取，则将示例言语添加到“None”意向，然后[创建实体](./luis-how-to-add-entities.md)，并使用这些实体标记示例言语。
 

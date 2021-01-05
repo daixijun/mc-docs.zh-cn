@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 10/05/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: c89e7929ec6a3cca4a8a1f6a33c9ff2842734af2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 475a94d7a56e5ae416b481c19a7f39825b0751ae
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105135"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857088"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
@@ -138,9 +138,7 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 | **最大内存** |顺利运行应用程序所需的内存量 |提交的在用字节数百分比 |使用 vmstat |
 | **最大CPU** |顺利运行应用程序所需的 CPU 速度 |处理器时间百分比 |%util |
 
-详细了解 [iostat](https://linux.die.net/man/1/iostat)。
-
-<!--Not Available on [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)-->
+详细了解 [iostat](https://linux.die.net/man/1/iostat) 和 [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)。
 
 ## <a name="optimize-application-performance"></a>优化应用程序性能
 
@@ -231,7 +229,7 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 
 <!--MOONCAKE CUSTOMIZE: NO UPDATE ON Price change to CNY-->
 
-例如，以需要 16,000 IOPS 的应用程序为考虑对象。 若要达到此性能，需要使用 Standard\_D14 Azure IaaS VM，该 VM 可以使用 32 个标准存储 1TB 磁盘来实现 16,000 的最大 IOPS。 每个 1-TB 标准存储磁盘最多可以实现 500 IOPS。 此 VM 每月的估计成本将是 CNY10,171。 32 个标准存储磁盘每月的成本将是 CNY8,847。 每月估计的总成本将是 CNY19,018。
+例如，以需要 16,000 IOPS 的应用程序为考虑对象。 若要达到此性能，需要使用 Standard\_D14 Azure IaaS VM，该 VM 可以使用 32 个标准存储 1 TB 磁盘来实现 16,000 的最大 IOPS。 每个 1-TB 标准存储磁盘最多可以实现 500 IOPS。 此 VM 每月的估计成本将是 CNY10,171。 32 个标准存储磁盘每月的成本将是 CNY8,847。 每月估计的总成本将是 CNY19,018。
 
 但是，如果将同一应用程序置于高级存储上，则所需 VM 大小和高级存储磁盘数都会减少，从而降低总体成本。 Standard\_DS13 VM 可以使用 4 个 P30 磁盘来满足 16,000 IOPS 的要求。 DS13 VM 的最大 IOPS 为 25,600，每个 P30 磁盘的最大 IOPS 为 5,000。 总起来说，此配置可以达到 5,000 x 4 = 20,000 的 IOPS。 此 VM 每月的估计成本将是 CNY5,081。 4 个 P30 高级存储磁盘每月的成本是 CNY3,625。 每月估计的总成本将是 CNY8,706。
 
@@ -319,9 +317,11 @@ Azure 高级存储提供了多种大小，因此你可以选择最适合需求�
 举例来说，可以通过执行以下操作将这些准则应用到在高级存储上运行的 SQL Server：
 
 1. 在托管数据文件的高级存储磁盘上配置“ReadOnly”缓存。  
-    a.  从缓存快速读取可以缩短 SQL Server 查询时间，因为从缓存检索数据页的速度要大大快于直接从数据磁盘进行检索的速度。  
-    b.  从缓存进行读取意味着可以从高级数据磁盘获得更多的吞吐量。 SQL Server 可以利用这额外的吞吐量来检索更多数据页和执行其他操作，例如备份/还原、批量加载以及索引重建。  
+    
+    a. 从缓存快速读取可以缩短 SQL Server 查询时间，因为从缓存检索数据页的速度要大大快于直接从数据磁盘进行检索的速度。  
+    b. 从缓存进行读取意味着可以从高级数据磁盘获得更多的吞吐量。 SQL Server 可以利用这额外的吞吐量来检索更多数据页和执行其他操作，例如备份/还原、批量加载以及索引重建。  
 1. 在托管日志文件的高级存储磁盘上将缓存配置为“无”。  
+    
     a.  日志文件主要是进行频繁的写入操作。 因此，将缓存设置为 ReadOnly 对其无用。
 
 ## <a name="optimize-performance-on-linux-vms"></a>优化 Linux Vm 的性能
@@ -342,7 +342,7 @@ Azure 高级存储提供了多种大小，因此你可以选择最适合需求�
 
 重要说明：使用服务器管理器 UI，可以将列的总数设置为每个条带化卷最多 8 个。 连接 8 个以上的磁盘时，可使用 PowerShell 来创建卷。 使用 PowerShell，可以将列数设置为与磁盘数相等。 例如，如果一个条带集中有 16 个磁盘，可在 *New-VirtualDisk* PowerShell cmdlet 的 *NumberOfColumns* 参数中指定 16 个列。
 
-在 Linux 中，可使用 MDADM 实用工具将磁盘条带化。 有关在 Linux 中对磁盘进行条带化操作的详细步骤，请参阅[在 Linux 上配置软件 RAID](linux/configure-raid.md)。
+在 Linux 中，可使用 MDADM 实用工具将磁盘条带化。 有关在 Linux 中对磁盘进行条带化操作的详细步骤，请参阅[在 Linux 上配置软件 RAID](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-raid)。
 
 *条带大小*  
 进行磁盘条带化操作时，一项重要配置是条带大小。 条带大小或块大小是应用程序可以在条带化卷上处理的最小数据块区。 配置的条带大小取决于应用程序类型及其请求模式。 如果选择了错误的条带大小，可能导致 IO 不一致，从而导致应用程序性能下降。
@@ -406,7 +406,7 @@ Azure 高级存储根据所选 VM 大小和磁盘大小，预配指定数目的 
 如果你希望对磁盘进行基准测试，请参阅我们的关于磁盘基准测试的文章：
 
 * 对于 Linux：[在 Azure 磁盘存储上对应用程序进行基准测试](linux/disks-benchmarks.md)
-* 对于 Windows：[磁盘基准测试](https://ocs.microsoft.com/windows/disks-benchmarks)。
+* 对于 Windows：[磁盘基准测试](windows/disks-benchmarks.md)。
 
 了解有关可用磁盘类型的详细信息：
 

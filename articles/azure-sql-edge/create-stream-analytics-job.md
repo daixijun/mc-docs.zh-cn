@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 07/27/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: f90a19b548b996a93b011ed3879b96e57497283f
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/30/2020
+ms.openlocfilehash: d5d9a616e204875d9ec3b533281928e983b63e7f
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975210"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820340"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>在 Azure SQL Edge 中创建数据流作业 
 
@@ -155,7 +155,7 @@ Azure SQL Edge 目前仅支持以下数据源作为流输入和输出。
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. 创建外部流对象。 以下示例创建指向 Kafka 主题 `*TemperatureMeasurement*` 的外部流对象。
 
     ```sql
@@ -164,7 +164,7 @@ Azure SQL Edge 目前仅支持以下数据源作为流输入和输出。
     (  
         DATA_SOURCE = KafkaInput, 
         FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```

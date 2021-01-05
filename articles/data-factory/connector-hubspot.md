@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 数据工厂（预览版）从 HubSpot 复制数据
+title: 使用 Azure 数据工厂从 HubSpot 复制数据
 description: 了解如何通过在 Azure 数据工厂管道中使用复制活动，将数据从 HubSpot 复制到支持的接收器数据存储。
 services: data-factory
 documentationcenter: ''
@@ -9,23 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 01/08/2020
-ms.date: 05/11/2020
+origin.date: 12/18/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: d5a3755f8242fba4cf753bb53b91bccfbf7e564e
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: f907d591b49ca5d4ca9eac2355030e48224cdae5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198073"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830327"
 ---
-# <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 HubSpot 复制数据
+# <a name="copy-data-from-hubspot-using-azure-data-factory"></a>使用 Azure 数据工厂从 HubSpot 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 HubSpot 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
-
-> [!IMPORTANT]
-> 此连接器目前提供预览版。 欢迎试用并提供反馈。 若要在解决方案中使用预览版连接器的依赖项，请联系 [Azure 客户支持](https://www.azure.cn/zh-cn/support/contact/)。
 
 ## <a name="supported-capabilities"></a>支持的功能
 
@@ -49,7 +46,7 @@ Azure 数据工厂提供内置的驱动程序用于启用连接，因此无需�
 
 HubSpot 链接服务支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | type 属性必须设置为：Hubspot  | 是 |
 | clientId | 与 HubSpot 应用程序关联的客户端 ID。 从[此处](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot)了解如何在 HubSpot 中创建应用。 | 是 |
@@ -92,7 +89,7 @@ HubSpot 链接服务支持以下属性：
 
 要从 HubSpot 复制数据，请将数据集的 type 属性设置为“HubspotObject”  。 支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：HubspotObject  | 是 |
 | tableName | 表的名称。 | 否（如果指定了活动源中的“query”） |
@@ -120,9 +117,9 @@ HubSpot 链接服务支持以下属性：
 
 ### <a name="hubspotsource-as-source"></a>以 HubspotSource 作为源
 
-要从 HubSpot 复制数据，请将复制活动中的源类型设置为“HubspotSource”  。 复制活动**source**部分支持以下属性：
+要从 HubSpot 复制数据，请将复制活动中的源类型设置为“HubspotSource”  。 复制活动 **source** 部分支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为：HubspotSource  | 是 |
 | 查询 | 使用自定义 SQL 查询读取数据。 例如：`"SELECT * FROM Companies where Company_Id = xxx"`。 | 否（如果指定了数据集中的“tableName”） |

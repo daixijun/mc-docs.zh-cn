@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 门户以增量方式复制表
-description: 在本教程中，我们将创建一个 Azure 数据工厂管道，它能够以增量方式将 Azure SQL 数据库中的数据复制到 Azure Blob 存储。
+description: 在本教程中，你将创建一个带管道的 Azure 数据工厂，将增量数据从 Azure SQL 数据库中的表加载到 Azure Blob 存储。
 services: data-factory
 author: WenJason
 ms.author: v-jay
@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-origin.date: 06/10/2018
-ms.date: 07/27/2020
-ms.openlocfilehash: e1999bbd6aa4fa8f39e5fb45f92ce567264f08c3
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+origin.date: 11/09/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 2fec3755655fe6b8839024b53b6dacb0ac459579
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431927"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830290"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>使用 Azure 门户以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-在本教程中，创建一个带管道的 Azure 数据工厂，将增量数据从 Azure SQL 数据库中的表加载到 Azure Blob 存储。
+在本教程中，你将创建一个带管道的 Azure 数据工厂，将增量数据从 Azure SQL 数据库中的表加载到 Azure Blob 存储。
 
 在本教程中执行以下步骤：
 
@@ -144,8 +144,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -160,13 +160,13 @@ END
 
 3. 在“新建数据工厂”页中，输入 ADFIncCopyTutorialDF 作为 **名称**。
 
-   Azure 数据工厂的名称必须 **全局唯一**。 如果看到红色感叹号和以下错误，请更改数据工厂的名称（例如改为 yournameADFIncCopyTutorialDF），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
+   Azure 数据工厂的名称必须全局唯一。 如果看到红色感叹号和以下错误，请更改数据工厂的名称（例如改为 yournameADFIncCopyTutorialDF），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
 
     数据工厂名“ADFIncCopyTutorialDF”不可用
 4. 选择要在其中创建数据工厂的 Azure **订阅**。
 5. 对于 **资源组**，请执行以下步骤之一：
 
-      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
+      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
       - 选择“新建”，并输入资源组的名称。   
          
         若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
@@ -277,7 +277,7 @@ END
         | 名称 | 类型 | 值 |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | 字符串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![存储过程活动 - 存储过程设置](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. 若要验证管道设置，请单击工具栏中的“验证”。 确认没有任何验证错误。 若要关闭“管道验证报告”窗口，请单击 >>。   

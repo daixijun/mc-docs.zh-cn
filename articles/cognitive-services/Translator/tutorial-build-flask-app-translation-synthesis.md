@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 origin.date: 05/26/2020
-ms.date: 10/22/2020
+ms.date: 12/30/2020
 ms.author: v-johya
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 10f945bd81160861f634058df8b4cd800dd20bc1
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d66bec517e514bd072f9d4eaf8b5c47b3ad7399d
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472676"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856746"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>教程：生成使用 Azure 认知服务的 Flask 应用
 
@@ -65,7 +65,7 @@ Flask 是用于创建 Web 应用程序的微框架。 也就是说，Flask 提�
 * 文本分析
 * 语音服务
 
-参考[在 Azure 门户中创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的分步说明创建资源。
+参考[在 Azure 门户中创建认知服务帐户](../cognitive-services-apis-create-account.md)中的分步说明创建资源。
 
 > [!IMPORTANT]
 > 对于本教程，请在中国北部区域创建资源。 如果使用其他区域，需要在每个 Python 文件中调整基 URL。
@@ -91,7 +91,7 @@ Flask 是用于创建 Web 应用程序的微框架。 也就是说，Flask 提�
 
 让我们使用 `virtualenv` 创建 Flask 应用的虚拟环境。 使用虚拟环境可确保在干净的环境中操作。
 
-1. 在工作目录中，运行以下命令以创建虚拟环境： **macOS/Linux：**
+1. 在工作目录中，运行以下命令以创建虚拟环境：**macOS/Linux：**
    ```
    virtualenv venv --python=python3
    ```
@@ -148,12 +148,12 @@ Requests 是用于发送 HTTP 1.1 请求的常用模块。 无需手动将查询
 
 2. 若要运行 Flask 应用，可以使用 flask 命令，或者结合 Flask 使用 Python 的 -m 开关。 在执行该操作之前，需要通过导出 `FLASK_APP` 环境变量，来告诉终端要使用哪个应用：
 
-   **macOS/Linux** ：
+   **macOS/Linux**：
    ```
    export FLASK_APP=app.py
    ```
 
-   **Windows** ：
+   **Windows**：
    ```
    set FLASK_APP=app.py
    ```
@@ -476,7 +476,7 @@ flask run
 
 ## <a name="analyze-sentiment"></a>分析情绪
 
-[文本分析 API](/cognitive-services/text-analytics/overview) 可用于执行情绪分析、从文本中提取关键短语，或检测源语言。 在此应用中，我们将使用情绪分析来确定提供的文本是积极的、中性的还是消极的。 该 API 返回介于 0 与 1 之间的数字评分。 评分接近 1 代表积极的情绪，评分接近 0 代表消极的情绪。
+[文本分析 API](../text-analytics/overview.md) 可用于执行情绪分析、从文本中提取关键短语，或检测源语言。 在此应用中，我们将使用情绪分析来确定提供的文本是积极的、中性的还是消极的。 该 API 返回介于 0 与 1 之间的数字评分。 评分接近 1 代表积极的情绪，评分接近 0 代表消极的情绪。
 
 在本部分，你将执行以下几项操作：
 
@@ -660,7 +660,7 @@ flask run
 
 ## <a name="convert-text-to-speech"></a>将文本转换到语音
 
-应用可以使用[文本转语音 API](/cognitive-services/speech-service/text-to-speech) 将文本转换为类似于人类的自然合成语音。 该服务支持标准语音、神经语音和自定义语音。 我们的示例应用使用了少量的可用声音，有关完整语音列表，请参阅[支持的语言](/cognitive-services/speech-service/language-support#text-to-speech)。
+应用可以使用[文本转语音 API](../speech-service/text-to-speech.md) 将文本转换为类似于人类的自然合成语音。 该服务支持标准语音、神经语音和自定义语音。 我们的示例应用使用了少量的可用声音，有关完整语音列表，请参阅[支持的语言](../speech-service/language-support.md#text-to-speech)。
 
 在本部分，你将执行以下几项操作：
 
@@ -955,7 +955,7 @@ flask run
 > [!TIP]
 > 如果所做的更改未显示，或者应用不按预期方式工作，请尝试清除缓存，或打开私密/隐匿窗口。
 
-好了，现已创建一个可以执行翻译、分析情绪和合成语音的正常运行的应用。 请按 **CTRL + C** 终止该应用。 请务必查看其他 [Azure 认知服务](/cognitive-services/)。
+好了，现已创建一个可以执行翻译、分析情绪和合成语音的正常运行的应用。 请按 **CTRL + C** 终止该应用。 请务必查看其他 [Azure 认知服务](../index.yml)。
 
 ## <a name="get-the-source-code"></a>获取源代码
 
@@ -963,7 +963,7 @@ flask run
 
 ## <a name="next-steps"></a>后续步骤
 
-* [翻译引用](/cognitive-services/Translator/reference/v3-0-reference)
+* [翻译引用](./reference/v3-0-reference.md)
 * [文本分析 API 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [文本到语音 API 参考](/cognitive-services/speech-service/rest-text-to-speech)
+* [文本到语音 API 参考](../speech-service/rest-text-to-speech.md)
 

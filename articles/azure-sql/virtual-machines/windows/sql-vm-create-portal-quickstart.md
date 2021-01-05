@@ -10,20 +10,21 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 07/11/2019
-ms.date: 08/17/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 49cad3f4a61fefcac551f5a16ee5724b0e7eeb3b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 83655faccedf8dc5a6741c8786668e789a4129c8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431964"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830050"
 ---
 <!--Verified Redirect files-->
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：通过 Azure 门户在 Windows 虚拟机上创建 SQL Server 2017
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-vm-create-portal-quickstart.md)
@@ -31,9 +32,10 @@ ms.locfileid: "96431964"
 
 本快速入门逐步讲解如何在 Azure 门户中创建 SQL Server 虚拟机 (VM)。
 
-> [!TIP]
-> - 本快速入门提供的路径适用于快速预配并连接到 SQL VM。 若要详细了解其他 SQL VM 预配选择，请参阅 [Azure 门户中的 Windows VM 上的 SQL Server 预配指南](create-sql-vm-portal.md)。
-> - 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](frequently-asked-questions-faq.md)。
+
+  > [!TIP]
+  > - 本快速入门提供的路径适用于快速预配并连接到 SQL VM。 若要详细了解其他 SQL VM 预配选择，请参阅 [Azure 门户中的 Windows VM 上的 SQL Server 预配指南](create-sql-vm-portal.md)。
+  > - 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](frequently-asked-questions-faq.md)。
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> 获取 Azure 订阅
 

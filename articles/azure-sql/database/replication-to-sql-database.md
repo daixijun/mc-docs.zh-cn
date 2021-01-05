@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 origin.date: 04/28/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 7915f24946eddf7001b103887fa2bce4e35cc2ce
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: 34eca25240edbffd9586789a73d66a0848ecf3e3
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872369"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830265"
 ---
 # <a name="replication-to-azure-sql-database"></a>复制到 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91872369"
 可以在单向事务或快照复制拓扑中将 Azure SQL 数据库配置为推送订阅服务器。
 
 > [!NOTE]
-> 本文介绍如何在 Azure SQL 数据库中使用[事务复制](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)。 它与[活动异地复制](/sql-database/sql-database-active-geo-replication)无关，后者是一项 Azure SQL 数据库功能，可用于创建单个数据库的完全可读副本。
+> 本文介绍如何在 Azure SQL 数据库中使用[事务复制](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)。 它与[活动异地复制](./active-geo-replication-overview.md)无关，后者是一项 Azure SQL 数据库功能，可用于创建单个数据库的完全可读副本。
 
 ## <a name="supported-configurations"></a>支持的配置
   
@@ -86,7 +86,7 @@ ms.locfileid: "91872369"
 ### <a name="typical-replication-scenario"></a>典型复制方案  
 
 1. 在 SQL Server 数据库上创建事务复制发布。  
-2. 在 SQL Server 上使用**新建订阅向导**或 Transact-SQL 语句创建一个推送，以便推送到 Azure SQL 数据库的订阅。  
+2. 在 SQL Server 上使用 **新建订阅向导** 或 Transact-SQL 语句创建一个推送，以便推送到 Azure SQL 数据库的订阅。  
 3. 对于 Azure SQL 数据库中的单一数据库和共用数据库，初始数据集是由快照代理创建并由分发代理分发和应用的快照。 使用 SQL 数据库托管实例发布服务器，还可以使用数据库备份来植入 Azure SQL 数据库订阅服务器。
 
 ### <a name="data-migration-scenario"></a>数据迁移方案  

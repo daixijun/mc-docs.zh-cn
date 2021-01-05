@@ -5,17 +5,17 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0fe727a4386a67b85c6743dceb41069000c6224a
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 621bbc4ec80cf57a72a742c85e75db9f5a56f75a
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327153"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829458"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>如何在 Azure Spring Cloud 中使用权限
-本文介绍如何创建将权限委托给 Azure Spring Cloud 资源的自定义角色。 自定义角色通过各种默认权限对 [Azure 内置角色](/role-based-access-control/built-in-roles)进行扩展。
+本文介绍如何创建将权限委托给 Azure Spring Cloud 资源的自定义角色。 自定义角色通过各种默认权限对 [Azure 内置角色](../role-based-access-control/built-in-roles.md)进行扩展。
 
 我们将实现以下自定义角色：
 
@@ -257,10 +257,10 @@ ms.locfileid: "94327153"
 
 
 ## <a name="see-also"></a>请参阅
-* [使用 Azure 门户创建或更新 Azure 自定义角色](/role-based-access-control/custom-roles-portal)
+* [使用 Azure 门户创建或更新 Azure 自定义角色](../role-based-access-control/custom-roles-portal.md)
 
 有关定义自定义权限的三种方法的详细信息，请参阅：
-* [克隆角色](/role-based-access-control/custom-roles-portal#clone-a-role)
-* [从头开始](/role-based-access-control/custom-roles-portal#start-from-scratch)
-* [从 JSON 开始](/role-based-access-control/custom-roles-portal#start-from-json)
+* [克隆角色](../role-based-access-control/custom-roles-portal.md#clone-a-role)
+* [从头开始](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
+* [从 JSON 开始](../role-based-access-control/custom-roles-portal.md#start-from-json)
 

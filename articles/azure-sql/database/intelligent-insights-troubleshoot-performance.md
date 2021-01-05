@@ -6,23 +6,23 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 06/12/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: f3f6aa739bdcb6bdfd5222adf5314c9f71370a75
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/14/2020
+ms.openlocfilehash: fe8d5b4638f4647806a086fedeb254293654452c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014176"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829875"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>使用智能见解排查 Azure SQL 数据库和 Azure SQL 托管实例的性能问题
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-本页提供有关通过[智能见解](intelligent-insights-overview.md)资源日志检测到的 Azure SQL 数据库和 Azure SQL 托管实例性能问题的信息。 可将指标和资源日志流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)、[Azure 存储](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
+本页提供有关通过[智能见解](intelligent-insights-overview.md)资源日志检测到的 Azure SQL 数据库和 Azure SQL 托管实例性能问题的信息。 可将指标和资源日志流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)、[Azure 存储](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
 
 ## <a name="detectable-database-performance-patterns"></a>可检测的数据库性能模式
 
@@ -70,7 +70,7 @@ Azure SQL 数据库上的资源通常称为 [DTU](service-tiers-dtu.md) 或 [vCo
 
 如果已达到可用会话限制，可以通过减少数据库登录次数来优化应用程序。 如果无法减少从应用程序到数据库的登录数，请考虑提高数据库订阅的定价层。 也可以将数据库拆分成多个数据库并进行移动，使工作负荷的分配更为均衡。
 
-有关解决会话限制的更多建议，请参阅[如何处理最大登录数的限制](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)。 有关服务器和订阅级别限制的信息，请参阅[服务器上的资源限制概述](resource-limits-logical-server.md)。
+有关解决会话限制的更多建议，请参阅[如何处理最大登录数的限制](https://docs.microsoft.com/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins)。 有关服务器和订阅级别限制的信息，请参阅[服务器上的资源限制概述](resource-limits-logical-server.md)。
 
 ## <a name="workload-increase"></a>工作负荷增大
 
@@ -114,7 +114,7 @@ Azure SQL 数据库上的资源通常称为 [DTU](service-tiers-dtu.md) 或 [vCo
 
 此性能模式表示当前数据库性能降低，相比过去七天的性能基线，在这种性能情况下检测到的数据库锁定过多。
 
-在现代 RDBMS 中，锁定对于实现多线程系统至关重要，这样可以通过尽可能地运行多个同步工作线程和并行数据库事务，最大程度地提高性能。 此上下文中的锁定是指一种内置访问机制，即只允许单个事务以独占方式访问所需的行、页、表和文件，不允许其他事务与之争用资源。 当锁定资源进行独占使用的事务用完资源后，对这些资源的锁定就会取消，允许其他事务访问所需资源。 有关锁定的详细信息，请参阅[数据库引擎中的锁定](https://msdn.microsoft.com/library/ms190615.aspx)。
+在现代 RDBMS 中，锁定对于实现多线程系统至关重要，这样可以通过尽可能地运行多个同步工作线程和并行数据库事务，最大程度地提高性能。 此上下文中的锁定是指一种内置访问机制，即只允许单个事务以独占方式访问所需的行、页、表和文件，不允许其他事务与之争用资源。 当锁定资源进行独占使用的事务用完资源后，对这些资源的锁定就会取消，允许其他事务访问所需资源。 有关锁定的详细信息，请参阅[数据库引擎中的锁定](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105))。
 
 如果 SQL 引擎执行的事务长时间等待访问已被锁定供独占使用的资源，这段等待时间会导致工作负荷在执行起来时变慢。
 
@@ -192,7 +192,7 @@ MAXDOP 服务器配置选项用于控制并行执行同一查询时可以使用�
 
 这种性能模式表示检测到一个性能不佳并影响工作负荷性能（与七天性能基线相比）的新查询。
 
-有时，编写性能良好的查询很有难度。 有关编写查询的详细信息，请参阅 [Writing SQL queries](https://msdn.microsoft.com/library/bb264565.aspx)（编写 SQL 查询）。 若要优化现有的查询性能，请参阅[查询优化](https://msdn.microsoft.com/library/ms176005.aspx)。
+有时，编写性能良好的查询很有难度。 有关编写查询的详细信息，请参阅 [Writing SQL queries](https://docs.microsoft.com/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90))（编写 SQL 查询）。 若要优化现有的查询性能，请参阅[查询优化](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105))。
 
 ### <a name="troubleshooting"></a>故障排除
 
@@ -214,7 +214,7 @@ MAXDOP 服务器配置选项用于控制并行执行同一查询时可以使用�
 
 由于系统无法成功识别查询性能不佳的根本原因，在手动故障排除时，诊断信息是很好的入手点。 可以优化这些查询的性能。 合理的做法是只提取需使用的数据，简化复杂的查询，将其分解成较小的查询。
 
-有关优化查询性能的详细信息，请参阅[查询优化](https://msdn.microsoft.com/library/ms176005.aspx)。
+有关优化查询性能的详细信息，请参阅[查询优化](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105))。
 
 ## <a name="tempdb-contention"></a>TempDB 争用
 
@@ -256,7 +256,7 @@ MAXDOP 服务器配置选项用于控制并行执行同一查询时可以使用�
 
 新计划回归状况表示一种状态，即数据库引擎开始执行不如旧计划有效的新查询执行计划。 旧计划回归状况表示一种状态，即数据库引擎弃用更有效的新计划，改用不如新计划有效的旧计划。 现有计划更改的工作负荷回归表示这样一种状态：不断交替使用旧计划和新计划，天平逐渐倾向于性能不佳的计划。
 
-有关计划回归的详细信息，请参阅 [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/)（SQL Server 中的计划回归是什么？）。
+有关计划回归的详细信息，请参阅 [What is plan regression in SQL Server?](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server)（SQL Server 中的计划回归是什么？）。
 
 ### <a name="troubleshooting"></a>故障排除
 
@@ -264,7 +264,7 @@ MAXDOP 服务器配置选项用于控制并行执行同一查询时可以使用�
 
 可以使用提供的查询哈希来分析哪个计划对于可识别的特定查询而言性能更好。 确定哪个计划更适合自己的查询后，可以手动强制该计划。
 
-有关详细信息，请参阅 [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/)（了解 SQL Server 如何阻止计划回归）。
+有关详细信息，请参阅 [Learn how SQL Server prevents plan regressions](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions)（了解 SQL Server 如何阻止计划回归）。
 
 > [!TIP]
 > 是否知道，内置智能功能可以自动管理数据库的最佳查询执行计划？
@@ -283,7 +283,7 @@ MAXDOP 服务器配置选项用于控制并行执行同一查询时可以使用�
 
 诊断日志会输出最近进行的、导致性能相比过去七天的工作负荷行为有所降级的数据库范围配置更改。 可以将配置更改还原为以前的值。 也可对值逐个进行优化，直到达到所需性能级别。 可以从性能令人满意的类似数据库中复制数据库范围配置值。 如果无法排查性能问题，请还原为默认值，并尝试从此基线开始进行微调。
 
-有关优化数据库范围配置的详细信息以及更改配置时使用的 T-SQL 语法，请参阅 [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx)（更改数据库范围的配置 (Transact SQL)）。
+有关优化数据库范围配置的详细信息以及更改配置时使用的 T-SQL 语法，请参阅 [Alter database-scoped configuration (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)（更改数据库范围的配置 (Transact SQL)）。
 
 ## <a name="slow-client"></a>客户端缓慢
 

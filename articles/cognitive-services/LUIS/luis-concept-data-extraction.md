@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 origin.date: 01/23/2020
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 37368308cfc8a07ef3ea3741f258250e31d7c70f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 2b0da950810d4a3d5f759079c1865f9d60296a25
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472495"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856811"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -234,9 +234,9 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 ### <a name="names-of-people"></a>人的姓名
 
-人的姓名可能会带有些许格式，具体取决于语言和区域性。 将预生成的 **[personName](luis-reference-prebuilt-person.md)** 实体或 **[简单实体](luis-concept-entity-types.md#simple-entity)** 与包含姓和名的[角色](luis-concept-roles.md)配合使用。
+人的姓名可能会带有些许格式，具体取决于语言和区域性。 将预生成的 **[personName](luis-reference-prebuilt-person.md)** 实体或 **[简单实体](luis-concept-entity-types.md)** 与包含姓和名的角色配合使用。
 
-如果使用简单实体，请确保给出的示例在话语的不同部分、在不同长度的话语中以及在所有意向（包括“None”意向）的话语中使用姓氏和名字。 定期[查看](luis-how-to-review-endoint-utt.md)终结点陈述以标记未能正确预测的任何名称。
+如果使用简单实体，请确保给出的示例在话语的不同部分、在不同长度的话语中以及在所有意向（包括“None”意向）的话语中使用姓氏和名字。 定期[查看](./luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。
 
 ### <a name="names-of-places"></a>地名
 
@@ -244,17 +244,17 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 ### <a name="new-and-emerging-names"></a>新出现的名称
 
-一些应用需要能够找到新出现的名称，例如产品或公司。 这些类型的名称是最难提取的数据类型。 首先从[简单实体](luis-concept-entity-types.md#simple-entity)开始，添加一个[短语列表](luis-concept-feature.md)。 定期[查看](luis-how-to-review-endoint-utt.md)终结点陈述以标记未能正确预测的任何名称。
+一些应用需要能够找到新出现的名称，例如产品或公司。 这些类型的名称是最难提取的数据类型。 首先从[简单实体](luis-concept-entity-types.md#simple-entity)开始，添加一个[短语列表](luis-concept-feature.md)。 定期[查看](./luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。
 
 ## <a name="patternany-entity-data"></a>Pattern.any 实体数据
 
 [Pattern.any](reference-entity-pattern-any.md) 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。 若要应用模式，必须找到模式中使用的实体。
 
 ## <a name="sentiment-analysis"></a>情绪分析
-如果在[发布](luis-how-to-publish-app.md#sentiment-analysis)时配置了情绪分析，LUIS json 响应会包含情绪分析。 请在[文本分析](/cognitive-services/text-analytics/)文档中详细了解情绪分析。
+如果在[发布](luis-how-to-publish-app.md#sentiment-analysis)时配置了情绪分析，LUIS json 响应会包含情绪分析。 请在[文本分析](../text-analytics/index.yml)文档中详细了解情绪分析。
 
 ## <a name="key-phrase-extraction-entity-data"></a>关键短语提取实体数据
-[关键短语提取实体](luis-reference-prebuilt-keyphrase.md)返回言语中的关键短语（由[文本分析](/cognitive-services/text-analytics/)提供）。
+[关键短语提取实体](luis-reference-prebuilt-keyphrase.md)返回言语中的关键短语（由[文本分析](../text-analytics/index.yml)提供）。
 
 ## <a name="data-matching-multiple-entities"></a>匹配多个实体的数据
 

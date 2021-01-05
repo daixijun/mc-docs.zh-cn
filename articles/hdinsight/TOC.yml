@@ -242,11 +242,11 @@
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/module/az.hdinsight'
         - name: 用于 .NET 的 SDK
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true'
         - name: 用于 Python 的 SDK
-          href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+          href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true'
         - name: 用于 Java 的 SDK
-          href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight'
         - name: 用于 Go 的 SDK
           href: ./hdinsight-go-sdk-overview.md
         - name: .NET (Apache HBase)
@@ -410,8 +410,6 @@
               items:
                 - name: 连接到 Azure SQL 数据库
                   href: ./spark/apache-spark-connect-to-sql-database.md
-                - name: 使用 Apache Spark 和 Cosmos DB 实现 lambda 体系结构
-                  href: ../cosmos-db/lambda-architecture.md
                 - name: 使用 AutoML 运行 Azure ML 工作负荷
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: 疑难解答
@@ -479,7 +477,7 @@
           items:
             - name: 将 MapReduce 与 Apache Hadoop 配合使用
               items:
-                - name: MapReduce 概述
+                - name: 使用 MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: 使用 SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
@@ -622,6 +620,8 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: 将 Apache Kafka 与 IoT 中心配合使用
               href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Confluent 架构注册表
+              href: ./kafka/schema-registry.md
             - name: 创建流式处理管道
               items:
                 - name: Apache Spark、Apache Kafka 和 Azure Cosmos DB

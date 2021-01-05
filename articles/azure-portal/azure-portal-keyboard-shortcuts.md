@@ -1,27 +1,18 @@
 ---
-title: Azure 门户键盘快捷方式 | Azure
+title: Azure 门户快捷键
 description: Azure 门户支持全局键盘快捷方式，可帮助你执行操作、导航和转到 Azure 门户中的位置。
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 origin.date: 12/20/2019
 ms.author: v-tawe
 ms.custom: accessibility
-ms.date: 10/19/2020
-ms.openlocfilehash: e24417f086493cfab48c72a51c9858b6b1bb0e28
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.date: 12/30/2020
+ms.openlocfilehash: 0656e9a7c37e851f7d10e6e6a79510bcccbabb00
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170402"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820359"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 

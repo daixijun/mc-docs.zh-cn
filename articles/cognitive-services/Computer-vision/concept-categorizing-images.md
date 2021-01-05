@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 04/17/2019
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 075a8202989c397723b145acbee254bc0d1efa0e
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: b6b27a91e2ef597a285ab8bb26b80371e2aabd4c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306381"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856849"
 ---
 # <a name="categorize-images-by-subject-matter"></a>按主题对图像进行分类
 
@@ -65,8 +65,7 @@ ms.locfileid: "96306381"
 
 分类功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `Categories` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"categories"` 部分内容的字符串。
 
-* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+* [快速入门：计算机视觉 REST API 或客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>后续步骤
 

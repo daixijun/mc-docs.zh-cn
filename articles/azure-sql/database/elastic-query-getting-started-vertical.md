@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 231a398f7428440155891467a4b487d26a3257c5
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 7bbc2f27b0031380b0c0637318a0176d1add5f19
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227138"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829923"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -130,4 +130,4 @@ ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 * 有关垂直分区数据的语法和示例查询，请参阅[查询垂直分区数据](elastic-query-vertical-partitioning.md)
 * 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](elastic-query-getting-started.md)。
 * 有关水平分区数据的语法和示例查询，请参阅[查询水平分区数据](elastic-query-horizontal-partitioning.md)
-* 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+* 请参阅 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。

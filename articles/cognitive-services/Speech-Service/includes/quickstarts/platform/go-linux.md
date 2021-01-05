@@ -3,14 +3,14 @@ author: glecaros
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 10/15/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 34abc0e3c31adc7c0e4962bb2618117a5238657c
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: c3220b80c333ca81b6cb2e9466df523325d157fc
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977649"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820342"
 ---
 本指南介绍如何安装用于 Linux 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)
 
@@ -55,17 +55,19 @@ Linux：请参阅[受支持的 Linux 分发和目标体系结构](~/articles/cog
 
 ## <a name="configure-go-environment"></a>配置 Go 环境
 
+执行以下步骤，设置 Go 环境，以查找语音 SDK。 在两个步骤中，将 `<architecture>` 替换为 CPU 的处理器体系结构。 即为 `x86`、`x64`、`arm32` 或 `arm64`。
+
 1. 由于绑定依赖于 `cgo`，因此需要设置环境变量，以便 Go 可以找到 SDK：
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. 此外，为了运行包含 SDK 的应用程序，我们需要告诉 OS 在哪里可以找到这些库：
+1. 为了运行包含 SDK 的应用程序，我们需要告诉 OS 在哪里可以找到这些库：
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 03/12/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: b3b1f0f5be297e0e5d2223c096cbc8fcfc4986bc
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: b418168addce0d1fdbbe08f525c0fd47c5bfd669
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432430"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829890"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>教程：实现地理分散的数据库（Azure SQL 数据库）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -334,7 +334,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 1. 启动对故障转移组的手动故障转移：
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

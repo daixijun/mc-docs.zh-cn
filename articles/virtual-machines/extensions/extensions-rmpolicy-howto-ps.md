@@ -4,32 +4,29 @@ description: 使用 Azure Policy 限制扩展部署。
 services: virtual-machines-linux
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: ff6f2026f24775ee596251f90f65b87746dac6e6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: f349d8989d8cd7a266d69f064a488aab666d02ca
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105575"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856989"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
 如果想要阻止用户在 Windows VM 上使用或安装某些扩展，可以使用 PowerShell 创建 Azure Policy 定义以限制资源组中的 VM 扩展。 
 
 本教程在本地 Shell 中使用 Azure PowerShell，后者已不断更新到最新版本。 
-
-<!-- Notice: Remove the cloud shell -->
-
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-rules-file"></a>创建规则文件
 
@@ -72,7 +69,7 @@ nano $home/clouddrive/rules.json
 }
 ```
 
-完成后，按 **Ctrl + O** ，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
+完成后，按 **Ctrl + O**，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
 
 ## <a name="create-a-parameters-file"></a>创建参数文件
 
@@ -80,11 +77,8 @@ nano $home/clouddrive/rules.json
 
 此示例演示如何在本地 PowerShell 中为 VM 创建参数文件。 如果在本地使用 PowerShell，也可以创建一个本地文件并将路径 ($home/clouddrive) 替换为计算机上本地文件的路径。
 
-<!--Not Available on and replace the path ($home/clouddrive) with the path to the local file-->
 <!-- Not Available on in Cloud Shell-->
 <!-- Not Available on [Cloud Shell](https://shell.azure.com/powershell)-->
-
-<!--CORRECT ON REMOVE $home/clouddrive/ ON CLOUD SHELL-->
 
 ```powershell
 nano $home/clouddrive/parameters.json
@@ -104,7 +98,7 @@ nano $home/clouddrive/parameters.json
 }
 ```
 
-完成后，按 **Ctrl + O** ，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
+完成后，按 **Ctrl + O**，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
 
 ## <a name="create-the-policy"></a>创建策略
 

@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 01/03/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: ba3ff572ba26c8a8986a833a1abfc8c5066eccb2
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: c82ee5d209aa2d7741ff7c8ccf21ecfd73faa83d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227131"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829920"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨横向扩展的云数据库进行报告（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,10 +41,10 @@ ms.locfileid: "86227131"
 
 这些语句在弹性查询数据库中创建元数据表示形式的分片数据层。
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 创建数据库范围的主密钥和凭据
 
@@ -195,7 +195,7 @@ DISTRIBUTION 子句指定用于此表的数据分布。 查询处理器利用 DI
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>用于远程 T-SQL 执行的存储过程：sp\_execute_remote
 
-弹性查询还引入了一个存储过程，以便提供对分片的直接访问。 该存储过程名为 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，可用于执行远程存储过程或远程数据库上的 T-SQL 代码。 它采用了以下参数：
+弹性查询还引入了一个存储过程，以便提供对分片的直接访问。 该存储过程名为 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)，可用于执行远程存储过程或远程数据库上的 T-SQL 代码。 它采用了以下参数：
 
 * 数据源名称 (nvarchar)：RDBMS 类型的外部数据源名称。
 * 查询 (nvarchar)：要在每个分片上执行的 T-SQL 查询。
@@ -229,7 +229,7 @@ sp\_execute\_remote 使用调用参数中提供的外部数据源在远程数据
 * 有关垂直分区的教程，请参阅[跨数据库查询（垂直分区）入门](elastic-query-getting-started-vertical.md)。
 * 有关垂直分区数据的语法和示例查询，请参阅[查询垂直分区数据](elastic-query-vertical-partitioning.md)
 * 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](elastic-query-getting-started.md)。
-* 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+* 请参阅 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

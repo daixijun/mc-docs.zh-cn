@@ -10,27 +10,27 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 11/21/2019
-ms.date: 11/23/2020
+ms.date: 12/30/2020
 ms.author: v-johya
 keywords: 本地, Docker, 容器, 情绪分析, 自然语言处理
-ms.openlocfilehash: 69991b8630dae8ebab7ad1bb317c0d95499086af
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 22ff4b2e52477dc9444529e7fbaa4c7a14467c91
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306174"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857117"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安装和运行文本分析容器
+<!--Customized in MC: Text Analytics for health is not available.-->
 
 > [!NOTE]
 > * 情绪分析 v3 的容器现已公开发布。 关键短语提取和语言检测容器以非封闭公开预览版的形式发布。
 > * 实体链接和 NER 当前不可用作容器。
-> * 访问运行状况容器的文本分析需要[请求表单](https://aka.ms/csgate)。 目前，其使用不需付费。
 > * 容器映像位置最近可能已更改。 阅读本文以查看此容器的更新位置。
 
 容器使你能够在自己的环境中运行文本分析 API，最适合特定安全性和数据管理要求。 文本分析容器提供对原始文本的高级自然语言处理，并且包含三项主要功能：情绪分析、关键短语提取和语言检测。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!IMPORTANT]
 > 试用版限制为每月 5000 个事务，并且仅“免费”和“标准”<a href="https://www.azure.cn/pricing/details/cognitive-services/text-analytics" target="_blank">定价层<span class="docon docon-navigate-external x-hidden-focus"></span></a>对于容器有效 。 有关事务请求费率的更多信息，请参阅[数据限制](../overview.md#data-limits)。
@@ -63,8 +63,6 @@ ms.locfileid: "96306174"
 |---|---------|-------------|--|--|
 | **语言检测、关键短语提取**   | 1 核，2GB 内存 | 1 核，4GB 内存 |15 | 30|
 | **情绪分析 v3**   | 1 核，2GB 内存 | 4 核，8GB 内存 |15 | 30|
-| **运行状况文本分析 - 1 文档/请求**   |  4 核，10GB 内存 | 6 核，12GB 内存 |15 | 30|
-| **运行状况文本分析 - 10 文档/请求**   |  6 核，16GB 内存 | 8 核，20GB 内存 |15 | 30|
 
 CPU 核心和内存对应于 `--cpus` 和 `--memory` 设置，用作 `docker run` 命令的一部分。
 
@@ -85,10 +83,6 @@ Microsoft 容器注册表中提供了文本分析的容器映像。
 # <a name="language-detection-preview"></a>[语言检测（预览版）](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
-
-# <a name="text-analytics-for-health-preview"></a>[运行状况文本分析（预览版）](#tab/healthcare)
-
-[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
 **_
 
@@ -119,10 +113,6 @@ Microsoft 容器注册表中提供了文本分析的容器映像。
 # <a name="language-detection-preview"></a>[语言检测（预览版）](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
-
-# <a name="text-analytics-for-health-preview"></a>[运行状况文本分析（预览版）](#tab/healthcare)
-
-[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -168,7 +158,6 @@ Microsoft 容器注册表中提供了文本分析的容器映像。
    * *情绪分析*
    * *关键短语提取（预览版）* 
    * *语言检测（预览版）*
-   * *运行状况文本分析（预览版）*
 * 容器映像可从 Microsoft 容器注册表 (MCR) 或预览版容器注册表中下载。
 * 容器映像在 Docker 中运行。
 * 可以使用 REST API 或 SDK 通过指定容器的主机 URI 来调用文本分析容器中的操作。

@@ -12,16 +12,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/21/2018
-ms.date: 10/29/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a5712a61cf646732000393aa36b2538ba8a6ff2e
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: d92e0e82fff66f6cab1b2b1af8f8e46a272ead96
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432191"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829749"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>如何使用 Azure PowerShell 在 Azure 虚拟机上预配 SQL Server
 
@@ -276,7 +276,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>创建一个凭据对象，以保留本地管理员凭据的名称和密码
 
-必须先提供本地管理员帐户的凭据作为安全字符串，才能设置虚拟机的操作系统属性。 若要实现此目的，可使用 [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet。
+必须先提供本地管理员帐户的凭据作为安全字符串，才能设置虚拟机的操作系统属性。 若要实现此目的，可使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) cmdlet。
 
 运行以下 cmdlet。 需要在 PowerShell 凭据请求窗口中键入 VM 的本地管理员用户名和密码。
 
@@ -368,13 +368,11 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 
-SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)的自动管理功能。 若要在新 VM 上安装代理，并将其注册到资源提供程序，请在创建虚拟机后运行 [New-AzSqlVM](https://docs.microsoft.com/powershell/module/az.sqlvirtualmachine/new-azsqlvm) 命令。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit/)在标准预付费套餐或自带许可之间进行选择。
+若要获取门户集成和 SQL VM 功能，必须安装 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 若要在新 VM 上安装该代理，请在创建 VM 后运行以下命令。
 
-<!--Not Available on [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md)-->
-
-   ```powershell
-   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
-   ```
+```powershell
+Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
+```
 
 
 ## <a name="stop-or-remove-a-vm"></a>停止或删除 VM

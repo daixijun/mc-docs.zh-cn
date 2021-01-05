@@ -12,12 +12,12 @@ metadata:
   author: rockboyfor
   ms.date: 10/05/2020
   ms.author: v-yeche
-  ms.openlocfilehash: fe71923fed471e5b30d7d94414280b8fa7834d6e
-  ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+  ms.openlocfilehash: 1177e6ef6d4d18c4c13965c9acc7a05ccdefd820
+  ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/30/2020
-  ms.locfileid: "91564264"
+  ms.lasthandoff: 12/16/2020
+  ms.locfileid: "97592789"
 landingContent:
 - title: 关于 Azure 容器实例
   linkLists:
@@ -39,10 +39,6 @@ landingContent:
       url: container-instances-quickstart-portal.md
     - text: 部署容器实例 - ARM 模板
       url: container-instances-quickstart-template.md
-  - linkListType: learn
-    links:
-    - text: 通过 Azure 容器实例运行 Docker 容器
-      url: /learn/modules/run-docker-with-azure-container-instances/
 - title: 创建多容器组
   linkLists:
   - linkListType: tutorial

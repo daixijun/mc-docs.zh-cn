@@ -6,16 +6,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0965f7b765092097bd42d909219ef002afbcb6e5
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: a9aa231188422ea6d79ccb87c39e1cada9e5df8a
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590829"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857018"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->
@@ -75,7 +75,7 @@ Dsv3 系列 VM 采用 Intel® 超线程技术。
 | Standard_D48s_v3 | 48 | 192 | 384 | 32 | 96000/768 (1200)   | 96000/2000  |76800/1152 | 80000/2000 | 8/24000 |
 | Standard_D64s_v3 | 64 | 256 | 512 | 32 | 128000/1024 (1600) | 128000/2000 |80000/1200 | 80000/2000 | 8/30000 |
 
-<sup>1</sup> Dsv3 系列 VM 可通过[突发](linux/disk-bursting.md)方式提高其磁盘性能，并达到其突发的最大值，一次长达 30 分钟。
+<sup>1</sup> Dsv3 系列 VM 可通过[突发](./disk-bursting.md)方式提高其磁盘性能，并达到其突发的最大值，一次长达 30 分钟。
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

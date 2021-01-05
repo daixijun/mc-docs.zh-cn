@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 843070e1f0cbc4488f73dd586d27771c7913ff5e
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: b319a8e2f8f2ce0a4752fd5ac8854e18741d227a
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227576"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829919"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用**拆分/合并工具**将数据从受约束的数据库移到新数据库。  
+如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用 **拆分/合并工具** 将数据从受约束的数据库移到新数据库。  
 
 将拆分/合并工具作为 Azure web 服务运行。 管理员或开发人员使用该工具在不同数据库 （分片）之间移动 shardlet（一个分片中的数据）。 该工具使用分片映射管理来维护服务元数据数据库，并确保一致的映射。
 
@@ -245,7 +245,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 ## <a name="retrieve-diagnostics"></a>检索诊断
 
-可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问诊断。 打开 Visual Studio 实例，并在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到 Azure 订阅。 然后，导航到“Azure”->“存储”->“`<your storage account>`”->“表”->“WADLogsTable”。 有关详细信息，请参阅[服务器资源管理器](https://msdn.microsoft.com/library/x603htbk.aspx)。
+可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问诊断。 打开 Visual Studio 实例，并在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到 Azure 订阅。 然后，导航到“Azure”->“存储”->“`<your storage account>`”->“表”->“WADLogsTable”。 有关详细信息，请参阅[服务器资源管理器](https://docs.microsoft.com/previous-versions/x603htbk(v=vs.140))。
 
 ![WADLogsTable][2]
 

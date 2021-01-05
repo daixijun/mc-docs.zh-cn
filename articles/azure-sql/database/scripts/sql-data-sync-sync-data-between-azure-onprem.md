@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 03/12/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 1cd919842ab8e8b9d766d70312ed50a5768b3a30
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/14/2020
+ms.openlocfilehash: 71288e62f4d3675c252de311033a9b223e933e54
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014180"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830241"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 之间同步数据
 
@@ -327,4 +327,4 @@ Remove-AzResourceGroup -ResourceGroupName $syncDatabaseResourceGroupName
 有关 Azure SQL 数据库的详细信息，请参阅：
 
 - [SQL 数据库概述](../sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+- [数据库生命周期管理](https://docs.microsoft.com/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

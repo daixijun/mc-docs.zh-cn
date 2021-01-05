@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 origin.date: 07/30/2019
-ms.date: 11/23/2020
+ms.date: 12/30/2020
 ms.author: v-johya
-ms.openlocfilehash: 980bfe3daec6fd1f9bfd3787e3bd0662cba80909
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: e009393e9892105db1be092c8d3bc715219d41f5
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306431"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856672"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>示例：通过文本分析检测语言
 
@@ -32,8 +32,6 @@ Azure 文本分析 REST API 的[语言检测](https://dev.cognitive.azure.cn/doc
 > 文本分析还提供一个基于 Linux 的 Docker 容器映像，用于检测语言，因此可以在靠近数据的位置[安装并运行文本分析容器](text-analytics-how-to-install-containers.md)。
 
 ## <a name="preparation"></a>准备工作
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 必须拥有以下格式的 JSON 文档：ID 和文本。
 
@@ -304,6 +302,6 @@ Azure 文本分析 REST API 的[语言检测](https://dev.cognitive.azure.cn/doc
 ## <a name="see-also"></a>另请参阅
 
 * [文本分析概述](../overview.md)
-* [使用文本分析客户端库](../quickstarts/text-analytics-sdk.md)
+* [使用文本分析客户端库](../quickstarts/client-libraries-rest-api.md)
 * [新增功能](../whats-new.md)
 

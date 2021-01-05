@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/25/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 9dc1c09faf29078aa462d92cb23e1c63377962db
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: 9f80f4efa2a42077197b4452b94149646d026ba4
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680518"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830101"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>创建按翻转窗口运行管道的触发器
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "94680518"
 
 翻转窗口具有以下触发器类型属性：
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -48,7 +48,7 @@ ms.locfileid: "94680518"
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
@@ -118,7 +118,7 @@ ms.locfileid: "94680518"
 
 可以在 **管道** 定义中（即，作为查询的一部分），使用翻转窗口触发器的 **WindowStart** 和 **WindowEnd** 系统变量。 **触发器** 定义中将系统变量作为参数传递给管道。 下面的示例演示如何将这些变量作为参数传递：
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {

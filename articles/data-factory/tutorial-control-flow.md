@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 9/27/2019
-ms.date: 10/19/2020
-ms.openlocfilehash: c95655f104d38beb26d8366c016ec43f9ba66c6b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/04/2021
+ms.openlocfilehash: d0c55ac8b4ab04f9198c66667ac754a699ce640d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432397"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830092"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>数据工厂管道中的分支和链接活动
 
@@ -41,9 +41,9 @@ ms.locfileid: "96432397"
 > * 启动管道运行
 > * 监视管道和活动运行
 
-本教程使用 .NET SDK。 可以使用其他机制来与 Azure 数据工厂交互。 有关数据工厂的快速入门，请参阅 [5 分钟快速入门](/data-factory/quickstart-create-data-factory-portal)。
+本教程使用 .NET SDK。 可以使用其他机制来与 Azure 数据工厂交互。 有关数据工厂的快速入门，请参阅 [5 分钟快速入门](./quickstart-create-data-factory-portal.md)。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 

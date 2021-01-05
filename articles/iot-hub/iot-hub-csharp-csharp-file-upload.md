@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 07/04/2017
-ms.date: 03/09/2020
+ms.date: 01/11/2021
 ms.author: v-yiso
-ms.openlocfilehash: ed7c1a90afe933256295c0f42f929e861cd1b391
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 0a1e745dd362b397ce9d7f386e99976583f51d53
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747140"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830287"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>通过 IoT 中心将设备中的文件上传到云 (.NET)
 

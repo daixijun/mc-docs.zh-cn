@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: f2eb05976398ab1cf1b0027b9a1c0a9de2176c2a
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 3daff24aba0208de9f12bbf0599bded1846c1ca0
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507433"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829471"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>查看 Azure RBAC 更改的活动日志
 
@@ -139,7 +139,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
    ![门户中的 Azure Monitor 日志选项](./media/change-history-report/azure-log-analytics-option.png)
 
-1. （可选）使用 [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) 查询并查看日志。 有关详细信息，请参阅 [Azure Monitor 日志查询入门](../azure-monitor/log-query/get-started-queries.md)。
+1. （可选）使用 [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 查询并查看日志。 有关详细信息，请参阅 [Azure Monitor 日志查询入门](../azure-monitor/log-query/get-started-queries.md)。
 
 以下查询返回由目标资源提供程序组织的新角色分配：
 

@@ -1,19 +1,17 @@
 ---
 title: 使用 PowerShell 创建 Azure 门户仪表板
 description: 了解如何使用 Azure PowerShell 在 Azure 门户中创建仪表板。
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: v-tawe
 origin.date: 07/24/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 5272d2b85d3ae4f9af4fefceeeb0b7fe10a49f8f
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 12/30/2020
+ms.openlocfilehash: 820020c40d50b2fd4b42889988178155a1c1810b
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431114"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820351"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>快速入门：使用 PowerShell 创建 Azure 门户仪表板
 

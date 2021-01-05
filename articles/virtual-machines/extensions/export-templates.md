@@ -6,21 +6,22 @@ manager: gwallace
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: ec7d3526e0b50c281e569856dd9447314d7a1862
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6b8345fb6ea085006c22c7c5b91e06f7857cf174
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105576"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856995"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 
@@ -102,8 +103,7 @@ Azure 资源管理器自动化脚本生成一个资源管理器模板、一个�
 "protectedSettings": {
     "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
     "storageAccountName": "[parameters('storageAccountName')]",
-    "storageAccountKey": "[parameters('storageAccountKey')]",
-    "storageAccountEndPoint": "https://core.chinacloudapi.cn"
+    "storageAccountKey": "[parameters('storageAccountKey')]"
 }
 ```
 

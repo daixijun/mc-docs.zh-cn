@@ -4,15 +4,15 @@ description: 虚拟机规模集安全基线为实现 Azure 安全基准中指定
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 920baa52c941b2ffc89a6e877166ecb99af19bbf
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: d56907e5ee5b6a2c18024869e7a49c8dbef832e8
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507200"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829382"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>适用于虚拟机规模集的 Azure 安全基线
 
@@ -78,7 +78,7 @@ ms.locfileid: "96507200"
 
 * [如何部署 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [了解 Azure 安全中心集成的威胁情报](/security-center/security-center-alerts-service-layer)
+* [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 * [了解 Azure 安全中心实时网络访问控制](../security-center/security-center-just-in-time.md)
 
@@ -274,7 +274,7 @@ ms.locfileid: "96507200"
 
 或者，可以启用数据并将其载入 Azure Sentinel 或第三方 SIEM，以监视和查看日志。
 
-* [了解 Log Analytics 工作区](../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 
@@ -302,9 +302,7 @@ ms.locfileid: "96507200"
 
 * [如何为云服务和虚拟机配置 Microsoft Anti-malware](../security/fundamentals/antimalware.md)
 
-* [将 Linux 服务器载入 Azure 安全中心的说明](/security-center/quick-onboard-linux-computer)
-
-* [以下链接提供 Microsoft 建议的安全准则，可用作所选漏洞软件的标准列表](../virtual-machines/linux/security-recommendations.md)
+* [以下链接提供 Microsoft 建议的安全准则，可用作所选漏洞软件的标准列表](../virtual-machines/security-recommendations.md)
 
 **Azure 安全中心监视**：是
 
@@ -442,7 +440,7 @@ ms.locfileid: "96507200"
 
 **指导**：配置 Azure Active Directory 的诊断设置，以将审核日志和登录日志发送到 Log Analytics 工作区。 此外，使用 Azure Monitor 查看日志并对来自 Azure 虚拟机的日志数据执行查询。
 
-* [了解 Log Analytics 工作区](../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何将 Azure 活动日志集成到 Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -578,7 +576,6 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 **指导**：遵循 Azure 安全中心关于在 Azure 虚拟机上执行漏洞评估的建议。 使用建议的 Azure 安全或第三方解决方案对虚拟机执行漏洞评估。
 
-* [如何实现 Azure 安全中心漏洞评估建议](/security-center/security-center-vulnerability-assessment-recommendations)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -964,7 +961,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 * [Microsoft Defender 高级威胁防护](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [如何为云服务和虚拟机配置 Microsoft Antimalware](../virtual-machines/linux/security-recommendations.md)
+* [如何为云服务和虚拟机配置 Microsoft Antimalware](../virtual-machines/security-recommendations.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -1040,7 +1037,7 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 * [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1054,9 +1051,9 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 * [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 

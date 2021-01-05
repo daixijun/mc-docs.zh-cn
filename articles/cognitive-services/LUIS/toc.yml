@@ -21,14 +21,8 @@
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: 使用浏览器
       href: luis-get-started-get-intent-from-browser.md
-    - name: 使用 SDK
-      href: azure-sdk-quickstart.md
-    - name: 使用 REST API
-      items:
-        - name: 获取意向
-          href: luis-get-started-rest-get-intent.md
-        - name: 更改模型
-          href: luis-get-started-rest-get-model.md
+    - name: 使用客户端库和 REST API
+      href: client-libraries-rest-api.md
 - name: 教程
   items:
     - name: 生成可分解的应用
@@ -119,6 +113,8 @@
           href: luis-concept-devops-automation.md
 - name: 操作指南
   items:
+    - name: 登录到 LUIS 门户
+      href: sign-in-luis-portal.md
     - name: 创建新应用
       href: luis-how-to-start-new-app.md
       displayName: 'import, export, container'
@@ -175,6 +171,8 @@
           href: migration.md
         - name: 从复合实体迁移
           href: migrate-from-composite-entity.md
+        - name: 迁移到创作资源
+          href: luis-migration-authoring.md
         - name: 迁移到 V3 API
           href: luis-migration-api-v3.md
     - name: 管理应用
@@ -218,7 +216,7 @@
         - name: 配置容器
           href: luis-container-configuration.md
         - name: 使用容器实例
-          href: deploy-luis-on-container-instances.md
+          href: ../containers/azure-container-instance-recipe.md
         - name: 容器限制
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
@@ -232,9 +230,9 @@
         - name: 应用架构
           href: app-schema-definition.md
         - name: Azure CLI
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
+          href: /cli/cognitiveservices#az_cognitiveservices_list
         - name: Azure RM PowerShell
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
+          href: 'https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/#cognitive_services'
         - name: REST API
           items:
             - name: V2 创作 REST API
@@ -359,6 +357,8 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: 资源
   items:
+    - name: 支持和帮助选项
+      href: ../cognitive-services-support-options.md?context=/cognitive-services/luis/context/context
     - name: 代码示例
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: 区域可用性
@@ -377,8 +377,9 @@
       href: 'https://www.azure.cn/support/legal/'
     - name: 加密
       href: luis-encryption-of-data-at-rest.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/LUIS'
+    - name: 配置虚拟网络
+      maintainContext: true
+      href: ../cognitive-services-virtual-networks.md
     - name: 搜索
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 博客

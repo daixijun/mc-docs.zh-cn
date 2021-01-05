@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 03/12/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 63e0eb85b61fc3280d00c90334aae89ccae56e79
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/14/2020
+ms.openlocfilehash: bd4d02349b7cc223c827914ef35f6fc9559408cd
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014382"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830239"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -107,4 +107,4 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resour
 有关 SQL 数据库的详细信息，请参阅：
 
 - [SQL 数据库概述](../sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+- [数据库生命周期管理](https://docs.microsoft.com/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

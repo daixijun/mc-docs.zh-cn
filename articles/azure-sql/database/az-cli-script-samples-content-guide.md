@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 02/03/2019
-ms.date: 08/17/2020
-ms.openlocfilehash: 2f1d0a2775d8fe01ce7189a2ef19ed02689c53ca
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: a9bafac83aa07e816ade17b41c6bc4a6fb246ae8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222841"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830141"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>适用于 Azure SQL 数据库和 SQL 托管实例的 Azure CLI 示例 
  
@@ -28,13 +28,15 @@ ms.locfileid: "88222841"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-可以在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - 本教程需要 Azure CLI 版本 2.0 或更高版本。
 
 # <a name="azure-sql-database"></a>[Azure SQL 数据库](#tab/single-database)
 
 下表包括一个链接，该链接指向用于管理 Azure SQL 数据库中的单个和共用数据库的 Azure CLI 脚本示例。 
 
-|区域|说明|
+|领域|说明|
 |---|---|
 |在 Azure SQL 数据库中创建数据库||
 | [创建单一数据库和配置防火墙规则](scripts/create-and-configure-database-cli.md) | 创建 SQL 数据库并配置服务器级防火墙规则。 |
@@ -62,7 +64,7 @@ ms.locfileid: "88222841"
 
 下表包括指向 Azure SQL 托管实例的 Azure CLI 脚本示例的链接。
 
-|区域|说明|
+|领域|说明|
 |---|---|
 | 创建 SQL 托管实例||
 | [创建 SQL 托管实例](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| 创建 SQL 托管实例。 |
@@ -72,7 +74,7 @@ ms.locfileid: "88222841"
 | [为 SQL 托管实例配置故障转移组](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | 创建 SQL 托管实例的两个实例，将其添加到故障转移组，然后测试从主 SQL 托管实例到辅助 SQL 托管实例的故障转移。 |
 |||
 
-有关其他 SQL 托管实例示例，请参阅[创建](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/)、[更新](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/)、[移动数据库](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)以及[使用](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)脚本。
+有关其他 SQL 托管实例示例，请参阅[创建](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli)、[更新](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli)、[移动数据库](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)以及[使用](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)脚本。
 
 详细了解 [SQL 托管实例 Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances)。
 

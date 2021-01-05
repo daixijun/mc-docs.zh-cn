@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 10/15/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: ab272ddf56a04027261c79a1fa9b5da6afacc208
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f0e91b07f8f4041920d3908d567d123551f2fb84
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977659"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820343"
 ---
 本指南介绍如何安装用于 Python 的[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)。 如果只是需要包名称以便自行开始，请运行 `pip install azure-cognitiveservices-speech`。
 
@@ -29,7 +29,7 @@ ms.locfileid: "94977659"
 
 - 支持的 Linux 平台会要求安装某些库（要求安装 `libssl` 以获取安全套接字层支持；要求安装 `libasound2` 以获取声音支持）。 请参阅下面的发行版，了解安装这些库的正确版本所需的命令。
 
-  - 在 Ubuntu 上，请运行以下命令来安装所需的包：
+  - 在 Ubuntu/Debian 上，请运行以下命令来安装所需的包：
 
     ```sh
     sudo apt-get update

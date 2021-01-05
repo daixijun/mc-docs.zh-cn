@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-origin.date: 08/20/2020
-ms.date: 11/20/2020
+origin.date: 11/23/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6f439b33f4204988e6f2a9223e30bf5748b470c0
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 52232386722ffbe86728f8ab1aeb6907f2aa3e9b
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598598"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820283"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
-语音服务在单个 Azure 订阅中统合了语音转文本、文本转语音以及语音翻译功能。 使用[语音 CLI](spx-overview.md)、[语音 SDK](speech-sdk-reference.md)、[语音设备 SDK](speech-devices-sdk-android-quickstart.md)、[Speech Studio](https://speech.azure.cn/) 或 [REST API](rest-apis.md) 可以轻松在应用程序、工具和设备中启用语音。
+语音服务在单个 Azure 订阅中统合了语音转文本、文本转语音以及语音翻译功能。 使用[语音 CLI](spx-overview.md)、[语音 SDK](./speech-sdk.md)、[语音设备 SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android)、[Speech Studio](https://speech.azure.cn/) 或 [REST API](#reference-docs) 可以轻松在应用程序、工具和设备中启用语音。
 
 <!-- > [!IMPORTANT] -->
 <!-- > The Speech service has replaced Bing Speech API and Translator Speech. See _How-to guides > Migration_ for migration instructions. -->
 
 以下功能是语音服务的一部分。 请使用下表中的链接详细了解每项功能的常见用例或浏览 API 参考信息。
 
-| 服务 | Feature | 说明 | SDK 中 IsInRole 中的声明 | REST |
+| 服务 | 功能 | 说明 | SDK 中 IsInRole 中的声明 | REST |
 |---------|---------|-------------|-----|------|
-| [语音转文本](speech-to-text.md) | 实时语音转文本 | 语音转文本可将音频流或本地文件实时转录或翻译为文本，应用程序、工具或设备可以使用或显示这些文本。 结合[语言理解 (LUIS)](https://docs.azure.cn/cognitive-services/luis/) 使用语音转文本可以从听录的语音中派生用户意向，以及处理语音命令。 | [是](https://docs.azure.cn/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.azure.cn/cognitive-services/speech-service/rest-apis) |
+| [语音转文本](speech-to-text.md) | 实时语音转文本 | 语音转文本可将音频流或本地文件实时转录或翻译为文本，应用程序、工具或设备可以使用或显示这些文本。 结合[语言理解 (LUIS)](../luis/index.yml) 使用语音转文本可以从听录的语音中派生用户意向，以及处理语音命令。 | [是](./speech-sdk.md) | [是](#reference-docs) |
 | | [批量语音转文本](batch-transcription.md) | 批量语音转文本支持对 Azure Blob 存储中存储的大量语音音频数据进行异步语音到文本转录。 除了将语音音频转换为文本，批量语音转文本还允许进行分割聚类和情感分析。 | 否 | [是](https://chinaeast2.cris.azure.cn/swagger/ui/index) |
 | | [创建自定义语音识别模型](#customize-your-speech-experience) | 如果使用语音转文本在独特的环境中进行识别和听录，则可以创建并训练自定义的声学、语言和发音模型，以解决环境干扰或行业特定的词汇。 | 否 | [是](https://chinaeast2.cris.azure.cn/swagger/ui/index) |
-| [文本转语音](text-to-speech.md) | 文本转语音 | 文本转语音可使用[语音合成标记语言 (SSML)](speech-synthesis-markup.md) 将输入文本转换为类似人类的合成语音。 可以选择标准语音或神经语音（请参阅[语言支持](language-support.md)）。 | [是](https://docs.azure.cn/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.azure.cn/cognitive-services/speech-service/rest-apis) |
-| [语音翻译](speech-translation.md) | 语音翻译 | 使用语音翻译可在应用程序、工具和设备中实现实时的多语言语音翻译。 进行语音转语音和语音转文本翻译时可以使用此服务。 | [是](https://docs.azure.cn/cognitive-services/speech-service/speech-sdk-reference) | 否 |
+| [文本转语音](text-to-speech.md) | 文本转语音 | 文本转语音可使用[语音合成标记语言 (SSML)](speech-synthesis-markup.md) 将输入文本转换为类似人类的合成语音。 可以选择标准语音或神经语音（请参阅[语言支持](language-support.md)）。 | [是](./speech-sdk.md) | [是](#reference-docs) |
+| [语音翻译](speech-translation.md) | 语音翻译 | 使用语音翻译可在应用程序、工具和设备中实现实时的多语言语音翻译。 进行语音转语音和语音转文本翻译时可以使用此服务。 | [是](./speech-sdk.md) | 否 |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -94,7 +94,7 @@ ms.locfileid: "96598598"
 
 * [语音转文本快速入门](get-started-speech-to-text.md)
 * [文本转语音快速入门](get-started-text-to-speech.md)
-* [语音翻译快速入门](speech-translation-basics.md)
+* [语音翻译快速入门](./get-started-speech-translation.md)
 * [意向识别快速入门](quickstarts/intent-recognition.md)
 
 <!-- * [Speaker recognition quickstart](speaker-recognition-basics.md) -->
@@ -129,14 +129,15 @@ GitHub 上提供了语音服务的示例代码。 这些示例涵盖了常见方
 
 ## <a name="reference-docs"></a>参考文档
 
-- [语音 SDK](speech-sdk-reference.md)
+- [语音 SDK](./speech-sdk.md)
 - [语音设备 SDK](speech-devices-sdk.md)
 - [REST API：语音转文本](rest-speech-to-text.md)
 - [REST API：文本转语音](rest-text-to-speech.md)
 - [REST API：批量听录和自定义](https://chinaeast2.cris.azure.cn/swagger/ui/index)
 
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [开始使用语音转文本](speech-to-text-basics.md)
+> [开始使用语音转文本](./get-started-speech-to-text.md)
 > [开始使用文本转语音](get-started-text-to-speech.md)

@@ -9,16 +9,16 @@ ms.workload: azure-vs
 ms.topic: how-to
 origin.date: 11/03/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3d6ec667da419ee1e3e01684dacec529170b47d0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5ea7e395adb29962a8f275a79018a3cb2e198dfb
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106293"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857121"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
@@ -29,7 +29,7 @@ ms.locfileid: "93106293"
 
 - 计算机必须配置为运行 ASP.NET Web 应用程序，并且必须装有 WebDeploy。 有关详细信息，请参阅[使用 WebDeploy 创建 ASP.NET VM](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md)。
 
-- 必须为 VM 配置 DNS 名称。 有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的完全限定域名](portal-create-fqdn.md)。
+- 必须为 VM 配置 DNS 名称。 有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的完全限定域名](../create-fqdn.md)。
 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>使用 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 以下部分介绍如何将现有的 ASP.NET Web 应用程序发布到 Azure 虚拟机。

@@ -4,14 +4,14 @@ description: 本快速入门将创建应用的基本组成部分以及意向和�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: a0ee8193480087a95d3f2891f6aac48a50f8b591
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: a196b58f55d3a60431cba5ed1ab2ec54d1332f9e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306349"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856824"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
@@ -21,13 +21,13 @@ ms.locfileid: "96306349"
 
 ## <a name="create-an-app"></a>创建应用
 
-若要创建应用程序，请单击“+ 新建应用”。 
+若要创建应用程序，请选择“+ 新建应用”。 
 
 在显示的窗口中，输入以下信息：
 
 |名称  |说明  |
 |---------|---------|
-|名称     | 应用的名称。 例如“home automation”。 必需。        |
+|名称     | 应用的名称， 例如“home automation”。 必需。        |
 |环境     | 应用能够理解和显示的语言。 必需。   |
 |说明 | 应用的说明。 可选。
 |预测资源 | 将接收查询的预测资源。 可选。 |

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 06/03/2020
-ms.date: 06/23/2020
-ms.author: v-tawe
-ms.openlocfilehash: a30bfdb7209c59524aed0d2f2d4b55b8f6c77bf8
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.date: 12/31/2020
+ms.author: v-johya
+ms.openlocfilehash: 90735427225beadb5f3e2b1f84ae3ec54b781db6
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917069"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857147"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>文本分析 API 中有哪些新功能？
 
@@ -54,7 +54,6 @@ JSON 响应中以下属性的名称已更改（如果适用）：
 * `type` 已重名为 `category`
 * `subtype` 已重名为 `subcategory`
 
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 > [!div class="nextstepaction"]
 > [详细了解文本分析 API v3](https://chinaeast2.dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/Languages)

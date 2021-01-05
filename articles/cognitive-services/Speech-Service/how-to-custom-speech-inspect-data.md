@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 09/23/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5f67051b53a07415f6411629671986852b9c8edf
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6f11f32a248ed983238ce9942875e226978c4844
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004079"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820292"
 ---
 # <a name="inspect-custom-speech-data"></a>检查自定义语音识别数据
 
@@ -100,8 +100,8 @@ ms.locfileid: "97004079"
 
 - [评估数据](how-to-custom-speech-evaluate-data.md)
 - [训练模型](how-to-custom-speech-train-model.md)
-- [改进模型](how-to-custom-speech-improve-accuracy.md)
-- [部署模型](how-to-custom-speech-deploy-model.md)
+- [改进模型](./how-to-custom-speech-evaluate-data.md)
+- [部署模型](./how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>其他资源
 

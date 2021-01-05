@@ -1,16 +1,16 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/03/2020
-ms.date: 07/29/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7f9351ea9fbbefd26bbd4ef2d7142a65cdc8b8ee
-ms.sourcegitcommit: 5d167ad5411b018522a0fac9f5435a48f4ceb3a6
+ms.openlocfilehash: 035813d633fb24c82cfd258f4fe7324ebdb010ec
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "89317542"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820601"
 ---
 ## <a name="prerequisites"></a>先决条件
 

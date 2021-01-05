@@ -1,5 +1,5 @@
 ---
-title: 快速入门：安装开发平台
+title: 快速入门：设置开发环境
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何为首选的平台和编程语言组合安装语音 SDK。
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 04/04/2020
-ms.date: 11/20/2020
+origin.date: 10/15/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: 55051272d5a79e7fdf40da8c64869a64cfd1b91a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 73440eeef1bf6d1ed8f414c9f4e1edb54faf33ef
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977644"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820345"
 ---
 # <a name="quickstart-setup-development-environment"></a>快速入门：安装开发环境
 

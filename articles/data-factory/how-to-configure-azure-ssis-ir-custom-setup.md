@@ -12,13 +12,13 @@ manager: digimobile
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 origin.date: 11/06/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 5b2cc6539dd698035bc1b523a7a4af6df3a7c02c
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: 0b746471981a206e4cf15bfb79f629c870ec3c13
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680526"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830160"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>自定义 Azure-SSIS Integration Runtime 的安装
 
@@ -312,7 +312,7 @@ ms.locfileid: "94680526"
 
       * 一个 *ORACLE ENTERPRISE* 文件夹，其中包含用于在 Azure-SSIS IR 企业版的每个节点上安装 Oracle 连接器和 OCI 驱动程序的自定义安装脚本 (*main.cmd*) 和无提示安装配置文件 (*client.rsp*)。 可以通过此安装程序使用 Oracle 连接管理器、源和目标连接到 Oracle 服务器。 
       
-        首先，从 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=55179)下载适用于 Oracle 的 Microsoft 连接器 v5.0（AttunitySSISOraAdaptersSetup.msi 和 AttunitySSISOraAdaptersSetup64.msi），并从 [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) 下载最新的 Oracle 客户端（例如 winx64_12102_client.zip）。 接下来，将它们连同 main.cmd 和 client.rsp 一起上传到容器中。 如果使用 TNS 连接到 Oracle，则还需要下载 tnsnames.ora，对其进行编辑，然后将其上传到容器。 这样，就可以在安装期间将其复制到 Oracle 安装文件夹中。
+        首先，从 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=55179)下载适用于 Oracle 的 Microsoft 连接器 v5.0（AttunitySSISOraAdaptersSetup.msi 和 AttunitySSISOraAdaptersSetup64.msi），并从 [Oracle](https://www.oracle.com/database/technologies/oracle19c-windows-downloads.html) 下载最新的 Oracle 客户端（例如 winx64_12102_client.zip）。 接下来，将它们连同 main.cmd 和 client.rsp 一起上传到容器中。 如果使用 TNS 连接到 Oracle，则还需要下载 tnsnames.ora，对其进行编辑，然后将其上传到容器。 这样，就可以在安装期间将其复制到 Oracle 安装文件夹中。
 
       * 一个 *ORACLE STANDARD ADO.NET* 文件夹，其中包含用于在 Azure-SSIS IR 的每个节点上安装 Oracle ODP.NET 驱动程序的自定义安装脚本 (*main.cmd*)。 可以通过此安装程序使用 ADO.NET 连接管理器、源和目标连接到 Oracle 服务器。 
       

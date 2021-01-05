@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 10/29/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: a7d13e49bd3034a6afe376e5f7deb3166de9a7c0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 07cf70c70388839b971b6dd5ae47336e5a707e23
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470330"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829789"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虚拟机（资源管理器）的自动备份
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "92470330"
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-自动备份会在运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 上自动为所有现有数据库和新数据库配置[托管备份到 Azure](https://msdn.microsoft.com/library/dn449496.aspx) 。 这样，便可以配置使用持久 Azure Blob 存储的定期数据库备份。 自动备份依赖于 [SQL Server 基础架构即服务 (IaaS) 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。
+自动备份会在运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 上自动为所有现有数据库和新数据库配置[托管备份到 Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) 。 这样，便可以配置使用持久 Azure Blob 存储的定期数据库备份。 自动备份依赖于 [SQL Server 基础架构即服务 (IaaS) 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -36,11 +36,11 @@ ms.locfileid: "92470330"
 若要使用自动备份，请考虑以下先决条件：
 
 
-**操作系统** ：
+**操作系统**：
 
 - Windows Server 2012 及更高版本 
 
-**SQL Server 版本** ：
+**SQL Server 版本**：
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
@@ -48,9 +48,9 @@ ms.locfileid: "92470330"
 > [!NOTE]
 > 有关 SQL 2016 及更高版本，请参阅 [SQL Server 2016 的自动备份](automated-backup.md)。
 
-**数据库配置** ：
+**数据库配置**：
 
-- 目标用户数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 如需深入了解完整恢复模式对备份产生的影响，请参阅[完整恢复模式下的备份](https://technet.microsoft.com/library/ms190217.aspx)。 
+- 目标用户数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 有关对备份使用完整恢复模型产生的影响的详细信息，请参阅[使用完整恢复模型的备份](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105))。 
 -  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例，并且存在多个命名实例，则 SQL IaaS 扩展将失败，自动备份将无法工作。 
 
 ## <a name="settings"></a>设置
@@ -61,7 +61,7 @@ ms.locfileid: "92470330"
 | --- | --- | --- |
 | **自动备份** | 启用/禁用（已禁用） | 为运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 启用或禁用自动备份。 |
 | **保持期** | 1-30 天（30 天） | 保留备份的天数。 |
-| **存储帐户** | Azure 存储帐户 | 用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 会在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
+| **存储帐户** | Azure 存储帐户 | 用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
 | **加密** | 启用/禁用（已禁用） | 启用或禁用加密。 启用加密时，用于还原备份的证书会使用相同的命名约定存放在同一 `automaticbackup` 容器中的指定存储帐户内。 如果密码发生更改，则使用该密码生成新证书，但旧证书在备份之前仍会还原。 |
 | **密码** | 密码文本 | 加密密钥的密码。 仅当启用了加密时才需要此设置。 若要还原加密的备份，必须具有创建该备份时使用的正确密码和相关证书。 |
 
@@ -117,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 如果已安装 SQL Server IaaS 代理扩展，应会看到其列为“SqlIaaSAgent”或“SQLIaaSExtension”。 此外，该扩展的“ProvisioningState”应显示“成功”。
 
-如果未安装或未能预配该扩展，可使用以下命令进行安装。 除了 VM 名称和资源组以外，还必须指定 VM 所在的区域 ( **$region** )。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit/)在标准预付费套餐或自带许可之间进行选择。 
+如果未安装或未能预配该扩展，可使用以下命令进行安装。 除了 VM 名称和资源组以外，还必须指定 VM 所在的区域 ( **$region**)。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit/)在标准预付费套餐或自带许可之间进行选择。 
 
 <!--Not Available on [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md)-->
 
@@ -157,7 +157,7 @@ FullBackupWindowHours       :
 LogBackupFrequency          : 
 ```
 
-如果输出显示 **Enable** 设置为 **False** ，则必须启用自动备份。 幸运的是，可通过相同的方式启用和配置自动备份。 有关信息，请参阅下一部分。
+如果输出显示 **Enable** 设置为 **False**，则必须启用自动备份。 幸运的是，可通过相同的方式启用和配置自动备份。 有关信息，请参阅下一部分。
 
 > [!NOTE] 
 > 如果在进行更改后立即检查设置，看到的可能是旧配置值。 请等待几分钟再检查设置，确保更改已应用。

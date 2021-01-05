@@ -6,15 +6,15 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 origin.date: 04/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 147f1030915b0b5022905a89b0b82e10eb8c72a0
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: f579f8e93cf9f99c2432dd45cb92d1e9c7d1b382
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306333"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857084"
 ---
 <a name="create-luis-resources"></a>
 
@@ -38,7 +38,7 @@ ms.locfileid: "96306333"
     > [![显示“创建”下的“基本信息”选项卡的屏幕截图。](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
 1. 选择“查看 + 创建”并等待创建资源。
-1. 创建这两个资源之后，仍然在 Azure 门户中选择新的创作资源。 然后选择“快速入门”，获取创作“终结点 URL”和“密钥”，通过编程方式进行创作  。
+1. 创建这两个资源之后，仍然在 Azure 门户中选择新的创作资源。 然后选择“密钥和终结点”，获取创作“终结点 URL”和“密钥”，通过编程方式进行创作  。
 
 > [!TIP]
 > 若要使用资源，请在 LUIS 门户中[分配资源](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)。

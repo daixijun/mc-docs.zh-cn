@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 04/17/2020
-ms.date: 10/22/2020
+ms.date: 12/30/2020
 ms.author: v-johya
-ms.openlocfilehash: 1df08ed3ca6fbc665594bec3e7f0f8d99030c25c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1885ebec41dcc3327d0930182b54d14bb3a1ca74
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471986"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856751"
 ---
 # <a name="translator-30-translate"></a>翻译器 3.0：Translate
 
@@ -235,7 +235,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
 </table> 
 
-如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](./v3-0-reference.md#errors)上找到。 
 
 ## <a name="examples"></a>示例
 
@@ -535,7 +535,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
-例如，考虑英语句子“The word wordomatic is a dictionary entry.”。 若要在翻译中保留单词 _wordomatic_ ，请发送请求：
+例如，考虑英语句子“The word wordomatic is a dictionary entry.”。 若要在翻译中保留单词 _wordomatic_，请发送请求：
 
 ```
 curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"

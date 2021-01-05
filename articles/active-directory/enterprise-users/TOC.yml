@@ -14,6 +14,10 @@
       href: groups-quickstart-expiration.md
     - name: 设置组命名策略
       href: groups-quickstart-naming-policy.md
+- name: 教程
+  items:
+    - name: 创建动态组
+      href: groups-dynamic-tutorial.md
 - name: 概念
   expanded: true
   items:
@@ -80,6 +84,16 @@
           href: groups-settings-cmdlets.md
         - name: 添加或删除组成员
           href: ../fundamentals/active-directory-groups-members-azure-portal.md
+        - name: 动态组
+          items:
+            - name: 创建动态组
+              href: groups-create-rule.md
+            - name: 动态组规则语法
+              href: groups-dynamic-membership.md
+            - name: 验证成员身份规则
+              href: groups-dynamic-rule-validation.md
+            - name: 更改组成员身份类型
+              href: groups-change-type.md
         - name: 还原已删除的组
           href: groups-restore-deleted.md
         - name: 管理组设置
@@ -104,6 +118,8 @@
           href: licensing-groups-migrate-users.md
         - name: 更改用户或组的许可证
           href: licensing-groups-change-licenses.md
+        - name: 其他方案
+          href: licensing-group-advanced.md
         - name: 使用 PowerShell 和 Graph 进行组许可
           href: licensing-ps-examples.md
         - name: 用于许可的服务计划 ID
@@ -118,6 +134,8 @@
       items:
         - name: 获取 Azure AD 支持
           href: 'https://support.azure.cn/en-us/support/support-azure/'
+        - name: 排查组问题
+          href: groups-troubleshooting.md
         - name: 排查组许可问题
           href: licensing-groups-resolve-problems.md
 - name: 参考

@@ -1,21 +1,17 @@
 ---
-title: Azure 门户概述 | Azure
+title: Azure 门户概述
 description: Azure 门户是一个图形用户界面，可用于管理 Azure 服务。 了解如何在 Azure 门户中导航和查找资源。
-services: azure-portal
 keywords: 门户
-author: mgblythe
 ms.author: v-tawe
 origin.date: 12/20/2019
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.topic: overview
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: cd6a614097bbf71ef93cf9e7817ea2ebbad012b0
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: 6cfcec2dbd48bcbd65b6740d84be1ac94f41d55e
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975145"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820360"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 
@@ -65,7 +61,7 @@ Azure 门户菜单和页头是始终都会显示的全局元素。 这些持久�
 
 ![显示扩展门户菜单的屏幕截图](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|密钥|说明
+|键|说明
 |:---:|---|
 |1|页头。 显示在每个门户页面的顶部，包含全局元素。|
 |2| 全局搜索。 使用搜索栏可以快速查找特定的资源、服务或文档。|
@@ -76,7 +72,7 @@ Azure 门户菜单和页头是始终都会显示的全局元素。 这些持久�
 |7|命令栏。 命令栏上的控件与当前的焦点相关。|
 |8|工作窗格。  显示有关当前焦点所在资源的详细信息。|
 |9|痕迹导航。 可以使用痕迹导航链接在工作流中返回一个级别。|
-|10|用于在当前订阅中创建新资源的主控件。 展开或打开门户菜单，找到“+ 创建资源”。 搜索或浏览 Azure 市场以获取要创建的资源类型。|
+|10 个|用于在当前订阅中创建新资源的主控件。 展开或打开门户菜单，找到“+ 创建资源”。 搜索或浏览 Azure 市场以获取要创建的资源类型。|
 |11|收藏夹列表。 请参阅[添加、删除和排序收藏项目](../azure-portal/azure-portal-add-remove-sort-favorites.md)，了解如何自定义该列表。|
 
 ## <a name="get-started-with-services"></a>服务入门

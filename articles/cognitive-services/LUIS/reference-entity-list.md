@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 04/14/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: e57a9d14f1d63d03f0770ae529dd4bd0726ed764
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 7bb02ee6abf3bf1190499f274cfd2295d22dc39f
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472334"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856756"
 ---
 # <a name="list-entity"></a>列表实体
 
@@ -87,7 +87,6 @@ ms.locfileid: "92472334"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 预测终结点响应](#tab/V3)
 
-
 如果在查询字符串中设置了 `verbose=false`，则这是 JSON：
 
 ```json
@@ -132,7 +131,6 @@ ms.locfileid: "92472334"
 |数据对象|实体名称|Value|
 |--|--|--|
 |列表实体|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>后续步骤
 

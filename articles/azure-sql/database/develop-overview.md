@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi
 origin.date: 11/14/2019
-ms.date: 07/13/2020
+ms.date: 12/14/2020
 ms.custom: sqldbrb=2
-ms.openlocfilehash: 7324ae6062f51d3ab670225bcdd74fd0eb566f25
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 22e9605d5edac1415edca4b98960d10f7b706f27
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227842"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830093"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>应用程序开发概述 - SQL 数据库和 SQL 托管实例
 
@@ -28,7 +28,7 @@ ms.locfileid: "86227842"
 
 可以使用各种[编程语言和平台](connect-query-content-reference-guide.md)连接和查询 Azure SQL 数据库。 可以找到可用于连接到数据库的[示例应用程序](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0)。
 
-你可以利用类似 [cheetah](https://github.com/wunderlist/cheetah)、[sql-cli](https://www.npmjs.com/package/sql-cli)、[VS Code](https://code.visualstudio.com/) 的开源工具。 此外，Azure SQL 数据库可与 Microsoft 工具（如 [Visual Studio](https://www.visualstudio.com/downloads/) 和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)）配合使用。 还可以使用 Azure 门户、PowerShell 和 REST API 帮助提高工作效率。
+你可以利用类似 [cheetah](https://github.com/wunderlist/cheetah)、[sql-cli](https://www.npmjs.com/package/sql-cli)、[VS Code](https://code.visualstudio.com/) 的开源工具。 此外，Azure SQL 数据库可与 Microsoft 工具（如 [Visual Studio](https://www.visualstudio.com/downloads/) 和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)）配合使用。 还可以使用 Azure 门户、PowerShell 和 REST API 帮助提高工作效率。
 
 ## <a name="authentication"></a>身份验证
 
@@ -40,7 +40,7 @@ ms.locfileid: "86227842"
 
 在客户端连接逻辑中，将默认超时替换为 30 秒。 默认值 15 秒对于依赖于 Internet 的连接而言太短。
 
-如果在使用 [连接池](https://msdn.microsoft.com/library/8xx3tyca.aspx)，请确保在程序不活跃地使用连接时将其关闭，而不是准备重用它。
+如果在使用 [连接池](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)，请确保在程序不活跃地使用连接时将其关闭，而不是准备重用它。
 
 避免长时间运行的事务，因为任何基础结构或连接故障可能会使事务回滚。 如果可能，将事务拆分为多个较小事务，并使用[批处理改进性能](../performance-improve-use-batching.md)。
 

@@ -44,10 +44,6 @@
       href: tutorial-monitor.md
     - name: 13 - 管理 VM 安全性
       href: ../tutorial-azure-security.md
-    - name: 14 - 通过 Jenkins 生成
-      href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 - 将 Jenkins 与 Azure DevOps 集成
-      href: tutorial-build-deploy-jenkins.md
     - name: 16 - 创建 LAMP 堆栈
       href: tutorial-lamp-stack.md
     - name: 17 - 使用 SSL 保护 Web 服务器
@@ -677,12 +673,6 @@
               href: ansible-create-vm.md
             - name: 管理 Linux VM
               href: ansible-manage-linux-vm.md
-        - name: Terraform
-          items:
-            - name: 安装和配置
-              href: terraform-install-configure.md
-            - name: 创建完整 VM
-              href: terraform-create-complete-vm.md
     - name: 运行容器
       items:
         - name: 创建 Docker 主机

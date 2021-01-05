@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 06/12/2020
-ms.date: 12/10/2020
+origin.date: 11/06/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 85c49c28c770b20099855442c351cd4be2a17100
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 33f034c25edab4552b09a230ce565ff40db4ecdb
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003729"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820291"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>语音服务：Docs 中的新增内容
 
@@ -32,7 +32,7 @@ ms.locfileid: "97003729"
 
 ### <a name="new-articles"></a>新文章
 
-* [改善自定义语音识别模型](how-to-custom-speech-improve-accuracy.md)
+* [改善自定义语音识别模型](./how-to-custom-speech-evaluate-data.md)
 
 ### <a name="updated-articles"></a>更新的文章
 
@@ -44,7 +44,7 @@ ms.locfileid: "97003729"
 * [快速入门：Python 中用于长格式音频的异步合成（预览版）](./long-audio-api.md)- 更新为支持公共神经语音和相关参数。
 * [快速入门：识别音频文件中的语音](./get-started-speech-to-text.md) - 向文档添加了 JavaScript 说明。
 * [快速入门：识别来自麦克风的语音](./get-started-speech-to-text.md) - 向文档添加了 Go 和 JavaScript 说明。
-* [快速入门：识别存储在 Blob 存储中的语音](quickstarts/from-blob.md) - 向文档添加了 JavaScript 说明。
+* [快速入门：识别存储在 Blob 存储中的语音](./batch-transcription.md) - 向文档添加了 JavaScript 说明。
 * [快速入门：使用语言理解 (LUIS) 识别语音、意向和实体](quickstarts/intent-recognition.md)
 * [快速入门：安装开发环境](quickstarts/setup-platform.md) - 向文档添加了 JavaScript 说明。
 * [快速入门：将语音合成到音频文件](./get-started-text-to-speech.md) - 向文档添加了 JavaScript 说明。

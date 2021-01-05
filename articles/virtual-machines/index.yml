@@ -10,16 +10,16 @@ metadata:
   ms.topic: hub-page
   origin.date: 02/14/2020
   author: rockboyfor
-  ms.date: 11/02/2020
+  ms.date: 01/04/2021
   ms.testscope: yes
   ms.testdate: 08/31/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 75717a94ee46a70e0131bd6fe7e635f373cf8109
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: 9743a58b51d62c973170b125a06bdb3f12ff47cf
+  ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93105417"
+  ms.lasthandoff: 01/04/2021
+  ms.locfileid: "97857136"
 highlightedContent:
   items:
   - title: 使用 Azure CLI 创建 Linux 虚拟机
@@ -61,7 +61,7 @@ conceptualContent:
     - url: ./windows/tutorial-manage-data-disk.md
       itemType: tutorial
       text: 创建和管理磁盘
-    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
+    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: 配置托管标识
     - url: ./troubleshooting/index.yml
@@ -75,12 +75,9 @@ conceptualContent:
     - url: ../virtual-machine-scale-sets/quick-create-powershell.md
       itemType: how-to-guide
       text: 使用 PowerShell 创建规模集
-    - url: ../virtual-machine-scale-sets/orchestration-modes.md
-      itemType: concept
-      text: 业务流程模式
     footerLink:
       url: ../virtual-machine-scale-sets/index.yml
-      text: 查看更多
+      text: 查看详细信息
 tools:
   title: 工具
   summary: 用于使用 Azure 虚拟机的工具。
@@ -103,7 +100,7 @@ additionalContent:
       links:
       - text: 浏览快速入门模板库
         url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
-    - title: 故障排除
+    - title: 疑难解答
       links:
       - text: 有关排查错误的信息
         url: ./troubleshooting/index.yml

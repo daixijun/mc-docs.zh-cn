@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR 服务故障排除做法
 description: 了解如何排查连接性问题和消息传送问题
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/17/2020
-ms.date: 12/03/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 47dc476d8010c171f6f29c0ed23b002e8d829cc9
-ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
+ms.openlocfilehash: 8a9eacd8a513ca8f7329ce368c8c54ad5b1c1e00
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96544829"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820326"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>如何排查连接性问题和消息传送问题
 

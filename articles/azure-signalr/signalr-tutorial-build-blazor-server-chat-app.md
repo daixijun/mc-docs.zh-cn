@@ -5,14 +5,14 @@ author: JialinXin
 ms.service: signalr
 ms.topic: tutorial
 origin.date: 09/09/2020
-ms.date: 12/03/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: abb50015941c2fabc26dba6065e83dd9400f7803
-ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
+ms.openlocfilehash: 0e13a621974afdb2f1b59d5e1bdec25a2279f070
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96544720"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820347"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>教程：构建 Blazor Server 聊天应用
 

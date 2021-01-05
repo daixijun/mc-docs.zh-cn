@@ -2,8 +2,8 @@
 title: 内存中技术
 description: 内存中技术大幅提升了 Azure SQL 数据库和 Azure SQL 托管实例中事务和分析工作负载的性能。
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: ''
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/19/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 5b934dc7bb7b72b84e0e2afc260ab425092527e6
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 01/04/2021
+ms.openlocfilehash: 99a6fed09b7c34951239739f8ed2be0c7c23d36a
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227266"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829666"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>通过使用 Azure SQL 数据库和 Azure SQL 托管实例的内存技术来优化性能
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -49,10 +49,8 @@ Azure SQL 数据库和 Azure SQL 托管实例具有以下内存中技术：
 
 由于查询和事务处理的效率提升，内存中技术还可降低成本。 用户通常不需要升级数据库的定价层即可实现性能提升。 在某些情况下，即使是降低定价层，使用内存中技术也能提升性能。
 
-
 > [!NOTE]  
 > “高级”和“业务关键”层级也提供内存中技术。
-
 
 本文全面介绍特定于 Azure SQL 数据库和 Azure SQL 托管实例的内存中 OLTP 和列存储索引，并提供相关示例：
 
@@ -71,12 +69,12 @@ Azure SQL 数据库和 Azure SQL 托管实例具有以下内存中技术：
 
 内存中 OLTP 技术将所有数据保留在内存中，可以提供极快的数据访问操作。 它还使用专用索引、查询本机编译和无闩锁数据访问来提高 OLTP 工作负荷的性能。 可通过两种方式来组织内存中 OLTP 数据：
 
-- **内存优化的行存储**格式：每个行是一个独立的内存对象。 这是针对高性能 OLTP 工作负荷优化的经典内存中 OLTP 格式。 在内存优化的行存储格式中可以使用两种类型的内存优化表：
+- **内存优化的行存储** 格式：每个行是一个独立的内存对象。 这是针对高性能 OLTP 工作负荷优化的经典内存中 OLTP 格式。 在内存优化的行存储格式中可以使用两种类型的内存优化表：
 
   - 持久性表 (SCHEMA_AND_DATA)：服务器重启后会保留内存中的行。 此类表的行为类似于传统的行存储表，同时具有内存中优化的附加优势。
   - 非持久性表 (SCHEMA_ONLY)：重启后不保留行。 此类表适用于临时数据（例如，取代临时表），或者需要快速加载其中的数据，然后将数据移到某个持久性表（称为临时表）的表。
 
-- **内存优化的列存储**格式：其中的数据以纵栏表的格式进行组织。 此结构适用于 HTAP 方案，其中，需要针对运行 OLTP 工作负荷的同一数据结构运行分析查询。
+- **内存优化的列存储** 格式：其中的数据以纵栏表的格式进行组织。 此结构适用于 HTAP 方案，其中，需要针对运行 OLTP 工作负荷的同一数据结构运行分析查询。
 
 > [!Note]
 > 内存中 OLTP 技术适用于完全驻留在内存中的数据结构。 由于无法将内存中数据卸载到磁盘，因此请确保使用具有足够内存的数据库。 有关更多详细信息，请参阅[内存中 OLTP 的数据大小和存储上限](#data-size-and-storage-cap-for-in-memory-oltp)。
@@ -150,15 +148,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 > [!Note]
 > 内存中列存储技术仅在内存中保留处理时所需的数据，不能装入内存的数据将存储在磁盘上。 因此，内存中列存储结构中的数据量可能会超出可用的内存量。
 
-有关该技术的深入介绍视频：
-
-- [列存储索引：Ignite 2016 大会中发布的内存中分析视频](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
-
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>列存储索引的数据大小和存储
 
 列存储索引不需要在内存可容纳的范围内。 因此，索引大小的唯一上限是最大整体数据库大小，此大小在[基于 DTU 的购买模型](database/service-tiers-dtu.md)和[基于 vCore 的购买模型](database/service-tiers-vcore.md)两篇文章中有述。
 
-使用聚集列存储索引时，对基础表存储使用列式压缩。 这种压缩可显著减少用户数据的存储占用，意味着数据库中可容纳更多数据。 使用[纵栏表存档压缩](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression)可进一步提高压缩率。 可实现的压缩量取决于数据的性质，但 10 倍压缩并不少见。
+使用聚集列存储索引时，对基础表存储使用列式压缩。 这种压缩可显著减少用户数据的存储占用，意味着数据库中可容纳更多数据。 使用[纵栏表存档压缩](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression)可进一步提高压缩率。 可实现的压缩量取决于数据的性质，但 10 倍压缩并不少见。
 
 例如，如果数据库的最大大小为 1 TB，则使用列存储索引实现 10 倍压缩时，该数据库中可容纳总共 10 TB 的用户数据。
 
@@ -177,7 +171,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ## <a name="next-steps"></a>后续步骤
 
-- [快速入门 1：通过内存中 OLTP 技术加速 T-SQL 性能](https://msdn.microsoft.com/library/mt694156.aspx)
+- [快速入门 1：通过内存中 OLTP 技术加速 T-SQL 性能](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [在现有的 Azure SQL 应用程序中使用内存中 OLTP](in-memory-oltp-configure.md)
 - [监视内存中 OLTP 存储](in-memory-oltp-monitor-space.md)（适用于内存中 OLTP）
 - [尝试内存中功能](in-memory-sample.md)
@@ -188,18 +182,18 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 - [了解 Quorum 如何通过使用 SQL 数据库的内存中 OLTP，在关键数据库工作负荷加倍的情况下，将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [内存中 OLTP 博客文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [了解内存中 OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [了解列存储索引](https://msdn.microsoft.com/library/gg492088.aspx)
-- [了解实时运行分析](https://msdn.microsoft.com/library/dn817827.aspx)
-- 请参阅[有关常用工作负荷模式和迁移注意事项](https://msdn.microsoft.com/library/dn673538.aspx)（介绍内存中 OLTP 往往能够在其中提供显著性能改善的工作负荷模式）
+- [了解内存中 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [了解列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [了解实时运行分析](https://docs.microsoft.com/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- 请参阅[有关常用工作负荷模式和迁移注意事项](https://docs.microsoft.com/previous-versions/dn673538(v=msdn.10))（介绍内存中 OLTP 往往能够在其中提供显著性能改善的工作负荷模式）
 
 ### <a name="application-design"></a>应用程序设计
 
-- [内存中 OLTP（内存中优化）](https://msdn.microsoft.com/library/dn133186.aspx)
+- [内存中 OLTP（内存中优化）](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [在现有的 Azure SQL 应用程序中使用内存中 OLTP](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>工具
 
 - [Azure 门户](https://portal.azure.cn/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)

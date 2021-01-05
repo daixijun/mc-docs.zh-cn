@@ -1,25 +1,24 @@
 ---
 title: 什么是 Azure SQL？
-titleSuffix: " "
 description: 了解 Azure SQL 服务系列中的不同选项：Azure VM 上的 Azure SQL 数据库、Azure SQL 托管实例和 SQL Server。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 keywords: SQL Server 云, 云端 SQL Server, PaaS 数据库, 云 SQL Server, DBaaS, IaaS
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 07/27/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 95d3e79ba5a72107145113f7c9903efdb955ffee
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 01/04/2021
+ms.openlocfilehash: 101a555566397c661b9aaf225621a96cc3c5e2e7
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222893"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830272"
 ---
 # <a name="what-is-azure-sql"></a>什么是 Azure SQL？ 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -111,7 +110,7 @@ Azure SQL 数据库提供了以下部署选项：
 | Azure SQL 数据库 | Azure SQL 托管实例 | Azure VM 上的 SQL Server |
 | :--- | :--- | :--- |
 |支持大多数本地数据库级功能。 提供最常用的 SQL Server 功能。<br/>保证 99.995% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>可将必要的资源（CPU/存储）分配到单个数据库。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。| 几乎支持所有的本地实例级和数据库级功能。 与 SQL Server 高度兼容。<br/>保证 99.99% 的可用性。<br/>内置备份、修补和恢复。<br/>最新稳定的数据库引擎版本。<br/>从 SQL Server 轻松迁移。<br/>Azure 虚拟网络中的专用 IP 地址。<br/>内置高级智能和安全性。<br/>联机更改资源（CPU/存储）。| 可以完全控制 SQL Server 引擎。 支持所有本地功能。<br/>高达 99.99% 的可用性。<br/>完全可与匹配的本地 SQL Server 版本搭配使用。<br/>固定的已知数据库引擎版本。<br/>从 SQL Server 轻松迁移。<br/>Azure 虚拟网络中的专用 IP 地址。<br/>可将应用程序或服务部署到 SQL Server 所在的主机上。|
-|可能难以从 SQL Server 迁移。<br/>某些 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。<br/>无法分配专用 IP 地址（可以使用防火墙规则限制访问）。|仍有极少量的 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。|需要自行管理备份和修补程序。<br>需要实施高可用性解决方案。<br/>更改资源（CPU/存储）会造成停机|
+|可能难以从 SQL Server 迁移。<br/>某些 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。<br/>[Azure 专用链接](database/private-endpoint-overview.md)支持专用 IP 地址。|仍有极少量的 SQL Server 功能不可用。<br/>不保证确切的维护时间（但几乎是透明的）。<br/>只能使用数据库兼容性级别来实现与 SQL Server 版本的兼容。|需要自行管理备份和修补程序。<br>需要实施高可用性解决方案。<br/>更改资源（CPU/存储）会造成停机|
 | 最多 100 TB 的数据库。 | 最多 8 TB。 | 具有高达 256 TB 存储空间的 SQL Server 实例。 实例可以支持所需数量的数据库。 |
 | 本地应用程序可以访问 Azure SQL 数据库中的数据。 | 使用 Azure Express Route 或 VPN 网关[实现本机虚拟网络](managed-instance/vnet-existing-add-subnet.md)并连接到本地环境。 | 借助 SQL 虚拟机，应用程序可以一部分在云中运行，一部分在本地运行。 例如，可以通过 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)，将本地网络和 Active Directory 域扩展到云中。 有关混合云解决方案的详细信息，请参阅[将本地数据解决方案扩展到云](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)。 |
 
@@ -148,7 +147,7 @@ Azure SQL 数据库提供了以下部署选项：
 对许多企业来说，决定过渡到到云服务的关键在于降低管理复杂度。 Azure 使用 IaaS 和 PaaS 管理底层基础结构和自动复制所有数据以提供灾难恢复，配置及升级数据库软件，管理负载均衡，并在数据中心发生服务器故障时执行透明的故障转移。
 
 - 使用 SQL 数据库和 SQL 托管实例时，可继续管理数据库，但无需再管理数据库引擎、操作系统或硬件 。 可以继续管理的项目示例包括数据库和登录、索引和查询优化，以及审核和安全性。 此外，在另一个数据中心配置高可用性只需极少量的配置和管理。
-- 借助 Azure VM 上的 SQL，可完全掌控操作系统和 SQL Server 实例配置。 使用 VM，可以决定何时更新/升级操作系统与数据库软件，以及何时安装任何其他软件（例如防病毒软件）。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 此外，还可以控制 VM 的大小、磁盘数目及其存储配置。 Azure 允许根据需要更改 VM 的大小。 有关信息，请参阅 [Azure 的虚拟机和云服务大小](../virtual-machines/windows/sizes.md)。
+- 借助 Azure VM 上的 SQL，可完全掌控操作系统和 SQL Server 实例配置。 使用 VM，可以决定何时更新/升级操作系统与数据库软件，以及何时安装任何其他软件（例如防病毒软件）。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 此外，还可以控制 VM 的大小、磁盘数目及其存储配置。 Azure 允许根据需要更改 VM 的大小。 有关信息，请参阅 [Azure 的虚拟机和云服务大小](../virtual-machines/sizes.md)。
 
 ## <a name="service-level-agreement-sla"></a>服务级别协议 (SLA)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/31/2020
 ms.author: v-johya
-ms.openlocfilehash: f7feaa36f1913a6c406bd57ddc7788d1d1e5c3f7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 011e2ff78560df093318e8c07abec76fe255ab9b
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106807"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856748"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>将文本分析语言检测容器部署到 Azure Kubernetes 服务
 
@@ -25,7 +25,7 @@ ms.locfileid: "93106807"
 
 此过程要求必须在本地安装和运行多个工具。
 
-* 使用 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services)。
+* 使用 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 适用于操作系统的 [Git](https://git-scm.com/downloads)，以便克隆此过程中使用的[示例](https://github.com/Azure-Samples/cognitive-services-containers-samples)。
 * [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 * [Docker 引擎](https://www.docker.com/products/docker-engine)并验证 Docker CLI 是否可在控制台窗口中工作。

@@ -389,7 +389,7 @@
           href: platform/autoscale-get-started.md
         - name: 配置设置
           href: platform/autoscale-understanding-settings.md
-        - name: 最佳做法
+        - name: 最佳实践
           href: platform/autoscale-best-practices.md
         - name: 常见指标
           href: platform/autoscale-common-metrics.md
@@ -417,8 +417,6 @@
               href: app/monitor-web-app-availability.md
             - name: 使用动态阈值
               href: platform/alerts-dynamic-thresholds.md
-            - name: 针对多个系列的单个警报
-              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: 基于日志的指标警报
               href: platform/alerts-metric-logs.md
             - name: 使用 Resource Manager 模板

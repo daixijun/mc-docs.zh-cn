@@ -1,24 +1,24 @@
 ---
 title: 适用于 Windows 的 Azure N 系列 NVIDIA GPU 驱动程序安装
 description: 如何为 Azure 中运行 Windows Server 或 Windows 的 N 系列 VM 安装 NVIDIA GPU 驱动程序
-author: rockboyfor
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdb218aaa9d69dc9f2f12d2b55d5e424d1208838
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 33488c747c6e93100644fcaab9eb59917b51d127
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951281"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856664"
 ---
 <!--Not Available on Mooncake-->
 <!--NVV4 series is not Available on MOONCAKE-->

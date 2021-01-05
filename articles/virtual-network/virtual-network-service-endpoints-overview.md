@@ -16,12 +16,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 1832c51690404edb84acefe7d89c052bc8b3f43d
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 55fcf835886a70350b090308fef97196b8f5fe98
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628259"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592790"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -33,7 +33,7 @@ ms.locfileid: "92628259"
 
 - **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (Microsoft.Storage)：在所有 Azure 区域已推出正式版。
 - **[Azure SQL 数据库](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在所有 Azure 区域已推出正式版。
-- [Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) ( *Microsoft.Sql* )：在所有 Azure 区域已推出正式版。
+- [Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) (*Microsoft.Sql*)：在所有 Azure 区域已推出正式版。
 - **[Azure Database for PostgreSQL 服务器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
 - **[Azure Database for MySQL 服务器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
 - **[Azure Database for MariaDB](https://docs.azure.cn/mariadb/concepts-data-access-security-vnet)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
@@ -44,25 +44,21 @@ ms.locfileid: "92628259"
     <!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)-->
     <!--Not Available on - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md)-->
 
-- [Azure 应用服务](https://docs.azure.cn/app-service/app-service-ip-restrictions) ( *Microsoft.Web* )：通常可在应用服务可用的所有 Azure 区域中使用。
+- [Azure 应用服务](https://docs.azure.cn/app-service/app-service-ip-restrictions) (*Microsoft.Web*)：通常可在应用服务可用的所有 Azure 区域中使用。
 
     <!--Not Available on - **[Azure Cognitive Services](/cognitive-services/cognitive-services-virtual-networks?tabs=portal)-->
 
-**公共预览版**
-
-- [Azure 容器注册表](../container-registry/container-registry-vnet.md) ( *Microsoft.ContainerRegistry* )：在可使用 Azure 容器注册表的有限 Azure 区域中提供了预览版。
-
-有关最新通知，请查看 [Azure 虚拟网络更新](https://updates.azure.cn/)页。
+<!--Not Available on (../container-registry/container-registry-vnet.md)-->
 
 ## <a name="key-benefits"></a>主要优点
 
 服务终结点提供以下优势：
 
-- **提高 Azure 服务资源的安全性** ：VNet 专用地址空间可能重叠。 不能使用重叠的空间来唯一标识源自 VNet 的流量。 通过将 VNet 标识扩展到服务，服务终结点可以将对 Azure 服务资源的访问限定到你的虚拟网络。 在虚拟网络中启用服务终结点后，可以添加虚拟网络规则，以在虚拟网络中保护 Azure 服务资源。 添加规则可以完全消除通过公共 Internet 对资源进行访问的可能性，并仅允许来自自己虚拟网络的流量，从而提高了安全性。
-- **来自虚拟网络的 Azure 服务流量的最佳路由** ：目前，虚拟网络中强制 Internet 流量发往本地和/或虚拟设备的任何路由也会强制 Azure 服务流量采用与 Internet 流量相同的路由。 服务终结点为 Azure 流量提供最佳路由。 
+- **提高 Azure 服务资源的安全性**：VNet 专用地址空间可能重叠。 不能使用重叠的空间来唯一标识源自 VNet 的流量。 通过将 VNet 标识扩展到服务，服务终结点可以将对 Azure 服务资源的访问限定到你的虚拟网络。 在虚拟网络中启用服务终结点后，可以添加虚拟网络规则，以在虚拟网络中保护 Azure 服务资源。 添加规则可以完全消除通过公共 Internet 对资源进行访问的可能性，并仅允许来自自己虚拟网络的流量，从而提高了安全性。
+- **来自虚拟网络的 Azure 服务流量的最佳路由**：目前，虚拟网络中强制 Internet 流量发往本地和/或虚拟设备的任何路由也会强制 Azure 服务流量采用与 Internet 流量相同的路由。 服务终结点为 Azure 流量提供最佳路由。 
 
     终结点始终将直接来自虚拟网络的服务流量转发到 Azure 主干网络上的服务。 将流量保留在 Azure 主干网络上可以通过强制隧道持续审核和监视来自虚拟网络的出站 Internet 流量，而不会影响服务流量。 有关用户定义的路由和强制隧道的详细信息，请参阅 [Azure 虚拟网络流量路由](virtual-networks-udr-overview.md)。
-- **设置简单，管理开销更少** ：不再需要使用虚拟网络中的保留公共 IP 地址通过 IP 防火墙保护 Azure 资源。 无需使用网络地址转换 (NAT) 或网关设备即可设置服务终结点。 只需单击一下子网，即可配置服务终结点。 不会产生与终结点维护相关的额外开销。
+- **设置简单，管理开销更少**：不再需要使用虚拟网络中的保留公共 IP 地址通过 IP 防火墙保护 Azure 资源。 无需使用网络地址转换 (NAT) 或网关设备即可设置服务终结点。 只需单击一下子网，即可配置服务终结点。 不会产生与终结点维护相关的额外开销。
 
 ## <a name="limitations"></a>限制
 
@@ -109,13 +105,13 @@ ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute
 
 ### <a name="scenarios"></a>方案
 
-- **对等互连的、连接的或多个虚拟网络** ：若要在一个虚拟网络中的多个子网内或者跨多个虚拟网络保护 Azure 服务，可以针对每个子网单独启用服务终结点，在所有子网中保护 Azure 服务资源。
-- **筛选从虚拟网络发往 Azure 服务的出站流量** ：若要检查或筛选从虚拟网络发送到 Azure 服务的流量，可在该虚拟网络中部署网络虚拟设备。 然后，可将服务终结点应用到部署了网络虚拟设备的子网，只在该子网中保护 Azure 服务资源。 如果你想要使用网络虚拟设备筛选将从虚拟网络发起的 Azure 服务访问限制到特定的 Azure 资源，此方案可能很有帮助。
+- **对等互连的、连接的或多个虚拟网络**：若要在一个虚拟网络中的多个子网内或者跨多个虚拟网络保护 Azure 服务，可以针对每个子网单独启用服务终结点，在所有子网中保护 Azure 服务资源。
+- **筛选从虚拟网络发往 Azure 服务的出站流量**：若要检查或筛选从虚拟网络发送到 Azure 服务的流量，可在该虚拟网络中部署网络虚拟设备。 然后，可将服务终结点应用到部署了网络虚拟设备的子网，只在该子网中保护 Azure 服务资源。 如果你想要使用网络虚拟设备筛选将从虚拟网络发起的 Azure 服务访问限制到特定的 Azure 资源，此方案可能很有帮助。
     
     <!--Not Available on [egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)-->
 
-- **在直接部署到虚拟网络的服务中保护 Azure 资源** ：可将各种 Azure 服务直接部署到虚拟网络中的特定子网。 可以通过在托管服务子网上设置服务终结点，在[托管服务](virtual-network-for-azure-services.md)子网中保护 Azure 服务资源。
-- **来自 Azure 虚拟机的磁盘流量** ：托管和非托管磁盘的虚拟机磁盘流量不受 Azure 存储的服务终结点路由更改的影响。 此流量包括 diskIO 以及装载和卸载。 可以通过服务终结点和 [Azure 存储网络规则](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)限制对页 blob 的 REST 访问以选择网络。 
+- **在直接部署到虚拟网络的服务中保护 Azure 资源**：可将各种 Azure 服务直接部署到虚拟网络中的特定子网。 可以通过在托管服务子网上设置服务终结点，在[托管服务](virtual-network-for-azure-services.md)子网中保护 Azure 服务资源。
+- **来自 Azure 虚拟机的磁盘流量**：托管和非托管磁盘的虚拟机磁盘流量不受 Azure 存储的服务终结点路由更改的影响。 此流量包括 diskIO 以及装载和卸载。 可以通过服务终结点和 [Azure 存储网络规则](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)限制对页 blob 的 REST 访问以选择网络。 
 
 ### <a name="logging-and-troubleshooting"></a>日志记录和故障排除
 

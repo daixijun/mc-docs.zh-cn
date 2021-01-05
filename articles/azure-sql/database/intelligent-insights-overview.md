@@ -2,22 +2,22 @@
 title: 使用智能见解监视数据库性能
 description: Azure SQL 数据库和 Azure SQL 托管实例的智能见解使用内置智能通过人工智能持续监视数据库使用情况，并检测导致性能不佳的干扰性事件。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 06/12/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 7189a39c7838a0a3fb12953b73d1ac2ba6926096
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: f94400f81531d645c79d224f02263475f1c1e3be
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227198"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829879"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>智能见解：使用 AI 监视数据库性能并对其进行故障排除（预览）
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -86,7 +86,7 @@ ms.locfileid: "86227198"
 
 ### <a name="set-up-with-event-hubs"></a>通过事件中心进行设置
 
-若要将智能见解与事件中心配合使用，配置要流式传输到事件中心的智能见解日志数据，请参阅[指标和诊断日志记录](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)和[将 Azure 诊断日志流式传输到事件中心](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)。
+若要将智能见解与事件中心配合使用，配置要流式传输到事件中心的智能见解日志数据，请参阅[指标和诊断日志记录](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)和[将 Azure 诊断日志流式传输到事件中心](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)。
 
 若要使用事件中心设置自定义监视和警报，请参阅[如何在事件中心处理指标和诊断日志](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs)。
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/22/2018
-ms.date: 10/19/2020
-ms.openlocfilehash: eb463401cefaf89f5c2df7be3ce429fc5ec439d0
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/04/2021
+ms.openlocfilehash: 79504472ec7beb5cbaeedb7350f1bb736520abc1
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431918"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830289"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>使用 PowerShell 以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
@@ -142,8 +142,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -223,7 +223,7 @@ END
 
     下面是示例输出：
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -254,7 +254,7 @@ END
 
     下面是示例输出：
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -328,7 +328,7 @@ END
     ```
 
     > [!IMPORTANT]
-    > 此代码片段假设 Blob 存储中有一个名为 adftutorial 的 Blob 容器。 创建容器（如果不存在），或者将容器设置为现有容器的名称。 会自动创建输出文件夹 `incrementalcopy`（如果容器中不存在）。 在本教程中，文件名是使用表达式 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 动态生成的。
+    > 此代码片段假设 Blob 存储中有一个名为 `adftutorial` 的 Blob 容器。 创建容器（如果不存在），或者将容器设置为现有容器的名称。 会自动创建输出文件夹 `incrementalcopy`（如果容器中不存在）。 在本教程中，文件名是使用表达式 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 动态生成的。
 
 2. 运行 **Set-AzDataFactoryV2Dataset** cmdlet 以创建数据集 SinkDataset。
 
@@ -506,7 +506,7 @@ END
 
    下面是示例输出：
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -529,7 +529,7 @@ END
 
     下面是示例输出：
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity
@@ -609,7 +609,7 @@ END
 
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table | 2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05 8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>将数据插入数据源存储，验证增量数据的加载
 
@@ -649,7 +649,7 @@ END
 
     下面是示例输出：
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity

@@ -7,22 +7,22 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: fd91b86a862bfe1f5632b1ce0b662bb343e5cd06
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 7e02d2f457f203d88cd20982986a987c5605b985
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004336"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857127"
 ---
 <!--Verified successfully from renamed Linux article-->
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>从经典部署模型迁移到 Azure 资源管理器部署模型的过程中经常出现的错误
 
 > [!IMPORTANT]
-> 目前，大约有 90% 的 IaaS VM 在使用 [Azure 资源管理器](https://www.azure.cn/home/features/resource-manager/)。 自 2020 年 2 月 28 日起，经典 VM 已弃用，并将于 2023 年 3 月 1 日完全停用。 [详细了解]( https://docs.azure.cn/virtual-machines/classic-vm-deprecation)此弃用以及[它对你的影响](classic-vm-deprecation.md#how-does-this-affect-me)。
+> 目前，大约有 90% 的 IaaS VM 在使用 [Azure 资源管理器](https://azure.microsoft.com/features/resource-manager/)。 自 2020 年 2 月 28 日起，经典 VM 已弃用，并将于 2023 年 3 月 1 日完全停用。 [详细了解](https://docs.azure.cn/virtual-machines/classic-vm-deprecation)此弃用以及[它对你的影响](classic-vm-deprecation.md#how-does-this-affect-me)。
 
 本文编录了将 IaaS 资源从 Azure 经典部署模型迁移到 Azure Resource Manager 堆栈期间的最常见错误和缓解措施。
 
@@ -197,5 +197,4 @@ az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md)
 
-<!-- Update_Description: new article about migration classic resource manager errors -->
-<!--NEW.date: 12/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

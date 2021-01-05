@@ -5,16 +5,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 03/09/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 64185a6fe8a5f2de55a5436cec8b2d5bbdacd60b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 139e2398eb979a10d50332469ceb1a9b5ee95f29
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105126"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857037"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 
@@ -67,10 +67,6 @@ ms.locfileid: "93105126"
 | Standard_E32-8ds_v4 | 8    | 与 E32ds_v4 相同|
 | Standard_E64-32ds_v4| 32   | 与 E64ds_v4 相同|
 | Standard_E64-16ds_v4| 16   | 与 E64ds_v4 相同|
-| Standard_GS4-8      | 8    | 与 GS4 相同     |
-| Standard_GS4-4      | 4    | 与 GS4 相同     |
-| Standard_GS5-16     | 16   | 与 GS5 相同     |
-| Standard_GS5-8      | 8    | 与 GS5 相同     |
 | Standard_DS11-1_v2  | 1    | 与 DS11_v2 相同 |
 | Standard_DS12-2_v2  | 2    | 与 DS12_v2 相同 |
 | Standard_DS12-1_v2  | 1    | 与 DS12_v2 相同 |
@@ -79,8 +75,10 @@ ms.locfileid: "93105126"
 | Standard_DS14-8_v2  | 8    | 与 DS14_v2 相同 |
 | Standard_DS14-4_v2  | 4    | 与 DS14_v2 相同 |
 
+<!--Not Available on Standard_E4-2as_v4-->
 <!--Not Available on Standard_GS-->
 <!--Not Available on Standard_M416-208s_v2-->
+<!--Not Available on Standard_M416-208ms_v2-->
 
 ## <a name="other-sizes"></a>其他大小
 - [计算优化](./sizes-compute.md)
@@ -95,5 +93,4 @@ ms.locfileid: "93105126"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](./acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: new article about constrained vcpu -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

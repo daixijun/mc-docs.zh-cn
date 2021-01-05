@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 11/25/2020
 ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: 7d435da91e7a7419cf3b17f6f3009eed35f33072
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: ba1e2fb20973a091d3e7cefc1aeb1b636a4954d0
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747148"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830122"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 Concur 复制数据
 
@@ -70,30 +70,30 @@ _ *示例：* *
 
 ```json
 { 
-����"name":�"ConcurLinkedService", 
-����"properties":�{
-��������"type":�"Concur",
-��������"typeProperties":�{
-������������"connectionProperties":�{
-����������������"host":"<host e.g. implementation.concursolutions.com>",
-����������������"baseUrl":�"<base URL for authorization e.g. us-impl.api.concursolutions.com>",
-����������������"authenticationType":�"OAuth_2.0_Bearer",
-����������������"clientId":�"<client id>",
-����������������"clientSecret":�{
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },
-����������������"username":�"fakeUserName",
-����������������"password":�{
+                "username": "fakeUserName",
+                "password": {
                     "type": "SecureString",
                     "value": "<password>"
                 },
-����������������"useEncryptedEndpoints":�true,
-����������������"useHostVerification":�true,
-����������������"usePeerVerification":�true
-������������}
-��������}
-����}
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
 } 
 ```
 

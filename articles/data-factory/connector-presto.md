@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 数据工厂（预览版）从 Presto 复制数据
+title: 使用 Azure 数据工厂从 Presto 复制数据
 description: 了解如何通过在 Azure 数据工厂管道中使用复制活动，将数据从 Presto 复制到支持的接收器数据存储。
 services: data-factory
 documentationcenter: ''
@@ -9,23 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/04/2019
-ms.date: 08/10/2020
+origin.date: 12/18/2020
+ms.date: 01/04/2020
 ms.author: v-jay
-ms.openlocfilehash: a306ebb25c12e443ad2dc561c0e263cc348dbe7f
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: cf56df6d59351532be3ac25148c6736e108384c2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914382"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830322"
 ---
-# <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 Presto 复制数据
+# <a name="copy-data-from-presto-using-azure-data-factory"></a>使用 Azure 数据工厂从 Presto 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述了如何使用 Azure 数据工厂中的复制活动从 Presto 复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
-
-> [!IMPORTANT]
-> 此连接器目前提供预览版。 欢迎试用并提供反馈。 若要在解决方案中使用预览版连接器的依赖项，请联系 [Azure 客户支持](https://www.azure.cn/zh-cn/support/contact/)。
 
 ## <a name="supported-capabilities"></a>支持的功能
 
@@ -48,7 +45,7 @@ Azure 数据工厂提供内置的驱动程序用于启用连接，因此无需�
 
 Presto 链接服务支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | type 属性必须设置为：Presto  | 是 |
 | host | Presto 服务器的 IP 地址或主机名。 （例如 192.168.222.160）  | 是 |
@@ -95,7 +92,7 @@ Presto 链接服务支持以下属性：
 
 要从 Presto 复制数据，请将数据集的 type 属性设置为“PrestoObject”  。 支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：PrestoObject  | 是 |
 | 架构 | 架构的名称。 |否（如果指定了活动源中的“query”）  |
@@ -125,9 +122,9 @@ Presto 链接服务支持以下属性：
 
 ### <a name="presto-as-source"></a>以 Presto 作为源
 
-要从 Presto 复制数据，请将复制活动中的源类型设置为“PrestoSource”  。 复制活动**source**部分支持以下属性：
+要从 Presto 复制数据，请将复制活动中的源类型设置为“PrestoSource”  。 复制活动 **source** 部分支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为：PrestoSource  | 是 |
 | 查询 | 使用自定义 SQL 查询读取数据。 例如：`"SELECT * FROM MyTable"`。 | 否（如果指定了数据集中的“tableName”） |

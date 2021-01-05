@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sashan, sstein
+ms.reviewer: sashan
 origin.date: 08/27/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: f288222d227836c1e1dcb4b2ceb81a28243c5eec
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/21/2020
+ms.openlocfilehash: 1a815c8be53b03c1f82823f9fe2b98d318d7d87f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432606"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830309"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>教程：将 SQL 托管实例添加到故障转移组
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,12 +48,12 @@ ms.locfileid: "96432606"
 若要完成本教程，请确保准备好以下各项：
 
 - Azure 订阅。 [创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)（如果还没有）。
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 
 ---
 
 
-## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1 - 创建资源组和主托管实例
+## <a name="create-a-resource-group-and-primary-managed-instance"></a>创建资源组和主托管实例
 
 此步骤将使用 Azure 门户或 PowerShell 为故障转移组创建资源组和主托管实例。 
 
@@ -156,8 +156,8 @@ ms.locfileid: "96432606"
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription�context
-   Set-AzContext -SubscriptionId $subscriptionId�
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."

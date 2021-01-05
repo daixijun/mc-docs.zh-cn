@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 10/29/2020
-ms.date: 11/23/2020
+origin.date: 12/07/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 78f40a09d1d74c4c9bde1acd3845b86ea910ed18
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 779ebb933f1fedb6b848ec2d5c0e6029f10a9a9f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680361"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830312"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure 数据工厂中带分隔符的文本格式
 
@@ -41,7 +41,7 @@ ms.locfileid: "94680361"
 | nullValue        | 指定 null 值的字符串表示形式。 <br>默认值为 **空字符串**。 | 否       |
 | encodingName     | 用于读取/写入测试文件的编码类型。 <br>可用的值如下："UTF-8"、"UTF-16"、"UTF-16BE"、"UTF-32"、"UTF-32BE"、"US-ASCII"、“UTF-7”、"BIG5"、"EUC-JP"、"EUC-KR"、"GB2312"、"GB18030"、"JOHAB"、"SHIFT-JIS"、"CP875"、"CP866"、"IBM00858"、"IBM037"、"IBM273"、"IBM437"、"IBM500"、"IBM737"、"IBM775"、"IBM850"、"IBM852"、"IBM855"、"IBM857"、"IBM860"、"IBM861"、"IBM863"、"IBM864"、"IBM865"、"IBM869"、"IBM870"、"IBM01140"、"IBM01141"、"IBM01142"、"IBM01143"、"IBM01144"、"IBM01145"、"IBM01146"、"IBM01147"、"IBM01148"、"IBM01149"、"ISO-2022-JP"、"ISO-2022-KR"、"ISO-8859-1"、"ISO-8859-2"、"ISO-8859-3"、"ISO-8859-4"、"ISO-8859-5"、"ISO-8859-6"、"ISO-8859-7"、"ISO-8859-8"、"ISO-8859-9"、"ISO-8859-13"、"ISO-8859-15"、"WINDOWS-874"、"WINDOWS-1250"、"WINDOWS-1251"、"WINDOWS-1252"、"WINDOWS-1253"、"WINDOWS-1254"、"WINDOWS-1255"、"WINDOWS-1256"、"WINDOWS-1257"、"WINDOWS-1258”。 | 否       |
 | compressionCodec | 用于读取/写入文本文件的压缩编解码器。 <br>允许的值为 bzip2、gzip、deflate、ZipDeflate、TarGzip、Tar、snappy 或 lz4       。 默认设置是不压缩。 <br>注意，复制活动当前不支持“snappy”和“lz4”。 <br>请注意，使用复制活动解压缩 ZipDeflate/TarGzip/Tar 文件并将其写入基于文件的接收器数据存储时，默认情况下文件将提取到 `<path specified in dataset>/<folder named as source compressed file>/` 文件夹，对[复制活动源](#delimited-text-as-source)使用 `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` 来控制是否以文件夹结构形式保留压缩文件名   。 | 否       |
-| compressionLevel | 压缩率。 <br>允许的值为 **Optimal** 或 **Fastest**。<br>- **Fastest**：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal**：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx)（压缩级别）主题。 | 否       |
+| compressionLevel | 压缩率。 <br>允许的值为 **Optimal** 或 **Fastest**。<br>- **Fastest**：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal**：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://docs.microsoft.com/dotnet/api/system.io.compression.compressionlevel)（压缩级别）主题。 | 否       |
 
 下面是 Azure Blob 存储上的带分隔符的文本数据集的示例：
 
@@ -79,7 +79,7 @@ ms.locfileid: "94680361"
 
 复制活动的 **_\_source\*** * 节支持以下属性。
 
-| 属性       | 说明                                                  | 必须 |
+| 属性       | 说明                                                  | 必需 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 复制活动源的 type 属性必须设置为 **DelimitedTextSource**。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“带分隔符的文本读取设置”表。 |  否       |
@@ -87,7 +87,7 @@ ms.locfileid: "94680361"
 
 `formatSettings` 下支持的 **带分隔符的文本读取设置**：
 
-| 属性      | 说明                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings 的类型必须设置为 **DelimitedTextReadSettings**。 | 是      |
 | skipLineCount | 指示从输入文件读取数据时要跳过的非空行数  。 <br>如果同时指定了 skipLineCount 和 firstRowAsHeader，则先跳过行，然后从输入文件读取标头信息。 | 否       |
@@ -127,7 +127,7 @@ ms.locfileid: "94680361"
 
 复制活动的 **\_sink\*** 节支持以下属性。
 
-| 属性       | 说明                                                  | 必须 |
+| 属性       | 说明                                                  | 必需 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 复制活动源的 type 属性必须设置为 **DelimitedTextSink**。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“带分隔符的文本写入设置”表。 |    否      |
@@ -135,7 +135,7 @@ ms.locfileid: "94680361"
 
 `formatSettings` 下支持的 **带分隔符的文本写入设置**：
 
-| 属性      | 说明                                                  | 必须                                              |
+| 属性      | 说明                                                  | 必需                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings 的类型必须设置为 **DelimitedTextWriteSettings**。 | 是                                                   |
 | fileExtension | 用来为输出文件命名的扩展名，例如 `.csv`、`.txt`。 未在 DelimitedText 输出数据集中指定 `fileName` 时，必须指定该扩展名。 如果在输出数据集中配置了文件名，则它将其用作接收器文件名，并且将忽略文件扩展名设置。  | 未在输出数据集中指定文件名时为“是” |

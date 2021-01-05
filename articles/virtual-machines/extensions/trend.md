@@ -3,20 +3,21 @@ title: 在 VM 上安装 Trend Micro Deep Security
 description: 本文介绍如何在 Azure 中使用经典部署模型创建的 VM 上安装和配置 Trend Micro Deep Security。
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 origin.date: 04/20/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5dc2c3aeda51a9a330c33103772b20a6328f0f76
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 75001e797a4eda34cfa0c15a546512d8f107be88
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104877"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856983"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 
@@ -52,7 +53,7 @@ write-host $vm.VM.ProvisionGuestAgent
 
 如果不知道云服务名称和虚拟机名称，运行 **Get-AzureVM** 即可显示当前订阅中所有虚拟机的该信息。
 
-如果 **write-host** 命令返回 **True** ，则已安装 VM 代理。 如果该命令返回 **False** ，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](https://go.microsoft.com/fwlink/p/?LinkId=403947)中的说明和下载链接。
+如果 **write-host** 命令返回 **True**，则已安装 VM 代理。 如果该命令返回 **False**，请参阅 Azure 博客文章 [VM 代理和扩展 - 第 2 部分](https://go.microsoft.com/fwlink/p/?LinkId=403947)中的说明和下载链接。
 
 如果已安装 VM 代理，请运行以下命令。
 

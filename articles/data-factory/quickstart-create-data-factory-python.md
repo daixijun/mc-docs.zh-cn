@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 01/22/2018
-ms.date: 09/21/2020
+ms.date: 01/04/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 9572c8d9cc91c129896e87df8cdfde984ed6dd7e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 7f7396ade631c085f881331e5b9e1a2c058ab679
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507918"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830294"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入门：使用 Python 创建数据工厂和管道
 
@@ -29,7 +29,7 @@ ms.locfileid: "96507918"
 
 Azure 数据工厂是基于云的数据集成服务，用于创建数据驱动型工作流，以便协调和自动完成数据移动和数据转换。 可以使用 Azure 数据工厂创建和计划数据驱动型工作流（称为管道）。
 
-管道可以从不同的数据存储引入数据。 管道使用计算服务（例如 Azure HDInsight Hadoop、Spark 和 Azure 机器学习）来处理或转换数据。 管道将输出数据发布到数据存储（例如 Azure Synapse Analytics [旧称 SQL 数据仓库]），供商业智能 (BI) 应用程序使用。
+管道可以从不同的数据存储引入数据。 管道使用计算服务（例如 Azure HDInsight Hadoop、Spark 和 Azure 机器学习）来处理或转换数据。 管道将输出数据发布到数据存储（例如 Azure Synapse Analytics），供商业智能 (BI) 应用程序使用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -418,7 +418,7 @@ main()
 
 下面是示例输出：
 
-```json
+```console
 Name: <data factory name>
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>
 Location: chinaeast2

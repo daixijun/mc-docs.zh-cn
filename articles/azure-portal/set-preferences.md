@@ -1,21 +1,17 @@
 ---
-title: 管理 Azure 门户设置和首选项 | Microsoft Docs
+title: 管理 Azure 门户设置和首选项
 description: 你可以根据自己的偏好更改 Azure 门户的默认设置。 设置包括非活动会话超时、默认视图、菜单模式、对比度、主题、通知，以及语言和区域格式
-services: azure-portal
 keywords: 设置, 超时, 语言, 区域
-author: mgblythe
 ms.author: v-tawe
 origin.date: 08/05/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 764875d01b8d72c5c56c71f14f1c16d161e8f2eb
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: af7ed69a48be80219bcbba8841d0624e9afae2d4
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975176"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820353"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 

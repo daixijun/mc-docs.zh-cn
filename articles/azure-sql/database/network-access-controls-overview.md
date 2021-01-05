@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 03/09/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1feb2abb46e78e62bc982319e4f8504dfbed4702
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 12/14/2020
+ms.openlocfilehash: 8524113bdcb15e26974113916bbbb1cc97c640f2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470273"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830281"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL 数据库和 Azure Synapse Analytics 网络访问控制
 
@@ -53,7 +53,7 @@ ms.locfileid: "92470273"
 
 ### <a name="import-export-service"></a>导入/导出服务
 
-当“允许访问 Azure 服务”设置为“关闭”时，导入/导出服务无法正常工作 。 不过，可通过以下方式解决此问题：[在 Azure VM 中手动运行 sqlpackage.exe，或者直接在代码中使用 DACFx API 执行导出](/sql-database/import-export-from-vm)。
+当“允许访问 Azure 服务”设置为“关闭”时，导入/导出服务无法正常工作 。 不过，可通过以下方式解决此问题：[在 Azure VM 中手动运行 sqlpackage.exe，或者直接在代码中使用 DACFx API 执行导出](./database-import-export-azure-services-off.md)。
 
 ### <a name="data-sync"></a>数据同步
 
@@ -113,9 +113,9 @@ start          end
 
 **虚拟网络：** 可以让虚拟网络与 Azure 订阅相关联
 
-**子网：** 虚拟网络包含 **子网** 。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
+**子网：** 虚拟网络包含 **子网**。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
 
-**虚拟网络服务终结点** ： [虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 Microsoft.Sql 的类型名称，即名为“SQL 数据库”的 Azure 服务。
+**虚拟网络服务终结点**：[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 Microsoft.Sql 的类型名称，即名为“SQL 数据库”的 Azure 服务。
 
 **虚拟网络规则：** 服务器的虚拟网络规则是服务器的访问控制列表 (ACL) 中列出的子网。 该子网必须包含“Microsoft.Sql”类型名称才会列在 SQL 数据库中数据库的 ACL 中。 虚拟网络规则要求服务器接受来自子网上每个节点的通信。
 
@@ -140,7 +140,7 @@ start          end
 
 - 有关创建服务器级虚拟网络防火墙规则的快速入门，请参阅 [Azure SQL 数据库的虚拟网络服务终结点和规则](vnet-service-endpoint-rule-overview.md)。
 
-- 有关从开源应用程序或第三方应用程序连接到 SQL 数据库中的数据库的帮助，请参阅 [SQL 数据库的客户端快速入门代码示例](/azure-sql/database/connect-query-content-reference-guide#libraries)。
+- 有关从开源应用程序或第三方应用程序连接到 SQL 数据库中的数据库的帮助，请参阅 [SQL 数据库的客户端快速入门代码示例](https://docs.microsoft.com/previous-versions/azure/ee336282(v=azure.100))。
 
 - 有关可能需要打开的其他端口的信息，请参阅 **SQL 数据库：外部与内部** 部分（在 [用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](adonet-v12-develop-direct-route-ports.md)中）
 
@@ -151,4 +151,3 @@ start          end
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

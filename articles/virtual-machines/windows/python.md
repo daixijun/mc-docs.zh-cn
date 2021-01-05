@@ -6,17 +6,17 @@ ms.workload: infrastructure
 ms.topic: how-to
 origin.date: 06/22/2017
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 7e20df48838f3a669661775590baaaa1254c80ac
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6ad256fca1604d5bd8f7356a6fa60e9221c343d1
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106286"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856665"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 

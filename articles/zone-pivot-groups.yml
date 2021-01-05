@@ -37,9 +37,25 @@ groups:
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
   title: 编程语言
   prompt: 选择编程语言
@@ -69,7 +85,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
 - id: programming-languages-set-four
   title: 编程语言
   prompt: 选择编程语言
@@ -91,7 +107,7 @@ groups:
   - id: programming-language-go
     title: Go
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-ruby
@@ -103,7 +119,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-seven
@@ -132,18 +148,18 @@ groups:
     title: C++
 - id: programming-languages-text-analytics
   title: 编程语言
-  prompt: 选择编程语言。
+  prompt: 选择其中一种客户端库语言或 REST API。
   pivots:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: 其他语言...
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
   title: 编程语言
   prompt: 选择编程语言
@@ -153,9 +169,23 @@ groups:
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-eleven
   title: 编程语言
   prompt: 选择编程语言
@@ -166,6 +196,18 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-conmod
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-fifteen
   title: 编程语言
   prompt: 选择编程语言
@@ -181,7 +223,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-java
@@ -244,6 +286,20 @@ groups:
     title: REST
   - id: programmer-tool-spx
     title: CLI
+- id: programming-languages-set-twenty-six
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-ansi-c
+    title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: cogsvcs-text-analytics-features
   title: 文本分析功能
   prompt: 选择文本分析功能产品/服务
@@ -254,7 +310,7 @@ groups:
     title: 语言检测
   - id: text-analytics-sentiment-analysis
     title: 情绪分析
-- id: programming-languages-set-functions
+- id: programming-languages-set-functions-lang-workers
   title: 编程语言
   prompt: 选择编程语言
   pivots:
@@ -268,20 +324,38 @@ groups:
     title: PowerShell
   - id: programming-language-python
     title: Python
-- id: programming-languages-text-analytics
+- id: programming-languages-set-functions
   title: 编程语言
-  prompt: 选择编程语言。
+  prompt: 选择编程语言
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-python
-    title: Python
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-functions-full
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
   - id: programming-language-other
-    title: 其他语言...
+    title: 其他
 - id: programming-languages-metrics-monitor
   title: 编程语言
   prompt: 选择编程语言。
@@ -296,6 +370,22 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-computer-vision
+  title: 编程语言
+  prompt: 选择编程语言。
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-diberry-3core
   title: 编程语言
   prompt: 选择编程语言
@@ -303,9 +393,21 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-luis
+  title: 编程语言
+  prompt: 做出选择
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST API
 - id: java-build-tools-set
   title: 生成工具
   prompt: 选择生成工具
@@ -364,34 +466,6 @@ groups:
     title: Java
   - id: programming-language-more
     title: 更多语言...
-- id: programming-languages-set-fifteen
-  title: 编程语言
-  prompt: 选择编程语言
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-more
-    title: 更多语言...
-- id: programming-languages-set-sixteen
-  title: 编程语言
-  prompt: 选择编程语言
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-more
-    title: 更多语言...
 - id: programming-languages-set-seventeen
   title: 编程语言
   prompt: 选择编程语言
@@ -399,7 +473,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
 - id: programming-languages-set-eighteen
@@ -412,6 +486,18 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-face
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two-with-js
   title: 编程语言
   prompt: 选择编程语言
@@ -425,7 +511,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-more
     title: 更多语言...
 - id: programming-languages-set-two-with-js-spx
@@ -439,13 +525,11 @@ groups:
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programmer-tool-spx
     title: CLI
-  - id: programming-language-more
-    title: 更多语言...
 - id: programming-languages-set-two-with-js-go
   title: 编程语言
   prompt: 选择编程语言
@@ -461,7 +545,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-more
     title: 更多语言...
 - id: programming-languages-set-two-with-js-go-spx
@@ -481,7 +565,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-more
     title: 更多语言...
 - id: programming-languages-speech-services-one-nomore
@@ -513,7 +597,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
 - id: programming-languages-speech-services-nomore-variant
   title: 编程语言
   prompt: 选择编程语言
@@ -527,7 +611,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
 - id: programming-languages-set-nineteen
@@ -607,7 +691,7 @@ groups:
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
@@ -727,7 +811,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-java
     title: Java
   - id: programming-language-python
@@ -834,6 +918,24 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: 安全中心的门户页面
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: 操作系统/控制台
+  prompt: 选择操作系统和控制台
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS 和 Linux
+  - id: client-operating-system-windows-command
+    title: Windows 命令行界面
+  - id: client-operating-system-powershell
+    title: PowerShell
+- id: URL-test-interface-rest-apis
+  title: REST API 的 URL 测试工具
+  prompt: 选择以下工具之一
+  pivots:
+  - id: url-test-tool-rest-postman
+    title: Postman
+  - id: url-test-tool-rest-vscode-ext
+    title: Visual Studio Code
 - id: ad-quickstart-one
   title: 编程语言
   prompt: 选择编程语言
@@ -841,9 +943,19 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
-    title: Javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
+- id: keyword-quickstart
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
 - id: kql-flavors
   title: Kusto 查询语言风格
   prompt: 选择 Azure 服务
@@ -852,10 +964,30 @@ groups:
     title: Azure 数据资源管理器
   - id: azuremonitor
     title: Azure Monitor
+- id: b2c-policy-type
+  title: Azure AD B2C 策略类型
+  prompt: 选择策略类型
+  pivots:
+  - id: b2c-user-flow
+    title: 用户流
+  - id: b2c-custom-policy
+    title: 自定义策略
+- id: anomaly-detector-quickstart
+  title: 编程语言
+  prompt: 选择编程语言
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 metadata:
-  ms.openlocfilehash: 7a77d15bdb94247382e14cb07a577233f16c3d92
-  ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+  ms.openlocfilehash: 8455c0026018e73736a77ce2d730a9e7f2d2b608
+  ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94590886"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97820306"

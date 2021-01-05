@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: e61b02fa0e7c99db1f89548617ba1ac29e231c7b
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: b97dd985d27233bea0803df672fe636e0643173e
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160379"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829462"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>使用 Azure CLI 创建或更新 Azure 自定义角色
 
@@ -237,5 +237,5 @@ az role definition delete --name "Virtual Machine Operator"
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure 自定义角色](custom-roles.md)
-- [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
+- [Azure 资源提供程序操作](resource-provider-operations.md)
 

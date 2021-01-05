@@ -2,22 +2,22 @@
 title: 时态表入门
 description: 了解如何开始使用 Azure SQL 数据库和 Azure SQL 托管实例中的时态表。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 06/26/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: a9e214928e886532ec69d41ee0499d6d55dc88f5
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 01/04/2021
+ms.openlocfilehash: 558dddf6c35c142d870ff2dd25333a728a662bb3
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228099"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830192"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>开始使用 Azure SQL 数据库和 Azure SQL 托管实例中的时态表
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -32,11 +32,11 @@ ms.locfileid: "86228099"
 
 ![架构](./media/temporal-tables/AzureTemporal1.png)
 
-幸运的是，无需对应用进行任何操作即可维护此活动信息。 可以使用时态表将过程自动化：使你在网站设计过程中保有完全的弹性并节省更多的时间，从而将重心放在数据分析本身。 只需确保将 **WebSiteInfo** 表配置为[版本由系统控制的临时表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table)即可。 下面描述了在此方案中使用时态表的确切步骤。
+幸运的是，无需对应用进行任何操作即可维护此活动信息。 可以使用时态表将过程自动化：使你在网站设计过程中保有完全的弹性并节省更多的时间，从而将重心放在数据分析本身。 只需确保将 **WebSiteInfo** 表配置为 [版本由系统控制的临时表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table)即可。 下面描述了在此方案中使用时态表的确切步骤。
 
 ## <a name="step-1-configure-tables-as-temporal"></a>步骤 1：将表配置为临时表
 
-根据是要开始新的开发工作，还是升级现有的应用程序，可以创建临时表，或者通过添加临时属性来修改现有表。 一般情况下，用户方案可能混用了这两个选项。 使用 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)、[SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) (SSDT)、[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) 或其他任何 Transact-SQL 开发工具执行以下操作。
+根据是要开始新的开发工作，还是升级现有的应用程序，可以创建临时表，或者通过添加临时属性来修改现有表。 一般情况下，用户方案可能混用了这两个选项。 使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)、[SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) (SSDT)、[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) 或其他任何 Transact-SQL 开发工具执行以下操作。
 
 > [!IMPORTANT]
 > 建议始终使用最新版本的 Management Studio 以保持与 Azure SQL 数据库和 Azure SQL 托管实例的更新同步。 [更新 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。

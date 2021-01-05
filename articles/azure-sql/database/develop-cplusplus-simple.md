@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/12/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 4a942fd45edab2d5195b129e12a8c0d9e9bba8fa
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: 13ce3feb958c7cdf3df21b78d06868bc24e3df1c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432621"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829710"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Azure 目前有两个选项可用于托管 SQL Server 工作负载：Azure SQL �
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>数据访问技术：ODBC 和 OLE DB
 
-连接到 Azure SQL 数据库没有任何差别，目前可以通过两种方法连接到数据库：ODBC（开放式数据库连接）和 OLE DB（对象链接与嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。
+连接到 Azure SQL 数据库没有任何差别，目前可以通过两种方法连接到数据库：ODBC（开放式数据库连接）和 OLE DB（对象链接与嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://docs.microsoft.com/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>步骤 1：创建 Azure SQL 数据库
 

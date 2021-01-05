@@ -13,12 +13,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 59ff117da50a574f3bf169d690fa0cbb59b44917
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 88e4bea75dffce4c0b70e7551a0790e3b1a485c1
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127900"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793435"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
@@ -30,6 +30,8 @@ ms.locfileid: "92127900"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
+
+<!--CORRECT ON https://docs.microsoft.com/powershell/module/az.storage/new-azstoragesharesastoken-->
 
 ```powershell
 # Sign-in the Azure China Cloud
@@ -45,7 +47,7 @@ $resourceGroupName ="yourResourceGroupName"
 $snapshotName = "yourSnapshotName"
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds e.g. 3600.
-#Know more about SAS here: https://docs.microsoft.com/Az.Storage/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://docs.microsoft.com/powershell/module/az.storage/new-azstoragesharesastoken
 $sasExpiryDuration = "3600"
 
 #Provide storage account name where you want to copy the snapshot. 
@@ -64,7 +66,7 @@ $destinationVHDFileName = "yourvhdfilename"
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 #Generate the SAS for the snapshot 
-$sas = Grant-AzSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read
+$sas = Grant-AzSnapshotAccess -ResourceGroupName $ResourceGroupName -SnapshotName $SnapshotName  -DurationInSecond $sasExpiryDuration -Access Read
 #Create the context for the storage account which will be used to copy snapshot to the storage account 
 $destinationContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 

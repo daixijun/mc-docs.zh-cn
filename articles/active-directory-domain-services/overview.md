@@ -2,21 +2,21 @@
 title: Azure Active Directory 域服务概述 | Microsoft 文档
 description: 在本概述中，了解 Azure Active Directory 域服务提供的内容，以及如何在组织中用其向云中的应用程序和服务提供标识服务。
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.custom: contperfq1
-ms.openlocfilehash: 1418873552efb2a5e794700355b2b64616d9b9c6
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 817d27a734640f9bf4c24fe18d0c1e1c6891e6fd
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402540"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829348"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>什么是 Azure Active Directory 域服务？
 
@@ -33,11 +33,11 @@ Azure AD DS 与现有的 Azure AD 租户集成。 通过此集成，用户可以
 
 创建 Azure AD DS 托管域时，需定义唯一的命名空间。 该命名空间为域名，例如“aaddscontoso.com”。 两个 Windows Server 域控制器 (DC) 随即部署到选定的 Azure 区域中。 DC 的这种部署称为副本集。
 
-你不需要管理、配置或更新这些 DC。 Azure 平台将 DC 作为托管域的一部分进行处理，包括备份。
+你不需要管理、配置或更新这些 DC。 Azure 平台将这些 DC 作为托管域的一部分进行处理，包括使用 Azure 磁盘加密的静态备份和静态加密。
 
-托管域配置为从 Azure AD 执行单向同步，以提供对一组集中用户、组和凭据的访问。 你可以直接在托管域中创建资源，但它们不会同步回 Azure AD。 然后，Azure 中连接到此托管域的应用程序、服务和 VM 便可使用常见 AD DS 功能，如域加入、组策略、LDAP 和 Kerberos/NTLM 身份验证。
+托管域配置为从 Azure AD 执行单向同步，以提供对一组集中用户、组和凭据的访问。 你可以直接在托管域中创建资源，但它们不会同步回 Azure AD。 然后，Azure 中连接到该托管域的应用程序、服务和 VM 便可使用常见 AD DS 功能，如域加入、组策略、LDAP 和 Kerberos/NTLM 身份验证。
 
-在具有本地 AD DS 环境的混合环境中，Azure AD Connect 会将标识信息与 Azure AD 同步，后者随后将同步到托管域。
+在具有本地 AD DS 环境的混合环境中，[Azure AD Connect][azure-ad-connect] 会将标识信息与 Azure AD 同步，后者随后将同步到托管域。
 
 ![使用 AD Connect 将 Azure AD 域服务与 Azure AD 和本地 AD DS 同步](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
@@ -47,9 +47,6 @@ Azure AD DS 从 Azure AD 中复制标识信息，因此，它适用于仅限云�
 * 对于仅限云的环境，则不需要传统的本地 AD DS 环境来使用 Azure AD DS 的集中标识服务。
 
 可以扩展托管域，使每个 Azure AD 租户具有多个副本集。 可以将副本集添加到任何支持 Azure AD DS 的 Azure 区域中的任何对等互连虚拟网络。 如果某个 Azure 区域处于离线状态，则不同 Azure 区域中的其他副本集可为旧版应用程序提供地理灾难恢复。 副本集目前处于预览状态。 有关详细信息，请参阅[托管域的副本集概念和功能][concepts-replica-sets]。
-
-以下视频概述了 Azure AD DS 如何与应用程序和工作负载集成以在云中提供标识服务：
-
 
 
 若要查看运行中的 Azure AD DS 部署方案，你可以探索以下示例：
@@ -80,7 +77,7 @@ Azure AD DS 的以下功能简化了部署和管理操作：
     * 如果需要，你可以创建从 Azure AD DS 到本地 AD DS 环境的单向出站林信任。 有关详细信息，请参阅 [Azure AD DS 的资源林概念和功能][ forest-trusts]。
 * 你的 IT 团队无需管理、修补或监视此托管域的域控制器。
 
-对于运行本地 AD DS 的混合环境，无需管理到托管域的 AD 复制。 本地目录中的用户帐户、组成员身份和凭据通过 Azure AD Connect 同步到 Azure AD。 这些用户帐户、组成员身份和凭据在托管域中自动可用。
+对于运行本地 AD DS 的混合环境，无需管理到托管域的 AD 复制。 本地目录中的用户帐户、组成员身份和凭据通过 [Azure AD Connect][azure-ad-connect] 同步到 Azure AD。 这些用户帐户、组成员身份和凭据在托管域中自动可用。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -96,7 +93,9 @@ Azure AD DS 的以下功能简化了部署和管理操作：
 [compare]: compare-identity-solutions.md
 [synchronization]: synchronization.md
 [tutorial-create]: tutorial-create-instance.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
+[forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
 [concepts-replica-sets]: concepts-replica-sets.md

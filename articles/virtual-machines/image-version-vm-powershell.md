@@ -1,23 +1,23 @@
 ---
 title: 从 VM 创建映像（预览版）
 description: 了解如何使用 Azure PowerShell，在共享映像库中从 Azure 中的现有 VM 创建映像。
-author: rockboyfor
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
 origin.date: 05/04/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 1fecddd4260668e6d83223d7f6439c39d1fcfc91
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: eae8530b07a56f8d23a0a02636b454461f50002a
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052379"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857137"
 ---
 <!--Verified Successfully-->
 # <a name="preview-create-an-image-from-a-vm"></a>预览版：从 VM 创建映像
@@ -106,7 +106,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 在此示例中，映像版本为 1.0.0，该版本被复制到中国北部和中国东部数据中心  。 选择复制的目标区域时，请记住，你还需包括源区域作为复制的目标。
 
-若要从 VM 创建映像版本，请对 `-Source` 使用 `$vm.Id.ToString()`。
+若要从 VM 创建映像版本，请对 `-SourceImageId` 使用 `$vm.Id.ToString()`。
 
 <!--CORRECT ON Source Central US MAP TO China North, and East US MAP TO China East-->
 
@@ -122,8 +122,8 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-01' `
+   -SourceImageId $sourceVm.Id.ToString() `
+   -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```
 
@@ -145,6 +145,6 @@ $job.State
 
 验证新映像版本正常工作后，即可创建 VM。 从[专用化映像版本](vm-specialized-image-version-powershell.md)或[通用化映像版本](vm-generalized-image-version-powershell.md)创建 VM。
 
-<!--Not Available on For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).-->
+有关如何提供购买计划信息的信息，请参阅[在创建映像时提供 Azure 市场购买计划信息](marketplace-images.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

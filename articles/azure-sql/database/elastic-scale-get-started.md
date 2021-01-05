@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 01/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 3854f9daeecd3bd4b42423c003d9e709060e2ef0
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 9821f58ebaf678794ec6c378c2978938d9867afa
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228003"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830065"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -99,7 +99,7 @@ ms.locfileid: "86228003"
 祝贺！ 你已成功使用弹性数据库工具在 SQL 数据库上生成并运行了第一个分片应用程序。 使用 Visual Studio 或 SQL Server Management Studio 连接到数据库，并快速查看一下样本创建的分片。 会看到该示例创建的新示例分片数据库和分片映射管理器数据库。
 
 > [!IMPORTANT]
-> 建议始终使用最新版本的 Management Studio，以便与 Azure 和 SQL 数据库的更新保持同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+> 建议始终使用最新版本的 Management Studio，以便与 Azure 和 SQL 数据库的更新保持同步。 [更新 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。
 
 ## <a name="key-pieces-of-the-code-sample"></a>重要的代码示例片段
 

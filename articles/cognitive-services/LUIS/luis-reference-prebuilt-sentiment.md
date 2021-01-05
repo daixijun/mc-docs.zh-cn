@@ -8,18 +8,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 origin.date: 10/22/2019
-ms.openlocfilehash: 0de5269dc359d007a6f175fd9efae4fa55265b68
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1eda81de6763f087d3a5d57c28a0b5983a50d939
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472370"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857139"
 ---
 # <a name="sentiment-analysis"></a>情绪分析
-如果配置了情绪分析，LUIS json 响应会包含情绪分析内容。 请在[文本分析](/cognitive-services/text-analytics/)文档中详细了解情绪分析。
+如果配置了情绪分析，LUIS json 响应会包含情绪分析内容。 请在[文本分析](../text-analytics/index.yml)文档中详细了解情绪分析。
 
 LUIS 使用文本分析 V2。 
 
@@ -52,5 +52,4 @@ LUIS 使用文本分析 V2。
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
-
 

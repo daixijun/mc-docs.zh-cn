@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: conceptual
 origin.date: 10/05/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 3a4deb9059eca153383bdd639df5c1b1301eddc5
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: af2adea451b0c740db8ca45f73fb46ab63518c79
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590900"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857150"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>适用于 Windows VM 的 Azure 磁盘加密 
 
@@ -44,9 +44,9 @@ Windows VM 的大小有[多种](../sizes-general.md)。 Azure 磁盘加密在 [A
 
 Azure 磁盘加密还可用于使用高级存储的 VM。
 
-Azure 磁盘加密在[第 2 代 VM](generation-2.md#generation-1-vs-generation-2-capabilities) 上不可用。 有关更多例外，请参阅 [Azure 磁盘加密：不支持的方案](disk-encryption-windows.md#unsupported-scenarios)。
+Azure 磁盘加密在[第 2 代 VM](../generation-2.md#generation-1-vs-generation-2-capabilities) 上不可用。 有关更多例外，请参阅 [Azure 磁盘加密：不支持的方案](disk-encryption-windows.md#unsupported-scenarios)。
 
-<!--Not Available on  and [Lsv2-series VMs](../lsv2-series.md)-->
+Azure 磁盘加密对于没有临时磁盘（Dv4、Dsv4、Ev4 和 Esv4）的 VM 映像不可用。  请参阅[无本地临时磁盘的 Azure VM 规格](../azure-vms-no-temp-disk.md)。
 
 ### <a name="supported-operating-systems"></a>支持的操作系统
 
@@ -87,13 +87,13 @@ Azure 磁盘加密需要 Azure Key Vault 来控制和管理磁盘加密密钥和
 
 | 术语 | 定义 |
 | --- | --- |
-| Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
+| Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
 | Azure CLI | [Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 经过了优化，可从命令行管理 Azure 资源。|
 | BitLocker |[BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) 是一种行业认可的 Windows 卷加密技术，用于在 Windows VM 上启用磁盘加密。 |
-| 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。  有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
+| 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。 你可以提供软件保护密钥。 有关详细信息，请参阅 [Azure Key Vault](https://azure.microsoft.com/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
 | PowerShell cmdlet | 有关详细信息，请参阅 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/)。 |
 
-<!--Not Available on | Key encryption key (KEK) |  You can provide a hardware security module (HSM)-protected key or software-protected key. |-->
+<!--Not Available on | Key encryption key (KEK) |  You can provide a hardware security module (HSM)-protected key. |-->
 
 ## <a name="next-steps"></a>后续步骤
 

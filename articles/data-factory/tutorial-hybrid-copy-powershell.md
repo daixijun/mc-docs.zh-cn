@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 origin.date: 01/22/2018
-ms.date: 11/02/2020
-ms.openlocfilehash: e6a406ee3af40c2ac40be8574af55faeafb234e7
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/04/2021
+ms.openlocfilehash: b3db15628aa8d3409d971d73a399c4ba5b5d56a6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432496"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830097"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>教程：将数据从 SQL Server 数据库复制到 Azure Blob 存储
 
@@ -346,7 +346,7 @@ ms.locfileid: "96432496"
 
    下面是示例输出：
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroup name>
     DataFactoryName   : <dataFactory name>
@@ -470,7 +470,7 @@ ms.locfileid: "96432496"
 
     下面是示例输出：
 
-    ```json
+    ```console
     DatasetName       : SqlServerDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -523,7 +523,7 @@ ms.locfileid: "96432496"
 
     下面是示例输出：
 
-    ```json
+    ```console
     DatasetName       : AzureBlobDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -603,7 +603,7 @@ ms.locfileid: "96432496"
 
     下面是示例输出：
 
-    ```json
+    ```console
     PipelineName      : SQLServerToBlobPipeline
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -640,7 +640,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
     下面是示例运行的输出：
 
-    ```JSON
+    ```console
     ResourceGroupName    : <resourceGroupName>
     DataFactoryName      : <dataFactoryName>
     ActivityRunId        : 24af7cf6-efca-4a95-931d-067c5c921c25

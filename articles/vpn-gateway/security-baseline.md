@@ -8,12 +8,12 @@ origin.date: 10/01/2020
 ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7b88b40e8cf6775b518d11533dc8152a98258fa7
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 3afbc55d29291636cd4662058c242dde8a8332c8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747485"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830213"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN 网关的 Azure 安全基线
 
@@ -91,7 +91,7 @@ ms.locfileid: "96747485"
 
 **指导**：通过 Azure Monitor 引入活动和诊断日志，聚合由网络资源（如 VPN 网关资源）生成的安全数据。 使用 Azure Monitor 查询日志数据并对其执行分析，使用 Azure 存储帐户对这些日志进行长期/归档存储。 
 
-也可以启用数据并将其载入到 Azure Sentinel 或第三方 SIEM。
+或者，可以启用数据并将其加入第三方 SIEM。
 
 - [针对来自 VPN 网关的诊断日志事件设置警报](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 

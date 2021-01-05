@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 04/17/2019
-ms.date: 10/16/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ec9a7f65300c92798253c51d3a42a136a1ab92a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: f8bbb4b92b0360af7992291fbb06726c013c12f9
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128393"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856850"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教程：使用计算机视觉在 Azure 存储中生成图像元数据
 
@@ -33,7 +33,7 @@ GitHub 上的 [Azure 存储和认知服务实验室](https://github.com/Microsof
 > * 将元数据附加到 Azure 存储图像
 > * 使用 Azure 存储资源管理器查看图像元数据
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -135,7 +135,7 @@ GitHub 上的 [Azure 存储和认知服务实验室](https://github.com/Microsof
 
 ![计算机生成的标题](../Images/thumbnail-with-tooltip.png)
 
-若要查看所有附加的元数据，请使用 Azure 存储资源管理器来查看用于图像的存储容器。 右键单击容器中的任意 Blob，然后选择“属性”。  在对话框中，会看到键值对的列表。 计算机生成的图像说明存储在“Caption”项中，搜索关键字存储在“Tag0”、“Tag1”之类的项中。 完成后，单击**取消**即可关闭对话框。
+若要查看所有附加的元数据，请使用 Azure 存储资源管理器来查看用于图像的存储容器。 右键单击容器中的任意 Blob，然后选择“属性”。  在对话框中，会看到键值对的列表。 计算机生成的图像说明存储在“Caption”项中，搜索关键字存储在“Tag0”、“Tag1”之类的项中。 完成后，单击 **取消** 即可关闭对话框。
 
 ![“图像属性”对话框窗口，其中列出了元数据标记](../Images/blob-metadata.png)
 

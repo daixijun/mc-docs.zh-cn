@@ -5,21 +5,22 @@ services: virtual-machines-linux
 manager: carmonm
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 58627039a28310e4d1f6629f73a710613b5bfa1a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 80472c27a242ca9afabc3b79dbf09d207cbbbb58
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105577"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857000"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -46,7 +47,8 @@ DSCForLinux 扩展由 Azure 发布并提供支持。 该扩展在 Azure 虚拟�
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Register 扩展要求连接到自动化服务。 对于其他操作（例如 Pull），Install 扩展要求连接到 Azure 存储和 GitHub。 它依赖于客户提供的设置。
+DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Register 扩展要求连接到自动化服务。
+对于其他操作（例如 Pull），Install 扩展要求连接到 Azure 存储和 GitHub。 它依赖于客户提供的设置。
 
 <!--Delete a 'Pull' from Azure Global-->
 
@@ -61,7 +63,7 @@ DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Registe
 * `ExtensionAction`：（可选，字符串）指定扩展的功能。 有效值为 Register、Push、Pull、Install 和 Remove。 如果未指定，则默认将值视为推送操作。
 * `NodeConfigurationName`：（可选，字符串）要应用的节点配置的名称。
 * `RefreshFrequencyMins`：（可选，整数）指定 DSC 尝试从提取服务器获取配置的频率（以分钟为单位）。
-       如果提取服务器上的配置不同于目标节点上的当前配置，则会将前者复制到挂起的存储并应用。
+    如果提取服务器上的配置不同于目标节点上的当前配置，则会将前者复制到挂起的存储并应用。
 * `ConfigurationMode`：（可选，字符串）指定 DSC 如何应用配置。 有效值为 ApplyOnly、ApplyAndMonitor 和 ApplyAndAutoCorrect。
 * `ConfigurationModeFrequencyMins`：（可选，整数）指定 DSC 确保配置处于所需状态的频率（以分钟为单位）。
 
@@ -280,7 +282,7 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>模板部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置（例如，载入 Azure 自动化）的一个或多个虚拟机时，模板是理想选择。 
+可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后配置（例如，载入 Azure 自动化）的一个或多个虚拟机时，模板是理想选择。
 
 [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) 和 [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu) 是示例资源管理器模板。
 

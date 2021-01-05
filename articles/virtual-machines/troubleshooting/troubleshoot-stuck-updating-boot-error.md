@@ -10,16 +10,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/09/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 08b9f2d949cd8378c19cd51a052083433dc9ae85
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e1ae68463dc7dcb681e45d2f1641efc520248411
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104152"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856658"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 启动在更新 Windows 时停滞
 
@@ -44,7 +44,7 @@ ms.locfileid: "93104152"
 
 1. 拍摄受影响的 VM 的 OS 磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。 
 2. [将 OS 磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
-3. 将 OS 磁盘附加到恢复 VM 上后，运行 **diskmgmt.msc** 以打开磁盘管理，并确保所附磁盘已 **联机** 。 记下分配给保存 \windows 文件夹的附加 OS 磁盘的驱动器号。 如果磁盘已加密，先解密磁盘，然后再继续此文档中的下一步。
+3. 将 OS 磁盘附加到恢复 VM 上后，运行 **diskmgmt.msc** 以打开磁盘管理，并确保所附磁盘已 **联机**。 记下分配给保存 \windows 文件夹的附加 OS 磁盘的驱动器号。 如果磁盘已加密，先解密磁盘，然后再继续此文档中的下一步。
 
 4. 打开权限提升的命令提示符实例（“以管理员身份运行”）。 运行以下命令获取附加 OS 磁盘上的更新包列表：
 
@@ -80,6 +80,6 @@ ms.locfileid: "93104152"
     > [!NOTE] 
     > DISM 工具需要一些时间来处理取消安装，具体取决于包的大小。 通常情况下，该过程在 16 分钟内完成。
 
-7. [分离 OS 磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk)。 然后检查是否解决了问题。
+7. [分离 OS 磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk)。 然后检查是否解决了问题。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

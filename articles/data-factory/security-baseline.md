@@ -5,15 +5,15 @@ author: WenJason
 ms.service: security
 ms.topic: conceptual
 origin.date: 06/05/2020
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0867a125a5a4e0b9f8cbca78cdda5d6fe9584e6b
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 8559397cd8a996f761ff6f9805e67cfc6418c46f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680480"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830184"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>适用于 Azure 数据工厂的 Azure 安全基线
 
@@ -23,7 +23,7 @@ ms.locfileid: "94680480"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -187,7 +187,7 @@ ms.locfileid: "94680480"
 
 * [如何配置诊断设置](/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-in-azure-portal)
 
-* [如何开始将 Azure Monitor 与第三方 SIEM 集成](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+* [如何开始使用 Azure Monitor 和第三方 SIEM 集成](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Azure 安全中心监视**：是
 
@@ -492,7 +492,7 @@ ms.locfileid: "94680480"
 
 **指导**：如果云数据存储支持 HTTPS 或 TLS，则数据工厂中数据移动服务与云数据存储之间的所有数据传输均通过安全通道 HTTPS 或 TLS 进行。 使用的 TLS 版本为 1.2。
 
-在与数据库相互传输数据时，与 Azure SQL 数据库和 Azure Synapse Analytics（以前称为 SQL 数据仓库）的所有连接需要经过加密 (SSL/TLS)。 在使用 JSON 创作管道时，请在连接字符串中添加 encryption 属性并将其设置为 true。 对于 Azure 存储，可以在连接字符串中使用 HTTPS。
+在与数据库相互传输数据时，与 Azure SQL 数据库和 Azure Synapse Analytics 的所有连接都需要加密 (SSL/TLS)。 在使用 JSON 创作管道时，请在连接字符串中添加 encryption 属性并将其设置为 true。 对于 Azure 存储，可以在连接字符串中使用 HTTPS。
 
 * [了解 Azure 数据工厂中的传输中加密](./data-movement-security-considerations.md)
 
@@ -550,7 +550,7 @@ ms.locfileid: "94680480"
 
 * [了解 Azure 数据工厂中的静态加密](./data-movement-security-considerations.md)
 
-* [Azure 托管磁盘的服务器端加密](../virtual-machines/windows/disk-encryption.md)
+* [Azure 托管磁盘的服务器端加密](../virtual-machines/disk-encryption.md)
 
 * [适用于 Windows VM 的 Azure 磁盘加密](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -586,8 +586,6 @@ ms.locfileid: "94680480"
 
 * [如何启用高级数据安全](../azure-sql/database/azure-defender-for-sql.md)
 
-* [如何实现 Azure 安全中心漏洞评估建议](/security-center/security-center-vulnerability-assessment-recommendations)
-
 **Azure 安全中心监视**：是
 
 **责任**：客户
@@ -598,9 +596,9 @@ ms.locfileid: "94680480"
 
 对于 Azure 管理的底层平台，Azure 会将所有客户内容视为敏感数据，竭尽全力防范客户数据丢失和泄露。 为了确保 Azure 中的客户数据保持安全，Azure 已实施并维护一套可靠的数据保护控制机制和功能。
 
-* [Azure 中的更新管理解决方案](/automation/update-management/overview)
+* [Azure 中的更新管理解决方案](../automation/update-management/overview.md)
 
-* [管理 Azure VM 的更新和修补程序](/automation/update-management/manage-updates-for-vm)
+* [管理 Azure VM 的更新和修补程序](../automation/update-management/manage-updates-for-vm.md)
 
 * [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
@@ -612,33 +610,11 @@ ms.locfileid: "94680480"
 
 **指导**：如果在 Azure 虚拟机 (VM) 中运行 Integration Runtime，则可以使用第三方补丁管理解决方案。 可以使用 Azure 更新管理解决方案来管理虚拟机的更新和补丁。 更新管理依赖于本地配置的更新存储库来修补受支持的 Windows 系统。 可以使用 System Center Updates Publisher (Updates Publisher) 之类的工具将自定义更新发布到 Windows Server Update Services (WSUS) 中。 在这种情况下，允许更新管理使用第三方软件来修补使用 Configuration Manager 作为其更新存储库的计算机。
 
-* [Azure 中的更新管理解决方案](/automation/update-management/overview)
+* [Azure 中的更新管理解决方案](../automation/update-management/overview.md)
 
-* [管理 Azure VM 的更新和修补程序](/automation/update-management/manage-updates-for-vm)
-
-**Azure 安全中心监视**：目前不可用
-
-**责任**：客户
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4：比较连续进行的漏洞扫描
-
-**指导**：如果在 Azure 虚拟机上运行 Integration Runtime，请以一致的间隔导出扫描结果，并比较结果以验证漏洞是否已修复。 使用 Azure 安全中心提出的漏洞管理建议时，可以转到选定解决方案的门户查看历史扫描数据。
-
-* [了解用于虚拟机的集成漏洞扫描程序](/security-center/built-in-vulnerability-assessment)
+* [管理 Azure VM 的更新和修补程序](../automation/update-management/manage-updates-for-vm.md)
 
 **Azure 安全中心监视**：目前不可用
-
-**责任**：客户
-
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5：使用风险评级过程来确定已发现漏洞的修正措施的优先级
-
-**指导**：如果在 Azure 虚拟机中运行 Integration Runtime，则可以使用原生漏洞扫描程序。 Azure 安全中心随附的漏洞扫描程序由 Qualys 提供支持。 Qualys 的扫描程序是用于实时识别 Azure 虚拟机中的漏洞的领先工具。
-
-当安全中心识别到漏洞时，它会提供结果和相关信息作为建议。 相关信息包括修正步骤、相关 CVE、CVSS 分数，等等。 你可以查看为一个或多个订阅或者为特定虚拟机识别出的漏洞。
-
-* [用于虚拟机的集成漏洞扫描程序](/security-center/built-in-vulnerability-assessment)
-
-**Azure 安全中心监视**：是
 
 **责任**：客户
 
@@ -1070,7 +1046,7 @@ ms.locfileid: "94680480"
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
 此外，请明确标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
 

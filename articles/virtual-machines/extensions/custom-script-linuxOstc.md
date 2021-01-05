@@ -6,21 +6,22 @@ manager: gwallace
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: bafa453f903ee8b875c0e09227123e5f8ced193b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2f2d2d3b25fbb32f8145151486969263b3e691f3
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106176"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857006"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -49,10 +50,9 @@ ms.locfileid: "93106176"
     * Debian 8.7 未在最新映像中随附 Python2，这将中断 CustomScriptForLinux。
 * FreeBSD
 * OpenSUSE 13.1 和更高版本
+* Oracle Linux 6.4 和更高版本
 * SUSE Linux Enterprise Server 11 SP3 和更高版本
 * Ubuntu 12.04 和更高版本
-
-<!--Not Avaialble on * Oracle Linux 6.4 and higher-->
 
 ### <a name="script-location"></a>脚本位置
 

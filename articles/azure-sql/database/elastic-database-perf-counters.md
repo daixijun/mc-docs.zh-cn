@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seoapril2019, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 02/07/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 14540078f77488935a3dc06a8bd5092a82f57156
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 870ed0d12b75b4a63870692f8eae08a3a5a6d51c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227810"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830112"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>创建性能计数器，以便跟踪分片映射管理器的性能
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "86227810"
 以下事件会触发性能计数器创建：  
 
 * 如果 ShardMapManager 包含任何分片映射，使用[预先加载](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy)初始化 [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)。 这包括 [GetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) 和 [TryGetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) 方法。
-* 成功查找分片映射（使用 [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx)、[GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) 或 [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)）。
+* 成功查找分片映射（使用 [GetShardMap()](https://docs.microsoft.com/previous-versions/azure/dn824215(v=azure.100))、[GetListShardMap()](https://docs.microsoft.com/previous-versions/azure/dn824212(v=azure.100)) 或 [GetRangeShardMap()](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))）。
 * 使用 CreateShardMap() 成功创建分片映射。
 
 对分片映射和映射执行的所有缓存操作将会更新性能计数器。 使用 DeleteShardMap() 成功删除分片映射会导致删除性能计数器实例。  

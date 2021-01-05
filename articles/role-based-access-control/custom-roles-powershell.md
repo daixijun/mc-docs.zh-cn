@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 677c31fd6dbc27b3be227df7a0023d9e2170d05b
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 9fe911853019881eba24c1b144468b78370b9ea3
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326482"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829464"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>使用 Azure PowerShell 创建或更新 Azure 自定义角色
 
@@ -394,5 +394,5 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure 自定义角色](custom-roles.md)
-- [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
+- [Azure 资源提供程序操作](resource-provider-operations.md)
 

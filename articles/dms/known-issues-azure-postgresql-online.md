@@ -14,13 +14,13 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 origin.date: 02/20/2020
-ms.date: 03/09/2020
-ms.openlocfilehash: 680af7b211cd54a8e58c43a6d0a1cbea27e70d16
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 01/04/2021
+ms.openlocfilehash: 5c1662e3af14b7d73f35fc7ab7ec4532b49657ef
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472569"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856944"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>从 PostgreSQL 联机迁移到 Azure DB for PostgreSQL 时的已知问题/迁移限制
 
@@ -39,8 +39,8 @@ ms.locfileid: "92472569"
   2. 向 pg_hba.conf 文件添加 IP 地址，如下所示：
 
       ```
-          host  all     172.16.136.18/10    md5
-          host  replication postgres    172.16.136.18/10    md5
+          host    all    172.16.136.18/10    md5
+          host    replication postgres    172.16.136.18/10     md5
       ```
 
 - 用户必须在托管源数据库的服务器上具有“复制”角色。
@@ -48,7 +48,7 @@ ms.locfileid: "92472569"
 - 目标 Azure Database for PostgreSQL 单一服务器中的架构不能包含外键。 使用以下查询来删除外键：
 
     ```
-                                SELECT Queries.tablename
+                  SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
                 ,concat('alter table ', Queries.tablename, ' ', 
                                                 STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
@@ -86,35 +86,35 @@ ms.locfileid: "92472569"
 - 可以使用单个 DMS 服务将最多 2 TB 的数据从 PostgreSQL 迁移到 Azure DB for PostgreSQL。
 ## <a name="datatype-limitations"></a>数据类型限制
 
-  **限制** ：如果表中没有主键，则所做的更改可能不会同步到目标数据库。
+  **限制**：如果表中没有主键，则所做的更改可能不会同步到目标数据库。
 
-  **解决方法** ：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
+  **解决方法**：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>从 AWS RDS PostgreSQL 联机迁移时的限制
 
 尝试从 AWS RDS PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时，你可能会遇到以下错误。
 
-- **错误** ：数据库“{database}”的表“{table}”中的列“{column}”的默认值在源服务器和目标服务器上有所不同。 在源服务器上，值为“{value on source}”，而在目标服务器上，值则为“{value on target}”。
+- **错误**：数据库“{database}”的表“{table}”中的列“{column}”的默认值在源服务器和目标服务器上有所不同。 在源服务器上，值为“{value on source}”，而在目标服务器上，值则为“{value on target}”。
 
-  **限制** ：如果列架构上的默认值在源数据库与目标数据库之间有所不同，则会出现此错误。
-  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制**：如果列架构上的默认值在源数据库与目标数据库之间有所不同，则会出现此错误。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema)。
 
-- **错误** ：目标数据库“{database}”包含“{number of tables}”个表，而源数据库“{database}”包含“{number of tables}”个表。 源数据库和目标数据库中表的数目应当匹配。
+- **错误**：目标数据库“{database}”包含“{number of tables}”个表，而源数据库“{database}”包含“{number of tables}”个表。 源数据库和目标数据库中表的数目应当匹配。
 
-  **限制** ：当源数据库与目标数据库的表数不同时，将出现此错误。
+  **限制**：当源数据库与目标数据库的表数不同时，将出现此错误。
 
-  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema)。
 
 - **错误：** 源数据库 {database} 为空
 
-  **限制** ：当源数据库为空时，会出现此错误。 这最有可能是因为你选择了错误的数据库作为源数据库。
+  **限制**：当源数据库为空时，会出现此错误。 这最有可能是因为你选择了错误的数据库作为源数据库。
 
-  **解决方法** ：反复检查选择迁移的源数据库，然后重试。
+  **解决方法**：反复检查选择迁移的源数据库，然后重试。
 
 - **错误：** 目标数据库 {database} 为空。 请迁移架构。
 
-  **限制** ：当目标数据库上没有架构时，会出现此错误。 确保目标上的架构与源上的架构匹配。
-  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制**：当目标数据库上没有架构时，会出现此错误。 确保目标上的架构与源上的架构匹配。
+  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema)。
 
 ## <a name="other-limitations"></a>其他限制
 

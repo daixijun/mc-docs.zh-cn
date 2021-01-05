@@ -7,12 +7,12 @@ origin.date: 03/10/2020
 ms.date: 10/29/2020
 ms.author: v-jay
 ms.reviewer: vanto
-ms.openlocfilehash: a32231b56864584e436ce204dc5af9bbb7660089
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: d9270db2f1e77442bbb42988a63d5342f513ff5e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470789"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830520"
 ---
 在此步骤中，你将创建[逻辑 SQL 服务器](../database/logical-servers.md)和使用 AdventureWorksLT 示例数据的[单一数据库](../database/single-database-overview.md)。 可以通过使用 Azure 门户菜单和屏幕，或通过使用 Azure CLI 或 PowerShell 脚本来创建数据库。
 
@@ -32,10 +32,10 @@ ms.locfileid: "92470789"
 1. 在“资源组”下选择“新建”，输入“MyResourceGroup”，然后选择“确定” 。
 1. 在“数据库详细信息”下，为“数据库名称”输入“mySampleDatabase”。
 1. 对于“服务器”，选择“新建”，并按如下所示在“新服务器”窗体中填写信息：
-   - **服务器名称** ：输入“mysqlserver”和一些字符以实现唯一性。
-   - **服务器管理员登录名** ：输入“azureuser”。
-   - **密码** ：输入符合要求的密码，然后在“确认密码”字段中再次输入该密码。
-   - **位置** ：单击下拉箭头并选择一个位置，例如“中国东部 2”。
+   - **服务器名称**：输入“mysqlserver”和一些字符以实现唯一性。
+   - **服务器管理员登录名**：输入“azureuser”。
+   - **密码**：输入符合要求的密码，然后在“确认密码”字段中再次输入该密码。
+   - **位置**：单击下拉箭头并选择一个位置，例如“中国东部 2”。
 
    选择“确定” 。
 
@@ -77,7 +77,7 @@ ms.locfileid: "92470789"
 
 以下 Azure CLI 代码将创建用于访问服务器的资源组、服务器、单一数据库和服务器级 IP 防火墙规则。 请确保记录生成的资源组和服务器名称，以便可以在以后管理这些资源。
 
-```azurecli-
+```azurecli
 #!/bin/bash
 
 # Sign in to Azure and set execution context (if necessary)

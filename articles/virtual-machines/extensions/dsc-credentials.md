@@ -1,31 +1,30 @@
 ---
-title: 将凭据传递给 Azure DSC 扩展处理程序
+title: 使用所需状态配置将凭据传递给 Azure
 description: 了解如何使用 PowerShell 所需状态配置 (DSC) 安全地将凭据传递给 Azure 虚拟机。
 services: virtual-machines-windows
-author: rockboyfor
-manager: digimobile
+manager: carmonm
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 11/11/2019
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
-ms.openlocfilehash: 1bf816099675bc0e5cfde1e491c0a2a47ab2ac53
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d65ee7b16f15232f537cc3ddf3d5e3e683effabb
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105579"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856706"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 
 本文介绍了 Azure 的所需状态配置 (DSC) 扩展。 有关 DSC 扩展处理程序的概述，请参阅 [Azure 所需状态配置扩展处理程序](dsc-overview.md)。
-
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>传入凭据
 

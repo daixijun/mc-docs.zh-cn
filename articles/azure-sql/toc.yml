@@ -1,7 +1,11 @@
 - name: Azure SQL 文档
   href: index.yml
-- name: 什么是 Azure SQL？
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL
+  items:
+    - name: 什么是 Azure SQL？
+      href: azure-sql-iaas-vs-paas-what-is-overview.md
+    - name: 迁移到 Azure SQL
+      href: migration-guides/index.yml
 - name: 共享 SQL DB 和 SQL MI 文档
   items:
     - name: 购买模型
@@ -35,6 +39,8 @@
           href: database/scale-resources.md
         - name: 读取横向扩展
           href: database/read-scale-out.md
+        - name: 分布式事务
+          href: database/elastic-transactions-overview.md
         - name: 安全性
           items:
             - name: 概述
@@ -45,15 +51,15 @@
             - name: Azure Policy 的安全控件
               displayName: 'regulatory, compliance, standards, domains'
               href: ./database/security-controls-policy.md
-            - name: 安全属性
-              href: database/security-controls.md
+            - name: 安全基线
+              href: database/security-baseline.md
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: 高级威胁防护
               href: database/threat-detection-overview.md
             - name: 数据发现和分类
               href: database/data-discovery-and-classification-overview.md
-            - name: 动态数据掩码
+            - name: 动态数据屏蔽
               href: database/dynamic-data-masking-overview.md
             - name: SQL 漏洞评估
               items:
@@ -61,6 +67,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: 漏洞评估规则
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: 漏洞评估规则更改日志
+                  href: database/sql-database-vulnerability-assessment-rules-changelog.md
                 - name: 在存储中存储漏洞扫描结果
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: 登录名、用户帐户、角色和权限
@@ -109,8 +117,6 @@
               href: database/monitor-tune-overview.md
             - name: Intelligent Insights
               href: database/intelligent-insights-overview.md
-            - name: SQL Analytics
-              href: /log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
             - name: 自动优化
               href: database/automatic-tuning-overview.md
             - name: 内存中 OLTP
@@ -190,15 +196,15 @@
             - name: 使用 Spark 连接器
               href: database/spark-connector.md
             - name: 使用 ASP.NET 应用服务
-              href: /app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/azure-sql/toc.json
+              href: ../app-service/app-service-web-tutorial-dotnet-sqldatabase.md?toc=%252fazure-sql%252ftoc.json
             - name: 使用 Azure Functions
-              href: /azure-functions/functions-scenario-database-table-cleanup?toc=/azure/azure-sql/toc.json
+              href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=%252fazure-sql%252ftoc.json
             - name: 使用 Azure 逻辑应用
-              href: /connectors/connectors-create-api-sqlazure?toc=/azure/azure-sql/toc.json
+              href: ../connectors/connectors-create-api-sqlazure.md?toc=%252fazure-sql%252ftoc.json
             - name: 使用 Azure 认知搜索编制索引
-              href: /search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/azure-sql/toc.json
+              href: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md?toc=%252fazure-sql%252ftoc.json
             - name: 服务器端 CLR/.NET 集成
-              href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
+              href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=%252fazure-sql%252ftoc.json'
             - name: Java
               items:
                 - name: 使用 Java 和 JDBC
@@ -287,6 +293,16 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: 将 SQLite 迁移到无服务器
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+    - name: 迁移指南
+      items:
+        - name: 从 DB2
+          href: migration-guides/database/db2-to-sql-database-guide.md
+        - name: 从 SQL Server
+          items:
+            - name: 概述
+              href: migration-guides/database/sql-server-to-sql-database-overview.md
+            - name: Migrate
+              href: migration-guides/database/sql-server-to-sql-database-guide.md
     - name: 概念
       items:
         - name: 连接体系结构
@@ -347,8 +363,10 @@
               href: database/network-access-controls-overview.md
             - name: DNS 别名
               href: database/dns-alias-overview.md
-            - name: vNet 终结点
+            - name: VNet 终结点
               href: database/vnet-service-endpoint-rule-overview.md
+            - name: 专用链接
+              href: database/private-endpoint-overview.md
         - name: 数据库分片
           items:
             - name: 数据库分片
@@ -604,6 +622,18 @@
               href: managed-instance/replication-between-two-instances-configure-tutorial.md
             - name: MI 公网、MI 区域、SQL 子网
               href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
+    - name: 迁移指南
+      items:
+        - name: 从 DB2
+          href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+        - name: 从 SQL Server
+          items:
+            - name: 概述
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            - name: Migrate
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            - name: 性能基线
+              href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
     - name: 概念
       items:
         - name: 资源限制
@@ -627,11 +657,11 @@
         - name: 功能
           items:
             - name: 链接服务器
-              href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json'
+              href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%252fazure-sql%252ftoc.json'
             - name: Service Broker
-              href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json'
+              href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=%252fazure-sql%252ftoc.json'
             - name: 数据库邮件
-              href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json'
+              href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=%252fazure-sql%252ftoc.json'
         - name: 安全性
           items:
             - name: 保护公共终结点
@@ -698,6 +728,8 @@
           items:
             - name: 什么是 SQL Server VM？
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+            - name: 新增功能
+              href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: 快速入门
           items:
             - name: 门户
@@ -716,16 +748,24 @@
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
                 - name: 可用性组 (AG)
                   href: virtual-machines/windows/availability-group-overview.md
+                - name: 故障转移群集实例
+                  href: virtual-machines/windows/failover-cluster-instance-overview.md
             - name: 最佳做法
               items:
                 - name: 性能
                   href: virtual-machines/windows/performance-guidelines-best-practices.md
                 - name: 安全性
                   href: virtual-machines/windows/security-considerations-best-practices.md
+                - name: 群集配置
+                  href: virtual-machines/windows/hadr-cluster-best-practices.md
                 - name: 应用程序模式
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: 管理
               items:
+                - name: SQL IaaS 代理扩展
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
+                - name: 专用主机
+                  href: virtual-machines/windows/dedicated-host.md
                 - name: 扩展对 SQL 2008 和 R2 的支持
                   href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
         - name: 操作指南
@@ -742,18 +782,16 @@
               items:
                 - name: 存储
                   href: virtual-machines/windows/storage-configuration.md
+                - name: 自动修补
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Azure Key Vault 集成
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
-                - name: 自动执行管理任务
-                  items:
-                    - name: 使用 SQL Server IaaS 代理扩展
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: 自动修补
-                      href: virtual-machines/windows/automated-patching.md
             - name: 迁移
               items:
                 - name: SQL Server 数据库到 VM
                   href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
+                - name: VM 到新区域
+                  href: virtual-machines/windows/move-sql-vm-different-region.md
             - name: 业务连续性
               items:
                 - name: 备份和还原
@@ -764,18 +802,50 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: 可用性组 (AG)
                   items:
-                    - name: 手动配置
+                    - name: 创建 AG
                       items:
-                        - name: 先决条件
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: 教程
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: 负载均衡器 - Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: 手动配置
+                          items:
+                            - name: 先决条件
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: 教程
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: 负载均衡器 - Azure 门户
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: 负载均衡器 - Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: 多个区域
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: 独立于域（工作组）
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                    - name: 配置连接
+                      items:
+                        - name: VNN 侦听器
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: DNN 侦听器
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: DNN 互操作性
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: 故障转移群集实例 (FCI)
                   items:
-                    - name: 存储空间直通 (Win2016+)
-                      href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+                    - name: 创建 FCI
+                      items:
+                        - name: Azure 共享磁盘
+                          href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+                        - name: 存储空间直通 (Win2016+)
+                          href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+                        - name: 高级文件共享 (Win2012+)
+                          href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+                    - name: 配置连接
+                      items:
+                        - name: 虚拟网络名称 (VNN)
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: 分布式网络名称 (DNN)
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: DNN 互操作性
+                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
         - name: 参考
           items:
             - name: Azure PowerShell
@@ -831,6 +901,10 @@
               href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
             - name: Stack Overflow
               href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
+    - name: 迁移指南
+      items:
+        - name: 从 DB2
+          href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
 - name: 参考
   items:
     - name: T-SQL 语言参考
@@ -859,7 +933,7 @@
     - name: SQLCMD
       href: 'https://docs.microsoft.com/sql/tools/sqlcmd-utility'
     - name: SqlPackage
-      href: 'https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/azure-sql/toc.json'
+      href: 'https://docs.microsoft.com/sql/tools/sqlpackage?toc=%252fazure-sql%252ftoc.json'
     - name: SQL 数据库管理库包
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: SQL 连接驱动程序

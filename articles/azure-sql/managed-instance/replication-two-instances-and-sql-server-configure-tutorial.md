@@ -8,15 +8,15 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein
+ms.reviewer: ''
 origin.date: 11/21/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 0c4724e7ad283677e9b58d87a08ee44f860c2421
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/21/2020
+ms.openlocfilehash: b94af12f050765516716a39ebad1fc69cec9b620
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432489"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830245"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>教程：在 Azure SQL 托管实例和 SQL Server 之间配置事务复制
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "96432489"
 
 
 > [!NOTE]
-> 本文介绍了如何在 Azure SQL 托管实例中使用[事务复制](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)。 它与[故障转移组](/sql-database/sql-database-auto-failover-group)无关，这是一项 Azure SQL 托管实例功能，可用于创建单个实例的完整可读副本。 配置[故障转移组的事务复制](replication-transactional-overview.md#with-failover-groups)时还有其他注意事项。
+> 本文介绍了如何在 Azure SQL 托管实例中使用[事务复制](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)。 它与[故障转移组](../database/auto-failover-group-overview.md)无关，这是一项 Azure SQL 托管实例功能，可用于创建单个实例的完整可读副本。 配置[故障转移组的事务复制](replication-transactional-overview.md#with-failover-groups)时还有其他注意事项。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +49,7 @@ ms.locfileid: "96432489"
 - 尝试在同一虚拟网络中部署两个托管实例。
 - 本地或 Azure VM 上的 SQL Server 订阅服务器。 本教程使用 Azure VM。  
 - [SQL Server Management Studio (SSMS) 18.0 或更高版](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。
-- 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.7.0)。
+- 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 - 端口 445 和 1433 允许 Azure 防火墙和 Windows 防火墙上的 SQL 流量。
 
 ## <a name="create-the-resource-group"></a>创建资源组
@@ -183,7 +183,7 @@ Get-AzVirtualNetworkPeering `
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-为工作目录[创建 Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。
+为工作目录[创建 Azure 存储帐户](../../storage/common/storage-account-create.md#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。
 
 复制采用 `\\storage-account-name.file.core.chinacloudapi.cn\file-share-name` 格式的文件共享路径   
 

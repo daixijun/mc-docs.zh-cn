@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 12/05/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 42a8f852c3a6a6e077da64c2c82f4007447f45c6
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 134b13aaf86ef3f95e6d52cfd6fbe84a3461f004
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227129"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830134"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "86227129"
 
 ### <a name="stored-procedure-execution"></a>存储过程执行
 
-使用 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) 执行远程存储过程调用或远程函数。
+使用 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) 执行远程存储过程调用或远程函数。
 
 ### <a name="flexibility"></a>灵活性
 
@@ -88,10 +88,10 @@ ms.locfileid: "86227129"
 
 通过以下步骤，为垂直分区方案（需要访问 SQL 数据库中具有相同架构的远程数据库中的表）配置弹性数据库查询：
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
-* **RDBMS** 类型的 [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
+* **RDBMS** 类型的 [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource
+* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 运行 DDL 语句后，可以访问远程表“mytable”，就像它是本地表一样。 Azure SQL 数据库会自动打开与远程数据库的连接，处理远程数据库上的请求并返回结果。
 
@@ -121,7 +121,7 @@ ms.locfileid: "86227129"
 若要开始编写代码，请参阅[弹性查询入门 - 水平分区（分片）](elastic-query-getting-started.md)。
 
 > [!IMPORTANT]
-> 能否对大量的数据库成功执行弹性查询，在很大程度上取决于执行查询期间每个数据库的可用性。 如果其中的某个数据库不可用，整个查询将会失败。 如果你打算一次性查询数百甚至数千个数据库，请确保客户端应用程序中嵌入了重试逻辑，或者考虑利用[弹性数据库作业](/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview)（预览版）并查询一小部分数据库，然后将每个查询的结果合并到一个目标中。
+> 能否对大量的数据库成功执行弹性查询，在很大程度上取决于执行查询期间每个数据库的可用性。 如果其中的某个数据库不可用，整个查询将会失败。 如果你打算一次性查询数百甚至数千个数据库，请确保客户端应用程序中嵌入了重试逻辑，或者考虑利用[弹性数据库作业](./job-automation-overview.md#elastic-database-jobs-preview)（预览版）并查询一小部分数据库，然后将每个查询的结果合并到一个目标中。
 
 ## <a name="t-sql-querying"></a>T-SQL 查询
 
@@ -156,7 +156,7 @@ Azure SQL 数据库的成本中涵盖了弹性查询。 请注意，支持远程
 * 有关垂直分区数据的语法和示例查询，请参阅[查询垂直分区数据](elastic-query-vertical-partitioning.md)
 * 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](elastic-query-getting-started.md)。
 * 有关水平分区数据的语法和示例查询，请参阅[查询水平分区数据](elastic-query-horizontal-partitioning.md)
-* 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+* 请参阅 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
 
 <!--Image references-->
 [1]: ./media/elastic-query-overview/overview.png

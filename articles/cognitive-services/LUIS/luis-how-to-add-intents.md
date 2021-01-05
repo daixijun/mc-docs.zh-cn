@@ -3,34 +3,34 @@ title: 添加意向 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 向 LUIS 应用添加意向，识别具有相同意向的问题或命令组。
 services: cognitive-services
-author: diberry
+author: Johnnytechn
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 12/28/2020
 origin.date: 05/17/2020
-ms.author: v-tawe
+ms.author: v-johya
 ms.service: cognitive-services
-ms.openlocfilehash: 99b652116069d84e4ff9859879b726a81690afcf
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 3f8e7684c8f5ad57c921ce04012d3d30f66631d4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102008"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857154"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>添加意向以确定用户的话语意向
 
 向 LUIS 应用添加[意向](luis-concept-intent.md)，识别具有相同意向的问题或命令组。
 
-在 LUIS 门户中，可以依次转到顶部导航栏的“生成”部分和左侧面板的“意向”来管理意向**** ****。
+在 LUIS 门户中，可以依次转到顶部导航栏的“生成”部分和左侧面板的“意向”来管理意向 。
 
 ## <a name="add-an-intent-to-your-app"></a>向应用程序添加意向
 
-1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”**** 和“创作资源”**** 以查看分配给该创作资源的应用。
-1. 在“我的应用”页上选择应用名称以打开应用****。
-1. 在“意向”页上，选择“+ 创建”**** ****。
-1. 在“创建新意向”对话框中，输入意向名称（例如 `ModifyOrder`），然后选择“完成”**** ****。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 在“我的应用”页上选择应用名称以打开应用。
+1. 在“意向”页上，选择“+ 创建” 。
+1. 在“创建新意向”对话框中，输入意向名称（例如 `ModifyOrder`），然后选择“完成” 。
 
     > [!div class="mx-imgBorder"]
     > ![添加意向](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -54,12 +54,12 @@ ms.locfileid: "85102008"
 
 当未使用受过训练的应用来预测意向的言语时，将确定为一个意向预测错误。
 
-1. 若要找出并解决言语预测错误，请使用“不正确”或“不明确”这两个“筛选器”选项****。
+1. 若要找出并解决言语预测错误，请使用“不正确”或“不明确”这两个“筛选器”选项。
 
     > [!div class="mx-imgBorder"]
     > ![若要找出并修复言语预测错误，请使用“筛选器”选项。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-1. 若要在“意向详细信息”页面上显示分数值，请从“查看”选项菜单中选择“显示详细意向分数”**** ****。
+1. 若要在“意向详细信息”页面上显示分数值，请从“查看”选项菜单中选择“显示详细意向分数” 。
 
     应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。
 
@@ -84,4 +84,5 @@ ms.locfileid: "85102008"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解如何添加包含实体的[示例话语](luis-how-to-add-example-utterances.md)。
+详细了解如何添加包含实体的[示例话语](./luis-how-to-add-entities.md)。
+

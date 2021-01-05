@@ -10,12 +10,12 @@ origin.date: 02/22/2019
 ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0ff678fa844334b7e5fb4bbaaa583915cb91a004
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: daa7d8b0ce2c4b3f4a79b23e5b6a28a018a82bfd
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747116"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830091"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试与 IoT 中心的连接
 
@@ -30,14 +30,7 @@ ms.locfileid: "96747116"
 > * 检查云到设备的连接性
 > * 检查设备孪生同步
 
-
-## <a name="prerequisites"></a>先决条件
-
-本教程中运行的 CLI 脚本使用[适用于 Azure CLI 的 Microsoft Azure IoT 扩展](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)。 若要安装此扩展，请运行以下 CLI 命令：
-
-```azurecli
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

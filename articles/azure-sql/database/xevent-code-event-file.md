@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
 origin.date: 06/06/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 3fe9c19ca0b7757f69595045722f7088a078d78c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: 58dc3c3cebf0eb1cf5a3109f7d5d2bed9bc8d3d3
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432029"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829673"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL 数据库中扩展事件的事件文件目标代码
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "96432029"
 
 需要完整的代码示例来可靠捕获和报告扩展事件的信息。
 
-在 Microsoft SQL Server 中，[事件文件目标](https://msdn.microsoft.com/library/ff878115.aspx)用于将事件输出存储在本地硬盘驱动器文件中。 但是，此类文件并不适用于 Azure SQL 数据库。 我们改为使用 Azure 存储服务来支持事件文件目标。
+在 Microsoft SQL Server 中，[事件文件目标](https://docs.microsoft.com/previous-versions/sql/sql-server-2016/ff878115(v=sql.130))用于将事件输出存储在本地硬盘驱动器文件中。 但是，此类文件并不适用于 Azure SQL 数据库。 我们改为使用 Azure 存储服务来支持事件文件目标。
 
 本主题演示了一个两阶段代码示例：
 
@@ -50,7 +50,7 @@ ms.locfileid: "96432029"
 - SQL Server Management Studio (ssms.exe)，最好是每月最新更新版。
   可从以下位置下载最新的 ssms.exe：
   
-  - 标题为[下载 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 的主题。
+  - 标题为[下载 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 的主题。
   - [直接指向下载位置的链接。](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - 必须安装 [Azure PowerShell 模块](https://go.microsoft.com/?linkid=9811175) 。
@@ -497,11 +497,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 前面的 Transact-SQL 脚本使用以下系统函数来读取 event_file：
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 可在以下位置获取用于查看扩展事件数据的高级选项的说明：
 
-- [扩展事件的目标数据的高级视图](https://msdn.microsoft.com/library/mt752502.aspx)
+- [扩展事件的目标数据的高级视图](https://docs.microsoft.com/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>转换代码示例以在 SQL Server 上运行
 
@@ -518,8 +518,8 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 有关 Azure 存储服务中帐户和容器的详细信息，请参阅：
 
 - [如何通过 .NET 使用 Blob 存储](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [命名和引用容器、Blob 与元数据](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [课程 1：在 Azure 容器上创建存储访问策略和共享访问签名](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [第 2 课：使用共享访问签名创建 SQL Server 凭据](https://msdn.microsoft.com/library/dn466435.aspx)
+- [命名和引用容器、Blob 与元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [使用根容器](https://docs.microsoft.com/rest/api/storageservices/Working-with-the-Root-Container)
+- [课程 1：在 Azure 容器上创建存储访问策略和共享访问签名](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [第 2 课：使用共享访问签名创建 SQL Server 凭据](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
 - [Microsoft SQL Server 扩展事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 6f4ba9824ae1623c003ef320616469ff47a60f5e
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: a74c97ae8df84853314d0f7b7b03153207e07830
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914287"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829435"
 ---
 # <a name="understand-azure-role-definitions"></a>了解 Azure 角色定义
 
@@ -339,5 +339,5 @@ Bob 的权限限制为[存储 Blob 数据参与者](built-in-roles.md#storage-bl
 
 * [Azure 内置角色](built-in-roles.md)
 * [Azure 自定义角色](custom-roles.md)
-* [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
+* [Azure 资源提供程序操作](resource-provider-operations.md)
 

@@ -3,15 +3,15 @@ title: 如何为 Azure 自动化更新管理创建更新部署
 description: 本文介绍如何计划更新部署并查看其状态。
 services: automation
 ms.subservice: update-management
-origin.date: 10/27/2020
-ms.date: 11/23/2020
+origin.date: 12/09/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: c653a4555ede7d385f48066906d241721f7fa4aa
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 5396987a3ab78eecfb3d4ea1323d609f82abafdd
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680635"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829832"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>如何部署更新和查看结果
 
@@ -110,7 +110,7 @@ ms.locfileid: "94680635"
 
 若要了解如何使用 REST API 创建更新部署，请参阅[软件更新配置 - 创建](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurations/create)。
 
-可以使用示例 runbook 创建每周更新部署。 若要了解有关此 Runbook 的详细信息，请参阅[为资源组中的一个或多个 VM 创建每周更新部署](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1)。
+可以使用示例 runbook 创建每周更新部署。 若要了解有关此 Runbook 的详细信息，请参阅[为资源组中的一个或多个 VM 创建每周更新部署](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group)。
 
 ## <a name="check-deployment-status"></a>检查部署状态
 

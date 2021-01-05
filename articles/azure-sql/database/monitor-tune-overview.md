@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnick, sstein
 origin.date: 09/30/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1f9cb2c907bc9cbd2e0a0afa27e44c9c8284f6be
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 12/14/2020
+ms.openlocfilehash: 8b04b6fcd59ffb9b0f567c6f2110dad1c215e459
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470276"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830152"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL 数据库与 Azure SQL 托管实例中的监视和性能优化
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -100,11 +100,11 @@ Intelligent Insights 是 Azure 内置智能的一项独特功能，提供以下�
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 工作区
 
-可将指标和资源日志流式传输到 [Azure Monitor 中的 Log Analytics 工作区](../../azure-monitor/platform/resource-logs-collect-workspace.md)。
+可将指标和资源日志流式传输到 [Azure Monitor 中的 Log Analytics 工作区](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)。
 
 ### <a name="azure-event-hubs"></a>Azure 事件中心
 
-可将指标和资源日志流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)。 将诊断遥测数据流式传输到事件中心以提供以下功能：
+可将指标和资源日志流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)。 将诊断遥测数据流式传输到事件中心以提供以下功能：
 
 - **将日志流式传输到第三方日志记录和遥测系统**
 
@@ -115,7 +115,7 @@ Intelligent Insights 是 Azure 内置智能的一项独特功能，提供以下�
 
 ### <a name="azure-storage"></a>Azure 存储
 
-将指标和资源日志流式传输到 [Azure 存储](../../azure-monitor/platform/resource-logs-collect-storage.md)。 使用 Azure 存储存档大量诊断遥测数据，并且成本只是前两种流式传输选项的一小部分。
+将指标和资源日志流式传输到 [Azure 存储](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)。 使用 Azure 存储存档大量诊断遥测数据，并且成本只是前两种流式传输选项的一小部分。
 
 ## <a name="use-extended-events"></a>使用扩展事件 
 

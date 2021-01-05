@@ -10,12 +10,12 @@ ms.date: 07/20/2020
 ms.testscope: no
 ms.testdate: 10/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5f3548212afc561da8510a55c150b0623864bc5d
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 3a4dbd240195627cc98062bdc565b7222b06e1f4
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431796"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592796"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>从 Azure 逻辑应用调用 Azure 函数
 
@@ -265,7 +265,7 @@ function convertToDateString(request, response){
 
 * Azure Active Directory (Azure AD) 中租户的目录 ID
 
-    若要获取租户的目录 ID，可以运行 [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) Powershell 命令。 或者，在 Azure 门户中执行以下步骤：
+    若要获取租户的目录 ID，可以运行 [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/get-azureaccount) Powershell 命令。 或者，在 Azure 门户中执行以下步骤：
 
     1. 在 [Azure 门户](https://portal.azure.cn)中，找到并选择你的函数应用。
 

@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
 origin.date: 12/19/2018
-ms.date: 10/29/2020
-ms.openlocfilehash: e8720ce39cc7149319722229cc3326fa0aa5f9fa
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 12/14/2020
+ms.openlocfilehash: 5d0697f0520b2c9d2f8132e5bdd83e9a6e23af77
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472690"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829667"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 数据库中的扩展事件 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Azure SQL 数据库中扩展事件的功能集是 SQL Server 和 Azure SQL 托�
 
 ## <a name="new-catalog-views"></a>新的目录视图
 
-扩展事件功能受多个[目录视图](https://msdn.microsoft.com/library/ms174365.aspx)的支持。 目录视图显示有关当前数据库中用户创建的事件会话的 *元数据或定义* 的信息。 视图不会返回有关活动事件会话的实例的信息。
+扩展事件功能受多个[目录视图](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql)的支持。 目录视图显示有关当前数据库中用户创建的事件会话的 *元数据或定义* 的信息。 视图不会返回有关活动事件会话的实例的信息。
 
 | 目录<br/>视图的名称 | 说明 |
 |:--- |:--- |
@@ -84,9 +84,9 @@ Azure SQL 数据库中扩展事件的功能集是 SQL Server 和 Azure SQL 托�
 
 在 Microsoft SQL Server 中，类似目录视图的名称包含 *.server\_* 而不是 *.database\_* 。 名称模式类似于 **sys.server_event_%** 。
 
-## <a name="new-dynamic-management-views-dmvs"></a>新的动态管理视图 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>新的动态管理视图 [(DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL 数据库具有支持扩展事件的[动态管理视图 (DMV)](https://msdn.microsoft.com/library/bb677293.aspx)。 DMV 显示有关 *活动* 事件会话的信息。
+Azure SQL 数据库具有支持扩展事件的[动态管理视图 (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views)。 DMV 显示有关 *活动* 事件会话的信息。
 
 | DMV 的名称 | 说明 |
 |:--- |:--- |
@@ -98,7 +98,7 @@ Azure SQL 数据库具有支持扩展事件的[动态管理视图 (DMV)](https:/
 
 在 Microsoft SQL Server 中，类似目录视图的名称不包含 *\_database* 部分，例如：
 
-- **sys.dm_xe_sessions** 而不是名称<br/>**sys.dm_xe_database_sessions** 。
+- **sys.dm_xe_sessions** 而不是名称<br/>**sys.dm_xe_database_sessions**。
 
 ### <a name="dmvs-common-to-both"></a>两者通用的 DMV
 
@@ -141,11 +141,11 @@ SELECT
 
 可从 Azure SQL 数据库上的事件会话捕获结果的目标如下：
 
-- [环形缓冲区目标](https://msdn.microsoft.com/library/ff878182.aspx) - 在内存中短暂保存事件数据。
-- [事件计数器目标](https://msdn.microsoft.com/library/ff878025.aspx) - 统计在扩展事件会话期间发生的所有事件。
-- [事件文件目标](https://msdn.microsoft.com/library/ff878115.aspx) - 将完整缓冲区写入 Azure 存储容器。
+- [环形缓冲区目标](https://docs.microsoft.com/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) - 在内存中短暂保存事件数据。
+- [事件计数器目标](https://docs.microsoft.com/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - 统计在扩展事件会话期间发生的所有事件。
+- [事件文件目标](https://docs.microsoft.com/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - 将完整缓冲区写入 Azure 存储容器。
 
-[Windows 事件跟踪 (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API 不适用于 Azure SQL 数据库上的扩展事件。
+[Windows 事件跟踪 (ETW)](https://docs.microsoft.com/dotnet/framework/wcf/samples/etw-tracing) API 不适用于 Azure SQL 数据库上的扩展事件。
 
 ## <a name="restrictions"></a>限制
 
@@ -179,7 +179,7 @@ SELECT
 
 **事件文件** 目标在将数据保存到 Azure 存储 Blob 时可能会遇到网络延迟或故障。 Azure SQL 数据库中的其他事件可能会延迟，因为它们要等待网络通信完成。 这种延迟可能会导致工作负荷变慢。
 
-- 若要缓解这种性能风险，请避免在事件会话定义中将 **EVENT_RETENTION_MODE** 选项设为 **NO_EVENT_LOSS** 。
+- 若要缓解这种性能风险，请避免在事件会话定义中将 **EVENT_RETENTION_MODE** 选项设为 **NO_EVENT_LOSS**。
 
 ## <a name="related-links"></a>相关链接
 
@@ -187,13 +187,13 @@ SELECT
 - [Azure 存储 Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [对 Azure 存储使用 Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/)
 - [如何通过 .NET 使用 Blob 存储](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-event-session-transact-sql)
 - [Jonathan Kehayias 撰写的有关 Microsoft SQL Server 中扩展事件的博客文章](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://docs.microsoft.com/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://docs.microsoft.com/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

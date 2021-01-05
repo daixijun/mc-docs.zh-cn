@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 11/24/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: faa25dff21e6ad04df4a03f4ed16a4a0c5956cac
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/04/2021
+ms.openlocfilehash: 915a98e11562b96138eb871a6d70e1624587dc64
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747149"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830126"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从Azure Databricks Delta Lake 复制数据
 

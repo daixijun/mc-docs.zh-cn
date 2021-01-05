@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/29/2020
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 9f7166efa9396824e7c4dd5c4f3f98cd6ef468d9
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 146a7f63ffd0bcb47521842d6c21187b8dd707d9
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680506"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830308"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure 数据工厂中的 XML 格式
 
@@ -37,7 +37,7 @@ ms.locfileid: "94680506"
 | nullValue | 指定 null 值的字符串表示形式。<br/>默认值为 **空字符串**。 | 否 |
 | compression | 用来配置文件压缩的属性组。 如果需要在活动执行期间进行压缩/解压缩，请配置此部分。 | 否 |
 | type<br>（在 `compression` 下） | 用来读取/写入 XML 文件的压缩编解码器。 <br>允许的值为 bzip2、gzip、deflate、ZipDeflate、TarGzip、Tar、snappy 或 lz4       。 默认设置是不压缩。<br>注意，复制活动当前不支持“snappy”和“lz4”。<br>注意，使用复制活动解压缩 ZipDeflate/TarGzip/Tar 文件并将其写入基于文件的接收器数据存储时，默认情况下文件将提取到 `<path specified in dataset>/<folder named as source compressed file>/` 文件夹，对[复制活动源](#xml-as-source)使用 `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` 来控制是否以文件夹结构形式保留压缩文件名   。 | 否。  |
-| level<br/>（在 `compression` 下） | 压缩率。 <br>允许的值为 **Optimal** 或 **Fastest**。<br>- **Fastest**：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal**：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx)（压缩级别）主题。 | 否       |
+| level<br/>（在 `compression` 下） | 压缩率。 <br>允许的值为 **Optimal** 或 **Fastest**。<br>- **Fastest**：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal**：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://docs.microsoft.com/dotnet/api/system.io.compression.compressionlevel)（压缩级别）主题。 | 否       |
 
 下面是 Azure Blob 存储上的 XML 数据集的示例：
 
@@ -74,7 +74,7 @@ ms.locfileid: "94680506"
 
 复制活动的 **_\_source\*** * 节支持以下属性。 详细了解 [XML 连接器行为](#xml-connector-behavior)。
 
-| 属性      | 说明                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 复制活动的 type 属性必须设置为 XmlSource。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“XML 读取设置”表。 | 否       |
@@ -82,7 +82,7 @@ ms.locfileid: "94680506"
 
 `formatSettings` 下支持的“XML 读取设置”：
 
-| 属性      | 说明                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings 的 type 必须设置为 XmlReadSettings。 | 是      |
 | validationMode | 指定是否要验证 XML 架构。<br>允许的值为 none（默认值、无验证）、xsd（使用 XSD 验证）以及 dtd （使用 DTD 验证）  。 | 否 |

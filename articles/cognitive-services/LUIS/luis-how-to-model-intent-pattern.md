@@ -8,27 +8,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 origin.date: 05/17/2020
-ms.openlocfilehash: fa236b5c945d4954cbd83654dabaa672cc40b98b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 9deb0e995f62aee1165d945f11c94203e06179c8
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472434"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857068"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何添加模式以提高预测准确性
-在 LUIS 应用接收到终结点话语后，请使用[模式](luis-concept-patterns.md)提高话语（按字词顺序和字词选择呈现模式）的预测准确性。 模式使用特定[语法](luis-concept-patterns.md#pattern-syntax)指示[实体](luis-concept-entity-types.md)、实体[角色](luis-concept-roles.md)和可选文本的位置。
+在 LUIS 应用接收到终结点话语后，请使用[模式](luis-concept-patterns.md)提高话语（按字词顺序和字词选择呈现模式）的预测准确性。 模式使用特定[语法](luis-concept-patterns.md#pattern-syntax)指示[实体](luis-concept-entity-types.md)、实体[角色](./luis-concept-entity-types.md)和可选文本的位置。
 
 > [!CAUTION]
 > 模式仅包括机器学习实体父项，而不包括子实体。
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>使用正确的语法添加模板言语
 
-1. 登录到  和“创作资源”  以查看分配给该创作资源的应用。
-1. 在“我的应用”页上选择应用名称以打开应用  。
-1. 在左侧面板中，选择“改进应用性能”下的“模式”   。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 在“我的应用”页上选择应用名称以打开应用。
+1. 在左侧面板中，选择“改进应用性能”下的“模式” 。
 
 1. 为模式选择正确意向。
 
@@ -37,7 +37,7 @@ ms.locfileid: "92472434"
     > [!div class="mx-imgBorder"]
     > ![模式实体的屏幕截图](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    如果实体中包含[角色](luis-concept-roles.md)，请在实体名称后用一个冒号 (`:`) 指示该角色，例如 `{Location:Origin}`。 实体的角色列表将以列表形式显示。 选择该角色，然后按 Enter。
+    如果实体中包含[角色](./luis-concept-entity-types.md)，请在实体名称后用一个冒号 (`:`) 指示该角色，例如 `{Location:Origin}`。 实体的角色列表将以列表形式显示。 选择该角色，然后按 Enter。
 
     > [!div class="mx-imgBorder"]
     > ![包含角色的实体的屏幕截图](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -51,11 +51,11 @@ ms.locfileid: "92472434"
 
 [Pattern.any](luis-concept-entity-types.md) 实体仅在[模式](luis-how-to-model-intent-pattern.md)中有效，在意向的示例言语中无效。 此类实体有助于 LUIS 查找不同长度和字词选择的实体结尾。 由于此实体会在模式中使用，因此，LUIS 可识别实体末尾在话语模板中的位置。
 
-1. 登录到  和“创作资源”  以查看分配给该创作资源的应用。
-1. 在“我的应用”页上选择应用名称以打开应用  。
-1. 在“生成”部分的左侧面板中选择“实体”，然后选择“+ 创建”    。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 在“我的应用”页上选择应用名称以打开应用。
+1. 在“生成”部分的左侧面板中选择“实体”，然后选择“+ 创建”  。
 
-1. 在“选择实体类型”对话框中，在“名称”框中输入实体名称，然后选择“Pattern.Any”作为“类型”，然后选择“创建”      。
+1. 在“选择实体类型”对话框中，在“名称”框中输入实体名称，然后选择“Pattern.Any”作为“类型”，然后选择“创建”    。
 
     使用此实体[创建模式言语](luis-how-to-model-intent-pattern.md)后，此实体可被机器学习和文本匹配相结合的算法提取出来。
 

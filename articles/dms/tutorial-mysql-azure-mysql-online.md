@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 origin.date: 01/08/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: 341ae53e952af2e8ca0d3c13d42084ae93922df7
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/04/2021
+ms.openlocfilehash: 75532846eb4fd6f3d909fb158f2232e21445916e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747040"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856952"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教程：使用 DMS 以联机方式将 MySQL 迁移到 Azure Database for MySQL
 
@@ -114,7 +114,7 @@ mysql.exe -h shausample.mysql.database.chinacloudapi.cn -u dms@shausample -p emp
 
 如果架构中有外键，则迁移的初始加载和连续同步会失败。  请在 MySQL Workbench 中执行以下脚本，以便提取 DROP FOREIGN KEY 脚本和 ADD FOREIGN KEY 脚本。
 
-```
+```sql
 SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM

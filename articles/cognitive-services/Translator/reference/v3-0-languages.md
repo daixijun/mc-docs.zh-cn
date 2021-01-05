@@ -3,20 +3,20 @@ title: 翻译器 Languages 方法
 titleSuffix: Azure Cognitive Services
 description: Languages 方法可获取翻译器的其他操作当前支持的语言集。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 06/11/2019
-ms.author: v-junlch
-ms.openlocfilehash: 384f5f77202ac5c29b9a909a9cdd867c8b104fc2
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 12/30/2020
+ms.author: v-johya
+ms.openlocfilehash: 0bc1d7fe1d998a095285c3d1592bc280cac11794
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241487"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856753"
 ---
 # <a name="translator-30-languages"></a>翻译器 3.0：语言
 
@@ -53,7 +53,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   <th>说明</th>
   <tr>
     <td>Accept-Language</td>
-    <td>可选请求标头。<br/>可用于用户界面字符串的语言。 响应中的某些字段是语言的名称，或区域的名称。 使用此参数可以定义要以哪种语言返回这些名称。 通过提供格式正确的 BCP 47 语言标记来指定语言。 例如，使用值 <code>fr</code> 来请求法语名称，或使用值 <code>zh-Hant</code> 来请求繁体中文名称。<br/>如果未指定目标语言或者本地化不可用，则以英语提供名称。
+    <td>可选请求标头。<br/>可用于用户界面字符串的语言。 响应中的某些字段是语言的名称，或区域的名称。 使用此参数可以定义要以哪种语言返回这些名称。 通过提供格式正确的 BCP 47 语言标记来指定语言。 例如，使用值 `fr` 来请求法语名称，或使用值 `zh-Hant` 来请求繁体中文名称。<br/>如果未指定目标语言或者本地化不可用，则以英语提供名称。
     </td>
   </tr>
   <tr>
@@ -234,7 +234,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   <th>说明</th>
   <tr>
     <td>ETag</td>
-    <td>所请求的受支持语言组的实体标记的当前值。 若要提高后续请求的效率，客户端可在 <code>If-None-Match</code> 标头字段中发送 <code>ETag</code> 值。
+    <td>所请求的受支持语言组的实体标记的当前值。 若要提高后续请求的效率，客户端可在 `If-None-Match` 标头字段中发送 `ETag` 值。
     </td>
   </tr>
   <tr>
@@ -256,7 +256,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   </tr>
   <tr>
     <td>304</td>
-    <td>自请求标头 <code>If-None-Match</code> 指定版本以来，资源尚未修改。</td>
+    <td>自请求标头 `If-None-Match` 指定版本以来，资源尚未修改。</td>
   </tr>
   <tr>
     <td>400</td>
@@ -268,15 +268,15 @@ https://api.translator.azure.cn/languages?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
+    <td>发生了意外错误。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 <code>X-RequestId</code> 中的请求标识符、请求标头 <code>X-ClientTraceId</code> 中的客户端标识符。</td>
+    <td>服务器暂不可用。 重试请求。 如果错误持续存在，请报告相关信息：发生故障的日期和时间、响应标头 `X-RequestId` 中的请求标识符、请求标头 `X-ClientTraceId` 中的客户端标识符。</td>
   </tr>
 </table> 
 
-如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+如果发生错误，请求也将返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](./v3-0-reference.md#errors)上找到。 
 
 ## <a name="examples"></a>示例
 

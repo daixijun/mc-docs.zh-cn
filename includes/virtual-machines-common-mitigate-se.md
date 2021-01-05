@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.topic: include
 origin.date: 11/12/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 33489eb7736716477b4d4a08ccded507f4c3b2dd
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: 9771aa9b3b9fcb80960dd4000d0466d9f7f2c8b8
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231510"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857090"
 ---
 **上次文档更新时间**：太平洋标准时间 2019 年 11 月 12 日上午 10:00。
 
@@ -22,9 +22,9 @@ ms.locfileid: "96231510"
 
 Azure 已在我们的所有云服务中部署了缓解措施。 运行 Azure 并将客户工作负荷相互隔离的基础结构是受保护的。 这意味着使用同一基础结构的潜在攻击者无法使用这些漏洞攻击你的应用程序。
 
-Azure 尽可能使用[内存保留维护](https://docs.azure.cn/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot)，这样可以尽量降低对客户的影响并且不需要重启。 Azure 会在对主机进行系统级更新时继续利用这些方法，对客户进行保护。
+Azure 尽可能使用[内存保留维护](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot)，这样可以尽量降低对客户的影响并且不需要重启。 Azure 会在对主机进行系统级更新时继续利用这些方法，对客户进行保护。
 
-若要详细了解如何将安全性集成到 Azure 的各个方面，请访问 [Azure 安全文档](https://docs.microsoft.com/security/)站点。 
+若要详细了解如何将安全性集成到 Azure 的各个方面，请访问 [Azure 安全文档](../articles/security/index.yml)站点。 
 
 > [!NOTE] 
 > 自本文档首次发布以来，已发现此漏洞类型的多个变体。 Azure 会继续不遗余力地为客户提供保护和指导。 我们会继续发布更多的修复程序，同时也会更新此页面。 
@@ -45,7 +45,7 @@ Azure 尽可能使用[内存保留维护](https://docs.azure.cn/virtual-machines
 
 | 产品/服务 | 建议的操作  |
 |----------|---------------------|
-| Azure 云服务  | 启用[自动更新](https://docs.azure.cn/cloud-services/cloud-services-how-to-configure-portal)，或确保运行最新的来宾 OS。 |
+| Azure 云服务  | 启用[自动更新](../articles/cloud-services/cloud-services-how-to-configure-portal.md)，或确保运行最新的来宾 OS。 |
 | Azure Linux 虚拟机 | 安装操作系统提供商的更新。 有关详细信息，请查看本文档后面部分的 [Linux](#linux)。 |
 | Azure Windows 虚拟机  | 安装最新的安全汇总。
 | 其他 Azure PaaS 服务 | 使用这些服务的客户不需要执行任何操作。 Azure 会自动使你的操作系统版本保持最新。 |
@@ -73,7 +73,7 @@ Azure 尽可能使用[内存保留维护](https://docs.azure.cn/virtual-machines
 
 目标操作系统必须为最新才能启用这些额外安全功能。 虽然许多推理执行旁道缓解措施是默认启用的，但此处所述的额外功能必须手动启用，并且可能会造成性能影响。 
 
-**步骤 1：在 VM 上禁用超线程功能** - 在超线程 VM 上运行不受信任的代码的客户将需要禁用超线程功能或转换到非超线程的 VM 大小。 有关超线程 VM 大小（其中 vCPU 与核心的比率为 2:1）的列表，请参阅[此文档](https://docs.azure.cn/virtual-machines/windows/acu)。 若要从 VM 中使用 Windows 命令行检查 VM 是否启用了超线程功能，请参考下面的脚本。
+**步骤 1：在 VM 上禁用超线程功能** - 在超线程 VM 上运行不受信任的代码的客户将需要禁用超线程功能或转换到非超线程的 VM 大小。 有关超线程 VM 大小（其中 vCPU 与核心的比率为 2:1）的列表，请参阅[此文档](../articles/virtual-machines/acu.md)。 若要从 VM 中使用 Windows 命令行检查 VM 是否启用了超线程功能，请参考下面的脚本。
 
 键入 `wmic` 以进入交互式界面。 然后键入以下命令来查看 VM 上的物理和逻辑处理器数量。
 
@@ -104,7 +104,7 @@ Windows OS support for TAA mitigation is enabled: True
 
 **步骤 3**：若要启用内核虚拟地址隐藏 (KVAS) 和分支目标注入 (BTI) OS 支持，请按照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的说明，使用 `Session Manager` 注册表项启用保护。 必须重启。
 
-**步骤 4**：对于正在使用[嵌套虚拟化](https://docs.azure.cn/virtual-machines/windows/nested-virtualization)的部署（仅限 D3 和 E3）：这些说明适用于用作 HYPER-V 主机的 VM。
+**步骤 4**：对于正在使用 [嵌套虚拟化](../articles/virtual-machines/windows/nested-virtualization.md)的部署（仅限 D3 和 E3）：这些说明适用于用作 HYPER-V 主机的 VM。
 
 1. 按照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的说明，使用 `MinVmVersionForCpuBasedMitigations` 注册表项启用保护。
 2. 可以按照[此处](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)的说明将虚拟机监控程序计划程序类型设置为 `Core`。
@@ -118,7 +118,7 @@ Windows OS support for TAA mitigation is enabled: True
 
 在内部启用额外的一组安全功能需要目标操作系统已彻底更新。 某些缓解措施会默认启用。 以下部分介绍的功能是默认关闭的，以及/或者是依赖于硬件支持（微代码）的。 启用这些功能可能造成性能影响。 如需进一步的说明，请参阅操作系统提供商的文档
 
-**步骤 1：在 VM 上禁用超线程功能** - 在超线程 VM 上运行不受信任的代码的客户将需要禁用超线程功能或转换到非超线程VM。  有关超线程 VM 大小（其中 vCPU 与核心的比率为 2:1）的列表，请参阅[此文档](https://docs.azure.cn/virtual-machines/linux/acu)。 若要检查是否正在运行超线程 VM，请在 Linux VM 中运行 `lscpu` 命令。 
+**步骤 1：在 VM 上禁用超线程功能** - 在超线程 VM 上运行不受信任的代码的客户将需要禁用超线程功能或转换到非超线程VM。  有关超线程 VM 大小（其中 vCPU 与核心的比率为 2:1）的列表，请参阅[此文档](../articles/virtual-machines/acu.md)。 若要检查是否正在运行超线程 VM，请在 Linux VM 中运行 `lscpu` 命令。 
 
 如果 `Thread(s) per core = 2`，则已启用超线程功能。 
 

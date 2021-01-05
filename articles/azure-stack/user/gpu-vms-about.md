@@ -9,12 +9,12 @@ origin.date: 10/20/2020
 ms.date: 12/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 559d82013f2c3edfbc28704d7e40969bfd4cec5c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: da57c95385c113b9ddc4419218b7c8892db663c5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507938"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830185"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
@@ -88,4 +88,3 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Stack VM 功能](azure-stack-vm-considerations.md)  
-- [在 Azure Stack Hub 上部署支持 GPU 的 IoT 模块](gpu-deploy-sample-module.md)

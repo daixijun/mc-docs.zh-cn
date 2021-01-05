@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: v-johya
 ms.topic: how-to
-ms.date: 10/19/2020
-ms.openlocfilehash: 0ef06bd16a99e1771e6549e288205520c57e1f67
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 12/28/2020
+ms.openlocfilehash: bfc430b792e9783b2b7dead5b3e3ee4370660818
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472445"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857155"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>使用主题域和数据提取规划 LUIS 应用架构
 
@@ -22,7 +22,7 @@ LUIS 应用架构包含与主题 [域](luis-glossary.md#domain)相关的[意向]
 LUIS 应用以主题域为中心。 例如，可能有一个用于预订门票、航班、酒店和租车的旅行应用。 另一应用则用于提供与锻炼、跟踪健身活动和设定目标相关的内容。 标识域可帮助你查找与你的域相关的单词或短语。
 
 > [!TIP]
-> LUIS 提供许多常见场景的[预生成域](luis-how-to-use-prebuilt-domains.md)。 检查是否可使用预生成域作为应用的起始点。
+> LUIS 提供许多常见场景的[预生成域](./howto-add-prebuilt-models.md)。 检查是否可使用预生成域作为应用的起始点。
 
 ## <a name="identify-your-intents"></a>标识意向
 
@@ -50,7 +50,7 @@ LUIS 应用以主题域为中心。 例如，可能有一个用于预订门票�
 确定要在应用中使用哪些实体后，请记住，有不同类型的实体可用于捕获对象类型间的关系。 [LUIS 中的实体](luis-concept-entity-types.md)提供有关不同类型的详细信息。
 
 > [!TIP]
-> LUIS 提供[预生成的实体](luis-prebuilt-entities.md)，用于常见的聊天式用户方案。 考虑从使用预生成的实体着手，方便应用程序开发。
+> LUIS 提供[预生成的实体](./howto-add-prebuilt-models.md)，用于常见的聊天式用户方案。 考虑从使用预生成的实体着手，方便应用程序开发。
 
 ## <a name="resolution-with-intent-or-entity"></a>使用意向或实体进行解析？
 
@@ -80,5 +80,4 @@ Int-ent-ties 是一种概念，即操作（通常理解为意向）也可以被�
 
 > [!div class="nextstepaction"]
 > [了解 LUIS 开发生命周期](luis-concept-app-iteration.md)
-
 

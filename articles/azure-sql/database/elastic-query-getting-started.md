@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 10/10/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 6d7a54ec97d45eda16635d02f61ee3295d33a77e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: 3d3d35d34b1953573795c4781f7038ad2dc3be7b
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222571"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829928"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨扩展云数据库进行报告（预览）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "88222571"
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用示例应用程序创建分片映射管理器
 在此处，用户将创建分片映射管理器以及多个分片，并将数据插入分片。 如果分片中正好设置了分片数据，则可以跳过下面的步骤，直接转到下一部分。
 
-1. 按照文章部分[下载并运行示例应用](elastic-scale-get-started.md#download-and-run-the-sample-app)中的步骤，生成并运行**弹性数据库工具入门**示例应用程序。 完成所有步骤后，会看到以下命令提示符：
+1. 按照文章部分 [下载并运行示例应用](elastic-scale-get-started.md#download-and-run-the-sample-app)中的步骤，生成并运行 **弹性数据库工具入门** 示例应用程序。 完成所有步骤后，会看到以下命令提示符：
 
     ![命令提示符][1]
 2. 在命令窗口中键入“1”，并按 **Enter**。 这会创建分片映射管理器，并将两个分片添加到服务器。 然后键入“3”并按 **Enter**；重复该操作四次。 这会在分片中插入示例数据行。
@@ -73,7 +73,7 @@ ms.locfileid: "88222571"
     SECRET = '<password>';
     ```
 
-    “username”和“password”应该与**弹性数据库工具入门**一文中[下载并运行示例应用](elastic-scale-get-started.md#download-and-run-the-sample-app)部分的步骤 3 中使用的登录信息相同。
+    “username”和“password”应该与 **弹性数据库工具入门** 一文中 [下载并运行示例应用](elastic-scale-get-started.md#download-and-run-the-sample-app)部分的步骤 3 中使用的登录信息相同。
 
 ### <a name="external-data-sources"></a>外部数据源
 若要创建外部数据源，请对 ElasticDBQuery 数据库执行以下命令：
@@ -145,7 +145,7 @@ select count(CustomerId) from [dbo].[Customers]
 * 有关垂直分区的教程，请参阅[跨数据库查询（垂直分区）入门](elastic-query-getting-started-vertical.md)。
 * 有关垂直分区数据的语法和示例查询，请参阅[查询垂直分区数据](elastic-query-vertical-partitioning.md)
 * 有关水平分区数据的语法和示例查询，请参阅[查询水平分区数据](elastic-query-horizontal-partitioning.md)
-* 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+* 请参阅 [sp\_execute \_remote](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
 
 
 <!--Image references-->

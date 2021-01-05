@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 09/15/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3b4ae25a4d89ede7be94bf1ad0489a97d2f8a2de
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d430d410cda230308d6f986cc1b4eef6dc2cdbb9
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970865"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820505"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -31,6 +31,8 @@ ms.locfileid: "95970865"
 使用下面的代码示例从默认的设备麦克风运行语音识别。 将变量 `subscription` 和 `region` 替换为你的订阅和区域密钥。 运行脚本将在默认麦克风上启动识别会话并输出文本。
 
 ```go
+package main
+
 import (
     "bufio"
     "fmt"
@@ -105,6 +107,8 @@ func main() {
 使用以下示例从音频文件运行语音识别。 将变量 `subscription` 和 `region` 替换为你的订阅和区域密钥。 此外，将变量 `file` 替换为 .wav 文件的路径。 运行脚本将从文件识别语音，并输出文本结果。
 
 ```go
+package main
+
 import (
     "fmt"
     "time"

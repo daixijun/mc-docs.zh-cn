@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 06/12/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: d590c616585479790be943e861011ab7f1c742ee
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 29b1da97cec914254b219b2f6df9a1aa6fc9c2cc
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228149"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830110"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>使用有关 Azure SQL 数据库和 Azure SQL 托管实例性能问题的智能见解性能诊断日志
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-本页介绍如何使用[智能见解](intelligent-insights-overview.md)生成的有关 Azure SQL 数据库和 Azure SQL 托管实例性能问题的性能诊断日志，以及其格式和它为满足自定义开发需求所包含的数据。 可将此诊断日志发送到 [Azure 事件中心](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)、[Azure 存储](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
+本页介绍如何使用[智能见解](intelligent-insights-overview.md)生成的有关 Azure SQL 数据库和 Azure SQL 托管实例性能问题的性能诊断日志，以及其格式和它为满足自定义开发需求所包含的数据。 可将此诊断日志发送到 [Azure 事件中心](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)、[Azure 存储](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
 
 ## <a name="log-header"></a>日志标头
 
@@ -140,4 +140,4 @@ Intelligent Insights 性能日志的最后部分是对已确定的性能下降�
 
 - 了解有关 [Intelligent Insights](intelligent-insights-overview.md) 的概念。
 - 了解如何[使用智能见解排查性能问题](intelligent-insights-troubleshoot-performance.md)。
-- 了解如何[从 Azure 资源收集和使用日志数据](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)。
+- 了解如何[从 Azure 资源收集和使用日志数据](../../azure-monitor/platform/platform-logs-overview.md)。

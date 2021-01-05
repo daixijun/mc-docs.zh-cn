@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: b30120a52be798d55278211acf402a2a09229887
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 01/04/2021
+ms.openlocfilehash: cd4aef551abce0db0c75bd3cfc0fa56b670e363e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014262"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830238"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL 数据库中的多个数据库之间同步数据
 
@@ -75,6 +75,8 @@ $syncAgentName = "<agentName>"
 $syncAgentResourceGroupName = "<syncAgentResourceGroupName>"
 $syncAgentServerName = "<syncAgentServerName>"
 
+$syncMemberResourceId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/databases/$syncMemberDBName"
+
 # temp file to save the sync schema
 $tempFile = $env:TEMP+"\syncSchema.json"
 
@@ -99,11 +101,11 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# create a new sync group
+# create a new sync group (if you use private link, make sure to manually approve it)
 Write-Host "Creating Sync Group "$syncGroupName"..."
 New-AzSqlSyncGroup -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName `
     -SyncDatabaseName $syncDatabaseName -SyncDatabaseServerName $syncDatabaseServerName -SyncDatabaseResourceGroupName $syncDatabaseResourceGroupName `
-    -ConflictResolutionPolicy $conflictResolutionPolicy -DatabaseCredential $credential
+    -ConflictResolutionPolicy $conflictResolutionPolicy -DatabaseCredential $credential -UsePrivateLinkConnection | Format-list
 
 # use if it's safe to show password in script, otherwise use PromptForCredential
 # $user = "username"
@@ -115,12 +117,33 @@ $credential = $Host.ui.PromptForCredential("Need credential",
               "",
               "")
 
-# add a new sync member
+# add a new sync member (if you use private link, make sure to manually approve it)
 Write-Host "Adding member"$syncMemberName" to the sync group..."
-
 New-AzSqlSyncMember -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
     -SyncGroupName $syncGroupName -Name $syncMemberName -MemberDatabaseType $memberDatabaseType -SyncAgentResourceGroupName $syncAgentResourceGroupName `
-    -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId
+    -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId `
+    -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection | Format-list
+
+# update existing sync member to use private link connection 
+Update-AzSqlSyncMember `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName `
+    -MemberDatabaseCredential $memberDatabaseCredential -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection $true
+    
+# update existing sync group and remove private link connection
+Update-AzSqlSyncGroup `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName -UsePrivateLinkConnection $false
+
+# run the following Get-AzSqlSyncGroup/ Get-AzSqlSyncMember commands to confirm that a private link has been setup for Data Sync, if you decide to use private link. 
+# Get-AzSqlSyncMember returns information about one or more Azure SQL Database Sync Members. Specify the name of a sync member to see information for only that sync member.
+Get-AzSqlSyncMember `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName ` | Format-List
+# Get-AzSqlSyncGroup returns information about one or more Azure SQL Database Sync Groups. Specify the name of a sync group to see information for only that sync group.
+Get-AzSqlSyncGroup `
+    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName ` | Format-List
+    
+# approve private endpoint connection, if you decide to use private link
+Approve-AzPrivateEndpointConnection `
+    -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 
 # refresh database schema from hub database, specify the -SyncMemberName parameter if you want to refresh schema from the member database
 Write-Host "Refreshing database schema from hub database..."
@@ -301,6 +324,7 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
     - 使用 PowerShell - [使用 PowerShell 在 Azure SQL 数据库中的数据库和 SQL Server 之间同步数据](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Azure 中 SQL 数据同步的 Data Sync Agent](../sql-data-sync-agent-overview.md)
 - 最佳做法 - [Azure 中 SQL 数据同步的最佳做法](../sql-data-sync-best-practices.md)
+- 监视 - [使用 Azure Monitor 日志监视 SQL 数据同步](../monitor-tune-overview.md)
 - 故障排除 - [排查 Azure 中的 SQL 数据同步问题](../sql-data-sync-troubleshoot.md)
 - 更新同步架构
     - 使用 Transact-SQL - [在 Azure 中的 SQL 数据同步中自动复制架构更改](../sql-data-sync-update-sync-schema.md)
@@ -309,4 +333,4 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 有关 SQL 数据库的详细信息，请参阅：
 
 - [SQL 数据库概述](../sql-database-paas-overview.md)
-- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
+- [数据库生命周期管理](https://docs.microsoft.com/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

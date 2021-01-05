@@ -3,22 +3,22 @@ title: 应用程序和数据库的性能优化指南
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: 了解如何在 Azure SQL 数据库和 Azure SQL 托管实例中优化数据库应用程序和数据库以提高性能。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab; jrasnick
+ms.reviewer: jrasnick
 origin.date: 03/10/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: f3e68303dab9ecbcf78f17e38861ce7478dd033d
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 5ebc7fc6fa0db650deb682cbe81996eff11adc81
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227966"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830270"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>在 Azure SQL 数据库和 Azure SQL 托管实例中优化应用程序和数据库以提高性能
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -123,7 +123,7 @@ CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])
 
 ![已更正索引的查询计划](./media/performance-guidance/query_plan_corrected_indexes.png)
 
-重要见解是共享商用系统的 IO 容量会比专用服务器计算机的容量受到更多限制。 客观上鼓励将不必要 IO 降至最低，最大限度地在服务层级的每个计算大小资源范围内利用系统。 选择适当的物理数据库设计方式可显著缩短单个查询的延迟、提高按缩放单元处理的并发请求的吞吐量，以及将满足查询所需的成本降至最低。 有关缺少索引 DMV 的详细信息，请参阅 [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx)。
+重要见解是共享商用系统的 IO 容量会比专用服务器计算机的容量受到更多限制。 客观上鼓励将不必要 IO 降至最低，最大限度地在服务层级的每个计算大小资源范围内利用系统。 选择适当的物理数据库设计方式可显著缩短单个查询的延迟、提高按缩放单元处理的并发请求的吞吐量，以及将满足查询所需的成本降至最低。 有关缺少索引 DMV 的详细信息，请参阅 [sys.dm_db_missing_index_details](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-missing-index-details-transact-sql)。
 
 ### <a name="query-tuning-and-hinting"></a>查询优化和提示
 
@@ -233,7 +233,7 @@ ORDER BY start_time DESC
 
 可检查 **sys.resource_stats**，以确定测试使用的资源多于还是少于另一个测试。 在比较数据时，请使测试相隔一定时间，以使其不会在 **sys.resource_stats** 视图中的同一 5 分钟时间范围内重合。 本练习的目标是将使用的资源总量降至最低，而非将峰值资源降至最低。 一般而言，优化一段产生延迟的代码也会减少资源消耗。 请确保对应用程序所做的更改是必需的，且这些更改不会对那些可能会在应用程序中使用查询提示的人的客户体验造成负面影响。
 
-如果工作负荷由一组重复的查询组成，则捕获并验证所做计划选择的最优性通常很有意义，因为这样做会使托管数据库所需的资源大小单位降至最低。 对其进行验证后，应偶尔重新检查计划，以帮助你确保其未降级。 可以详细了解[查询提示 (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms181714.aspx)。
+如果工作负荷由一组重复的查询组成，则捕获并验证所做计划选择的最优性通常很有意义，因为这样做会使托管数据库所需的资源大小单位降至最低。 对其进行验证后，应偶尔重新检查计划，以帮助你确保其未降级。 可以详细了解[查询提示 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query)。
 
 ### <a name="very-large-database-architectures"></a>特大型数据库体系结构
 

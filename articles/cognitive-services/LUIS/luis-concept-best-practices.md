@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 origin.date: 10/25/2019
-ms.openlocfilehash: 5a012a2c35e4d15ea592a7ab3ff7be4a02c5eb38
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 6964572df2f174ca0b684a14abfe66baa8dba092
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472498"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856813"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>有关生成语言理解 (LUIS) 应用的最佳做法
 使用应用创作过程生成 LUIS 应用：
@@ -89,7 +89,7 @@ ms.locfileid: "92472498"
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>使用版本以迭代方式生成应用
 
-每个创作周期应该在一个新[版本](luis-concept-version.md)内进行，从现有版本进行克隆。
+每个创作周期应该在一个新[版本](./luis-concept-app-iteration.md)内进行，从现有版本进行克隆。
 
 ## <a name="do-build-for-model-decomposition"></a>为模型分解生成
 
@@ -139,7 +139,7 @@ ms.locfileid: "92472498"
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>应利用主动学习的建议功能
 
-定期使用  。 因为应用会不断接收终结点话语，所以此列表会不断变化。
+定期使用[主动学习](luis-how-to-review-endpoint-utterances.md)的“查看终结点话语”功能，而不是将更多话语示例添加到意向。 因为应用会不断接收终结点话语，所以此列表会不断变化。
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>应监视应用的性能
 
@@ -181,7 +181,7 @@ LUIS 会预期一个意向的话语会存在变体。 在总体意思相同的�
 
 为聊天机器人将执行的任何操作创建一个意向。 将实体用作实现操作的参数。
 
-为预订航班的机器人创建一个“BookFlight”意向  。 请勿为每条航线或每个目的地都创建一个意向。 将这些数据用作[实体](luis-concept-entity-types.md)，并在话语示例中进行标记。
+为预订航班的机器人创建一个“BookFlight”意向。 请勿为每条航线或每个目的地都创建一个意向。 将这些数据用作[实体](luis-concept-entity-types.md)，并在话语示例中进行标记。
 
 ## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>请勿使用所有可能的值创建短语列表
 

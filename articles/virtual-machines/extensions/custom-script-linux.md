@@ -6,21 +6,22 @@ manager: gwallace
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7169e62dfecba38cf5c43252a6b98251553e3f9a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 858c1561f8606f1b06f6f55b8c1c8e29d2368156
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103793"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856719"
 ---
 <!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
@@ -122,8 +123,8 @@ ms.locfileid: "93103793"
 | 脚本 | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix（示例） | false | boolean |
 | timestamp（示例） | 123456789 | 32-bit integer |
-| storageAccountName（例如） | examplestorageacct | string |
-| storageAccountKey（例如） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName（例如） | examplestorageacct | 字符串 |
+| storageAccountKey（例如） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字符串 |
 | managedIdentity（例如） | { } 或 { "clientId":"31b403aa-c364-4240-a7ff-d85fb6cd7232" } 或 { "objectId":"12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json 对象 |
 
 ### <a name="property-value-details"></a>属性值详细信息
@@ -133,8 +134,8 @@ ms.locfileid: "93103793"
     
 * `skipDos2Unix`：（可选，布尔值）跳过对基于脚本的文件 URL 或脚本进行的 dos2unix 转换。
 * `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
-* `commandToExecute`：（在脚本未设置的情况下为 **必需** ，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码），请改用此字段。
-* `script`：（在 commandToExecute 未设置的情况下为 **必需** ，字符串）base64 编码（可以选择执行 gzip 操作）的脚本，通过 /bin/sh 来执行。
+* `commandToExecute`：（在脚本未设置的情况下为 **必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码），请改用此字段。
+* `script`：（在 commandToExecute 未设置的情况下为 **必需**，字符串）base64 编码（可以选择执行 gzip 操作）的脚本，通过 /bin/sh 来执行。
 * `fileUris`：（可选，字符串数组）要下载的文件的 URL。
 * `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
 * `storageAccountKey`：（可选，字符串）存储帐户的访问密钥
@@ -312,8 +313,8 @@ az vm extension set \
   --vm-name exttest \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh']}" \
-  --protected-settings "{'commandToExecute': './config-music.sh'}"
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]}' \
+  --protected-settings '{"commandToExecute": "./config-music.sh"}'
 ```
 
 <!--MOONCAKE: IMPORTANT: Should split settings and protected-settings JSON file-->

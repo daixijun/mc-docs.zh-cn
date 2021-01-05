@@ -9,17 +9,17 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 912e2337d053ef956e6c482bebf1455125ea53e2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 08dd65ef52da9b4b7ea65a887e3d9059a005d120
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106279"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793425"
 ---
 <!--Verified successfully-->
 # <a name="container-groups-in-azure-container-instances"></a>Azure 容器实例中的容器组
 
-Azure 容器实例中的顶层资源是容器组。  本文介绍容器组的定义和它们支持的方案类型。
+Azure 容器实例中的顶层资源是容器组。 本文介绍容器组的定义和它们支持的方案类型。
 
 ## <a name="what-is-a-container-group"></a>什么是容器组？
 
@@ -113,7 +113,8 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 
 <!-- LINKS - External -->
 
-[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+<!--Not Available on [dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/-->
+
 [kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/
 
 <!-- LINKS - Internal -->

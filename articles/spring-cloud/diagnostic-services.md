@@ -4,17 +4,19 @@ description: 了解如何在 Azure Spring Cloud 中分析诊断数据
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: 52071658a6ecd8722d4d9124762d0985966930cb
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3c39d99ffa60e74054b9d5b66ed9189c4c4ea75f
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327806"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829451"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>通过诊断设置分析日志和指标
+
+
 
 使用 Azure Spring Cloud 的诊断功能，可以通过以下任何服务分析日志和指标：
 
@@ -38,7 +40,7 @@ ms.locfileid: "94327806"
 
 有关指标的完整列表，请参阅 [Spring Cloud 指标](./spring-cloud-concept-metrics.md#user-metrics-options)。
 
-若要开始，请启用其中一项服务来接收数据。 若要了解如何配置 Log Analytics，请参阅[开始在 Azure Monitor 中使用 Log Analytics](../azure-monitor/log-query/get-started-portal.md)。
+若要开始，请启用其中一项服务来接收数据。 若要了解如何配置 Log Analytics，请参阅[开始在 Azure Monitor 中使用 Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)。
 
 ## <a name="configure-diagnostics-settings"></a>配置诊断设置
 
@@ -133,7 +135,7 @@ ms.locfileid: "94327806"
 
 ## <a name="analyze-the-logs"></a>分析日志
 
-Azure Log Analytics 与 Kusto 引擎一起运行，因此，你可以查询日志以进行分析。 有关使用 Kusto 查询日志的快速简介，请查看 [Log Analytics 教程](../azure-monitor/log-query/get-started-portal.md)。
+Azure Log Analytics 与 Kusto 引擎一起运行，因此，你可以查询日志以进行分析。 有关使用 Kusto 查询日志的快速简介，请查看 [Log Analytics 教程](../azure-monitor/log-query/log-analytics-tutorial.md)。
 
 应用程序日志提供有关应用程序的运行状况、性能等的关键信息和详细日志。 下一节将介绍一些简单的查询，帮助你理解应用程序的当前和过去状态。
 

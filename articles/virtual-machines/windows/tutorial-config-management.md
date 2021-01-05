@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5a14e3fc92de35202ddafe639e7047d6518efc01
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 979304b458add650523b77295e47ddc6576b0e9e
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104994"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592792"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视更改和更新 Azure 中的 Windows 虚拟机
@@ -107,7 +107,7 @@ New-AzVm `
 
 启用“更新管理”后，“更新管理”窗口随即显示。 评估更新完成后，可在“缺失更新”选项卡上查看缺失更新的列表。
 
-:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-status-win.png" alt-text="启用更新管理解决方案":::
+:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-status-win.png" alt-text="查看更新状态":::
 
 ### <a name="schedule-an-update-deployment"></a>计划更新部署
 
@@ -122,11 +122,14 @@ New-AzVm `
 | **要更新的组** |对于在 Azure 上托管的 VM，应基于订阅、资源组、位置和标记的组合定义查询。 此查询将生成要包含在你的部署中的 Azure 托管 VM 的动态组。 <br /><br />对于未托管在 Azure 上的 VM，请选择现有的已保存搜索。 使用此搜索，可以选择要包括在部署中的一组 VM。 <br /><br /> 有关详细信息，请参阅[动态组](../../automation/update-management/update-mgmt-groups.md)。|
 | **要更新的计算机** |请选择“已保存的搜索”、“已导入的组”或“计算机”  。<br/><br/>如果选择“计算机”，则可以从下拉列表中选择单个计算机。 每台计算机的准备情况将显示在表的“更新代理准备情况”列中。<br /><br /> 要了解在 Azure Monitor 日志中创建计算机组的不同方法，请参阅 [Azure Monitor 日志中的计算机组](../../azure-monitor/platform/computer-groups.md) |
 |**更新分类**|选择所有必需的更新分类。|
-|**包括/排除更新**|选择此选项可打开“包括/排除”窗格。 要包含或排除的更新位于单独的选项卡上。 有关如何处理包含的详细信息，请参阅[计划更新部署](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)。 |
+|**包括/排除更新**|选择此选项可打开“包括/排除”窗格。 要包含或排除的更新位于单独的选项卡上。 |
 |**计划设置**|选择启动时间，然后选择“一次”或“定期” 。|
 | **前脚本 + 后脚本**|选择要在部署前和部署后运行的脚本。|
 | **维护时段** | 输入为更新设置的分钟数。 有效值范围为 30 至 360 分钟。 |
 | **重新启动控制**| 选择处理重启的方式。 可用选项包括：<ul><li>**必要时请重启**</li><li>**永远重启**</li><li>**永不重启**</li><li>**仅重启**</li></ul>默认选项为“必要时重启”。 若选择“仅重启”，则不会安装更新。|
+
+<!--Not Available on [Schedule an Update Deployment](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)-->
+
 
 完成配置计划后，单击“创建”可返回到状态仪表板。 “已计划”表会显示你创建的部署计划。
 
@@ -140,13 +143,13 @@ New-AzVm `
 
 选择已完成的更新部署，查看该部署的仪表板。
 
-:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-results.png" alt-text="启用更新管理解决方案":::
+:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-results.png" alt-text="特定部署的更新部署状态仪表板":::
 
 “更新结果”磁贴显示了 VM 上更新和部署结果的总数的概要。 右侧的表显示了每个更新的细目以及安装结果。 每个结果都具有下列值之一：
 
-* **未尝试** ：未安装更新。 基于定义的维护时段持续时间，没有足够的可用时间。
-* **成功** ：更新成功。
-* **失败** ：更新失败。
+* **未尝试**：未安装更新。 基于定义的维护时段持续时间，没有足够的可用时间。
+* **成功**：更新成功。
+* **失败**：更新失败。
 
 若要查看部署创建的所有日志条目，请选择“所有日志”。
 

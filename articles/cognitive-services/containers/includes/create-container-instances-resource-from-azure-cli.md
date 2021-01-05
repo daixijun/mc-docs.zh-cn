@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 01/06/2020
-ms.date: 11/23/2020
+ms.date: 12/31/2020
 ms.author: v-johya
-ms.openlocfilehash: 73d521d9b2b9998c1c03a8b3ef9e91aaedb96cd5
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: cf6cd52e17267c90d3d6aa06420757dbfc1c1404
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306491"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857601"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>在 Azure CLI 中创建 Azure 容器实例资源
 
@@ -26,7 +26,7 @@ apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
 properties:
-  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
+  imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access. For example Text Analytics for health.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >

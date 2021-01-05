@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 06/21/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 45554965ac2c512f3136b1ab7ff796987a2b06e7
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: d8800c7be4d68d2790bcac61a2fa8173f1f86321
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227841"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830118"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 
 根据应用程序的停机容忍度和可能的业务责任，可以考虑下列恢复选项。
 
-使用[获取可恢复数据库](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) 获取最新的异地复制还原点。
+使用 [获取可恢复数据库](https://docs.microsoft.com/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) 获取最新的异地复制还原点。
 
 ## <a name="wait-for-service-recovery"></a>等待服务恢复
 

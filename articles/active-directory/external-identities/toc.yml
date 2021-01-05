@@ -70,6 +70,8 @@
           items:
             - name: 将 B2B 用户添加到角色
               href: add-guest-to-role.md
+            - name: 动态组和 B2B 用户
+              href: use-dynamic-groups.md
             - name: 了解 B2B 用户
               href: user-properties.md
         - name: 在混合组织中管理来宾访问权限

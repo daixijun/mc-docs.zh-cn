@@ -8,12 +8,12 @@ ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: d1c148b3a3fbc1d7074f6bf43b05cc068fee9872
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 12db758c6f726e90e706ab300f7007d400daca6d
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977710"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793436"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="scale-a-cluster-in-or-out"></a>缩小或扩大群集
@@ -266,8 +266,8 @@ Service Fabric Explorer 中列出的节点是 Service Fabric 系统服务（特�
 
 <!--Image references-->
 
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png
-[ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png
+<!--Not Available on [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png-->
+<!--Not Available on [ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png-->
 
 [durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 

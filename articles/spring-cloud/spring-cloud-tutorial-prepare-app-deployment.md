@@ -4,15 +4,15 @@ description: 了解如何准备要部署到 Azure Spring Cloud 中的应用程�
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: d08d96d18e13c8bcfff86ec1873884146ed8bc2c
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: c2cde7a15b0a199685f13c70a75c057847f6417a
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373957"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829344"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>准备要部署到 Azure Spring Cloud 中的应用程序
 
@@ -43,6 +43,9 @@ Spring Boot 版本 | Spring Cloud 版本
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.SR8
 2.3 | Hoxton.SR8
+
+> [!NOTE]
+> 我们已经确认，Spring Boot 2.4 在应用与 Eureka 之间进行 TLS 身份验证时出现问题，我们目前正在与 Spring 社区协作，以解决此问题。 请参阅我们的[常见问题解答](/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development)以获取解决方法。
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 版本 2.1 的依赖项
 

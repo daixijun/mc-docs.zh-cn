@@ -4,14 +4,14 @@ description: 了解 Azure Redis 缓存的默认 Redis 配置，并了解如何�
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 19fba8089b93ff6a726233f4ea61bbb94957c953
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c549d11fc5afec0593d4293dc14cd17f8502d9ad
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472135"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829446"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -363,7 +363,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 “资源运行状况”  会监视资源，并告知资源是否按预期运行。 有关 Azure 资源运行状况服务的详细信息，请参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
 
 > [!NOTE]
-> 资源运行状况当前无法报告在虚拟网络中托管的 Azure Redis 缓存实例的运行状况。 有关详细信息，请参阅 [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> 资源运行状况当前无法报告在虚拟网络中托管的 Azure Redis 缓存实例的运行状况。 有关详细信息，请参阅 [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 >
 >
 
@@ -382,7 +382,7 @@ Redis 密钥空间通知是在“高级设置”  边栏选项卡上配置的。
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
-> 任何可配置的值（例如 **max-memory-policy** ）都可以通过 Azure 门户或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。
+> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。
 >
 >
 

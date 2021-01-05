@@ -2,21 +2,22 @@
 title: Azure Linux VM 代理概述
 description: 了解如何安装和配置 Linux 代理 (waagent) 以管理虚拟机与 Azure 结构控制器的交互。
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 origin.date: 10/17/2016
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbddcb52d334ab366b405f76bac45c0df2ec2ea2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b08795451fdab48df408be36d61e506ee7b9ec5b
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103802"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857010"
 ---
 <!--Verify Successfully-->
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
@@ -75,10 +76,12 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
 * CoreOS
 * CentOS 6.3+
+* Red Hat Enterprise Linux 6.7+
 * Debian 7.0+
 * Ubuntu 12.04+
 * openSUSE 12.3+
 * SLES 11 SP3+
+* Oracle Linux 6.4+
 
 <!-- Not Available on * Red Hat Enterprise Linux 6.7+-->
 <!-- Not Available on * Oracle Linux 6.4+-->
@@ -264,7 +267,7 @@ Default: ext4
 Type: String  
 Default: /mnt/resource 
 ```
-这会指定资源磁盘的安装路径。 资源磁盘是临时  磁盘，可能在取消预配 VM 时被清空。
+这会指定资源磁盘的安装路径。 资源磁盘是临时磁盘，可能在取消预配 VM 时被清空。
 
 **ResourceDisk.MountOptions**  
 ```txt
@@ -343,7 +346,7 @@ Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-i
 
 * 有关详细信息，请参阅以下资源来配置资源磁盘装入点，并在预配期间交换 Ubuntu 云映像上的空间：
 
-  * [Ubuntu Wiki：配置交换分区](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [将自定义数据注入到 Azure 虚拟机中](../windows/tutorial-automate-vm-deployment.md)
+    * [Ubuntu Wiki：配置交换分区](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+    * [将自定义数据注入到 Azure 虚拟机中](../windows/tutorial-automate-vm-deployment.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

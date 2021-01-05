@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 03/11/2019
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: seodec18
-ms.openlocfilehash: 5ca73ff04d6663b561aec15b4dc1a9705fdae318
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 5e7d10cbcf3b1291be5fed1501076ae65ad31be9
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306366"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856828"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>使用计算机视觉检测图像类型
 
@@ -118,6 +118,5 @@ ms.locfileid: "96306366"
 
 图像类型检测功能属于[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API。 可以通过本机 SDK 或 REST 调用来调用此 API。 将 `ImageType` 包括在 **visualFeatures** 查询参数中。 然后，在获取完整 JSON 响应时，就只需分析 `"imageType"` 部分内容的字符串。
 
-* [快速入门：计算机视觉 .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [快速入门：分析图像 (REST API)](./quickstarts/csharp-analyze.md)
+* [快速入门：计算机视觉 REST API 或客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 

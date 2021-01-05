@@ -13,13 +13,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 05/29/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: fff9936eba761d0f45d56517d8667652327ee534
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: f4b7884a4382085e1e591634892c7cb6d853ac74
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222814"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830168"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>快速入门：使用 Visual Studio Code 进行连接和查询 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -122,7 +122,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="query-data"></a>查询数据
 
-运行以下 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 语句，按类别查询排名前 20 的产品。
+运行以下 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 语句，按类别查询排名前 20 的产品。
 
 1. 在编辑器窗口中，粘贴以下 SQL 查询。
 
@@ -139,7 +139,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="insert-data"></a>插入数据
 
-运行以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 语句来向 `SalesLT.Product` 表中添加新产品。
+运行以下 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句来向 `SalesLT.Product` 表中添加新产品。
 
 1. 将之前的查询替换为此查询。
 
@@ -167,7 +167,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="update-data"></a>更新数据
 
-运行以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 语句来更新已添加的产品。
+运行以下 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句来更新已添加的产品。
 
 1. 将之前的查询替换为此查询：
 
@@ -196,4 +196,4 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 - 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[快速入门：使用 SQL Server Management Studio 连接到 Azure SQL 数据库中的数据库并查询数据](connect-query-ssms.md)。
 - 若要使用 Azure 门户进行连接和查询，请参阅[快速入门：使用 Azure 门户中的 SQL 查询编辑器进行连接并查询数据](connect-query-portal.md)。
-- 有关使用 Visual Studio Code 的 MSDN 杂志文章，请参阅[“利用 MSSQL 扩展创建数据库 IDE”博客文章](https://msdn.microsoft.com/magazine/mt809115)。
+- 有关使用 Visual Studio Code 的 MSDN 杂志文章，请参阅[“利用 MSSQL 扩展创建数据库 IDE”博客文章](https://docs.microsoft.com/archive/msdn-magazine/2017/june/data-points-visual-studio-code-create-a-database-ide-with-mssql-extension)。

@@ -5,15 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/13/2019
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 82b948fded6fcaa08ea0a336dae50678904bb262
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: a257b876b58368dedeffbfa2c3b06246dac12eeb
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975156"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820328"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 
@@ -383,7 +383,6 @@ ms.locfileid: "94975156"
     ![标识的帐户](media/signalr-concept-authenticate-oauth/signalr-oauth-account-identified.png)
 
     由于聊天应用通过 GitHub 执行身份验证并将身份验证信息存储为 cookie，应将其部署到 Azure，以便其他用户可使用他们的帐户进行身份验证并从其他工作站进行通信。
-
 
 ## <a name="deploy-the-app-to-azure"></a>将应用部署到 Azure
 

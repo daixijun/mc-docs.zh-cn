@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 12/18/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 74d559ebd37570954295a7d9e4a870c4d9d297f8
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 6c021a71424902dcd26eab253d5514a693fbdb22
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227490"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830210"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "86227490"
 
 ## <a name="disaster-recovery-with-contained-users"></a>使用包含的用户进行灾难恢复
 
-不同于必须映射到 master 数据库中登录名的传统用户，包含的用户完全由数据库自身管理。 这带来了两个好处。 在灾难恢复方案中，用户可以继续连接到新的主数据库或使用异地还原恢复的数据库，不需进行任何额外的配置，因为数据库会管理用户。 从登录的立场来看，此配置还有潜在的缩放性和性能优势。 有关详细信息，请参阅[包含的数据库用户 - 使数据库可移植](https://msdn.microsoft.com/library/ff929188.aspx)。
+不同于必须映射到 master 数据库中登录名的传统用户，包含的用户完全由数据库自身管理。 这带来了两个好处。 在灾难恢复方案中，用户可以继续连接到新的主数据库或使用异地还原恢复的数据库，不需进行任何额外的配置，因为数据库会管理用户。 从登录的立场来看，此配置还有潜在的缩放性和性能优势。 有关详细信息，请参阅[包含的数据库用户 - 使数据库可移植](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)。
 
 主要的不足是，在规模较大的情况下，管理灾难恢复过程更具挑战性。 当有多个使用同一登录名的数据库时，在多个数据库中使用包含用户来维护凭据可能会抵消包含用户的好处。 例如，密码轮换策略要求在多个数据库中进行一致性的更改，而不是在 master 数据库中更改登录名的密码一次。 因此，如果多个数据库使用同一用户名和密码，则不建议使用包含用户。
 
@@ -35,7 +35,7 @@ ms.locfileid: "86227490"
 如果要使用登录名和用户（而不是包含用户），必须采取额外的步骤以确保相同的登录名存在于 master 数据库中。 以下部分概述了相关的步骤和其他注意事项。
 
   >[!NOTE]
-  > 还可以使用 Azure Active Directory (AAD) 登录来管理数据库。 有关详细信息，请参阅 [Azure SQL 登录和用户](/sql-database/sql-database-manage-logins)。
+  > 还可以使用 Azure Active Directory (AAD) 登录来管理数据库。 有关详细信息，请参阅 [Azure SQL 登录和用户](./logins-create-manage.md)。
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>设置对辅助数据库或已恢复数据库的用户访问权限
 
@@ -107,7 +107,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>后续步骤
 
 * 若要深入了解如何管理数据库访问和登录，请参阅 [SQL 数据库安全：管理数据库访问和登录安全](logins-create-manage.md)。
-* 要深入了解随附的数据库用户，请参阅[包含的数据库用户 - 使数据库可移植](https://msdn.microsoft.com/library/ff929188.aspx)。
+* 要深入了解随附的数据库用户，请参阅[包含的数据库用户 - 使数据库可移植](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)。
 * 若要了解活动异地复制，请参阅[活动异地复制](active-geo-replication-overview.md)。
 * 若要了解自动故障转移组，请参阅[自动故障转移组](auto-failover-group-overview.md)。
 * 若要了解如何使用异地还原，请参阅[异地还原](recovery-using-backups.md#geo-restore)

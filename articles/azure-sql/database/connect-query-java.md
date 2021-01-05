@@ -9,14 +9,14 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 origin.date: 06/26/2020
-ms.date: 10/12/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 79c0308548215214593185cef6e4523467c2584f
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: bc058f6131747243d3c996da20ad0c7dc7980067
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431601"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830135"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>在 Azure SQL 数据库中使用 Java 和 JDBC
 
@@ -28,7 +28,7 @@ JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
 - 一个 Azure 帐户。 如果没有 Azure 帐户，请[获取试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Azure CLI](/cli/install-azure-cli)。
-- 一个受支持的 [Java 开发工具包](https://aka.ms/azure-jdks)，版本 8。
+- 一个受支持的 [Java 开发工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。
 
 ## <a name="prepare-the-working-environment"></a>准备工作环境
@@ -66,7 +66,7 @@ az group create \
 首先，我们将创建一个托管的 Azure SQL 数据库服务器。
 
 > [!NOTE]
-> 可以在[快速入门：创建 Azure SQL 数据库单一数据库](/sql-database/sql-database-single-database-get-started)中阅读有关创建 Azure SQL 数据库服务器的更多详细信息。
+> 可以在[快速入门：创建 Azure SQL 数据库单一数据库](./single-database-create-quickstart.md)中阅读有关创建 Azure SQL 数据库服务器的更多详细信息。
 
 运行下面的命令：
 
@@ -492,4 +492,4 @@ az group delete \
 
 - [在 Azure SQL 数据库中设计第一个数据库](design-first-database-tutorial.md)  
 - [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)  
-- [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)  
+- [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)

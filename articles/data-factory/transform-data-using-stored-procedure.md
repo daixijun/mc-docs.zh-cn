@@ -11,13 +11,13 @@ ms.author: v-jay
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 11/27/2018
-ms.date: 09/21/2020
-ms.openlocfilehash: 13e32a6924f6244c3f5cfe3eb1c23d64ea68745a
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 01/04/2021
+ms.openlocfilehash: 086c8b1b05e68c7c220e37143b1fcd797a77fcae
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523767"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830119"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 SQL Server 存储过程活动转换数据
 
@@ -31,7 +31,7 @@ ms.locfileid: "90523767"
 可以使用存储过程活动调用企业或 Azure 虚拟机 (VM) 中以下数据存储中的存储过程： 
 
 - Azure SQL 数据库
-- Azure Synapse Analytics（以前称为 SQL 数据仓库）
+- Azure Synapse Analytics
 - SQL Server 数据库。  如果使用 SQL Server，请在托管数据库的同一计算机上或在可以访问数据库的单独计算机上安装自托管集成运行时。 自托管集成运行时是一种以安全托管方式将本地/Azure VM 上的数据源与云服务进行连接的组件。 有关详细信息，请参阅[自托管集成运行时](create-self-hosted-integration-runtime.md)一文。
 
 > [!IMPORTANT]
@@ -86,9 +86,7 @@ ms.locfileid: "90523767"
 | SQL Server           | /data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
-## <a name="error-info"></a>错误信息
 
-当存储过程失败并返回错误详细信息时，你无法直接在活动输出中捕获错误信息。 但是，数据工厂会将其所有活动运行事件抽取到 Azure Monitor。 在数据工厂抽取到 Azure Monitor 的事件中，它会在那里推送错误详细信息。 例如，可以通过这些事件设置电子邮件警报。 有关详细信息，请参阅[使用 Azure Monitor 发警报和监视数据工厂](monitor-using-azure-monitor.md)。
 
 ## <a name="next-steps"></a>后续步骤
 参阅以下文章了解如何以其他方式转换数据： 

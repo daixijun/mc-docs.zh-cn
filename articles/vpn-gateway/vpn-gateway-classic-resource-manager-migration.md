@@ -9,23 +9,23 @@ editor: amsriva
 ms.assetid: caa8eb19-825a-4031-8b49-18fbf3ebc04e
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/02/2017
-ms.date: 02/17/2020
+origin.date: 02/06/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 617b007ca1400940ae643d38ed49fd2d6b7d9d59
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fc6c6bbf69a58a6c34e7cb1d62f435b2785a7b7a
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77156791"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856898"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN 网关从经典部署模型迁移到 Resource Manager 部署模型
 VPN 网关现可从经典部署模型迁移到 Resource Manager 部署模型。 可以阅读有关 Azure 资源管理器[功能和优点](../azure-resource-manager/management/overview.md)的更多内容。 在本文中，我们将详细介绍如何从经典部署模型迁移到更新的基于 Resource Manager 的部署模型。 
 
-作为 VNet 迁移的一部分，VPN 网关将从经典部署模型迁移到 Resource Manager 部署模型。 一次仅限一个 VNet 完成此迁移。 就迁移工具或迁移前提条件而言，没有什么额外要求。 迁移步骤与现有 VNet 迁移步骤相同，并且已在 [IaaS 资源迁移页](../virtual-machines/windows/migration-classic-resource-manager-ps.md)进行了编档。 在迁移期间没有任何数据路径停机时间，因此，现有的工作负荷将继续运行，并且在迁移期间不会丢失本地连接。 在迁移过程中，与 VPN 网关关联的公共 IP 地址不会更改。 这就说明完成迁移后无需重新配置本地路由器。  
+作为 VNet 迁移的一部分，VPN 网关将从经典部署模型迁移到 Resource Manager 部署模型。 一次仅限一个 VNet 完成此迁移。 就迁移工具或迁移前提条件而言，没有什么额外要求。 迁移步骤与现有 VNet 迁移步骤相同，并且已在 [IaaS 资源迁移页](../virtual-machines/migration-classic-resource-manager-ps.md)进行了编档。 在迁移期间没有任何数据路径停机时间，因此，现有的工作负荷将继续运行，并且在迁移期间不会丢失本地连接。 在迁移过程中，与 VPN 网关关联的公共 IP 地址不会更改。 这就说明完成迁移后无需重新配置本地路由器。  
 
 Resource Manager 中的模型与经典模型不同，它由虚拟网络网关、本地网络网关和连接资源组成。 这些表示 VPN 网关本身，即分别表示本地地址空间和两者之间连接的本地站点。 完成迁移后，网关在经典模型下不再可用，并且必须使用 Resource Manager 模型对虚拟网络网关、本地网络网关和连接对象执行所有管理操作。
 
@@ -67,5 +67,5 @@ Resource Manager 中的模型与经典模型不同，它由虚拟网络网关、
 * 在受影响的 VNet 和表示本地位置的本地网络网关之间建立显式连接。 这还需要更改本地路由器配置来创建和配置 IPsec 隧道。
 
 ## <a name="next-steps"></a>后续步骤
-在了解过 VPN 网关迁移支持后，请转到[在支持的平台上将 IaaS 资源从经典模型迁移到 Resource Manager 模型](../virtual-machines/windows/migration-classic-resource-manager-ps.md)开始学习。
+在了解过 VPN 网关迁移支持后，请转到[在支持的平台上将 IaaS 资源从经典模型迁移到 Resource Manager 模型](../virtual-machines/migration-classic-resource-manager-ps.md)开始学习。
 

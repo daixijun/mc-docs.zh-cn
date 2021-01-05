@@ -3,31 +3,32 @@ title: Azure PowerShell - 使用 SSE 启用客户管理的密钥 - 托管磁盘
 description: 使用 Azure PowerShell 在托管磁盘上通过客户管理的密钥启用服务器端加密。
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.topic: how-to
 ms.author: v-yeche
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 547714f6227419bc7d23cdeff9274efd863c9b62
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 10e0ab8c6bd104b301b9dee3a441eac602725de7
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104844"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857120"
 ---
 <!--Verified successfully-->
 <!--Partial content from verified article-->
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - 使用客户管理的密钥进行服务器端加密 - 托管磁盘
 
-Azure 磁盘存储使你能在对托管磁盘使用服务器端加密 (SSE) 时管理自己的密钥（如果你选择）。 有关使用客户管理的密钥的 SSE 以及其他托管磁盘加密类型的概念信息，请参阅磁盘加密文章的[客户管理的密钥](disk-encryption.md#customer-managed-keys)部分。
+Azure 磁盘存储使你能在对托管磁盘使用服务器端加密 (SSE) 时管理自己的密钥（如果你选择）。 有关使用客户管理的密钥的 SSE 以及其他托管磁盘加密类型的概念信息，请参阅磁盘加密文章的[客户管理的密钥](../disk-encryption.md#customer-managed-keys)部分。
 
 ## <a name="restrictions"></a>限制
 
 目前，客户托管密钥具有以下限制：
 
 - 如果为磁盘启用了此功能，则无法禁用它。
+
     如果需要解决此问题，则必须[复制所有数据](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)到完全不同的托管磁盘（未使用客户托管密钥）。
 
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
@@ -193,9 +194,7 @@ Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $Reso
 ## <a name="next-steps"></a>后续步骤
 
 - [探索 Azure 资源管理器模板以使用客户管理密钥创建加密磁盘](https://github.com/ramankumarlive/manageddiskscmkpreview)
-    
-    <!--Not Available on - [Replicate machines with customer-managed keys enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)-->
-    
+- [使用启用了客户托管密钥的磁盘来复制计算机](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [使用 PowerShell 设置 VMware VM 到 Azure 的灾难恢复](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [使用 PowerShell 和 Azure 资源管理器为 Hyper-V VM 设置到 Azure 的灾难恢复](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
 

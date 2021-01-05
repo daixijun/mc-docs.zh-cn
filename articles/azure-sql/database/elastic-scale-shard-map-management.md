@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: ea8c78c409f629656b155ee3f9694df96eae6abc
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: e684ed11807dbd81ac9b847545d29d4c1c8d785f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227572"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829915"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-要轻松横向扩展 Azure SQL 数据库上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键**值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。
+要轻松横向扩展 Azure SQL 数据库上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键** 值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。
 
 ![分片映射管理](./media/elastic-scale-shard-map-management/glossary.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "86227572"
    1. 列表映射
    2. 范围映射
 
-对于单租户模型，创建**列表映射**分片映射。 单租户模型将每个租户分配给一个数据库。 这是适用于 SaaS 开发人员的有效模型，因为它可以简化管理。
+对于单租户模型，创建 **列表映射** 分片映射。 单租户模型将每个租户分配给一个数据库。 这是适用于 SaaS 开发人员的有效模型，因为它可以简化管理。
 
 ![列表映射][1]
 
@@ -244,9 +244,9 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 * 若要创建或删除映射到分片的点或范围：请使用 RangeShardMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）类的 CreateRangeMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping)、[.NET](https://docs.microsoft.com/previous-versions/azure/dn841993(v=azure.100))）和 DeleteMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.deletemapping)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)），以及 ListShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）类的 CreatePointMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.listshardmap.createpointmapping)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
   
     许多不同的点或范围可映射到相同的分片。 这些方法仅影响元数据，而不会影响已显示在分片中的任何数据。 如果为了与 **DeleteMapping** 操作保持一致而需要将数据从数据库中删除，需要单独执行这些操作，但需要结合使用这些方法。  
-* 若要将现有的范围拆分为两个，或将相邻的范围合并为一个：请使用 SplitMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping)[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_Azure_SqlDatabase_ElasticScale_ShardManagement_RangeShardMap_1_SplitMapping_Microsoft_Azure_SqlDatabase_ElasticScale_ShardManagement_RangeMapping__0___0_)）和 MergeMappings（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_Azure_SqlDatabase_ElasticScale_ShardManagement_RangeShardMap_1_MergeMappings_Microsoft_Azure_SqlDatabase_ElasticScale_ShardManagement_RangeMapping__0__Microsoft_Azure_SqlDatabase_ElasticScale_ShardManagement_RangeMapping__0__)）。  
+* 若要将现有的范围拆分为两个，或将相邻的范围合并为一个：请使用 SplitMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.splitmapping)[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）和 MergeMappings（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.mergemappings)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）。  
   
-    请注意，拆分和合并操作 **不更改键值要映射到的分片**。 拆分操作可将现有范围拆分为两个部分，但在映射到相同分片时同时保留这两个部分。 对在已映射到相同分片的两个相邻范围进行合并操作，从而可将其合并到单个范围中。  要在分片之间移动点或范围本身，需要将 **UpdateMapping** 与移动的实际数据结合使用，才能进行协调。  当需要移动数据时，可以使用弹性数据库工具中随附的**拆分/合并**服务，以将分片映射更改与数据移动相协调。
+    请注意，拆分和合并操作 **不更改键值要映射到的分片**。 拆分操作可将现有范围拆分为两个部分，但在映射到相同分片时同时保留这两个部分。 对在已映射到相同分片的两个相邻范围进行合并操作，从而可将其合并到单个范围中。  要在分片之间移动点或范围本身，需要将 **UpdateMapping** 与移动的实际数据结合使用，才能进行协调。  当需要移动数据时，可以使用弹性数据库工具中随附的 **拆分/合并** 服务，以将分片映射更改与数据移动相协调。
 * 若要将单独的点或范围重新映射（或移动）到不同的分片：请使用 UpdateMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.updatemapping)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）。  
   
     由于可能需要将数据从一个分片移动到另一个分片，以便与 **UpdateMapping** 操作保持一致，因此需要单独执行此移动，但需要结合使用这些方法。

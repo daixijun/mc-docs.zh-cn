@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/14/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: 2fb3966dc1933fe951a8a6c5d9aecb520e65cbf2
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/04/2021
+ms.openlocfilehash: efa3e9b695a161b6a7ec1b26287dcfe4d491ee01
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747170"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830021"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure 数据工厂中的查找活动
 

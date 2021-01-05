@@ -2,24 +2,25 @@
 title: 适用于 Linux 的 Azure 磁盘加密
 description: 使用虚拟机扩展将适用于 Linux 的 Azure 磁盘加密部署到虚拟机。
 services: virtual-machines-linux
-manager: digimobile
+manager: gwallace
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/19/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66bf59b6c175ef9ee2e86ef075a896d3b9c27c8c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1227087291fae8593ba0db6b3a3b872b5885e72f
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103800"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857008"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>适用于 Linux 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 

@@ -4,20 +4,21 @@ description: 使用 VM 快照 Linux 扩展从 Azure 备份获取虚拟机的应�
 services: backup, virtual-machines-linux
 manager: digimobile
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 origin.date: 12/17/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4b4e285c3c1b4d5ca36a4d1b3cefff86ec4e2077
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7567674aaf8219311c82fe2d68546aee9284e2e0
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104857"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856970"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Linux 扩展
 

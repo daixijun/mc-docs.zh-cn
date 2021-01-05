@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 10/01/2018
-ms.date: 10/12/2020
-ms.openlocfilehash: 7261993c4e5f6aad8e1bdee34b21b5bb231a91a9
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: f7fe956f7a148c747d5db4c8a396cb6ad75ce48e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872421"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830150"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用于测试和原型设计的公共数据集
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "91872421"
 | [Open Science Data Cloud 数据](https://www.opensciencedatacloud.org/projects/) | “Open Science Data Cloud 为科学界提供了可存储、共享和分析 TB 级和 PB 级科学数据集的资源。”| 数据集采用各种格式。 |
 | [全球气候数据 - WorldClim](https://worldclim.org/) | “WorldClim 是一组全球气候层（网格气候数据），空间分辨率约为 1 平方千米。 这些数据可用于映射和空间建模。” | 这些文件包含地理空间数据。 有关详细信息，请参阅[数据格式](https://worldclim.org/formats1)。 |
 | [关于人类社会的数据 - GDELT 项目](https://www.gdeltproject.org/data.html) | “GDELT 项目是目前为止创建的有关人类社会的最大、最全面、分辨率最高的开放数据库。” | 原始数据文件为 CSV 格式。 |
-| [来自 Criteo 的机器学习广告点击预测数据](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | “公开发布的最大的 ML 数据集。” 有关详细信息，请参阅 [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)（Criteo 的 1 TB 点击预测数据集）。 | |
+| [来自 Criteo 的机器学习广告点击预测数据](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | “公开发布的最大的 ML 数据集。” 有关详细信息，请参阅 [Criteo's 1 TB Click Prediction Dataset](https://docs.microsoft.com/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset)（Criteo 的 1 TB 点击预测数据集）。 | |
 | [来自 The Lemur Project 的 ClueWeb09 文本挖掘数据集](https://www.lemurproject.org/clueweb09.php/) | “创建 ClueWeb09 数据集是为了支持与信息检索和相关人类语言技术相关的研究。 由 2009 年 1 月和 2 月收集的约 10 亿个 10 种语言的网页组成。” | 请参阅 [Dataset Information](https://www.lemurproject.org/clueweb09/datasetInformation.php)（数据集信息）。|
 
 ## <a name="online-service-data"></a>联机服务数据

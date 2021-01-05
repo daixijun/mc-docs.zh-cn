@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/20/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: dcc666a784a20e6e78d4b8db11b22063e27a2e89
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: e864d9375de07e1251ba3d9a8b1bcdefe41dc8cd
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004192"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820252"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>语音转文本常见问题解答
 
@@ -72,7 +72,7 @@ ms.locfileid: "97004192"
 
 **问：是否会记录我的请求？**
 
-**答**：默认情况下不记录请求（既不进行音频记录，也不进行听录）。 如果需要，可以在[创建自定义终结点](how-to-custom-speech-deploy-model.md)时选择“从此终结点记录内容”选项以启用跟踪。 然后，请求会记录在 Azure 的安全存储中。
+**答**：默认情况下不记录请求（既不进行音频记录，也不进行听录）。 如果需要，可以在[创建自定义终结点](./how-to-custom-speech-train-model.md)时选择“从此终结点记录内容”选项以启用跟踪。 然后，请求会记录在 Azure 的安全存储中。
 
 **问：我的请求是否受到限制？**
 

@@ -2,15 +2,15 @@
 author: WenJason
 ms.service: data-factory
 ms.topic: include
-origin.date: 09/28/2020
-ms.date: 12/07/2020
+origin.date: 12/08/2020
+ms.date: 01/04/2020
 ms.author: v-jay
-ms.openlocfilehash: 2cbd06a77c44b2f4ee2c042499dc623b2df81783
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: c46cd5608555b561a8388ee30424fed884fa19d1
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747226"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830324"
 ---
 | 类别              | 数据存储                                                   | [复制活动](../articles/data-factory/copy-activity-overview.md)（源/接收器） | [Lookup 活动](../articles/data-factory/control-flow-lookup-activity.md) | [获取元数据活动](../articles/data-factory/control-flow-get-metadata-activity.md)/[验证活动](../articles/data-factory/control-flow-validation-activity.md) | [删除活动](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -59,6 +59,7 @@ ms.locfileid: "96747226"
 | **NoSQL**             | [Cassandra](../articles/data-factory/connector-cassandra.md) | ✓/−                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Couchbase（预览）](../articles/data-factory/connector-couchbase.md) | ✓/−                                                          | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [MongoDB](../articles/data-factory/connector-mongodb.md)     | ✓/−                                                          |                                                              |                                                              |                                                              |
+| &nbsp;                | [MongoDB Atlas](../articles/data-factory/connector-mongodb-atlas.md) | ✓/−                                                          |                                                              |                                                              |                                                              |
 | **File**              | [Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) | ✓/−                                                          | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [文件系统](../articles/data-factory/connector-file-system.md) | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [FTP](../articles/data-factory/connector-ftp.md)             | ✓/−                                                          | ✓                                                            | ✓                                                            | ✓                                                            |

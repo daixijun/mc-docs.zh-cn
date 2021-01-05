@@ -7,23 +7,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e13d75a4528e23d3f66982d2665a9dd062c5ab76
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: ad0dad12fc2a63bd082923539151d94ca6a5a301
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306602"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856835"
 ---
 <a name="HOLTop"></a>
+
+使用计算机视觉客户端库可以：
+
+* 分析图像中的标记、文本说明、人脸、成人内容，等等。
+* 使用 Read API 读取印刷文本和手写文本。
 
 [参考文档](https://docs.microsoft.com/dotnet/api/overview/cognitiveservices/client/computervision?view=azure-dotnet) | [库源代码](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [包 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [示例](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 或最新版本的 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
@@ -1475,7 +1480,7 @@ namespace ComputerVisionQuickstart
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的计算机视觉资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 在应用程序的 `Main` 方法中，添加对本快速入门中使用的方法的调用。 稍后将创建这些内容。
 
@@ -3565,6 +3570,9 @@ namespace ComputerVisionQuickstart
 }
 ```
 
+> [!div class="nextstepaction"]
+> [我设置了客户端](?success=set-up-client#object-model) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## <a name="object-model"></a>对象模型
 
 以下类和接口将处理计算机视觉 .NET SDK 的某些主要功能。
@@ -3586,7 +3594,7 @@ namespace ComputerVisionQuickstart
 ## <a name="authenticate-the-client"></a>验证客户端
 
 > [!NOTE]
-> 本快速入门假设已经为计算机视觉密钥和终结点（分别名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`）[创建了环境变量](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+> 本快速入门假设已经为计算机视觉密钥和终结点（分别名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`）[创建了环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 在新方法中，使用终结点和密钥实例化客户端。 使用密钥创建一个 **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials?view=azure-dotnet)** 对象，并在终结点中使用该对象创建一个 **[ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet)** 对象。
 
@@ -4285,7 +4293,8 @@ namespace ComputerVisionQuickstart
 }
 ```
 
-
+> [!div class="nextstepaction"]
+> [我执行了客户端身份验证](?success=authenticate-client#analyze-an-image) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>分析图像
 
@@ -14088,6 +14097,9 @@ namespace ComputerVisionQuickstart
 }
 ```
 
+> [!div class="nextstepaction"]
+> [我分析了图像](?success=analyze-image#read-printed-and-handwritten-text) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>读取印刷体文本和手写文本
 
 计算机视觉可以读取图像中的可见文本，并将其转换为字符流。 本部分中的代码使用[适用于 Read 3.0 的最新计算机视觉 SDK 版本](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)，并定义了 `BatchReadFileUrl` 方法，该方法使用客户端对象来检测和提取图像中的文本。
@@ -16891,6 +16903,9 @@ namespace ComputerVisionQuickstart
 }
 ```
 
+> [!div class="nextstepaction"]
+> [我阅读了文字](?success=read-printed-handwritten-text#run-the-application) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>运行应用程序
 
 #### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
@@ -16906,6 +16921,8 @@ dotnet run
 ```
 
 ---
+> [!div class="nextstepaction"]
+> [我运行了应用程序](?success=run-the-application#clean-up-resources) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -16914,10 +16931,14 @@ dotnet run
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+> [!div class="nextstepaction"]
+> [我清理了资源](?success=clean-up-resources#next-steps) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=clean-up-resources) 
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 >[计算机视觉 API 参考 (.NET)](https://docs.microsoft.com/dotnet/api/overview/cognitiveservices/client/computervision?view=azure-dotnet)
+
 
 * [什么是计算机视觉？](../../overview.md)
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) 上找到此示例的源代码。

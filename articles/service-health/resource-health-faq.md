@@ -2,13 +2,13 @@
 title: Azure 资源运行状况常见问题解答
 description: Azure 资源运行状况概述
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 684bc5dcb594a047acdbda028d2f34866c88c488
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 12/28/2020
+ms.openlocfilehash: a5dae87850244366dd0a5f3c67b50c09294b7fa2
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472028"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829455"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 资源运行状况常见问题解答
 获取 Azure 资源运行状况常见问题的解答。
@@ -52,7 +52,6 @@ ms.locfileid: "92472028"
 登录 Azure 门户以后，即可通过多种方式访问资源运行状况：
 - 导航到资源。 在左侧导航栏中，选择“资源运行状况”
 - 转到“Azure 服务运行状况”边栏选项卡。  在左侧导航栏中，选择“资源运行状况”。
-- 通过选择门户右上角的问号，并选择“帮助 + 支持”，打开“帮助 + 支持”边栏选项卡。  该边栏选项卡打开后，选择“资源运行状况”
 
 也可使用资源运行状况 API，获取资源运行状况的相关信息。
 
@@ -69,8 +68,6 @@ ms.locfileid: "92472028"
 资源运行状况提供的信息比 Azure 状态或服务运行状况仪表板提供的更具体。
 
 [Azure 状态](https://status.azure.com)和服务运行状况仪表板会告知影响大量客户（例如某个 Azure 区域的客户）的服务问题，而资源运行状况则会公开更细致的事件，这些事件仅与特定的资源相关。 例如，如果某个主机意外重启，资源运行状况仅提醒其虚拟机在该主机上运行的那些客户。
-
-必须注意的是，为了让你全面了解影响资源的事件，资源运行状况还会呈现在服务运行状况仪表板中发布的事件。
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>是否需要激活每个资源的资源运行状况？
 否。运行状况信息适用于可以通过资源运行状况获取的所有资源类型。 

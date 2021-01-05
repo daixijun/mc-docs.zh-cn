@@ -7,18 +7,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 origin.date: 08/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 28910b9d4d16bcace0d0b98360c6869044c71748
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/21/2020
+ms.openlocfilehash: 6a912c1d9fff90a4eb724d9a9e23de9b1fdae2e8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227334"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830218"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>将 Azure SQL 托管实例中的数据库还原到之前的某个时间点
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -206,9 +206,9 @@ DROP DATABASE WorldWideImporters;
 
 使用以下方法之一连接到 SQL 托管实例中的数据库：
 
-- [在 Azure 虚拟机中使用 SSMS/Azure Data Studio](/sql-database/sql-database-managed-instance-configure-vm)
-- [点到站点](/sql-database/sql-database-managed-instance-configure-p2s)
-- [公共终结点](/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [在 Azure 虚拟机中使用 SSMS/Azure Data Studio](./connect-vm-instance-configure.md)
+- [点到站点](./point-to-site-p2s-configure.md)
+- [公共终结点](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -248,9 +248,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 使用以下方法之一连接到 SQL 托管实例中的数据库：
 
-- [Azure 虚拟机](/sql-database/sql-database-managed-instance-configure-vm)
-- [点到站点](/sql-database/sql-database-managed-instance-configure-p2s)
-- [公共终结点](/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Azure 虚拟机](./connect-vm-instance-configure.md)
+- [点到站点](./point-to-site-p2s-configure.md)
+- [公共终结点](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>后续步骤
 

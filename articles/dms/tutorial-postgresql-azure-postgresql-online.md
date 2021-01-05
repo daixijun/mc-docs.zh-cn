@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 origin.date: 04/11/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: b5da3112d173e9606086e9fa326e2625c7e9e508
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/04/2021
+ms.openlocfilehash: d434119f59af774524d08029eba4a42bbfe0bad4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747023"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856938"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>教程：通过 Azure CLI 使用 DMS 将 PostgreSQL 联机迁移到 Azure DB for PostgreSQL
 
@@ -248,8 +248,8 @@ ms.locfileid: "96747023"
     * 将 IP 地址添加到源中与以下条目类似的 pg_hba.conf 文件：
 
         ```
-        host    all     all     172.16.136.18/10    md5
-        host    replication     postgres    172.16.136.18/10    md5
+        host     all            all        172.16.136.18/10    md5
+        host     replication    postgres   172.16.136.18/10    md5
         ```
 
 5. 接下来请运行以下命令，创建 PostgreSQL 迁移项目：
@@ -374,23 +374,23 @@ ms.locfileid: "96747023"
 在输出文件中，有多个指示迁移进度的参数。 有关示例，请查看下面的输出文件：
 
   ```output
-    "output": [                                 Database Level
+    "output": [                                 // Database Level
           {
-            "appliedChanges": 0,        //Total incremental sync applied after full load
-            "cdcDeleteCounter": 0       // Total delete operation  applied after full load
-            "cdcInsertCounter": 0,      // Total insert operation applied after full load
-            "cdcUpdateCounter": 0,      // Total update operation applied after full load
+            "appliedChanges": 0,         // Total incremental sync applied after full load
+            "cdcDeleteCounter": 0        // Total delete operation  applied after full load
+            "cdcInsertCounter": 0,       // Total insert operation applied after full load
+            "cdcUpdateCounter": 0,       // Total update operation applied after full load
             "databaseName": "inventory",
             "endedOn": null,
             "fullLoadCompletedTables": 2,   //Number of tables completed full load
-            "fullLoadErroredTables": 0, //Number of tables that contain migration error
-            "fullLoadLoadingTables": 0, //Number of tables that are in loading status
-            "fullLoadQueuedTables": 0,  //Number of tables that are in queued status
+            "fullLoadErroredTables": 0,     //Number of tables that contain migration error
+            "fullLoadLoadingTables": 0,     //Number of tables that are in loading status
+            "fullLoadQueuedTables": 0,      //Number of tables that are in queued status
             "id": "db|inventory",
-            "incomingChanges": 0,       //Number of changes after full load
+            "incomingChanges": 0,           //Number of changes after full load
             "initializationCompleted": true,
             "latency": 0,
-            "migrationState": "READY_TO_COMPLETE",  //Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
+            "migrationState": "READY_TO_COMPLETE",    //Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
             "resultType": "DatabaseLevelOutput",
             "startedOn": "2018-07-05T23:36:02.27839+00:00"
           },
@@ -406,25 +406,25 @@ ms.locfileid: "96747023"
             "targetServer": "builddemotarget.postgres.database.chinacloudapi.cn",
             "targetVersion": "Azure Database for PostgreSQL"
           },
-          {                                     Table 1
+          {                                        // Table 1
             "cdcDeleteCounter": 0,
             "cdcInsertCounter": 0,
             "cdcUpdateCounter": 0,
             "dataErrorsCount": 0,
             "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",  //Full load completed time
+            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",    //Full load completed time
             "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
             "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00",    //Full load started time
-            "fullLoadTotalRows": 10,                    //Number of rows loaded in full load
-            "fullLoadTotalVolumeBytes": 7056,               //Volume in Bytes in full load
-            "id": "or|inventory|public|actor",          
+            "fullLoadTotalRows": 10,                     //Number of rows loaded in full load
+            "fullLoadTotalVolumeBytes": 7056,            //Volume in Bytes in full load
+            "id": "or|inventory|public|actor",
             "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
             "resultType": "TableLevelOutput",
-            "state": "COMPLETED",                   //State of migration for this table
+            "state": "COMPLETED",                       //State of migration for this table
             "tableName": "public.catalog",              //Table name
-            "totalChangesApplied": 0                //Total sync changes that applied after full load
+            "totalChangesApplied": 0                    //Total sync changes that applied after full load
           },
-          {                                     Table 2
+          {                                            //Table 2
             "cdcDeleteCounter": 0,
             "cdcInsertCounter": 50,
             "cdcUpdateCounter": 0,
@@ -442,8 +442,8 @@ ms.locfileid: "96747023"
             "tableName": "public.orders",
             "totalChangesApplied": 0
           }
-        ],                          DMS migration task state
-        "state": "Running", //Migration task state – Running means it is still listening to any changes that might come in                  
+        ],                                      // DMS migration task state
+        "state": "Running",    //Migration task state – Running means it is still listening to any changes that might come in
         "taskType": null
       },
       "resourceGroup": "PostgresDemo",
@@ -458,12 +458,12 @@ ms.locfileid: "96747023"
 
 ```
 "migrationState": "READY_TO_COMPLETE", //Status of migration task. READY_TO_COMPLETE means database is ready for cutover
- "incomingChanges": 0,  //continue to check for a period of 5-10 minutes to make sure no new incoming changes that need to be applied to the target server
+ "incomingChanges": 0, //continue to check for a period of 5-10 minutes to make sure no new incoming changes that need to be applied to the target server
    "fullLoadTotalRows": 10, //full load for table 1
-    "cdcDeleteCounter": 0,  //delete, insert and update counter on incremental sync after full load
+    "cdcDeleteCounter": 0, //delete, insert and update counter on incremental sync after full load
     "cdcInsertCounter": 50,
     "cdcUpdateCounter": 0,
-     "fullLoadTotalRows": 112,  //full load for table 2
+     "fullLoadTotalRows": 112, //full load for table 2
 ```
 
 1. 使用以下命令执行直接转换数据库迁移任务：

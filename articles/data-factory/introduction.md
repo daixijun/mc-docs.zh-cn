@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 origin.date: 09/30/2019
-ms.date: 11/23/2020
-ms.openlocfilehash: 66f3f2baca83990a8c87fe7089689a81e1e4d502
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: fb853b9f74c453611d66e567129620511aaf82ee
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680424"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830098"
 ---
 # <a name="what-is-azure-data-factory"></a>什么是 Azure 数据工厂？
 
@@ -29,7 +29,7 @@ ms.locfileid: "94680424"
 
 为了分析这些日志，该公司需要使用参考数据，例如位于本地数据存储中的客户信息、游戏信息和市场营销活动信息。 公司想要利用本地数据存储中的这些数据，将其与云数据存储中具有的其他日志数据结合在一起。 
 
-为了获取见解，公司希望使用云中的 Spark 群集 (Azure HDInsight) 处理加入的数据，并将转换的数据发布到云数据仓库（如 Synapse Analytics，以前称为 SQL 数据仓库）以轻松地在此基础上生成报表。 公司的人员希望自动执行此工作流，并每天按计划对其进行监视和管理。 他们还希望在文件存储到 blob 存储容器中时执行该工作流。
+为了获取见解，它希望使用云中的 Spark 群集 (Azure HDInsight) 处理加入的数据，并将转换的数据发布到云数据仓库（如 Azure Synapse Analytics）以轻松地基于它生成报表。 公司的人员希望自动执行此工作流，并每天按计划对其进行监视和管理。 他们还希望在文件存储到 blob 存储容器中时执行该工作流。
 
 Azure 数据工厂是解决此类数据方案的平台。 它是基于云的 ETL 和数据集成服务，可让你创建数据驱动型工作流用于大规模协调数据移动和转换数据。 可以使用 Azure 数据工厂创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据。 可以构建复杂的 ETL 流程，用于通过 Azure HDInsight Hadoop、Azure Databricks 和 Azure SQL 数据库等计算服务直观转换数据。 
 

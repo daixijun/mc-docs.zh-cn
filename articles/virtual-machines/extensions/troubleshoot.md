@@ -6,21 +6,22 @@ manager: gwallace
 tags: top-support-issue,azure-resource-manager
 ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/29/2016
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: b7585def6f29e9b088ec9fb41884e3a331e39ee2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 68fd171998a04752665d5de79d9a8083564ddb84
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104859"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856978"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

@@ -3,21 +3,21 @@ title: Docker 容器设置 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 使用 `docker run` 命令参数配置 LUIS 容器运行时环境。 LUIS 有几个必需的设置以及一些可选设置。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 11/07/2019
-ms.date: 12/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 7a535235f6b6ba994706b5d923df947142fc7273
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 12/28/2020
+ms.author: v-johya
+ms.openlocfilehash: 10b14f38617b0cac189a6669d8943d1fc8fde607
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74838572"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856928"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>配置语言理解 Docker 容器 
 
@@ -39,16 +39,16 @@ ms.locfileid: "74838572"
 |是|[Mounts](#mount-settings)|从主计算机读取数据并将其写入到容器，以及从容器读回数据并将其写回到主计算机。|
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-setting)、[`Billing`](#billing-setting) 和 [`Eula`](#eula-setting) 设置一起使用。必须为所有三个设置提供有效值，否则容器将无法启动。
+> [`ApiKey`](#apikey-setting)、[`Billing`](#billing-setting) 和 [`Eula`](#eula-setting) 设置一起使用。必须为所有三个设置提供有效值，否则容器将无法启动。 有关使用这些配置设置实例化容器的详细信息，请参阅[计费](luis-container-howto.md#billing)。
 
 ## <a name="apikey-setting"></a>ApiKey 设置
 
-`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，且此值必须是为 [`Billing`](#billing-setting) 配置设置指定的“认知服务”  资源的有效密钥。
+`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，且此值必须是为 [`Billing`](#billing-setting) 配置设置指定的“认知服务”资源的有效密钥。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：**认知服务**“资源管理”部分的“密钥”下 
-* LUIS 门户：“密钥和终结点”设置页。  
+* Azure 门户：**认知服务**“资源管理”部分的“密钥”下
+* LUIS 门户：“密钥和终结点”设置页。 
 
 请勿使用初学者密钥或创作密钥。 
 
@@ -58,19 +58,16 @@ ms.locfileid: "74838572"
 
 ## <a name="billing-setting"></a>账单设置
 
-`Billing` 设置指定 Azure 上用于计量容器帐单信息的“认知服务”  资源的终结点 URI。 必须为这个配置设置指定值，且此值必须是 Azure 上“认知服务”  资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
+`Billing` 设置指定 Azure 上用于计量容器帐单信息的“认知服务”资源的终结点 URI。 必须为这个配置设置指定值，且此值必须是 Azure 上“认知服务”资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：**认知服务**概述，标记为 `Endpoint`
-* LUIS 门户：  “密钥和终结点设置”页面，作为终结点 URI 的一部分。
+* Azure 门户：**认知服务** 概述，标记为 `Endpoint`
+* LUIS 门户：“密钥和终结点设置”页面，作为终结点 URI 的一部分。
 
-请记住在 URL 中包括 `luis/v2.0` 路由，如下表所示：
-
-
-|必须| 名称 | 数据类型 | 说明 |
-|--|------|-----------|-------------|
-|是| `Billing` | String | 账单终结点 URI<br><br>示例：<br>`Billing=https://chinaeast2.api.cognitive.azure.cn/luis/v2.0/` |
+| 必须 | 名称 | 数据类型 | 说明 |
+|----------|------|-----------|-------------|
+| 是      | `Billing` | 字符串 | 账单终结点 URI。 有关获取账单 URI 的详细信息，请参阅[收集必需参数](luis-container-howto.md#gathering-required-parameters)。 有关详细信息和区域终结点的完整列表，请参阅[认知服务的自定义子域名](../cognitive-services-custom-subdomains.md)。 |
 
 ## <a name="eula-setting"></a>Eula 设置
 
@@ -80,7 +77,7 @@ ms.locfileid: "74838572"
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Http 代理凭据设置
+## <a name="http-proxy-credentials-settings"></a>HTTP 代理凭据设置
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -100,14 +97,14 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 
 |必须| 名称 | 数据类型 | 说明 |
 |-------|------|-----------|-------------|
-|是| `Input` | String | 输入装入点的目标。 默认值为 `/input`。 这是 LUIS 包文件的位置。 <br><br>示例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|是| `Input` | 字符串 | 输入装入点的目标。 默认值是 `/input`。 这是 LUIS 包文件的位置。 <br><br>示例：<br>`--mount type=bind,src=c:\input,target=/input`|
 |否| `Output` | String | 输出装入点的目标。 默认值为 `/output`。 这是日志的位置。 这包括 LUIS 查询日志和容器日志。 <br><br>示例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 运行命令示例
 
 以下示例使用的配置设置说明如何编写和使用 `docker run` 命令。  运行后，容器将继续运行，直到[停止](luis-container-howto.md#stop-the-container)它。
 
-* 这些示例使用 `c:` 驱动器外的目录来避免 Windows 上的任何权限冲突。 如果需要使用特定目录作为输入目录，则需要授予 docker 服务权限。 
+* 这些示例使用 `C:` 驱动器外的目录来避免 Windows 上的任何权限冲突。 如果需要使用特定目录作为输入目录，则需要授予 docker 服务权限。 
 * 除非非常熟悉 docker 容器，否则不要更改参数顺序。
 * 如果使用的是不同的操作系统，请使用正确的控制台/终端、用于装载的文件夹语法和系统的行继续符。 这些示例假定 Windows 控制台使用行继续符 `^`。 由于容器是 Linux 操作系统，因此目标装载使用 Linux 样式的文件夹语法。
 
@@ -116,12 +113,13 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 | 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
 | **{API_KEY}** | “Azure `LUIS` 密钥”页上的 `LUIS` 资源的终结点密钥。 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Azure `LUIS`“概览”页面上提供了账单终结点值。| 有关显式示例，请参阅[收集所需参数](luis-container-howto.md#gathering-required-parameters)。 |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。 有关详细信息，请参阅[计费](luis-container-howto.md#billing)。
-> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”  ，也可以在 Azure `Cognitive Services`资源密钥页上找到。 
+> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”，也可以在 Azure `Cognitive Services`资源密钥页上找到。 
 
 ### <a name="basic-example"></a>基本示例
 
@@ -171,3 +169,5 @@ Logging:Console:LogLevel:Default=Information
 
 * 查看[如何安装和运行容器](luis-container-howto.md)
 * 若要解决与 LUIS 功能相关的问题，请参阅[故障排除](troubleshooting.md)。
+* 使用更多[认知服务容器](../cognitive-services-container-support.md)
+

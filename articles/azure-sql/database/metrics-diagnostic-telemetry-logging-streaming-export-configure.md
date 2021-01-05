@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, sstein
 origin.date: 04/06/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 85629bd78556b2d703a9cbbadd4ef1ac9225c577
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: 68b3e50d4d4014b8c19cffa227bc31a165a2b04f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872420"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830156"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>配置 Azure SQL 数据库和 Azure SQL 托管实例诊断遥测的流式导出
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "91872420"
 | [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 有关详细信息，请参阅[智能见解](intelligent-insights-overview.md)。 | 是 | 是 |
 
 > [!NOTE]
-> 不能为**系统数据库**（例如 master、msdb、model、resource 和 tempdb 数据库）配置诊断设置。
+> 不能为 **系统数据库**（例如 master、msdb、model、resource 和 tempdb 数据库）配置诊断设置。
 
 ## <a name="streaming-export-destinations"></a>流式导出目标
 
@@ -62,13 +62,13 @@ ms.locfileid: "91872420"
   将数据流式传输到 [Log Analytics 工作区](../../azure-monitor/platform/resource-logs-collect-workspace.md)。
 - **[Azure 事件中心](#stream-into-event-hubs)** ：
 
-  将数据流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)可提供以下功能：
+  将数据流式传输到 [Azure 事件中心](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)可提供以下功能：
 
   - 将日志流式传输到第三方日志记录和遥测系统：将所有指标和资源日志流式传输到单个事件中心，以通过管道将日志数据传送到第三方 SIEM 或日志分析工具。
   - **生成自定义遥测和日志记录平台**：可利用事件中心高度可缩放的发布-订阅功能，灵活地将指标和资源日志引入到自定义遥测平台。 
 - **[Azure 存储](#stream-into-azure-storage)** ：
 
-  将数据流式传输到 [Azure 存储](../../azure-monitor/platform/resource-logs-collect-storage.md)可以存档大量诊断遥测数据，并且成本只是前两种流式传输选项的一小部分。
+  将数据流式传输到 [Azure 存储](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)可以存档大量诊断遥测数据，并且成本只是前两种流式传输选项的一小部分。
 
 流式传输到这些目标之一的诊断遥测数据可用于度量资源利用率和查询执行统计信息，以便更轻松地监视性能。
 
@@ -85,11 +85,11 @@ ms.locfileid: "91872420"
 - Azure Resource Manager 模板
 
 > [!NOTE]
-> 若要启用安全遥测的审核日志流式传输，请参阅[为数据库设置审核](../../sql-database/sql-database-auditing.md#setup-auditing)以及 [Azure Monitor 日志和 Azure 事件中心中的审核日志](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
+> 若要启用安全遥测的审核日志流式传输，请参阅[为数据库设置审核](./auditing-overview.md#setup-auditing)以及 [Azure Monitor 日志和 Azure 事件中心中的审核日志](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>配置诊断遥测数据的流式导出
 
-可以使用 Azure 门户中的“诊断设置”菜单来启用和配置诊断遥测数据的流式传输。 此外，还可以使用 PowerShell、Azure CLI、[REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 和[资源管理器模板](../../azure-monitor/platform/diagnostic-settings-template.md)来配置诊断遥测数据的流式传输。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心和 Azure Monitor 日志。
+可以使用 Azure 门户中的“诊断设置”菜单来启用和配置诊断遥测数据的流式传输。 此外，还可以使用 PowerShell、Azure CLI、[REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 和[资源管理器模板](../../azure-monitor/samples/resource-manager-diagnostic-settings.md)来配置诊断遥测数据的流式传输。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心和 Azure Monitor 日志。
 
 > [!IMPORTANT]
 > 默认不会启用诊断遥测数据的流式导出。
@@ -115,7 +115,7 @@ ms.locfileid: "91872420"
 
 若要为弹性池资源启用诊断遥测流，请执行以下步骤：
 
-1. 在 Azure 门户中转到**弹性池**资源。
+1. 在 Azure 门户中转到 **弹性池** 资源。
 2. 选择“诊断设置”。
 3. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置 
 
@@ -124,7 +124,7 @@ ms.locfileid: "91872420"
 4. 输入设置名称供自己参考。
 5. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”或“发送到 Log Analytics”。  
 6. 对于 Log Analytics，请选择“配置”，并通过选择“+创建新工作区”来创建新工作区；或者选择现有的工作区。 
-7. 选中弹性池诊断遥测对应的复选框：**基本**指标。
+7. 选中弹性池诊断遥测对应的复选框：**基本** 指标。
    ![为弹性池配置诊断](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
 8. 选择“保存” 。
@@ -143,7 +143,7 @@ ms.locfileid: "91872420"
 
 若要为单一数据库或共用数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 转到 Azure **SQL 数据库**资源。
+1. 转到 Azure **SQL 数据库** 资源。
 2. 选择“诊断设置”。
 3. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置  最多可以创建三个并行连接用于流式传输诊断遥测数据。
 4. 选择“添加诊断设置”，以便配置将诊断数据并行流式传输到多个资源。
@@ -179,7 +179,7 @@ ms.locfileid: "91872420"
 
 若要为托管实例资源启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 在 Azure 门户中转到**托管实例**资源。
+1. 在 Azure 门户中转到 **托管实例** 资源。
 2. 选择“诊断设置”。
 3. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置 
 
@@ -208,7 +208,7 @@ ms.locfileid: "91872420"
 
 若要为实例数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 转到托管实例中的**实例数据库**资源。
+1. 转到托管实例中的 **实例数据库** 资源。
 2. 选择“诊断设置”。
 3. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置 
    - 最多可以创建三 (3) 个并行连接用于流式传输诊断遥测数据。
@@ -368,7 +368,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="metrics-and-logs-available"></a>可用的指标和日志
 
-本文的本部分介绍了如何监视适用于单一数据库、共用数据库、弹性池、托管实例和实例数据库的遥测数据。 可以使用 [Azure Monitor 日志查询](/azure-monitor/log-query/get-started-queries)语言将在 SQL Analytics 内收集的监视遥测数据用于你自己的自定义分析和应用程序开发。
+本文的本部分介绍了如何监视适用于单一数据库、共用数据库、弹性池、托管实例和实例数据库的遥测数据。 可以使用 [Azure Monitor 日志查询](../../azure-monitor/log-query/get-started-queries.md)语言将在 SQL Analytics 内收集的监视遥测数据用于你自己的自定义分析和应用程序开发。
 
 ### <a name="basic-metrics"></a>基本指标
 
@@ -550,7 +550,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |query_hash_s|失败查询的查询哈希（如果有） |
 |query_plan_hash_s|失败查询的查询计划哈希（如果有） |
 
-详细了解 [SQL 错误消息](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15)。
+详细了解 [SQL 错误消息](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)。
 
 #### <a name="database-wait-statistics-dataset"></a>数据库等待统计数据集
 

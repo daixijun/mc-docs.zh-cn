@@ -6,17 +6,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 07/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: c0a44b37e06aa9e712340f198ac8f8cca346427a
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 4b923f2972ff3f79951a66443658bbd459178f83
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590845"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856727"
 ---
 <!--Verified successfully-->
 <!--Transfer from an include file-->
@@ -93,7 +93,7 @@ az vm create \
 
 对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss#az_vmss_create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
-## <a name="portal"></a>门户   
+## <a name="portal"></a>门户
 
 在 Azure 门户中，可以选择在部署 VM 时使用临时磁盘，方法是：打开“磁盘”选项卡的“高级”部分。   对于“使用临时 OS 磁盘”选项，请选择“是”。  
 
@@ -126,7 +126,7 @@ az vm create \
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 

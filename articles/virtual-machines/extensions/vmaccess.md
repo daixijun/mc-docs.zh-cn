@@ -6,22 +6,23 @@ manager: gwallace
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/10/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 228e67c795a950d1c843604b24d5f850ebce4330
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7303787656bc0d139fe3fd74a2fc667495b6e75e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106159"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856973"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>配合使用 VMAccess 扩展和 Azure CLI 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述
@@ -55,7 +56,7 @@ VM 访问扩展可以针对这些 Linux 分发运行：
 * 使用 Azure CLI 以及所需的参数。
 * [使用 VMAccess 要处理和操作的原始 JSON 文件](#use-json-files-and-the-vmaccess-extension)。
 
-下面的示例使用 [az vm user](https://docs.azure.cn/cli/vm/user?view=azure-cli-latest#az-vm-user) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+下面的示例使用 [az vm user](https://docs.azure.cn/cli/vm/user#az_vm_user) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2)，并使用 [az login](https://docs.azure.cn/cli/reference-index#az_login) 登录到 Azure 帐户。
 
 ## <a name="update-ssh-key"></a>更新 SSH 密钥
 以下示例更新名为 `myVM` 的 VM 上用户 `azureuser` 的 SSH 密钥：
@@ -112,7 +113,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>使用 JSON 文件和 VMAccess 扩展
-以下示例使用原始 JSON 文件。 然后使用 [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 调用 JSON 文件。 从 Azure 模板也可以调用这些 JSON 文件。 
+以下示例使用原始 JSON 文件。 然后使用 [az vm extension set](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) 调用 JSON 文件。 从 Azure 模板也可以调用这些 JSON 文件。 
 
 ### <a name="reset-user-access"></a>重置用户访问权限
 如果已失去 Linux VM 的 root 访问权限，可以启动 VMAccess 脚本更新用户的 SSH 密钥或密码。

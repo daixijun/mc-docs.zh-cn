@@ -7,17 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 88b54fdb94ab4f067e64d303c13519ae46981b3a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 3d3e7c36721b22c717fb0b76c9b14f33092e3eb3
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004257"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856863"
 ---
 <!--Verified successfully for rename articles-->
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型
@@ -346,5 +346,4 @@ ms.locfileid: "97004257"
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md)
 
-<!-- Update_Description: new article about migration classic resource manager ps -->
-<!--NEW.date: 12/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

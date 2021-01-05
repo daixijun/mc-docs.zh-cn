@@ -5,17 +5,18 @@ ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
+origin.date: 11/06/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66040baf93c27e3274cad0e8cd463d2511bd8552
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3c659bddf5ccd351b1312ae0ba7ecb7e5f56de44
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103600"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856915"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>使用门户创建 Azure 共享映像库
 
@@ -23,7 +24,7 @@ ms.locfileid: "93103600"
 
 使用共享映像库，你可以在 AAD 租户内在同一区域或跨区域与组织中的其他用户共享自定义 VM 映像。 选择要共享哪些映像，要在哪些区域中共享，以及希望与谁共享它们。 你可以创建多个库，以便可以按逻辑方式对共享映像进行分组。 
 
-库是顶级资源，它提供完全基于角色的访问控制 (RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
+库是顶级资源，它提供完整的 Azure 基于角色的访问控制 (Azure RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
 
 共享映像库功能具有多种资源类型。 我们将在本文中使用或生成这些资源类型：
 
@@ -40,17 +41,17 @@ ms.locfileid: "93103600"
 现在，可以创建一个或多个新的 VM。 本示例在“中国东部”数据中心的 *myResourceGroup* 中创建名为 *myVM* 的 VM。 
 
 1. 转到映像定义。 可以使用资源筛选器显示所有可用的映像定义。
-1. 在映像定义的页面顶部，从菜单中选择“创建 VM”。 
-1. 对于“资源组”，请选择“新建”并键入  
-1. 在“虚拟机名称”中键入 
+1. 在映像定义的页面顶部，从菜单中选择“创建 VM”。
+1. 对于“资源组”，请选择“新建”并键入 *myResourceGroup* 作为名称。 
+1. 在“虚拟机名称”中键入 *myVM*。
 1. 对于“区域”，请选择“中国东部”。  
-1. 对于“可用性选项”，请保留默认设置“无需基础结构冗余”。 
-1. 如果你是从映像定义的页面开始操作的，系统会自动使用 `latest` 映像版本填充“映像”的值。 
+1. 对于“可用性选项”，请保留默认设置“无需基础结构冗余”。
+1. 如果你是从映像定义的页面开始操作的，系统会自动使用 `latest` 映像版本填充“映像”的值。
 1. 对于“大小”，请从可用大小列表中选择一种 VM 大小，然后选择“选择”。  
-1. 在“管理员帐户”  下，如果映像已通用化，则需提供用户名（例如 *azureuser* ）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 如果映像已专用化，则用户名和密码字段会灰显，因为使用的是源 VM 的用户名和密码。
+1. 在“管理员帐户”  下，如果映像已通用化，则需提供用户名（例如 *azureuser*）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 如果映像已专用化，则用户名和密码字段会灰显，因为使用的是源 VM 的用户名和密码。
 1. 若要允许远程访问 VM，请在“公共入站端口”下选择“允许所选端口”，然后从下拉列表中选择“RDP (3389)”。    如果你不希望允许远程访问 VM，请为“公共入站端口”保留选择“无”。  
-1. 完成后，选择页面底部的“查看 + 创建”按钮。 
-1. VM 通过验证后，选择页面底部的“创建”以开始部署。 
+1. 完成后，选择页面底部的“查看 + 创建”按钮。
+1. VM 通过验证后，选择页面底部的“创建”以开始部署。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -62,10 +63,10 @@ ms.locfileid: "93103600"
 
 此外可以使用模板创建共享映像库资源。 提供多个 Azure 快速入门模板： 
 
-- [创建共享映像库](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [在共享的映像库中创建映像定义](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [在共享映像库中创建映像版本](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [根据映像版本创建 VM](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [创建共享映像库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sig-create/)
+- [在共享的映像库中创建映像定义](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sig-image-definition-create/)
+- [在共享映像库中创建映像版本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sig-image-version-create/)
+- [根据映像版本创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-sig/)
 
 有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](../troubleshooting-shared-images.md)。
 

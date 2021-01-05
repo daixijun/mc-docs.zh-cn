@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/27/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 12/17/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 887d9d962e32b155d5da1abe1b4d11efc0432f07
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: f9ec174a5df9ee6c034fb53e18e3cd3df9026bab
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231338"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793437"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>使用连接监视器（预览版）进行网络连接监视
 
@@ -34,7 +34,7 @@ ms.locfileid: "96231338"
 - 前端 Web 服务器 VM 与多层应用程序中的数据库服务器 VM 进行通信。 你希望检查两个 VM 之间的网络连接。
 - 你希望中国东部区域中的 VM 能够端对端连接到中国北部区域中的 VM，并且希望比较两者的跨区域网络延迟情况。
 
-    <!-Not Available on - You have multiple on-premises office sites in Seattle, Washington, and in Ashburn, Virginia. Your office sites connect to Office 365 URLs. For your users of Office 365 URLs, compare the latencies between Seattle and Ashburn.-->
+    <!--Not Available on - You have multiple on-premises office sites in Seattle, Washington, and in Ashburn, Virginia. Your office sites connect to Office 365 URLs. For your users of Office 365 URLs, compare the latencies between Seattle and Ashburn.-->
 
 - 混合应用程序需要连接到 Azure 存储终结点。 本地站点和 Azure 应用程序连接到相同的 Azure 存储终结点。 希望比较本地站点的延迟与 Azure 应用程序的延迟。
 - 希望检查本地设置与托管云应用程序的 Azure VM 之间的连接。

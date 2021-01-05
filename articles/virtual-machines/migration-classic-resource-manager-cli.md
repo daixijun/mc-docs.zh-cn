@@ -7,21 +7,21 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4559cd296ae12c084756b4e416ad786f9d7f740
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 9381aaab1b56b1405041006f04d02dada33b4271
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004296"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856797"
 ---
 <!--Verified successfully for rename article-->
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型
 
 > [!IMPORTANT]
-> 目前，大约有 90% 的 IaaS VM 在使用 [Azure 资源管理器](https://azure.microsoft.com/features/resource-manager/)。 自 2020 年 2 月 28 日起，经典 VM 已弃用，并将于 2023 年 3 月 1 日完全停用。 [详细了解](https://docs.azure.cn/zh-cn/virtual-machines/classic-vm-deprecation)此弃用以及[它对你的影响](classic-vm-deprecation.md#how-does-this-affect-me)。
+> 目前，大约有 90% 的 IaaS VM 在使用 [Azure 资源管理器](https://azure.microsoft.com/features/resource-manager/)。 自 2020 年 2 月 28 日起，经典 VM 已弃用，并将于 2023 年 3 月 1 日完全停用。 [详细了解]( https://docs.azure.cn/virtual-machines/classic-vm-deprecation)此弃用以及[它对你的影响](classic-vm-deprecation.md#how-does-this-affect-me)。
 
 以下步骤演示如何使用 Azure 命令行接口 (CLI) 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 本文中的操作需要 [Azure 经典 CLI](https://docs.azure.cn/cli/install-classic-cli)。 由于 Azure CLI 仅适用于 Azure 资源管理器资源，因此它不能用于此迁移。
 
@@ -228,5 +228,4 @@ azure storage account commit-migration <storageAccountName>
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md)
 
-<!-- Update_Description: new article about migration classic resource manager cli -->
-<!--NEW.date: 12/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

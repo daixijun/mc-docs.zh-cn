@@ -6,21 +6,22 @@ manager: gwallace
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 08/02/2017
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4c3d2fb459d3c2b8aaf7f120e5422e2c2a92ed07
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 2387263e71e3fb593d9597a8769ac5524e0402cf
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104858"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856974"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -89,7 +90,52 @@ systemctl restart walinuxagent.service
 
 ## <a name="red-hat--centos"></a>Red Hat / CentOS
 
-<!--Not Available on ### RHEL/CentOS 6-->
+### <a name="rhelcentos-6"></a>RHEL/CentOS 6
+
+检查当前程序包的版本
+
+```bash
+sudo yum list WALinuxAgent
+```
+
+检查可用的更新
+
+```bash
+sudo yum check-update WALinuxAgent
+```
+
+安装最新版本的程序包
+
+```bash
+sudo yum install WALinuxAgent
+```
+
+确保已启用自动更新 
+
+首先，检查是否已启用自动更新：
+
+```bash
+cat /etc/waagent.conf
+```
+
+查找“AutoUpdate.Enabled”。 如果看到以下输出，则表示已启用：
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+若要允许运行：
+
+```bash
+sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+重新启动 waagent 服务
+
+```
+sudo service waagent restart
+```
 
 ## <a name="rhelcentos-7"></a>RHEL/CentOS 7
 

@@ -10,12 +10,12 @@ ms.custom: sqldbrb=1
 ms.reviewer: vanto
 origin.date: 03/09/2020
 ms.date: 10/29/2020
-ms.openlocfilehash: 4c478f0b6f8d638c0f0163b0417376c2c62fd879
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: a0b1303cadc7aad03ec6f3aa5bfb8b783ab81678
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470574"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830269"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 数据库和 Azure Synapse Analytics 的 Azure 专用链接
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "92470574"
 使用专用链接可以通过 **专用终结点** 连接到 Azure 中的各种 PaaS 服务。 专用终结点是特定[ VNet ](../../virtual-network/virtual-networks-overview.md)和子网中的专用 IP 地址。
 
 > [!IMPORTANT]
-> 本文适用于 Azure SQL 数据库和 Azure Synapse Analytics（以前的 SQL 数据仓库）。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。 本文不适用于 **Azure SQL 托管实例** 。
+> 本文适用于 Azure SQL 数据库和 Azure Synapse Analytics（以前的 SQL 数据仓库）。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。 本文不适用于 **Azure SQL 托管实例**。
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>如何设置 Azure SQL 数据库的专用链接 
 
@@ -162,7 +162,7 @@ Azure SQL 数据库中的数据渗透是指已获授权的用户（例如数据�
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>使用 Polybase 和 COPY 语句从 Azure Synapse Analytics 连接到 Azure 存储
 
-PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azure Synapse Analytics 中。 如果要从中加载数据的 Azure 存储帐户仅允许通过专用终结点、服务终结点或基于 IP 的防火墙访问一组虚拟网络子网，则通过 PolyBase 和 COPY 语句与该帐户建立的连接将会断开。 对于连接到 Azure 存储（已通过安全方式连接到虚拟网络）的 Azure Synapse Analytics，若要启用导入和导出方案，请执行[此处](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)提供的步骤。 
+PolyBase 和 COPY 语句通常用于将数据从 Azure 存储帐户加载到 Azure Synapse Analytics 中。 如果要从中加载数据的 Azure 存储帐户仅允许通过专用终结点、服务终结点或基于 IP 的防火墙访问一组虚拟网络子网，则通过 PolyBase 和 COPY 语句与该帐户建立的连接将会断开。 对于连接到 Azure 存储（已通过安全方式连接到虚拟网络）的 Azure Synapse Analytics，若要启用导入和导出方案，请执行[此处](vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)提供的步骤。 
 
 ## <a name="next-steps"></a>后续步骤
 

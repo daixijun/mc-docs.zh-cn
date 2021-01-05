@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 origin.date: 09/04/2020
-ms.date: 10/16/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: f490d3a39c159bc6a4b6ae3f3973998326b60734
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 9cda93ae0b330c6140104faa37ba3c322ef81c51
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128371"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820313"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>在 Speech Studio 中使用音频文件测试模型
 
@@ -24,7 +24,7 @@ ms.locfileid: "92128371"
 
 ## <a name="prerequisites"></a>先决条件
 
-使用语音门户之前，[按照以下说明创建 Azure 帐户，并订阅语音服务](../how-to-custom-speech.md#set-up-your-azure-account)。 此统一订阅使你可以访问语音到文本、文本到语音、语音翻译和自定义语音门户。
+使用语音门户之前，[按照以下说明创建 Azure 帐户，并订阅语音服务](../custom-speech-overview.md#set-up-your-azure-account)。 此统一订阅使你可以访问语音到文本、文本到语音、语音翻译和自定义语音门户。
 
 ## <a name="download-an-audio-file"></a>下载音频文件
 

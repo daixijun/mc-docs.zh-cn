@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/11/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: ca81702ca3b6ca0b8f889e112532d851ba2e4b5a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 02e0406c9c5a5042cfa1e6e0f07209a10d14cedb
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004142"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820275"
 ---
 # <a name="long-audio-api-preview"></a>长音频 API（预览）
 

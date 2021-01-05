@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 09/21/2019
-ms.date: 10/12/2020
+ms.date: 12/14/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: d9a18c5d51c1c18983b71a33695d07e67ae893c5
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 6bd51f4c6fb38e6f24a909c3c2841fb2d7be266e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431661"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830242"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>教程：保护 Azure SQL 数据库中的数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Azure SQL 数据库支持通过以下方式保护数据：
 > [!NOTE]
 > 可以根据 [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和[连接体系结构](../managed-instance/connectivity-architecture-overview.md)中的说明，使用网络安全规则和专用终结点来确保 Azure SQL 托管实例的安全。
 
-若要了解详细信息，请参阅 [Azure SQL 数据库安全概述](/sql-database/sql-database-security-index)和[功能](security-overview.md)这两篇文章。
+若要了解详细信息，请参阅 [Azure SQL 数据库安全概述](./security-overview.md)和[功能](security-overview.md)这两篇文章。
 
 > [!TIP]
 > 以下 Microsoft Learn 模块可帮助你免费学习如何[保护 Azure SQL 数据库中的数据库](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)。
@@ -63,7 +63,7 @@ Azure SQL 数据库支持通过以下方式保护数据：
 
 SQL 数据库中的数据库受 Azure 中防火墙的保护。 默认情况下，将拒绝与服务器和数据库的所有连接。 若要了解详细信息，请参阅[服务器级和数据库级防火墙规则](firewall-configure.md)。
 
-将“允许访问 Azure 服务”设置为“关闭”即可启用最安全的配置。  然后，为需要连接的资源（例如 Azure VM 或云服务）创建一个[保留 IP（经典部署）](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)，仅允许该 IP 地址通过防火墙进行访问。 如果使用资源管理器](/virtual-network/virtual-network-ip-addresses-overview-arm) 部署模型，则每个资源都需要一个专用的公共 IP 地址。
+将“允许访问 Azure 服务”设置为“关闭”即可启用最安全的配置。  然后，为需要连接的资源（例如 Azure VM 或云服务）创建一个[保留 IP（经典部署）](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)，仅允许该 IP 地址通过防火墙进行访问。 如果使用[资源管理器](../../virtual-network/public-ip-addresses.md)部署模型，则每个资源都需要一个专用的公共 IP 地址。
 
 > [!NOTE]
 > 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到服务器，除非管理员打开端口 1433。
@@ -132,7 +132,7 @@ SQL 数据库中的数据库受 Azure 中防火墙的保护。 默认情况下�
     ![选择管理员](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > 基于角色的访问控制 (RBAC) 仅适用于门户，不会传播到 SQL Server。
+    > Azure 基于角色的访问控制 (Azure RBAC) 仅适用于门户，不会传播到 SQL Server。
 
 1. 在“Active Directory 管理员”页顶部，选择“保存”。
 

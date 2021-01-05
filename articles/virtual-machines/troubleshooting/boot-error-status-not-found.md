@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 75ffd8dea44609ada49e458b1fe8a638d0f8d25a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 846f6583e93d76c82bc912700dd01dd32b42e89c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106024"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857153"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>排查 Windows 启动管理器错误 - 0xC0000225“找不到状态”
@@ -125,7 +125,7 @@ ms.locfileid: "93106024"
 
     1. 使用以下命令搜索位于此部分开头的二进制文件：
 
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
+        `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
         此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
 
@@ -133,7 +133,7 @@ ms.locfileid: "93106024"
 
     1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
 
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS" EXTENSION> <DRIVE>:\Windows\System32\Drivers\`
+        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH ".SYS" EXTENSION> <DRIVE>:\Windows\System32\Drivers\`
 
         > [!NOTE]
         > 如果最新的二进制文件不起作用，请尝试使用该版本之前的版本，或者任何已知存在稳定文件的版本，例如应用补丁前的版本。
@@ -160,30 +160,7 @@ ms.locfileid: "93106024"
 
     此图显示了第 1 代 VM 中的 Windows 启动加载程序，并突出显示了标识符属性。 突出显示的标识符属性显示了唯一的字母数字字符串。
 
-    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/7.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/7.png" alt-text="Windows 启动加载程序显示在第 1 代 VM 中，并突出显示了标识符属性。突出显示的标识符属性显示了唯一的字母数字字符串。":::
 
     记下 Windows 启动加载程序的标识符，其路径为 \windows\system32\winload.exe。
 
@@ -192,30 +169,7 @@ ms.locfileid: "93106024"
 
         在下图中，磁盘 2 是附加到修复 VM 的磁盘号。 该图还显示了磁盘 2 上的 EFI 系统分区，该分区的大小为 100MB，并且未分配盘符。
 
-        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/8.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+        :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/8.png" alt-text="磁盘 2 显示为附加到修复 VM 的磁盘号。它还显示了磁盘 2 上的 EFI 系统分区，该分区为 100MB，并且未分配盘符。":::
 
     1. 以管理员身份打开权限提升的命令提示符，然后输入以下命令：
         1. 使用 `diskpart` 命令打开 DISKPART TOOL。
@@ -228,30 +182,7 @@ ms.locfileid: "93106024"
 
             下图显示了列出和选择磁盘的结果。 列出了 Disk 0 (127 GB / Online)、Disk 1 (32 GB / Online) 和 Disk 2 (127 GB / Online)，并使用 `sel disk 2` 命令选择了 Disk 2。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/9.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/9.png" alt-text="列出并选择磁盘的结果。列出了 Disk 0 (127 GB | Online)、Disk 1 (32 GB | Online) 和 Disk 2 (127 GB | Online)，并选择了 Disk 2。":::
 
         1. 列出分区，并选择上一步中标识的 EFI 系统分区：
 
@@ -262,59 +193,13 @@ ms.locfileid: "93106024"
 
             下图显示了列出和选择分区的结果。 列出了 Partition 1 (Reserved / 16MB)、Partition 2 (System / 100MB) 和 Partition 3 (Primary / 126 GB)，并使用 `sel part 2` 命令选择了 Partition 2。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/10.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/10.png" alt-text="列出并选择分区的结果。列出了 Partition 1 (Reserved | 16MB)、Partition 2 (System | 100MB) 和 Partition 3 (Primary | 126 GB)，并选择了 Partition 2。":::
 
         1. 使用 `assign` 命令向 EFI 分区分配一个盘符。
 
             在下图中，可以在文件资源管理器中看到 `assign` 命令和新驱动器 SYSTEM (F:)。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/11.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/11.png" alt-text="可以在文件资源管理器中看到 assign 命令和新驱动器 SYSTEM (F:)。":::
 
         1. 使用以下命令列出 BCD 存储数据：
 
@@ -322,59 +207,13 @@ ms.locfileid: "93106024"
 
             在下图中，Windows 启动加载程序位于第 2 代 VM 中，并突出显示了标识符属性。 突出显示的标识符属性的值为 {default}。
 
-            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/12.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+            :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/12.png" alt-text="Windows 启动加载程序显示在第 2 代 VM 中，并突出显示了标识符属性。突出显示的标识符属性将 default 显示为其值。":::
 
             记下 Windows 启动加载程序的标识符，其路径为 \windows\system32\winload.efi。
 
 1. 请注意，活动分区上缺少 OSDEVICE 变量：
 
-    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/13.png" alt-text="“cng.sys”文件的属性窗口，突出显示了文件版本。":::
-
-1. 将该文件重命名为 < BINARY.SYS >.old，并将 < BINARY.SYS > 替换为该文件的名称。
-
-    对于上一步中的图像，文件 cng.sys 将重命名为 cng.sys.old
-
-    > [!NOTE]
-    > 如果尝试重命名该文件，但收到消息“文件已损坏且无法读取”，请[联系支持部门寻求帮助](https://support.azure.cn/support/support-azure/)，因为此解决方案将不起作用。
-
-1. 现在，损坏的文件已重命名，请通过从其内部存储库中还原来修复该文件。
-    1. 启动 CMD 会话。
-    1. 导航到 \windows\winsxs。
-
-    1. 使用以下命令搜索位于此部分开头的二进制文件：
-
-        `dir <BINARY WITH &quot;.SYS&quot; EXTENSION>  /s`
-
-        此命令将列出计算机拥有的该文件的所有版本，并提供该组件的路径历史记录。
-
-        例如，dir cng.sys 将重命名为 dir cng.sys /s
-
-    1. 在列表中选择该文件的最新版本（或你喜欢的任何版本），然后使用先前的路径和以下命令将该文件复制到 windows\system32 文件夹中：
-
-        `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH &quot;.SYS":::
+    :::image type="content" source="./media/troubleshoot-boot-error-status-not-found/13.png" alt-text="命令提示符中列出了 Windows 启动管理器和 Windows 启动加载程序的属性，其中缺少 OSDEVICE 属性。":::
 
     在此图中，命令提示符中列出了 Windows 启动管理器和 Windows 启动加载程序的属性，但缺少 OSDEVICE 属性。
 
@@ -418,12 +257,12 @@ ms.locfileid: "93106024"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>启用串行控制台和内存转储收集
 
-**建议** ：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
+**建议**：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
 
 1. 以管理员身份打开权限提升的命令提示符会话。
 1. 运行以下命令：
 
-    **启用串行控制台** ：
+    **启用串行控制台**：
 
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 

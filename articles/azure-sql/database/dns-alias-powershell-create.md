@@ -2,23 +2,23 @@
 title: DNS 别名（PowerShell 和 Azure CLI）
 description: PowerShell 和 Azure CLI cmdlet 可以将新客户端连接重定向到不同的 Azure SQL 服务器，而无需触摸任何客户端配置。
 keywords: dns sql database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 origin.date: 05/14/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: f8af0e0609152bc1a3b0aca7be667ec5c8ba6c60
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: 8f0fed4784fed9b96deb3f70285f793479fb3ff7
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431624"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830117"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -144,4 +144,4 @@ az sql server dns-alias delete --resource-group $resourceGroupName2 --server $sq
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 SQL 数据库的 DNS 别名功能的完整说明，请参阅 [Azure SQL 数据库的 DNS 别名](../../sql-database/dns-alias-overview.md)。
+有关 SQL 数据库的 DNS 别名功能的完整说明，请参阅 [Azure SQL 数据库的 DNS 别名](./dns-alias-overview.md)。

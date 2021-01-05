@@ -4,21 +4,22 @@ description: 使用自定义脚本扩展自动执行 Windows VM 配置任务
 services: virtual-machines-windows
 manager: carmonm
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 47379d2cb2edde8187704b932f5c8e25013ae205
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a0bdb7255bdb895364a0756c76776193c1733ccf
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103794"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856718"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -144,7 +145,7 @@ ms.locfileid: "93103794"
 
 #### <a name="property-value-details"></a>属性值详细信息
 
-* `commandToExecute`：（ **必需** ，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
+* `commandToExecute`：（**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
 * `fileUris`：（可选，字符串数组）要下载的文件的 URL。
 * `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
 * `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
@@ -183,7 +184,7 @@ CustomScript（版本 1.10 及更高版本）支持用于通过“fileUris”设
 
 若要在目标 VM/VMSS 上使用用户分配的标识，请将“managedidentity”字段配置为托管标识的客户端 ID 或对象 ID。
 
-> 示例：
+> 示例:
 >
 > ```json
 > {

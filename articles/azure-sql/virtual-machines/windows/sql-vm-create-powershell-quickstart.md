@@ -10,15 +10,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 12/21/2018
-ms.date: 08/17/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 7ecd3ef98638d628a37abac249524b0722bc2abf
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe2499b35d1a6301edc53cfc5387d79d65dd8669
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431943"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830039"
 ---
 <!--Verified successfully on redirect articles-->
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 在 Windows 虚拟机上创建 SQL Server
@@ -44,9 +45,9 @@ ms.locfileid: "96431943"
 
 1. 打开 PowerShell，通过运行 **Connect-AzAccount** 命令建立对 Azure 帐户的访问。
 
-    ```powershell
-    Connect-AzAccount -Environment AzureChinaCloud
-    ```
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   ```
 
 1. 看到“登录”窗口时，请输入凭据。 使用登录 Azure 门户时所用的相同电子邮件和密码。
 
@@ -54,100 +55,100 @@ ms.locfileid: "96431943"
 
 1. 使用唯一的资源组名称定义一个变量。 为了简化本快速入门的其余部分，其余命令将此名称作为基础用于其他资源名称。
 
-    ```powershell
-    $ResourceGroupName = "sqlvm1"
-    ```
+   ```powershell
+   $ResourceGroupName = "sqlvm1"
+   ```
 
 1. 为所有 VM 资源定义目标 Azure 区域的位置。
 
-    ```powershell
-    $Location = "China East"
-    ```
+   ```powershell
+   $Location = "China East"
+   ```
 
 1. 创建资源组。
 
-    ```powershell
-    New-AzResourceGroup -Name $ResourceGroupName -Location $Location
-    ```
+   ```powershell
+   New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+   ```
 
 ## <a name="configure-network-settings"></a>配置网络设置
 
 1. 创建虚拟网络、子网和公共 IP 地址。 这些资源用来与虚拟机建立网络连接，以及连接到 Internet。
 
-    ```PowerShell
-    $SubnetName = $ResourceGroupName + "subnet"
-    $VnetName = $ResourceGroupName + "vnet"
-    $PipName = $ResourceGroupName + $(Get-Random)
+   ``` PowerShell
+   $SubnetName = $ResourceGroupName + "subnet"
+   $VnetName = $ResourceGroupName + "vnet"
+   $PipName = $ResourceGroupName + $(Get-Random)
 
-    # Create a subnet configuration
-    $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
+   # Create a subnet configuration
+   $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
 
-    # Create a virtual network
-    $Vnet = New-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
+   # Create a virtual network
+   $Vnet = New-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
       -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
-    # Create a public IP address and specify a DNS name
-    $Pip = New-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
+   # Create a public IP address and specify a DNS name
+   $Pip = New-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
       -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name $PipName
-    ```
+   ```
 
 1. 创建网络安全组。 配置允许远程桌面 (RDP) 和 SQL Server 连接的规则。
 
-    ```powershell
-    # Rule to allow remote desktop (RDP)
-    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+   ```powershell
+   # Rule to allow remote desktop (RDP)
+   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
 
-    #Rule to allow SQL Server connections on port 1433
-    $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+   #Rule to allow SQL Server connections on port 1433
+   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
 
-    # Create the network security group
-    $NsgName = $ResourceGroupName + "nsg"
-    $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+   # Create the network security group
+   $NsgName = $ResourceGroupName + "nsg"
+   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
-    ```
+   ```
 
 1. 创建网络接口。
 
-    ```powershell
-    $InterfaceName = $ResourceGroupName + "int"
-    $Interface = New-AzNetworkInterface -Name $InterfaceName `
+   ```powershell
+   $InterfaceName = $ResourceGroupName + "int"
+   $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
       -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $Pip.Id `
       -NetworkSecurityGroupId $Nsg.Id
-    ```
+   ```
 
 ## <a name="create-the-sql-vm"></a>创建 SQL VM
 
 1. 定义登录到 VM 所需的凭据。 用户名为“azureadmin”。 请确保在运行命令之前更改 \<password>。
 
-    ``` PowerShell
-    # Define a credential object
-    $SecurePassword = ConvertTo-SecureString '<password>' `
+   ``` PowerShell
+   # Define a credential object
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
-    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
-    ```
+   $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
+   ```
 
 1. 创建虚拟机配置对象，然后创建 VM。 以下命令在 Windows Server 2016 上创建 SQL Server 2017 Developer Edition VM。
 
-    ```powershell
-    # Create a virtual machine configuration
-    $VMName = $ResourceGroupName + "VM"
-    $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 |
+   ```powershell
+   # Create a virtual machine configuration
+   $VMName = $ResourceGroupName + "VM"
+   $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 |
       Set-AzVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate |
       Set-AzVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" |
       Add-AzVMNetworkInterface -Id $Interface.Id
+   
+   # Create the VM
+   New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
+   ```
 
-    # Create the VM
-    New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
-    ```
-
-    > [!TIP]
-    > 创建 VM 需要几分钟时间。
+   > [!TIP]
+   > 创建 VM 需要几分钟时间。
 
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 
@@ -161,15 +162,15 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 
 1. 使用以下命令检索新 VM 的公共 IP 地址。
 
-    ```powershell
-    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
-    ```
+   ```powershell
+   Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
+   ```
 
 1. 将返回的 IP 地址作为命令行参数传递给 **mstsc**，以便启动到新 VM 的远程桌面会话。
 
-    ```
-    mstsc /v:<publicIpAddress>
-    ```
+   ```
+   mstsc /v:<publicIpAddress>
+   ```
 
 1. 出现输入凭据的提示时，请选择输入另一个帐户的凭据。 输入带前置反斜杠的用户名（例如 `\azureadmin`），以及此前在本快速入门中设置的密码。
 

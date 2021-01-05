@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 02/13/2020
 ms.date: 05/11/2020
 ms.author: v-jay
-ms.openlocfilehash: e0389163e6a7312e9522afca486a50f95bd556eb
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: d12303a6f48bb40d11bf205d8d01583b27cefc5b
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974236"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829982"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>复制活动中的架构和数据类型映射
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "86974236"
 
 | 属性            | 说明                                                  | 必须 |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | 从分层源（例如 Cosmos DB、MongoDB 或 REST 连接器）复制数据时适用。<br>若要进行迭代操作，以同一模式从**数组字段中**的对象提取数据并按行和对象进行转换，请指定要进行交叉应用的该数组的 JSON 路径。 | 否       |
+| collectionReference | 从分层源（例如 Cosmos DB、MongoDB 或 REST 连接器）复制数据时适用。<br>若要进行迭代操作，以同一模式从 **数组字段中** 的对象提取数据并按行和对象进行转换，请指定要进行交叉应用的该数组的 JSON 路径。 | 否       |
 
 #### <a name="tabular-source-to-tabular-sink"></a>表格源到表格接收器
 
@@ -452,8 +452,8 @@ ms.locfileid: "86974236"
 | 属性            | 说明                                                  | 必需 |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | 复制活动转换器的 type 属性必须设置为：**TabularTranslator** | 是      |
-| schemaMapping       | 键值对的集合，代表**从源端到接收器端**的映射关系。<br/>- **键：** 代表源。 对于**表格源**，指定数据集结构中定义的列名称；对于**分层源**，指定要提取和映射的每个字段的 JSON 路径表达式。<br>- **值：** 代表接收器。 对于**表格接收器**，指定数据集结构中定义的列名称；对于**分层接收器**，指定要提取和映射的每个字段的 JSON 路径表达式。 <br>在使用分层数据时，对于根对象下的字段，JSON 路径以根 $ 开头；对于按 `collectionReference` 属性选择的数组中的字段，JSON 路径以数组元素开头。 | 是      |
-| collectionReference | 若要进行迭代操作，以同一模式从**数组字段中**的对象提取数据并按行和对象进行转换，请指定要进行交叉应用的该数组的 JSON 路径。 仅当分层数据为源时，才支持此属性。 | 否       |
+| schemaMapping       | 键值对的集合，代表 **从源端到接收器端** 的映射关系。<br/>- **键：** 代表源。 对于 **表格源**，指定数据集结构中定义的列名称；对于 **分层源**，指定要提取和映射的每个字段的 JSON 路径表达式。<br>- **值：** 代表接收器。 对于 **表格接收器**，指定数据集结构中定义的列名称；对于 **分层接收器**，指定要提取和映射的每个字段的 JSON 路径表达式。 <br>在使用分层数据时，对于根对象下的字段，JSON 路径以根 $ 开头；对于按 `collectionReference` 属性选择的数组中的字段，JSON 路径以数组元素开头。 | 是      |
+| collectionReference | 若要进行迭代操作，以同一模式从 **数组字段中** 的对象提取数据并按行和对象进行转换，请指定要进行交叉应用的该数组的 JSON 路径。 仅当分层数据为源时，才支持此属性。 | 否       |
 
 **示例：从 MongoDB 复制到 Oracle：**
 

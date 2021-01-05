@@ -8,27 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: b348925ba6825f21bb861351372fce5f3d9ae7fb
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: aa1c36fb603d2e6e22b37a3f3d1df111b11d96f7
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306604"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856830"
 ---
 <a name="HOLTop"></a>
+
+使用计算机视觉客户端库可以：
+
+* 分析图像中的标记、文本说明、人脸、成人内容，等等。
+* 使用 Read API 读取印刷文本和手写文本。
 
 [参考文档](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [库源代码](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [包](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 最新版本的 [Go](https://golang.org/dl/)
 * 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
     * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
-* 为密钥和终结点 URL [创建环境变量](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
+* 为密钥和终结点 URL [创建环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)，分别将其命名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`。
 
 ## <a name="setting-up"></a>设置
 
@@ -64,7 +69,7 @@ go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cogniti
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### <a name="create-a-go-application"></a>创建 Go 应用程序
+### <a name="create-a-go-application"></a>创建 Go 应用程序 
 
 接下来，在 src 目录中创建名为 `sample-app.go` 的文件：
 
@@ -2635,6 +2640,9 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
 
 接下来，将开始添加代码以执行不同的计算机视觉操作。
 
+> [!div class="nextstepaction"]
+> [我设置了客户端](?success=set-up-client#object-model) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+
 ## <a name="object-model"></a>对象模型
 
 以下类和接口将处理计算机视觉 Go SDK 的某些主要功能。
@@ -2657,7 +2665,7 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
 ## <a name="authenticate-the-client"></a>验证客户端
 
 > [!NOTE]
-> 此步骤假设已经为计算机视觉密钥和终结点（分别名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`）[创建了环境变量](/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+> 此步骤假设已经为计算机视觉密钥和终结点（分别名为 `COMPUTER_VISION_SUBSCRIPTION_KEY` 和 `COMPUTER_VISION_ENDPOINT`）[创建了环境变量](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
 
 创建 `main` 函数，并向其添加以下代码，以使用终结点和密钥实例化客户端。
 
@@ -3938,6 +3946,9 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
  * END - Recognize Printed Text with OCR 
  */
 ```
+
+> [!div class="nextstepaction"]
+> [我执行了客户端身份验证](?success=authenticate-client#analyze-an-image) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
 
 ## <a name="analyze-an-image"></a>分析图像
 
@@ -21894,6 +21905,9 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
  */
 ```
 
+> [!div class="nextstepaction"]
+> [我分析了图像](?success=analyze-image#read-printed-and-handwritten-text) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+
 ## <a name="read-printed-and-handwritten-text"></a>读取印刷体文本和手写文本
 
 计算机视觉可以读取图像中的可见文本，并将其转换为字符流。 本部分的代码定义了函数 `RecognizeTextReadAPIRemoteImage`，该函数使用客户端对象检测并提取图像中的印刷体文本或手写文本。
@@ -27027,6 +27041,9 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
  */
 ```
 
+> [!div class="nextstepaction"]
+> [我阅读了文字](?success=read-printed-handwritten-text#run-the-application) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+
 ## <a name="run-the-application"></a>运行应用程序
 
 从应用程序目录使用 `go run` 命令运行应用程序。
@@ -27035,17 +27052,24 @@ func RecognizePrintedOCRRemoteImage(client computervision.BaseClient, remoteImag
 go run sample-app.go
 ```
 
+> [!div class="nextstepaction"]
+> [我运行了应用程序](?success=run-the-application#clean-up-resources) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+
 ## <a name="clean-up-resources"></a>清理资源
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> [我清理了资源](?success=clean-up-resources#next-steps) [我遇到问题](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [计算机视觉 API 参考 (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+
 
 * [什么是计算机视觉？](../../overview.md)
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) 上找到此示例的源代码。

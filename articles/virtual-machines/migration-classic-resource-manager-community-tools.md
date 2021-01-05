@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6c96ecb75d5ef3f3cc33f86f8ba21ad59bc9ce12
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: b3bbaf2a40ab6d1d1ce07d77aaf6b356df83ae38
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004295"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856791"
 ---
 <!--Verified successfully for tool link in github-->
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>用于将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具
@@ -57,5 +57,4 @@ migAz 是另一选项，用于将整套经典 IaaS 资源迁移到 Azure Resourc
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md)
 
-<!-- Update_Description: new article about migration classic resource manager community tools -->
-<!--NEW.date: 12/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

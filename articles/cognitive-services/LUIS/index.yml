@@ -3,7 +3,7 @@ title: 语言理解 (LUIS) 文档
 summary: 了解语言理解如何使应用程序能够理解用户希望使用自己的词语表达的内容。
 metadata:
   ms.topic: landing-page
-  ms.date: 11/23/2020
+  ms.date: 12/28/2020
   ms.author: v-johya
   author: Johnnytechn
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: 语言理解 (LUIS) 文档
   titleSuffix: Azure Cognitive Services
   description: 使用语言理解 (LUIS) 服务，应用程序可以理解用户希望使用自己的词语表达的内容。 LUIS 使用机器学习，使开发人员可以构建应用程序，以便接收采用自然语言的用户输入并从中提取含义。
-  ms.openlocfilehash: f34bdec942b44f73b254d0bb010b81819895f237
-  ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+  ms.openlocfilehash: a6a05f558011ec29f0c79c59d2c1f5377ca4172c
+  ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/29/2020
-  ms.locfileid: "96306415"
+  ms.lasthandoff: 01/04/2021
+  ms.locfileid: "97856814"
 landingContent:
 - title: 关于语言理解 (LUIS)
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
     - text: 使用示例言语添加意向
       url: luis-how-to-add-intents.md
     - text: 添加实体
-      url: luis-how-to-add-example-utterances.md
+      url: ./luis-how-to-add-entities.md
     - text: 添加短语列表功能
       url: luis-how-to-add-features.md
 - title: 版本控制、训练、测试和发布
@@ -74,7 +74,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 版本控制
-      url: luis-concept-version.md
+      url: ./luis-concept-app-iteration.md
     - text: 交互式测试
       url: luis-concept-test.md
     - text: 批处理测试
@@ -106,15 +106,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: 将 C# 与 REST 配合使用
-      url: luis-get-started-cs-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: 将 Go 与 REST 配合使用
-      url: luis-get-started-go-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: 将 Java 与 REST 配合使用
-      url: luis-get-started-java-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: 将 Node.js 与 REST 配合使用
-      url: luis-get-started-node-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: 将 Python 与 REST 配合使用
-      url: luis-get-started-python-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
 - title: 参考
   linkLists:
   - linkListType: reference

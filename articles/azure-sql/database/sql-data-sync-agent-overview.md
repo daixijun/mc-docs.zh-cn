@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 12/20/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 08db3ae6f44cb677ff520b4ace6b5ef262386e38
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 4e5aec2c1044e417bc9de35fcc75d1324c1ef67d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228047"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830263"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>SQL 数据同步的 Data Sync Agent
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -320,14 +320,15 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 有关 SQL 数据同步的详细信息，请参阅以下文章：
 
-- 概述 - [使用 Azure 中的 SQL 数据同步跨多个云和本地数据库同步数据](sql-data-sync-data-sql-server-sql-database.md)
-- 设置数据同步
+-   概述 - [使用 Azure 中的 SQL 数据同步跨多个云和本地数据库同步数据](sql-data-sync-data-sql-server-sql-database.md)
+-   设置数据同步
     - 在门户中 - [教程：设置 SQL 数据同步，以在 Azure SQL 数据库和 SQL Server 之间同步数据](sql-data-sync-sql-server-configure.md)
     - 使用 PowerShell
-        - [使用 PowerShell 在 Azure SQL 数据库中的多个数据库之间进行同步](scripts/sql-data-sync-sync-data-between-sql-databases.md)
-        - [使用 PowerShell 在 Azure SQL 数据库中的数据库与 SQL Server 实例中的数据库之间进行同步](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
-- 最佳做法 - [Azure SQL 数据同步最佳做法](sql-data-sync-best-practices.md)
-- 故障排除 - [排查 Azure SQL 数据同步问题]sql-data-sync-troubleshoot.md)
-- 更新同步架构
-    - 使用 Transact-SQL - [在 Azure 中使用 SQL 数据同步自动复制架构更改](sql-data-sync-update-sync-schema.md)
-    - 使用 PowerShell - [使用 PowerShell 更新现有同步组中的同步架构](scripts/update-sync-schema-in-sync-group.md)
+        -  [使用 PowerShell 在 Azure SQL 数据库中的多个数据库之间进行同步](scripts/sql-data-sync-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 在 Azure SQL 数据库中的数据库与 SQL Server 实例中的数据库之间进行同步](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+-   最佳做法 - [Azure SQL 数据同步最佳做法](sql-data-sync-best-practices.md)
+-   监视 - [使用 Azure Monitor 日志监视 SQL 数据同步](./monitor-tune-overview.md)
+-   故障排除 - [排查 Azure SQL 数据同步问题]sql-data-sync-troubleshoot.md)
+-   更新同步架构
+    -   使用 Transact-SQL - [在 Azure 中使用 SQL 数据同步自动复制架构更改](sql-data-sync-update-sync-schema.md)
+    -   使用 PowerShell - [使用 PowerShell 更新现有同步组中的同步架构](scripts/update-sync-schema-in-sync-group.md)

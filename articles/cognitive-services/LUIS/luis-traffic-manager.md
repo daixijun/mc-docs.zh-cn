@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: a9a03500b3f5f47018fe6dc1541c1da4ba55d36a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f1b7cf85929825ee37a1df9a20212c94d55efeeb
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472364"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856893"
 ---
 # <a name="use-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。
@@ -39,21 +39,21 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>创建 LUIS 密钥以增加总终结点配额
-1. 在 Azure 门户中，创建两个语言理解密钥，一个位于 `China East`，一个位于 `China North` 。 使用上一节中创建的名为 `luis-traffic-manager` 现有资源组。 
+1. 在 Azure 门户中，创建两个语言理解密钥，一个位于 `China East`，一个位于 `China North`。 使用上一节中创建的名为 `luis-traffic-manager` 现有资源组。 
 
     ![luis-traffic-manager 资源组中带有两个 LUIS 密钥的 Azure 门户的屏幕截图](./media/traffic-manager/luis-keys.png)
 
-2. 在  页上的“管理”  部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”  按钮重新发布应用。
+2. 在 [LUIS][LUIS] 网站的“Azure 资源”页上的“管理”部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”按钮重新发布应用。
 
-    “终结点”列中的示例 URL 使用具有终结点密钥的 GET 请求作为查询参数  。 复制这两个新密钥的终结点 URL。 本文后面的流量管理器配置中会用到它们。
+    “终结点”列中的示例 URL 使用具有终结点密钥的 GET 请求作为查询参数。 复制这两个新密钥的终结点 URL。 本文后面的流量管理器配置中会用到它们。
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>使用流量管理器管理密钥之间的 LUIS 终结点请求
-流量管理器为终结点创建新的 DNS 访问点。 它并不充当网关或代理，而是严格处于 DNS 级别。 此示例不会更改任何 DNS 记录。 它使用 DNS 库与流量管理器进行通信，以获取该特定请求的正确终结点。 针对 LUIS 的每个请求首先需要流量管理器请求来确定使用哪个 LUIS 终结点  。
+流量管理器为终结点创建新的 DNS 访问点。 它并不充当网关或代理，而是严格处于 DNS 级别。 此示例不会更改任何 DNS 记录。 它使用 DNS 库与流量管理器进行通信，以获取该特定请求的正确终结点。 针对 LUIS 的每个请求首先需要流量管理器请求来确定使用哪个 LUIS 终结点。
 
 ### <a name="polling-uses-luis-endpoint"></a>轮询会使用 LUIS 终结点
-流量管理器定期轮询终结点，以确保终结点仍然可用。 轮询的流量管理器 URL 需要能够通过 GET 请求访问，并返回 200。 “发布”页上的终结点 URL 可执行此操作  。 由于每个终结点密钥具有不同的路由和查询字符串参数，因此每个终结点密钥需要不同的轮询路径。 流量管理器每次轮询时都会使用一次配额请求。 LUIS 终结点的查询字符串参数“q”是发送给 LUIS 的陈述  。 此参数不用于发送陈述，而是用于将流量管理器轮询添加到 LUIS 终结点日志，以用作调试技术并同时对流量管理器进行配置。
+流量管理器定期轮询终结点，以确保终结点仍然可用。 轮询的流量管理器 URL 需要能够通过 GET 请求访问，并返回 200。 “发布”页上的终结点 URL 可执行此操作。 由于每个终结点密钥具有不同的路由和查询字符串参数，因此每个终结点密钥需要不同的轮询路径。 流量管理器每次轮询时都会使用一次配额请求。 LUIS 终结点的查询字符串参数“q”是发送给 LUIS 的陈述。 此参数不用于发送陈述，而是用于将流量管理器轮询添加到 LUIS 终结点日志，以用作调试技术并同时对流量管理器进行配置。
 
-由于每个 LUIS 终结点需要自己的路径，因此也需要其自己的流量管理器配置文件。 若要跨配置文件进行管理，请创建  。 一个父配置文件指向子配置文件，并管理它们之间的流量。
+由于每个 LUIS 终结点需要自己的路径，因此也需要其自己的流量管理器配置文件。 若要跨配置文件进行管理，请创建[嵌套流量管理器](../../traffic-manager/traffic-manager-nested-profiles.md)体系结构。 一个父配置文件指向子配置文件，并管理它们之间的流量。
 
 配置流量管理器后，请记得更改路径以使用 logging = false 查询字符串参数，使日志不会被轮询填满。
 
@@ -320,7 +320,7 @@ $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGro
 ![Azure 资源组 luis-traffic-manager 的屏幕截图](./media/traffic-manager/traffic-manager-profiles.png)
 
 ### <a name="verify-the-profile-status-is-online"></a>验证配置文件处于联机状态
-流量管理器轮询每个终结点的路径，确保其处于联机状态。 如果处于联机状态，则子配置文件的状态为 `Online`。 每个配置文件的“概述”页上会显示此信息  。
+流量管理器轮询每个终结点的路径，确保其处于联机状态。 如果处于联机状态，则子配置文件的状态为 `Online`。 每个配置文件的“概述”页上会显示此信息。
 
 ![显示联机监控状态的 Azure 流量管理器配置文件概述的屏幕截图](./media/traffic-manager/profile-status-online.png)
 
@@ -367,10 +367,10 @@ dns.resolveAny('luis-dns-parent.trafficmanager.cn', (err, ret) => {
 删除两个 LUIS 终结点密钥、三个流量管理器配置文件以及包含这五个资源的资源组。 此操作在 Azure 门户中完成。 从资源列表中删除五个资源。 然后删除资源组。
 
 [traffic-manager-marketing]: https://www.azure.cn/home/features/traffic-manager/
-[traffic-manager-docs]: https://docs.azure.cn/traffic-manager/
-[LUIS]: /cognitive-services/luis/luis-reference-regions#luis-website
+[traffic-manager-docs]: ../../traffic-manager/index.yml
+[LUIS]: ./luis-reference-regions.md#luis-website
 [azure-portal]: https://portal.azure.cn/
 [azure-storage]: https://www.azure.cn/home/features/storage/
-[routing-methods]: /traffic-manager/traffic-manager-routing-methods
-[traffic-manager-endpoints]: /traffic-manager/traffic-manager-endpoint-types
+[routing-methods]: ../../traffic-manager/traffic-manager-routing-methods.md
+[traffic-manager-endpoints]: ../../traffic-manager/traffic-manager-endpoint-types.md
 

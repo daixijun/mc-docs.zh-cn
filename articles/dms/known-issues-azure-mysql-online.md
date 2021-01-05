@@ -14,13 +14,13 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 origin.date: 02/20/2020
-ms.date: 11/16/2020
-ms.openlocfilehash: 248692e3b31523fc4a3fb27c48629b52416b828f
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.date: 01/04/2021
+ms.openlocfilehash: 56dd1384176bffce06d82b17d4854e93ebcf8712
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590628"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857094"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>使用 Azure 数据库迁移服务联机迁移到 Azure DB for MySQL 的问题和限制
 
@@ -43,18 +43,18 @@ ms.locfileid: "94590628"
 - 为源 MySQL 数据库定义的排序规则与目标 Azure Database for MySQL 中定义的排序规则相同。
 - Azure Database for MySQL 中源 MySQL 数据库与目标数据库的架构必须匹配。
 - 目标 Azure Database for MySQL 中的架构不能包含外键。 使用以下查询来删除外键：
-    ```
+    ```sql
     SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
     FROM
     (SELECT 
     KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME,
-        CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
+      CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery
         FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
         WHERE
-          KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-          AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
+        KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+        AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
       AND KCU.REFERENCED_TABLE_SCHEMA = ['schema_name']) Queries
       GROUP BY SchemaName;
     ```
@@ -119,7 +119,7 @@ ms.locfileid: "94590628"
 
   **限制**：如果目标 Azure Database for MySQL 数据库没有所需的架构，则会出现此错误。 若要将数据迁移到目标，需要进行架构迁移。
 
-  **解决方法**：[将架构从源数据库迁移到目标数据库](/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema)。
+  **解决方法**：[将架构从源数据库迁移到目标数据库](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema)。
 
 ## <a name="other-limitations"></a>其他限制
 
@@ -137,7 +137,7 @@ ms.locfileid: "94590628"
 
 - 在 Azure 数据库迁移服务中，可在单个迁移活动中迁移的数据库数目限制为 4 个。
 
-- Azure DMS 不支持 CASCADE 引用操作，这有助于当父表中删除或更新行时，自动删除或更新子表中的匹配行。 有关详细信息，请参见 MySQL 文档中的[外键约束](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)一文中的“引用操作”部分。 Azure DMS 要求在初始数据加载过程中在目标数据库服务器中删除外键约束，并且不能使用引用操作。 如果你的工作负载依赖于通过此引用操作更新相关子表，建议改为执行[转储并还原](/mysql/concepts-migrate-dump-restore)。 
+- Azure DMS 不支持 CASCADE 引用操作，这有助于当父表中删除或更新行时，自动删除或更新子表中的匹配行。 有关详细信息，请参见 MySQL 文档中的[外键约束](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)一文中的“引用操作”部分。 Azure DMS 要求在初始数据加载过程中在目标数据库服务器中删除外键约束，并且不能使用引用操作。 如果你的工作负载依赖于通过此引用操作更新相关子表，建议改为执行[转储并还原](../mysql/concepts-migrate-dump-restore.md)。 
 
 - **错误：** 行太大 (> 8126)。 将某些列更改为 TEXT 或 BLOB 可能会有帮助。 在当前的行格式中，0 字节的 BLOB 前缀以内联方式存储。
 

@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/16/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
+- contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 4cd82bac4ee9b328979d4527162ccaf05c3bb9b4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4717c805441b54a12c39b7b2de5913adbbb7d582
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128761"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856954"
 ---
 # <a name="what-is-computer-vision"></a>什么是计算机视觉？
 
@@ -36,7 +37,7 @@ ms.locfileid: "92128761"
 <!--Not available in MC: Optical Character Recognition (OCR)-->
 ## <a name="analyze-images-for-insight"></a>通过分析图像来获取见解
 
-可以分析图像，以便提供有关视觉特性和特征的见解。 下表中的所有特性由[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) API 提供。 按[快速入门](#next-steps)的说明开始操作。
+可以分析图像，以便提供有关视觉特性和特征的见解。 下表中的所有特性由[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API 提供。 按[快速入门](./quickstarts-sdk/client-library.md)的说明开始操作。
 
 
 ### <a name="tag-visual-features"></a>标记视觉特性
@@ -61,7 +62,7 @@ ms.locfileid: "92128761"
 
 ### <a name="detect-faces"></a>检测人脸
 
-检测图像中的人脸，提供每个检测到的人脸的相关信息。 计算机视觉返回每个检测到的人脸的坐标、矩形、性别和年龄。<br/>计算机视觉提供了[人脸](/cognitive-services/face/)服务功能的子集。 可以使用“人脸”服务进行更详细的分析，如面部识别和姿势检测。 [检测人脸](concept-detecting-faces.md)
+检测图像中的人脸，提供每个检测到的人脸的相关信息。 计算机视觉返回每个检测到的人脸的坐标、矩形、性别和年龄。<br/>计算机视觉提供了[人脸](../face/index.yml)服务功能的子集。 可以使用“人脸”服务进行更详细的分析，如面部识别和姿势检测。 [检测人脸](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>检测图像类型
 
@@ -103,9 +104,7 @@ ms.locfileid: "92128761"
 
 ## <a name="next-steps"></a>后续步骤
 
-按照快速入门指南操作，完成计算机视觉入门：
+采用所选开发语言按照快速入门指南开始使用计算机视觉：
 
-- [快速入门：计算机视觉 .NET 客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [快速入门：计算机视觉 Python 客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [快速入门：计算机视觉 Java 客户端库](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [快速入门：计算机视觉 REST API 或客户端库](./quickstarts-sdk/client-library.md)
 

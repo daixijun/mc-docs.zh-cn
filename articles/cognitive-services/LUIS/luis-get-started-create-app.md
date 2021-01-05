@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 origin.date: 12/17/2019
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 32e137001b665a5f1def41269872e5a053b1ba02
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: f90ff5236f1e60803683887661f097f24330319e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306459"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856767"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入门：使用预构建的家庭自动化应用
 
@@ -225,5 +225,5 @@ ms.locfileid: "96306459"
 可以从代码调用终结点：
 
 > [!div class="nextstepaction"]
-> [使用代码调用 LUIS 终结点](luis-get-started-cs-get-intent.md)
+> [使用代码调用 LUIS 终结点](./luis-get-started-get-intent-from-rest.md)
 

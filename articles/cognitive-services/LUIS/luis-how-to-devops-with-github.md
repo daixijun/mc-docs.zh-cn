@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: c6418272baf61102b1b6ed462ba3a3f1cce2528a
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: c571ca74146bdfdb50acf4d8507833782cca7fff
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023701"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857067"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>使用 GitHub Actions 将 DevOps 应用于 LUIS 应用开发
 
@@ -27,7 +27,7 @@ ms.locfileid: "88023701"
 [LUIS DevOps 模板存储库](https://github.com/Azure-Samples/LUIS-DevOps-Template)演练如何执行以下操作：
 
 * 克隆模板存储库 - 将模板复制到自己的 GitHub 存储库。
-* 配置 LUIS 资源 - [在 Azure 中创建 LUIS 创作和预测资源](/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli)，这些资源将由持续集成工作流使用。
+* 配置 LUIS 资源 - [在 Azure 中创建 LUIS 创作和预测资源](./luis-how-to-azure-subscription.md)，这些资源将由持续集成工作流使用。
 * 配置 CI/CD 工作流 - 配置 CI/CD 工作流的参数并将它们存储在 [GitHub 机密](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)中。
 * 演练[“开发内部循环”](https://mitchdenny.com/the-inner-loop/) - 开发人员在开发分支中工作时对示例 LUIS 应用进行更新，测试更新，然后引发拉取请求来提议更改并寻求审批。
 * 执行 CI/CD 工作流 - 使用 GitHub Actions 执行[持续集成工作流以生成和测试 LUIS 应用](luis-concept-devops-automation.md)。

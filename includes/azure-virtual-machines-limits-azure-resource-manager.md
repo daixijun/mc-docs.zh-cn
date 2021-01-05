@@ -7,21 +7,21 @@ ms.date: 08/03/2020
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1fcc2e0d452a5e0c46aac083eb41e2255ce17fd7
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 0d90e06283f3bda57025dee8ae7ee193a7000c82
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "88753619"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793441"
 ---
 <!--MOONCAKE: CORRECT ON https://www.azure.cn/pricing/details/virtual-machines-->
 <!--MOONCAKE: CORRECT ON /billing/billing-add-change-azure-subscription-administrator/-->
 
 | 资源 | 限制 |
 | --- | --- |
-| 每个[订阅](https://docs.azure.cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)的 VM 数 |每个区域 25,000 个<sup>1</sup>。 |
-| 每个[订阅](https://docs.azure.cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)的 VM 核心总数 |每个区域 20 个<sup>1</sup> 若要提高限制，请与支持人员联系。 |
-| VM 系列（例如 Dv2 和 F）、每个[订阅](https://docs.azure.cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)的核心数 |每个区域 20 个<sup>1</sup> 若要提高限制，请与支持人员联系。 |
+| 每个[订阅](https://docs.azure.cn/billing/billing-recharge-an-existing-pia-subscription)的 VM 数 |每个区域 25,000 个<sup>1</sup>。 |
+| 每个[订阅](https://docs.azure.cn/billing/billing-recharge-an-existing-pia-subscription)的 VM 核心总数 |每个区域 20 个<sup>1</sup> 若要提高限制，请与支持人员联系。 |
+| VM 系列（例如 Dv2 和 F）、每个[订阅](https://docs.azure.cn/billing/billing-recharge-an-existing-pia-subscription)的核心数 |每个区域 20 个<sup>1</sup> 若要提高限制，请与支持人员联系。 |
 | 每个订阅的[可用性集数](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |每个区域 2,500 个。 |
 | 每个可用性集的虚拟机数 | 200 |
 | 每个订阅的证书数 |无限制<sup>2</sup> |

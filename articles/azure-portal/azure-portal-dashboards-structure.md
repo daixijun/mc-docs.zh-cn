@@ -1,24 +1,16 @@
 ---
-title: Azure 仪表板结构 | Azure
+title: Azure 仪表板结构
 description: 使用示例仪表板演练 Azure 仪表板的 JSON 结构。 包括对资源属性的引用。
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 origin.date: 12/20/2019
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.date: 10/19/2020
-ms.openlocfilehash: 11459ebe156c4e7719371d9c22cd26c2a29199f6
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 240ea4149d28c5575b68f0e58322ab557c9e4fe9
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170415"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820362"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 仪表板结构
 本文档将使用以下仪表板作为示例，介绍 Azure 仪表板的结构：
@@ -315,10 +307,10 @@ ms.locfileid: "92170415"
 属性对象包含两个属性：可重用功能区和元数据   。 “可重用功能区”属性包含有关仪表板上的磁贴的信息  。  “元数据”属性用于将来可能会出现的功能  。
 
 ### <a name="the-lenses-property"></a>“可重用功能区”属性
-“可重用功能区”属性包含仪表板  。 请注意，此示例中的可重用功能区对象包含称为“0”的单个属性。 可重用功能区是一个分组概念，当前未在仪表板中实现。 现在，所有仪表板在可重用功能区对象上都有此单个属性（同样称为“0”）。
+“可重用功能区”属性包含仪表板  。 请注意，此示例中的可重用功能区对象包含名为“0”的单个属性。 可重用功能区是一个分组概念，当前未在仪表板中实现。 现在，所有仪表板在可重用功能区对象上具有此单个属性，即“0”。
 
 ### <a name="the-lens-object"></a>可重用功能区对象
-“0”下面的对象包含两个属性：order 和 parts   。  在当前版本的仪表板中，顺序始终为 0  。 __parts__ 属性包含一个对象，该对象定义仪表板上的各个部件（也称为“磁贴”）。
+“0”下面的对象包含两个属性：顺序和部件 。  在当前版本的仪表板中，顺序始终为 0  。 __parts__ 属性包含一个对象，该对象定义仪表板上的各个部件（也称为“磁贴”）。
 
 部件对象包含每个部件的一个属性，其中属性名称为一个数字  。 此数字并不重要。 
 
@@ -356,10 +348,10 @@ ms.locfileid: "92170415"
 ]
 
 ```
-度量值图表部件含有表示要绑定到的资源的单个输入以及有关显示的度量值的信息。 以下是显示 Network In 和 Network Out 指标的磁贴的输入。
+度量值图表部件含有表示要绑定到的资源的单个输入以及有关显示的度量值的信息。 以下是显示 Network In 和 Network Out 度量值的磁贴的输入。
 
 ```json
-"inputs":
+“inputs”:
 [
     {
         "name": "queryInputs",

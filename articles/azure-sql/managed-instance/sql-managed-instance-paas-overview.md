@@ -6,18 +6,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, vanto
 origin.date: 08/14/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 9d7c3e7c3f5b675b863e61f1817ff5fbf849315f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 12/21/2020
+ms.openlocfilehash: 98d632e113e714095c46c1182c19e5b23cba4120
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104592"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830200"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>什么是 Azure SQL 托管实例？
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +31,7 @@ Azure SQL 托管实例是一种智能、可缩放的云数据库服务；它将�
 
 ![主要功能](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Azure SQL 托管实例面向想要以最少的迁移工作量，将大量应用从本地或 IaaS、自我构建的或 ISV 提供的环境迁移到完全托管的 PaaS 云环境的客户。 使用完全自动化的 [Azure 数据迁移服务](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客户可将其现有的 SQL Server 实例直接迁移到 SQL 托管实例，从而实现与 SQL Server 的兼容，并通过本机 VNet 支持实现客户实例的完全隔离。  借助软件保障，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)交换现有许可证，以获得 SQL 托管实例的折扣价格。 SQL 托管实例是 SQL Server 实例在云中的最佳迁移目标，需要很高的安全性和丰富的编程接口。
+Azure SQL 托管实例面向想要以最少的迁移工作量，将大量应用从本地或 IaaS、自我构建的或 ISV 提供的环境迁移到完全托管的 PaaS 云环境的客户。 使用完全自动化的 [Azure 数据迁移服务](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客户可将其现有的 SQL Server 实例直接迁移到 SQL 托管实例，从而实现与 SQL Server 的兼容，并通过本机 VNet 支持实现客户实例的完全隔离。 若要详细了解迁移选项和工具，请参阅[迁移概述：SQL Server 到 Azure SQL 托管实例](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)。</br> 借助软件保障，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.microsoft.com/pricing/hybrid-benefit/)交换现有许可证，以获得 SQL 托管实例的折扣价格。 SQL 托管实例是 SQL Server 实例在云中的最佳迁移目标，需要很高的安全性和丰富的编程接口。
 
 ## <a name="key-features-and-capabilities"></a>主要特性和功能
 
@@ -42,7 +42,7 @@ SQL 托管实例结合了 Azure SQL 数据库和 SQL Server 数据库引擎提�
 
 | **PaaS 优势** | **业务连续性** |
 | --- | --- |
-|无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置[高可用性](../database/high-availability-sla.md) <br>使用[自动备份](../database/automated-backups-overview.md)保护数据 <br>客户可配置的备份保留期 <br>用户发起的[备份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[数据库时间点还原](../database/recovery-using-backups.md#point-in-time-restore)功能 |
+|无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置[高可用性](../database/high-availability-sla.md) <br>使用[自动备份](../database/automated-backups-overview.md)保护数据 <br>客户可配置的备份保留期 <br>用户发起的[备份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) <br>[数据库时间点还原](../database/recovery-using-backups.md#point-in-time-restore)功能 |
 |**安全性和符合性** | **Management**|
 |隔离的环境（[VNet 集成](connectivity-architecture-overview.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure Active Directory (Azure AD) 身份验证](../database/authentication-aad-overview.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 服务器主体（登录名）</a>  <br>遵循与 Azure SQL 数据库相同的合规性标准 <br>[SQL 审核](auditing-configure.md) <br>[高级威胁防护](threat-detection-configure.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
 
@@ -63,8 +63,8 @@ SQL 托管实例结合了 Azure SQL 数据库和 SQL Server 数据库引擎提�
 | VNet - Azure 资源管理器部署 | 是 |
 | VNet - 经典部署模型 | 否 |
 | 门户支持 | 是|
-| 内置集成服务 (SSIS) | 否 - SSIS 属于 [Azure 数据工厂 PaaS](/data-factory/tutorial-deploy-ssis-packages-azure) |
-| 内置分析服务 (SSAS) | 否 - SSAS 是单独的 [PaaS](/analysis-services/analysis-services-overview) |
+| 内置集成服务 (SSIS) | 否 - SSIS 属于 [Azure 数据工厂 PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md) |
+| 内置分析服务 (SSAS) | 否 - SSAS 是单独的 [PaaS](../../analysis-services/analysis-services-overview.md) |
 | 内置报表服务 (SSRS) | 否 - 请改用 [Power BI 分页报表](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi)或在 Azure VM 上托管 SSRS。 虽然 SQL 托管实例不能将 SSRS 作为服务运行，但它可以使用 SQL Server 身份验证为安装在 Azure 虚拟机上的报表服务器托管 [SSRS 目录数据库](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements)。 |
 |||
 
@@ -83,8 +83,8 @@ SQL 托管实例[基于 vCore 的购买模型](../database/service-tiers-vcore.m
 
 SQL 托管实例可在两个服务层级中提供：
 
-- **常规用途** ：适用于具有典型性能和 I/O 延迟要求的应用程序。
-- **业务关键** ：适用于具有低 I/O 延迟要求，对工作负载中基础维护操作影响最低的应用程序。
+- **常规用途**：适用于具有典型性能和 I/O 延迟要求的应用程序。
+- **业务关键**：适用于具有低 I/O 延迟要求，对工作负载中基础维护操作影响最低的应用程序。
 
 这两个服务层级保证 99.99% 的可用性，可让你独立选择存储大小和计算容量。 有关 Azure SQL 托管实例高可用性体系结构的详细信息，请参阅[高可用性和 Azure SQL 托管实例](../database/high-availability-sla.md)。
 
@@ -94,9 +94,9 @@ SQL 托管实例可在两个服务层级中提供：
 
 - 适用于具有典型性能要求的大多数业务应用程序
 - 高性能 Azure Blob 存储 (8 TB)
-- 基于可靠的 Azure Blob 存储和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)
+- 基于可靠的 Azure Blob 存储和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)
 
-有关详细信息，请参阅[常规用途层中的存储层](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和 [SQL 托管实例（常规用途）的存储性能最佳做法和注意事项](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)。
+有关详细信息，请参阅[常规用途层中的存储层](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和 [SQL 托管实例（常规用途）的存储性能最佳做法和注意事项](https://docs.microsoft.com/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose)。
 
 若要详细了解两种服务层级之间的区别，请参阅 [SQL 托管实例资源限制](resource-limits.md#service-tier-characteristics)。
 
@@ -108,7 +108,7 @@ SQL 托管实例可在两个服务层级中提供：
 
 - 为具有最严苛性能和 HA 要求的商业应用程序设计
 - 附带超高速本地 SSD 存储（第 4 代最多 1 TB，第 5 代最多 4 TB）
-- 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability)
+- 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md) 的内置[高可用性](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)
 - 内置的附加[只读数据库副本](../database/read-scale-out.md)，可用于报表和其他只读工作负荷
 - [内存中 OLTP](../in-memory-oltp-overview.md)，可用于具有高性能要求的工作负荷  
 
@@ -156,7 +156,7 @@ Azure SQL 托管实例提供一组可用于保护数据的高级安全功能。
 
 SQL 托管实例支持传统的 SQL Server 数据库引擎登录名以及与 Azure AD 集成的登录名。 Azure AD 服务器主体（登录名）（公共预览版）是在本地环境中使用的本地数据库登录名的 Azure 云版本。 使用 Azure AD 服务器主体（登录名）可将 Azure AD 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
 
-引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法： **FROM EXTERNAL PROVIDER** 。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为 SQL 托管实例预配 Azure Active Directory 管理员](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)一文。
+引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法：**FROM EXTERNAL PROVIDER**。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为 SQL 托管实例预配 Azure Active Directory 管理员](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)一文。
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
@@ -166,10 +166,10 @@ SQL 托管实例支持传统的 SQL Server 数据库引擎登录名以及与 Azu
 
 SQL 托管实例身份验证是指用户连接到数据库时如何证明其身份。 SQL 托管实例支持两种类型的身份验证：  
 
-- **SQL 身份验证** ：
+- **SQL 身份验证**：
 
   此身份验证方法使用用户名和密码。
-- **Azure Active Directory 身份验证** ：
+- **Azure Active Directory 身份验证**：
 
   此身份验证方法使用由 Azure Active Directory 托管的标识，并且受托管域和集成域支持。 请[尽可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 身份验证（集成安全性）。
 
@@ -179,21 +179,21 @@ SQL 托管实例身份验证是指用户连接到数据库时如何证明其身�
 
 ## <a name="database-migration"></a>数据库迁移
 
-SQL 托管实例面向需要从本地或 IaaS 数据库实施项目迁移大量数据库的用户方案。 SQL 托管实例支持多个数据库迁移选项：
+SQL 托管实例面向需要从本地或 IaaS 数据库实施项目迁移大量数据库的用户方案。 SQL 托管实例支持多种数据库迁移选项，它们将在迁移指南中进行讨论。 有关详细信息，请参阅[迁移概述：SQL Server 到 Azure SQL 托管实例](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)。
 
 ### <a name="backup-and-restore"></a>备份和还原  
 
-迁移方法利用 Azure Blob 存储的 SQL 备份。 可以使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)将 Azure 存储 Blob 中存储的备份直接还原到托管实例。
+迁移方法利用 Azure Blob 存储的 SQL 备份。 可以使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current)将 Azure 存储 Blob 中存储的备份直接还原到托管实例。
 
 - 有关介绍如何还原 Wide World Importers - 标准数据库备份文件的快速入门，请参阅[将备份文件还原到托管实例](restore-sample-database-quickstart.md)。 本快速入门介绍如何将备份文件上传到 Azure Blob 存储并使用共享访问签名 (SAS) 密钥对其进行保护。
-- 有关从 URL 还原的信息，请参阅[从 URL 本机还原](migrate-to-instance-from-sql-server.md#native-restore-from-url)。
+- 有关从 URL 还原的信息，请参阅[从 URL 本机还原](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md#backup-and-restore)。
 
 > [!IMPORTANT]
 > 来自托管实例的备份只能还原到另一个托管实例。 它们不能还原到 SQL Server 实例或 Azure SQL 数据库。
 
 ### <a name="database-migration-service"></a>数据库迁移服务
 
-Azure 数据库迁移服务是一项完全托管的服务，旨在实现在最短的停机时间内从多个数据库源无缝迁移到 Azure 数据平台。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移到 Azure SQL 数据库、Azure SQL 托管实例以及 Azure VM 上的 SQL Server 时需要执行的任务。 请参阅[如何使用数据库迁移服务将本地数据库迁移到 SQL 托管实例](/dms/tutorial-sql-server-to-managed-instance)。
+Azure 数据库迁移服务是一项完全托管的服务，旨在实现在最短的停机时间内从多个数据库源无缝迁移到 Azure 数据平台。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移到 Azure SQL 数据库、Azure SQL 托管实例以及 Azure VM 上的 SQL Server 时需要执行的任务。 请参阅[如何使用数据库迁移服务将本地数据库迁移到 SQL 托管实例](../../dms/tutorial-sql-server-to-managed-instance.md)。
 
 ## <a name="sql-features-supported"></a>支持的 SQL 功能
 
@@ -216,7 +216,7 @@ SQL 托管实例受益于云中的一贯最新状态，这意味着 SQL Server �
 - 不支持指定完整的物理路径，因此必须以不同的方式为相应的方案提供支持：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许使用物理路径，BULK INSERT 仅适用于 Azure Blob 等。
 - SQL 托管实例支持使用 [Azure AD 身份验证](../database/authentication-aad-overview.md)作为 Windows 身份验证的云替代方法。
 - 对于包含内存中 OLTP 对象的数据库，SQL 托管实例会自动管理 XTP 文件组和文件。
-- SQL 托管实例支持 SQL Server Integration Services (SSIS)，并且可以托管存储 SSIS 包的 SSIS 目录 (SSISDB)，但它们在 Azure 数据工厂中的托管 Azure-SSIS Integration Runtime (IR) 上执行。 请参阅[在数据工厂中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 若要比较 SSIS 功能，请参阅[比较 SQL 数据库与 SQL 托管实例](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)。
+- SQL 托管实例支持 SQL Server Integration Services (SSIS)，并且可以托管存储 SSIS 包的 SSIS 目录 (SSISDB)，但它们在 Azure 数据工厂中的托管 Azure-SSIS Integration Runtime (IR) 上执行。 请参阅[在数据工厂中创建 Azure-SSIS IR](../../data-factory/create-azure-ssis-integration-runtime.md)。 若要比较 SSIS 功能，请参阅[比较 SQL 数据库与 SQL 托管实例](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance)。
 
 ### <a name="administration-features"></a>管理功能
 

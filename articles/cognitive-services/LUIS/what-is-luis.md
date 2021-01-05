@@ -7,15 +7,15 @@ ms.subservice: language-understanding
 ms.topic: overview
 author: Johnnytechn
 origin.date: 05/05/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 63481580ef8c1fc7a7725a392fc93faefaf1e647
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 3607ed231a1ad0426dd6a08a49fd9747ef9e86a1
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472281"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856886"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 
@@ -38,7 +38,7 @@ Azure LUIS 应用一旦发布，客户端应用程序即可向 LUIS 自然语言
 
 |步骤|操作|
 |:--|:--|
-|1|客户端应用程序将用户 _话语_ （采用自己的词汇的文本）“我想要呼叫 HR 代表”作为 HTTP 请求发送 给 LUIS 终结点。|
+|1|客户端应用程序将用户 _话语_（采用自己的词汇的文本）“我想要呼叫 HR 代表”作为 HTTP 请求发送 给 LUIS 终结点。|
 |2|LUIS 使你能够创建自定义语言模型，以便将智能添加到你的应用程序。 计算机学习的语言模型采用用户的非结构化输入文本，并以最相关意向 `HRContact` 返回 JSON 格式的响应。 JSON 终结点响应至少包含查询话语和得分最高的意向。 它还可以提取数据，例如“联系人类型”实体。|
 |3|客户端应用程序根据 JSON 响应来决定如何处理用户的请求。 这些决策可能包括机器人框架代码中的决策树，以及对其他服务的调用。 |
 
@@ -53,7 +53,7 @@ LUIS 应用提供的智能有助于客户端应用程序进行智能选择。 LU
 
 LUIS 应用包含一个特定于域的自然语言模型。 可通过预构建的域模型启动 LUIS 应用、构建你自己的模型，还可将预构建的域的各个部分与自己的自定义信息进行混合。
 
-* **预构建的模型** LUIS 具有多个预构建的域模型，它们自带意向、话语和预构建的实体。 即使不使用预构建的模型中的意向和话语，也能使用预构建的实体。 [预构建的域模型](luis-how-to-use-prebuilt-domains.md "预生成域模型")包含适合你的整个设计，是实现 LUIS 快速入门的绝佳方式。
+* **预构建的模型** LUIS 具有多个预构建的域模型，它们自带意向、话语和预构建的实体。 即使不使用预构建的模型中的意向和话语，也能使用预构建的实体。 [预构建的域模型](./howto-add-prebuilt-models.md "预生成域模型")包含适合你的整个设计，是实现 LUIS 快速入门的绝佳方式。
 
 * “自定义模型”LUIS 提供多种方法来识别自己的自定义模型，包括意向和实体。 实体包括机器学习的实体、特定实体或文本实体，以及机器学习的实体和文本实体的组合。
 
@@ -123,7 +123,7 @@ LUIS 提供工具、版本控制以及与其他 LUIS 创建者的协作，以便
 ## <a name="integrate-with-other-cognitive-services"></a>与其他认知服务集成
 
 与 LUIS 配合使用的其他认知服务：
-* [语音服务](../Speech-Service/overview.md)可将口述语言请求转化成文本。
+* [语音服务](../Speech-Service/overview.md "语音服务")可将口述语言请求转化成文本。
 
 LUIS 提供文本分析的功能，作为现有 LUIS 资源的一部分。 此功能包括[情绪分析](luis-how-to-publish-app.md#configuring-publish-settings "情绪分析")和使用预生成 keyPhrase 实体的[关键短语提取](luis-reference-prebuilt-keyphrase.md "关键短语提取")。
 <!--Correct in MC: https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner-->
@@ -132,6 +132,10 @@ LUIS 提供文本分析的功能，作为现有 LUIS 资源的一部分。 此�
 
 使用[门户](get-started-portal-build-app.md "portal")和 [SDK 客户端库](azure-sdk-quickstart.md "SDK 客户端库")的实际操作快速入门来了解 LUIS。
 
+
+## <a name="deploy-on-premises-using-docker-containers"></a>使用 Docker 容器进行本地部署
+
+[使用 LUIS 容器](luis-container-howto.md)在本地部署 API 功能。 借助这些 Docker 容器，你能够将服务进一步引入数据，以满足合规性、安全性或其他操作目的。
 
 ## <a name="next-steps"></a>后续步骤
 

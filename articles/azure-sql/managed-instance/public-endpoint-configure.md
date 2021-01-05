@@ -5,23 +5,23 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, sstein
 origin.date: 05/07/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 256e0396287c749edaf385665fa372170adeafbd
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/21/2020
+ms.openlocfilehash: 4e68ca67b63df64df3178ebe05951d65d8deefe0
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872477"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829649"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>在 Azure SQL 托管实例中配置公共终结点
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-使用[托管实例](/sql-database/sql-database-managed-instance-index)的公共终结点可以从[虚拟网络](../../virtual-network/virtual-networks-overview.md)外部对托管实例进行数据访问。 可以从多租户 Azure 服务（例如 Power BI、Azure 应用服务）或本地网络访问托管实例。 如果使用托管实例上的公共终结点，则无需使用 VPN，这有助于避免 VPN 吞吐量问题。
+使用[托管实例](./sql-managed-instance-paas-overview.md)的公共终结点可以从[虚拟网络](../../virtual-network/virtual-networks-overview.md)外部对托管实例进行数据访问。 可以从多租户 Azure 服务（例如 Power BI、Azure 应用服务）或本地网络访问托管实例。 如果使用托管实例上的公共终结点，则无需使用 VPN，这有助于避免 VPN 吞吐量问题。
 
 本文介绍如何执行以下操作：
 
@@ -83,17 +83,17 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>在网络安全组上允许公共终结点流量
 
-1. 如果托管实例的配置页仍处于打开状态，请导航到“概述”选项卡。否则，请返回 **SQL 托管实例**资源。 选择“虚拟网络/子网”链接，转到虚拟网络配置页。
+1. 如果托管实例的配置页仍处于打开状态，请导航到“概述”选项卡。否则，请返回 **SQL 托管实例** 资源。 选择“虚拟网络/子网”链接，转到虚拟网络配置页。
 
     ![屏幕截图显示了“虚拟网络配置”页，可在其中找到虚拟网络/子网值。](./media/public-endpoint-configure/mi-overview.png)
 
-1. 在虚拟网络的左侧配置窗格中选择“子网”选项卡，并记下托管实例的**安全组**。
+1. 在虚拟网络的左侧配置窗格中选择“子网”选项卡，并记下托管实例的 **安全组**。
 
     ![屏幕截图显示了“子网”选项卡，可在其中获取托管实例的安全组。](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
-1. 返回包含你的托管实例的资源组。 应会看到上面记下的**网络安全组**名称。 请选择该名称转到网络安全组配置页。
+1. 返回包含你的托管实例的资源组。 应会看到上面记下的 **网络安全组** 名称。 请选择该名称转到网络安全组配置页。
 
-1. 选择“入站安全规则”选项卡，并**添加**一个优先级高于 **deny_all_inbound** 规则且采用以下设置的规则： </br> </br>
+1. 选择“入站安全规则”选项卡，并 **添加** 一个优先级高于 **deny_all_inbound** 规则且采用以下设置的规则： </br> </br>
 
     |设置  |建议的值  |说明  |
     |---------|---------|---------|

@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 origin.date: 09/18/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 9914fce4694ae6de0ba078a11b5f02074653b46b
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: 21dd3af38263f349359d53d3fd1ee4669c9fdce0
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680624"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829829"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板启用“更新管理”
 
@@ -75,7 +75,7 @@ JSON 模板为其他参数指定默认值，这些参数将会用作环境中的
 
 ## <a name="deploy-template"></a>部署模板
 
-1. 将以下 JSON 语法复制并粘贴到该文件中：
+1. 将以下 JSON 语法复制并粘贴到文件中：
 
     ```json
     {
@@ -317,7 +317,7 @@ JSON 模板为其他参数指定默认值，这些参数将会用作环境中的
     **Azure CLI**
 
     ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     部署可能需要几分钟才能完成。 完成后，会看到一条包含结果的消息，如下所示：

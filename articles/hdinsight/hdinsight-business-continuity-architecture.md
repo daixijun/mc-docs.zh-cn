@@ -8,12 +8,12 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: a0b63917d6136ac29f713cd5f7bb96a0011bb75b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: fb8636796494556368357b7378df2db1f2e879b2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473090"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830089"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 业务连续性体系结构
 
@@ -50,13 +50,13 @@ Hive 基于事件的复制是在主群集与辅助群集之间配置的。 这�
 
 在“与按需辅助群集配合使用的主动主群集”体系结构中，在正常操作期间，应用程序会写入到主动主区域，不会在辅助区域中预配任何群集。 辅助区域中的 SQL 元存储和存储是永久性的，你只在计划的 Hive 复制运行之前针对 HDInsight 群集按需编写脚本并进行部署。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="与按需辅助群集配合使用的主动主群集":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>与备用辅助群集配合使用的 Hive 主动主群集
 
 在“与备用辅助群集配合使用的主动主群集”体系结构中，在正常操作期间，应用程序会将内容写入到主动主区域，而备用纵向缩减辅助群集则以只读模式运行。 在正常操作期间，你可以选择将特定于区域的读取操作负荷转移到辅助区域。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="与备用辅助群集配合使用的主动主群集":::
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -83,13 +83,13 @@ Spark 工作负荷可能涉及也可能不涉及 Hive 组件。 为了使 Spark 
 
 在正常操作期间，应用程序在主区域中的 Spark 和 Hive 群集上进行读取和写入，不在辅助区域中预配任何群集。 SQL 元存储、Hive 存储和 Spark 存储在辅助区域中是永久性的。 针对 Spark 和 Hive 群集按需编写脚本并进行部署。 Hive 复制用来复制 Hive 存储和 Hive 元存储，而 Azure 数据工厂的 `DistCP` 可用来复制独立的 Spark 存储。 由于进行依赖关系 `DistCp` 计算，每次运行 Hive 复制之前都需要部署 Hive 群集。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Apache Spark“与按需辅助群集配合使用的主动主群集”体系结构":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>与备用辅助群集配合使用的 Spark 主动主群集
 
 在正常操作期间，应用程序在主区域中的 Spark 和 Hive 群集上进行读取和写入，而辅助区域中的备用横向缩减 Hive 和 Spark 群集以只读模式运行。 在正常操作期间，你可以选择将特定于区域的 Hive 和 Spark 读取操作负荷转移到辅助区域。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="与备用辅助群集配合使用的 Apache Spark 主动主群集 ":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -129,19 +129,19 @@ HBase 复制以完全自动化方式在 HBase 群集之间使用近实时复制�
 
 辅助群集作为普通的 HBase 群集运行，它可以承载自己的表，并且可以处理区域应用程序的读写操作。 但是，在已复制的表或辅助群集原有的表上进行的写入不会复制回主群集。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase“领导者-追随者”模型":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>HBase 复制：“领导者-领导者”模型
 
 此跨区域设置非常类似于单向设置，只不过复制在主区域与辅助区域之间双向进行。 应用程序可以在读写模式下使用这两个群集，并在它们之间异步交换更新。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase“领导者-领导者”模型":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>HBase 复制：“多区域”或“循环”
 
 “多区域/循环”复制模型是 HBase 复制的扩展，可用于创建包含多个应用程序的全局冗余 HBase 体系结构，这些应用程序可在特定于区域的 HBase 群集中进行读取和写入。 可以根据业务要求按不同的“领导者/领导者”或“领导者/追随者”组合来设置群集。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="HBase 循环模型":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -149,7 +149,7 @@ HBase 复制以完全自动化方式在 HBase 群集之间使用近实时复制�
 
 MirrorMaker 主题复制可能会在源主题与副本主题之间导致不同的偏移量，具体取决于复制开始时的主题生存期。 HDInsight Kafka 群集还支持主题分区复制，这是在单个群集级别的高可用性功能。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka 复制":::
 
 ### <a name="apache-kafka-architectures"></a>Apache Kafka 体系结构
 
@@ -170,7 +170,7 @@ MirrorMaker 主题复制可能会在源主题与副本主题之间导致不同�
 * 主动与被动群集的主题之间的最终一致性。
 * 故障回复到主群集可能会导致主题中的消息不一致。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Apache Kafka 主动 - 被动模型":::
 
 #### <a name="kafka-replication-active--active"></a>Kafka 复制：主动 – 主动
 
@@ -186,7 +186,7 @@ MirrorMaker 主题复制可能会在源主题与副本主题之间导致不同�
 * 循环复制的问题需要解决。  
 * 双向复制会导致更高的区域数据出口费用。
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka “主动-主动”模型":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>HDInsight 企业安全性套餐
 
@@ -196,11 +196,11 @@ Ranger 元存储复制：
 
 Ranger 元存储用于永久存储和提供 Ranger 策略来控制数据授权。 建议在主群集和辅助群集中保留独立的 Ranger 策略，并保留辅助群集作为只读副本。
   
-如果要求在主群集与辅助群集之间保持 Ranger 策略同步，请使用 [Ranger 导入/导出](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI)定期备份 Ranger 策略并将其从主群集导入到辅助群集。
+如果要求在主群集与辅助群集之间保持 Ranger 策略同步，请使用 [Ranger 导入/导出](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export)定期备份 Ranger 策略并将其从主群集导入到辅助群集。
 
 如果在主群集与辅助群集之间复制 Ranger 策略，则可能会导致辅助群集变为支持写入的群集，这可能会导致在辅助群集上出现意外的写入，导致数据不一致。  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Hive 和 Interactive Query 体系结构":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HDInsight 企业安全性套餐体系结构":::
 
 ## <a name="next-steps"></a>后续步骤
 

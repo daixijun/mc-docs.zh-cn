@@ -11,15 +11,15 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 11/27/2019
-ms.date: 10/29/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 7f41a319d8ed38f6061d5a5d713210818fa98714
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: ae70fa76064fc528f15a3700d2974b3b22cda0df
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470488"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830042"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机 (Windows) 上的 SQL Server 是什么？
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "92470488"
 
 <!--Correct on pay standard-in-advance offer-->
 
-Azure 虚拟机在全球许多不同的[地理区域](https://azure.microsoft.com/regions/)运行， 并提供各种[虚拟机大小](../../../virtual-machines/windows/sizes.md)。 使用虚拟机映像库可以创建 SQL Server VM，而且版本和操作系统都很正确。 因此，虚拟机适用于许多不同的 SQL Server 工作负荷。
+Azure 虚拟机在全球许多不同的[地理区域](https://azure.microsoft.com/regions/)运行， 并提供各种[虚拟机大小](../../../virtual-machines/sizes.md)。 使用虚拟机映像库可以创建 SQL Server VM，而且版本和操作系统都很正确。 因此，虚拟机适用于许多不同的 SQL Server 工作负荷。
 
 ## <a name="automated-updates"></a>自动更新
 
@@ -42,7 +42,7 @@ Azure 虚拟机上的 SQL Server 可以使用[自动修补](automated-patching.m
 
 Azure 虚拟机上的 SQL Server 可以利用[自动备份](automated-backup.md)，定期创建数据库到 Blob 存储的备份。 也可以手动使用此技术。 有关详细信息，请参阅[使用 Azure 存储进行 SQL Server 备份和还原](azure-storage-sql-server-backup-restore-use.md)。
 
-Azure 还为 Azure VM 中运行的 SQL Server 提供企业级备份解决方案。 作为完全托管的备份解决方案，它支持 AlwaysOn 可用性组、长期保留、时点恢复以及集中管理和监视。 有关详细信息，请参阅 [Azure VM 中 SQL Server 的 Azure 备份](/backup/backup-azure-sql-database)。
+Azure 还为 Azure VM 中运行的 SQL Server 提供企业级备份解决方案。 作为完全托管的备份解决方案，它支持 AlwaysOn 可用性组、长期保留、时点恢复以及集中管理和监视。 有关详细信息，请参阅 [Azure VM 中 SQL Server 的 Azure 备份](../../../backup/backup-azure-sql-database.md)。
   
 
 ## <a name="high-availability"></a>高可用性
@@ -128,7 +128,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL Server
 ### <a name="networking"></a>网络
 * [虚拟网络概述](../../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 地址](../../../virtual-network/public-ip-addresses.md)
-* [在 Azure 门户中创建完全限定的域名](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [在 Azure 门户中创建完全限定的域名](../../../virtual-machines/create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [SQL Server 文档](https://docs.microsoft.com/sql/index)

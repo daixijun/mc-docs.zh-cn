@@ -6,27 +6,27 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 86f0834c8dd605be84c258de4be57be1ea77be5c
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 52bd38d71b819dac4b5c3eca66d95ae09e3dc6ee
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228014"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830066"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>使用数据依赖型路由可将查询路由到相应的数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-**数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，数据依赖型路由是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用数据依赖型路由的每个特定查询和事务限制为针对每个请求访问一个数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）类实现的。
+**数据依赖型路由** 是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，数据依赖型路由是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用数据依赖型路由的每个特定查询和事务限制为针对每个请求访问一个数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）类实现的。
 
 应用程序无需在分片环境中跟踪与不同的数据片相关联的各种连接字符串或数据库位置。 但是，[分片映射管理器](elastic-scale-shard-map-management.md)在需要时基于分片映射中的数据以及作为应用程序请求目标的分片键值，建立与正确数据库的连接。 该键通常为 customer_id、tenant_id、date_key 或一些作为数据库请求的基础参数的其他特定标识符。
 
-有关详细信息，请参阅[使用数据依赖型路由横向扩展 SQL Server](https://technet.microsoft.com/library/cc966448.aspx)。
+有关详细信息，请参阅[使用数据依赖型路由横向扩展 SQL Server](https://docs.microsoft.com/previous-versions/sql/sql-server-2005/administrator/cc966448(v=technet.10))。
 
 ## <a name="download-the-client-library"></a>下载客户端库
 
@@ -51,11 +51,11 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 
 ### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>尽可能使用最低特权凭据来获取分片映射
 
-如果应用程序本身无法处理分片映射，在工厂方法中使用的凭据应该对**全局分片映射**数据库具有只读权限。 这些凭据通常与用于分发到分片映射管理器的开放连接的凭据不同。 另请参阅[用于访问弹性数据库客户端库的凭据](elastic-scale-manage-credentials.md)。
+如果应用程序本身无法处理分片映射，在工厂方法中使用的凭据应该对 **全局分片映射** 数据库具有只读权限。 这些凭据通常与用于分发到分片映射管理器的开放连接的凭据不同。 另请参阅[用于访问弹性数据库客户端库的凭据](elastic-scale-manage-credentials.md)。
 
 ## <a name="call-the-openconnectionforkey-method"></a>调用 OpenConnectionForKey 方法
 
-ShardMap.OpenConnectionForKey 方法（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)）将返回连接，该连接可随时基于 key 参数的值将命令分发到相应的数据库中。 **ShardMapManager** 将分片信息缓存在应用程序中，因此这些请求通常不会针对**全局分片映射**数据库调用数据库查找。
+ShardMap.OpenConnectionForKey 方法（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)）将返回连接，该连接可随时基于 key 参数的值将命令分发到相应的数据库中。 **ShardMapManager** 将分片信息缓存在应用程序中，因此这些请求通常不会针对 **全局分片映射** 数据库调用数据库查找。
 
 ```Java
 // Syntax:

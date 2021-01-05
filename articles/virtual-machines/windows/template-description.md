@@ -6,16 +6,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 origin.date: 01/03/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0bab48b18bf28419ae6112671fc58ef706cd0452
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 082414b7b3ed17249145e3aa2be84df2c883e62d
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105756"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856914"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -210,8 +210,6 @@ ms.locfileid: "93105756"
 
 部署示例模板时，先前创建的存储帐户的名称和标识符使用变量值。 变量还用于提供诊断扩展的设置。 请参阅[创建 Azure Resource Manager 模板的最佳实践](../../azure-resource-manager/templates/template-best-practices.md)来帮助自己确定如何构造模板中的参数和变量。
 
-<!--THIS ARTICLE: azure-resource-manager/templates/template-best-practices.md VERIFIED ON 0824-->
-
 ## <a name="resource-loops"></a>资源循环
 
 如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素根据以参数形式指定的数目反复创建 VM：
@@ -312,7 +310,7 @@ ms.locfileid: "93105756"
 },
 ```
 
-操作系统磁盘的配置设置是使用 osDisk 元素分配的。 此示例定义了一个新的托管磁盘，其缓存模式设置为 **ReadWrite** ，并且该磁盘是从 [平台映像](cli-ps-findimage.md)创建的：
+操作系统磁盘的配置设置是使用 osDisk 元素分配的。 此示例定义了一个新的托管磁盘，其缓存模式设置为 **ReadWrite**，并且该磁盘是从 [平台映像](cli-ps-findimage.md)创建的：
 
 ```json
 "osDisk": { 
@@ -397,7 +395,6 @@ ms.locfileid: "93105756"
       "storageAccount": "[variables('storageName')]" 
     }, 
     "protectedSettings": { 
-      "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
       "storageAccountName": "[variables('storageName')]", 
       "storageAccountKey": "[listkeys(variables('accountid'), 
         '2015-06-15').key1]", 
@@ -450,7 +447,7 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 如果很想知道部署中的资源状态，则可在 Azure 门户中查看资源组：
 
-:::image type="content" source="./media/template-description/virtual-machines-deployment-info.png" alt-text="获取扩展状态":::
+:::image type="content" source="./media/template-description/virtual-machines-deployment-info.png" alt-text="获取部署信息":::
 
 完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../azure-resource-manager/templates/deploy-powershell.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。  默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 在模式设置为“完整”时，资源管理器会删除资源组中不包含在模板内的所有资源。
 

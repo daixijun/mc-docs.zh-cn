@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 origin.date: 07/29/2019
-ms.date: 10/12/2020
+ms.date: 12/14/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 83f100e48193023f7b1b0a98f0a45ac1b00f2392
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 4d9f0199584fdafb1b7ccae77c2b453dfed554ad
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432427"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829709"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 
 要完成本教程，请确保已安装：
 
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)（最新版本）
+- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)（最新版本）
 - [BCP 和 SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433)（最新版本）
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
@@ -161,7 +161,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 - 学生
 - 额度
 
-以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，“学生”表引用“人员”表的 PersonId 列  。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx)（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
+以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，“学生”表引用“人员”表的 PersonId 列  。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://docs.microsoft.com/previous-versions/tn-archive/cc505842(v=technet.10))（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
 
 > [!NOTE]
 > 还可以使用 [SQL Server Management Studio 中的表设计器](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools)来创建和设计表。
@@ -245,7 +245,7 @@ Azure SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止�
 
 ## <a name="query-data"></a>查询数据
 
-执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](https://technet.microsoft.com/library/bb264565.aspx)。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的分数高于 75% 的学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的课程。
+执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](https://docs.microsoft.com/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90))。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的分数高于 75% 的学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的课程。
 
 1. 在 SQL Server Management Studio 查询窗口中，执行以下查询：
 

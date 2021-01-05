@@ -15,12 +15,12 @@ ms.date: 08/10/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 938c7a9ab74ede4d7c5cb3280ced0668822ba824
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 85a3c52adae2178c89f030c0c68a2a8252071cf0
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548069"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592794"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>使用开源工具可视化 Azure 网络观察程序 NSG 流日志
 
@@ -198,7 +198,7 @@ sudo /etc/init.d/logstash start
 
 3. 若要查看 Kibana Web 界面，请导航到 `http://localhost:5601`
 4. 对于本方案，用于流日志的索引模式为“nsg-flow-logs”。 可以更改 logstash.conf 文件“output”节中的索引模式。
-5. 如果想要远程查看 Kibana 仪表板，请创建允许访问**端口 5601** 的入站 NSG 规则。
+5. 如果想要远程查看 Kibana 仪表板，请创建允许访问 **端口 5601** 的入站 NSG 规则。
 
 ### <a name="create-a-kibana-dashboard"></a>创建 Kibana 仪表板
 
@@ -210,7 +210,7 @@ sudo /etc/init.d/logstash start
 
 在 Kibana 的“Management”（管理）选项卡下，导航到“Saved Objects”（已保存的对象）并导入所有三个文件。 然后，可从“仪表板”选项卡打开并加载示例仪表板。
 
-还可以创建自己的可视化效果，以及根据感兴趣的指标定制的仪表板。 阅读 Kibana 的[正式文档](https://www.elastic.co/guide/en/kibana/current/visualize.html)，详细了解如何创建 Kibana 可视化效果。
+还可以创建自己的可视化效果，以及根据感兴趣的指标定制的仪表板。 阅读 Kibana 的[正式文档](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)，详细了解如何创建 Kibana 可视化效果。
 
 ### <a name="visualize-nsg-flow-logs"></a>可视化 NSG 流日志
 

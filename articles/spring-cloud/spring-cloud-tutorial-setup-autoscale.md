@@ -1,20 +1,22 @@
 ---
-title: 教程 - 为微服务应用程序设置自动缩放功能
+title: 为微服务应用程序设置自动缩放功能
 description: 本文介绍如何使用 Azure 门户或 Azure CLI 为应用程序设置自动缩放设置。
 author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
-ms.topic: tutorial
-ms.date: 11/02/2020
+ms.topic: how-to
+ms.date: 12/28/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8b4128ad71729878099bd9b7a6380d30350f3b81
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: e048be1f11454feb56a94edd64b39a15b4caca23
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509006"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829436"
 ---
-# <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>教程：为微服务应用程序设置自动缩放功能
+# <a name="set-up-autoscale-for-microservice-applications"></a>为微服务应用程序设置自动缩放功能
+
+
 
 自动缩放是 Azure Spring Cloud 的一种内置功能，可帮助微服务应用程序在需求更改时发挥最佳性能。 这包括修改虚拟 CPU、内存和应用实例的数量。 本文介绍如何使用 Azure 门户或 Azure CLI 为应用程序设置自动缩放设置。
 

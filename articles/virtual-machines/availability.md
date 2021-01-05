@@ -5,16 +5,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 05/10/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5faaf92c28a7eb7454c401425d8f1cd16c2f44dd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3ca3a21d8fe90c5fa37b8e6fc65cae243cabb7a3
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104996"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856939"
 ---
 <!--Verified successfully-->
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Azure 中虚拟机的可用性选项
@@ -50,7 +50,7 @@ Azure 平台进行定期维护时，此方法可确保至少有一个应用程�
 虚拟机规模集通过协调容错域和更新域简化了高可用性设计。 只需为规模集定义容错域计数。 规模集可用的容错域的数量可能因地区而异。 请参阅[管理 Azure 中的虚拟机的可用性](./manage-availability.md)。
 
 ## <a name="availability-sets"></a>可用性集
-可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级 SSD](./disks-types.md#premium-ssd) 时，Azure SLA 适用于计划外维护事件。
+可用性集是 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级 SSD](./disks-types.md#premium-ssd) 时，Azure SLA 适用于计划外维护事件。
 
 在可用性集中，VM 自动分布到这些容错域中。 此方法可限制潜在物理硬件故障、网络中断或断电的影响。
 
@@ -62,7 +62,7 @@ Azure 平台进行定期维护时，此方法可确保至少有一个应用程�
 
 可用性集中的 VM 也会自动分布到更新域中。 
 
-:::image type="content" source="./media/virtual-machines-common-manage-availability/ud-fd-configuration.png" alt-text="托管可用性集":::
+:::image type="content" source="./media/virtual-machines-common-manage-availability/ud-fd-configuration.png" alt-text="可用性集":::
 
 ## <a name="next-steps"></a>后续步骤
 现在即可开始使用这些可用性和冗余功能构建 Azure 环境。 有关最佳实践的信息，请参阅 [Azure 可用性的最佳实践](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)。

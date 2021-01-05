@@ -8,16 +8,16 @@ metadata:
   ms.service: virtual-machines-windows
   ms.topic: landing-page
   author: rockboyfor
-  ms.date: 11/02/2020
+  ms.date: 01/04/2021
   ms.testscope: yes
   ms.testdate: 08/31/2020
   ms.author: v-yeche
-  ms.openlocfilehash: ac1aa57760b4f1eca33179cffe49e847c8fd48ee
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: 13f7dd2a759283939c65dbf1c013d2adf5da5db1
+  ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93105943"
+  ms.lasthandoff: 01/04/2021
+  ms.locfileid: "97857085"
 landingContent:
 - title: 排查部署失败问题
   linkLists:
@@ -128,7 +128,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 排查共享映像库复制速度缓慢问题
-      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-speed
 - title: VM 扩展问题
   linkLists:
   - linkListType: how-to-guide

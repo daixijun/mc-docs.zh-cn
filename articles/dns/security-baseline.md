@@ -5,15 +5,15 @@ author: WenJason
 ms.service: dns
 ms.topic: conceptual
 origin.date: 08/25/2020
-ms.date: 12/07/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 708a03f4a57d37e6c80f534325bc61ff0664c9ae
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 2f6d41e67952952ec54ec913dcaf06d621ec2600
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746812"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856936"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>适用于 Azure DNS 的 Azure 安全基线
 
@@ -61,7 +61,7 @@ ms.locfileid: "96746812"
 
 也可以启用数据并将其加入第三方 SIEM。 
 
-- [Log Analytics 查询入门](../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 查询入门](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 
@@ -136,6 +136,11 @@ ms.locfileid: "96746812"
 - [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [如何在 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
+
+**指导**：使用 Azure Active Directory 安全报告和监视来检测环境中何时发生可疑活动或不安全的活动。 使用 Azure 安全中心监视标识和访问活动。
+
+- [如何在 Azure 安全中心内监视用户的标识和访问活动](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
 
@@ -368,6 +373,16 @@ ms.locfileid: "96746812"
 **指导**：在“Microsoft.Network”命名空间中使用内置的 Azure Policy 定义和 Azure Policy 别名创建自定义策略，以审核、强制实施系统配置并为其发出警报。 使用 Azure Policy“[审核]”、“[拒绝]”和“[不存在则部署]”自动强制实施 Azure 资源的配置。
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+
+**Azure 安全中心监视**：不适用
+
+**责任**：客户
+
+### <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除意外的凭据透露
+
+**指南**：实施凭据扫描程序来识别代码中的凭据。 凭据扫描程序还会建议将发现的凭据转移到更安全的位置，例如 Azure Key Vault。
+
+- [如何设置凭据扫描程序](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure 安全中心监视**：不适用
 

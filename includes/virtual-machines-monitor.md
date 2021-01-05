@@ -1,15 +1,19 @@
 ---
-ms.openlocfilehash: 7c4e4d78cfaae39e1cdb6a3914894a0a5db12317
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+title: include 文件
+description: include 文件
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 09/30/2019
+ms.date: 07/06/2020
+ms.author: v-yeche
+ms.openlocfilehash: 505c0b9c3ad2e727f4bb4a00b4eeabc76d11242b
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96599924"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793439"
 ---
-----
-title: include 文件 description: include 文件 author: rockboyfor ms.service: virtual-machines ms.topic: include origin.date:09/30/2019 ms.date:07/06/2020 ms.author: v-yeche
----
-
 随着托管在 Azure 中的 VM 数目的显著增长，必须确定影响它们支持的应用程序和基础结构服务的性能和运行状况问题。 默认情况下，会在 Azure 中通过各种指标类型（由主机监控程序收集的 CPU 使用率、磁盘使用率、内存使用率和网络流量）进行基本的监视。 可以使用[扩展](../articles/virtual-machines/windows/extensions-features.md)收集其他指标和日志数据，以便在来宾操作系统的 VM 上配置诊断。
 
 为了检测并诊断 VM 中运行的来宾操作系统、基于 .NET 的 Web 应用程序或 Java Web 应用程序组件的性能和运行状况问题，Azure Monitor 提供了集中监视功能和各种其他功能，例如用于 VM 的 Azure Monitor、Application Insights。

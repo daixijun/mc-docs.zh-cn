@@ -36,18 +36,20 @@
       href: tutorial-virtual-network.md
     - name: 9 - 备份虚拟机
       href: tutorial-backup-vms.md
-    - name: 10 - 管理 VM
-      displayName: scope policy RBAC lock tag
+    - name: 10 - 启用灾难恢复
+      href: tutorial-disaster-recovery.md
+    - name: 11 - 管理 VM
+      displayName: scope policy Azure RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 11 - 跟踪和更新 VM
+    - name: 12 - 跟踪和更新 VM
       href: tutorial-config-management.md
-    - name: 12 - 监视 VM
+    - name: 13 - 监视 VM
       href: tutorial-monitor.md
-    - name: 13 - 管理 VM 安全性
-      href: tutorial-azure-security.md
-    - name: 14 - 安装 SQL\IIS\.NET 堆栈
+    - name: 14 - 管理 VM 安全性
+      href: ../tutorial-azure-security.md
+    - name: 15 - 安装 SQL\IIS\.NET 堆栈
       href: tutorial-iis-sql.md
-    - name: 15 - 使用 SSL 保护 Web 服务器
+    - name: 16 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
@@ -144,8 +146,8 @@
 - name: 概念
   items:
     - name: 映像
-      href: shared-image-galleries.md
-    - name: Azure 资源管理器
+      href: ../shared-image-galleries.md
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 资源管理器模板
@@ -164,7 +166,7 @@
         - name: 可用性
           href: ../availability.md
         - name: 归置
-          href: co-location.md
+          href: ../co-location.md
         - name: 网络性能
           href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: VM 类型和大小
@@ -216,6 +218,8 @@
           items:
             - name: 概述
               href: ../sizes-gpu.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
+            - name: NCv3 系列
+              href: ../ncv3-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: 安装 NVIDIA GPU 驱动程序
               href: n-series-driver-setup.md
         - name: 不带临时磁盘的 Azure VM
@@ -255,6 +259,10 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+        - name: 共享磁盘
+          href: ../disks-shared.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+        - name: 磁盘性能层
+          href: ../disks-change-performance.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 临时 OS 磁盘
           href: ../ephemeral-os-disks.md
     - name: 网络
@@ -278,6 +286,9 @@
           href: ../../bastion/bastion-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 状态和生命周期
       href: ../states-lifecycle.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+    - name: 用于创建或更新操作的 PUT 调用
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: 启动诊断
       href: ../../virtual-machines/boot-diagnostics.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 备份和恢复
@@ -323,17 +334,17 @@
         - name: 从 2023 年 3 月 1 日开始停用
           href: ../classic-vm-deprecation.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 迁移概述
-          href: migration-classic-resource-manager-overview.md
+          href: ../migration-classic-resource-manager-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 深入了解迁移
           href: ../migration-classic-resource-manager-deep-dive.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 规划迁移
-          href: migration-classic-resource-manager-plan.md
+          href: ../migration-classic-resource-manager-plan.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 使用 PowerShell 迁移
-          href: migration-classic-resource-manager-ps.md
+          href: ../migration-classic-resource-manager-ps.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 常见的迁移错误
-          href: migration-classic-resource-manager-errors.md
+          href: ../migration-classic-resource-manager-errors.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 用于迁移的社区工具
-          href: migration-classic-resource-manager-community-tools.md
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 常见问题解答
           href: ../migration-classic-resource-manager-faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 使用映像
@@ -351,7 +362,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-powershell.md
-                    - name: 从托管映像迁移
+                    - name: 克隆托管映像
                       href: ../image-version-managed-image-powershell.md
                     - name: 从另一个库复制
                       href: ../image-version-another-gallery-powershell.md
@@ -373,7 +384,7 @@
                       href: ../image-version-vm-cli.md
                     - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-cli.md
-                    - name: 从托管映像迁移
+                    - name: 克隆托管映像
                       href: ../image-version-managed-image-cli.md
                     - name: 从另一个库复制
                       href: ../image-version-another-gallery-cli.md
@@ -424,7 +435,7 @@
     - name: 保护 VM
       items:
         - name: 建议
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: 实时访问
           href: ../../security-center/security-center-just-in-time.md
         - name: 使用 Bastion
@@ -432,7 +443,7 @@
             - name: 创建 Bastion 主机
               items:
                 - name: 门户
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fvirtual-machines%2fwindows%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                 - name: CLI
@@ -508,9 +519,17 @@
         - name: 交换 OS 磁盘
           href: os-disk-swap.md
         - name: 标记 VM
-          href: tag.md
-        - name: 时间同步
           href: time-sync.md
+          items:
+            - name: 门户
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: CLI
+              href: ../tag-cli.md
+            - name: 模板
+              href: ../tag-template.md
+            - name: 时间同步
         - name: 在 VM 上运行脚本
           href: run-scripts-in-vm.md
           items:
@@ -522,13 +541,10 @@
           href: change-drive-letter.md
         - name: 更改可用性集
           href: change-availability-set.md
-        - name: 导出 ARM 模板
-          displayName: Azure Resource Manager
-          href: download-template.md
         - name: Azure VM 代理
           href: ../extensions/agent-windows.md
         - name: 缓解推理执行
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: 监视元数据
           href: instance-metadata-service.md
         - name: 启用嵌套虚拟化
@@ -645,7 +661,6 @@
       items:
         - name: 自定义数据
           href: ../custom-data.md
-        - name: Chef
         - name: 从 Visual Studio 发布 Web 应用
           href: publish-web-app-from-visual-studio.md
     - name: 运行应用程序
@@ -654,8 +669,6 @@
           href: ../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
         - name: MongoDB
           href: install-mongodb.md
-        - name: MATLAB 群集
-          href: matlab-mdcs-cluster.md
         - name: Visual Studio
           href: using-visual-studio-vm.md
     - name: 管理存储
@@ -666,11 +679,17 @@
               href: attach-disk-ps.md
             - name: Azure 门户
               href: attach-managed-disk-portal.md
+        - name: 更改磁盘层 - PowerShell/CLI
+          href: ../disks-performance-tiers.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+        - name: 更改磁盘层 - 门户
+          href: ../disks-performance-tiers-portal.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 分离磁盘
           href: detach-disk.md
         - name: 使用 ARM 模板部署磁盘
           displayName: Azure Resource Manager
           href: ../using-managed-disks-template-deployments.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+        - name: 启用共享磁盘
+          href: ../disks-shared-enable.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 将 vhd 上传到磁盘 - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 调整磁盘大小
@@ -729,7 +748,7 @@
         - name: 使用加速网络
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 分配公用 DNS 名称
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: DNS 解析
           href: ../../dns/dns-for-azure-services.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 配置托管标识
@@ -826,6 +845,9 @@
       href: 'https://docs.microsoft.com/rest/api/compute'
     - name: 托管磁盘 REST
       href: 'https://docs.microsoft.com/rest/api/compute/disks'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
 - name: 资源
   items:
     - name: 问答

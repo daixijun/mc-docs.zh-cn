@@ -1,22 +1,22 @@
 ---
 title: 教程 - 使用 PowerShell 管理虚拟机
-description: 本教程介绍如何通过使用 Azure PowerShell 应用 RBAC、策略、锁和标记管理 Azure 虚拟机
+description: 本教程介绍如何使用 Azure PowerShell 通过应用 Azure RBAC、策略、锁和标记来管理 Azure 虚拟机
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: tutorial
 origin.date: 12/05/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8c7e4f675fdfa2b03287b865040d7bab766412fa
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e25d6d8659f9ce4bc190f075bd88aba30c3c59c6
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105730"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856912"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 管理 Windows 虚拟机
 
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 
 目前，资源组为空。
 
-## <a name="role-based-access-control"></a>基于角色的访问控制
+## <a name="azure-role-based-access-control"></a>Azure 基于角色的访问控制
 
 你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-如果收到一条错误，指出 **主体 \<guid> 不存在于目录中** ，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
+如果收到一条错误，指出 **主体 \<guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
 通常情况下，请对 *网络参与者* 和 *存储帐户参与者* 重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
@@ -137,7 +137,7 @@ New-AzVm -ResourceGroupName "myResourceGroup" `
 
 ## <a name="lock-resources"></a>锁定资源
 
-[资源锁](../../azure-resource-manager/management/lock-resources.md)可以防止组织中的用户意外删除或修改重要资源。 与基于角色的访问控制不同，资源锁对所有用户和角色应用限制。 可以将锁定级别设置为 *CanNotDelete* 或 *ReadOnly* 。
+[资源锁](../../azure-resource-manager/management/lock-resources.md)可以防止组织中的用户意外删除或修改重要资源。 与基于角色的访问控制不同，资源锁对所有用户和角色应用限制。 可以将锁定级别设置为 *CanNotDelete* 或 *ReadOnly*。
 
 若要锁定虚拟机和网络安全组，请使用 [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) 命令：
 

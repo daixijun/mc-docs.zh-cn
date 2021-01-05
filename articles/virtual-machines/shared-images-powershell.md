@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure PowerShell 创建共享映像库
 description: 了解如何使用 Azure PowerShell 在 Azure 中创建共享映像库
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 05/04/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: fdb0111d810645fcf0ef3215b7c6c5d97e17361e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ce7e2de7da494c5af0c377adcff6503ce0d96cff
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104164"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857087"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>使用 Azure PowerShell 创建共享映像库 
 
@@ -23,7 +23,7 @@ ms.locfileid: "93104164"
 
 使用共享映像库，你可以在 AAD 租户内在同一区域或跨区域与组织中的其他用户共享自定义 VM 映像。 选择要共享哪些映像，要在哪些区域中共享，以及希望与谁共享它们。 你可以创建多个库，以便可以按逻辑方式对共享映像进行分组。 
 
-库是顶级资源，它提供完全基于角色的访问控制 (RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
+库是顶级资源，它提供完整的 Azure 基于角色的访问控制 (Azure RBAC)。 你可以控制映像的版本，并且可以选择将每个映像版本复制到一组不同的 Azure 区域。 库仅适用于托管映像。
 
 共享映像库功能具有多种资源类型。 
 

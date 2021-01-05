@@ -6,12 +6,12 @@ ms.subservice: process-automation
 origin.date: 01/17/2019
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7287f2e1cc9af5b13e5c63bf1d5b2e5b840c98e8
-ms.sourcegitcommit: f837837326a4856b06d1924d17521a0a7e892850
+ms.openlocfilehash: ed6ab37fe941507cfd53bea922e2f315d35f7637
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89449792"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830103"
 ---
 # <a name="create-modular-runbooks"></a>创建模块化 Runbook
 
@@ -110,11 +110,11 @@ $AzureContext = Get-AzSubscription -SubscriptionId $ServicePrincipalConnection.S
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>后续步骤

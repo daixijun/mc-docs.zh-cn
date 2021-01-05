@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/30/2020
+ms.date: 12/28/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aef68d018108faaefc5aa481f89f46160d1f8feb
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: f39c3730f4248039d94f14d6925d03f5b59e6a6f
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509100"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829380"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>快速入门：设置 Azure Spring Cloud Config Server
 
@@ -61,6 +61,9 @@ Azure Spring Cloud Config Server 是分布式系统的集中式配置服务。 �
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 ---
+
+> [!TIP]
+> 如果将专用存储库用于配置服务器，请参阅[介绍设置身份验证的教程](/spring-cloud/spring-cloud-tutorial-config-server)。
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud Config Server 的故障排除
 

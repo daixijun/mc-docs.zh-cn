@@ -7,18 +7,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 origin.date: 03/13/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 8ca579a105785073817fb8cf02d79f111bf9a961
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/21/2020
+ms.openlocfilehash: 892b46e7802ecb529ad7677cab4d507d9e9b93a2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227637"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829651"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 托管实例的点到站点连接
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -87,13 +87,13 @@ ms.locfileid: "86227637"
 2. 选择“连接” 。
 3. 在对话框中，选择“连接”。
 
-    ![VPN 连接](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+    ![突出显示“连接”按钮的屏幕截图。](./media/point-to-site-p2s-configure/vpn-connection2.png)  
 4. 当系统提示你连接管理器需要提升的特权才能更新路由表时，请选择“继续”。
 5. 在“用户帐户控制”对话框中选择“是”，继续下一步。
 
    已建立与 SQL 托管实例 VNet 的 VPN 连接。
 
-    ![VPN 连接](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![突出显示建立连接后的“已连接”消息的屏幕截图。](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>使用 SSMS 进行连接
 

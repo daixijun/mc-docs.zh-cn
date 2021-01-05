@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, sstein
 origin.date: 12/19/2018
-ms.date: 10/12/2020
-ms.openlocfilehash: 96aa7876eed860080732560c8a85b3b7b162342b
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: ada498d834f26c7db4fc124d08b567d22b408d30
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872322"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830212"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -171,6 +171,6 @@ Azure SQL 数据库提供可提高数据库性能的建议。 通过提供 T-SQL
 
 ## <a name="additional-resources"></a>其他资源
 
-* [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)
 * [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)

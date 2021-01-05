@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 06/16/2016
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: b67ea033ecbbefa0618bb1f8f15166426561fa6a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c2cb8510c63d213d61a82690367403a4e054cd76
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104140"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856892"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>为 Azure Resource Manager 中的虚拟机设置 WinRM 访问权限
 
@@ -59,16 +59,12 @@ $fileName = "<Path to the .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
-$jsonObject = @"
-{
-  "data": "$filecontentencoded",
-  "dataType" :"pfx",
-  "password": "<password>"
+[System.Collections.HashTable]$TableForJSON = @{
+    "data"     = $filecontentencoded;
+    "dataType" = "pfx";
+    "password" = "<password>";
 }
-"@
-
-$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+[System.String]$JSONObject = $TableForJSON | ConvertTo-Json
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
@@ -78,7 +74,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 预配 VM 时，Microsoft.Compute 资源提供程序需要指向密钥保管库中密钥的 URL。 这会使 Microsoft.Compute 资源提供程序能够下载密钥，并在 VM 上创建等效证书。
 
 > [!NOTE]
-> 密钥 URL 还需要包含版本。 示例 URL 如下所示：https://contosovault.vault.azure.cn:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> 密钥 URL 还需要包含版本。 示例 URL 类似于以下链接：https:\//contosovault.vault.azure.cn:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>模板
 可使用以下代码获取模板中 URL 的链接

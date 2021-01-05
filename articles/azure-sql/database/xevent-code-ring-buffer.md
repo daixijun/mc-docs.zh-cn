@@ -11,20 +11,20 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
 origin.date: 12/19/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 750c8a98162118cdeca8cb416ae6181436c98aca
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 12/14/2020
+ms.openlocfilehash: 7369c6d8a130219bb7616d7707e715a0e79f06c6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432585"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829663"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL 数据库中扩展事件的环形缓冲区目标代码
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](https://msdn.microsoft.com/library/ff878182.aspx)。
+需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](https://docs.microsoft.com/previous-versions/sql/sql-server-2016/bb630339(v=sql.130))。
 
 本主题演示一个 Transact-SQL 代码示例：
 
@@ -51,7 +51,7 @@ ms.locfileid: "96432585"
 * SQL Server Management Studio (ssms.exe)，最好是每月最新更新版。
   可从以下位置下载最新的 ssms.exe：
   
-  * 标题为[下载 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 的主题。
+  * 标题为[下载 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 的主题。
   * [直接指向下载位置的链接。](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>代码示例
@@ -350,6 +350,6 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://docs.microsoft.com/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://docs.microsoft.com/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bmitchell287
   ms.author: v-junlch
-  ms.date: 11/02/2020
-  ms.openlocfilehash: 833536c6e4c62d16ed4c1dd0c492b10cad0a90fa
-  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+  ms.date: 12/28/2020
+  ms.openlocfilehash: 823356450f59f6d805752354d5435adc09c4fdbf
+  ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/27/2020
-  ms.locfileid: "96300435"
+  ms.lasthandoff: 12/31/2020
+  ms.locfileid: "97829450"
 landingContent:
 - title: 关于 Azure Spring Cloud
   linkLists:
@@ -81,4 +81,4 @@ landingContent:
   - linkListType: reference
     links:
     - text: REST API 参考
-      url: https://docs.microsoft.com/rest/api/azurespringclould/
+      url: https://docs.microsoft.com/rest/api/azurespringcloud/

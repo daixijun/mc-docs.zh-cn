@@ -4,15 +4,15 @@ description: Azure Spring Cloud 的故障排除指南
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/30/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: fce671586a98a4ad5cb9e233cfbfb1f8d22ee5fc
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 88e1843845c63dafc7aa60dc9be01ab94e8522f2
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507785"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829448"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>排查常见的 Azure Spring Cloud 问题
 
@@ -66,7 +66,7 @@ ms.locfileid: "96507785"
 
 
 
-若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/get-started-portal.md)。
+若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/log-analytics-tutorial.md)。
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>我的应用程序的 CPU 使用率或内存使用率过高
 
@@ -88,7 +88,7 @@ ms.locfileid: "96507785"
 
 如果所有实例都已启动并运行，请转到 Azure Log Analytics，以查询应用程序日志并查看代码逻辑。 通过这种方式，可查看其是否影响缩放分区。 有关详细信息，请参阅[使用诊断设置分析日志和指标](diagnostic-services.md)。
 
-若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/get-started-portal.md)。 使用 Kusto 查询语言查询日志。
+若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/log-analytics-tutorial.md)。 使用 Kusto 查询语言查询日志。
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>用于将 Spring 应用程序部署到 Azure Spring Cloud 的检查清单
 
@@ -155,7 +155,7 @@ Azure Spring Cloud 服务实例的名称将用于请求 `azureapps.io` 下的子
 
 还可以在 Azure Log Analytics 中检查服务注册表客户端日志。 有关详细信息，请参阅[使用诊断设置分析日志和指标](diagnostic-services.md)
 
-若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/get-started-portal.md)。 使用 Kusto 查询语言查询日志。
+若要了解有关 Azure Log Analytics 的更多信息，请参阅 [Azure Monitor 中的 Log Analytics 入门](../azure-monitor/log-query/log-analytics-tutorial.md)。 使用 Kusto 查询语言查询日志。
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>我想要检查应用程序的环境变量
 

@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/11/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: b49cf5db921af56963a8946d68d8f1401a89f4dc
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: fea811244cd4e6d09163b19b246ca35779d63056
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004531"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820749"
 ---
 语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
 
@@ -240,7 +240,11 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 ## <a name="improve-recognition-accuracy"></a>提高识别准确度
 
-可以通过多种方式使用语音 SDK 来提高识别的准确度。 让我们看一下短语列表。 短语列表用于标识音频数据中的已知短语，如人的姓名或特定位置。 可以将单个词或完整短语添加到短语列表。 在识别期间，如果音频中包含整个短语的完全匹配项，则使用短语列表中的条目。 如果找不到与短语完全匹配的项，则不支持识别。
+短语列表用于标识音频数据中的已知短语，如人的姓名或特定位置。 通过提供短语列表，可以提高语音识别的准确性。
+
+例如，如果命令为“Move to”，可能的目标为可以说出来的“Ward”，则可添加条目“Move to Ward”。 添加短语会增加将音频中的“Move toward”（移向）识别为“Move to Ward”（移到病房）的概率
+
+可以将单个词或完整短语添加到短语列表。 在识别过程中，会使用短语列表中的某个条目进一步识别列表中的单词和短语，即使条目出现在言语的中间位置。 
 
 > [!IMPORTANT]
 > 短语列表功能仅以英语提供。
@@ -264,6 +268,6 @@ phraseList.clear();
 
 短语列表只是提高识别准确度的一种方式。 也可执行以下操作： 
 
-* [使用自定义语音识别提高准确性](../../../how-to-custom-speech.md)
+* [使用自定义语音识别提高准确性](../../../custom-speech-overview.md)
 
 <!-- * [Improve accuracy with tenant models](../../../tutorial-tenant-model.md) -->

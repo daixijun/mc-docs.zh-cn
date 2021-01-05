@@ -8,12 +8,12 @@ ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 11/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: 58e3715705f3dc1c02cbdfb499530cfc01d2a837
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: f0b097ad45811071c91f01c761fbee33548f6098
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003951"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592788"
 ---
 <!--Verified successfully-->
 # <a name="manage-public-content-with-azure-container-registry"></a>通过 Azure 容器注册表管理公共内容
@@ -94,7 +94,7 @@ az acr import \
 
 在映像导入基础上进行扩展，设置一个 [Azure 容器注册表任务](container-registry-tasks-overview.md)，以在基础映像更新时自动构建应用程序映像。 自动化的构建任务可以同时跟踪[基础映像更新](container-registry-tasks-base-images.md)和[源代码更新](container-registry-tasks-overview.md#trigger-task-on-source-code-update)。
 
-有关详细示例，请参阅[如何使用 Azure 容器注册表任务消耗并维护公共内容](tasks-consume-public-content.md)。 
+<!--Pending on [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md)-->
 
 > [!NOTE]
 > 单个预配置的任务可以自动重新构建引用所依赖的基础映像的每个应用程序映像。 
@@ -102,7 +102,9 @@ az acr import \
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解用于在 Azure 中构建、运行、推送和修补容器映像的 [ACR 任务](container-registry-tasks-overview.md)。
-* 请参阅[如何使用 Azure 容器注册表任务消耗和维护公共内容](tasks-consume-public-content.md)，了解用于更新环境的基础映像的自动化门控工作流。 
+
+<!--Pending on [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md)-->
+
 * 请参阅 [ACR 任务教程](container-registry-tutorial-quick-task.md)，了解有关自动构建和更新映像的更多示例。
 
 <!-- Update_Description: new article about buffer gate public content -->

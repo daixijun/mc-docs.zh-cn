@@ -58,6 +58,8 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
+        - name: 更新到最新版本
+          href: network-watcher-update.md
     - name: Azure Monitor
       items:
         - name: 诊断扩展
@@ -103,7 +105,7 @@
       href: update-linux-agent.md
     - name: 导出扩展
       href: export-templates.md
-    - name: 故障排除
+    - name: 疑难解答
       href: troubleshoot.md
     - name: 启用了 Python 3 的 Linux 系统的问题
       href: issues-using-vm-extensions-python-3.md

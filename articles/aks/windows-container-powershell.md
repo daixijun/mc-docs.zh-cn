@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: bbd224d702ac84b627ed88d8ae60bff269277512
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ca56540ec40bc996611ec64cf43b74f8df1f872b
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508089"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592791"
 ---
 <!--Verified successfully-->
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>使用 PowerShell 在 Azure Kubernetes 服务 (AKS) 群集上创建 Windows Server 容器
@@ -56,8 +56,7 @@ Windows Server 节点池存在以下额外限制：
 
 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
 
-> [!NOTE]
-> 本文使用 PowerShell 语法作为本教程的命令。 如果使用 Azure Cloud Shell，请确保将本地 Shell 窗口左上角的下拉列表设置为“PowerShell”。
+<!--Not Available on Azure Cloud Shell-->
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location chinaeast2
@@ -106,7 +105,7 @@ New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -
 
 上述命令将创建名为 npwin 的新节点池，并将其添加到 myAKSCluster 。 创建节点池以运行 Windows Server 容器时，VmSize 的默认值为 Standard_D2s_v3 。 如果选择设置 VmSize 参数，请检查[受限 VM 大小][restricted-vm-sizes]的列表。 最小推荐大小为 Standard_D2s_v3。 前一个命令还使用运行 `New-AzAks` 时创建的默认 vnet 中的默认子网。
 
-## <a name="connect-to-the-cluster"></a>连接至群集
+## <a name="connect-to-the-cluster"></a>连接到群集
 
 若要管理 Kubernetes 群集，请使用 Kubernetes 命令行客户端 [kubectl][kubectl]。
 
@@ -144,7 +143,9 @@ Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容
 
 ASP.NET 示例应用程序作为 [.NET Framework 示例][dotnet-samples]的一部分提供并在 Windows Server 容器中运行。 AKS 要求 Windows Server 容器基于 Windows Server 2019 或更高版本的映像。 Kubernetes 清单文件还必须定义[节点选择器][node-selector]，以指示 AKS 群集在可运行 Windows Server 容器的节点上运行 ASP.NET 示例应用程序的 Pod。
 
-创建名为 `sample.yaml` 的文件，并将其复制到以下 YAML 定义中。 如果使用 Azure Cloud Shell，则可以使用 `vi` 或 `nano` 来创建此文件，就像在虚拟或物理系统中操作一样：
+创建名为 `sample.yaml` 的文件，并将其复制到以下 YAML 定义中。 
+
+<!--Not Available on Azure Cloud Shell-->
 
 ```yaml
 apiVersion: apps/v1

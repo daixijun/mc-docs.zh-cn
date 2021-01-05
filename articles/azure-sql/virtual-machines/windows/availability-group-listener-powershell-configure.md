@@ -7,19 +7,19 @@ author: WenJason
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/06/2019
-ms.date: 08/17/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 51daa2108be54c37f3cd87efeaea6a906c49390d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: cb67862533a337b9bdaa23023940a17a416c19d3
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222504"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829782"
 ---
 <!--Verified successfully redirect articles-->
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
@@ -60,7 +60,7 @@ ms.locfileid: "88222504"
 
 ## <a name="configure-the-windows-firewall"></a>配置 Windows 防火墙
 
-配置 Windows 防火墙以允许 SQL Server 访问。 防火墙规则允许到端口（由 SQL Server 实例使用）的 TCP 连接，并且允许侦听器探测。 有关详细的说明，请参阅[为数据库引擎访问配置 Windows 防火墙](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)。 为 SQL Server 端口和探测端口创建入站规则。
+配置 Windows 防火墙以允许 SQL Server 访问。 防火墙规则允许到端口（由 SQL Server 实例使用）的 TCP 连接，并且允许侦听器探测。 有关详细的说明，请参阅[为数据库引擎访问配置 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access#Anchor_1)。 为 SQL Server 端口和探测端口创建入站规则。
 
 如果要限制 Azure 网络安全组的访问权限，请确保“允许”规则包含后端 SQL Server VM IP 地址、可用性组侦听器的负载均衡器浮动 IP 地址、群集核心 IP 地址（如适用）。
 
@@ -74,9 +74,9 @@ ms.locfileid: "88222504"
 
 <!--Not Available on [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
-> [!NOTE]
-> 如果将标准负载均衡器和 Azure 存储用于云见证，则需要配置[服务终结点](/storage/common/storage-network-security?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)。 
-> 
+   > [!NOTE]
+   > 如果将标准负载均衡器和 Azure 存储用于云见证，则需要配置[服务终结点](../../../storage/common/storage-network-security.md?toc=%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)。 
+   > 
 
 本文中的示例指定了一个标准负载均衡器。 在示例中，脚本包括了 `-sku Standard`。
 
@@ -153,8 +153,8 @@ foreach($VMName in $VMNames)
 > [!NOTE]
 > 对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。 例如，如果负载均衡器上有一个 IP 地址使用探测端口 59999，该负载均衡器上的其他任何 IP 地址就不能使用探测端口 59999。
 
-* 有关负载均衡器限制的信息，请参阅[网络限制 - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 下面的**每个负载均衡器的专用前端 IP**。
-* 有关可用性组限制的信息，请参阅[限制（可用性组）](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)。
+* 有关负载均衡器限制的信息，请参阅 [网络限制 - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 下面的 **每个负载均衡器的专用前端 IP**。
+* 有关可用性组限制的信息，请参阅[限制（可用性组）](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability#RestrictionsAG)。
 
 以下脚本将新的 IP 地址添加到现有负载均衡器。 ILB 使用侦听程序端口作为负载均衡前端端口。 此端口可以是 SQL Server 正在侦听的端口。 对于 SQL Server 的默认实例，此端口为 1433。 可用性组的负载均衡规则需要浮动 IP（直接服务器返回），因此后端端口与前端端口相同。 请更新环境的变量。 
 
@@ -232,7 +232,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。 
 
 > [!NOTE]
-> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [添加或编辑防火墙规则](https://technet.microsoft.com/library/cc753558.aspx)。 
+> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [添加或编辑防火墙规则](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11))。 
 > 
 
 ## <a name="guidelines-and-limitations"></a>指导原则和限制
@@ -246,7 +246,7 @@ SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。
   - 负载均衡器浮动 AG 侦听程序的 IP 地址
   - 群集核心 IP 地址（如果适用）。
 
-* 将标准负载均衡器与 Azure 存储一起用作云见证时，请创建服务终结点。 有关详细信息，请参阅[从虚拟网络授予访问权限](https://docs.azure.cn/storage/common/storage-network-security?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)。
+* 将标准负载均衡器与 Azure 存储一起用作云见证时，请创建服务终结点。 有关详细信息，请参阅[从虚拟网络授予访问权限](../../../storage/common/storage-network-security.md?toc=%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)。
 
 ## <a name="for-more-information"></a>更多信息
 
@@ -256,12 +256,12 @@ SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。
 
 使用以下 PowerShell cmdlet 为 Azure 虚拟机创建内部负载均衡器。
 
-* 使用 [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) 创建负载均衡器。 
-* 使用 [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) 创建负载均衡器的前端 IP 配置。 
-* 使用 [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) 创建负载均衡器的规则配置。 
-* 使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) 创建负载均衡器的后端地址池配置。 
-* 使用 [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) 创建负载均衡器的探测配置。
-* 使用 [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) 从 Azure 资源组中删除负载均衡器。
+* 使用 [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmLoadBalancer) 创建负载均衡器。 
+* 使用 [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerFrontendIpConfig) 创建负载均衡器的前端 IP 配置。 
+* 使用 [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerRuleConfig) 创建负载均衡器的规则配置。 
+* 使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) 创建负载均衡器的后端地址池配置。 
+* 使用 [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) 创建负载均衡器的探测配置。
+* 使用 [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) 从 Azure 资源组中删除负载均衡器。
 
 <!-- Update_Description: new article about availability group listener powershell configure -->
 <!--NEW.date: 07/06/2020-->

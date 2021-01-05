@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: shisab
 ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: 64a19e788a62b9dedd6bf21c29c188ad462de2f8
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 07f297990599c32bc7086e61d4776482f603ea86
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508252"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830205"
 ---
 # <a name="diagnostic-log-collection"></a>诊断日志收集
 
@@ -114,12 +114,6 @@ Azure Stack Hub 提供了多种方式来收集和保存诊断日志并将其发�
   Send-AzureStackDiagnosticLog -FilterByResourceProvider eventhub
   ```
  
-  为 Azure Stack Edge 发送诊断日志：
-
-  ```powershell
-  Send-AzureStackDiagnosticLog -FilterByResourceProvide databoxedge
-  ```
-
 * 使用 FilterByRole 参数从 VirtualMachines 和 BareMetal 角色发送诊断日志：
 
   ```powershell

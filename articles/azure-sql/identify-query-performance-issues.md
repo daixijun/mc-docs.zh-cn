@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 origin.date: 03/10/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 2d2a702c329fc64c069501698d24e66da5e61436
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 01/04/2021
+ms.openlocfilehash: 2d8ac2e8b73dc600050cb02558c2b0f2d134bf71
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227187"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829668"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL 数据库中可检测的查询性能瓶颈类型
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ SQL 查询优化器生成的欠佳计划可能是查询性能缓慢的原因。 
 有关解决 PSP 问题的详细信息，请参阅以下博客文章：
 
 - [I smell a parameter](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)（探查参数）
-- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)（参数化查询的 Conor 与动态 SQL、过程与计划质量）
+- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://docs.microsoft.com/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)（参数化查询的 Conor 与动态 SQL、过程与计划质量）
 - [SQL query optimization techniques in SQL Server:Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)（SQL Server 中的 SQL 查询优化方法：参数探查）
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>参数化不当而导致的编译活动

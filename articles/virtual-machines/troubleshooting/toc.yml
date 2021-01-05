@@ -107,14 +107,20 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: 应用安全策略时，VM 无响应
           href: unresponsive-vm-apply-security-policy.md
+        - name: VM 在等待本地会话管理器时无响应
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Windows 启动管理器错误 - 状态：映像哈希无效
           href: windows-boot-error-invalid-image-hash.md
         - name: Windows 停止错误 - 错误系统配置信息
           href: windows-stop-error-bad-system-config-info.md
+        - name: Windows 停止错误 - 硬件故障
+          href: windows-stop-error-hardware-malfunction.md
         - name: Windows 停止错误 - 状态无内存
           href: troubleshoot-windows-stop-error.md
         - name: Windows 停止错误 - 系统进程终止
           href: windows-stop-error-system-process-terminated.md
+        - name: Windows 停止错误 - 系统线程异常待处理
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: 无法连接到 VM
   items:
     - name: RDP
@@ -204,7 +210,7 @@
   items:
     - name: 概述
       href: ../managed-disks-overview.md
-    - name: 常见问题
+    - name: 常见问题解答
       href: ../faq-for-disks.md
     - name: 删除存储资源时出错
       href: storage-resource-deletion-errors.md
@@ -214,6 +220,12 @@
       href: vhd-not-supported-vm-azure.md
     - name: 使用嵌套虚拟化
       href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: 排查共享映像库问题
+  items:
+    - name: 排查共享映像库问题 - Windows
+      href: ../troubleshooting-shared-images.md
+    - name: 排查共享映像库问题 - Linux
+      href: ../troubleshooting-shared-images.md
 - name: VM 扩展问题
   items:
     - name: Azure 扩展概述
@@ -248,22 +260,22 @@
       items:
         - name: 概述
           href: ../windows/disk-encryption-overview.md
-        - name: 故障排除
+        - name: 疑难解答
           href: ../windows/disk-encryption-troubleshooting.md
-        - name: 常见问题
+        - name: 常见问题解答
           href: ../windows/disk-encryption-faq.md
     - name: Linux
       items:
         - name: 概述
           href: ../linux/disk-encryption-overview.md
-        - name: 故障排除
+        - name: 疑难解答
           href: ../linux/disk-encryption-troubleshooting.md
         - name: 常见问题
           href: ../linux/disk-encryption-faq.md
 - name: 迁移和移动问题
   items:
     - name: Azure 资源管理器迁移（ASM 到 ARM）常见问题解答
-      href: ../windows/migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md
 - name: 计划内维护
   items:
     - name: 概述

@@ -1,21 +1,16 @@
 ---
-title: 捕获浏览器跟踪以进行故障排除 | Microsoft Docs
+title: 捕获浏览器跟踪以进行故障排除
 description: 捕获浏览器跟踪中的网络信息，以帮助排查 Azure 门户的问题。
-services: azure-portal
-keywords: ''
-author: mgblythe
 ms.author: v-tawe
 origin.date: 05/11/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 80f8af316ee6a9527f122be9fb54101f60b6f86b
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.openlocfilehash: 9ea1ad24559879b6f2357a77948321c2256c1c0a
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975164"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820365"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>捕获浏览器跟踪以进行故障排除
 
@@ -33,7 +28,7 @@ Google Chrome 和 (Chromium)都基于 [Chromium 开放源代码项目](https://w
 
 1. 按 F12 或选择 ![显示浏览器设置图标的屏幕截图。](media/capture-browser-trace/chromium-icon-settings.png) > **更多工具** > **开发人员工具**。
 
-1. 默认情况下，浏览器只为当前加载的页面保留跟踪信息。 设置以下选项，使浏览器保留所有跟踪信息，即使在重现过程中需要转到多个页面：
+1. 默认情况下，浏览器只为当前加载的页面保留跟踪信息。 设置以下选项，以便浏览器保留所有跟踪信息，即使重现需要转到多个页面：
 
     1. 依次选择“网络”选项卡、“保留日志”。 
 
@@ -79,7 +74,7 @@ Google Chrome 和 (Chromium)都基于 [Chromium 开放源代码项目](https://w
 
 1. 按 F12 或选择 ![浏览器设置图标的屏幕截图。](media/capture-browser-trace/edge-icon-settings.png) > **更多工具** > **开发人员工具**。
 
-1. 默认情况下，浏览器只为当前加载的页面保留跟踪信息。 设置以下选项，使浏览器保留所有跟踪信息，即使在重现过程中需要转到多个页面：
+1. 默认情况下，浏览器只为当前加载的页面保留跟踪信息。 设置以下选项，以便浏览器保留所有跟踪信息，即使重现需要转到多个页面：
 
     1. 选择“网络”选项卡，然后清除“清除浏览项”选项。 
 
@@ -129,15 +124,15 @@ Google Chrome 和 (Chromium)都基于 [Chromium 开放源代码项目](https://w
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。 必须在开始跟踪之前登录，以免跟踪包含登录相关的敏感信息。 
 
-1. 开始录制在门户中执行的步骤。 有关详细信息，请参阅[如何在 Mac 上录制屏幕](https://support.apple.com/HT208721)。
+1. 开始记录在门户中执行的步骤。 有关详细信息，请参阅[如何在 Mac 上录制屏幕](https://support.apple.com/HT208721)。
 
-1. 在门户中，导航到问题发生之前的那个步骤。
+1. 在门户中，导航到问题发生之前的步骤。
 
 1. 依次选择“Develop”（开发）、“Show Web Inspector”（显示 Web 检查器）。 
 
     ![“Show Web Inspector”（显示 Web 检查器）的屏幕截图](media/capture-browser-trace/safari-show-web-inspector.png)
 
-1. 默认情况下，浏览器只为当前加载的页面保留跟踪信息。 设置以下选项，使浏览器保留所有跟踪信息，即使在重现过程中需要转到多个页面：
+1. 默认情况下，浏览器只保留当前加载页的跟踪信息。 设置以下选项，以便浏览器保留所有跟踪信息，即使重现需要转到多个页面：
 
     1. 依次选择“Network”（网络）选项卡、“Preserve Log”（保留日志）。 
 

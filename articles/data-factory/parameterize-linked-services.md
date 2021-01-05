@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 10/22/2020
-ms.date: 11/23/2020
+origin.date: 12/09/2020
+ms.date: 01/04/2021
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: c17b950e0eb8b58973d6043e0d58539a90a86951
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 5446d5de33ab02cec7e0b1dd89a41863c9bf049e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680394"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830158"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>参数化 Azure 数据工厂中的链接服务
 
@@ -41,7 +41,7 @@ ms.locfileid: "94680394"
 - Azure Databricks
 - Azure SQL Database
 - Azure SQL 托管实例
-- Azure Synapse Analytics（以前称为 SQL DW）
+- Azure Synapse Analytics 
 - MySQL
 - Oracle
 - SQL Server

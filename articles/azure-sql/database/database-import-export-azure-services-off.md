@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/08/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: de1c47a9e069ccb31c6f00b4c6b9ff7e2861278d
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: a0f4ffa4f1c78b66a8de2e99bcd8bdd95e1900ce
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872313"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830165"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>导入或导出 Azure SQL 数据库但不允许 Azure 服务访问服务器
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -98,7 +98,7 @@ ms.locfileid: "91872313"
 
 若要使用 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 命令行实用工具导出 Azure SQL 数据库，请参阅[导出参数和属性](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties)。 SqlPackage 实用工具随附了最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)；你也下载最新版本的 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download)。
 
-我们建议在大多数生产环境中使用 SqlPackage 实用工具来实现缩放和提高性能。 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
+我们建议在大多数生产环境中使用 SqlPackage 实用工具来实现缩放和提高性能。 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 
 此示例演示如何通过 Active Directory 通用身份验证，使用 SqlPackage.exe 来导出数据库。 请将占位符替换为环境特定的值。
 
@@ -110,7 +110,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.da
 
 若要使用 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 命令行实用程序导入 SQL Server 数据库，请参阅[导入参数和属性](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties)。 SqlPackage 包含最新的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。 也下载最新版本的 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download)。
 
-在大多数生产环境中，建议使用 SqlPackage 而不是 Azure 门户来实现缩放和性能。 有关 SQL Server 客户咨询团队使用 `BACPAC` 文件进行迁移的博客，请参阅[使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
+在大多数生产环境中，建议使用 SqlPackage 而不是 Azure 门户来实现缩放和性能。 有关 SQL Server 客户咨询团队使用 `BACPAC` 文件进行迁移的博客，请参阅[使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files)。
 
 以下 SqlPackage 命令将 AdventureWorks2017 数据库从本地存储导入到某个 Azure SQL 数据库。 它将创建名为 myMigratedDatabase 的新数据库，其中包含“高级”服务层级和 P6 服务目标。 根据你的环境更改这些值。
 
@@ -142,7 +142,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 ## <a name="store-the-imported-or-exported-bacpac-file"></a>存储已导入或导出的 .BACPAC 文件
 
-可将 .BACPAC 文件存储在 [Azure Blob](/storage/blobs/storage-blobs-overview) 或 [Azure 文件存储](/storage/files/storage-files-introduction)中。
+可将 .BACPAC 文件存储在 [Azure Blob](../../storage/blobs/storage-blobs-overview.md) 或 [Azure 文件存储](../../storage/files/storage-files-introduction.md)中。
 
 若要实现最佳性能，请使用 Azure 文件存储。 SqlPackage 在文件系统中运行，因此它可以直接访问 Azure 文件存储。
 
@@ -156,4 +156,4 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 - 若要了解如何连接到导入的 SQL 数据库并进行查询，请参阅[快速入门：Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询](connect-query-ssms.md)。
 - 有关对于整个 SQL Server 数据库迁移进程（包括性能建议）的讨论，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](migrate-to-database-from-sql-server.md)。
-- 若要了解如何安全地管理和共享存储密钥和共享访问签名，请参阅 [Azure 存储安全指南](/storage/common/storage-security-guide)。
+- 若要了解如何安全地管理和共享存储密钥和共享访问签名，请参阅 [Azure 存储安全指南](../../storage/blobs/security-recommendations.md)。

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 07/30/2019
 ms.date: 11/23/2020
 ms.author: v-johya
-ms.openlocfilehash: 5990d3a3eea0fae28c7bd7b3129b3f0ad0570c2a
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: efe5753600c0e676ae2dc0cd9f08ef2da70794a5
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306172"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857111"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
@@ -27,8 +27,6 @@ ms.locfileid: "96306172"
 回想一下，文本分析是无状态的，因此，没有任何要管理的数据资产。 收到文本后将对其进行上传和分析，其结果会立即返回到调用应用程序。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## <a name="prerequisites"></a>必备条件
 

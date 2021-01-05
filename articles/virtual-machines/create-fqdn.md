@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 11/03/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff91bbd91957bc0d95edbcfa6a1ef3ac58ab812
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: 0b9fe216b347084dca167512c9b98f05150ab9ae
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231341"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857034"
 ---
 <!--Verified successfully from rename articles.-->
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 门户中为 Linux VM 创建完全限定的域名
@@ -39,5 +39,4 @@ VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框�
 
 也可以深入了解如何[使用 Resource Manager](../azure-resource-manager/management/overview.md)，以获取生成 Azure 部署的相关提示。
 
-<!-- Update_Description: new article about create fqdn -->
-<!--NEW.date: 11/30/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

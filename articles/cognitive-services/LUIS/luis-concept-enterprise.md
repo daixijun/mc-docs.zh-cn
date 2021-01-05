@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 origin.date: 07/29/2019
-ms.openlocfilehash: 94f50deac0a60712233f6fc7f01e4e98a7ccd6d0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5c1b68be08af94613e9b47314a7f757ed7630790
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472483"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856927"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 应用的企业策略
 查看企业应用的设计策略。
@@ -62,6 +62,5 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 
 * 了解如何[测试批处理](luis-how-to-batch-test.md)
 
-[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://aka.ms/dispatch-tool
 

@@ -1,20 +1,20 @@
 ---
-title: 快速入门：使用浏览器查询预测 - LUIS
-description: 本快速入门在浏览器中使用可用的公共 LUIS 应用从会话文本中确定用户的意向。
+title: 如何使用浏览器查询预测 - LUIS
+description: 在本文中，你将在浏览器中使用可用的公共 LUIS 应用从会话文本中确定用户的意向。
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 origin.date: 02/03/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 38aa487687359f39b8b53ea7f4efa67fcc3729e0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f50e84710c446870f40297f962caee38cd2b8280
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472463"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856754"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>快速入门：使用用户文本查询预测运行时
+# <a name="how-to-query-the-prediction-runtime-with-user-text"></a>如何使用用户文本查询预测运行时
 
 若要了解 LUIS 预测终结点返回的内容，请在 Web 浏览器中查看预测结果。
 
@@ -23,7 +23,7 @@ ms.locfileid: "92472463"
 若要查询公共应用，需要：
 
 * 语言理解 (LUIS) 资源信息：
-    * 预测密钥  - 可从 [LUIS 门户](https://luis.azure.cn/)获取。 如果还没有用于创建密钥的订阅，可以注册一个[试用版](https://www.azure.cn/pricing/details/cognitive-services)。
+    * 预测密钥  - 可从 [LUIS 门户](https://luis.azure.cn/)获取。 如果还没有用于创建密钥的订阅，可以注册一个[试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
     * 预测终结点子域  - 该子域也是 LUIS 资源的名称  。
 * LUIS 应用 ID - 使用 `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 的公共 IoT 应用 ID。 快速入门代码中使用的用户查询特定于该应用。
 
@@ -99,7 +99,7 @@ ms.locfileid: "92472463"
 
     #### <a name="v3-prediction-endpoint"></a>[V3 预测终结点](#tab/V3-3-1)
 
-    将 `show-all-intents=true` 添加到查询字符串末尾可 **显示所有意向** ：
+    将 `show-all-intents=true` 添加到查询字符串末尾可 **显示所有意向**：
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.azure.cn/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
@@ -132,7 +132,7 @@ ms.locfileid: "92472463"
 
     #### <a name="v2-prediction-endpoint"></a>[V2 预测终结点](#tab/V2)
 
-    将 `verbose=true` 添加到查询字符串末尾可 **显示所有意向** ：
+    将 `verbose=true` 添加到查询字符串末尾可 **显示所有意向**：
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true

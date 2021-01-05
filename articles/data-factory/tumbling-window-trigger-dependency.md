@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 09/03/2020
 ms.date: 09/21/2020
-ms.openlocfilehash: 5b001a0805ed11871743e4a91797aee99ad48fc3
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: c74a571c72df807a8a8c90e9f287c79474b3d5ea
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523745"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830121"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>创建翻转窗口触发器依赖项
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "90523745"
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>在数据工厂 UI 中创建依赖项
 
-若要在触发器上创建依赖项，请选择“触发器”>“高级”>“新建”，然后选择要依赖的、具有相应偏移量和大小的触发器。**** 选择“完成”并发布数据工厂更改，使依赖项生效。****
+若要在触发器上创建依赖项，请选择“触发器”>“高级”>“新建”，然后选择要依赖的、具有相应偏移量和大小的触发器。 选择“完成”并发布数据工厂更改，使依赖项生效。
 
 ![依赖项创建](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "依赖项创建")
 
@@ -154,7 +154,7 @@ ms.locfileid: "90523745"
 
 ## <a name="monitor-dependencies"></a>监视依赖项
 
-可以从“触发器运行监视”页面监视依赖链和相应的窗口。 导航到“监视”>“触发器运行”。**** 如果翻转窗口触发器具有依赖项，则触发器名称将包含指向依赖项监视视图的超链接。  
+可以从“触发器运行监视”页面监视依赖链和相应的窗口。 导航到“监视”>“触发器运行”。 如果翻转窗口触发器具有依赖项，则触发器名称将包含指向依赖项监视视图的超链接。  
 
 ![监视触发器运行](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "监视触发器运行 - 翻转窗口依赖项视图的入口")
 

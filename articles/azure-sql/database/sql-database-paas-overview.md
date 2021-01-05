@@ -7,18 +7,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 09/21/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 563f85bd240b65de3eaa7a84ffb37358e15d4c0b
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: 83f3013f34e1ee4f64941b33e43b48ef80ef0c78
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872413"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830260"
 ---
 # <a name="what-is-azure-sql-database"></a>什么是 Azure SQL 数据库？
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,7 +106,7 @@ Azure SQL 数据库使你的企业可以在中断期间继续运营。 在传统
 
 灾难恢复假设灾难性事件在局部地区发生，而远地部署了另一个包含数据副本的计算机或计算机组。 在 SQL Server 中，可以使用以异步模式运行的 Always On 可用性组来获取此功能。 人们通常不想等到远端复制完成后再提交事务，因此，在执行计划外故障转移时可能会丢失数据。
 
-高级和业务关键服务层级中的数据库已[执行与可用性组同步类似的操作](high-availability-sla.md#premium-and-business-critical-service-tier-availability)。 较低服务层级中的数据库使用[不同但等效的机制](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)通过存储提供冗余。 内置逻辑可帮助防范单个计算机发生故障。 使用活动异地复制功能可以在灾难损毁整个区域时提供保护。
+高级和业务关键服务层级中的数据库已[执行与可用性组同步类似的操作](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)。 较低服务层级中的数据库使用[不同但等效的机制](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)通过存储提供冗余。 内置逻辑可帮助防范单个计算机发生故障。 使用活动异地复制功能可以在灾难损毁整个区域时提供保护。
 
 事实上，Azure 的服务级别协议 [(SLA)](https://www.azure.cn/zh-cn/support/sla/sql-data/)（由 Azure 管理的数据中心的全球网络提供支持）有助于保持应用全天候运行。 Azure 平台完全管理每个数据库，并保证不会丢失数据并实现高百分比数据可用性。 Azure 会自动处理修补、备份、复制、故障检测；基础的潜在硬件、软件或网络故障；部署 bug 修复、故障转移、数据库升级和其他维护任务。 标准可用性是通过将计算层与存储层相隔离来实现的。 高级可用性的实现方式是将计算和存储层集成到单个节点以提高性能，然后实施类似于 Always On 可用性组的技术。 有关 Azure SQL 数据库的高可用性功能的完整讨论，请参阅 [SQL 数据库可用性](high-availability-sla.md)。 
 
@@ -185,7 +185,7 @@ SQL 数据库让应用程序的构建和维护更加轻松、高效。 SQL 数�
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/)|一种跨平台数据库工具，在 Windows、macOS 和 Linux 上运行。|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|用于管理任何 SQL 基础结构（从 SQL Server 到 SQL 数据库，不一而足）的免费可下载客户端应用程序。|
 |[Visual Studio 中的 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|用于开发 SQL Server 关系数据库、Azure SQL 数据库中的数据库、Integration Services 包、Analysis Services 数据模型和 Reporting Services 报表的免费可下载客户端应用程序。|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|一个可免费下载的开源代码编辑器，适用于 Windows、macOS 和 Linux。 它支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)，用于查询 Microsoft SQL Server、Azure SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）。|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|一个可免费下载的开源代码编辑器，适用于 Windows、macOS 和 Linux。 它支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 Azure Synapse Analytics）。|
 
 SQL 数据库支持在 macOS、Linux 和 Windows 上使用 Python、Java、Node.js、PHP、 Ruby 和 .NET 生成应用程序。 SQL 数据库和 SQL Server 支持相同的[连接库](connect-query-content-reference-guide.md#libraries)。
 

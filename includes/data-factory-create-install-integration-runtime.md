@@ -3,14 +3,14 @@ author: WenJason
 ms.service: data-factory
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 02/23/2020
+ms.date: 01/04/2020
 ms.author: v-jay
-ms.openlocfilehash: ec54123eab609cf8383e2d8713ea5f01adb3abfe
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bc5277bf19fc09331377fe0acab6e1f7dc9eae8e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79497103"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830292"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>创建自承载 Integration Runtime
 
@@ -29,7 +29,7 @@ ms.locfileid: "79497103"
 
    下面是示例输出：
 
-   ```json
+   ```console
     Name              : <Integration Runtime name>
     Type              : SelfHosted
     ResourceGroupName : <ResourceGroupName>
@@ -46,7 +46,7 @@ ms.locfileid: "79497103"
 
    下面是示例输出：
 
-   ```json  
+   ```console  
    State                     : NeedRegistration
    Version                   : 
    CreateTime                : 9/24/2019 6:00:00 AM
@@ -86,31 +86,31 @@ ms.locfileid: "79497103"
 
 ## <a name="install-the-integration-runtime-tool"></a>安装集成运行时工具
 
-1. 如果已在计算机上安装  Integration Runtime，请使用“添加或删除程序”将其卸载。 
+1. 如果已在计算机上安装 Integration Runtime，请使用“添加或删除程序”将其卸载。 
 
 2. 将自承载 Integration Runtime [下载](https://www.microsoft.com/download/details.aspx?id=39717)到本地 Windows 计算机上。 进行安装。
 
-3. 在“欢迎使用 Microsoft Integration Runtime 安装程序”页上，选择“下一步”。  
+3. 在“欢迎使用 Microsoft Integration Runtime 安装程序”页上，选择“下一步”。 
 
-4. 在“最终用户许可协议”页上接受许可协议的条款，然后选择“下一步”   。
+4. 在“最终用户许可协议”页上接受许可协议的条款，然后选择“下一步” 。
 
-5. 在“目标文件夹”页上选择“下一步”。  
+5. 在“目标文件夹”页上选择“下一步”。 
 
-6. 在“准备安装 Microsoft Integration Runtime”页上选择“安装”。  
+6. 在“准备安装 Microsoft Integration Runtime”页上选择“安装”。 
 
-7. 在“完成 Microsoft Integration Runtime 安装程序”页上选择“完成”。  
+7. 在“完成 Microsoft Integration Runtime 安装程序”页上选择“完成”。 
 
-8. 在“注册 Integration Runtime (自承载)”页上粘贴在上一部分保存的密钥，然后选择“注册”。   
+8. 在“注册 Integration Runtime (自承载)”页上粘贴在上一部分保存的密钥，然后选择“注册”。  
 
     ![注册 Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
-9. 在“新建 Integration Runtime (自承载)节点”页上，选择“完成”。   
+9. 在“新建 Integration Runtime (自承载)节点”页上，选择“完成”。  
 
 10. 成功注册自承载 Integration Runtime 后，会看到以下消息：
 
     ![已成功注册](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-14. 在“注册 Integration Runtime (自承载)”页上，选择“启动配置管理器”。  
+14. 在“注册 Integration Runtime (自承载)”页上，选择“启动配置管理器”。 
 
 15. 将节点连接到云服务后，会看到以下页：
 
@@ -120,9 +120,9 @@ ms.locfileid: "79497103"
 
     ![“诊断”选项卡](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
 
-    a. 在“配置管理器”页上，转到“诊断”选项卡。  
+    a. 在“配置管理器”页上，转到“诊断”选项卡。 
 
-    b. 选择“SqlServer”作为数据源类型。 
+    b. 选择“SqlServer”作为数据源类型。
 
     c. 输入服务器名称。
 
@@ -134,7 +134,7 @@ ms.locfileid: "79497103"
 
     g. 输入与用户名关联的密码。
 
-    h. 若要确认 Integration Runtime 能否连接到 SQL Server，请选择“测试”。  如果连接成功，则会看到绿色复选标记。 如果连接不成功，则会看到错误消息。 请解决问题，确保 Integration Runtime 可以连接到 SQL Server。    
+    h. 若要确认 Integration Runtime 能否连接到 SQL Server，请选择“测试”。 如果连接成功，则会看到绿色复选标记。 如果连接不成功，则会看到错误消息。 请解决问题，确保 Integration Runtime 可以连接到 SQL Server。    
 
     > [!NOTE]
     > 记下身份验证类型、服务器、数据库、用户和密码的值。 本教程后面会用到它们。

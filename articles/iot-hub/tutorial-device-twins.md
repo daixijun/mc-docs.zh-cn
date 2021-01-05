@@ -15,12 +15,12 @@ origin.date: 06/21/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 9427c39b2192da71ab285b058108757fac56b7cc
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 53ee3efe6d4a22e3b013ebce7ef8e946e1ad5c5e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746932"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830085"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -39,10 +39,9 @@ ms.locfileid: "96746932"
 > * 使用所需属性将状态信息发送到模拟设备。
 > * 使用报告属性从模拟设备接收状态信息。
 
-
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="prerequisites"></a>先决条件
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 本快速入门中运行的两个示例应用程序是使用 Node.js 编写的。 开发计算机上需要有 Node.js v10.x.x 或更高版本。
 

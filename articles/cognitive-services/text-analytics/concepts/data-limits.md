@@ -3,21 +3,21 @@ title: 文本分析 API 的数据限制
 titleSuffix: Azure Cognitive Services
 description: Azure 认知服务中的文本分析 API 的数据限制。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/26/2020
+ms.date: 12/30/2020
 origin.date: 04/27/2020
 ms.author: v-johya
 ms.reviewer: chtufts
-ms.openlocfilehash: ba0dcd0bf9294d5db1da7bc3f4877ef7af47e42f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 92b561c5cbde5d1bcc552baac52f728eb8aed9bd
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105644"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857110"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>文本分析 API 的数据和速率限制
 <a name="data-limits"></a>
@@ -32,24 +32,28 @@ ms.locfileid: "93105644"
 
 | 限制 | 值 |
 |------------------------|---------------|
-| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 也适用于运行状况文本分析容器。 |
-| 整个请求的最大大小 | 1MB。 也适用于运行状况文本分析容器。 |
+| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 也适用于运行状况文本分析。 |
+| 单个文档的最大大小（`/analyze` 终结点）  | 12.5 万个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 不适用于运行状况文本分析。 |
+| 整个请求的最大大小 | 1MB。 也适用于运行状况文本分析。 |
 
-可以在单个请求中发送的最大文档数将取决于所使用的 API 版本和功能。
+可以在单个请求中发送的最大文档数将取决于所使用的 API 版本和功能。 如果任何文档超过最大大小（12.5 万个字符），则 `/analyze` 终结点将拒绝整个请求
 
 #### <a name="version-3"></a>[第 3 版](#tab/version-3)
 
-v3 API 中已更改以下限制。 超过以下限制将生成 HTTP 400 错误代码。
+以下限制针对当前 v3 API。 超过以下限制将生成 HTTP 400 错误代码。
 
 
 | Feature | 每个请求的最大文档数 | 
 |----------|-----------|
 | 语言检测 | 1000 |
 | 情绪分析 | 10 |
+| 观点挖掘 | 10 |
 | 关键短语提取 | 10 |
 | 命名实体识别 | 5 |
 | 实体链接 | 5 |
-| 运行状况文本分析容器 | 1000 |
+| 运行状况文本分析  | 对于基于 Web 的 API 为 10，对于容器为 1000。 |
+| 分析终结点 | 对于所有操作为 25。 |
+
 #### <a name="version-2"></a>[第 2 版](#tab/version-2)
 
 | Feature | 每个请求的最大文档数 | 
@@ -75,7 +79,7 @@ v3 API 中已更改以下限制。 超过以下限制将生成 HTTP 400 错误�
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-对每个文本分析功能的请求分别进行测量。 例如，可以同时向每个功能发送定价层的最大数量的请求。  
+对每个文本分析功能的请求速率分别进行测量。 可以同时向每个功能发送定价层的最大数量的请求。 例如，如果你处于 `S` 层并一次发送了 1000 个请求，则你将无法在 59 秒内再发送其他请求。
 
 
 ## <a name="see-also"></a>另请参阅

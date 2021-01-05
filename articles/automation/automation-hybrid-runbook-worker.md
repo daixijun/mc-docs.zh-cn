@@ -4,14 +4,14 @@ description: 本文概述了混合 Runbook 辅助角色，可以使用这些辅�
 services: automation
 ms.subservice: process-automation
 origin.date: 11/23/2020
-ms.date: 12/07/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0b03d829ddb274915f30b6418d1a72d9a7764e1
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 92705b71c69aca694954ad868a3403feb3cb8cd6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746608"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830274"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>混合 Runbook 辅助角色概述
 

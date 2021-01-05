@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.openlocfilehash: 3e6b24eb9b39aebb8c6d23cfbce5f7c08397880e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6bd91eb3d89211dc3cea3f79acc13f3f541bc8a2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553005"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830176"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Azure HDInsight 中的 Hive 的安全选项
 
@@ -41,6 +41,6 @@ ms.locfileid: "94553005"
 
 ## <a name="next-steps"></a>后续步骤
 * [HiveServer2 身份验证概述](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
-* [HiveServer2 授权概述](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
+* [HiveServer2 授权概述](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization)
 * [启用基于 SQL 标准的 Hive 授权](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
 * [Apache Ranger 与 Hive](../domain-joined/apache-domain-joined-run-hive.md)

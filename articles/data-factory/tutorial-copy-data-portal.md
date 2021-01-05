@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-origin.date: 11/11/2020
-ms.date: 11/23/2020
+origin.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 799a857dd2055ef74ab09beebab3cce086f7bfab
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 5ef7d453aa99142e2c6f7f6f8085d0eb67b07818
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432059"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830100"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂，将数据从 Azure Blob 存储复制到 Azure SQL 数据库中的数据库
 
@@ -27,7 +27,7 @@ ms.locfileid: "96432059"
 在本教程中，请使用 Azure 数据工厂用户界面 (UI) 创建数据工厂。 此数据工厂中的管道将数据从 Azure Blob 存储复制到 Azure SQL 数据库中的数据库。 本教程中的配置模式适用于从基于文件的数据存储复制到关系数据存储。 如需可以用作源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
 > [!NOTE]
-> - 如果对数据工厂不熟悉，请参阅 [Azure 数据工厂简介](introduction.md)。
+> 如果对数据工厂不熟悉，请参阅 [Azure 数据工厂简介](introduction.md)。
 
 将在本教程中执行以下步骤：
 
@@ -83,24 +83,23 @@ ms.locfileid: "96432059"
 
 1. 打开 **Microsoft Edge** 或 **Google Chrome**。 目前，仅 Microsoft Edge 和 Google Chrome Web 浏览器支持数据工厂 UI。
 2. 在左侧菜单中，选择“创建资源” > “数据 + 分析” > “数据工厂”。
-3. 在“新建数据工厂”页的“名称”下输入 **ADFTutorialDataFactory** 。
+3. 在“创建数据工厂”页上的“基本”选项卡下，选择要在其中创建数据工厂的 Azure 订阅  。
+4. 对于“资源组”，请执行以下步骤之一：
+
+    a. 从下拉列表中选择现有资源组。
+
+    b. 选择“新建”，并输入新资源组的名称。
+    
+    若要了解资源组，请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。 
+5. 在“区域”下选择数据工厂所在的位置。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（例如，Azure 存储和 SQL 数据库）和计算资源（例如，Azure HDInsight）可以位于其他区域。
+6. 在“名称”下，输入“ADFTutorialDataFactory” 。
 
    Azure 数据工厂的名称必须 *全局唯一*。 如果收到有关名称值的错误消息，请为数据工厂输入另一名称。 （例如 yournameADFTutorialDataFactory）。 有关数据工厂项目的命名规则，请参阅[数据工厂命名规则](naming-rules.md)。
 
      ![新建数据工厂](./media/doc-common-process/name-not-available-error.png)
-4. 选择要在其中创建数据工厂的 Azure **订阅**。
-5. 对于“资源组”，请执行以下步骤之一：
-
-    a. 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
-
-    b. 选择“新建”，并输入资源组的名称。 
-         
-    若要了解资源组，请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。 
-6. 在“版本”下选择“V2”。 
-7. 在“位置”下选择数据工厂所在的位置。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（例如，Azure 存储和 SQL 数据库）和计算资源（例如，Azure HDInsight）可以位于其他区域。
-8. 选择“创建” 。
-9. 创建完成后，通知中心内会显示通知。 选择“转到资源”导航到“数据工厂”页。
-10. 选择“创作和监视”，在单独的选项卡中启动数据工厂 UI。
+7. 选择“查看 + 创建”，然后在通过验证后选择“创建” 。
+8. 创建完成后，通知中心内会显示通知。 选择“转到资源”导航到“数据工厂”页。
+9. 选择“创作和监视”，在单独的选项卡中启动 Azure 数据工厂 UI。
 
 
 ## <a name="create-a-pipeline"></a>创建管道
@@ -116,7 +115,7 @@ ms.locfileid: "96432059"
 
    ![创建管道](./media/doc-common-process/get-started-page.png)
 
-1. 1. 在“常规”面板的“属性”中，将“名称”指定为 CopyPipeline  。 然后通过单击右上角的“属性”图标来折叠面板。
+1. 在“常规”面板的“属性”中，将“名称”指定为 CopyPipeline  。 然后通过单击右上角的“属性”图标来折叠面板。
 
 1. 在“活动”工具箱中，展开“移动和转换”类别，然后将“复制数据”活动从工具箱拖放到管道设计器图面。   指定 **CopyFromBlobToSql** 作为 **名称**。
 
@@ -142,7 +141,7 @@ ms.locfileid: "96432059"
 
 1. 导航到 adftutorial/input 文件夹，选择 emp.txt 文件，然后选择“确定”。
 
-1. 选择“确定” 。 将自动导航到管道页。 在“源”选项卡中，确认已选择“SourceBlobDataset”。  若要预览此页上的数据，请选择“预览数据”。
+1. 选择“确定”  。 将自动导航到管道页。 在“源”选项卡中，确认已选择“SourceBlobDataset”。  若要预览此页上的数据，请选择“预览数据”。
 
     ![源数据集](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -255,7 +254,7 @@ ms.locfileid: "96432059"
 1. 验证是否每分钟将两个行（对于每个管道运行）插入 **emp** 表中，直至指定的结束时间。
 
 ## <a name="next-steps"></a>后续步骤
-此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何：
+此示例中的管道将数据从 Blob 存储中的一个位置复制到另一个位置。 你已了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建数据工厂。

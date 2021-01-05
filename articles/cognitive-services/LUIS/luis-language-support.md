@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.author: v-johya
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 origin.date: 12/09/2019
-ms.openlocfilehash: acd66d78d35573e706fa92a095cdefc2175d935b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f440e18c278ec7eed560ac57db5813145749eb6e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472416"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857057"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 
@@ -30,7 +30,7 @@ LUIS 在服务中具有多种功能。 并非所有功能都会同等地以各�
 
 LUIS 理解以下语言：
 
-| 语言 |Locale  |  预生成域 | 预生成实体 | 短语列表建议 | \**[文本分析](/cognitive-services/text-analytics/text-analytics-supported-languages)<br>（情绪和<br>关键字）|
+| 语言 |Locale  |  预生成域 | 预生成实体 | 短语列表建议 | \**[文本分析](../text-analytics/language-support.md)<br>（情绪和<br>关键字）|
 |--|--|:--:|:--:|:--:|:--:|
 | 英语（美国） |`en-US` | ✔ | ✔  |✔|✔|
 | 阿拉伯语（预览版 - 现代标准阿拉伯语） |`ar-AR`|-|-|-|-|
@@ -72,7 +72,7 @@ LUIS 理解以下语言：
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>应用程序中的罕见字词或外来字词
-在 `en-us` 区域性中，LUIS 可学习区分大多数英文字词，包括俚语。 在 `zh-cn` 区域性中，LUIS 可学习区分大多数中文字符。 如果在 `en-us` 或 `zh-cn` 中使用一个罕见字词或字符，并且 LUIS 似乎无法识别该字词或字符，则可将该字词或字符添加到[短语列表功能](luis-how-to-add-features.md)。 例如，应将超出应用程序区域性的字词（即外来字词）添加到短语列表功能。 应将此短语列表标记为不可互换，以指示罕见字词集组成 LUIS 应学会识别的类，但它们不是同义词，也不能彼此互换。
+在 `en-us` 区域性中，LUIS 可学习区分大多数英文字词，包括俚语。 在 `zh-cn` 区域性中，LUIS 可学习区分大多数中文字符。 如果在 `en-us` 或 `zh-cn` 中使用一个罕见字词或字符，并且 LUIS 似乎无法识别该字词或字符，则可将该字词或字符添加到[短语列表功能](luis-how-to-add-features.md)。 例如，应将超出应用程序区域性的字词（即外来字词）添加到短语列表功能。
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 

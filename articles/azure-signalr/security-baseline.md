@@ -5,21 +5,22 @@ author: msmbaldwin
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/25/2020
-ms.date: 12/03/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5a4d4509ceb1aec24d8305d823b5d51831af67ff
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 844cf5032dd75dfb73316ad882883c76a35dc3cc
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598654"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820325"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>适用于 Azure SignalR 服务的 Azure 安全基线
 
 此安全基线将 [Azure 安全基准版本 2.0](../security/benchmarks/overview.md) 中的指南应用于 Azure SignalR。 Azure 安全基准提供有关如何在 Azure 上保护云解决方案的建议。
 内容按“安全控制”分组，这些控制根据适用于 Azure SignalR 的 Azure 安全基准和相关指南定义。 排除了不适用于 Azure SignalR 的“控制”。
 
+ 
 若要查看 Azure SignalR 如何完全映射到 Azure 安全基准，请参阅[完整的 Azure SignalR 安全基线映射文件](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)。
 
 ## <a name="network-security"></a>网络安全

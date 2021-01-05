@@ -6,19 +6,19 @@ ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-origin.date: 04/23/2020
+origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 40c6d230b2fc7c6cbd73e9edb5a51529e0e3ca83
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: b79c891d5de5ea035e195845421d14333a82a2f9
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507653"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856902"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 <a name="top"></a> 使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/marketplace/apps/filter?search=Visual%20Studio)。
@@ -35,9 +35,9 @@ ms.locfileid: "96507653"
 
 | 发行版本                                                                                                                                                | 版本              | 产品版本   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019：最新（版本 16.5）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.5.4    |
-| Visual Studio 2019：RTW                         | Enterprise | 版本 16.0.13    |
-| Visual Studio 2017：最新（版本 15.9）           | Enterprise、Community | 版本 15.9.22   |
+| [Visual Studio 2019：最新（版本 16.8）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.8.0    |
+| Visual Studio 2019：RTW                         | Enterprise | 版本 16.0.20    |
+| Visual Studio 2017：最新（版本 15.9）           | Enterprise、Community | 版本 15.9.29   |
 | Visual Studio 2017：RTW                             | Enterprise、Community | 版本 15.0.28  |
 | Visual Studio 2015：最新 (Update 3)               | Enterprise、Community | 版本 14.0.25431.01 |
 

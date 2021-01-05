@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, bonova, MashaMSFT
 origin.date: 09/03/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: c05560b1e23c76c1dd1cd8e80a59642c04944d32
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: ff60e11eaf7bf1fa03b84e5117bb6fcee165429a
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872524"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829828"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>取消 Azure SQL 托管实例管理操作
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,7 +62,7 @@ Azure SQL 托管实例提供取消某些[管理操作](management-operations-ove
 
 1. 选择页面底部的“取消操作”。 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="选择“正在执行的操作”框，以打开“正在执行的操作”页。":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="选择“取消”，以取消该操作。":::
 
 1. 确认你想取消操作。 
 
@@ -123,7 +123,6 @@ done
 
 - 不产生费用
 - 不计入资源限制（子网或 vCore 配额）
-- 保留实例名称 - 若要部署具有相同名称的实例，请删除失败的实例，以释放名称
 
 
 > [!NOTE]

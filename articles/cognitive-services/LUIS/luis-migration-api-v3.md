@@ -4,15 +4,15 @@ description: 查询预测终结点 V3 API 已更改。 请使用本指南了解�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 origin.date: 05/15/2020
-ms.openlocfilehash: 03ad98a792e05d869eb34e00ee018b9d61189375
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 9a6fa3fc37d1aeab36b04f25f2fc41cb65fe21d2
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472407"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857053"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3 的预测终结点更改
 
@@ -106,7 +106,7 @@ V3 在从预览版过渡到正式版的过程中进行了以下更改：
 |`externalEntities`|array|仅 V3|非必需。|[外部实体](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)可让 LUIS 应用在运行时识别和标记实体，这些实体可用作现有实体的特征。 |
 |`options.datetimeReference`|string|仅 V3|无默认值|用于确定 [datetimeV2 偏移量](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 datetimeReference 的格式是 ISO 8601。|
 |`options.preferExternalEntities`|boolean|仅 V3|false|指定是使用用户的[外部实体（与现有实体具有相同名称）](schema-change-prediction-runtime.md#override-existing-model-predictions)，还是使用模型中的现有实体进行预测。 |
-|`query`|string|仅 V3|必需。|**在 V2 中** ，要预测的言语位于 `q` 参数中。 <br><br>**在 V3 中** ，该功能在 `query` 参数中传递。|
+|`query`|string|仅 V3|必需。|**在 V2 中**，要预测的言语位于 `q` 参数中。 <br><br>**在 V3 中**，该功能在 `query` 参数中传递。|
 
 ## <a name="response-changes"></a>响应更改
 
@@ -159,9 +159,9 @@ const score = intents[topIntentName];
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>在言语中标记实体的位置
 
-**在 V2 中** ，使用 `startIndex` 和 `endIndex` 在言语中标记实体。
+**在 V2 中**，使用 `startIndex` 和 `endIndex` 在言语中标记实体。
 
-**在 V3 中** ，使用 `startIndex` 和 `entityLength` 标记实体。
+**在 V3 中**，使用 `startIndex` 和 `entityLength` 标记实体。
 
 #### <a name="access-instance-for-entity-metadata"></a>访问实体元数据的 `$instance`
 
@@ -209,7 +209,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 
-在 V2 中，实体由实体名称以及用作对象属性的角色进行标识： 
+在 V2 中，实体由实体名称以及用作对象属性的角色进行标识：
 
 ```JSON
 "entities":[
@@ -224,7 +224,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 ]
 ```
 
-在 V3 中，如果预测针对角色，则实体由实体角色引用： 
+在 V3 中，如果预测针对角色，则实体由实体角色引用：
 
 ```JSON
 "entities":{

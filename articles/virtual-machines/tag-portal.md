@@ -6,16 +6,16 @@ ms.workload: infrastructure-services
 ms.service: virtual-machines
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 11/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: 08e3feb8af600e0a5eafd156256ed6229f564069
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: 58e1df1b940b01aa23102f3d76f6a4c572479368
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231340"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857152"
 ---
 <!--Verified successfully-->
 # <a name="tagging-a-vm-using-the-portal"></a>使用门户标记 VM
@@ -38,5 +38,4 @@ ms.locfileid: "96231340"
 <!--Not Available on [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md)-->
 <!--Not Available on [Gain insights into your Azure resource consumption](../cost-management-billing/manage/usage-rate-card-overview.md)-->
 
-<!-- Update_Description: new article about tag portal -->
-<!--NEW.date: 11/30/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

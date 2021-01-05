@@ -4,19 +4,19 @@ description: 使用 Azure PowerShell 将 VM 部署到专用主机。
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure
-origin.date: 08/01/2019
+origin.date: 11/12/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: 309d0b4ace03aa5e4cf4d70172b42ba7fa014356
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 812fa9d793afa3d2ea7f0c8f8936ea966f108926
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104677"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857123"
 ---
 <!--Verified successfully-->
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>使用 Azure PowerShell 将 VM 部署到专用主机
@@ -64,11 +64,6 @@ $hostGroup = New-AzHostGroup `
 <!--CORRECT ON REMOVE    -Zone 1 -->
 
 添加 `-SupportAutomaticPlacement true` 参数，将 VM 和规模集实例自动放置在主机组中的主机上。 如需了解详情，请参阅[手动放置与自动放置](../dedicated-hosts.md#manual-vs-automatic-placement)。
-
-> [!IMPORTANT]
-> 自动放置功能目前为公共预览版。
-> 若要使用预览版，请完成 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 上的预览版加入调查。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 ## <a name="create-a-host"></a>创建主机
 
@@ -185,12 +180,7 @@ Location               : chinaeast2
 Tags                   : {}
 ```
 
-## <a name="create-a-scale-set-preview"></a>创建规模集（预览）
-
-> [!IMPORTANT]
-> 虚拟机规模集在专用主机上目前以公共预览版的形式提供。
-> 若要使用预览版，请完成 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 上的预览版加入调查。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
+## <a name="create-a-scale-set"></a>创建规模集 
 
 部署规模集时，需要指定主机组。
 
@@ -287,6 +277,6 @@ Remove-AzResourceGroup -Name $rgName
 
 - [此处](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)有一个示例模板，该模板使用区域和容错域来最大限度地提高在某个地区的复原能力。
 
-<!--Not Available on - You can also deploy dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md)-->
+- 也可以使用 [Azure 门户](../dedicated-hosts-portal.md)专用主机。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

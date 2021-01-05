@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 95570a090b5e2d8ad7304441c939c757a62d691a
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 12/14/2020
+ms.openlocfilehash: 5317cb885f76594898ca61ceb24375eda08b6c08
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470460"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829897"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>跨云数据库的分布式事务（预览版）
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-使用 Azure SQL 数据库和 Azure SQL 托管实例的弹性数据库事务，可以运行跨多个数据库的事务。 弹性数据库事务适用于使用 ADO.NET 的 .NET 应用程序，并且与你熟悉的使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 类的编程体验相集成。 若要获取该库，请参阅 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)（Web 安装程序）。
+使用 Azure SQL 数据库和 Azure SQL 托管实例的弹性数据库事务，可以运行跨多个数据库的事务。 弹性数据库事务适用于使用 ADO.NET 的 .NET 应用程序，并且与你熟悉的使用 [System.Transaction](https://docs.microsoft.com/dotnet/api/system.transactions) 类的编程体验相集成。 若要获取该库，请参阅 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)（Web 安装程序）。
 此外，对于托管实例，[Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) 中提供了分布式事务。
 
 在本地，这种方案通常需要运行 Microsoft 分布式事务处理协调器 (MSDTC)。 由于 MSDTC 不适用于 Azure 中的平台即服务应用程序，因此现在已将协调分布式事务的功能直接集成到 SQL 数据库或托管实例中。 应用程序可以连接到任何数据库来启动分布式事务，其中一个数据库或服务器会以透明方式协调分布式事务，如下图所示。
@@ -137,7 +137,7 @@ SQL 数据库和托管实例的弹性数据库事务还支持协调分布式事�
 
 ## <a name="transact-sql-development-experience"></a>Transact-SQL 开发体验
 
-使用 Transact-SQL 的服务器端分布式事务仅适用于 Azure SQL 托管实例。 只能在属于同一[服务器信任组](/azure-sql/managed-instance/server-trust-group-overview)的托管实例之间执行分布式事务。 在这种情况下，托管实例需要使用[链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure)来相互引用。
+使用 Transact-SQL 的服务器端分布式事务仅适用于 Azure SQL 托管实例。 只能在属于同一[服务器信任组](../managed-instance/server-trust-group-overview.md)的托管实例之间执行分布式事务。 在这种情况下，托管实例需要使用[链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure)来相互引用。
 
 下面的示例 Transact-SQL 代码使用 [BEGIN DISTRIBUTED TRANSACTION](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) 来启动分布式事务。
 
@@ -239,13 +239,13 @@ Azure SQL 数据库中支持跨不同服务器的弹性数据库事务。 当事
 
 使用以下 PowerShell cmdlet 来管理弹性数据库事务的跨服务器通信关系：
 
-* **New-AzSqlServerCommunicationLink** ：使用此 cmdlet 在 Azure SQL 数据库中的两个服务器之间创建新的通信关系。 这种关系是对称的，这意味着一台服务器可使用另一台服务器启动事务。
-* **Get-AzSqlServerCommunicationLink** ：使用此 cmdlet 来检索现有通信关系及其属性。
-* **Remove-AzSqlServerCommunicationLink** ：使用此 cmdlet 来删除现有通信关系。
+* **New-AzSqlServerCommunicationLink**：使用此 cmdlet 在 Azure SQL 数据库中的两个服务器之间创建新的通信关系。 这种关系是对称的，这意味着一台服务器可使用另一台服务器启动事务。
+* **Get-AzSqlServerCommunicationLink**：使用此 cmdlet 来检索现有通信关系及其属性。
+* **Remove-AzSqlServerCommunicationLink**：使用此 cmdlet 来删除现有通信关系。
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的跨多个服务器的事务
 
-Azure SQL 托管实例中支持跨不同服务器的分布式事务。 当事务跨托管实例边界时，参与的实例首先需要进入一个可确保相互安全并可相互通信的关系。 这是通过创建[服务器信任组](/azure-sql/managed-instance/server-trust-group-overview)来完成的，可以在 Azure 门户上完成此操作。 如果托管实例不在同一虚拟网络中，则需要设置[虚拟网络对等互连](/virtual-network/virtual-network-peering-overview)，并且在所有参与的虚拟网络上，网络安全组入站和出站规则都需要允许端口 5024 和 11000-12000。
+Azure SQL 托管实例中支持跨不同服务器的分布式事务。 当事务跨托管实例边界时，参与的实例首先需要进入一个可确保相互安全并可相互通信的关系。 这是通过创建[服务器信任组](../managed-instance/server-trust-group-overview.md)来完成的，可以在 Azure 门户上完成此操作。 如果托管实例不在同一虚拟网络中，则需要设置[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)，并且在所有参与的虚拟网络上，网络安全组入站和出站规则都需要允许端口 5024 和 11000-12000。
 
   ![Azure 门户上的服务器信任组][3]
 
@@ -255,13 +255,13 @@ Azure SQL 托管实例中支持跨不同服务器的分布式事务。 当事务
 
 ## <a name="monitoring-transaction-status"></a>监视事务状态
 
-使用动态管理视图 (DMV) 监视正在进行的弹性数据库事务的状态和进度。 与事务相关的所有 DMV 都与 SQL 数据库和托管实例中的分布式事务相关。 可以在此处找到相应的 DMV 列表：[与事务相关的动态管理视图和函数 (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)。
+使用动态管理视图 (DMV) 监视正在进行的弹性数据库事务的状态和进度。 与事务相关的所有 DMV 都与 SQL 数据库和托管实例中的分布式事务相关。 可以在此处找到相应的 DMV 列表：[与事务相关的动态管理视图和函数 (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql)。
 
 这些 DMV 特别有用：
 
-* **sys.dm\_tran\_active\_transactions** ：列出当前正在使用的事务及其状态。 UOW（工作单位）列可以标识属于同一分布式事务的不同子事务。 同一分布式事务中的所有事务具有相同的 UOW 值。 有关详细信息，请参阅 [DMV 文档](https://msdn.microsoft.com/library/ms174302.aspx)。
-* **sys.dm\_tran\_database\_transactions** ：提供有关事务的其他信息，例如事务在日志中的位置。 有关详细信息，请参阅 [DMV 文档](https://msdn.microsoft.com/library/ms186957.aspx)。
-* **sys.dm\_tran\_locks** ：提供当前进行中事务所持有的锁的相关信息。 有关详细信息，请参阅 [DMV 文档](https://msdn.microsoft.com/library/ms190345.aspx)。
+* **sys.dm\_tran\_active\_transactions**：列出当前正在使用的事务及其状态。 UOW（工作单位）列可以标识属于同一分布式事务的不同子事务。 同一分布式事务中的所有事务具有相同的 UOW 值。 有关详细信息，请参阅 [DMV 文档](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql)。
+* **sys.dm\_tran\_database\_transactions**：提供有关事务的其他信息，例如事务在日志中的位置。 有关详细信息，请参阅 [DMV 文档](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql)。
+* **sys.dm\_tran\_locks**：提供当前进行中事务所持有的锁的相关信息。 有关详细信息，请参阅 [DMV 文档](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql)。
 
 ## <a name="limitations"></a>限制
 

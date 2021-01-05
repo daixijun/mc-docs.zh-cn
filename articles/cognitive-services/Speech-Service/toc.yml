@@ -37,6 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: 使用批量听录 API
           href: batch-transcription.md
+        - name: 从 v2.0 迁移到 v3.0
+          href: migrate-v2-to-v3.md
     - name: 自定义
       items:
         - name: 什么是自定义语音识别？
@@ -66,7 +68,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -145,7 +147,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -195,7 +197,7 @@
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javaref'
-        - name: Javascript
+        - name: JavaScript
           displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
           href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
@@ -240,7 +242,7 @@
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
@@ -280,7 +282,7 @@
               href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
               href: 'https://aka.ms/csspeech/javaref'
-            - name: Javascript
+            - name: JavaScript
               href: 'https://aka.ms/csspeech/javascriptref'
             - name: Objective-C
               href: 'https://aka.ms/csspeech/objectivecref'

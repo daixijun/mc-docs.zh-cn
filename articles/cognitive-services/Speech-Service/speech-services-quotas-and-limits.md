@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/04/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 4254ce56a926a4a650de3ddc03935e0b384c378d
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: dd54d546a4d0a63d50d8cde702bbbf2df1ae6c66
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978211"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820260"
 ---
 # <a name="speech-services-quotas-and-limits"></a>语音服务配额和限制
 
@@ -53,6 +53,10 @@ ms.locfileid: "94978211"
 | 数据导入的最大声学数据集文件大小 | 2 GB | 2 GB |
 | 数据导入的最大语言数据集文件大小 | 200 MB | 1.5 GB |
 | 数据导入的最大发音数据集文件大小 | 1 KB | 1 MB |
+
+<!--
+| Max text size when using `text` parameter in [Create Model](https://chinaeast2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
+-->
 
 <sup>1</sup> 有关免费 (F0) 定价层，请参阅[定价页](https://www.azure.cn/pricing/details/cognitive-services/)上的每月限额。<br/>
 <sup>2</sup> 请参阅[其他说明](#detailed-description-quota-adjustment-and-best-practices)、[最佳做法](#general-best-practices-to-mitigate-throttling-during-autoscaling)和[调整说明](#speech-to-text-increasing-online-transcription-concurrent-request-limit)。<br/> 

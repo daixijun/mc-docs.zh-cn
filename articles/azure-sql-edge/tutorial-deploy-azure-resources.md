@@ -9,13 +9,13 @@ author: VasiyaKrishnan
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 05/19/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: 8a6078775f20740497a6f66a909a8936f8f916a2
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/30/2020
+ms.openlocfilehash: df2c22bd974f007915a5bcdfe386c9b1049e7506
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975212"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820335"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>安装软件并设置教程所需资源
 
@@ -29,11 +29,11 @@ ms.locfileid: "94975212"
       * .NET Core 跨平台开发
       * 容器开发工具
 3. 安装 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio/)
-4. 打开 Azure Data Studio 并为笔记本配置 Python。  有关详细信息，请参阅[为 Notebook 配置 Python](https://docs.microsoft.com/sql//azure-data-studio/sql-notebooks#configure-python-for-notebooks)。此步骤可能需要几分钟的时间。
+4. 打开 Azure Data Studio 并为笔记本配置 Python。  有关详细信息，请参阅[为笔记本配置 Python](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks)。此步骤可能需要几分钟的时间。
 5. 安装最新版本的 [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020)。 以下脚本要求 AZ PowerShell 是最新版本（3.5.0，2020 年 2 月）。
 6. 通过安装 [Azure IoT EdgeHub 开发工具](https://pypi.org/project/iotedgehubdev/)，设置用于调试、运行和测试 IoT Edge 解决方案的环境。
 7. 安装 Docker。
-8. 下载本教程中将使用的 [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) 文件。 
+8. 下载本教程中将使用的 DACPAC 文件。 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>使用 PowerShell 脚本部署 Azure 资源
 

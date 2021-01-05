@@ -5,18 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: vpn-gateway
 ms.topic: tutorial
-origin.date: 10/23/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 64640b3032c99c27fae01af8422286d6723ed61c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+origin.date: 12/01/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: df3526ce9a63c8841cdd59a172eada30d0b1d8b2
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432539"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856793"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>教程：使用 Azure 门户创建和管理 VPN 网关
 
-Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程介绍了基本的 Azure VPN 网关部署项目，例如创建和管理 VPN 网关。
+Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程介绍了基本的 Azure VPN 网关部署项目，例如创建和管理 VPN 网关。 也可以使用 [Azure CLI](create-routebased-vpn-gateway-cli.md) 或 [Azure PowerShell](create-routebased-vpn-gateway-powershell.md) 创建网关。
 
 在本教程中，你将了解如何执行以下操作：
 

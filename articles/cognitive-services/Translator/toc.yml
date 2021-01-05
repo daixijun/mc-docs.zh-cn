@@ -7,7 +7,7 @@
     - name: 快速入门
       href: quickstart-translator.md
     - name: 语言支持
-      href: /cognitive-services/translator/language-support
+      href: language-support.md
     - name: 教程
       items:
         - name: 使用 Python 创建 Flask 翻译应用
@@ -19,7 +19,7 @@
     - name: 操作指南
       items:
         - name: 注册到翻译器
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: 迁移到 V3 文本 API
           href: migrate-to-v3.md
         - name: 添加不雅内容筛选
@@ -52,31 +52,26 @@
       items:
         - name: v3 翻译器参考
           href: reference/v3-0-reference.md
-          items:
-            - name: Languages
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: 字典查找
-              href: reference/v3-0-dictionary-lookup.md
-            - name: 字典示例
-              href: reference/v3-0-dictionary-examples.md
-        - name: v2 翻译器参考（已弃用）
-          items:
-            - name: 转换文本
-              href: transform-text.md
-            - name: 如何使用协作性翻译框架 (CTF) 报告
-              href: ctf-reporting.md
+        - name: Languages
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: 字典查找
+          href: reference/v3-0-dictionary-lookup.md
+        - name: 字典示例
+          href: reference/v3-0-dictionary-examples.md
         - name: 请求限制
           href: request-limits.md
     - name: 资源
       items:
+        - name: 支持和帮助选项
+          href: ../cognitive-services-support-options.md?context=/cognitive-services/translator/context/context
         - name: GitHub 上的代码示例
           href: 'https://aka.ms/TranslatorGitHub'
         - name: 常见问题解答
@@ -87,5 +82,3 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2'
         - name: 合规性
           href: 'https://www.azure.cn/support/legal/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

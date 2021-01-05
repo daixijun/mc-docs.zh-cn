@@ -9,16 +9,16 @@ metadata:
   ms.subservice: domain-services
   ms.topic: landing-page
   ms.collection: collection
-  author: MicrosoftGuyJFlo
+  author: justinha
   ms.author: v-junlch
   manager: daveba
-  ms.date: 10/20/2020
-  ms.openlocfilehash: 3a3c7d523316da1094abfb1055bd5087abda7af6
-  ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+  ms.date: 12/28/2020
+  ms.openlocfilehash: c6ee75488cc597283badf5fd7635cb637d22ff51
+  ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92471115"
+  ms.lasthandoff: 12/31/2020
+  ms.locfileid: "97829347"
 landingContent:
 - title: 关于 Azure AD 域服务
   linkLists:

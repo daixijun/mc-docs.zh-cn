@@ -8,13 +8,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 08/04/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: 5063b817d21fdde1a04cedafcb7cfe993970373f
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 12/30/2020
+ms.openlocfilehash: 196efa87eece063b7390041b0c2ec157d9307281
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248493"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820316"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge 使用情况和诊断数据配置
 
@@ -33,28 +33,28 @@ ms.locfileid: "91248493"
 ```sql
 select 
 count(*) as [count], sum(inputs) as inputs, sum(outputs) as outputs, sum(linked_to_job) 
-as linked_to_job, data_source_type  
+as linked_to_job, data_source_type
 from ( 
-select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job  
+select isnull(value,'unknown') as data_source_type, inputs, outputs, linked_to_job
 from 
     ( 
         select 
         convert(sysname, lower(substring(ds.location, 0, charindex('://', ds.location))), 1) as data_source_type, 
         isnull(inputs, 0) as inputs, isnull(outputs, 0) as outputs, isnull(js.stream_id/js.stream_id, 0) as linked_to_job 
-        from sys.external_streams es              
+        from sys.external_streams es
         join sys.external_data_sources ds 
-             on es.data_source_id = ds.data_source_id             
+             on es.data_source_id = ds.data_source_id
         left join 
             ( 
             select stream_id, max(cast(is_input as int)) inputs, max(cast(is_output as int)) outputs 
             from sys.external_job_streams group by stream_id 
-            ) js                
+            ) js
              on js.stream_id = es.object_id 
-    ) ds            
+    ) ds
 left join 
     (
         select value from string_split('edgehub,sqlserver,kafka', ',')) as known_ep on data_source_type = value 
-    ) known_ds        
+    ) known_ds
 group by data_source_type
 ```
 

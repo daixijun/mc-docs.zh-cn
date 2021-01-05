@@ -1,19 +1,17 @@
 ---
 title: 使用 Azure 资源管理器模板创建 Azure 门户仪表板
 description: 了解如何使用 Azure 资源管理器模板创建 Azure 门户仪表板。
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 06/15/2020
-ms.date: 08/27/2020
-ms.openlocfilehash: f358fa4f306e725cd6cb50ede79f5476938ccaa5
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 12/30/2020
+ms.openlocfilehash: c31c750508b79a0cbe1a3a9136ae38262534cf59
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430821"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820355"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure 门户中创建仪表板
 

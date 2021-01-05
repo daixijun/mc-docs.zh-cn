@@ -9,12 +9,12 @@ ms.date: 08/31/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f73fc25ac44a64344610762db7a9a9dd61330608
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: f09793afdcd38119e453e7bc411f6b215e11aa82
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052435"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793424"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>将维护控制配置中的资源移到另一区域
 
@@ -63,8 +63,10 @@ ms.locfileid: "89052435"
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. 使用 CLI [az maintenance assignment](https://docs.microsoft.com/cli/azure/ext?view=azure-cli-latest#az-maintenance-assignment) 命令检索维护配置：
+3. 使用 CLI [az maintenance assignment](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment#az_maintenance_assignment) 命令检索维护配置：
 
+    <!--CORRECT ON https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment#az_maintenance_assignment-->
+    
     - 对于 Azure 专用主机，请运行：
 
         ```

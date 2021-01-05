@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, bonova
 origin.date: 12/14/2018
-ms.date: 10/12/2020
-ms.openlocfilehash: fd3c265cb4a94e5348bfb01ec46bf4d1b04714ed
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: 7fe096c16b05fb1042693836e35cc860f4750f9c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872457"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830204"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>快速入门：使用 SSMS 将数据库还原到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "91872457"
   - [配置从本地到 SQL 托管实例的点到站点连接](point-to-site-p2s-configure.md)。
 
 > [!NOTE]
-> 有关使用 Azure Blob 存储与[共享访问签名 (SAS) 密钥](/storage/common/storage-dotnet-shared-access-signature-part-1)备份和还原 SQL Server 数据库的详细信息，请参阅[将 SQL Server 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)。
+> 有关使用 Azure Blob 存储与[共享访问签名 (SAS) 密钥](../../storage/common/storage-sas-overview.md)备份和还原 SQL Server 数据库的详细信息，请参阅[将 SQL Server 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)。
 
 ## <a name="restore-from-a-backup-file"></a>从备份文件还原
 
@@ -50,6 +50,9 @@ ms.locfileid: "91872457"
 1. 打开 SSMS 并连接到托管实例。
 2. 在“对象资源管理器”中，右键单击托管实例，并选择“新建查询”以打开新的查询窗口 。
 3. 运行以下 SQL 脚本，该脚本使用预配置的存储帐户和 SAS 密钥在托管实例中[创建凭据](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` 必须与容器路径匹配，以 `https` 开头，结尾不能包含正斜杠。 `IDENTITY` 必须为 `SHARED ACCESS SIGNATURE`。 `SECRET` 必须是共享访问签名令牌，且不能包含前导 `?`。
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.chinacloudapi.cn/databases] 
@@ -91,7 +94,7 @@ ms.locfileid: "91872457"
 
 > [!NOTE]
 > 数据库还原操作是异步且可重试的。 如果连接中断或某些超时过期，SQL Server Management Studio 中可能会显示错误。 Azure SQL 数据库将在后台继续尝试还原数据库，可以使用 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 和 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 视图来跟踪还原进度。
-> 在还原过程的某些阶段，系统视图中会显示唯一标识符，而不是实际的数据库名称。 在[此处](https://docs.azure.cn/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement)了解 `RESTORE` 语句行为差异。
+> 在还原过程的某些阶段，系统视图中会显示唯一标识符，而不是实际的数据库名称。 在[此处](./transact-sql-tsql-differences-sql-server.md#restore-statement)了解 `RESTORE` 语句行为差异。
 
 ## <a name="next-steps"></a>后续步骤
 

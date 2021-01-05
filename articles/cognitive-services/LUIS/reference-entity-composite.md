@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 09/29/2019
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 326a4256544479a43633e4fa9f5f0fd1d09a96b0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 0a2b8038d62fa49474f07172ede6cd21277a3428
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472340"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856677"
 ---
 # <a name="composite-entity"></a>复合实体
 
@@ -173,7 +173,6 @@ ms.locfileid: "92472340"
 ```
 
 * * *
-
 
 |数据对象|实体名称|Value|
 |--|--|--|

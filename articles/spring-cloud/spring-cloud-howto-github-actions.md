@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3b2e77738a17eb9f6a0fd4ad2e46d965669e443e
-ms.sourcegitcommit: b9d0091aebc506af49b7cfcd44593711df0d04a5
+ms.openlocfilehash: d10d0a2d3d2067afcc96f4e85ee41c7485727d1f
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94373977"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829449"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD 与 GitHub Actions
 
@@ -56,7 +56,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 若要预配 Azure Spring Cloud 服务实例，请使用 Azure CLI 运行以下命令。
 ```
 az extension add --name spring-cloud
-az group create --location chinanorth --name <resource group name>
+az group create --location chinaeast2 --name <resource group name>
 az spring-cloud create -n <service instance name> -g <resource group name>
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
 ```
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -134,7 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -175,7 +175,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1

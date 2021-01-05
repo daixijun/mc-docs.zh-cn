@@ -10,13 +10,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 08/28/2019
-  ms.date: 12/07/2020
-  ms.openlocfilehash: 56c9f99e030d341f66f0cf9505c6df7452dee8f3
-  ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+  ms.date: 01/04/2021
+  ms.openlocfilehash: c75d0cbae1bb254a30d10ced0243719817885216
+  ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/06/2020
-  ms.locfileid: "96746630"
+  ms.lasthandoff: 01/04/2021
+  ms.locfileid: "97856803"
 landingContent:
 - title: 关于 VPN 网关
   linkLists:
@@ -37,12 +37,12 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 创建和管理 VPN 网关
-      url: vpn-gateway-tutorial-create-gateway-powershell.md
+      url: tutorial-create-gateway-portal.md
+    - text: 创建站点到站点 VPN 连接
+      url: tutorial-site-to-site-portal.md
   - linkListType: how-to-guide
     links:
-    - text: 创建站点到站点连接
-      url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - text: 创建点到站点连接
+    - text: 创建点到站点 VPN 连接
       url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
 - title: VPN 设备
   linkLists:
@@ -62,10 +62,10 @@ landingContent:
     links:
     - text: 网关配置设置
       url: vpn-gateway-about-vpn-gateway-settings.md
-    - text: 点到站点路由
-      url: vpn-gateway-about-point-to-site-routing.md
     - text: 网关 SKU
       url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+    - text: 点到站点路由
+      url: vpn-gateway-about-point-to-site-routing.md
   - linkListType: how-to-guide
     links:
     - text: 验证 VPN 网关

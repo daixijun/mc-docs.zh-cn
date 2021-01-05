@@ -4,14 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/15/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 558afc6a8bbed8e0a168f386853cf9694b94d2d3
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6f603492cfaf47937b8d28c13f074be1a6ee3c0e
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004648"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820724"
 ---
 ## <a name="download-and-install"></a>下载并安装
 
@@ -54,15 +54,19 @@ ms.locfileid: "97004648"
 
 若要查看语音 CLI 的帮助，请键入 `spx`。
 
-#### <a name="docker-install"></a>[Docker 安装](#tab/dockerinstall)
-
-> [!NOTE]
-> 必须<a href="https://www.docker.com/get-started" target="_blank">为平台安装 Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+#### <a name="docker-install-windows-linux-macos"></a>[Docker 安装（Windows、Linux、macOS）](#tab/dockerinstall)
 
 按照以下步骤在 Docker 容器中安装语音 CLI：
 
-1. 在新的命令提示符或终端中，键入以下命令：`docker pull msftspeech/spx`
-2. 键入此命令。 你应看到语音 CLI 的帮助信息：`docker run -it --rm msftspeech/spx help`
+1. 为你的平台<a href="https://www.docker.com/get-started" target="_blank">安装 Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a>（如果尚未安装）。
+2. 在新的命令提示符或终端中，键入以下命令：
+   ```shell   
+   docker pull msftspeech/spx
+   ```
+3. 键入此命令。 你应看到语音 CLI 的帮助信息：
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### <a name="mount-a-directory-in-the-container"></a>在容器中装载目录
 
@@ -73,7 +77,7 @@ ms.locfileid: "97004648"
 
 `mkdir c:\spx-data`
 
-或者在 Linux 或 Mac 上，在终端中键入以下命令以创建目录并查看其绝对路径：
+或者在 Linux 或 macOS 上，在终端中键入以下命令以创建目录并查看其绝对路径：
 
 ```bash
 mkdir ~/spx-data
@@ -87,27 +91,69 @@ pwd
 
 本文档显示了在非 Docker 安装中使用的语音 CLI `spx` 命令。
 在 Docker 容器中调用 `spx` 命令时，必须将容器中的目录装载到文件系统中，语音 CLI 可在其中存储和查找配置值以及读取和写入文件。
+
 在 Windows 上，命令会以下方的方式开始：
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
-在 Linux 或 Mac 上，命令会以下方的方式开始：
+在 Linux 或 macOS 中，你的命令将如下例所示。 将 `ABSOLUTE_PATH` 替换为已装载的目录的绝对路径。 上一部分中的 `pwd` 命令返回了此路径。 
 
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
-
-> [!NOTE]
-> 将 `/ABSOLUTE_PATH` 替换为上一节中 `pwd` 命令显示的绝对路径。
+如果在设置密钥和区域之前运行此命令，则将收到一条错误消息，提示你设置密钥和区域：
+```shell   
+sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 若要使用安装在容器中的 `spx` 命令，请始终输入上面所示的完整命令，然后输入请求的参数。
 例如，在 Windows 上，此命令将设置密钥：
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
-> [!NOTE]
-> 在 Docker 容器中运行语音 CLI 时，不能使用计算机的麦克风或扬声器。
-> 若要使用这些设备，请向/从语音 CLI 传递音频文件，以在 Docker 容器外部进行录制/播放。
-> 语音 CLI 工具可访问上面步骤中设置的本地目录。
+若要使用命令行工具进行更扩展的交互，可以通过添加入口点参数启动具有交互式 bash shell 的容器。
+在 Windows 上，输入以下命令以启动一个容器，该容器会公开可输入多个 `spx` 命令的交互式命令行接口：
+```shell
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
+```
 
+> [!WARNING]
+> 在 Docker 容器中运行语音 CLI 时，不能使用计算机的麦克风。 但你可以在本地装载的目录中读取和保存音频文件。 
+
+<!-- Need to troubleshoot issues with docker pull image
+
+### Optional: Create a command line shortcut
+
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
+
+Follow these instructions to create a shortcut:
+1. Open `.bash_profile` with your favorite text editor. For example:
+   ```shell
+   nano ~/.bash_profile
+   ```
+2. Next, add this function to your `.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
+   ```shell   
+   spx(){
+       sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
+   }
+   ```
+3. Source your profile:
+   ```shell
+   source ~/.bash_profile
+   ```
+4. Now instead of running `sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
+   ```shell
+   // Get some help
+   spx help recognize
+
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
+   ```
+
+> [!WARNING]
+> If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
+--->
 ***
 
 ## <a name="create-subscription-config"></a>创建订阅配置

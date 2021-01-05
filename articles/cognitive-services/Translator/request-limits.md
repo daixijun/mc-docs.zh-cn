@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 03/17/2020
-ms.date: 10/22/2020
+ms.date: 12/30/2020
 ms.author: v-johya
-ms.openlocfilehash: 2910af4abf113d2cdedd4c880722c024d4e79418
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 8c4d654e9a4b39a791937719718195cc73f1ef0d
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471984"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856744"
 ---
 # <a name="request-limits-for-translator"></a>翻译器的请求限制
 
@@ -53,17 +53,17 @@ ms.locfileid: "92471984"
 | S3/C3 | 每小时 1.2 亿个字符 |
 | S4/C4 | 每小时 2 亿个字符 |
 
-[多服务订阅](/cognitive-services/translator/reference/v3-0-reference#authentication)的限制与 S1 层相同。
+[多服务订阅](./reference/v3-0-reference.md#authentication)的限制与 S1 层相同。
 
 这些限制仅限于 Microsoft 的标准翻译模型。
 
 ## <a name="latency"></a>延迟
 
-使用标准模型时，翻译器的最大延迟为 15 秒，而使用自定义模型时，则为 120 秒。 通常，对于 100 个字符以内的文本的响应  将在 150 毫秒到 300 毫秒内返回。 自定义翻译模型对于持续的请求速率具有相似的延迟特征，在请求速率为间歇性时可能会有更高的延迟。 响应时间因请求大小和语言对而异。 如果在此时间范围内你没有收到翻译或[错误响应](/cognitive-services/translator/reference/v3-0-reference#errors)，请检查代码、网络连接并重试。 
+使用标准模型时，翻译器的最大延迟为 15 秒，而使用自定义模型时，则为 120 秒。 通常，对于 100 个字符以内的文本的响应  将在 150 毫秒到 300 毫秒内返回。 自定义翻译模型对于持续的请求速率具有相似的延迟特征，在请求速率为间歇性时可能会有更高的延迟。 响应时间因请求大小和语言对而异。 如果在此时间范围内你没有收到翻译或[错误响应](./reference/v3-0-reference.md#errors)，请检查代码、网络连接并重试。 
 
 ## <a name="sentence-length-limits"></a>句子长度限制
 
-使用 [BreakSentence](/cognitive-services/translator/reference/v3-0-break-sentence) 函数时，句子长度限制为 275 个字符。 这些语言存在例外情况：
+使用 [BreakSentence](./reference/v3-0-break-sentence.md) 函数时，句子长度限制为 275 个字符。 这些语言存在例外情况：
 
 | 语言 | 代码 | 字符限制 |
 |----------|------|-----------------|
@@ -82,6 +82,6 @@ ms.locfileid: "92471984"
 
 * [定价](https://www.azure.cn/pricing/details/cognitive-services/)
 * [区域可用性](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2)
-* [v3 翻译器参考](/cognitive-services/translator/reference/v3-0-reference)
+* [v3 翻译器参考](./reference/v3-0-reference.md)
 
 <!-- Update_Description: wording update -->

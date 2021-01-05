@@ -3,20 +3,20 @@ title: 翻译器 Transliterate 方法
 titleSuffix: Azure Cognitive Services
 description: 使用翻译器 Transliterate 方法将一种语言的文本从一个脚本转换为另一个脚本。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 06/23/2020
-ms.author: v-tawe
-ms.openlocfilehash: 0a3eaab2069b93f03c916162d892ed45ecfeb501
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 12/30/2020
+ms.author: v-johya
+ms.openlocfilehash: 98c8270c687d6103513814cd0abcc673e569cade
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241592"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856747"
 ---
 # <a name="translator-30-transliterate"></a>翻译器 3.0：Transliterate
 
@@ -160,7 +160,7 @@ https://api.translator.azure.cn/transliterate?api-version=3.0
   </tr>
 </table> 
 
-如果发生错误，请求也会返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](/cognitive-services/translator/reference/v3-0-reference#errors)上找到。 
+如果发生错误，请求也会返回 JSON 错误响应。 错误代码是一个 6 位数字，包括 3 位数的 HTTP 状态代码，后接用于进一步将错误分类的 3 位数。 常见错误代码可在 [v3 翻译器参考页](./v3-0-reference.md#errors)上找到。 
 
 ## <a name="examples"></a>示例
 
@@ -177,8 +177,6 @@ https://api.translator.azure.cn/transliterate?api-version=3.0
 ```
 curl -X POST "https://api.translator.azure.cn/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d @request.txt
 ```
-
----
 
 <!-- Update_Description: wording update -->
 

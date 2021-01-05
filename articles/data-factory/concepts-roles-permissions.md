@@ -2,7 +2,7 @@
 title: Azure 数据工厂的角色和权限
 description: 介绍创建数据工厂并使用子资源所需的角色和权限。
 origin.date: 11/5/2018
-ms.date: 09/14/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: c1259ae02637c9c28e084fdaf554f87d9169192f
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: fcb9bd1404ce8d0ea29b54395b82c536e78b88de
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523708"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830299"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure 数据工厂的角色和权限
 
@@ -31,7 +31,7 @@ ms.locfileid: "90523708"
 
 若要为数据工厂创建和管理子资源（包括数据集、链接服务、管道、触发器和集成运行时），以下要求适用：
 - 若要在 Azure 门户中创建和管理子资源，你必须属于“资源组”级别或更高级别的“数据工厂参与者”角色 。
-- 若要使用 PowerShell 或 SDK 创建和管理子资源，资源级别或更高级别的**参与者**角色已足够。
+- 若要使用 PowerShell 或 SDK 创建和管理子资源，资源级别或更高级别的 **参与者** 角色已足够。
 
 ## <a name="set-up-permissions"></a>设置权限
 

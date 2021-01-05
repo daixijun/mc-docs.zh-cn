@@ -4,20 +4,21 @@ description: 如何配置 Azure Linux 诊断扩展 (LAD)，以收集 Azure 中�
 services: virtual-machines-linux
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: c0d94f54628e5cd78a5f73659f9bed4ad1bc82f3
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2e2d31108bc10b366d65fc945674d81878c43a3d
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300393"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857009"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -91,8 +92,6 @@ Linux 诊断扩展需要 Python 2。 如果虚拟机使用的发行版默认情�
  - CentOS：`yum install -y python2`
  - Ubuntu、Debian：`apt-get install -y python2`
  - SUSE: `zypper install -y python2`
- 
-
 
 Python2 可执行文件必须将别名设置为“python”。 下面是可用来设置此别名的一种方法：
 
@@ -230,11 +229,11 @@ Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location 
 建议：
 
 * 启用自动次要版本升级后再安装扩展。
-  * 在经典的部署模型 VM 上，如果要通过 Azure XPLAT CLI 或 Powershell 安装扩展，请指定“3.*”作为版本。
-  * 在 Azure 资源管理器部署模型 VM 上，在 VM 部署模板中加入“"autoUpgradeMinorVersion": true”。
+    * 在经典的部署模型 VM 上，如果要通过 Azure XPLAT CLI 或 Powershell 安装扩展，请指定“3.*”作为版本。
+    * 在 Azure 资源管理器部署模型 VM 上，在 VM 部署模板中加入“"autoUpgradeMinorVersion": true”。
 * 为 LAD 3.0 使用新的/不同的存储帐户。 LAD 2.3 和 LAD 3.0 之间存在几个小的不兼容性，使得共享帐户变得麻烦：
-  * LAD 3.0 将 syslog 事件存储在不同名称的表中。
-  * LAD 3.0 中 `builtin` 指标的 counterSpecifier 字符串不同。
+    * LAD 3.0 将 syslog 事件存储在不同名称的表中。
+    * LAD 3.0 中 `builtin` 指标的 counterSpecifier 字符串不同。
 
 ## <a name="protected-settings"></a>受保护的设置
 

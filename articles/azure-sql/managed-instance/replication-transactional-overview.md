@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 04/20/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: e7ad041669981345f5de8da8b52f6a3f6308b225
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/21/2020
+ms.openlocfilehash: cd7db47e39a94c39cf2fa3c11b9356b63bdc8216
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872458"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830247"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL 托管实例的事务复制（预览）
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -149,7 +149,7 @@ Azure SQL 托管实例可以支持成为以下版本的 SQL Server 的订阅服�
 - 如果虚拟网络不同，请配置复制参与者的虚拟网络之间的 VPN 对等互连。
 
 > [!NOTE]
-> 当分发服务器为 Azure SQL 托管实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](/storage/files/storage-troubleshoot-windows-file-connection-problems) 以解决此问题。
+> 当分发服务器为 Azure SQL 托管实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) 以解决此问题。
 
 ## <a name="with-failover-groups"></a>使用故障转移组
 
@@ -185,7 +185,7 @@ Azure SQL 托管实例可以支持成为以下版本的 SQL Server 的订阅服�
    EXEC sp_dropdistributor 1,1
    ```
 
-如果对故障转移组中的**订阅服务器**实例启用了异地复制，则应将发布配置为连接到订阅服务器托管实例的故障转移组侦听器终结点。 发生故障转移时，托管实例管理员执行的后续操作取决于发生的故障转移类型：
+如果对故障转移组中的 **订阅服务器** 实例启用了异地复制，则应将发布配置为连接到订阅服务器托管实例的故障转移组侦听器终结点。 发生故障转移时，托管实例管理员执行的后续操作取决于发生的故障转移类型：
 
 - 如果在不丢失数据的情况下进行故障转移，则故障转移后复制将继续工作。
 - 如果在丢失数据的情况下进行故障转移，复制也能正常工作。 它会再次复制丢失的更改。

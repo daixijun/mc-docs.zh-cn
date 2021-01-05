@@ -4,15 +4,15 @@ description: 在本快速入门中，我们需要将 Spring Cloud 应用程序�
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5912164586cb5c4b314aeff75c586aaa2cb627d2
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: da71fd4297e027315ab7ad462c68dd35ce5203a7
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508918"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829438"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>快速入门：部署第一个 Azure Spring Cloud 应用程序
 
@@ -45,6 +45,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Initializr 页](./media/spring-cloud-quickstart-java/initializr-page.png)
+
+> [!NOTE]
+> 我们已经确认，Spring Boot 2.4 在应用与 Eureka 之间进行 TLS 身份验证时出现问题，我们目前正在与 Spring 社区协作，以解决此问题。 请参阅我们的[常见问题解答](/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development)以获取解决方法。
 
 1. 设置好所有依赖项后，单击“生成”。 下载包并将其解压缩，然后按照如下所示添加 `src/main/java/com/example/hellospring/HelloController.java`，以便为简单的 Web 应用程序创建 Web 控制器：
 
@@ -152,7 +155,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 1. 单击“部署 Azure Spring Cloud 应用”对话框底部的“运行”按钮，以开始部署 。 此插件会对 `hellospring` 应用运行命令 `mvn package`，然后部署由 `package` 命令生成的 jar。
 ---
 
-完成部署后，就可以通过 `https://<service instance name>-hellospring.azuremicroservices.io/` 访问应用。
+完成部署后，就可以通过 `https://<service instance name>-hellospring.microservices.azure.cn/` 访问应用。
 
   [ ![从浏览器访问应用](./media/spring-cloud-quickstart-java/access-app-browser.png) ](./media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 

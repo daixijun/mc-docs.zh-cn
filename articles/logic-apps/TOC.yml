@@ -193,16 +193,12 @@
           href: ../connectors/connectors-native-http-swagger.md
         - name: HTTP Webhook
           href: ../connectors/connectors-native-webhook.md
+        - name: IBM MQ
+          href: ../connectors/connectors-create-api-mq.md
         - name: 集成帐户
           href: logic-apps-enterprise-integration-metadata.md
-        - name: MQ
-          href: ../connectors/connectors-create-api-mq.md
         - name: Office 365 Outlook
           href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: Office 365 用户
-          href: ../connectors/connectors-create-api-office365-users.md
-        - name: Office 365 视频
-          href: ../connectors/connectors-create-api-office365-video.md
         - name: OneDrive
           href: ../connectors/connectors-create-api-onedrive.md
         - name: OneDrive for Business
@@ -217,8 +213,6 @@
           href: ../connectors/connectors-native-reqres.md
         - name: RosettaNet
           href: logic-apps-enterprise-integration-rosettanet.md
-        - name: RSS
-          href: ../connectors/connectors-create-api-rss.md
         - name: Salesforce
           href: ../connectors/connectors-create-api-salesforce.md
         - name: SAP（新）

@@ -4,15 +4,15 @@ description: 本快速入门介绍如何通过创建预测终结点资源、分�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/01/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: cb01fbfaaed6e09bd58b2580f02f364f7f8a5242
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 32206d2460fbd8a326aeb71302f44a6a8f42c653
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432641"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857163"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -24,6 +24,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 * 获取 [Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 完成[上述门户快速入门](get-started-portal-build-app.md)或[下载并导入应用](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json)。
+* 如果应用将 Azure 资源身份验证的日期提前，则[迁移到 Azure 资源](luis-migration-authoring.md)。 电子邮件身份验证生效时，某些门户页面的外观会有所不同。
 
 <a name="create-the-endpoint-resource"></a>
 
@@ -122,5 +123,5 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [确定常见意向和实体](luis-tutorial-prebuilt-intents-entities.md)
+> [确定常见意向和实体](./tutorial-machine-learned-entity.md)
 

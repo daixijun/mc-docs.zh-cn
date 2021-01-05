@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/04/2018
-ms.date: 09/14/2020
-ms.openlocfilehash: 638ea5f99f06475b6152705dcd1442df301b4614
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/14/2020
+ms.openlocfilehash: 296fb49375928d629ebd0d0dc87f62ddba89c3a6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014381"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830072"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署拆分/合并服务以在分片数据库之间移动数据
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "90014381"
 1. 新建数据库或选择现有数据库，以将其用作拆分/合并操作的状态数据库并检索该数据库的连接字符串。
 
    > [!IMPORTANT]
-   > 目前，状态数据库必须使用拉丁语排序规则 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 有关详细信息，请参阅 [Windows 排序规则名称 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
+   > 目前，状态数据库必须使用拉丁语排序规则 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 有关详细信息，请参阅 [Windows 排序规则名称 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/windows-collation-name-transact-sql)。
 
    在 Azure SQL 数据库中，连接字符串通常采用以下形式：
 
@@ -77,7 +77,7 @@ ms.locfileid: "90014381"
 
 ### <a name="create-a-self-signed-certificate"></a>创建自签名证书
 
-创建新的目录并使用 [Visual Studio 的开发人员命令提示符](https://msdn.microsoft.com/library/ms229859.aspx)窗口从该目录执行以下命令：
+创建新的目录并使用 [Visual Studio 的开发人员命令提示符](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)窗口从该目录执行以下命令：
 
    ```cmd
    makecert ^
@@ -344,7 +344,7 @@ ms.locfileid: "90014381"
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-在这种情况下，请检查配置文件，尤其是 **WorkerRoleSynchronizationStorageAccountConnectionString**的设置。 此错误通常表示辅助角色无法成功初始化首次使用的元数据数据库。
+在这种情况下，请检查配置文件，尤其是 **WorkerRoleSynchronizationStorageAccountConnectionString** 的设置。 此错误通常表示辅助角色无法成功初始化首次使用的元数据数据库。
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

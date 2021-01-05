@@ -3,22 +3,22 @@ title: 购买模型
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: 了解适用于 Azure SQL 数据库和 Azure SQL 托管实例的购买模型。
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 05/28/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 368370327dbae9fdff46ccc4cae3cfcb4c53701a
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 1e4a3dd28a1ef1d08b10f41162dc7904bfb59d16
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227948"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830266"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>选择 vCore 或 DTU 购买模型 - Azure SQL 数据库和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "86227948"
 
 虚拟核心 (vCore) 表示通过一个选项提供的逻辑 CPU，你可以在硬件的层代和硬件的物理特性（例如，核心数、内存、存储大小）之间进行选择。 基于 vCore 的购买模型提供使用单项资源的灵活性、控制度和透明度，并提供简单明了的方法将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来选择计算、内存和存储资源。
 
-在基于 vCore 的购买模型中，可以为 SQL 数据库和 SQL 托管实例选择[常规用途](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)或[业务关键](high-availability-sla.md#premium-and-business-critical-service-tier-availability)服务层级。  对于单一数据库，还可以选择[超大规模服务层级](service-tier-hyperscale.md)。
+在基于 vCore 的购买模型中，可以为 SQL 数据库和 SQL 托管实例选择[常规用途](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)或[业务关键](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)服务层级。  对于单一数据库，还可以选择[超大规模服务层级](service-tier-hyperscale.md)。
 
 使用基于 vCore 的购买模型，可以单独选择计算和存储资源、匹配本地性能，以及优化价格。 在基于 vCore 的购买模型中，费用包括：
 
@@ -147,13 +147,13 @@ DTU 最好地解释了在不同计算大小和服务层级为数据库分配的�
 
 例如，如果数据库需纵向扩展或缩减到另一服务目标、数据中心的当前基础结构正在接近其容量限制，或者当前使用的硬件因寿命已尽而需要停止使用，则可将该数据库转移到另一硬件代系。
 
-如果将数据库移到另一硬件上，工作负载性能可能会变化。 DTU 模型保证 [DTU 基准](/sql-database/sql-database-service-tiers-dtu#dtu-benchmark)工作负载的吞吐量和响应时间在数据库移到另一硬件代系时保持大体相同，前提是其服务目标（DTU 数）保持不变。 
+如果将数据库移到另一硬件上，工作负载性能可能会变化。 DTU 模型保证 [DTU 基准](./service-tiers-dtu.md#dtu-benchmark)工作负载的吞吐量和响应时间在数据库移到另一硬件代系时保持大体相同，前提是其服务目标（DTU 数）保持不变。
 
 但是，在 Azure SQL 数据库中运行的各种客户工作负载中，对相同服务目标使用不同硬件的影响可能更明显。 不同的工作负载将受益于不同的硬件配置和功能。 因此，对于 DTU 基准以外的工作负载，如果数据库从一个硬件代系转移到另一个硬件代系，则可能会看到性能差异。
 
 例如，如果应用程序对网络延迟敏感，则其在 Gen5 硬件上的性能会优于在Gen4 硬件上的性能，因为在 Gen5 中使用了加速网络；但是，如果应用程序使用密集读取 IO，则其在 Gen4 硬件上的性能会优于在 Gen5 硬件上的性能，因为 Gen4 上内存与核心的比率更高。
 
-如果客户的工作负载对硬件变化敏感，或者客户希望控制对其数据库的硬件代系的选择，则客户可以在创建和缩放数据库的过程中使用 [vCore](service-tiers-vcore.md) 模型来选择其首选的硬件代系。 在 vCore 模型中，会记录[单一数据库](resource-limits-vcore-single-databases.md)和[弹性池](resource-limits-vcore-elastic-pools.md)的每个硬件代系上每个服务目标的资源限制。 有关 vCore 模型中的硬件代系的详细信息，请参阅[硬件代系](/sql-database/sql-database-service-tiers-vcore#hardware-generations)。
+如果客户的工作负载对硬件变化敏感，或者客户希望控制对其数据库的硬件代系的选择，则客户可以在创建和缩放数据库的过程中使用 [vCore](service-tiers-vcore.md) 模型来选择其首选的硬件代系。 在 vCore 模型中，会记录[单一数据库](resource-limits-vcore-single-databases.md)和[弹性池](resource-limits-vcore-elastic-pools.md)的每个硬件代系上每个服务目标的资源限制。 有关 vCore 模型中的硬件代系的详细信息，请参阅[硬件代系](./service-tiers-vcore.md#hardware-generations)。
 
 ## <a name="frequently-asked-questions-faqs"></a>常见问题 (FAQ)
 

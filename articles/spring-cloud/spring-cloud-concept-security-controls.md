@@ -5,16 +5,18 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a34f58d091bc76861fa227b514e16d8974525fc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: cfbd082139185fb9392327439ed81af71a385f68
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328081"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829457"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud 服务的安全控制
+
+
 
 安全控制已内置于 Azure Spring Cloud 服务中。
 
@@ -24,7 +26,7 @@ ms.locfileid: "94328081"
 
 | 安全控制 | Yes/No | 注释 | 文档 |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| 服务器端静态加密：Microsoft 管理的密钥 | 是 | 用户上传的源和项目、配置服务器设置、应用设置和永久性存储中的数据都会存储在 Azure 存储中，该存储会自动加密静态内容。<br><br>配置服务器缓存、从上传源生成的运行时二进制文件以及应用程序生存期内的应用程序日志都会保存到 Azure 托管磁盘，该磁盘会自动加密静态内容。<br><br>从用户上传的源生成的容器映像会保存在 Azure 容器注册表中，该注册表会自动加密静态映像内容。 | [适用于静态数据的 Azure 存储加密](../storage/common/storage-service-encryption.md)<br><br>[Azure 托管磁盘的服务器端加密](../virtual-machines/linux/disk-encryption.md)<br><br>[Azure 容器注册表中的容器映像存储](../container-registry/container-registry-storage.md) |
+| 服务器端静态加密：Microsoft 管理的密钥 | 是 | 用户上传的源和项目、配置服务器设置、应用设置和永久性存储中的数据都会存储在 Azure 存储中，该存储会自动加密静态内容。<br><br>配置服务器缓存、从上传源生成的运行时二进制文件以及应用程序生存期内的应用程序日志都会保存到 Azure 托管磁盘，该磁盘会自动加密静态内容。<br><br>从用户上传的源生成的容器映像会保存在 Azure 容器注册表中，该注册表会自动加密静态映像内容。 | [适用于静态数据的 Azure 存储加密](../storage/common/storage-service-encryption.md)<br><br>[Azure 托管磁盘的服务器端加密](../virtual-machines/disk-encryption.md)<br><br>[Azure 容器注册表中的容器映像存储](../container-registry/container-registry-storage.md) |
 | 瞬态加密 | 是 | 默认情况下，用户应用公共终结点对入站流量使用 HTTPS。 |  |
 | 加密的 API 调用 | 是 | 可以通过基于 HTTPS 的 Azure 资源管理器调用进行管理调用，以便配置 Azure Spring Cloud 服务。 | [Azure Resource Manager](../azure-resource-manager/index.yml) |
 

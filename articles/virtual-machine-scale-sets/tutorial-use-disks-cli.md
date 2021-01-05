@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 559e1f1dfa128da7888e1c8be5267b779a93aa30
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: e5a7616340e7dd6d0382b88c73c2662d4e862753
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508572"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829440"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>教程：通过 Azure CLI 对虚拟机规模集创建和使用磁盘
 虚拟机规模集使用磁盘来存储 VM 实例的操作系统、应用程序和数据。 创建和管理规模集时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何创建和管理 VM 磁盘。 本教程介绍如何执行下列操作：
@@ -28,8 +28,9 @@ ms.locfileid: "96508572"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+- 本文需要 Azure CLI 2.0.29 或更高版本。 
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 创建或缩放规模集时，会自动将两个磁盘附加到每个 VM 实例。

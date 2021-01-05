@@ -1,22 +1,17 @@
 ---
 title: 在 Azure 仪表板上使用自定义 Markdown 磁贴
 description: 了解如何向 Azure 仪表板添加 Markdown 磁贴，以便显示静态内容
-services: azure-portal
-keywords: ''
-author: mgblythe
 ms.author: v-tawe
 origin.date: 01/08/2020
-ms.date: 12/03/2020
+ms.date: 12/30/2020
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 2f5a79515a302799cc260e2786911ab0df24b740
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 6b099d0f3a4642bf2c65cc6fa266c91c968e5aa2
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541175"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820361"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>在 Azure 仪表板上使用 Markdown 磁贴显示自定义内容
 
