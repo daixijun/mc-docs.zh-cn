@@ -8,16 +8,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 06/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0bf5c5d8dd6c359e713e3ea39ba1cdace82f4e1a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: bf223f306d39e96a429d818a270e712f90579df8
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103808"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856726"
 ---
 <!--Verified successfully from PG team confirmation-->
 # <a name="ev4-and-esv4-series"></a>Ev4 和 Esv4 系列
@@ -61,7 +61,7 @@ Esv4 系列规格在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理�
 [高级存储缓存](premium-storage-performance.md)：支持<br />
 [实时迁移](maintenance-and-updates.md)：支持<br />
 [内存保留更新](maintenance-and-updates.md)：支持<br />
-[VM 代系支持](generation-2.md)：第 1 代<br />
+[VM 代系支持](generation-2.md)：第 1 代和第 2 代<br />
 <br />
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
@@ -74,8 +74,11 @@ Esv4 系列规格在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理�
 | Standard_E32s_v4 | 32 | 256 | 仅限远程存储 | 32 | 51200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | 仅限远程存储 | 32 | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| 仅限远程存储 | 32 | 80000/1200 | 8|30000 |
+| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | 仅限远程存储 | 32 | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [受约束的可用核心规格](./constrained-vcpu.md)。
+
+<sup>2</sup> 实例对于专用于单个客户的硬件独立。
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -8,16 +8,16 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 02/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3a5fb9a7aab4f89a355efeffc5e1ef718eaa6e74
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: d78bf13661bcd4a9f662e7a25ceb54ddc143b6ee
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590785"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857017"
 ---
 <!--Verified successfully from PG team confirmation-->
 # <a name="edv4-and-edsv4-series"></a>Edv4 和 Edsv4 系列
@@ -71,8 +71,11 @@ Edsv4 系列尺寸在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理
 | Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
+| Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [受约束的可用核心大小）](./constrained-vcpu.md)。
+
+<sup>2</sup> 实例对于专用于单个客户的硬件独立。
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

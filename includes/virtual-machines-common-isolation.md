@@ -2,20 +2,21 @@
 title: include 文件
 description: include 文件
 services: virtual-machines
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
+origin.date: 11/05/2020
+author: rockboyfor
 ms.date: 08/10/2020
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 12dc178e35c661044b4ab6ebaa333e62e2650ed3
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 66c63310ecbdf0f7aff2ed77eea967e5e6f0ffe3
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919376"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857133"
 ---
 Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟机大小。 独立大小在特定的硬件生成上有效并运行，当硬件生成失效时，将弃用。
 
@@ -29,6 +30,8 @@ Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟�
 
 * Standard_E64is_v3
 * Standard_E64i_v3
+* Standard_E80ids_v4
+* Standard_E80is_v4
 * Standard_M128ms
 
     <!--Not Available on * Standard_GS5-->
@@ -40,6 +43,7 @@ Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟�
 > 独立的 VM 大小具有有限的硬件寿命。 详情请参阅下文
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>弃用独立的 VM 大小
+
 由于独立的 VM 大小是硬件绑定的大小，Azure 将在正式弃用这些大小之前 12 个月提供提醒。  Azure 还将为我们的下一个硬件版本提供已更新的独立大小，客户可以考虑将其工作负载转移到该版本上。
 
 | 大小 | 隔离停用日期 | 
@@ -48,7 +52,6 @@ Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟�
 | Standard_D15_v2<sup>1</sup>  | 2020 年 5 月 15 日 |
 
 <sup>1</sup> 有关 Standard_DS15_v2 和 Standard_D15_v2 隔离停用计划的详细信息，请参阅常见问题解答
-
 
 ## <a name="faq"></a>常见问题解答
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>问：是要停用大小还是只停用“隔离”功能？
@@ -64,7 +67,7 @@ Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟�
 **答**：我们将提前 12 个月进行提醒，以防官方弃用孤立的大小。
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>问：我是依赖于白银或黄金耐久性层级的 Azure Service Fabric 客户。 此更改是否会影响我？
-**答**：否。 Service Fabric 的[耐久性层级](https://docs.azure.cn/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)提供的保证即使在此更改发生后也将继续履行。 如果你出于其他原因而需要物理硬件隔离，可能仍需采取上述措施之一。 
+**答**：否。 Service Fabric 的[耐久性层级](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)提供的保证即使在此更改发生后也将继续履行。 如果你出于其他原因而需要物理硬件隔离，可能仍需采取上述措施之一。 
  
 <!--Not Available on ### Q: What are the milestones for D15_v2 or DS15_v2 isolation retirement?-->
 
