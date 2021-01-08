@@ -29974,7 +29974,268 @@
         "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell.md",
         "redirect_url": "/vpn-gateway/tutorial-create-gateway-portal",
         "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/cli-samples.md",
+            "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/co-location.md",
+            "redirect_url": "/virtual-machines/co-location",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/optimization.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/optimization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/powershell-samples.md",
+            "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/shared-image-galleries.md",
+            "redirect_url": "/virtual-machines/shared-image-galleries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/app/kubernetes.md",
+            "redirect_url": "/azure-monitor/azure-monitor-app-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/app/performance-testing.md",
+            "redirect_url": "/azure-monitor/azure-monitor-app-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+            "redirect_url": "/azure-monitor/azure-monitor-app-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
+            "redirect_url": "/azure-monitor/insights/container-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/insights/insights-overview.md",
+            "redirect_url": "/azure-monitor/monitor-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/advanced-aggregations.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/advanced-query-writing.md",
+            "redirect_url": "/data-explorer/kusto/query/tutorial?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/aggregations.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/charts.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/data-explorer-difference.md",
+            "redirect_url": "/data-explorer/kusto/query/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/datetime-operations.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/get-started-portal.md",
+            "redirect_url": "/azure-monitor/log-query/log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/joins.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/json-data-structures.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/log-search-transition.md",
+            "redirect_url": "/data-explorer/kusto/query/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/logs-structure.md",
+            "redirect_url": "/azure-monitor/platform/data-platform-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/query-language.md",
+            "redirect_url": "/data-explorer/kusto/query/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/search-queries.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/simple-logs.md",
+            "redirect_url": "/azure-monitor/log-query/log-analytics-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/smart-analytics.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/string-operations.md",
+            "redirect_url": "/data-explorer/kusto/query/samples?pivots=azuremonitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/log-query/useful-operators.md",
+            "redirect_url": "/data-explorer/kusto/query/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/data-locations.md",
+            "redirect_url": "/azure-monitor/monitor-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/diagnostic-settings-template.md",
+            "redirect_url": "/azure-monitor/samples/resource-manager-diagnostic-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/template-workspace-configuration.md",
+            "redirect_url": "/azure-monitor/samples/resource-manager-workspace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-monitor/platform/workbooks-visualizations.md",
+            "redirect_url": "/azure-monitor/platform/workbooks-overview#visualizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md",
+            "redirect_url": "/cognitive-services/face/QuickStarts/client-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-concept-keys.md",
+            "redirect_url": "/cognitive-services/luis/luis-how-to-azure-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
+            "redirect_url": "/cognitive-services/luis/luis-migration-authoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/sdk-authoring.md",
+            "redirect_url": "/cognitive-services/LUIS/client-libraries-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/sdk-query-prediction-endpoint.md",
+            "redirect_url": "/cognitive-services/LUIS/client-libraries-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/tutorial-publish-settings.md",
+            "redirect_url": "/cognitive-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstart-dictionary.md",
+            "redirect_url": "/cognitive-services/Translator/quickstart-translator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstart-languages.md",
+            "redirect_url": "/cognitive-services/Translator/quickstart-translator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstart-translate.md",
+            "redirect_url": "/cognitive-services/Translator/quickstart-translator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/quickstart-transliterate.md",
+            "redirect_url": "/cognitive-services/Translator/quickstart-translator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Welcome.md",
+            "redirect_url": "/cognitive-services/what-are-cognitive-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/azure-kubernetes-service-integration.md",
+            "redirect_url": "/security-center/defender-for-kubernetes-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-features-retirement-july2019.md",
+            "redirect_url": "/security-center/security-center-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-policy-definitions.md",
+            "redirect_url": "/security-center/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-secure-score.md",
+            "redirect_url": "/security-center/secure-score-security-controls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-sql-service-recommendations.md",
+            "redirect_url": "/security-center/security-center-remediate-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-virtual-machine-protection.md",
+            "redirect_url": "/security-center/asset-inventory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/threat-protection.md",
+            "redirect_url": "/security-center/azure-defender",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/secure-aad-app.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/security/develop/secure-aad-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/develop/secure-pci-web-app.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/security/develop/secure-pci-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/stream-analytics/stream-analytics-manage-job.md",
+            "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
+            "redirect_document_id": false
+        }        
+        
 
 
 
